@@ -1,4 +1,3 @@
-```
 ---
 # required metadata
 
@@ -14,7 +13,6 @@ description: This is a summary of the page content, we rank this higher when ind
 #slug: Not sure we need this at all or we figure it out automatically ?
 
 ---
-```
 
 # Octopus in your delivery process
 
