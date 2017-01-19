@@ -45,5 +45,5 @@ We will link to other docs by using a fully-qualified path:
 
 Images are included like this:
 
-![My caption](/docs/images/foo.png)
+![My caption](/docs/images/success.gif)
 
