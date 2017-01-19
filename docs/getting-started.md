@@ -1,31 +1,49 @@
 ---
 title: Getting started
 description: This is a summary of the page content, we rank this higher when indexing it
-slug: /docs/getting-started
 ---
 
-# Octopus in your delivery process
+On this page:
 
-Octopus Deploy is an automated deployment server, which you install yourself, much like you would install SQL Server, Team Foundation Server or JetBrains TeamCity. Octopus makes it easy to automate deployment of ASP.NET web applications and Windows Services into development, test and production environments.
+[!TOC]
 
-Along with the Octopus Deploy server, you'll also install a lightweight agent service on each of the machines that you plan to deploy to, for example your web and application servers. We call this the Tentacle agent; the idea being that one Octopus server controls many Tentacles, potentially a lot more than 8! With Octopus and Tentacle, you can easily deploy to your own servers, or virtual machines in the cloud from infrastructure as a service providers like Amazon EC2 or Windows Azure virtual machines. 
+# Heading 1
 
-Hello.
+This is the first paragraph.
 
-```console
-Some code here
+And the second paragraph.
+
+## Heading 2
+
+Text
+
+### Heading 3
+
+Text
+
+## Heading 2 again
+
+Text
+
+### Heading 3 again
+
+Here is some code:
+
+```powershell
+Write-Host "Hello world!"
 ```
 
-Some info here
+Here is an info panel:
 
-> [!Warning]
-> This is a warning.
+:::info
+Some info here.
+:::
 
-More standard content.
+We will link to other docs by using a fully-qualified path:
 
-> [!Info]
-> This is information.
-> 
-> It goes over multiple paragraphs
+[Hello](/docs/getting-started.md)
 
-Done!
+Images are included like this:
+
+![My caption](/docs/images/foo.png)
+
