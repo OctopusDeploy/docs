@@ -9,7 +9,7 @@ On this page:
 
 # Heading 1
 
-This is the first paragraph.
+This is the `master` version of this page.
 
 And the second paragraph.
 
