@@ -1,17 +1,7 @@
 ---
-# required metadata
-
 title: Getting started
-tags:
-- Tag1
-- Tag2
 description: This is a summary of the page content, we rank this higher when indexing it
-
-# optional metadata
-
-#keywords: A bunch of keywords related to the content
-#slug: Not sure we need this at all or we figure it out automatically ?
-
+slug: /docs/getting-started
 ---
 
 # Octopus in your delivery process
