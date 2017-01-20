@@ -9,7 +9,7 @@ Octopus Deploy supports deployment of [Azure Cloud Services](http://azure.micros
 ## Deployment Step
 
 
-Add a new "Deploy an Azure Cloud Service" step to your project. For information about adding a step to the deployment process, see the [add step](http://docs.octopusdeploy.com/display/OD/Add+step) section.
+Add a new "Deploy an Azure Cloud Service" step to your project.Â For information about adding a step to the deployment process, see theÂ [add step](http://docs.octopusdeploy.com/display/OD/Add+step)Â section.
 
 
 ![](/docs/images/5671696/5865904.png)
@@ -23,7 +23,7 @@ Select the [account](/docs/home/guides/azure-deployments/cloud-services/cloud-se
 The 'Cloud service' and 'Storage account' fields will list the Cloud Services and Storage Accounts available to the Azure subscription associated with the chosen Account.
 
 
-Refer to the [Azure documentation](https://azure.microsoft.com/en-us/documentation/) for instructions on creating a Cloud Service and Storage Account.
+Refer toÂ theÂ [Azure documentation](https://azure.microsoft.com/en-us/documentation/)Â for instructions on creating a Cloud Service and Storage Account.
 
 #### Slot
 
@@ -66,16 +66,16 @@ Deployment to an Azure Cloud Service target proceeds as follows (more details pr
 1. Download the NuGet package from the NuGet server
 2. Extract the NuGet package on the Octopus server to a temporary location
 3. Extract the Cloud Service package (`.cspkg`) to a temporary location
-4. Any configured or packaged `PreDeploy` scripts are executed
+4. Any configured or packagedÂ `PreDeploy`Â scripts are executed
 5. Variable substitutions in Cloud Service configuration file (`.cscfg`)
 6. Substitute variables in files (if configured)
-7. [XML configuration transformations](/docs/home/deploying-applications/configuration-files.md) (if configured) are performed
-8. [XML configuration variables](/docs/home/deploying-applications/configuration-files.md) (if configured) are replaced
-9. Any configured or package `Deploy` scripts are executed
+7. [XML configuration transformations](/docs/home/deploying-applications/configuration-files.md)Â (if configured) are performed
+8. [XML configuration variables](/docs/home/deploying-applications/configuration-files.md)Â (if configured) are replaced
+9. Any configured or packageÂ `Deploy`Â scripts are executed
 10. Re-package the Cloud Service Package
 11. Upload the Cloud Service Package to Azure Storage
 12. Deploy the Cloud Service Package (see 'Customizing the deployment process' section below)
-13. Any configured or packaged `PostDeploy` scripts are executed
+13. Any configured or packagedÂ `PostDeploy`Â scripts are executed
 
 
 ### Extract the Cloud Service Package
@@ -84,15 +84,15 @@ Deployment to an Azure Cloud Service target proceeds as follows (more details pr
 Cloud Service Package files are extracted during deployment, in order to make available features such as Configuration Transforms and Variable Substitution.
 
 
-To extract the Cloud Service Package, it is first converted to the CTP format (also known as V20120315). This is the format described by Microsoft [documentation](https://msdn.microsoft.com/en-us/library/azure/jj151522.aspx), but is not used by default by the [CSPack ](https://msdn.microsoft.com/en-us/library/azure/gg432988.aspx)utility (passing the `/useCtpPackageFormat` switch is required for this format to be used).  This is just an implementation detail, but the documented archive layout gives a good starting point to understanding the layout of the extracted package.
+To extract the Cloud Service Package, it is first converted to the CTP format (also known as V20120315). This is the format described by MicrosoftÂ [documentation](https://msdn.microsoft.com/en-us/library/azure/jj151522.aspx), but is not used by default by theÂ [CSPackÂ ](https://msdn.microsoft.com/en-us/library/azure/gg432988.aspx)utility (passing theÂ `/useCtpPackageFormat`Â switch is required for this format to be used). Â This is just an implementation detail, but the documented archive layout gives a good starting point to understanding the layout of the extracted package.
 
 
-Setting the `Octopus.Action.Azure.LogExtractedCspkg` variable to `true` will cause the layout of the extracted package to be written into the Task Log. This may assist with finding the path to a particular file.
+Setting theÂ `Octopus.Action.Azure.LogExtractedCspkg`Â variable to `true` will cause the layout of the extracted package to be written into the Task Log. This may assist with finding the path to a particular file.
 
 ### Variable substitutions in Cloud Service configuration file
 
 
-Octopus will attempt to modify your `.cscfg` file. For example, take the following configuration:
+Octopus will attempt to modify yourÂ `.cscfg`Â file. For example, take the following configuration:
 
 ```xml
 <ServiceConfiguration serviceName="Humpty" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="2" osVersion="*" schemaVersion="2012-10.1.8">
@@ -114,12 +114,12 @@ Octopus will attempt to modify your `.cscfg` file. For example, take the followi
 ```
 
 
-If a variable named `HelloMessage` is defined in your Octopus project variables, Octopus will automatically update it in the configuration file. You can also name the variable `Humpty.Worker/HelloMessage` to scope the setting to a specific web/worker role.
+If a variable namedÂ `HelloMessage`Â is defined in your Octopus project variables, Octopus will automatically update it in the configuration file. You can also name the variableÂ `Humpty.Worker/HelloMessage`Â to scope the setting to a specific web/worker role.
 
 ### Customizing the deployment process
 
 
-The deployment is performed using a PowerShell script called `DeployToAzure.ps1`. If a file with this name exists within your NuGet package, Octopus will invoke it. Otherwise, Octopus will use a bundled version of the script as a default. You can **[view the bundled script here](https://github.com/OctopusDeploy/Calamari/blob/ce3b69e94b60c8c73619bc584eca52e11c68930a/source/Calamari.Azure/Scripts/DeployAzureCloudService.ps1)**, and use it as a basis for creating your own custom deployment script.
+The deployment is performed using a PowerShell script calledÂ `DeployToAzure.ps1`. If a file with this name exists within your NuGet package, Octopus will invoke it. Otherwise, Octopus will use a bundled version of the script as a default. You canÂ **[view the bundled script here](https://github.com/OctopusDeploy/Calamari/blob/ce3b69e94b60c8c73619bc584eca52e11c68930a/source/Calamari.Azure/Scripts/DeployAzureCloudService.ps1)**, and use it as a basis for creating your own custom deployment script.
 
 
 

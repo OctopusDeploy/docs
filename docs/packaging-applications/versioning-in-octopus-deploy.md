@@ -4,7 +4,7 @@ position: 4
 ---
 
 
-Choosing the best versioning scheme for your applications can be a tricky act of balancing pragmatism and strictness. This page should help you understand how Octopus Deploy handles versions in [packages](/docs/home/packaging-applications/supported-packages.md), [releases](/docs/home/key-concepts/projects/releases.md), and [channels](/docs/home/key-concepts/projects/channels.md), and subsequently design a versioning scheme that suits your needs.
+Choosing the best versioning scheme for your applications can be a tricky act of balancing pragmatism and strictness. This page should help you understand how Octopus Deploy handles versions inÂ [packages](/docs/home/packaging-applications/supported-packages.md),Â [releases](/docs/home/key-concepts/projects/releases.md), and [channels](/docs/home/key-concepts/projects/channels.md), and subsequently design a versioning scheme that suits your needs.
 
 :::success
 **Use Semantic Versioning (SemVer)**
@@ -36,21 +36,21 @@ We highly recommend using [Semantic Versioning](http://semver.org/) for your app
 1. Can you trace a version back to the commit/checkin the application/package was built from? *For example: We stamp the SHA hash of the git commit into the metadata component of the Semantic Version for Octopus Deploy which makes it easier to find and fix bugs. We also tag the commit with the version of Octopus Deploy it produced so you can quickly determine which commit produced a particular version of Octopus Deploy.*
 2. Can your users easily report a version to the development team that supports #1?
 3. Will your version numbers be confusing, or will they help people understand the changes that have been made to the software? *For example: bumping a major version component (first part) means there are potentially breaking changes, but bumping a patch (3rd part) should be safe to upgrade, and safe to rollback if something goes wrong.*
-4. Does your tool chain support the versioning scheme? *For example: Octopus Deploy supports Semantic Versioning, which enables enhanced features like [Channels](/docs/home/key-concepts/projects/channels.md).*
+4. Does your tool chain support the versioning scheme? *For example: Octopus Deploy supports Semantic Versioning, which enables enhanced features likeÂ [Channels](/docs/home/key-concepts/projects/channels.md).*
 
 
 ### Strictness versus pragmatism
 
 
-Strictly speaking about SemVer 2.0, a version like `1.5.2-rc.1` is considered a "pre-release" and `1.5.2` would be considered a "full release".  In practice, these kinds of concepts carry weight when you are talking about hierarchies of application dependencies like classical NuGet packages or NPM dependencies. This kind of strict semantic versioning enables dependency management tooling to interpret what kind of changes each package version represents. For example, they can automatically protect your software, by preventing you from accidentally upgrading to pre-release versions, or versions that may introduce breaking changes.
+Strictly speaking about SemVer 2.0, a version likeÂ `1.5.2-rc.1`Â is considered a "pre-release" andÂ `1.5.2`Â would be considered a "full release". Â In practice, these kinds of concepts carry weight when you are talking about hierarchies of application dependencies like classical NuGet packages or NPM dependencies. This kind of strict semantic versioning enables dependency management tooling to interpret what kind of changes each package version represents. For example, they can automatically protect your software, by preventing you from accidentally upgrading to pre-release versions, or versions that may introduce breaking changes.
 
 
-When it comes to application versioning however, we suggest the "pre-release tag" (the bit after the `-`) can be used for whatever you want. For example: you could build version `1.5.2-rc` of your application, and configure a [Channel](/docs/home/key-concepts/projects/channels.md) to promote packages like `*-rc` to Staging and eventually Production.
+When it comes to application versioning however, we suggest the "pre-release tag" (the bit after theÂ `-`) can be used for whatever you want. For example: you could build versionÂ `1.5.2-rc`Â of your application, and configure a [Channel](/docs/home/key-concepts/projects/channels.md) to promote packages like `*-rc`Â to Staging and eventually Production.
 
 ### How we version Octopus Deploy
 
 
-In practice, we use [GitVersion](https://gitversion.readthedocs.io/en/latest/why/) which interprets our git repository to calculate deterministic versions like `3.5.0-beta.2+Branch.master.SHA.56e05fced214c44a37759efa2dfc25a65d8ae98d` which are fully SemVer 2.0 compliant.
+In practice, we use [GitVersion](https://gitversion.readthedocs.io/en/latest/why/) which interprets our git repository to calculate deterministic versions likeÂ `3.5.0-beta.2+Branch.master.SHA.56e05fced214c44a37759efa2dfc25a65d8ae98d` which are fully SemVer 2.0 compliant.
 
 
 With a version like this we can communicate several semantic concepts with our customers:
@@ -61,7 +61,7 @@ With a version like this we can communicate several semantic concepts with our c
  3. Patch version change = small bug fixes and computational logic changes: **safe to update, safe to roll back**
 2. We can indicate if this is a "full release" or a "pre-release" and we even change the Main Menu colour to highlight this is a pre-release version of Octopus based on the Semantic Version.
 3. We can uniquely identify the SHA hash of the git commit.
-4. We show the version as `3.5.0-beta.2` in the UI.
+4. We show the version asÂ `3.5.0-beta.2`Â in the UI.
 5. We log the full "informational version" to all of our task logs so it is easy for us to identify exactly which version of Octopus Server and Calamari were used in a deployment based on a customer sending us a log file.
 
 
@@ -77,7 +77,7 @@ When it comes to versioning Octopus Deploy, we decided to take a slightly differ
 For example:
 
 - When preparing to ship Octopus Deploy 3.5, we will build and ship several pre-releases to our customers with a version like `3.5.0-beta.1+Branch.release/3.4.0.SHA.53cf8e84bb88e24ae4b4b3df2bsdaab91a3735d8` - note the `-beta.1` prerelease tag.
-- When we are ready to ship a full release, we go through the effort to rebuild the software with a version like `3.5.0+Branch.master.SHA.27cf8e84bb88e24ae4b4b3df2b77aab91a3735d8`, and take it through all the same testing before shipping to our customers - notice this is a "full-release" with no pre-release tag.
+- When we are ready to ship a full release, we go through the effort to rebuild the software with a version likeÂ `3.5.0+Branch.master.SHA.27cf8e84bb88e24ae4b4b3df2b77aab91a3735d8`, and take it through all the same testing before shipping to our customers - notice this is a "full-release" with no pre-release tag.
 
 
 

@@ -15,7 +15,7 @@ As an example scenario, let's assume we have a web application that's being depl
 
 There are three Octopus features that are commonly used to help provide an environment-specific configuration to your deployed application.
 
-1. Use the **[Configuration Variables](/docs/home/deploying-applications/configuration-files.md)****feature** to automatically replace `appSettings`,`applicationSettings`, and `connectionStrings` values in your `.config` files with ones from your variables list.
+1. Use the **[Configuration Variables](/docs/home/deploying-applications/configuration-files.md)****feature** to automatically replaceÂ `appSettings`,`applicationSettings`,Â andÂ `connectionStrings`Â values in yourÂ `.config`Â files with ones from your variables list.
 The limitation of this technique is you're restricted to these two configuration sections. If you have settings in other parts of your configuration file, this technique won't work.
 2. Use the **[Substitute Variables](/docs/home/deploying-applications/substitute-variables-in-files.md) in Files feature** to replace any values specified by the `#{variable}` syntax in any text-based file.
 The limitation of this technique is the Octopus variable syntax needs to already be in the file. If you're relying on that config file for your development, this can be difficult to manage.
@@ -33,7 +33,7 @@ To solve these limitations, you can combine the techniques.
 One common technique is to combine options 2 and 3 above.
 
 
-You would have a single configuration transformation file in your project. If it's named `Web.Release.Config`, the transformation will be applied to your `Web.Config` file automatically, however you can have your own filename and apply it to any config file you like.
+You would have a single configuration transformation fileÂ in your project. If it's namedÂ `Web.Release.Config`, the transformation will be applied to your `Web.Config` file automatically, however you can have your own filename and apply it to any config file you like.
 
 
 This transform file can contain `#{variable}` values. Because your config will only get transformed on deployment, you can safely work with your `Web.Config` file during development, and you can keep sensitive variables like production passwords out of source control.
@@ -44,7 +44,7 @@ This transform file can contain `#{variable}` values. Because your config will o
 It's important to note that the variable substitution occurs before your configuration transformation. That means you'll have to target your transform files for variable substitution by adding them to the **Target files** setting.
 
 
-For example, let's assume our `Web.Config` file has a `MyDatabaseConnection` connection string and a special `MyCustomSettingsSection` element. Something like this:
+For example, let's assume our `Web.Config`Â file has a `MyDatabaseConnection` connection string and a special `MyCustomSettingsSection` element. Something like this:
 
 ```powershell
 <?xml version="1.0"?>
@@ -59,7 +59,7 @@ For example, let's assume our `Web.Config` file has a `MyDatabaseConnection` con
 ```
 
 
-We also have a `Web.Release.Config` transform file with the following contents:
+We also have a `Web.Release.Config`Â transform file with the following contents:
 
 ```powershell
 <?xml version="1.0"?>

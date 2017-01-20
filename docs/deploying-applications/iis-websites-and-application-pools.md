@@ -4,7 +4,7 @@ position: 6
 ---
 
 
-Configuring IIS is an essential part of deploying any ASP.NET web application. Octopus has built-in support for configuring IIS Web Sites, Applications and Virtual Directories.
+Configuring IIS is an essential part of deploying any ASP.NET web application.Â Octopus has built-in support for configuring IIS Web Sites, Applications and Virtual Directories.
 
 
 On this page:
@@ -19,7 +19,7 @@ On this page:
 - IIS configuration in action
 
 
-To deploy an IIS Web Site, add a *Deploy an IIS Web Site* step. For information about adding a step to the deployment process, see the [add step](http://docs.octopusdeploy.com/display/OD/Add+step) section.
+To deploy an IIS Web Site, add aÂ *Deploy an IIS Web Site*Â step.Â For information about adding a step to the deployment process, see theÂ [add step](http://docs.octopusdeploy.com/display/OD/Add+step)Â section.
 
 
 ![](/docs/images/5671696/5865907.png)
@@ -29,7 +29,7 @@ To deploy an IIS Web Site, add a *Deploy an IIS Web Site* step. For information 
 
 :::hint
 **Pre Octopus 3.4.7**
-The *Deploy an IIS Web Site Step* was introduced in Octopus version **3.4.7**. Prior to this IIS Web Sites were deployed by enabling the *IIS web site and application pool* feature on a [Deploy a Package Step](/docs/home/deploying-applications/deploying-packages.md).
+TheÂ *Deploy an IIS Web Site Step*Â was introduced in Octopus versionÂ **3.4.7**. Prior to this IIS Web Sites were deployed by enabling theÂ *IIS web site and application pool*Â feature on aÂ [Deploy a Package Step](/docs/home/deploying-applications/deploying-packages.md).
 
 
 ![](/docs/images/3048088/3277713.png)
@@ -38,7 +38,7 @@ The *Deploy an IIS Web Site Step* was introduced in Octopus version **3.4.7**. P
 ## Select a Package
 
 
-Use the *Package Feed* and *Package ID* fields to select the [package](/docs/home/packaging-applications.md) containing the web site content.
+Use the *Package Feed* and *Package ID* fields to select theÂ [package](/docs/home/packaging-applications.md)Â containing the web site content.
 
 ## Deployment Type
 
@@ -244,7 +244,7 @@ Which account the Application Pool will run under.
 ## How Octopus Deploys your Web Site
 
 
-Out of the box, Octopus will do the right thing to deploy your Web Site using IIS, and the conventions we have chosen will eliminate a lot of problems with file locks, leaving stale files behind, and causing multiple Application Pool restarts. By default Octopus will follow the conventions described in [Deploying packages](/docs/home/deploying-applications/deploying-packages.md) and apply the different features you select in the order described in [Package deployment feature ordering](/docs/home/reference/package-deployment-feature-ordering.md).
+Out of the box, Octopus will do the right thing to deploy your Web Site using IIS, and the conventions we have chosen will eliminate a lot of problems with file locks, leaving stale files behind, and causing multiple Application Pool restarts. By default Octopus will follow the conventions described inÂ [Deploying packages](/docs/home/deploying-applications/deploying-packages.md)Â and apply the different features you select in the order described inÂ [Package deployment feature ordering](/docs/home/reference/package-deployment-feature-ordering.md).
 
 :::success
 Avoid using the [Custom Installation Directory](/docs/home/deploying-applications/custom-installation-directory.md) feature unless you are absolutely required to put your packaged files into a specific physical location on disk.
@@ -253,13 +253,13 @@ Avoid using the [Custom Installation Directory](/docs/home/deploying-application
 
 As an approximation including the IIS integration:
 
-1. Acquire the package as optimally as possible (local package cache and [delta compression](/docs/home/deploying-applications/delta-compression-for-package-transfers.md))
-2. Create a new folder for the deployment (which avoids many common problems like file locks, leaving stale files behind, and multiple Application Pool restarts)
- 1. Example: `C:\Octopus\Applications\[Tenant name]\[Environment name]\[Package name]\[Package version]\` where `C:\Octopus\Applications` is the Tentacle application directory you configured when installing Tentacle)
+1. Acquire the package as optimally as possible (local package cache andÂ [delta compression](/docs/home/deploying-applications/delta-compression-for-package-transfers.md))
+2. Create a new folder for the deployment (whichÂ avoids many common problems like file locks, leaving stale files behind, and multiple Application Pool restarts)
+ 1. Example:Â `C:\Octopus\Applications\[Tenant name]\[Environment name]\[Package name]\[Package version]\`Â whereÂ `C:\Octopus\Applications`Â is the Tentacle application directory you configured when installing Tentacle)
 3. Extract the package into the newly created folder
-4. Execute each of your [custom scripts](/docs/home/deploying-applications/custom-scripts.md) and the [deployment features](/docs/home/deploying-applications.md) you've configured will be executed to perform the deployment [following this order by convention](/docs/home/reference/package-deployment-feature-ordering.md).
+4. Execute each of yourÂ [custom scripts](/docs/home/deploying-applications/custom-scripts.md)Â and theÂ [deployment features](/docs/home/deploying-applications.md)Â you've configured will be executed to perform the deploymentÂ [following this order by convention](/docs/home/reference/package-deployment-feature-ordering.md).
  1. As part of this process the IIS Web Site, Web Application or Virtual Directory will be configured in a single transaction with IIS, including updating the Physical Path to point to this folder
-5. [Output variables](/docs/home/deploying-applications/variables/output-variables.md) and deployment [artifacts](/docs/home/deploying-applications/artifacts.md) from this step are sent back to the Octopus Server
+5. [Output variables](/docs/home/deploying-applications/variables/output-variables.md)Â and deploymentÂ [artifacts](/docs/home/deploying-applications/artifacts.md)Â from this step are sent back to the Octopus Server
 
 
 :::success

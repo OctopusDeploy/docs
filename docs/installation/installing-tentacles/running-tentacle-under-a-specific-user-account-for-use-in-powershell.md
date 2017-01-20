@@ -7,7 +7,7 @@ position: 5
 Every process within a Tentacle is executed by the user account configured on the **Octopus Tentacle**service. By default this account is **Local System.** There are times when you might like to run the Tentacle under a specific user account (i.e. you want to run administrator-level Powershell commands from your deployment process).
 
 
-To change this setting go to Services -> "Octopus Tentacle" -> Properties -> Log On
+To change this setting go to Services -> "Octopus Tentacle"Â -> PropertiesÂ -> Log On
 
 
 ![](/docs/images/3048117/3277918.jpg)

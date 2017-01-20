@@ -4,10 +4,10 @@ position: 5
 ---
 
 
-Previous step: [Working with groups of tenants using tags](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md)
+Previous step:Â [Working with groups of tenants using tags](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md)
 
 
-This page describes how to design and implement both **dedicated** and **shared** multi-tenant hosting models using [Environments](/docs/home/key-concepts/environments.md), [Deployment Targets](/docs/home/deployment-targets.md) and [Accounts](/docs/home/key-concepts/environments/accounts.md) and [Tenant Tags](/docs/home/key-concepts/tenants/tenant-tags.md).
+This page describes how to design and implement both **dedicated** and **shared** multi-tenant hosting models usingÂ [Environments](/docs/home/key-concepts/environments.md),Â [Deployment Targets](/docs/home/deployment-targets.md) and [Accounts](/docs/home/key-concepts/environments/accounts.md) andÂ [Tenant Tags](/docs/home/key-concepts/tenants/tenant-tags.md).
 
 
 On this page:
@@ -64,7 +64,7 @@ When you deploy a project, you can deploy to one environment and a selection of 
 
 
 
-Each deployment will then proceed independently with the resulting set of deployment targets. We are going to leverage this behaviour to implement dedicated and shared hosting in our sample.
+Each deployment will then proceed independently with the resulting set of deployment targets.Â We are going to leverage this behaviour to implement dedicated and shared hosting in our sample.
 
 ## Scenario: Dedicated hosting
 
@@ -76,7 +76,7 @@ In this case we want to ensure the applications for some tenants are completely 
 
 Let's configure some deployment targets as dedicated hosts for the tenant we created earlier:
 
-1. Create one or more deployment targets that will be used to host the applications for the tenant. *This could be any type of deployment target.*
+1. Create one or more deployment targets that will be used to host the applications for the tenant.Â *This could be any type of deployment target.*
 2. Configure each deployment target as a dedicated host for the tenant
 ![](/docs/images/5669555/5865740.png?effects=drop-shadow)
 
@@ -99,8 +99,8 @@ In this case we are willing to host the applications of multiple tenants on the 
 
 Firstly let's create a tag set to identify which tenants should be hosted on which shared server farms:
 
-1. Go to *Library > Tenant Tag Sets* and create a new tag set called **Hosting**
-2. Add a tag called **Shared-Farm-1** and set the colour to green which will help identify tenants on shared hosting more quickly
+1. Go toÂ *Library > Tenant Tag Sets* and create a new tag set calledÂ **Hosting**
+2. Add a tag calledÂ **Shared-Farm-1** and set the colour to green which will help identify tenants on shared hosting more quickly
 ![](/docs/images/5669555/5865742.png?effects=drop-shadow)
 
 
@@ -109,20 +109,20 @@ Firstly let's create a tag set to identify which tenants should be hosted on whi
 
 Now let's configure some shared servers in a farm:
 
-1. Create one or more deployment targets that will be used to host the applications for these tenants. *This could be any type of deployment target.*
+1. Create one or more deployment targets that will be used to host the applications for these tenants.Â *This could be any type of deployment target.*
 2. Select the **Hosting/Shared-Farm-1** tag
 ![](/docs/images/5669555/5865743.png?effects=drop-shadow)
 
 
 
-These deployment targets will now be included in deployments for any tenants matching this filter, that is any tenants tagged with **Hosting/Shared-Farm-1**.
+These deployment targets will now be included in deployments for any tenants matching this filter, that is any tenants tagged withÂ **Hosting/Shared-Farm-1**.
 
 ### Step 3: Configure the tenants to deploy onto the shared server farm
 
 
-Now let's select some tenants that should be hosted on **Shared-Farm-1**:
+Now let's select some tenants that should be hosted onÂ **Shared-Farm-1**:
 
-1. Create some new tenants (or find existing ones) and tag them with **Hosting/Shared-Farm-1**
+1. Create some new tenants (or find existing ones) and tag them withÂ **Hosting/Shared-Farm-1**
 **![](/docs/images/5669555/5865744.png?effects=drop-shadow)**
 
 

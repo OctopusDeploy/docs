@@ -7,7 +7,7 @@ position: 3
 When upgrading from Octopus 2.6 to 3.x you can migrate your data. There are some points worth noting about the data migration process:
 
 - The data migration tool has been designed to perform a **one-time** migration from Octopus 2.6 to Octopus 3.x for each backup file
- - Re-running the data migration will overwrite matching data. See [Importing](/docs/home/administration/data-migration.md) in the Data Migration page for more details on how data is imported.
+ - Re-running the data migration will overwrite matching data. SeeÂ [Importing](/docs/home/administration/data-migration.md) in the Data Migration page for more details on how data is imported.
  - Data is matched on name. Names are unique in Octopus. This is to allow multiple backups to be run from multiple Octopus Server instances to combine into one 3.x instance
 So you can run multiple backup files into a 3.x instance but if it matches names it will use the currently running backup as the source of truth
 - The built-in Octopus NuGet package repository is not migrated automatically - see [below](/docs/home/administration/upgrading/upgrading-from-octopus-2.6/migrating-data-from-octopus-2.6-to-3.x.md) for more details
@@ -57,9 +57,9 @@ If you need to use any of the options below to manage the data being imported yo
 ### Migrating the built-in Octopus NuGet package repository
 
 
-If you use the built-in [Octopus NuGet repository](http://docs.octopusdeploy.com/display/OD/Package+repositories) you will need to move the files from your 2.6 server to your 3.x server. The package files are not included as part of the backup.
-In a standard 2.6 install the files can be found under `C:\Octopus\OctopusServer\Repository\Packages`
-You will need to transfer them to the new server to `C:\Octopus\Packages`Once the files have been copied, you will need to restart the Octopus Server service to re-index the files - The index runs in the background, so if you have a lot of packages it could take a while (5-20 mins) to show in the UI or be usable for deployments.
+If you use the built-in [Octopus NuGet repository](http://docs.octopusdeploy.com/display/OD/Package+repositories)Â you will need to move the files from your 2.6 server to your 3.x server. The package files are not included as part of the backup.
+In a standard 2.6 install the files can be found underÂ `C:\Octopus\OctopusServer\Repository\Packages`
+You will need to transfer them to the new server toÂ `C:\Octopus\Packages`Once the files have been copied, you will need to restart the Octopus Server service to re-index the files - The index runs in the background, so if you have a lot of packages it could take a while (5-20 mins) to show in the UI or be usable for deployments.
 
 ### Migrating historical data
 
@@ -67,7 +67,7 @@ You will need to transfer them to the new server to `C:\Octopus\Packages`Once th
 By default we migrate everything from your backup including all historical data. You can use the `maxage=` argument when executing the migrator to limit the number of days to keep. For example: `maxage=90` will keep 90 days of historical data ignoring anything older.
 
 
-The migration process can optionally be executed via command line as described below
+The migration process can optionally be executed via command lineÂ as described below
 
 **Usage**
 
@@ -81,7 +81,7 @@ Where`[&lt;options&gt;]`is any of:
 **configure options**
 
 ```powershell
-    --instance				Name of the instance to use
+   Â --instance				Name of the instance to use
 	--file=VALUE  	     	Octopus 2.6 (.octobak) file
     --master-key=VALUE   	Master key used to decrypt the file
     --dry-run				[Optional] Do not commit changes, just print what would have happened

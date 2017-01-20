@@ -33,7 +33,7 @@ On this page:
 
 Starting with Octopus 3.4 you can manage tenants as a first-class citizen enabling you to:
 
-1. Deploy multiple instances of your project into the same [Environment](/docs/home/key-concepts/environments.md);
+1. Deploy multiple instances of your project into the sameÂ [Environment](/docs/home/key-concepts/environments.md);
  1. tenant-per-customer
  2. tenant-per-tester
  3. tenant-per-feature/tenant-per-branch
@@ -104,13 +104,13 @@ You don't need Octopus Deploy to implement a multi-tenant SaaS application: you 
 
 :::success
 **Podcast**
-Octopus founder and CEO, [Paul Stovell](https://twitter.com/paulstovell), recently recorded an episode of [.NET Rocks](http://dotnetrocks.com/) talking about [Building Multi-Tenant Applications](https://www.dotnetrocks.com/?show=1332). It's a great listen to get a better understanding of why you would want to build a multi-tenant application, and the considerations that go into their design and deployment.
+Octopus founder and CEO,Â [Paul Stovell](https://twitter.com/paulstovell),Â recently recorded an episode ofÂ [.NET Rocks](http://dotnetrocks.com/)Â talking aboutÂ [Building Multi-Tenant Applications](https://www.dotnetrocks.com/?show=1332). It's a great listen to get a better understanding of why you would want to build a multi-tenant application, and the considerations that go into their design and deployment.
 :::
 
 
 How should I build my application to support multiple tenants or end-customers? Unfortunately the answer is: it depends. There are so many issues to consider when designing an application to handle multiple tenants or end-customers:
 
-- **security, privacy and data integrity** - how do you ensure data from one tenant is protected from other tenants?
+- **security, privacy and data integrity**Â - how do you ensure data from one tenant is protected from other tenants?
 - **execution isolation** - perhaps your application launches other processes, how do you protect other tenants on the same host?
 - **performance** - how do you measure which tenants are consuming the most resources, and ensure other tenants are not adversely affected by noisy-neighbours?
 - **density and economy** - how do you host all of your tenants in a cost-effective way?
@@ -125,7 +125,7 @@ For many of these considerations, deploying multiple instances of your applicati
 When much larger numbers of customers are concerned it may be wise to consider making architectural changes to the application.
 
 
-For example, if deployment consists of many copies of the exact same website, just with a few configuration differences per customer, perhaps store those configuration settings in the database, and use the host header field (`HttpContext.Request.Url.Host` in ASP.NET) to determine who the current customer is and respond accordingly. Not only will this make deployment simpler; it will most likely result in an easier to manage application, and reduce overall resource utilization resulting in higher density and profitability.
+For example, if deployment consists of many copies of the exact same website, just with a few configuration differences per customer, perhaps store those configuration settingsÂ in the database, and use the host header field (`HttpContext.Request.Url.Host`Â in ASP.NET) to determine who the current customer is and respond accordingly. Not only will this make deployment simpler; it will most likely result in an easier to manage application, and reduce overall resource utilization resulting in higher density and profitability.
 
 ## Guide: Multi-tenant deployments in Octopus
 

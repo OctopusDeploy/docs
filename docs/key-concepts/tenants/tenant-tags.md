@@ -4,7 +4,7 @@ title: Tenant Tags
 ---
 
 
-In Octopus, tenant tags help you to classify your tenants using custom tags that meet your needs, and tailor tenanted deployments for your projects and environments. Tenant tags also make it easier to work with tenants as groups instead of individuals. Using tags you can apply meaningful metadata to tenants, to describe them using your own terminology, improve search and filtering, and tailor the deployment process to their needs.
+In Octopus, tenant tags help you to classify your tenants using custom tags that meet your needs, and tailor tenanted deployments for your projects and environments.Â Tenant tags also make it easier to work with tenantsÂ as groups instead of individuals. Using tags you can apply meaningful metadata to tenants, to describe them using your own terminology, improve search and filtering, and tailor the deployment process to their needs.
 
 
 Octopus allows you to group grouped similar tags together into tag sets. This enables you to more easily understand which tags fit together, what effect they should have on tenanted deployments, and design powerful tag-based queries using combinations of tags.
@@ -38,13 +38,13 @@ With tenant tags you can:
 - Scope project variables to tags
 - Design a multi-tenant hosting model - read more in our [guide](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md)
 - Design a multi-tenant upgrade process - read more in our [guide](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md)
-- Control which releases can be deployed to tenants using [channels](/docs/home/key-concepts/projects/channels.md) - read more in our [guide](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md)
+- Control which releases can be deployed to tenants usingÂ [channels](/docs/home/key-concepts/projects/channels.md) - read more in our [guide](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md)
 
 
 ## Managing tenant tags
 
 
-Go to *Library > Tenant tag sets* to create, modify and reorder tag sets and tags.
+Go toÂ *Library > Tenant tag sets* to create, modify and reorder tag sets and tags.
 
 
 ![](/docs/images/5670003/5865644.png)
@@ -105,10 +105,10 @@ When paired with a well-structured tag design, this logic will enable you to tai
 ## Referencing tenant tags
 
 
-If you want to use tenant tags to automate Octopus Deploy you should use the **Canonical Name** for the Tag which looks like this: `Tag Set Name/Tag Name`
+If you want to use tenant tags to automate Octopus Deploy you should use the **Canonical Name** for the Tag which looks like this:Â `Tag Set Name/Tag Name`
 
 
-Consider an example deploying a release to the tenants tagged with the **Early adopter** tag in the **Upgrade ring** tag set.
+Consider an example deploying a release to the tenants tagged with theÂ **Early adopter** tag in the **Upgrade ring** tag set.
 
 
 ![](/docs/images/5670003/5865679.png)
@@ -121,6 +121,6 @@ Consider an example deploying a release to the tenants tagged with the **Early a
 
 Some places you can use tags are:
 
-- When deploying releases of your projects using one of the [build server integrations](/docs/home/api-and-integration.md) or [octo.exe](/docs/home/api-and-integration/octo.exe-command-line/deploying-releases.md) - [read more in our guide](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md)
+- When deploying releases of your projects using one of theÂ [build server integrations](/docs/home/api-and-integration.md) orÂ [octo.exe](/docs/home/api-and-integration/octo.exe-command-line/deploying-releases.md) - [read more in our guide](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md)
 - Scoping a deployment target to one or more tenants when registering a new Tentacle - [read more in our guide](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md)
-- When automating Octopus via the [Octopus REST API](/docs/home/api-and-integration/octopus-rest-api.md)
+- When automating Octopus via theÂ [Octopus REST API](/docs/home/api-and-integration/octopus-rest-api.md)

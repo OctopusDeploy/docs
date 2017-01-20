@@ -11,7 +11,7 @@ Configure the HTTP proxy used by polling tentacles to reach the Octopus Server
 ```text
 Usage: Tentacle polling-proxy [<options>]
 
- 
+Â 
 Where [<options>] is any of:
       --instance=VALUE       Name of the instance to use
       --proxyEnable=VALUE    Whether to use a proxy

@@ -4,7 +4,7 @@ position: 0
 ---
 
 
-Octopus also allows you to run standalone scripts as part of your deployment process. You can run a script on the Octopus Server or across the deployment targets in roles. You can run scripts contained in a package, or ad-hoc scripts you've saved as part of the step. For information about adding a step to the deployment process, see the [add step](http://docs.octopusdeploy.com/display/OD/Add+step) section.
+Octopus also allows you to run standalone scripts as part of your deployment process. You can run a script on the Octopus Server or across the deployment targets in roles. You can run scripts contained in aÂ package,Â or ad-hoc scripts you've saved as part of the step.Â For information about adding a step to the deployment process, see theÂ [add step](http://docs.octopusdeploy.com/display/OD/Add+step)Â section.
 
 :::success
 You can use all of the features we provide for [custom scripts](/docs/home/deploying-applications/custom-scripts.md), like [using variables](/docs/home/deploying-applications/custom-scripts.md), [passing parameters](/docs/home/deploying-applications/custom-scripts.md), publishing [output variables](/docs/home/deploying-applications/custom-scripts.md) and [collecting artifacts](/docs/home/deploying-applications/custom-scripts.md).
@@ -43,10 +43,10 @@ Choosing the right combination of **Target** and **Roles** enables some really i
 `web-serverapp-server`
  | The script will run on each deployment target with either of the `web-server` or `app-server` roles | The variables scoped to the deployment target will be available to the script.
 For example, `Octopus.Machine.Name` will be the deployment target's name | 
-- Apply server hardening or ensure standard pre-requisites are met on each deployment target
+- Apply server hardening or ensure standard pre-requisites are metÂ on each deployment target
 
  | ![](/docs/images/5046401/5275661.png) |
-| Octopus Server |  | The script will run once on the Octopus Server  | Scope variables to the Step in order to customise variables for this script | 
+| Octopus Server |  | The script will run once on the Octopus ServerÂ  | Scope variables to the Step in order to customise variables for this script | 
 - Calculate some output variables to be used by other steps
 - Run a database upgrade process
 
@@ -94,7 +94,7 @@ The ability to pass parameters to scripts was added in Octopus 3.4
 :::
 
 
-When you call external scripts (sourced from a file inside a package) you can pass parameters to your script. This means you can write "vanilla" scripts that are unaware of Octopus, and test them in your local development environment. Read about [passing parameters to scripts](/docs/home/deploying-applications/custom-scripts.md).
+When you call external scripts (sourced from a file inside a package) you can pass parameters to your script. This means you can write "vanilla" scripts that are unaware of Octopus, and test them in your local development environment. Read aboutÂ [passing parameters to scripts](/docs/home/deploying-applications/custom-scripts.md).
 
 
 ![](/docs/images/5046401/5865636.png)

@@ -96,40 +96,40 @@ Export file C:\tmp\OctoFX_Rate_Service.json successfully created.
   "Project": {
     ...
   },
- 
+Â 
   // This is used as a reference when importing to ensure that the same project group exists on your other Octopus Deploy server. 
   // If it doesn't already exist, you will need to create it.
   "ProjectGroup": {
     ...
   },
- 
+Â 
   // This contains the variables that have been created for the exported project.
   // If the project already existed and has variables set, these will be replaced with the variables from the project that is being imported.
   // Sensitive variable values will NOT be imported.
   "VariableSet": {
     ...
   },
- 
-  // This is used as a reference when importing to ensure that the same NuGet feed exists on your 
+Â 
+  // This is used as a reference when importing to ensure that the same NuGet feed exists on yourÂ 
   // target Octopus Deploy server. 
   "NuGetFeeds": [
     ...
   ],
- 
+Â 
   // This contains the deployment process for the exported project.
-  // If the project already existed and had a deployment process setup, this will be replaced with 
+  // If the project already existed and had a deployment process setup, this will be replaced withÂ 
   // the deployment process from the project that is being imported.
   "DeploymentProcess": {
     ...
   },
- 
+Â 
   // This contains any library variable sets that are used by the project.
-  // These are included as a reference when importing to ensure that the same 
+  // These are included as a reference when importing to ensure that the sameÂ 
   // Library Variable Set exists on your other Octopus Deploy server.
   "LibraryVariableSets": [
     ...
   ],
- 
+Â 
   // Metadata about the export: when it was exported, what version of Octopus was used, etc.
   "$Meta": {
     ...

@@ -67,7 +67,7 @@ $instance = "InstanceName" #Name of the Instance.
 $oldHome = "C:\Octopus\InstanceName" #Current home of the instance.
 $newHome = "C:\NewHome\InstanceName" #New home path for the instance.
 $appFolder = "Applications" #Name of the folder being used for applications.
- 
+Â 
 
 ##Process##
 $oldConfig = Get-Item "$oldHome\*.config"

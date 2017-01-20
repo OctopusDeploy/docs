@@ -9,7 +9,7 @@ Server extensibility is available in Octopus Deploy 3.5 and later
 :::
 
 
-To install a custom server extension, you need to copy the extension dll(s) into the following folder on the machine that is running the Octopus Deploy server:
+To install a custom server extension, you need to copy the extension dll(s) into the following folderÂ on the machine that is running the Octopus Deploy server:
 
 :::hint
 %ProgramData%\Octopus\CustomExtensions
@@ -24,10 +24,10 @@ It is important to **include only your extension dll(s)** (and none of the depen
 ## Verifying the extension has been loaded
 
 
-To verify which extensions are currently loaded, use the **Server Extensions** panel (under the System Information) on the **Configuration > Diagnostics** page sidebar.  Note that you'll need admin permissions in Octopus Deploy to see this page.
+To verify which extensions are currently loaded, use theÂ **Server Extensions**Â panel (under the System Information) on the **Configuration > Diagnostics**Â page sidebar. Â Note that you'll need admin permissions in Octopus Deploy to see this page.
 
 
-The panel will show the author in bold for any custom extensions,  i.e. If you haven't changed the Author value on the OctopusExtension attribute (see [Authoring an Octopus Deploy server extension](/docs/home/guides/server-extensibility/authoring-an-octopus-deploy-server-extension.md)) then it will still display as 'Octopus Deploy', but the text will be bold if it was loaded from the CustomExtensions folder.
+The panel will show the author in bold for any custom extensions, Â i.e. If you haven't changed the Author value on the OctopusExtension attribute (see [Authoring an Octopus Deploy server extension](/docs/home/guides/server-extensibility/authoring-an-octopus-deploy-server-extension.md)) then it will still display as 'Octopus Deploy', but the text will be bold if it was loaded from the CustomExtensions folder.
 
 # Dependencies
 

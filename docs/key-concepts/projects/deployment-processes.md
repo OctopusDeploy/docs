@@ -4,7 +4,7 @@ position: 0
 ---
 
 
-Each [project](/docs/home/key-concepts/projects.md) defines the actions you want Octopus to perform on your behalf. In Octopus terms this is called the **deployment process**. The deployment process is like a recipe. It defines the set of instructions that will be run repeatably each time the project is deployed.
+Each [project](/docs/home/key-concepts/projects.md) defines the actions you want Octopus to perform on your behalf. In Octopus terms this is called the **deployment process**.Â The deployment process is like a recipe. It defines the set of instructions that will be run repeatably each time the project is deployed.
 
 
 On this page:
@@ -20,7 +20,7 @@ On this page:
 ## Example: A simple deployment process
 
 
-In the example shown below there are three steps that will be executed from top to bottom. The first is a [manual intervention](/docs/home/deploying-applications/manual-intervention-and-approvals.md) which executes on the Octopus Server pausing the deployment until someone intervenes and allow the deployment to continue. *You may have noticed this step will only execute when targeting the Production [environment](/docs/home/key-concepts/environments.md) - we'll talk more about that below.* The remaining steps both [deploy a package](/docs/home/deploying-applications/deploying-packages.md) and execute [custom scripts](/docs/home/deploying-applications/custom-scripts.md) on all of the [deployment targets](/docs/home/deployment-targets.md) with the [role](/docs/home/key-concepts/machine-roles.md) **web-server**.
+In the example shown below there are three steps that will be executed from top to bottom. The first is a [manual intervention](/docs/home/deploying-applications/manual-intervention-and-approvals.md) which executes on the Octopus Server pausing the deployment until someone intervenes and allow the deployment to continue. *You may have noticed this step will only execute when targeting the Production [environment](/docs/home/key-concepts/environments.md)Â - we'll talk more about that below.* The remaining steps bothÂ [deploy a package](/docs/home/deploying-applications/deploying-packages.md) and execute [custom scripts](/docs/home/deploying-applications/custom-scripts.md) on all of theÂ [deployment targets](/docs/home/deployment-targets.md)Â with the [role](/docs/home/key-concepts/machine-roles.md) **web-server**.
 
 
 ![](/docs/images/5671366/5865841.png)
@@ -28,7 +28,7 @@ In the example shown below there are three steps that will be executed from top 
 ## Example: A rolling deployment
 
 
-Let's consider a more complex example like the one shown below. In this example we have configured Octopus to deploy a web application across one or more servers in a web farm behind a load balancer. This process has a single **step** and three **actions** which form a [rolling deployment](/docs/home/patterns/rolling-deployments.md).
+Let's consider a more complex example like the one shown below. In this example we have configured Octopus to deploy a web application across one or more servers in a web farm behind a load balancer. This process has a singleÂ **step**Â and threeÂ **actions** which form aÂ [rolling deployment](/docs/home/patterns/rolling-deployments.md).
 
 
 ![](/docs/images/5671366/5865842.png)
@@ -46,7 +46,7 @@ In most simple cases each step will have a single action, and as a convenience t
 To fully leverage the power of Octopus deployments it helps to understand the difference between **steps** and **actions**, and how they are treated.
 
 
-> Each deployment process consists of a series of **steps**, where each step can have one or more **actions**. Each action defines **what** you want Octopus to do on your behalf, and each step defines the **execution plan**and**context** of its action(s).
+> Each deployment process consists of a series ofÂ **steps**, where each step can have one or moreÂ **actions**. EachÂ action definesÂ **what**Â you want Octopus to do on your behalf, and each step definesÂ theÂ **execution plan**and**context**Â of its action(s).
 
 
 
@@ -73,7 +73,7 @@ A step that is configured to execute across multiple deployment targets will exe
 ![](/docs/images/5671366/5865847.png)
 
 
-You can define steps with multiple actions and apply a window size (like our earlier example) where the same step will execute across a limited number of deployment targets in parallel.
+You can define steps with multiple actions and apply aÂ window size (like our earlier example) where the same step will execute across a limited number of deployment targets in parallel.
 
 
 ![](/docs/images/5671366/5865848.png)
@@ -84,13 +84,13 @@ For more information, see the section on [rolling deployments](/docs/home/patter
 ### Conditions
 
 
-Steps and actions can also have conditions. You can restrict a step so that it only runs when deploying to specific [environments](/docs/home/key-concepts/environments.md) (e.g., an Email step that only runs on production deployments).
+Steps and actions can also have conditions. You can restrict a step so that it only runs when deploying to specificÂ [environments](/docs/home/key-concepts/environments.md)Â (e.g., an Email step that only runs on production deployments).
 
 
 ![](/docs/images/3048075/3277617.png?effects=drop-shadow)
 
 
-If you have created some [channels](/docs/home/key-concepts/projects/channels.md), you can also specify whether a step runs only when deploying a release through specific channels (e.g., a Script step that only runs for deployments through certain channels to configure extra telemetry). *This will only appear if you have created one or more non-default channels.*
+If you have created someÂ [channels](/docs/home/key-concepts/projects/channels.md), you can also specify whether a step runs only when deploying a release through specific channels (e.g., a Script step that only runs for deployments through certain channels to configure extra telemetry).Â *This will only appear if you have created one or more non-default channels.*
 
 
 ![](/docs/images/3048075/3278573.png?effects=drop-shadow)
@@ -119,7 +119,7 @@ Octopus Deploy is built API-first, which means everything you can do through the
 We have provided lots of helpful functions for building your deployment process in the [.NET SDK](/docs/home/api-and-integration/octopus-rest-api.md), or you can use the raw HTTP API if that suits your needs better.
 
 
-Learn about using the [Octopus REST API](/docs/home/api-and-integration/octopus-rest-api.md).
+Learn about using theÂ [Octopus REST API](/docs/home/api-and-integration/octopus-rest-api.md).
 
 :::success
 Record the HTTP requests made by the Octopus UI to see how we build your deployment processes using the Octopus API. You can do this in the Chrome developer tools, or using a tool like Fiddler.

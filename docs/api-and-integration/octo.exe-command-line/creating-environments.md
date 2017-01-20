@@ -4,14 +4,14 @@ position: 0
 ---
 
 
-[Octo.exe](http://docs.octopusdeploy.com/pages/viewpage.action?pageId=360596) can be used to create environments on your Octopus instance.
+[Octo.exe](http://docs.octopusdeploy.com/pages/viewpage.action?pageId=360596)Â can be used to create environments on your Octopus instance.
 
 ```text
 octo create-environment [<options>]
 ```
 
 
-Where `[&lt;options&gt;]` is any of:
+WhereÂ `[&lt;options&gt;]`Â is any of:
 
 **create-environment options**
 
@@ -39,13 +39,13 @@ Common options:
                              security vulnerability.
       --enableServiceMessages
                              [Optional] Enable TeamCity service messages when
-                             logging. 
+                             logging.Â 
 ```
 
 ### Basic example
 
 
-The following command will create an environment called *UAT*
+The following command will create an environment calledÂ *UAT*
 
 ```text
 Octo create-environment --name UAT --server http://MyOctopusServerURL.com --apikey MyAPIKey

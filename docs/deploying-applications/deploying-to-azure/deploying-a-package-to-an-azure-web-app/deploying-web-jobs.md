@@ -9,7 +9,7 @@ title: Deploying Web Jobs
 ## Location
 
 
-Web jobs are deployed to either `app_data/jobs/triggered/{job_name}` or `app_data/jobs/continuous/{job_name}`, depending on whether the job is *triggered* or *continuous*.
+Web jobs are deployed to eitherÂ `app_data/jobs/triggered/{job_name}` orÂ `app_data/jobs/continuous/{job_name}`, depending on whether the job is *triggered* or *continuous*.
 
 ## Packaged with the Web App
 
@@ -17,7 +17,7 @@ Web jobs are deployed to either `app_data/jobs/triggered/{job_name}` or `app_dat
 If you are packaging and deploying your Web App and Web Job together, the Web Job must be packaged in it's location under the App\_Data directory.
 
 ```powershell
-\\MyWebApp.1.0.0.0.nupkg    
+\\MyWebApp.1.0.0.0.nupkg   Â 
     \---app_data
         \---jobs
             \---continuous
@@ -40,7 +40,7 @@ If you are packaging and deploying your Web App and Web Job together, the Web Jo
 
 
 
-Below is a sample of a nuspec file which could be used to produce the layout above.  For example using [OctoPack](/docs/home/packaging-applications/nuget-packages/using-octopack.md).
+Below is a sample of a nuspec file which could be used to produce the layout above. Â For example using [OctoPack](/docs/home/packaging-applications/nuget-packages/using-octopack.md).
 
 ```xml
 <?xml version="1.0"?><package >
@@ -66,7 +66,7 @@ Below is a sample of a nuspec file which could be used to produce the layout abo
 ## Packaged Independently
 
 
-If you are packaging and deploying your Web Job independently to the containing Web App (and possibly other Web Jobs and sub-applications), then it is important you set the Physical Path field to the appropriate location.  For example:
+If you are packaging and deploying your Web Job independently to the containing Web App (and possibly other Web Jobs and sub-applications), then it is important you set the Physical Path field to the appropriate location. Â For example:
 
 ```
 App_Data\Jobs\Triggered\WebJob1

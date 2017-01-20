@@ -4,19 +4,19 @@ title: Deleting auto deploy overrides
 ---
 
 
-[Octo.exe](http://docs.octopusdeploy.com/pages/viewpage.action?pageId=360596) can be used to delete automatic deployment release overrides.
+[Octo.exe](http://docs.octopusdeploy.com/pages/viewpage.action?pageId=360596)Â can be used to delete automatic deployment release overrides.
 
 ```text
 octo delete-autodeployoverride [<options>]
 ```
 
 
-Where `[&lt;options&gt;]` is any of:
+WhereÂ `[&lt;options&gt;]`Â is any of:
 
 **delete-autodeployoverride options**
 
 ```text
- Delete auto deploy release override: 
+Â Delete auto deploy release override: 
       --project=VALUE        Name of the project
       --environment=VALUE    Name of an environment the override will apply 
                              to. Specify this argument multiple times to add 
@@ -54,7 +54,7 @@ Common options:
 ### Basic example
 
 
-The following will delete an automatic deployment release override for the project *HelloWorld* to the environment *Development*:
+The following will delete an automatic deployment release override for the projectÂ *HelloWorld*Â to the environmentÂ *Development*:
 
 ```text
 Octo delete-autodeployoverride --project HelloWorld --environment Development --server http://octopus/ --apikey API-ABCDEF123456
@@ -63,7 +63,7 @@ Octo delete-autodeployoverride --project HelloWorld --environment Development --
 ### Tenanted example (by name)
 
 
-The following will delete an automatic deployment release override for the project *HelloWorld* to the environment *Development* for the tenant *Acme*:
+The following will delete an automatic deployment release override for the projectÂ *HelloWorld*Â to the environmentÂ *Development*Â for the tenantÂ *Acme*:
 
 ```text
 Octo delete-autodeployoverride --project HelloWorld --environment Development --tenant Acme --server http://octopus/ --apikey API-ABCDEF123456
@@ -72,7 +72,7 @@ Octo delete-autodeployoverride --project HelloWorld --environment Development --
 ### Tenanted example (by tags)
 
 
-The following will delete an automatic deployment release override for the project *HelloWorld* to the environment *Development* for all tenants with the *Hosting/Cloud* tag:
+The following will delete an automatic deployment release override for the projectÂ *HelloWorld*Â to the environmentÂ *Development*Â for all tenants with theÂ *Hosting/Cloud*Â tag:
 
 ```text
 Octo delete-autodeployoverride --project HelloWorld --environment Development --tenanttag Hosting/Cloud --server http://octopus/ --apikey API-ABCDEF123456

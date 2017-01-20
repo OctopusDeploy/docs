@@ -4,7 +4,7 @@ position: 14
 ---
 
 
-If you are running an Octopus upgrade, applying Windows updates to your server, or you want to halt deployments for a time period, you may want to turn on Maintenance Mode. It disables all users, other than Octopus administrators, to edit projects and initiate deployments. It is managed from the **Configuration** area in Octopus, under the **Maintenance** tab.
+If you are running an Octopus upgrade, applying Windows updates to your server, or you want to halt deployments for a time period, you may want to turn on Maintenance Mode. ItÂ disables all users, other than Octopus administrators, to edit projects and initiate deployments. ItÂ is managed from theÂ **Configuration**Â area in Octopus, under theÂ **Maintenance**Â tab.
 
 
 ![](/docs/images/5669968/5865693.png)
@@ -19,4 +19,4 @@ Once it is turned on, you will be notified of the status within the banner, and 
 ![](/docs/images/5669968/5865695.png)
 
 
-Please note that if you manage High Availability nodes, and turn on Maintenance Mode for one node, all nodes will also turn on Maintenance Mode. [Read more about High Availability Nodes](http://docs.octopus.com/display/OD/Managing+High+Availability+Nodes)
+Please note that if you manage High Availability nodes, and turn on Maintenance Mode for one node, all nodes will also turn on Maintenance Mode.Â [Read more about High Availability Nodes](http://docs.octopus.com/display/OD/Managing+High+Availability+Nodes)

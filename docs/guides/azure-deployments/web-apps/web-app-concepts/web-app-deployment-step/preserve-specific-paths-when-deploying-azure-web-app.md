@@ -10,7 +10,7 @@ When configuring the[ Deploy an Azure Web App](/docs/home/guides/azure-deploymen
 The value should be set to a list of regexes, delimeted by `;` that will be used to select directories and files to preserve.
 
 
-For example, to preserve any paths beginning with `\Component` you could use:
+For example, to preserve any paths beginning withÂ `\Component` you could use:
 
 ```powershell
 \\Component.*(\\.*|$)

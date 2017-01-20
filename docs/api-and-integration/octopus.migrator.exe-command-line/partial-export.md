@@ -22,7 +22,7 @@ Octopus.Migrator partial-export [<options>]
 ```
 
 
-Where `[&lt;options&gt;]` is any of:
+WhereÂ `[&lt;options&gt;]`Â is any of:
 
 **Create release options**
 
@@ -51,7 +51,7 @@ Common Options:
 ### Basic examples
 
 
-This will export the project files from *AcmeWebStore*and then spider back through the relevant linked documents in the database and back up *only those that are required in some way* to reproduce that project in its entireity.
+This will export the project files fromÂ *AcmeWebStore*and then spider back through the relevant linked documents in the database and back upÂ *only those that are required in some way* to reproduce that project in its entireity.
 
 ```text
 Octopus.Migrator.exe partial-export --instance=MyOctopusInstanceName --project=AcmeWebStore --password=5uper5ecret --directory=C:\Temp\AcmeWebStore

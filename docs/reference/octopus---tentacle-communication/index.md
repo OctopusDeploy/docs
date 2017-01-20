@@ -15,7 +15,7 @@ Some deployment technologies are designed for the LAN and have no security at al
 When designing Octopus, we wanted to make it easy to have secure deployments out of the box, without expecting machines to be on the same domain and without sharing passwords. Octopus needed to work in scenarios where the Octopus Deploy server is running in your local LAN, close to your developers, while your production servers are running in the cloud or at a remote data center.
 
 
-We achieve this security using [public-key cryptography](http://en.wikipedia.org/wiki/Public-key_cryptography "Wikipedia article on Public-key cryptography").
+We achieve this security usingÂ [public-key cryptography](http://en.wikipedia.org/wiki/Public-key_cryptography "Wikipedia article on Public-key cryptography").
 
 ## Octopus/Tentacle trust relationship
 
@@ -23,14 +23,14 @@ We achieve this security using [public-key cryptography](http://en.wikipedia.org
 Regardless of whether Tentacle is in [listening mode](/docs/home/installation/installing-tentacles/listening-tentacles.md) or [polling mode](/docs/home/installation/installing-tentacles/polling-tentacles.md), all communication between the Tentacle and Octopus is performed over HTTPS. Octopus and Tentacle both have a public/private key pair that they use to establish the HTTPS connection and verify the identity of the other party.
 
 
-When Tentacle is configured, you give it the thumbprint (which uniquely identifies the public key) of the Octopus server. Likewise, you tell Octopus the thumbprint of the Tentacle. This establishes a trust relationship between the two machines:
+When Tentacle is configured, you give it the thumbprint (which uniquely identifies the public key) of the Octopus server. Likewise, you tell Octopus the thumbprint of the Tentacle.Â This establishes a trust relationship between the two machines:
 
 1. Your Octopus server will only issue commands to the Tentacles that it trusts
 2. Your Tentacles only accept commands from an Octopus they trust
 
 
 
-The only way another system can impersonate either party is by getting hold of the private key, which are kept safe and never leave the Octopus/Tentacle server (unless you export them from the certificate store). This makes it much more secure than exchanging passwords.  Since this is all based on public-key cryptography, it creates a highly secure way for the two machines to communicate without exchanging passwords, and works much like an SSH connection in the UNIX world.
+The only way another system can impersonate either party is by getting hold of the private key, which are kept safe and never leave the Octopus/Tentacle server (unless you export them from the certificate store). This makes it much more secure than exchanging passwords. Â Since this is all based on public-key cryptography, it creates a highly secure way for the two machines to communicate without exchanging passwords, and works much like an SSH connection in the UNIX world.
 
 :::hint
 If necessary you can further restrict access using IPSec or VPNs.
@@ -79,10 +79,10 @@ TLS 1.2 requires .NET 4.5 which was introduced as a requirement in Octopus 3.1. 
 ## Troubleshooting Tentacle communication problems
 
 
-We have built comprehensive troubleshooting guides for both [Listening Tentacles](/docs/home/how-to/troubleshoot-listening-tentacles.md) and [Polling Tentacles](/docs/home/how-to/troubleshoot-polling-tentacles.md).
+We have built comprehensive troubleshooting guides for bothÂ [Listening Tentacles](/docs/home/how-to/troubleshoot-listening-tentacles.md) andÂ [Polling Tentacles](/docs/home/how-to/troubleshoot-polling-tentacles.md).
 
 
-If you are seeing error messages like below, try [Troubleshooting Schannel and TLS](/docs/home/reference/octopus---tentacle-communication/troubleshooting-schannel-and-tls.md):
+If you are seeing error messages like below, tryÂ [Troubleshooting Schannel and TLS](/docs/home/reference/octopus---tentacle-communication/troubleshooting-schannel-and-tls.md):
 
 
 Client-side:`System.Security.Authentication.AuthenticationException: A call to SSPI failed, see inner exception. ---&gt; System.ComponentModel.Win32Exception: One or more of the parameters passed to the function was invalid`

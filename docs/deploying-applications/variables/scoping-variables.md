@@ -29,7 +29,7 @@ For example, suppose these variables exist:
 | DBConnectionString | Server=SQL-PROD;Database=... | Production |
 
 
-During deployment, Octopus will try to select the most specifically scoped variable that applies. For example, when deploying to Production, the *LogLevel*property would be *Warn*. But to any other environment, it would fall back to the less-specific variable and have a value of *Info*instead.
+During deployment, Octopus will try to select the most specifically scoped variable that applies. For example, when deploying to Production, theÂ *LogLevel*property would beÂ *Warn*. But to any other environment, it would fall back to the less-specific variable and have a value ofÂ *Info*instead.
 
 ## Assigning scopes
 
@@ -51,7 +51,7 @@ Since variables can be scoped in many different ways, there needs to be a predic
 - The current machine
 - Roles applied to the current machine and targeted by the current step
 - Roles applied to the current machine
-- The target tenant (if tenant-features are enabled)
+- The target tenantÂ (if tenant-features are enabled)
 - The target tenant-tag (if tenant-features are enabled)
 - The target environment
 - The target channel (if channels are enabled)
@@ -59,13 +59,13 @@ Since variables can be scoped in many different ways, there needs to be a predic
 
 
 
-For example, imagine a `LogLevel` variable with a value scoped to an environment is considered by Octopus to be "less specific" than a value scoped to a machine role. So when two possible values for a variable exist, Octopus will choose the "more specific" scope value over the less specific one.
+For example, imagine aÂ `LogLevel`Â variable with a value scoped to anÂ environment is considered by Octopus to be "less specific" than a value scoped to a machine role. So when two possible values for a variable exist, Octopus will choose the "more specific" scope value over the less specific one.
 
 
 Variable scoping also works like CSS rules; a value scoped twice is more specific than a value scoped once. For example, a variable scoped to an environment and a role is more specific than a variable scoped to just a role.
 
 
-If two variables are scoped equally, Octopus will choose project-defined variables ahead of library-defined ones. If this still does not resolve the conflict the result is non-deterministic and you should not depend on a specific value being used. Instead, you should take care when scoping variables so that they are unlikely to conflict.
+If two variables are scoped equally, Octopus will choose project-defined variables ahead of library-defined ones. If this still does not resolve the conflictÂ the result is non-deterministic and you should not depend on a specific value being used. Instead, you should take care when scoping variables so that they are unlikely to conflict.
 
 
 Scope specificity can quickly become very complicated. Read our blog post for a [better understanding of why scope specificity works the way it does](http://octopusdeploy.com/blog/variable-specificity-and-complexity).

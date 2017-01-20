@@ -11,13 +11,13 @@ Octopus Deploy stores projects, environments, and deployment history and logs in
 
 Octopus works with most recent versions and editions of SQL Server, from a local SQL Server Express instance, all the way to an Enterprise Edition cluster. Azure SQL databases are also supported. The following requirements apply to the SQL Server database used by Octopus:
 
-- Supported versions: 
+- Supported versions:Â 
  - SQL Server 2008
  - SQL Server 2008 R2
  - SQL Server 2012
  - SQL Server 2014
  - SQL Server 2016
-- Supported editions: 
+- Supported editions:Â 
  - Express (free)
  - Web
  - Datacenter
@@ -33,7 +33,7 @@ You can point Octopus to an existing database on the local machine or any remote
 
 If you create the database, it must:
 
-- The user installing Octopus (if using Windows authentication) or the user specified in the connection string must be a **db\_owner**
+- The user installing Octopus (if using Windows authentication) or the user specified in the connection string must be aÂ **db\_owner**
 - The account that the Octopus Deploy windows server process runs under (by default, the Local System account) must also have access to the database as a **db\_owner**.
 - The default schema must be **dbo**
 - The database must not be shared with any other application
@@ -49,7 +49,7 @@ See [here](/docs/home/administration/octopus-database/changing-the-collation-of-
 
 
 
-If you don't yet have a database created specifically for Octopus' use, then you can allow the Setup Wizard to create one for you. While setting up your Octopus Server instance, select the correct server on the Database step and enter the name that you would like to call this database. Remember it must not be the name of a database that already exists on the selected SQL Server or the setup process will install into that pre-existing one. When you click the `Next` button, the installer will check for the existence of the database and if it needs to be created, provide a confirmation dialog. It will then be created with the appropriate permissions and configuration as defined above.
+If you don't yet have a database created specifically for Octopus' use, then you can allow the Setup Wizard to create one for you.Â While setting up your Octopus Server instance, select the correct server on the Database step and enter the name that you would like to call this database. Remember it must not be the name of a database that already exists on the selected SQL Server or the setup process will install into that pre-existing one. When you click the `Next` button, the installer will check for the existence of the database and if it needs to be created, provide a confirmation dialog. It will then be created with the appropriate permissions and configuration as defined above.
 
 
 ![](/docs/images/3048120/3278498.png)

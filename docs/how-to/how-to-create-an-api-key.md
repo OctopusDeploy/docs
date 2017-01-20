@@ -13,9 +13,9 @@ You can create API keys by performing the following steps:
 
 1. From the Octopus Deploy web portal, sign in, and view your profile:
 ![](/docs/images/3048149/3278114.png)
-2. Go to the API keys tab. This lists any previous API keys that you have created. 
+2. Go to the API keys tab. This lists any previous API keys that you have created.Â 
 ![](/docs/images/3048149/3278113.png)
-3. Click on **New API key**, and give the API key a name that you can use to remember what the key was for. 
+3. Click on **New API key**, and give the API key a name that you can use to remember what the key was for.Â 
 ![](/docs/images/3048149/3278112.png)
 4. Click **Generate new**, and copy the new API key to your clipboard:
 ![](/docs/images/3048149/3278111.png)

@@ -21,7 +21,7 @@ You can manage teams from the **Teams** tab under **Configuration** in the Octop
 **User accounts** are allowed to use both the Octopus web portal and the Octopus API, and can authenticate with a username and password, or [Active Directory credentials](/docs/home/administration/authentication-providers/active-directory-authentication.md), or an [Octopus API key](/docs/home/how-to/how-to-create-an-api-key.md).
 
 
-[Service accounts](/docs/home/administration/managing-users-and-teams/service-accounts.md) are **API-only accounts** that should be used for automated services that integrate with Octopus Deploy, and can only authenticate with an [Octopus API key](/docs/home/how-to/how-to-create-an-api-key.md). For more information refer to our page dedicated to [Service accounts](/docs/home/administration/managing-users-and-teams/service-accounts.md).
+[Service accounts](/docs/home/administration/managing-users-and-teams/service-accounts.md) are **API-only accounts** that should be used for automated services that integrate with Octopus Deploy, and can only authenticate with an [Octopus API key](/docs/home/how-to/how-to-create-an-api-key.md). For more information refer to our page dedicated toÂ [Service accounts](/docs/home/administration/managing-users-and-teams/service-accounts.md).
 
 :::success
 You should create a different User account for each person that will use Octopus Deploy. You should create a different [Service account](/docs/home/administration/managing-users-and-teams/service-accounts.md) for each service that will integrate with Octopus Deploy.
@@ -50,7 +50,7 @@ Team members can be granted many different roles:
 Project viewers have read-only access to a project. They can see the project in their dashboard, view releases and deployments.
 - **Project contributor**:
 Project viewer, plus: editing and viewing variables and deployment steps.
-- **Project lead**: 
+- **Project lead**:Â 
 Project contributor, plus: create releases (but not deploy them).
 - **Project deployer**: 
 Project contributor, plus: deploying releases (but not creating releases).
@@ -73,7 +73,7 @@ You can learn more about in our [User Roles documentation](/docs/home/administra
 ## System teams
 
 
-Octopus Deploy comes with two built-in teams. The **Everyone** team always contains all users, but you can assign different roles to members of this Team (for example, you might allow everyone to view all projects and environments, but not edit anything). Out of the box, **Everyone** members can do nothing.
+Octopus Deploy comes with two built-in teams. TheÂ **Everyone**Â team always contains all users, but you can assign different roles to members of this Team (for example, you might allow everyone to view all projects and environments, but not edit anything).Â Out of the box,Â **Everyone**Â members can do nothing.
 
 
-The second team is **Octopus Administrators.** Members of this team always have permission to do anything in Octopus. You can add or remove members from this team.
+The second team is **Octopus Administrators.**Â Members of this team always have permission to do anything in Octopus. You can add or remove members from this team.

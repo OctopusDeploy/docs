@@ -7,7 +7,7 @@ position: 12
 Occasionally it may be necessary to change the location at which Tentacle stores its configuration and data, called the **Tentacle Home Directory**. By default your applications will be deployed into a folder under the Tentacle Home Directory, but you can configure this to be at a different location. This page will explain what each of the folders used by Tentacle are, how you can change the Tentacle configuration, and how you can clean up after upgrading from an earlier version of Tentacle.
 
 :::problem
-Make sure you have a **current backup** of your Tentacle Home Directory before proceeding.
+Make sure you have aÂ **current backup**Â of your Tentacle Home Directory before proceeding.
 :::
 
 
@@ -50,7 +50,7 @@ Where`[&lt;options&gt;]`is any of:
       --remove-trust=VALUE   The thumbprint of the Octopus Server to remove
                                from the trusted list
       --reset-trust          Removes all trusted Octopus servers
- 
+Â 
 Or one of the common options:
 
       --console              Don't attempt to run as a service, even if the
@@ -62,7 +62,7 @@ Or one of the common options:
 ## File storage
 
 
-The Octopus server stores files in the following folders by default:
+The Octopus server stores files in the following foldersÂ by default:
 
 - `C:\Octopus\Tentacle\&lt;Instance&gt;`
  - This is the Tentacle Home Directory where `&lt;Instance&gt;` is an optional instance name in case you have multiple instances of Tentacle on the same computer.

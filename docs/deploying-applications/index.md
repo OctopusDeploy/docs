@@ -19,7 +19,7 @@ On this page:
 ## Deployment process
 
 
-Each project has a **deployment process**, which can be found on the **Process** tab of the project in the Octopus web portal. The deployment process is like a recipe. It defines the set of instructions that will be run repeatably each time the project is deployed. The deployment process can have one or more steps, and the steps can be ordered using the **Reorder steps** link.
+Each project has a **deployment process**, which can be found on the **Process** tab of the project in the Octopus web portal. The deployment process is like a recipe. It defines the set of instructions that will be run repeatably each time the project is deployed.Â The deployment process can have one or more steps, and the steps can be ordered using theÂ **Reorder steps**Â link.
 
 
 ![](/docs/images/3048075/3277619.png)
@@ -40,7 +40,7 @@ For more information, see the section on [simple and advanced deployment process
 ### Adding steps
 
 
-Steps can be added to the deployment process using the **Add step** button. There are many different types of steps supported by Octopus and we are adding more specific steps all the time. For more information, see the [add step](/docs/home/deploying-applications/adding-steps.md) section.
+Steps can be added to the deployment process using theÂ **Add step**Â button. There are many different types of steps supported by Octopus and we are adding more specific steps all the time.Â For more information, see theÂ [add step](/docs/home/deploying-applications/adding-steps.md)Â section.
 
 :::success
 If a step you want isn't built-in you should check out the community contributed [step templates](/docs/home/deploying-applications/step-templates.md). If you still don't find it, don't forget: *Octopus can do anything, as long as you can script the instructions*. Maybe you could contribute your scripts back to the community?
@@ -83,7 +83,7 @@ You can also specify whether a step runs only when previous steps are successful
 ![](/docs/images/3048075/3277616.png?effects=drop-shadow)
 
 :::success
-You can achieve very complex deployment processes in Octopus by leveraging advanced concepts like parallel execution of steps and rolling deployments. Learn more about [simple and complex deployment processes](/docs/home/key-concepts/projects/deployment-processes.md).
+You can achieve very complex deployment processes in Octopus by leveraging advanced concepts like parallel execution of steps and rolling deployments. Learn more aboutÂ [simple and complex deployment processes](/docs/home/key-concepts/projects/deployment-processes.md).
 :::
 
 ## In this section

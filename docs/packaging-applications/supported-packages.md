@@ -49,7 +49,7 @@ The expected package convention is therefore:
 
 
 
-So for example the package name for version *2.3* of you project *Sample.Web*, archived with tar & gzip should be named
+So for example the package name for version *2.3*Â of you projectÂ *Sample.Web*, archived with tar & gzip should be named
 
 
 > `Sample.Web.2.3.tar.gz`

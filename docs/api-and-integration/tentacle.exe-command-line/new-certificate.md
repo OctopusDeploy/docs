@@ -10,7 +10,7 @@ Creates and installs a new certificate for this Tentacle
 
 ```text
 Usage: Tentacle new-certificate [<options>]
- 
+Â 
 
 Where [<options>] is any of:
       --instance=VALUE       Name of the instance to use

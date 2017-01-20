@@ -53,7 +53,7 @@ This variable outputs the error/exit code for a failed deployment. [See here](/d
 The error/exit code for the deployment along with the Octopus stack trace. [See here](/docs/home/deploying-applications/variables/system-variables.md)
  |
 | --- | --- | --- |
-| Octopus.Deployment.ForcePackageDownload | *False* | If true, the package will be freshly downloaded from the feed/repository regardless of whether it is already present on the endpoint *(Boolean)* |
+| Octopus.Deployment.ForcePackageDownload | *False* | If true, the package will be freshly downloaded from the feed/repository regardless of whether it is already present on the endpointÂ *(Boolean)* |
 | --- | --- | --- |
 | Octopus.Deployment.Id | *deployments-123* | The ID of the deployment |
 | --- | --- | --- |
@@ -88,9 +88,9 @@ Comma delimited list of tags that belong the the Tenant being deployed for. If t
 | --- | --- | --- |
 | Octopus.Machine.Id | *machines-123* | The ID of the machine |
 | --- | --- | --- |
-| Octopus.Machine.Name | *WEBSVR01* | The name that was used to register the machine in Octopus. Not the same as *Hostname* |
+| Octopus.Machine.Name | *WEBSVR01* | The name that was used to register the machine in Octopus. Not the same asÂ *Hostname* |
 | --- | --- | --- |
-| Octopus.Machine.Roles | *web-server,frontend* | The roles applied to the machine *(List)* |
+| Octopus.Machine.Roles | *web-server,frontend* | The roles applied to the machineÂ *(List)* |
 | --- | --- | --- |
 | Octopus.Machine.Hostname | 
 
@@ -181,7 +181,7 @@ The version number of the release the last successful deployment to the current 
 ### Action
 
 
-Action-level variables are available during execution of an action. Indexer notion such as `Octopus.Action[Website].TargetRoles` can be used to refer to values for different actions.
+Action-level variables are available during execution of an action. Indexer notion such asÂ `Octopus.Action[Website].TargetRoles`Â can be used to refer to values for different actions.
 
 | Name | Example | Description |
 | --- | --- | --- |
@@ -190,21 +190,21 @@ Action-level variables are available during execution of an action. Indexer noti
 Octopus.Action.Id
  | *85287bef-fe6c-4eb7-beef-74f5e5a6b5b0* | The ID of the action |
 | --- | --- | --- |
-| Octopus.Action.IsSkipped | *True* | Whether or not the action has been skipped in the current deployment *(Boolean)* |
+| Octopus.Action.IsSkipped | *True* | Whether or not the action has been skipped in the current deploymentÂ *(Boolean)* |
 | --- | --- | --- |
 | Octopus.Action.Manual.Instructions | *Don't break anything :)* | The instructions provided for a manual step |
 | --- | --- | --- |
 | Octopus.Action.Manual.ResponsibleTeamIds | *teams-123,teams-124* | The teams responsible for completing a manual step*(List)* |
 | --- | --- | --- |
-| Octopus.Action.MaxParallelism | *5* | The maximum number of machines on which the action will concurrently execute *(Number)* |
+| Octopus.Action.MaxParallelism | *5* | The maximum number of machines on which the action will concurrently executeÂ *(Number)* |
 | --- | --- | --- |
 | Octopus.Action.Name | *Website* | The name of the action |
 | --- | --- | --- |
-| Octopus.Action.Number | *5* | The sequence number of the action in the deployment process *(Number)* |
+| Octopus.Action.Number | *5* | The sequence number of the action in the deployment processÂ *(Number)* |
 | --- | --- | --- |
 | Octopus.Action.Package.CustomInstallationDirectory | *C:\InetPub\WWWRoot\OctoFx* | If set, a specific directory to which the package will be copied after extraction |
 | --- | --- | --- |
-| Octopus.Action.Package.CustomInstallationDirectoryShouldBePurgedBeforeDeployment | *False* | If true, the all files in the `Octopus.Action.Package.CustomInstallationDirectory` will be deleted before deployment *(Boolean)* |
+| Octopus.Action.Package.CustomInstallationDirectoryShouldBePurgedBeforeDeployment | *False* | If true, the all files in the `Octopus.Action.Package.CustomInstallationDirectory` will be deleted before deploymentÂ *(Boolean)* |
 | --- | --- | --- |
 | Octopus.Action.Package.DownloadOnTentacle | *False* | If true, the package will be downloaded by the Tentacle, rather than pushed by the Octopus server*(Boolean)* |
 | --- | --- | --- |
@@ -218,7 +218,7 @@ Octopus.Action.Id
 | --- | --- | --- |
 | Octopus.Action.Package.NuGetPackageVersion | *1.2.3* | The version of the NuGet package being deployed |
 | --- | --- | --- |
-| Octopus.Action.Package.SkipIfAlreadyInstalled | *False* | If true, and the version of the package being deployed is already present on the machine, its re-deployment will be skipped (use with caution) *(Boolean)* |
+| Octopus.Action.Package.SkipIfAlreadyInstalled | *False* | If true, and the version of the package being deployed is already present on the machine, its re-deployment will be skipped (use with caution)Â *(Boolean)* |
 | --- | --- | --- |
 | Octopus.Action.Package.Ssh.ApplicationsDirectoryPath | */home/user/.tentacle/apps/* | The applications directory used for deployment on the target machine |
 | --- | --- | --- |
@@ -234,13 +234,13 @@ Octopus.Action.Id
 | --- | --- | --- |
 | Octopus.Action.Script.Syntax | *PowerShell* | The syntax of the script being run in a script step |
 | --- | --- | --- |
-| Octopus.Action.SkipRemainingConventions | *True* | If set by the user, completes processing of the action without runnning further conventions/scripts *(Boolean)* |
+| Octopus.Action.SkipRemainingConventions | *True* | If set by the user, completes processing of the action without runnning further conventions/scriptsÂ *(Boolean)* |
 | --- | --- | --- |
-| Octopus.Action.TargetRoles | *web-server,frontend* | Machine roles targeted by the action *(List)* |
+| Octopus.Action.TargetRoles | *web-server,frontend* | Machine roles targeted by the actionÂ *(List)* |
 | --- | --- | --- |
 | Octopus.Action.Template.Id | *actiontemplates-123* | If the action is based on a step template, the ID of the template |
 | --- | --- | --- |
-| Octopus.Action.Template.Version | *123* | If the action is based on a step template, the version of the template in use *(Number)* |
+| Octopus.Action.Template.Version | *123* | If the action is based on a step template, the version of the template in useÂ *(Number)* |
 | --- | --- | --- |
 | Octopus.Action.Status.Error | *The server could not be contacted* | If the action failed because of an error, a description of the error |
 | --- | --- | --- |
@@ -307,7 +307,7 @@ Octopus.Action.Id
 ### Output
 
 
-Output variables are collected during execution of a step and made available to subsequent steps using notation such as `Octopus.Action[Website].Output[WEBSVR01].Package.InstallationDirectoryPath`to refer to values base on the action and machine that produced them. See also [Output variables](/docs/home/deploying-applications/variables/output-variables.md).
+Output variables are collected during execution of a step and made available to subsequent steps using notation such asÂ `Octopus.Action[Website].Output[WEBSVR01].Package.InstallationDirectoryPath`to refer to values base on the action and machine that produced them. See alsoÂ [Output variables](/docs/home/deploying-applications/variables/output-variables.md).
 
 | Name | Example | Description |
 | --- | --- | --- |
@@ -329,7 +329,7 @@ Output variables are collected during execution of a step and made available to 
 ### Step
 
 
-Step-level variables are available during execution of a step. Indexer notion such as `Octopus.Step[Website].Number` can be used to refer to values for different steps.
+Step-level variables are available during execution of a step. Indexer notion such asÂ `Octopus.Step[Website].Number`Â can be used to refer to values for different steps.
 
 | Name | Example | Description |
 | --- | --- | --- |

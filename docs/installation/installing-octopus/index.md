@@ -7,7 +7,7 @@ position: 0
 The Octopus Deploy Server is software that you download and install on one of your own servers, just like you would install Microsoft SQL Server. The Octopus Deploy Server:
 
 - runs as a Windows Service
-- stores its data in a [SQL Server database](/docs/home/administration/octopus-database.md)
+- stores its data in aÂ [SQL Server database](/docs/home/administration/octopus-database.md)
 - has an embedded HTTP server which presents the main Octopus user interface (the **Octopus Web Portal**)
 
 
@@ -25,7 +25,7 @@ On this page:
 
 Your Octopus Deploy server requires:
 
-- Windows Server 2008 SP2+, 2008 R2, 2012, 2012 R2 or 2016 ("Server with a GUI" install, not Server Core)
+- Windows Server 2008 SP2+,Â 2008 R2,Â 2012, 2012 R2 or 2016 ("Server with a GUI" install, not Server Core)
 - .NET Framework 4.5+ ([download](https://www.microsoft.com/en-au/download/details.aspx?id=30653))
  - .NET Framework 4.5.1+ for Octopus Server 3.4.0 and later
 - SQL Server installed locally or on another server, or Microsoft Azure SQL Database ([more details](/docs/home/installation/installing-octopus/sql-server-database-requirements.md))
@@ -46,7 +46,7 @@ Alternatively you can download the latest stable builds directly for one of our 
 :::
 
 
-This three minute video  will walk you through the installation process:
+This three minute video Â will walk you through the installation process:
 
 
 
@@ -69,7 +69,7 @@ Learn about [using Managed Service Accounts](https://technet.microsoft.com/en-us
 ## Troubleshooting
 
 
-In a few cases a bug in a 3rd party component causes the installer displays a "Installation directory must be on a local hard drive" error. If this occurs, running the install again from an elevated command prompt using the following command (replacing Octopus.3.3.4-x64.msi with the name of the installer you are using)
+In a few cases a bug in a 3rd party component causes the installer displays a "Installation directory must be on a local hard drive" error. If this occurs, running the install again from an elevated command prompt using the following commandÂ (replacing Octopus.3.3.4-x64.msi with the name of the installer you are using)
 
 
 `msiexec /i Octopus.3.3.4-x64.msi WIXUI_DONTVALIDATEPATH=&quot;1&quot;`

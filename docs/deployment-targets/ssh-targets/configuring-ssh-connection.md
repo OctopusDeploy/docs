@@ -18,7 +18,7 @@ Don't worry too much about which environment you do this through as you will be 
 ### Discovery
 
 
-Select SSH Connection from the list of available targets. Notice that you then are prompted to enter the host name and port (defaulted to SSH standard 22) for discovery. This allows you to let Octopus attempt to perform the required protocol handshakes and obtain the remote endpoint's public key fingerprint automatically rather than have you enter it manually. This fingerprint is stored and verified by the server on all subsequent connections. If the endpoint is not yet available continue by entering the details manually.
+Select SSH ConnectionÂ from the list of available targets. Notice that you then are prompted to enter the host name and port (defaulted to SSH standard 22) for discovery. This allows you to let Octopus attempt to perform the required protocol handshakes and obtain the remote endpoint's public key fingerprint automatically rather than have you enter it manually. This fingerprint is stored and verified by the server on all subsequent connections. If the endpoint is not yet available continue by entering the details manually.
 
 
 ![](/docs/images/3048064/3277605.png)
@@ -49,7 +49,7 @@ Remember to ensure that your target machine is accessible over the selected SSH 
 :::
 
 
-When you complete the machine details and hit `Save`, Octopus will perform an initial health check. These health checks are done periodically or on demand and ensure that the endpoint is reachable and is appropriately configured, ready for performing a deployment task.
+When you complete the machine details and hitÂ `Save`, Octopus will perform an initial health check. These health checks are done periodically or on demand and ensure that the endpoint is reachable and is appropriately configured, ready for performing a deployment task.
 
 
 In the case of SSH endpoints this involves checking for the presence of Mono and Calamari, as well as providing details about available space and the user account used for connectivity. As SSH endpoints do not involve any actual Tentacle, the running version that is displayed will always indicate the version of the Octopus Server instance itself.

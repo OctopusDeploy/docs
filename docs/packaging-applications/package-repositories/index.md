@@ -31,10 +31,10 @@ On this page:
 Your package repository will typically be:
 
 - The Octopus server's built-in repository
-- A [remote feed](http://docs.nuget.org/docs/creating-packages/hosting-your-own-nuget-feeds#Creating_Remote_Feeds "Remote NuGet feeds") exposed over HTTP
-- A [local feed](http://docs.nuget.org/docs/creating-packages/hosting-your-own-nuget-feeds#Creating_Local_Feeds "Local NuGet package repositories") exposed as a File Share or local directory
-- A [JetBrains TeamCity](http://blogs.jetbrains.com/dotnet/2011/08/native-nuget-support-in-teamcity/ "JetBrains TeamCity") server (version 7 and above)
-- A [MyGet](http://www.myget.org/ "MyGet") server
+- AÂ [remote feed](http://docs.nuget.org/docs/creating-packages/hosting-your-own-nuget-feeds#Creating_Remote_Feeds "Remote NuGet feeds")Â exposed over HTTP
+- AÂ [local feed](http://docs.nuget.org/docs/creating-packages/hosting-your-own-nuget-feeds#Creating_Local_Feeds "Local NuGet package repositories")Â exposed as a File Share or local directory
+- AÂ [JetBrains TeamCity](http://blogs.jetbrains.com/dotnet/2011/08/native-nuget-support-in-teamcity/ "JetBrains TeamCity")Â server (version 7 and above)
+- AÂ [MyGet](http://www.myget.org/ "MyGet")Â server
 - A [VSTS Package Management](https://www.visualstudio.com/en-us/docs/package/overview) feed (see note below)
 
 
@@ -70,7 +70,7 @@ The Octopus built-in repository is generally the best choice for deployment pack
 
 Our recommendation is to use different repositories for different purposes, and each repository provides different benefits. A typical example is where you produce your own application library packages in addition to your own deployment packages:
 
-- For application library packages consider using the repository provided by your build server, a [file-share](http://docs.nuget.org/docs/creating-packages/hosting-your-own-nuget-feeds#Creating_Local_Feeds), or something like [MyGet](http://www.myget.org/ "MyGet") or [VSTS Package Management](https://www.visualstudio.com/en-us/docs/package/overview).
+- For application library packages consider using the repository provided by your build server, a [file-share](http://docs.nuget.org/docs/creating-packages/hosting-your-own-nuget-feeds#Creating_Local_Feeds), or something like [MyGet](http://www.myget.org/ "MyGet")Â orÂ [VSTS Package Management](https://www.visualstudio.com/en-us/docs/package/overview).
 - For deployment packages consider using the Octopus built-in repository (see below).
 
 
@@ -90,19 +90,19 @@ It is important to understand that the Octopus server provides a write-only repo
 ### Pushing packages to the built-in repository
 
 
-We offer several ways to add packages to the built-in repository, so many that we built a new page: [pushing packages to the built-in repository](/docs/home/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md). Alternatively you can go to *Library > Packages* which describes some of the most convenient ways to push packages to the built-in repository.
+We offer several ways to add packages to the built-in repository, so many that we built a new page:Â [pushing packages to the built-in repository](/docs/home/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md). Alternatively you can go toÂ *Library > Packages*Â which describes some of the most convenient ways to push packages to the built-in repository.
 
 
 ![](/docs/images/3048094/3277775.png)
 
 :::success
-To push packages to the built-in repository you will need an [Octopus API key](/docs/home/how-to/how-to-create-an-api-key.md).
+To push packages to the built-in repository you will need anÂ [Octopus API key](/docs/home/how-to/how-to-create-an-api-key.md).
 :::
 
 ### Security considerations
 
 
-To add a new package to the built-in feed requires the `BuiltInFeedPush` permission. To delete a package, or replace an existing package requires the `BuiltInFeedAdminister` permission.
+To add a new package to the built-in feed requires the `BuiltInFeedPush` permission.Â To delete a package, or replace an existing package requires the `BuiltInFeedAdminister` permission.
 
 
 For your convenience Octopus Deploy provides a built-in role called **Package Publisher** that has been granted the `BuiltInFeedPush` permission.
@@ -128,7 +128,7 @@ In 3.0 you can now configure the directory that these packages are kept in. You 
 ```powershell
 Octopus.Server.exe path --nugetRepository=your new location
 ```
-3. Move your files from the old path (default is:  C:\Octopus\Packages) to your new location
+3. Move your files from the old path (default is: Â C:\Octopus\Packages) to your new location
 4. Restart the Octopus Server service
 
 
@@ -153,7 +153,7 @@ Earlier releases of Octopus Deploy only support external NuGet v2 feeds:
 :::
 
 
-If you're using an external NuGet feed, you can register it with Octopus and use them as part of your deployments. Go to *Library > External feeds*.
+If you're using an external NuGet feed,Â you can register it with Octopus and use them as part of your deployments. Go to *Library > External feeds*.
 
 
 ![](/docs/images/3048094/3277774.png)
@@ -176,7 +176,7 @@ On the test page, you can check whether the feed is working by searching for pac
 ## NuGet.Server performance
 
 
-A popular external NuGet hosting option is **NuGet.Server.**However, be aware that it suffers from performance problems when dealing with large packages or large numbers of smaller packages. Users may report high CPU usage, timeouts when displaying package details, or memory issues. A great alternative that we recommend is [NuGet.Lucene](https://github.com/themotleyfool/NuGet.Lucene).
+A popular external NuGet hosting option isÂ **NuGet.Server.**However, be aware that it suffers from performance problems when dealing with large packages or large numbers of smaller packages. Users may report high CPU usage, timeouts when displaying package details, or memory issues. A great alternative that we recommend is [NuGet.Lucene](https://github.com/themotleyfool/NuGet.Lucene).
 
 
 The built-in NuGet server in Octopus stores metadata in SQL Server, and doesn't suffer from these performance issues.

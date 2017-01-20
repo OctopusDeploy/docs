@@ -29,13 +29,13 @@ To perform an in-place upgrade, follow these steps carefully:
 There is a current issue where it is not importing your license key. Please back this up first from Configuration -> License
 :::
 
-### 1. Back up your Octopus 2.6 database and master key
+### 1.Â Back up your Octopus 2.6 database and master key
 
 
-See the [Backup and restore](http://docs.octopusdeploy.com/display/OD2/Backup+and+restore)[ page for instructions on backing up your database.](http://docs.octopusdeploy.com/display/OD2/Backup+and+restore)
+See theÂ [Backup and restore](http://docs.octopusdeploy.com/display/OD2/Backup+and+restore)[Â page for instructions on backing up your database.](http://docs.octopusdeploy.com/display/OD2/Backup+and+restore)
 
 
-See the [Security and encryption](http://docs.octopusdeploy.com/display/OD2/Security+and+encryption) page for instructions on backing up your master key.
+See theÂ [Security and encryption](http://docs.octopusdeploy.com/display/OD2/Security+and+encryption)Â page for instructions on backing up your master key.
 
 ### 2. Use Hydra to automatically upgrade your Tentacles
 
@@ -49,7 +49,7 @@ Hydra is a tool we've built that will help you update your Tentacles to the late
 
 The task itself does the following:
 1. Find Tentacle services
-2. Stop all Tentacles (if they're running)
+2. Stop all Tentacles (if theyâ€™re running)
 3. Run MSI
 4. Update configs for any polling Tentacles
 5. Starts any Tentacles that were running when we started
@@ -68,7 +68,7 @@ Hydra performs a Reinstall of each Tentacle. As part of the reinstall, the Servi
 You can do this manually, or using the following script:
 
 ```powershell
-Tentacle.exe service --instance "Tentacle" --reconfigure --username=DOMAIN\ACCOUNT --password=accountpassword --start --console
+Tentacle.exe service --instanceÂ "Tentacle"Â --reconfigureÂ --username=DOMAIN\ACCOUNT --password=accountpassword --start --console
 ```
 :::
 
@@ -82,19 +82,19 @@ To use Hydra, follow these steps:
 ](https://s3-eu-west-1.amazonaws.com/octopus-downloads/hydra/OctopusDeploy.Hydra.3.0.10.268.nupkg)
 2. Use the Upload Package feature of the library to upload the OctopusDeploy.Hydra package to the built-in NuGet repository on your Octopus 2.6 server.
 ![](/docs/images/3048135/3278019.png)
-3. Import the [Hydra script template](http://library.octopusdeploy.com/#!/step-template/actiontemplate-hydra-update-octopus-tentacle) from the Community Library.
+3. Import theÂ [Hydra script template](http://library.octopusdeploy.com/#!/step-template/actiontemplate-hydra-update-octopus-tentacle)Â from the Community Library.
 ![](/docs/images/3048135/3278018.png)
-4. Create a [new project](/docs/home/key-concepts/projects.md) with a single "Update Octopus Tentacle" step from the step template
+4. Create aÂ [new project](/docs/home/key-concepts/projects.md)Â with a single "Update Octopus Tentacle" step from the step template
 
 
- 1. Ensure you choose or create a [Lifecycle ](/docs/home/key-concepts/lifecycles.md)that allows you to deploy to all Tentacles.
+ 1. Ensure you choose or create aÂ [LifecycleÂ ](/docs/home/key-concepts/lifecycles.md)that allows you to deploy to all Tentacles.
  2. Ensure you set the Update Octopus Tentacle step to run for all appropriate Tentacles.
- 3. If you are using any polling Tentacles and your 3.x server will have a new address or polling port, you'll need to add the new Octopus 3.x server address (including the polling port) in the Server Mapping field. If the URL and port will stay the same, there's no need to set this value.
+ 3. If you are using any polling Tentacles and your 3.x server will have a new address or polling port, you'll need to add the new Octopus 3.x server address (including the polling port) in theÂ Server MappingÂ field. If the URL and port will stay the same, there's no need to set this value.
 It is very important you get this value correct. An incorrect value will result in a polling Tentacle that can't be contacted by either a 2.6 or 3.x server.
-If all of your polling Tentacles on the one server need to be pointed to the new location you need only put`https://octopus2.contoso.com:10934/` and it will update the old location with this new one.
+If all of your polling Tentacles on the one server need to be pointed to the new location you need only put`https://octopus2.contoso.com:10934/`Â and it will update the old location with this new one.
 If you have more than one polling Tentacle and each points to a different Octopus Server (this should be very rare) then the syntax is:`https://oldserver:oldport=&gt;https://newserver:newport,https://oldserver2:oldport2/=&gt;https://newserver2:newport2`
-Where each pair is separated by commas. This will match the first case and replace it => with the second case.
-        Click the ![](/docs/images/3048132/3278017.png) help button for more detailed instructions.
+Where each pair is separated byÂ commas. This will match the first case and replace it => with the second case.
+        Click theÂ ![](/docs/images/3048132/3278017.png)Â help button for more detailed instructions.
 
     
 ![](/docs/images/3048132/3278014.png)    ![](/docs/images/3048132/3278015.png)
@@ -110,7 +110,7 @@ Once you're confident the upgrade works as expected, you can deploy to all remai
 ### 3. Verify the upgrade has worked
 
 
-When the Hydra task runs on a Tentacle machine, it should no longer be able to communicate with the Octopus 2.6 server. You can verify this by navigating to the Environments page and clicking **Check Health**.
+When the Hydra task runs on a Tentacle machine, it should no longer be able to communicate with the Octopus 2.6 server. You can verify this by navigating to the Environments page and clickingÂ **Check Health**.
 
 
 ![](/docs/images/3048132/3278012.png)
@@ -136,7 +136,7 @@ When upgrading to Octopus 3.x please use the latest version available. We have b
 :::
 
 
-See the [Installing Octopus 3.x](/docs/home/installation/installing-octopus.md) page for instructions on installing a new Octopus 3.x instance.
+See theÂ [Installing Octopus 3.x](/docs/home/installation/installing-octopus.md)Â page for instructions on installing a new Octopus 3.x instance.
 
 
 After installing the MSI, you will be presented with an upgrade page.
@@ -165,7 +165,7 @@ After upgrading, the Octopus Manager will prompt to import your Octopus 2.6 data
 ![](/docs/images/3048132/3278005.png)
 
 
-See the [Migrating data from Octopus 2.6 to 3.x](/docs/home/administration/upgrading/upgrading-from-octopus-2.6/migrating-data-from-octopus-2.6-to-3.x.md) page for more detailed instructions on importing your Octopus 2.6 database backup into Octopus 3.x.
+See the [Migrating data from Octopus 2.6 to 3.x](/docs/home/administration/upgrading/upgrading-from-octopus-2.6/migrating-data-from-octopus-2.6-to-3.x.md)Â page for more detailed instructions on importing your Octopus 2.6 database backup into Octopus 3.x.
 
 :::hint
 **Migration taking a long time?**
@@ -177,9 +177,9 @@ To see the command syntax click the **Show script** link in the wizard
 
 :::hint
 **Using the built-in Octopus NuGet repository?**
-If you use the built-in [Octopus NuGet repository](http://docs.octopusdeploy.com/display/OD/Package+repositories) you will need to move the files from your 2.6 server to your 3.x server. They are not part of the backup.
-In a standard 2.6 install the files can be found under `C:\Octopus\OctopusServer\Repository\Packages`
-You will need to transfer them to the new server to `C:\Octopus\Packages`Once the files have been copied, you will need to restart the Octopus Server service to re-index the files - The index runs in the background, so if you have a lot of packages it could take a while (5-20 mins) to show in the UI or be usable for deployments.
+If you use the built-in [Octopus NuGet repository](http://docs.octopusdeploy.com/display/OD/Package+repositories)Â you will need to move the files from your 2.6 server to your 3.x server. They are not part of the backup.
+In a standard 2.6 install the files can be found underÂ `C:\Octopus\OctopusServer\Repository\Packages`
+You will need to transfer them to the new server toÂ `C:\Octopus\Packages`Once the files have been copied, you will need to restart the Octopus Server service to re-index the files - The index runs in the background, so if you have a lot of packages it could take a while (5-20 mins) to show in the UI or be usable for deployments.
 :::
 
 ### 6. Verify connectivity between the 3.x server and 3.x Tentacles

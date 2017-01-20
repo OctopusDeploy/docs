@@ -7,7 +7,7 @@ position: 11
 Occasionally it may be necessary to change the location at which Octopus stores its data (called the "Octopus Home" folder) as well as the Registry Key which defines the Octopus Server instance, you may also want to clean up the Octopus Home folder after migrating from 2.6 to 3.x. This page will explain what settings can be configured using the command-line on the Octopus Server and what folders can safely be removed from the Octopus Home folder after successfully migrating to 3.x.
 
 :::problem
-Make sure you have a **current backup** of your Octopus data before proceeding. You will also need your **Master Key** if you need to use the backup, so please copy that also!
+Make sure you have aÂ **current backup**Â of your Octopus data before proceeding. You will also need yourÂ **Master Key**Â if you need to use the backup, so please copy that also!
 :::
 
 
@@ -91,7 +91,7 @@ Or one of the common options:
       --console              Don't attempt to run as a service, even if the
                                user is non-interactive
       --nologo               Don't print title or version information
- 
+Â 
 Or one of the options supported/provided by the server extensions.
 ```
 
@@ -107,7 +107,7 @@ Octopus.Server path [<options>]
 ```
 
 
-Where `[&lt;options&gt;]` is any of:
+WhereÂ `[&lt;options&gt;]`Â is any of:
 
 **Options**
 
@@ -128,11 +128,11 @@ Or one of the common options:
 ## File storage
 
 
-The Octopus server stores files in the following folders by default:
+The Octopus server stores files in the following foldersÂ by default:
 
 - `C:\Octopus`
  - This is where the Octopus server config file and deployment journal is stored.
- - See this [page](http://docs.octopusdeploy.com/display/OD/Moving+Octopus+Server+folders#MovingOctopusServerfolders-OctopusHome) on how to move the Octopus home folder
+ - See thisÂ [page](http://docs.octopusdeploy.com/display/OD/Moving+Octopus+Server+folders#MovingOctopusServerfolders-OctopusHome) on how to move the Octopus home folder
 - `C:\Octopus\Artifacts`
  - This is where artifacts created by deployments are stored.
  - See this [page](http://docs.octopusdeploy.com/display/OD/Moving+Octopus+Server+folders#MovingOctopusServerfolders-Artifacts) on how to move the Octopus server artifacts folder

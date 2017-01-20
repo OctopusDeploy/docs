@@ -38,7 +38,7 @@ Octopus Deploy 3.0 is made possible thanks to the following great third-party pr
 | markItUp! | Jay Salvat | [http://markitup.jaysalvat.com/](http://markitup.jaysalvat.com/) |
 | Microsoft Windows, Visual Studio and .NET | Microsoft | [http://www.microsoft.com/net](http://www.microsoft.com/net) |
 | Moment.js | Tim Wood | [http://momentjs.com](http://momentjs.com) |
-| Nancy and integrations | Andreas Håkansson, Steven Robbins and contributors | [http://nancyfx.org/](http://nancyfx.org/) |
+| Nancy and integrations | Andreas HÃ¥kansson, Steven Robbins and contributors | [http://nancyfx.org/](http://nancyfx.org/) |
 | NDesk.Options | Jonathan Pryor | [http://www.novell.com](http://www.novell.com/) |
 | ngmin and grunt-ngmin | Brian Ford | [https://github.com/btford/ngmin](https://github.com/btford/ngmin) |
 | ngstorage | G. Kay Lee and contributors | [https://github.com/gsklee/ngStorage](https://github.com/gsklee/ngStorage) |
@@ -47,7 +47,7 @@ Octopus Deploy 3.0 is made possible thanks to the following great third-party pr
 | NuGet.Lucene | The Motley Fool | [https://github.com/themotleyfool/NuGet.Lucene](https://github.com/themotleyfool/NuGet.Lucene) |
 | NSubstitute (and dependencies) | David Tchepak and contributors | [http://nsubstitute.github.io/](http://nsubstitute.github.io/) |
 | NUnit | Charlie Poole | [http://nunit.org/](http://nunit.org/) |
-| Raphaël | Dmitry Baranovskiy | [http://raphaeljs.com](http://raphaeljs.com/) |
+| RaphaÃ«l | Dmitry Baranovskiy | [http://raphaeljs.com](http://raphaeljs.com/) |
 | RSVP.js | Yehuda Katz, Tom Dale, and contributors | [https://github.com/tildeio/rsvp.js](https://github.com/tildeio/rsvp.js) |
 | Select2 | Igor Vaynberg | [http://ivaynberg.github.io/select2/](http://ivaynberg.github.io/select2/) |
 | semver.js | Tom Preston-Werner | [http://semver.org/](http://semver.org/) |

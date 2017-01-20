@@ -9,7 +9,7 @@ You may want to target your deployment for non-windows machines where you don't 
 ## Topology
 
 
-In the standard-model the Octopus server talks to the Tentacle (ignoring the distinction between between [Polling](/docs/home/installation/installing-tentacles/polling-tentacles.md)†and [Listening](/docs/home/installation/installing-tentacles/listening-tentacles.md)) who in turn delegates the actual deployment work to Calamari, which contains all the information regarding conventions and deployments. Calamari then executes the scripts and the Tentacle passes back to the Server the task progress, logs and artifacts.
+In the standard-model the Octopus server talks to the Tentacle (ignoring the distinction between between [Polling](/docs/home/installation/installing-tentacles/polling-tentacles.md)¬†and [Listening](/docs/home/installation/installing-tentacles/listening-tentacles.md)) who in turn delegates the actual deployment work to Calamari, which contains all the information regarding conventions and deployments. Calamari then executes the scripts and the Tentacle passes back to the Server the task progress, logs and artifacts.
 
 
 ![](/docs/images/3048063/3277601.png)
@@ -52,18 +52,18 @@ Please note that F# and ScriptCS support are only available with Mono 4 and abov
 
 
 
-We generally expect deployments with Octopus to work with practically†any†distribution so long as a few key prerequisites are met. Of course, if you notice it failing on some other popular distribution then please drop us a line.
+We generally expect deployments with Octopus to work with practically¬†any¬†distribution so long as a few key prerequisites are met. Of course, if you notice it failing on some other popular distribution then please drop us a line.
 
 
 To use this feature there are the following requirements:
 
 - It must be accessible using SSH and SFTP
-- The†`$HOME`†environment variable must be available
-- `bash`†3+ is available at†`/bin/bash`. (It does not need to be the user's default shell.)
-- `mono-complete`†3.10+ is available (you can find instructions on how to install mono on the related [mono docs page](http://www.mono-project.com/docs/getting-started/install/linux/)).
-- `tar`†is available - for unpacking calamari
-- `base64`†is available - for encoding/decoding variables
-- `grep`†is available - Everyone needs grep!
+- The¬†`$HOME`¬†environment variable must be available
+- `bash`¬†3+ is available at¬†`/bin/bash`. (It does not need to be the user‚Äôs default shell.)
+- `mono-complete`¬†3.10+ is available (you can find instructions on how to install mono on the related [mono docs page](http://www.mono-project.com/docs/getting-started/install/linux/)).
+- `tar`¬†is available - for unpacking calamari
+- `base64`¬†is available - for encoding/decoding variables
+- `grep`¬†is available - Everyone needs grep!
 
 
 
@@ -74,7 +74,7 @@ The health check that takes places once you configure the target should check fo
 
 :::warning
 **SSL Certificates in Mono**
-If you configure your deployment such that the target pulls down the package itself directly from the NuGet repository, the correct SSL certificates need to also be available to mono. By default, mono pre 3.12 didn't trust any certificates and the root certs in question would need to be either manually imported, or synced with Mozilla's list by invoking†`mozroots` or `cert-sync`. Thankfully mono's latest builds perform this step during installation so it should "just work". See†[mono's security FAQ](http://www.mono-project.com/docs/faq/security/)†for more details.
+If you configure your deployment such that the target pulls down the package itself directly from the NuGet repository, the correct SSL certificates need to also be available to mono. By default, mono pre 3.12 didn‚Äôt trust any certificates and the root certs in question would need to be either manually imported, or synced with Mozilla‚Äôs list by invoking¬†`mozroots` or `cert-sync`. Thankfully mono's latest builds perform this step during installation so it should ‚Äújust work‚Äù. See¬†[mono‚Äôs security FAQ](http://www.mono-project.com/docs/faq/security/)¬†for more details.
 :::
 
 ## Footprint
@@ -83,15 +83,15 @@ If you configure your deployment such that the target pulls down the package its
 Getting just the right naming pattern is a tricky balance. In an effort to keep some similarity with the Windows based Tentacle, we have gone with the following approach:
 
 
-The root directory for all Octopus work is†`$HOME/.octopus`†and all packages are deployed to a relative location similar to that done by a normal Tentacle at `$HOME/.octopus/Applications/#{instance}/#{environment}/#{package}/#{version}`.
-Calamari is also copied across by the deployment if a new version is detected and extracted to†`$HOME/.octopus/#{instance}/Calamari/#{version}`.
+The root directory for all Octopus work is¬†`$HOME/.octopus`¬†and all packages are deployed to a relative location similar to that done by a normal Tentacle at `$HOME/.octopus/Applications/#{instance}/#{environment}/#{package}/#{version}`.
+Calamari is also copied across by the deployment if a new version is detected and extracted to¬†`$HOME/.octopus/#{instance}/Calamari/#{version}`.
 
 
 By making all paths relative to the user's home directory, you can then theoretically use the same physical machine with multiple user accounts acting as separate targets. The Octopus server can then treat each machine\user as a separate SSH endpoint which will update Calamari and deploy independently of each other.
 
 :::success
 **Bash startup files**
-When connecting to a target over SSH, Octopus Deploy connects then executes the script†via†the `/bin/bash` command to ensure it is running with a bash shell (and not the default terminal shell for that user). Any login scripts that you wish to run should therefore be put into the `.bashrc`script file since this is invoked for non-login shells.
+When connecting to a target over SSH, Octopus Deploy connects then executes the script¬†via¬†the `/bin/bash` command to ensure it is running with a bash shell (and not the default terminal shell for that user). Any login scripts that you wish to run should therefore be put into the `.bashrc`script file since this is invoked for non-login shells.
 
 
 For example, with targets on a Mac the default $PATH variable may be missing `/usr/sbin`. This can be added in the `.bashrc`script with the line
@@ -101,7 +101,7 @@ For example, with targets on a Mac the default $PATH variable may be missing `/u
 
 
 
-See the Bash Reference Manual, section†[6.2 Bash Startup Files](http://www.gnu.org/software/bash/manual/bashref.html#Bash-Startup-Files) for more information about startup scripts.
+See the Bash Reference Manual, section¬†[6.2 Bash Startup Files](http://www.gnu.org/software/bash/manual/bashref.html#Bash-Startup-Files) for more information about startup scripts.
 :::
 
 ## Deployment
@@ -119,7 +119,7 @@ The package and any supporting deployment files are uploaded via SFTP.
 **Calamari**
 
 
-Before any processing is begun we do an initial check to ensure the available Calamari executable on the endpoint is up to date with the server. If not we push up the latest Calamari package and then recommence the task. The Calamari package is sent as a†`.tar.gz`†so it can be extracted with minimal dependencies. This obviously means the server needs to be able to un-tar that package however this should be available by default in most distros.
+Before any processing is begun we do an initial check to ensure the available Calamari executable on the endpoint is up to date with the server. If not we push up the latest Calamari package and then recommence the task. The Calamari package is sent as a¬†`.tar.gz`¬†so it can be extracted with minimal dependencies. This obviously means the server needs to be able to un-tar that package however this should be available by default in most distros.
 
 
 **Package Acquisition**
@@ -145,10 +145,10 @@ The vast majority of Octopus features are supported, with the exception of IIS s
 **Scripts**
 
 
-As yet we do not support running PowerShell scripts on Linux, either on their own as a script task, or as pre-deploy/deploy/post-deploy†steps. We do however support running bash scripts on SSH endpoints. Conversely, bash is not yet supported on normal Windows Tentacles, even with Cygwin available.
+As yet we do not support running PowerShell scripts on Linux, either on their own as a script task, or as pre-deploy/deploy/post-deploy¬†steps. We do however support running bash scripts on SSH endpoints. Conversely, bash is not yet supported on normal Windows Tentacles, even with Cygwin available.
 
 
-The deployment process will check for scripts either provided in the deployment step itself or embedded in the package, looking for†`PreDeploy.sh`,†`Deploy.sh`†and†`PostDeploy.sh`†(names are case-sensitive). If these scripts are found, Calamari will then execute their contents at the appropriate time.†Again an interesting side-effect of using Calamari on mono is that any C# or F# scripts should continue to function just like with normal Tentacles. Keep in mind the platform differences such as file paths or separators, line breaks, environment variables and security considerations.
+The deployment process will check for scripts either provided in the deployment step itself or embedded in the package, looking for¬†`PreDeploy.sh`,¬†`Deploy.sh`¬†and¬†`PostDeploy.sh`¬†(names are case-sensitive). If these scripts are found, Calamari will then execute their contents at the appropriate time.¬†Again an interesting side-effect of using Calamari on mono is that any C# or F# scripts should continue to function just like with normal Tentacles. Keep in mind the platform differences such as file paths or separators, line breaks, environment variables and security considerations.
 
 
 **Variables**
@@ -157,7 +157,7 @@ The deployment process will check for scripts either provided in the deployment 
 The same variables that are accessible to PowerShell scripts are available to the bash scripts, albeit using a different syntax. All scripts that run are wrapped inside bootstrapping code that provides access to getting/setting variables and the ability to designate build artifacts.
 
 
-Getting access to a variable involves invoking a function named†`get_octopusvariable`. For example, to echo out the installation directory call
+Getting access to a variable involves invoking a function named¬†`get_octopusvariable`. For example, to echo out the installation directory call
 
 
 > `echo &quot;Installed to step: &quot; $(get_octopusvariable &quot;Octopus.Action[Acme Deployment].Output.Package.InstallationDirectoryPath&quot;)`
@@ -186,12 +186,12 @@ which results in the server retrieving that file, at the end of that step. Keep 
 
 :::problem
 **XML Transformation Only Supported on Mono 4.2.3+**
-In addition to not supporting PowerShell scripts it should also be noted that†**XML transformations are only supported on Mono 4.2.3 and above**. Prior to this, variable substitutions will still work without a problem, but the XML transformations will not as they rely on some code in mono that was broken. For details around this bug, please see†[Xamarin bug 19426](https://bugzilla.xamarin.com/show_bug.cgi?id=19426).
+In addition to not supporting PowerShell scripts it should also be noted that¬†**XML transformations are only supported on Mono 4.2.3 and above**. Prior to this, variable substitutions will still work without a problem, but the XML transformations will not as they rely on some code in mono that was broken. For details around this bug, please see¬†[Xamarin bug 19426](https://bugzilla.xamarin.com/show_bug.cgi?id=19426).
 :::
 
 :::warning
 **Environment Variable Differences**
-Due to the different platform, some environment variables available on a windows machine will either be named differently or possibly non-existent on other platforms.†For example the Windows based variable†`env:USERNAME`†roughly correlates to†`env:USER`†on an Ubuntu machine however†`env:ProgramFiles(x86)`†has no corollary.
+Due to the different platform, some environment variables available on a windows machine will either be named differently or possibly non-existent on other platforms.¬†For example the Windows based variable¬†`env:USERNAME`¬†roughly correlates to¬†`env:USER`¬†on an Ubuntu machine however¬†`env:ProgramFiles(x86)`¬†has no corollary.
 :::
 
 ## Health Checks
@@ -203,4 +203,4 @@ Although there is no Tentacle involved with SSH endpoints there are still some u
 ![](/docs/images/3048063/3277600.png)
 
 
-Note that due to the Tentacle being effectively a "virtual Tentacle" running on the server itself, if the endpoint is healthy it will indicate in the health logs that the running version is the same as the server version.
+Note that due to the Tentacle being effectively a ‚Äúvirtual Tentacle‚Äù running on the server itself, if the endpoint is healthy it will indicate in the health logs that the running version is the same as the server version.

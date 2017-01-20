@@ -5,11 +5,11 @@ position: 1
 
 
 :::problem
-You will not be able to upgrade from Octopus 1.6 to Octopus 3.0 directly. If you are running a version of Octopus prior to 2.0, use this guide to upgrade from 1.6 to 2.6, then follow the [guide to upgrade from 2.6 to 3.0](/docs/home/administration/upgrading/upgrading-from-octopus-2.6.md).
+You will not be able to upgrade from Octopus 1.6 to Octopus 3.0 directly. If you are running a version of Octopus prior to 2.0, use this guide to upgrade from 1.6 to 2.6, then follow theÂ [guide to upgrade from 2.6 to 3.0](/docs/home/administration/upgrading/upgrading-from-octopus-2.6.md).
 :::
 
 
-A **lot** changed between Octopus 1.6 and Octopus 2.0; so much that we had to to handle upgrades differently to the way we handle upgrades from, say, 1.5 to 1.6. This page will walk you through the process of upgrading an Octopus 1.6 instance to Octopus 2.0. Rather than being an in-place upgrade, Octopus 2.0 is designed to be a **side-by-side** upgrade.
+A **lot** changed between Octopus 1.6 and Octopus 2.0; so much that we had to to handle upgrades differently to the way we handle upgrades from, say, 1.5 to 1.6.Â This page will walk you through the process of upgrading an Octopus 1.6 instance to Octopus 2.0.Â Rather than being an in-place upgrade, Octopus 2.0 is designed to be a **side-by-side** upgrade.
 
 
 - Preparing
@@ -31,7 +31,7 @@ Below is the dashboard from an Octopus 1.6 server that will be used as an exampl
 ![](/docs/images/3048130/3278001.png)
 
 
-Before attempting to migrate, make sure that you don't have any projects, environments, or machines with duplicated names (this is no longer allowed in Octopus 2.0, and the migration wizard will report an error if it finds duplicates).
+Before attempting to migrate, make sure thatÂ you don't have any projects, environments, or machines with duplicated names (this is no longer allowed in Octopus 2.0, and the migration wizard will report an error if it finds duplicates).
 
 
 Then go to the **Storage** tab in the **Configuration** area, and make sure that you have a recent backup:
@@ -139,26 +139,26 @@ function Upgrade-Tentacle ($rel, $loc, $hm, $sthumb, $sxsPort)
   & .\tentacle.exe configure --instance "Tentacle" --home "$hm" --console
   & .\tentacle.exe configure --instance "Tentacle" --app "$hm\Applications" --console
   & .\tentacle.exe configure --instance "Tentacle" --trust="$sthumb"
- 
+Â 
   if ($sxsPort) {
     & .\tentacle.exe configure --instance "Tentacle" --port "$sxsPort" --console
   }
- 
+Â 
   if (!$sxsPort) {
     Write-Output "Stopping the 1.0 Tentacle"
     Stop-Service "Octopus Tentacle"
   }
- 
+Â 
   Write-Output "Starting the 2.0 Tentacle"
   & .\tentacle.exe service --instance "Tentacle" --install --start --console
 
   if (!$sxsPort) {
     Uninstall-OldTentacle
   }
- 
+Â 
   Write-Output "Tentacle commands complete"
 }
- 
+Â 
 # If sxsPort ('side-by-side port') is specified, the old Tentacle will remain running
 # alongside the new one. If an sxsPort is not specified, the old Tentacle will be
 # uninstalled.

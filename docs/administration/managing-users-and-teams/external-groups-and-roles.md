@@ -4,7 +4,7 @@ position: 3
 ---
 
 
-Some of the authentication providers allow external groups or roles to be added as Members of Teams in Octopus.  This section outlines how to add external groups/roles to Teams.
+Some of the authentication providers allow external groups or roles to be added as Members of Teams in Octopus. Â This section outlines how to add external groups/roles to Teams.
 
 
 
@@ -18,7 +18,7 @@ Depending on which authentication providers you have enabled, the following butt
 ## Add Active Directory group
 
 
-This button appears if you have the Active Directory authentication provider enabled, and when activated you will see the following dialog
+This button appears if you have the Active Directory authentication provider enabled, and when activated you will seeÂ the following dialog
 
 
 ![](/docs/images/5672303/5866191.png)

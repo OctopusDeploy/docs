@@ -4,7 +4,7 @@ position: 0
 ---
 
 
-When installing a Tentacle, you will be asked to choose how Tentacle will communicate with the Octopus server. In **listening** mode, Tentacle *listens* on a TCP port (port **10933** by default). When a package needs to be deployed, Octopus will connect to the Tentacle service on that port. *In listening mode Tentacle is the TCP server, and Octopus is the TCP client.*
+When installing a Tentacle, you will be asked to choose how Tentacle will communicate with the Octopus server.Â In **listening** mode, Tentacle *listens* on a TCP port (port **10933** by default). When a package needs to be deployed, Octopus will connect to the Tentacle service on that port. *In listening mode Tentacle is the TCP server, andÂ Octopus is the TCP client.*
 
 
 *![](/docs/images/3048114/5865876.png)*
@@ -40,7 +40,7 @@ This four minute video (with captions) will walk you through the process of inst
 ## Firewall changes
 
 
-To allow your Octopus Deploy server to connect to the Tentacle, you'll need to allow access to TCP port **10933** on the Tentacle (or the port you selected during the installation wizard - port 10933 is just the default).
+To allow your Octopus Deploy server to connect to the Tentacle, you'll need to allow access to TCP portÂ **10933**Â on the Tentacle (or the port you selected during the installation wizard - port 10933 is just the default).
 
 
 Using listening mode, you won't typically need to make any firewall changes on the Octopus Deploy server.
@@ -56,7 +56,7 @@ Don't forget to allow access not just in Windows Firewall, but also any intermed
 We have provided a detailed guide for [Troubleshooting Listening Tentacles](/docs/home/how-to/troubleshoot-listening-tentacles.md) but feel free to start with these simple steps.
 
 
-*On the Tentacle machine*, open a web browser and navigate to [https://localhost:10933](https://localhost:10933/) (or your chosen Tentacle communications port if it isn't the default). Make sure an**HTTPS**URL is used.
+*On the Tentacle machine*, open a web browser and navigate toÂ [https://localhost:10933](https://localhost:10933/)Â (or your chosen Tentacle communications port if it isn't the default).Â Make sure an**HTTPS**URL is used.
 
 - If you're presented with a prompt to "confirm a certificate" or "select a certificate" choose "Cancel" - don't provide one
 

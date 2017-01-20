@@ -10,10 +10,10 @@ Octopus supports a special binding syntax that can be used to refer to variables
 `#{Name}`
 
 
-To reference a variable named `Name` from within the value of another variable.
+To reference a variable namedÂ `Name`Â from within the value of another variable.
 
 
-The binding syntax used by Octopus also supports many other constructs, such as loops, conditionals, and filters. You can [learn more in the variable substitution syntax](/docs/home/reference/variable-substitution-syntax.md) section.
+The binding syntax used by Octopus also supports many other constructs, such as loops, conditionals, and filters. You canÂ [learn more in the variable substitution syntax](/docs/home/reference/variable-substitution-syntax.md)Â section.
 
 ## Binding one variable to another
 
@@ -26,7 +26,7 @@ You can reference variables from other variables:
 ## Referencing variables in step definitions
 
 
-This binding syntax can also be used to dynamically change the values of deployment step settings. If [variables are scoped](/docs/home/deploying-applications/variables/scoping-variables.md), this makes it really easy to alter a deployment step settings based on the target environment.
+This binding syntax can also be used to dynamically change the values of deployment step settings.Â If [variables are scoped](/docs/home/deploying-applications/variables/scoping-variables.md), this makes it really easy to alter a deployment step settings based on the target environment.
 
 
 Most text fields that support binding to variables will have a variable insert button:

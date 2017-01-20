@@ -4,7 +4,7 @@ position: 18
 ---
 
 
-In an ideal world, every deployment would be successful. Sadly, things sometimes go wrong. Sometimes the cause of a failure is as simple as a missing dependency, Windows feature or configuration setting on a machine, a locked file or read-only path. The fastest way to go from broken to deployed is to let a human get involved, and when it makes sense, either ignore or retry the failing activity.
+In an ideal world, every deployment would be successful. Sadly, things sometimes go wrong.Â Sometimes the cause of a failure is as simple as a missing dependency, Windows feature or configuration setting on a machine, a locked file or read-only path. The fastest way to go from broken to deployed is to let a human get involved, and when it makes sense, either ignore or retry the failing activity.
 
 
 **Guided failure mode** tells Octopus that if something goes wrong during the deployment, instead of failing immediately, Octopus should ask for a human to intervene.

@@ -15,7 +15,7 @@ Your application is deployed to multiple geographic regions (or multiple data ce
 ## Strict solution using Environments
 
 
-You can use [Environments](/docs/home/key-concepts/environments.md) to represent each region or data centre. In the example below we have defined a Dev and Test Environment as per normal, and then configured two "production" Environments, one for each region we want to deploy into.
+You can useÂ [Environments](/docs/home/key-concepts/environments.md)Â to represent each region or data centre. In the example below we have defined a Dev and Test Environment as per normal, and then configured two "production" Environments, one for each region we want to deploy into.
 
 
 ![](/docs/images/5670886/5865781.png)
@@ -23,7 +23,7 @@ You can use [Environments](/docs/home/key-concepts/environments.md) to represent
 
 By using this pattern you can:
 
-1. Use [Lifecycles](/docs/home/key-concepts/lifecycles.md) to define a strict process for promotion of releases between your regions. *Lifecycles can be used to design both simple and complex promotion processes.*
+1. UseÂ [Lifecycles](/docs/home/key-concepts/lifecycles.md)Â to define a strict process for promotion of releases between your regions.Â *Lifecycles can be used to design both simple and complex promotion processes.*
  1. For example, you may want to test releases in Australia before rolling them out to the USA, and then to Europe
  2. In another example, you may want to test releases in Australia before rolling them out simultaneously to all other regions
 2. Scope region-specific variables to the region-specific Environments
@@ -41,7 +41,7 @@ By using this pattern you can:
 ## Rolling Solution
 
 
-In Octopus 3.4 we introduced [Cloud Regions](/docs/home/deployment-targets/cloud-regions.md) which enable you to configure [Rolling deployments](/docs/home/patterns/rolling-deployments.md) across your regions or data centres. In this case you can scope variables to the Cloud Regions and deploy to all regions at once, but you cannot control the order in which the rolling deployment executes.
+In Octopus 3.4 we introducedÂ [Cloud Regions](/docs/home/deployment-targets/cloud-regions.md) which enable you to configureÂ [Rolling deployments](/docs/home/patterns/rolling-deployments.md) across your regions or data centres. In this case you can scope variables to the Cloud Regions and deploy to all regions at once, but you cannot control the order in which the rolling deployment executes.
 
 
 ![](/docs/images/5670886/5865782.png)
@@ -59,19 +59,19 @@ By using this pattern you can:
 ## Tenanted Solution
 
 
-Alternatively you could create [Tenants](/docs/home/key-concepts/tenants.md) to represent each region or data centre. By doing so you can:
+Alternatively you could createÂ [Tenants](/docs/home/key-concepts/tenants.md) to represent each region or data centre. By doing so you can:
 
-1. Use [Variable Templates](/docs/home/deploying-applications/variables/variable-templates.md) to prompt you for the variables required for each region (like the storage account details for that region) and when you introduce a new region Octopus will prompt you for the missing variables
+1. UseÂ [Variable Templates](/docs/home/deploying-applications/variables/variable-templates.md) to prompt you for the variables required for each region (like the storage account details for that region) and when you introduce a new region Octopus will prompt you for the missing variables
 ![](/docs/images/5670886/5865790.png)
 2. Provide logos for your regions to make them easier to distinguish
 ![](/docs/images/5670886/5865788.png)
 3. Quickly see the progress of deploying the latest release to your entire production environment on the main dashboard
 ![](/docs/images/5670886/5865785.png)
-4. Quickly see which releases have been deployed to which regions using the Dashboard and Project Overview
+4. Quickly seeÂ which releases have been deployed to which regions using the Dashboard and Project Overview
 ![](/docs/images/5670886/5865786.png)
 5. Quickly promote releases to your production regions, in a particular sequence, or simultaneously
 ![](/docs/images/5670886/5865789.png)
-6. Use [Scheduled Deployments](/docs/home/deploying-applications/scheduled-deployments.md) to plan deployments for times of low usage
+6. UseÂ [Scheduled Deployments](/docs/home/deploying-applications/scheduled-deployments.md) to plan deployments for times of low usage
 ![](/docs/images/5670886/5865787.png)
 
 
@@ -87,4 +87,4 @@ You do give up the advantage of enforcing the order in which you deploy your app
 ## Conclusion
 
 
-[Environments](/docs/home/key-concepts/environments.md), [Tenants](/docs/home/key-concepts/tenants.md) and [Cloud Regions](/docs/home/deployment-targets/cloud-regions.md) can be used to model multi-region deployments in Octopus, but each different choice is optimized to a particular style of situation. Choose the one that suits your needs best!
+[Environments](/docs/home/key-concepts/environments.md),Â [Tenants](/docs/home/key-concepts/tenants.md) andÂ [Cloud Regions](/docs/home/deployment-targets/cloud-regions.md)Â can be used to model multi-region deployments in Octopus, but each different choice is optimized to a particular style of situation. Choose the one that suits your needs best!

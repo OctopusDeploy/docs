@@ -37,11 +37,11 @@ You can create projects by clicking on the **Add project** button.
 
 ## Project permissions
 
-You can control who has access to view or edit environments, as well as who has access to deploy to environments, by assigning users to Teams and assigning roles to those teams. For more information, see the section on [managing users and teams](/docs/home/administration/managing-users-and-teams.md).
+You can control who has access to view or edit environments, as well as who has access to deploy to environments, by assigning users to Teams and assigning roles to those teams. For more information, see the section onÂ [managing users and teams](/docs/home/administration/managing-users-and-teams.md).
 
 :::hint
 **Assigning projects to project groups**
-To set retention policies and the environments a project can be deployed to, as well as to apply some grouping in the dashboard and elsewhere, projects can be [assigned to project groups](/docs/home/key-concepts/project-groups.md).
+To set retention policies and the environments a project can be deployed to, as well as to apply some grouping in the dashboard and elsewhere, projects can be [assigned toÂ project groups](/docs/home/key-concepts/project-groups.md).
 :::
 
 ## Do I need one or many projects?
@@ -64,7 +64,7 @@ For example, the OctoFX example organization might be split into two delivery te
 ![](/docs/images/3048102/3277822.png)
 
 
-Alternatively, there may only be one team, who work on both the rate service and the trading website together. When a new version of the product is released, they will always deploy both at the same time. In this example, it makes sense to use a single project, with multiple steps:
+Alternatively, there may only be one team, who work on both the rate service and the trading website together.Â When a new version of the product is released, they will always deploy both at the same time. In this example, it makes sense to use a single project, with multiple steps:
 
 
 ![](/docs/images/3048102/3277821.png)

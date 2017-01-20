@@ -12,19 +12,19 @@ Given that a set of roles can be combined in a team and tied to a specific envir
 ## Creating the "*Dev Deployers*" Team
 
 
-Start by clicking the **Teams** tab under **Configuration** in the Octopus Deploy web portal.  Then click the `Add team'.
+Start by clickingÂ theÂ **Teams**Â tab underÂ **Configuration**Â in the Octopus Deploy web portal. Â Then click the `Add team'.
 
 
 ![](/docs/images/3702814/3964930.png)
 
 
-Give the team an appropriate name like "*Dev Deployers*"and add the **Project deployer** role. This role provides all the permissions of the **Project****contributor** role, but also allows the user to deploy a release. In our case because we will limit the users to the development environment, we will allow them to also create releases and to do so they will need the **Project lead** role. Again this role provides all the permissions of the **Project****contributor** role but without the deployment permissions that come with the **Project deployer** role.
+Give the team an appropriate name like "*Dev Deployers*"and add theÂ **Project deployer** role. This role provides all the permissions of theÂ **Project****contributor** role, but also allows the user to deploy a release. In our case because we will limit the users to the development environment, we will allow them to also create releases and to do so they will need theÂ **Project lead** role. Again this role provides all the permissions of theÂ **Project****contributor**Â role but without the deployment permissions that come with theÂ **Project deployer** role.
 
 
 ![](/docs/images/3702814/3964931.png)
 
 
-Now that we have the roles configured for this team, we want to ensure that they are only able to be effective on specific environments. Our developers should not be able to perform *UAT* or *Production* deployments and are only allowed to deploy to the *Development* and *Staging* environments. Set the **Environments** field on the team page to the environments that the team should have its selected roles effective for. If this field is blank it is assumed to apply to **All environments** so ensure that it is correctly filled out if it should exclude others. If you want the permissions to also/instead be scoped to specific projects, then add the required projects to the **Projects** field for the same behaviour.
+Now that we have the roles configured for this team, we want to ensure that they are only able to be effective on specific environments. Our developers should not be able to perform *UAT* or *Production* deployments and are only allowed to deploy to the *Development* and *Staging* environments. Set theÂ **Environments** field on the team page to the environments that the team should have its selected roles effective for. If this field is blank it is assumed to apply toÂ **All environments** so ensure that it is correctly filled out if it should exclude others. If you want the permissions to also/instead be scoped to specific projects, then add the required projects to theÂ **Projects** field for the same behaviour.
 
 
 With the permission rules configured add the users that you want them to apply to. Remember that if the user is a member of another team that has the same roles but for the production environment, then the permissions will be effective for both teams. The team permissions are all additive.
@@ -33,7 +33,7 @@ With the permission rules configured add the users that you want them to apply t
 ![](/docs/images/3702814/3964933.png)
 
 
-When you are happy with these changes hit **Save** to make them effective.
+When you are happy with these changes hitÂ **Save** to make them effective.
 
 ## Creating The "*Prod Deployment Viewers*" Team
 
@@ -41,16 +41,16 @@ When you are happy with these changes hit **Save** to make them effective.
 The previous rule was all well and good, but what about if we now want to allow the developer to see what has been deployed to production while still preventing them from pushing releases out to that stage. We can't go and modify the *Dev Deployers* team because that contains rules scoped to specific environments. Instead we will create a new team that is scoped to production, but only contains view permissions.
 
 
-Once again go back to the **Teams** tab and click **Add team**. Lets give it a name that describes its purpose, *Prod Deployment Viewers*, and this time add just the **Project viewer** role. This allows the user to see details of a project, but not actually make any modifications.
+Once again go back to theÂ **Teams** tab and clickÂ **Add team**. Lets give it a name that describes its purpose, *Prod Deployment Viewers*, and this time add just theÂ **Project viewer** role. This allows the user to see details of a project, but not actually make any modifications.
 
 
-This time we will set the **Environments** field to just be *Production* since these role are effectively already available to the users in the other environments by virtue of the **Project viewer** role being a subset of the already assigned **Project contributor** role.
+This time we will set theÂ **Environments** field to just beÂ *Production* since these role are effectively already available to the users in the other environments by virtue of the **Project viewer** role being a subset of the already assignedÂ **Project contributor** role.
 
 
 ![](/docs/images/3702814/3964934.png)
 
 
-Once again after adding all the users that should be a member of this team, in this case the same as those who can deploy to development, hit **Save**. The next time the user refreshes the page or performs an operation then these new rules will be in effect.
+Once again after adding all the users that should be a member of this team, in this case the same as those who can deploy to development, hitÂ **Save**. The next time the user refreshes the page or performs an operation then these new rules will be in effect.
 
 ## Summary
 

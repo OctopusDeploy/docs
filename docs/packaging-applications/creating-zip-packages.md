@@ -25,7 +25,7 @@ C:\>cd Code\OctoWeb\OctoWeb\OctoWeb\bin
 ```
 
 
-When creating the zip package, we will call octo.exe with the pack command and give it a package Id and specify the format of package we want to use by adding the `--format` option
+When creating the zip package, we will call octo.exe with the pack command and give it a package Id and specify the format of package we want to use by adding theÂ `--format`Â option
 
 ```powershell
 C:\Code\OctoWeb\OctoWeb\OctoWeb\bin>octo.exe pack --id=OctoWeb --format=zip
@@ -140,6 +140,6 @@ Advanced options:
 
 ## Known Issues in other packaging libraries
 
-- Atlassian Bamboo users who are using [Adam Myatt's  Zip File Task](https://bitbucket.org/adammyatt/bamboo-zip-file-tasks) and are extracting to a Linux machine may find that the contents don't get extracted into the correct folder structure but instead flattened with the path as the file name. This is the result of a [known issue](https://bitbucket.org/adammyatt/bamboo-zip-file-tasks/issues/4/change-request-use-forward-slashes-as-file) whereby the task does not confirm to the correct [PKWARE ZIP §4.4.17.1](http://help.octopusdeploy.com/discussions/problems/48081/r?go=aHR0cHM6Ly9wa3dhcmUuY2FjaGVmbHkubmV0L3dlYmRvY3MvY2FzZXN0dWRpZXMvQVBQTk9URS5UWFQ= "Link outside Support: https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT") specifications and is using a back slash instead of forward slash as the file separator. We would recommend avoiding this task where possible.
-- Prior to the .NET framework 4.6.1, the *System.IO.Compression* library incorrectly preserved the windows-style back slash separator for file paths. This has since been fixed from [.NET Framework 4.6.1](https://msdn.microsoft.com/en-us/library/mt712573) and the fix carried over into [.NET Core](https://github.com/dotnet/corefx/commit/7b9331e89a795c72709aef38898929e74c343dfb).
-- The above *System.IO.Compression bug* found its way into [Octo.exe](https://github.com/OctopusDeploy/Issues/issues/2583) when support for zip compression was added. A fix was not included until release 3.3.18 of Octo.exe to manually convert a back slash the to forward slash.
+- Atlassian Bamboo users who are using [Adam Myatt's Â Zip File Task](https://bitbucket.org/adammyatt/bamboo-zip-file-tasks) and are extracting to a Linux machine may find that the contents don't get extracted into the correct folder structure but instead flattened with the path as the file name. This is the result ofÂ aÂ [known issue](https://bitbucket.org/adammyatt/bamboo-zip-file-tasks/issues/4/change-request-use-forward-slashes-as-file)Â whereby the task does not confirm to the correct [PKWARE ZIP Â§4.4.17.1](http://help.octopusdeploy.com/discussions/problems/48081/r?go=aHR0cHM6Ly9wa3dhcmUuY2FjaGVmbHkubmV0L3dlYmRvY3MvY2FzZXN0dWRpZXMvQVBQTk9URS5UWFQ= "Link outside Support: https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT")Â specifications and is using a back slash instead of forward slash as the file separator. We would recommend avoiding this task where possible.
+- Prior to the .NET framework 4.6.1, theÂ *System.IO.Compression* library incorrectly preserved the windows-style back slash separator for file paths. This has since been fixed from [.NET Framework 4.6.1](https://msdn.microsoft.com/en-us/library/mt712573) and the fix carried over into [.NET Core](https://github.com/dotnet/corefx/commit/7b9331e89a795c72709aef38898929e74c343dfb).
+- The aboveÂ *System.IO.Compression bug*Â found its way into [Octo.exe](https://github.com/OctopusDeploy/Issues/issues/2583)Â when support for zip compression was added. A fix was not included until release 3.3.18 of Octo.exe to manually convert a back slash the to forward slash.

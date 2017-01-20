@@ -4,7 +4,7 @@ position: 3
 ---
 
 
-[Octo.exe](http://docs.octopusdeploy.com/pages/viewpage.action?pageId=360596) can be used to delete releases from your Octopus instance. Releases deleted this way .
+[Octo.exe](http://docs.octopusdeploy.com/pages/viewpage.action?pageId=360596)Â can be used to delete releases from your Octopus instance. Releases deleted this way .
 
 :::success
 **Using Channels?**
@@ -16,7 +16,7 @@ octo delete-releases [<options>]
 ```
 
 
-Where `[&lt;options&gt;]` is any of:
+WhereÂ `[&lt;options&gt;]`Â is any of:
 
 **delete-releases options**
 

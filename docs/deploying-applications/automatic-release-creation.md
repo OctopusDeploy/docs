@@ -35,7 +35,7 @@ On this page:
 ## Getting started
 
 
-If you use the[ built-in Octopus package repository](/docs/home/packaging-applications/package-repositories.md), you can now select a package, that when uploaded it will automatically create a release.
+If you use the[Â built-in Octopus package repository](/docs/home/packaging-applications/package-repositories.md), you can now select a package, that when uploaded it will automatically create a release.
 
 
 The process starts on the project process page.
@@ -107,12 +107,12 @@ One way to work around this behaviour is to create a Channel with the appropriat
 
 When you are using automatic release creation there are many reasons why a release may not be created successfully. Take some time to consider the following troubleshooting steps:
 
-1. **Inspect the server logs** for warnings in *Configuration > Diagnostics* - Octopus will log the reason why automatic release creation failed as errors or warnings
-2. Ensure you are pushing the package to the **built-in package repository** - external package repositories are not supported for automatic release creation
+1. **Inspect the server logs** for warnings inÂ *Configuration > Diagnostics* - Octopus will log the reason why automatic release creation failed as errors or warnings
+2. Ensure you are pushing the package to theÂ **built-in package repository**Â - external package repositories are not supported for automatic release creation
 3. Ensure you have **enabled automatic release creation** for the project based on the **correct package**
  1. When using Channels ensure you have **enabled automatic release creation for the desired Channel**
-4. Ensure you are pushing a **new version** of the package - Octopus will not create a release where the package has already been used for creating a release
-5. Ensure you are pushing a package that Octopus will consider as the **latest available package** - see the conversation about [automatically creating pre-releases](/docs/home/deploying-applications/automatic-release-creation.md) above
+4. Ensure you are pushing aÂ **new version** of the package - Octopus will not create a release where the package has already been used for creating a release
+5. Ensure you are pushing a package that Octopus will consider as theÂ **latest available package** - see the conversation aboutÂ [automatically creating pre-releases](/docs/home/deploying-applications/automatic-release-creation.md) above
 6. Ensure the release creation package step **DOES NOT use variables****for the PackageId** - Octopus will only create a release where the package is constant
 7. When a release has **multiple packages**, ensure you configure automatic release creation to use the **last package that is pushed to the built-in repository** - otherwise some of the packages required for the release will be missing
 8. When using Channels the package **must satisfy the version rules** for the Channel being used for automatic release creation - try creating some releases manually

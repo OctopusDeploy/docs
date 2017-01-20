@@ -33,7 +33,7 @@ Azure SQL Databases are a great way to set-up your Octopus database to be manage
 ### Missing Indexes
 
 
-When you notice some performance problems that appear to be due to a slow database, we would love to get your database's recommendations on what indexes may be missing. Run the following query and provide the results (ideally as an attached file) in your support ticket. The query below is taken from a great blog post by Glen Berry - [Five Very Useful Index Selection Queries for SQL Server 2005](https://sqlserverperformance.wordpress.com/2007/10/12/five-very-useful-index-selection-queries-for-sql-server-2005/).
+When you notice some performance problems that appear to be due to a slow database, we would love to get your database's recommendations on what indexes may be missing. Run the following query and provide the results (ideally as an attached file) in your support ticket. The query below is taken from a great blog post by Glen Berry -Â [Five Very Useful Index Selection Queries for SQL Server 2005](https://sqlserverperformance.wordpress.com/2007/10/12/five-very-useful-index-selection-queries-for-sql-server-2005/).
 
 **Missing Indexes**
 
@@ -85,8 +85,8 @@ If you are seeing error messages with a specific query in your server logs or th
 then it may be more useful to focus in on that specific query and get the execution plan that the database engine is executing. In that case follow the above steps but after step 6, when configuring the filters, include the following steps
 
 
-6.a. With the filters dialog open, add a filter to the *Text* property that matches the table name involved. In the example above we might add the condition Like="%Event%". Click `Ok` and if the message pops up, agree to adding the `TextData` event column.
-   b. At the Events Selection tab tick the `Show all events` checkbox, expand the `Performance` section, and include the `Showplan XML` event. This event will provide detailed information about how the database constructed and executed the query.
+6.a. With the filters dialog open, add a filter to theÂ *Text* property that matches the table name involved. In the example above we might add the condition Like="%Event%". Click `Ok` and if the message pops up, agree to adding the `TextData` event column.
+Â  Â b. At the Events Selection tab tick the `Show all events` checkbox, expand the `Performance` section, and include the `Showplan XML` event. This event will provide detailed information about how the database constructed and executed the query.
 
 
 ![](/docs/images/5671493/5865854.png?effects=drop-shadow)
@@ -97,14 +97,14 @@ As with before, perform the operation causing the error with the trace running t
 
 
 
-### Logging  Queries
+### Logging Â Queries
 
 
 Slow running queries are automatically logged to the [Server Logs](http://docs.octopusdeploy.com/display/OD/Log+files) with an Info trace level. These lines will look something like
 
 
 > ```
-> 2016-11-17 00:31:39.8557    285  INFO  Reader took 309ms (1ms until the first record): SELECT * FROM dbo.[Project] ORDER BY Id
+> 2016-11-17 00:31:39.8557 Â  Â 285 Â INFO Â Reader took 309ms (1ms until the first record): SELECT * FROM dbo.[Project] ORDER BY Id
 > ```
 
 

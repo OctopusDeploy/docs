@@ -33,7 +33,7 @@ To help you get started, we provide a sample Excel spreadsheet that you can conn
 ## Getting started
 
 
-The fastest way to get started is to use our Excel spreadsheet template. The spreadsheet uses Pivot Tables and Pivot Charts to summarise the data. You can use it as a starting point, and then modify or adapt it to suit your needs.
+The fastest way to get started is to use our Excel spreadsheet template.Â The spreadsheet uses Pivot Tables and Pivot Charts to summarise the data. You can use it as a starting point, and then modify or adapt it to suit your needs.
 
 
 First, **[download the template](/docs/attachments/download the template)** and open it in Excel. The template fetches data from our public [Demo Octopus Server](https://demo.octopusdeploy.com).
@@ -53,7 +53,7 @@ To change the source of the data:
 3. Go to the **Definition** tab, then click **Browse...**
 
 ![](/docs/images/3048643/3278358.png)
-4. In the Select Data Source menu, instead of selecting a file, enter your reporting URL, then Open. To get your reporting URL, see the section below on **Using the XML Feed**. 
+4. In the Select Data Source menu, instead of selecting a file, enter your reporting URL, then Open. To get your reporting URL, see the section below on **Using the XML Feed**.Â 
 
 ![](/docs/images/3048643/3278360.png)
 

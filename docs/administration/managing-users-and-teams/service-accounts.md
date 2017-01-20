@@ -4,7 +4,7 @@ position: 2
 ---
 
 
-When using Octopus Deploy it is common to have other automated services control certain aspects of your deployments. Some examples:
+When using Octopus Deploy it is common to have other automated servicesÂ control certain aspects of your deployments. Some examples:
 
 - you might configure your [build server](/docs/home/api-and-integration.md) to push deployment packages to the built-in package feed, create releases, and deploy them to your test environment after each successful build
 - you might be deploying to an [elastic environment](https://octopus.com/blog/rfc-cloud-and-infrastructure-automation-support) and want to add/remove deployment targets dynamically via the [Octopus API](/docs/home/api-and-integration/octopus-rest-api.md)
@@ -15,11 +15,11 @@ When using Octopus Deploy it is common to have other automated services control 
 It is best to create **Service accounts** for this purpose to provide each service with the least privileges required for the tasks each service will perform.
 
 :::hint
-**Service accounts** are **API-only accounts** that can be assigned permissions in the same way you do for normal user accounts, but are prevented from using the Octopus web portal.
+**Service accounts**Â areÂ **API-only accounts**Â that can be assigned permissions in the same way you do for normal user accounts, but are prevented from using the Octopus web portal.
 :::
 
 :::success
-Service accounts authenticate with the Octopus API using their [Octopus API Key](/docs/home/how-to/how-to-create-an-api-key.md).
+Service accounts authenticate with the Octopus API using theirÂ [Octopus API Key](/docs/home/how-to/how-to-create-an-api-key.md).
 :::
 
 ## Creating a service account
@@ -28,8 +28,8 @@ Service accounts authenticate with the Octopus API using their [Octopus API Key]
 Creating a new Service account is very similar to creating a new User account:
 
 1. Go to *Configuration > Users* and click **Create user**
-2. Check **The user is a service account** to indicate this will be a Service account
-3. Enter a unique **Username** and **Display name** so you can distinguish this Service account
+2. CheckÂ **The user is a service account** to indicate this will be a Service account
+3. Enter a uniqueÂ **Username** andÂ **Display name** so you can distinguish this Service account
 4. Click the **Create user** button to create the Service account
 ![](/docs/images/3049520/3278574.png)
 

@@ -4,10 +4,10 @@ position: 26
 ---
 
 
-As you promote your application through test, UAT, staging and production, there are going to be differences in database connection strings, application settings, web service URLs, and many other parameters.
+As you promote your application through test, UAT, staging and production, there are going to be differences in database connection strings, application settings, web service URLs,Â and many other parameters.
 
 
-To make it easy to support different environments without hard-coding these configuration values, you can define **variables** related to your project. These variables are used during your application deployment. For example, variables you define will be automatically substituted into [XML configuration files](/docs/home/deploying-applications/configuration-files.md), and [made available to your PowerShell scripts](/docs/home/deploying-applications/custom-scripts.md). This allows you to create applications and deployment scripts that are agnostic of the target environment.
+To make it easy to support different environments without hard-coding these configuration values, you can define **variables** related to your project.Â These variables are used during your application deployment. For example, variables you define will be automatically substituted intoÂ [XML configuration files](/docs/home/deploying-applications/configuration-files.md), andÂ [made available to your PowerShell scripts](/docs/home/deploying-applications/custom-scripts.md). This allows you to create applications and deployment scripts that are agnostic of the target environment.
 
 
 Variables are essentially name/value pairs with optional scope rules applied. You can edit the variables using the **Variables** tab within a project.

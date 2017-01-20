@@ -10,13 +10,13 @@ Show the thumbprint of the Tentacle's certificate
 
 ```text
 Usage: Tentacle show-thumbprint [<options>]
- 
+Â 
 
 Where [<options>] is any of:
       --instance=VALUE       Name of the instance to use
   -e, --export-file=VALUE    Exports the Tentacle thumbprint to a file
       --thumbprint-only      Only print out the thumbprint, with no additional text
- 
+Â 
 Or one of the common options:
       --console              Don't attempt to run as a service, even if the
                                user is non-interactive

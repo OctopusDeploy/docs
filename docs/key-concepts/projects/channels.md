@@ -26,10 +26,10 @@ Channels in Octopus Deploy will help you if you want to:
 
 Each Release you create in Octopus Deploy is placed into a Channel, and Releases in each Channel can be treated differently. For each Channel you can define:
 
-- Which [Lifecycle](/docs/home/key-concepts/lifecycles.md) to use for promoting Releases: for example, feature releases may be promoted through the testing environments, while hot-fix releases may go directly to production.
-- Which [Deployment Process](/docs/home/deploying-applications.md) to use when deploying Releases: for example, steps can be enabled for specific channels.
-- Which [Variables](/docs/home/deploying-applications/variables.md) to use: Variables can be scoped to channels.
-- Which [Tenants](/docs/home/key-concepts/tenants.md) should be included when deploying Releases: for example, you can ensure only Releases from certain Channels are deployed to certain Tenants
+- WhichÂ [Lifecycle](/docs/home/key-concepts/lifecycles.md)Â to use for promoting Releases: for example, feature releases may be promoted through the testing environments, while hot-fix releases may go directly to production.
+- WhichÂ [Deployment Process](/docs/home/deploying-applications.md)Â to use when deploying Releases: for example, steps can be enabled for specific channels.
+- WhichÂ [Variables](/docs/home/deploying-applications/variables.md)Â to use: Variables can be scoped to channels.
+- WhichÂ [Tenants](/docs/home/key-concepts/tenants.md) should be included when deploying Releases: for example, you can ensure only Releases from certain Channels are deployed to certain Tenants
 
 
 
@@ -54,7 +54,7 @@ Channels can also help you to create consistent Releases by specifying Version R
 ## Managing Channels
 
 
-Channels are managed per project.  Select the **Channels** menu item from the Project page.
+Channels are managed per project. Â Select the **Channels** menu item from the Project page.
 
 
 ![](/docs/images/3048999/3278456.png)
@@ -74,7 +74,7 @@ You can associate a Lifecycle with the Channel, or it may inherit the default fr
 ### Defining Version Rules
 
 
-Version rules assist in selecting the correct versions of packages for the Channel.  They are only used when creating a release, either manually or via [Automatic Release Creation](/docs/home/deploying-applications/automatic-release-creation.md).
+Version rules assist in selecting the correct versions of packages for the Channel. Â They are only used when creating a release, either manually or via [Automatic Release Creation](/docs/home/deploying-applications/automatic-release-creation.md).
 
 :::hint
 **SemVer works best**
@@ -110,7 +110,7 @@ From Octopus 3.4 onward you can use the full semantic version as part of your ve
 #### Tags
 
 
-Following the standard 2.0.0 [semver syntax](http://semver.org/), a pre-release tag is the alpha numeric text that can appear after the standard *major.minor.patch* pattern immediately following a hyphen. Providing a regex pattern for this field allows the channel to filter packages based on their tag in a very flexible manner. Some examples are.
+Following the standard 2.0.0 [semver syntax](http://semver.org/),Â a pre-release tag is the alpha numeric text that can appear after the standard *major.minor.patch* pattern immediately following a hyphen. Providing a regex pattern for this field allows the channel to filter packages based on their tag in a very flexible manner. Some examples are.
 
 | **Pattern** | **Description** | **Example use-case** |
 | --- | --- | --- |
@@ -171,15 +171,15 @@ When you are creating a Release, you can select a Channel.
 ![](/docs/images/3048999/3278463.png)
 
 
-Selecting the Channel will cause the Release to use the Lifecycle associated with the Channel (or the Project default, if the Channel does not have a Lifecycle).  It will also cause the Deployment Process and Variables to be modified as specified above.
+Selecting the Channel will cause the Release to use the Lifecycle associated with the Channel (or the Project default, if the Channel does not have a Lifecycle). Â It will also cause the Deployment Process and Variables to be modified as specified above.
 
 
-The package list allows you to select the version of each package involved in the deployment.  The *latest* column displays the latest packages that match the version rules defined for the Channel (see [version rules](/docs/home/key-concepts/projects/channels.md) for more information).
+The package list allows you to select the version of each package involved in the deployment. Â The *latest*Â column displays the latest packages that match the version rules defined for the Channel (seeÂ [version rules](/docs/home/key-concepts/projects/channels.md) for more information).
 
 ### Using Build Server Extensions or Octo.exe
 
 
-When using one of the [build server extensions](http://docs.octopusdeploy.com/display/OD2/API+and+Integration) or [octo.exe](/docs/home/api-and-integration/octo.exe-command-line/creating-releases.md) to create releases, you can either let Octopus automatically choose the correct Channel for your Release (this is the default behaviour), or choose a specific Channel yourself.
+When using one of theÂ [build server extensions](http://docs.octopusdeploy.com/display/OD2/API+and+Integration) orÂ [octo.exe](/docs/home/api-and-integration/octo.exe-command-line/creating-releases.md) to create releases, you can either let Octopus automatically choose the correct Channel for your Release (this is the default behaviour), or choose a specific Channel yourself.
 
 ### Automatic Release Creation
 
@@ -190,7 +190,7 @@ When enabling [Automatic Release Creation](/docs/home/deploying-applications/aut
 ![](/docs/images/3048999/3278462.png)
 
 
-Any releases created automatically will use the configured channel.  Additionally, any Version Rules configured for the Channel will be used to decide whether a release is automatically created.
+Any releases created automatically will use the configured channel. Â Additionally, any Version Rules configured for the Channel will be used to decide whether a release is automatically created.
 
 
 For example, if version 3.1.0 of a package Acme.Web is pushed to the Octopus internal NuGet repository, and the Channel selected for Automatic Release Creation has a Version Rule as pictured below,

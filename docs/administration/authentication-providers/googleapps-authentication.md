@@ -9,7 +9,7 @@ GoogleApps authentication is available in Octopus Deploy 3.5 and later
 :::
 
 
-To use GoogleApps authentication with Octopus, GoogleApps must be configured to trust Octopus (by setting it up as an App).  Below are the details for how to configure the App.
+To use GoogleApps authentication with Octopus, GoogleApps must be configured to trust Octopus (by setting it up as an App). Â Below are the details for how to configure the App.
 
 
 On this page:
@@ -29,17 +29,17 @@ On this page:
 ## Set up an App
 
 
-To configure an App within GoogleApps, you must have a Developer account at [https://developers.google.com](https://developers.google.com).  This account will own the App configuration, so we recommend you create an account for company use, rather than using an individual account.
+To configure an App within GoogleApps, you must have a Developer account at [https://developers.google.com](https://developers.google.com). Â This account will own the App configuration, so we recommend you create an account for company use, rather than using an individual account.
 
 
-Once you have an account, log in to [https://console.developers.google.com](https://console.developers.google.com) and the following actions:
+Once you have an account, log in toÂ [https://console.developers.google.com](https://console.developers.google.com)Â and the following actions:
 
 1. Create a project for Octopus (this might take a minute or so) and then within that project
 2. Select API Manager -> Credentials menu.
 3. Set the **OAuth consent screen** information.
 4. Select the Credentials tab and Create a new **OAuth client ID** for a **Web app**.
-5. Enter a **Name** for identification, e.g. Octopus.  This is the name that will appear when the user is asked to allow access to their details.
-6. Add `https://octopus.example.com/api/users/authenticatedToken/GoogleApps` (replacing `https://octopus.example.com` with the url of your Octopus server) to the **Authorized Redirect URIs**.
+5. Enter aÂ **Name**Â for identification, e.g. Octopus. Â This is the name that will appear when the user is asked to allow access to their details.
+6. AddÂ `https://octopus.example.com/api/users/authenticatedToken/GoogleApps`Â (replacing `https://octopus.example.com`Â with the url of your Octopus server)Â to the **Authorized Redirect URIs**.
 
 
 :::hint
@@ -83,7 +83,7 @@ If you already have Octopus user accounts and you want to enable external authen
 # Troubleshooting
 
 
-We do our best to log warnings to your Octopus Server log whenever possible. If you are having difficulty configuring Octopus to authenticate with GoogleApps, be sure to check your [server logs](/docs/home/reference/log-files.md) for warnings.
+We do our best to log warnings to your Octopus Server log whenever possible.Â If you are having difficulty configuring Octopus to authenticate with GoogleApps, be sure to check yourÂ [server logs](/docs/home/reference/log-files.md)Â for warnings.
 
 
 
@@ -113,7 +113,7 @@ Unfortunately security-related configuration is sensitive to everything. Make su
 
 
 
-You can see the OpenID Connect metadata by going to [https://accounts.google.com/.well-known/openid-configuration](https://accounts.google.com/.well-known/openid-configuration).
+You can see the OpenID Connect metadata by going toÂ [https://accounts.google.com/.well-known/openid-configuration](https://accounts.google.com/.well-known/openid-configuration).
 
 
 
@@ -132,11 +132,11 @@ Perhaps the contents of the security token sent back by GoogleApps aren't exactl
 1. Open the Developer Tools of your browser and enable Network logging making sure the network logging is preserved across requests.
  1. In Chrome Dev Tools this is called "Preserve Log".
 ![](/docs/images/5670656/5866122.png)
-2. Attempt to sign into Octopus using GoogleApps and find the HTTP POST coming back to your Octopus instance from GoogleApps on a route like `/api/users/authenticatedToken/GoogleApps`. You should see an `id_token` field in the HTTP POST body. 
+2. Attempt to sign into Octopus using GoogleApps and find the HTTP POST coming back to your Octopus instance from GoogleApps on a route likeÂ `/api/users/authenticatedToken/GoogleApps`. You should see anÂ `id_token`Â field in the HTTP POST body.Â 
 ![](/docs/images/5670664/5866125.png)
-3. Grab the contents of the `id_token` field and paste that into [https://jwt.io/](https://jwt.io/) which will decode the token for you.
+3. Grab the contents of theÂ `id_token`Â field and paste that intoÂ [https://jwt.io/](https://jwt.io/)Â which will decode the token for you.
 ![](/docs/images/5670656/5866123.png)
 
  1. Don't worry if jwt.io complains about the token signature, it doesn't support RS256 which is used by GoogleApps.
-4. Octopus uses most of the data to validate the token, but primarily uses the `sub`, `email` and `name` claims. If these claims are not present you will likely see unexpected behaviour.
-5. If you are not able to figure out what is going wrong, please send a copy of the decoded payload to our [support team](https://octopus.com/support) and let them know what behaviour you are experiencing.
+4. Octopus uses most of the data to validate the token, but primarily uses theÂ `sub`,Â `email`Â andÂ `name`Â claims. If these claims are not present you will likely see unexpected behaviour.
+5. If you are not able to figure out what is going wrong, please send a copy of the decoded payload to ourÂ [support team](https://octopus.com/support)Â and let them know what behaviour you are experiencing.

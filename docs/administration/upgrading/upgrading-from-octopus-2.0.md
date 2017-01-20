@@ -23,8 +23,8 @@ Additional information on troubleshooting upgrades is below.
 
 To upgrade the Octopus Deploy server, you will need to follow these steps:
 
-1. Ensure you have a recent [database backup](/docs/home/administration/backup-and-restore.md) that you can restore in case anything goes wrong
-2. Download the latest [Octopus Deploy MSI installer](http://octopusdeploy.com/downloads)
+1. Ensure you have a recentÂ [database backup](/docs/home/administration/backup-and-restore.md)Â that you can restore in case anything goes wrong
+2. Download the latestÂ [Octopus Deploy MSI installer](http://octopusdeploy.com/downloads)
 3. Run the installer and follow the prompts
 
 
@@ -40,7 +40,7 @@ If you change the Octopus Server installation path (e.g. *C:\Program Files\Octop
 
 
 
-When the installer finishes, Octopus Manager will appear. Make sure the Octopus service is running by clicking **Start**.
+When the installer finishes, Octopus Manager will appear. Make sure the Octopus service is running by clickingÂ **Start**.
 
 
 ![](/docs/images/3048129/3277991.png)
@@ -48,13 +48,13 @@ When the installer finishes, Octopus Manager will appear. Make sure the Octopus 
 ## Upgrading Tentacles
 
 
-After upgrading the Octopus server, browse to the **Environments** tab in the Octopus web portal. You may need to press the "Check health" button to refresh the status of your Tentacles. If any of the Tentacle agents need to be updated, a message will appear:
+After upgrading the Octopus server, browse to theÂ **Environments**Â tab in the Octopus web portal. You may need to press the "Check health" button to refresh the status of your Tentacles. If any of the Tentacle agents need to be updated, a message will appear:
 
 
 ![](/docs/images/3048129/3277990.png)
 
 
-Click on the **Upgrade machines** button to have Octopus send the new Tentacle package to all of the machines.
+Click on theÂ **Upgrade machines**Â button to have Octopus send the new Tentacle package to all of the machines.
 
 ## Troubleshooting
 
@@ -68,7 +68,7 @@ For Octopus 2.1, we fixed the MSI and made it a "per machine" installation. Howe
 Instead, we added a check in 2.1.3 that checks if a per-user installation already exists, and if so, blocks installation. The error message reads:
 
 
-> A previous version of Octopus Deploy 2.0 is currently installed. This version cannot be automatically upgraded. You will need to uninstall this version before upgrading. Please view this page for details: [http://g.octopushq.com/UninstallFirst](http://g.octopushq.com/UninstallFirst)
+> A previous version of Octopus Deploy 2.0 is currently installed. This version cannot be automatically upgraded. You will need to uninstall this version before upgrading. Please view this page for details:Â [http://g.octopushq.com/UninstallFirst](http://g.octopushq.com/UninstallFirst)
 
 
 
@@ -88,7 +88,7 @@ When upgrading from one version of Octopus to another we actually perform an uni
 :::
 
 
-You can uninstall the old version of the Octopus Deploy MSI installer and install the new version by locating the entry in **Programs and Features**in the Windows Control Panel:
+You can uninstall the old version of the Octopus Deploy MSI installer and install the new version by locating the entry inÂ **Programs and Features**in the Windows Control Panel:
 
 
 ![](/docs/images/3048131/3278003.png)
@@ -106,7 +106,7 @@ HKEY_LOCAL_MACHINE\Software\Octopus\OctopusServerHKEY_LOCAL_MACHINE\Software\Oct
 ```
 
 
-And delete the `InstallLocation` value.
+And delete theÂ `InstallLocation`Â value.
 
 
 Depending on whether you are running the 32-bit registry editor or had previously installed 32-bit versions of Octopus on a 64-bit machine, you should also check:

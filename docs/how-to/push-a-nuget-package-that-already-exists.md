@@ -27,7 +27,7 @@ If a package with the same version already exists, the server will usually rejec
 Sometimes the package version number may not always change. This can happen if you are building a solution containing many projects, and only one project has changed. If this is the case, you can modify the URL to include a replace parameter:
 
 
-`NuGet.exe push YourApp.1.0.0.nupkg -ApiKey &lt;Your-API-Key&gt; -Source http://localhost:8065/nuget/packages?replace=true`
+`NuGet.exe pushÂ YourApp.1.0.0.nupkgÂ -ApiKey &lt;Your-API-Key&gt; -Source http://localhost:8065/nuget/packages?replace=true`
 
 
 

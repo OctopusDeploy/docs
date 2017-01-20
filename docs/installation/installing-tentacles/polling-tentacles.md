@@ -4,7 +4,7 @@ position: 1
 ---
 
 
-When installing a Tentacle, you will be asked to choose how Tentacle will communicate with the Octopus server. In **polling** mode, Tentacle will poll the Octopus server periodically to check whether there are any tasks for it to perform. Polling mode is the opposite to [listening mode](/docs/home/installation/installing-tentacles/listening-tentacles.md). *In polling mode, Octopus is the TCP server, and Tentacle is the TCP client.*
+When installing a Tentacle, you will be asked to choose how Tentacle will communicate with the Octopus server.Â InÂ **polling**Â mode, Tentacle will poll the Octopus server periodically to check whether there are any tasks for it to perform. Polling mode is the opposite to [listening mode](/docs/home/installation/installing-tentacles/listening-tentacles.md). *In polling mode, Octopus is the TCP server, and Tentacle is the TCP client.*
 
 
 ![](/docs/images/3048113/5865875.png)
@@ -36,7 +36,7 @@ The latest Tentacle MSI can always be [downloaded from the Octopus Deploy downlo
 :::
 
 
-This three minute video (with captions) will walk you through the process of installing a Tentacle in polling mode, and registering it with your [Octopus Deploy server](/docs/home/installation/installing-octopus.md).
+This three minute video (with captions) will walk you through the process of installing a Tentacle in polling mode, and registering it with yourÂ [Octopus Deploy server](/docs/home/installation/installing-octopus.md).
 
 ## Firewall changes
 
@@ -57,10 +57,10 @@ Don't forget to allow access not just in Windows Firewall, but also any intermed
 ## Troubleshooting
 
 
-We have provided a detailed guide for [Troubleshooting Polling Tentacles](/docs/home/how-to/troubleshoot-polling-tentacles.md) but feel free to start with these simple steps.
+We have provided a detailed guide forÂ [Troubleshooting Polling Tentacles](/docs/home/how-to/troubleshoot-polling-tentacles.md)Â but feel free to start with these simple steps.
 
 
-If Tentacle is unable to connect to the Octopus Deploy server, any errors will appear in the Windows Event Viewer. You can also open a web browser on the Tentacle and try browsing to the Octopus Deploy server using **HTTPS** (will not work with HTTP) and be welcomed with a friendly message.
+If Tentacle is unable to connect to the Octopus Deploy server, any errors will appear in the Windows Event Viewer. You can also open a web browser on the Tentacle and try browsing to the Octopus Deploy server usingÂ **HTTPS** (will not work with HTTP) and be welcomed with a friendly message.
 
 :::hint
 **Client Certificates and Certificate Warnings**

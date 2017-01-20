@@ -18,7 +18,7 @@ To support these scenarios, you can add **Manual Steps** to your deployment proc
 ## Adding manual steps
 
 
-Manual steps are one of the step types that appear when you click **Add step** on the **Process** tab of your project. For information about adding a step to the deployment process, see the [add step](http://docs.octopusdeploy.com/display/OD/Add+step) section.
+Manual steps are one of the step types that appear when you clickÂ **Add step**Â on theÂ **Process**Â tab of your project.Â For information about adding a step to the deployment process, see theÂ [add step](http://docs.octopusdeploy.com/display/OD/Add+step)Â section.
 
 
 ![](/docs/images/5671696/5865911.png)
@@ -50,7 +50,7 @@ If you are in the team of users that can take responsibility for the interruptio
 ![](/docs/images/3048086/3277687.png)
 
 
-When the interruption has been assigned to you, you can then perform the action in the instructions, and then choose to either **Proceed** (allow the deployment to continue) or **Abort** (fail and stop the deployment from continuing):
+When the interruption has been assigned to you, you can then perform the action in the instructions, and then choose to either **Proceed**Â (allow the deployment to continue) or **Abort** (fail and stop the deployment from continuing):
 
 
 ![](/docs/images/3048086/3277686.png)
@@ -61,7 +61,7 @@ When aborting a deployment, it's a good idea to write a reason into the **Notes*
 ## Output variables
 
 
-When a manual step is completed, details of the interruption are saved as variables that can be used in other steps including [email](/docs/home/deploying-applications/email-notifications.md) templates.
+When a manual step is completed, details of the interruption are saved as variables that can be used in other steps includingÂ [email](/docs/home/deploying-applications/email-notifications.md) templates.
 
 
 *Step Name* below refers to the name given to the manual step, for example *Ensure traders are aware of the deployment*.

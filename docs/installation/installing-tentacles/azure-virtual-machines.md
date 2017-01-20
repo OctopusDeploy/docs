@@ -13,7 +13,7 @@ The Octopus Tentacle VM extension is temporarily unavailable. We are working wit
 
 
 
-If you deploy software to virtual machines hosted in Microsoft Azure, Octopus Deploy makes it easy to install the [Tentacle agent](/docs/home/installation/installing-tentacles.md). This page will explain how to install the Tentacle agent extension for Azure VM's, as well as how to install the extension via command line, and how to diagnose problems when using the extension.
+If you deploy software to virtual machines hosted in Microsoft Azure, Octopus Deploy makes it easy to install the [Tentacle agent](/docs/home/installation/installing-tentacles.md).Â This page will explain how to install the Tentacle agent extension for Azure VM's, as well as how to install the extension via command line, and how to diagnose problems when using the extension.
 
 ## Overview
 
@@ -31,7 +31,7 @@ The Tentacle will be configured in [listening mode](/docs/home/installation/inst
 ## Adding the Tentacle agent extension
 
 
-After creating a virtual machine on Azure using the management portal, browse to the virtual machine, then click on **Extensions**:
+After creating a virtual machine on Azure using the management portal, browse to the virtual machine, then clickÂ onÂ **Extensions**:
 
 
 ![](/docs/images/3048116/3277917.png)
@@ -188,8 +188,8 @@ If, for some reason, the machine fails to register after 20 minutes, you can acc
 1. Use the **connect** button on the VM to set up a remote desktop connection.
 ![](/docs/images/3048116/3277912.png)
 For more information, see [How to Log on to a Virtual Machine](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-log-on-windows-server/).
-2. In the remote desktop session, open Windows Explorer, and browse to `C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\1.3.0.0`
-3. In this folder, you'll find a number of text files. Open these to view the output of the commands, and look for any error messages. 
+2. In the remote desktop session, open Windows Explorer, and browse toÂ `C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\1.3.0.0`
+3. In this folder, you'll find a number of text files. Open these to view the output of the commands, and look for any error messages.Â 
 ![](/docs/images/3048116/3277911.png)
 
 

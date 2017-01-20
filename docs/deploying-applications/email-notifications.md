@@ -12,12 +12,12 @@ Deployments can have a strong impact on others whose work depends on the system 
 
 
 
-To support this, Octopus provides **Email Steps**in a project's deployment process.
+To support this, Octopus providesÂ **Email Steps**in a project's deployment process.
 
 ## Adding an email step
 
 
-Email can be chosen as the step type when you click **Add Step** in your project's **Process** tab. For information about adding a step to the deployment process, see the [add step](http://docs.octopusdeploy.com/display/OD/Add+step) section.
+Email can be chosen as the step type when you clickÂ **Add Step**Â in your project'sÂ **Process**Â tab.Â For information about adding a step to the deployment process, see theÂ [add step](http://docs.octopusdeploy.com/display/OD/Add+step)Â section.
 
 
 ![](/docs/images/5671696/5865915.png)
@@ -73,7 +73,7 @@ The template below collects basic information about the deployment, including th
 ```
 
 :::hint
-To use the template in your projects, replace `nuget.org` with the DNS name of your NuGet server, and `my-octopus` with the DNS name of your Octopus server. Make sure you select *Body is HTML*on the email step configuration page.
+To use the template in your projects, replaceÂ `nuget.org`Â with the DNS name of your NuGet server, andÂ `my-octopus`Â with the DNS name of your Octopus server. Make sure you select *Body is HTML*on the email step configuration page.
 :::
 
 

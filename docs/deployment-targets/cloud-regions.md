@@ -23,7 +23,7 @@ Cloud Region targets will enable steps which execute on the Octopus Server to ex
 > 
 > 
 > 
-> Now when you deploy OctoFX you can create a [rolling deployment](/docs/home/patterns/rolling-deployments.md) targeting these regions one at a time, or in parallel.
+> Now when you deploy OctoFX you can create aÂ [rolling deployment](/docs/home/patterns/rolling-deployments.md) targeting these regions one at a time, or in parallel.
 
 
 :::success
@@ -33,12 +33,12 @@ We originally considered calling these "Generic Targets" because they can be use
 
 You can create Cloud Regions just like other deployment targets.
 
-1. Go to *Environments* and click **Add deployment target** in the environment where you want to create the cloud region.
-2. Select **Cloud Region** from the list of available deployment target types.
+1. Go toÂ *Environments* and clickÂ **Add deployment target** in the environment where you want to create the cloud region.
+2. SelectÂ **Cloud Region** from the list of available deployment target types.
 ![](https://i.octopus.com/blog/201604-2016-04-0715_35_30-cloud_region_target-PEQY.png)
 3. Give the cloud region a name and select the roles for the cloud region.
 ![](https://i.octopus.com/blog/201604-2016-04-0715_40_07-cloud_region_details-TSJY.png)
-4. Now you can see the cloud regions in the *Environments* page, just like the other deployment targets.
+4. Now you can see the cloud regions in theÂ *Environments* page, just like the other deployment targets.
 ![](https://i.octopus.com/blog/201604-2016-04-0715_48_45-cloud_target_environment-VRKV.png)
 5. To make use of your cloud regions you should scope region-specific variables to them appropriately.
 ![](https://i.octopus.com/blog/201604-2016-04-0722_48_54-cloud_region_variables-4L36.png)

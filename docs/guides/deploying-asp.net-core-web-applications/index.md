@@ -20,10 +20,10 @@ octo pack --id MyApp.Web --version 1.0.0 --basePath published-app
 ```
 
 
-If you are using the built-in repository, you can create a [zip file](/docs/home/packaging-applications/creating-zip-packages.md) instead. The generated nupkg or zip file should then be then be [pushed to a repository](/docs/home/packaging-applications/package-repositories.md).
+If you are using the built-in repository, you can create aÂ [zip file](/docs/home/packaging-applications/creating-zip-packages.md)Â instead.Â The generated nupkg or zip file should then be then be [pushed to a repository](/docs/home/packaging-applications/package-repositories.md).
 
 
-If you are using TeamCity, you can use the [new TeamCity plugin for dotnet commands](https://github.com/JetBrains/teamcity-dnx-plugin).
+If you are using TeamCity, you can use theÂ [new TeamCity plugin for dotnet commands](https://github.com/JetBrains/teamcity-dnx-plugin).
 
 ## Deployment
 
@@ -35,7 +35,7 @@ See the [ASP.NET Core IIS documentation](https://docs.asp.net/en/latest/publishi
 :::
 
 
-When running under IIS, ensure the Relative home directory is specified as "wwwroot" for compatibility with IIS.
+When running under IIS,Â ensure the Relative home directory isÂ specifiedÂ as "wwwroot" for compatibility with IIS.
 
 
 ![](/docs/images/3702900/3964976.png)
@@ -55,4 +55,4 @@ ASP.NET Core introduces a new JSON-based configuration file format. Octopus 3.3 
 ![](/docs/images/3702900/5275656.png)
 
 
-For more information, see the section on the [JSON Configuration Variables Feature](/docs/home/guides/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md).
+For more information, see the section on theÂ [JSON Configuration Variables Feature](/docs/home/guides/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md).

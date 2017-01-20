@@ -4,7 +4,7 @@ title: User Roles
 ---
 
 
-User Roles play a major part in the Octopus security model. These roles are assigned to Teams and they dictate what the members of those teams can do in Octopus.
+User RolesÂ play a major part in the Octopus security model. These roles are assigned to Teams and they dictate what the members of those teams can do in Octopus.
 
 
 - Built-in User Roles
@@ -40,7 +40,7 @@ The built-in User Roles can be modified to contain more or less roles to suit sp
 ## Creating User Roles
 
 
-A custom User Role can be created with any combination of roles. To create a custom user role:
+A custom User Role can be created with any combination of roles.Â To create a custom user role:
 
 1. Go to the Teams page, and look for the Roles link**![](/docs/images/3048105/3278287.png)**
 2. Click **Add custom role**
@@ -58,16 +58,16 @@ Once the custom role is saved, the new role will be available to be assigned to 
 ## Troubleshooting Permissions
 
 
-If for some reason a user has more/fewer permissions than they should, you can use the **Test Permissions** feature to get an easy to read list of all the permissions that a specific user has on the Octopus instance.
+If for some reason a user has more/fewer permissions than they should, you can use theÂ **Test Permissions**Â feature to get an easy to read list of all the permissions that a specific user has on the Octopus instance.
 
 
-To test the permissions go to **Configuration** -> **Teams** -> **Test Permissions** and select a user from the dropdown.
+To test the permissions go toÂ **Configuration**Â ->Â **Teams**Â ->Â **Test Permissions**Â and select a user from the dropdown.
 
 
 The results will show
 
 - The teams of which the user is a member of.
-- A chart detailing each role and on which Environment/Project this permission can be executed. The chart can be exported to a CSV file by clicking the Export button. Once the file is downloaded it can viewed in browser using [Online CSV Editor and Viewer](http://www.convertcsv.com/csv-viewer-editor.htm).
+- A chart detailing each role and on which Environment/Project this permission canÂ be executed. The chart can be exported to a CSV file by clicking the Export button. Once the file is downloaded it can viewed in browser usingÂ [Online CSV Editor and Viewer](http://www.convertcsv.com/csv-viewer-editor.htm).
 
 
 
