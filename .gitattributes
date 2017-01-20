@@ -1,0 +1,21 @@
+# Auto detect text files and perform CRLF normalization
+* text=auto eol=crlf
+
+*.exe	-text -diff
+*.jpg  	-text -diff
+*.png 	-text -diff
+*.gif 	-text -diff
+*.dll 	-text -diff
+*.pdb 	-text -diff
+*.pptx	-text -diff
+*.xap	-text -diff
+*.ico	-text -diff
+*.ttf	-text -diff
+*.otf	-text -diff
+*.psm1 -text -diff
+*.ps1 -text -diff
+
+*.md text
+*.txt text eol=crlf
+
+*.zip binary
