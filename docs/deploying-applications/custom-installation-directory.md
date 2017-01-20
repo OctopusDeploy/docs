@@ -1,4 +1,4 @@
-﻿---
+---
 title: Custom Installation Directory
 position: 5
 ---

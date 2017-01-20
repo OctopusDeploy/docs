@@ -1,4 +1,4 @@
-﻿---
+---
 title: Installation
 position: 1
 ---

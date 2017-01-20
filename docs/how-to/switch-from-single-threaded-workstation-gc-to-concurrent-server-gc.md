@@ -1,4 +1,4 @@
-﻿---
+---
 title: Switch from single-threaded workstation GC to concurrent server GC
 position: 10
 ---

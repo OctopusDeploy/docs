@@ -1,4 +1,4 @@
-﻿---
+---
 title: Cloud Service deployment step
 position: 2
 ---

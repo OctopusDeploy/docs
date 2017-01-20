@@ -1,4 +1,4 @@
-﻿---
+---
 title: Packaging applications
 position: 3
 ---

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Partial Export
 
 ---

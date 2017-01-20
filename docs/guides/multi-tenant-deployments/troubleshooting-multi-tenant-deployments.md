@@ -1,4 +1,4 @@
-﻿---
+---
 title: Troubleshooting multi-tenant deployments
 position: 3
 ---

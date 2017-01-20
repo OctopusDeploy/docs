@@ -1,4 +1,4 @@
-﻿---
+---
 title: Prompted variables
 position: 3
 ---

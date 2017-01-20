@@ -1,4 +1,4 @@
-﻿---
+---
 title: Enable web request logging
 position: 16
 ---

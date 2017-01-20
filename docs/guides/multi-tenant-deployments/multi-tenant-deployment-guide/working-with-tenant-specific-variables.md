@@ -1,4 +1,4 @@
-﻿---
+---
 title: Working with tenant-specific variables
 position: 3
 ---

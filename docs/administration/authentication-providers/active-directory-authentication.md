@@ -1,4 +1,4 @@
-﻿---
+---
 title: Active Directory authentication
 position: 0
 ---

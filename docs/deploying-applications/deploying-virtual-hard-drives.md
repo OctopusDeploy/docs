@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deploying Virtual Hard Drives
 position: 31
 ---

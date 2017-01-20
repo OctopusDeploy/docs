@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manually uninstall Octopus Server
 position: 1
 ---

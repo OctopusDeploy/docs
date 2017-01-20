@@ -1,4 +1,4 @@
-﻿---
+---
 title: In place upgrade (install over 2.6)
 position: 0
 ---

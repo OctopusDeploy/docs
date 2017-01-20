@@ -1,4 +1,4 @@
-﻿---
+---
 title: Upgrading
 position: 8
 ---

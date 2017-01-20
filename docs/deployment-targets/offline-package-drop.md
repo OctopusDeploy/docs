@@ -1,4 +1,4 @@
-﻿---
+---
 title: Offline Package Drop
 position: 3
 ---

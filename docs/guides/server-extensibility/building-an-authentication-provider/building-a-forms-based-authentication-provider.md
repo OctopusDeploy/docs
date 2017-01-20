@@ -1,4 +1,4 @@
-﻿---
+---
 title: Building a Forms based Authentication Provider
 
 ---

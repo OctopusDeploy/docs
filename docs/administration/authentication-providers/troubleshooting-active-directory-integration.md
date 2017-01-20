@@ -1,4 +1,4 @@
-﻿---
+---
 title: Troubleshooting Active Directory integration
 position: 3
 ---

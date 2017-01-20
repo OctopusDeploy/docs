@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deleting releases
 position: 3
 ---

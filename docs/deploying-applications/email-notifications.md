@@ -1,4 +1,4 @@
-﻿---
+---
 title: Email notifications
 position: 13
 ---

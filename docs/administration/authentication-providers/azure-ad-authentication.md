@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure AD authentication
 position: 1
 ---

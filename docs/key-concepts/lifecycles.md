@@ -1,4 +1,4 @@
-﻿---
+---
 title: Lifecycles
 position: 4
 ---

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Export and import Tentacle certificates without a profile
 position: 8
 ---

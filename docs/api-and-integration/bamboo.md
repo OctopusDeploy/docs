@@ -1,4 +1,4 @@
-﻿---
+---
 title: Bamboo
 position: 3
 ---

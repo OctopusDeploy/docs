@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manually fail a running or cancelling task
 position: 2
 ---

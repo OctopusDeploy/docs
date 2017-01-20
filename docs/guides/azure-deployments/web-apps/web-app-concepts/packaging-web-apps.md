@@ -1,4 +1,4 @@
-﻿---
+---
 title: Packaging Web Apps
 
 ---

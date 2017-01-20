@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configuring Target Machine
 position: 0
 ---

@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to create an API key
 position: 7
 ---

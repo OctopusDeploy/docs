@@ -1,4 +1,4 @@
-﻿---
+---
 title: Creating projects
 position: 1
 ---

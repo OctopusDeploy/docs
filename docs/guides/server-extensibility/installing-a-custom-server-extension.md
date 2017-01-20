@@ -1,4 +1,4 @@
-﻿---
+---
 title: Installing a custom server extension
 
 ---

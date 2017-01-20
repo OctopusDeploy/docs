@@ -1,4 +1,4 @@
-﻿---
+---
 title: Sensitive variables
 position: 4
 ---

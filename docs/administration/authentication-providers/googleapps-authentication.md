@@ -1,4 +1,4 @@
-﻿---
+---
 title: GoogleApps authentication
 position: 2
 ---

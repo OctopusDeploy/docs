@@ -1,4 +1,4 @@
-﻿---
+---
 title: Designing a multi-tenant hosting model
 position: 5
 ---

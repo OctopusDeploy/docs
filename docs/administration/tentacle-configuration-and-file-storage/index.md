@@ -1,4 +1,4 @@
-﻿---
+---
 title: Tentacle configuration and file storage
 position: 12
 ---

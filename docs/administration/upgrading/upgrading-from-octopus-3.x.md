@@ -1,4 +1,4 @@
-﻿---
+---
 title: Upgrading from Octopus 3.x
 position: 3
 ---

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Compatibility
 position: 12
 ---

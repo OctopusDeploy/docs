@@ -1,4 +1,4 @@
-﻿---
+---
 title: Variables
 position: 26
 ---

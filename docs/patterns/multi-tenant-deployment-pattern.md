@@ -1,4 +1,4 @@
-﻿---
+---
 title: Multi-tenant deployment pattern
 position: 2
 ---

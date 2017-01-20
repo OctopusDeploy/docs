@@ -1,4 +1,4 @@
-﻿---
+---
 title: Guided failures
 position: 18
 ---

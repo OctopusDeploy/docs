@@ -1,4 +1,4 @@
-﻿---
+---
 title: Migrating to Octopus 3.4
 
 ---

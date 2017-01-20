@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure PowerShell scripts
 position: 1
 ---

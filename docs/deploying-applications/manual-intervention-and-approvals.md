@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manual intervention and approvals
 position: 19
 ---

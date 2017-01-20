@@ -1,4 +1,4 @@
-﻿---
+---
 title: Troubleshooting
 position: 4
 ---

@@ -1,4 +1,4 @@
-﻿---
+---
 title: SQL Server Database Requirements
 position: 0
 ---

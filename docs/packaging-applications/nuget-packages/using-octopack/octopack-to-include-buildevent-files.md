@@ -1,4 +1,4 @@
-﻿---
+---
 title: OctoPack to include BuildEvent files
 position: 1
 ---

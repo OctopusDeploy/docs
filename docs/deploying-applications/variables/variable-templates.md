@@ -1,4 +1,4 @@
-﻿---
+---
 title: Variable templates
 position: 7
 ---

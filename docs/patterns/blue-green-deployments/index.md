@@ -1,4 +1,4 @@
-﻿---
+---
 title: Blue-green deployments
 position: 1
 ---

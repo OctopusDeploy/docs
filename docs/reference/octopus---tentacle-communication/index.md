@@ -1,4 +1,4 @@
-﻿---
+---
 title: Octopus - Tentacle communication
 position: 1
 ---

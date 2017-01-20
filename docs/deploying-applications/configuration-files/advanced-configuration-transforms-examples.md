@@ -1,4 +1,4 @@
-﻿---
+---
 title: Advanced Configuration Transforms Examples
 
 ---

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Project Triggers
 position: 3
 ---

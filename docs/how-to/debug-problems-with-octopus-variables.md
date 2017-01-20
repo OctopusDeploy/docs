@@ -1,4 +1,4 @@
-﻿---
+---
 title: Debug problems with Octopus variables
 position: 1
 ---

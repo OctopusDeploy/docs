@@ -1,4 +1,4 @@
-﻿---
+---
 title: Changing the Collation of the Octopus Database
 
 ---

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Migrating data from Octopus 2.6 to 3.x
 position: 3
 ---

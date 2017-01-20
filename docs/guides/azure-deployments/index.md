@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure deployments
 position: 0
 ---

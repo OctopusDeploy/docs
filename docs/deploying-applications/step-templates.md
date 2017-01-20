@@ -1,4 +1,4 @@
-﻿---
+---
 title: Step Templates
 position: 15
 ---

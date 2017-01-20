@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deployment targets
 position: 5
 ---

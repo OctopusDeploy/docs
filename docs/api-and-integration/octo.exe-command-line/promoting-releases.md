@@ -1,4 +1,4 @@
-﻿---
+---
 title: Promoting releases
 position: 8
 ---

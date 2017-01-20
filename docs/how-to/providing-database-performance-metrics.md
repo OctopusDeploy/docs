@@ -1,4 +1,4 @@
-﻿---
+---
 title: Providing database performance metrics
 position: 26
 ---

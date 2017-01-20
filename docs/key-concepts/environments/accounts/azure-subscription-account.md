@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Subscription Account
 position: 2
 ---

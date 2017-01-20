@@ -1,4 +1,4 @@
-﻿---
+---
 title: Coordinating Multiple Projects
 position: 10
 ---

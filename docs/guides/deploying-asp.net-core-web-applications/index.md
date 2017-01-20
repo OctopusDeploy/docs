@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deploying ASP.NET Core Web Applications
 position: 1
 ---

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Project Coordination Code Samples
 
 ---

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Multi-tenant deployments FAQ
 position: 1
 ---

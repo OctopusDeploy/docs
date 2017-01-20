@@ -1,4 +1,4 @@
-﻿---
+---
 title: Custom scripts
 position: 10
 ---

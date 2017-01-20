@@ -1,4 +1,4 @@
-﻿---
+---
 title: Machine Policies
 position: 3
 ---

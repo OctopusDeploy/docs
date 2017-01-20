@@ -1,4 +1,4 @@
-﻿---
+---
 title: Security and encryption
 position: 1
 ---

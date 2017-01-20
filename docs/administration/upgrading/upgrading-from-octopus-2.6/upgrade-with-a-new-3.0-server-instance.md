@@ -1,4 +1,4 @@
-﻿---
+---
 title: Upgrade with a new 3.0 server instance
 position: 2
 ---

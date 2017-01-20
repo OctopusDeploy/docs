@@ -1,4 +1,4 @@
-﻿---
+---
 title: Binding syntax
 position: 1
 ---

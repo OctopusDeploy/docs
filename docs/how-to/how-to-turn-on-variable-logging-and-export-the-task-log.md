@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to turn on variable logging and export the task log
 position: 27
 ---

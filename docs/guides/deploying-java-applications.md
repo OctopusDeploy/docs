@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deploying Java applications
 position: 12
 ---

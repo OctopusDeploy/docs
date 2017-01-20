@@ -1,4 +1,4 @@
-﻿---
+---
 title: Sensitive Properties API Changes in Release 3.3
 position: 22
 ---

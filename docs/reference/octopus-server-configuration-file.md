@@ -1,4 +1,4 @@
-﻿---
+---
 title: Octopus Server configuration file
 position: 3
 ---

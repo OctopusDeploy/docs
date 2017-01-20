@@ -1,4 +1,4 @@
-﻿---
+---
 title: Automatic Release Creation
 position: 22
 ---

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Automatic Deployment Triggers
 position: 23
 ---

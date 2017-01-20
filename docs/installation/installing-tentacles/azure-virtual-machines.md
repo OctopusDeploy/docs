@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Virtual Machines
 position: 4
 ---

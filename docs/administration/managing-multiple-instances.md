@@ -1,4 +1,4 @@
-﻿---
+---
 title: Managing multiple instances
 position: 2
 ---

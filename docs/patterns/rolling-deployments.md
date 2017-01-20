@@ -1,4 +1,4 @@
-﻿---
+---
 title: Rolling deployments
 position: 5
 ---

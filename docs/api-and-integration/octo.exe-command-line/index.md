@@ -1,4 +1,4 @@
-﻿---
+---
 title: Octo.exe Command Line
 position: 6
 ---

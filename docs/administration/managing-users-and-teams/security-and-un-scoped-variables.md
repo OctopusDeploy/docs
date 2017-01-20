@@ -1,4 +1,4 @@
-﻿---
+---
 title: Security and un-scoped variables
 position: 1
 ---

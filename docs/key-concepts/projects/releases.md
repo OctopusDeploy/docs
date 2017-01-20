@@ -1,4 +1,4 @@
-﻿---
+---
 title: Releases
 position: 1
 ---

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Managing users and teams
 position: 3
 ---

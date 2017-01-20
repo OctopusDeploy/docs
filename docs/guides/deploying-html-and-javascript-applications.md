@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deploying HTML and JavaScript Applications
 position: 11
 ---

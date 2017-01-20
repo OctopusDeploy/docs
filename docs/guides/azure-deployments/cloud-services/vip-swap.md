@@ -1,4 +1,4 @@
-﻿---
+---
 title: VIP Swap
 position: 3
 ---

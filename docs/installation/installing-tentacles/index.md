@@ -1,4 +1,4 @@
-﻿---
+---
 title: Installing Tentacles
 position: 2
 ---

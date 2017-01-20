@@ -1,4 +1,4 @@
-﻿---
+---
 title: Backup and restore
 position: 1
 ---

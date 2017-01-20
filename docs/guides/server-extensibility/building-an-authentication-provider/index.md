@@ -1,4 +1,4 @@
-﻿---
+---
 title: Building an Authentication Provider
 
 ---

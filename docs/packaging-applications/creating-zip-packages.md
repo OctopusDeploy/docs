@@ -1,4 +1,4 @@
-﻿---
+---
 title: Creating ZIP packages
 position: 3
 ---

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Upgrading from Octopus 2.6
 position: 2
 ---

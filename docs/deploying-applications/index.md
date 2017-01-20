@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deploying applications
 position: 6
 ---

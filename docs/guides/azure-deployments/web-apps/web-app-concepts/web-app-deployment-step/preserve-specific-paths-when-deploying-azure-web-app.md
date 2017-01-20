@@ -1,4 +1,4 @@
-﻿---
+---
 title: Preserve Specific Paths When Deploying Azure Web App
 
 ---

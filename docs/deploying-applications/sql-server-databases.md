@@ -1,4 +1,4 @@
-﻿---
+---
 title: SQL Server databases
 position: 17
 ---

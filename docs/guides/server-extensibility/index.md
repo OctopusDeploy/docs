@@ -1,4 +1,4 @@
-﻿---
+---
 title: Server Extensibility
 position: 7
 ---

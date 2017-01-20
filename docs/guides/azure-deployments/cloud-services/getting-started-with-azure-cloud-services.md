@@ -1,4 +1,4 @@
-﻿---
+---
 title: Getting started with Azure Cloud Services
 position: 0
 ---

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Capture a crash dump
 position: 13
 ---

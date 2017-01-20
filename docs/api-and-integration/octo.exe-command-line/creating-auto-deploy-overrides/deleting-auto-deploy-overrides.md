@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deleting auto deploy overrides
 
 ---

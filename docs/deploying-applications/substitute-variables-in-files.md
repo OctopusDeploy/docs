@@ -1,4 +1,4 @@
-﻿---
+---
 title: Substitute Variables in Files
 position: 28
 ---

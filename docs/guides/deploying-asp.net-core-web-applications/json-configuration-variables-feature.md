@@ -1,4 +1,4 @@
-﻿---
+---
 title: JSON Configuration Variables Feature
 
 ---

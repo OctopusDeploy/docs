@@ -1,4 +1,4 @@
-﻿---
+---
 title: Upgrading from Octopus 1.6
 position: 1
 ---

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Patterns
 position: 8
 ---

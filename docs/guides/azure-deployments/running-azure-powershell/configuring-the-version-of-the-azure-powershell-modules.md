@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configuring the version of the Azure PowerShell modules
 
 ---

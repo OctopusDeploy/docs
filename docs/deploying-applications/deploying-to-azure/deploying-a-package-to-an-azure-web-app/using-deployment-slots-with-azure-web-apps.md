@@ -1,4 +1,4 @@
-﻿---
+---
 title: Using Deployment Slots with Azure Web Apps
 
 ---

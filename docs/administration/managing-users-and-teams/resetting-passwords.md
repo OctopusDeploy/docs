@@ -1,4 +1,4 @@
-﻿---
+---
 title: Resetting passwords
 position: 1
 ---

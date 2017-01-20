@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configuration files
 position: 4
 ---

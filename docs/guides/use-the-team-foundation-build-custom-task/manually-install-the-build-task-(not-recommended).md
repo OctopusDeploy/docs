@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manually install the Build Task (not recommended)
 
 ---

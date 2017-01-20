@@ -1,4 +1,4 @@
-﻿---
+---
 title: Server configuration and File storage
 position: 11
 ---

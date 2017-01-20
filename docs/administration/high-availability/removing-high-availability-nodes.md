@@ -1,4 +1,4 @@
-﻿---
+---
 title: Removing high availability nodes
 
 ---

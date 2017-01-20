@@ -1,4 +1,4 @@
-﻿---
+---
 title: Troubleshooting Schannel and TLS
 
 ---

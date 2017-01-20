@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deploying releases
 position: 4
 ---

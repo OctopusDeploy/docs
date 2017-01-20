@@ -1,4 +1,4 @@
-﻿---
+---
 title: Get the raw output from a task
 position: 0
 ---

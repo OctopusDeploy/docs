@@ -1,4 +1,4 @@
-﻿---
+---
 title: Show Configuration
 position: 17
 ---

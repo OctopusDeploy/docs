@@ -1,4 +1,4 @@
-﻿---
+---
 title: Canary deployments
 position: 0
 ---

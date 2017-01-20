@@ -1,4 +1,4 @@
-﻿---
+---
 title: Projects
 position: 1
 ---

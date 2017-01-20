@@ -1,4 +1,4 @@
-﻿---
+---
 title: Run steps in parallel
 position: 24
 ---

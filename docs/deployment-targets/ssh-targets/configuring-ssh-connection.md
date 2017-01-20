@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configuring SSH Connection
 position: 2
 ---

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Creating teams for a user with mixed environment privileges
 
 ---

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Library variable sets
 position: 2
 ---

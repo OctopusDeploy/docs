@@ -1,4 +1,4 @@
-﻿---
+---
 title: High Availability
 position: 20
 ---

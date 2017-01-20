@@ -1,4 +1,4 @@
-﻿---
+---
 title: Troubleshoot Polling Tentacles
 position: 5
 ---

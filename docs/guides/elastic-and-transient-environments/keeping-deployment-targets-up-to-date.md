@@ -1,4 +1,4 @@
-﻿---
+---
 title: Keeping deployment targets up to date
 position: 2
 ---

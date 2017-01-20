@@ -1,4 +1,4 @@
-﻿---
+---
 title: Cloud Regions
 position: 2
 ---

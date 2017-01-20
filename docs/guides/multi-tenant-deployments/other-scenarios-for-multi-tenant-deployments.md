@@ -1,4 +1,4 @@
-﻿---
+---
 title: Other scenarios for multi-tenant deployments
 position: 2
 ---

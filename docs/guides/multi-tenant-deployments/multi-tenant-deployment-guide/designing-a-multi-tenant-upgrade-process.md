@@ -1,4 +1,4 @@
-﻿---
+---
 title: Designing a multi-tenant upgrade process
 position: 6
 ---

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Reporting
 position: 10
 ---

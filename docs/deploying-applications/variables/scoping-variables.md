@@ -1,4 +1,4 @@
-﻿---
+---
 title: Scoping variables
 position: 0
 ---

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Delta compression for package transfers
 position: 12
 ---

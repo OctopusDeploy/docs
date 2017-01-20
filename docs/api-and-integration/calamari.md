@@ -1,4 +1,4 @@
-﻿---
+---
 title: Calamari
 position: 9
 ---

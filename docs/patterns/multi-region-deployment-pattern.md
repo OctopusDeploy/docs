@@ -1,4 +1,4 @@
-﻿---
+---
 title: Multi-region deployment pattern
 position: 6
 ---

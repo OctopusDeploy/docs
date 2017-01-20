@@ -1,4 +1,4 @@
-﻿---
+---
 title: Getting started
 position: 0
 ---
@@ -38,11 +38,11 @@ Along with the Octopus Deploy server, you'll also install a lightweight agent se
 We designed Octopus to fit into teams that follow agile delivery practices. Octopus compliments your existing delivery pipeline:
 
 - **Developers commit their code into your existing source control system**
-You might be using Git, Team Foundation Server, Subversion or Mercurial; the choice is up to you.
+  You might be using Git, Team Foundation Server, Subversion or Mercurial; the choice is up to you.
 - **Your CI/build server compiles the code and runs unit tests**
-Again, you might be using TeamCity, Jenkins, Bamboo, Team Foundation Server or CruiseControl.NET; the choice is up to you.
+  Again, you might be using TeamCity, Jenkins, Bamboo, Team Foundation Server or CruiseControl.NET; the choice is up to you.
 - **Your application is packaged into a NuGet package**
-When the build is done, your CI/build server bundles all of the files – the binaries, images, scripts, configuration files and so on – needed to deploy your application into a NuGet package
+  When the build is done, your CI/build server bundles all of the files – the binaries, images, scripts, configuration files and so on – needed to deploy your application into a NuGet package
 
 
 

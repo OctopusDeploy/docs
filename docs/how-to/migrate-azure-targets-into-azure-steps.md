@@ -1,4 +1,4 @@
-﻿---
+---
 title: Migrate Azure Targets into Azure Steps
 position: 24
 ---

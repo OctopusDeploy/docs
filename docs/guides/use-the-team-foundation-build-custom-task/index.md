@@ -1,4 +1,4 @@
-﻿---
+---
 title: Use the Team Foundation Build Custom Task
 position: 5
 ---

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deploy using an Azure Resource Group Template
 
 ---

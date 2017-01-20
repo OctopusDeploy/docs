@@ -1,4 +1,4 @@
-﻿---
+---
 title: Permissions required for the Octopus windows service
 position: 1
 ---

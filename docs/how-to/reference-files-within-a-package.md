@@ -1,4 +1,4 @@
-﻿---
+---
 title: Reference files within a package
 position: 20
 ---

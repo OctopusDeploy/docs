@@ -1,4 +1,4 @@
-﻿---
+---
 title: Managing High Availability Nodes
 
 ---

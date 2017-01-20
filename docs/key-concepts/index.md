@@ -1,4 +1,4 @@
-﻿---
+---
 title: Key Concepts
 position: 2
 ---

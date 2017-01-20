@@ -1,4 +1,4 @@
-﻿---
+---
 title: Visual Studio Team Services (VSTS)
 position: 1
 ---

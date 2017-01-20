@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deploying to Azure
 position: 27
 ---

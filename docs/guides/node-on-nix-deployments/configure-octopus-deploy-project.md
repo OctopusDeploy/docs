@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure Octopus Deploy Project
 position: 2
 ---

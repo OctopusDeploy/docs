@@ -1,4 +1,4 @@
-﻿---
+---
 title: Standalone scripts
 position: 0
 ---

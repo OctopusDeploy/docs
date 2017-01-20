@@ -1,4 +1,4 @@
-﻿---
+---
 title: Automating Tentacle installation
 position: 2
 ---

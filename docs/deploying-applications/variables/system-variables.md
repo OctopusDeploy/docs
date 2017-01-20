@@ -1,4 +1,4 @@
-﻿---
+---
 title: System variables
 position: 5
 ---

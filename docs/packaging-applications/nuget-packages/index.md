@@ -1,4 +1,4 @@
-﻿---
+---
 title: NuGet packages
 position: 2
 ---

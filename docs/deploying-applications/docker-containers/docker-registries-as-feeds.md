@@ -1,4 +1,4 @@
-﻿---
+---
 title: Docker Registries as Feeds
 position: 0
 ---

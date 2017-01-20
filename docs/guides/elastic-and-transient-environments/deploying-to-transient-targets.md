@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deploying to transient targets
 position: 0
 ---

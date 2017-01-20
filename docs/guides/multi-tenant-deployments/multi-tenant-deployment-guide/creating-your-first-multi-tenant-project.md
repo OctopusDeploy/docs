@@ -1,4 +1,4 @@
-﻿---
+---
 title: Creating your first multi-tenant project
 position: 1
 ---

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Cleaning up environments
 position: 3
 ---

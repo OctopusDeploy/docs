@@ -1,4 +1,4 @@
-﻿---
+---
 title: Log files
 position: 1
 ---

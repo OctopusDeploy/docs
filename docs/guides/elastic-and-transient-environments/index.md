@@ -1,4 +1,4 @@
-﻿---
+---
 title: Elastic and Transient Environments
 position: 6
 ---

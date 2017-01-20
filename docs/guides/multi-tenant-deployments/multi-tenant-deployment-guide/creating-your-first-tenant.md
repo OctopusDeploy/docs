@@ -1,4 +1,4 @@
-﻿---
+---
 title: Creating your first tenant
 position: 0
 ---

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Built-in Repository Reindexing
 
 ---

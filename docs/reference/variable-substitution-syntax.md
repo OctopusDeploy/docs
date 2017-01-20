@@ -1,4 +1,4 @@
-﻿---
+---
 title: Variable Substitution Syntax
 position: 1
 ---

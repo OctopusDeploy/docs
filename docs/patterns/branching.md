@@ -1,4 +1,4 @@
-﻿---
+---
 title: Branching
 position: 4
 ---

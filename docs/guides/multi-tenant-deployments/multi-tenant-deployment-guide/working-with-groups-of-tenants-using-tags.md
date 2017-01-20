@@ -1,4 +1,4 @@
-﻿---
+---
 title: Working with groups of tenants using tags
 position: 4
 ---

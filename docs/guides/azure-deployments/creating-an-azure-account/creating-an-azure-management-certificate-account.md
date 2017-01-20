@@ -1,4 +1,4 @@
-﻿---
+---
 title: Creating an Azure Management Certificate Account
 
 ---

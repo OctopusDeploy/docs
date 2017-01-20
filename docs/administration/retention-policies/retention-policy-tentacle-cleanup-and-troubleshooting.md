@@ -1,4 +1,4 @@
-﻿---
+---
 title: Retention policy Tentacle cleanup and troubleshooting
 
 ---
