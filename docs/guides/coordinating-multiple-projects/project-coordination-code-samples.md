@@ -7,10 +7,10 @@ title: Project Coordination Code Samples
 These samples show how to perform various tasks related to project coordination.
 
 
-See theÂ [OctopusDeploy-Api](https://github.com/OctopusDeploy/OctopusDeploy-Api)Â repository for further API documentation and examples using theÂ [raw REST API](https://github.com/OctopusDeploy/OctopusDeploy-Api/tree/master/REST/PowerShell)Â or Octopus.Client inÂ [C#](https://github.com/OctopusDeploy/OctopusDeploy-Api/tree/master/Octopus.Client/Csharp),Â [Powershell](https://github.com/OctopusDeploy/OctopusDeploy-Api/tree/master/Octopus.Client/PowerShell)Â orÂ [LINQPad](https://github.com/OctopusDeploy/OctopusDeploy-Api/tree/master/Octopus.Client/LINQPad). If you are using powershell, theÂ [OctoPoshÂ ](https://github.com/Dalmirog/OctoPosh)project provides commandlets that wrap the API.
+See the [OctopusDeploy-Api](https://github.com/OctopusDeploy/OctopusDeploy-Api) repository for further API documentation and examples using the [raw REST API](https://github.com/OctopusDeploy/OctopusDeploy-Api/tree/master/REST/PowerShell) or Octopus.Client in [C#](https://github.com/OctopusDeploy/OctopusDeploy-Api/tree/master/Octopus.Client/Csharp), [Powershell](https://github.com/OctopusDeploy/OctopusDeploy-Api/tree/master/Octopus.Client/PowerShell) or [LINQPad](https://github.com/OctopusDeploy/OctopusDeploy-Api/tree/master/Octopus.Client/LINQPad). If you are using powershell, the [OctoPosh ](https://github.com/Dalmirog/OctoPosh)project provides commandlets that wrap the API.
 
 :::success
-These examples use theÂ [Octopus.Client](/docs/home/api-and-integration/octopus.client.md) library, see the [loading in an octopus step](http://docs.octopusdeploy.com/display/OD/Octopus.Client#Octopus.Client-Loadinginanoctopusstep)Â section of theÂ [Octopus.Client](/docs/home/api-and-integration/octopus.client.md)Â documentation for details on how to load the library from inside octopus using PowerShell or C# Script steps.
+These examples use the [Octopus.Client](/docs/home/api-and-integration/octopus.client.md) library, see the [loading in an octopus step](http://docs.octopusdeploy.com/display/OD/Octopus.Client#Octopus.Client-Loadinginanoctopusstep) section of the [Octopus.Client](/docs/home/api-and-integration/octopus.client.md) documentation for details on how to load the library from inside octopus using PowerShell or C# Script steps.
 :::
 
 
@@ -50,13 +50,13 @@ $repository.Dashboards.GetDashboard().Items
 **OctoPosh**
 
 ```powershell
-Â Get-OctopusDashboard
+ Get-OctopusDashboard
 ```
 
 **Http**
 
 ```js
-Â http://localhost/api/dashboard
+ http://localhost/api/dashboard
 ```
 
 ## 
@@ -142,7 +142,7 @@ Console.WriteLine($"Queued for {tomorrow3amServerTime}");
 ## Failing a deployment if another deployment is running
 
 
-This example uses the dynamic dashboard API to check whether a different project is currently deploying to the same environment. Note that OctopusÂ [restricts](http://docs.octopusdeploy.com/display/OD/Run+multiple+processes+on+a+Tentacle+Simultaneously)Â what can run at the same time already.
+This example uses the dynamic dashboard API to check whether a different project is currently deploying to the same environment. Note that Octopus [restricts](http://docs.octopusdeploy.com/display/OD/Run+multiple+processes+on+a+Tentacle+Simultaneously) what can run at the same time already.
 
 ```c#
 var otherProject = repository.Projects.FindByName("Other Project");

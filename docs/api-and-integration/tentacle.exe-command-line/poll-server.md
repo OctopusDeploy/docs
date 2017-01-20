@@ -10,7 +10,7 @@ Configures an Octopus Server that this Tentacle will poll
 
 ```text
 Usage: Tentacle poll-server [<options>]
-Â 
+ 
 
 Where [<options>] is any of:
       --instance=VALUE       Name of the instance to use

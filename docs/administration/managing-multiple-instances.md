@@ -65,11 +65,11 @@ You can export a script from the wizard to see what the command-line equivalent 
 
 Different instances of Octopus Server:
 
-- Listen on separate web URLs (e.g. the same server may hostÂ [http://my-octopus/group1,](http://my-octopus/group1,)[http://my-octopus/group2,](http://my-octopus/group2,)Â andÂ [http://test-octopus:81](http://test-octopus:81/))
+- Listen on separate web URLs (e.g. the same server may host [http://my-octopus/group1,](http://my-octopus/group1,)[http://my-octopus/group2,](http://my-octopus/group2,) and [http://test-octopus:81](http://test-octopus:81/))
 - Have completely separate SQL Server databases
 - Have completely separate environments, projects, teams, users and permissions
 - Run in separate Windows services, potentially under different user accounts
-- CanÂ share Tentacle machines (but don't have to)
+- Can share Tentacle machines (but don't have to)
 - Run from the same on-disk executables (the MSI installer is only run once)
 
 

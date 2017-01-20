@@ -4,7 +4,7 @@ position: 2
 ---
 
 
-A Username/Password Account is one mechanism that can be used to authenticate toÂ [SSH Targets](http://docs.octopusdeploy.com/display/OD3/SSH+Targets).
+A Username/Password Account is one mechanism that can be used to authenticate to [SSH Targets](http://docs.octopusdeploy.com/display/OD3/SSH+Targets).
 
 ## Creating the account
 

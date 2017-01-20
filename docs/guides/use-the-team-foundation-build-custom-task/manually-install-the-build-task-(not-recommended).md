@@ -39,7 +39,7 @@ When you log in, use `--authType basic` to authenticate that way. NTLM authentic
 :::
 
 
-Create a newÂ **Personal Access Token**Â in Visual Studio Online or TFS in theÂ **Security**Â tab for your Profile.
+Create a new **Personal Access Token** in Visual Studio Online or TFS in the **Security** tab for your Profile.
 
 
 ![](/docs/images/3048587/3278348.png)
@@ -57,17 +57,17 @@ Specify All scopes. You can revoke this token as soon as the task is uploaded.
 Login to your Visual Studio or TFS account using the TFX-CLI tool
 
 ```powershell
-Â tfx login
+ tfx login
 ```
 
 
 ![](/docs/images/3048587/3278375.png)
 
 
-Use the TFX-CLI tool to upload the Octopus Create Release task. You will need to point at theÂ `source\VSTSExtensions\OctopusBuildTasks\CreateOctopusRelease`Â folder in the cloned repository.
+Use the TFX-CLI tool to upload the Octopus Create Release task. You will need to point at the `source\VSTSExtensions\OctopusBuildTasks\CreateOctopusRelease` folder in the cloned repository.
 
 ```powershell
-Â tfx build tasks upload <path-to-task>
+ tfx build tasks upload <path-to-task>
 ```
 
 

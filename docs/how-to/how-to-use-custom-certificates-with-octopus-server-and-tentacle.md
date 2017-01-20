@@ -4,7 +4,7 @@ position: 19
 ---
 
 
-Octopus uses self-signed certificates to securely communicate between tentacles and the server. However, if you have a requirement to use your own certificates, you can use the import-certificate command to import your own certificate. Â Octopus Server has supported the import-certificate command as of Octopus 3.2.9 and Tentacle has always supported it. Â The import command supports importing certificates in the Personal Information Exchange (PFX) files with an optional password. Â Octopus requires PFX files contain the certificate private key.
+Octopus uses self-signed certificates to securely communicate between tentacles and the server. However, if you have a requirement to use your own certificates, you can use the import-certificate command to import your own certificate.  Octopus Server has supported the import-certificate command as of Octopus 3.2.9 and Tentacle has always supported it.  The import command supports importing certificates in the Personal Information Exchange (PFX) files with an optional password.  Octopus requires PFX files contain the certificate private key.
 
 
 For more information on self-signed certificates, see the [blog post](https://octopusdeploy.com/blog/why-self-signed-certificates) on the topic.
@@ -23,7 +23,7 @@ It's important to consider the impact of updating an existing Octopus server or 
 This assumes you have already installed Octopus on the target server.
 
 1. Stop the OctopusDeploy service on the target Octopus server you wish to update.
-2. Execute the following statement at a command line on the same server. Â Note that the password is optional. Â asdf
+2. Execute the following statement at a command line on the same server.  Note that the password is optional.  asdf
 
 ```powershell
 Octopus.Server.exe import-certificate --from-file="C:\PathToCertificate\cert.pfx" --pfx-password="Password" --console
@@ -33,19 +33,19 @@ Octopus.Server.exe import-certificate --from-file="C:\PathToCertificate\cert.pfx
 ```powershell
 Octopus Deploy: Server version 3.2.x
 Importing the certificate stored in PFX file in C:\Temp\cert.pfx using the provided password...
-The certificate CN=OctopusServer was regenerated; old thumbprint = F1D30DE16AFBA30CB8FD20070856EECC15DDF06C,Â 
+The certificate CN=OctopusServer was regenerated; old thumbprint = F1D30DE16AFBA30CB8FD20070856EECC15DDF06C, 
 new thumbprint = 1EA1B432478117393C8BA435FD42727C0E87445C
 Certificate imported successfully.
 ```
 3. Restart the OctopusDeploy service.
-4. The next step is to update all the associated Tentacles to trust the new certificate. Â This is done by stopping the Tentacle service you wish to update and then executing the following statetment with the new thumbprint from the step above. Â Finally, restart the tentacle service.
+4. The next step is to update all the associated Tentacles to trust the new certificate.  This is done by stopping the Tentacle service you wish to update and then executing the following statetment with the new thumbprint from the step above.  Finally, restart the tentacle service.
 
 ```powershell
 Tentacle.exe configure --trust NewOctopusServerCertificateThumbprint --console
 ```
 
 
-## Configuring TentacleÂ to use custom certificates
+## Configuring Tentacle to use custom certificates
 
 
 This assumes you have already installed a Tentacle on the target server.
@@ -97,6 +97,6 @@ Octopus Deploy: Tentacle version 3.2.x
 The thumbprint of this Tentacle is: DE010ABF6FF8ED1B7895A31F005B8D88A3329867
 ```
 5. Open the Octopus web portal and select to the Tentacle on the Environments Page.
-6. Update the Tentacle thumbprint to use the value from Step 4 above and click the save button. Â 
+6. Update the Tentacle thumbprint to use the value from Step 4 above and click the save button.  
 ![](/docs/images/3049117/3278508.png)
-7. Select the Connectivity tab and then click Check health to verify the connection is working. Â If it's not, double check the Octopus Server and Tentacle thumbprints to ensure their correct.
+7. Select the Connectivity tab and then click Check health to verify the connection is working.  If it's not, double check the Octopus Server and Tentacle thumbprints to ensure their correct.

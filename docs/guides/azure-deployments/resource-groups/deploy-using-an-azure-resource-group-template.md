@@ -31,7 +31,7 @@ On this page:
  - Using linked templates
 
 
-Octopus Deploy supports deploying Azure Resource Group Templates via theÂ *Deploy an Azure Resource Group*Â step type.Â For information about adding a step to the deployment process, see theÂ [add step](http://docs.octopusdeploy.com/display/OD/Add+step)Â section.
+Octopus Deploy supports deploying Azure Resource Group Templates via the *Deploy an Azure Resource Group* step type. For information about adding a step to the deployment process, see the [add step](http://docs.octopusdeploy.com/display/OD/Add+step) section.
 
 :::hint
 Before creating the step, you must have created an [Azure Service Principal Account](/docs/home/guides/azure-deployments/creating-an-azure-account/creating-an-azure-service-principal-account.md)
@@ -61,7 +61,7 @@ The **Deployment Mode** may be either [Incremental or Complete](https://azure.mi
 
 The **Template Source** can be either JSON entered directly into the step, or a file contained in a package.
 
-### Template Entered as JSONÂ 
+### Template Entered as JSON 
 
 
 By selecting *Source Code* as the *Template Source*, you can enter your template directly as JSON.
@@ -70,7 +70,7 @@ By selecting *Source Code* as the *Template Source*, you can enter your template
 The JSON will be parsed, and your parameters will appear dynamically as fields in the *Parameters* section.
 
 
-The parameter fields will show text boxes or select-lists as appropriate. Â You can enter values directly, or bind the parameters to Octopus Variables (e.g. see the *siteName* parameter in the image above).
+The parameter fields will show text boxes or select-lists as appropriate.  You can enter values directly, or bind the parameters to Octopus Variables (e.g. see the *siteName* parameter in the image above).
 
 :::success
 Octopus will perform [variable-substitution](/docs/home/reference/variable-substitution-syntax.md) on the JSON template.
@@ -85,11 +85,11 @@ Although you can use variables directly in the template, it is more idiomatic to
 ### Sensitive Data
 
 :::warning
-Parameters marked asÂ [secure strings](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/)Â represent sensitive data and it is important to make sure they aren't stored in plain text form.
+Parameters marked as [secure strings](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/) represent sensitive data and it is important to make sure they aren't stored in plain text form.
 :::
 
 
-The field displayed when "From Octopus" option is selected stores data as plain text so sensitive data shouldn't be typed directly into it. Â Instead, the value of the parameter should be provided either via aÂ [Sensitive Variable](/docs/home/deploying-applications/variables/sensitive-variables.md)Â if the value is stored in Octopus or via [Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-keyvault-parameter/) if the value is stored outside of Octopus. Azure Resource Group Templates provideÂ [out of the box integration with Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-keyvault-parameter/).
+The field displayed when "From Octopus" option is selected stores data as plain text so sensitive data shouldn't be typed directly into it.  Instead, the value of the parameter should be provided either via a [Sensitive Variable](/docs/home/deploying-applications/variables/sensitive-variables.md) if the value is stored in Octopus or via [Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-keyvault-parameter/) if the value is stored outside of Octopus. Azure Resource Group Templates provide [out of the box integration with Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-keyvault-parameter/).
 
 
 ![](/docs/images/3702895/5865640.png)
@@ -97,7 +97,7 @@ The field displayed when "From Octopus" option is selected stores data as plain 
 ### Template Contained in a Package
 
 
-By selectingÂ *File inside a Package*Â as theÂ *Template Source*, you can select a package which will contain your template and parameter JSON files.
+By selecting *File inside a Package* as the *Template Source*, you can select a package which will contain your template and parameter JSON files.
 
 
 ![](/docs/images/3702895/3964971.png)
@@ -196,5 +196,5 @@ Azure Resource Manager supports the concept of [linking templates](https://docs.
 Please be aware that the URI you configure for the linked templates and parameters files must be publicly accessible by the Azure Resource Manager. For example: [https://www.contoso.com/AzureTemplates/newStorageAccount.json.](https://www.contoso.com/AzureTemplates/newStorageAccount.json.)
 
 
-Learn more about [linked templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-linked-templates) and refer toÂ [this discussion](http://help.octopusdeploy.com/discussions/questions/7652-azure-resource-management-templates)Â for more details.
+Learn more about [linked templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-linked-templates) and refer to [this discussion](http://help.octopusdeploy.com/discussions/questions/7652-azure-resource-management-templates) for more details.
 :::

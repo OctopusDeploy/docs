@@ -49,7 +49,7 @@ Azure Account
  |
 | --- | --- | --- |
 | Options | (Only applies when Data type: Drop down)
-This defines the list of options available for the user to select from the drop down list.Â 
+This defines the list of options available for the user to select from the drop down list. 
 
 Enter each option on a new line. Use | to separate values and display text.
  | 

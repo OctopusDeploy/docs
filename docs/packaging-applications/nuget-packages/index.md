@@ -6,7 +6,7 @@ position: 2
 
 :::hint
 **NuGet packages**
-NuGet packages are basically ZIP files with extra metadata describing the contents of the package. They follow theÂ [Open Packaging Conventions,](http://en.wikipedia.org/wiki/Open_Packaging_Conventions)Â and use the .nupkg file extension. You canÂ [learn more about NuGet and NuGet Packages](http://docs.nuget.org/docs/start-here/overview) on the official NuGet website.
+NuGet packages are basically ZIP files with extra metadata describing the contents of the package. They follow the [Open Packaging Conventions,](http://en.wikipedia.org/wiki/Open_Packaging_Conventions) and use the .nupkg file extension. You can [learn more about NuGet and NuGet Packages](http://docs.nuget.org/docs/start-here/overview) on the official NuGet website.
 :::
 
 
@@ -27,8 +27,8 @@ NuGet is a good choice for packaging your applications, for the following reason
 You can create NuGet packages in a number of ways:
 
 - [Manually using a GUI](http://docs.octopusdeploy.com/display/OD/Manually)
-- AutomaticallyÂ [using OctoPack](http://docs.octopusdeploy.com/display/OD/Using+OctoPack)
-- AutomaticallyÂ [using NuGet.exe](http://docs.octopusdeploy.com/display/OD/Using+NuGet.exe)
+- Automatically [using OctoPack](http://docs.octopusdeploy.com/display/OD/Using+OctoPack)
+- Automatically [using NuGet.exe](http://docs.octopusdeploy.com/display/OD/Using+NuGet.exe)
 
 
 
@@ -41,5 +41,5 @@ NuGet was designed for packaging libraries to be used in Visual Studio, which is
 
 :::success
 **Tip: No dependencies**
-NuGet packages can have dependencies - library A might depend on library B, for example. Again, this works fine for managing libraries in Visual Studio. But when deploying applications, your application will expect library A and library B to be in the same folder as the rest of the binaries needed to run the application. For this reason,Â **Octopus ignores any NuGet package dependencies**. Instead, simply ensure your package contains all of the binaries needed to run the application, as in the screenshots above.
+NuGet packages can have dependencies - library A might depend on library B, for example. Again, this works fine for managing libraries in Visual Studio. But when deploying applications, your application will expect library A and library B to be in the same folder as the rest of the binaries needed to run the application. For this reason, **Octopus ignores any NuGet package dependencies**. Instead, simply ensure your package contains all of the binaries needed to run the application, as in the screenshots above.
 :::

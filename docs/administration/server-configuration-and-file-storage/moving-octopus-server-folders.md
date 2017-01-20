@@ -24,7 +24,7 @@ Usage: Octopus.Server configure [<options>]
 ```
 
 
-WhereÂ `[&lt;options&gt;]`Â is:
+Where `[&lt;options&gt;]` is:
 
 **Options**
 

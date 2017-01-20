@@ -61,7 +61,7 @@ Learn about [how to create an API key](/docs/home/how-to/how-to-create-an-api-ke
 :::
 
 
-Bamboo uses an MSBuild runner to compile Visual Studio solutions. [Once OctoPack has been installed](/docs/home/packaging-applications/nuget-packages/using-octopack.md) on your C#/VB projects, you can configure Bamboo's MSBuild task to pass the appropriate parameters to MSBuild toÂ have OctoPack run:
+Bamboo uses an MSBuild runner to compile Visual Studio solutions. [Once OctoPack has been installed](/docs/home/packaging-applications/nuget-packages/using-octopack.md) on your C#/VB projects, you can configure Bamboo's MSBuild task to pass the appropriate parameters to MSBuild to have OctoPack run:
 
 
 ![](/docs/images/3048164/3278161.png?effects=border-simple,blur-border)
@@ -114,8 +114,8 @@ Importantly:
 
 - The `--project` specifies the name of the Octopus Deploy project that we want to create a release for.
 - The `--version` specifies the version number of the release in Octopus. We want this to contain the Bamboo build number.
-- The `--packageversion`Â tells Octo.exe to ensure that the release references the right version of the NuGet packages that we published using OctoPack.
-- The `--releaseNotes` will appear in Octopus, and link back to the build in Bamboo. Of course, change the URLÂ to the address of your Bamboo server
+- The `--packageversion` tells Octo.exe to ensure that the release references the right version of the NuGet packages that we published using OctoPack.
+- The `--releaseNotes` will appear in Octopus, and link back to the build in Bamboo. Of course, change the URL to the address of your Bamboo server
 
 
 :::success
@@ -167,8 +167,8 @@ deploy-release --project OctoFX --deployTo Development --version 1.0.${bamboo.bu
 
 Importantly:
 
-- The `--project`Â setting specifies which project in Octopus Deploy that we want to deploy
-- The `--deployTo`Â setting specifies the environment in Octopus that we are deploying to. This changes with each environment in Bamboo.
+- The `--project` setting specifies which project in Octopus Deploy that we want to deploy
+- The `--deployTo` setting specifies the environment in Octopus that we are deploying to. This changes with each environment in Bamboo.
 - The `--version` matches the version of the Octopus release that we created in the build plan
 - The `--progress` flag tells Octo.exe to write the deployment log from Octopus to the log in Bamboo. This flag was added in 2.5; in previous versions of Octo.exe you can use `--waitfordeployment` instead. You can also remove this flag if you want the Bamboo deployment to complete immediately without waiting for the deployment in Octopus to complete.
 

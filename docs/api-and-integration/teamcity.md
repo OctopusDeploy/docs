@@ -4,7 +4,7 @@ position: 0
 ---
 
 
-[TeamCity](http://www.jetbrains.com/teamcity/)Â from JetBrains is a popular continuous integration server that supports a variety of different version control systems and build runners.Â Octopus Deploy and TeamCity can work together to make automated, continuous delivery easy.
+[TeamCity](http://www.jetbrains.com/teamcity/) from JetBrains is a popular continuous integration server that supports a variety of different version control systems and build runners. Octopus Deploy and TeamCity can work together to make automated, continuous delivery easy.
 
 
 When using Octopus Deploy with TeamCity, TeamCity will usually be responsible for:
@@ -23,8 +23,8 @@ Integration with TeamCity involves two major parts:
 
 
 1. Creating the NuGet packages from your applications
-Â  Â 2.Â Optionally, when a build completes, having TeamCity make requests to your Octopus Server to:
-Â  Â  Â  Â (a) Create releases; (b) Trigger deployments and/or (c) Promote releases when a build completes
+   2. Optionally, when a build completes, having TeamCity make requests to your Octopus Server to:
+       (a) Create releases; (b) Trigger deployments and/or (c) Promote releases when a build completes
 
 
 - Installing the plugin
@@ -38,18 +38,18 @@ Integration with TeamCity involves two major parts:
 ## Installing the plugin
 
 
-To make integrating with TeamCity easy, aÂ [plugin is available](https://octopus.com/downloads)Â from our download page. The plugin is distributed as a ZIP file. To install:
+To make integrating with TeamCity easy, a [plugin is available](https://octopus.com/downloads) from our download page. The plugin is distributed as a ZIP file. To install:
 
-1. Download theÂ [TeamCity Plugin ZIP file](https://octopus.com/downloads)
+1. Download the [TeamCity Plugin ZIP file](https://octopus.com/downloads)
 2. Shut down your TeamCity server
-3. Copy the ZIP file with the plugin toÂ `&lt;TeamCity Data Directory&gt;/plugins`
+3. Copy the ZIP file with the plugin to `&lt;TeamCity Data Directory&gt;/plugins`
 4. Start TeamCity server: the plugin files will be unpacked and processed automatically
 
 
 ## Creating Octopus-compatible NuGet packages using TeamCity
 
 
-Octopus requires that you package your applications into NuGet packages, whether or not you are using TeamCity. There are many ways to createÂ [Octopus-compatible NuGet packages](/docs/home/packaging-applications.md), but the easiest way is withÂ [OctoPack](https://github.com/OctopusDeploy/OctoPack).
+Octopus requires that you package your applications into NuGet packages, whether or not you are using TeamCity. There are many ways to create [Octopus-compatible NuGet packages](/docs/home/packaging-applications.md), but the easiest way is with [OctoPack](https://github.com/OctopusDeploy/OctoPack).
 
 :::hint
 **Using OctoPack**
@@ -85,7 +85,7 @@ Don't worry, TeamCity comes with a built-in [NuGet Pack build step](https://conf
 Octopus can be used as a [NuGet package package](/docs/home/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md), or can be configured to use an external feed (such as retrieving them from TeamCity).
 
 
-To push packages to Octopus during the OctoPack phase, enter the NuGet endpoint url (which you can get from *Library -> Packages*; it looks like http://octopus.example.com/nuget/packages) into theÂ **Publish packages to http** field, and [an API key](/docs/home/how-to/how-to-create-an-api-key.md) in the **Publish API Key** field**.**OctoPack will then push the packages when the solution is built.
+To push packages to Octopus during the OctoPack phase, enter the NuGet endpoint url (which you can get from *Library -> Packages*; it looks like http://octopus.example.com/nuget/packages) into the **Publish packages to http** field, and [an API key](/docs/home/how-to/how-to-create-an-api-key.md) in the **Publish API Key** field**.**OctoPack will then push the packages when the solution is built.
 
 ## Consuming the TeamCity NuGet feed in Octopus
 
@@ -98,10 +98,10 @@ To push packages to Octopus during the OctoPack phase, enter the NuGet endpoint 
 :::
 
 
-TeamCity 7 and up can act as a NuGet repository. You can enable this by going to theÂ *Administration*->*NuGet Settings*Â page, and enabling the inbuilt NuGet server. Any build artifacts ending withÂ `.nupkg`Â will automatically be served as NuGet packages, which Octopus can consume.
+TeamCity 7 and up can act as a NuGet repository. You can enable this by going to the *Administration*->*NuGet Settings* page, and enabling the inbuilt NuGet server. Any build artifacts ending with `.nupkg` will automatically be served as NuGet packages, which Octopus can consume.
 
 
-To connect Octopus to your TeamCity server, add the TeamCity authenticated feed URL to your NuGet settings in Octopus on the **External Feeds**tabÂ under theÂ **Library**page.
+To connect Octopus to your TeamCity server, add the TeamCity authenticated feed URL to your NuGet settings in Octopus on the **External Feeds**tab under the **Library**page.
 
 
 ![](/docs/images/3048176/3278184.png)
@@ -113,7 +113,7 @@ Once added, the TeamCity feed will appear in the NuGet feed list:
 ![](/docs/images/3048176/3278183.png)
 
 
-You can use theÂ *Test*Â link to make sure that the NuGet package is available, before creating your Octopus project:
+You can use the *Test* link to make sure that the NuGet package is available, before creating your Octopus project:
 
 
 ![](/docs/images/3048176/3278182.png)
@@ -144,13 +144,13 @@ The Octopus TeamCity plugin comes with these custom build runners:
 2. **Octopus Deploy: Create Release**
 Creates a new release in Octopus Deploy, and optionally deploys it to an environment
 3. **Octopus Deploy: Deploy Release**
-Deploys anÂ *existing*Â release to a new environment
+Deploys an *existing* release to a new environment
 4. **Octopus Deploy: Promote Release**
-Promotes anÂ *existing*release from one environment to another.
+Promotes an *existing*release from one environment to another.
 
 
 
-The plugin is simply a wrapper forÂ [Octo.exe](/docs/home/api-and-integration/octo.exe-command-line.md), the Octopus command line tool for creating and deploying releases.
+The plugin is simply a wrapper for [Octo.exe](/docs/home/api-and-integration/octo.exe-command-line.md), the Octopus command line tool for creating and deploying releases.
 
 
 ![](/docs/images/3048176/3278185.jpg)
@@ -166,5 +166,5 @@ The video below is from a webinar hosted by JetBrains in which we demonstrated t
 
 Traditionally the Octopus TeamCity plugin required a Windows build agent to work. As of version 4.2.1 will run on Linux build agents if they meet either **one** of the following requirements:
 
-1. HaveÂ [.NET Core](https://www.microsoft.com/net/core) installed on the build agent and in the PATH such that the `dotnet` command runs successfully. To install, follow the linked guide to install the .NET Core SDK for your distribution. Ensure that the `dotnet` command runs successfully.
-2. Have the Octo command line tool installed and in the PATH such that the `Octo` command runs successfully. To install, download the .tar.gz for you system from the [Octopus download page](https://octopus.com/downloads), extract somewhere appropriate and symlink `Octo` into your PATH. Again, ensure that `Octo` runs successfully. On Ubuntu you may need to installÂ `libunwind8` using your package manager`.`
+1. Have [.NET Core](https://www.microsoft.com/net/core) installed on the build agent and in the PATH such that the `dotnet` command runs successfully. To install, follow the linked guide to install the .NET Core SDK for your distribution. Ensure that the `dotnet` command runs successfully.
+2. Have the Octo command line tool installed and in the PATH such that the `Octo` command runs successfully. To install, download the .tar.gz for you system from the [Octopus download page](https://octopus.com/downloads), extract somewhere appropriate and symlink `Octo` into your PATH. Again, ensure that `Octo` runs successfully. On Ubuntu you may need to install `libunwind8` using your package manager`.`

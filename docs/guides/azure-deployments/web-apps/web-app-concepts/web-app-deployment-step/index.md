@@ -4,12 +4,12 @@ title: Web App deployment step
 ---
 
 
-Octopus Deploy supports automated deployment ofÂ [Azure Web Apps](http://azure.microsoft.com/en-us/services/app-service/web/)Â (formerly known as Azure Web Sites).
+Octopus Deploy supports automated deployment of [Azure Web Apps](http://azure.microsoft.com/en-us/services/app-service/web/) (formerly known as Azure Web Sites).
 
 ## Deployment Step
 
 
-Add a new 'Deploy an Azure Web App' step to your project.Â For information about adding a step to the deployment process, see theÂ [add step](http://docs.octopusdeploy.com/display/OD/Add+step)Â section.
+Add a new 'Deploy an Azure Web App' step to your project. For information about adding a step to the deployment process, see the [add step](http://docs.octopusdeploy.com/display/OD/Add+step) section.
 
 
 ![](/docs/images/5671696/5865899.png)
@@ -29,18 +29,18 @@ Once an Account is selected, the list of Azure Web Apps available to the subscri
 #### Physical Path
 
 
-Allows deployment to a physical sub-directory of the web-root. Â This is useful when deploying to Virtual Directories or Web Jobs, and you don't want to deploy the root application at the same time.
+Allows deployment to a physical sub-directory of the web-root.  This is useful when deploying to Virtual Directories or Web Jobs, and you don't want to deploy the root application at the same time.
 
 #### Remove additional files
 
 
-WhenÂ set, deletes files from the destination that aren't in the source package.
+When set, deletes files from the destination that aren't in the source package.
 
 
 **Preserve App\_Data**
 
 
-When set, skip Delete operations in theÂ **App\_Data**Â directory.
+When set, skip Delete operations in the **App\_Data** directory.
 
 :::hint
 **Preserve Specific Paths**
@@ -54,7 +54,7 @@ If you wish to set the "Remove additional files" option but preserve specific pa
 When set, this safely brings down a website with a blank app\_offline.htm file in the root.
 
 :::hint
-For more information, seeÂ [Taking an Application Offline before Publishing](https://www.iis.net/learn/publish/deploying-application-packages/taking-an-application-offline-before-publishing).
+For more information, see [Taking an Application Offline before Publishing](https://www.iis.net/learn/publish/deploying-application-packages/taking-an-application-offline-before-publishing).
 :::
 
 

@@ -11,7 +11,7 @@ octo promote-release [<options>]
 ```
 
 
-WhereÂ `[&lt;options&gt;]`Â is any of:
+Where `[&lt;options&gt;]` is any of:
 
 **Promote release options**
 
@@ -99,7 +99,7 @@ Common options:
 ### Basic example
 
 
-The following command will promote the latest release of the*Web*Â projectdeployed to *Development*to the environmentÂ *Staging.*
+The following command will promote the latest release of the*Web* projectdeployed to *Development*to the environment *Staging.*
 
 ```text
 Octo promote-release --project Web --from Development --to Staging -progress --server http://MyOctopusServerURL.com --apikey MyAPIKey

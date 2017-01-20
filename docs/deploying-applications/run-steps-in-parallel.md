@@ -16,7 +16,7 @@ To run steps in Parallel, simply create a deployment process with at least 2 ste
 
 
 
-Then edit the second step and change itsÂ *Start Trigger* toÂ **Run in parallel with previous step.**
+Then edit the second step and change its *Start Trigger* to **Run in parallel with previous step.**
 
 
 ![](/docs/images/3048080/3277651.png)

@@ -10,7 +10,7 @@ When executing PowerShell against Azure, Octopus Deploy will automatically impor
 This applies to:
 
 - 'Run an Azure PowerShell Script' steps
-- Scripts packaged or configured withÂ [Deploying a package to an Azure Cloud Service](/docs/home/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-cloud-service.md) or [Azure Web App](/docs/home/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app.md) steps
+- Scripts packaged or configured with [Deploying a package to an Azure Cloud Service](/docs/home/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-cloud-service.md) or [Azure Web App](/docs/home/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app.md) steps
 
 
 :::hint
@@ -33,7 +33,7 @@ Learn more about [configuring the right Azure Account](/docs/home/guides/azure-d
 ## Run an Azure PowerShell Script Step
 
 
-Octopus Deploy provides aÂ *Run an Azure PowerShell Script*Â step type, for executing PowerShell in the context of an Azure Subscription.Â For information about adding a step to the deployment process, see theÂ [add step](http://docs.octopusdeploy.com/display/OD/Add+step)Â section.
+Octopus Deploy provides a *Run an Azure PowerShell Script* step type, for executing PowerShell in the context of an Azure Subscription. For information about adding a step to the deployment process, see the [add step](http://docs.octopusdeploy.com/display/OD/Add+step) section.
 
 
 

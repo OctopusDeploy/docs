@@ -4,7 +4,7 @@ position: 10
 ---
 
 
-As a convention-oriented deployment tool, Octopus can perform a number of actions automatically, such as [managing configuration files](/docs/home/deploying-applications/configuration-files.md), creating [IIS websites and application pools](/docs/home/deploying-applications/iis-websites-and-application-pools.md), and installing [Windows Services](/docs/home/deploying-applications/windows-services.md). Sometimes however youâ€™ll need to do more than the built-in conventions support â€“ and thatâ€™s where customÂ scripts come in.
+As a convention-oriented deployment tool, Octopus can perform a number of actions automatically, such as [managing configuration files](/docs/home/deploying-applications/configuration-files.md), creating [IIS websites and application pools](/docs/home/deploying-applications/iis-websites-and-application-pools.md), and installing [Windows Services](/docs/home/deploying-applications/windows-services.md). Sometimes however you'll need to do more than the built-in conventions support - and that's where custom scripts come in.
 
 
 - Scripts in Packages
@@ -41,7 +41,7 @@ Each of your scripts will be bootstrapped by the [open-source Calamari project](
 ## Scripts in Packages
 
 
-In your package, you can add any of the following script files in any of the scripting languages supported by OctopusÂ where `&lt;ext&gt;` is the appropriate extension for your scripting language of choice:
+In your package, you can add any of the following script files in any of the scripting languages supported by Octopus where `&lt;ext&gt;` is the appropriate extension for your scripting language of choice:
 
 - `PreDeploy.&lt;ext&gt;`
 - `Deploy.&lt;ext&gt;`
@@ -50,10 +50,10 @@ In your package, you can add any of the following script files in any of the scr
 
 
 
-After extracting your package, CalamariÂ will detect these scripts and invoke them. Which file you use depends on when you need your custom activity to run â€“ see the section on [what order are conventions run in](/docs/home/reference/package-deployment-feature-ordering.md) for details.Â Your scripts can do anything your scripting language supports, as well as setting [output variables](/docs/home/deploying-applications/variables/output-variables.md) and [collecting artifacts](/docs/home/deploying-applications/artifacts.md). These scripts must be located in the root of your package.
+After extracting your package, Calamari will detect these scripts and invoke them. Which file you use depends on when you need your custom activity to run - see the section on [what order are conventions run in](/docs/home/reference/package-deployment-feature-ordering.md) for details. Your scripts can do anything your scripting language supports, as well as setting [output variables](/docs/home/deploying-applications/variables/output-variables.md) and [collecting artifacts](/docs/home/deploying-applications/artifacts.md). These scripts must be located in the root of your package.
 
 
-As mentioned above, you can create a file namedÂ `DeployFailed.&lt;ext&gt;`, which will be invoked if the package deployment fails. Our blog post about this featureÂ [describes how DeployFailed.<ext> works](https://octopus.com/blog/deployfailed).
+As mentioned above, you can create a file named `DeployFailed.&lt;ext&gt;`, which will be invoked if the package deployment fails. Our blog post about this feature [describes how DeployFailed.<ext> works](https://octopus.com/blog/deployfailed).
 
 :::hint
 **Script Support on Deployment Targets**
@@ -96,7 +96,7 @@ When enabled, you can define your PreDeploy/Deploy/PostDeploy scripts within the
 ## Standalone scripts
 
 
-Octopus also allows you to add standalone script steps to your deployment process. You can use standalone scripts to execute scripts on the Octopus Server or onÂ [deployment targets](/docs/home/deployment-targets.md), where the script can be defined inline or as part of a package. Standalone scripts are so useful we've dedicated an entire page to them:Â [Standalone scripts](/docs/home/deploying-applications/custom-scripts/standalone-scripts.md).
+Octopus also allows you to add standalone script steps to your deployment process. You can use standalone scripts to execute scripts on the Octopus Server or on [deployment targets](/docs/home/deployment-targets.md), where the script can be defined inline or as part of a package. Standalone scripts are so useful we've dedicated an entire page to them: [Standalone scripts](/docs/home/deploying-applications/custom-scripts/standalone-scripts.md).
 
 
 ![](/docs/images/5671696/5865914.png)
@@ -104,13 +104,13 @@ Octopus also allows you to add standalone script steps to your deployment proces
 ## Azure PowerShell scripts
 
 
-You can manage your Azure subscription using custom PowerShell scripts and the Azure Resource Management (RM) or Service Management (SM) API -Â [more information](/docs/home/deploying-applications/custom-scripts/azure-powershell-scripts.md).
+You can manage your Azure subscription using custom PowerShell scripts and the Azure Resource Management (RM) or Service Management (SM) API - [more information](/docs/home/deploying-applications/custom-scripts/azure-powershell-scripts.md).
 
 
 ![](/docs/images/5671696/5865912.png)
 
 
-For information about adding a step to the deployment process, see theÂ [add step](http://docs.octopusdeploy.com/display/OD/Add+step)Â section.
+For information about adding a step to the deployment process, see the [add step](http://docs.octopusdeploy.com/display/OD/Add+step) section.
 
 ## Variables
 
@@ -119,7 +119,7 @@ Octopus allows you to [define variables](/docs/home/deploying-applications/varia
 
 :::warning
 **All variables are strings**
-Note that in scriptsÂ **all Octopus variables are strings**Â even if they look like numbers or other data types. You will need to cast to the appropriate type before using the value if you need something other than a string.
+Note that in scripts **all Octopus variables are strings** even if they look like numbers or other data types. You will need to cast to the appropriate type before using the value if you need something other than a string.
 :::
 
 
@@ -159,7 +159,7 @@ let connectionString = Octopus.tryFindVariable "MyApp.ConnectionString"
 match connectionString with
     | Some x -> printf "Connection string is: %s" x
     | None -> printf "Connection string not found"
-Â 
+ 
 // Or one of the simplified versions
 
 // Throws KeyNotFoundException when variable does not exist
@@ -185,7 +185,7 @@ In PowerShell we have pre-defined some script-scoped variables for you as a conv
 
 
 
-In the first form the variable name appears just as they appear in the Octopus web portal, while in the second exampleÂ special characters have been removed. The first form is the most flexible, but in some cases the second form may be more convenient.
+In the first form the variable name appears just as they appear in the Octopus web portal, while in the second example special characters have been removed. The first form is the most flexible, but in some cases the second form may be more convenient.
 
 :::hint
 **$key variable**
@@ -228,7 +228,7 @@ Write-Host "Environment: $Environment"
 When you call external scripts (sourced from a file inside a package) you can pass parameters to your script. This means you can write "vanilla" scripts that are unaware of Octopus, and test them in your local development environment.
 
 
-You can define your parameters in theÂ **Script Parameters**Â field using the format expected by your scripting execution environment (see below for examples).
+You can define your parameters in the **Script Parameters** field using the format expected by your scripting execution environment (see below for examples).
 
 
 ![](/docs/images/3048092/5865635.png)
@@ -258,14 +258,14 @@ Param (
 	[Parameter(Mandatory=$True)]
 	[string]$StoragePath
 )
-Â 
+ 
 Write-Host "$Environment storage path: $StoragePath"
 ```
 
 ### Passing parameters to C# scripts
 
 
-You can pass parameters to C# scriptsÂ [as described here for the ScriptCS engine](https://github.com/scriptcs/scriptcs/wiki/Pass-arguments-to-scripts). ScriptCS only supports positional parameters.
+You can pass parameters to C# scripts [as described here for the ScriptCS engine](https://github.com/scriptcs/scriptcs/wiki/Pass-arguments-to-scripts). ScriptCS only supports positional parameters.
 
 **Script Parameters in Octopus**
 
@@ -284,7 +284,7 @@ Console.WriteLine("{0} storage path: {1}", environment, storagePath);
 ### Passing parameters to Bash scripts
 
 
-You can pass parameters to Bash scriptsÂ [as described in Bash manual.](https://www.gnu.org/software/bash/manual/bash.html#Positional-Parameters)
+You can pass parameters to Bash scripts [as described in Bash manual.](https://www.gnu.org/software/bash/manual/bash.html#Positional-Parameters)
 
 **Script Parameters in Octopus**
 
@@ -303,7 +303,7 @@ echo "$environment storage path: $storagePath"
 ### Passing parameters to F# scripts
 
 
-You can pass parameters to FSharp scriptsÂ [as described in MSDN.](https://msdn.microsoft.com/en-us/visualfsharpdocs/conceptual/fsharp-interactive-%5Bfsi.exe%5D-reference#differences-between-the-interactive-scripting-and-compiled-environments)
+You can pass parameters to FSharp scripts [as described in MSDN.](https://msdn.microsoft.com/en-us/visualfsharpdocs/conceptual/fsharp-interactive-%5Bfsi.exe%5D-reference#differences-between-the-interactive-scripting-and-compiled-environments)
 
 **Script Parameters in Octopus**
 
@@ -340,7 +340,7 @@ Write-Error "This will be logged as an Error and may cause your script to stop r
 Console.WriteLine("This will be logged as Information");
 Console.Out.WriteLine("This will be logged as Information too!");
 Console.Error.WriteLine("This will be logged as an Error.");
-Â 
+ 
 Console.WriteLine("##octopus[stdout-verbose]");
 Console.WriteLine("And now messages written to stdout will be logged as Verbose");
 ```
@@ -363,7 +363,7 @@ eprintfn "This will be logged as Error"
 ```
 
 
-Try these out for yourself using theÂ [Script Console](/docs/home/administration/script-console.md)!
+Try these out for yourself using the [Script Console](/docs/home/administration/script-console.md)!
 
 ## Error handling
 
@@ -391,7 +391,7 @@ The third line will not be executed. To change this behavior, set `$ErrorActionP
 At the end of the script, Calamari also checks `$LastExitCode` to see if the last Windows-based program that you invoked exited successfully. Note that some Windows programs use non-zero exit codes even when they run successfully - for example, Robocopy returns the number of files copied. This can mean that Calamari assumes your script failed even if it actually ran successfully. Best practice is to call `Exit 0` yourself if your script ran successfully.
 
 
-Note that you'll need to check `$LastExitCode` yourself if you run multiple Windows programs. For example, with this script, CalamariÂ would correctly see that ping returned an exit code of 1 (the host couldn't be contacted) and will assume the script failed:
+Note that you'll need to check `$LastExitCode` yourself if you run multiple Windows programs. For example, with this script, Calamari would correctly see that ping returned an exit code of 1 (the host couldn't be contacted) and will assume the script failed:
 
 ```powershell
 & ping 255.255.255.0  # Host does not exist, will return exit code 1
@@ -422,10 +422,10 @@ if ($LastExitCode -ne 0) {
 ## Output variables
 
 
-Your scripts can emit variables that are available in subsequent deployment steps. This means you can factor your deployment into smaller, more well-defined steps that leverage the result of prior steps. It is an extremely powerful feature and you should refer to the documentation onÂ [output variables](/docs/home/deploying-applications/variables/output-variables.md) for more information.
+Your scripts can emit variables that are available in subsequent deployment steps. This means you can factor your deployment into smaller, more well-defined steps that leverage the result of prior steps. It is an extremely powerful feature and you should refer to the documentation on [output variables](/docs/home/deploying-applications/variables/output-variables.md) for more information.
 
 
-This example is from the sample project in theÂ [Channels Walkthrough](https://octopus.com/blog/channels-walkthrough#prerequisites) which is also available on our [demo server](https://demo.octopusdeploy.com/app#/projects/channels-sample). Step 1 calculates a name by convention, which is used by subsequent steps.
+This example is from the sample project in the [Channels Walkthrough](https://octopus.com/blog/channels-walkthrough#prerequisites) which is also available on our [demo server](https://demo.octopusdeploy.com/app#/projects/channels-sample). Step 1 calculates a name by convention, which is used by subsequent steps.
 
 
 ![](/docs/images/3048092/5865520.png)
@@ -440,7 +440,7 @@ $appInstanceName = $OctopusParameters["Octopus.Action[Determine App Instance Nam
 ## Collecting artifacts
 
 
-Does your deployment produce a log file, configuration files, binaries, or test results you want to publish and keep as part of your deployment? Your scripts can instruct the Octopus server to collect files as deployment artifacts. Refer to the documentation onÂ [artifacts](/docs/home/deploying-applications/artifacts.md) for more information.
+Does your deployment produce a log file, configuration files, binaries, or test results you want to publish and keep as part of your deployment? Your scripts can instruct the Octopus server to collect files as deployment artifacts. Refer to the documentation on [artifacts](/docs/home/deploying-applications/artifacts.md) for more information.
 
 
 This example comes from our [VSTS Extension](https://github.com/OctopusDeploy/OctoTFS/blob/master/deploy.ps1) which builds a VSIX package as part of the deployment process, which is then published as an artifact for convenience.
@@ -462,12 +462,12 @@ foreach ($vsix in $vsixPackages) {
 Keep in mind that scripts are executed in the context of the account that the Tentacle Windows Service (which invokes Calamari) or SSH session runs as.
 
 :::hint
-By default Tentacle runs as **Local System**, which has extensive local privileges, but usually cannot access file shares, remote SQL databases, or other external resources. If you need wider permissions, youâ€™ll need to configure Tentacle to run under a custom service account.
+By default Tentacle runs as **Local System**, which has extensive local privileges, but usually cannot access file shares, remote SQL databases, or other external resources. If you need wider permissions, you'll need to configure Tentacle to run under a custom service account.
 :::
 
 :::warning
 **PowerShell ExecutionPolicy: Unrestricted**
-When Calamari invokes PowerShell.exe, it uses the **unrestricted** execution policy for the session.Â You can see how PowerShell scripts are executed in more detail by [looking at the open-source Calamari project](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari/Integration/Scripting/WindowsPowerShell).
+When Calamari invokes PowerShell.exe, it uses the **unrestricted** execution policy for the session. You can see how PowerShell scripts are executed in more detail by [looking at the open-source Calamari project](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari/Integration/Scripting/WindowsPowerShell).
 :::
 
 ## Testing scripts
@@ -476,7 +476,7 @@ When Calamari invokes PowerShell.exe, it uses the **unrestricted** execution pol
 You may find that your script runs differently under Calamari than it does when run from PowerShell directly.
 
 
-The easiest way to test your scripts under Calamari is to use the [Script Console](/docs/home/administration/script-console.md).Â Alternatively you can invoke `Calamari.exe run-script` via the command line to test a script.
+The easiest way to test your scripts under Calamari is to use the [Script Console](/docs/home/administration/script-console.md). Alternatively you can invoke `Calamari.exe run-script` via the command line to test a script.
 
 **Calamari run-script command**
 
@@ -508,12 +508,12 @@ Where [<options>] is any of:
 ## Working directories
 
 
-Octopus Scripts are executed by Calamari, the command-line tool invoked by the Octopus Server or Tentacle during a deployment, within a the context of a working directory. Â This location is C:\Octopus\Work\ by default. Â If you're executing a script contained within a package, the package contents will be uncompressed and copied to this directory but the working directory is the directory containing the script within it.
+Octopus Scripts are executed by Calamari, the command-line tool invoked by the Octopus Server or Tentacle during a deployment, within a the context of a working directory.  This location is C:\Octopus\Work\ by default.  If you're executing a script contained within a package, the package contents will be uncompressed and copied to this directory but the working directory is the directory containing the script within it.
 
 ## Scripts that block deployments
 
 
-Sometimes a script launches a service or application that runs continuously. In this case the script does not complete until the application is terminated. Â When the script is run in an Octopus deployment, the deployment will continue executing until the script exits. Â In most cases this is undesirable. In order to avoid this behaviour the service or application should be launched in a separate process or session, allowing the deployment to continue executing immediately. For example:
+Sometimes a script launches a service or application that runs continuously. In this case the script does not complete until the application is terminated.  When the script is run in an Octopus deployment, the deployment will continue executing until the script exits.  In most cases this is undesirable. In order to avoid this behaviour the service or application should be launched in a separate process or session, allowing the deployment to continue executing immediately. For example:
 
 **PowerShell**
 

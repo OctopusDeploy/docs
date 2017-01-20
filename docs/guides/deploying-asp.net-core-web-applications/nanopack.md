@@ -4,10 +4,10 @@ title: NanoPack
 ---
 
 
-[Nano Server ](https://technet.microsoft.com/en-us/windows-server-docs/get-started/getting-started-with-nano-server)is a new installation option available for Windows Server 2016. It is optimized as a lightweight operating system for running applications based on containers or in virtual machines. Due to its small size it opens the possibility of treating complete virtual machine VHDs as build artifacts. NanoPack is a tool to help you bundle your ASP.NET Core application in to a Nano Server VHD that is ready to be deployed with Octopus. A zipped Nano Server VHD with IIS installed is under 200Mb.
+[Nano Server�](https://technet.microsoft.com/en-us/windows-server-docs/get-started/getting-started-with-nano-server)is a new installation option available for Windows Server 2016. It is optimized as a lightweight operating system for running applications based on containers or in virtual machines. Due to its small size it opens the possibility of treating complete virtual machine VHDs as build artifacts. NanoPack is a tool to help you bundle your ASP.NET Core application in to a Nano Server VHD that is ready to be deployed with Octopus. A zipped Nano Server VHD with IIS installed is under 200Mb.
 
 
-NanoPack is a wrapper around the `New-NanoServerImage`PowerShell script that is provided on the Windows Server 2016 ISO. To proceed you will need the \NanoServer folder from the ISO copied to a location that is accessible by NanoPack and to be running with Administrator rights. For complicated scenarios it may make sense to use New-NanoServerImage directly rather than using NanoPack. Guidance can be found in Microsoft's documentation [here](https://technet.microsoft.com/en-us/windows-server-docs/get-started/nano-server-quick-start).
+NanoPack is a wrapper around the `New-NanoServerImage`PowerShell script that is provided on the Windows Server 2016 ISO. To proceed you will need the \NanoServer folder from the ISO copied to a location that is accessible by NanoPack and to be running with Administrator rights. For complicated scenarios it may make sense to use�New-NanoServerImage directly rather than using NanoPack. Guidance can be found in Microsoft's documentation [here](https://technet.microsoft.com/en-us/windows-server-docs/get-started/nano-server-quick-start).
 
 ## Preparing Your Application
 
@@ -52,7 +52,7 @@ To begin using NanoPack you need to add to add it to the `tools`section of your 
 ## Calling NanoPack During Publish
 
 
-Now that you have added NanoPack to your tools it is available for use in the `scripts` section of your `project.json`. To correctly package your application with NanoPack you need to point it to the output of `dotnet` publish, to do this add the call as a `postpublish` script in your `project.json`. For example:
+Now that you have added NanoPack to your tools it is available for use in the `scripts` section of your `project.json`. To correctly package your application with NanoPack you need to point it to the output of `dotnet` publish, to do this add the call as a�`postpublish` script in your�`project.json`. For example:
 
 ```powershell
   "scripts": {
@@ -64,26 +64,26 @@ Now that you have added NanoPack to your tools it is available for use in the `s
 ```
 
 
-This is the minimum required to get NanoPack to work, here `%publish:OutputPath%` is a variable filled in my the `dotnet` build tooling, and `C:\\NanoServerFiles` is the location you have copied the`\NanoServer` folder from the Windows Server 2016 ISO to. The `dotnet publish-iis` call is in the ASP.NET Core template and modifies your web.config to correctly run within IIS and should generally be kept. As shown NanoPack will create a VHD and place it in a NanoPacked folder next to the input path provided. The VHD will have IIS installed and your application served on port 80.
+This is the minimum required to get NanoPack to work, here `%publish:OutputPath%` is a variable filled in my the `dotnet` build tooling, and `C:\\NanoServerFiles` is the location you have copied the`\NanoServer` folder from the Windows Server 2016 ISO to. The�`dotnet publish-iis` call is in the ASP.NET Core template and modifies your web.config to correctly run within IIS and should generally be kept. As shown NanoPack will create a VHD and place it in a NanoPacked folder next to the input path provided. The VHD will have IIS installed and your application served on port 80.
 
 :::warning
 The path handed to --nanoServerFilesPath must contain the \NanoServer folder, not the contents of that folder. For example if you pass --nanoServerFilesPath C:\\NanoServerFiles the directory structure should look like:
 
 ```powershell
 C:\
-├── NanoServerFiles\
-    ├── NanoServer\
-        ├── NanoServerImageGenerator\
-        ├── Packages\       
-        ├── NanoServer.vim
-        ├── ReadMe.txt
+??? NanoServerFiles\
+    ??? NanoServer\
+        ??? NanoServerImageGenerator\
+        ??? Packages\       
+        ??? NanoServer.vim
+        ??? ReadMe.txt
 ```
 :::
 
 ## More Options
 
 
-NanoPack can also be used to build a VHD, package it in to a versioned zip file and post it to Octopus:
+NanoPack can also be used to build a VHD, package it in to a versioned�zip file and post it to Octopus:
 
 ```powershell
 dotnet nanopack --inputpath %publish:OutputPath% --nanoServerFilesPath C:\\NanoServerFiles --package --octopusUrl http:/my.octopus.server.com:8888 --apiKey API-MYOCTOPUSAPIKEY
@@ -125,15 +125,15 @@ To copy additional files to your VHD use the`--copyPath` option. The parameter t
 ```powershell
 # Hash map syntax will copy both files into the CopiedFiles folder on your VHD
 --copyPath @{ "c:\temp\file1.txt" = "CopiedFiles" ; "c:\temp\file2.txt" = "CopiedFiles" }
- 
+�
 # Array syntax will copy both files into the root of your VHD
 --copyPath ( "c:\temp\file1.txt" , "c:\temp\file2.txt" )
- 
+�
 # These arguments will have to be escaped differently depending on whether you are calling NanoPack directly from the command line, or from within project.json
 # Command line escaping (surround in double quotes so it is seen as a single string argument then escape other double quotes):
 --copyPath "@{ \"c:\temp\file1.txt\" = \"CopiedFiles\" ; \"c:\temp\file2.txt\" = \"CopiedFiles\" }"
 --copyPath  "( \"c:\temp\file1.txt\" , \"c:\temp\file2.txt\" )"
- 
+�
 # project.json unfortunately requires double escaping:
 --copyPath \"@{ \\\"c:\\temp\\file1.txt\\\" = \\\"CopiedFiles\\\" ; \\\"c:\\temp\\file2.txt\\\" = \\\"CopiedFiles\\\" }\"
 --copyPath \"( \\\"c:\\temp\\file1.txt\\\" , \\"c:\\temp\\file2.txt\\\" )\"

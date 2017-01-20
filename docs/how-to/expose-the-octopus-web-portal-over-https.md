@@ -11,11 +11,11 @@ The Octopus web portal is the main interface that your team will use to interact
 
 The following steps will show how to configure Octopus to listen on HTTPS.
 
-1. Open the **Octopus Manager** application on the Octopus Deploy server. You'll find this in the start menu.Â 
+1. Open the **Octopus Manager** application on the Octopus Deploy server. You'll find this in the start menu. 
 ![](/docs/images/3048148/3278103.png)
 2. From Octopus Manager, you can launch a wizard to modify the bindings that are associated with the Octopus web portal:
 ![](/docs/images/3048148/3278102.png)
-3. In the Web Bindings wizard, click **Add...** to add a new binding, and choose the HTTPS scheme. Other options such as the port can also be configured here.Â 
+3. In the Web Bindings wizard, click **Add...** to add a new binding, and choose the HTTPS scheme. Other options such as the port can also be configured here. 
 ![](/docs/images/3048148/3278452.png)
 
 Since HTTPS requires an SSL certificate, you can either choose to generate a new, self-signed (untrusted) certificate, or to select an existing certificate. Self-signed certificates are useful for testing or to achieve encryption without trust, but for production use we recommend using a trusted SSL certificate.

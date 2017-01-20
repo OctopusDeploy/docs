@@ -88,10 +88,10 @@ The values required for the script above are:
 **Password**: A secret value created by you. Ensure you record it, as you will need to enter it into Octopus Deploy.
 
 
-**Tenant ID**: The ID of the Active Directory tenant. Â You can get this value from the old Azure portal. Â If you navigate to the Active Directory tab, and inspect the URL of the link to the directory you will be using, the Tenant ID will be the final portal portion.
+**Tenant ID**: The ID of the Active Directory tenant.  You can get this value from the old Azure portal.  If you navigate to the Active Directory tab, and inspect the URL of the link to the directory you will be using, the Tenant ID will be the final portal portion.
 
 
-e.g.Â https://manage.windowsazure.com/@papasmurf.smurfs.com#Workspaces/ActiveDirectoryExtension/Directory/**b88c0ac7-dade-3842-8a4f-3bc5db3ee8ca**
+e.g. https://manage.windowsazure.com/@papasmurf.smurfs.com#Workspaces/ActiveDirectoryExtension/Directory/**b88c0ac7-dade-3842-8a4f-3bc5db3ee8ca**
 
 
 
@@ -128,13 +128,13 @@ On the Create New Account page, in the *Authentication Method* field select *Use
 The values for the following fields come from Azure:
 
 
-**Subscription ID**: Â The ID of the Azure Subscription this account will interact with.
+**Subscription ID**:  The ID of the Azure Subscription this account will interact with.
 
 
-**Client ID**: Â This is the ID of the application in Azure Active Directory. Â It is known as ApplicationID in the PowerShell API, but Client ID in the Azure Portal.
+**Client ID**:  This is the ID of the application in Azure Active Directory.  It is known as ApplicationID in the PowerShell API, but Client ID in the Azure Portal.
 
 
-**Tenant ID**: The ID of the Active Directory tenant. Â TheÂ *Creating a Service Principal via PowerShell* section above shows how the Tenant ID can be obtained.
+**Tenant ID**: The ID of the Active Directory tenant.  The *Creating a Service Principal via PowerShell* section above shows how the Tenant ID can be obtained.
 
 
 

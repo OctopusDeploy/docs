@@ -17,7 +17,7 @@ Tenants were introduced with first-class support in Octopus 3.4. If you are impl
 
 Starting with Octopus 3.4 you can manage tenants as a first-class citizen enabling you to:
 
-1. Deploy multiple instances of your project into the sameÂ [Environment](http://docs.octopusdeploy.com/display/OD/Environments);
+1. Deploy multiple instances of your project into the same [Environment](http://docs.octopusdeploy.com/display/OD/Environments);
  1. tenant-per-customer
  2. tenant-per-tester
  3. tenant-per-feature/tenant-per-branch

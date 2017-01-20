@@ -25,7 +25,7 @@ We offer several ways to add/upload/push packages to the built-in feed:
 ## Using the Octopus web portal
 
 
-You can manually upload a package file from your local machine via the Octopus web portal via theÂ *Library > Packages*Â tab by clicking theÂ *Upload package*Â button.
+You can manually upload a package file from your local machine via the Octopus web portal via the *Library > Packages* tab by clicking the *Upload package* button.
 
 
 ![](/docs/images/3048094/3277775.png)
@@ -44,24 +44,24 @@ For pushing packages using the methods described below you'll need:
 ## Using your build server
 
 
-We have built integrations/plugins/extensions for the most popular build servers. You can read more about [integrating Octopus Deploy with your build server](/docs/home/api-and-integration.md). In most cases you simply provide the build server with the URL to your Octopus Server and anÂ [Octopus API key](/docs/home/how-to/how-to-create-an-api-key.md) with the required permissionsÂ  (see [security considerations](/docs/home/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md)).
+We have built integrations/plugins/extensions for the most popular build servers. You can read more about [integrating Octopus Deploy with your build server](/docs/home/api-and-integration.md). In most cases you simply provide the build server with the URL to your Octopus Server and an [Octopus API key](/docs/home/how-to/how-to-create-an-api-key.md) with the required permissions  (see [security considerations](/docs/home/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md)).
 
 ## Using Octo.exe
 
 
-You can push one or more packages using Octo.exe, the command-line tool for Octopus Deploy. The example below will push `MyApp.Website.1.1.0.zip`Â and `MyApp.Database.1.1.0.zip` to the built-in repository, automatically replacing existing packages if there are conflicts.
+You can push one or more packages using Octo.exe, the command-line tool for Octopus Deploy. The example below will push `MyApp.Website.1.1.0.zip` and `MyApp.Database.1.1.0.zip` to the built-in repository, automatically replacing existing packages if there are conflicts.
 
 ```powershell
 C:\> Octo.exe push --package MyApp.Website.1.1.0.zip --package MyApp.Database.1.1.0.zip --replace-existing --server http://my.octopus.url --apiKey API-XXXXXXXXXXXXXXXX
 ```
 
 
-For more information refer toÂ [Pushing packages with Octo.exe](/docs/home/api-and-integration/octo.exe-command-line/pushing-packages.md).
+For more information refer to [Pushing packages with Octo.exe](/docs/home/api-and-integration/octo.exe-command-line/pushing-packages.md).
 
 ## Using the Octopus API (HTTP POST)
 
 
-You can upload a package via theÂ [Octopus Deploy API](/docs/home/api-and-integration/octopus-rest-api.md)Â -Â `POST /api/packages/raw HTTP 1.1`.
+You can upload a package via the [Octopus Deploy API](/docs/home/api-and-integration/octopus-rest-api.md) - `POST /api/packages/raw HTTP 1.1`.
 
 - [C# example (LINQPad)](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/Octopus.Client/LINQPad/Push%20Package%20to%20Built-In%20Repository.linq)
 - [PowerShell example](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/REST/PowerShell/Packages/PushPackage.ps1)
@@ -70,7 +70,7 @@ You can upload a package via theÂ [Octopus Deploy API](/docs/home/api-and-integr
 ## Using NuGet.exe push
 
 
-To push a package usingÂ `NuGet.exe`Â you'll need a the URL for the Octopus NuGet feed to use with your build server orÂ `NuGet.exe`. To find this, open theÂ *Library > Packages*Â tab of the Octopus web portal.Â The screen shows an example command-line that can be used to push packages to the feed usingÂ [NuGet.exe](http://docs.nuget.org/docs/start-here/installing-nuget). You'll need to supply the NuGet package file (`.nupkg`) and anÂ [Octopus API key](/docs/home/how-to/how-to-create-an-api-key.md).
+To push a package using `NuGet.exe` you'll need a the URL for the Octopus NuGet feed to use with your build server or `NuGet.exe`. To find this, open the *Library > Packages* tab of the Octopus web portal. The screen shows an example command-line that can be used to push packages to the feed using [NuGet.exe](http://docs.nuget.org/docs/start-here/installing-nuget). You'll need to supply the NuGet package file (`.nupkg`) and an [Octopus API key](/docs/home/how-to/how-to-create-an-api-key.md).
 
 
 ![](/docs/images/3048094/3277775.png)
@@ -79,7 +79,7 @@ To push a package usingÂ `NuGet.exe`Â you'll need a the URL for the Octopus NuGe
 
 
 :::success
-If you're using a continuous integration server like TeamCity to produce packages you can use their built-in NuGet Push step. Supply the Octopus NuGet feed URL shown above and anÂ [Octopus API key](/docs/home/how-to/how-to-create-an-api-key.md)Â when prompted for the feed details.
+If you're using a continuous integration server like TeamCity to produce packages you can use their built-in NuGet Push step. Supply the Octopus NuGet feed URL shown above and an [Octopus API key](/docs/home/how-to/how-to-create-an-api-key.md) when prompted for the feed details.
 :::
 
 ## Using npm.exe, grunt or gulp
@@ -103,10 +103,10 @@ You may need to use the `-k` argument if you are using an untrusted connection.
 ## Security considerations
 
 
-To add a new package to the built-in feed requires theÂ `BuiltInFeedPush`Â permission.Â To delete a package, or replace an existing package requires theÂ `BuiltInFeedAdminister`Â permission.
+To add a new package to the built-in feed requires the `BuiltInFeedPush` permission. To delete a package, or replace an existing package requires the `BuiltInFeedAdminister` permission.
 
 
-For your convenience Octopus Deploy provides a built-in role calledÂ **Package Publisher**Â that has been granted theÂ `BuiltInFeedPush`Â permission.
+For your convenience Octopus Deploy provides a built-in role called **Package Publisher** that has been granted the `BuiltInFeedPush` permission.
 
 :::hint
 **Consider using a Service Account**

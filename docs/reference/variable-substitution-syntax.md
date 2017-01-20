@@ -49,13 +49,13 @@ Octopus [variables ](/docs/home/deploying-applications/variables.md)support subs
  |  |
 
 
-The syntax `#{VarName}` will insert the value of theÂ `VarName` variable in-place. For example theÂ `ConnectionString`variable will have the valueÂ `Server=PDB001;` when evaluated in theÂ *Production*environment. The use of one or more variables in the declaration of another is called aÂ *binding.*
+The syntax `#{VarName}` will insert the value of the `VarName` variable in-place. For example the `ConnectionString`variable will have the value `Server=PDB001;` when evaluated in the *Production*environment. The use of one or more variables in the declaration of another is called a *binding.*
 
 
-In regular variable declarations, binding to a non-existent value will yield an empty string, so evaluating `ConnectionString` in theÂ *Dev*environment will yield `Server=;` because no `DatabaseServer` is defined in that environment.
+In regular variable declarations, binding to a non-existent value will yield an empty string, so evaluating `ConnectionString` in the *Dev*environment will yield `Server=;` because no `DatabaseServer` is defined in that environment.
 
 
-If the file undergoing variable replacement includes a string thatÂ *shouldn't* be getting replaced, for example **#{NotToBeReplace}**, you should include an extra hash (#) character to force the replacement to ignore the substitution and remove the extraÂ #.
+If the file undergoing variable replacement includes a string that *shouldn't* be getting replaced, for example **#{NotToBeReplace}**, you should include an extra hash (#) character to force the replacement to ignore the substitution and remove the extra #.
 
 | Expression | Value |
 | --- | --- |
@@ -70,7 +70,7 @@ If the file undergoing variable replacement includes a string thatÂ *shouldn't* 
 ## Extended Syntax
 
 
-Octopus supports an extended variable substitution syntax with capabilities similar to text templating languages. Â It's worth noting that this is now available everywhere whereas previously it was limited to certain scenarios.
+Octopus supports an extended variable substitution syntax with capabilities similar to text templating languages.  It's worth noting that this is now available everywhere whereas previously it was limited to certain scenarios.
 
 
 The capabilities of the extended syntax are:
@@ -93,7 +93,7 @@ The capabilities of the extended syntax are:
 ### Index Replacement
 
 
-Variable substitution inside an index was added inÂ Octopus 3.3.23. Â This makes it easy to dynamically retrieve variables within arrays/dictionaries.
+Variable substitution inside an index was added in Octopus 3.3.23.  This makes it easy to dynamically retrieve variables within arrays/dictionaries.
 
 
 Given the variables:
@@ -117,7 +117,7 @@ Given the variables:
 Two conditional statements are supported in Octopus prior to version 3.5 - `if` and `unless`; these have identical syntax, but if evaluates only if the variable is *truthy*, while unless evaluates if the variable is *falsy*.
 
 
-Additional conditional statements are supported in Octopus 3.5 and onwards, including == andÂ !=.
+Additional conditional statements are supported in Octopus 3.5 and onwards, including == and !=.
 
 :::hint
 Pre Octopus 3.5, you cannot use complex syntax, like `#{if Octopus.Environment.Name == &quot;Production&quot;}`, only *truthy* and *falsy* evaluations are supported. You can usually work around this limitation by scoping variables, or finding/creating a *truthy* or *falsy* variable to use in your evaluation, like the example shown below.
@@ -149,7 +149,7 @@ The resulting text in the *Dev*environment will be:
 ```
 
 
-And inÂ *Production*it will be:
+And in *Production*it will be:
 
 ```text
 <compilation >
@@ -165,7 +165,7 @@ You could achieve a similar result, with a different default/fallback behaviour,
 #### *Truthy* and *Falsy* values
 
 
-The `if` and `unless` statements consider a value to beÂ *falsy* if it is undefined, empty, `False` or `0`. All other values are considered to be *truthy*.
+The `if` and `unless` statements consider a value to be *falsy* if it is undefined, empty, `False` or `0`. All other values are considered to be *truthy*.
 
 ### Repetition
 
@@ -249,7 +249,7 @@ Filters
 By default, bindings are inserted into the output as-is; no consideration is given as to whether the target variable or file is XML, HTML, JSON etc. That is, the target file type is always treated as plain text.
 
 
-Octopus variable substitutions supportÂ *filters* to correctly encode values for a variety of target file types. These are invoked using the `|` (pipe) operator.
+Octopus variable substitutions support *filters* to correctly encode values for a variety of target file types. These are invoked using the `|` (pipe) operator.
 
 
 Given the variable:
@@ -300,7 +300,7 @@ Octopus provides the following filters:
 
 
 
-TheÂ *NowDate* and *NowDateUtc* filters take no variable input but can take an additional optional right-hand-side argument the define the string format (Defaults to ISO-8601 [Round-trip format](https://msdn.microsoft.com/en-us/library/az4se3k1#Roundtrip)).
+The *NowDate* and *NowDateUtc* filters take no variable input but can take an additional optional right-hand-side argument the define the string format (Defaults to ISO-8601 [Round-trip format](https://msdn.microsoft.com/en-us/library/az4se3k1#Roundtrip)).
 
 | MyFormat Variable | Filter Expression | Output |
 | --- | --- | --- |
@@ -317,7 +317,7 @@ TheÂ *NowDate* and *NowDateUtc* filters take no variable input but can take an a
 
 
 
-TheÂ *Format* filter available from Octopus Deploy version 3.5 allows for converting of input based on an additionally provided argument that is passed to the *.ToString()*method.
+The *Format* filter available from Octopus Deploy version 3.5 allows for converting of input based on an additionally provided argument that is passed to the *.ToString()*method.
 
 | MyVar Value | Example Input | Output |
 | --- | --- | --- |
@@ -418,7 +418,7 @@ Numbers:
 Objects:
 #{each item in MyObjects}
 	#{item.Key}: #{item.Value.Price}
-#{/each}Â 
+#{/each} 
 ```
 
 
@@ -429,7 +429,7 @@ Numbers:
  - 5
  - 2
  - 4
-Â 
+ 
 Objects:
 Cat: 11.5
 Dog: 17.5

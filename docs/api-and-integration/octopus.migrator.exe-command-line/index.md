@@ -4,20 +4,20 @@ position: 11
 ---
 
 
-**Octopus.Migrator.exe**Â is a command line tool that provides the ability to back-up and restore parts of an Octopus Deploy instance as well as migrate data from 2.6 builds.
+**Octopus.Migrator.exe** is a command line tool that provides the ability to back-up and restore parts of an Octopus Deploy instance as well as migrate data from 2.6 builds.
 
 
-The latest version of is available in the Octopus Deploy installation directory from version 3.0Â onward, usually located in *C:\Program Files\Octopus Deploy*.
+The latest version of is available in the Octopus Deploy installation directory from version 3.0 onward, usually located in *C:\Program Files\Octopus Deploy*.
 
 ## Commands
 
 
 Octopus.Migrator.exe supports the following commands:
 
-- **migrate**:Â Imports data from an Octopus 2.6 backup
-- **`import`**:Â Imports data from an Octopus 3.0+ export directory.Â [Learn more](/docs/home/api-and-integration/octopus.migrator.exe-command-line/migrator-import.md)
-- **`export`**:Â Exports all configuration data to a directory.Â [Learn more](/docs/home/api-and-integration/octopus.migrator.exe-command-line/migrator-export.md)
-- **`partial-export`**: Exports configuration data to a directory filtered by a single project.Â [Learn more](/docs/home/api-and-integration/octopus.migrator.exe-command-line/partial-export.md)
+- **migrate**: Imports data from an Octopus 2.6 backup
+- **`import`**: Imports data from an Octopus 3.0+ export directory. [Learn more](/docs/home/api-and-integration/octopus.migrator.exe-command-line/migrator-import.md)
+- **`export`**: Exports all configuration data to a directory. [Learn more](/docs/home/api-and-integration/octopus.migrator.exe-command-line/migrator-export.md)
+- **`partial-export`**: Exports configuration data to a directory filtered by a single project. [Learn more](/docs/home/api-and-integration/octopus.migrator.exe-command-line/partial-export.md)
 
 
 

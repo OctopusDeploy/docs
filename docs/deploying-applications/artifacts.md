@@ -35,7 +35,7 @@ You can collect artifacts using any of the scripting languages supported by Octo
 [PowerShell Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari/Integration/Scripting/WindowsPowerShell)
 
 
-From a PowerShell script, you can use the PowerShell CmdLetÂ `New-OctopusArtifact`Â to collect artifacts. The CmdLet takes two parameters:
+From a PowerShell script, you can use the PowerShell CmdLet `New-OctopusArtifact` to collect artifacts. The CmdLet takes two parameters:
 
 - `[string]$path` - the local path to the file that will be made an artifact
 - `[string]$name` - an optional friendly name to give the artifact, usually to distinguish it if collecting multiple artifacts with the same name from different machines. Defaults to the file name in `$path`
@@ -93,7 +93,7 @@ F# support is available in Octopus Deploy 3.4 (or newer).
 [FSharp Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/enhancement-fsharpscripts/source/Calamari/Integration/Scripting/FSharp)
 
 
-From a F# script, you can use theÂ `createArtifact : path:string -&gt; fileName:string option -&gt; unit`Â function to collect artifacts. The function takes two parameters with the same purpose as the PowerShell CmdLet.
+From a F# script, you can use the `createArtifact : path:string -&gt; fileName:string option -&gt; unit` function to collect artifacts. The function takes two parameters with the same purpose as the PowerShell CmdLet.
 
 **F#**
 

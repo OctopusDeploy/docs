@@ -22,19 +22,19 @@ On this page:
 ## Requirements
 
 - Windows Server 2003 SP2 (**N.B. Not supported for Tentacle 3.1 and up due to .NET 4.5 dependency**)
-Windows Server 2008Â (**N.B. SP1 not supported for Tentacle 3.1 and up due to .NET 4.5 dependency**)
+Windows Server 2008 (**N.B. SP1 not supported for Tentacle 3.1 and up due to .NET 4.5 dependency**)
 Windows Server 2008 R2
 Windows Server 2012
-Windows Server 2012 R2Â 
+Windows Server 2012 R2 
 Windows Server 2016
 (Both "Server Core" and "Server with a GUI" installations are supported for Tentacle)
 - .NET Framework
  - Tentacle 3.0 (TLS 1.0): .NET Framework 4.0+ ([download](http://www.microsoft.com/en-au/download/details.aspx?id=17851))
  - Tentacle 3.1+ (TLS 1.0 or 1.2): .NET Framework 4.5+ ([download](http://www.microsoft.com/en-au/download/details.aspx?id=42643))
-- Windows PowerShell 2.0. This is automatically installed on 2008 R2, but for 2008 pre-R2 you'll need to install it ([x86 download](http://www.microsoft.com/download/en/details.aspx?id=11829&amp;__hstc=254453975.06c54f702f3aed3215f4224e6b75b56f.1380851265147.1386910090621.1387188601891.78&amp;__hssc=254453975.2.1387188601891&amp;__hsfp=4151299608),Â [x64 download](http://www.microsoft.com/download/en/details.aspx?displaylang=en&amp;id=20430&amp;__hstc=254453975.06c54f702f3aed3215f4224e6b75b56f.1380851265147.1386910090621.1387188601891.78&amp;__hssc=254453975.2.1387188601891&amp;__hsfp=4151299608))
+- Windows PowerShell 2.0. This is automatically installed on 2008 R2, but for 2008 pre-R2 you'll need to install it ([x86 download](http://www.microsoft.com/download/en/details.aspx?id=11829&amp;__hstc=254453975.06c54f702f3aed3215f4224e6b75b56f.1380851265147.1386910090621.1387188601891.78&amp;__hssc=254453975.2.1387188601891&amp;__hsfp=4151299608), [x64 download](http://www.microsoft.com/download/en/details.aspx?displaylang=en&amp;id=20430&amp;__hstc=254453975.06c54f702f3aed3215f4224e6b75b56f.1380851265147.1386910090621.1387188601891.78&amp;__hssc=254453975.2.1387188601891&amp;__hsfp=4151299608))
  - Windows PowerShell 3.0 or 4.0 is recommended, both of which are compatible with PowerShell 2.0, but execute against .NET 4.0+.
-- Windows Server 2003 servers will needÂ [Windows Management Framework](http://support.microsoft.com/kb/968930?__hstc=254453975.06c54f702f3aed3215f4224e6b75b56f.1380851265147.1386910090621.1387188601891.78&amp;__hssc=254453975.2.1387188601891&amp;__hsfp=4151299608)Â installed (this includes PowerShell)
-- Hardware minimum:Â 512MB RAM, 1GHz CPU, 2GB free disk space
+- Windows Server 2003 servers will need [Windows Management Framework](http://support.microsoft.com/kb/968930?__hstc=254453975.06c54f702f3aed3215f4224e6b75b56f.1380851265147.1386910090621.1387188601891.78&amp;__hssc=254453975.2.1387188601891&amp;__hsfp=4151299608) installed (this includes PowerShell)
+- Hardware minimum: 512MB RAM, 1GHz CPU, 2GB free disk space
 
 
 
@@ -135,9 +135,9 @@ If you **Reinstall** a Tentacle using the Tentacle Manager, the Windows Service 
 You can run Tentacle using a Managed Service Account (MSA):
 
 1. Install the Tentacle and make sure it is running correctly using one of the built-in Windows Service accounts or a Custom Account
-2. Reconfigure theÂ `Tentacle`Â Windows Service to use the MSA, either manually using the Service snap-in, or usingÂ `sc.exe config &quot;OctopusDeploy Tentacle&quot; obj= Domain\Username$`
+2. Reconfigure the `Tentacle` Windows Service to use the MSA, either manually using the Service snap-in, or using `sc.exe config &quot;OctopusDeploy Tentacle&quot; obj= Domain\Username$`
 3. Restart the Tentacle Windows Service
 
 
 
-Learn aboutÂ [using Managed Service Accounts](https://technet.microsoft.com/en-us/library/dd548356(v=ws.10).aspx).
+Learn about [using Managed Service Accounts](https://technet.microsoft.com/en-us/library/dd548356(v=ws.10).aspx).

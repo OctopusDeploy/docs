@@ -10,7 +10,7 @@ Deregisters this machine from an Octopus Server
 
 ```text
 Usage: Tentacle deregister-from [<options>]
-Â 
+ 
 
 Where [<options>] is any of:
       --instance=VALUE       Name of the instance to use
@@ -20,7 +20,7 @@ Where [<options>] is any of:
   -u, --username=VALUE       If not using API keys, your username
   -p, --password=VALUE       In not using API keys, your password
   -m, --multiple             Deregister all machines that use the same thumbprint
-Â 
+ 
 Or one of the common options:
       --console              Don't attempt to run as a service, even if the
                                user is non-interactive

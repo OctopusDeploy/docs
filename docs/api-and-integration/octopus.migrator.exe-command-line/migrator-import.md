@@ -14,7 +14,7 @@ Octopus.Migrator import [<options>]
 ```
 
 
-WhereÂ `[&lt;options&gt;]`Â is any of:
+Where `[&lt;options&gt;]` is any of:
 
 **Create release options**
 
@@ -28,7 +28,7 @@ Partial export:
 							 Use --overwrite to force it to be replaced.
    	  --force 			 	 Imports even if there are validation errors (CAUTION: this may put the database in a bad state)     
 	  --include-tasklogs	 Include the task log folder as part of the import process
-Â 
+ 
 Common Options:
       --console              Don't attempt to run as a service, even if the
                                user is non-interactive

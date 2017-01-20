@@ -20,7 +20,7 @@ On this page:
 Plugins are central to Jenkins, and a number of plugins will be required to follow the steps on this page. Before you can start, you'll need to ensure the following plugins are enabled:
 
 - [MSBuild Plugin](http://wiki.jenkins-ci.org/display/JENKINS/MSBuild+Plugin) - required to compile your Visual Studio solution
-- [Mask Passwords Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Mask+Passwords+Plugin)Â - required to store your Octopus API keys and keep them out of the console
+- [Mask Passwords Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Mask+Passwords+Plugin) - required to store your Octopus API keys and keep them out of the console
 
 
 
@@ -36,7 +36,7 @@ During our Jenkins job, we will:
 
 
 
-Jenkins uses the MSBuild plugin to compile Visual Studio solutions.Â [Once OctoPack has been installed](/docs/home/packaging-applications/nuget-packages/using-octopack.md)Â on your C#/VB projects, you can configure Jenkin's MSBuild task to pass the appropriate parameters to MSBuild toÂ have OctoPack run:
+Jenkins uses the MSBuild plugin to compile Visual Studio solutions. [Once OctoPack has been installed](/docs/home/packaging-applications/nuget-packages/using-octopack.md) on your C#/VB projects, you can configure Jenkin's MSBuild task to pass the appropriate parameters to MSBuild to have OctoPack run:
 
 
 ![](/docs/images/3048162/3278145.png?effects=border-simple,blur-border)
@@ -53,7 +53,7 @@ The settings are:
 
 - **RunOctoPack**: specifies that OctoPack should create packages during the build
 - **OctoPackPackageVersion**: version number that should be given to packages created by OctoPack. Since Jenkins build numbers are integers like "12", we combine it with "1.1." to produce package versions such as "1.0.12".
-- **OctoPackPublishPackageToHttp**: tells OctoPack to push the package to the Octopus Deploy server. Read more about theÂ [built-in NuGet repository in Octopus](/docs/home/packaging-applications/package-repositories.md). You'll find the URL to your repository on theÂ **Library > Packages**Â tab in Octopus
+- **OctoPackPublishPackageToHttp**: tells OctoPack to push the package to the Octopus Deploy server. Read more about the [built-in NuGet repository in Octopus](/docs/home/packaging-applications/package-repositories.md). You'll find the URL to your repository on the **Library > Packages** tab in Octopus
 - **OctoPackPublishApiKey**: your Octopus Deploy API key
 
 
@@ -85,10 +85,10 @@ After running this job, and assuming OctoPack is correctly installed, your code 
 Jenkins is compiling our code and publishing packages to Octopus Deploy. If we wish, we can also have Jenkins automatically create (and optionally, deploy) a release in Octopus.
 
 
-To do this, we'll be using the [Octo.exe command line tool](/docs/home/api-and-integration/octo.exe-command-line.md).Â [Download Octo.exe](https://octopus.com/downloads), and extract it to a folder on your Jenkins server, such asÂ `C:\Tools\Octo\Octo.exe`
+To do this, we'll be using the [Octo.exe command line tool](/docs/home/api-and-integration/octo.exe-command-line.md). [Download Octo.exe](https://octopus.com/downloads), and extract it to a folder on your Jenkins server, such as `C:\Tools\Octo\Octo.exe`
 
 
-We can call Octo.exe easily using the Jenkins **Execute Windows batch** **command**Â task.
+We can call Octo.exe easily using the Jenkins **Execute Windows batch** **command** task.
 
 
 ![](/docs/images/3048162/3278144.png?effects=border-simple,blur-border)
@@ -104,10 +104,10 @@ In the command, we are calling:
 
 Importantly:
 
-- TheÂ `--project`Â specifies the name of the Octopus Deploy project that we want to create a release for.
-- TheÂ `--version`Â specifies the version number of the release in Octopus. We want this to contain the Jenkins build number.
-- TheÂ `--packageversion`Â tells Octo.exe to ensure that the release references the right version of the NuGet packages that we published using OctoPack.
-- TheÂ `--releaseNotes`Â will appear in Octopus, and link back to the build in Jenkins. Of course, change the URLÂ to the address of your Jenkins server
+- The `--project` specifies the name of the Octopus Deploy project that we want to create a release for.
+- The `--version` specifies the version number of the release in Octopus. We want this to contain the Jenkins build number.
+- The `--packageversion` tells Octo.exe to ensure that the release references the right version of the NuGet packages that we published using OctoPack.
+- The `--releaseNotes` will appear in Octopus, and link back to the build in Jenkins. Of course, change the URL to the address of your Jenkins server
 
 
 :::success
@@ -130,8 +130,8 @@ You might like to configure Jenkins to not only create a release, but deploy it 
 
 The extra arguments being:
 
-- TheÂ `--deployTo`Â setting specifies the environment in Octopus that we are deploying to.
-- TheÂ `--progress`Â flag tells Octo.exe to write the deployment log from Octopus to the log in Jenkins. This flag was added in 2.5; in previous versions of Octo.exe you can use `--waitfordeployment` instead. You can also remove this flag if you want the Jenkins job to complete immediately without waiting for the deployment in Octopus to complete.
+- The `--deployTo` setting specifies the environment in Octopus that we are deploying to.
+- The `--progress` flag tells Octo.exe to write the deployment log from Octopus to the log in Jenkins. This flag was added in 2.5; in previous versions of Octo.exe you can use `--waitfordeployment` instead. You can also remove this flag if you want the Jenkins job to complete immediately without waiting for the deployment in Octopus to complete.
 
 
 :::success

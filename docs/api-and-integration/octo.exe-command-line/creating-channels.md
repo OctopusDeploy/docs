@@ -4,7 +4,7 @@ position: 11
 ---
 
 
-[Octo.exe](http://docs.octopusdeploy.com/pages/viewpage.action?pageId=360596)Â can be used to create channels on your Octopus instance.
+[Octo.exe](http://docs.octopusdeploy.com/pages/viewpage.action?pageId=360596) can be used to create channels on your Octopus instance.
 
 :::hint
 Channels were introduced in Octopus 3.2.
@@ -15,7 +15,7 @@ octo create-channel [<options>]
 ```
 
 
-WhereÂ `[&lt;options&gt;]`Â is any of:
+Where `[&lt;options&gt;]` is any of:
 
 **create-environment options**
 
@@ -64,7 +64,7 @@ Common options:
 ### Basic example
 
 
-The following command will create a channel in *MyProject* called *Experimental* using theÂ *Test Only* lifecycle instead
+The following command will create a channel in *MyProject* called *Experimental* using the *Test Only* lifecycle instead
 
 ```text
 Octo create-channel --project MyProject --name Experimental --lifecycle "Test Only" --server http://MyOctopusServerURL.com --apikey MyAPIKey

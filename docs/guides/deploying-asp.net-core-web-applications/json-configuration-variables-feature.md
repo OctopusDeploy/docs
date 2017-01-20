@@ -4,7 +4,7 @@ title: JSON Configuration Variables Feature
 ---
 
 
-TheÂ **JSON configuration variables**Â feature updates your JSON configuration files with the values from matching Octopus variables. In many ways this feature works similarly to theÂ [Substitute Variables in Files](/docs/home/deploying-applications/substitute-variables-in-files.md) feature, but uses a special matching syntax so you can update configuration nested in JSON object and array literals.
+The **JSON configuration variables** feature updates your JSON configuration files with the values from matching Octopus variables. In many ways this feature works similarly to the [Substitute Variables in Files](/docs/home/deploying-applications/substitute-variables-in-files.md) feature, but uses a special matching syntax so you can update configuration nested in JSON object and array literals.
 
 :::hint
 **Available in 3.3**
@@ -12,11 +12,11 @@ The JSON configuration variables feature was released in version **3.3** of Octo
 :::
 
 :::hint
-ASP.NET Core 1.0 (previously known as ASP.NET 5) has been released! Microsoft'sÂ [ASP.NET documentation site](http://docs.asp.net/)Â is the best resource on the ASP.NET Core web application platform. Their [Configuration page](http://docs.asp.net/en/latest/fundamentals/configuration.html) provides detailed information on the configuration options available.
+ASP.NET Core 1.0 (previously known as ASP.NET 5) has been released! Microsoft's [ASP.NET documentation site](http://docs.asp.net/) is the best resource on the ASP.NET Core web application platform. Their [Configuration page](http://docs.asp.net/en/latest/fundamentals/configuration.html) provides detailed information on the configuration options available.
 :::
 
 :::hint
-Our ASP.NET Core web applicationÂ [deployment guide](/docs/home/guides/deploying-asp.net-core-web-applications.md)Â provides further information on how this feature fits into an Octopus project's deployment process.
+Our ASP.NET Core web application [deployment guide](/docs/home/guides/deploying-asp.net-core-web-applications.md) provides further information on how this feature fits into an Octopus project's deployment process.
 :::
 
 
@@ -36,7 +36,7 @@ On this page:
 ### Step 1: Enable the feature
 
 
-To configure a package step to replace matching app settings in your JSON configuration files ensure the **JSON configuration variables**Â feature is enabled.
+To configure a package step to replace matching app settings in your JSON configuration files ensure the **JSON configuration variables** feature is enabled.
 
 
 ![](/docs/images/3702943/5275653.png)
@@ -56,7 +56,7 @@ approot\packages\ASPNET.Core.Sample\1.0.0\root\appSettings.json
 :::
 
 
-Note that you can even use theÂ [Variable Substitution Syntax](/docs/home/reference/variable-substitution-syntax.md)Â patterns in this file selection input box itself to do things like reference environment specific files, or conditionally include them based on scoped variables.
+Note that you can even use the [Variable Substitution Syntax](/docs/home/reference/variable-substitution-syntax.md) patterns in this file selection input box itself to do things like reference environment specific files, or conditionally include them based on scoped variables.
 
 
 ![](/docs/images/3702943/5275654.png)
@@ -85,7 +85,7 @@ Given this example of a target config file:
 ```
 
 
-If you have the Octopus Variables `weatherApiUrl` and `weatherApiKey`Â set to the values `test.weather.com` and `TEST7654321`Â the target config file is updated to become, noticing the `tempImageFolder` setting remains untouched:
+If you have the Octopus Variables `weatherApiUrl` and `weatherApiKey` set to the values `test.weather.com` and `TEST7654321` the target config file is updated to become, noticing the `tempImageFolder` setting remains untouched:
 
 **Simple JSON**
 
@@ -100,10 +100,10 @@ If you have the Octopus Variables `weatherApiUrl` and `weatherApiKey`Â set to th
 ### Hierarchical variables
 
 
-It is common (and encouraged) to use hierarchical variables in JSON configuration files. Â This is supported in Octopus Deploy variables by using a nested path syntax delimited by *colon* characters.
+It is common (and encouraged) to use hierarchical variables in JSON configuration files.  This is supported in Octopus Deploy variables by using a nested path syntax delimited by *colon* characters.
 
 
-For example, to update the value of `weatherApi.url` and `weatherApi.key`Â in the target config file you would configure the Octopus Variables `weatherApi:url` and `weatherApi:key`.
+For example, to update the value of `weatherApi.url` and `weatherApi.key` in the target config file you would configure the Octopus Variables `weatherApi:url` and `weatherApi:key`.
 
 **Hierarchical JSON**
 
@@ -117,7 +117,7 @@ For example, to update the value of `weatherApi.url` and `weatherApi.key`Â in th
 ```
 
 
-You can also replace an entire object. For the example above you could set Octopus VariableÂ `weatherApi`Â to a value ofÂ `{&quot;weatherApi&quot;:{&quot;url&quot;:&quot;test.weather.com&quot;,&quot;key&quot;:&quot;TEST7654321&quot;}}`
+You can also replace an entire object. For the example above you could set Octopus Variable `weatherApi` to a value of `{&quot;weatherApi&quot;:{&quot;url&quot;:&quot;test.weather.com&quot;,&quot;key&quot;:&quot;TEST7654321&quot;}}`
 
 ### Array variables
 
@@ -125,7 +125,7 @@ You can also replace an entire object. For the example above you could set Octop
 Octopus Deploy can also replace a value in a JSON array by using the zero-based index of the array in the variable name.
 
 
-For example, the variableÂ `foo:bar:1`Â with a value `qux` will update the value of the second element in the array to be `qux`:
+For example, the variable `foo:bar:1` with a value `qux` will update the value of the second element in the array to be `qux`:
 
 **Hierarchical JSON**
 
@@ -141,4 +141,4 @@ For example, the variableÂ `foo:bar:1`Â with a value `qux` will update the value
 ```
 
 
-You can also replace an entire array. For the example above you could set Octopus VariableÂ `foo:bar` to a value of `[&quot;baz&quot;,&quot;qux&quot;]`
+You can also replace an entire array. For the example above you could set Octopus Variable `foo:bar` to a value of `[&quot;baz&quot;,&quot;qux&quot;]`

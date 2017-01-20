@@ -69,7 +69,7 @@ The benefits of this are:
 
 
 
-There are many ways of using the change script approach. Entity Framework has migration libraries that can help to do some of this. Some tools have special C# DSL's that let you specify what changes to make between schema versions. Personally,Â we prefer the simple approach: create T-SQL files, name them sequentially, and use a tool like the open sourceÂ [DbUp](http://dbup.github.io/) to run them (it turns out that T-SQL is a pretty awesome DSL for dealing with SQL Server databases!)
+There are many ways of using the change script approach. Entity Framework has migration libraries that can help to do some of this. Some tools have special C# DSL's that let you specify what changes to make between schema versions. Personally, we prefer the simple approach: create T-SQL files, name them sequentially, and use a tool like the open source [DbUp](http://dbup.github.io/) to run them (it turns out that T-SQL is a pretty awesome DSL for dealing with SQL Server databases!)
 
 ## Third party tools
 
@@ -77,25 +77,25 @@ There are many ways of using the change script approach. Entity Framework has mi
 
 :::warning
 **SQL Release has been replaced by DLM Automation**
-SQL Release has been replaced by DLM Automation, which is available in theÂ [SQL Toolbelt](http://www.red-gate.com/products/sql-development/sql-toolbelt/). For more details, see the documentation forÂ [DLM Automation](https://documentation.red-gate.com/display/DLMA1/DLM+Automation+documentation)
+SQL Release has been replaced by DLM Automation, which is available in the [SQL Toolbelt](http://www.red-gate.com/products/sql-development/sql-toolbelt/). For more details, see the documentation for [DLM Automation](https://documentation.red-gate.com/display/DLMA1/DLM+Automation+documentation)
 :::
 
 ### Redgate DLM Automation
 
 
-The Redgate Database Lifecycle Management (DLM) Automation toolÂ works with build servers and release management tools toÂ provide continuous integration and automated deployment for your SQL databases. You can control DLM AutomationÂ by using theÂ [DLM Automation PowerShell cmdlets](https://documentation.red-gate.com/display/DLMA2/Cmdlet+reference)Â or by using one of theÂ [DLM Automation add-ons](http://www.red-gate.com/dlmas/add-ons-page).Â DLM Automation is available in theÂ [SQL Toolbelt](http://www.red-gate.com/products/sql-development/sql-toolbelt/).
+The Redgate Database Lifecycle Management (DLM) Automation tool works with build servers and release management tools to provide continuous integration and automated deployment for your SQL databases. You can control DLM Automation by using the [DLM Automation PowerShell cmdlets](https://documentation.red-gate.com/display/DLMA2/Cmdlet+reference) or by using one of the [DLM Automation add-ons](http://www.red-gate.com/dlmas/add-ons-page). DLM Automation is available in the [SQL Toolbelt](http://www.red-gate.com/products/sql-development/sql-toolbelt/).
 
 
 ![](/docs/images/3048077/5865877.png)
 
 :::hint
-Learn aboutÂ [using DLM Automation with Octopus Deploy](https://documentation.red-gate.com/display/DLMA2/Walkthrough%3A+Set+up+Continuous+Integration+And+Release+Management).
+Learn about [using DLM Automation with Octopus Deploy](https://documentation.red-gate.com/display/DLMA2/Walkthrough%3A+Set+up+Continuous+Integration+And+Release+Management).
 :::
 
 ### Redgate ReadyRoll
 
 
-follows the change script approach, and also provides an excellent Visual Studio experience. It has the ability toÂ [generate Octopus Deploy-ready NuGet packages](http://doc.ready-roll.com/display/RRSQLDOC/Octopus+Deploy)Â and can work in continuous integration/automated build tools.
+follows the change script approach, and also provides an excellent Visual Studio experience. It has the ability to [generate Octopus Deploy-ready NuGet packages](http://doc.ready-roll.com/display/RRSQLDOC/Octopus+Deploy) and can work in continuous integration/automated build tools.
 
 
 ![](/docs/images/3048077/3277640.png)
@@ -113,12 +113,12 @@ The open source tool [DbUp](http://dbup.github.io/), built by members of the Oct
 ### Visual Studio Database Projects
 
 
-Raffaele Garofalo has a blog post detailingÂ [how to deploy Visual Studio Database Projects with Octopus](http://blog.raffaeu.com/archive/2013/10/17/deploy-database-project-using-octopus.aspx).
+Raffaele Garofalo has a blog post detailing [how to deploy Visual Studio Database Projects with Octopus](http://blog.raffaeu.com/archive/2013/10/17/deploy-database-project-using-octopus.aspx).
 
 ### Entity Framework Migrations
 
 
-KevinÂ Kuszyk has a blog post aboutÂ [deploying SQL databases using Entity Framework migrations and Octopus Deploy](http://www.kevinkuszyk.com/2016/10/26/deploying-sql-databases-using-entity-framework-migrations-and-octopus-deploy/).
+Kevin Kuszyk has a blog post about [deploying SQL databases using Entity Framework migrations and Octopus Deploy](http://www.kevinkuszyk.com/2016/10/26/deploying-sql-databases-using-entity-framework-migrations-and-octopus-deploy/).
 
 ### RoundhousE
 

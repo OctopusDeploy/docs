@@ -14,7 +14,7 @@ Octopus.Migrator export [<options>]
 ```
 
 
-WhereÂ `[&lt;options&gt;]`Â is any of:
+Where `[&lt;options&gt;]` is any of:
 
 **Create release options**
 

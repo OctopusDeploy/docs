@@ -7,7 +7,7 @@ position: 23
 When deploying a Release to an Environment, you can specify a subset of targets within the Environment.
 
 
-On the *Create Deployment*Â view select *Advanced*.
+On the *Create Deployment* view select *Advanced*.
 
 
 ![](/docs/images/5668943/5865484.png)

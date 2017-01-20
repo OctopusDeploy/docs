@@ -100,7 +100,7 @@ The Octopus 3.x Server cannot communicate with the Tentacle. When investigated, 
 
 There are a few potential reasons for this:
 
-- The MSI upgrade failed. If this is the case, you will be able to find a log file with a random filename in theÂ Hydra package directory on the tentacle server. It should show reasons for the MSI failure.
+- The MSI upgrade failed. If this is the case, you will be able to find a log file with a random filename in the Hydra package directory on the tentacle server. It should show reasons for the MSI failure.
 - The MSI upgraded the Tentacle, but the Windows Service is pointing at an old version.
 
 

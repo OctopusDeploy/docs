@@ -36,9 +36,9 @@ Every scenario is slightly different which is why this page is written more as a
 
 The general steps for this kind of deployment would be:
 
-1. Use aÂ [custom script](/docs/home/deploying-applications/custom-scripts.md) step to calculate a new port number so we can configure a binding you can use to warm up the new instance of your application. See this [blog post](https://octopus.com/blog/changing-website-port-on-each-deployment) for more details.
- 1. The new port number should end up in a variable likeÂ **`#{Octopus.Action[Calculate port number].Output.Port}`**
-2. Use theÂ [IIS Websites and Application Pools](/docs/home/deploying-applications/iis-websites-and-application-pools.md) step to deploy a new instance of your web application into a new Web Site and Application Pool
+1. Use a [custom script](/docs/home/deploying-applications/custom-scripts.md) step to calculate a new port number so we can configure a binding you can use to warm up the new instance of your application. See this [blog post](https://octopus.com/blog/changing-website-port-on-each-deployment) for more details.
+ 1. The new port number should end up in a variable like **`#{Octopus.Action[Calculate port number].Output.Port}`**
+2. Use the [IIS Websites and Application Pools](/docs/home/deploying-applications/iis-websites-and-application-pools.md) step to deploy a new instance of your web application into a new Web Site and Application Pool
  1. Use an expression like `MyApp-#{``Octopus.Release.CurrentForEnvironment.Number}` for the Web Site Name and Application Pool Name
  2. Configure a binding to **`http://localhost:#{Octopus.Action[Calculate port number].Output.Port}`**
 3. Make sure your new instance is warmed up and completely ready to process requests.
@@ -47,14 +47,14 @@ The general steps for this kind of deployment would be:
  1. You might decide to perform on-the-fly reconfiguration of your on-server reverse-proxy (ARR, IIS Web Farm, NGINX, etc).
  2. Alternatively you might configure the on-server reverse-proxy to use health checks to determine which instances are able handle requests.
 5. Use a custom script step to delete the old Web Site and Application Pool.
- 1. The name for the previous instance can be calculated by an expression like this:Â `MyApp-#{Octopus.Release.PreviousForEnvironment.Number}`
+ 1. The name for the previous instance can be calculated by an expression like this: `MyApp-#{Octopus.Release.PreviousForEnvironment.Number}`
  2. You may want to wait for outstanding web requests to finish processing using something like this: **`Get-Item IIS:\AppPools\MyApp-#{Octopus.Release.PreviousForEnvironment.Number} | Get-WebRequest`**
 
 
 ### Using Application Request Routing (ARR)
 
 
-You can achieve this kind of result by using [ARR](https://www.iis.net/downloads/microsoft/application-request-routing) as a reverse proxy to your Web Site. You will need to configure a [Web Farm](https://www.iis.net/learn/web-hosting/scenario-build-a-web-farm-with-iis-servers/overview-build-a-web-farm-with-iis-servers) in IIS and use ARR to route requests to the Web Farm. You can then choose how you want to switch between active instances of your application.Â [Kevin Reed](https://kevinareed.com/) has written a nice blog post on how he achieves [Blue/Green deployments using ARR](https://kevinareed.com/2015/11/07/how-to-deploy-anything-in-iis-with-zero-downtime-on-a-single-server/).
+You can achieve this kind of result by using [ARR](https://www.iis.net/downloads/microsoft/application-request-routing) as a reverse proxy to your Web Site. You will need to configure a [Web Farm](https://www.iis.net/learn/web-hosting/scenario-build-a-web-farm-with-iis-servers/overview-build-a-web-farm-with-iis-servers) in IIS and use ARR to route requests to the Web Farm. You can then choose how you want to switch between active instances of your application. [Kevin Reed](https://kevinareed.com/) has written a nice blog post on how he achieves [Blue/Green deployments using ARR](https://kevinareed.com/2015/11/07/how-to-deploy-anything-in-iis-with-zero-downtime-on-a-single-server/).
 
 ### Using NGINX
 

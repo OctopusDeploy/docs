@@ -66,7 +66,7 @@ Octopus stores a number of files that are not suitable to store in the database.
 
 
 
-As with the database, from the Octopus perspective, you'll simply tell the Octopus servers where to store them as a file path - Octopus doesn't really care what technology you use to present the shared storage.Â Each of these three types of data can be stored in a different place.
+As with the database, from the Octopus perspective, you'll simply tell the Octopus servers where to store them as a file path - Octopus doesn't really care what technology you use to present the shared storage. Each of these three types of data can be stored in a different place.
 
 
 The simplest way to provide shared storage, assuming the Octopus server nodes are part of the same Active Directory domain, is by creating a file share that each of the Octopus Server nodes can access. Of course, this assumes that the underlying directory is reliable, such as in a RAID array.
@@ -100,7 +100,7 @@ On the first Octopus Server node, [download the Octopus Server MSI](https://octo
 ![](/docs/images/3048862/3278424.png)
 
 
-The Octopus home directory is local to each specific node, andÂ *should not be shared*Â between nodes.Â This is usually atÂ `C:\Octopus`.
+The Octopus home directory is local to each specific node, and *should not be shared* between nodes. This is usually at `C:\Octopus`.
 
 
 ![](/docs/images/3048862/3278425.png)
@@ -198,7 +198,7 @@ You may already have an existing Octopus Deploy server, that you wish to make hi
 # Configuring High Availability Polling Tentacles
 
 
-Listening Tentacles require no special configuration for High Availability. Â Polling Tentacles, however, poll a server at regular intervals to check if there are any tasks waiting for the Tentacle to perform. In a High Availability scenario Polling Tentacles must poll all of the Octopus Servers in your configuration. You could poll a load balancer but there is a risk, depending on your load balancer configuration, that the Tentacle will not poll all servers in a timely manner. Â You could also configure the Tentacle to poll each server by registering it with one of your Octopus Servers and then adding each Octopus Server to the Tentacle.config file (this is interpreted as a JSON array of servers):
+Listening Tentacles require no special configuration for High Availability.  Polling Tentacles, however, poll a server at regular intervals to check if there are any tasks waiting for the Tentacle to perform. In a High Availability scenario Polling Tentacles must poll all of the Octopus Servers in your configuration. You could poll a load balancer but there is a risk, depending on your load balancer configuration, that the Tentacle will not poll all servers in a timely manner.  You could also configure the Tentacle to poll each server by registering it with one of your Octopus Servers and then adding each Octopus Server to the Tentacle.config file (this is interpreted as a JSON array of servers):
 
 **Tentacle.config**
 

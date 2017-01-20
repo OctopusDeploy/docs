@@ -4,7 +4,7 @@ position: 6
 ---
 
 
-Octopus has support for proxies in two use cases.Â You can specify a proxy server for Octopus to use when communicating with a Tentacle, you can also specify a proxy server when a Tentacle and the Octopus Server make web requests to other servers.
+Octopus has support for proxies in two use cases. You can specify a proxy server for Octopus to use when communicating with a Tentacle, you can also specify a proxy server when a Tentacle and the Octopus Server make web requests to other servers.
 
 :::hint
 Proxy support for Tentacle and SSH communications was added in Octopus 3.4
@@ -61,7 +61,7 @@ Once you have created a proxy, Listening Tentacles can be set to use that proxy 
 ### SSH Targets
 
 
-Configuring a proxy for a SSH Target works in essentially the same way as with a Listening Tentacle as described above. Simply configure up the proxy details viaÂ *Environments > Proxies* and then select the appropriate proxy in the SSH Target details screen.
+Configuring a proxy for a SSH Target works in essentially the same way as with a Listening Tentacle as described above. Simply configure up the proxy details via *Environments > Proxies* and then select the appropriate proxy in the SSH Target details screen.
 
 ### Polling Tentacles
 
@@ -136,4 +136,4 @@ You should configure a Proxy in your Octopus Server, and configure the Listening
 ### Configuring a proxy for communicating with an SSH target
 
 
-You should configureÂ a Proxy in your Octopus Server, and configure the SSH Deployment Target to use that Proxy. See above for an example of configuring an SSH endpoint.
+You should configure a Proxy in your Octopus Server, and configure the SSH Deployment Target to use that Proxy. See above for an example of configuring an SSH endpoint.

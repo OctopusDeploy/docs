@@ -4,7 +4,7 @@ position: 5
 ---
 
 
-Machine roles allow you to ‚Äútag‚Äù machines with a specific keyword which you can later on use to scope deployment steps and/or variables.
+Machine roles allow you to "tag" machines with a specific keyword which you can later on use to scope deployment steps and/or variables.
 
 ## Creating a role and assigning it to a Tentacle
 
@@ -33,7 +33,7 @@ On the screenshot below we've created a role called **WebServer** and assigned i
 **![](/docs/images/3048101/3277812.png)**
 
 
-You can check all the roles assigned to your machines from the¬†**Environments**screen
+You can check all the roles assigned to your machines from the†**Environments**screen
 
 
 ![](/docs/images/3048101/3277811.png)
@@ -50,7 +50,7 @@ To scope a step to a specific role, all you have to do is type in the role name 
 **![](/docs/images/3048101/3277810.png)**
 
 
-After you save the step, all the roles you‚Äôve scoped it for can be viewed from the Deployment Process screen:
+After you save the step, all the roles you've scoped it for can be viewed from the Deployment Process screen:
 
 
 ![](/docs/images/3048101/3277809.png)
@@ -59,7 +59,7 @@ After you save the step, all the roles you‚Äôve scoped it for can be viewed from
 According to the screenshot above, our deployment process will do the following:
 
 - Deploy NuGet package OctoFX.Database to deployment targets with the role**app-server**
-- Deploy NuGet package OctoFX.RateService to deployment targets with the¬†role **web-server**
+- Deploy NuGet package OctoFX.RateService to deployment targets with the†role **web-server**
 
 
 ## Using roles with variables
@@ -68,7 +68,7 @@ According to the screenshot above, our deployment process will do the following:
 Variables can also be [scoped to specific roles](/docs/home/deploying-applications/variables.md). This means that the variable will take the specified value only when it is used on a deployment step that runs on a Tentacle with the specified role. This feature can be really handy when you want to use the same variable name multiple times and have their values changed depending on the Tentacle they are running on.
 
 
-Let‚Äôs say you have the following Tentacles with their respective roles:
+Let's say you have the following Tentacles with their respective roles:
 
 | 
 
@@ -86,13 +86,13 @@ web-server
  |
 
 
-You want to deploy the same package on each server but the deployment path will be different between servers. In this case you can set the same variables (we‚Äôll call it¬†*DeployPath*) with a different value for each machine role:
+You want to deploy the same package on each server but the deployment path will be different between servers. In this case you can set the same variables (we'll call it†*DeployPath*) with a different value for each machine role:
 
 
 ![](/docs/images/3048101/3277808.png)
 
 
-Then, on your deployment step, you can set the **[Custom Install Directory](http://docs.octopusdeploy.com/display/OD/Custom+Installation+Directory)**to¬†*#{DeployPath}*on each of the 3 steps (one for each package Id & Role).
+Then, on your deployment step, you can set the **[Custom Install Directory](http://docs.octopusdeploy.com/display/OD/Custom+Installation+Directory)**to†*#{DeployPath}*on each of the 3 steps (one for each package Id & Role).
 
 
 ![](/docs/images/3048101/3277807.png)
@@ -102,5 +102,5 @@ Then, on your deployment step, you can set the **[Custom Install Directory](http
 
 :::warning
 **Being smart with Machine Roles**
-By definition, a role is "the function assumed by a thing in a particular situation". Roles are not¬†**Environments**¬†or¬†**OS versions**. Try to use roles to tag servers by their utility and watch out if you find yourself putting more than 3 roles on the same server.
+By definition, a role is "the function assumed by a thing in a particular situation". Roles are not†**Environments**†or†**OS versions**. Try to use roles to tag servers by their utility and watch out if you find yourself putting more than 3 roles on the same server.
 :::

@@ -20,7 +20,7 @@ Welcome! This section will guide you through the process of setting up Octopus D
 # Octopus in your delivery process
 
 
-Octopus Deploy is an automated deployment server, which you install yourself, much like you would install SQL Server, Team Foundation Server or JetBrains TeamCity.Â Octopus makes it easy to automate deployment of ASP.NET web applications and Windows Services into development, test and production environments.
+Octopus Deploy is an automated deployment server, which you install yourself, much like you would install SQL Server, Team Foundation Server or JetBrains TeamCity. Octopus makes it easy to automate deployment of ASP.NET web applications and Windows Services into development, test and production environments.
 
 
 Along with the Octopus Deploy server, you'll also install a lightweight agent service on each of the machines that you plan to deploy to, for example your web and application servers. We call this the Tentacle agent; the idea being that one Octopus server controls many Tentacles, potentially a lot more than 8! With Octopus and Tentacle, you can easily deploy to your own servers, or virtual machines in the cloud from infrastructure as a service providers like Amazon EC2 or Windows Azure virtual machines.
@@ -38,11 +38,11 @@ Along with the Octopus Deploy server, you'll also install a lightweight agent se
 We designed Octopus to fit into teams that follow agile delivery practices. Octopus compliments your existing delivery pipeline:
 
 - **Developers commit their code into your existing source control system**
-  You might be using Git, Team Foundation Server, Subversion or Mercurial; the choice is up to you.
+You might be using Git, Team Foundation Server, Subversion or Mercurial; the choice is up to you.
 - **Your CI/build server compiles the code and runs unit tests**
-  Again, you might be using TeamCity, Jenkins, Bamboo, Team Foundation Server or CruiseControl.NET; the choice is up to you.
+Again, you might be using TeamCity, Jenkins, Bamboo, Team Foundation Server or CruiseControl.NET; the choice is up to you.
 - **Your application is packaged into a NuGet package**
-  When the build is done, your CI/build server bundles all of the files â€“ the binaries, images, scripts, configuration files and so on â€“ needed to deploy your application into a NuGet package
+When the build is done, your CI/build server bundles all of the files - the binaries, images, scripts, configuration files and so on - needed to deploy your application into a NuGet package
 
 
 
@@ -129,23 +129,23 @@ Learn more about [creating projects](/docs/home/key-concepts/projects.md).
 
 The **Process** tab within your project defines how your project will be deployed. You can add different steps to the process depending on what you plan to deploy:
 
-- To deploy changes to a SQL Server database, seeÂ [SQL Server databases](/docs/home/deploying-applications/sql-server-databases.md)
-- To deploy an ASP.NET web site to an IIS server, seeÂ [IIS Websites and Application Pools](/docs/home/deploying-applications/iis-websites-and-application-pools.md)
-- To install or configure a Windows Service, seeÂ [Windows Services](/docs/home/deploying-applications/windows-services.md)
-- For custom or advanced installation actions, seeÂ [Custom scripts](/docs/home/deploying-applications/custom-scripts.md)
-- To pause deployment for a human to approve or perform an action, seeÂ [Manual intervention and approvals](/docs/home/deploying-applications/manual-intervention-and-approvals.md)
+- To deploy changes to a SQL Server database, see [SQL Server databases](/docs/home/deploying-applications/sql-server-databases.md)
+- To deploy an ASP.NET web site to an IIS server, see [IIS Websites and Application Pools](/docs/home/deploying-applications/iis-websites-and-application-pools.md)
+- To install or configure a Windows Service, see [Windows Services](/docs/home/deploying-applications/windows-services.md)
+- For custom or advanced installation actions, see [Custom scripts](/docs/home/deploying-applications/custom-scripts.md)
+- To pause deployment for a human to approve or perform an action, see [Manual intervention and approvals](/docs/home/deploying-applications/manual-intervention-and-approvals.md)
 
 
 
 ![](/docs/images/3048178/3278203.png)
 
 
-Chances are, you'll need to configure your application differently depending on the what you are deploying to (for example, different connection strings in staging vs. production). Octopus has advanced support for managing theseÂ [variables](/docs/home/deploying-applications/variables.md) and scoping them, and can even manage passwords securely. Octopus can also take care of automatically [updating your .NET configuration files, and running configuration file transforms](/docs/home/deploying-applications/configuration-files.md).
+Chances are, you'll need to configure your application differently depending on the what you are deploying to (for example, different connection strings in staging vs. production). Octopus has advanced support for managing these [variables](/docs/home/deploying-applications/variables.md) and scoping them, and can even manage passwords securely. Octopus can also take care of automatically [updating your .NET configuration files, and running configuration file transforms](/docs/home/deploying-applications/configuration-files.md).
 
 # Create a release and deploy it
 
 
-Next, create a release.Â Click the **Create release** button on any page of your project.
+Next, create a release. Click the **Create release** button on any page of your project.
 
 
 ![](/docs/images/3048178/3278202.png)
@@ -157,7 +157,7 @@ Enter an overall release version number for the release, and select the NuGet pa
 ![](/docs/images/3048178/3278201.png)
 
 
-Now that you have a release, you can deploy and promote it between environments.Â On the release page, use the green **Deploy to *<environment>*** button to promote it**.**
+Now that you have a release, you can deploy and promote it between environments. On the release page, use the green **Deploy to *<environment>*** button to promote it**.**
 
 
 ![](/docs/images/3048178/3278200.png)

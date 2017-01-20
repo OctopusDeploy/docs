@@ -75,7 +75,7 @@ If each customer had major differences, and possibly bespoke work, we recommende
 :::
 
 
-The solutions above would work well for a few dozen customers, and with some effort, be made to work for many more using theÂ [REST API](/docs/home/api-and-integration/octopus-rest-api.md)Â andÂ [Octo.exe](/docs/home/api-and-integration/octo.exe-command-line.md).
+The solutions above would work well for a few dozen customers, and with some effort, be made to work for many more using the [REST API](/docs/home/api-and-integration/octopus-rest-api.md) and [Octo.exe](/docs/home/api-and-integration/octo.exe-command-line.md).
 
 ## Consider architectural changes
 
@@ -83,4 +83,4 @@ The solutions above would work well for a few dozen customers, and with some eff
 When much larger numbers of customers are concerned it may be wise to consider making architectural changes to the application.
 
 
-For example, if deployment consists of many copies of the exact same website, just with a few configuration differences per customer, perhaps store those configuration settingsÂ in the database, and use the host header field (`HttpContext.Request.Url.Host` in ASP.NET) to determine who the current customer is and respond accordingly. Not only will this make deployment simpler; it will most likely result in an easier to manage application, and reduce overall resource utilization resulting in higher density and profitability.
+For example, if deployment consists of many copies of the exact same website, just with a few configuration differences per customer, perhaps store those configuration settings in the database, and use the host header field (`HttpContext.Request.Url.Host` in ASP.NET) to determine who the current customer is and respond accordingly. Not only will this make deployment simpler; it will most likely result in an easier to manage application, and reduce overall resource utilization resulting in higher density and profitability.

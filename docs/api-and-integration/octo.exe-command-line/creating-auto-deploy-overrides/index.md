@@ -4,14 +4,14 @@ position: 12
 ---
 
 
-[Octo.exe](http://docs.octopusdeploy.com/pages/viewpage.action?pageId=360596)Â can be used to create automatic deployment release overrides.
+[Octo.exe](http://docs.octopusdeploy.com/pages/viewpage.action?pageId=360596) can be used to create automatic deployment release overrides.
 
 ```text
 octo create-autodeployoverride [<options>]
 ```
 
 
-WhereÂ `[&lt;options&gt;]`Â is any of:
+Where `[&lt;options&gt;]` is any of:
 
 **create-autodeployoverride options**
 

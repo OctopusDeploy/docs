@@ -52,7 +52,7 @@ As can be seen in the screenshot above, the logging of the progress of applying 
 ## Turning Delta Compression off
 
 
-To turn this feature off, set the value ofÂ **Octopus.Acquire.DeltaCompressionEnabled**Â toÂ **False**
+To turn this feature off, set the value of **Octopus.Acquire.DeltaCompressionEnabled** to **False**
 
 
 ![](/docs/images/3048083/5275657.jpg)

@@ -14,13 +14,13 @@ Only use the Custom Installation Directory feature when it is truly required. Ou
 
 
 
-In your *Package Deploy* or *IIS* steps, look for theÂ **Configure Features** link at the bottom
+In your *Package Deploy* or *IIS* steps, look for the **Configure Features** link at the bottom
 
 
 ![](/docs/images/3048085/5865882.jpg)
 
 
-Then select the featureÂ **Custom Installation Directory**
+Then select the feature **Custom Installation Directory**
 
 
 ![](/docs/images/3048085/3277679.png)
@@ -38,7 +38,7 @@ The use of a variable means that you can scope different values to different env
 ![](/docs/images/3048085/3277677.png)
 
 
-Our Packages are extracted into a new directory each time (along the lines of C:\Octopus\Applications\[Environment name]\[Package name]\[Package version]\)Â , and this is no different for Custom Installation Directory.
+Our Packages are extracted into a new directory each time (along the lines of C:\Octopus\Applications\[Environment name]\[Package name]\[Package version]\) , and this is no different for Custom Installation Directory.
 
 
 ![](/docs/images/3048085/3277682.png)

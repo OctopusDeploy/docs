@@ -11,10 +11,10 @@ When you contact Octopus Deploy support with a deployment-related issue, we'll s
 
 The steps to send a full task log are:
 
-1. Open the deployment/task details, and go to theÂ **Task log**Â tab. Click on theÂ **Raw**Â link.
+1. Open the deployment/task details, and go to the **Task log** tab. Click on the **Raw** link.
 
 ![](/docs/images/3048147/3278094.png)
-2. At the top of the raw log page there is aÂ **Download**Â button. Click the button to download a text file containing the entire deployment log:
+2. At the top of the raw log page there is a **Download** button. Click the button to download a text file containing the entire deployment log:
 
 ![](/docs/images/3048147/3278093.png)
 

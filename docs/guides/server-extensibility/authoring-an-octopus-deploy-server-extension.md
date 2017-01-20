@@ -19,7 +19,7 @@ This is the key NuGet package you will need in order to build an Octopus Deploy 
 This namespace contains the interfaces and structures an extension can implement, which the Octopus Deploy server will go looking for.
 
 
-The key interface to be aware of is **IOctopusExtension**, as this forms the entry point for your extension and without it the server cannot load your extension. Â An example of its usage is as follows:
+The key interface to be aware of is **IOctopusExtension**, as this forms the entry point for your extension and without it the server cannot load your extension.  An example of its usage is as follows:
 
 ```csharp
     [OctopusPlugin("Directory Services", "Octopus Deploy")]
@@ -39,7 +39,7 @@ Octopus Deploy itself uses Autofac as its IoC container, and as such the extensi
 ## Extension Configuration
 
 
-Many extensions will want to store configuration related to their own specific functionality, certainly all of the Octopus Deploy extensions do. Â To facilitate this, the server provides the extensions the ability to register their need to store a configuration object in the **Configuration** table in the database. Below is an example of a configuration object and its mapping class:
+Many extensions will want to store configuration related to their own specific functionality, certainly all of the Octopus Deploy extensions do.  To facilitate this, the server provides the extensions the ability to register their need to store a configuration object in the **Configuration** table in the database. Below is an example of a configuration object and its mapping class:
 
 ```csharp
     public class DirectoryServicesConfiguration : IId
@@ -64,14 +64,14 @@ Many extensions will want to store configuration related to their own specific f
 Things to note here are:
 
 - the configuration object is a POCO stored as serialised Json in the database, so properties that are enums (as above) or POCOs themselves are supported.
-- the configuration object itself must implement IId, to provide the Id for the Json data. Â This is typically a constant unique to your extension.
+- the configuration object itself must implement IId, to provide the Id for the Json data.  This is typically a constant unique to your extension.
 - the mapping class must be registered as an **IConfigurationDocumentMapper** in Autofac when the extension is loaded.
 
 
 ### Configuration Stores and the Configure Command
 
 
-Now that your extension has configuration, how do you set the configuration values? Â The pattern we're using involves a Configuration Store and a class that implements theÂ **IContributeToConfigureCommand** interface. Â TheÂ **IContributeToConfigureCommand**Â interface is the key part. The store is a pattern that we've found works well for us (because in some cases we have data that may need to be migrated from the server.config into the DB), but is not mandatory. Â An example of an extension contributing to the configure command is as follows:
+Now that your extension has configuration, how do you set the configuration values?  The pattern we're using involves a Configuration Store and a class that implements the **IContributeToConfigureCommand** interface.  The **IContributeToConfigureCommand** interface is the key part. The store is a pattern that we've found works well for us (because in some cases we have data that may need to be migrated from the server.config into the DB), but is not mandatory.  An example of an extension contributing to the configure command is as follows:
 
 ```csharp
     public class DirectoryServicesConfigureCommands : IContributeToConfigureCommand, IHandleLegacyWebAuthenticationModeConfigurationCommand
@@ -120,14 +120,14 @@ Now that your extension has configuration, how do you set the configuration valu
 ## Services Provided by the Host
 
 
-This section contains the interfaces and structures related to 'services' that the extensions can consume from the Octopus Deploy server itself. Â In this section, we'll detail a couple of interfaces you're most likely to need. To use them install the relevant NuGet package and take a dependency in your extension constructor.
+This section contains the interfaces and structures related to 'services' that the extensions can consume from the Octopus Deploy server itself.  In this section, we'll detail a couple of interfaces you're most likely to need. To use them install the relevant NuGet package and take a dependency in your extension constructor.
 
-### ILog fromÂ [Octopus.Diagnostics](https://www.nuget.org/packages/Octopus.Diagnostics/)
+### ILog from [Octopus.Diagnostics](https://www.nuget.org/packages/Octopus.Diagnostics/)
 
 
 This interface provides access to the server's logging infrastructure, so your extension can log Info, Warnings, Errors etc.
 
-### IKeyValueStore fromÂ [Octopus.Configuration](https://www.nuget.org/packages/Octopus.Configuration/)
+### IKeyValueStore from [Octopus.Configuration](https://www.nuget.org/packages/Octopus.Configuration/)
 
 
 This interface provides access to the server.config XML file, should your extension need to read/write configuration values there.
@@ -139,9 +139,9 @@ An extension is simply a .NET dll, so you can build it in any way that you would
 # Extension points
 
 
-At the moment you can only extend [Authentication](https://github.com/OctopusDeploy/AuthenticationExtensibility)Â but we plan to expose more of Octopus internals in the future so stay tuned and check this page every now then for updates.
+At the moment you can only extend [Authentication](https://github.com/OctopusDeploy/AuthenticationExtensibility) but we plan to expose more of Octopus internals in the future so stay tuned and check this page every now then for updates.
 
 # 'Installing' a custom extension
 
 
-Once you've compiled the dll,Â [installing it is as simple as putting it in the right folder](/docs/home/guides/server-extensibility/installing-a-custom-server-extension.md)Â and restarting the Octopus Deploy server.
+Once you've compiled the dll, [installing it is as simple as putting it in the right folder](/docs/home/guides/server-extensibility/installing-a-custom-server-extension.md) and restarting the Octopus Deploy server.

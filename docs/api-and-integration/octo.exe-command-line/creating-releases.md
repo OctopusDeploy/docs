@@ -30,7 +30,7 @@ octo create-release [<options>]
 ```
 
 
-WhereÂ `[&lt;options&gt;]`Â is any of:
+Where `[&lt;options&gt;]` is any of:
 
 **Create release options**
 
@@ -147,7 +147,7 @@ Common options:
 ### Basic examples
 
 
-This will create a new release of theÂ *HelloWorld*Â project using the latest available NuGet packages for each step in the project. The version number of the release will be the highest NuGet package version. You can override this using:
+This will create a new release of the *HelloWorld* project using the latest available NuGet packages for each step in the project. The version number of the release will be the highest NuGet package version. You can override this using:
 
 ```text
 octo create-release --project HelloWorld --server http://octopus/ --apiKey API-ABCDEF123456
@@ -163,7 +163,7 @@ octo create-release --project HelloWorld --version 1.0.3 --server http://octopus
 ### Specifying the package version
 
 
-This will create a releaseÂ *(1.0.3)*Â with a specified NuGet package versionÂ *(1.0.1)*:
+This will create a release *(1.0.3)* with a specified NuGet package version *(1.0.1)*:
 
 ```text
 octo create-release --project HelloWorld --version 1.0.3 --packageversion 1.0.1 --server http://octopus/ --apiKey API-ABCDEF123456
@@ -186,7 +186,7 @@ octo create-release --project HelloWorld --version 1.0.3 --packagesFolder packag
 ### Deploying a release after creating it
 
 
-To create a releaseÂ *and*Â deploy it to an environment namedÂ *Production*:
+To create a release *and* deploy it to an environment named *Production*:
 
 ```text
 octo create-release --project HelloWorld --deployto Production --server http://octopus/ --apiKey API-ABCDEF123456 --progress

@@ -15,7 +15,7 @@ When managing a large environment of machines, however, it is occasionally neces
 
 
 
-For these situations, the OctopusÂ **Script Console**Â can be used.
+For these situations, the Octopus **Script Console** can be used.
 
 
 Using the Script Console

@@ -80,8 +80,8 @@ Given a package which has the structure:
 
 ```powershell
 Acme.Core.1.0.0.nupkg
-├─web.config
-└─web.mytransform.config
+??web.config
+??web.mytransform.config
 ```
 
 
@@ -97,9 +97,9 @@ Given a package which has the structure:
 
 ```powershell
 Acme.Core.1.0.0.nupkg
-├─config
-| └─web.config
-└─web.mytransform.config
+??config
+| ??web.config
+??web.mytransform.config
 ```
 
 
@@ -115,9 +115,9 @@ Given a package which has the structure:
 
 ```powershell
 Acme.Core.1.0.0.nupkg
-├─app.config
-├─connstrings.mytransform.config
-└─web.config
+??app.config
+??connstrings.mytransform.config
+??web.config
 ```
 
 
@@ -136,10 +136,10 @@ Given a package which has the structure:
 
 ```powershell
 Acme.Core.1.0.0.nupkg
-├─config
-| ├─app.config
-| └─web.config
-└─connstrings.mytransform.config
+??config
+| ??app.config
+| ??web.config
+??connstrings.mytransform.config
 ```
 
 
@@ -158,7 +158,7 @@ Given a package which has the structure:
 
 ```powershell
 Acme.Core.1.0.0.nupkg
-└─web.config
+??web.config
 ```
 
 
@@ -166,8 +166,8 @@ And the following files exist:
 
 ```powershell
 c:\
-└─transforms
-  └─web.mytransform.config
+??transforms
+� ??web.mytransform.config
 ```
 
 
@@ -183,9 +183,9 @@ Given a package which has the structure:
 
 ```powershell
 Acme.Core.1.0.0.nupkg
-└─config
-  ├─app.config
-  └─web.config
+??config
+  ??app.config
+  ??web.config
 ```
 
 
@@ -193,8 +193,8 @@ And the following files exist:
 
 ```powershell
 c:\
-└─transforms
-  └─connstrings.mytransform.config
+??transforms
+  ??connstrings.mytransform.config
 ```
 
 
@@ -213,8 +213,8 @@ Given a package which has the structure:
 
 ```powershell
 Acme.Core.1.0.0.nupkg
-├─app.config
-└─web.config
+??app.config
+??web.config
 ```
 
 
@@ -222,8 +222,8 @@ And the following files exist:
 
 ```powershell
 c:\
-└─transforms
-  └─connstrings.mytransform.config
+??transforms
+� ??connstrings.mytransform.config
 ```
 
 
@@ -242,9 +242,9 @@ Given a package which has the structure:
 
 ```powershell
 Acme.Core.1.0.0.nupkg
-├─transforms
-| └─web.mytransform.config
-└─web.config
+??transforms
+| ??web.mytransform.config
+??web.config
 ```
 
 
@@ -260,10 +260,10 @@ Given a package which has the structure:
 
 ```powershell
 Acme.Core.1.0.0.nupkg
-├─config
-| └─web.config
-└─transforms
-  └─web.mytransform.config
+??config
+| ??web.config
+??transforms
+� ??web.mytransform.config
 ```
 
 
@@ -279,10 +279,10 @@ Given a package which has the structure:
 
 ```powershell
 Acme.Core.1.0.0.nupkg
-├─app.config
-├─transforms
-| └─connstrings.mytransform.config
-└─web.config
+??app.config
+??transforms
+| ??connstrings.mytransform.config
+??web.config
 ```
 
 
@@ -301,11 +301,11 @@ Given a package which has the structure:
 
 ```powershell
 Acme.Core.1.0.0.nupkg
-├─config
-| ├─app.config
-| └─web.config
-└─transforms
-  └─connstrings.mytransform.config
+??config
+| ??app.config
+| ??web.config
+??transforms
+� ??connstrings.mytransform.config
 ```
 
 
@@ -324,9 +324,9 @@ Given a package which has the structure:
 
 ```powershell
 Acme.Core.1.0.0.nupkg
-├─connstrings.mytransform.config
-├─security.mytransform.config
-└─web.config
+??connstrings.mytransform.config
+??security.mytransform.config
+??web.config
 ```
 
 
@@ -348,9 +348,9 @@ Given a package which has the structure:
 
 ```powershell
 Acme.Core.1.0.0.nupkg
-├─MyApp.connstrings.octopus.config
-├─MyApp.nlog_octopus.config
-└─MyApp.WinSvc.exe.config
+??MyApp.connstrings.octopus.config
+??MyApp.nlog_octopus.config
+??MyApp.WinSvc.exe.config
 ```
 
 
@@ -372,14 +372,14 @@ Given a package which has the structure:
 
 ```powershell
 Acme.Core.1.0.0.nupkg
-├─config
-| └─web.config
-├─connstrings.mytransform.config
-└─security.mytransform.config
+??config
+| ??web.config
+??connstrings.mytransform.config
+??security.mytransform.config
 ```
 
 
-Then the transform **\*.mytransform.config => config\web.config** will:
+Then the transform **\*.mytransform.config => config\web.config**�will:
 
 
 - Apply the transform **security.mytransform.config** to file **config\web.config**
@@ -394,10 +394,10 @@ Given a package which has the structure:
 
 ```powershell
 Acme.Core.1.0.0.nupkg
-├─app.config
-├─app.mytransform.config
-├─web.config
-└─web.mytransform.config
+??app.config
+??app.mytransform.config
+??web.config
+??web.mytransform.config
 ```
 
 
@@ -416,11 +416,11 @@ Given a package which has the structure:
 
 ```powershell
 Acme.Core.1.0.0.nupkg
-├─app.mytransform.config
-├─config
-| ├─App.config
-| └─web.config
-└─web.mytransform.config
+??app.mytransform.config
+??config
+| ??App.config
+| ??web.config
+??web.mytransform.config
 
 ```
 
@@ -440,7 +440,7 @@ Given a package which has the structure:
 
 ```powershell
 Acme.Core.1.0.0.nupkg
-└─web.config
+??web.config
 ```
 
 
@@ -448,9 +448,9 @@ And the following files exist:
 
 ```powershell
 c:\
-└─transforms
-  ├─connstrings.mytransform.config
-  └─security.mytransform.config
+??transforms
+� ??connstrings.mytransform.config
+� ??security.mytransform.config
 ```
 
 
@@ -469,8 +469,8 @@ Given a package which has the structure:
 
 ```powershell
 Acme.Core.1.0.0.nupkg
-├─web.config
-└─web.config
+??web.config
+??web.config
 ```
 
 
@@ -478,9 +478,9 @@ And the following files exist:
 
 ```powershell
 c:\
-└─transforms
-  ├─app.mytransform.config
-  └─web.mytransform.config
+??transforms
+� ??app.mytransform.config
+� ??web.mytransform.config
 ```
 
 
@@ -499,9 +499,9 @@ Given a package which has the structure:
 
 ```powershell
 Acme.Core.1.0.0.nupkg
-└─config
-  ├─app.config
-  └─web.config
+??config
+� ??app.config
+� ??web.config
 ```
 
 
@@ -509,9 +509,9 @@ And the following files exist:
 
 ```powershell
 c:\
-└─transforms
-  ├─app.mytransform.config
-  └─web.mytransform.config
+??transforms
+� ??app.mytransform.config
+� ??web.mytransform.config
 ```
 
 
@@ -530,10 +530,10 @@ Given a package which has the structure:
 
 ```powershell
 Acme.Core.1.0.0.nupkg
-├─transforms
-| ├─connstrings.mytransform.config
-| └─security.mytransform.config
-└─web.config
+??transforms
+| ??connstrings.mytransform.config
+| ??security.mytransform.config
+??web.config
 ```
 
 
@@ -552,11 +552,11 @@ Given a package which has the structure:
 
 ```powershell
 Acme.Core.1.0.0.nupkg
-├─config
-| └─web.config
-└─transforms
-  ├─connstrings.mytransform.config
-  └─security.mytransform.config
+??config
+| ??web.config
+??transforms
+� ??connstrings.mytransform.config
+� ??security.mytransform.config
 ```
 
 
@@ -577,11 +577,11 @@ Given a package which has the structure:
 Acme.Core.1.0.0.nupkg
 
 ```powershell
-├─app.config
-├─transforms
-| ├─app.mytransform.config
-| └─web.mytransform.config
-└─web.config
+??app.config
+??transforms
+| ??app.mytransform.config
+| ??web.mytransform.config
+??web.config
 ```
 
 
@@ -600,12 +600,12 @@ Given a package which has the structure:
 
 ```powershell
 Acme.Core.1.0.0.nupkg
-├─config
-| ├─app.config
-| └─web.config
-└─transforms
-  ├─app.mytransform.config
-  └─web.mytransform.config
+??config
+| ??app.config
+| ??web.config
+??transforms
+� ??app.mytransform.config
+� ??web.mytransform.config
 ```
 
 

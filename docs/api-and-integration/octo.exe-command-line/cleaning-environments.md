@@ -4,7 +4,7 @@ position: 9
 ---
 
 
-[Octo.exe](http://docs.octopusdeploy.com/pages/viewpage.action?pageId=360596)Â can be used to delete/remove machines with a particular status from environments on your Octopus instance.
+[Octo.exe](http://docs.octopusdeploy.com/pages/viewpage.action?pageId=360596) can be used to delete/remove machines with a particular status from environments on your Octopus instance.
 
 :::hint
 This command was added in Octo.exe 3.3.4.
@@ -24,7 +24,7 @@ octo clean-environment [<options>]
 ```
 
 
-WhereÂ `[&lt;options&gt;]`Â is any of:
+Where `[&lt;options&gt;]` is any of:
 
 **create-environment options**
 

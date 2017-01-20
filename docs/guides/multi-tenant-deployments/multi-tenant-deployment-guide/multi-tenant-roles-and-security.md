@@ -4,13 +4,13 @@ position: 8
 ---
 
 
-Previous step:Â [Designing a multi-tenant upgrade process](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md)
+Previous step: [Designing a multi-tenant upgrade process](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md)
 
 
-This page describes several common approaches to structuring roles and teams to secure a multi-tenant Octopus instance. Using the permissions system in Octopus you can configure internal team members with different roles who interact with tenants in different ways. You can also configure Octopus to provide access for your external customers.Â This page explores several of those roles for both internal and external parties.
+This page describes several common approaches to structuring roles and teams to secure a multi-tenant Octopus instance. Using the permissions system in Octopus you can configure internal team members with different roles who interact with tenants in different ways. You can also configure Octopus to provide access for your external customers. This page explores several of those roles for both internal and external parties.
 
 :::success
-To get the most out of this guide you will need to understand how to [manage users and teams](/docs/home/administration/managing-users-and-teams.md)Â and how to [work with custom roles](/docs/home/administration/managing-users-and-teams/user-roles.md). Octopus provides an expressive permissions system and you can customize the security configuration to your particular scenario.
+To get the most out of this guide you will need to understand how to [manage users and teams](/docs/home/administration/managing-users-and-teams.md) and how to [work with custom roles](/docs/home/administration/managing-users-and-teams/user-roles.md). Octopus provides an expressive permissions system and you can customize the security configuration to your particular scenario.
 :::
 
 
@@ -46,7 +46,7 @@ It is usually a good idea to build smaller roles that can be composed together i
 :::
 
 1. In *Configuration > Teams > Roles* click **Add custom role** and call it **Tenant project deployer**
-2. Set the description toÂ **Tenant project deployers can deploy releases on behalf of tenants**
+2. Set the description to **Tenant project deployers can deploy releases on behalf of tenants**
 3. Choose the following permissions:
  1. AccountView
  2. ArtifactView
@@ -94,7 +94,7 @@ Now we will create a team for all the Account Managers and add the role we creat
 
 Now it's time to test the results of our configuration.
 
-1. Create a test user account and add them to your newÂ **Account Managers** team.
+1. Create a test user account and add them to your new **Account Managers** team.
 2. Sign in as the test user and see the results.
 3. Experiment with what you can and can't do.
 
@@ -113,7 +113,7 @@ Quite often you will want to allocate certain tenants to a team, or restrict whi
 ## Infrastructure manager
 
 
-Bob is a member of IT infrastructure team and he manages all the virtual servers in the cloud. His only interaction with tenants is to associate them with the appropriate [deployment targets](/docs/home/deployment-targets.md) and [environments](/docs/home/key-concepts/environments.md). Â He should have read-only access to tenant details required, and have the ability to manage deployment targets and accounts. This time we will configure the team using a composition of built-in and custom roles.
+Bob is a member of IT infrastructure team and he manages all the virtual servers in the cloud. His only interaction with tenants is to associate them with the appropriate [deployment targets](/docs/home/deployment-targets.md) and [environments](/docs/home/key-concepts/environments.md).  He should have read-only access to tenant details required, and have the ability to manage deployment targets and accounts. This time we will configure the team using a composition of built-in and custom roles.
 
 ### Step 1: Configure the Tenant viewer role
 
@@ -139,7 +139,7 @@ In this example we will create a new team and combine multiple roles together to
 ### Step 3: Test!
 
 
-Similarly to the previous example assign a user account, sign in, and test out the resulting behaviour. You should notice you can configure new or existing deployment targets including tenant configuration as we described inÂ [Designing a multi-tenant hosting model](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md).
+Similarly to the previous example assign a user account, sign in, and test out the resulting behaviour. You should notice you can configure new or existing deployment targets including tenant configuration as we described in [Designing a multi-tenant hosting model](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md).
 
 ### Step 4: Reduce scope of the team
 
@@ -181,4 +181,4 @@ Now you can create standard Octopus [user accounts](/docs/home/administration/ma
 ## Next steps
 
 
-It's important to note that these are example roles and they may not suit every company. Â The good news is that they're a great starting point and can be customised to suit different scenarios.
+It's important to note that these are example roles and they may not suit every company.  The good news is that they're a great starting point and can be customised to suit different scenarios.

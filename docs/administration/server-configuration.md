@@ -17,7 +17,7 @@ The Server Configuration screen is available from *Configuration > Nodes > Confi
 Each configuration value has properties that will determine whether it is shown on this Server Configuration screen.
 
 
-For example, any server extensions conforming to the **IHasConfigurationSettings**Â interface will contribute configuration values:
+For example, any server extensions conforming to the **IHasConfigurationSettings** interface will contribute configuration values:
 
 ```powershell
 namespace Octopus.Server.Extensibility.Extensions.Infrastructure.Configuration
@@ -53,12 +53,12 @@ namespace Octopus.Server.Extensibility.Extensions.Infrastructure.Configuration
 Any configuration values contributed by server extensions that have set the "ShowInPortalSummary" property to **True** will be shown in this list with their "Description" property. Any configuration values marked as "IsSensitive" will be blanked out on this screen with \*\*\*\*.
 
 
-Checkout the [UsernamePasswordAuthenticationProvider](https://github.com/OctopusDeploy/UsernamePasswordAuthenticationProvider/blob/master/source/Octopus.Server.Extensibility.Authentication.UsernamePassword/Configuration/UsernamePasswordConfigurationStore.cs)Â and [DirectoryServicesAuthenticationProvider](https://github.com/OctopusDeploy/DirectoryServicesAuthenticationProvider/blob/master/source/Octopus.Server.Extensibility.Authentication.DirectoryServices/Configuration/DirectoryServicesConfigurationStore.cs) for examples of how these ConfigurationValues are used.
+Checkout the [UsernamePasswordAuthenticationProvider](https://github.com/OctopusDeploy/UsernamePasswordAuthenticationProvider/blob/master/source/Octopus.Server.Extensibility.Authentication.UsernamePassword/Configuration/UsernamePasswordConfigurationStore.cs) and [DirectoryServicesAuthenticationProvider](https://github.com/OctopusDeploy/DirectoryServicesAuthenticationProvider/blob/master/source/Octopus.Server.Extensibility.Authentication.DirectoryServices/Configuration/DirectoryServicesConfigurationStore.cs) for examples of how these ConfigurationValues are used.
 
 ### ShowInPortalSummary
 
 
-The configuration values provided via this interface actually serve 2 purposes. Â The first is that they are displayed by theÂ [Show Configuration](/docs/home/administration/show-configuration.md) command (all values are displayed by the command). Â The second is being displayed on the Server Configuration page in the web UI (only value with ShowInPortalSummary will be displayed).
+The configuration values provided via this interface actually serve 2 purposes.  The first is that they are displayed by the [Show Configuration](/docs/home/administration/show-configuration.md) command (all values are displayed by the command).  The second is being displayed on the Server Configuration page in the web UI (only value with ShowInPortalSummary will be displayed).
 
 ## Publicly Accessible URL
 

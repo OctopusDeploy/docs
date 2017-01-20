@@ -4,15 +4,15 @@ position: 0
 ---
 
 
-This guide will help you deploy your first Azure Cloud Service application using Octopus Deploy. Â This guide assumes some familiarity with Octopus. If you are just starting out please see the general [getting started guide](/docs/home/getting-started.md).
+This guide will help you deploy your first Azure Cloud Service application using Octopus Deploy.  This guide assumes some familiarity with Octopus. If you are just starting out please see the general [getting started guide](/docs/home/getting-started.md).
 
 
-In order to complete this guide you will need to have an Azure account and create an Azure Cloud Service and Azure Storage Account. Please refer to the [Azure documentation](https://azure.microsoft.com/en-us/documentation/) for completing these steps. Â In this guide the Cloud Service is called hello-octopus and the storage account is called octostore.
+In order to complete this guide you will need to have an Azure account and create an Azure Cloud Service and Azure Storage Account. Please refer to the [Azure documentation](https://azure.microsoft.com/en-us/documentation/) for completing these steps.  In this guide the Cloud Service is called hello-octopus and the storage account is called octostore.
 
 ## Create a package
 
 
-You will need a NuGet package containing the Azure Cloud Service application you want to deploy. Â The NuGet package contains the .cspkg and .cscfg files that are published from Visual Studio. Here is one we prepared earlier that you can use for this guide:Â [HelloCloud.1.0.0.nupkg](https://download.octopusdeploy.com/demo/HelloCloud.1.0.0.nupkg)
+You will need a NuGet package containing the Azure Cloud Service application you want to deploy.  The NuGet package contains the .cspkg and .cscfg files that are published from Visual Studio. Here is one we prepared earlier that you can use for this guide: [HelloCloud.1.0.0.nupkg](https://download.octopusdeploy.com/demo/HelloCloud.1.0.0.nupkg)
 
 
 Upload your NuGet package to the Octopus [built-in package repository](/docs/home/packaging-applications/package-repositories.md):
@@ -35,7 +35,7 @@ Add an Azure Subscription account and fill in your account details:
 ![](/docs/images/3049331/3278523.png)
 
 
-If you are allowing Octopus to generate a management certificate for you, first save the account and then upload the generated certificate to your Azure management certificates in the Azure Portal. Â At the time of writing this setting is available in the classic portal:
+If you are allowing Octopus to generate a management certificate for you, first save the account and then upload the generated certificate to your Azure management certificates in the Azure Portal.  At the time of writing this setting is available in the classic portal:
 
 
 ![](/docs/images/3049331/3278522.png)
@@ -51,7 +51,7 @@ In order to deploy a Cloud Service we require an Octopus environment to deploy t
 ## Create a project
 
 
-Now have the NuGet package we want to deploy, the account we are going to use for the deployment and an environment to deploy to. Â Now all we need is a project to do all the work. Â Create a new project:
+Now have the NuGet package we want to deploy, the account we are going to use for the deployment and an environment to deploy to.  Now all we need is a project to do all the work.  Create a new project:
 
 
 ![](/docs/images/3049331/3278526.png)

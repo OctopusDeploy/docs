@@ -10,7 +10,7 @@ Configure the HTTP proxy used by Octopus
 
 ```text
 Usage: Tentacle proxy [<options>]
-Â 
+ 
 
 Where [<options>] is any of:
       --instance=VALUE       Name of the instance to use

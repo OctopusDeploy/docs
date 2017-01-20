@@ -18,7 +18,7 @@ This provides many benefits, including:
 
 
 :::warning
-Deployment Slots are only available to Azure Web Apps running in StandardÂ orÂ Premium[App Service plans](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/)
+Deployment Slots are only available to Azure Web Apps running in Standard or Premium[App Service plans](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/)
 :::
 
 
@@ -64,7 +64,7 @@ New-AzureRMWebAppSlot -Name #{WebSite} -Slot Staging -ResourceGroupName MyResour
 ```
 
 :::hint
-The reason for the first line, which removes the Staging Slot, is to ensure we are deploying to a clean slot. Â This can significantly reduce the time taken for deployments with a large number of files.
+The reason for the first line, which removes the Staging Slot, is to ensure we are deploying to a clean slot.  This can significantly reduce the time taken for deployments with a large number of files.
 :::
 
 
@@ -82,7 +82,7 @@ So your step should look like:
 ### Step 2: Deploy your Package
 
 
-The next step is to deploy your package to the Staging slot. Â We do this be creating a [Deploy an Azure Web App](/docs/home/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app.md) step.
+The next step is to deploy your package to the Staging slot.  We do this be creating a [Deploy an Azure Web App](/docs/home/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app.md) step.
 
 
 ![](/docs/images/3049371/3278554.png)
@@ -91,10 +91,10 @@ The next step is to deploy your package to the Staging slot. Â We do this be cre
 
 
 :::hint
-Slots in Azure are themselves real Web Apps with their own hostnames. Â They are named with the format:
+Slots in Azure are themselves real Web Apps with their own hostnames.  They are named with the format:
 
 ```
-WebsiteName(SlotName)Â 
+WebsiteName(SlotName) 
 ```
 :::
 

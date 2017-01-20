@@ -91,7 +91,7 @@ Multiple release branches may be supported over a period of time. For example, y
 ![](/docs/images/3048919/3278440.png)
 
 
-Modelling this in Octopus is a little more complicated than the scenarios above, but still easy to achieve.Â If the only thing that changes between branches is the NuGet package version numbers, and you create releases infrequently, then you can simply choose the correct package versions when creating a release via the release creation page:
+Modelling this in Octopus is a little more complicated than the scenarios above, but still easy to achieve. If the only thing that changes between branches is the NuGet package version numbers, and you create releases infrequently, then you can simply choose the correct package versions when creating a release via the release creation page:
 
 
 ![](/docs/images/3048919/3278469.png)
@@ -183,7 +183,7 @@ The above section describes common branching strategies and how they map to NuGe
 ## Multiple branches can be "currently deployed" at the same time
 
 
-Normally in Octopus, a single release for a project is deployed to a single environment at a time - for example, only one release is "currently" in Production.Â When youÂ have multiple active release branches, or sometimes even feature branches, it might be that you actually have more than one "current" release.
+Normally in Octopus, a single release for a project is deployed to a single environment at a time - for example, only one release is "currently" in Production. When you have multiple active release branches, or sometimes even feature branches, it might be that you actually have more than one "current" release.
 
 
 For example:

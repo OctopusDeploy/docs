@@ -4,12 +4,12 @@ title: Troubleshooting Schannel and TLS
 ---
 
 
-Octopus usesÂ `Schannel`Â for secure communications and will attempt to use the best available protocol available to both servers. A few industry pressures and changes have been causing problems for Tentacle communications:
+Octopus uses `Schannel` for secure communications and will attempt to use the best available protocol available to both servers. A few industry pressures and changes have been causing problems for Tentacle communications:
 
-1. Firstly TLS 1.1 and TLS 1.2 areÂ [disabled by default on Windows Server 2003 and Windows Server 2008](https://blogs.msdn.microsoft.com/kaushal/2011/10/02/support-for-ssltls-protocols-on-windows/) and need to be manually enabled.
+1. Firstly TLS 1.1 and TLS 1.2 are [disabled by default on Windows Server 2003 and Windows Server 2008](https://blogs.msdn.microsoft.com/kaushal/2011/10/02/support-for-ssltls-protocols-on-windows/) and need to be manually enabled.
 2. Server administrators are generally being encouraged by Microsoft to prefer TLS 1.1 or 1.2 over TLS 1.0.
 3. Similarly certain ciphers and hashes are commonly being disabled.
-4. Recent Windows patches (likeÂ [KB3140245](https://support.microsoft.com/en-au/kb/3140245) andÂ [KB3174644](https://support.microsoft.com/en-us/kb/3174644)) enable server administrators to modify the default behavior of Schannel using group policy or registry changes
+4. Recent Windows patches (like [KB3140245](https://support.microsoft.com/en-au/kb/3140245) and [KB3174644](https://support.microsoft.com/en-us/kb/3174644)) enable server administrators to modify the default behavior of Schannel using group policy or registry changes
 
 
 
@@ -32,7 +32,7 @@ Depending on your circumstances you may need to implement one or more of these s
 ### Solution: Ensure TLS 1.1 and/or TLS 1.2 are enabled on both machines
 
 
-TLS 1.1 and 1.2 are disabled by default on Windows Server 2003 and 2008 and need to be enabled by an administrator. SeeÂ [this blog post](https://blogs.msdn.microsoft.com/kaushal/2011/10/02/support-for-ssltls-protocols-on-windows/)Â for more information. You can enable TLS 1.2 by changing the Windows registry (as described in that blog post), or use a tool likeÂ [IISCrypto](https://www.nartac.com/Products/IISCrypto). In some cases we have seen the Tentacle machine forced to use TLS 1.2 (viaÂ [KB3140245](https://support.microsoft.com/en-au/kb/3140245)) when the Octopus Server only supported TLS 1.0. Enabling TLS 1.2 on the Octopus Server fixed that problem.
+TLS 1.1 and 1.2 are disabled by default on Windows Server 2003 and 2008 and need to be enabled by an administrator. See [this blog post](https://blogs.msdn.microsoft.com/kaushal/2011/10/02/support-for-ssltls-protocols-on-windows/) for more information. You can enable TLS 1.2 by changing the Windows registry (as described in that blog post), or use a tool like [IISCrypto](https://www.nartac.com/Products/IISCrypto). In some cases we have seen the Tentacle machine forced to use TLS 1.2 (via [KB3140245](https://support.microsoft.com/en-au/kb/3140245)) when the Octopus Server only supported TLS 1.0. Enabling TLS 1.2 on the Octopus Server fixed that problem.
 
 ### Solution: Upgrade Octopus Server and Tentacle to 3.1 or newer
 
@@ -46,7 +46,7 @@ Upgrading Octopus Server and Tentacle to 3.1 or newer will enable TLS 1.2 which 
 ### Solution: Ensure Schannel is configured consistently on both servers
 
 
-You can use a tool likeÂ [IISCrypto](https://www.nartac.com/Products/IISCrypto)Â to confirm and repair the configuration of Schannel on both servers.Â A mismatch in the enabled protocols, ciphers, hashes or key exchanges on either end can break Tentacle communications.
+You can use a tool like [IISCrypto](https://www.nartac.com/Products/IISCrypto) to confirm and repair the configuration of Schannel on both servers. A mismatch in the enabled protocols, ciphers, hashes or key exchanges on either end can break Tentacle communications.
 
 
 ![](/docs/images/5670828/5865774.png)

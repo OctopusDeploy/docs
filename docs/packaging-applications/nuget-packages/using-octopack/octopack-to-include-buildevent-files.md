@@ -47,7 +47,7 @@ However now when I run my OctoPack command, all I get are the files defined with
 ![](/docs/images/3048096/3277793.png)
 
 
-This is resolved by addingÂ **/p:OctoPackEnforceAddingFiles=true**, this tells OctoPack to also add the files it would while building as well as those targeted by my files tag in the NuSpec file.
+This is resolved by adding **/p:OctoPackEnforceAddingFiles=true**, this tells OctoPack to also add the files it would while building as well as those targeted by my files tag in the NuSpec file.
 
 ```powershell
 F:\Workspace\OctoFX\source>msbuild OctoFX.sln /t:Build /p:RunOctoPack=true /p:OctoPackPackageVersion=1.0.0.7 /p:OctoPackEnforceAddingFiles=true

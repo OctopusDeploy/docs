@@ -4,7 +4,7 @@ position: 7
 ---
 
 
-Octopus.Client is an [open source](https://github.com/OctopusDeploy/OctopusClients)Â .NET library that makes it easy to write C# programs that manipulate the [Octopus Deploy REST API](/docs/home/api-and-integration/octopus-rest-api.md).
+Octopus.Client is an [open source](https://github.com/OctopusDeploy/OctopusClients) .NET library that makes it easy to write C# programs that manipulate the [Octopus Deploy REST API](/docs/home/api-and-integration/octopus-rest-api.md).
 
 
 Because the Octopus Deploy application itself is built entirely on the API, C# programs using the API can do anything that could be done by a user of the application itself.
@@ -25,7 +25,7 @@ The NuGet package contains both a .NET Framework build as well as a .NET Standar
 ## Getting started
 
 :::hint
-The complete details for the API itself - where to find it, how to authenticate, the available resources and so-on - are available atÂ [the API documentation site](http://g.octopushq.com/ApiDocs).
+The complete details for the API itself - where to find it, how to authenticate, the available resources and so-on - are available at [the API documentation site](http://g.octopushq.com/ApiDocs).
 :::
 
 
@@ -57,7 +57,7 @@ repository.Users.SignIn(new LoginCommand { Username = "me", Password = "secret" 
 ### Asynchronous API (Octopus.Client 4.0+)
 
 
-The easiest way to use the client is via theÂ `OctopusAsyncClient`:
+The easiest way to use the client is via the `OctopusAsyncClient`:
 
 ```c#
 var server = "http://myoctopusserver/";   
@@ -69,7 +69,7 @@ using (var client = await OctopusAsyncClient.Create(endpoint))
 ```
 
 
-If you don't want to provide an API key for authentication, you can leave it out and authenticate with theÂ `SignIn()`Â method instead:
+If you don't want to provide an API key for authentication, you can leave it out and authenticate with the `SignIn()` method instead:
 
 ```c#
 await client.Repository.Users.SignIn(new LoginCommand { Username = "me", Password = "secret" });
@@ -101,7 +101,7 @@ Resources can be loaded and saved with code like the following:
 var machine = repository.Machines.Get("machines-1");
 machine.Name = "Test Server 1";
 repository.Machines.Modify(machine);
-Â 
+ 
 // Async
 var machine = await repository.Machines.Get("machines-1");
 machine.Name = "Test Server 1";
@@ -119,7 +119,7 @@ For some operations not available through repositories it will be necessary to u
 ```c#
 // Sync
 var connection = repository.Client.Get(machine.Links["Connection"]);
-Â 
+ 
 // Async
 var connection = await client.Get(machine.Links["Connection"]);
 ```
@@ -133,7 +133,7 @@ To start traversing links, `IOctopusClient.RootDocument` is provided:
 ```c#
 // Sync
 var me = repository.Client.Get<UserResource>(repository.Client.RootDocument.Links["CurrentUser"]);
-Â 
+ 
 // Async
 var me = await client.Get<UserResource>(client.RootDocument.Links["CurrentUser"])
 ```
@@ -147,7 +147,7 @@ var me = await client.Get<UserResource>(client.RootDocument.Links["CurrentUser"]
 ## Loading in an octopus step
 
 
-To use Octopus.Client from inside an octopus (for example in a script step, a package install script,Â or the script console) by loading it from the server or tentacle application directory. The credentials would still need to be supplied to establish the connection. For example:
+To use Octopus.Client from inside an octopus (for example in a script step, a package install script, or the script console) by loading it from the server or tentacle application directory. The credentials would still need to be supplied to establish the connection. For example:
 
 **PowerShell**
 
@@ -172,4 +172,4 @@ The variable `Octopus.Tentacle.Agent.ProgramDirectoryPath` was added in server v
 Documentation and samples
 
 
-[Documentation](https://github.com/OctopusDeploy/OctopusDeploy-Api/wiki)Â andÂ [samples](https://github.com/OctopusDeploy/OctopusDeploy-Api)Â for the Octopus Deploy REST API are available on theÂ **[Octopus REST API GitHub site](https://github.com/OctopusDeploy/OctopusDeploy-Api),**along with [Octopus.Client samples](https://github.com/OctopusDeploy/OctopusDeploy-Api/tree/master/Octopus.Client).
+[Documentation](https://github.com/OctopusDeploy/OctopusDeploy-Api/wiki) and [samples](https://github.com/OctopusDeploy/OctopusDeploy-Api) for the Octopus Deploy REST API are available on the **[Octopus REST API GitHub site](https://github.com/OctopusDeploy/OctopusDeploy-Api),**along with [Octopus.Client samples](https://github.com/OctopusDeploy/OctopusDeploy-Api/tree/master/Octopus.Client).

@@ -13,4 +13,4 @@ We do not recommend manually placing packages into the package store, however in
 For most users, this will be a seamless background task. However, for some installations, this may cause performance issues. Users with `AdministerSystem` rights can disable the re-indexing task on the Library -> Packages page.
 
 
-Note that packages uploaded via the [recommended methods](/docs/home/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md)Â will still be indexed.
+Note that packages uploaded via the [recommended methods](/docs/home/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) will still be indexed.

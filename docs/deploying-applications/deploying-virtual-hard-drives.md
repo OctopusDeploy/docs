@@ -18,7 +18,7 @@ Octopus Deploy has built-in support for deploying Virtual Hard Drives. The featu
 ## Adding a VHD step
 
 
-To deploy a Virtual Hard Drive, add aÂ *Deploy a VHD* step. For information about adding a step to the deployment process, see theÂ [add step](/docs/home/deploying-applications/adding-steps.md) section.
+To deploy a Virtual Hard Drive, add a *Deploy a VHD* step. For information about adding a step to the deployment process, see the [add step](/docs/home/deploying-applications/adding-steps.md) section.
 
 
 ![](/docs/images/5671980/5866193.png)
@@ -30,7 +30,7 @@ To deploy a Virtual Hard Drive, add aÂ *Deploy a VHD* step. For information abou
 ### Step 1: Select a Package
 
 
-Use the Package Feed and Package ID fields to select theÂ [package](/docs/home/packaging-applications.md)Â containing the Virtual Hard Drive (\*.vhd or \*.vhdx) to be installed. There must be a single VHD in the root of the package. The package may contain deployment scripts and other artifacts required by those scripts, but only a single VHD.
+Use the Package Feed and Package ID fields to select the [package](/docs/home/packaging-applications.md) containing the Virtual Hard Drive (\*.vhd or \*.vhdx) to be installed. There must be a single VHD in the root of the package. The package may contain deployment scripts and other artifacts required by those scripts, but only a single VHD.
 
 ### Step 2: Configure VHD options
 
@@ -65,7 +65,7 @@ When a VHD is deployed the following steps take place:
 ## VHDs with multiple partitions
 
 
-If you have a VHD with multiple partitions, in step 2 above all partitions are mounted, and the mountpoints are available to your scripts in `OctopusVhdMountPoint_0`,Â `OctopusVhdMountPoint_1`, etc. TheÂ `OctopusVhdMountPoint`Â variable will contain the mountpoint of the first partition that was actually mounted (see below to not mount all partitions).
+If you have a VHD with multiple partitions, in step 2 above all partitions are mounted, and the mountpoints are available to your scripts in `OctopusVhdMountPoint_0`, `OctopusVhdMountPoint_1`, etc. The `OctopusVhdMountPoint` variable will contain the mountpoint of the first partition that was actually mounted (see below to not mount all partitions).
 
 
 To change the behavior when there are multiple partitions create Octopus Variables against your project indexed to the partition (starting at 0). If you have more than one deploy VHD step you will need to scope the variables to each step.

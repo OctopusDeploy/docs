@@ -15,10 +15,10 @@ This page will show what is checked, what is deleted and why something might not
 The deployment journal on the Tentacle is the source of truth for what Octopus will know has been deployed to the Tentacle but more importantly what still exists on the Tentacle.
 
 
-If the deployment journal is deleted, on the next deployment, it will be created and contain one record. But you might have many more deployments than that on the server. If the release is not in the DeploymentJournal.xml it will not be deleted with the execution of the retention policy.Â Any deployments not in the deployment journal will need to be manually deleted.
+If the deployment journal is deleted, on the next deployment, it will be created and contain one record. But you might have many more deployments than that on the server. If the release is not in the DeploymentJournal.xml it will not be deleted with the execution of the retention policy. Any deployments not in the deployment journal will need to be manually deleted.
 
 
-You can find your deployment journal in:Â C:\Octopus\<machine name>\DeploymentJournal.xml
+You can find your deployment journal in: C:\Octopus\<machine name>\DeploymentJournal.xml
 C:\Octopus is for default installations, and the registered Tentacle machine name is the name of the folder. In our sample case it is DWebApp01. If you have more than 1 Tentacle instance on the machine they will have their own deployment journal files.
 
 
@@ -126,7 +126,7 @@ You can have multiple directories for the same version of each package like the 
 ![](/docs/images/3048641/3278390.png)
 
 
-This occurs when you have the same package in two different steps inside a single project. It has two extraction directories, and it is assumed a different set of files (due to variables and transforms). These are considered individual packages. So for a 3 package policy you will have a copy of each version leaving 6 plus the current 2 for a total of 8 directories. Both will be cleaned up within the next release, but both are required to be kept.Â This can mean a lot of folders if you use the same package in multiple steps.
+This occurs when you have the same package in two different steps inside a single project. It has two extraction directories, and it is assumed a different set of files (due to variables and transforms). These are considered individual packages. So for a 3 package policy you will have a copy of each version leaving 6 plus the current 2 for a total of 8 directories. Both will be cleaned up within the next release, but both are required to be kept. This can mean a lot of folders if you use the same package in multiple steps.
 
 
 

@@ -4,7 +4,7 @@ position: 23
 ---
 
 
-In some environment the Windows Services for Octopus Deploy Server and Tentacle may not reliably startÂ when the server is rebooted. Â This typically occurs during a restart after Windows Updates have been installed.
+In some environment the Windows Services for Octopus Deploy Server and Tentacle may not reliably start when the server is rebooted.  This typically occurs during a restart after Windows Updates have been installed.
 
 ## Why does it happen?
 
@@ -14,7 +14,7 @@ The exact cause of this issue has not yet been determined, however investigation
 ## What can you do about it?
 
 
-As of Octopus Deploy 3.7.17 there is aÂ **watchdog** command that can be used on the command line to configure a Windows Scheduled Task that ensures the services are running. Â The command is used as follows.
+As of Octopus Deploy 3.7.17 there is a **watchdog** command that can be used on the command line to configure a Windows Scheduled Task that ensures the services are running.  The command is used as follows.
 
 ### Configuring the Watchdog
 
@@ -23,20 +23,20 @@ Tentacle.exe watchdog --create --instances * --interval 10
 ```
 
 
-The instances parameter can either be an \*, to indicate all instances that can be found on the server, or a comma separated list of specific instance names. Â *If not specified the value will default to \**.
+The instances parameter can either be an \*, to indicate all instances that can be found on the server, or a comma separated list of specific instance names.  *If not specified the value will default to \**.
 
 
-The interval is the interval at which the services should be checked, specified in minutes. Â *If not specified the value will default to 5*.
+The interval is the interval at which the services should be checked, specified in minutes.  *If not specified the value will default to 5*.
 
 
-The scheduled task's name for the above will beÂ **Octopus Watchdog Tentacle**.
+The scheduled task's name for the above will be **Octopus Watchdog Tentacle**.
 
 :::hint
 By default the task will be configured to run as the Local System account, but that can be changed using the Windows Task Scheduler.
 :::
 
 :::success
-If the watchdog has already been configured, running the command again will reconfigure the instances and interval for the scheduled task. Â Any other values that have been changed inÂ Windows Task Scheduler will not be changed.
+If the watchdog has already been configured, running the command again will reconfigure the instances and interval for the scheduled task.  Any other values that have been changed in Windows Task Scheduler will not be changed.
 :::
 
 :::hint
@@ -64,7 +64,7 @@ If you have scheduled the watchdog to monitor all instances on a server but you 
 Recreating the Watchdog
 
 
-As mentioned above, running create again can be used to change the instances and interval for the watchdog, but all other settings will remain unchanged. Â If you do want to reset all of the other settings you can easily combine the delete and create, for example
+As mentioned above, running create again can be used to change the instances and interval for the watchdog, but all other settings will remain unchanged.  If you do want to reset all of the other settings you can easily combine the delete and create, for example
 
 ```powershell
 Tentacle.exe watchdog --delete --create --instances * --interval 10
@@ -73,19 +73,19 @@ Tentacle.exe watchdog --delete --create --instances * --interval 10
 ### Logging
 
 
-Octopus Deploy Server and Tentacle will generally endeavour to write all log entries to the instance's log file. Â The watchdog is however running outside of the context of any single instance, so it writes to a log file in the user's profile. Â The user in question here is the user that the Scheduled Task is running as, and as mentioned above that defaults to the Local System user.
+Octopus Deploy Server and Tentacle will generally endeavour to write all log entries to the instance's log file.  The watchdog is however running outside of the context of any single instance, so it writes to a log file in the user's profile.  The user in question here is the user that the Scheduled Task is running as, and as mentioned above that defaults to the Local System user.
 
 :::hint
 The default log file location is therefore **C:\Windows\System32\config\systemprofile\AppData\Local\Octopus\Logs**
 :::
 
 
-This is only for information related to which instances the the watchdog attempted to start, and any errors it received while trying to start the windows services. Â Any instance specific errors will still be located in the instance's log file.
+This is only for information related to which instances the the watchdog attempted to start, and any errors it received while trying to start the windows services.  Any instance specific errors will still be located in the instance's log file.
 
 ### Tentacle vs Octopus Server
 
 
-The above commands work equally for Octopus Deploy Server and Tentacle (by usingÂ **Octopus.Server.exe** instead of **Tentacle.exe**). Â Noting that the Tentacle Watchdog will only check Tentacle instances and the Octopus Server Watchdog will only check server instances. Â They can both be configured simultaneously on the same machine.
+The above commands work equally for Octopus Deploy Server and Tentacle (by using **Octopus.Server.exe** instead of **Tentacle.exe**).  Noting that the Tentacle Watchdog will only check Tentacle instances and the Octopus Server Watchdog will only check server instances.  They can both be configured simultaneously on the same machine.
 
 :::hint
 To specify only the default instance for server, use the name **OctopusServer**. For example,

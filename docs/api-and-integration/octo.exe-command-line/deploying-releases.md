@@ -11,7 +11,7 @@ octo deploy-release [<options>]
 ```
 
 
-WhereÂ `[&lt;options&gt;]`Â is any of:
+Where `[&lt;options&gt;]` is any of:
 
 **Deploy release options**
 
@@ -103,21 +103,21 @@ Common options:
 ### Basic examples
 
 
-This will deploy release 1.0.0 of theÂ *HelloWorld*Â project to theÂ *Production*Â environment:
+This will deploy release 1.0.0 of the *HelloWorld* project to the *Production* environment:
 
 ```text
 octo deploy-release --project HelloWorld --releaseNumber 1.0.0 --deployto Production --server http://octopus/ --apiKey API-ABCDEF123456
 ```
 
 
-This will deploy the latest release in the *1.x Normal* Channel of theÂ *HelloWorld*Â project to theÂ *Production*Â environment:
+This will deploy the latest release in the *1.x Normal* Channel of the *HelloWorld* project to the *Production* environment:
 
 ```text
 octo deploy-release --project HelloWorld --channel "1.x Normal" --version latest --deployto Production --server http://octopus/ --apiKey API-ABCDEF123456
 ```
 
 
-This will deploy the latest release in theÂ *1.x Normal*Â Channel of theÂ *HelloWorld*Â project to theÂ *Production*Â environment for the Tenants tagged as *Upgrade Ring/Early Adopters*:
+This will deploy the latest release in the *1.x Normal* Channel of the *HelloWorld* project to the *Production* environment for the Tenants tagged as *Upgrade Ring/Early Adopters*:
 
 ```text
 octo deploy-release --project HelloWorld --channel "1.x Normal" --version latest --deployto Production --tenantTag "Upgrade Ring/Early Adopters" --server http://octopus/ --apiKey API-ABCDEF123456

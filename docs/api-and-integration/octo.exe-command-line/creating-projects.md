@@ -4,14 +4,14 @@ position: 1
 ---
 
 
-[Octo.exe](http://docs.octopusdeploy.com/pages/viewpage.action?pageId=360596)Â can be used to create a project inside a project group.
+[Octo.exe](http://docs.octopusdeploy.com/pages/viewpage.action?pageId=360596) can be used to create a project inside a project group.
 
 ```text
 octo create-project [<options>]
 ```
 
 
-WhereÂ `[&lt;options&gt;]`Â is any of:
+Where `[&lt;options&gt;]` is any of:
 
 **create-project options**
 
@@ -48,7 +48,7 @@ Common options:
 ### Basic example
 
 
-The following command will create a project called *MyWebApp* into the project groupÂ *MyProjectGroup*
+The following command will create a project called *MyWebApp* into the project group *MyProjectGroup*
 
 ```text
 Octo create-project --name MyWebApp --projectgroup MyProjectGroup --server http://MyOctopusServerURL.com --apikey MyAPIKey

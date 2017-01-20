@@ -48,7 +48,7 @@ Once you're happy with the deployment process continuing, go back to the release
 There are two permissions required for the act of blocking and unblocking your deployments, which you'll have to assign to the user performing the task:
 
 - **DefectReport**: Allows a user to block a release from progressing to the next lifecycle phase
-- **DefectResolve**:Â Allows a user to unblock a release so it can progress to the next phase
+- **DefectResolve**: Allows a user to unblock a release so it can progress to the next phase
 
 
 :::hint

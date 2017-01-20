@@ -10,7 +10,7 @@ position: 13
 - Disaster Recovery Guide
  - Licensing Information:
  - Service Configured:
-  - 1.Â Single Server - Octopus Server Installation
+  - 1. Single Server - Octopus Server Installation
   - 2. Multiple Server - Octopus Server Installation
   - 3. High Availability - Octopus Server Installation
  - How to find your NODE name:
@@ -48,7 +48,7 @@ The key is to set the instance to have the same node name as the server it is go
 
 :::warning
 **Note:**
-Depending on your Architecture, you will need to ensure you are aware of the settings you will require, to recover your Octopus Server installation correctlyÂ *(make a copy of your settings).*
+Depending on your Architecture, you will need to ensure you are aware of the settings you will require, to recover your Octopus Server installation correctly *(make a copy of your settings).*
 :::
 
 
@@ -63,7 +63,7 @@ Your Octopus Server settings will be different depending on the following Archit
 Using the offline recovery server you allocated for Disaster Recovery, follow the checklist below to copy the Production installation settings for your Single Server.
 
 - - Install SQL Server.
- - Install Octopus by replicating the installation of the current Octopus Server version you are using.Â It is crucial to use the same version you currently have installed in Production.
+ - Install Octopus by replicating the installation of the current Octopus Server version you are using. It is crucial to use the same version you currently have installed in Production.
  - Configure Octopus Installation to match Production settings.
 
 

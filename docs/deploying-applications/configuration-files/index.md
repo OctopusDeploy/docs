@@ -30,7 +30,7 @@ This feature can be enabled for any NuGet package step.
 ![](/docs/images/3048087/3277705.png)
 
 
-If aÂ [variable](/docs/home/deploying-applications/variables.md)Â is defined in the Octopus web portal, and an **appSettings, applicationSettings** or **connectionStrings** element exists for it in any of your **.config** files, Tentacle will automatically replace the value after extracting your package.
+If a [variable](/docs/home/deploying-applications/variables.md) is defined in the Octopus web portal, and an **appSettings, applicationSettings** or **connectionStrings** element exists for it in any of your **.config** files, Tentacle will automatically replace the value after extracting your package.
 
 
 For example, suppose you have this configuration file:
@@ -77,7 +77,7 @@ After deploying to an environment named "**Production**", Octopus will have upda
 ```
 
 :::warning
-Variables marked sensitive (`AWSSecretKey`Â in this example) will be decrypted and written in clear-text to the configuration files just like normal variables.
+Variables marked sensitive (`AWSSecretKey` in this example) will be decrypted and written in clear-text to the configuration files just like normal variables.
 :::
 
 
@@ -102,7 +102,7 @@ The same concept applies to strongly-typed **applicationSettings** using the [Ap
 ```
 
 :::success
-Values are matched based on theÂ **key**Â attribute forÂ **appSettings**, and theÂ **name**Â element for **applicationSettings** andÂ **connectionStrings**.
+Values are matched based on the **key** attribute for **appSettings**, and the **name** element for **applicationSettings** and **connectionStrings**.
 :::
 
 ## Replacing variables outside appSettings, applicationSettings and connectionStrings
@@ -111,10 +111,10 @@ Values are matched based on theÂ **key**Â attribute forÂ **appSettings**, and th
 There may be other variables you would like Octopus to replace in your configuration files that are outside both the appSettings and connectionStrings areas.
 
 
-There are three ways you can do this, two of which involve usingÂ [Octopus Variables](/docs/home/deploying-applications/variables.md).
+There are three ways you can do this, two of which involve using [Octopus Variables](/docs/home/deploying-applications/variables.md).
 
-1. InsertÂ `#{OctopusVariables}`Â where you would like the replacement to happen and use theÂ [Substitute Variables in Files](/docs/home/deploying-applications/substitute-variables-in-files.md)Â feature in the package step (see below for sample)
-2. InsertÂ `#{OctopusVariables}`Â where you would like the replacement to happen and then use theÂ [Regular Expression Find and Replace](https://library.octopusdeploy.com/#!/step-template/actiontemplate-file-system-regular-expression-find-and-replace)Â library template (this means you can replace any Octopus Variable in any file outside of the package step, the only distinction to the first option)
+1. Insert `#{OctopusVariables}` where you would like the replacement to happen and use the [Substitute Variables in Files](/docs/home/deploying-applications/substitute-variables-in-files.md) feature in the package step (see below for sample)
+2. Insert `#{OctopusVariables}` where you would like the replacement to happen and then use the [Regular Expression Find and Replace](https://library.octopusdeploy.com/#!/step-template/actiontemplate-file-system-regular-expression-find-and-replace) library template (this means you can replace any Octopus Variable in any file outside of the package step, the only distinction to the first option)
 3. Write and use a PowerShell script to find and replace variables inside of your configuration files
 
 
@@ -125,10 +125,10 @@ There are three ways you can do this, two of which involve usingÂ [Octopus Varia
 ```
 
 
-There are pros and cons to each of these methods. For the first two it can break your configuration files locally. But if you make use of environment transforms (see below) you can avoid this. See theÂ [Substitute Variables in Files](/docs/home/deploying-applications/substitute-variables-in-files.md)Â documentation for an example of using Octopus Variables in your config files.
+There are pros and cons to each of these methods. For the first two it can break your configuration files locally. But if you make use of environment transforms (see below) you can avoid this. See the [Substitute Variables in Files](/docs/home/deploying-applications/substitute-variables-in-files.md) documentation for an example of using Octopus Variables in your config files.
 
 :::success
-Using the Substitute Variables in Files feature will change the order that variables are replaced. Using Configuration Transformations and Configuration Variables, does the transformation and then replaces variables. Defining files within the substitution will have all of their variables replaced first prior to the transformation. But this will only happen for any configuration or transformation files that are explicitly listed in the Substitute files list.Â Read about the order of [package step feature ordering here](/docs/home/reference/package-deployment-feature-ordering.md).
+Using the Substitute Variables in Files feature will change the order that variables are replaced. Using Configuration Transformations and Configuration Variables, does the transformation and then replaces variables. Defining files within the substitution will have all of their variables replaced first prior to the transformation. But this will only happen for any configuration or transformation files that are explicitly listed in the Substitute files list. Read about the order of [package step feature ordering here](/docs/home/reference/package-deployment-feature-ordering.md).
 :::
 
 ## Configuration transforms
@@ -137,10 +137,10 @@ Using the Substitute Variables in Files feature will change the order that varia
 ![](/docs/images/3048087/3277703.png)
 
 
-If this feature is enabled, Tentacle will also look for any files that follow the MicrosoftÂ [web.config transformation process](http://msdn.microsoft.com/en-us/library/dd465326.aspx)Â â€“ **even files that are not web.config files!** *Keep reading for examples.*
+If this feature is enabled, Tentacle will also look for any files that follow the Microsoft [web.config transformation process](http://msdn.microsoft.com/en-us/library/dd465326.aspx) - **even files that are not web.config files!** *Keep reading for examples.*
 
 
-An example web.config transformation that removes theÂ `&lt;compilation debug=&quot;true&quot;&gt;`Â attribute is below:
+An example web.config transformation that removes the `&lt;compilation debug=&quot;true&quot;&gt;` attribute is below:
 
 ```xml
 <?xml version="1.0"?>
@@ -153,13 +153,13 @@ An example web.config transformation that removes theÂ `&lt;compilation debug=&q
 
 :::success
 **Testing configuration transforms**
-The team atÂ [AppHarbor](http://appharbor.com/)Â created a useful tool toÂ [help test configuration file transformations](http://webconfigtransformationtester.apphb.com/).
+The team at [AppHarbor](http://appharbor.com/) created a useful tool to [help test configuration file transformations](http://webconfigtransformationtester.apphb.com/).
 :::
 
 ### Naming configuration transform files
 
 
-This feature will run your configuration transforms based on looking for transform files named with the following conventions. The configuration transformation files can either be namedÂ `*.Release.config`, orÂ `*.&lt;Environment&gt;.config`Â and will be executed in this order:
+This feature will run your configuration transforms based on looking for transform files named with the following conventions. The configuration transformation files can either be named `*.Release.config`, or `*.&lt;Environment&gt;.config` and will be executed in this order:
 
 1. `*.Release.config`
 2. `*.&lt;Environment&gt;.config`
@@ -175,7 +175,7 @@ For an **ASP.NET Web Application**, suppose you have the following files in your
 
 
 
-When deploying to an environment named "**Production**", Octopus will execute the transforms in this order:Â `Web.Release.config`, followed byÂ `Web.Production.config`.
+When deploying to an environment named "**Production**", Octopus will execute the transforms in this order: `Web.Release.config`, followed by `Web.Production.config`.
 
 
 For **other applications**, like Console or Windows Service applications, suppose you have the following in your package:
@@ -187,7 +187,7 @@ For **other applications**, like Console or Windows Service applications, suppos
 
 
 
-When deploying to an environment named "**Test**", Octopus will execute the transforms in this order:Â `YourService.exe.Release.config`, followed by `YourService.exe.Test.config`.
+When deploying to an environment named "**Test**", Octopus will execute the transforms in this order: `YourService.exe.Release.config`, followed by `YourService.exe.Test.config`.
 
 :::success
 You can see how this is actually done by our [open source Calamari project](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari/Deployment/Conventions/ConfigurationTransformsConvention.cs).
@@ -215,7 +215,7 @@ To make sure Octopus can run the configuration transforms for your Windows Servi
 ## Additional Configuration Transforms
 
 
-You might have additional transforms to run outside of Debug, Environment or Release. You can define these in the Additional transforms box. If defined, these transforms will run regardless of the state of the `Automatically run configuration transformation files`Â checkbox.
+You might have additional transforms to run outside of Debug, Environment or Release. You can define these in the Additional transforms box. If defined, these transforms will run regardless of the state of the `Automatically run configuration transformation files` checkbox.
 
 
 ![](/docs/images/3048087/3278419.png)
@@ -249,7 +249,7 @@ The above transform definition will apply **Transform.config** to **Target.confi
 ### Wildcard
 
 
-Wildcards can be used to select any matching file. For example, **\*.config** will match **app.config**Â as well as **web.config**.
+Wildcards can be used to select any matching file. For example, **\*.config** will match **app.config** as well as **web.config**.
 
 
 They can be used anywhere in the transform filename (the left side), but only at the start of the destination filename (the right side).
@@ -312,4 +312,4 @@ To suppress these errors and report them as informational only, use the `Octopus
 ## PowerShell
 
 
-If these conventions arenâ€™t enough to configure your application, you can alwaysÂ [use PowerShell to perform custom configuration tasks](/docs/home/deploying-applications/custom-scripts.md). Variables will be passed to your PowerShell script, and PowerShell hasÂ [rich XML API's](http://www.codeproject.com/KB/powershell/powershell_xml.aspx).
+If these conventions aren't enough to configure your application, you can always [use PowerShell to perform custom configuration tasks](/docs/home/deploying-applications/custom-scripts.md). Variables will be passed to your PowerShell script, and PowerShell has [rich XML API's](http://www.codeproject.com/KB/powershell/powershell_xml.aspx).

@@ -38,7 +38,7 @@ Octopus Deploy provides first-class support for managing [Resource Groups](/docs
 ### Azure Web Apps
 
 
-Octopus Deploy provides first-class support for deploying [web applications](/docs/home/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app.md) and [web jobs](/docs/home/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/deploying-web-jobs.md) to the Azure App Service, including the ability to use [deployment slots](/docs/home/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps.md). Follow our guide onÂ [deploying Azure Web Apps](/docs/home/guides/azure-deployments/web-apps.md) .
+Octopus Deploy provides first-class support for deploying [web applications](/docs/home/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app.md) and [web jobs](/docs/home/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/deploying-web-jobs.md) to the Azure App Service, including the ability to use [deployment slots](/docs/home/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps.md). Follow our guide on [deploying Azure Web Apps](/docs/home/guides/azure-deployments/web-apps.md) .
 
 ### Azure Cloud Services
 

@@ -13,7 +13,7 @@ When an Octopus Tentacle is configured in [Listening mode](/docs/home/installati
 All of the 'classic' problems of TCP networking: firewalls, proxies, timeouts, DNS issues and so-on can affect Octopus Tentacles. This guide will help to track down these issues when either a machine cannot be "Discovered" to add to the Octopus installation, or a previously working machine fails to health-check with errors from the networking stack.
 
 :::success
-Before following the steps below, it can be worthwhile to restart the Octopus and Tentacle services, and refresh the browser you're using to connect to the Octopus Web Portal. Neither actionÂ *should*fix a communication problem, but sometimes they can help flush a problem out.
+Before following the steps below, it can be worthwhile to restart the Octopus and Tentacle services, and refresh the browser you're using to connect to the Octopus Web Portal. Neither action *should*fix a communication problem, but sometimes they can help flush a problem out.
 :::
 
 :::success
@@ -44,9 +44,9 @@ If you're at "square 1" and can't connect to a new Tentacle machine, take note o
 
 If you are having problems with a previously-working machine, or you've successfully "Discovered" a machine but can't get communication to work afterwards, you can find information in three places:
 
-1. If the machine has been included in a Health Check or Deployment, examine the Raw Task Log. There's a link to this on the page containing the details of the Health Check or Deployment, which can usually be located using theÂ *Tasks*page in the Octopus Web Portal.
-2. On theÂ *Environments*page of the Octopus Web Portal, click on the problem machine and select theÂ *Connectivity*tab. There's often specific information about the communication status of the machine here.
-3. In the Octopus Web Portal, openÂ *Configuration > Diagnostics*. Information on this page can be helpful to work out what's going on in the Octopus installation. Following the link toÂ *Server logs* and searching for the machine's name or IP address can turn up useful information.
+1. If the machine has been included in a Health Check or Deployment, examine the Raw Task Log. There's a link to this on the page containing the details of the Health Check or Deployment, which can usually be located using the *Tasks*page in the Octopus Web Portal.
+2. On the *Environments*page of the Octopus Web Portal, click on the problem machine and select the *Connectivity*tab. There's often specific information about the communication status of the machine here.
+3. In the Octopus Web Portal, open *Configuration > Diagnostics*. Information on this page can be helpful to work out what's going on in the Octopus installation. Following the link to *Server logs* and searching for the machine's name or IP address can turn up useful information.
 
 
 :::success
@@ -69,9 +69,9 @@ The application should show the service as running.
 
 There are three pieces of information to verify.
 
-1. Ensure that the Tentacle is inÂ *Listening* mode
+1. Ensure that the Tentacle is in *Listening* mode
 2. Check the port that the Tentacle listens on
-3. Check that theÂ **Octopus Server**thumbprint shown matches the one shown in theÂ *Configuration > Certificates*screen in the Octopus Web Portal.
+3. Check that the **Octopus Server**thumbprint shown matches the one shown in the *Configuration > Certificates*screen in the Octopus Web Portal.
 
 
 
@@ -107,7 +107,7 @@ If the service is up and running, continue to the next step.
 The Tentacle service can only be controlled by a trusted Octopus, but to help with diagnostics it will present a welcome page if visited in a web browser.
 
 
-*On the Tentacle machine*, open a web browser and navigate toÂ [https://localhost:10933](https://localhost:10933)Â (or your chosen Tentacle communications port if it isn't the default).Â Make sure an**HTTPS**URL is used.
+*On the Tentacle machine*, open a web browser and navigate to [https://localhost:10933](https://localhost:10933) (or your chosen Tentacle communications port if it isn't the default). Make sure an**HTTPS**URL is used.
 
 - If you're presented with a prompt to "confirm a certificate" or "select a certificate" choose "Cancel" - don't provide one
 
@@ -132,13 +132,13 @@ If this is where your journey ends, there's a problem on the Tentacle machine. I
 ## Connect from the Octopus Server
 
 
-Next, repeat the process of connecting to the Tentacle with a web browser, but do thisÂ *from the Octopus Server machine*.
+Next, repeat the process of connecting to the Tentacle with a web browser, but do this *from the Octopus Server machine*.
 
 
 When forming the URL to check:
 
-- First try using the Tentacle's DNS hostname, e.g.Â [https://my-tentacle:10933](https://my-tentacle:10933)
-- If this fails, try using the Tentacle's IP address instead, e.g.Â [https://1.2.3.4:10933](https://1.2.3.4:10933)Â - success using the IP address but not the DNS hostname will indicate a DNS issue
+- First try using the Tentacle's DNS hostname, e.g. [https://my-tentacle:10933](https://my-tentacle:10933)
+- If this fails, try using the Tentacle's IP address instead, e.g. [https://1.2.3.4:10933](https://1.2.3.4:10933) - success using the IP address but not the DNS hostname will indicate a DNS issue
 
 
 :::hint
@@ -168,8 +168,8 @@ We have built a small utility for testing the communications protocol between tw
 
 In Octopus 3.0 you will need **TentaclePing** and **TentaclePong**, you cannot test directly to Octopus Server nor Tentacle:
 
-- RunÂ **TentaclePing** on your Octopus Server machine (which is the client in this relationship)
-- RunÂ **TentaclePong** on your Tentacle machine (which is the server in this relationship)
+- Run **TentaclePing** on your Octopus Server machine (which is the client in this relationship)
+- Run **TentaclePong** on your Tentacle machine (which is the server in this relationship)
 
 
 
@@ -183,21 +183,21 @@ Your Tentacle server may have multiple IP addresses that it listens on. For exam
 ## Check for zombie child processes locking TCP ports
 
 
-If Tentacle fails to start with an error message like this:Â **A required communications port is already in use.**
+If Tentacle fails to start with an error message like this: **A required communications port is already in use.**
 
 
 The most common scenario is when you already have an instance of Tentacle (or something else) listening on the same TCP port. However, we have seen cases where there is no running Tentacle in the list of processes. In this very specific case it could be due to a zombie PowerShell.exe or Calamari.exe process that was launched by Tentacle that is still holding the TCP port. This can happen when attempting to cancel a task that has hung inside of Calamari/PowerShell. Simply rebooting the machine, or killing the zombie process will fix this issue, and you should be able to start Tentacle successfully.
 
 
-Take a look atÂ [this thread](http://help.octopusdeploy.com/discussions/problems/40076-tentacle-wont-start-after-stopped#comment_38833291) for more background and troubleshooting tips.
+Take a look at [this thread](http://help.octopusdeploy.com/discussions/problems/40076-tentacle-wont-start-after-stopped#comment_38833291) for more background and troubleshooting tips.
 
 ## Check Tentacle service account permissions
 
 
-If the Octopus Tentacle is running as theÂ *Local System*account you can skip this section.
+If the Octopus Tentacle is running as the *Local System*account you can skip this section.
 
 
-If the Tentacle is running as a specific user, make sure that the user has "full control" permission to theÂ *Octopus Home* folder on the Tentacle machine. This is usually `C:\Octopus` - apply permissions recursively.
+If the Tentacle is running as a specific user, make sure that the user has "full control" permission to the *Octopus Home* folder on the Tentacle machine. This is usually `C:\Octopus` - apply permissions recursively.
 
 ## Check Tentacle.exe load time
 
@@ -215,15 +215,15 @@ Tentacle.exe help
 If the command help is not displayed immediately (< 1s) you may need to consider disabling the CRL check while the Tentacle is configured.
 
 
-To do this openÂ *Control Panel > Internet Options > Advanced*, and un-check theÂ *Check for publisher's certificate revocation*option as shown below.
+To do this open *Control Panel > Internet Options > Advanced*, and un-check the *Check for publisher's certificate revocation*option as shown below.
 
 
-![](/docs/images/3048143/3278077.png)ïœ«
+![](/docs/images/3048143/3278077.png)?
 
 ## Schannel and TLS configuration mismatches
 
 
-Octopus usesÂ `Schannel`Â for secure communications and will attempt to use the best available protocol available to both servers. Â If you are seeing error messages like below, tryÂ [Troubleshooting Schannel and TLS](/docs/home/reference/octopus---tentacle-communication/troubleshooting-schannel-and-tls.md):
+Octopus uses `Schannel` for secure communications and will attempt to use the best available protocol available to both servers.  If you are seeing error messages like below, try [Troubleshooting Schannel and TLS](/docs/home/reference/octopus---tentacle-communication/troubleshooting-schannel-and-tls.md):
 
 
 Client-side:`System.Security.Authentication.AuthenticationException: A call to SSPI failed, see inner exception. ---&gt; System.ComponentModel.Win32Exception: One or more of the parameters passed to the function was invalid`
@@ -237,4 +237,4 @@ Server-side:`System.IO.IOException: Unable to read data from the transport conne
 **Halibut.Transport.Protocol.ConnectionInitializationFailedException: Unable to process remote identity; unknown identity 'HTTP/1.0'**
 
 
-If a Tentacle health-check fails with an error message containing this error message, then there is network infrastructure inserting a web page into the communication. Â The most common components to do this are firewalls and proxy servers so it's recommend to check your network setup to verify connectivity between the two servers using the information above and then update your infrastructure appropriately.
+If a Tentacle health-check fails with an error message containing this error message, then there is network infrastructure inserting a web page into the communication.  The most common components to do this are firewalls and proxy servers so it's recommend to check your network setup to verify connectivity between the two servers using the information above and then update your infrastructure appropriately.
