@@ -36,12 +36,12 @@ The latest Tentacle MSI can always be [downloaded from the Octopus Deploy downlo
 :::
 
 
-This three minute video (with captions) will walk you through the process of installing a Tentacle in polling mode, and registering it with your [Octopus Deploy server](/docs/installation/installing-octopus.md).
+This three minute video (with captions) will walk you through the process of installing a Tentacle in polling mode, and registering it with your [Octopus Deploy server](/docs/installation/installing-octopus/index.md).
 
 ## Firewall changes
 
 
-To allow Tentacle to connect to your Octopus Deploy server, you'll need to allow access to port **10943** on the Octopus server (or the port you selected during the installation wizard - port 10943 is just the default). You will also need to allow Tentacle to access the Octopus HTTP web portal (typically port **80** or**443**- these bindings are selected when you [install the Octopus Deploy server](/docs/installation/installing-octopus.md)).
+To allow Tentacle to connect to your Octopus Deploy server, you'll need to allow access to port **10943** on the Octopus server (or the port you selected during the installation wizard - port 10943 is just the default). You will also need to allow Tentacle to access the Octopus HTTP web portal (typically port **80** or**443**- these bindings are selected when you [install the Octopus Deploy server](/docs/installation/installing-octopus/index.md)).
 
 
 Note that the port used to poll Octopus for jobs is different to the port used by your team to access the Octopus Deploy web interface; this is on purpose, and it means you can use different firewall conditions to allow Tentacles to access Octopus by IP address.

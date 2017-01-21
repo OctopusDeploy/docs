@@ -23,7 +23,7 @@ On this page:
 ## Prerequisites
 
 
-This guide assumes some familiarity with Octopus Deploy.  You should be able to configure [projects ](/docs/key-concepts/projects.md)and have a [Tentacle or SSH deployment target](/docs/deployment-targets.md) already configured.
+This guide assumes some familiarity with Octopus Deploy.  You should be able to configure [projects ](/docs/key-concepts/projects/index.md)and have a [Tentacle or SSH deployment target](/docs/deployment-targets/index.md) already configured.
 
 ## Sample Application
 
@@ -64,7 +64,7 @@ javac PressAnyKey.java
 2. Add a "Deploy a package" step to the deployment process
 3. Configure the step to deploy the package PressAnyKey.1.0.0.zip
 ![](/docs/images/5672443/5866218.png)
-4. Configure the step to run a [post-deployment script](/docs/deploying-applications/custom-scripts.md) to start the application
+4. Configure the step to run a [post-deployment script](/docs/deploying-applications/custom-scripts/index.md) to start the application
 
 **PowerShell**
 

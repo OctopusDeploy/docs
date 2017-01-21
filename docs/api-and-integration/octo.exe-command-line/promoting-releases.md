@@ -107,5 +107,5 @@ Octo promote-release --project Web --from Development --to Staging -progress --s
 
 :::success
 **Tip**
-Learn more about [Octo.exe](/docs/api-and-integration/octo.exe-command-line.md), and [creating API keys](/docs/how-to/how-to-create-an-api-key.md).
+Learn more about [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md), and [creating API keys](/docs/how-to/how-to-create-an-api-key.md).
 :::

@@ -4,7 +4,7 @@ position: 0
 ---
 
 
-Each [project](/docs/key-concepts/projects.md) defines the actions you want Octopus to perform on your behalf. In Octopus terms this is called the **deployment process**. The deployment process is like a recipe. It defines the set of instructions that will be run repeatably each time the project is deployed.
+Each [project](/docs/key-concepts/projects/index.md) defines the actions you want Octopus to perform on your behalf. In Octopus terms this is called the **deployment process**. The deployment process is like a recipe. It defines the set of instructions that will be run repeatably each time the project is deployed.
 
 
 On this page:
@@ -20,7 +20,7 @@ On this page:
 ## Example: A simple deployment process
 
 
-In the example shown below there are three steps that will be executed from top to bottom. The first is a [manual intervention](/docs/deploying-applications/manual-intervention-and-approvals.md) which executes on the Octopus Server pausing the deployment until someone intervenes and allow the deployment to continue. *You may have noticed this step will only execute when targeting the Production [environment](/docs/key-concepts/environments.md) - we'll talk more about that below.* The remaining steps both [deploy a package](/docs/deploying-applications/deploying-packages.md) and execute [custom scripts](/docs/deploying-applications/custom-scripts.md) on all of the [deployment targets](/docs/deployment-targets.md) with the [role](/docs/key-concepts/machine-roles.md) **web-server**.
+In the example shown below there are three steps that will be executed from top to bottom. The first is a [manual intervention](/docs/deploying-applications/manual-intervention-and-approvals.md) which executes on the Octopus Server pausing the deployment until someone intervenes and allow the deployment to continue. *You may have noticed this step will only execute when targeting the Production [environment](/docs/key-concepts/environments/index.md) - we'll talk more about that below.* The remaining steps both [deploy a package](/docs/deploying-applications/deploying-packages/index.md) and execute [custom scripts](/docs/deploying-applications/custom-scripts/index.md) on all of the [deployment targets](/docs/deployment-targets/index.md) with the [role](/docs/key-concepts/machine-roles.md) **web-server**.
 
 
 ![](/docs/images/5671366/5865841.png)
@@ -84,7 +84,7 @@ For more information, see the section on [rolling deployments](/docs/patterns/ro
 ### Conditions
 
 
-Steps and actions can also have conditions. You can restrict a step so that it only runs when deploying to specific [environments](/docs/key-concepts/environments.md) (e.g., an Email step that only runs on production deployments).
+Steps and actions can also have conditions. You can restrict a step so that it only runs when deploying to specific [environments](/docs/key-concepts/environments/index.md) (e.g., an Email step that only runs on production deployments).
 
 
 ![](/docs/images/3048075/3277617.png?effects=drop-shadow)

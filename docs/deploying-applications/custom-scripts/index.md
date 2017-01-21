@@ -4,7 +4,7 @@ position: 10
 ---
 
 
-As a convention-oriented deployment tool, Octopus can perform a number of actions automatically, such as [managing configuration files](/docs/deploying-applications/configuration-files.md), creating [IIS websites and application pools](/docs/deploying-applications/iis-websites-and-application-pools.md), and installing [Windows Services](/docs/deploying-applications/windows-services.md). Sometimes however you’ll need to do more than the built-in conventions support – and that’s where custom scripts come in.
+As a convention-oriented deployment tool, Octopus can perform a number of actions automatically, such as [managing configuration files](/docs/deploying-applications/configuration-files/index.md), creating [IIS websites and application pools](/docs/deploying-applications/iis-websites-and-application-pools.md), and installing [Windows Services](/docs/deploying-applications/windows-services.md). Sometimes however you’ll need to do more than the built-in conventions support – and that’s where custom scripts come in.
 
 
 - Scripts in Packages
@@ -73,7 +73,7 @@ If you are using OctoPack to package a Windows Service or console application, s
 ![](/docs/images/3048092/3277765.png)
 
 
-Read more about [using OctoPack](/docs/packaging-applications/nuget-packages/using-octopack.md).
+Read more about [using OctoPack](/docs/packaging-applications/nuget-packages/using-octopack/index.md).
 :::
 
 ## Scripts in package steps
@@ -96,7 +96,7 @@ When enabled, you can define your PreDeploy/Deploy/PostDeploy scripts within the
 ## Standalone scripts
 
 
-Octopus also allows you to add standalone script steps to your deployment process. You can use standalone scripts to execute scripts on the Octopus Server or on [deployment targets](/docs/deployment-targets.md), where the script can be defined inline or as part of a package. Standalone scripts are so useful we've dedicated an entire page to them: [Standalone scripts](/docs/deploying-applications/custom-scripts/standalone-scripts.md).
+Octopus also allows you to add standalone script steps to your deployment process. You can use standalone scripts to execute scripts on the Octopus Server or on [deployment targets](/docs/deployment-targets/index.md), where the script can be defined inline or as part of a package. Standalone scripts are so useful we've dedicated an entire page to them: [Standalone scripts](/docs/deploying-applications/custom-scripts/standalone-scripts.md).
 
 
 ![](/docs/images/5671696/5865914.png)
@@ -115,7 +115,7 @@ For information about adding a step to the deployment process, see the [add ste
 ## Variables
 
 
-Octopus allows you to [define variables](/docs/deploying-applications/variables.md) to parameterize your deployments. These variables, along with some predefined variables, will be available from within your scripts.
+Octopus allows you to [define variables](/docs/deploying-applications/variables/index.md) to parameterize your deployments. These variables, along with some predefined variables, will be available from within your scripts.
 
 :::warning
 **All variables are strings**

@@ -132,7 +132,7 @@ When switching from username/password to Active Directory, after running the bel
 
 
 
-In 3.5 the User records are handled differently, [learn more](/docs/administration/authentication-providers.md).
+In 3.5 the User records are handled differently, [learn more](/docs/administration/authentication-providers/index.md).
 :::
 
 ### To select Active Directory authentication
@@ -150,7 +150,7 @@ Octopus.Server.exe service --start
 ```
 
 
-The text `YOURUSERNAME` should be your Active Directory account name, in either **user@domain** or **domain\user** format (see [Authentication Providers](/docs/administration/authentication-providers.md)).
+The text `YOURUSERNAME` should be your Active Directory account name, in either **user@domain** or **domain\user** format (see [Authentication Providers](/docs/administration/authentication-providers/index.md)).
 
 ### To select username/password authentication
 

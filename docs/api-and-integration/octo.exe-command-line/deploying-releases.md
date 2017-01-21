@@ -4,7 +4,7 @@ position: 4
 ---
 
 
-[Octo.exe](/docs/api-and-integration/octo.exe-command-line.md) can be used to deploy releases that have [already been created](/docs/api-and-integration/octo.exe-command-line/creating-releases.md).
+[Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to deploy releases that have [already been created](/docs/api-and-integration/octo.exe-command-line/creating-releases.md).
 
 ```text
 octo deploy-release [<options>]
@@ -129,5 +129,5 @@ You can deploy to ALL tenants in an environment by using the `--tenant=*` argume
 
 :::success
 **Tip**
-Learn more about [Octo.exe](/docs/api-and-integration/octo.exe-command-line.md), and [creating API keys](/docs/how-to/how-to-create-an-api-key.md).
+Learn more about [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md), and [creating API keys](/docs/how-to/how-to-create-an-api-key.md).
 :::

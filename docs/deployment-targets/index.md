@@ -15,11 +15,11 @@ Deployment targets are added to an environment from the Environments page.
 
 A deployment target can be one of the following types:
 
-- [Listening Tentacle](/docs/deployment-targets.md)
-- [Polling Tentacle](/docs/deployment-targets.md)
-- [Offline Package Drop](/docs/deployment-targets.md)
-- [SSH Connection](/docs/deployment-targets.md)
-- [Cloud Region](/docs/deployment-targets.md)
+- [Listening Tentacle](/docs/deployment-targets/index.md)
+- [Polling Tentacle](/docs/deployment-targets/index.md)
+- [Offline Package Drop](/docs/deployment-targets/index.md)
+- [SSH Connection](/docs/deployment-targets/index.md)
+- [Cloud Region](/docs/deployment-targets/index.md)
 
 
 
@@ -46,7 +46,7 @@ An [Offline Package Drop](/docs/deployment-targets/offline-package-drop.md) targ
 ## SSH Connection 
 
 
-Currently, the Tentacle service can only be installed servers running Microsoft Windows. An [SSH Connection](/docs/deployment-targets/ssh-targets.md) target allows deployment to Linux machines.
+Currently, the Tentacle service can only be installed servers running Microsoft Windows. An [SSH Connection](/docs/deployment-targets/ssh-targets/index.md) target allows deployment to Linux machines.
 
 ## Cloud Region
 

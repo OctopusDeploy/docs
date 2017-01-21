@@ -5,7 +5,7 @@ position: 1
 
 
 :::success
-You can use all of the features we provide for [custom scripts](/docs/deploying-applications/custom-scripts.md), like [using variables](/docs/deploying-applications/custom-scripts.md), [passing parameters](/docs/deploying-applications/custom-scripts.md), publishing [output variables](/docs/deploying-applications/custom-scripts.md) and [collecting artifacts](/docs/deploying-applications/custom-scripts.md).
+You can use all of the features we provide for [custom scripts](/docs/deploying-applications/custom-scripts/index.md), like [using variables](/docs/deploying-applications/custom-scripts/index.md), [passing parameters](/docs/deploying-applications/custom-scripts/index.md), publishing [output variables](/docs/deploying-applications/custom-scripts/index.md) and [collecting artifacts](/docs/deploying-applications/custom-scripts/index.md).
 :::
 
 
@@ -18,7 +18,7 @@ You can manage your Azure subscription using the Azure PowerShell SDK for the Re
 These scripts are executed on the Octopus Server and will be pre-authenticated using the selected Azure Account. For information about adding a step to the deployment process, see the [add step](http://docs.octopusdeploy.com/display/OD/Add+step) section.
 
 :::hint
-Refer to [this guide](/docs/guides/azure-deployments/creating-an-azure-account.md) for more details, and the impact of choosing the right kind of Azure Account on the Azure SDK that will be available.
+Refer to [this guide](/docs/guides/azure-deployments/creating-an-azure-account/index.md) for more details, and the impact of choosing the right kind of Azure Account on the Azure SDK that will be available.
 :::
 
 ## Example

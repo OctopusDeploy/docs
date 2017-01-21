@@ -26,7 +26,7 @@ It's possible that PowerShell scripts in your packages may make outbound request
 The Octopus Deploy server makes the following outbound requests:
 
 1. Pushing packages and deployment instructions, and checking the health, of Tentacles
-2. Downloading packages from the [NuGet feeds](/docs/packaging-applications/package-repositories.md) that you configure
+2. Downloading packages from the [NuGet feeds](/docs/packaging-applications/package-repositories/index.md) that you configure
 3. Windows Azure traffic (only when deploying to an Azure deployment target)
 4. Checking for updates (if enabled)
 

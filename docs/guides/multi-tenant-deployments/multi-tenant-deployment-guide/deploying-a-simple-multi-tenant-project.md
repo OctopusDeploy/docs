@@ -66,7 +66,7 @@ When you select **Deploy to one or more tenants** you are performing a **tenante
 When you select **Deploy to one or more environments** you are performing an **untenanted deployment** - this is the same kind of deployment Octopus has always performed where you deploy a release of a project to an environment... there is no tenant for the deployment, and there will be no tenant influence on the deployment process.
 
 
-When you first enable multi-tenant deployments you won't have any tenants, and we don't want that to stop you from deploying your existing projects. Perhaps you are using an [environment-per-tenant](/docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4.md) model and will migrate to tenants over a period of time, so some deployments will start to have a tenant whilst others do not.
+When you first enable multi-tenant deployments you won't have any tenants, and we don't want that to stop you from deploying your existing projects. Perhaps you are using an [environment-per-tenant](/docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/index.md) model and will migrate to tenants over a period of time, so some deployments will start to have a tenant whilst others do not.
 
 
 At some point in time you may want to disable untenanted deployments and require a tenant for every deployment of a project. You can control this behavior for each project in the project settings.

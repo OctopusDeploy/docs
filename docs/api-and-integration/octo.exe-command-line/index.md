@@ -20,7 +20,7 @@ Octo.exe supports the following commands:
 - **`create-project`**: [Learn more](http://docs.octopusdeploy.com/display/OD/Creating+projects)
 - **`create-environment`**: [Learn more](http://docs.octopusdeploy.com/display/OD/Creating+environments)
 - **`create-channel`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/creating-channels.md)
-- **`create-autodeployoverride`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides.md)
+- **`create-autodeployoverride`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/index.md)
 - **`clean-environment`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/cleaning-environments.md)
 - `export`: [Learn more](/docs/api-and-integration/octo.exe-command-line/export.md)
 - `import`:  [Learn more](/docs/api-and-integration/octo.exe-command-line/import.md)

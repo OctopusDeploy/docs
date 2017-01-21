@@ -4,13 +4,13 @@ title: Running Azure PowerShell
 ---
 
 
-When executing PowerShell against Azure, Octopus Deploy will automatically import the [Azure PowerShell modules](https://github.com/Azure/azure-powershell) and authenticate with Azure using the configured [Azure Subscription Account](/docs/guides/azure-deployments/creating-an-azure-account.md).
+When executing PowerShell against Azure, Octopus Deploy will automatically import the [Azure PowerShell modules](https://github.com/Azure/azure-powershell) and authenticate with Azure using the configured [Azure Subscription Account](/docs/guides/azure-deployments/creating-an-azure-account/index.md).
 
 
 This applies to:
 
 - 'Run an Azure PowerShell Script' steps
-- Scripts packaged or configured with [Deploying a package to an Azure Cloud Service](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-cloud-service.md) or [Azure Web App](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app.md) steps
+- Scripts packaged or configured with [Deploying a package to an Azure Cloud Service](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-cloud-service/index.md) or [Azure Web App](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/index.md) steps
 
 
 :::hint
@@ -27,7 +27,7 @@ Azure supports two authentication methods, each of which provides access to a di
 
 
 
-Learn more about [configuring the right Azure Account](/docs/guides/azure-deployments/creating-an-azure-account.md).
+Learn more about [configuring the right Azure Account](/docs/guides/azure-deployments/creating-an-azure-account/index.md).
 :::
 
 ## Run an Azure PowerShell Script Step

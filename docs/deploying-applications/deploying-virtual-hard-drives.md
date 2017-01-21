@@ -30,7 +30,7 @@ To deploy a Virtual Hard Drive, add a *Deploy a VHD* step. For information abou
 ### Step 1: Select a Package
 
 
-Use the Package Feed and Package ID fields to select the [package](/docs/packaging-applications.md) containing the Virtual Hard Drive (\*.vhd or \*.vhdx) to be installed. There must be a single VHD in the root of the package. The package may contain deployment scripts and other artifacts required by those scripts, but only a single VHD.
+Use the Package Feed and Package ID fields to select the [package](/docs/packaging-applications/index.md) containing the Virtual Hard Drive (\*.vhd or \*.vhdx) to be installed. There must be a single VHD in the root of the package. The package may contain deployment scripts and other artifacts required by those scripts, but only a single VHD.
 
 ### Step 2: Configure VHD options
 

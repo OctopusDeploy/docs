@@ -100,7 +100,7 @@ These are the decisions we made on handling versions:
   1. `1.4.10 &gt; 1.4.9`
   2. `3.0.0-beta.10 &gt; 3.0.0-beta.9`
   3. `1.4.008 &lt; 1.4.9`
-3. **Creating packages (using Octopus tooling like [OctoPack](/docs/packaging-applications/nuget-packages/using-octopack.md) and [octo.exe](/docs/packaging-applications/nuget-packages/using-octo.exe.md)):**[WYSIWYG](https://en.wikipedia.org/wiki/WYSIWYG) provided the version you've specified is a valid SemanticVersion (as described earlier). For example:
+3. **Creating packages (using Octopus tooling like [OctoPack](/docs/packaging-applications/nuget-packages/using-octopack/index.md) and [octo.exe](/docs/packaging-applications/nuget-packages/using-octo.exe.md)):**[WYSIWYG](https://en.wikipedia.org/wiki/WYSIWYG) provided the version you've specified is a valid SemanticVersion (as described earlier). For example:
  1. If you build a package using `octo.exe pack --id=MyPackage --version=2016.01.02` you should be expect the output file to be `MyPackage.2016.01.02.nupkg`.
 4. **Interacting with package feeds/repositories (many and varied, including our own):** We just ask the feed for a package with the version string we stored in the release, and accept what the feed tells us.
 

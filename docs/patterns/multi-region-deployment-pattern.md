@@ -15,7 +15,7 @@ Your application is deployed to multiple geographic regions (or multiple data ce
 ## Strict solution using Environments
 
 
-You can use [Environments](/docs/key-concepts/environments.md) to represent each region or data centre. In the example below we have defined a Dev and Test Environment as per normal, and then configured two "production" Environments, one for each region we want to deploy into.
+You can use [Environments](/docs/key-concepts/environments/index.md) to represent each region or data centre. In the example below we have defined a Dev and Test Environment as per normal, and then configured two "production" Environments, one for each region we want to deploy into.
 
 
 ![](/docs/images/5670886/5865781.png)
@@ -59,7 +59,7 @@ By using this pattern you can:
 ## Tenanted Solution
 
 
-Alternatively you could create [Tenants](/docs/key-concepts/tenants.md) to represent each region or data centre. By doing so you can:
+Alternatively you could create [Tenants](/docs/key-concepts/tenants/index.md) to represent each region or data centre. By doing so you can:
 
 1. Use [Variable Templates](/docs/deploying-applications/variables/variable-templates.md) to prompt you for the variables required for each region (like the storage account details for that region) and when you introduce a new region Octopus will prompt you for the missing variables
 ![](/docs/images/5670886/5865790.png)
@@ -87,4 +87,4 @@ You do give up the advantage of enforcing the order in which you deploy your app
 ## Conclusion
 
 
-[Environments](/docs/key-concepts/environments.md), [Tenants](/docs/key-concepts/tenants.md) and [Cloud Regions](/docs/deployment-targets/cloud-regions.md) can be used to model multi-region deployments in Octopus, but each different choice is optimized to a particular style of situation. Choose the one that suits your needs best!
+[Environments](/docs/key-concepts/environments/index.md), [Tenants](/docs/key-concepts/tenants/index.md) and [Cloud Regions](/docs/deployment-targets/cloud-regions.md) can be used to model multi-region deployments in Octopus, but each different choice is optimized to a particular style of situation. Choose the one that suits your needs best!

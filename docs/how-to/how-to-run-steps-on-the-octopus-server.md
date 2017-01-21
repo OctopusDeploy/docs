@@ -4,10 +4,10 @@ position: 21
 ---
 
 
-When adding a [NuGet Package step](/docs/deploying-applications/deploying-packages.md) or [Script step](/docs/deploying-applications/custom-scripts.md), Octopus will expect you to choose a Tentacle that the step will run on. However, sometimes you might not want to run the step on another machine, and instead wish to run it on the central Octopus Server. This guide explains how you can accomplish this.
+When adding a [NuGet Package step](/docs/deploying-applications/deploying-packages/index.md) or [Script step](/docs/deploying-applications/custom-scripts/index.md), Octopus will expect you to choose a Tentacle that the step will run on. However, sometimes you might not want to run the step on another machine, and instead wish to run it on the central Octopus Server. This guide explains how you can accomplish this.
 
 :::hint
-Octopus 3.3 and newer support [Running Scripts on the Octopus Server](/docs/deploying-applications/custom-scripts.md).
+Octopus 3.3 and newer support [Running Scripts on the Octopus Server](/docs/deploying-applications/custom-scripts/index.md).
 :::
 
 ## Step-by-step guide
@@ -15,8 +15,8 @@ Octopus 3.3 and newer support [Running Scripts on the Octopus Server](/docs/depl
 
 Follow these steps to install a Tentacle on the Octopus Server.
 
-1. Follow the steps on [installing Tentacles](/docs/installation/installing-tentacles.md) to download the Tentacle MSI and install it on the Octopus Server.
-2. Configure the Tentacle in [listening mode](/docs/installation/installing-tentacles/listening-tentacles.md), and register it so that it appears in your [Environments](/docs/key-concepts/environments.md) tab.
+1. Follow the steps on [installing Tentacles](/docs/installation/installing-tentacles/index.md) to download the Tentacle MSI and install it on the Octopus Server.
+2. Configure the Tentacle in [listening mode](/docs/installation/installing-tentacles/listening-tentacles.md), and register it so that it appears in your [Environments](/docs/key-concepts/environments/index.md) tab.
 3. Assign the machine to all of your applicable environments, and give it a role like `octopus-server`:
 
 ![](/docs/images/3702872/3964962.png)

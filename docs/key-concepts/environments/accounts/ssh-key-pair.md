@@ -4,7 +4,7 @@ position: 2
 ---
 
 
-A SSH Key Pair Account is one of the more secure authentication methods available for connections to [SSH Targets](/docs/deployment-targets/ssh-targets.md).
+A SSH Key Pair Account is one of the more secure authentication methods available for connections to [SSH Targets](/docs/deployment-targets/ssh-targets/index.md).
 
 ## Creating the account
 

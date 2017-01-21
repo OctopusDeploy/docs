@@ -26,7 +26,7 @@ On this page:
 ## Prerequisites
 
 
-This guide assumes some familiarity with common Octopus concepts like configuring [Projects ](/docs/key-concepts/projects.md)and [Variables](/docs/deploying-applications/variables.md). To deploy this package using this guide you will need a server with IIS installed since it uses the [IIS Websites and Application Pools](/docs/deploying-applications/iis-websites-and-application-pools.md) deployment steps. Alternatively you could use any other web host, like Express in NodeJS, since this is just a single HTML file with no other dependencies.
+This guide assumes some familiarity with common Octopus concepts like configuring [Projects ](/docs/key-concepts/projects/index.md)and [Variables](/docs/deploying-applications/variables/index.md). To deploy this package using this guide you will need a server with IIS installed since it uses the [IIS Websites and Application Pools](/docs/deploying-applications/iis-websites-and-application-pools.md) deployment steps. Alternatively you could use any other web host, like Express in NodeJS, since this is just a single HTML file with no other dependencies.
 
 ## Sample Application
 
@@ -70,7 +70,7 @@ angular
 Firstly we need to make the package available for Octopus to deploy.
 
 :::success
-We've crafted and packaged v1.0.0 of this sample application for you to try out (see the link below). Alternatively you can create your own application and [package the application](/docs/packaging-applications.md) yourself to try it out.
+We've crafted and packaged v1.0.0 of this sample application for you to try out (see the link below). Alternatively you can create your own application and [package the application](/docs/packaging-applications/index.md) yourself to try it out.
 :::
 
 1. Download [MyApp.1.0.0.zip](/docs/attachments/MyApp.1.0.0.zip)

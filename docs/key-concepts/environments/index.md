@@ -34,7 +34,7 @@ Environments can be added using the **Add environment** button.
 ## Adding machines to environments
 
 
-Machines can be added to environments in different ways, [depending on how they will communicate](/docs/installation/installing-tentacles.md) with the Octopus Deploy Server.
+Machines can be added to environments in different ways, [depending on how they will communicate](/docs/installation/installing-tentacles/index.md) with the Octopus Deploy Server.
 
 - Adding [listening machines](/docs/installation/installing-tentacles/listening-tentacles.md)
 - Adding [polling machines](/docs/installation/installing-tentacles/polling-tentacles.md)
@@ -92,4 +92,4 @@ By default, a project can be deployed to any environment. You can limit which pr
 ## Environment permissions
 
 
-You can control who has access to view or edit environments, as well as who has access to deploy to environments, by assigning users to Teams and assigning roles to those teams. For more information, see the section on [managing users and teams](/docs/administration/managing-users-and-teams.md).
+You can control who has access to view or edit environments, as well as who has access to deploy to environments, by assigning users to Teams and assigning roles to those teams. For more information, see the section on [managing users and teams](/docs/administration/managing-users-and-teams/index.md).

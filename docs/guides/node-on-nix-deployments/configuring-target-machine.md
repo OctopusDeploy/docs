@@ -8,7 +8,7 @@ position: 0
 This guide can be used with an AWS AMI instance of Ubuntu 14.04 LTS or an Azure VM running Ubuntu 14.04 LTS. If you want to use a different base instance there may be some slightly different steps you need to take during the configuration.
 :::
 
-Deploying projects over [SSH](/docs/deployment-targets/ssh-targets.md) has some slightly different requirements to a standard Tentacle. Although you don't need to install and run a Tentacle service, there is some configuration that is required to allow Calamari to run on non Windows systems.
+Deploying projects over [SSH](/docs/deployment-targets/ssh-targets/index.md) has some slightly different requirements to a standard Tentacle. Although you don't need to install and run a Tentacle service, there is some configuration that is required to allow Calamari to run on non Windows systems.
 
 ## Install Mono
 

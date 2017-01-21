@@ -12,7 +12,7 @@ Octopus Manager comes with an Import/Export wizard which supports a number of sc
 
 
 
-*To migrate data from older versions of Octopus see [Upgrading from Octopus 2.6](/docs/administration/upgrading/upgrading-from-octopus-2.6.md)*
+*To migrate data from older versions of Octopus see [Upgrading from Octopus 2.6](/docs/administration/upgrading/upgrading-from-octopus-2.6/index.md)*
 
 :::hint
 The Import/Export wizards are designed for moving configuration data between Octopus servers, or for creating snapshots which can be committed to source control or used for auditing purposes. It's not designed as a general disaster recovery or backup tool; for that, see the section on [backing up your Octopus server](/docs/administration/backup-and-restore.md).

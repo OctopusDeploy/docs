@@ -23,7 +23,7 @@ On this page:
 ## Using Docker Registries in Octopus Deploy
 
 
-In Octopus Deploy, Docker Registries are treated very similarly to [Package Repositories](/docs/packaging-applications/package-repositories.md), and Images are treated very similarly to Packages.
+In Octopus Deploy, Docker Registries are treated very similarly to [Package Repositories](/docs/packaging-applications/package-repositories/index.md), and Images are treated very similarly to Packages.
 
 
 Octopus Deploy supports the Docker Registry [Version 1](https://docs.docker.com/v1.6/reference/api/registry_api/) and [Version 2](https://docs.docker.com/registry/spec/api/) API specifications as outlined in the Docker reference files. You can access Docker Registries with or without using credentials, depending on registry configuration. You can use one of the hosted public registries, like [Docker Hub](https://hub.docker.com/), or you can host your own [Private Registry](/docs/deploying-applications/docker-containers/docker-registries-as-feeds.md).
@@ -31,7 +31,7 @@ Octopus Deploy supports the Docker Registry [Version 1](https://docs.docker.com
 ### How Octopus Server and Deployment Targets integrate with Docker Registries
 
 
-The Docker Registries you configure need to be accessed by both the Octopus Server and your [Deployment Targets](/docs/deployment-targets.md).
+The Docker Registries you configure need to be accessed by both the Octopus Server and your [Deployment Targets](/docs/deployment-targets/index.md).
 
 
 The Octopus Server will contact your registry to obtain information on available images while designing and maintaining your projects. During deployment the `docker pull` command will be executed on the Deployment Targets themselves and they will pull the Images directly from the Docker Registry.

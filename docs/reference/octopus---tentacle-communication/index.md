@@ -4,7 +4,7 @@ position: 1
 ---
 
 
-This page describes how the [Octopus Deploy server](/docs/installation/installing-octopus.md) and the [Tentacle deployment agents](/docs/installation/installing-tentacles.md) communicate in a secure way.
+This page describes how the [Octopus Deploy server](/docs/installation/installing-octopus/index.md) and the [Tentacle deployment agents](/docs/installation/installing-tentacles/index.md) communicate in a secure way.
 
 ## Background
 

@@ -8,7 +8,7 @@ This page describes some of the trade-offs you would consider deciding how to us
 
 :::success
 **Built-in support for multi-tenant deployments**
-Consider upgrading to Octopus 3.4 which provides built-in support for multi-tenant deployments. Read through our [multi-tenant deployment guide](/docs/guides/multi-tenant-deployments.md) to see if it fits your situation and [how to migrate to Octopus 3.4](/docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/migrating-to-octopus-3.4.md).
+Consider upgrading to Octopus 3.4 which provides built-in support for multi-tenant deployments. Read through our [multi-tenant deployment guide](/docs/guides/multi-tenant-deployments/index.md) to see if it fits your situation and [how to migrate to Octopus 3.4](/docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/migrating-to-octopus-3.4.md).
 :::
 
 ##### Scenario:
@@ -75,7 +75,7 @@ If each customer had major differences, and possibly bespoke work, we recommende
 :::
 
 
-The solutions above would work well for a few dozen customers, and with some effort, be made to work for many more using the [REST API](/docs/api-and-integration/octopus-rest-api.md) and [Octo.exe](/docs/api-and-integration/octo.exe-command-line.md).
+The solutions above would work well for a few dozen customers, and with some effort, be made to work for many more using the [REST API](/docs/api-and-integration/octopus-rest-api.md) and [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md).
 
 ## Consider architectural changes
 

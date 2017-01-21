@@ -30,7 +30,7 @@ The name of the environment is important because we will use it as a variable in
 :::
 
 :::success
-For the purpose of this guide we will only use the one deployment environment but there are several other pages in this documentation which explain the benefits of leveraging [environments](/docs/key-concepts/environments.md) and [lifecycles](/docs/key-concepts/lifecycles.md) to create advanced deployment processes.
+For the purpose of this guide we will only use the one deployment environment but there are several other pages in this documentation which explain the benefits of leveraging [environments](/docs/key-concepts/environments/index.md) and [lifecycles](/docs/key-concepts/lifecycles.md) to create advanced deployment processes.
 :::
 
 ## Configure Account & Target
@@ -54,7 +54,7 @@ To connect over SSH the first thing you will need to do is add the credentials f
 ![](/docs/images/3049555/3278592.png)
 
 :::success
-Further details are provided throughout the rest of this documentation on related topics like [Account Types](/docs/key-concepts/environments/accounts.md) and [SSH Targets](/docs/deployment-targets/ssh-targets.md).
+Further details are provided throughout the rest of this documentation on related topics like [Account Types](/docs/key-concepts/environments/accounts/index.md) and [SSH Targets](/docs/deployment-targets/ssh-targets/index.md).
 :::
 
 ## Create Deployment Project

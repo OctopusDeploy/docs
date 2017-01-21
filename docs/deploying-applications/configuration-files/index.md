@@ -30,7 +30,7 @@ This feature can be enabled for any NuGet package step.
 ![](/docs/images/3048087/3277705.png)
 
 
-If a [variable](/docs/deploying-applications/variables.md) is defined in the Octopus web portal, and an **appSettings, applicationSettings** or **connectionStrings** element exists for it in any of your **.config** files, Tentacle will automatically replace the value after extracting your package.
+If a [variable](/docs/deploying-applications/variables/index.md) is defined in the Octopus web portal, and an **appSettings, applicationSettings** or **connectionStrings** element exists for it in any of your **.config** files, Tentacle will automatically replace the value after extracting your package.
 
 
 For example, suppose you have this configuration file:
@@ -111,7 +111,7 @@ Values are matched based on the **key** attribute for **appSettings**, and th
 There may be other variables you would like Octopus to replace in your configuration files that are outside both the appSettings and connectionStrings areas.
 
 
-There are three ways you can do this, two of which involve using [Octopus Variables](/docs/deploying-applications/variables.md).
+There are three ways you can do this, two of which involve using [Octopus Variables](/docs/deploying-applications/variables/index.md).
 
 1. Insert `#{OctopusVariables}` where you would like the replacement to happen and use the [Substitute Variables in Files](/docs/deploying-applications/substitute-variables-in-files.md) feature in the package step (see below for sample)
 2. Insert `#{OctopusVariables}` where you would like the replacement to happen and then use the [Regular Expression Find and Replace](https://library.octopusdeploy.com/#!/step-template/actiontemplate-file-system-regular-expression-find-and-replace) library template (this means you can replace any Octopus Variable in any file outside of the package step, the only distinction to the first option)
@@ -312,4 +312,4 @@ To suppress these errors and report them as informational only, use the `Octopus
 ## PowerShell
 
 
-If these conventions aren’t enough to configure your application, you can always [use PowerShell to perform custom configuration tasks](/docs/deploying-applications/custom-scripts.md). Variables will be passed to your PowerShell script, and PowerShell has [rich XML API's](http://www.codeproject.com/KB/powershell/powershell_xml.aspx).
+If these conventions aren’t enough to configure your application, you can always [use PowerShell to perform custom configuration tasks](/docs/deploying-applications/custom-scripts/index.md). Variables will be passed to your PowerShell script, and PowerShell has [rich XML API's](http://www.codeproject.com/KB/powershell/powershell_xml.aspx).

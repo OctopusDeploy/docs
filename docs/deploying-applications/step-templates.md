@@ -132,7 +132,7 @@ There are three parts to any step template: step details, additional parameters,
 The Step tab is where you fill out the details of what the step will do. This tab gives you exactly the same fields as you would see if you added the step type directly to your project, so it will be the most familiar.
 
 
-Any details that need to be specified at the project level can be handled using Parameters. Any parameters specified in the Parameters tab will be exposed to you as [variables](/docs/deploying-applications/variables.md) and can be used in the same way.
+Any details that need to be specified at the project level can be handled using Parameters. Any parameters specified in the Parameters tab will be exposed to you as [variables](/docs/deploying-applications/variables/index.md) and can be used in the same way.
 
 #### Parameters
 

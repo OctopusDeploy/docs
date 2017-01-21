@@ -22,7 +22,7 @@ On this page:
 ## Basic Syntax
 
 
-Octopus [variables ](/docs/deploying-applications/variables.md)support substitution throughout: a variable may be bound to an expression that incorporates the values of other variables:
+Octopus [variables ](/docs/deploying-applications/variables/index.md)support substitution throughout: a variable may be bound to an expression that incorporates the values of other variables:
 
 | Name | Value | Scope |
 | --- | --- | --- |

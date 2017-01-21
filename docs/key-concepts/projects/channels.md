@@ -27,9 +27,9 @@ Channels in Octopus Deploy will help you if you want to:
 Each Release you create in Octopus Deploy is placed into a Channel, and Releases in each Channel can be treated differently. For each Channel you can define:
 
 - Which [Lifecycle](/docs/key-concepts/lifecycles.md) to use for promoting Releases: for example, feature releases may be promoted through the testing environments, while hot-fix releases may go directly to production.
-- Which [Deployment Process](/docs/deploying-applications.md) to use when deploying Releases: for example, steps can be enabled for specific channels.
-- Which [Variables](/docs/deploying-applications/variables.md) to use: Variables can be scoped to channels.
-- Which [Tenants](/docs/key-concepts/tenants.md) should be included when deploying Releases: for example, you can ensure only Releases from certain Channels are deployed to certain Tenants
+- Which [Deployment Process](/docs/deploying-applications/index.md) to use when deploying Releases: for example, steps can be enabled for specific channels.
+- Which [Variables](/docs/deploying-applications/variables/index.md) to use: Variables can be scoped to channels.
+- Which [Tenants](/docs/key-concepts/tenants/index.md) should be included when deploying Releases: for example, you can ensure only Releases from certain Channels are deployed to certain Tenants
 
 
 

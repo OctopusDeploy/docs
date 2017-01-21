@@ -18,8 +18,8 @@ On this page:
 
 Below is a short list of just some of the things that Octopus captures:
 
-- Changes to [deployment processes](/docs/deploying-applications.md) and [variables](/docs/deploying-applications/variables.md)
-- Create/modify/delete events for [projects](/docs/key-concepts/projects.md), [environments](/docs/key-concepts/environments.md), [deployment targets](/docs/deployment-targets.md), releases, and so on
+- Changes to [deployment processes](/docs/deploying-applications/index.md) and [variables](/docs/deploying-applications/variables/index.md)
+- Create/modify/delete events for [projects](/docs/key-concepts/projects/index.md), [environments](/docs/key-concepts/environments/index.md), [deployment targets](/docs/deployment-targets/index.md), releases, and so on
 - Environment changes, such as adding new deployment targets or modifying the environment a deployment target belongs to
 - Queuing and cancelling of deployments and other tasks
 
@@ -46,5 +46,5 @@ This feature makes it extremely easy to see who made what changes on the Octopus
 
 :::success
 **Special audit view permission**
-In Octopus 3.4 we have introduced a new Permission called **AuditView** which allows someone to view the audit logs without needing other permissions. Learn about [managing users and teams](/docs/administration/managing-users-and-teams.md).
+In Octopus 3.4 we have introduced a new Permission called **AuditView** which allows someone to view the audit logs without needing other permissions. Learn about [managing users and teams](/docs/administration/managing-users-and-teams/index.md).
 :::

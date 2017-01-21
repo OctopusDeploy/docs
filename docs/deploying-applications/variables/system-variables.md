@@ -4,7 +4,7 @@ position: 5
 ---
 
 
-This page lists built-in [variables](/docs/deploying-applications/variables.md) provided by Octopus that can be used in your deployment [Custom scripts](/docs/deploying-applications/custom-scripts.md).
+This page lists built-in [variables](/docs/deploying-applications/variables/index.md) provided by Octopus that can be used in your deployment [Custom scripts](/docs/deploying-applications/custom-scripts/index.md).
 
 
 - Deployment

@@ -31,7 +31,7 @@ Here are a few reasons why you may want to completely remove Octopus Server from
 
 :::success
 **Just upgraded from Octopus Deploy 2.6 and want to clean up?**
-If you have just completed an in-place upgrade from Octopus Server 2.6 to 3.x there will be several folders and files left over that aren't used by newer versions of Octopus. We didn't remove these files in case you needed to roll back. Learn about [cleaning up after upgrading from Octopus 2.6](/docs/administration/server-configuration-and-file-storage.md).
+If you have just completed an in-place upgrade from Octopus Server 2.6 to 3.x there will be several folders and files left over that aren't used by newer versions of Octopus. We didn't remove these files in case you needed to roll back. Learn about [cleaning up after upgrading from Octopus 2.6](/docs/administration/server-configuration-and-file-storage/index.md).
 :::
 
 ## What does the Octopus Server MSI actually do?
@@ -43,7 +43,7 @@ The MSI will stop the Octopus Server windows service and remove the application 
 
 :::hint
 **What are all these files anyhow?**
-Learn about [Octopus Server configuration and file storage](/docs/administration/server-configuration-and-file-storage.md).
+Learn about [Octopus Server configuration and file storage](/docs/administration/server-configuration-and-file-storage/index.md).
 :::
 
 

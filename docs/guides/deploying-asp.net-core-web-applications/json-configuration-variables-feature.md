@@ -16,7 +16,7 @@ ASP.NET Core 1.0 (previously known as ASP.NET 5) has been released! Microsoft's�
 :::
 
 :::hint
-Our ASP.NET Core web application [deployment guide](/docs/guides/deploying-asp.net-core-web-applications.md) provides further information on how this feature fits into an Octopus project's deployment process.
+Our ASP.NET Core web application [deployment guide](/docs/guides/deploying-asp.net-core-web-applications/index.md) provides further information on how this feature fits into an Octopus project's deployment process.
 :::
 
 

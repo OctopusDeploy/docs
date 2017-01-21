@@ -68,8 +68,8 @@ To integrate with Octopus Deploy, an application must be packaged into either a 
 
 There are two options for packaging and pushing:
 
-- [Use OctoPack](/docs/guides/use-the-team-foundation-build-custom-task.md) as part of your build process.
-- Use the [Package Application](/docs/guides/use-the-team-foundation-build-custom-task.md) and [Push Package to Octopus](/docs/guides/use-the-team-foundation-build-custom-task.md) Steps added by this extension.
+- [Use OctoPack](/docs/guides/use-the-team-foundation-build-custom-task/index.md) as part of your build process.
+- Use the [Package Application](/docs/guides/use-the-team-foundation-build-custom-task/index.md) and [Push Package to Octopus](/docs/guides/use-the-team-foundation-build-custom-task/index.md) Steps added by this extension.
 
 
 :::hint
@@ -82,7 +82,7 @@ There are a number of useful variables provided by Visual Studio Team Services t
 ## Using OctoPack to Create and Push a Package
 
 
-Follow the [OctoPack instructions](/docs/packaging-applications/nuget-packages/using-octopack.md) to add OctoPack to your project and configure the msbuild arguments.
+Follow the [OctoPack instructions](/docs/packaging-applications/nuget-packages/using-octopack/index.md) to add OctoPack to your project and configure the msbuild arguments.
 
 
 In the new Team Foundation build process, the arguments below should be in the **MSBuild Arguments** field for the **Visual Studio Build** or **MSBuild** step. Here is a list of the available variables that you can use from the Microsoft [Build use variables](https://msdn.microsoft.com/Library/vs/alm/Build/scripts/variables).
@@ -120,7 +120,7 @@ To add a step to your Release process, edit your Release Definition, select the 
 
 :::hint
 **If not using OctoPack**
-This step is only required if you are not [using OctoPack](/docs/guides/use-the-team-foundation-build-custom-task.md) to create your package.
+This step is only required if you are not [using OctoPack](/docs/guides/use-the-team-foundation-build-custom-task/index.md) to create your package.
 :::
 
 

@@ -12,7 +12,7 @@ title: Creating an Azure Service Principal Account
 Prior to Octopus Deploy 3.3, [Azure Management Certificate Accounts](/docs/key-concepts/environments/accounts/azure-subscription-account.md) (previously known simply as "Azure Subscription Accounts") were the only type of Azure Account available.
 
 
-[Azure Management Certificate Accounts](/docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-management-certificate-account.md) are only able to interact with the legacy Azure interface known as the "Azure Service Management API", which is used when Octopus deploys [Cloud Services](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-cloud-service.md) and [Azure Web Apps](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app.md).
+[Azure Management Certificate Accounts](/docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-management-certificate-account.md) are only able to interact with the legacy Azure interface known as the "Azure Service Management API", which is used when Octopus deploys [Cloud Services](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-cloud-service/index.md) and [Azure Web Apps](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/index.md).
 
 
 To interact with Azure Resource Manager (ARM), like when Octopus deploys a [Resource Group Template](/docs/guides/azure-deployments/resource-groups/deploy-using-an-azure-resource-group-template.md), you must use an [Azure Service Principal Account](/docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-service-principal-account.md).
@@ -144,5 +144,5 @@ Use the *Save and test* button to confirm the account can interact with Azure.
 
 :::hint
 **What is actually tested?**
-When you click the Save and Test button, Octopus will attempt to use the account credentials to access the Azure Resource Management (ARM) API and list the Resource Groups in that subscription. You may need to whitelist the appropriate IP Addresses for the Azure Data Centre you are targeting. See [deploying to Azure via a Firewall](/docs/deploying-applications/deploying-to-azure.md) for more details.
+When you click the Save and Test button, Octopus will attempt to use the account credentials to access the Azure Resource Management (ARM) API and list the Resource Groups in that subscription. You may need to whitelist the appropriate IP Addresses for the Azure Data Centre you are targeting. See [deploying to Azure via a Firewall](/docs/deploying-applications/deploying-to-azure/index.md) for more details.
 :::

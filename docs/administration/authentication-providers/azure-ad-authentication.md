@@ -218,7 +218,7 @@ Octopus.Server.exe configure --azureADIsEnabled=true --azureADIssuer=Issuer --az
 ## Octopus user accounts are still required
 
 
-Even if you are using an external identity provider, Octopus still requires a [user account](/docs/administration/managing-users-and-teams.md) so you can assign those people to Octopus teams and subsequently grant permissions to Octopus resources. Octopus will automatically create a [user account](/docs/administration/managing-users-and-teams.md) based on the profile information returned in the security token, which includes an **Identifier**, **Name**, and **Email Address**.
+Even if you are using an external identity provider, Octopus still requires a [user account](/docs/administration/managing-users-and-teams/index.md) so you can assign those people to Octopus teams and subsequently grant permissions to Octopus resources. Octopus will automatically create a [user account](/docs/administration/managing-users-and-teams/index.md) based on the profile information returned in the security token, which includes an **Identifier**, **Name**, and **Email Address**.
 
 :::hint
 **How Octopus matches external identities to user accounts**

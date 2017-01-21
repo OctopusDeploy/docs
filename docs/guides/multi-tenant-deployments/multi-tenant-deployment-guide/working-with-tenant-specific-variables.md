@@ -16,7 +16,7 @@ Quite often you want to define variable values that are different for each tenan
 
 :::hint
 **Tenant-provided variables are not snapshotted**
-When you [create a release](/docs/api-and-integration/octo.exe-command-line/creating-releases.md) in Octopus Deploy we take a snapshot of the deployment process and the current state of the [project-variables](/docs/deploying-applications/variables.md), however we do not take a snapshot of tenant-variables. This enables you to add new tenants at any time and deploy to them without creating a new release. This means any changes you make to tenant-variables will take immediate effect.
+When you [create a release](/docs/api-and-integration/octo.exe-command-line/creating-releases.md) in Octopus Deploy we take a snapshot of the deployment process and the current state of the [project-variables](/docs/deploying-applications/variables/index.md), however we do not take a snapshot of tenant-variables. This enables you to add new tenants at any time and deploy to them without creating a new release. This means any changes you make to tenant-variables will take immediate effect.
 :::
 
 

@@ -7,7 +7,7 @@ position: 5
 As you deploy more often and to different environments, files and releases can build up. This is what retention policies are for. They allow you to define what is kept in terms of releases, packages and files.
 
 :::hint
-We talk about Tentacles in this page, but the same process and logic applies to [SSH Targets](/docs/deployment-targets/ssh-targets.md) also.
+We talk about Tentacles in this page, but the same process and logic applies to [SSH Targets](/docs/deployment-targets/ssh-targets/index.md) also.
 :::
 
 ## What is deleted
@@ -26,7 +26,7 @@ The in-built NuGet repository will delete any **packages** that are not attached
 
 :::hint
 **Projects that use variables in package IDs**
-If you reference [variables](/docs/deploying-applications/variables.md) when defining which NuGet package to deploy in a package step, things get more complicated. [Read this page to learn more](http://help.octopusdeploy.com/discussions/problems/43995).
+If you reference [variables](/docs/deploying-applications/variables/index.md) when defining which NuGet package to deploy in a package step, things get more complicated. [Read this page to learn more](http://help.octopusdeploy.com/discussions/problems/43995).
 :::
 
 ## When the retention policies are applied

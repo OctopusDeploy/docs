@@ -36,7 +36,7 @@ octo.exe dump-deployments --server http://your-octopus --apiKey API-YOURAPIKEY12
 ```
 
 :::success
-Learn more about [how to create an API key](/docs/how-to/how-to-create-an-api-key.md), and [how to use Octo.exe](/docs/api-and-integration/octo.exe-command-line.md)
+Learn more about [how to create an API key](/docs/how-to/how-to-create-an-api-key.md), and [how to use Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md)
 :::
 
 
@@ -160,7 +160,7 @@ Finally, don't forget to add pretty graphs!
 There are two major limits to this approach to be aware of:
 
 1. As you have seen, only a small amount of data is available for use for reporting
-2. If you use [retention policies](/docs/administration/retention-policies.md), releases and deployments that have been deleted by the retention policy will also not be available for reporting
+2. If you use [retention policies](/docs/administration/retention-policies/index.md), releases and deployments that have been deleted by the retention policy will also not be available for reporting
 
 
 

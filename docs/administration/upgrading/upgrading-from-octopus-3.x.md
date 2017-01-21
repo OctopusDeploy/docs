@@ -170,7 +170,7 @@ No, from Octopus 3.1 onward we are dropping official support for Octopus Server 
 
 :::hint
 **Tentacle communications protocol**
-Read more about the [Octopus - Tentacle communication](/docs/reference/octopus---tentacle-communication.md) protocol and [Troubleshooting Schannel and TLS](/docs/reference/octopus---tentacle-communication/troubleshooting-schannel-and-tls.md).
+Read more about the [Octopus - Tentacle communication](/docs/reference/octopus---tentacle-communication/index.md) protocol and [Troubleshooting Schannel and TLS](/docs/reference/octopus---tentacle-communication/troubleshooting-schannel-and-tls.md).
 :::
 
 ## Upgrading to Octopus 3.4 or greater
@@ -179,7 +179,7 @@ Read more about the [Octopus - Tentacle communication](/docs/reference/octopus--
 See the [Release Notes](https://octopus.com/downloads/compare?from=3.3.27&amp;to=3.4.0) for breaking changes and more information.
 
 
-**Using TeamCity NuGet feeds?** You will need to upgrade your TeamCity server to v9.0 or newer and [enable the NuGet v2 API](https://teamcity-support.jetbrains.com/hc/en-us/community/posts/206817105-How-to-enable-NuGet-feed-v2). Octopus 3.4+ no longer supports the custom NuGet v1 feeds from TeamCity 7.x-8.x. We recommend upgrading to the latest TeamCity version available due to continual improvements in their NuGet feed - or switch to using the [Octopus built-in repository](/docs/packaging-applications/package-repositories.md).
+**Using TeamCity NuGet feeds?** You will need to upgrade your TeamCity server to v9.0 or newer and [enable the NuGet v2 API](https://teamcity-support.jetbrains.com/hc/en-us/community/posts/206817105-How-to-enable-NuGet-feed-v2). Octopus 3.4+ no longer supports the custom NuGet v1 feeds from TeamCity 7.x-8.x. We recommend upgrading to the latest TeamCity version available due to continual improvements in their NuGet feed - or switch to using the [Octopus built-in repository](/docs/packaging-applications/package-repositories/index.md).
 
 
 **Want to use SemVer 2 for packages or releases?** You will need to upgrade OctoPack and/or octo.exe to 3.4 or newer.

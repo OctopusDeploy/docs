@@ -8,7 +8,7 @@ In Octopus Deploy 2.6 a feature was added called Automatic Release Creation prim
 
 :::success
 **Consider using a build server extension**
-We have extensions/plugins available for the most popular build servers. These extensions will help you [create packages](/docs/packaging-applications.md), [push those packages to the built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md), create releases and deploy them to your environments:
+We have extensions/plugins available for the most popular build servers. These extensions will help you [create packages](/docs/packaging-applications/index.md), [push those packages to the built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md), create releases and deploy them to your environments:
 
 - [TeamCity](/docs/api-and-integration/teamcity.md)
 - [Visual Studio Team Services (VSTS) (formerly VSO) and TFS 2015](/docs/api-and-integration/visual-studio-team-services-(vsts).md)
@@ -20,7 +20,7 @@ Take a look at the [end-to-end guide for TFS](/docs/api-and-integration/team-fou
 
 :::hint
 **Built-in repository only**
-External package repositories **cannot be used to automatically create releases**, only the [built-in package repository](/docs/packaging-applications/package-repositories.md) is supported.
+External package repositories **cannot be used to automatically create releases**, only the [built-in package repository](/docs/packaging-applications/package-repositories/index.md) is supported.
 :::
 
 
@@ -35,7 +35,7 @@ On this page:
 ## Getting started
 
 
-If you use the[ built-in Octopus package repository](/docs/packaging-applications/package-repositories.md), you can now select a package, that when uploaded it will automatically create a release.
+If you use the[ built-in Octopus package repository](/docs/packaging-applications/package-repositories/index.md), you can now select a package, that when uploaded it will automatically create a release.
 
 
 The process starts on the project process page.
@@ -89,7 +89,7 @@ The release number that is created is guided by the Release Versioning settings 
 
 Channels were introduced in Octopus 3.2, and at this point you must select the Channel that will be used for any automatically created releases. This can be painful, and here are some points you can consider:
 
-- Use one of the [build-server extensions](/docs/api-and-integration.md), or [octo.exe](/docs/api-and-integration/octo.exe-command-line/creating-releases.md) to create releases instead of using ARC - this will automatically determine the best channel based on the release being created
+- Use one of the [build-server extensions](/docs/api-and-integration/index.md), or [octo.exe](/docs/api-and-integration/octo.exe-command-line/creating-releases.md) to create releases instead of using ARC - this will automatically determine the best channel based on the release being created
 - Choose the channel that will be used most commonly for automatically creating releases, and create releases manually for the other channels
 - Try creating some releases manually for the selected channel to make sure it works as expected
 

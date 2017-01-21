@@ -18,7 +18,7 @@ Deployment using existing Targets is still currently supported, but will be remo
 
 
 
-The Azure Cloud Service and Web App Deployment Targets introduced in Octopus 3.0 were deprecated in favour of [Cloud Service](/docs/guides/azure-deployments/cloud-services/cloud-service-concepts/cloud-service-deployment-step.md) and [Web App](/docs/guides/azure-deployments/web-apps/web-app-concepts/web-app-deployment-step.md) Steps.  The reasoning behind that decision is explained in [this pos](https://octopus.com/blog/azure-changes)t.
+The Azure Cloud Service and Web App Deployment Targets introduced in Octopus 3.0 were deprecated in favour of [Cloud Service](/docs/guides/azure-deployments/cloud-services/cloud-service-concepts/cloud-service-deployment-step.md) and [Web App](/docs/guides/azure-deployments/web-apps/web-app-concepts/web-app-deployment-step/index.md) Steps.  The reasoning behind that decision is explained in [this pos](https://octopus.com/blog/azure-changes)t.
 
 ## Migrating
 
@@ -28,7 +28,7 @@ The Azure Cloud Service and Web App Deployment Targets introduced in Octopus 3.0
 The process of migrating your Azure Targets into Deployment Steps is relatively simple (unfortunately it was unable to be automated).
 
 
-In your existing Deployment Process, you will have a *Deploy a Package*step, which is the Step responsible for deploying your package to the Azure Target.  This Step should be **replaced** by either a *[Deploy an Azure Cloud](/docs/guides/azure-deployments/cloud-services/cloud-service-concepts/cloud-service-deployment-step.md) Service* or *[Deploy an Azure Web App](/docs/guides/azure-deployments/web-apps/web-app-concepts/web-app-deployment-step.md)* Step as appropriate.
+In your existing Deployment Process, you will have a *Deploy a Package*step, which is the Step responsible for deploying your package to the Azure Target.  This Step should be **replaced** by either a *[Deploy an Azure Cloud](/docs/guides/azure-deployments/cloud-services/cloud-service-concepts/cloud-service-deployment-step.md) Service* or *[Deploy an Azure Web App](/docs/guides/azure-deployments/web-apps/web-app-concepts/web-app-deployment-step/index.md)* Step as appropriate.
 
 
 ![](/docs/images/5669687/5865627.png)

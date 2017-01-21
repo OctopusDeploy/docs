@@ -17,7 +17,7 @@ In order to provide the ability to perform naked scripting and just execute exac
 The script that is provided is executed "as-is" through the open SSH connection so the actual shell will depend on what you have configured for that account and it may not actually be bash. Keep this in mind when expecting certain commands to be available.
 
 
-The bootstrapping script that is provided by Calamari will not be available and so you will loose the ability to use helper functions like [new\_octopusartifact](/docs/deploying-applications/artifacts.md), [set\_octopusvariable](/docs/deploying-applications/variables/output-variables.md) or [get\_octopusvariable](/docs/deploying-applications/custom-scripts.md). You can however still use the standard **#{MyVariable}** variable substitution syntax however since this is replaced on the server, environment variables from your target will not be available.
+The bootstrapping script that is provided by Calamari will not be available and so you will loose the ability to use helper functions like [new\_octopusartifact](/docs/deploying-applications/artifacts.md), [set\_octopusvariable](/docs/deploying-applications/variables/output-variables.md) or [get\_octopusvariable](/docs/deploying-applications/custom-scripts/index.md). You can however still use the standard **#{MyVariable}** variable substitution syntax however since this is replaced on the server, environment variables from your target will not be available.
 :::
 
 

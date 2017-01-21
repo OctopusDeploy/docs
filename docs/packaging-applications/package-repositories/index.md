@@ -64,7 +64,7 @@ If you are using VSTS Package Management, Octopus can consume either the v2 or v
 ## Choosing the right repository
 
 :::success
-The Octopus built-in repository is generally the best choice for deployment packages because it offers better performance and most suitable [retention policies](/docs/administration/retention-policies.md).
+The Octopus built-in repository is generally the best choice for deployment packages because it offers better performance and most suitable [retention policies](/docs/administration/retention-policies/index.md).
 :::
 
 
@@ -75,12 +75,12 @@ Our recommendation is to use different repositories for different purposes, and 
 
 
 
-This configuration will make it easier to find the right packages for the right purpose, but the most important benefit of the built-in repository is that Octopus Deploy knows exactly which deployment packages are still required according to the [retention policies](/docs/administration/retention-policies.md) you have configured, and which packages can be cleaned up.
+This configuration will make it easier to find the right packages for the right purpose, but the most important benefit of the built-in repository is that Octopus Deploy knows exactly which deployment packages are still required according to the [retention policies](/docs/administration/retention-policies/index.md) you have configured, and which packages can be cleaned up.
 
 ## Using the built-in repository
 
 
-Your Octopus server comes with a built-in repository which is the best choice for deployment packages. It offers **better performance** for your deployments and the most **robust [retention policy](/docs/administration/retention-policies.md)****support** for deployment packages.
+Your Octopus server comes with a built-in repository which is the best choice for deployment packages. It offers **better performance** for your deployments and the most **robust [retention policy](/docs/administration/retention-policies/index.md)****support** for deployment packages.
 
 :::hint
 **Built-in feed can only be consumed by Octopus**

@@ -12,7 +12,7 @@ A simple workaround is to generate a certificate on one machine (such as your wo
 ## Generating and exporting a certificate
 
 
-First, [install the Tentacle agent](/docs/installation/installing-tentacles.md) on a computer, and run the following command:
+First, [install the Tentacle agent](/docs/installation/installing-tentacles/index.md) on a computer, and run the following command:
 
 ```powershell
 tentacle.exe new-certificate -e MyFile.txt

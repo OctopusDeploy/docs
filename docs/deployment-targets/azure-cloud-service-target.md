@@ -19,7 +19,7 @@ Azure Cloud Service is available as a deployment target.
 
 
 :::hint
-For more information on deploying Azure Cloud Services with Octopus using this deployment target please refer to [deploying a package to an Azure Cloud Service](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-cloud-service.md). The same options and process is used by the deployment target and the deployment step.
+For more information on deploying Azure Cloud Services with Octopus using this deployment target please refer to [deploying a package to an Azure Cloud Service](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-cloud-service/index.md). The same options and process is used by the deployment target and the deployment step.
 :::
 
 

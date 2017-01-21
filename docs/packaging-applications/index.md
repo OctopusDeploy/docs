@@ -11,7 +11,7 @@ See our [supported package types](/docs/packaging-applications/supported-package
 
 :::hint
 **Isn&#39;t Octopus Deploy all about NuGet?**
-Originally, Octopus Deploy supported only [NuGet packages](/docs/packaging-applications/nuget-packages.md) but that is no longer the case. In Octopus 3.3 we added support for zip packages, and in Octopus 3.5 we added support for Docker images. We will be continuing to support other packaging concepts as they become relevant to the deployment ecosystem.
+Originally, Octopus Deploy supported only [NuGet packages](/docs/packaging-applications/nuget-packages/index.md) but that is no longer the case. In Octopus 3.3 we added support for zip packages, and in Octopus 3.5 we added support for Docker images. We will be continuing to support other packaging concepts as they become relevant to the deployment ecosystem.
 
 
 While some of our documentation may still refer to NuGet packages specifically, all packages are generally treated the same.
@@ -30,8 +30,8 @@ On this page:
 
 How you create your packages depends on which package type you wish to create. Octopus generally treats all packages the same, so choose the tooling and package type that is easiest for you to create. For example:
 
-- ASP.NET apps (.NET Framework): use [OctoPack](/docs/packaging-applications/nuget-packages/using-octopack.md)
-- Windows Services (.NET Framework): use [OctoPack](/docs/packaging-applications/nuget-packages/using-octopack.md)
+- ASP.NET apps (.NET Framework): use [OctoPack](/docs/packaging-applications/nuget-packages/using-octopack/index.md)
+- Windows Services (.NET Framework): use [OctoPack](/docs/packaging-applications/nuget-packages/using-octopack/index.md)
 - .NET Core apps: use `dotnet pack`
 - JavaScript apps: use [grunt, gulp or octojs](/docs/guides/node-on-nix-deployments/create-&-push-node.js-project.md)
 - Working with TeamCity: use our [extension](/docs/api-and-integration/teamcity.md), `octo.exe pack` or even the built in tools for [TeamCity](https://blog.jetbrains.com/teamcity/2010/02/artifact-packaging-with-teamcity/)
@@ -50,12 +50,12 @@ When creating your packages you will need to choose a versioning scheme that is 
 ## Hosting packages
 
 
-Packages are kept in package repositories (or feeds). A repository can be as simple as a file share, or it could be a dedicated server. For more information, see the section on [choosing a package repository](/docs/packaging-applications/package-repositories.md).
+Packages are kept in package repositories (or feeds). A repository can be as simple as a file share, or it could be a dedicated server. For more information, see the section on [choosing a package repository](/docs/packaging-applications/package-repositories/index.md).
 
 ## What's in a package?
 
 
-Octopus expects your package to contain all of the files needed to run the application when it is deployed (along with [any scripts needed for deployment](/docs/deploying-applications/custom-scripts.md), and any [configuration transformation files](/docs/deploying-applications/configuration-files.md), etc).
+Octopus expects your package to contain all of the files needed to run the application when it is deployed (along with [any scripts needed for deployment](/docs/deploying-applications/custom-scripts/index.md), and any [configuration transformation files](/docs/deploying-applications/configuration-files/index.md), etc).
 
 
 An ASP.NET MVC application, packaged using NuGet for example, would look like this:

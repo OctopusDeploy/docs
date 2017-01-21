@@ -5,7 +5,7 @@ position: 1
 
 
 :::problem
-You will not be able to upgrade from Octopus 1.6 to Octopus 3.0 directly. If you are running a version of Octopus prior to 2.0, use this guide to upgrade from 1.6 to 2.6, then follow the [guide to upgrade from 2.6 to 3.0](/docs/administration/upgrading/upgrading-from-octopus-2.6.md).
+You will not be able to upgrade from Octopus 1.6 to Octopus 3.0 directly. If you are running a version of Octopus prior to 2.0, use this guide to upgrade from 1.6 to 2.6, then follow the [guide to upgrade from 2.6 to 3.0](/docs/administration/upgrading/upgrading-from-octopus-2.6/index.md).
 :::
 
 
@@ -45,7 +45,7 @@ Then go to the **Storage** tab in the **Configuration** area, and make sure that
 Next, install Octopus Deploy 2.0, either on the same server as your current Octopus 1.6 server, or on a new server (ideal). Octopus 2.0 uses different paths, ports and service names to 1.0 so there should not be any conflicts between them.
 
 :::hint
-View our [guide to installing an Octopus Deploy 2.0 server](/docs/installation/installing-octopus.md), which includes a video walkthrough.
+View our [guide to installing an Octopus Deploy 2.0 server](/docs/installation/installing-octopus/index.md), which includes a video walkthrough.
 :::
 
 ## Importing
@@ -96,7 +96,7 @@ At this point, you should be able to view the imported projects, environments an
 ## Permissions
 
 
-The Octopus 2.x migrator will not import permission settings from 1.6, due to changes made between the permission models. After you upgrade to 2.x, you will need to configure [Teams](/docs/administration/managing-users-and-teams.md) to assign permissions.
+The Octopus 2.x migrator will not import permission settings from 1.6, due to changes made between the permission models. After you upgrade to 2.x, you will need to configure [Teams](/docs/administration/managing-users-and-teams/index.md) to assign permissions.
 
 ## Upgrading Tentacles
 

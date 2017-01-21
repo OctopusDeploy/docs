@@ -36,7 +36,7 @@ During our Jenkins job, we will:
 
 
 
-Jenkins uses the MSBuild plugin to compile Visual Studio solutions. [Once OctoPack has been installed](/docs/packaging-applications/nuget-packages/using-octopack.md) on your C#/VB projects, you can configure Jenkin's MSBuild task to pass the appropriate parameters to MSBuild to have OctoPack run:
+Jenkins uses the MSBuild plugin to compile Visual Studio solutions. [Once OctoPack has been installed](/docs/packaging-applications/nuget-packages/using-octopack/index.md) on your C#/VB projects, you can configure Jenkin's MSBuild task to pass the appropriate parameters to MSBuild to have OctoPack run:
 
 
 ![](/docs/images/3048162/3278145.png?effects=border-simple,blur-border)
@@ -53,13 +53,13 @@ The settings are:
 
 - **RunOctoPack**: specifies that OctoPack should create packages during the build
 - **OctoPackPackageVersion**: version number that should be given to packages created by OctoPack. Since Jenkins build numbers are integers like "12", we combine it with "1.1." to produce package versions such as "1.0.12".
-- **OctoPackPublishPackageToHttp**: tells OctoPack to push the package to the Octopus Deploy server. Read more about the [built-in NuGet repository in Octopus](/docs/packaging-applications/package-repositories.md). You'll find the URL to your repository on the **Library > Packages** tab in Octopus
+- **OctoPackPublishPackageToHttp**: tells OctoPack to push the package to the Octopus Deploy server. Read more about the [built-in NuGet repository in Octopus](/docs/packaging-applications/package-repositories/index.md). You'll find the URL to your repository on the **Library > Packages** tab in Octopus
 - **OctoPackPublishApiKey**: your Octopus Deploy API key
 
 
 :::success
 **OctoPack arguments**
-Learn more about the available [OctoPack parameters](/docs/packaging-applications/nuget-packages/using-octopack.md).
+Learn more about the available [OctoPack parameters](/docs/packaging-applications/nuget-packages/using-octopack/index.md).
 :::
 
 
@@ -85,7 +85,7 @@ After running this job, and assuming OctoPack is correctly installed, your code 
 Jenkins is compiling our code and publishing packages to Octopus Deploy. If we wish, we can also have Jenkins automatically create (and optionally, deploy) a release in Octopus.
 
 
-To do this, we'll be using the [Octo.exe command line tool](/docs/api-and-integration/octo.exe-command-line.md). [Download Octo.exe](https://octopus.com/downloads), and extract it to a folder on your Jenkins server, such as `C:\Tools\Octo\Octo.exe`
+To do this, we'll be using the [Octo.exe command line tool](/docs/api-and-integration/octo.exe-command-line/index.md). [Download Octo.exe](https://octopus.com/downloads), and extract it to a folder on your Jenkins server, such as `C:\Tools\Octo\Octo.exe`
 
 
 We can call Octo.exe easily using the Jenkins **Execute Windows batch** **command** task.
@@ -112,7 +112,7 @@ Importantly:
 
 :::success
 **Octo.exe arguments**
-Learn more about [Octo.exe](/docs/api-and-integration/octo.exe-command-line.md) and the arguments it accepts.
+Learn more about [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) and the arguments it accepts.
 :::
 
 
@@ -136,7 +136,7 @@ The extra arguments being:
 
 :::success
 **Octo.exe arguments**
-Again, see the [arguments to Octo.exe](/docs/api-and-integration/octo.exe-command-line.md) to see other parameters that you can specify. If your deployment is likely to take longer than 10 minutes, for example, consider passing `--deploymenttimeout=00:20:00` to make it 20 minutes.
+Again, see the [arguments to Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) to see other parameters that you can specify. If your deployment is likely to take longer than 10 minutes, for example, consider passing `--deploymenttimeout=00:20:00` to make it 20 minutes.
 :::
 
 

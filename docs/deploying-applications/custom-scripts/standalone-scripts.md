@@ -7,7 +7,7 @@ position: 0
 Octopus also allows you to run standalone scripts as part of your deployment process. You can run a script on the Octopus Server or across the deployment targets in roles. You can run scripts contained in a package, or ad-hoc scripts you've saved as part of the step. For information about adding a step to the deployment process, see the [add step](http://docs.octopusdeploy.com/display/OD/Add+step) section.
 
 :::success
-You can use all of the features we provide for [custom scripts](/docs/deploying-applications/custom-scripts.md), like [using variables](/docs/deploying-applications/custom-scripts.md), [passing parameters](/docs/deploying-applications/custom-scripts.md), publishing [output variables](/docs/deploying-applications/custom-scripts.md) and [collecting artifacts](/docs/deploying-applications/custom-scripts.md).
+You can use all of the features we provide for [custom scripts](/docs/deploying-applications/custom-scripts/index.md), like [using variables](/docs/deploying-applications/custom-scripts/index.md), [passing parameters](/docs/deploying-applications/custom-scripts/index.md), publishing [output variables](/docs/deploying-applications/custom-scripts/index.md) and [collecting artifacts](/docs/deploying-applications/custom-scripts/index.md).
 :::
 
 
@@ -94,7 +94,7 @@ The ability to pass parameters to scripts was added in Octopus 3.4
 :::
 
 
-When you call external scripts (sourced from a file inside a package) you can pass parameters to your script. This means you can write "vanilla" scripts that are unaware of Octopus, and test them in your local development environment. Read about [passing parameters to scripts](/docs/deploying-applications/custom-scripts.md).
+When you call external scripts (sourced from a file inside a package) you can pass parameters to your script. This means you can write "vanilla" scripts that are unaware of Octopus, and test them in your local development environment. Read about [passing parameters to scripts](/docs/deploying-applications/custom-scripts/index.md).
 
 
 ![](/docs/images/5046401/5865636.png)

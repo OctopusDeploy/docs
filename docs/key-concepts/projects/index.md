@@ -4,10 +4,10 @@ position: 1
 ---
 
 
-Once you've [packaged your applications for deployment](/docs/packaging-applications.md), and defined the [environments](/docs/key-concepts/environments.md) that you are deploying to, you will need to create projects.
+Once you've [packaged your applications for deployment](/docs/packaging-applications/index.md), and defined the [environments](/docs/key-concepts/environments/index.md) that you are deploying to, you will need to create projects.
 
 
-A project is a collection of [deployment steps](/docs/deploying-applications.md) that you want Octopus and Tentacle to run, and [variables](/docs/deploying-applications/variables.md) to configure it. A project is like a recipe - you define how your software is deployed, and then you create many releases to deploy different versions of that software.
+A project is a collection of [deployment steps](/docs/deploying-applications/index.md) that you want Octopus and Tentacle to run, and [variables](/docs/deploying-applications/variables/index.md) to configure it. A project is like a recipe - you define how your software is deployed, and then you create many releases to deploy different versions of that software.
 
 ## Managing projects
 
@@ -37,7 +37,7 @@ You can create projects by clicking on the **Add project** button.
 
 ## Project permissions
 
-You can control who has access to view or edit environments, as well as who has access to deploy to environments, by assigning users to Teams and assigning roles to those teams. For more information, see the section on [managing users and teams](/docs/administration/managing-users-and-teams.md).
+You can control who has access to view or edit environments, as well as who has access to deploy to environments, by assigning users to Teams and assigning roles to those teams. For more information, see the section on [managing users and teams](/docs/administration/managing-users-and-teams/index.md).
 
 :::hint
 **Assigning projects to project groups**

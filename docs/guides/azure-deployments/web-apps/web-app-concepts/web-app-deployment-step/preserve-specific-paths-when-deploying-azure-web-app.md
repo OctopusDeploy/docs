@@ -4,7 +4,7 @@ title: Preserve Specific Paths When Deploying Azure Web App
 ---
 
 
-When configuring the[ Deploy an Azure Web App](/docs/guides/azure-deployments/web-apps/web-app-concepts/web-app-deployment-step.md) step, if you wish to set the "Remove additional files" option but preserve specific paths (i.e. other than App\_Data) you can create a variable named `Octopus.Action.Azure.PreservePaths`.
+When configuring the[ Deploy an Azure Web App](/docs/guides/azure-deployments/web-apps/web-app-concepts/web-app-deployment-step/index.md) step, if you wish to set the "Remove additional files" option but preserve specific paths (i.e. other than App\_Data) you can create a variable named `Octopus.Action.Azure.PreservePaths`.
 
 
 The value should be set to a list of regexes, delimeted by `;` that will be used to select directories and files to preserve.

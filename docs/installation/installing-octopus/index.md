@@ -7,7 +7,7 @@ position: 0
 The Octopus Deploy Server is software that you download and install on one of your own servers, just like you would install Microsoft SQL Server. The Octopus Deploy Server:
 
 - runs as a Windows Service
-- stores its data in a [SQL Server database](/docs/administration/octopus-database.md)
+- stores its data in a [SQL Server database](/docs/administration/octopus-database/index.md)
 - has an embedded HTTP server which presents the main Octopus user interface (the **Octopus Web Portal**)
 
 

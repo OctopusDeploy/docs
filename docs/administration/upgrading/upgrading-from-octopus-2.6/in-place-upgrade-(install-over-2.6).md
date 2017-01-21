@@ -84,7 +84,7 @@ To use Hydra, follow these steps:
 ![](/docs/images/3048135/3278019.png)
 3. Import the [Hydra script template](http://library.octopusdeploy.com/#!/step-template/actiontemplate-hydra-update-octopus-tentacle) from the Community Library.
 ![](/docs/images/3048135/3278018.png)
-4. Create a [new project](/docs/key-concepts/projects.md) with a single "Update Octopus Tentacle" step from the step template
+4. Create a [new project](/docs/key-concepts/projects/index.md) with a single "Update Octopus Tentacle" step from the step template
 
 
  1. Ensure you choose or create a [Lifecycle ](/docs/key-concepts/lifecycles.md)that allows you to deploy to all Tentacles.
@@ -136,7 +136,7 @@ When upgrading to Octopus 3.x please use the latest version available. We have b
 :::
 
 
-See the [Installing Octopus 3.x](/docs/installation/installing-octopus.md) page for instructions on installing a new Octopus 3.x instance.
+See the [Installing Octopus 3.x](/docs/installation/installing-octopus/index.md) page for instructions on installing a new Octopus 3.x instance.
 
 
 After installing the MSI, you will be presented with an upgrade page.

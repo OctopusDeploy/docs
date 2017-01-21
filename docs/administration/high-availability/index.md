@@ -19,7 +19,7 @@ These run the Octopus Server windows service. They serve user traffic and orches
 - **A database**
 Most data used by the Octopus Server nodes is stored in this database.
 - **Shared storage**
-Some larger files - like [NuGet packages](/docs/packaging-applications/package-repositories.md), artifacts, and deployment task logs - aren't suitable to be stored in the database, and so must be stored in a shared folder available to all nodes.
+Some larger files - like [NuGet packages](/docs/packaging-applications/package-repositories/index.md), artifacts, and deployment task logs - aren't suitable to be stored in the database, and so must be stored in a shared folder available to all nodes.
 
 
 # Setting up Octopus: High Availability

@@ -54,7 +54,7 @@ The job of Octopus, then, is to take these packages and push them to the machine
 Download the latest [Octopus Deploy MSI installer](https://octopus.com/downloads) from the Octopus Deploy website, and follow the instructions.
 
 :::hint
-For more information, including a video walkthrough, see the [Installing Octopus](/docs/installation/installing-octopus.md) section.
+For more information, including a video walkthrough, see the [Installing Octopus](/docs/installation/installing-octopus/index.md) section.
 :::
 
 
@@ -84,7 +84,7 @@ Next, you'll need to add environments to deploy to. Environments are really just
 ![](/docs/images/3048178/3278205.png)
 
 :::hint
-Learn more on the [Environments](/docs/key-concepts/environments.md) page.
+Learn more on the [Environments](/docs/key-concepts/environments/index.md) page.
 :::
 
 # Add machines to your environments
@@ -96,7 +96,7 @@ On each of the web or application servers that you plan to deploy software to, y
 ![](/docs/images/3048178/3278206.png)
 
 :::hint
-See how on the [Installing Tentacles](/docs/installation/installing-tentacles.md) page. Depending on network/firewall configuration, Tentacles can be installed in [listening](/docs/installation/installing-tentacles/listening-tentacles.md) (Octopus calls Tentacle) or [polling](/docs/installation/installing-tentacles/polling-tentacles.md) (Tentacle polls Octopus) mode. If you have many machines to manage, you can [install Tentacles automatically](/docs/installation/installing-tentacles/automating-tentacle-installation.md).
+See how on the [Installing Tentacles](/docs/installation/installing-tentacles/index.md) page. Depending on network/firewall configuration, Tentacles can be installed in [listening](/docs/installation/installing-tentacles/listening-tentacles.md) (Octopus calls Tentacle) or [polling](/docs/installation/installing-tentacles/polling-tentacles.md) (Tentacle polls Octopus) mode. If you have many machines to manage, you can [install Tentacles automatically](/docs/installation/installing-tentacles/automating-tentacle-installation.md).
 :::
 
 # Package your applications for deployment
@@ -105,7 +105,7 @@ See how on the [Installing Tentacles](/docs/installation/installing-tentacles.md
 Whenever you want to deploy applications with Octopus, you'll need to package them into NuGet packages. There are three ways to do this:
 
 - Create packages [manually using NuGet Package Explorer](/docs/packaging-applications/nuget-packages/manually.md); or,
-- Create packages [using OctoPack](/docs/packaging-applications/nuget-packages/using-octopack.md) via MSBuild; or,
+- Create packages [using OctoPack](/docs/packaging-applications/nuget-packages/using-octopack/index.md) via MSBuild; or,
 - Create packages [from the command line using NuGet.exe](/docs/packaging-applications/nuget-packages/using-nuget.exe.md)
 
 
@@ -121,7 +121,7 @@ Projects define a set of deployment steps that you want Octopus to perform, and 
 ![](/docs/images/3048178/3278204.png)
 
 :::hint
-Learn more about [creating projects](/docs/key-concepts/projects.md).
+Learn more about [creating projects](/docs/key-concepts/projects/index.md).
 :::
 
 # Define your deployment process
@@ -132,7 +132,7 @@ The **Process** tab within your project defines how your project will be deploye
 - To deploy changes to a SQL Server database, see [SQL Server databases](/docs/deploying-applications/sql-server-databases.md)
 - To deploy an ASP.NET web site to an IIS server, see [IIS Websites and Application Pools](/docs/deploying-applications/iis-websites-and-application-pools.md)
 - To install or configure a Windows Service, see [Windows Services](/docs/deploying-applications/windows-services.md)
-- For custom or advanced installation actions, see [Custom scripts](/docs/deploying-applications/custom-scripts.md)
+- For custom or advanced installation actions, see [Custom scripts](/docs/deploying-applications/custom-scripts/index.md)
 - To pause deployment for a human to approve or perform an action, see [Manual intervention and approvals](/docs/deploying-applications/manual-intervention-and-approvals.md)
 
 
@@ -140,7 +140,7 @@ The **Process** tab within your project defines how your project will be deploye
 ![](/docs/images/3048178/3278203.png)
 
 
-Chances are, you'll need to configure your application differently depending on the what you are deploying to (for example, different connection strings in staging vs. production). Octopus has advanced support for managing these [variables](/docs/deploying-applications/variables.md) and scoping them, and can even manage passwords securely. Octopus can also take care of automatically [updating your .NET configuration files, and running configuration file transforms](/docs/deploying-applications/configuration-files.md).
+Chances are, you'll need to configure your application differently depending on the what you are deploying to (for example, different connection strings in staging vs. production). Octopus has advanced support for managing these [variables](/docs/deploying-applications/variables/index.md) and scoping them, and can even manage passwords securely. Octopus can also take care of automatically [updating your .NET configuration files, and running configuration file transforms](/docs/deploying-applications/configuration-files/index.md).
 
 # Create a release and deploy it
 
@@ -174,5 +174,5 @@ The deployment page shows you a log of all the activity that happens during the 
 Congratulations, you've deployed a release! You might want to look at:
 
 - Triggering deployments from [TeamCity](/docs/api-and-integration/teamcity.md) or [TFS](/docs/api-and-integration/team-foundation-server-(tfs).md)
-- [Inviting other users and adding them to teams](/docs/administration/managing-users-and-teams.md)
+- [Inviting other users and adding them to teams](/docs/administration/managing-users-and-teams/index.md)
 - The comprehensive [Octopus Deploy REST API](/docs/api-and-integration/octopus-rest-api.md) and C# client

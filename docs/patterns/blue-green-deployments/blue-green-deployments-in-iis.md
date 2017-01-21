@@ -36,7 +36,7 @@ Every scenario is slightly different which is why this page is written more as a
 
 The general steps for this kind of deployment would be:
 
-1. Use a [custom script](/docs/deploying-applications/custom-scripts.md) step to calculate a new port number so we can configure a binding you can use to warm up the new instance of your application. See this [blog post](https://octopus.com/blog/changing-website-port-on-each-deployment) for more details.
+1. Use a [custom script](/docs/deploying-applications/custom-scripts/index.md) step to calculate a new port number so we can configure a binding you can use to warm up the new instance of your application. See this [blog post](https://octopus.com/blog/changing-website-port-on-each-deployment) for more details.
  1. The new port number should end up in a variable like **`#{Octopus.Action[Calculate port number].Output.Port}`**
 2. Use the [IIS Websites and Application Pools](/docs/deploying-applications/iis-websites-and-application-pools.md) step to deploy a new instance of your web application into a new Web Site and Application Pool
  1. Use an expression like `MyApp-#{``Octopus.Release.CurrentForEnvironment.Number}` for the Web Site Name and Application Pool Name

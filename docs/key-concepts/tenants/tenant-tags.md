@@ -10,7 +10,7 @@ In Octopus, tenant tags help you to classify your tenants using custom tags that
 Octopus allows you to group grouped similar tags together into tag sets. This enables you to more easily understand which tags fit together, what effect they should have on tenanted deployments, and design powerful tag-based queries using combinations of tags.
 
 :::success
-Have you read [our guide](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide.md) on multi-tenant deployments yet? There is a section dedicated to [working with groups of tenants using tags](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md).
+Have you read [our guide](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/index.md) on multi-tenant deployments yet? There is a section dedicated to [working with groups of tenants using tags](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md).
 :::
 
 
@@ -121,6 +121,6 @@ Consider an example deploying a release to the tenants tagged with the **Early 
 
 Some places you can use tags are:
 
-- When deploying releases of your projects using one of the [build server integrations](/docs/api-and-integration.md) or [octo.exe](/docs/api-and-integration/octo.exe-command-line/deploying-releases.md) - [read more in our guide](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md)
+- When deploying releases of your projects using one of the [build server integrations](/docs/api-and-integration/index.md) or [octo.exe](/docs/api-and-integration/octo.exe-command-line/deploying-releases.md) - [read more in our guide](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md)
 - Scoping a deployment target to one or more tenants when registering a new Tentacle - [read more in our guide](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md)
 - When automating Octopus via the [Octopus REST API](/docs/api-and-integration/octopus-rest-api.md)

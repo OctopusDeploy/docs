@@ -58,7 +58,7 @@ For more information refer to the [Project Kudu documentation on Web Jobs](http
 ## Step 1: Packaging
 
 
-Your application should be packaged into a [supported package](/docs/packaging-applications.md) where the contents of the package will be synchronized with the Azure Web App via Web Deploy. Your package should include any content and binaries for your Web Site and any Web Jobs using the same folder structure that is expected by the Azure Web App hosting environment.
+Your application should be packaged into a [supported package](/docs/packaging-applications/index.md) where the contents of the package will be synchronized with the Azure Web App via Web Deploy. Your package should include any content and binaries for your Web Site and any Web Jobs using the same folder structure that is expected by the Azure Web App hosting environment.
 
 **Example Azure Web App package with Web Jobs**
 
@@ -83,7 +83,7 @@ Your application should be packaged into a [supported package](/docs/packaging-
 ```
 
 
-A really convenient way to package Web Apps is [using OctoPack](/docs/packaging-applications/nuget-packages/using-octopack.md). Here's a simplified example that would build the package discussed above.
+A really convenient way to package Web Apps is [using OctoPack](/docs/packaging-applications/nuget-packages/using-octopack/index.md). Here's a simplified example that would build the package discussed above.
 
 **MyWebApp.nuspec**
 
@@ -186,9 +186,9 @@ Any of the settings above can be switched to use a variable binding expression. 
 
 The following features are available when deploying a package to an Azure Web App.
 
-- [Custom Scripts](/docs/deploying-applications/custom-scripts.md)
-- [Configuration Variables](/docs/deploying-applications/configuration-files.md)
-- [Configuration Transforms](/docs/deploying-applications/configuration-files.md)
+- [Custom Scripts](/docs/deploying-applications/custom-scripts/index.md)
+- [Configuration Variables](/docs/deploying-applications/configuration-files/index.md)
+- [Configuration Transforms](/docs/deploying-applications/configuration-files/index.md)
 - [Substitute variables in files](/docs/reference/variable-substitution-syntax.md)
 
 
@@ -197,7 +197,7 @@ Please note these features actually run on the Octopus Server prior to executing
 :::
 
 :::hint
-For your convenience the PowerShell session for your [custom scripts](/docs/deploying-applications/custom-scripts.md) will have the Azure PowerShell module loaded, and the subscription from the account associated with the target will be selected. This means you don't have to worry about loading the Azure PowerShell module nor authenticate with Azure yourself. See the [Azure Powershell documentation](/docs/guides/azure-deployments/running-azure-powershell.md) for more information. You can write very straightforward scripts like the example below which is from our [guide on using deployment slots with Azure Web Apps](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps.md):
+For your convenience the PowerShell session for your [custom scripts](/docs/deploying-applications/custom-scripts/index.md) will have the Azure PowerShell module loaded, and the subscription from the account associated with the target will be selected. This means you don't have to worry about loading the Azure PowerShell module nor authenticate with Azure yourself. See the [Azure Powershell documentation](/docs/guides/azure-deployments/running-azure-powershell/index.md) for more information. You can write very straightforward scripts like the example below which is from our [guide on using deployment slots with Azure Web Apps](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps.md):
 
 ```powershell
 #Swap the staging slot into production
@@ -210,12 +210,12 @@ Switch-AzureWebsiteSlot -Name #{WebSite} -Slot1 Staging -Slot2 Production -Force
 
 Deployment to an Azure Web App proceeds as follows (more details provided below):
 
-1. Download the package from the [package repository](/docs/packaging-applications/package-repositories.md)
+1. Download the package from the [package repository](/docs/packaging-applications/package-repositories/index.md)
 2. Extract the package on the Octopus server to a temporary location
 3. Any configured or packaged `PreDeploy` scripts are executed
 4. [Substitute variables in files ](/docs/deploying-applications/substitute-variables-in-files.md)(if configured)
-5. [XML configuration transformations](/docs/deploying-applications/configuration-files.md) (if configured) are performed
-6. [XML configuration variables](/docs/deploying-applications/configuration-files.md) (if configured) are replaced
+5. [XML configuration transformations](/docs/deploying-applications/configuration-files/index.md) (if configured) are performed
+6. [XML configuration variables](/docs/deploying-applications/configuration-files/index.md) (if configured) are replaced
 7. Any configured or package `Deploy` scripts are executed
 8. Execute web deploy to synchronize the resultant files in the temporary location to the web app host
 9. Any configured or packaged `PostDeploy` scripts are executed

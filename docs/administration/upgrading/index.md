@@ -15,7 +15,7 @@ There are lots of improvements and changes between Octopus 1.X, Octopus 2.X and 
 
 - [Upgrading from Octopus 1.6](/docs/administration/upgrading/upgrading-from-octopus-1.6.md)
 - [Upgrading from Octopus 2.0](/docs/administration/upgrading/upgrading-from-octopus-2.0.md)
-- [Upgrading from Octopus 2.6](/docs/administration/upgrading/upgrading-from-octopus-2.6.md)
+- [Upgrading from Octopus 2.6](/docs/administration/upgrading/upgrading-from-octopus-2.6/index.md)
 - [Upgrading from Octopus 3.x](/docs/administration/upgrading/upgrading-from-octopus-3.x.md)
 
 

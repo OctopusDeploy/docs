@@ -44,7 +44,7 @@ For pushing packages using the methods described below you'll need:
 ## Using your build server
 
 
-We have built integrations/plugins/extensions for the most popular build servers. You can read more about [integrating Octopus Deploy with your build server](/docs/api-and-integration.md). In most cases you simply provide the build server with the URL to your Octopus Server and an [Octopus API key](/docs/how-to/how-to-create-an-api-key.md) with the required permissions  (see [security considerations](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md)).
+We have built integrations/plugins/extensions for the most popular build servers. You can read more about [integrating Octopus Deploy with your build server](/docs/api-and-integration/index.md). In most cases you simply provide the build server with the URL to your Octopus Server and an [Octopus API key](/docs/how-to/how-to-create-an-api-key.md) with the required permissions  (see [security considerations](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md)).
 
 ## Using Octo.exe
 
@@ -85,7 +85,7 @@ If you're using a continuous integration server like TeamCity to produce package
 ## Using npm.exe, grunt or gulp
 
 
-You can upload packages using npm.exe or using our grunt or gulp tasks. Take a look at our [guide for packaging and deploying Node.js applications using Octopus Deploy](/docs/guides/node-on-nix-deployments.md).
+You can upload packages using npm.exe or using our grunt or gulp tasks. Take a look at our [guide for packaging and deploying Node.js applications using Octopus Deploy](/docs/guides/node-on-nix-deployments/index.md).
 
 ## Using curl
 

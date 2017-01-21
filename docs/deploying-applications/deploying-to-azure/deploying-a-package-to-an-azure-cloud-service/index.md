@@ -26,7 +26,7 @@ Octopus Deploy supports deployment of [Azure Cloud Services](http://azure.micros
 ## Step 1: Packaging
 
 
-An Azure cloud service package is normally compiled into a `.cspkg` file. This file will need to be [re-packed into a supported package](/docs/packaging-applications.md) for Octopus to consume. The easiest way to do this currently is to either create a simple zip file or use the [NuGet.exe command line tool](/docs/packaging-applications/nuget-packages/using-nuget.exe.md). For example, the resulting NuGet package will look like this:
+An Azure cloud service package is normally compiled into a `.cspkg` file. This file will need to be [re-packed into a supported package](/docs/packaging-applications/index.md) for Octopus to consume. The easiest way to do this currently is to either create a simple zip file or use the [NuGet.exe command line tool](/docs/packaging-applications/nuget-packages/using-nuget.exe.md). For example, the resulting NuGet package will look like this:
 
 
 ![](/docs/images/3048662/3278363.png)
@@ -84,9 +84,9 @@ Any of the settings above can be switched to use a variable binding expression. 
 
 The following features are available when deploying a package to an Azure Cloud Service:
 
-- [Custom Scripts](/docs/deploying-applications/custom-scripts.md)
-- [Configuration Variables](/docs/deploying-applications/configuration-files.md)
-- [Configuration Transforms](/docs/deploying-applications/configuration-files.md)
+- [Custom Scripts](/docs/deploying-applications/custom-scripts/index.md)
+- [Configuration Variables](/docs/deploying-applications/configuration-files/index.md)
+- [Configuration Transforms](/docs/deploying-applications/configuration-files/index.md)
 - [Substitute variables in files](/docs/reference/variable-substitution-syntax.md)
 
 
@@ -95,7 +95,7 @@ Please note these features actually run on the Octopus Server prior to deploying
 :::
 
 :::hint
-For your convenience the PowerShell session for your [custom scripts](/docs/deploying-applications/custom-scripts.md) will have the Azure PowerShell module loaded, and the subscription from the account associated with the target will be selected. This means you don't have to worry about loading the Azure PowerShell module nor authenticate with Azure yourself. See the [Azure Powershell documentation](/docs/guides/azure-deployments/running-azure-powershell.md) for more information. You can write very straightforward scripts like the example below:
+For your convenience the PowerShell session for your [custom scripts](/docs/deploying-applications/custom-scripts/index.md) will have the Azure PowerShell module loaded, and the subscription from the account associated with the target will be selected. This means you don't have to worry about loading the Azure PowerShell module nor authenticate with Azure yourself. See the [Azure Powershell documentation](/docs/guides/azure-deployments/running-azure-powershell/index.md) for more information. You can write very straightforward scripts like the example below:
 
 ```powershell
 #Swap the staging slot into production
@@ -117,14 +117,14 @@ if ($Deployment -ne $null -AND $Deployment.DeploymentId  -ne $null) {
 
 Deployment to an Azure Cloud Service proceeds as follows (more details provided below):
 
-1. Download the package from the [package repository](/docs/packaging-applications/package-repositories.md)
+1. Download the package from the [package repository](/docs/packaging-applications/package-repositories/index.md)
 2. Extract the package on the Octopus server to a temporary location
 3. Extract the Cloud Service package (`.cspkg`) to a temporary location
 4. Any configured or packaged `PreDeploy` scripts are executed
 5. Variable substitutions in Cloud Service configuration file (`.cscfg`)
 6. [Substitute variables in files](/docs/deploying-applications/substitute-variables-in-files.md) (if configured)
-7. [XML configuration transformations](/docs/deploying-applications/configuration-files.md) (if configured) are performed
-8. [XML configuration variables](/docs/deploying-applications/configuration-files.md) (if configured) are replaced
+7. [XML configuration transformations](/docs/deploying-applications/configuration-files/index.md) (if configured) are performed
+8. [XML configuration variables](/docs/deploying-applications/configuration-files/index.md) (if configured) are replaced
 9. Any configured or package `Deploy` scripts are executed
 10. Re-package the Cloud Service Package
 11. Upload the Cloud Service Package to Azure Storage

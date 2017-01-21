@@ -4,27 +4,27 @@ position: 23
 ---
 
 
-Automatic Deployment Triggers (also known as auto-deploy) allow you to define an unattended behavior for your [Projects](/docs/key-concepts/projects.md) that will cause an automatic deployment of a [Release](/docs/key-concepts/projects/releases.md) into an [Environment](/docs/key-concepts/environments.md).
+Automatic Deployment Triggers (also known as auto-deploy) allow you to define an unattended behavior for your [Projects](/docs/key-concepts/projects/index.md) that will cause an automatic deployment of a [Release](/docs/key-concepts/projects/releases.md) into an [Environment](/docs/key-concepts/environments/index.md).
 
 :::hint
 Automatic Deployment Triggers were introduced in Octopus Deploy 3.4.
 :::
 
 :::success
-We have written a [comprehensive guide](/docs/guides/elastic-and-transient-environments.md) about using Automatic Deployment Triggers with a focus on deploying to elastic and transient environments. Lots of our customers who deploy into elastic or transient environments were building custom scripts to achieve a similar result.
+We have written a [comprehensive guide](/docs/guides/elastic-and-transient-environments/index.md) about using Automatic Deployment Triggers with a focus on deploying to elastic and transient environments. Lots of our customers who deploy into elastic or transient environments were building custom scripts to achieve a similar result.
 :::
 
 
 Automatic Deployment Triggers can help you:
 
-- [Elastically scale a farm of servers](/docs/guides/elastic-and-transient-environments.md)
+- [Elastically scale a farm of servers](/docs/guides/elastic-and-transient-environments/index.md)
 - [Automatically keep your deployment targets up to date](/docs/guides/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md) without needing to perform manual deployments
 - [Deploy to transient deployment targets](/docs/guides/elastic-and-transient-environments/deploying-to-transient-targets.md) (targets that are disconnected from time to time)
 - [Implement immutable infrastructure environments](/docs/guides/elastic-and-transient-environments/immutable-infrastructure.md) (sometimes called "Phoenix Environments")
 
 
 
-On the surface Automatic Deployments appear to be simple, however they can grow complex very quickly and we recommend reading our [Elastic and Transient Environments](/docs/guides/elastic-and-transient-environments.md) guide before getting started with your own implementation.
+On the surface Automatic Deployments appear to be simple, however they can grow complex very quickly and we recommend reading our [Elastic and Transient Environments](/docs/guides/elastic-and-transient-environments/index.md) guide before getting started with your own implementation.
 
 :::success
 The fundamental design of Automatic Deployments revolves around "configuring new deployment targets to be just like their counterparts".
@@ -133,7 +133,7 @@ The best way to answer this is to look at your dashboard or project overview. By
 ![](/docs/images/5671191/5865836.png?effects=drop-shadow)
 
 
-You can override this behavior by configuring an [Auto Deploy Override](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides.md).
+You can override this behavior by configuring an [Auto Deploy Override](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/index.md).
 
 ### Which steps will be run during automatic deployments?
 
@@ -195,7 +195,7 @@ Those steps will be skipped in automatic deployments as well. This decision is b
 We generally recommend running full deployments, and only skipping steps and/or choosing specific deployment targets when absolutely necessary. If you need to run a deployment choosing to skip some steps, there are two ways you can reset the skipped steps:
 
 1. Re-running the entire deployment of the same Release again (we generally recommend designing your steps so they can be re-run without negative side-effects)
-2. Configuring an [Auto Deploy Override](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides.md) for the same Release to the same Environment/Tenant (this will result in a new deployment being generated without the manually skipped steps)
+2. Configuring an [Auto Deploy Override](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/index.md) for the same Release to the same Environment/Tenant (this will result in a new deployment being generated without the manually skipped steps)
 
 
 
@@ -211,7 +211,7 @@ If a deployment of a release to an environment fails for any reason (including c
 To unblock automatic deployments you can either:
 
 1. Perform a successful manual deployment so the current deployment on the dashboard is successful
-2. Configure an [Auto Deploy Override](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides.md) to override the default behavior and force a deployment of the selected release
+2. Configure an [Auto Deploy Override](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/index.md) to override the default behavior and force a deployment of the selected release
 
 
 :::success
@@ -258,12 +258,12 @@ The [Chain Deployment](https://library.octopusdeploy.com/step-template/actiontem
 ### Can I choose a Release that hasn't been deployed yet?
 
 
-Yes! You can configure an [Auto Deploy Override](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides.md) to override the default automatic deployment behavior. This is really useful for scenarios like [Immutable Infrastructure](/docs/guides/elastic-and-transient-environments/immutable-infrastructure.md) or [Deploying to transient targets](/docs/guides/elastic-and-transient-environments/deploying-to-transient-targets.md).
+Yes! You can configure an [Auto Deploy Override](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/index.md) to override the default automatic deployment behavior. This is really useful for scenarios like [Immutable Infrastructure](/docs/guides/elastic-and-transient-environments/immutable-infrastructure.md) or [Deploying to transient targets](/docs/guides/elastic-and-transient-environments/deploying-to-transient-targets.md).
 
 ### Octopus is choosing the wrong Release, can I force it?
 
 
-Yes. If Octopus is calculating the wrong release for a particular situation you can configure an [Auto Deploy Overrides](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides.md) to force automatic deployments to use a specific release for a specific environment/tenant.
+Yes. If Octopus is calculating the wrong release for a particular situation you can configure an [Auto Deploy Overrides](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/index.md) to force automatic deployments to use a specific release for a specific environment/tenant.
 
 ### Can I be notified of Automatic Deployment events (like blockages or failures)?
 
@@ -290,7 +290,7 @@ Octopus will attempt to automatically deploy the current releases for the enviro
 
 
 
-You will need you to complete a successful deployment again before auto-deployments can continue for the given release, or configure an [Auto Deploy Override](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides.md).
+You will need you to complete a successful deployment again before auto-deployments can continue for the given release, or configure an [Auto Deploy Override](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/index.md).
 
 ### Investigate the diagnostic logs
 

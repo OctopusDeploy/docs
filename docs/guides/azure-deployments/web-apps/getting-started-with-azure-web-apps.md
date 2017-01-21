@@ -15,7 +15,7 @@ In order to complete this guide you will need to have an Azure account and creat
 You will need a NuGet package containing the web application that you want to deploy. Here is one we prepared earlier that you can use for this guide: [HelloWeb.1.0.0.nupkg](https://download.octopusdeploy.com/demo/HelloWeb.1.0.0.nupkg)
 
 
-Upload your NuGet package to the Octopus [built-in package repository](/docs/packaging-applications/package-repositories.md):
+Upload your NuGet package to the Octopus [built-in package repository](/docs/packaging-applications/package-repositories/index.md):
 
 
 ![](/docs/images/3049356/3278535.png)

@@ -49,11 +49,11 @@ To make integrating with TeamCity easy, a [plugin is available](https://octopus
 ## Creating Octopus-compatible NuGet packages using TeamCity
 
 
-Octopus requires that you package your applications into NuGet packages, whether or not you are using TeamCity. There are many ways to create [Octopus-compatible NuGet packages](/docs/packaging-applications.md), but the easiest way is with [OctoPack](https://github.com/OctopusDeploy/OctoPack).
+Octopus requires that you package your applications into NuGet packages, whether or not you are using TeamCity. There are many ways to create [Octopus-compatible NuGet packages](/docs/packaging-applications/index.md), but the easiest way is with [OctoPack](https://github.com/OctopusDeploy/OctoPack).
 
 :::hint
 **Using OctoPack**
-For more information on using OctoPack to create NuGet packages, see [using OctoPack](/docs/packaging-applications/nuget-packages/using-octopack.md).
+For more information on using OctoPack to create NuGet packages, see [using OctoPack](/docs/packaging-applications/nuget-packages/using-octopack/index.md).
 :::
 
 
@@ -150,7 +150,7 @@ Promotes an *existing*release from one environment to another.
 
 
 
-The plugin is simply a wrapper for [Octo.exe](/docs/api-and-integration/octo.exe-command-line.md), the Octopus command line tool for creating and deploying releases.
+The plugin is simply a wrapper for [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md), the Octopus command line tool for creating and deploying releases.
 
 
 ![](/docs/images/3048176/3278185.jpg)

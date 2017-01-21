@@ -12,7 +12,7 @@ This page describes how to use [tenant tags](/docs/key-concepts/tenants/tenant-
 ## Classifying and working with groups of tenants
 
 
-Working with a small number of tenants is quite easy, they all fit on one page, and you can tailor deployments for your projects and environments based in individual tenants. Working with a lot of tenants (we hope all of our customers are this successful!) is much harder if you try to tailor everything based on individual tenants. This is where it makes sense to work with tenants in aggregate, just like [environments](/docs/key-concepts/environments.md) and [machine roles](/docs/key-concepts/machine-roles.md) let you work with machines in aggregate instead of individually.
+Working with a small number of tenants is quite easy, they all fit on one page, and you can tailor deployments for your projects and environments based in individual tenants. Working with a lot of tenants (we hope all of our customers are this successful!) is much harder if you try to tailor everything based on individual tenants. This is where it makes sense to work with tenants in aggregate, just like [environments](/docs/key-concepts/environments/index.md) and [machine roles](/docs/key-concepts/machine-roles.md) let you work with machines in aggregate instead of individually.
 
 
 Consider the example of setting up new infrastructure as a shared host for multiple tenants: Instead of specifying each tenant by their name, you could tag each tenant as belonging to a shared pool, and add that single tag to each deployment target in the pool. You can [jump ahead in our guide](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md) if this is of interest to you.
