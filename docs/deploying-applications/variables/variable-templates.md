@@ -7,7 +7,7 @@ position: 7
 This page describes how variable templates can be defined in Octopus to indicate which variable values are required to successfully deploy a project.
 
 :::hint
-Variable templates were introduced in Octopus 3.4 and are currently able to be used to require variable values from [tenants](/docs/home/key-concepts/tenants.md). You can see a worked example of this in our multi-tenant deployments guide: [Working with tenant-specific variables](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-tenant-specific-variables.md)
+Variable templates were introduced in Octopus 3.4 and are currently able to be used to require variable values from [tenants](/docs/key-concepts/tenants.md). You can see a worked example of this in our multi-tenant deployments guide: [Working with tenant-specific variables](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-tenant-specific-variables.md)
 :::
 
 
@@ -30,7 +30,7 @@ Variable templates let you configure variables that are required to successfully
 | --- | --- | --- |
 | Help text | The descriptive help text that will be displayed to provide the user with enough information to accurately provide the value. | A shortened, URL friendly, version of the tenant's name. |
 | --- | --- | --- |
-| Default value | The value that will be given to the variable if an actual value is not provided. The default value can contain [variable binding expressions](/docs/home/deploying-applications/variables/binding-syntax.md). | `https://#{Tenant.Alias}.myapp.com` |
+| Default value | The value that will be given to the variable if an actual value is not provided. The default value can contain [variable binding expressions](/docs/deploying-applications/variables/binding-syntax.md). | `https://#{Tenant.Alias}.myapp.com` |
 | --- | --- | --- |
 | Data type | 
 

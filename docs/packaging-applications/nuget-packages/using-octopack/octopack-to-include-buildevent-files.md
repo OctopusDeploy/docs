@@ -4,7 +4,7 @@ position: 1
 ---
 
 
-The [Using OctoPack](/docs/home/packaging-applications/nuget-packages/using-octopack.md) documentation page gives you all the details of how to add OctoPack to your Visual Studio solution and use MsBuild to package your solution into a NuGet package.
+The [Using OctoPack](/docs/packaging-applications/nuget-packages/using-octopack.md) documentation page gives you all the details of how to add OctoPack to your Visual Studio solution and use MsBuild to package your solution into a NuGet package.
 
 
 This page will give an example of extending the use of OctoPack when you have a PostBuild event in Visual Studio and want to include files that are not specifically part of your build, such as files that have been moved using Xcopy.

@@ -29,7 +29,7 @@ To deploy an IIS Web Site, add a *Deploy an IIS Web Site* step. For informati
 
 :::hint
 **Pre Octopus 3.4.7**
-The *Deploy an IIS Web Site Step* was introduced in Octopus version **3.4.7**. Prior to this IIS Web Sites were deployed by enabling the *IIS web site and application pool* feature on a [Deploy a Package Step](/docs/home/deploying-applications/deploying-packages.md).
+The *Deploy an IIS Web Site Step* was introduced in Octopus version **3.4.7**. Prior to this IIS Web Sites were deployed by enabling the *IIS web site and application pool* feature on a [Deploy a Package Step](/docs/deploying-applications/deploying-packages.md).
 
 
 ![](/docs/images/3048088/3277713.png)
@@ -38,16 +38,16 @@ The *Deploy an IIS Web Site Step* was introduced in Octopus version **3.4.7**
 ## Select a Package
 
 
-Use the *Package Feed* and *Package ID* fields to select the [package](/docs/home/packaging-applications.md) containing the web site content.
+Use the *Package Feed* and *Package ID* fields to select the [package](/docs/packaging-applications.md) containing the web site content.
 
 ## Deployment Type
 
 
 There are three options for how the Web Site is deployed:
 
-- [Web Site](/docs/home/deploying-applications/iis-websites-and-application-pools.md)
-- [Virtual Directory](/docs/home/deploying-applications/iis-websites-and-application-pools.md)
-- [Web Application](/docs/home/deploying-applications/iis-websites-and-application-pools.md)
+- [Web Site](/docs/deploying-applications/iis-websites-and-application-pools.md)
+- [Virtual Directory](/docs/deploying-applications/iis-websites-and-application-pools.md)
+- [Web Application](/docs/deploying-applications/iis-websites-and-application-pools.md)
 
 
 :::success
@@ -162,7 +162,7 @@ The physical path on disk this Virtual Directory will point to
 
 
 :::success
-The Virtual Path and Physical Path do not need to match which is one of the true benefits of IIS. You can create a virtual mapping from a URL to a completely unrelated physical path on disk. See [below](/docs/home/deploying-applications/iis-websites-and-application-pools.md) for more details.
+The Virtual Path and Physical Path do not need to match which is one of the true benefits of IIS. You can create a virtual mapping from a URL to a completely unrelated physical path on disk. See [below](/docs/deploying-applications/iis-websites-and-application-pools.md) for more details.
 :::
 
 ### Deploy IIS Web Application
@@ -184,7 +184,7 @@ The IIS Web Application step requires a parent Web Site to exist in IIS before i
 ![](/docs/images/3048088/5865720.png)
 
 :::success
-The Virtual Path and Physical Path do not need to match which is one of the true benefits of IIS. You can create a virtual mapping from a URL to a completely unrelated physical path on disk. See [below](/docs/home/deploying-applications/iis-websites-and-application-pools.md) for more details.
+The Virtual Path and Physical Path do not need to match which is one of the true benefits of IIS. You can create a virtual mapping from a URL to a completely unrelated physical path on disk. See [below](/docs/deploying-applications/iis-websites-and-application-pools.md) for more details.
 :::
 
 | Field | Meaning | Examples | Notes |
@@ -244,22 +244,22 @@ Which account the Application Pool will run under.
 ## How Octopus Deploys your Web Site
 
 
-Out of the box, Octopus will do the right thing to deploy your Web Site using IIS, and the conventions we have chosen will eliminate a lot of problems with file locks, leaving stale files behind, and causing multiple Application Pool restarts. By default Octopus will follow the conventions described in [Deploying packages](/docs/home/deploying-applications/deploying-packages.md) and apply the different features you select in the order described in [Package deployment feature ordering](/docs/home/reference/package-deployment-feature-ordering.md).
+Out of the box, Octopus will do the right thing to deploy your Web Site using IIS, and the conventions we have chosen will eliminate a lot of problems with file locks, leaving stale files behind, and causing multiple Application Pool restarts. By default Octopus will follow the conventions described in [Deploying packages](/docs/deploying-applications/deploying-packages.md) and apply the different features you select in the order described in [Package deployment feature ordering](/docs/reference/package-deployment-feature-ordering.md).
 
 :::success
-Avoid using the [Custom Installation Directory](/docs/home/deploying-applications/custom-installation-directory.md) feature unless you are absolutely required to put your packaged files into a specific physical location on disk.
+Avoid using the [Custom Installation Directory](/docs/deploying-applications/custom-installation-directory.md) feature unless you are absolutely required to put your packaged files into a specific physical location on disk.
 :::
 
 
 As an approximation including the IIS integration:
 
-1. Acquire the package as optimally as possible (local package cache and [delta compression](/docs/home/deploying-applications/delta-compression-for-package-transfers.md))
+1. Acquire the package as optimally as possible (local package cache and [delta compression](/docs/deploying-applications/delta-compression-for-package-transfers.md))
 2. Create a new folder for the deployment (which avoids many common problems like file locks, leaving stale files behind, and multiple Application Pool restarts)
  1. Example: `C:\Octopus\Applications\[Tenant name]\[Environment name]\[Package name]\[Package version]\` where `C:\Octopus\Applications` is the Tentacle application directory you configured when installing Tentacle)
 3. Extract the package into the newly created folder
-4. Execute each of your [custom scripts](/docs/home/deploying-applications/custom-scripts.md) and the [deployment features](/docs/home/deploying-applications.md) you've configured will be executed to perform the deployment [following this order by convention](/docs/home/reference/package-deployment-feature-ordering.md).
+4. Execute each of your [custom scripts](/docs/deploying-applications/custom-scripts.md) and the [deployment features](/docs/deploying-applications.md) you've configured will be executed to perform the deployment [following this order by convention](/docs/reference/package-deployment-feature-ordering.md).
  1. As part of this process the IIS Web Site, Web Application or Virtual Directory will be configured in a single transaction with IIS, including updating the Physical Path to point to this folder
-5. [Output variables](/docs/home/deploying-applications/variables/output-variables.md) and deployment [artifacts](/docs/home/deploying-applications/artifacts.md) from this step are sent back to the Octopus Server
+5. [Output variables](/docs/deploying-applications/variables/output-variables.md) and deployment [artifacts](/docs/deploying-applications/artifacts.md) from this step are sent back to the Octopus Server
 
 
 :::success

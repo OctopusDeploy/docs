@@ -6,7 +6,7 @@ position: 1
 
 When creating a container or network via one of the new Docker steps, you may wish to use details of the resulting resource in a subsequent step. All information about the networking configuration, volumes, environment variable and hardware resource allocation can be obtained for the container via the `docker inspect` command and similar information for the network via the `docker network inspect` command.
 
-To allow access to this information Octopus invokes this command right after creating a container (or network) which results in a large detailed JSON array (since you can request multiple container details from a single invocation) that will look something like the examples in the collapsible sections at the [bottom of this page](/docs/home/deploying-applications/docker-containers/accessing-container-details.md). This output is then returned back to the server and processed as an [Output Variable](/docs/home/deploying-applications/variables/output-variables.md) with the format `#{Octopus.Action[&lt;action name&gt;].Output.Docker.Inspect}`.
+To allow access to this information Octopus invokes this command right after creating a container (or network) which results in a large detailed JSON array (since you can request multiple container details from a single invocation) that will look something like the examples in the collapsible sections at the [bottom of this page](/docs/deploying-applications/docker-containers/accessing-container-details.md). This output is then returned back to the server and processed as an [Output Variable](/docs/deploying-applications/variables/output-variables.md) with the format `#{Octopus.Action[&lt;action name&gt;].Output.Docker.Inspect}`.
 
 :::warning
 **Inspection timing and relevance**
@@ -18,7 +18,7 @@ Keep in mind when using the results of Octopus Deploy's automatic inspection tha
 
 :::success
 **Advanced JSON parsing in variables**
-With the [changes to Octostache introduced in Octopus Deploy 3.5](https://octofront.com/content/blog/octostache-json-formatting), a variable that is a JSON object can now be [parsed natively](/docs/home/reference/variable-substitution-syntax.md) and sub properties within the document can now be used for general variable substitution. This makes accessing information about your container from subsequent steps trivial.
+With the [changes to Octostache introduced in Octopus Deploy 3.5](https://octofront.com/content/blog/octostache-json-formatting), a variable that is a JSON object can now be [parsed natively](/docs/reference/variable-substitution-syntax.md) and sub properties within the document can now be used for general variable substitution. This makes accessing information about your container from subsequent steps trivial.
 :::
 
 ## Common examples

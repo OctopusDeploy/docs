@@ -16,7 +16,7 @@ This is most useful when your environments can have temporary/ephemeral machines
 
 :::success
 **Using Octopus 3.4 or newer?**
-We added first-class support for automatically [cleaning up environments](/docs/home/guides/elastic-and-transient-environments/cleaning-up-environments.md).
+We added first-class support for automatically [cleaning up environments](/docs/guides/elastic-and-transient-environments/cleaning-up-environments.md).
 :::
 
 ```text
@@ -68,5 +68,5 @@ Octo clean-environment --environment Production --status Offline --server http:/
 
 :::success
 **Tip**
-Learn more about [Octo.exe](/docs/home/api-and-integration/octo.exe-command-line.md), and [creating API keys](/docs/home/how-to/how-to-create-an-api-key.md).
+Learn more about [Octo.exe](/docs/api-and-integration/octo.exe-command-line.md), and [creating API keys](/docs/how-to/how-to-create-an-api-key.md).
 :::

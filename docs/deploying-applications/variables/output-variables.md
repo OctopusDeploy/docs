@@ -22,14 +22,14 @@ On this page:
 Output variables can be set anywhere that Octopus runs scripts - for example, the [Script Console](http://docs.octopusdeploy.com/display/OD/Script+Console), or [package scripts and script steps](http://docs.octopusdeploy.com/display/OD/Custom+scripts) in a deployment. *See below for examples of setting output variables in each of the different scripting languages supported by Octopus.*
 
 
-For example, you might have a standalone [PowerShell script step](/docs/home/deploying-applications/custom-scripts.md) called **StepA** that does something like this:
+For example, you might have a standalone [PowerShell script step](/docs/deploying-applications/custom-scripts.md) called **StepA** that does something like this:
 
 ```text
 Set-OctopusVariable -name "TestResult" -value "Passed"
 ```
 
 
-You can then use the variable from other steps, either in [variable binding syntax](/docs/home/deploying-applications/variables/binding-syntax.md):
+You can then use the variable from other steps, either in [variable binding syntax](/docs/deploying-applications/variables/binding-syntax.md):
 
 ```text
 #{Octopus.Action[StepA].Output.TestResult}
@@ -129,7 +129,7 @@ Failed
 Note that for each output variable/machine combination:
 
 - A variable is created with the machine name contained in the variable name: this allows you to reference output variables from set by one machine from another machine
-- A variable is created that is [scoped](/docs/home/deploying-applications/variables/scoping-variables.md) to the machine. This way Web01 will always get the value Web01 set, and Web02 will get the value Web02 set
+- A variable is created that is [scoped](/docs/deploying-applications/variables/scoping-variables.md) to the machine. This way Web01 will always get the value Web01 set, and Web02 will get the value Web02 set
 - A variable is created with no scope, and no differentiator in the name. When referencing this value, the result will be indeterministic, but it allows scripts to use the value without knowing which machine set it
 
 
@@ -153,7 +153,7 @@ You can set output variables using any of the scripting languages supported by O
 
 From a PowerShell script, you can use the PowerShell CmdLet `Set-OctopusVariable` to set the name and value of an output variable. The CmdLet takes two parameters:
 
-- `[string]$name` - the name you want to give the output variable following the same naming conventions used for input [variables](/docs/home/deploying-applications/variables.md)
+- `[string]$name` - the name you want to give the output variable following the same naming conventions used for input [variables](/docs/deploying-applications/variables.md)
 - `[string]$value` - the value you want to give the output variable
 
 

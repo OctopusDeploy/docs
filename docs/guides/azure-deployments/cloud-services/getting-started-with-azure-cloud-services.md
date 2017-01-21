@@ -4,7 +4,7 @@ position: 0
 ---
 
 
-This guide will help you deploy your first Azure Cloud Service application using Octopus Deploy.  This guide assumes some familiarity with Octopus. If you are just starting out please see the general [getting started guide](/docs/home/getting-started.md).
+This guide will help you deploy your first Azure Cloud Service application using Octopus Deploy.  This guide assumes some familiarity with Octopus. If you are just starting out please see the general [getting started guide](/docs/getting-started.md).
 
 
 In order to complete this guide you will need to have an Azure account and create an Azure Cloud Service and Azure Storage Account. Please refer to the [Azure documentation](https://azure.microsoft.com/en-us/documentation/) for completing these steps.  In this guide the Cloud Service is called hello-octopus and the storage account is called octostore.
@@ -15,7 +15,7 @@ In order to complete this guide you will need to have an Azure account and creat
 You will need a NuGet package containing the Azure Cloud Service application you want to deploy.  The NuGet package contains the .cspkg and .cscfg files that are published from Visual Studio. Here is one we prepared earlier that you can use for this guide: [HelloCloud.1.0.0.nupkg](https://download.octopusdeploy.com/demo/HelloCloud.1.0.0.nupkg)
 
 
-Upload your NuGet package to the Octopus [built-in package repository](/docs/home/packaging-applications/package-repositories.md):
+Upload your NuGet package to the Octopus [built-in package repository](/docs/packaging-applications/package-repositories.md):
 
 
 ![](/docs/images/3049331/3278524.png)

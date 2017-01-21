@@ -4,7 +4,7 @@ position: 10
 ---
 
 
-As a convention-oriented deployment tool, Octopus can perform a number of actions automatically, such as [managing configuration files](/docs/home/deploying-applications/configuration-files.md), creating [IIS websites and application pools](/docs/home/deploying-applications/iis-websites-and-application-pools.md), and installing [Windows Services](/docs/home/deploying-applications/windows-services.md). Sometimes however you’ll need to do more than the built-in conventions support – and that’s where custom scripts come in.
+As a convention-oriented deployment tool, Octopus can perform a number of actions automatically, such as [managing configuration files](/docs/deploying-applications/configuration-files.md), creating [IIS websites and application pools](/docs/deploying-applications/iis-websites-and-application-pools.md), and installing [Windows Services](/docs/deploying-applications/windows-services.md). Sometimes however you’ll need to do more than the built-in conventions support – and that’s where custom scripts come in.
 
 
 - Scripts in Packages
@@ -50,7 +50,7 @@ In your package, you can add any of the following script files in any of the scr
 
 
 
-After extracting your package, Calamari will detect these scripts and invoke them. Which file you use depends on when you need your custom activity to run – see the section on [what order are conventions run in](/docs/home/reference/package-deployment-feature-ordering.md) for details. Your scripts can do anything your scripting language supports, as well as setting [output variables](/docs/home/deploying-applications/variables/output-variables.md) and [collecting artifacts](/docs/home/deploying-applications/artifacts.md). These scripts must be located in the root of your package.
+After extracting your package, Calamari will detect these scripts and invoke them. Which file you use depends on when you need your custom activity to run – see the section on [what order are conventions run in](/docs/reference/package-deployment-feature-ordering.md) for details. Your scripts can do anything your scripting language supports, as well as setting [output variables](/docs/deploying-applications/variables/output-variables.md) and [collecting artifacts](/docs/deploying-applications/artifacts.md). These scripts must be located in the root of your package.
 
 
 As mentioned above, you can create a file named `DeployFailed.&lt;ext&gt;`, which will be invoked if the package deployment fails. Our blog post about this feature [describes how DeployFailed.<ext> works](https://octopus.com/blog/deployfailed).
@@ -73,7 +73,7 @@ If you are using OctoPack to package a Windows Service or console application, s
 ![](/docs/images/3048092/3277765.png)
 
 
-Read more about [using OctoPack](/docs/home/packaging-applications/nuget-packages/using-octopack.md).
+Read more about [using OctoPack](/docs/packaging-applications/nuget-packages/using-octopack.md).
 :::
 
 ## Scripts in package steps
@@ -96,7 +96,7 @@ When enabled, you can define your PreDeploy/Deploy/PostDeploy scripts within the
 ## Standalone scripts
 
 
-Octopus also allows you to add standalone script steps to your deployment process. You can use standalone scripts to execute scripts on the Octopus Server or on [deployment targets](/docs/home/deployment-targets.md), where the script can be defined inline or as part of a package. Standalone scripts are so useful we've dedicated an entire page to them: [Standalone scripts](/docs/home/deploying-applications/custom-scripts/standalone-scripts.md).
+Octopus also allows you to add standalone script steps to your deployment process. You can use standalone scripts to execute scripts on the Octopus Server or on [deployment targets](/docs/deployment-targets.md), where the script can be defined inline or as part of a package. Standalone scripts are so useful we've dedicated an entire page to them: [Standalone scripts](/docs/deploying-applications/custom-scripts/standalone-scripts.md).
 
 
 ![](/docs/images/5671696/5865914.png)
@@ -104,7 +104,7 @@ Octopus also allows you to add standalone script steps to your deployment proces
 ## Azure PowerShell scripts
 
 
-You can manage your Azure subscription using custom PowerShell scripts and the Azure Resource Management (RM) or Service Management (SM) API - [more information](/docs/home/deploying-applications/custom-scripts/azure-powershell-scripts.md).
+You can manage your Azure subscription using custom PowerShell scripts and the Azure Resource Management (RM) or Service Management (SM) API - [more information](/docs/deploying-applications/custom-scripts/azure-powershell-scripts.md).
 
 
 ![](/docs/images/5671696/5865912.png)
@@ -115,7 +115,7 @@ For information about adding a step to the deployment process, see the [add ste
 ## Variables
 
 
-Octopus allows you to [define variables](/docs/home/deploying-applications/variables.md) to parameterize your deployments. These variables, along with some predefined variables, will be available from within your scripts.
+Octopus allows you to [define variables](/docs/deploying-applications/variables.md) to parameterize your deployments. These variables, along with some predefined variables, will be available from within your scripts.
 
 :::warning
 **All variables are strings**
@@ -363,7 +363,7 @@ eprintfn "This will be logged as Error"
 ```
 
 
-Try these out for yourself using the [Script Console](/docs/home/administration/script-console.md)!
+Try these out for yourself using the [Script Console](/docs/administration/script-console.md)!
 
 ## Error handling
 
@@ -422,7 +422,7 @@ if ($LastExitCode -ne 0) {
 ## Output variables
 
 
-Your scripts can emit variables that are available in subsequent deployment steps. This means you can factor your deployment into smaller, more well-defined steps that leverage the result of prior steps. It is an extremely powerful feature and you should refer to the documentation on [output variables](/docs/home/deploying-applications/variables/output-variables.md) for more information.
+Your scripts can emit variables that are available in subsequent deployment steps. This means you can factor your deployment into smaller, more well-defined steps that leverage the result of prior steps. It is an extremely powerful feature and you should refer to the documentation on [output variables](/docs/deploying-applications/variables/output-variables.md) for more information.
 
 
 This example is from the sample project in the [Channels Walkthrough](https://octopus.com/blog/channels-walkthrough#prerequisites) which is also available on our [demo server](https://demo.octopusdeploy.com/app#/projects/channels-sample). Step 1 calculates a name by convention, which is used by subsequent steps.
@@ -440,7 +440,7 @@ $appInstanceName = $OctopusParameters["Octopus.Action[Determine App Instance Nam
 ## Collecting artifacts
 
 
-Does your deployment produce a log file, configuration files, binaries, or test results you want to publish and keep as part of your deployment? Your scripts can instruct the Octopus server to collect files as deployment artifacts. Refer to the documentation on [artifacts](/docs/home/deploying-applications/artifacts.md) for more information.
+Does your deployment produce a log file, configuration files, binaries, or test results you want to publish and keep as part of your deployment? Your scripts can instruct the Octopus server to collect files as deployment artifacts. Refer to the documentation on [artifacts](/docs/deploying-applications/artifacts.md) for more information.
 
 
 This example comes from our [VSTS Extension](https://github.com/OctopusDeploy/OctoTFS/blob/master/deploy.ps1) which builds a VSIX package as part of the deployment process, which is then published as an artifact for convenience.
@@ -476,7 +476,7 @@ When Calamari invokes PowerShell.exe, it uses the **unrestricted** execution pol
 You may find that your script runs differently under Calamari than it does when run from PowerShell directly.
 
 
-The easiest way to test your scripts under Calamari is to use the [Script Console](/docs/home/administration/script-console.md). Alternatively you can invoke `Calamari.exe run-script` via the command line to test a script.
+The easiest way to test your scripts under Calamari is to use the [Script Console](/docs/administration/script-console.md). Alternatively you can invoke `Calamari.exe run-script` via the command line to test a script.
 
 **Calamari run-script command**
 

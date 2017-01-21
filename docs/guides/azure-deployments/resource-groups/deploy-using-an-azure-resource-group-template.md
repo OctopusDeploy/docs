@@ -34,7 +34,7 @@ On this page:
 Octopus Deploy supports deploying Azure Resource Group Templates via the *Deploy an Azure Resource Group* step type. For information about adding a step to the deployment process, see the [add step](http://docs.octopusdeploy.com/display/OD/Add+step) section.
 
 :::hint
-Before creating the step, you must have created an [Azure Service Principal Account](/docs/home/guides/azure-deployments/creating-an-azure-account/creating-an-azure-service-principal-account.md)
+Before creating the step, you must have created an [Azure Service Principal Account](/docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-service-principal-account.md)
 :::
 
 
@@ -73,7 +73,7 @@ The JSON will be parsed, and your parameters will appear dynamically as fields i
 The parameter fields will show text boxes or select-lists as appropriate.  You can enter values directly, or bind the parameters to Octopus Variables (e.g. see the *siteName* parameter in the image above).
 
 :::success
-Octopus will perform [variable-substitution](/docs/home/reference/variable-substitution-syntax.md) on the JSON template.
+Octopus will perform [variable-substitution](/docs/reference/variable-substitution-syntax.md) on the JSON template.
 
 
 Although you can use variables directly in the template, it is more idiomatic to use parameters, and plug the variables into those (as seen above). This will allow you to use or test your template outside of Octopus Deploy.
@@ -89,7 +89,7 @@ Parameters marked as [secure strings](https://azure.microsoft.com/en-us/documen
 :::
 
 
-The field displayed when "From Octopus" option is selected stores data as plain text so sensitive data shouldn't be typed directly into it.  Instead, the value of the parameter should be provided either via a [Sensitive Variable](/docs/home/deploying-applications/variables/sensitive-variables.md) if the value is stored in Octopus or via [Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-keyvault-parameter/) if the value is stored outside of Octopus. Azure Resource Group Templates provide [out of the box integration with Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-keyvault-parameter/).
+The field displayed when "From Octopus" option is selected stores data as plain text so sensitive data shouldn't be typed directly into it.  Instead, the value of the parameter should be provided either via a [Sensitive Variable](/docs/deploying-applications/variables/sensitive-variables.md) if the value is stored in Octopus or via [Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-keyvault-parameter/) if the value is stored outside of Octopus. Azure Resource Group Templates provide [out of the box integration with Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-keyvault-parameter/).
 
 
 ![](/docs/images/3702895/5865640.png)
@@ -106,7 +106,7 @@ By selecting *File inside a Package* as the *Template Source*, you can select
 The Template Path and Parameters Path fields should contain the relative path to these files within the package.
 
 :::success
-Octopus will perform [variable-substitution](/docs/home/reference/variable-substitution-syntax.md) on both the Template and Parameter files.
+Octopus will perform [variable-substitution](/docs/reference/variable-substitution-syntax.md) on both the Template and Parameter files.
 :::
 
 #### Parameter File Format
@@ -180,7 +180,7 @@ The Parameter JSON file can be in one of two formats:
 ### Accessing ARM template output parameters
 
 
-Any [outputs](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/#outputs) from the ARM template step are made available as [Octopus output-variables](/docs/home/deploying-applications/variables/output-variables.md) automatically. For example, an output `Foo` would be available as:
+Any [outputs](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/#outputs) from the ARM template step are made available as [Octopus output-variables](/docs/deploying-applications/variables/output-variables.md) automatically. For example, an output `Foo` would be available as:
 
 ```powershell
 Octopus.Action[ArmTemplateStepName].Output.AzureRMOutputs[Foo]

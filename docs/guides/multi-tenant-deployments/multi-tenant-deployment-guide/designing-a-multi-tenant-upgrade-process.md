@@ -4,13 +4,13 @@ position: 6
 ---
 
 
-Previous step: [Designing a multi-tenant hosting model](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md)
+Previous step: [Designing a multi-tenant hosting model](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md)
 
 
 This page describes how to design a multi-tenant upgrade process using some of the features built in to Octopus Deploy.
 
 :::success
-You should understand [Lifecycles](/docs/home/key-concepts/lifecycles.md) and [Tenant Tags](/docs/home/key-concepts/tenants/tenant-tags.md) before continuing with this guide.
+You should understand [Lifecycles](/docs/key-concepts/lifecycles.md) and [Tenant Tags](/docs/key-concepts/tenants/tenant-tags.md) before continuing with this guide.
 :::
 
 ## Upgrading tenanted applications
@@ -34,7 +34,7 @@ On this page:
 ## Tenants and Lifecycles
 
 
-Quite often you want to provide a tenant-specific "test" environment where upgrades can be tested by the customers before you upgrade their "production" environment. This is how Octopus Deploy behaves out of the box - if a tenant is connected to multiple environments of a project, you will be required to promote a release through the environments in the order defined by the [Lifecycle](/docs/home/key-concepts/lifecycles.md). Let's build on our working example and test this out. We are going to perform an untenanted deployment into the **MT Dev** environment, then promote those releases to our test team in the **MT Test** environment, upgrade the **MT Staging** environment for our tenant, and finally upgrade their instance of the application in the **MT Production** environment.
+Quite often you want to provide a tenant-specific "test" environment where upgrades can be tested by the customers before you upgrade their "production" environment. This is how Octopus Deploy behaves out of the box - if a tenant is connected to multiple environments of a project, you will be required to promote a release through the environments in the order defined by the [Lifecycle](/docs/key-concepts/lifecycles.md). Let's build on our working example and test this out. We are going to perform an untenanted deployment into the **MT Dev** environment, then promote those releases to our test team in the **MT Test** environment, upgrade the **MT Staging** environment for our tenant, and finally upgrade their instance of the application in the **MT Production** environment.
 
 ### Step 1: Configure the Lifecycle
 
@@ -163,7 +163,7 @@ Now you can optionally configure some external tenants as opting in to early or 
 ### Step 5: Deploy!
 
 
-Now it's time to deploy using tenant tags as a way to easily select multiple tenants. In this example we are going to deploy **version 1.0.1** to all of the tenants tagged `Upgrade ring/Tester` who are connected to the the **MT Test** environment. You can use multiple tags and complex tag queries to achieve other interesting scenarios as discussed we discussed [earlier](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md).
+Now it's time to deploy using tenant tags as a way to easily select multiple tenants. In this example we are going to deploy **version 1.0.1** to all of the tenants tagged `Upgrade ring/Tester` who are connected to the the **MT Test** environment. You can use multiple tags and complex tag queries to achieve other interesting scenarios as discussed we discussed [earlier](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md).
 
 
 ![](/docs/images/5669342/5865763.png)
@@ -177,18 +177,18 @@ You can also use the Project Overview to deploy to groups of tenants by grouping
 ## Using channels and tenant tags to restrict test releases to the test team
 
 
-You may decide to use channels as a safety measure, to restrict test releases to a limited set of test tenants. By using a combination of [Channels](/docs/home/key-concepts/projects/channels.md) and [Tenant Tags](/docs/home/key-concepts/tenants/tenant-tags.md) you can make sure test releases are only deployed to the correct tenants and environments.
+You may decide to use channels as a safety measure, to restrict test releases to a limited set of test tenants. By using a combination of [Channels](/docs/key-concepts/projects/channels.md) and [Tenant Tags](/docs/key-concepts/tenants/tenant-tags.md) you can make sure test releases are only deployed to the correct tenants and environments.
 
 ### Step 1: Create the Lifecycle
 
 
-Firstly we will create a new [Lifecycle](/docs/home/key-concepts/lifecycles.md)
+Firstly we will create a new [Lifecycle](/docs/key-concepts/lifecycles.md)
 
 
 ![](/docs/images/5669342/5866198.png?effects=drop-shadow)
 
 :::hint
-Learn more about [defining a limited Lifecycle for your test Channel](/docs/home/key-concepts/projects/channels.md).
+Learn more about [defining a limited Lifecycle for your test Channel](/docs/key-concepts/projects/channels.md).
 :::
 
 ### Step 2: Configure a channel for the test program
@@ -215,18 +215,18 @@ Now when you deploy this release, you will be able to choose from the limited se
 ## Using channels and tenant tags to implement an early access program
 
 
-Quite often you want to involve certain customers in testing early releases of major upgrades. By using a combination of [Channels](/docs/home/key-concepts/projects/channels.md) and [Tenant Tags](/docs/home/key-concepts/tenants/tenant-tags.md) you can implement an opt-in early access program using tenants, making sure the beta releases are only deployed to the correct tenants and environments.
+Quite often you want to involve certain customers in testing early releases of major upgrades. By using a combination of [Channels](/docs/key-concepts/projects/channels.md) and [Tenant Tags](/docs/key-concepts/tenants/tenant-tags.md) you can implement an opt-in early access program using tenants, making sure the beta releases are only deployed to the correct tenants and environments.
 
 ### Step 1: Create the Lifecycle
 
 
-Firstly we will create a new [Lifecycle](/docs/home/key-concepts/lifecycles.md)
+Firstly we will create a new [Lifecycle](/docs/key-concepts/lifecycles.md)
 
 
 ![](/docs/images/5669342/5865747.png?effects=drop-shadow)
 
 :::hint
-Learn more about [defining a limited Lifecycle for your test Channel](/docs/home/key-concepts/projects/channels.md).
+Learn more about [defining a limited Lifecycle for your test Channel](/docs/key-concepts/projects/channels.md).
 :::
 
 ### Step 2: Configure the tenant tags
@@ -266,7 +266,7 @@ Now when you are deploying **2.0.0-beta.1** you will be able to select tenants 
 ## Pinning tenants to a release
 
 
-Quite often you will want to disable/prevent deployments to a tenant during a period of time where the customer wants guarantees of stability. You can prevent deployments to tenants using a combination of [Channels](/docs/home/key-concepts/projects/channels.md) and [Tenant Tags](/docs/home/key-concepts/tenants/tenant-tags.md).
+Quite often you will want to disable/prevent deployments to a tenant during a period of time where the customer wants guarantees of stability. You can prevent deployments to tenants using a combination of [Channels](/docs/key-concepts/projects/channels.md) and [Tenant Tags](/docs/key-concepts/tenants/tenant-tags.md).
 
 ### Step 1: Create the Upgrade Ring/Pinned tag
 
@@ -309,4 +309,4 @@ Find a tenant you want to pin and apply the **Upgrade ring/Pinned** tag, removi
 ## Next steps
 
 
-Now you can continue and investigate how you can [use the Octopus security model with tenants](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/multi-tenant-roles-and-security.md).
+Now you can continue and investigate how you can [use the Octopus security model with tenants](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/multi-tenant-roles-and-security.md).

@@ -20,7 +20,7 @@ The Octopus REST API is designed:
 
 :::success
 **Using C#?**
-If you plan to use the REST API from C# or another .NET project, see the [Octopus.Client](/docs/home/api-and-integration/octopus.client.md) assembly.
+If you plan to use the REST API from C# or another .NET project, see the [Octopus.Client](/docs/api-and-integration/octopus.client.md) assembly.
 :::
 
 ## Documentation and samples

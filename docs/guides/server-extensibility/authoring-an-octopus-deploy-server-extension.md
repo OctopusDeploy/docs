@@ -144,4 +144,4 @@ At the moment you can only extend [Authentication](https://github.com/OctopusDep
 # 'Installing' a custom extension
 
 
-Once you've compiled the dll, [installing it is as simple as putting it in the right folder](/docs/home/guides/server-extensibility/installing-a-custom-server-extension.md) and restarting the Octopus Deploy server.
+Once you've compiled the dll, [installing it is as simple as putting it in the right folder](/docs/guides/server-extensibility/installing-a-custom-server-extension.md) and restarting the Octopus Deploy server.

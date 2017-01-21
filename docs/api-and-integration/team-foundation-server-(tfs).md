@@ -8,13 +8,13 @@ Octopus Deploy integrates with Team Foundation Server to provide for a full auto
 
 :::success
 **Using VSTS/VSO or TFS 2015 Update 2?**
-We have built a [comprehensive extension for Visual Studio Team Services (VSTS)](/docs/home/api-and-integration/visual-studio-team-services-(vsts).md) (formerly Visual Studio Online or VSO) which also works with TFS 2015 Update 2. We highly recommend using this extension for VSTS/VSO and TFS 2015 Update 2 or newer.
+We have built a [comprehensive extension for Visual Studio Team Services (VSTS)](/docs/api-and-integration/visual-studio-team-services-(vsts).md) (formerly Visual Studio Online or VSO) which also works with TFS 2015 Update 2. We highly recommend using this extension for VSTS/VSO and TFS 2015 Update 2 or newer.
 :::
 
 ## Packaging applications when building with Team Build
 
 
-When Team Build builds your solution, you will need to package your applications ready to be deployed. This can be done by [installing OctoPack](/docs/home/packaging-applications/nuget-packages/using-octopack.md) on the projects that you plan to deploy.
+When Team Build builds your solution, you will need to package your applications ready to be deployed. This can be done by [installing OctoPack](/docs/packaging-applications/nuget-packages/using-octopack.md) on the projects that you plan to deploy.
 
 
 When defining your build definition, you can expand the **Advanced** properties to specify custom arguments for MSBuild. At a minimum, you'll need to pass:
@@ -28,7 +28,7 @@ When defining your build definition, you can expand the **Advanced** properties 
 
 :::success
 **OctoPack**
-There are plenty of other properties that you can pass here. For example, you can tell OctoPack to publish the resulting packages to a file share or another NuGet repository. See the "Publishing a new package to Octopus" section below, or [Learn more in the section on OctoPack](/docs/home/packaging-applications/nuget-packages/using-octopack.md).
+There are plenty of other properties that you can pass here. For example, you can tell OctoPack to publish the resulting packages to a file share or another NuGet repository. See the "Publishing a new package to Octopus" section below, or [Learn more in the section on OctoPack](/docs/packaging-applications/nuget-packages/using-octopack.md).
 :::
 
 
@@ -53,16 +53,16 @@ In most cases, you'll want to push your newly-created package to the built-in Oc
 
 :::success
 **Built-in Nuget and API keys**
-To find your Octopus NuGet repository URL, see the [Package repositories](/docs/home/packaging-applications/package-repositories.md) section.
+To find your Octopus NuGet repository URL, see the [Package repositories](/docs/packaging-applications/package-repositories.md) section.
 
 
-To create an API key, see the [How to create an API key](/docs/home/how-to/how-to-create-an-api-key.md) section.
+To create an API key, see the [How to create an API key](/docs/how-to/how-to-create-an-api-key.md) section.
 :::
 
 ## Deploying automatically after a build
 
 
-Version 2.6 of Octopus Deploy introduced [Lifecycles ](/docs/home/key-concepts/lifecycles.md)and [Automatic Release Creation](/docs/home/deploying-applications/automatic-release-creation.md). You can use these two features to automatically deploy to one or more environments when a new package is pushed to the built-in NuGet repository.
+Version 2.6 of Octopus Deploy introduced [Lifecycles ](/docs/key-concepts/lifecycles.md)and [Automatic Release Creation](/docs/deploying-applications/automatic-release-creation.md). You can use these two features to automatically deploy to one or more environments when a new package is pushed to the built-in NuGet repository.
 
 
 First, turn on Automatic Release Creation to create a new release when your package is pushed. Then, using the project Lifecycle configure one or more environments in your first phase to deploy automatically when a new release is available.

@@ -12,10 +12,10 @@ The features discussed in this guide are available in Octopus 3.4 and newer.
 
 
 
-This guide assumes familiarity with Octopus Deploy.  If you don't already know how to set up projects, install Tentacles and configure basic deployment processes it may be helpful to review [Key Concepts](/docs/home/key-concepts.md) before beginning this guide. Familiarity with the concepts in [Elastic and Transient Environments](/docs/home/guides/elastic-and-transient-environments.md) would be an added bonus.
+This guide assumes familiarity with Octopus Deploy.  If you don't already know how to set up projects, install Tentacles and configure basic deployment processes it may be helpful to review [Key Concepts](/docs/key-concepts.md) before beginning this guide. Familiarity with the concepts in [Elastic and Transient Environments](/docs/guides/elastic-and-transient-environments.md) would be an added bonus.
 
 
-The features in [Elastic and Transient Environments](/docs/home/guides/elastic-and-transient-environments.md) make it easier to deploy infrastructure in addition to applications.  This guide focuses on deploying immutable infrastructure.  Traditionally the infrastructure that hosts applications is mutable: it is constantly changing.  The changes that infrastructure could experience include things like: new firewall rules, operating system updates and patches to your own deployed applications. Immutable infrastructure, as the name suggests, does not change after the initial configuration. In order to apply changes, a new version of the infrastructure is provisioned and the old infrastructure is terminated:
+The features in [Elastic and Transient Environments](/docs/guides/elastic-and-transient-environments.md) make it easier to deploy infrastructure in addition to applications.  This guide focuses on deploying immutable infrastructure.  Traditionally the infrastructure that hosts applications is mutable: it is constantly changing.  The changes that infrastructure could experience include things like: new firewall rules, operating system updates and patches to your own deployed applications. Immutable infrastructure, as the name suggests, does not change after the initial configuration. In order to apply changes, a new version of the infrastructure is provisioned and the old infrastructure is terminated:
 
 
 ![](/docs/images/5670238/5865664.png)

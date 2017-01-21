@@ -33,26 +33,26 @@ All Azure Steps are executed on the Octopus Server, so no Targets/Tentacles are 
 ### Azure Resource Groups
 
 
-Octopus Deploy provides first-class support for managing [Resource Groups](/docs/home/guides/azure-deployments/resource-groups.md) in Microsoft Azure, including support for Resource Group Templates and their parameters, even using secrets from Azure Key Vault. Follow our guide on [deploying applications using Azure Resource Group Templates](/docs/home/guides/azure-deployments/resource-groups/deploy-using-an-azure-resource-group-template.md).
+Octopus Deploy provides first-class support for managing [Resource Groups](/docs/guides/azure-deployments/resource-groups.md) in Microsoft Azure, including support for Resource Group Templates and their parameters, even using secrets from Azure Key Vault. Follow our guide on [deploying applications using Azure Resource Group Templates](/docs/guides/azure-deployments/resource-groups/deploy-using-an-azure-resource-group-template.md).
 
 ### Azure Web Apps
 
 
-Octopus Deploy provides first-class support for deploying [web applications](/docs/home/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app.md) and [web jobs](/docs/home/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/deploying-web-jobs.md) to the Azure App Service, including the ability to use [deployment slots](/docs/home/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps.md). Follow our guide on [deploying Azure Web Apps](/docs/home/guides/azure-deployments/web-apps.md) .
+Octopus Deploy provides first-class support for deploying [web applications](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app.md) and [web jobs](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/deploying-web-jobs.md) to the Azure App Service, including the ability to use [deployment slots](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps.md). Follow our guide on [deploying Azure Web Apps](/docs/guides/azure-deployments/web-apps.md) .
 
 ### Azure Cloud Services
 
 
-Octopus Deploy provides first-class support for deploying cloud services into Microsoft Azure including the ability to use [deployment slots and VIP swaps](/docs/home/guides/azure-deployments/cloud-services/vip-swap.md). Follow our guide on [deploying Azure Cloud Services](/docs/home/guides/azure-deployments/cloud-services.md).
+Octopus Deploy provides first-class support for deploying cloud services into Microsoft Azure including the ability to use [deployment slots and VIP swaps](/docs/guides/azure-deployments/cloud-services/vip-swap.md). Follow our guide on [deploying Azure Cloud Services](/docs/guides/azure-deployments/cloud-services.md).
 
 ### Azure PowerShell Scripts
 
 
-Octopus Deploy provides a convenient step for [executing PowerShell scripts using the Azure cmdlets](/docs/home/deploying-applications/custom-scripts/azure-powershell-scripts.md), pre-authenticated with Azure using either a [Service Principal Account](/docs/home/guides/azure-deployments/creating-an-azure-account/creating-an-azure-service-principal-account.md) or [Management Certificate Account](/docs/home/guides/azure-deployments/creating-an-azure-account/creating-an-azure-management-certificate-account.md). You can use these scripts to provision Azure services that are required for your applications, or to deploy an application that doesn't have built-in steps in Octopus Deploy. Follow our guide on [running Azure PowerShell scripts](/docs/home/guides/azure-deployments/running-azure-powershell.md).
+Octopus Deploy provides a convenient step for [executing PowerShell scripts using the Azure cmdlets](/docs/deploying-applications/custom-scripts/azure-powershell-scripts.md), pre-authenticated with Azure using either a [Service Principal Account](/docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-service-principal-account.md) or [Management Certificate Account](/docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-management-certificate-account.md). You can use these scripts to provision Azure services that are required for your applications, or to deploy an application that doesn't have built-in steps in Octopus Deploy. Follow our guide on [running Azure PowerShell scripts](/docs/guides/azure-deployments/running-azure-powershell.md).
 
 :::success
 **Bring your own Azure PowerShell cmdlets**
-Octopus Deploy ships with a version of the Azure PowerShell cmdlets so you can deploy applications as soon as you install Octopus Deploy. Microsoft Azure is changing very quickly, introducing more application services and PowerShell cmdlets frequently. You can use the built-in cmdlets if they cover everything you need, or you can [configure Octopus Deploy to use your own custom version of the Azure PowerShell cmdlets](/docs/home/guides/azure-deployments/running-azure-powershell/configuring-the-version-of-the-azure-powershell-modules.md).
+Octopus Deploy ships with a version of the Azure PowerShell cmdlets so you can deploy applications as soon as you install Octopus Deploy. Microsoft Azure is changing very quickly, introducing more application services and PowerShell cmdlets frequently. You can use the built-in cmdlets if they cover everything you need, or you can [configure Octopus Deploy to use your own custom version of the Azure PowerShell cmdlets](/docs/guides/azure-deployments/running-azure-powershell/configuring-the-version-of-the-azure-powershell-modules.md).
 :::
 
 ## Deploying to Azure via a firewall

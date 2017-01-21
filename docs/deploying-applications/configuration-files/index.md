@@ -30,7 +30,7 @@ This feature can be enabled for any NuGet package step.
 ![](/docs/images/3048087/3277705.png)
 
 
-If a [variable](/docs/home/deploying-applications/variables.md) is defined in the Octopus web portal, and an **appSettings, applicationSettings** or **connectionStrings** element exists for it in any of your **.config** files, Tentacle will automatically replace the value after extracting your package.
+If a [variable](/docs/deploying-applications/variables.md) is defined in the Octopus web portal, and an **appSettings, applicationSettings** or **connectionStrings** element exists for it in any of your **.config** files, Tentacle will automatically replace the value after extracting your package.
 
 
 For example, suppose you have this configuration file:
@@ -111,9 +111,9 @@ Values are matched based on the **key** attribute for **appSettings**, and th
 There may be other variables you would like Octopus to replace in your configuration files that are outside both the appSettings and connectionStrings areas.
 
 
-There are three ways you can do this, two of which involve using [Octopus Variables](/docs/home/deploying-applications/variables.md).
+There are three ways you can do this, two of which involve using [Octopus Variables](/docs/deploying-applications/variables.md).
 
-1. Insert `#{OctopusVariables}` where you would like the replacement to happen and use the [Substitute Variables in Files](/docs/home/deploying-applications/substitute-variables-in-files.md) feature in the package step (see below for sample)
+1. Insert `#{OctopusVariables}` where you would like the replacement to happen and use the [Substitute Variables in Files](/docs/deploying-applications/substitute-variables-in-files.md) feature in the package step (see below for sample)
 2. Insert `#{OctopusVariables}` where you would like the replacement to happen and then use the [Regular Expression Find and Replace](https://library.octopusdeploy.com/#!/step-template/actiontemplate-file-system-regular-expression-find-and-replace) library template (this means you can replace any Octopus Variable in any file outside of the package step, the only distinction to the first option)
 3. Write and use a PowerShell script to find and replace variables inside of your configuration files
 
@@ -125,10 +125,10 @@ There are three ways you can do this, two of which involve using [Octopus Varia
 ```
 
 
-There are pros and cons to each of these methods. For the first two it can break your configuration files locally. But if you make use of environment transforms (see below) you can avoid this. See the [Substitute Variables in Files](/docs/home/deploying-applications/substitute-variables-in-files.md) documentation for an example of using Octopus Variables in your config files.
+There are pros and cons to each of these methods. For the first two it can break your configuration files locally. But if you make use of environment transforms (see below) you can avoid this. See the [Substitute Variables in Files](/docs/deploying-applications/substitute-variables-in-files.md) documentation for an example of using Octopus Variables in your config files.
 
 :::success
-Using the Substitute Variables in Files feature will change the order that variables are replaced. Using Configuration Transformations and Configuration Variables, does the transformation and then replaces variables. Defining files within the substitution will have all of their variables replaced first prior to the transformation. But this will only happen for any configuration or transformation files that are explicitly listed in the Substitute files list. Read about the order of [package step feature ordering here](/docs/home/reference/package-deployment-feature-ordering.md).
+Using the Substitute Variables in Files feature will change the order that variables are replaced. Using Configuration Transformations and Configuration Variables, does the transformation and then replaces variables. Defining files within the substitution will have all of their variables replaced first prior to the transformation. But this will only happen for any configuration or transformation files that are explicitly listed in the Substitute files list. Read about the order of [package step feature ordering here](/docs/reference/package-deployment-feature-ordering.md).
 :::
 
 ## Configuration transforms
@@ -307,9 +307,9 @@ One or more errors were encountered when applying the XML configuration transfor
 ```
 
 
-To suppress these errors and report them as informational only, use the `Octopus.Action.Package.IgnoreConfigTransformationErrors` variable defined in the [System Variables](/docs/home/deploying-applications/variables/system-variables.md) section of the documentation.
+To suppress these errors and report them as informational only, use the `Octopus.Action.Package.IgnoreConfigTransformationErrors` variable defined in the [System Variables](/docs/deploying-applications/variables/system-variables.md) section of the documentation.
 
 ## PowerShell
 
 
-If these conventions aren’t enough to configure your application, you can always [use PowerShell to perform custom configuration tasks](/docs/home/deploying-applications/custom-scripts.md). Variables will be passed to your PowerShell script, and PowerShell has [rich XML API's](http://www.codeproject.com/KB/powershell/powershell_xml.aspx).
+If these conventions aren’t enough to configure your application, you can always [use PowerShell to perform custom configuration tasks](/docs/deploying-applications/custom-scripts.md). Variables will be passed to your PowerShell script, and PowerShell has [rich XML API's](http://www.codeproject.com/KB/powershell/powershell_xml.aspx).

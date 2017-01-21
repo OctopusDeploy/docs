@@ -35,7 +35,7 @@ Here we will give an example of how to setup a Blue-Green deployment for an Azur
 ### Step 1: Create Staging Slot
 
 
-Create a [Run an Azure PowerShell Script](/docs/home/guides/azure-deployments/running-azure-powershell.md) step.
+Create a [Run an Azure PowerShell Script](/docs/guides/azure-deployments/running-azure-powershell.md) step.
 
 
 ![](/docs/images/3049371/3278543.png)
@@ -82,7 +82,7 @@ So your step should look like:
 ### Step 2: Deploy your Package
 
 
-The next step is to deploy your package to the Staging slot.  We do this be creating a [Deploy an Azure Web App](/docs/home/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app.md) step.
+The next step is to deploy your package to the Staging slot.  We do this be creating a [Deploy an Azure Web App](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app.md) step.
 
 
 ![](/docs/images/3049371/3278554.png)

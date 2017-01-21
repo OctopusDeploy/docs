@@ -44,7 +44,7 @@ When set, skip Delete operations in the **App\_Data** directory.
 
 :::hint
 **Preserve Specific Paths**
-If you wish to set the "Remove additional files" option but preserve specific paths, see[ this document](/docs/home/guides/azure-deployments/web-apps/web-app-concepts/web-app-deployment-step/preserve-specific-paths-when-deploying-azure-web-app.md).
+If you wish to set the "Remove additional files" option but preserve specific paths, see[ this document](/docs/guides/azure-deployments/web-apps/web-app-concepts/web-app-deployment-step/preserve-specific-paths-when-deploying-azure-web-app.md).
 :::
 
 
@@ -68,10 +68,10 @@ Any of the fields above can be switched to use a custom expression.
 
 The following features are available when deploying a package to an Azure Web App.
 
-- [Custom Scripts](/docs/home/deploying-applications/custom-scripts.md)
-- [Configuration Variables](/docs/home/deploying-applications/configuration-files.md)
-- [Configuration Transforms](/docs/home/deploying-applications/configuration-files.md)
-- [Substitute variables in files](/docs/home/reference/variable-substitution-syntax.md)
+- [Custom Scripts](/docs/deploying-applications/custom-scripts.md)
+- [Configuration Variables](/docs/deploying-applications/configuration-files.md)
+- [Configuration Transforms](/docs/deploying-applications/configuration-files.md)
+- [Substitute variables in files](/docs/reference/variable-substitution-syntax.md)
 
 
 ### PowerShell

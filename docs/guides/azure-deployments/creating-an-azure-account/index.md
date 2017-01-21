@@ -20,8 +20,8 @@ Octopus Deploy authenticates with Azure in one of two methods: using a *Manageme
 
 The divide in authentication-methods in Octopus reflects the divide within Azure itself: There are two distinct interfaces for interacting with Azure, Service Management (ASM) and Resource Manager (ARM).  [This document](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/) explains the differences.
 
-- If you wish to use Resource Manager mode, then you will need to [create a Service Principal account](/docs/home/guides/azure-deployments/creating-an-azure-account/creating-an-azure-service-principal-account.md).
-- If you wish to Service Management mode, then you will need to create a [Management Certificate account](/docs/home/guides/azure-deployments/creating-an-azure-account/creating-an-azure-management-certificate-account.md).
+- If you wish to use Resource Manager mode, then you will need to [create a Service Principal account](/docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-service-principal-account.md).
+- If you wish to Service Management mode, then you will need to create a [Management Certificate account](/docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-management-certificate-account.md).
 
 
 

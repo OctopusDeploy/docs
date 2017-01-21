@@ -6,7 +6,7 @@ title: Varying Azure Subscription by Environment
 
 You may want to use a different Azure subscription depending on which environment you are targeting. This can be achieved by binding the account field to an Octopus variable:
 
-1. Add an [Azure Subscription Account](/docs/home/key-concepts/environments/accounts/azure-subscription-account.md) to Octopus.
+1. Add an [Azure Subscription Account](/docs/key-concepts/environments/accounts/azure-subscription-account.md) to Octopus.
 
  1. If you want to use the Account ID in your variable, open the account you just added from **Environments -> Accounts -> [Account name]** and copy the account ID from the URL.
         ![](/docs/images/3049102/3278481.jpg)

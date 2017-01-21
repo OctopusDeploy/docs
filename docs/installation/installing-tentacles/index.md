@@ -50,13 +50,13 @@ The latest Tentacle MSI can always be [downloaded from the Octopus Deploy downlo
 
 Octopus and Tentacle can be configured to communicate two different ways depending on your network setup. The mode you are using will change the installation process slightly.
 
-- [Listening mode](/docs/home/installation/installing-tentacles/listening-tentacles.md) (recommended)
-- [Polling mode](/docs/home/installation/installing-tentacles/polling-tentacles.md)
+- [Listening mode](/docs/installation/installing-tentacles/listening-tentacles.md) (recommended)
+- [Polling mode](/docs/installation/installing-tentacles/polling-tentacles.md)
 
 
 :::success
 **Listening mode is recommended**
-When choosing a communication mode, we recommend listening mode when possible. Listening mode uses the least resources (listening on a TCP port is cheaper than actively trying to connect to one). It also gives you the most control (you can use rules in your firewall to limit which IP addresses can connect to the port). [Octopus and Tentacle use SSL when communicating](/docs/home/reference/octopus---tentacle-communication.md), and Tentacle will outright reject connections that aren't from an Octopus server that it trusts (identified by an X.509 certificate public key that you provide during setup).
+When choosing a communication mode, we recommend listening mode when possible. Listening mode uses the least resources (listening on a TCP port is cheaper than actively trying to connect to one). It also gives you the most control (you can use rules in your firewall to limit which IP addresses can connect to the port). [Octopus and Tentacle use SSL when communicating](/docs/reference/octopus---tentacle-communication.md), and Tentacle will outright reject connections that aren't from an Octopus server that it trusts (identified by an X.509 certificate public key that you provide during setup).
 :::
 
 :::warning
@@ -66,21 +66,21 @@ The communication protocol used by Octopus and Tentacle requires intact end-to-e
 
 :::warning
 **Proxy servers supported for tentacle communications since Octopus 3.4**
-The communication protocol used by Octopus and Tentacle 3.4 and above supports proxies. Read more about configuring proxy servers for Tentacle communications in [proxy support](/docs/home/installation/installing-tentacles/proxy-support.md).
+The communication protocol used by Octopus and Tentacle 3.4 and above supports proxies. Read more about configuring proxy servers for Tentacle communications in [proxy support](/docs/installation/installing-tentacles/proxy-support.md).
 
 
-If you are using a version of Octopus/Tentacle prior to 3.4 refer to either [listening tentacles](/docs/home/installation/installing-tentacles/listening-tentacles.md) or [polling tentacles](/docs/home/installation/installing-tentacles/polling-tentacles.md) for more information on configuring a bypass rule.
+If you are using a version of Octopus/Tentacle prior to 3.4 refer to either [listening tentacles](/docs/installation/installing-tentacles/listening-tentacles.md) or [polling tentacles](/docs/installation/installing-tentacles/polling-tentacles.md) for more information on configuring a bypass rule.
 :::
 
 
-Tentacle can be installed and configured directly from the command prompt, which is very useful when you need to install Tentacle on a large number of machines. See more in [automating Tentacle installations](/docs/home/installation/installing-tentacles/automating-tentacle-installation.md).
+Tentacle can be installed and configured directly from the command prompt, which is very useful when you need to install Tentacle on a large number of machines. See more in [automating Tentacle installations](/docs/installation/installing-tentacles/automating-tentacle-installation.md).
 
 :::warning
 **Cloning Tentacle VMs**
 In a virtualized environment, it may be desirable to install Tentacle on a base virtual machine image, and clone this image to create multiple machines.
 
 
-If you choose to do this, please **do not complete the configuration wizard** before taking the snapshot. The configuration wizard generates a unique per-machine cryptographic certificate that should not be duplicated. Instead, use PowerShell to [automate configuration](/docs/home/installation/installing-tentacles/automating-tentacle-installation.md) after the clone has been materialized.
+If you choose to do this, please **do not complete the configuration wizard** before taking the snapshot. The configuration wizard generates a unique per-machine cryptographic certificate that should not be duplicated. Instead, use PowerShell to [automate configuration](/docs/installation/installing-tentacles/automating-tentacle-installation.md) after the clone has been materialized.
 :::
 
 

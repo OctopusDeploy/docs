@@ -13,7 +13,7 @@ The Octopus Tentacle VM extension is temporarily unavailable. We are working wit
 
 
 
-If you deploy software to virtual machines hosted in Microsoft Azure, Octopus Deploy makes it easy to install the [Tentacle agent](/docs/home/installation/installing-tentacles.md). This page will explain how to install the Tentacle agent extension for Azure VM's, as well as how to install the extension via command line, and how to diagnose problems when using the extension.
+If you deploy software to virtual machines hosted in Microsoft Azure, Octopus Deploy makes it easy to install the [Tentacle agent](/docs/installation/installing-tentacles.md). This page will explain how to install the Tentacle agent extension for Azure VM's, as well as how to install the extension via command line, and how to diagnose problems when using the extension.
 
 ## Overview
 
@@ -21,11 +21,11 @@ If you deploy software to virtual machines hosted in Microsoft Azure, Octopus De
 The Azure Tentacle VM extension is an extension that can be added to an Azure virtual machine. Currently, only Windows Server 2012 R2 is supported.
 
 
-When enabled, the extension automatically downloads the Tentacle MSI, installs it, and registers the agent with your [Octopus Deploy server](/docs/home/installation/installing-octopus.md). It does this by building on top of the PowerShell DSC support in Windows Azure. The [Octopus DSC resources](https://github.com/OctopusDeploy/OctopusDSC) used by the extension are open source, and the commands the extension runs are very similar to the commands in our guide to [automatically installing the Tentacle agent](/docs/home/installation/installing-tentacles/automating-tentacle-installation.md).
+When enabled, the extension automatically downloads the Tentacle MSI, installs it, and registers the agent with your [Octopus Deploy server](/docs/installation/installing-octopus.md). It does this by building on top of the PowerShell DSC support in Windows Azure. The [Octopus DSC resources](https://github.com/OctopusDeploy/OctopusDSC) used by the extension are open source, and the commands the extension runs are very similar to the commands in our guide to [automatically installing the Tentacle agent](/docs/installation/installing-tentacles/automating-tentacle-installation.md).
 
 :::success
 **Listening agents only**
-The Tentacle will be configured in [listening mode](/docs/home/installation/installing-tentacles/listening-tentacles.md) **only**. This means that the agent will listen on a TCP port, and the Octopus server will connect to the agent on that port. After installing the agent, you'll need to add an endpoint to your virtual machine to enable traffic on this port. For details on how to do this, please see below.
+The Tentacle will be configured in [listening mode](/docs/installation/installing-tentacles/listening-tentacles.md) **only**. This means that the agent will listen on a TCP port, and the Octopus server will connect to the agent on that port. After installing the agent, you'll need to add an endpoint to your virtual machine to enable traffic on this port. For details on how to do this, please see below.
 :::
 
 ## Adding the Tentacle agent extension
@@ -51,9 +51,9 @@ Select the **Octopus Deploy Tentacle Agent** extension, and click **Create**.
 
 The settings for the extension are:
 
-| Octopus Server URL | URL to your Octopus Deploy server. You'll need your own Octopus server (possibly also running on Azure), and you should [consider using HTTPS](/docs/home/how-to/expose-the-octopus-web-portal-over-https.md). The extension will use the [Octopus REST API](/docs/home/api-and-integration/octopus-rest-api.md) against this URL to register the machine. |
-| API Key | [Your API key](/docs/home/how-to/how-to-create-an-api-key.md). This key will only be used when registering the machine with the Octopus server; it isn't used for [subsequent communication](/docs/home/reference/octopus---tentacle-communication.md). |
-| Environments | The name of the [environment](/docs/home/key-concepts/environments.md) to add the machine to. You can specify more than one by using commas; for example: `UAT1,UAT2` |
+| Octopus Server URL | URL to your Octopus Deploy server. You'll need your own Octopus server (possibly also running on Azure), and you should [consider using HTTPS](/docs/how-to/expose-the-octopus-web-portal-over-https.md). The extension will use the [Octopus REST API](/docs/api-and-integration/octopus-rest-api.md) against this URL to register the machine. |
+| API Key | [Your API key](/docs/how-to/how-to-create-an-api-key.md). This key will only be used when registering the machine with the Octopus server; it isn't used for [subsequent communication](/docs/reference/octopus---tentacle-communication.md). |
+| Environments | The name of the [environment](/docs/key-concepts/environments.md) to add the machine to. You can specify more than one by using commas; for example: `UAT1,UAT2` |
 | Roles | The roles to give to the machine. Again, separate them using commas for more than one, for example: `web-server,app-server` |
 | Listen port | TCP port that the Tentacle will listen on. The default value is 10933. |
 

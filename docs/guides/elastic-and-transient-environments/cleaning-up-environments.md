@@ -40,7 +40,7 @@ In this example we will create a machine policy to automatically delete machines
 
 
 :::hint
-Read more about [machine policies](/docs/home/key-concepts/environments/machine-policies.md)
+Read more about [machine policies](/docs/key-concepts/environments/machine-policies.md)
 :::
 
 

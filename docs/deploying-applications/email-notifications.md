@@ -8,7 +8,7 @@ Deployments can have a strong impact on others whose work depends on the system 
 
 - Notify stakeholders when a new version of an app has been deployed to production
 - Let testers know when a new version is available in UAT
-- Use email in conjuction with [manual approvals](/docs/home/deploying-applications/manual-intervention-and-approvals.md) to make sure everyone is ready for a new deployment
+- Use email in conjuction with [manual approvals](/docs/deploying-applications/manual-intervention-and-approvals.md) to make sure everyone is ready for a new deployment
 
 
 
@@ -36,7 +36,7 @@ When adding an email step, you can choose the subject of the email, its body and
 
 
 :::success
-Use the Octopus [variable syntax](/docs/home/reference/variable-substitution-syntax.md) to include information about the deployment in the email. The binding helper to the right of the *Body*field can be used to view the available variables.
+Use the Octopus [variable syntax](/docs/reference/variable-substitution-syntax.md) to include information about the deployment in the email. The binding helper to the right of the *Body*field can be used to view the available variables.
 :::
 
 
@@ -113,5 +113,5 @@ The outcome of each step can be included using a template like the one below (Oc
 step.Status.Error and step.Status.ErrorDetail will only display the exit code and Octopus stack trace for the error. As we cannot parse the deployment log, we can only extract the exit/error codes. It cannot show detailed information on what caused the error. For full information on what happened when the deployment fails, you will need to reference the logs.
 
 
-See [System variables](/docs/home/deploying-applications/variables/system-variables.md)
+See [System variables](/docs/deploying-applications/variables/system-variables.md)
 :::

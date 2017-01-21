@@ -55,7 +55,7 @@ Machines can also belong to more than one environment, although this is not very
 
 :::success
 **More information**
-That is a summary of how Octopus models environments and machines, and what the terms mean. To actually deploy software to the remote machines, Octopus relies on agent software called Tentacle. You can read more about [installing Tentacle](/docs/home/installation/installing-tentacles.md) and [managing environments](/docs/home/key-concepts/environments.md).
+That is a summary of how Octopus models environments and machines, and what the terms mean. To actually deploy software to the remote machines, Octopus relies on agent software called Tentacle. You can read more about [installing Tentacle](/docs/installation/installing-tentacles.md) and [managing environments](/docs/key-concepts/environments.md).
 :::
 
 ## Projects, deployment processes, lifecycles and variables
@@ -63,8 +63,8 @@ That is a summary of how Octopus models environments and machines, and what the 
 
 A *project* is one of the most important concepts in Octopus. A project defines:
 
-- A *[deployment process](/docs/home/deploying-applications.md)*, which specifies the steps that need to happen in a given order during the deployment
-- *[Variables](/docs/home/deploying-applications/variables.md)*, which allow deployments to be parameterized across environments
+- A *[deployment process](/docs/deploying-applications.md)*, which specifies the steps that need to happen in a given order during the deployment
+- *[Variables](/docs/deploying-applications/variables.md)*, which allow deployments to be parameterized across environments
 
 
 
@@ -81,17 +81,17 @@ Don't confuse Octopus projects with Visual Studio projects. A project in Octopus
 
 The deployment process consists of a number of steps. Octopus supports many different kinds of steps, such as:
 
-- [Deploying NuGet packages](/docs/home/deploying-applications/deploying-packages.md) (this is how web sites and windows services are [packaged](/docs/home/packaging-applications.md) and deployed)
-- Running ad-hoc [Custom scripts](/docs/home/deploying-applications/custom-scripts.md)
-- [Sending an email](/docs/home/deploying-applications/email-notifications.md)
-- Pausing for [manual intervention](/docs/home/deploying-applications/manual-intervention-and-approvals.md) by a human
+- [Deploying NuGet packages](/docs/deploying-applications/deploying-packages.md) (this is how web sites and windows services are [packaged](/docs/packaging-applications.md) and deployed)
+- Running ad-hoc [Custom scripts](/docs/deploying-applications/custom-scripts.md)
+- [Sending an email](/docs/deploying-applications/email-notifications.md)
+- Pausing for [manual intervention](/docs/deploying-applications/manual-intervention-and-approvals.md) by a human
 
 
 
-Importantly, steps are run in a specific order, like following a recipe. It would be dreadful if we tried to deploy a new version of a web site before running the database migrations, as an example. Steps can also be set to run [conditionally](/docs/home/deploying-applications.md), as part of a [rolling deployment](/docs/home/patterns/rolling-deployments.md), or even in parallel with each other.
+Importantly, steps are run in a specific order, like following a recipe. It would be dreadful if we tried to deploy a new version of a web site before running the database migrations, as an example. Steps can also be set to run [conditionally](/docs/deploying-applications.md), as part of a [rolling deployment](/docs/patterns/rolling-deployments.md), or even in parallel with each other.
 
 
-When you define a project, you also select a [lifecycle](/docs/home/key-concepts/lifecycles.md). The lifecycle defines the rules around how releases of the project are allowed to be deployed between environments.
+When you define a project, you also select a [lifecycle](/docs/key-concepts/lifecycles.md). The lifecycle defines the rules around how releases of the project are allowed to be deployed between environments.
 
 ## Releases and deployments
 
@@ -99,7 +99,7 @@ When you define a project, you also select a [lifecycle](/docs/home/key-concepts
 The deployment process for a project specifies how the project will be deployed. But Octopus isn't designed to deploy something just once; it's designed to deploy the same project over, and over, and over, and over. It's designed for teams that follow agile software development methods, continuously deploying software to environments, getting feedback, making changes, and then deploying again.
 
 
-We expect that beyond the initial setup and tweaking, your deployment process won't change between all of these deployments. But of course, the software that you are deploying will. You will make changes to code, commit them to source control, and have a [build server](/docs/home/api-and-integration.md) build them and run tests. Then the software will be [packaged](/docs/home/packaging-applications.md) and ready for deployment.
+We expect that beyond the initial setup and tweaking, your deployment process won't change between all of these deployments. But of course, the software that you are deploying will. You will make changes to code, commit them to source control, and have a [build server](/docs/api-and-integration.md) build them and run tests. Then the software will be [packaged](/docs/packaging-applications.md) and ready for deployment.
 
 
 In Octopus, a release is a snapshot of the *deployment process*and*variables,* with a set of *packages* selected. That *release* is then *deployed* to multiple environments, typically to one, then promoted to the next environment if successful.
@@ -113,12 +113,12 @@ Each time you have a new candidate build that is ready to test, you'll create a 
 ## Channels
 
 
-When you start working with Octopus you will typically be creating releases from your main source code branch that are considered to be release candidates for your final production environment. Over time you may find you want to start working on an experimental branch of code, perhaps to introduce a new feature, or an entirely new version of your software. In this case you can either create an entirely new project, or clone the existing project, to manage deployments of this experimental software - but that leads to a lot of possible duplication and rework. In Octopus 3.2 we introduced the concept of [*channels* ](/docs/home/key-concepts/projects/channels.md)which let you modify the entire deployment process on a per-release basis, all within the same project. For example, you can promote releases created from your main code branch through to your production environment, but restrict releases created from your experimental feature branch to a special test environment perhaps with extra steps and variables.
+When you start working with Octopus you will typically be creating releases from your main source code branch that are considered to be release candidates for your final production environment. Over time you may find you want to start working on an experimental branch of code, perhaps to introduce a new feature, or an entirely new version of your software. In this case you can either create an entirely new project, or clone the existing project, to manage deployments of this experimental software - but that leads to a lot of possible duplication and rework. In Octopus 3.2 we introduced the concept of [*channels* ](/docs/key-concepts/projects/channels.md)which let you modify the entire deployment process on a per-release basis, all within the same project. For example, you can promote releases created from your main code branch through to your production environment, but restrict releases created from your experimental feature branch to a special test environment perhaps with extra steps and variables.
 
 ## Tenants
 
 
-Over time your software may become so successful that you on-sell it to some external customers, and due to the way the software is architected, you need to deploy a copy of the software once per customer. You could achieve this in Octopus by creating an environment-per-customer, or even a project-per-customer, but this leads to duplication and unnecessary complexity. In Octopus 3.4 we introduced the concept of [*tenants* ](/docs/home/key-concepts/tenants.md)that you can manage alongside your existing projects and environments.
+Over time your software may become so successful that you on-sell it to some external customers, and due to the way the software is architected, you need to deploy a copy of the software once per customer. You could achieve this in Octopus by creating an environment-per-customer, or even a project-per-customer, but this leads to duplication and unnecessary complexity. In Octopus 3.4 we introduced the concept of [*tenants* ](/docs/key-concepts/tenants.md)that you can manage alongside your existing projects and environments.
 
 ## In this section
 
@@ -126,9 +126,9 @@ Over time your software may become so successful that you on-sell it to some ext
 The rest of this section covers these topics in some more detail, and explains how to implement them.
 
 
-- [Environments](/docs/home/key-concepts/environments.md)
-- [Projects](/docs/home/key-concepts/projects.md)
-- [Project Groups](/docs/home/key-concepts/project-groups.md)
-- [Lifecycles](/docs/home/key-concepts/lifecycles.md)
-- [Machine Roles](/docs/home/key-concepts/machine-roles.md)
-- [Tenants](/docs/home/key-concepts/tenants.md)
+- [Environments](/docs/key-concepts/environments.md)
+- [Projects](/docs/key-concepts/projects.md)
+- [Project Groups](/docs/key-concepts/project-groups.md)
+- [Lifecycles](/docs/key-concepts/lifecycles.md)
+- [Machine Roles](/docs/key-concepts/machine-roles.md)
+- [Tenants](/docs/key-concepts/tenants.md)

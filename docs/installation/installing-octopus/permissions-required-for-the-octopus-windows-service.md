@@ -25,7 +25,7 @@ The following table acts as a guide for the minimal permission set that Octopus 
 | Read | The `HLKM\Software\Octopus`registry key | Octopus determines the location of its configuration files from this key | Regedit |
 | Full control | The `OctopusDeploy` Windows Service | Octopus must be able to upgrade and restart itself for remote administration | SC.EXE |
 | Listen | Port **10943** | Octopus accepts commands from polling Tentacles on this port | NETSH.EXE |
-| db\_owner | For the SQL database. [Learn more](/docs/home/installation/installing-octopus/sql-server-database-requirements.md). | Octopus needs to be able to manage its database, including making schema changes | SQL Server Management Studio |
+| db\_owner | For the SQL database. [Learn more](/docs/installation/installing-octopus/sql-server-database-requirements.md). | Octopus needs to be able to manage its database, including making schema changes | SQL Server Management Studio |
 
 
 If you rely on Octopus to run certain tasks on the Octopus server, you'll also need to grant appropriate permissions for these. Examples include:

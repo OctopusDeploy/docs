@@ -4,7 +4,7 @@ position: 4
 ---
 
 
-When an Octopus Tentacle is configured in [Listening mode](/docs/home/installation/installing-tentacles/listening-tentacles.md), it will open the specified port (by default TCP port **10933**) and listen for inbound connections from the Octopus server.
+When an Octopus Tentacle is configured in [Listening mode](/docs/installation/installing-tentacles/listening-tentacles.md), it will open the specified port (by default TCP port **10933**) and listen for inbound connections from the Octopus server.
 
 
 ![](/docs/images/3048143/5865873.png)
@@ -17,7 +17,7 @@ Before following the steps below, it can be worthwhile to restart the Octopus an
 :::
 
 :::success
-If you have worked through this guide without success, it can be worthwhile to completely remove the Tentacle configuration, data, and working folders, and then reconfigure it from scratch. This can be done without any impact to the applications you have deployed. Learn about [manually uninstalling Tentacle](/docs/home/administration/tentacle-configuration-and-file-storage/manually-uninstall-tentacle.md). Working from a clean slate can sometimes expose the underlying problem.
+If you have worked through this guide without success, it can be worthwhile to completely remove the Tentacle configuration, data, and working folders, and then reconfigure it from scratch. This can be done without any impact to the applications you have deployed. Learn about [manually uninstalling Tentacle](/docs/administration/tentacle-configuration-and-file-storage/manually-uninstall-tentacle.md). Working from a clean slate can sometimes expose the underlying problem.
 :::
 
 
@@ -95,7 +95,7 @@ The Tentacle Manager usually shows correct service status, but it pays to double
 
 :::hint
 **If the services is not running...**
-If the Tentacle service is not running, you can try to start it from the Services applet. Allow 30 seconds for the service to start work, then refresh the Services screen. **If the Tentacle service keeps running**, go back to the Octopus Web Portal and try Health Checking the affected machine again. **If the service stops**, it is likely that the service is crashing during startup; this can be caused by a number of things, most of which can be diagnosed from the Tentacle log files. Inspect these yourself, and either send the [log files](/docs/home/reference/log-files.md) or extracts from them showing the issue to the Octopus Deploy Support email address for assistance.
+If the Tentacle service is not running, you can try to start it from the Services applet. Allow 30 seconds for the service to start work, then refresh the Services screen. **If the Tentacle service keeps running**, go back to the Octopus Web Portal and try Health Checking the affected machine again. **If the service stops**, it is likely that the service is crashing during startup; this can be caused by a number of things, most of which can be diagnosed from the Tentacle log files. Inspect these yourself, and either send the [log files](/docs/reference/log-files.md) or extracts from them showing the issue to the Octopus Deploy Support email address for assistance.
 :::
 
 
@@ -126,7 +126,7 @@ If you've made it this far, good news! Your Tentacle is running and ready to acc
 
 :::hint
 **If you can&#39;t browse to the page...**
-If this is where your journey ends, there's a problem on the Tentacle machine. It is very likely that the Tentacle is unable to open the communications port, either because of permissions, or because another process is listening on that port. Using the Windows `netstat -o -n -a -b` command can help to get to the bottom of this quickly. If you're still in trouble, check the Tentacle [log files](/docs/home/reference/log-files.md) and contact Octopus Deploy support.
+If this is where your journey ends, there's a problem on the Tentacle machine. It is very likely that the Tentacle is unable to open the communications port, either because of permissions, or because another process is listening on that port. Using the Windows `netstat -o -n -a -b` command can help to get to the bottom of this quickly. If you're still in trouble, check the Tentacle [log files](/docs/reference/log-files.md) and contact Octopus Deploy support.
 :::
 
 ## Connect from the Octopus Server
@@ -157,7 +157,7 @@ If the Tentacle welcome page is shown, good news - your network is fine.
 Octopus and Tentacle use TCP to communicate, with special handling to enable web browsers to connect for diagnostic purposes. Full HTTP is not supported, so network services like **SSL offloading**are not supported, and **proxies** are not supported in earlier versions of Octopus Deploy. Make sure there's a direct connection between the Octopus Server and Tentacle, without an HTTP proxy or a network appliance performing SSL offloading in between.
 
 
-**NOTE**: Octopus Deploy 3.4 introduced [advanced support for HTTP proxies](/docs/home/installation/installing-tentacles/proxy-support.md).
+**NOTE**: Octopus Deploy 3.4 introduced [advanced support for HTTP proxies](/docs/installation/installing-tentacles/proxy-support.md).
 :::
 
 ## Tentacle ping
@@ -223,7 +223,7 @@ To do this open *Control Panel > Internet Options > Advanced*, and un-check the
 ## Schannel and TLS configuration mismatches
 
 
-Octopus uses `Schannel` for secure communications and will attempt to use the best available protocol available to both servers.  If you are seeing error messages like below, try [Troubleshooting Schannel and TLS](/docs/home/reference/octopus---tentacle-communication/troubleshooting-schannel-and-tls.md):
+Octopus uses `Schannel` for secure communications and will attempt to use the best available protocol available to both servers.  If you are seeing error messages like below, try [Troubleshooting Schannel and TLS](/docs/reference/octopus---tentacle-communication/troubleshooting-schannel-and-tls.md):
 
 
 Client-side:`System.Security.Authentication.AuthenticationException: A call to SSPI failed, see inner exception. ---&gt; System.ComponentModel.Win32Exception: One or more of the parameters passed to the function was invalid`

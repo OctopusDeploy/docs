@@ -4,7 +4,7 @@ position: 1
 ---
 
 
-You can upgrade between Octopus 2.6 and 3.x by downloading the latest [MSI's for both Octopus and Tentacle](https://octopusdeploy.com/download), and installing them manually. If you're working with a large number of Tentacles, see the section on [upgrading larger installations](/docs/home/administration/upgrading/upgrading-from-octopus-2.6.md).
+You can upgrade between Octopus 2.6 and 3.x by downloading the latest [MSI's for both Octopus and Tentacle](https://octopusdeploy.com/download), and installing them manually. If you're working with a large number of Tentacles, see the section on [upgrading larger installations](/docs/administration/upgrading/upgrading-from-octopus-2.6.md).
 
 ## Summary
 
@@ -42,7 +42,7 @@ When upgrading to Octopus 3.x please use the latest version available. We have b
 :::
 
 
-See the [Installing Octopus 3.x](/docs/home/installation/installing-octopus.md) page for instructions on installing a new Octopus 3.x instance.
+See the [Installing Octopus 3.x](/docs/installation/installing-octopus.md) page for instructions on installing a new Octopus 3.x instance.
 
 
 After installing the MSI, you will be presented with an upgrade page.
@@ -71,7 +71,7 @@ After upgrading, the Octopus Manager will prompt to import your Octopus 2.6 data
 ![](/docs/images/3048132/3278005.png)
 
 
-See the [Migrating data from Octopus 2.6 to 3.x](/docs/home/administration/upgrading/upgrading-from-octopus-2.6/migrating-data-from-octopus-2.6-to-3.x.md) page for more detailed instructions on importing your Octopus 2.6 database backup into Octopus 3.x.
+See the [Migrating data from Octopus 2.6 to 3.x](/docs/administration/upgrading/upgrading-from-octopus-2.6/migrating-data-from-octopus-2.6-to-3.x.md) page for more detailed instructions on importing your Octopus 2.6 database backup into Octopus 3.x.
 
 :::hint
 **Migration taking a long time?**

@@ -50,7 +50,7 @@ Octopus: HA works with:
 Octopus: HA has not been tested with Log Shipping or Database Mirroring, and does not support SQL Server replication.
 
 
-See also: [SQL Server Database requirements](/docs/home/installation/installing-octopus/sql-server-database-requirements.md), which explains the editions and versions of SQL Server that Octopus supports, and explains the requirements for how the database must be configured.
+See also: [SQL Server Database requirements](/docs/installation/installing-octopus/sql-server-database-requirements.md), which explains the editions and versions of SQL Server that Octopus supports, and explains the requirements for how the database must be configured.
 
 
 Since each of the Octopus Server nodes will need access to the database, we recommend creating a special user account in Active Directory with **db\_owner** permission on the Octopus database, and using that account as the service account when configuring Octopus.
@@ -60,8 +60,8 @@ Since each of the Octopus Server nodes will need access to the database, we reco
 
 Octopus stores a number of files that are not suitable to store in the database. These include:
 
-- NuGet packages used by the [built-in NuGet repository inside Octopus](/docs/home/packaging-applications/package-repositories.md). These packages can often be very large.
-- [Artifacts](/docs/home/deploying-applications/artifacts.md) collected during a deployment. Teams using Octopus sometimes use this feature to collect large log files and other files from machines during a deployment.
+- NuGet packages used by the [built-in NuGet repository inside Octopus](/docs/packaging-applications/package-repositories.md). These packages can often be very large.
+- [Artifacts](/docs/deploying-applications/artifacts.md) collected during a deployment. Teams using Octopus sometimes use this feature to collect large log files and other files from machines during a deployment.
 - Task logs, which are text files that store all of the log output from deployments and other tasks.
 
 

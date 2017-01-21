@@ -4,7 +4,7 @@ position: 8
 ---
 
 
-When the Tentacle agent is configured, the default behaviour is to generate a new X.509 certificate. When automating the provisioning of Tentacles on a machine, however, you may run into problems when trying to generate a certificate when running as a user without a profile loaded. This occurs commonly when running via PowerShell remoting, or trying to [automate Tentacle setup](/docs/home/installation/installing-tentacles/automating-tentacle-installation.md).
+When the Tentacle agent is configured, the default behaviour is to generate a new X.509 certificate. When automating the provisioning of Tentacles on a machine, however, you may run into problems when trying to generate a certificate when running as a user without a profile loaded. This occurs commonly when running via PowerShell remoting, or trying to [automate Tentacle setup](/docs/installation/installing-tentacles/automating-tentacle-installation.md).
 
 
 A simple workaround is to generate a certificate on one machine (such as your workstation), export it to a file, and then import that certificate when provisioning Tentacles.
@@ -12,7 +12,7 @@ A simple workaround is to generate a certificate on one machine (such as your wo
 ## Generating and exporting a certificate
 
 
-First, [install the Tentacle agent](/docs/home/installation/installing-tentacles.md) on a computer, and run the following command:
+First, [install the Tentacle agent](/docs/installation/installing-tentacles.md) on a computer, and run the following command:
 
 ```powershell
 tentacle.exe new-certificate -e MyFile.txt
@@ -24,7 +24,7 @@ The output file will now contain a base-64 encoded version of a PKCS#12 export o
 ## Importing a certificate
 
 
-When [automatically provisioning your Tentacle](/docs/home/installation/installing-tentacles/automating-tentacle-installation.md), the commands typically look something like this:
+When [automatically provisioning your Tentacle](/docs/installation/installing-tentacles/automating-tentacle-installation.md), the commands typically look something like this:
 
 ```powershell
 Tentacle.exe create-instance --instance "Tentacle" --config "C:\Octopus\Tentacle\Tentacle.config" --console

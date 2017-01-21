@@ -18,7 +18,7 @@ This information is provided as a guide to help teams troubleshoot Octopus authe
 - Run as a different user not working
 
 
-Octopus integrates with Active Directory to authenticate users as well as authorize what actions they can perform.  Our [Active Directory authentication](/docs/home/administration/authentication-providers/active-directory-authentication.md) page provides more information on how to set up Octopus to work with Active Directory as well as some details on how it's technically implemented.  Essentially, Octopus interacts with active directory in two ways:
+Octopus integrates with Active Directory to authenticate users as well as authorize what actions they can perform.  Our [Active Directory authentication](/docs/administration/authentication-providers/active-directory-authentication.md) page provides more information on how to set up Octopus to work with Active Directory as well as some details on how it's technically implemented.  Essentially, Octopus interacts with active directory in two ways:
 
 1. First, we authenticate a users's credentials are valid by invoking the Windows API `LogonUser()` function.
 2. If that is successful, Octopus will then query Active Directory for information about the user.  In this second interaction, we retrieve the groups a user is a member of and use that to determine what teams they belong to etc.
@@ -26,7 +26,7 @@ Octopus integrates with Active Directory to authenticate users as well as author
 
 :::hint
 **Teams are not Distribution Groups**
-Whilst you might have a team that you would think maps to a Distribution Group, this does not mean that [subscriptions](/docs/home/administration/subscriptions.md) will send emails to the DG email address configured in Active Directory. Teams in Octopus are more synonymous with Security Groups and are used to determine accessibility. To send subscription emails to a Distribution Group email address will require setting up a user with that email address, and assigning them to the appropriate Octopus team.
+Whilst you might have a team that you would think maps to a Distribution Group, this does not mean that [subscriptions](/docs/administration/subscriptions.md) will send emails to the DG email address configured in Active Directory. Teams in Octopus are more synonymous with Security Groups and are used to determine accessibility. To send subscription emails to a Distribution Group email address will require setting up a user with that email address, and assigning them to the appropriate Octopus team.
 :::
 
 ## Configuring Active Directory users

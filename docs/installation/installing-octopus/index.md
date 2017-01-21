@@ -7,7 +7,7 @@ position: 0
 The Octopus Deploy Server is software that you download and install on one of your own servers, just like you would install Microsoft SQL Server. The Octopus Deploy Server:
 
 - runs as a Windows Service
-- stores its data in a [SQL Server database](/docs/home/administration/octopus-database.md)
+- stores its data in a [SQL Server database](/docs/administration/octopus-database.md)
 - has an embedded HTTP server which presents the main Octopus user interface (the **Octopus Web Portal**)
 
 
@@ -28,7 +28,7 @@ Your Octopus Deploy server requires:
 - Windows Server 2008 SP2+, 2008 R2, 2012, 2012 R2 or 2016 ("Server with a GUI" install, not Server Core)
 - .NET Framework 4.5+ ([download](https://www.microsoft.com/en-au/download/details.aspx?id=30653))
  - .NET Framework 4.5.1+ for Octopus Server 3.4.0 and later
-- SQL Server installed locally or on another server, or Microsoft Azure SQL Database ([more details](/docs/home/installation/installing-octopus/sql-server-database-requirements.md))
+- SQL Server installed locally or on another server, or Microsoft Azure SQL Database ([more details](/docs/installation/installing-octopus/sql-server-database-requirements.md))
 - Hardware:
  - Absolute minimum to make it run: 512MB RAM, 1GHz CPU, 2GB free disk space
  - Recommended for smaller deployments (less than 30 Tentacles for example): 2GB RAM, dual-core CPU, 10GB free disk space

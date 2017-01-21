@@ -4,7 +4,7 @@ position: 22
 ---
 
 
-Octopus 3.7 introduced integration with the [Octopus Library](http://library.octopus.com/) and community contributed [step templates](/docs/home/deploying-applications/step-templates.md) are now synchronised with the Octopus server. This makes it a quick and easy process to use community step templates in your project's deployment process.
+Octopus 3.7 introduced integration with the [Octopus Library](http://library.octopus.com/) and community contributed [step templates](/docs/deploying-applications/step-templates.md) are now synchronised with the Octopus server. This makes it a quick and easy process to use community step templates in your project's deployment process.
 
 
 
@@ -22,7 +22,7 @@ This feature is enabled by default however it can be disabled in the **Feature
 NOTE: The relevant permissions to install and manage step templates are ActionTemplateCreate, ActionTemplateEdit, ActionTemplateView and ActionTemplateDelete.
 
 :::hint
-The community step template synchronization process works great with proxy servers.  For more information, see [Proxy support](/docs/home/installation/installing-tentacles/proxy-support.md).
+The community step template synchronization process works great with proxy servers.  For more information, see [Proxy support](/docs/installation/installing-tentacles/proxy-support.md).
 :::
 
 ## Community step template linking

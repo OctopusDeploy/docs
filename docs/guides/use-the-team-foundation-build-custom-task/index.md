@@ -27,14 +27,14 @@ We've open-sourced the [OctoTFS repository in GitHub](https://github.com/Octopu
 If you're using **Visual Studio Team Services (VSTS) or on-premises Team Foundation Server (TFS) 2015 Update 2 (or newer)** you can simply [install the extension from the marketplace](https://marketplace.visualstudio.com/items/octopusdeploy.octopus-deploy-build-release-tasks) and follow the instructions below.
 
 
-If you're using an **on-premises TFS server (before 2015 Update 2)**, the extension is currently not available. You'll have to manually install the task by following [these instructions](/docs/home/guides/use-the-team-foundation-build-custom-task/manually-install-the-build-task-(not-recommended).md). Alternatively, [D'Arcy Lussier has put together a complete walkthrough](http://geekswithblogs.net/dlussier/archive/2016/01/04/170820.aspx) that's very easy to follow.
+If you're using an **on-premises TFS server (before 2015 Update 2)**, the extension is currently not available. You'll have to manually install the task by following [these instructions](/docs/guides/use-the-team-foundation-build-custom-task/manually-install-the-build-task-(not-recommended).md). Alternatively, [D'Arcy Lussier has put together a complete walkthrough](http://geekswithblogs.net/dlussier/archive/2016/01/04/170820.aspx) that's very easy to follow.
 
 
 After installing the extension, follow the below steps to get it running for your build.
 
 :::success
 **Manually installing the extension (not recommended)**
-If you want to make changes to the build task that might not be appropriate for everyone, you can download and manually install the build task yourself. See [Manually install the Build Task (not recommended)](/docs/home/guides/use-the-team-foundation-build-custom-task/manually-install-the-build-task-(not-recommended).md) for details.
+If you want to make changes to the build task that might not be appropriate for everyone, you can download and manually install the build task yourself. See [Manually install the Build Task (not recommended)](/docs/guides/use-the-team-foundation-build-custom-task/manually-install-the-build-task-(not-recommended).md) for details.
 :::
 
 # Add a Connection to Octopus Deploy
@@ -52,7 +52,7 @@ Click **New Service Endpoint** and choose **Generic**.
 Specify a **Connection Name** and specify the **Server Url** to your Octopus Server (including the port if required).
 
 
-You can enter anything for the **User name** (we don't use it), but make sure you put a valid [Octopus API Key](/docs/home/how-to/how-to-create-an-api-key.md) in the **Password/Token Key** field.
+You can enter anything for the **User name** (we don't use it), but make sure you put a valid [Octopus API Key](/docs/how-to/how-to-create-an-api-key.md) in the **Password/Token Key** field.
 
 
 ![](/docs/images/3048587/3278382.png)
@@ -68,8 +68,8 @@ To integrate with Octopus Deploy, an application must be packaged into either a 
 
 There are two options for packaging and pushing:
 
-- [Use OctoPack](/docs/home/guides/use-the-team-foundation-build-custom-task.md) as part of your build process.
-- Use the [Package Application](/docs/home/guides/use-the-team-foundation-build-custom-task.md) and [Push Package to Octopus](/docs/home/guides/use-the-team-foundation-build-custom-task.md) Steps added by this extension.
+- [Use OctoPack](/docs/guides/use-the-team-foundation-build-custom-task.md) as part of your build process.
+- Use the [Package Application](/docs/guides/use-the-team-foundation-build-custom-task.md) and [Push Package to Octopus](/docs/guides/use-the-team-foundation-build-custom-task.md) Steps added by this extension.
 
 
 :::hint
@@ -82,7 +82,7 @@ There are a number of useful variables provided by Visual Studio Team Services t
 ## Using OctoPack to Create and Push a Package
 
 
-Follow the [OctoPack instructions](/docs/home/packaging-applications/nuget-packages/using-octopack.md) to add OctoPack to your project and configure the msbuild arguments.
+Follow the [OctoPack instructions](/docs/packaging-applications/nuget-packages/using-octopack.md) to add OctoPack to your project and configure the msbuild arguments.
 
 
 In the new Team Foundation build process, the arguments below should be in the **MSBuild Arguments** field for the **Visual Studio Build** or **MSBuild** step. Here is a list of the available variables that you can use from the Microsoft [Build use variables](https://msdn.microsoft.com/Library/vs/alm/Build/scripts/variables).
@@ -120,7 +120,7 @@ To add a step to your Release process, edit your Release Definition, select the 
 
 :::hint
 **If not using OctoPack**
-This step is only required if you are not [using OctoPack](/docs/home/guides/use-the-team-foundation-build-custom-task.md) to create your package.
+This step is only required if you are not [using OctoPack](/docs/guides/use-the-team-foundation-build-custom-task.md) to create your package.
 :::
 
 
@@ -136,7 +136,7 @@ Add a step to your Build or Release process, choose **Package**, click **Add** t
 ![](/docs/images/3048587/5865474.png)
 
 
-See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octo.exe command-line options](/docs/home/packaging-applications/nuget-packages/using-octo.exe.md) for more details).
+See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octo.exe command-line options](/docs/packaging-applications/nuget-packages/using-octo.exe.md) for more details).
 
 ### Publish Package Artifact
 
@@ -161,7 +161,7 @@ Add a step to your Build or Release process, choose **Package**, click **Add**
 ![](/docs/images/3048587/5865724.png)
 
 
-See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octo.exe command-line options](/docs/home/api-and-integration/octo.exe-command-line/pushing-packages.md) for more details).
+See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octo.exe command-line options](/docs/api-and-integration/octo.exe-command-line/pushing-packages.md) for more details).
 
 ## Add a Create Octopus Release Step
 
@@ -175,7 +175,7 @@ Add a step to your Build or Release process, choose **Deploy**, click **Add**�
 ![](/docs/images/3048587/5865480.png)
 
 
-See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octo.exe command-line options](/docs/home/api-and-integration/octo.exe-command-line/creating-releases.md) for more details).
+See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octo.exe command-line options](/docs/api-and-integration/octo.exe-command-line/creating-releases.md) for more details).
 
 
 Enabling the Include Changeset Comments and/or Include Work Items options will result in release notes which include deep-links into the TFS Work Items and Changesets.
@@ -195,4 +195,4 @@ Add a step to your Build or Release process, choose **Deploy**, click **Add**�
 ![](/docs/images/3048587/5865482.png)
 
 
-See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octo.exe command-line options](/docs/home/api-and-integration/octo.exe-command-line/deploying-releases.md) for more details).
+See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octo.exe command-line options](/docs/api-and-integration/octo.exe-command-line/deploying-releases.md) for more details).

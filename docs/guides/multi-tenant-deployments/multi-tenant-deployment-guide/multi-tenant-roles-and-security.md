@@ -4,13 +4,13 @@ position: 8
 ---
 
 
-Previous step: [Designing a multi-tenant upgrade process](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md)
+Previous step: [Designing a multi-tenant upgrade process](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md)
 
 
 This page describes several common approaches to structuring roles and teams to secure a multi-tenant Octopus instance. Using the permissions system in Octopus you can configure internal team members with different roles who interact with tenants in different ways. You can also configure Octopus to provide access for your external customers. This page explores several of those roles for both internal and external parties.
 
 :::success
-To get the most out of this guide you will need to understand how to [manage users and teams](/docs/home/administration/managing-users-and-teams.md) and how to [work with custom roles](/docs/home/administration/managing-users-and-teams/user-roles.md). Octopus provides an expressive permissions system and you can customize the security configuration to your particular scenario.
+To get the most out of this guide you will need to understand how to [manage users and teams](/docs/administration/managing-users-and-teams.md) and how to [work with custom roles](/docs/administration/managing-users-and-teams/user-roles.md). Octopus provides an expressive permissions system and you can customize the security configuration to your particular scenario.
 :::
 
 
@@ -113,7 +113,7 @@ Quite often you will want to allocate certain tenants to a team, or restrict whi
 ## Infrastructure manager
 
 
-Bob is a member of IT infrastructure team and he manages all the virtual servers in the cloud. His only interaction with tenants is to associate them with the appropriate [deployment targets](/docs/home/deployment-targets.md) and [environments](/docs/home/key-concepts/environments.md).  He should have read-only access to tenant details required, and have the ability to manage deployment targets and accounts. This time we will configure the team using a composition of built-in and custom roles.
+Bob is a member of IT infrastructure team and he manages all the virtual servers in the cloud. His only interaction with tenants is to associate them with the appropriate [deployment targets](/docs/deployment-targets.md) and [environments](/docs/key-concepts/environments.md).  He should have read-only access to tenant details required, and have the ability to manage deployment targets and accounts. This time we will configure the team using a composition of built-in and custom roles.
 
 ### Step 1: Configure the Tenant viewer role
 
@@ -139,7 +139,7 @@ In this example we will create a new team and combine multiple roles together to
 ### Step 3: Test!
 
 
-Similarly to the previous example assign a user account, sign in, and test out the resulting behaviour. You should notice you can configure new or existing deployment targets including tenant configuration as we described in [Designing a multi-tenant hosting model](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md).
+Similarly to the previous example assign a user account, sign in, and test out the resulting behaviour. You should notice you can configure new or existing deployment targets including tenant configuration as we described in [Designing a multi-tenant hosting model](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md).
 
 ### Step 4: Reduce scope of the team
 
@@ -152,7 +152,7 @@ You can also reduce the scope of this team to a certain set of tenants or enviro
 You may want to provide your actual customers with their own user account in Octopus and the ability to see a personalized dashboard, and potentially perform their own upgrades. This is possible by using the techniques we've already used by scoping a team to a single tenant.
 
 :::success
-You may want to provide the capabilities of Octopus Deploy to your customers without them knowing it's Octopus under the covers. Octopus is built API-first, and you can use the [Octopus API](/docs/home/api-and-integration/octopus-rest-api.md) to build your own web user interface over the top of Octopus to provide all the capabilities of Octopus with your own user experience.
+You may want to provide the capabilities of Octopus Deploy to your customers without them knowing it's Octopus under the covers. Octopus is built API-first, and you can use the [Octopus API](/docs/api-and-integration/octopus-rest-api.md) to build your own web user interface over the top of Octopus to provide all the capabilities of Octopus with your own user experience.
 :::
 
 ### Step 1: Configure a team for the tenant
@@ -176,7 +176,7 @@ Just like the previous examples, create a user account and test Octopus behaves 
 ### Step 3: Configure user accounts for the tenant
 
 
-Now you can create standard Octopus [user accounts](/docs/home/administration/managing-users-and-teams.md) and add them as members of the tenant-specific team.
+Now you can create standard Octopus [user accounts](/docs/administration/managing-users-and-teams.md) and add them as members of the tenant-specific team.
 
 ## Next steps
 

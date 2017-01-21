@@ -12,10 +12,10 @@ Octopus Manager comes with an Import/Export wizard which supports a number of sc
 
 
 
-*To migrate data from older versions of Octopus see [Upgrading from Octopus 2.6](/docs/home/administration/upgrading/upgrading-from-octopus-2.6.md)*
+*To migrate data from older versions of Octopus see [Upgrading from Octopus 2.6](/docs/administration/upgrading/upgrading-from-octopus-2.6.md)*
 
 :::hint
-The Import/Export wizards are designed for moving configuration data between Octopus servers, or for creating snapshots which can be committed to source control or used for auditing purposes. It's not designed as a general disaster recovery or backup tool; for that, see the section on [backing up your Octopus server](/docs/home/administration/backup-and-restore.md).
+The Import/Export wizards are designed for moving configuration data between Octopus servers, or for creating snapshots which can be committed to source control or used for auditing purposes. It's not designed as a general disaster recovery or backup tool; for that, see the section on [backing up your Octopus server](/docs/administration/backup-and-restore.md).
 :::
 
 ## Exporting
@@ -71,7 +71,7 @@ You'll get a chance to preview the changes first, and you can tell the tool to e
 The importer wraps all data changes in a SQL transaction; if any problems are discovered during the import, the transaction will be rolled back and nothing will be imported.
 
 :::hint
-It's a good idea to [perform a backup](/docs/home/administration/backup-and-restore.md) before attempting an import.
+It's a good idea to [perform a backup](/docs/administration/backup-and-restore.md) before attempting an import.
 :::
 
 ## Merge granularity

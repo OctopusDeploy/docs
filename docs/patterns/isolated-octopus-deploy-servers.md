@@ -4,13 +4,13 @@ position: 3
 ---
 
 
-Octopus was designed to be a single, central point of truth for application deployments. In an ideal world, you would only need one Octopus server, and then many Tentacles. Octopus uses a [secure communication channel](/docs/home/reference/octopus---tentacle-communication.md) when communicating with remote endpoints, and can work in both [listening and polling mode](/docs/home/installation/installing-tentacles.md), giving you multiple options to work around firewall issues.
+Octopus was designed to be a single, central point of truth for application deployments. In an ideal world, you would only need one Octopus server, and then many Tentacles. Octopus uses a [secure communication channel](/docs/reference/octopus---tentacle-communication.md) when communicating with remote endpoints, and can work in both [listening and polling mode](/docs/installation/installing-tentacles.md), giving you multiple options to work around firewall issues.
 
 
 Of course, the real world and the ideal world don't always overlap, and you might need to have separate Octopus servers. Common examples are:
 
 - Solution providers with an internal Octopus server for pre-production deployments while developing a solution, and then Octopus servers managed by the client for production deployments, on different networks
-- When company policies require production and pre-production environments to be on completely isolated networks, like PCI compliant environments. Learn about [PCI Compliance and Octopus Deploy](/docs/home/reference/pci-compliance-and-octopus-deploy.md).
+- When company policies require production and pre-production environments to be on completely isolated networks, like PCI compliant environments. Learn about [PCI Compliance and Octopus Deploy](/docs/reference/pci-compliance-and-octopus-deploy.md).
 
 
 
@@ -23,7 +23,7 @@ On this page, we discuss two different scenarios, and the features and options t
 
 
 
-In Octopus 3.0, you can configure an [Offline Package Drop deployment target](/docs/home/deployment-targets/offline-package-drop.md). This allows you to "deploy" to a location on the filesystem and take that deployment offline to be used elsewhere. The dropped package contains everything you need to deploy to a location offsite.
+In Octopus 3.0, you can configure an [Offline Package Drop deployment target](/docs/deployment-targets/offline-package-drop.md). This allows you to "deploy" to a location on the filesystem and take that deployment offline to be used elsewhere. The dropped package contains everything you need to deploy to a location offsite.
 
 ## Tentacle can be installed (isolated Octopus servers)
 
@@ -34,11 +34,11 @@ In Octopus 3.0, you can configure an [Offline Package Drop deployment target](/d
 
 In this scenario, the customer would install different instances of Octopus in both environments. To keep settings in sync and to automate between environments, they can use a combination of strategies:
 
-- They could use the new [data migration tool](/docs/home/administration/data-migration.md) to export the internal Octopus Deploy configuration to a folder. The resulting folder tree could be imported into the production Octopus instance. This will result in a duplicate configuration in the production environment.
+- They could use the new [data migration tool](/docs/administration/data-migration.md) to export the internal Octopus Deploy configuration to a folder. The resulting folder tree could be imported into the production Octopus instance. This will result in a duplicate configuration in the production environment.
 - The migration tool could be reused periodically to keep both servers in sync. Because the resulting export is simply a collection of JSON files in folders, a source control system like Git could be used for this purpose. Any imports subsequent to the initial import would result in a merge of any changes.
 - They can manually keep some additional settings in sync, such as common Nuget feeds.
 - Packages can be moved between environments using [NuGet.exe](http://docs.nuget.org/docs/reference/command-line-reference) to push packages to both Octopus servers. For example, the CI server could publish packages to both the pre-production and production Octopus server after a build, or they could manually use Nuget to push them when ready to promote.
-- Finally, to automate anything else that isn't possible above, the [REST API](/docs/home/api-and-integration/octopus-rest-api.md) or [Octopus.Client](/docs/home/api-and-integration/octopus.client.md) can be used.
+- Finally, to automate anything else that isn't possible above, the [REST API](/docs/api-and-integration/octopus-rest-api.md) or [Octopus.Client](/docs/api-and-integration/octopus.client.md) can be used.
 
 
 :::success
@@ -53,4 +53,4 @@ Your Octopus Deploy license includes the ability to install and configure up to 
 
 
 
-In this scenario you would install Tentacle onto the customer's servers, but configure all communication to go via the customer's proxy server. Learn about [proxy support](/docs/home/installation/installing-tentacles/proxy-support.md) in Octopus Deploy.
+In this scenario you would install Tentacle onto the customer's servers, but configure all communication to go via the customer's proxy server. Learn about [proxy support](/docs/installation/installing-tentacles/proxy-support.md) in Octopus Deploy.

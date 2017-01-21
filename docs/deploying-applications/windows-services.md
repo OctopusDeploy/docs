@@ -34,7 +34,7 @@ To deploy a Windows Service, add a *Deploy a Windows Service* step. For infor
 
 :::hint
 **Pre Octopus 3.4.7**
-The *Deploy a Windows Service Step* was introduced in Octopus version **3.4.7**. Prior to this Windows Services were deployed by enabling the *Windows Service* feature on a [Deploy a Package Step](/docs/home/deploying-applications/deploying-packages.md).
+The *Deploy a Windows Service Step* was introduced in Octopus version **3.4.7**. Prior to this Windows Services were deployed by enabling the *Windows Service* feature on a [Deploy a Package Step](/docs/deploying-applications/deploying-packages.md).
 
 
 ![](/docs/images/3048082/3277662.png)
@@ -48,7 +48,7 @@ The *Deploy a Windows Service Step* was introduced in Octopus version **3.4.7**.
 ### Step 1: Select a Package
 
 
-Use the Package Feed and Package ID fields to select the [package](/docs/home/packaging-applications.md) containing the executable (.exe) to be installed as a Windows Service.
+Use the Package Feed and Package ID fields to select the [package](/docs/packaging-applications.md) containing the executable (.exe) to be installed as a Windows Service.
 
 ### Step 2: Configure Windows Service options
 
@@ -79,7 +79,7 @@ The account that the Windows Service should run under. Options are:
 
 
 
-See below for [Security Considerations](/docs/home/deploying-applications/windows-services.md) and [using Managed Service Accounts (MSA)](/docs/home/deploying-applications/windows-services.md)
+See below for [Security Considerations](/docs/deploying-applications/windows-services.md) and [using Managed Service Accounts (MSA)](/docs/deploying-applications/windows-services.md)
  |
 | **Start mode** | 
 
@@ -106,24 +106,24 @@ This three minute video (with captions) demonstrates how to deploy a C# Windows 
 ## How does Octopus actually deploy my Windows Service?
 
 
-Out of the box, Octopus will do the right thing to deploy your Windows Service, and the conventions we have chosen will eliminate a lot of problems with file locks, and leaving stale files behind. By default Octopus will follow the conventions described in [Deploying packages](/docs/home/deploying-applications/deploying-packages.md) and apply the different features you select in the order described in [Package deployment feature ordering](/docs/home/reference/package-deployment-feature-ordering.md).
+Out of the box, Octopus will do the right thing to deploy your Windows Service, and the conventions we have chosen will eliminate a lot of problems with file locks, and leaving stale files behind. By default Octopus will follow the conventions described in [Deploying packages](/docs/deploying-applications/deploying-packages.md) and apply the different features you select in the order described in [Package deployment feature ordering](/docs/reference/package-deployment-feature-ordering.md).
 
 :::success
-Avoid using the [Custom Installation Directory](/docs/home/deploying-applications/custom-installation-directory.md) feature unless you are absolutely required to put your packaged files into a specific physical location on disk.
+Avoid using the [Custom Installation Directory](/docs/deploying-applications/custom-installation-directory.md) feature unless you are absolutely required to put your packaged files into a specific physical location on disk.
 :::
 
 
 As an approximation including the Windows Service manager integration:
 
-1. Acquire the package as optimally as possible (local package cache and [delta compression](/docs/home/deploying-applications/delta-compression-for-package-transfers.md))
+1. Acquire the package as optimally as possible (local package cache and [delta compression](/docs/deploying-applications/delta-compression-for-package-transfers.md))
 2. Stop your Windows Service is already running
 3. Create a new folder for the deployment (which avoids many common problems like file locks, and leaving stale files behind)
  1. Example: `C:\Octopus\Applications\[Tenant name]\[Environment name]\[Package name]\[Package version]\` where `C:\Octopus\Applications` is the Tentacle application directory you configured when installing Tentacle)
 4. Extract the package into the newly created folder
-5. Execute each of your [custom scripts](/docs/home/deploying-applications/custom-scripts.md) and the [deployment features](/docs/home/deploying-applications.md) you've configured will be executed to perform the deployment [following this order by convention](/docs/home/reference/package-deployment-feature-ordering.md).
+5. Execute each of your [custom scripts](/docs/deploying-applications/custom-scripts.md) and the [deployment features](/docs/deploying-applications.md) you've configured will be executed to perform the deployment [following this order by convention](/docs/reference/package-deployment-feature-ordering.md).
  1. As part of this process Windows Service will be created, or reconfigured if it already exists, including updating the **binPath** to point to this folder and your executable entry point
 6. Your Windows Service will be started
-7. [Output variables](/docs/home/deploying-applications/variables/output-variables.md) and deployment [artifacts](/docs/home/deploying-applications/artifacts.md) from this step are sent back to the Octopus Server
+7. [Output variables](/docs/deploying-applications/variables/output-variables.md) and deployment [artifacts](/docs/deploying-applications/artifacts.md) from this step are sent back to the Octopus Server
 
 
 :::success
@@ -134,13 +134,13 @@ You can see exactly how Octopus deploys your Windows Service by looking at the s
 
 
 
-You can inject your own logic into this process using [custom scripts](/docs/home/deploying-applications/custom-scripts.md) and understanding where your scripts will execute in the context of [package deployment feature ordering](/docs/home/reference/package-deployment-feature-ordering.md).
+You can inject your own logic into this process using [custom scripts](/docs/deploying-applications/custom-scripts.md) and understanding where your scripts will execute in the context of [package deployment feature ordering](/docs/reference/package-deployment-feature-ordering.md).
 :::
 
 ## Setting advanced configuration options
 
 
-Windows Services support some advanced settings not exposed by this feature. You can customize your Windows Service by including a `PostDeploy.ps1` [custom script](/docs/home/deploying-applications/custom-scripts.md).
+Windows Services support some advanced settings not exposed by this feature. You can customize your Windows Service by including a `PostDeploy.ps1` [custom script](/docs/deploying-applications/custom-scripts.md).
 
 
 This example configures the service **Failure Action** to **Restart.**

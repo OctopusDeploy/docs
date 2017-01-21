@@ -109,7 +109,7 @@ For example:
 
 :::success
 **Using Sensitive Variables?**
-Usually the reason you need to use Offline Package Drop is for some kind of security policy or compliance control. If you indicate any Variables as Sensitive they will be encrypted into a separate variable file so they are protected during transport. When you execute the deployment you will be prompted for the [sensitive-variables password](/docs/home/deployment-targets/offline-package-drop.md) that will be used to decrypt the sensitive values so they can be used as part of the deployment.
+Usually the reason you need to use Offline Package Drop is for some kind of security policy or compliance control. If you indicate any Variables as Sensitive they will be encrypted into a separate variable file so they are protected during transport. When you execute the deployment you will be prompted for the [sensitive-variables password](/docs/deployment-targets/offline-package-drop.md) that will be used to decrypt the sensitive values so they can be used as part of the deployment.
 :::
 
 ## Deploying the Offline Package Drop

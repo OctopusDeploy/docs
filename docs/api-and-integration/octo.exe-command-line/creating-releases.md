@@ -4,7 +4,7 @@ position: 2
 ---
 
 
-[Octo.exe](/docs/home/api-and-integration/octo.exe-command-line.md) can be used to automate the creation of releases using the **`create-release`** command. This allows you to easily integrate Octopus with other continuous integration servers.
+[Octo.exe](/docs/api-and-integration/octo.exe-command-line.md) can be used to automate the creation of releases using the **`create-release`** command. This allows you to easily integrate Octopus with other continuous integration servers.
 
 
 On this page:

@@ -49,11 +49,11 @@ To make integrating with TeamCity easy, a [plugin is available](https://octopus
 ## Creating Octopus-compatible NuGet packages using TeamCity
 
 
-Octopus requires that you package your applications into NuGet packages, whether or not you are using TeamCity. There are many ways to create [Octopus-compatible NuGet packages](/docs/home/packaging-applications.md), but the easiest way is with [OctoPack](https://github.com/OctopusDeploy/OctoPack).
+Octopus requires that you package your applications into NuGet packages, whether or not you are using TeamCity. There are many ways to create [Octopus-compatible NuGet packages](/docs/packaging-applications.md), but the easiest way is with [OctoPack](https://github.com/OctopusDeploy/OctoPack).
 
 :::hint
 **Using OctoPack**
-For more information on using OctoPack to create NuGet packages, see [using OctoPack](/docs/home/packaging-applications/nuget-packages/using-octopack.md).
+For more information on using OctoPack to create NuGet packages, see [using OctoPack](/docs/packaging-applications/nuget-packages/using-octopack.md).
 :::
 
 
@@ -82,10 +82,10 @@ Don't worry, TeamCity comes with a built-in [NuGet Pack build step](https://conf
 ## Using Octopus as a Package Repository
 
 
-Octopus can be used as a [NuGet package package](/docs/home/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md), or can be configured to use an external feed (such as retrieving them from TeamCity).
+Octopus can be used as a [NuGet package package](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md), or can be configured to use an external feed (such as retrieving them from TeamCity).
 
 
-To push packages to Octopus during the OctoPack phase, enter the NuGet endpoint url (which you can get from *Library -> Packages*; it looks like http://octopus.example.com/nuget/packages) into the **Publish packages to http** field, and [an API key](/docs/home/how-to/how-to-create-an-api-key.md) in the **Publish API Key** field**.**OctoPack will then push the packages when the solution is built.
+To push packages to Octopus during the OctoPack phase, enter the NuGet endpoint url (which you can get from *Library -> Packages*; it looks like http://octopus.example.com/nuget/packages) into the **Publish packages to http** field, and [an API key](/docs/how-to/how-to-create-an-api-key.md) in the **Publish API Key** field**.**OctoPack will then push the packages when the solution is built.
 
 ## Consuming the TeamCity NuGet feed in Octopus
 
@@ -140,7 +140,7 @@ In version 3.3.1 of the TeamCity Plugin we have added a new build runner that ca
 
 The Octopus TeamCity plugin comes with these custom build runners:
 
-1. **Octopus Deploy: Push Packages (Octopus 3.3 and TeamCity plugin 3.3.1 or newer)**Push packages to the Octopus Deploy [built-in repository](/docs/home/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md), optionally using the TeamCity zip feature to create packages on-the-fly.
+1. **Octopus Deploy: Push Packages (Octopus 3.3 and TeamCity plugin 3.3.1 or newer)**Push packages to the Octopus Deploy [built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md), optionally using the TeamCity zip feature to create packages on-the-fly.
 2. **Octopus Deploy: Create Release**
 Creates a new release in Octopus Deploy, and optionally deploys it to an environment
 3. **Octopus Deploy: Deploy Release**
@@ -150,7 +150,7 @@ Promotes an *existing*release from one environment to another.
 
 
 
-The plugin is simply a wrapper for [Octo.exe](/docs/home/api-and-integration/octo.exe-command-line.md), the Octopus command line tool for creating and deploying releases.
+The plugin is simply a wrapper for [Octo.exe](/docs/api-and-integration/octo.exe-command-line.md), the Octopus command line tool for creating and deploying releases.
 
 
 ![](/docs/images/3048176/3278185.jpg)

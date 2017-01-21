@@ -27,9 +27,9 @@ On this page:
 Bamboo deployments provide many advantages. For example, if you are using JIRA, it's easy to see which JIRA issues are included in a deployment. However, when it comes to the actual deployment automation tasks, there are some compelling reasons to combine Bamboo with Octopus Deploy:
 
 - Octopus can run deployment steps in parallel across many agents. Instead of having a single agent remotely installing and configuring software, Octopus can send packages to all of the web and application servers in parallel, and execute the deployments locally, bringing the results back to a central log.
-- Octopus has a large number of built-in conventions for common deployment tasks, such as [managing configuration files](/docs/home/deploying-applications/configuration-files.md), installing [Windows Services](/docs/home/deploying-applications/windows-services.md), and creating [IIS web sites](/docs/home/deploying-applications/iis-websites-and-application-pools.md), reducing the amount of scripting required.
-- Octopus makes it easy to coordinate deployments with machines across a [variety of network configurations](/docs/home/installation/installing-tentacles.md)
-- [Manual steps](/docs/home/deploying-applications/manual-intervention-and-approvals.md) in Octopus make it possible to include both automated and human deployment steps
+- Octopus has a large number of built-in conventions for common deployment tasks, such as [managing configuration files](/docs/deploying-applications/configuration-files.md), installing [Windows Services](/docs/deploying-applications/windows-services.md), and creating [IIS web sites](/docs/deploying-applications/iis-websites-and-application-pools.md), reducing the amount of scripting required.
+- Octopus makes it easy to coordinate deployments with machines across a [variety of network configurations](/docs/installation/installing-tentacles.md)
+- [Manual steps](/docs/deploying-applications/manual-intervention-and-approvals.md) in Octopus make it possible to include both automated and human deployment steps
 
 
 
@@ -38,7 +38,7 @@ The rest of this page will walk you through the process of integrating Octopus D
 ## Building with Bamboo and OctoPack
 
 
-The first step to making Octopus and Bamboo work together, is for Bamboo to create artifacts that Octopus is able to deploy. [Octopus uses NuGet packages](/docs/home/packaging-applications.md), and [OctoPack](/docs/home/packaging-applications/nuget-packages/using-octopack.md) makes it easy to package your application using MSBuild.
+The first step to making Octopus and Bamboo work together, is for Bamboo to create artifacts that Octopus is able to deploy. [Octopus uses NuGet packages](/docs/packaging-applications.md), and [OctoPack](/docs/packaging-applications/nuget-packages/using-octopack.md) makes it easy to package your application using MSBuild.
 
 
 During our build, we will:
@@ -57,11 +57,11 @@ To interact with our Octopus Deploy server, we need an API key. It's a good idea
 
 :::success
 **Creating API keys**
-Learn about [how to create an API key](/docs/home/how-to/how-to-create-an-api-key.md).
+Learn about [how to create an API key](/docs/how-to/how-to-create-an-api-key.md).
 :::
 
 
-Bamboo uses an MSBuild runner to compile Visual Studio solutions. [Once OctoPack has been installed](/docs/home/packaging-applications/nuget-packages/using-octopack.md) on your C#/VB projects, you can configure Bamboo's MSBuild task to pass the appropriate parameters to MSBuild to have OctoPack run:
+Bamboo uses an MSBuild runner to compile Visual Studio solutions. [Once OctoPack has been installed](/docs/packaging-applications/nuget-packages/using-octopack.md) on your C#/VB projects, you can configure Bamboo's MSBuild task to pass the appropriate parameters to MSBuild to have OctoPack run:
 
 
 ![](/docs/images/3048164/3278161.png?effects=border-simple,blur-border)
@@ -78,13 +78,13 @@ The settings are:
 
 - **RunOctoPack**: specifies that OctoPack should create packages during the build
 - **OctoPackPackageVersion**: version number that should be given to packages created by OctoPack. Since Bamboo build numbers are integers like "12", we combine it with "1.0." to produce package versions such as "1.0.12".
-- **OctoPackPublishPackageToHttp**: tells OctoPack to push the package to the Octopus Deploy server. Read more about the [built-in NuGet repository in Octopus](/docs/home/packaging-applications/package-repositories.md). You'll find the URL to your repository on the **Library > Packages** tab in Octopus
+- **OctoPackPublishPackageToHttp**: tells OctoPack to push the package to the Octopus Deploy server. Read more about the [built-in NuGet repository in Octopus](/docs/packaging-applications/package-repositories.md). You'll find the URL to your repository on the **Library > Packages** tab in Octopus
 - **OctoPackPublishApiKey**: your Octopus Deploy API key. Since we defined it as a Bamboo variable above, we reference the variable here.
 
 
 :::success
 **OctoPack arguments**
-Learn more about the available [OctoPack parameters](/docs/home/packaging-applications/nuget-packages/using-octopack.md).
+Learn more about the available [OctoPack parameters](/docs/packaging-applications/nuget-packages/using-octopack.md).
 :::
 
 ## Creating a release
@@ -93,7 +93,7 @@ Learn more about the available [OctoPack parameters](/docs/home/packaging-applic
 At this point, Bamboo has compiled the code, and packages have been pushed to Octopus Deploy, ready to be deployed. You can go to the Octopus web portal, and manually create releases using those packages.
 
 
-You can go one step further and automate release creation using [Octo.exe](/docs/home/api-and-integration/octo.exe-command-line.md), a command-line tool for automating Octopus.
+You can go one step further and automate release creation using [Octo.exe](/docs/api-and-integration/octo.exe-command-line.md), a command-line tool for automating Octopus.
 
 1. [Download Octo.exe](https://octopus.com/downloads), and extract it to a folder on your Bamboo build runner, such as `C:\Tools\Octo\Octo.exe`
 2. Add a new Command Line task to your build plan, and define the new executable:
@@ -120,7 +120,7 @@ Importantly:
 
 :::success
 **Octo.exe arguments**
-Learn more about [Octo.exe](/docs/home/api-and-integration/octo.exe-command-line.md) and the arguments it accepts. If you wanted to, you could even deploy automatically to a test environment using the `--deployto` parameter, without using Bamboo's deploy plans.
+Learn more about [Octo.exe](/docs/api-and-integration/octo.exe-command-line.md) and the arguments it accepts. If you wanted to, you could even deploy automatically to a test environment using the `--deployto` parameter, without using Bamboo's deploy plans.
 :::
 
 ## Deploying releases with Octopus and Bamboo deployment plans
@@ -137,7 +137,7 @@ In the previous steps, we configured a Bamboo build plan that:
 At this point, you could stop here, and use Octopus to manage deployments and promotion between environments: Bamboo builds, Octopus deploys.
 
 
-However, you can also make use of **Bamboo deployment plans**, and use them to control Octopus. When deploying between environments in Bamboo, a corresponding deployment in Octopus will be triggered. Again, we'll be using [Octo.exe](/docs/home/api-and-integration/octo.exe-command-line.md) to provide the glue.
+However, you can also make use of **Bamboo deployment plans**, and use them to control Octopus. When deploying between environments in Bamboo, a corresponding deployment in Octopus will be triggered. Again, we'll be using [Octo.exe](/docs/api-and-integration/octo.exe-command-line.md) to provide the glue.
 
 
 For this example, we have four environments in Octopus - Development, Test, Staging and Production. We have a deployment plan in Bamboo that is linked to the build plan, and looks like this:
@@ -175,7 +175,7 @@ Importantly:
 
 :::success
 **Octo.exe arguments**
-Again, see the [arguments to Octo.exe](/docs/home/api-and-integration/octo.exe-command-line.md) to see other parameters that you can specify. If your deployment is likely to take longer than 10 minutes, for example, consider passing `--deploymenttimeout=00:20:00` to make it 20 minutes.
+Again, see the [arguments to Octo.exe](/docs/api-and-integration/octo.exe-command-line.md) to see other parameters that you can specify. If your deployment is likely to take longer than 10 minutes, for example, consider passing `--deploymenttimeout=00:20:00` to make it 20 minutes.
 :::
 
 

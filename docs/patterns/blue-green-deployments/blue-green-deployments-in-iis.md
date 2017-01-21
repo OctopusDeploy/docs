@@ -16,7 +16,7 @@ In this case the Blue/Green are not separate Environments, they are different We
 
 :::hint
 **A reverse-proxy or some kind of router is required**
-Changing the configuration of a web site in IIS (like physical path or bindings) **always** results in the Application Pool being recycled. The default [IIS Websites and Application Pools](/docs/home/deploying-applications/iis-websites-and-application-pools.md) step in Octopus will try to reuse an existing web site in IIS (or create one for you), and as the last step it will [update the physical path in IIS](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari/Scripts/Octopus.Features.IISWebSite_BeforePostDeploy.ps1). This causes a minimum of downtime, especially if you have [allowed overlapping rotation on your Application Pool](https://msdn.microsoft.com/en-us/library/microsoft.web.administration.applicationpoolrecycling.disallowoverlappingrotation(v=vs.90).aspx). However, to achieve truly zero-downtime deployments of IIS Web Applications, you must use a reverse-proxy or some kind of routing technology.
+Changing the configuration of a web site in IIS (like physical path or bindings) **always** results in the Application Pool being recycled. The default [IIS Websites and Application Pools](/docs/deploying-applications/iis-websites-and-application-pools.md) step in Octopus will try to reuse an existing web site in IIS (or create one for you), and as the last step it will [update the physical path in IIS](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari/Scripts/Octopus.Features.IISWebSite_BeforePostDeploy.ps1). This causes a minimum of downtime, especially if you have [allowed overlapping rotation on your Application Pool](https://msdn.microsoft.com/en-us/library/microsoft.web.administration.applicationpoolrecycling.disallowoverlappingrotation(v=vs.90).aspx). However, to achieve truly zero-downtime deployments of IIS Web Applications, you must use a reverse-proxy or some kind of routing technology.
 :::
 
 
@@ -36,9 +36,9 @@ Every scenario is slightly different which is why this page is written more as a
 
 The general steps for this kind of deployment would be:
 
-1. Use a [custom script](/docs/home/deploying-applications/custom-scripts.md) step to calculate a new port number so we can configure a binding you can use to warm up the new instance of your application. See this [blog post](https://octopus.com/blog/changing-website-port-on-each-deployment) for more details.
+1. Use a [custom script](/docs/deploying-applications/custom-scripts.md) step to calculate a new port number so we can configure a binding you can use to warm up the new instance of your application. See this [blog post](https://octopus.com/blog/changing-website-port-on-each-deployment) for more details.
  1. The new port number should end up in a variable like **`#{Octopus.Action[Calculate port number].Output.Port}`**
-2. Use the [IIS Websites and Application Pools](/docs/home/deploying-applications/iis-websites-and-application-pools.md) step to deploy a new instance of your web application into a new Web Site and Application Pool
+2. Use the [IIS Websites and Application Pools](/docs/deploying-applications/iis-websites-and-application-pools.md) step to deploy a new instance of your web application into a new Web Site and Application Pool
  1. Use an expression like `MyApp-#{``Octopus.Release.CurrentForEnvironment.Number}` for the Web Site Name and Application Pool Name
  2. Configure a binding to **`http://localhost:#{Octopus.Action[Calculate port number].Output.Port}`**
 3. Make sure your new instance is warmed up and completely ready to process requests.

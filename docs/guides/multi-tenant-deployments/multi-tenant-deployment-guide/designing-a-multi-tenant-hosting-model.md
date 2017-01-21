@@ -4,10 +4,10 @@ position: 5
 ---
 
 
-Previous step: [Working with groups of tenants using tags](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md)
+Previous step: [Working with groups of tenants using tags](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md)
 
 
-This page describes how to design and implement both **dedicated** and **shared** multi-tenant hosting models using [Environments](/docs/home/key-concepts/environments.md), [Deployment Targets](/docs/home/deployment-targets.md) and [Accounts](/docs/home/key-concepts/environments/accounts.md) and [Tenant Tags](/docs/home/key-concepts/tenants/tenant-tags.md).
+This page describes how to design and implement both **dedicated** and **shared** multi-tenant hosting models using [Environments](/docs/key-concepts/environments.md), [Deployment Targets](/docs/deployment-targets.md) and [Accounts](/docs/key-concepts/environments/accounts.md) and [Tenant Tags](/docs/key-concepts/tenants/tenant-tags.md).
 
 
 On this page:
@@ -34,7 +34,7 @@ In this section we will focus on tenanted deployments, but un-tenanted deploymen
 
 
 
-We talk more about tenanted and un-tenanted deployments in [Deploying a simple multi-tenant project](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md).
+We talk more about tenanted and un-tenanted deployments in [Deploying a simple multi-tenant project](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md).
 :::
 
 :::warning
@@ -59,7 +59,7 @@ The hosting model you want to achieve will vary depending on your application, y
 
 When you deploy a project, you can deploy to one environment and a selection of tenants. Octopus creates one deployment for each environment/tenant combination, and calculates which deployment targets to include in each deployment using logic like this:
 
-1. Find deployment targets in the target environment with the [roles](/docs/home/key-concepts/machine-roles.md) required by the deployment process
+1. Find deployment targets in the target environment with the [roles](/docs/key-concepts/machine-roles.md) required by the deployment process
 2. Filter those deployment targets, selecting only those matching the tenant
 
 
@@ -136,7 +136,7 @@ That's it! Now let's deploy the project for one of these tenants and see the res
 
 :::success
 **Accounts can also be restricted to tenants**
-Imagine a scenario where you have tenant-specific [Accounts](/docs/home/key-concepts/environments/accounts.md) - you can similarly configure which tenants should be authorized to use particular accounts.
+Imagine a scenario where you have tenant-specific [Accounts](/docs/key-concepts/environments/accounts.md) - you can similarly configure which tenants should be authorized to use particular accounts.
 :::
 
 
@@ -145,4 +145,4 @@ Imagine a scenario where you have tenant-specific [Accounts](/docs/home/key-conc
 ## Next steps
 
 
-We will [design and implement a multi-tenant upgrade process](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md).
+We will [design and implement a multi-tenant upgrade process](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md).

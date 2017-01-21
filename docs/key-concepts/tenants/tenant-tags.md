@@ -10,7 +10,7 @@ In Octopus, tenant tags help you to classify your tenants using custom tags that
 Octopus allows you to group grouped similar tags together into tag sets. This enables you to more easily understand which tags fit together, what effect they should have on tenanted deployments, and design powerful tag-based queries using combinations of tags.
 
 :::success
-Have you read [our guide](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide.md) on multi-tenant deployments yet? There is a section dedicated to [working with groups of tenants using tags](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md).
+Have you read [our guide](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide.md) on multi-tenant deployments yet? There is a section dedicated to [working with groups of tenants using tags](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md).
 :::
 
 
@@ -33,12 +33,12 @@ With tenant tags you can:
 - Classify your tenants using custom tags that match your situation
 - Find tenants more quickly by searching and filtering with tags
 - Group the project overview by tag set
-- Deploy to multiple tenants at the same time - read more in our [guide](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md)
+- Deploy to multiple tenants at the same time - read more in our [guide](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md)
 - Customize the deployment process for tenants
 - Scope project variables to tags
-- Design a multi-tenant hosting model - read more in our [guide](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md)
-- Design a multi-tenant upgrade process - read more in our [guide](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md)
-- Control which releases can be deployed to tenants using [channels](/docs/home/key-concepts/projects/channels.md) - read more in our [guide](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md)
+- Design a multi-tenant hosting model - read more in our [guide](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md)
+- Design a multi-tenant upgrade process - read more in our [guide](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md)
+- Control which releases can be deployed to tenants using [channels](/docs/key-concepts/projects/channels.md) - read more in our [guide](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md)
 
 
 ## Managing tenant tags
@@ -51,14 +51,14 @@ Go to *Library > Tenant tag sets* to create, modify and reorder tag sets and ta
 
 :::success
 **Design your tag sets carefully**
-We suggest taking some time to design your tag sets based on how you will apply them to your projects and environments. Our recommendation is to make sure each of your **tag sets are orthogonal**, like different axes on a chart. This kind of design is important because of [how tags are combined in tag filters](/docs/home/key-concepts/tenants/tenant-tags.md).
+We suggest taking some time to design your tag sets based on how you will apply them to your projects and environments. Our recommendation is to make sure each of your **tag sets are orthogonal**, like different axes on a chart. This kind of design is important because of [how tags are combined in tag filters](/docs/key-concepts/tenants/tenant-tags.md).
 
 
 Example tag set design (based on the sample provided in our guide):
 
 - **Importance (VIP, Standard, Trial):** concerned with classifying tenants so they can be found easily
-- **Hosting (Shared-Farm-1, Dedicated):** concerned with how the tenant software is hosted - read more about this in our [guide](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md)
-- **Upgrade ring (Early adopter, Stable, Pinned):** concerned with when the tenant's applications are upgraded in relationship to other tenants - read more about this in our [guide](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md)
+- **Hosting (Shared-Farm-1, Dedicated):** concerned with how the tenant software is hosted - read more about this in our [guide](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md)
+- **Upgrade ring (Early adopter, Stable, Pinned):** concerned with when the tenant's applications are upgraded in relationship to other tenants - read more about this in our [guide](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md)
 
 
 
@@ -121,6 +121,6 @@ Consider an example deploying a release to the tenants tagged with the **Early 
 
 Some places you can use tags are:
 
-- When deploying releases of your projects using one of the [build server integrations](/docs/home/api-and-integration.md) or [octo.exe](/docs/home/api-and-integration/octo.exe-command-line/deploying-releases.md) - [read more in our guide](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md)
-- Scoping a deployment target to one or more tenants when registering a new Tentacle - [read more in our guide](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md)
-- When automating Octopus via the [Octopus REST API](/docs/home/api-and-integration/octopus-rest-api.md)
+- When deploying releases of your projects using one of the [build server integrations](/docs/api-and-integration.md) or [octo.exe](/docs/api-and-integration/octo.exe-command-line/deploying-releases.md) - [read more in our guide](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md)
+- Scoping a deployment target to one or more tenants when registering a new Tentacle - [read more in our guide](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md)
+- When automating Octopus via the [Octopus REST API](/docs/api-and-integration/octopus-rest-api.md)

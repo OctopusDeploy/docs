@@ -21,7 +21,7 @@ This section describes how different branching strategies can be modelled in Oct
 
 :::hint
 **Channels in Octopus 3.2**
-In Octopus 3.2 we implemented [Channels](/docs/home/key-concepts/projects/channels.md) as a way to support deployments using some of the source code branching strategies discussed here. We've produced a [comprehensive walkthrough of Channels](https://octopus.com/blog/channels-walkthrough) that covers most of these strategies in detail.
+In Octopus 3.2 we implemented [Channels](/docs/key-concepts/projects/channels.md) as a way to support deployments using some of the source code branching strategies discussed here. We've produced a [comprehensive walkthrough of Channels](https://octopus.com/blog/channels-walkthrough) that covers most of these strategies in detail.
 :::
 
 # Branching strategies
@@ -34,7 +34,7 @@ When thinking about branching and Octopus, keep this rule in mind:
 
 
 
-Your build server cares about source code and branches, and uses them to compile and [package your application](/docs/home/packaging-applications.md).
+Your build server cares about source code and branches, and uses them to compile and [package your application](/docs/packaging-applications.md).
 
 
 Octopus, on the other hand, only sees packages. It doesn't particularly care which branch they came from, or how they were built, or which source control system you used.
@@ -170,7 +170,7 @@ We do not like or recommend this strategy, as it violates the principle of [Buil
 
 
 
-You can make this work in Octopus, by creating a package for each environment and pushing them to environment-specific [feeds](/docs/home/packaging-applications/package-repositories.md), and then binding the NuGet feed selector in your package steps to an environment-scoped variable:
+You can make this work in Octopus, by creating a package for each environment and pushing them to environment-specific [feeds](/docs/packaging-applications/package-repositories.md), and then binding the NuGet feed selector in your package steps to an environment-scoped variable:
 
 
 However, on the whole, this isn't a scenario we've set out to support in Octopus, and we don't believe it's a good idea in general.

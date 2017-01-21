@@ -14,7 +14,7 @@ We currently support importing:
 
 
 
-[Usage:](/docs/home/api-and-integration/octo.exe-command-line/import.md)
+[Usage:](/docs/api-and-integration/octo.exe-command-line/import.md)
 
 ```powershell
 Usage: Octo import [<options>]
@@ -68,7 +68,7 @@ Usage:
 octo import --server=http://octopusdeploy/api --apiKey=ABCDEF123456 --type=project --filePath=C:\path\to\export\file.json
 ```
 
-### [Project Import Output when a prerequisite is missing](/docs/home/api-and-integration/octo.exe-command-line/import.md)
+### [Project Import Output when a prerequisite is missing](/docs/api-and-integration/octo.exe-command-line/import.md)
 
 
 During the import, Octo.exe will validate that any dependencies, such as feeds and library variable sets, already exist on the target server. If one of these can't be found, the import will not continue, as shown below:
@@ -89,7 +89,7 @@ Library Variable Set Logging Variables does not exist
 Exit code: -1
 ```
 
-### [Project Import Output](/docs/home/api-and-integration/octo.exe-command-line/import.md)
+### [Project Import Output](/docs/api-and-integration/octo.exe-command-line/import.md)
 
 ```powershell
 Octopus Deploy Command Line Tool, version 1.0.0.0
@@ -151,7 +151,7 @@ Usage:
 octo import --server=http://octopusdeploy/api --apiKey=ABCDEF123456 --type=release --project=projectname --filePath=C:\path\to\export\file.json
 ```
 
-### [Release Import Output](/docs/home/api-and-integration/octo.exe-command-line/import.md)
+### [Release Import Output](/docs/api-and-integration/octo.exe-command-line/import.md)
 
 ```powershell
 Octopus Deploy Command Line Tool, version 1.0.0.0

@@ -17,7 +17,7 @@ Packaging into a .cspkg can be done in Visual Studio by right-clicking on the Cl
 ## Generate a NuGet package
 
 
-Octopus requires additional metadata that is not present in the .cspkg file.  The .cspkg and .cscfg must be packaged into a NuGet package for use by Octopus. The easiest way generate a NuGet package is to use the [Octo.exe](/docs/home/packaging-applications/nuget-packages/using-octo.exe.md) command line tool:
+Octopus requires additional metadata that is not present in the .cspkg file.  The .cspkg and .cscfg must be packaged into a NuGet package for use by Octopus. The easiest way generate a NuGet package is to use the [Octo.exe](/docs/packaging-applications/nuget-packages/using-octo.exe.md) command line tool:
 
 **Packaging a Cloud Service with Octo.exe**
 
@@ -37,7 +37,7 @@ Here is a sample Cloud Service NuGet package: [HelloCloud.1.0.0.nupkg](https://
 ## Upload to a NuGet feed
 
 
-In order to make the NuGet package accessible to Octopus it needs to be uploaded to a [package repository](/docs/home/packaging-applications/package-repositories.md). The built-in Octopus package repository is accessible from Library > Packages and is a suitable place to upload your Cloud Service NuGet package:
+In order to make the NuGet package accessible to Octopus it needs to be uploaded to a [package repository](/docs/packaging-applications/package-repositories.md). The built-in Octopus package repository is accessible from Library > Packages and is a suitable place to upload your Cloud Service NuGet package:
 
 
 ![](/docs/images/3049331/3278524.png)

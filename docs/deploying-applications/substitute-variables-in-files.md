@@ -4,7 +4,7 @@ position: 28
 ---
 
 
-Package steps have a feature that allows you to replace [Octopus Variables](/docs/home/deploying-applications/variables.md) in any file. This comes in handy when you want to replace variables in configuration files outside of **appSettings**,**applicationSettings**,and **connectionStrings**, but also for other configuration that is related to scoping and deployments.
+Package steps have a feature that allows you to replace [Octopus Variables](/docs/deploying-applications/variables.md) in any file. This comes in handy when you want to replace variables in configuration files outside of **appSettings**,**applicationSettings**,and **connectionStrings**, but also for other configuration that is related to scoping and deployments.
 
 
 Turning on the feature can be done inside the NuGet package step under 'Configure Features'.
@@ -31,7 +31,7 @@ You can also use Octopus embedded template syntax to conditionally list files th
 The default option for Output file encoding (Detect from template) will use the Byte Order Mark (BOM) of the file to determine the encoding.
 
 :::warning
-If you include a configuration file that you are also doing a transformation and variable swap on, the variable change will run under the 'substitute variables in files' before the transformation as defined in the [package deployment feature ordering](/docs/home/reference/package-deployment-feature-ordering.md) process.
+If you include a configuration file that you are also doing a transformation and variable swap on, the variable change will run under the 'substitute variables in files' before the transformation as defined in the [package deployment feature ordering](/docs/reference/package-deployment-feature-ordering.md) process.
 :::
 
 ## Some Examples

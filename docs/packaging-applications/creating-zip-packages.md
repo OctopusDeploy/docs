@@ -13,8 +13,8 @@ This page describes how to use `octo.exe` to create **zip** packages. You could 
 
 - help you get the filename format correct
 - ensure file timestamps are retained when extracting which helps with some forms of content delivery networks (CDN) and caching
-- ensure [delta compression for package transfers](/docs/home/deploying-applications/delta-compression-for-package-transfers.md) works as expected
-- Avoid [known issues](/docs/home/packaging-applications/creating-zip-packages.md) with other compression libraries
+- ensure [delta compression for package transfers](/docs/deploying-applications/delta-compression-for-package-transfers.md) works as expected
+- Avoid [known issues](/docs/packaging-applications/creating-zip-packages.md) with other compression libraries
 :::
 
 

@@ -11,7 +11,7 @@ The Server Configuration screen is available in Octopus Deploy 3.5 and later
 ## Server Extensions Configuration
 
 
-The Server Configuration screen is available from *Configuration > Nodes > Configuration Settings* and allows administrators to see which [server extensions](/docs/home/guides/server-extensibility.md) are enabled for the Octopus Server. To learn more about customising server extensions, please see [the documentation](/docs/home/guides/server-extensibility/customising-an-octopus-deploy-server-extension.md).
+The Server Configuration screen is available from *Configuration > Nodes > Configuration Settings* and allows administrators to see which [server extensions](/docs/guides/server-extensibility.md) are enabled for the Octopus Server. To learn more about customising server extensions, please see [the documentation](/docs/guides/server-extensibility/customising-an-octopus-deploy-server-extension.md).
 
 
 Each configuration value has properties that will determine whether it is shown on this Server Configuration screen.
@@ -58,12 +58,12 @@ Checkout the [UsernamePasswordAuthenticationProvider](https://github.com/Octopus
 ### ShowInPortalSummary
 
 
-The configuration values provided via this interface actually serve 2 purposes.  The first is that they are displayed by the [Show Configuration](/docs/home/administration/show-configuration.md) command (all values are displayed by the command).  The second is being displayed on the Server Configuration page in the web UI (only value with ShowInPortalSummary will be displayed).
+The configuration values provided via this interface actually serve 2 purposes.  The first is that they are displayed by the [Show Configuration](/docs/administration/show-configuration.md) command (all values are displayed by the command).  The second is being displayed on the Server Configuration page in the web UI (only value with ShowInPortalSummary will be displayed).
 
 ## Publicly Accessible URL
 
 
-This Server Configuration screen also allows administrators to edit the "publicly accessible URL" for your Octopus Server. This value is used by email notifications in [Subscriptions](/docs/home/administration/subscriptions.md) and should be set to the publicly-available URL of your Octopus Server if you wish to include a link to your Octopus Server in your subscription emails. E.g. **https://your-octopus-server.com:8080/**
+This Server Configuration screen also allows administrators to edit the "publicly accessible URL" for your Octopus Server. This value is used by email notifications in [Subscriptions](/docs/administration/subscriptions.md) and should be set to the publicly-available URL of your Octopus Server if you wish to include a link to your Octopus Server in your subscription emails. E.g. **https://your-octopus-server.com:8080/**
 
 
 The subscriptions engine will use this value to include a link to your Octopus Server's audit page by appending the audit screen route to the end of this URL.

@@ -83,7 +83,7 @@ Octopus also lets users sign in by entering their Active Directory credentials m
 Using this option, the credentials are posted back to the Octopus server, and Octopus validates them against Active Directory by invoking the Windows API `LogonUser()` function. If that is successful, Octopus will then query Active Directory for information about the user.
 
 
-Keep in mind that if your Octopus server isn't [configured to use HTTPS](/docs/home/how-to/expose-the-octopus-web-portal-over-https.md), these are posted in plain text (just like signing in to any other website).
+Keep in mind that if your Octopus server isn't [configured to use HTTPS](/docs/how-to/expose-the-octopus-web-portal-over-https.md), these are posted in plain text (just like signing in to any other website).
 :::
 
 
@@ -132,7 +132,7 @@ When switching from username/password to Active Directory, after running the bel
 
 
 
-In 3.5 the User records are handled differently, [learn more](/docs/home/administration/authentication-providers.md).
+In 3.5 the User records are handled differently, [learn more](/docs/administration/authentication-providers.md).
 :::
 
 ### To select Active Directory authentication
@@ -150,7 +150,7 @@ Octopus.Server.exe service --start
 ```
 
 
-The text `YOURUSERNAME` should be your Active Directory account name, in either **user@domain** or **domain\user** format (see [Authentication Providers](/docs/home/administration/authentication-providers.md)).
+The text `YOURUSERNAME` should be your Active Directory account name, in either **user@domain** or **domain\user** format (see [Authentication Providers](/docs/administration/authentication-providers.md)).
 
 ### To select username/password authentication
 
@@ -188,9 +188,9 @@ Where `"CN=Users,DC=GPN,DC=COM"` should be replaced with your Container.
 Using Trusted Domains is supported by Octopus Deploy.  Users from the domain the Octopus Deploy server is a member of will always be allowed to log in.  Users from domains that the Octopus Deploy server's domain trusts will also be able to log in.
 
 
-Learn about [configuring Teams to utilise Trusted Domains](/docs/home/administration/managing-users-and-teams/external-groups-and-roles.md).
+Learn about [configuring Teams to utilise Trusted Domains](/docs/administration/managing-users-and-teams/external-groups-and-roles.md).
 
 ### Troubleshooting
 
 
-For more information on troubleshooting, see [Troubleshooting Active Directory integration](/docs/home/administration/authentication-providers/troubleshooting-active-directory-integration.md).
+For more information on troubleshooting, see [Troubleshooting Active Directory integration](/docs/administration/authentication-providers/troubleshooting-active-directory-integration.md).

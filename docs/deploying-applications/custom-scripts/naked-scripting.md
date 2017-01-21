@@ -7,7 +7,7 @@ position: 2
 ## Design Intentions
 
 
-Some Octopus users deploying to SSH Endpoints have had problems installing the Mono prerequisite that provides the runtime for Octopus Deploy's .NET orchestration tool [Calamari](/docs/home/api-and-integration/calamari.md). Although there is some momentum to package Calamari in a self-contained, cross-platform way with .NET Core, there exists a need now to be able to execute scripts directly on the server without all the added cost and complexity of uploading the latest Calamari. An experiential feature has been provided in Octopus 3.9, accessible via a project variable which will simply open a connection to the remote server and execute a deployment scrip within that session.
+Some Octopus users deploying to SSH Endpoints have had problems installing the Mono prerequisite that provides the runtime for Octopus Deploy's .NET orchestration tool [Calamari](/docs/api-and-integration/calamari.md). Although there is some momentum to package Calamari in a self-contained, cross-platform way with .NET Core, there exists a need now to be able to execute scripts directly on the server without all the added cost and complexity of uploading the latest Calamari. An experiential feature has been provided in Octopus 3.9, accessible via a project variable which will simply open a connection to the remote server and execute a deployment scrip within that session.
 
 :::hint
 **Feature Tradeoffs**
@@ -17,7 +17,7 @@ In order to provide the ability to perform naked scripting and just execute exac
 The script that is provided is executed "as-is" through the open SSH connection so the actual shell will depend on what you have configured for that account and it may not actually be bash. Keep this in mind when expecting certain commands to be available.
 
 
-The bootstrapping script that is provided by Calamari will not be available and so you will loose the ability to use helper functions like [new\_octopusartifact](/docs/home/deploying-applications/artifacts.md), [set\_octopusvariable](/docs/home/deploying-applications/variables/output-variables.md) or [get\_octopusvariable](/docs/home/deploying-applications/custom-scripts.md). You can however still use the standard **#{MyVariable}** variable substitution syntax however since this is replaced on the server, environment variables from your target will not be available.
+The bootstrapping script that is provided by Calamari will not be available and so you will loose the ability to use helper functions like [new\_octopusartifact](/docs/deploying-applications/artifacts.md), [set\_octopusvariable](/docs/deploying-applications/variables/output-variables.md) or [get\_octopusvariable](/docs/deploying-applications/custom-scripts.md). You can however still use the standard **#{MyVariable}** variable substitution syntax however since this is replaced on the server, environment variables from your target will not be available.
 :::
 
 
@@ -28,9 +28,9 @@ Naked scripting is great for cases where you are unable to install and run Mono 
 
 While naked scripting does not require a Transfer a Package step, the below scenario walks though a basic scenario of using a naked script in conjunction with the Transfer a Package step to extract a package on a SSH endpoint where Mono is unable to be installed.
 
-1. Add a [Transfer A Package](/docs/home/deploying-applications/deploying-packages/transfer-package.md) step and provide a temporary location that it should be moved to. Give it the name *Transfer AcmeWeb* and Include the relevant role for your SSH target. Note that this directory will be created if it does not already exist.
+1. Add a [Transfer A Package](/docs/deploying-applications/deploying-packages/transfer-package.md) step and provide a temporary location that it should be moved to. Give it the name *Transfer AcmeWeb* and Include the relevant role for your SSH target. Note that this directory will be created if it does not already exist.
 ![](/docs/images/5671696/5866195.png)
-2. Add a [Run A Script](/docs/home/deploying-applications/custom-scripts/standalone-scripts.md) step and explicitly clear and extract the package to your desired location. In the below example we know that the target shell will be bash so we can use output values from the previous *Transfer AcmeWeb*step to locate the package and extract it to a directory at *~/temp/somewhere*. Note that although we have selected the *Bash* script type for this step, this is purely for helpful syntax highlighting since whatever script is provided will be executed through the open connection regardless of selected type.
+2. Add a [Run A Script](/docs/deploying-applications/custom-scripts/standalone-scripts.md) step and explicitly clear and extract the package to your desired location. In the below example we know that the target shell will be bash so we can use output values from the previous *Transfer AcmeWeb*step to locate the package and extract it to a directory at *~/temp/somewhere*. Note that although we have selected the *Bash* script type for this step, this is purely for helpful syntax highlighting since whatever script is provided will be executed through the open connection regardless of selected type.
 
 ```bash
 rm -fr ~/temp/somewhere

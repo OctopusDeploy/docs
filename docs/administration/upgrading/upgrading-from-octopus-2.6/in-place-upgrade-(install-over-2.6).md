@@ -84,10 +84,10 @@ To use Hydra, follow these steps:
 ![](/docs/images/3048135/3278019.png)
 3. Import the [Hydra script template](http://library.octopusdeploy.com/#!/step-template/actiontemplate-hydra-update-octopus-tentacle) from the Community Library.
 ![](/docs/images/3048135/3278018.png)
-4. Create a [new project](/docs/home/key-concepts/projects.md) with a single "Update Octopus Tentacle" step from the step template
+4. Create a [new project](/docs/key-concepts/projects.md) with a single "Update Octopus Tentacle" step from the step template
 
 
- 1. Ensure you choose or create a [Lifecycle ](/docs/home/key-concepts/lifecycles.md)that allows you to deploy to all Tentacles.
+ 1. Ensure you choose or create a [Lifecycle ](/docs/key-concepts/lifecycles.md)that allows you to deploy to all Tentacles.
  2. Ensure you set the Update Octopus Tentacle step to run for all appropriate Tentacles.
  3. If you are using any polling Tentacles and your 3.x server will have a new address or polling port, you'll need to add the new Octopus 3.x server address (including the polling port) in the Server Mapping field. If the URL and port will stay the same, there's no need to set this value.
 It is very important you get this value correct. An incorrect value will result in a polling Tentacle that can't be contacted by either a 2.6 or 3.x server.
@@ -136,7 +136,7 @@ When upgrading to Octopus 3.x please use the latest version available. We have b
 :::
 
 
-See the [Installing Octopus 3.x](/docs/home/installation/installing-octopus.md) page for instructions on installing a new Octopus 3.x instance.
+See the [Installing Octopus 3.x](/docs/installation/installing-octopus.md) page for instructions on installing a new Octopus 3.x instance.
 
 
 After installing the MSI, you will be presented with an upgrade page.
@@ -165,7 +165,7 @@ After upgrading, the Octopus Manager will prompt to import your Octopus 2.6 data
 ![](/docs/images/3048132/3278005.png)
 
 
-See the [Migrating data from Octopus 2.6 to 3.x](/docs/home/administration/upgrading/upgrading-from-octopus-2.6/migrating-data-from-octopus-2.6-to-3.x.md) page for more detailed instructions on importing your Octopus 2.6 database backup into Octopus 3.x.
+See the [Migrating data from Octopus 2.6 to 3.x](/docs/administration/upgrading/upgrading-from-octopus-2.6/migrating-data-from-octopus-2.6-to-3.x.md) page for more detailed instructions on importing your Octopus 2.6 database backup into Octopus 3.x.
 
 :::hint
 **Migration taking a long time?**

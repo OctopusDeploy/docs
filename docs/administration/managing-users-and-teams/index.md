@@ -18,13 +18,13 @@ You can manage teams from the **Teams** tab under **Configuration** in the Octop
 ## User and Service accounts
 
 
-**User accounts** are allowed to use both the Octopus web portal and the Octopus API, and can authenticate with a username and password, or [Active Directory credentials](/docs/home/administration/authentication-providers/active-directory-authentication.md), or an [Octopus API key](/docs/home/how-to/how-to-create-an-api-key.md).
+**User accounts** are allowed to use both the Octopus web portal and the Octopus API, and can authenticate with a username and password, or [Active Directory credentials](/docs/administration/authentication-providers/active-directory-authentication.md), or an [Octopus API key](/docs/how-to/how-to-create-an-api-key.md).
 
 
-[Service accounts](/docs/home/administration/managing-users-and-teams/service-accounts.md) are **API-only accounts** that should be used for automated services that integrate with Octopus Deploy, and can only authenticate with an [Octopus API key](/docs/home/how-to/how-to-create-an-api-key.md). For more information refer to our page dedicated to [Service accounts](/docs/home/administration/managing-users-and-teams/service-accounts.md).
+[Service accounts](/docs/administration/managing-users-and-teams/service-accounts.md) are **API-only accounts** that should be used for automated services that integrate with Octopus Deploy, and can only authenticate with an [Octopus API key](/docs/how-to/how-to-create-an-api-key.md). For more information refer to our page dedicated to [Service accounts](/docs/administration/managing-users-and-teams/service-accounts.md).
 
 :::success
-You should create a different User account for each person that will use Octopus Deploy. You should create a different [Service account](/docs/home/administration/managing-users-and-teams/service-accounts.md) for each service that will integrate with Octopus Deploy.
+You should create a different User account for each person that will use Octopus Deploy. You should create a different [Service account](/docs/administration/managing-users-and-teams/service-accounts.md) for each service that will integrate with Octopus Deploy.
 :::
 
 ## Creating teams
@@ -67,7 +67,7 @@ Note that project leads can create releases but not deploy them, while project d
 The roles assigned by a team can be scoped by project or environment.
 
 :::hint
-You can learn more about in our [User Roles documentation](/docs/home/administration/managing-users-and-teams/user-roles.md)
+You can learn more about in our [User Roles documentation](/docs/administration/managing-users-and-teams/user-roles.md)
 :::
 
 ## System teams

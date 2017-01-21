@@ -12,7 +12,7 @@ This feature was added in Octopus 3.2.4.
 
 
 
-When pushing to the [built-in Octopus package repository](/docs/home/packaging-applications/package-repositories.md) using [OctoPack](/docs/home/packaging-applications/nuget-packages/using-octopack.md) or [NuGet.exe](/docs/home/packaging-applications/nuget-packages/using-nuget.exe.md), the default URL looks like this:
+When pushing to the [built-in Octopus package repository](/docs/packaging-applications/package-repositories.md) using [OctoPack](/docs/packaging-applications/nuget-packages/using-octopack.md) or [NuGet.exe](/docs/packaging-applications/nuget-packages/using-nuget.exe.md), the default URL looks like this:
 
 
 

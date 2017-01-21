@@ -11,7 +11,7 @@ This page describes how to use Octopus to manage deployments of your application
 This guide focuses on Octopus 3.4 (or newer) which provides a rich set of fully-integrated features to build repeatable and reliable multi-tenant deployments that are easy to configure and manage.
 
 
-Using an older version of Octopus? Take a look at [how to implement multi-tenant deployments using Octopus prior to Octopus 3.4](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4.md) and [how to migrate to Octopus 3.4](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/migrating-to-octopus-3.4.md).
+Using an older version of Octopus? Take a look at [how to implement multi-tenant deployments using Octopus prior to Octopus 3.4](/docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4.md) and [how to migrate to Octopus 3.4](/docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/migrating-to-octopus-3.4.md).
 :::
 
 
@@ -33,7 +33,7 @@ On this page:
 
 Starting with Octopus 3.4 you can manage tenants as a first-class citizen enabling you to:
 
-1. Deploy multiple instances of your project into the same [Environment](/docs/home/key-concepts/environments.md);
+1. Deploy multiple instances of your project into the same [Environment](/docs/key-concepts/environments.md);
  1. tenant-per-customer
  2. tenant-per-tester
  3. tenant-per-feature/tenant-per-branch
@@ -69,7 +69,7 @@ The multi-tenant features in Octopus Deploy will simplify your deployments in al
 - you want to provide each tester with an isolated test deployment so they can work on test data, and choose when to upgrade
 - you want to provide isolated, time-limited, deployments for work on feature branches
 - you want to manage deployments to individual targets across environments, like managing a fleet of embedded devices, or a fleet of laptops/workstations
-- you deploy your application to multiple geographic regions - this way you can avoid creating mutliple environments instead modeling each region as a tenant in the same environment - [example](/docs/home/patterns/multi-region-deployment-pattern.md)
+- you deploy your application to multiple geographic regions - this way you can avoid creating mutliple environments instead modeling each region as a tenant in the same environment - [example](/docs/patterns/multi-region-deployment-pattern.md)
 - you deploy unique instances of your application for each end-customer - keep reading!
 
 
@@ -97,7 +97,7 @@ Consider the following example:
 The key issue in this scenario is that the same components need to be deployed multiple times, one for each end-customer, with different configuration settings for each customer, possibly targeting multiple environments.
 
 :::success
-You don't need Octopus Deploy to implement a multi-tenant SaaS application: you can also architect your application so you can deploy it once and serve multiple customers. We have built multi-tenant deployments into Octopus for those situations where you want to deploy your application once for each end-customer. See the section below about [building multi-tenant applications](/docs/home/guides/multi-tenant-deployments.md) and [considering architectural changes](/docs/home/guides/multi-tenant-deployments.md).
+You don't need Octopus Deploy to implement a multi-tenant SaaS application: you can also architect your application so you can deploy it once and serve multiple customers. We have built multi-tenant deployments into Octopus for those situations where you want to deploy your application once for each end-customer. See the section below about [building multi-tenant applications](/docs/guides/multi-tenant-deployments.md) and [considering architectural changes](/docs/guides/multi-tenant-deployments.md).
 :::
 
 ## Building multi-tenant applications
@@ -133,17 +133,17 @@ For example, if deployment consists of many copies of the exact same website, ju
 This guide will introduce you to multi-tenant deployments in Octopus, starting with simple scenarios, then incorporating more complex capabilities over time.
 
 
-- [Multi-tenant deployment guide](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide.md)
- - [Creating your first tenant](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-tenant.md)
- - [Creating your first multi-tenant project](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-multi-tenant-project.md)
- - [Deploying a simple multi-tenant project](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md)
- - [Working with tenant-specific variables](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-tenant-specific-variables.md)
- - [Working with groups of tenants using tags](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md)
- - [Designing a multi-tenant hosting model](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md)
- - [Designing a multi-tenant upgrade process](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md)
- - [Multi-tenant roles and security](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/multi-tenant-roles-and-security.md)
-- [Multi-tenant deployments FAQ](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployments-faq.md)
-- [Other scenarios for multi-tenant deployments](/docs/home/guides/multi-tenant-deployments/other-scenarios-for-multi-tenant-deployments.md)
-- [Troubleshooting multi-tenant deployments](/docs/home/guides/multi-tenant-deployments/troubleshooting-multi-tenant-deployments.md)
-- [Multi-tenant deployments prior to Octopus 3.4](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4.md)
- - [Migrating to Octopus 3.4](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/migrating-to-octopus-3.4.md)
+- [Multi-tenant deployment guide](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide.md)
+ - [Creating your first tenant](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-tenant.md)
+ - [Creating your first multi-tenant project](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-multi-tenant-project.md)
+ - [Deploying a simple multi-tenant project](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md)
+ - [Working with tenant-specific variables](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-tenant-specific-variables.md)
+ - [Working with groups of tenants using tags](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md)
+ - [Designing a multi-tenant hosting model](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md)
+ - [Designing a multi-tenant upgrade process](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md)
+ - [Multi-tenant roles and security](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/multi-tenant-roles-and-security.md)
+- [Multi-tenant deployments FAQ](/docs/guides/multi-tenant-deployments/multi-tenant-deployments-faq.md)
+- [Other scenarios for multi-tenant deployments](/docs/guides/multi-tenant-deployments/other-scenarios-for-multi-tenant-deployments.md)
+- [Troubleshooting multi-tenant deployments](/docs/guides/multi-tenant-deployments/troubleshooting-multi-tenant-deployments.md)
+- [Multi-tenant deployments prior to Octopus 3.4](/docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4.md)
+ - [Migrating to Octopus 3.4](/docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/migrating-to-octopus-3.4.md)

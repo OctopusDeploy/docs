@@ -4,7 +4,7 @@ position: 4
 ---
 
 
-Choosing the best versioning scheme for your applications can be a tricky act of balancing pragmatism and strictness. This page should help you understand how Octopus Deploy handles versions in [packages](/docs/home/packaging-applications/supported-packages.md), [releases](/docs/home/key-concepts/projects/releases.md), and [channels](/docs/home/key-concepts/projects/channels.md), and subsequently design a versioning scheme that suits your needs.
+Choosing the best versioning scheme for your applications can be a tricky act of balancing pragmatism and strictness. This page should help you understand how Octopus Deploy handles versions in [packages](/docs/packaging-applications/supported-packages.md), [releases](/docs/key-concepts/projects/releases.md), and [channels](/docs/key-concepts/projects/channels.md), and subsequently design a versioning scheme that suits your needs.
 
 :::success
 **Use Semantic Versioning (SemVer)**
@@ -36,7 +36,7 @@ We highly recommend using [Semantic Versioning](http://semver.org/) for your app
 1. Can you trace a version back to the commit/checkin the application/package was built from? *For example: We stamp the SHA hash of the git commit into the metadata component of the Semantic Version for Octopus Deploy which makes it easier to find and fix bugs. We also tag the commit with the version of Octopus Deploy it produced so you can quickly determine which commit produced a particular version of Octopus Deploy.*
 2. Can your users easily report a version to the development team that supports #1?
 3. Will your version numbers be confusing, or will they help people understand the changes that have been made to the software? *For example: bumping a major version component (first part) means there are potentially breaking changes, but bumping a patch (3rd part) should be safe to upgrade, and safe to rollback if something goes wrong.*
-4. Does your tool chain support the versioning scheme? *For example: Octopus Deploy supports Semantic Versioning, which enables enhanced features like [Channels](/docs/home/key-concepts/projects/channels.md).*
+4. Does your tool chain support the versioning scheme? *For example: Octopus Deploy supports Semantic Versioning, which enables enhanced features like [Channels](/docs/key-concepts/projects/channels.md).*
 
 
 ### Strictness versus pragmatism
@@ -45,7 +45,7 @@ We highly recommend using [Semantic Versioning](http://semver.org/) for your app
 Strictly speaking about SemVer 2.0, a version like `1.5.2-rc.1` is considered a "pre-release" and `1.5.2` would be considered a "full release".  In practice, these kinds of concepts carry weight when you are talking about hierarchies of application dependencies like classical NuGet packages or NPM dependencies. This kind of strict semantic versioning enables dependency management tooling to interpret what kind of changes each package version represents. For example, they can automatically protect your software, by preventing you from accidentally upgrading to pre-release versions, or versions that may introduce breaking changes.
 
 
-When it comes to application versioning however, we suggest the "pre-release tag" (the bit after the `-`) can be used for whatever you want. For example: you could build version `1.5.2-rc` of your application, and configure a [Channel](/docs/home/key-concepts/projects/channels.md) to promote packages like `*-rc` to Staging and eventually Production.
+When it comes to application versioning however, we suggest the "pre-release tag" (the bit after the `-`) can be used for whatever you want. For example: you could build version `1.5.2-rc` of your application, and configure a [Channel](/docs/key-concepts/projects/channels.md) to promote packages like `*-rc` to Staging and eventually Production.
 
 ### How we version Octopus Deploy
 
@@ -81,7 +81,7 @@ For example:
 
 
 
-If you are like us, and the pre-release tag carries significant meaning, you should consider taking a similar approach. Otherwise, if the pre-release tag is just for information, perhaps you can consider whether it is useful for other purposes like configuring [Channels](/docs/home/key-concepts/projects/channels.md).
+If you are like us, and the pre-release tag carries significant meaning, you should consider taking a similar approach. Otherwise, if the pre-release tag is just for information, perhaps you can consider whether it is useful for other purposes like configuring [Channels](/docs/key-concepts/projects/channels.md).
 
 ## How Octopus Deploy treats versions
 
@@ -100,7 +100,7 @@ These are the decisions we made on handling versions:
   1. `1.4.10 &gt; 1.4.9`
   2. `3.0.0-beta.10 &gt; 3.0.0-beta.9`
   3. `1.4.008 &lt; 1.4.9`
-3. **Creating packages (using Octopus tooling like [OctoPack](/docs/home/packaging-applications/nuget-packages/using-octopack.md) and [octo.exe](/docs/home/packaging-applications/nuget-packages/using-octo.exe.md)):**[WYSIWYG](https://en.wikipedia.org/wiki/WYSIWYG) provided the version you've specified is a valid SemanticVersion (as described earlier). For example:
+3. **Creating packages (using Octopus tooling like [OctoPack](/docs/packaging-applications/nuget-packages/using-octopack.md) and [octo.exe](/docs/packaging-applications/nuget-packages/using-octo.exe.md)):**[WYSIWYG](https://en.wikipedia.org/wiki/WYSIWYG) provided the version you've specified is a valid SemanticVersion (as described earlier). For example:
  1. If you build a package using `octo.exe pack --id=MyPackage --version=2016.01.02` you should be expect the output file to be `MyPackage.2016.01.02.nupkg`.
 4. **Interacting with package feeds/repositories (many and varied, including our own):** We just ask the feed for a package with the version string we stored in the release, and accept what the feed tells us.
 

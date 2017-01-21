@@ -38,7 +38,7 @@ Upgrading the Octopus Deploy Server is easy, you will just need to follow these 
 
 1. Switch your server to Maintenance Mode and wait until all current tasks and deployments have completed. This ensures that no further changes will be made that may potentially become lost if the upgrade fails and you need to rollback.
 ![](/docs/images/3048440/5865775.png)
-2. [Backup your database and master key](/docs/home/administration/backup-and-restore.md) so that it can be restored in case anything goes wrong.
+2. [Backup your database and master key](/docs/administration/backup-and-restore.md) so that it can be restored in case anything goes wrong.
 ![](/docs/images/3048440/5865780.png)
 3. Download the latest [Octopus Deploy MSI installer
 ![](/docs/images/3048440/5865777.png)
@@ -60,7 +60,7 @@ Given that the deployment code is now embedded within Calamari, and this gets pu
 
 :::success
 **Upgrading server nodes in Octopus HA**
-You should follow the same instructions as above, but drain tasks from each node in the HA cluster and upgrade them individually. This will allow you to keep the cluster running and avoid interruption to your users. Read more about [Managing High Availability Nodes](/docs/home/administration/high-availability/managing-high-availability-nodes.md).
+You should follow the same instructions as above, but drain tasks from each node in the HA cluster and upgrade them individually. This will allow you to keep the cluster running and avoid interruption to your users. Read more about [Managing High Availability Nodes](/docs/administration/high-availability/managing-high-availability-nodes.md).
 
 
 ![](/docs/images/3048440/5865778.png)
@@ -170,7 +170,7 @@ No, from Octopus 3.1 onward we are dropping official support for Octopus Server 
 
 :::hint
 **Tentacle communications protocol**
-Read more about the [Octopus - Tentacle communication](/docs/home/reference/octopus---tentacle-communication.md) protocol and [Troubleshooting Schannel and TLS](/docs/home/reference/octopus---tentacle-communication/troubleshooting-schannel-and-tls.md).
+Read more about the [Octopus - Tentacle communication](/docs/reference/octopus---tentacle-communication.md) protocol and [Troubleshooting Schannel and TLS](/docs/reference/octopus---tentacle-communication/troubleshooting-schannel-and-tls.md).
 :::
 
 ## Upgrading to Octopus 3.4 or greater
@@ -179,7 +179,7 @@ Read more about the [Octopus - Tentacle communication](/docs/home/reference/octo
 See the [Release Notes](https://octopus.com/downloads/compare?from=3.3.27&amp;to=3.4.0) for breaking changes and more information.
 
 
-**Using TeamCity NuGet feeds?** You will need to upgrade your TeamCity server to v9.0 or newer and [enable the NuGet v2 API](https://teamcity-support.jetbrains.com/hc/en-us/community/posts/206817105-How-to-enable-NuGet-feed-v2). Octopus 3.4+ no longer supports the custom NuGet v1 feeds from TeamCity 7.x-8.x. We recommend upgrading to the latest TeamCity version available due to continual improvements in their NuGet feed - or switch to using the [Octopus built-in repository](/docs/home/packaging-applications/package-repositories.md).
+**Using TeamCity NuGet feeds?** You will need to upgrade your TeamCity server to v9.0 or newer and [enable the NuGet v2 API](https://teamcity-support.jetbrains.com/hc/en-us/community/posts/206817105-How-to-enable-NuGet-feed-v2). Octopus 3.4+ no longer supports the custom NuGet v1 feeds from TeamCity 7.x-8.x. We recommend upgrading to the latest TeamCity version available due to continual improvements in their NuGet feed - or switch to using the [Octopus built-in repository](/docs/packaging-applications/package-repositories.md).
 
 
 **Want to use SemVer 2 for packages or releases?** You will need to upgrade OctoPack and/or octo.exe to 3.4 or newer.

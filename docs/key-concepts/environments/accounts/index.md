@@ -9,9 +9,9 @@ Octopus Deploy has the concept of accounts, which may be associated with deploym
 
 The types of accounts supported are:
 
-- [Azure Subscriptions](/docs/home/key-concepts/environments/accounts/azure-subscription-account.md)
-- [SSH Key Pairs](/docs/home/key-concepts/environments/accounts/ssh-key-pair.md)
-- [Username and Password](/docs/home/key-concepts/environments/accounts/username-and-password.md)
+- [Azure Subscriptions](/docs/key-concepts/environments/accounts/azure-subscription-account.md)
+- [SSH Key Pairs](/docs/key-concepts/environments/accounts/ssh-key-pair.md)
+- [Username and Password](/docs/key-concepts/environments/accounts/username-and-password.md)
 
 
 

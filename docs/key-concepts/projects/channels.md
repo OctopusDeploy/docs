@@ -20,16 +20,16 @@ Channels in Octopus Deploy will help you if you want to:
 - [Deploy a hot-fix directly to Production](https://octopus.com/blog/channels-walkthrough#hotfix-deployments) where you would normal promote each release through a series of Environments.
 - [Provide your customers with access to early builds of your project](https://octopus.com/blog/channels-walkthrough#early-access-programs). For example, when we are working on a new version of Octopus Deploy, we run an [Early Access Program](http://docs.octopusdeploy.com/display/ODEAP/Octopus+Deploy+EAP) to gather feedback.
 - [Automatically deploy feature-branch builds to a test environment](https://octopus.com/blog/channels-walkthrough#feature-branch-deployments), sometimes called a Phoenix environment. For example, as soon as a developer commits code to a feature branch, you want that version of the project to be deployed into a sandbox test environment.
-- [You use a branching strategy in your source code repository](/docs/home/patterns/branching.md). For example, you might be using [GitFlow](http://nvie.com/posts/a-successful-git-branching-model/) or another source code branching strategy.
+- [You use a branching strategy in your source code repository](/docs/patterns/branching.md). For example, you might be using [GitFlow](http://nvie.com/posts/a-successful-git-branching-model/) or another source code branching strategy.
 
 
 
 Each Release you create in Octopus Deploy is placed into a Channel, and Releases in each Channel can be treated differently. For each Channel you can define:
 
-- Which [Lifecycle](/docs/home/key-concepts/lifecycles.md) to use for promoting Releases: for example, feature releases may be promoted through the testing environments, while hot-fix releases may go directly to production.
-- Which [Deployment Process](/docs/home/deploying-applications.md) to use when deploying Releases: for example, steps can be enabled for specific channels.
-- Which [Variables](/docs/home/deploying-applications/variables.md) to use: Variables can be scoped to channels.
-- Which [Tenants](/docs/home/key-concepts/tenants.md) should be included when deploying Releases: for example, you can ensure only Releases from certain Channels are deployed to certain Tenants
+- Which [Lifecycle](/docs/key-concepts/lifecycles.md) to use for promoting Releases: for example, feature releases may be promoted through the testing environments, while hot-fix releases may go directly to production.
+- Which [Deployment Process](/docs/deploying-applications.md) to use when deploying Releases: for example, steps can be enabled for specific channels.
+- Which [Variables](/docs/deploying-applications/variables.md) to use: Variables can be scoped to channels.
+- Which [Tenants](/docs/key-concepts/tenants.md) should be included when deploying Releases: for example, you can ensure only Releases from certain Channels are deployed to certain Tenants
 
 
 
@@ -74,7 +74,7 @@ You can associate a Lifecycle with the Channel, or it may inherit the default fr
 ### Defining Version Rules
 
 
-Version rules assist in selecting the correct versions of packages for the Channel.  They are only used when creating a release, either manually or via [Automatic Release Creation](/docs/home/deploying-applications/automatic-release-creation.md).
+Version rules assist in selecting the correct versions of packages for the Channel.  They are only used when creating a release, either manually or via [Automatic Release Creation](/docs/deploying-applications/automatic-release-creation.md).
 
 :::hint
 **SemVer works best**
@@ -174,17 +174,17 @@ When you are creating a Release, you can select a Channel.
 Selecting the Channel will cause the Release to use the Lifecycle associated with the Channel (or the Project default, if the Channel does not have a Lifecycle).  It will also cause the Deployment Process and Variables to be modified as specified above.
 
 
-The package list allows you to select the version of each package involved in the deployment.  The *latest* column displays the latest packages that match the version rules defined for the Channel (see [version rules](/docs/home/key-concepts/projects/channels.md) for more information).
+The package list allows you to select the version of each package involved in the deployment.  The *latest* column displays the latest packages that match the version rules defined for the Channel (see [version rules](/docs/key-concepts/projects/channels.md) for more information).
 
 ### Using Build Server Extensions or Octo.exe
 
 
-When using one of the [build server extensions](http://docs.octopusdeploy.com/display/OD2/API+and+Integration) or [octo.exe](/docs/home/api-and-integration/octo.exe-command-line/creating-releases.md) to create releases, you can either let Octopus automatically choose the correct Channel for your Release (this is the default behaviour), or choose a specific Channel yourself.
+When using one of the [build server extensions](http://docs.octopusdeploy.com/display/OD2/API+and+Integration) or [octo.exe](/docs/api-and-integration/octo.exe-command-line/creating-releases.md) to create releases, you can either let Octopus automatically choose the correct Channel for your Release (this is the default behaviour), or choose a specific Channel yourself.
 
 ### Automatic Release Creation
 
 
-When enabling [Automatic Release Creation](/docs/home/deploying-applications/automatic-release-creation.md) for your project, you are required to select a Channel (if the project has more than one).
+When enabling [Automatic Release Creation](/docs/deploying-applications/automatic-release-creation.md) for your project, you are required to select a Channel (if the project has more than one).
 
 
 ![](/docs/images/3048999/3278462.png)

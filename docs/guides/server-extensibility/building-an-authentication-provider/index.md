@@ -34,7 +34,7 @@ As of Server Extensibility v2.0, the out of the box Server Extensions for [OpenI
 
 
 
-Learn more about [authoring a Forms based authentication provider](/docs/home/guides/server-extensibility/building-an-authentication-provider/building-a-forms-based-authentication-provider.md).
+Learn more about [authoring a Forms based authentication provider](/docs/guides/server-extensibility/building-an-authentication-provider/building-a-forms-based-authentication-provider.md).
 
 
-Learn more about [authoring an External provider](/docs/home/guides/server-extensibility/building-an-authentication-provider/building-an-external-authentication-provider.md).
+Learn more about [authoring an External provider](/docs/guides/server-extensibility/building-an-authentication-provider/building-an-external-authentication-provider.md).

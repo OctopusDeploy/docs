@@ -4,7 +4,7 @@ position: 3
 ---
 
 
-Sometimes you may not want to store the value of a variable inside Octopus (though [Octopus does store variables securely](/docs/home/deploying-applications/variables/sensitive-variables.md)), or the value of the variable may change for each deployment.
+Sometimes you may not want to store the value of a variable inside Octopus (though [Octopus does store variables securely](/docs/deploying-applications/variables/sensitive-variables.md)), or the value of the variable may change for each deployment.
 
 
 Octopus can handle this using **Prompted variables**.
@@ -41,7 +41,7 @@ When deploying (not creating a release), you'll be prompted to provide a value f
 ![](/docs/images/3048314/3278301.png)
 
 
-Prompted variables can also be provided when using the [command-line Octo.exe tool to deploy releases](/docs/home/api-and-integration/octo.exe-command-line/deploying-releases.md):
+Prompted variables can also be provided when using the [command-line Octo.exe tool to deploy releases](/docs/api-and-integration/octo.exe-command-line/deploying-releases.md):
 
 ```ruby
 octo.exe create-release ... --variable "Launch codes:LAUNCH123" --variable "Variable 2:Some value"
@@ -54,5 +54,5 @@ octo.exe create-release ... --variable "Launch codes:LAUNCH123" --variable "Vari
 
 
 :::hint
-Prompted variables can be combined with [sensitive variables](/docs/home/deploying-applications/variables/sensitive-variables.md). They will appear with a password box when creating the deployment.
+Prompted variables can be combined with [sensitive variables](/docs/deploying-applications/variables/sensitive-variables.md). They will appear with a password box when creating the deployment.
 :::

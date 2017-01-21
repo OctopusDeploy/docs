@@ -4,7 +4,7 @@ position: 1
 ---
 
 
-Previous step: [Creating your first tenant](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-tenant.md)
+Previous step: [Creating your first tenant](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-tenant.md)
 
 
 In this section we will create a simple project and environment in preparation to deploy a project to your tenant. We will create an isolated environment, deployment target, lifecycle, project group and project so we can design our multi-tenant deployments without affecting anything else on our Octopus Server.
@@ -20,15 +20,15 @@ Already have a project you'd like to try out with your tenant? That's fine, just
 In this step you will build your entire environment and project structure ready for multi-tenant deployments.
 
 :::hint
-Multi-tenant deployments is an advanced deployment concept, so we expect you to be familiar with Octopus concepts like [projects](/docs/home/key-concepts/projects.md), [environments](/docs/home/key-concepts/environments.md), [lifecycles](/docs/home/key-concepts/lifecycles.md), [variables](/docs/home/deploying-applications/variables.md) and [deploying applications](/docs/home/deploying-applications.md).
+Multi-tenant deployments is an advanced deployment concept, so we expect you to be familiar with Octopus concepts like [projects](/docs/key-concepts/projects.md), [environments](/docs/key-concepts/environments.md), [lifecycles](/docs/key-concepts/lifecycles.md), [variables](/docs/deploying-applications/variables.md) and [deploying applications](/docs/deploying-applications.md).
 :::
 
-1. Create a new [environment](/docs/home/key-concepts/environments.md) called **MT Production** to represent your production environment for this guide. *We will create other environments later on.*
+1. Create a new [environment](/docs/key-concepts/environments.md) called **MT Production** to represent your production environment for this guide. *We will create other environments later on.*
 2. Add a new cloud region deployment target called **MT Web Server** with the role **MT-web-server**.
 *Note: We are using a cloud region to simulate a real deployment target as a convenience - you could equivalently use any other deployment target you already have available.*
-3. Create a new [lifecycle](/docs/home/key-concepts/lifecycles.md) called **MT Lifecycle** adding a single phase called **MT Production** deploying manually into the **MT Production** environment we created earlier.
-4. Create a new [project group](/docs/home/key-concepts/project-groups.md) called **MT Sample** so we can keep our sample project separate from the rest.
-5. Create a new [project](/docs/home/key-concepts/projects.md) called **Mojo** (or any other name of your choice).
+3. Create a new [lifecycle](/docs/key-concepts/lifecycles.md) called **MT Lifecycle** adding a single phase called **MT Production** deploying manually into the **MT Production** environment we created earlier.
+4. Create a new [project group](/docs/key-concepts/project-groups.md) called **MT Sample** so we can keep our sample project separate from the rest.
+5. Create a new [project](/docs/key-concepts/projects.md) called **Mojo** (or any other name of your choice).
 6. Add a step, to run the PowerShell script shown below, called **Deploy Application** targeting the **MT-web-server** role:
 
 **Script: Deploy Application**
@@ -71,4 +71,4 @@ We'll leave this setting alone right now and let Octopus configure it for us in 
 ## Next steps
 
 
-We will [connect your tenant to this project and deploy it into the tenant's production environment](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md). Talk about living life on the edge!
+We will [connect your tenant to this project and deploy it into the tenant's production environment](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md). Talk about living life on the edge!

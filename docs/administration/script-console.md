@@ -47,12 +47,12 @@ The **Script Body** tab can be used to see the contents of the script, and you c
 ## Collecting artifacts
 
 
-Sometimes you might like to collect files from each of the machines as part of your script. To do this, see the section on [artifacts](/docs/home/deploying-applications/artifacts.md).
+Sometimes you might like to collect files from each of the machines as part of your script. To do this, see the section on [artifacts](/docs/deploying-applications/artifacts.md).
 
 ## Audit records
 
 
-Besides making it easy to run a script on many servers, the other advantage of using the Script Console is auditing. Ad-hoc scripts run via the Script Console will appear in the [Audit](/docs/home/administration/auditing.md) tab in the Configuration area.
+Besides making it easy to run a script on many servers, the other advantage of using the Script Console is auditing. Ad-hoc scripts run via the Script Console will appear in the [Audit](/docs/administration/auditing.md) tab in the Configuration area.
 
 
 ![](/docs/images/3048122/3277919.png)

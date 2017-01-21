@@ -8,7 +8,7 @@ When planning your Octopus installation, you will need to decide how to host you
 
 :::hint
 **Supported package and repository types**
-The Octopus built-in repository [supports several different types of packages](/docs/home/packaging-applications/supported-packages.md). If you would like to use a package type other than NuGet (zip or tag.gz for example) you must use the Octopus built-in repository.
+The Octopus built-in repository [supports several different types of packages](/docs/packaging-applications/supported-packages.md). If you would like to use a package type other than NuGet (zip or tag.gz for example) you must use the Octopus built-in repository.
 
 
 If you would like to use an external repository, the only external repository type supported are [NuGet feeds](https://docs.nuget.org/create/hosting-your-own-nuget-feeds) (either HTTP or file-system based feeds). If you want to use an external repository, you must use NuGet packages.
@@ -64,7 +64,7 @@ If you are using VSTS Package Management, Octopus can consume either the v2 or v
 ## Choosing the right repository
 
 :::success
-The Octopus built-in repository is generally the best choice for deployment packages because it offers better performance and most suitable [retention policies](/docs/home/administration/retention-policies.md).
+The Octopus built-in repository is generally the best choice for deployment packages because it offers better performance and most suitable [retention policies](/docs/administration/retention-policies.md).
 :::
 
 
@@ -75,12 +75,12 @@ Our recommendation is to use different repositories for different purposes, and 
 
 
 
-This configuration will make it easier to find the right packages for the right purpose, but the most important benefit of the built-in repository is that Octopus Deploy knows exactly which deployment packages are still required according to the [retention policies](/docs/home/administration/retention-policies.md) you have configured, and which packages can be cleaned up.
+This configuration will make it easier to find the right packages for the right purpose, but the most important benefit of the built-in repository is that Octopus Deploy knows exactly which deployment packages are still required according to the [retention policies](/docs/administration/retention-policies.md) you have configured, and which packages can be cleaned up.
 
 ## Using the built-in repository
 
 
-Your Octopus server comes with a built-in repository which is the best choice for deployment packages. It offers **better performance** for your deployments and the most **robust [retention policy](/docs/home/administration/retention-policies.md)****support** for deployment packages.
+Your Octopus server comes with a built-in repository which is the best choice for deployment packages. It offers **better performance** for your deployments and the most **robust [retention policy](/docs/administration/retention-policies.md)****support** for deployment packages.
 
 :::hint
 **Built-in feed can only be consumed by Octopus**
@@ -90,13 +90,13 @@ It is important to understand that the Octopus server provides a write-only repo
 ### Pushing packages to the built-in repository
 
 
-We offer several ways to add packages to the built-in repository, so many that we built a new page: [pushing packages to the built-in repository](/docs/home/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md). Alternatively you can go to *Library > Packages* which describes some of the most convenient ways to push packages to the built-in repository.
+We offer several ways to add packages to the built-in repository, so many that we built a new page: [pushing packages to the built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md). Alternatively you can go to *Library > Packages* which describes some of the most convenient ways to push packages to the built-in repository.
 
 
 ![](/docs/images/3048094/3277775.png)
 
 :::success
-To push packages to the built-in repository you will need an [Octopus API key](/docs/home/how-to/how-to-create-an-api-key.md).
+To push packages to the built-in repository you will need an [Octopus API key](/docs/how-to/how-to-create-an-api-key.md).
 :::
 
 ### Security considerations
@@ -109,12 +109,12 @@ For your convenience Octopus Deploy provides a built-in role called **Package Pu
 
 :::hint
 **Consider using a Service Account**
-Instead of using your own API key, consider using a [Service Account](/docs/home/administration/managing-users-and-teams/service-accounts.md) to provide limited permissions since packages will normally be pushed by an automated service like your build server. Service Accounts are API-only accounts that cannot be used sign in to the Octopus Deploy web portal.
+Instead of using your own API key, consider using a [Service Account](/docs/administration/managing-users-and-teams/service-accounts.md) to provide limited permissions since packages will normally be pushed by an automated service like your build server. Service Accounts are API-only accounts that cannot be used sign in to the Octopus Deploy web portal.
 :::
 
 :::hint
 **Using automatic release creation?**
-If you are using [automatic release creation](/docs/home/deploying-applications/automatic-release-creation.md) you will also require the permissions to create a release for all of the relevant projects in the required environments. To diagnose issues with pushing packages used for automatic release creation follow the troubleshooting guide on the [automatic release creation](/docs/home/deploying-applications/automatic-release-creation.md) page.
+If you are using [automatic release creation](/docs/deploying-applications/automatic-release-creation.md) you will also require the permissions to create a release for all of the relevant projects in the required environments. To diagnose issues with pushing packages used for automatic release creation follow the troubleshooting guide on the [automatic release creation](/docs/deploying-applications/automatic-release-creation.md) page.
 :::
 
 ### Moving the location of the built-in repository

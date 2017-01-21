@@ -7,16 +7,16 @@ position: 8
 We release new versions of Octopus Deploy often, so we try to make the process of upgrading your Octopus server easy. This page outlines the process of upgrading between Octopus versions.
 
 :::warning
-We highly recommend testing your [Backup and Restore](/docs/home/administration/backup-and-restore.md) process prior to upgrading Octopus Deploy, regardless of whether you are applying a Patch or performing a Major or Minor upgrade.
+We highly recommend testing your [Backup and Restore](/docs/administration/backup-and-restore.md) process prior to upgrading Octopus Deploy, regardless of whether you are applying a Patch or performing a Major or Minor upgrade.
 :::
 
 
 There are lots of improvements and changes between Octopus 1.X, Octopus 2.X and Octopus 3.x so we have guides to walk you through the process of upgrading from each version.
 
-- [Upgrading from Octopus 1.6](/docs/home/administration/upgrading/upgrading-from-octopus-1.6.md)
-- [Upgrading from Octopus 2.0](/docs/home/administration/upgrading/upgrading-from-octopus-2.0.md)
-- [Upgrading from Octopus 2.6](/docs/home/administration/upgrading/upgrading-from-octopus-2.6.md)
-- [Upgrading from Octopus 3.x](/docs/home/administration/upgrading/upgrading-from-octopus-3.x.md)
+- [Upgrading from Octopus 1.6](/docs/administration/upgrading/upgrading-from-octopus-1.6.md)
+- [Upgrading from Octopus 2.0](/docs/administration/upgrading/upgrading-from-octopus-2.0.md)
+- [Upgrading from Octopus 2.6](/docs/administration/upgrading/upgrading-from-octopus-2.6.md)
+- [Upgrading from Octopus 3.x](/docs/administration/upgrading/upgrading-from-octopus-3.x.md)
 
 
 :::warning
@@ -60,11 +60,11 @@ The process for successfully downgrading depends on the upgrade you have perform
 1. **Patch upgrade =**If you install a patch of Octopus Deploy and run into any problems, you should be able to reinstall the version of Octopus Deploy that was installed prior to the upgrade straight over-the-top without any problems
  1. For example: 3.4.4 => 3.4.12 (same Major.Minor but different Patch). If you need to downgrade for any reason you should be able to reinstall 3.4.4 straight over the top of 3.4.12.
 2. **Minor upgrade** = If you perform a Minor upgrade and run into any problems, you will need to restore a recent SQL Database backup and reinstall the version of Octopus Deploy that was installed prior to the upgrade
- 1. For example: 3.4.4 => 3.5.1 would be a Minor upgrade. Make sure to test a [backup and restore](/docs/home/administration/backup-and-restore.md) before upgrading. If you need to downgrade for any reason, you should restore the backup, and then reinstall 3.4.4.
+ 1. For example: 3.4.4 => 3.5.1 would be a Minor upgrade. Make sure to test a [backup and restore](/docs/administration/backup-and-restore.md) before upgrading. If you need to downgrade for any reason, you should restore the backup, and then reinstall 3.4.4.
 3. **Major upgrade** = We will provide a detailed upgrade guide for any Major upgrades
  1. For example: 2.6.5 => 3.4.12 would be a Major upgrade. You should take care when performing a major upgrade and follow our upgrade guide carefully.
 
 
 :::success
-We recommend putting your Octopus Server into [Maintenance Mode](/docs/home/administration/maintenance-mode.md) when performing any of these operations.
+We recommend putting your Octopus Server into [Maintenance Mode](/docs/administration/maintenance-mode.md) when performing any of these operations.
 :::

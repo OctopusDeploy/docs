@@ -5,7 +5,7 @@ position: 1
 
 
 :::problem
-You will not be able to upgrade from Octopus 2.x to Octopus 3.0 directly. If you are running a version of Octopus prior to 2.6, use this guide to upgrade from 2.x to 2.6, then follow the [guide to upgrade from 2.6 to 3.0](/docs/home/administration/upgrading/upgrading-from-octopus-2.6.md).
+You will not be able to upgrade from Octopus 2.x to Octopus 3.0 directly. If you are running a version of Octopus prior to 2.6, use this guide to upgrade from 2.x to 2.6, then follow the [guide to upgrade from 2.6 to 3.0](/docs/administration/upgrading/upgrading-from-octopus-2.6.md).
 :::
 
 
@@ -23,7 +23,7 @@ Additional information on troubleshooting upgrades is below.
 
 To upgrade the Octopus Deploy server, you will need to follow these steps:
 
-1. Ensure you have a recent [database backup](/docs/home/administration/backup-and-restore.md) that you can restore in case anything goes wrong
+1. Ensure you have a recent [database backup](/docs/administration/backup-and-restore.md) that you can restore in case anything goes wrong
 2. Download the latest [Octopus Deploy MSI installer](http://octopusdeploy.com/downloads)
 3. Run the installer and follow the prompts
 

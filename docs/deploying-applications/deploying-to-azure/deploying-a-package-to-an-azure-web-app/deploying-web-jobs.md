@@ -40,7 +40,7 @@ If you are packaging and deploying your Web App and Web Job together, the Web Jo
 
 
 
-Below is a sample of a nuspec file which could be used to produce the layout above.  For example using [OctoPack](/docs/home/packaging-applications/nuget-packages/using-octopack.md).
+Below is a sample of a nuspec file which could be used to produce the layout above.  For example using [OctoPack](/docs/packaging-applications/nuget-packages/using-octopack.md).
 
 ```xml
 <?xml version="1.0"?><package >

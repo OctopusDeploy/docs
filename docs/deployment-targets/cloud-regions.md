@@ -23,7 +23,7 @@ Cloud Region targets will enable steps which execute on the Octopus Server to ex
 > 
 > 
 > 
-> Now when you deploy OctoFX you can create a [rolling deployment](/docs/home/patterns/rolling-deployments.md) targeting these regions one at a time, or in parallel.
+> Now when you deploy OctoFX you can create a [rolling deployment](/docs/patterns/rolling-deployments.md) targeting these regions one at a time, or in parallel.
 
 
 :::success

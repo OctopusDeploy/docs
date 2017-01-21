@@ -4,7 +4,7 @@ position: 2
 ---
 
 
-Assuming you are starting with a clean install of Octopus Deploy, the following steps will configure the server to deploy your [octofxjs](/docs/home/guides/node-on-nix-deployments/create-&-push-node.js-project.md) Node.js project to a Linux machine.
+Assuming you are starting with a clean install of Octopus Deploy, the following steps will configure the server to deploy your [octofxjs](/docs/guides/node-on-nix-deployments/create-&-push-node.js-project.md) Node.js project to a Linux machine.
 
 
 On this page:
@@ -30,13 +30,13 @@ The name of the environment is important because we will use it as a variable in
 :::
 
 :::success
-For the purpose of this guide we will only use the one deployment environment but there are several other pages in this documentation which explain the benefits of leveraging [environments](/docs/home/key-concepts/environments.md) and [lifecycles](/docs/home/key-concepts/lifecycles.md) to create advanced deployment processes.
+For the purpose of this guide we will only use the one deployment environment but there are several other pages in this documentation which explain the benefits of leveraging [environments](/docs/key-concepts/environments.md) and [lifecycles](/docs/key-concepts/lifecycles.md) to create advanced deployment processes.
 :::
 
 ## Configure Account & Target
 
 
-To connect over SSH the first thing you will need to do is add the credentials for your machine. If you followed the previous  "[Configuring Target Machine](/docs/home/guides/node-on-nix-deployments/configuring-target-machine.md)" step this should consist of a username and password pair.
+To connect over SSH the first thing you will need to do is add the credentials for your machine. If you followed the previous  "[Configuring Target Machine](/docs/guides/node-on-nix-deployments/configuring-target-machine.md)" step this should consist of a username and password pair.
 
 - Navigate to *Environments > Accounts > Usernames/Passwords > Add Account* and add these credentials.
 
@@ -54,7 +54,7 @@ To connect over SSH the first thing you will need to do is add the credentials f
 ![](/docs/images/3049555/3278592.png)
 
 :::success
-Further details are provided throughout the rest of this documentation on related topics like [Account Types](/docs/home/key-concepts/environments/accounts.md) and [SSH Targets](/docs/home/deployment-targets/ssh-targets.md).
+Further details are provided throughout the rest of this documentation on related topics like [Account Types](/docs/key-concepts/environments/accounts.md) and [SSH Targets](/docs/deployment-targets/ssh-targets.md).
 :::
 
 ## Create Deployment Project
@@ -64,7 +64,7 @@ The next step is to create a project that will extract the package.
 
 - Navigate to the Projects page via *Projects > All*and then click the *Add Project*button.
 - Give the new project an appropriate name and once saved, go to the project's *Process*page and click *Add Step > Deploy a Package*.
- - Ensure that the target role matches that which was assigned to the machine in the previous step and select *octofxjs* as the Package ID. This Package ID is derived from the first section of the package that was previously uploaded (see *Package Metadata* section of the [Supported Packages](/docs/home/packaging-applications/supported-packages.md) documentation for mode details).
+ - Ensure that the target role matches that which was assigned to the machine in the previous step and select *octofxjs* as the Package ID. This Package ID is derived from the first section of the package that was previously uploaded (see *Package Metadata* section of the [Supported Packages](/docs/packaging-applications/supported-packages.md) documentation for mode details).
 
 
 

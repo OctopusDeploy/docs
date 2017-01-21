@@ -9,7 +9,7 @@ You may want to target your deployment for non-windows machines where you don't 
 ## Topology
 
 
-In the standard-model the Octopus server talks to the Tentacle (ignoring the distinction between between [Polling](/docs/home/installation/installing-tentacles/polling-tentacles.md) and [Listening](/docs/home/installation/installing-tentacles/listening-tentacles.md)) who in turn delegates the actual deployment work to Calamari, which contains all the information regarding conventions and deployments. Calamari then executes the scripts and the Tentacle passes back to the Server the task progress, logs and artifacts.
+In the standard-model the Octopus server talks to the Tentacle (ignoring the distinction between between [Polling](/docs/installation/installing-tentacles/polling-tentacles.md) and [Listening](/docs/installation/installing-tentacles/listening-tentacles.md)) who in turn delegates the actual deployment work to Calamari, which contains all the information regarding conventions and deployments. Calamari then executes the scripts and the Tentacle passes back to the Server the task progress, logs and artifacts.
 
 
 ![](/docs/images/3048063/3277601.png)
@@ -129,10 +129,10 @@ Leveraging Calamari means that the deployment can obtain the package via the sam
 
 :::success
 **Non-NuGet package types**
-Since version 3.3, Octopus Deploy has [support for tar packages](/docs/home/packaging-applications/supported-packages.md).
+Since version 3.3, Octopus Deploy has [support for tar packages](/docs/packaging-applications/supported-packages.md).
 
 
-See our [Node.js sample](/docs/home/guides/node-on-nix-deployments.md) for an example of deploying to a Linux target
+See our [Node.js sample](/docs/guides/node-on-nix-deployments.md) for an example of deploying to a Linux target
 :::
 
 

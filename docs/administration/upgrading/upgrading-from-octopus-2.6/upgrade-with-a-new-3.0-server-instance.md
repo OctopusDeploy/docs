@@ -7,7 +7,7 @@ position: 2
 This is the recommended way of performing an upgrade for larger installations. It gives you the opportunity to verify that your Tentacles have been successfully upgraded, and allows you to more easily roll back if you have any issues.
 
 
-Be sure to read the [Upgrading from Octopus 2.6](/docs/home/administration/upgrading/upgrading-from-octopus-2.6.md) documentation page. You must have a working 2.6 Octopus installation for the data migration.
+Be sure to read the [Upgrading from Octopus 2.6](/docs/administration/upgrading/upgrading-from-octopus-2.6.md) documentation page. You must have a working 2.6 Octopus installation for the data migration.
 
 ## Summary
 
@@ -41,12 +41,12 @@ When upgrading to Octopus 3.x please use the latest version available. We have b
 :::
 
 
-See the [Installing Octopus 3.x](/docs/home/installation/installing-octopus.md) page for instructions on installing a new Octopus 3.x instance.
+See the [Installing Octopus 3.x](/docs/installation/installing-octopus.md) page for instructions on installing a new Octopus 3.x instance.
 
 ### 3. Migrate your data from 2.6 to 3.x
 
 
-See the [Migrating data from Octopus 2.6 to 3.x](/docs/home/administration/upgrading/upgrading-from-octopus-2.6/migrating-data-from-octopus-2.6-to-3.x.md) page for instructions on importing your Octopus 2.6 database backup into Octopus 3.x.
+See the [Migrating data from Octopus 2.6 to 3.x](/docs/administration/upgrading/upgrading-from-octopus-2.6/migrating-data-from-octopus-2.6-to-3.x.md) page for instructions on importing your Octopus 2.6 database backup into Octopus 3.x.
 
 :::hint
 **Migration taking a long time?**
@@ -113,10 +113,10 @@ These steps should be executed from your Octopus 2.6 server to your 2.6 Tentacle
 ![](/docs/images/3048135/3278019.png)
 3. Import the [Hydra script template](http://library.octopusdeploy.com/#!/step-template/actiontemplate-hydra-update-octopus-tentacle) from the Community Library.
 ![](/docs/images/3048135/3278018.png)
-4. Create a [new project](/docs/home/key-concepts/projects.md) with a single "Update Octopus Tentacle" step from the step template
+4. Create a [new project](/docs/key-concepts/projects.md) with a single "Update Octopus Tentacle" step from the step template
 
 
- 1. Ensure you choose or create a [Lifecycle ](/docs/home/key-concepts/lifecycles.md)that allows you to deploy to all Tentacles.
+ 1. Ensure you choose or create a [Lifecycle ](/docs/key-concepts/lifecycles.md)that allows you to deploy to all Tentacles.
  2. Ensure you set the Update Octopus Tentacle step to run for all appropriate Tentacles.
  3. If you are using any polling Tentacles, add the new Octopus 3.x server address (including the polling port) in the Server Mapping field.
 It is very important you get this value correct. An incorrect value will result in a polling Tentacle that can't be contacted by either a 2.6 or 3.x server.

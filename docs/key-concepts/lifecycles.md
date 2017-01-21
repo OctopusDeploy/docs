@@ -62,7 +62,7 @@ You can define if this environment is automatically deployed to when the release
 
 :::hint
 **Automatic Release Creation**
-If you have a project setup with [Automatic Release Creation](/docs/home/deploying-applications/automatic-release-creation.md) and set your first phase and environment to automatically deploy, pushing a package to the internal library will trigger both a release, and a deployment to that environment. A hands off deployment triggered by a build server push!
+If you have a project setup with [Automatic Release Creation](/docs/deploying-applications/automatic-release-creation.md) and set your first phase and environment to automatically deploy, pushing a package to the internal library will trigger both a release, and a deployment to that environment. A hands off deployment triggered by a build server push!
 :::
 
 

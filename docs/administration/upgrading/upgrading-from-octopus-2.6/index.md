@@ -25,7 +25,7 @@ Smaller installations
 If you only have a small number of Tentacles, it's easiest to just download the new Octopus and Tentacle MSI's and install them manually.
 
 
-Read the full guide: [Manual upgrades for smaller instances](/docs/home/administration/upgrading/upgrading-from-octopus-2.6/manual-upgrade.md)
+Read the full guide: [Manual upgrades for smaller instances](/docs/administration/upgrading/upgrading-from-octopus-2.6/manual-upgrade.md)
 
 ## Larger installations
 
@@ -49,7 +49,7 @@ There are two approaches you can use to upgrade from 2.6 to 3.x:
 If you are able to provision a new Octopus server, this is the safest option. That way, if something goes wrong in the upgrade, it will be easy to discard the new server and start the process again. And when it works, you can decommission the old Octopus server.
 
 
-Read the full guide: [Upgrade with a new Server instance](/docs/home/administration/upgrading/upgrading-from-octopus-2.6/upgrade-with-a-new-3.0-server-instance.md)
+Read the full guide: [Upgrade with a new Server instance](/docs/administration/upgrading/upgrading-from-octopus-2.6/upgrade-with-a-new-3.0-server-instance.md)
 
 ### Approach 2: In-place (over the top) upgrade of an existing server
 
@@ -57,4 +57,4 @@ Read the full guide: [Upgrade with a new Server instance](/docs/home/administra
 It is possible to install Octopus 3.x over the top of a 2.6 instance. You'll upgrade the Tentacles to 3.x, then upgrade the Octopus server.
 
 
-Read the full guide: [In place (over the top) upgrade](/docs/home/administration/upgrading/upgrading-from-octopus-2.6/in-place-upgrade-(install-over-2.6).md)
+Read the full guide: [In place (over the top) upgrade](/docs/administration/upgrading/upgrading-from-octopus-2.6/in-place-upgrade-(install-over-2.6).md)

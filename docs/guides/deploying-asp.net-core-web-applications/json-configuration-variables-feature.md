@@ -4,7 +4,7 @@ title: JSON Configuration Variables Feature
 ---
 
 
-The **JSON configuration variables** feature updates your JSON configuration files with the values from matching Octopus variables. In many ways this feature works similarly to the [Substitute Variables in Files](/docs/home/deploying-applications/substitute-variables-in-files.md) feature, but uses a special matching syntax so you can update configuration nested in JSON object and array literals.
+The **JSON configuration variables** feature updates your JSON configuration files with the values from matching Octopus variables. In many ways this feature works similarly to the [Substitute Variables in Files](/docs/deploying-applications/substitute-variables-in-files.md) feature, but uses a special matching syntax so you can update configuration nested in JSON object and array literals.
 
 :::hint
 **Available in 3.3**
@@ -16,7 +16,7 @@ ASP.NET Core 1.0 (previously known as ASP.NET 5) has been released! Microsoft's�
 :::
 
 :::hint
-Our ASP.NET Core web application [deployment guide](/docs/home/guides/deploying-asp.net-core-web-applications.md) provides further information on how this feature fits into an Octopus project's deployment process.
+Our ASP.NET Core web application [deployment guide](/docs/guides/deploying-asp.net-core-web-applications.md) provides further information on how this feature fits into an Octopus project's deployment process.
 :::
 
 
@@ -56,7 +56,7 @@ approot\packages\ASPNET.Core.Sample\1.0.0\root\appSettings.json
 :::
 
 
-Note that you can even use the [Variable Substitution Syntax](/docs/home/reference/variable-substitution-syntax.md) patterns in this file selection input box itself to do things like reference environment specific files, or conditionally include them based on scoped variables.
+Note that you can even use the [Variable Substitution Syntax](/docs/reference/variable-substitution-syntax.md) patterns in this file selection input box itself to do things like reference environment specific files, or conditionally include them based on scoped variables.
 
 
 ![](/docs/images/3702943/5275654.png)

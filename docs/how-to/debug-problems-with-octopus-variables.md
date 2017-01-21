@@ -29,7 +29,7 @@ On this page:
 ## Check the variable value in the All Variables tab
 
 1. Open the **Project > Variables > All Variables** tab
-2. Investigate the variables from all possible sources for the project including the project itself, [library variable sets](/docs/home/deploying-applications/variables/library-variable-sets.md), and [tenants](/docs/home/key-concepts/tenants.md).
+2. Investigate the variables from all possible sources for the project including the project itself, [library variable sets](/docs/deploying-applications/variables/library-variable-sets.md), and [tenants](/docs/key-concepts/tenants.md).
 ![](/docs/images/3048145/5865680.png)
 
 

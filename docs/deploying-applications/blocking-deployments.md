@@ -57,5 +57,5 @@ When you block a Release from being deployed, we actually use the Octopus API to
 :::
 
 :::success
-Learn about [managing Roles and Permissions](/docs/home/administration/managing-users-and-teams/user-roles.md).
+Learn about [managing Roles and Permissions](/docs/administration/managing-users-and-teams/user-roles.md).
 :::

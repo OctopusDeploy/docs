@@ -17,7 +17,7 @@ Add a new "Deploy an Azure Cloud Service" step to your project. For information
 #### **Account**
 
 
-Select the [account](/docs/home/guides/azure-deployments/cloud-services/cloud-service-concepts/cloud-service-accounts.md) that Octopus will use to deploy the Cloud Service.
+Select the [account](/docs/guides/azure-deployments/cloud-services/cloud-service-concepts/cloud-service-accounts.md) that Octopus will use to deploy the Cloud Service.
 
 
 The 'Cloud service' and 'Storage account' fields will list the Cloud Services and Storage Accounts available to the Azure subscription associated with the chosen Account.
@@ -43,7 +43,7 @@ The Cloud Service target may be configured to either:
 If 'Always deploy' is select, the package will always be deployed to the selected Slot.
 
 
-If 'Swap staging to production if possible' is selected and the selected Slot is Production, then a swap will occur between Production and Staging (if there is a deployment in the Staging slot). See [VIP Swap](/docs/home/guides/azure-deployments/cloud-services/vip-swap.md) for more information on how to configure a VIP swap.
+If 'Swap staging to production if possible' is selected and the selected Slot is Production, then a swap will occur between Production and Staging (if there is a deployment in the Staging slot). See [VIP Swap](/docs/guides/azure-deployments/cloud-services/vip-swap.md) for more information on how to configure a VIP swap.
 
 #### Instance count
 
@@ -69,8 +69,8 @@ Deployment to an Azure Cloud Service target proceeds as follows (more details pr
 4. Any configured or packaged `PreDeploy` scripts are executed
 5. Variable substitutions in Cloud Service configuration file (`.cscfg`)
 6. Substitute variables in files (if configured)
-7. [XML configuration transformations](/docs/home/deploying-applications/configuration-files.md) (if configured) are performed
-8. [XML configuration variables](/docs/home/deploying-applications/configuration-files.md) (if configured) are replaced
+7. [XML configuration transformations](/docs/deploying-applications/configuration-files.md) (if configured) are performed
+8. [XML configuration variables](/docs/deploying-applications/configuration-files.md) (if configured) are replaced
 9. Any configured or package `Deploy` scripts are executed
 10. Re-package the Cloud Service Package
 11. Upload the Cloud Service Package to Azure Storage

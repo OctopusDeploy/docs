@@ -4,7 +4,7 @@ position: 5
 ---
 
 
-This page lists built-in [variables](/docs/home/deploying-applications/variables.md) provided by Octopus that can be used in your deployment [Custom scripts](/docs/home/deploying-applications/custom-scripts.md).
+This page lists built-in [variables](/docs/deploying-applications/variables.md) provided by Octopus that can be used in your deployment [Custom scripts](/docs/deploying-applications/custom-scripts.md).
 
 
 - Deployment
@@ -45,12 +45,12 @@ Deployment-level variables are drawn from the project and release being deployed
 | --- | --- | --- |
 | Octopus.Deployment.Error | *Script returned exit code 123* | 
 
-This variable outputs the error/exit code for a failed deployment. [See here](/docs/home/deploying-applications/variables/system-variables.md)
+This variable outputs the error/exit code for a failed deployment. [See here](/docs/deploying-applications/variables/system-variables.md)
  |
 | --- | --- | --- |
 | Octopus.Deployment.ErrorDetail | *System.IO.FileNotFoundException: file C:\Missing.txt does not exist (at...)* | 
 
-The error/exit code for the deployment along with the Octopus stack trace. [See here](/docs/home/deploying-applications/variables/system-variables.md)
+The error/exit code for the deployment along with the Octopus stack trace. [See here](/docs/deploying-applications/variables/system-variables.md)
  |
 | --- | --- | --- |
 | Octopus.Deployment.ForcePackageDownload | *False* | If true, the package will be freshly downloaded from the feed/repository regardless of whether it is already present on the endpoint *(Boolean)* |
@@ -307,7 +307,7 @@ Octopus.Action.Id
 ### Output
 
 
-Output variables are collected during execution of a step and made available to subsequent steps using notation such as `Octopus.Action[Website].Output[WEBSVR01].Package.InstallationDirectoryPath`to refer to values base on the action and machine that produced them. See also [Output variables](/docs/home/deploying-applications/variables/output-variables.md).
+Output variables are collected during execution of a step and made available to subsequent steps using notation such as `Octopus.Action[Website].Output[WEBSVR01].Package.InstallationDirectoryPath`to refer to values base on the action and machine that produced them. See also [Output variables](/docs/deploying-applications/variables/output-variables.md).
 
 | Name | Example | Description |
 | --- | --- | --- |

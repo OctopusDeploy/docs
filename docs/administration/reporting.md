@@ -78,7 +78,7 @@ The best way to consume reporting data from Octopus is using the XML feed. The f
 Where:
 
 - `&lt;OCTOPUS-SERVER&gt;` is the hostname of your Octopus server
-- `&lt;API-KEY&gt;` is one of [your API keys](/docs/home/how-to/how-to-create-an-api-key.md)
+- `&lt;API-KEY&gt;` is one of [your API keys](/docs/how-to/how-to-create-an-api-key.md)
 
 
 
@@ -160,4 +160,4 @@ Also note that the data:
 ## What about information on concurrent users, web front-end performance, etc.?
 
 
-You may want to look at [enabling HTTP logging](/docs/home/how-to/enable-web-request-logging.md).
+You may want to look at [enabling HTTP logging](/docs/how-to/enable-web-request-logging.md).

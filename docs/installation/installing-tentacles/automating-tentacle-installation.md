@@ -48,7 +48,7 @@ msiexec INSTALLLOCATION=C:\YourDirectory /i Octopus.Tentacle.<version>.msi /quie
 ```
 
 :::problem
-Whilst you can set a customer INSTALLLOCATION for the Tentacle, please be aware that upgrades initiated by Octopus Server will currently install the upgraded Tentacle back into the default location. This may have an impact if you are using the [Service Watchdog](/docs/home/administration/service-watchdog.md).
+Whilst you can set a customer INSTALLLOCATION for the Tentacle, please be aware that upgrades initiated by Octopus Server will currently install the upgraded Tentacle back into the default location. This may have an impact if you are using the [Service Watchdog](/docs/administration/service-watchdog.md).
 :::
 
 ## Configuration
@@ -64,13 +64,13 @@ To configure the Tentacle in listening or polling mode, it's easiest to run the 
 
 :::success
 **Advanced configuration options**
-When configuring your tentacle you can configure advanced options, like [proxies](/docs/home/installation/installing-tentacles/proxy-support.md), [machine policies](/docs/home/key-concepts/environments/machine-policies.md) and [tenants](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md), which can also be automated. Use the setup wizard to configure the Tentacle, and click the **Show Script** link which will show you the command-line equivalent to configure the Tentacle.
+When configuring your tentacle you can configure advanced options, like [proxies](/docs/installation/installing-tentacles/proxy-support.md), [machine policies](/docs/key-concepts/environments/machine-policies.md) and [tenants](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md), which can also be automated. Use the setup wizard to configure the Tentacle, and click the **Show Script** link which will show you the command-line equivalent to configure the Tentacle.
 :::
 
 ## Example: Listening Tentacle
 
 
-The following example configures a [listening Tentacle](/docs/home/installation/installing-tentacles/listening-tentacles.md), and registers it with an Octopus Deploy server:
+The following example configures a [listening Tentacle](/docs/installation/installing-tentacles/listening-tentacles.md), and registers it with an Octopus Deploy server:
 
 **Using Tentacle.exe to create Listening Tentacle instance**
 
@@ -127,7 +127,7 @@ Want to register your Tentacles another way? Take a look at the examples in our 
 ## Example: Polling Tentacle
 
 
-The following example configures a [polling Tentacle](/docs/home/installation/installing-tentacles/polling-tentacles.md), and registers it with an Octopus Deploy server:
+The following example configures a [polling Tentacle](/docs/installation/installing-tentacles/polling-tentacles.md), and registers it with an Octopus Deploy server:
 
 **Polling Tentacle**
 

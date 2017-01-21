@@ -18,7 +18,7 @@ Under the hood, OctoPack eventually calls good old `nuget.exe pack` to build the
 
 :::success
 **Octopus now supports multiple package types**
-Did you know Octopus now [supports other package types](/docs/home/packaging-applications/supported-packages.md) too? Now you can simply pack all the files you need straight into a specially named zip file, or any of the other [supported package types](/docs/home/packaging-applications/supported-packages.md), and Octopus will deploy it for you just like you'd expect. When OctoPack works for your situation, it's brilliant! However, if you find yourself wrestling with OctoPack, perhaps dropping the files you want deployed into a folder, and zipping it up for Octopus will turn out a lot simpler?
+Did you know Octopus now [supports other package types](/docs/packaging-applications/supported-packages.md) too? Now you can simply pack all the files you need straight into a specially named zip file, or any of the other [supported package types](/docs/packaging-applications/supported-packages.md), and Octopus will deploy it for you just like you'd expect. When OctoPack works for your situation, it's brilliant! However, if you find yourself wrestling with OctoPack, perhaps dropping the files you want deployed into a folder, and zipping it up for Octopus will turn out a lot simpler?
 :::
 
 
@@ -66,7 +66,7 @@ msbuild MySolution.sln /t:Build /p:RunOctoPack=true
 ```
 
 
-After the build completes, in the output directory you will find a NuGet package. This package is ready to be deployed using your [Octopus Deploy server](/docs/home/installation/installing-octopus.md).
+After the build completes, in the output directory you will find a NuGet package. This package is ready to be deployed using your [Octopus Deploy server](/docs/installation/installing-octopus.md).
 
 ## Adding a NuSpec
 
@@ -136,7 +136,7 @@ The example below shows a web application called **OctoFX.TradingWebsite** and y
 
 :::hint
 **Config Transformation is part of the deployment process**
-OctoPack won't run web.config transformation files, because these will be run as [part of the deployment instead](/docs/home/deploying-applications/configuration-files.md). Make sure you set **Build Action: Content** for your config transform files (like `web.Release.config`) to ensure these files are packaged and used as part of your deployment.
+OctoPack won't run web.config transformation files, because these will be run as [part of the deployment instead](/docs/deploying-applications/configuration-files.md). Make sure you set **Build Action: Content** for your config transform files (like `web.Release.config`) to ensure these files are packaged and used as part of your deployment.
 :::
 
 ### Including additional files using Copy to Output Directory
@@ -146,7 +146,7 @@ If you need to include other files in your package for deployment, use the Visua
 
 :::success
 **Config Transforms for other types of .NET applications**
-Did you know you can use XML Config Transforms on any XML files including the `app.config` file for Windows Service, Console, Windows Forms or WPF applications? Make sure the transform files are copied to the build output directory as part of your build, and the will be packaged by OctoPack so you can[use them as part of the deployment](/docs/home/deploying-applications/configuration-files.md).
+Did you know you can use XML Config Transforms on any XML files including the `app.config` file for Windows Service, Console, Windows Forms or WPF applications? Make sure the transform files are copied to the build output directory as part of your build, and the will be packaged by OctoPack so you can[use them as part of the deployment](/docs/deploying-applications/configuration-files.md).
 :::
 
 ### Including additional files using a NuSpec file (.nuspec)
@@ -235,17 +235,17 @@ To publish your package to a NuGet feed, you can optionally use some extra MSBui
 
 :::success
 **Want to use the Octopus built-in repository?**
-Octopus provides a [built-in package repository](/docs/home/packaging-applications/package-repositories.md) for your deployment packages. The Octopus built-in repository is generally the best choice for deployment packages because it offers better performance and most suitable [retention policies](/docs/home/administration/retention-policies.md).
+Octopus provides a [built-in package repository](/docs/packaging-applications/package-repositories.md) for your deployment packages. The Octopus built-in repository is generally the best choice for deployment packages because it offers better performance and most suitable [retention policies](/docs/administration/retention-policies.md).
 
 
 To push your packages to the Octopus built-in repository use the following settings:
 
 - `/p:OctoPackPublishPackageToHttp=http://your.octopusserver.com/nuget/packages` - this is the URL to your Octopus Server noting the `/nuget/packages` path
-- `/p:OctoPackPublishApiKey=API-ABCDEFGMYAPIKEY` - the [Octopus API key](/docs/home/how-to/how-to-create-an-api-key.md) you you want to use for pushing packages noting [these security considerations](/docs/home/packaging-applications/package-repositories.md)
+- `/p:OctoPackPublishApiKey=API-ABCDEFGMYAPIKEY` - the [Octopus API key](/docs/how-to/how-to-create-an-api-key.md) you you want to use for pushing packages noting [these security considerations](/docs/packaging-applications/package-repositories.md)
 
 
 
-Read more about [pushing packages to the Octopus built-in repository](/docs/home/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md).
+Read more about [pushing packages to the Octopus built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md).
 :::
 
 ## All supported parameters
@@ -271,7 +271,7 @@ In addition to the common arguments above, OctoPack has a number of other parame
 | `OctoPackPublishApiKey` | `API-ABCDEFGMYAPIKEY` | Your API key to use when publishing to a HTTP/HTTPS based NuGet repository |
 | `OctoPackPublishPackagesToTeamCity` | `False` | By default, if OctoPack detects that the build is running under TeamCity, the NuGet package that is produced is registered as an artifact in TeamCity. Use this parameter to suppress this behavior. |
 | `OctoPackPublishPackageToFileShare` | `\\server\packages` | OctoPack can publish packages to a file share or local directory after packaging |
-| `OctoPackPublishPackageToHttp` | `http://my-nuget-server/api/v2/package` | OctoPack can publish packages to a HTTP/HTTPS NuGet repository (or the [Octopus built-in repository](/docs/home/packaging-applications/package-repositories.md)) after packaging. |
+| `OctoPackPublishPackageToHttp` | `http://my-nuget-server/api/v2/package` | OctoPack can publish packages to a HTTP/HTTPS NuGet repository (or the [Octopus built-in repository](/docs/packaging-applications/package-repositories.md)) after packaging. |
 | `OctoPackReleaseNotesFile` | `myreleasenotes.txt` | Use this parameter to have the package release notes read from a file. |
 | 
 ```

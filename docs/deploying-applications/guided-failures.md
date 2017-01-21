@@ -21,13 +21,13 @@ Guided failure mode is off by default. You can enable it when deploying a releas
 
 
 :::hint
-See the section on [managing environments](/docs/home/key-concepts/environments.md) to enable guided failure mode by default for all deployments to a specific environment.
+See the section on [managing environments](/docs/key-concepts/environments.md) to enable guided failure mode by default for all deployments to a specific environment.
 :::
 
 ## What happens
 
 
-If something goes wrong during the deployment, Octopus will interrupt the deployment, and request guidance for how to handle the failure. This uses the same [user experience that is used for manual steps](/docs/home/deploying-applications/manual-intervention-and-approvals.md) (internally, requests for failure guidance, and manual steps, use the same implementation: we call them Interruptions in the [REST API](/docs/home/api-and-integration/octopus-rest-api.md)).
+If something goes wrong during the deployment, Octopus will interrupt the deployment, and request guidance for how to handle the failure. This uses the same [user experience that is used for manual steps](/docs/deploying-applications/manual-intervention-and-approvals.md) (internally, requests for failure guidance, and manual steps, use the same implementation: we call them Interruptions in the [REST API](/docs/api-and-integration/octopus-rest-api.md)).
 
 
 ![](/docs/images/3048076/3277631.png)

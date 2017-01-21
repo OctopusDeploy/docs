@@ -4,11 +4,11 @@ position: 7
 ---
 
 
-This page will describe the concept of tenants available in Octopus. Prior to Octopus 3.4 the best choice available to you was to create an environment-per-tenant or project-per-tenant leading to duplication and complexity. In Octopus 3.4 you can implement tenants as first-class concepts alongside your existing projects and environments with support for advanced scenarios like [per-tenant configuration](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-tenant-specific-variables.md), tenant-aware [lifecycles](/docs/home/key-concepts/lifecycles.md), and self-service deployments.
+This page will describe the concept of tenants available in Octopus. Prior to Octopus 3.4 the best choice available to you was to create an environment-per-tenant or project-per-tenant leading to duplication and complexity. In Octopus 3.4 you can implement tenants as first-class concepts alongside your existing projects and environments with support for advanced scenarios like [per-tenant configuration](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-tenant-specific-variables.md), tenant-aware [lifecycles](/docs/key-concepts/lifecycles.md), and self-service deployments.
 
 :::hint
 **Introduced in Octopus 3.4**
-Tenants were introduced with first-class support in Octopus 3.4. If you are implementing a multi-tenant deployment strategy we highly recommend [upgrading to Octopus 3.4](http://g.octopushq.com/ProductDownloadPage). You can read about multi-tenant deployments in Octopus 3.4 in our [comprehensive guide](/docs/home/guides/multi-tenant-deployments.md). You can also read about implementing [multi-tenant deployments using Octopus prior to Octopus 3.4](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4.md). We also help you migrate from your existing multi-tenant deployment strategy by [migrating to Octopus 3.4](/docs/home/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/migrating-to-octopus-3.4.md).
+Tenants were introduced with first-class support in Octopus 3.4. If you are implementing a multi-tenant deployment strategy we highly recommend [upgrading to Octopus 3.4](http://g.octopushq.com/ProductDownloadPage). You can read about multi-tenant deployments in Octopus 3.4 in our [comprehensive guide](/docs/guides/multi-tenant-deployments.md). You can also read about implementing [multi-tenant deployments using Octopus prior to Octopus 3.4](/docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4.md). We also help you migrate from your existing multi-tenant deployment strategy by [migrating to Octopus 3.4](/docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/migrating-to-octopus-3.4.md).
 :::
 
 ##### 
@@ -81,7 +81,7 @@ Consider the following example:
 The key issue in this scenario is that the same components need to be deployed multiple times, one for each end-customer, with different configuration settings for each customer, possibly targeting multiple environments.
 
 :::success
-You don't need Octopus Deploy to implement a multi-tenant SaaS application: you can also architect your application so you can deploy it once and serve multiple customers. We have built multi-tenant deployments into Octopus for those situations where you want to deploy your application once for each end-customer. See the section below about [building multi-tenant applications](/docs/home/guides/multi-tenant-deployments.md) and [considering architectural changes](/docs/home/guides/multi-tenant-deployments.md).
+You don't need Octopus Deploy to implement a multi-tenant SaaS application: you can also architect your application so you can deploy it once and serve multiple customers. We have built multi-tenant deployments into Octopus for those situations where you want to deploy your application once for each end-customer. See the section below about [building multi-tenant applications](/docs/guides/multi-tenant-deployments.md) and [considering architectural changes](/docs/guides/multi-tenant-deployments.md).
 :::
 
 
@@ -91,4 +91,4 @@ You don't need Octopus Deploy to implement a multi-tenant SaaS application: you 
 ## Making the most of tenants in Octopus
 
 
-Multi-tenant deployments are an advanced topic in Octopus and we have written a [comprehensive guide](/docs/home/guides/multi-tenant-deployments.md) to help you get the most benefit from your deployment automation.
+Multi-tenant deployments are an advanced topic in Octopus and we have written a [comprehensive guide](/docs/guides/multi-tenant-deployments.md) to help you get the most benefit from your deployment automation.

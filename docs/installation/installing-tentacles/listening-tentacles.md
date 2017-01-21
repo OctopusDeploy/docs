@@ -11,7 +11,7 @@ When installing a Tentacle, you will be asked to choose how Tentacle will commun
 
 :::success
 **Listening mode is recommended**
-When choosing a communication mode, we recommend listening mode when possible. Listening mode uses the least resources (listening on a TCP port is cheaper than actively trying to connect to one). It also gives you the most control (you can use rules in your firewall to limit which IP addresses can connect to the port). [Octopus and Tentacle use SSL when communicating](/docs/home/reference/octopus---tentacle-communication.md), and Tentacle will outright reject connections that aren't from an Octopus server that it trusts (identified by an X.509 certificate public key that you provide during setup).
+When choosing a communication mode, we recommend listening mode when possible. Listening mode uses the least resources (listening on a TCP port is cheaper than actively trying to connect to one). It also gives you the most control (you can use rules in your firewall to limit which IP addresses can connect to the port). [Octopus and Tentacle use SSL when communicating](/docs/reference/octopus---tentacle-communication.md), and Tentacle will outright reject connections that aren't from an Octopus server that it trusts (identified by an X.509 certificate public key that you provide during setup).
 :::
 
 :::warning
@@ -21,7 +21,7 @@ The communication protocol used by Octopus and Tentacle requires intact end-to-e
 
 :::warning
 **Proxy servers supported for tentacle communications since Octopus 3.4**
-The communication protocol used by Octopus and Tentacle 3.4 and above supports proxies. Read more about configuring proxy servers for Tentacle communications in [proxy support](/docs/home/installation/installing-tentacles/proxy-support.md).
+The communication protocol used by Octopus and Tentacle 3.4 and above supports proxies. Read more about configuring proxy servers for Tentacle communications in [proxy support](/docs/installation/installing-tentacles/proxy-support.md).
 
 
 If you are using a version of Octopus/Tentacle prior to 3.4 you will need to arrange a bypass/exception for traffic initiated from the Octopus server to the Tentacle on the configured TCP Port (port **10933** by default).
@@ -35,7 +35,7 @@ The latest Tentacle MSI can always be [downloaded from the Octopus Deploy downlo
 :::
 
 
-This four minute video (with captions) will walk you through the process of installing a Tentacle in listening mode, and registering it with your [Octopus Deploy server](/docs/home/installation/installing-octopus.md).
+This four minute video (with captions) will walk you through the process of installing a Tentacle in listening mode, and registering it with your [Octopus Deploy server](/docs/installation/installing-octopus.md).
 
 ## Firewall changes
 
@@ -53,7 +53,7 @@ Don't forget to allow access not just in Windows Firewall, but also any intermed
 ## Troubleshooting connections
 
 
-We have provided a detailed guide for [Troubleshooting Listening Tentacles](/docs/home/how-to/troubleshoot-listening-tentacles.md) but feel free to start with these simple steps.
+We have provided a detailed guide for [Troubleshooting Listening Tentacles](/docs/how-to/troubleshoot-listening-tentacles.md) but feel free to start with these simple steps.
 
 
 *On the Tentacle machine*, open a web browser and navigate to [https://localhost:10933](https://localhost:10933/) (or your chosen Tentacle communications port if it isn't the default). Make sure an**HTTPS**URL is used.

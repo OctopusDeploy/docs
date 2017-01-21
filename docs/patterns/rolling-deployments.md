@@ -13,7 +13,7 @@ Normally, when executing a deployment process with multiple steps, Octopus runs 
 ![](/docs/images/3702851/3964945.png)
 
 
-NuGet package steps and [PowerShell steps](/docs/home/deploying-applications/custom-scripts.md), however, target roles, which may contain multiple deployment targets. When a single step targets multiple machines, the step is run on those machines **in parallel**. So to recap:
+NuGet package steps and [PowerShell steps](/docs/deploying-applications/custom-scripts.md), however, target roles, which may contain multiple deployment targets. When a single step targets multiple machines, the step is run on those machines **in parallel**. So to recap:
 
 - Deployment steps are run in sequence
 - The actions performed by each step are performed in parallel on all deployment targets

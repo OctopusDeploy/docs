@@ -42,7 +42,7 @@ If you create the database, it must:
 
 :::hint
 **Changing the database collation**
-See [here](/docs/home/administration/octopus-database/changing-the-collation-of-the-octopus-database.md) for information about changing the database collation after the initial Octopus installation.
+See [here](/docs/administration/octopus-database/changing-the-collation-of-the-octopus-database.md) for information about changing the database collation after the initial Octopus installation.
 :::
 
 

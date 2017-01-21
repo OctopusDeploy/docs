@@ -4,10 +4,10 @@ title: Using Octo.exe
 ---
 
 
-If you don't want to (or can't) add [OctoPack](/docs/home/packaging-applications/nuget-packages/using-octopack.md) to your Visual Studio project, or you have a project that doesn't use Visual Studio then packaging your applications into a NuGet package would involve using NuGet.exe, together with a manifest file (.nuspec file), to create your packages.
+If you don't want to (or can't) add [OctoPack](/docs/packaging-applications/nuget-packages/using-octopack.md) to your Visual Studio project, or you have a project that doesn't use Visual Studio then packaging your applications into a NuGet package would involve using NuGet.exe, together with a manifest file (.nuspec file), to create your packages.
 
 
-There is, however, another way that you can create a NuGet package from just a folder of files and subdirectories. **Octo.exe** is our API command line tool that allows you to interact with your Octopus Deploy server using different **commands**, but, it also has a, not so known command, the **pack** command. The [Octo.exe Command Line](/docs/home/api-and-integration/octo.exe-command-line.md) page will show you how to get the API command line tool installed and ready to use.
+There is, however, another way that you can create a NuGet package from just a folder of files and subdirectories. **Octo.exe** is our API command line tool that allows you to interact with your Octopus Deploy server using different **commands**, but, it also has a, not so known command, the **pack** command. The [Octo.exe Command Line](/docs/api-and-integration/octo.exe-command-line.md) page will show you how to get the API command line tool installed and ready to use.
 
 
 The **pack** command turns any folder into a NuGet or Zip package - plain and simple!
@@ -15,7 +15,7 @@ The **pack** command turns any folder into a NuGet or Zip package - plain and si
 ## Packaging your application from a folder
 
 :::hint
-In Octo.exe version 3.3.8 we have expanded the functionality of the `pack` command to allow creating **zip** packages in addition to **NuGet** packages. [Learn more](/docs/home/packaging-applications/creating-zip-packages.md).
+In Octo.exe version 3.3.8 we have expanded the functionality of the `pack` command to allow creating **zip** packages in addition to **NuGet** packages. [Learn more](/docs/packaging-applications/creating-zip-packages.md).
 :::
 
 

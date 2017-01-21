@@ -7,7 +7,7 @@ title: Changing the Collation of the Octopus Database
 By default, the Octopus database is created using `Latin1_General_CI_AS` collation.
 
 
-You can change the collation, or [create a database](/docs/home/installation/installing-octopus/sql-server-database-requirements.md) initially with a different collation.
+You can change the collation, or [create a database](/docs/installation/installing-octopus/sql-server-database-requirements.md) initially with a different collation.
 
 :::warning
 A case-insensitive collation (one which has a name containing '\_CI\_') must be used.
