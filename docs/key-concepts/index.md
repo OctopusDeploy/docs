@@ -8,7 +8,6 @@ Words like "release" and "deployment" are no doubt terms that you've used in you
 
 ## How to think like an Octopus
 
-
 Like all software, Octopus is designed around model of a specific problem domain - in our case, the domain of deployment automation. In order to truly understand how Octopus works and how to get the best use out of it, it's helpful to take the time to understand our model and some of the terms that we use. It's helpful to think like an Octopus!
 
 :::success
