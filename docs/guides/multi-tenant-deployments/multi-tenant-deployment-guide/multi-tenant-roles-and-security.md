@@ -87,7 +87,7 @@ Now we will create a team for all the Account Managers and add the role we creat
 
 
 
-![](/docs/images/5669453/5865792.png)
+![](/docs/images/5669453/5865792.png "width=500")
 
 ### Step 3: Test!
 
@@ -108,7 +108,7 @@ You will probably notice you can see all tenants, projects and environments. We 
 Quite often you will want to allocate certain tenants to a team, or restrict which projects/environments a team can access. Using the team you just created you can experiment with reducing scope. You can restrict the team to a specific list of tenants, projects and/or environments.
 
 
-![](/docs/images/5669453/5865793.png)
+![](/docs/images/5669453/5865793.png "width=500")
 
 ## Infrastructure manager
 
@@ -131,7 +131,7 @@ In this example we will create a new team and combine multiple roles together to
 
 1. Create a new team called Tenant Environment Managers
 2. Add the Tenant viewer and Environment manager roles to the team
-![](/docs/images/5669453/5865794.png)
+![](/docs/images/5669453/5865794.png "width=500")
 3. Add any specific tenant/environment scoping that makes sense
 4. Add any specific members to the team that make sense
 
@@ -166,7 +166,7 @@ Firstly we need to create a team with scope limited to the single tenant.
 
 
 
-![](/docs/images/5669453/5865795.png)
+![](/docs/images/5669453/5865795.png "width=500")
 
 ### Step 2: Test!
 

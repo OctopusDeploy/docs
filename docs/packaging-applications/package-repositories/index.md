@@ -93,7 +93,7 @@ It is important to understand that the Octopus server provides a write-only repo
 We offer several ways to add packages to the built-in repository, so many that we built a new page: [pushing packages to the built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md). Alternatively you can go to *Library > Packages* which describes some of the most convenient ways to push packages to the built-in repository.
 
 
-![](/docs/images/3048094/3277775.png)
+![](/docs/images/3048094/3277775.png "width=500")
 
 :::success
 To push packages to the built-in repository you will need an [Octopus API key](/docs/how-to/how-to-create-an-api-key.md).
@@ -156,13 +156,13 @@ Earlier releases of Octopus Deploy only support external NuGet v2 feeds:
 If you're using an external NuGet feed, you can register it with Octopus and use them as part of your deployments. Go to *Library > External feeds*.
 
 
-![](/docs/images/3048094/3277774.png)
+![](/docs/images/3048094/3277774.png "width=500")
 
 
 You can add NuGet feeds by clicking the **Add feed** button.
 
 
-![](/docs/images/3048094/3277773.png)
+![](/docs/images/3048094/3277773.png "width=500")
 
 
 In the URL field, enter the HTTP/HTTPS URL to the feed, or the file share or local directory path. Then click **Save and test**.
@@ -171,7 +171,7 @@ In the URL field, enter the HTTP/HTTPS URL to the feed, or the file share or loc
 On the test page, you can check whether the feed is working by searching for packages:
 
 
-![](/docs/images/3048094/3277772.png)
+![](/docs/images/3048094/3277772.png "width=500")
 
 ## NuGet.Server performance
 

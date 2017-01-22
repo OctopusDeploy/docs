@@ -37,7 +37,7 @@ The Octopus Deploy server makes the following outbound requests:
 During installation, Octopus will ask you whether you want to check for new releases, and whether you would also like to opt-in to providing usage statistics to help us understand how the product is used and how we can improve it.
 
 
-![](/docs/images/3048073/3277613.png)
+![](/docs/images/3048073/3277613.png "width=500")
 
 
 When the checkbox "Automatically check for new Octopus releases" is checked during installation, Octopus will make a HTTPS request to the `octopusdeploy.com` domain every 8 hours. This request includes:

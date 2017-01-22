@@ -58,7 +58,7 @@ Now we will create a new tenant for one of the people in our quality assurance o
 
 
 
-![](/docs/images/5669342/5865753.png)
+![](/docs/images/5669342/5865753.png "width=500")
 
 
 
@@ -72,7 +72,7 @@ Now we will configure a tenant to deploy into multiple environments. If you have
 
 
 
-![](/docs/images/5669342/5865749.png)
+![](/docs/images/5669342/5865749.png "width=500")
 
 ### Step 4: Deploy!
 
@@ -85,13 +85,13 @@ Now we will configure a tenant to deploy into multiple environments. If you have
 You can deploy to a single tenant, or a handful of tenants in a batch by selecting them manually. This can be a good way to get started with multi-tenant deployments, and it's also a good fallback when you need it.
 
 
-![](/docs/images/5669342/5865765.png)
+![](/docs/images/5669342/5865765.png "width=500")
 
 
 You can also use the Project Overview to deploy to individual tenants by selecting a release and clicking the **Deploy** buttons.
 
 
-![](/docs/images/5669342/5865766.png)
+![](/docs/images/5669342/5865766.png "width=500")
 
 ## Deploying to all tenants in an environment
 
@@ -113,7 +113,7 @@ octo.exe deploy-release --project Mojo --version 1.0.1 --deployto "MT Dev" --ten
 When using the Create Release, Deploy Release or Promote Release features of the build-server extensions, you can set the **`Tenants`** value to **`*`**
 
 
-![](/docs/images/5669342/5866226.png?effects=drop-shadow)
+![](/docs/images/5669342/5866226.png?effects=drop-shadow "width=500")
 
 ## Deploying to tenants using tenant tags
 
@@ -130,7 +130,7 @@ Firstly we we create a tag set called **Upgrade ring** with tags allowing each 
 
 
 
-![](/docs/images/5669342/5865761.png)
+![](/docs/images/5669342/5865761.png "width=500")
 
 ### Step 2: Configure a test tenant
 
@@ -144,7 +144,7 @@ Now you can configure the test tenant you created earlier as part of the test te
 
 
 
-![](/docs/images/5669342/5865754.png)
+![](/docs/images/5669342/5865754.png "width=500")
 
 ### Step 3: Configure some early adopter tenants and stable tenants
 
@@ -158,7 +158,7 @@ Now you can optionally configure some external tenants as opting in to early or 
 
 
 
-![](/docs/images/5669342/5865760.png)
+![](/docs/images/5669342/5865760.png "width=500")
 
 ### Step 5: Deploy!
 
@@ -166,13 +166,13 @@ Now you can optionally configure some external tenants as opting in to early or 
 Now it's time to deploy using tenant tags as a way to easily select multiple tenants. In this example we are going to deploy **version 1.0.1** to all of the tenants tagged `Upgrade ring/Tester` who are connected to the the **MT Test** environment. You can use multiple tags and complex tag queries to achieve other interesting scenarios as discussed we discussed [earlier](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md).
 
 
-![](/docs/images/5669342/5865763.png)
+![](/docs/images/5669342/5865763.png "width=500")
 
 
 You can also use the Project Overview to deploy to groups of tenants by grouping the dashboard, selecting a release and clicking the **Deploy to all** button.
 
 
-![](/docs/images/5669342/5865764.png)
+![](/docs/images/5669342/5865764.png "width=500")
 
 ## Using channels and tenant tags to restrict test releases to the test team
 
@@ -185,7 +185,7 @@ You may decide to use channels as a safety measure, to restrict test releases to
 Firstly we will create a new [Lifecycle](/docs/key-concepts/lifecycles.md)
 
 
-![](/docs/images/5669342/5866198.png?effects=drop-shadow)
+![](/docs/images/5669342/5866198.png?effects=drop-shadow "width=300")
 
 :::hint
 Learn more about [defining a limited Lifecycle for your test Channel](/docs/key-concepts/projects/channels.md).
@@ -197,7 +197,7 @@ Learn more about [defining a limited Lifecycle for your test Channel](/docs/key-
 Earlier in this guide we created the with **`Upgrade ring/Tester`** tag and tagged some tenants. Now we will create a Channel leveraging that tag to restrict releases in the Channel to the Lifecycle we just created.
 
 
-![](/docs/images/5669342/5866199.png)
+![](/docs/images/5669342/5866199.png "width=500")
 
 ### Step 3: Create a test release
 
@@ -205,7 +205,7 @@ Earlier in this guide we created the with **`Upgrade ring/Tester`** tag and ta
 Now create a release in the new **1.x Test** channel giving it a SemVer pre-release version like **1.0.1-alpha.19** indicating this is a pre-release of **1.0.1** for testing purposes.
 
 
-![](/docs/images/5669342/5866201.png?effects=drop-shadow)
+![](/docs/images/5669342/5866201.png?effects=drop-shadow "width=500")
 
 ### Step 4: Deploy!
 
@@ -235,17 +235,17 @@ Learn more about [defining a limited Lifecycle for your test Channel](/docs/key-
 
 
 
-![](/docs/images/5669342/5865757.png)
+![](/docs/images/5669342/5865757.png "width=500")
 
 ### Step 3: Select the tenants participating in the Beta program
 
 
-![](/docs/images/5669342/5865755.png)
+![](/docs/images/5669342/5865755.png "width=500")
 
 ### Step 4: Configure a Channel for the Beta program
 
 
-![](/docs/images/5669342/5865758.png)
+![](/docs/images/5669342/5865758.png "width=500")
 
 ### Step 5: Create a Beta release
 
@@ -256,7 +256,7 @@ Create a new release of the project choosing the **2.x Beta** channel for the r
 
 
 
-![](/docs/images/5669342/5865762.png)
+![](/docs/images/5669342/5865762.png "width=500")
 
 ### Step 6: Deploy!
 
@@ -274,7 +274,7 @@ Quite often you will want to disable/prevent deployments to a tenant during a pe
 In the tenant tag set you created earlier, add a new tag called **Pinned** with a color that really stands out.
 
 
-![](/docs/images/5669342/5865756.png)
+![](/docs/images/5669342/5865756.png "width=500")
 
 ### Step 2: Configure the Channels to prevent deployments to Pinned tenants
 
@@ -287,7 +287,7 @@ Now we will configure the project channels to make sure we never deploy any rele
 
 
 
-![](/docs/images/5669342/5865759.png)
+![](/docs/images/5669342/5865759.png "width=500")
 
 ### Step 3: Prevent deployments to a tenant by tagging them as Upgrade Ring/Pinned
 
@@ -295,7 +295,7 @@ Now we will configure the project channels to make sure we never deploy any rele
 Find a tenant you want to pin and apply the **Upgrade ring/Pinned** tag, removing any other tags. This will prevent you from deploying any releases to this tenant.
 
 
-![](/docs/images/5669342/5865767.png)
+![](/docs/images/5669342/5865767.png "width=500")
 
 
 

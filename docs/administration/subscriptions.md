@@ -15,7 +15,7 @@ Subscriptions allow you to subscribe to events that are happening within Octopus
 Subscriptions can be accessed from the Audit screen from of the Configuration menu.
 
 
-![](/docs/images/5670596/5865722.png)
+![](/docs/images/5670596/5865722.png "width=800")
 
 ## Email Notifications
 

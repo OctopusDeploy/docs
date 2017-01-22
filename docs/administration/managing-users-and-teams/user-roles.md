@@ -42,18 +42,18 @@ The built-in User Roles can be modified to contain more or less roles to suit sp
 
 A custom User Role can be created with any combination of roles. To create a custom user role:
 
-1. Go to the Teams page, and look for the Roles link**![](/docs/images/3048105/3278287.png)**
+1. Go to the Teams page, and look for the Roles link**![](/docs/images/3048105/3278287.png "width=500")**
 2. Click **Add custom role**
-![](/docs/images/3048105/3278288.png)
+![](/docs/images/3048105/3278288.png "width=500")
 3. Select the set of roles you'd like this new User Role to contain, and give the role a name and description
-![](/docs/images/3048105/3278289.png)
+![](/docs/images/3048105/3278289.png "width=500")
 
 
 
 Once the custom role is saved, the new role will be available to be assigned to any team on Octopus.
 
 
-![](/docs/images/3048105/3278290.png)
+![](/docs/images/3048105/3278290.png "width=500")
 
 ## Troubleshooting Permissions
 
@@ -74,13 +74,13 @@ The results will show
 
 
 
-![](https://cloud.githubusercontent.com/assets/347637/15734434/fae1f98c-28d2-11e6-8440-bdb6eec98609.png)
+![](https://cloud.githubusercontent.com/assets/347637/15734434/fae1f98c-28d2-11e6-8440-bdb6eec98609.png "width=500")
 
 
 If a user tries to perform an action without having enough permissions to do it, an error message will pop up showing which permissions the user is lacking, and which teams actually have these permissions.
 
 
-![](/docs/images/3047940/3277151.jpg)
+![](/docs/images/3047940/3277151.jpg "width=500")
 
 :::warning
 As further versions of Octopus are released, we might create new roles to improve our security model. These new roles will not be automatically included in any of the built-in User Roles, to avoid giving users permissions they are not supposed to have. These new roles will have to be added manually to a User Role by an administrator.

@@ -60,19 +60,19 @@ For more information on using OctoPack to create NuGet packages, see [using Octo
 When you set up your build configuration in TeamCity, use either the MSBuild runner or the Visual Studio build runner. At the bottom of the runner settings, you'll see some options to run OctoPack during the build:
 
 
-![](/docs/images/3048176/5865626.png)
+![](/docs/images/3048176/5865626.png "width=500")
 
 
 The **OctoPack package version** setting should evaluate to a version number with multiple parts (e.g., **1.3.7**). It cannot be a single number. You may want to edit the General Settings for your project to ensure that the TeamCity build number uses multiple parts:
 
 
-![](/docs/images/3048176/3278195.png)
+![](/docs/images/3048176/3278195.png "width=500")
 
 
 With these options selected, NuGet packages will automatically be created using the version number of the current build. OctoPack will ensure that these packages appear in the artifacts tab of TeamCity:
 
 
-![](/docs/images/3048176/3278194.png)
+![](/docs/images/3048176/3278194.png "width=500")
 
 :::hint
 **Can&#39;t use OctoPack?**
@@ -104,19 +104,19 @@ TeamCity 7 and up can act as a NuGet repository. You can enable this by going to
 To connect Octopus to your TeamCity server, add the TeamCity authenticated feed URL to your NuGet settings in Octopus on the **External Feeds**tab under the **Library**page.
 
 
-![](/docs/images/3048176/3278184.png)
+![](/docs/images/3048176/3278184.png "width=500")
 
 
 Once added, the TeamCity feed will appear in the NuGet feed list:
 
 
-![](/docs/images/3048176/3278183.png)
+![](/docs/images/3048176/3278183.png "width=500")
 
 
 You can use the *Test* link to make sure that the NuGet package is available, before creating your Octopus project:
 
 
-![](/docs/images/3048176/3278182.png)
+![](/docs/images/3048176/3278182.png "width=500")
 
 :::success
 **Tip: delayed package publishing**
@@ -133,7 +133,7 @@ In version 3.3.1 of the TeamCity Plugin we have added a new build runner that ca
 :::
 
 
-![](/docs/images/3048176/5275665.png)
+![](/docs/images/3048176/5275665.png "width=500")
 
 ## Triggering deployments from TeamCity
 
@@ -153,7 +153,7 @@ Promotes an *existing*release from one environment to another.
 The plugin is simply a wrapper for [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md), the Octopus command line tool for creating and deploying releases.
 
 
-![](/docs/images/3048176/3278185.jpg)
+![](/docs/images/3048176/3278185.jpg "width=500")
 
 
 The video below is from a webinar hosted by JetBrains in which we demonstrated these features:

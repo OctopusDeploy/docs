@@ -44,7 +44,7 @@ Starting with Octopus 3.4 you can manage tenants as a first-class citizen enabli
 Tenants in Octopus Deploy allow you to deploy your projects into multiple isolated containers inside your environments. It's kind of like slicing up your environment into multiple pieces.
 
 
-![](/docs/images/3048184/5866225.png)
+![](/docs/images/3048184/5866225.png "width=500")
 
 
 The multi-tenant features in Octopus Deploy will simplify your deployments in all of these scenarios:
@@ -86,7 +86,7 @@ You don't need Octopus Deploy to implement a multi-tenant SaaS application: you 
 
 
 
-![](/docs/images/5669336/5865825.png)
+![](/docs/images/5669336/5865825.png "width=500")
 
 ## Making the most of tenants in Octopus
 

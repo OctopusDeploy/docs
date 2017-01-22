@@ -55,7 +55,7 @@ javac PressAnyKey.java
 ```
 2. Zip PressAnyKey.class into the archive PressAnyKey.1.0.0.zip (you can download a sample: [PressAnyKey.1.0.0.zip](https://download.octopusdeploy.com/demo/PressAnyKey.1.0.0.zip))
 3. Upload PressAnyKey.1.0.0.zip to the Octopus Deploy built-in feed (*Library > Packages* or [follow the instructions here](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md)).
-![](/docs/images/5672443/5866217.png)
+![](/docs/images/5672443/5866217.png "width=500")
 
 
 ### Step 2: Create the project and deployment process
@@ -63,7 +63,7 @@ javac PressAnyKey.java
 1. Create a new project called "Press Any Key"
 2. Add a "Deploy a package" step to the deployment process
 3. Configure the step to deploy the package PressAnyKey.1.0.0.zip
-![](/docs/images/5672443/5866218.png)
+![](/docs/images/5672443/5866218.png "width=500")
 4. Configure the step to run a [post-deployment script](/docs/deploying-applications/custom-scripts/index.md) to start the application
 
 **PowerShell**
@@ -91,7 +91,7 @@ The application must be launched in a new process or session so that control ret
 Create a release and deploy!
 
 
-![](/docs/images/5672443/5866220.png)
+![](/docs/images/5672443/5866220.png "width=500")
 
 
 The application will be running on the target machine:

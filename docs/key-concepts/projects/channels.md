@@ -57,13 +57,13 @@ Channels can also help you to create consistent Releases by specifying Version R
 Channels are managed per project.  Select the **Channels** menu item from the Project page.
 
 
-![](/docs/images/3048999/3278456.png)
+![](/docs/images/3048999/3278456.png "width=500")
 
 
 Click **Create Channel** to create a new Channel.
 
 
-![](/docs/images/3048999/3278457.png)
+![](/docs/images/3048999/3278457.png "width=500")
 
 
 The Channel must have a unique name per project.
@@ -88,7 +88,7 @@ Version Rules will work best when you follow [Semantic Versioning (SemVer)](http
 To add version rules to a Channel, click **Add version rule** on the Channel page.
 
 
-![](/docs/images/3048999/3278458.png)
+![](/docs/images/3048999/3278458.png "width=500")
 
 #### Steps
 
@@ -104,7 +104,7 @@ A provided version range based on the [NuGet versioning syntax](http://g.octopus
 From Octopus 3.4 onward you can use the full semantic version as part of your version range specification. For example: `[2.0.0-alpha.1,2.0.0)` will match all 2.0.0 pre-releases (where the pre-release component is `&gt; alpha.1`), and will exclude the 2.0.0 release.
 
 
-![](/docs/images/3048999/5865686.png)
+![](/docs/images/3048999/5865686.png "width=500")
 :::
 
 #### Tags
@@ -131,7 +131,7 @@ Once a project has more than one Channel, there a number of places they may be u
 Each Channel defines which Lifecycle to use when promoting Releases between Environments. You can choose a Lifecycle for each Channel, or use the default Lifecycle defined by the Project.
 
 
-![](/docs/images/3048999/5865685.png)
+![](/docs/images/3048999/5865685.png "width=500")
 
 ### Modifying Deployment Process
 
@@ -139,7 +139,7 @@ Each Channel defines which Lifecycle to use when promoting Releases between Envi
 Deployment Steps can be restricted to only run on specific Channels.
 
 
-![](/docs/images/3048999/3278459.png)
+![](/docs/images/3048999/3278459.png "width=500")
 
 ### Variables
 
@@ -147,7 +147,7 @@ Deployment Steps can be restricted to only run on specific Channels.
 Variables may be scoped to specific Channels.
 
 
-![](/docs/images/3048999/3278460.png)
+![](/docs/images/3048999/3278460.png "width=500")
 
 ### Deploying to Tenants
 
@@ -155,7 +155,7 @@ Variables may be scoped to specific Channels.
 You can control which Releases will be deployed to certain Tenants using Channels. In this example, Releases in this Channel will only be deployed to Tenants tagged with `Early access program/2.x Beta`.
 
 
-![](/docs/images/3048999/5865683.png)
+![](/docs/images/3048999/5865683.png "width=500")
 
 ## Creating Releases
 
@@ -168,7 +168,7 @@ Every Release in Octopus Deploy must be placed into a Channel. Wherever possible
 When you are creating a Release, you can select a Channel.
 
 
-![](/docs/images/3048999/3278463.png)
+![](/docs/images/3048999/3278463.png "width=500")
 
 
 Selecting the Channel will cause the Release to use the Lifecycle associated with the Channel (or the Project default, if the Channel does not have a Lifecycle).  It will also cause the Deployment Process and Variables to be modified as specified above.
@@ -187,7 +187,7 @@ When using one of the [build server extensions](http://docs.octopusdeploy.com/d
 When enabling [Automatic Release Creation](/docs/deploying-applications/automatic-release-creation.md) for your project, you are required to select a Channel (if the project has more than one).
 
 
-![](/docs/images/3048999/3278462.png)
+![](/docs/images/3048999/3278462.png "width=500")
 
 
 Any releases created automatically will use the configured channel.  Additionally, any Version Rules configured for the Channel will be used to decide whether a release is automatically created.
@@ -199,4 +199,4 @@ For example, if version 3.1.0 of a package Acme.Web is pushed to the Octopus int
 then no release will be created.
 
 
-![](/docs/images/3048999/3278461.png)
+![](/docs/images/3048999/3278461.png "width=500")

@@ -18,10 +18,10 @@ The [Community Library](http://library.octopusdeploy.com/) is an open source [re
 
 
 
-![](/docs/images/5671696/5865900.png)
+![](/docs/images/5671696/5865900.png "width=500")
 
 
-![](/docs/images/5671696/5865902.png)
+![](/docs/images/5671696/5865902.png "width=500")
 
 
 
@@ -30,7 +30,7 @@ The [Community Library](http://library.octopusdeploy.com/) is an open source [re
 Prior to Octopus 3.7, selecting the add step button showed a popup list of built-in steps and any installed step templates (community contributed or custom).  Installing a community step required visiting the [Community Library](http://library.octopusdeploy.com/) and importing the step manually.  For more information, see [step templates](/docs/deploying-applications/step-templates.md).
 
 
-![](/docs/images/5672131/5865901.png)
+![](/docs/images/5672131/5865901.png "width=500")
 :::
 
 
@@ -42,7 +42,7 @@ Prior to Octopus 3.7, selecting the add step button showed a popup list of built
 The add step page displays the built-in steps first which includes common steps to deploy IIS web sites, windows services, run scripts and more.  The built-in steps have been develop by the Octopus team to handle the most common deployment scenarios and it also.  This section also includes any custom [step templates](/docs/deploying-applications/step-templates.md) added in the library.  Hover over a step and click add step to go configure the step.
 
 
-![](/docs/images/5671696/5866045.png)
+![](/docs/images/5671696/5866045.png "width=300")
 
 ## Adding a community contributed step templates
 
@@ -50,16 +50,16 @@ The add step page displays the built-in steps first which includes common steps 
 The add step page also displays community contributed step templates available to install and add.  You can search for a specific template or you can browse through the categories.  Installing a community step template is easy.  Hover over a step and select Install and add step.  This will display a pop-up dialog where you can confirm to install and add the step.  This will take you to the configuration page for the step template.
 
 
-![](/docs/images/5671696/5866113.png)
+![](/docs/images/5671696/5866113.png "width=300")
 
 
-![](/docs/images/5671696/5866115.png)
+![](/docs/images/5671696/5866115.png "width=500")
 
 
 If you select view details, this will take you to the community step details page which shows you the complete details of the step include the source code.  You can install the step or go back to the list of steps.
 
 
-![](/docs/images/5671696/5866114.png)
+![](/docs/images/5671696/5866114.png "width=500")
 
 ## Adding an updated version of a community step template
 
@@ -70,4 +70,4 @@ Sometimes updates are available for step templates.  In this case, you will not
 ![](/docs/images/5671696/5866119.png)
 
 
-![](/docs/images/5671696/5866120.png)
+![](/docs/images/5671696/5866120.png "width=500")

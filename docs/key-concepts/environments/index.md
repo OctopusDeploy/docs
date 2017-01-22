@@ -12,13 +12,13 @@ In Octopus, an *environment* is a group of machines that you will deploy to at t
 Environments and the machines inside them can be managed from the **Environments** tab within the **Octopus Web Portal**.
 
 
-![](/docs/images/3048106/3277884.png)
+![](/docs/images/3048106/3277884.png "width=500")
 
 
 Environments can be added using the **Add environment** button.
 
 
-![](/docs/images/3048106/3277883.png)
+![](/docs/images/3048106/3277883.png "width=500")
 
 
 
@@ -46,13 +46,13 @@ Machines can be added to environments in different ways, [depending on how they
 Environments are shown in order, and can be reordered using the **Reorder** link in the top right-hand corner of the page.
 
 
-![](/docs/images/3048106/3277879.png)
+![](/docs/images/3048106/3277879.png "width=500")
 
 
-![](/docs/images/3048106/3277882.png)
+![](/docs/images/3048106/3277882.png "width=500")
 
 
-![](/docs/images/3048106/3277880.png)
+![](/docs/images/3048106/3277880.png "width=500")
 
 
 The order that environments are shown on the Environments tab also affects:
@@ -73,7 +73,7 @@ It's a good idea to put your least production-like environments first, and the m
 Guided failure mode is an option when adding or editing an environment:
 
 
-![](/docs/images/3048106/3277881.png)
+![](/docs/images/3048106/3277881.png "width=500")
 
 
 (Note that this option only sets it *by* *default*: for individual deployments it can be overridden)
@@ -82,7 +82,7 @@ Guided failure mode is an option when adding or editing an environment:
 When guided failure more is enabled by default, an icon appears next to the environment:
 
 
-![](/docs/images/3048106/3277878.png)
+![](/docs/images/3048106/3277878.png "width=500")
 
 ## Associating projects with environments
 

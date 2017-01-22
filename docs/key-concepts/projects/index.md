@@ -15,25 +15,25 @@ A project is a collection of [deployment steps](/docs/deploying-applications/ind
 You can add or view a list of all projects by going to the **Projects** tab and choosing **All** within the Octopus Web Portal.
 
 
-![](/docs/images/3048102/3277829.png)
+![](/docs/images/3048102/3277829.png "width=500")
 
 
 The Projects tab presents a list of all projects grouped in their project groups.
 
 
-![](/docs/images/3048102/3277828.png)
+![](/docs/images/3048102/3277828.png "width=500")
 
 
 You can create projects by clicking on the **Add project** button.
 
 
-![](/docs/images/3048102/3277827.png)
+![](/docs/images/3048102/3277827.png "width=500")
 
 
-![](/docs/images/3048102/3277826.png)
+![](/docs/images/3048102/3277826.png "width=500")
 
 
-![](/docs/images/3048102/3277825.png)
+![](/docs/images/3048102/3277825.png "width=500")
 
 ## Project permissions
 
@@ -61,13 +61,13 @@ It can be hard to decide whether to create lots of single-step projects in Octop
 For example, the OctoFX example organization might be split into two delivery teams. One team builds a currency rate service, and another team builds the online trading website. Each team works to different deadlines and release schedules. For them, it makes sense to use two separate projects:
 
 
-![](/docs/images/3048102/3277822.png)
+![](/docs/images/3048102/3277822.png "width=500")
 
 
 Alternatively, there may only be one team, who work on both the rate service and the trading website together. When a new version of the product is released, they will always deploy both at the same time. In this example, it makes sense to use a single project, with multiple steps:
 
 
-![](/docs/images/3048102/3277821.png)
+![](/docs/images/3048102/3277821.png "width=500")
 
 ## Cloning projects
 
@@ -75,13 +75,13 @@ Alternatively, there may only be one team, who work on both the rate service and
 You can clone a project by opening an existing project, and then selecting the settings tab and clicking the **Clone** link on the right side bar
 
 
-![](/docs/images/3048102/3277824.png)
+![](/docs/images/3048102/3277824.png "width=500")
 
 
 On the **Create project** page you will now see an additional control specifying what project is used to clone from
 
 
-![](/docs/images/3048102/3277823.png)
+![](/docs/images/3048102/3277823.png "width=500")
 
 
 Cloning a project will copy the deployment process and variables, but not the release history.

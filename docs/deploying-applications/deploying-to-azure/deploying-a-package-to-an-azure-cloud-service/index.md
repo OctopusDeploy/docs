@@ -29,7 +29,7 @@ Octopus Deploy supports deployment of [Azure Cloud Services](http://azure.micros
 An Azure cloud service package is normally compiled into a `.cspkg` file. This file will need to be [re-packed into a supported package](/docs/packaging-applications/index.md) for Octopus to consume. The easiest way to do this currently is to either create a simple zip file or use the [NuGet.exe command line tool](/docs/packaging-applications/nuget-packages/using-nuget.exe.md). For example, the resulting NuGet package will look like this:
 
 
-![](/docs/images/3048662/3278363.png)
+![](/docs/images/3048662/3278363.png "width=500")
 
 ## Step 2: Create an Azure Account
 
@@ -40,7 +40,7 @@ If you haven't already, create an [Azure Subscription Account](http://docs.oct
 
 
 Add a new Azure Cloud Service Deployment Step to your project. For information about adding a step to the deployment process, see the [add step](http://docs.octopusdeploy.com/display/OD/Add+step) section. 
-![](/docs/images/5671696/5865904.png)
+![](/docs/images/5671696/5865904.png "width=170")
 
 ## Step 4: Configure your Azure Cloud Service step
 

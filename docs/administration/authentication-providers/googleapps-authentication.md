@@ -133,9 +133,9 @@ Perhaps the contents of the security token sent back by GoogleApps aren't exactl
  1. In Chrome Dev Tools this is called "Preserve Log".
 ![](/docs/images/5670656/5866122.png)
 2. Attempt to sign into Octopus using GoogleApps and find the HTTP POST coming back to your Octopus instance from GoogleApps on a route like `/api/users/authenticatedToken/GoogleApps`. You should see an `id_token` field in the HTTP POST body. 
-![](/docs/images/5670664/5866125.png)
+![](/docs/images/5670664/5866125.png "width=500")
 3. Grab the contents of the `id_token` field and paste that into [https://jwt.io/](https://jwt.io/) which will decode the token for you.
-![](/docs/images/5670656/5866123.png)
+![](/docs/images/5670656/5866123.png "width=500")
 
  1. Don't worry if jwt.io complains about the token signature, it doesn't support RS256 which is used by GoogleApps.
 4. Octopus uses most of the data to validate the token, but primarily uses the `sub`, `email` and `name` claims. If these claims are not present you will likely see unexpected behaviour.

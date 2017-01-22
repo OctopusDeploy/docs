@@ -31,7 +31,7 @@ Creating a new Service account is very similar to creating a new User account:
 2. Check **The user is a service account** to indicate this will be a Service account
 3. Enter a unique **Username** and **Display name** so you can distinguish this Service account
 4. Click the **Create user** button to create the Service account
-![](/docs/images/3049520/3278574.png)
+![](/docs/images/3049520/3278574.png "width=500")
 
 
 :::hint
@@ -39,7 +39,7 @@ This Service account is not very useful until it [belongs to one or more teams](
 :::
 
 
-![](/docs/images/3049520/3278575.png)
+![](/docs/images/3049520/3278575.png "width=500")
 
 
 Once you have created an [Octopus API key](/docs/how-to/how-to-create-an-api-key.md) and [added this Service account to a team](/docs/administration/managing-users-and-teams/index.md), you can start using this Service account to automate Octopus with another service.

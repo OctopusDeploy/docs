@@ -38,7 +38,7 @@ Here we will give an example of how to setup a Blue-Green deployment for an Azur
 Create a [Run an Azure PowerShell Script](/docs/guides/azure-deployments/running-azure-powershell/index.md) step.
 
 
-![](/docs/images/3049371/3278543.png)
+![](/docs/images/3049371/3278543.png "width=500")
 
 
 Assuming you have a variable named 'WebSite' that contains the name of your Azure Web Site, your script should be:
@@ -74,7 +74,7 @@ The reason for the first line, which removes the Staging Slot, is to ensure we a
 So your step should look like:
 
 
-![](/docs/images/3049371/3278549.png)
+![](/docs/images/3049371/3278549.png "width=500")
 
 
 
@@ -85,7 +85,7 @@ So your step should look like:
 The next step is to deploy your package to the Staging slot.  We do this be creating a [Deploy an Azure Web App](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/index.md) step.
 
 
-![](/docs/images/3049371/3278554.png)
+![](/docs/images/3049371/3278554.png "width=500")
 
 
 
@@ -105,7 +105,7 @@ WebsiteName(SlotName) 
 If your Staging Slot already exists, you can see it in the select-list of available sites for your account.
 
 
-![](/docs/images/3049371/3278555.png)
+![](/docs/images/3049371/3278555.png "width=500")
 
 
 
@@ -121,7 +121,7 @@ To use a variable for the WebSite name, check the "Use a Custom Expression" box,
 As shown below:
 
 
-![](/docs/images/3049371/3278556.png)
+![](/docs/images/3049371/3278556.png "width=500")
 
 
 
@@ -159,7 +159,7 @@ Invoke-AzureRmResourceAction -ResourceGroupName MyResourceGroup -ResourceType Mi
 So your step will appear as:
 
 
-![](/docs/images/3049371/3278558.png)
+![](/docs/images/3049371/3278558.png "width=500")
 
 
 
@@ -168,4 +168,4 @@ So your step will appear as:
 At this point you should have a working Blue-Green deployment process for your Azure Web App.
 
 
-![](/docs/images/3049371/3278559.png)
+![](/docs/images/3049371/3278559.png "width=500")

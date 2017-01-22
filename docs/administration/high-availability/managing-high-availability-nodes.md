@@ -7,7 +7,7 @@ title: Managing High Availability Nodes
 Managing the nodes in your Octopus Server High Availability cluster can be done on the **Nodes** tab in the **Configuration** area:
 
 
-![](/docs/images/3048617/3278371.png)
+![](/docs/images/3048617/3278371.png "width=500")
 
 
 Information regarding each of your nodes is displayed here.  You can see:
@@ -61,7 +61,7 @@ Node C elects itself *leader*
 Octopus Server nodes will check-in at regular intervals.  If an Octopus Server node goes offline a warning will be displayed and the time that it went offline can be determined by looking at the **last seen** field.
 
 
-![](/docs/images/3048617/3278372.png)
+![](/docs/images/3048617/3278372.png "width=500")
 
 ## Tasks
 

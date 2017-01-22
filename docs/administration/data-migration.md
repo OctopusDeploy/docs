@@ -24,13 +24,13 @@ The Import/Export wizards are designed for moving configuration data between Oct
 The Export wizard can be accessed from Octopus Manager:
 
 
-![](/docs/images/3048141/3278071.png)
+![](/docs/images/3048141/3278071.png "width=500")
 
 
 The wizard exports most Octopus data as JSON files to a directory that you choose.
 
 
-![](/docs/images/3048141/3278073.png)
+![](/docs/images/3048141/3278073.png "width=500")
 
 
 With this export, you can:
@@ -55,7 +55,7 @@ The password you provide during the export is used to encrypt sensitive variable
 The Import wizard can also be found in Octopus Manager:
 
 
-![](/docs/images/3048141/3278070.png)
+![](/docs/images/3048141/3278070.png "width=500")
 
 
 The importer tool can either take an exported directory and the password used to export it, or an [Octopus 2.6 backup file](http://docs.octopusdeploy.com/display/OD2/Backup+and+restore) (`.octobak`) and the Octopus master key. It will then import the data.
@@ -106,4 +106,4 @@ For these reasons, if you're incorporating the import/export tools as part of yo
 Both the Import and Export tools can be called from the command line. To see the command syntax, use the **Show script** link in the wizard instead of performing the Import/Export.
 
 
-![](/docs/images/3048141/3278069.png)
+![](/docs/images/3048141/3278069.png "width=500")

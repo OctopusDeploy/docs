@@ -29,11 +29,11 @@ This example uses the OctoFX project that does a deployment to two roles: **Rate
 
 1. Navigate to the OctoFX project process page
 2. Select **Change machine connectivity settings**
-![](/docs/images/5669265/5865548.png)
+![](/docs/images/5669265/5865548.png "width=500")
 3. Check the box **Skip machines if they become unavailable during a deployment** and select the roles that can be skipped (**TradingWebServer**).  If no roles are selected, then any deployment target may be skipped:
-![](/docs/images/5669265/5865551.png)
+![](/docs/images/5669265/5865551.png "width=500")
 4. Create and deploy a release to an environment where deployment targets in the **TradingWebServer** role are unavailable. They will be automatically removed from the deployment:
-![](/docs/images/5669265/5865552.png)
+![](/docs/images/5669265/5865552.png "width=500")
 
 
 :::success
@@ -47,12 +47,12 @@ In this example, OctoFX will deploy to **RateServer** and then run a Health Chec
 
 1. Navigate to the OctoFX project process page
 2. Select **Add Step** and then select **Health check**:
-![](/docs/images/5669265/5865566.png)
+![](/docs/images/5669265/5865566.png "width=500")
 3. Configure the Health Check step, exclude deployment targets if they are unavailable and include new deployment targets if they are found:
-![](/docs/images/5669265/5865567.png)
+![](/docs/images/5669265/5865567.png "width=500")
 4. Save the step
 5. Back at the deployment process, re-order the steps so that the **Health Check** step occurs before the **Trading Website** step.  This will ensure that deployment targets in the **TradingWebServer** role are re-evaluated before the trading web site is deployed:
-![](/docs/images/5669265/5865598.png)
+![](/docs/images/5669265/5865598.png "width=500")
 6. Deploy OctoFX to an environment that has some deployment targets in the **TradingWebServer** role that are disabled.  While the deployment is in progress (but before the Health Check step), enable the disabled targets and disable the enabled targets. When the Health Check step runs:
 
 
@@ -60,7 +60,7 @@ In this example, OctoFX will deploy to **RateServer** and then run a Health Chec
  - any disabled targets that were enabled at the start of the deployment will be excluded from the deployment
 
 In this case, the machine **SWeb01** has been found and included in the rest of the deployment:
-- ![](/docs/images/5669265/5865569.png)
+- ![](/docs/images/5669265/5865569.png "width=500")
 
 
 

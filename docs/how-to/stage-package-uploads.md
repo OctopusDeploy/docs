@@ -28,7 +28,7 @@ When the deployment runs, Octopus will insert an "Acquire" step to execute as pa
 You'll see this when the deployment executes:
 
 
-![](/docs/images/3048154/3278134.png)
+![](/docs/images/3048154/3278134.png "width=500")
 
 
 During the acquire packages stage, Octopus will upload all NuGet packages used in the deployment to all servers. We do this because package uploads can be time consuming, so we want to minimize the downtime between installing packages A and B in this example.
@@ -55,4 +55,4 @@ When configuring your manual intervention step, take note:
 
 
 
-![](/docs/images/3048154/3278133.png)
+![](/docs/images/3048154/3278133.png "width=500")

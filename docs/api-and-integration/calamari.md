@@ -37,7 +37,7 @@ Calamari has commands to support:
 
 It is our deployment Swiss Army knife.
 
-![](/docs/images/3048177/3278197.png)
+![](/docs/images/3048177/3278197.png "width=300")
 
 Each deployment, if it is not already present, the latest version of the Calamari executable is pushed to wherever it needs to be.  This may be to
 

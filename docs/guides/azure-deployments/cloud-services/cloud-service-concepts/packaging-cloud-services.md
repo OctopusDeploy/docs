@@ -12,7 +12,7 @@ In order to deploy Cloud Services they must be packaged into the Cloud Service .
 Packaging into a .cspkg can be done in Visual Studio by right-clicking on the Cloud Service and selecting "Package...".  This action with generate a .cspkg and .cscfg file which can be deployed to Azure Cloud Services.
 
 
-![Packaging an Azure Cloud Service](/docs/images/3049365/3278541.png "Packaging an Azure Cloud Service")
+![Packaging an Azure Cloud Service](/docs/images/3049365/3278541.png "Packaging an Azure Cloud Service width=500")
 
 ## Generate a NuGet package
 
@@ -29,7 +29,7 @@ Octo.exe pack --id=HelloCloud --basePath=C:\PathToAzureCloudService
 Octo.exe will generate a NuGet package containing the .cspkg and .cscfg files:
 
 
-![](/docs/images/3049365/3278542.png)
+![](/docs/images/3049365/3278542.png "width=500")
 
 
 Here is a sample Cloud Service NuGet package: [HelloCloud.1.0.0.nupkg](https://download.octopusdeploy.com/demo/HelloCloud.1.0.0.nupkg)
@@ -40,4 +40,4 @@ Here is a sample Cloud Service NuGet package: [HelloCloud.1.0.0.nupkg](https://
 In order to make the NuGet package accessible to Octopus it needs to be uploaded to a [package repository](/docs/packaging-applications/package-repositories/index.md). The built-in Octopus package repository is accessible from Library > Packages and is a suitable place to upload your Cloud Service NuGet package:
 
 
-![](/docs/images/3049331/3278524.png)
+![](/docs/images/3049331/3278524.png "width=500")

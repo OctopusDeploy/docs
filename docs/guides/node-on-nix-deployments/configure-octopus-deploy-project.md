@@ -23,7 +23,7 @@ On this page:
 
 
 
-![](/docs/images/3049555/3964983.png)
+![](/docs/images/3049555/3964983.png "width=500")
 
 :::hint
 The name of the environment is important because we will use it as a variable in our deployment process.
@@ -42,7 +42,7 @@ To connect over SSH the first thing you will need to do is add the credentials f
 
 
 
-![](/docs/images/3049555/3278584.png)
+![](/docs/images/3049555/3278584.png "width=500")
 
 - In the **prod** environment click *Add deployment target*and select *SSH Connection*.
 - Enter the IP or DNS of the machine that is accessible to the Octopus Server. *In our case below it's the public IP provided by Azure/AWS.*
@@ -51,7 +51,7 @@ To connect over SSH the first thing you will need to do is add the credentials f
 
 
 
-![](/docs/images/3049555/3278592.png)
+![](/docs/images/3049555/3278592.png "width=500")
 
 :::success
 Further details are provided throughout the rest of this documentation on related topics like [Account Types](/docs/key-concepts/environments/accounts/index.md) and [SSH Targets](/docs/deployment-targets/ssh-targets/index.md).
@@ -68,7 +68,7 @@ The next step is to create a project that will extract the package.
 
 
 
-![](/docs/images/3049555/3278590.png)
+![](/docs/images/3049555/3278590.png "width=500")
 
 ### Variable Substitution
 
@@ -79,7 +79,7 @@ The next step is to create a project that will extract the package.
 
 
 
-![](/docs/images/3049555/3278589.png)
+![](/docs/images/3049555/3278589.png "width=500")
 
 :::success
 **Loading environment specific variables**
@@ -94,7 +94,7 @@ To further test out the variables feature we will add our own custom variable fr
 
 
 
-![](/docs/images/3049555/3964935.png)
+![](/docs/images/3049555/3964935.png "width=500")
 
 ### Starting & Managing the Process
 
@@ -136,7 +136,7 @@ The package will be uploaded to the server and unpacked, and the environment spe
 Navigating to the host machine after deploying to the *prod* environment should then result in a page that looks something like this:
 
 
-![](/docs/images/3049555/3278591.png)
+![](/docs/images/3049555/3278591.png "width=500")
 
 :::hint
 **Trouble browsing to your site?**

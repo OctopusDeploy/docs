@@ -18,11 +18,11 @@ Octopus Deploy supports automated deployment of [Azure Web Apps](http://azure.mi
 In Environments you can create Azure Web App Deployment Targets.
 
 
-![](/docs/images/3048062/3277599.png)
+![](/docs/images/3048062/3277599.png "width=500")
 
 :::hint
 For more information on deploying Azure Web Apps with Octopus using this deployment target please refer to [deploying a package to an Azure Web App](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/index.md). The same options and process is used by the deployment target and the deployment step.
 :::
 
 
-![](/docs/images/3048062/3277598.png)
+![](/docs/images/3048062/3277598.png "width=500")

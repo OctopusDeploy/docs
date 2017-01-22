@@ -13,7 +13,7 @@ You can manage users from the **Users** tab under **Configuration** in the Octop
 You can manage teams from the **Teams** tab under **Configuration** in the Octopus Deploy web portal.
 
 
-![](/docs/images/3048123/3277938.png)
+![](/docs/images/3048123/3277938.png "width=500")
 
 ## User and Service accounts
 
@@ -36,7 +36,7 @@ You can add teams using the **Add Team** button. A team is a group of users, and
 For example, we can create a team that gives Anne and Bob access to view projects and deploy them to pre-production environments:
 
 
-![](/docs/images/3048123/3277937.png)
+![](/docs/images/3048123/3277937.png "width=500")
 
 
 In the example above, we've granted Anne and Bob the **Project deployer** role for the two OctoFX projects, but limited it to the pre-production environments - they won't have permission to deploy to Production.

@@ -13,7 +13,7 @@ To make it easy to support different environments without hard-coding these conf
 Variables are essentially name/value pairs with optional scope rules applied. You can edit the variables using the **Variables** tab within a project.
 
 
-![](/docs/images/3048089/3278302.png)
+![](/docs/images/3048089/3278302.png "width=500")
 
 
 Variables are an important and useful concept in Octopus, so this section describes different ways in which variables can be used.

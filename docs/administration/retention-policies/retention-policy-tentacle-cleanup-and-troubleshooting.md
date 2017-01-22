@@ -22,7 +22,7 @@ You can find your deployment journal in: C:\Octopus\<machine name>\DeploymentJo
 C:\Octopus is for default installations, and the registered Tentacle machine name is the name of the folder. In our sample case it is DWebApp01. If you have more than 1 Tentacle instance on the machine they will have their own deployment journal files.
 
 
-![](/docs/images/3048641/3278384.png)
+![](/docs/images/3048641/3278384.png "width=500")
 
 
 Below is a sample DeploymentJournal.xml that we will use in this example.
@@ -54,7 +54,7 @@ It keeps a record for every package and package extraction for each project and 
 Defining retetion policies is done within Lifecycles. Each phase can have a different setting. So if you want to keep more files on production machines you can.
 
 
-![](/docs/images/3048641/3278386.png)
+![](/docs/images/3048641/3278386.png "width=500")
 
 
 You can read more about [Lifecycles ](/docs/key-concepts/lifecycles.md)and [Retention Policies](/docs/administration/retention-policies/index.md) on their own detailed pages.
@@ -102,7 +102,7 @@ See below the messages you will have in your raw deployment logs at the end of a
 You can find your packages under C:\Octopus\<machine name>\files
 
 
-![](/docs/images/3048641/3278387.png)
+![](/docs/images/3048641/3278387.png "width=500")
 
 
 Your extracted package files can be found under c:\Octopus\Applications\<machine name>\<environment name>\<package name>\
@@ -111,10 +111,10 @@ Your extracted package files can be found under c:\Octopus\Applications\<machine
 So if you have multiple packages you will have multiple directories.
 
 
-![](/docs/images/3048641/3278389.png)
+![](/docs/images/3048641/3278389.png "width=500")
 
 
-![](/docs/images/3048641/3278388.png)
+![](/docs/images/3048641/3278388.png "width=500")
 
 
 If you have more directories than you think you should, check if they have a value in the deployment journal, if they do not they will have to be manually deleted.
@@ -123,7 +123,7 @@ If you have more directories than you think you should, check if they have a val
 You can have multiple directories for the same version of each package like the following example:
 
 
-![](/docs/images/3048641/3278390.png)
+![](/docs/images/3048641/3278390.png "width=500")
 
 
 This occurs when you have the same package in two different steps inside a single project. It has two extraction directories, and it is assumed a different set of files (due to variables and transforms). These are considered individual packages. So for a 3 package policy you will have a copy of each version leaving 6 plus the current 2 for a total of 8 directories. Both will be cleaned up within the next release, but both are required to be kept. This can mean a lot of folders if you use the same package in multiple steps.

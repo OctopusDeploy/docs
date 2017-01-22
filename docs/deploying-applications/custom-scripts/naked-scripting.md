@@ -29,14 +29,14 @@ Naked scripting is great for cases where you are unable to install and run Mono 
 While naked scripting does not require a Transfer a Package step, the below scenario walks though a basic scenario of using a naked script in conjunction with the Transfer a Package step to extract a package on a SSH endpoint where Mono is unable to be installed.
 
 1. Add a [Transfer A Package](/docs/deploying-applications/deploying-packages/transfer-package.md) step and provide a temporary location that it should be moved to. Give it the name *Transfer AcmeWeb* and Include the relevant role for your SSH target. Note that this directory will be created if it does not already exist.
-![](/docs/images/5671696/5866195.png)
+![](/docs/images/5671696/5866195.png "width=500")
 2. Add a [Run A Script](/docs/deploying-applications/custom-scripts/standalone-scripts.md) step and explicitly clear and extract the package to your desired location. In the below example we know that the target shell will be bash so we can use output values from the previous *Transfer AcmeWeb*step to locate the package and extract it to a directory at *~/temp/somewhere*. Note that although we have selected the *Bash* script type for this step, this is purely for helpful syntax highlighting since whatever script is provided will be executed through the open connection regardless of selected type.
 
 ```bash
 rm -fr ~/temp/somewhere
 unzip -d ~/temp/somewhere "#{Octopus.Action[Transfer AcmeWeb].Output.Octopus.Action.Package.FilePath}"
 ```
-    ![](/docs/images/5671696/5866196.png)
+    ![](/docs/images/5671696/5866196.png "width=500")
 3. On the Variables tab set the following variables:
 
 | Variable | Value | Reason |
@@ -44,7 +44,7 @@ unzip -d ~/temp/somewhere "#{Octopus.Action[Transfer AcmeWeb].Output.Octopus.Act
 | Octopus.Acquire.DeltaCompressionEnabled | False | By setting Delta Compression to false, we will ensure that Calamari will not be needed during the package acquisition phase to determine if the package already exists on the remote target. The Package will be pushed to the remote target *on every deployment.* This is a project global variable and so will apply to any steps that require package acquisition for a given deployment. |
 | OctopusUseNakedScript | True | This variable (which can be scoped to the relevant context) instructs Octopus to simply execute the provided script without going through Calamari. |
 4. Create a release and deploy the project. You should notice that unlike a typical deployment, there are no calls to upload or run Calamari and the whole thing runs a bit faster due to the reduced overhead. If you check your *~/.octopus* directory on the remote endpoint, you should also notice that there are no Calamari dependencies that have had to be uploaded for this deployment.
-![](/docs/images/5671696/5866197.png)
+![](/docs/images/5671696/5866197.png "width=500")
 
 
 ## Naked Tentacles

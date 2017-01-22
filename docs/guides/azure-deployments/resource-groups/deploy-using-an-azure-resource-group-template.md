@@ -38,12 +38,12 @@ Before creating the step, you must have created an [Azure Service Principal Acco
 :::
 
 
-![](/docs/images/5671696/5865905.png)
+![](/docs/images/5671696/5865905.png "width=170")
 
 ## Creating the Resource Group Step
 
 
-![](/docs/images/3702895/3964969.png)
+![](/docs/images/3702895/3964969.png "width=500")
 
 
 Select the **Account** and **Resource Group** to be used.
@@ -80,7 +80,7 @@ Although you can use variables directly in the template, it is more idiomatic to
 :::
 
 
-![](/docs/images/3702895/5865681.png)
+![](/docs/images/3702895/5865681.png "width=500")
 
 ### Sensitive Data
 
@@ -92,7 +92,7 @@ Parameters marked as [secure strings](https://azure.microsoft.com/en-us/documen
 The field displayed when "From Octopus" option is selected stores data as plain text so sensitive data shouldn't be typed directly into it.  Instead, the value of the parameter should be provided either via a [Sensitive Variable](/docs/deploying-applications/variables/sensitive-variables.md) if the value is stored in Octopus or via [Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-keyvault-parameter/) if the value is stored outside of Octopus. Azure Resource Group Templates provide [out of the box integration with Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-keyvault-parameter/).
 
 
-![](/docs/images/3702895/5865640.png)
+![](/docs/images/3702895/5865640.png "width=500")
 
 ### Template Contained in a Package
 
@@ -100,7 +100,7 @@ The field displayed when "From Octopus" option is selected stores data as plain 
 By selecting *File inside a Package* as the *Template Source*, you can select a package which will contain your template and parameter JSON files.
 
 
-![](/docs/images/3702895/3964971.png)
+![](/docs/images/3702895/3964971.png "width=500")
 
 
 The Template Path and Parameters Path fields should contain the relative path to these files within the package.

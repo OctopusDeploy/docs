@@ -13,7 +13,7 @@ Don't worry - you can migrate your Azure Targets to use the equivalent Azure Ste
 Azure Cloud Service is available as a deployment target.
 
 
-![](/docs/images/3048061/3277597.png)
+![](/docs/images/3048061/3277597.png "width=500")
 
 
 
@@ -26,4 +26,4 @@ For more information on deploying Azure Cloud Services with Octopus using this d
 
 
 
-![](/docs/images/3048061/3277596.png)
+![](/docs/images/3048061/3277596.png "width=500")

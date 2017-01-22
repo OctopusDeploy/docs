@@ -61,13 +61,13 @@ Octopus expects your package to contain all of the files needed to run the appli
 An ASP.NET MVC application, packaged using NuGet for example, would look like this:
 
 
-![](/docs/images/3048093/3277771.png)
+![](/docs/images/3048093/3277771.png "width=500")
 
 
 While a Windows Service application might look like this:
 
 
-![](/docs/images/3048093/3277770.png)
+![](/docs/images/3048093/3277770.png "width=500")
 
 
 Note that in both examples:

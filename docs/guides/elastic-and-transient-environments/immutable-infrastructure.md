@@ -18,7 +18,7 @@ This guide assumes familiarity with Octopus Deploy.  If you don't already know 
 The features in [Elastic and Transient Environments](/docs/guides/elastic-and-transient-environments/index.md) make it easier to deploy infrastructure in addition to applications.  This guide focuses on deploying immutable infrastructure.  Traditionally the infrastructure that hosts applications is mutable: it is constantly changing.  The changes that infrastructure could experience include things like: new firewall rules, operating system updates and patches to your own deployed applications. Immutable infrastructure, as the name suggests, does not change after the initial configuration. In order to apply changes, a new version of the infrastructure is provisioned and the old infrastructure is terminated:
 
 
-![](/docs/images/5670238/5865664.png)
+![](/docs/images/5670238/5865664.png "width=500")
 
 
 In this example we will create an infrastructure project and an application project.  The infrastructure project will provision new Tentacles and terminate the old ones. The application project gets deployed to the Tentacles.  We will then automate deploying our application to brand new infrastructure with each release.
@@ -29,7 +29,7 @@ In this example we will create an infrastructure project and an application proj
 The Tentacles provisioned in this guide belong the to **Immutable Infrastructure** machine policy. For now, create a new machine policy called **Immutable Infrastructure** and leave all of the settings at their default value.
 
 
-![](/docs/images/5670238/5865674.png)
+![](/docs/images/5670238/5865674.png "width=500")
 
 ## Application project
 
@@ -38,7 +38,7 @@ For this demonstration, let's create a project called **Hello World** that will 
 
 1. Create a project called **Hello World**
 2. Add a script step that outputs "Hello World" on each Tentacle:
-![](/docs/images/5670238/5865675.png)
+![](/docs/images/5670238/5865675.png "width=500")
 
 
 ## Infrastructure project
@@ -48,15 +48,15 @@ The infrastructure project runs a script that provisions two new Tentacles and r
 
 1. Download the [HelloWorldInfrastructure.1.0.0.0.zip](/docs/attachments/HelloWorldInfrastructure.1.0.0.0.zip) package that contains the scripts that run in this project and make any modifications required by your Octopus installation.
 2. Upload the package to your Octopus package feed:
-![](/docs/images/5670238/5865676.png)
+![](/docs/images/5670238/5865676.png "width=500")
 3. Install Tentacle on the same machine as your Octopus Server (there is no need to configure a Tentacle instance).
 4. Create a project called **Hello World Infrastructure**.
 5. Add a step that runs the script called **Provision.ps1** from the package **HelloWorldInfrastructure** on the Octopus Server:
-![](/docs/images/5670238/5865669.png)
+![](/docs/images/5670238/5865669.png "width=500")
 6. Add a step that performs a health check, excluding unavailable machines from the deployment:
-![](/docs/images/5670238/5865670.png)
+![](/docs/images/5670238/5865670.png "width=500")
 7. Add a step that runs **Teminate.ps1** from the package **HelloWorldInfrastructure** on the Octopus Server on behalf of all roles:
-![](/docs/images/5670238/5865671.png)
+![](/docs/images/5670238/5865671.png "width=500")
 
 
 ## Intermission
@@ -82,7 +82,7 @@ Cleaning up old Tentacles can be accomplished through the use of machine policie
 3. Select "Unavailable machines will not cause health checks to fail"
 4. Select "Automatically delete unavailable machines"
 5. Change "Time unavailable" to 5 minutes
-![](/docs/images/5670238/5865677.png)
+![](/docs/images/5670238/5865677.png "width=500")
 
 
 
@@ -95,7 +95,7 @@ The **Hello World** project can be configured to automatically deploy when a new
 
 1. Create a new trigger for the Hello World project
 2. Select the event "New deployment target becomes available"
-![](/docs/images/5670238/5865666.png)
+![](/docs/images/5670238/5865666.png "width=500")
 
 
 

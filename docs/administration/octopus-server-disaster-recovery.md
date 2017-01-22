@@ -68,7 +68,7 @@ Using the offline recovery server you allocated for Disaster Recovery, follow th
 
 
 
-![](/docs/images/5669334/5866179.png)
+![](/docs/images/5669334/5866179.png "width=300")
 
 
 Once you have completed the setup process of your Single Server, your DR Server is now ready to replace the Production server. This will enable you to easily replace your Production Server if you require to during your Disaster Recovery process.
@@ -90,7 +90,7 @@ When required to replace your Production server with the ready DR server, follow
 ### 
 
 
-![](/docs/images/5669334/5866180.png)
+![](/docs/images/5669334/5866180.png "width=300")
 
 
 
@@ -122,7 +122,7 @@ When required to replace your Production servers with the ready DR servers, foll
 ### 3. High Availability - Octopus Server Installation
 
 
-![](/docs/images/5669334/5866181.png)
+![](/docs/images/5669334/5866181.png "width=300")
 
 
 
@@ -138,7 +138,7 @@ When required to replace your Production servers with the ready DR servers, foll
 
 
 
-*![](/docs/images/5669334/5866178.png)*
+*![](/docs/images/5669334/5866178.png "width=500")*
 
 
 

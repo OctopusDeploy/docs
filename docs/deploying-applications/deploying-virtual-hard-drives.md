@@ -25,7 +25,7 @@ To deploy a Virtual Hard Drive, add a *Deploy a VHD* step. For information abou
 
 ## Configuring the Step
 
-## ![](/docs/images/5671980/5866127.png)
+## ![](/docs/images/5671980/5866127.png "width=500")
 
 ### Step 1: Select a Package
 

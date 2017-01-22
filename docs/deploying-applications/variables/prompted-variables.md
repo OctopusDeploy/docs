@@ -15,19 +15,19 @@ Octopus can handle this using **Prompted variables**.
 You can configure a variable to be prompted when editing the variable:
 
 
-![](/docs/images/3048314/3278298.png)
+![](/docs/images/3048314/3278298.png "width=500")
 
 
 When defining a prompted variable, you can provide a friendly name and description, and specify if the value is required.
 
 
-![](/docs/images/3048314/3278299.png)
+![](/docs/images/3048314/3278299.png "width=500")
 
 
 Prompted variables will appear with an icon next to the value:
 
 
-![](/docs/images/3048314/3278300.png)
+![](/docs/images/3048314/3278300.png "width=500")
 
 
 
@@ -38,7 +38,7 @@ Prompted variables will appear with an icon next to the value:
 When deploying (not creating a release), you'll be prompted to provide a value for the variable:
 
 
-![](/docs/images/3048314/3278301.png)
+![](/docs/images/3048314/3278301.png "width=500")
 
 
 Prompted variables can also be provided when using the [command-line Octo.exe tool to deploy releases](/docs/api-and-integration/octo.exe-command-line/deploying-releases.md):

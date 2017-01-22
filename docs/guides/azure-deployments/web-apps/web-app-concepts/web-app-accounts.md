@@ -9,7 +9,7 @@ Deploying a Web App in Octopus requires the configuration of an Azure Subscripti
 ## Creating the account
 
 
-![](/docs/images/3049434/3278565.png)
+![](/docs/images/3049434/3278565.png "width=500")
 
 ### Subscription Id
 
@@ -17,7 +17,7 @@ Deploying a Web App in Octopus requires the configuration of an Azure Subscripti
 The subscription Id can be found on the Settings tab of the Azure Management portal.
 
 
-![](/docs/images/3049434/3278564.png)
+![](/docs/images/3049434/3278564.png "width=500")
 
 
 
@@ -39,13 +39,13 @@ del temp.pem
 If you allow Octopus Deploy to generate your certificate, you will need to upload the certificate to the Azure Management Portal.  After clicking 'Save', the Account settings page provides instructions for downloading the certificate public-key from Octopus Deploy, and uploading it into the Azure Management Portal.
 
 
-![](/docs/images/3049434/3278566.png)
+![](/docs/images/3049434/3278566.png "width=500")
 
 
 Uploaded certificates can be viewed on the 'Management Certificates' tab of the 'Settings' page in the Azure Management Portal.
 
 
-![](/docs/images/3049434/3278567.png)
+![](/docs/images/3049434/3278567.png "width=500")
 
 
 The certificate will be named `Octopus Deploy -``{Your Account Name}.`

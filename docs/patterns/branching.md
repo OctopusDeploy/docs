@@ -59,7 +59,7 @@ The simplest branching workflow is, of course, no branches - all developers work
 Builds from this single branch will produce a NuGet package, and that package goes into a release which is deployed by Octopus.
 
 
-![](/docs/images/3048919/3278468.png)
+![](/docs/images/3048919/3278468.png "width=500")
 
 ## Release branches
 
@@ -94,13 +94,13 @@ Multiple release branches may be supported over a period of time. For example, y
 Modelling this in Octopus is a little more complicated than the scenarios above, but still easy to achieve. If the only thing that changes between branches is the NuGet package version numbers, and you create releases infrequently, then you can simply choose the correct package versions when creating a release via the release creation page:
 
 
-![](/docs/images/3048919/3278469.png)
+![](/docs/images/3048919/3278469.png "width=500")
 
 
 If you plan to create many releases from both branches, or your deployment process is different between branches, then you will need to use channels. Channels are a feature in Octopus that lets you model differences in releases:
 
 
-![](/docs/images/3048919/3278470.png)
+![](/docs/images/3048919/3278470.png "width=500")
 
 
 In this example, packages that start with 2.x go to the "Stable" channel, while packages that start with 3.x go to the "Early Adopter" channel.
@@ -146,7 +146,7 @@ If feature branches do need to be deployed, then you can create NuGet packages f
 Again, channels can be used to make it easier to create releases for feature branches:
 
 
-![](/docs/images/3048919/3278471.png)
+![](/docs/images/3048919/3278471.png "width=500")
 
 ## Environment branches
 
@@ -197,7 +197,7 @@ For example:
 Your dashboard in Octopus should reflect this reality by displaying each channel individually:
 
 
-![](/docs/images/3048919/3278472.png)
+![](/docs/images/3048919/3278472.png "width=500")
 
 :::hint
 **Development note**
@@ -218,13 +218,13 @@ Sometimes a new branch might introduce a new component that needs to be deployed
 For example, the Rate Service package was added as part of v3, so currently only applies to the Early Adopter channel:
 
 
-![](/docs/images/3048919/3278473.png)
+![](/docs/images/3048919/3278473.png "width=500")
 
 
 Likewise, it has variables that only apply on Early Adopter:
 
 
-![](/docs/images/3048919/3278474.png)
+![](/docs/images/3048919/3278474.png "width=500")
 
 
 For more advanced uses, you may need to clone your project.
@@ -243,7 +243,7 @@ Hotfixes are a special kind of release branch, but typically have a shorter life
 Again, channels can handle this by creating a Hotfix channel, and assigning the Hotfix channel a different lifecycle:
 
 
-![](/docs/images/3048919/3278475.png)
+![](/docs/images/3048919/3278475.png "width=500")
 
 
 Likewise, steps can be defined that apply to the Stable channel, but not to the Hotfix channel:
@@ -252,13 +252,13 @@ Likewise, steps can be defined that apply to the Stable channel, but not to the 
 When releases are created for the Hotfix channel, they can then be deployed straight to production:
 
 
-![](/docs/images/3048919/3278476.png)
+![](/docs/images/3048919/3278476.png "width=500")
 
 
 While stable releases still follow the usual testing lifecycle:
 
 
-![](/docs/images/3048919/3278477.png)
+![](/docs/images/3048919/3278477.png "width=500")
 
 ## We need to deploy different components depending on whether it's a "full" release or a "partial" release
 
@@ -277,16 +277,16 @@ You might have a large project with many components. Sometimes you only need to 
 This can be modelled by creating a channel per component, plus a channel for a release of all components.
 
 
-![](/docs/images/3048919/3278478.png)
+![](/docs/images/3048919/3278478.png "width=500")
 
 
 Steps can then be scoped to their individual channel as well as the major release channel:
 
 
-![](/docs/images/3048919/3278479.png)
+![](/docs/images/3048919/3278479.png "width=500")
 
 
 When creating the release, you can then choose whether the release is for an individual component or all components:
 
 
-![](/docs/images/3048919/3278480.png)
+![](/docs/images/3048919/3278480.png "width=500")

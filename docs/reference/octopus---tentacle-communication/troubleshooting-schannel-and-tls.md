@@ -49,7 +49,7 @@ Upgrading Octopus Server and Tentacle to 3.1 or newer will enable TLS 1.2 which 
 You can use a tool like [IISCrypto](https://www.nartac.com/Products/IISCrypto) to confirm and repair the configuration of Schannel on both servers. A mismatch in the enabled protocols, ciphers, hashes or key exchanges on either end can break Tentacle communications.
 
 
-![](/docs/images/5670828/5865774.png)
+![](/docs/images/5670828/5865774.png "width=500")
 
 ### Solution: Consider rolling back recent Windows patches
 

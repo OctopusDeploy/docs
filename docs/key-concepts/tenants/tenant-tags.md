@@ -25,7 +25,7 @@ On this page:
 ## What can you do with tenant tags?
 
 
-![](/docs/images/5670003/5865643.png)
+![](/docs/images/5670003/5865643.png "width=500")
 
 
 With tenant tags you can:
@@ -47,7 +47,7 @@ With tenant tags you can:
 Go to *Library > Tenant tag sets* to create, modify and reorder tag sets and tags.
 
 
-![](/docs/images/5670003/5865644.png)
+![](/docs/images/5670003/5865644.png "width=500")
 
 :::success
 **Design your tag sets carefully**
@@ -73,7 +73,7 @@ Order is important for tag sets, and tags within those tag sets. Octopus will so
 This example of configuring a tenanted deployment target shows how the tenant filter field order is defined based on the order of the tag sets and tags in the library.
 
 
-![](/docs/images/5670003/5865645.png)
+![](/docs/images/5670003/5865645.png "width=500")
 :::
 
 ## Tag-based filters
@@ -90,7 +90,7 @@ When filtering tenants, Octopus will combine tags within the same tag set using 
 Let's take a look at an example (click the image to zoom):
 
 
-![](/docs/images/5670003/5865646.png)
+![](/docs/images/5670003/5865646.png "width=300")
 
 
 In this example Octopus will execute a query like the one shown below:

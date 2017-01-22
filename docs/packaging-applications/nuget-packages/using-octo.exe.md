@@ -25,7 +25,7 @@ In Octo.exe version 3.3.8 we have expanded the functionality of the `pack` comma
 For the purposes of this page, I have created an ASP.NET web site called OctoWeb, and when built the output folder contains all the files required to run my web site.
 
 
-![](/docs/images/3048097/3277798.png)
+![](/docs/images/3048097/3277798.png "width=500")
 
 
 To create a NuGet package of the application, open a command prompt and change directory to where the application is located.
@@ -88,7 +88,7 @@ Mode                LastWriteTime     Length Name
 Open the created NuGet package in NuGet Package Explorer and you should see the package contains all the same files as the output folder of your build
 
 
-![](/docs/images/3048097/3277797.png)
+![](/docs/images/3048097/3277797.png "width=500")
 
 ## Usage
 

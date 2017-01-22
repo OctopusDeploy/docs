@@ -12,13 +12,13 @@ Octopus and Tentacle make deploying simple and secure, but what about situations
 Offline Package Drop is available as a deployment target.
 
 
-![](/docs/images/3048060/3277594.png)
+![](/docs/images/3048060/3277594.png "width=500")
 
 
 
 
 
-![](/docs/images/3048060/3277593.png)
+![](/docs/images/3048060/3277593.png "width=500")
 
 ### Drop folder path
 

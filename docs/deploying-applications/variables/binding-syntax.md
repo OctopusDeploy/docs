@@ -21,7 +21,7 @@ The binding syntax used by Octopus also supports many other constructs, such as 
 You can reference variables from other variables:
 
 
-![](/docs/images/3048310/3278295.png)
+![](/docs/images/3048310/3278295.png "width=500")
 
 ## Referencing variables in step definitions
 

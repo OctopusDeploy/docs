@@ -48,19 +48,19 @@ See the [Installing Octopus 3.x](/docs/installation/installing-octopus/index.md
 After installing the MSI, you will be presented with an upgrade page.
 
 
-![](/docs/images/3048132/3278008.png)
+![](/docs/images/3048132/3278008.png "width=500")
 
 
 Click "Get started..." and set up your database connection. You may need to grant permission to the NT AUTHORITY\SYSTEM account at this stage.
 
 
-![](/docs/images/3048132/3278007.png)
+![](/docs/images/3048132/3278007.png "width=500")
 
 
 Click Next, and then Install to install the Octopus 3.x server over the 2.6 instance.
 
 
-![](/docs/images/3048132/3278006.png)
+![](/docs/images/3048132/3278006.png "width=500")
 
 ### 3. Restore the Octopus 2.6 database using the migration tool
 
@@ -68,7 +68,7 @@ Click Next, and then Install to install the Octopus 3.x server over the 2.6 inst
 After upgrading, the Octopus Manager will prompt to import your Octopus 2.6 database. Click the "Import data..." button and follow the prompts to import your 2.6 data.
 
 
-![](/docs/images/3048132/3278005.png)
+![](/docs/images/3048132/3278005.png "width=500")
 
 
 See the [Migrating data from Octopus 2.6 to 3.x](/docs/administration/upgrading/upgrading-from-octopus-2.6/migrating-data-from-octopus-2.6-to-3.x.md) page for more detailed instructions on importing your Octopus 2.6 database backup into Octopus 3.x.
@@ -105,7 +105,7 @@ On each machine that ran Tentacle 2.6, connect to the machine, and install the T
 Click the Reinstall button to ensure the Tentacle windows service is pointing to the correct version of Tentacle.exe.
 
 
-![](/docs/images/3048134/3278285.png)
+![](/docs/images/3048134/3278285.png "width=500")
 
 :::hint
 **Modified the Tentacle windows service?**
@@ -118,7 +118,7 @@ Reinstall will uninstall and reinstall the Tentacle windows service. If you're r
 Log in to your new Octopus 3.x server and run health checks on all of your environments. If the upgrade completed successfully, they should succeed.
 
 
-![](/docs/images/3048132/3278009.png)
+![](/docs/images/3048132/3278009.png "width=500")
 
 
 If one or more health checks do not succeed after a few attempts, see the Troubleshooting section to identify possible issues.

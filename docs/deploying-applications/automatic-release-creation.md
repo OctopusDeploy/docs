@@ -41,7 +41,7 @@ If you use the[ built-in Octopus package repository](/docs/packaging-applicatio
 The process starts on the project process page.
 
 
-![](/docs/images/3048079/3277644.png)
+![](/docs/images/3048079/3277644.png "width=500")
 
 :::hint
 **Automatic release creation has moved**
@@ -55,7 +55,7 @@ Automatic release creation has moved to the Triggers page in Octopus 3.4.
 When you select that you want to turn this feature on you need to select which package will trigger the release creation.
 
 
-![](/docs/images/3048079/3277648.png)
+![](/docs/images/3048079/3277648.png "width=477")
 
 
 As a project can contain multiple packages you need to select the package that will upload LAST in your build and push CI process. So in the case of three packages as shown, the process uploads all three packages, but OctoFX Trading Website is always last to be uploaded. So this will be selected to trigger the release.
@@ -66,13 +66,13 @@ You cannot use variables to define the PackageId (either in full or in part). Oc
 :::
 
 
-![](/docs/images/3048079/3277647.png)
+![](/docs/images/3048079/3277647.png "width=469")
 
 
 When a release is set to be created this way, the audit will tell you that is how the release was created.
 
 
-![](/docs/images/3048079/3277646.png)
+![](/docs/images/3048079/3277646.png "width=701")
 
 
 If you combine uploading a package, with the automatic deployment feature within [Lifecycles ](/docs/key-concepts/lifecycles.md)you can push a package to the internal repository, create a release, and have it automatically deploy.

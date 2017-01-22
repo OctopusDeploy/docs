@@ -40,10 +40,10 @@ Octopus relies on Active Directory users being configured with enough informatio
 
 
 
-![](/docs/images/5669864/5866202.png?effects=drop-shadow)
+![](/docs/images/5669864/5866202.png?effects=drop-shadow "width=500")
 
 
-![](/docs/images/5669864/5866203.png?effects=drop-shadow)
+![](/docs/images/5669864/5866203.png?effects=drop-shadow "width=500")
 
 
 These values can be used by Octopus to uniquely identify which Octopus User Account should be associated with each Active Directory User.
@@ -113,7 +113,7 @@ For more information on diagnostic logging, see the following Microsoft TechNet 
 The diagnostic logs can be viewed in the Event Viewer.
 
 
-![](/docs/images/5669864/5865632.png)
+![](/docs/images/5669864/5865632.png "width=500")
 
 :::hint
 Remember to reset the registry values once you're finished troubleshooting.

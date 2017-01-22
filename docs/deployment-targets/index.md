@@ -10,7 +10,7 @@ Now that you have packaged your application, you need something to deploy it to.
 Deployment targets are added to an environment from the Environments page.
 
 
-![](/docs/images/3048059/3277592.png)
+![](/docs/images/3048059/3277592.png "width=500")
 
 
 A deployment target can be one of the following types:
@@ -23,7 +23,7 @@ A deployment target can be one of the following types:
 
 
 
-![](/docs/images/3048059/5865591.png)
+![](/docs/images/3048059/5865591.png "width=500")
 
 
 

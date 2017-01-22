@@ -97,7 +97,7 @@ e.g. https://manage.windowsazure.com/@papasmurf.smurfs.com#Workspaces/ActiveDir
 
 
 
-![](/docs/images/3702850/3964967.png)
+![](/docs/images/3702850/3964967.png "width=500")
 
 ### Option 2: Use the Azure Portal
 
@@ -110,7 +110,7 @@ Alternatively, you can [create a Service Principal via the Azure Portal](https:/
 Navigate to *Environments -> Accounts* and click *Add account* in the *Azure Subscriptions* section.
 
 
-![](/docs/images/3702850/3964965.png)
+![](/docs/images/3702850/3964965.png "width=500")
 
 
 
@@ -119,7 +119,7 @@ Navigate to *Environments -> Accounts* and click *Add account* in the *Azure Sub
 On the Create New Account page, in the *Authentication Method* field select *Use a Service Principal*.
 
 
-![](/docs/images/3702850/3964966.png)
+![](/docs/images/3702850/3964966.png "width=500")
 
 
 

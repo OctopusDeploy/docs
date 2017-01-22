@@ -27,7 +27,7 @@ On this page:
 This feature can be enabled for any NuGet package step.
 
 
-![](/docs/images/3048087/3277705.png)
+![](/docs/images/3048087/3277705.png "width=500")
 
 
 If a [variable](/docs/deploying-applications/variables/index.md) is defined in the Octopus web portal, and an **appSettings, applicationSettings** or **connectionStrings** element exists for it in any of your **.config** files, Tentacle will automatically replace the value after extracting your package.
@@ -58,7 +58,7 @@ For example, suppose you have this configuration file:
 And you have these variables defined in your Octopus web portal:
 
 
-![](/docs/images/3048087/3277704.png)
+![](/docs/images/3048087/3277704.png "width=500")
 
 
 After deploying to an environment named "**Production**", Octopus will have updated the file to:
@@ -134,7 +134,7 @@ Using the Substitute Variables in Files feature will change the order that varia
 ## Configuration transforms
 
 
-![](/docs/images/3048087/3277703.png)
+![](/docs/images/3048087/3277703.png "width=500")
 
 
 If this feature is enabled, Tentacle will also look for any files that follow the Microsoft [web.config transformation process](http://msdn.microsoft.com/en-us/library/dd465326.aspx) – **even files that are not web.config files!** *Keep reading for examples.*
@@ -209,7 +209,7 @@ To make sure Octopus can run the configuration transforms for your Windows Servi
 
 
 
-![](/docs/images/3048087/5865879.png)
+![](/docs/images/3048087/5865879.png "width=500")
 :::
 
 ## Additional Configuration Transforms
@@ -218,7 +218,7 @@ To make sure Octopus can run the configuration transforms for your Windows Servi
 You might have additional transforms to run outside of Debug, Environment or Release. You can define these in the Additional transforms box. If defined, these transforms will run regardless of the state of the `Automatically run configuration transformation files` checkbox.
 
 
-![](/docs/images/3048087/3278419.png)
+![](/docs/images/3048087/3278419.png "width=500")
 
 
 Octopus supports explicit, wildcard and relative path configuration transform definitions on any XML file with any file extension. Octopus will iterate through all files in all directories (ie, recursively) of your deployed application to find any matching files. Your target file also must exist; it will not be created by Octopus.

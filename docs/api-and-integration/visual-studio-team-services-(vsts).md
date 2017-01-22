@@ -22,7 +22,7 @@ Using this extension you can:
 
 
 
-![](/docs/images/5669025/5865514.png)
+![](/docs/images/5669025/5865514.png "width=500")
 
 
-![](/docs/images/5669025/5865515.png)
+![](/docs/images/5669025/5865515.png "width=500")

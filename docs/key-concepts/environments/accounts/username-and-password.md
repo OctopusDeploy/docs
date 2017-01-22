@@ -12,7 +12,7 @@ A Username/Password Account is one mechanism that can be used to authenticate to
 You must provide both the username and password which will be used during the initial authentication phase of the SSH connection.
 
 
-![](/docs/images/3048108/3277898.png)
+![](/docs/images/3048108/3277898.png "width=500")
 
 ## Enabling Username & Password Authentication
 

@@ -18,16 +18,16 @@ Please note that this means that everything that Tentacle does will run as this 
 The first step will be to log on to your server where the Tentacle is hosted. You then need to find the Tentacle service.
 
 
-![](/docs/images/3048151/3278121.png)
+![](/docs/images/3048151/3278121.png "width=500")
 
 
 From here you can find the Tentacle service and choose Properties.
 
 
-![](/docs/images/3048151/3278120.png)
+![](/docs/images/3048151/3278120.png "width=500")
 
 
 Under Log On you can set the user to be a specific user.
 
 
-![](/docs/images/3048151/3278119.png)
+![](/docs/images/3048151/3278119.png "width=300")

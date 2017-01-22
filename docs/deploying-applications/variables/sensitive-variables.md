@@ -21,7 +21,7 @@ On this page:
 Variables such as passwords or API keys can be marked as being **sensitive**.
 
 
-![](/docs/images/3048089/3277722.png)
+![](/docs/images/3048089/3277722.png "width=500")
 
 ## How Octopus handles your sensitive variables
 

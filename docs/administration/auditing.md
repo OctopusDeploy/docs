@@ -30,16 +30,16 @@ Below is a short list of just some of the things that Octopus captures:
 You can view the full audit history by navigating to the **Audit** tab in the **Configuration** area.
 
 
-![](/docs/images/3048138/3278051.png)
+![](/docs/images/3048138/3278051.png "width=500")
 
 
 Some audit events will also include details, which you can see by clicking the **show details** link. For example:
 
 
-![](/docs/images/3048138/3278050.png)
+![](/docs/images/3048138/3278050.png "width=500")
 
 
-![](/docs/images/3048138/3278049.png)
+![](/docs/images/3048138/3278049.png "width=500")
 
 
 This feature makes it extremely easy to see who made what changes on the Octopus Deploy server.

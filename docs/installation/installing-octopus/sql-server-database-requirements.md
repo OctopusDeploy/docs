@@ -52,7 +52,7 @@ See [here](/docs/administration/octopus-database/changing-the-collation-of-the-o
 If you don't yet have a database created specifically for Octopus' use, then you can allow the Setup Wizard to create one for you. While setting up your Octopus Server instance, select the correct server on the Database step and enter the name that you would like to call this database. Remember it must not be the name of a database that already exists on the selected SQL Server or the setup process will install into that pre-existing one. When you click the `Next` button, the installer will check for the existence of the database and if it needs to be created, provide a confirmation dialog. It will then be created with the appropriate permissions and configuration as defined above.
 
 
-![](/docs/images/3048120/3278498.png)
+![](/docs/images/3048120/3278498.png "width=500")
 
 
 
@@ -74,7 +74,7 @@ Each installation of Octopus Deploy will likely have different data loads and us
 Certain assumptions are made about the database schema when an Octopus Deploy Server upgrade is performed, and the presence (or absence) of indexes may cause this process to fail. The System Integrity checks now available via *Configuration > Diagnostics > Server Logs* will let you know if there are any deviations from the expected database schema.
 
 
-![](/docs/images/3048120/5865723.png)
+![](/docs/images/3048120/5865723.png "width=500")
 
 
 To ensure that you are aware of which Indexes exist so that you can drop/recreate them between upgrades, we also suggest disabling the Azure SQL feature to [Automatically apply performance recommendations](https://azure.microsoft.com/en-us/documentation/articles/sql-database-advisor-portal/#enable-automatic-index-management).

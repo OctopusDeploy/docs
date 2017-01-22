@@ -15,7 +15,7 @@ In an ideal world, every deployment would be successful. Sadly, things sometimes
 Guided failure mode is off by default. You can enable it when deploying a release:
 
 
-![](/docs/images/3048076/3277632.png)
+![](/docs/images/3048076/3277632.png "width=500")
 
 
 
@@ -30,13 +30,13 @@ See the section on [managing environments](/docs/key-concepts/environments/index
 If something goes wrong during the deployment, Octopus will interrupt the deployment, and request guidance for how to handle the failure. This uses the same [user experience that is used for manual steps](/docs/deploying-applications/manual-intervention-and-approvals.md) (internally, requests for failure guidance, and manual steps, use the same implementation: we call them Interruptions in the [REST API](/docs/api-and-integration/octopus-rest-api.md)).
 
 
-![](/docs/images/3048076/3277631.png)
+![](/docs/images/3048076/3277631.png "width=500")
 
 
 Anyone who has permission can handle the request for failure guidance by **clicking assign to me**. When assigned, they can choose how to handle the error.
 
 
-![](/docs/images/3048076/3277630.png)
+![](/docs/images/3048076/3277630.png "width=500")
 
 
 You can choose to:

@@ -20,7 +20,7 @@ Octopus can automatically remove unwanted machines from environments based on th
 Machine policies are machine related settings that can be applied per-machine. They can be accessed from the *Environments* screen:
 
 
-![](/docs/images/5669267/5865576.png)
+![](/docs/images/5669267/5865576.png "width=500")
 
 
 In this example we will create a machine policy to automatically delete machines when they become unavailable.
@@ -29,13 +29,13 @@ In this example we will create a machine policy to automatically delete machines
 
 1. Navigate to the *Machine policies* screen from the *Environments* screen
 2. Create a new machine policy by selecting **Add machine policy**:
-![](/docs/images/5669267/5865577.png)
+![](/docs/images/5669267/5865577.png "width=500")
 3. Name the machine policy "Clean up machines"
 4. Change the setting "Clean up unavailable machines" to "Automatically delete unavailable machines".  By selecting this option and leaving the "Hours unavailable" at 0, any machines that fail a health check and become unavailable will be deleted:
-![](/docs/images/5669267/5865578.png)
+![](/docs/images/5669267/5865578.png "width=500")
 5. Save the machine policy
 6. Assign the machine policy to a machine by selecting a machine from the *Environments* screen and using the *Policy* drop down to select the machine policy:
-![](/docs/images/5669267/5865579.png)
+![](/docs/images/5669267/5865579.png "width=500")
 7. Turn the machine off and run a health check.  A scheduled task will detect that the machine is unavailable and remove it from Octopus.  The task runs every 5 minutes so there may be a delay from the health check running and the machine being deleted.
 
 
@@ -52,4 +52,4 @@ Read more about [machine policies](/docs/key-concepts/environments/machine-polic
 Troubleshoot automatic machine deletion by accessing the log from the *Diagnostics* screen in the *Configuration* area, and any failures to clean up a given machine will be shown in the [Audit log](http://docs.octopusdeploy.com/display/OD/Auditing):
 
 
-![](/docs/images/5669267/5865580.png)
+![](/docs/images/5669267/5865580.png "width=500")

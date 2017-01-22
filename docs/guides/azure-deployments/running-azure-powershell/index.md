@@ -39,7 +39,7 @@ Octopus Deploy provides a *Run an Azure PowerShell Script* step type, for exec
 
 
 
-![](/docs/images/5671696/5865912.png)
+![](/docs/images/5671696/5865912.png "width=170")
 
 
 
@@ -48,4 +48,4 @@ Octopus Deploy provides a *Run an Azure PowerShell Script* step type, for exec
 
 
 
-![](/docs/images/3048705/3278370.png)
+![](/docs/images/3048705/3278370.png "width=500")

@@ -30,13 +30,13 @@ Once this is done, the role will not only be assigned to that Tentacle, but it w
 On the screenshot below we've created a role called **WebServer** and assigned it to our Tentacle **Server02.**
 
 
-**![](/docs/images/3048101/3277812.png)**
+**![](/docs/images/3048101/3277812.png "width=500")**
 
 
 You can check all the roles assigned to your machines from the **Environments**screen
 
 
-![](/docs/images/3048101/3277811.png)
+![](/docs/images/3048101/3277811.png "width=500")
 
 ## Using roles on deployment steps
 
@@ -47,13 +47,13 @@ Almost all the steps that run on a Tentacle can be scoped to one or more roles. 
 To scope a step to a specific role, all you have to do is type in the role name on the **Machine Roles** field.
 
 
-**![](/docs/images/3048101/3277810.png)**
+**![](/docs/images/3048101/3277810.png "width=500")**
 
 
 After you save the step, all the roles you’ve scoped it for can be viewed from the Deployment Process screen:
 
 
-![](/docs/images/3048101/3277809.png)
+![](/docs/images/3048101/3277809.png "width=500")
 
 
 According to the screenshot above, our deployment process will do the following:
@@ -89,13 +89,13 @@ web-server
 You want to deploy the same package on each server but the deployment path will be different between servers. In this case you can set the same variables (we’ll call it *DeployPath*) with a different value for each machine role:
 
 
-![](/docs/images/3048101/3277808.png)
+![](/docs/images/3048101/3277808.png "width=500")
 
 
 Then, on your deployment step, you can set the **[Custom Install Directory](http://docs.octopusdeploy.com/display/OD/Custom+Installation+Directory)**to *#{DeployPath}*on each of the 3 steps (one for each package Id & Role).
 
 
-![](/docs/images/3048101/3277807.png)
+![](/docs/images/3048101/3277807.png "width=500")
 
 
 

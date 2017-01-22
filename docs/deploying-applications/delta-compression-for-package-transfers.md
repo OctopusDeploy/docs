@@ -42,7 +42,7 @@ If the final size of the delta file is within 80% of the new package, we upload 
 When running a deployment that creates and applies a delta file, you will see the following in the logs under the `Acquire packages` section
 
 
-![](/docs/images/3048083/3277668.png)
+![](/docs/images/3048083/3277668.png "width=500")
 
 :::hint
 **Delta progress logging**
@@ -55,4 +55,4 @@ As can be seen in the screenshot above, the logging of the progress of applying 
 To turn this feature off, set the value of **Octopus.Acquire.DeltaCompressionEnabled** to **False**
 
 
-![](/docs/images/3048083/5275657.jpg)
+![](/docs/images/3048083/5275657.jpg "width=500")

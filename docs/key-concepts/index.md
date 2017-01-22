@@ -8,6 +8,7 @@ Words like "release" and "deployment" are no doubt terms that you've used in you
 
 ## How to think like an Octopus
 
+
 Like all software, Octopus is designed around model of a specific problem domain - in our case, the domain of deployment automation. In order to truly understand how Octopus works and how to get the best use out of it, it's helpful to take the time to understand our model and some of the terms that we use. It's helpful to think like an Octopus!
 
 :::success
@@ -21,7 +22,7 @@ If you are a fan of [Domain Driven Design](http://www.amazon.com/Domain-Driven-D
 Before you can deploy software, you need somewhere to deploy it *to*. Any non-trivial application is likely to run on more than one server - you might have Windows Services that run on application servers, or ASP.NET applications that run under IIS on web servers. Each of these servers, whether physical or virtual machines, would be a *machine* within Octopus. A group of these machines that are deployed to at the same time is called an *environment*. An environment is made up of multiple *machines*, and each machine is tagged with a set of *roles*.
 
 
-![](/docs/images/3048100/3277804.png)
+![](/docs/images/3048100/3277804.png "width=500")
 
 
 In production, your web sites and Windows Services might run on different physical servers - perhaps dozens of them. However, unless you are extremely lucky, it's unlikely that you have the budget to have an equal number of servers in any of your pre-production environments. When testing your software in a test environment, you might only have a single virtual machine which will run all of the web sites and services on the same machine.
@@ -50,7 +51,7 @@ You can define as many roles, environments and machines as you like - it all dep
 Machines can also belong to more than one environment, although this is not very common.
 
 
-![](/docs/images/3048100/3277803.png)
+![](/docs/images/3048100/3277803.png "width=500")
 
 :::success
 **More information**
@@ -67,7 +68,7 @@ A *project* is one of the most important concepts in Octopus. A project defines:
 
 
 
-![](/docs/images/3048100/3277800.png)
+![](/docs/images/3048100/3277800.png "width=500")
 
 
 A project in Octopus can consist of many deliverable components (e.g., web sites, Windows services). It's usually helpful to think of Octopus projects in terms of business projects: if you have 5 developers working together on the "HR Portal rewrite" project, than that's probably a single project in Octopus.
@@ -104,7 +105,7 @@ We expect that beyond the initial setup and tweaking, your deployment process wo
 In Octopus, a release is a snapshot of the *deployment process*and*variables,* with a set of *packages* selected. That *release* is then *deployed* to multiple environments, typically to one, then promoted to the next environment if successful.
 
 
-![](/docs/images/3048100/3277799.png)
+![](/docs/images/3048100/3277799.png "width=500")
 
 
 Each time you have a new candidate build that is ready to test, you'll create a *release*. When you apply a release to an environment, that is a *deployment*.

@@ -20,7 +20,7 @@ To support this, Octopus provides **Email Steps**in a project's deployment proc
 Email can be chosen as the step type when you click **Add Step** in your project's **Process** tab. For information about adding a step to the deployment process, see the [add step](http://docs.octopusdeploy.com/display/OD/Add+step) section.
 
 
-![](/docs/images/5671696/5865915.png)
+![](/docs/images/5671696/5865915.png "width=170")
 
 :::success
 You'll need to enter SMTP server settings in *Configuration > SMTP* before Octopus will be able to send any email.
@@ -30,7 +30,7 @@ You'll need to enter SMTP server settings in *Configuration > SMTP* before Octop
 When adding an email step, you can choose the subject of the email, its body and a list of addresses to send it to (multiple emails should be separated by a comma).
 
 
-![](/docs/images/3048084/3277669.png)
+![](/docs/images/3048084/3277669.png "width=500")
 
 
 
@@ -83,7 +83,7 @@ To use the template in your projects, replace `nuget.org` with the DNS name of
 The output of the template will be an HTML email like:
 
 
-![](/docs/images/3048084/3277676.png)
+![](/docs/images/3048084/3277676.png "width=500")
 
 ### Including step status
 

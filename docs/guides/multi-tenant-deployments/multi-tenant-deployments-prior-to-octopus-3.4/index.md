@@ -38,13 +38,13 @@ In Octopus (prior to Octopus 3.4), there were two main ways to model this scenar
 The simplest solution was to create a separate environment per customer.
 
 
-![](/docs/images/5669204/5865537.png)
+![](/docs/images/5669204/5865537.png "width=500")
 
 
 This was usually the easiest way to manage these kinds of scenarios. If all customers run on dedicated servers, it could be handled by having different servers in each environment. If all customers use a single server, it could be handled by adding the machine to all environments:
 
 
-![](/docs/images/5669204/5865538.png)
+![](/docs/images/5669204/5865538.png "width=500")
 
 
 Keep in mind that variables can be scoped per environment (thus customer).
@@ -55,7 +55,7 @@ Keep in mind that variables can be scoped per environment (thus customer).
 In this scenario, we would set up a project with the three deployment steps, and use it as a template. We would then clone the project once per customer, and customise the variables and other settings per customer.
 
 
-![](/docs/images/5669204/5865539.png)
+![](/docs/images/5669204/5865539.png "width=500")
 
 
 If customers use separate, dedicated machines, you could use custom roles (e.g., **customer-a-web**, **customer-b-web**) and edit each deployment step to target that role.

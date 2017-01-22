@@ -22,16 +22,16 @@ On this page:
 Each project has a **deployment process**, which can be found on the **Process** tab of the project in the Octopus web portal. The deployment process is like a recipe. It defines the set of instructions that will be run repeatably each time the project is deployed. The deployment process can have one or more steps, and the steps can be ordered using the **Reorder steps** link.
 
 
-![](/docs/images/3048075/3277619.png)
+![](/docs/images/3048075/3277619.png "width=500")
 
 :::hint
 By default, the list of steps in a deployment process are run sequentially, one after another.
 
 
-![](/docs/images/3048075/5865849.png)
+![](/docs/images/3048075/5865849.png "width=300")
 Also by default, a step that is configured to execute across multiple deployment targets will execute across all of those deployment targets in parallel.
 
-![](/docs/images/3048075/5865850.png)
+![](/docs/images/3048075/5865850.png "width=300")
 
 
 For more information, see the section on [simple and advanced deployment processes](/docs/key-concepts/projects/deployment-processes.md) and [rolling deployments](/docs/patterns/rolling-deployments.md).
@@ -47,7 +47,7 @@ If a step you want isn't built-in you should check out the community contributed
 :::
 
 
-![](/docs/images/5671696/5865900.png)
+![](/docs/images/5671696/5865900.png "width=500")
 
 ## Common step properties
 
@@ -65,13 +65,13 @@ Be careful when changing names! Octopus commonly uses names as a convenient iden
 Steps can also have conditions. You can restrict a step so that it only runs when deploying to specific [environments](/docs/key-concepts/environments/index.md) (e.g., an Email step that only runs on production deployments).
 
 
-![](/docs/images/3048075/3277617.png?effects=drop-shadow)
+![](/docs/images/3048075/3277617.png?effects=drop-shadow "width=500")
 
 
 If you have created some [channels](/docs/key-concepts/projects/channels.md), you can also specify whether a step runs only when deploying a release through specific channels (e.g., a Script step that only runs for deployments through certain channels to configure extra telemetry). *This will only appear if you have created one or more non-default channels.*
 
 
-![](/docs/images/3048075/3278573.png?effects=drop-shadow)
+![](/docs/images/3048075/3278573.png?effects=drop-shadow "width=500")
 
 
 You can also specify whether a step runs only when previous steps are successful (default), when a previous step fails, or always.
@@ -80,7 +80,7 @@ You can also specify whether a step runs only when previous steps are successful
 
 
 
-![](/docs/images/3048075/3277616.png?effects=drop-shadow)
+![](/docs/images/3048075/3277616.png?effects=drop-shadow "width=500")
 
 :::success
 You can achieve very complex deployment processes in Octopus by leveraging advanced concepts like parallel execution of steps and rolling deployments. Learn more about [simple and complex deployment processes](/docs/key-concepts/projects/deployment-processes.md).

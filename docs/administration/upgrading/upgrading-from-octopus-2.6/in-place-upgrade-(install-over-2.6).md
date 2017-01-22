@@ -81,9 +81,9 @@ To use Hydra, follow these steps:
 1. Download the latest Hydra NuGet package from [https://Octopus.com/Downloads](https://octopus.com/downloads)[
 ](https://s3-eu-west-1.amazonaws.com/octopus-downloads/hydra/OctopusDeploy.Hydra.3.0.10.268.nupkg)
 2. Use the Upload Package feature of the library to upload the OctopusDeploy.Hydra package to the built-in NuGet repository on your Octopus 2.6 server.
-![](/docs/images/3048135/3278019.png)
+![](/docs/images/3048135/3278019.png "width=500")
 3. Import the [Hydra script template](http://library.octopusdeploy.com/#!/step-template/actiontemplate-hydra-update-octopus-tentacle) from the Community Library.
-![](/docs/images/3048135/3278018.png)
+![](/docs/images/3048135/3278018.png "width=500")
 4. Create a [new project](/docs/key-concepts/projects/index.md) with a single "Update Octopus Tentacle" step from the step template
 
 
@@ -97,14 +97,14 @@ Where each pair is separated by commas. This will match the first case and repl
         Click the ![](/docs/images/3048132/3278017.png) help button for more detailed instructions.
 
     
-![](/docs/images/3048132/3278014.png)    ![](/docs/images/3048132/3278015.png)
+![](/docs/images/3048132/3278014.png "width=500")    ![](/docs/images/3048132/3278015.png "width=500")
 5. Create a release and deploy. The deployment should succeed, and one minute later the Tentacles will be upgraded.
 
 :::hint
 We strongly recommend testing a deployment against a small subset of "canary" machines. The best way to do this is to create a new "canary" machine role and assign it to a few machines. Set the Update Octopus Tentacle step to only run against this "canary" role.
 Once you're confident the upgrade works as expected, you can deploy to all remaining machines.
 :::
-    ![](/docs/images/3048132/3278010.png)
+    ![](/docs/images/3048132/3278010.png "width=500")
 
 
 ### 3. Verify the upgrade has worked
@@ -113,13 +113,13 @@ Once you're confident the upgrade works as expected, you can deploy to all remai
 When the Hydra task runs on a Tentacle machine, it should no longer be able to communicate with the Octopus 2.6 server. You can verify this by navigating to the Environments page and clicking **Check Health**.
 
 
-![](/docs/images/3048132/3278012.png)
+![](/docs/images/3048132/3278012.png "width=500")
 
 
 After successfully updating your Tentacles, you should see this check fail from your 2.6 server.
 
 
-![](/docs/images/3048132/3278011.png)
+![](/docs/images/3048132/3278011.png "width=500")
 
 
 We recommend connecting to some of your Tentacle machines and examining the Octopus Tentacle binaries to ensure they have been upgraded. You should also ensure the service is running (even though it will not be able to communicate with the server).
@@ -142,19 +142,19 @@ See the [Installing Octopus 3.x](/docs/installation/installing-octopus/index.md
 After installing the MSI, you will be presented with an upgrade page.
 
 
-![](/docs/images/3048132/3278008.png)
+![](/docs/images/3048132/3278008.png "width=500")
 
 
 Click "Get started..." and set up your database connection. You may need to grant permission to the NT AUTHORITY\SYSTEM account at this stage.
 
 
-![](/docs/images/3048132/3278007.png)
+![](/docs/images/3048132/3278007.png "width=500")
 
 
 Click Next, and then Install to install the Octopus 3.x server over the 2.6 instance.
 
 
-![](/docs/images/3048132/3278006.png)
+![](/docs/images/3048132/3278006.png "width=500")
 
 ### 5. Restore the Octopus 2.6 database using the migration tool
 
@@ -162,7 +162,7 @@ Click Next, and then Install to install the Octopus 3.x server over the 2.6 inst
 After upgrading, the Octopus Manager will prompt to import your Octopus 2.6 database. Click the "Import data..." button and follow the prompts to import your 2.6 data.
 
 
-![](/docs/images/3048132/3278005.png)
+![](/docs/images/3048132/3278005.png "width=500")
 
 
 See the [Migrating data from Octopus 2.6 to 3.x](/docs/administration/upgrading/upgrading-from-octopus-2.6/migrating-data-from-octopus-2.6-to-3.x.md) page for more detailed instructions on importing your Octopus 2.6 database backup into Octopus 3.x.
@@ -188,7 +188,7 @@ You will need to transfer them to the new server to `C:\Octopus\Packages`Once t
 Log in to your new Octopus 3.x server and run health checks on all of your environments. If the upgrade completed successfully, they should succeed.
 
 
-![](/docs/images/3048132/3278009.png)
+![](/docs/images/3048132/3278009.png "width=500")
 
 
 If one or more health checks do not succeed after a few attempts, see the Troubleshooting section to identify possible issues.

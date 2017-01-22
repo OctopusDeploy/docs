@@ -7,7 +7,7 @@ position: 0
 To allow you to define different values for variables depending on where you are deploying, variables can be **scoped**.
 
 
-![](/docs/images/3048305/3278293.png)
+![](/docs/images/3048305/3278293.png "width=500")
 
 
 Variables can be scoped by:
@@ -37,7 +37,7 @@ During deployment, Octopus will try to select the most specifically scoped varia
 You can set the scope of a variable by selecting the Scope cell, and choosing the scope values:
 
 
-![](/docs/images/3048305/3278294.png)
+![](/docs/images/3048305/3278294.png "width=500")
 
 ## Scope specificity
 

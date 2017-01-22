@@ -34,5 +34,5 @@ Want to skip to the end of the guide and play with a fully-fledged sample? Here 
 Download: [Octopus.Sampler.3.4.0-beta.2.zip](/docs/attachments/Octopus.Sampler.3.4.0-beta.2.zip)
 
 
-![](/docs/images/5669310/5865696.png)
+![](/docs/images/5669310/5865696.png "width=500")
 :::

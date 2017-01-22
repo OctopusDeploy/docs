@@ -39,7 +39,7 @@ On this page:
 To configure a package step to replace matching app settings in your JSON configuration files ensure the **JSON configuration variables** feature is enabled.
 
 
-![](/docs/images/3702943/5275653.png)
+![](/docs/images/3702943/5275653.png "width=500")
 
 ### Step 2: Configure which files to update
 
@@ -59,7 +59,7 @@ approot\packages\ASPNET.Core.Sample\1.0.0\root\appSettings.json
 Note that you can even use the [Variable Substitution Syntax](/docs/reference/variable-substitution-syntax.md) patterns in this file selection input box itself to do things like reference environment specific files, or conditionally include them based on scoped variables.
 
 
-![](/docs/images/3702943/5275654.png)
+![](/docs/images/3702943/5275654.png "width=500")
 
 
 Any matching variables in the JSON file will have their values replaced with the variables you have configured in Octopus.

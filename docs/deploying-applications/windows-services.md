@@ -27,7 +27,7 @@ When deploying, `sc.exe` is used to create a Windows Service using the configur
 To deploy a Windows Service, add a *Deploy a Windows Service* step. For information about adding a step to the deployment process, see the [add step](http://docs.octopusdeploy.com/display/OD/Add+step) section.
 
 
-![](/docs/images/5671696/5865909.png)
+![](/docs/images/5671696/5865909.png "width=170")
 
 
 
@@ -37,13 +37,13 @@ To deploy a Windows Service, add a *Deploy a Windows Service* step. For infor
 The *Deploy a Windows Service Step* was introduced in Octopus version **3.4.7**. Prior to this Windows Services were deployed by enabling the *Windows Service* feature on a [Deploy a Package Step](/docs/deploying-applications/deploying-packages/index.md).
 
 
-![](/docs/images/3048082/3277662.png)
+![](/docs/images/3048082/3277662.png "width=500")
 :::
 
 ## Configuring the Step
 
 
-![](/docs/images/3048082/5865715.png)
+![](/docs/images/3048082/5865715.png "width=500")
 
 ### Step 1: Select a Package
 
@@ -195,7 +195,7 @@ To configure the Windows Service to use a Managed Service Account:
 
 
 
-![](/docs/images/3048082/5865840.png?effects=drop-shadow)
+![](/docs/images/3048082/5865840.png?effects=drop-shadow "width=500")
 
 :::hint
 **Important information about using Managed Service Accounts**

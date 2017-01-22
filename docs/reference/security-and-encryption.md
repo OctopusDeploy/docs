@@ -45,7 +45,7 @@ When Octopus is installed, it generates a random string which will be used as th
 1. Open the **Octopus Manager** from the start menu/start screen
 ![](/docs/images/3048071/3277610.png)
 2. Click **View master key**
-**![](/docs/images/3048071/3277606.png)**
+**![](/docs/images/3048071/3277606.png "width=500")**
 3. Click **Save** to save the master key to a text file or **Copy to clipboard** and then paste the master key into a text editor or a secure enterprise password manager, and save it
 
 

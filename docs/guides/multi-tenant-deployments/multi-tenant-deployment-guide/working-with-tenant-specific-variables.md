@@ -23,13 +23,13 @@ When you [create a release](/docs/api-and-integration/octo.exe-command-line/crea
 We set out with a vision to make this as easy as possible to manage, like the examples shown below.
 
 
-![](/docs/images/5669247/5865614.png)
+![](/docs/images/5669247/5865614.png "width=500")
 
 
 *In the example above we are collecting common variable values that remain constant across projects and environments. This could be really useful for values like a tenant alias, contact details, or other values that will remain constant for each tenant across any projects they are connected to. You could think of these like "custom fields" for your tenants. You can also see a warning indicator leading the way to a problem with Project Variables.*
 
 
-![](/docs/images/5669247/5865615.png)
+![](/docs/images/5669247/5865615.png "width=500")
 
 
 *In the example above we are collecting tenant-specific values that differ between projects and environments. This could be really useful for settings for connecting to a database for that tenant/environment. In this example we are using a default value as a template drawing from some common variable values. You can also see the warning indicator telling us we need to provide a value for the **Database password** in the **MT Staging** environment.*
@@ -104,7 +104,7 @@ Let's start with the end in mind by creating the project variables we need. You'
 The result should look like the screenshot below:
 
 
-![](/docs/images/5669247/5865610.png)
+![](/docs/images/5669247/5865610.png "width=500")
 
 ### Step 2: Create project variable templates
 
@@ -129,7 +129,7 @@ Rather than managing lots of duplicate data, we will use some default values tha
 The result should look like the screenshot below:
 
 
-![](/docs/images/5669247/5865609.png)
+![](/docs/images/5669247/5865609.png "width=500")
 
 ### Step 3: Create the "Environment variables" library variable set
 
@@ -151,7 +151,7 @@ In the previous step we created some variable templates that use the `Environmen
 The result should look like the screenshot below:
 
 
-![](/docs/images/5669247/5865607.png)
+![](/docs/images/5669247/5865607.png "width=500")
 
 ### Step 4: Create the "Standard tenant details" library variable set
 
@@ -171,7 +171,7 @@ In previous steps we also created some variable templates that depend on a varia
 The result should look like the screenshot below:
 
 
-![](/docs/images/5669247/5865608.png)
+![](/docs/images/5669247/5865608.png "width=500")
 
 ### Step 5: Include the library variable sets into the project
 
@@ -188,13 +188,13 @@ Now we have created the library variable sets we need to include them in the **M
 Go to our tenant **Beverley Sanchez** and go to *Variables > Common Variables* where you should be able to fill in the variables required by our **Standard tenant details** variable set:
 
 
-![](/docs/images/5669247/5865611.png)
+![](/docs/images/5669247/5865611.png "width=500")
 
 
 Now go to the *Project Variables* tab and you should see the variables required by the **Mojo** project for each environment **Beverley Sanchez** will be deployed into, in this case just **MT Production**. Leave the convention-based variables alone, and click the *Set* button to set a random password for the database, and click *Save* to save your changes.
 
 
-![](/docs/images/5669247/5865612.png)
+![](/docs/images/5669247/5865612.png "width=500")
 
 ### Step 7: Validate the variable values for the project
 
@@ -202,7 +202,7 @@ Now go to the *Project Variables* tab and you should see the variables required
 Go to the *Variables > All Variables* tab of the **Mojo** project and you can inspect all of the variables that will be used by the project. If something is wrong, you can click on the link to the source of the value and fix the problem.
 
 
-![](/docs/images/5669247/5865620.png)
+![](/docs/images/5669247/5865620.png "width=500")
 
 ### Step 8: Deploy!
 
@@ -210,7 +210,7 @@ Go to the *Variables > All Variables* tab of the **Mojo** project and you can i
 Go to the **Mojo** project, create a new release, and deploy it to the **MT Production** environment for **Beverley Sanchez** and you should see all of the variables flowing through properly now.
 
 
-![](/docs/images/5669247/5865613.png)
+![](/docs/images/5669247/5865613.png "width=500")
 
 ### Step 9: Review
 

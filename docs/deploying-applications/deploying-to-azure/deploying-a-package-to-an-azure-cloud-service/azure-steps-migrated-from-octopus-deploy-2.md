@@ -16,4 +16,4 @@ The image below shows a migrated Azure step. The subscription ID is displayed (r
 Once an account is selected, the subscription and certificate from the account will be used.  The migrated subscription ID and the message will no longer appear.
 
 
-![](/docs/images/3048693/3278367.png)
+![](/docs/images/3048693/3278367.png "width=500")

@@ -36,7 +36,7 @@ A typical project may involve one step that first creates a network, and then cr
 
 
 
-![](/docs/images/5671068/5865817.png)
+![](/docs/images/5671068/5865817.png "width=500")
 
 ### Obtain Container IP address inside custom network
 

@@ -143,7 +143,7 @@ If you haven't already, create an [Azure Subscription Account](/docs/key-conce
 
 1. Add a new 'Deploy an Azure Web App' step to your project. For information about adding a step to the deployment process, see the [add step](http://docs.octopusdeploy.com/display/OD/Add+step) section. 
 
-![](/docs/images/5671696/5865899.png)
+![](/docs/images/5671696/5865899.png "width=170")
 
 
 ## Step 4: Configure your Azure Web App step.
@@ -152,7 +152,7 @@ If you haven't already, create an [Azure Subscription Account](/docs/key-conce
 Once an Account is selected, the list of Azure Web Apps available to the subscription associated with the account will populate the 'Web App' select-list.
 
 
-![](/docs/images/3048686/3278366.png)
+![](/docs/images/3048686/3278366.png "width=500")
 
 
 

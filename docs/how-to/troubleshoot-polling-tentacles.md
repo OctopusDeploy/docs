@@ -60,7 +60,7 @@ Verify the Tentacle communications settings
 *On the Tentacle machine*, open the Tentacle Manager application from the Start screen or Start menu.
 
 
-![](/docs/images/5670828/5865770.png)
+![](/docs/images/5670828/5865770.png "width=500")
 
 
 The application should show the service as running.
@@ -115,7 +115,7 @@ If the service is up and running, continue to the next step.
 The page shown should look like the one below.
 
 
-![](/docs/images/3048113/3277906.png)
+![](/docs/images/3048113/3277906.png "width=500")
 
 
 If you've made it this far, good news! Your Octopus Server is running and ready to accept inbound connections from Polling Tentacles.

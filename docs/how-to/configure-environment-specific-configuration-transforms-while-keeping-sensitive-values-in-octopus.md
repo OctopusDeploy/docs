@@ -10,7 +10,7 @@ Octopus Deploy has great support for transforming configuration files based on t
 As an example scenario, let's assume we have a web application that's being deployed to a Development, Staging, and Production environment, and you want to change your `Web.Config` file to reflect environment-specific values.
 
 
-![](/docs/images/3049047/3278464.png)
+![](/docs/images/3049047/3278464.png "width=500")
 
 
 There are three Octopus features that are commonly used to help provide an environment-specific configuration to your deployed application.
@@ -77,7 +77,7 @@ We also have a `Web.Release.Config` transform file with the following contents:
 Finally, we have the following variables configured:
 
 
-![](/docs/images/3049047/3278465.png)
+![](/docs/images/3049047/3278465.png "width=500")
 
 
 On deployment to your Staging environment, your process would go like this:

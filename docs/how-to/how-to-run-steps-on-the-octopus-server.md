@@ -19,10 +19,10 @@ Follow these steps to install a Tentacle on the Octopus Server.
 2. Configure the Tentacle in [listening mode](/docs/installation/installing-tentacles/listening-tentacles.md), and register it so that it appears in your [Environments](/docs/key-concepts/environments/index.md) tab.
 3. Assign the machine to all of your applicable environments, and give it a role like `octopus-server`:
 
-![](/docs/images/3702872/3964962.png)
+![](/docs/images/3702872/3964962.png "width=500")
 4. When configuring your step, you can now choose the `octopus-server` role as your target:
 
-![](/docs/images/3702872/3964961.png)
+![](/docs/images/3702872/3964961.png "width=500")
 
 
 ## Why do I have to install Tentacle? 

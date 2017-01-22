@@ -64,13 +64,13 @@ Of course, Bash scripts will only be supported on Linux / OSX Targets and PowerS
 Make sure that the scripts are included in your package. If you are using OctoPack for an ASP.NET web application, you'll need to make sure the file is marked as **Build Action =** **Content**.
 
 
-![](/docs/images/3048092/3277766.png)
+![](/docs/images/3048092/3277766.png "width=500")
 
 
 If you are using OctoPack to package a Windows Service or console application, set **Copy to Output Directory** = **Copy if newer**.
 
 
-![](/docs/images/3048092/3277765.png)
+![](/docs/images/3048092/3277765.png "width=500")
 
 
 Read more about [using OctoPack](/docs/packaging-applications/nuget-packages/using-octopack/index.md).
@@ -82,7 +82,7 @@ Read more about [using OctoPack](/docs/packaging-applications/nuget-packages/usi
 Rather than embed scripts in packages, you can also define scripts within the package step definition in Octopus. This is a feature that can be enabled on package steps:
 
 
-![](/docs/images/3048092/3277758.png)
+![](/docs/images/3048092/3277758.png "width=500")
 
 
 When enabled, you can define your PreDeploy/Deploy/PostDeploy scripts within the Octopus user interface:
@@ -91,7 +91,7 @@ When enabled, you can define your PreDeploy/Deploy/PostDeploy scripts within the
 
 
 
-![](/docs/images/3048092/5865605.png)
+![](/docs/images/3048092/5865605.png "width=500")
 
 ## Standalone scripts
 
@@ -99,7 +99,7 @@ When enabled, you can define your PreDeploy/Deploy/PostDeploy scripts within the
 Octopus also allows you to add standalone script steps to your deployment process. You can use standalone scripts to execute scripts on the Octopus Server or on [deployment targets](/docs/deployment-targets/index.md), where the script can be defined inline or as part of a package. Standalone scripts are so useful we've dedicated an entire page to them: [Standalone scripts](/docs/deploying-applications/custom-scripts/standalone-scripts.md).
 
 
-![](/docs/images/5671696/5865914.png)
+![](/docs/images/5671696/5865914.png "width=170")
 
 ## Azure PowerShell scripts
 
@@ -107,7 +107,7 @@ Octopus also allows you to add standalone script steps to your deployment proces
 You can manage your Azure subscription using custom PowerShell scripts and the Azure Resource Management (RM) or Service Management (SM) API - [more information](/docs/deploying-applications/custom-scripts/azure-powershell-scripts.md).
 
 
-![](/docs/images/5671696/5865912.png)
+![](/docs/images/5671696/5865912.png "width=170")
 
 
 For information about adding a step to the deployment process, see the [add step](http://docs.octopusdeploy.com/display/OD/Add+step) section.
@@ -231,7 +231,7 @@ When you call external scripts (sourced from a file inside a package) you can pa
 You can define your parameters in the **Script Parameters** field using the format expected by your scripting execution environment (see below for examples).
 
 
-![](/docs/images/3048092/5865635.png)
+![](/docs/images/3048092/5865635.png "width=500")
 
 :::hint
 **Delimiting string values**
@@ -428,7 +428,7 @@ Your scripts can emit variables that are available in subsequent deployment step
 This example is from the sample project in the [Channels Walkthrough](https://octopus.com/blog/channels-walkthrough#prerequisites) which is also available on our [demo server](https://demo.octopusdeploy.com/app#/projects/channels-sample). Step 1 calculates a name by convention, which is used by subsequent steps.
 
 
-![](/docs/images/3048092/5865520.png)
+![](/docs/images/3048092/5865520.png "width=500")
 
 ```powershell
 $appInstanceName = $OctopusParameters["Octopus.Action[Determine App Instance Name].Output.AppInstanceName"]
@@ -454,7 +454,7 @@ foreach ($vsix in $vsixPackages) {
 ```
 
 
-![](/docs/images/3048092/5865519.png)
+![](/docs/images/3048092/5865519.png "width=500")
 
 ## Security and permissions
 

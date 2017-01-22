@@ -200,7 +200,7 @@ Due to the different platform, some environment variables available on a windows
 Although there is no Tentacle involved with SSH endpoints there are still some useful metrics that are used to determine its health in regards to its ability to perform deployments. It is the absence of any dependencies (i.e. mono, tar) that deems the endpoint unhealthy (in addition to the typical checks of inability to even connect using the provided credentials) while an absence or out-of-date version of Calamari is considered only a warning as this will be updated when its required by a task.
 
 
-![](/docs/images/3048063/3277600.png)
+![](/docs/images/3048063/3277600.png "width=500")
 
 
 Note that due to the Tentacle being effectively a “virtual Tentacle” running on the server itself, if the endpoint is healthy it will indicate in the health logs that the running version is the same as the server version.

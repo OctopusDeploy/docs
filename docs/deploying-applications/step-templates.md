@@ -45,7 +45,7 @@ Octopus 3.7 introduced integration with the Community Library and community cont
 :::
 
 
-![](/docs/images/5671696/5866126.png)
+![](/docs/images/5671696/5866126.png "width=500")
 
 
 
@@ -67,15 +67,15 @@ It's also possible to create your own step templates.
 To install a step template from the Community Library, perform the following.
 
 1. Navigate to the **Step templates** tab in the **Library** area and select **Install** from the community step templates section
-    ![](/docs/images/5671696/5866132.png)
+    ![](/docs/images/5671696/5866132.png "width=500")
 2. Search for a specific step template or browse the categories to find the template you want to use
-![](/docs/images/5671696/5866128.png)
+![](/docs/images/5671696/5866128.png "width=500")
 3. Select **Install** or view the details of the step
-![](/docs/images/5671696/5866130.png)
+![](/docs/images/5671696/5866130.png "width=500")
 4. To confirm, select **install**
-![](/docs/images/5671696/5866131.png)
+![](/docs/images/5671696/5866131.png "width=500")
 5. Now you can add this new kind of step to your deployment process
-![](/docs/images/5671696/5866133.png)
+![](/docs/images/5671696/5866133.png "width=500")
 
 
 ### Importing a step template from the Community Library
@@ -84,15 +84,15 @@ To install a step template from the Community Library, perform the following.
 If you don't have the Community Library feature turned on you can still use community step templates by manually importing the JSON from the [Community Library](http://library.octopusdeploy.com/) into the step template library within Octopus.
 
 1. Navigate to the [Community Library](http://library.octopusdeploy.com/) website and find the template you want to use
-![](/docs/images/5671696/5866126.png)
+![](/docs/images/5671696/5866126.png "width=500")
 2. Click on the **Copy to clipboard** button. *Step Templates are transported as a JSON document containing all of the information required by Octopus.*
-*![](/docs/images/5671696/5866135.png)*
+*![](/docs/images/5671696/5866135.png "width=500")*
 3. Navigate to the **Step templates** tab in the **Library** area within the Octopus web portal and select **Import** from the custom step templates section
-![](/docs/images/5671696/5866134.png)
+![](/docs/images/5671696/5866134.png "width=500")
 4. Paste in the JSON document for the Step Template and click the **Import** button
-![](/docs/images/3048081/5865525.png)
+![](/docs/images/3048081/5865525.png "width=500")
 5. Now you can add this new kind of step to your deployment process
-![](/docs/images/5671696/5866151.png)
+![](/docs/images/5671696/5866151.png "width=500")
 
 
 ## Custom step step templates
@@ -109,11 +109,11 @@ Sometimes there isn't a step template for your situation available in the [Comm
 To create your own step template, perform the following.
 
 1. Navigate to the **Step templates** tab in the **Library** area and click the **Add** button
-![](/docs/images/5671696/5866134.png)
+![](/docs/images/5671696/5866134.png "width=500")
 2. Select a built-in step to base your custom step template on.
-![](/docs/images/5671696/5866153.png)
+![](/docs/images/5671696/5866153.png "width=500")
 3. Populate the step template. 
-![](/docs/images/5671696/5866154.png)
+![](/docs/images/5671696/5866154.png "width=500")
 
 
 
@@ -140,7 +140,7 @@ Any details that need to be specified at the project level can be handled using 
 The Parameters tab allows you to specify fields that will be filled out by the users of this step.
 
 
-![](/docs/images/3048081/3277659.png)
+![](/docs/images/3048081/3277659.png "width=500")
 
 
 You're required to give the parameter a variable name and label to use, as well as some optional help text and a default value.
@@ -149,7 +149,7 @@ You're required to give the parameter a variable name and label to use, as well 
 Finally, you can choose the way the field will appear to a user with the **Control type** field. There are a number of options available, however keep in mind the end result will be a variable with a string value.
 
 
-![](/docs/images/3048081/3277658.png)
+![](/docs/images/3048081/3277658.png "width=500")
 
 
 Any variables you configure as Parameters will be available as variables that can be used in the Step tab of the step template.
@@ -168,7 +168,7 @@ After saving your step, you'll notice another tab called Usage. This tab shows w
 You'll also see a handy counter next to the Usage tab so you can see at a glance how many projects are out-of-date.
 
 
-![](/docs/images/5671696/5866155.png)
+![](/docs/images/5671696/5866155.png "width=500")
 
 ### Custom logo
 
@@ -180,7 +180,7 @@ Custom logos are available in Octopus 3.7.0 or newer.
 Custom step templates inherit their logo from the template that was used to create them. This means that most of them will share the same logo. Fortunately this can be easily changed and each custom template can have its own unique logo. To do that navigate to the Settings tab and upload a custom logo from there.
 
 
-![](/docs/images/5671696/5866188.png)
+![](/docs/images/5671696/5866188.png "width=500")
 
 ### Linking custom step templates to community step templates
 
@@ -214,15 +214,15 @@ It's important to note that you can only run script based custom step templates.
 To run a script based step template, perform the following.
 
 1. Navigate to the **Step templates** tab in the **Library** area and click the **Run** button next to the script based custom step template or alternately, select a script template and click the **Run** button from the template editor page
-![](/docs/images/5671696/5866142.png)
+![](/docs/images/5671696/5866142.png "width=500")
 2. Select a group of targets to run the step on. This can be done by target name or by environments and roles.
-![](/docs/images/5671696/5866143.png)
+![](/docs/images/5671696/5866143.png "width=500")
 3. Enter any required parameters
-![](/docs/images/5671696/5866144.png)
+![](/docs/images/5671696/5866144.png "width=500")
 4. Click the **Run now** button. This will execute the step as a new task and provide the full script. 
-![](/docs/images/5671696/5866145.png)
-![](/docs/images/5671696/5866146.png)
-![](/docs/images/5671696/5866147.png)
+![](/docs/images/5671696/5866145.png "width=500")
+![](/docs/images/5671696/5866146.png "width=500")
+![](/docs/images/5671696/5866147.png "width=500")
 
 
 
@@ -240,7 +240,7 @@ Step Templates are effectively copied to projects using them. That means if you 
 If your project is using an out-of-date step template, you will see a warning when editing that step in the deployment process of your project. You can click the **Update** button to start using the latest version.
 
 
-![](/docs/images/5671696/5866156.png)
+![](/docs/images/5671696/5866156.png "width=500")
 
 
 
@@ -255,7 +255,7 @@ If you have a lot of projects using Step Templates, updating them can be time co
 If you want to transport, backup, or share your Step Templates with the community, you can export a template by finding your template in Library > Step templates, and clicking the **Export** link.
 
 
-![](/docs/images/5671696/5866157.png)
+![](/docs/images/5671696/5866157.png "width=500")
 
 
 Now you can take that exported template document and commit it to source control, or share it on the [Community Library](https://library.octopusdeploy.com/).

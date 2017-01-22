@@ -13,7 +13,7 @@ Some of the authentication providers allow external groups or roles to be added 
 Depending on which authentication providers you have enabled, the following buttons may appear on the Team page.
 
 
-![](/docs/images/5672303/5866190.png)
+![](/docs/images/5672303/5866190.png "width=694")
 
 ## Add Active Directory group
 

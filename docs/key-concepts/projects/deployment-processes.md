@@ -23,7 +23,7 @@ On this page:
 In the example shown below there are three steps that will be executed from top to bottom. The first is a [manual intervention](/docs/deploying-applications/manual-intervention-and-approvals.md) which executes on the Octopus Server pausing the deployment until someone intervenes and allow the deployment to continue. *You may have noticed this step will only execute when targeting the Production [environment](/docs/key-concepts/environments/index.md) - we'll talk more about that below.* The remaining steps both [deploy a package](/docs/deploying-applications/deploying-packages/index.md) and execute [custom scripts](/docs/deploying-applications/custom-scripts/index.md) on all of the [deployment targets](/docs/deployment-targets/index.md) with the [role](/docs/key-concepts/machine-roles.md) **web-server**.
 
 
-![](/docs/images/5671366/5865841.png)
+![](/docs/images/5671366/5865841.png "width=500")
 
 ## Example: A rolling deployment
 
@@ -31,7 +31,7 @@ In the example shown below there are three steps that will be executed from top 
 Let's consider a more complex example like the one shown below. In this example we have configured Octopus to deploy a web application across one or more servers in a web farm behind a load balancer. This process has a single **step** and three **actions** which form a [rolling deployment](/docs/patterns/rolling-deployments.md).
 
 
-![](/docs/images/5671366/5865842.png)
+![](/docs/images/5671366/5865842.png "width=500")
 
 
 
@@ -53,7 +53,7 @@ To fully leverage the power of Octopus deployments it helps to understand the di
 Let's look at the **Trading Website Rolling** step from our earlier example. It is configured to execute the actions across all deployment targets with the **web-server** role (this is the **context**), one deployment target at a time due to the **window size** of 1 (this is the **execution plan**). Learn more about [rolling deployments](/docs/patterns/rolling-deployments.md).
 
 
-![](/docs/images/5671366/5865843.png)
+![](/docs/images/5671366/5865843.png "width=500")
 
 
 This distinction between steps and actions has proven to be a really simple way to enable complex scenarios like rolling deployments, even though the distinction causes some confusion for our customers.
@@ -64,19 +64,19 @@ This distinction between steps and actions has proven to be a really simple way 
 By default, the list of steps in a deployment process are run sequentially from top-to-bottom, one after another.
 
 
-![](/docs/images/5671366/5865844.png)
+![](/docs/images/5671366/5865844.png "width=500")
 
 
 A step that is configured to execute across multiple deployment targets will execute across all of those deployment targets in parallel.
 
 
-![](/docs/images/5671366/5865847.png)
+![](/docs/images/5671366/5865847.png "width=500")
 
 
 You can define steps with multiple actions and apply a window size (like our earlier example) where the same step will execute across a limited number of deployment targets in parallel.
 
 
-![](/docs/images/5671366/5865848.png)
+![](/docs/images/5671366/5865848.png "width=500")
 
 
 For more information, see the section on [rolling deployments](/docs/patterns/rolling-deployments.md).
@@ -87,13 +87,13 @@ For more information, see the section on [rolling deployments](/docs/patterns/ro
 Steps and actions can also have conditions. You can restrict a step so that it only runs when deploying to specific [environments](/docs/key-concepts/environments/index.md) (e.g., an Email step that only runs on production deployments).
 
 
-![](/docs/images/3048075/3277617.png?effects=drop-shadow)
+![](/docs/images/3048075/3277617.png?effects=drop-shadow "width=500")
 
 
 If you have created some [channels](/docs/key-concepts/projects/channels.md), you can also specify whether a step runs only when deploying a release through specific channels (e.g., a Script step that only runs for deployments through certain channels to configure extra telemetry). *This will only appear if you have created one or more non-default channels.*
 
 
-![](/docs/images/3048075/3278573.png?effects=drop-shadow)
+![](/docs/images/3048075/3278573.png?effects=drop-shadow "width=500")
 
 
 You can also specify whether a step runs only when previous steps are successful (default), when a previous step fails, or always.
@@ -102,7 +102,7 @@ You can also specify whether a step runs only when previous steps are successful
 
 
 
-![](/docs/images/3048075/3277616.png?effects=drop-shadow)
+![](/docs/images/3048075/3277616.png?effects=drop-shadow "width=500")
 
 ## Working with the Octopus API
 

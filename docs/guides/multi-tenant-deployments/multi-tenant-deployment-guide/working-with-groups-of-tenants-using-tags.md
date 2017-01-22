@@ -18,13 +18,13 @@ Working with a small number of tenants is quite easy, they all fit on one page, 
 Consider the example of setting up new infrastructure as a shared host for multiple tenants: Instead of specifying each tenant by their name, you could tag each tenant as belonging to a shared pool, and add that single tag to each deployment target in the pool. You can [jump ahead in our guide](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md) if this is of interest to you.
 
 
-![](/docs/images/5669428/5865648.png)
+![](/docs/images/5669428/5865648.png "width=500")
 
 
 *In the example above we are configuring a single deployment target for each tenant individually - what a headache!*
 
 
-![](/docs/images/5669428/5865647.png)
+![](/docs/images/5669428/5865647.png "width=500")
 
 
 *In the example above we are configuring a single deployment target for a group of tenants using a single tag - what a dream!*
@@ -71,7 +71,7 @@ Let's create a tag set called **Tenant importance** with some tags that represe
 The result should look like the screen below:
 
 
-![](/docs/images/5669428/5865650.png)
+![](/docs/images/5669428/5865650.png "width=500")
 
 :::success
 Order is important for tag sets, and tags within those tag sets. Octopus will sort tag sets and tags based on the order you define in the library. This allows you to tailor the Octopus user interface to your own situation.
@@ -89,7 +89,7 @@ Let's tag your existing tenant to see how easy it is to work with tags.
 The result should look like the screen below:
 
 
-![](/docs/images/5669428/5865653.png)
+![](/docs/images/5669428/5865653.png "width=500")
 
 ### Step 3: Tailor the deployment process for VIP tenants
 
@@ -112,7 +112,7 @@ if ($tenantName) {
 ```
     *This script doesn't do anything, it just simulates sending an email to notify our VIP tenants of the new deployment.*
 3. Modify the step to make sure it is only executed when deploying our project for VIP tenants.
-    ![](/docs/images/5669428/5865655.png)
+    ![](/docs/images/5669428/5865655.png "width=500")
 
 
 
@@ -130,7 +130,7 @@ Clicking the Design/Preview link will open a dialog to help you design your tena
 The resulting deployment process should look like this:
 
 
-![](/docs/images/5669428/5865656.png)
+![](/docs/images/5669428/5865656.png "width=500")
 
 ### Step 4: Deploy the project to your VIP tenant
 
@@ -138,7 +138,7 @@ The resulting deployment process should look like this:
 Now this new step in your deployment process will execute when deploying to VIP tenants, but not for any other tenants.
 
 
-![](/docs/images/5669428/5865657.png)
+![](/docs/images/5669428/5865657.png "width=500")
 
 ### Step 5: Create and tag some more tenants to see the results
 
@@ -146,7 +146,7 @@ Now this new step in your deployment process will execute when deploying to VIP 
 To really see the benefit of tagging you could go and create some more tenants and tag them. The example shown below are taken from a fully built sample showing how tenant tags can help with your multi-tenant deployments.
 
 
-![](/docs/images/5669428/5865698.png)
+![](/docs/images/5669428/5865698.png "width=500")
 
 
 

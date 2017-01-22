@@ -52,7 +52,7 @@ Write-Host "URL: $hostURL"
 
 
 
-![](/docs/images/5669300/5865553.png)
+![](/docs/images/5669300/5865553.png "width=500")
 
 
 **That's it!**You are now ready to start connecting tenants to your project so you can deploy to those tenants, which is exactly what we will do in the next steps.

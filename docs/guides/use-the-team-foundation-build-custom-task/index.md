@@ -46,7 +46,7 @@ Click the **Manage Project** cog in the top right corner of the project screen.
 Click **New Service Endpoint** and choose **Generic**.
 
 
-![](/docs/images/3048587/3278381.png)
+![](/docs/images/3048587/3278381.png "width=500")
 
 
 Specify a **Connection Name** and specify the **Server Url** to your Octopus Server (including the port if required).
@@ -55,7 +55,7 @@ Specify a **Connection Name** and specify the **Server Url** to your Octopus
 You can enter anything for the **User name** (we don't use it), but make sure you put a valid [Octopus API Key](/docs/how-to/how-to-create-an-api-key.md) in the **Password/Token Key** field.
 
 
-![](/docs/images/3048587/3278382.png)
+![](/docs/images/3048587/3278382.png "width=500")
 
 
 After you've saved the connection, close the management window and click the refresh button next to the Manage link. You should now be able to choose the connection.
@@ -92,7 +92,7 @@ In the new Team Foundation build process, the arguments below should be in the 
 ```
 
 
-![](/docs/images/3048587/3278377.png)
+![](/docs/images/3048587/3278377.png "width=500")
 
 
 
@@ -130,10 +130,10 @@ This step is only required if you are not [using OctoPack](/docs/guides/use-the-
 Add a step to your Build or Release process, choose **Package**, click **Add** the **Package Application** task.
 
 
-![](/docs/images/3048587/5865473.png)
+![](/docs/images/3048587/5865473.png "width=500")
 
 
-![](/docs/images/3048587/5865474.png)
+![](/docs/images/3048587/5865474.png "width=500")
 
 
 See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octo.exe command-line options](/docs/packaging-applications/nuget-packages/using-octo.exe.md) for more details).
@@ -144,10 +144,10 @@ See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?
 If your Package Application step is part of your Build process and your Push Packages to Octopus step is part of your Release process, then you will need to add a **Utility -> Publish** Artifact step to make the package available to the Release process.
 
 
-![](/docs/images/3048587/5865475.png)
+![](/docs/images/3048587/5865475.png "width=500")
 
 
-![](/docs/images/3048587/5865476.png)
+![](/docs/images/3048587/5865476.png "width=500")
 
 ## Add a Push Package(s) to Octopus Step
 
@@ -155,10 +155,10 @@ If your Package Application step is part of your Build process and your Push Pac
 Add a step to your Build or Release process, choose **Package**, click **Add** the **Push Packages(s) to Octopus** task.
 
 
-![](/docs/images/3048587/5865477.png)
+![](/docs/images/3048587/5865477.png "width=500")
 
 
-![](/docs/images/3048587/5865724.png)
+![](/docs/images/3048587/5865724.png "width=500")
 
 
 See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octo.exe command-line options](/docs/api-and-integration/octo.exe-command-line/pushing-packages.md) for more details).
@@ -169,10 +169,10 @@ See the [Extension Marketplace page](https://marketplace.visualstudio.com/items
 Add a step to your Build or Release process, choose **Deploy**, click **Add** the **Create Octopus Release** task.
 
 
-![](/docs/images/3048587/5865479.png)
+![](/docs/images/3048587/5865479.png "width=500")
 
 
-![](/docs/images/3048587/5865480.png)
+![](/docs/images/3048587/5865480.png "width=500")
 
 
 See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octo.exe command-line options](/docs/api-and-integration/octo.exe-command-line/creating-releases.md) for more details).
@@ -181,7 +181,7 @@ See the [Extension Marketplace page](https://marketplace.visualstudio.com/items
 Enabling the Include Changeset Comments and/or Include Work Items options will result in release notes which include deep-links into the TFS Work Items and Changesets.
 
 
-![](/docs/images/3048587/3278502.png)
+![](/docs/images/3048587/3278502.png "width=500")
 
 ## Add a Deploy Octopus Release Step
 
@@ -189,10 +189,10 @@ Enabling the Include Changeset Comments and/or Include Work Items options will r
 Add a step to your Build or Release process, choose **Deploy**, click **Add** the **Deploy****Octopus Release** task.
 
 
-![](/docs/images/3048587/5865481.png)
+![](/docs/images/3048587/5865481.png "width=500")
 
 
-![](/docs/images/3048587/5865482.png)
+![](/docs/images/3048587/5865482.png "width=500")
 
 
 See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octo.exe command-line options](/docs/api-and-integration/octo.exe-command-line/deploying-releases.md) for more details).

@@ -75,7 +75,7 @@ We've crafted and packaged v1.0.0 of this sample application for you to try out 
 
 1. Download [MyApp.1.0.0.zip](/docs/attachments/MyApp.1.0.0.zip)
 2. [Upload it to the Octopus Built-In repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) (you can do this by going to *Library > Packages* and clicking the **Upload package** button)
-![](/docs/images/5672397/5866205.png?effects=drop-shadow)
+![](/docs/images/5672397/5866205.png?effects=drop-shadow "width=500")
 
 
 ### Step 2: Create the project, variables and deployment process
@@ -86,14 +86,14 @@ Now we need to create the project and configure it ready to deploy our JavaScrip
 1. Create a new Project and choose an appropriate Lifecycle for testing this sample application.
  1. Remember you need to target a web server running IIS in order to follow this guide verbatim.
 2. Configure some project variables to match the JavaScript shown above. *You can use these values or any other values you wish - we've chosen to show a [complex expression](/docs/deploying-applications/variables/binding-syntax.md) including an [Octopus System Variable](/docs/deploying-applications/variables/system-variables.md).*
-![](/docs/images/5672397/5866206.png?effects=drop-shadow)
+![](/docs/images/5672397/5866206.png?effects=drop-shadow "width=500")
 3. Configure the deployment process to deploy the MyApp package and host it in an IIS Web Site. Our web servers in this example belong to the **web-server** role.
-![](/docs/images/5672397/5866207.png?effects=drop-shadow)
+![](/docs/images/5672397/5866207.png?effects=drop-shadow "width=500")
 4. Configure the IIS Web Site you want Octopus to set up on your behalf.
-![](/docs/images/5672397/5866208.png?effects=drop-shadow)
-![](/docs/images/5672397/5866209.png?effects=drop-shadow)
+![](/docs/images/5672397/5866208.png?effects=drop-shadow "width=500")
+![](/docs/images/5672397/5866209.png?effects=drop-shadow "width=500")
 5. Enable the [Substitute Variables in Files](/docs/deploying-applications/substitute-variables-in-files.md) feature and configure it to replace the expressions in our `MyApp.html` file with variable values we defined earlier.
-![](/docs/images/5672397/5866210.png?effects=drop-shadow)
+![](/docs/images/5672397/5866210.png?effects=drop-shadow "width=500")
 
 
 ### Step 3: Deploy!
@@ -102,16 +102,16 @@ Now we need to create the project and configure it ready to deploy our JavaScrip
 Now when we create a release for this project and deploy it we can see that Octopus has found the `MyApp.html` file and substituted the variable values into our expressions.
 
 
-![](/docs/images/5672397/5866212.png?effects=drop-shadow)
+![](/docs/images/5672397/5866212.png?effects=drop-shadow "width=500")
 
 
 And finally when we load the application in our browser we can see the results have flowed all the way through from Octopus to first-class citizens in our AngularJS application!
 
 
-![](/docs/images/5672397/5866206.png?effects=drop-shadow)
+![](/docs/images/5672397/5866206.png?effects=drop-shadow "width=500")
 
 
-![](/docs/images/5672397/5866211.png?effects=drop-shadow)
+![](/docs/images/5672397/5866211.png?effects=drop-shadow "width=500")
 
 ### Step 4: Minify the JavaScript and deploy again!
 

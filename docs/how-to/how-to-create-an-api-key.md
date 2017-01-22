@@ -12,13 +12,13 @@ API keys allow you to access the Octopus Deploy [REST API](/docs/api-and-integra
 You can create API keys by performing the following steps:
 
 1. From the Octopus Deploy web portal, sign in, and view your profile:
-![](/docs/images/3048149/3278114.png)
+![](/docs/images/3048149/3278114.png "width=500")
 2. Go to the API keys tab. This lists any previous API keys that you have created. 
-![](/docs/images/3048149/3278113.png)
+![](/docs/images/3048149/3278113.png "width=500")
 3. Click on **New API key**, and give the API key a name that you can use to remember what the key was for. 
-![](/docs/images/3048149/3278112.png)
+![](/docs/images/3048149/3278112.png "width=500")
 4. Click **Generate new**, and copy the new API key to your clipboard:
-![](/docs/images/3048149/3278111.png)
+![](/docs/images/3048149/3278111.png "width=500")
 
 
 :::warning

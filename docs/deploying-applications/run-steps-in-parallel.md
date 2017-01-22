@@ -10,7 +10,7 @@ In Octopus 2.6 we added support to run steps in parallel. Before this feature, i
 To run steps in Parallel, simply create a deployment process with at least 2 steps:
 
 
-![](/docs/images/3048080/3277652.png)
+![](/docs/images/3048080/3277652.png "width=500")
 
 
 
@@ -19,13 +19,13 @@ To run steps in Parallel, simply create a deployment process with at least 2 ste
 Then edit the second step and change its *Start Trigger* to **Run in parallel with previous step.**
 
 
-![](/docs/images/3048080/3277651.png)
+![](/docs/images/3048080/3277651.png "width=500")
 
 
 After you hit save, you'll notice that the two steps are now tied up together, meaning they will run at the same time during the deployment.
 
 
-![](/docs/images/3048080/3277650.png)
+![](/docs/images/3048080/3277650.png "width=500")
 
 
 

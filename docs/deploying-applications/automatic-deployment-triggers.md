@@ -81,7 +81,7 @@ There are quite a few complexities to the decision making process for automatic 
 For Octopus 3.6 and above, you can select any machine-related event to cause an automatic deployment. We have also provided a convenient event-grouping mechanism to select a pre-defined group of events:
 
 
-![](/docs/images/5671191/5865884.png)
+![](/docs/images/5671191/5865884.png "width=500")
 
 
 
@@ -93,7 +93,7 @@ For Octopus 3.4 and 3.5, there are two types of events that can trigger an autom
 
 
 
-![](/docs/images/5671191/5865883.png)
+![](/docs/images/5671191/5865883.png "width=500")
 
 
 
@@ -122,7 +122,7 @@ Can I configure automatic deployments for a specific role or environment?
 Yes! You can apply a filter to the events to restrict which deployment targets will actually cause the trigger to fire, and consequently, which deployment targets will be automatically deployed to. Consider the example of an auto-scaling web farm shown below where we only want to trigger automatic deployments for **TradingWebServers** in the **Production** environment.
 
 
-![](/docs/images/5671191/5865833.png?effects=drop-shadow)
+![](/docs/images/5671191/5865833.png?effects=drop-shadow "width=500")
 
 ### Which release will be deployed automatically?
 
@@ -130,7 +130,7 @@ Yes! You can apply a filter to the events to restrict which deployment targets w
 The best way to answer this is to look at your dashboard or project overview. By default Octopus will re-run the *currently successful* deployment for the project/environment/tenant combination. The end result should be that the new deployment target is configured just like its counterparts.
 
 
-![](/docs/images/5671191/5865836.png?effects=drop-shadow)
+![](/docs/images/5671191/5865836.png?effects=drop-shadow "width=500")
 
 
 You can override this behavior by configuring an [Auto Deploy Override](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/index.md).
@@ -159,13 +159,13 @@ This should mimic the deployment process that was already run for all of the dep
 In this illustration below you can see the steps targeting the **RateServer** role will be ignored, but the rolling steps targeting the **TradingWebServer** role will be executed.
 
 
-![](/docs/images/5671191/5865837.png)
+![](/docs/images/5671191/5865837.png "width=500")
 
 :::success
 You can use the advanced deployment screen to see an approximation of the deployment process that will run for any combination of environment and roles by building a deployment to that environment and selecting an existing machine with matching roles.
 
 
-![](/docs/images/5671191/5865838.png?effects=drop-shadow)
+![](/docs/images/5671191/5865838.png?effects=drop-shadow "width=500")
 :::
 
 ### What happens with Manual Interventions and Guided Failures?
@@ -177,7 +177,7 @@ You can use the advanced deployment screen to see an approximation of the deploy
 We generally recommend avoiding the use of Manual Intervention steps unless absolutely necessary. If you need Manual Intervention steps to pause for manual deployments, but skip for automatic deployments, you can use a workaround: add the Manual Intervention step to a [Rolling Deployment](/docs/patterns/rolling-deployments.md) step which is targeted at a role that will never be part of an automatic deployment.
 
 
-![](/docs/images/5671191/5865839.png?effects=drop-shadow)
+![](/docs/images/5671191/5865839.png?effects=drop-shadow "width=500")
 :::
 
 ### What happens if I disable some steps?
@@ -301,7 +301,7 @@ Go to *Configuration > Diagnostics > Auto Deploy Logs*. The **verbose** logs usu
 `Auto-deploy: Machine 'Local' does not need to run release '2.6.6' for project 'My Project' and tenant '&lt;none&gt;' because it already exists on the machine or is pending deployment.`
 
 
-![](/docs/images/5669262/5865582.png)
+![](/docs/images/5669262/5865582.png "width=500")
 
 ### Investigate the audit messages
 

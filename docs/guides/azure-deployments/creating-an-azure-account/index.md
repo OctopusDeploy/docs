@@ -10,7 +10,7 @@ An Azure Account in Octopus Deploy contains the details of your Azure subscripti
 To create an Azure Account, navigate to *Environments -> Accounts* and click *Add Account* in the *Azure Subscriptions* section.
 
 
-![](/docs/images/3702887/3964985.png)
+![](/docs/images/3702887/3964985.png "width=500")
 
 ## Authentication Method
 
@@ -25,4 +25,4 @@ The divide in authentication-methods in Octopus reflects the divide within Azure
 
 
 
-![](/docs/images/3702887/3964986.png)
+![](/docs/images/3702887/3964986.png "width=500")

@@ -8,16 +8,16 @@ Script modules allow users to create *Powershell functions*or *Cmdlets* that co
 
 ## Creating a Script module
 
-1.  Click on **Library**->**Script Modules**->**Add Script Module**
+##   1.  Click on **Library**->**Script Modules**->**Add Script Module**
 
 
-**![](/docs/images/3048136/3278027.png)**
+**![](/docs/images/3048136/3278027.png "width=500")**
 
 
 2.  Name your new Script Module and click on **Save**
 
 
-**![](/docs/images/3048136/3278026.png)**
+**![](/docs/images/3048136/3278026.png "width=500")**
 
 
 3.  By default, your new script module will come with a function called *Say-Hello.* We will modify it a bit with the following code for the sake of showing a better example.
@@ -33,7 +33,7 @@ function Say-Hello($name)
 After inserting the modified function, the Script Module should look like this:
 
 
-![](/docs/images/3048136/3278025.png)
+![](/docs/images/3048136/3278025.png "width=500")
 
 
 Once this is done, click on **Save.**
@@ -66,19 +66,19 @@ Once you have created a Script Module, you can start using the functions contai
 1.  Go to your  and click on Include **Script Modules**
 
 
-**![](/docs/images/3048136/3278024.png)**
+**![](/docs/images/3048136/3278024.png "width=500")**
 
 
 A new window will pop up up, prompting you to select you script module. Select the module you just created (make sure the checkbox is checked) and hit **Apply**.
 
 
-![](/docs/images/3048136/3278023.png)
+![](/docs/images/3048136/3278023.png "width=500")
 
 
 You should now be able to see your module loaded on your Deployment Process
 
 
-![](/docs/images/3048136/3278022.png)
+![](/docs/images/3048136/3278022.png "width=500")
 
 
 2.  Add a  and call the *Say-Hello* function from it.
@@ -88,7 +88,7 @@ Say-Hello -name George
 ```
 
 
-![](/docs/images/3048136/3278021.png)
+![](/docs/images/3048136/3278021.png "width=500")
 
 
 Once you're done, hit **Save.**
@@ -104,4 +104,4 @@ Make sure to select a**Role**, an **Environment**and to put a **Step Name**
 4.  Check the Release task log and expand all the steps. You should be able to see the output of the *Say-Hello* function in there.
 
 
-![](/docs/images/3048136/3278020.png)
+![](/docs/images/3048136/3278020.png "width=500")

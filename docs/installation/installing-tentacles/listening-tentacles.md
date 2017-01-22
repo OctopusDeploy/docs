@@ -68,7 +68,7 @@ We have provided a detailed guide for [Troubleshooting Listening Tentacles](/doc
 The page shown should look like the one below.
 
 
-![](/docs/images/3048114/3277907.png)
+![](/docs/images/3048114/3277907.png "width=500")
 
 
 If you can browse to the Tentacle server, but Octopus is unable to communicate with it, try using remote desktop on the Octopus server and browsing to the Tentacle address using the format above. If you can't access the Tentacle, check any intermediary firewalls.

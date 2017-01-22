@@ -61,7 +61,7 @@ Verify the Tentacle communications settings
 *On the Tentacle machine*, open the Tentacle Manager application from the Start screen or Start menu.
 
 
-![](/docs/images/3048143/3278076.png)
+![](/docs/images/3048143/3278076.png "width=500")
 
 
 The application should show the service as running.
@@ -119,7 +119,7 @@ The Tentacle service can only be controlled by a trusted Octopus, but to help wi
 The page shown should look like the one below.
 
 
-![](/docs/images/3048143/3278074.png)
+![](/docs/images/3048143/3278074.png "width=500")
 
 
 If you've made it this far, good news! Your Tentacle is running and ready to accept connections.

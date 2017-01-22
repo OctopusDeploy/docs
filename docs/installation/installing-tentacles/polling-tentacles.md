@@ -68,7 +68,7 @@ You may be prompted to provide a client certificate, you can simply cancel this 
 :::
 
 
-![](/docs/images/3048113/3277906.png)
+![](/docs/images/3048113/3277906.png "width=500")
 
 
 If you can browse to the Octopus server listening endpoint, but Tentacle is unable to communicate with it, try using remote desktop on the Tentacle server and browsing to the Octopus listening endpoint address using the format above. If you can't access the Octopus server, check any intermediary firewalls.

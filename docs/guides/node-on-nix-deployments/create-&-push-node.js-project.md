@@ -50,7 +50,7 @@ npm start
 Navigating to **http://localhost:8081** you should see a page with words that appear to be missing. These will be populated in the config files during the deployment to the appropriate environment.
 
 
-![](/docs/images/3049551/3278578.png)
+![](/docs/images/3049551/3278578.png "width=500")
 
 ## Configure Publish Task
 
@@ -180,7 +180,7 @@ npm run publish
 The package should now show up in the built-in package feed in your Octopus Deploy instance.
 
 
-![](/docs/images/3049551/3278579.png)
+![](/docs/images/3049551/3278579.png "width=500")
 
 :::success
 While this guide executes the publish task from your local machine, you will likely set up your CI process to run with tests etc via some build tool such as Team City or Jenkins.

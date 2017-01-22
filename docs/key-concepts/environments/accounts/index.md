@@ -15,4 +15,4 @@ The types of accounts supported are:
 
 
 
-![](/docs/images/3048107/3277897.png)
+![](/docs/images/3048107/3277897.png "width=500")

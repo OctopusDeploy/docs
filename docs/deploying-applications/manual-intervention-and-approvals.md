@@ -21,13 +21,13 @@ To support these scenarios, you can add **Manual Steps** to your deployment proc
 Manual steps are one of the step types that appear when you click **Add step** on the **Process** tab of your project. For information about adding a step to the deployment process, see the [add step](http://docs.octopusdeploy.com/display/OD/Add+step) section.
 
 
-![](/docs/images/5671696/5865911.png)
+![](/docs/images/5671696/5865911.png "width=170")
 
 
 When you define a manual step, you specify some instructions for the step, and select a team of users who can *take responsibility* for the step.
 
 
-![](/docs/images/3048086/3277690.png)
+![](/docs/images/3048086/3277690.png "width=500")
 
 ## Assigning manual interventions
 
@@ -35,25 +35,25 @@ When you define a manual step, you specify some instructions for the step, and s
 When a deployment is executing and a manual step is encountered, the deployment will show a status of **Waiting**. An interruption will appear at the top of the deployment summary.
 
 
-![](/docs/images/3048086/3277689.png)
+![](/docs/images/3048086/3277689.png "width=500")
 
 
 You can click **show details** to view the instructions.
 
 
-![](/docs/images/3048086/3277688.png)
+![](/docs/images/3048086/3277688.png "width=500")
 
 
 If you are in the team of users that can take responsibility for the interruption, you'll also be able to assign the interruption to yourself. Interruptions can only be assigned to one person at a time - this is a simple way to prevent two people from accidentally performing the manual step.
 
 
-![](/docs/images/3048086/3277687.png)
+![](/docs/images/3048086/3277687.png "width=500")
 
 
 When the interruption has been assigned to you, you can then perform the action in the instructions, and then choose to either **Proceed** (allow the deployment to continue) or **Abort** (fail and stop the deployment from continuing):
 
 
-![](/docs/images/3048086/3277686.png)
+![](/docs/images/3048086/3277686.png "width=500")
 
 
 When aborting a deployment, it's a good idea to write a reason into the **Notes** field, so that the rest of the team can see why the deployment was aborted.

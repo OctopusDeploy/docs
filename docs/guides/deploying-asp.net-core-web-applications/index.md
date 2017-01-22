@@ -38,7 +38,7 @@ See the [ASP.NET Core IIS documentation](https://docs.asp.net/en/latest/publishi
 When running under IIS, ensure the Relative home directory is specified as "wwwroot" for compatibility with IIS.
 
 
-![](/docs/images/3702900/3964976.png)
+![](/docs/images/3702900/3964976.png "width=500")
 
 
 
@@ -49,10 +49,10 @@ When running under IIS, ensure the Relative home directory is specified as "w
 ASP.NET Core introduces a new JSON-based configuration file format. Octopus 3.3 introduced a new convention which can be used to update these JSON configuration files with Octopus variables
 
 
-![](/docs/images/3702900/5275655.png)
+![](/docs/images/3702900/5275655.png "width=500")
 
 
-![](/docs/images/3702900/5275656.png)
+![](/docs/images/3702900/5275656.png "width=500")
 
 
 For more information, see the section on the [JSON Configuration Variables Feature](/docs/guides/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md).

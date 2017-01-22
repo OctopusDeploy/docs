@@ -34,19 +34,19 @@ The Tentacle will be configured in [listening mode](/docs/installation/installin
 After creating a virtual machine on Azure using the management portal, browse to the virtual machine, then click on **Extensions**:
 
 
-![](/docs/images/3048116/3277917.png)
+![](/docs/images/3048116/3277917.png "width=500")
 
 
 Click **Add** to add a new extension.
 
 
-![](/docs/images/3048116/3277916.png)
+![](/docs/images/3048116/3277916.png "width=500")
 
 
 Select the **Octopus Deploy Tentacle Agent** extension, and click **Create**.
 
 
-![](/docs/images/3048116/3277915.png)
+![](/docs/images/3048116/3277915.png "width=500")
 
 
 The settings for the extension are:
@@ -74,7 +74,7 @@ After a few minutes, the machine should appear in the environments tab of your O
 When you first add the extension, the machine may appear in the environments tab, but it will be offline:
 
 
-![](/docs/images/3048116/3277910.png)
+![](/docs/images/3048116/3277910.png "width=500")
 
 
 This is because the Octopus server is now trying to connect to the VM using the listen port that you configured. When the extension is enabled, it automatically adds a firewall rule to allow incoming traffic on that port. However, an Endpoint also needs to be registered in the VM configuration on Azure to allow this traffic.
@@ -83,7 +83,7 @@ This is because the Octopus server is now trying to connect to the VM using the 
 To add the endpoint, browse to the VM in the Azure portal, then click **Endpoints**, then **Add**, and enter the endpoint details.
 
 
-![](/docs/images/3048116/3277913.png)
+![](/docs/images/3048116/3277913.png "width=500")
 
 ## Command line
 
@@ -186,11 +186,11 @@ $secGrp | Set-AzureRmNetworkSecurityGroup
 If, for some reason, the machine fails to register after 20 minutes, you can access logs on the VM to determine what went wrong.
 
 1. Use the **connect** button on the VM to set up a remote desktop connection.
-![](/docs/images/3048116/3277912.png)
+![](/docs/images/3048116/3277912.png "width=500")
 For more information, see [How to Log on to a Virtual Machine](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-log-on-windows-server/).
 2. In the remote desktop session, open Windows Explorer, and browse to `C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\1.3.0.0`
 3. In this folder, you'll find a number of text files. Open these to view the output of the commands, and look for any error messages. 
-![](/docs/images/3048116/3277911.png)
+![](/docs/images/3048116/3277911.png "width=500")
 
 
 
