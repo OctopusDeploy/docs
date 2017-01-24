@@ -10,7 +10,7 @@ This guide can be used with an AWS AMI instance of Ubuntu 14.04 LTS or an Azure 
 
 Deploying projects over [SSH](/docs/deployment-targets/ssh-targets/index.md) has some slightly different requirements to a standard Tentacle. Although you don't need to install and run a Tentacle service, there is some configuration that is required to allow Calamari to run on non Windows systems.
 
-## Install Mono
+## Install Mono {#ConfiguringTargetMachine-InstallMono}
 
 :::hint
 **Authoritative Documention**
@@ -27,7 +27,7 @@ sudo apt-get update
 sudo apt-get install mono-complete
 ```
 
-## Add User
+## Add User {#ConfiguringTargetMachine-AddUser}
 
 
 Rather than connecting and deploying your application as the root user, you should create a custom user account that will be used for the purposes of deployment. The login credentials will then be able to be easily revoked without affecting other users who access the machine. Resources will also be able to be more granularly assigned, allowing greater control if the account is used maliciously.
@@ -55,7 +55,7 @@ sudo sed -i.bak -e s/'PasswordAuthentication no'/'PasswordAuthentication yes'/g 
 sudo restart ssh
 ```
 
-## Install Application Dependencies
+## Install Application Dependencies {#ConfiguringTargetMachine-InstallApplicationDependencies}
 
 
 In this step we will install [NodeJS](https://nodejs.org), [npm](https://www.npmjs.com/) and [pm2](https://github.com/Unitech/pm2) which are required for hosting the sample application.

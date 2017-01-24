@@ -24,9 +24,9 @@ On this page:
  - Check OpenID Connect metadata is working
  - Inspect the contents of the security token
 
-# Configuring GoogleApps
+# Configuring GoogleApps {#GoogleAppsauthentication-ConfiguringGoogleApps}
 
-## Set up an App
+## Set up an App {#GoogleAppsauthentication-SetupanApp}
 
 
 To configure an App within GoogleApps, you must have a Developer account at [https://developers.google.com](https://developers.google.com).  This account will own the App configuration, so we recommend you create an account for company use, rather than using an individual account.
@@ -52,7 +52,7 @@ Be aware that the path in this url after the domain name was **case sensitive** 
 That's OK, you can use `http` if you do not have SSL enabled on your Octopus Server. Please beware of the security implications in accepting a security token over an insecure channel.
 :::
 
-# Configuring Octopus Deploy Server
+# Configuring Octopus Deploy Server {#GoogleAppsauthentication-ConfiguringOctopusDeployServer}
 
 
 There is currently no UI for configuring Octopus to use GoogleApps - it must be configured from the command line. You will need the **Client ID** from the Credentials tab and your **hosted domain name**.
@@ -65,7 +65,7 @@ Octopus.Server.exe configure --googleAppsIsEnabled=true --googleAppsClientId=Cli
 ```
 
 
-## Octopus user accounts are still required
+## Octopus user accounts are still required {#GoogleAppsauthentication-Octopususeraccountsarestillrequired}
 
 
 Even if you are using an external identity provider, Octopus still requires a [user account](http://docs.octopusdeploy.com/display/OD/Managing+users+and+teams) so you can assign those people to Octopus teams and subsequently grant permissions to Octopus resources. Octopus will automatically create a [user account](http://docs.octopusdeploy.com/display/OD/Managing+users+and+teams) based on the profile information returned in the security token, which includes an **Identifier**, **Name**, and **Email Address**.
@@ -80,7 +80,7 @@ When the security token is returned from the external identity provider, Octopus
 If you already have Octopus user accounts and you want to enable external authentication, simply make sure the Email Address matches in both Octopus and the external identity provider. This means your existing users will be able to sign in using an external identity provider and still belong to the same teams in Octopus.
 :::
 
-# Troubleshooting
+# Troubleshooting {#GoogleAppsauthentication-Troubleshooting}
 
 
 We do our best to log warnings to your Octopus Server log whenever possible. If you are having difficulty configuring Octopus to authenticate with GoogleApps, be sure to check your [server logs](/docs/reference/log-files.md) for warnings.
@@ -88,7 +88,7 @@ We do our best to log warnings to your Octopus Server log whenever possible. If
 
 
 
-### Double and Triple check your configuration
+### Double and Triple check your configuration {#GoogleAppsauthentication-DoubleandTriplecheckyourconfiguration}
 
 
 
@@ -107,7 +107,7 @@ Unfortunately security-related configuration is sensitive to everything. Make su
 
 
 
-### Check OpenID Connect metadata is working
+### Check OpenID Connect metadata is working {#GoogleAppsauthentication-CheckOpenIDConnectmetadataisworking}
 
 
 
@@ -118,7 +118,7 @@ You can see the OpenID Connect metadata by going to [https://accounts.google.co
 
 
 
-### Inspect the contents of the security token
+### Inspect the contents of the security token {#GoogleAppsauthentication-Inspectthecontentsofthesecuritytoken}
 
 
 

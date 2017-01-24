@@ -25,7 +25,7 @@ On this page:
 - Hosting packages
 - What's in a package?
 
-## Creating packages
+## Creating packages {#Packagingapplications-Creatingpackages}
 
 
 How you create your packages depends on which package type you wish to create. Octopus generally treats all packages the same, so choose the tooling and package type that is easiest for you to create. For example:
@@ -47,12 +47,12 @@ As long as you can create one of our [supported packages](/docs/packaging-applic
 When creating your packages you will need to choose a versioning scheme that is supported by Octopus Deploy and suits your needs. Learn about [versioning in Octopus Deploy](/docs/packaging-applications/versioning-in-octopus-deploy.md).
 :::
 
-## Hosting packages
+## Hosting packages {#Packagingapplications-Hostingpackages}
 
 
 Packages are kept in package repositories (or feeds). A repository can be as simple as a file share, or it could be a dedicated server. For more information, see the section on [choosing a package repository](/docs/packaging-applications/package-repositories/index.md).
 
-## What's in a package?
+## What's in a package? {#Packagingapplications-What&#39;sinapackage?}
 
 
 Octopus expects your package to contain all of the files needed to run the application when it is deployed (along with [any scripts needed for deployment](/docs/deploying-applications/custom-scripts/index.md), and any [configuration transformation files](/docs/deploying-applications/configuration-files/index.md), etc).

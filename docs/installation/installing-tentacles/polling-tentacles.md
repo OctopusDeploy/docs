@@ -28,7 +28,7 @@ The communication protocol used by Octopus and Tentacle 3.4 and above supports p
 If you are using a version of Octopus/Tentacle prior to 3.4 you will need to arrange a bypass/exception for traffic initiated from the Tentacle to the Octopus server on the configured TCP Port (port **10943** by default).
 :::
 
-## Installation
+## Installation {#PollingTentacles-Installation}
 
 :::success
 **Download the Tentacle MSI**
@@ -38,7 +38,7 @@ The latest Tentacle MSI can always be [downloaded from the Octopus Deploy downlo
 
 This three minute video (with captions) will walk you through the process of installing a Tentacle in polling mode, and registering it with your [Octopus Deploy server](/docs/installation/installing-octopus/index.md).
 
-## Firewall changes
+## Firewall changes {#PollingTentacles-Firewallchanges}
 
 
 To allow Tentacle to connect to your Octopus Deploy server, you'll need to allow access to port **10943** on the Octopus server (or the port you selected during the installation wizard - port 10943 is just the default). You will also need to allow Tentacle to access the Octopus HTTP web portal (typically port **80** or**443**- these bindings are selected when you [install the Octopus Deploy server](/docs/installation/installing-octopus/index.md)).
@@ -54,7 +54,7 @@ Using polling mode, you won't typically need to make any firewall changes on the
 Don't forget to allow access not just in Windows Firewall, but also any intermediary firewalls between the Tentacle and your Octopus server. For example, if your Octopus server is hosted in Amazon EC2, you'll also need to modify the AWS security group firewall to tell EC2 to allow the traffic. Similarly if your Octopus server is hosted in Microsoft Azure you'll also need to add an Endpoint to tell Azure to allow the traffic.
 :::
 
-## Troubleshooting
+## Troubleshooting {#PollingTentacles-Troubleshooting}
 
 
 We have provided a detailed guide for [Troubleshooting Polling Tentacles](/docs/how-to/troubleshoot-polling-tentacles.md) but feel free to start with these simple steps.

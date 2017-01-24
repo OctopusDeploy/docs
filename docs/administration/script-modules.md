@@ -6,9 +6,9 @@ position: 7
 
 Script modules allow users to create *Powershell functions*or *Cmdlets* that could later on be used in deployment processes across multiple projects. You can think of them as regular Powershell Modules that will get loaded at deploy time.
 
-## Creating a Script module
+## Creating a Script module {#ScriptModules-CreatingaScriptmodule}
 
-##   1.  Click on **Library**->**Script Modules**->**Add Script Module**
+##   1.  Click on **Library**->**Script Modules**->**Add Script Module** {#ScriptModules-1.ClickonLibrary-&gt;ScriptModules-&gt;AddScriptModule}
 
 
 **![](/docs/images/3048136/3278027.png "width=500")**
@@ -57,13 +57,13 @@ function Say-Hello($name) {
 
 
 
-## Using a Script Module on a Deployment
+## Using a Script Module on a Deployment {#ScriptModules-UsingaScriptModuleonaDeployment}
 
 
 Once you have created a Script Module, you can start using the functions contained on it on your deployment processes.
 
 
-1.  Go to your  and click on Include **Script Modules**
+1.  Go to your **[Deployment Process](/docs/deploying-applications/index.md)** and click on Include **Script Modules**
 
 
 **![](/docs/images/3048136/3278024.png "width=500")**
@@ -81,7 +81,7 @@ You should now be able to see your module loaded on your Deployment Process
 ![](/docs/images/3048136/3278022.png "width=500")
 
 
-2.  Add a  and call the *Say-Hello* function from it.
+2.  Add a **[Standalone Powershell Script step](/docs/deploying-applications/custom-scripts/index.md)** and call the *Say-Hello* function from it.
 
 ```powershell
 Say-Hello -name George

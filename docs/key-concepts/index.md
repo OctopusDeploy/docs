@@ -6,7 +6,7 @@ position: 2
 
 Words like "release" and "deployment" are no doubt terms that you've used in your organisation prior to using Octopus Deploy. Perhaps you use them interchangeably, or perhaps they have well defined meanings. As you begin to use and master Octopus, there's some potential for confusion - the concept of a Release as implemented in Octopus might be very different to the concept of a Release currently in use in your organization. This page provides a high-level overview of the various concepts that exist in Octopus, to help to eliminate that confusion.
 
-## How to think like an Octopus
+## How to think like an Octopus {#KeyConcepts-HowtothinklikeanOctopus}
 
 
 Like all software, Octopus is designed around model of a specific problem domain - in our case, the domain of deployment automation. In order to truly understand how Octopus works and how to get the best use out of it, it's helpful to take the time to understand our model and some of the terms that we use. It's helpful to think like an Octopus!
@@ -16,7 +16,7 @@ Like all software, Octopus is designed around model of a specific problem domai
 If you are a fan of [Domain Driven Design](http://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215), think of this page as an outline of our domain model or Ubiquitous Language.
 :::
 
-## Environments, machines and roles
+## Environments, machines and roles {#KeyConcepts-Environments,machinesandroles}
 
 
 Before you can deploy software, you need somewhere to deploy it *to*. Any non-trivial application is likely to run on more than one server - you might have Windows Services that run on application servers, or ASP.NET applications that run under IIS on web servers. Each of these servers, whether physical or virtual machines, would be a *machine* within Octopus. A group of these machines that are deployed to at the same time is called an *environment*. An environment is made up of multiple *machines*, and each machine is tagged with a set of *roles*.
@@ -58,7 +58,7 @@ Machines can also belong to more than one environment, although this is not very
 That is a summary of how Octopus models environments and machines, and what the terms mean. To actually deploy software to the remote machines, Octopus relies on agent software called Tentacle. You can read more about [installing Tentacle](/docs/installation/installing-tentacles/index.md) and [managing environments](/docs/key-concepts/environments/index.md).
 :::
 
-## Projects, deployment processes, lifecycles and variables
+## Projects, deployment processes, lifecycles and variables {#KeyConcepts-Projects,deploymentprocesses,lifecyclesandvariables}
 
 
 A *project* is one of the most important concepts in Octopus. A project defines:
@@ -93,7 +93,7 @@ Importantly, steps are run in a specific order, like following a recipe. It woul
 
 When you define a project, you also select a [lifecycle](/docs/key-concepts/lifecycles.md). The lifecycle defines the rules around how releases of the project are allowed to be deployed between environments.
 
-## Releases and deployments
+## Releases and deployments {#KeyConcepts-Releasesanddeployments}
 
 
 The deployment process for a project specifies how the project will be deployed. But Octopus isn't designed to deploy something just once; it's designed to deploy the same project over, and over, and over, and over. It's designed for teams that follow agile software development methods, continuously deploying software to environments, getting feedback, making changes, and then deploying again.
@@ -110,17 +110,17 @@ In Octopus, a release is a snapshot of the *deployment process*and*variables,* 
 
 Each time you have a new candidate build that is ready to test, you'll create a *release*. When you apply a release to an environment, that is a *deployment*.
 
-## Channels
+## Channels {#KeyConcepts-Channels}
 
 
 When you start working with Octopus you will typically be creating releases from your main source code branch that are considered to be release candidates for your final production environment. Over time you may find you want to start working on an experimental branch of code, perhaps to introduce a new feature, or an entirely new version of your software. In this case you can either create an entirely new project, or clone the existing project, to manage deployments of this experimental software - but that leads to a lot of possible duplication and rework. In Octopus 3.2 we introduced the concept of [*channels* ](/docs/key-concepts/projects/channels.md)which let you modify the entire deployment process on a per-release basis, all within the same project. For example, you can promote releases created from your main code branch through to your production environment, but restrict releases created from your experimental feature branch to a special test environment perhaps with extra steps and variables.
 
-## Tenants
+## Tenants {#KeyConcepts-Tenants}
 
 
 Over time your software may become so successful that you on-sell it to some external customers, and due to the way the software is architected, you need to deploy a copy of the software once per customer. You could achieve this in Octopus by creating an environment-per-customer, or even a project-per-customer, but this leads to duplication and unnecessary complexity. In Octopus 3.4 we introduced the concept of [*tenants* ](/docs/key-concepts/tenants/index.md)that you can manage alongside your existing projects and environments.
 
-## In this section
+## In this section {#KeyConcepts-Inthissection}
 
 
 The rest of this section covers these topics in some more detail, and explains how to implement them.

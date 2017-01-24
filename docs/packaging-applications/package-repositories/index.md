@@ -61,7 +61,7 @@ If you are using VSTS Package Management, Octopus can consume either the v2 or v
 - To connect to the v2 URL, you can use either [alternate credentials or a Personal Access Token](https://www.visualstudio.com/en-us/docs/integrate/get-started/auth/overview) in the password field.
 :::
 
-## Choosing the right repository
+## Choosing the right repository {#Packagerepositories-Choosingtherightrepository}
 
 :::success
 The Octopus built-in repository is generally the best choice for deployment packages because it offers better performance and most suitable [retention policies](/docs/administration/retention-policies/index.md).
@@ -77,7 +77,7 @@ Our recommendation is to use different repositories for different purposes, and 
 
 This configuration will make it easier to find the right packages for the right purpose, but the most important benefit of the built-in repository is that Octopus Deploy knows exactly which deployment packages are still required according to the [retention policies](/docs/administration/retention-policies/index.md) you have configured, and which packages can be cleaned up.
 
-## Using the built-in repository
+## Using the built-in repository {#Packagerepositories-Usingthebuilt-inrepository}
 
 
 Your Octopus server comes with a built-in repository which is the best choice for deployment packages. It offers **better performance** for your deployments and the most **robust [retention policy](/docs/administration/retention-policies/index.md)****support** for deployment packages.
@@ -87,7 +87,7 @@ Your Octopus server comes with a built-in repository which is the best choice fo
 It is important to understand that the Octopus server provides a write-only repository; intended for hosting deployment packages only. Packages that are pushed to the Octopus server can't be consumed by other NuGet clients like Visual Studio. If you need a NuGet feed for sharing libraries between your development projects, a separate NuGet repository is required.
 :::
 
-### Pushing packages to the built-in repository
+### Pushing packages to the built-in repository {#Packagerepositories-Pushingpackagestothebuilt-inrepository}
 
 
 We offer several ways to add packages to the built-in repository, so many that we built a new page: [pushing packages to the built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md). Alternatively you can go to *Library > Packages* which describes some of the most convenient ways to push packages to the built-in repository.
@@ -99,7 +99,7 @@ We offer several ways to add packages to the built-in repository, so many that w
 To push packages to the built-in repository you will need an [Octopus API key](/docs/how-to/how-to-create-an-api-key.md).
 :::
 
-### Security considerations
+### Security considerations {#Packagerepositories-Securityconsiderations}
 
 
 To add a new package to the built-in feed requires the `BuiltInFeedPush` permission. To delete a package, or replace an existing package requires the `BuiltInFeedAdminister` permission.
@@ -117,7 +117,7 @@ Instead of using your own API key, consider using a [Service Account](/docs/admi
 If you are using [automatic release creation](/docs/deploying-applications/automatic-release-creation.md) you will also require the permissions to create a release for all of the relevant projects in the required environments. To diagnose issues with pushing packages used for automatic release creation follow the troubleshooting guide on the [automatic release creation](/docs/deploying-applications/automatic-release-creation.md) page.
 :::
 
-### Moving the location of the built-in repository
+### Moving the location of the built-in repository {#Packagerepositories-Movingthelocationofthebuilt-inrepository}
 
 
 In 3.0 you can now configure the directory that these packages are kept in. You will need to follow the steps below or you may lose some data.
@@ -135,7 +135,7 @@ Octopus.Server.exe path --nugetRepository=your new location
 
 The restart of the service will re-index the directory. If it is missing files, they will then go missing from the internal repository and again from your releases. So be sure that all files are moved.
 
-## Using external repositories
+## Using external repositories {#Packagerepositories-Usingexternalrepositories}
 
 :::hint
 **Only NuGet feeds are supported**
@@ -173,7 +173,7 @@ On the test page, you can check whether the feed is working by searching for pac
 
 ![](/docs/images/3048094/3277772.png "width=500")
 
-## NuGet.Server performance
+## NuGet.Server performance {#Packagerepositories-NuGet.Serverperformance}
 
 
 A popular external NuGet hosting option is **NuGet.Server.**However, be aware that it suffers from performance problems when dealing with large packages or large numbers of smaller packages. Users may report high CPU usage, timeouts when displaying package details, or memory issues. A great alternative that we recommend is [NuGet.Lucene](https://github.com/themotleyfool/NuGet.Lucene).
@@ -181,7 +181,7 @@ A popular external NuGet hosting option is **NuGet.Server.**However, be aware t
 
 The built-in NuGet server in Octopus stores metadata in SQL Server, and doesn't suffer from these performance issues.
 
-## Troubleshooting
+## Troubleshooting {#Packagerepositories-Troubleshooting}
 
 - For network file shares, keep in mind that Octopus and Tentacle run under system accounts by default, which may not have access to the file share
 - NuGet.Server only allows 30MB packages [by default](http://help.octopusdeploy.com/discussions/problems/184-30mb-default-maximum-nuget-package-size)

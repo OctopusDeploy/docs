@@ -36,7 +36,7 @@ Prior to Octopus 3.7, selecting the add step button showed a popup list of built
 
 
 
-## Adding an installed step
+## Adding an installed step {#Addingsteps-Addinganinstalledstep}
 
 
 The add step page displays the built-in steps first which includes common steps to deploy IIS web sites, windows services, run scripts and more.  The built-in steps have been develop by the Octopus team to handle the most common deployment scenarios and it also.  This section also includes any custom [step templates](/docs/deploying-applications/step-templates.md) added in the library.  Hover over a step and click add step to go configure the step.
@@ -44,7 +44,7 @@ The add step page displays the built-in steps first which includes common steps 
 
 ![](/docs/images/5671696/5866045.png "width=300")
 
-## Adding a community contributed step templates
+## Adding a community contributed step templates {#Addingsteps-Addingacommunitycontributedsteptemplates}
 
 
 The add step page also displays community contributed step templates available to install and add.  You can search for a specific template or you can browse through the categories.  Installing a community step template is easy.  Hover over a step and select Install and add step.  This will display a pop-up dialog where you can confirm to install and add the step.  This will take you to the configuration page for the step template.
@@ -61,7 +61,7 @@ If you select view details, this will take you to the community step details pag
 
 ![](/docs/images/5671696/5866114.png "width=500")
 
-## Adding an updated version of a community step template
+## Adding an updated version of a community step template {#Addingsteps-Addinganupdatedversionofacommunitysteptemplate}
 
 
 Sometimes updates are available for step templates.  In this case, you will notice the step template has an option to update the step.  If you select update, this will take you to the community step details with the option to update the latest version of the step template.  Community step templates can also be updated in the library as needed.

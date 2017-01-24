@@ -27,7 +27,7 @@ If you only have a small number of Tentacles, it's easiest to just download the 
 
 Read the full guide: [Manual upgrades for smaller instances](/docs/administration/upgrading/upgrading-from-octopus-2.6/manual-upgrade.md)
 
-## Larger installations
+## Larger installations {#UpgradingfromOctopus2.6-Largerinstallations}
 
 
 > "I have lots of Tentacles; there's no way I'm manually updating them all!"
@@ -43,7 +43,7 @@ Please pay careful attention to the instructions in these guides; if you skip ah
 
 There are two approaches you can use to upgrade from 2.6 to 3.x:
 
-### Approach 1: Install 3.x on a new server, and migrate to it (recommended)
+### Approach 1: Install 3.x on a new server, and migrate to it (recommended) {#UpgradingfromOctopus2.6-Approach1:Install3.xonanewserver,andmigratetoit(recommended)}
 
 
 If you are able to provision a new Octopus server, this is the safest option. That way, if something goes wrong in the upgrade, it will be easy to discard the new server and start the process again. And when it works, you can decommission the old Octopus server.
@@ -51,7 +51,7 @@ If you are able to provision a new Octopus server, this is the safest option. Th
 
 Read the full guide: [Upgrade with a new Server instance](/docs/administration/upgrading/upgrading-from-octopus-2.6/upgrade-with-a-new-3.0-server-instance.md)
 
-### Approach 2: In-place (over the top) upgrade of an existing server
+### Approach 2: In-place (over the top) upgrade of an existing server {#UpgradingfromOctopus2.6-Approach2:In-place(overthetop)upgradeofanexistingserver}
 
 
 It is possible to install Octopus 3.x over the top of a 2.6 instance. You'll upgrade the Tentacles to 3.x, then upgrade the Octopus server.

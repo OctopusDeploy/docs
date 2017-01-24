@@ -22,7 +22,7 @@ Most data used by the Octopus Server nodes is stored in this database.
 Some larger files - like [NuGet packages](/docs/packaging-applications/package-repositories/index.md), artifacts, and deployment task logs - aren't suitable to be stored in the database, and so must be stored in a shared folder available to all nodes.
 
 
-# Setting up Octopus: High Availability
+# Setting up Octopus: High Availability {#HighAvailability-SettingupOctopus:HighAvailability}
 
 
 This section will walk you through the different options and considerations for setting up Octopus: HA. For the sake of simplicity, the guide assumes that all of the servers are on-premises and are part of an Active Directory domain, as this is the most common configuration. Octopus: HA can work without the servers being part of an AD domain, but you'll need to vary the instructions accordingly.
@@ -30,7 +30,7 @@ This section will walk you through the different options and considerations for 
 
 Learn more: [Configuring Octopus for High Availability](/docs/administration/high-availability/configuring-octopus-for-high-availability.md)
 
-# Controlling and managing nodes
+# Controlling and managing nodes {#HighAvailability-Controllingandmanagingnodes}
 
 
 One great benefit of Octopus: HA is the ability to update and restart one or more nodes, while still allowing the rest of the Octopus Deploy cluster to keep serving requests and performing deployments.

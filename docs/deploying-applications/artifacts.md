@@ -24,12 +24,12 @@ After the script runs the files will be uploaded to Octopus Server and made avai
 
 ![](/docs/images/3048122/3277920.png "width=500")
 
-## Collecting artifacts using scripts
+## Collecting artifacts using scripts {#Artifacts-Collectingartifactsusingscripts}
 
 
 You can collect artifacts using any of the scripting languages supported by Octopus. In each case we make special functions available to your scripts by bootstrapping them with a template defined in the [open-source Calamari project](https://github.com/OctopusDeploy/Calamari).
 
-### PowerShell
+### PowerShell {#Artifacts-PowerShell}
 
 
 [PowerShell Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari/Integration/Scripting/WindowsPowerShell)
@@ -50,7 +50,7 @@ For example:
 New-OctopusArtifact -Path "C:\Windows\System32\drivers\etc\hosts" -Name "$([System.Environment]::MachineName)-hosts.txt" 
 ```
 
-### C#
+### C# {#Artifacts-C#}
 
 
 [ScriptCS Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari/Integration/Scripting/ScriptCS)
@@ -69,7 +69,7 @@ Octopus.CreateArtifact(@"C:\Windows\System32\drivers\etc\hosts", System.Environm
 The `fileName` optional parameter was [added](https://github.com/OctopusDeploy/Calamari/commit/2d5a5d27c9a0dc0c623e5e955a370c2b012fbdd4) in Calamari 3.1.24 which shipped as part of Octopus 3.2.12
 :::
 
-### Bash
+### Bash {#Artifacts-Bash}
 
 
 [Bash Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari/Integration/Scripting/Bash)
@@ -83,7 +83,7 @@ In a Bash script you can use the `new_otopusartifact`function to collect artifac
 new_octopusartifact /etc/hosts $(hostname)-hosts.txt
 ```
 
-### F#
+### F# {#Artifacts-F#}
 
 :::success
 F# support is available in Octopus Deploy 3.4 (or newer).

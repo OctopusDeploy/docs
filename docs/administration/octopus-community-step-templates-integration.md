@@ -25,12 +25,12 @@ NOTE: The relevant permissions to install and manage step templates are ActionTe
 The community step template synchronization process works great with proxy servers.  For more information, see [Proxy support](/docs/installation/installing-tentacles/proxy-support.md).
 :::
 
-## Community step template linking
+## Community step template linking {#Octopuscommunitysteptemplatesintegration-Communitysteptemplatelinking}
 
 
 Coming soon
 
-## Troubleshooting
+## Troubleshooting {#Octopuscommunitysteptemplatesintegration-Troubleshooting}
 
 
 If the Octopus community step templates feature toggle is enabled but you don't see any community steps, navigate to the **Features** tab in the **Configuration** area.  Click on the last sync period (i.e. 5 minutes ago or 10 hours ago) to view the most recent sync task and review it's log.  If there are any errors, compare them with the list below.

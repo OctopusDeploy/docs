@@ -20,7 +20,7 @@ On this page:
  - Using a Managed Service Account (MSA)
 - Troubleshooting
 
-## Requirements
+## Requirements {#InstallingOctopus-Requirements}
 
 
 Your Octopus Deploy server requires:
@@ -35,7 +35,7 @@ Your Octopus Deploy server requires:
  - Recommended for larger deployments: 4GB RAM, dual-core, 20GB free disk space
 
 
-## Installation
+## Installation {#InstallingOctopus-Installation}
 
 :::success
 **Download the Octopus Deploy MSI**
@@ -53,7 +53,7 @@ This three minute video  will walk you through the installation process:
 
 
 
-### Using a Managed Service Account (MSA)
+### Using a Managed Service Account (MSA) {#InstallingOctopus-UsingaManagedServiceAccount(MSA)}
 
 
 You can run the Octopus Server using a Managed Service Account (MSA):
@@ -66,7 +66,7 @@ You can run the Octopus Server using a Managed Service Account (MSA):
 
 Learn about [using Managed Service Accounts](https://technet.microsoft.com/en-us/library/dd548356(v=ws.10).aspx).
 
-## Troubleshooting
+## Troubleshooting {#InstallingOctopus-Troubleshooting}
 
 
 In a few cases a bug in a 3rd party component causes the installer displays a "Installation directory must be on a local hard drive" error. If this occurs, running the install again from an elevated command prompt using the following command (replacing Octopus.3.3.4-x64.msi with the name of the installer you are using)

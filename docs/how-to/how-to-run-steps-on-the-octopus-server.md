@@ -10,7 +10,7 @@ When adding a [NuGet Package step](/docs/deploying-applications/deploying-packag
 Octopus 3.3 and newer support [Running Scripts on the Octopus Server](/docs/deploying-applications/custom-scripts/index.md).
 :::
 
-## Step-by-step guide
+## Step-by-step guide {#HowtorunstepsontheOctopusServer-Step-by-stepguide}
 
 
 Follow these steps to install a Tentacle on the Octopus Server.
@@ -25,7 +25,7 @@ Follow these steps to install a Tentacle on the Octopus Server.
 ![](/docs/images/3702872/3964961.png "width=500")
 
 
-## Why do I have to install Tentacle? 
+## Why do I have to install Tentacle?  {#HowtorunstepsontheOctopusServer-WhydoIhavetoinstallTentacle?}
 
 
 Octopus Tentacle enable tasks to be run in a flexible way.  You can configure your Tentacle service to run under a different user account, for example. In fact, you could have one [Tentacle instance](/docs/administration/managing-multiple-instances.md) for your pre-production steps, and another for production steps, running under different user

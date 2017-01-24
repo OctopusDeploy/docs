@@ -6,7 +6,7 @@ position: 10
 
 **Tentacle.exe** is the executable that runs the Octopus Tentacle instance. It includes several helpful commands that allow you to manage the instance some of which are built on top of the [Octopus Deploy HTTP API](http://docs.octopus.com/display/OD/Octopus+REST+API).
 
-## Commands
+## Commands {#Tentacle.exeCommandLine-Commands}
 
 
 Octo.exe supports the following commands:
@@ -26,7 +26,7 @@ Octo.exe supports the following commands:
 - **`show-thumbprint`**: Show the thumbprint of this Tentacle's certificate
 
 
-## General usage
+## General usage {#Tentacle.exeCommandLine-Generalusage}
 
 
 All commands take the form of:

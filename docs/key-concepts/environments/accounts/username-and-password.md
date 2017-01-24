@@ -6,7 +6,7 @@ position: 2
 
 A Username/Password Account is one mechanism that can be used to authenticate to [SSH Targets](http://docs.octopusdeploy.com/display/OD3/SSH+Targets).
 
-## Creating the account
+## Creating the account {#UsernameandPassword-Creatingtheaccount}
 
 
 You must provide both the username and password which will be used during the initial authentication phase of the SSH connection.
@@ -14,7 +14,7 @@ You must provide both the username and password which will be used during the in
 
 ![](/docs/images/3048108/3277898.png "width=500")
 
-## Enabling Username & Password Authentication
+## Enabling Username & Password Authentication {#UsernameandPassword-EnablingUsername&amp;PasswordAuthentication}
 
 
 Depending on your target machine's distro it might not have password authentication enabled by default.

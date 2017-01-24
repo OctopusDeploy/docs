@@ -144,7 +144,7 @@ Common options:
 
 ```
 
-### Basic examples
+### Basic examples {#Creatingreleases-Basicexamples}
 
 
 This will create a new release of the *HelloWorld* project using the latest available NuGet packages for each step in the project. The version number of the release will be the highest NuGet package version. You can override this using:
@@ -160,7 +160,7 @@ This will create a release with a specified release number (note that this is no
 octo create-release --project HelloWorld --version 1.0.3 --server http://octopus/ --apiKey API-ABCDEF123456
 ```
 
-### Specifying the package version
+### Specifying the package version {#Creatingreleases-Specifyingthepackageversion}
 
 
 This will create a release *(1.0.3)* with a specified NuGet package version *(1.0.1)*:
@@ -183,7 +183,7 @@ This will create a release for a project with multiple packages, by taking the v
 octo create-release --project HelloWorld --version 1.0.3 --packagesFolder packages --server http://octopus/ --apiKey API-ABCDEF123456
 ```
 
-### Deploying a release after creating it
+### Deploying a release after creating it {#Creatingreleases-Deployingareleaseaftercreatingit}
 
 
 To create a release *and* deploy it to an environment named *Production*:

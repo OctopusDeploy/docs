@@ -36,7 +36,7 @@ Where [<options>] is any of:
 --project=VALUE        		[Optional] The name of the project
 ```
 
-## Import a project
+## Import a project {#Import-Importaproject}
 
 :::hint
 **Prerequisites**
@@ -68,7 +68,7 @@ Usage:
 octo import --server=http://octopusdeploy/api --apiKey=ABCDEF123456 --type=project --filePath=C:\path\to\export\file.json
 ```
 
-### [Project Import Output when a prerequisite is missing](/docs/api-and-integration/octo.exe-command-line/import.md)
+### [Project Import Output when a prerequisite is missing](/docs/api-and-integration/octo.exe-command-line/import.md) {#Import-ProjectImportOutputwhenaprerequisiteismissing}
 
 
 During the import, Octo.exe will validate that any dependencies, such as feeds and library variable sets, already exist on the target server. If one of these can't be found, the import will not continue, as shown below:
@@ -89,7 +89,7 @@ Library Variable Set Logging Variables does not exist
 Exit code: -1
 ```
 
-### [Project Import Output](/docs/api-and-integration/octo.exe-command-line/import.md)
+### [Project Import Output](/docs/api-and-integration/octo.exe-command-line/import.md) {#Import-ProjectImportOutput}
 
 ```powershell
 Octopus Deploy Command Line Tool, version 1.0.0.0
@@ -126,7 +126,7 @@ Successfully imported project 'OctoFX Rate Service'
 
 
 
-## Import a release, or range of releases
+## Import a release, or range of releases {#Import-Importarelease,orrangeofreleases}
 
 :::hint
 **Prerequisites**
@@ -151,7 +151,7 @@ Usage:
 octo import --server=http://octopusdeploy/api --apiKey=ABCDEF123456 --type=release --project=projectname --filePath=C:\path\to\export\file.json
 ```
 
-### [Release Import Output](/docs/api-and-integration/octo.exe-command-line/import.md)
+### [Release Import Output](/docs/api-and-integration/octo.exe-command-line/import.md) {#Import-ReleaseImportOutput}
 
 ```powershell
 Octopus Deploy Command Line Tool, version 1.0.0.0

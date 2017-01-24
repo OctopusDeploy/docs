@@ -4,7 +4,7 @@ position: 3
 ---
 
 
-[Octo.exe](http://docs.octopusdeploy.com/pages/viewpage.action?pageId=360596) can be used to delete releases from your Octopus instance. Releases deleted this way .
+[Octo.exe](http://docs.octopusdeploy.com/pages/viewpage.action?pageId=360596) can be used to delete releases from your Octopus instance. Releases deleted this way **cannot be recovered**.
 
 :::success
 **Using Channels?**
@@ -60,7 +60,7 @@ Common options:
 
 ```
 
-### Basic example
+### Basic example {#Deletingreleases-Basicexample}
 
 
 The following command will delete all the releases from the project **Web** between versions **0.0.8** to **0.0.12**.

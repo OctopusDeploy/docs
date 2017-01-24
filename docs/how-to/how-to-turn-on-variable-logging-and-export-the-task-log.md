@@ -9,7 +9,7 @@ When you contact Octopus Deploy support, we may ask you to provide a variable ev
 
 Since so many variables are used in the deployment process (with their values changing through your deployment), Octopus doesn't log all of that information by default. It would increase the size of the task logs, and would slow down your deployments. However, sometimes it's very helpful to log this information.
 
-## Step-by-step guide
+## Step-by-step guide {#Howtoturnonvariableloggingandexportthetasklog-Step-by-stepguide}
 
 
 Write the variables to the deployment log

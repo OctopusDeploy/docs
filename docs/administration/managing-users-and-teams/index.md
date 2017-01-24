@@ -15,7 +15,7 @@ You can manage teams from the **Teams** tab under **Configuration** in the Octop
 
 ![](/docs/images/3048123/3277938.png "width=500")
 
-## User and Service accounts
+## User and Service accounts {#Managingusersandteams-UserandServiceaccounts}
 
 
 **User accounts** are allowed to use both the Octopus web portal and the Octopus API, and can authenticate with a username and password, or [Active Directory credentials](/docs/administration/authentication-providers/active-directory-authentication.md), or an [Octopus API key](/docs/how-to/how-to-create-an-api-key.md).
@@ -27,7 +27,7 @@ You can manage teams from the **Teams** tab under **Configuration** in the Octop
 You should create a different User account for each person that will use Octopus Deploy. You should create a different [Service account](/docs/administration/managing-users-and-teams/service-accounts.md) for each service that will integrate with Octopus Deploy.
 :::
 
-## Creating teams
+## Creating teams {#Managingusersandteams-Creatingteams}
 
 
 You can add teams using the **Add Team** button. A team is a group of users, and being a member of a team gives those users certain roles, which can be scoped.
@@ -41,7 +41,7 @@ For example, we can create a team that gives Anne and Bob access to view project
 
 In the example above, we've granted Anne and Bob the **Project deployer** role for the two OctoFX projects, but limited it to the pre-production environments - they won't have permission to deploy to Production.
 
-## Roles
+## Roles {#Managingusersandteams-Roles}
 
 
 Team members can be granted many different roles:
@@ -70,7 +70,7 @@ The roles assigned by a team can be scoped by project or environment.
 You can learn more about in our [User Roles documentation](/docs/administration/managing-users-and-teams/user-roles.md)
 :::
 
-## System teams
+## System teams {#Managingusersandteams-Systemteams}
 
 
 Octopus Deploy comes with two built-in teams. The **Everyone** team always contains all users, but you can assign different roles to members of this Team (for example, you might allow everyone to view all projects and environments, but not edit anything). Out of the box, **Everyone** members can do nothing.

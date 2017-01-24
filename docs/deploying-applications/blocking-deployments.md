@@ -14,7 +14,7 @@ On this page:
 - Resolve and Unblock
 - Permissions
 
-## Block Deployment
+## Block Deployment {#BlockingDeployments-BlockDeployment}
 
 
 You are able to block a Release of a Project from being used in any future deployments, no matter which phase the Release is currently on. This can be done from the release page of the project you're wishing to block.
@@ -34,7 +34,7 @@ Input a reason why you're blocking it, so your team is aware and on the same pag
 
 ![](/docs/images/3049133/5865858.png "width=500")
 
-## Resolve and Unblock
+## Resolve and Unblock {#BlockingDeployments-ResolveandUnblock}
 
 
 Once you're happy with the deployment process continuing, go back to the release page of the project, and select "**Resolve and unblock**."
@@ -42,7 +42,7 @@ Once you're happy with the deployment process continuing, go back to the release
 
 ![](/docs/images/3049133/5865859.png "width=500")
 
-## Permissions
+## Permissions {#BlockingDeployments-Permissions}
 
 
 There are two permissions required for the act of blocking and unblocking your deployments, which you'll have to assign to the user performing the task:

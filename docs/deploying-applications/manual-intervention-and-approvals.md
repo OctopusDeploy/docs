@@ -15,7 +15,7 @@ While fully automated deployment is a great goal, not every step in a deployment
 
 To support these scenarios, you can add **Manual Steps** to your deployment process.
 
-## Adding manual steps
+## Adding manual steps {#Manualinterventionandapprovals-Addingmanualsteps}
 
 
 Manual steps are one of the step types that appear when you click **Add step** on the **Process** tab of your project. For information about adding a step to the deployment process, see the [add step](http://docs.octopusdeploy.com/display/OD/Add+step) section.
@@ -29,7 +29,7 @@ When you define a manual step, you specify some instructions for the step, and s
 
 ![](/docs/images/3048086/3277690.png "width=500")
 
-## Assigning manual interventions
+## Assigning manual interventions {#Manualinterventionandapprovals-Assigningmanualinterventions}
 
 
 When a deployment is executing and a manual step is encountered, the deployment will show a status of **Waiting**. An interruption will appear at the top of the deployment summary.
@@ -58,7 +58,7 @@ When the interruption has been assigned to you, you can then perform the action 
 
 When aborting a deployment, it's a good idea to write a reason into the **Notes** field, so that the rest of the team can see why the deployment was aborted.
 
-## Output variables
+## Output variables {#Manualinterventionandapprovals-Outputvariables}
 
 
 When a manual step is completed, details of the interruption are saved as variables that can be used in other steps including [email](/docs/deploying-applications/email-notifications.md) templates.

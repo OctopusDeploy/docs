@@ -9,7 +9,7 @@ title: NanoPack
 
 NanoPack is a wrapper around the `New-NanoServerImage`PowerShell script that is provided on the Windows Server 2016 ISO. To proceed you will need the \NanoServer folder from the ISO copied to a location that is accessible by NanoPack and to be running with Administrator rights. For complicated scenarios it may make sense to use New-NanoServerImage directly rather than using NanoPack. Guidance can be found in Microsoft's documentation [here](https://technet.microsoft.com/en-us/windows-server-docs/get-started/nano-server-quick-start).
 
-## Preparing Your Application
+## Preparing Your Application {#NanoPack-PreparingYourApplication}
 
 
 To work with NanoPack your application needs to be published as a standalone app (i.e. one that bundles up the .NET Core runtime and does not require .NET Core to be installed). To do this remove the `&quot;type=&quot;platform&quot;` from the `Microsoft.NETCore.App` dependency in your `project.json` so that it looks like:
@@ -35,7 +35,7 @@ Then add the `win10-x64` target to your `runtimes` section:
 }
 ```
 
-## Installing NanoPack
+## Installing NanoPack {#NanoPack-InstallingNanoPack}
 
 
 To begin using NanoPack you need to add to add it to the `tools`section of your ASP.NET Core application's `project.json` file (the other tools shown are part of the default ASP.NET Core template and not needed by NanoPack itself).
@@ -49,7 +49,7 @@ To begin using NanoPack you need to add to add it to the `tools`section of your 
 }
 ```
 
-## Calling NanoPack During Publish
+## Calling NanoPack During Publish {#NanoPack-CallingNanoPackDuringPublish}
 
 
 Now that you have added NanoPack to your tools it is available for use in the `scripts` section of your `project.json`. To correctly package your application with NanoPack you need to point it to the output of `dotnet` publish, to do this add the call as a `postpublish` script in your `project.json`. For example:
@@ -80,7 +80,7 @@ C:\
 ```
 :::
 
-## More Options
+## More Options {#NanoPack-MoreOptions}
 
 
 NanoPack can also be used to build a VHD, package it in to a versioned zip file and post it to Octopus:
@@ -117,7 +117,7 @@ Options:
   -? | --help                   Show help information
 ```
 
-## Copying Additional Files
+## Copying Additional Files {#NanoPack-CopyingAdditionalFiles}
 
 
 To copy additional files to your VHD use the`--copyPath` option. The parameter to this argument must evaluate to a valid PowerShell array or hash map as it is handed through to the `copyPath` argument of the `New-NanoServerImage` cmdlet. If argument evaluates to an array of file paths, those files will be copied to the root of the VHD, if it is a hash map the hash keys are file paths that will be copied to a folder specified by the hash values. For example:

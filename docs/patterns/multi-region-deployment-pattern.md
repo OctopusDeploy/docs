@@ -4,7 +4,7 @@ position: 6
 ---
 
 
-## Scenario
+## Scenario {#Multi-regiondeploymentpattern-Scenario}
 
 
 Your application is deployed to multiple geographic regions (or multiple data centres) to provide for your end-customer's performance (think latency) or legal requirements (like data sovereignty).
@@ -12,7 +12,7 @@ Your application is deployed to multiple geographic regions (or multiple data ce
 
 ![](/docs/images/5670886/5865791.png "width=500")
 
-## Strict solution using Environments
+## Strict solution using Environments {#Multi-regiondeploymentpattern-StrictsolutionusingEnvironments}
 
 
 You can use [Environments](/docs/key-concepts/environments/index.md) to represent each region or data centre. In the example below we have defined a Dev and Test Environment as per normal, and then configured two "production" Environments, one for each region we want to deploy into.
@@ -38,7 +38,7 @@ By using this pattern you can:
 
 
 
-## Rolling Solution
+## Rolling Solution {#Multi-regiondeploymentpattern-RollingSolution}
 
 
 In Octopus 3.4 we introduced [Cloud Regions](/docs/deployment-targets/cloud-regions.md) which enable you to configure [Rolling deployments](/docs/patterns/rolling-deployments.md) across your regions or data centres. In this case you can scope variables to the Cloud Regions and deploy to all regions at once, but you cannot control the order in which the rolling deployment executes.
@@ -56,7 +56,7 @@ By using this pattern you can:
 
 **If you don't really mind which order you regions are deployed, or you always upgrade all regions a the same time, Cloud Regions are probably the right fit for you.**
 
-## Tenanted Solution
+## Tenanted Solution {#Multi-regiondeploymentpattern-TenantedSolution}
 
 
 Alternatively you could create [Tenants](/docs/key-concepts/tenants/index.md) to represent each region or data centre. By doing so you can:
@@ -84,7 +84,7 @@ You do give up the advantage of enforcing the order in which you deploy your app
 
 **Tenants offer a balanced approach to modelling multi-region deployments, offering a measure of control and flexibility.**
 
-## Conclusion
+## Conclusion {#Multi-regiondeploymentpattern-Conclusion}
 
 
 [Environments](/docs/key-concepts/environments/index.md), [Tenants](/docs/key-concepts/tenants/index.md) and [Cloud Regions](/docs/deployment-targets/cloud-regions.md) can be used to model multi-region deployments in Octopus, but each different choice is optimized to a particular style of situation. Choose the one that suits your needs best!

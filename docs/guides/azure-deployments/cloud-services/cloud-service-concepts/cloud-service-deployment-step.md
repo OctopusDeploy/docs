@@ -6,7 +6,7 @@ position: 2
 
 Octopus Deploy supports deployment of [Azure Cloud Services](http://azure.microsoft.com/en-us/services/cloud-services/). Note that the below deployment step was added in 3.1 and is not available in 3.0.
 
-## Deployment Step
+## Deployment Step {#CloudServicedeploymentstep-DeploymentStep}
 
 
 Add a new "Deploy an Azure Cloud Service" step to your project. For information about adding a step to the deployment process, see the [add step](http://docs.octopusdeploy.com/display/OD/Add+step) section.
@@ -14,7 +14,7 @@ Add a new "Deploy an Azure Cloud Service" step to your project. For information
 
 ![](/docs/images/5671696/5865904.png "width=170")
 
-#### **Account**
+#### **Account** {#CloudServicedeploymentstep-Account}
 
 
 Select the [account](/docs/guides/azure-deployments/cloud-services/cloud-service-concepts/cloud-service-accounts.md) that Octopus will use to deploy the Cloud Service.
@@ -25,12 +25,12 @@ The 'Cloud service' and 'Storage account' fields will list the Cloud Services an
 
 Refer to the [Azure documentation](https://azure.microsoft.com/en-us/documentation/) for instructions on creating a Cloud Service and Storage Account.
 
-#### Slot
+#### Slot {#CloudServicedeploymentstep-Slot}
 
 
 You can choose to deploy to either the Staging or Production slots.
 
-#### Swap
+#### Swap {#CloudServicedeploymentstep-Swap}
 
 
 The Cloud Service target may be configured to either:
@@ -45,12 +45,12 @@ If 'Always deploy' is select, the package will always be deployed to the selecte
 
 If 'Swap staging to production if possible' is selected and the selected Slot is Production, then a swap will occur between Production and Staging (if there is a deployment in the Staging slot). See [VIP Swap](/docs/guides/azure-deployments/cloud-services/vip-swap.md) for more information on how to configure a VIP swap.
 
-#### Instance count
+#### Instance count {#CloudServicedeploymentstep-Instancecount}
 
 
 If you have scaled your Windows Azure service using the management portal (for example, changing the role count from 1 to 4), during a deployment Octopus can be configured to keep the existing instance counts rather than using the instance counts defined in your cloud service configuration file.
 
-### Variable-expressions
+### Variable-expressions {#CloudServicedeploymentstep-Variable-expressions}
 
 
 Any of the fields above can be switched to use a custom expression by clicking the box next to the field:
@@ -58,7 +58,7 @@ Any of the fields above can be switched to use a custom expression by clicking t
 
 ![](/docs/images/3049373/3278553.png "width=500")
 
-## Deployment process
+## Deployment process {#CloudServicedeploymentstep-Deploymentprocess}
 
 
 Deployment to an Azure Cloud Service target proceeds as follows (more details provided below):
@@ -78,7 +78,7 @@ Deployment to an Azure Cloud Service target proceeds as follows (more details pr
 13. Any configured or packaged `PostDeploy` scripts are executed
 
 
-### Extract the Cloud Service Package
+### Extract the Cloud Service Package {#CloudServicedeploymentstep-ExtracttheCloudServicePackage}
 
 
 Cloud Service Package files are extracted during deployment, in order to make available features such as Configuration Transforms and Variable Substitution.
@@ -89,7 +89,7 @@ To extract the Cloud Service Package, it is first converted to the CTP format (a
 
 Setting the `Octopus.Action.Azure.LogExtractedCspkg` variable to `true` will cause the layout of the extracted package to be written into the Task Log. This may assist with finding the path to a particular file.
 
-### Variable substitutions in Cloud Service configuration file
+### Variable substitutions in Cloud Service configuration file {#CloudServicedeploymentstep-VariablesubstitutionsinCloudServiceconfigurationfile}
 
 
 Octopus will attempt to modify your `.cscfg` file. For example, take the following configuration:
@@ -116,7 +116,7 @@ Octopus will attempt to modify your `.cscfg` file. For example, take the follo
 
 If a variable named `HelloMessage` is defined in your Octopus project variables, Octopus will automatically update it in the configuration file. You can also name the variable `Humpty.Worker/HelloMessage` to scope the setting to a specific web/worker role.
 
-### Customizing the deployment process
+### Customizing the deployment process {#CloudServicedeploymentstep-Customizingthedeploymentprocess}
 
 
 The deployment is performed using a PowerShell script called `DeployToAzure.ps1`. If a file with this name exists within your NuGet package, Octopus will invoke it. Otherwise, Octopus will use a bundled version of the script as a default. You can **[view the bundled script here](https://github.com/OctopusDeploy/Calamari/blob/ce3b69e94b60c8c73619bc584eca52e11c68930a/source/Calamari.Azure/Scripts/DeployAzureCloudService.ps1)**, and use it as a basis for creating your own custom deployment script.
@@ -124,7 +124,7 @@ The deployment is performed using a PowerShell script called `DeployToAzure.ps1
 
 
 
-## PowerShell
+## PowerShell {#CloudServicedeploymentstep-PowerShell}
 
 
 PowerShell executed against an Azure Cloud Service target will have the Azure PowerShell module loaded, and the subscription from the chosen account will be selected.

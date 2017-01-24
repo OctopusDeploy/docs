@@ -4,7 +4,7 @@ position: 26
 ---
 
 
-## Out of the box database performance in Octopus Deploy
+## Out of the box database performance in Octopus Deploy {#Providingdatabaseperformancemetrics-OutoftheboxdatabaseperformanceinOctopusDeploy}
 
 
 Every user has different usage patterns of Octopus Deploy with different numbers of projects, targets, releases and packages. As a result no one database indexing strategy will provide a best fit for all installations. Users who are deploying to thousands of targets for a single project each day, will have different database performance metrics to those who have just a few tentacles, but hundreds of projects which constantly need dashboard updates. For this reason we have been restrained in the use of indexes to a base schema and only added those that look like they will provide benefit *on average* to most users. It is entirely likely that the database usage that is seen by us during development and testing is not necessarily going to be exactly the same that you experience with your installation and for that reason you may notice a less than optimal performance profile.
@@ -28,9 +28,9 @@ If you want to add your own indexes we would recommend running the System Integr
 Azure SQL Databases are a great way to set-up your Octopus database to be managed in the cloud. One feature that this product can provide is [automatic index management](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-advisor-portal). While this is a great way to set-up your databases and forget about them, allowing Azure to decide and act on potential performance benefits, this means that indexes will be potentially created without you being aware of them. As noted above you will need to be aware what custom indexes exist and remove them before performing an update to the Octopus Deploy Server to ensure that any new schema changes can be applied smoothly.
 :::
 
-## What you can do to help
+## What you can do to help {#Providingdatabaseperformancemetrics-Whatyoucandotohelp}
 
-### Missing Indexes
+### Missing Indexes {#Providingdatabaseperformancemetrics-MissingIndexes}
 
 
 When you notice some performance problems that appear to be due to a slow database, we would love to get your database's recommendations on what indexes may be missing. Run the following query and provide the results (ideally as an attached file) in your support ticket. The query below is taken from a great blog post by Glen Berry - [Five Very Useful Index Selection Queries for SQL Server 2005](https://sqlserverperformance.wordpress.com/2007/10/12/five-very-useful-index-selection-queries-for-sql-server-2005/).
@@ -49,7 +49,7 @@ ON mig.index_handle = mid.index_handle
 ORDER BY index_advantage DESC;
 ```
 
-### SQL Server Profiler
+### SQL Server Profiler {#Providingdatabaseperformancemetrics-SQLServerProfiler}
 
 
 [SQL Server Profiler](https://msdn.microsoft.com/en-us/library/ms181091) is a tool that allows you to watch and record the requests that are being sent to your database, along with metrics on what it took to run that query. By reviewing all the requests being sent to the server over a given period of time, it is easier to determine if the database is acting slow, or if the Octopus Server is issuing too many, sub-optimal requests (or both!). The following steps outline one way of recording the relevant information, however there are various resources all over the web that will provide [deeper tutorials](https://www.simple-talk.com/sql/performance/how-to-identify-slow-running-queries-with-sql-profiler/) about SQL Server Profiler.
@@ -97,7 +97,7 @@ As with before, perform the operation causing the error with the trace running t
 
 
 
-### Logging  Queries
+### Logging  Queries {#Providingdatabaseperformancemetrics-LoggingQueries}
 
 
 Slow running queries are automatically logged to the [Server Logs](http://docs.octopusdeploy.com/display/OD/Log+files) with an Info trace level. These lines will look something like
@@ -124,7 +124,7 @@ By updating your server logging to verbose, further information will be recorded
 
 Providing these logs in your support ticket that correlate to the times that you noticed the performance problems will further help us to diagnose what could be improved.
 
-## Improvements going forward
+## Improvements going forward {#Providingdatabaseperformancemetrics-Improvementsgoingforward}
 
 
 Providing as much information as possible regarding what actions you are performing to the server, along with the subsequent requests that the server is making, will best help us to further improve the performance of Octopus for all users. While we can't guarantee that we will be able to squeeze improvements out of every situation, every bit helps. We do also have an outstanding [GitHub ticket #2673](https://github.com/OctopusDeploy/Issues/issues/2673) that may help us avoid the upgrade problems described above that occur when custom indexes exist. Once this is in place we will be more likely to recommend custom schema changes that suit your particular needs.

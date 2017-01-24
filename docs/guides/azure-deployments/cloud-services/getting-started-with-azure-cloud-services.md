@@ -9,7 +9,7 @@ This guide will help you deploy your first Azure Cloud Service application using
 
 In order to complete this guide you will need to have an Azure account and create an Azure Cloud Service and Azure Storage Account. Please refer to the [Azure documentation](https://azure.microsoft.com/en-us/documentation/) for completing these steps.  In this guide the Cloud Service is called hello-octopus and the storage account is called octostore.
 
-## Create a package
+## Create a package {#GettingstartedwithAzureCloudServices-Createapackage}
 
 
 You will need a NuGet package containing the Azure Cloud Service application you want to deploy.  The NuGet package contains the .cspkg and .cscfg files that are published from Visual Studio. Here is one we prepared earlier that you can use for this guide: [HelloCloud.1.0.0.nupkg](https://download.octopusdeploy.com/demo/HelloCloud.1.0.0.nupkg)
@@ -20,7 +20,7 @@ Upload your NuGet package to the Octopus [built-in package repository](/docs/pac
 
 ![](/docs/images/3049331/3278524.png "width=500")
 
-## Create an account
+## Create an account {#GettingstartedwithAzureCloudServices-Createanaccount}
 
 
 In Octopus Deploy, go to the Environments tab and select Accounts:
@@ -40,7 +40,7 @@ If you are allowing Octopus to generate a management certificate for you, first 
 
 ![](/docs/images/3049331/3278522.png "width=500")
 
-## Create an environment
+## Create an environment {#GettingstartedwithAzureCloudServices-Createanenvironment}
 
 
 In order to deploy a Cloud Service we require an Octopus environment to deploy to. Cloud Services have slots which map nicely to environments. Create a new environment called "Staging":
@@ -48,7 +48,7 @@ In order to deploy a Cloud Service we require an Octopus environment to deploy t
 
 ![](/docs/images/3049331/3278525.png "width=500")
 
-## Create a project
+## Create a project {#GettingstartedwithAzureCloudServices-Createaproject}
 
 
 Now have the NuGet package we want to deploy, the account we are going to use for the deployment and an environment to deploy to.  Now all we need is a project to do all the work.  Create a new project:

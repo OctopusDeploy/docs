@@ -27,7 +27,7 @@ On this page:
 - Creating a Release of our Docker Project
 - Deploying a Release of our Docker Project
 
-## Configuring a Docker host
+## Configuring a Docker host {#Dockerrunwithnetworking-ConfiguringaDockerhost}
 
 
 If you already have a working Linux machine with Docker Engine installed you can use that once you have configured it as an [SSH Target](/docs/deployment-targets/ssh-targets/index.md) in Octopus.
@@ -46,7 +46,7 @@ If not, you will need to configure a host for our sample application. We recomme
 
 You should now be ready to deploy Docker containers to your Ubuntu machine using Octopus Deploy!
 
-## Configuring a DockerHub feed
+## Configuring a DockerHub feed {#Dockerrunwithnetworking-ConfiguringaDockerHubfeed}
 
 
 Next we are going to create a connection to the official Docker Hub registry so we can use those images for this demonstration.
@@ -67,9 +67,9 @@ Next we are going to create a connection to the official Docker Hub registry so 
 ![](/docs/images/5670973/5865819.png?effects=drop-shadow "width=500")
 
 
-## Configuring the Docker Project
+## Configuring the Docker Project {#Dockerrunwithnetworking-ConfiguringtheDockerProject}
 
-### Step 1: Docker Network Step
+### Step 1: Docker Network Step {#Dockerrunwithnetworking-Step1:DockerNetworkStep}
 
 In a newly created project, click *Add Step -> Create a Docker network.*This step manages parameters that will be passed to the `docker network create` command.
 
@@ -88,7 +88,7 @@ Keep in mind that as the Docker Network Octopus step simply wraps the `docker ne
 For detailed information about Docker networking and additional arguments you can provide, we suggest reading the [Understand Docker container networks](https://docs.docker.com/engine/userguide/networking/) and the [network create](https://docs.docker.com/engine/reference/commandline/network_create/) Docker documentation.
 :::
 
-### Step 2: Creating Container 1
+### Step 2: Creating Container 1 {#Dockerrunwithnetworking-Step2:CreatingContainer1}
 
 
 From the project process page, add a new step via *Add Step -> Run a Docker Container*. This step helps you configure the parameters that will be passed to the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command.
@@ -117,7 +117,7 @@ The command itself is arbitrary, what is important is that we start a process th
 
 ![](/docs/images/5670973/5865797.png?effects=drop-shadow "width=500")
 
-### Step 3: Creating Container 2
+### Step 3: Creating Container 2 {#Dockerrunwithnetworking-Step3:CreatingContainer2}
 
 
 Now we will create a second container, exactly the same as the first using busybox, but this container will connect to the first container to demonstrate how containers can communicate in a docker network.
@@ -145,7 +145,7 @@ We would love to hear about your thoughts and feedback on these options!
 4. Save this step
 
 
-### Step 4: Configure the PingCount variable
+### Step 4: Configure the PingCount variable {#Dockerrunwithnetworking-Step4:ConfigurethePingCountvariable}
 
 
 Now we need to create a single Project Variable used by the second container to control how many pings to perform before exiting.
@@ -154,7 +154,7 @@ Now we need to create a single Project Variable used by the second container to 
 ![](/docs/images/5670973/5865823.png?effects=drop-shadow "width=500")
 
 
-### Step 5: Docker Stop
+### Step 5: Docker Stop {#Dockerrunwithnetworking-Step5:DockerStop}
 
 
 Although we could deploy a project as many times as we want with a Docker run step, increasing the number of running containers, you may want to stop containers run from previous deployments before or after creating a new container from the same Image. For this reason we have included the *Stop a Docker Resource* deployment step. This allows you to configure previous containers or networks to stop (and optionally remove them) before or after any other step in your deployment process. In this case because we are creating a network with a specific subnet, to avoid clashes with networks created as a result of a redeployment we will simply remove everything previously created from this project before the network is created. In your case however, you may want to create multiple stop steps throughout your process before or after each specific container starts. Provide the details as shown below and rearrange to run as the first step of the deployment.
@@ -162,7 +162,7 @@ Although we could deploy a project as many times as we want with a Docker run st
 
 ![](/docs/images/5670973/5865799.png?effects=drop-shadow "width=500")
 
-### Step 5: Script Step - Accessing Container Details 
+### Step 5: Script Step - Accessing Container Details  {#Dockerrunwithnetworking-Step5:ScriptStep-AccessingContainerDetails}
 
 
 As one final step we will write out to the logs the IP addresses of the containers that were created, as well as show the ping results of the second container from the Docker logs.
@@ -191,7 +191,7 @@ To see the full results of the inspect command try echoing out the variable just
 
 ![](/docs/images/5670973/5865800.png?effects=drop-shadow "width=700")
 
-## Creating a Release of our Docker Project
+## Creating a Release of our Docker Project {#Dockerrunwithnetworking-CreatingaReleaseofourDockerProject}
 
 
 From this point forward the deployment will follow the same process that you should be comfortable with: Good old Octopus Releases.
@@ -210,7 +210,7 @@ When creating a release, the Octopus Server will query the Docker registry to re
 Note that "latest" in Octopus is the "highest" [Semantic Version](http://semver.org/) and not the image tagged with "latest".
 :::
 
-## Deploying a Release of our Docker Project
+## Deploying a Release of our Docker Project {#Dockerrunwithnetworking-DeployingaReleaseofourDockerProject}
 
 
 Looking at the results of a deployment you will see some logging indicating the work being performed.

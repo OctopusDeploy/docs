@@ -12,7 +12,7 @@ To create an Azure Account, navigate to *Environments -> Accounts* and click *A
 
 ![](/docs/images/3702887/3964985.png "width=500")
 
-## Authentication Method
+## Authentication Method {#CreatinganAzureAccount-AuthenticationMethod}
 
 
 Octopus Deploy authenticates with Azure in one of two methods: using a *Management Certificate* or a *Service Principal*.

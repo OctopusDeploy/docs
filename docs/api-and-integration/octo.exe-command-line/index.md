@@ -9,7 +9,7 @@ position: 6
 
 The latest version of Octo.exe can always be downloaded from the [Octopus downloads page](https://octopus.com/downloads) or [installed via Chocolatey](http://chocolatey.org/packages/OctopusTools).
 
-## Commands
+## Commands {#Octo.exeCommandLine-Commands}
 
 
 Octo.exe supports the following commands:
@@ -36,7 +36,7 @@ Octo.exe supports the following commands:
 
 
 
-## General usage
+## General usage {#Octo.exeCommandLine-Generalusage}
 
 
 All commands take the form of:

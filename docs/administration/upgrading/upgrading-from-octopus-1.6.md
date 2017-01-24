@@ -18,7 +18,7 @@ A **lot** changed between Octopus 1.6 and Octopus 2.0; so much that we had to to
 - Permissions
 - Upgrading Tentacles
 
-## Preparing
+## Preparing {#UpgradingfromOctopus1.6-Preparing}
 
 :::problem
 If your Octopus 1.x installation is at an earlier version than 1.6, please [upgrade it to Octopus 1.6](https://octopusdeploy.com/downloads/previous) before proceeding.
@@ -39,7 +39,7 @@ Then go to the **Storage** tab in the **Configuration** area, and make sure that
 
 ![](/docs/images/3048130/3277999.png "width=500")
 
-## Install Octopus 2.0
+## Install Octopus 2.0 {#UpgradingfromOctopus1.6-InstallOctopus2.0}
 
 
 Next, install Octopus Deploy 2.0, either on the same server as your current Octopus 1.6 server, or on a new server (ideal). Octopus 2.0 uses different paths, ports and service names to 1.0 so there should not be any conflicts between them.
@@ -48,7 +48,7 @@ Next, install Octopus Deploy 2.0, either on the same server as your current Octo
 View our [guide to installing an Octopus Deploy 2.0 server](/docs/installation/installing-octopus/index.md), which includes a video walkthrough.
 :::
 
-## Importing
+## Importing {#UpgradingfromOctopus1.6-Importing}
 
 
 On the Octopus 2.0 server, open the Octopus Manager from your start menu/start screen.
@@ -93,12 +93,12 @@ At this point, you should be able to view the imported projects, environments an
 
 ![](/docs/images/3048130/3277992.png "width=500")
 
-## Permissions
+## Permissions {#UpgradingfromOctopus1.6-Permissions}
 
 
 The Octopus 2.x migrator will not import permission settings from 1.6, due to changes made between the permission models. After you upgrade to 2.x, you will need to configure [Teams](/docs/administration/managing-users-and-teams/index.md) to assign permissions.
 
-## Upgrading Tentacles
+## Upgrading Tentacles {#UpgradingfromOctopus1.6-UpgradingTentacles}
 
 
 Octopus 2.x changed the communication stack between Octopus and Tentacle, meaning that your Octopus 2.x server can no longer communicate with Tentacle 1.6. So in addition to upgrading Octopus, you'll also need to upgrade any Tentacles.

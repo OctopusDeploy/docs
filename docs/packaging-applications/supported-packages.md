@@ -32,7 +32,7 @@ NuGet packages and Docker images are the only package types that support externa
 Octopus Deploy uses the file extension to determine the correct extraction algorithm to use so it is important that your package has the correct extension for the package format.
 :::
 
-## Package Metadata
+## Package Metadata {#SupportedPackages-PackageMetadata}
 
 
 The only required pieces of information Octopus Deploy **requires** for a package are an ID, Version and Format. Other metadata like release notes or descriptions are optional.

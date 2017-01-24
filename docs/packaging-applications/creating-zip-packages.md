@@ -77,7 +77,7 @@ Mode                LastWriteTime     Length Name
 
 Open the created zip package and you should see the package contains all the same files as the output folder of your build
 
-## Usage
+## Usage {#CreatingZIPpackages-Usage}
 
 
 The Octo.exe pack command provides a number of other useful parameters that can be used to customize the way your package gets created, such as output folder, files to include and release notes.
@@ -138,7 +138,7 @@ Advanced options:
 
 ```
 
-## Known Issues in other packaging libraries
+## Known Issues in other packaging libraries {#CreatingZIPpackages-KnownIssuesinotherpackaginglibrariesknownissues}
 
 - Atlassian Bamboo users who are using [Adam Myatt's  Zip File Task](https://bitbucket.org/adammyatt/bamboo-zip-file-tasks) and are extracting to a Linux machine may find that the contents don't get extracted into the correct folder structure but instead flattened with the path as the file name. This is the result of a [known issue](https://bitbucket.org/adammyatt/bamboo-zip-file-tasks/issues/4/change-request-use-forward-slashes-as-file) whereby the task does not confirm to the correct [PKWARE ZIP §4.4.17.1](http://help.octopusdeploy.com/discussions/problems/48081/r?go=aHR0cHM6Ly9wa3dhcmUuY2FjaGVmbHkubmV0L3dlYmRvY3MvY2FzZXN0dWRpZXMvQVBQTk9URS5UWFQ= "Link outside Support: https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT") specifications and is using a back slash instead of forward slash as the file separator. We would recommend avoiding this task where possible.
 - Prior to the .NET framework 4.6.1, the *System.IO.Compression* library incorrectly preserved the windows-style back slash separator for file paths. This has since been fixed from [.NET Framework 4.6.1](https://msdn.microsoft.com/en-us/library/mt712573) and the fix carried over into [.NET Core](https://github.com/dotnet/corefx/commit/7b9331e89a795c72709aef38898929e74c343dfb).

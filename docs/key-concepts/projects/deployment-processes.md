@@ -17,7 +17,7 @@ On this page:
  - Conditions
 - Working with the Octopus API
 
-## Example: A simple deployment process
+## Example: A simple deployment process {#DeploymentProcesses-Example:Asimpledeploymentprocess}
 
 
 In the example shown below there are three steps that will be executed from top to bottom. The first is a [manual intervention](/docs/deploying-applications/manual-intervention-and-approvals.md) which executes on the Octopus Server pausing the deployment until someone intervenes and allow the deployment to continue. *You may have noticed this step will only execute when targeting the Production [environment](/docs/key-concepts/environments/index.md) - we'll talk more about that below.* The remaining steps both [deploy a package](/docs/deploying-applications/deploying-packages/index.md) and execute [custom scripts](/docs/deploying-applications/custom-scripts/index.md) on all of the [deployment targets](/docs/deployment-targets/index.md) with the [role](/docs/key-concepts/machine-roles.md) **web-server**.
@@ -25,7 +25,7 @@ In the example shown below there are three steps that will be executed from top 
 
 ![](/docs/images/5671366/5865841.png "width=500")
 
-## Example: A rolling deployment
+## Example: A rolling deployment {#DeploymentProcesses-Example:Arollingdeployment}
 
 
 Let's consider a more complex example like the one shown below. In this example we have configured Octopus to deploy a web application across one or more servers in a web farm behind a load balancer. This process has a single **step** and three **actions** which form a [rolling deployment](/docs/patterns/rolling-deployments.md).
@@ -40,7 +40,7 @@ Let's consider a more complex example like the one shown below. In this example 
 In most simple cases each step will have a single action, and as a convenience these are combined together in the user interface. This is why we talk mostly about steps, and sometimes the word step and action are used interchangeably.
 :::
 
-## Steps and actions
+## Steps and actions {#DeploymentProcesses-Stepsandactions}
 
 
 To fully leverage the power of Octopus deployments it helps to understand the difference between **steps** and **actions**, and how they are treated.
@@ -58,7 +58,7 @@ Let's look at the **Trading Website Rolling** step from our earlier example. It 
 
 This distinction between steps and actions has proven to be a really simple way to enable complex scenarios like rolling deployments, even though the distinction causes some confusion for our customers.
 
-## How Octopus executes your deployment process
+## How Octopus executes your deployment process {#DeploymentProcesses-HowOctopusexecutesyourdeploymentprocess}
 
 
 By default, the list of steps in a deployment process are run sequentially from top-to-bottom, one after another.
@@ -81,7 +81,7 @@ You can define steps with multiple actions and apply a window size (like our ea
 
 For more information, see the section on [rolling deployments](/docs/patterns/rolling-deployments.md).
 
-### Conditions
+### Conditions {#DeploymentProcesses-Conditions}
 
 
 Steps and actions can also have conditions. You can restrict a step so that it only runs when deploying to specific [environments](/docs/key-concepts/environments/index.md) (e.g., an Email step that only runs on production deployments).
@@ -104,7 +104,7 @@ You can also specify whether a step runs only when previous steps are successful
 
 ![](/docs/images/3048075/3277616.png?effects=drop-shadow "width=500")
 
-## Working with the Octopus API
+## Working with the Octopus API {#DeploymentProcesses-WorkingwiththeOctopusAPI}
 
 
 Octopus Deploy is built API-first, which means everything you can do through the Octopus UI can be done with the API. In the API we model the deployment process the same way, starting at the Project:

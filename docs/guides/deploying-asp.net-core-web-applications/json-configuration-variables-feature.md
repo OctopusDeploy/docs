@@ -31,9 +31,9 @@ On this page:
  - Hierarchical variables
  - Array variables
 
-## Configuring the JSON configuration variables feature
+## Configuring the JSON configuration variables feature {#JSONConfigurationVariablesFeature-ConfiguringtheJSONconfigurationvariablesfeature}
 
-### Step 1: Enable the feature
+### Step 1: Enable the feature {#JSONConfigurationVariablesFeature-Step1:Enablethefeature}
 
 
 To configure a package step to replace matching app settings in your JSON configuration files ensure the **JSON configuration variables** feature is enabled.
@@ -41,7 +41,7 @@ To configure a package step to replace matching app settings in your JSON config
 
 ![](/docs/images/3702943/5275653.png "width=500")
 
-### Step 2: Configure which files to update
+### Step 2: Configure which files to update {#JSONConfigurationVariablesFeature-Step2:Configurewhichfilestoupdate}
 
 
 Next, specify the relative paths within the package to your JSON configuration files.
@@ -64,12 +64,12 @@ Note that you can even use the [Variable Substitution Syntax](/docs/reference/v
 
 Any matching variables in the JSON file will have their values replaced with the variables you have configured in Octopus.
 
-## How your JSON configuration settings are updated by Octopus
+## How your JSON configuration settings are updated by Octopus {#JSONConfigurationVariablesFeature-HowyourJSONconfigurationsettingsareupdatedbyOctopus}
 
 
 When this feature is enabled, Octopus will find the target files and replace any matching configuration settings with the value of matching Octopus variables.
 
-### Simple variables
+### Simple variables {#JSONConfigurationVariablesFeature-Simplevariables}
 
 
 Given this example of a target config file:
@@ -97,7 +97,7 @@ If you have the Octopus Variables `weatherApiUrl` and `weatherApiKey` set to th
 }
 ```
 
-### Hierarchical variables
+### Hierarchical variables {#JSONConfigurationVariablesFeature-Hierarchicalvariables}
 
 
 It is common (and encouraged) to use hierarchical variables in JSON configuration files.  This is supported in Octopus Deploy variables by using a nested path syntax delimited by *colon* characters.
@@ -119,7 +119,7 @@ For example, to update the value of `weatherApi.url` and `weatherApi.key` in th
 
 You can also replace an entire object. For the example above you could set Octopus Variable `weatherApi` to a value of `{&quot;weatherApi&quot;:{&quot;url&quot;:&quot;test.weather.com&quot;,&quot;key&quot;:&quot;TEST7654321&quot;}}`
 
-### Array variables
+### Array variables {#JSONConfigurationVariablesFeature-Arrayvariables}
 
 
 Octopus Deploy can also replace a value in a JSON array by using the zero-based index of the array in the variable name.

@@ -20,7 +20,7 @@ On this page:
 - Docker Hub
 - Private Registry
 
-## Using Docker Registries in Octopus Deploy
+## Using Docker Registries in Octopus Deploy {#DockerRegistriesasFeeds-UsingDockerRegistriesinOctopusDeploy}
 
 
 In Octopus Deploy, Docker Registries are treated very similarly to [Package Repositories](/docs/packaging-applications/package-repositories/index.md), and Images are treated very similarly to Packages.
@@ -28,7 +28,7 @@ In Octopus Deploy, Docker Registries are treated very similarly to [Package Rep
 
 Octopus Deploy supports the Docker Registry [Version 1](https://docs.docker.com/v1.6/reference/api/registry_api/) and [Version 2](https://docs.docker.com/registry/spec/api/) API specifications as outlined in the Docker reference files. You can access Docker Registries with or without using credentials, depending on registry configuration. You can use one of the hosted public registries, like [Docker Hub](https://hub.docker.com/), or you can host your own [Private Registry](/docs/deploying-applications/docker-containers/docker-registries-as-feeds.md).
 
-### How Octopus Server and Deployment Targets integrate with Docker Registries
+### How Octopus Server and Deployment Targets integrate with Docker Registries {#DockerRegistriesasFeeds-HowOctopusServerandDeploymentTargetsintegratewithDockerRegistries}
 
 
 The Docker Registries you configure need to be accessed by both the Octopus Server and your [Deployment Targets](/docs/deployment-targets/index.md).
@@ -46,7 +46,7 @@ Octopus Deploy does not currently support functionality to push Images from the 
 It is possible that the URI to the Docker Registry will be different for the Octopus Server and the Deployment Targets. You can use the *Registry Path* field when configuring the Docker Registry in Octopus to provide an alternative URI to use on the Deployment Target.
 :::
 
-### Working with Docker Container Images in Octopus
+### Working with Docker Container Images in Octopus {#DockerRegistriesasFeeds-WorkingwithDockerContainerImagesinOctopus}
 
 
 Docker Images with the same name are grouped together and referred to (in Docker terminology) as a **repository**. This is very similar to how Octopus, and other package managers like NuGet, treat Packages with the same Name or ID. When you configure a Docker step in Octopus you choose an Image by its Name, just like you would choose a Package ID for any of the other [supported packages](/docs/packaging-applications/supported-packages.md).
@@ -63,7 +63,7 @@ When you create a release in Octopus, you need to choose the "version" of the Im
 
 
 
-## Docker Hub
+## Docker Hub {#DockerRegistriesasFeeds-DockerHub}
 
 
 The default Docker Registry, which is maintained by the Docker organisation, is the cloud-hosted [Docker Hub Registry](https://hub.docker.com/). This is the Registry which is used by docker engine when it is first installed and you call `docker search`.
@@ -100,7 +100,7 @@ To use the Docker Hub registry in Octopus Deploy, create an external feed with t
 *![](/docs/images/5671031/5865826.png "width=500")*
 :::
 
-## Private Registry
+## Private Registry {#DockerRegistriesasFeeds-PrivateRegistry}
 
 
 The simplest way to host your own private v2 Docker Registry is to run the run a container from the official registry image!

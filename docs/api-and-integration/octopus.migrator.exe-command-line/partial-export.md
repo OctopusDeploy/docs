@@ -48,7 +48,7 @@ Common Options:
       --nologo               Don't print title or version information
 ```
 
-### Basic examples
+### Basic examples {#PartialExport-Basicexamples}
 
 
 This will export the project files from *AcmeWebStore*and then spider back through the relevant linked documents in the database and back up *only those that are required in some way* to reproduce that project in its entireity.

@@ -36,7 +36,7 @@ On this page:
 - Schannel and TLS configuration mismatches
 - Error Messages
 
-## Home in on the problem
+## Home in on the problem {#TroubleshootListeningTentacles-Homeinontheproblem}
 
 
 If you're at "square 1" and can't connect to a new Tentacle machine, take note of the error presented in the "Discover" page.
@@ -85,7 +85,7 @@ If any of the communications settings are incorrect, choose *Delete this Tentacl
 
 Finally, verify that the Tentacle's thumbprint, shown in bold in the large box, matches any that have been presented in error messages, and in the *Machine Settings* page on the Octopus Web Portal.
 
-## Verify the Octopus and Tentacle services are running
+## Verify the Octopus and Tentacle services are running {#TroubleshootListeningTentacles-VerifytheOctopusandTentacleservicesarerunning}
 
 
 If you're successfully connecting to the Octopus Web Portal with your web browser, you can be confident the Octopus Server service is running.
@@ -101,7 +101,7 @@ If the Tentacle service is not running, you can try to start it from the Service
 
 If the service is up and running, continue to the next step.
 
-## Connect locally to the Tentacle
+## Connect locally to the Tentacle {#TroubleshootListeningTentacles-ConnectlocallytotheTentacle}
 
 
 The Tentacle service can only be controlled by a trusted Octopus, but to help with diagnostics it will present a welcome page if visited in a web browser.
@@ -129,7 +129,7 @@ If you've made it this far, good news! Your Tentacle is running and ready to acc
 If this is where your journey ends, there's a problem on the Tentacle machine. It is very likely that the Tentacle is unable to open the communications port, either because of permissions, or because another process is listening on that port. Using the Windows `netstat -o -n -a -b` command can help to get to the bottom of this quickly. If you're still in trouble, check the Tentacle [log files](/docs/reference/log-files.md) and contact Octopus Deploy support.
 :::
 
-## Connect from the Octopus Server
+## Connect from the Octopus Server {#TroubleshootListeningTentacles-ConnectfromtheOctopusServer}
 
 
 Next, repeat the process of connecting to the Tentacle with a web browser, but do this *from the Octopus Server machine*.
@@ -160,7 +160,7 @@ Octopus and Tentacle use TCP to communicate, with special handling to enable web
 **NOTE**: Octopus Deploy 3.4 introduced [advanced support for HTTP proxies](/docs/installation/installing-tentacles/proxy-support.md).
 :::
 
-## Tentacle ping
+## Tentacle ping {#TroubleshootListeningTentacles-Tentacleping}
 
 
 We have built a small utility for testing the communications protocol between two servers called [Tentacle Ping](https://github.com/OctopusDeploy/TentaclePing). This tool helps isolate the source of communication problems without needing a full Octopus configuration. It is built as a simple client and server component that emulates the communications protocol used by Octopus Server and Tentacle.
@@ -175,12 +175,12 @@ In Octopus 3.0 you will need **TentaclePing** and **TentaclePong**, you cannot t
 
 Use the output to help diagnose what is going wrong.
 
-## Check the listening IP address
+## Check the listening IP address {#TroubleshootListeningTentacles-CheckthelisteningIPaddress}
 
 
 Your Tentacle server may have multiple IP addresses that it listens on. For example, in Amazon EC2 machines in a VPN might have both an internal IP address and an external addresses using NAT. Tentacle may not listen on all addresses; you can check which addresses are configured on the server by running `ipconfig /all` from the command line and looking for the IPv4 addresses.
 
-## Check for zombie child processes locking TCP ports
+## Check for zombie child processes locking TCP ports {#TroubleshootListeningTentacles-CheckforzombiechildprocesseslockingTCPports}
 
 
 If Tentacle fails to start with an error message like this: **A required communications port is already in use.**
@@ -191,7 +191,7 @@ The most common scenario is when you already have an instance of Tentacle (or so
 
 Take a look at [this thread](http://help.octopusdeploy.com/discussions/problems/40076-tentacle-wont-start-after-stopped#comment_38833291) for more background and troubleshooting tips.
 
-## Check Tentacle service account permissions
+## Check Tentacle service account permissions {#TroubleshootListeningTentacles-CheckTentacleserviceaccountpermissions}
 
 
 If the Octopus Tentacle is running as the *Local System*account you can skip this section.
@@ -199,7 +199,7 @@ If the Octopus Tentacle is running as the *Local System*account you can skip th
 
 If the Tentacle is running as a specific user, make sure that the user has "full control" permission to the *Octopus Home* folder on the Tentacle machine. This is usually `C:\Octopus` - apply permissions recursively.
 
-## Check Tentacle.exe load time
+## Check Tentacle.exe load time {#TroubleshootListeningTentacles-CheckTentacle.exeloadtime}
 
 
 In some DMZ-style environments without Internet access, failing to disable Windows code signing certificate revocation list checking will cause Windows to pause during loading of the Octopus applications and installers. This can have a significant negative performance impact, which may prevent Octopus and Tentacles connecting.
@@ -220,7 +220,7 @@ To do this open *Control Panel > Internet Options > Advanced*, and un-check the
 
 ![](/docs/images/3048143/3278077.png)
 
-## Schannel and TLS configuration mismatches
+## Schannel and TLS configuration mismatches {#TroubleshootListeningTentacles-SchannelandTLSconfigurationmismatches}
 
 
 Octopus uses `Schannel` for secure communications and will attempt to use the best available protocol available to both servers.  If you are seeing error messages like below, try [Troubleshooting Schannel and TLS](/docs/reference/octopus---tentacle-communication/troubleshooting-schannel-and-tls.md):
@@ -231,7 +231,7 @@ Client-side:`System.Security.Authentication.AuthenticationException: A call to S
 
 Server-side:`System.IO.IOException: Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host.`
 
-## Error Messages
+## Error Messages {#TroubleshootListeningTentacles-ErrorMessages}
 
 
 **Halibut.Transport.Protocol.ConnectionInitializationFailedException: Unable to process remote identity; unknown identity 'HTTP/1.0'**

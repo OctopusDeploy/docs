@@ -9,7 +9,7 @@ Once you've [packaged your applications for deployment](/docs/packaging-applicat
 
 A project is a collection of [deployment steps](/docs/deploying-applications/index.md) that you want Octopus and Tentacle to run, and [variables](/docs/deploying-applications/variables/index.md) to configure it. A project is like a recipe - you define how your software is deployed, and then you create many releases to deploy different versions of that software.
 
-## Managing projects
+## Managing projects {#Projects-Managingprojects}
 
 
 You can add or view a list of all projects by going to the **Projects** tab and choosing **All** within the Octopus Web Portal.
@@ -35,7 +35,7 @@ You can create projects by clicking on the **Add project** button.
 
 ![](/docs/images/3048102/3277825.png "width=500")
 
-## Project permissions
+## Project permissions {#Projects-Projectpermissions}
 
 You can control who has access to view or edit environments, as well as who has access to deploy to environments, by assigning users to Teams and assigning roles to those teams. For more information, see the section on [managing users and teams](/docs/administration/managing-users-and-teams/index.md).
 
@@ -44,7 +44,7 @@ You can control who has access to view or edit environments, as well as who has 
 To set retention policies and the environments a project can be deployed to, as well as to apply some grouping in the dashboard and elsewhere, projects can be [assigned to project groups](/docs/key-concepts/project-groups.md).
 :::
 
-## Do I need one or many projects?
+## Do I need one or many projects?  {#Projects-DoIneedoneormanyprojects?}
 
 
 It can be hard to decide whether to create lots of single-step projects in Octopus, or one big project. Here are two rules of thumb that may help:
@@ -69,7 +69,7 @@ Alternatively, there may only be one team, who work on both the rate service and
 
 ![](/docs/images/3048102/3277821.png "width=500")
 
-## Cloning projects
+## Cloning projects {#Projects-Cloningprojects}
 
 
 You can clone a project by opening an existing project, and then selecting the settings tab and clicking the **Clone** link on the right side bar

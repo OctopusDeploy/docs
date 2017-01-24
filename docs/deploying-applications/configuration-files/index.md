@@ -21,7 +21,7 @@ On this page:
 - Suppressing Configuration Transformation Errors
 - PowerShell
 
-## Configuration variables
+## Configuration variables {#Configurationfiles-ConfigurationVariablesConfigurationvariables}
 
 
 This feature can be enabled for any NuGet package step.
@@ -105,7 +105,7 @@ The same concept applies to strongly-typed **applicationSettings** using the [Ap
 Values are matched based on the **key** attribute for **appSettings**, and the **name** element for **applicationSettings** and **connectionStrings**.
 :::
 
-## Replacing variables outside appSettings, applicationSettings and connectionStrings
+## Replacing variables outside appSettings, applicationSettings and connectionStrings {#Configurationfiles-VariablesInFilesReplacingvariablesoutsideappSettings,applicationSettingsandconnectionStrings}
 
 
 There may be other variables you would like Octopus to replace in your configuration files that are outside both the appSettings and connectionStrings areas.
@@ -131,7 +131,7 @@ There are pros and cons to each of these methods. For the first two it can break
 Using the Substitute Variables in Files feature will change the order that variables are replaced. Using Configuration Transformations and Configuration Variables, does the transformation and then replaces variables. Defining files within the substitution will have all of their variables replaced first prior to the transformation. But this will only happen for any configuration or transformation files that are explicitly listed in the Substitute files list. Read about the order of [package step feature ordering here](/docs/reference/package-deployment-feature-ordering.md).
 :::
 
-## Configuration transforms
+## Configuration transforms {#Configurationfiles-ConfigurationTransformationConfigurationtransforms}
 
 
 ![](/docs/images/3048087/3277703.png "width=500")
@@ -156,7 +156,7 @@ An example web.config transformation that removes the `&lt;compilation debug=&q
 The team at [AppHarbor](http://appharbor.com/) created a useful tool to [help test configuration file transformations](http://webconfigtransformationtester.apphb.com/).
 :::
 
-### Naming configuration transform files
+### Naming configuration transform files {#Configurationfiles-Namingconfigurationtransformfiles}
 
 
 This feature will run your configuration transforms based on looking for transform files named with the following conventions. The configuration transformation files can either be named `*.Release.config`, or `*.&lt;Environment&gt;.config` and will be executed in this order:
@@ -212,7 +212,7 @@ To make sure Octopus can run the configuration transforms for your Windows Servi
 ![](/docs/images/3048087/5865879.png "width=500")
 :::
 
-## Additional Configuration Transforms
+## Additional Configuration Transforms {#Configurationfiles-AdditionalConfigurationTransforms}
 
 
 You might have additional transforms to run outside of Debug, Environment or Release. You can define these in the Additional transforms box. If defined, these transforms will run regardless of the state of the `Automatically run configuration transformation files` checkbox.
@@ -224,7 +224,7 @@ You might have additional transforms to run outside of Debug, Environment or Rel
 Octopus supports explicit, wildcard and relative path configuration transform definitions on any XML file with any file extension. Octopus will iterate through all files in all directories (ie, recursively) of your deployed application to find any matching files. Your target file also must exist; it will not be created by Octopus.
 As a general rule, you should not include the path to the files unless the transform file is in a different directory to the target, in which case it needs to be relative to the target file (as explained below in the relative path scenario). Absolute paths are supported for transform files, but not for target files.
 
-### Explicit
+### Explicit {#Configurationfiles-Explicit}
 
 **Explicit config transform**
 
@@ -235,7 +235,7 @@ Transform.config => Target.config
 
 The above transform definition will apply **Transform.config** to **Target.config** when the files are in the same directory.
 
-### Relative path
+### Relative path {#Configurationfiles-Relativepath}
 
 **Relative path config transform**
 
@@ -246,7 +246,7 @@ Path\Transform.config => Target.config
 
 The above transform definition will apply **Transform.config** to **Target.config** when **Transform.config** is in the directory **Path** relative to **Target.config**.
 
-### Wildcard
+### Wildcard {#Configurationfiles-Wildcard}
 
 
 Wildcards can be used to select any matching file. For example, **\*.config** will match **app.config** as well as **web.config**.
@@ -288,7 +288,7 @@ The above transform definition will apply **Transform.config** to **foo.config**
 If you would like to define the order of all of your transformations, if you list them in the order of transformation inside the Additional transforms feature then Octopus will use that order to run the transforms.
 :::
 
-## Suppressing Configuration Transformation Errors
+## Suppressing Configuration Transformation Errors {#Configurationfiles-SuppressingConfigurationTransformationErrors}
 
 
 As of Octopus 3.0, any exceptions that are thrown by the Microsoft config transformation process will be treated as errors by Octopus, failing the deployment. This typically involves explicit transformations for elements that don't exist in the source .config file and will surface with errors similar to the below:
@@ -309,7 +309,7 @@ One or more errors were encountered when applying the XML configuration transfor
 
 To suppress these errors and report them as informational only, use the `Octopus.Action.Package.IgnoreConfigTransformationErrors` variable defined in the [System Variables](/docs/deploying-applications/variables/system-variables.md) section of the documentation.
 
-## PowerShell
+## PowerShell {#Configurationfiles-PowerShell}
 
 
 If these conventions aren’t enough to configure your application, you can always [use PowerShell to perform custom configuration tasks](/docs/deploying-applications/custom-scripts/index.md). Variables will be passed to your PowerShell script, and PowerShell has [rich XML API's](http://www.codeproject.com/KB/powershell/powershell_xml.aspx).

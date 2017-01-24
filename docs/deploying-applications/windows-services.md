@@ -40,17 +40,17 @@ The *Deploy a Windows Service Step* was introduced in Octopus version **3.4.7**.
 ![](/docs/images/3048082/3277662.png "width=500")
 :::
 
-## Configuring the Step
+## Configuring the Step {#WindowsServices-ConfiguringtheStep}
 
 
 ![](/docs/images/3048082/5865715.png "width=500")
 
-### Step 1: Select a Package
+### Step 1: Select a Package {#WindowsServices-Step1:SelectaPackage}
 
 
 Use the Package Feed and Package ID fields to select the [package](/docs/packaging-applications/index.md) containing the executable (.exe) to be installed as a Windows Service.
 
-### Step 2: Configure Windows Service options
+### Step 2: Configure Windows Service options {#WindowsServices-Step2:ConfigureWindowsServiceoptions}
 
 | Field | Meaning |
 | --- | --- |
@@ -98,12 +98,12 @@ Any dependencies that the service has. Separate the names using forward slashes 
 `LanmanWorkstation/TCPIP`
  |
 
-## Windows Service deployment in action
+## Windows Service deployment in action {#WindowsServices-WindowsServicedeploymentinaction}
 
 
 This three minute video (with captions) demonstrates how to deploy a C# Windows Service project with Octopus Deploy.
 
-## How does Octopus actually deploy my Windows Service?
+## How does Octopus actually deploy my Windows Service? {#WindowsServices-HowdoesOctopusactuallydeploymyWindowsService?}
 
 
 Out of the box, Octopus will do the right thing to deploy your Windows Service, and the conventions we have chosen will eliminate a lot of problems with file locks, and leaving stale files behind. By default Octopus will follow the conventions described in [Deploying packages](/docs/deploying-applications/deploying-packages/index.md) and apply the different features you select in the order described in [Package deployment feature ordering](/docs/reference/package-deployment-feature-ordering.md).
@@ -137,7 +137,7 @@ You can see exactly how Octopus deploys your Windows Service by looking at the s
 You can inject your own logic into this process using [custom scripts](/docs/deploying-applications/custom-scripts/index.md) and understanding where your scripts will execute in the context of [package deployment feature ordering](/docs/reference/package-deployment-feature-ordering.md).
 :::
 
-## Setting advanced configuration options
+## Setting advanced configuration options {#WindowsServices-Settingadvancedconfigurationoptions}
 
 
 Windows Services support some advanced settings not exposed by this feature. You can customize your Windows Service by including a `PostDeploy.ps1` [custom script](/docs/deploying-applications/custom-scripts/index.md).
@@ -161,7 +161,7 @@ This script will run after the Windows Service has been created (or reconfigured
 This Microsoft TechNet [article](https://technet.microsoft.com/en-us/library/cc754599.aspx) is a great reference on the sc.exe utility including the failure action above.
 :::
 
-## Deploying Services built with Topshelf
+## Deploying Services built with Topshelf {#WindowsServices-DeployingServicesbuiltwithTopshelf}
 
 
 [Topshelf](http://topshelf-project.com/) is a library to build and work with Windows Services easily by allowing your code to run (and be debugged) inside a Console Application, but giving you the option to install and run as a Windows Service.
@@ -169,7 +169,7 @@ This Microsoft TechNet [article](https://technet.microsoft.com/en-us/library/cc
 
 While Topshelf has its own command line options to make Service Registration easy, you can still use SC.EXE. This means that deploying a Topshelf enabled application as a Windows Service is easy using the Octopus service deploy feature. The only caveat is the value you specify in the Service Name parameter must match the Service Name specified in your Topshelf configuration code (in Program.cs) or the service will not start.
 
-## Security Considerations
+## Security Considerations {#WindowsServices-SecurityConsiderations}
 
 
 You will need to consider carefully which Service Account you choose for your Windows Service. If you decide to use a Custom Account, you will need to make sure the Account is granted the **Logon as a Service** logon right (**SeServiceLogonRight**).
@@ -177,7 +177,7 @@ You will need to consider carefully which Service Account you choose for your Wi
 
 When you use the Services snap-in console to configure your Windows Service, the **SeServiceLogonRight** logon right is automatically assigned to the account. If you use the Sc.exe tool or APIs to configure the account (like Octopus Deploy does on your behalf), the account has to be explicitly granted this right by using tools such as the Security Policy snap-in, `Secedit.exe`, or `NTRights.exe`. The built-in Windows Service accounts (`Local System`, `Network Service`, `Local Service`), and members of the **Local Administrators** group are assigned this right by default.
 
-## Using Managed Service Accounts (MSA)
+## Using Managed Service Accounts (MSA) {#WindowsServices-UsingManagedServiceAccounts(MSA)}
 
 
 > Managed Service Accounts (MSA) allow you to eliminate those never-expire-service-accounts. An MSA is a special domain account that can be managed by the computer that uses it. That computer will change its password periodically without the need of an administrator.

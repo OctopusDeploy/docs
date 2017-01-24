@@ -27,7 +27,7 @@ On this page:
 
 If this is part of an automated deployment, make sure all packages are pushed to the external feed before starting the deployment. If the packages are pushed, perhaps the external feed hasn't finished updating its index and you need to give the external feed more time to update its index before starting the deployment. If you are getting a package verification error, try switching to a Windows File Share package repository to see if that helps.
 
-## Using the built-in repository
+## Using the built-in repository {#Troubleshootmissingpackages-Usingthebuilt-inrepository}
 
 
 If you are using the built-in repository, you may see a message like "The package could not be located in the built-in repository". These steps should help you diagnose the root cause of the problem and fix it:
@@ -49,7 +49,7 @@ Try manually deploying the same release again (in other words retry the exact sa
 The built-in repository is a simple abstraction around the file system on your Octopus Server, with an index stored in the Octopus SQL Database. When you [push a package to the Octopus built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md), it will be immediately added to the index and available for use in deployments: there is no delay. Octopus will also periodically scan the packages folder to make sure the index stored in the Octopus SQL Database is synchronized with the packages stored on the file system. If you manually add a package to the file system directly, there will be a delay until the package is added to the index.
 :::
 
-## Using an external feed
+## Using an external feed {#Troubleshootmissingpackages-Usinganexternalfeed}
 
 
 If you are using an external feed you may see a message explaining the package cannot be found or that it cannot be downloaded during the deployment. These steps should help you diagnose the root cause of the problem and fix it:

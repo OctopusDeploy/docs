@@ -22,7 +22,7 @@ It is best to create **Service accounts** for this purpose to provide each servi
 Service accounts authenticate with the Octopus API using their [Octopus API Key](/docs/how-to/how-to-create-an-api-key.md).
 :::
 
-## Creating a service account
+## Creating a service account {#ServiceAccounts-Creatingaserviceaccount}
 
 
 Creating a new Service account is very similar to creating a new User account:

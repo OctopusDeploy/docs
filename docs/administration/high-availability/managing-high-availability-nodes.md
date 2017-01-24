@@ -19,7 +19,7 @@ Information regarding each of your nodes is displayed here.  You can see:
 - **Drain**: on or off depending on if the node can execute new tasks
 
 
-## Rank
+## Rank {#ManagingHighAvailabilityNodes-Rank}
 
 
 The nodes in your Octopus Server High Availability cluster can be either a leader or a follower.  Only one node can be the cluster leader and the rest of the nodes will be followers.  Some maintenance and scheduled tasks will only run on the cluster leader, such as:
@@ -55,7 +55,7 @@ Node A goes offline
 
 Node C elects itself *leader*
 
-## Last seen
+## Last seen {#ManagingHighAvailabilityNodes-Lastseen}
 
 
 Octopus Server nodes will check-in at regular intervals.  If an Octopus Server node goes offline a warning will be displayed and the time that it went offline can be determined by looking at the **last seen** field.
@@ -63,12 +63,12 @@ Octopus Server nodes will check-in at regular intervals.  If an Octopus Server 
 
 ![](/docs/images/3048617/3278372.png "width=500")
 
-## Tasks
+## Tasks {#ManagingHighAvailabilityNodes-Tasks}
 
 
 Each Octopus Server node will execute tasks as they are queued. The **tasks** field displays the number of tasks currently running on that node. Following the active tasks link will display more information about all of the tasks for that node.
 
-## Task cap
+## Task cap {#ManagingHighAvailabilityNodes-Taskcap}
 
 
 Each Octopus Server node can execute a maximum number of tasks in parallel.  This is to prevent death by multi-tasking. The **task cap** allows you to configure the maximum number of tasks for each node.  If more tasks are created than the total available task cap, the tasks will queue for up to a day until an Octopus Server node is available to execute the task.
@@ -76,7 +76,7 @@ Each Octopus Server node can execute a maximum number of tasks in parallel.  Th
 
 You may consider setting a low cap for your Octopus Servers on poorer hardware or have a dedicated UI node with a low task cap to improve UI performance.
 
-## Drain
+## Drain {#ManagingHighAvailabilityNodes-Drain}
 
 
 The drain toggle can be used to prevent an Octopus Server node from executing any new tasks.  While draining:
@@ -87,7 +87,7 @@ The drain toggle can be used to prevent an Octopus Server node from executing an
 - the Octopus Server ping url will not return 200 OK
 
 
-## Load balancing
+## Load balancing {#ManagingHighAvailabilityNodes-Loadbalancing}
 
 
 To distribute the load among Octopus Server nodes with a single point of access it is recommend to use a load balancer.  Octopus Server facilitates this by providing the url `/api/octopusservernodes/ping` for a load balancer to ping:
@@ -98,7 +98,7 @@ To distribute the load among Octopus Server nodes with a single point of access 
 
 The url will return HTTP status code 200 as long as the Octopus Server node is online and not in drain mode.
 
-## Example procedure: installing Windows Updates
+## Example procedure: installing Windows Updates {#ManagingHighAvailabilityNodes-Exampleprocedure:installingWindowsUpdates}
 
 
 One of the great benefits of High Availability is the ability to perform maintenance on one node, while allowing other nodes to continue to perform deployments or server users.

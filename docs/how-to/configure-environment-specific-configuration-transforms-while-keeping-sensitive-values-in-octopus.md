@@ -27,7 +27,7 @@ Second, for a large number of environments or machines, you'll need to manage a 
 
 To solve these limitations, you can combine the techniques.
 
-## One Transform + Variable Replacement
+## One Transform + Variable Replacement {#ConfigureEnvironment-specificconfigurationtransformswhilekeepingsensitivevaluesinOctopus-OneTransform+VariableReplacement}
 
 
 One common technique is to combine options 2 and 3 above.
@@ -38,7 +38,7 @@ You would have a single configuration transformation file in your project. If i
 
 This transform file can contain `#{variable}` values. Because your config will only get transformed on deployment, you can safely work with your `Web.Config` file during development, and you can keep sensitive variables like production passwords out of source control.
 
-### The process
+### The process {#ConfigureEnvironment-specificconfigurationtransformswhilekeepingsensitivevaluesinOctopus-Theprocess}
 
 
 It's important to note that the variable substitution occurs before your configuration transformation. That means you'll have to target your transform files for variable substitution by adding them to the **Target files** setting.

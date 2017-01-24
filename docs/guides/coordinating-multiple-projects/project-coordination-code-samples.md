@@ -26,7 +26,7 @@ These examples use the [Octopus.Client](/docs/api-and-integration/octopus.clien
 - Triggering and waiting for another project
 - Waiting for another project to reach a certain stage
 
-## Querying the current state
+## Querying the current state {#ProjectCoordinationCodeSamples-Queryingthecurrentstate}
 
 
 The best way to get the current state for one or more projects is to use the Dashboard API, which is also used by the dashboards in the WebUI:
@@ -60,7 +60,7 @@ $repository.Dashboards.GetDashboard().Items
 ```
 
 ## 
-Viewing recent deployments
+Viewing recent deployments {#ProjectCoordinationCodeSamples-Viewingrecentdeployments}
 
 
 The following code returns the deployments started in the last 7 days:
@@ -83,7 +83,7 @@ repository.Deployments.Paginate(projects, environments,
 
 
 
-## Promoting a group of projects
+## Promoting a group of projects {#ProjectCoordinationCodeSamples-Promotingagroupofprojects}
 
 
 This example finds all the releases that are in UAT but not Production. It then queues them for deployment to Production and waits for them to complete.
@@ -115,7 +115,7 @@ if(completed.Any(c => c.State != TaskState.Success)
 	throw new Exception("One or more projects did not complete successfully");
 ```
 
-## Queuing a project to run later
+## Queuing a project to run later {#ProjectCoordinationCodeSamples-Queuingaprojecttorunlater}
 
 
 This example re-queues the currently executing project at 3am the next day
@@ -139,7 +139,7 @@ Console.WriteLine($"Queued for {tomorrow3amServerTime}");
 
 
 
-## Failing a deployment if another deployment is running
+## Failing a deployment if another deployment is running {#ProjectCoordinationCodeSamples-Failingadeploymentifanotherdeploymentisrunning}
 
 
 This example uses the dynamic dashboard API to check whether a different project is currently deploying to the same environment. Note that Octopus [restricts](http://docs.octopusdeploy.com/display/OD/Run+multiple+processes+on+a+Tentacle+Simultaneously) what can run at the same time already.
@@ -155,7 +155,7 @@ if (dash.Items.Any(i => i.State == TaskState.Queued || i.State == TaskState.Exec
 
 
 
-## Failing a deployment if a dependency is not deployed
+## Failing a deployment if a dependency is not deployed {#ProjectCoordinationCodeSamples-Failingadeploymentifadependencyisnotdeployed}
 
 
 This example retrieves the last release to the same environment of a different project and fails if it is not the expected release version.
@@ -170,7 +170,7 @@ if (last == null || last.ReleaseVersion != requiredVersion)
 	throw new Exception($"This project requires version {requiredVersion} of {otherProject.Name} to be deployed to the same environment");
 ```
 
-## Triggering and waiting for another project
+## Triggering and waiting for another project {#ProjectCoordinationCodeSamples-Triggeringandwaitingforanotherproject}
 
 
 This example finds the latest release for a different project and deploys it if it is not currently deployed to the environment.
@@ -197,7 +197,7 @@ if (latestRelease != null && last.ReleaseId != latestRelease.Id)
 }
 ```
 
-## Waiting for another project to reach a certain stage
+## Waiting for another project to reach a certain stage {#ProjectCoordinationCodeSamples-Waitingforanotherprojecttoreachacertainstage}
 
 
 This example builds on the previous, by waiting until a particular step is complete instead of the whole task.

@@ -4,7 +4,7 @@ position: 13
 ---
 
 
-# 
+# **Disaster Recovery Guide** {#OctopusServerDisasterRecovery-DisasterRecoveryGuide}
 
 
 - Disaster Recovery Guide
@@ -21,7 +21,7 @@ Disaster recovery is essential for every organisation, to reduce downtime should
 
 Octopus has options for your Disaster Recovery that will enable you to quickly recover your current Octopus Architecture.
 
-## 
+## **Licensing Information:** {#OctopusServerDisasterRecovery-LicensingInformation:}
 
 
 Every Octopus license allows for 3 instances. You can also have offline disaster recovery instances that will not be included in this count. This guide describes how to set these instances up.
@@ -40,8 +40,7 @@ This solution can be done for either a standalone instance, multiple servers or 
 The key is to set the instance to have the same node name as the server it is going to take over from when a disaster happens. This means that it will seamlessly take over from where the other instance left off and does not take up any of your instance or node counts.
 :::
 
-## 
-
+## **Service Configured:** {#OctopusServerDisasterRecovery-ServiceConfigured:}
 
 
 
@@ -57,7 +56,7 @@ Depending on your Architecture, you will need to ensure you are aware of the set
 
 Your Octopus Server settings will be different depending on the following Architecture models you could be using. Browse to the relevant Architecture model below to find the requirements you will need to proceed:
 
-### 
+### *1. Single Server - Octopus Server Installation* {#OctopusServerDisasterRecovery-1.SingleServer-OctopusServerInstallation}
 
 
 Using the offline recovery server you allocated for Disaster Recovery, follow the checklist below to copy the Production installation settings for your Single Server.
@@ -87,7 +86,7 @@ When required to replace your Production server with the ready DR server, follow
 
 
 
-### 
+### *2. Multiple Server - Octopus Server Installation* {#OctopusServerDisasterRecovery-2.MultipleServer-OctopusServerInstallation}
 
 
 ![](/docs/images/5669334/5866180.png "width=300")
@@ -119,7 +118,7 @@ When required to replace your Production servers with the ready DR servers, foll
 
 
 
-### 3. High Availability - Octopus Server Installation
+### 3. High Availability - Octopus Server Installation {#OctopusServerDisasterRecovery-3.HighAvailability-OctopusServerInstallation}
 
 
 ![](/docs/images/5669334/5866181.png "width=300")
@@ -130,7 +129,7 @@ When required to replace your Production servers with the ready DR servers, foll
 
 
 
-## 
+## How to find your NODE name: {#OctopusServerDisasterRecovery-HowtofindyourNODEname:}
 
 - Navigate to your Configuration --> Nodes page.
 

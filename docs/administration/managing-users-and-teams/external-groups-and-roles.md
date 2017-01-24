@@ -15,7 +15,7 @@ Depending on which authentication providers you have enabled, the following butt
 
 ![](/docs/images/5672303/5866190.png "width=694")
 
-## Add Active Directory group
+## Add Active Directory group {#ExternalGroupsandRoles-AddActiveDirectorygroup}
 
 
 This button appears if you have the Active Directory authentication provider enabled, and when activated you will see the following dialog
@@ -26,12 +26,12 @@ This button appears if you have the Active Directory authentication provider ena
 
 The search on this dialog will locate any groups in the domain that start with the text you provide.
 
-### Trusted Domains
+### Trusted Domains {#ExternalGroupsandRoles-TrustedDomainsTrustedDomains}
 
 
 If your environment has trusted domains, you can search for groups in the trusted domain by prefixing the search text with "**domain\**" (where domain is the name of the Trusted Domain).
 
-## Add External Role
+## Add External Role {#ExternalGroupsandRoles-AddExternalRole}
 
 
 This button appears if you have an external authentication provider enabled (e.g. Azure AD), and when activated you will see the following dialog

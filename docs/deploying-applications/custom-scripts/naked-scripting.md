@@ -4,7 +4,7 @@ position: 2
 ---
 
 
-## Design Intentions
+## Design Intentions {#NakedScripting-DesignIntentions}
 
 
 Some Octopus users deploying to SSH Endpoints have had problems installing the Mono prerequisite that provides the runtime for Octopus Deploy's .NET orchestration tool [Calamari](/docs/api-and-integration/calamari.md). Although there is some momentum to package Calamari in a self-contained, cross-platform way with .NET Core, there exists a need now to be able to execute scripts directly on the server without all the added cost and complexity of uploading the latest Calamari. An experiential feature has been provided in Octopus 3.9, accessible via a project variable which will simply open a connection to the remote server and execute a deployment scrip within that session.
@@ -23,7 +23,7 @@ The bootstrapping script that is provided by Calamari will not be available and 
 
 Naked scripting is great for cases where you are unable to install and run Mono limitations like a your server platform being unsupported by Mono or using an IOT device that does not meet the hardware requirements to run Mono. By eliminating Calamari as the middle man in these deployments, you may also shave a few seconds off your deployment for each step.
 
-## Deploying To SSH Endpoint Without Calamari (i.e. no Mono prerequisite)
+## Deploying To SSH Endpoint Without Calamari (i.e. no Mono prerequisite) {#NakedScripting-DeployingToSSHEndpointWithoutCalamari(i.e.noMonoprerequisite)}
 
 
 While naked scripting does not require a Transfer a Package step, the below scenario walks though a basic scenario of using a naked script in conjunction with the Transfer a Package step to extract a package on a SSH endpoint where Mono is unable to be installed.
@@ -47,7 +47,7 @@ unzip -d ~/temp/somewhere "#{Octopus.Action[Transfer AcmeWeb].Output.Octopus.Act
 ![](/docs/images/5671696/5866197.png "width=500")
 
 
-## Naked Tentacles
+## Naked Tentacles {#NakedScripting-NakedTentacles}
 
 
 Naked scripting is also supported on standard Windows based Tentacles however in this case the scripts will always be executed in the context of a PowerShell session. Keep in mind that this still means that you need a fully functioning Tentacle actually running on the remote target.

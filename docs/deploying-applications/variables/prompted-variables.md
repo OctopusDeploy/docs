@@ -9,7 +9,7 @@ Sometimes you may not want to store the value of a variable inside Octopus (thou
 
 Octopus can handle this using **Prompted variables**.
 
-## Defining a prompted variable
+## Defining a prompted variable {#Promptedvariables-Definingapromptedvariable}
 
 
 You can configure a variable to be prompted when editing the variable:
@@ -32,7 +32,7 @@ Prompted variables will appear with an icon next to the value:
 
 
 
-## Providing a value for the variable
+## Providing a value for the variable {#Promptedvariables-Providingavalueforthevariable}
 
 
 When deploying (not creating a release), you'll be prompted to provide a value for the variable:

@@ -6,12 +6,12 @@ title: Web App accounts
 
 Deploying a Web App in Octopus requires the configuration of an Azure Subscription Account.  Azure Subscription Accounts contain the details of Azure subscriptions.
 
-## Creating the account
+## Creating the account {#WebAppaccounts-Creatingtheaccount}
 
 
 ![](/docs/images/3049434/3278565.png "width=500")
 
-### Subscription Id
+### Subscription Id {#WebAppaccounts-SubscriptionId}
 
 
 The subscription Id can be found on the Settings tab of the Azure Management portal.
@@ -22,7 +22,7 @@ The subscription Id can be found on the Settings tab of the Azure Management por
 
 
 
-### Management certificate
+### Management certificate {#WebAppaccounts-Managementcertificate}
 
 
 Octopus Deploy must authenticate to Azure using an X.509 certificate.  You can either upload an existing certificate (`.pfx`), or leave the field blank and Octopus Deploy will generate a certificate. Keep in mind that since Octopus Deploy securely stores the certificate internally, there is no need to upload a password protected `.pfx`file. If you would like to use one that is password protected, you will need to first remove the password. This can be done with the following commands.

@@ -21,7 +21,7 @@ On this page:
 - Creating a release
 - Deploying releases with Octopus and Bamboo deployment plans
 
-## Why Octopus + Bamboo?
+## Why Octopus + Bamboo? {#Bamboo-WhyOctopus+Bamboo?}
 
 
 Bamboo deployments provide many advantages. For example, if you are using JIRA, it's easy to see which JIRA issues are included in a deployment. However, when it comes to the actual deployment automation tasks, there are some compelling reasons to combine Bamboo with Octopus Deploy:
@@ -35,7 +35,7 @@ Bamboo deployments provide many advantages. For example, if you are using JIRA, 
 
 The rest of this page will walk you through the process of integrating Octopus Deploy with Bamboo.
 
-## Building with Bamboo and OctoPack
+## Building with Bamboo and OctoPack {#Bamboo-BuildingwithBambooandOctoPack}
 
 
 The first step to making Octopus and Bamboo work together, is for Bamboo to create artifacts that Octopus is able to deploy. [Octopus uses NuGet packages](/docs/packaging-applications/index.md), and [OctoPack](/docs/packaging-applications/nuget-packages/using-octopack/index.md) makes it easy to package your application using MSBuild.
@@ -87,7 +87,7 @@ The settings are:
 Learn more about the available [OctoPack parameters](/docs/packaging-applications/nuget-packages/using-octopack/index.md).
 :::
 
-## Creating a release
+## Creating a release {#Bamboo-Creatingarelease}
 
 
 At this point, Bamboo has compiled the code, and packages have been pushed to Octopus Deploy, ready to be deployed. You can go to the Octopus web portal, and manually create releases using those packages.
@@ -123,7 +123,7 @@ Importantly:
 Learn more about [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) and the arguments it accepts. If you wanted to, you could even deploy automatically to a test environment using the `--deployto` parameter, without using Bamboo's deploy plans.
 :::
 
-## Deploying releases with Octopus and Bamboo deployment plans
+## Deploying releases with Octopus and Bamboo deployment plans {#Bamboo-DeployingreleaseswithOctopusandBamboodeploymentplans}
 
 
 In the previous steps, we configured a Bamboo build plan that:

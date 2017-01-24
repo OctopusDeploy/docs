@@ -16,7 +16,7 @@ Of course, the real world and the ideal world don't always overlap, and you migh
 
 On this page, we discuss two different scenarios, and the features and options that exist for dealing with them.
 
-## Tentacle can't be installed (offline deployments)
+## Tentacle can't be installed (offline deployments) {#IsolatedOctopusDeployservers-Tentaclecan&#39;tbeinstalled(offlinedeployments)}
 
 
 > Chris's Consulting are developing an application for a government client. They're using Octopus internally to manage pre-production deployments (dev, UAT, and so-on). However, the client have advised that they won't allow the consultancy to install the Tentacle agent on their production servers, nor the Octopus server. They'd prefer the consultancy to provide them with a something they can run from a USB stick.
@@ -25,7 +25,7 @@ On this page, we discuss two different scenarios, and the features and options t
 
 In Octopus 3.0, you can configure an [Offline Package Drop deployment target](/docs/deployment-targets/offline-package-drop.md). This allows you to "deploy" to a location on the filesystem and take that deployment offline to be used elsewhere. The dropped package contains everything you need to deploy to a location offsite.
 
-## Tentacle can be installed (isolated Octopus servers)
+## Tentacle can be installed (isolated Octopus servers) {#IsolatedOctopusDeployservers-Tentaclecanbeinstalled(isolatedOctopusservers)}
 
 
 > A credit card processing gateway have decided to use Octopus to manage deployments. For PCI-compliance reasons, the production environment is required to be on a different network to the pre-production environments, and very little is shared. Since they own the servers, they can install the Octopus servers and Tentacles on each environment, but they just can't share an Octopus server between environments.
@@ -46,7 +46,7 @@ In this scenario, the customer would install different instances of Octopus in b
 Your Octopus Deploy license includes the ability to install and configure up to three (3) separate instances of Octopus Server to support scenarios like this one.
 :::
 
-## Tentacle can be installed but communication must go via a proxy
+## Tentacle can be installed but communication must go via a proxy {#IsolatedOctopusDeployservers-Tentaclecanbeinstalledbutcommunicationmustgoviaaproxy}
 
 
 > An agency manages lots of small applications on behalf of their customers, and wants to use Octopus to manage deployments. Quite often the production environment is managed by the customer and even after being convinced to allow the Tentacle agent to be installed on their servers, they want communication to be controlled by a proxy server.

@@ -29,7 +29,7 @@ On this page:
 For SQL deployments, the SQL server does not require a locally installed Tentacle. You can use any Tentacle installed on any server, so long as it has access to SQL to run the functions you require.
 :::
 
-## Approaches to database change management
+## Approaches to database change management {#SQLServerdatabases-Approachestodatabasechangemanagement}
 
 
 There are two main approaches to managing database definitions and applying differences when deploying:
@@ -44,7 +44,7 @@ The model driven approach makes for a great development experience - we can quic
 
 When it comes to production deployments, however, there's nothing more reliable than keeping track of exactly the scripts you intend to run, and running them, without trying to compare state and guess. And in fact many model-driven tools are used that way, leading to a hybrid approach of model driven database development, and then change-script driven production deployments.
 
-## How change scripts work
+## How change scripts work {#SQLServerdatabases-Howchangescriptswork}
 
 
 The database change script concept has been around for a long time. The core principles are:
@@ -71,16 +71,16 @@ The benefits of this are:
 
 There are many ways of using the change script approach. Entity Framework has migration libraries that can help to do some of this. Some tools have special C# DSL's that let you specify what changes to make between schema versions. Personally, we prefer the simple approach: create T-SQL files, name them sequentially, and use a tool like the open source [DbUp](http://dbup.github.io/) to run them (it turns out that T-SQL is a pretty awesome DSL for dealing with SQL Server databases!)
 
-## Third party tools
+## Third party tools {#SQLServerdatabases-Thirdpartytools}
 
-### Redgate SQL Release
+### Redgate SQL Release {#SQLServerdatabases-RedgateSQLRelease}
 
 :::warning
 **SQL Release has been replaced by DLM Automation**
 SQL Release has been replaced by DLM Automation, which is available in the [SQL Toolbelt](http://www.red-gate.com/products/sql-development/sql-toolbelt/). For more details, see the documentation for [DLM Automation](https://documentation.red-gate.com/display/DLMA1/DLM+Automation+documentation)
 :::
 
-### Redgate DLM Automation
+### Redgate DLM Automation {#SQLServerdatabases-RedgateDLMAutomation}
 
 
 The Redgate Database Lifecycle Management (DLM) Automation tool works with build servers and release management tools to provide continuous integration and automated deployment for your SQL databases. You can control DLM Automation by using the [DLM Automation PowerShell cmdlets](https://documentation.red-gate.com/display/DLMA2/Cmdlet+reference) or by using one of the [DLM Automation add-ons](http://www.red-gate.com/dlmas/add-ons-page). DLM Automation is available in the [SQL Toolbelt](http://www.red-gate.com/products/sql-development/sql-toolbelt/).
@@ -92,7 +92,7 @@ The Redgate Database Lifecycle Management (DLM) Automation tool works with buil
 Learn about [using DLM Automation with Octopus Deploy](https://documentation.red-gate.com/display/DLMA2/Walkthrough%3A+Set+up+Continuous+Integration+And+Release+Management).
 :::
 
-### Redgate ReadyRoll
+### Redgate ReadyRoll {#SQLServerdatabases-RedgateReadyRoll}
 
 
 follows the change script approach, and also provides an excellent Visual Studio experience. It has the ability to [generate Octopus Deploy-ready NuGet packages](http://doc.ready-roll.com/display/RRSQLDOC/Octopus+Deploy) and can work in continuous integration/automated build tools.
@@ -105,22 +105,22 @@ follows the change script approach, and also provides an excellent Visual Studio
 You can learn more about [Redgate ReadyRoll's Octopus Deploy support](http://doc.ready-roll.com/display/RRSQLDOC/Octopus+Deploy) in their documentation.
 :::
 
-### DbUp
+### DbUp {#SQLServerdatabases-DbUp}
 
 
 The open source tool [DbUp](http://dbup.github.io/), built by members of the Octopus Deploy team and other contributors, is another alternative. This 8 minute video (with captions) demonstrates how DbUp and Octopus Deploy can be used together to perform database deployments:
 
-### Visual Studio Database Projects
+### Visual Studio Database Projects {#SQLServerdatabases-VisualStudioDatabaseProjects}
 
 
 Raffaele Garofalo has a blog post detailing [how to deploy Visual Studio Database Projects with Octopus](http://blog.raffaeu.com/archive/2013/10/17/deploy-database-project-using-octopus.aspx).
 
-### Entity Framework Migrations
+### Entity Framework Migrations {#SQLServerdatabases-EntityFrameworkMigrations}
 
 
 Kevin Kuszyk has a blog post about [deploying SQL databases using Entity Framework migrations and Octopus Deploy](http://www.kevinkuszyk.com/2016/10/26/deploying-sql-databases-using-entity-framework-migrations-and-octopus-deploy/).
 
-### RoundhousE
+### RoundhousE {#SQLServerdatabases-RoundhousE}
 
 
 Ben Tillman has a walkthrough on [how to deploy database migrations with RoundhousE](http://blog.bentillman.net/deploying-db-migrations-with-octopus-deploy-and-roundhouse/).

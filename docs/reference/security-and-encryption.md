@@ -35,12 +35,12 @@ The practical impact of this is:
 Without keeping a record of your master key, you won't be able to make use of your Octopus database backups, since there is no way to decrypt these sensitive values.
 :::
 
-## Your Master Key
+## Your Master Key {#Securityandencryption-YourMasterKey}
 
 
 When Octopus is installed, it generates a random string which will be used as the master key. You will need to know your master key if you ever hope to restore an Octopus backup on another server.
 
-### Getting the key from the Octopus Manager
+### Getting the key from the Octopus Manager {#Securityandencryption-GettingthekeyfromtheOctopusManager}
 
 1. Open the **Octopus Manager** from the start menu/start screen
 ![](/docs/images/3048071/3277610.png)
@@ -49,7 +49,7 @@ When Octopus is installed, it generates a random string which will be used as th
 3. Click **Save** to save the master key to a text file or **Copy to clipboard** and then paste the master key into a text editor or a secure enterprise password manager, and save it
 
 
-### Getting the Key from Powershell
+### Getting the Key from Powershell {#Securityandencryption-GettingtheKeyfromPowershell}
 
 ```powershell
 $MasterKey = (.\Octopus.Server.exe show-master-key --instance=OctopusServer)[-1]

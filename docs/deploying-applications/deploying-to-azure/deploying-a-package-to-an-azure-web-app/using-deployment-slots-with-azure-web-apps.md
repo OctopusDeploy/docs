@@ -27,12 +27,12 @@ Deployment Slots are only available to Azure Web Apps running in Standard or P
 
 See the [Azure Web Blue-Green Sample project](https://demo.octopusdeploy.com/app#/projects/azure-web-blue-green-sample/process) on our demo server, for a complete example.
 
-## Walk-Through
+## Walk-Through {#UsingDeploymentSlotswithAzureWebApps-Walk-Through}
 
 
 Here we will give an example of how to setup a Blue-Green deployment for an Azure Web App using Deployment Slots.
 
-### Step 1: Create Staging Slot
+### Step 1: Create Staging Slot {#UsingDeploymentSlotswithAzureWebApps-Step1:CreateStagingSlot}
 
 
 Create a [Run an Azure PowerShell Script](/docs/guides/azure-deployments/running-azure-powershell/index.md) step.
@@ -79,7 +79,7 @@ So your step should look like:
 
 
 
-### Step 2: Deploy your Package
+### Step 2: Deploy your Package {#UsingDeploymentSlotswithAzureWebApps-Step2:DeployyourPackage}
 
 
 The next step is to deploy your package to the Staging slot.  We do this be creating a [Deploy an Azure Web App](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/index.md) step.
@@ -132,7 +132,7 @@ As shown below:
 
 
 
-### Step 3: Swap the Staging and Production Slots
+### Step 3: Swap the Staging and Production Slots {#UsingDeploymentSlotswithAzureWebApps-Step3:SwaptheStagingandProductionSlots}
 
 
 The final step is to create another Azure PowerShell step to swap the Staging and Production slots.

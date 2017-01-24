@@ -21,7 +21,7 @@ You can use all of the features we provide for [custom scripts](/docs/deploying-
 
 ![](/docs/images/5671696/5865914.png "width=170")
 
-## Choosing where the script will run
+## Choosing where the script will run {#Standalonescripts-Choosingwherethescriptwillrun}
 
 :::hint
 The ability to run scripts on the Octopus Server shipped in Octopus Deploy 3.3
@@ -62,7 +62,7 @@ For example, `Octopus.Machine.Name` will be the deployment target's name |
 Bash scripts are not able to be run on the Octopus Server, even if Bash is installed on that server
 :::
 
-## Choosing where to source the script
+## Choosing where to source the script {#Standalonescripts-Choosingwheretosourcethescript}
 
 :::hint
 The ability to source your script from a package shipped in Octopus 3.3
@@ -87,7 +87,7 @@ Using scripts from inside a package is a great way to version and source control
 When sourcing a script from a file inside a package you cannot choose to run the step before packages are acquired.
 :::
 
-## Passing parameters to scripts
+## Passing parameters to scripts {#Standalonescripts-Passingparameterstoscripts}
 
 :::hint
 The ability to pass parameters to scripts was added in Octopus 3.4

@@ -25,12 +25,12 @@ There are two steps to enable your Octopus Server to manage your Azure subscript
 2. [Allow Octopus to authenticate with Azure using a Service Principal](/docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-service-principal-account.md)
 
 
-## Step 1: Create an Azure Active Directory application and service principal
+## Step 1: Create an Azure Active Directory application and service principal {#CreatinganAzureServicePrincipalAccount-create-service-principalStep1:CreateanAzureActiveDirectoryapplicationandserviceprincipal}
 
 
 The first step is to create an Azure Active Directory (AAD) application and service principal. You will configure your Octopus Server to authenticate using the service principal you create in AAD, which means you can configure finely grained authorization for your Octopus Server. Creating an Azure Active Directory application and service principal can be done either via PowerShell or the Azure Portal.
 
-### Option 1: Use PowerShell
+### Option 1: Use PowerShell {#CreatinganAzureServicePrincipalAccount-Option1:UsePowerShell}
 
 
 You can use the PowerShell script below to create the Service Principal.
@@ -99,12 +99,12 @@ e.g. https://manage.windowsazure.com/@papasmurf.smurfs.com#Workspaces/ActiveDir
 
 ![](/docs/images/3702850/3964967.png "width=500")
 
-### Option 2: Use the Azure Portal
+### Option 2: Use the Azure Portal {#CreatinganAzureServicePrincipalAccount-Option2:UsetheAzurePortal}
 
 
 Alternatively, you can [create a Service Principal via the Azure Portal](https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/).
 
-## Step 2: Allow Octopus to authenticate with Azure using a Service Principal
+## Step 2: Allow Octopus to authenticate with Azure using a Service Principal {#CreatinganAzureServicePrincipalAccount-authenticate-with-service-principalStep2:AllowOctopustoauthenticatewithAzureusingaServicePrincipal}
 
 
 Navigate to *Environments -> Accounts* and click *Add account* in the *Azure Subscriptions* section.

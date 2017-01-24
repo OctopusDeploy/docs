@@ -24,7 +24,7 @@ When Octopus performs the VIP swap for a Cloud Service it simply calls `Move-Azu
 
 In order to complete this guide you should have a Cloud Service project set up in Octopus Deploy that is deploying to the staging or production slot.  Please see [Getting started with Azure Cloud Services](/docs/guides/azure-deployments/cloud-services/getting-started-with-azure-cloud-services.md) for more information.
 
-## Environment configuration
+## Environment configuration {#VIPSwap-Environmentconfiguration}
 
 
 The easiest way to configure Octopus for VIP swapping is to map Cloud Service slots to Octopus environments. By default a Cloud Service has a staging and production slot.  In order to map this in Octopus, create Staging and Production environments:
@@ -32,7 +32,7 @@ The easiest way to configure Octopus for VIP swapping is to map Cloud Service sl
 
 ![](/docs/images/3049344/3278529.png "width=500")
 
-## Enabling VIP swap
+## Enabling VIP swap {#VIPSwap-EnablingVIPswap}
 
 
 In order to enable VIP swapping, edit the process of your Cloud Service project and toggle the Swap setting to "Swap staging to production if possible":
@@ -46,7 +46,7 @@ With this setting enabled Octopus will attempt to swap the staging and productio
 
 ![](/docs/images/3049344/3278531.png "width=500")
 
-## Performing a VIP swap
+## Performing a VIP swap {#VIPSwap-PerformingaVIPswap}
 
 
 In order to perform a VIP swap you must have a deployment in your Cloud Service production slot. The first time you create a release and deploy it to Staging and then Production it will not VIP swap. On subsequent deployments to Staging and then Production a VIP swap will occur:
@@ -54,7 +54,7 @@ In order to perform a VIP swap you must have a deployment in your Cloud Service 
 
 ![](/docs/images/3049344/3278532.png "width=500")
 
-## Automatic VIP swap
+## Automatic VIP swap {#VIPSwap-AutomaticVIPswap}
 
 
 A production VIP swap can be automatically performed after a successful staging deployment through the use of lifecycles. A lifecycle should be configured with two phases: Staging and Production.  The Staging phase contains the Staging environment and the Production phase contains the Production environment. The Production environment should be configured with "Deploy automatically to this environment as soon as the release enters this phase.":

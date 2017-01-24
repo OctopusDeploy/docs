@@ -19,7 +19,7 @@ On this page:
 - Permissions
  - Using a Managed Service Account (MSA)
 
-## Requirements
+## Requirements {#InstallingTentacles-Requirements}
 
 - Windows Server 2003 SP2 (**N.B. Not supported for Tentacle 3.1 and up due to .NET 4.5 dependency**)
 Windows Server 2008 (**N.B. SP1 not supported for Tentacle 3.1 and up due to .NET 4.5 dependency**)
@@ -40,7 +40,7 @@ Windows Server 2016
 
 Tentacle uses a pretty small amount of memory when idle, usually around 10MB (it may appear higher in task manager because memory is shared with other .NET processes that are running). When deploying, depending on what happens during the deployment, this may expand to 60-100MB, and will then go back down after the deployment is complete. Tentacle will happily run on single-core machines, and only uses about 100MB of disk space, though of course you'll need more than that to deploy your applications.
 
-## Installation
+## Installation {#InstallingTentacles-Installation}
 
 :::success
 **Download the Tentacle MSI**
@@ -94,7 +94,7 @@ When you first install a Tentacle it does not have the latest Calamari package i
 
 
 
-## Tentacle Manager
+## Tentacle Manager {#InstallingTentacles-TentacleManager}
 
 
 The Tentacle MSI installer is very simple: it extracts the core program files on disk, adds an event log source, and that's about it. The actual configuration of your Tentacle is done through a tool called **Tentacle Manager**. When the MSI completes Tentacle Manager will appear, and you can access it any time from your start menu/start screen. Tentacle Manager is a Windows application that:
@@ -104,7 +104,7 @@ The Tentacle MSI installer is very simple: it extracts the core program files on
 - Shows other diagnostic information about Tentacle
 
 
-## Permissions
+## Permissions {#InstallingTentacles-Permissions}
 
 
 By default, the Tentacle Windows Service runs under the Local System context. You can configure Tentacle to run under a different user account by modifying the service properties via the Services MMC snap-in (**services.msc**).
@@ -129,7 +129,7 @@ In addition, since you are probably using Tentacle to install software, you'll n
 If you **Reinstall** a Tentacle using the Tentacle Manager, the Windows Service account will revert to Local System.
 :::
 
-### Using a Managed Service Account (MSA)
+### Using a Managed Service Account (MSA) {#InstallingTentacles-UsingaManagedServiceAccount(MSA)}
 
 
 You can run Tentacle using a Managed Service Account (MSA):

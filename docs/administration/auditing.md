@@ -13,7 +13,7 @@ On this page:
 - What does Octopus capture?
 - Viewing the audit history
 
-## What does Octopus capture?
+## What does Octopus capture? {#Auditing-WhatdoesOctopuscapture?}
 
 
 Below is a short list of just some of the things that Octopus captures:
@@ -24,7 +24,7 @@ Below is a short list of just some of the things that Octopus captures:
 - Queuing and cancelling of deployments and other tasks
 
 
-## Viewing the audit history
+## Viewing the audit history {#Auditing-Viewingtheaudithistory}
 
 
 You can view the full audit history by navigating to the **Audit** tab in the **Configuration** area.

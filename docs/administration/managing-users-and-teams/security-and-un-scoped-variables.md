@@ -6,7 +6,7 @@ position: 1
 
 Sometimes, a team will be granted contributor access to a project, but be restricted in the environments that it can access. By default, Octopus's security system will then prevent members of the team editing [variables](/docs/deploying-applications/variables/index.md) that apply outside of their allowed environments. During development this can be inconvenient, as variables frequently need to be added in support of new application features.
 
-## Why restrict editing of un-scoped variables?
+## Why restrict editing of un-scoped variables? {#Securityandun-scopedvariables-Whyrestricteditingofun-scopedvariables?}
 
 
 Octopus uses variables to control almost every aspect of the deployment process. This provides a great deal of flexibility - for example, variables can control:
@@ -24,7 +24,7 @@ The default permissions applied to un-scoped variable editing are restrictive be
 
 This default behaviour can be changed by granting an additional permission to the team.
 
-## Granting un-scoped variable editing permission
+## Granting un-scoped variable editing permission {#Securityandun-scopedvariables-Grantingun-scopedvariableeditingpermission}
 
 
 As an administrator, open **Configuration > Teams**, and select the **Roles** item in the tool area:

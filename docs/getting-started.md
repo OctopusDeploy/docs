@@ -17,7 +17,7 @@ Welcome! This section will guide you through the process of setting up Octopus D
 - Create a release and deploy it
 - Next steps
 
-# Octopus in your delivery process
+# Octopus in your delivery process {#Gettingstarted-Octopusinyourdeliveryprocess}
 
 
 Octopus Deploy is an automated deployment server, which you install yourself, much like you would install SQL Server, Team Foundation Server or JetBrains TeamCity. Octopus makes it easy to automate deployment of ASP.NET web applications and Windows Services into development, test and production environments.
@@ -38,17 +38,17 @@ Along with the Octopus Deploy server, you'll also install a lightweight agent se
 We designed Octopus to fit into teams that follow agile delivery practices. Octopus compliments your existing delivery pipeline:
 
 - **Developers commit their code into your existing source control system**
-  You might be using Git, Team Foundation Server, Subversion or Mercurial; the choice is up to you.
+You might be using Git, Team Foundation Server, Subversion or Mercurial; the choice is up to you.
 - **Your CI/build server compiles the code and runs unit tests**
-  Again, you might be using TeamCity, Jenkins, Bamboo, Team Foundation Server or CruiseControl.NET; the choice is up to you.
+Again, you might be using TeamCity, Jenkins, Bamboo, Team Foundation Server or CruiseControl.NET; the choice is up to you.
 - **Your application is packaged into a NuGet package**
-  When the build is done, your CI/build server bundles all of the files – the binaries, images, scripts, configuration files and so on – needed to deploy your application into a NuGet package
+When the build is done, your CI/build server bundles all of the files – the binaries, images, scripts, configuration files and so on – needed to deploy your application into a NuGet package
 
 
 
 The job of Octopus, then, is to take these packages and push them to the machines that they will be deployed to. As a release manager, you define the process for deploying the software, including any environment-specific configuration variables. The Octopus web based dashboard then allows other members of your team to queue deployments; for example, you might enable testers to deploy applications to a test environment, but not to production. This approach means that even if different people are triggering the deployments, the deployment process is still consistent.
 
-# Install the Octopus server
+# Install the Octopus server {#Gettingstarted-InstalltheOctopusserver}
 
 
 Download the latest [Octopus Deploy MSI installer](https://octopus.com/downloads) from the Octopus Deploy website, and follow the instructions.
@@ -75,7 +75,7 @@ Open the Octopus Web Portal in your browser and sign in, using the address and c
 
 ![](/docs/images/3048178/3278210.png "width=500")
 
-# Create environments
+# Create environments {#Gettingstarted-Createenvironments}
 
 
 Next, you'll need to add environments to deploy to. Environments are really just groups of machines that you deploy to; for example, **Test**, **Staging** or **Production**.
@@ -87,7 +87,7 @@ Next, you'll need to add environments to deploy to. Environments are really just
 Learn more on the [Environments](/docs/key-concepts/environments/index.md) page.
 :::
 
-# Add machines to your environments
+# Add machines to your environments {#Gettingstarted-Addmachinestoyourenvironments}
 
 
 On each of the web or application servers that you plan to deploy software to, you'll need to install the Tentacle agent, and then register the machines in your environments.
@@ -99,7 +99,7 @@ On each of the web or application servers that you plan to deploy software to, y
 See how on the [Installing Tentacles](/docs/installation/installing-tentacles/index.md) page. Depending on network/firewall configuration, Tentacles can be installed in [listening](/docs/installation/installing-tentacles/listening-tentacles.md) (Octopus calls Tentacle) or [polling](/docs/installation/installing-tentacles/polling-tentacles.md) (Tentacle polls Octopus) mode. If you have many machines to manage, you can [install Tentacles automatically](/docs/installation/installing-tentacles/automating-tentacle-installation.md).
 :::
 
-# Package your applications for deployment
+# Package your applications for deployment {#Gettingstarted-Packageyourapplicationsfordeployment}
 
 
 Whenever you want to deploy applications with Octopus, you'll need to package them into NuGet packages. There are three ways to do this:
@@ -112,7 +112,7 @@ Whenever you want to deploy applications with Octopus, you'll need to package th
 
 Your packages need to be placed into a package repository.
 
-# Create a project
+# Create a project {#Gettingstarted-Createaproject}
 
 
 Projects define a set of deployment steps that you want Octopus to perform, and their configuration variables.
@@ -124,7 +124,7 @@ Projects define a set of deployment steps that you want Octopus to perform, and 
 Learn more about [creating projects](/docs/key-concepts/projects/index.md).
 :::
 
-# Define your deployment process
+# Define your deployment process {#Gettingstarted-Defineyourdeploymentprocess}
 
 
 The **Process** tab within your project defines how your project will be deployed. You can add different steps to the process depending on what you plan to deploy:
@@ -142,7 +142,7 @@ The **Process** tab within your project defines how your project will be deploye
 
 Chances are, you'll need to configure your application differently depending on the what you are deploying to (for example, different connection strings in staging vs. production). Octopus has advanced support for managing these [variables](/docs/deploying-applications/variables/index.md) and scoping them, and can even manage passwords securely. Octopus can also take care of automatically [updating your .NET configuration files, and running configuration file transforms](/docs/deploying-applications/configuration-files/index.md).
 
-# Create a release and deploy it
+# Create a release and deploy it {#Gettingstarted-Createareleaseanddeployit}
 
 
 Next, create a release. Click the **Create release** button on any page of your project.
@@ -168,7 +168,7 @@ The deployment page shows you a log of all the activity that happens during the 
 
 ![](/docs/images/3048178/3278199.png "width=500")
 
-# Next steps
+# Next steps {#Gettingstarted-Nextsteps}
 
 
 Congratulations, you've deployed a release! You might want to look at:

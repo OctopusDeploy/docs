@@ -22,7 +22,7 @@ On this page:
 Pessimistic approaches to PCI compliance controls will, at first glance, make it more difficult to automate certain activities. One of the main benefits to using Octopus Deploy is end-to-end automation and we recommend not giving that up without spending time to understand why the automation is considered "harmful". Quite often our customers find that leveraging end-to-end automation in Octopus Deploy makes implementing compliance controls and auditing easier. It's often a case of working with your auditor and their concerns on a case-by-case basis.
 :::
 
-## How Octopus Deploy can help with PCI Compliance
+## How Octopus Deploy can help with PCI Compliance {#PCIComplianceandOctopusDeploy-HowOctopusDeploycanhelpwithPCICompliance}
 
 
 PCI Compliance is primarily concerned with implementing "controls" or "practices" which help ensure the safety and security of sensitive information, and the ability to audit that those practices are being enforced and followed. In many ways, full end-to-end automation helps with that since the interaction with your secure systems is tightly controlled: everything is scripted!
@@ -37,7 +37,7 @@ PCI Compliance is primarily concerned with implementing "controls" or "practices
 - If you require isolated instance of Octopus Server our licensing model is quite flexible. Each licence of Octopus Deploy grants you the right to install and configure up to three (3) separate instances of Octopus Server. Learn about managing [Isolated Octopus Deploy servers](/docs/patterns/isolated-octopus-deploy-servers.md).
 
 
-## Security considerations
+## Security considerations {#PCIComplianceandOctopusDeploy-Securityconsiderations}
 
 - Learn about [Octopus - Tentacle communication](/docs/reference/octopus---tentacle-communication/index.md) to understand how automation instructions are transmitted securely to maintain trust.
  - Full support for TLS 1.2 was introduced in Octopus Deploy 3.1. We recommend using the latest version of Octopus Deploy whenever possible.

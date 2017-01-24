@@ -17,7 +17,7 @@ On this page:
  - Starting & Managing the Process
 - Deploy!
 
-## Configure Environment
+## Configure Environment {#ConfigureOctopusDeployProject-ConfigureEnvironment}
 
 - In the *Environments* page, add an Environment named **prod**.
 
@@ -33,7 +33,7 @@ The name of the environment is important because we will use it as a variable in
 For the purpose of this guide we will only use the one deployment environment but there are several other pages in this documentation which explain the benefits of leveraging [environments](/docs/key-concepts/environments/index.md) and [lifecycles](/docs/key-concepts/lifecycles.md) to create advanced deployment processes.
 :::
 
-## Configure Account & Target
+## Configure Account & Target {#ConfigureOctopusDeployProject-ConfigureAccount&amp;Target}
 
 
 To connect over SSH the first thing you will need to do is add the credentials for your machine. If you followed the previous  "[Configuring Target Machine](/docs/guides/node-on-nix-deployments/configuring-target-machine.md)" step this should consist of a username and password pair.
@@ -57,7 +57,7 @@ To connect over SSH the first thing you will need to do is add the credentials f
 Further details are provided throughout the rest of this documentation on related topics like [Account Types](/docs/key-concepts/environments/accounts/index.md) and [SSH Targets](/docs/deployment-targets/ssh-targets/index.md).
 :::
 
-## Create Deployment Project
+## Create Deployment Project {#ConfigureOctopusDeployProject-CreateDeploymentProject}
 
 
 The next step is to create a project that will extract the package.
@@ -70,7 +70,7 @@ The next step is to create a project that will extract the package.
 
 ![](/docs/images/3049555/3278590.png "width=500")
 
-### Variable Substitution
+### Variable Substitution {#ConfigureOctopusDeployProject-VariableSubstitution}
 
 - Click the *Configure features* link at the bottom of the step.
 - Disable the two configuration steps that are already selected
@@ -96,7 +96,7 @@ To further test out the variables feature we will add our own custom variable fr
 
 ![](/docs/images/3049555/3964935.png "width=500")
 
-### Starting & Managing the Process
+### Starting & Managing the Process {#ConfigureOctopusDeployProject-Starting&amp;ManagingtheProcess}
 
 
 To get the Node.js process started up you can manually call *npm start* as you did during development however this has its drawbacks when trying to run the process in the background of your deployment environments. Each time you deploy a new version of the package you would then have to stop the old version and start the newly deployed one. Without running the process through some intermediary process manager you would need to search for and kill the previous one from the process list, based on something like parsing its path to determine the correct one. This is obviously fraught with dangers. A better approach is to install and use one of the many process managers that are our there such as [pm2](http://pm2.keymetrics.io/), [StrongLoop](http://strong-pm.io/) or [forever](https://github.com/foreverjs/forever) which ensure that the process stays alive and provides other features such monitoring resource usage and clustering. For the purposes of this simple example we will use pm2 to demonstrate how the web process might be hosted.
@@ -124,7 +124,7 @@ NODE_ENV="#{Octopus.Environment.Name}" pm2 start server.js --name="#{Octopus.Pro
 While this code is obviously not the ideal solution, it does demonstrate how you might leverage pm2 to start and stop new versions of your project as it is deployed. Check their documentation on best practices for more advanced topics like restarting after server reboot, clustering and monitoring.
 :::
 
-## Deploy!
+## Deploy! {#ConfigureOctopusDeployProject-Deploy!}
 
 - Create a new release and deploy it to the **prod** environment.
 

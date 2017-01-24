@@ -6,7 +6,7 @@ position: 1
 
 ASP.NET Core is the future of ASP.NET, and it contains many changes to how applications are built, and how they are run.
 
-## Publishing and Packing the Website
+## Publishing and Packing the Website {#DeployingASP.NETCoreWebApplications-PublishingandPackingtheWebsite}
 
 
 Once you have a project up and running (see the [getting started guide](https://docs.asp.net/en/latest/getting-started.html)), it need to be published and packed
@@ -25,7 +25,7 @@ If you are using the built-in repository, you can create a [zip file](/docs/pac
 
 If you are using TeamCity, you can use the [new TeamCity plugin for dotnet commands](https://github.com/JetBrains/teamcity-dnx-plugin).
 
-## Deployment
+## Deployment {#DeployingASP.NETCoreWebApplications-Deployment}
 
 
 ASP.NET Core applications can either run as a command line program with Kestrel, or under IIS ([which also uses Kestrel - check out the book for details](https://leanpub.com/aspnetdeployment)).
@@ -43,7 +43,7 @@ When running under IIS, ensure the Relative home directory is specified as "w
 
 
 
-## Configuration
+## Configuration {#DeployingASP.NETCoreWebApplications-Configuration}
 
 
 ASP.NET Core introduces a new JSON-based configuration file format. Octopus 3.3 introduced a new convention which can be used to update these JSON configuration files with Octopus variables

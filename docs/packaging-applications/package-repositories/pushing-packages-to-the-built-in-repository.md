@@ -22,7 +22,7 @@ We offer several ways to add/upload/push packages to the built-in feed:
 - Using curl
 - Security considerations
 
-## Using the Octopus web portal
+## Using the Octopus web portal {#PushingpackagestotheBuilt-Inrepository-UsingtheOctopuswebportal}
 
 
 You can manually upload a package file from your local machine via the Octopus web portal via the *Library > Packages* tab by clicking the *Upload package* button.
@@ -41,12 +41,12 @@ For pushing packages using the methods described below you'll need:
 2. An [Octopus API key](/docs/how-to/how-to-create-an-api-key.md) with the required permissions (see [security considerations](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md))
 :::
 
-## Using your build server
+## Using your build server {#PushingpackagestotheBuilt-Inrepository-Usingyourbuildserver}
 
 
 We have built integrations/plugins/extensions for the most popular build servers. You can read more about [integrating Octopus Deploy with your build server](/docs/api-and-integration/index.md). In most cases you simply provide the build server with the URL to your Octopus Server and an [Octopus API key](/docs/how-to/how-to-create-an-api-key.md) with the required permissions  (see [security considerations](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md)).
 
-## Using Octo.exe
+## Using Octo.exe {#PushingpackagestotheBuilt-Inrepository-UsingOcto.exe}
 
 
 You can push one or more packages using Octo.exe, the command-line tool for Octopus Deploy. The example below will push `MyApp.Website.1.1.0.zip` and `MyApp.Database.1.1.0.zip` to the built-in repository, automatically replacing existing packages if there are conflicts.
@@ -58,7 +58,7 @@ C:\> Octo.exe push --package MyApp.Website.1.1.0.zip --package MyApp.Database.1.
 
 For more information refer to [Pushing packages with Octo.exe](/docs/api-and-integration/octo.exe-command-line/pushing-packages.md).
 
-## Using the Octopus API (HTTP POST)
+## Using the Octopus API (HTTP POST) {#PushingpackagestotheBuilt-Inrepository-UsingtheOctopusAPI(HTTPPOST)}
 
 
 You can upload a package via the [Octopus Deploy API](/docs/api-and-integration/octopus-rest-api.md) - `POST /api/packages/raw HTTP 1.1`.
@@ -67,7 +67,7 @@ You can upload a package via the [Octopus Deploy API](/docs/api-and-integration
 - [PowerShell example](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/REST/PowerShell/Packages/PushPackage.ps1)
 
 
-## Using NuGet.exe push
+## Using NuGet.exe push {#PushingpackagestotheBuilt-Inrepository-UsingNuGet.exepush}
 
 
 To push a package using `NuGet.exe` you'll need a the URL for the Octopus NuGet feed to use with your build server or `NuGet.exe`. To find this, open the *Library > Packages* tab of the Octopus web portal. The screen shows an example command-line that can be used to push packages to the feed using [NuGet.exe](http://docs.nuget.org/docs/start-here/installing-nuget). You'll need to supply the NuGet package file (`.nupkg`) and an [Octopus API key](/docs/how-to/how-to-create-an-api-key.md).
@@ -82,12 +82,12 @@ To push a package using `NuGet.exe` you'll need a the URL for the Octopus NuGe
 If you're using a continuous integration server like TeamCity to produce packages you can use their built-in NuGet Push step. Supply the Octopus NuGet feed URL shown above and an [Octopus API key](/docs/how-to/how-to-create-an-api-key.md) when prompted for the feed details.
 :::
 
-## Using npm.exe, grunt or gulp
+## Using npm.exe, grunt or gulp {#PushingpackagestotheBuilt-Inrepository-Usingnpm.exe,gruntorgulp}
 
 
 You can upload packages using npm.exe or using our grunt or gulp tasks. Take a look at our [guide for packaging and deploying Node.js applications using Octopus Deploy](/docs/guides/node-on-nix-deployments/index.md).
 
-## Using curl
+## Using curl {#PushingpackagestotheBuilt-Inrepository-Usingcurl}
 
 
 You can upload packages using `curl`. Like all of the other examples you will need your Octopus Server URL and an API Key. This will perform a POST uploading the file contents as multi-part form data.
@@ -100,7 +100,7 @@ curl -X POST https://demo.octopus.com/api/packages/raw -H "X-Octopus-ApiKey: API
 You may need to use the `-k` argument if you are using an untrusted connection.
 :::
 
-## Security considerations
+## Security considerations {#PushingpackagestotheBuilt-Inrepository-Securityconsiderationssecurityconsiderations}
 
 
 To add a new package to the built-in feed requires the `BuiltInFeedPush` permission. To delete a package, or replace an existing package requires the `BuiltInFeedAdminister` permission.

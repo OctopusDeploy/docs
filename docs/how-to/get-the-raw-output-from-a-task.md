@@ -6,7 +6,7 @@ position: 0
 
 When you contact Octopus Deploy support with a deployment-related issue, we'll sometimes ask you to send the full task log, so that we can understand what went wrong. This page explains how to capture the full task log.
 
-## Step-by-step guide
+## Step-by-step guide {#Gettherawoutputfromatask-Step-by-stepguide}
 
 
 The steps to send a full task log are:

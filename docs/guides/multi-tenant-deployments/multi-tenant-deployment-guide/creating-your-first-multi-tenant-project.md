@@ -14,7 +14,7 @@ In this section we will create a simple project and environment in preparation t
 Already have a project you'd like to try out with your tenant? That's fine, just be aware you may need to consider your project's lifecycle progression in order to deploy to your tenant depending on which environment(s) you connect your tenant to.
 :::
 
-### Step 1: Build your environment and project
+### Step 1: Build your environment and project {#Creatingyourfirstmulti-tenantproject-Step1:Buildyourenvironmentandproject}
 
 
 In this step you will build your entire environment and project structure ready for multi-tenant deployments.
@@ -68,7 +68,7 @@ If you look at the project settings you may notice a new set of options related 
 We'll leave this setting alone right now and let Octopus configure it for us in the next steps.
 :::
 
-## Next steps
+## Next steps {#Creatingyourfirstmulti-tenantproject-Nextsteps}
 
 
 We will [connect your tenant to this project and deploy it into the tenant's production environment](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md). Talk about living life on the edge!

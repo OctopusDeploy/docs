@@ -34,7 +34,7 @@ The default option for Output file encoding (Detect from template) will use the 
 If you include a configuration file that you are also doing a transformation and variable swap on, the variable change will run under the 'substitute variables in files' before the transformation as defined in the [package deployment feature ordering](/docs/reference/package-deployment-feature-ordering.md) process.
 :::
 
-## Some Examples
+## Some Examples {#SubstituteVariablesinFiles-SomeExamples}
 
 
 You might have a different URL for a login form based on environment. This is inside your config file but outside of appSettings or ConnectionStrings. You can use a variable instead as shown below.

@@ -27,7 +27,7 @@ The communication protocol used by Octopus and Tentacle 3.4 and above supports p
 If you are using a version of Octopus/Tentacle prior to 3.4 you will need to arrange a bypass/exception for traffic initiated from the Octopus server to the Tentacle on the configured TCP Port (port **10933** by default).
 :::
 
-## Installation
+## Installation {#ListeningTentacles-Installation}
 
 :::success
 **Download the Tentacle MSI**
@@ -37,7 +37,7 @@ The latest Tentacle MSI can always be [downloaded from the Octopus Deploy downlo
 
 This four minute video (with captions) will walk you through the process of installing a Tentacle in listening mode, and registering it with your [Octopus Deploy server](/docs/installation/installing-octopus/index.md).
 
-## Firewall changes
+## Firewall changes {#ListeningTentacles-Firewallchanges}
 
 
 To allow your Octopus Deploy server to connect to the Tentacle, you'll need to allow access to TCP port **10933** on the Tentacle (or the port you selected during the installation wizard - port 10933 is just the default).
@@ -50,7 +50,7 @@ Using listening mode, you won't typically need to make any firewall changes on t
 Don't forget to allow access not just in Windows Firewall, but also any intermediary firewalls between the Octopus server and your Tentacle. For example, if your Tentacle server is hosted in Amazon EC2, you'll also need to modify the AWS security group firewall to tell EC2 to allow the traffic. Similarly if your Tentacle server is hosted in Microsoft Azure you'll also need to add an Endpoint to tell Azure to allow the traffic.
 :::
 
-## Troubleshooting connections
+## Troubleshooting connections {#ListeningTentacles-Troubleshootingconnections}
 
 
 We have provided a detailed guide for [Troubleshooting Listening Tentacles](/docs/how-to/troubleshoot-listening-tentacles.md) but feel free to start with these simple steps.

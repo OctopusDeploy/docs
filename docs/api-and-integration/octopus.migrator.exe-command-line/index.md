@@ -9,7 +9,7 @@ position: 11
 
 The latest version of is available in the Octopus Deploy installation directory from version 3.0 onward, usually located in *C:\Program Files\Octopus Deploy*.
 
-## Commands
+## Commands {#Octopus.Migrator.exeCommandLine-Commands}
 
 
 Octopus.Migrator.exe supports the following commands:
@@ -23,7 +23,7 @@ Octopus.Migrator.exe supports the following commands:
 
 
 
-## General usage
+## General usage {#Octopus.Migrator.exeCommandLine-Generalusage}
 
 
 All commands take the form of:

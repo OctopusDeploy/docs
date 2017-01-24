@@ -9,7 +9,7 @@ If you'd like more control over the build task we've created, you can manually u
 
 This is also the method you'll need to use if you want to install the build task in your on-premises TFS instance.
 
-# Installing the Build Task
+# Installing the Build Task {#ManuallyinstalltheBuildTask(notrecommended)-InstallingtheBuildTask}
 
 
 Clone the repository locally

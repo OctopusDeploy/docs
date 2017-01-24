@@ -24,7 +24,7 @@ Machine policies can be accessed from the Environments screen:
 
 ![](/docs/images/5669423/5865583.png "width=500")
 
-## Health check interval
+## Health check interval {#MachinePolicies-Healthcheckinterval}
 
 
 Octopus periodically runs health checks on deployment targets to ensure that they are available for deployment.  Setting "Time between checks" configures how frequently automatic health checks run.
@@ -32,7 +32,7 @@ Octopus periodically runs health checks on deployment targets to ensure that the
 
 ![](/docs/images/5669423/5865585.png "width=500")
 
-## Custom health check scripts
+## Custom health check scripts {#MachinePolicies-Customhealthcheckscripts}
 
 
 Machine policies allow the configuration of custom health check scripts for Tentacle and SSH targets. While we do not expose the full underlying script that runs during health checks, we give you an entry point to inject your own custom scripts. For example, here is the default custom health check script for Tentacles that checks disk space:
@@ -96,7 +96,7 @@ echo_error "This is an error"
 fail_healthcheck "This is an error"
 ```
 
-## Ignore machines that are unavailable during health checks
+## Ignore machines that are unavailable during health checks {#MachinePolicies-Ignoremachinesthatareunavailableduringhealthchecks}
 
 
 By default, health checks fail if any deployment targets are unavailable during the health check.  Machine policies offer an option to ignore machines if they are unavailable during a health check:
@@ -107,7 +107,7 @@ By default, health checks fail if any deployment targets are unavailable during 
 
 By selecting **Unavailable machines will not cause health checks to fail,** any deployment targets that Octopus cannot contact during a health check will be skipped and the health check marked as successful. If the target is contactable but encounters an error or warning, the usual health check behavior will proceed (ie. a warning will be reported or the health check will fail with an error).
 
-## Configure how Calamari and Tentacle are updated
+## Configure how Calamari and Tentacle are updated {#MachinePolicies-ConfigurehowCalamariandTentacleareupdated}
 
 
 Brand new Tentacle and SSH endpoints require the installation of Calamari to perform a deployment.  Also, if Calamari is updated, the Octopus Server will push the update to Tentacle and SSH endpoints. When there is a Tentacle update, Octopus can automatically update Tentacle endpoints.  Machine policies allow the customization of when Calamari and Tentacle updates occur.
@@ -125,7 +125,7 @@ By default, Calamari will be installed or updated when a machine is involved in 
 
 Tentacle can be toggled to manually or automatically update Tentacle.  If **Automatically update Tentacle**is selected, Octopus will start a task to update Tentacles whenever Octopus detects that there is a pending Tentacle upgrade (after health checks for example). Conversely, Octopus will not automatically start a task to update Tentacle but will prompt to begin a Tentacle update on the environments screen.
 
-## Automatically delete machines
+## Automatically delete machines {#MachinePolicies-Automaticallydeletemachines}
 
 
 Machine policies can be configured to automatically remove unavailable machines after a time period.  When a health check runs, it will detect if a machine is unavailable (cannot be contacted). When this option is set to **Automatically delete unavailable machines,** Octopus will periodically check how long the machine has been unavailable.  If the number of hours specified by **Hours unavailable** has elapsed, the machine will be permanently deleted from Octopus.
@@ -133,7 +133,7 @@ Machine policies can be configured to automatically remove unavailable machines 
 
 ![](/docs/images/5669423/5865595.png "width=500")
 
-## Assign machine policies to machines
+## Assign machine policies to machines {#MachinePolicies-Assignmachinepoliciestomachines}
 
 
 Assign a machine policy to a machine by selecting a machine from the *Environments* screen and using the *Policy* drop down to select the machine policy:

@@ -9,7 +9,7 @@ Configuration transforms can sometimes be complicated to setup. As a general rul
 
 This page lists the supported scenarios and the transform definitions required to apply the transform.
 
-### Supported scenarios
+### Supported scenarios {#AdvancedConfigurationTransformsExamples-Supportedscenarios}
 
 | 
 
@@ -73,7 +73,7 @@ To enable detailed logging of the process that searches for config transformatio
 :::
 
 ### 
-Transform and target are in the same directory
+Transform and target are in the same directory {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-TransformandtargetareinthesamedirectoryTransformandtargetareinthesamedirectory}
 
 
 Given a package which has the structure:
@@ -90,7 +90,7 @@ Then the transform **web.mytransform.config => web.config** will:
 
 - Apply the transform **web.mytransform.config** to file **web.config**
 
-### Applying a transform against a target in a different folder
+### Applying a transform against a target in a different folder {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-ApplyingatransformagainstatargetinadifferentfolderApplyingatransformagainstatargetinadifferentfolder}
 
 
 Given a package which has the structure:
@@ -108,7 +108,7 @@ Then the transform **web.mytransform.config => config\web.config** will:
 
 - Apply the transform **web.mytransform.config** to file **config\web.config**
 
-### Transform and multiple targets are in the same directory
+### Transform and multiple targets are in the same directory {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-TransformandmultipletargetsareinthesamedirectoryTransformandmultipletargetsareinthesamedirectory}
 
 
 Given a package which has the structure:
@@ -129,7 +129,7 @@ Then the transform **connstrings.mytransform.config => \*.config** will:
 
 - Apply the transform **connstrings.mytransform.config** to file **app.config**
 
-### Applying a transform against multiple targets in a different directory
+### Applying a transform against multiple targets in a different directory {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-ApplyingatransformagainstmultipletargetsinadifferentdirectoryApplyingatransformagainstmultipletargetsinadifferentdirectory}
 
 
 Given a package which has the structure:
@@ -151,7 +151,7 @@ Then the transform **connstrings.mytransform.config => config\\*.config** will:
 
 - Apply the transform **connstrings.mytransform.config** to file **config\app.config**
 
-### Using an absolute path to the transform
+### Using an absolute path to the transform {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-UsinganabsolutepathtothetransformUsinganabsolutepathtothetransform}
 
 
 Given a package which has the structure:
@@ -176,7 +176,7 @@ Then the transform **c:\transforms\web.mytransform.config** => **web.config** wi
 
 - Apply the transform **c:\transforms\web.mytransform.config** to file **web.config**
 
-### Applying a transform with an absolute path against multiple files in a different directory
+### Applying a transform with an absolute path against multiple files in a different directory {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-ApplyingatransformwithanabsolutepathagainstmultiplefilesinadifferentdirectoryApplyingatransformwithanabsolutepathagainstmultiplefilesinadifferentdirectory}
 
 
 Given a package which has the structure:
@@ -206,7 +206,7 @@ Then the transform **c:\transforms\connstrings.mytransform.config => config\\*.c
 
 - Apply the transform **c:\transforms\connstrings.mytransform.config** to file **config\app.config**
 
-### Using an absolute path to the transform, and applying it against multiple files
+### Using an absolute path to the transform, and applying it against multiple files {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Usinganabsolutepathtothetransform,andapplyingitagainstmultiplefilesUsinganabsolutepathtothetransform,andapplyingitagainstmultiplefiles}
 
 
 Given a package which has the structure:
@@ -235,7 +235,7 @@ Then the transform **c:\transforms\connstrings.mytransform.config => \*.config**
 
 - Apply the transform **c:\transforms\connstrings.mytransform.config** to file **app.config**
 
-### Applying a transform from a different directory
+### Applying a transform from a different directory {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-ApplyingatransformfromadifferentdirectoryApplyingatransformfromadifferentdirectory}
 
 
 Given a package which has the structure:
@@ -253,7 +253,7 @@ Then the transform **transforms\web.mytransform.config => web.config** will:
 
 - Apply the transform **transforms\web.mytransform.config** to file **web.config**
 
-### Applying a transform to a target in a sibling directory
+### Applying a transform to a target in a sibling directory {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-ApplyingatransformtoatargetinasiblingdirectoryApplyingatransformtoatargetinasiblingdirectory}
 
 
 Given a package which has the structure:
@@ -272,7 +272,7 @@ Then the transform **transforms\web.mytransform.config => config\web.config** wi
 
 - Apply the transform **transforms\web.mytransform.config** to file **config\web.config**
 
-### Applying a transform from a different directory against multiple files
+### Applying a transform from a different directory against multiple files {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-ApplyingatransformfromadifferentdirectoryagainstmultiplefilesApplyingatransformfromadifferentdirectoryagainstmultiplefiles}
 
 
 Given a package which has the structure:
@@ -294,7 +294,7 @@ Then the transform **transforms\connstrings.mytransform.config => \*.config** wi
 
 - Apply the transform **transforms\connstrings.mytransform.config** to file **app.config**
 
-### Applying a transform to multiple targets in a sibling directory
+### Applying a transform to multiple targets in a sibling directory {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-ApplyingatransformtomultipletargetsinasiblingdirectoryApplyingatransformtomultipletargetsinasiblingdirectory}
 
 
 Given a package which has the structure:
@@ -317,7 +317,7 @@ Then the transform **transforms\connstrings.mytransform.config => config\\*.conf
 
 - Apply the transform **transforms\connstrings.mytransform.config** to file **config\app.config**
 
-### Applying multiple transforms to a single target where both are in the same directory
+### Applying multiple transforms to a single target where both are in the same directory {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-ApplyingmultipletransformstoasingletargetwherebothareinthesamedirectoryApplyingmultipletransformstoasingletargetwherebothareinthesamedirectory}
 
 
 Given a package which has the structure:
@@ -338,7 +338,7 @@ Then the transform **\*.mytransform.config => web.config** will:
 
 - Apply the transform **connstrings.mytransform.config** to file **web.config**
 
-### Wildcard transform with wildcard in the middle of the filename to a single target where both are in the same directory
+### Wildcard transform with wildcard in the middle of the filename to a single target where both are in the same directory {#AdvancedConfigurationTransformsExamples-Wildcardtransformwithwildcardinthemiddleofthefilenametoasingletargetwherebothareinthesamedirectory}
 
 
 Given a package which has the structure:
@@ -365,7 +365,7 @@ Then the transform **MyApp.\*.octopus.config => MyApp.WinSvc.exe.config** will:
 
 
 
-### Applying multiple transforms to a single target in a different directory
+### Applying multiple transforms to a single target in a different directory {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-ApplyingmultipletransformstoasingletargetinadifferentdirectoryApplyingmultipletransformstoasingletargetinadifferentdirectory}
 
 
 Given a package which has the structure:
@@ -387,7 +387,7 @@ Then the transform **\*.mytransform.config => config\web.config** will:
 
 - Apply the transform **connstrings.mytransform.config** to file **config\web.config**
 
-### Applying multiple transforms against multiple targets
+### Applying multiple transforms against multiple targets {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-ApplyingmultipletransformsagainstmultipletargetsApplyingmultipletransformsagainstmultipletargets}
 
 
 Given a package which has the structure:
@@ -409,7 +409,7 @@ Then the transform **\*.mytransform.config => \*.config** will:
 
 - Apply the transform **app.mytransform.config** to file **app.config**
 
-### Applying multiple transforms against multiple targets in a different directory
+### Applying multiple transforms against multiple targets in a different directory {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-ApplyingmultipletransformsagainstmultipletargetsinadifferentdirectoryApplyingmultipletransformsagainstmultipletargetsinadifferentdirectory}
 
 
 Given a package which has the structure:
@@ -433,7 +433,7 @@ Then the transform **\*.mytransform.config => config\\*.config** will:
 
 - Apply the transform **app.mytransform.config** to file **config\app.config**
 
-### Applying multiple absolute path transforms to the same target file
+### Applying multiple absolute path transforms to the same target file {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-ApplyingmultipleabsolutepathtransformstothesametargetfileApplyingmultipleabsolutepathtransformstothesametargetfile}
 
 
 Given a package which has the structure:
@@ -462,7 +462,7 @@ Then the transform **c:\transforms\\*.mytransform.config** => **web.config** wil
 
 - Apply the transform **c:\transforms\security.mytransform.config** to file **web.config**
 
-### Using an absolute path wildcard transform and multiple targets
+### Using an absolute path wildcard transform and multiple targets {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-UsinganabsolutepathwildcardtransformandmultipletargetsUsinganabsolutepathwildcardtransformandmultipletargets}
 
 
 Given a package which has the structure:
@@ -492,7 +492,7 @@ Then the transform **c:\transforms\\*.mytransform.config => \*.config** will:
 
 - Apply the transform **c:\transforms\app.mytransform.config** to file **app.config**
 
-### Using an absolute path for multiple transforms against multiple relative files
+### Using an absolute path for multiple transforms against multiple relative files {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-UsinganabsolutepathformultipletransformsagainstmultiplerelativefilesUsinganabsolutepathformultipletransformsagainstmultiplerelativefiles}
 
 
 Given a package which has the structure:
@@ -523,7 +523,7 @@ Then the transform **c:\transforms\\*.mytransform.config** => **config\\*.config
 
 - Apply the transform **c:\transforms\app.mytransform.config** to file **config\app.config**
 
-### Applying multiple relative transforms against a specific target
+### Applying multiple relative transforms against a specific target {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-ApplyingamultiplerelativetransformsagainstaspecifictargetApplyingmultiplerelativetransformsagainstaspecifictarget}
 
 
 Given a package which has the structure:
@@ -545,7 +545,7 @@ Then the transform **transforms\\*.mytransform.config => web.config** will:
 
 - Apply the transform **transforms\security.mytransform.config** to file **web.config**
 
-### Applying multiple transforms in a different directory to a single target in a different directory
+### Applying multiple transforms in a different directory to a single target in a different directory {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-ApplyingmultipletransformsinadifferentdirectorytoasingletargetinadifferentdirectoryApplyingmultipletransformsinadifferentdirectorytoasingletargetinadifferentdirectory}
 
 
 Given a package which has the structure:
@@ -568,7 +568,7 @@ Then the transform **transforms\\*.mytransform.config => config\web.config** wil
 
 - Apply the transform **transforms\security.mytransform.config** to file **config\web.config**
 
-### Applying transforms from a different directory to multiple targets
+### Applying transforms from a different directory to multiple targets {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-ApplyingtransformsfromadifferentdirectorytomultipletargetsApplyingtransformsfromadifferentdirectorytomultipletargets}
 
 
 Given a package which has the structure:
@@ -593,7 +593,7 @@ Then the transform **transforms\\*.mytransform.config => \*.config** will:
 
 - Apply the transform **transforms\app.mytransform.config** to file **app.config**
 
-### Applying transforms from a different directory to targets in a different directory
+### Applying transforms from a different directory to targets in a different directory {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-ApplyingtransformsfromadifferentdirectorytotargetsinadifferentdirectoryApplyingtransformsfromadifferentdirectorytotargetsinadifferentdirectory}
 
 
 Given a package which has the structure:

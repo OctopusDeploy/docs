@@ -6,7 +6,7 @@ position: 1
 
 You can upgrade between Octopus 2.6 and 3.x by downloading the latest [MSI's for both Octopus and Tentacle](https://octopusdeploy.com/download), and installing them manually. If you're working with a large number of Tentacles, see the section on [upgrading larger installations](/docs/administration/upgrading/upgrading-from-octopus-2.6/index.md).
 
-## Summary
+## Summary {#Manualupgrade-Summary}
 
 1. Backup your Octopus 2.6 database and master key
 2. Install Octopus 3.x on your Octopus Server
@@ -17,7 +17,7 @@ You can upgrade between Octopus 2.6 and 3.x by downloading the latest [MSI's for
 6. **[Optional]** Clean up your Octopus Home folder, follow the instructions on this [page](http://docs.octopusdeploy.com/display/OD/Server+configuration+and+File+storage#ServerconfigurationandFilestorage-CleanUp)
 
 
-## Step by step
+## Step by step {#Manualupgrade-Stepbystep}
 
 
 To perform an in-place upgrade, follow these steps:
@@ -26,7 +26,7 @@ To perform an in-place upgrade, follow these steps:
 There is a current issue where it is not importing your license key. Please back this up first from Configuration -> License
 :::
 
-### 1. Back up your Octopus 2.6 database and master key
+### 1. Back up your Octopus 2.6 database and master key {#Manualupgrade-1.BackupyourOctopus2.6databaseandmasterkey}
 
 
 See the [Backup and restore](http://docs.octopusdeploy.com/display/OD2/Backup+and+restore)[ page for instructions on backing up your database.](http://docs.octopusdeploy.com/display/OD2/Backup+and+restore)
@@ -34,7 +34,7 @@ See the [Backup and restore](http://docs.octopusdeploy.com/display/OD2/Backup+a
 
 See the [Security and encryption](http://docs.octopusdeploy.com/display/OD2/Security+and+encryption) page for instructions on backing up your master key.
 
-### 2. Install Octopus 3.x on your Octopus Server
+### 2. Install Octopus 3.x on your Octopus Server {#Manualupgrade-2.InstallOctopus3.xonyourOctopusServer}
 
 :::success
 **Upgrade to the latest version**
@@ -62,7 +62,7 @@ Click Next, and then Install to install the Octopus 3.x server over the 2.6 inst
 
 ![](/docs/images/3048132/3278006.png "width=500")
 
-### 3. Restore the Octopus 2.6 database using the migration tool
+### 3. Restore the Octopus 2.6 database using the migration tool {#Manualupgrade-3.RestoretheOctopus2.6databaseusingthemigrationtool}
 
 
 After upgrading, the Octopus Manager will prompt to import your Octopus 2.6 database. Click the "Import data..." button and follow the prompts to import your 2.6 data.
@@ -88,7 +88,7 @@ In a standard 2.6 install the files can be found under `C:\Octopus\OctopusServe
 You will need to transfer them to the new server to `C:\Octopus\Packages`Once the files have been copied, you will need to restart the Octopus Server service to re-index the files - The index runs in the background, so if you have a lot of packages it could take a while (5-20 mins) to show in the UI or be usable for deployments.
 :::
 
-### 4. Install the Tentacle 3.x MSI
+### 4. Install the Tentacle 3.x MSI {#Manualupgrade-4.InstalltheTentacle3.xMSI}
 
 
 At this point, the machines should appear in your Environments page inside Octopus 3.x, but a health check will fail - the communication protocol Octopus 3.x uses isn't compatible with Tentacle 2.6.
@@ -96,7 +96,7 @@ At this point, the machines should appear in your Environments page inside Octop
 
 On each machine that ran Tentacle 2.6, connect to the machine, and install the Tentacle 3.x MSI.
 
-#### 4.a For Octopus 3.0.1: Reinstall the Tentacle Service
+#### 4.a For Octopus 3.0.1: Reinstall the Tentacle Service {#Manualupgrade-4.aForOctopus3.0.1:ReinstalltheTentacleService}
 
 
 *We discovered an issue with the Tentacle Installer for Octopus 3.0.1 where the Tentacle windows service would still be pointing to the 2.x binaries from a previous 2.x automatic Tentacle upgrade. This has been fixed and is scheduled for Octopus 3.0.2.*
@@ -112,7 +112,7 @@ Click the Reinstall button to ensure the Tentacle windows service is pointing to
 Reinstall will uninstall and reinstall the Tentacle windows service. If you're running Tentacle under a non-default set of credentials or you have configured non-default recovery options you will need to reinstate that configuration after the Reinstall is complete.
 :::
 
-### 5. Verify connectivity between the 3.x server and 3.x Tentacles
+### 5. Verify connectivity between the 3.x server and 3.x Tentacles {#Manualupgrade-5.Verifyconnectivitybetweenthe3.xserverand3.xTentacles}
 
 
 Log in to your new Octopus 3.x server and run health checks on all of your environments. If the upgrade completed successfully, they should succeed.

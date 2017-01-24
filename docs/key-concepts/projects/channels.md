@@ -51,7 +51,7 @@ Channels can also help you to create consistent Releases by specifying Version R
  - Using Build Server Extensions or Octo.exe
  - Automatic Release Creation
 
-## Managing Channels
+## Managing Channels {#Channels-ManagingChannels}
 
 
 Channels are managed per project.  Select the **Channels** menu item from the Project page.
@@ -71,7 +71,7 @@ The Channel must have a unique name per project.
 
 You can associate a Lifecycle with the Channel, or it may inherit the default from the Project.
 
-### Defining Version Rules
+### Defining Version Rules {#Channels-DefiningVersionRulesversionrules}
 
 
 Version rules assist in selecting the correct versions of packages for the Channel.  They are only used when creating a release, either manually or via [Automatic Release Creation](/docs/deploying-applications/automatic-release-creation.md).
@@ -90,12 +90,12 @@ To add version rules to a Channel, click **Add version rule** on the Channel pag
 
 ![](/docs/images/3048999/3278458.png "width=500")
 
-#### Steps
+#### Steps {#Channels-Steps}
 
 
 The steps selected for a specific rule define which packages will be filtered on the *Create Release* page based on the following provided range and tag information. Note that either a version range or pre-release tag regex must be provided for a valid version rule.
 
-#### Version Range
+#### Version Range {#Channels-VersionRange}
 
 
 A provided version range based on the [NuGet versioning syntax](http://g.octopushq.com/NuGetVersioning) can be applied to the release creation package selection.
@@ -107,7 +107,7 @@ From Octopus 3.4 onward you can use the full semantic version as part of your ve
 ![](/docs/images/3048999/5865686.png "width=500")
 :::
 
-#### Tags
+#### Tags {#Channels-Tagstags}
 
 
 Following the standard 2.0.0 [semver syntax](http://semver.org/), a pre-release tag is the alpha numeric text that can appear after the standard *major.minor.patch* pattern immediately following a hyphen. Providing a regex pattern for this field allows the channel to filter packages based on their tag in a very flexible manner. Some examples are.
@@ -120,12 +120,12 @@ Following the standard 2.0.0 [semver syntax](http://semver.org/), a pre-release
 | ^(?!beta).+ | matches pre-releases that don't start with beta | Consider anything other than 'beta' to be a feature branch package so you can provision short-term infrastructure and deploy to it |
 | bugfix- | matches any with '*bugfix-*' prefix (e.g. *bugfix-syscrash)* | Bypass Dev & UAT environments when urgent bug fixes are made to the mainline branch and to be released straight from Staging to Production |
 
-## Using Channels
+## Using Channels {#Channels-UsingChannels}
 
 
 Once a project has more than one Channel, there a number of places they may be used.
 
-### Controlling Deployment Lifecycle
+### Controlling Deployment Lifecycle {#Channels-ControllingDeploymentLifecycle}
 
 
 Each Channel defines which Lifecycle to use when promoting Releases between Environments. You can choose a Lifecycle for each Channel, or use the default Lifecycle defined by the Project.
@@ -133,7 +133,7 @@ Each Channel defines which Lifecycle to use when promoting Releases between Envi
 
 ![](/docs/images/3048999/5865685.png "width=500")
 
-### Modifying Deployment Process
+### Modifying Deployment Process {#Channels-ModifyingDeploymentProcess}
 
 
 Deployment Steps can be restricted to only run on specific Channels.
@@ -141,7 +141,7 @@ Deployment Steps can be restricted to only run on specific Channels.
 
 ![](/docs/images/3048999/3278459.png "width=500")
 
-### Variables
+### Variables {#Channels-Variables}
 
 
 Variables may be scoped to specific Channels.
@@ -149,7 +149,7 @@ Variables may be scoped to specific Channels.
 
 ![](/docs/images/3048999/3278460.png "width=500")
 
-### Deploying to Tenants
+### Deploying to Tenants {#Channels-DeployingtoTenants}
 
 
 You can control which Releases will be deployed to certain Tenants using Channels. In this example, Releases in this Channel will only be deployed to Tenants tagged with `Early access program/2.x Beta`.
@@ -157,12 +157,12 @@ You can control which Releases will be deployed to certain Tenants using Channel
 
 ![](/docs/images/3048999/5865683.png "width=500")
 
-## Creating Releases
+## Creating Releases {#Channels-CreatingReleases}
 
 
 Every Release in Octopus Deploy must be placed into a Channel. Wherever possible Octopus will choose the best possible Channel for your Release, or you can manually select a Channel for your Release.
 
-### Manually Creating Releases
+### Manually Creating Releases {#Channels-ManuallyCreatingReleases}
 
 
 When you are creating a Release, you can select a Channel.
@@ -176,12 +176,12 @@ Selecting the Channel will cause the Release to use the Lifecycle associated wit
 
 The package list allows you to select the version of each package involved in the deployment.  The *latest* column displays the latest packages that match the version rules defined for the Channel (see [version rules](/docs/key-concepts/projects/channels.md) for more information).
 
-### Using Build Server Extensions or Octo.exe
+### Using Build Server Extensions or Octo.exe {#Channels-UsingBuildServerExtensionsorOcto.exe}
 
 
 When using one of the [build server extensions](http://docs.octopusdeploy.com/display/OD2/API+and+Integration) or [octo.exe](/docs/api-and-integration/octo.exe-command-line/creating-releases.md) to create releases, you can either let Octopus automatically choose the correct Channel for your Release (this is the default behaviour), or choose a specific Channel yourself.
 
-### Automatic Release Creation
+### Automatic Release Creation {#Channels-AutomaticReleaseCreation}
 
 
 When enabling [Automatic Release Creation](/docs/deploying-applications/automatic-release-creation.md) for your project, you are required to select a Channel (if the project has more than one).

@@ -12,7 +12,7 @@ When guest login is enabled, the sign in page for the Octopus web portal will pr
 
 ![](/docs/images/3048126/5865814.png "width=500")
 
-## Guest user permissions
+## Guest user permissions {#Guestlogin-Guestuserpermissions}
 
 
 The guest user is created as a standard user managed by Octopus. If you are using Active Directory authentication, you don't need a matching AD user account. The user is automatically added to the **Everyone** team. The guest user can be found in the **Users** tab in the **Configuration** area:
@@ -34,7 +34,7 @@ For example, you could assign the guest user to your **Octopus Administrators** 
 ![](/docs/images/3048126/3277967.png "width=500")
 :::
 
-## Configuring guest login
+## Configuring guest login {#Guestlogin-Configuringguestlogin}
 
 
 Octopus Server can be configured to enable or disable guest access via the command line, as follows:

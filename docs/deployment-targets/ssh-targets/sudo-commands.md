@@ -30,12 +30,12 @@ in Ubuntu, and
 
 in Red Hat
 
-## Enabling Sudo command
+## Enabling Sudo command {#SudoCommands-EnablingSudocommand}
 
 
 The recommended way to enable these commands to be run is to disable the password prompt for the user account used for deployments.
 
-### Disable Password Prompt
+### Disable Password Prompt {#SudoCommands-DisablePasswordPrompt}
 
 
 Running the following command (from a shell with interactive mode so you can enter any required passwords) adds a file that is read conjunction with the sudoers file to configure valid sudo policies.
@@ -72,7 +72,7 @@ Some distros however, such as Centos and its derivatives, require the following 
 
 
 
-### Disble RequireTTY
+### Disble RequireTTY {#SudoCommands-DisbleRequireTTY}
 
 
 Although the sudo may no longer require a password, some distros are configured by default to still require interactive input, or tty, when running sudo.

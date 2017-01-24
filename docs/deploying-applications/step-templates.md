@@ -30,12 +30,12 @@ This page describes everything you need to know about step templates.
  - Updating step templates
  - Exporting step templates
 
-## Community step templates
+## Community step templates {#StepTemplates-Communitysteptemplates}
 
 
 Community step templates are publically available step templates that are contributed and updated by the community. There is a growing number (over 200 at the time of writing this) of templates that can help you automate your deployment without writing any scripts yourself. The community step templates are third party code which is licensed under apache.
 
-### The Community Library
+### The Community Library {#StepTemplates-TheCommunityLibrary}
 
 
 Is there something Octopus doesn't support out-of-the-box? Take a look at the [Community Library](https://library.octopusdeploy.com/) which is full of step templates that have been contributed and are maintained by the Octopus community.
@@ -61,7 +61,7 @@ Installing a community step template into Octopus is quick and easy.
 
 It's also possible to create your own step templates.
 
-### Installing a step template from the Community Library
+### Installing a step template from the Community Library {#StepTemplates-InstallingasteptemplatefromtheCommunityLibrary}
 
 
 To install a step template from the Community Library, perform the following.
@@ -78,7 +78,7 @@ To install a step template from the Community Library, perform the following.
 ![](/docs/images/5671696/5866133.png "width=500")
 
 
-### Importing a step template from the Community Library
+### Importing a step template from the Community Library {#StepTemplates-ImportingasteptemplatefromtheCommunityLibrary}
 
 
 If you don't have the Community Library feature turned on you can still use community step templates by manually importing the JSON from the [Community Library](http://library.octopusdeploy.com/) into the step template library within Octopus.
@@ -95,12 +95,12 @@ If you don't have the Community Library feature turned on you can still use comm
 ![](/docs/images/5671696/5866151.png "width=500")
 
 
-## Custom step step templates
+## Custom step step templates {#StepTemplates-Customstepsteptemplates}
 
 
 Custom step templates can be based on a built-in or an installed community step template. These step templates can be reused in projects and managed in the step template library.
 
-### Creating custom step templates
+### Creating custom step templates {#StepTemplates-Creatingcustomsteptemplates}
 
 
 Sometimes there isn't a step template for your situation available in the [Community Library](https://library.octopusdeploy.com/). Or perhaps several of your projects have similar or identical steps. You can create your own custom step templates to share with the community, or to reuse across your projects.
@@ -126,7 +126,7 @@ You can create Step Templates for any of the built-in step types provided by Oct
 
 There are three parts to any step template: step details, additional parameters, and settings.
 
-#### Step
+#### Step {#StepTemplates-Step}
 
 
 The Step tab is where you fill out the details of what the step will do. This tab gives you exactly the same fields as you would see if you added the step type directly to your project, so it will be the most familiar.
@@ -134,7 +134,7 @@ The Step tab is where you fill out the details of what the step will do. This ta
 
 Any details that need to be specified at the project level can be handled using Parameters. Any parameters specified in the Parameters tab will be exposed to you as [variables](/docs/deploying-applications/variables/index.md) and can be used in the same way.
 
-#### Parameters
+#### Parameters {#StepTemplates-Parameters}
 
 
 The Parameters tab allows you to specify fields that will be filled out by the users of this step.
@@ -154,12 +154,12 @@ Finally, you can choose the way the field will appear to a user with the **Contr
 
 Any variables you configure as Parameters will be available as variables that can be used in the Step tab of the step template.
 
-#### Settings
+#### Settings {#StepTemplates-Settings}
 
 
 The Settings tab allows you to give your step a name and optional description.
 
-#### Usage
+#### Usage {#StepTemplates-Usage}
 
 
 After saving your step, you'll notice another tab called Usage. This tab shows where the step is being used and whether the version being used is current or a previous version.
@@ -170,7 +170,7 @@ You'll also see a handy counter next to the Usage tab so you can see at a glance
 
 ![](/docs/images/5671696/5866155.png "width=500")
 
-### Custom logo
+### Custom logo {#StepTemplates-Customlogo}
 
 :::hint
 Custom logos are available in Octopus 3.7.0 or newer.
@@ -182,7 +182,7 @@ Custom step templates inherit their logo from the template that was used to crea
 
 ![](/docs/images/5671696/5866188.png "width=500")
 
-### Linking custom step templates to community step templates
+### Linking custom step templates to community step templates {#StepTemplates-Linkingcustomsteptemplatestocommunitysteptemplates}
 
 :::hint
 Custom logos are available in Octopus 3.7.0 or newer.
@@ -198,7 +198,7 @@ If the linking process is not linking a template that you believe should be link
 Name, all Parameters and Script Body property have to match for the linking process to consider two templates identical.
 :::
 
-### Running script based custom step templates
+### Running script based custom step templates {#StepTemplates-Runningscriptbasedcustomsteptemplates}
 
 
 Octopus 3.7 introduced the ability to run script based custom step templates on a group of machines. This can be very handy to execute script based step templates to test them before starting to use them in your projects as well as performing regular admin or operations functions. This should be familiar to people who have used the script console (link) in the past.
@@ -228,9 +228,9 @@ To run a script based step template, perform the following.
 
 To re-run the script against different deployment targets or modify the input parameters, simply click the **Modify and re-run** button.
 
-## Other
+## Other {#StepTemplates-Other}
 
-### Updating step templates
+### Updating step templates {#StepTemplates-Updatingsteptemplates}
 
 :::warning
 Step Templates are effectively copied to projects using them. That means if you update a step template, you'll need to update the step in the project using it for your changes to have an effect.
@@ -249,7 +249,7 @@ If your project is using an out-of-date step template, you will see a warning wh
 If you have a lot of projects using Step Templates, updating them can be time consuming. We are planning to make this much easier, but until then you should consider the [BlueFin Chrome extension for Octopus](http://bluefin.teapotcoder.com/) which allows you to update a Step Template across all of your projects.
 :::
 
-### Exporting step templates
+### Exporting step templates {#StepTemplates-Exportingsteptemplates}
 
 
 If you want to transport, backup, or share your Step Templates with the community, you can export a template by finding your template in Library > Step templates, and clicking the **Export** link.

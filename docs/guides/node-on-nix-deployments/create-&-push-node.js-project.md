@@ -26,7 +26,7 @@ npm -v
 ```
 :::
 
-## Download & Run the template
+## Download & Run the template {#Create&amp;PushNode.jsProject-Download&amp;Runthetemplate}
 
 
 Download the sample project from the public GitHub repo and checkout the gulp branch
@@ -52,12 +52,12 @@ Navigating to **http://localhost:8081** you should see a page with words that ap
 
 ![](/docs/images/3049551/3278578.png "width=500")
 
-## Configure Publish Task
+## Configure Publish Task {#Create&amp;PushNode.jsProject-ConfigurePublishTask}
 
 
 Using the task runner of your choice, pick one of the following steps that you are most comfortable with.
 
-### Option 1 - Gulp publish task
+### Option 1 - Gulp publish task {#Create&amp;PushNode.jsProject-Option1-Gulppublishtask}
 
 
 Ensuring that you have checked out the **gulp**branch with the initial build tasks already configured, install the **gulp-octojs** package that will do all the packaging and pushing work for you. We will also include the external **[gulp-bump](https://github.com/stevelacy/gulp-bump)** library to increase the patch version number before each publish. That way the server will retain previous builds and we can easily manage and deploy each version in Octopus Deploy independently.
@@ -108,7 +108,7 @@ To make life easier add the gulp publish script to your **package.json** scripts
 
 You can then execute the publish command directly through npm without having to worry about if the task runner or arguments change.
 
-### Option 2 - Grunt publish task
+### Option 2 - Grunt publish task {#Create&amp;PushNode.jsProject-Option2-Gruntpublishtask}
 
 
 Ensuring that you have checked out the **grunt**branch with the initial build tasks already configured, install the **grunt-octojs** package that will do all the packaging and pushing work for you. We will also include the external [grunt-bump](https://github.com/vojtajina/grunt-bump) library to increase the patch version number before each publish. That way the server will retain previous builds and we can easily manage and deploy each version in Octopus Deploy independently. We will also include the [grunt-contrib-clean](https://github.com/gruntjs/grunt-contrib-clean) library to clean the build output directory to avoid pushing the same packages on each publish
@@ -162,12 +162,12 @@ Finally add the npm publish script using the grunt task runner.
 
 You can then execute the publish command directly through npm without having to worry about if the task runner or arguments change.
 
-### Option 3 - Bespoke
+### Option 3 - Bespoke {#Create&amp;PushNode.jsProject-Option3-Bespoke}
 
 
 Using the [octopackjs](https://github.com/OctopusDeploy/octopackjs) npm module you can write your own Node.js scripts to package and push your projects to the Octopus Server (Under the hood both the Gulp and Grunt tasks leverage this module). Alternately package your files into the [format of your choice](http://docs.octopusdeploy.com/display/OD/Supported+Packages) and push to the API over a HTTP call using whatever framework or language that best suits you.
 
-## Publish Package
+## Publish Package {#Create&amp;PushNode.jsProject-PublishPackage}
 
 
 With the previous work done, publishing the project package to Octopus is a simple one line command which can be run as many times as you like. On each invocation the minor version will be bumped up and a new package will be ready to be deployed.

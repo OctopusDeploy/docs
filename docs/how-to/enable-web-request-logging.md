@@ -11,7 +11,7 @@ This feature was added in Octopus 3.0.12.
 
 Octopus can be configured to log HTTP requests to text files, which can be very useful for analyzing usage patterns and detecting performance problems. By default, web request logging is **turned off**. This page explains how to turn the feature on, as well as the format of the logs.
 
-## Log file format and retention
+## Log file format and retention {#Enablewebrequestlogging-Logfileformatandretention}
 
 
 Octopus web request logging uses the [W3C extended log file format](http://www.loganalyzer.net/log-analyzer/w3c-extended.html), the same format that IIS uses. This means that tools which normally work with IIS logs should also be able to work with Octopus logs.
@@ -32,7 +32,7 @@ The fields that Octopus logs for each request cannot currently be changed. It wi
 
 Octopus writes to a new log file each day, and keeps up to 7 files. Older logs are automatically deleted.
 
-## Configuring web request logging
+## Configuring web request logging {#Enablewebrequestlogging-Configuringwebrequestlogging}
 
 
 Web request logging can be enabled or disabled from the command line, using **Octopus.Server.exe**. A restart of the Octopus server is required for the setting to take effect.
@@ -42,7 +42,7 @@ Octopus.Server.exe configure --requestLoggingEnabled=true
 Octopus.Server.exe service --stop --start
 ```
 
-## Using the logs
+## Using the logs {#Enablewebrequestlogging-Usingthelogs}
 
 
 Since Octopus uses the same log file format that IIS uses, tools that work with IIS logs will also work with Octopus web request logs, including:

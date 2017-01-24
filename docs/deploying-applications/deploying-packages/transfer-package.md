@@ -8,7 +8,7 @@ title: Transfer Package
 Transfer a package was introduced in Octopus Deploy 3.7.12
 :::
 
-## Transferring a package to your target without extraction
+## Transferring a package to your target without extraction {#TransferPackage-Transferringapackagetoyourtargetwithoutextraction}
 
 
 If you just want to transfer a package to your remote target without extracting or processing its contents like the standard [Deploy a package](/docs/deploying-applications/deploying-packages/index.md) step, then you will want to use the Transfer a package step. When adding this step to your deployment process, choose the **Transfer a Package** option. For more information, see the [add step](http://docs.octopusdeploy.com/display/OD/Add+step) section.
@@ -25,7 +25,7 @@ When transferring a package you will need to specify a location that the file wi
 
 This package will be transferred to the target during the package acquisition phase, and then copied to the specified location at the appropriate time during the deployment process. The copy process is used as opposed to moving or simply transferring it directly to the requested location during acquisition for a number of reasons. First, this will allow the package location to be derived from output variables from previous steps while allowing the full acquisition process to occur up-front, and secondly it will allow the [delta compression](http://docs.octopusdeploy.com/display/OD/Delta+compression+for+package+transfers) checks to take place to reduce to amount of data that needs to be transferred on subsequent deployments.
 
-## Output Variables
+## Output Variables {#TransferPackage-OutputVariables}
 
 
 Since the Transfer a Package step has been kept simple by-design, most deployments will probably want to use the transferred package for some further processing. For this purpose, the following [output variables](/docs/deploying-applications/variables/output-variables.md) are generated for access by subsequent steps.

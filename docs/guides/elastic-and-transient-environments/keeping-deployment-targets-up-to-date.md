@@ -14,12 +14,12 @@ The features discussed in this guide are available in Octopus 3.4 and newer.
 
 Octopus Deploy can ensure that deployment targets are kept up to date with the relevant releases.  This can be useful when [deploying to transient targets](/docs/guides/elastic-and-transient-environments/deploying-to-transient-targets.md) or when new deployment targets are added to an environment.
 
-## Triggers
+## Triggers {#Keepingdeploymenttargetsuptodate-Triggers}
 
 
 Triggers are per-project settings that execute an action in response to an event. For this example we will create an automatic deployment trigger so that machines in the **TradingWebServer** role are automatically kept up to date with the latest releases for OctoFX.  Triggers can be found by selecting the *Triggers* menu item on the project screen.
 
-## Creating an automatic deployment trigger
+## Creating an automatic deployment trigger {#Keepingdeploymenttargetsuptodate-Creatinganautomaticdeploymenttrigger}
 
 1. Navigate to the project *Triggers* page
 2. Create a new trigger by selecting **Create trigger**
@@ -35,7 +35,7 @@ Triggers are per-project settings that execute an action in response to an event
 
 Once the trigger has been created, it will ensure that any deployment targets matching the trigger criteria will be kept up to date with the latest release of the project.
 
-## Triggering an automatic deployment
+## Triggering an automatic deployment {#Keepingdeploymenttargetsuptodate-Triggeringanautomaticdeployment}
 
 
 To test the trigger, we will disable a deployment target, deploy to that target's environment and then re-enable the target.  Octopus should automatically deploy the release to the target when it is re-enabled.
@@ -48,7 +48,7 @@ To test the trigger, we will disable a deployment target, deploy to that target'
 ![](/docs/images/5669262/5865575.png "width=500")
 
 
-## Overriding the release used for automatic deployments
+## Overriding the release used for automatic deployments {#Keepingdeploymenttargetsuptodate-Overridingthereleaseusedforautomaticdeploymentsoverriderelease}
 
 
 Automatic deployments attempts to calculate the release to use for a project and environment (using the *current* and *successful* release that has been deployed, as shown in your Project Overview dashboard).  In some cases the calculated release may not be the release that should be automatically deployed, or Octopus may not be able to find a deployment for an environment (maybe you have a release, but have not yet deployed it anywhere).  It is possible to explicitly set the release that should be automatically deployed by overriding the automatic-deployment-release. Overrides can be configured using [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) or through [Octopus.Client](/docs/api-and-integration/octopus.client.md).  Overrides define a release for a project when deploying to an environment (this can, for example, be useful for cloud-testing-automation when standing up new cloud infrastructure).  For multi-tenanted deployments, overrides may be configured for each environment/tenant combination.
@@ -88,7 +88,7 @@ $repository.Projects.Modify($project)
 
 Automatic deployment overrides are cleared when a deployment is performed to the same project/environment/tenant combination as the override.  For example: if an override is set for version 1.2 of HelloWorld to the Test environment and version 1.3 of HelloWorld is deployed to the Test environment, the 1.2 override will be deleted. Release overrides will be cleared as soon as they have automated an actual deployment.
 
-## Troubleshooting automatic deployments
+## Troubleshooting automatic deployments {#Keepingdeploymenttargetsuptodate-TroubleshootingTroubleshootingautomaticdeployments}
 
 
 Octopus will attempt to automatically deploy the current releases for the environments that are appropriate for a machine. The current release is the one that was most recently *successfully* deployed as shown on the project dashboard. Octopus will not automatically deploy a release if the deployment for that release was not successful. If the initial deployment of a release was successful but an automatic deployment of that release fails, **Octopus will stop automatically deploying that release**.
@@ -120,7 +120,7 @@ The verbose logs usually contain the reason why a project trigger didn't take an
 
 
 
-## Next steps
+## Next steps {#Keepingdeploymenttargetsuptodate-Nextsteps}
 
 
 With machines now being kept up to date automatically you may be interested in [cleaning up environments](/docs/guides/elastic-and-transient-environments/cleaning-up-environments.md) to automatically remove machines when they are terminated.

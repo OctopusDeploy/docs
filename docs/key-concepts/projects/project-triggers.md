@@ -20,7 +20,7 @@ Project Triggers allow you to choose from a subset of **events** that can occur 
 
 ![](/docs/images/5671189/5865830.png "width=500")
 
-## What kinds of Project Triggers are available?
+## What kinds of Project Triggers are available? {#ProjectTriggers-WhatkindsofProjectTriggersareavailable?}
 
 
 [Automatic Deployment Triggers](/docs/deploying-applications/automatic-deployment-triggers.md) are the first kind of Project Trigger available in Octopus Deploy, and at the time of writing, the only kind. We think this concept could also extend to other automated actions like these:

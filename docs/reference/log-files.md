@@ -11,7 +11,7 @@ Octopus Deploy Server and Tentacles write diagnostic log messages to their local
 The most recent warnings and errors can be view on the Configuration -> Diagnostics page
 :::
 
-## Finding the log files
+## Finding the log files {#Logfiles-Findingthelogfiles}
 
 
 When Octopus applications are installed, a "home directory" is chosen - this is usually `C:\Octopus`.
@@ -22,7 +22,7 @@ Octopus stores its logs in the `Logs`subdirectory. Three sets of log files may 
 
 When requesting support, send as much log information as possible - the repetitive nature of the files means they usually zip down well.
 
-## Changing log levels
+## Changing log levels {#Logfiles-Changingloglevels}
 
 
 Occasionally it may be necessary to change the logging level of an Octopus application.

@@ -11,7 +11,7 @@ User Roles play a major part in the Octopus security model. These roles are ass
 - Creating User Roles
 - Troubleshooting Permissions
 
-## Built-in User Roles
+## Built-in User Roles {#UserRoles-Built-inUserRoles}
 
 
 Octopus comes with a set of built-in User Roles that are designed to work for most common scenarios:
@@ -37,7 +37,7 @@ All project contributor permissions, plus: creating releases, but not deploying 
 
 The built-in User Roles can be modified to contain more or less roles to suit specific needs. But instead of modifying the built-in ones, we recommend that you leave them as an example and instead create your own User Roles.
 
-## Creating User Roles
+## Creating User Roles {#UserRoles-CreatingUserRoles}
 
 
 A custom User Role can be created with any combination of roles. To create a custom user role:
@@ -55,7 +55,7 @@ Once the custom role is saved, the new role will be available to be assigned to 
 
 ![](/docs/images/3048105/3278290.png "width=500")
 
-## Troubleshooting Permissions
+## Troubleshooting Permissions {#UserRoles-TroubleshootingPermissions}
 
 
 If for some reason a user has more/fewer permissions than they should, you can use the **Test Permissions** feature to get an easy to read list of all the permissions that a specific user has on the Octopus instance.

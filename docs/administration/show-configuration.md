@@ -26,7 +26,7 @@ The command supports the following options:
 | format | The format of the export (XML, json, json-hierarchical). Defaults to XML. |
 | noconsolelogging | If specified, all output to the console other than the configuration is suppressed. This is important when using the json formats and converting to an object. |
 
-## Format
+## Format {#ShowConfiguration-Format}
 
 
 The format option defaults to XML, but also supports two json formats.
@@ -78,7 +78,7 @@ if ($config.Octopus.WebPortal.AutoLoginEnabled -eq $FALSE) {
 
 ```
 
-## Extensions
+## Extensions {#ShowConfiguration-Extensions}
 
 
 Some of the values displayed by this command come from the core part of Octopus Server and some come from [server extensions](/docs/guides/server-extensibility/index.md).  Learn about how extensions can [contribute values to the show-configuration](/docs/administration/server-configuration.md) output.

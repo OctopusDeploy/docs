@@ -6,7 +6,7 @@ title: Web App deployment step
 
 Octopus Deploy supports automated deployment of [Azure Web Apps](http://azure.microsoft.com/en-us/services/app-service/web/) (formerly known as Azure Web Sites).
 
-## Deployment Step
+## Deployment Step {#WebAppdeploymentstep-DeploymentStep}
 
 
 Add a new 'Deploy an Azure Web App' step to your project. For information about adding a step to the deployment process, see the [add step](http://docs.octopusdeploy.com/display/OD/Add+step) section.
@@ -26,12 +26,12 @@ Add a new 'Deploy an Azure Web App' step to your project. For information about
 
 Once an Account is selected, the list of Azure Web Apps available to the subscription associated with the account will populate the 'Web App' select-list.
 
-#### Physical Path
+#### Physical Path {#WebAppdeploymentstep-PhysicalPath}
 
 
 Allows deployment to a physical sub-directory of the web-root.  This is useful when deploying to Virtual Directories or Web Jobs, and you don't want to deploy the root application at the same time.
 
-#### Remove additional files
+#### Remove additional files {#WebAppdeploymentstep-Removeadditionalfiles}
 
 
 When set, deletes files from the destination that aren't in the source package.
@@ -63,7 +63,7 @@ For more information, see [Taking an Application Offline before Publishing](htt
 
 Any of the fields above can be switched to use a custom expression.
 
-## Features
+## Features {#WebAppdeploymentstep-Features}
 
 
 The following features are available when deploying a package to an Azure Web App.
@@ -74,7 +74,7 @@ The following features are available when deploying a package to an Azure Web Ap
 - [Substitute variables in files](/docs/reference/variable-substitution-syntax.md)
 
 
-### PowerShell
+### PowerShell {#WebAppdeploymentstep-PowerShell}
 
 
 PowerShell custom scripts executed against an Azure Web App target will have the Azure PowerShell module loaded, and the subscription from the chosen account will be selected.

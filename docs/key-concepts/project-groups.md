@@ -9,7 +9,7 @@ As your usage of Octopus grows, and you start to have many environments and many
 
 A project group contains a list of projects. It also groups the projects together on the dashboard.
 
-## Creating project groups
+## Creating project groups {#ProjectGroups-Creatingprojectgroups}
 
 
 Project groups can be added from the projects tab, using the **Add project group** link.
@@ -23,7 +23,7 @@ When defining a project group, you can provide a name and description.
 
 ![](/docs/images/3048103/3277848.png "width=500")
 
-## Assigning projects to project groups
+## Assigning projects to project groups {#ProjectGroups-Assigningprojectstoprojectgroups}
 
 
 To assign a project to a project group you can specify the project group when creating a new project:

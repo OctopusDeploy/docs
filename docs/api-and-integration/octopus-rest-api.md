@@ -23,7 +23,7 @@ The Octopus REST API is designed:
 If you plan to use the REST API from C# or another .NET project, see the [Octopus.Client](/docs/api-and-integration/octopus.client.md) assembly.
 :::
 
-## Documentation and samples
+## Documentation and samples {#OctopusRESTAPI-Documentationandsamples}
 
 
 [Documentation](https://github.com/OctopusDeploy/OctopusDeploy-Api/wiki) and [samples](https://github.com/OctopusDeploy/OctopusDeploy-Api) for the Octopus Deploy REST API are available on the **[Octopus REST API GitHub site](https://github.com/OctopusDeploy/OctopusDeploy-Api)**.

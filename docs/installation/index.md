@@ -11,7 +11,7 @@ Installing Octopus Deploy involves three main steps:
 3. Decide [where to store your packages](/docs/packaging-applications/package-repositories/index.md)
 
 
-# Upgrading
+# Upgrading {#Installation-Upgrading}
 
 
 If Octopus is already installed, and you want to upgrade to a new version, please follow the steps in the [upgrade guide](/docs/administration/upgrading/index.md).

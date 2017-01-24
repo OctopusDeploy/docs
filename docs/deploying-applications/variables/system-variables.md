@@ -20,7 +20,7 @@ This page lists built-in [variables](/docs/deploying-applications/variables/inde
 - Tracking deployment status
 - User-modifiable settings
 
-### Deployment
+### Deployment {#Systemvariables-Deployment}
 
 
 Deployment-level variables are drawn from the project and release being deployed.
@@ -178,7 +178,7 @@ The version number of the release the last successful deployment to the current 
 | Octopus.Web.ReleaseLink | */app/releases/releases-123* | A path relative to the Octopus Server URL at which the release can be viewed |
 | --- | --- | --- |
 
-### Action
+### Action {#Systemvariables-Action}
 
 
 Action-level variables are available during execution of an action. Indexer notion such as `Octopus.Action[Website].TargetRoles` can be used to refer to values for different actions.
@@ -247,9 +247,9 @@ Octopus.Action.Id
 | Octopus.Action.Status.ErrorDetail | *System.Net.SocketException: The server ...* | If the action failed because of an error, a full description of the error |
 | --- | --- | --- |
 
-### 
+### EMPTY {#Systemvariables-}
 
-#### Azure
+#### Azure {#Systemvariables-Azure}
 
 | Name | Example | Description |
 | --- | --- | --- |
@@ -262,7 +262,7 @@ Octopus.Action.Id
 | Octopus.Action.Azure.ResourceGroupDeploymentName | my-resourcegroupdeployment-name | Override the auto-generated resource group deployment name when deploying a resource group |
 | --- | --- | --- |
 
-#### Azure Cloud Service
+#### Azure Cloud Service {#Systemvariables-AzureCloudService}
 
 | Name | Example | Description |
 | --- | --- | --- |
@@ -289,7 +289,7 @@ Octopus.Action.Id
 | Octopus.Action.Azure.DeploymentLabel | my custom label for build 3.x.x | If set, the custom deployment label will be used for the Azure cloud service deployment. ***Introduced in Calamari version 3.4.1 which was released with Octopus Deploy version 3.4.4.*** |
 | --- | --- | --- |
 
-#### Azure Web Apps
+#### Azure Web Apps {#Systemvariables-AzureWebApps}
 
 | Name | Example | Description |
 | --- | --- | --- |
@@ -304,7 +304,7 @@ Octopus.Action.Id
 | Octopus.Action.Azure.AppOffline | *True* | When *True* instructs Web Deploy to safely bring down the app domain by adding a blank **app\_offline.html** file in the site root |
 | --- | --- | --- |
 
-### Output
+### Output {#Systemvariables-Output}
 
 
 Output variables are collected during execution of a step and made available to subsequent steps using notation such as `Octopus.Action[Website].Output[WEBSVR01].Package.InstallationDirectoryPath`to refer to values base on the action and machine that produced them. See also [Output variables](/docs/deploying-applications/variables/output-variables.md).
@@ -326,7 +326,7 @@ Output variables are collected during execution of a step and made available to 
 | Octopus.Action[\_name\_].Output.Manual.ResponsibleUser.Username | *alice* | The username of the user who completed the manual step |
 | --- | --- | --- |
 
-### Step
+### Step {#Systemvariables-Step}
 
 
 Step-level variables are available during execution of a step. Indexer notion such as `Octopus.Step[Website].Number` can be used to refer to values for different steps.
@@ -346,7 +346,7 @@ Step-level variables are available during execution of a step. Indexer notion su
 | Octopus.Step.Status.ErrorDetail | *System.Net.SocketException: The server could not be contacted (at ...)* | If the step failed because of an error, a full description of the error |
 | --- | --- | --- |
 
-### Agent
+### Agent {#Systemvariables-Agent}
 
 
 Agent-level variables describe the deployment agent or Tentacle on which the deployment is executing.
@@ -362,7 +362,7 @@ Agent-level variables describe the deployment agent or Tentacle on which the dep
 | **Octopus.Agent.ProgramDirectoryPath** | *C:\Program Files\Octopus Deploy\Octopus* | The directory containing either the server or tentacle's executables depending on which the step being executed on |
 | --- | --- | --- |
 
-### Server
+### Server {#Systemvariables-Server}
 
 
 Server-level variables describe the Octopus server on which the deployment is running.
@@ -372,13 +372,13 @@ Server-level variables describe the Octopus server on which the deployment is ru
 
 | Name | Example | Description |
 | --- | --- | --- |
-|  |  | 
+| Octopus.Web.BaseUrl | *[https://my-octopus](https://my-octopus)* | 
 
-This variable has been deprecated as of Octopus 2.0
+The default URL at which the server can be accessed This variable has been deprecated as of Octopus 2.0
  |
 | --- | --- | --- |
 
-## Tracking deployment status
+## Tracking deployment status {#Systemvariables-DeploymentStatusTrackingdeploymentstatus}
 
 
 During deployment, Octopus provides variables describing the status of each step.
@@ -421,7 +421,7 @@ Octopus.Deployment.ErrorDetail
 Octopus.Deployment.Error and Octopus.Deployment.ErrorDetail will only display the exit code and Octopus stack trace for the error. As we cannot parse the deployment log, we can only extract the exit/error codes. It cannot show detailed information on what caused the error. For full information on what happened when the deployment fails, you will need to reference the logs.
 :::
 
-## User-modifiable settings
+## User-modifiable settings {#Systemvariables-User-modifiablesettings}
 
 
 The following variables can be defined as variables in your project to modify the way Octopus behaves.

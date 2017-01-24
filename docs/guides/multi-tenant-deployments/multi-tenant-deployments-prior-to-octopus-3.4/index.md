@@ -11,7 +11,7 @@ This page describes some of the trade-offs you would consider deciding how to us
 Consider upgrading to Octopus 3.4 which provides built-in support for multi-tenant deployments. Read through our [multi-tenant deployment guide](/docs/guides/multi-tenant-deployments/index.md) to see if it fits your situation and [how to migrate to Octopus 3.4](/docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/migrating-to-octopus-3.4.md).
 :::
 
-##### Scenario:
+##### Scenario: {#Multi-tenantdeploymentspriortoOctopus3.4-Scenario:}
 
 
 NameBadge make HR software for large corporate customers. They provide the software as a SaaS offering to their customers, and host the web site and associated services for them. Due to how the application is architected, for each customer, they deploy:
@@ -32,7 +32,7 @@ In Octopus (prior to Octopus 3.4), there were two main ways to model this scenar
 - Project per customer
 - Consider architectural changes
 
-## Environment per customer
+## Environment per customer {#Multi-tenantdeploymentspriortoOctopus3.4-Environmentpercustomerenvironment-per-customer}
 
 
 The simplest solution was to create a separate environment per customer.
@@ -49,7 +49,7 @@ This was usually the easiest way to manage these kinds of scenarios. If all cust
 
 Keep in mind that variables can be scoped per environment (thus customer).
 
-## Project per customer
+## Project per customer {#Multi-tenantdeploymentspriortoOctopus3.4-Projectpercustomerproject-per-customer}
 
 
 In this scenario, we would set up a project with the three deployment steps, and use it as a template. We would then clone the project once per customer, and customise the variables and other settings per customer.
@@ -77,7 +77,7 @@ If each customer had major differences, and possibly bespoke work, we recommende
 
 The solutions above would work well for a few dozen customers, and with some effort, be made to work for many more using the [REST API](/docs/api-and-integration/octopus-rest-api.md) and [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md).
 
-## Consider architectural changes
+## Consider architectural changes {#Multi-tenantdeploymentspriortoOctopus3.4-Considerarchitecturalchangesarchitectural-changes}
 
 
 When much larger numbers of customers are concerned it may be wise to consider making architectural changes to the application.

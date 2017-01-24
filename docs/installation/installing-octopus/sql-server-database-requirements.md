@@ -6,7 +6,7 @@ position: 0
 
 Octopus Deploy stores projects, environments, and deployment history and logs in a Microsoft SQL Server database.
 
-## Supported versions and editions
+## Supported versions and editions {#SQLServerDatabaseRequirements-Supportedversionsandeditions}
 
 
 Octopus works with most recent versions and editions of SQL Server, from a local SQL Server Express instance, all the way to an Enterprise Edition cluster. Azure SQL databases are also supported. The following requirements apply to the SQL Server database used by Octopus:
@@ -60,12 +60,12 @@ If you don't yet have a database created specifically for Octopus' use, then you
 
 The Octopus setup wizard will perform most of these activities for you if you accept the prompts.
 
-## Using SQL Server Express
+## Using SQL Server Express {#SQLServerDatabaseRequirements-UsingSQLServerExpress}
 
 
 [Download SQL Server Express](http://downloadsqlserverexpress.com/)
 
-## Suggested Indexes and Azure SQL Auto Index Creation
+## Suggested Indexes and Azure SQL Auto Index Creation {#SQLServerDatabaseRequirements-SuggestedIndexesandAzureSQLAutoIndexCreation}
 
 
 Each installation of Octopus Deploy will likely have different data loads and usage patterns and as a result your DBMS may suggest performance optimizations such as creating new indexes in addition to those created automatically by the Octopus Deploy installation process. While we don't actively discourage users from adding these indexes its important to understand the results of modifying the schema.

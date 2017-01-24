@@ -12,7 +12,7 @@ Tenants were introduced with first-class support in Octopus 3.4. If you are impl
 :::
 
 ##### 
-## Introducing multi-tenant deployments in Octopus
+## Introducing multi-tenant deployments in Octopus {#Tenants-Introducingmulti-tenantdeploymentsinOctopus}
 
 
 Starting with Octopus 3.4 you can manage tenants as a first-class citizen enabling you to:
@@ -34,7 +34,7 @@ Starting with Octopus 3.4 you can manage tenants as a first-class citizen enabli
 9. Easily implement simple multi-tenant deployment scenarios, and scale to support complex scenarios as your needs require.
 
 
-## Why should I care about multi-tenant deployments in Octopus Deploy?
+## Why should I care about multi-tenant deployments in Octopus Deploy? {#Tenants-WhyshouldIcareaboutmulti-tenantdeploymentsinOctopusDeploy?}
 
 
 > **Have you ever wanted to have multiple instances of your project deployed to each environment? You should consider multi-tenant deployments in Octopus Deploy.**
@@ -57,7 +57,7 @@ The multi-tenant features in Octopus Deploy will simplify your deployments in al
 - you deploy unique instances of your application for each end-customer - keep reading!
 
 
-### You want to deploy a multi-tenant application
+### You want to deploy a multi-tenant application {#Tenants-Youwanttodeployamulti-tenantapplication}
 
 
 We built the multi-tenant features in Octopus Deploy for this kind of scenario:
@@ -83,12 +83,12 @@ The key issue in this scenario is that the same components need to be deployed m
 :::success
 You don't need Octopus Deploy to implement a multi-tenant SaaS application: you can also architect your application so you can deploy it once and serve multiple customers. We have built multi-tenant deployments into Octopus for those situations where you want to deploy your application once for each end-customer. See the section below about [building multi-tenant applications](/docs/guides/multi-tenant-deployments/index.md) and [considering architectural changes](/docs/guides/multi-tenant-deployments/index.md).
 :::
-
+ {#Tenants-true}
 
 
 ![](/docs/images/5669336/5865825.png "width=500")
 
-## Making the most of tenants in Octopus
+## Making the most of tenants in Octopus {#Tenants-MakingthemostoftenantsinOctopus}
 
 
 Multi-tenant deployments are an advanced topic in Octopus and we have written a [comprehensive guide](/docs/guides/multi-tenant-deployments/index.md) to help you get the most benefit from your deployment automation.

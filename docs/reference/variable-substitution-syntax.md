@@ -19,7 +19,7 @@ On this page:
  - Differences from regular variable bindings
  - JSON Parsing
 
-## Basic Syntax
+## Basic Syntax {#VariableSubstitutionSyntax-BasicSyntax}
 
 
 Octopus [variables ](/docs/deploying-applications/variables/index.md)support substitution throughout: a variable may be bound to an expression that incorporates the values of other variables:
@@ -67,7 +67,7 @@ If the file undergoing variable replacement includes a string that *shouldn't* 
 `#{NotToBeReplaced}`
  |
 
-## Extended Syntax
+## Extended Syntax {#VariableSubstitutionSyntax-ExtendedSyntax}
 
 
 Octopus supports an extended variable substitution syntax with capabilities similar to text templating languages.  It's worth noting that this is now available everywhere whereas previously it was limited to certain scenarios.
@@ -90,7 +90,7 @@ The capabilities of the extended syntax are:
 [Octostache](https://github.com/OctopusDeploy/Octostache) is the open source component that powers this feature.
 :::
 
-### Index Replacement
+### Index Replacement {#VariableSubstitutionSyntax-IndexReplacement}
 
 
 Variable substitution inside an index was added in Octopus 3.3.23.  This makes it easy to dynamically retrieve variables within arrays/dictionaries.
@@ -111,7 +111,7 @@ Given the variables:
 
 `#{MyPassword[#{UserName}]}` would evaluate to `passwordZ`.
 
-### Conditionals
+### Conditionals {#VariableSubstitutionSyntax-Conditionalsconditionals}
 
 
 Two conditional statements are supported in Octopus prior to version 3.5 - `if` and `unless`; these have identical syntax, but if evaluates only if the variable is *truthy*, while unless evaluates if the variable is *falsy*.
@@ -162,17 +162,17 @@ You could achieve a similar result, with a different default/fallback behaviour,
 <compilation #{unless DebugDisabled}debug="true"#{/unless}>
 ```
 
-#### *Truthy* and *Falsy* values
+#### *Truthy* and *Falsy* values {#VariableSubstitutionSyntax-TruthyandFalsyvalues}
 
 
 The `if` and `unless` statements consider a value to be *falsy* if it is undefined, empty, `False` or `0`. All other values are considered to be *truthy*.
 
-### Repetition
+### Repetition {#VariableSubstitutionSyntax-Repetition}
 
 
 The `each` statement supports repetition over a set of variables, or over the individual values in a variable separated with commas.
 
-#### Iterating over sets of values
+#### Iterating over sets of values {#VariableSubstitutionSyntax-Iteratingoversetsofvalues}
 
 
 More complex sets of related values are handled using multiple variables:
@@ -203,7 +203,7 @@ Listening on:
  - Endpont B at http://b.example.com is Slave
 ```
 
-#### Iterating over comma-separated values
+#### Iterating over comma-separated values {#VariableSubstitutionSyntax-Iteratingovercomma-separatedvalues}
 
 
 Give the variable:
@@ -231,7 +231,7 @@ Listening on:
  - http://b.example.com
 ```
 
-#### Special Variables
+#### Special Variables {#VariableSubstitutionSyntax-SpecialVariables}
 
 
 Within the context of an iteration template, some special variables are available.
@@ -243,7 +243,7 @@ Within the context of an iteration template, some special variables are availabl
 | `Octopus.Template.Each.Last` | "True" if the element is the last in the collection, otherwise "False" |
 
 ### 
-Filters
+Filters {#VariableSubstitutionSyntax-Filters}
 
 
 By default, bindings are inserted into the output as-is; no consideration is given as to whether the target variable or file is XML, HTML, JSON etc. That is, the target file type is always treated as plain text.
@@ -279,7 +279,7 @@ That is, the ampersand has been encoded correctly for use in an HTML document.
 The filters provided by Octopus are for use with trusted input; don't rely on them to santize data from potentially malicious sources.
 :::
 
-#### Provided filters
+#### Provided filters {#VariableSubstitutionSyntax-Providedfilters}
 
 
 Octopus provides the following filters:
@@ -334,7 +334,7 @@ The *Format* filter available from Octopus Deploy version 3.5 allows for conver
 Filters were introduced in Octopus Deploy version 3.5
 :::
 
-### Differences from regular variable bindings
+### Differences from regular variable bindings {#VariableSubstitutionSyntax-Differencesfromregularvariablebindings}
 
 
 Because of the flexibility provided by the extended syntax, variables that are not defined will result in the source text, e.g. `#{UndefinedVar}` being echoed rather than an empty string, so that evaluation problems are easier to spot and debug. The `if` construct can be used to selectively bind to a variable only when it is defined, e.g. to obtain identical "empty" variable functionality as shown in the first example:
@@ -343,7 +343,7 @@ Because of the flexibility provided by the extended syntax, variables that are n
 Server=#{if DatabaseServer}#{DatabaseServer}#{/if};
 ```
 
-### JSON Parsing
+### JSON Parsing {#VariableSubstitutionSyntax-JSONParsingjson}
 
 
 Octostache 2.x (bundled with Octopus 3.5) includes an update to support parsing JSON formatted variables natively, and using their contained properties for variable substitution.
@@ -393,7 +393,7 @@ There are a few things to note here.
 - Variables can map to a sub-section of the JSON variable.
 
 
-#### Repetition over JSON
+#### Repetition over JSON {#VariableSubstitutionSyntax-RepetitionoverJSON}
 
 
 Give the variables:

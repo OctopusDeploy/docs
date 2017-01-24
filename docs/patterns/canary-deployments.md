@@ -33,7 +33,7 @@ The test phase of the canary deployment can work in many ways. You could run som
 Canary deployments are similar to using a staging environment. The difference is that staging environments are usually dedicated to the task; a staging web server doesn't become a production server. By contrast, in a canary deployment, the canary server remains part of the production fleet when the deployment is complete. Canary deployments may be worth considering if you do not have the resources to have a dedicated staging environment.
 :::
 
-## Canary deployments in Octopus
+## Canary deployments in Octopus {#Canarydeployments-CanarydeploymentsinOctopus}
 
 
 There are two ways to implement canary deployments in Octopus. The first, and simplest, is to use the "Deploy to a subset of deployment targets" feature when deploying the release. This allows you to limit which deployment targets to deploy to:

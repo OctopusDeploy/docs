@@ -9,7 +9,7 @@ This is the recommended way of performing an upgrade for larger installations. I
 
 Be sure to read the [Upgrading from Octopus 2.6](/docs/administration/upgrading/upgrading-from-octopus-2.6/index.md) documentation page. You must have a working 2.6 Octopus installation for the data migration.
 
-## Summary
+## Summary {#Upgradewithanew3.0serverinstance-Summary}
 
 1. Backup your Octopus 2.6 database and master key
 2. Install Octopus 3.x on a new virtual or physical server
@@ -20,12 +20,12 @@ Be sure to read the [Upgrading from Octopus 2.6](/docs/administration/upgrading/
 6. Decommission your 2.6 Octopus Server
 
 
-## Step by step
+## Step by step {#Upgradewithanew3.0serverinstance-Stepbystep}
 
 
 To upgrade with a new Octopus 3.x server, follow these steps:
 
-### 1. Back up your Octopus 2.6 database and master key
+### 1. Back up your Octopus 2.6 database and master key {#Upgradewithanew3.0serverinstance-1.BackupyourOctopus2.6databaseandmasterkey}
 
 
 See the [Backup and restore](http://docs.octopusdeploy.com/display/OD2/Backup+and+restore) page for instructions on backing up your database.
@@ -33,7 +33,7 @@ See the [Backup and restore](http://docs.octopusdeploy.com/display/OD2/Backup+a
 
 See the [Security and encryption](http://docs.octopusdeploy.com/display/OD2/Security+and+encryption) page for instructions on backing up your master key.
 
-### 2. Install Octopus 3.x on a new virtual or physical server
+### 2. Install Octopus 3.x on a new virtual or physical server {#Upgradewithanew3.0serverinstance-2.InstallOctopus3.xonanewvirtualorphysicalserver}
 
 :::success
 **Upgrade to the latest version**
@@ -43,7 +43,7 @@ When upgrading to Octopus 3.x please use the latest version available. We have b
 
 See the [Installing Octopus 3.x](/docs/installation/installing-octopus/index.md) page for instructions on installing a new Octopus 3.x instance.
 
-### 3. Migrate your data from 2.6 to 3.x
+### 3. Migrate your data from 2.6 to 3.x {#Upgradewithanew3.0serverinstance-3.Migrateyourdatafrom2.6to3.x}
 
 
 See the [Migrating data from Octopus 2.6 to 3.x](/docs/administration/upgrading/upgrading-from-octopus-2.6/migrating-data-from-octopus-2.6-to-3.x.md) page for instructions on importing your Octopus 2.6 database backup into Octopus 3.x.
@@ -63,7 +63,7 @@ In a standard 2.6 install the files can be found under `C:\Octopus\OctopusServe
 You will need to transfer them to the new server to `C:\Octopus\Packages`Once the files have been copied, you will need to restart the Octopus Server service to re-index the files - The index runs in the background, so if you have a lot of packages it could take a while (5-20 mins) to show in the UI or be usable for deployments.
 :::
 
-### 4. Use Hydra to automatically upgrade your Tentacles
+### 4. Use Hydra to automatically upgrade your Tentacles {#Upgradewithanew3.0serverinstance-4.UseHydratoautomaticallyupgradeyourTentacles}
 
 :::problem
 This is the point of no return. When your Tentacles are upgraded to 3.x your 2.6 server will not be able to communicate with them
@@ -136,7 +136,7 @@ Once you're confident the upgrade works as expected, you can deploy to all remai
     ![](/docs/images/3048132/3278010.png "width=500")
 
 
-### 5. Verify connectivity between the 3.x server and 3.x Tentacles
+### 5. Verify connectivity between the 3.x server and 3.x Tentacles {#Upgradewithanew3.0serverinstance-5.Verifyconnectivitybetweenthe3.xserverand3.xTentacles}
 
 
 When the Hydra task runs on a Tentacle machine, it should no longer be able to communicate with the Octopus 2.6 server. You can verify this by navigating to the Environments page and clicking **Check Health**.
@@ -160,7 +160,7 @@ Performing the Check Health on your Octopus 3.x server should now succeed.
 If you have multiple Tentacles running on the same server, an update to one will result in an update to **all** of them. This is because there is only one copy of the Tentacle binaries, even with multiple instances configured.
 :::
 
-### 6. Decommission your Octopus 2.6 server
+### 6. Decommission your Octopus 2.6 server {#Upgradewithanew3.0serverinstance-6.DecommissionyourOctopus2.6server}
 
 
 Once you are confident your Tentacles have all been updated and work correctly, you can decommission your Octopus 2.6 Server.

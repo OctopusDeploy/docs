@@ -9,7 +9,7 @@ You can perform an in place upgrade of 3.x from 2.6, but you need to upgrade you
 
 Due to the new communication method, you won't be able to communicate with your upgraded Tentacles until you upgrade your server. However, if you upgrade your server before all Tentacles are correctly updated, you will have to upgrade them manually, or roll your server back to 2.6 and try again.
 
-## Summary
+## Summary {#Inplaceupgrade(installover2.6)-Summary}
 
 1. Backup your Octopus 2.6 database and master key
 2. Use Hydra to automatically upgrade your Tentacles
@@ -20,7 +20,7 @@ Due to the new communication method, you won't be able to communicate with your 
 7. **[Optional]** Clean up your Octopus Home folder, follow the instructions on this [page](http://docs.octopusdeploy.com/display/OD/Server+configuration+and+File+storage#ServerconfigurationandFilestorage-CleanUp)
 
 
-## Step by step
+## Step by step {#Inplaceupgrade(installover2.6)-Stepbystep}
 
 
 To perform an in-place upgrade, follow these steps carefully:
@@ -29,7 +29,7 @@ To perform an in-place upgrade, follow these steps carefully:
 There is a current issue where it is not importing your license key. Please back this up first from Configuration -> License
 :::
 
-### 1. Back up your Octopus 2.6 database and master key
+### 1. Back up your Octopus 2.6 database and master key {#Inplaceupgrade(installover2.6)-1.BackupyourOctopus2.6databaseandmasterkey}
 
 
 See the [Backup and restore](http://docs.octopusdeploy.com/display/OD2/Backup+and+restore)[ page for instructions on backing up your database.](http://docs.octopusdeploy.com/display/OD2/Backup+and+restore)
@@ -37,7 +37,7 @@ See the [Backup and restore](http://docs.octopusdeploy.com/display/OD2/Backup+a
 
 See the [Security and encryption](http://docs.octopusdeploy.com/display/OD2/Security+and+encryption) page for instructions on backing up your master key.
 
-### 2. Use Hydra to automatically upgrade your Tentacles
+### 2. Use Hydra to automatically upgrade your Tentacles {#Inplaceupgrade(installover2.6)-2.UseHydratoautomaticallyupgradeyourTentacles}
 
 :::problem
 This is the point of no return. When your Tentacles are upgraded to 3.x your 2.6 server will not be able to communicate with them
@@ -107,7 +107,7 @@ Once you're confident the upgrade works as expected, you can deploy to all remai
     ![](/docs/images/3048132/3278010.png "width=500")
 
 
-### 3. Verify the upgrade has worked
+### 3. Verify the upgrade has worked {#Inplaceupgrade(installover2.6)-3.Verifytheupgradehasworked}
 
 
 When the Hydra task runs on a Tentacle machine, it should no longer be able to communicate with the Octopus 2.6 server. You can verify this by navigating to the Environments page and clicking **Check Health**.
@@ -128,7 +128,7 @@ We recommend connecting to some of your Tentacle machines and examining the Octo
 If you have multiple Tentacles running on the same server, an update to one will result in an update to **all** of them. This is because there is only one copy of the Tentacle binaries, even with multiple instances configured.
 :::
 
-### 4. Install Octopus 3.x on your Octopus Server
+### 4. Install Octopus 3.x on your Octopus Server {#Inplaceupgrade(installover2.6)-4.InstallOctopus3.xonyourOctopusServer}
 
 :::success
 **Upgrade to the latest version**
@@ -156,7 +156,7 @@ Click Next, and then Install to install the Octopus 3.x server over the 2.6 inst
 
 ![](/docs/images/3048132/3278006.png "width=500")
 
-### 5. Restore the Octopus 2.6 database using the migration tool
+### 5. Restore the Octopus 2.6 database using the migration tool {#Inplaceupgrade(installover2.6)-5.RestoretheOctopus2.6databaseusingthemigrationtool}
 
 
 After upgrading, the Octopus Manager will prompt to import your Octopus 2.6 database. Click the "Import data..." button and follow the prompts to import your 2.6 data.
@@ -182,7 +182,7 @@ In a standard 2.6 install the files can be found under `C:\Octopus\OctopusServe
 You will need to transfer them to the new server to `C:\Octopus\Packages`Once the files have been copied, you will need to restart the Octopus Server service to re-index the files - The index runs in the background, so if you have a lot of packages it could take a while (5-20 mins) to show in the UI or be usable for deployments.
 :::
 
-### 6. Verify connectivity between the 3.x server and 3.x Tentacles
+### 6. Verify connectivity between the 3.x server and 3.x Tentacles {#Inplaceupgrade(installover2.6)-6.Verifyconnectivitybetweenthe3.xserverand3.xTentacles}
 
 
 Log in to your new Octopus 3.x server and run health checks on all of your environments. If the upgrade completed successfully, they should succeed.

@@ -22,7 +22,7 @@ On this page:
 - Tag-based filters
 - Referencing tenant tags
 
-## What can you do with tenant tags?
+## What can you do with tenant tags? {#TenantTags-Whatcanyoudowithtenanttags?}
 
 
 ![](/docs/images/5670003/5865643.png "width=500")
@@ -41,7 +41,7 @@ With tenant tags you can:
 - Control which releases can be deployed to tenants using [channels](/docs/key-concepts/projects/channels.md) - read more in our [guide](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md)
 
 
-## Managing tenant tags
+## Managing tenant tags {#TenantTags-Managingtenanttags}
 
 
 Go to *Library > Tenant tag sets* to create, modify and reorder tag sets and tags.
@@ -76,7 +76,7 @@ This example of configuring a tenanted deployment target shows how the tenant fi
 ![](/docs/images/5670003/5865645.png "width=500")
 :::
 
-## Tag-based filters
+## Tag-based filters {#TenantTags-Tag-basedfilters}
 
 
 Once you have defined some tag sets and tags you can start leveraging those tags to tailor your environments and deployments.
@@ -102,7 +102,7 @@ TenantsNamed("Alvin Warren") + TenantsTagged(VIP AND (Early Adopter OR Stable))
 
 When paired with a well-structured tag design, this logic will enable you to tailor your tenanted deployments in interesting and effective ways.
 
-## Referencing tenant tags
+## Referencing tenant tags {#TenantTags-Referencingtenanttags}
 
 
 If you want to use tenant tags to automate Octopus Deploy you should use the **Canonical Name** for the Tag which looks like this: `Tag Set Name/Tag Name`

@@ -14,7 +14,7 @@ On this page:
 - Check the variable value in the All Variables tab
 - Write the variables to the deployment log
 
-## Check the Variable Snapshot for the Release
+## Check the Variable Snapshot for the Release {#DebugproblemswithOctopusvariables-ChecktheVariableSnapshotfortheRelease}
 
 1. Open the **Project > Releases > Release** page for the Release you are debugging
 2. Scroll down to find the **Variables** section and click the **Show** link so see the snapshot of Variables being used by this Release.
@@ -26,7 +26,7 @@ On this page:
 
 ![](/docs/images/3048145/3278466.png)
 
-## Check the variable value in the All Variables tab
+## Check the variable value in the All Variables tab {#DebugproblemswithOctopusvariables-CheckthevariablevalueintheAllVariablestab}
 
 1. Open the **Project > Variables > All Variables** tab
 2. Investigate the variables from all possible sources for the project including the project itself, [library variable sets](/docs/deploying-applications/variables/library-variable-sets.md), and [tenants](/docs/key-concepts/tenants/index.md).
@@ -37,7 +37,7 @@ On this page:
 Did you know you can sort and filter all of the variables grids? Click the column heading to sort, or the filter icon to filter the variable grid.
 :::
 
-## Write the variables to the deployment log
+## Write the variables to the deployment log {#DebugproblemswithOctopusvariables-Writethevariablestothedeploymentlog}
 
 
 This will log the variables available at the beginning of each step in the deployment as Verbose messages.

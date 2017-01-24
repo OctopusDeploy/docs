@@ -9,7 +9,7 @@ We get a lot of questions about why isn't the retention policy deleting all of m
 
 This page will show what is checked, what is deleted and why something might not be deleted.
 
-## Deployment Journal
+## Deployment Journal {#RetentionpolicyTentaclecleanupandtroubleshooting-DeploymentJournal}
 
 
 The deployment journal on the Tentacle is the source of truth for what Octopus will know has been deployed to the Tentacle but more importantly what still exists on the Tentacle.
@@ -48,7 +48,7 @@ Below is a sample DeploymentJournal.xml that we will use in this example.
 
 It keeps a record for every package and package extraction for each project and the relevant locations.
 
-## Defining your retention policy for your Tentacles
+## Defining your retention policy for your Tentacles {#RetentionpolicyTentaclecleanupandtroubleshooting-DefiningyourretentionpolicyforyourTentacles}
 
 
 Defining retetion policies is done within Lifecycles. Each phase can have a different setting. So if you want to keep more files on production machines you can.
@@ -65,7 +65,7 @@ In this example the default for the Lifecycle is Keep 3.
 
 
 
-## When the retention policy is run
+## When the retention policy is run {#RetentionpolicyTentaclecleanupandtroubleshooting-Whentheretentionpolicyisrun}
 
 
 For a Tentacle the retention policy is run at the end of a deployment, for that project only. So for this example the deployment looks for the project (project-1) and finds all releases within the deployment journal. It finds 4 in total (current is never counted) leaving 3, knowing it just deployed one, it deletes one copy of each package.
@@ -96,7 +96,7 @@ See below the messages you will have in your raw deployment logs at the end of a
 
 
 
-## Package and extraction directories
+## Package and extraction directories {#RetentionpolicyTentaclecleanupandtroubleshooting-Packageandextractiondirectories}
 
 
 You can find your packages under C:\Octopus\<machine name>\files
@@ -131,7 +131,7 @@ This occurs when you have the same package in two different steps inside a singl
 
 
 
-## Troubleshooting
+## Troubleshooting {#RetentionpolicyTentaclecleanupandtroubleshooting-Troubleshooting}
 
 
 If you upgraded from 2.x to 3.0 the deployment journal location moved. Your choices are to clean up any old deployments manually, merge your deployment journals to the new location or run [Powershell Script](https://gist.github.com/vanessalove/dbc656b01df40939dcf8) on your Tentacles.

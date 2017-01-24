@@ -15,7 +15,7 @@ On this page:
 - Avoiding common mistakes
 - Logging
 
-## Configuring sensitive variables
+## Configuring sensitive variables {#Sensitivevariables-Configuringsensitivevariables}
 
 
 Variables such as passwords or API keys can be marked as being **sensitive**.
@@ -23,7 +23,7 @@ Variables such as passwords or API keys can be marked as being **sensitive**.
 
 ![](/docs/images/3048089/3277722.png "width=500")
 
-## How Octopus handles your sensitive variables
+## How Octopus handles your sensitive variables {#Sensitivevariables-HowOctopushandlesyoursensitivevariables}
 
 :::hint
 Learn more about [security and encryption](/docs/reference/security-and-encryption.md) in Octopus Deploy.
@@ -41,7 +41,7 @@ When dealing with sensitive variables, Octopus will encrypt these values using 
 If you need to retrieve these values for other purposes, consider using a password manager or key vault. The support we provide in Octopus is to securely store values that will be used during deployment, and cannot be retrieved for any other purposes. There are plenty available, and some are free, like [KeePass](http://keepass.info/).
 :::
 
-## Avoiding common mistakes
+## Avoiding common mistakes {#Sensitivevariables-Avoidingcommonmistakes}
 
 
 Here are some common pitfalls to avoid:
@@ -53,7 +53,7 @@ Here are some common pitfalls to avoid:
 - **Octopus is not a 2-way key vault**: use a password manager or key vault like [KeePass](http://keepass.info/).
 
 
-## Logging
+## Logging {#Sensitivevariables-LoggingLogging}
 
 :::success
 Try to avoid logging sensitive values! Whilst Octopus will attempt to mask sensitive values, it is better there is no value to mask in the first place!

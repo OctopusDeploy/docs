@@ -30,7 +30,7 @@ Azure supports two authentication methods, each of which provides access to a di
 Learn more about [configuring the right Azure Account](/docs/guides/azure-deployments/creating-an-azure-account/index.md).
 :::
 
-## Run an Azure PowerShell Script Step
+## Run an Azure PowerShell Script Step {#RunningAzurePowerShell-RunanAzurePowerShellScriptStep}
 
 
 Octopus Deploy provides a *Run an Azure PowerShell Script* step type, for executing PowerShell in the context of an Azure Subscription. For information about adding a step to the deployment process, see the [add step](http://docs.octopusdeploy.com/display/OD/Add+step) section.

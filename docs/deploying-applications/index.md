@@ -16,7 +16,7 @@ On this page:
  - Conditions
 - Guides
 
-## Deployment process
+## Deployment process {#Deployingapplications-Deploymentprocess}
 
 
 Each project has a **deployment process**, which can be found on the **Process** tab of the project in the Octopus web portal. The deployment process is like a recipe. It defines the set of instructions that will be run repeatably each time the project is deployed. The deployment process can have one or more steps, and the steps can be ordered using the **Reorder steps** link.
@@ -37,7 +37,7 @@ Also by default, a step that is configured to execute across multiple deployment
 For more information, see the section on [simple and advanced deployment processes](/docs/key-concepts/projects/deployment-processes.md) and [rolling deployments](/docs/patterns/rolling-deployments.md).
 :::
 
-### Adding steps
+### Adding steps {#Deployingapplications-Addingsteps}
 
 
 Steps can be added to the deployment process using the **Add step** button. There are many different types of steps supported by Octopus and we are adding more specific steps all the time. For more information, see the [add step](/docs/deploying-applications/adding-steps.md) section.
@@ -49,7 +49,7 @@ If a step you want isn't built-in you should check out the community contributed
 
 ![](/docs/images/5671696/5865900.png "width=500")
 
-## Common step properties
+## Common step properties {#Deployingapplications-Commonstepproperties}
 
 
 All steps have a name, which is used to identify the step.
@@ -59,7 +59,7 @@ All steps have a name, which is used to identify the step.
 Be careful when changing names! Octopus commonly uses names as a convenient identity or handle to things, and the steps and actions in a deployment process are special in that way. For example you can use [output variables](/docs/deploying-applications/variables/output-variables.md) to chain steps together, and you use the name as the indexer for the output variable. For example: `#{Octopus.Action[StepA].Output.TestResult}`
 :::
 
-### Conditions
+### Conditions {#Deployingapplications-Conditions}
 
 
 Steps can also have conditions. You can restrict a step so that it only runs when deploying to specific [environments](/docs/key-concepts/environments/index.md) (e.g., an Email step that only runs on production deployments).
@@ -86,7 +86,7 @@ You can also specify whether a step runs only when previous steps are successful
 You can achieve very complex deployment processes in Octopus by leveraging advanced concepts like parallel execution of steps and rolling deployments. Learn more about [simple and complex deployment processes](/docs/key-concepts/projects/deployment-processes.md).
 :::
 
-## In this section
+## In this section {#Deployingapplications-Inthissection}
 
 
 - [Adding steps](/docs/deploying-applications/adding-steps.md)
@@ -137,7 +137,7 @@ You can achieve very complex deployment processes in Octopus by leveraging advan
  - [Docker Compose](/docs/deploying-applications/docker-containers/docker-compose.md)
 - [Deploying Virtual Hard Drives](/docs/deploying-applications/deploying-virtual-hard-drives.md)
 
-## Guides
+## Guides {#Deployingapplications-Guides}
 
 
 - [Azure deployments](/docs/guides/azure-deployments/index.md)

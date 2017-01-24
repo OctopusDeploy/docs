@@ -42,7 +42,7 @@ Or other scripts:
 $TestResult = $OctopusParameters["Octopus.Action[StepA].Output.TestResult"]
 ```
 
-## System output variables
+## System output variables {#Outputvariables-Systemoutputvariables}
 
 
 After a step runs, Octopus captures the output variables, and keeps them for use in subsequent steps. In addition to variables that you create yourself using `Set-OctopusVariable`, Octopus also makes a number of built-in variables available. Here are some examples of commonly used built-in output variables:
@@ -57,7 +57,7 @@ After a step runs, Octopus captures the output variables, and keeps them for use
  - `Octopus.Action[StepName].Output.Manual.ResponsibleUser.EmailAddress`
 
 
-## Output from multiple machines
+## Output from multiple machines {#Outputvariables-Outputfrommultiplemachines}
 
 
 Output variables become more complex when multiple machines are involved, but they can still be used.
@@ -140,12 +140,12 @@ For some practical examples of using output variables, and how scoping rules are
 - [Changing website ports using output variables](http://octopusdeploy.com/blog/changing-website-port-on-each-deployment)
 
 
-## Setting output variables using scripts
+## Setting output variables using scripts {#Outputvariables-Settingoutputvariablesusingscripts}
 
 
 You can set output variables using any of the scripting languages supported by Octopus. In each case we make special functions available to your scripts by bootstrapping them with a template defined in the [open-source Calamari project](https://github.com/OctopusDeploy/Calamari).
 
-### PowerShell
+### PowerShell {#Outputvariables-PowerShell}
 
 
 [PowerShell Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari/Integration/Scripting/WindowsPowerShell)
@@ -166,7 +166,7 @@ For example:
 Set-OctopusVariable -name "TestResult" -value "Passed"
 ```
 
-### C#
+### C# {#Outputvariables-C#}
 
 
 [ScriptCS Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari/Integration/Scripting/ScriptCS)
@@ -180,7 +180,7 @@ From a C# script, you can use the `public static void SetVariable(string name, 
 Octopus.SetVariable("TestResult", "Passed");
 ```
 
-### Bash
+### Bash {#Outputvariables-Bash}
 
 
 [Bash Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari/Integration/Scripting/Bash)
@@ -194,7 +194,7 @@ In a Bash script you can use the `set_octopusvariable` function to set the nam
 set_octopusvariable "TestResult" "Passed"
 ```
 
-### F#
+### F# {#Outputvariables-F#}
 
 :::success
 F# support is available in Octopus Deploy 3.4 (or newer).

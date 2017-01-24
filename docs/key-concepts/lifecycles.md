@@ -17,7 +17,7 @@ A Lifecycle is defined by **phases**. Each phase can have one or more environmen
 
 A Lifecycle can have a default retention policy defined and each phase inherits this policy or can also have it's own policy defined.
 
-## Managing Lifecycles
+## Managing Lifecycles {#Lifecycles-ManagingLifecycles}
 
 
 Lifecycle management can be found under **Library** and then **Lifecycles**.
@@ -40,7 +40,7 @@ To start with you define a Name, description and default retention policy for th
 
 Once these initial details are defined you can add your first phase.
 
-## Lifecycle Phases
+## Lifecycle Phases {#Lifecycles-LifecyclePhases}
 
 
 Phases define the deployment pipeline. A phase must have a complete successful deployment before further phases are able to be deployed to.
@@ -86,7 +86,7 @@ Once all of your phases are defined your Lifecycle has a 'tree view'.
 
 It shows the flow of the deployment in a visual way.
 
-## Lifecycles and Projects
+## Lifecycles and Projects {#Lifecycles-LifecyclesandProjects}
 
 
 A project can only be deployed to any environments defined in their lifecycle.

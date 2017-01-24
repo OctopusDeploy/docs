@@ -21,7 +21,7 @@ NuGet is a good choice for packaging your applications, for the following reason
 4. Developer familiarity
 
 
-## Creating NuGet packages
+## Creating NuGet packages {#NuGetpackages-CreatingNuGetpackages}
 
 
 You can create NuGet packages in a number of ways:

@@ -31,7 +31,7 @@ For example, suppose these variables exist:
 
 During deployment, Octopus will try to select the most specifically scoped variable that applies. For example, when deploying to Production, the *LogLevel*property would be *Warn*. But to any other environment, it would fall back to the less-specific variable and have a value of *Info*instead.
 
-## Assigning scopes
+## Assigning scopes {#Scopingvariables-Assigningscopes}
 
 
 You can set the scope of a variable by selecting the Scope cell, and choosing the scope values:
@@ -39,7 +39,7 @@ You can set the scope of a variable by selecting the Scope cell, and choosing th
 
 ![](/docs/images/3048305/3278294.png "width=500")
 
-## Scope specificity
+## Scope specificity {#Scopingvariables-Scopespecificity}
 
 
 Imagine you have one variable scoped to an environment (Production), and another scoped to a machine within the environment. Which value should Octopus choose?

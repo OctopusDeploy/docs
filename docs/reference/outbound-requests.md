@@ -6,7 +6,7 @@ position: 1
 
 This page describes any outbound network requests made by Octopus and Tentacle, and what information is included when Octopus checks for updates.
 
-## Outbound requests by Tentacle
+## Outbound requests by Tentacle {#Outboundrequests-OutboundrequestsbyTentacle}
 
 
 For security reasons, we minimize the number of outbound requests made by the Tentacle deployment agent. The only outbound requests you should see are for:
@@ -20,7 +20,7 @@ For security reasons, we minimize the number of outbound requests made by the Te
 
 It's possible that PowerShell scripts in your packages may make outbound requests; in this case you should take care when deploying packages created by a third party.
 
-## Outbound requests by Octopus
+## Outbound requests by Octopus {#Outboundrequests-OutboundrequestsbyOctopus}
 
 
 The Octopus Deploy server makes the following outbound requests:
@@ -31,7 +31,7 @@ The Octopus Deploy server makes the following outbound requests:
 4. Checking for updates (if enabled)
 
 
-## What information is included when Octopus checks for updates?
+## What information is included when Octopus checks for updates? {#Outboundrequests-WhatinformationisincludedwhenOctopuschecksforupdates?}
 
 
 During installation, Octopus will ask you whether you want to check for new releases, and whether you would also like to opt-in to providing usage statistics to help us understand how the product is used and how we can improve it.

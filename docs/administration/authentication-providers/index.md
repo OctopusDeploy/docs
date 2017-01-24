@@ -16,7 +16,7 @@ On this page:
 - Usernames, email addresses, UPNs and External Ids
 - Auto Login
 
-## Configuring Authentication Providers
+## Configuring Authentication Providers {#AuthenticationProviders-ConfiguringAuthenticationProviders}
 
 
 Starting from v3.5, Octopus Deploy also supports two OpenID Connect based providers, Azure AD and GoogleApps, out-of-the-box.  Also starting in v3.5 is support for using multiple authentication providers simultaneously, e.g. you could choose to have UsernamePassword and Azure AD enabled at the same time.  To support this, there are some new command-line options for the configure command.  Examples are as follows:
@@ -39,7 +39,7 @@ If you disable all of your authentication providers you will see a message like 
 You will need to enable at least one of the authentication providers in order to sign in.
 :::
 
-## External Security Groups
+## External Security Groups {#AuthenticationProviders-ExternalSecurityGroups}
 
 
 When editing Teams while the Active Directory provider is enabled, an option is available to search for **Active Directory Groups** and add them as External Security Groups.  Anyone who is in those groups will then be considered part of the Team in Octopus Deploy.
@@ -47,7 +47,7 @@ When editing Teams while the Active Directory provider is enabled, an option is 
 
 Octopus Deploy 3.5 introduces similar functionality for assigning OpenID Connect based Roles to a Team.  When either of the OpenID Connect based providers are enabled, an option to **Add External Role** is available on the Team edit page.  The Role ID is the Role that will be matched against the user's claims token to determine whether they should be considered part of that Team.
 
-## Users and Authentication Providers
+## Users and Authentication Providers {#AuthenticationProviders-usersandauthprovidersUsersandAuthenticationProviders}
 
 
 In versions up to 3.5, only a single Authentication Provider could be enabled at a time (either Domain or UsernamePassword).  In that scenario Users were managed based on the currently enabled provider and switching providers meant re-configuring Users.  With 3.5 comes the ability to have multiple Authentication Providers enabled simultaneously and as such the User management has been adjusted to be provider agnostic.  What does that mean?  Let's consider an example scenario.
@@ -65,12 +65,12 @@ For this reason, when specifying usernames for commands like **admin**, you sho
 
 
 
-## Usernames, email addresses, UPNs and External Ids
+## Usernames, email addresses, UPNs and External Ids {#AuthenticationProviders-Usernames,emailaddresses,UPNsandExternalIds}
 
 
 As of v3.5, when users log in to Octopus Deploy, the server will consider more than just their username to determine if they are already a known user.  It will also check their email address and external provider Id.  The external provider Id is the value provided by the external identity managers, e.g. Active Directory, Azure AD or GoogleApps.
 
-## Auto Login
+## Auto Login {#AuthenticationProviders-AutoLogin}
 
 
 Some of the authentication providers rely on Forms style authentication, where the user provides a username and password directly on a form in the Octopus Deploy web application.  Other providers rely on a redirection to an external URL to authenticate the user.  This latter group of providers will, by default, present a link to the user to trigger the redirect to the external URL.

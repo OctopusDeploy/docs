@@ -32,7 +32,7 @@ On this page:
 - Automatically creating pre-releases
 - Troubleshooting
 
-## Getting started
+## Getting started {#AutomaticReleaseCreation-Gettingstarted}
 
 
 If you use the[ built-in Octopus package repository](/docs/packaging-applications/package-repositories/index.md), you can now select a package, that when uploaded it will automatically create a release.
@@ -84,7 +84,7 @@ If you combine uploading a package, with the automatic deployment feature within
 The release number that is created is guided by the Release Versioning settings under **Project** -> **Settings**. It will use the rules defined.
 :::
 
-## Channels
+## Channels {#AutomaticReleaseCreation-Channels}
 
 
 Channels were introduced in Octopus 3.2, and at this point you must select the Channel that will be used for any automatically created releases. This can be painful, and here are some points you can consider:
@@ -94,7 +94,7 @@ Channels were introduced in Octopus 3.2, and at this point you must select the C
 - Try creating some releases manually for the selected channel to make sure it works as expected
 
 
-## Automatically creating pre-releases
+## Automatically creating pre-releases {#AutomaticReleaseCreation-Automaticallycreatingpre-releases}
 
 
 When you push a package to your trigger step, Octopus will look for the latest available package for all other steps **excluding pre-release packages by default** - see [this thread](http://help.octopusdeploy.com/discussions/problems/35401) for background.
@@ -102,7 +102,7 @@ When you push a package to your trigger step, Octopus will look for the latest a
 
 One way to work around this behaviour is to create a Channel with the appropriate version rules so that "latest available package" will be the pre-release packages you expected. The best way to test this is to practice creating releases manually for that channel - the "latest available package" will work the same way for manual and automatically created releases.
 
-## Troubleshooting
+## Troubleshooting {#AutomaticReleaseCreation-Troubleshooting}
 
 
 When you are using automatic release creation there are many reasons why a release may not be created successfully. Take some time to consider the following troubleshooting steps:

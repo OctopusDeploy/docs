@@ -23,7 +23,7 @@ There are lots of improvements and changes between Octopus 1.X, Octopus 2.X and 
 If you are running a version of Octopus prior to 2.6, you will need to upgrade to 2.6 and then upgrade to 3.x.
 :::
 
-## How we version Octopus Deploy
+## How we version Octopus Deploy {#Upgrading-HowweversionOctopusDeploy}
 
 
 We use Semantic Versioning to help you understand the type of changes we have introduced between two versions of Octopus Deploy:
@@ -52,7 +52,7 @@ For every Major and Minor release we will provide release notes highlighting new
 You can also use our release comparison tool to see **all of the changes** introduced between any two versions of Octopus Deploy. For example: [https://octopus.com/downloads/compare?from=3.2.15&to=3.5.2](https://octopus.com/downloads/compare?from=3.2.15&amp;to=3.5.2)
 :::
 
-## Downgrading or Rolling Back an Upgrade
+## Downgrading or Rolling Back an Upgrade {#Upgrading-DowngradingorRollingBackanUpgrade}
 
 
 The process for successfully downgrading depends on the upgrade you have performed.

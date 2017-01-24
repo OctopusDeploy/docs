@@ -9,7 +9,7 @@ A common scenario some users may face, is the desire to provide full access to o
 
 Given that a set of roles can be combined in a team and tied to a specific environment, this scenario indicates that we will need two different teams. One with the full deployment access but scoped to dev and staging, and another with just read roles scoped to production.
 
-## Creating the "*Dev Deployers*" Team
+## Creating the "*Dev Deployers*" Team {#Creatingteamsforauserwithmixedenvironmentprivileges-Creatingthe&quot;DevDeployers&quot;Team}
 
 
 Start by clicking the **Teams** tab under **Configuration** in the Octopus Deploy web portal.  Then click the `Add team'.
@@ -35,7 +35,7 @@ With the permission rules configured add the users that you want them to apply t
 
 When you are happy with these changes hit **Save** to make them effective.
 
-## Creating The "*Prod Deployment Viewers*" Team
+## Creating The "*Prod Deployment Viewers*" Team {#Creatingteamsforauserwithmixedenvironmentprivileges-CreatingThe&quot;ProdDeploymentViewers&quot;Team}
 
 
 The previous rule was all well and good, but what about if we now want to allow the developer to see what has been deployed to production while still preventing them from pushing releases out to that stage. We can't go and modify the *Dev Deployers* team because that contains rules scoped to specific environments. Instead we will create a new team that is scoped to production, but only contains view permissions.
@@ -52,7 +52,7 @@ This time we will set the **Environments** field to just be *Production* since
 
 Once again after adding all the users that should be a member of this team, in this case the same as those who can deploy to development, hit **Save**. The next time the user refreshes the page or performs an operation then these new rules will be in effect.
 
-## Summary
+## Summary {#Creatingteamsforauserwithmixedenvironmentprivileges-Summary}
 
 
 The permissions system in Octopus Deploy provides a very flexible way of defining what broad access to system functionality, while still allowing it to be constrained to very specific environments or projects. In this guide we have seen how a developer can have their permissions configured so that they can have full access to the first few stages of the deployment lifecycle, while allowing much limited access to the business critical production areas.

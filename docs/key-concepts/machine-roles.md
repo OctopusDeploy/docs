@@ -6,7 +6,7 @@ position: 5
 
 Machine roles allow you to “tag” machines with a specific keyword which you can later on use to scope deployment steps and/or variables.
 
-## Creating a role and assigning it to a Tentacle
+## Creating a role and assigning it to a Tentacle {#MachineRoles-CreatingaroleandassigningittoaTentacle}
 
 
 Roles are created and saved in the database the moment you assign them to a Tentacle. To do so, just:
@@ -38,7 +38,7 @@ You can check all the roles assigned to your machines from the **Environments**
 
 ![](/docs/images/3048101/3277811.png "width=500")
 
-## Using roles on deployment steps
+## Using roles on deployment steps {#MachineRoles-Usingrolesondeploymentsteps}
 
 
 Almost all the steps that run on a Tentacle can be scoped to one or more roles. This means that the step will only execute on Tentacles with at least one of those roles.
@@ -62,7 +62,7 @@ According to the screenshot above, our deployment process will do the following:
 - Deploy NuGet package OctoFX.RateService to deployment targets with the role **web-server**
 
 
-## Using roles with variables
+## Using roles with variables {#MachineRoles-Usingroleswithvariables}
 
 
 Variables can also be [scoped to specific roles](/docs/deploying-applications/variables/index.md). This means that the variable will take the specified value only when it is used on a deployment step that runs on a Tentacle with the specified role. This feature can be really handy when you want to use the same variable name multiple times and have their values changed depending on the Tentacle they are running on.

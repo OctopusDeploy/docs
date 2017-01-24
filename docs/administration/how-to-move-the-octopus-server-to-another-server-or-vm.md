@@ -4,7 +4,7 @@ position: 21
 ---
 
 
-# Move the Octopus Server to another server or VM
+# Move the Octopus Server to another server or VM {#HowtomovetheOctopusServertoanotherserverorVM-MovetheOctopusServertoanotherserverorVM}
 
 
 You may find that you need to move your Octopus Server instance/s to another server or VM. The following guide will give instructions on the recommended way to do this.
@@ -18,12 +18,12 @@ Make sure you have a **current backup** of your Octopus data before proceeding. 
 Any of the following commands will need to be run as Administrator as they require access to the Registry.
 :::
 
-## Moving the Octopus Server but not the Database
+## Moving the Octopus Server but not the Database {#HowtomovetheOctopusServertoanotherserverorVM-MovingtheOctopusServerbutnottheDatabase}
 
 
 If your database is on the same server as your Octopus Server instance/s and you will require to move this also then the following steps will be require
 
-## Moving the Octopus Server and the Database
+## Moving the Octopus Server and the Database {#HowtomovetheOctopusServertoanotherserverorVM-MovingtheOctopusServerandtheDatabase}
 
 :::hint
 **Octopus version.**

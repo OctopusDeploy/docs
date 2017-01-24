@@ -25,7 +25,7 @@ The process of deploying a package looks approximately like this:
 Each part of a package step is [executed in a specific order](/docs/reference/package-deployment-feature-ordering.md) by the open-source [Calamari project](https://github.com/OctopusDeploy/Calamari) to enable more complex deployment scenarios.
 :::
 
-## Adding a package step
+## Adding a package step {#Deployingpackages-Addingapackagestep}
 
 
 When adding a step to your deployment process, choose the **Deploy a Package** option. For more information, see the [add step](http://docs.octopusdeploy.com/display/OD/Add+step) section.
@@ -46,7 +46,7 @@ When deploying a package you will need to select the machine role that the packa
 When multiple machines are in the role you select, Octopus deploys to all of the machines in parallel. If you need to change this behavior, you can [configure a rolling deployment](/docs/patterns/rolling-deployments.md).
 :::
 
-## Configuring features
+## Configuring features {#Deployingpackages-Configuringfeatures}
 
 
 Octopus is built to make it easy to deploy .NET applications, and contains a number of useful built in *features* that can be enabled on NuGet package steps.

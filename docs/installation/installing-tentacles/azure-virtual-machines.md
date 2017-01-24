@@ -15,7 +15,7 @@ The Octopus Tentacle VM extension is temporarily unavailable. We are working wit
 
 If you deploy software to virtual machines hosted in Microsoft Azure, Octopus Deploy makes it easy to install the [Tentacle agent](/docs/installation/installing-tentacles/index.md). This page will explain how to install the Tentacle agent extension for Azure VM's, as well as how to install the extension via command line, and how to diagnose problems when using the extension.
 
-## Overview
+## Overview {#AzureVirtualMachines-Overview}
 
 
 The Azure Tentacle VM extension is an extension that can be added to an Azure virtual machine. Currently, only Windows Server 2012 R2 is supported.
@@ -28,7 +28,7 @@ When enabled, the extension automatically downloads the Tentacle MSI, installs i
 The Tentacle will be configured in [listening mode](/docs/installation/installing-tentacles/listening-tentacles.md) **only**. This means that the agent will listen on a TCP port, and the Octopus server will connect to the agent on that port. After installing the agent, you'll need to add an endpoint to your virtual machine to enable traffic on this port. For details on how to do this, please see below.
 :::
 
-## Adding the Tentacle agent extension
+## Adding the Tentacle agent extension {#AzureVirtualMachines-AddingtheTentacleagentextension}
 
 
 After creating a virtual machine on Azure using the management portal, browse to the virtual machine, then click on **Extensions**:
@@ -68,7 +68,7 @@ The extension relies on a PowerShell DSC module, which in turn depends on some W
 
 After a few minutes, the machine should appear in the environments tab of your Octopus Deploy server. If it doesn't, read the **Diagnosing issues** section below.
 
-## Adding the endpoint
+## Adding the endpoint {#AzureVirtualMachines-Addingtheendpoint}
 
 
 When you first add the extension, the machine may appear in the environments tab, but it will be offline:
@@ -85,12 +85,12 @@ To add the endpoint, browse to the VM in the Azure portal, then click **Endpoint
 
 ![](/docs/images/3048116/3277913.png "width=500")
 
-## Command line
+## Command line {#AzureVirtualMachines-Commandline}
 
 
 *The extension and endpoint can also be added using the Azure PowerShell cmdlets:*
 
-### Azure Service Management way
+### Azure Service Management way {#AzureVirtualMachines-AzureServiceManagementway}
 
 ```powershell
 $vm = Get-AzureVM -Name "OctoVM44" -ServiceName "OctoVM44"
@@ -119,7 +119,7 @@ $vm | Add-AzureEndpoint -Name "TentacleIn" -Protocol "tcp" -PublicPort 10933 -Lo
 $vm | Update-AzureVM
 ```
 
-### Azure Resource Manager way
+### Azure Resource Manager way {#AzureVirtualMachines-AzureResourceManagerway}
 
 ```powershell
 $resourceGroupName = "octovm42-resources"
@@ -180,7 +180,7 @@ $secGrp | Add-AzureRmNetworkSecurityRuleConfig `
 $secGrp | Set-AzureRmNetworkSecurityGroup
 ```
 
-## Diagnosing issues
+## Diagnosing issues {#AzureVirtualMachines-Diagnosingissues}
 
 
 If, for some reason, the machine fails to register after 20 minutes, you can access logs on the VM to determine what went wrong.

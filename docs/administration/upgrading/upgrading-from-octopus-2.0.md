@@ -18,7 +18,7 @@ Upgrading Octopus 2.0 involves two major steps.
 
 Additional information on troubleshooting upgrades is below.
 
-## Upgrading the Octopus server
+## Upgrading the Octopus server {#UpgradingfromOctopus2.0-UpgradingtheOctopusserver}
 
 
 To upgrade the Octopus Deploy server, you will need to follow these steps:
@@ -45,7 +45,7 @@ When the installer finishes, Octopus Manager will appear. Make sure the Octopus 
 
 ![](/docs/images/3048129/3277991.png "width=500")
 
-## Upgrading Tentacles
+## Upgrading Tentacles {#UpgradingfromOctopus2.0-UpgradingTentacles}
 
 
 After upgrading the Octopus server, browse to the **Environments** tab in the Octopus web portal. You may need to press the "Check health" button to refresh the status of your Tentacles. If any of the Tentacle agents need to be updated, a message will appear:
@@ -56,7 +56,7 @@ After upgrading the Octopus server, browse to the **Environments** tab in the 
 
 Click on the **Upgrade machines** button to have Octopus send the new Tentacle package to all of the machines.
 
-## Troubleshooting
+## Troubleshooting {#UpgradingfromOctopus2.0-Troubleshooting}
 
 
 When Octopus 2.0 was first released, the MSI was set as a "per user" install. This means that if Joe installed Octopus, Mary would not see the start menu entries.
@@ -74,7 +74,7 @@ Instead, we added a check in 2.1.3 that checks if a per-user installation alread
 
 ![](/docs/images/3048131/3278002.png "width=500")
 
-### Uninstalling Octopus 2.0
+### Uninstalling Octopus 2.0 {#UpgradingfromOctopus2.0-UninstallingOctopus2.0}
 
 
 
@@ -96,7 +96,7 @@ You can uninstall the old version of the Octopus Deploy MSI installer and instal
 
 After you have uninstalled the old version of Octopus, you can install the new version.
 
-### If you are still getting this error
+### If you are still getting this error {#UpgradingfromOctopus2.0-Ifyouarestillgettingthiserror}
 
 
 After uninstalling the old version of Octopus and restarting, if you still receive this error, please navigate to the following registry keys:

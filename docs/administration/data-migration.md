@@ -18,7 +18,7 @@ Octopus Manager comes with an Import/Export wizard which supports a number of sc
 The Import/Export wizards are designed for moving configuration data between Octopus servers, or for creating snapshots which can be committed to source control or used for auditing purposes. It's not designed as a general disaster recovery or backup tool; for that, see the section on [backing up your Octopus server](/docs/administration/backup-and-restore.md).
 :::
 
-## Exporting
+## Exporting {#Datamigration-ExportingExporting}
 
 
 The Export wizard can be accessed from Octopus Manager:
@@ -49,7 +49,7 @@ If you use sensitive variables, these will be encrypted in the JSON using a pass
 The password you provide during the export is used to encrypt sensitive variables. If you use the same password each time, the exported files will be identical, and shouldn't cause differences to appear when comparing exported versions using diff tools.
 :::
 
-## Importing
+## Importing {#Datamigration-ImportingImporting}
 
 
 The Import wizard can also be found in Octopus Manager:
@@ -74,7 +74,7 @@ The importer wraps all data changes in a SQL transaction; if any problems are di
 It's a good idea to [perform a backup](/docs/administration/backup-and-restore.md) before attempting an import.
 :::
 
-## Merge granularity
+## Merge granularity {#Datamigration-Mergegranularity}
 
 
 The Import and Export wizards operate with a high level of granularity. For example, when re-importing a project which already exists in the destination server, all deployment steps that belong to the project in the destination server are overwritten, including any new deployment steps that may have been added.
@@ -100,7 +100,7 @@ If you want to achieve a more fine-grained merge of data from two servers you wo
 
 For these reasons, if you're incorporating the import/export tools as part of your pre-production to production workflow, we recommend you design your workflow around pushing changes in a single direction only.
 
-## Command line
+## Command line {#Datamigration-Commandline}
 
 
 Both the Import and Export tools can be called from the command line. To see the command syntax, use the **Show script** link in the wizard instead of performing the Import/Export.

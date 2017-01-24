@@ -9,7 +9,7 @@ This page will help you diagnose and solve issues with multi-tenant deployments.
 
 - Problem: I cannot select a specific tenant when deploying a project
 
-### Problem: I cannot select a specific tenant when deploying a project
+### Problem: I cannot select a specific tenant when deploying a project {#Troubleshootingmulti-tenantdeployments-Problem:Icannotselectaspecifictenantwhendeployingaproject}
 
 1. Ensure you have security access to this specific tenant by loading the tenant page. To see the tenant on the deployment screen you need to be part of a [team](/docs/administration/managing-users-and-teams/index.md) that has the *Tenant View* permission with a security scope that includes this tenant.
 2. Check the tenant is connected to the project and the environment you are targeting for that deployment.

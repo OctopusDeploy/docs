@@ -19,7 +19,7 @@ On this page:
 - File storage
 - Clean up post-2.6 migration
 
-## Server configuration
+## Server configuration {#ServerconfigurationandFilestorage-ConfigurationServerconfiguration}
 
 
 If you need to re-configure your Octopus Server instance, you can do that using the command-line as described below
@@ -95,7 +95,7 @@ Or one of the common options:
 Or one of the options supported/provided by the server extensions.
 ```
 
-## Server folders
+## Server folders {#ServerconfigurationandFilestorage-Serverfolders}
 
 
 If you need to move other folders than the Octopus Home folder, you can do that using the command-line as described below
@@ -125,7 +125,7 @@ Or one of the common options:
       --nologo               Don't print title or version information 
 ```
 
-## File storage
+## File storage {#ServerconfigurationandFilestorage-FileStorageFilestorage}
 
 
 The Octopus server stores files in the following folders by default:
@@ -148,7 +148,7 @@ The Octopus server stores files in the following folders by default:
  - See this [page](http://docs.octopusdeploy.com/display/OD/Moving+Octopus+Server+folders#MovingOctopusServerfolders-TaskLogs) on how to move the Octopus server task logs folder
 
 
-## Clean up post-2.6 migration
+## Clean up post-2.6 migration {#ServerconfigurationandFilestorage-CleanUpCleanuppost-2.6migration}
 
 
 In 2.6 Octopus server stored files in the following folders by default:

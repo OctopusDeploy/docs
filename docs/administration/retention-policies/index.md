@@ -10,7 +10,7 @@ As you deploy more often and to different environments, files and releases can b
 We talk about Tentacles in this page, but the same process and logic applies to [SSH Targets](/docs/deployment-targets/ssh-targets/index.md) also.
 :::
 
-## What is deleted
+## What is deleted {#RetentionPolicies-Whatisdeleted}
 
 
 There are three different types of retention policies that run. Those on the Octopus Server, those on the Tentacle and those in the in-built NuGet repository.
@@ -29,7 +29,7 @@ The in-built NuGet repository will delete any **packages** that are not attached
 If you reference [variables](/docs/deploying-applications/variables/index.md) when defining which NuGet package to deploy in a package step, things get more complicated. [Read this page to learn more](http://help.octopusdeploy.com/discussions/problems/43995).
 :::
 
-## When the retention policies are applied
+## When the retention policies are applied {#RetentionPolicies-Whentheretentionpoliciesareapplied}
 
 
 Both the Octopus Server and NuGet repository retention policies are run under a scheduled task from the Octopus Server every 4 hours. This task does not apply retention policies to Tentacles.
@@ -37,7 +37,7 @@ Both the Octopus Server and NuGet repository retention policies are run under a 
 
 Tentacle retention policies are run**during a deployment**, specifically **after all package acquisition steps have completed**. So if you have a retention policy of 3 days and do not deploy to a Tentacle for 5 days, the files that are over 3 days old will not be deleted until after a deployment is run to that Tentacle. It will also only delete any packages or files that are associated with the **current project** being deployed. If it's a development server, and you have multiple projects deploying there, only the active deployed project files will be deleted. It does not have any information about other project's retention policies tagged with the deployment.
 
-## How retention policies work with Lifecycle phases
+## How retention policies work with Lifecycle phases {#RetentionPolicies-HowretentionpoliciesworkwithLifecyclephases}
 
 
 You can set individual retention policies to phases. This gives you much more control over environments, such as never deleting from Production but having a strict rigorous deletion from your Development environment.
@@ -48,7 +48,7 @@ But how does it work? For a release we determine what phase it is currently in. 
 
 If you have an Octopus Server retention policy for a project that has a final phase of keep all releases, once the release enters that phase it will never be deleted. But if you have a release that has not yet deployed to any environments in the final phase, and is set to only keep the last 3 releases, then the release will be deleted when it becomes the 4th release of the project that has not yet been deployed to any final phase environment. (Unless it is still on the dashboard!).
 
-## I think I got it, how do I set my retention policies?
+## I think I got it, how do I set my retention policies? {#RetentionPolicies-IthinkIgotit,howdoIsetmyretentionpolicies?}
 
 
 Under Library -> Lifecycles you select the Lifecycle you want to define or edit your retention policy for:
@@ -77,7 +77,7 @@ You can keep all, or select a number of releases to keep.
 
 You are also able to specify a number of days worth of releases and files to keep if this is preferred.
 
-## NuGet feed retention policy
+## NuGet feed retention policy {#RetentionPolicies-NuGetfeedretentionpolicy}
 
 
 You can find the in-built repository retention policy settings under Library -> Packages.

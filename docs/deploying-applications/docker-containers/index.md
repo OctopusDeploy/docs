@@ -14,7 +14,7 @@ While Docker Containers on Windows Server (not Docker for Windows through Docker
 
 
 
-# How Docker containers map to Octopus concepts
+# How Docker containers map to Octopus concepts {#DockerContainers-HowDockercontainersmaptoOctopusconcepts}
 
 
 In Octopus Deploy, a deployment usually involves a versioned instance of package that is obtained from some package feed. Prior to 3.5.0, this was typically modeled by defining a NuGet server (e.g. MyGet, TeamCity) as the package repository, which exposes a list of named packages to be deployed. Each instance of this package existed as a versioned .nupkg file which would be obtained by the target at deployment time and extracted.

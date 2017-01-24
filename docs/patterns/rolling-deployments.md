@@ -22,7 +22,7 @@ NuGet package steps and [PowerShell steps](/docs/deploying-applications/custom-
 
 However, sometimes this isn't desired. If you are deploying to a farm of 10 web servers, it might be nice to deploy to one machine at a time, or to batches of machines at a time. This is called a **rolling deployment**.
 
-## Configuring a rolling deployment
+## Configuring a rolling deployment {#Rollingdeployments-Configuringarollingdeployment}
 
 
 Rolling deployments can be configured on a PowerShell or NuGet package step by clicking **Configure a rolling deployment**.
@@ -43,7 +43,7 @@ The window size controls how many deployment targets can be deployed to at once.
 - A window size of 3 will deploy to a three deployment targets at a time. Octopus will wait for the step to finish running on deployment targets A, B *or* C before starting on deployment target D
 
 
-## Child steps
+## Child steps {#Rollingdeployments-Childsteps}
 
 
 Rolling deployments allow you to wait for a step to finish on one deployment target before starting the step on the next deployment target. But what if you need to perform a series of steps on one target, before starting that series of steps on the next target? To support this, Octopus allows you to create **Child Steps**.
@@ -89,7 +89,7 @@ You can edit the parent step to change the roles that the steps run on or the wi
 
 With this configuration, we run the entire website deployment step - taking the machine out of the load balancer, deploying the site, and returning it to the load balancer - on each machine in sequence as part of a rolling deployment step.
 
-## Rolling deployments with child steps in action
+## Rolling deployments with child steps in action {#Rollingdeployments-Rollingdeploymentswithchildstepsinaction}
 
 
 This five minute video (with captions) will guide you through setting up a rolling deployment with child steps.

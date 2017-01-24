@@ -23,12 +23,12 @@ On this page:
  - Step 4: Minify the JavaScript and deploy again!
 - Next steps
 
-## Prerequisites
+## Prerequisites {#DeployingHTMLandJavaScriptApplications-Prerequisites}
 
 
 This guide assumes some familiarity with common Octopus concepts like configuring [Projects ](/docs/key-concepts/projects/index.md)and [Variables](/docs/deploying-applications/variables/index.md). To deploy this package using this guide you will need a server with IIS installed since it uses the [IIS Websites and Application Pools](/docs/deploying-applications/iis-websites-and-application-pools.md) deployment steps. Alternatively you could use any other web host, like Express in NodeJS, since this is just a single HTML file with no other dependencies.
 
-## Sample Application
+## Sample Application {#DeployingHTMLandJavaScriptApplications-SampleApplication}
 
 
 Here is a very simple AngularJS application which uses [AngularJS Constants](https://docs.angularjs.org/api/auto/service/$provide#constant) to provide other services, controllers and directives with access to the configuration data stored in Octopus. The important part to note here is where we set the constant: we are going to use the [Substitute Variables in Files](/docs/deploying-applications/substitute-variables-in-files.md) feature to replace the **`#{MyApp.ConfigValue1}`** expression at deployment time.
@@ -64,7 +64,7 @@ angular
 </html>
 ```
 
-### Step 1: Upload the package to the built-in repository
+### Step 1: Upload the package to the built-in repository {#DeployingHTMLandJavaScriptApplications-Step1:Uploadthepackagetothebuilt-inrepository}
 
 
 Firstly we need to make the package available for Octopus to deploy.
@@ -78,7 +78,7 @@ We've crafted and packaged v1.0.0 of this sample application for you to try out 
 ![](/docs/images/5672397/5866205.png?effects=drop-shadow "width=500")
 
 
-### Step 2: Create the project, variables and deployment process
+### Step 2: Create the project, variables and deployment process {#DeployingHTMLandJavaScriptApplications-Step2:Createtheproject,variablesanddeploymentprocess}
 
 
 Now we need to create the project and configure it ready to deploy our JavaScript application.
@@ -96,7 +96,7 @@ Now we need to create the project and configure it ready to deploy our JavaScrip
 ![](/docs/images/5672397/5866210.png?effects=drop-shadow "width=500")
 
 
-### Step 3: Deploy!
+### Step 3: Deploy! {#DeployingHTMLandJavaScriptApplications-Step3:Deploy!}
 
 
 Now when we create a release for this project and deploy it we can see that Octopus has found the `MyApp.html` file and substituted the variable values into our expressions.
@@ -113,7 +113,7 @@ And finally when we load the application in our browser we can see the results h
 
 ![](/docs/images/5672397/5866211.png?effects=drop-shadow "width=500")
 
-### Step 4: Minify the JavaScript and deploy again!
+### Step 4: Minify the JavaScript and deploy again! {#DeployingHTMLandJavaScriptApplications-Step4:MinifytheJavaScriptanddeployagain!}
 
 
 This approach also works perfectly with minified sources. This is because the minifier won't change string literals like `&quot;#{MyApp.ConfigValue1}&quot;` and the substitution will work just like it did before. In this example we will just minify the JavaScript inline in the HTML file. You can get the same result by moving the JavaScript into an external file and minifying that.
@@ -145,7 +145,7 @@ angular.module("myApp",[]).constant("myConfig",{configValue1:"#{MyApp.ConfigValu
 </html>
 ```
 
-## Next steps
+## Next steps {#DeployingHTMLandJavaScriptApplications-Nextsteps}
 
 
 From this point you could build on this example, pushing configuration variables through from Octopus to your application. You may want to consider how granular you make each constant, perhaps combining related configuration data into the same JSON object.

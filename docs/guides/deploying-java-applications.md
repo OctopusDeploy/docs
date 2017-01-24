@@ -20,12 +20,12 @@ On this page:
  - Step 2: Create the project and deployment process
  - Step 3: Deploy
 
-## Prerequisites
+## Prerequisites {#DeployingJavaapplications-Prerequisites}
 
 
 This guide assumes some familiarity with Octopus Deploy.  You should be able to configure [projects ](/docs/key-concepts/projects/index.md)and have a [Tentacle or SSH deployment target](/docs/deployment-targets/index.md) already configured.
 
-## Sample Application
+## Sample Application {#DeployingJavaapplications-SampleApplication}
 
 
 Here is a sample application that will prompt the user to press a key before exiting:
@@ -41,9 +41,9 @@ public class PressAnyKey {
 }
 ```
 
-## Deploying the application
+## Deploying the application {#DeployingJavaapplications-Deployingtheapplication}
 
-### Step 1: Upload the application to the built-in repository
+### Step 1: Upload the application to the built-in repository {#DeployingJavaapplications-Step1:Uploadtheapplicationtothebuilt-inrepository}
 
 
 In order to deploy the application with Octopus Deploy it must be compiled and packaged. This would usually be done by your build server but for the sake of this demonstration let's do it manually.
@@ -58,7 +58,7 @@ javac PressAnyKey.java
 ![](/docs/images/5672443/5866217.png "width=500")
 
 
-### Step 2: Create the project and deployment process
+### Step 2: Create the project and deployment process {#DeployingJavaapplications-Step2:Createtheprojectanddeploymentprocess}
 
 1. Create a new project called "Press Any Key"
 2. Add a "Deploy a package" step to the deployment process
@@ -85,7 +85,7 @@ The application must be launched in a new process or session so that control ret
 :::
 
 
-### Step 3: Deploy
+### Step 3: Deploy {#DeployingJavaapplications-Step3:Deploy}
 
 
 Create a release and deploy!

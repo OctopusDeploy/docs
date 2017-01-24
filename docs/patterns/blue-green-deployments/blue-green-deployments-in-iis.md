@@ -27,7 +27,7 @@ On this page:
  - Using Application Request Routing (ARR)
  - Using NGINX
 
-## General steps for zero-downtime deployments in IIS
+## General steps for zero-downtime deployments in IIS {#Blue-greendeploymentsinIIS-Generalstepsforzero-downtimedeploymentsinIIS}
 
 :::hint
 Every scenario is slightly different which is why this page is written more as a general guide than a step-by-step walkthrough. This rough example should provide a strong starting point to reduce downtime for your deployments to IIS.
@@ -51,12 +51,12 @@ The general steps for this kind of deployment would be:
  2. You may want to wait for outstanding web requests to finish processing using something like this: **`Get-Item IIS:\AppPools\MyApp-#{Octopus.Release.PreviousForEnvironment.Number} | Get-WebRequest`**
 
 
-### Using Application Request Routing (ARR)
+### Using Application Request Routing (ARR) {#Blue-greendeploymentsinIIS-UsingApplicationRequestRouting(ARR)}
 
 
 You can achieve this kind of result by using [ARR](https://www.iis.net/downloads/microsoft/application-request-routing) as a reverse proxy to your Web Site. You will need to configure a [Web Farm](https://www.iis.net/learn/web-hosting/scenario-build-a-web-farm-with-iis-servers/overview-build-a-web-farm-with-iis-servers) in IIS and use ARR to route requests to the Web Farm. You can then choose how you want to switch between active instances of your application. [Kevin Reed](https://kevinareed.com/) has written a nice blog post on how he achieves [Blue/Green deployments using ARR](https://kevinareed.com/2015/11/07/how-to-deploy-anything-in-iis-with-zero-downtime-on-a-single-server/).
 
-### Using NGINX
+### Using NGINX {#Blue-greendeploymentsinIIS-UsingNGINX}
 
 
 You can achieve this kind of result using an NGINX server as a reverse proxy to your Web Site. The latest versions of NGINX provide easier support for [on-the-fly reconfiguration](https://www.nginx.com/products/on-the-fly-reconfiguration/).

@@ -25,7 +25,7 @@ As well as reducing downtime, Blue-Green can be a powerful way to use extra hard
 - Disaster recovery: after deploying to blue and we're satisfied that it is stable, we can deploy the new release to green too. This gives us a standby environment ready in case of disaster
 
 
-## Blue-green in Octopus
+## Blue-green in Octopus {#Blue-greendeployments-Blue-greeninOctopus}
 
 
 To implement blue-green deployments in Octopus, create two environments - one for green, and one for blue:

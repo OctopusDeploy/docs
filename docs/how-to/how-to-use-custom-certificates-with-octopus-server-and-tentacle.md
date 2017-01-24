@@ -17,7 +17,7 @@ For more information on self-signed certificates, see the [blog post](https://oc
 It's important to consider the impact of updating an existing Octopus server or Tentacle as changes are required to ensure each component trusts the other. Read the information below carefully.
 :::
 
-## Configuring Octopus Server to use custom certificates
+## Configuring Octopus Server to use custom certificates {#HowtousecustomcertificateswithOctopusServerandTentacle-ConfiguringOctopusServertousecustomcertificates}
 
 
 This assumes you have already installed Octopus on the target server.
@@ -45,7 +45,7 @@ Tentacle.exe configure --trust NewOctopusServerCertificateThumbprint --console
 ```
 
 
-## Configuring Tentacle to use custom certificates
+## Configuring Tentacle to use custom certificates {#HowtousecustomcertificateswithOctopusServerandTentacle-ConfiguringTentacletousecustomcertificates}
 
 
 This assumes you have already installed a Tentacle on the target server.

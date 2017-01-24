@@ -18,7 +18,7 @@ In this section:
 - Upgrading to Octopus 3.5 or greater
 - Troubleshooting
 
-## Update Available Notification
+## Update Available Notification {#UpgradingfromOctopus3.x-UpdateAvailableNotification}
 
 
 When an update is available, a bullhorn icon will appear in the top status bar with details and a link to the downloads page.
@@ -31,7 +31,7 @@ When an update is available, a bullhorn icon will appear in the top status bar w
 You can find the differences between your current version and the newest version using our [Compare versions](https://octopus.com/downloads/compare) page. Please note that this will also list the release notes for major and minor version changes which may include **breaking changes** or **dependencies** that you may need to also update. It is important to know what might be effected by your upgrade.
 :::
 
-## Upgrading Octopus Server
+## Upgrading Octopus Server {#UpgradingfromOctopus3.x-UpgradingOctopusServerUpgradingOctopusServer}
 
 
 Upgrading the Octopus Deploy Server is easy, you will just need to follow these steps:
@@ -69,12 +69,12 @@ You should follow the same instructions as above, but drain tasks from each node
 
 
 
-## Upgrading Calamari
+## Upgrading Calamari {#UpgradingfromOctopus3.x-UpgradingCalamariUpgradingCalamari}
 
 
 Calamari will either self-update automatically during a deployment if they are out of date with the latest available on the server, or they can be manually updated to avoid interrupting the deployment.
 
-### Auto Update
+### Auto Update {#UpgradingfromOctopus3.x-AutoUpdate}
 
 
 During a deployment process one of the first commands that's executed on the Tentacle is a check to confirm that the latest version of Calamari exists on the target machine. This is currently done by checking for the existence for an empty file in the folder location of`${env:TentacleHome}\Calamari\{{CalamariVersion}}\Success.txt` where the `CalamariVersion` variable is defined by the latest available on the Server.
@@ -125,7 +125,7 @@ Alternatively you can upgrade Tentacles one Environment at a time.
 In most cases we will maintain backwards compatibility between versions of Octopus Server and Tentacle. In these cases the Environments page will **recommend** updating your Tentacles while still allowing deployments to continue as normal. In the rare occasion we need to break compatibility you will be **required** to upgrade any incompatible Tentacles before you can Deploy to those machines again from the upgraded Octopus Server.
 :::
 
-## Upgrading to Octopus 3.1 or greater
+## Upgrading to Octopus 3.1 or greater {#UpgradingfromOctopus3.x-UpgradingTo31UpgradingtoOctopus3.1orgreater}
 
 
 Summary: Tentacle was upgraded from .NET 4.0 to .NET 4.5 to enable TLS 1.2.
@@ -173,7 +173,7 @@ No, from Octopus 3.1 onward we are dropping official support for Octopus Server 
 Read more about the [Octopus - Tentacle communication](/docs/reference/octopus---tentacle-communication/index.md) protocol and [Troubleshooting Schannel and TLS](/docs/reference/octopus---tentacle-communication/troubleshooting-schannel-and-tls.md).
 :::
 
-## Upgrading to Octopus 3.4 or greater
+## Upgrading to Octopus 3.4 or greater {#UpgradingfromOctopus3.x-UpgradingtoOctopus3.4orgreater}
 
 
 See the [Release Notes](https://octopus.com/downloads/compare?from=3.3.27&amp;to=3.4.0) for breaking changes and more information.
@@ -184,7 +184,7 @@ See the [Release Notes](https://octopus.com/downloads/compare?from=3.3.27&amp;to
 
 **Want to use SemVer 2 for packages or releases?** You will need to upgrade OctoPack and/or octo.exe to 3.4 or newer.
 
-## Upgrading to Octopus 3.5 or greater
+## Upgrading to Octopus 3.5 or greater {#UpgradingfromOctopus3.x-UpgradingtoOctopus3.5orgreater}
 
 
 Some server configuration values are moved from the config file into the database in 3.5+.
@@ -241,7 +241,7 @@ There is no need to uninstall the newer version you were trying to upgrade to.
 
 6. Turn off Maintenance mode from Step 1.
 
-## Troubleshooting
+## Troubleshooting {#UpgradingfromOctopus3.x-Troubleshooting}
 
 
 In a few cases a bug in a 3rd party component causes the installer displays a "Installation directory must be on a local hard drive" error. If this occurs, running the install again from an elevated command prompt using the following command (replacing Octopus.3.3.4-x64.msi with the name of the installer you are using):

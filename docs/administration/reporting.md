@@ -30,7 +30,7 @@ To help you get started, we provide a sample Excel spreadsheet that you can conn
 
 ![](/docs/images/3048643/3278354.png?effects=drop-shadow "width=500")
 
-## Getting started
+## Getting started {#Reporting-Gettingstarted}
 
 
 The fastest way to get started is to use our Excel spreadsheet template. The spreadsheet uses Pivot Tables and Pivot Charts to summarise the data. You can use it as a starting point, and then modify or adapt it to suit your needs.
@@ -58,7 +58,7 @@ To change the source of the data:
 ![](/docs/images/3048643/3278360.png "width=500")
 
 
-## Refreshing the data
+## Refreshing the data {#Reporting-Refreshingthedata}
 
 
 Once you have set up your connection, you can refresh the data from the source whenever you like. If you make your own customizations to the spreadsheet, you can save them, and simply refresh the data in the sheet whenever you like.
@@ -66,7 +66,7 @@ Once you have set up your connection, you can refresh the data from the source w
 
 ![](/docs/images/3048643/3278361.png "width=500")
 
-## Using the XML Feed
+## Using the XML Feed {#Reporting-UsingtheXMLFeed}
 
 
 The best way to consume reporting data from Octopus is using the XML feed. The feed is always available at:
@@ -122,7 +122,7 @@ This is due to that the revocation information for the certificate is not retrie
 
 
 
-## Direct table access
+## Direct table access {#Reporting-Directtableaccess}
 
 
 If your reporting tool of choice can't consume the XML feed, you can query the SQL table directly. Octopus maintains a **DeploymentHistory** table, with the exact same information that the XML Feed exposes. This may work better for tools like **SQL Server Reporting Services**.
@@ -142,7 +142,7 @@ A few notes about accessing the table directly:
 
 The table is completely denormalized, and should have any information that you might need to report on.
 
-## How often is the data updated?
+## How often is the data updated? {#Reporting-Howoftenisthedataupdated?}
 
 
 The data in the table (and exposed by the feed) updates every 30 seconds to add deployments that have recently completed.
@@ -157,7 +157,7 @@ Also note that the data:
 - Isn't deleted when a project/environment is deleted
 
 
-## What about information on concurrent users, web front-end performance, etc.?
+## What about information on concurrent users, web front-end performance, etc.? {#Reporting-Whataboutinformationonconcurrentusers,webfront-endperformance,etc.?}
 
 
 You may want to look at [enabling HTTP logging](/docs/how-to/enable-web-request-logging.md).
