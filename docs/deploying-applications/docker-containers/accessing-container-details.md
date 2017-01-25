@@ -59,7 +59,7 @@ The following JSON objects are real outputs from docker inspect commands to prov
 
 **docker inspect <container>** Expand source
 
-```js; collapse: true
+```js
 [
     {
         "Id": "dd6c3f3f533dcd0df76e4b729aca3565bc2b0f1c1bfb09143a5445a138af9179",
@@ -262,7 +262,7 @@ The following JSON objects are real outputs from docker inspect commands to prov
 
 **docker network inspect <network>** Expand source
 
-```js; collapse: true
+```js
 [
     {
         "Name": "LXRR3",
