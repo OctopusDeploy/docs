@@ -3,7 +3,6 @@ title: Multi-tenant deployment guide
 position: 0
 ---
 
-
 This guide will introduce you to multi-tenant deployments in Octopus, starting with simple scenarios, then incorporating more complex capabilities over time.
 
 :::hint
@@ -17,7 +16,6 @@ Generally your customers will be other businesses instead of individual people. 
 
 ## In this guide {#Multi-tenantdeploymentguide-Inthisguide}
 
-
 - [Creating your first tenant](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-tenant.md)
 - [Creating your first multi-tenant project](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-multi-tenant-project.md)
 - [Deploying a simple multi-tenant project](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md)
@@ -30,9 +28,7 @@ Generally your customers will be other businesses instead of individual people. 
 :::success
 Want to skip to the end of the guide and play with a fully-fledged sample? Here is a tool that will build up an entire multi-tenant scenario in your Octopus Server using the API with as many projects and tenants you would like.
 
-
 Download: [Octopus.Sampler.3.4.0-beta.2.zip](/docs/attachments/Octopus.Sampler.3.4.0-beta.2.zip)
-
 
 ![](/docs/images/5669310/5865696.png "width=500")
 :::

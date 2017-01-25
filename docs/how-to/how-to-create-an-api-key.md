@@ -3,11 +3,9 @@ title: How to create an API key
 position: 7
 ---
 
-
 API keys allow you to access the Octopus Deploy [REST API](/docs/api-and-integration/octopus-rest-api.md) and perform tasks such as creating and deploying releases. API keys can be saved in scripts or external tools, without having to use your username and password. Each user and service account can have multiple API keys.
 
 ## Creating an API key {#HowtocreateanAPIkey-CreatinganAPIkey}
-
 
 You can create API keys by performing the following steps:
 
@@ -19,7 +17,6 @@ You can create API keys by performing the following steps:
 ![](/docs/images/3048149/3278112.png "width=500")
 4. Click **Generate new**, and copy the new API key to your clipboard:
 ![](/docs/images/3048149/3278111.png "width=500")
-
 
 :::warning
 **Write your key down**

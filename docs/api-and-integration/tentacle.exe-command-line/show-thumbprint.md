@@ -3,14 +3,12 @@ title: Show thumbprint
 
 ---
 
-
 Show the thumbprint of the Tentacle's certificate
 
 **New certificate options**
 
 ```text
 Usage: Tentacle show-thumbprint [<options>]
- 
 
 Where [<options>] is any of:
       --instance=VALUE       Name of the instance to use

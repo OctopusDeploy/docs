@@ -3,14 +3,11 @@ title: Deploying to Azure
 position: 27
 ---
 
-
 Octopus Deploy can help you perform repeatable and controlled deployments of your applications into Azure.
 
 ## What kind of applications can I deploy to Azure? {#DeployingtoAzure-WhatkindofapplicationscanIdeploytoAzure?}
 
-
 The short answer is: anything and everything! As long as you can script the deployment, Octopus can automate your deployments into a Microsoft Azure Data Centre.
-
 
 We provide built-in first-class support for the most common application services in Microsoft Azure. For everything else we provide a special step for running PowerShell scripts against Azure.
 
@@ -21,21 +18,17 @@ All Azure Steps are executed on the Octopus Server, so no Targets/Tentacles are 
 
 ### Azure Resource Groups {#DeployingtoAzure-AzureResourceGroups}
 
-
 Octopus Deploy provides first-class support for managing [Resource Groups](/docs/guides/azure-deployments/resource-groups/index.md) in Microsoft Azure, including support for Resource Group Templates and their parameters, even using secrets from Azure Key Vault. Follow our guide on [deploying applications using Azure Resource Group Templates](/docs/guides/azure-deployments/resource-groups/deploy-using-an-azure-resource-group-template.md).
 
 ### Azure Web Apps {#DeployingtoAzure-AzureWebApps}
-
 
 Octopus Deploy provides first-class support for deploying [web applications](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/index.md) and [web jobs](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/deploying-web-jobs.md) to the Azure App Service, including the ability to use [deployment slots](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps.md). Follow our guide on [deploying Azure Web Apps](/docs/guides/azure-deployments/web-apps/index.md) .
 
 ### Azure Cloud Services {#DeployingtoAzure-AzureCloudServices}
 
-
 Octopus Deploy provides first-class support for deploying cloud services into Microsoft Azure including the ability to use [deployment slots and VIP swaps](/docs/guides/azure-deployments/cloud-services/vip-swap.md). Follow our guide on [deploying Azure Cloud Services](/docs/guides/azure-deployments/cloud-services/index.md).
 
 ### Azure PowerShell Scripts {#DeployingtoAzure-AzurePowerShellScripts}
-
 
 Octopus Deploy provides a convenient step for [executing PowerShell scripts using the Azure cmdlets](/docs/deploying-applications/custom-scripts/azure-powershell-scripts.md), pre-authenticated with Azure using either a [Service Principal Account](/docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-service-principal-account.md) or [Management Certificate Account](/docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-management-certificate-account.md). You can use these scripts to provision Azure services that are required for your applications, or to deploy an application that doesn't have built-in steps in Octopus Deploy. Follow our guide on [running Azure PowerShell scripts](/docs/guides/azure-deployments/running-azure-powershell/index.md).
 
@@ -46,13 +39,10 @@ Octopus Deploy ships with a version of the Azure PowerShell cmdlets so you can d
 
 ## Deploying to Azure via a firewall {#DeployingtoAzure-DeployingtoAzureviaafirewall}
 
-
 If you need to add firewall exclusions to a whitelist:
 
 - Figure out which Azure Data Centres you will be targeting
 - Figure out which Azure services you will be targeting in those Data Centres
 - Configure a whitelist from the Octopus Server (where the deployments are performed) to the appropriate IP Address Ranges
-
-
 
 Download the latest list of IP Address Ranges from the [Microsoft Download Centre](https://www.microsoft.com/en-au/download/details.aspx?id=41653) (updated weekly).

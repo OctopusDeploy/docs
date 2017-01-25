@@ -3,14 +3,12 @@ title: Service
 
 ---
 
-
 Start, stop, install and configure the Tentacle service
 
 **Service options**
 
 ```text
 Usage: Tentacle service [<options>]
-
 
 Where [<options>] is any of:
       --instance=VALUE       Name of the instance to use
@@ -25,7 +23,6 @@ Where [<options>] is any of:
       --uninstall            Uninstall the Windows Service
       --password=VALUE       Password for the username specified with --
                                username. Only used when --install is used.
-
 
 Or one of the common options:
       --console              Don't attempt to run as a service, even if the

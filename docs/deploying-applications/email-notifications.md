@@ -3,22 +3,17 @@ title: Email notifications
 position: 13
 ---
 
-
 Deployments can have a strong impact on others whose work depends on the system being deployed. Great communication is an important part of a great deployment strategy, and email steps are a key way that Octopus can help you keep everyone in the loop. You may wish to:
 
 - Notify stakeholders when a new version of an app has been deployed to production
 - Let testers know when a new version is available in UAT
 - Use email in conjuction with [manual approvals](/docs/deploying-applications/manual-intervention-and-approvals.md) to make sure everyone is ready for a new deployment
 
-
-
 To support this, Octopus provides **Email Steps**in a project's deployment process.
 
 ## Adding an email step {#Emailnotifications-Addinganemailstep}
 
-
 Email can be chosen as the step type when you click **Add Step** in your project's **Process** tab. For information about adding a step to the deployment process, see the [add step](http://docs.octopusdeploy.com/display/OD/Add+step) section.
-
 
 ![](/docs/images/5671696/5865915.png "width=170")
 
@@ -26,24 +21,17 @@ Email can be chosen as the step type when you click **Add Step** in your proje
 You'll need to enter SMTP server settings in *Configuration > SMTP* before Octopus will be able to send any email.
 :::
 
-
 When adding an email step, you can choose the subject of the email, its body and a list of addresses to send it to (multiple emails should be separated by a comma).
 
-
 ![](/docs/images/3048084/3277669.png "width=500")
-
-
-
 
 :::success
 Use the Octopus [variable syntax](/docs/reference/variable-substitution-syntax.md) to include information about the deployment in the email. The binding helper to the right of the *Body*field can be used to view the available variables.
 :::
 
-
 You can choose in which environments the email will be sent, and whether the email is sent only on successful completion of previous steps, on failure, or always.
 
 ## Example email templates {#Emailnotifications-Exampleemailtemplates}
-
 
 The template below collects basic information about the deployment, including the package versions included in each step.
 
@@ -76,17 +64,11 @@ The template below collects basic information about the deployment, including th
 To use the template in your projects, replace `nuget.org` with the DNS name of your NuGet server, and `my-octopus` with the DNS name of your Octopus server. Make sure you select *Body is HTML*on the email step configuration page.
 :::
 
-
-
-
-
 The output of the template will be an HTML email like:
-
 
 ![](/docs/images/3048084/3277676.png "width=500")
 
 ### Including step status {#Emailnotifications-Includingstepstatus}
-
 
 The outcome of each step can be included using a template like the one below (Octopus 2.5+):
 
@@ -111,7 +93,6 @@ The outcome of each step can be included using a template like the one below (Oc
 :::hint
 **Step error detail**
 step.Status.Error and step.Status.ErrorDetail will only display the exit code and Octopus stack trace for the error. As we cannot parse the deployment log, we can only extract the exit/error codes. It cannot show detailed information on what caused the error. For full information on what happened when the deployment fails, you will need to reference the logs.
-
 
 See [System variables](/docs/deploying-applications/variables/system-variables.md)
 :::

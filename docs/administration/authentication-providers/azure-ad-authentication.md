@@ -3,18 +3,15 @@ title: Azure AD authentication
 position: 1
 ---
 
-
 :::hint
 Azure Active Directory (AAD) authentication is available in Octopus Deploy 3.5 and later
 :::
-
 
 To use Azure Active Directory (AAD) authentication with Octopus you will need to get a few pieces lined up just right:
 
 1. Configure AAD to trust your Octopus Deploy instance (by setting it up as an App in AAD)
 2. Optionally map AAD Users into Roles so you the users can be automatically connected to Octopus Teams.
 3. Configure your Octopus Deploy instance to trust and use AAD as an Identity Provider.
-
 
 # Configuring Azure Active Directory (AAD) {#AzureADauthentication-ConfiguringAzureActiveDirectory(AAD)}
 
@@ -40,9 +37,7 @@ In order to configure the your instance of Octopus Deploy as an App, you will ne
 4. Enter the public URL to your Octopus Server as both the Sign-On URL and AppId URL. *In this example we are configuring our own demo server, but you should use the public URL to your own Octopus Server.*
 ![](/docs/images/5670656/5865863.png "width=500")
 
-
 ### Configuring trusted Reply URLs {#AzureADauthentication-ConfiguringtrustedReplyURLs}
-
 
 During the authentication with Azure AD, the user will be directed to an Azure page to enter their credentials. As part of the authentication flow, Octopus passes a Reply URL to tell Azure where to POST the user's security token. This URL must be added to a trusted whitelist in the App configuration or the authentication flow will be terminated by Azure.
 
@@ -50,7 +45,6 @@ During the authentication with Azure AD, the user will be directed to an Azure p
 ![](/docs/images/5670656/5865865.png "width=500")
 2. Scroll down to find the Reply URL section. Enter the public URL to your Octopus Server with `/api/users/authenticatedToken/AzureAD`.
 In our example this would be `https://demo.octopus.com/api/users/authenticatedToken/AzureAD`
-
 
 :::hint
 **Reply URLs are sensitive**
@@ -64,7 +58,6 @@ The specification highly recommends using SSL to ensure the security and integri
 
 ### Mapping AAD Users into Octopus Teams (optional) {#AzureADauthentication-MappingRolesMappingAADUsersintoOctopusTeams(optional)}
 
-
 If you want to manage user/team membership via AAD, you will need to configure Roles for your App.  To add a Role(s) you will need to edit the App's manifest.
 
 - In the [modern portal](https://portal.azure.com) you can edit the manifest directly in the browser
@@ -74,8 +67,6 @@ If you want to manage user/team membership via AAD, you will need to configure R
  - Select **Manage Manifest** and download your App's manifest JSON file.
  - Edit the downloaded file to add the required Role(s), see below for further details.
  - Select **Manage Manifest** and upload the modified manifest.
-
-
 
 The example below illustrates two roles, one for administrators and one for application testers.
 
@@ -120,7 +111,6 @@ For more advanced scenarios, please see the [Azure manifest file documentation](
 
 ### Setting up users and groups in Azure AD {#AzureADauthentication-SettingupusersandgroupsinAzureAD}
 
-
 Once the App Role(s) have been defined, users/groups from Azure AD may be mapped into these Roles.
 
 :::hint
@@ -131,7 +121,6 @@ At the time of writing, the Azure Active Directory is in preview in the modern p
 ![](/docs/images/5670656/5865867.png "width=500")
 2. The users/groups from your Azure AD should be displayed, with the Assigned column indicating whether they are already mapped.
 3. You can click the **Assign** or **Remove** buttons to manage which Users and Groups can access your instance of Octopus Deploy. You can also manage which Roles are assigned to each User and Group.
-
 
 :::hint
 If you only have one Role it will be automatically assigned. If you have **multiple** Roles a popup will appear when you click the **Assign** button so you can select the Role to assign.
@@ -145,12 +134,10 @@ There is currently no UI for configuring Octopus to use Azure AD - it must be co
 
 ## Get the Client ID and Issuer {#AzureADauthentication-GettheClientIDandIssuer}
 
-
 There are two values you will need from the Azure AD configuration to complete the Octopus configuration: the **Client ID** and **Issuer**.
 
 :::success
 Your Client ID should be a GUID.
-
 
 Your Issuer should be a URL like `https://login.microsoftonline.com/GUID` where the GUID is a special GUID identifying your Azure Active Directory tenant.
 :::
@@ -168,7 +155,6 @@ In our example the OAuth 2.0 Authorization Endpoint is
 So the Issuer should be
 **`https://login.microsoftonline.com/b91ebf6a-84be-4c6f-97f3-32a1d0a11c8a`**
 
-
 ### Using the modern Azure portal {#AzureADauthentication-UsingthemodernAzureportal}
 
 1. In the modern portal, the **Application ID** in your App's **Settings/Properties** is your**Client ID
@@ -181,9 +167,7 @@ In our example the **OAuth 2.0 Authorization Endpoint** is
 So the Issuer should be
 **`https://login.microsoftonline.com/b91ebf6a-84be-4c6f-97f3-32a1d0a11c8a`**
 
-
 ## Setting the Client ID and Issuer into Octopus Deploy {#AzureADauthentication-SettingtheClientIDandIssuerintoOctopusDeploy}
-
 
 Once you have those values, run the following from a command prompt in the folder where you installed Octopus Server:
 
@@ -193,7 +177,6 @@ Octopus.Server.exe configure --azureADIsEnabled=true --azureADIssuer=Issuer --az
 ```
 
 ## Octopus user accounts are still required {#AzureADauthentication-Octopususeraccountsarestillrequired}
-
 
 Even if you are using an external identity provider, Octopus still requires a [user account](/docs/administration/managing-users-and-teams/index.md) so you can assign those people to Octopus teams and subsequently grant permissions to Octopus resources. Octopus will automatically create a [user account](/docs/administration/managing-users-and-teams/index.md) based on the profile information returned in the security token, which includes an **Identifier**, **Name**, and **Email Address**.
 
@@ -209,19 +192,15 @@ If you already have Octopus user accounts and you want to enable external authen
 
 # What next? {#AzureADauthentication-Whatnext?}
 
-
 Now you're using an external identity provider it is easy to increase your security. You could consider configuring [Multi-Factor Authentication](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication) - after all Octopus Deploy has access to your production environments!
-
 
 You should also consider disabling any authentication providers you aren't using, like Username and Password authentication which can now be disabled since Octopus Deploy 3.5.
 
 # Troubleshooting {#AzureADauthentication-Troubleshooting}
 
-
 We do our best to log warnings to your Octopus Server log whenever possible. If you are having difficulty configuring Octopus to authenticate with Azure Active Directory, be sure to check your [server logs](/docs/reference/log-files.md) for warnings.
 
 ### Double and Triple check your configuration {#AzureADauthentication-DoubleandTriplecheckyourconfiguration}
-
 
 Unfortunately security-related configuration is sensitive to everything. Make sure:
 
@@ -229,14 +208,11 @@ Unfortunately security-related configuration is sensitive to everything. Make su
 - remember things are case-sensitive
 - remember to remove or add slash characters as we've instructed - they matter too!
 
-
 ### Check OpenID Connect metadata is working {#AzureADauthentication-CheckOpenIDConnectmetadataisworking}
-
 
 You can see the OpenID Connect metadata by going to the Issuer address in your browser adding`/.well-known/openid-configuration` to the end. In our example this would have been something like `https://login.microsoftonline.com/b91ebf6a-84be-4c6f-97f3-32a1d0a11c8a/.well-known/openid-configuration`
 
 ### Inspect the contents of the security token {#AzureADauthentication-Inspectthecontentsofthesecuritytoken}
-
 
 Sometimes the contents of the security token sent back by Azure AD aren't exactly the way Octopus expected, especially certain claims which may be missing or named differently. This will usually result in the Azure AD user incorrectly mapping to a different Octopus User than expected. The best way to diagnose this is to inspect the JSON Web Token (JWT) which is sent from Azure AD to Octopus via your browser. To inspect the contents of your security token:
 
@@ -250,9 +226,7 @@ Sometimes the contents of the security token sent back by Azure AD aren't exactl
  1. Don't worry if jwt.io complains about the token signature, it doesn't support RS256 which is used by Azure AD.
 4. Octopus uses most of the data to validate the token, but primarily uses the `sub`, `email` and `name` claims. If these claims are not present you will likely see unexpected behaviour.
 
-
 ### Get in touch with our support team {#AzureADauthentication-Getintouchwithoursupportteam}
-
 
 If you aren't able to resolve the authentication problems yourself using these troubleshooting tips, please reach out to our [support team](https://octopus.com/support) with:
 

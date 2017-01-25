@@ -3,7 +3,6 @@ title: Creating channels
 position: 11
 ---
 
-
 [Octo.exe](http://docs.octopusdeploy.com/pages/viewpage.action?pageId=360596) can be used to create channels on your Octopus instance.
 
 :::hint
@@ -13,7 +12,6 @@ Channels were introduced in Octopus 3.2.
 ```text
 octo create-channel [<options>]
 ```
-
 
 Where `[&lt;options&gt;]` is any of:
 
@@ -62,7 +60,6 @@ Common options:
 ```
 
 ### Basic example {#Creatingchannels-Basicexample}
-
 
 The following command will create a channel in *MyProject* called *Experimental* using the *Test Only* lifecycle instead
 

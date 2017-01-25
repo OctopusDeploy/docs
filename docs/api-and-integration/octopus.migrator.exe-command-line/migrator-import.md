@@ -3,16 +3,13 @@ title: Migrator Import
 
 ---
 
-
 This command imports data from an Octopus 3.0+ export directory
-
 
 Usage:
 
 ```text
 Octopus.Migrator import [<options>]
 ```
-
 
 Where `[&lt;options&gt;]` is any of:
 

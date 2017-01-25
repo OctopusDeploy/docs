@@ -3,13 +3,11 @@ title: Deleting auto deploy overrides
 
 ---
 
-
 [Octo.exe](http://docs.octopusdeploy.com/pages/viewpage.action?pageId=360596) can be used to delete automatic deployment release overrides.
 
 ```text
 octo delete-autodeployoverride [<options>]
 ```
-
 
 Where `[&lt;options&gt;]` is any of:
 
@@ -53,7 +51,6 @@ Common options:
 
 ### Basic example {#Deletingautodeployoverrides-Basicexample}
 
-
 The following will delete an automatic deployment release override for the project *HelloWorld* to the environment *Development*:
 
 ```text
@@ -62,7 +59,6 @@ Octo delete-autodeployoverride --project HelloWorld --environment Development --
 
 ### Tenanted example (by name) {#Deletingautodeployoverrides-Tenantedexample(byname)}
 
-
 The following will delete an automatic deployment release override for the project *HelloWorld* to the environment *Development* for the tenant *Acme*:
 
 ```text
@@ -70,7 +66,6 @@ Octo delete-autodeployoverride --project HelloWorld --environment Development --
 ```
 
 ### Tenanted example (by tags) {#Deletingautodeployoverrides-Tenantedexample(bytags)}
-
 
 The following will delete an automatic deployment release override for the project *HelloWorld* to the environment *Development* for all tenants with the *Hosting/Cloud* tag:
 

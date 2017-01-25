@@ -3,5 +3,3 @@ title: Web App concepts
 
 ---
 
-
-

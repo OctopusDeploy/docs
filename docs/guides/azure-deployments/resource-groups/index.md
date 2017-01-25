@@ -3,5 +3,3 @@ title: Resource Groups
 
 ---
 
-
-

@@ -3,13 +3,11 @@ title: Upgrading
 position: 8
 ---
 
-
 We release new versions of Octopus Deploy often, so we try to make the process of upgrading your Octopus server easy. This page outlines the process of upgrading between Octopus versions.
 
 :::warning
 We highly recommend testing your [Backup and Restore](/docs/administration/backup-and-restore.md) process prior to upgrading Octopus Deploy, regardless of whether you are applying a Patch or performing a Major or Minor upgrade.
 :::
-
 
 There are lots of improvements and changes between Octopus 1.X, Octopus 2.X and Octopus 3.x so we have guides to walk you through the process of upgrading from each version.
 
@@ -18,13 +16,11 @@ There are lots of improvements and changes between Octopus 1.X, Octopus 2.X and 
 - [Upgrading from Octopus 2.6](/docs/administration/upgrading/upgrading-from-octopus-2.6/index.md)
 - [Upgrading from Octopus 3.x](/docs/administration/upgrading/upgrading-from-octopus-3.x.md)
 
-
 :::warning
 If you are running a version of Octopus prior to 2.6, you will need to upgrade to 2.6 and then upgrade to 3.x.
 :::
 
 ## How we version Octopus Deploy {#Upgrading-HowweversionOctopusDeploy}
-
 
 We use Semantic Versioning to help you understand the type of changes we have introduced between two versions of Octopus Deploy:
 
@@ -43,17 +39,14 @@ We use Semantic Versioning to help you understand the type of changes we have in
  2. Any database schema changes will be minimal, and be safe to run older and newer versions of Octopus on (within the same major/minor version)
  3. We may decide to make API changes, but any changes will be backwards compatible
 
-
 :::success
 **Release Notes**
 For every Major and Minor release we will provide release notes highlighting new features and calling out breaking changes. For example, you can see the features and highlights for the latest feature release on our [downloads page](https://octopus.com/downloads).
-
 
 You can also use our release comparison tool to see **all of the changes** introduced between any two versions of Octopus Deploy. For example: [https://octopus.com/downloads/compare?from=3.2.15&to=3.5.2](https://octopus.com/downloads/compare?from=3.2.15&amp;to=3.5.2)
 :::
 
 ## Downgrading or Rolling Back an Upgrade {#Upgrading-DowngradingorRollingBackanUpgrade}
-
 
 The process for successfully downgrading depends on the upgrade you have performed.
 
@@ -63,7 +56,6 @@ The process for successfully downgrading depends on the upgrade you have perform
  1. For example: 3.4.4 => 3.5.1 would be a Minor upgrade. Make sure to test a [backup and restore](/docs/administration/backup-and-restore.md) before upgrading. If you need to downgrade for any reason, you should restore the backup, and then reinstall 3.4.4.
 3. **Major upgrade** = We will provide a detailed upgrade guide for any Major upgrades
  1. For example: 2.6.5 => 3.4.12 would be a Major upgrade. You should take care when performing a major upgrade and follow our upgrade guide carefully.
-
 
 :::success
 We recommend putting your Octopus Server into [Maintenance Mode](/docs/administration/maintenance-mode.md) when performing any of these operations.

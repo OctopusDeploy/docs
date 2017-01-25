@@ -3,9 +3,7 @@ title: System variables
 position: 5
 ---
 
-
 This page lists built-in [variables](/docs/deploying-applications/variables/index.md) provided by Octopus that can be used in your deployment [Custom scripts](/docs/deploying-applications/custom-scripts/index.md).
-
 
 - Deployment
 - Action
@@ -21,7 +19,6 @@ This page lists built-in [variables](/docs/deploying-applications/variables/inde
 - User-modifiable settings
 
 ### Deployment {#Systemvariables-Deployment}
-
 
 Deployment-level variables are drawn from the project and release being deployed.
 
@@ -96,9 +93,7 @@ Comma delimited list of tags that belong the the Tenant being deployed for. If t
 
 Database01
 
-
 [www.Database01.](http://www.Database01.com)local
-
 
 [192.168.200.100](http://www.Database01.com)
  | The host part of the URI that was used to register the machine, could be an IP, hostname depending on what was supplied. Only set for Listening Tentacles |
@@ -179,7 +174,6 @@ The version number of the release the last successful deployment to the current 
 | --- | --- | --- |
 
 ### Action {#Systemvariables-Action}
-
 
 Action-level variables are available during execution of an action. Indexer notion such as `Octopus.Action[Website].TargetRoles` can be used to refer to values for different actions.
 
@@ -306,7 +300,6 @@ Octopus.Action.Id
 
 ### Output {#Systemvariables-Output}
 
-
 Output variables are collected during execution of a step and made available to subsequent steps using notation such as `Octopus.Action[Website].Output[WEBSVR01].Package.InstallationDirectoryPath`to refer to values base on the action and machine that produced them. See also [Output variables](/docs/deploying-applications/variables/output-variables.md).
 
 | Name | Example | Description |
@@ -328,7 +321,6 @@ Output variables are collected during execution of a step and made available to 
 
 ### Step {#Systemvariables-Step}
 
-
 Step-level variables are available during execution of a step. Indexer notion such as `Octopus.Step[Website].Number` can be used to refer to values for different steps.
 
 | Name | Example | Description |
@@ -348,7 +340,6 @@ Step-level variables are available during execution of a step. Indexer notion su
 
 ### Agent {#Systemvariables-Agent}
 
-
 Agent-level variables describe the deployment agent or Tentacle on which the deployment is executing.
 
 | Name | Example | Description |
@@ -364,11 +355,7 @@ Agent-level variables describe the deployment agent or Tentacle on which the dep
 
 ### Server {#Systemvariables-Server}
 
-
 Server-level variables describe the Octopus server on which the deployment is running.
-
-
-
 
 | Name | Example | Description |
 | --- | --- | --- |
@@ -380,9 +367,7 @@ The default URL at which the server can be accessed This variable has been depre
 
 ## Tracking deployment status {#Systemvariables-DeploymentStatusTrackingdeploymentstatus}
 
-
 During deployment, Octopus provides variables describing the status of each step.
-
 
 Where `S` is the step name, Octopus will set:
 
@@ -392,16 +377,13 @@ Octopus.Step[S].Status.Error
 Octopus.Step[S].Status.ErrorDetail
 ```
 
-
 Status codes include `Pending`, `Skipped`, `Abandoned`, `Cancelled`, `Running`, `Succeeded` and `Failed`.
-
 
 For an action `A:`
 
 ```powershell
 Octopus.Action[A].IsSkipped
 ```
-
 
 For the deployment as a whole:
 
@@ -410,19 +392,12 @@ Octopus.Deployment.Error
 Octopus.Deployment.ErrorDetail
 ```
 
-
-
-
-
-
-
 :::hint
 **Error detail returned**
 Octopus.Deployment.Error and Octopus.Deployment.ErrorDetail will only display the exit code and Octopus stack trace for the error. As we cannot parse the deployment log, we can only extract the exit/error codes. It cannot show detailed information on what caused the error. For full information on what happened when the deployment fails, you will need to reference the logs.
 :::
 
 ## User-modifiable settings {#Systemvariables-User-modifiablesettings}
-
 
 The following variables can be defined as variables in your project to modify the way Octopus behaves.
 

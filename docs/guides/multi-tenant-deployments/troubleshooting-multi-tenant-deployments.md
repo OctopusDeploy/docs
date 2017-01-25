@@ -3,9 +3,7 @@ title: Troubleshooting multi-tenant deployments
 position: 3
 ---
 
-
 This page will help you diagnose and solve issues with multi-tenant deployments.
-
 
 - Problem: I cannot select a specific tenant when deploying a project
 

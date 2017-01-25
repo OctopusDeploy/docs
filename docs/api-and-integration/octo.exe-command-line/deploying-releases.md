@@ -3,13 +3,11 @@ title: Deploying releases
 position: 4
 ---
 
-
 [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to deploy releases that have [already been created](/docs/api-and-integration/octo.exe-command-line/creating-releases.md).
 
 ```text
 octo deploy-release [<options>]
 ```
-
 
 Where `[&lt;options&gt;]` is any of:
 
@@ -102,20 +100,17 @@ Common options:
 
 ### Basic examples {#Deployingreleases-Basicexamples}
 
-
 This will deploy release 1.0.0 of the *HelloWorld* project to the *Production* environment:
 
 ```text
 octo deploy-release --project HelloWorld --releaseNumber 1.0.0 --deployto Production --server http://octopus/ --apiKey API-ABCDEF123456
 ```
 
-
 This will deploy the latest release in the *1.x Normal* Channel of the *HelloWorld* project to the *Production* environment:
 
 ```text
 octo deploy-release --project HelloWorld --channel "1.x Normal" --version latest --deployto Production --server http://octopus/ --apiKey API-ABCDEF123456
 ```
-
 
 This will deploy the latest release in the *1.x Normal* Channel of the *HelloWorld* project to the *Production* environment for the Tenants tagged as *Upgrade Ring/Early Adopters*:
 

@@ -3,14 +3,9 @@ title: How to use custom certificates with Octopus Server and Tentacle
 position: 19
 ---
 
-
 Octopus uses self-signed certificates to securely communicate between tentacles and the server. However, if you have a requirement to use your own certificates, you can use the import-certificate command to import your own certificate.  Octopus Server has supported the import-certificate command as of Octopus 3.2.9 and Tentacle has always supported it.  The import command supports importing certificates in the Personal Information Exchange (PFX) files with an optional password.  Octopus requires PFX files contain the certificate private key.
 
-
 For more information on self-signed certificates, see the [blog post](https://octopusdeploy.com/blog/why-self-signed-certificates) on the topic.
-
-
-
 
 :::warning
 **Updating an existing Octopus server or Tentacle**
@@ -18,7 +13,6 @@ It's important to consider the impact of updating an existing Octopus server or 
 :::
 
 ## Configuring Octopus Server to use custom certificates {#HowtousecustomcertificateswithOctopusServerandTentacle-ConfiguringOctopusServertousecustomcertificates}
-
 
 This assumes you have already installed Octopus on the target server.
 
@@ -44,9 +38,7 @@ Certificate imported successfully.
 Tentacle.exe configure --trust NewOctopusServerCertificateThumbprint --console
 ```
 
-
 ## Configuring Tentacle to use custom certificates {#HowtousecustomcertificateswithOctopusServerandTentacle-ConfiguringTentacletousecustomcertificates}
-
 
 This assumes you have already installed a Tentacle on the target server.
 
@@ -72,7 +64,6 @@ If you have come from an earlier version of Octopus with a shorter security key,
 tentacle.exe new-certificate
 ```
 
-
 The command will then return
 
 ```powershell
@@ -80,7 +71,6 @@ Octopus Deploy: Tentacle version 3.2.x
 A new certificate has been generated and installed. Thumbprint:
 DE010ABF6FF8ED1B7895A31F005B8D88A3329867
 ```
-
 
 continue with the following steps to ensure the Octopus Server recognises this new thumbprint.
 :::

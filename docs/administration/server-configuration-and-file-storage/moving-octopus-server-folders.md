@@ -3,7 +3,6 @@ title: Moving Octopus Server folders
 position: 0
 ---
 
-
 If you need to move any of the folders used by the Octopus Server you can follow the instructions on this page to move individual folders and reconfigure the Octopus Server to use the new folder locations.
 
 - [Move the Octopus Home folder](/docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md)
@@ -11,9 +10,7 @@ If you need to move any of the folders used by the Octopus Server you can follow
 - [Move the Octopus artifacts folder](/docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md)
 - [Move the Octopus task logs folder](/docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md)
 
-
 ## Move Octopus Home folder {#MovingOctopusServerfolders-OctopusHomeMoveOctopusHomefolder}
-
 
 If you need to move the Octopus Home folder, you can do that using the command-line as described below:
 
@@ -22,7 +19,6 @@ If you need to move the Octopus Home folder, you can do that using the command-l
 ```powershell
 Usage: Octopus.Server configure [<options>]
 ```
-
 
 Where `[&lt;options&gt;]` is:
 
@@ -39,7 +35,6 @@ Or one of the common options:
       --nologo               Don't print title or version information
 ```
 
-
 A PowerShell script showing the steps is set out below. You need to change the variables to match your Octopus installation, and you may wish to run each step separately to deal with any issues like locked files.
 
 ```powershell
@@ -52,14 +47,12 @@ mv $oldHome $newHome
  
 &"$octopus" delete-instance --instance=OctopusServer
 &"$octopus" create-instance --instance=OctopusServer --config=$newConfig
- 
- 
+
 & "$octopus" configure --home="$newHome"
 & "$octopus" service --start
 ```
 
 ## Move other Octopus Server folders {#MovingOctopusServerfolders-MoveotherOctopusServerfolders}
-
 
 If you need to move other folders than the Octopus Home folder, you can do that using the command-line as described below
 
@@ -68,7 +61,6 @@ If you need to move other folders than the Octopus Home folder, you can do that 
 ```powershell
 Octopus.Server path [<options>]
 ```
-
 
 Where `[&lt;options&gt;]` is any of:
 
@@ -90,7 +82,6 @@ Or one of the common options:
 
 ## Move NuGet repository folder {#MovingOctopusServerfolders-NuGetRepositoryMoveNuGetrepositoryfolder}
 
-
 A PowerShell script showing the steps is set out below. You need to change the variables to match your Octopus installation, and you may wish to run each step separately to deal with any issues like locked files.
 
 ```powershell
@@ -107,7 +98,6 @@ mv $oldNuGetRepository $newNuGetRepository
 
 ## Move artifacts folder {#MovingOctopusServerfolders-ArtifactsMoveartifactsfolder}
 
-
 A PowerShell script showing the steps is set out below. You need to change the variables to match your Octopus installation, and you may wish to run each step separately to deal with any issues like locked files.
 
 ```powershell
@@ -123,7 +113,6 @@ mv $oldArtifacts $newArtifacts
 ```
 
 ## Move task logs folder {#MovingOctopusServerfolders-TaskLogsMovetasklogsfolder}
-
 
 A PowerShell script showing the steps is set out below. You need to change the variables to match your Octopus installation, and you may wish to run each step separately to deal with any issues like locked files.
 

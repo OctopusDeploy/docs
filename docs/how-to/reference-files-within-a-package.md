@@ -3,15 +3,11 @@ title: Reference files within a package
 position: 20
 ---
 
-
 To reference files from the package you can use the below as a guide to where the parameters are pointing to, then it's just a case of using the values of these parameters to build up the absolute path to the file(s) that you want to manipulate or execute.
-
 
 Relative paths will depend on a couple of things, if it's in a pre- or post-deploy script and if a custom installation directory has been defined. See below sections for differences.
 
-
 `$OctopusParameters['Octopus.Action.Package.CustomInstallationDirectory']`will only be available if the `Custom installation directory` feature of the deploy step has been enabled.
-
 
 In pre-deploy scripts:
 
@@ -19,16 +15,12 @@ In pre-deploy scripts:
 - `$OctopusParameters['Octopus.Action.Output.Package.InstallationDirectoryPath']`will be where the contents of the package has been extracted
 - The working directory for the Tentacle is the directory where the content of the package has been extracted to
 
-
-
 In post-deploy scripts:
 
 - `$OctopusParameters['Octopus.Action.Package.CustomInstallationDirectory']`will be the path to where the contents of the package has been copied to.
 - `$OctopusParameters['Octopus.Action.Output.Package.InstallationDirectoryPath']`will be the same as the above
 - `$OctopusParameters['OctopusOriginalPackageDirectoryPath']` will be where the contents of the package has been extracted
 - The working directory for the Tentacle is the final destination for the contents of the package, either `$OctopusParameters['Octopus.Action.Output.Package.InstallationDirectoryPath']`, or if it's been specified `$OctopusParameters['Octopus.Action.Package.CustomInstallationDirectory']`
-
-
 
 So if you want to reference `file.txt` in `subfolder` within the package, you could do the following:
 

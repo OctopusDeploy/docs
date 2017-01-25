@@ -3,15 +3,12 @@ title: Import certificate
 
 ---
 
-
 Replace the certificate that Tentacle uses to authenticate itself
 
 **Import certificate options**
 
 ```text
 Usage: Tentacle import-certificate [<options>]
-
-
 
 Where [<options>] is any of:
       --instance=VALUE       Name of the instance to use

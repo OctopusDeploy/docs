@@ -3,16 +3,13 @@ title: Migrator Export
 
 ---
 
-
 This command exports configuration data to a directory.
-
 
 Usage:
 
 ```text
 Octopus.Migrator export [<options>]
 ```
-
 
 Where `[&lt;options&gt;]` is any of:
 

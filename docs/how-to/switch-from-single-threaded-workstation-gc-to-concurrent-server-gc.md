@@ -3,7 +3,6 @@ title: Switch from single-threaded workstation GC to concurrent server GC
 position: 10
 ---
 
-
 This page is for users that are experiencing Octopus server crashes with the below error:
 
 ```
@@ -19,12 +18,10 @@ Stack:
    at Raven.Client.Linq.LinqPathProvider.GetValueFromExpression(System.Linq.Expressions.Expression, System.Type)
 ```
 
-
 This guide explains how you can reduce the occcurence of these crashes by enabling concurrent server Garbage Collection instead of single-threaded/concurrent workstation Garbage Collection.
 
 :::hint
 This step-by-step guide is more of a mitigation, rather than a solution, as we have been unable to pinpoint the exact cause of these crashes.
-
 
 More information can be found in the [Sporadic Crashes](https://github.com/OctopusDeploy/Issues/issues/1099) GitHub issue
 :::
@@ -32,7 +29,6 @@ More information can be found in the [Sporadic Crashes](https://github.com/Octop
 ```
 Step-by-step guide
 ```
-
 
 Follow these steps to enable concurrent server Garbage Collection, instead of single-threaded workstation Garbage Collection.
 

@@ -3,7 +3,6 @@ title: Docker Registries as Feeds
 position: 0
 ---
 
-
 A [Docker Registry](https://docs.docker.com/registry/) is treated in Octopus Deploy as a feed that supplies images that are run as containers on a Docker Engine host.
 
 :::success
@@ -12,17 +11,13 @@ Learn more about using Docker Registries in our guide: [Docker run with networki
 
 ## Using Docker Registries in Octopus Deploy {#DockerRegistriesasFeeds-UsingDockerRegistriesinOctopusDeploy}
 
-
 In Octopus Deploy, Docker Registries are treated very similarly to [Package Repositories](/docs/packaging-applications/package-repositories/index.md), and Images are treated very similarly to Packages.
-
 
 Octopus Deploy supports the Docker Registry [Version 1](https://docs.docker.com/v1.6/reference/api/registry_api/) and [Version 2](https://docs.docker.com/registry/spec/api/) API specifications as outlined in the Docker reference files. You can access Docker Registries with or without using credentials, depending on registry configuration. You can use one of the hosted public registries, like [Docker Hub](https://hub.docker.com/), or you can host your own [Private Registry](/docs/deploying-applications/docker-containers/docker-registries-as-feeds.md).
 
 ### How Octopus Server and Deployment Targets integrate with Docker Registries {#DockerRegistriesasFeeds-HowOctopusServerandDeploymentTargetsintegratewithDockerRegistries}
 
-
 The Docker Registries you configure need to be accessed by both the Octopus Server and your [Deployment Targets](/docs/deployment-targets/index.md).
-
 
 The Octopus Server will contact your registry to obtain information on available images while designing and maintaining your projects. During deployment the `docker pull` command will be executed on the Deployment Targets themselves and they will pull the Images directly from the Docker Registry.
 
@@ -38,26 +33,17 @@ It is possible that the URI to the Docker Registry will be different for the Oct
 
 ### Working with Docker Container Images in Octopus {#DockerRegistriesasFeeds-WorkingwithDockerContainerImagesinOctopus}
 
-
 Docker Images with the same name are grouped together and referred to (in Docker terminology) as a **repository**. This is very similar to how Octopus, and other package managers like NuGet, treat Packages with the same Name or ID. When you configure a Docker step in Octopus you choose an Image by its Name, just like you would choose a Package ID for any of the other [supported packages](/docs/packaging-applications/supported-packages.md).
-
 
 ![](/docs/images/5671031/5865827.png?effects=drop-shadow "width=500")
 
-
 When you create a release in Octopus, you need to choose the "version" of the Image(s) you want as part of the release. Octopus will load the Tags for the Image(s) and attempt to parse them as a [Semantic Version](http://semver.org/). The tags that can be parsed as a valid [Semantic Version](http://semver.org/) will be available to be selected for deployment as the "version" of the Container Image(s).
-
 
 ![](/docs/images/5671031/5865828.png?effects=drop-shadow "width=500")
 
-
-
-
 ## Docker Hub {#DockerRegistriesasFeeds-DockerHub}
 
-
 The default Docker Registry, which is maintained by the Docker organisation, is the cloud-hosted [Docker Hub Registry](https://hub.docker.com/). This is the Registry which is used by docker engine when it is first installed and you call `docker search`.
-
 
 Searching for official public repositories do not require credentials. However searching for repositories of a non-official repository will require you to provide your Docker Hub username and password.
 
@@ -72,7 +58,6 @@ The Docker Hub API endpoint [https://index.docker.io/v1](https://index.docker.io
 | Public + Unofficial | Yes | No |
 | Private | No | No |
 
-
 We suggest using alternative registry when trying to manage your own private images. See below for more details on hosting your own [Private Registry](/docs/deploying-applications/docker-containers/docker-registries-as-feeds.md).
 :::
 
@@ -85,13 +70,10 @@ To use the Docker Hub registry in Octopus Deploy, create an external feed with t
 - **API Version:**v1
 - **Registry Path:***leave blank*
 
-
-
 *![](/docs/images/5671031/5865826.png "width=500")*
 :::
 
 ## Private Registry {#DockerRegistriesasFeeds-PrivateRegistry}
-
 
 The simplest way to host your own private v2 Docker Registry is to run the run a container from the official registry image!
 
@@ -99,9 +81,7 @@ The simplest way to host your own private v2 Docker Registry is to run the run a
 docker run -d -p 5000:5000 --name registry registry:2
 ```
 
-
 This image supports custom storage locations, certificates for HTTPS and authentication. For more details on setting up the registry checkout the [official docs](https://docs.docker.com/registry/deploying/).
-
 
 There are many other options for private registries such as self hosting through [Docker Trusted Registry](https://docs.docker.com/docker-trusted-registry/) or [Artifactory](http://docs.octopusdeploy.com/www.jfrog.com/artifactory), or using a cloud provider like [Quay](https://quay.io/). If using Amazon's [EC2 Container Registry](https://aws.amazon.com/ecr/), keep in mind that it exposes a v2 feed, and that you must generate the username and password using the *aws ecr get-login* command and set these details into your Octopus Deploy feed configuration.
 

@@ -3,11 +3,9 @@ title: Auditing
 position: 0
 ---
 
-
 For team members to collaborate in the deployment of software, there needs to be trust and accountability. Octopus Deploy captures audit information whenever significant events happen in the system.
 
 ## What does Octopus capture? {#Auditing-WhatdoesOctopuscapture?}
-
 
 Below is a short list of just some of the things that Octopus captures:
 
@@ -16,24 +14,17 @@ Below is a short list of just some of the things that Octopus captures:
 - Environment changes, such as adding new deployment targets or modifying the environment a deployment target belongs to
 - Queuing and cancelling of deployments and other tasks
 
-
 ## Viewing the audit history {#Auditing-Viewingtheaudithistory}
-
 
 You can view the full audit history by navigating to the **Audit** tab in the **Configuration** area.
 
-
 ![](/docs/images/3048138/3278051.png "width=500")
-
 
 Some audit events will also include details, which you can see by clicking the **show details** link. For example:
 
-
 ![](/docs/images/3048138/3278050.png "width=500")
 
-
 ![](/docs/images/3048138/3278049.png "width=500")
-
 
 This feature makes it extremely easy to see who made what changes on the Octopus Deploy server.
 

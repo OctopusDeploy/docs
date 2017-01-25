@@ -3,14 +3,11 @@ title: Bamboo
 position: 3
 ---
 
-
 [Bamboo from Atlassian](https://www.atlassian.com/software/bamboo) is a popular continuous integration and build server that supports a wide variety of different build runners and source control systems. While Bamboo has some built-in deployment concepts, you can also combine Octopus Deploy with Bamboo to get a full end-to-end build and deployment experience.
-
 
 ![](/docs/images/3048164/3278152.png?effects=border-simple,blur-border,tape "width=500")
 
 ![](/docs/images/3048164/3278150.png "width=500")
-
 
 ## Why Octopus + Bamboo? {#Bamboo-WhyOctopus+Bamboo?}
 
@@ -34,10 +31,7 @@ During our build, we will:
 3. Publish these NuGet packages to the Octopus Deploy server
 4. Create a release in Octopus, ready to be deployed
 
-
-
 To interact with our Octopus Deploy server, we need an API key. It's a good idea to define this as a password variable in Bamboo:
-
 
 ![](/docs/images/3048164/3278160.png?effects=border-simple,blur-border "width=500")
 
@@ -46,19 +40,15 @@ To interact with our Octopus Deploy server, we need an API key. It's a good idea
 Learn about [how to create an API key](/docs/how-to/how-to-create-an-api-key.md).
 :::
 
-
 Bamboo uses an MSBuild runner to compile Visual Studio solutions. [Once OctoPack has been installed](/docs/packaging-applications/nuget-packages/using-octopack/index.md) on your C#/VB projects, you can configure Bamboo's MSBuild task to pass the appropriate parameters to MSBuild to have OctoPack run:
 
-
 ![](/docs/images/3048164/3278161.png?effects=border-simple,blur-border "width=500")
-
 
 There are a number of parameters that you will want to define. For this page, we are using:
 
 ```bash
 /p:RunOctoPack=true /p:OctoPackPackageVersion=1.0.${bamboo.buildNumber} /p:OctoPackPublishPackageToHttp=http://localhost/nuget/packages /p:OctoPackPublishApiKey=${bamboo.OctopusApiKey_Password}
 ```
-
 
 The settings are:
 
@@ -67,7 +57,6 @@ The settings are:
 - **OctoPackPublishPackageToHttp**: tells OctoPack to push the package to the Octopus Deploy server. Read more about the [built-in NuGet repository in Octopus](/docs/packaging-applications/package-repositories/index.md). You'll find the URL to your repository on the **Library > Packages** tab in Octopus
 - **OctoPackPublishApiKey**: your Octopus Deploy API key. Since we defined it as a Bamboo variable above, we reference the variable here.
 
-
 :::success
 **OctoPack arguments**
 Learn more about the available [OctoPack parameters](/docs/packaging-applications/nuget-packages/using-octopack/index.md).
@@ -75,9 +64,7 @@ Learn more about the available [OctoPack parameters](/docs/packaging-application
 
 ## Creating a release {#Bamboo-Creatingarelease}
 
-
 At this point, Bamboo has compiled the code, and packages have been pushed to Octopus Deploy, ready to be deployed. You can go to the Octopus web portal, and manually create releases using those packages.
-
 
 You can go one step further and automate release creation using [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md), a command-line tool for automating Octopus.
 
@@ -87,14 +74,11 @@ You can go one step further and automate release creation using [Octo.exe](/docs
 3. Describe the command line task, and specify the arguments to Octo.exe:
 ![](/docs/images/3048164/3278158.png?effects=border-simple,blur-border "width=500")
 
-
-
 In the **Argument** field, we are passing:
 
 ```bash
 create-release --project OctoFX --version 1.0.${bamboo.buildNumber} --packageversion 1.0.${bamboo.buildNumber} --server http://localhost/ --apiKey ${bamboo.OctopusApiKey_Password} --releaseNotes "Bamboo build [${bamboo.buildNumber}](http://bambooserver:8085/browse/${bamboo.buildKey})"
 ```
-
 
 Importantly:
 
@@ -103,7 +87,6 @@ Importantly:
 - The `--packageversion` tells Octo.exe to ensure that the release references the right version of the NuGet packages that we published using OctoPack.
 - The `--releaseNotes` will appear in Octopus, and link back to the build in Bamboo. Of course, change the URL to the address of your Bamboo server
 
-
 :::success
 **Octo.exe arguments**
 Learn more about [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) and the arguments it accepts. If you wanted to, you could even deploy automatically to a test environment using the `--deployto` parameter, without using Bamboo's deploy plans.
@@ -111,45 +94,33 @@ Learn more about [Octo.exe](/docs/api-and-integration/octo.exe-command-line/inde
 
 ## Deploying releases with Octopus and Bamboo deployment plans {#Bamboo-DeployingreleaseswithOctopusandBamboodeploymentplans}
 
-
 In the previous steps, we configured a Bamboo build plan that:
 
 1. Compiles the code and produces packages using OctoPack
 2. Pushes the packages to Octopus
 3. Creates a release in Octopus
 
-
-
 At this point, you could stop here, and use Octopus to manage deployments and promotion between environments: Bamboo builds, Octopus deploys.
-
 
 However, you can also make use of **Bamboo deployment plans**, and use them to control Octopus. When deploying between environments in Bamboo, a corresponding deployment in Octopus will be triggered. Again, we'll be using [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) to provide the glue.
 
-
 For this example, we have four environments in Octopus - Development, Test, Staging and Production. We have a deployment plan in Bamboo that is linked to the build plan, and looks like this:
-
 
 ![](/docs/images/3048164/3278157.png?effects=border-simple,blur-border "width=500")
 
-
 The release versioning scheme in the deployment plan has been configured to look like this - again, so that we have consistent release numbers:
-
 
 ![](/docs/images/3048164/3278154.png?effects=border-simple,blur-border "width=500")
 
-
 Each of the environments in the deployment plan simply contains a single deployment task: it uses the Octo.exe executable that we created earlier to trigger a deployment in Octopus:
 
-
 ![](/docs/images/3048164/3278153.png?effects=border-simple,blur-border "width=500")
-
 
 Each of the deployment tasks have a similar set of arguments:
 
 ```bash
 deploy-release --project OctoFX --deployTo Development --version 1.0.${bamboo.buildNumber} --server=http://localhost/ --apikey=${bamboo.OctopusApiKey_Password} --progress
 ```
-
 
 Importantly:
 
@@ -158,24 +129,18 @@ Importantly:
 - The `--version` matches the version of the Octopus release that we created in the build plan
 - The `--progress` flag tells Octo.exe to write the deployment log from Octopus to the log in Bamboo. This flag was added in 2.5; in previous versions of Octo.exe you can use `--waitfordeployment` instead. You can also remove this flag if you want the Bamboo deployment to complete immediately without waiting for the deployment in Octopus to complete.
 
-
 :::success
 **Octo.exe arguments**
 Again, see the [arguments to Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) to see other parameters that you can specify. If your deployment is likely to take longer than 10 minutes, for example, consider passing `--deploymenttimeout=00:20:00` to make it 20 minutes.
 :::
 
-
 Keep in mind that you can also configure triggers in Bamboo so that you deploy to Development on a successful build plan completion, for example.
-
 
 All going well, you should be able to see the build and deployment plans in Bamboo:
 
-
 ![](/docs/images/3048164/3278152.png?effects=border-simple,blur-border "width=500")
 
-
 Alongside the deployments in Octopus:
-
 
 ![](/docs/images/3048164/3278150.png "width=500")
 

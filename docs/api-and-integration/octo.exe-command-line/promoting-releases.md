@@ -3,13 +3,11 @@ title: Promoting releases
 position: 8
 ---
 
-
 [Octo.exe](http://docs.octopusdeploy.com/pages/viewpage.action?pageId=360596) can be used to promote a release from one environment to another.
 
 ```text
 octo promote-release [<options>]
 ```
-
 
 Where `[&lt;options&gt;]` is any of:
 
@@ -97,7 +95,6 @@ Common options:
 ```
 
 ### Basic example {#Promotingreleases-Basicexample}
-
 
 The following command will promote the latest release of the*Web* projectdeployed to *Development*to the environment *Staging.*
 

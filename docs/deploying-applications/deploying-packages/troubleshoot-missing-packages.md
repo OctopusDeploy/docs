@@ -3,7 +3,6 @@ title: Troubleshoot missing packages
 
 ---
 
-
 When deploying your project you may see a message like one of the following examples:
 
 - The package could not be located in the built-in repository
@@ -19,9 +18,7 @@ If this is part of an automated deployment, make sure all packages are pushed to
 
 ## Using the built-in repository {#Troubleshootmissingpackages-Usingthebuilt-inrepository}
 
-
 If you are using the built-in repository, you may see a message like "The package could not be located in the built-in repository". These steps should help you diagnose the root cause of the problem and fix it:
-
 
 Try manually deploying the same release again (in other words retry the exact same deployment)
 
@@ -34,13 +31,11 @@ Try manually deploying the same release again (in other words retry the exact sa
  - By default Octopus will attempt several times to locate the package in the built-in feed over a period of time, just in case.
  - Make sure all packages required by the project are pushed to the built-in repository before starting the deployment of that project.
 
-
 :::hint
 The built-in repository is a simple abstraction around the file system on your Octopus Server, with an index stored in the Octopus SQL Database. When you [push a package to the Octopus built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md), it will be immediately added to the index and available for use in deployments: there is no delay. Octopus will also periodically scan the packages folder to make sure the index stored in the Octopus SQL Database is synchronized with the packages stored on the file system. If you manually add a package to the file system directly, there will be a delay until the package is added to the index.
 :::
 
 ## Using an external feed {#Troubleshootmissingpackages-Usinganexternalfeed}
-
 
 If you are using an external feed you may see a message explaining the package cannot be found or that it cannot be downloaded during the deployment. These steps should help you diagnose the root cause of the problem and fix it:
 

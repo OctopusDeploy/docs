@@ -3,14 +3,12 @@ title: Configure
 
 ---
 
-
 Sets Tentacle settings such as the port number and thumbprints
 
 **Configure options**
 
 ```text
 Usage: Tentacle configure [<options>]
-
 
 Where [<options>] is any of:
       --instance=VALUE       Name of the instance to use

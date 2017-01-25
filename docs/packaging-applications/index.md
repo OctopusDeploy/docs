@@ -3,9 +3,7 @@ title: Packaging applications
 position: 3
 ---
 
-
 Before you can deploy an application using Octopus, you will need to bundle all of the executables, DLL's, configuration files, installation scripts, and anything else the application needs to run into a package.
-
 
 See our [supported package types](/docs/packaging-applications/supported-packages.md).
 
@@ -18,7 +16,6 @@ While some of our documentation may still refer to NuGet packages specifically, 
 
 ## Creating packages {#Packagingapplications-Creatingpackages}
 
-
 How you create your packages depends on which package type you wish to create. Octopus generally treats all packages the same, so choose the tooling and package type that is easiest for you to create. For example:
 
 - ASP.NET apps (.NET Framework): use [OctoPack](/docs/packaging-applications/nuget-packages/using-octopack/index.md)
@@ -29,8 +26,6 @@ How you create your packages depends on which package type you wish to create. O
 - Working with VSTS: use our [extension](/docs/api-and-integration/visual-studio-team-services-(vsts).md) and/or `octo.exe pack`
 - Just want to package up a folder as-is: use `octo.exe pack` or just zip it up!
 
-
-
 As long as you can create one of our [supported packages](/docs/packaging-applications/supported-packages.md), you can deploy your application with Octopus Deploy!
 
 :::success
@@ -40,26 +35,19 @@ When creating your packages you will need to choose a versioning scheme that is 
 
 ## Hosting packages {#Packagingapplications-Hostingpackages}
 
-
 Packages are kept in package repositories (or feeds). A repository can be as simple as a file share, or it could be a dedicated server. For more information, see the section on [choosing a package repository](/docs/packaging-applications/package-repositories/index.md).
 
 ## What's in a package? {#Packagingapplications-What&#39;sinapackage?}
 
-
 Octopus expects your package to contain all of the files needed to run the application when it is deployed (along with [any scripts needed for deployment](/docs/deploying-applications/custom-scripts/index.md), and any [configuration transformation files](/docs/deploying-applications/configuration-files/index.md), etc).
-
 
 An ASP.NET MVC application, packaged using NuGet for example, would look like this:
 
-
 ![](/docs/images/3048093/3277771.png "width=500")
-
 
 While a Windows Service application might look like this:
 
-
 ![](/docs/images/3048093/3277770.png "width=500")
-
 
 Note that in both examples:
 

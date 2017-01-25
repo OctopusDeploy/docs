@@ -3,23 +3,16 @@ title: Azure Virtual Machines
 position: 4
 ---
 
-
 :::problem
 **Azure VM Extension temporarily unavailable**
 The Octopus Tentacle VM extension is temporarily unavailable. We are working with Microsoft to rectify this and you can watch [this GitHub Issue](https://github.com/OctopusDeploy/Issues/issues/2859) to be notified of progress.
 :::
 
-
-
-
-
 If you deploy software to virtual machines hosted in Microsoft Azure, Octopus Deploy makes it easy to install the [Tentacle agent](/docs/installation/installing-tentacles/index.md). This page will explain how to install the Tentacle agent extension for Azure VM's, as well as how to install the extension via command line, and how to diagnose problems when using the extension.
 
 ## Overview {#AzureVirtualMachines-Overview}
 
-
 The Azure Tentacle VM extension is an extension that can be added to an Azure virtual machine. Currently, only Windows Server 2012 R2 is supported.
-
 
 When enabled, the extension automatically downloads the Tentacle MSI, installs it, and registers the agent with your [Octopus Deploy server](/docs/installation/installing-octopus/index.md). It does this by building on top of the PowerShell DSC support in Windows Azure. The [Octopus DSC resources](https://github.com/OctopusDeploy/OctopusDSC) used by the extension are open source, and the commands the extension runs are very similar to the commands in our guide to [automatically installing the Tentacle agent](/docs/installation/installing-tentacles/automating-tentacle-installation.md).
 
@@ -30,24 +23,17 @@ The Tentacle will be configured in [listening mode](/docs/installation/installin
 
 ## Adding the Tentacle agent extension {#AzureVirtualMachines-AddingtheTentacleagentextension}
 
-
 After creating a virtual machine on Azure using the management portal, browse to the virtual machine, then click on **Extensions**:
-
 
 ![](/docs/images/3048116/3277917.png "width=500")
 
-
 Click **Add** to add a new extension.
-
 
 ![](/docs/images/3048116/3277916.png "width=500")
 
-
 Select the **Octopus Deploy Tentacle Agent** extension, and click **Create**.
 
-
 ![](/docs/images/3048116/3277915.png "width=500")
-
 
 The settings for the extension are:
 
@@ -57,7 +43,6 @@ The settings for the extension are:
 | Roles | The roles to give to the machine. Again, separate them using commas for more than one, for example: `web-server,app-server` |
 | Listen port | TCP port that the Tentacle will listen on. The default value is 10933. |
 
-
 After entering the extension settings, click Create, and the extension will be enabled.
 
 :::problem
@@ -65,28 +50,21 @@ After entering the extension settings, click Create, and the extension will be e
 The extension relies on a PowerShell DSC module, which in turn depends on some Windows updates. The machine may reboot during the installation.
 :::
 
-
 After a few minutes, the machine should appear in the environments tab of your Octopus Deploy server. If it doesn't, read the **Diagnosing issues** section below.
 
 ## Adding the endpoint {#AzureVirtualMachines-Addingtheendpoint}
 
-
 When you first add the extension, the machine may appear in the environments tab, but it will be offline:
-
 
 ![](/docs/images/3048116/3277910.png "width=500")
 
-
 This is because the Octopus server is now trying to connect to the VM using the listen port that you configured. When the extension is enabled, it automatically adds a firewall rule to allow incoming traffic on that port. However, an Endpoint also needs to be registered in the VM configuration on Azure to allow this traffic.
 
-
 To add the endpoint, browse to the VM in the Azure portal, then click **Endpoints**, then **Add**, and enter the endpoint details.
-
 
 ![](/docs/images/3048116/3277913.png "width=500")
 
 ## Command line {#AzureVirtualMachines-Commandline}
-
 
 *The extension and endpoint can also be added using the Azure PowerShell cmdlets:*
 
@@ -126,7 +104,6 @@ $resourceGroupName = "octovm42-resources"
 $vmName = "octovm42"
 $extensionName = "OctopusTentacle"
 $location = "Australia Southeast"
-
 
 $vmAccessAgent = Get-AzureVMAvailableExtension | ? { $_.Publisher -eq "Microsoft.Compute" -and $_.ExtensionName -eq "VMAccessAgent" }
 Set-AzureRmVMExtension `
@@ -182,7 +159,6 @@ $secGrp | Set-AzureRmNetworkSecurityGroup
 
 ## Diagnosing issues {#AzureVirtualMachines-Diagnosingissues}
 
-
 If, for some reason, the machine fails to register after 20 minutes, you can access logs on the VM to determine what went wrong.
 
 1. Use the **connect** button on the VM to set up a remote desktop connection.
@@ -191,7 +167,5 @@ For more information, see [How to Log on to a Virtual Machine](http://azure.micr
 2. In the remote desktop session, open Windows Explorer, and browse to `C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\1.3.0.0`
 3. In this folder, you'll find a number of text files. Open these to view the output of the commands, and look for any error messages. 
 ![](/docs/images/3048116/3277911.png "width=500")
-
-
 
 The `DscExtensionHandler*` file is usually the best place to look. If there are no error messages or you are unable to troubleshoot the problem, please send a copy of these log files and a description of how the VM was configured to [our support team](http://octopusdeploy.com/support), and we'll be happy to help!

@@ -3,14 +3,11 @@ title: How to turn on variable logging and export the task log
 position: 27
 ---
 
-
 When you contact Octopus Deploy support, we may ask you to provide a variable evaluation log to help us troubleshoot your issue. This page outlines how to create and download the full verbose log.
-
 
 Since so many variables are used in the deployment process (with their values changing through your deployment), Octopus doesn't log all of that information by default. It would increase the size of the task logs, and would slow down your deployments. However, sometimes it's very helpful to log this information.
 
 ## Step-by-step guide {#Howtoturnonvariableloggingandexportthetasklog-Step-by-stepguide}
-
 
 Write the variables to the deployment log
 
@@ -34,7 +31,6 @@ Write the variables to the deployment log
 
 :::hint
 Remember to remove these variables after you get the full log. These variables are designed for debugging purposes only.
-
 
 You might want to open the file in a text editor, and redact any sensitive information like hostnames or company information, before sending the log to us.
 :::

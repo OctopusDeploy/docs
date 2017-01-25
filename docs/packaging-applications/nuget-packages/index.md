@@ -3,15 +3,10 @@ title: NuGet packages
 position: 2
 ---
 
-
 :::hint
 **NuGet packages**
 NuGet packages are basically ZIP files with extra metadata describing the contents of the package. They follow the [Open Packaging Conventions,](http://en.wikipedia.org/wiki/Open_Packaging_Conventions) and use the .nupkg file extension. You can [learn more about NuGet and NuGet Packages](http://docs.nuget.org/docs/start-here/overview) on the official NuGet website.
 :::
-
-
-
-
 
 NuGet is a good choice for packaging your applications, for the following reasons:
 
@@ -20,19 +15,13 @@ NuGet is a good choice for packaging your applications, for the following reason
 3. NuGet packages can be consumed via a feed, so other applications can easily query the available packages
 4. Developer familiarity
 
-
 ## Creating NuGet packages {#NuGetpackages-CreatingNuGetpackages}
-
 
 You can create NuGet packages in a number of ways:
 
 - [Manually using a GUI](http://docs.octopusdeploy.com/display/OD/Manually)
 - Automatically [using OctoPack](http://docs.octopusdeploy.com/display/OD/Using+OctoPack)
 - Automatically [using NuGet.exe](http://docs.octopusdeploy.com/display/OD/Using+NuGet.exe)
-
-
-
-
 
 :::success
 **Tip: Structure the package as you want it extracted on disk**

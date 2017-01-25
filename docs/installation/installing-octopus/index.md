@@ -47,14 +47,9 @@ Learn about [using Managed Service Accounts](https://technet.microsoft.com/en-us
 
 ## Troubleshooting {#InstallingOctopus-Troubleshooting}
 
-
 In a few cases a bug in a 3rd party component causes the installer displays a "Installation directory must be on a local hard drive" error. If this occurs, running the install again from an elevated command prompt using the following command (replacing Octopus.3.3.4-x64.msi with the name of the installer you are using)
 
-
 `msiexec /i Octopus.3.3.4-x64.msi WIXUI_DONTVALIDATEPATH=&quot;1&quot;`
-
-
-
 
 :::warning
 **Deploying applications to an Azure website?**

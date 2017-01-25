@@ -3,14 +3,12 @@ title: Register With
 
 ---
 
-
 Registers this machine with an Octopus server
 
 **Register with options**
 
 ```text
 Usage: Tentacle register-with [<options>]
-
 
 Where [<options>] is any of:
       --instance=VALUE       Name of the instance to use

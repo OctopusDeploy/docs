@@ -3,16 +3,11 @@ title: Package deployment feature ordering
 position: 2
 ---
 
-
 When Octopus deploys NuGet packages, it runs a series of actions implementing the conventions or features enabled for that step.
 
 :::hint
 [Calamari](https://github.com/OctopusDeploy/Calamari) is the open source component that powers this feature.
 :::
-
-
-
-
 
 The order of evaluation once the package is extracted is:
 
@@ -32,14 +27,11 @@ The order of evaluation once the package is extracted is:
 14. **Post****Deploy.\* Scripts**- runs matching [scripts included in the package](http://docs.octopusdeploy.com/display/OD/Custom+scripts#Customscripts-ScriptsinPackages) or defined using the *[Custom PowerShell Scripts](http://docs.octopusdeploy.com/display/OD/Custom+scripts#Customscripts-Scriptsinpackagesteps)* feature
 15. **AfterPostDeploy.\* Feature Scripts**- runs matching scripts associated with any enabled features. These bootstrap scripts are created by Octopus and cannot be customized by the user.
 
-
-
 If an item fails, the remaining items will not be executed, and instead **DeployFailed.\* Scripts** will be found and executed.
 
 :::success
 **Skipping conventions**
 Any of the scripts run during deployment may set a variable to short-circuit the process and skip remaining items, as with this example in *PowerShell*:
-
 
 `Set-OctopusVariable -name 'Octopus.Action.SkipRemainingConventions' -value 'True'`
 :::

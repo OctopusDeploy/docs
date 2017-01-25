@@ -3,19 +3,13 @@ title: Project Coordination Code Samples
 
 ---
 
-
 These samples show how to perform various tasks related to project coordination.
-
 
 See the [OctopusDeploy-Api](https://github.com/OctopusDeploy/OctopusDeploy-Api) repository for further API documentation and examples using the [raw REST API](https://github.com/OctopusDeploy/OctopusDeploy-Api/tree/master/REST/PowerShell) or Octopus.Client in [C#](https://github.com/OctopusDeploy/OctopusDeploy-Api/tree/master/Octopus.Client/Csharp), [Powershell](https://github.com/OctopusDeploy/OctopusDeploy-Api/tree/master/Octopus.Client/PowerShell) or [LINQPad](https://github.com/OctopusDeploy/OctopusDeploy-Api/tree/master/Octopus.Client/LINQPad). If you are using powershell, the [OctoPosh ](https://github.com/Dalmirog/OctoPosh)project provides commandlets that wrap the API.
 
 :::success
 These examples use the [Octopus.Client](/docs/api-and-integration/octopus.client.md) library, see the [loading in an octopus step](http://docs.octopusdeploy.com/display/OD/Octopus.Client#Octopus.Client-Loadinginanoctopusstep) section of the [Octopus.Client](/docs/api-and-integration/octopus.client.md) documentation for details on how to load the library from inside octopus using PowerShell or C# Script steps.
 :::
-
-
-
-
 
 - Querying the current state
 - Viewing recent deployments
@@ -28,11 +22,7 @@ These examples use the [Octopus.Client](/docs/api-and-integration/octopus.clien
 
 ## Querying the current state {#ProjectCoordinationCodeSamples-Queryingthecurrentstate}
 
-
 The best way to get the current state for one or more projects is to use the Dashboard API, which is also used by the dashboards in the WebUI:
-
-
-
 
 **Octopus.Client**
 
@@ -62,7 +52,6 @@ $repository.Dashboards.GetDashboard().Items
 ## 
 Viewing recent deployments {#ProjectCoordinationCodeSamples-Viewingrecentdeployments}
 
-
 The following code returns the deployments started in the last 7 days:
 
 ```c#
@@ -80,11 +69,7 @@ repository.Deployments.Paginate(projects, environments,
  );
 ```
 
-
-
-
 ## Promoting a group of projects {#ProjectCoordinationCodeSamples-Promotingagroupofprojects}
-
 
 This example finds all the releases that are in UAT but not Production. It then queues them for deployment to Production and waits for them to complete.
 
@@ -117,7 +102,6 @@ if(completed.Any(c => c.State != TaskState.Success)
 
 ## Queuing a project to run later {#ProjectCoordinationCodeSamples-Queuingaprojecttorunlater}
 
-
 This example re-queues the currently executing project at 3am the next day
 
 ```c#
@@ -136,11 +120,7 @@ repository.Deployments.Create(
 Console.WriteLine($"Queued for {tomorrow3amServerTime}");
 ```
 
-
-
-
 ## Failing a deployment if another deployment is running {#ProjectCoordinationCodeSamples-Failingadeploymentifanotherdeploymentisrunning}
-
 
 This example uses the dynamic dashboard API to check whether a different project is currently deploying to the same environment. Note that Octopus [restricts](http://docs.octopusdeploy.com/display/OD/Run+multiple+processes+on+a+Tentacle+Simultaneously) what can run at the same time already.
 
@@ -152,11 +132,7 @@ if (dash.Items.Any(i => i.State == TaskState.Queued || i.State == TaskState.Exec
 	throw new Exception($"{otherProject.Name} is currently queued or executing");
 ```
 
-
-
-
 ## Failing a deployment if a dependency is not deployed {#ProjectCoordinationCodeSamples-Failingadeploymentifadependencyisnotdeployed}
-
 
 This example retrieves the last release to the same environment of a different project and fails if it is not the expected release version.
 
@@ -171,7 +147,6 @@ if (last == null || last.ReleaseVersion != requiredVersion)
 ```
 
 ## Triggering and waiting for another project {#ProjectCoordinationCodeSamples-Triggeringandwaitingforanotherproject}
-
 
 This example finds the latest release for a different project and deploys it if it is not currently deployed to the environment.
 
@@ -198,7 +173,6 @@ if (latestRelease != null && last.ReleaseId != latestRelease.Id)
 ```
 
 ## Waiting for another project to reach a certain stage {#ProjectCoordinationCodeSamples-Waitingforanotherprojecttoreachacertainstage}
-
 
 This example builds on the previous, by waiting until a particular step is complete instead of the whole task.
 

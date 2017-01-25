@@ -3,16 +3,12 @@ title: Import
 position: 6
 ---
 
-
 This command allows you to import items from one Octopus Deploy server into another Octopus Deploy server.
-
 
 We currently support importing:
 
 - Projects
 - Releases
-
-
 
 [Usage:](/docs/api-and-integration/octo.exe-command-line/import.md)
 
@@ -50,7 +46,6 @@ Before importing a project you have to ensure that the following exists on the O
 - Corresponding Lifecycles (including those linked to channels)
 :::
 
-
 The following options are required when importing a project.
 
 **project import options**
@@ -61,7 +56,6 @@ The following options are required when importing a project.
 
 ```
 
-
 Usage:
 
 ```powershell
@@ -69,7 +63,6 @@ octo import --server=http://octopusdeploy/api --apiKey=ABCDEF123456 --type=proje
 ```
 
 ### [Project Import Output when a prerequisite is missing](/docs/api-and-integration/octo.exe-command-line/import.md) {#Import-ProjectImportOutputwhenaprerequisiteismissing}
-
 
 During the import, Octo.exe will validate that any dependencies, such as feeds and library variable sets, already exist on the target server. If one of these can't be found, the import will not continue, as shown below:
 
@@ -123,16 +116,12 @@ Updating the Machines of the Variable Sets Scope Values
 Successfully imported project 'OctoFX Rate Service'
 ```
 
-
-
-
 ## Import a release, or range of releases {#Import-Importarelease,orrangeofreleases}
 
 :::hint
 **Prerequisites**
 Before importing a release, or range of releases, you have to ensure that the project exists on the Octopus Deploy server you are importing to
 :::
-
 
 The following options are required when importing a release, or a range of releases.
 
@@ -143,7 +132,6 @@ The following options are required when importing a release, or a range of relea
 --filePath			The full path and name of the export file
 --project			The name of the project to import the release to
 ```
-
 
 Usage:
 

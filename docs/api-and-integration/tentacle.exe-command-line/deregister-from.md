@@ -3,14 +3,12 @@ title: Deregister from
 
 ---
 
-
 Deregisters this machine from an Octopus Server
 
 **New certificate options**
 
 ```text
 Usage: Tentacle deregister-from [<options>]
- 
 
 Where [<options>] is any of:
       --instance=VALUE       Name of the instance to use

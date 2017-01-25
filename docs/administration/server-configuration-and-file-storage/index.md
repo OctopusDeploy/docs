@@ -3,13 +3,11 @@ title: Server configuration and File storage
 position: 11
 ---
 
-
 Occasionally it may be necessary to change the location at which Octopus stores its data (called the "Octopus Home" folder) as well as the Registry Key which defines the Octopus Server instance, you may also want to clean up the Octopus Home folder after migrating from 2.6 to 3.x. This page will explain what settings can be configured using the command-line on the Octopus Server and what folders can safely be removed from the Octopus Home folder after successfully migrating to 3.x.
 
 :::problem
 Make sure you have a **current backup** of your Octopus data before proceeding. You will also need your **Master Key** if you need to use the backup, so please copy that also!
 :::
-
 
 ## Server configuration {#ServerconfigurationandFilestorage-ConfigurationServerconfiguration}
 
@@ -20,7 +18,6 @@ If you need to re-configure your Octopus Server instance, you can do that using 
 ```powershell
 Octopus.Server configure [<options>]
 ```
-
 
 Where`[&lt;options&gt;]`is any of:
 
@@ -88,7 +85,6 @@ Or one of the options supported/provided by the server extensions.
 
 ## Server folders {#ServerconfigurationandFilestorage-Serverfolders}
 
-
 If you need to move other folders than the Octopus Home folder, you can do that using the command-line as described below
 
 **Usage**
@@ -96,7 +92,6 @@ If you need to move other folders than the Octopus Home folder, you can do that 
 ```powershell
 Octopus.Server path [<options>]
 ```
-
 
 Where `[&lt;options&gt;]` is any of:
 
@@ -118,7 +113,6 @@ Or one of the common options:
 
 ## File storage {#ServerconfigurationandFilestorage-FileStorageFilestorage}
 
-
 The Octopus server stores files in the following folders by default:
 
 - `C:\Octopus`
@@ -138,9 +132,7 @@ The Octopus server stores files in the following folders by default:
  - This is where all logs from deployments and other server tasks are stored.
  - See this [page](http://docs.octopusdeploy.com/display/OD/Moving+Octopus+Server+folders#MovingOctopusServerfolders-TaskLogs) on how to move the Octopus server task logs folder
 
-
 ## Clean up post-2.6 migration {#ServerconfigurationandFilestorage-CleanUpCleanuppost-2.6migration}
-
 
 In 2.6 Octopus server stored files in the following folders by default:
 
@@ -154,8 +146,6 @@ In 2.6 Octopus server stored files in the following folders by default:
 - `C:\Octopus\OctopusServer\Repository\Packages`
 - `C:\Octopus\PackageCache`
 - `C:\Octopus\RavenDB`
-
-
 
 Once a 2.6 server has been migrated to 3.x the following folder can safely be removed:
 

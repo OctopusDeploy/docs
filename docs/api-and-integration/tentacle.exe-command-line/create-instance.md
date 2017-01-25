@@ -3,14 +3,12 @@ title: Create instance
 
 ---
 
-
 Registers a new instance of the Tentacle service
 
 **Create instance options**
 
 ```text
 Usage: Tentacle create-instance [<options>]
-
 
 Where [<options>] is any of:
       --instance=VALUE       Name of the instance to create

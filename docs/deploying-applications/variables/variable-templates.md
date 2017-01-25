@@ -3,19 +3,15 @@ title: Variable templates
 position: 7
 ---
 
-
 This page describes how variable templates can be defined in Octopus to indicate which variable values are required to successfully deploy a project.
 
 :::hint
 Variable templates were introduced in Octopus 3.4 and are currently able to be used to require variable values from [tenants](/docs/key-concepts/tenants/index.md). You can see a worked example of this in our multi-tenant deployments guide: [Working with tenant-specific variables](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-tenant-specific-variables.md)
 :::
 
-
 Variable templates let you configure variables that are required to successfully deploy a project.
 
-
 ![](/docs/images/5669366/5865564.png)
-
 
 ![](/docs/images/5669366/5865563.png?effects=drop-shadow "width=500")
 
@@ -35,7 +31,6 @@ Variable templates let you configure variables that are required to successfully
 | Data type | 
 
 You can select one of several different data types. This controls the user interface provided to collect the variable value, and determines how the variable value is interpreted.
-
 
 Note the variable values will be stored and interpreted as text.
  | 
@@ -66,8 +61,6 @@ Good question! When you connect a tenant to a project, variable templates define
 
 1. Library variable templates will be collected once - they are considered to be constant for the tenant. Think of these like "custom fields" for your tenants.
 2. Project variable templates will be collected once for each project/environment combination the tenant is connected to. Think of these like database connection settings for the specific tenant/project/environment combination.
-
-
 
 By carefully designing your variable templates you can implement complex multi-tenant deployment scenarios.
 :::

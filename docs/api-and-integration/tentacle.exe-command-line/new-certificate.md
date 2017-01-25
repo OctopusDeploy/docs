@@ -3,14 +3,12 @@ title: New certificate
 
 ---
 
-
 Creates and installs a new certificate for this Tentacle
 
 **New certificate options**
 
 ```text
 Usage: Tentacle new-certificate [<options>]
- 
 
 Where [<options>] is any of:
       --instance=VALUE       Name of the instance to use

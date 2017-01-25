@@ -3,7 +3,6 @@ title: Credits
 position: 1
 ---
 
-
 Octopus Deploy 3.0 is made possible thanks to the following great third-party products.
 
 | Package | Authors and/or maintainers | Find it at... |
@@ -64,7 +63,6 @@ Rodney Rehm
  | [http://medialize.github.com/URI.js/](http://medialize.github.com/URI.js/) |
 | WiX Toolset | WiX Toolset Contributors | [http://wixtoolset.org/](http://wixtoolset.org/) |
 | SharpCompress | Adam Hathcock and contributors | [https://github.com/adamhathcock/sharpcompress](https://github.com/adamhathcock/sharpcompress) |
-
 
 Each project listed here is the property of its respective copyright owner.
 

@@ -3,13 +3,11 @@ title: Creating environments
 position: 0
 ---
 
-
 [Octo.exe](http://docs.octopusdeploy.com/pages/viewpage.action?pageId=360596) can be used to create environments on your Octopus instance.
 
 ```text
 octo create-environment [<options>]
 ```
-
 
 Where `[&lt;options&gt;]` is any of:
 
@@ -43,7 +41,6 @@ Common options:
 ```
 
 ### Basic example {#Creatingenvironments-Basicexample}
-
 
 The following command will create an environment called *UAT*
 

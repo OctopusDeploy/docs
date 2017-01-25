@@ -3,13 +3,11 @@ title: Package repositories
 position: 0
 ---
 
-
 When planning your Octopus installation, you will need to decide how to host your packages. Your continuous integration server should create your packages, and publish them to a package repository.
 
 :::hint
 **Supported package and repository types**
 The Octopus built-in repository [supports several different types of packages](/docs/packaging-applications/supported-packages.md). If you would like to use a package type other than NuGet (zip or tag.gz for example) you must use the Octopus built-in repository.
-
 
 If you would like to use an external repository, the only external repository type supported are [NuGet feeds](https://docs.nuget.org/create/hosting-your-own-nuget-feeds) (either HTTP or file-system based feeds). If you want to use an external repository, you must use NuGet packages.
 :::
@@ -23,7 +21,6 @@ Your package repository will typically be:
 - A [MyGet](http://www.myget.org/ "MyGet") server
 - A [VSTS Package Management](https://www.visualstudio.com/en-us/docs/package/overview) feed (see note below)
 
-
 :::success
 **Mix and match feeds**
 Octopus can consume packages from multiple feeds at once if necessary.
@@ -32,7 +29,6 @@ Octopus can consume packages from multiple feeds at once if necessary.
 :::warning
 **NuGet v3 feed support**
 Support for NuGet v3 external feeds was introduced in Octopus Deploy 3.4.
-
 
 Earlier releases of Octopus Deploy only support external NuGet v2 feeds:
 
@@ -53,18 +49,14 @@ If you are using VSTS Package Management, Octopus can consume either the v2 or v
 The Octopus built-in repository is generally the best choice for deployment packages because it offers better performance and most suitable [retention policies](/docs/administration/retention-policies/index.md).
 :::
 
-
 Our recommendation is to use different repositories for different purposes, and each repository provides different benefits. A typical example is where you produce your own application library packages in addition to your own deployment packages:
 
 - For application library packages consider using the repository provided by your build server, a [file-share](http://docs.nuget.org/docs/creating-packages/hosting-your-own-nuget-feeds#Creating_Local_Feeds), or something like [MyGet](http://www.myget.org/ "MyGet") or [VSTS Package Management](https://www.visualstudio.com/en-us/docs/package/overview).
 - For deployment packages consider using the Octopus built-in repository (see below).
 
-
-
 This configuration will make it easier to find the right packages for the right purpose, but the most important benefit of the built-in repository is that Octopus Deploy knows exactly which deployment packages are still required according to the [retention policies](/docs/administration/retention-policies/index.md) you have configured, and which packages can be cleaned up.
 
 ## Using the built-in repository {#Packagerepositories-Usingthebuilt-inrepository}
-
 
 Your Octopus server comes with a built-in repository which is the best choice for deployment packages. It offers **better performance** for your deployments and the most **robust [retention policy](/docs/administration/retention-policies/index.md)****support** for deployment packages.
 
@@ -75,9 +67,7 @@ It is important to understand that the Octopus server provides a write-only repo
 
 ### Pushing packages to the built-in repository {#Packagerepositories-Pushingpackagestothebuilt-inrepository}
 
-
 We offer several ways to add packages to the built-in repository, so many that we built a new page: [pushing packages to the built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md). Alternatively you can go to *Library > Packages* which describes some of the most convenient ways to push packages to the built-in repository.
-
 
 ![](/docs/images/3048094/3277775.png "width=500")
 
@@ -87,9 +77,7 @@ To push packages to the built-in repository you will need an [Octopus API key](
 
 ### Security considerations {#Packagerepositories-Securityconsiderations}
 
-
 To add a new package to the built-in feed requires the `BuiltInFeedPush` permission. To delete a package, or replace an existing package requires the `BuiltInFeedAdminister` permission.
-
 
 For your convenience Octopus Deploy provides a built-in role called **Package Publisher** that has been granted the `BuiltInFeedPush` permission.
 
@@ -105,7 +93,6 @@ If you are using [automatic release creation](/docs/deploying-applications/autom
 
 ### Moving the location of the built-in repository {#Packagerepositories-Movingthelocationofthebuilt-inrepository}
 
-
 In 3.0 you can now configure the directory that these packages are kept in. You will need to follow the steps below or you may lose some data.
 
 1. Stop your Octopus Server service
@@ -116,8 +103,6 @@ Octopus.Server.exe path --nugetRepository=your new location
 ```
 3. Move your files from the old path (default is:  C:\Octopus\Packages) to your new location
 4. Restart the Octopus Server service
-
-
 
 The restart of the service will re-index the directory. If it is missing files, they will then go missing from the internal repository and again from your releases. So be sure that all files are moved.
 
@@ -132,38 +117,28 @@ The only external repository type supported is NuGet. If you wish to use an exte
 **NuGet v3 feed support**
 Support for NuGet v3 external feeds was introduced in Octopus Deploy 3.4.
 
-
 Earlier releases of Octopus Deploy only support external NuGet v2 feeds:
 
 - If you are using a MyGet external feed, please use the [v2 API URL](http://docs.myget.org/docs/reference/feed-endpoints) or upgrade to Octopus 3.4 (or later)
 :::
 
-
 If you're using an external NuGet feed, you can register it with Octopus and use them as part of your deployments. Go to *Library > External feeds*.
-
 
 ![](/docs/images/3048094/3277774.png "width=500")
 
-
 You can add NuGet feeds by clicking the **Add feed** button.
-
 
 ![](/docs/images/3048094/3277773.png "width=500")
 
-
 In the URL field, enter the HTTP/HTTPS URL to the feed, or the file share or local directory path. Then click **Save and test**.
 
-
 On the test page, you can check whether the feed is working by searching for packages:
-
 
 ![](/docs/images/3048094/3277772.png "width=500")
 
 ## NuGet.Server performance {#Packagerepositories-NuGet.Serverperformance}
 
-
 A popular external NuGet hosting option is **NuGet.Server.**However, be aware that it suffers from performance problems when dealing with large packages or large numbers of smaller packages. Users may report high CPU usage, timeouts when displaying package details, or memory issues. A great alternative that we recommend is [NuGet.Lucene](https://github.com/themotleyfool/NuGet.Lucene).
-
 
 The built-in NuGet server in Octopus stores metadata in SQL Server, and doesn't suffer from these performance issues.
 

@@ -3,9 +3,7 @@ title: In place upgrade (install over 2.6)
 position: 0
 ---
 
-
 You can perform an in place upgrade of 3.x from 2.6, but you need to upgrade your Tentacles first.
-
 
 Due to the new communication method, you won't be able to communicate with your upgraded Tentacles until you upgrade your server. However, if you upgrade your server before all Tentacles are correctly updated, you will have to upgrade them manually, or roll your server back to 2.6 and try again.
 
@@ -19,9 +17,7 @@ Due to the new communication method, you won't be able to communicate with your 
 6. Verify the connectivity between the 3.x Octopus Server and the 3.x Tentacles
 7. **[Optional]** Clean up your Octopus Home folder, follow the instructions on this [page](http://docs.octopusdeploy.com/display/OD/Server+configuration+and+File+storage#ServerconfigurationandFilestorage-CleanUp)
 
-
 ## Step by step {#Inplaceupgrade(installover2.6)-Stepbystep}
-
 
 To perform an in-place upgrade, follow these steps carefully:
 
@@ -31,9 +27,7 @@ There is a current issue where it is not importing your license key. Please back
 
 ### 1. Back up your Octopus 2.6 database and master key {#Inplaceupgrade(installover2.6)-1.BackupyourOctopus2.6databaseandmasterkey}
 
-
 See the [Backup and restore](http://docs.octopusdeploy.com/display/OD2/Backup+and+restore)[ page for instructions on backing up your database.](http://docs.octopusdeploy.com/display/OD2/Backup+and+restore)
-
 
 See the [Security and encryption](http://docs.octopusdeploy.com/display/OD2/Security+and+encryption) page for instructions on backing up your master key.
 
@@ -43,9 +37,7 @@ See the [Security and encryption](http://docs.octopusdeploy.com/display/OD2/Sec
 This is the point of no return. When your Tentacles are upgraded to 3.x your 2.6 server will not be able to communicate with them
 :::
 
-
 Hydra is a tool we've built that will help you update your Tentacles to the latest version. It is particularly useful migrating from 2.6 to 3.x as the communication methods have changed. Hydra is in two parts. A package that contains the latest Tentacle MSI installers, and a step template that does the upgrade to your environments. To account for issues with communicating with a Tentacle that has been 'cut off' from its Octopus Server, the Hydra process connects to the Tentacle and creates a scheduled task on the Tentacle Machine. If it is able to schedule the task it considers that install a success. The task runs one minute later.
-
 
 The task itself does the following:
 1. Find Tentacle services
@@ -53,7 +45,6 @@ The task itself does the following:
 3. Run MSI
 4. Update configs for any polling Tentacles
 5. Starts any Tentacles that were running when we started
-
 
 With just one Tentacle service this should be a very quick process, but we cannot estimate how long it make take with many Tentacle services running on the one machine.
 
@@ -64,17 +55,12 @@ The scheduled task is set to run as SYSTEM to ensure the MSI installation will s
 :::problem
 Hydra performs a Reinstall of each Tentacle. As part of the reinstall, the Service Account is reset to Local System. If you need your Tentacles to run under a different account, you will have to make the change after the upgrade completes (after you've re-established a connection from 3.x).
 
-
 You can do this manually, or using the following script:
 
 ```powershell
 Tentacle.exe service --instance "Tentacle" --reconfigure --username=DOMAIN\ACCOUNT --password=accountpassword --start --console
 ```
 :::
-
-
-
-
 
 To use Hydra, follow these steps:
 
@@ -86,7 +72,6 @@ To use Hydra, follow these steps:
 ![](/docs/images/3048135/3278018.png "width=500")
 4. Create a [new project](/docs/key-concepts/projects/index.md) with a single "Update Octopus Tentacle" step from the step template
 
-
  1. Ensure you choose or create a [Lifecycle ](/docs/key-concepts/lifecycles.md)that allows you to deploy to all Tentacles.
  2. Ensure you set the Update Octopus Tentacle step to run for all appropriate Tentacles.
  3. If you are using any polling Tentacles and your 3.x server will have a new address or polling port, you'll need to add the new Octopus 3.x server address (including the polling port) in the Server Mapping field. If the URL and port will stay the same, there's no need to set this value.
@@ -96,7 +81,6 @@ If you have more than one polling Tentacle and each points to a different Octopu
 Where each pair is separated by commas. This will match the first case and replace it => with the second case.
         Click the ![](/docs/images/3048132/3278017.png) help button for more detailed instructions.
 
-    
 ![](/docs/images/3048132/3278014.png "width=500")    ![](/docs/images/3048132/3278015.png "width=500")
 5. Create a release and deploy. The deployment should succeed, and one minute later the Tentacles will be upgraded.
 
@@ -106,21 +90,15 @@ Once you're confident the upgrade works as expected, you can deploy to all remai
 :::
     ![](/docs/images/3048132/3278010.png "width=500")
 
-
 ### 3. Verify the upgrade has worked {#Inplaceupgrade(installover2.6)-3.Verifytheupgradehasworked}
-
 
 When the Hydra task runs on a Tentacle machine, it should no longer be able to communicate with the Octopus 2.6 server. You can verify this by navigating to the Environments page and clicking **Check Health**.
 
-
 ![](/docs/images/3048132/3278012.png "width=500")
-
 
 After successfully updating your Tentacles, you should see this check fail from your 2.6 server.
 
-
 ![](/docs/images/3048132/3278011.png "width=500")
-
 
 We recommend connecting to some of your Tentacle machines and examining the Octopus Tentacle binaries to ensure they have been upgraded. You should also ensure the service is running (even though it will not be able to communicate with the server).
 
@@ -135,42 +113,31 @@ If you have multiple Tentacles running on the same server, an update to one will
 When upgrading to Octopus 3.x please use the latest version available. We have been constantly improving the 2.6 to 3.x data migration process whilst adding new features and fixing bugs.
 :::
 
-
 See the [Installing Octopus 3.x](/docs/installation/installing-octopus/index.md) page for instructions on installing a new Octopus 3.x instance.
-
 
 After installing the MSI, you will be presented with an upgrade page.
 
-
 ![](/docs/images/3048132/3278008.png "width=500")
-
 
 Click "Get started..." and set up your database connection. You may need to grant permission to the NT AUTHORITY\SYSTEM account at this stage.
 
-
 ![](/docs/images/3048132/3278007.png "width=500")
 
-
 Click Next, and then Install to install the Octopus 3.x server over the 2.6 instance.
-
 
 ![](/docs/images/3048132/3278006.png "width=500")
 
 ### 5. Restore the Octopus 2.6 database using the migration tool {#Inplaceupgrade(installover2.6)-5.RestoretheOctopus2.6databaseusingthemigrationtool}
 
-
 After upgrading, the Octopus Manager will prompt to import your Octopus 2.6 database. Click the "Import data..." button and follow the prompts to import your 2.6 data.
 
-
 ![](/docs/images/3048132/3278005.png "width=500")
-
 
 See the [Migrating data from Octopus 2.6 to 3.x](/docs/administration/upgrading/upgrading-from-octopus-2.6/migrating-data-from-octopus-2.6-to-3.x.md) page for more detailed instructions on importing your Octopus 2.6 database backup into Octopus 3.x.
 
 :::hint
 **Migration taking a long time?**
 By default we migrate everything from your backup including historical data. You can use the `maxage=` argument when executing the migrator to limit the number of days to keep. For example: `maxage=90` will keep 90 days of historical data ignoring anything older.
-
 
 To see the command syntax click the **Show script** link in the wizard
 :::
@@ -184,11 +151,8 @@ You will need to transfer them to the new server to `C:\Octopus\Packages`Once t
 
 ### 6. Verify connectivity between the 3.x server and 3.x Tentacles {#Inplaceupgrade(installover2.6)-6.Verifyconnectivitybetweenthe3.xserverand3.xTentacles}
 
-
 Log in to your new Octopus 3.x server and run health checks on all of your environments. If the upgrade completed successfully, they should succeed.
 
-
 ![](/docs/images/3048132/3278009.png "width=500")
-
 
 If one or more health checks do not succeed after a few attempts, see the Troubleshooting section to identify possible issues.

@@ -3,14 +3,11 @@ title: Sensitive variables
 position: 4
 ---
 
-
 Most applications require some kind of configuration values that are considered as sensitive information that should be kept secret, but used as clear-text during deployment. Think of something like a password or API Key to an external resource. Octopus provides support for this scenario with Sensitive Variables.
 
 ## Configuring sensitive variables {#Sensitivevariables-Configuringsensitivevariables}
 
-
 Variables such as passwords or API keys can be marked as being **sensitive**.
-
 
 ![](/docs/images/3048089/3277722.png "width=500")
 
@@ -20,12 +17,10 @@ Variables such as passwords or API keys can be marked as being **sensitive**.
 Learn more about [security and encryption](/docs/reference/security-and-encryption.md) in Octopus Deploy.
 :::
 
-
 When dealing with sensitive variables, Octopus will encrypt these values using **AES128 encryption**any time they are in transmission, or "at rest" like when they are stored in the Octopus database or staged on a deployment target as part of a deployment. You can use these sensitive values in your deployment process just like normal [variables](/docs/deploying-applications/variables/index.md), with two notable exceptions:
 
 - Once the variable is saved, Octopus will **never allow you to retrieve the value** via the [REST API](/docs/api-and-integration/octopus-rest-api.md) or the Octopus web portal; and
 - Whenever possible, Octopus will **mask these sensitive values in logs**.
-
 
 :::success
 **Use a password manager or key vault**
@@ -33,7 +28,6 @@ If you need to retrieve these values for other purposes, consider using a passwo
 :::
 
 ## Avoiding common mistakes {#Sensitivevariables-Avoidingcommonmistakes}
-
 
 Here are some common pitfalls to avoid:
 
@@ -43,13 +37,11 @@ Here are some common pitfalls to avoid:
 - **Avoid sequences that are interpreted by your scripting language of choice**: For example, certain escape sequences like `$^` will be misinterpreted by PowerShell potentially logging out your sensitive variable in clear-text.
 - **Octopus is not a 2-way key vault**: use a password manager or key vault like [KeePass](http://keepass.info/).
 
-
 ## Logging {#Sensitivevariables-LoggingLogging}
 
 :::success
 Try to avoid logging sensitive values! Whilst Octopus will attempt to mask sensitive values, it is better there is no value to mask in the first place!
 :::
-
 
 Octopus/Tentacle will do its best to prevent sensitive values from inadvertently appearing in any logs. For example, if a custom PowerShell script accidentally did this:
 
@@ -57,13 +49,11 @@ Octopus/Tentacle will do its best to prevent sensitive values from inadvertently
 Write-Output "Hello, the password is $Password"
 ```
 
-
 Octopus would mask the value from the deployment log, leaving:
 
 ```text
 Hello, the password is *****
 ```
-
 
 Note that this method isn't 100% foolproof. If your top secret password is "broke", and someone happened to deploy with a PowerShell script with:
 
@@ -71,12 +61,10 @@ Note that this method isn't 100% foolproof. If your top secret password is "brok
 Write-Output "Or watch the things you gave your life to, broken"
 ```
 
-
 Then the password might be given away when Octopus prints:
 
 ```powershell
 Or watch the things you gave your life to, *******en
 ```
-
 
 The obvious solution is: don't use passwords that are likely to be occur in normal logging/language, and avoid writing the values of your secure variables to logs anyway.

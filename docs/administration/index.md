@@ -3,9 +3,7 @@ title: Administration
 position: 9
 ---
 
-
 This section provides information that is important for managing your Octopus Deploy server.
-
 
 - [Auditing](/docs/administration/auditing.md)
 - [Backup and restore](/docs/administration/backup-and-restore.md)

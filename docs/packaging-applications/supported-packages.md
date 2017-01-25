@@ -3,11 +3,9 @@ title: Supported Packages
 position: 1
 ---
 
-
 :::hint
 Zip and tar support was added in Octopus Deploy 3.3. Docker image support was added in Octopus Deploy 3.5.
 :::
-
 
 The package types supported by Octopus Deploy are:
 
@@ -34,29 +32,18 @@ Octopus Deploy uses the file extension to determine the correct extraction algor
 
 ## Package Metadata {#SupportedPackages-PackageMetadata}
 
-
 The only required pieces of information Octopus Deploy **requires** for a package are an ID, Version and Format. Other metadata like release notes or descriptions are optional.
 
 - NuGet packages: NuGet packages support embedding metadata within the contents of the package. We use this metadata to determine the version of the package.
 - All other packages: In all other cases we have to parse the file name itself and extract the ID, Version and Format.
 
-
-
 The expected package convention is therefore:
-
 
 > `&lt;id&gt;.&lt;version&gt;.&lt;extension&gt;`
 
-
-
 So for example the package name for version *2.3* of you project *Sample.Web*, archived with tar & gzip should be named
 
-
 > `Sample.Web.2.3.tar.gz`
-
-
-
-
 
 :::success
 **Avoid putting numbers into your Package ID**

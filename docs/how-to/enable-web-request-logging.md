@@ -3,19 +3,15 @@ title: Enable web request logging
 position: 16
 ---
 
-
 :::hint
 This feature was added in Octopus 3.0.12.
 :::
-
 
 Octopus can be configured to log HTTP requests to text files, which can be very useful for analyzing usage patterns and detecting performance problems. By default, web request logging is **turned off**. This page explains how to turn the feature on, as well as the format of the logs.
 
 ## Log file format and retention {#Enablewebrequestlogging-Logfileformatandretention}
 
-
 Octopus web request logging uses the [W3C extended log file format](http://www.loganalyzer.net/log-analyzer/w3c-extended.html), the same format that IIS uses. This means that tools which normally work with IIS logs should also be able to work with Octopus logs.
-
 
 The fields that Octopus logs for each request cannot currently be changed. It will log the URL path, the username of the user making the request, the status code, and the time the request took, which should cover most usage scenarios. Here is an example log file:
 
@@ -29,11 +25,9 @@ The fields that Octopus logs for each request cannot currently be changed. It wi
 2015-08-10	00:25:23	GET	/api/users/me	8065	admin	::1	200	67
 ```
 
-
 Octopus writes to a new log file each day, and keeps up to 7 files. Older logs are automatically deleted.
 
 ## Configuring web request logging {#Enablewebrequestlogging-Configuringwebrequestlogging}
-
 
 Web request logging can be enabled or disabled from the command line, using **Octopus.Server.exe**. A restart of the Octopus server is required for the setting to take effect.
 
@@ -44,7 +38,6 @@ Octopus.Server.exe service --stop --start
 
 ## Using the logs {#Enablewebrequestlogging-Usingthelogs}
 
-
 Since Octopus uses the same log file format that IIS uses, tools that work with IIS logs will also work with Octopus web request logs, including:
 
 - [Log Parser](https://www.microsoft.com/en-au/download/details.aspx?id=24659) and [Log Parser Studio](https://gallery.technet.microsoft.com/office/Log-Parser-Studio-cd458765)
@@ -53,10 +46,7 @@ Since Octopus uses the same log file format that IIS uses, tools that work with 
 - [AWStats](http://www.awstats.org/)
 - [WebLogExpert](http://www.weblogexpert.com/info/IISLogs.htm)
 
-
-
 Different tools have different uses - WebLogExpert and AWStats can be used to build friendly HTML reports of usage which you can explore. Tools like Splunk can be used to monitor the logs in real time, look for outliers, and configure alerts.
-
 
 For exploratory analysis of the logs to look for performance issues or trends, the simplest way to consume the log files is with the free [Log Parser Studio](https://gallery.technet.microsoft.com/office/Log-Parser-Studio-cd458765) from Microsoft. It builds on top of the command-line LogParser tool, and lets you perform SQL-like queries over the log data.
 

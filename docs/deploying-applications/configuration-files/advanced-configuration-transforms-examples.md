@@ -3,9 +3,7 @@ title: Advanced Configuration Transforms Examples
 
 ---
 
-
 Configuration transforms can sometimes be complicated to setup. As a general rule, its best to have both configuration file and transform file in the same directory, however, this is not always achievable.
-
 
 This page lists the supported scenarios and the transform definitions required to apply the transform.
 
@@ -13,40 +11,26 @@ This page lists the supported scenarios and the transform definitions required t
 
 | 
 
-
-
  | Target |
 | --- | --- |
 | Absolute Path | Relative Path | Filename | 
 
 Wildcard Prefixed
 
-
 Absolute Path
  | 
 
 Wildcard Prefixed
-
 
 Relative Path
  | 
 
 Wildcard Prefixed
 
-
 Filename
  |
 | --- | --- | --- | --- | --- | --- |
 | 
-
-
-
-
-
-
-
-
-
 
 Transform
  | Absolute Path | *not supported* | *not supported* | [example](/docs/deploying-applications/configuration-files/advanced-configuration-transforms-examples.md) | *not supported* | [example](/docs/deploying-applications/configuration-files/advanced-configuration-transforms-examples.md) | [example](/docs/deploying-applications/configuration-files/advanced-configuration-transforms-examples.md) |
@@ -75,7 +59,6 @@ To enable detailed logging of the process that searches for config transformatio
 ### 
 Transform and target are in the same directory {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-TransformandtargetareinthesamedirectoryTransformandtargetareinthesamedirectory}
 
-
 Given a package which has the structure:
 
 ```powershell
@@ -84,14 +67,11 @@ Acme.Core.1.0.0.nupkg
 └─web.mytransform.config
 ```
 
-
 Then the transform **web.mytransform.config => web.config** will:
-
 
 - Apply the transform **web.mytransform.config** to file **web.config**
 
 ### Applying a transform against a target in a different folder {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-ApplyingatransformagainstatargetinadifferentfolderApplyingatransformagainstatargetinadifferentfolder}
-
 
 Given a package which has the structure:
 
@@ -102,14 +82,11 @@ Acme.Core.1.0.0.nupkg
 └─web.mytransform.config
 ```
 
-
 Then the transform **web.mytransform.config => config\web.config** will:
-
 
 - Apply the transform **web.mytransform.config** to file **config\web.config**
 
 ### Transform and multiple targets are in the same directory {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-TransformandmultipletargetsareinthesamedirectoryTransformandmultipletargetsareinthesamedirectory}
-
 
 Given a package which has the structure:
 
@@ -120,17 +97,13 @@ Acme.Core.1.0.0.nupkg
 └─web.config
 ```
 
-
 Then the transform **connstrings.mytransform.config => \*.config** will:
 
-
 - Apply the transform **connstrings.mytransform.config** to file **web.config**
-
 
 - Apply the transform **connstrings.mytransform.config** to file **app.config**
 
 ### Applying a transform against multiple targets in a different directory {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-ApplyingatransformagainstmultipletargetsinadifferentdirectoryApplyingatransformagainstmultipletargetsinadifferentdirectory}
-
 
 Given a package which has the structure:
 
@@ -142,17 +115,13 @@ Acme.Core.1.0.0.nupkg
 └─connstrings.mytransform.config
 ```
 
-
 Then the transform **connstrings.mytransform.config => config\\*.config** will:
 
-
 - Apply the transform **connstrings.mytransform.config** to file **config\web.config**
-
 
 - Apply the transform **connstrings.mytransform.config** to file **config\app.config**
 
 ### Using an absolute path to the transform {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-UsinganabsolutepathtothetransformUsinganabsolutepathtothetransform}
-
 
 Given a package which has the structure:
 
@@ -160,7 +129,6 @@ Given a package which has the structure:
 Acme.Core.1.0.0.nupkg
 └─web.config
 ```
-
 
 And the following files exist:
 
@@ -170,14 +138,11 @@ c:\
   └─web.mytransform.config
 ```
 
-
 Then the transform **c:\transforms\web.mytransform.config** => **web.config** will:
-
 
 - Apply the transform **c:\transforms\web.mytransform.config** to file **web.config**
 
 ### Applying a transform with an absolute path against multiple files in a different directory {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-ApplyingatransformwithanabsolutepathagainstmultiplefilesinadifferentdirectoryApplyingatransformwithanabsolutepathagainstmultiplefilesinadifferentdirectory}
-
 
 Given a package which has the structure:
 
@@ -188,7 +153,6 @@ Acme.Core.1.0.0.nupkg
   └─web.config
 ```
 
-
 And the following files exist:
 
 ```powershell
@@ -197,17 +161,13 @@ c:\
   └─connstrings.mytransform.config
 ```
 
-
 Then the transform **c:\transforms\connstrings.mytransform.config => config\\*.config** will:
 
-
 - Apply the transform **c:\transforms\connstrings.mytransform.config** to file **config\web.config**
-
 
 - Apply the transform **c:\transforms\connstrings.mytransform.config** to file **config\app.config**
 
 ### Using an absolute path to the transform, and applying it against multiple files {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Usinganabsolutepathtothetransform,andapplyingitagainstmultiplefilesUsinganabsolutepathtothetransform,andapplyingitagainstmultiplefiles}
-
 
 Given a package which has the structure:
 
@@ -217,7 +177,6 @@ Acme.Core.1.0.0.nupkg
 └─web.config
 ```
 
-
 And the following files exist:
 
 ```powershell
@@ -226,17 +185,13 @@ c:\
   └─connstrings.mytransform.config
 ```
 
-
 Then the transform **c:\transforms\connstrings.mytransform.config => \*.config** will:
 
-
 - Apply the transform **c:\transforms\connstrings.mytransform.config** to file **web.config**
-
 
 - Apply the transform **c:\transforms\connstrings.mytransform.config** to file **app.config**
 
 ### Applying a transform from a different directory {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-ApplyingatransformfromadifferentdirectoryApplyingatransformfromadifferentdirectory}
-
 
 Given a package which has the structure:
 
@@ -247,14 +202,11 @@ Acme.Core.1.0.0.nupkg
 └─web.config
 ```
 
-
 Then the transform **transforms\web.mytransform.config => web.config** will:
-
 
 - Apply the transform **transforms\web.mytransform.config** to file **web.config**
 
 ### Applying a transform to a target in a sibling directory {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-ApplyingatransformtoatargetinasiblingdirectoryApplyingatransformtoatargetinasiblingdirectory}
-
 
 Given a package which has the structure:
 
@@ -266,14 +218,11 @@ Acme.Core.1.0.0.nupkg
   └─web.mytransform.config
 ```
 
-
 Then the transform **transforms\web.mytransform.config => config\web.config** will:
-
 
 - Apply the transform **transforms\web.mytransform.config** to file **config\web.config**
 
 ### Applying a transform from a different directory against multiple files {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-ApplyingatransformfromadifferentdirectoryagainstmultiplefilesApplyingatransformfromadifferentdirectoryagainstmultiplefiles}
-
 
 Given a package which has the structure:
 
@@ -285,17 +234,13 @@ Acme.Core.1.0.0.nupkg
 └─web.config
 ```
 
-
 Then the transform **transforms\connstrings.mytransform.config => \*.config** will:
 
-
 - Apply the transform **transforms\connstrings.mytransform.config** to file **web.config**
-
 
 - Apply the transform **transforms\connstrings.mytransform.config** to file **app.config**
 
 ### Applying a transform to multiple targets in a sibling directory {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-ApplyingatransformtomultipletargetsinasiblingdirectoryApplyingatransformtomultipletargetsinasiblingdirectory}
-
 
 Given a package which has the structure:
 
@@ -308,17 +253,13 @@ Acme.Core.1.0.0.nupkg
   └─connstrings.mytransform.config
 ```
 
-
 Then the transform **transforms\connstrings.mytransform.config => config\\*.config** will:
 
-
 - Apply the transform **transforms\connstrings.mytransform.config** to file **config\web.config**
-
 
 - Apply the transform **transforms\connstrings.mytransform.config** to file **config\app.config**
 
 ### Applying multiple transforms to a single target where both are in the same directory {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-ApplyingmultipletransformstoasingletargetwherebothareinthesamedirectoryApplyingmultipletransformstoasingletargetwherebothareinthesamedirectory}
-
 
 Given a package which has the structure:
 
@@ -329,22 +270,15 @@ Acme.Core.1.0.0.nupkg
 └─web.config
 ```
 
-
 Then the transform **\*.mytransform.config => web.config** will:
 
-
 - Apply the transform **security.mytransform.config** to file **web.config**
-
 
 - Apply the transform **connstrings.mytransform.config** to file **web.config**
 
 ### Wildcard transform with wildcard in the middle of the filename to a single target where both are in the same directory {#AdvancedConfigurationTransformsExamples-Wildcardtransformwithwildcardinthemiddleofthefilenametoasingletargetwherebothareinthesamedirectory}
 
-
 Given a package which has the structure:
-
-
-
 
 ```powershell
 Acme.Core.1.0.0.nupkg
@@ -353,20 +287,11 @@ Acme.Core.1.0.0.nupkg
 └─MyApp.WinSvc.exe.config
 ```
 
-
-
-
-
 Then the transform **MyApp.\*.octopus.config => MyApp.WinSvc.exe.config** will:
-
 
 - Apply the transform **MyApp.connstrings.octopus.config** to file **MyApp.WinSvc.exe.config**
 
-
-
-
 ### Applying multiple transforms to a single target in a different directory {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-ApplyingmultipletransformstoasingletargetinadifferentdirectoryApplyingmultipletransformstoasingletargetinadifferentdirectory}
-
 
 Given a package which has the structure:
 
@@ -378,17 +303,13 @@ Acme.Core.1.0.0.nupkg
 └─security.mytransform.config
 ```
 
-
 Then the transform **\*.mytransform.config => config\web.config** will:
 
-
 - Apply the transform **security.mytransform.config** to file **config\web.config**
-
 
 - Apply the transform **connstrings.mytransform.config** to file **config\web.config**
 
 ### Applying multiple transforms against multiple targets {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-ApplyingmultipletransformsagainstmultipletargetsApplyingmultipletransformsagainstmultipletargets}
-
 
 Given a package which has the structure:
 
@@ -400,17 +321,13 @@ Acme.Core.1.0.0.nupkg
 └─web.mytransform.config
 ```
 
-
 Then the transform **\*.mytransform.config => \*.config** will:
 
-
 - Apply the transform **web.mytransform.config** to file **web.config**
-
 
 - Apply the transform **app.mytransform.config** to file **app.config**
 
 ### Applying multiple transforms against multiple targets in a different directory {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-ApplyingmultipletransformsagainstmultipletargetsinadifferentdirectoryApplyingmultipletransformsagainstmultipletargetsinadifferentdirectory}
-
 
 Given a package which has the structure:
 
@@ -424,17 +341,13 @@ Acme.Core.1.0.0.nupkg
 
 ```
 
-
 Then the transform **\*.mytransform.config => config\\*.config** will:
 
-
 - Apply the transform **web.mytransform.config** to file **config\web.config**
-
 
 - Apply the transform **app.mytransform.config** to file **config\app.config**
 
 ### Applying multiple absolute path transforms to the same target file {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-ApplyingmultipleabsolutepathtransformstothesametargetfileApplyingmultipleabsolutepathtransformstothesametargetfile}
-
 
 Given a package which has the structure:
 
@@ -442,7 +355,6 @@ Given a package which has the structure:
 Acme.Core.1.0.0.nupkg
 └─web.config
 ```
-
 
 And the following files exist:
 
@@ -453,17 +365,13 @@ c:\
   └─security.mytransform.config
 ```
 
-
 Then the transform **c:\transforms\\*.mytransform.config** => **web.config** will:
 
-
 - Apply the transform **c:\transforms\connstrings.mytransform.config** to file **web.config**
-
 
 - Apply the transform **c:\transforms\security.mytransform.config** to file **web.config**
 
 ### Using an absolute path wildcard transform and multiple targets {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-UsinganabsolutepathwildcardtransformandmultipletargetsUsinganabsolutepathwildcardtransformandmultipletargets}
-
 
 Given a package which has the structure:
 
@@ -472,7 +380,6 @@ Acme.Core.1.0.0.nupkg
 ├─web.config
 └─web.config
 ```
-
 
 And the following files exist:
 
@@ -483,17 +390,13 @@ c:\
   └─web.mytransform.config
 ```
 
-
 Then the transform **c:\transforms\\*.mytransform.config => \*.config** will:
 
-
 - Apply the transform**c:\transforms\web.mytransform.config** to file **web.config**
-
 
 - Apply the transform **c:\transforms\app.mytransform.config** to file **app.config**
 
 ### Using an absolute path for multiple transforms against multiple relative files {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-UsinganabsolutepathformultipletransformsagainstmultiplerelativefilesUsinganabsolutepathformultipletransformsagainstmultiplerelativefiles}
-
 
 Given a package which has the structure:
 
@@ -504,7 +407,6 @@ Acme.Core.1.0.0.nupkg
   └─web.config
 ```
 
-
 And the following files exist:
 
 ```powershell
@@ -514,17 +416,13 @@ c:\
   └─web.mytransform.config
 ```
 
-
 Then the transform **c:\transforms\\*.mytransform.config** => **config\\*.config** will:
 
-
 - Apply the transform **c:\transforms\web.mytransform.config** to file **config\web.config**
-
 
 - Apply the transform **c:\transforms\app.mytransform.config** to file **config\app.config**
 
 ### Applying multiple relative transforms against a specific target {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-ApplyingamultiplerelativetransformsagainstaspecifictargetApplyingmultiplerelativetransformsagainstaspecifictarget}
-
 
 Given a package which has the structure:
 
@@ -536,17 +434,13 @@ Acme.Core.1.0.0.nupkg
 └─web.config
 ```
 
-
 Then the transform **transforms\\*.mytransform.config => web.config** will:
 
-
 - Apply the transform **transforms\connstrings.mytransform.config** to file **web.config**
-
 
 - Apply the transform **transforms\security.mytransform.config** to file **web.config**
 
 ### Applying multiple transforms in a different directory to a single target in a different directory {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-ApplyingmultipletransformsinadifferentdirectorytoasingletargetinadifferentdirectoryApplyingmultipletransformsinadifferentdirectorytoasingletargetinadifferentdirectory}
-
 
 Given a package which has the structure:
 
@@ -559,20 +453,15 @@ Acme.Core.1.0.0.nupkg
   └─security.mytransform.config
 ```
 
-
 Then the transform **transforms\\*.mytransform.config => config\web.config** will:
 
-
 - Apply the transform **transforms\connstrings.mytransform.config** to file **config\web.config**
-
 
 - Apply the transform **transforms\security.mytransform.config** to file **config\web.config**
 
 ### Applying transforms from a different directory to multiple targets {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-ApplyingtransformsfromadifferentdirectorytomultipletargetsApplyingtransformsfromadifferentdirectorytomultipletargets}
 
-
 Given a package which has the structure:
-
 
 Acme.Core.1.0.0.nupkg
 
@@ -584,17 +473,13 @@ Acme.Core.1.0.0.nupkg
 └─web.config
 ```
 
-
 Then the transform **transforms\\*.mytransform.config => \*.config** will:
 
-
 - Apply the transform **transforms\web.mytransform.config** to file **web.config**
-
 
 - Apply the transform **transforms\app.mytransform.config** to file **app.config**
 
 ### Applying transforms from a different directory to targets in a different directory {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-ApplyingtransformsfromadifferentdirectorytotargetsinadifferentdirectoryApplyingtransformsfromadifferentdirectorytotargetsinadifferentdirectory}
-
 
 Given a package which has the structure:
 
@@ -608,11 +493,8 @@ Acme.Core.1.0.0.nupkg
   └─web.mytransform.config
 ```
 
-
 Then the transform **transforms\\*.mytransform.config => config\\*.config** will:
 
-
 - Apply the transform **transforms\web.mytransform.config** to file **config\web.config**
-
 
 - Apply the transform **transforms\app.mytransform.config** to file **config\app.config**

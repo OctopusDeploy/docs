@@ -3,9 +3,7 @@ title: Export
 position: 5
 ---
 
-
 This command allows you to export items from one Octopus Deploy server and import them into another Octopus Deploy server.
-
 
 - Exporting a project
  - Project Export Output
@@ -14,13 +12,10 @@ This command allows you to export items from one Octopus Deploy server and impor
  - Release Export Output
  - Release Export File Format
 
-
 We currently support exporting/importing:
 
 - Projects
 - Releases
-
-
 
 Usage:
 
@@ -49,7 +44,6 @@ Where [<options>] is any of:
 
 ## Exporting a project {#Export-Exportingaproject}
 
-
 The following options are required when exporting a project.
 
 **project export options**
@@ -60,7 +54,6 @@ The following options are required when exporting a project.
 --name				Name of the project to export
 
 ```
-
 
 Usage:
 
@@ -144,7 +137,6 @@ When the project variables contain values marked 'sensitive', their values will 
 
 ## Exporting a release, or range of releases {#Export-Exportingarelease,orrangeofreleases}
 
-
 The following options are required when exporting releases.
 
 **release export options**
@@ -156,13 +148,11 @@ The following options are required when exporting releases.
 --releaseVersion	The release number, or range of release numbers to export
 ```
 
-
 Usage for a release:
 
 ```powershell
 octo export --server=http://octopusdeploy/api --apiKey=ABCDEF123456 --type=release --project=ProjectName --releaseVersion=1.0.0 --filePath=C:\path\to\export\file.json
 ```
-
 
 Usage for a range of releases:
 

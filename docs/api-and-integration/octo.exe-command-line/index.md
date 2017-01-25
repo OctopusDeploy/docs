@@ -3,14 +3,11 @@ title: Octo.exe Command Line
 position: 6
 ---
 
-
 **Octo.exe** is a command line tool that builds on top of the [Octopus Deploy HTTP API](/docs/api-and-integration/octopus-rest-api.md).
-
 
 The latest version of Octo.exe can always be downloaded from the [Octopus downloads page](https://octopus.com/downloads) or [installed via Chocolatey](http://chocolatey.org/packages/OctopusTools).
 
 ## Commands {#Octo.exeCommandLine-Commands}
-
 
 Octo.exe supports the following commands:
 
@@ -32,12 +29,7 @@ Octo.exe supports the following commands:
 - **`pack`**: [Learn More](/docs/packaging-applications/nuget-packages/using-octo.exe.md) Creates a NUPKG from files on disk, without needing a .nuspec
 - `push`: [Learn more](/docs/api-and-integration/octo.exe-command-line/pushing-packages.md): Pushes a package to the Octopus built-in repository
 
-
-
-
-
 ## General usage {#Octo.exeCommandLine-Generalusage}
-
 
 All commands take the form of:
 
@@ -45,20 +37,17 @@ All commands take the form of:
 octo <command> [<options>]
 ```
 
-
 You can see a list of commands using:
 
 ```powershell
 octo help
 ```
 
-
 And you can get help for a specific command using:
 
 ```powershell
 octo help <command>
 ```
-
 
 Arguments are not case sensitive and can take the following forms:
 
@@ -68,7 +57,6 @@ Arguments are not case sensitive and can take the following forms:
 --project "OctoFX Web Site"     # Argument values with spaces need to be quoted
 "--project=OctoFX Web Site"     # If using equals, quote both the name and value, not just the value
 ```
-
 
 All commands require you to pass the URL of the Octopus Server's API endpoint, and an API key which is used to authenticate you.
 

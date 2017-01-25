@@ -3,7 +3,6 @@ title: Debug problems with Octopus variables
 position: 1
 ---
 
-
 Sometimes a variable used during deployment may have a different value from the one you expect. Here are the first steps to debugging these issues.
 
 ## Check the Variable Snapshot for the Release {#DebugproblemswithOctopusvariables-ChecktheVariableSnapshotfortheRelease}
@@ -14,8 +13,6 @@ Sometimes a variable used during deployment may have a different value from the 
  1. Update the Variable, and then
  2. Click the **Update variables** button - beware this will update **all** variables in the Snapshot to the latest values.
 
-
-
 ![](/docs/images/3048145/3278466.png)
 
 ## Check the variable value in the All Variables tab {#DebugproblemswithOctopusvariables-CheckthevariablevalueintheAllVariablestab}
@@ -24,13 +21,11 @@ Sometimes a variable used during deployment may have a different value from the 
 2. Investigate the variables from all possible sources for the project including the project itself, [library variable sets](/docs/deploying-applications/variables/library-variable-sets.md), and [tenants](/docs/key-concepts/tenants/index.md).
 ![](/docs/images/3048145/5865680.png "width=500")
 
-
 :::success
 Did you know you can sort and filter all of the variables grids? Click the column heading to sort, or the filter icon to filter the variable grid.
 :::
 
 ## Write the variables to the deployment log {#DebugproblemswithOctopusvariables-Writethevariablestothedeploymentlog}
-
 
 This will log the variables available at the beginning of each step in the deployment as Verbose messages.
 
@@ -47,7 +42,6 @@ This will log the variables available at the beginning of each step in the deplo
 4. Deploy the new release
 5. Enable **Verbose** output on the **Task log**page
 6. Expand the element corresponding to the Tentacle on which the problem is observed. Two sets of variables will be printed, first, the raw definitions before any substitutions have been performed, then the result of evaluating all variables for deployment.
-
 
 :::warning
 **For debugging only**

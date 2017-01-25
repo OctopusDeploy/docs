@@ -3,9 +3,7 @@ title: Move the Octopus Home folder and the Tentacle Home and Application folder
 position: 3
 ---
 
-
 # Move the Octopus Home folder {#MovetheOctopusHomefolderandtheTentacleHomeandApplicationfolders-MovetheOctopusHomefolder}
-
 
 Occasionally it may be necessary to change the location at which Octopus stores its data (called the "Octopus Home" folder) as well as the Registry Key which defines the Octopus Server instance. This can be done using the command-line on the Octopus server.
 
@@ -17,13 +15,8 @@ Make sure you have a **current backup** of your Octopus data before proceeding. 
 **Administrator Rights Required**
 The following commands will need to be run as Administrator as they require access to the Registry.
 
-
 N.B. The delete-instance command will not actually delete any files, just the Registry key referring to the configuration file. This is a safe operation which will not delete your Octopus Server data.
 :::
-
-
-
-
 
 A PowerShell script showing the steps is set out below. You need to change the variables to match your Octopus installation, and you may wish to run each step separately to deal with any issues like locked files.
 
@@ -38,15 +31,12 @@ mv $oldHome $newHome
 &"$octopus" delete-instance --instance=OctopusServer
 &"$octopus" create-instance --instance=OctopusServer --config=$newConfig
 
-
 & "$octopus" configure --home="$newHome"
 & "$octopus" service --start
-
 
 ```
 
 # Move the Tentacle Home and Application folders {#MovetheOctopusHomefolderandtheTentacleHomeandApplicationfolders-MovetheTentacleHomeandApplicationfolders}
-
 
 Occasionally it may be necessary to change the location at which a Tentacle stores its data (called the "Tentacle Home" and "Tentacle Applications" folder) as well as the Registry Key which defines the Tentacle instance. This can be done using the command-line on the Tentacle server.
 
@@ -54,10 +44,8 @@ Occasionally it may be necessary to change the location at which a Tentacle stor
 **Administrator Rights Required**
 The following commands will need to be run as Administrator as they require access to the Registry.
 
-
 N.B. The delete-instance command will not actually delete any files, just the Registry key referring to the configuration file. This is a safe operation which will not delete your Tentacle data.
 :::
-
 
 A PowerShell script showing the steps is set out below. You need to change the variables to match your Tentacle installation, and you may wish to run each step separately to deal with any issues like locked files.
 
@@ -67,7 +55,6 @@ $instance = "InstanceName" #Name of the Instance.
 $oldHome = "C:\Octopus\InstanceName" #Current home of the instance.
 $newHome = "C:\NewHome\InstanceName" #New home path for the instance.
 $appFolder = "Applications" #Name of the folder being used for applications.
- 
 
 ##Process##
 $oldConfig = Get-Item "$oldHome\*.config"

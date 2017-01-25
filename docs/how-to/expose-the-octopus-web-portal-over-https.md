@@ -3,11 +3,9 @@ title: Expose the Octopus web portal over HTTPS
 position: 6
 ---
 
-
 The Octopus web portal is the main interface that your team will use to interact with the Octopus Deploy server. During installation, you'll choose a port number for the server to listen on, and it uses HTTP by default. However, Octopus can also be configured to run on HTTPS.
 
 ## Changing your web portal bindings {#ExposetheOctopuswebportaloverHTTPS-Changingyourwebportalbindings}
-
 
 The following steps will show how to configure Octopus to listen on HTTPS.
 
@@ -21,9 +19,7 @@ The following steps will show how to configure Octopus to listen on HTTPS.
 Since HTTPS requires an SSL certificate, you can either choose to generate a new, self-signed (untrusted) certificate, or to select an existing certificate. Self-signed certificates are useful for testing or to achieve encryption without trust, but for production use we recommend using a trusted SSL certificate.
 4. Follow the rest of the Wizard steps to add the binding and reconfigure the Octopus server.
 
-
 ## Importing your SSL certificate {#ExposetheOctopuswebportaloverHTTPS-ImportingyourSSLcertificate}
-
 
 When you choose to select an existing certificate when configuring your HTTPS binding, the available certificates will be shown. If the certificate you intend to use doesn't exist in the Windows certificate store, you'll need to import it. The following steps will show you how to import your certificate:
 

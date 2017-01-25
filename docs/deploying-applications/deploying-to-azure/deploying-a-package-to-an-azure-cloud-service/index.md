@@ -3,14 +3,11 @@ title: Deploying a package to an Azure Cloud Service
 
 ---
 
-
 :::hint
 The Azure Cloud Service step was added in Octopus 3.1
 :::
 
-
 Octopus Deploy supports deployment of [Azure Cloud Services](http://azure.microsoft.com/en-us/services/cloud-services/).
-
 
 - Step 1: Packaging
 - Step 2: Create an Azure Account
@@ -25,30 +22,22 @@ Octopus Deploy supports deployment of [Azure Cloud Services](http://azure.micros
 
 ## Step 1: Packaging {#DeployingapackagetoanAzureCloudService-Step1:Packaging}
 
-
 An Azure cloud service package is normally compiled into a `.cspkg` file. This file will need to be [re-packed into a supported package](/docs/packaging-applications/index.md) for Octopus to consume. The easiest way to do this currently is to either create a simple zip file or use the [NuGet.exe command line tool](/docs/packaging-applications/nuget-packages/using-nuget.exe.md). For example, the resulting NuGet package will look like this:
-
 
 ![](/docs/images/3048662/3278363.png "width=500")
 
 ## Step 2: Create an Azure Account {#DeployingapackagetoanAzureCloudService-Step2:CreateanAzureAccount}
 
-
 If you haven't already, create an [Azure Subscription Account](http://docs.octopusdeploy.com/display/OD/Azure+Subscription+Account) to grant Octopus Deploy access to your Azure Subscription.
 
 ## Step 3: Create the Azure Cloud Service deployment step {#DeployingapackagetoanAzureCloudService-Step3:CreatetheAzureCloudServicedeploymentstep}
-
 
 Add a new Azure Cloud Service Deployment Step to your project. For information about adding a step to the deployment process, see the [add step](http://docs.octopusdeploy.com/display/OD/Add+step) section. 
 ![](/docs/images/5671696/5865904.png "width=170")
 
 ## Step 4: Configure your Azure Cloud Service step {#DeployingapackagetoanAzureCloudService-Step4:ConfigureyourAzureCloudServicestep}
 
-
 Once an Account is selected, the list of Cloud Services and Storage Accounts available to the Azure subscription associated with the chosen Account will be populated for you to choose from.
-
-
-
 
 | Setting | Default | Description |
 | --- | --- | --- |
@@ -64,9 +53,7 @@ Once an Account is selected, the list of Cloud Services and Storage Accounts ava
 
 Azure allows staging and production deployments to be swapped, by switching virtual IP addresses. When deploying to production, Octopus can detect whether the current staging deployment can be swapped, and if so, it can do a swap rather than a new deployment.
 
-
 If **Always deploy** is selected, the package will always be deployed to the selected Slot.
-
 
 If **Swap staging to production if possible** is selected and the selected Slot is Production, then a swap will occur between Production and Staging (if there is a deployment in the Staging slot).
  |
@@ -81,14 +68,12 @@ Any of the settings above can be switched to use a variable binding expression. 
 
 ### Deployment features available to Azure Cloud Service steps {#DeployingapackagetoanAzureCloudService-DeploymentfeaturesavailabletoAzureCloudServicesteps}
 
-
 The following features are available when deploying a package to an Azure Cloud Service:
 
 - [Custom Scripts](/docs/deploying-applications/custom-scripts/index.md)
 - [Configuration Variables](/docs/deploying-applications/configuration-files/index.md)
 - [Configuration Transforms](/docs/deploying-applications/configuration-files/index.md)
 - [Substitute variables in files](/docs/reference/variable-substitution-syntax.md)
-
 
 :::hint
 Please note these features actually run on the Octopus Server prior to deploying the Cloud Service package to Azure. They don't execute in the Azure Cloud Service instances you are eventually targeting.
@@ -114,7 +99,6 @@ if ($Deployment -ne $null -AND $Deployment.DeploymentId  -ne $null) {
 
 ## Deployment process {#DeployingapackagetoanAzureCloudService-Deploymentprocess}
 
-
 Deployment to an Azure Cloud Service proceeds as follows (more details provided below):
 
 1. Download the package from the [package repository](/docs/packaging-applications/package-repositories/index.md)
@@ -131,20 +115,15 @@ Deployment to an Azure Cloud Service proceeds as follows (more details provided 
 12. Deploy the Cloud Service Package (see 'Customizing the deployment process' section below)
 13. Any configured or packaged `PostDeploy` scripts are executed
 
-
 ### Extract the Cloud Service Package {#DeployingapackagetoanAzureCloudService-ExtracttheCloudServicePackage}
-
 
 Cloud Service Package files are extracted during deployment, in order to make available features such as Configuration Transforms and Variable Substitution.
 
-
 To extract the Cloud Service Package, it is first converted to the CTP format (also known as V20120315). This is the format described by Microsoft [documentation](https://msdn.microsoft.com/en-us/library/azure/jj151522.aspx), but is not used by default by the [CSPack ](https://msdn.microsoft.com/en-us/library/azure/gg432988.aspx)utility (passing the `/useCtpPackageFormat` switch is required for this format to be used).  This is just an implementation detail, but the documented archive layout gives a good starting point to understanding the layout of the extracted package.
-
 
 Setting the `Octopus.Action.Azure.LogExtractedCspkg` variable to `true` will cause the layout of the extracted package to be written into the Task Log. This may assist with finding the path to a particular file.
 
 ### Variable substitutions in Cloud Service configuration file {#DeployingapackagetoanAzureCloudService-VariablesubstitutionsinCloudServiceconfigurationfile}
-
 
 Octopus will attempt to modify your `.cscfg` file. For example, take the following configuration:
 
@@ -167,22 +146,17 @@ Octopus will attempt to modify your `.cscfg` file. For example, take the follo
 </ServiceConfiguration>
 ```
 
-
 If a variable named `HelloMessage` is defined in your Octopus project variables, Octopus will automatically update it in the configuration file. You can also name the variable `Humpty.Worker/HelloMessage` to scope the setting to a specific web/worker role.
 
 ### Customizing the deployment process {#DeployingapackagetoanAzureCloudService-Customizingthedeploymentprocess}
-
 
 The deployment is performed using a PowerShell script called `DeployToAzure.ps1`. If a file with this name exists within your NuGet package, Octopus will invoke it. Otherwise, Octopus will use a bundled version of the script as a default. You can **[view the bundled script here](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari.Azure/Scripts/DeployAzureCloudService.ps1)**, and use it as a basis for creating your own custom deployment script.
 
 ## Deploying to multiple geographic regions {#DeployingapackagetoanAzureCloudService-Deployingtomultiplegeographicregions}
 
-
 When your application is deployed to more than one geographic region, you are likely to need per-region configuration settings. You can achieve this result in many different ways, but the two most popular methods we have seen are:
 
 1. [Cloud Regions](/docs/deployment-targets/cloud-regions.md): introduced in Octopus 3.4 to enable [rolling deployments](/docs/patterns/rolling-deployments.md) across multiple geographic regions
 2. Environment-per-region: by creating an environment per region you can leverage [lifecycles](/docs/key-concepts/lifecycles.md) to create a strict release promotion process
-
-
 
 Both methods allow you to modify your deployment process and variables per-region, but have slightly different release promotion paths. Choose the one that suits you best.

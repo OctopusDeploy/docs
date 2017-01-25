@@ -3,15 +3,11 @@ title: Octopus.Client
 position: 7
 ---
 
-
 Octopus.Client is an [open source](https://github.com/OctopusDeploy/OctopusClients) .NET library that makes it easy to write C# programs that manipulate the [Octopus Deploy REST API](/docs/api-and-integration/octopus-rest-api.md).
-
 
 Because the Octopus Deploy application itself is built entirely on the API, C# programs using the API can do anything that could be done by a user of the application itself.
 
-
 The NuGet package contains both a .NET Framework build as well as a .NET Standard build. The .NET Framework build targets 4.5 or later and contains both the synchronous and asynchronous API. The .NET Standard build is compatible with a [variety of runtimes](https://docs.microsoft.com/en-us/dotnet/articles/standard/library), including .NET Core 1.0 and only contains the asynchronous API.
-
 
 - Getting started
  - Synchronous API
@@ -28,7 +24,6 @@ The NuGet package contains both a .NET Framework build as well as a .NET Standar
 The complete details for the API itself - where to find it, how to authenticate, the available resources and so-on - are available at [the API documentation site](http://g.octopushq.com/ApiDocs).
 :::
 
-
 To use the C# client, first install the package via NuGet:
 
 ```text
@@ -36,7 +31,6 @@ Install-Package Octopus.Client
 ```
 
 ### Synchronous API {#Octopus.Client-SynchronousAPI}
-
 
 The easiest way to use the client is via the `OctopusRepository` helper:
 
@@ -47,7 +41,6 @@ var endpoint = new OctopusServerEndpoint(server, apiKey);
 var repository = new OctopusRepository(endpoint);
 ```
 
-
 If you don't want to provide an API key for authentication, you can leave it out and authenticate with the `SignIn()` method instead:
 
 ```c#
@@ -55,7 +48,6 @@ repository.Users.SignIn(new LoginCommand { Username = "me", Password = "secret" 
 ```
 
 ### Asynchronous API (Octopus.Client 4.0+) {#Octopus.Client-AsynchronousAPI(Octopus.Client4.0+)}
-
 
 The easiest way to use the client is via the `OctopusAsyncClient`:
 
@@ -67,7 +59,6 @@ using (var client = await OctopusAsyncClient.Create(endpoint))
 {
 }
 ```
-
 
 If you don't want to provide an API key for authentication, you can leave it out and authenticate with the `SignIn()` method instead:
 
@@ -88,11 +79,7 @@ $repository = New-Object Octopus.Client.OctopusRepository($endpoint)
 Also see the [OctoPosh ](https://github.com/Dalmirog/OctoPosh)project, which provides PowerShell commandlet wrappers around Octopus.Client
 :::
 
-
-
-
 ## Working with resources {#Octopus.Client-Workingwithresources}
-
 
 Resources can be loaded and saved with code like the following:
 
@@ -108,11 +95,9 @@ machine.Name = "Test Server 1";
 await repository.Machines.Modify(machine);
 ```
 
-
 The repository methods all make direct HTTP requests, there's no "session" abstraction or transaction support.
 
 ## Working directly with the client {#Octopus.Client-Workingdirectlywiththeclient}
-
 
 For some operations not available through repositories it will be necessary to use the `IOctopusClient` type:
 
@@ -124,9 +109,7 @@ var connection = repository.Client.Get(machine.Links["Connection"]);
 var connection = await client.Get(machine.Links["Connection"]);
 ```
 
-
 The entire API is accessible by traversing links - each resource carries a collection of links, like the "Connection" link on `MachineResource` shown above.
-
 
 To start traversing links, `IOctopusClient.RootDocument` is provided:
 
@@ -138,14 +121,9 @@ var me = repository.Client.Get<UserResource>(repository.Client.RootDocument.Link
 var me = await client.Get<UserResource>(client.RootDocument.Links["CurrentUser"])
 ```
 
-
 *(This example is superfluous as `repository.Users.GetCurrent()` wraps this common operation.)*
 
-
-
-
 ## Loading in an octopus step {#Octopus.Client-Loadinginanoctopusstep}
-
 
 To use Octopus.Client from inside an octopus (for example in a script step, a package install script, or the script console) by loading it from the server or tentacle application directory. The credentials would still need to be supplied to establish the connection. For example:
 
@@ -170,6 +148,5 @@ The variable `Octopus.Tentacle.Agent.ProgramDirectoryPath` was added in server v
 
 ## 
 Documentation and samples {#Octopus.Client-Documentationandsamples}
-
 
 [Documentation](https://github.com/OctopusDeploy/OctopusDeploy-Api/wiki) and [samples](https://github.com/OctopusDeploy/OctopusDeploy-Api) for the Octopus Deploy REST API are available on the **[Octopus REST API GitHub site](https://github.com/OctopusDeploy/OctopusDeploy-Api),**along with [Octopus.Client samples](https://github.com/OctopusDeploy/OctopusDeploy-Api/tree/master/Octopus.Client).

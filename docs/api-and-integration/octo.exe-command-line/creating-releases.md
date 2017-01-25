@@ -3,9 +3,7 @@ title: Creating releases
 position: 2
 ---
 
-
 [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to automate the creation of releases using the **`create-release`** command. This allows you to easily integrate Octopus with other continuous integration servers.
-
 
 This command allows you to create a release, and optionally deploy it to one or more environments.
 
@@ -14,13 +12,11 @@ This command allows you to create a release, and optionally deploy it to one or 
 If you are using Channels (introduced in Octopus 3.2) this command will automatically select the most appropriate channel for your release, unless you provide a specific channel using `--channel=VALUE`.
 :::
 
-
 Usage:
 
 ```text
 octo create-release [<options>]
 ```
-
 
 Where `[&lt;options&gt;]` is any of:
 
@@ -138,13 +134,11 @@ Common options:
 
 ### Basic examples {#Creatingreleases-Basicexamples}
 
-
 This will create a new release of the *HelloWorld* project using the latest available NuGet packages for each step in the project. The version number of the release will be the highest NuGet package version. You can override this using:
 
 ```text
 octo create-release --project HelloWorld --server http://octopus/ --apiKey API-ABCDEF123456
 ```
-
 
 This will create a release with a specified release number (note that this is not the NuGet package version number):
 
@@ -154,20 +148,17 @@ octo create-release --project HelloWorld --version 1.0.3 --server http://octopus
 
 ### Specifying the package version {#Creatingreleases-Specifyingthepackageversion}
 
-
 This will create a release *(1.0.3)* with a specified NuGet package version *(1.0.1)*:
 
 ```text
 octo create-release --project HelloWorld --version 1.0.3 --packageversion 1.0.1 --server http://octopus/ --apiKey API-ABCDEF123456
 ```
 
-
 This will create a release for a project with multiple packages, each with a different version:
 
 ```text
 octo create-release --project HelloWorld --version 1.0.3 --package StepA:1.0.1 --package StepB:1.0.2 --server http://octopus/ --apiKey API-ABCDEF123456
 ```
-
 
 This will create a release for a project with multiple packages, by taking the version for each package from a folder containing the packages (this approach works well if your build server has just built the packages):
 
@@ -176,7 +167,6 @@ octo create-release --project HelloWorld --version 1.0.3 --packagesFolder packag
 ```
 
 ### Deploying a release after creating it {#Creatingreleases-Deployingareleaseaftercreatingit}
-
 
 To create a release *and* deploy it to an environment named *Production*:
 

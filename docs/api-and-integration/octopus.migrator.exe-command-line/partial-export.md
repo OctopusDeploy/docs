@@ -3,24 +3,17 @@ title: Partial Export
 
 ---
 
-
 :::hint
 This feature is available in Octopus 3.4 and newer.
 :::
 
-
-
-
-
 This command exports configuration data to a directory filtered by a single project.
-
 
 Usage:
 
 ```text
 Octopus.Migrator partial-export [<options>]
 ```
-
 
 Where `[&lt;options&gt;]` is any of:
 
@@ -41,7 +34,6 @@ Partial export:
       --ignore-machines      [Optional] Excludes machines from partial export
       --ignore-tenants       [Optional] Excludes tenants from partial export
 
-
 Common Options:
       --console              Don't attempt to run as a service, even if the
                                user is non-interactive
@@ -49,7 +41,6 @@ Common Options:
 ```
 
 ### Basic examples {#PartialExport-Basicexamples}
-
 
 This will export the project files from *AcmeWebStore*and then spider back through the relevant linked documents in the database and back up *only those that are required in some way* to reproduce that project in its entireity.
 

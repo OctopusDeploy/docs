@@ -3,7 +3,6 @@ title: Accessing Container Details
 position: 1
 ---
 
-
 When creating a container or network via one of the new Docker steps, you may wish to use details of the resulting resource in a subsequent step. All information about the networking configuration, volumes, environment variable and hardware resource allocation can be obtained for the container via the `docker inspect` command and similar information for the network via the `docker network inspect` command.
 
 To allow access to this information Octopus invokes this command right after creating a container (or network) which results in a large detailed JSON array (since you can request multiple container details from a single invocation) that will look something like the examples in the collapsible sections at the [bottom of this page](/docs/deploying-applications/docker-containers/accessing-container-details.md). This output is then returned back to the server and processed as an [Output Variable](/docs/deploying-applications/variables/output-variables.md) with the format `#{Octopus.Action[&lt;action name&gt;].Output.Docker.Inspect}`.
@@ -25,21 +24,15 @@ With the [changes to Octostache introduced in Octopus Deploy 3.5](https://octofr
 
 ### Creating a network then adding a container {#AccessingContainerDetails-Creatinganetworkthenaddingacontainer}
 
-
 A typical project may involve one step that first creates a network, and then creates a container that is attached to that network. Assuming that your subsequent Docker Run step needs to be connected to that network, you would select the network type *Custom Network* and then for the network name use the name of the network generated from the previous step that is now stored in its inspection output variable
 
 ```powershell
 #{Octopus.Action[Create Network Step Name].Output.Docker.Inspect.Name}
 ```
 
-
-
-
-
 ![](/docs/images/5671068/5865817.png "width=500")
 
 ### Obtain Container IP address inside custom network {#AccessingContainerDetails-ObtainContainerIPaddressinsidecustomnetwork}
-
 
 Once a container has started and is attached to a network, an IP address will be assigned to it. Since the container may vet attached to more than one network, the network details are stored in the JSON as an object indexed by the network name. When trying to get the IP address assigned to a container which has been added to a custom network, there are two steps to the variable substitution. First we need the network name, then we need to inspect the container and find the network information that corresponds to that network name.
 
@@ -47,13 +40,11 @@ Once a container has started and is attached to a network, an IP address will be
 #{Octopus.Action[Create Container Step Name].Output.Docker.Inspect.NetworkSettings.Networks[#{Octopus.Action[Create Network Step Name].Output.Docker.Inspect.Name}].IPAddress}
 ```
 
-
 while this variable might look complex, you should be able to see the two aforementioned steps involved. The network name inside the `Networks` index is first resolved, and then the network information is extracted from the container inspection variable.
 
 :::hint
 **Output variable in project variables**
 You may find that you want to access variables from the inspection output several times and find it a bit cumbersome to keep typing out their full value. To simply things, you might find it helpful to create a project variable with the value of the output variable.
-
 
 For instance, in the examples outlined above, the network name was needed several times. In this case It might be useful to create and use a project variable with the value (taking into consideration things like scoping)
 
@@ -61,9 +52,6 @@ For instance, in the examples outlined above, the network name was needed severa
 #{Octopus.Action[Create Network Step Name].Output.Docker.Inspect.Name}
 ```
 :::
-
-
-
 
 ## Sample inspection output {#AccessingContainerDetails-Sampleinspectionoutputcommandexample}
 
@@ -269,7 +257,6 @@ The following JSON objects are real outputs from docker inspect commands to prov
         }
     }
 ]
-
 
 ```
 

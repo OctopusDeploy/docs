@@ -3,36 +3,25 @@ title: Immutable Infrastructure
 position: 4
 ---
 
-
 :::hint
 The features discussed in this guide are available in Octopus 3.4 and newer.
 :::
 
-
-
-
-
 This guide assumes familiarity with Octopus Deploy.  If you don't already know how to set up projects, install Tentacles and configure basic deployment processes it may be helpful to review [Key Concepts](/docs/key-concepts/index.md) before beginning this guide. Familiarity with the concepts in [Elastic and Transient Environments](/docs/guides/elastic-and-transient-environments/index.md) would be an added bonus.
-
 
 The features in [Elastic and Transient Environments](/docs/guides/elastic-and-transient-environments/index.md) make it easier to deploy infrastructure in addition to applications.  This guide focuses on deploying immutable infrastructure.  Traditionally the infrastructure that hosts applications is mutable: it is constantly changing.  The changes that infrastructure could experience include things like: new firewall rules, operating system updates and patches to your own deployed applications. Immutable infrastructure, as the name suggests, does not change after the initial configuration. In order to apply changes, a new version of the infrastructure is provisioned and the old infrastructure is terminated:
 
-
 ![](/docs/images/5670238/5865664.png "width=500")
-
 
 In this example we will create an infrastructure project and an application project.  The infrastructure project will provision new Tentacles and terminate the old ones. The application project gets deployed to the Tentacles.  We will then automate deploying our application to brand new infrastructure with each release.
 
 ## Machine policy {#ImmutableInfrastructure-Machinepolicy}
 
-
 The Tentacles provisioned in this guide belong the to **Immutable Infrastructure** machine policy. For now, create a new machine policy called **Immutable Infrastructure** and leave all of the settings at their default value.
-
 
 ![](/docs/images/5670238/5865674.png "width=500")
 
 ## Application project {#ImmutableInfrastructure-Applicationproject}
-
 
 For this demonstration, let's create a project called **Hello World** that will run a script echoing "Hello World" to each of our Tentacles.  In practice, this would be the project that deploys your application to the Tentacles.
 
@@ -40,9 +29,7 @@ For this demonstration, let's create a project called **Hello World** that will 
 2. Add a script step that outputs "Hello World" on each Tentacle:
 ![](/docs/images/5670238/5865675.png "width=500")
 
-
 ## Infrastructure project {#ImmutableInfrastructure-Infrastructureproject}
-
 
 The infrastructure project runs a script that provisions two new Tentacles and removes any old Tentacles in the environment we are deploying to. In practice this project would create your new infrastructure, add it to your load balancer and terminate your old infrastructure.
 
@@ -58,22 +45,17 @@ The infrastructure project runs a script that provisions two new Tentacles and r
 7. Add a step that runs **Teminate.ps1** from the package **HelloWorldInfrastructure** on the Octopus Server on behalf of all roles:
 ![](/docs/images/5670238/5865671.png "width=500")
 
-
 ## Intermission {#ImmutableInfrastructure-Intermission}
 
-
 At this stage you should be able to provision new Tentacles by creating a release of the **Hello World Infrastructure** project and deploying it to an environment. If you create another release of the project and deploy it, the Tentacles for the previous release will be stopped but will remain in the Octopus environment.
-
 
 You could also create and deploy a release of the **Hello World** project to your shiny new Tentacles, but it requires a lot of button clicking.
 
 ## Automating all the things {#ImmutableInfrastructure-Automatingallthethings}
 
-
 Imagine a developer makes a change to Hello World and would like to deploy it. At this stage, they would need to create and deploy a release of the Hello World Infrastructure project, wait for the new infrastructure to become available and then create and deploy a release of Hello World.  It is possible but clunky. Also, someone would be required to remove all of the orphaned deployment targets left in Octopus when new Tentacles are provisioned.
 
 ### Cleaning machines {#ImmutableInfrastructure-Cleaningmachines}
-
 
 Cleaning up old Tentacles can be accomplished through the use of machine policies. The **Immutable Infrastructure** machine policy that we created earlier can be edited so that it performs health checks more frequently, doesn't mind if machines are unavailable during that health check and automatically removes unavailable machines after a period of time.  This is perfect for ensuring the Tentacles that we terminate are automatically cleaned up in a timely manner.
 
@@ -84,12 +66,7 @@ Cleaning up old Tentacles can be accomplished through the use of machine policie
 5. Change "Time unavailable" to 5 minutes
 ![](/docs/images/5670238/5865677.png "width=500")
 
-
-
-
-
 ### Automatically deploying {#ImmutableInfrastructure-Automaticallydeploying}
-
 
 The **Hello World** project can be configured to automatically deploy when a new deployment target becomes available.  Once this has been configured, any Tentacles created when **Hello World Infrastructure** is deployed will automatically receive the current successful deployment of the **Hello World** project.
 
@@ -97,18 +74,13 @@ The **Hello World** project can be configured to automatically deploy when a new
 2. Select the event "New deployment target becomes available"
 ![](/docs/images/5670238/5865666.png "width=500")
 
-
-
 Create and deploy a new release of **Hello World Infrastructure**.  You should notice that immediately after new Tentacles are provisioned, **Hello World** is automatically deployed to those Tentacles:
 
-
 ![](/docs/images/5670238/5865678.png)
-
 
 We are almost there! Next we need to bump the version of **Hello World** and automatically deploy it.
 
 ### Automatically deploying a new release {#ImmutableInfrastructure-Automaticallydeployinganewrelease}
-
 
 Octopus will automatically deploy the current successful deployment for a project. That means if you deploy release 1.0.0 and then create release 1.0.1, the version 1.0.0 will continue to be deployed until 1.0.1 has been manually deployed.  This is not ideal for immutable infrastructure, because we do not want to deploy 1.0.1 to our old infrastructure, so we have no way to indicate to Octopus that it should start deploying release 1.0.1.  Enter auto deploy overrides. By creating both a new release and an auto deploy override when our infrastructure is provisioned, we can indicate to Octopus that the new release should be deployed to the new infrastructure.
 
@@ -118,9 +90,7 @@ Octopus will automatically deploy the current successful deployment for a projec
 Octo.exe create-autodeployoverride --project "Hello World" --environment $environment --version $version --server $octopusURI --apiKey $apiKey
 ```
 
-
 ## Magic {#ImmutableInfrastructure-Magic}
-
 
 Wouldn't it be amazing if a developer checked in some changes to **Hello World** and new immutable infrastructure was created with their changes on it? With a few lines of script, your build server can tell Octopus to automatically deploy new infrastructure and deploy the latest release of your project to that infrastructure when it comes online and becomes available to Octopus.  Here is an example that could be adapted to your projects and build server:
 
@@ -140,6 +110,5 @@ $project = $repository.Projects.FindByName("Hello World")
 $release = $repository.Projects.GetReleases($project).Items | Select-Object -first 1
    
 .\Octo.exe create-autodeployoverride --project "Hello World" --environment "Development" --version $release.Version --server $octopusURI --apiKey $apiKey
-
 
 ```

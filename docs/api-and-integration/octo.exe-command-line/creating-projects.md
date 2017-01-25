@@ -3,13 +3,11 @@ title: Creating projects
 position: 1
 ---
 
-
 [Octo.exe](http://docs.octopusdeploy.com/pages/viewpage.action?pageId=360596) can be used to create a project inside a project group.
 
 ```text
 octo create-project [<options>]
 ```
-
 
 Where `[&lt;options&gt;]` is any of:
 
@@ -46,7 +44,6 @@ Common options:
 ```
 
 ### Basic example {#Creatingprojects-Basicexample}
-
 
 The following command will create a project called *MyWebApp* into the project group *MyProjectGroup*
 

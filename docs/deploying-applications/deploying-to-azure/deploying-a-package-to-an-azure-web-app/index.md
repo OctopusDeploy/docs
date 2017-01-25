@@ -3,9 +3,7 @@ title: Deploying a package to an Azure Web App
 
 ---
 
-
 Octopus Deploy supports automated deployment of [Azure Web Apps](http://azure.microsoft.com/en-us/services/app-service/web/) (formerly known as Azure Web Sites).
-
 
 - Understanding Azure Web Apps
  - Web Apps are deployed using Web Deploy
@@ -21,11 +19,9 @@ Octopus Deploy supports automated deployment of [Azure Web Apps](http://azure.m
 
 ## Understanding Azure Web Apps {#DeployingapackagetoanAzureWebApp-UnderstandingAzureWebApps}
 
-
 The Azure Web Apps you build, and how you might want to deploy them, are becoming increasingly complex as the Azure team provide more features to the platform. The best place to stay abreast of changes, and how they might affect your deployments is the [Azure Web App Documentation](https://azure.microsoft.com/en-us/documentation/services/app-service/web/), the [many and varied ways you can deploy Web Apps (including Octopus Deploy)](https://azure.microsoft.com/en-us/documentation/articles/web-sites-deploy/). There is also the hidden gem of the [Project Kudu GitHub repository](https://github.com/projectkudu/kudu/wiki) where you will find many of the hard to find facts about Web Jobs (like the `settings.job` file, configuring a Continuous Web Job as a Singleton, configuring the Schedule for Scheduled Jobs, how shadow copying enables in-place deployments, and how to shut down gracefully).
 
 ### Web Apps are deployed using Web Deploy {#DeployingapackagetoanAzureWebApp-WebAppsaredeployedusingWebDeploy}
-
 
 Deploying an Azure Web App with Octopus Deploy behaves very similarly to the Visual Studio publish wizard and uses **Web Deploy** to synchronize the files in your package to the Azure Web App. Similarly to Visual Studio you can change how Octopus Deploy invokes Web Deploy using the following options in your deployment steps which enable the most common deployment scenarios. All of these options are discussed below where we describe how to configure the Azure Web App step.
 
@@ -36,27 +32,20 @@ The default values for these variables were chosen to match Visual Studio follow
 
 ### Web Jobs {#DeployingapackagetoanAzureWebApp-WebJobs}
 
-
 You can build Web Jobs [in almost any way you can imagine](https://azure.microsoft.com/en-us/documentation/articles/websites-webjobs-resources/), so let's focus this discussion on deploying Web Jobs. Web Jobs are deployed by simply copying the files into the right place in the Web App file system.
 
-
 When you use Octopus Deploy to deploy a package to an Azure Web App it will synchronize the files from your package into the Web App via Web Deploy where the root folder of the package matches the root folder of the Web App.
-
 
 To deploy a Web Job with Octopus Deploy you simply need to add the executable Web Job(s) into the appropriate folder(s) of your package and deploy them to the Web App.
 
 - Triggered Web Jobs should be added to the `app_data/jobs/triggered/{job_name}` folder
 - Continuous Web Jobs should be added to the `app_data/jobs/continuous/{job_name}` folder
 
-
-
 See below for more information on packaging Azure Web Apps including Web Jobs.
-
 
 For more information refer to the [Project Kudu documentation on Web Jobs](https://github.com/projectkudu/kudu/wiki/Web-jobs).
 
 ## Step 1: Packaging {#DeployingapackagetoanAzureWebApp-Step1:Packaging}
-
 
 Your application should be packaged into a [supported package](/docs/packaging-applications/index.md) where the contents of the package will be synchronized with the Azure Web App via Web Deploy. Your package should include any content and binaries for your Web Site and any Web Jobs using the same folder structure that is expected by the Azure Web App hosting environment.
 
@@ -81,7 +70,6 @@ Your application should be packaged into a [supported package](/docs/packaging-
     \---MyWebApp.nuspec
     \---web.config
 ```
-
 
 A really convenient way to package Web Apps is [using OctoPack](/docs/packaging-applications/nuget-packages/using-octopack/index.md). Here's a simplified example that would build the package discussed above.
 
@@ -114,7 +102,6 @@ A really convenient way to package Web Apps is [using OctoPack](/docs/packaging
 If the **<files>** section exists, OctoPack by default won't attempt to automatically add any extra files to your package, so you'll need to be explicit about which files you want to include. You can override this behavior with `/p:OctoPackEnforceAddingFiles=true`
 :::
 
-
 Here's an example project file with some of the OctoPack configuration set as properties that are convenient for WebApps and WebJobs.
 
 **MyWebApp.csproj**
@@ -131,11 +118,9 @@ Here's an example project file with some of the OctoPack configuration set as pr
 
 ### Simple and advanced deployment scenarios {#DeployingapackagetoanAzureWebApp-Simpleandadvanceddeploymentscenarios}
 
-
 The example we've discussed here is the most common scenario for deploying Azure Web Apps: a single package that contains an ASP.NET Web Application and some Web Jobs in the same release cadence. It is possible to implement more complex deployment scenarios where the ASP.NET Web Application and each Web Job follow independent release cadences. In this case you would build multiple packages using the folder structure expected by the Azure Web App hosting framework discussed earlier. Once you've done that you can simply reuse the same Azure Web App Deployment Target to deploy each package when they are released.
 
 ## Step 2: Create an Azure Account {#DeployingapackagetoanAzureWebApp-Step2:CreateanAzureAccount}
-
 
 If you haven't already, create an [Azure Subscription Account](/docs/key-concepts/environments/accounts/azure-subscription-account.md) to grant Octopus Deploy access to your Azure Subscription.
 
@@ -145,17 +130,11 @@ If you haven't already, create an [Azure Subscription Account](/docs/key-conce
 
 ![](/docs/images/5671696/5865899.png "width=170")
 
-
 ## Step 4: Configure your Azure Web App step. {#DeployingapackagetoanAzureWebApp-Step4:ConfigureyourAzureWebAppstep.}
-
 
 Once an Account is selected, the list of Azure Web Apps available to the subscription associated with the account will populate the 'Web App' select-list.
 
-
 ![](/docs/images/3048686/3278366.png "width=500")
-
-
-
 
 | Setting | Default | Description |
 | --- | --- | --- |
@@ -183,14 +162,12 @@ Any of the settings above can be switched to use a variable binding expression. 
 
 ### Deployment features available to Azure Web App steps {#DeployingapackagetoanAzureWebApp-DeploymentfeaturesavailabletoAzureWebAppsteps}
 
-
 The following features are available when deploying a package to an Azure Web App.
 
 - [Custom Scripts](/docs/deploying-applications/custom-scripts/index.md)
 - [Configuration Variables](/docs/deploying-applications/configuration-files/index.md)
 - [Configuration Transforms](/docs/deploying-applications/configuration-files/index.md)
 - [Substitute variables in files](/docs/reference/variable-substitution-syntax.md)
-
 
 :::hint
 Please note these features actually run on the Octopus Server prior to executing web deploy to synchronize the resultant files to the Azure Web App slot. They don't execute in the Azure Web App host you are eventually targeting.
@@ -207,7 +184,6 @@ Switch-AzureWebsiteSlot -Name #{WebSite} -Slot1 Staging -Slot2 Production -Force
 
 ## Deployment process {#DeployingapackagetoanAzureWebApp-Deploymentprocess}
 
-
 Deployment to an Azure Web App proceeds as follows (more details provided below):
 
 1. Download the package from the [package repository](/docs/packaging-applications/package-repositories/index.md)
@@ -220,15 +196,11 @@ Deployment to an Azure Web App proceeds as follows (more details provided below)
 8. Execute web deploy to synchronize the resultant files in the temporary location to the web app host
 9. Any configured or packaged `PostDeploy` scripts are executed
 
-
 ## Deploying to multiple geographic regions {#DeployingapackagetoanAzureWebApp-Deployingtomultiplegeographicregions}
-
 
 When your application is deployed to more than one geographic region, you are likely to need per-region configuration settings. You can achieve this result in many different ways, but the two most popular methods we have seen are:
 
 1. [Cloud Regions](/docs/deployment-targets/cloud-regions.md): introduced in Octopus 3.4 to enable [rolling deployments](/docs/patterns/rolling-deployments.md) across multiple geographic regions
 2. Environment-per-region: by creating an environment per region you can leverage [lifecycles](/docs/key-concepts/lifecycles.md) to create a strict release promotion process
-
-
 
 Both methods allow you to modify your deployment process and variables per-region, but have slightly different release promotion paths. Choose the one that suits you best.

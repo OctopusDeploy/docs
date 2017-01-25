@@ -3,9 +3,7 @@ title: Creating your first multi-tenant project
 position: 1
 ---
 
-
 Previous step: [Creating your first tenant](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-tenant.md)
-
 
 In this section we will create a simple project and environment in preparation to deploy a project to your tenant. We will create an isolated environment, deployment target, lifecycle, project group and project so we can design our multi-tenant deployments without affecting anything else on our Octopus Server.
 
@@ -15,7 +13,6 @@ Already have a project you'd like to try out with your tenant? That's fine, just
 :::
 
 ### Step 1: Build your environment and project {#Creatingyourfirstmulti-tenantproject-Step1:Buildyourenvironmentandproject}
-
 
 In this step you will build your entire environment and project structure ready for multi-tenant deployments.
 
@@ -50,10 +47,7 @@ Write-Host "URL: $hostURL"
 ```
     *This script doesn't do anything, it just simulates deploying an application with or without a tenant, showing the resulting database connection string.*
 
-
-
 ![](/docs/images/5669300/5865553.png "width=500")
-
 
 **That's it!**You are now ready to start connecting tenants to your project so you can deploy to those tenants, which is exactly what we will do in the next steps.
 
@@ -61,14 +55,11 @@ Write-Host "URL: $hostURL"
 **Project Settings**
 If you look at the project settings you may notice a new set of options related to how the new multi-tenant deployment features should impact the project. By default every project will disable the tenanted deployment features, and each project can opt-in to the features as required.
 
-
 ![](/docs/images/5669300/5865692.png)
-
 
 We'll leave this setting alone right now and let Octopus configure it for us in the next steps.
 :::
 
 ## Next steps {#Creatingyourfirstmulti-tenantproject-Nextsteps}
-
 
 We will [connect your tenant to this project and deploy it into the tenant's production environment](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md). Talk about living life on the edge!

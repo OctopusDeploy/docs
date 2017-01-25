@@ -3,15 +3,12 @@ title: Report on deployments using Excel
 position: 11
 ---
 
-
 :::hint
 **Reporting in Octopus 3.1+**
 Also take a look at the [Reporting features we shipped as part of Octopus 3.1](/docs/administration/reporting.md) which provides reporting optimized views of the live deployment data, no longer requiring an XML export.
 :::
 
-
 Ever wonder how many deployments you did this month? In this page, we'll help you to answer this question by walking you through how to export your deployments to Excel, and then to view them in a pivot table.
-
 
 At a high-level, the steps are:
 
@@ -19,15 +16,11 @@ At a high-level, the steps are:
 2. Import the XML file in Excel
 3. Report on the data using a pivot table
 
-
-
 ![](/docs/images/3048153/3278122.png?effects=border-simple,blur-border,tape "width=500")
 
 ## Export all deployments to an XML file {#ReportondeploymentsusingExcel-ExportalldeploymentstoanXMLfile}
 
-
 Before we can report on the data using Excel, we need to export it in a format that Excel can import. The easiest way to do this is using an XML file.
-
 
 As of 2.5.10, Octo.exe can be used to export deployments to an XML file. The command looks like this:
 
@@ -38,7 +31,6 @@ octo.exe dump-deployments --server http://your-octopus --apiKey API-YOURAPIKEY12
 :::success
 Learn more about [how to create an API key](/docs/how-to/how-to-create-an-api-key.md), and [how to use Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md)
 :::
-
 
 The output will appear as follows:
 
@@ -54,7 +46,6 @@ Wrote 60 of 112 deployments...
 Wrote 90 of 112 deployments...
 Wrote 112 of 112 deployments...
 ```
-
 
 The command will produce an XML file with contents similar to the following:
 
@@ -79,11 +70,9 @@ The command will produce an XML file with contents similar to the following:
   .....
 ```
 
-
 This file is now ready to be imported into Excel.
 
 ## Import the XML file in Excel {#ReportondeploymentsusingExcel-ImporttheXMLfileinExcel}
-
 
 Now that we have an XML file containing our deployments, we can import it into Microsoft Excel. In this example we are using Excel 2013.
 
@@ -95,9 +84,7 @@ Now that we have an XML file containing our deployments, we can import it into M
 5. You should now have a table that lists each of the deployments you have performed with Octopus, along with the name of the environment, project and the date of the deployment. 
 ![](/docs/images/3048153/3278131.png "width=500")
 
-
 ## Report on the data using a pivot table {#ReportondeploymentsusingExcel-Reportonthedatausingapivottable}
-
 
 It's easy to turn the table of deployments into a pivot table for reporting.
 
@@ -106,52 +93,35 @@ It's easy to turn the table of deployments into a pivot table for reporting.
 2. Excel will prompt you to ask where to place the new pivot table. Click **OK** to add it to a new worksheet in your workbook.
 3. You can now build the pivot table by dragging fields into the **Rows** or **Columns** of the pivot table.
 
-
-
 For example, here's a breakdown of deployments by environment. Note that the **Id** field was dragged to the **Values** area, and **Environment** was dragged to **Rows**.
-
 
 ![](/docs/images/3048153/3278129.png "width=500")
 
-
 Here's another example, this time using **Environment** as a column, and **Project** as the rows:
-
 
 ![](/docs/images/3048153/3278128.png "width=500")
 
-
 You can also group the results by month or other measures of time. First, drag the **Created** field as as row.
-
 
 ![](/docs/images/3048153/3278127.png "width=500")
 
-
 Now, right click any of the date values, and click **Group**.
-
 
 ![](/docs/images/3048153/3278126.png "width=500")
 
-
 Choose the level of granularity that you want to group by, then click **OK**. In this example we chose Months.
-
 
 ![](/docs/images/3048153/3278125.png)
 
-
 And the results will now be grouped by month:
-
 
 ![](/docs/images/3048153/3278124.png "width=500")
 
-
 If you aren't happy with the order that environments or other items are shown in, you can right click and move them:
-
 
 ![](/docs/images/3048153/3278123.png "width=500")
 
-
 Finally, don't forget to add pretty graphs!
-
 
 ![](/docs/images/3048153/3278122.png "width=500")
 
@@ -161,8 +131,6 @@ There are two major limits to this approach to be aware of:
 
 1. As you have seen, only a small amount of data is available for use for reporting
 2. If you use [retention policies](/docs/administration/retention-policies/index.md), releases and deployments that have been deleted by the retention policy will also not be available for reporting
-
-
 
 We're working on a more integrated reporting solution, and making more data available, as part of Octopus 3.0.
 :::

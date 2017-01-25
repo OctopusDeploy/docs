@@ -3,23 +3,17 @@ title: Multi-region deployment pattern
 position: 6
 ---
 
-
 ## Scenario {#Multi-regiondeploymentpattern-Scenario}
 
-
 Your application is deployed to multiple geographic regions (or multiple data centres) to provide for your end-customer's performance (think latency) or legal requirements (like data sovereignty).
-
 
 ![](/docs/images/5670886/5865791.png "width=500")
 
 ## Strict solution using Environments {#Multi-regiondeploymentpattern-StrictsolutionusingEnvironments}
 
-
 You can use [Environments](/docs/key-concepts/environments/index.md) to represent each region or data centre. In the example below we have defined a Dev and Test Environment as per normal, and then configured two "production" Environments, one for each region we want to deploy into.
 
-
 ![](/docs/images/5670886/5865781.png "width=500")
-
 
 By using this pattern you can:
 
@@ -31,33 +25,22 @@ By using this pattern you can:
 4. Quickly promote releases through your regions using the Project Overview
 5. Use [Scheduled Deployments](/docs/deploying-applications/scheduled-deployments.md) to plan deployments for times of low usage
 
-
-
 **This is a really good solution if you want to enforce a particular order of deployments through your regions.**
-
-
-
 
 ## Rolling Solution {#Multi-regiondeploymentpattern-RollingSolution}
 
-
 In Octopus 3.4 we introduced [Cloud Regions](/docs/deployment-targets/cloud-regions.md) which enable you to configure [Rolling deployments](/docs/patterns/rolling-deployments.md) across your regions or data centres. In this case you can scope variables to the Cloud Regions and deploy to all regions at once, but you cannot control the order in which the rolling deployment executes.
 
-
 ![](/docs/images/5670886/5865782.png "width=500")
-
 
 By using this pattern you can:
 
 1. Scope region-specific variables to the Cloud Region targets
 2. Conveniently deploy to all regions at the same time
 
-
-
 **If you don't really mind which order you regions are deployed, or you always upgrade all regions a the same time, Cloud Regions are probably the right fit for you.**
 
 ## Tenanted Solution {#Multi-regiondeploymentpattern-TenantedSolution}
-
 
 Alternatively you could create [Tenants](/docs/key-concepts/tenants/index.md) to represent each region or data centre. By doing so you can:
 
@@ -74,17 +57,10 @@ Alternatively you could create [Tenants](/docs/key-concepts/tenants/index.md) t
 6. Use [Scheduled Deployments](/docs/deploying-applications/scheduled-deployments.md) to plan deployments for times of low usage
 ![](/docs/images/5670886/5865787.png "width=500")
 
-
-
-
-
-
 You do give up the advantage of enforcing the order in which you deploy your application to your regions, but you gain the flexibility to promote to your regions in different order depending on the circumstances.
-
 
 **Tenants offer a balanced approach to modelling multi-region deployments, offering a measure of control and flexibility.**
 
 ## Conclusion {#Multi-regiondeploymentpattern-Conclusion}
-
 
 [Environments](/docs/key-concepts/environments/index.md), [Tenants](/docs/key-concepts/tenants/index.md) and [Cloud Regions](/docs/deployment-targets/cloud-regions.md) can be used to model multi-region deployments in Octopus, but each different choice is optimized to a particular style of situation. Choose the one that suits your needs best!

@@ -3,7 +3,6 @@ title: Migrating from Redgate Deployment Manager to Octopus Deploy
 
 ---
 
-
 :::problem
 You can not migrate from Deployment Manager directly to version 3.x of Octopus Deploy. Instead you'll need to migrate to Octopus Deploy 2.6, then upgrade to Octopus Deploy 3:
 

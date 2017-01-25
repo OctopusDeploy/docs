@@ -3,22 +3,17 @@ title: Username and Password
 position: 2
 ---
 
-
 A Username/Password Account is one mechanism that can be used to authenticate to [SSH Targets](http://docs.octopusdeploy.com/display/OD3/SSH+Targets).
 
 ## Creating the account {#UsernameandPassword-Creatingtheaccount}
 
-
 You must provide both the username and password which will be used during the initial authentication phase of the SSH connection.
-
 
 ![](/docs/images/3048108/3277898.png "width=500")
 
 ## Enabling Username & Password Authentication {#UsernameandPassword-EnablingUsername&amp;PasswordAuthentication}
 
-
 Depending on your target machine's distro it might not have password authentication enabled by default.
-
 
 To allow the Octopus server to connect using the provided credentials you the will need to modify the sshd\_config file on the target machine with your favorite text editor
 
@@ -26,20 +21,17 @@ To allow the Octopus server to connect using the provided credentials you the wi
 vim /etc/ssh/sshd_config
 ```
 
-
 find the line that refers to "PasswordAuthentication" and change it to
 
 ```powershell
 PasswordAuthentication yes
 ```
 
-
 once this has been done restart your ssh service under root privileges using
 
 ```powershell
 service ssh restart
 ```
-
 
 If you still experience problems it may help to try connect directly to the target machine using these credentials though a client like putty to help eliminate any networking related problems with your Octopus configuration.
 

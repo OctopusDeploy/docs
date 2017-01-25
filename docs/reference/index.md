@@ -3,9 +3,7 @@ title: Reference
 position: 10
 ---
 
-
 This section provides background information about how Octopus Deploy and the Tentacle agent work.
-
 
 - [Credits](/docs/reference/credits.md)
 - [Log files](/docs/reference/log-files.md)

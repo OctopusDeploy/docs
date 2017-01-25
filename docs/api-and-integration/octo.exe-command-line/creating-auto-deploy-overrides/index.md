@@ -3,13 +3,11 @@ title: Creating auto deploy overrides
 position: 12
 ---
 
-
 [Octo.exe](http://docs.octopusdeploy.com/pages/viewpage.action?pageId=360596) can be used to create automatic deployment release overrides.
 
 ```text
 octo create-autodeployoverride [<options>]
 ```
-
 
 Where `[&lt;options&gt;]` is any of:
 
@@ -55,7 +53,6 @@ Common options:
 
 ### Basic example {#Creatingautodeployoverrides-Basicexample}
 
-
 The following will create an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment *Development*:
 
 ```text
@@ -64,7 +61,6 @@ Octo create-autodeployoverride --project HelloWorld --environment Development --
 
 ### Tenanted example (by name) {#Creatingautodeployoverrides-Tenantedexample(byname)}
 
-
 The following will create an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment *Development* for the tenant *Acme*:
 
 ```text
@@ -72,7 +68,6 @@ Octo create-autodeployoverride --project HelloWorld --environment Development --
 ```
 
 ### Tenanted example (by tags) {#Creatingautodeployoverrides-Tenantedexample(bytags)}
-
 
 The following will create an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment *Development* for all tenants with the *Hosting/Cloud* tag:
 

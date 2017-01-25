@@ -3,7 +3,6 @@ title: Creating ZIP packages
 position: 3
 ---
 
-
 :::hint
 In Octo.exe version 3.3.8 we have expanded the functionality of the `pack` command to allow creating **zip** packages in addition to **NuGet** packages.
 :::
@@ -17,20 +16,17 @@ This page describes how to use `octo.exe` to create **zip** packages. You could 
 - Avoid [known issues](/docs/packaging-applications/creating-zip-packages.md) with other compression libraries
 :::
 
-
 To create a zip package of the application, open a command prompt and change directory to where the application is located.
 
 ```powershell
 C:\>cd Code\OctoWeb\OctoWeb\OctoWeb\bin
 ```
 
-
 When creating the zip package, we will call octo.exe with the pack command and give it a package Id and specify the format of package we want to use by adding the `--format` option
 
 ```powershell
 C:\Code\OctoWeb\OctoWeb\OctoWeb\bin>octo.exe pack --id=OctoWeb --format=zip
 ```
-
 
 By default octo.exe will pack all the files that are in the current directory, and give it a timestamp based version number.
 
@@ -43,16 +39,13 @@ Saving OctoWeb.2016.3.9.123003.zip to C:\Code\OctoWeb\OctoWeb\OctoWeb\bin...
 Done.
 C:\Code\OctoWeb\OctoWeb\OctoWeb\bin> dir *.zip
 
-
     Directory: C:\Code\OctoWeb\OctoWeb\OctoWeb\bin
-
 
 Mode                LastWriteTime     Length Name
 ----                -------------     ------ ----
 -a---         9/03/2016  12:31 PM   43624075 OctoWeb.2016.3.9.123122.zip
 
 ```
-
 
 If you want to provide your own version, you can pass the --version parameter in the call to Octo.exe
 
@@ -65,30 +58,24 @@ Saving OctoWeb.1.0.0.0.zip to C:\Code\OctoWeb\OctoWeb\OctoWeb\bin...
 Done.
 C:\Code\OctoWeb\OctoWeb\OctoWeb\bin> dir *.1.0.0.0.zip
 
-
     Directory: C:\Code\OctoWeb\OctoWeb\OctoWeb\bin
-
 
 Mode                LastWriteTime     Length Name
 ----                -------------     ------ ----
 -a---         9/03/2016  12:31 PM   43624075 OctoWeb.1.0.0.0.zip
 ```
 
-
 Open the created zip package and you should see the package contains all the same files as the output folder of your build
 
 ## Usage {#CreatingZIPpackages-Usage}
 
-
 The Octo.exe pack command provides a number of other useful parameters that can be used to customize the way your package gets created, such as output folder, files to include and release notes.
-
 
 To get help with what parameters allow you to do what, display the usage help for the pack command
 
 ```powershell
 C:\>Octo.exe help pack
 ```
-
 
 Which will explain how to use the command and the different parameters that can be passed to the command
 
@@ -134,7 +121,6 @@ Advanced options:
                              *.dll - if none are specified, defaults to **
       --overwrite            [Optional] Allow an existing package file of the
                              same ID/version to be overwritten
-
 
 ```
 

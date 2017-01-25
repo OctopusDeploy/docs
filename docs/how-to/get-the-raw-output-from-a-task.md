@@ -3,11 +3,9 @@ title: Get the raw output from a task
 position: 0
 ---
 
-
 When you contact Octopus Deploy support with a deployment-related issue, we'll sometimes ask you to send the full task log, so that we can understand what went wrong. This page explains how to capture the full task log.
 
 ## Step-by-step guide {#Gettherawoutputfromatask-Step-by-stepguide}
-
 
 The steps to send a full task log are:
 
@@ -17,8 +15,6 @@ The steps to send a full task log are:
 2. At the top of the raw log page there is a **Download** button. Click the button to download a text file containing the entire deployment log:
 
 ![](/docs/images/3048147/3278093.png "width=500")
-
-
 
 Send this file to us, or attach it to your support request.
 

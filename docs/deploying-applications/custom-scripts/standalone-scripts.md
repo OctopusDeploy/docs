@@ -3,21 +3,15 @@ title: Standalone scripts
 position: 0
 ---
 
-
 Octopus also allows you to run standalone scripts as part of your deployment process. You can run a script on the Octopus Server or across the deployment targets in roles. You can run scripts contained in a package, or ad-hoc scripts you've saved as part of the step. For information about adding a step to the deployment process, see the [add step](http://docs.octopusdeploy.com/display/OD/Add+step) section.
 
 :::success
 You can use all of the features we provide for [custom scripts](/docs/deploying-applications/custom-scripts/index.md), like [using variables](/docs/deploying-applications/custom-scripts/index.md), [passing parameters](/docs/deploying-applications/custom-scripts/index.md), publishing [output variables](/docs/deploying-applications/custom-scripts/index.md) and [collecting artifacts](/docs/deploying-applications/custom-scripts/index.md).
 :::
 
-
-
-
-
 - Choosing where the script will run
 - Choosing where to source the script
 - Passing parameters to scripts
-
 
 ![](/docs/images/5671696/5865914.png "width=170")
 
@@ -27,12 +21,9 @@ You can use all of the features we provide for [custom scripts](/docs/deploying-
 The ability to run scripts on the Octopus Server shipped in Octopus Deploy 3.3
 :::
 
-
 When adding a script you choose where the script will run, and in which context the script will run.
 
-
 ![](/docs/images/5046401/5275659.png "width=500")
-
 
 Choosing the right combination of **Target** and **Roles** enables some really interesting scenarios. See below for some common examples:
 
@@ -68,13 +59,10 @@ Bash scripts are not able to be run on the Octopus Server, even if Bash is insta
 The ability to source your script from a package shipped in Octopus 3.3
 :::
 
-
 You may also select the source of the script, either:
 
 - an ad-hoc or inline script, saved as part of the step itself, or
 - a script file inside a package (shown below)
-
-
 
 ![](/docs/images/5046401/5865637.png "width=500")
 
@@ -93,8 +81,6 @@ When sourcing a script from a file inside a package you cannot choose to run the
 The ability to pass parameters to scripts was added in Octopus 3.4
 :::
 
-
 When you call external scripts (sourced from a file inside a package) you can pass parameters to your script. This means you can write "vanilla" scripts that are unaware of Octopus, and test them in your local development environment. Read about [passing parameters to scripts](/docs/deploying-applications/custom-scripts/index.md).
-
 
 ![](/docs/images/5046401/5865636.png "width=500")

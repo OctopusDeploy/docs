@@ -3,27 +3,20 @@ title: Retention policy Tentacle cleanup and troubleshooting
 
 ---
 
-
 We get a lot of questions about why isn't the retention policy deleting all of my files on the Tentacle, or reporting a bug because files weren't deleted.
-
 
 This page will show what is checked, what is deleted and why something might not be deleted.
 
 ## Deployment Journal {#RetentionpolicyTentaclecleanupandtroubleshooting-DeploymentJournal}
 
-
 The deployment journal on the Tentacle is the source of truth for what Octopus will know has been deployed to the Tentacle but more importantly what still exists on the Tentacle.
 
-
 If the deployment journal is deleted, on the next deployment, it will be created and contain one record. But you might have many more deployments than that on the server. If the release is not in the DeploymentJournal.xml it will not be deleted with the execution of the retention policy. Any deployments not in the deployment journal will need to be manually deleted.
-
 
 You can find your deployment journal in: C:\Octopus\<machine name>\DeploymentJournal.xml
 C:\Octopus is for default installations, and the registered Tentacle machine name is the name of the folder. In our sample case it is DWebApp01. If you have more than 1 Tentacle instance on the machine they will have their own deployment journal files.
 
-
 ![](/docs/images/3048641/3278384.png "width=500")
-
 
 Below is a sample DeploymentJournal.xml that we will use in this example.
 
@@ -45,34 +38,23 @@ Below is a sample DeploymentJournal.xml that we will use in this example.
 </Deployments>
 ```
 
-
 It keeps a record for every package and package extraction for each project and the relevant locations.
 
 ## Defining your retention policy for your Tentacles {#RetentionpolicyTentaclecleanupandtroubleshooting-DefiningyourretentionpolicyforyourTentacles}
 
-
 Defining retetion policies is done within Lifecycles. Each phase can have a different setting. So if you want to keep more files on production machines you can.
-
 
 ![](/docs/images/3048641/3278386.png "width=500")
 
-
 You can read more about [Lifecycles ](/docs/key-concepts/lifecycles.md)and [Retention Policies](/docs/administration/retention-policies/index.md) on their own detailed pages.
-
 
 In this example the default for the Lifecycle is Keep 3.
 
-
-
-
 ## When the retention policy is run {#RetentionpolicyTentaclecleanupandtroubleshooting-Whentheretentionpolicyisrun}
-
 
 For a Tentacle the retention policy is run at the end of a deployment, for that project only. So for this example the deployment looks for the project (project-1) and finds all releases within the deployment journal. It finds 4 in total (current is never counted) leaving 3, knowing it just deployed one, it deletes one copy of each package.
 
-
 So for Project-1 we have 8 packages and directories still remaining on the server after the deployment. The current, and then the 3 defined by the policy. This is for each package. Any packages for other projects (project-2) were not evaluated and not removed, even if it was the same package version. Project 2 is considered it's own trigger for that retention policy, and is assumed to have different variables and transformations, thus a unique set of extracted files.
-
 
 See below the messages you will have in your raw deployment logs at the end of a deployment to that environment for the specific project:
 
@@ -93,51 +75,32 @@ See below the messages you will have in your raw deployment logs at the end of a
 
 ```
 
-
-
-
 ## Package and extraction directories {#RetentionpolicyTentaclecleanupandtroubleshooting-Packageandextractiondirectories}
-
 
 You can find your packages under C:\Octopus\<machine name>\files
 
-
 ![](/docs/images/3048641/3278387.png "width=500")
-
 
 Your extracted package files can be found under c:\Octopus\Applications\<machine name>\<environment name>\<package name>\
 
-
 So if you have multiple packages you will have multiple directories.
-
 
 ![](/docs/images/3048641/3278389.png "width=500")
 
-
 ![](/docs/images/3048641/3278388.png "width=500")
-
 
 If you have more directories than you think you should, check if they have a value in the deployment journal, if they do not they will have to be manually deleted.
 
-
 You can have multiple directories for the same version of each package like the following example:
-
 
 ![](/docs/images/3048641/3278390.png "width=500")
 
-
 This occurs when you have the same package in two different steps inside a single project. It has two extraction directories, and it is assumed a different set of files (due to variables and transforms). These are considered individual packages. So for a 3 package policy you will have a copy of each version leaving 6 plus the current 2 for a total of 8 directories. Both will be cleaned up within the next release, but both are required to be kept. This can mean a lot of folders if you use the same package in multiple steps.
-
-
-
 
 ## Troubleshooting {#RetentionpolicyTentaclecleanupandtroubleshooting-Troubleshooting}
 
-
 If you upgraded from 2.x to 3.0 the deployment journal location moved. Your choices are to clean up any old deployments manually, merge your deployment journals to the new location or run [Powershell Script](https://gist.github.com/vanessalove/dbc656b01df40939dcf8) on your Tentacles.
 
-
 If you deleted your deployment journal for any reason, if there are packages and package extraction directories not in the current deployment journal, you will have to delete them manually.
-
 
 There is a fix in 3.0.21 where the Tentacle was assuming the server release retention policy. If you had deployed to a later phase that had a higher tolerance then deployed back to a lower environment phase, it was keeping the higher phase settings. Upgrading to 3.0.21 and deploying to these environments for the projects should clean up any extra files and folders. This would have been from 2.6.

@@ -3,7 +3,6 @@ title: Configuring Netscaler
 
 ---
 
-
 ```text
 #Servers
 add server octopus-node1_SVR 192.168.0.1

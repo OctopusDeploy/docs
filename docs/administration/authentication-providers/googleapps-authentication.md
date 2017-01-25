@@ -3,11 +3,9 @@ title: GoogleApps authentication
 position: 2
 ---
 
-
 :::hint
 GoogleApps authentication is available in Octopus Deploy 3.5 and later
 :::
-
 
 To use GoogleApps authentication with Octopus, GoogleApps must be configured to trust Octopus (by setting it up as an App).  Below are the details for how to configure the App.
 
@@ -15,9 +13,7 @@ To use GoogleApps authentication with Octopus, GoogleApps must be configured to 
 
 ## Set up an App {#GoogleAppsauthentication-SetupanApp}
 
-
 To configure an App within GoogleApps, you must have a Developer account at [https://developers.google.com](https://developers.google.com).  This account will own the App configuration, so we recommend you create an account for company use, rather than using an individual account.
-
 
 Once you have an account, log in to [https://console.developers.google.com](https://console.developers.google.com) and the following actions:
 
@@ -27,7 +23,6 @@ Once you have an account, log in to [https://console.developers.google.com](htt
 4. Select the Credentials tab and Create a new **OAuth client ID** for a **Web app**.
 5. Enter a **Name** for identification, e.g. Octopus.  This is the name that will appear when the user is asked to allow access to their details.
 6. Add `https://octopus.example.com/api/users/authenticatedToken/GoogleApps` (replacing `https://octopus.example.com` with the url of your Octopus server) to the **Authorized Redirect URIs**.
-
 
 :::hint
 **Reply URLs are case-sensitive**
@@ -41,9 +36,7 @@ That's OK, you can use `http` if you do not have SSL enabled on your Octopus Ser
 
 # Configuring Octopus Deploy Server {#GoogleAppsauthentication-ConfiguringOctopusDeployServer}
 
-
 There is currently no UI for configuring Octopus to use GoogleApps - it must be configured from the command line. You will need the **Client ID** from the Credentials tab and your **hosted domain name**.
-
 
 Once you have those values, run the following from a command prompt in the folder where you installed Octopus Server:
 
@@ -51,9 +44,7 @@ Once you have those values, run the following from a command prompt in the folde
 Octopus.Server.exe configure --googleAppsIsEnabled=true --googleAppsClientId=ClientID --googleAppsHostedDomain=yourdomain.com
 ```
 
-
 ## Octopus user accounts are still required {#GoogleAppsauthentication-Octopususeraccountsarestillrequired}
-
 
 Even if you are using an external identity provider, Octopus still requires a [user account](http://docs.octopusdeploy.com/display/OD/Managing+users+and+teams) so you can assign those people to Octopus teams and subsequently grant permissions to Octopus resources. Octopus will automatically create a [user account](http://docs.octopusdeploy.com/display/OD/Managing+users+and+teams) based on the profile information returned in the security token, which includes an **Identifier**, **Name**, and **Email Address**.
 
@@ -69,52 +60,23 @@ If you already have Octopus user accounts and you want to enable external authen
 
 # Troubleshooting {#GoogleAppsauthentication-Troubleshooting}
 
-
 We do our best to log warnings to your Octopus Server log whenever possible. If you are having difficulty configuring Octopus to authenticate with GoogleApps, be sure to check your [server logs](/docs/reference/log-files.md) for warnings.
-
-
-
 
 ### Double and Triple check your configuration {#GoogleAppsauthentication-DoubleandTriplecheckyourconfiguration}
 
-
-
-
-
 Unfortunately security-related configuration is sensitive to everything. Make sure:
-
-
-
 
 - you don't have any typos or copy-paste errors
 - remember things are case-sensitive
 - remember to remove or add slash characters as we've instructed - they matter too!
 
-
-
-
-
 ### Check OpenID Connect metadata is working {#GoogleAppsauthentication-CheckOpenIDConnectmetadataisworking}
-
-
-
-
 
 You can see the OpenID Connect metadata by going to [https://accounts.google.com/.well-known/openid-configuration](https://accounts.google.com/.well-known/openid-configuration).
 
-
-
-
 ### Inspect the contents of the security token {#GoogleAppsauthentication-Inspectthecontentsofthesecuritytoken}
 
-
-
-
-
 Perhaps the contents of the security token sent back by GoogleApps aren't exactly the way Octopus expected, especially certain claims which may be missing or named differently. This will usually result in the GoogleApps user incorrectly mapping to a different Octopus User than expected. The best way to diagnose this is to inspect the JSON Web Token (JWT) which is sent from GoogleApps to Octopus via your browser. To inspect the contents of your security token:
-
-
-
 
 1. Open the Developer Tools of your browser and enable Network logging making sure the network logging is preserved across requests.
  1. In Chrome Dev Tools this is called "Preserve Log".

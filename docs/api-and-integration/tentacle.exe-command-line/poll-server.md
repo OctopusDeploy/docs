@@ -3,14 +3,12 @@ title: Poll server
 
 ---
 
-
 Configures an Octopus Server that this Tentacle will poll
 
 **Poll server options**
 
 ```text
 Usage: Tentacle poll-server [<options>]
- 
 
 Where [<options>] is any of:
       --instance=VALUE       Name of the instance to use

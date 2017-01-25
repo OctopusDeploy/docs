@@ -11,7 +11,6 @@ Make sure you have a **current backup** of your Tentacle Home Directory before
 
 ## Tentacle configuration {#Tentacleconfigurationandfilestorage-Tentacleconfiguration}
 
-
 If you need to re-configure your Tentacle instance, you can do that using the command-line as described below.
 
 **Usage**
@@ -19,7 +18,6 @@ If you need to re-configure your Tentacle instance, you can do that using the co
 ```powershell
 Tentacle configure [<options>]
 ```
-
 
 Where`[&lt;options&gt;]`is any of:
 
@@ -52,7 +50,6 @@ Or one of the common options:
 
 ## File storage {#Tentacleconfigurationandfilestorage-Filestorage}
 
-
 The Octopus server stores files in the following folders by default:
 
 - `C:\Octopus\Tentacle\&lt;Instance&gt;`
@@ -68,9 +65,7 @@ The Octopus server stores files in the following folders by default:
 - `&lt;Tentacle Home&gt;\Work`
  - This is the temporary working directory used when Tentacle and Calamari execute deployments on your behalf.
 
-
 ## Clean up post-2.6 migration {#Tentacleconfigurationandfilestorage-Cleanuppost-2.6migration}
-
 
 In 2.6 Tentacle stored files in the following folders by default:
 
@@ -89,8 +84,6 @@ In 2.6 Tentacle stored files in the following folders by default:
  - This is where Tentacle stores its log files.
 - `C:\Octopus\Tentacle\&lt;Instance&gt;`
  - This is where the Tentacle config file and Pipefish protocol files are stored, namely Actors, Messages and Streams.
-
-
 
 Once a 2.6 Tentacle has been migrated to 3.x the following folders can safely be removed:
 

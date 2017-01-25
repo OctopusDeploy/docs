@@ -3,7 +3,6 @@ title: Cleaning environments
 position: 9
 ---
 
-
 [Octo.exe](http://docs.octopusdeploy.com/pages/viewpage.action?pageId=360596) can be used to delete/remove machines with a particular status from environments on your Octopus instance.
 
 :::hint
@@ -22,7 +21,6 @@ We added first-class support for automatically [cleaning up environments](/docs/
 ```text
 octo clean-environment [<options>]
 ```
-
 
 Where `[&lt;options&gt;]` is any of:
 
@@ -58,7 +56,6 @@ Common options:
 ```
 
 ### Basic example {#Cleaningenvironments-Basicexample}
-
 
 The following command will clean any *offline* machines from the *production* environment.
 

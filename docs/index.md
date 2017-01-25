@@ -8,4 +8,3 @@ This site contains the end-user documentation for using Octopus Deploy. If you a
 
 ![](/docs/images/3048058/5275672.png)
 
-

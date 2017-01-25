@@ -3,7 +3,6 @@ title: Deleting releases
 position: 3
 ---
 
-
 [Octo.exe](http://docs.octopusdeploy.com/pages/viewpage.action?pageId=360596) can be used to delete releases from your Octopus instance. Releases deleted this way **cannot be recovered**.
 
 :::success
@@ -14,7 +13,6 @@ If you are using channels (introduced in Octopus 3.2) you can filter this comman
 ```text
 octo delete-releases [<options>]
 ```
-
 
 Where `[&lt;options&gt;]` is any of:
 
@@ -62,7 +60,6 @@ Common options:
 
 ### Basic example {#Deletingreleases-Basicexample}
 
-
 The following command will delete all the releases from the project **Web** between versions **0.0.8** to **0.0.12**.
 
 ```text
@@ -72,15 +69,8 @@ octo delete-releases --project Web --minversion="0.0.8" --maxversion="0.0.12" --
 :::warning
 On the example above, both **minversion** and **maxversion** will be delete as well. The complete list of releases deleted by that command will be:
 
-
 0.0.8, 0.0.9, 0.0.10, 0.0.11, 0.0.12.
 :::
-
-
-
-
-
-
 
 :::success
 **Tip**
