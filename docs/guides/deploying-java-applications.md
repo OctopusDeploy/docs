@@ -78,7 +78,7 @@ Start-Process java PressAnyKey
 screen -d -m -S "PressAnyKey" java PressAnyKey
 ```
     
-    ![](/docs/images/5672443/5866219.png)
+![](/docs/images/5672443/5866219.png)
 
 :::hint
 The application must be launched in a new process or session so that control returns to the shell. Otherwise the deployment will wait until the application is terminated.
