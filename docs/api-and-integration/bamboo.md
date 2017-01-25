@@ -9,20 +9,10 @@ position: 3
 
 ![](/docs/images/3048164/3278152.png?effects=border-simple,blur-border,tape "width=500")
 
-
 ![](/docs/images/3048164/3278150.png "width=500")
 
 
-On this page:
-
-
-- Why Octopus + Bamboo?
-- Building with Bamboo and OctoPack
-- Creating a release
-- Deploying releases with Octopus and Bamboo deployment plans
-
 ## Why Octopus + Bamboo? {#Bamboo-WhyOctopus+Bamboo?}
-
 
 Bamboo deployments provide many advantages. For example, if you are using JIRA, it's easy to see which JIRA issues are included in a deployment. However, when it comes to the actual deployment automation tasks, there are some compelling reasons to combine Bamboo with Octopus Deploy:
 
@@ -31,15 +21,11 @@ Bamboo deployments provide many advantages. For example, if you are using JIRA, 
 - Octopus makes it easy to coordinate deployments with machines across a [variety of network configurations](/docs/installation/installing-tentacles/index.md)
 - [Manual steps](/docs/deploying-applications/manual-intervention-and-approvals.md) in Octopus make it possible to include both automated and human deployment steps
 
-
-
 The rest of this page will walk you through the process of integrating Octopus Deploy with Bamboo.
 
 ## Building with Bamboo and OctoPack {#Bamboo-BuildingwithBambooandOctoPack}
 
-
 The first step to making Octopus and Bamboo work together, is for Bamboo to create artifacts that Octopus is able to deploy. [Octopus uses NuGet packages](/docs/packaging-applications/index.md), and [OctoPack](/docs/packaging-applications/nuget-packages/using-octopack/index.md) makes it easy to package your application using MSBuild.
-
 
 During our build, we will:
 

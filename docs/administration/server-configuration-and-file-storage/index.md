@@ -11,16 +11,7 @@ Make sure you have a **current backup** of your Octopus data before proceeding
 :::
 
 
-On this page:
-
-
-- Server configuration
-- Server folders
-- File storage
-- Clean up post-2.6 migration
-
 ## Server configuration {#ServerconfigurationandFilestorage-ConfigurationServerconfiguration}
-
 
 If you need to re-configure your Octopus Server instance, you can do that using the command-line as described below
 

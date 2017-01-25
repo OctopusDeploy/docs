@@ -30,35 +30,6 @@ On the surface Automatic Deployments appear to be simple, however they can grow 
 The fundamental design of Automatic Deployments revolves around "configuring new deployment targets to be just like their counterparts".
 :::
 
-
-
-
-
-On this page:
-
-
-- How it works
-- Frequently Asked Questions
- - Which events can trigger an automatic deployment?
- - Can I configure automatic deployments for a specific role or environment?
- - Which release will be deployed automatically?
- - Which steps will be run during automatic deployments?
- - What happens with Manual Interventions and Guided Failures?
- - What happens if I disable some steps?
- - What happens if I skip steps in a manual deployment?
- - What happens if a deployment fails?
- - Can automatic deployments become blocked?
- - Can multiple deployment targets be included in an automatic deployment?
- - Can I control the order of automatic deployments?
- - Can I choose a Release that hasn't been deployed yet?
- - Octopus is choosing the wrong Release, can I force it?
- - Can I be notified of Automatic Deployment events (like blockages or failures)?
- - Can I include disabled machines in my automated deployments?
-- Troubleshooting automatic deployments
- - Is the dashboard green?
- - Investigate the diagnostic logs
- - Investigate the audit messages
-
 ## How it works {#AutomaticDeploymentTriggers-Howitworks}
 
 

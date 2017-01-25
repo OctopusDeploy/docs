@@ -11,18 +11,6 @@ We are commonly asked how to deploy and configure HTML/JS or Single Page Applica
 That's fine! This example uses AngularJS but the same basic principles apply for any applications running in a browser or NodeJS. Instead of using AngularJS constants, you could provide globally accessible values, or alternatively provide the configuration values in a separate JavaScript file your application loads as a module. The important part to understand is how to get your Octopus Variables into your application.
 :::
 
-
-On this page:
-
-
-- Prerequisites
-- Sample Application
- - Step 1: Upload the package to the built-in repository
- - Step 2: Create the project, variables and deployment process
- - Step 3: Deploy!
- - Step 4: Minify the JavaScript and deploy again!
-- Next steps
-
 ## Prerequisites {#DeployingHTMLandJavaScriptApplications-Prerequisites}
 
 

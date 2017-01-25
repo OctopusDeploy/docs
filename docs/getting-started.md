@@ -6,17 +6,6 @@ position: 0
 
 Welcome! This section will guide you through the process of setting up Octopus Deploy and completing your first deployment.
 
-
-- Octopus in your delivery process
-- Install the Octopus server
-- Create environments
-- Add machines to your environments
-- Package your applications for deployment
-- Create a project
-- Define your deployment process
-- Create a release and deploy it
-- Next steps
-
 # Octopus in your delivery process {#Gettingstarted-Octopusinyourdeliveryprocess}
 
 
@@ -25,24 +14,16 @@ Octopus Deploy is an automated deployment server, which you install yourself, mu
 
 Along with the Octopus Deploy server, you'll also install a lightweight agent service on each of the machines that you plan to deploy to, for example your web and application servers. We call this the Tentacle agent; the idea being that one Octopus server controls many Tentacles, potentially a lot more than 8! With Octopus and Tentacle, you can easily deploy to your own servers, or virtual machines in the cloud from infrastructure as a service providers like Amazon EC2 or Windows Azure virtual machines.
 
-
-
-
-
 ![](/docs/images/3048178/5275670.png "width=800")
-
-
-
-
 
 We designed Octopus to fit into teams that follow agile delivery practices. Octopus compliments your existing delivery pipeline:
 
 - **Developers commit their code into your existing source control system**
-You might be using Git, Team Foundation Server, Subversion or Mercurial; the choice is up to you.
+  You might be using Git, Team Foundation Server, Subversion or Mercurial; the choice is up to you.
 - **Your CI/build server compiles the code and runs unit tests**
-Again, you might be using TeamCity, Jenkins, Bamboo, Team Foundation Server or CruiseControl.NET; the choice is up to you.
+  Again, you might be using TeamCity, Jenkins, Bamboo, Team Foundation Server or CruiseControl.NET; the choice is up to you.
 - **Your application is packaged into a NuGet package**
-When the build is done, your CI/build server bundles all of the files – the binaries, images, scripts, configuration files and so on – needed to deploy your application into a NuGet package
+  When the build is done, your CI/build server bundles all of the files – the binaries, images, scripts, configuration files and so on – needed to deploy your application into a NuGet package
 
 
 
@@ -176,3 +157,4 @@ Congratulations, you've deployed a release! You might want to look at:
 - Triggering deployments from [TeamCity](/docs/api-and-integration/teamcity.md) or [TFS](/docs/api-and-integration/team-foundation-server-(tfs).md)
 - [Inviting other users and adding them to teams](/docs/administration/managing-users-and-teams/index.md)
 - The comprehensive [Octopus Deploy REST API](/docs/api-and-integration/octopus-rest-api.md) and C# client
+

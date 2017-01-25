@@ -6,16 +6,6 @@ position: 6
 
 Now that you've [installed Octopus and Tentacle](/docs/installation/index.md), and you've created your [environments](/docs/key-concepts/environments/index.md) and a [project](/docs/key-concepts/projects/index.md), and your applications have been [packaged for deployment](/docs/packaging-applications/index.md), it's time to look at deploying applications with Octopus Deploy.
 
-
-On this page:
-
-
-- Deployment process
- - Adding steps
-- Common step properties
- - Conditions
-- Guides
-
 ## Deployment process {#Deployingapplications-Deploymentprocess}
 
 

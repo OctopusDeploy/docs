@@ -7,14 +7,6 @@ position: 2
 [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to automate the creation of releases using the **`create-release`** command. This allows you to easily integrate Octopus with other continuous integration servers.
 
 
-On this page:
-
-
-- Basic examples
-- Specifying the package version
-- Deploying a release after creating it
-
-
 This command allows you to create a release, and optionally deploy it to one or more environments.
 
 :::success

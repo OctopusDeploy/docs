@@ -3,22 +3,9 @@ title: Automating Tentacle installation
 position: 2
 ---
 
-
 The Tentacle agent can be installed fully automatically from the command line. This is very useful if you're deploying to a large number of servers, or you'll be provisioning servers automatically.
 
-
-On this page:
-
-
-- Tentacle installers
-- Configuration
-- Example: Listening Tentacle
-- Example: Polling Tentacle
-- Obtaining the Tentacle Thumbprint
-- Desired State Configuration
-
 ## Tentacle installers {#AutomatingTentacleinstallation-Tentacleinstallers}
-
 
 Tentacle comes in an MSI that can be deployed via group policy or other means.
 
@@ -26,20 +13,17 @@ Tentacle comes in an MSI that can be deployed via group policy or other means.
 **Download the Tentacle MSI**
 The latest Tentacle MSI can always be [downloaded from the Octopus Deploy downloads page](https://octopus.com/downloads).
 
-
 Permalinks to always get the latest MSIs are:
 
 - 32-bit: [https://octopus.com/downloads/latest/WindowsX86/OctopusTentacle](https://octopus.com/downloads/latest/WindowsX86/OctopusTentacle)
 - 64-bit: [https://octopus.com/downloads/latest/WindowsX64/OctopusTentacle](https://octopus.com/downloads/latest/WindowsX64/OctopusTentacle)
-:::
-
+  :::
 
 To install the MSI silently:
 
 ```bash
 msiexec /i Octopus.Tentacle.<version>.msi /quiet
 ```
-
 
 By default, the Tentacle files are installed under **%programfiles(x86)%**. To change the installation directory, you can specify:
 
@@ -53,12 +37,9 @@ Whilst you can set a customer INSTALLLOCATION for the Tentacle, please be aware 
 
 ## Configuration {#AutomatingTentacleinstallation-Configuration}
 
-
 The MSI installer simply extracts files and adds some shortcuts and event log sources. The actual configuration of Tentacle is done later, and this can automated too.
 
-
 To configure the Tentacle in listening or polling mode, it's easiest to run the installation wizard once, and at the end, use the Show Script option in the setup wizard. This will show you the command-line equivalent to configure a Tentacle.
-
 
 ![](/docs/images/3048115/3277908.png "width=500")
 
@@ -69,14 +50,12 @@ When configuring your tentacle you can configure advanced options, like [proxies
 
 ## Example: Listening Tentacle {#AutomatingTentacleinstallation-Example:ListeningTentacle}
 
-
 The following example configures a [listening Tentacle](/docs/installation/installing-tentacles/listening-tentacles.md), and registers it with an Octopus Deploy server:
 
 **Using Tentacle.exe to create Listening Tentacle instance**
 
 ```bash
 cd "C:\Program Files\Octopus Deploy\Tentacle"
-
 
 Tentacle.exe create-instance --instance "Tentacle" --config "C:\Octopus\Tentacle.config" --console
 Tentacle.exe new-certificate --instance "Tentacle" --if-blank --console
@@ -87,7 +66,6 @@ Tentacle.exe configure --instance "Tentacle" --trust "YOUR_OCTOPUS_THUMBPRINT" -
 Tentacle.exe register-with --instance "Tentacle" --server "http://YOUR_OCTOPUS" --apiKey="API-YOUR_API_KEY" --role "web-server" --environment "Staging" --comms-style TentaclePassive --console
 Tentacle.exe service --instance "Tentacle" --install --start --console
 ```
-
 
 You can also register a Tentacle with the Octopus Server after it has been installed by using Octopus.Client (i.e. register-with could be omitted above and the following could be used after the instance has started.  See below for how to obtain the tentacle's thumbprint):
 
@@ -121,11 +99,7 @@ $repository.machines.create($tentacle)
 Want to register your Tentacles another way? Take a look at the examples in our [sample repository](https://github.com/OctopusDeploy/OctopusDeploy-Api) using the Octopus API to register Tentacles, and do a whole lot more!
 :::
 
-
-
-
 ## Example: Polling Tentacle {#AutomatingTentacleinstallation-Example:PollingTentacle}
-
 
 The following example configures a [polling Tentacle](/docs/installation/installing-tentacles/polling-tentacles.md), and registers it with an Octopus Deploy server:
 
@@ -152,7 +126,6 @@ Want to register your Tentacles another way? Take a look at the examples in our 
 
 ## Obtaining the Tentacle Thumbprint {#AutomatingTentacleinstallation-tentaclethumbprintObtainingtheTentacleThumbprint}
 
-
 If you don't know the thumbprint for the above PowerShell scripts, it can be obtained with the following command line option:
 
 **Obtaining Thumbprint**
@@ -161,14 +134,9 @@ If you don't know the thumbprint for the above PowerShell scripts, it can be obt
 Tentacle.exe show-thumbprint --instance "Tentacle" --nologo
 ```
 
-
-
-
 ## Desired State Configuration {#AutomatingTentacleinstallation-DSCDesiredStateConfiguration}
 
-
 Tentacles can also be installed via [Desired State Configuration](https://msdn.microsoft.com/en-us/powershell/dsc/overview) (DSC). Using the module from the [OctopusDSC GitHub repository](https://github.com/OctopusDeploy/OctopusDSC), you can add, remove, start and stop Tentacles in either polling or listening mode.
-
 
 The following PowerShell script will install a Tentacle listening on port `10933` against the Octopus server at `https://YOUR_OCTOPUS`, add it to the `Development` environment and assign the `web-server` and `app-server` roles:
 
@@ -214,6 +182,5 @@ Start-DscConfiguration .\SampleConfig -Verbose -wait
 # Test the configuration ran successfully
 Test-DscConfiguration
 ```
-
 
 DSC can be applied in various ways, such as [Group Policy](https://sdmsoftware.com/group-policy-blog/desired-state-configuration/desired-state-configuration-and-group-policy-come-together/), a [DSC Pull Server](https://msdn.microsoft.com/en-us/powershell/dsc/pullserver), [Azure Automation](https://msdn.microsoft.com/en-us/powershell/dsc/azuredsc), or even via configuration management tools such as [Chef](https://docs.chef.io/resource_dsc_resource.html) or [Puppet](https://github.com/puppetlabs/puppetlabs-dsc). A good resource to learn more about DSC is the [Microsoft Virtual Academy training course](http://www.microsoftvirtualacademy.com/training-courses/getting-started-with-powershell-desired-state-configuration-dsc-).

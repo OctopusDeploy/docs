@@ -3,23 +3,7 @@ title: Configuration files
 position: 4
 ---
 
-
 One of the essential steps in deploying software is configuring it to work in a specific environment. This might mean pointing your application to the right database connection string, or tweaking settings to run in production.
-
-
-On this page:
-
-
-- Configuration variables
-- Replacing variables outside appSettings, applicationSettings and connectionStrings
-- Configuration transforms
- - Naming configuration transform files
-- Additional Configuration Transforms
- - Explicit
- - Relative path
- - Wildcard
-- Suppressing Configuration Transformation Errors
-- PowerShell
 
 ## Configuration variables {#Configurationfiles-ConfigurationVariablesConfigurationvariables}
 

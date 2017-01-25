@@ -13,15 +13,6 @@ This page describes several common approaches to structuring roles and teams to 
 To get the most out of this guide you will need to understand how to [manage users and teams](/docs/administration/managing-users-and-teams/index.md) and how to [work with custom roles](/docs/administration/managing-users-and-teams/user-roles.md). Octopus provides an expressive permissions system and you can customize the security configuration to your particular scenario.
 :::
 
-
-On this page:
-
-
-- Account Manager
-- Infrastructure manager
-- Self-service
-- Next steps
-
 ## Account Manager {#Multi-tenantrolesandsecurity-AccountManager}
 
 

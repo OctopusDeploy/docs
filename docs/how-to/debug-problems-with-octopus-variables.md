@@ -6,14 +6,6 @@ position: 1
 
 Sometimes a variable used during deployment may have a different value from the one you expect. Here are the first steps to debugging these issues.
 
-
-On this page:
-
-
-- Check the Variable Snapshot for the Release
-- Check the variable value in the All Variables tab
-- Write the variables to the deployment log
-
 ## Check the Variable Snapshot for the Release {#DebugproblemswithOctopusvariables-ChecktheVariableSnapshotfortheRelease}
 
 1. Open the **Project > Releases > Release** page for the Release you are debugging

@@ -13,17 +13,7 @@ When deploying your project you may see a message like one of the following exam
 - The package could not be downloaded from NuGet.
 - Could not find package in feed
 
-
-
 This troubleshooting guide will help you understand what is going wrong and how to avoid this problem in future deployments.
-
-
-On this page:
-
-
-- Using the built-in repository
-- Using an external feed
-
 
 If this is part of an automated deployment, make sure all packages are pushed to the external feed before starting the deployment. If the packages are pushed, perhaps the external feed hasn't finished updating its index and you need to give the external feed more time to update its index before starting the deployment. If you are getting a package verification error, try switching to a Windows File Share package repository to see if that helps.
 

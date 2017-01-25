@@ -7,13 +7,6 @@ position: 5
 [Jenkins](http://jenkins-ci.org/) is an extendable, open-source continuous integration server. You can use Jenkins to compile and test your code, and then have it trigger deployments in Octopus Deploy. This page will guide you through making these tools work together.
 
 
-On this page:
-
-
-- Prerequisites
-- Creating a release
-- Deploying releases
-
 ## Prerequisites {#Jenkins-Prerequisites}
 
 
@@ -21,7 +14,6 @@ Plugins are central to Jenkins, and a number of plugins will be required to foll
 
 - [MSBuild Plugin](http://wiki.jenkins-ci.org/display/JENKINS/MSBuild+Plugin) - required to compile your Visual Studio solution
 - [Mask Passwords Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Mask+Passwords+Plugin) - required to store your Octopus API keys and keep them out of the console
-
 
 
 Build job

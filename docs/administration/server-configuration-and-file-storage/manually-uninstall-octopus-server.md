@@ -6,14 +6,6 @@ position: 1
 
 When you uninstall the Octopus Server MSI, it automatically removes the application files from the installation folder, but that's it. This page describes how to manually clean up Octopus Server in part, or completely remove it from your server.
 
-
-On this page:
-
-
-- Why would I want to clean up in the first place?
-- What does the Octopus Server MSI actually do?
-- Manually removing all traces of Octopus Server
-
 ## Why would I want to clean up in the first place? {#ManuallyuninstallOctopusServer-WhywouldIwanttocleanupinthefirstplace?}
 
 :::problem

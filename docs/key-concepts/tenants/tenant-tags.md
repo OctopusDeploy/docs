@@ -13,15 +13,6 @@ Octopus allows you to group grouped similar tags together into tag sets. This en
 Have you read [our guide](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/index.md) on multi-tenant deployments yet? There is a section dedicated to [working with groups of tenants using tags](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md).
 :::
 
-
-On this page:
-
-
-- What can you do with tenant tags?
-- Managing tenant tags
-- Tag-based filters
-- Referencing tenant tags
-
 ## What can you do with tenant tags? {#TenantTags-Whatcanyoudowithtenanttags?}
 
 

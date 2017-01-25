@@ -6,16 +6,6 @@ position: 19
 
 In versions of Octopus Deploy up to and including v3.4, two authentication providers are supported.  The first is an internal provider (UsernamePassword), where Octopus itself handles identity management.  The second is Active Directory (Domain), where identity management is the responsibility of Active Directory.
 
-
-On this page:
-
-
-- Configuring Authentication Providers
-- External Security Groups
-- Users and Authentication Providers
-- Usernames, email addresses, UPNs and External Ids
-- Auto Login
-
 ## Configuring Authentication Providers {#AuthenticationProviders-ConfiguringAuthenticationProviders}
 
 

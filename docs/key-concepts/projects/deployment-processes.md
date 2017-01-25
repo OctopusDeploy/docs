@@ -6,17 +6,6 @@ position: 0
 
 Each [project](/docs/key-concepts/projects/index.md) defines the actions you want Octopus to perform on your behalf. In Octopus terms this is called the **deployment process**. The deployment process is like a recipe. It defines the set of instructions that will be run repeatably each time the project is deployed.
 
-
-On this page:
-
-
-- Example: A simple deployment process
-- Example: A rolling deployment
-- Steps and actions
-- How Octopus executes your deployment process
- - Conditions
-- Working with the Octopus API
-
 ## Example: A simple deployment process {#DeploymentProcesses-Example:Asimpledeploymentprocess}
 
 

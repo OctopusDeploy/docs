@@ -11,22 +11,6 @@ To demonstrate some of the basic functionality provided by the new Docker steps,
 While Docker Containers on Windows Server (not Docker for Windows through Docker Toolbox) are now generally available, this feature appears to still have some issues with key areas such as networking. This is an area that the Docker and Windows team are actively improving. While deploying a Windows Container to a Tentacle target on Windows should work, you may experience issues trying to use custom networks or volumes. We would suggest using Linux targets via SSH for the time being until this feature stabilizes.
 :::
 
-
-On this page:
-
-
-- Configuring a Docker host
-- Configuring a DockerHub feed
-- Configuring the Docker Project
- - Step 1: Docker Network Step
- - Step 2: Creating Container 1
- - Step 3: Creating Container 2
- - Step 4: Configure the PingCount variable
- - Step 5: Docker Stop
- - Step 5: Script Step - Accessing Container Details
-- Creating a Release of our Docker Project
-- Deploying a Release of our Docker Project
-
 ## Configuring a Docker host {#Dockerrunwithnetworking-ConfiguringaDockerhost}
 
 

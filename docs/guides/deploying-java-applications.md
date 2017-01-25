@@ -7,19 +7,6 @@ position: 12
 This guide provides a simple example of deploying a Java application using Octopus Deploy.
 
 
-
-
-
-On this page:
-
-
-- Prerequisites
-- Sample Application
-- Deploying the application
- - Step 1: Upload the application to the built-in repository
- - Step 2: Create the project and deployment process
- - Step 3: Deploy
-
 ## Prerequisites {#DeployingJavaapplications-Prerequisites}
 
 

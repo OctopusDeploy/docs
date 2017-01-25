@@ -15,26 +15,7 @@ Proxy support for Tentacle and SSH communications was added in Octopus 3.4
 Octopus only supports the use of HTTPS proxies, there is no support for SOCKS proxies.
 :::
 
-
 ![](/docs/images/5669147/5865713.png "width=500")
-
-
-On this page:
-
-
-- Configuring a Tentacle Communications Proxy
- - Listening Tentacles
- - SSH Targets
- - Polling Tentacles
-- Configuring a Web Request Proxy
-- Which proxy should I configure?
- - Working with Azure
- - Working with External NuGet Feeds
- - Working with Docker Registry
- - Making web requests from Custom Scripts
- - Configuring a Polling Tentacle to communicate via proxy
- - Configuring a Listening Tentacle to communicate via proxy
- - Configuring a proxy for communicating with an SSH target
 
 ## Configuring a Tentacle Communications Proxy {#ProxySupport-ConfiguringaTentacleCommunicationsProxy}
 

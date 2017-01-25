@@ -6,13 +6,6 @@ position: 0
 
 For team members to collaborate in the deployment of software, there needs to be trust and accountability. Octopus Deploy captures audit information whenever significant events happen in the system.
 
-
-On this page:
-
-
-- What does Octopus capture?
-- Viewing the audit history
-
 ## What does Octopus capture? {#Auditing-WhatdoesOctopuscapture?}
 
 

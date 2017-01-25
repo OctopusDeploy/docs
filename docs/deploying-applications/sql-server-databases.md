@@ -6,24 +6,6 @@ position: 17
 
 There are a variety of ways that SQL Server databases can be managed in Octopus Deploy. This section will provide a broad outline of the different approaches, and then drill into one possible solution to use as an example.
 
-
-On this page:
-
-
-- Approaches to database change management
-- How change scripts work
-- Third party tools
- - Redgate SQL Release
- - Redgate DLM Automation
- - Redgate ReadyRoll
- - DbUp
- - Visual Studio Database Projects
- - Entity Framework Migrations
- - RoundhousE
-
-
-
-
 :::hint
 **Tentacle Installation Location**
 For SQL deployments, the SQL server does not require a locally installed Tentacle. You can use any Tentacle installed on any server, so long as it has access to SQL to run the functions you require.

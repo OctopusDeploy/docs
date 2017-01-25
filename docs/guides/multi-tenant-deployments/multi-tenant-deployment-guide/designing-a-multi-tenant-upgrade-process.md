@@ -18,19 +18,6 @@ You should understand [Lifecycles](/docs/key-concepts/lifecycles.md) and [Tena
 
 Quite often you want to upgrade tenanted applications by rolling the upgrade through each of your tenants in a controlled fashion, instead of upgrading every tenant simultaneously. You can achieve any upgrade process you want by deploying upgrades to your tenants one at a time, but that can be an error-prone and time-consuming task. Octopus Deploy provides features to make it safer and easier to roll upgrades through your tenants.
 
-
-On this page:
-
-
-- Tenants and Lifecycles
-- Deploying to individual tenants
-- Deploying to all tenants in an environment
-- Deploying to tenants using tenant tags
-- Using channels and tenant tags to restrict test releases to the test team
-- Using channels and tenant tags to implement an early access program
-- Pinning tenants to a release
-- Next steps
-
 ## Tenants and Lifecycles {#Designingamulti-tenantupgradeprocess-TenantsandLifecycles}
 
 

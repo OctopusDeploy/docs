@@ -23,15 +23,6 @@ Take a look at the [end-to-end guide for TFS](/docs/api-and-integration/team-fou
 External package repositories **cannot be used to automatically create releases**, only the [built-in package repository](/docs/packaging-applications/package-repositories/index.md) is supported.
 :::
 
-
-On this page:
-
-
-- Getting started
-- Channels
-- Automatically creating pre-releases
-- Troubleshooting
-
 ## Getting started {#AutomaticReleaseCreation-Gettingstarted}
 
 

@@ -20,21 +20,6 @@ Before following the steps below, it can be worthwhile to restart the Octopus an
 If you have worked through this guide without success, it can be worthwhile to completely remove the Tentacle configuration, data, and working folders, and then reconfigure it from scratch. This can be done without any impact to the applications you have deployed. Learn about [manually uninstalling Tentacle](/docs/administration/tentacle-configuration-and-file-storage/manually-uninstall-tentacle.md). Working from a clean slate can sometimes expose the underlying problem.
 :::
 
-
-On this page:
-
-
-- Home in on the problem
-- Verify the Octopus and Tentacle services are running
-- Connect locally to the Octopus Server polling endpoint using your browser
-- Connect from the Tentacle machine
-- Tentacle ping
-- Check the Octopus Server polling IP address
-- Check Octopus Server service account permissions
-- Check Octopus.Server.exe load time
-- Schannel and TLS configuration mismatches
-- Other Error Messages
-
 ## Home in on the problem {#TroubleshootPollingTentacles-Homeinontheproblem}
 
 

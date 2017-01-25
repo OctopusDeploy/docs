@@ -13,17 +13,8 @@ See our [supported package types](/docs/packaging-applications/supported-package
 **Isn&#39;t Octopus Deploy all about NuGet?**
 Originally, Octopus Deploy supported only [NuGet packages](/docs/packaging-applications/nuget-packages/index.md) but that is no longer the case. In Octopus 3.3 we added support for zip packages, and in Octopus 3.5 we added support for Docker images. We will be continuing to support other packaging concepts as they become relevant to the deployment ecosystem.
 
-
 While some of our documentation may still refer to NuGet packages specifically, all packages are generally treated the same.
 :::
-
-
-On this page:
-
-
-- Creating packages
-- Hosting packages
-- What's in a package?
 
 ## Creating packages {#Packagingapplications-Creatingpackages}
 

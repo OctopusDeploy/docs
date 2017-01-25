@@ -6,15 +6,6 @@ position: 4
 
 Most applications require some kind of configuration values that are considered as sensitive information that should be kept secret, but used as clear-text during deployment. Think of something like a password or API Key to an external resource. Octopus provides support for this scenario with Sensitive Variables.
 
-
-On this page:
-
-
-- Configuring sensitive variables
-- How Octopus handles your sensitive variables
-- Avoiding common mistakes
-- Logging
-
 ## Configuring sensitive variables {#Sensitivevariables-Configuringsensitivevariables}
 
 

@@ -14,20 +14,6 @@ This guide focuses on Octopus 3.4 (or newer) which provides a rich set of fully-
 Using an older version of Octopus? Take a look at [how to implement multi-tenant deployments using Octopus prior to Octopus 3.4](/docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/index.md) and [how to migrate to Octopus 3.4](/docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/migrating-to-octopus-3.4.md).
 :::
 
-
-On this page:
-
-
-- Introducing multi-tenant deployments in Octopus
-- Why should I care about multi-tenant deployments in Octopus Deploy?
- - You want to deploy a multi-tenant application
-- Building multi-tenant applications
- - High density SaaS applications
-- Guide: Multi-tenant deployments in Octopus
-
-
-
-
 ## Introducing multi-tenant deployments in Octopus {#Multi-tenantdeployments-Introducingmulti-tenantdeploymentsinOctopus}
 
 

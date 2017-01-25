@@ -18,16 +18,6 @@ We strongly recommend using [Semantic Versioning](http://semver.org/) as a guide
 **If you want everything to "just work" in every situation, stick with strict SemVer.** To cater for alternative scenarios we have also chosen to support a "pragmatic" implementation of SemVer including support for 4-digit versions (like `1.0.0.0`) and versions that can be sorted alphanumerically, like `2016.09.01-beta.0001`. Read further to learn about choosing a versioning scheme, and why we treat versions this way in Octopus Deploy.
 :::
 
-
-On this page:
-
-
-- Choosing a versioning scheme
- - Strictness versus pragmatism
- - How we version Octopus Deploy
- - Build once, deploy many times
-- How Octopus Deploy treats versions
-
 ## Choosing a versioning scheme {#VersioninginOctopusDeploy-Choosingaversioningscheme}
 
 

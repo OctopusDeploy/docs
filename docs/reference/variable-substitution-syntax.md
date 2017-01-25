@@ -6,19 +6,6 @@ position: 1
 
 Variable substitutions are a flexible way to adjust configuration based on your variables and the context of your deployment. You can often tame the number and complexity of your variables by breaking them down into simple variables and combining them together using expressions.
 
-
-On this page:
-
-
-- Basic Syntax
-- Extended Syntax
- - Index Replacement
- - Conditionals
- - Repetition
- - Filters
- - Differences from regular variable bindings
- - JSON Parsing
-
 ## Basic Syntax {#VariableSubstitutionSyntax-BasicSyntax}
 
 

@@ -7,20 +7,6 @@ position: 8
 Octopus Deploy includes first class support for Windows Service deployments. Octopus can install, reconfigure, and start Windows Services during deployment, usually without requiring any custom scripts.
 
 
-On this page:
-
-
-- Configuring the Step
- - Step 1: Select a Package
- - Step 2: Configure Windows Service options
-- Windows Service deployment in action
-- How does Octopus actually deploy my Windows Service?
-- Setting advanced configuration options
-- Deploying Services built with Topshelf
-- Security Considerations
-- Using Managed Service Accounts (MSA)
-
-
 When deploying, `sc.exe` is used to create a Windows Service using the configured settings. If the service already exists, it will be stopped, re-configured, and re-started.
 
 

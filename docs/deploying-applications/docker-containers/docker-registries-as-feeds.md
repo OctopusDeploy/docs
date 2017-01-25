@@ -10,16 +10,6 @@ A [Docker Registry](https://docs.docker.com/registry/) is treated in Octopus De
 Learn more about using Docker Registries in our guide: [Docker run with networking](/docs/guides/docker/docker-run-with-networking.md)
 :::
 
-
-On this page:
-
-
-- Using Docker Registries in Octopus Deploy
- - How Octopus Server and Deployment Targets integrate with Docker Registries
- - Working with Docker Container Images in Octopus
-- Docker Hub
-- Private Registry
-
 ## Using Docker Registries in Octopus Deploy {#DockerRegistriesasFeeds-UsingDockerRegistriesinOctopusDeploy}
 
 

@@ -16,30 +16,7 @@ To use Azure Active Directory (AAD) authentication with Octopus you will need to
 3. Configure your Octopus Deploy instance to trust and use AAD as an Identity Provider.
 
 
-
-On this page:
-
-
-- Configuring Azure Active Directory (AAD)
- - Configure Octopus Deploy as an App in your AAD
-  - Configuring trusted Reply URLs
-  - Mapping AAD Users into Octopus Teams (optional)
-  - Setting up users and groups in Azure AD
-- Configuring Octopus Deploy Server
- - Get the Client ID and Issuer
-  - Using the old Azure portal
-  - Using the modern Azure portal
- - Setting the Client ID and Issuer into Octopus Deploy
- - Octopus user accounts are still required
-- What next?
-- Troubleshooting
- - Double and Triple check your configuration
- - Check OpenID Connect metadata is working
- - Inspect the contents of the security token
- - Get in touch with our support team
-
 # Configuring Azure Active Directory (AAD) {#AzureADauthentication-ConfiguringAzureActiveDirectory(AAD)}
-
 
 The first steps are to configure your Azure Active Directory to trust your instance of Octopus Deploy by configuring an App in your AAD.
 

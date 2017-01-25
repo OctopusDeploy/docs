@@ -19,18 +19,6 @@ ASP.NET Core 1.0 (previously known as ASP.NET 5) has been released! Microsoft's�
 Our ASP.NET Core web application [deployment guide](/docs/guides/deploying-asp.net-core-web-applications/index.md) provides further information on how this feature fits into an Octopus project's deployment process.
 :::
 
-
-On this page:
-
-
-- Configuring the JSON configuration variables feature
- - Step 1: Enable the feature
- - Step 2: Configure which files to update
-- How your JSON configuration settings are updated by Octopus
- - Simple variables
- - Hierarchical variables
- - Array variables
-
 ## Configuring the JSON configuration variables feature {#JSONConfigurationVariablesFeature-ConfiguringtheJSONconfigurationvariablesfeature}
 
 ### Step 1: Enable the feature {#JSONConfigurationVariablesFeature-Step1:Enablethefeature}

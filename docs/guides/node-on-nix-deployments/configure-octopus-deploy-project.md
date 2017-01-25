@@ -6,17 +6,6 @@ position: 2
 
 Assuming you are starting with a clean install of Octopus Deploy, the following steps will configure the server to deploy your [octofxjs](/docs/guides/node-on-nix-deployments/create-&-push-node.js-project.md) Node.js project to a Linux machine.
 
-
-On this page:
-
-
-- Configure Environment
-- Configure Account & Target
-- Create Deployment Project
- - Variable Substitution
- - Starting & Managing the Process
-- Deploy!
-
 ## Configure Environment {#ConfigureOctopusDeployProject-ConfigureEnvironment}
 
 - In the *Environments* page, add an Environment named **prod**.

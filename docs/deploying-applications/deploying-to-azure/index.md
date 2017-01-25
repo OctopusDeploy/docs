@@ -6,17 +6,6 @@ position: 27
 
 Octopus Deploy can help you perform repeatable and controlled deployments of your applications into Azure.
 
-
-On this page:
-
-
-- What kind of applications can I deploy to Azure?
- - Azure Resource Groups
- - Azure Web Apps
- - Azure Cloud Services
- - Azure PowerShell Scripts
-- Deploying to Azure via a firewall
-
 ## What kind of applications can I deploy to Azure? {#DeployingtoAzure-WhatkindofapplicationscanIdeploytoAzure?}
 
 

@@ -6,19 +6,6 @@ position: 6
 
 Some variables might be dynamic - for example, a value that needs to be calculated, or a value that is the output of running a command. For these scenarios, Octopus supports **output variables**.
 
-
-On this page:
-
-
-- System output variables
-- Output from multiple machines
-- Setting output variables using scripts
- - PowerShell
- - C#
- - Bash
- - F#
-
-
 Output variables can be set anywhere that Octopus runs scripts - for example, the [Script Console](http://docs.octopusdeploy.com/display/OD/Script+Console), or [package scripts and script steps](http://docs.octopusdeploy.com/display/OD/Custom+scripts) in a deployment. *See below for examples of setting output variables in each of the different scripting languages supported by Octopus.*
 
 

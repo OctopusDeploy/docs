@@ -19,14 +19,6 @@ In this case the Blue/Green are not separate Environments, they are different We
 Changing the configuration of a web site in IIS (like physical path or bindings) **always** results in the Application Pool being recycled. The default [IIS Websites and Application Pools](/docs/deploying-applications/iis-websites-and-application-pools.md) step in Octopus will try to reuse an existing web site in IIS (or create one for you), and as the last step it will [update the physical path in IIS](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari/Scripts/Octopus.Features.IISWebSite_BeforePostDeploy.ps1). This causes a minimum of downtime, especially if you have [allowed overlapping rotation on your Application Pool](https://msdn.microsoft.com/en-us/library/microsoft.web.administration.applicationpoolrecycling.disallowoverlappingrotation(v=vs.90).aspx). However, to achieve truly zero-downtime deployments of IIS Web Applications, you must use a reverse-proxy or some kind of routing technology.
 :::
 
-
-On this page:
-
-
-- General steps for zero-downtime deployments in IIS
- - Using Application Request Routing (ARR)
- - Using NGINX
-
 ## General steps for zero-downtime deployments in IIS {#Blue-greendeploymentsinIIS-Generalstepsforzero-downtimedeploymentsinIIS}
 
 :::hint

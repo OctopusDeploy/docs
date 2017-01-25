@@ -3,9 +3,7 @@ title: Listening Tentacles
 position: 0
 ---
 
-
 When installing a Tentacle, you will be asked to choose how Tentacle will communicate with the Octopus server. In **listening** mode, Tentacle *listens* on a TCP port (port **10933** by default). When a package needs to be deployed, Octopus will connect to the Tentacle service on that port. *In listening mode Tentacle is the TCP server, and Octopus is the TCP client.*
-
 
 *![](/docs/images/3048114/5865876.png)*
 
@@ -23,7 +21,6 @@ The communication protocol used by Octopus and Tentacle requires intact end-to-e
 **Proxy servers supported for tentacle communications since Octopus 3.4**
 The communication protocol used by Octopus and Tentacle 3.4 and above supports proxies. Read more about configuring proxy servers for Tentacle communications in [proxy support](/docs/installation/installing-tentacles/proxy-support.md).
 
-
 If you are using a version of Octopus/Tentacle prior to 3.4 you will need to arrange a bypass/exception for traffic initiated from the Octopus server to the Tentacle on the configured TCP Port (port **10933** by default).
 :::
 
@@ -34,14 +31,12 @@ If you are using a version of Octopus/Tentacle prior to 3.4 you will need to arr
 The latest Tentacle MSI can always be [downloaded from the Octopus Deploy downloads page](https://octopus.com/downloads).
 :::
 
-
 This four minute video (with captions) will walk you through the process of installing a Tentacle in listening mode, and registering it with your [Octopus Deploy server](/docs/installation/installing-octopus/index.md).
+<iframe src="//fast.wistia.net/embed/iframe/qp12uky9qy" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="360" style="margin: 30px"></iframe>
 
 ## Firewall changes {#ListeningTentacles-Firewallchanges}
 
-
 To allow your Octopus Deploy server to connect to the Tentacle, you'll need to allow access to TCP port **10933** on the Tentacle (or the port you selected during the installation wizard - port 10933 is just the default).
-
 
 Using listening mode, you won't typically need to make any firewall changes on the Octopus Deploy server.
 
@@ -52,29 +47,18 @@ Don't forget to allow access not just in Windows Firewall, but also any intermed
 
 ## Troubleshooting connections {#ListeningTentacles-Troubleshootingconnections}
 
-
 We have provided a detailed guide for [Troubleshooting Listening Tentacles](/docs/how-to/troubleshoot-listening-tentacles.md) but feel free to start with these simple steps.
-
 
 *On the Tentacle machine*, open a web browser and navigate to [https://localhost:10933](https://localhost:10933/) (or your chosen Tentacle communications port if it isn't the default). Make sure an**HTTPS**URL is used.
 
 - If you're presented with a prompt to "confirm a certificate" or "select a certificate" choose "Cancel" - don't provide one
-
-
 - If you're presented with a warning about the invalidity of the site's certificate, "continue to the site" or "add an exception"
-
-
 
 The page shown should look like the one below.
 
-
 ![](/docs/images/3048114/3277907.png "width=500")
 
-
 If you can browse to the Tentacle server, but Octopus is unable to communicate with it, try using remote desktop on the Octopus server and browsing to the Tentacle address using the format above. If you can't access the Tentacle, check any intermediary firewalls.
-
-
-
 
 **Like using curl?**
 

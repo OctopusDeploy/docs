@@ -14,20 +14,6 @@ The Octopus built-in repository [supports several different types of packages](/
 If you would like to use an external repository, the only external repository type supported are [NuGet feeds](https://docs.nuget.org/create/hosting-your-own-nuget-feeds) (either HTTP or file-system based feeds). If you want to use an external repository, you must use NuGet packages.
 :::
 
-
-On this page:
-
-
-- Choosing the right repository
-- Using the built-in repository
- - Pushing packages to the built-in repository
- - Security considerations
- - Moving the location of the built-in repository
-- Using external repositories
-- NuGet.Server performance
-- Troubleshooting
-
-
 Your package repository will typically be:
 
 - The Octopus server's built-in repository

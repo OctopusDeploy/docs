@@ -9,22 +9,6 @@ Previous step: [Working with groups of tenants using tags](/docs/guides/multi-t
 
 This page describes how to design and implement both **dedicated** and **shared** multi-tenant hosting models using [Environments](/docs/key-concepts/environments/index.md), [Deployment Targets](/docs/deployment-targets/index.md) and [Accounts](/docs/key-concepts/environments/accounts/index.md) and [Tenant Tags](/docs/key-concepts/tenants/tenant-tags.md).
 
-
-On this page:
-
-
-- Multi-tenant hosting
-- How Octopus Deploy chooses deployment targets for a tenanted deployment
-- Scenario: Dedicated hosting
- - Step 1: Configure the dedicated deployment targets
- - Step 2: Deploy!
-- Scenario: Shared hosting
- - Step 1: Create a "Hosting" tag set
- - Step 2: Configure the shared server farm
- - Step 3: Configure the tenants to deploy onto the shared server farm
- - Step 2: Deploy!
-- Next steps
-
 :::hint
 **Tenanted and un-tenanted deployments**
 In this section we will focus on tenanted deployments, but un-tenanted deployments deserve some explanation with regards to hosting. Un-tenanted deployments provide a way for you to start introducing tenants into your existing Octopus configuration. An un-tenanted deployment is just like good old Octopus - a deployment to an environment **without** a tenant. Octopus decides which deployment targets to include in a deployment like this:

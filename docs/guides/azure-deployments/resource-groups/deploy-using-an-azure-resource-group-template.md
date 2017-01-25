@@ -17,20 +17,6 @@ From [Authoring Azure Resource Manager Templates](https://azure.microsoft.com/en
 
 > Azure applications typically require a combination of resources (such as a database server, database, or website) to meet the desired goals. Rather than deploying and managing each resource separately, you can create an Azure Resource Manager template that deploys and provisions all of the resources for your application in a single, coordinated operation.
 
-
-
-On this page:
-
-
-- Creating the Resource Group Step
- - Template Entered as JSON
- - Sensitive Data
- - Template Contained in a Package
-  - Parameter File Format
- - Accessing ARM template output parameters
- - Using linked templates
-
-
 Octopus Deploy supports deploying Azure Resource Group Templates via the *Deploy an Azure Resource Group* step type. For information about adding a step to the deployment process, see the [add step](http://docs.octopusdeploy.com/display/OD/Add+step) section.
 
 :::hint

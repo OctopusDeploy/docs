@@ -11,19 +11,6 @@ GoogleApps authentication is available in Octopus Deploy 3.5 and later
 
 To use GoogleApps authentication with Octopus, GoogleApps must be configured to trust Octopus (by setting it up as an App).  Below are the details for how to configure the App.
 
-
-On this page:
-
-
-- Configuring GoogleApps
- - Set up an App
-- Configuring Octopus Deploy Server
- - Octopus user accounts are still required
-- Troubleshooting
- - Double and Triple check your configuration
- - Check OpenID Connect metadata is working
- - Inspect the contents of the security token
-
 # Configuring GoogleApps {#GoogleAppsauthentication-ConfiguringGoogleApps}
 
 ## Set up an App {#GoogleAppsauthentication-SetupanApp}

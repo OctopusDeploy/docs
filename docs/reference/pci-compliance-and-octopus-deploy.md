@@ -10,13 +10,6 @@ We have a lot of customers running Octopus Deploy in their PCI compliant environ
 This free e-book is a good starting place when considering how deployment automation can work well in a highly regulated environment: [DevOps for Finance - How DevOps will help you surpass the common challenges of financial services software development.](http://radar.oreilly.com/2015/09/devops-for-finance.html)
 :::
 
-
-On this page:
-
-
-- How Octopus Deploy can help with PCI Compliance
-- Security considerations
-
 :::success
 **Try not to give up too much automation wherever possible**
 Pessimistic approaches to PCI compliance controls will, at first glance, make it more difficult to automate certain activities. One of the main benefits to using Octopus Deploy is end-to-end automation and we recommend not giving that up without spending time to understand why the automation is considered "harmful". Quite often our customers find that leveraging end-to-end automation in Octopus Deploy makes implementing compliance controls and auditing easier. It's often a case of working with your auditor and their concerns on a case-by-case basis.

@@ -6,14 +6,6 @@ position: 29
 
 Sometimes you may want to block your Project from deploying a specific Release. Perhaps you just want to temporarily block the Release, or you need to fix some variables before proceeding? Perhaps the Release itself is bad, but you don't want to delete the Release for auditing purposes?
 
-
-On this page:
-
-
-- Block Deployment
-- Resolve and Unblock
-- Permissions
-
 ## Block Deployment {#BlockingDeployments-BlockDeployment}
 
 
