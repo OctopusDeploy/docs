@@ -104,7 +104,7 @@ Remember to reset the registry values once you're finished troubleshooting.
 
 Read-only Domain Controllers are not currently supported by Octopus. The .NET API we're using ignores read-only DCs.
 
-If there are any development teams willing to investigate RODCs further, our [AD/Directory Services authentication provider](https://github.com/OctopusDeploy/DirectoryServicesAuthenticationProvider) is open source (if you are using Octopus 3.5+), so please feel free to checkout the current implementation if you wish to "roll your own" AD provider that includes support for RODCs and share with the Octopus community ![(smile)](images/icons/emoticons/smile.png).
+If there are any development teams willing to investigate RODCs further, our [AD/Directory Services authentication provider](https://github.com/OctopusDeploy/DirectoryServicesAuthenticationProvider) is open source (if you are using Octopus 3.5+), so please feel free to checkout the current implementation if you wish to "roll your own" AD provider that includes support for RODCs and share with the Octopus community :smile:.
 
 ## Run as a different user not working {#TroubleshootingActiveDirectoryintegration-Runasadifferentusernotworking}
 
