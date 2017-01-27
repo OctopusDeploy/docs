@@ -1,6 +1,5 @@
 ---
 title: Using Octo.exe
-
 ---
 
 If you don't want to (or can't) add [OctoPack](/docs/packaging-applications/nuget-packages/using-octopack/index.md) to your Visual Studio project, or you have a project that doesn't use Visual Studio then packaging your applications into a NuGet package would involve using NuGet.exe, together with a manifest file (.nuspec file), to create your packages.

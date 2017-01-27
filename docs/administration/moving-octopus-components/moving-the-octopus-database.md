@@ -1,6 +1,5 @@
 ---
 title: Moving the Octopus Database
-
 ---
 
 It is possible to move your database from one Octopus server to another. Many methods exist to do this, though we recommend using the Backup option in your current database, then the Import option on the destination server.

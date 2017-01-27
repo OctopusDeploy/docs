@@ -1,6 +1,5 @@
 ---
 title: Manually uninstall Tentacle
-
 ---
 
 When you uninstall the Tentacle MSI, it automatically removes the application files from the installation folder, but that's it. This page describes how to manually clean up Tentacle in part, or completely remove it from your server.

@@ -9,17 +9,14 @@ Zip and tar support was added in Octopus Deploy 3.3. Docker image support was ad
 
 The package types supported by Octopus Deploy are:
 
-| Package Type | File Extensions | Repositories | Notes |
-| --- | --- | --- | --- |
-| NuGet | *.nupkg* | Any NuGet repository (including the [Built-In repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md)) | 
-
-Currently only NuGet packages will have extra metadata like release notes and description extracted from the package metadata.
- |
-| Tar | *.tar* | [Built-In repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) only | An archive file primarily used in non Windows environments. |
-| Tar + Gzip | *.tgz, .tar.gz, .tar.Z* | [Built-In repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) only |  |
-| Tar + Bzip2 | *.tar.bz, .tar.bz2, .tbz* | [Built-In repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) only |  |
-| Zip | *.zip* | [Built-In repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) only | Standard zip file as created through most common zip programs. |
-| Docker Image |  | [Docker Registries](/docs/deploying-applications/docker-containers/docker-registries-as-feeds.md) | Learn about [Docker](/docs/guides/docker/index.md) in Octopus Deploy. |
+| Package Type | File Extensions           | Repositories                             | Notes                                    |
+| ------------ | ------------------------- | ---------------------------------------- | ---------------------------------------- |
+| NuGet        | *.nupkg*                  | Any NuGet repository (including the [Built-In repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md)) | Currently only NuGet packages will have extra metadata like release notes and description extracted from the package metadata. |
+| Tar          | *.tar*                    | [Built-In repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) only | An archive file primarily used in non Windows environments. |
+| Tar + Gzip   | *.tgz, .tar.gz, .tar.Z*   | [Built-In repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) only |                                          |
+| Tar + Bzip2  | *.tar.bz, .tar.bz2, .tbz* | [Built-In repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) only |                                          |
+| Zip          | *.zip*                    | [Built-In repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) only | Standard zip file as created through most common zip programs. |
+| Docker Image |                           | [Docker Registries](/docs/deploying-applications/docker-containers/docker-registries-as-feeds.md) | Learn about [Docker](/docs/guides/docker/index.md) in Octopus Deploy. |
 
 :::warning
 NuGet packages and Docker images are the only package types that support external repositories. Currently, file-system feeds are NuGet only. If you want to use other package types, you must use the Octopus [built-in](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) repository.

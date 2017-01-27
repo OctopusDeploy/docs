@@ -1,6 +1,5 @@
 ---
 title: Packaging Web Apps
-
 ---
 
 In order to deploy Web Apps they must be packaged into an Octopus compatible NuGet package.

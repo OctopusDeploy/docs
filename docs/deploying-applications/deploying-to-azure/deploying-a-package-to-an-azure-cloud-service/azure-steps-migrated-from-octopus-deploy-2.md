@@ -1,6 +1,5 @@
 ---
 title: Azure steps migrated from Octopus Deploy 2
-
 ---
 
 Azure Steps migrated from Octopus Deploy 2 will work without modification.

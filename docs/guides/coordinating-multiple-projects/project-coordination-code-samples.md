@@ -1,6 +1,5 @@
 ---
 title: Project Coordination Code Samples
-
 ---
 
 These samples show how to perform various tasks related to project coordination.

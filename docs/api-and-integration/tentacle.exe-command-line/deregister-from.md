@@ -1,6 +1,5 @@
 ---
 title: Deregister from
-
 ---
 
 Deregisters this machine from an Octopus Server

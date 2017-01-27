@@ -1,6 +1,5 @@
 ---
 title: Configuring the version of the Azure PowerShell modules
-
 ---
 
 A version of Azure PowerShell is bundled with Octopus Deploy.  To determine the versions of the various Azure modules, add the PowerShell below to an Azure PowerShell Script Step:

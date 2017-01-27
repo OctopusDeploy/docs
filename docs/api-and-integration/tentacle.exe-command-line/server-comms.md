@@ -1,6 +1,5 @@
 ---
 title: Server comms
-
 ---
 
 Configure how the Tentacle communicates with an Octopus server

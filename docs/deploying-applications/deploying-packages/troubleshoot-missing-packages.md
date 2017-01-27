@@ -1,6 +1,5 @@
 ---
 title: Troubleshoot missing packages
-
 ---
 
 When deploying your project you may see a message like one of the following examples:

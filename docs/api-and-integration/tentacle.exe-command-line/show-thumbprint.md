@@ -1,6 +1,5 @@
 ---
 title: Show thumbprint
-
 ---
 
 Show the thumbprint of the Tentacle's certificate

@@ -1,6 +1,5 @@
 ---
 title: Configuring Octopus for High Availability
-
 ---
 
 This section will walk through the different options and considerations for setting up Octopus: HA.

@@ -1,6 +1,5 @@
 ---
 title: Deploying a package to an Azure Cloud Service
-
 ---
 
 :::hint

@@ -1,6 +1,5 @@
 ---
 title: Web App accounts
-
 ---
 
 Deploying a Web App in Octopus requires the configuration of an Azure Subscription Account.  Azure Subscription Accounts contain the details of Azure subscriptions.

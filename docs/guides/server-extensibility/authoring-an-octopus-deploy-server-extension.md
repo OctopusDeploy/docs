@@ -1,6 +1,5 @@
 ---
 title: Authoring an Octopus Deploy server extension
-
 ---
 
 :::hint

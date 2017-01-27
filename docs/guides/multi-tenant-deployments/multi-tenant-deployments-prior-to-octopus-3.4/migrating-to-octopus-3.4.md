@@ -1,6 +1,5 @@
 ---
 title: Migrating to Octopus 3.4
-
 ---
 
 This page describes how to migrate to Octopus 3.4 (or newer) and start using the built-in multi-tenant deployment features.

@@ -1,6 +1,5 @@
 ---
 title: Poll server
-
 ---
 
 Configures an Octopus Server that this Tentacle will poll

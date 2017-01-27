@@ -1,6 +1,5 @@
 ---
 title: Advanced Configuration Transforms Examples
-
 ---
 
 Configuration transforms can sometimes be complicated to setup. As a general rule, its best to have both configuration file and transform file in the same directory, however, this is not always achievable.

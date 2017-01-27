@@ -1,6 +1,5 @@
 ---
 title: Create instance
-
 ---
 
 Registers a new instance of the Tentacle service

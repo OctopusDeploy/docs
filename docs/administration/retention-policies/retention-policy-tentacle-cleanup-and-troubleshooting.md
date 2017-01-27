@@ -1,6 +1,5 @@
 ---
 title: Retention policy Tentacle cleanup and troubleshooting
-
 ---
 
 We get a lot of questions about why isn't the retention policy deleting all of my files on the Tentacle, or reporting a bug because files weren't deleted.

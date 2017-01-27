@@ -1,5 +1,4 @@
 ---
 title: Resource Groups
-
 ---
 

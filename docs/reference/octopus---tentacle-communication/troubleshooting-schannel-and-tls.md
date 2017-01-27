@@ -1,6 +1,5 @@
 ---
 title: Troubleshooting Schannel and TLS
-
 ---
 
 Octopus uses `Schannel` for secure communications and will attempt to use the best available protocol available to both servers. A few industry pressures and changes have been causing problems for Tentacle communications:

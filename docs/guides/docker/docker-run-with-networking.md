@@ -1,6 +1,5 @@
 ---
 title: Docker run with networking
-
 ---
 
 To demonstrate some of the basic functionality provided by the new Docker steps, we will walk through the process of starting two containers that can communicate with each other through their own isolated network. The first container will simply start and run a non exiting process, while the second container will ping the first to demonstrate connectivity. As part of this we will set up an external feed to DockerHub and include a cleanup task to remove existing containers. We will use a **Linux** machine which has the latest version of Docker installed and has network access to retrieve images from Docker Hub.

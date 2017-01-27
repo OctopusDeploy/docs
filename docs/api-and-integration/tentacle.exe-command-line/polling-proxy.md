@@ -1,6 +1,5 @@
 ---
 title: Polling proxy
-
 ---
 
 Configure the HTTP proxy used by polling tentacles to reach the Octopus Server

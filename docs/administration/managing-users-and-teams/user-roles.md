@@ -1,6 +1,5 @@
 ---
 title: User Roles
-
 ---
 
 User Roles play a major part in the Octopus security model. These roles are assigned to Teams and they dictate what the members of those teams can do in Octopus.
@@ -13,19 +12,16 @@ User Roles play a major part in the Octopus security model. These roles are ass
 
 Octopus comes with a set of built-in User Roles that are designed to work for most common scenarios:
 
-| User Role | Description |
-| --- | --- |
+| User Role           | Description                              |
+| ------------------- | ---------------------------------------- |
 | Environment Manager | Environment managers can view and edit environments and their machines. |
-| Environment Viewer | Environment viewers can view environments and their machines, but not edit them. |
-| Package Publisher | Permits packages to be pushed to the Octopus server's built-in NuGet feed. |
-| Project Viewer | Project viewers have read-only access to a project. They can see a project in their dashboard, view releases and deployments. Restrict this role by project to limit it to a subset of projects, and restrict it by environment to limit which environments they can view deployments to. |
+| Environment Viewer  | Environment viewers can view environments and their machines, but not edit them. |
+| Package Publisher   | Permits packages to be pushed to the Octopus server's built-in NuGet feed. |
+| Project Viewer      | Project viewers have read-only access to a project. They can see a project in their dashboard, view releases and deployments. Restrict this role by project to limit it to a subset of projects, and restrict it by environment to limit which environments they can view deployments to. |
 | Project Contributor | All project viewer permissions, plus: editing and viewing variables, editing the deployment steps. Project contributors can't create or deploy releases. |
-| Project Initiator | All project viewer permissions, plus: create new projects. |
-| Project Deployer | All project contributor permissions, plus: deploying releases, but not creating them. |
-| Project Lead | 
-
-All project contributor permissions, plus: creating releases, but not deploying them.
- |
+| Project Initiator   | All project viewer permissions, plus: create new projects. |
+| Project Deployer    | All project contributor permissions, plus: deploying releases, but not creating them. |
+| Project Lead        | All project contributor permissions, plus: creating releases, but not deploying them. |
 | System Administrator | System administrators can do everything. |
 
 The built-in User Roles can be modified to contain more or less roles to suit specific needs. But instead of modifying the built-in ones, we recommend that you leave them as an example and instead create your own User Roles.
@@ -36,9 +32,9 @@ A custom User Role can be created with any combination of roles. To create a cu
 
 1. Go to the Teams page, and look for the Roles link**![](/docs/images/3048105/3278287.png "width=500")**
 2. Click **Add custom role**
-![](/docs/images/3048105/3278288.png "width=500")
+   ![](/docs/images/3048105/3278288.png "width=500")
 3. Select the set of roles you'd like this new User Role to contain, and give the role a name and description
-![](/docs/images/3048105/3278289.png "width=500")
+   ![](/docs/images/3048105/3278289.png "width=500")
 
 Once the custom role is saved, the new role will be available to be assigned to any team on Octopus.
 

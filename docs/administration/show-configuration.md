@@ -15,10 +15,10 @@ The knock on effect for this is that the server.config no longer contains a larg
 
 The command supports the following options:
 
-| Option | Description |
-| --- | --- |
-| file | Exports the server configuration to a file. If not specified, output goes to the console. |
-| format | The format of the export (XML, json, json-hierarchical). Defaults to XML. |
+| Option           | Description                              |
+| ---------------- | ---------------------------------------- |
+| file             | Exports the server configuration to a file. If not specified, output goes to the console. |
+| format           | The format of the export (XML, json, json-hierarchical). Defaults to XML. |
 | noconsolelogging | If specified, all output to the console other than the configuration is suppressed. This is important when using the json formats and converting to an object. |
 
 ## Format {#ShowConfiguration-Format}
@@ -27,19 +27,18 @@ The format option defaults to XML, but also supports two json formats.
 
 The first format, json, outputs a 'flat' structure that is keyed in the same way the XML file is.  An example of the output is:
 
-```powershell
+```javascript
 {
     "Octopus.Communications.ServicesPort":"10943",
     "Octopus.Storage.NodeName":"NodeA",
     "Octopus.Home":"C:\\Octopus\\Server",
     "Octopus.WebPortal.AutoLoginEnabled":"True"
 }
-
 ```
 
 The second format, json-hierarchical, outputs a hierarchical object structure based on the setting keys. An example of the output is:
 
-```powershell
+```javascript
 {
     "Octopus": {
         "Communications": {
@@ -54,7 +53,6 @@ The second format, json-hierarchical, outputs a hierarchical object structure b
         }
     }
 }
-
 ```
 
 Where this second format really comes into play is in languages such as PowerShell or node.js, as it can be parsed easily into an object structure for use in the script.  An example of how you could use this in PowerShell would be:
@@ -65,7 +63,6 @@ $config = & Octopus.Server.exe show-configuration --format=json-hierarchical --n
 if ($config.Octopus.WebPortal.AutoLoginEnabled -eq $FALSE) {
     & Octopus.Server.exe configure --autoLoginEnabled=true --console
 }
-
 ```
 
 ## Extensions {#ShowConfiguration-Extensions}

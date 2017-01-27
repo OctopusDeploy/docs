@@ -1,6 +1,5 @@
 ---
 title: New certificate
-
 ---
 
 Creates and installs a new certificate for this Tentacle

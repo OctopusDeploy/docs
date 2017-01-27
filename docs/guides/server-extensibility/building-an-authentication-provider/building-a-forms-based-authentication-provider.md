@@ -1,6 +1,5 @@
 ---
 title: Building a Forms based Authentication Provider
-
 ---
 
 All Forms based providers share the Username/Password/Remember Me UI shipping with the Octopus Deploy UI.  To participate as a Forms based authentication provider you must:

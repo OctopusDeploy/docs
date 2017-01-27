@@ -1,6 +1,5 @@
 ---
 title: Register With
-
 ---
 
 Registers this machine with an Octopus server

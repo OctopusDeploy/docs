@@ -1,6 +1,5 @@
 ---
 title: Web App deployment step
-
 ---
 
 Octopus Deploy supports automated deployment of [Azure Web Apps](http://azure.microsoft.com/en-us/services/app-service/web/) (formerly known as Azure Web Sites).

@@ -1,6 +1,5 @@
 ---
 title: Delete instance
-
 ---
 
 Deletes an instance of the Tentacle service

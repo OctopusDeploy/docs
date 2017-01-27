@@ -1,6 +1,5 @@
 ---
 title: NanoPack
-
 ---
 
 [Nano Server ](https://technet.microsoft.com/en-us/windows-server-docs/get-started/getting-started-with-nano-server)is a new installation option available for Windows Server 2016. It is optimized as a lightweight operating system for running applications based on containers or in virtual machines. Due to its small size it opens the possibility of treating complete virtual machine VHDs as build artifacts. NanoPack is a tool to help you bundle your ASP.NET Core application in to a Nano Server VHD that is ready to be deployed with Octopus. A zipped Nano Server VHD with IIS installed is under 200Mb.

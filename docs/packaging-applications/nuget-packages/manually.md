@@ -1,6 +1,5 @@
 ---
 title: Manually
-
 ---
 
 The simplest way to create a NuGet package is to create it manually, using the NuGet Package Explorer. This isn't how we recommend creating your packages most of the time (read more about [OctoPack](/docs/packaging-applications/nuget-packages/using-octopack/index.md)), but it's a good way to get started, or when deploying one-off utilities.

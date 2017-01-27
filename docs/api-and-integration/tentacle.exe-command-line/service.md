@@ -1,6 +1,5 @@
 ---
 title: Service
-
 ---
 
 Start, stop, install and configure the Tentacle service

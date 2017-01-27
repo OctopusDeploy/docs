@@ -1,6 +1,5 @@
 ---
 title: Deploying Web Jobs
-
 ---
 
 [Azure Web Jobs](https://azure.microsoft.com/en-us/documentation/articles/web-sites-create-web-jobs/) can either be packaged and deployed along with the Web App that they live under, or packaged and deployed independently.

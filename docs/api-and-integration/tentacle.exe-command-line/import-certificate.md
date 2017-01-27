@@ -1,6 +1,5 @@
 ---
 title: Import certificate
-
 ---
 
 Replace the certificate that Tentacle uses to authenticate itself

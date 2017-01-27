@@ -1,6 +1,5 @@
 ---
 title: Proxy
-
 ---
 
 Configure the HTTP proxy used by Octopus

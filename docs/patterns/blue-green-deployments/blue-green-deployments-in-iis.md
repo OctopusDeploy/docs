@@ -1,6 +1,5 @@
 ---
 title: Blue-green deployments in IIS
-
 ---
 
 With some custom scripting you can achieve reduced downtime deployments in IIS on a single server, without the need for an external load-balancer. This might help if you only deploy a single instance of your application, or you cannot control the load-balancer itself but you can control IIS and your deployments.

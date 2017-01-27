@@ -1,6 +1,5 @@
 ---
 title: Managing High Availability Nodes
-
 ---
 
 Managing the nodes in your Octopus Server High Availability cluster can be done on the **Nodes** tab in the **Configuration** area:

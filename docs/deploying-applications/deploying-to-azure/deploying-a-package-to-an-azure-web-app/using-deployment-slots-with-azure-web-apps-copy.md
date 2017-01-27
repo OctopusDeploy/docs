@@ -1,6 +1,5 @@
 ---
 title: Using Deployment Slots with Azure Web Apps copy
-
 ---
 
 [Deployment Slots](https://azure.microsoft.com/en-us/documentation/articles/web-sites-staged-publishing/) provide a nice way to implement [Blue-Green deployments](http://martinfowler.com/bliki/BlueGreenDeployment.html) for Azure Web Apps.

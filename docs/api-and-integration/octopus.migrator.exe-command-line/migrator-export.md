@@ -1,6 +1,5 @@
 ---
 title: Migrator Export
-
 ---
 
 This command exports configuration data to a directory.

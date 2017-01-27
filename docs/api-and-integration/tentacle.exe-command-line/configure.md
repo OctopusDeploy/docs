@@ -1,6 +1,5 @@
 ---
 title: Configure
-
 ---
 
 Sets Tentacle settings such as the port number and thumbprints
