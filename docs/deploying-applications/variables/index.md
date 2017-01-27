@@ -13,6 +13,8 @@ Variables are essentially name/value pairs with optional scope rules applied. Yo
 
 Variables are an important and useful concept in Octopus, so this section describes different ways in which variables can be used.
 
+|                                          |                                          |
+| ---------------------------------------- | ---------------------------------------- |
 | **[Scoping variables](/docs/deploying-applications/variables/scoping-variables.md)** | Variables can have different values depending on the environment or machine that they target |
 | **[Binding syntax](/docs/deploying-applications/variables/binding-syntax.md)** | Variables can be referenced throughout Octopus |
 | **[Library variable sets](/docs/deploying-applications/variables/library-variable-sets.md)** | Library variable sets let you re-use variables and [variable templates](/docs/deploying-applications/variables/variable-templates.md) between projects |

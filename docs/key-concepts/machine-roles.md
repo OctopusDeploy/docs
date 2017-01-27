@@ -48,20 +48,10 @@ Variables can also be [scoped to specific roles](/docs/deploying-applications/va
 
 Let’s say you have the following Tentacles with their respective roles:
 
-| 
-
-Tentacle 1
- | 
-
-app-server
- |
-| 
-
-Tentacle 2
- | 
-
-web-server
- |
+| Tentacle   | Role       |
+| ---------- | ---------- |
+| Tentacle 1 | app-server |
+| Tentacle 2 | web-server |
 
 You want to deploy the same package on each server but the deployment path will be different between servers. In this case you can set the same variables (we’ll call it *DeployPath*) with a different value for each machine role:
 
