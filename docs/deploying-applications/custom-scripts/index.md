@@ -297,7 +297,7 @@ echoerror "You can even define your own function to echo an error!"
 
 **F#**
 
-```text
+```f#
 printfn "This will be logged as Information" 
 eprintfn "This will be logged as Error" 
 

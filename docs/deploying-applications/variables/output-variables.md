@@ -171,6 +171,6 @@ From a F# script, you can use the`setVariable : name:string -&gt; value:string -
 
 **F#**
 
-```powershell
+```f#
 Octopus.setVariable "TestResult" "Passed"
 ```

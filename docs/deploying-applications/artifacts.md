@@ -81,6 +81,6 @@ From a F# script, you can use the `createArtifact : path:string -&gt; fileName:
 
 **F#**
 
-```powershell
+```f#
 Octopus.createArtifact @"C:\Windows\System32\drivers\etc\hosts" (System.Environment.MachineName + "-hosts.txt")
 ```
