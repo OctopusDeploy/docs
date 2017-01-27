@@ -9,29 +9,11 @@ Variable substitutions are a flexible way to adjust configuration based on your 
 
 Octopus [variables ](/docs/deploying-applications/variables/index.md)support substitution throughout: a variable may be bound to an expression that incorporates the values of other variables:
 
-| Name | Value | Scope |
-| --- | --- | --- |
-| 
-
-`DatabaseServer`
- | 
-
-`PDB001`
- | Production |
-| 
-
-`DatabaseServer`
- | 
-
-`TDB001`
- | Test |
-| 
-
-`ConnectionString`
- | 
-
-`Server=#{DatabaseServer};`
- |  |
+| Name               | Value                       | Scope      |
+| ------------------ | --------------------------- | ---------- |
+| `DatabaseServer`   | `PDB001`                    | Production |
+| `DatabaseServer`   | `TDB001`                    | Test       |
+| `ConnectionString` | `Server=#{DatabaseServer};` |            |
 
 The syntax `#{VarName}` will insert the value of the `VarName` variable in-place. For example the `ConnectionString`variable will have the value `Server=PDB001;` when evaluated in the *Production*environment. The use of one or more variables in the declaration of another is called a *binding.*
 
@@ -39,15 +21,9 @@ In regular variable declarations, binding to a non-existent value will yield an 
 
 If the file undergoing variable replacement includes a string that *shouldn't* be getting replaced, for example **#{NotToBeReplace}**, you should include an extra hash (#) character to force the replacement to ignore the substitution and remove the extra #.
 
-| Expression | Value |
-| --- | --- |
-| 
-
-`##{NotToBeReplaced}`
- | 
-
-`#{NotToBeReplaced}`
- |
+| Expression            | Value                |
+| --------------------- | -------------------- |
+| `##{NotToBeReplaced}` | `#{NotToBeReplaced}` |
 
 ## Extended Syntax {#VariableSubstitutionSyntax-ExtendedSyntax}
 
@@ -72,12 +48,12 @@ Variable substitution inside an index was added in Octopus 3.3.23.  This makes
 
 Given the variables:
 
-| Name | Value | Scope |
-| --- | --- | --- |
-| `MyPassword[Rob]` | `passwordX` |  |
-| `MyPassword[Steve]` | `passwordY` |  |
-| `MyPassword[Mary]` | `passwordZ` |  |
-| `UserName` | `Mary` |  |
+| Name                | Value       | Scope |
+| ------------------- | ----------- | ----- |
+| `MyPassword[Rob]`   | `passwordX` |       |
+| `MyPassword[Steve]` | `passwordY` |       |
+| `MyPassword[Mary]`  | `passwordZ` |       |
+| `UserName`          | `Mary`      |       |
 
 `#{MyPassword[#{UserName}]}` would evaluate to `passwordZ`.
 
@@ -95,9 +71,9 @@ From Octopus 3.5 and onwards, additional condition support was added for operato
 
 Given the variables:
 
-| Name | Value | Scope |
-| --- | --- | --- |
-| `DebugEnabled` | `True` | Dev |
+| Name           | Value   | Scope      |
+| -------------- | ------- | ---------- |
+| `DebugEnabled` | `True`  | Dev        |
 | `DebugEnabled` | `False` | Production |
 
 Then the following template:
@@ -136,12 +112,12 @@ The `each` statement supports repetition over a set of variables, or over the in
 
 More complex sets of related values are handled using multiple variables:
 
-| Name | Value | Scope |
-| --- | --- | --- |
-| `Endpoint[A].Address` | `http://a.example.com` |  |
-| `Endpoint[A].Description` | `Master` |  |
-| `Endpoint[B].Address` | `http://b.example.com` |  |
-| `Endpoint[B].Description` | `Slave` |  |
+| Name                      | Value                  | Scope |
+| ------------------------- | ---------------------- | ----- |
+| `Endpoint[A].Address`     | `http://a.example.com` |       |
+| `Endpoint[A].Description` | `Master`               |       |
+| `Endpoint[B].Address`     | `http://b.example.com` |       |
+| `Endpoint[B].Description` | `Slave`                |       |
 
 Given the template:
 
@@ -164,9 +140,9 @@ Listening on:
 
 Give the variable:
 
-| Name | Value | Scope |
-| --- | --- | --- |
-| `Endpoints` | `http://a.example.com,http://b.example.com` |  |
+| Name        | Value                                    | Scope |
+| ----------- | ---------------------------------------- | ----- |
+| `Endpoints` | `http://a.example.com,http://b.example.com` |       |
 
 And the template:
 
@@ -189,11 +165,11 @@ Listening on:
 
 Within the context of an iteration template, some special variables are available.
 
-| Name | Description |
-| --- | --- |
-| Octopus.Template.Each.Index | Zero-based index of the iteration count |
+| Name                          | Description                              |
+| ----------------------------- | ---------------------------------------- |
+| Octopus.Template.Each.Index   | Zero-based index of the iteration count  |
 | `Octopus.Template.Each.First` | `&quot;True&quot; if the element is the first in the collection`, otherwise "False" |
-| `Octopus.Template.Each.Last` | "True" if the element is the last in the collection, otherwise "False" |
+| `Octopus.Template.Each.Last`  | "True" if the element is the last in the collection, otherwise "False" |
 
 ### 
 Filters {#VariableSubstitutionSyntax-Filters}
@@ -204,9 +180,9 @@ Octopus variable substitutions support *filters* to correctly encode values for
 
 Given the variable:
 
-| Name | Value | Scope |
-| --- | --- | --- |
-| `ProjectName` | `You &amp; I` |  |
+| Name          | Value         | Scope |
+| ------------- | ------------- | ----- |
+| `ProjectName` | `You &amp; I` |       |
 
 An the template:
 
@@ -230,42 +206,32 @@ The filters provided by Octopus are for use with trusted input; don't rely on th
 
 Octopus provides the following filters:
 
-| Name | Purpose | Example Input | Example Output |
-| --- | --- | --- | --- |
-| 
-
-`HtmlEscape`
- | Escapes entities for use in HTML content | 1 < 2 | 1 &lt; 2 |
-| `JsonEscape` | Escapes data for use in JSON strings | He said "Hello!" | He said \"Hello!\" |
-| `Markdown` | Converts Markdown to HTML | This \_rocks\_ | <p>This <em>rocks</em></p> |
-| `ToLower` | Forces values to lowercase | Octopus Deploy | octopus deploy |
-| `ToUpper` | Forces values to uppercase | Octopus Deploy | OCTOPUS DEPLOY |
-| `XmlEscape` | Escapes entities for use in XML content | 1 < 2 | 1 &lt; 2 |
+| Name         | Purpose                                  | Example Input    | Example Output             |
+| ------------ | ---------------------------------------- | ---------------- | -------------------------- |
+| `HtmlEscape` | Escapes entities for use in HTML content | 1 < 2            | 1 &lt; 2                   |
+| `JsonEscape` | Escapes data for use in JSON strings     | He said "Hello!" | He said \"Hello!\"         |
+| `Markdown`   | Converts Markdown to HTML                | This \_rocks\_   | <p>This <em>rocks</em></p> |
+| `ToLower`    | Forces values to lowercase               | Octopus Deploy   | octopus deploy             |
+| `ToUpper`    | Forces values to uppercase               | Octopus Deploy   | OCTOPUS DEPLOY             |
+| `XmlEscape`  | Escapes entities for use in XML content  | 1 < 2            | 1 < 2                      |
 
 The *NowDate* and *NowDateUtc* filters take no variable input but can take an additional optional right-hand-side argument the define the string format (Defaults to ISO-8601 [Round-trip format](https://msdn.microsoft.com/en-us/library/az4se3k1#Roundtrip)).
 
-| MyFormat Variable | Filter Expression | Output |
-| --- | --- | --- |
-| 
-
- | #{ | NowDate } | 2016-11-03T08:53:11.0946448 |
-|  | #{ | NowDateUtc} | 2016-11-02T23:01:46.9441479Z |
-|  | #{ | NowDate \"HH dd-MMM-yyyy\"} | 09 03-Nov-2016 |
-|  | #{ | NowDateUtc zz} | +00 |
-| dd-MM-yyyy | #{ | NowDate #{MyFormat}} | 03-Nov-2016 |
+| MyFormat Variable | Filter Expression | Output                      |
+| ----------------- | ----------------- | --------------------------- |
+|                   | #{                | NowDate }                   |
+|                   | #{                | NowDateUtc}                 |
+|                   | #{                | NowDate \"HH dd-MMM-yyyy\"} |
+|                   | #{                | NowDateUtc zz}              |
+| dd-MM-yyyy        | #{                | NowDate #{MyFormat}}        |
 
 The *Format* filter available from Octopus Deploy version 3.5 allows for converting of input based on an additionally provided argument that is passed to the *.ToString()*method.
 
-| MyVar Value | Example Input | Output |
-| --- | --- | --- |
-| 4.3 | #{ MyVar | Format C} | $4.30 |
-| 
-```
-2030/05/22 09:05:00
-
-```
- | #{ MyVar | Format yyyy} | 2030 |
-|  | #{ | NowDate | Format Date MMM} | Nov |
+| MyVar Value           | Example Input | Output       |
+| --------------------- | ------------- | ------------ |
+| 4.3                   | #{ MyVar      | Format C}    |
+| `2030/05/22 09:05:00` | #{ MyVar      | Format yyyy} |
+|                       | #{            | NowDate      |
 
 :::hint
 Filters were introduced in Octopus Deploy version 3.5
@@ -285,18 +251,10 @@ Octostache 2.x (bundled with Octopus 3.5) includes an update to support parsing 
 
 Given the variable:
 
-| Name | Value | Scope |
-| --- | --- | --- |
-| `Custom.MyJson` | 
-```
-{Name: "t-shirt", Description: "I am a shirt", Sizes: [{size: "small", price: 15.00}, {size: "large", price: 20.00}]}
-```
- |  |
-| `Custom.MyJson.Description` | 
-```
-Shirts are not shorts.
-```
- |  |
+| Name                        | Value                                    | Scope |
+| --------------------------- | ---------------------------------------- | ----- |
+| `Custom.MyJson`             | `{Name: "t-shirt", Description: "I am a shirt", Sizes: [{size: "small", price: 15.00}, {size: "large", price: 20.00}]}` |       |
+| `Custom.MyJson.Description` | `Shirts are not shorts.`                 |       |
 
 And the template:
 
@@ -327,13 +285,10 @@ There are a few things to note here.
 
 Give the variables:
 
-| Name | Value |
-| --- | --- |
-| MyNumbers | `[5,2,4]` |
-| MyObjects | 
-
-{Cat: {Price: 11.5, Description: "Meow"}, Dog: {Price: 17.5, Description: "Woof"}}
- |
+| Name      | Value                                    |
+| --------- | ---------------------------------------- |
+| MyNumbers | `[5,2,4]`                                |
+| MyObjects | {Cat: {Price: 11.5, Description: "Meow"}, Dog: {Price: 17.5, Description: "Woof"}} |
 
 And the template:
 

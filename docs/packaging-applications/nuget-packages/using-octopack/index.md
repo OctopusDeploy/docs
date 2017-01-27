@@ -21,19 +21,7 @@ Did you know Octopus now [supports other package types](/docs/packaging-applicat
 
 This three minute video (with captions) will walk you through the process of installing and using OctoPack.
 
-- Installing OctoPack
-- Building packages
-- Adding a NuSpec
-- What is packaged?
- - Including web application content files
- - Including additional files using Copy to Output Directory
- - Including additional files using a NuSpec file (.nuspec)
-- Version numbers
-- Adding release notes
-- Replacement tokens
-- Publishing
-- All supported parameters
-- Troubleshooting OctoPack
+<iframe src="//fast.wistia.net/embed/iframe/e9f3yhlvsr" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" oallowfullscreen="" msallowfullscreen="" width="640" height="360" style="margin: 30px"></iframe>
 
 ## Installing OctoPack {#UsingOctoPack-InstallingOctoPack}
 
@@ -214,42 +202,27 @@ Read more about [pushing packages to the Octopus built-in repository](/docs/pack
 
 In addition to the common arguments above, OctoPack has a number of other parameters. The full list is documented in the table below.
 
-| Parameter | Example value | Description |
-| --- | --- | --- |
-| `RunOctoPack` | `True` | Set to `True` for OctoPack to run and create packages during the build. Default: OctoPack won't run. |
-| `OctoPackPackageVersion` | `1.0.0` | Version number of the NuGet package. By default, OctoPack gets the version from your assembly version attributes. Set this parameter to use an explicit version number. |
-| `OctoPackAppConfigFileOverride` | `Foo.config` | When packaging a project called YourApp, containing a file named `App.config`, OctoPack will automatically ignore it, and instead look for `YourApp.exe.config`. Provide this setting to have OctoPack select your specified config file, instead. |
-| `OctoPackAppendToPackageId` | `Release` | A fragment that will be appended to the NuGet package ID, allowing you to create different NuGet packages depending on the build configuration. E.g., if the ID element in the NuSpec is set to "`MyApp`", and this parameter is set to "`Release`", the final package ID will be "`MyApp.Release`". |
-| `OctoPackAppendToVersion` | `beta025` | Define a pre-release tag to be appended to the end of your package version. |
-| `OctoPackEnforceAddingFiles` | `True` | By default, when your NuSpec file has a `&lt;files&gt;` element, OctoPack won't automatically add any of the other files that it would usually add to the package. Set this parameter to `true` to force OctoPack to add all the files it would normally add. |
-| `OctoPackIgnoreNonRootScripts` | `True` | Octopus Deploy only calls `Deploy.ps1` files etc., that are at the root of the NuGet package. If your project emits `Deploy.ps1` files that are not at the root, OctoPack will usually warn you when packaging these. Set this parameter to `true` to suppress the warning. |
-| `OctoPackIncludeTypeScriptSourceFiles` | `True` | If your project has TypeScript files, OctoPack will usually package the corresponding `.js` file produced by the TypeScript compiler, instead of the `.ts` file. Set this parameter to `true` to force OctoPack to package the `.ts` file instead. |
-| `OctoPackNuGetArguments` | `-NoDefaultExcludes` | Use this parameter to specify additional command line parameters that will be passed to `NuGet.exe pack`. See the [NuGet pack command description](http://docs.nuget.org/docs/reference/command-line-reference#Pack_Command).  |
-| `OctoPackNuGetExePath` | `C:\Tools\NuGet.exe` | OctoPack comes with a bundled version of `NuGet.exe`. Use this parameter to force OctoPack to use a different `NuGet.exe` instead. |
-| `OctoPackNuGetProperties` | `foo=bar;baz=bing` | If you use replacement tokens in your NuSpec file (e.g., `$foo$`, `$bar$`, `$version$`, etc.), this parameter allows you to set the value for those tokens. See the section above on replacement tokens, and see the [NuSpec reference for details on replacement tokens](http://docs.nuget.org/docs/reference/nuspec-reference#Replacement_Tokens). |
-| `OctoPackNuGetPushProperties` | `-Timeout 500` | Additional arguments that will be passed to `NuGet.exe push` if you are pushing to an HTTP/HTTPS NuGet repository. See the [NuGet push command description](http://docs.nuget.org/docs/reference/command-line-reference#Push_Command). |
-| `OctoPackNuSpecFileName` | `MyApp.nuspec` | The NuSpec file to use. Defaults to `&quot;&lt;C#/VB project name&gt;.nuspec&quot;`. If the file doesn't exist, OctoPack generates a NuSpec based on your project metadata. |
-| `OctoPackPublishApiKey` | `API-ABCDEFGMYAPIKEY` | Your API key to use when publishing to a HTTP/HTTPS based NuGet repository |
-| `OctoPackPublishPackagesToTeamCity` | `False` | By default, if OctoPack detects that the build is running under TeamCity, the NuGet package that is produced is registered as an artifact in TeamCity. Use this parameter to suppress this behavior. |
-| `OctoPackPublishPackageToFileShare` | `\\server\packages` | OctoPack can publish packages to a file share or local directory after packaging |
-| `OctoPackPublishPackageToHttp` | `http://my-nuget-server/api/v2/package` | OctoPack can publish packages to a HTTP/HTTPS NuGet repository (or the [Octopus built-in repository](/docs/packaging-applications/package-repositories/index.md)) after packaging. |
-| `OctoPackReleaseNotesFile` | `myreleasenotes.txt` | Use this parameter to have the package release notes read from a file. |
-| 
-```
-OctoPackProjectName
-```
- | 
-```
-YourProjectName
-```
- | Use this parameter to override the name of your package so its not necessarily identical to your Visual Studio Project. This will only work when building a single Project/Package. For multiple projects you do not use this parameter and instead set the below property on your project's csproj file
-
-```
-<PropertyGroup>
-    <OctoPackProjectName>Foo</OctoPackProjectName>
-</PropertyGroup>
-```
- |
+| Parameter                              | Example value                           | Description                              |
+| -------------------------------------- | --------------------------------------- | ---------------------------------------- |
+| `RunOctoPack`                          | `True`                                  | Set to `True` for OctoPack to run and create packages during the build. Default: OctoPack won't run. |
+| `OctoPackPackageVersion`               | `1.0.0`                                 | Version number of the NuGet package. By default, OctoPack gets the version from your assembly version attributes. Set this parameter to use an explicit version number. |
+| `OctoPackAppConfigFileOverride`        | `Foo.config`                            | When packaging a project called YourApp, containing a file named `App.config`, OctoPack will automatically ignore it, and instead look for `YourApp.exe.config`. Provide this setting to have OctoPack select your specified config file, instead. |
+| `OctoPackAppendToPackageId`            | `Release`                               | A fragment that will be appended to the NuGet package ID, allowing you to create different NuGet packages depending on the build configuration. E.g., if the ID element in the NuSpec is set to "`MyApp`", and this parameter is set to "`Release`", the final package ID will be "`MyApp.Release`". |
+| `OctoPackAppendToVersion`              | `beta025`                               | Define a pre-release tag to be appended to the end of your package version. |
+| `OctoPackEnforceAddingFiles`           | `True`                                  | By default, when your NuSpec file has a `&lt;files&gt;` element, OctoPack won't automatically add any of the other files that it would usually add to the package. Set this parameter to `true` to force OctoPack to add all the files it would normally add. |
+| `OctoPackIgnoreNonRootScripts`         | `True`                                  | Octopus Deploy only calls `Deploy.ps1` files etc., that are at the root of the NuGet package. If your project emits `Deploy.ps1` files that are not at the root, OctoPack will usually warn you when packaging these. Set this parameter to `true` to suppress the warning. |
+| `OctoPackIncludeTypeScriptSourceFiles` | `True`                                  | If your project has TypeScript files, OctoPack will usually package the corresponding `.js` file produced by the TypeScript compiler, instead of the `.ts` file. Set this parameter to `true` to force OctoPack to package the `.ts` file instead. |
+| `OctoPackNuGetArguments`               | `-NoDefaultExcludes`                    | Use this parameter to specify additional command line parameters that will be passed to `NuGet.exe pack`. See the [NuGet pack command description](http://docs.nuget.org/docs/reference/command-line-reference#Pack_Command). |
+| `OctoPackNuGetExePath`                 | `C:\Tools\NuGet.exe`                    | OctoPack comes with a bundled version of `NuGet.exe`. Use this parameter to force OctoPack to use a different `NuGet.exe` instead. |
+| `OctoPackNuGetProperties`              | `foo=bar;baz=bing`                      | If you use replacement tokens in your NuSpec file (e.g., `$foo$`, `$bar$`, `$version$`, etc.), this parameter allows you to set the value for those tokens. See the section above on replacement tokens, and see the [NuSpec reference for details on replacement tokens](http://docs.nuget.org/docs/reference/nuspec-reference#Replacement_Tokens). |
+| `OctoPackNuGetPushProperties`          | `-Timeout 500`                          | Additional arguments that will be passed to `NuGet.exe push` if you are pushing to an HTTP/HTTPS NuGet repository. See the [NuGet push command description](http://docs.nuget.org/docs/reference/command-line-reference#Push_Command). |
+| `OctoPackNuSpecFileName`               | `MyApp.nuspec`                          | The NuSpec file to use. Defaults to `&quot;&lt;C#/VB project name&gt;.nuspec&quot;`. If the file doesn't exist, OctoPack generates a NuSpec based on your project metadata. |
+| `OctoPackPublishApiKey`                | `API-ABCDEFGMYAPIKEY`                   | Your API key to use when publishing to a HTTP/HTTPS based NuGet repository |
+| `OctoPackPublishPackagesToTeamCity`    | `False`                                 | By default, if OctoPack detects that the build is running under TeamCity, the NuGet package that is produced is registered as an artifact in TeamCity. Use this parameter to suppress this behavior. |
+| `OctoPackPublishPackageToFileShare`    | `\\server\packages`                     | OctoPack can publish packages to a file share or local directory after packaging |
+| `OctoPackPublishPackageToHttp`         | `http://my-nuget-server/api/v2/package` | OctoPack can publish packages to a HTTP/HTTPS NuGet repository (or the [Octopus built-in repository](/docs/packaging-applications/package-repositories/index.md)) after packaging. |
+| `OctoPackReleaseNotesFile`             | `myreleasenotes.txt`                    | Use this parameter to have the package release notes read from a file. |
+| `OctoPackProjectName`                  | `YourProjectName`                       | Use this parameter to override the name of your package so its not necessarily identical to your Visual Studio Project. This will only work when building a single Project/Package. For multiple projects you do not use this parameter and instead set the below property on your project's csproj file `<PropertyGroup><OctoPackProjectName>Foo</OctoPackProjectName></PropertyGroup>` |
 
 ## Troubleshooting OctoPack {#UsingOctoPack-TroubleshootingOctoPack}
 
@@ -329,14 +302,14 @@ Done building target "OctoPack" in project "MyApplication.Web.csproj".
 ```
 
  1. If you cannot see any OctoPack-related log messages, perhaps OctoPack isn't installed into your project(s) correctly?
-  1. Try completely uninstalling OctoPack and installing it again
-  2. Check inside your `.csproj` or `.vbproj` file for an include statement like the following example:
+ 2. Try completely uninstalling OctoPack and installing it again
+ 3. Check inside your `.csproj` or `.vbproj` file for an include statement like the following example:
 
 ```powershell
 <Import Project="..\packages\OctoPack.3.0.42\tools\OctoPack.targets" Condition="Exists('..\packages\OctoPack.3.0.42\tools\OctoPack.targets')" />
 ```
  2. If OctoPack is running but your files are not being packed correctly, see if the file is mentioned in the build log.
-  1. Files that are copied to the build output directory will be included in the package. Take a look at the contents of your build output directory and compare that with the messages in the build log.
-  2. For web applications, files that are configured with the Visual Studio property **Build Action: Content** will be included in the package
-  3. If you have specified the `&lt;files&gt;` element in a custom `.nuspec` file, perhaps you need to add the `/p:OctoPackEnforceAddingFiles=true` MSBuild argument as discussed above?
-  4. If you have specified the `&lt;files&gt;` element in a custom `.nuspec` file, perhaps you need to experiment with some different combinations of include and exclude?
+ 3. Files that are copied to the build output directory will be included in the package. Take a look at the contents of your build output directory and compare that with the messages in the build log.
+ 4. For web applications, files that are configured with the Visual Studio property **Build Action: Content** will be included in the package
+ 5. If you have specified the `&lt;files&gt;` element in a custom `.nuspec` file, perhaps you need to add the `/p:OctoPackEnforceAddingFiles=true` MSBuild argument as discussed above?
+ 6. If you have specified the `&lt;files&gt;` element in a custom `.nuspec` file, perhaps you need to experiment with some different combinations of include and exclude?

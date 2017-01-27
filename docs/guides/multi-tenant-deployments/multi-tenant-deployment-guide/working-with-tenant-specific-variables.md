@@ -50,14 +50,10 @@ By carefully designing your variable templates you can implement complex multi-t
 
 Let's walk through an example of deploying a multi-tenant web application using our example project **Mojo**. To successfully deploy this web application we will need the **DatabaseConnectionString** to connect to the tenant database and a **HostURL** to configure IIS:
 
-| Variable | Description | Example resultant value required to configure the application |
-| --- | --- | --- |
+| Variable                   | Description                              | Example resultant value required to configure the application |
+| -------------------------- | ---------------------------------------- | ---------------------------------------- |
 | `DatabaseConnectionString` | Provides access to the tenant's database for that environment. | `Server=db.mojo.com;Database=mojo-mytenant-production;User ID=mytenant-production;Password=DC7y6KEMYaA6HVjf` |
-| `HostURL` | The URL customers will use to access their instance of the web application for that environment. | 
-
-`https://mytenant.mojo.com`(for the customer's production environment)
-`https://mytenant-staging.mojo.com` (for the customer's staging environment)
- |
+| `HostURL`                  | The URL customers will use to access their instance of the web application for that environment. | `https://mytenant.mojo.com`(for the customer's production environment), `https://mytenant-staging.mojo.com` (for the customer's staging environment) |
 
 By carefully designing our variables to be constructed using some conventions, we can make it much easier to collect tenant-specific values, but also allow the tenant to override these conventions if required.
 
@@ -78,10 +74,10 @@ Let's start with the end in mind by creating the project variables we need. You'
 1. Go to the *Variables* tab in the **Mojo** project.
 2. Create the variables shown below.
 
-| Variable | Value | Description |
-| --- | --- | --- |
-| `DatabaseConnectionString` | `Server=db.mojo.com;Database=#{Tenant.Database.Name};User ID=#{Tenant.Database.UserID};Password=#{Tenant.Database.Password}` | The full database connection string |
-| `HostURL` | `https://#{Tenant.Domain.Name}` | The URL each customer will use to access their instance of the web application, can be overridden to use a custom domain name. |
+| Variable                   | Value                                    | Description                              |
+| -------------------------- | ---------------------------------------- | ---------------------------------------- |
+| `DatabaseConnectionString` | `Server=db.mojo.com;Database=#{Tenant.Database.Name};User ID=#{Tenant.Database.UserID};Password=#{Tenant.Database.Password}` | The full database connection string      |
+| `HostURL`                  | `https://#{Tenant.Domain.Name}`          | The URL each customer will use to access their instance of the web application, can be overridden to use a custom domain name. |
 
 The result should look like the screenshot below:
 
@@ -96,12 +92,12 @@ Rather than managing lots of duplicate data, we will use some default values tha
 1. Go to the *Variables > Variable Templates* tab in the **Mojo** project.
 2. Create the variable templates shown below:
 
-| Name | Label | Default value | Help text | Control type |
-| --- | --- | --- | --- | --- |
-| `Tenant.Database.Name` | Database name | `mojo-#{Environment.Alias}.#{Tenant.Alias}` | The Name of the database - consider changing the Tenant Alias before changing this. | Single-line text box |
-| `Tenant.Database.UserID` | Database username | `mojo-#{Environment.Alias}-#{Tenant.Alias}` | The User ID used to connect to the tenant database. | Single-line text box |
-| `Tenant.Database.Password` | Database password |  | The password used to connect to the tenant database. | Sensitive/password box |
-| `Tenant.Domain.Name` | Domain name | `#{Tenant.Alias}.mojo.com` | An environment-specific name for the Mojo application domain name for this tenant | Single-line text box |
+| Name                       | Label             | Default value                            | Help text                                | Control type           |
+| -------------------------- | ----------------- | ---------------------------------------- | ---------------------------------------- | ---------------------- |
+| `Tenant.Database.Name`     | Database name     | `mojo-#{Environment.Alias}.#{Tenant.Alias}` | The Name of the database - consider changing the Tenant Alias before changing this. | Single-line text box   |
+| `Tenant.Database.UserID`   | Database username | `mojo-#{Environment.Alias}-#{Tenant.Alias}` | The User ID used to connect to the tenant database. | Single-line text box   |
+| `Tenant.Database.Password` | Database password |                                          | The password used to connect to the tenant database. | Sensitive/password box |
+| `Tenant.Domain.Name`       | Domain name       | `#{Tenant.Alias}.mojo.com`               | An environment-specific name for the Mojo application domain name for this tenant | Single-line text box   |
 
 The result should look like the screenshot below:
 
@@ -114,11 +110,11 @@ In the previous step we created some variable templates that use the `Environmen
 1. Go to *Library > Variable sets* and add a new variable set called **Environment variables**
 2. Create the variables shown below:
 
-| Variable | Value | Scope |
-| --- | --- | --- |
-| `Environment.Alias` | `dev` | `MT Dev` |
-| `Environment.Alias` | `test` | `MT Test` |
-| `Environment.Alias` | `staging` | `MT Staging` |
+| Variable            | Value        | Scope           |
+| ------------------- | ------------ | --------------- |
+| `Environment.Alias` | `dev`        | `MT Dev`        |
+| `Environment.Alias` | `test`       | `MT Test`       |
+| `Environment.Alias` | `staging`    | `MT Staging`    |
 | `Environment.Alias` | `production` | `MT Production` |
 
 The result should look like the screenshot below:
@@ -132,10 +128,10 @@ In previous steps we also created some variable templates that depend on a varia
 1. Go to *Library > Variable sets* and add a new variable set called **Standard tenant details**
 2. Go to the *Variable templates* tab and create the templates shown below:
 
-| Name | Label | Default value | Help text | Control type |
-| --- | --- | --- | --- | --- |
-| `Tenant.Alias` | Alias |  | This alias will be used to build convention-based settings for the tenant | Single-line text box |
-| `Tenant.ContactEmail` | Contact email |  | A comma-separated list of email addresses to send deployment notifications | Single-line text box |
+| Name                  | Label         | Default value | Help text                                | Control type         |
+| --------------------- | ------------- | ------------- | ---------------------------------------- | -------------------- |
+| `Tenant.Alias`        | Alias         |               | This alias will be used to build convention-based settings for the tenant | Single-line text box |
+| `Tenant.ContactEmail` | Contact email |               | A comma-separated list of email addresses to send deployment notifications | Single-line text box |
 
 The result should look like the screenshot below:
 

@@ -28,52 +28,22 @@ Use the Package Feed and Package ID fields to select the [package](/docs/packagi
 
 ### Step 2: Configure Windows Service options {#WindowsServices-Step2:ConfigureWindowsServiceoptions}
 
-| Field | Meaning |
-| --- | --- |
-| **Service Name** | The name of the Windows Service to create, or re-configure if it already exists. |
-| **Display Name** | Optional display name of the service. If empty, the Service Name will be used instead. |
-| **Description** | A short description of service that will appear in the services control manager. |
-| **Executable path** | 
-
-The relative path to the executable in the package that the Windows Service will point to. Examples:
-
-- `MyService.exe`
-- `bin\MyService.exe`
-- `foo\bin\MyService.exe`
-- `C:\Windows\myservice.exe`
-
- |
-| **Arguments** | Arguments that will always be passed to the service when it starts |
-| **Service account** | 
-
-The account that the Windows Service should run under. Options are:
-
-- Local System
-- Network Service
-- Local Service
-- Custom user (you can specify the username and password)
-
-See below for [Security Considerations](/docs/deploying-applications/windows-services.md) and [using Managed Service Accounts (MSA)](/docs/deploying-applications/windows-services.md)
- |
-| **Start mode** | 
-
-When will the service start:
-
-- Automatic
-- Automatic (delayed)
-- Manual
-
- |
-| **Dependencies** | 
-
-Any dependencies that the service has. Separate the names using forward slashes (/). For example:
-
-`LanmanWorkstation/TCPIP`
- |
+| Field               | Meaning                                  |
+| ------------------- | ---------------------------------------- |
+| **Service Name**    | The name of the Windows Service to create, or re-configure if it already exists. |
+| **Display Name**    | Optional display name of the service. If empty, the Service Name will be used instead. |
+| **Description**     | A short description of service that will appear in the services control manager. |
+| **Executable path** | The relative path to the executable in the package that the Windows Service will point to. Examples:  `MyService.exe`,  `bin\MyService.exe`, `foo\bin\MyService.exe`, `C:\Windows\myservice.exe` |
+| **Arguments**       | Arguments that will always be passed to the service when it starts |
+| **Service account** | The account that the Windows Service should run under. Options are: Local System, Network Service, Local Service, Custom user (you can specify the username and password). See below for [Security Considerations](/docs/deploying-applications/windows-services.md) and [using Managed Service Accounts (MSA)](/docs/deploying-applications/windows-services.md) |
+| **Start mode**      | When will the service start: Automatic, Automatic (delayed), Manual |
+| **Dependencies**    | Any dependencies that the service has. Separate the names using forward slashes (/). For example: `LanmanWorkstation/TCPIP` |
 
 ## Windows Service deployment in action {#WindowsServices-WindowsServicedeploymentinaction}
 
 This three minute video (with captions) demonstrates how to deploy a C# Windows Service project with Octopus Deploy.
+
+<iframe src="//fast.wistia.net/embed/iframe/33yi0jfjpc" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" oallowfullscreen="" msallowfullscreen="" width="640" height="360" style="margin: 30px"></iframe>
 
 ## How does Octopus actually deploy my Windows Service? {#WindowsServices-HowdoesOctopusactuallydeploymyWindowsService?}
 
@@ -88,12 +58,12 @@ As an approximation including the Windows Service manager integration:
 1. Acquire the package as optimally as possible (local package cache and [delta compression](/docs/deploying-applications/delta-compression-for-package-transfers.md))
 2. Stop your Windows Service is already running
 3. Create a new folder for the deployment (which avoids many common problems like file locks, and leaving stale files behind)
- 1. Example: `C:\Octopus\Applications\[Tenant name]\[Environment name]\[Package name]\[Package version]\` where `C:\Octopus\Applications` is the Tentacle application directory you configured when installing Tentacle)
-4. Extract the package into the newly created folder
-5. Execute each of your [custom scripts](/docs/deploying-applications/custom-scripts/index.md) and the [deployment features](/docs/deploying-applications/index.md) you've configured will be executed to perform the deployment [following this order by convention](/docs/reference/package-deployment-feature-ordering.md).
- 1. As part of this process Windows Service will be created, or reconfigured if it already exists, including updating the **binPath** to point to this folder and your executable entry point
-6. Your Windows Service will be started
-7. [Output variables](/docs/deploying-applications/variables/output-variables.md) and deployment [artifacts](/docs/deploying-applications/artifacts.md) from this step are sent back to the Octopus Server
+4. Example: `C:\Octopus\Applications\[Tenant name]\[Environment name]\[Package name]\[Package version]\` where `C:\Octopus\Applications` is the Tentacle application directory you configured when installing Tentacle)
+5. Extract the package into the newly created folder
+6. Execute each of your [custom scripts](/docs/deploying-applications/custom-scripts/index.md) and the [deployment features](/docs/deploying-applications/index.md) you've configured will be executed to perform the deployment [following this order by convention](/docs/reference/package-deployment-feature-ordering.md).
+7. As part of this process Windows Service will be created, or reconfigured if it already exists, including updating the **binPath** to point to this folder and your executable entry point
+8. Your Windows Service will be started
+9. [Output variables](/docs/deploying-applications/variables/output-variables.md) and deployment [artifacts](/docs/deploying-applications/artifacts.md) from this step are sent back to the Octopus Server
 
 :::success
 You can see exactly how Octopus deploys your Windows Service by looking at the scripts in our open-source [open-source Calamari](https://github.com/OctopusDeploy/Calamari) project which actually performs the deployment:
@@ -141,8 +111,8 @@ When you use the Services snap-in console to configure your Windows Service, the
 ## Using Managed Service Accounts (MSA) {#WindowsServices-UsingManagedServiceAccounts(MSA)}
 
 > Managed Service Accounts (MSA) allow you to eliminate those never-expire-service-accounts. An MSA is a special domain account that can be managed by the computer that uses it. That computer will change its password periodically without the need of an administrator.
-> 
-> 
+>
+>
 > *[http://www.zeda.nl/index.php/en/en-managed-service-accounts](http://www.zeda.nl/index.php/en/en-managed-service-accounts)*
 
 To configure the Windows Service to use a Managed Service Account:
