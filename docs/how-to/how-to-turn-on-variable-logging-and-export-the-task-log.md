@@ -14,19 +14,17 @@ Write the variables to the deployment log
 1. Open the ***Project > Variables*** page
 2. Add the following two variables and set them to **True**:
 
-| Name | Value |
-| --- | --- |
-| OctopusPrintVariables | True |
-| OctopusPrintEvaluatedVariables | True |
+   | Name                           | Value |
+   | ------------------------------ | ----- |
+   | OctopusPrintVariables          | True  |
+   | OctopusPrintEvaluatedVariables | True  |
 3. **Create a new release** of your project for the variables to take effect
 4. Deploy the new release
 5. Enable **Verbose** output on the **Task log** page
 6. Open the deployment/task details, and go to the **Task log** tab. Click on the **Raw** link.
-
-![](/docs/images/5672459/5866222.png "width=500")
+   ![](/docs/images/5672459/5866222.png "width=500")
 7. At the top of the raw log page, there is a **Download** button. Click the button to download a text file containing the entire deployment log.
-
-![](/docs/images/5672459/5866223.png "width=500")
+   ![](/docs/images/5672459/5866223.png "width=500")
     You can then attach this log file to your support query.
 
 :::hint

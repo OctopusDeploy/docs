@@ -7,7 +7,7 @@ Octopus Deploy Server and Tentacles write diagnostic log messages to their local
 
 :::success
 **Recent Errors**
-The most recent warnings and errors can be view on the Configuration -> Diagnostics page
+The most recent warnings and errors can be view on the Configuration &#10140; Diagnostics page
 :::
 
 ## Finding the log files {#Logfiles-Findingthelogfiles}

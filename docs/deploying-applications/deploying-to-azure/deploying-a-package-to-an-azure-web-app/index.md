@@ -6,14 +6,14 @@ title: Deploying a package to an Azure Web App
 Octopus Deploy supports automated deployment of [Azure Web Apps](http://azure.microsoft.com/en-us/services/app-service/web/) (formerly known as Azure Web Sites).
 
 - Understanding Azure Web Apps
- - Web Apps are deployed using Web Deploy
- - Web Jobs
+- Web Apps are deployed using Web Deploy
+- Web Jobs
 - Step 1: Packaging
- - Simple and advanced deployment scenarios
+- Simple and advanced deployment scenarios
 - Step 2: Create an Azure Account
 - Step 3: Create the Azure Web App deployment step
 - Step 4: Configure your Azure Web App step.
- - Deployment features available to Azure Web App steps
+- Deployment features available to Azure Web App steps
 - Deployment process
 - Deploying to multiple geographic regions
 
@@ -136,24 +136,15 @@ Once an Account is selected, the list of Azure Web Apps available to the subscri
 
 ![](/docs/images/3048686/3278366.png "width=500")
 
-| Setting | Default | Description |
-| --- | --- | --- |
-| Account |  | The [Azure Account](/docs/key-concepts/environments/accounts/azure-subscription-account.md) you want to target when deploying this web app. Select one from the list, or use a [variable binding](/docs/deploying-applications/variables/binding-syntax.md) to select an account by its name or ID. |
-| --- | --- | --- |
-| Web App |  | The actual web app you want to target. Select one from the list, or use a [variable binding](/docs/deploying-applications/variables/binding-syntax.md) to define the name of the web app. |
-| --- | --- | --- |
-| Physical Path |  | The physical path relative to site root on the web app host. e.g. 'foo' will deploy to 'site\wwwroot\foo'. Leave blank to deploy to root. |
-| --- | --- | --- |
-| **Remove additional files** | *False* | When *True* instructs Web Deploy to delete files from the destination that aren't in the source package |
-| --- | --- | --- |
-| **Preserve App\_Data** | *False* | When *True* instructs Web Deploy to skip Delete operations in the **App\_Data** directory |
-| --- | --- | --- |
-| **Enable AppOffline** | *False* | When *True* instructs Web Deploy to place *app\_offline.htm* in root deployment directory to safely bring down the app domain.
-Click [here](http://www.iis.net/learn/publish/deploying-application-packages/taking-an-application-offline-before-publishing) for more details. |
-| --- | --- | --- |
-| File comparison method | *Timestamp* | Can be *timestamp* or *checksum* and instructs web deploy to use the selected algorithm to determine which files to update.
-*Note: There have been some issues with checksum in earlier versions of web deploy, and we've written about that in detail [here](https://octopus.com/blog/reliably-deploying-large-azure-web-apps).* |
-| --- | --- | --- |
+| Setting                     | Default     | Description                              |
+| --------------------------- | ----------- | ---------------------------------------- |
+| **Account**                 |             | The [Azure Account](/docs/key-concepts/environments/accounts/azure-subscription-account.md) you want to target when deploying this web app. Select one from the list, or use a [variable binding](/docs/deploying-applications/variables/binding-syntax.md) to select an account by its name or ID. |
+| **Web App**                 |             | The actual web app you want to target. Select one from the list, or use a [variable binding](/docs/deploying-applications/variables/binding-syntax.md) to define the name of the web app. |
+| **Physical Path**           |             | The physical path relative to site root on the web app host. e.g. 'foo' will deploy to 'site\wwwroot\foo'. Leave blank to deploy to root. |
+| **Remove additional files** | *False*     | When *True* instructs Web Deploy to delete files from the destination that aren't in the source package |
+| **Preserve App\_Data**      | *False*     | When *True* instructs Web Deploy to skip Delete operations in the **App\_Data** directory |
+| **Enable AppOffline**       | *False*     | When *True* instructs Web Deploy to place *app\_offline.htm* in root deployment directory to safely bring down the app domain.</br>Click [here](http://www.iis.net/learn/publish/deploying-application-packages/taking-an-application-offline-before-publishing) for more details. |
+| **File comparison method**  | *Timestamp* | Can be *timestamp* or *checksum* and instructs web deploy to use the selected algorithm to determine which files to update.</br>*Note: There have been some issues with checksum in earlier versions of web deploy, and we've written about that in detail [here](https://octopus.com/blog/reliably-deploying-large-azure-web-apps).* |
 
 :::success
 **Use variable binding expressions**

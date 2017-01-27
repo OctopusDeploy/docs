@@ -9,19 +9,19 @@ Output variables can be set anywhere that Octopus runs scripts - for example, t
 
 For example, you might have a standalone [PowerShell script step](/docs/deploying-applications/custom-scripts/index.md) called **StepA** that does something like this:
 
-```text
+```powershell
 Set-OctopusVariable -name "TestResult" -value "Passed"
 ```
 
 You can then use the variable from other steps, either in [variable binding syntax](/docs/deploying-applications/variables/binding-syntax.md):
 
-```text
+```powershell
 #{Octopus.Action[StepA].Output.TestResult}
 ```
 
 Or other scripts:
 
-```text
+```powershell
 $TestResult = $OctopusParameters["Octopus.Action[StepA].Output.TestResult"]
 ```
 
@@ -30,13 +30,13 @@ $TestResult = $OctopusParameters["Octopus.Action[StepA].Output.TestResult"]
 After a step runs, Octopus captures the output variables, and keeps them for use in subsequent steps. In addition to variables that you create yourself using `Set-OctopusVariable`, Octopus also makes a number of built-in variables available. Here are some examples of commonly used built-in output variables:
 
 - For NuGet package steps:
- - `Octopus.Action[StepName].Output.Package.InstallationDirectoryPath` - the path that the package was deployed to
+- `Octopus.Action[StepName].Output.Package.InstallationDirectoryPath` - the path that the package was deployed to
 - For manual intervention steps:
- - `Octopus.Action[StepName].Output.Manual.Notes` - notes entered in response to the manual step
- - `Octopus.Action[StepName].Output.Manual.ResponsibleUser.Id`
- - `Octopus.Action[StepName].Output.Manual.ResponsibleUser.Username`
- - `Octopus.Action[StepName].Output.Manual.ResponsibleUser.DisplayName`
- - `Octopus.Action[StepName].Output.Manual.ResponsibleUser.EmailAddress`
+- `Octopus.Action[StepName].Output.Manual.Notes` - notes entered in response to the manual step
+- `Octopus.Action[StepName].Output.Manual.ResponsibleUser.Id`
+- `Octopus.Action[StepName].Output.Manual.ResponsibleUser.Username`
+- `Octopus.Action[StepName].Output.Manual.ResponsibleUser.DisplayName`
+- `Octopus.Action[StepName].Output.Manual.ResponsibleUser.EmailAddress`
 
 ## Output from multiple machines {#Outputvariables-Outputfrommultiplemachines}
 
@@ -46,62 +46,14 @@ Imagine that an output variable was set by a script which ran on two machines (W
 
 In this scenario, the following output variables would be captured:
 
-| Name | Value | Scope |
-| --- | --- | --- |
-| 
-```
-Octopus.Action[StepA].Output[Web01].TestResult
-```
- | 
-```
-Passed
-```
- |  |
-| 
-```
-Octopus.Action[StepA].Output[Web02].TestResult
-```
- | 
-```
-Failed
-```
- |  |
-| 
-```
-Octopus.Action[StepA].Output.TestResult
-```
- | 
-```
-Passed
-```
- | Machine: Web01 |
-| 
-```
-Octopus.Action[StepA].Output.TestResult
-```
- | 
-```
-Failed
-```
- | Machine: Web02 |
-| 
-```
-Octopus.Action[StepA].Output.TestResult
-```
- | 
-```
-Passed
-```
- |  |
-| 
-```
-Octopus.Action[StepA].Output.TestResult
-```
- | 
-```
-Failed
-```
- |  |
+| Name                                     | Value    | Scope          |
+| ---------------------------------------- | -------- | -------------- |
+| `Octopus.Action[StepA].Output[Web01].TestResult` | `Passed` |                |
+| `Octopus.Action[StepA].Output[Web02].TestResult` | `Failed` |                |
+| `Octopus.Action[StepA].Output.TestResult` | `Passed` | Machine: Web01 |
+| `Octopus.Action[StepA].Output.TestResult` | `Failed` | Machine: Web02 |
+| `Octopus.Action[StepA].Output.TestResult` | `Passed` |                |
+| `Octopus.Action[StepA].Output.TestResult` | `Failed` |                |
 
 Note that for each output variable/machine combination:
 

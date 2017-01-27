@@ -21,7 +21,7 @@ To deploy a Virtual Hard Drive, add a *Deploy a VHD* step. For information abou
 
 ## Configuring the Step {#DeployingVirtualHardDrives-ConfiguringtheStep}
 
-## ![](/docs/images/5671980/5866127.png "width=500") {#DeployingVirtualHardDrives-}
+![](/docs/images/5671980/5866127.png "width=500")
 
 ### Step 1: Select a Package {#DeployingVirtualHardDrives-Step1:SelectaPackage}
 
@@ -29,9 +29,9 @@ Use the Package Feed and Package ID fields to select the [package](/docs/packag
 
 ### Step 2: Configure VHD options {#DeployingVirtualHardDrives-Step2:ConfigureVHDoptions}
 
-| Field | Meaning |
-| --- | --- |
-| **VHD application path** | 
+| Field                    | Meaning |
+| ------------------------ | ------- |
+| **VHD application path** |         |
 
 The relative path to your application within your VHD. Octopus will use this to run deployment features, such as config transforms and variable substitution in files, only on this folder, rather than on the entire VHD. Examples:
 
@@ -61,7 +61,7 @@ If you have a VHD with multiple partitions, in step 2 above all partitions are m
 
 To change the behavior when there are multiple partitions create Octopus Variables against your project indexed to the partition (starting at 0). If you have more than one deploy VHD step you will need to scope the variables to each step.
 
-| Octopus Variable | Value | Meaning |
-| --- | --- | --- |
-| OctopusVhdPartitions[0].Mount | false | Do not mount this partition |
+| Octopus Variable                        | Value           | Meaning                                  |
+| --------------------------------------- | --------------- | ---------------------------------------- |
+| OctopusVhdPartitions[0].Mount           | false           | Do not mount this partition              |
 | OctopusVhdPartitions[0].ApplicationPath | A relative path | Override the VHD application path from the "Configure VHD options" section for just this partition |

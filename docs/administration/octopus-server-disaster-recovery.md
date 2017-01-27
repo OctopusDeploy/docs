@@ -81,7 +81,7 @@ When required to replace your Production servers with the ready DR servers, foll
 
 ## How to find your NODE name: {#OctopusServerDisasterRecovery-HowtofindyourNODEname:}
 
-- Navigate to your Configuration --> Nodes page.
+- Navigate to your Configuration &#10140; Nodes page.
 
 - You will find the NODE name at the top of the page *(see example below).*
 

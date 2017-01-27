@@ -36,53 +36,7 @@ Understanding the difference between Sites, Applications and Virtual Directories
 
 ![](/docs/images/3048088/5865719.png "width=500")
 
-| Field | Meaning | Examples | Notes |
-| --- | --- | --- | --- |
-| **Web Site Name** | 
-
-The name of the IIS Web Site to create (or reconfigure, if the site already exists).
- | `MyWebSite` |  |
-| **Physical path** | 
-
-The physical path on disk this Web Site will point to
- | 
-
-`/Path1/Path2/MySite`
-
-`#{MyCustomInstallationDirectory}`
- | You can specify an absolute path, or a relative path inside the package installation directory. |
-| **Application Pool name** | Name of the Application Pool in IIS to create (or reconfigure, if the application pool already exists) | `MyAppPool` |  |
-| **.NET CLR version** | The version of the .NET Common Language Runtime this Application Pool will use. | 
-- `v2.0`
-- `v4.0`
-
- | 
-
-Choose v2.0 for applications built against .NET 2.0, 3.0 or 3.5.
-
-Choose v4.0 for .NET 4.0 or 4.5.
- |
-| **Identity** | 
-
-Which account the Application Pool will run under.
- | 
-- `Application Pool Identity`
-- `Local Service`
-- `Local System`
-- `Network Service`
-- `Custom user (you specify the username/password)`
-
- |  |
-| **Bindings** | Specify any number of HTTP/HTTPS bindings that should be added to the IIS Web Site |  |  |
-| **Authentication modes** | 
-
-Choose which authentication mode(s) IIS should enable
- | 
-- `Anonymous`
-- `Basic`
-- `Windows`
-
- | You can select more than one authentication mode |
+<table class="table"><tr><th>Field</th><th>Meaning</th><th>Examples</th><th>Notes</th></tr><tr><td><strong>.NET CLR version</strong></td><>The version of the .NET Common Language Runtime this Application Pool will use.</td><><ul><li><code>v2.0</code></li><li><code>v4.0</code></li></ul></td><><p>Choose v2.0 for applications built against .NET 2.0, 3.0 or 3.5.</p><p>Choose v4.0 for .NET 4.0 or 4.5.</p></td></tr><tr><><strong>Application Pool name</strong></td><>Name of the Application Pool in IIS to create (or reconfigure, if the application pool already exists)</td><><code>MyAppPool</code></td><>&nbsp;</td></tr><tr><><strong>Authentication modes</strong></td><><p>Choose which authentication mode(s) IIS should enable</p></td><><ul><li><code>Anonymous</code></li><li><code>Basic</code></li><li><code>Windows</code></li></ul></td><><span>You can select more than one authentication mode</span></td></tr><tr><><strong>Bindings</strong></td><>Specify any number of HTTP/HTTPS bindings that should be added to the IIS Web Site</td><>&nbsp;</td><>&nbsp;</td></tr><tr><><strong>Identity</strong></td><><p>Which account the Application Pool will run under.</p></td><><ul><li><code>Application Pool Identity</code></li><li><code>Local Service</code></li><li><code>Local System</code></li><li><code>Network Service</code></li><li><code><span>Custom user (you specify the username/password)</span></code></li></ul></td><>&nbsp;</td></tr><tr><td class="confluenceTd"><strong>Physical path</strong></td><td class="confluenceTd"><p>The physical path on disk this Web Site will point to</p></td><td class="confluenceTd"><p><code>/Path1/Path2/MySite</code></p><p><code>#{MyCustomInstallationDirectory}</code></p></td><td class="confluenceTd"><span>You can specify an absolute path, or a relative path inside the package installation directory.</span></td></tr><tr><><strong>Web Site Name</strong></td><><p>The name of the IIS Web Site to create (or reconfigure, if the site already exists).</p></td><><code>MyWebSite</code></td><>&nbsp;</td></tr></table>
 
 ### Deploy IIS Virtual Directory {#IISWebsitesandApplicationPools-DeployIISVirtualDirectoryvirtual-directory}
 
@@ -91,38 +45,15 @@ The IIS Virtual Directory step requires a parent Web Site to exist in IIS before
 
 1. Make sure the parent Web Site exists in IIS and is configured correctly
 2. Create any number of Web Applications and Virtual Directories as children of the parent Web Site
-:::
+   :::
 
 ![](/docs/images/3048088/5865718.png "width=500")
 
-| Field | Meaning | Examples | Notes |
-| --- | --- | --- | --- |
-| **Parent Web Site name** | 
-
-The name of the parent IIS Web Site.
- | 
-
-`Default Web Site`
-
-`MyWebSite`
- | The parent Web Site must exist in IIS before this step runs. This step will not create the Web Site for you. |
-| **Virtual path** | 
-
-The relative path from the parent IIS Web Site to the Virtual Directory
- | If you want a Virtual Directory called `MyDirectory` belonging to the Site `MySite` as part of the Application `MyApplication` you would set the Virtual Path to `/MyApplication/MyDirectory` | 
-
-All parent applications/directories must exist
-Does not need to match the physical path
- |
-| **Physical path** | 
-
-The physical path on disk this Virtual Directory will point to
- | 
-
-`/Path1/Path2/MyDirectory`
-
-`#{MyCustomInstallationDirectory}`
- | You can specify an absolute path, or a relative path inside the package installation directory. |
+| Field                    | Meaning                                  | Examples                                 | Notes                                    |
+| ------------------------ | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| **Parent Web Site name** | The name of the parent IIS Web Site.     | `Default Web Site`, `MyWebSite`          | The parent Web Site must exist in IIS before this step runs. This step will not create the Web Site for you. |
+| **Virtual path**         | The relative path from the parent IIS Web Site to the Virtual Directory | If you want a Virtual Directory called `MyDirectory` belonging to the Site `MySite` as part of the Application `MyApplication` you would set the Virtual Path to `/MyApplication/MyDirectory` | All parent applications/directories must exist. Does not need to match the physical path |
+| **Physical path**        | The physical path on disk this Virtual Directory will point to | `/Path1/Path2/MyDirectory`, `#{MyCustomInstallationDirectory}` | You can specify an absolute path, or a relative path inside the package installation directory. |
 
 :::success
 The Virtual Path and Physical Path do not need to match which is one of the true benefits of IIS. You can create a virtual mapping from a URL to a completely unrelated physical path on disk. See [below](/docs/deploying-applications/iis-websites-and-application-pools.md) for more details.
@@ -135,6 +66,7 @@ The IIS Web Application step requires a parent Web Site to exist in IIS before i
 
 1. Make sure the parent Web Site exists in IIS and is configured correctly
 2. Create any number of Web Applications and Virtual Directories as children of the parent Web Site
+
 :::
 
 ![](/docs/images/3048088/5865720.png "width=500")
@@ -143,56 +75,15 @@ The IIS Web Application step requires a parent Web Site to exist in IIS before i
 The Virtual Path and Physical Path do not need to match which is one of the true benefits of IIS. You can create a virtual mapping from a URL to a completely unrelated physical path on disk. See [below](/docs/deploying-applications/iis-websites-and-application-pools.md) for more details.
 :::
 
-| Field | Meaning | Examples | Notes |
-| --- | --- | --- | --- |
-| **Parent Web Site Name** | 
-
-The name of the parent IIS Web Site.
- | 
-
-`Default Web Site`
-
-`MyWebSite`
- | The parent Web Site must exist in IIS before this step runs. This step will not create the Web Site for you. |
-| **Virtual Path** | 
-
-The relative path from the parent IIS Web Site to the Web Application
- | If you want a Web Application called `MyApplication` belonging to the Site `MySite` you would set the Virtual Path to `/MyApplication` | 
-
-All parent applications/directories must exist
-Does not need to match the physical path
- |
-| **Physical path** | 
-
-The physical path on disk this Web Application will point to
- | 
-
-`/Path1/Path2/MyApplication`
-
-`#{MyCustomInstallationDirectory}`
- | You can specify an absolute path, or a relative path inside the package installation directory. |
+| Field                    | Meaning | Examples | Notes |
+| ------------------------ | ------- | -------- | ----- |
+| **Parent Web Site Name** | The name of the parent IIS Web Site. | `Default Web Site`, `MyWebSite` | The parent Web Site must exist in IIS before this step runs. This step will not create the Web Site for you. |
+| **Virtual Path** | The relative path from the parent IIS Web Site to the Web Application
+ | If you want a Web Application called `MyApplication` belonging to the Site `MySite` you would set the Virtual Path to `/MyApplication` | All parent applications/directories must exist. Does not need to match the physical path. | 
+| **Physical path** | The physical path on disk this Web Application will point to | `/Path1/Path2/MyApplication`, `#{MyCustomInstallationDirectory}` | You can specify an absolute path, or a relative path inside the package installation directory. |
 | **Application Pool name** | Name of the Application Pool in IIS to create (or reconfigure, if the Application Pool already exists) |  |  |
-| **.NET CLR version** | The version of the .NET Common Language Runtime this Application Pool will use. | 
-- `v2.0`
-- `v4.0`
-
- | 
-
-Choose v2.0 for applications built against .NET 2.0, 3.0 or 3.5.
-
-Choose v4.0 for .NET 4.0 or 4.5.
- |
-| **Identity** | 
-
-Which account the Application Pool will run under.
- | 
-- `Application Pool Identity`
-- `Local Service`
-- `Local System`
-- `Network Service`
-- `Custom user (you specify the username/password)`
-
- |  |
+| **.NET CLR version** | The version of the .NET Common Language Runtime this Application Pool will use. | `v2.0`, `v4.0` | Choose v2.0 for applications built against .NET 2.0, 3.0 or 3.5. Choose v4.0 for .NET 4.0 or 4.5. |
+| **Identity** | Which account the Application Pool will run under. | `Application Pool Identity`, `Local Service`, `Local System`, `Network Service`, `Custom user (you specify the username/password)` |  |
 
 ## How Octopus Deploys your Web Site {#IISWebsitesandApplicationPools-HowOctopusDeploysyourWebSite}
 
@@ -206,11 +97,11 @@ As an approximation including the IIS integration:
 
 1. Acquire the package as optimally as possible (local package cache and [delta compression](/docs/deploying-applications/delta-compression-for-package-transfers.md))
 2. Create a new folder for the deployment (which avoids many common problems like file locks, leaving stale files behind, and multiple Application Pool restarts)
- 1. Example: `C:\Octopus\Applications\[Tenant name]\[Environment name]\[Package name]\[Package version]\` where `C:\Octopus\Applications` is the Tentacle application directory you configured when installing Tentacle)
-3. Extract the package into the newly created folder
-4. Execute each of your [custom scripts](/docs/deploying-applications/custom-scripts/index.md) and the [deployment features](/docs/deploying-applications/index.md) you've configured will be executed to perform the deployment [following this order by convention](/docs/reference/package-deployment-feature-ordering.md).
- 1. As part of this process the IIS Web Site, Web Application or Virtual Directory will be configured in a single transaction with IIS, including updating the Physical Path to point to this folder
-5. [Output variables](/docs/deploying-applications/variables/output-variables.md) and deployment [artifacts](/docs/deploying-applications/artifacts.md) from this step are sent back to the Octopus Server
+3. Example: `C:\Octopus\Applications\[Tenant name]\[Environment name]\[Package name]\[Package version]\` where `C:\Octopus\Applications` is the Tentacle application directory you configured when installing Tentacle)
+4. Extract the package into the newly created folder
+5. Execute each of your [custom scripts](/docs/deploying-applications/custom-scripts/index.md) and the [deployment features](/docs/deploying-applications/index.md) you've configured will be executed to perform the deployment [following this order by convention](/docs/reference/package-deployment-feature-ordering.md).
+6. As part of this process the IIS Web Site, Web Application or Virtual Directory will be configured in a single transaction with IIS, including updating the Physical Path to point to this folder
+7. [Output variables](/docs/deploying-applications/variables/output-variables.md) and deployment [artifacts](/docs/deploying-applications/artifacts.md) from this step are sent back to the Octopus Server
 
 :::success
 You can see exactly how Octopus integrates with IIS in the [open-source Calamari library](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari/Scripts/Octopus.Features.IISWebSite_BeforePostDeploy.ps1).

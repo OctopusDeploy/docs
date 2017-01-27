@@ -9,42 +9,7 @@ This page lists the supported scenarios and the transform definitions required t
 
 ### Supported scenarios {#AdvancedConfigurationTransformsExamples-Supportedscenarios}
 
-| 
-
- | Target |
-| --- | --- |
-| Absolute Path | Relative Path | Filename | 
-
-Wildcard Prefixed
-
-Absolute Path
- | 
-
-Wildcard Prefixed
-
-Relative Path
- | 
-
-Wildcard Prefixed
-
-Filename
- |
-| --- | --- | --- | --- | --- | --- |
-| 
-
-Transform
- | Absolute Path | *not supported* | *not supported* | [example](/docs/deploying-applications/configuration-files/advanced-configuration-transforms-examples.md) | *not supported* | [example](/docs/deploying-applications/configuration-files/advanced-configuration-transforms-examples.md) | [example](/docs/deploying-applications/configuration-files/advanced-configuration-transforms-examples.md) |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Relative Path | *not supported* | [example](/docs/deploying-applications/configuration-files/advanced-configuration-transforms-examples.md) | [example](/docs/deploying-applications/configuration-files/advanced-configuration-transforms-examples.md) | *not supported* | [example](/docs/deploying-applications/configuration-files/advanced-configuration-transforms-examples.md) | [example](/docs/deploying-applications/configuration-files/advanced-configuration-transforms-examples.md) |
-| --- | --- | --- | --- | --- | --- | --- |
-| Filename | *not supported* | [example](/docs/deploying-applications/configuration-files/advanced-configuration-transforms-examples.md) | [example](/docs/deploying-applications/configuration-files/advanced-configuration-transforms-examples.md) | *not supported* | [example](/docs/deploying-applications/configuration-files/advanced-configuration-transforms-examples.md) | [example](/docs/deploying-applications/configuration-files/advanced-configuration-transforms-examples.md) |
-| --- | --- | --- | --- | --- | --- | --- |
-| Wildcard Absolute Path | *not supported* | *not supported* | [example](/docs/deploying-applications/configuration-files/advanced-configuration-transforms-examples.md) | *not supported* | [example](/docs/deploying-applications/configuration-files/advanced-configuration-transforms-examples.md) | [example](/docs/deploying-applications/configuration-files/advanced-configuration-transforms-examples.md) |
-| --- | --- | --- | --- | --- | --- | --- |
-| Wildcard Relative Path | *not supported* | [example](/docs/deploying-applications/configuration-files/advanced-configuration-transforms-examples.md) | [example](/docs/deploying-applications/configuration-files/advanced-configuration-transforms-examples.md) | *not supported* | [example](/docs/deploying-applications/configuration-files/advanced-configuration-transforms-examples.md) | [example](/docs/deploying-applications/configuration-files/advanced-configuration-transforms-examples.md) |
-| --- | --- | --- | --- | --- | --- | --- |
-| Wildcard Filename | *not supported* | [example](/docs/deploying-applications/configuration-files/advanced-configuration-transforms-examples.md) | [examples](/docs/deploying-applications/configuration-files/advanced-configuration-transforms-examples.md) | *not supported* | [example](/docs/deploying-applications/configuration-files/advanced-configuration-transforms-examples.md) | [example](/docs/deploying-applications/configuration-files/advanced-configuration-transforms-examples.md) |
-| --- | --- | --- | --- | --- | --- | --- |
+<table class="table table-bordered"><tr><th colspan="2" rowspan="2"><br><br><br><br></th><th colspan="6" style="text-align: center;">Target</th></tr><tr><th>Absolute Path</th><th>Relative Path</th><th>Filename</th><th><p>Wildcard Prefixed</p><p style="text-align: center;">Absolute Path</p></th><th><p style="text-align: center;"><span>Wildcard Prefixed</span></p><p style="text-align: center;"><span>Relative Path</span></p></th><th><p style="text-align: center;"><span>Wildcard Prefixed</span></p><p style="text-align: center;"><span>Filename</span></p></th></tr><tr><th rowspan="6"><p><span><br></span></p><p><span><br></span></p><p><span><br></span></p><p><span>Transform</span><br><br><br><br><br></p></th><th>Absolute Path</th><td style="text-align: center;"><em>not supported</em></td><td style="text-align: center;"><em>not supported</em></td><td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Usinganabsolutepathtothetransform)</td><td style="text-align: center;"><em>not supported</em></td><td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingatransformwithanabsolutepathagainstmultiplefilesinadifferentdirectory)</td><td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Usinganabsolutepathtothetransform,andapplyingitagainstmultiplefiles)</td></tr><tr><th>Relative Path</th><td style="text-align: center;"><em>not supported</em></td><td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingatransformtoatargetinasiblingdirectory)</td><td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingatransformfromadifferentdirectory)</td><td style="text-align: center;"><em>not supported</em></td><td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingatransformtomultipletargetsinasiblingdirectory)</td><td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingatransformfromadifferentdirectoryagainstmultiplefiles)</td></tr><tr><th>Filename</th><td style="text-align: center;"><em>not supported</em></td><td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingatransformagainstatargetinadifferentfolder)</td><td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Transformandtargetareinthesamedirectory)</td><td style="text-align: center;"><em>not supported</em></td><td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingatransformagainstmultipletargetsinadifferentdirectory)</td><td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Transformandmultipletargetsareinthesamedirectory)</td></tr><tr><th>Wildcard Absolute Path</th><td style="text-align: center;"><em>not supported</em></td><td style="text-align: center;"><em>not supported</em></td><td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingmultipleabsolutepathtransformstothesametargetfile)</td><td style="text-align: center;"><em>not supported</em></td><td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Usinganabsolutepathformultipletransformsagainstmultiplerelativefiles)</td><td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Usinganabsolutepathwildcardtransformandmultipletargets)</td></tr><tr><th>Wildcard Relative Path</th><td style="text-align: center;"><em>not supported</em></td><td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingmultipletransformsinadifferentdirectorytoasingletargetinadifferentdirectory)</td><td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingamultiplerelativetransformsagainstaspecifictarget)</td><td style="text-align: center;"><em>not supported</em></td><td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingtransformsfromadifferentdirectorytotargetsinadifferentdirectory)</td><td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingtransformsfromadifferentdirectorytomultipletargets)</td></tr><tr><th>Wildcard Filename</th><td style="text-align: center;"><em>not supported</em></td><td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingmultipletransformstoasingletargetinadifferentdirectory)</td><td style="text-align: center;">[examples](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingmultipletransformstoasingletargetwherebothareinthesamedirectory)</td><td style="text-align: center;"><em>not supported</em></td><td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingmultipletransformsagainstmultipletargetsinadifferentdirectory)</td><td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingmultipletransformsagainstmultipletargets)</td></tr></table>
 
 :::hint
 **Wildcard support**
@@ -56,8 +21,7 @@ Please note that wildcards can be used anywhere in the transform filename (eg `*
 To enable detailed logging of the process that searches for config transformations, add the variable `Octopus.Action.Package.EnableDiagnosticsConfigTransformationLogging`and set its value to `True.`
 :::
 
-### 
-Transform and target are in the same directory {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-TransformandtargetareinthesamedirectoryTransformandtargetareinthesamedirectory}
+### Transform and target are in the same directory {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-TransformandtargetareinthesamedirectoryTransformandtargetareinthesamedirectory}
 
 Given a package which has the structure:
 

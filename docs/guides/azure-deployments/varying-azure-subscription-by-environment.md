@@ -7,7 +7,7 @@ You may want to use a different Azure subscription depending on which environmen
 
 1. Add an [Azure Subscription Account](/docs/key-concepts/environments/accounts/azure-subscription-account.md) to Octopus.
 
- 1. If you want to use the Account ID in your variable, open the account you just added from **Environments -> Accounts -> [Account name]** and copy the account ID from the URL.
+ 1. If you want to use the Account ID in your variable, open the account you just added from **Environments &#10140; Accounts &#10140; [Account name]** and copy the account ID from the URL.
         ![](/docs/images/3049102/3278481.jpg "width=500")
         In the screenshot the account URL is **localhost/app#/accounts/azuresubscription-dalmiro-octopusdeploy-com** . The Account ID in this case would be **azuresubscription-dalmiro-octopusdeploy-com**
 2. Create a variable in your project and set the Account ID or Account Name as its value. Make sure to scope this variable to the Environment/Role/Target where you'll be using it.

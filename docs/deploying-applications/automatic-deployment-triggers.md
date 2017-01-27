@@ -48,25 +48,18 @@ For Octopus 3.4 and 3.5, there are two types of events that can trigger an autom
 
 ![](/docs/images/5671191/5865883.png "width=500")
 
-| Event | Description | Examples |
-| --- | --- | --- |
-| 
-
 **New deployment target becomes available**
- | Occurs when a deployment target is added to Octopus for the first time | 
+:   Occurs when a deployment target is added to Octopus for the first time
 
- |
-| **Existing deployment target changes state** | Occurs when a deployment target has a *positive* state change
-(it doesn't really make sense to deploy to a freshly disabled deployment target) | 
-- Health status changes from Unhealthy to Healthy
-- A new environment/role/tenant is added to the deployment target
-- The deployment target is enabled
+**Existing deployment target changes state**
+:   Occurs when a deployment target has a *positive* state change (it doesn't really make sense to deploy to a freshly disabled deployment target)  
+:   Examples:
+:    
+:   - Health status changes from Unhealthy to Healthy 
+:   - A new environment/role/tenant is added to the deployment target
+:   - The deployment target is enabled
 
- |
-
-### 
-Can I configure automatic deployments for a specific role or environment? {#AutomaticDeploymentTriggers-CanIconfigureautomaticdeploymentsforaspecificroleorenvironment?}
-
+### Can I configure automatic deployments for a specific role or environment? {#AutomaticDeploymentTriggers-CanIconfigureautomaticdeploymentsforaspecificroleorenvironment?}
 Yes! You can apply a filter to the events to restrict which deployment targets will actually cause the trigger to fire, and consequently, which deployment targets will be automatically deployed to. Consider the example of an auto-scaling web farm shown below where we only want to trigger automatic deployments for **TradingWebServers** in the **Production** environment.
 
 ![](/docs/images/5671191/5865833.png?effects=drop-shadow "width=500")
@@ -168,8 +161,8 @@ One workaround for this is to create a Project in Octopus with the job of orches
 In this case you could:
 
 1. Create a Project that orchestrates the deployment of multiple projects
- 1. Each step in the deployment process of this project could call the Octopus API to deploy the next project in the dependency chain, waiting for a successful deployment before continuing to the next project
-2. Optionally create an automatic deployment trigger in the orchestrating project to start the whole process
+2. Each step in the deployment process of this project could call the Octopus API to deploy the next project in the dependency chain, waiting for a successful deployment before continuing to the next project
+3. Optionally create an automatic deployment trigger in the orchestrating project to start the whole process
 
 :::success
 The [Chain Deployment](https://library.octopusdeploy.com/step-template/actiontemplate-chain-deployment) step template might be a perfect fit for you in this situation, or you may want to customize this step template for more advanced scenarios.

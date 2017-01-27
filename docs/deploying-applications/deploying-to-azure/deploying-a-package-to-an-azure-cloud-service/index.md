@@ -13,11 +13,11 @@ Octopus Deploy supports deployment of [Azure Cloud Services](http://azure.micros
 - Step 2: Create an Azure Account
 - Step 3: Create the Azure Cloud Service deployment step
 - Step 4: Configure your Azure Cloud Service step
- - Deployment features available to Azure Cloud Service steps
+- Deployment features available to Azure Cloud Service steps
 - Deployment process
- - Extract the Cloud Service Package
- - Variable substitutions in Cloud Service configuration file
- - Customizing the deployment process
+- Extract the Cloud Service Package
+- Variable substitutions in Cloud Service configuration file
+- Customizing the deployment process
 - Deploying to multiple geographic regions
 
 ## Step 1: Packaging {#DeployingapackagetoanAzureCloudService-Step1:Packaging}
@@ -39,27 +39,14 @@ Add a new Azure Cloud Service Deployment Step to your project. For information 
 
 Once an Account is selected, the list of Cloud Services and Storage Accounts available to the Azure subscription associated with the chosen Account will be populated for you to choose from.
 
-| Setting | Default | Description |
-| --- | --- | --- |
-| Account |  | The [Azure Account](/docs/key-concepts/environments/accounts/azure-subscription-account.md) you want to target when deploying this cloud service. Select one from the list, or use a [variable binding](/docs/deploying-applications/variables/binding-syntax.md) to select an account by its name or ID. |
-| --- | --- | --- |
-| Cloud Service |  | The actual cloud service you want to target. Select one from the list, or use a [variable binding](/docs/deploying-applications/variables/binding-syntax.md) to define the name of the cloud service. |
-| --- | --- | --- |
-| Storage Account |  | The Azure Storage Account where the Cloud Service Package (`*.cspkg`) file will be pushed in order to be deployed. |
-| --- | --- | --- |
-| Slot |  | You can choose to deploy to either the Staging or Production slot. |
-| --- | --- | --- |
-| Swap |  | 
-
-Azure allows staging and production deployments to be swapped, by switching virtual IP addresses. When deploying to production, Octopus can detect whether the current staging deployment can be swapped, and if so, it can do a swap rather than a new deployment.
-
-If **Always deploy** is selected, the package will always be deployed to the selected Slot.
-
-If **Swap staging to production if possible** is selected and the selected Slot is Production, then a swap will occur between Production and Staging (if there is a deployment in the Staging slot).
- |
-| --- | --- | --- |
-| Instance Count |  | If you have scaled your Windows Azure service using the management portal (for example, changing the role count from 1 to 4), during a deployment Octopus can be configured to keep the existing instance counts rather than using the instance counts defined in your cloud service configuration file. |
-| --- | --- | --- |
+| Setting         | Default | Description                              |
+| --------------- | ------- | ---------------------------------------- |
+| Account         |         | The [Azure Account](/docs/key-concepts/environments/accounts/azure-subscription-account.md) you want to  target when deploying this cloud service. Select one from the list, or use a [variable binding](/docs/deploying-applications/variables/binding-syntax.md) to select an account by its name or ID. |
+| Cloud Service   |         | The actual cloud service you want to target. Select one from the list, or use a [variable binding](/docs/deploying-applications/variables/binding-syntax.md) to define the name of the cloud service. |
+| Storage Account |         | The Azure Storage Account where the Cloud Service Package (`*.cspkg`) file will be pushed in order to be deployed. |
+| Slot            |         | You can choose to deploy to either the Staging or Production slot. |
+| Swap            |         | Azure allows staging and production deployments to be swapped, by switching virtual IP addresses. When deploying to production, Octopus can detect whether the current staging deployment can be swapped, and if so, it can do a swap rather than a new deployment.<br/>If **Always deploy** is selected, the package will always be deployed to the selected Slot.<br/>If **Swap staging to production if possible** is selected and the selected Slot is Production, then a swap will occur between Production and Staging (if there is a deployment in the Staging slot). |
+| Instance Count  |         | If you have scaled your Windows Azure service using the management portal (for example, changing the role count from 1 to 4), during a deployment Octopus can be configured to keep the existing instance counts rather than using the instance counts defined in your cloud service configuration file. |
 
 :::success
 **Use variable binding expressions**

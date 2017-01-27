@@ -37,11 +37,20 @@ Select the **Octopus Deploy Tentacle Agent** extension, and click **Create**.
 
 The settings for the extension are:
 
-| Octopus Server URL | URL to your Octopus Deploy server. You'll need your own Octopus server (possibly also running on Azure), and you should [consider using HTTPS](/docs/how-to/expose-the-octopus-web-portal-over-https.md). The extension will use the [Octopus REST API](/docs/api-and-integration/octopus-rest-api.md) against this URL to register the machine. |
-| API Key | [Your API key](/docs/how-to/how-to-create-an-api-key.md). This key will only be used when registering the machine with the Octopus server; it isn't used for [subsequent communication](/docs/reference/octopus---tentacle-communication/index.md). |
-| Environments | The name of the [environment](/docs/key-concepts/environments/index.md) to add the machine to. You can specify more than one by using commas; for example: `UAT1,UAT2` |
-| Roles | The roles to give to the machine. Again, separate them using commas for more than one, for example: `web-server,app-server` |
-| Listen port | TCP port that the Tentacle will listen on. The default value is 10933. |
+Octopus Server URL
+:   URL to your Octopus Deploy server. You'll need your own Octopus server (possibly also running on Azure), and you should [consider using HTTPS](/docs/how-to/expose-the-octopus-web-portal-over-https.md). The extension will use the [Octopus REST API](/docs/api-and-integration/octopus-rest-api.md) against this URL to register the machine.
+
+API Key
+:   [Your API key](/docs/how-to/how-to-create-an-api-key.md). This key will only be used when registering the machine with the Octopus server; it isn't used for [subsequent communication](/docs/reference/octopus---tentacle-communication/index.md).
+
+Environments
+:   The name of the [environment](/docs/key-concepts/environments/index.md) to add the machine to. You can specify more than one by using commas; for example: `UAT1,UAT2`
+
+Roles
+:   The roles to give to the machine. Again, separate them using commas for more than one, for example: `web-server,app-server`
+
+Listen port
+:   TCP port that the Tentacle will listen on. The default value is 10933.
 
 After entering the extension settings, click Create, and the extension will be enabled.
 
@@ -162,10 +171,10 @@ $secGrp | Set-AzureRmNetworkSecurityGroup
 If, for some reason, the machine fails to register after 20 minutes, you can access logs on the VM to determine what went wrong.
 
 1. Use the **connect** button on the VM to set up a remote desktop connection.
-![](/docs/images/3048116/3277912.png "width=500")
-For more information, see [How to Log on to a Virtual Machine](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-log-on-windows-server/).
+   ![](/docs/images/3048116/3277912.png "width=500")
+   For more information, see [How to Log on to a Virtual Machine](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-log-on-windows-server/).
 2. In the remote desktop session, open Windows Explorer, and browse to `C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\1.3.0.0`
 3. In this folder, you'll find a number of text files. Open these to view the output of the commands, and look for any error messages. 
-![](/docs/images/3048116/3277911.png "width=500")
+   ![](/docs/images/3048116/3277911.png "width=500")
 
 The `DscExtensionHandler*` file is usually the best place to look. If there are no error messages or you are unable to troubleshoot the problem, please send a copy of these log files and a description of how the VM was configured to [our support team](http://octopusdeploy.com/support), and we'll be happy to help!

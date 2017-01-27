@@ -18,7 +18,7 @@ To configure an App within GoogleApps, you must have a Developer account at [htt
 Once you have an account, log in to [https://console.developers.google.com](https://console.developers.google.com) and the following actions:
 
 1. Create a project for Octopus (this might take a minute or so) and then within that project
-2. Select API Manager -> Credentials menu.
+2. Select API Manager &#10140; Credentials menu.
 3. Set the **OAuth consent screen** information.
 4. Select the Credentials tab and Create a new **OAuth client ID** for a **Web app**.
 5. Enter a **Name** for identification, e.g. Octopus.  This is the name that will appear when the user is asked to allow access to their details.
