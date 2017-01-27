@@ -5,27 +5,6 @@ position: 10
 
 As a convention-oriented deployment tool, Octopus can perform a number of actions automatically, such as [managing configuration files](/docs/deploying-applications/configuration-files/index.md), creating [IIS websites and application pools](/docs/deploying-applications/iis-websites-and-application-pools.md), and installing [Windows Services](/docs/deploying-applications/windows-services.md). Sometimes however you’ll need to do more than the built-in conventions support – and that’s where custom scripts come in.
 
-- Scripts in Packages
-- Scripts in package steps
-- Standalone scripts
-- Azure PowerShell scripts
-- Variables
- - Variables in PowerShell scripts
-- Passing parameters to scripts
- - Passing parameters to PowerShell scripts
- - Passing parameters to C# scripts
- - Passing parameters to Bash scripts
- - Passing parameters to F# scripts
-- Logging
-- Error handling
- - Error handling in PowerShell scripts
-- Output variables
-- Collecting artifacts
-- Security and permissions
-- Testing scripts
-- Working directories
-- Scripts that block deployments
-
 :::hint
 **Supported script types**
 Octopus Deploy supports PowerShell scripts (`.ps1`), C# scripts (`.csx`) using [ScriptCS](https://github.com/scriptcs/scriptcs), Bash scripts (`.sh`), and in Octopus 3.4 we introduced support for F# scripts (`.fsx`).
