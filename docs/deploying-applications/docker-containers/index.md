@@ -10,7 +10,7 @@ Following on from the original [Octopus-Docker blog post](https://octopus.com/bl
 While Docker Containers on Windows Server (not Docker for Windows through Docker Toolbox) are now generally available, this feature appears to still have some issues with key areas such as networking. This is an area that the Docker and Windows team are actively improving. While deploying a Windows Container to a Tentacle target on Windows should work, you may experience issues trying to use custom networks or volumes. We would suggest using Linux targets via SSH for the time being until this feature stabilizes.
 :::
 
-# How Docker containers map to Octopus concepts {#DockerContainers-HowDockercontainersmaptoOctopusconcepts}
+## How Docker containers map to Octopus concepts {#DockerContainers-HowDockercontainersmaptoOctopusconcepts}
 
 In Octopus Deploy, a deployment usually involves a versioned instance of package that is obtained from some package feed. Prior to 3.5.0, this was typically modeled by defining a NuGet server (e.g. MyGet, TeamCity) as the package repository, which exposes a list of named packages to be deployed. Each instance of this package existed as a versioned .nupkg file which would be obtained by the target at deployment time and extracted.
 

@@ -7,7 +7,7 @@ position: 10
 In Octo.exe version 3.3.8 we have added a command to push packages to Octopus directly from Octo.exe. The push command can push any of the supported packages types listed on this [page](/docs/packaging-applications/supported-packages.md).
 :::
 
-### Basic example {#Pushingpackages-Basicexample}
+## Basic example {#Pushingpackages-Basicexample}
 
 The following command will push the package ***MyPackage*** to your Octopus Server and will replace the package if it already exists in the built-in repository.
 
@@ -15,7 +15,7 @@ The following command will push the package ***MyPackage*** to your Octopus Serv
 C:\> Octo.exe push --package MyPackage.1.0.0.zip --replace-existing --server http://my.octopus.url --apiKey API-XXXXXXXXXXXXXXXX
 ```
 
-### Pushing multiple packages example {#Pushingpackages-Pushingmultiplepackagesexample}
+## Pushing multiple packages example {#Pushingpackages-Pushingmultiplepackagesexample}
 
 The following command will push the packages ***MyPackage*** and ***MyOtherPackage*** to the Octopus Server but will not replace a package if it already exists in the built-in repository.
 
@@ -23,7 +23,7 @@ The following command will push the packages ***MyPackage*** and ***MyOtherPacka
 C:\> Octo.exe push --package MyPackage.1.0.0.zip --package MyOtherPackage.1.0.1.nupkg --server http://my.octopus.url --apiKey API-XXXXXXXXXXXXXXXX
 ```
 
-### Push command usage {#Pushingpackages-Pushcommandusage}
+## Push command usage {#Pushingpackages-Pushcommandusage}
 
 ```powershell
 C:\> Octo.exe help push

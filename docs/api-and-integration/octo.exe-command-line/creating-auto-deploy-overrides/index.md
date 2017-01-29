@@ -51,7 +51,7 @@ Common options:
                              Build service messages when logging.
 ```
 
-### Basic example {#Creatingautodeployoverrides-Basicexample}
+## Basic example {#Creatingautodeployoverrides-Basicexample}
 
 The following will create an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment *Development*:
 
@@ -59,7 +59,7 @@ The following will create an automatic deployment release override for version 1
 Octo create-autodeployoverride --project HelloWorld --environment Development --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456
 ```
 
-### Tenanted example (by name) {#Creatingautodeployoverrides-Tenantedexample(byname)}
+## Tenanted example (by name) {#Creatingautodeployoverrides-Tenantedexample(byname)}
 
 The following will create an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment *Development* for the tenant *Acme*:
 
@@ -67,7 +67,7 @@ The following will create an automatic deployment release override for version 1
 Octo create-autodeployoverride --project HelloWorld --environment Development --tenant Acme --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456
 ```
 
-### Tenanted example (by tags) {#Creatingautodeployoverrides-Tenantedexample(bytags)}
+## Tenanted example (by tags) {#Creatingautodeployoverrides-Tenantedexample(bytags)}
 
 The following will create an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment *Development* for all tenants with the *Hosting/Cloud* tag:
 

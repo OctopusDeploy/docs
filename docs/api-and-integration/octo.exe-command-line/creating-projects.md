@@ -43,7 +43,7 @@ Common options:
                              logging.
 ```
 
-### Basic example {#Creatingprojects-Basicexample}
+## Basic example {#Creatingprojects-Basicexample}
 
 The following command will create a project called *MyWebApp* into the project group *MyProjectGroup*
 

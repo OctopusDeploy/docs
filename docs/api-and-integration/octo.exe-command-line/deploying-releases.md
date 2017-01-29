@@ -98,7 +98,7 @@ Common options:
                              Build service messages when logging.
 ```
 
-### Basic examples {#Deployingreleases-Basicexamples}
+## Basic examples {#Deployingreleases-Basicexamples}
 
 This will deploy release 1.0.0 of the *HelloWorld* project to the *Production* environment:
 

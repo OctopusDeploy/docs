@@ -12,10 +12,10 @@ For in depth code samples covering many of the processes discussed in this guide
 
 - Responding to events across multiple projects
 - Orchestrating the deployment of multiple projects
- - Master project
- - Cooperating projects
+- Master project
+- Cooperating projects
 
-# Responding to events across multiple projects {#CoordinatingMultipleProjects-Respondingtoeventsacrossmultipleprojects}
+## Responding to events across multiple projects {#CoordinatingMultipleProjects-Respondingtoeventsacrossmultipleprojects}
 
 There are various ways to respond to events within Octopus, which is useful for:
 
@@ -31,7 +31,7 @@ Octopus 3.5 introduced [subscriptions](/docs/administration/subscriptions.md), 
 
 The event can also be a script step in a project. If the script is defined as a [step template](/docs/deploying-applications/step-templates.md) it can be  shared among the related projects. However it is difficult to ensure that two copies of the script do not run at the same time.
 
-# Orchestrating the deployment of multiple projects {#CoordinatingMultipleProjects-Orchestratingthedeploymentofmultipleprojects}
+## Orchestrating the deployment of multiple projects {#CoordinatingMultipleProjects-Orchestratingthedeploymentofmultipleprojects}
 
 Below are two different approaches to orchestrating multiple projects. Depending on the projects and requirements, one or a combination of these two approaches may be used.  This orchestration is useful for when:
 
@@ -40,7 +40,7 @@ Below are two different approaches to orchestrating multiple projects. Depending
 - A project should not be be deployed while another project is being deployed
 - A certain step should not execute at the same time as a step in another project
 
-## Master project {#CoordinatingMultipleProjects-Masterproject}
+### Master project {#CoordinatingMultipleProjects-Masterproject}
 
 This approach consists of creating a project that co-ordinates the deployment of other projects and any other related actions. For example it could define steps that
 
@@ -49,7 +49,7 @@ This approach consists of creating a project that co-ordinates the deployment of
 3. Deploy project C
 4. If the deployment of project C fails, redeploy an older version of A and B
 
-## Cooperating projects {#CoordinatingMultipleProjects-Cooperatingprojects}
+### Cooperating projects {#CoordinatingMultipleProjects-Cooperatingprojects}
 
 This approach consists of each project taking on the role of checking that the other projects are in the right state so that it can deploy itself. It is usually implemented as one or more script steps. For example the project could:
 

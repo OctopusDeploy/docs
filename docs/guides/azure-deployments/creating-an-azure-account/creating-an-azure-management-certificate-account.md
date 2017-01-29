@@ -15,13 +15,13 @@ To create an Azure Management Certificate Account, select Management Certificate
 
 ![](/docs/images/3703001/3964988.png "width=500")
 
-### Step 1: Subscription ID {#CreatinganAzureManagementCertificateAccount-Step1:SubscriptionID}
+## Step 1: Subscription ID {#CreatinganAzureManagementCertificateAccount-Step1:SubscriptionID}
 
 The Subscription Id can be found on the *Settings* tab of the Azure Management portal.
 
 ![](/docs/images/3703001/3964989.png "width=500")
 
-### Step 2: Management Certificate {#CreatinganAzureManagementCertificateAccount-Step2:ManagementCertificate}
+## Step 2: Management Certificate {#CreatinganAzureManagementCertificateAccount-Step2:ManagementCertificate}
 
 When using *Management Certificate* as the *Authentication Method*, Octopus Deploy authenticates with Azure using an X.509 certificate.  You can either upload an existing certificate (`.pfx`), or leave the field blank and Octopus Deploy will generate a certificate. Keep in mind that since Octopus Deploy securely stores the certificate internally, there is no need to upload a password protected `.pfx` file. If you would like to use one that is password protected, you will need to first remove the password. This can be done with the following commands.
 
@@ -43,7 +43,7 @@ Uploaded certificates can be viewed on the 'Management Certificates' tab of the 
 
 The certificate will be named `Octopus Deploy -``{Your Account Name}.`
 
-### Step 3: Save and Test {#CreatinganAzureManagementCertificateAccount-Step3:SaveandTest}
+## Step 3: Save and Test {#CreatinganAzureManagementCertificateAccount-Step3:SaveandTest}
 
 Click the Save and Test button and if the test succeeds, you should be able to configure Octopus to deploy anything to Azure via the Azure Service Management (ASM) API.
 

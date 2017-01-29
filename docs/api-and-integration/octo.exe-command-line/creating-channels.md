@@ -59,7 +59,7 @@ Common options:
                              Build service messages when logging.
 ```
 
-### Basic example {#Creatingchannels-Basicexample}
+## Basic example {#Creatingchannels-Basicexample}
 
 The following command will create a channel in *MyProject* called *Experimental* using the *Test Only* lifecycle instead
 

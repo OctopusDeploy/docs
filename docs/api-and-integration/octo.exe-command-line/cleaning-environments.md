@@ -55,7 +55,7 @@ Common options:
                              logging.
 ```
 
-### Basic example {#Cleaningenvironments-Basicexample}
+## Basic example {#Cleaningenvironments-Basicexample}
 
 The following command will clean any *offline* machines from the *production* environment.
 

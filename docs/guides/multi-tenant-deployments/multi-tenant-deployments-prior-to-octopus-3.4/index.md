@@ -10,13 +10,13 @@ This page describes some of the trade-offs you would consider deciding how to us
 Consider upgrading to Octopus 3.4 which provides built-in support for multi-tenant deployments. Read through our [multi-tenant deployment guide](/docs/guides/multi-tenant-deployments/index.md) to see if it fits your situation and [how to migrate to Octopus 3.4](/docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/migrating-to-octopus-3.4.md).
 :::
 
-##### Scenario: {#Multi-tenantdeploymentspriortoOctopus3.4-Scenario:}
+## Scenario: {#Multi-tenantdeploymentspriortoOctopus3.4-Scenario:}
 
 NameBadge make HR software for large corporate customers. They provide the software as a SaaS offering to their customers, and host the web site and associated services for them. Due to how the application is architected, for each customer, they deploy:
 
-- - A different SQL database
- - A copy of an ASP.NET website
- - A copy of a Windows Service
+- A different SQL database
+- A copy of an ASP.NET website
+- A copy of a Windows Service
 
 The key issue in this scenario is that the same components need to be deployed multiple times, one for each end-customer, which makes it different from the scenarios Octopus is typically designed to handle.
 

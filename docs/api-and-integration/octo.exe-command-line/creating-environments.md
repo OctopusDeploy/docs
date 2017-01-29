@@ -40,7 +40,7 @@ Common options:
                              logging. 
 ```
 
-### Basic example {#Creatingenvironments-Basicexample}
+## Basic example {#Creatingenvironments-Basicexample}
 
 The following command will create an environment called *UAT*
 

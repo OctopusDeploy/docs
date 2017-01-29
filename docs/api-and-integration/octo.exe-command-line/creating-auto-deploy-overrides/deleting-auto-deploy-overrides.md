@@ -48,7 +48,7 @@ Common options:
                              Build service messages when logging.
 ```
 
-### Basic example {#Deletingautodeployoverrides-Basicexample}
+## Basic example {#Deletingautodeployoverrides-Basicexample}
 
 The following will delete an automatic deployment release override for the project *HelloWorld* to the environment *Development*:
 
@@ -56,7 +56,7 @@ The following will delete an automatic deployment release override for the proje
 Octo delete-autodeployoverride --project HelloWorld --environment Development --server http://octopus/ --apikey API-ABCDEF123456
 ```
 
-### Tenanted example (by name) {#Deletingautodeployoverrides-Tenantedexample(byname)}
+## Tenanted example (by name) {#Deletingautodeployoverrides-Tenantedexample(byname)}
 
 The following will delete an automatic deployment release override for the project *HelloWorld* to the environment *Development* for the tenant *Acme*:
 
@@ -64,7 +64,7 @@ The following will delete an automatic deployment release override for the proje
 Octo delete-autodeployoverride --project HelloWorld --environment Development --tenant Acme --server http://octopus/ --apikey API-ABCDEF123456
 ```
 
-### Tenanted example (by tags) {#Deletingautodeployoverrides-Tenantedexample(bytags)}
+## Tenanted example (by tags) {#Deletingautodeployoverrides-Tenantedexample(bytags)}
 
 The following will delete an automatic deployment release override for the project *HelloWorld* to the environment *Development* for all tenants with the *Hosting/Cloud* tag:
 

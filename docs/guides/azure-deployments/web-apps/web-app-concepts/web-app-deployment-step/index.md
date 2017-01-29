@@ -14,11 +14,11 @@ Add a new 'Deploy an Azure Web App' step to your project. For information about
 
 Once an Account is selected, the list of Azure Web Apps available to the subscription associated with the account will populate the 'Web App' select-list.
 
-#### Physical Path {#WebAppdeploymentstep-PhysicalPath}
+### Physical Path {#WebAppdeploymentstep-PhysicalPath}
 
 Allows deployment to a physical sub-directory of the web-root.  This is useful when deploying to Virtual Directories or Web Jobs, and you don't want to deploy the root application at the same time.
 
-#### Remove additional files {#WebAppdeploymentstep-Removeadditionalfiles}
+### Remove additional files {#WebAppdeploymentstep-Removeadditionalfiles}
 
 When set, deletes files from the destination that aren't in the source package.
 

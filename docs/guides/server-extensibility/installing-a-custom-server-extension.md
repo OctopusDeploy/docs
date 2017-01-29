@@ -22,12 +22,12 @@ To verify which extensions are currently loaded, use the **Server Extensions**�
 
 The panel will show the author in bold for any custom extensions,  i.e. If you haven't changed the Author value on the OctopusExtension attribute (see [Authoring an Octopus Deploy server extension](/docs/guides/server-extensibility/authoring-an-octopus-deploy-server-extension.md)) then it will still display as 'Octopus Deploy', but the text will be bold if it was loaded from the CustomExtensions folder.
 
-# Dependencies {#Installingacustomserverextension-Dependencies}
+## Dependencies {#Installingacustomserverextension-Dependencies}
 
 Your extension will need to reference the **same version** of *Autofac*, *Nancy* and *Octopus.Server.Extensibility* as used by your version of Octopus Server. e.g. If Octopus Server is running *Autofac v3.5.2*, your extension will need to match this version.
 
 To determine which version of these dependencies your server is using, check the folder where Octopus Server is installed and look at the properties of these DLLs for a product version.
 
-## External Dependencies {#Installingacustomserverextension-ExternalDependencies}
+### External Dependencies {#Installingacustomserverextension-ExternalDependencies}
 
 If the extension has external dependencies, they must also be copied to the CustomExtensions folder.

@@ -10,26 +10,25 @@ This page will describe the concept of tenants available in Octopus. Prior to Oc
 Tenants were introduced with first-class support in Octopus 3.4. If you are implementing a multi-tenant deployment strategy we highly recommend [upgrading to Octopus 3.4](http://g.octopushq.com/ProductDownloadPage). You can read about multi-tenant deployments in Octopus 3.4 in our [comprehensive guide](/docs/guides/multi-tenant-deployments/index.md). You can also read about implementing [multi-tenant deployments using Octopus prior to Octopus 3.4](/docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/index.md). We also help you migrate from your existing multi-tenant deployment strategy by [migrating to Octopus 3.4](/docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/migrating-to-octopus-3.4.md).
 :::
 
-##### 
 ## Introducing multi-tenant deployments in Octopus {#Tenants-Introducingmulti-tenantdeploymentsinOctopus}
 
 Starting with Octopus 3.4 you can manage tenants as a first-class citizen enabling you to:
 
 1. Deploy multiple instances of your project into the same [Environment](http://docs.octopusdeploy.com/display/OD/Environments);
- 1. tenant-per-customer
- 2. tenant-per-tester
- 3. tenant-per-feature/tenant-per-branch
- 4. tenant-per-geographical-region
- 5. tenant-per-datacentre
-2. Easily manage unique configuration settings using variables defined on the tenant;
-3. Promote releases to your tenants using safe customer-aware lifecycles, potentially through multiple environments;
- 1. tenant-specific UAT and Production environments
-4. Tailor the deployment process of your projects per-tenant as necessary;
-5. Implement dedicated or shared hosting models for your tenants;
-6. Employ tenant-aware security for managing tenants and deploying projects, including 3rd-party self-service sign in;
-7. Implement early access or pre-release test programs incorporating 1st-party or 3rd-party testers;
-8. Easily scale to large numbers of tenants using tags to manage tenants as groups instead of individuals; and
-9. Easily implement simple multi-tenant deployment scenarios, and scale to support complex scenarios as your needs require.
+2. tenant-per-customer
+3. tenant-per-tester
+4. tenant-per-feature/tenant-per-branch
+5. tenant-per-geographical-region
+6. tenant-per-datacentre
+7. Easily manage unique configuration settings using variables defined on the tenant;
+8. Promote releases to your tenants using safe customer-aware lifecycles, potentially through multiple environments;
+9. tenant-specific UAT and Production environments
+10. Tailor the deployment process of your projects per-tenant as necessary;
+11. Implement dedicated or shared hosting models for your tenants;
+12. Employ tenant-aware security for managing tenants and deploying projects, including 3rd-party self-service sign in;
+13. Implement early access or pre-release test programs incorporating 1st-party or 3rd-party testers;
+14. Easily scale to large numbers of tenants using tags to manage tenants as groups instead of individuals; and
+15. Easily implement simple multi-tenant deployment scenarios, and scale to support complex scenarios as your needs require.
 
 ## Why should I care about multi-tenant deployments in Octopus Deploy? {#Tenants-WhyshouldIcareaboutmulti-tenantdeploymentsinOctopusDeploy?}
 
@@ -58,7 +57,7 @@ We built the multi-tenant features in Octopus Deploy for this kind of scenario:
 Consider the following example:
 
 > NameBadge make HR software for large corporate customers. They provide the software as a SaaS offering to their customers, and host the web site and associated services for them. Due to the application architecture, for each customer, they deploy:
-> 
+>
 > - A different SQL database
 > - A copy of an ASP.NET website
 > - A copy of a Windows Service
