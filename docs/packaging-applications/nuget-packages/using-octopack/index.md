@@ -89,7 +89,7 @@ The example below shows a Windows Service called `OctoFX.RateService.exe` and al
 
 Web applications require additional files to run, such as Razor/ASPX files, configuration files, and assets such as images, CSS and JavaScript files. OctoPack automatically determines whether a project is a web application or not based on whether it finds a `web.config` file.
 
-When packaging a web application, OctoPack will automatically include the `bin` folder and any files configured with **Build Action:****Content.** You can see **Build Action** in the Solution Explorer properties window for the currently selected file in Visual Studio:
+When packaging a web application, OctoPack will automatically include the `bin` folder and any files configured with **Build Action: Content.** You can see **Build Action** in the Solution Explorer properties window for the currently selected file in Visual Studio:
 
 ![](/docs/images/3048095/3277786.png)
 
