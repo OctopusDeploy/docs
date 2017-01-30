@@ -158,7 +158,7 @@ You can see how this is actually done by our [open source Calamari project](http
 **Windows Service and Console Application configuration transforms need special treatment**
 Octopus looks for configuration transform files that match your executable's configuration file. Visual Studio has built-in support for this scenario for ASP.NET Web Applications, but it doesn't offer the same support for Windows Services and Console applications - you will need to take care of this yourself.
 
-In Visual Studio your configuration file will be **`app.config`** and is renamed during the build process to match the executable - e.g., The **`app.config`**file for **`YourService.exe`** is renamed to **`YourService.exe.config`**.
+In Visual Studio your configuration file will be **`app.config`** and is renamed during the build process to match the executable - e.g., The **`app.config`** file for **`YourService.exe`** is renamed to **`YourService.exe.config`**.
 
 To make sure Octopus can run the configuration transforms for your Windows Services and Console Applications:
 
