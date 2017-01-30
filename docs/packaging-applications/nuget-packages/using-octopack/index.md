@@ -236,6 +236,7 @@ Sometimes OctoPack doesn't work the way you expected it to, or perhaps you are h
   The `/p:RunOctoPack=true` argument configures OctoPack to run as part of the build process
   The `/fl` argument configures `msbuild.exe` to write the output to a log file which will usually look like `msbuild.log`.   Refer to the [MSBuild documentation](https://msdn.microsoft.com/en-us/library/ms171470.aspx) for more details.
   Note: You may need to change some of these parameters to match the process you are using on your build server. Take a look   at the build server logs and try to emulate the process as closely as possible.  
+
 2. Inspect the [MSBuild output log file](https://msdn.microsoft.com/en-us/library/ms171470.aspx). If OctoPack has executed successfully you should see log entries like the ones shown below generated using OctoPack 3.0.42:
 
 ```powershell
