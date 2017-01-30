@@ -58,7 +58,7 @@ This configuration will make it easier to find the right packages for the right 
 
 ## Using the built-in repository {#Packagerepositories-Usingthebuilt-inrepository}
 
-Your Octopus server comes with a built-in repository which is the best choice for deployment packages. It offers **better performance** for your deployments and the most **robust [retention policy](/docs/administration/retention-policies/index.md)****support** for deployment packages.
+Your Octopus server comes with a built-in repository which is the best choice for deployment packages. It offers **better performance** for your deployments and the most **robust [retention policy](/docs/administration/retention-policies/index.md) support** for deployment packages.
 
 :::hint
 **Built-in feed can only be consumed by Octopus**
