@@ -1,2 +1,2 @@
 # docs
-OctopusDeploy documentation.
+Octopus Deploy documentation.
