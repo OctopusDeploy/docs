@@ -88,7 +88,7 @@ There may be other variables you would like Octopus to replace in your configura
 There are three ways you can do this, two of which involve using [Octopus Variables](/docs/deploying-applications/variables/index.md).
 
 1. Insert `#{OctopusVariables}` where you would like the replacement to happen and use the [Substitute Variables in Files](/docs/deploying-applications/substitute-variables-in-files.md) feature in the package step (see below for sample)
-2. Insert `#{OctopusVariables}` where you would like the replacement to happen and then use the [Regular Expression Find and Replace](https://library.octopusdeploy.com/#!/step-template/actiontemplate-file-system-regular-expression-find-and-replace) library template (this means you can replace any Octopus Variable in any file outside of the package step, the only distinction to the first option)
+2. Insert `#{OctopusVariables}` where you would like the replacement to happen and then use the [Regular Expression Find and Replace](https://library.octopusdeploy.com/step-templates/0bef8c07-5739-4030-8c04-287ceeb51153/actiontemplate-file-system-regular-expression-find-and-replace-(updated)) library template (this means you can replace any Octopus Variable in any file outside of the package step, the only distinction to the first option)
 3. Write and use a PowerShell script to find and replace variables inside of your configuration files
 
 ```powershell
