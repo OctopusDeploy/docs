@@ -9,12 +9,12 @@ Now that you've [installed Octopus and Tentacle](/docs/installation/index.md), a
 
 Each project has a **deployment process**, which can be found on the **Process** tab of the project in the Octopus web portal. The deployment process is like a recipe. It defines the set of instructions that will be run repeatably each time the project is deployed. The deployment process can have one or more steps, and the steps can be ordered using the **Reorder steps** link.
 
-![](/docs/images/3048075/3277619.png "width=500")
+![](/docs/images/3048075/3277619.png "width=500")  
 
 :::hint
 By default, the list of steps in a deployment process are run sequentially, one after another.
 
-![](/docs/images/3048075/5865849.png "width=300")
+![](/docs/images/3048075/5865849.png "width=300")  
 Also by default, a step that is configured to execute across multiple deployment targets will execute across all of those deployment targets in parallel.
 
 ![](/docs/images/3048075/5865850.png "width=300")
