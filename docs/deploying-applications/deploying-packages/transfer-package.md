@@ -26,4 +26,4 @@ Since the Transfer a Package step has been kept simple by-design, most deploymen
 - `Octopus.Action[StepName].Output.Package.FileName` - The name of the package
 - `Octopus.Action[StepName].Output.Package.FilePath`- The full path to the package
 
-Note that once transferred the package file name will take the format of `&lt;PackageId&gt;.&lt;PackageName&gt;.&lt;FileExtension&gt;`however the expectation is that this should be the original filename to begin with.
+Note that once transferred the package file name will take the format of `<PackageId>.<PackageName>.<FileExtension>`however the expectation is that this should be the original filename to begin with.
