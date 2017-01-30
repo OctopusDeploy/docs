@@ -113,7 +113,7 @@ Did you know you can use XML Config Transforms on any XML files including the `a
 
 ### Including additional files using a NuSpec file (.nuspec) {#UsingOctoPack-IncludingadditionalfilesusingaNuSpecfile(.nuspec)}
 
-If you need to go beyond this and include additional files, or you want to control explicitly which files are included in the package, you can do so using the `&lt;files&gt;` element in your custom `.nuspec` file. For example:
+If you need to go beyond this and include additional files, or you want to control explicitly which files are included in the package, you can do so using the `<files>` element in your custom `.nuspec` file. For example:
 
 ```xml
 <files>
@@ -123,18 +123,18 @@ If you need to go beyond this and include additional files, or you want to contr
 ```
 
 :::warning
-If the `&lt;files&gt;` section exists, OctoPack by default won't attempt to automatically add any extra files to your package, so you'll need to be explicit about which files you want to include. You can override this behavior with `/p:OctoPackEnforceAddingFiles=true` which will instruct OctoPack to package a combination of files using its conventions, and those defined by your `&lt;files&gt;` section.
+If the `<files>` section exists, OctoPack by default won't attempt to automatically add any extra files to your package, so you'll need to be explicit about which files you want to include. You can override this behavior with `/p:OctoPackEnforceAddingFiles=true` which will instruct OctoPack to package a combination of files using its conventions, and those defined by your `<files>` section.
 :::
 
 :::success
-See the [NuSpec documentation](http://docs.nuget.org/docs/reference/nuspec-reference) for more examples on how the `&lt;files&gt;` secion of the `.nuspec` file is interpreted by `nuget.exe`.
+See the [NuSpec documentation](http://docs.nuget.org/docs/reference/nuspec-reference) for more examples on how the `<files>` secion of the `.nuspec` file is interpreted by `nuget.exe`.
 :::
 
 ## Version numbers {#UsingOctoPack-Versionnumbers}
 
 NuGet packages have version numbers. When you use OctoPack, the NuGet package version number will come from (in order of priority):
 
-1. The command line, if you pass `/p:OctoPackPackageVersion=&lt;version&gt;` as an MSBuild parameter when building your project.
+1. The command line, if you pass `/p:OctoPackPackageVersion=<version>` as an MSBuild parameter when building your project.
 2. If the `[assembly: FileVersion]` is the same as the `[assembly: AssemblyInformationalVersion]` (AKA ProductVersion), then we'll use the `[assembly: AssemblyVersion]` attribute in your `AssemblyInfo.cs` file
 3. Otherwise we take the `[assembly: AssemblyInformationalVersion]`.
 
@@ -209,14 +209,14 @@ In addition to the common arguments above, OctoPack has a number of other parame
 | `OctoPackAppConfigFileOverride`        | `Foo.config`                            | When packaging a project called YourApp, containing a file named `App.config`, OctoPack will automatically ignore it, and instead look for `YourApp.exe.config`. Provide this setting to have OctoPack select your specified config file, instead. |
 | `OctoPackAppendToPackageId`            | `Release`                               | A fragment that will be appended to the NuGet package ID, allowing you to create different NuGet packages depending on the build configuration. E.g., if the ID element in the NuSpec is set to "`MyApp`", and this parameter is set to "`Release`", the final package ID will be "`MyApp.Release`". |
 | `OctoPackAppendToVersion`              | `beta025`                               | Define a pre-release tag to be appended to the end of your package version. |
-| `OctoPackEnforceAddingFiles`           | `True`                                  | By default, when your NuSpec file has a `&lt;files&gt;` element, OctoPack won't automatically add any of the other files that it would usually add to the package. Set this parameter to `true` to force OctoPack to add all the files it would normally add. |
+| `OctoPackEnforceAddingFiles`           | `True`                                  | By default, when your NuSpec file has a `<files>` element, OctoPack won't automatically add any of the other files that it would usually add to the package. Set this parameter to `true` to force OctoPack to add all the files it would normally add. |
 | `OctoPackIgnoreNonRootScripts`         | `True`                                  | Octopus Deploy only calls `Deploy.ps1` files etc., that are at the root of the NuGet package. If your project emits `Deploy.ps1` files that are not at the root, OctoPack will usually warn you when packaging these. Set this parameter to `true` to suppress the warning. |
 | `OctoPackIncludeTypeScriptSourceFiles` | `True`                                  | If your project has TypeScript files, OctoPack will usually package the corresponding `.js` file produced by the TypeScript compiler, instead of the `.ts` file. Set this parameter to `true` to force OctoPack to package the `.ts` file instead. |
 | `OctoPackNuGetArguments`               | `-NoDefaultExcludes`                    | Use this parameter to specify additional command line parameters that will be passed to `NuGet.exe pack`. See the [NuGet pack command description](http://docs.nuget.org/docs/reference/command-line-reference#Pack_Command). |
 | `OctoPackNuGetExePath`                 | `C:\Tools\NuGet.exe`                    | OctoPack comes with a bundled version of `NuGet.exe`. Use this parameter to force OctoPack to use a different `NuGet.exe` instead. |
 | `OctoPackNuGetProperties`              | `foo=bar;baz=bing`                      | If you use replacement tokens in your NuSpec file (e.g., `$foo$`, `$bar$`, `$version$`, etc.), this parameter allows you to set the value for those tokens. See the section above on replacement tokens, and see the [NuSpec reference for details on replacement tokens](http://docs.nuget.org/docs/reference/nuspec-reference#Replacement_Tokens). |
 | `OctoPackNuGetPushProperties`          | `-Timeout 500`                          | Additional arguments that will be passed to `NuGet.exe push` if you are pushing to an HTTP/HTTPS NuGet repository. See the [NuGet push command description](http://docs.nuget.org/docs/reference/command-line-reference#Push_Command). |
-| `OctoPackNuSpecFileName`               | `MyApp.nuspec`                          | The NuSpec file to use. Defaults to `&quot;&lt;C#/VB project name&gt;.nuspec&quot;`. If the file doesn't exist, OctoPack generates a NuSpec based on your project metadata. |
+| `OctoPackNuSpecFileName`               | `MyApp.nuspec`                          | The NuSpec file to use. Defaults to `"<C#/VB project name>.nuspec"`. If the file doesn't exist, OctoPack generates a NuSpec based on your project metadata. |
 | `OctoPackPublishApiKey`                | `API-ABCDEFGMYAPIKEY`                   | Your API key to use when publishing to a HTTP/HTTPS based NuGet repository |
 | `OctoPackPublishPackagesToTeamCity`    | `False`                                 | By default, if OctoPack detects that the build is running under TeamCity, the NuGet package that is produced is registered as an artifact in TeamCity. Use this parameter to suppress this behavior. |
 | `OctoPackPublishPackageToFileShare`    | `\\server\packages`                     | OctoPack can publish packages to a file share or local directory after packaging |
@@ -311,5 +311,5 @@ Done building target "OctoPack" in project "MyApplication.Web.csproj".
  2. If OctoPack is running but your files are not being packed correctly, see if the file is mentioned in the build log.
  3. Files that are copied to the build output directory will be included in the package. Take a look at the contents of your build output directory and compare that with the messages in the build log.
  4. For web applications, files that are configured with the Visual Studio property **Build Action: Content** will be included in the package
- 5. If you have specified the `&lt;files&gt;` element in a custom `.nuspec` file, perhaps you need to add the `/p:OctoPackEnforceAddingFiles=true` MSBuild argument as discussed above?
- 6. If you have specified the `&lt;files&gt;` element in a custom `.nuspec` file, perhaps you need to experiment with some different combinations of include and exclude?
+ 5. If you have specified the `<files>` element in a custom `.nuspec` file, perhaps you need to add the `/p:OctoPackEnforceAddingFiles=true` MSBuild argument as discussed above?
+ 6. If you have specified the `<files>` element in a custom `.nuspec` file, perhaps you need to experiment with some different combinations of include and exclude?
