@@ -138,7 +138,7 @@ On the test page, you can check whether the feed is working by searching for pac
 
 ## NuGet.Server performance {#Packagerepositories-NuGet.Serverperformance}
 
-A popular external NuGet hosting option is **NuGet.Server.**However, be aware that it suffers from performance problems when dealing with large packages or large numbers of smaller packages. Users may report high CPU usage, timeouts when displaying package details, or memory issues. A great alternative that we recommend is [NuGet.Lucene](https://github.com/themotleyfool/NuGet.Lucene).
+A popular external NuGet hosting option is **NuGet.Server**. However, be aware that it suffers from performance problems when dealing with large packages or large numbers of smaller packages. Users may report high CPU usage, timeouts when displaying package details, or memory issues. A great alternative that we recommend is [NuGet.Lucene](https://github.com/themotleyfool/NuGet.Lucene).
 
 The built-in NuGet server in Octopus stores metadata in SQL Server, and doesn't suffer from these performance issues.
 
