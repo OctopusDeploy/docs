@@ -36,7 +36,7 @@ The only required pieces of information Octopus Deploy **requires** for a packag
 
 The expected package convention is therefore:
 
-> `&lt;id&gt;.&lt;version&gt;.&lt;extension&gt;`
+> `<id>.<version>.<extension>`
 
 So for example the package name for version *2.3* of you project *Sample.Web*, archived with tar & gzip should be named
 
