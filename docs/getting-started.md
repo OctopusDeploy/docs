@@ -120,7 +120,7 @@ The deployment page shows you a log of all the activity that happens during the 
 
 Congratulations, you've deployed a release! You might want to look at:
 
-- Triggering deployments from [TeamCity](/docs/api-and-integration/teamcity.md) or [TFS](/docs/api-and-integration/team-foundation-server-(tfs).md)
+- Triggering deployments from [TeamCity](/docs/api-and-integration/teamcity.md) or [TFS](/docs/api-and-integration/team-foundation-server-tfs.md)
 - [Inviting other users and adding them to teams](/docs/administration/managing-users-and-teams/index.md)
 - The comprehensive [Octopus Deploy REST API](/docs/api-and-integration/octopus-rest-api.md) and C# client
 

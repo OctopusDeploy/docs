@@ -41,7 +41,7 @@ Octopus Server URL
 :   URL to your Octopus Deploy server. You'll need your own Octopus server (possibly also running on Azure), and you should [consider using HTTPS](/docs/how-to/expose-the-octopus-web-portal-over-https.md). The extension will use the [Octopus REST API](/docs/api-and-integration/octopus-rest-api.md) against this URL to register the machine.
 
 API Key
-:   [Your API key](/docs/how-to/how-to-create-an-api-key.md). This key will only be used when registering the machine with the Octopus server; it isn't used for [subsequent communication](/docs/reference/octopus---tentacle-communication/index.md).
+:   [Your API key](/docs/how-to/how-to-create-an-api-key.md). This key will only be used when registering the machine with the Octopus server; it isn't used for [subsequent communication](/docs/reference/octopus-tentacle-communication/index.md).
 
 Environments
 :   The name of the [environment](/docs/key-concepts/environments/index.md) to add the machine to. You can specify more than one by using commas; for example: `UAT1,UAT2`

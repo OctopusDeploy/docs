@@ -7,7 +7,7 @@ This section provides background information about how Octopus Deploy and the Te
 
 - [Credits](/docs/reference/credits.md)
 - [Log files](/docs/reference/log-files.md)
-- [Octopus - Tentacle communication](/docs/reference/octopus---tentacle-communication/index.md)
+- [Octopus - Tentacle communication](/docs/reference/octopus-tentacle-communication/index.md)
 - [Outbound requests](/docs/reference/outbound-requests.md)
 - [Security and encryption](/docs/reference/security-and-encryption.md)
 - [Variable Substitution Syntax](/docs/reference/variable-substitution-syntax.md)

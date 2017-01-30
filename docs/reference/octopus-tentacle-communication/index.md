@@ -66,7 +66,7 @@ TLS 1.2 requires .NET 4.5 which was introduced as a requirement in Octopus 3.1. 
 
 We have built comprehensive troubleshooting guides for both [Listening Tentacles](/docs/how-to/troubleshoot-listening-tentacles.md) and [Polling Tentacles](/docs/how-to/troubleshoot-polling-tentacles.md).
 
-If you are seeing error messages like below, try [Troubleshooting Schannel and TLS](/docs/reference/octopus---tentacle-communication/troubleshooting-schannel-and-tls.md):
+If you are seeing error messages like below, try [Troubleshooting Schannel and TLS](/docs/reference/octopus-tentacle-communication/troubleshooting-schannel-and-tls.md):
 
 Client-side:`System.Security.Authentication.AuthenticationException: A call to SSPI failed, see inner exception. ---&gt; System.ComponentModel.Win32Exception: One or more of the parameters passed to the function was invalid`
 

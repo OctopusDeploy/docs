@@ -10,8 +10,8 @@ Octopus Deploy integrates with a wide range of continuous integration/build serv
 This section describes the Octopus Deploy REST API, which is a comprehensive API that can be used to automate your Octopus Deploy server. It also describes command line tools and integration with continuous integration/build servers.
 
 - [TeamCity](/docs/api-and-integration/teamcity.md)
-- [Visual Studio Team Services (VSTS)](/docs/api-and-integration/visual-studio-team-services-(vsts).md)
-- [Team Foundation Server (TFS)](/docs/api-and-integration/team-foundation-server-(tfs).md)
+- [Visual Studio Team Services (VSTS)](/docs/api-and-integration/visual-studio-team-services-vsts.md)
+- [Team Foundation Server (TFS)](/docs/api-and-integration/team-foundation-server-tfs.md)
 - [Bamboo](/docs/api-and-integration/bamboo.md)
 - [Continua CI](/docs/api-and-integration/continua-ci.md)
 - [Jenkins](/docs/api-and-integration/jenkins.md)
