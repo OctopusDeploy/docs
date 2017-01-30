@@ -109,7 +109,7 @@ Using the Substitute Variables in Files feature will change the order that varia
 
 If this feature is enabled, Tentacle will also look for any files that follow the Microsoft [web.config transformation process](http://msdn.microsoft.com/en-us/library/dd465326.aspx) – **even files that are not web.config files!** *Keep reading for examples.*
 
-An example web.config transformation that removes the `&lt;compilation debug=&quot;true&quot;&gt;` attribute is below:
+An example web.config transformation that removes the `<compilation debug="true">` attribute is below:
 
 ```xml
 <?xml version="1.0"?>
@@ -127,10 +127,10 @@ The team at [AppHarbor](http://appharbor.com/) created a useful tool to [help
 
 ### Naming configuration transform files {#Configurationfiles-Namingconfigurationtransformfiles}
 
-This feature will run your configuration transforms based on looking for transform files named with the following conventions. The configuration transformation files can either be named `*.Release.config`, or `*.&lt;Environment&gt;.config` and will be executed in this order:
+This feature will run your configuration transforms based on looking for transform files named with the following conventions. The configuration transformation files can either be named `*.Release.config`, or `*.<Environment>.config` and will be executed in this order:
 
 1. `*.Release.config`
-2. `*.&lt;Environment&gt;.config`
+2. `*.<Environment>.config`
 
 For an **ASP.NET Web Application**, suppose you have the following files in your package:
 
