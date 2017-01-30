@@ -64,18 +64,18 @@ The Octopus Deploy ecosystem includes a wide variety of external services which 
 
 These are the decisions we made on handling versions:
 
-1. **Valid versions:** A version string will be considered valid if it is a "strictly compliant" Semantic Version (according to [SemVer 1.0](http://semver.org/spec/v1.0.0.html) or [SemVer 2.0](http://semver.org/spec/v2.0.0.html)). We will also allow for 4-digit versions (like `1.0.0.0`) and zero-padded versions (like `2016.09.01`).
-2. **Comparing versions:** We will compare versions using the "semantic" value (as per the Semantic Version specification).
-  1. **Equality:** Two versions will be considered to be equal if they are "semantically equivalent". Some examples:
-    1. `1.0.0.0 == 1.0.0`
-    2. `2016.01.02 == 2016.1.2 == 2016.01.2`
-  2. **Ordering:** Versions will be sorted "semantically". Some examples:
-    1. `1.4.10 &gt; 1.4.9`
-    2. `3.0.0-beta.10 &gt; 3.0.0-beta.9`
-    3. `1.4.008 &lt; 1.4.9`
-3. **Creating packages (using Octopus tooling like [OctoPack](/docs/packaging-applications/nuget-packages/using-octopack/index.md) and [octo.exe](/docs/packaging-applications/nuget-packages/using-octo.exe.md)):**[WYSIWYG](https://en.wikipedia.org/wiki/WYSIWYG) provided the version you've specified is a valid SemanticVersion (as described earlier). For example:
-  1. If you build a package using `octo.exe pack --id=MyPackage --version=2016.01.02` you should be expect the output file to be `MyPackage.2016.01.02.nupkg`.
-4. **Interacting with package feeds/repositories (many and varied, including our own):** We just ask the feed for a package with the version string we stored in the release, and accept what the feed tells us.
+1. **Valid versions:** A version string will be considered valid if it is a "strictly compliant" Semantic Version (according to [SemVer 1.0](http://semver.org/spec/v1.0.0.html) or [SemVer 2.0](http://semver.org/spec/v2.0.0.html)). We will also allow for 4-digit versions (like `1.0.0.0`) and zero-padded versions (like `2016.09.01`).  
+2. **Comparing versions:** We will compare versions using the "semantic" value (as per the Semantic Version specification).  
+  1. **Equality:** Two versions will be considered to be equal if they are "semantically equivalent". Some examples:  
+    1. `1.0.0.0 == 1.0.0`  
+    2. `2016.01.02 == 2016.1.2 == 2016.01.2`  
+  2. **Ordering:** Versions will be sorted "semantically". Some examples:  
+    1. `1.4.10 &gt; 1.4.9`  
+    2. `3.0.0-beta.10 &gt; 3.0.0-beta.9`  
+    3. `1.4.008 &lt; 1.4.9`  
+3. **Creating packages (using Octopus tooling like [OctoPack](/docs/packaging-applications/nuget-packages/using-octopack/index.md) and [octo.exe](/docs/packaging-applications/nuget-packages/using-octo.exe.md)):**[WYSIWYG](https://en.wikipedia.org/wiki/WYSIWYG) provided the version you've specified is a valid SemanticVersion (as described earlier). For example:  
+  1. If you build a package using `octo.exe pack --id=MyPackage --version=2016.01.02` you should be expect the output file to be `MyPackage.2016.01.02.nupkg`.  
+4. **Interacting with package feeds/repositories (many and varied, including our own):** We just ask the feed for a package with the version string we stored in the release, and accept what the feed tells us.  
 
 :::hint
 **NuGet &quot;Zero Quirks&quot;**
