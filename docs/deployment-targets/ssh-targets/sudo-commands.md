@@ -45,7 +45,7 @@ If you are using a distro such as Ubuntu, you should now be able to utilize the 
 
 Some distros however, such as Centos and its derivatives, require the following further steps to be taken.
 
-### Disble RequireTTY {#SudoCommands-DisbleRequireTTY}
+### Disable RequireTTY {#SudoCommands-DisbleRequireTTY}
 
 Although the sudo may no longer require a password, some distros are configured by default to still require interactive input, or tty, when running sudo.
 
