@@ -7,7 +7,7 @@ These samples show how to perform various tasks related to project coordination.
 See the [OctopusDeploy-Api](https://github.com/OctopusDeploy/OctopusDeploy-Api) repository for further API documentation and examples using the [raw REST API](https://github.com/OctopusDeploy/OctopusDeploy-Api/tree/master/REST/PowerShell) or Octopus.Client in [C#](https://github.com/OctopusDeploy/OctopusDeploy-Api/tree/master/Octopus.Client/Csharp), [Powershell](https://github.com/OctopusDeploy/OctopusDeploy-Api/tree/master/Octopus.Client/PowerShell) or [LINQPad](https://github.com/OctopusDeploy/OctopusDeploy-Api/tree/master/Octopus.Client/LINQPad). If you are using powershell, the [OctoPosh ](https://github.com/Dalmirog/OctoPosh)project provides commandlets that wrap the API.
 
 :::success
-These examples use the [Octopus.Client](/docs/api-and-integration/octopus.client.md) library, see the [loading in an octopus step](http://docs.octopusdeploy.com/display/OD/Octopus.Client#Octopus.Client-Loadinginanoctopusstep) section of the [Octopus.Client](/docs/api-and-integration/octopus.client.md) documentation for details on how to load the library from inside octopus using PowerShell or C# Script steps.
+These examples use the [Octopus.Client](/docs/api-and-integration/octopus.client.md) library, see the [loading in an octopus step](/docs/api-and-integration/octopus.client.md#Octopus.Client-Loadinginanoctopusstep) section of the [Octopus.Client](/docs/api-and-integration/octopus.client.md) documentation for details on how to load the library from inside octopus using PowerShell or C# Script steps.
 :::
 
 - Querying the current state
@@ -121,7 +121,7 @@ Console.WriteLine($"Queued for {tomorrow3amServerTime}");
 
 ## Failing a deployment if another deployment is running {#ProjectCoordinationCodeSamples-Failingadeploymentifanotherdeploymentisrunning}
 
-This example uses the dynamic dashboard API to check whether a different project is currently deploying to the same environment. Note that Octopus [restricts](http://docs.octopusdeploy.com/display/OD/Run+multiple+processes+on+a+Tentacle+Simultaneously) what can run at the same time already.
+This example uses the dynamic dashboard API to check whether a different project is currently deploying to the same environment. Note that Octopus [restricts](/docs/how-to/run-multiple-processes-on-a-tentacle-simultaneously.md) what can run at the same time already.
 
 ```c#
 var otherProject = repository.Projects.FindByName("Other Project");

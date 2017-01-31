@@ -3,7 +3,7 @@ title: Tentacle.exe Command Line
 position: 10
 ---
 
-**Tentacle.exe** is the executable that runs the Octopus Tentacle instance. It includes several helpful commands that allow you to manage the instance some of which are built on top of the [Octopus Deploy HTTP API](http://docs.octopus.com/display/OD/Octopus+REST+API).
+**Tentacle.exe** is the executable that runs the Octopus Tentacle instance. It includes several helpful commands that allow you to manage the instance some of which are built on top of the [Octopus Deploy HTTP API](/docs/api-and-integration/octopus-rest-api.md).
 
 ## Commands {#Tentacle.exeCommandLine-Commands}
 

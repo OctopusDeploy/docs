@@ -27,7 +27,7 @@ An Azure cloud service package is normally compiled into a `.cspkg` file. This
 
 ## Step 2: Create an Azure Account {#DeployingapackagetoanAzureCloudService-Step2:CreateanAzureAccount}
 
-If you haven't already, create an [Azure Subscription Account](http://docs.octopusdeploy.com/display/OD/Azure+Subscription+Account) to grant Octopus Deploy access to your Azure Subscription.
+If you haven't already, create an [Azure Subscription Account](/docs/key-concepts/environments/accounts/azure-subscription-account.md) to grant Octopus Deploy access to your Azure Subscription.
 
 ## Step 3: Create the Azure Cloud Service deployment step {#DeployingapackagetoanAzureCloudService-Step3:CreatetheAzureCloudServicedeploymentstep}
 

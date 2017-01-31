@@ -101,7 +101,7 @@ Make sure you replace `NEWGUID` with a generated guid.
 ```
 
 :::hint
-The **value** property is the most important one. This value becomes the external Role ID you will use later on when [adding this role to a Team](http://docs.octopusdeploy.com/display/OD/Managing+users+and+teams) in Octopus Deploy.
+The **value** property is the most important one. This value becomes the external Role ID you will use later on when [adding this role to a Team](/docs/administration/managing-users-and-teams/index.md) in Octopus Deploy.
 :::
 
 :::success

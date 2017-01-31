@@ -78,7 +78,7 @@ Octopus will attempt to automatically deploy the current releases for the enviro
 For example: If you cancel a deployment or a deployment fails for whatever reason, auto-deploy will now be blocked for the given release and any new machines that come online will **not** be auto-deployed to. You will need you to complete a successful deployment again before auto-deployments can continue for the given release.
 :::
 
-Troubleshoot automatic deployment by viewing the auto deploy logs from the diagnostics page in the configuration section or viewing the [Audit log](http://docs.octopusdeploy.com/display/OD/Auditing):
+Troubleshoot automatic deployment by viewing the auto deploy logs from the diagnostics page in the configuration section or viewing the [Audit log](/docs/administration/auditing.md):
 
 ![](/docs/images/5669262/5865582.png "width=500")
 

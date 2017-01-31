@@ -41,7 +41,7 @@ If you need to use any of the options below to manage the data being imported yo
 
 ### Migrating the built-in Octopus NuGet package repository {#MigratingdatafromOctopus2.6to3.x-PackageRepositoryMigratingthebuilt-inOctopusNuGetpackagerepository}
 
-If you use the built-in [Octopus NuGet repository](http://docs.octopusdeploy.com/display/OD/Package+repositories) you will need to move the files from your 2.6 server to your 3.x server. The package files are not included as part of the backup.
+If you use the built-in [Octopus NuGet repository](/docs/packaging-applications/package-repositories/index.md) you will need to move the files from your 2.6 server to your 3.x server. The package files are not included as part of the backup.
 In a standard 2.6 install the files can be found under `C:\Octopus\OctopusServer\Repository\Packages`
 You will need to transfer them to the new server to `C:\Octopus\Packages`Once the files have been copied, you will need to restart the Octopus Server service to re-index the files - The index runs in the background, so if you have a lot of packages it could take a while (5-20 mins) to show in the UI or be usable for deployments.
 

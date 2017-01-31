@@ -44,7 +44,7 @@ The Import wizard can also be found in Octopus Manager:
 
 ![](/docs/images/3048141/3278070.png "width=500")
 
-The importer tool can either take an exported directory and the password used to export it, or an [Octopus 2.6 backup file](http://docs.octopusdeploy.com/display/OD2/Backup+and+restore) (`.octobak`) and the Octopus master key. It will then import the data.
+The importer tool can either take an exported directory and the password used to export it, or an [Octopus 2.6 backup file](/docs/administration/data-migration.md#Datamigration-ImportingImporting) (`.octobak`) and the Octopus master key. It will then import the data.
 
 You'll get a chance to preview the changes first, and you can tell the tool to either:
 

@@ -80,7 +80,7 @@ As with before, perform the operation causing the error with the trace running t
 
 ### Logging  Queries {#Providingdatabaseperformancemetrics-LoggingQueries}
 
-Slow running queries are automatically logged to the [Server Logs](http://docs.octopusdeploy.com/display/OD/Log+files) with an Info trace level. These lines will look something like
+Slow running queries are automatically logged to the [Server Logs](/docs/reference/log-files.md) with an Info trace level. These lines will look something like
 
 > ```
 > 2016-11-17 00:31:39.8557    285  INFO  Reader took 309ms (1ms until the first record): SELECT * FROM dbo.[Project] ORDER BY Id

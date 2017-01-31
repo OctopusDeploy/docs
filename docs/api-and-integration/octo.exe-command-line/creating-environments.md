@@ -3,7 +3,7 @@ title: Creating environments
 position: 0
 ---
 
-[Octo.exe](http://docs.octopusdeploy.com/pages/viewpage.action?pageId=360596) can be used to create environments on your Octopus instance.
+[Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to create environments on your Octopus instance.
 
 ```text
 octo create-environment [<options>]

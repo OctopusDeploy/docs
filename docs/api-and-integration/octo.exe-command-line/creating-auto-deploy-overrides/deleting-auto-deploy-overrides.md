@@ -2,7 +2,7 @@
 title: Deleting auto deploy overrides
 ---
 
-[Octo.exe](http://docs.octopusdeploy.com/pages/viewpage.action?pageId=360596) can be used to delete automatic deployment release overrides.
+[Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to delete automatic deployment release overrides.
 
 ```text
 octo delete-autodeployoverride [<options>]

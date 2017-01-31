@@ -117,20 +117,20 @@ The Octopus server stores files in the following folders by default:
 
 - `C:\Octopus`
  - This is where the Octopus server config file and deployment journal is stored.
- - See this [page](http://docs.octopusdeploy.com/display/OD/Moving+Octopus+Server+folders#MovingOctopusServerfolders-OctopusHome) on how to move the Octopus home folder
+ - See this [page](/docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md#MovingOctopusServerfolders-OctopusHome) on how to move the Octopus home folder
 - `C:\Octopus\Artifacts`
  - This is where artifacts created by deployments are stored.
- - See this [page](http://docs.octopusdeploy.com/display/OD/Moving+Octopus+Server+folders#MovingOctopusServerfolders-Artifacts) on how to move the Octopus server artifacts folder
+ - See this [page](/docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md#MovingOctopusServerfolders-Artifacts) on how to move the Octopus server artifacts folder
 - `C:\Octopus\Logs`
  - This is where the Octopus server log file is stored.
 - `C:\Octopus\OctopusServer\PackageCache`
  - This is where the signature and delta files used for package acquisitions are stored.
 - `C:\Octopus\Packages`
  - This is where the packages pushed to the Octopus server built-in package repository are stored.
- - See this [page](http://docs.octopusdeploy.com/display/OD/Moving+Octopus+Server+folders#MovingOctopusServerfolders-NuGetRepository) on how to move the Octopus server built-in package folder
+ - See this [page](/docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md#MovingOctopusServerfolders-NuGetRepository) on how to move the Octopus server built-in package folder
 - `C:\Octopus\TaskLogs`
  - This is where all logs from deployments and other server tasks are stored.
- - See this [page](http://docs.octopusdeploy.com/display/OD/Moving+Octopus+Server+folders#MovingOctopusServerfolders-TaskLogs) on how to move the Octopus server task logs folder
+ - See this [page](/docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md#MovingOctopusServerfolders-TaskLogs) on how to move the Octopus server task logs folder
 
 ## Clean up post-2.6 migration {#ServerconfigurationandFilestorage-CleanUpCleanuppost-2.6migration}
 

@@ -3,7 +3,7 @@ title: Deleting releases
 position: 3
 ---
 
-[Octo.exe](http://docs.octopusdeploy.com/pages/viewpage.action?pageId=360596) can be used to delete releases from your Octopus instance. Releases deleted this way **cannot be recovered**.
+[Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to delete releases from your Octopus instance. Releases deleted this way **cannot be recovered**.
 
 :::success
 **Using Channels?**

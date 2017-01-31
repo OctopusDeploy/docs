@@ -19,8 +19,8 @@ If you are deploying an **Azure Web Service,** create 2 more variables for the *
     ![](/docs/images/3049102/3278489.jpg "width=500")
     ![](/docs/images/3049102/3278494.jpg "width=500")
 ![](/docs/images/3049102/3278487.jpg "width=500")
-4. If you are deploying an **Azure Web App -**On you [Azure Web App step](http://docs.octopusdeploy.com/display/OD/Deploying+a+package+to+an+Azure+Web+App) use the variables to set the **Account** and **WebApp**
-    **![](/docs/images/3049102/3278496.jpg "width=500")**If you are deploying an**Azure Cloud Service -** On your [Azure Cloud Service step](http://docs.octopusdeploy.com/display/OD/Deploying+a+package+to+an+Azure+Cloud+Service) use the variables to set the **Account**, **Cloud Service** and **Storage Account
+4. If you are deploying an **Azure Web App -**On you [Azure Web App step](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/index.md) use the variables to set the **Account** and **WebApp**
+    **![](/docs/images/3049102/3278496.jpg "width=500")**If you are deploying an**Azure Cloud Service -** On your [Azure Cloud Service step](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-cloud-service/index.md) use the variables to set the **Account**, **Cloud Service** and **Storage Account
 
 ![](/docs/images/3049102/3278497.jpg "width=500")**
 5. Once you start the deployment, Octopus will resolve the variables that hold the Account and WebApp/Cloud Service info based on their scope. To use a different account, repeat steps 1-3 and scope the new account variable accordingly.

@@ -3,7 +3,7 @@ title: Creating auto deploy overrides
 position: 12
 ---
 
-[Octo.exe](http://docs.octopusdeploy.com/pages/viewpage.action?pageId=360596) can be used to create automatic deployment release overrides.
+[Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to create automatic deployment release overrides.
 
 ```text
 octo create-autodeployoverride [<options>]

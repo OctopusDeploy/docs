@@ -22,7 +22,7 @@ We've open-sourced the [OctoTFS repository in GitHub](https://github.com/Octopu
 
 If you're using **Visual Studio Team Services (VSTS) or on-premises Team Foundation Server (TFS) 2017 (or newer)** you can simply [install the extension from the marketplace](https://marketplace.visualstudio.com/items/octopusdeploy.octopus-deploy-build-release-tasks) and follow the instructions below.
 
-If you're using an **on-premises TFS 2015 Update 2 or 3 server**, see [this document](https://octopus.com/docs/api-and-integration/team-foundation-server-tfs) for details on where to get a compatible extension. 
+If you're using an **on-premises TFS 2015 Update 2 or 3 server**, see [this document](/docs/api-and-integration/team-foundation-server-tfs.md) for details on where to get a compatible extension. 
 
 If you're using an **on-premises TFS server older than 2015 Update 2**, the extension is currently not available. You'll have to manually install the task by following [these instructions](/docs/guides/use-the-team-foundation-build-custom-task/manually-install-the-build-task-(not-recommended).md). Alternatively, [D'Arcy Lussier has put together a complete walkthrough](http://geekswithblogs.net/dlussier/archive/2016/01/04/170820.aspx) that's very easy to follow.
 

@@ -15,7 +15,7 @@ Due to the new communication method, you won't be able to communicate with your 
 4. Install Octopus 3.x on your Octopus Server
 5. Migrate your data from 2.6 to 3.x
 6. Verify the connectivity between the 3.x Octopus Server and the 3.x Tentacles
-7. **[Optional]** Clean up your Octopus Home folder, follow the instructions on this [page](http://docs.octopusdeploy.com/display/OD/Server+configuration+and+File+storage#ServerconfigurationandFilestorage-CleanUp)
+7. **[Optional]** Clean up your Octopus Home folder, follow the instructions on this [page](/docs/administration/server-configuration-and-file-storage\index.md#ServerconfigurationandFilestorage-CleanUp)
 
 ## Step by step {#Inplaceupgrade(installover2.6)-Stepbystep}
 
@@ -144,7 +144,7 @@ To see the command syntax click the **Show script** link in the wizard
 
 :::hint
 **Using the built-in Octopus NuGet repository?**
-If you use the built-in [Octopus NuGet repository](http://docs.octopusdeploy.com/display/OD/Package+repositories) you will need to move the files from your 2.6 server to your 3.x server. They are not part of the backup.
+If you use the built-in [Octopus NuGet repository](/docs/packaging-applications/package-repositories/index.md) you will need to move the files from your 2.6 server to your 3.x server. They are not part of the backup.
 In a standard 2.6 install the files can be found under `C:\Octopus\OctopusServer\Repository\Packages`
 You will need to transfer them to the new server to `C:\Octopus\Packages`Once the files have been copied, you will need to restart the Octopus Server service to re-index the files - The index runs in the background, so if you have a lot of packages it could take a while (5-20 mins) to show in the UI or be usable for deployments.
 :::

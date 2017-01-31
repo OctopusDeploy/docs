@@ -3,7 +3,7 @@ title: Creating projects
 position: 1
 ---
 
-[Octo.exe](http://docs.octopusdeploy.com/pages/viewpage.action?pageId=360596) can be used to create a project inside a project group.
+[Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to create a project inside a project group.
 
 ```text
 octo create-project [<options>]

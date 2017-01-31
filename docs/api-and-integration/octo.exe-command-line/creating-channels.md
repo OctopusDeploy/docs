@@ -3,7 +3,7 @@ title: Creating channels
 position: 11
 ---
 
-[Octo.exe](http://docs.octopusdeploy.com/pages/viewpage.action?pageId=360596) can be used to create channels on your Octopus instance.
+[Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to create channels on your Octopus instance.
 
 :::hint
 Channels were introduced in Octopus 3.2.

@@ -14,7 +14,7 @@ Tenants were introduced with first-class support in Octopus 3.4. If you are impl
 
 Starting with Octopus 3.4 you can manage tenants as a first-class citizen enabling you to:
 
-1. Deploy multiple instances of your project into the same [Environment](http://docs.octopusdeploy.com/display/OD/Environments);
+1. Deploy multiple instances of your project into the same [Environment](/docs/key-concepts/environments/index.md);
 2. tenant-per-customer
 3. tenant-per-tester
 4. tenant-per-feature/tenant-per-branch
@@ -44,7 +44,7 @@ The multi-tenant features in Octopus Deploy will simplify your deployments in al
 - you want to provide each tester with an isolated test deployment so they can work on test data, and choose when to upgrade
 - you want to provide isolated, time-limited, deployments for work on feature branches
 - you want to manage deployments to individual targets across environments, like managing a fleet of embedded devices, or a fleet of laptops/workstations
-- you deploy your application to multiple geographic regions - this way you can avoid creating mutliple environments instead modeling each region as a tenant in the same environment - [example](http://docs.octopusdeploy.com/display/OD/Multi-region+deployment+pattern)
+- you deploy your application to multiple geographic regions - this way you can avoid creating mutliple environments instead modeling each region as a tenant in the same environment - [example](/docs/patterns/multi-region-deployment-pattern.md)
 - you deploy unique instances of your application for each end-customer - keep reading!
 
 ### You want to deploy a multi-tenant application {#Tenants-Youwanttodeployamulti-tenantapplication}

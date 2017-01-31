@@ -13,9 +13,9 @@ Octo.exe supports the following commands:
 
 - **`create-release`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/creating-releases.md)
 - **`deploy-release`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/deploying-releases.md)
-- **`promote-release`**: [Learn more](http://docs.octopusdeploy.com/display/OD/Promoting+releases)
-- **`create-project`**: [Learn more](http://docs.octopusdeploy.com/display/OD/Creating+projects)
-- **`create-environment`**: [Learn more](http://docs.octopusdeploy.com/display/OD/Creating+environments)
+- **`promote-release`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/promoting-releases.md)
+- **`create-project`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/creating-projects.md)
+- **`create-environment`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/creating-environments.md)
 - **`create-channel`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/creating-channels.md)
 - **`create-autodeployoverride`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/index.md)
 - **`clean-environment`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/cleaning-environments.md)
@@ -24,7 +24,7 @@ Octo.exe supports the following commands:
 - `list-machines`: Lists the machines in one or more environments matching one or more statuses
 - `list-projects`: Lists all projects on the server
 - `list-latestdeployments`: Lists the latest deployments of a project
-- `delete-releases`: [Learn more](http://docs.octopusdeploy.com/display/OD/Deleting+releases)
+- `delete-releases`: [Learn more](/docs/api-and-integration/octo.exe-command-line/deleting-releases.md)
 - `delete-autodeployoverride`: [Learn more](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/deleting-auto-deploy-overrides.md)
 - **`pack`**: [Learn More](/docs/packaging-applications/nuget-packages/using-octo.exe.md) Creates a NUPKG from files on disk, without needing a .nuspec
 - `push`: [Learn more](/docs/api-and-integration/octo.exe-command-line/pushing-packages.md): Pushes a package to the Octopus built-in repository

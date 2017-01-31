@@ -3,7 +3,7 @@ title: Promoting releases
 position: 8
 ---
 
-[Octo.exe](http://docs.octopusdeploy.com/pages/viewpage.action?pageId=360596) can be used to promote a release from one environment to another.
+[Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to promote a release from one environment to another.
 
 ```text
 octo promote-release [<options>]
