@@ -1,6 +1,7 @@
 ---
 title: Installation
 position: 1
+description: This section walks you through installation of Octopus and Tentacle.
 ---
 
 Installing Octopus Deploy involves three main steps:
