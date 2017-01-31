@@ -20,7 +20,7 @@ Each of your scripts will be bootstrapped by the [open-source Calamari project](
 In your package, you can add any of the following script files in any of the scripting languages supported by Octopus where `<ext>` is the appropriate extension for your scripting language of choice:
 
 - `PreDeploy.<ext>`
-- `Deploy.<ext>;`
+- `Deploy.<ext>`
 - `PostDeploy.<ext>`
 - `DeployFailed.<ext>`
 
