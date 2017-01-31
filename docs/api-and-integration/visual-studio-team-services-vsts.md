@@ -3,7 +3,7 @@ title: Visual Studio Team Services (VSTS)
 position: 1
 ---
 
-If you are using Visual Studio Team Services (VSTS) (formerly VSO) or an on-premises Team Foundation Server (TFS) 2015 Update 2 (or newer) you can use the [open-source](https://github.com/OctopusDeploy/OctoTFS) extension for Octopus [available in the VSTS marketplace](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks).
+If you are using Visual Studio Team Services (VSTS) (formerly VSO) or an on-premises Team Foundation Server (TFS) 2017 (or newer) you can use the [open-source](https://github.com/OctopusDeploy/OctoTFS) extension for Octopus [available in the VSTS marketplace](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks). For TFS 2015 Update 2 or 3, see the [Team Foundation Server extension documentation](https://octopus.com/docs/api-and-integration/team-foundation-server-tfs) for a compatible download.
 
 :::success
 Take a look at our end-to-end guide on [using the Octopus extension for VSTS and TFS 2015](/docs/guides/use-the-team-foundation-build-custom-task/index.md).
