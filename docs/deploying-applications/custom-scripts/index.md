@@ -17,16 +17,16 @@ Each of your scripts will be bootstrapped by the [open-source Calamari project](
 
 ## Scripts in Packages {#Customscripts-ScriptsinPackagesscripts-in-packages}
 
-In your package, you can add any of the following script files in any of the scripting languages supported by Octopus where `&lt;ext&gt;` is the appropriate extension for your scripting language of choice:
+In your package, you can add any of the following script files in any of the scripting languages supported by Octopus where `<ext>` is the appropriate extension for your scripting language of choice:
 
-- `PreDeploy.&lt;ext&gt;`
-- `Deploy.&lt;ext&gt;`
-- `PostDeploy.&lt;ext&gt;`
-- `DeployFailed.&lt;ext&gt;`
+- `PreDeploy.<ext>`
+- `Deploy.<ext>;`
+- `PostDeploy.<ext>`
+- `DeployFailed.<ext>`
 
 After extracting your package, Calamari will detect these scripts and invoke them. Which file you use depends on when you need your custom activity to run – see the section on [what order are conventions run in](/docs/reference/package-deployment-feature-ordering.md) for details. Your scripts can do anything your scripting language supports, as well as setting [output variables](/docs/deploying-applications/variables/output-variables.md) and [collecting artifacts](/docs/deploying-applications/artifacts.md). These scripts must be located in the root of your package.
 
-As mentioned above, you can create a file named `DeployFailed.&lt;ext&gt;`, which will be invoked if the package deployment fails. Our blog post about this feature [describes how DeployFailed.<ext> works](https://octopus.com/blog/deployfailed).
+As mentioned above, you can create a file named `DeployFailed.<ext>`, which will be invoked if the package deployment fails. Our blog post about this feature [describes how DeployFailed.<ext> works](https://octopus.com/blog/deployfailed).
 
 :::hint
 **Script Support on Deployment Targets**
@@ -134,7 +134,7 @@ To see the F# API available to your F# scripts, take a look at our [F# signature
 
 In PowerShell we have pre-defined some script-scoped variables for you as a convenience. Consider the same example as before, a variable named "MyApp.ConnectionString" will be available as both:
 
-- `$OctopusParameters[&quot;MyApp.ConnectionString&quot;]`
+- `$OctopusParameters["MyApp.ConnectionString"]`
 - `$MyAppConnectionString`
 
 In the first form the variable name appears just as they appear in the Octopus web portal, while in the second example special characters have been removed. The first form is the most flexible, but in some cases the second form may be more convenient.
@@ -181,7 +181,7 @@ You can define your parameters in the **Script Parameters** field using the fo
 
 :::hint
 **Delimiting string values**
-Don't forget to correctly delimit your parameters correctly for the scripting engine. In the example above we have surrounded the parameter value in double-quotes to handle cases where the Environment Name has spaces: `&quot;#{Octopus.Environment.Name}&quot;`
+Don't forget to correctly delimit your parameters correctly for the scripting engine. In the example above we have surrounded the parameter value in double-quotes to handle cases where the Environment Name has spaces: `"#{Octopus.Environment.Name}"`
 :::
 
 ### Passing parameters to PowerShell scripts {#Customscripts-PassingparameterstoPowerShellscripts}
