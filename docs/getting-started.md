@@ -109,7 +109,7 @@ Enter an overall release version number for the release, and select the NuGet pa
 
 ![Release notes](/docs/images/3048178/3278201.png "width=500")
 
-Now that you have a release, you can deploy and promote it between environments. On the release page, use the green **Deploy to `<environment>`** button to promote it.
+Now that you have a release, you can deploy and promote it between environments. On the release page, use the green **Deploy to *environment*** button to promote it.
 
 ![Deploy the release](/docs/images/3048178/3278200.png "width=500")
 
