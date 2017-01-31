@@ -26,9 +26,9 @@ Octopus 3.7 introduced integration with the Community Library and community cont
 
 Installing a community step template into Octopus is quick and easy.
 
-- [Install and add a community step template directly from your project's deployment process](/docs/deploying-applications/adding-steps.md)
-- [Install a step template from the **Step templates** tab within the **Library** area](/docs/deploying-applications/step-templates.md)
-- [Manually import a step template from the **Step templates** tab within the **Library** area](/docs/deploying-applications/step-templates.md)
+- [Install and add a community step template directly from your project's deployment process](/docs/deploying-applications/adding-steps.md#Addingsteps-Addingacommunitycontributedsteptemplates)
+- [Install a step template from the **Step templates** tab within the **Library** area](/docs/deploying-applications/step-templates.md#StepTemplates-InstallingasteptemplatefromtheCommunityLibrary)
+- [Manually import a step template from the **Step templates** tab within the **Library** area](/docs/deploying-applications/step-templates.md#StepTemplates-ImportingasteptemplatefromtheCommunityLibrary)
 
 It's also possible to create your own step templates.
 
@@ -51,15 +51,15 @@ To install a step template from the Community Library, perform the following.
 
 If you don't have the Community Library feature turned on you can still use community step templates by manually importing the JSON from the [Community Library](http://library.octopusdeploy.com/) into the step template library within Octopus.
 
-1. Navigate to the [Community Library](http://library.octopusdeploy.com/) website and find the template you want to use
+1. Navigate to the [Community Library](http://library.octopusdeploy.com/) website and find the template you want to use  
 ![](/docs/images/5671696/5866126.png "width=500")
-2. Click on the **Copy to clipboard** button. *Step Templates are transported as a JSON document containing all of the information required by Octopus.*
+2. Click on the **Copy to clipboard** button. *Step Templates are transported as a JSON document containing all of the information required by Octopus.*  
 *![](/docs/images/5671696/5866135.png "width=500")*
-3. Navigate to the **Step templates** tab in the **Library** area within the Octopus web portal and select **Import** from the custom step templates section
+3. Navigate to the **Step templates** tab in the **Library** area within the Octopus web portal and select **Import** from the custom step templates section  
 ![](/docs/images/5671696/5866134.png "width=500")
-4. Paste in the JSON document for the Step Template and click the **Import** button
+4. Paste in the JSON document for the Step Template and click the **Import** button  
 ![](/docs/images/3048081/5865525.png "width=500")
-5. Now you can add this new kind of step to your deployment process
+5. Now you can add this new kind of step to your deployment process  
 ![](/docs/images/5671696/5866151.png "width=500")
 
 ## Custom step step templates {#StepTemplates-Customstepsteptemplates}
@@ -72,11 +72,11 @@ Sometimes there isn't a step template for your situation available in the [Comm
 
 To create your own step template, perform the following.
 
-1. Navigate to the **Step templates** tab in the **Library** area and click the **Add** button
+1. Navigate to the **Step templates** tab in the **Library** area and click the **Add** button  
 ![](/docs/images/5671696/5866134.png "width=500")
-2. Select a built-in step to base your custom step template on.
+2. Select a built-in step to base your custom step template on.  
 ![](/docs/images/5671696/5866153.png "width=500")
-3. Populate the step template. 
+3. Populate the step template.   
 ![](/docs/images/5671696/5866154.png "width=500")
 
 :::success
@@ -151,13 +151,13 @@ It's important to note that you can only run script based custom step templates.
 
 To run a script based step template, perform the following.
 
-1. Navigate to the **Step templates** tab in the **Library** area and click the **Run** button next to the script based custom step template or alternately, select a script template and click the **Run** button from the template editor page
+1. Navigate to the **Step templates** tab in the **Library** area and click the **Run** button next to the script based custom step template or alternately, select a script template and click the **Run** button from the template editor page  
 ![](/docs/images/5671696/5866142.png "width=500")
-2. Select a group of targets to run the step on. This can be done by target name or by environments and roles.
+2. Select a group of targets to run the step on. This can be done by target name or by environments and roles.  
 ![](/docs/images/5671696/5866143.png "width=500")
-3. Enter any required parameters
+3. Enter any required parameters  
 ![](/docs/images/5671696/5866144.png "width=500")
-4. Click the **Run now** button. This will execute the step as a new task and provide the full script. 
+4. Click the **Run now** button. This will execute the step as a new task and provide the full script.   
 ![](/docs/images/5671696/5866145.png "width=500")
 ![](/docs/images/5671696/5866146.png "width=500")
 ![](/docs/images/5671696/5866147.png "width=500")
@@ -191,16 +191,3 @@ Now you can take that exported template document and commit it to source control
 :::success
 Take a look at the [contributing guide](https://github.com/OctopusDeploy/Library/blob/master/CONTRIBUTING.md) for the Community Library and submit your step template as a [pull request](https://github.com/OctopusDeploy/Library/pulls).
 :::
-
-- Community step templates
- - The Community Library
- - Installing a step template from the Community Library
- - Importing a step template from the Community Library
-- Custom step step templates
- - Creating custom step templates
- - Custom logo
- - Linking custom step templates to community step templates
- - Running script based custom step templates
-- Other
- - Updating step templates
- - Exporting step templates
