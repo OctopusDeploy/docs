@@ -552,9 +552,8 @@ Then the transform **transforms\\*.mytransform.config => config\web.config** wil
 
 Given a package which has the structure:
 
-Acme.Core.1.0.0.nupkg
-
 ```powershell
+Acme.Core.1.0.0.nupkg
 ├─app.config
 ├─transforms
 | ├─app.mytransform.config
