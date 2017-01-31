@@ -8,7 +8,8 @@ Octopus Deploy integrates with Team Foundation Server to provide for a full auto
 :::success
 **Using Visual Studio Team Services (VSTS) or Team Foundation Server (TFS) 2017 or above?**
 We have built a [comprehensive extension for Visual Studio Team Services (VSTS)](/docs/api-and-integration/visual-studio-team-services-vsts.md) (formerly Visual Studio Online or VSO) which also works with TFS 2017. We highly recommend using this extension for VSTS/VSO and TFS 2017 or newer.
-
+:::
+:::success
 **Using Team Foundation Server (TFS) 2015 Update 2 or 3?**
 The marketplace extension for VSTS (above) is not compatible with TFS 2015. You can [download a version of the extension for TFS 2015 here](https://download.octopusdeploy.com/tfs-2015-extension/octopusdeploy.octopus-deploy-build-release-tasks-2.0.39.vsix).
 :::
