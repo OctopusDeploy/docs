@@ -22,7 +22,7 @@ Here we will give an example of how to setup a Blue-Green deployment for an Azur
 
 ### Step 1: Create Staging Slot {#UsingDeploymentSlotswithAzureWebAppscopy-Step1:CreateStagingSlot}
 
-Create a [Run an Azure PowerShell Script](/docs/guides/azure-deployments/running-azure-powershell/index.md) step. For information about adding a step to the deployment process, see the [add step](http://docs.octopusdeploy.com/display/OD/Add+step) section.
+Create a [Run an Azure PowerShell Script](/docs/guides/azure-deployments/running-azure-powershell/index.md) step. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/adding-steps.md) section.
 
 ![](/docs/images/5671696/5865912.png "width=170")
 

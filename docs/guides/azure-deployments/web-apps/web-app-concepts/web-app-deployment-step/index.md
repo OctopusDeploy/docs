@@ -6,7 +6,7 @@ Octopus Deploy supports automated deployment of [Azure Web Apps](http://azure.m
 
 ## Deployment Step {#WebAppdeploymentstep-DeploymentStep}
 
-Add a new 'Deploy an Azure Web App' step to your project. For information about adding a step to the deployment process, see the [add step](http://docs.octopusdeploy.com/display/OD/Add+step) section.
+Add a new 'Deploy an Azure Web App' step to your project. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/adding-steps.md) section.
 
 ![](/docs/images/5671696/5865899.png "width=170")
 

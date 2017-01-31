@@ -13,7 +13,7 @@ To support this, Octopus provides **Email Steps**in a project's deployment proc
 
 ## Adding an email step {#Emailnotifications-Addinganemailstep}
 
-Email can be chosen as the step type when you click **Add Step** in your project's **Process** tab. For information about adding a step to the deployment process, see the [add step](http://docs.octopusdeploy.com/display/OD/Add+step) section.
+Email can be chosen as the step type when you click **Add Step** in your project's **Process** tab. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/adding-steps.md) section.
 
 ![](/docs/images/5671696/5865915.png "width=170")
 

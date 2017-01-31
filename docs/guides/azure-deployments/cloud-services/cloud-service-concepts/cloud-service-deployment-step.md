@@ -7,7 +7,7 @@ Octopus Deploy supports deployment of [Azure Cloud Services](http://azure.micros
 
 ## Deployment Step {#CloudServicedeploymentstep-DeploymentStep}
 
-Add a new "Deploy an Azure Cloud Service" step to your project. For information about adding a step to the deployment process, see the [add step](http://docs.octopusdeploy.com/display/OD/Add+step) section.
+Add a new "Deploy an Azure Cloud Service" step to your project. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/adding-steps.md) section.
 
 ![](/docs/images/5671696/5865904.png "width=170")
 
