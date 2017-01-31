@@ -35,7 +35,7 @@ Use the Package Feed and Package ID fields to select the [package](/docs/packagi
 | **Description**     | A short description of service that will appear in the services control manager. |
 | **Executable path** | The relative path to the executable in the package that the Windows Service will point to. Examples:  `MyService.exe`,  `bin\MyService.exe`, `foo\bin\MyService.exe`, `C:\Windows\myservice.exe` |
 | **Arguments**       | Arguments that will always be passed to the service when it starts |
-| **Service account** | The account that the Windows Service should run under. Options are: Local System, Network Service, Local Service, Custom user (you can specify the username and password). See below for [Security Considerations](/docs/deploying-applications/windows-services.md) and [using Managed Service Accounts (MSA)](/docs/deploying-applications/windows-services.md) |
+| **Service account** | The account that the Windows Service should run under. Options are: Local System, Network Service, Local Service, Custom user (you can specify the username and password). <br><br>See below for [Security Considerations](/docs/deploying-applications/windows-services.md#WindowsServices-SecurityConsiderations) and [using Managed Service Accounts (MSA)](/docs/deploying-applications/windows-services.md#WindowsServices-UsingManagedServiceAccounts(MSA)) |
 | **Start mode**      | When will the service start: Automatic, Automatic (delayed), Manual |
 | **Dependencies**    | Any dependencies that the service has. Separate the names using forward slashes (/). For example: `LanmanWorkstation/TCPIP` |
 
