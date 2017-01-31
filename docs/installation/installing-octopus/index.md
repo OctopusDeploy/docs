@@ -23,14 +23,14 @@ Your Octopus Deploy server requires:
 - Recommended for smaller deployments (less than 30 Tentacles for example): 2GB RAM, dual-core CPU, 10GB free disk space
 - Recommended for larger deployments: 4GB RAM, dual-core, 20GB free disk space
 
-## Installation {#InstallingOctopus-Installation}
+
+## Download {#InstallingOctopus-Download}
 
 :::success
-**Download the Octopus Deploy MSI**
-The latest Octopus Deploy MSI can always be [downloaded from the Octopus Deploy downloads page](https://octopus.com/downloads).
-
-Alternatively you can download the latest stable builds directly for one of our products via links to [OctopusServer x64](https://octopus.com/downloads/latest/WindowsX64/OctopusServer), [OctopusServer 32-bit/x86](https://octopus.com/downloads/latest/WindowsX86/OctopusServer), [OctopusTentacle x64](https://octopus.com/downloads/latest/WindowsX64/OctopusTentacle), [OctopusTentacle 32-bit/x86](https://octopus.com/downloads/latest/WindowsX86/OctopusTentacle), [Hydra](https://octopus.com/downloads/latest/Hydra), [CommandLineTools](https://octopus.com/downloads/latest/CommandLineTools) or the [TeamCityPlugin](https://octopus.com/downloads/latest/TeamCityPlugin)
+The latest Octopus Deploy MSI can always be [downloaded from the Octopus Deploy downloads page](https://octopus.com/downloads). You can also use our [permalinks](/docs/installation/permalinks.md) if you plan to automate the download.
 :::
+
+## Installation {#InstallingOctopus-Installation}
 
 This three minute video  will walk you through the installation process:
 
