@@ -3,7 +3,7 @@ title: Use the Team Foundation Build Custom Task
 position: 5
 ---
 
-The new structure of Team Foundation Build gives us a great opportunity to integrate better with your build and release processes from Visual Studio Team Services (VSTS) (formerly VSO) and on-premises Team Foundation Server (TFS) servers. We've created a [public extension](https://marketplace.visualstudio.com/items/octopusdeploy.octopus-deploy-build-release-tasks) you can install into your VSTS instance or TFS 2015 server.  This extension makes the following tasks available to your Build and Release processes:
+The new structure of Team Foundation Build gives us a great opportunity to integrate better with your build and release processes from Visual Studio Team Services (VSTS) (formerly VSO) and on-premises Team Foundation Server (TFS) servers. We've created a [public extension](https://marketplace.visualstudio.com/items/octopusdeploy.octopus-deploy-build-release-tasks) you can install into your VSTS instance or TFS 2017 server.  This extension makes the following tasks available to your Build and Release processes:
 
 - Installing the extension
 - Add a Connection to Octopus Deploy
@@ -20,9 +20,11 @@ We've open-sourced the [OctoTFS repository in GitHub](https://github.com/Octopu
 
 ## Installing the extension {#UsetheTeamFoundationBuildCustomTask-Installingtheextension}
 
-If you're using **Visual Studio Team Services (VSTS) or on-premises Team Foundation Server (TFS) 2015 Update 2 (or newer)** you can simply [install the extension from the marketplace](https://marketplace.visualstudio.com/items/octopusdeploy.octopus-deploy-build-release-tasks) and follow the instructions below.
+If you're using **Visual Studio Team Services (VSTS) or on-premises Team Foundation Server (TFS) 2017 (or newer)** you can simply [install the extension from the marketplace](https://marketplace.visualstudio.com/items/octopusdeploy.octopus-deploy-build-release-tasks) and follow the instructions below.
 
-If you're using an **on-premises TFS server (before 2015 Update 2)**, the extension is currently not available. You'll have to manually install the task by following [these instructions](/docs/guides/use-the-team-foundation-build-custom-task/manually-install-the-build-task-(not-recommended).md). Alternatively, [D'Arcy Lussier has put together a complete walkthrough](http://geekswithblogs.net/dlussier/archive/2016/01/04/170820.aspx) that's very easy to follow.
+If you're using an **on-premises TFS 2015 Update 2 or 3 server**, see [this document](https://octopus.com/docs/api-and-integration/team-foundation-server-tfs) for details on where to get a compatible extension. 
+
+If you're using an **on-premises TFS server older than 2015 Update 2**, the extension is currently not available. You'll have to manually install the task by following [these instructions](/docs/guides/use-the-team-foundation-build-custom-task/manually-install-the-build-task-(not-recommended).md). Alternatively, [D'Arcy Lussier has put together a complete walkthrough](http://geekswithblogs.net/dlussier/archive/2016/01/04/170820.aspx) that's very easy to follow.
 
 After installing the extension, follow the below steps to get it running for your build.
 
