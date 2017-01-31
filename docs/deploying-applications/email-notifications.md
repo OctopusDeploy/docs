@@ -9,7 +9,7 @@ Deployments can have a strong impact on others whose work depends on the system 
 - Let testers know when a new version is available in UAT
 - Use email in conjuction with [manual approvals](/docs/deploying-applications/manual-intervention-and-approvals.md) to make sure everyone is ready for a new deployment
 
-To support this, Octopus provides **Email Steps**in a project's deployment process.
+To support this, Octopus provides **Email Steps** in a project's deployment process.
 
 ## Adding an email step {#Emailnotifications-Addinganemailstep}
 
@@ -92,7 +92,7 @@ The outcome of each step can be included using a template like the one below (Oc
 
 :::hint
 **Step error detail**
-step.Status.Error and step.Status.ErrorDetail will only display the exit code and Octopus stack trace for the error. As we cannot parse the deployment log, we can only extract the exit/error codes. It cannot show detailed information on what caused the error. For full information on what happened when the deployment fails, you will need to reference the logs.
+`step.Status.Error` and `step.Status.ErrorDetail` will only display the exit code and Octopus stack trace for the error. As we cannot parse the deployment log, we can only extract the exit/error codes. It cannot show detailed information on what caused the error. For full information on what happened when the deployment fails, you will need to reference the logs.
 
 See [System variables](/docs/deploying-applications/variables/system-variables.md)
 :::
