@@ -186,4 +186,4 @@ There is no need to uninstall the newer version you were trying to upgrade to.
 
 In a few cases a bug in a 3rd party component causes the installer displays a "Installation directory must be on a local hard drive" error. If this occurs, running the install again from an elevated command prompt using the following command (replacing Octopus.3.3.4-x64.msi with the name of the installer you are using):
 
-`msiexec /i Octopus.3.3.4-x64.msi WIXUI_DONTVALIDATEPATH=&quot;1&quot;`
+`msiexec /i Octopus.3.3.4-x64.msi WIXUI_DONTVALIDATEPATH="1"`

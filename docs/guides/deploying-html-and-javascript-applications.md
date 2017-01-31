@@ -91,11 +91,11 @@ And finally when we load the application in our browser we can see the results h
 
 ### Step 4: Minify the JavaScript and deploy again! {#DeployingHTMLandJavaScriptApplications-Step4:MinifytheJavaScriptanddeployagain!}
 
-This approach also works perfectly with minified sources. This is because the minifier won't change string literals like `&quot;#{MyApp.ConfigValue1}&quot;` and the substitution will work just like it did before. In this example we will just minify the JavaScript inline in the HTML file. You can get the same result by moving the JavaScript into an external file and minifying that.
+This approach also works perfectly with minified sources. This is because the minifier won't change string literals like `"#{MyApp.ConfigValue1}"` and the substitution will work just like it did before. In this example we will just minify the JavaScript inline in the HTML file. You can get the same result by moving the JavaScript into an external file and minifying that.
 
 1. Unpack the MyApp.1.0.0.zip file
 2. Minify the contents of the <script> tag. We used [https://jscompress.com/](https://jscompress.com/) to minify the JavaScript.
- 1. You should notice the `&quot;#{MyApp.ConfigValue1}&quot;` string literal has been left intact by the minifier.
+ 1. You should notice the `"#{MyApp.ConfigValue1}"` string literal has been left intact by the minifier.
 3. Pack the HTML file into a new package and name the file MyApp.1.0.1.zip. This new version of our package has been enhanced with minified sources and will be much faster to download!
 4. Push the new package into the built-in repository, create a new release and deploy that release. You should see the same result as before, but now with minified sources!
 

@@ -8,7 +8,7 @@ NanoPack is a wrapper around the `New-NanoServerImage`PowerShell script that is 
 
 ## Preparing Your Application {#NanoPack-PreparingYourApplication}
 
-To work with NanoPack your application needs to be published as a standalone app (i.e. one that bundles up the .NET Core runtime and does not require .NET Core to be installed). To do this remove the `&quot;type=&quot;platform&quot;` from the `Microsoft.NETCore.App` dependency in your `project.json` so that it looks like:
+To work with NanoPack your application needs to be published as a standalone app (i.e. one that bundles up the .NET Core runtime and does not require .NET Core to be installed). To do this remove the `type="platform"` from the `Microsoft.NETCore.App` dependency in your `project.json` so that it looks like:
 
 ```powershell
 "frameworks": {

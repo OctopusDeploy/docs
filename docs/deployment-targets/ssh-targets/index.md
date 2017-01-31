@@ -115,7 +115,7 @@ The same variables that are accessible to PowerShell scripts are available to th
 
 Getting access to a variable involves invoking a function named `get_octopusvariable`. For example, to echo out the installation directory call
 
-> `echo &quot;Installed to step: &quot; $(get_octopusvariable &quot;Octopus.Action[Acme Deployment].Output.Package.InstallationDirectoryPath&quot;)`
+> `echo "Installed to step: " $(get_octopusvariable "Octopus.Action[Acme Deployment].Output.Package.InstallationDirectoryPath")`
 
 Setting a variable:
 

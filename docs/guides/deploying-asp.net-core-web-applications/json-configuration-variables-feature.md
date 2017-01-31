@@ -91,7 +91,7 @@ For example, to update the value of `weatherApi.url` and `weatherApi.key` in th
 }
 ```
 
-You can also replace an entire object. For the example above you could set Octopus Variable `weatherApi` to a value of `{&quot;weatherApi&quot;:{&quot;url&quot;:&quot;test.weather.com&quot;,&quot;key&quot;:&quot;TEST7654321&quot;}}`
+You can also replace an entire object. For the example above you could set Octopus Variable `weatherApi` to a value of `{"weatherApi":{"url":"test.weather.com","key":"TEST7654321"}}`
 
 ### Array variables {#JSONConfigurationVariablesFeature-Arrayvariables}
 
@@ -112,4 +112,4 @@ For example, the variable `foo:bar:1` with a value `qux` will update the value
 }
 ```
 
-You can also replace an entire array. For the example above you could set Octopus Variable `foo:bar` to a value of `[&quot;baz&quot;,&quot;qux&quot;]`
+You can also replace an entire array. For the example above you could set Octopus Variable `foo:bar` to a value of ` ["baz","qux"]`

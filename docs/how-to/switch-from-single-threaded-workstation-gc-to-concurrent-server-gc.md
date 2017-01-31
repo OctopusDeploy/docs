@@ -33,7 +33,7 @@ Step-by-step guide
 Follow these steps to enable concurrent server Garbage Collection, instead of single-threaded workstation Garbage Collection.
 
 1. Open up the `Octopus.Server.exe.config` where your Octopus Server is installed (i.e.`C:\Program Files\OctopusDeploy\Octopus)`.
-2. Find the `&lt;runtime&gt;` tag, if it contains `&lt;gcConcurrent /&gt;`, remove the tag
+2. Find the `<runtime>` tag, if it contains `<gcConcurrent />`, remove the tag
 
 ```powershell
 <runtime>
@@ -41,7 +41,7 @@ Follow these steps to enable concurrent server Garbage Collection, instead of si
   ...
 </runtime>
 ```
-3. In the `&lt;runtime&gt;` tag, add the following, `&lt;gcServer enabled=&quot;true&quot; /&gt;`
+3. In the `<runtime>` tag, add the following, `<gcServer enabled="true" />`
 
 ```powershell
 <runtime>
@@ -50,4 +50,4 @@ Follow these steps to enable concurrent server Garbage Collection, instead of si
 </runtime>
 ```
 4. Finally, restart your Octopus service.
-5. If you are still experiencing these crashes, you can also try to remove both the `&lt;gcServer /&gt;` and `&lt;gcConcurrent /&gt;` tags which will enable concurrent workstation GC.
+5. If you are still experiencing these crashes, you can also try to remove both the `<gcServer />` and `<gcConcurrent />` tags which will enable concurrent workstation GC.

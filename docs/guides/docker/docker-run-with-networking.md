@@ -80,7 +80,7 @@ From the project process page, add a new step via *Add Step &#10140; Run a Docke
 Once Octopus creates the network in the previous step, it invokes the [docker network inspect](https://docs.docker.com/engine/reference/commandline/network_inspect/) command and stores the JSON output in an [output variable](http://docs.octopusdeploy.com/display/OD/Output+variables). This data contains all the information about the network and we will use the network name to signify to the container that it should connect to that network. All the values of the inspect command can be accessed with standard [variable substitution syntax](http://docs.octopusdeploy.com/display/OD/Variable+Substitution+Syntax).
 :::
 6. Set *Network Alias* to **FirstServer**. *This will make it easier to identify this specific container from another container in the network.*
-7. Skip down to the *Additional Arguments* section, and set the *Command* to be `/bin/sh -c &quot;ping localhost&quot;`. *This arbitrary script instructs the linux instance to ping itself forever, keeping the container alive for this demonstration.*
+7. Skip down to the *Additional Arguments* section, and set the *Command* to be `/bin/sh -c "ping localhost"`. *This arbitrary script instructs the linux instance to ping itself forever, keeping the container alive for this demonstration.*
 
 :::hint
 **Container entry point**
@@ -110,7 +110,7 @@ Some other options include passing through all variables to the container throug
 
 We would love to hear about your thoughts and feedback on these options!
 :::
-3. This time set the *Command* parameter to **`/bin/sh -c &quot;ping -c \$PING_COUNT FirstServer | grep PING; sleep 5s&quot;`*.****As with Container A, this will start the container with the ping process however in this case it will only ping a limited number of times before exiting with the first line showing the IP address of the server being called.  A 5 second sleep is also appended for demonstration purposes so that we can extract the container information before it exits.*
+3. This time set the *Command* parameter to **`/bin/sh -c "ping -c \$PING_COUNT FirstServer | grep PING; sleep 5s"`*.****As with Container A, this will start the container with the ping process however in this case it will only ping a limited number of times before exiting with the first line showing the IP address of the server being called.  A 5 second sleep is also appended for demonstration purposes so that we can extract the container information before it exits.*
 ![](/docs/images/5670973/5865798.png?effects=drop-shadow "width=500")
 4. Save this step
 
