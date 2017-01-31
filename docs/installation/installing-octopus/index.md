@@ -1,6 +1,7 @@
 ---
 title: Installing Octopus
 position: 0
+description: How to install the central Octopus Deploy server, requirements, and troubleshooting.
 ---
 
 The Octopus Deploy Server is software that you download and install on one of your own servers, just like you would install Microsoft SQL Server. The Octopus Deploy Server:
