@@ -6,7 +6,7 @@ position: 0
 Octopus also allows you to run standalone scripts as part of your deployment process. You can run a script on the Octopus Server or across the deployment targets in roles. You can run scripts contained in a package, or ad-hoc scripts you've saved as part of the step. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/adding-steps.md) section.
 
 :::success
-You can use all of the features we provide for [custom scripts](/docs/deploying-applications/custom-scripts/index.md), like [using variables](/docs/deploying-applications/custom-scripts/index.md), [passing parameters](/docs/deploying-applications/custom-scripts/index.md), publishing [output variables](/docs/deploying-applications/custom-scripts/index.md) and [collecting artifacts](/docs/deploying-applications/custom-scripts/index.md).
+You can use all of the features we provide for [custom scripts](/docs/deploying-applications/custom-scripts/index.md), like [using variables](/docs/deploying-applications/custom-scripts/index.md#Customscripts-Variables), [passing parameters](/docs/deploying-applications/custom-scripts/index.md#Customscripts-Passingparameterstoscripts), publishing [output variables](/docs/deploying-applications/custom-scripts/index.md#Customscripts-Outputvariables) and [collecting artifacts](/docs/deploying-applications/custom-scripts/index.md#Customscripts-Collectingartifacts).
 :::
 
 - Choosing where the script will run
