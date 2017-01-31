@@ -23,11 +23,8 @@ Your Octopus Deploy server requires:
 - Recommended for smaller deployments (less than 30 Tentacles for example): 2GB RAM, dual-core CPU, 10GB free disk space
 - Recommended for larger deployments: 4GB RAM, dual-core, 20GB free disk space
 
-
-## Download {#InstallingOctopus-Download}
-
 :::success
-The latest Octopus Deploy MSI can always be [downloaded from the Octopus Deploy downloads page](https://octopus.com/downloads). You can also use our [permalinks](/docs/installation/permalinks.md) if you plan to automate the download.
+The latest Octopus Deploy MSI can always be [downloaded from the Octopus Deploy downloads page](https://octopus.com/downloads). You can also use our [permalinks](/docs/reference/download-permalinks.md) if you plan to automate the download.
 :::
 
 ## Installation {#InstallingOctopus-Installation}
