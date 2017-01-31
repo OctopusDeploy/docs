@@ -109,7 +109,7 @@ The number is 45.</p>
 ## Headings
 
 The first (and all top level) headers in a `.md` page should be a `h2` (i.e. `##`) with sub-headings under it being `h3`, `h4`, etc.
-DO NOT ship headers, eg. h1 > h2 > h4, not valid!
+DO NOT skip headers, eg. h1 > h2 > h4, not valid!
 
 ## Anchors
 
