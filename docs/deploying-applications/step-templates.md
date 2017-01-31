@@ -36,15 +36,15 @@ It's also possible to create your own step templates.
 
 To install a step template from the Community Library, perform the following.
 
-1. Navigate to the **Step templates** tab in the **Library** area and select **Install** from the community step templates section
+1. Navigate to the **Step templates** tab in the **Library** area and select **Install** from the community step templates section  
     ![](/docs/images/5671696/5866132.png "width=500")
-2. Search for a specific step template or browse the categories to find the template you want to use
+2. Search for a specific step template or browse the categories to find the template you want to use  
 ![](/docs/images/5671696/5866128.png "width=500")
-3. Select **Install** or view the details of the step
+3. Select **Install** or view the details of the step  
 ![](/docs/images/5671696/5866130.png "width=500")
-4. To confirm, select **install**
+4. To confirm, select **install**  
 ![](/docs/images/5671696/5866131.png "width=500")
-5. Now you can add this new kind of step to your deployment process
+5. Now you can add this new kind of step to your deployment process  
 ![](/docs/images/5671696/5866133.png "width=500")
 
 ### Importing a step template from the Community Library {#StepTemplates-ImportingasteptemplatefromtheCommunityLibrary}
