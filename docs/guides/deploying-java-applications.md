@@ -19,7 +19,7 @@ Here is a sample application that will prompt the user to press a key before exi
 public class PressAnyKey {
     public static void main(String[] args) throws java.io.IOException {
         System.out.println("Press any key to continue.");
-		System.in.read();
+	System.in.read();
     }
 }
 ```
