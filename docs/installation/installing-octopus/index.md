@@ -38,7 +38,7 @@ This three minute video  will walk you through the installation process:
 You can run the Octopus Server using a Managed Service Account (MSA):
 
 1. Install the Octopus Server and make sure it is running correctly using one of the built-in Windows Service accounts or a Custom Account
-2. Reconfigure the Octopus Server Windows Service to use the MSA, either manually using the Service snap-in, or using `sc.exe config &quot;OctopusDeploy&quot; obj= Domain\Username$`
+2. Reconfigure the Octopus Server Windows Service to use the MSA, either manually using the Service snap-in, or using `sc.exe config "OctopusDeploy" obj= Domain\Username$`
 3. Restart the Octopus Server Windows Service
 
 Learn about [using Managed Service Accounts](https://technet.microsoft.com/en-us/library/dd548356(v=ws.10).aspx).
@@ -47,7 +47,7 @@ Learn about [using Managed Service Accounts](https://technet.microsoft.com/en-us
 
 In a few cases a bug in a 3rd party component causes the installer displays a "Installation directory must be on a local hard drive" error. If this occurs, running the install again from an elevated command prompt using the following command (replacing Octopus.3.3.4-x64.msi with the name of the installer you are using)
 
-`msiexec /i Octopus.3.3.4-x64.msi WIXUI_DONTVALIDATEPATH=&quot;1&quot;`
+`msiexec /i Octopus.3.3.4-x64.msi WIXUI_DONTVALIDATEPATH="1"`
 
 :::warning
 **Deploying applications to an Azure website?**
