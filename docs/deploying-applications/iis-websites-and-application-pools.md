@@ -36,7 +36,17 @@ Understanding the difference between Sites, Applications and Virtual Directories
 
 ![](/docs/images/3048088/5865719.png "width=500")
 
-<table class="table"><tr><th>Field</th><th>Meaning</th><th>Examples</th><th>Notes</th></tr><tr><td><strong>.NET CLR version</strong></td><>The version of the .NET Common Language Runtime this Application Pool will use.</td><><ul><li><code>v2.0</code></li><li><code>v4.0</code></li></ul></td><><p>Choose v2.0 for applications built against .NET 2.0, 3.0 or 3.5.</p><p>Choose v4.0 for .NET 4.0 or 4.5.</p></td></tr><tr><><strong>Application Pool name</strong></td><>Name of the Application Pool in IIS to create (or reconfigure, if the application pool already exists)</td><><code>MyAppPool</code></td><>&nbsp;</td></tr><tr><><strong>Authentication modes</strong></td><><p>Choose which authentication mode(s) IIS should enable</p></td><><ul><li><code>Anonymous</code></li><li><code>Basic</code></li><li><code>Windows</code></li></ul></td><><span>You can select more than one authentication mode</span></td></tr><tr><><strong>Bindings</strong></td><>Specify any number of HTTP/HTTPS bindings that should be added to the IIS Web Site</td><>&nbsp;</td><>&nbsp;</td></tr><tr><><strong>Identity</strong></td><><p>Which account the Application Pool will run under.</p></td><><ul><li><code>Application Pool Identity</code></li><li><code>Local Service</code></li><li><code>Local System</code></li><li><code>Network Service</code></li><li><code><span>Custom user (you specify the username/password)</span></code></li></ul></td><>&nbsp;</td></tr><tr><td class="confluenceTd"><strong>Physical path</strong></td><td class="confluenceTd"><p>The physical path on disk this Web Site will point to</p></td><td class="confluenceTd"><p><code>/Path1/Path2/MySite</code></p><p><code>#{MyCustomInstallationDirectory}</code></p></td><td class="confluenceTd"><span>You can specify an absolute path, or a relative path inside the package installation directory.</span></td></tr><tr><><strong>Web Site Name</strong></td><><p>The name of the IIS Web Site to create (or reconfigure, if the site already exists).</p></td><><code>MyWebSite</code></td><>&nbsp;</td></tr></table>
+
+| Field                     | Meaning | Examples | Notes |
+| ------------------------- | ------- | -------- | ----- |
+| **Web Site Name**         | The name of the IIS Web Site to create (or reconfigure, if the site already exists). | | | 
+| **Physical path**         | The physical path on disk this Web Site will point to| | You can specify an absolute path, or a relative path inside the package installation directory. | 
+| **Application Pool name** | Name of the Application Pool in IIS to create (or reconfigure, if the application pool already exists) | | | 
+| **.NET CLR version**      | The version of the .NET Common Language Runtime this Application Pool will use. | | Choose v2.0 for applications built against .NET 2.0, 3.0 or 3.5.
+Choose v4.0 for .NET 4.0 or 4.5. | 
+| **Identity**              | Which account the Application Pool will run under. | | | 
+| **Bindings**              | Specify any number of HTTP/HTTPS bindings that should be added to the IIS Web Site | | | 
+| **Authentication modes**  | Choose which authentication mode(s) IIS should enable | | You can select more than one authentication mode | 
 
 ### Deploy IIS Virtual Directory {#IISWebsitesandApplicationPools-DeployIISVirtualDirectoryvirtual-directory}
 
