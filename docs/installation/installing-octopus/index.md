@@ -33,7 +33,7 @@ Alternatively you can download the latest stable builds directly for one of our 
 
 This three minute video  will walk you through the installation process:
 <script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/E-v1.js" async></script>
-<div class="wistia_embed wistia_async_fsxoijvtvm" style="height:580px;width:1067px"/>
+<div class="wistia_embed wistia_async_fsxoijvtvm" style="height:360px;width:640px"/>
 
 ### Using a Managed Service Account (MSA) {#InstallingOctopus-UsingaManagedServiceAccount(MSA)}
 
