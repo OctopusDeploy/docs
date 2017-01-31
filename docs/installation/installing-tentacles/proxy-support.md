@@ -11,7 +11,7 @@ Proxy support for Tentacle and SSH communications was added in Octopus 3.4
 
 :::hint
 **HTTP proxies only**
-Octopus only supports the use of HTTPS proxies, there is no support for SOCKS proxies.
+Octopus supports the use of HTTP proxies with support for SSL. There is no support for SOCKS proxies. See below for details on [choosing a proxy server](#Choosing-a-proxy-server).
 :::
 
 ![](/docs/images/5669147/5865713.png "width=500")
@@ -57,6 +57,14 @@ This launches the proxy settings wizard which will let you setup the proxy used 
 ![](/docs/images/5669147/5865625.png "width=500")
 
 Configuring the proxy used by the Octopus Server to make web requests is done in the same manner, using the Octopus Manager application.
+
+## Choosing a proxy server {#Choosing-a-proxy-server}
+
+ **Any** HTTP proxy should work as long as it supports HTTPS/SSL. We recommend selecting and configuring the HTTP proxy server which best suits your security requirements. Every release of Octopus Deploy is automatically tested against a [squid proxy](http://www.squid-cache.org/), and has been proven to work with [CCProxy](http://www.youngzsoft.net/ccproxy/) and [WinGate Proxy Server](http://www.wingate.com/products/wingate/index.php) to name just a few options.
+ 
+:::hint
+Do not enable SSL offloading for Tentacle Communication - the Tentacle communication protocol uses Client Certificate Authentication and requires an uninterrupted TLS tunnel.
+:::
 
 ## Which proxy should I configure? {#ProxySupport-WhichproxyshouldIconfigure?}
 
