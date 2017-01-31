@@ -42,8 +42,7 @@ Understanding the difference between Sites, Applications and Virtual Directories
 | **Web Site Name**         | The name of the IIS Web Site to create (or reconfigure, if the site already exists). | `MyWebSite` | | 
 | **Physical path**         | The physical path on disk this Web Site will point to | `/Path1/Path2/MySite` <br> `#{MyCustomInstallationDirectory}` | You can specify an absolute path, or a relative path inside the package installation directory. | 
 | **Application Pool name** | Name of the Application Pool in IIS to create (or reconfigure, if the application pool already exists) | `MyAppPool` | | 
-| **.NET CLR version**      | The version of the .NET Common Language Runtime this Application Pool will use. | <ul> <li> `v2.0` </li> <li> `v4.0` </li> </ul> | Choose v2.0 for applications built against .NET 2.0, 3.0 or 3.5.
-Choose v4.0 for .NET 4.0 or 4.5. | 
+| **.NET CLR version**      | The version of the .NET Common Language Runtime this Application Pool will use. | <ul> <li> `v2.0` </li> <li> `v4.0` </li> </ul> | Choose v2.0 for applications built against .NET 2.0, 3.0 or 3.5.  <br> Choose v4.0 for .NET 4.0 or 4.5. | 
 | **Identity**              | Which account the Application Pool will run under. | <ul> <li>`Application Pool Identity`</li> <li>`Local Service`</li> <li>`Local System`</li> <li> `Network Service` </li> <li> `Custom user (you specify the username/password)` </li> </ul> | | 
 | **Bindings**              | Specify any number of HTTP/HTTPS bindings that should be added to the IIS Web Site | | | 
 | **Authentication modes**  | Choose which authentication mode(s) IIS should enable | <ul> <li> `Anonymous` </li> <li> `Basic` </li> <li> `Windows` </li> </ul> | You can select more than one authentication mode | 
