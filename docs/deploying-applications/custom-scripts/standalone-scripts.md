@@ -65,6 +65,6 @@ When sourcing a script from a file inside a package you cannot choose to run the
 The ability to pass parameters to scripts was added in Octopus 3.4
 :::
 
-When you call external scripts (sourced from a file inside a package) you can pass parameters to your script. This means you can write "vanilla" scripts that are unaware of Octopus, and test them in your local development environment. Read about [passing parameters to scripts](/docs/deploying-applications/custom-scripts/index.md).
+When you call external scripts (sourced from a file inside a package) you can pass parameters to your script. This means you can write "vanilla" scripts that are unaware of Octopus, and test them in your local development environment. Read about [passing parameters to scripts](/docs/deploying-applications/custom-scripts/index.md#Customscripts-Passingparameterstoscripts).
 
 ![](/docs/images/5046401/5865636.png "width=500")
