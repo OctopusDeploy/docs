@@ -10,19 +10,6 @@ Octopus step templates are reusable steps based on the built-in steps with your 
 
 This page describes everything you need to know about step templates.
 
-- Community step templates
- - The Community Library
- - Installing a step template from the Community Library
- - Importing a step template from the Community Library
-- Custom step step templates
- - Creating custom step templates
- - Custom logo
- - Linking custom step templates to community step templates
- - Running script based custom step templates
-- Other
- - Updating step templates
- - Exporting step templates
-
 ## Community step templates {#StepTemplates-Communitysteptemplates}
 
 Community step templates are publically available step templates that are contributed and updated by the community. There is a growing number (over 200 at the time of writing this) of templates that can help you automate your deployment without writing any scripts yourself. The community step templates are third party code which is licensed under apache.
