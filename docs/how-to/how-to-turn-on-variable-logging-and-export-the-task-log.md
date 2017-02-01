@@ -22,10 +22,14 @@ Write the variables to the deployment log
 4. Deploy the new release
 5. Enable **Verbose** output on the **Task log** page
 6. Open the deployment/task details, and go to the **Task log** tab. Click on the **Raw** link.
+
    ![](/docs/images/5672459/5866222.png "width=500")
+   
 7. At the top of the raw log page, there is a **Download** button. Click the button to download a text file containing the entire deployment log.
+
    ![](/docs/images/5672459/5866223.png "width=500")
-    You can then attach this log file to your support query.
+   
+   You can then attach this log file to your support query.
 
 :::hint
 Remember to remove these variables after you get the full log. These variables are designed for debugging purposes only.
