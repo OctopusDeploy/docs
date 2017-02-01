@@ -23,9 +23,7 @@ To upgrade with a new Octopus 3.x server, follow these steps:
 
 ### 1. Back up your Octopus 2.6 database and master key {#Upgradewithanew3.0serverinstance-1.BackupyourOctopus2.6databaseandmasterkey}
 
-See the [Backup and restore](http://docs.octopusdeploy.com/display/OD2/Backup+and+restore) page for instructions on backing up your database.
-
-See the [Security and encryption](http://docs.octopusdeploy.com/display/OD2/Security+and+encryption) page for instructions on backing up your master key.
+See the [Backup and restore](/docs/administration/upgrading/upgrading-from-octopus-2.6/backup-2.6.md) page for instructions on backing up your database.
 
 ### 2. Install Octopus 3.x on a new virtual or physical server {#Upgradewithanew3.0serverinstance-2.InstallOctopus3.xonanewvirtualorphysicalserver}
 
