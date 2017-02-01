@@ -53,6 +53,13 @@ So a file existing at `docs/myfolder/index.md` will have a URL of `https://octop
 Links to other documentation pages should be relative and contain the `.md` extension.
 The `.md` allows links to work inside the GitHub web UI. The `.md` will be trimmed when they are finally rendered.
 
+## Related Pages section
+
+Index pages (`index.md`) automatically have a "Related Pages" section added to them (bottom of the content).
+If the page does not need this section, you can opt out by adding the following metadata to the yaml:
+```yaml
+hidechildpages: true
+```
 
 ## Markdown
 
