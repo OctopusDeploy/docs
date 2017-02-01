@@ -31,16 +31,25 @@ You can find the differences between your current version and the newest version
 Upgrading the Octopus Deploy Server is easy, you will just need to follow these steps:
 
 1. Switch your server to Maintenance Mode and wait until all current tasks and deployments have completed. This ensures that no further changes will be made that may potentially become lost if the upgrade fails and you need to rollback.
+
 ![](/docs/images/3048440/5865775.png "width=500")
+
 2. [Backup your database and master key](/docs/administration/backup-and-restore.md) so that it can be restored in case anything goes wrong.
+
 ![](/docs/images/3048440/5865780.png "width=500")
+
 3. Download the latest [Octopus Deploy MSI installer
 ![](/docs/images/3048440/5865777.png "width=500")
 ](https://octopus.com/downloads)
+
 4. Run the installer and follow the prompts.
+
 ![](/docs/images/3048440/5865779.png "width=500")
+
 5. Disable Maintenance Mode.
+
 ![](/docs/images/3048440/5865776.png "width=500")
+
 6. Calamari will then be automatically updated if required with the next health check or deployment that takes place.
 
 :::success
