@@ -3,7 +3,7 @@ title: Library variable sets
 position: 2
 ---
 
-Library variable sets make it possible to **share variables between projects.**You can create them from the **Variable Sets** tab in the **Library** area, by clicking **Add variable set**.
+Library variable sets make it possible to **share variables between projects.** You can create them from the **Variable Sets** tab in the **Library** area, by clicking **Add variable set**.
 
 ![](/docs/images/3048089/3277721.png "width=500")
 
@@ -15,10 +15,10 @@ Once library variable sets have been defined, they can be referenced from a proj
 
 ![](/docs/images/3048089/3277719.png "width=500")
 
-Select the variable set to include and click the **Apply** button
+Select the variable set to include and click the **Apply** button.
 
 ![](/docs/images/3048089/3277718.png "width=500")
 
-and on the **Project Variables** page it will show the shared variable set that has been included
+The **Project Variables** page will show the shared variable set that has been included.
 
 ![](/docs/images/3048089/3277717.png "width=500")
