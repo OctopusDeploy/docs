@@ -27,9 +27,7 @@ There is a current issue where it is not importing your license key. Please back
 
 ### 1. Back up your Octopus 2.6 database and master key {#Inplaceupgrade(installover2.6)-1.BackupyourOctopus2.6databaseandmasterkey}
 
-See the [Backup and restore](http://docs.octopusdeploy.com/display/OD2/Backup+and+restore)[ page for instructions on backing up your database.](http://docs.octopusdeploy.com/display/OD2/Backup+and+restore)
-
-See the [Security and encryption](http://docs.octopusdeploy.com/display/OD2/Security+and+encryption) page for instructions on backing up your master key.
+See the [Backup and restore](/docs/administration/upgrading/upgrading-from-octopus-2.6/backup-2.6.md)[ page for instructions on backing up your database.](/docs/administration/upgrading/upgrading-from-octopus-2.6/backup-2.6.md)
 
 ### 2. Use Hydra to automatically upgrade your Tentacles {#Inplaceupgrade(installover2.6)-2.UseHydratoautomaticallyupgradeyourTentacles}
 
