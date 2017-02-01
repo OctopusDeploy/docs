@@ -77,6 +77,8 @@ You can learn more about [Redgate ReadyRoll's Octopus Deploy support](http://doc
 
 The open source tool [DbUp](http://dbup.github.io/), built by members of the Octopus Deploy team and other contributors, is another alternative. This 8 minute video (with captions) demonstrates how DbUp and Octopus Deploy can be used together to perform database deployments:
 
+<iframe width="640" height="360" src="https://www.youtube.com/embed/mFnN8eLs3c8" frameborder="0" allowfullscreen></iframe>
+
 ### Visual Studio Database Projects {#SQLServerdatabases-VisualStudioDatabaseProjects}
 
 Raffaele Garofalo has a blog post detailing [how to deploy Visual Studio Database Projects with Octopus](http://blog.raffaeu.com/archive/2013/10/17/deploy-database-project-using-octopus.aspx).
