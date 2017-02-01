@@ -1,5 +1,6 @@
 ---
 title: Home
+hidechildpages: true
 ---
 
 Octopus Deploy is a friendly deployment automation system for .NET developers. Learn more about [automated deployment with Octopus Deploy](https://octopus.com/).
