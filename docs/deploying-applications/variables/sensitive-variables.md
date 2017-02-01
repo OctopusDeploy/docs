@@ -17,7 +17,7 @@ Variables such as passwords or API keys can be marked as being **sensitive**.
 Learn more about [security and encryption](/docs/reference/security-and-encryption.md) in Octopus Deploy.
 :::
 
-When dealing with sensitive variables, Octopus will encrypt these values using **AES128 encryption**any time they are in transmission, or "at rest" like when they are stored in the Octopus database or staged on a deployment target as part of a deployment. You can use these sensitive values in your deployment process just like normal [variables](/docs/deploying-applications/variables/index.md), with two notable exceptions:
+When dealing with sensitive variables, Octopus will encrypt these values using **AES128 encryption** any time they are in transmission, or "at rest" like when they are stored in the Octopus database or staged on a deployment target as part of a deployment. You can use these sensitive values in your deployment process just like normal [variables](/docs/deploying-applications/variables/index.md), with two notable exceptions:
 
 - Once the variable is saved, Octopus will **never allow you to retrieve the value** via the [REST API](/docs/api-and-integration/octopus-rest-api.md) or the Octopus web portal; and
 - Whenever possible, Octopus will **mask these sensitive values in logs**.
