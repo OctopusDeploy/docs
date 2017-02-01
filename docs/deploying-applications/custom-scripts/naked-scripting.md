@@ -35,7 +35,6 @@ While naked scripting does not require a Transfer a Package step, the below scen
 
    | Variable                                | Value | Reason                                   |
    | --------------------------------------- | ----- | ---------------------------------------- |
-   | Octopus.Acquire.DeltaCompressionEnabled | False | By setting Delta Compression to false, we will ensure that Calamari will not be needed during the package acquisition phase to determine if the package already exists on the remote target. The Package will be pushed to the remote target *on every deployment.* This is a project global variable and so will apply to any steps that require package acquisition for a given deployment. |
    | OctopusUseNakedScript                   | True  | This variable (which can be scoped to the relevant context) instructs Octopus to simply execute the provided script without going through Calamari. |
 4. Create a release and deploy the project. You should notice that unlike a typical deployment, there are no calls to upload or run Calamari and the whole thing runs a bit faster due to the reduced overhead. If you check your *~/.octopus* directory on the remote endpoint, you should also notice that there are no Calamari dependencies that have had to be uploaded for this deployment.
    ![](/docs/images/5671696/5866197.png "width=500")
