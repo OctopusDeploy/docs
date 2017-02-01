@@ -22,7 +22,7 @@ Variable templates let you configure variables that are required to successfully
 | Help text     | The descriptive help text that will be displayed to provide the user with enough information to accurately provide the value. | A shortened, URL friendly, version of the tenant's name. |
 | Default value | The value that will be given to the variable if an actual value is not provided. The default value can contain [variable binding expressions](/docs/deploying-applications/variables/binding-syntax.md). | `https://#{Tenant.Alias}.myapp.com`      |
 | Data type | You can select one of several different data types. This controls the user interface provided to collect the variable value, and determines how the variable value is interpreted. Note the variable values will be stored and interpreted as text. | Single-line text box, Multi-line text box, Drop down, Checkbox, Sensitive/password box, Azure Account |
-| Options | (Only applies when Data type: Drop down). This defines the list of options available for the user to select from the drop down list. Enter each option on a new line. Use | to separate values and display text. | `Value1|Display text 1`  |
+| Options | (Only applies when Data type: Drop down). This defines the list of options available for the user to select from the drop down list. Enter each option on a new line. Use `|` to separate values and display text. | `Value1|Display text 1` <br>`Value2|Display text 2`  |
 
 :::success
 **Which variable templates apply to each tenant?**
