@@ -1,3 +1,4 @@
 log/
 obj/
 _site/
+.vscode/
