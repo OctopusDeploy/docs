@@ -122,7 +122,7 @@ An example web.config transformation that removes the `<compilation debug="true
 
 :::success
 **Testing configuration transforms**
-The team at [AppHarbor](https://appharbor.com/) created a useful tool to [help test configuration file transformations](http://webconfigtransformationtester.apphb.com/).
+The team at [AppHarbor](https://appharbor.com/) created a useful tool to [help test configuration file transformations](https://webconfigtransformationtester.apphb.com/).
 :::
 
 ### Naming configuration transform files {#Configurationfiles-Namingconfigurationtransformfiles}
