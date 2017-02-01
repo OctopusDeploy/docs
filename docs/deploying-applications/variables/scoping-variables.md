@@ -23,7 +23,7 @@ For example, suppose these variables exist:
 | DBConnectionString | Server=SQL-UAT1;Database=... | UAT |
 | DBConnectionString | Server=SQL-PROD;Database=... | Production |
 
-During deployment, Octopus will try to select the most specifically scoped variable that applies. For example, when deploying to Production, the *LogLevel*property would be *Warn*. But to any other environment, it would fall back to the less-specific variable and have a value of *Info*instead.
+During deployment, Octopus will try to select the most specifically scoped variable that applies. For example, when deploying to Production, the *LogLevel* property would be *Warn*. But to any other environment, it would fall back to the less-specific variable and have a value of *Info* instead.
 
 ## Assigning scopes {#Scopingvariables-Assigningscopes}
 
