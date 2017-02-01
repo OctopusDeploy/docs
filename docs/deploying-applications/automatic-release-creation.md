@@ -87,13 +87,13 @@ When you are using automatic release creation there are many reasons why a relea
 8. When using Channels the package **must satisfy the version rules** for the Channel being used for automatic release creation - try creating some releases manually
 9. Are you pushing **pre-release** packages? See the section above on [automatically creating pre-releases](/docs/deploying-applications/automatic-release-creation.md).
 10. Ensure the account pushing the package has the required permissions for **each** of the **Projects** and **Environments** that will be involved in creating (and potentially deploying) the release. Consider which of the following permissions may be required depending on your circumstances:  
-  1. `BuiltInFeedPush`  
-  2. `DeploymentCreate`  
-  3. `EnvironmentView`  
-  4. `FeedView`  
-  5. `LibaryVariableSetView`  
-  6. `LifecycleView`  
-  7. `MachineView`  
-  8. `ProcessView`  
-  9. `ReleaseCreate`  
-  10. `VariableView`  
+  * `BuiltInFeedPush`  
+  * `DeploymentCreate`  
+  * `EnvironmentView`  
+  * `FeedView`  
+  * `LibaryVariableSetView`  
+  * `LifecycleView`  
+  * `MachineView`  
+  * `ProcessView`  
+  * `ReleaseCreate`  
+  * `VariableView`  
