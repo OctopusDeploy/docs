@@ -23,5 +23,5 @@ For safety reasons, by default Octopus runs only one step at the same time on a 
 
 :::warning
 **Friendly reminder**
-Watch out not to run steps that depend on each other in parallel. If **S****tep2** depends on the success of **Step1**, it might not be the best idea to run them in parallel, but one after the other only if **Step1** was successful
+Watch out not to run steps that depend on each other in parallel. If **Step2** depends on the success of **Step1**, it might not be the best idea to run them in parallel, but one after the other only if **Step1** was successful
 :::
