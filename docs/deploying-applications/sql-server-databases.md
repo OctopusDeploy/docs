@@ -64,7 +64,7 @@ Learn about [using DLM Automation with Octopus Deploy](https://documentation.re
 
 ### Redgate ReadyRoll {#SQLServerdatabases-RedgateReadyRoll}
 
-follows the change script approach, and also provides an excellent Visual Studio experience. It has the ability to [generate Octopus Deploy-ready NuGet packages](http://doc.ready-roll.com/display/RRSQLDOC/Octopus+Deploy) and can work in continuous integration/automated build tools.
+Redgate ReadyRoll follows the change script approach, and also provides an excellent Visual Studio experience. It has the ability to [generate Octopus Deploy-ready NuGet packages](http://doc.ready-roll.com/display/RRSQLDOC/Octopus+Deploy) and can work in continuous integration/automated build tools.
 
 ![](/docs/images/3048077/3277640.png "width=500")
 
