@@ -58,5 +58,5 @@ The process for successfully downgrading depends on the upgrade you have perform
  1. For example: 2.6.5 => 3.4.12 would be a Major upgrade. You should take care when performing a major upgrade and follow our upgrade guide carefully.
 
 :::success
-We recommend putting your Octopus Server into [Maintenance Mode](/docs/administration/maintenance-mode.md) when performing any of these operations.
+We recommend putting your Octopus Server into Maintenance Mode when performing any of these operations.
 :::
