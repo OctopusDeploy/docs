@@ -83,6 +83,7 @@ Example:
 ```
 
 Rendered as:
+
 - Item 1
 - Item 2
 
@@ -94,6 +95,7 @@ Example:
 ```
 
 Rendered as:
+
 1. Item 1
 1. Item 2
 
@@ -105,7 +107,8 @@ i. Item 2
 ```
 
 Rendered as:
-i. Item 1
+
+i. Item 1  
 ii. Item 2
 
 #### Letters
@@ -116,7 +119,8 @@ a. Item 2
 ```
 
 Rendered as:
-a. Item 1
+
+a. Item 1  
 b. Item 2
 
 ### Snippets are highlighted using highlightjs
