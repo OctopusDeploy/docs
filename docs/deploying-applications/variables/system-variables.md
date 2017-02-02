@@ -9,8 +9,8 @@ This page lists built-in [variables](/docs/deploying-applications/variables/inde
 
 Deployment-level variables are drawn from the project and release being deployed.
 
-| Name                                     | Example                                  | Description                              |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Name | Example | Description |
+| ---- | ------- | ----------- |
 | Octopus.Acquire.MaxParallelism           | *2*                                      | Controls the number of package acquisitions that will be allowed to run concurrently. |
 | Octopus.Acquire.DeltaCompressionEnabled  | true                                     | Toggle whether delta compression is enabled when sending packages to targets. |
 | Octopus.Deployment.Comments              | *Signed off by Alice*                    | User-provided comments on the deployment |
