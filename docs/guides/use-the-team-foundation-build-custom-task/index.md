@@ -35,19 +35,21 @@ If you want to make changes to the build task that might not be appropriate for 
 
 ## Add a Connection to Octopus Deploy {#UsetheTeamFoundationBuildCustomTask-AddaConnectiontoOctopusDeploy}
 
-Click the **Manage Project** cog in the top right corner of the project screen.
+Hover over the **Manage Project** cog in the top right corner of the project screen in Visual Studio Team Services, and click the **Services** link.
 
-Click **New Service Endpoint** and choose **Generic**.
+![](/docs/images/3048587/services-setting.jpg "width=206")
 
-![](/docs/images/3048587/3278381.png "width=500")
+Click **New Service Endpoint** and choose **Octopus Deploy**.
+
+![](/docs/images/3048587/new-octopus-connection.jpg "width=241")
 
 Specify a **Connection Name** and specify the **Server Url** to your Octopus Server (including the port if required).
 
-You can enter anything for the **User name** (we don't use it), but make sure you put a valid [Octopus API Key](/docs/how-to/how-to-create-an-api-key.md) in the **Password/Token Key** field.
+Enter a valid [Octopus API Key](/docs/how-to/how-to-create-an-api-key.md) in the **API Key** field.
 
-![](/docs/images/3048587/3278382.png "width=500")
+![](/docs/images/3048587/new-octopus-connection-2.png "width=500")
 
-After you've saved the connection, close the management window and click the refresh button next to the Manage link. You should now be able to choose the connection.
+After you've saved the connection, it should be available from the Octopus Deploy Build Tasks.
 
 ## Package your Application and Push to Octopus {#UsetheTeamFoundationBuildCustomTask-PackageyourApplicationandPushtoOctopus}
 
@@ -92,11 +94,22 @@ To add a step to your Release process, edit your Release Definition, select the 
 This step is only required if you are not [using OctoPack](/docs/guides/use-the-team-foundation-build-custom-task/index.md) to create your package.
 :::
 
-Add a step to your Build or Release process, choose **Package**, click **Add** the **Package Application** task.
+Add a step to your Build or Release process, choose **Package**, click **Add** next to the **Package Application** task.
 
-![](/docs/images/3048587/5865473.png "width=500")
+![](/docs/images/3048587/add-package-step.jpg "width=500")
 
-![](/docs/images/3048587/5865474.png "width=500")
+![](/docs/images/3048587/configure-package-step.jpg "width=500")
+
+:::hint
+**Package versioning**
+In the above image, the package version is defined as $(Build.BuildNumber).
+It's a common (and handy) practice to do this, and set the Build Number to be a format that corresponds to a valid NuGet version number.
+
+To do this, in the **General** tab, you can set the Build Number format to something like `1.0.$(BuildID)$(Rev:.r)`.
+That will produce version numbers like `1.0.123.1`, incrementing the minor version each build.
+
+For more details on setting the Build Number format, see [the Microsoft documentation](https://www.visualstudio.com/en-us/docs/build/define/general).
+:::
 
 See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octo.exe command-line options](/docs/packaging-applications/nuget-packages/using-octo.exe.md) for more details).
 
@@ -112,19 +125,19 @@ If your Package Application step is part of your Build process and your Push Pac
 
 Add a step to your Build or Release process, choose **Package**, click **Add** the **Push Packages(s) to Octopus** task.
 
-![](/docs/images/3048587/5865477.png "width=500")
+![](/docs/images/3048587/add-push-step.jpg "width=500")
 
-![](/docs/images/3048587/5865724.png "width=500")
+![](/docs/images/3048587/configure-push-step.jpg "width=500")
 
 See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octo.exe command-line options](/docs/api-and-integration/octo.exe-command-line/pushing-packages.md) for more details).
 
 ### Add a Create Octopus Release Step {#UsetheTeamFoundationBuildCustomTask-AddaCreateOctopusReleaseStep}
 
-Add a step to your Build or Release process, choose **Deploy**, click **Add** the **Create Octopus Release** task.
+Add a step to your Build or Release process, choose **Deploy**, click **Add** next to the **Create Octopus Release** task.
 
-![](/docs/images/3048587/5865479.png "width=500")
+![](/docs/images/3048587/add-createrelease-step.jpg "width=500")
 
-![](/docs/images/3048587/5865480.png "width=500")
+![](/docs/images/3048587/configure-createrelease-step.jpg "width=500")
 
 See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octo.exe command-line options](/docs/api-and-integration/octo.exe-command-line/creating-releases.md) for more details).
 
@@ -134,10 +147,20 @@ Enabling the Include Changeset Comments and/or Include Work Items options will r
 
 ### Add a Deploy Octopus Release Step {#UsetheTeamFoundationBuildCustomTask-AddaDeployOctopusReleaseStep}
 
-Add a step to your Build or Release process, choose **Deploy**, click **Add** the **Deploy****Octopus Release** task.
+Add a step to your Build or Release process, choose **Deploy**, click **Add** next to the **Deploy Octopus Release** task.
 
-![](/docs/images/3048587/5865481.png "width=500")
+![](/docs/images/3048587/add-deploy-step.jpg "width=500")
 
-![](/docs/images/3048587/5865482.png "width=500")
+![](/docs/images/3048587/configure-deploy-step.jpg "width=500")
+
+See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octo.exe command-line options](/docs/api-and-integration/octo.exe-command-line/deploying-releases.md) for more details).
+
+## Add a Promote Octopus Release Step {#UsetheTeamFoundationBuildCustomTask-AddaPromoteOctopusReleaseStep}
+
+Add a step to your Build or Release process, choose **Deploy**, click **Add** next to the **Promote Octopus Release** task.
+
+![](/docs/images/3048587/add-promote-step.jpg "width=500")
+
+![](/docs/images/3048587/configure-promote-step.jpg "width=500")
 
 See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octo.exe command-line options](/docs/api-and-integration/octo.exe-command-line/deploying-releases.md) for more details).
