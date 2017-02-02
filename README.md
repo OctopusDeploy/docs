@@ -70,6 +70,55 @@ hideInThisSectionHeader: true
 
 The site is rendered using [markdig](https://github.com/lunet-io/markdig), Markdig supports [GitHub Flavored Markdown](https://help.github.com/articles/github-flavored-markdown) as well as some extra syntax.
 
+### Lists
+Lists can be created using a few different styles, please be aware that `Roman` and `Letters` won't render properly in github (this is a markdig extension).
+
+To ensure the list items are correctly formmatted it is recommended to not number the items, instead let the markdown renderer do that job automatically, so for a numeric list use one `1`s for a letter list use one `a.`s and for a roman list use only `i`s.
+
+#### Bullets
+Example:
+```md
+- Item 1
+- Item 2
+```
+
+Rendered as:
+- Item 1
+- Item 2
+
+#### Numbered
+Example:
+```md
+1. Item 1
+1. Item 2
+```
+
+Rendered as:
+1. Item 1
+1. Item 2
+
+#### Roman
+Example:
+```md
+i. Item 1
+i. Item 2
+```
+
+Rendered as:
+i. Item 1
+ii. Item 2
+
+#### Letters
+Example:
+```md
+a. Item 1
+a. Item 2
+```
+
+Rendered as:
+a. Item 1
+b. Item 2
+
 ### Snippets are highlighted using highlightjs
 
 * [Documentation](https://highlightjs.readthedocs.io/)
