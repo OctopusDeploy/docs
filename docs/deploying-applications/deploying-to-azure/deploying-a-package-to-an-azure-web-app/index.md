@@ -9,6 +9,7 @@ Octopus Deploy supports automated deployment of [Azure Web Apps](http://azure.m
 - Web Jobs
 - Step 1: Packaging
 - Simple and advanced deployment scenarios
+- Deploy only files that have changed
 - Step 2: Create an Azure Account
 - Step 3: Create the Azure Web App deployment step
 - Step 4: Configure your Azure Web App step.
@@ -118,6 +119,15 @@ Here's an example project file with some of the OctoPack configuration set as pr
 ### Simple and advanced deployment scenarios {#DeployingapackagetoanAzureWebApp-Simpleandadvanceddeploymentscenarios}
 
 The example we've discussed here is the most common scenario for deploying Azure Web Apps: a single package that contains an ASP.NET Web Application and some Web Jobs in the same release cadence. It is possible to implement more complex deployment scenarios where the ASP.NET Web Application and each Web Job follow independent release cadences. In this case you would build multiple packages using the folder structure expected by the Azure Web App hosting framework discussed earlier. Once you've done that you can simply reuse the same Azure Web App Deployment Target to deploy each package when they are released.
+
+### Deploy only files that have changed {#DeployingapackagetoanAzureWebApp-Deployonlyfilesthathavechanged}
+
+NuGet packages are extracted locally and the timestamps are updated at that point in time. It will deploy every file regardless if it has changed or not. If you want to deploy only the changed files, consider these options:
+
+- Use the Checksum file comparison method to only deploy files that have changed. This may work well for moderately-sized applications, but may be prohibitively slow and unreliable for large applications.
+- Use Zip packages instead of NuGet. Timestamps are preserved in Zip packages end-to-end throughout the deployment process.
+
+We have written about these options in detail in [our blog](https://octopus.com/blog/reliably-deploying-large-azure-web-apps).
 
 ## Step 2: Create an Azure Account {#DeployingapackagetoanAzureWebApp-Step2:CreateanAzureAccount}
 
