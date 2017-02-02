@@ -24,13 +24,13 @@ If you're using **Visual Studio Team Services (VSTS) or on-premises Team Foundat
 
 If you're using an **on-premises TFS 2015 Update 2 or 3 server**, see [this document](/docs/api-and-integration/team-foundation-server-tfs.md) for details on where to get a compatible extension. 
 
-If you're using an **on-premises TFS server older than 2015 Update 2**, the extension is currently not available. You'll have to manually install the task by following [these instructions](/docs/guides/use-the-team-foundation-build-custom-task/manually-install-the-build-task-(not-recommended).md). Alternatively, [D'Arcy Lussier has put together a complete walkthrough](http://geekswithblogs.net/dlussier/archive/2016/01/04/170820.aspx) that's very easy to follow.
+If you're using an **on-premises TFS server older than 2015 Update 2**, the extension is currently not available. You'll have to manually install the task by following [these instructions](/docs/guides/use-the-team-foundation-build-custom-task/manually-install-the-build-task.md). Alternatively, [D'Arcy Lussier has put together a complete walkthrough](http://geekswithblogs.net/dlussier/archive/2016/01/04/170820.aspx) that's very easy to follow.
 
 After installing the extension, follow the below steps to get it running for your build.
 
 :::success
 **Manually installing the extension (not recommended)**
-If you want to make changes to the build task that might not be appropriate for everyone, you can download and manually install the build task yourself. See [Manually install the Build Task (not recommended)](/docs/guides/use-the-team-foundation-build-custom-task/manually-install-the-build-task-(not-recommended).md) for details.
+If you want to make changes to the build task that might not be appropriate for everyone, you can download and manually install the build task yourself. See [Manually install the Build Task (not recommended)](/docs/guides/use-the-team-foundation-build-custom-task/manually-install-the-build-task.md) for details.
 :::
 
 ## Add a Connection to Octopus Deploy {#UsetheTeamFoundationBuildCustomTask-AddaConnectiontoOctopusDeploy}
