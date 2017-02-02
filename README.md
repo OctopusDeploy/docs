@@ -41,24 +41,29 @@ The menu is auto generated based on the git repo folder structure and title and 
 ## URLs
 
 The directory structure where a `.md` exists is used to derive the URL for that document.
-So a file existing at `docs/myfolder/mypage.md` will have a URL of `https://octopus.com/docs/myfolder/mypage`.
+So a file existing at `/docs/myfolder/mypage.md` will have a URL of `https://octopus.com/docs/myfolder/mypage`.
 
 ### Index Pages
 
 One exception to the URL rule is when a page is named `index.md`. In this case the `index.md` is omitted in the URL and only the directory structure is used.
-So a file existing at `docs/myfolder/index.md` will have a URL of `https://octopus.com/docs/myfolder`.
+So a file existing at `/docs/myfolder/index.md` will have a URL of `https://octopus.com/docs/myfolder`.
 
 ### Linking
 
 Links to other documentation pages should be relative and contain the `.md` extension.
 The `.md` allows links to work inside the GitHub web UI. The `.md` will be trimmed when they are finally rendered.
 
-## Related Pages section
+## "In this section" area
 
-Index pages (`index.md`) automatically have a "Related Pages" section added to them (bottom of the content).
+Index pages (`index.md`) automatically have a "In this section" section added to them (bottom of the content).
 If the page does not need this section, you can opt out by adding the following metadata to the yaml:
 ```yaml
-hidechildpages: true
+hideInThisSection: true
+```
+
+The rendering of "In this section" section [contains a header](_shared/in-this-section.md), if you need to omit this header:
+```yaml
+hideInThisSectionHeader: true
 ```
 
 ## Markdown
@@ -67,11 +72,11 @@ The site is rendered using [markdig](https://github.com/lunet-io/markdig), Markd
 
 ### Snippets are highlighted using highlightjs
 
- * [Documentation](https://highlightjs.readthedocs.io/)
- * [Language List](https://highlightjs.readthedocs.io/en/latest/css-classes-reference.html#language-names-and-aliases)
+* [Documentation](https://highlightjs.readthedocs.io/)
+* [Language List](https://highlightjs.readthedocs.io/en/latest/css-classes-reference.html#language-names-and-aliases)
 
 | language     | key            |
-|--------------|----------------|
+| ------------ | -------------- |
 | c#           | `cs`           |
 | xml          | `xml`          |
 | no format    | `no-highlight` |
@@ -89,12 +94,12 @@ Sometimes it is necessary to draw attention to items you want to call out in a d
 This is achieved through bootstrap alerts https://getbootstrap.com/components/#alerts
 There are several keys each of which map to a different colored alert
 
-| Key              | Color  |
-|------------------|--------|
-| `success`        | green  |
-| `hint`           | blue   |
-| `warning`        | yellow |
-| `problem`        | red    |
+| Key       | Color  |
+| --------- | ------ |
+| `success` | green  |
+| `hint`    | blue   |
+| `warning` | yellow |
+| `problem` | red    |
 
 Keys can be used in the following manner
 
@@ -174,5 +179,5 @@ Just go to http://htmlarrows.com/symbols/
 
 ## More Information
 
- * [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+* [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
