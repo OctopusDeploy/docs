@@ -11,10 +11,12 @@ Take a look at our end-to-end guide on [using the Octopus extension for VSTS and
 
 Using this extension you can:
 
-- [Package your built application](/docs/packaging-applications/index.md)
-- [Push those packages to the Octopus built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md)
-- Create releases and deploy them to your environments
+- [Package](/docs/guides/use-the-team-foundation-build-custom-task/index.md#UsetheTeamFoundationBuildCustomTask-package-application-stepAddaPackageApplicationstep) your built application ([See more about packaging here](/docs/packaging-applications/index.md))
+- [Push](/docs/guides/use-the-team-foundation-build-custom-task/index.md#UsetheTeamFoundationBuildCustomTask-push-packages-stepAddaPushPackage(s)toOctopusStep) those packages to the Octopus [built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md)
+- [Create releases](/docs/guides/use-the-team-foundation-build-custom-task/index.md#UsetheTeamFoundationBuildCustomTask-AddaCreateOctopusReleaseStep) in Octopus
+- [Deploy releases](/docs/guides/use-the-team-foundation-build-custom-task/index.md#UsetheTeamFoundationBuildCustomTask-AddaDeployOctopusReleaseStep) to your environments
+- [Promote releases](/docs/guides/use-the-team-foundation-build-custom-task/index.md#UsetheTeamFoundationBuildCustomTask-AddaPromoteOctopusReleaseStep) between environments
 
-![](/docs/images/5669025/5865514.png "width=500")
+![](/docs/images/3048587/add-package-step.jpg "width=500")
 
-![](/docs/images/5669025/5865515.png "width=500")
+![](/docs/images/3048587/add-createrelease-step.jpg "width=500")
