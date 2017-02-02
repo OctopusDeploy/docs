@@ -4,19 +4,6 @@ title: Deploying a package to an Azure Web App
 
 Octopus Deploy supports automated deployment of [Azure Web Apps](http://azure.microsoft.com/en-us/services/app-service/web/) (formerly known as Azure Web Sites).
 
-- Understanding Azure Web Apps
-- Web Apps are deployed using Web Deploy
-- Web Jobs
-- Step 1: Packaging
-- Simple and advanced deployment scenarios
-- Deploy only files that have changed
-- Step 2: Create an Azure Account
-- Step 3: Create the Azure Web App deployment step
-- Step 4: Configure your Azure Web App step.
-- Deployment features available to Azure Web App steps
-- Deployment process
-- Deploying to multiple geographic regions
-
 ## Understanding Azure Web Apps {#DeployingapackagetoanAzureWebApp-UnderstandingAzureWebApps}
 
 The Azure Web Apps you build, and how you might want to deploy them, are becoming increasingly complex as the Azure team provide more features to the platform. The best place to stay abreast of changes, and how they might affect your deployments is the [Azure Web App Documentation](https://azure.microsoft.com/en-us/documentation/services/app-service/web/), the [many and varied ways you can deploy Web Apps (including Octopus Deploy)](https://azure.microsoft.com/en-us/documentation/articles/web-sites-deploy/). There is also the hidden gem of the [Project Kudu GitHub repository](https://github.com/projectkudu/kudu/wiki) where you will find many of the hard to find facts about Web Jobs (like the `settings.job` file, configuring a Continuous Web Job as a Singleton, configuring the Schedule for Scheduled Jobs, how shadow copying enables in-place deployments, and how to shut down gracefully).
