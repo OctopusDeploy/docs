@@ -154,6 +154,14 @@ With the minimal syntax being
 
     ![](/docs/images/img.jpg)
 
+### Image paths
+Paths to internal images need to:
+
+- start with `/docs`
+- all lower case
+- can include `.` and `-`
+
+Example `/docs/images/naked-scripting/transferpackage-transfer.png`
 
 ### Image sizing
 
