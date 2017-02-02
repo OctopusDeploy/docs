@@ -49,7 +49,7 @@ Searching for official public repositories do not require credentials. However 
 
 :::problem
 **DockerHub private repository limitations**
-By design, Docker Hub **does not support [searching for private repositories](https://docs.docker.com/docker-hub/#/explore-repositories)** even with valid credentials. Additionally, while you will be able to search for a non-official repository, Docker Hub*will not return any tags for unofficial images*. If you are using an unofficial image, you will be able to select this when configuring your run step, but you will need to manually enter the version that you wish to deploy. So long as it exists in the registry, your Docker Engine will be able to pull it down. 
+By design, Docker Hub **does not support [searching for private repositories](https://docs.docker.com/docker-hub/#/explore-repositories)** even with valid credentials. Additionally, while you will be able to search for a non-official repository, Docker Hub *will not return any tags for unofficial images*. If you are using an unofficial image, you will be able to select this when configuring your run step, but you will need to manually enter the version that you wish to deploy. So long as it exists in the registry, your Docker Engine will be able to pull it down. 
 The Docker Hub API endpoint [https://index.docker.io/v1](https://index.docker.io/v1) provides access to repositories with different levels of access
 
 | Repository | Shows In Search | Lists Tags |
@@ -67,8 +67,8 @@ To use the Docker Hub registry in Octopus Deploy, create an external feed with t
 - **Feed Type:** Docker Container Registry
 - **Name:** DockerHub (or anything else that makes sense to you)
 - **URL:**[https://index.docker.io/v1](https://index.docker.io/v1)
-- **API Version:**v1
-- **Registry Path:***leave blank*
+- **API Version:** v1
+- **Registry Path:** *leave blank*
 
 *![](/docs/images/5671031/5865826.png "width=500")*
 :::
