@@ -1,5 +1,5 @@
 ---
-title: Use the Team Foundation Build Custom Task
+title: Using the Team Foundation Build Custom Task
 position: 5
 ---
 
