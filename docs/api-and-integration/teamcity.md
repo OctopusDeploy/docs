@@ -17,16 +17,10 @@ While Octopus Deploy will be used to take those NuGet packages and to push them 
 Integration with TeamCity involves two major parts:
 
 1. Creating the NuGet packages from your applications
-   2. Optionally, when a build completes, having TeamCity make requests to your Octopus Server to:
-       (a) Create releases; (b) Trigger deployments and/or (c) Promote releases when a build completes
-
-- Installing the plugin
-- Creating Octopus-compatible NuGet packages using TeamCity
-- Using Octopus as a Package Repository
-- Consuming the TeamCity NuGet feed in Octopus
-- Creating and pushing packages from TeamCity to Octopus
-- Triggering deployments from TeamCity
-- Using the plugin with Linux build agents
+2. Optionally, when a build completes, having TeamCity make requests to your Octopus Server to:
+   (a) Create releases;
+   (b) Trigger deployments and/or
+   (c) Promote releases when a build completes
 
 ## Installing the plugin {#TeamCity-InstallPluginInstallingtheplugin}
 
@@ -80,7 +74,7 @@ To push packages to Octopus during the OctoPack phase, enter the NuGet endpoint 
 
 TeamCity 7 and up can act as a NuGet repository. You can enable this by going to the *Administration*&#10140;*NuGet Settings* page, and enabling the inbuilt NuGet server. Any build artifacts ending with `.nupkg` will automatically be served as NuGet packages, which Octopus can consume.
 
-To connect Octopus to your TeamCity server, add the TeamCity authenticated feed URL to your NuGet settings in Octopus on the **External Feeds**tab under the **Library**page.
+To connect Octopus to your TeamCity server, add the TeamCity authenticated feed URL to your NuGet settings in Octopus on the **External Feeds** tab under the **Library** page.
 
 ![](/docs/images/3048176/3278184.png "width=500")
 
@@ -111,7 +105,7 @@ In version 3.3.1 of the TeamCity Plugin we have added a new build runner that ca
 
 The Octopus TeamCity plugin comes with these custom build runners:
 
-1. **Octopus Deploy: Push Packages (Octopus 3.3 and TeamCity plugin 3.3.1 or newer)**Push packages to the Octopus Deploy [built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md), optionally using the TeamCity zip feature to create packages on-the-fly.
+1. **Octopus Deploy: Push Packages (Octopus 3.3 and TeamCity plugin 3.3.1 or newer)** Push packages to the Octopus Deploy [built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md), optionally using the TeamCity zip feature to create packages on-the-fly.
 2. **Octopus Deploy: Create Release**
 Creates a new release in Octopus Deploy, and optionally deploys it to an environment
 3. **Octopus Deploy: Deploy Release**
