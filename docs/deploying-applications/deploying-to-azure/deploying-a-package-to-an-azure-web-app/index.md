@@ -4,18 +4,6 @@ title: Deploying a package to an Azure Web App
 
 Octopus Deploy supports automated deployment of [Azure Web Apps](http://azure.microsoft.com/en-us/services/app-service/web/) (formerly known as Azure Web Sites).
 
-- Understanding Azure Web Apps
-- Web Apps are deployed using Web Deploy
-- Web Jobs
-- Step 1: Packaging
-- Simple and advanced deployment scenarios
-- Step 2: Create an Azure Account
-- Step 3: Create the Azure Web App deployment step
-- Step 4: Configure your Azure Web App step.
-- Deployment features available to Azure Web App steps
-- Deployment process
-- Deploying to multiple geographic regions
-
 ## Understanding Azure Web Apps {#DeployingapackagetoanAzureWebApp-UnderstandingAzureWebApps}
 
 The Azure Web Apps you build, and how you might want to deploy them, are becoming increasingly complex as the Azure team provide more features to the platform. The best place to stay abreast of changes, and how they might affect your deployments is the [Azure Web App Documentation](https://azure.microsoft.com/en-us/documentation/services/app-service/web/), the [many and varied ways you can deploy Web Apps (including Octopus Deploy)](https://azure.microsoft.com/en-us/documentation/articles/web-sites-deploy/). There is also the hidden gem of the [Project Kudu GitHub repository](https://github.com/projectkudu/kudu/wiki) where you will find many of the hard to find facts about Web Jobs (like the `settings.job` file, configuring a Continuous Web Job as a Singleton, configuring the Schedule for Scheduled Jobs, how shadow copying enables in-place deployments, and how to shut down gracefully).
@@ -118,6 +106,15 @@ Here's an example project file with some of the OctoPack configuration set as pr
 ### Simple and advanced deployment scenarios {#DeployingapackagetoanAzureWebApp-Simpleandadvanceddeploymentscenarios}
 
 The example we've discussed here is the most common scenario for deploying Azure Web Apps: a single package that contains an ASP.NET Web Application and some Web Jobs in the same release cadence. It is possible to implement more complex deployment scenarios where the ASP.NET Web Application and each Web Job follow independent release cadences. In this case you would build multiple packages using the folder structure expected by the Azure Web App hosting framework discussed earlier. Once you've done that you can simply reuse the same Azure Web App Deployment Target to deploy each package when they are released.
+
+### Deploy only files that have changed {#DeployingapackagetoanAzureWebApp-Deployonlyfilesthathavechanged}
+
+NuGet packages are extracted locally and the timestamps are updated at that point in time. It will deploy every file regardless if it has changed or not. If you want to deploy only the changed files, consider these options:
+
+- Use the Checksum file comparison method to only deploy files that have changed. This may work well for moderately-sized applications, but may be prohibitively slow and unreliable for large applications.
+- Use Zip packages instead of NuGet. Timestamps are preserved in Zip packages end-to-end throughout the deployment process.
+
+We have written about these options in detail in [our blog](https://octopus.com/blog/reliably-deploying-large-azure-web-apps).
 
 ## Step 2: Create an Azure Account {#DeployingapackagetoanAzureWebApp-Step2:CreateanAzureAccount}
 
