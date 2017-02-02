@@ -9,6 +9,10 @@ This guide provides a simple example of deploying a Java application using Octop
 
 This guide assumes some familiarity with Octopus Deploy.  You should be able to configure [projects ](/docs/key-concepts/projects/index.md)and have a [Tentacle or SSH deployment target](/docs/deployment-targets/index.md) already configured.
 
+:::hint
+Naked scripting allows you to transfer and extract your package on remote targets without the need for Calamari or mono. Read the short guide [here](https://octopus.com/docs/deploying-applications/custom-scripts/naked-scripting) for more details.
+:::
+
 ## Sample Application {#DeployingJavaapplications-SampleApplication}
 
 Here is a sample application that will prompt the user to press a key before exiting:
