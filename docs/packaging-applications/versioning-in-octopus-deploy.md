@@ -3,7 +3,7 @@ title: Versioning in Octopus Deploy
 position: 4
 ---
 
-Choosing the best versioning scheme for your applications can be a tricky act of balancing pragmatism and strictness. This page should help you understand how Octopus Deploy handles versions in [packages](/docs/packaging-applications/supported-packages.md), [releases](/docs/key-concepts/projects/releases.md), and [channels](/docs/key-concepts/projects/channels.md), and subsequently design a versioning scheme that suits your needs.
+Choosing the best versioning scheme for your applications can be a tricky act of balancing pragmatism and strictness. This page should help you understand how Octopus Deploy handles versions in [packages](/docs/packaging-applications/supported-packages.md), releases, and [channels](/docs/key-concepts/projects/channels.md), and subsequently design a versioning scheme that suits your needs.
 
 :::success
 **Use Semantic Versioning (SemVer)**
