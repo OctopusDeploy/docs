@@ -21,8 +21,8 @@ Project Triggers allow you to choose from a subset of **events** that can occur 
 
 [Automatic Deployment Triggers](/docs/deploying-applications/automatic-deployment-triggers.md) are the first kind of Project Trigger available in Octopus Deploy, and at the time of writing, the only kind. We think this concept could also extend to other automated actions like these:
 
-- Automatically create a [Release](/docs/key-concepts/projects/releases.md) when packages are pushed to a repository (think of a more intelligent version of [Automatic Release Creation](/docs/deploying-applications/automatic-release-creation.md))
-- Automatically deploy a [Release](/docs/key-concepts/projects/releases.md) to a particular [Environment](/docs/key-concepts/environments/index.md) when the Release is created
-- Automatically deploy the current [Release](/docs/key-concepts/projects/releases.md) to a [Tenant](/docs/key-concepts/tenants/index.md) when they are [connected to a Project and Environment](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md)
+- Automatically create a release when packages are pushed to a repository (think of a more intelligent version of [Automatic Release Creation](/docs/deploying-applications/automatic-release-creation.md))
+- Automatically deploy a release to a particular [Environment](/docs/key-concepts/environments/index.md) when the Release is created
+- Automatically deploy the current release to a [Tenant](/docs/key-concepts/tenants/index.md) when they are [connected to a Project and Environment](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md)
 
 Get in touch and let us know what you think of these ideas!
