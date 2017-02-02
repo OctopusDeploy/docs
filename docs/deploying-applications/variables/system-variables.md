@@ -9,22 +9,6 @@ This page lists built-in [variables](/docs/deploying-applications/variables/inde
 
 Deployment-level variables are drawn from the project and release being deployed.
 
-| Name | Example | Description |
-| ---- | ------- | ----------- |
-| Octopus.Acquire.MaxParallelism           | *2*                                      | Controls the number of package acquisitions that will be allowed to run concurrently. |
-| Octopus.Acquire.DeltaCompressionEnabled  | true                                     | Toggle whether delta compression is enabled when sending packages to targets. |
-| Octopus.Deployment.Comments              | *Signed off by Alice*                    | User-provided comments on the deployment |
-| Octopus.Deployment.Created               | *Tuesday 10th September 1:23 PM*         | The date and time at which the deployment was created |
-| Octopus.Deployment.CreatedBy.DisplayName | *Alice King*                             | The full name of the user who initiated the deployment |
-| Octopus.Deployment.CreatedBy.EmailAddress | *[alice@example.com](mailto:alice@example.com)* | The email address of the user who initiated the deployment |
-| Octopus.Deployment.CreatedBy.Id          | *users-123*                              | The ID of the user who initiated the deployment |
-| Octopus.Deployment.CreatedBy.Username    | *alice*                                  | The username of the user who initiated the deployment |
-| Octopus.Deployment.Error                 | *Script returned exit code 123*          | This variable outputs the error/exit code for a failed deployment. [See here](/docs/deploying-applications/variables/system-variables.md) |
-| Octopus.Deployment.ErrorDetail           | *System.IO.FileNotFoundException: file C:\Missing.txt does not exist (at...)* | The error/exit code for the deployment along with the Octopus stack trace. [See here](/docs/deploying-applications/variables/system-variables.md) |
-| Octopus.Deployment.ForcePackageDownload  | *False*                                  | If true, the package will be freshly downloaded from the feed/repository regardless of whether it is already present on the endpoint *(Boolean)* |
-| Octopus.Deployment.Id                    | *deployments-123*                        | The ID of the deployment                 |
-| Octopus.Deployment.Name                  | *Deploy to Production*                   | The name of the deployment               |
-| Octopus.Deployment.PreviousSuccessful.Id | *deployments-122*                        | The ID of the previous successful deployment of this project in the target environment |
 <div class="table-responsive">
   <table class="table">
     <tr><th>Name</th><th>Example</th><th>Description</th></tr>
