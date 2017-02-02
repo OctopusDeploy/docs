@@ -5,16 +5,25 @@ position: 5
 
 The new structure of Team Foundation Build gives us a great opportunity to integrate better with your build and release processes from Visual Studio Team Services (VSTS) (formerly VSO) and on-premises Team Foundation Server (TFS) servers. We've created a [public extension](https://marketplace.visualstudio.com/items/octopusdeploy.octopus-deploy-build-release-tasks) you can install into your VSTS instance or TFS 2017 server.  This extension makes the following tasks available to your Build and Release processes:
 
-- Installing the extension
-- Add a Connection to Octopus Deploy
-- Package your Application and Push to Octopus
-- Using OctoPack to Create and Push a Package
-- Add Steps to your Build or Release Process
-- Add a Package Application step
-- Publish Package Artifact
-- Add a Push Package(s) to Octopus Step
-- Add a Create Octopus Release Step
-- Add a Deploy Octopus Release Step
+- Packaging your application
+- Pushing your package to Octopus
+- Creating a Release in Octopus
+- Deploying a Release to an Environment in Octopus
+- Promoting a Release from one Environment to the next
+
+In this help page:
+
+- [Installing the extension](#UsetheTeamFoundationBuildCustomTask-Installingtheextension)
+- [Add a Connection to Octopus Deploy](#UsetheTeamFoundationBuildCustomTask-AddaConnectiontoOctopusDeploy)
+- [Package your Application and Push to Octopus](#UsetheTeamFoundationBuildCustomTask-PackageyourApplicationandPushtoOctopus)
+- [Using OctoPack to Create and Push a Package](#UsetheTeamFoundationBuildCustomTask-using-octopackUsingOctoPacktoCreateandPushaPackage)
+- [Add Steps to your Build or Release Process](#UsetheTeamFoundationBuildCustomTask-AddStepstoyourBuildorReleaseProcess)
+- [Add a Package Application step](#UsetheTeamFoundationBuildCustomTask-package-application-stepAddaPackageApplicationstep)
+- [Publish Package Artifact](#UsetheTeamFoundationBuildCustomTask-PublishPackageArtifact)
+- [Add a Push Package(s) to Octopus Step](#UsetheTeamFoundationBuildCustomTask-push-packages-stepAddaPushPackage(s)toOctopusStep)
+- [Add a Create Octopus Release Step](#UsetheTeamFoundationBuildCustomTask-AddaCreateOctopusReleaseStep)
+- [Add a Deploy Octopus Release Step](#UsetheTeamFoundationBuildCustomTask-AddaDeployOctopusReleaseStep)
+- [Add a Promote Octopus Release Step](#UsetheTeamFoundationBuildCustomTask-AddaPromoteOctopusReleaseStep)
 
 We've open-sourced the [OctoTFS repository in GitHub](https://github.com/OctopusDeploy/OctoTFS) if you'd like to contribute.
 
