@@ -45,4 +45,4 @@ If you need to add firewall exclusions to a whitelist:
 - Figure out which Azure services you will be targeting in those Data Centres
 - Configure a whitelist from the Octopus Server (where the deployments are performed) to the appropriate IP Address Ranges
 
-Download the latest list of IP Address Ranges from the [Microsoft Download Centre](https://www.microsoft.com/en-au/download/details.aspx?id=41653) (updated weekly).
+Download the latest list of IP Address Ranges from the [Microsoft Download Centre](https://www.microsoft.com/download/details.aspx?id=41653) (updated weekly).
