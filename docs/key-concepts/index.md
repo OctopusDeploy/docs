@@ -89,14 +89,3 @@ When you start working with Octopus you will typically be creating releases from
 ## Tenants {#KeyConcepts-Tenants}
 
 Over time your software may become so successful that you on-sell it to some external customers, and due to the way the software is architected, you need to deploy a copy of the software once per customer. You could achieve this in Octopus by creating an environment-per-customer, or even a project-per-customer, but this leads to duplication and unnecessary complexity. In Octopus 3.4 we introduced the concept of [*tenants* ](/docs/key-concepts/tenants/index.md)that you can manage alongside your existing projects and environments.
-
-## In this section {#KeyConcepts-Inthissection}
-
-The rest of this section covers these topics in some more detail, and explains how to implement them.
-
-- [Environments](/docs/key-concepts/environments/index.md)
-- [Projects](/docs/key-concepts/projects/index.md)
-- [Project Groups](/docs/key-concepts/project-groups.md)
-- [Lifecycles](/docs/key-concepts/lifecycles.md)
-- [Machine Roles](/docs/key-concepts/machine-roles.md)
-- [Tenants](/docs/key-concepts/tenants/index.md)
