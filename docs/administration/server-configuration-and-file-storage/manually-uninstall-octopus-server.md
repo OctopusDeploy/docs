@@ -13,7 +13,7 @@ In some of these scenarios you should make sure you have a recent backup of the 
 
 Here are a few reasons why you may want to completely remove Octopus Server from your computer:
 
-1. You are moving Octopus Server to another server and want to clean up after the move is completed. Learn about [how to move the Octopus Server to another server or VM](/docs/administration/how-to-move-the-octopus-server-to-another-server-or-vm.md).
+1. You are moving Octopus Server to another server and want to clean up after the move is completed. Learn about how to move the Octopus Server to another server or VM.
 2. You want to completely clean up an old version of Octopus Server after installing a newer version on another server.
 3. You installed a trial of Octopus Server and want to completely uninstall the trial instance from your computer now that you've finished your trial.
 4. You practiced an upgrade or new installation of Octopus Server and have finished with that instance of Octopus Server.
