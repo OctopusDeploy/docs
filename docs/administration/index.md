@@ -19,7 +19,6 @@ This section provides information that is important for managing your Octopus De
 - [Server configuration and File storage](/docs/administration/server-configuration-and-file-storage/index.md)
 - [Tentacle configuration and file storage](/docs/administration/tentacle-configuration-and-file-storage/index.md)
 - [Maintenance Mode](/docs/administration/maintenance-mode.md)
-- [Moving Octopus components](/docs/administration/moving-octopus-components/index.md)
 - [Subscriptions](/docs/administration/subscriptions.md)
 - [Show Configuration](/docs/administration/show-configuration.md)
 - [Server Configuration](/docs/administration/server-configuration.md)
