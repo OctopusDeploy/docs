@@ -38,9 +38,9 @@ Upgrading the Octopus Deploy Server is easy, you will just need to follow these 
 
 ![](/docs/images/3048440/5865780.png "width=500")
 
-3. Download the latest [Octopus Deploy MSI installer
+3. Download the latest [Octopus Deploy MSI installer](https://octopus.com/downloads).
+
 ![](/docs/images/3048440/5865777.png "width=500")
-](https://octopus.com/downloads)
 
 4. Run the installer and follow the prompts.
 
@@ -122,7 +122,8 @@ No, you aren't required to upgrade to Tentacle 3.1. Tentacle 3.0 will still work
 **What changed with Tentacle 3.1?**
 The Octopus-Tentacle communication protocol in 3.1 can use TLS 1.2 which requires .NET 4.5 to be installed on the server.
 
-**When should I upgrade to Tentacle 3.1?**We recommend upgrading to Tentacle 3.1 as soon as you are able. Upgrading Tentacles in Octopus 3.1 is automated and can be done through the Environments page. The main benefit you'll get is the Octopus-Tentacle communication protocol can use TLS 1.2.
+**When should I upgrade to Tentacle 3.1?**
+We recommend upgrading to Tentacle 3.1 as soon as you are able. Upgrading Tentacles in Octopus 3.1 is automated and can be done through the Environments page. The main benefit you'll get is the Octopus-Tentacle communication protocol can use TLS 1.2.
 
 **What would stop me from upgrading to Tentacle 3.1?**
 [Your server needs to support .NET 4.5](https://msdn.microsoft.com/en-us/library/8z6watww%28v=vs.110%29.aspx). Tentacle 3.1 requires .NET 4.5 to be installed on the server, which is what enables TLS 1.2 support, and .NET 4.5 is supported on Windows Server 2008 SP2 or newer. This means Windows Server 2003 and Windows Server 2008 SP1 are not supported for Octopus Server or Tentacle 3.1.
