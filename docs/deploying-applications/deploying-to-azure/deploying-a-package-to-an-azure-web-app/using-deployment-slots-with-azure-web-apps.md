@@ -11,7 +11,7 @@ This provides many benefits, including:
 - Roll-back can be achieved by simply swapping the slots back.
 
 :::warning
-Deployment Slots are only available to Azure Web Apps running in Standard or Premium[App Service plans](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/)
+Deployment Slots are only available to Azure Web Apps running in Standard or Premium [App Service plans](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/)
 :::
 
 See the [Azure Web Blue-Green Sample project](https://demo.octopusdeploy.com/app#/projects/azure-web-blue-green-sample/process) on our demo server, for a complete example.
