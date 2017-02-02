@@ -47,7 +47,7 @@ Specify a **Connection Name** and specify the **Server Url** to your Octopus
 
 Enter a valid [Octopus API Key](/docs/how-to/how-to-create-an-api-key.md) in the **API Key** field.
 
-![](/docs/images/3048587/new-octopus-connection-2.png "width=500")
+![](/docs/images/3048587/new-octopus-connection-2.jpg "width=500")
 
 After you've saved the connection, it should be available from the Octopus Deploy Build Tasks.
 
