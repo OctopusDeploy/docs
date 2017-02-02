@@ -12,11 +12,11 @@ Octopus Deploy supports deployment of [Azure Cloud Services](http://azure.micros
 - Step 2: Create an Azure Account
 - Step 3: Create the Azure Cloud Service deployment step
 - Step 4: Configure your Azure Cloud Service step
-- Deployment features available to Azure Cloud Service steps
+  - Deployment features available to Azure Cloud Service steps
 - Deployment process
-- Extract the Cloud Service Package
-- Variable substitutions in Cloud Service configuration file
-- Customizing the deployment process
+  - Extract the Cloud Service Package
+  - Variable substitutions in Cloud Service configuration file
+  - Customizing the deployment process
 - Deploying to multiple geographic regions
 
 ## Step 1: Packaging {#DeployingapackagetoanAzureCloudService-Step1:Packaging}
