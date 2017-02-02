@@ -107,7 +107,7 @@ Using the Substitute Variables in Files feature will change the order that varia
 
 ![](/docs/images/3048087/3277703.png "width=500")
 
-If this feature is enabled, Tentacle will also look for any files that follow the Microsoft [web.config transformation process](http://msdn.microsoft.com/en-us/library/dd465326.aspx) – **even files that are not web.config files!** *Keep reading for examples.*
+If this feature is enabled, Tentacle will also look for any files that follow the Microsoft [web.config transformation process](https://msdn.microsoft.com/en-us/library/dd465326.aspx) – **even files that are not web.config files!** *Keep reading for examples.*
 
 An example web.config transformation that removes the `<compilation debug="true">` attribute is below:
 
@@ -253,4 +253,4 @@ To suppress these errors and report them as informational only, use the `Octopus
 
 ## PowerShell {#Configurationfiles-PowerShell}
 
-If these conventions aren’t enough to configure your application, you can always [use PowerShell to perform custom configuration tasks](/docs/deploying-applications/custom-scripts/index.md). Variables will be passed to your PowerShell script, and PowerShell has [rich XML API's](http://www.codeproject.com/KB/powershell/powershell_xml.aspx).
+If these conventions aren’t enough to configure your application, you can always [use PowerShell to perform custom configuration tasks](/docs/deploying-applications/custom-scripts/index.md). Variables will be passed to your PowerShell script, and PowerShell has [rich XML API's](https://www.codeproject.com/Articles/61900/PowerShell-and-XML).
