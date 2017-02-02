@@ -25,46 +25,66 @@ Deployment-level variables are drawn from the project and release being deployed
 | Octopus.Deployment.Id                    | *deployments-123*                        | The ID of the deployment                 |
 | Octopus.Deployment.Name                  | *Deploy to Production*                   | The name of the deployment               |
 | Octopus.Deployment.PreviousSuccessful.Id | *deployments-122*                        | The ID of the previous successful deployment of this project in the target environment |
-| Octopus.Deployment.Machines              | machines-123,machines-124                | Ids of machines being targeted by the deployment. |
-| Octopus.Deployment.SpecificMachines      | *machines-123,machines-124*              | Specific machines being targeted by the deployment, if any*(List)* |
-| Octopus.Deployment.ExcludedMachines      | machines-123,machines-124                | Ids of machines that have been excluded from the deployment (generally for being unavailable) |
-| Octopus.Deployment.Tenant.Id             | *Tenants-123*                            | The ID of the Tenant being deployed for. If the deployment is untenanted (or pre 3.4.0) then this variable will not be present. |
-| Octopus.Deployment.Tenant.Name           | *Acme Corp*                              | The name of the Tenant being deployed for. If the deployment is untenanted (or pre 3.4.0) then this variable will not be present. |
-| Octopus.Deployment.Tenant.Tags           | *Tenant type/External, Upgrade ring/Early adopter* | Comma delimited list of tags that belong the the Tenant being deployed for. If the deployment is untenanted (or pre 3.4.0) then this variable will not be present. |
-| Octopus.Endpoint.\_type\_.\_property\_   | *ftp.example.com*                        | Properties describing the endpoint being deployed |
-| Octopus.Environment.Id                   | *environments-123*                       | The ID of the environment                |
-| Octopus.Environment.MachinesInRole[\_role\_] | *machines-123,machines-124*              | Lists the machines in a specified role   |
-| Octopus.Environment.Name                 | *Production*                             | The name of the environment              |
-| Octopus.Environment.SortOrder            | *3*                                      | The ordering applied to the environment when it is displayed on the dashboard and elsewhere |
-| Octopus.Machine.Id                       | *machines-123*                           | The ID of the machine                    |
-| Octopus.Machine.Name                     | *WEBSVR01*                               | The name that was used to register the machine in Octopus. Not the same as *Hostname* |
-| Octopus.Machine.Roles                    | *web-server,frontend*                    | The roles applied to the machine *(List)* |
-| Octopus.Machine.Hostname                 | Database01, www.Database01.local, 192.168.200.100 | The host part of the URI that was used to register the machine, could be an IP, hostname depending on what was supplied. Only set for Listening Tentacles |
-| Octopus.Project.Id                       | *projects-123*                           | The ID of the project                    |
-| Octopus.Project.Name                     | *OctoFx*                                 | The name of the project                  |
-| Octopus.ProjectGroup.Id                  | *projectgroups-123*                      | The ID of the projectgroup               |
-| Octopus.ProjectGroup.Name                | *Public Web Properties*                  | The name of the projectgroup             |
-| Octopus.Release.Channel.Name             | *2.x Feature Branch*                     | The Channel name associated with the release |
-| Octopus.Release.Notes                    | *Fixes bugs 1, 2 & 3*                    | Release notes associated with the release, in Markdown format |
-| Octopus.Release.Number                   | *1.2.3*                                  | The version number of the release        |
-| Octopus.Release.Previous.Id              | *releases-122*                           | The ID of the last release of the project |
-| Octopus.Release.Previous.Number          | *1.2.2*                                  | The version number of the last release of the project |
-| Octopus.Release.PreviousForEnvironment.Id | *releases-122*                           | The ID of the last release of the project to the current environment |
-| Octopus.Release.PreviousForEnvironment.Number | *1.2.2*                                  | The version number of the last release of the project to the current environment |
-| Octopus.Release.CurrentForEnvironment.Id | *releases-122*                           | The ID of the release of the last successful deployment to the current environment |
-| Octopus.Release.CurrentForEnvironment.Number | *1.2.2*                                  | The version number of the release the last successful deployment to the current environment |
-| Octopus.Task.Argument[\_name\_]          | *deployments-123*                        | Argument values provided when creating the task |
-| Octopus.Task.Id                          | *servertasks-123*                        | The ID of the task                       |
-| Octopus.Task.Name                        | *Deploy release 1.2.3 to Production*     | The name of the task                     |
-| Octopus.Tentacle.CurrentDeployment.PackageFilePath | *C:\Octopus\Tentacle\Packages\OctoFx.1.2.3.nupkg* | The path to the package file being deployed |
-| Octopus.Tentacle.CurrentDeployment.TargetedRoles | *web-server*                             | The intersection of the roles targeted by the step, and those applied to the machine |
-| Octopus.Tentacle.PreviousInstallation.CustomInstallationDirectory | *C:\InetPub\WWWRoot\OctoFx*              | The directory into which the previous version of the package was deployed |
-| Octopus.Tentacle.PreviousInstallation.OriginalInstalledPath | *C:\Octopus\Tentacle\Apps\Production\OctoFx\1.2.2* | The directory into which the previous version of the package was extracted |
-| Octopus.Tentacle.PreviousInstallation.PackageFilePath | *C:\Octopus\Tentacle\Packages\OctoFx.1.2.2.nupkg* | The path to the package file previously deployed |
-| Octopus.Tentacle.PreviousInstallation.PackageVersion | *1.2.3*                                  | The previous version of the package that was deployed to the Tentacle |
-| Octopus.Web.DeploymentLink               | */app/deployment/deployments-123*        | A path relative to the Octopus Server URL at which the deployment can be viewed |
-| Octopus.Web.ProjectLink                  | */app/projects/projects-123*             | A path relative to the Octopus Server URL at which the project can be viewed |
-| Octopus.Web.ReleaseLink                  | */app/releases/releases-123*             | A path relative to the Octopus Server URL at which the release can be viewed |
+<div class="table-responsive">
+  <table class="table">
+    <tr><th>Name</th><th>Example</th><th>Description</th></tr>
+    <tr><td>Octopus.Acquire.MaxParallelism</td><td>*2*</td><td>Controls the number of package acquisitions that will be allowed to run concurrently.</td></tr>
+    <tr><td>Octopus.Acquire.MaxParallelism           </td><td> *2*                                      </td><td> Controls the number of package acquisitions that will be allowed to run concurrently. </td></tr>
+    <tr><td>Octopus.Acquire.DeltaCompressionEnabled  </td><td> true                                     </td><td> Toggle whether delta compression is enabled when sending packages to targets. </td></tr>
+    <tr><td>Octopus.Deployment.Comments              </td><td> *Signed off by Alice*                    </td><td> User-provided comments on the deployment </td></tr>
+    <tr><td>Octopus.Deployment.Created               </td><td> *Tuesday 10th September 1:23 PM*         </td><td> The date and time at which the deployment was created </td></tr>
+    <tr><td>Octopus.Deployment.CreatedBy.DisplayName </td><td> *Alice King*                             </td><td> The full name of the user who initiated the deployment </td></tr>
+    <tr><td>Octopus.Deployment.CreatedBy.EmailAddress</td><td> *[alice@example.com](mailto:alice@example.com)* </td></tr> The email address of the user who initiated the deployment </td></tr>
+    <tr><td>Octopus.Deployment.CreatedBy.Id          </td><td> *users-123*                              </td><td> The ID of the user who initiated the deployment </td></tr>
+    <tr><td>Octopus.Deployment.CreatedBy.Username    </td><td> *alice*                                  </td><td> The username of the user who initiated the deployment </td></tr>
+    <tr><td>Octopus.Deployment.Error                 </td><td> *Script returned exit code 123*          </td><td> This variable outputs the error/exit code for a failed deployment. [See here](/docs/deploying-applications/variables/system-variables.md) </td></tr>
+    <tr><td>Octopus.Deployment.ErrorDetail           </td><td> *System.IO.FileNotFoundException: file C:\Missing.txt does not exist (at...)* </td></tr> The error/exit code for the deployment along with the Octopus stack trace. [See here](/docs/deploying-applications/variables/system-variables.md) </td></tr>
+    <tr><td>Octopus.Deployment.ForcePackageDownload  </td><td> *False*                                  </td><td> If true, the package will be freshly downloaded from the feed/repository regardless of whether it is already present on the endpoint *(Boolean)* </td></tr>
+    <tr><td>Octopus.Deployment.Id                    </td><td> *deployments-123*                        </td><td> The ID of the deployment                 </td></tr>
+    <tr><td>Octopus.Deployment.Name                  </td><td> *Deploy to Production*                   </td><td> The name of the deployment               </td></tr>
+    <tr><td>Octopus.Deployment.PreviousSuccessful.Id </td><td> *deployments-122*                        </td><td> The ID of the previous successful deployment of this project in the target environment </td></tr>
+    <tr><td>Octopus.Deployment.Machines              </td><td> machines-123,machines-124                </td><td> Ids of machines being targeted by the deployment. </td></tr>
+    <tr><td>Octopus.Deployment.SpecificMachines      </td><td> *machines-123,machines-124*              </td><td> Specific machines being targeted by the deployment, if any*(List)* </td></tr>
+    <tr><td>Octopus.Deployment.ExcludedMachines      </td><td> machines-123,machines-124                </td><td> Ids of machines that have been excluded from the deployment (generally for being unavailable) </td></tr>
+    <tr><td>Octopus.Deployment.Tenant.Id             </td><td> *Tenants-123*                            </td><td> The ID of the Tenant being deployed for. If the deployment is untenanted (or pre 3.4.0) then this variable will not be present. </td></tr>
+    <tr><td>Octopus.Deployment.Tenant.Name           </td><td> *Acme Corp*                              </td><td> The name of the Tenant being deployed for. If the deployment is untenanted (or pre 3.4.0) then this variable will not be present. </td></tr>
+    <tr><td>Octopus.Deployment.Tenant.Tags           </td><td> *Tenant type/External, Upgrade ring/Early adopter* </td><td> Comma delimited list of tags that belong the the Tenant being deployed for. If the deployment is untenanted (or pre 3.4.0) then this variable will not be present. </td></tr>
+    <tr><td>Octopus.Endpoint.\_type\_.\_property\_   </td><td> *ftp.example.com*                        </td><td> Properties describing the endpoint being deployed </td></tr>
+    <tr><td>Octopus.Environment.Id                   </td><td> *environments-123*                       </td><td> The ID of the environment                </td></tr>
+    <tr><td>Octopus.Environment.MachinesInRole[\_role\_] </td><td> *machines-123,machines-124*              </td><td> Lists the machines in a specified role   </td></tr>
+    <tr><td>Octopus.Environment.Name                 </td><td> *Production*                             </td><td> The name of the environment              </td></tr>
+    <tr><td>Octopus.Environment.SortOrder            </td><td> *3*                                      </td><td> The ordering applied to the environment when it is displayed on the dashboard and elsewhere </td></tr>
+    <tr><td>Octopus.Machine.Id                       </td><td> *machines-123*                           </td><td> The ID of the machine                    </td></tr>
+    <tr><td>Octopus.Machine.Name                     </td><td> *WEBSVR01*                               </td><td> The name that was used to register the machine in Octopus. Not the same as *Hostname* </td></tr>
+    <tr><td>Octopus.Machine.Roles                    </td><td> *web-server,frontend*                    </td><td> The roles applied to the machine *(List)* </td></tr>
+    <tr><td>Octopus.Machine.Hostname                 </td><td> Database01, www.Database01.local, 192.168.200.100 </td><td> The host part of the URI that was used to register the machine, could be an IP, hostname depending on what was supplied. Only set for Listening Tentacles </td></tr>
+    <tr><td>Octopus.Project.Id                       </td><td> *projects-123*                           </td><td> The ID of the project                    </td></tr>
+    <tr><td>Octopus.Project.Name                     </td><td> *OctoFx*                                 </td><td> The name of the project                  </td></tr>
+    <tr><td>Octopus.ProjectGroup.Id                  </td><td> *projectgroups-123*                      </td><td> The ID of the projectgroup               </td></tr>
+    <tr><td>Octopus.ProjectGroup.Name                </td><td> *Public Web Properties*                  </td><td> The name of the projectgroup             </td></tr>
+    <tr><td>Octopus.Release.Channel.Name             </td><td> *2.x Feature Branch*                     </td><td> The Channel name associated with the release </td></tr>
+    <tr><td>Octopus.Release.Notes                    </td><td> *Fixes bugs 1, 2 & 3*                    </td><td> Release notes associated with the release, in Markdown format </td></tr>
+    <tr><td>Octopus.Release.Number                   </td><td> *1.2.3*                                  </td><td> The version number of the release        </td></tr>
+    <tr><td>Octopus.Release.Previous.Id              </td><td> *releases-122*                           </td><td> The ID of the last release of the project </td></tr>
+    <tr><td>Octopus.Release.Previous.Number          </td><td> *1.2.2*                                  </td><td> The version number of the last release of the project </td></tr>
+    <tr><td>Octopus.Release.PreviousForEnvironment.Id </td><td> *releases-122*                          </td><td> The ID of the last release of the project to the current environment </td></tr>
+    <tr><td>Octopus.Release.PreviousForEnvironment.Number </td><td> *1.2.2*                             </td><td> The version number of the last release of the project to the current environment </td></tr>
+    <tr><td>Octopus.Release.CurrentForEnvironment.Id </td><td> *releases-122*                           </td><td> The ID of the release of the last successful deployment to the current environment </td></tr>
+    <tr><td>Octopus.Release.CurrentForEnvironment.Number </td><td> *1.2.2*                              </td><td> The version number of the release the last successful deployment to the current environment </td></tr>
+    <tr><td>Octopus.Task.Argument[\_name\_]          </td><td> *deployments-123*                        </td><td> Argument values provided when creating the task </td></tr>
+    <tr><td>Octopus.Task.Id                          </td><td> *servertasks-123*                        </td><td> The ID of the task                       </td></tr>
+    <tr><td>Octopus.Task.Name                        </td><td> *Deploy release 1.2.3 to Production*     </td><td> The name of the task                     </td></tr>
+    <tr><td>Octopus.Tentacle.CurrentDeployment.PackageFilePath </td><td> *C:\Octopus\Tentacle\Packages\OctoFx.1.2.3.nupkg* </td><td> The path to the package file being deployed </td></tr>
+    <tr><td>Octopus.Tentacle.CurrentDeployment.TargetedRoles </td><td> *web-server*                             </td><td> The intersection of the roles targeted by the step, and those applied to the machine </td></tr>
+    <tr><td>Octopus.Tentacle.PreviousInstallation.CustomInstallationDirectory </td><td> *C:\InetPub\WWWRoot\OctoFx*              </td><td> The directory into which the previous version of the package was deployed </td></tr>
+    <tr><td>Octopus.Tentacle.PreviousInstallation.OriginalInstalledPath </td><td> *C:\Octopus\Tentacle\Apps\Production\OctoFx\1.2.2* </td><td> The directory into which the previous version of the package was extracted </td></tr>
+    <tr><td>Octopus.Tentacle.PreviousInstallation.PackageFilePath </td><td> *C:\Octopus\Tentacle\Packages\OctoFx.1.2.2.nupkg* </td><td> The path to the package file previously deployed </td></tr>
+    <tr><td>Octopus.Tentacle.PreviousInstallation.PackageVersion </td><td> *1.2.3*                                  </td><td> The previous version of the package that was deployed to the Tentacle </td></tr>
+    <tr><td>Octopus.Web.DeploymentLink               </td><td> */app/deployment/deployments-123*        </td><td> A path relative to the Octopus Server URL at which the deployment can be viewed </td></tr>
+    <tr><td>Octopus.Web.ProjectLink                  </td><td> */app/projects/projects-123*             </td><td> A path relative to the Octopus Server URL at which the project can be viewed </td></tr>
+    <tr><td>Octopus.Web.ReleaseLink                  </td><td> */app/releases/releases-123*             </td><td> A path relative to the Octopus Server URL at which the release can be viewed </td></tr>
+  </table>
+</div>
 
 ## Action {#Systemvariables-Action}
 
