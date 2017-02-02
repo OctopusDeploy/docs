@@ -71,7 +71,8 @@ After you have uninstalled the old version of Octopus, you can install the new v
 After uninstalling the old version of Octopus and restarting, if you still receive this error, please navigate to the following registry keys:
 
 ```
-HKEY_LOCAL_MACHINE\Software\Octopus\OctopusServerHKEY_LOCAL_MACHINE\Software\Octopus\Tentacle
+HKEY_LOCAL_MACHINE\Software\Octopus\OctopusServer
+HKEY_LOCAL_MACHINE\Software\Octopus\Tentacle
 ```
 
 And delete the `InstallLocation` value.
@@ -79,5 +80,19 @@ And delete the `InstallLocation` value.
 Depending on whether you are running the 32-bit registry editor or had previously installed 32-bit versions of Octopus on a 64-bit machine, you should also check:
 
 ```
-HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Octopus\OctopusServerHKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Octopus\Tentacle
+HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Octopus\OctopusServer
+HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Octopus\Tentacle
+```
+
+Quick PowerShell way to do this:
+```
+$RegServer = 'HKLM:\Software\Octopus\OctopusServer'
+$RegTentacle = 'HKLM:\Software\Octopus\Tentacle'
+$RegServer64 = 'HKLM:\SOFTWARE\Wow6432Node\Octopus\OctopusServer'
+$RegTentacle64 = 'HKLM:\SOFTWARE\Wow6432Node\Octopus\Tentacle'
+$Regs = @($RegServer,$RegTentacle, $RegServer64, $RegTentacle64)
+
+foreach ($reg in $Regs) {
+if (Test-Path $reg) { Remove-ItemProperty -Path $reg -Name InstallLocation }
+}
 ```
