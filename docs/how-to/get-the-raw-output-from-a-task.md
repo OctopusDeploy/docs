@@ -12,6 +12,7 @@ The steps to send a full task log are:
 1. Open the deployment/task details, and go to the **Task log** tab. Click on the **Raw** link.
 
 ![](/docs/images/3048147/3278094.png "width=500")
+
 2. At the top of the raw log page there is a **Download** button. Click the button to download a text file containing the entire deployment log:
 
 ![](/docs/images/3048147/3278093.png "width=500")
