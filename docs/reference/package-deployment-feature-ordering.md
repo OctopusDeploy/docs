@@ -24,7 +24,7 @@ The order of evaluation once the package is extracted is:
 11. **AfterDeploy.\* Feature Scripts**- runs matching scripts associated with any enabled features. These bootstrap scripts are created by Octopus and cannot be customized by the user.
 12. **IIS Home Directory** - sets the IIS web site's home directory to the new install location, if that feature is enabled
 13. **BeforePostDeploy.\* Feature Scripts**- runs matching scripts associated with any enabled features. These bootstrap scripts are created by Octopus and cannot be customized by the user.
-14. **Post****Deploy.\* Scripts**- runs matching [scripts included in the package](/docs/deploying-applications/custom-scripts/index.md#Customscripts-ScriptsinPackages) or defined using the *[Custom PowerShell Scripts](/docs/deploying-applications/custom-scripts/index.md#Customscripts-Scriptsinpackagesteps)* feature
+14. **PostDeploy.\* Scripts**- runs matching [scripts included in the package](/docs/deploying-applications/custom-scripts/index.md#Customscripts-ScriptsinPackages) or defined using the *[Custom PowerShell Scripts](/docs/deploying-applications/custom-scripts/index.md#Customscripts-Scriptsinpackagesteps)* feature
 15. **AfterPostDeploy.\* Feature Scripts**- runs matching scripts associated with any enabled features. These bootstrap scripts are created by Octopus and cannot be customized by the user.
 
 If an item fails, the remaining items will not be executed, and instead **DeployFailed.\* Scripts** will be found and executed.
