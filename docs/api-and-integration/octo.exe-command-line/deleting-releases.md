@@ -14,7 +14,7 @@ If you are using channels (introduced in Octopus 3.2) you can filter this comman
 octo delete-releases [<options>]
 ```
 
-Where `[&lt;options&gt;]` is any of:
+Where `[<options>]` is any of:
 
 **delete-releases options**
 
