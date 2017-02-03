@@ -18,6 +18,7 @@ Follow these steps to install a Tentacle on the Octopus Server.
 3. Assign the machine to all of your applicable environments, and give it a role like `octopus-server`:
 
 ![](/docs/images/3702872/3964962.png "width=500")
+
 4. When configuring your step, you can now choose the `octopus-server` role as your target:
 
 ![](/docs/images/3702872/3964961.png "width=500")
