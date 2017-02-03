@@ -19,7 +19,7 @@ If you need to re-configure your Tentacle instance, you can do that using the co
 Tentacle configure [<options>]
 ```
 
-Where`[&lt;options&gt;]`is any of:
+Where`[<options>]`is any of:
 
 **configure options**
 
@@ -52,17 +52,17 @@ Or one of the common options:
 
 The Octopus server stores files in the following folders by default:
 
-- `C:\Octopus\Tentacle\&lt;Instance&gt;`
- - This is the Tentacle Home Directory where `&lt;Instance&gt;` is an optional instance name in case you have multiple instances of Tentacle on the same computer.
+ - `C:\Octopus\Tentacle\<Instance>`
+ - This is the Tentacle Home Directory where `<Instance>` is an optional instance name in case you have multiple instances of Tentacle on the same computer.
  - This is where the Tentacle config file and deployment journal is stored.
-- `&lt;Tentacle Home&gt;\Calamari`
+ - `<Tentacle Home>\Calamari`
  - This is where the Calamari packages are installed so Tentacle can execute deployments on your behalf.
-- `&lt;Tentacle Home&gt;\Files`
+ - `<Tentacle Home>\Files`
  - This is the package cache used to store the most recent packages in case they need to be used again.
 
-`&lt;Tentacle Home&gt;\Logs`
+ - `<Tentacle Home>\Logs`
  - This is where the Tentacle log files are stored.
-- `&lt;Tentacle Home&gt;\Work`
+ - `<Tentacle Home>\Work`
  - This is the temporary working directory used when Tentacle and Calamari execute deployments on your behalf.
 
 ## Clean up post-2.6 migration {#Tentacleconfigurationandfilestorage-Cleanuppost-2.6migration}
@@ -75,21 +75,21 @@ In 2.6 Tentacle stored files in the following folders by default:
  - This is where the deployment journal is stored
 - `C:\Octopus\Applications\.Tentacle\Octopus.Tentacle`
  - This is where some versions of Tentacle put their "automatic upgrade" application files when Tentacle was upgraded from the Octopus Server
-- `C:\Octopus\Applications\.SQ-OCTOPUS-&lt;SQUID&gt;` where `&lt;SQUID&gt;` is a unique identifier for this Tentacle instance
+- `C:\Octopus\Applications\.SQ-OCTOPUS-<SQUID>` where `<SQUID>` is a unique identifier for this Tentacle instance
  - This is where some other versions of Tentacle put their "automatic upgrade" application files when Tentacle was upgraded from the Octopus Server
 - `C:\Octopus\Application\.Tentacle\Packages`
 
  - This is the package cache used to store the most recent packages in case they need to be used again.
 - `C:\Octopus\Logs`
  - This is where Tentacle stores its log files.
-- `C:\Octopus\Tentacle\&lt;Instance&gt;`
+- `C:\Octopus\Tentacle\<Instance>`
  - This is where the Tentacle config file and Pipefish protocol files are stored, namely Actors, Messages and Streams.
 
 Once a 2.6 Tentacle has been migrated to 3.x the following folders can safely be removed:
 
 - `C:\Octopus\Applications\.Tentacle`
 - `C:\Octopus\Applications\.Tentacle\Octopus.Tentacle`
-- `C:\Octopus\Applications\.SQ-OCTOPUS-&lt;SQUID&gt;`
+- `C:\Octopus\Applications\.SQ-OCTOPUS-<SQUID>`
 - `C:\Octopus\Application\.Tentacle\Packages`
 - `C:\Octopus\Logs`
-- `C:\Octopus\Tentacle\&lt;Instance&gt;`
+- `C:\Octopus\Tentacle\<Instance>`
