@@ -13,7 +13,7 @@ Channels were introduced in Octopus 3.2.
 octo create-channel [<options>]
 ```
 
-Where `[&lt;options&gt;]` is any of:
+Where `[<options>]` is any of:
 
 **create-environment options**
 
