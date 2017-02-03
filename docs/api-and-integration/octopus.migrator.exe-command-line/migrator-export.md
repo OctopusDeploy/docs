@@ -10,7 +10,7 @@ Usage:
 Octopus.Migrator export [<options>]
 ```
 
-Where `[&lt;options&gt;]` is any of:
+Where `[<options>]` is any of:
 
 **Create release options**
 
