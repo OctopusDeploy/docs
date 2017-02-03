@@ -19,7 +19,7 @@ If you need to re-configure your Octopus Server instance, you can do that using 
 Octopus.Server configure [<options>]
 ```
 
-Where`[&lt;options&gt;]`is any of:
+Where`[<options>]`is any of:
 
 **configure options**
 
@@ -93,7 +93,7 @@ If you need to move other folders than the Octopus Home folder, you can do that 
 Octopus.Server path [<options>]
 ```
 
-Where `[&lt;options&gt;]` is any of:
+Where `[<options>]` is any of:
 
 **Options**
 
