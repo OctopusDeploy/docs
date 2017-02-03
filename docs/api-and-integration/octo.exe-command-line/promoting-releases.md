@@ -9,7 +9,7 @@ position: 8
 octo promote-release [<options>]
 ```
 
-Where `[&lt;options&gt;]` is any of:
+Where `[<options>]` is any of:
 
 **Promote release options**
 
@@ -64,12 +64,12 @@ Deployment:
                              (scheduled deployment), specified as any valid 
                              DateTimeOffset format, and assuming the time 
                              zone is the current local time zone.
-	  --tenant=VALUE		 [Optional] A tenant the deployment will be performed for; 
+      --tenant=VALUE	     [Optional] A tenant the deployment will be performed for; 
                              specify this argument multiple times to add multiple tenants or 
-                             use  `*` wildcard to deploy to tenants able to deploy.
-	  --tenanttag=VALUE		 [Optional] A tenant tag used to match tenants that the deployment will 
-							 be performed for; specify this argument multiple times to 
-						     add multiple tenant tags
+                             use `*` wildcard to deploy to tenants able to deploy.
+      --tenanttag=VALUE	     [Optional] A tenant tag used to match tenants that the deployment will 
+			     be performed for; specify this argument multiple times to 
+			     add multiple tenant tags
 
 Common options: 
 
