@@ -8,7 +8,7 @@ title: Deleting auto deploy overrides
 octo delete-autodeployoverride [<options>]
 ```
 
-Where `[&lt;options&gt;]` is any of:
+Where `[<options>]` is any of:
 
 **delete-autodeployoverride options**
 
