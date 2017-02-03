@@ -19,6 +19,7 @@ Sometimes a variable used during deployment may have a different value from the 
 
 1. Open the **Project > Variables > All Variables** tab
 2. Investigate the variables from all possible sources for the project including the project itself, [library variable sets](/docs/deploying-applications/variables/library-variable-sets.md), and [tenants](/docs/key-concepts/tenants/index.md).
+
 ![](/docs/images/3048145/5865680.png "width=500")
 
 :::success
@@ -29,18 +30,21 @@ Did you know you can sort and filter all of the variables grids? Click the colum
 
 This will log the variables available at the beginning of each step in the deployment as Verbose messages.
 
-1. Open the ***Project > Variables***page
+1. Open the ***Project > Variables*** page
 2. Set the following two variables:
 
 | Name | Value |
 | --- | --- |
 | OctopusPrintVariables | True |
 | OctopusPrintEvaluatedVariables | True |
+
     It should look like this. You can have as many extra variables as you want besides these two.
+    
     ![](/docs/images/3048145/3278087.png "width=500")
+
 3. **Create a new release** of the project or **Update the variable snapshot** for the release as shown above
 4. Deploy the new release
-5. Enable **Verbose** output on the **Task log**page
+5. Enable **Verbose** output on the **Task log** page
 6. Expand the element corresponding to the Tentacle on which the problem is observed. Two sets of variables will be printed, first, the raw definitions before any substitutions have been performed, then the result of evaluating all variables for deployment.
 
 :::warning
