@@ -3,7 +3,7 @@ title: Calamari
 position: 9
 ---
 
-Prior to Octopus Deploy 3.0, Tentacles were responsible for performing deployment steps.  Tentacles were *smart.*They knew how to transform configuration files, modify IIS, and much, much more.
+Prior to Octopus Deploy 3.0, Tentacles were responsible for performing deployment steps.  Tentacles were *smart*.They knew how to transform configuration files, modify IIS, and much, much more.
 
 ![](/docs/images/3048177/3278198.png)
 
@@ -49,32 +49,31 @@ Deployments now proceed as follows:
 Now that Calamari is open-source, it might help answer any questions you had around what happens during a deployment.  For example, did you ever wonder what order conventions run in when deploying a package?
 
 ```c#
-            var conventions = new List<IConvention>
-            {
-                new ContributeEnvironmentVariablesConvention(),
-                new ContributePreviousInstallationConvention(journal),
-                new LogVariablesConvention(),
-                new AlreadyInstalledConvention(journal),
-                new ExtractPackageToApplicationDirectoryConvention(new LightweightPackageExtractor(), fileSystem, semaphore),
-                new FeatureScriptConvention(DeploymentStages.BeforePreDeploy, fileSystem, embeddedResources, scriptCapability, commandLineRunner),
-                new ConfiguredScriptConvention(DeploymentStages.PreDeploy, scriptCapability, fileSystem, commandLineRunner),
-                new PackagedScriptConvention(DeploymentStages.PreDeploy, fileSystem, scriptCapability, commandLineRunner),
-                new FeatureScriptConvention(DeploymentStages.AfterPreDeploy, fileSystem, embeddedResources, scriptCapability, commandLineRunner),
-                new SubstituteInFilesConvention(fileSystem, substituter),
-                new ConfigurationTransformsConvention(fileSystem, configurationTransformer),
-                new ConfigurationVariablesConvention(fileSystem, replacer),
-                new CopyPackageToCustomInstallationDirectoryConvention(fileSystem),
-                new FeatureScriptConvention(DeploymentStages.BeforeDeploy, fileSystem, embeddedResources, scriptCapability, commandLineRunner),
-                new PackagedScriptConvention(DeploymentStages.Deploy, fileSystem, scriptCapability, commandLineRunner),
-                new ConfiguredScriptConvention(DeploymentStages.Deploy, scriptCapability, fileSystem, commandLineRunner),
-                new FeatureScriptConvention(DeploymentStages.AfterDeploy, fileSystem, embeddedResources, scriptCapability, commandLineRunner),
-                new LegacyIisWebSiteConvention(fileSystem, iis),
-                new FeatureScriptConvention(DeploymentStages.BeforePostDeploy, fileSystem, embeddedResources, scriptCapability, commandLineRunner),
-                new PackagedScriptConvention(DeploymentStages.PostDeploy, fileSystem, scriptCapability, commandLineRunner),
-                new ConfiguredScriptConvention(DeploymentStages.PostDeploy, scriptCapability, fileSystem, commandLineRunner),
-                new FeatureScriptConvention(DeploymentStages.AfterPostDeploy, fileSystem, embeddedResources, scriptCapability, commandLineRunner),
-            };
-
+var conventions = new List<IConvention>
+{
+   new ContributeEnvironmentVariablesConvention(),
+   new ContributePreviousInstallationConvention(journal),
+   new LogVariablesConvention(),
+   new AlreadyInstalledConvention(journal),
+   new ExtractPackageToApplicationDirectoryConvention(new LightweightPackageExtractor(), fileSystem, semaphore),
+   new FeatureScriptConvention(DeploymentStages.BeforePreDeploy, fileSystem, embeddedResources, scriptCapability, commandLineRunner),
+   new ConfiguredScriptConvention(DeploymentStages.PreDeploy, scriptCapability, fileSystem, commandLineRunner),
+   new PackagedScriptConvention(DeploymentStages.PreDeploy, fileSystem, scriptCapability, commandLineRunner),
+   new FeatureScriptConvention(DeploymentStages.AfterPreDeploy, fileSystem, embeddedResources, scriptCapability, commandLineRunner),
+   new SubstituteInFilesConvention(fileSystem, substituter),
+   new ConfigurationTransformsConvention(fileSystem, configurationTransformer),
+   new ConfigurationVariablesConvention(fileSystem, replacer),
+   new CopyPackageToCustomInstallationDirectoryConvention(fileSystem),
+   new FeatureScriptConvention(DeploymentStages.BeforeDeploy, fileSystem, embeddedResources, scriptCapability, commandLineRunner),
+   new PackagedScriptConvention(DeploymentStages.Deploy, fileSystem, scriptCapability, commandLineRunner),
+   new ConfiguredScriptConvention(DeploymentStages.Deploy, scriptCapability, fileSystem, commandLineRunner),
+   new FeatureScriptConvention(DeploymentStages.AfterDeploy, fileSystem, embeddedResources, scriptCapability, commandLineRunner),
+   new LegacyIisWebSiteConvention(fileSystem, iis),
+   new FeatureScriptConvention(DeploymentStages.BeforePostDeploy, fileSystem, embeddedResources, scriptCapability, commandLineRunner),
+   new PackagedScriptConvention(DeploymentStages.PostDeploy, fileSystem, scriptCapability, commandLineRunner),
+   new ConfiguredScriptConvention(DeploymentStages.PostDeploy, scriptCapability, fileSystem, commandLineRunner),
+   new FeatureScriptConvention(DeploymentStages.AfterPostDeploy, fileSystem, embeddedResources, scriptCapability, commandLineRunner),
+};
 ```
 
 Calamari is published under the Apache license, and we'll continue to work on it in the open.  One of the benefits of this architecture is that you can [fork the project](https://github.com/OctopusDeploy/Calamari), make your own changes, and then tell your Octopus 3.0 server to use your own Calamari package.
