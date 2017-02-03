@@ -19,7 +19,7 @@ Your package repository will typically be:
 - A [local feed](http://docs.nuget.org/docs/creating-packages/hosting-your-own-nuget-feeds#Creating_Local_Feeds "Local NuGet package repositories") exposed as a File Share or local directory
 - A [JetBrains TeamCity](http://blogs.jetbrains.com/dotnet/2011/08/native-nuget-support-in-teamcity/ "JetBrains TeamCity") server (version 7 and above)
 - A [MyGet](http://www.myget.org/ "MyGet") server
-- A [VSTS Package Management](https://www.visualstudio.com/en-us/docs/package/overview) feed (see note below)
+- A [VSTS or TFS Package Management](https://www.visualstudio.com/en-us/docs/package/overview) feed (see note below)
 
 :::success
 **Mix and match feeds**
@@ -39,8 +39,15 @@ Earlier releases of Octopus Deploy only support external NuGet v2 feeds:
 **VSTS Package Feeds**
 If you are using VSTS Package Management, Octopus can consume either the v2 or v3 NuGet feeds.
 
-- To connect to the v3 URL, you must use [a Personal Access Token](https://www.visualstudio.com/en-us/docs/integrate/get-started/auth/overview) in the password field. The username field is not used, so you can put anything in here. Ensure that the PAT has (at least) the *Packaging (read)* scope.
+- To connect to the v3 URL, you must use [a Personal Access Token](https://www.visualstudio.com/en-us/docs/integrate/get-started/auth/overview) in the password field. The username field is not checked, so you can put anything in here as long as it is not blank. Ensure that the PAT has (at least) the *Packaging (read)* scope.
 - To connect to the v2 URL, you can use either [alternate credentials or a Personal Access Token](https://www.visualstudio.com/en-us/docs/integrate/get-started/auth/overview) in the password field.
+:::
+
+:::warning
+**TFS Package Feeds**
+If you are using TFS Package Management, Octopus can consume either the v2 or v3 NuGet feeds. Use a user account's username and password to authenticate.
+
+Although the TFS documentation states that a Personal Access Token can be used, we have not had success authenticating using one with `NuGet.exe`.
 :::
 
 ## Choosing the right repository {#Packagerepositories-Choosingtherightrepository}
@@ -146,3 +153,10 @@ The built-in NuGet server in Octopus stores metadata in SQL Server, and doesn't 
 
 - For network file shares, keep in mind that Octopus and Tentacle run under system accounts by default, which may not have access to the file share
 - NuGet.Server only allows 30MB packages [by default](http://help.octopusdeploy.com/discussions/problems/184-30mb-default-maximum-nuget-package-size)
+
+To troubleshoot authentication issues, use `NuGet.exe` 3.5 and issue a list packages command. You may need to add the feed as a source first. For example:
+
+```
+nuget.exe sources Add -Name MyFeed -Source "http://example.com/MyFeed/nuget/v3/index.json" -Username Bob -Password pass123
+nuget.exe list -Source MyFeed
+```
