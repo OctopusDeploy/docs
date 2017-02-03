@@ -17,12 +17,13 @@ It's important to consider the impact of updating an existing Octopus server or 
 This assumes you have already installed Octopus on the target server.
 
 1. Stop the OctopusDeploy service on the target Octopus server you wish to update.
-2. Execute the following statement at a command line on the same server.  Note that the password is optional.  asdf
+2. Execute the following statement at a command line on the same server.  Note that the password is optional.
 
 ```powershell
 Octopus.Server.exe import-certificate --from-file="C:\PathToCertificate\cert.pfx" --pfx-password="Password" --console
 ```
-    This should display something like the following.
+
+This should display something like the following.
 
 ```powershell
 Octopus Deploy: Server version 3.2.x
@@ -48,7 +49,8 @@ This assumes you have already installed a Tentacle on the target server.
 ```powershell
 tentacle.exe import-certificate --from-file="C:\PathToCertificate\cert.pfx" --pfx-password="Password" --console
 ```
-    This should display something like the following.
+
+This should display something like the following.
 
 ```powershell
 Octopus Deploy: Tentacle version 3.2.x
@@ -80,7 +82,8 @@ continue with the following steps to ensure the Octopus Server recognises this n
 ```powershell
 Tentacle.exe show-thumbprint
 ```
-    This should display something like the following.
+
+This should display something like the following.
 
 ```powershell
 Octopus Deploy: Tentacle version 3.2.x
@@ -88,5 +91,7 @@ The thumbprint of this Tentacle is: DE010ABF6FF8ED1B7895A31F005B8D88A3329867
 ```
 5. Open the Octopus web portal and select to the Tentacle on the Environments Page.
 6. Update the Tentacle thumbprint to use the value from Step 4 above and click the save button.  
+
 ![](/docs/images/3049117/3278508.png "width=500")
+
 7. Select the Connectivity tab and then click Check health to verify the connection is working.  If it's not, double check the Octopus Server and Tentacle thumbprints to ensure their correct.
