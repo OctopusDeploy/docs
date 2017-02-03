@@ -20,7 +20,7 @@ If you need to move the Octopus Home folder, you can do that using the command-l
 Usage: Octopus.Server configure [<options>]
 ```
 
-Where `[&lt;options&gt;]` is:
+Where `[<options>]` is:
 
 **Options**
 
@@ -62,7 +62,7 @@ If you need to move other folders than the Octopus Home folder, you can do that 
 Octopus.Server path [<options>]
 ```
 
-Where `[&lt;options&gt;]` is any of:
+Where `[<options>]` is any of:
 
 **Options**
 
