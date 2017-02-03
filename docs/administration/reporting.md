@@ -26,7 +26,7 @@ To help you get started, we provide a sample Excel spreadsheet that you can conn
 
 The fastest way to get started is to use our Excel spreadsheet template. The spreadsheet uses Pivot Tables and Pivot Charts to summarise the data. You can use it as a starting point, and then modify or adapt it to suit your needs.
 
-First, [download the template](/docs/attachments/Octopus Report.xlsx) and open it in Excel. The template fetches data from our public [Demo Octopus Server](https://demo.octopusdeploy.com).
+First, **[download the template](/docs/attachments/OctopusReport.xlsx)** and open it in Excel. The template fetches data from our public [Demo Octopus Server](https://demo.octopusdeploy.com).
 
 :::hint
 Please make sure you [unblock the file](https://www.google.com.au/search?q=windows%20unblock%20file) after downloading it, otherwise you may get a misleading error message like: `The file is corrupt and cannot be opened`
