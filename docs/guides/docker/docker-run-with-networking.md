@@ -18,7 +18,9 @@ If not, you will need to configure a host for our sample application. We recomme
 1. Install Ubuntu
 2. Configure your Ubuntu machine as an [SSH Target](/docs/deployment-targets/ssh-targets/index.md) in Octopus - [this guide may be helpful](/docs/guides/node-on-nix-deployments/configuring-target-machine.md)
  1. Make sure this Deployment Target has a [Machine Role](/docs/key-concepts/machine-roles.md) like **docker-test**. We will configure the Docker steps to target this role.
+ 
 ![](/docs/images/5670973/5865822.png?effects=drop-shadow "width=500")
+
 3. Configure Docker Engine on your Ubuntu machine - [https://docs.docker.com/engine/installation/linux/ubuntulinux/](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
 4. Configure a Docker Group and grant Octopus the ability to command the Docker Daemon - [https://docs.docker.com/engine/installation/linux/ubuntulinux/#/create-a-docker-group](https://docs.docker.com/engine/installation/linux/ubuntulinux/#/create-a-docker-group)
 
