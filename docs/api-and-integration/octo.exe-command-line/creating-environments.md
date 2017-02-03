@@ -9,7 +9,7 @@ position: 0
 octo create-environment [<options>]
 ```
 
-Where `[&lt;options&gt;]` is any of:
+Where `[<options>]` is any of:
 
 **create-environment options**
 
