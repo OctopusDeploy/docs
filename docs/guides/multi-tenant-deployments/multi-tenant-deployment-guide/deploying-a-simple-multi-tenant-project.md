@@ -13,11 +13,17 @@ By connecting tenants to projects you can control which projects will be deploye
 
 1. Navigate to your tenant.
 2. Click on the **Connect to a project** button.
+
 ![](/docs/images/5669221/5865688.png?effects=drop-shadow "width=500")
+
 3. Select the **Mojo** project and click on the **Enable tenanted deployments for Mojo** button which will enable the multi-tenant deployment features for the Mojo project. This will configure the project to allow deployments *with* or *without* a tenant, and we will discuss these options later on.
+
 ![](/docs/images/5669221/5865689.png?effects=drop-shadow "width=500")
+
 4. Now select the **MT Production** environment and click the **Add connection** button.
+
 ![](/docs/images/5669221/5865557.png?effects=drop-shadow "width=500")
+
 5. Click the **Save** button to save the tenant configuration.
 
 :::success
