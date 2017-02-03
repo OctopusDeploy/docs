@@ -26,7 +26,7 @@ To help you get started, we provide a sample Excel spreadsheet that you can conn
 
 The fastest way to get started is to use our Excel spreadsheet template. The spreadsheet uses Pivot Tables and Pivot Charts to summarise the data. You can use it as a starting point, and then modify or adapt it to suit your needs.
 
-First, **[download the template](/docs/attachments/download the template)** and open it in Excel. The template fetches data from our public [Demo Octopus Server](https://demo.octopusdeploy.com).
+First, **[download the template](/docs/attachments/Octopus Report.xlsx)** and open it in Excel. The template fetches data from our public [Demo Octopus Server](https://demo.octopusdeploy.com).
 
 :::hint
 Please make sure you [unblock the file](https://www.google.com.au/search?q=windows%20unblock%20file) after downloading it, otherwise you may get a misleading error message like: `The file is corrupt and cannot be opened`
@@ -35,16 +35,13 @@ Please make sure you [unblock the file](https://www.google.com.au/search?q=windo
 To change the source of the data:
 
 1. Go to the **DATA** ribbon tab in Excel, then click **Connections**:
-
-![](/docs/images/3048643/3278356.png "width=500")
+   ![](/docs/images/3048643/3278356.png "width=500")
 2. Select the **Octopus Deployment history** connection, then click **Properties...**
-![](/docs/images/3048643/3278357.png "width=500")
+   ![](/docs/images/3048643/3278357.png "width=500")
 3. Go to the **Definition** tab, then click **Browse...**
-
-![](/docs/images/3048643/3278358.png "width=500")
+   ![](/docs/images/3048643/3278358.png "width=500")
 4. In the Select Data Source menu, instead of selecting a file, enter your reporting URL, then Open. To get your reporting URL, see the section below on **Using the XML Feed**. 
-
-![](/docs/images/3048643/3278360.png "width=500")
+   ![](/docs/images/3048643/3278360.png "width=500")
 
 ## Refreshing the data {#Reporting-Refreshingthedata}
 
@@ -93,7 +90,7 @@ This is due to that the revocation information for the certificate is not retrie
 7. Cancel the File Open dialog
 8. Cancel the Data Connection Wizard
 9. Paste the URL in the File Name field
-:::
+   :::
 
 ## Direct table access {#Reporting-Directtableaccess}
 
