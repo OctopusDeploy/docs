@@ -45,16 +45,27 @@ By using this pattern you can:
 Alternatively you could create [Tenants](/docs/key-concepts/tenants/index.md) to represent each region or data centre. By doing so you can:
 
 1. Use [Variable Templates](/docs/deploying-applications/variables/variable-templates.md) to prompt you for the variables required for each region (like the storage account details for that region) and when you introduce a new region Octopus will prompt you for the missing variables
+
 ![](/docs/images/5670886/5865790.png "width=500")
+
 2. Provide logos for your regions to make them easier to distinguish
+
 ![](/docs/images/5670886/5865788.png "width=500")
+
 3. Quickly see the progress of deploying the latest release to your entire production environment on the main dashboard
+
 ![](/docs/images/5670886/5865785.png "width=500")
+
 4. Quickly see which releases have been deployed to which regions using the Dashboard and Project Overview
+
 ![](/docs/images/5670886/5865786.png "width=500")
+
 5. Quickly promote releases to your production regions, in a particular sequence, or simultaneously
+
 ![](/docs/images/5670886/5865789.png "width=500")
+
 6. Use [Scheduled Deployments](/docs/deploying-applications/scheduled-deployments.md) to plan deployments for times of low usage
+
 ![](/docs/images/5670886/5865787.png "width=500")
 
 You do give up the advantage of enforcing the order in which you deploy your application to your regions, but you gain the flexibility to promote to your regions in different order depending on the circumstances.
