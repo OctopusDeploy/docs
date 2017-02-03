@@ -60,7 +60,7 @@ Uninstalling the old Octopus MSI only removes the program files from disk and st
 When upgrading from one version of Octopus to another we actually perform an uninstall of the old version and then install the new version; the only difference in this case is that due to limitations in Windows Installer/WiX, we can't easily locate the per-user installation.
 :::
 
-You can uninstall the old version of the Octopus Deploy MSI installer and install the new version by locating the entry in **Programs and Features**in the Windows Control Panel:
+You can uninstall the old version of the Octopus Deploy MSI installer and install the new version by locating the entry in **Programs and Features** in the Windows Control Panel:
 
 ![](/docs/images/3048131/3278003.png "width=500")
 
