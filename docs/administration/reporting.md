@@ -35,12 +35,19 @@ Please make sure you [unblock the file](https://www.google.com.au/search?q=windo
 To change the source of the data:
 
 1. Go to the **DATA** ribbon tab in Excel, then click **Connections**:
+
    ![](/docs/images/3048643/3278356.png "width=500")
+   
 2. Select the **Octopus Deployment history** connection, then click **Properties...**
+
    ![](/docs/images/3048643/3278357.png "width=500")
+   
 3. Go to the **Definition** tab, then click **Browse...**
+
    ![](/docs/images/3048643/3278358.png "width=500")
-4. In the Select Data Source menu, instead of selecting a file, enter your reporting URL, then Open. To get your reporting URL, see the section below on **Using the XML Feed**. 
+   
+4. In the Select Data Source menu, instead of selecting a file, enter your reporting URL, then Open. To get your reporting URL, see the section below on **Using the XML Feed**.
+
    ![](/docs/images/3048643/3278360.png "width=500")
 
 ## Refreshing the data {#Reporting-Refreshingthedata}
@@ -53,12 +60,12 @@ Once you have set up your connection, you can refresh the data from the source w
 
 The best way to consume reporting data from Octopus is using the XML feed. The feed is always available at:
 
-`http://&lt;OCTOPUS-SERVER&gt;/api/reporting/deployments/xml?apikey=&lt;API-KEY&gt;`
+`http://<OCTOPUS-SERVER>/api/reporting/deployments/xml?apikey=<API-KEY>`
 
 Where:
 
-- `&lt;OCTOPUS-SERVER&gt;` is the hostname of your Octopus server
-- `&lt;API-KEY&gt;` is one of [your API keys](/docs/how-to/how-to-create-an-api-key.md)
+- `<OCTOPUS-SERVER>` is the hostname of your Octopus server
+- `<API-KEY>` is one of [your API keys](/docs/how-to/how-to-create-an-api-key.md)
 
 For example:
 
