@@ -9,7 +9,7 @@ position: 4
 octo deploy-release [<options>]
 ```
 
-Where `[&lt;options&gt;]` is any of:
+Where `[<options>]` is any of:
 
 **Deploy release options**
 
