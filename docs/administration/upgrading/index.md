@@ -50,7 +50,7 @@ You can also use our release comparison tool to see **all of the changes** intro
 
 The process for successfully downgrading depends on the upgrade you have performed.
 
-1. **Patch upgrade =**If you install a patch of Octopus Deploy and run into any problems, you should be able to reinstall the version of Octopus Deploy that was installed prior to the upgrade straight over-the-top without any problems
+1. **Patch upgrade** = If you install a patch of Octopus Deploy and run into any problems, you should be able to reinstall the version of Octopus Deploy that was installed prior to the upgrade straight over-the-top without any problems
  1. For example: 3.4.4 => 3.4.12 (same Major.Minor but different Patch). If you need to downgrade for any reason you should be able to reinstall 3.4.4 straight over the top of 3.4.12.
 2. **Minor upgrade** = If you perform a Minor upgrade and run into any problems, you will need to restore a recent SQL Database backup and reinstall the version of Octopus Deploy that was installed prior to the upgrade
  1. For example: 3.4.4 => 3.5.1 would be a Minor upgrade. Make sure to test a [backup and restore](/docs/administration/backup-and-restore.md) before upgrading. If you need to downgrade for any reason, you should restore the backup, and then reinstall 3.4.4.
