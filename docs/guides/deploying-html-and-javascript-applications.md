@@ -70,11 +70,17 @@ Now we need to create the project and configure it ready to deploy our JavaScrip
 2. Configure some project variables to match the JavaScript shown above. *You can use these values or any other values you wish - we've chosen to show a [complex expression](/docs/deploying-applications/variables/binding-syntax.md) including an [Octopus System Variable](/docs/deploying-applications/variables/system-variables.md).*
 ![](/docs/images/5672397/5866206.png?effects=drop-shadow "width=500")
 3. Configure the deployment process to deploy the MyApp package and host it in an IIS Web Site. Our web servers in this example belong to the **web-server** role.
+
 ![](/docs/images/5672397/5866207.png?effects=drop-shadow "width=500")
+
 4. Configure the IIS Web Site you want Octopus to set up on your behalf.
+
 ![](/docs/images/5672397/5866208.png?effects=drop-shadow "width=500")
+
 ![](/docs/images/5672397/5866209.png?effects=drop-shadow "width=500")
+
 5. Enable the [Substitute Variables in Files](/docs/deploying-applications/substitute-variables-in-files.md) feature and configure it to replace the expressions in our `MyApp.html` file with variable values we defined earlier.
+
 ![](/docs/images/5672397/5866210.png?effects=drop-shadow "width=500")
 
 ### Step 3: Deploy! {#DeployingHTMLandJavaScriptApplications-Step3:Deploy!}
