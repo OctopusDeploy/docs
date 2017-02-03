@@ -30,10 +30,16 @@ The built-in User Roles can be modified to contain more or less roles to suit sp
 
 A custom User Role can be created with any combination of roles. To create a custom user role:
 
-1. Go to the Teams page, and look for the Roles link**![](/docs/images/3048105/3278287.png "width=500")**
+1. Go to the Teams page, and look for the **Roles** link
+
+   ![](/docs/images/3048105/3278287.png "width=500")
+   
 2. Click **Add custom role**
+
    ![](/docs/images/3048105/3278288.png "width=500")
+   
 3. Select the set of roles you'd like this new User Role to contain, and give the role a name and description
+
    ![](/docs/images/3048105/3278289.png "width=500")
 
 Once the custom role is saved, the new role will be available to be assigned to any team on Octopus.
