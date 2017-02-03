@@ -57,23 +57,23 @@ The migration process can optionally be executed via command line as described 
 Octopus.Migrator.exe migrate [<options>]
 ```
 
-Where`[&lt;options&gt;]`is any of:
+Where`[<options>]`is any of:
 
 **configure options**
 
 ```powershell
-    --instance				Name of the instance to use
-	--file=VALUE  	     	Octopus 2.6 (.octobak) file
+    --instance			Name of the instance to use
+    --file=VALUE  	     	Octopus 2.6 (.octobak) file
     --master-key=VALUE   	Master key used to decrypt the file
-    --dry-run				[Optional] Do not commit changes, just print what would have happened
-	--maxage				[Optional] Ignore historical data older than x days
-	--nologs				[Optional] Only import data, but do not convert and import the raw server log entries
-	--onlylogs				[Optional] No data imported, only import the raw server log entries for existing migrated data. 
-    --nooverwrite			[Optional] The data that exists in the 3.x database will be treated as truth and not overwritten by the backup file, only new data will be inserted
+    --dry-run			[Optional] Do not commit changes, just print what would have happened
+    --maxage			[Optional] Ignore historical data older than x days
+    --nologs			[Optional] Only import data, but do not convert and import the raw server log entries
+    --onlylogs			[Optional] No data imported, only import the raw server log entries for existing migrated data. 
+    --nooverwrite		[Optional] The data that exists in the 3.x database will be treated as truth and not overwritten 					by the backup file, only new data will be inserted
 ```
 
 To see the command syntax click the **Show script** link in the wizard.
 
 In 3.x the server task logs are stored on the file system. In 2.6 they were stored in the database, so a large amount of time and memory is needed during the 2.6 - 3.x migration. If you have a lot of history this can take time. You can use combinations of our options with the migrator to find the quickest migration path or get up and running faster and convert the past history logs at more convenient time when your Octopus Server may not be in use.
 
-Note that --nologs and --onlylogs are mutually exclusive. You can use combinations of --maxage and --nologs and --nooverwrite. --onlylogs will not import any data, so will only convert logs that match the data that was previously imported.
+Note that `--nologs` and `--onlylogs` are mutually exclusive. You can use combinations of `--maxage` and `--nologs` and `--nooverwrite`. `--onlylogs` will not import any data, so will only convert logs that match the data that was previously imported.
