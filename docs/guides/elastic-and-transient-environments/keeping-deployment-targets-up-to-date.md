@@ -36,6 +36,7 @@ To test the trigger, we will disable a deployment target, deploy to that target'
 2. Create a new release of OctoFX and deploy it to the **Test A** environment.  It will skip the steps that have been scoped to the **TradingWebServer** role because no deployment targets are available in that role:
 ![](/docs/images/5669262/5865574.png "width=500")
 3. Enable the deployment target **TAWeb01.** Octopus will automatically determine that it is missing the release we just deployed.  The deployment is re-queued and will run only for the **TAWeb01** target, creating a new log section below the original deployment log:
+
 ![](/docs/images/5669262/5865575.png "width=500")
 
 ## Overriding the release used for automatic deployments {#Keepingdeploymenttargetsuptodate-Overridingthereleaseusedforautomaticdeploymentsoverriderelease}
