@@ -32,7 +32,7 @@ The verbosity of file logging is controlled in the `octopus-log-file` section:
 
 The `minlevel` attribute is most useful for configuring the logging level. Change this value to `Trace` to gather more information.
 
-Restart the associated Octopus process after making changes.
+The Octopus process will automatically switch to the new logging level as soon as the file is saved.
 
 :::warning
 **Don&#39;t forget to reset your changes**
