@@ -22,7 +22,7 @@ We added first-class support for automatically [cleaning up environments](/docs/
 octo clean-environment [<options>]
 ```
 
-Where `[&lt;options&gt;]` is any of:
+Where `[<options>]` is any of:
 
 **create-environment options**
 
