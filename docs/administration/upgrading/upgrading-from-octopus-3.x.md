@@ -168,7 +168,8 @@ If for any reason you need to downgrade to a previous version of Octopus Server,
 :::warning
 Wait until all current tasks and deployments have completed.
 :::
-    ![](/docs/images/3048440/5865775.png "width=500")
+
+![](/docs/images/3048440/5865775.png "width=500")
 
 2. Navigate to the Octopus Manager and stop the Octopus service.
 
