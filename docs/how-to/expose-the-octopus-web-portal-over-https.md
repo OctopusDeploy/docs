@@ -13,7 +13,8 @@ The following steps will show how to configure Octopus to listen on HTTPS.
 ![](/docs/images/3048148/3278103.png)
 2. From Octopus Manager, you can launch a wizard to modify the bindings that are associated with the Octopus web portal:
 ![](/docs/images/3048148/3278102.png "width=500")
-3. In the Web Bindings wizard, click **Add...** to add a new binding, and choose the HTTPS scheme. Other options such as the port can also be configured here. 
+3. In the Web Bindings wizard, click **Add...** to add a new binding, and choose the HTTPS scheme. Other options such as the port can also be configured here.
+
 ![](/docs/images/3048148/3278452.png "width=500")
 
 Since HTTPS requires an SSL certificate, you can either choose to generate a new, self-signed (untrusted) certificate, or to select an existing certificate. Self-signed certificates are useful for testing or to achieve encryption without trust, but for production use we recommend using a trusted SSL certificate.
@@ -25,14 +26,18 @@ When you choose to select an existing certificate when configuring your HTTPS bi
 
 1. Launch an empty Microsoft Management Console shell by running **mmc.exe** from the start menu, command line or Win+R run dialog
 2. From the File menu, click Add/Remove Snap-in...
+
 ![](/docs/images/3048148/3278110.png "width=500")
 3. Add the Certificates snap-in, and when prompted, choose the Computer account scope:
+
 ![](/docs/images/3048148/3278101.png "width=500")
 4. On the "Select Computer" page of the Wizard, select the **Local computer**, then click **Finish**. Click **OK** to close the Add/Remove Snap-ins dialog.
 5. You can either import the certificate to the **Personal** store, or the **Web Hosting** store (this store may or may not exist on your server). Expand to the Certificates directory, then open the import wizard:
 ![](/docs/images/3048148/3278100.png "width=500")
 6. Follow the steps in the wizard to import your certificate. Your certificate will normally be in a .**PFX** file, and it should include both the public X.509 certificate, and the private key for the certificate.
 7. Once the certificate is imported, double click the certificate to bring up the properties. You should see an icon indicating that the private key has also been imported:
+
 ![](/docs/images/3048148/3278099.png)
 8. If all these requirements have been met (**private key** imported, either the **Web Hosting** or **Personal** stores, in the **Local Computer** scope), the certificate should appear when you select to use an existing certificate when adding your HTTPS binding:
+
 ![](/docs/images/3048148/3278454.png "width=500")
