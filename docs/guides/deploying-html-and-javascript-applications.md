@@ -57,7 +57,7 @@ Firstly we need to make the package available for Octopus to deploy.
 We've crafted and packaged v1.0.0 of this sample application for you to try out (see the link below). Alternatively you can create your own application and [package the application](/docs/packaging-applications/index.md) yourself to try it out.
 :::
 
-1. Download [MyApp.1.0.0.zip](/docs/attachments/MyApp.1.0.0.zip)
+1. Download [MyApp.1.0.0.zip](/docs/attachments/myapp.1.0.0.zip)
 2. [Upload it to the Octopus Built-In repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) (you can do this by going to *Library > Packages* and clicking the **Upload package** button)
 ![](/docs/images/5672397/5866205.png?effects=drop-shadow "width=500")
 

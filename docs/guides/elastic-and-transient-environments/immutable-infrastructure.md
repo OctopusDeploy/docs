@@ -33,7 +33,7 @@ For this demonstration, let's create a project called **Hello World** that will 
 
 The infrastructure project runs a script that provisions two new Tentacles and removes any old Tentacles in the environment we are deploying to. In practice this project would create your new infrastructure, add it to your load balancer and terminate your old infrastructure.
 
-1. Download the [HelloWorldInfrastructure.1.0.0.0.zip](/docs/attachments/HelloWorldInfrastructure.1.0.0.0.zip) package that contains the scripts that run in this project and make any modifications required by your Octopus installation.
+1. Download the [HelloWorldInfrastructure.1.0.0.0.zip](/docs/attachments/helloworldinfrastructure.1.0.0.0.zip) package that contains the scripts that run in this project and make any modifications required by your Octopus installation.
 2. Upload the package to your Octopus package feed:
 ![](/docs/images/5670238/5865676.png "width=500")
 3. Install Tentacle on the same machine as your Octopus Server (there is no need to configure a Tentacle instance).
