@@ -19,7 +19,7 @@ The search on this dialog will locate any groups in the domain that start with t
 
 ### Trusted Domains {#ExternalGroupsandRoles-TrustedDomainsTrustedDomains}
 
-If your environment has trusted domains, you can search for groups in the trusted domain by prefixing the search text with "**domain\**" (where domain is the name of the Trusted Domain).
+If your environment has trusted domains, you can search for groups in the trusted domain by prefixing the search text with "**domain**" (where domain is the name of the Trusted Domain).
 
 ## Add External Role {#ExternalGroupsandRoles-AddExternalRole}
 
