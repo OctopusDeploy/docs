@@ -9,7 +9,7 @@ This section focuses on securing data in the [Octopus database](/docs/administr
 
 When an Octopus server is installed, we generate a special key used for encryption, called the **master key**. The master key is then encrypted asymmetrically, using [DPAPI](http://msdn.microsoft.com/en-us/library/ms995355.aspx), and stored in the Octopus configuration file.
 
-The master key is then used along with[AES-128](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) to encrypt certain sensitive data in the Octopus database, including:
+The master key is then used along with [AES-128](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) to encrypt certain sensitive data in the Octopus database, including:
 
 - [Sensitive variables](/docs/deploying-applications/variables/sensitive-variables.md)
 - Private keys used for [Octopus/Tentacle](/docs/reference/octopus-tentacle-communication/index.md) communication, and for authenticating with [Azure](/docs/key-concepts/environments/accounts/azure-subscription-account.md) and [SSH endpoints](/docs/deployment-targets/ssh-targets/configuring-ssh-connection.md)
@@ -33,9 +33,13 @@ When Octopus is installed, it generates a random string which will be used as th
 ### Getting the key from the Octopus Manager {#Securityandencryption-GettingthekeyfromtheOctopusManager}
 
 1. Open the **Octopus Manager** from the start menu/start screen
+
 ![](/docs/images/3048071/3277610.png)
+
 2. Click **View master key**
+
 **![](/docs/images/3048071/3277606.png "width=500")**
+
 3. Click **Save** to save the master key to a text file or **Copy to clipboard** and then paste the master key into a text editor or a secure enterprise password manager, and save it
 
 ### Getting the Key from Powershell {#Securityandencryption-GettingtheKeyfromPowershell}
