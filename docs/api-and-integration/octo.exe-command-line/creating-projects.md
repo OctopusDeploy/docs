@@ -9,7 +9,7 @@ position: 1
 octo create-project [<options>]
 ```
 
-Where `[&lt;options&gt;]` is any of:
+Where `[<options>]` is any of:
 
 **create-project options**
 
