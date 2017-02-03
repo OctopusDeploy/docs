@@ -72,7 +72,7 @@ Say-Hello -name George
 Once you're done, hit **Save.**
 
 :::success
-Make sure to select a**Role**, an **Environment**and to put a **Step Name**
+Make sure to select a **Role**, an **Environment** and to put a **Step Name**
 :::
 
 3.  Create and Deploy a release.
