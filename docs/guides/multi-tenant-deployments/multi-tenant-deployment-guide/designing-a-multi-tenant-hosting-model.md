@@ -76,6 +76,7 @@ Now let's configure some shared servers in a farm:
 
 1. Create one or more deployment targets that will be used to host the applications for these tenants. *This could be any type of deployment target.*
 2. Select the **Hosting/Shared-Farm-1** tag
+
 ![](/docs/images/5669555/5865743.png?effects=drop-shadow "width=500")
 
 These deployment targets will now be included in deployments for any tenants matching this filter, that is any tenants tagged with **Hosting/Shared-Farm-1**.
