@@ -28,7 +28,7 @@ To make integrating with TeamCity easy, a [plugin is available](https://octopus
 
 1. Download the [TeamCity Plugin ZIP file](https://octopus.com/downloads)
 2. Shut down your TeamCity server
-3. Copy the ZIP file with the plugin to `&lt;TeamCity Data Directory&gt;/plugins`
+3. Copy the ZIP file with the plugin to `<TeamCity Data Directory>/plugins`
 4. Start TeamCity server: the plugin files will be unpacked and processed automatically
 
 ## Creating Octopus-compatible NuGet packages using TeamCity {#TeamCity-CreateNuGetPackageCreatingOctopus-compatibleNuGetpackagesusingTeamCity}
