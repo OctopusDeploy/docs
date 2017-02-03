@@ -38,9 +38,9 @@ This will log the variables available at the beginning of each step in the deplo
 | OctopusPrintVariables | True |
 | OctopusPrintEvaluatedVariables | True |
 
-    It should look like this. You can have as many extra variables as you want besides these two.
-    
-    ![](/docs/images/3048145/3278087.png "width=500")
+It should look like this. You can have as many extra variables as you want besides these two.
+
+![](/docs/images/3048145/3278087.png "width=500")
 
 3. **Create a new release** of the project or **Update the variable snapshot** for the release as shown above
 4. Deploy the new release
