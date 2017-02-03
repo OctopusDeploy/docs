@@ -43,6 +43,7 @@ The infrastructure project runs a script that provisions two new Tentacles and r
 6. Add a step that performs a health check, excluding unavailable machines from the deployment:
 ![](/docs/images/5670238/5865670.png "width=500")
 7. Add a step that runs **Teminate.ps1** from the package **HelloWorldInfrastructure** on the Octopus Server on behalf of all roles:
+
 ![](/docs/images/5670238/5865671.png "width=500")
 
 ## Intermission {#ImmutableInfrastructure-Intermission}
@@ -64,6 +65,7 @@ Cleaning up old Tentacles can be accomplished through the use of machine policie
 3. Select "Unavailable machines will not cause health checks to fail"
 4. Select "Automatically delete unavailable machines"
 5. Change "Time unavailable" to 5 minutes
+
 ![](/docs/images/5670238/5865677.png "width=500")
 
 ### Automatically deploying {#ImmutableInfrastructure-Automaticallydeploying}
