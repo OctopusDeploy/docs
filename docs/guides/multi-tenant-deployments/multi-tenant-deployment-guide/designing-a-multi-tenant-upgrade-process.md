@@ -26,7 +26,7 @@ Let's make sure all of the environments exist and configure our lifecycle. If yo
 1. Make sure the **MT Dev**, **MT Test**, **MT Staging** and **MT Production** environments have been configured.
 2. Configure the **MT Normal Lifeycle** to promote releases to each of these environment in the order shown.
 
-![](/docs/images/5669342/5865746.png?effects=drop-shadow)
+![](/docs/images/5669342/5865746.png)
 
 ### Step 2: Configure a test tenant {#Designingamulti-tenantupgradeprocess-Step2:Configureatesttenant}
 
@@ -73,7 +73,7 @@ octo.exe deploy-release --project Mojo --version 1.0.1 --deployto "MT Dev" --ten
 
 When using the Create Release, Deploy Release or Promote Release features of the build-server extensions, you can set the **`Tenants`** value to **`*`**
 
-![](/docs/images/5669342/5866226.png?effects=drop-shadow "width=500")
+![](/docs/images/5669342/5866226.png "width=500")
 
 ## Deploying to tenants using tenant tags {#Designingamulti-tenantupgradeprocess-Deployingtotenantsusingtenanttags}
 
@@ -122,7 +122,7 @@ You may decide to use channels as a safety measure, to restrict test releases to
 
 Firstly we will create a new [Lifecycle](/docs/key-concepts/lifecycles.md)
 
-![](/docs/images/5669342/5866198.png?effects=drop-shadow "width=300")
+![](/docs/images/5669342/5866198.png "width=300")
 
 :::hint
 Learn more about [defining a limited Lifecycle for your test Channel](/docs/key-concepts/projects/channels.md).
@@ -138,7 +138,7 @@ Earlier in this guide we created the with **`Upgrade ring/Tester`** tag and ta
 
 Now create a release in the new **1.x Test** channel giving it a SemVer pre-release version like **1.0.1-alpha.19** indicating this is a pre-release of **1.0.1** for testing purposes.
 
-![](/docs/images/5669342/5866201.png?effects=drop-shadow "width=500")
+![](/docs/images/5669342/5866201.png "width=500")
 
 ### Step 4: Deploy! {#Designingamulti-tenantupgradeprocess-Step4:Deploy!.1}
 
@@ -152,7 +152,7 @@ Quite often you want to involve certain customers in testing early releases of m
 
 Firstly we will create a new [Lifecycle](/docs/key-concepts/lifecycles.md)
 
-![](/docs/images/5669342/5865747.png?effects=drop-shadow)
+![](/docs/images/5669342/5865747.png)
 
 :::hint
 Learn more about [defining a limited Lifecycle for your test Channel](/docs/key-concepts/projects/channels.md).

@@ -50,13 +50,13 @@ Let's configure some deployment targets as dedicated hosts for the tenant we cre
 
 1. Create one or more deployment targets that will be used to host the applications for the tenant. *This could be any type of deployment target.*
 2. Configure each deployment target as a dedicated host for the tenant
-![](/docs/images/5669555/5865740.png?effects=drop-shadow "width=500")
+![](/docs/images/5669555/5865740.png "width=500")
 
 ### Step 2: Deploy! {#Designingamulti-tenanthostingmodel-Step2:Deploy!}
 
 That's it! Now let's deploy the project for this tenant and see the results. You will see how Octopus includes these specific deployment targets in that tenant's deployments, creating an isolated hosting environment for that tenant.
 
-![](/docs/images/5669555/5865741.png?effects=drop-shadow "width=500")
+![](/docs/images/5669555/5865741.png "width=500")
 
 ## Scenario: Shared hosting {#Designingamulti-tenanthostingmodel-Scenario:Sharedhosting}
 
@@ -68,7 +68,7 @@ Firstly let's create a tag set to identify which tenants should be hosted on whi
 
 1. Go to *Library > Tenant Tag Sets* and create a new tag set called **Hosting**
 2. Add a tag called **Shared-Farm-1** and set the colour to green which will help identify tenants on shared hosting more quickly
-![](/docs/images/5669555/5865742.png?effects=drop-shadow "width=500")
+![](/docs/images/5669555/5865742.png "width=500")
 
 ### Step 2: Configure the shared server farm {#Designingamulti-tenanthostingmodel-Step2:Configurethesharedserverfarm}
 
@@ -77,7 +77,7 @@ Now let's configure some shared servers in a farm:
 1. Create one or more deployment targets that will be used to host the applications for these tenants. *This could be any type of deployment target.*
 2. Select the **Hosting/Shared-Farm-1** tag
 
-![](/docs/images/5669555/5865743.png?effects=drop-shadow "width=500")
+![](/docs/images/5669555/5865743.png "width=500")
 
 These deployment targets will now be included in deployments for any tenants matching this filter, that is any tenants tagged with **Hosting/Shared-Farm-1**.
 
@@ -86,13 +86,13 @@ These deployment targets will now be included in deployments for any tenants mat
 Now let's select some tenants that should be hosted on **Shared-Farm-1**:
 
 1. Create some new tenants (or find existing ones) and tag them with **Hosting/Shared-Farm-1**
-**![](/docs/images/5669555/5865744.png?effects=drop-shadow "width=500")**
+**![](/docs/images/5669555/5865744.png "width=500")**
 
 ### Step 2: Deploy! {#Designingamulti-tenanthostingmodel-Step2:Deploy!.1}
 
 That's it! Now let's deploy the project for one of these tenants and see the results. You will see how Octopus includes any matching deployment targets in that tenant's deployments, creating a shared hosting environment your tenants.
 
-![](/docs/images/5669555/5865745.png?effects=drop-shadow "width=500")
+![](/docs/images/5669555/5865745.png "width=500")
 
 :::success
 **Accounts can also be restricted to tenants**
