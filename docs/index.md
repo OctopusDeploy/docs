@@ -1,5 +1,6 @@
 ---
 title: Home
+description: Octopus Deploy end user documentation
 hideInThisSection: true
 ---
 
