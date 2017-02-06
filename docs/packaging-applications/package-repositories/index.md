@@ -1,5 +1,6 @@
 ---
 title: Package repositories
+description: Octopus need to retrieve applications from a package repository; options include the built-in repository, local and remote NuGet feeds, JetBrains TeamCity, MyGet and VSTS or TFS Package Management.
 position: 0
 ---
 

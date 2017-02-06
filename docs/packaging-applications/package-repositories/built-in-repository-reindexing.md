@@ -1,5 +1,6 @@
 ---
 title: Built-in Repository Reindexing
+description: Octopus automatically re-indexes the built-in repository at startup to ensure that it is in sync.
 ---
 
 Octopus automatically re-indexes the built-in repository at startup to ensure that it is in sync.

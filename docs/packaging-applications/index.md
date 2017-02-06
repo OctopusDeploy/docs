@@ -1,5 +1,6 @@
 ---
 title: Packaging applications
+description: Applications executables, configuration files, scripts need to be packaged and versioned so they can be deployed.
 position: 3
 ---
 
