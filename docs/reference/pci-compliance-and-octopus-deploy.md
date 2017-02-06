@@ -1,5 +1,6 @@
 ---
 title: PCI Compliance and Octopus Deploy
+description: Using Octopus Deploy in PCI compliant environments.
 position: 5
 ---
 
@@ -29,10 +30,10 @@ PCI Compliance is primarily concerned with implementing "controls" or "practices
 
 ## Security considerations {#PCIComplianceandOctopusDeploy-Securityconsiderations}
 
-- Learn about [Octopus - Tentacle communication](/docs/reference/octopus-tentacle-communication/index.md) to understand how automation instructions are transmitted securely to maintain trust.
- - Full support for TLS 1.2 was introduced in Octopus Deploy 3.1. We recommend using the latest version of Octopus Deploy whenever possible.
-- Learn about [security and encryption](/docs/reference/security-and-encryption.md) of sensitive information in Octopus Deploy.
-- Learn about how Octopus Deploy handles [sensitive variables](/docs/deploying-applications/variables/sensitive-variables.md).
+* Learn about [Octopus - Tentacle communication](/docs/reference/octopus-tentacle-communication/index.md) to understand how automation instructions are transmitted securely to maintain trust.  
+  * Full support for TLS 1.2 was introduced in Octopus Deploy 3.1. We recommend using the latest version of Octopus Deploy whenever possible.  
+* Learn about [security and encryption](/docs/reference/security-and-encryption.md) of sensitive information in Octopus Deploy.  
+* Learn about how Octopus Deploy handles [sensitive variables](/docs/deploying-applications/variables/sensitive-variables.md).  
 
 :::success
 We conduct independent security analysis and penetration testing for Octopus Deploy. Contact our support team for a copy of the most recent report.

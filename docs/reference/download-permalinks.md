@@ -1,7 +1,7 @@
 ---
 title: Download Permalinks
-position: 100
 description: Permanent links to download the latest version of Octopus/Tentacle.
+position: 100
 ---
 
 If you are writing a script or utility to automatically download the latest version of one of our products, you can use the following permanent links:

@@ -1,5 +1,6 @@
 ---
 title: Reference
+description: Octopus Deploy Server and Tentacle agent general information.
 position: 10
 hideInThisSectionHeader: true
 ---
