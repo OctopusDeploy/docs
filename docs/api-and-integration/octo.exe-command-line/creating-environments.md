@@ -6,7 +6,7 @@ position: 0
 
 [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to create environments on your Octopus instance.
 
-```text
+```bash
 octo create-environment [<options>]
 ```
 
@@ -45,7 +45,7 @@ Common options:
 
 The following command will create an environment called *UAT*
 
-```text
+```bash
 Octo create-environment --name UAT --server http://MyOctopusServerURL.com --apikey MyAPIKey
 ```
 

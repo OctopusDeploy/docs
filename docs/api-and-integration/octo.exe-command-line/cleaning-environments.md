@@ -19,7 +19,7 @@ This is most useful when your environments can have temporary/ephemeral machines
 We added first-class support for automatically [cleaning up environments](/docs/guides/elastic-and-transient-environments/cleaning-up-environments.md).
 :::
 
-```text
+```bash
 octo clean-environment [<options>]
 ```
 
@@ -60,7 +60,7 @@ Common options:
 
 The following command will clean any *offline* machines from the *production* environment.
 
-```text
+```bash
 Octo clean-environment --environment Production --status Offline --server http://MyOctopusServerURL.com --apikey MyAPIKey
 ```
 

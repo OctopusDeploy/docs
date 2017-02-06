@@ -12,7 +12,7 @@ In Octo.exe version 3.3.8 we have added a command to push packages to Octopus di
 
 The following command will push the package ***MyPackage*** to your Octopus Server and will replace the package if it already exists in the built-in repository.
 
-```powershell
+```bash
 C:\> Octo.exe push --package MyPackage.1.0.0.zip --replace-existing --server http://my.octopus.url --apiKey API-XXXXXXXXXXXXXXXX
 ```
 
@@ -20,13 +20,13 @@ C:\> Octo.exe push --package MyPackage.1.0.0.zip --replace-existing --server htt
 
 The following command will push the packages ***MyPackage*** and ***MyOtherPackage*** to the Octopus Server but will not replace a package if it already exists in the built-in repository.
 
-```powershell
+```bash
 C:\> Octo.exe push --package MyPackage.1.0.0.zip --package MyOtherPackage.1.0.1.nupkg --server http://my.octopus.url --apiKey API-XXXXXXXXXXXXXXXX
 ```
 
 ## Push command usage {#Pushingpackages-Pushcommandusage}
 
-```powershell
+```bash
 C:\> Octo.exe help push
 Octopus Deploy Command Line Tool, version 3.3.8+Branch.master.Sha.f8a34fc6097785d7d382ddfaa9a7f009f29bc5fb
 

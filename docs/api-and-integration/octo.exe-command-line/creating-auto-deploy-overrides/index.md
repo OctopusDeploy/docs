@@ -6,7 +6,7 @@ position: 12
 
 [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to create automatic deployment release overrides.
 
-```text
+```bash
 octo create-autodeployoverride [<options>]
 ```
 
@@ -56,7 +56,7 @@ Common options:
 
 The following will create an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment *Development*:
 
-```text
+```bash
 Octo create-autodeployoverride --project HelloWorld --environment Development --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456
 ```
 
@@ -64,7 +64,7 @@ Octo create-autodeployoverride --project HelloWorld --environment Development --
 
 The following will create an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment *Development* for the tenant *Acme*:
 
-```text
+```bash
 Octo create-autodeployoverride --project HelloWorld --environment Development --tenant Acme --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456
 ```
 
@@ -72,6 +72,6 @@ Octo create-autodeployoverride --project HelloWorld --environment Development --
 
 The following will create an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment *Development* for all tenants with the *Hosting/Cloud* tag:
 
-```text
+```bash
 Octo create-autodeployoverride --project HelloWorld --environment Development --tenanttag Hosting/Cloud --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456
 ```

@@ -6,7 +6,7 @@ position: 1
 
 [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to create a project inside a project group.
 
-```text
+```bash
 octo create-project [<options>]
 ```
 
@@ -48,7 +48,7 @@ Common options:
 
 The following command will create a project called *MyWebApp* into the project group *MyProjectGroup*
 
-```text
+```bash
 Octo create-project --name MyWebApp --projectgroup MyProjectGroup --server http://MyOctopusServerURL.com --apikey MyAPIKey
 ```
 

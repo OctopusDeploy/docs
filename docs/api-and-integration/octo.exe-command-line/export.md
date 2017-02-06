@@ -6,13 +6,6 @@ position: 5
 
 This command allows you to export items from one Octopus Deploy server and import them into another Octopus Deploy server.
 
-- Exporting a project  
-  - Project Export Output  
-  - Project Export File Format  
-- Exporting a release, or range of releases  
-  - Release Export Output  
-  - Release Export File Format  
-
 We currently support exporting/importing:
 
 - Projects
@@ -20,7 +13,7 @@ We currently support exporting/importing:
 
 Usage:
 
-```powershell
+```text
 Usage: Octo export [<options>]
 
 Where [<options>] is any of:

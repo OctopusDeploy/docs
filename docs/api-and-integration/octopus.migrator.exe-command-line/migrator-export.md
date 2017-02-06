@@ -7,7 +7,7 @@ This command exports configuration data to a directory.
 
 Usage:
 
-```text
+```bash
 Octopus.Migrator export [<options>]
 ```
 

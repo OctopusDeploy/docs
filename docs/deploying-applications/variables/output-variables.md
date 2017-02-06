@@ -123,6 +123,6 @@ From a F# script, you can use the`setVariable : name:string -> value:string -> u
 
 **F#**
 
-```f#
+```fsharp
 Octopus.setVariable "TestResult" "Passed"
 ```

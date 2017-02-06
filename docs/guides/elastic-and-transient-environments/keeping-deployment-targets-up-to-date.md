@@ -45,7 +45,7 @@ Automatic deployments attempts to calculate the release to use for a project and
 
 **Octo.exe**
 
-```text
+```bash
 octo.exe create-autodeployoverride --server http://octopus/ --apiKey API-ABCDEF123456 --project HelloWorld --environment Test -version 1.3.0
 octo.exe delete-autodeployoverride --server http://octopus/ --apiKey API-ABCDEF123456 --project HelloWorld --environment Test
 ```

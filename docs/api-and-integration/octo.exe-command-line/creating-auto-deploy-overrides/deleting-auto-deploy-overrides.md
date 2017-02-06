@@ -5,7 +5,7 @@ description: Using the Octo.exe command line tool to delete automatic deployment
 
 [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to delete automatic deployment release overrides.
 
-```text
+```bash
 octo delete-autodeployoverride [<options>]
 ```
 
@@ -53,7 +53,7 @@ Common options:
 
 The following will delete an automatic deployment release override for the project *HelloWorld* to the environment *Development*:
 
-```text
+```bash
 Octo delete-autodeployoverride --project HelloWorld --environment Development --server http://octopus/ --apikey API-ABCDEF123456
 ```
 
@@ -61,7 +61,7 @@ Octo delete-autodeployoverride --project HelloWorld --environment Development --
 
 The following will delete an automatic deployment release override for the project *HelloWorld* to the environment *Development* for the tenant *Acme*:
 
-```text
+```bash
 Octo delete-autodeployoverride --project HelloWorld --environment Development --tenant Acme --server http://octopus/ --apikey API-ABCDEF123456
 ```
 
@@ -69,6 +69,6 @@ Octo delete-autodeployoverride --project HelloWorld --environment Development --
 
 The following will delete an automatic deployment release override for the project *HelloWorld* to the environment *Development* for all tenants with the *Hosting/Cloud* tag:
 
-```text
+```bash
 Octo delete-autodeployoverride --project HelloWorld --environment Development --tenanttag Hosting/Cloud --server http://octopus/ --apikey API-ABCDEF123456
 ```

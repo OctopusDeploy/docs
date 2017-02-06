@@ -11,7 +11,7 @@ This command exports configuration data to a directory filtered by a single proj
 
 Usage:
 
-```text
+```bash
 Octopus.Migrator partial-export [<options>]
 ```
 
@@ -44,6 +44,6 @@ Common Options:
 
 This will export the project files from *AcmeWebStore*and then spider back through the relevant linked documents in the database and back up *only those that are required in some way* to reproduce that project in its entireity.
 
-```text
+```bash
 Octopus.Migrator.exe partial-export --instance=MyOctopusInstanceName --project=AcmeWebStore --password=5uper5ecret --directory=C:\Temp\AcmeWebStore
 ```

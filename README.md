@@ -97,7 +97,7 @@ Example:
 Rendered as:
 
 1. Item 1
-1. Item 2
+2. Item 2
 
 #### Roman
 Example:
@@ -137,7 +137,8 @@ b. Item 2
 | powershell   | `ps`           |
 | json         | `json`         |
 | sql          | `sql`          |
-| f#           | `f#`           |
+| f#           | `fsharp`       |
+| text         | text           |
 
 **Always use fenced code blocks with a language.** If no language is defined then highlightjs will guess the language and it regularly gets it wrong.
 

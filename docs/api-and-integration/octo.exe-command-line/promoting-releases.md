@@ -6,7 +6,7 @@ position: 8
 
 [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to promote a release from one environment to another.
 
-```text
+```bash
 octo promote-release [<options>]
 ```
 
@@ -99,7 +99,7 @@ Common options:
 
 The following command will promote the latest release of the*Web* projectdeployed to *Development*to the environment *Staging.*
 
-```text
+```bash
 Octo promote-release --project Web --from Development --to Staging -progress --server http://MyOctopusServerURL.com --apikey MyAPIKey
 ```
 

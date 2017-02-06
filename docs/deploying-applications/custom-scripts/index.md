@@ -106,7 +106,7 @@ echo "Connection string is: $connectionString"
 
 **F#**
 
-```f#
+```fsharp
 // It's a good idea to copy the value into a variable to avoid quoting issues
 
 // tryFindVariable : name:string -> string option
@@ -213,7 +213,7 @@ You can pass parameters to C# scripts [as described here for the ScriptCS engin
 
 **Script Parameters in Octopus**
 
-```text
+```bash
 -- "#{Octopus.Environment.Name}" "#{MyApplication.Storage.Path}"
 ```
 
@@ -231,7 +231,7 @@ You can pass parameters to Bash scripts [as described in Bash manual.](https://
 
 **Script Parameters in Octopus**
 
-```text
+```powershell
 "#{Octopus.Environment.Name}" "#{MyApplication.Storage.Path}"
 ```
 
@@ -249,13 +249,13 @@ You can pass parameters to FSharp scripts [as described in MSDN.](https://msdn.
 
 **Script Parameters in Octopus**
 
-```text
+```powershell
 "#{Octopus.Environment.Name}" "#{MyApplication.Storage.Path}"
 ```
 
 **Usage in F# script**
 
-```f#
+```fsharp
 let environment = fsi.CommandLineArgs.[1]
 let storagePath = fsi.CommandLineArgs.[2]
 printfn "$s storage path: $s" environment storagePath
@@ -297,7 +297,7 @@ echoerror "You can even define your own function to echo an error!"
 
 **F#**
 
-```f#
+```fsharp
 printfn "This will be logged as Information" 
 eprintfn "This will be logged as Error" 
 

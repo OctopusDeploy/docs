@@ -7,7 +7,7 @@ This command imports data from an Octopus 3.0+ export directory
 
 Usage:
 
-```text
+```bash
 Octopus.Migrator import [<options>]
 ```
 
