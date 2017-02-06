@@ -56,7 +56,7 @@ Avoid using the [Custom Installation Directory](/docs/deploying-applications/cus
 As an approximation including the Windows Service manager integration:
 
 1. Acquire the package as optimally as possible (local package cache and [delta compression](/docs/deploying-applications/delta-compression-for-package-transfers.md))
-2. Stop your Windows Service is already running
+2. Stop your Windows Service is already running. Ensure that the user account running the Octopus Tentacle has the appropriate permissions to start\stop the Windows Service or this step may fail.
 3. Create a new folder for the deployment (which avoids many common problems like file locks, and leaving stale files behind)
 4. Example: `C:\Octopus\Applications\[Tenant name]\[Environment name]\[Package name]\[Package version]\` where `C:\Octopus\Applications` is the Tentacle application directory you configured when installing Tentacle)
 5. Extract the package into the newly created folder

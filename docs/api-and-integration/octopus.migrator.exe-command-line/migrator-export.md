@@ -21,7 +21,6 @@ Partial export:
       --password=VALUE       Password to encrypt any sensitive values
       --include-tasklogs     Include the task log folder as part of the
                                export.
-      --project=VALUE        Project to filter export for
      
 Common Options:
       --console              Don't attempt to run as a service, even if the
