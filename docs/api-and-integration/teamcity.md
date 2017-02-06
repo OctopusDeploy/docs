@@ -1,5 +1,6 @@
 ---
 title: TeamCity
+description: Octopus Deploy and TeamCity can work together to make automated, continuous delivery easy.
 position: 0
 ---
 
@@ -61,7 +62,7 @@ Don't worry, TeamCity comes with a built-in [NuGet Pack build step](https://conf
 
 Octopus can be used as a [NuGet package package](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md), or can be configured to use an external feed (such as retrieving them from TeamCity).
 
-To push packages to Octopus during the OctoPack phase, enter the NuGet endpoint url (which you can get from *Library &#10140; Packages*; it looks like http://octopus.example.com/nuget/packages) into the **Publish packages to http** field, and [an API key](/docs/how-to/how-to-create-an-api-key.md) in the **Publish API Key** field**.**OctoPack will then push the packages when the solution is built.
+To push packages to Octopus during the OctoPack phase, enter the NuGet endpoint url (which you can get from *Library &#10140; Packages*; it looks like http://octopus.example.com/nuget/packages) into the **Publish packages to http** field, and [an API key](/docs/how-to/how-to-create-an-api-key.md) in the **Publish API Key** field.  OctoPack will then push the packages when the solution is built.
 
 ## Consuming the TeamCity NuGet feed in Octopus {#TeamCity-ConsumeNuGetFeedInOctopusConsumingtheTeamCityNuGetfeedinOctopus}
 

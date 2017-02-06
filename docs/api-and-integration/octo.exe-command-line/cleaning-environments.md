@@ -1,5 +1,6 @@
 ---
 title: Cleaning environments
+description: Using the Octo.exe command line tool to delete/remove machines with a particular status from environments on your Octopus instance.
 position: 9
 ---
 

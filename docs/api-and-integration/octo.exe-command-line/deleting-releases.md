@@ -1,5 +1,6 @@
 ---
 title: Deleting releases
+description: Using the Octo.exe command line tool to delete releases.
 position: 3
 ---
 

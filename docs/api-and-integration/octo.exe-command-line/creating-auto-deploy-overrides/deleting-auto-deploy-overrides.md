@@ -1,5 +1,6 @@
 ---
 title: Deleting auto deploy overrides
+description: Using the Octo.exe command line tool to delete automatic deployment release overrides.
 ---
 
 [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to delete automatic deployment release overrides.

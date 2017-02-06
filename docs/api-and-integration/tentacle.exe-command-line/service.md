@@ -1,5 +1,6 @@
 ---
 title: Service
+description: Using the Tentacle.exe command line executable to start, stop, install and configure the Tentacle service.
 ---
 
 Start, stop, install and configure the Tentacle service

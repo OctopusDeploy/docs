@@ -1,5 +1,6 @@
 ---
 title: Migrator Export
+description: Using the Octopus.Migrator.exe command line tool to export data to a directory.
 ---
 
 This command exports configuration data to a directory.

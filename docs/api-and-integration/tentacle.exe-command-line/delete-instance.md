@@ -1,5 +1,6 @@
 ---
 title: Delete instance
+description: Using the Tentacle.exe command line executable to delete an instance of the Tentacle service.
 ---
 
 Deletes an instance of the Tentacle service

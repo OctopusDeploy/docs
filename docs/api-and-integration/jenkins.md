@@ -1,5 +1,6 @@
 ---
 title: Jenkins
+description: Jenkins can work together with Octopus Deploy to create releases and execute deployments.
 position: 5
 ---
 

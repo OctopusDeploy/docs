@@ -1,11 +1,12 @@
 ---
 title: Octo.exe Command Line
+description: Octo.exe is the Octopus command line tool that builds on top of the Octopus REST API.
 position: 6
 ---
 
-**Octo.exe** is a command line tool that builds on top of the [Octopus Deploy HTTP API](/docs/api-and-integration/octopus-rest-api.md).
+**Octo.exe** is a command line tool that builds on top of the [Octopus Deploy REST API](/docs/api-and-integration/octopus-rest-api.md).
 
-The latest version of Octo.exe can always be downloaded from the [Octopus downloads page](https://octopus.com/downloads) or [installed via Chocolatey](http://chocolatey.org/packages/OctopusTools).
+The latest version of Octo.exe can always be downloaded from the [Octopus downloads page](https://octopus.com/downloads) or [installed via Chocolatey](https://chocolatey.org/packages/OctopusTools).
 
 ## Commands {#Octo.exeCommandLine-Commands}
 
@@ -19,15 +20,15 @@ Octo.exe supports the following commands:
 - **`create-channel`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/creating-channels.md)
 - **`create-autodeployoverride`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/index.md)
 - **`clean-environment`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/cleaning-environments.md)
-- `export`: [Learn more](/docs/api-and-integration/octo.exe-command-line/export.md)
-- `import`:  [Learn more](/docs/api-and-integration/octo.exe-command-line/import.md)
-- `list-machines`: Lists the machines in one or more environments matching one or more statuses
-- `list-projects`: Lists all projects on the server
-- `list-latestdeployments`: Lists the latest deployments of a project
-- `delete-releases`: [Learn more](/docs/api-and-integration/octo.exe-command-line/deleting-releases.md)
-- `delete-autodeployoverride`: [Learn more](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/deleting-auto-deploy-overrides.md)
+- **`export`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/export.md)
+- **`import`**:  [Learn more](/docs/api-and-integration/octo.exe-command-line/import.md)
+- **`list-machines`**: Lists the machines in one or more environments matching one or more statuses
+- **`list-projects`**: Lists all projects on the server
+- **`list-latestdeployments`**: Lists the latest deployments of a project
+- **`delete-releases`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/deleting-releases.md)
+- **`delete-autodeployoverride`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/deleting-auto-deploy-overrides.md)
 - **`pack`**: [Learn More](/docs/packaging-applications/nuget-packages/using-octo.exe.md) Creates a NUPKG from files on disk, without needing a .nuspec
-- `push`: [Learn more](/docs/api-and-integration/octo.exe-command-line/pushing-packages.md): Pushes a package to the Octopus built-in repository
+- **`push`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/pushing-packages.md): Pushes a package to the Octopus built-in repository
 
 ## General usage {#Octo.exeCommandLine-Generalusage}
 

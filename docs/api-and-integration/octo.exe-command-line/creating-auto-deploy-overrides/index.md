@@ -1,5 +1,6 @@
 ---
 title: Creating auto deploy overrides
+description: Using the Octo.exe command line tool to create automatic deployment release overrides.
 position: 12
 ---
 

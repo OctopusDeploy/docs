@@ -1,5 +1,6 @@
 ---
 title: Partial Export
+description: Using the Octopus.Migrator.exe command line tool to export data to a directory filtered by a single project.
 ---
 
 :::hint

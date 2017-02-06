@@ -1,5 +1,6 @@
 ---
 title: Register With
+description: Using the Tentacle.exe command line executable to register this machine with an Octopus Server.
 ---
 
 Registers this machine with an Octopus server
@@ -17,17 +18,17 @@ Where [<options>] is any of:
   -u, --username=VALUE       If not using API keys, your username
   -p, --password=VALUE       In not using API keys, your password
       --env, --environment=VALUE
-                             The environment name to add the machine to - e.-
-                               g., 'Production'; specify this argument multiple
+                             The environment name to add the machine to 
+                               e.g., 'Production'; specify this argument multiple
                                times to add multiple environments
   -r, --role=VALUE           The machine role that the machine will assume -
                                e.g., 'web-server'; specify this argument
                                multiple times to add multiple roles
       --tenant=VALUE         A tenant who the machine will be connected to; 
-								specify this argument multiple times to add multiple tenants
+                               specify this argument multiple times to add multiple tenants
       --tenanttag=VALUE      A tenant tag which the machine will be tagged
                                with; specify this argument multiple times to 
-							   add multiple tenant tags
+                               add multiple tenant tags
       --name=VALUE           Name of the machine when registered; the default
                                is the hostname
       --policy=VALUE         The name of a machine policy that applies to

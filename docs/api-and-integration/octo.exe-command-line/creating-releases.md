@@ -1,5 +1,6 @@
 ---
 title: Creating releases
+description: Using the Octo.exe command line tool to create releases.
 position: 2
 ---
 
@@ -101,12 +102,12 @@ Deployment:
                              zone is the current local time zone.
       --deployto=VALUE       [Optional] Environment to automatically deploy 
                              to, e.g., Production
-	  --tenant=VALUE		 [Optional] A tenant the deployment will be performed for; 
+      --tenant=VALUE         [Optional] A tenant the deployment will be performed for; 
                              specify this argument multiple times to add multiple tenants or 
                              use  `*` wildcard to deploy to tenants able to deploy.
-	  --tenanttag=VALUE		 [Optional] A tenant tag used to match tenants that the deployment will 
-							 be performed for; specify this argument multiple times to 
-						     add multiple tenant tags
+      --tenanttag=VALUE	     [Optional] A tenant tag used to match tenants that the deployment will 
+                             be performed for; specify this argument multiple times to 
+                             add multiple tenant tags
 
 Common options: 
 

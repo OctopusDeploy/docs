@@ -1,5 +1,6 @@
 ---
 title: Deploying releases
+description: Using the Octo.exe command line tool to deploy releases.
 position: 4
 ---
 

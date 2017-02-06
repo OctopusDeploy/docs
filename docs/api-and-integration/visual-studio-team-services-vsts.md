@@ -1,5 +1,6 @@
 ---
 title: Visual Studio Team Services (VSTS)
+description: Octopus Deploy and Visual Studio Team Services (VSTS) can work together to make automated, continuous delivery easy.
 position: 1
 ---
 

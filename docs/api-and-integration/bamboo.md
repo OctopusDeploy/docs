@@ -1,5 +1,6 @@
 ---
 title: Bamboo
+description: Octopus Deploy integrates with Bamboo to provide for a full automated build and deployment pipeline.
 position: 3
 ---
 

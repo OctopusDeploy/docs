@@ -1,5 +1,6 @@
 ---
 title: Poll server
+description: Using the Tentacle.exe command line executable to configure the Octopus server this Tentacle will poll.
 ---
 
 Configures an Octopus Server that this Tentacle will poll
