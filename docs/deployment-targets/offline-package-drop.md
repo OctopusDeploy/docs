@@ -1,5 +1,6 @@
 ---
 title: Offline Package Drop
+description: Offline Package Drop deployment targets allow you to deploy your applications in the most restricted security environments where Tentacles cannot be used.
 position: 3
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Sudo Commands
+description: Useful sudo commands to help you with your deployments to SSH Targets.
 position: 2
 ---
 
