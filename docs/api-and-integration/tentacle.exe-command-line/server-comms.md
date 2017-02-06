@@ -6,7 +6,7 @@ Configure how the Tentacle communicates with an Octopus server
 
 **Server communication options**
 
-```bash
+```text
 Usage: Tentacle server-comms [<options>]
 
 Where [<options>] is any of:
@@ -27,3 +27,4 @@ Or one of the common options:
       --nologo               Don't print title or version information
       --noconsolelogging     Don't log to the console
 ```
+

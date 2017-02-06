@@ -400,7 +400,7 @@ The easiest way to test your scripts under Calamari is to use the [Script Consol
 
 **Calamari run-script command**
 
-```bash
+```text
 Usage: Calamari run-script [<options>]
 Where [<options>] is any of:
       --variables=VALUE      Path to a JSON file containing variables.

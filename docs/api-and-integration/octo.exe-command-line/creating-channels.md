@@ -17,7 +17,7 @@ Where `[<options>]` is any of:
 
 **create-environment options**
 
-```bash
+```text
 Create: 
 
       --project=VALUE        The name of the project in which to create the 

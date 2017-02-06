@@ -13,7 +13,7 @@ Where `[<options>]` is any of:
 
 **create-environment options**
 
-```bash
+```text
 Environment creation:
       --name=VALUE           The name of the environment
       --ignoreIfExists       If the project already exists, an error will be

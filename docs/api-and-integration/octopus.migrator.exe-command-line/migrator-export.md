@@ -14,7 +14,7 @@ Where `[<options>]` is any of:
 
 **Create release options**
 
-```bash
+```text
 Partial export:
       --instance=VALUE       Name of the instance to use
       --directory=VALUE      Directory for exported files

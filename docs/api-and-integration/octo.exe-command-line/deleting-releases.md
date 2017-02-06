@@ -18,7 +18,7 @@ Where `[<options>]` is any of:
 
 **delete-releases options**
 
-```bash
+```text
 Deletion: 
 
       --project=VALUE        Name of the project

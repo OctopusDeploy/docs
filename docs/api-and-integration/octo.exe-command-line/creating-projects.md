@@ -13,7 +13,7 @@ Where `[<options>]` is any of:
 
 **create-project options**
 
-```bash
+```text
 Project creation:
       --name=VALUE           The name of the project
       --projectGroup=VALUE   The name of the project group to add this

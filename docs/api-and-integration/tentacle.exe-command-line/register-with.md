@@ -6,7 +6,7 @@ Registers this machine with an Octopus server
 
 **Register with options**
 
-```bash
+```text
 Usage: Tentacle register-with [<options>]
 
 Where [<options>] is any of:

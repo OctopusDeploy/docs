@@ -6,7 +6,7 @@ Deregisters this machine from an Octopus Server
 
 **New certificate options**
 
-```bash
+```text
 Usage: Tentacle deregister-from [<options>]
 
 Where [<options>] is any of:
@@ -24,3 +24,4 @@ Or one of the common options:
       --nologo               Don't print title or version information
       --noconsolelogging     Don't log to the console
 ```
+

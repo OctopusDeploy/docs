@@ -26,7 +26,7 @@ Where `[<options>]` is any of:
 
 **create-environment options**
 
-```bash
+```text
 Usage: Octo clean-environment [<options>]
 Where [<options>] is any of: 
 Cleanup: 

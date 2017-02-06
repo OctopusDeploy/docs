@@ -6,7 +6,7 @@ Start, stop, install and configure the Tentacle service
 
 **Service options**
 
-```bash
+```text
 Usage: Tentacle service [<options>]
 
 Where [<options>] is any of:
@@ -29,3 +29,4 @@ Or one of the common options:
       --nologo               Don't print title or version information
       --noconsolelogging     Don't log to the console
 ```
+

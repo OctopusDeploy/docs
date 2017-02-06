@@ -6,7 +6,7 @@ Show the thumbprint of the Tentacle's certificate
 
 **New certificate options**
 
-```bash
+```text
 Usage: Tentacle show-thumbprint [<options>]
 
 Where [<options>] is any of:
@@ -20,3 +20,4 @@ Or one of the common options:
       --nologo               Don't print title or version information
       --noconsolelogging     Don't log to the console
 ```
+

@@ -13,7 +13,7 @@ Where `[<options>]` is any of:
 
 **create-autodeployoverride options**
 
-```bash
+```text
 Auto deploy release override: 
       --project=VALUE        Name of the project
       --environment=VALUE    Name of an environment the override will apply 

@@ -6,7 +6,7 @@ Configure the HTTP proxy used by polling tentacles to reach the Octopus Server
 
 **Polling proxy options**
 
-```bash
+```text
 Usage: Tentacle polling-proxy [<options>]
 
 Where [<options>] is any of:
@@ -26,3 +26,4 @@ Or one of the common options:
       --nologo               Don't print title or version information
       --noconsolelogging     Don't log to the console
 ```
+

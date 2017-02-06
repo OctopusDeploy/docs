@@ -12,7 +12,7 @@ Where `[<options>]` is any of:
 
 **delete-autodeployoverride options**
 
-```bash
+```text
  Delete auto deploy release override: 
       --project=VALUE        Name of the project
       --environment=VALUE    Name of an environment the override will apply 

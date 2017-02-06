@@ -13,7 +13,7 @@ Where `[<options>]` is any of:
 
 **Deploy release options**
 
-```bash
+```text
 Deployment: 
 
       --progress             [Optional] Show progress of the deployment

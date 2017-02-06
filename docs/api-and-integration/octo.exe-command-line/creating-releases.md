@@ -22,7 +22,7 @@ Where `[<options>]` is any of:
 
 **Create release options**
 
-```bash
+```text
 Release creation: 
 
       --project=VALUE        Name of the project

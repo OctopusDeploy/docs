@@ -13,7 +13,7 @@ Where `[<options>]` is any of:
 
 **Promote release options**
 
-```bash
+```text
 Project creation: 
 
       --project=VALUE        Name of the project
