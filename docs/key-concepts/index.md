@@ -1,5 +1,6 @@
 ---
 title: Key Concepts
+description: Key concepts to understanding how Octopus Deploy works.
 position: 2
 ---
 

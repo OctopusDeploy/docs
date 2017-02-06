@@ -1,5 +1,6 @@
 ---
 title: Tenants
+description: Tenants allow you to deploy your projects into multiple isolated containers inside your environments. It's kind of like slicing up your environment into multiple pieces.
 position: 7
 ---
 

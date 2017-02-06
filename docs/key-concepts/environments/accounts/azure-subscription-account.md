@@ -1,5 +1,6 @@
 ---
 title: Azure Subscription Account
+description: Azure Subscription Accounts contain Azure subscription details used within your deployments.
 position: 2
 ---
 

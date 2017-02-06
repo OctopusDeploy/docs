@@ -1,5 +1,6 @@
 ---
 title: Lifecycles
+description: Lifecycles allow you to control the way releases are promoted between environments.
 position: 4
 ---
 

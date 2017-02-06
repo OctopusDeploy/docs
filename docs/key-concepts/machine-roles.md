@@ -1,5 +1,6 @@
 ---
 title: Machine Roles
+description: Machine roles allow you to “tag” machines with a specific keyword which can be used in your deployments.
 position: 5
 ---
 

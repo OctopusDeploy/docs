@@ -1,5 +1,6 @@
 ---
 title: Deployment Processes
+description: Deployment Processes define the actions/steps performed on your behalf to deploy a project.
 position: 0
 ---
 

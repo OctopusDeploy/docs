@@ -1,5 +1,6 @@
 ---
 title: Machine Policies
+description: Machine Policies allow you to customise the behaviour of Tentacle and SSH endpoints like health check settings, machine connectivity, updates and more.
 position: 3
 ---
 

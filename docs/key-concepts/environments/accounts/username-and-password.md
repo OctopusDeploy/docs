@@ -1,5 +1,6 @@
 ---
 title: Username and Password
+description: Username and Password Accounts allow you securely authenticate with SSH targets.
 position: 2
 ---
 
