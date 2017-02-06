@@ -13,7 +13,7 @@ Variable templates let you configure variables that are required to successfully
 
 ![](/docs/images/5669366/5865564.png)
 
-![](/docs/images/5669366/5865563.png?effects=drop-shadow "width=500")
+![](/docs/images/5669366/5865563.png "width=500")
 
 |      | Description                              | Example |
 | ---- | ---------------------------------------- | ------- |

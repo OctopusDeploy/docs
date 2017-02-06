@@ -14,15 +14,15 @@ By connecting tenants to projects you can control which projects will be deploye
 1. Navigate to your tenant.
 2. Click on the **Connect to a project** button.
 
-![](/docs/images/5669221/5865688.png?effects=drop-shadow "width=500")
+![](/docs/images/5669221/5865688.png "width=500")
 
 3. Select the **Mojo** project and click on the **Enable tenanted deployments for Mojo** button which will enable the multi-tenant deployment features for the Mojo project. This will configure the project to allow deployments *with* or *without* a tenant, and we will discuss these options later on.
 
-![](/docs/images/5669221/5865689.png?effects=drop-shadow "width=500")
+![](/docs/images/5669221/5865689.png "width=500")
 
 4. Now select the **MT Production** environment and click the **Add connection** button.
 
-![](/docs/images/5669221/5865557.png?effects=drop-shadow "width=500")
+![](/docs/images/5669221/5865557.png "width=500")
 
 5. Click the **Save** button to save the tenant configuration.
 
@@ -42,7 +42,7 @@ Now your tenant is connected to the **Mojo** project you can start deploying re
 3. Select the **Deploy to one or more tenants** radio button option. *This indicates you want to perform a "tenanted deployment" instead of an "untenanted deployment" - we will discuss this option a little later.*
 4. Select your tenant by finding them in the tenant selector and click **Deploy now**.
 
-![](/docs/images/5669221/5865649.png?effects=drop-shadow "width=300")
+![](/docs/images/5669221/5865649.png "width=300")
 
 Once the deployment completes you should see the result of running the [script we set up in an earlier ste](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-multi-tenant-project.md)p, where the **Octopus.Tenant.Name** is written to the log, and the database connection string is calculated. At the moment the connection string and URL are empty - we are going to configure tenant-specific variables in the next step.
 

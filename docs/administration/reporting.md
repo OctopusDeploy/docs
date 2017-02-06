@@ -20,7 +20,7 @@ The data allows you to report on questions like:
 
 To help you get started, we provide a sample Excel spreadsheet that you can connect to your own Octopus server.
 
-![](/docs/images/3048643/3278354.png?effects=drop-shadow "width=500")
+![](/docs/images/3048643/3278354.png "width=500")
 
 ## Getting started {#Reporting-Gettingstarted}
 

@@ -106,7 +106,7 @@ echo "Connection string is: $connectionString"
 
 **F#**
 
-```text
+```f#
 // It's a good idea to copy the value into a variable to avoid quoting issues
 
 // tryFindVariable : name:string -> string option
@@ -190,7 +190,7 @@ You can pass parameters to PowerShell scripts as if you were calling the script 
 
 **Script Parameters in Octopus**
 
-```text
+```bash
 -Environment "#{Octopus.Environment.Name}" -StoragePath "#{MyApplication.Storage.Path}"
 ```
 
@@ -255,7 +255,7 @@ You can pass parameters to FSharp scripts [as described in MSDN.](https://msdn.
 
 **Usage in F# script**
 
-```text
+```f#
 let environment = fsi.CommandLineArgs.[1]
 let storagePath = fsi.CommandLineArgs.[2]
 printfn "$s storage path: $s" environment storagePath

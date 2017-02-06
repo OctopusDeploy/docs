@@ -35,11 +35,11 @@ It is possible that the URI to the Docker Registry will be different for the Oct
 
 Docker Images with the same name are grouped together and referred to (in Docker terminology) as a **repository**. This is very similar to how Octopus, and other package managers like NuGet, treat Packages with the same Name or ID. When you configure a Docker step in Octopus you choose an Image by its Name, just like you would choose a Package ID for any of the other [supported packages](/docs/packaging-applications/supported-packages.md).
 
-![](/docs/images/5671031/5865827.png?effects=drop-shadow "width=500")
+![](/docs/images/5671031/5865827.png "width=500")
 
 When you create a release in Octopus, you need to choose the "version" of the Image(s) you want as part of the release. Octopus will load the Tags for the Image(s) and attempt to parse them as a [Semantic Version](http://semver.org/). The tags that can be parsed as a valid [Semantic Version](http://semver.org/) will be available to be selected for deployment as the "version" of the Container Image(s).
 
-![](/docs/images/5671031/5865828.png?effects=drop-shadow "width=500")
+![](/docs/images/5671031/5865828.png "width=500")
 
 ## Docker Hub {#DockerRegistriesasFeeds-DockerHub}
 
