@@ -84,13 +84,13 @@ Then the following template:
 
 The resulting text in the *Dev*environment will be:
 
-```text
+```xml
 <compilation debug="true">
 ```
 
 And in *Production*it will be:
 
-```text
+```xml
 <compilation >
 ```
 

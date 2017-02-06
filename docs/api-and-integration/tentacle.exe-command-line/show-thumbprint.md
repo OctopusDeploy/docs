@@ -6,7 +6,7 @@ Show the thumbprint of the Tentacle's certificate
 
 **New certificate options**
 
-```text
+```bash
 Usage: Tentacle show-thumbprint [<options>]
 
 Where [<options>] is any of:

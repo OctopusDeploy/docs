@@ -9,7 +9,7 @@ position: 11
 Channels were introduced in Octopus 3.2.
 :::
 
-```text
+```bash
 octo create-channel [<options>]
 ```
 
@@ -17,7 +17,7 @@ Where `[<options>]` is any of:
 
 **create-environment options**
 
-```text
+```bash
 Create: 
 
       --project=VALUE        The name of the project in which to create the 
@@ -63,7 +63,7 @@ Common options:
 
 The following command will create a channel in *MyProject* called *Experimental* using the *Test Only* lifecycle instead
 
-```text
+```bash
 Octo create-channel --project MyProject --name Experimental --lifecycle "Test Only" --server http://MyOctopusServerURL.com --apikey MyAPIKey
 ```
 

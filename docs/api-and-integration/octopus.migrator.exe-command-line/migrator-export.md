@@ -6,7 +6,7 @@ This command exports configuration data to a directory.
 
 Usage:
 
-```text
+```bash
 Octopus.Migrator export [<options>]
 ```
 
@@ -14,7 +14,7 @@ Where `[<options>]` is any of:
 
 **Create release options**
 
-```text
+```bash
 Partial export:
       --instance=VALUE       Name of the instance to use
       --directory=VALUE      Directory for exported files

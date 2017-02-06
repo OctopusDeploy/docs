@@ -6,7 +6,7 @@ Configure the HTTP proxy used by polling tentacles to reach the Octopus Server
 
 **Polling proxy options**
 
-```text
+```bash
 Usage: Tentacle polling-proxy [<options>]
 
 Where [<options>] is any of:

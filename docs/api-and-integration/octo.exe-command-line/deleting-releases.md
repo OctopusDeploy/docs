@@ -10,7 +10,7 @@ position: 3
 If you are using channels (introduced in Octopus 3.2) you can filter this command so it only deletes releases for a particular channel.
 :::
 
-```text
+```bash
 octo delete-releases [<options>]
 ```
 
@@ -18,7 +18,7 @@ Where `[<options>]` is any of:
 
 **delete-releases options**
 
-```text
+```bash
 Deletion: 
 
       --project=VALUE        Name of the project
@@ -62,7 +62,7 @@ Common options:
 
 The following command will delete all the releases from the project **Web** between versions **0.0.8** to **0.0.12**.
 
-```text
+```bash
 octo delete-releases --project Web --minversion="0.0.8" --maxversion="0.0.12" --server http://MyOctopusServerURL.com --apikey MyAPIKey
 ```
 

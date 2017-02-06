@@ -2,7 +2,7 @@
 title: Configuring Netscaler
 ---
 
-```text
+```bash
 #Servers
 add server octopus-node1_SVR 192.168.0.1
 add server octopus-node2_SVR 192.168.0.2

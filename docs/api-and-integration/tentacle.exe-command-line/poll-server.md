@@ -6,7 +6,7 @@ Configures an Octopus Server that this Tentacle will poll
 
 **Poll server options**
 
-```text
+```bash
 Usage: Tentacle poll-server [<options>]
 
 Where [<options>] is any of:

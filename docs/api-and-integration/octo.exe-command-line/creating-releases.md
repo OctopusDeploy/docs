@@ -14,7 +14,7 @@ If you are using Channels (introduced in Octopus 3.2) this command will automati
 
 Usage:
 
-```text
+```bash
 octo create-release [<options>]
 ```
 
@@ -22,7 +22,7 @@ Where `[<options>]` is any of:
 
 **Create release options**
 
-```text
+```bash
 Release creation: 
 
       --project=VALUE        Name of the project
@@ -136,13 +136,13 @@ Common options:
 
 This will create a new release of the *HelloWorld* project using the latest available NuGet packages for each step in the project. The version number of the release will be the highest NuGet package version. You can override this using:
 
-```text
+```bash
 octo create-release --project HelloWorld --server http://octopus/ --apiKey API-ABCDEF123456
 ```
 
 This will create a release with a specified release number (note that this is not the NuGet package version number):
 
-```text
+```bash
 octo create-release --project HelloWorld --version 1.0.3 --server http://octopus/ --apiKey API-ABCDEF123456
 ```
 
@@ -150,19 +150,19 @@ octo create-release --project HelloWorld --version 1.0.3 --server http://octopus
 
 This will create a release *(1.0.3)* with a specified NuGet package version *(1.0.1)*:
 
-```text
+```bash
 octo create-release --project HelloWorld --version 1.0.3 --packageversion 1.0.1 --server http://octopus/ --apiKey API-ABCDEF123456
 ```
 
 This will create a release for a project with multiple packages, each with a different version:
 
-```text
+```bash
 octo create-release --project HelloWorld --version 1.0.3 --package StepA:1.0.1 --package StepB:1.0.2 --server http://octopus/ --apiKey API-ABCDEF123456
 ```
 
 This will create a release for a project with multiple packages, by taking the version for each package from a folder containing the packages (this approach works well if your build server has just built the packages):
 
-```text
+```bash
 octo create-release --project HelloWorld --version 1.0.3 --packagesFolder packages --server http://octopus/ --apiKey API-ABCDEF123456
 ```
 
@@ -170,6 +170,6 @@ octo create-release --project HelloWorld --version 1.0.3 --packagesFolder packag
 
 To create a release *and* deploy it to an environment named *Production*:
 
-```text
+```bash
 octo create-release --project HelloWorld --deployto Production --server http://octopus/ --apiKey API-ABCDEF123456 --progress
 ```

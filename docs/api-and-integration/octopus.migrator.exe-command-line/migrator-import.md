@@ -6,7 +6,7 @@ This command imports data from an Octopus 3.0+ export directory
 
 Usage:
 
-```text
+```bash
 Octopus.Migrator import [<options>]
 ```
 
@@ -14,7 +14,7 @@ Where `[<options>]` is any of:
 
 **Create release options**
 
-```text
+```bash
 Partial export:
       --instance=VALUE       Name of the instance to use
       --directory=VALUE      Directory for imported files

@@ -6,7 +6,7 @@ Configure how the Tentacle communicates with an Octopus server
 
 **Server communication options**
 
-```text
+```bash
 Usage: Tentacle server-comms [<options>]
 
 Where [<options>] is any of:

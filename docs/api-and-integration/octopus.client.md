@@ -26,7 +26,7 @@ The complete details for the API itself - where to find it, how to authenticate,
 
 To use the C# client, first install the package via NuGet:
 
-```text
+```powershell
 Install-Package Octopus.Client
 ```
 

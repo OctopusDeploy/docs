@@ -6,7 +6,7 @@ Configure the HTTP proxy used by Octopus
 
 **Proxy options**
 
-```text
+```bash
 Usage: Tentacle proxy [<options>]
 
 Where [<options>] is any of:

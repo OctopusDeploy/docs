@@ -60,7 +60,7 @@ Arguments are not case sensitive and can take the following forms:
 
 All commands require you to pass the URL of the Octopus Server's API endpoint, and an API key which is used to authenticate you.
 
-```text
+```bash
 octo ... --server http://your-octopus-server/ --apiKey API-ABCDEF123456
 ```
 

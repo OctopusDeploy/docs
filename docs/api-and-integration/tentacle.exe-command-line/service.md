@@ -6,7 +6,7 @@ Start, stop, install and configure the Tentacle service
 
 **Service options**
 
-```text
+```bash
 Usage: Tentacle service [<options>]
 
 Where [<options>] is any of:

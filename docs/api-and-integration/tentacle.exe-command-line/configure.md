@@ -6,7 +6,7 @@ Sets Tentacle settings such as the port number and thumbprints
 
 **Configure options**
 
-```text
+```bash
 Usage: Tentacle configure [<options>]
 
 Where [<options>] is any of:

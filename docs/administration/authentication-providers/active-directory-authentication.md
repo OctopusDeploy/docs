@@ -79,7 +79,7 @@ Forms-based authentication can also be disabled:
 
 **Disabling HTML form sign-in**
 
-```text
+```bash
 Octopus.Server.exe service --stop
 Octopus.Server.exe configure --allowFormsAuthenticationForDomainUsers=false
 Octopus.Server.exe service --start

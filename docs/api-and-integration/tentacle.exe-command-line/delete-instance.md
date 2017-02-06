@@ -6,7 +6,7 @@ Deletes an instance of the Tentacle service
 
 **Delete instance options**
 
-```text
+```bash
 Usage: Tentacle delete-instance [<options>]
 
 Where [<options>] is any of:

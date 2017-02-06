@@ -6,7 +6,7 @@ Deregisters this machine from an Octopus Server
 
 **New certificate options**
 
-```text
+```bash
 Usage: Tentacle deregister-from [<options>]
 
 Where [<options>] is any of:

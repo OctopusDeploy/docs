@@ -6,7 +6,7 @@ Replace the certificate that Tentacle uses to authenticate itself
 
 **Import certificate options**
 
-```text
+```bash
 Usage: Tentacle import-certificate [<options>]
 
 Where [<options>] is any of:
