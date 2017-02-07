@@ -17,7 +17,7 @@ Where `[<options>]` is any of:
 
 ```text
 Partial export:
-      --instance=VALUE       Name of the instance to use
+      --instance=VALUE       Name of the instance to use (Optional. Defaults to "OctopusServer")
       --directory=VALUE      Directory for imported files
       --password=VALUE       Password to decrypt any sensitive values
       --dry-run		     Do not commit changes, just print what would have happened
