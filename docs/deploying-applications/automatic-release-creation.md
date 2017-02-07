@@ -1,5 +1,6 @@
 ---
 title: Automatic Release Creation
+description: Automatic Release Creation allows you to automatically create a new release when a new package is pushed to the built-in package repository.
 position: 22
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Custom scripts
+description: Custom scripts allows you to script anything you want using PowerShell, ScriptCS, F# or Bash.
 position: 10
 ---
 

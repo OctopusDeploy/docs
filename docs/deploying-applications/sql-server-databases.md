@@ -1,5 +1,6 @@
 ---
 title: SQL Server databases
+description: Options for deploying to SQL Server databases including a model-driven approach and a change-script-driven approach.
 position: 17
 ---
 

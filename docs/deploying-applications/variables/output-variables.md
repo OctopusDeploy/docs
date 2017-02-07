@@ -1,5 +1,6 @@
 ---
 title: Output variables
+description: Output variables allow you to set dynamic variables in one step that can be used in subsequent steps.
 position: 6
 ---
 

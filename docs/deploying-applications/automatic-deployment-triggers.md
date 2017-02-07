@@ -1,5 +1,6 @@
 ---
 title: Automatic Deployment Triggers
+description: Automatic Deployment Triggers allow you to define an unattended behavior for your projects that will cause automatic deployment of a release into an environment.
 position: 23
 ---
 

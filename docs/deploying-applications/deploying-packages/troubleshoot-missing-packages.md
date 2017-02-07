@@ -1,5 +1,6 @@
 ---
 title: Troubleshoot missing packages
+description: Further information for missing packages error messages that can occur when deploying package steps.
 ---
 
 When deploying your project you may see a message like one of the following examples:

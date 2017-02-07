@@ -1,5 +1,6 @@
 ---
 title: Accessing Container Details
+description: Docker steps provide access to container details, including network, volume, environment variables etc., and make them available in subsequent steps.
 position: 1
 ---
 

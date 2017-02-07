@@ -1,5 +1,6 @@
 ---
 title: Docker Registries as Feeds
+description: A Docker Registry is treated in Octopus Deploy as a feed that supplies images that are run as containers on a Docker Engine host.
 position: 0
 ---
 

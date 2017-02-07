@@ -1,5 +1,6 @@
 ---
 title: Naked Scripting
+description: Naked Scripting allows you to transfer packages and execute scripts against SSH deployment targets where you are unable to install and run Mono.
 position: 2
 ---
 

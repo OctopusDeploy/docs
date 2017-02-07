@@ -1,5 +1,6 @@
 ---
 title: Deploying applications
+description: Deploying applications starts with defining a project's deployment process, which is the set of instructions that will be run repeatably each time the project is deployed.
 position: 6
 ---
 

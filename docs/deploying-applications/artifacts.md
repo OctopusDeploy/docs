@@ -1,5 +1,6 @@
 ---
 title: Artifacts
+description: Artifacts in Octopus provide a convenient way to collect files from remote machines during deployments.
 position: 25
 ---
 

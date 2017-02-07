@@ -1,5 +1,6 @@
 ---
 title: System variables
+description: System variables are variables provided by Octopus that can be used in your deployments.
 position: 5
 ---
 

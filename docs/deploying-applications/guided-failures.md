@@ -1,5 +1,6 @@
 ---
 title: Guided failures
+description: Guided failures allow problematic deployments to be reviewed and managed human intervention.  
 position: 18
 ---
 

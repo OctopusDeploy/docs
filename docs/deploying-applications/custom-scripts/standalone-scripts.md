@@ -1,5 +1,6 @@
 ---
 title: Standalone scripts
+description: Standalone scripts allow you to run scripts contained in a package, or ad-hoc scripts you've saved as part of the step.
 position: 0
 ---
 

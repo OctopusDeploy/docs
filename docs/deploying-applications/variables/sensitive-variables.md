@@ -1,5 +1,6 @@
 ---
 title: Sensitive variables
+description: Sensitive variables allow you to define secret values used in your applications that are secured stored in Octopus.
 position: 4
 ---
 

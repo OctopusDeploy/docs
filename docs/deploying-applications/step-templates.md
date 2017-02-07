@@ -1,5 +1,6 @@
 ---
 title: Step Templates
+description: Octopus step templates are reusable steps based on the built-in steps with your own specific parameters and instructions. 
 position: 15
 ---
 

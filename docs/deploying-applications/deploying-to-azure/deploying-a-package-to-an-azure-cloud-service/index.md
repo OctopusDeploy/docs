@@ -1,5 +1,6 @@
 ---
 title: Deploying a package to an Azure Cloud Service
+description: Octopus Deploy can help you perform repeatable and controlled deployments to Azure Cloud Services.
 ---
 
 :::hint
@@ -7,17 +8,6 @@ The Azure Cloud Service step was added in Octopus 3.1
 :::
 
 Octopus Deploy supports deployment of [Azure Cloud Services](http://azure.microsoft.com/en-us/services/cloud-services/).
-
-- Step 1: Packaging
-- Step 2: Create an Azure Account
-- Step 3: Create the Azure Cloud Service deployment step
-- Step 4: Configure your Azure Cloud Service step
-  - Deployment features available to Azure Cloud Service steps
-- Deployment process
-  - Extract the Cloud Service Package
-  - Variable substitutions in Cloud Service configuration file
-  - Customizing the deployment process
-- Deploying to multiple geographic regions
 
 ## Step 1: Packaging {#DeployingapackagetoanAzureCloudService-Step1:Packaging}
 

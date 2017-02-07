@@ -1,5 +1,6 @@
 ---
 title: Docker Containers
+description: Octopus allows you to treat Docker images as immutable build artifacts that are moved through each stage of deployment by running them as containers with deploy-time specific configuration.
 position: 30
 ---
 

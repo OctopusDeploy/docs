@@ -1,5 +1,6 @@
 ---
 title: Blocking Deployments
+description: Blocking Deployments allows you to block a release of a project from being used in any future deployments.
 position: 29
 ---
 
