@@ -1,5 +1,6 @@
 ---
 title: Authentication Providers
+description: Authentication options for Octopus Deploy including our internal provider, Active Directory, Azure AD, and GoogleApps.
 position: 19
 ---
 

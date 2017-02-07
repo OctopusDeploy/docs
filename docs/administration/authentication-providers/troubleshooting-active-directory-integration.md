@@ -1,5 +1,6 @@
 ---
 title: Troubleshooting Active Directory integration
+description: Information on troubleshooting common Active Directory integration issues.
 position: 3
 ---
 

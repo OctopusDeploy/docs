@@ -1,5 +1,6 @@
 ---
 title: Troubleshooting Node Limits Exceeded Error
+description: Information on troubleshooting Octopus High Availability node limits exceeded error message.
 ---
 
 - Node License Limits Exceeded

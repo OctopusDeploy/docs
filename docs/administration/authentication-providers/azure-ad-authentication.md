@@ -1,5 +1,6 @@
 ---
 title: Azure AD authentication
+description: Octopus Deploy can use Azure AD authentication to identify users. 
 position: 1
 ---
 

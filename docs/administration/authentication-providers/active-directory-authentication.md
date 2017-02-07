@@ -1,17 +1,8 @@
 ---
 title: Active Directory authentication
+description: Octopus Deploy can use Windows credentials to identify users. 
 position: 0
 ---
-
-- Active Directory sign in options
-- Integrated authentication
-- Forms-based authentication with Active Directory
-- Switching between username/password and Active Directory authentication
- - To select Active Directory authentication
- - To select username/password authentication
- - To specify a custom container
- - Trusted Domains
- - Troubleshooting
 
 Octopus Deploy can use Windows credentials to identify users. This option is chosen during installation of the Octopus Deploy server, or can be configured later.
 
