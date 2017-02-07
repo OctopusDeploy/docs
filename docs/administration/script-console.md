@@ -1,5 +1,6 @@
 ---
 title: Script Console
+description: The Script Console allows Octopus administrators to execute scripts and perform adminsitrative tasks against individual or groups of deployment targets.
 position: 6
 ---
 

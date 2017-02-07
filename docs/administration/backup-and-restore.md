@@ -1,5 +1,6 @@
 ---
 title: Backup and restore
+description: Information on where Octopus data is stored and how to backup and restore an Octopus instance.
 position: 1
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Auditing
+description: Octopus Deploy captures audit information whenever significant events happen in the system.
 position: 0
 ---
 
