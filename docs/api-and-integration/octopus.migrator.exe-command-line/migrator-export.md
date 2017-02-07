@@ -17,7 +17,7 @@ Where `[<options>]` is any of:
 
 ```text
 Partial export:
-      --instance=VALUE       Name of the instance to use (Optional. Defaults to "OctopusServer")
+      --instance=VALUE       [Optional] Name of the instance to use
       --directory=VALUE      Directory for exported files
       --password=VALUE       Password to encrypt any sensitive values
       --include-tasklogs     Include the task log folder as part of the
