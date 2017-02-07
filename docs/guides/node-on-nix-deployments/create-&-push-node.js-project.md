@@ -1,5 +1,5 @@
 ---
-title: Create &amp; Push Node.js Project
+title: Create & Push Node.js Project
 position: 1
 ---
 
