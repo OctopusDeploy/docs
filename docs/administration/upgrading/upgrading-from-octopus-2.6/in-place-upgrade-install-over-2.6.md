@@ -70,24 +70,22 @@ To use Hydra, follow these steps:
 3. Import the [Hydra script template](http://library.octopusdeploy.com/#!/step-template/actiontemplate-hydra-update-octopus-tentacle) from the Community Library.
 ![](/docs/images/3048135/3278018.png "width=500")
 4. Create a [new project](/docs/key-concepts/projects/index.md) with a single "Update Octopus Tentacle" step from the step template
-
- 1. Ensure you choose or create a [Lifecycle ](/docs/key-concepts/lifecycles.md)that allows you to deploy to all Tentacles.
- 2. Ensure you set the Update Octopus Tentacle step to run for all appropriate Tentacles.
- 3. If you are using any polling Tentacles and your 3.x server will have a new address or polling port, you'll need to add the new Octopus 3.x server address (including the polling port) in the Server Mapping field. If the URL and port will stay the same, there's no need to set this value.
-It is very important you get this value correct. An incorrect value will result in a polling Tentacle that can't be contacted by either a 2.6 or 3.x server.
-If all of your polling Tentacles on the one server need to be pointed to the new location you need only put`https://octopus2.contoso.com:10934/` and it will update the old location with this new one.
-If you have more than one polling Tentacle and each points to a different Octopus Server (this should be very rare) then the syntax is:`https://oldserver:oldport=&gt;https://newserver:newport,https://oldserver2:oldport2/=&gt;https://newserver2:newport2`
-Where each pair is separated by commas. This will match the first case and replace it => with the second case.
-        Click the ![](/docs/images/3048132/3278017.png) help button for more detailed instructions.
-
-![](/docs/images/3048132/3278014.png "width=500")    ![](/docs/images/3048132/3278015.png "width=500")
+    * Ensure you choose or create a [Lifecycle ](/docs/key-concepts/lifecycles.md)that allows you to deploy to all Tentacles.
+    * Ensure you set the Update Octopus Tentacle step to run for all appropriate Tentacles.
+    * If you are using any polling Tentacles and your 3.x server will have a new address or polling port, you'll need to add the new Octopus 3.x server address (including the polling port) in the Server Mapping field. If the URL and port will stay the same, there's no need to set this value.  
+    It is very important you get this value correct. An incorrect value will result in a polling Tentacle that can't be contacted by either a 2.6 or 3.x server.
+    If all of your polling Tentacles on the one server need to be pointed to the new location you need only put`https://octopus2.contoso.com:10934/` and it will update the old location with this new one.
+    If you have more than one polling Tentacle and each points to a different Octopus Server (this should be very rare) then the syntax is:`https://oldserver:oldport=&gt;https://newserver:newport,https://oldserver2:oldport2/=&gt;https://newserver2:newport2`
+    Where each pair is separated by commas. This will match the first case and replace it => with the second case.
+    Click the ![](/docs/images/3048132/3278017.png) help button for more detailed instructions.
+    ![](/docs/images/3048132/3278014.png "width=500")    
+    ![](/docs/images/3048132/3278015.png "width=500")   
 5. Create a release and deploy. The deployment should succeed, and one minute later the Tentacles will be upgraded.
-
 :::hint
 We strongly recommend testing a deployment against a small subset of "canary" machines. The best way to do this is to create a new "canary" machine role and assign it to a few machines. Set the Update Octopus Tentacle step to only run against this "canary" role.
 Once you're confident the upgrade works as expected, you can deploy to all remaining machines.
 :::
-    ![](/docs/images/3048132/3278010.png "width=500")
+![](/docs/images/3048132/3278010.png "width=500")
 
 ### 3. Verify the upgrade has worked {#Inplaceupgrade(installover2.6)-3.Verifytheupgradehasworked}
 
