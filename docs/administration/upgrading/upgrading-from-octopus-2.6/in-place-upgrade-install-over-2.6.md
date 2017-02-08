@@ -81,11 +81,12 @@ To use Hydra, follow these steps:
     ![](/docs/images/3048132/3278014.png "width=500")   
     ![](/docs/images/3048132/3278015.png "width=500")   
 5. Create a release and deploy. The deployment should succeed, and one minute later the Tentacles will be upgraded.
-    :::hint
-    We strongly recommend testing a deployment against a small subset of "canary" machines. The best way to do this is to create a new "canary" machine role and assign it to a few machines. Set the Update Octopus Tentacle step to only run against this "canary" role.
-    Once you're confident the upgrade works as expected, you can deploy to all remaining machines.
-    :::
     ![](/docs/images/3048132/3278010.png "width=500")
+
+:::hint
+We strongly recommend testing a deployment against a small subset of "canary" machines. The best way to do this is to create a new "canary" machine role and assign it to a few machines. Set the Update Octopus Tentacle step to only run against this "canary" role.
+Once you're confident the upgrade works as expected, you can deploy to all remaining machines.
+:::
 
 ### 3. Verify the upgrade has worked {#Inplaceupgrade(installover2.6)-3.Verifytheupgradehasworked}
 
