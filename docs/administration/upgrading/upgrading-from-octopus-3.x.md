@@ -6,16 +6,6 @@ position: 3
 
 The following guide provides an overview of how the various components of Octopus Deploy 3.x can be updated to the latest release.
 
-In this section:
-
-- Update Available Notification
-- Upgrading Octopus Server
-- Upgrading Calamari
-- Upgrading to Octopus 3.1 or greater
-- Upgrading to Octopus 3.4 or greater
-- Upgrading to Octopus 3.5 or greater
-- Troubleshooting
-
 ## Update Available Notification {#UpgradingfromOctopus3.x-UpdateAvailableNotification}
 
 When an update is available, a bullhorn icon will appear in the top status bar with details and a link to the downloads page.
@@ -85,7 +75,7 @@ The environments page will make machines without latest Calamari yellow, and sho
 
 ![](https://cloud.githubusercontent.com/assets/1035315/10654668/c07cc9d4-78b0-11e5-90d3-b79eb568e055.png "width=500")
 
-Upgrading Octopus Tentacles
+**Upgrading Octopus Tentacles**
 
 The role of Tentacles has changed in Octopus 3.x. Tentacles in 3.x are only responsible for the secure communication protocol, and then calling Calamari to actually perform deployments. This means Tentacle only needs to change when we change some part of the secure communication protocol (hopefully very infrequently).
 
@@ -160,7 +150,7 @@ Some server configuration values are moved from the config file into the databas
 
 If you are upgrading to a 3.5+ version please backup your server config file prior to upgrading. If you need to downgrade then replace the config with the original file after the downgrade and restart Octopus Deploy server.
 
-How to downgrade to a previously installed instance of Octopus Server
+## How to downgrade to a previously installed instance of Octopus Server {#Howtodowngradetoapreviousinstalledinstanceofoctopusserver}
 
 If for any reason you need to downgrade to a previous version of Octopus Server, follow the steps below:
 

@@ -70,7 +70,8 @@ Where:
 
 For example:
 
-`https://demo.octopusdeploy.com/api/reporting/deployments/xml?apikey=API-GUEST`*(that one really works!)*`https://myoctopus/api/reporting/deployments/xml?apikey=API-1234567891234567891234567`
+`https://demo.octopusdeploy.com/api/reporting/deployments/xml?apikey=API-GUEST`*(that one really works!)*  
+`https://myoctopus/api/reporting/deployments/xml?apikey=API-1234567891234567891234567`
 
 The XML feed can be consumed programatically, or via Excel or [Microsoft PowerBI](https://powerbi.microsoft.com/).
 
@@ -79,13 +80,15 @@ Since a user-specific API key is used to consume the data, only data that the us
 :::hint
 If you encounter the following error when using your own Octopus Server
 
-`Unhandled exception from web server: The parameter is incorrect`
-`System.Net.HttpListenerException (0x80004005): The parameter is incorrect`
-`at System.Net.HttpResponseStream.Dispose(Boolean disposing)`
-`at System.IO.Stream.Close()`
-`at Octopus.Server.Web.OctopusNancyHost.OutputWithDefaultTransferEncoding(Response nancyResponse, HttpListenerResponse response) in Y:\work\refs\tags\3.2.0\source\Octopus.Server\Web\OctopusNancyHost.cs:line 353`
-`at Octopus.Server.Web.OctopusNancyHost.ConvertNancyResponseToResponse(NancyContext nancyRequest, Response nancyResponse, HttpListenerResponse response) in Y:\work\refs\tags\3.2.0\source\Octopus.Server\Web\OctopusNancyHost.cs:line 339`
-`at Octopus.Server.Web.OctopusNancyHost.Process(HttpListenerContext ctx) in Y:\work\refs\tags\3.2.0\source\Octopus.Server\Web\OctopusNancyHost.cs:line 447`
+```
+Unhandled exception from web server: The parameter is incorrect
+System.Net.HttpListenerException (0x80004005): The parameter is incorrect
+at System.Net.HttpResponseStream.Dispose(Boolean disposing)
+at System.IO.Stream.Close()
+at Octopus.Server.Web.OctopusNancyHost.OutputWithDefaultTransferEncoding(Response nancyResponse, HttpListenerResponse response) in Y:\work\refs\tags\3.2.0\source\Octopus.Server\Web\OctopusNancyHost.cs:line 353
+at Octopus.Server.Web.OctopusNancyHost.ConvertNancyResponseToResponse(NancyContext nancyRequest, Response nancyResponse, HttpListenerResponse response) in Y:\work\refs\tags\3.2.0\source\Octopus.Server\Web\OctopusNancyHost.cs:line 339
+at Octopus.Server.Web.OctopusNancyHost.Process(HttpListenerContext ctx) in Y:\work\refs\tags\3.2.0\source\Octopus.Server\Web\OctopusNancyHost.cs:line 447
+```
 
 This is due to that the revocation information for the certificate is not retrievable, to get around it, do the following
 
@@ -98,7 +101,7 @@ This is due to that the revocation information for the certificate is not retrie
 7. Cancel the File Open dialog
 8. Cancel the Data Connection Wizard
 9. Paste the URL in the File Name field
-   :::
+:::
 
 ## Direct table access {#Reporting-Directtableaccess}
 
