@@ -80,7 +80,7 @@ Since a user-specific API key is used to consume the data, only data that the us
 :::hint
 If you encounter the following error when using your own Octopus Server
 
-```
+```text
 Unhandled exception from web server: The parameter is incorrect
 System.Net.HttpListenerException (0x80004005): The parameter is incorrect
 at System.Net.HttpResponseStream.Dispose(Boolean disposing)
