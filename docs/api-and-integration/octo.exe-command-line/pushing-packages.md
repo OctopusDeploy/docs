@@ -65,5 +65,6 @@ Common options:
       --enableServiceMessages
                              [Optional] Enable TeamCity or Team Foundation
                              Build service messages when logging.
-
+      --timeout=VALUE        [Optional] Timeout in seconds for network
+                             operations. Default is 600.
 ```
