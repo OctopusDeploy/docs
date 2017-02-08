@@ -15,7 +15,7 @@ The following steps will show how to configure Octopus to listen on HTTPS.
 2. From Octopus Manager, you can launch a wizard to modify the bindings that are associated with the Octopus web portal:  
     ![](/docs/images/3048148/3278102.png "width=500")  
 3. In the Web Bindings wizard, click **Add...** to add a new binding, and choose the HTTPS scheme. Other options such as the port can also be configured here.  
-  ![](/docs/images/3048148/3278452.png "width=500")
+  ![](/docs/images/3048148/3278452.png "width=500")  
   Since HTTPS requires an SSL certificate, you can either choose to generate a new, self-signed (untrusted) certificate, or to select an existing certificate. Self-signed certificates are useful for testing or to achieve encryption without trust, but for production use we recommend using a trusted SSL certificate.  
 4. Follow the rest of the Wizard steps to add the binding and reconfigure the Octopus server.  
 
@@ -35,4 +35,4 @@ When you choose to select an existing certificate when configuring your HTTPS bi
 7. Once the certificate is imported, double click the certificate to bring up the properties. You should see an icon indicating that the private key has also been imported:  
     ![](/docs/images/3048148/3278099.png)  
 8. If all these requirements have been met (**private key** imported, either the **Web Hosting** or **Personal** stores, in the **Local Computer** scope), the certificate should appear when you select to use an existing certificate when adding your HTTPS binding:  
-    ![](/docs/images/3048148/3278454.png "width=500")
+    ![](/docs/images/3048148/3278454.png "width=500")  
