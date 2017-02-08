@@ -1,5 +1,6 @@
 ---
 title: Upgrading from Octopus 1.6
+description: Information on how to upgrade from Octopus 1.6 to a more modern version.
 position: 1
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Upgrading from Octopus 2.6
+description: Information on how to upgrade to Octopus 3.x from Octopus 2.6.
 position: 2
 ---
 

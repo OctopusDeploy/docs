@@ -1,5 +1,6 @@
 ---
 title: Manually uninstall Tentacle
+description: Information on how to manually uninstall the Octopus Tentacle.
 ---
 
 When you uninstall the Tentacle MSI, it automatically removes the application files from the installation folder, but that's it. This page describes how to manually clean up Tentacle in part, or completely remove it from your server.

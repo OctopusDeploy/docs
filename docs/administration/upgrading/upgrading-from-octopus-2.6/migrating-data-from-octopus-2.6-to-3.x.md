@@ -1,5 +1,6 @@
 ---
 title: Migrating data from Octopus 2.6 to 3.x
+description: Information on how to migrate your data to Octopus 3.x from Octopus 2.6.
 position: 3
 ---
 

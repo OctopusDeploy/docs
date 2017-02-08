@@ -1,5 +1,6 @@
 ---
 title: External Groups and Roles
+description: Some of the authentication providers allow external groups or roles to be added as Members of Teams in Octopus.
 position: 3
 ---
 

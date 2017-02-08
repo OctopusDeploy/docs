@@ -1,5 +1,6 @@
 ---
 title: Troubleshooting
+description: Solutions to common problems when upgrading to Octopus 3.x from Octopus 2.6.
 position: 4
 ---
 

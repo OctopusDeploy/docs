@@ -1,5 +1,6 @@
 ---
 title: Server configuration and File storage
+description: Octopus Server configuration command reference including how to specify your file storage locations.
 position: 11
 ---
 

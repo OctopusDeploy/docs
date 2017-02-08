@@ -1,16 +1,8 @@
 ---
 title: Resetting passwords
+description: The Octopus web portal makes it easy to change or reset your password.
 position: 1
 ---
-
-## 
-- Resetting your own password
-- Resetting user passwords
-- Resetting administrator passwords
- - For Username/Password authentication
- - For Active Directory authentication
-- Password Complexity
- {#Resettingpasswords-/*&lt;![CDATA[*/div.rbtoc1484731161595{padding:0px;}div.rbtoc1484731161595ul{list-style:disc;margin-left:0px;}div.rbtoc1484731161595li{margin-left:0px;padding-left:0px;}/*]]&gt;*/ResettingyourownpasswordResettinguserpasswordsResettingadminist}
 
 ## Resetting your own password {#Resettingpasswords-Resettingyourownpassword}
 

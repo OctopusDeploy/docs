@@ -1,5 +1,6 @@
 ---
 title: Manually uninstall Octopus Server
+description: Information on how to manually uninstall the Octopus Server.
 position: 1
 ---
 

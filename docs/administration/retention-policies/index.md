@@ -1,9 +1,10 @@
 ---
 title: Retention Policies
+description: Retention policies allow you to specify the releases, packages and files you want to keep as well as the ones you want cleaned up.
 position: 5
 ---
 
-As you deploy more often and to different environments, files and releases can build up. This is what retention policies are for. They allow you to define what is kept in terms of releases, packages and files.
+As you deploy more often and to different environments, files and releases can build up. This is what retention policies are for. They allow you to define what is kept in terms of releases, packages and files.  
 
 :::hint
 We talk about Tentacles in this page, but the same process and logic applies to [SSH Targets](/docs/deployment-targets/ssh-targets/index.md) also.

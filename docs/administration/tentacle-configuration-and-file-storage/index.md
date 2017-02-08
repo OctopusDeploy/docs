@@ -1,5 +1,6 @@
 ---
 title: Tentacle configuration and file storage
+description: Octopus Tentacle configuration command reference including how to specify your file storage locations.
 position: 12
 ---
 

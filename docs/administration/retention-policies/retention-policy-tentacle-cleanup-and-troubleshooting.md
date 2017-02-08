@@ -1,5 +1,6 @@
 ---
 title: Retention policy Tentacle cleanup and troubleshooting
+description: Reviewing and troubleshooting why some files aren't cleaned up by Octopus retention policies.
 ---
 
 We get a lot of questions about why isn't the retention policy deleting all of my files on the Tentacle, or reporting a bug because files weren't deleted.
