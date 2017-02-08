@@ -1,5 +1,6 @@
 ---
 title: Providing database performance metrics
+description: How to provide database performance metrics to help the Octopus team resolve issues.
 position: 26
 ---
 

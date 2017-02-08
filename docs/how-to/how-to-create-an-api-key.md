@@ -1,5 +1,6 @@
 ---
 title: How to create an API key
+description: How to create an API key to interact with Octopus without the need for a username and password.
 position: 7
 ---
 

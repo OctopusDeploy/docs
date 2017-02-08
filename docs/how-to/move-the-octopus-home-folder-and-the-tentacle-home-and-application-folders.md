@@ -1,5 +1,6 @@
 ---
 title: Move the Octopus Home folder and the Tentacle Home and Application folders
+description: How to move the Octopus Home folder and the Tentacle Home and Application folders.
 position: 3
 ---
 

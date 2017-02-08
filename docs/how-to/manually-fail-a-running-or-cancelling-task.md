@@ -1,5 +1,6 @@
 ---
 title: Manually fail a running or cancelling task
+description: How to manually fail a running or cancelling task when tasks hang or get stuck.
 position: 2
 ---
 

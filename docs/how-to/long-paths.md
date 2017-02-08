@@ -1,5 +1,6 @@
 ---
 title: Long Paths
+description: How to enable long path support in Windows Server 2016 and Windows 10.
 position: 28
 ---
 In Server 2016 and Windows 10, Microsoft has added an option to remove the character limit for file paths. 

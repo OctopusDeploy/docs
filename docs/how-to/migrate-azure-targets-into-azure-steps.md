@@ -1,5 +1,6 @@
 ---
 title: Migrate Azure Targets into Azure Steps
+description: How to migrate from the deprecated Azure Targets into Azure Steps.
 position: 24
 ---
 

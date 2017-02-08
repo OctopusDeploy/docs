@@ -1,5 +1,6 @@
 ---
 title: Troubleshoot Polling Tentacles
+description: How to troubleshoot problems with polling Tentacles.
 position: 5
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Debug problems with Octopus variables
+description: How to debug problems with Octopus variables when a variable used during a deploying is different thatn the one you expect.
 position: 1
 ---
 

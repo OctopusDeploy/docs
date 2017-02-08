@@ -1,5 +1,6 @@
 ---
 title: Export and import Tentacle certificates without a profile
+description: How to export and import Tentacle certificates without a profile.
 position: 8
 ---
 

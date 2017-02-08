@@ -1,5 +1,6 @@
 ---
 title: Push a NuGet package that already exists
+description: How to push a NuGet package that already exists.
 position: 18
 ---
 

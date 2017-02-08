@@ -1,5 +1,6 @@
 ---
 title: How to turn on variable logging and export the task log
+description: How to turn on variable logging and export the task log to help the Octopus team resolve deployment issues.
 position: 27
 ---
 

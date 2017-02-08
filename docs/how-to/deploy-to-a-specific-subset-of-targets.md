@@ -1,5 +1,6 @@
 ---
 title: Deploy to a Specific Subset of Targets
+description: How to deploy to a specific subset of deployment targets.
 position: 23
 ---
 
