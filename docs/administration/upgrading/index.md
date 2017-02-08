@@ -26,19 +26,19 @@ If you are running a version of Octopus prior to 2.6, you will need to upgrade t
 We use Semantic Versioning to help you understand the type of changes we have introduced between two versions of Octopus Deploy:
 
 1. **Major version change** = beware of major breaking changes and new features
-  * For example, from 1.x => 2.x we rewrote the HTTP API, and from 2.x => 3.x we changed the Tentacle communication protocol and moved to SQL Server.
-  * Upgrading may require some manual intervention, we will provide a detailed upgrade guide, and downgrading may be difficult
-  * Check our release notes for more details
-2. **Minor version change** = new features, potential for minor breaking changes and database changes
-  * For example, in 3.3 we made a change to how Sensitive Properties work in the API
-  * Upgrading should be easy, but rolling back will usually require restoring your database
-  * We will usually make changes to the database schema
-  * We will usually make changes to the API
-  * Check our release notes for more details
-3. **Patch version change** = small bug fixes and computational logic changes
-  * Patches should be **safe to update, safe to roll back**
-  * Any database schema changes will be minimal, and be safe to run older and newer versions of Octopus on (within the same major/minor version)
-  * We may decide to make API changes, but any changes will be backwards compatible
+    * For example, from 1.x => 2.x we rewrote the HTTP API, and from 2.x => 3.x we changed the Tentacle communication protocol and moved to SQL Server.
+    * Upgrading may require some manual intervention, we will provide a detailed upgrade guide, and downgrading may be difficult
+    * Check our release notes for more details
+1. **Minor version change** = new features, potential for minor breaking changes and database changes
+    * For example, in 3.3 we made a change to how Sensitive Properties work in the API
+    * Upgrading should be easy, but rolling back will usually require restoring your database
+    * We will usually make changes to the database schema
+    * We will usually make changes to the API
+    * Check our release notes for more details
+1. **Patch version change** = small bug fixes and computational logic changes
+    * Patches should be **safe to update, safe to roll back**
+    * Any database schema changes will be minimal, and be safe to run older and newer versions of Octopus on (within the same major/minor version)
+    * We may decide to make API changes, but any changes will be backwards compatible
 
 :::success
 **Release Notes**
@@ -52,11 +52,11 @@ You can also use our release comparison tool to see **all of the changes** intro
 The process for successfully downgrading depends on the upgrade you have performed.
 
 1. **Patch upgrade** = If you install a patch of Octopus Deploy and run into any problems, you should be able to reinstall the version of Octopus Deploy that was installed prior to the upgrade straight over-the-top without any problems  
-  * For example: 3.4.4 => 3.4.12 (same Major.Minor but different Patch). If you need to downgrade for any reason you should be able to reinstall 3.4.4 straight over the top of 3.4.12.
-2. **Minor upgrade** = If you perform a Minor upgrade and run into any problems, you will need to restore a recent SQL Database backup and reinstall the version of Octopus Deploy that was installed prior to the upgrade  
-  * For example: 3.4.4 => 3.5.1 would be a Minor upgrade. Make sure to test a [backup and restore](/docs/administration/backup-and-restore.md) before upgrading. If you need to downgrade for any reason, you should restore the backup, and then reinstall 3.4.4.
-3. **Major upgrade** = We will provide a detailed upgrade guide for any Major upgrades  
-  * For example: 2.6.5 => 3.4.12 would be a Major upgrade. You should take care when performing a major upgrade and follow our upgrade guide carefully.
+    * For example: 3.4.4 => 3.4.12 (same Major.Minor but different Patch). If you need to downgrade for any reason you should be able to reinstall 3.4.4 straight over the top of 3.4.12.
+1. **Minor upgrade** = If you perform a Minor upgrade and run into any problems, you will need to restore a recent SQL Database backup and reinstall the version of Octopus Deploy that was installed prior to the upgrade  
+    * For example: 3.4.4 => 3.5.1 would be a Minor upgrade. Make sure to test a [backup and restore](/docs/administration/backup-and-restore.md) before upgrading. If you need to downgrade for any reason, you should restore the backup, and then reinstall 3.4.4.
+1. **Major upgrade** = We will provide a detailed upgrade guide for any Major upgrades  
+    * For example: 2.6.5 => 3.4.12 would be a Major upgrade. You should take care when performing a major upgrade and follow our upgrade guide carefully.
 
 :::success
 We recommend putting your Octopus Server into Maintenance Mode when performing any of these operations.
