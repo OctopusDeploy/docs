@@ -1,11 +1,8 @@
 ---
 title: Immutable Infrastructure
 position: 4
+version: 3.4 
 ---
-
-:::hint
-The features discussed in this guide are available in Octopus 3.4 and newer.
-:::
 
 This guide assumes familiarity with Octopus Deploy.  If you don't already know how to set up projects, install Tentacles and configure basic deployment processes it may be helpful to review [Key Concepts](/docs/key-concepts/index.md) before beginning this guide. Familiarity with the concepts in [Elastic and Transient Environments](/docs/guides/elastic-and-transient-environments/index.md) would be an added bonus.
 
@@ -27,7 +24,7 @@ For this demonstration, let's create a project called **Hello World** that will 
 
 1. Create a project called **Hello World**
 2. Add a script step that outputs "Hello World" on each Tentacle:
-![](/docs/images/5670238/5865675.png "width=500")
+   ![](/docs/images/5670238/5865675.png "width=500")
 
 ## Infrastructure project {#ImmutableInfrastructure-Infrastructureproject}
 
@@ -35,13 +32,13 @@ The infrastructure project runs a script that provisions two new Tentacles and r
 
 1. Download the [HelloWorldInfrastructure.1.0.0.0.zip](/docs/attachments/helloworldinfrastructure.1.0.0.0.zip) package that contains the scripts that run in this project and make any modifications required by your Octopus installation.
 2. Upload the package to your Octopus package feed:
-![](/docs/images/5670238/5865676.png "width=500")
+   ![](/docs/images/5670238/5865676.png "width=500")
 3. Install Tentacle on the same machine as your Octopus Server (there is no need to configure a Tentacle instance).
 4. Create a project called **Hello World Infrastructure**.
 5. Add a step that runs the script called **Provision.ps1** from the package **HelloWorldInfrastructure** on the Octopus Server:
-![](/docs/images/5670238/5865669.png "width=500")
+   ![](/docs/images/5670238/5865669.png "width=500")
 6. Add a step that performs a health check, excluding unavailable machines from the deployment:
-![](/docs/images/5670238/5865670.png "width=500")
+   ![](/docs/images/5670238/5865670.png "width=500")
 7. Add a step that runs **Teminate.ps1** from the package **HelloWorldInfrastructure** on the Octopus Server on behalf of all roles:
 
 ![](/docs/images/5670238/5865671.png "width=500")
@@ -74,7 +71,7 @@ The **Hello World** project can be configured to automatically deploy when a new
 
 1. Create a new trigger for the Hello World project
 2. Select the event "New deployment target becomes available"
-![](/docs/images/5670238/5865666.png "width=500")
+   ![](/docs/images/5670238/5865666.png "width=500")
 
 Create and deploy a new release of **Hello World Infrastructure**.  You should notice that immediately after new Tentacles are provisioned, **Hello World** is automatically deployed to those Tentacles:
 
