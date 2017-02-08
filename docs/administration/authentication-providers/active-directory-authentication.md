@@ -90,7 +90,7 @@ In versions prior to 3.5, Octopus Deploy maintains different User records for Ac
 
 When switching from username/password to Active Directory, after running the below commands you will find that duplicate accounts are created the first time an Active Directory user logs into Octopus Deploy. The pre-existing account should be either be deleted directly after the switch, or deleted after the user logs in for the first time using the Active Directory account. The Active Directory provisioned account will be recognizable as *paul*@domain compared to *paul*.
 
-In 3.5 the User records are handled differently, [learn more](/docs/administration/authentication-providers/index.md).
+In 3.5 the User records are handled differently, [learn more](/docs/administration/authentication-providers/index.md#AuthenticationProviders-usersandauthprovidersUsersandAuthenticationProviders).
 :::
 
 ### To select Active Directory authentication {#ActiveDirectoryauthentication-ToselectActiveDirectoryauthentication}

@@ -3,9 +3,6 @@ title: Troubleshooting Node Limits Exceeded Error
 description: Information on troubleshooting Octopus High Availability node limits exceeded error message.
 ---
 
-- Node License Limits Exceeded
-- Instructions to remove unwanted nodes
-
 ## Node License Limits Exceeded {#TroubleshootingNodeLimitsExceededError-NodeLicenseLimitsExceeded}
 
 If you see the following licensing error, it means you have exceeded the number of active nodes:
@@ -18,6 +15,6 @@ This may unintentionally occur if you have copied or moved your Octopus folders 
 
 ### Instructions to remove unwanted nodes {#TroubleshootingNodeLimitsExceededError-Instructionstoremoveunwantednodes}
 
-If you go to your nodes screen (*Configuration > Nodes menu*), you can delete the node(s) that are no longer applicable.
+If you go to your nodes screen (*Configuration->Nodes menu*), you can delete the node(s) that are no longer applicable.
 
 ![](/docs/images/5671853/5866111.png "width=500")

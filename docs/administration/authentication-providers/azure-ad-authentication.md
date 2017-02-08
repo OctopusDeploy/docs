@@ -75,7 +75,7 @@ The example below illustrates two roles, one for administrators and one for appl
 Make sure you replace `NEWGUID` with a generated guid.
 :::
 
-```powershell
+```json
 {
   "appId": "myAppGuid",
   "appRoles": [
