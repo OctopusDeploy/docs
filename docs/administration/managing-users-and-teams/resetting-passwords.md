@@ -14,7 +14,7 @@ To change your password, check the **Change password** checkbox:
 
 ![](/docs/images/3048125/3277958.png "width=500")
 
-Enter your new password, and confirm your new password, then click the **Save**button:
+Enter your new password, and confirm your new password, then click the **Save** button:
 
 ![](/docs/images/3048125/3277957.png "width=500")
 
@@ -26,11 +26,11 @@ Select the user whose password you want to change:
 
 ![](/docs/images/3048125/3277956.png "width=500")
 
-Check the **Change password**checkbox:
+Check the **Change password** checkbox:
 
 ![](/docs/images/3048125/3277955.png "width=500")
 
-Enter the new password, confirm the new password and click the **Save**button:
+Enter the new password, confirm the new password and click the **Save** button:
 
 ![](/docs/images/3048125/3277954.png "width=500")
 
