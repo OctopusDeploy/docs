@@ -67,7 +67,7 @@ To use Hydra, follow these steps:
 ](https://s3-eu-west-1.amazonaws.com/octopus-downloads/hydra/OctopusDeploy.Hydra.3.0.10.268.nupkg)
 2. Use the Upload Package feature of the library to upload the OctopusDeploy.Hydra package to the built-in NuGet repository on your Octopus 2.6 server.  
 ![](/docs/images/3048135/3278019.png "width=500")
-3. Import the [Hydra script template](http://library.octopusdeploy.com/#!/step-template/actiontemplate-hydra-update-octopus-tentacle) from the Community Library.  
+3. Import the [Hydra script template](http://library.octopusdeploy.com/step-templates/d4fb1945-f0a8-4de4-9045-8441e14057fa/actiontemplate-hydra-update-octopus-tentacle) from the Community Library.  
 ![](/docs/images/3048135/3278018.png "width=500")
 4. Create a [new project](/docs/key-concepts/projects/index.md) with a single "Update Octopus Tentacle" step from the step template
     * Ensure you choose or create a [Lifecycle ](/docs/key-concepts/lifecycles.md)that allows you to deploy to all Tentacles.
