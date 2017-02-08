@@ -11,8 +11,8 @@ Sometimes a variable used during deployment may have a different value from the 
 1. Open the **Project > Releases > Release** page for the Release you are debugging
 2. Scroll down to find the **Variables** section and click the **Show** link so see the snapshot of Variables being used by this Release.
 3. If the variable is wrong in the Snapshot:
- 1. Update the Variable, and then
- 2. Click the **Update variables** button - beware this will update **all** variables in the Snapshot to the latest values.
+    * Update the Variable, and then
+    * Click the **Update variables** button - beware this will update **all** variables in the Snapshot to the latest values.
 
 ![](/docs/images/3048145/3278466.png)
 
@@ -50,5 +50,7 @@ It should look like this. You can have as many extra variables as you want besid
 
 :::warning
 **For debugging only**
-Don't forget to turn this off when you're finished debugging. Printing variables increases the size of the task logs, and can make your deployments run slower.
+When adding these variables to your project, Octopus will add the following warning to your deployment log
+`20:30:45   Warning  |       OctopusPrintVariables is enabled. This should only be used for debugging problems with variables, and then disabled again for normal deployments.`
+This is because printing variables increases the size of the task logs, and can make your deployments run slower. Don't forget to turn this off when you're finished debugging.
 :::
