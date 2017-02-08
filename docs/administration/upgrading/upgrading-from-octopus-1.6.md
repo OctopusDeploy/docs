@@ -10,12 +10,6 @@ You will not be able to upgrade from Octopus 1.6 to Octopus 3.0 directly. If you
 
 A **lot** changed between Octopus 1.6 and Octopus 2.0; so much that we had to to handle upgrades differently to the way we handle upgrades from, say, 1.5 to 1.6. This page will walk you through the process of upgrading an Octopus 1.6 instance to Octopus 2.0. Rather than being an in-place upgrade, Octopus 2.0 is designed to be a **side-by-side** upgrade.
 
-- Preparing
-- Install Octopus 2.0
-- Importing
-- Permissions
-- Upgrading Tentacles
-
 ## Preparing {#UpgradingfromOctopus1.6-Preparing}
 
 :::problem

@@ -23,6 +23,7 @@ Below is a sample DeploymentJournal.xml that we will use in this example.
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Deployments>
+
   <Deployment Id="8edf23f3-225a-44ff-849b-a9e8b9cd9be5" EnvironmentId="Environments-4" ProjectId="Projects-1" PackageId="OctoFX.Database" PackageVersion="3.0.938" InstalledOn="2015-08-31 02:06:18" ExtractedFrom="C:\Octopus\DWebApp01\Files\OctoFX.Database.3.0.938.nupkg-7e3882e6-d08a-497b-a64a-dc9f14a48bf0" ExtractedTo="C:\Octopus\Applications\DWebApp01\Development\OctoFX.Database\3.0.938" RetentionPolicySet="Environments-4/Projects-1/Step-Database/Machines-3/&lt;default&gt;" CustomInstallationDirectory="C:\Octopus\Applications\DWebApp01\Development\OctoFX.Database\3.0.938" WasSuccessful="True" />
 
   <Deployment Id="3e16c611-4e06-4b5b-a453-8af5b82ae011" EnvironmentId="Environments-4" ProjectId="Projects-1" PackageId="OctoFX.RateService" PackageVersion="3.0.938" InstalledOn="2015-08-31 02:06:23" ExtractedFrom="C:\Octopus\DWebApp01\Files\OctoFX.RateService.3.0.938.nupkg-33168819-e693-4aa2-8a90-41a772990e98" ExtractedTo="C:\Octopus\Applications\DWebApp01\Development\OctoFX.RateService\3.0.938" RetentionPolicySet="Environments-4/Projects-1/Step-Rate service/Machines-3/&lt;default&gt;" CustomInstallationDirectory="C:\Octopus\Applications\DWebApp01\Development\OctoFX.RateService\3.0.938" WasSuccessful="True" />
