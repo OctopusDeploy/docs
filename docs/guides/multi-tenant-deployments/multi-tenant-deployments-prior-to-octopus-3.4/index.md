@@ -1,5 +1,6 @@
 ---
 title: Multi-tenant deployments prior to Octopus 3.4
+description: Trade-offs to consider deciding how to use Octopus (prior to Octopus 3.4) in scenarios that involve deployments for multiple managed customers.
 position: 4
 ---
 

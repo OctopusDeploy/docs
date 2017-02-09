@@ -1,11 +1,12 @@
 ---
 title: Deploying a simple multi-tenant project
+description: Connect your tenant.
 position: 2
 ---
 
 Previous step: [Creating your first multi-tenant project](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-multi-tenant-project.md)
 
-In this step we will connect your tenant to the **Mojo** project and deploy it to the **MT****Production** environment for your tenant.
+In this step we will connect your tenant to the **Mojo** project and deploy it to the **MT Production** environment for your tenant.
 
 ## Connecting your tenant to a project {#Deployingasimplemulti-tenantproject-Connectingyourtenanttoaproject}
 
@@ -31,7 +32,7 @@ You can connect each tenant to any number of projects, and for each project any 
 
 - You can offer certain projects to some tenants and not to others.
 - You can also provide most of your tenants with a single environment while offering certain special customers extra environments. For example, you could provide certain customers with a test/staging/acceptance environment where they can test new releases before you upgrade their production environment.
-:::
+  :::
 
 ## Deploying the project to your tenant {#Deployingasimplemulti-tenantproject-Deployingtheprojecttoyourtenant}
 

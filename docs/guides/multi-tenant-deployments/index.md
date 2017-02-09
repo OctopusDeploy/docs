@@ -1,5 +1,7 @@
 ---
 title: Multi-tenant deployments
+description: How to use Octopus to manage deployments of your applications to multiple end-customers.
+version: 3.4
 position: 2
 ---
 
@@ -17,14 +19,14 @@ Using an older version of Octopus? Take a look at [how to implement multi-tenant
 Starting with Octopus 3.4 you can manage tenants as a first-class citizen enabling you to:
 
 1. Deploy multiple instances of your project into the same [Environment](/docs/key-concepts/environments/index.md);
- 1. tenant-per-customer
- 2. tenant-per-tester
- 3. tenant-per-feature/tenant-per-branch
- 4. tenant-per-geographical-region
- 5. tenant-per-datacentre
+   a. tenant-per-customer
+   a. tenant-per-tester
+   a. tenant-per-feature/tenant-per-branch
+   a. tenant-per-geographical-region
+   a. tenant-per-datacentre
 2. Easily manage unique configuration settings using variables defined on the tenant;
 3. Promote releases to your tenants using safe customer-aware lifecycles, potentially through multiple environments;
- 1. tenant-specific UAT and Production environments
+   a. tenant-specific UAT and Production environments
 4. Tailor the deployment process of your projects per-tenant as necessary;
 5. Implement dedicated or shared hosting models for your tenants;
 6. Employ tenant-aware security for managing tenants and deploying projects, including 3rd-party self-service sign in;
@@ -59,7 +61,7 @@ We built the multi-tenant features in Octopus Deploy for this kind of scenario:
 Consider the following example:
 
 > NameBadge make HR software for large corporate customers. They provide the software as a SaaS offering to their customers, and host the web site and associated services for them. Due to the application architecture, for each customer, they deploy:
-> 
+>
 > - A different SQL database
 > - A copy of an ASP.NET website
 > - A copy of a Windows Service
@@ -91,22 +93,3 @@ For many of these considerations, deploying multiple instances of your applicati
 When much larger numbers of customers are concerned it may be wise to consider making architectural changes to the application.
 
 For example, if deployment consists of many copies of the exact same website, just with a few configuration differences per customer, perhaps store those configuration settings in the database, and use the host header field (`HttpContext.Request.Url.Host` in ASP.NET) to determine who the current customer is and respond accordingly. Not only will this make deployment simpler; it will most likely result in an easier to manage application, and reduce overall resource utilization resulting in higher density and profitability.
-
-## Guide: Multi-tenant deployments in Octopus {#Multi-tenantdeployments-Guide:Multi-tenantdeploymentsinOctopus}
-
-This guide will introduce you to multi-tenant deployments in Octopus, starting with simple scenarios, then incorporating more complex capabilities over time.
-
-- [Multi-tenant deployment guide](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/index.md)
- - [Creating your first tenant](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-tenant.md)
- - [Creating your first multi-tenant project](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-multi-tenant-project.md)
- - [Deploying a simple multi-tenant project](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md)
- - [Working with tenant-specific variables](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-tenant-specific-variables.md)
- - [Working with groups of tenants using tags](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md)
- - [Designing a multi-tenant hosting model](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md)
- - [Designing a multi-tenant upgrade process](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md)
- - [Multi-tenant roles and security](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/multi-tenant-roles-and-security.md)
-- [Multi-tenant deployments FAQ](/docs/guides/multi-tenant-deployments/multi-tenant-deployments-faq.md)
-- [Other scenarios for multi-tenant deployments](/docs/guides/multi-tenant-deployments/other-scenarios-for-multi-tenant-deployments.md)
-- [Troubleshooting multi-tenant deployments](/docs/guides/multi-tenant-deployments/troubleshooting-multi-tenant-deployments.md)
-- [Multi-tenant deployments prior to Octopus 3.4](/docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/index.md)
- - [Migrating to Octopus 3.4](/docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/migrating-to-octopus-3.4.md)
