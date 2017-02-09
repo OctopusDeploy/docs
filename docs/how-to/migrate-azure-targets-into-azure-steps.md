@@ -1,5 +1,5 @@
 ---
-title: Migrate Azure Targets into Azure Steps copy
+title: Migrate Azure Targets into Azure Steps
 position: 25
 ---
 
@@ -13,9 +13,9 @@ Deployment using existing Targets is still currently supported, but will be remo
 
 The Azure Cloud Service and Web App Deployment Targets introduced in Octopus 3.0 were deprecated in favour of [Cloud Service](/docs/guides/azure-deployments/cloud-services/cloud-service-concepts/cloud-service-deployment-step.md) and [Web App](/docs/guides/azure-deployments/web-apps/web-app-concepts/web-app-deployment-step/index.md) Steps.  The reasoning behind that decision is explained in [this pos](https://octopus.com/blog/azure-changes)t.
 
-## Migrating {#MigrateAzureTargetsintoAzureStepscopy-Migrating}
+## Migrating {#MigrateAzureTargetsintoAzureSteps-Migrating}
 
-### Create Azure Step/s {#MigrateAzureTargetsintoAzureStepscopy-CreateAzureStep/s}
+### Create Azure Step/s {#MigrateAzureTargetsintoAzureSteps-CreateAzureStep/s}
 
 The process of migrating your Azure Targets into Deployment Steps is relatively simple (unfortunately it was unable to be automated).
 
@@ -29,11 +29,11 @@ You will use the same package as your original step, and the values supplied to 
 
 The Azure Steps do not require a Deployment Target (you can deploy to an empty Environment).  The target is effectively specified in the Step.  They will ignore any Targets in the Environment being deployed to, with the exception of [Cloud Regions](/docs/deployment-targets/cloud-regions.md) (see *Deploying to Multiple Regions* below).
 
-### Remove Azure Targets {#MigrateAzureTargetsintoAzureStepscopy-RemoveAzureTargets}
+### Remove Azure Targets {#MigrateAzureTargetsintoAzureSteps-RemoveAzureTargets}
 
 Once the new Steps have been created, you can remove the deprecated Azure Deployment Target/s.
 
-## Deploying to Multiple Regions {#MigrateAzureTargetsintoAzureStepscopy-DeployingtoMultipleRegions}
+## Deploying to Multiple Regions {#MigrateAzureTargetsintoAzureSteps-DeployingtoMultipleRegions}
 
 Using the deprecated Azure Targets, a common pattern was to create multiple Targets to represent different Azure Regions.  Deploying to the Environment would then concurrently deploy the package to all regions.
 
