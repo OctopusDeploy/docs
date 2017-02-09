@@ -82,7 +82,7 @@ The Parameter JSON file can be in one of two formats:
 
 **Example with Schema**
 
-```js
+```json
 {
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
     "contentVersion": "1.0.0.0",
@@ -113,7 +113,7 @@ The Parameter JSON file can be in one of two formats:
 
 **Example without Schema**
 
-```js
+```json
 {
     "collation": {
         "value": "SQL_Latin1_General_CP1_CI_AS"

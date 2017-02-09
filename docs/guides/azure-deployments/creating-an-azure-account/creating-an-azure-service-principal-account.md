@@ -16,8 +16,8 @@ To interact with Azure Resource Manager (ARM), like when Octopus deploys a [Reso
 
 There are two steps to enable your Octopus Server to manage your Azure subscription via a Service Principal:
 
-1. [Create an Azure Active Directory application and service principal](/docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-service-principal-account.md) (via PowerShell or the Azure Portal)
-2. [Allow Octopus to authenticate with Azure using a Service Principal](/docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-service-principal-account.md)
+1. Create an Azure Active Directory application and service principal (via PowerShell or the Azure Portal)
+2. Allow Octopus to authenticate with Azure using a Service Principal
 
 ## Step 1: Create an Azure Active Directory application and service principal {#CreatinganAzureServicePrincipalAccount-create-service-principalStep1:CreateanAzureActiveDirectoryapplicationandserviceprincipal}
 

@@ -72,7 +72,7 @@ Uploaded certificates can be viewed on the 'Management Certificates' tab of the 
 
 ![](/docs/images/3049369/3278545.png "width=500")
 
-The certificate will be named `Octopus Deploy -``{Your Account Name}.`
+The certificate will be named `Octopus Deploy - {Your Account Name}.`
 
 ## Cloud Service Deployment Step {#CloudServiceConcepts-CloudServiceDeploymentStep}
 
