@@ -74,7 +74,7 @@ Uploaded certificates can be viewed on the 'Management Certificates' tab of the 
 
 The certificate will be named `Octopus Deploy -``{Your Account Name}.`
 
-## Cloud Service Deployment Step
+## Cloud Service Deployment Step {#CloudServiceConcepts-CloudServiceDeploymentStep}
 
 Octopus Deploy supports deployment of [Azure Cloud Services](http://azure.microsoft.com/en-us/services/cloud-services/). Note that the below deployment step was added in 3.1 and is not available in 3.0.
 
