@@ -4,7 +4,7 @@ description: Core concepts involved in deploying Azure Cloud services with Octop
 position: 2
 ---
 
-There are several core concepts involved in deploying Azure Cloud services.  Read on for more information.
+There are several core concepts involved in deploying Azure Web Apps.  Read on for more information.
 
 ## Packaging Cloud Services
 
