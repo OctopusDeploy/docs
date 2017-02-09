@@ -1,5 +1,6 @@
 ---
 title: Cloud Services
+description: This guide 
 ---
 
 Octopus Deploy provides first-class support for deploying Azure Cloud Services.  Do your first Cloud Service deployment quickly and easily with our [Getting started with Azure Cloud Services](/docs/guides/azure-deployments/cloud-services/getting-started-with-azure-cloud-services.md) walkthrough.
