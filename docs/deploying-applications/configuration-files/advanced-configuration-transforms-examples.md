@@ -237,6 +237,10 @@ Then the transform **c:\transforms\web.mytransform.config** => **web.config** wi
 
 ## Applying a transform with an absolute path to a target in the extraction path root {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Usinganabsolutepathtothetransformxtractiondirectoryroot}
 
+:::hint
+This transform is available in Octopus Server 3.8.8 (Calamari 3.6.43) or later    
+:::
+
 Given a package which has the structure:
 
 ```powershell
@@ -258,6 +262,10 @@ Then the transform **c:\transforms\web.mytransform.config => .\web.config** will
  - Apply the transform **c:\transforms\web.mytransform.config** to file **web.config**
 
 ## Applying a transform with an absolute path to a target relative to the extraction path {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-UsinganabsolutepathtothetransformRelativetoextractiondirectory}
+
+:::hint
+This transform is available in Octopus Server 3.8.8 (Calamari 3.6.43) or later    
+:::
 
 Given a package which has the structure:
 
