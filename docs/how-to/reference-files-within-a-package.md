@@ -8,7 +8,7 @@ To reference files from the package you can use the below as a guide to where th
 
 Relative paths will depend on a couple of things, if it's in a pre- or post-deploy script and if a custom installation directory has been defined. See below sections for differences.
 
-`$OctopusParameters['Octopus.Action.Package.CustomInstallationDirectory']`will only be available if the `Custom installation directory` feature of the deploy step has been enabled.
+`$OctopusParameters['Octopus.Action.Package.CustomInstallationDirectory']`will only be available if the **Custom installation directory** feature of the deploy step has been enabled.
 
 In pre-deploy scripts:
 
