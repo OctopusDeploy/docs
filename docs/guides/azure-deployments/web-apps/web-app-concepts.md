@@ -71,7 +71,7 @@ Uploaded certificates can be viewed on the 'Management Certificates' tab of the 
 
 ![](/docs/images/3049434/3278567.png "width=500")
 
-The certificate will be named `Octopus Deploy -``{Your Account Name}.`
+The certificate will be named `Octopus Deploy - {Your Account Name}.`
 
 ## Web App deployment step {#WebAppConcepts-WebAppDeploymentStep}
 
