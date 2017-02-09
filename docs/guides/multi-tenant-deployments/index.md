@@ -11,7 +11,7 @@ This page describes how to use Octopus to manage deployments of your application
 **Requires Octopus 3.4 or newer**
 This guide focuses on Octopus 3.4 (or newer) which provides a rich set of fully-integrated features to build repeatable and reliable multi-tenant deployments that are easy to configure and manage.
 
-Using an older version of Octopus? Take a look at [how to implement multi-tenant deployments using Octopus prior to Octopus 3.4](/docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/index.md) and [how to migrate to Octopus 3.4](/docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/migrating-to-octopus-3.4.md).
+Using an older version of Octopus? Take a look at [how to implement multi-tenant deployments using Octopus prior to Octopus 3.4](/docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/index.md).
 :::
 
 ## Introducing multi-tenant deployments in Octopus {#Multi-tenantdeployments-Introducingmulti-tenantdeploymentsinOctopus}
