@@ -12,7 +12,7 @@ As an example scenario, let's assume we have a web application that's being depl
 
 There are three Octopus features that are commonly used to help provide an environment-specific configuration to your deployed application.
 
-1. Use the **[Configuration Variables](/docs/deploying-applications/configuration-files/index.md) feature** to automatically replace `appSettings`,`applicationSettings`, and `connectionStrings` values in your `.config` files with ones from your variables list.
+1. Use the **[Configuration Variables](/docs/deploying-applications/configuration-files/index.md) feature** to automatically replace `appSettings`, `applicationSettings`, and `connectionStrings` values in your `.config` files with ones from your variables list.
 The limitation of this technique is you're restricted to these two configuration sections. If you have settings in other parts of your configuration file, this technique won't work.
 2. Use the **[Substitute Variables](/docs/deploying-applications/substitute-variables-in-files.md) in Files feature** to replace any values specified by the `#{variable}` syntax in any text-based file.
 The limitation of this technique is the Octopus variable syntax needs to already be in the file. If you're relying on that config file for your development, this can be difficult to manage.
@@ -36,7 +36,7 @@ It's important to note that the variable substitution occurs before your configu
 
 For example, let's assume our `Web.Config` file has a `MyDatabaseConnection` connection string and a special `MyCustomSettingsSection` element. Something like this:
 
-```powershell
+```xml
 <?xml version="1.0"?>
 <configuration>
   <connectionStrings>
@@ -50,7 +50,7 @@ For example, let's assume our `Web.Config` file has a `MyDatabaseConnection` co
 
 We also have a `Web.Release.Config` transform file with the following contents:
 
-```powershell
+```xml
 <?xml version="1.0"?>
 <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
   <connectionStrings>
