@@ -1,5 +1,6 @@
 ---
 title: Designing a multi-tenant upgrade process
+description: How to design a multi-tenant upgrade process.
 position: 6
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Creating your first multi-tenant project
+description: Create a simple project and environment in preparation to deploy a project to your tenant.
 position: 1
 ---
 
@@ -45,11 +46,11 @@ if ($tenantName) {
 Write-Host "Database Connection String: $databaseConnectionString"
 Write-Host "URL: $hostURL"
 ```
-    *This script doesn't do anything, it just simulates deploying an application with or without a tenant, showing the resulting database connection string.*
+*This script doesn't do anything, it just simulates deploying an application with or without a tenant, showing the resulting database connection string.*
 
 ![](/docs/images/5669300/5865553.png "width=500")
 
-**That's it!**You are now ready to start connecting tenants to your project so you can deploy to those tenants, which is exactly what we will do in the next steps.
+**That's it!** You are now ready to start connecting tenants to your project so you can deploy to those tenants, which is exactly what we will do in the next steps.
 
 :::hint
 **Project Settings**

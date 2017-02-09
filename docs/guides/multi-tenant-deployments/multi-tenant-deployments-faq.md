@@ -1,5 +1,6 @@
 ---
 title: Multi-tenant deployments FAQ
+description: Questions we are asked most often related to multi-tenant deployments.
 position: 1
 ---
 
@@ -26,7 +27,7 @@ This page contains some of the questions we are asked most often related to mult
 - Can I use tenants and channels together?
 - Can I pin or lock a tenant to a specific release?
 
-## Why can't I see the tenant area in the main menu, or anything about tenants for that matter? {#Multi-tenantdeploymentsFAQ-Whycan&#39;tIseethetenantareainthemainmenu,oranythingabouttenantsforthatmatter?}
+## Why can't I see the tenant area in the main menu, or anything about tenants for that matter? {#Multi-tenantdeploymentsFAQ-Whycan'tIseethetenantareainthemainmenu,oranythingabouttenantsforthatmatter?}
 
 Multi-tenant deployments were shipped as part of Octopus 3.4, perhaps you need to upgrade your Octopus Server? You also need to enable the feature in *Configuration > Features*. For more information refer to [creating your first tenant](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-tenant.md).
 

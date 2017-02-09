@@ -8,7 +8,7 @@ This page will describe the concept of tenants available in Octopus. Prior to Oc
 
 :::hint
 **Introduced in Octopus 3.4**
-Tenants were introduced with first-class support in Octopus 3.4. If you are implementing a multi-tenant deployment strategy we highly recommend [upgrading to Octopus 3.4](http://g.octopushq.com/ProductDownloadPage). You can read about multi-tenant deployments in Octopus 3.4 in our [comprehensive guide](/docs/guides/multi-tenant-deployments/index.md). You can also read about implementing [multi-tenant deployments using Octopus prior to Octopus 3.4](/docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/index.md). We also help you migrate from your existing multi-tenant deployment strategy by [migrating to Octopus 3.4](/docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/migrating-to-octopus-3.4.md).
+Tenants were introduced with first-class support in Octopus 3.4. If you are implementing a multi-tenant deployment strategy we highly recommend [upgrading to Octopus 3.4](http://g.octopushq.com/ProductDownloadPage). You can read about multi-tenant deployments in Octopus 3.4 in our [comprehensive guide](/docs/guides/multi-tenant-deployments/index.md). You can also read about implementing [multi-tenant deployments using Octopus prior to Octopus 3.4](/docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/index.md).
 :::
 
 ## Introducing multi-tenant deployments in Octopus {#Tenants-Introducingmulti-tenantdeploymentsinOctopus}
