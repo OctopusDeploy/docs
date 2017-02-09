@@ -217,6 +217,8 @@ Given a package which has the structure:
 
 ```powershell
 Acme.Core.1.0.0.nupkg
+├─subdir
+| └─web.config
 └─web.config
 ```
 
@@ -230,7 +232,60 @@ c:\
 
 Then the transform **c:\transforms\web.mytransform.config** => **web.config** will:
 
-- Apply the transform **c:\transforms\web.mytransform.config** to file **web.config**
+ - Apply the transform **c:\transforms\web.mytransform.config** to file **web.config**
+ - Apply the transform **c:\transforms\web.mytransform.config** to file **subdir\web.config**
+
+## Applying a transform with an absolute path to a target in the extraction path root {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Usinganabsolutepathtothetransformxtractiondirectoryroot}
+
+:::hint
+This transform is available in Octopus Server 3.8.8 (Calamari 3.6.43) or later    
+:::
+
+Given a package which has the structure:
+
+```powershell
+Acme.Core.1.0.0.nupkg
+├─subdir
+| └─web.config
+└─web.config
+```
+
+And the following files exist:
+
+```powershell
+c:\
+└─transforms
+  └─web.mytransform.config
+```
+
+Then the transform **c:\transforms\web.mytransform.config => .\web.config** will:
+ - Apply the transform **c:\transforms\web.mytransform.config** to file **web.config**
+
+## Applying a transform with an absolute path to a target relative to the extraction path {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-UsinganabsolutepathtothetransformRelativetoextractiondirectory}
+
+:::hint
+This transform is available in Octopus Server 3.8.8 (Calamari 3.6.43) or later    
+:::
+
+Given a package which has the structure:
+
+```powershell
+Acme.Core.1.0.0.nupkg
+├─subdir
+| └─web.config
+└─web.config
+```
+
+And the following files exist:
+
+```powershell
+c:\
+└─transforms
+  └─web.mytransform.config
+```
+
+Then the **transform c:\transforms\web.mytransform.config => .\subdir\web.config** will:
+ - Apply the transform **c:\transforms\web.mytransform.config** to file **subdir\web.config**
 
 ## Applying a transform with an absolute path against multiple files in a different directory {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-ApplyingatransformwithanabsolutepathagainstmultiplefilesinadifferentdirectoryApplyingatransformwithanabsolutepathagainstmultiplefilesinadifferentdirectory}
 
@@ -443,6 +498,8 @@ Given a package which has the structure:
 
 ```powershell
 Acme.Core.1.0.0.nupkg
+├─subdir
+| └─web.config
 └─web.config
 ```
 
@@ -461,13 +518,20 @@ Then the transform **c:\transforms\\*.mytransform.config** => **web.config** wil
 
 - Apply the transform **c:\transforms\security.mytransform.config** to file **web.config**
 
+- Apply the transform **c:\transforms\connstrings.mytransform.config** to file **subdir\web.config**
+
+- Apply the transform **c:\transforms\security.mytransform.config** to file **subdir\web.config**
+
 ## Using an absolute path wildcard transform and multiple targets {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-UsinganabsolutepathwildcardtransformandmultipletargetsUsinganabsolutepathwildcardtransformandmultipletargets}
 
 Given a package which has the structure:
 
 ```powershell
 Acme.Core.1.0.0.nupkg
-├─web.config
+├─app.config
+├─subdir
+| ├─app.config
+| └─web.config
 └─web.config
 ```
 
@@ -482,9 +546,13 @@ c:\
 
 Then the transform **c:\transforms\\*.mytransform.config => \*.config** will:
 
-- Apply the transform**c:\transforms\web.mytransform.config** to file **web.config**
+- Apply the transform **c:\transforms\web.mytransform.config** to file **web.config**
 
 - Apply the transform **c:\transforms\app.mytransform.config** to file **app.config**
+
+- Apply the transform **c:\transforms\web.mytransform.config** to file **subdir\web.config**
+
+- Apply the transform **c:\transforms\app.mytransform.config** to file **subdir\app.config**
 
 ## Using an absolute path for multiple transforms against multiple relative files {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-UsinganabsolutepathformultipletransformsagainstmultiplerelativefilesUsinganabsolutepathformultipletransformsagainstmultiplerelativefiles}
 
