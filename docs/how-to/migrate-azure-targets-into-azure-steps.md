@@ -19,7 +19,7 @@ The Azure Cloud Service and Web App Deployment Targets introduced in Octopus 3.0
 
 The process of migrating your Azure Targets into Deployment Steps is relatively simple (unfortunately it was unable to be automated).
 
-In your existing Deployment Process, you will have a *Deploy a Package*step, which is the Step responsible for deploying your package to the Azure Target.  This Step should be **replaced** by either a *[Deploy an Azure Cloud](/docs/guides/azure-deployments/cloud-services/cloud-service-concepts/cloud-service-deployment-step.md) Service* or *[Deploy an Azure Web App](/docs/guides/azure-deployments/web-apps/web-app-concepts/web-app-deployment-step/index.md)* Step as appropriate. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/adding-steps.md) section.
+In your existing Deployment Process, you will have a *Deploy a Package*step, which is the Step responsible for deploying your package to the Azure Target.  This Step should be **replaced** by either a *[Deploy an Azure Cloud](/docs/guides/azure-deployments/cloud-services/cloud-service-concepts.md#CloudServiceConcepts-CloudServiceDeploymentStep) Service* or *[Deploy an Azure Web App](/docs/guides/azure-deployments/web-apps/web-app-concepts/web-app-deployment-step/index.md)* Step as appropriate. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/adding-steps.md) section.
 
 ![](/docs/images/5671696/5865904.png "width=170")![](/docs/images/5671696/5865899.png "width=170")
 
