@@ -19,7 +19,7 @@ All Azure Steps are executed on the Octopus Server, so no Targets/Tentacles are 
 
 ### Azure Resource Groups {#DeployingtoAzure-AzureResourceGroups}
 
-Octopus Deploy provides first-class support for managing [Resource Groups](/docs/guides/azure-deployments/resource-groups/index.md) in Microsoft Azure, including support for Resource Group Templates and their parameters, even using secrets from Azure Key Vault. Follow our guide on [deploying applications using Azure Resource Group Templates](/docs/guides/azure-deployments/resource-groups/deploy-using-an-azure-resource-group-template.md).
+Octopus Deploy provides first-class support for managing [Resource Groups](/docs/guides/azure-deployments/resource-groups/index.md) in Microsoft Azure, including support for Resource Group Templates and their parameters, even using secrets from Azure Key Vault. Follow our guide on [deploying applications using Azure Resource Group Templates](/docs/guides/azure-deployments/resource-groups/index.md).
 
 ### Azure Web Apps {#DeployingtoAzure-AzureWebApps}
 
