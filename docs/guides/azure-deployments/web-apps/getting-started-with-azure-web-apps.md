@@ -1,5 +1,6 @@
 ---
 title: Getting started with Azure Web Apps
+description: This guide will help you deploy your first Azure Web App with Octopus Deploy.
 ---
 
 This guide will help you deploy your first Azure Web App using Octopus Deploy.  This guide assumes some familiarity with Octopus. If you are just starting out you please see the general [getting started guide](/docs/getting-started.md).

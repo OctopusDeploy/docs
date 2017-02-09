@@ -1,5 +1,6 @@
 ---
 title: Creating an Azure Service Principal Account
+description: Creating an Azure Service Principal Account in Octopus Deploy.
 ---
 
 :::hint

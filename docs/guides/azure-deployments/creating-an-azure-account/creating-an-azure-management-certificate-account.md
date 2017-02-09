@@ -1,5 +1,6 @@
 ---
 title: Creating an Azure Management Certificate Account
+description: Creating an Azure Management Certificate Account in Octopus Deploy.
 ---
 
 :::hint

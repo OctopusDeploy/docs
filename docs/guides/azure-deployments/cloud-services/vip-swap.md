@@ -1,5 +1,6 @@
 ---
 title: VIP Swap
+description: The guide demonstrates how to perform a VIP swap when deploying to Azure Cloud Services.
 position: 1
 ---
 
