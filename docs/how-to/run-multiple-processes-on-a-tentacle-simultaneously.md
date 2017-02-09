@@ -19,17 +19,17 @@ If you require multiple steps to run on a target, by multiple Projects in parall
 **Caution**
 When this variable is enabled, Octopus will be able to run multiple deployments simultaneity on the same machine. This can cause deployments to fail if the same file is modified more than once at the same time.
 
-If you use **OctopusBypassDeploymentMutex,**make sure that your projects will not conflict with each other on the same machine.
+If you use **OctopusBypassDeploymentMutex**, make sure that your projects will not conflict with each other on the same machine.
 :::
 
 :::hint
 **Max Parallelism**
 When enabling **OctopusBypassDeploymentMutex** there are a couple of special variables that may impact the number of parallel tasks that are run.
 
-- `Octopus.Acquire.MaxParallelism`
- - This variable limits the number of package acquisitions that can run simultaneously on the Tentacle
- - By default, this is set to `10`
-- `Octopus.Action.MaxParallelism`
- - This variable limits the maximum number of machines on which the action will concurrently execute
- - By default, this is set to `int.MaxValue`
+* `Octopus.Acquire.MaxParallelism`
+    * This variable limits the number of package acquisitions that can run simultaneously on the Tentacle
+    *  By default, this is set to `10`
+* `Octopus.Action.MaxParallelism`
+    * This variable limits the maximum number of machines on which the action will concurrently execute
+    * By default, this is set to `int.MaxValue`
 :::
