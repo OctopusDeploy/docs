@@ -6,7 +6,7 @@ position: 3
 
 [Bamboo from Atlassian](https://www.atlassian.com/software/bamboo) is a popular continuous integration and build server that supports a wide variety of different build runners and source control systems. While Bamboo has some built-in deployment concepts, you can also combine Octopus Deploy with Bamboo to get a full end-to-end build and deployment experience.
 
-![](/docs/images/3048164/3278152.png?effects=border-simple,blur-border,tape "width=500")
+![](/docs/images/3048164/3278152.png "width=500")
 
 ![](/docs/images/3048164/3278150.png "width=500")
 
@@ -34,7 +34,7 @@ During our build, we will:
 
 To interact with our Octopus Deploy server, we need an API key. It's a good idea to define this as a password variable in Bamboo:
 
-![](/docs/images/3048164/3278160.png?effects=border-simple,blur-border "width=500")
+![](/docs/images/3048164/3278160.png "width=500")
 
 :::success
 **Creating API keys**
@@ -43,7 +43,7 @@ Learn about [how to create an API key](/docs/how-to/how-to-create-an-api-key.md)
 
 Bamboo uses an MSBuild runner to compile Visual Studio solutions. [Once OctoPack has been installed](/docs/packaging-applications/nuget-packages/using-octopack/index.md) on your C#/VB projects, you can configure Bamboo's MSBuild task to pass the appropriate parameters to MSBuild to have OctoPack run:
 
-![](/docs/images/3048164/3278161.png?effects=border-simple,blur-border "width=500")
+![](/docs/images/3048164/3278161.png "width=500")
 
 There are a number of parameters that you will want to define. For this page, we are using:
 
@@ -71,9 +71,9 @@ You can go one step further and automate release creation using [Octo.exe](/docs
 
 1. [Download Octo.exe](https://octopus.com/downloads), and extract it to a folder on your Bamboo build runner, such as `C:\Tools\Octo\Octo.exe`
 2. Add a new Command Line task to your build plan, and define the new executable:
-![](/docs/images/3048164/3278159.png?effects=border-simple,blur-border "width=500")
+![](/docs/images/3048164/3278159.png "width=500")
 3. Describe the command line task, and specify the arguments to Octo.exe:
-![](/docs/images/3048164/3278158.png?effects=border-simple,blur-border "width=500")
+![](/docs/images/3048164/3278158.png "width=500")
 
 In the **Argument** field, we are passing:
 
@@ -107,15 +107,15 @@ However, you can also make use of **Bamboo deployment plans**, and use them to c
 
 For this example, we have four environments in Octopus - Development, Test, Staging and Production. We have a deployment plan in Bamboo that is linked to the build plan, and looks like this:
 
-![](/docs/images/3048164/3278157.png?effects=border-simple,blur-border "width=500")
+![](/docs/images/3048164/3278157.png "width=500")
 
 The release versioning scheme in the deployment plan has been configured to look like this - again, so that we have consistent release numbers:
 
-![](/docs/images/3048164/3278154.png?effects=border-simple,blur-border "width=500")
+![](/docs/images/3048164/3278154.png "width=500")
 
 Each of the environments in the deployment plan simply contains a single deployment task: it uses the Octo.exe executable that we created earlier to trigger a deployment in Octopus:
 
-![](/docs/images/3048164/3278153.png?effects=border-simple,blur-border "width=500")
+![](/docs/images/3048164/3278153.png "width=500")
 
 Each of the deployment tasks have a similar set of arguments:
 
@@ -139,7 +139,7 @@ Keep in mind that you can also configure triggers in Bamboo so that you deploy t
 
 All going well, you should be able to see the build and deployment plans in Bamboo:
 
-![](/docs/images/3048164/3278152.png?effects=border-simple,blur-border "width=500")
+![](/docs/images/3048164/3278152.png "width=500")
 
 Alongside the deployments in Octopus:
 
