@@ -107,7 +107,43 @@ While Topshelf has its own command line options to make Service Registration eas
 
 You will need to consider carefully which Service Account you choose for your Windows Service. If you decide to use a Custom Account, you will need to make sure the Account is granted the **Logon as a Service** logon right (**SeServiceLogonRight**).
 
-When you use the Services snap-in console to configure your Windows Service, the **SeServiceLogonRight** logon right is automatically assigned to the account. If you use the Sc.exe tool or APIs to configure the account (like Octopus Deploy does on your behalf), the account has to be explicitly granted this right by using tools such as the Security Policy snap-in, `Secedit.exe`, or `NTRights.exe`. The built-in Windows Service accounts (`Local System`, `Network Service`, `Local Service`), and members of the **Local Administrators** group are assigned this right by default.
+When you use the Services snap-in console to configure your Windows Service, the **SeServiceLogonRight** logon right is automatically assigned to the account. If you use the Sc.exe tool or APIs to configure the account (like Octopus Deploy does on your behalf), the account has to be explicitly granted this right by using tools such as [Carbon PowerShell module](http://get-carbon.org/), the Security Policy snap-in (secpol.msc), `Secedit.exe`, or `NTRights.exe`. The built-in Windows Service accounts (`Local System`, `Network Service`, `Local Service`), and members of the **Local Administrators** group are assigned this right by default.
+
+#### Carbon PowerShell Module {#WindowsServices-CarbonPowerShellModule}
+
+Carbon is an amazing module that can be installed via [Chocolatey](https://chocolatey.org/packages/carbon), the PS Gallery, or manually. 
+For Chocolatey it is simply `choco install carbon`, for the PS gallery in PowerShell 5 or higher, you can run `Install-Module Carbon`, or to install manually visit their site and clone the repository or download a zip from the Releases page.
+
+Carbon PS Script example:
+```
+# The Octopus variables below are just examples
+# Use your own #{RunAsUser} or similar variable name.
+
+# The SeServiceLogonRight lets accounts run as a service but isn't mutually exclusive
+# with the "DenyInteractiveLogon" policy to prevent regular users from abusing it
+
+# Check to see if the given account has the appropriate permission
+Test-Privilege -Identity #{ServiceAccountName} -Privilege SeServiceLogonRight
+# Returns False if account doesn't have permission
+
+Grant-Privilege -Identity #{ServiceAccountName} -Privilege SeServiceLogonRight
+# May not return anything
+
+Test-Privilege -Identity #{ServiceAccountName} -Privilege SeServiceLogonRight
+# Returns True once the account has permission
+
+# The SeBatchLogonRight lets accounts trigger scheduled tasks
+
+# Check to see if the given account has the appropriate permission
+Test-Privilege -Identity #{ServiceAccountName} -Privilege SeBatchLogonRight
+# Returns False
+
+Grant-Privilege -Identiy #{BatchAccountName} -Privilege SeBatchLogonRight
+# May not return anything
+
+Test-Privilege -Identity #{ServiceAccountName} -Privilege SeBatchLogonRight
+# Returns True once the account has permission
+```
 
 ## Using Managed Service Accounts (MSA) {#WindowsServices-UsingManagedServiceAccounts(MSA)}
 
@@ -126,7 +162,7 @@ To configure the Windows Service to use a Managed Service Account:
 
 :::hint
 **Important information about using Managed Service Accounts**
-There must be a dollar sign ($) at the end of the account name. When you use the Services snap-in console to configure your Windows Service, the **SeServiceLogonRight** logon right is automatically assigned to the account. If you use the Sc.exe tool or APIs to configure the account (like Octopus Deploy does on your behalf), the account has to be explicitly granted this right by using tools such as the Security Policy snap-in, Secedit.exe, or NTRights.exe.
+There must be a dollar sign ($) at the end of the account name. When you use the Services snap-in console to configure your Windows Service, the **SeServiceLogonRight** logon right is automatically assigned to the account. If you use the Sc.exe tool or APIs to configure the account (like Octopus Deploy does on your behalf), the account has to be explicitly granted this right by using tools such as the [Carbon PowerShell module](http://get-carbon.org/), the Security Policy snap-in (secpol.msc), Secedit.exe, or NTRights.exe.
 
 Learn about [Managed Service Accounts](https://technet.microsoft.com/en-us/library/dd560633(v=ws.10).aspx).
 :::
