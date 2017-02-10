@@ -1,5 +1,6 @@
 ---
 title: Installing a custom server extension
+description: To install a custom server extension, you need to copy the extension dll into a folder on the machine that is running the Octopus Deploy server.
 ---
 
 :::hint

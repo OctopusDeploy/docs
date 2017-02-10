@@ -1,5 +1,6 @@
 ---
 title: Server Extensibility
+description: This guide covers everything you need to know for building and customising Octopus Deploy server extensions.
 position: 7
 ---
 

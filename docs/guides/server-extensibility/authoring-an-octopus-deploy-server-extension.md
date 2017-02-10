@@ -1,5 +1,6 @@
 ---
 title: Authoring an Octopus Deploy server extension
+description: Technical details of how to author an Octopus Deploy server extension.
 ---
 
 :::hint
