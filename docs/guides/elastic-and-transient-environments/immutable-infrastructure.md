@@ -1,5 +1,6 @@
 ---
 title: Immutable Infrastructure
+description: This guide covers deploying to immutable infrastructure where a new version of the infrastructure is provisioned and the old infrastructure is terminated.
 position: 4
 version: 3.4 
 ---

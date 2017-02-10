@@ -11,20 +11,6 @@ The new structure of Team Foundation Build gives us a great opportunity to integ
 - Deploying a Release to an Environment in Octopus
 - Promoting a Release from one Environment to the next
 
-In this help page:
-
-- [Installing the extension](#UsetheTeamFoundationBuildCustomTask-Installingtheextension)
-- [Add a Connection to Octopus Deploy](#UsetheTeamFoundationBuildCustomTask-AddaConnectiontoOctopusDeploy)
-- [Package your Application and Push to Octopus](#UsetheTeamFoundationBuildCustomTask-PackageyourApplicationandPushtoOctopus)
-- [Using OctoPack to Create and Push a Package](#UsetheTeamFoundationBuildCustomTask-using-octopackUsingOctoPacktoCreateandPushaPackage)
-- [Add Steps to your Build or Release Process](#UsetheTeamFoundationBuildCustomTask-AddStepstoyourBuildorReleaseProcess)
-- [Add a Package Application step](#UsetheTeamFoundationBuildCustomTask-package-application-stepAddaPackageApplicationstep)
-- [Publish Package Artifact](#UsetheTeamFoundationBuildCustomTask-PublishPackageArtifact)
-- [Add a Push Package(s) to Octopus Step](#UsetheTeamFoundationBuildCustomTask-push-packages-stepAddaPushPackage(s)toOctopusStep)
-- [Add a Create Octopus Release Step](#UsetheTeamFoundationBuildCustomTask-AddaCreateOctopusReleaseStep)
-- [Add a Deploy Octopus Release Step](#UsetheTeamFoundationBuildCustomTask-AddaDeployOctopusReleaseStep)
-- [Add a Promote Octopus Release Step](#UsetheTeamFoundationBuildCustomTask-AddaPromoteOctopusReleaseStep)
-
 We've open-sourced the [OctoTFS repository in GitHub](https://github.com/OctopusDeploy/OctoTFS) if you'd like to contribute.
 
 ## Installing the extension {#UsetheTeamFoundationBuildCustomTask-Installingtheextension}

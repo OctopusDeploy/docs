@@ -86,7 +86,7 @@ Notice that we're just packaging up resources that will be needed to run the app
 
 To make life easier add the gulp publish script to your **package.json** scripts section like so
 
-```js
+```json
 "scripts": {
     ...
     "publish": "node ./node_modules/gulp/bin/gulp.js publish"
@@ -136,7 +136,7 @@ grunt.registerTask('publish',  ['bump', 'build', 'clean:pkg',  'octo-pack:prod',
 
 Finally add the npm publish script using the grunt task runner.
 
-```js
+```json
 "scripts": {
     ...
     "publish": "node ./node_modules/grunt-cli/bin/grunt publish"

@@ -1,5 +1,6 @@
 ---
 title: Cleaning up environments
+description: Octopus can automatically remove unwanted machines from environments based on their health status.  
 position: 3
 ---
 

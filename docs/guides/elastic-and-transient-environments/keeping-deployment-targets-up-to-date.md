@@ -1,5 +1,6 @@
 ---
 title: Keeping deployment targets up to date
+description: Octopus can ensure that deployment targets are kept up to date with the relevant releases. This can be useful when deploying to transient targets or when new deployment targets are added to an environment.
 position: 2
 ---
 
