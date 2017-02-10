@@ -54,7 +54,7 @@ Given this example of a target config file:
 
 **Simple target file**
 
-```js
+```json
 {
    "weatherApiUrl": "dev.weather.com",
    "weatherApiKey": "DEV1234567",
@@ -66,7 +66,7 @@ If you have the Octopus Variables `weatherApiUrl` and `weatherApiKey` set to th
 
 **Simple JSON**
 
-```js
+```json
 {
    "weatherApiUrl": "test.weather.com",
    "weatherApiKey": "TEST7654321",
@@ -82,7 +82,7 @@ For example, to update the value of `weatherApi.url` and `weatherApi.key` in th
 
 **Hierarchical JSON**
 
-```js
+```json
 {
    "weatherApi": {
       "url": "dev.weather.com",
@@ -101,7 +101,7 @@ For example, the variable `foo:bar:1` with a value `qux` will update the value
 
 **Hierarchical JSON**
 
-```js
+```json
 {
    "foo": {
       "bar": [
