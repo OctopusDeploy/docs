@@ -24,7 +24,7 @@ During our Jenkins job, we will:
 
 Jenkins uses the MSBuild plugin to compile Visual Studio solutions. [Once OctoPack has been installed](/docs/packaging-applications/nuget-packages/using-octopack/index.md) on your C#/VB projects, you can configure Jenkin's MSBuild task to pass the appropriate parameters to MSBuild to have OctoPack run:
 
-![](/docs/images/3048162/3278145.png?effects=border-simple,blur-border "width=500")
+![](/docs/images/3048162/3278145.png "width=500")
 
 There are a number of parameters that you will want to define. For this page, we are using:
 
@@ -46,7 +46,7 @@ Learn more about the available [OctoPack parameters](/docs/packaging-application
 
 Notice that we use `${OctopusApiKey}` to access an API key that we will use to authenticate with Octopus. You define this using the fields provided by the **Mask Passwords plugin** on your job.
 
-![](/docs/images/3048162/3278146.png?effects=border-simple,blur-border "width=500")
+![](/docs/images/3048162/3278146.png "width=500")
 
 :::success
 **Creating API keys**
@@ -63,7 +63,7 @@ To do this, we'll be using the [Octo.exe command line tool](/docs/api-and-integr
 
 We can call Octo.exe easily using the Jenkins **Execute Windows batch** **command** task.
 
-![](/docs/images/3048162/3278144.png?effects=border-simple,blur-border "width=500")
+![](/docs/images/3048162/3278144.png "width=500")
 
 In the command, we are calling:
 
