@@ -40,7 +40,7 @@ Deployment-level variables are drawn from the project and release being deployed
 | Octopus.Machine.Id                       | *machines-123*                           | The ID of the machine                    |
 | Octopus.Machine.Name                     | *WEBSVR01*                               | The name that was used to register the machine in Octopus. Not the same as *Hostname* |
 | Octopus.Machine.Roles                    | *web-server,frontend*                    | The roles applied to the machine *(List)* |
-| Octopus.Machine.Hostname                 | Database01, www.Database01.local, 192.168.200.100 | The host part of the URI that was used to register the machine, could be an IP, hostname depending on what was supplied. Only set for Listening Tentacles |
+| Octopus.Machine.Hostname                 | Database01, Database01.local, 192.168.200.100 | The host part of the URI that was used to register the machine, could be an IP, hostname depending on what was supplied. Only set for Listening Tentacles |
 | Octopus.Project.Id                       | *projects-123*                           | The ID of the project                    |
 | Octopus.Project.Name                     | *OctoFx*                                 | The name of the project                  |
 | Octopus.ProjectGroup.Id                  | *projectgroups-123*                      | The ID of the projectgroup               |

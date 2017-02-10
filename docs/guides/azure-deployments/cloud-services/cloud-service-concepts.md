@@ -14,7 +14,7 @@ In order to deploy Cloud Services they must be packaged into the Cloud Service .
 
 Packaging into a .cspkg can be done in Visual Studio by right-clicking on the Cloud Service and selecting "Package...".  This action with generate a .cspkg and .cscfg file which can be deployed to Azure Cloud Services.
 
-![Packaging an Azure Cloud Service](/docs/images/3049365/3278541.png "Packaging an Azure Cloud Service width=500")
+![Packaging an Azure Cloud Service](/docs/images/3049365/3278541.png "width=500")
 
 ### Generate a NuGet package {#CloudServiceConcepts-GenerateaNuGetpackage}
 
@@ -139,7 +139,7 @@ Deployment to an Azure Cloud Service target proceeds as follows (more details pr
 
 Cloud Service Package files are extracted during deployment, in order to make available features such as Configuration Transforms and Variable Substitution.
 
-To extract the Cloud Service Package, it is first converted to the CTP format (also known as V20120315). This is the format described by Microsoft [documentation](https://msdn.microsoft.com/en-us/library/azure/jj151522.aspx), but is not used by default by the [CSPack ](https://msdn.microsoft.com/en-us/library/azure/gg432988.aspx)utility (passing the `/useCtpPackageFormat` switch is required for this format to be used).  This is just an implementation detail, but the documented archive layout gives a good starting point to understanding the layout of the extracted package.
+To extract the Cloud Service Package, it is first converted to the CTP format (also known as V20120315). This is the format described by Microsoft [documentation](https://msdn.microsoft.com/en-us/library/azure/jj151522.aspx), but is not used by default by the [CSPack](https://msdn.microsoft.com/en-us/library/azure/gg432988.aspx) utility (passing the `/useCtpPackageFormat` switch is required for this format to be used).  This is just an implementation detail, but the documented archive layout gives a good starting point to understanding the layout of the extracted package.
 
 Setting the `Octopus.Action.Azure.LogExtractedCspkg` variable to `true` will cause the layout of the extracted package to be written into the Task Log. This may assist with finding the path to a particular file.
 

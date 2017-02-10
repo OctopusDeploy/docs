@@ -17,7 +17,7 @@ At a high-level, the steps are:
 2. Import the XML file in Excel
 3. Report on the data using a pivot table
 
-![](/docs/images/3048153/3278122.png?effects=border-simple,blur-border,tape "width=500")
+![](/docs/images/3048153/3278122.png "width=500")
 
 ## Export all deployments to an XML file {#ReportondeploymentsusingExcel-ExportalldeploymentstoanXMLfile}
 
