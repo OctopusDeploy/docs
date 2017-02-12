@@ -54,8 +54,8 @@ In a newly created project, click *Add Step &#10140; Create a Docker network*. 
 
 1. Ensure the step is set to run on the **docker-server** role (targeting the Docker host we created earlier)
 2. Set the *Name* to **Custom Network**. *This name will be referenced later on in subsequent steps that will link the containers to the created network.*
-3. Leave the *Driver* as the default **Bridge**type. *This network type allows containers on the same network to immediately communicate with each other, while keeping them isolated from external networks.*
-4. Set the *Subnet* to `172.28.6.0/24`. *You can optionally provide IP ranges that will define the Subnet, IP Range, and Gateway used by the network. In this case we have opted to just set up the subnet using the [CIDR format ](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)**`172.28.6.0/24` meaning that connected containers will be assigned IP addresses in the range**`172.28.6.0-`**`172.28.6.255`.*
+3. Leave the *Driver* as the default **Bridge** type. *This network type allows containers on the same network to immediately communicate with each other, while keeping them isolated from external networks.*
+4. Set the *Subnet* to `172.28.6.0/24`. *You can optionally provide IP ranges that will define the Subnet, IP Range, and Gateway used by the network. In this case we have opted to just set up the subnet using the [CIDR format ](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)**`172.28.6.0/24` meaning that connected containers will be assigned IP addresses in the range `172.28.6.0-172.28.6.255`**.
 ![](/docs/images/5670973/5865821.png "width=500")
 
 :::hint
@@ -74,7 +74,7 @@ From the project process page, add a new step via *Add Step &#10140; Run a Docke
 1. Set the *Name* to **First Server**
 2. Ensure the step is set to run on the **docker-server** role (targeting the Docker host and Network we created earlier)
 3. For the *Package Feed* the **DockerHub** feed. *You may notice the only options are Docker feeds, like the one we created earlier. This is because only Docker feeds will be shown for Docker-specific steps.*
-4. Set the *Package ID*as **busybox***.**Note the package auto-complete should search for and return all public images from Docker Hub with the word "busybox". Since we want to use the official image, select the one that is not preceded by a registry prefix. busybox is a tiny linux distro that, at just over 1 MB, will serve as a sufficient image for this feature demonstration.*
+4. Set the *Package ID* as **busybox**. *Note the package auto-complete should search for and return all public images from Docker Hub with the word "busybox". Since we want to use the official image, select the one that is not preceded by a registry prefix. busybox is a tiny linux distro that, at just over 1 MB, will serve as a sufficient image for this feature demonstration.*
 ![](/docs/images/5670973/5865801.png "width=200")
 5. Under the *Networking* section, select the *Network Type*as **Custom Network** and provide the name as **`#{Octopus.Action[Custom Network].Output.Docker.Inspect.Name}`**.
 
@@ -98,12 +98,12 @@ The command itself is arbitrary, what is important is that we start a process th
 Now we will create a second container, exactly the same as the first using busybox, but this container will connect to the first container to demonstrate how containers can communicate in a docker network.
 
 1. Create a new Run Docker Container step (very much like the first one, but notice some subtle differences):
- 1. Set the *Name* to **Second Server**
- 2. Set the R*oles* to**docker-server**
- 3. Set the *Package feed* to **DockerHub**
- 4. Set the *Package ID* to **busybox**
- 5. Set the *Network Type* to **Custom Network**using the name **`#{Octopus.Action[Custom Network].Output.Docker.Inspect.Name}`**
-2. Skip down to the *Variables* section and under *Explicit Variable Mapping*, add a variable named **PING\_COUNT** to a value of **#{PingCount}***.**This will demonstrate the mechanism for getting variables from Octopus into the container at run time via environment variables.*
+    * Set the *Name* to **Second Server**
+    * Set the R*oles* to**docker-server**
+    * Set the *Package feed* to **DockerHub**
+    * Set the *Package ID* to **busybox**
+    * Set the *Network Type* to **Custom Network**using the name **`#{Octopus.Action[Custom Network].Output.Docker.Inspect.Name}`**
+2. Skip down to the *Variables* section and under *Explicit Variable Mapping*, add a variable named **PING\_COUNT** to a value of **#{PingCount}**. *This will demonstrate the mechanism for getting variables from Octopus into the container at run time via environment variables.*
 
 :::problem
 **Getting Octopus variables into your container**
@@ -113,7 +113,7 @@ Some other options include passing through all variables to the container throug
 
 We would love to hear about your thoughts and feedback on these options!
 :::
-3. This time set the *Command* parameter to **`/bin/sh -c "ping -c \$PING_COUNT FirstServer | grep PING; sleep 5s"`*.****As with Container A, this will start the container with the ping process however in this case it will only ping a limited number of times before exiting with the first line showing the IP address of the server being called.  A 5 second sleep is also appended for demonstration purposes so that we can extract the container information before it exits.*
+3. This time set the *Command* parameter to **`/bin/sh -c "ping -c \$PING_COUNT FirstServer | grep PING; sleep 5s"`**. *As with Container A, this will start the container with the ping process however in this case it will only ping a limited number of times before exiting with the first line showing the IP address of the server being called.  A 5 second sleep is also appended for demonstration purposes so that we can extract the container information before it exits.*
 ![](/docs/images/5670973/5865798.png "width=500")
 4. Save this step
 
