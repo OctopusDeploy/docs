@@ -1,5 +1,6 @@
 ---
 title: Configure Octopus Deploy Project
+description: This guide describes how to configure your Octopus project to deploy a NodeJS application to a Linux deployment target.
 position: 2
 ---
 

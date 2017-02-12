@@ -1,5 +1,6 @@
 ---
 title: Create & Push Node.js Project
+description: This guide describes how to package and publish a NodeJS application to Octopus from your development workstation.
 position: 1
 ---
 
