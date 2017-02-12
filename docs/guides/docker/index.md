@@ -1,5 +1,6 @@
 ---
 title: Docker
+description: This guide covers the basics of using the Octopus Docker steps.
 position: 9
 ---
 

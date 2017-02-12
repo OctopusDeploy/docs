@@ -1,5 +1,6 @@
 ---
 title: Docker run with networking
+description: This guide demonstates the basic functionality provided by the Octopus Docker steps.
 ---
 
 To demonstrate some of the basic functionality provided by the new Docker steps, we will walk through the process of starting two containers that can communicate with each other through their own isolated network. The first container will simply start and run a non exiting process, while the second container will ping the first to demonstrate connectivity. As part of this we will set up an external feed to DockerHub and include a cleanup task to remove existing containers. We will use a **Linux** machine which has the latest version of Docker installed and has network access to retrieve images from Docker Hub.
@@ -17,7 +18,7 @@ If not, you will need to configure a host for our sample application. We recomme
 
 1. Install Ubuntu
 2. Configure your Ubuntu machine as an [SSH Target](/docs/deployment-targets/ssh-targets/index.md) in Octopus - [this guide may be helpful](/docs/guides/node-on-nix-deployments/configuring-target-machine.md)
- 1. Make sure this Deployment Target has a [Machine Role](/docs/key-concepts/machine-roles.md) like **docker-test**. We will configure the Docker steps to target this role.
+    * Make sure this Deployment Target has a [Machine Role](/docs/key-concepts/machine-roles.md) like **docker-test**. We will configure the Docker steps to target this role.
  
 ![](/docs/images/5670973/5865822.png "width=500")
 
@@ -49,7 +50,7 @@ Next we are going to create a connection to the official Docker Hub registry so 
 
 ### Step 1: Docker Network Step {#Dockerrunwithnetworking-Step1:DockerNetworkStep}
 
-In a newly created project, click *Add Step &#10140; Create a Docker network.*This step manages parameters that will be passed to the `docker network create` command.
+In a newly created project, click *Add Step &#10140; Create a Docker network*. This step manages parameters that will be passed to the `docker network create` command.
 
 1. Ensure the step is set to run on the **docker-server** role (targeting the Docker host we created earlier)
 2. Set the *Name* to **Custom Network**. *This name will be referenced later on in subsequent steps that will link the containers to the created network.*
