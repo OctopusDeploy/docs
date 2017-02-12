@@ -1,5 +1,6 @@
 ---
 title: Azure Virtual Machines
+description: The Azure VM Tentacle extension makes it easy to automatically download, install and register a Tentacle with your Octopus Deploy server.
 position: 4
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Polling Tentacles
+description: Octopus Polling Tentacles open a connection to the Octopus server to ask what to do.
 position: 1
 ---
 

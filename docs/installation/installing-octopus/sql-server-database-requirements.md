@@ -1,5 +1,6 @@
 ---
 title: SQL Server Database Requirements
+description: Information on the Microsoft SQL Server database requirements required to support Octopus Deploy.
 position: 0
 ---
 
@@ -10,17 +11,17 @@ Octopus Deploy stores projects, environments, and deployment history and logs in
 Octopus works with most recent versions and editions of SQL Server, from a local SQL Server Express instance, all the way to an Enterprise Edition cluster. Azure SQL databases are also supported. The following requirements apply to the SQL Server database used by Octopus:
 
 - Supported versions: 
-  - SQL Server 2008
-  - SQL Server 2008 R2
-  - SQL Server 2012
-  - SQL Server 2014
-  - SQL Server 2016
+     * SQL Server 2008
+     * SQL Server 2008 R2
+     * SQL Server 2012
+     * SQL Server 2014
+     * SQL Server 2016
 - Supported editions: 
-  - Express (free)
-  - Web
-  - Datacenter
-  - Standard
-  - Enterprise
+     * Express (free)
+     * Web
+     * Datacenter
+     * Standard
+     * Enterprise
 - Microsoft Azure SQL Database
 - AWS RDS SQL Database
 

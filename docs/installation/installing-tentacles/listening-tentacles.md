@@ -1,5 +1,6 @@
 ---
 title: Listening Tentacles
+description: Octopus Listening Tentacles wait for a connection from the Octopus server to be told what to do.
 position: 0
 ---
 

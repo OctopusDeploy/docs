@@ -1,5 +1,6 @@
 ---
 title: Installing Tentacles
+description: Everything you need to know about installing and configuring Octopus Tentacles for use with your deployments.
 position: 2
 ---
 
