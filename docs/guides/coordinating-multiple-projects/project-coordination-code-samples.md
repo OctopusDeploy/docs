@@ -1,5 +1,6 @@
 ---
 title: Project Coordination Code Samples
+descriptin: Project Coordination guide Code Samples that show how to perform various tasks covered in the guide.
 ---
 
 These samples show how to perform various tasks related to project coordination.
@@ -25,7 +26,7 @@ The best way to get the current state for one or more projects is to use the Das
 
 **Octopus.Client**
 
-```c#
+```csharp
 var globalDashboard = repository.Dashboards.GetDashboard().Items;
 var projectDashboard = repository.Dashboards.GetDynamicDashboard(projects, environments).Items
 ```
@@ -53,7 +54,7 @@ Viewing recent deployments {#ProjectCoordinationCodeSamples-Viewingrecentdeploym
 
 The following code returns the deployments started in the last 7 days:
 
-```c#
+```csharp
 var projects = repository.Projects.FindAll().Select(p => p.Id).ToArray();
 var environments = repository.Environments.FindAll().Select(e => e.Id).ToArray();
 List<DeploymentResource> recentDeployments = new List<DeploymentResource>();
@@ -72,7 +73,7 @@ repository.Deployments.Paginate(projects, environments,
 
 This example finds all the releases that are in UAT but not Production. It then queues them for deployment to Production and waits for them to complete.
 
-```c#
+```csharp
 var environments = repository.Environments.GetAll();
 var testEnvId = environments.First(e => e.Name == "UAT").Id;
 var prodEnvId = environments.First(e => e.Name == "Prod").Id;
