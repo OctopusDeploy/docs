@@ -1,5 +1,6 @@
 ---
 title: Using the Team Foundation Build Custom Task
+description: This guide walks you through integrating Octopus with Microsoft TFS or VSTS using the Octopus extension.
 position: 5
 ---
 
