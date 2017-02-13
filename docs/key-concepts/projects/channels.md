@@ -30,20 +30,7 @@ Each Release you create in Octopus Deploy is placed into a Channel, and Releases
 
 Channels can also help you to create consistent Releases by specifying Version Rules that apply to each Package.
 
-- Managing Channels
- - Defining Version Rules
-  - Steps
-  - Version Range
-  - Tags
-- Using Channels
- - Controlling Deployment Lifecycle
- - Modifying Deployment Process
- - Variables
- - Deploying to Tenants
-- Creating Releases
- - Manually Creating Releases
- - Using Build Server Extensions or Octo.exe
- - Automatic Release Creation
+!toc
 
 ## Managing Channels {#Channels-ManagingChannels}
 
