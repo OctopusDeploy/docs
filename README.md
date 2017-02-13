@@ -22,6 +22,7 @@ For example:
 title: Getting started
 description: From 0 to deployed, this guide walks you through getting started with Octopus.
 position: 0
+version: [3.0,4.0)
 ---
 ```
 
@@ -29,10 +30,13 @@ position: 0
 Required. Used for the web page title tag `<head><title>`, displayed in the page content
 
 ### Description
-Optional. Used for the meta description tag (`<meta name="description" />`).
+Required. Used for the meta description tag (`<meta name="description" />`).
 
 ### Position
 Optional. Used for the position in the menu.
+
+### Version
+Optional. The versions that this file applies to.
 
 ## Menu
 
@@ -127,18 +131,18 @@ b. Item 2
 
 Use GitHub-style fenced code blocks. Example:
 
-    ```powershell
+    ​```powershell
     Write-Host "Hello"
-    ```
+    ​```
 
 If your example uses multiple languages or files, you can combine them together - they will be rendered as tabs:
 
-    ```powershell PowerShell
+    ​```powershell PowerShell
     Write-Host "Hello"
-    ```
-    ```c# ScriptCS
+    ​```
+    ​```c# ScriptCS
     Console.WriteLine("Hello");
-    ```
+    ​```
 
 Snippets are highlighted by Highlight.js
 
@@ -195,6 +199,33 @@ The number is 45.</p>
 The first (and all top level) headers in a `.md` page should be a `h2` (i.e. `##`) with sub-headings under it being `h3`, `h4`, etc.
 DO NOT skip headers, eg. h1 > h2 > h4, not valid!
 
+## Includes
+Sometimes you need to duplicate content in multiple pages, this is where includes are handy.
+Markdown includes are pulled into the document prior to passing the content through the markdown conversion.
+
+### Defining an include
+
+Add a file anywhere in the docs repository that is suffixed with `.include.md`. For example, the file might be named `theKey.include.md`.
+
+### Using an include
+
+Add the following to the markdown: `!include <key>`
+
+## Partials
+Partials are version specific files that contain markdown.
+Markdown partials are pulled into the document prior to includes, so this means you can add includes to partials.
+They  are only rendered in the target page when the version filter matches the convention for a give file.
+
+Partial Convention: filePrefix_key_nugetAlias_version.partial.md
+
+### Defining a partial
+
+Add a file in the same folder as the page where you will use the partial to the docs repository that is named `filePrefix_key_version.partial.md`. For example, the file might be named `getting-started_theKey_2.0.partial.md`.
+
+### Using a partial
+
+Add the following to the markdown: `!partial <key>`
+
 ## Anchors
 
 One addition to standard markdown is the auto creation of anchors for headings.
@@ -229,11 +260,24 @@ With the minimal syntax being
 ### Image paths
 Paths to internal images need to:
 
-- start with `/docs`
+- be relative or absolute
 - all lower case
 - can include `.` and `-`
+- can also have version range, see [image versioning](#image-versioning)
 
 Example `/docs/images/naked-scripting/transferpackage-transfer.png`
+
+### Image versioning
+Images can be versioned. To version an image you need to include the default image and the versioned images.
+The convention is `imagename_version.ext`
+
+Here is an example:
+Let's say we want to display a different versions of `myimage.png` for v1.0 and v2.0 and we are currently on version 3.0.
+All we need to do is create the new image and name it with a version range  `myimages_[1.0,3.0).png`.
+So in the end you have 2 images, `myimage.png` and `myimages_[1.0,3.0).png`.
+
+**All versioned images need to be in the same folder as the default image.**
+
 
 ### Image sizing
 
