@@ -81,33 +81,25 @@ Note that in scripts **all Octopus variables are strings** even if they look l
 
 Let's consider an example where we have defined a project variable called `MyApp.ConnectionString`.
 
-**PowerShell**
-
-```powershell
+```powershell PowerShell
 # It's a good idea to copy the value into a local variable to avoid quoting issues
 $connectionString = $OctopusParameters["MyApp.ConnectionString"]
 Write-Host "Connection string is: $connectionString"
 ```
 
-**ScriptCS**
-
-```c#
+```c# ScriptCS
 # It's a good idea to copy the value into a local variable to avoid quoting issues
 var connectionString = Octopus.Parameters["MyApp.ConnectionString"];
 Console.WriteLine("MyApp.ConnectionString: " + connectionString);
 ```
 
-**Bash**
-
-```bash
+```bash Bash
 # It's a good idea to copy the value into a variable to avoid quoting issues
 connectionString=$(get_octopusvariable "MyApp.ConnectionString")
 echo "Connection string is: $connectionString"
 ```
 
-**F#**
-
-```fsharp
+```fsharp F#
 // It's a good idea to copy the value into a variable to avoid quoting issues
 
 // tryFindVariable : name:string -> string option
@@ -266,9 +258,7 @@ printfn "$s storage path: $s" environment storagePath
 
 When your scripts emit messages Octopus will display the messages in the Task Logs at the most appropriate level for the message. For example:
 
-**PowerShell**
-
-```powershell
+```powershell PowerShell
 Write-Verbose "This will be logged as a Verbose message - verbose messages are hidden by default"
 Write-Host "This will be logged as Information"
 Write-Output "This will be logged as Information too!"
@@ -276,9 +266,7 @@ Write-Warning "This will be logged as a Warning"
 Write-Error "This will be logged as an Error and may cause your script to stop running - take a look at the section on Error Handling"
 ```
 
-**ScriptCS**
-
-```c#
+```c# ScriptCS
 Console.WriteLine("This will be logged as Information");
 Console.Out.WriteLine("This will be logged as Information too!");
 Console.Error.WriteLine("This will be logged as an Error.");
@@ -287,18 +275,14 @@ Console.WriteLine("##octopus[stdout-verbose]");
 Console.WriteLine("And now messages written to stdout will be logged as Verbose");
 ```
 
-**Bash**
-
-```bash
+```bash Bash
 echo "This will be logged as Information"
 >&2 echo "This will be logged as an Error"
 echoerror() { echo "$@" 1>&2; }
 echoerror "You can even define your own function to echo an error!"
 ```
 
-**F#**
-
-```fsharp
+```fsharp F#
 printfn "This will be logged as Information" 
 eprintfn "This will be logged as Error" 
 
@@ -435,14 +419,10 @@ add a variable named `Octopus.Action.PowerShell.ExecuteWithoutProfile` with a va
 
 Sometimes a script launches a service or application that runs continuously. In this case the script does not complete until the application is terminated.  When the script is run in an Octopus deployment, the deployment will continue executing until the script exits.  In most cases this is undesirable. In order to avoid this behaviour the service or application should be launched in a separate process or session, allowing the deployment to continue executing immediately. For example:
 
-**PowerShell**
-
-```powershell
+```powershell PowerShell
 Start-Process MyService
 ```
 
-**Bash**
-
-```bash
+```bash Bash
 screen -d -m -S "MyService" MyService
 ```
