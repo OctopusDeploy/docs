@@ -41,55 +41,55 @@ This page lists the supported scenarios and the transform definitions required t
         <th>Absolute Path</th>
         <td style="text-align: center;"><em>not supported</em></td>
         <td style="text-align: center;"><em>not supported</em></td>
-        <td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Usinganabsolutepathtothetransform)</td>
+        <td style="text-align: center;"> [example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Usinganabsolutepathtothetransform) </td>
         <td style="text-align: center;"><em>not supported</em></td>
-        <td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingatransformwithanabsolutepathagainstmultiplefilesinadifferentdirectory)</td>
-        <td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Usinganabsolutepathtothetransformandapplyingitagainstmultiplefiles)</td>
+        <td style="text-align: center;"> [example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingatransformwithanabsolutepathagainstmultiplefilesinadifferentdirectory) </td>
+        <td style="text-align: center;"> [example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Usinganabsolutepathtothetransformandapplyingitagainstmultiplefiles) </td>
     </tr>
     <tr>
         <th>Relative Path</th>
         <td style="text-align: center;"><em>not supported</em></td>
-        <td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingatransformtoatargetinasiblingdirectory)</td>
-        <td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingatransformfromadifferentdirectory)</td>
+        <td style="text-align: center;"> [example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingatransformtoatargetinasiblingdirectory) </td>
+        <td style="text-align: center;"> [example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingatransformfromadifferentdirectory) </td>
         <td style="text-align: center;"><em>not supported</em></td>
-        <td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingatransformtomultipletargetsinasiblingdirectory)</td>
-        <td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingatransformfromadifferentdirectoryagainstmultiplefiles)</td>
+        <td style="text-align: center;"> [example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingatransformtomultipletargetsinasiblingdirectory) </td>
+        <td style="text-align: center;"> [example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingatransformfromadifferentdirectoryagainstmultiplefiles) </td>
     </tr>
     <tr>
         <th>Filename</th>
         <td style="text-align: center;"><em>not supported</em></td>
-        <td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingatransformagainstatargetinadifferentfolder)</td>
-        <td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Transformandtargetareinthesamedirectory)</td>
+        <td style="text-align: center;"> [example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingatransformagainstatargetinadifferentfolder) </td>
+        <td style="text-align: center;"> [example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Transformandtargetareinthesamedirectory) </td>
         <td style="text-align: center;"><em>not supported</em></td>
-        <td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingatransformagainstmultipletargetsinadifferentdirectory)</td>
-        <td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Transformandmultipletargetsareinthesamedirectory)</td>
+        <td style="text-align: center;"> [example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingatransformagainstmultipletargetsinadifferentdirectory) </td>
+        <td style="text-align: center;"> [example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Transformandmultipletargetsareinthesamedirectory) </td>
     </tr>
     <tr>
         <th>Wildcard Absolute Path</th>
         <td style="text-align: center;"><em>not supported</em></td>
         <td style="text-align: center;"><em>not supported</em></td>
-        <td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingmultipleabsolutepathtransformstothesametargetfile)</td>
+        <td style="text-align: center;"> [example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingmultipleabsolutepathtransformstothesametargetfile) </td>
         <td style="text-align: center;"><em>not supported</em></td>
-        <td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Usinganabsolutepathformultipletransformsagainstmultiplerelativefiles)</td>
-        <td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Usinganabsolutepathwildcardtransformandmultipletargets)</td>
+        <td style="text-align: center;"> [example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Usinganabsolutepathformultipletransformsagainstmultiplerelativefiles) </td>
+        <td style="text-align: center;"> [example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Usinganabsolutepathwildcardtransformandmultipletargets) </td>
     </tr>
     <tr>
         <th>Wildcard Relative Path</th>
         <td style="text-align: center;"><em>not supported</em></td>
-        <td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingmultipletransformsinadifferentdirectorytoasingletargetinadifferentdirectory)</td>
-        <td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingamultiplerelativetransformsagainstaspecifictarget)</td>
+        <td style="text-align: center;"> [example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingmultipletransformsinadifferentdirectorytoasingletargetinadifferentdirectory) </td>
+        <td style="text-align: center;"> [example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingamultiplerelativetransformsagainstaspecifictarget) </td>
         <td style="text-align: center;"><em>not supported</em></td>
-        <td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingtransformsfromadifferentdirectorytotargetsinadifferentdirectory)</td>
-        <td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingtransformsfromadifferentdirectorytomultipletargets)</td>
+        <td style="text-align: center;"> [example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingtransformsfromadifferentdirectorytotargetsinadifferentdirectory) </td>
+        <td style="text-align: center;"> [example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingtransformsfromadifferentdirectorytomultipletargets) </td>
     </tr>
     <tr>
         <th>Wildcard Filename</th>
         <td style="text-align: center;"><em>not supported</em></td>
-        <td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingmultipletransformstoasingletargetinadifferentdirectory)</td>
-        <td style="text-align: center;">[examples](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingmultipletransformstoasingletargetwherebothareinthesamedirectory)</td>
+        <td style="text-align: center;"> [example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingmultipletransformstoasingletargetinadifferentdirectory) </td>
+        <td style="text-align: center;"> [examples](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingmultipletransformstoasingletargetwherebothareinthesamedirectory) </td>
         <td style="text-align: center;"><em>not supported</em></td>
-        <td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingmultipletransformsagainstmultipletargetsinadifferentdirectory)</td>
-        <td style="text-align: center;">[example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingmultipletransformsagainstmultipletargets)</td>
+        <td style="text-align: center;"> [example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingmultipletransformsagainstmultipletargetsinadifferentdirectory) </td>
+        <td style="text-align: center;"> [example](#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingmultipletransformsagainstmultipletargets) </td>
     </tr>
 </table>
 
