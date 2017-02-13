@@ -163,7 +163,6 @@ Snippets are highlighted by Highlight.js
 
 **Always use fenced code blocks with a language.** If no language is defined then highlightjs will guess the language and it regularly gets it wrong. Example:
 
-
 ### Alerts
 
 Sometimes it is necessary to draw attention to items you want to call out in a document.
@@ -194,10 +193,19 @@ The number is 45.</p>
 </div>
 ```
 
+## ToC
+Table of contents can be added to any page anywhere by adding `!toc` to the markdown.
+
 ## Headings
 
 The first (and all top level) headers in a `.md` page should be a `h2` (i.e. `##`) with sub-headings under it being `h3`, `h4`, etc.
 DO NOT skip headers, eg. h1 > h2 > h4, not valid!
+
+## Folder Version
+You can version the content of a whole folder by versioning the `index.md` for the folder.
+Example:
+If we want to hide the whole docker doco for versions prior to v3.4, we can add `version: [3.4,)` to the `docs/guides/docker/index.md` metadata.
+This will exclude docker content from all versions prior to v3.4.
 
 ## Includes
 Sometimes you need to duplicate content in multiple pages, this is where includes are handy.
