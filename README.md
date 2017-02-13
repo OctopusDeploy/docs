@@ -123,7 +123,22 @@ Rendered as:
 a. Item 1  
 b. Item 2
 
-### Snippets are highlighted using highlightjs
+### Code Samples
+
+Use GitHub-style fenced code blocks. Example:
+
+    ```powershell
+    Write-Host "Hello"
+    ```
+
+If your example uses multiple languages or files, you can combine them together - they will be rendered as tabs:
+
+    ```powershell PowerShell
+    Write-Host "Hello"
+    ```
+    ```c# ScriptCS
+    Console.WriteLine("Hello");
+    ```
 
 * [Documentation](https://highlightjs.readthedocs.io/)
 * [Language List](https://highlightjs.readthedocs.io/en/latest/css-classes-reference.html#language-names-and-aliases)
@@ -140,7 +155,8 @@ b. Item 2
 | f#           | `fsharp`       |
 | text         | text           |
 
-**Always use fenced code blocks with a language.** If no language is defined then highlightjs will guess the language and it regularly gets it wrong.
+**Always use fenced code blocks with a language.** If no language is defined then highlightjs will guess the language and it regularly gets it wrong. Example:
+
 
 ### Alerts
 
@@ -234,6 +250,7 @@ This will result in the image being re-sized with the following parameters
     width="x" height="auto"
 
 It will also wrap the image in a clickable lightbox so the full image can be accessed.
+
 
 ## Useful Characters
 
