@@ -73,36 +73,36 @@ Deployment-level variables are drawn from the project and release being deployed
 Action-level variables are available during execution of an action. Indexer notion such as `Octopus.Action[Website].TargetRoles` can be used to refer to values for different actions.
 
 | Name and Description | Example |
-| -------------------- | ----------------------------------------|
-|**`Octopus.Action.Id`** <br/><br/>The ID of the action | *85287bef-fe6c-4eb7-beef-74f5e5a6b5b0*|
-|**`Octopus.Action.IsSkipped`** <br/><br/>Whether or not the action has been skipped in the current deployment *(Boolean)* | *True*|
-|**`Octopus.Action.Manual.Instructions`** <br/><br/>The instructions provided for a manual step | *Don't break anything :)*|
-|**`Octopus.Action.Manual.ResponsibleTeamIds`** <br/><br/>The teams responsible for completing a manual step*(List)* | *teams-123,teams-124*|
-|**`Octopus.Action.MaxParallelism`** <br/><br/>The maximum number of machines on which the action will concurrently execute *(Number)* | *5*|
-|**`Octopus.Action.Name`** <br/><br/>The name of the action | *Website*|
-|**`Octopus.Action.Number`** <br/><br/>The sequence number of the action in the deployment process *(Number)* | *5*|
-|**`Octopus.Action.Package.CustomInstallationDirectory`** <br/><br/>If set, a specific directory to which the package will be copied after extraction | *C:\InetPub\WWWRoot\OctoFx*|
-|**`Octopus.Action.Package.CustomInstallationDirectoryShouldBePurgedBeforeDeployment`** <br/><br/>If true, the all files in the `Octopus.Action.Package.CustomInstallationDirectory` will be deleted before deployment *(Boolean)* | *False*|
-|**`Octopus.Action.Package.DownloadOnTentacle`** <br/><br/>If true, the package will be downloaded by the Tentacle, rather than pushed by the Octopus server*(Boolean)* | *False*|
-|**`Octopus.Action.Package.IgnoreConfigTransformationErrors`** <br/><br/>If true, any errors in configuration transformations will be treated as informational rather than errors that will fail the deployment** ***(Boolean)* | *False*|
-|**`Octopus.Action.Package.IgnoreVariableReplacementErrors`** <br/><br/>If true, any errors in variable replacement will be treated as a warning rather than an error that will fail the deployment. (*Boolean*) | *False*|
-|**`Octopus.Action.Package.NuGetFeedId`** <br/><br/>The ID of the NuGet feed from which the package being deployed was pulled | *feeds-123*|
-|**`Octopus.Action.Package.NuGetPackageId`** <br/><br/>The ID of the NuGet package being deployed | *OctoFx.RateService*|
-|**`Octopus.Action.Package.NuGetPackageVersion`** <br/><br/>The version of the NuGet package being deployed | *1.2.3*|
-|**`Octopus.Action.Package.SkipIfAlreadyInstalled`** <br/><br/>If true, and the version of the package being deployed is already present on the machine, its re-deployment will be skipped (use with caution) *(Boolean)* | *False*|
-|**`Octopus.Action.Package.Ssh.ApplicationsDirectoryPath`** <br/><br/>The applications directory used for deployment on the target machine | */home/user/.tentacle/apps/*|
-|**`Octopus.Action.Package.Ssh.PackageFileName`** <br/><br/>The package file being deployed on the target machine | */home/user/.tentacle/packages/OctoFx.RateService.1.2.3.nupkg.tar.gz*|
-|**`Octopus.Action.Package.Ssh.PackagesDirectoryPath`** <br/><br/>The packages directory used for deployment on the target machine | */home/user/.tentacle/packages/*|
-|**`Octopus.Action.Package.Ssh.RootDirectoryPath`** <br/><br/>The root directory used for deployment on the target machine | */home/user/.tentacle/*|
-|**`Octopus.Action.Package.Ssh.ToolsDirectoryPath`** <br/><br/>The tools directory used for deployment on the target machine | */home/user/.tentacle/tools/*|
-|**`Octopus.Action.Script.ScriptBody`** <br/><br/>The script being run in a script step | *Write-Host 'Hello!'*|
-|**`Octopus.Action.Script.Syntax`** <br/><br/>The syntax of the script being run in a script step | *PowerShell*|
-|**`Octopus.Action.SkipRemainingConventions`** <br/><br/>If set by the user, completes processing of the action without runnning further conventions/scripts *(Boolean)* | *True*|
-|**`Octopus.Action.TargetRoles`** <br/><br/>Machine roles targeted by the action *(List)* | *web-server,frontend*|
-|**`Octopus.Action.Template.Id`** <br/><br/>If the action is based on a step template, the ID of the template | *actiontemplates-123*|
-|**`Octopus.Action.Template.Version`** <br/><br/>If the action is based on a step template, the version of the template in use *(Number)* | *123*|
-|**`Octopus.Action.Status.Error`** <br/><br/>If the action failed because of an error, a description of the error | *The server could not be contacted*|
-|**`Octopus.Action.Status.ErrorDetail`** <br/><br/>If the action failed because of an error, a full description of the error | *System.Net.SocketException: The server ...*|
+| -------------------- | ------- |
+|**`Octopus.Action.Id`** <br/>The ID of the action | *85287bef-fe6c-4eb7-beef-74f5e5a6b5b0*|
+|**`Octopus.Action.IsSkipped`** <br/>Whether or not the action has been skipped in the current deployment *(Boolean)* | *True*|
+|**`Octopus.Action.Manual.Instructions`** <br/>The instructions provided for a manual step | *Don't break anything :)*|
+|**`Octopus.Action.Manual.ResponsibleTeamIds`** <br/>The teams responsible for completing a manual step*(List)* | *teams-123,teams-124*|
+|**`Octopus.Action.MaxParallelism`** <br/>The maximum number of machines on which the action will concurrently execute *(Number)* | *5*|
+|**`Octopus.Action.Name`** <br/>The name of the action | *Website*|
+|**`Octopus.Action.Number`** <br/>The sequence number of the action in the deployment process *(Number)* | *5*|
+|**`Octopus.Action.Package.CustomInstallationDirectory`** <br/>If set, a specific directory to which the package will be copied after extraction | *C:\InetPub\WWWRoot\OctoFx*|
+|**`Octopus.Action.Package.CustomInstallationDirectoryShouldBePurgedBeforeDeployment`** <br/>If true, the all files in the `Octopus.Action.Package.CustomInstallationDirectory` will be deleted before deployment *(Boolean)* | *False*|
+|**`Octopus.Action.Package.DownloadOnTentacle`** <br/>If true, the package will be downloaded by the Tentacle, rather than pushed by the Octopus server*(Boolean)* | *False*|
+|**`Octopus.Action.Package.IgnoreConfigTransformationErrors`** <br/>If true, any errors in configuration transformations will be treated as informational rather than errors that will fail the deployment** ***(Boolean)* | *False*|
+|**`Octopus.Action.Package.IgnoreVariableReplacementErrors`** <br/>If true, any errors in variable replacement will be treated as a warning rather than an error that will fail the deployment. (*Boolean*) | *False*|
+|**`Octopus.Action.Package.NuGetFeedId`** <br/>The ID of the NuGet feed from which the package being deployed was pulled | *feeds-123*|
+|**`Octopus.Action.Package.NuGetPackageId`** <br/>The ID of the NuGet package being deployed | *OctoFx.RateService*|
+|**`Octopus.Action.Package.NuGetPackageVersion`** <br/>The version of the NuGet package being deployed | *1.2.3*|
+|**`Octopus.Action.Package.SkipIfAlreadyInstalled`** <br/>If true, and the version of the package being deployed is already present on the machine, its re-deployment will be skipped (use with caution) *(Boolean)* | *False*|
+|**`Octopus.Action.Package.Ssh.ApplicationsDirectoryPath`** <br/>The applications directory used for deployment on the target machine | */home/user/.tentacle/apps/*|
+|**`Octopus.Action.Package.Ssh.PackageFileName`** <br/>The package file being deployed on the target machine | */home/user/.tentacle/packages/OctoFx.RateService.1.2.3.nupkg.tar.gz*|
+|**`Octopus.Action.Package.Ssh.PackagesDirectoryPath`** <br/>The packages directory used for deployment on the target machine | */home/user/.tentacle/packages/*|
+|**`Octopus.Action.Package.Ssh.RootDirectoryPath`** <br/>The root directory used for deployment on the target machine | */home/user/.tentacle/*|
+|**`Octopus.Action.Package.Ssh.ToolsDirectoryPath`** <br/>The tools directory used for deployment on the target machine | */home/user/.tentacle/tools/*|
+|**`Octopus.Action.Script.ScriptBody`** <br/>The script being run in a script step | *Write-Host 'Hello!'*|
+|**`Octopus.Action.Script.Syntax`** <br/>The syntax of the script being run in a script step | *PowerShell*|
+|**`Octopus.Action.SkipRemainingConventions`** <br/>If set by the user, completes processing of the action without runnning further conventions/scripts *(Boolean)* | *True*|
+|**`Octopus.Action.TargetRoles`** <br/>Machine roles targeted by the action *(List)* | *web-server,frontend*|
+|**`Octopus.Action.Template.Id`** <br/>If the action is based on a step template, the ID of the template | *actiontemplates-123*|
+|**`Octopus.Action.Template.Version`** <br/>If the action is based on a step template, the version of the template in use *(Number)* | *123*|
+|**`Octopus.Action.Status.Error`** <br/>If the action failed because of an error, a description of the error | *The server could not be contacted*|
+|**`Octopus.Action.Status.ErrorDetail`** <br/>If the action failed because of an error, a full description of the error | *System.Net.SocketException: The server ...*|
 
 
 ## Azure {#Systemvariables-Azure}
