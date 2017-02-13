@@ -140,6 +140,8 @@ If your example uses multiple languages or files, you can combine them together 
     Console.WriteLine("Hello");
     ```
 
+Snippets are highlighted by Highlight.js
+
 * [Documentation](https://highlightjs.readthedocs.io/)
 * [Language List](https://highlightjs.readthedocs.io/en/latest/css-classes-reference.html#language-names-and-aliases)
 
