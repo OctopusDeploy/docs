@@ -427,6 +427,10 @@ Where [<options>] is any of:
 
 Octopus Scripts are executed by Calamari, the command-line tool invoked by the Octopus Server or Tentacle during a deployment, within a the context of a working directory.  This location is C:\Octopus\Work\ by default.  If you're executing a script contained within a package, the package contents will be uncompressed and copied to this directory but the working directory is the directory containing the script within it.
 
+## Preventing the PowerShell profile from running
+The execution of the Tentacle service account's PowerShell profile script can sometimes cause a long delay each time a script is run. Starting in version 3.3.21, to prevent it being run, 
+add a variable named `Octopus.Action.PowerShell.ExecuteWithoutProfile` with a value of `true` to your project.
+
 ## Scripts that block deployments {#Customscripts-Scriptsthatblockdeployments}
 
 Sometimes a script launches a service or application that runs continuously. In this case the script does not complete until the application is terminated.  When the script is run in an Octopus deployment, the deployment will continue executing until the script exits.  In most cases this is undesirable. In order to avoid this behaviour the service or application should be launched in a separate process or session, allowing the deployment to continue executing immediately. For example:
