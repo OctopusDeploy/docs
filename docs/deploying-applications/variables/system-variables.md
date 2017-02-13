@@ -107,84 +107,88 @@ Action-level variables are available during execution of an action. Indexer noti
 
 ## Azure {#Systemvariables-Azure}
 
-| Name                                     | Example                                  | Description                              |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Octopus.Action.Azure.CertificateThumbprint | *86B5C8E5553981FED961769B2DA3028C619596AC* | The thumbprint of the X509 certificate used to authenticate with the Azure Subscription targeted by this action |
-| Octopus.Action.Azure.PackageExtractionPath | Z:\Temp\packages\                        | If set by the user, the temporary path to extract Azure packages into during deployment |
-| Octopus.Action.Azure.SubscriptionId      | *8affaa7d-3d74-427c-93c5-2d7f6a16e754*   | The Azure Subscription Id being targeted by this action |
-| Octopus.Action.Azure.ResourceGroupDeploymentName | my-resourcegroupdeployment-name          | Override the auto-generated resource group deployment name when deploying a resource group |
+|Name and Description | Example |
+|-------------------- | ----------------------------------------|
+|**`Octopus.Action.Azure.CertificateThumbprint`** <br/>The thumbprint of the X509 certificate used to authenticate with the Azure Subscription targeted by this action | *86B5C8E5553981FED961769B2DA3028C619596AC*|
+|**`Octopus.Action.Azure.PackageExtractionPath`** <br/>If set by the user, the temporary path to extract Azure packages into during deployment | Z:\Temp\packages\|
+|**`Octopus.Action.Azure.SubscriptionId`** <br/>The Azure Subscription Id being targeted by this action | *8affaa7d-3d74-427c-93c5-2d7f6a16e754*|
+|**`Octopus.Action.Azure.ResourceGroupDeploymentName`** <br/>Override the auto-generated resource group deployment name when deploying a resource group | my-resourcegroupdeployment-name|
+
 
 ## Azure Cloud Service {#Systemvariables-AzureCloudService}
 
-| Name                                     | Example                                  | Description                              |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Octopus.Action.Azure.CloudServiceConfigurationFileRelativePath | *ServiceConfiguration.Custom.cscfg*      | If set by the user, the relative path to the \*.cscfg file, with a fallback to ServiceConfiguration.{Environment}.cscfg or ServiceConfiguration.Cloud.cscfg |
-| Octopus.Action.Azure.CloudServiceName    | *my-cloudservice-web*                    | The name of the Cloud Service being targeted by this action |
-| Octopus.Action.Azure.CloudServicePackageExtractionDisabled | True                                     | Octopus will not unpack the \*.cspkg file if this variable is set to True, instead the \*.cspkg file will be pushed to Azure as-is |
-| Octopus.Action.Azure.CloudServicePackagePath | *Z:\Temp\packages\my-cloudservice-web.cspkg* | The path of the \*.cspkg file used by this action |
-| Octopus.Action.Azure.LogExtractedCspkg   | *True*                                   | If true, the contents of the extracted \*.cspkg will be written to the log to help diagnose deployment issues *(Boolean)* |
-| Octopus.Action.Azure.Slot                | *Staging* or *Production*                | The slot of the Cloud Service being targeted by this action |
-| Octopus.Action.Azure.StorageAccountName  | *my-storage-account*                     | The name of the Azure Storage Account where \*.cspkg files will be uploaded to for deployment to the Cloud Service |
-| Octopus.Action.Azure.SwapIfPossible      | *True*                                   | If true, the action will attempt to perform a VIP swap instead of deploying directly into the targeted Slot |
-| Octopus.Action.Azure.UploadedPackageUri  | https://my-storage-account/container/my-cloudservice.web.cspkg | The Storage URI of the \*.cspkg file that will be deployed to the Cloud Service |
-| Octopus.Action.Azure.UseCurrentInstanceCount | *True*                                   | If true, the action will maintain the number of Instances in the Cloud Service rather than reverting to what is defined in the \*.cspkg file |
-| Octopus.Action.Azure.DeploymentLabel     | my custom label for build 3.x.x          | If set, the custom deployment label will be used for the Azure cloud service deployment. ***Introduced in Calamari version 3.4.1 which was released with Octopus Deploy version 3.4.4.*** |
+| Name and Description | Example |
+|------------------------------- | ----------------------------------------|
+|**`Octopus.Action.Azure.CloudServiceConfigurationFileRelativePath`** <br/>If set by the user, the relative path to the \*.cscfg file, with a fallback to ServiceConfiguration.{Environment}.cscfg or ServiceConfiguration.Cloud.cscfg | *ServiceConfiguration.Custom.cscfg*|
+|**`Octopus.Action.Azure.CloudServiceName`** <br/>The name of the Cloud Service being targeted by this action | *my-cloudservice-web*|
+|**`Octopus.Action.Azure.CloudServicePackageExtractionDisabled`** <br/>Octopus will not unpack the \*.cspkg file if this variable is set to True, instead the \*.cspkg file will be pushed to Azure as-is | True|
+|**`Octopus.Action.Azure.CloudServicePackagePath`** <br/>The path of the \*.cspkg file used by this action | *Z:\Temp\packages\my-cloudservice-web.cspkg*|
+|**`Octopus.Action.Azure.LogExtractedCspkg`** <br/>If true, the contents of the extracted \*.cspkg will be written to the log to help diagnose deployment issues *(Boolean)* | *True*|
+|**`Octopus.Action.Azure.Slot`** <br/>The slot of the Cloud Service being targeted by this action | *Staging* or *Production*|
+|**`Octopus.Action.Azure.StorageAccountName`** <br/>The name of the Azure Storage Account where \*.cspkg files will be uploaded to for deployment to the Cloud Service | *my-storage-account*|
+|**`Octopus.Action.Azure.SwapIfPossible`** <br/>If true, the action will attempt to perform a VIP swap instead of deploying directly into the targeted Slot | *True*|
+|**`Octopus.Action.Azure.UploadedPackageUri`** <br/>The Storage URI of the \*.cspkg file that will be deployed to the Cloud Service | https://my-storage-account/container/my-cloudservice.web.cspkg|
+|**`Octopus.Action.Azure.UseCurrentInstanceCount`** <br/>If true, the action will maintain the number of Instances in the Cloud Service rather than reverting to what is defined in the \*.cspkg file | *True*|
+|**`Octopus.Action.Azure.DeploymentLabel`** <br/>If set, the custom deployment label will be used for the Azure cloud service deployment. ***Introduced in Calamari version 3.4.1 which was released with Octopus Deploy version 3.4.4.*** | my custom label for build 3.x.x|
+
 
 ## Azure Web Apps {#Systemvariables-AzureWebApps}
 
-| Name                                     | Example                  | Description                              |
-| ---------------------------------------- | ------------------------ | ---------------------------------------- |
-| Octopus.Action.Azure.WebAppName          | *my-web-app*             | The name of the Web App being targeted by this deployment |
-| Octopus.Action.Azure.WebSpaceName        | *SoutheastAsiaWebSpace1* | The name of the Web Space being targeted by this deployment |
-| **Octopus.Action.Azure.RemoveAdditionalFiles** | *True*                   | When *True* instructs Web Deploy to delete files from the destination that aren't in the source package |
-| **Octopus.Action.Azure.PreserveAppData** | *True*                   | When *True* instructs Web Deploy to skip Delete operations in the **App\_Data** directory |
-| Octopus.Action.Azure.AppOffline          | *True*                   | When *True* instructs Web Deploy to safely bring down the app domain by adding a blank **app\_offline.html** file in the site root |
+| Name and Description | Example |
+| -------------------- | ------------------------|
+|**`Octopus.Action.Azure.WebAppName`** <br/>The name of the Web App being targeted by this deployment | *my-web-app*|
+|**`Octopus.Action.Azure.WebSpaceName`** <br/>The name of the Web Space being targeted by this deployment | *SoutheastAsiaWebSpace1*|
+|**`Octopus.Action.Azure.RemoveAdditionalFiles`** <br/>When *True* instructs Web Deploy to delete files from the destination that aren't in the source package | *True*|
+|**`Octopus.Action.Azure.PreserveAppData`** <br/>When *True* instructs Web Deploy to skip Delete operations in the **App\_Data** directory | *True*|
+|**`Octopus.Action.Azure.AppOffline`** <br/>When *True* instructs Web Deploy to safely bring down the app domain by adding a blank **app\_offline.html** file in the site root | *True*|
 
 ## Output {#Systemvariables-Output}
 
 Output variables are collected during execution of a step and made available to subsequent steps using notation such as `Octopus.Action[Website].Output[WEBSVR01].Package.InstallationDirectoryPath`to refer to values base on the action and machine that produced them. See also [Output variables](/docs/deploying-applications/variables/output-variables.md).
 
-| Name                                     | Example                                  | Description                              |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Octopus.Action[\_name\_].Output.\_property\_ | *Octopus.Action[Website].Output.WarmUpResponseTime* | The results of calling `Set-OctopusVariable` during an action are exposed for use in other actions using this pattern |
-| Octopus.Action[\_name\_].Output.Manual.Notes | *Signed off by Alice*                    | Notes provided by the user who completed a manual step |
-| Octopus.Action[\_name\_].Output.Package.InstallationDirectoryPath | *C:\Octopus\Tentacle\Apps\Production\MyApp\1.2.3* | The directory to which the package was installed |
-| Octopus.Action[\_name\_].Output.Manual.ResponsibleUser.DisplayName | *Alice King*                             | The full name of the user who completed the manual step |
-| Octopus.Action[\_name\_].Output.Manual.ResponsibleUser.EmailAddress | *[alice@example.com](mailto:alice@example.com)* | The email address of the user who completed the manual step |
-| Octopus.Action[\_name\_].Output.Manual.ResponsibleUser.Id | *users-123*                              | The ID of the user who completed the manual step |
-| Octopus.Action[\_name\_].Output.Manual.ResponsibleUser.Username | *alice*                                  | The username of the user who completed the manual step |
+| Name and Description | Example|
+| -------------------- | ----------------------------------------|
+|**`Octopus.Action[\_name\_].Output.\_property\_`** <br/>The results of calling `Set-OctopusVariable` during an action are exposed for use in other actions using this pattern | *Octopus.Action[Website].Output.WarmUpResponseTime*|
+|**`Octopus.Action[\_name\_].Output.Manual.Notes`** <br/>Notes provided by the user who completed a manual step | *Signed off by Alice*|
+|**`Octopus.Action[\_name\_].Output.Package.InstallationDirectoryPath`** <br/>The directory to which the package was installed | *C:\Octopus\Tentacle\Apps\Production\MyApp\1.2.3*|
+|**`Octopus.Action[\_name\_].Output.Manual.ResponsibleUser.DisplayName`** <br/>The full name of the user who completed the manual step | *Alice King*|
+|**`Octopus.Action[\_name\_].Output.Manual.ResponsibleUser.EmailAddress`** <br/>The email address of the user who completed the manual step | *[alice@example.com](mailto:alice@example.com)*|
+|**`Octopus.Action[\_name\_].Output.Manual.ResponsibleUser.Id`** <br/>The ID of the user who completed the manual step | *users-123*|
+|**`Octopus.Action[\_name\_].Output.Manual.ResponsibleUser.Username`** <br/>The username of the user who completed the manual step | *alice*|
 
 ## Step {#Systemvariables-Step}
 
 Step-level variables are available during execution of a step. Indexer notion such as `Octopus.Step[Website].Number` can be used to refer to values for different steps.
 
-| Name                            | Example                                  | Description                              |
-| ------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Octopus.Step.Id                 | *80b3ad09-eedf-40d6-9b66-cf97f5c0ffee*   | The ID of the step                       |
-| Octopus.Step.Name               | *Website*                                | The name of the step                     |
-| Octopus.Step.Number             | *2*                                      | The number of the step*(Number)*         |
-| Octopus.Step.Status.Code        | *Succeeded*                              | A code describing the current status of the step |
-| Octopus.Step.Status.Error       | *The server could not be contacted*      | If the step failed because of an error, a description of the error |
-| Octopus.Step.Status.ErrorDetail | *System.Net.SocketException: The server could not be contacted (at ...)* | If the step failed because of an error, a full description of the error |
+| Name and Description | Example |
+| -------------------- | ----------------------------------------|
+|**`Octopus.Step.Id`** <br/>The ID of the step | *80b3ad09-eedf-40d6-9b66-cf97f5c0ffee*|
+|**`Octopus.Step.Name`** <br/>The name of the step | *Website*|
+|**`Octopus.Step.Number`** <br/>The number of the step*(Number)* | *2*|
+|**`Octopus.Step.Status.Code`** <br/>A code describing the current status of the step | *Succeeded*|
+|**`Octopus.Step.Status.Error`** <br/>If the step failed because of an error, a description of the error | *The server could not be contacted*|
+|**`Octopus.Step.Status.ErrorDetail`** <br/>If the step failed because of an error, a full description of the error | *System.Net.SocketException: The server could not be contacted (at ...)*|
+
 
 ## Agent {#Systemvariables-Agent}
 
 Agent-level variables describe the deployment agent or Tentacle on which the deployment is executing.
 
-| Name                                     | Example                                  | Description                              |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Octopus.Tentacle.Agent.ApplicationDirectoryPath | *C:\Octopus\Tentacle\Apps*               | The directory under which the agent installs packages |
-| Octopus.Tentacle.Agent.InstanceName      | *Tentacle*                               | The instance name that the agent runs under |
-| Octopus.Tentacle.Agent.ProgramDirectoryPath | *C:\Program Files\Octopus Deploy\Tentacle* | The directory containing the agent's own executables |
-| **Octopus.Agent.ProgramDirectoryPath**   | *C:\Program Files\Octopus Deploy\Octopus* | The directory containing either the server or tentacle's executables depending on which the step being executed on |
+| Name and Description | Example |
+| -------------------- | ----------------------------------------|
+|**`Octopus.Tentacle.Agent.ApplicationDirectoryPath`** <br/>The directory under which the agent installs packages | *C:\Octopus\Tentacle\Apps*|
+|**`Octopus.Tentacle.Agent.InstanceName`** <br/>The instance name that the agent runs under | *Tentacle*|
+|**`Octopus.Tentacle.Agent.ProgramDirectoryPath`** <br/>The directory containing the agent's own executables | *C:\Program Files\Octopus Deploy\Tentacle*|
+|**`Octopus.Agent.ProgramDirectoryPath`** <br/>The directory containing either the server or tentacle's executables depending on which the step being executed on | *C:\Program Files\Octopus Deploy\Octopus*|
+
 
 ## Server {#Systemvariables-Server}
 
 Server-level variables describe the Octopus server on which the deployment is running.
 
-| Name                | Example                                  | Description                              |
-| ------------------- | ---------------------------------------- | ---------------------------------------- |
-| Octopus.Web.BaseUrl | *[https://my-octopus](https://my-octopus)* | The default URL at which the server can be accessed |
+| Name and Description | Example                                  | 
+| -------------------  | ---------------------------------------- |
+| **`Octopus.Web.BaseUrl`** <br/>The default URL at which the server can be accessed | *[https://my-octopus](https://my-octopus)* |
 
 ## Tracking deployment status {#Systemvariables-DeploymentStatusTrackingdeploymentstatus}
 
@@ -222,15 +226,16 @@ Octopus.Deployment.Error and Octopus.Deployment.ErrorDetail will only display th
 
 The following variables can be defined as variables in your project to modify the way Octopus behaves.
 
-| Name                                     | Example | Description                              |
-| ---------------------------------------- | ------- | ---------------------------------------- |
-| **Octopus.Acquire.MaxParallelism**       | 3       | Maximum number of NuGet packages that should be downloaded at once when acquiring packages. |
-| **OctopusPrintVariables**                | True    | Set to "True" to tell Tentacle to print the value of all variables passed to it. We recommend only using this setting for non-production environments. |
-| **OctopusPrintEvaluatedVariables**       | True    | Set to "True" to tell Tentacle to print the value of all variables passed to it after evaluating them. We recommend only using this setting for non-production environments. |
-| **OctopusTreatWarningsAsErrors**         | True    | Set to "True" to have warnings from XML configuration transforms or PowerShell scripts treated as if they were errors, failing the deployment. |
-| **OctopusSkipFreeDiskSpaceCheck**        | True    | Set to "True" to skip the check for available free disk space when deploying packages. ***Introduced in Calamari version 3.1.30 which was released with Octopus Deploy version 3.2.18.*** |
-| **OctopusFreeDiskSpaceOverrideInMegaBytes** | 100     | The amount (in megabytes) of available free disk space we should check for (overriding the default 500MB), failing the deployment if not enough free disk space is available. ***Introduced in Calamari version 3.1.30 which was released with Octopus Deploy version 3.2.18.*** |
-| **Octopus.Action.PowerShell.CustomPowerShellVersion** | 2.0     | If specified, your PowerShell scripts will be invoked using `PowerShell.exe -version {Version}` where {Version} is the value you specified. Accepted values are *2.0*, *3.0*, *4.0, 5.0* ***Introduced in Calamari version 3.3.13 which was released with Octopus Deploy version 3.3.13.*** |
-| **OctopusDeleteScriptsOnCleanup**        | False   | For packaged scripts, set to "False" to keep the PreDeploy/Deploy/PostDeploy scripts in the target directory (i.e. don't cleanup). |
-| **Octopus.Action.Script.SuppressEnvironmentLogging** | True    | To suppress/disable the environment logging that occurs from script (eg. PowerShell or Bash Script Environment Variables logging). This only suppresses script logging and does not suppress the Octopus or Calamari environment logging. ***Introduced in Calamari version 3.6.5 which was released with Octopus Deploy version 3.6.0.*** |
-| **Octopus.Action.PowerShell.ExecuteWithoutProfile** | True     | Set to `true` to not run the Tentacle service account's PowerShell profile script when running PowerShell script steps (available in version 3.3.21+) |
+| Name and Description | Example |
+| -------------------- | ------- |
+|**`Octopus.Acquire.MaxParallelism`** <br/>Maximum number of NuGet packages that should be downloaded at once when acquiring packages. | 3|
+|**`OctopusPrintVariables`** <br/>Set to "True" to tell Tentacle to print the value of all variables passed to it. We recommend only using this setting for non-production environments. | True|
+|**`OctopusPrintEvaluatedVariables`** <br/>Set to "True" to tell Tentacle to print the value of all variables passed to it after evaluating them. We recommend only using this setting for non-production environments. | True|
+|**`OctopusTreatWarningsAsErrors`** <br/>Set to "True" to have warnings from XML configuration transforms or PowerShell scripts treated as if they were errors, failing the deployment. | True|
+|**`OctopusSkipFreeDiskSpaceCheck`** <br/>Set to "True" to skip the check for available free disk space when deploying packages. ***Introduced in Calamari version 3.1.30 which was released with Octopus Deploy version 3.2.18.*** | True|
+|**`OctopusFreeDiskSpaceOverrideInMegaBytes`** <br/>The amount (in megabytes) of available free disk space we should check for (overriding the default 500MB), failing the deployment if not enough free disk space is available. ***Introduced in Calamari version 3.1.30 which was released with Octopus Deploy version 3.2.18.*** | 100|
+|**`Octopus.Action.PowerShell.CustomPowerShellVersion`** <br/>If specified, your PowerShell scripts will be invoked using `PowerShell.exe -version {Version}` where {Version} is the value you specified. Accepted values are *2.0*, *3.0*, *4.0, 5.0* ***Introduced in Calamari version 3.3.13 which was released with Octopus Deploy version 3.3.13.*** | 2.0|
+|**`OctopusDeleteScriptsOnCleanup`** <br/>For packaged scripts, set to "False" to keep the PreDeploy/Deploy/PostDeploy scripts in the target directory (i.e. don't cleanup). | False|
+|**`Octopus.Action.Script.SuppressEnvironmentLogging`** <br/>To suppress/disable the environment logging that occurs from script (eg. PowerShell or Bash Script Environment Variables logging). This only suppresses script logging and does not suppress the Octopus or Calamari environment logging. ***Introduced in Calamari version 3.6.5 which was released with Octopus Deploy version 3.6.0.*** | True|
+|**`Octopus.Action.PowerShell.ExecuteWithoutProfile`** <br/>Set to `true` to not run the Tentacle service account's PowerShell profile script when running PowerShell script steps (available in version 3.3.21+) | True|
+
