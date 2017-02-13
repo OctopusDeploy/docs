@@ -59,7 +59,7 @@ The Channel must have a unique name per project.
 
 You can associate a Lifecycle with the Channel, or it may inherit the default from the Project.
 
-### Defining Version Rules {#Channels-Versionrules}
+### Defining Version Rules {#Channels-versionrules}
 
 Version rules assist in selecting the correct versions of packages for the Channel.  They are only used when creating a release, either manually or via [Automatic Release Creation](/docs/deploying-applications/automatic-release-creation.md).
 
@@ -86,7 +86,7 @@ From Octopus 3.4 onward you can use the full semantic version as part of your ve
 ![](/docs/images/3048999/5865686.png "width=500")
 :::
 
-#### Tags {#Channels-Tags}
+#### Tags {#Channels-tags}
 
 Following the standard 2.0.0 [semver syntax](http://semver.org/), a pre-release tag is the alpha numeric text that can appear after the standard *major.minor.patch* pattern immediately following a hyphen. Providing a regex pattern for this field allows the channel to filter packages based on their tag in a very flexible manner. Some examples are.
 
