@@ -20,9 +20,9 @@ The following steps will show how to configure Octopus to listen on HTTPS.
     
 3. In the Web Bindings wizard, click **Add...** to add a new binding, and choose the HTTPS scheme. Other options such as the port can also be configured here.  
 
-  ![](/docs/images/3048148/3278452.png "width=500")  
+    ![](/docs/images/3048148/3278452.png "width=500")  
   
-  Since HTTPS requires an SSL certificate, you can either choose to generate a new, self-signed (untrusted) certificate, or to select an existing certificate. Self-signed certificates are useful for testing or to achieve encryption without trust, but for production use we recommend using a trusted SSL certificate.  
+    Since HTTPS requires an SSL certificate, you can either choose to generate a new, self-signed (untrusted) certificate, or to select an existing certificate. Self-signed certificates are useful for testing or to achieve encryption without trust, but for production use we recommend using a trusted SSL certificate.  
   
 4. Follow the rest of the Wizard steps to add the binding and reconfigure the Octopus server.  
 
