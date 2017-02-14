@@ -15,6 +15,7 @@ This page contains some of the questions we are asked most often related to mult
 - Can I prevent "un-tenanted deployments" of a project?
 - Can I require a tenant for all deployments of a project?
 - Why can't I connect a tenant to my project, or perform a tenanted deployment of my project?
+- Why can't I connect a tenant to one of the environments for my project?
 - I want to deploy my project to a tenant, but I can't see that tenant in the list?
 - Is licensing affected by the number of tenants I have?
 - Can I provide 3rd-party self-service sign in, so my tenants can manage their own deployments?
@@ -68,7 +69,11 @@ Yes, see the previous question. For more information refer to [deploying a sim
 
 ## Why can't I connect a tenant to my project, or perform a tenanted deployment of my project? {#Multi-tenantdeploymentsFAQ-Whycan&#39;tIconnectatenanttomyproject,orperformatenanteddeploymentofmyproject?}
 
-Each project can opt-in to tenanted deployment features, perhaps your project needs to enable tenanted deployments? See above for more details.
+As long as you have _Project View_ permissions for the project, and that project is configured to enable tenanted deployments, you should be able to connect your tenants to that project. Each project can opt-in to tenanted deployment features, perhaps your project needs to enable tenanted deployments? See above for more details.
+
+## Why can't I connect a tenant to one of the environments for my project?
+
+Firstly check you can select a project for your tenant (see above for more details). As long as you have _Environment View_ permissions for the environment, and that environment is included in one of the lifecycles used by your project, you should be able to connect your tenants to that environment. Check each of the lifecycles used by your project (each channel can specify a different lifecycle) and make sure at least one of them includes the environment.
 
 ## I want to deploy my project to a tenant, but I can't see that tenant in the list? {#Multi-tenantdeploymentsFAQ-Iwanttodeploymyprojecttoatenant,butIcan&#39;tseethattenantinthelist?}
 
