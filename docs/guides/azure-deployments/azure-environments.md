@@ -13,13 +13,13 @@ The vast majority of Azure users and subscriptions operate in the AzureCloud env
 
 The defaults for all of the settings related to the environment are blank, which denotes the use of the AzureCloud environment.
 
-The first thing you are going to need when overriding the values is to know what the endpoints are for your target environment.  You can get these using the following PowerShell command (Note: you have to have the Azure  powershell modules loaded)
+The first thing you are going to need when overriding the values is to know what the endpoints are for your target environment.  You can get these using the following PowerShell command (Note: you have to have the Azure powershell modules loaded)
 
 ```powershell
 Get-AzureEnviroment
 ```
 
-You'll probably see a number of entries displayed.  Below is the details for one of the environments
+You'll usually see a number of entries displayed.  Below is the details for one of the environments
 
 ![](/docs/images/azure-environments/de.png "width=500")
 
@@ -35,4 +35,4 @@ Once you have entered the environment name and endpoint values you should **Save
 Whenever you are using an Azure step template, once you've selected an account it's settings will be used to determine the endpoints for all of the API operations.  So lists like Resource Groups and Web Apps will be loaded using the endpoints defined by the Account.
 
 ##Calamari and deployments
-When a deployment executes, the values for the environment and endpoints will be passed to Calamari if they have been overridden (i.e. they aren't blank).  You will be able to see the values if you have OctopusPrintVariables set to true and Calamari will also always log an information message to tell you if it's using overridden values and what they are.
+When a deployment executes, the values for the environment and endpoints will be passed to Calamari if they have been overridden (i.e. they aren't blank).  You will be able to see the values if you have [OctopusPrintVariables set to true](/docs/how-to/debug-problems-with-octopus-variables#DebugproblemswithOctopusvariables-Writethevariablestothedeploymentlog) and Calamari will also always log an information message to tell you if it's using overridden values and what they are.
