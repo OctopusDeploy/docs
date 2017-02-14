@@ -27,6 +27,10 @@ By connecting tenants to projects you can control which projects will be deploye
 
 5. Click the **Save** button to save the tenant configuration.
 
+:::info
+You can connect a tenant to any environment included in any of the lifecycles used by your project. Not seeing the environment you want? Make sure at least one lifecycle used by your project includes that environment.
+:::
+
 :::success
 You can connect each tenant to any number of projects, and for each project any combination of environments that can be targeted by each project. This gives you the most flexibility when designing your multi-tenant deployments.
 
