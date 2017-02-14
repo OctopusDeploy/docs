@@ -27,6 +27,7 @@ This page contains some of the questions we are asked most often related to mult
 - Can I configure a standard set of variables that are required by each tenant like an alias or contact details?
 - Can I use tenants and channels together?
 - Can I pin or lock a tenant to a specific release?
+- Are there any known limitations or problems with multi-tenant deployments?
 
 ## Why can't I see the tenant area in the main menu, or anything about tenants for that matter? {#Multi-tenantdeploymentsFAQ-Whycan'tIseethetenantareainthemainmenu,oranythingabouttenantsforthatmatter?}
 
@@ -127,3 +128,7 @@ Yes, you can apply a tenant filter to a channel as a way of expressing: "Release
 ## Can I pin or lock a tenant to a specific release? {#Multi-tenantdeploymentsFAQ-CanIpinorlockatenanttoaspecificrelease?}
 
 Yes, you can determine which types of releases should be deployed to a your tenants by using a combination of channels and tag sets. This is part of an advanced topic which is covered in detail by [designing a multi-tenant upgrade process](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md).
+
+## Are there any known limitations or problems with multi-tenant deployments? {#LimitationsAndBugs?}
+
+Whenever we discover a limitation or problem with multi-tenant deployments we create a GitHub Issue labelled with the `feature/tenants` to track its progress. [These issues](https://github.com/OctopusDeploy/Issues/issues?q=is%3Aopen+is%3Aissue+label%3Afeature%2Ftenants) represent anything we have agreed is a limitation or problem, and we intend to implement it in the near future. We recommend investigating whether these limitations will impact your specific scenario.
