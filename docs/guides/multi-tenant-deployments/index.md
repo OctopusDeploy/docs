@@ -93,3 +93,11 @@ For many of these considerations, deploying multiple instances of your applicati
 When much larger numbers of customers are concerned it may be wise to consider making architectural changes to the application.
 
 For example, if deployment consists of many copies of the exact same website, just with a few configuration differences per customer, perhaps store those configuration settings in the database, and use the host header field (`HttpContext.Request.Url.Host` in ASP.NET) to determine who the current customer is and respond accordingly. Not only will this make deployment simpler; it will most likely result in an easier to manage application, and reduce overall resource utilization resulting in higher density and profitability.
+
+## Deciding whether multi-tenant deployments in Octopus Deploy suits your scenario
+
+We have worked hard to design multi-tenant deployments in Octopus Deploy to work with a wide variety of scenarios. That being said there may be some limitations and problems which may hamper your adoption. In order to decide if you should adopt multi-tenant deployments for your scenario we recommend:
+
+1. Read through the [multi-tenant deployment guide](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/index.md)
+2. Investigate if there are any current [limitations or problems](https://github.com/OctopusDeploy/Issues/issues?q=is%3Aopen+is%3Aissue+label%3Afeature%2Ftenants) which will impact your specific scenario.
+3. Get in touch with our [support team](/support) who can help you understand if multi-tenant deployments are right for you, and how to best model your deployments using Octopus Deploy!
