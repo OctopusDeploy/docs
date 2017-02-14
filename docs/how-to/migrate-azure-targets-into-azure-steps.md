@@ -20,11 +20,11 @@ The Azure Cloud Service and Web App Deployment Targets introduced in Octopus 3.0
 
 The process of migrating your Azure Targets into Deployment Steps is relatively simple (unfortunately it was unable to be automated).
 
-In your existing Deployment Process, you will have a *Deploy a Package*step, which is the Step responsible for deploying your package to the Azure Target.  This Step should be **replaced** by either a *[Deploy an Azure Cloud](/docs/guides/azure-deployments/cloud-services/cloud-service-concepts.md#CloudServiceConcepts-CloudServiceDeploymentStep) Service* or *[Deploy an Azure Web App](/docs/guides/azure-deployments/web-apps/web-app-concepts.md#WebAppConcepts-WebAppDeploymentStep)* Step as appropriate. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/adding-steps.md) section.
+In your existing Deployment Process, you will have a *Deploy a Package* step, which is the Step responsible for deploying your package to the Azure Target.  This Step should be **replaced** by either a *[Deploy an Azure Cloud](/docs/guides/azure-deployments/cloud-services/cloud-service-concepts.md#CloudServiceConcepts-CloudServiceDeploymentStep) Service* or *[Deploy an Azure Web App](/docs/guides/azure-deployments/web-apps/web-app-concepts.md#WebAppConcepts-WebAppDeploymentStep)* Step as appropriate. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/adding-steps.md) section.
 
 ![](/docs/images/5671696/5865904.png "width=170")![](/docs/images/5671696/5865899.png "width=170")
 
-You will use the same package as your original step, and the values supplied to the new step should generally be the same as those previously configured in the Target.  For example in the image below you can see that the *Deploy an Azure Web App*step now contains fields such as *Account*, *Web App*, *Physical Path*, etc, that were previously configured on the *Azure Web App* Target.
+You will use the same package as your original step, and the values supplied to the new step should generally be the same as those previously configured in the Target.  For example in the image below you can see that the *Deploy an Azure Web App* step now contains fields such as *Account*, *Web App*, *Physical Path*, etc, that were previously configured on the *Azure Web App* Target.
 
 ![](/docs/images/5671835/5866081.png "width=500")
 
