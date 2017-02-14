@@ -9,7 +9,7 @@ This page will help you diagnose and solve issues with multi-tenant deployments.
 ## Problem: I cannot connect a tenant to a project or environment
 
 1. Ensure you have permissions to view to the specific project and envirionment(s). To view the projects and environments you need to be part of a [team](/docs/administration/managing-users-and-teams/index.md) that has the *Project View* and *Environment View* permissions with a security scope including those projects and environments. An easy way to prove you have view permissions is by navigating to each of the projects and environments in the web user interface - if that works, you have the right permissions.
-2. Ensure the project uses at least one [lifecycle](/docs/key-concepts/lifecycles.md) which includes the environment(s) you want to connect the tenant to. You can connect a tenant to any environment included in any of the project's lifecycles. Each [channel](/docs/key-concepts/channels.md) can specify a different lifecycle.
+2. Ensure the project uses at least one [lifecycle](/docs/key-concepts/lifecycles.md) which includes the environment(s) you want to connect the tenant to. You can connect a tenant to any environment included in any of the project's lifecycles. Each [channel](docs/key-concepts/projects/channels) can specify a different lifecycle.
 
 ## Problem: I cannot select a specific tenant when deploying a project {#Troubleshootingmulti-tenantdeployments-Problem:Icannotselectaspecifictenantwhendeployingaproject}
 
