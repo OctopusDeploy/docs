@@ -100,4 +100,4 @@ We have worked hard to design multi-tenant deployments in Octopus Deploy to work
 
 1. Read through the [multi-tenant deployment guide](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/index.md)
 2. Investigate if there are any current [limitations or problems](https://github.com/OctopusDeploy/Issues/issues?q=is%3Aopen+is%3Aissue+label%3Afeature%2Ftenants) which will impact your specific scenario.
-3. Get in touch with our [support team](/support) who can help you understand if multi-tenant deployments are right for you, and how to best model your deployments using Octopus Deploy!
+3. Get in touch with our [support team](https://octopus.com/support) who can help you understand if multi-tenant deployments are right for you, and how to best model your deployments using Octopus Deploy!
