@@ -23,9 +23,11 @@ You'll usually see a number of entries displayed.  Below is the details for one 
 
 ![](/docs/images/azure-environments/de.png "width=500")
 
-Armed with that information you now need to head over to the Azure Account page in Octopus Deploy.  Depending on the authentication method (Management Certificate or Service Principal) the UI will look slightly different.  Here is an example of each.
+Armed with that information you now need to head over to the Azure Account page in Octopus Deploy.  Depending on the authentication method (Management Certificate or Service Principal) the UI will look slightly different.  Service Principal accounts will appear as follows
 
 ![](/docs/images/azure-environments/sp.png "width=500")
+
+and Management Certificate accounts as below
 
 ![](/docs/images/azure-environments/mc.png "width=500")
 
