@@ -201,6 +201,10 @@ Table of contents can be added to any page anywhere by adding `!toc` to the mark
 The first (and all top level) headers in a `.md` page should be a `h2` (i.e. `##`) with sub-headings under it being `h3`, `h4`, etc.
 DO NOT skip headers, eg. h1 > h2 > h4, not valid!
 
+:::warning
+You must separate the '##' and the heading with a space.  If you don't the heading will render correctly in the Preview in GitHub, and in many other tools, but will not render correctly on the docs site.
+:::
+
 ## Folder Version
 You can version the content of a whole folder by versioning the `index.md` for the folder.
 Example:
