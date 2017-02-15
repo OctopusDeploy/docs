@@ -1,12 +1,9 @@
 ---
 title: Azure Environments
 description: Information on how to use alternate Azure environments.
+version: 3.9
 position: 6
 ---
-
-:::hint
-Azure Environments is available in Octopus Deploy 3.9 and later
-:::
 
 ##Azure Environments
 The vast majority of Azure users and subscriptions operate in the AzureCloud environment.  There are also an increasing number of other Azure environments, for example Azure Germany, Azure China, Azure US Gov, Azure US DoD.  These are designed to be isolated from other cloud environments, and as such have their own hosting and API endpoints etc.  In order to deploy to these environments from Octopus Deploy the endpoint configuration must therefore be overridden.  This page describes how to go about overriding the values.
