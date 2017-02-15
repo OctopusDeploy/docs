@@ -136,11 +136,16 @@ See the [NuSpec documentation](http://docs.nuget.org/docs/reference/nuspec-refe
 NuGet packages have version numbers. When you use OctoPack, the NuGet package version number will come from (in order of priority):
 
 1. The command line, if you pass `/p:OctoPackPackageVersion=<version>` as an MSBuild parameter when building your project.
-2. If you pass `/p:OctoPackUseProductVersion=true` as an MSBuild parameter, `[assembly: AssemblyInformationalVersion]` (AKA Assembly's product version) is used 
-3. If you pass `/p:OctoPackUseFileVersion=true` as an MSBuild parameter, `[assembly: AssemblyFileVersion]` (AKA Assembly's file version) is used 
-4. If the `[assembly: AssemblyFileVersion]` is the same as the `[assembly: AssemblyInformationalVersion]` (AKA ProductVersion), then we'll use the `[assembly: AssemblyVersion]` attribute in your `AssemblyInfo.cs` file
-5. Otherwise we take the `[assembly: AssemblyInformationalVersion]`.
+2. If the assembly contains a `GitVersionInformation` type, the field `GitVersionInformation.NuGetVersion` is used
+3. If you pass `/p:OctoPackUseProductVersion=true` as an MSBuild parameter, `[assembly: AssemblyInformationalVersion]` (AKA Assembly's product version) is used 
+4. If you pass `/p:OctoPackUseFileVersion=true` as an MSBuild parameter, `[assembly: AssemblyFileVersion]` (AKA Assembly's file version) is used 
+5. If the `[assembly: AssemblyInformationalVersion]` value is not valid, the `[assembly: AssemblyFileVersion]` is used
+6. If the `[assembly: AssemblyFileVersion]` is the same as the `[assembly: AssemblyInformationalVersion]` (AKA ProductVersion), then we'll use the `[assembly: AssemblyVersion]` attribute in your `AssemblyInfo.cs` file
+7. Otherwise we take the `[assembly: AssemblyInformationalVersion]`.
 
+:::success
+During the build messages are output at the `Normal` msbuild logging level which may help diagnose version retrieval problems
+:::
 
 ### Version Numbers are preserved as-is
 
