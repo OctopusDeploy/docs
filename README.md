@@ -22,7 +22,7 @@ For example:
 title: Getting started
 description: From 0 to deployed, this guide walks you through getting started with Octopus.
 position: 0
-version: [3.0,4.0)
+version: "[3.0,4.0)"
 ---
 ```
 
