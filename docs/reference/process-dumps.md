@@ -34,8 +34,8 @@ to a few minutes, depending on the amount of memory in use and the disk speed
 
 This process creates an analysis file from a process dump file. This analysis file
 contains a limited set of information outlining the current state of the 
-application. Other than project, step and machine names, it is unlikely to contains
-other private information. For our purposes it contains for which threads 
+application. This file can contain connection strings, tentacle thumbprints, project, step and machine names.
+It should not contain sensitive variables or certificates. For our purposes it contains for which threads 
 are running and where they are in the code.
 
 :::success
