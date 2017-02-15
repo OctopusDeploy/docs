@@ -136,8 +136,24 @@ See the [NuSpec documentation](http://docs.nuget.org/docs/reference/nuspec-refe
 NuGet packages have version numbers. When you use OctoPack, the NuGet package version number will come from (in order of priority):
 
 1. The command line, if you pass `/p:OctoPackPackageVersion=<version>` as an MSBuild parameter when building your project.
-2. If the `[assembly: FileVersion]` is the same as the `[assembly: AssemblyInformationalVersion]` (AKA ProductVersion), then we'll use the `[assembly: AssemblyVersion]` attribute in your `AssemblyInfo.cs` file
-3. Otherwise we take the `[assembly: AssemblyInformationalVersion]`.
+2. If you pass `/p:OctoPackUseProductVersion=true` as an MSBuild parameter, `[assembly: AssemblyInformationalVersion]` (AKA Assembly's product version) is used 
+3. If you pass `/p:OctoPackUseFileVersion=true` as an MSBuild parameter, `[assembly: AssemblyFileVersion]` (AKA Assembly's file version) is used 
+4. If the `[assembly: AssemblyFileVersion]` is the same as the `[assembly: AssemblyInformationalVersion]` (AKA ProductVersion), then we'll use the `[assembly: AssemblyVersion]` attribute in your `AssemblyInfo.cs` file
+5. Otherwise we take the `[assembly: AssemblyInformationalVersion]`.
+
+
+### Version Numbers are preserved as-is
+
+:::warning
+OctoPack `3.4.0` to `3.4.2` used the official build of NuGet 3 to varying degrees and therefor do not preserve version numbers as described per below.
+:::
+
+NuGet 3 started removing leading zeros and the fourth digit if it is zero. These are affectionately known as "NuGet zero quirks" and can be surprising when working with tooling outside the NuGet ecosystem. We have made a choice to preserve the version as-is when working with Octopus tooling to create packages of any kind. Learn more about [versioning in Octopus Deploy](http://docs.octopusdeploy.com/display/OD/Versioning+in+Octopus+Deploy).
+
+To make this work for NuGet packages we have forked NuGet
+
+The fork of NuGet 3 available here: https://github.com/OctopusDeploy/NuGet.Client
+The packages are available here: https://octopus.myget.org/feed/octopus-dependencies/package/nuget/NuGet.CommandLine
 
 ## Adding release notes {#UsingOctoPack-Addingreleasenotes}
 
@@ -186,6 +202,8 @@ To publish your package to a NuGet feed, you can optionally use some extra MSBui
 - `/p:OctoPackPublishPackageToFileShare=C:\MyPackages` - copies the package to the path given
 - `/p:OctoPackPublishPackageToHttp=http://my-nuget-server/api/v2/package` - pushes the package to the NuGet server
 - `/p:OctoPackPublishApiKey=ABCDEFGMYAPIKEY` - API key to use when publishing
+- `/p:OctoPackAppendProjectToFeed=true` - Append the project name onto the feed so you can nest packages under folders on publish
+- `/p:OctoPackAppendToPackageId=foo` - Append the extra name to the package ID (e.g. for feature branch packages). MyApp.Foo.1.2.3.nupkg
 
 :::success
 **Want to use the Octopus built-in repository?**
@@ -224,7 +242,9 @@ In addition to the common arguments above, OctoPack has a number of other parame
 | `OctoPackPublishPackageToHttp`         | `http://my-nuget-server/api/v2/package` | OctoPack can publish packages to a HTTP/HTTPS NuGet repository (or the [Octopus built-in repository](/docs/packaging-applications/package-repositories/index.md)) after packaging. |
 | `OctoPackReleaseNotesFile`             | `myreleasenotes.txt`                    | Use this parameter to have the package release notes read from a file. |
 | `OctoPackProjectName`                  | `YourProjectName`                       | Use this parameter to override the name of your package so its not necessarily identical to your Visual Studio Project. This will only work when building a single Project/Package. For multiple projects you do not use this parameter and instead set the below property on your project's csproj file `<PropertyGroup><OctoPackProjectName>Foo</OctoPackProjectName></PropertyGroup>` |
-
+| `OctoPackUseFileVersion`               | `true`                                  | Use this parameter to use `[assembly: AssemblyFileVersion]` (Assembly File Version) as the package version (see [version numbers](#UsingOctoPack-Versionnumbers)) |
+| `OctoPackUseProductVersion`            | `true`                                  | Use this parameter to use `[assembly: AssemblyInformationalVersion]` (Assembly Product Version) as the package version (see [version numbers](#UsingOctoPack-Versionnumbers)). Introduced in OctoPack `3.5.0` |
+| `OctoPackAppendProjectToFeed`          | `true`                                  | Append the project name onto the feed so you can nest packages under folders on publish |
 ## Troubleshooting OctoPack {#UsingOctoPack-TroubleshootingOctoPack}
 
 Sometimes OctoPack doesn't work the way you expected it to, or perhaps you are having trouble configuring your `.nuspec` file. Here are some steps to help you diagnose what is going wrong, and fix the problem.
