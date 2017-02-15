@@ -36,7 +36,7 @@ Required. Used for the meta description tag (`<meta name="description" />`).
 Optional. Used for the position in the menu.
 
 ### Version
-Optional. The versions that this file applies to.
+Optional. The versions that this file applies to. This meatadata supports ranges, same syntax as [nuget](https://docs.microsoft.com/en-us/nuget/create-packages/dependency-versions#version-ranges).
 
 ## Menu
 
