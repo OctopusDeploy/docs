@@ -1,7 +1,6 @@
 from-file-path -> to-file-path   #DO NOT DELETE THIS LINE
 docs/guides/azure-deployments/cloud-services/cloud-service-concepts/cloud-service-deployment-step.md -> docs/guides/azure-deployments/cloud-services/cloud-service-concepts.md
 docs/guides/azure-deployments/resource-groups/deploy-using-an-azure-resource-group-template.md -> docs/guides/azure-deployments/resource-groups/index.md
-docs/guides/azure-deployments/web-apps/web-app-concepts/web-app-deployment-step.md -> docs/guides/azure-deployments/web-apps/web-app-concepts.md
 docs/guides/azure-deployments/web-apps/web-app-concepts/packaging-web-apps.md -> docs/guides/azure-deployments/web-apps/web-app-concepts.md
 docs/guides/azure-deployments/web-apps/web-app-concepts/web-app-deployment-step/preserve-specific-paths-when-deploying-azure-web-app.md -> docs/guides/azure-deployments/web-apps/web-app-concepts.md
 docs/guides/azure-deployments/web-apps/web-app-concepts/web-app-deployment-step/index.md -> docs/guides/azure-deployments/web-apps/web-app-concepts.md
