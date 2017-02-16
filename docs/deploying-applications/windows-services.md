@@ -111,10 +111,10 @@ When you use the Services snap-in console to configure your Windows Service, the
 
 #### Carbon PowerShell Module {#WindowsServices-CarbonPowerShellModule}
 
-Carbon is an amazing module that can be installed via [Chocolatey](https://chocolatey.org/packages/carbon), the PS Gallery, or manually. 
-For Chocolatey it is simply `choco install carbon`, for the PS gallery in PowerShell 5 or higher, you can run `Install-Module Carbon`, or to install manually visit their site and clone the repository or download a zip from the Releases page.
+[Carbon](http://get-carbon.org/) is a PowerShell module that can be installed via [Chocolatey](https://chocolatey.org/packages/carbon), the PowerShell Gallery, or manually. For the PS gallery in PowerShell 5 or higher, you can run `Install-Module Carbon`, or to install manually visit their site and clone the repository or download a zip from the Releases page.
 
-Carbon PS Script example:
+Carbon PowerShell Script example:
+
 ```
 # The Octopus variables below are just examples
 # Use your own #{RunAsUser} or similar variable name.
