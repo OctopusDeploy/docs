@@ -307,6 +307,21 @@ This will result in the image being re-sized with the following parameters
 
 It will also wrap the image in a clickable lightbox so the full image can be accessed.
 
+## Redirects
+When a file is deleted, renamed or versioned you need to consider adding a redirect for that file.
+Redirects are added to [redirects.txt](redirects.txt).
+This file looks something like:
+```
+from-file-path -> to-file-path                 #DO NOT DELETE THIS LINE
+docs/page1.md -> docs/page3.md
+```
+In the above example, `/docs/page1` is redirected to `/docs/page2`
+
+Once a redirect is added, the source file needs to be deleted from the repo, or in the case of docs, if the file is versioned, the version range needs to exclude the versions that want to be redirected, if all versions are to be redirected then the file needs to be deleted.
+
+The destination is validated and needs to exist.
+
+If a file is deleted or the version range no longer includes that file, a redirect need to exist for it, otherwise the sync fails.
 
 ## Useful Characters
 
