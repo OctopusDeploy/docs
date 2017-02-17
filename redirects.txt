@@ -9,3 +9,4 @@ docs/guides/use-the-team-foundation-build-custom-task/manually-install-the-build
 docs/guides/multi-tenant-deployments/other-scenarios-for-multi-tenant-deployments.md -> docs/guides/multi-tenant-deployments/index.md
 docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/migrating-to-octopus-3.4.md -> docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/index.md
 docs/deploying-applications/docker-containers/docker-compose.md -> docs/deploying-applications/docker-containers/index.md
+docs/guides/elastic-and-transient-environments/deploying-to-transient-targets-copy.md -> docs/guides/elastic-and-transient-environments/deploying-to-transient-targets.md
