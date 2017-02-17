@@ -5,7 +5,7 @@ description: Tenant Tags help you to classify your tenants with custom tags so y
 
 In Octopus, tenant tags help you to classify your tenants using custom tags that meet your needs, and tailor tenanted deployments for your projects and environments. Tenant tags also make it easier to work with tenants as groups instead of individuals. Using tags you can apply meaningful metadata to tenants, to describe them using your own terminology, improve search and filtering, and tailor the deployment process to their needs.
 
-Octopus allows you to group grouped similar tags together into tag sets. This enables you to more easily understand which tags fit together, what effect they should have on tenanted deployments, and design powerful tag-based queries using combinations of tags.
+Octopus allows you to group similar tags together into tag sets. This enables you to more easily understand which tags fit together, what effect they should have on tenanted deployments, and design powerful tag-based queries using combinations of tags.
 
 :::success
 Have you read [our guide](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/index.md) on multi-tenant deployments yet? There is a section dedicated to [working with groups of tenants using tags](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md).
@@ -35,7 +35,7 @@ Go to *Library > Tenant tag sets* to create, modify and reorder tag sets and ta
 
 :::success
 **Design your tag sets carefully**
-We suggest taking some time to design your tag sets based on how you will apply them to your projects and environments. Our recommendation is to make sure each of your **tag sets are orthogonal**, like different axes on a chart. This kind of design is important because of [how tags are combined in tag filters](/docs/key-concepts/tenants/tenant-tags.md).
+We suggest taking some time to design your tag sets based on how you will apply them to your projects and environments. Our recommendation is to make sure each of your **tag sets are orthogonal**, like different axes on a chart. This kind of design is important because of [how tags are combined in tag filters](#TenantTags-Tag-basedfilters).
 
 Example tag set design (based on the sample provided in our guide):
 
@@ -71,7 +71,7 @@ Let's take a look at an example (click the image to zoom):
 In this example Octopus will execute a query like the one shown below:
 
 ```sql
-TenantsNamed("Alvin Warren") + TenantsTagged(VIP AND (Early Adopter OR Stable))
+TenantsNamed("Alvin Warren") UNION TenantsTagged(VIP AND (Early Adopter OR Stable))
 ```
 
 When paired with a well-structured tag design, this logic will enable you to tailor your tenanted deployments in interesting and effective ways.
