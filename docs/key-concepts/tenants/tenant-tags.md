@@ -76,6 +76,13 @@ TenantsNamed("Alvin Warren") UNION TenantsTagged(VIP AND (Early Adopter OR Stabl
 
 When paired with a well-structured tag design, this logic will enable you to tailor your tenanted deployments in interesting and effective ways.
 
+:::hint
+**Tips for working with tenant filters**
+- Only specify a tenant "by name" (explicitly) if you absolutely want that tenant included in the result, otherwise leave it blank
+- A filter with tags in the same tag set will be more inclusive since they are combined using **`OR`**
+- A filter with tags across different tag sets will become more reductive since they are combined using **'AND'**
+:::
+
 ## Referencing tenant tags {#TenantTags-Referencingtenanttags}
 
 If you want to use tenant tags to automate Octopus Deploy you should use the **Canonical Name** for the Tag which looks like this: `Tag Set Name/Tag Name`
