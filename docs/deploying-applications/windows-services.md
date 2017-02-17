@@ -109,7 +109,7 @@ You will need to consider carefully which Service Account you choose for your Wi
 
 When you use the Services snap-in console to configure your Windows Service, the **SeServiceLogonRight** logon right is automatically assigned to the account. If you use the Sc.exe tool or APIs to configure the account (like Octopus Deploy does on your behalf), the account has to be explicitly granted this right by using tools such as [Carbon PowerShell module](http://get-carbon.org/), the Security Policy snap-in (secpol.msc), `Secedit.exe`, or `NTRights.exe`. The built-in Windows Service accounts (`Local System`, `Network Service`, `Local Service`), and members of the **Local Administrators** group are assigned this right by default.
 
-#### Carbon PowerShell Module {#WindowsServices-CarbonPowerShellModule}
+### Carbon PowerShell Module {#WindowsServices-CarbonPowerShellModule}
 
 [Carbon](http://get-carbon.org/) is a PowerShell module that can be installed via [Chocolatey](https://chocolatey.org/packages/carbon), the PowerShell Gallery, or manually. For the PS gallery in PowerShell 5 or higher, you can run `Install-Module Carbon`, or to install manually visit their site and clone the repository or download a zip from the Releases page.
 
