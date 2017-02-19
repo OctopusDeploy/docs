@@ -115,7 +115,7 @@ When you use the Services snap-in console to configure your Windows Service, the
 
 Carbon PowerShell Script example:
 
-```
+```ps
 # The Octopus variables below are just examples
 # Use your own #{RunAsUser} or similar variable name.
 
