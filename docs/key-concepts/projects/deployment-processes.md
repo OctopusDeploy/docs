@@ -73,7 +73,7 @@ Octopus Deploy is built API-first, which means everything you can do through the
   - Steps
    - Actions
 
-We have provided lots of helpful functions for building your deployment process in the [.NET SDK](/docs/api-and-integration/octopus-rest-api.md), or you can use the raw HTTP API if that suits your needs better.
+We have provided lots of helpful functions for building your deployment process in the [.NET SDK](/docs/api-and-integration/octopus.client.md), or you can use the raw HTTP API if that suits your needs better.
 
 Learn about using the [Octopus REST API](/docs/api-and-integration/octopus-rest-api.md).
 
