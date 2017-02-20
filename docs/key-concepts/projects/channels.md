@@ -49,7 +49,7 @@ Version rules assist in selecting the correct versions of packages for the Chann
 
 :::hint
 **SemVer works best**
-Version Rules will work best when you follow [Semantic Versioning (SemVer)](http://semver.org) for your versioning strategy. From Octopus 3.4 onward you can use [SemVer 2.0.0](http://semver.org/spec/v2.0.0.html). For earlier versions of Octopus please use [SemVer 1.0.0](http://semver.org/spec/v1.0.0.html).
+Version Rules will work best when you follow [Semantic Versioning (SemVer 2.0.0)](http://semver.org) for your versioning strategy.
 :::
 
 To add version rules to a Channel, click **Add version rule** on the Channel page.
@@ -65,7 +65,7 @@ The steps selected for a specific rule define which packages will be filtered on
 A provided version range based on the [NuGet versioning syntax](http://g.octopushq.com/NuGetVersioning) can be applied to the release creation package selection.
 
 :::success
-From Octopus 3.4 onward you can use the full semantic version as part of your version range specification. For example: `[2.0.0-alpha.1,2.0.0)` will match all 2.0.0 pre-releases (where the pre-release component is `&gt; alpha.1`), and will exclude the 2.0.0 release.
+You can use the full semantic version as part of your version range specification. For example: `[2.0.0-alpha.1,2.0.0)` will match all 2.0.0 pre-releases (where the pre-release component is `>= alpha.1`), and will exclude the 2.0.0 release.
 
 ![](/docs/images/3048999/5865686.png "width=500")
 :::
