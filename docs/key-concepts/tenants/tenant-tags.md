@@ -33,8 +33,8 @@ Go to *Library > Tenant tag sets* to create, modify and reorder tag sets and ta
 
 ![](/docs/images/5670003/5865644.png "width=500")
 
-:::success
-**Design your tag sets carefully**
+
+### Design your tag sets carefully
 We suggest taking some time to design your tag sets based on how you will apply them to your projects and environments. Our recommendation is to make sure each of your **tag sets are orthogonal**, like different axes on a chart. This kind of design is important because of [how tags are combined in tag filters](#TenantTags-Tag-basedfilters).
 
 Example tag set design (based on the sample provided in our guide):
@@ -44,16 +44,13 @@ Example tag set design (based on the sample provided in our guide):
 - **Upgrade ring (Early adopter, Stable, Pinned):** concerned with when the tenant's applications are upgraded in relationship to other tenants - read more about this in our [guide](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md)
 
 This kind of tag set design will make it easier for each different class of Octopus user to understand which tags apply to their area, and the impact it will have on your tenanted deployments.
-:::
 
-:::success
-**Ordering tag sets and tags**
+### Ordering tag sets and tags
 Order is important for tag sets, and tags within those tag sets. Octopus will sort tag sets and tags based on the order you define in the library. This allows you to tailor the Octopus user interface to your own situation.
 
 This example of configuring a tenanted deployment target shows how the tenant filter field order is defined based on the order of the tag sets and tags in the library.
 
 ![](/docs/images/5670003/5865645.png "width=500")
-:::
 
 ## Tag-based filters {#TenantTags-Tag-basedfilters}
 
@@ -80,7 +77,7 @@ When paired with a well-structured tag design, this logic will enable you to tai
 **Tips for working with tenant filters**
 - Only specify a tenant "by name" (explicitly) if you absolutely want that tenant included in the result, otherwise leave it blank
 - A filter with tags in the same tag set will be more inclusive since they are combined using **`OR`**
-- A filter with tags across different tag sets will become more reductive since they are combined using **'AND'**
+- A filter with tags across different tag sets will become more reductive since they are combined using **`AND`**
 :::
 
 ## Referencing tenant tags {#TenantTags-Referencingtenanttags}
