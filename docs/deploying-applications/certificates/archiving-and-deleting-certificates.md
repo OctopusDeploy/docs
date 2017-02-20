@@ -7,11 +7,11 @@ position: 3
 
 Archiving a certificate will prevent it from being selected as the value of a variable, while still allowing it to be used by existing usages (projects, releases, deployments). 
 
-![](/docs/images/certificates/archive-certificate.png "width=500")
+![](archive-certificate.png "width=500")
 
 Archived certificates can be viewed by navigating to {{Library,Certificates,View Archive}}.
 
-When a certificate is [replaced](/docs/deploying-applications/certificates/replace-certificate.md), it is automatically archived if it is not already.
+When a certificate is [replaced](certificates/replace-certificate.md), it is automatically archived if it is not already.
 
 ## Deleting a certificate
 

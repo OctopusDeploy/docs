@@ -5,11 +5,11 @@ position: 8
 
 In the variable-editor, selecting *Certificate* as the variable type allows you to create a variable with a certificate managed by Octopus as the value.
 
-![](/docs/images/certificates/certificate-variable-select.png)
+![](/docs/images/certificates/certificate-variable-select.png "width=500")
 
-Certificate variables can be [scoped](/docs/deploying-applications/variables/scoping-variables.md), similar to regular text variables.
+Certificate variables can be [scoped](scoping-variables.md), similar to regular text variables.
 
-![](/docs/images/certificates/certificate-variables-scoped.png)
+![](/docs/images/certificates/certificate-variables-scoped.png "width=500")
 
 ### Expanded Properties
 

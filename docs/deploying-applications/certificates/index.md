@@ -8,16 +8,16 @@ X.509 certificates are key component of many deployment processes. Octopus Deplo
 
 ## Securely Store Certificates and Private-Keys 
 
-![](/docs/images/certificates/certificate-list.png "width=500")
+![](certificate-list.png "width=500")
 
-- [Add Certificate](/docs/deploying-applications/certificates/add-certificate.md)
-- [Replacing certificates](/docs/deploying-applications/certificates/replace-certificate.md)
-- [Archiving and deleting certificates](/docs/deploying-applications/certificates/archiving-and-deleting-certificates.md)
-- [Exporting certificates](/docs/deploying-applications/certificates/export-certificate.md)
+- [Add certificate](add-certificate.md)
+- [Replacing certificates](replace-certificate.md)
+- [Archiving and deleting certificates](archiving-and-deleting-certificates.md)
+- [Exporting certificates](export-certificate.md)
 
 ## Configure Subscriptions for Expiry Notifications 
 
-[Octopus Subscriptions](/docs/administration/subscriptions.md) can used to configure notifications when certificates are close to expiry or have expired. 
+[Octopus Subscriptions](/docs/administration/subscriptions.md) can be used to configure notifications when certificates are close to expiry or have expired. 
 
 There is a "Certificate expiry events" event-group, and three events:  
 
@@ -29,7 +29,7 @@ There is a "Certificate expiry events" event-group, and three events:
 
 Certificates can be imported to Windows Certificate Stores as part of a deployment process using the [Import Certificate Deployment Step](/docs/deploying-applications/certificates/import-certificate-step.md)
 
-![](/docs/images/certificates/import-certificate-step-select.png "width=500")
+![](import-certificate-step-select.png "width=500")
 
 ## Use certificates for HTTPS bindings when deploying IIS Websites   
 
@@ -37,7 +37,7 @@ When configuring HTTPS bindings for [IIS Websites](/docs/deploying-applications/
 - entering the thumbprint directly (this assumes the certificate has already been installed on the machine) 
 - selecting a certificate-typed variable (this will automatically install the certificate)
 
-![](/docs/images/certificates/https-binding-certificate.png "width=500")
+![](https-binding-certificate.png "width=500")
 
 ## Create Certificate-Typed Variables 
 
