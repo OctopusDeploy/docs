@@ -1,6 +1,6 @@
 ---
 title: Certificates - Supported File Formats 
-position: 0
+position: 2
 ---
 
 The following certificate formats are supported in Octopus Deploy:
