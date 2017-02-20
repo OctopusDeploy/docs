@@ -5,12 +5,8 @@ position: 2
 version: 3.2
 ---
 
-:::hint
-Channels was released in Octopus Deploy version 3.2.
-:::
-
 :::success
-The [Channels Walkthrough](https://octopus.com/blog/channels-walkthrough) covers all of these topics, and covers how to implement the most common scenarios that will benefit from Channels.
+The [Channels Walkthrough](https://octopus.com/blog/channels-walkthrough) covers all of these topics as well as how to implement the most common scenarios that will benefit from Channels.
 :::
 
 Channels in Octopus Deploy will help you if you want to:
