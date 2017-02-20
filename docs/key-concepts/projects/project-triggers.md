@@ -14,7 +14,7 @@ Project Triggers were introduced in Octopus Deploy 3.4
 We have written a [comprehensive guide](/docs/guides/elastic-and-transient-environments/index.md) about using Project Triggers (specifically [Automatic Deployment Triggers](/docs/deploying-applications/automatic-deployment-triggers.md)) with a focus on deploying to elastic and transient environments.
 :::
 
-Project Triggers allow you to choose from a subset of **events** that can occur in Octopus Deploy, apply a **filter** to those events, and decide on an **action** you want performed once the trigger fires. The example below shows an [Automatic Deployment Trigger](/docs/deploying-applications/automatic-deployment-triggers.md) configured to fire when a [Deployment Target](/docs/deployment-targets/index.md) with the [Machine Role](/docs/key-concepts/machine-roles.md) **web-server** belonging to the **Production**[Environment](/docs/key-concepts/environments/index.md) becomes available.
+Project Triggers allow you to choose from a subset of **events** that can occur in Octopus Deploy, apply a **filter** to those events, and decide on an **action** you want performed once the trigger fires. The example below shows an [Automatic Deployment Trigger](/docs/deploying-applications/automatic-deployment-triggers.md) configured to fire when a [Deployment Target](/docs/deployment-targets/index.md) with the [Machine Role](/docs/key-concepts/machine-roles.md) **web-server** belonging to the **Production** [Environment](/docs/key-concepts/environments/index.md) becomes available.
 
 ![](/docs/images/5671189/5865830.png "width=500")
 
