@@ -2,11 +2,8 @@
 title: Machine Policies
 description: Machine Policies allow you to customise the behaviour of Tentacle and SSH endpoints like health check settings, machine connectivity, updates and more.
 position: 3
+version: 3.3
 ---
-
-:::hint
-Machine Policies are available in Octopus Deploy 3.4 or later
-:::
 
 Machine policies are groups of settings that can be applied to Tentacle and SSH endpoints to modify their behavior. They can be used to:
 
@@ -65,7 +62,7 @@ Write-Error "This is an error"
 Fail-HealthCheck "This is an error"
 ```
 
-SSH targets do not include a disk space check by default like Tentacle targets do. As such, there is no default Bash script listed in your machine policy for SSH targets by default. However, you may write your own, or choose to add additional Bash script to run against your SSH targets during health checks. Again, it's entirely up to you. :smiley:
+SSH targets do not include a disk space check by default like Tentacle targets do. As such, there is no default Bash script listed in your machine policy for SSH targets by default. However, you may write your own, or choose to add additional Bash script to run against your SSH targets during health checks. Again, it's entirely up to you.
 
 SSH deployment targets can use *echo\_warning*, *echo\_error* and *fail\_healthcheck* to convey a *healthy with warnings* or *unhealthy* status:
 
