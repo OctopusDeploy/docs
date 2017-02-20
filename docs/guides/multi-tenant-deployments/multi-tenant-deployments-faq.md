@@ -72,7 +72,7 @@ We recommend avoiding order dependence of your deployments wherever possible.
 
 Yes! This is a practice we recommend. You can use [tenant tags](/docs/key-concepts/tenants/tenant-tags.md) to group your tenants together into batches and then promote your releases through your tenants in batches. It can be convenient to deploy to some of your tenants first in order to detect any problems with your release before you promote to all of your other tenants.
 
-Learn more about [designing a multi-tenant upgrade process](/docs/guides/multi-tenant-deployments/designing-a-multi-tenant-upgrade-process.md).
+Learn more about [designing a multi-tenant upgrade process](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md).
 
 ## Can I have a combination of tenanted and untenanted projects? {#Multi-tenantdeploymentsFAQ-CanIhaveacombinationoftenantedanduntenantedprojects?}
 
