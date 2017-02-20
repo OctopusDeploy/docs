@@ -2,13 +2,10 @@
 title: Project Triggers
 description: Project Triggers allow you to define unattended behaviour for your project such as automatically deploying a release to an environment.
 position: 3
+version: 3.4
 ---
 
 Project Triggers allow you to define an unattended behavior for your [Projects](/docs/key-concepts/projects/index.md).
-
-:::hint
-Project Triggers were introduced in Octopus Deploy 3.4
-:::
 
 :::success
 We have written a [comprehensive guide](/docs/guides/elastic-and-transient-environments/index.md) about using Project Triggers (specifically [Automatic Deployment Triggers](/docs/deploying-applications/automatic-deployment-triggers.md)) with a focus on deploying to elastic and transient environments.
