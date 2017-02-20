@@ -40,7 +40,7 @@ After you save the step, all the roles you’ve scoped it for can be viewed from
 
 According to the screenshot above, our deployment process will do the following:
 
-- Deploy NuGet package OctoFX.Database to deployment targets with the role**app-server**
+- Deploy NuGet package OctoFX.Database to deployment targets with the role **app-server**
 - Deploy NuGet package OctoFX.RateService to deployment targets with the role **web-server**
 
 ## Using roles with variables {#MachineRoles-Usingroleswithvariables}
