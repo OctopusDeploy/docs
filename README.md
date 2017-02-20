@@ -259,13 +259,21 @@ Which means elsewhere in the page you can link to it with this:
 
 ## Images
 
+You have a few options:
+
+1. Put your image in the same folder as the markdown file and reference it like this ![Alt text](myimage.png "Optional title width=500")
+2. For shared images, put your image in the images folder and reference it like this ![Alt text](/docs/images/myimage.png "Optional title width=500")
+3. For internet images, just reference it remembering to use the `https://` scheme like this ![Alt text](https://my.image.com/myimage.png "Optional title width=500")
+
 Images can be added using the following markdown syntax
 
-    ![Alt text](/docs/images/img.jpg "Optional title")
+    ![Alt text](img.jpg "Optional title width=500")
 
 With the minimal syntax being
 
-    ![](/docs/images/img.jpg)
+    ![](img.jpg)
+    
+Keep reading for a detailed explanation of the options available when working with images.
 
 ### Image paths
 Paths to internal images need to:
