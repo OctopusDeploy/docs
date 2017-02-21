@@ -31,6 +31,8 @@ Required. Used for the web page title tag `<head><title>`, displayed in the page
 
 ### Description
 Required. Used for the meta description tag (`<meta name="description" />`).
+Keep the description under 160 characters.
+Read [how to write a good description](https://moz.com/learn/seo/meta-description).
 
 ### Position
 Optional. Used for the position in the menu.
