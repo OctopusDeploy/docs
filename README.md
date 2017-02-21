@@ -262,7 +262,7 @@ Which means elsewhere in the page you can link to it with this:
 You have a few options:
 
 1. Put your image in the same folder as the markdown file;
-2. For shared images, put your image in the [images folder](/docs/docs/images);
+2. For shared images, put your image in the [images folder](docs/images);
 3. For internet images, just reference it remembering to use the `https://` scheme;
 
 Images can be added using the following markdown syntax
