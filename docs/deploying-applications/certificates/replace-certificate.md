@@ -1,6 +1,7 @@
 ---
 title: Replace a Certificate 
 position: 4 
+version: "3.11"
 ---
 
 The Replace Certificate feature is designed for the scenario where a new certificate has been obtained via a renewal process. 

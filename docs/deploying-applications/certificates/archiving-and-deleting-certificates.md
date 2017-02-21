@@ -1,6 +1,7 @@
 ---
 title: Archiving and Deleting Certificates 
 position: 3 
+version: "3.11"
 ---
 
 ## Archiving a Certificate

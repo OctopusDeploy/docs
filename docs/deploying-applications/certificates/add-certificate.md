@@ -1,6 +1,7 @@
 ---
 title: Add a Certificate to Octopus
 position: 1 
+version: "3.11"
 ---
 
 To add a certificate to Octopus, navigate to **Library** -> **Certificates** -> **Add Certificate** 

@@ -1,6 +1,7 @@
 ---
 title: Import Certificate to Windows Certificate Store 
 position: 4 
+version: "3.11"
 ---
 
 The *Import Certificate* step can be used to import a certificate managed by Octopus into a Windows Certificate Store.
