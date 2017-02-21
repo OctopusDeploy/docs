@@ -42,6 +42,10 @@ Optional. The versions that this file applies to. This meatadata supports ranges
 
 The menu is auto generated based on the git repo folder structure and title and position metadata.
 
+## Version dropdown
+
+The list of versions displayed on the dropdown are loaded from [versions.json](versions.json).
+
 ## URLs
 
 The directory structure where a `.md` exists is used to derive the URL for that document.
