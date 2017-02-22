@@ -41,7 +41,7 @@ To allow Tentacle to connect to your Octopus Deploy server, you'll need to allow
 
 If your network rules only allow port **80** and **443** to the Octopus server, you can change the server bindings to either HTTP or HTTPS and
 use the remaining port for polling tentacle connections. The listening port can be [changed from the command line](https://octopus.com/docs/administration/server-configuration-and-file-storage).
-Even if you do use port **80** for polling tentacles, the communication is still secured.
+Even if you do use port **80** for polling tentacles, the communication is still secure.
 
 Note that the port used to poll Octopus for jobs is different to the port used by your team to access the Octopus Deploy web interface; 
 this is on purpose, and it means you can use different firewall conditions to allow Tentacles to access Octopus by IP address. It is not
