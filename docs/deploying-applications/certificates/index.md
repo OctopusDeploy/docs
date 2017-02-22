@@ -1,5 +1,6 @@
 ---
 title: Certificates
+description: Manage and deploy X.509 certificates with Octopus Deploy 
 description: Manage X.509 certificates with Octopus Deploy
 position: 29 
 version: "3.11"

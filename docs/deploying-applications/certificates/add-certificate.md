@@ -1,5 +1,6 @@
 ---
 title: Add a Certificate to Octopus
+description: Upload a X.509 certificate to be managed by Octopus Deploy 
 position: 1 
 version: "3.11"
 ---

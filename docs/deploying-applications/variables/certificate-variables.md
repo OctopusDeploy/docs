@@ -1,5 +1,6 @@
 ---
 title: Certificate Variables 
+description: Variables in Octopus Deploy can have a certificate as the value 
 position: 8
 version: "3.11"
 ---

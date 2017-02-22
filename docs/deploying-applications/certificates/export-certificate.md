@@ -1,5 +1,6 @@
 ---
 title: Export a Certificate 
+description: Export a certificate managed by Octopus as a selected file-format 
 position: 5 
 version: "3.11"
 ---
