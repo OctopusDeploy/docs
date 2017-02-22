@@ -6,7 +6,7 @@ position: 29
 version: "3.11"
 ---
 
-X.509 certificates are key component of many deployment processes. Octopus Deploy provides the ability to securely store and manage your certificates, and easily use them in your Octopus Projects.  
+X.509 certificates are a key component of many deployment processes. Octopus Deploy provides the ability to securely store and manage your certificates, and easily use them in your Octopus Projects.  
 
 ## Securely Store Certificates and Private-Keys 
 
