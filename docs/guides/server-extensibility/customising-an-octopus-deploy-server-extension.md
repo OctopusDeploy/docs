@@ -14,7 +14,7 @@ As part of the Octopus Deploy installation, a number of extensions are provided 
 - [Guest authentication](https://github.com/OctopusDeploy/GuestAuthenticationProvider)
 - [OpenID Connect based authentication](https://github.com/OctopusDeploy/OpenIDConnectAuthenticationProviders) (e.g. Azure AD and GoogleApps)
 
-One of the reasons behind open-sourcing these projects is to allow users to customise them if they need to.  For example, Active Directory configurations can vary dramatically and for some users it may make sense to modify parts of our implementation.
+One of the reasons behind open-sourcing these projects is to allow users to customize them if they need to.  For example, Active Directory configurations can vary dramatically and for some users it may make sense to modify parts of our implementation.
 
 ## Customizing the code {#CustomisinganOctopusDeployserverextension-Customisingthecode}
 
