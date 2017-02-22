@@ -1,16 +1,8 @@
 ---
 title: Resetting passwords
+description: The Octopus web portal makes it easy to change or reset your password.
 position: 1
 ---
-
-## 
-- Resetting your own password
-- Resetting user passwords
-- Resetting administrator passwords
- - For Username/Password authentication
- - For Active Directory authentication
-- Password Complexity
- {#Resettingpasswords-/*&lt;![CDATA[*/div.rbtoc1484731161595{padding:0px;}div.rbtoc1484731161595ul{list-style:disc;margin-left:0px;}div.rbtoc1484731161595li{margin-left:0px;padding-left:0px;}/*]]&gt;*/ResettingyourownpasswordResettinguserpasswordsResettingadminist}
 
 ## Resetting your own password {#Resettingpasswords-Resettingyourownpassword}
 
@@ -22,7 +14,7 @@ To change your password, check the **Change password** checkbox:
 
 ![](/docs/images/3048125/3277958.png "width=500")
 
-Enter your new password, and confirm your new password, then click the **Save**button:
+Enter your new password, and confirm your new password, then click the **Save** button:
 
 ![](/docs/images/3048125/3277957.png "width=500")
 
@@ -34,11 +26,11 @@ Select the user whose password you want to change:
 
 ![](/docs/images/3048125/3277956.png "width=500")
 
-Check the **Change password**checkbox:
+Check the **Change password** checkbox:
 
 ![](/docs/images/3048125/3277955.png "width=500")
 
-Enter the new password, confirm the new password and click the **Save**button:
+Enter the new password, confirm the new password and click the **Save** button:
 
 ![](/docs/images/3048125/3277954.png "width=500")
 

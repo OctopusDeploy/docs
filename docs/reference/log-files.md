@@ -1,5 +1,6 @@
 ---
 title: Log files
+description: Octopus Server and Tentacle log file locations and details.
 position: 1
 ---
 

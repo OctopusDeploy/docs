@@ -1,5 +1,6 @@
 ---
 title: Cleaning environments
+description: Using the Octo.exe command line tool to delete/remove machines with a particular status from environments on your Octopus instance.
 position: 9
 ---
 
@@ -18,7 +19,7 @@ This is most useful when your environments can have temporary/ephemeral machines
 We added first-class support for automatically [cleaning up environments](/docs/guides/elastic-and-transient-environments/cleaning-up-environments.md).
 :::
 
-```text
+```bash
 octo clean-environment [<options>]
 ```
 
@@ -31,8 +32,10 @@ Usage: Octo clean-environment [<options>]
 Where [<options>] is any of: 
 Cleanup: 
       --environment=VALUE    Name of an environment to clean up.
-      --status=VALUE         Status of Machines to clean up (Online, Offline, 
+      --status=VALUE         (Depricated) Status of Machines to clean up (Online, Offline, 
                              NeedsUpgrade, CalamariNeedsUpgrade, Disabled).
+      --health-status=VALUE  Health Status of machines to clean up (Healthy,
+                             Unavailable, Unknown, HasWarnings and Unhealthy).
 Common options: 
       --server=VALUE         The base URL for your Octopus server - e.g., 
                              http://your-octopus/
@@ -59,7 +62,7 @@ Common options:
 
 The following command will clean any *offline* machines from the *production* environment.
 
-```text
+```bash
 Octo clean-environment --environment Production --status Offline --server http://MyOctopusServerURL.com --apikey MyAPIKey
 ```
 

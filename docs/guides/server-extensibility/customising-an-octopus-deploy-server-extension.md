@@ -1,5 +1,6 @@
 ---
 title: Customising an Octopus Deploy server extension
+description: Octopus Deploy built-in server extensions are available on GitHub and can be forked and customised.
 ---
 
 :::hint

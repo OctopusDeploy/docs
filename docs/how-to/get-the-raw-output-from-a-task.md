@@ -1,5 +1,6 @@
 ---
 title: Get the raw output from a task
+description: How to get the raw output from a task to help the Octopus team resolve deployment related issues.
 position: 0
 ---
 

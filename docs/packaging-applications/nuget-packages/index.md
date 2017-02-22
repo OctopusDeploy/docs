@@ -1,5 +1,6 @@
 ---
 title: NuGet packages
+description: Using NuGet to package applications for use in your deployments.
 position: 2
 ---
 

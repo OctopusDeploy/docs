@@ -1,5 +1,6 @@
 ---
 title: Automatic Deployment Triggers
+description: Automatic Deployment Triggers allow you to define an unattended behavior for your projects that will cause automatic deployment of a release into an environment.
 position: 23
 ---
 
@@ -56,13 +57,13 @@ For Octopus 3.4 and 3.5, there are two types of events that can trigger an autom
 ### Can I configure automatic deployments for a specific role or environment? {#AutomaticDeploymentTriggers-CanIconfigureautomaticdeploymentsforaspecificroleorenvironment?}
 Yes! You can apply a filter to the events to restrict which deployment targets will actually cause the trigger to fire, and consequently, which deployment targets will be automatically deployed to. Consider the example of an auto-scaling web farm shown below where we only want to trigger automatic deployments for **TradingWebServers** in the **Production** environment.
 
-![](/docs/images/5671191/5865833.png?effects=drop-shadow "width=500")
+![](/docs/images/5671191/5865833.png "width=500")
 
 ### Which release will be deployed automatically? {#AutomaticDeploymentTriggers-Whichreleasewillbedeployedautomatically?}
 
 The best way to answer this is to look at your dashboard or project overview. By default Octopus will re-run the *currently successful* deployment for the project/environment/tenant combination. The end result should be that the new deployment target is configured just like its counterparts.
 
-![](/docs/images/5671191/5865836.png?effects=drop-shadow "width=500")
+![](/docs/images/5671191/5865836.png "width=500")
 
 You can override this behavior by configuring an [Auto Deploy Override](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/index.md).
 
@@ -88,7 +89,7 @@ In this illustration below you can see the steps targeting the **RateServer** ro
 :::success
 You can use the advanced deployment screen to see an approximation of the deployment process that will run for any combination of environment and roles by building a deployment to that environment and selecting an existing machine with matching roles.
 
-![](/docs/images/5671191/5865838.png?effects=drop-shadow "width=500")
+![](/docs/images/5671191/5865838.png "width=500")
 :::
 
 ### What happens with Manual Interventions and Guided Failures? {#AutomaticDeploymentTriggers-WhathappenswithManualInterventionsandGuidedFailures?}
@@ -98,7 +99,7 @@ You can use the advanced deployment screen to see an approximation of the deploy
 :::success
 We generally recommend avoiding the use of Manual Intervention steps unless absolutely necessary. If you need Manual Intervention steps to pause for manual deployments, but skip for automatic deployments, you can use a workaround: add the Manual Intervention step to a [Rolling Deployment](/docs/patterns/rolling-deployments.md) step which is targeted at a role that will never be part of an automatic deployment.
 
-![](/docs/images/5671191/5865839.png?effects=drop-shadow "width=500")
+![](/docs/images/5671191/5865839.png "width=500")
 :::
 
 ### What happens if I disable some steps? {#AutomaticDeploymentTriggers-WhathappensifIdisablesomesteps?}

@@ -1,5 +1,6 @@
 ---
 title: Creating an Azure Service Principal Account
+description: Creating an Azure Service Principal Account in Octopus Deploy.
 ---
 
 :::hint
@@ -10,13 +11,13 @@ Prior to Octopus Deploy 3.3, [Azure Management Certificate Accounts](/docs/key-c
 
 [Azure Management Certificate Accounts](/docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-management-certificate-account.md) are only able to interact with the legacy Azure interface known as the "Azure Service Management API", which is used when Octopus deploys [Cloud Services](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-cloud-service/index.md) and [Azure Web Apps](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/index.md).
 
-To interact with Azure Resource Manager (ARM), like when Octopus deploys a [Resource Group Template](/docs/guides/azure-deployments/resource-groups/deploy-using-an-azure-resource-group-template.md), you must use an [Azure Service Principal Account](/docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-service-principal-account.md).
+To interact with Azure Resource Manager (ARM), like when Octopus deploys a [Resource Group Template](/docs/guides/azure-deployments/resource-groups/index.md), you must use an [Azure Service Principal Account](/docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-service-principal-account.md).
 :::
 
 There are two steps to enable your Octopus Server to manage your Azure subscription via a Service Principal:
 
-1. [Create an Azure Active Directory application and service principal](/docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-service-principal-account.md) (via PowerShell or the Azure Portal)
-2. [Allow Octopus to authenticate with Azure using a Service Principal](/docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-service-principal-account.md)
+1. Create an Azure Active Directory application and service principal (via PowerShell or the Azure Portal)
+2. Allow Octopus to authenticate with Azure using a Service Principal
 
 ## Step 1: Create an Azure Active Directory application and service principal {#CreatinganAzureServicePrincipalAccount-create-service-principalStep1:CreateanAzureActiveDirectoryapplicationandserviceprincipal}
 
@@ -71,11 +72,7 @@ The values required for the script above are:
 
 **Password**: A secret value created by you. Ensure you record it, as you will need to enter it into Octopus Deploy.
 
-**Tenant ID**: The ID of the Active Directory tenant.  You can get this value from the old Azure portal.  If you navigate to the Active Directory tab, and inspect the URL of the link to the directory you will be using, the Tenant ID will be the final portal portion.
-
-e.g. https://manage.windowsazure.com/@papasmurf.smurfs.com#Workspaces/ActiveDirectoryExtension/Directory/**b88c0ac7-dade-3842-8a4f-3bc5db3ee8ca**
-
-![](/docs/images/3702850/3964967.png "width=500")
+**Tenant ID**: The ID of the Active Directory tenant.  You can get this value by clicking 'Properties' in the Directory blade & looking for the value labled Directory ID.
 
 ### Option 2: Use the Azure Portal {#CreatinganAzureServicePrincipalAccount-Option2:UsetheAzurePortal}
 

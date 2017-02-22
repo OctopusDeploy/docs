@@ -1,5 +1,6 @@
 ---
 title: Docker Registries as Feeds
+description: A Docker Registry is treated in Octopus Deploy as a feed that supplies images that are run as containers on a Docker Engine host.
 position: 0
 ---
 
@@ -35,11 +36,11 @@ It is possible that the URI to the Docker Registry will be different for the Oct
 
 Docker Images with the same name are grouped together and referred to (in Docker terminology) as a **repository**. This is very similar to how Octopus, and other package managers like NuGet, treat Packages with the same Name or ID. When you configure a Docker step in Octopus you choose an Image by its Name, just like you would choose a Package ID for any of the other [supported packages](/docs/packaging-applications/supported-packages.md).
 
-![](/docs/images/5671031/5865827.png?effects=drop-shadow "width=500")
+![](/docs/images/5671031/5865827.png "width=500")
 
 When you create a release in Octopus, you need to choose the "version" of the Image(s) you want as part of the release. Octopus will load the Tags for the Image(s) and attempt to parse them as a [Semantic Version](http://semver.org/). The tags that can be parsed as a valid [Semantic Version](http://semver.org/) will be available to be selected for deployment as the "version" of the Container Image(s).
 
-![](/docs/images/5671031/5865828.png?effects=drop-shadow "width=500")
+![](/docs/images/5671031/5865828.png "width=500")
 
 ## Docker Hub {#DockerRegistriesasFeeds-DockerHub}
 
@@ -84,6 +85,8 @@ docker run -d -p 5000:5000 --name registry registry:2
 This image supports custom storage locations, certificates for HTTPS and authentication. For more details on setting up the registry checkout the [official docs](https://docs.docker.com/registry/deploying/).
 
 There are many other options for private registries such as self hosting through [Docker Trusted Registry](https://docs.docker.com/docker-trusted-registry/) or [Artifactory](https://www.jfrog.com/artifactory/), or using a cloud provider like [Quay](https://quay.io/). If using Amazon's [EC2 Container Registry](https://aws.amazon.com/ecr/), keep in mind that it exposes a v2 feed, and that you must generate the username and password using the *aws ecr get-login* command and set these details into your Octopus Deploy feed configuration.
+
+Note that as of the current version of ProGet (version 4.6.7 (Build 2)), their Docker Registry Feed does not expose the full Docker API and is missing the [_catalog endpoint](https://docs.docker.com/registry/spec/api/#/listing-repositories) which is required to list the available packages for release selection. It has been indicated that this may change in a future release.
 
 :::problem
 **Searching in a v2 registry**

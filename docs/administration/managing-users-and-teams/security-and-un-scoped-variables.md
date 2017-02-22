@@ -1,5 +1,6 @@
 ---
 title: Security and un-scoped variables
+description: Rationale behind limited user access to unscope variables if their access is restricted to specific environments.
 position: 1
 ---
 

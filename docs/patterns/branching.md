@@ -1,21 +1,10 @@
 ---
 title: Branching
+description: Implementing different branching strategies with Octopus Deploy.
 position: 4
 ---
 
 This section describes how different branching strategies can be modelled in Octopus Deploy.
-
-- Branching strategies
-- No branches
-- Release branches
-- Multiple active release branches
-- Feature branches
-- Environment branches
-- Other considerations
-- Multiple branches can be "currently deployed" at the same time
-- My branches are very different, and I need my deployment process to work differently between them
-- We sometimes need to make hotfixes that are deployed straight to staging/production
-- We need to deploy different components depending on whether it's a "full" release or a "partial" release
 
 :::hint
 **Channels in Octopus 3.2**

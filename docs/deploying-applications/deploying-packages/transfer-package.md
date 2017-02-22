@@ -1,5 +1,6 @@
 ---
 title: Transfer Package
+description: Transfer Package step allows you to simply transfer a package to your deployment target without extracting it.
 ---
 
 :::hint

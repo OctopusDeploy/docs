@@ -1,5 +1,6 @@
 ---
 title: Stage package uploads
+description: How to stage package uploads to reduce your applications or services downtime.
 position: 15
 ---
 

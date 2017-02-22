@@ -1,14 +1,10 @@
 ---
 title: Moving Octopus Server folders
+description: Information on how to move any of the Octopus Server folders.
 position: 0
 ---
 
 If you need to move any of the folders used by the Octopus Server you can follow the instructions on this page to move individual folders and reconfigure the Octopus Server to use the new folder locations.
-
-- [Move the Octopus Home folder](/docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md)
-- [Move the Octopus NuGet Repository folder](/docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md)
-- [Move the Octopus artifacts folder](/docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md)
-- [Move the Octopus task logs folder](/docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md)
 
 ## Move Octopus Home folder {#MovingOctopusServerfolders-OctopusHomeMoveOctopusHomefolder}
 

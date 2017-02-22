@@ -1,5 +1,6 @@
 ---
 title: Managing High Availability Nodes
+description: Managing the nodes in your Octopus High Availability cluster can be done in the Octopus web portal.
 ---
 
 Managing the nodes in your Octopus Server High Availability cluster can be done on the **Nodes** tab in the **Configuration** area:
@@ -27,6 +28,7 @@ If your leader node goes offline or into drain mode, one of your followers will 
 
 **Example**
 
+```text
 Node A joins the High Availability cluster and becomes *leader*
 
 Node B joins the High Availability cluster and becomes *follower*
@@ -38,6 +40,7 @@ Node B is placed in maintenance mode so cannot become *leader*
 Node A goes offline
 
 Node C elects itself *leader*
+```
 
 ## Last seen {#ManagingHighAvailabilityNodes-Lastseen}
 

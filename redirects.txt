@@ -1,0 +1,16 @@
+from-file-path -> to-file-path   #DO NOT DELETE THIS LINE
+docs/guides/azure-deployments/cloud-services/cloud-service-concepts/cloud-service-deployment-step.md -> docs/guides/azure-deployments/cloud-services/cloud-service-concepts.md
+docs/guides/azure-deployments/resource-groups/deploy-using-an-azure-resource-group-template.md -> docs/guides/azure-deployments/resource-groups/index.md
+docs/guides/azure-deployments/web-apps/web-app-concepts/packaging-web-apps.md -> docs/guides/azure-deployments/web-apps/web-app-concepts.md
+docs/guides/azure-deployments/web-apps/web-app-concepts/web-app-deployment-step/preserve-specific-paths-when-deploying-azure-web-app.md -> docs/guides/azure-deployments/web-apps/web-app-concepts.md
+docs/guides/azure-deployments/web-apps/web-app-concepts/web-app-deployment-step/index.md -> docs/guides/azure-deployments/web-apps/web-app-concepts.md
+docs/guides/azure-deployments/web-apps/web-app-concepts/web-app-accounts.md -> docs/guides/azure-deployments/web-apps/web-app-concepts.md
+docs/guides/use-the-team-foundation-build-custom-task/manually-install-the-build-task-(not-recommended).md -> docs/guides/use-the-team-foundation-build-custom-task/manually-install-the-build-task.md
+docs/guides/multi-tenant-deployments/other-scenarios-for-multi-tenant-deployments.md -> docs/guides/multi-tenant-deployments/index.md
+docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/migrating-to-octopus-3.4.md -> docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/index.md
+docs/deploying-applications/docker-containers/docker-compose.md -> docs/deploying-applications/docker-containers/index.md
+docs/guides/elastic-and-transient-environments/deploying-to-transient-targets-copy.md -> docs/guides/elastic-and-transient-environments/deploying-to-transient-targets.md
+docs/administration/high-availability/removing-high-availability-nodes.md -> docs/administration/high-availability/managing-high-availability-nodes.md
+docs/api-and-integration/compatibility.md -> docs/api-and-integration/index.md
+docs/administration/upgrading/migrating-from-redgate-deployment-manager-to-octopus-deploy.md -> docs/administration/upgrading/index.md
+docs/administration/how-to-move-the-octopus-server-to-another-server-or-vm.md -> docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md

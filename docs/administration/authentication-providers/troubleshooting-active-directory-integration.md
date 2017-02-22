@@ -1,5 +1,6 @@
 ---
 title: Troubleshooting Active Directory integration
+description: Information on troubleshooting common Active Directory integration issues.
 position: 3
 ---
 
@@ -33,9 +34,9 @@ Octopus relies on Active Directory users being configured with enough informatio
 2. UPN (User Principal Name)
 3. Email Address
 
-![](/docs/images/5669864/5866202.png?effects=drop-shadow "width=500")
+![](/docs/images/5669864/5866202.png "width=500")
 
-![](/docs/images/5669864/5866203.png?effects=drop-shadow "width=500")
+![](/docs/images/5669864/5866203.png "width=500")
 
 These values can be used by Octopus to uniquely identify which Octopus User Account should be associated with each Active Directory User.
 
@@ -46,7 +47,7 @@ Most errors we've seen are due to a lack of permissions or various active direct
 - `System.Runtime.InteropServices.COMException (0x8007054B): The specified domain either does not exist or could not be contacted.`
 - `System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException: The server is not operational.`
 
-The best way we've found to troubleshoot Active Directory issues is by running the PowerShell script below.  This script duplicates the exact logic we use to retrieve groups from Active Directory.  The benefit of this script is that you can try different settings and get immediate feedback whereas it's much slower and disruptive to do the same with the Octopus Server service.
+The best way we've found to troubleshoot Active Directory issues is by running the PowerShell script below.  This script duplicates the exact logic we use to retrieve a user's groups from Active Directory.  The benefit of this script is that you can try different settings and get immediate feedback whereas it's much slower and disruptive to do the same with the Octopus Server service.
 
 ```powershell
 [System.Reflection.Assembly]::LoadWithPartialName("System.DirectoryServices.AccountManagement")
@@ -69,6 +70,33 @@ Notes:
 - Ensure you replace the active directory container string ``CN=Users, DC=acme, DC=local`` with the appropriate value for your network. If you're not sure of this value, we'd suggest talking to your network team (active directory expert) or trying different values and testing it w/ the script. For additional help on building/finding your container string, this StackOverflow answer is excellent. [http://serverfault.com/a/130556](http://serverfault.com/a/130556)
 - Ensure you replace the domain user name ``ExampleUser`` with a sample octopus username who would normally log into the system.
 - It's recommended that you run this script as the same user you're running the Octopus service under and on the same server so it reproduces the problem accurately.
+
+Similarly, the following script duplicates the logic we use to search for groups (when you're trying to find one to add to a Team).
+
+```powershell
+[System.Reflection.Assembly]::LoadWithPartialName("System.DirectoryServices.AccountManagement")
+[System.Reflection.Assembly]::LoadWithPartialName("System.DirectoryServices")
+[System.Reflection.Assembly]::LoadWithPartialName("System.DirectoryServices.ActiveDirectory")
+$principalContext = new-object -TypeName System.DirectoryServices.AccountManagement.PrincipalContext "Domain", "acme"
+$principal = new-object -TypeName  System.DirectoryServices.AccountManagement.GroupPrincipal $principalContext
+$principal.Name = "SomeGroup*"
+$searcher = new-object -TypeName  System.DirectoryServices.AccountManagement.PrincipalSearcher
+$searcher.QueryFilter = $principal
+
+$groups = $searcher.FindAll().GetEnumerator()
+
+foreach ($group in $groups) {
+    Write-Output $group
+}
+
+$principalContext.Dispose()
+```
+
+Notes:
+
+- Ensure you replace the domain name ``acme`` with the domain to be searched on your network.  This may be the current domain or any trusted domain.
+- Ensure you replace sample partial group name ``SomeGroup`` with text that matches the start of a group name in the domain.
+- Per previous example script, it's recommended that you run this script as the same user you're running the Octopus service under
 
 ## Logging {#TroubleshootingActiveDirectoryintegration-Logging}
 

@@ -1,5 +1,6 @@
 ---
 title: Docker
+description: This guide covers the basics of using the Octopus Docker steps.
 position: 9
 ---
 
@@ -15,7 +16,7 @@ Octopus Deploy 3.5 will introduce steps to perform the the first basic docker st
 :::hint
 **Enabling Docker features**
 While the Docker functionality undergoes development, the Docker steps and feed types will be disabled in the portal by default. To enable Docker in your Octopus Server instance, toggle the feature on via *Configuration &#10140; Features &#10140; Docker.*
-![](/docs/images/5670982/5865815.png?effects=drop-shadow "width=500")
+![](/docs/images/5670982/5865815.png "width=500")
 
 As they are currently considered to be in an alpha-stage of development, the docker steps and behavior may change in future releases. Once the docker feature has been finalized for general use, it is expected that it will be enabled by default and the feature toggle removed.
 :::

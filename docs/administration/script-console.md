@@ -1,5 +1,6 @@
 ---
 title: Script Console
+description: The Script Console allows Octopus administrators to execute scripts and perform adminsitrative tasks against individual or groups of deployment targets.
 position: 6
 ---
 
@@ -13,7 +14,7 @@ When managing a large environment of machines, however, it is occasionally neces
 
 For these situations, the Octopus **Script Console** can be used.
 
-Using the Script Console
+## Using the Script Console
 
 The Script Console can be found under the Tasks area, and is only available to Octopus administrators:
 

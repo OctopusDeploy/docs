@@ -1,5 +1,6 @@
 ---
 title: Manually install the Build Task (not recommended)
+description: This guide covers how to manually install the Octopus Release build task into Microsoft TFS.
 ---
 
 If you'd like more control over the build task we've created, you can manually upload it yourself using Microsoft's [TFX CLI tool](https://github.com/Microsoft/tfs-cli).

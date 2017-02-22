@@ -1,5 +1,6 @@
 ---
 title: Deployment targets
+description: Deployment Targets are the machines or services that your applications are deployed to including Windows Servers, Azure cloud services and Linux servers running SSH.
 position: 5
 ---
 

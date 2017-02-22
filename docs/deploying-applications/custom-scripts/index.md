@@ -1,9 +1,12 @@
 ---
 title: Custom scripts
+description: Custom scripts allows you to script anything you want using PowerShell, ScriptCS, F# or Bash.
 position: 10
 ---
 
 As a convention-oriented deployment tool, Octopus can perform a number of actions automatically, such as [managing configuration files](/docs/deploying-applications/configuration-files/index.md), creating [IIS websites and application pools](/docs/deploying-applications/iis-websites-and-application-pools.md), and installing [Windows Services](/docs/deploying-applications/windows-services.md). Sometimes however you’ll need to do more than the built-in conventions support – and that’s where custom scripts come in.
+
+!toc
 
 :::hint
 **Supported script types**
@@ -80,33 +83,25 @@ Note that in scripts **all Octopus variables are strings** even if they look l
 
 Let's consider an example where we have defined a project variable called `MyApp.ConnectionString`.
 
-**PowerShell**
-
-```powershell
+```powershell PowerShell
 # It's a good idea to copy the value into a local variable to avoid quoting issues
 $connectionString = $OctopusParameters["MyApp.ConnectionString"]
 Write-Host "Connection string is: $connectionString"
 ```
 
-**ScriptCS**
-
-```c#
-# It's a good idea to copy the value into a local variable to avoid quoting issues
+```c# ScriptCS
+// It's a good idea to copy the value into a local variable to avoid quoting issues
 var connectionString = Octopus.Parameters["MyApp.ConnectionString"];
 Console.WriteLine("MyApp.ConnectionString: " + connectionString);
 ```
 
-**Bash**
-
-```bash
+```bash Bash
 # It's a good idea to copy the value into a variable to avoid quoting issues
 connectionString=$(get_octopusvariable "MyApp.ConnectionString")
 echo "Connection string is: $connectionString"
 ```
 
-**F#**
-
-```text
+```fsharp F#
 // It's a good idea to copy the value into a variable to avoid quoting issues
 
 // tryFindVariable : name:string -> string option
@@ -190,7 +185,7 @@ You can pass parameters to PowerShell scripts as if you were calling the script 
 
 **Script Parameters in Octopus**
 
-```text
+```bash
 -Environment "#{Octopus.Environment.Name}" -StoragePath "#{MyApplication.Storage.Path}"
 ```
 
@@ -213,7 +208,7 @@ You can pass parameters to C# scripts [as described here for the ScriptCS engin
 
 **Script Parameters in Octopus**
 
-```text
+```bash
 -- "#{Octopus.Environment.Name}" "#{MyApplication.Storage.Path}"
 ```
 
@@ -231,7 +226,7 @@ You can pass parameters to Bash scripts [as described in Bash manual.](https://
 
 **Script Parameters in Octopus**
 
-```text
+```powershell
 "#{Octopus.Environment.Name}" "#{MyApplication.Storage.Path}"
 ```
 
@@ -249,13 +244,13 @@ You can pass parameters to FSharp scripts [as described in MSDN.](https://msdn.
 
 **Script Parameters in Octopus**
 
-```text
+```powershell
 "#{Octopus.Environment.Name}" "#{MyApplication.Storage.Path}"
 ```
 
 **Usage in F# script**
 
-```text
+```fsharp
 let environment = fsi.CommandLineArgs.[1]
 let storagePath = fsi.CommandLineArgs.[2]
 printfn "$s storage path: $s" environment storagePath
@@ -265,9 +260,7 @@ printfn "$s storage path: $s" environment storagePath
 
 When your scripts emit messages Octopus will display the messages in the Task Logs at the most appropriate level for the message. For example:
 
-**PowerShell**
-
-```powershell
+```powershell PowerShell
 Write-Verbose "This will be logged as a Verbose message - verbose messages are hidden by default"
 Write-Host "This will be logged as Information"
 Write-Output "This will be logged as Information too!"
@@ -275,9 +268,7 @@ Write-Warning "This will be logged as a Warning"
 Write-Error "This will be logged as an Error and may cause your script to stop running - take a look at the section on Error Handling"
 ```
 
-**ScriptCS**
-
-```c#
+```c# ScriptCS
 Console.WriteLine("This will be logged as Information");
 Console.Out.WriteLine("This will be logged as Information too!");
 Console.Error.WriteLine("This will be logged as an Error.");
@@ -286,18 +277,14 @@ Console.WriteLine("##octopus[stdout-verbose]");
 Console.WriteLine("And now messages written to stdout will be logged as Verbose");
 ```
 
-**Bash**
-
-```bash
+```bash Bash
 echo "This will be logged as Information"
 >&2 echo "This will be logged as an Error"
 echoerror() { echo "$@" 1>&2; }
 echoerror "You can even define your own function to echo an error!"
 ```
 
-**F#**
-
-```f#
+```fsharp F#
 printfn "This will be logged as Information" 
 eprintfn "This will be logged as Error" 
 
@@ -426,18 +413,18 @@ Where [<options>] is any of:
 
 Octopus Scripts are executed by Calamari, the command-line tool invoked by the Octopus Server or Tentacle during a deployment, within a the context of a working directory.  This location is C:\Octopus\Work\ by default.  If you're executing a script contained within a package, the package contents will be uncompressed and copied to this directory but the working directory is the directory containing the script within it.
 
+## Preventing the PowerShell profile from running
+The execution of the Tentacle service account's PowerShell profile script can sometimes cause a long delay each time a script is run. Starting in version 3.3.21, to prevent it being run, 
+add a variable named `Octopus.Action.PowerShell.ExecuteWithoutProfile` with a value of `true` to your project.
+
 ## Scripts that block deployments {#Customscripts-Scriptsthatblockdeployments}
 
 Sometimes a script launches a service or application that runs continuously. In this case the script does not complete until the application is terminated.  When the script is run in an Octopus deployment, the deployment will continue executing until the script exits.  In most cases this is undesirable. In order to avoid this behaviour the service or application should be launched in a separate process or session, allowing the deployment to continue executing immediately. For example:
 
-**PowerShell**
-
-```powershell
+```powershell PowerShell
 Start-Process MyService
 ```
 
-**Bash**
-
-```bash
+```bash Bash
 screen -d -m -S "MyService" MyService
 ```

@@ -1,5 +1,6 @@
 ---
 title: Versioning in Octopus Deploy
+description: Considerations when selecting a versioning scheme for your applications.
 position: 4
 ---
 

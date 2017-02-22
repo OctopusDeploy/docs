@@ -1,5 +1,6 @@
 ---
 title: Create instance
+description: Using the Tentacle.exe command line executable to register a new instance of the Tentacle service.
 ---
 
 Registers a new instance of the Tentacle service
@@ -19,3 +20,4 @@ Or one of the common options:
       --nologo               Don't print title or version information
       --noconsolelogging     Don't log to the console
 ```
+

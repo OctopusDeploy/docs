@@ -1,5 +1,6 @@
 ---
 title: Proxy
+description: Using the Tentacle.exe command line executable to configure the HTTP proxy used by Octopus.
 ---
 
 Configure the HTTP proxy used by Octopus
@@ -26,3 +27,4 @@ Or one of the common options:
       --nologo               Don't print title or version information
       --noconsolelogging     Don't log to the console
 ```
+

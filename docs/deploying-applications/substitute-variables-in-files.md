@@ -1,5 +1,6 @@
 ---
 title: Substitute Variables in Files
+description: Package steps have a feature that allows you to replace variables in any file. 
 position: 28
 ---
 

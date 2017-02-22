@@ -1,5 +1,6 @@
 ---
 title: Scheduled Deployments
+description: Deployments can be scheduled to run at specific times in the future.
 position: 21
 ---
 

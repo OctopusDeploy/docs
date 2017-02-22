@@ -1,5 +1,6 @@
 ---
 title: SSH Targets
+description: SSH Targets allow you to target non-windows (*nix) machines to deploy your applications.
 position: 4
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Manually uninstall Tentacle
+description: Information on how to manually uninstall the Octopus Tentacle.
 ---
 
 When you uninstall the Tentacle MSI, it automatically removes the application files from the installation folder, but that's it. This page describes how to manually clean up Tentacle in part, or completely remove it from your server.
@@ -39,21 +40,20 @@ Learn about [Tentacle configuration and file storage](/docs/administration/tenta
 These steps will remove all traces of Octopus Tentacle from your computer:
 
 1. Before uninstalling the MSI, use the Octopus Tentacle Manager to delete the Tentacke instance from the computer.
- 1. This will stop and uninstall the Tentacle windows service.
+    * This will stop and uninstall the Tentacle windows service.
 2. Now uninstall the MSI.
- 1. This will remove the application files.
+    * This will remove the application files.
 3. Find and delete the Octopus Home folder. By default this is in **`%SYSTEMDRIVE%\Octopus`**.
-
 :::problem
 This will also remove your deployed applications if you have not configured Tentacle to use a different Application folder. See below for more details.
 :::
 4. Find and delete the Octopus registry entries from **`HKLM\SOFTWARE\Octopus`**.
 5. Find and delete any Octopus folders from:
- 1. `%ProgramData%\Octopus` - could be used for log files when a Home Directory cannot be discovered
- 2. `%LocalAppData%\Octopus` - could be used for log files when a Home Directory cannot be discovered
+    * **`%ProgramData%\Octopus`** - could be used for log files when a Home Directory cannot be discovered
+    * **`%LocalAppData%\Octopus`** - could be used for log files when a Home Directory cannot be discovered
 6. Find and delete any Octopus certificates from the following certificate stores:
- 1. **`Local Computer\Octopus`**
- 2. **`Current User\Octopus`** - do this for any user accounts that have been used as the account for the Tentacle windows service
+    * **`Local Computer\Octopus`**
+    * **`Current User\Octopus`** - do this for any user accounts that have been used as the account for the Tentacle windows service
 
 ### Manually removing Tentacle without affecting the deployed applications {#ManuallyuninstallTentacle-ManuallyremovingTentaclewithoutaffectingthedeployedapplications}
 

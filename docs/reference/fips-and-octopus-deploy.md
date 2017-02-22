@@ -1,5 +1,6 @@
 ---
 title: FIPS and Octopus Deploy
+description: Details of using Octopus Deploy in a FIPS compliant environment.
 position: 4
 ---
 
@@ -17,10 +18,10 @@ You can configure a Windows Server to enforce the use of FIPS 140 compliant cryp
 
 Some of the features in Octopus Deploy depend on third-party libraries to work correctly. The following features are known to be non-FIPS compliant and will fail, or degrade gracefully, when FIPS-compliance is required:
 
-- Parts of the Azure Service Management SDK are non-compliant, affecting:
- - Cloud Service deployments
- - Web App deployments
-- Gravatar will be ignored since it relies on MD5-hashed email addresses
+* Parts of the Azure Service Management SDK are non-compliant, affecting:  
+  * Cloud Service deployments  
+  * Web App deployments  
+* Gravatar will be ignored since it relies on MD5-hashed email addresses  
 
 ### Found something new? {#FIPSandOctopusDeploy-Foundsomethingnew?}
 

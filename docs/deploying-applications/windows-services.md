@@ -1,5 +1,6 @@
 ---
 title: Windows Services
+description: Octopus can install, reconfigure, and start Windows Services during deployment, usually without requiring any custom scripts.
 position: 8
 ---
 
@@ -56,7 +57,7 @@ Avoid using the [Custom Installation Directory](/docs/deploying-applications/cus
 As an approximation including the Windows Service manager integration:
 
 1. Acquire the package as optimally as possible (local package cache and [delta compression](/docs/deploying-applications/delta-compression-for-package-transfers.md))
-2. Stop your Windows Service is already running
+2. Stop your Windows Service is already running. Ensure that the user account running the Octopus Tentacle has the appropriate permissions to start\stop the Windows Service or this step may fail.
 3. Create a new folder for the deployment (which avoids many common problems like file locks, and leaving stale files behind)
 4. Example: `C:\Octopus\Applications\[Tenant name]\[Environment name]\[Package name]\[Package version]\` where `C:\Octopus\Applications` is the Tentacle application directory you configured when installing Tentacle)
 5. Extract the package into the newly created folder
@@ -106,7 +107,43 @@ While Topshelf has its own command line options to make Service Registration eas
 
 You will need to consider carefully which Service Account you choose for your Windows Service. If you decide to use a Custom Account, you will need to make sure the Account is granted the **Logon as a Service** logon right (**SeServiceLogonRight**).
 
-When you use the Services snap-in console to configure your Windows Service, the **SeServiceLogonRight** logon right is automatically assigned to the account. If you use the Sc.exe tool or APIs to configure the account (like Octopus Deploy does on your behalf), the account has to be explicitly granted this right by using tools such as the Security Policy snap-in, `Secedit.exe`, or `NTRights.exe`. The built-in Windows Service accounts (`Local System`, `Network Service`, `Local Service`), and members of the **Local Administrators** group are assigned this right by default.
+When you use the Services snap-in console to configure your Windows Service, the **SeServiceLogonRight** logon right is automatically assigned to the account. If you use the Sc.exe tool or APIs to configure the account (like Octopus Deploy does on your behalf), the account has to be explicitly granted this right by using tools such as [Carbon PowerShell module](http://get-carbon.org/), the Security Policy snap-in (secpol.msc), `Secedit.exe`, or `NTRights.exe`. The built-in Windows Service accounts (`Local System`, `Network Service`, `Local Service`), and members of the **Local Administrators** group are assigned this right by default.
+
+### Carbon PowerShell Module {#WindowsServices-CarbonPowerShellModule}
+
+[Carbon](http://get-carbon.org/) is a PowerShell module that can be installed via [Chocolatey](https://chocolatey.org/packages/carbon), the PowerShell Gallery, or manually. For the PS gallery in PowerShell 5 or higher, you can run `Install-Module Carbon`, or to install manually visit their site and clone the repository or download a zip from the Releases page.
+
+Carbon PowerShell Script example:
+
+```ps
+# The Octopus variables below are just examples
+# Use your own #{RunAsUser} or similar variable name.
+
+# The SeServiceLogonRight lets accounts run as a service but isn't mutually exclusive
+# with the "DenyInteractiveLogon" policy to prevent regular users from abusing it
+
+# Check to see if the given account has the appropriate permission
+Test-Privilege -Identity #{ServiceAccountName} -Privilege SeServiceLogonRight
+# Returns False if account doesn't have permission
+
+Grant-Privilege -Identity #{ServiceAccountName} -Privilege SeServiceLogonRight
+# May not return anything
+
+Test-Privilege -Identity #{ServiceAccountName} -Privilege SeServiceLogonRight
+# Returns True once the account has permission
+
+# The SeBatchLogonRight lets accounts trigger scheduled tasks
+
+# Check to see if the given account has the appropriate permission
+Test-Privilege -Identity #{ServiceAccountName} -Privilege SeBatchLogonRight
+# Returns False
+
+Grant-Privilege -Identiy #{BatchAccountName} -Privilege SeBatchLogonRight
+# May not return anything
+
+Test-Privilege -Identity #{ServiceAccountName} -Privilege SeBatchLogonRight
+# Returns True once the account has permission
+```
 
 ## Using Managed Service Accounts (MSA) {#WindowsServices-UsingManagedServiceAccounts(MSA)}
 
@@ -121,11 +158,11 @@ To configure the Windows Service to use a Managed Service Account:
 2. Enter the domain name and username, **making sure to append a $ to the username** as shown below
 3. Bind the **Custom account password** to an **empty value** to ensure no password is set for this account - after all, we want the password managed by the server, not us!
 
-![](/docs/images/3048082/5865840.png?effects=drop-shadow "width=500")
+![](/docs/images/3048082/5865840.png "width=500")
 
 :::hint
 **Important information about using Managed Service Accounts**
-There must be a dollar sign ($) at the end of the account name. When you use the Services snap-in console to configure your Windows Service, the **SeServiceLogonRight** logon right is automatically assigned to the account. If you use the Sc.exe tool or APIs to configure the account (like Octopus Deploy does on your behalf), the account has to be explicitly granted this right by using tools such as the Security Policy snap-in, Secedit.exe, or NTRights.exe.
+There must be a dollar sign ($) at the end of the account name. When you use the Services snap-in console to configure your Windows Service, the **SeServiceLogonRight** logon right is automatically assigned to the account. If you use the Sc.exe tool or APIs to configure the account (like Octopus Deploy does on your behalf), the account has to be explicitly granted this right by using tools such as the [Carbon PowerShell module](http://get-carbon.org/), the Security Policy snap-in (secpol.msc), Secedit.exe, or NTRights.exe.
 
 Learn about [Managed Service Accounts](https://technet.microsoft.com/en-us/library/dd560633(v=ws.10).aspx).
 :::

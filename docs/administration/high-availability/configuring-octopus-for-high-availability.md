@@ -1,18 +1,9 @@
 ---
 title: Configuring Octopus for High Availability
+description: Information on configuring Octopus High Availablity including database and shared storage set up.
 ---
 
 This section will walk through the different options and considerations for setting up Octopus: HA.
-
-- Setting up Octopus: High Availability
-- Database
-- Shared Storage
-- Octopus Server nodes
-- Configuring the first node
-  - Configuring the second and additional nodes
-- Load Balancer
-- Migrating a Single Server to a High Availability setup
-- Configuring High Availability Polling Tentacles
 
 ## Setting up Octopus: High Availability {#ConfiguringOctopusforHighAvailability-SettingupOctopus:HighAvailability}
 

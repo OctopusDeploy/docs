@@ -1,5 +1,6 @@
 ---
 title: Variable Substitution Syntax
+description: Variable substitutions are a flexible way to adjust configuration based on your variables and the context of your deployment.
 position: 1
 ---
 
@@ -64,9 +65,9 @@ Two conditional statements are supported in Octopus prior to version 3.5 - `if` 
 Additional conditional statements are supported in Octopus 3.5 and onwards, including == and !=.
 
 :::hint
-Pre Octopus 3.5, you cannot use complex syntax, like `#{if Octopus.Environment.Name == &quot;Production&quot;}`, only *truthy* and *falsy* evaluations are supported. You can usually work around this limitation by scoping variables, or finding/creating a *truthy* or *falsy* variable to use in your evaluation, like the example shown below.
+Pre Octopus 3.5, you cannot use complex syntax, like `#{if Octopus.Environment.Name == "Production"}`, only *truthy* and *falsy* evaluations are supported. You can usually work around this limitation by scoping variables, or finding/creating a *truthy* or *falsy* variable to use in your evaluation, like the example shown below.
 
-From Octopus 3.5 and onwards, additional condition support was added for operators such as == and !=. So you can now run conditions such as `#{if Octopus.Environment.Name == &quot;Production&quot;}` or `#{if Octopus.Environment.Name != &quot;Production&quot;}`.
+From Octopus 3.5 and onwards, additional condition support was added for operators such as == and !=. So you can now run conditions such as `#{if Octopus.Environment.Name == "Production"}` or `#{if Octopus.Environment.Name != "Production"}`.
 :::
 
 Given the variables:
@@ -84,13 +85,13 @@ Then the following template:
 
 The resulting text in the *Dev*environment will be:
 
-```text
+```xml
 <compilation debug="true">
 ```
 
 And in *Production*it will be:
 
-```text
+```xml
 <compilation >
 ```
 
@@ -167,8 +168,8 @@ Within the context of an iteration template, some special variables are availabl
 
 | Name                          | Description                              |
 | ----------------------------- | ---------------------------------------- |
-| Octopus.Template.Each.Index   | Zero-based index of the iteration count  |
-| `Octopus.Template.Each.First` | `&quot;True&quot; if the element is the first in the collection`, otherwise "False" |
+| `Octopus.Template.Each.Index` | Zero-based index of the iteration count  |
+| `Octopus.Template.Each.First` | `"True" if the element is the first in the collection`, otherwise "False" |
 | `Octopus.Template.Each.Last`  | "True" if the element is the last in the collection, otherwise "False" |
 
 ### 
@@ -182,7 +183,7 @@ Given the variable:
 
 | Name          | Value         | Scope |
 | ------------- | ------------- | ----- |
-| `ProjectName` | `You &amp; I` |       |
+| `ProjectName` | `You & I` |       |
 
 An the template:
 
@@ -213,25 +214,25 @@ Octopus provides the following filters:
 | `Markdown`   | Converts Markdown to HTML                | This \_rocks\_   | <p>This <em>rocks</em></p> |
 | `ToLower`    | Forces values to lowercase               | Octopus Deploy   | octopus deploy             |
 | `ToUpper`    | Forces values to uppercase               | Octopus Deploy   | OCTOPUS DEPLOY             |
-| `XmlEscape`  | Escapes entities for use in XML content  | 1 < 2            | 1 < 2                      |
+| `XmlEscape`  | Escapes entities for use in XML content  | 1 < 2            | 1 &lt; 2                      |
 
 The *NowDate* and *NowDateUtc* filters take no variable input but can take an additional optional right-hand-side argument the define the string format (Defaults to ISO-8601 [Round-trip format](https://msdn.microsoft.com/en-us/library/az4se3k1#Roundtrip)).
 
 | MyFormat Variable | Filter Expression | Output                      |
 | ----------------- | ----------------- | --------------------------- |
-|                   | #{                | NowDate }                   |
-|                   | #{                | NowDateUtc}                 |
-|                   | #{                | NowDate \"HH dd-MMM-yyyy\"} |
-|                   | #{                | NowDateUtc zz}              |
-| dd-MM-yyyy        | #{                | NowDate #{MyFormat}}        |
+|                   | `#{ | NowDate }`                   | `2016-11-03T08:53:11.0946448` |
+|                   | `#{ | NowDateUtc}`                 | `2016-11-02T23:01:46.9441479Z` |
+|                   | `#{ | NowDate \"HH dd-MMM-yyyy\"}` | `09 03-Nov-2016` |
+|                   | `#{ | NowDateUtc zz}`              | `+00` |
+| dd-MM-yyyy        | `#{ | NowDate #{MyFormat}}`        | `03-Nov-2016` |
 
-The *Format* filter available from Octopus Deploy version 3.5 allows for converting of input based on an additionally provided argument that is passed to the *.ToString()*method.
+The *Format* filter available from Octopus Deploy version 3.5 allows for converting of input based on an additionally provided argument that is passed to the *`.ToString()`* method.
 
-| MyVar Value           | Example Input | Output       |
-| --------------------- | ------------- | ------------ |
-| 4.3                   | #{ MyVar      | Format C}    |
-| `2030/05/22 09:05:00` | #{ MyVar      | Format yyyy} |
-|                       | #{            | NowDate      |
+| MyVar Value           | Example Input                     | Output     |
+| --------------------- | --------------------------------- | ---------- |
+| 4.3                   | `#{ MyVar | Format C}`            | $4.30      |
+| `2030/05/22 09:05:00` | `#{ MyVar | Format yyyy}`         | 2030       |
+|                       | `#{ | NowDate | Format Date MMM}` | Nov        |
 
 :::hint
 Filters were introduced in Octopus Deploy version 3.5
@@ -288,7 +289,7 @@ Give the variables:
 | Name      | Value                                    |
 | --------- | ---------------------------------------- |
 | MyNumbers | `[5,2,4]`                                |
-| MyObjects | {Cat: {Price: 11.5, Description: "Meow"}, Dog: {Price: 17.5, Description: "Woof"}} |
+| MyObjects | `{Cat: {Price: 11.5, Description: "Meow"}, Dog: {Price: 17.5, Description: "Woof"}}` |
 
 And the template:
 

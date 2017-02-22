@@ -1,5 +1,6 @@
 ---
 title: Configuring Target Machine
+description: This guide describes how to configure your target machine running Linux to be used in Octopus deployments.
 position: 0
 ---
 

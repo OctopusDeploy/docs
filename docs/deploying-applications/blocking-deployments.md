@@ -1,6 +1,7 @@
 ---
 title: Blocking Deployments
-position: 30 
+description: Blocking Deployments allows you to block a release of a project from being used in any future deployments.
+position: 30
 ---
 
 Sometimes you may want to block your Project from deploying a specific Release. Perhaps you just want to temporarily block the Release, or you need to fix some variables before proceeding? Perhaps the Release itself is bad, but you don't want to delete the Release for auditing purposes?

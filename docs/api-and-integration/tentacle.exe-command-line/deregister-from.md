@@ -1,5 +1,6 @@
 ---
 title: Deregister from
+description: Using the Tentacle.exe command line executable to deregister a machine from an Octopus Server.
 ---
 
 Deregisters this machine from an Octopus Server
@@ -24,3 +25,4 @@ Or one of the common options:
       --nologo               Don't print title or version information
       --noconsolelogging     Don't log to the console
 ```
+

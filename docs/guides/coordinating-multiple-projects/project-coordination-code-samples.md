@@ -1,5 +1,6 @@
 ---
 title: Project Coordination Code Samples
+description: Project Coordination guide Code Samples that show how to perform various tasks covered in the guide.
 ---
 
 These samples show how to perform various tasks related to project coordination.
@@ -25,7 +26,7 @@ The best way to get the current state for one or more projects is to use the Das
 
 **Octopus.Client**
 
-```c#
+```csharp
 var globalDashboard = repository.Dashboards.GetDashboard().Items;
 var projectDashboard = repository.Dashboards.GetDynamicDashboard(projects, environments).Items
 ```
@@ -53,7 +54,7 @@ Viewing recent deployments {#ProjectCoordinationCodeSamples-Viewingrecentdeploym
 
 The following code returns the deployments started in the last 7 days:
 
-```c#
+```csharp
 var projects = repository.Projects.FindAll().Select(p => p.Id).ToArray();
 var environments = repository.Environments.FindAll().Select(e => e.Id).ToArray();
 List<DeploymentResource> recentDeployments = new List<DeploymentResource>();
@@ -72,7 +73,7 @@ repository.Deployments.Paginate(projects, environments,
 
 This example finds all the releases that are in UAT but not Production. It then queues them for deployment to Production and waits for them to complete.
 
-```c#
+```csharp
 var environments = repository.Environments.GetAll();
 var testEnvId = environments.First(e => e.Name == "UAT").Id;
 var prodEnvId = environments.First(e => e.Name == "Prod").Id;
@@ -103,7 +104,7 @@ if(completed.Any(c => c.State != TaskState.Success)
 
 This example re-queues the currently executing project at 3am the next day
 
-```c#
+```csharp
 var releaseId = Octopus.Parameters["Octopus.Web.ReleaseLink"].Split('/').Last();
 var tomorrow3amServerTime = new DateTimeOffset(DateTimeOffset.Now.Date, DateTimeOffset.Now.Offset).AddDays(1).AddHours(3);
 repository.Deployments.Create(
@@ -123,7 +124,7 @@ Console.WriteLine($"Queued for {tomorrow3amServerTime}");
 
 This example uses the dynamic dashboard API to check whether a different project is currently deploying to the same environment. Note that Octopus [restricts](/docs/how-to/run-multiple-processes-on-a-tentacle-simultaneously.md) what can run at the same time already.
 
-```c#
+```csharp
 var otherProject = repository.Projects.FindByName("Other Project");
 var environmentId = Octopus.Parameters["Octopus.Environment.Id"];
 var dash = repository.Dashboards.GetDynamicDashboard(new[] { otherProject.Id }, new[] { environmentId });
@@ -135,7 +136,7 @@ if (dash.Items.Any(i => i.State == TaskState.Queued || i.State == TaskState.Exec
 
 This example retrieves the last release to the same environment of a different project and fails if it is not the expected release version.
 
-```c#
+```csharp
 var requiredVersion = Octopus.Parameters["OtherProjectRequiredVersion"];
 var otherProject = repository.Projects.FindByName("Other Project");
 var environmentId = Octopus.Parameters["Octopus.Environment.Id"];
@@ -149,7 +150,7 @@ if (last == null || last.ReleaseVersion != requiredVersion)
 
 This example finds the latest release for a different project and deploys it if it is not currently deployed to the environment.
 
-```c#
+```csharp
 var environmentId = Octopus.Parameters["Octopus.Environment.Id"];
 var otherProject = repository.Projects.FindByName("Other Project");
 var latestRelease = repository.Projects.GetReleases(otherProject).Items.FirstOrDefault();
@@ -175,7 +176,7 @@ if (latestRelease != null && last.ReleaseId != latestRelease.Id)
 
 This example builds on the previous, by waiting until a particular step is complete instead of the whole task.
 
-```c#
+```csharp
 // instead of the line repository.Tasks.WaitForCompletion(task);
 ActivityStatus step1Status = ActivityStatus.Pending;
 do

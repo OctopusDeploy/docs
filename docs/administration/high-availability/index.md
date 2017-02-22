@@ -1,5 +1,6 @@
 ---
 title: High Availability
+description: Octopus High Availability (HA) enables you to run multiple Octopus Deploy servers, distributing load and tasks between them.
 position: 20
 ---
 

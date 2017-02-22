@@ -1,5 +1,6 @@
 ---
 title: Deploying packages
+description: Package steps allow you to deploy your applications and services that you have packaged and configured with Octopus.
 position: 2
 ---
 

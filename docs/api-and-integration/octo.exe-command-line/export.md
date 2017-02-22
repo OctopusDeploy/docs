@@ -1,16 +1,10 @@
 ---
 title: Export
+description: Using the Octo.exe command line tool to export items from one Octopus Deploy server to import into another.
 position: 5
 ---
 
 This command allows you to export items from one Octopus Deploy server and import them into another Octopus Deploy server.
-
-- Exporting a project
- - Project Export Output
- - Project Export File Format
-- Exporting a release, or range of releases
- - Release Export Output
- - Release Export File Format
 
 We currently support exporting/importing:
 
@@ -19,7 +13,7 @@ We currently support exporting/importing:
 
 Usage:
 
-```powershell
+```text
 Usage: Octo export [<options>]
 
 Where [<options>] is any of:
@@ -82,7 +76,7 @@ Export file C:\tmp\OctoFX_Rate_Service.json successfully created.
 
 ### Project Export File Format {#Export-ProjectExportFileFormat}
 
-```powershell
+```json
 {
   // This contains the basic settings for the project you have exported.
   // If the project already exists on your other Octopus Deploy server, then it will be updated with the new settings from the exported project.
@@ -177,7 +171,7 @@ Export file C:\tmp\OctoFX_Rate_Service_release.json successfully created.
 
 ### Release Export File Format {#Export-ReleaseExportFileFormat}
 
-```powershell
+```json
 {
   // This contains the list of the settings for a release/range of releases that have been exported.
   "Items": [

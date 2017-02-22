@@ -1,5 +1,6 @@
 ---
 title: Creating channels
+description: Using the Octo.exe command line tool to create channels.
 position: 11
 ---
 
@@ -9,7 +10,7 @@ position: 11
 Channels were introduced in Octopus 3.2.
 :::
 
-```text
+```bash
 octo create-channel [<options>]
 ```
 
@@ -63,7 +64,7 @@ Common options:
 
 The following command will create a channel in *MyProject* called *Experimental* using the *Test Only* lifecycle instead
 
-```text
+```bash
 Octo create-channel --project MyProject --name Experimental --lifecycle "Test Only" --server http://MyOctopusServerURL.com --apikey MyAPIKey
 ```
 

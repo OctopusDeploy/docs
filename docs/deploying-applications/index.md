@@ -1,5 +1,6 @@
 ---
 title: Deploying applications
+description: Deploying applications starts with defining a project's deployment process, which is the set of instructions that will be run repeatably each time the project is deployed.
 position: 6
 ---
 
@@ -45,15 +46,15 @@ Be careful when changing names! Octopus commonly uses names as a convenient iden
 
 Steps can also have conditions. You can restrict a step so that it only runs when deploying to specific [environments](/docs/key-concepts/environments/index.md) (e.g., an Email step that only runs on production deployments).
 
-![](/docs/images/3048075/3277617.png?effects=drop-shadow "width=500")
+![](/docs/images/3048075/3277617.png "width=500")
 
 If you have created some [channels](/docs/key-concepts/projects/channels.md), you can also specify whether a step runs only when deploying a release through specific channels (e.g., a Script step that only runs for deployments through certain channels to configure extra telemetry). *This will only appear if you have created one or more non-default channels.*
 
-![](/docs/images/3048075/3278573.png?effects=drop-shadow "width=500")
+![](/docs/images/3048075/3278573.png "width=500")
 
 You can also specify whether a step runs only when previous steps are successful (default), when a previous step fails, or always.
 
-![](/docs/images/3048075/3277616.png?effects=drop-shadow "width=500")
+![](/docs/images/3048075/3277616.png "width=500")
 
 :::success
 You can achieve very complex deployment processes in Octopus by leveraging advanced concepts like parallel execution of steps and rolling deployments. Learn more about [simple and complex deployment processes](/docs/key-concepts/projects/deployment-processes.md).

@@ -1,5 +1,6 @@
 ---
 title: Creating teams for a user with mixed environment privileges
+description: This guide describes how to create a teams for a user with mixed environment privileges.
 ---
 
 A common scenario some users may face, is the desire to provide full access to one environment, but only read access to the next stage. For example the developers might be able to fully manage deployments to the development and staging environment, but only view the production deployments.

@@ -22,6 +22,7 @@ For example:
 title: Getting started
 description: From 0 to deployed, this guide walks you through getting started with Octopus.
 position: 0
+version: "[3.0,4.0)"
 ---
 ```
 
@@ -29,14 +30,23 @@ position: 0
 Required. Used for the web page title tag `<head><title>`, displayed in the page content
 
 ### Description
-Optional. Used for the meta description tag (`<meta name="description" />`).
+Required. Used for the meta description tag (`<meta name="description" />`).
+Keep the description under 160 characters.
+Read [how to write a good description](https://moz.com/learn/seo/meta-description).
 
 ### Position
 Optional. Used for the position in the menu.
 
+### Version
+Optional. The versions that this file applies to. This meatadata supports ranges, same syntax as [nuget](https://docs.microsoft.com/en-us/nuget/create-packages/dependency-versions#version-ranges).
+
 ## Menu
 
 The menu is auto generated based on the git repo folder structure and title and position metadata.
+
+## Version dropdown
+
+The list of versions displayed on the dropdown are loaded from [versions.json](versions.json).
 
 ## URLs
 
@@ -97,7 +107,7 @@ Example:
 Rendered as:
 
 1. Item 1
-1. Item 2
+2. Item 2
 
 #### Roman
 Example:
@@ -123,7 +133,24 @@ Rendered as:
 a. Item 1  
 b. Item 2
 
-### Snippets are highlighted using highlightjs
+### Code Samples
+
+Use GitHub-style fenced code blocks. Example:
+
+    ​```powershell
+    Write-Host "Hello"
+    ​```
+
+If your example uses multiple languages or files, you can combine them together - they will be rendered as tabs:
+
+    ​```powershell PowerShell
+    Write-Host "Hello"
+    ​```
+    ​```c# ScriptCS
+    Console.WriteLine("Hello");
+    ​```
+
+Snippets are highlighted by Highlight.js
 
 * [Documentation](https://highlightjs.readthedocs.io/)
 * [Language List](https://highlightjs.readthedocs.io/en/latest/css-classes-reference.html#language-names-and-aliases)
@@ -137,9 +164,10 @@ b. Item 2
 | powershell   | `ps`           |
 | json         | `json`         |
 | sql          | `sql`          |
-| f#           | `f#`           |
+| f#           | `fsharp`       |
+| text         | text           |
 
-**Always use fenced code blocks with a language.** If no language is defined then highlightjs will guess the language and it regularly gets it wrong.
+**Always use fenced code blocks with a language.** If no language is defined then highlightjs will guess the language and it regularly gets it wrong. Example:
 
 ### Alerts
 
@@ -171,10 +199,48 @@ The number is 45.</p>
 </div>
 ```
 
+## ToC
+Table of contents can be added to any page anywhere by adding `!toc` to the markdown.
+
 ## Headings
 
 The first (and all top level) headers in a `.md` page should be a `h2` (i.e. `##`) with sub-headings under it being `h3`, `h4`, etc.
 DO NOT skip headers, eg. h1 > h2 > h4, not valid!
+
+You must also separate the '##' and the heading with a space.  If you don't the heading will render correctly in the Preview in GitHub, and in many other tools, but will not render correctly on the docs site.
+
+## Folder Version
+You can version the content of a whole folder by versioning the `index.md` for the folder.
+Example:
+If we want to hide the whole docker doco for versions prior to v3.4, we can add `version: [3.4,)` to the `docs/guides/docker/index.md` metadata.
+This will exclude docker content from all versions prior to v3.4.
+
+## Includes
+Sometimes you need to duplicate content in multiple pages, this is where includes are handy.
+Markdown includes are pulled into the document prior to passing the content through the markdown conversion.
+
+### Defining an include
+
+Add a file anywhere in the docs repository that is suffixed with `.include.md`. For example, the file might be named `theKey.include.md`.
+
+### Using an include
+
+Add the following to the markdown: `!include <key>`
+
+## Partials
+Partials are version specific files that contain markdown.
+Markdown partials are pulled into the document prior to includes, so this means you can add includes to partials.
+They  are only rendered in the target page when the version filter matches the convention for a give file.
+
+Partial Convention: filePrefix_key_nugetAlias_version.partial.md
+
+### Defining a partial
+
+Add a file in the same folder as the page where you will use the partial to the docs repository that is named `filePrefix_key_version.partial.md`. For example, the file might be named `getting-started_theKey_2.0.partial.md`.
+
+### Using a partial
+
+Add the following to the markdown: `!partial <key>`
 
 ## Anchors
 
@@ -199,22 +265,43 @@ Which means elsewhere in the page you can link to it with this:
 
 ## Images
 
+You have a few options:
+
+1. Put your image in the same folder as the markdown file;
+2. For shared images, put your image in the [images folder](docs/images);
+3. For internet images, just reference it remembering to use the `https://` scheme;
+
 Images can be added using the following markdown syntax
 
-    ![Alt text](/docs/images/img.jpg "Optional title")
+    ![Alt text](img.jpg "Optional title width=500")
 
 With the minimal syntax being
 
-    ![](/docs/images/img.jpg)
+    ![](img.jpg)
+    
+Keep reading for a detailed explanation of the options available when working with images.
 
 ### Image paths
 Paths to internal images need to:
 
-- start with `/docs`
+- be relative or absolute
 - all lower case
 - can include `.` and `-`
+- can also have version range, see [image versioning](#image-versioning)
 
 Example `/docs/images/naked-scripting/transferpackage-transfer.png`
+
+### Image versioning
+Images can be versioned. To version an image you need to include the default image and the versioned images.
+The convention is `imagename_version.ext`
+
+Here is an example:
+Let's say we want to display a different versions of `myimage.png` for v1.0 and v2.0 and we are currently on version 3.0.
+All we need to do is create the new image and name it with a version range  `myimages_[1.0,3.0).png`.
+So in the end you have 2 images, `myimage.png` and `myimages_[1.0,3.0).png`.
+
+**All versioned images need to be in the same folder as the default image.**
+
 
 ### Image sizing
 
@@ -233,6 +320,22 @@ This will result in the image being re-sized with the following parameters
     width="x" height="auto"
 
 It will also wrap the image in a clickable lightbox so the full image can be accessed.
+
+## Redirects
+When a file is deleted, renamed or versioned you need to consider adding a redirect for that file.
+Redirects are added to [redirects.txt](redirects.txt).
+This file looks something like:
+```
+from-file-path -> to-file-path                 #DO NOT DELETE THIS LINE
+docs/page1.md -> docs/page3.md
+```
+In the above example, `/docs/page1` is redirected to `/docs/page2`
+
+Once a redirect is added, the source file needs to be deleted from the repo, or in the case of docs, if the file is versioned, the version range needs to exclude the versions that want to be redirected, if all versions are to be redirected then the file needs to be deleted.
+
+The destination is validated and needs to exist.
+
+If a file is deleted or the version range no longer includes that file, a redirect need to exist for it, otherwise the sync fails.
 
 ## Useful Characters
 

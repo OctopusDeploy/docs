@@ -1,5 +1,6 @@
 ---
 title: User Role & Teams Configurations
+description: This guides describes how to leverage Octopus user roles and teams to support different company and team structures.
 position: 4
 hideInThisSectionHeader: true
 ---

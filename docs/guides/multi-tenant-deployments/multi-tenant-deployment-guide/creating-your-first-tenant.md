@@ -1,5 +1,6 @@
 ---
 title: Creating your first tenant
+description: Creating your first tenant.
 position: 0
 ---
 
@@ -14,7 +15,7 @@ The Tenants link should be added to the main menu of Octopus when you click the 
 2. Go to *Tenants* and click the **Add tenant** button
 
    ![](/docs/images/5669223/5865661.png "width=500")
-   
+
 3. Enter the name you want to use for the tenant and click the **Save** button.
 
     ![](/docs/images/5669223/5865662.png "width=500")

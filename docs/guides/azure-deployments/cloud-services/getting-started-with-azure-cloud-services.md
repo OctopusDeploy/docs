@@ -1,5 +1,6 @@
 ---
 title: Getting started with Azure Cloud Services
+description: This guide will help you deploy your first Azure Cloud Service application with Octopus Deploy.
 position: 0
 ---
 

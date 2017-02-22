@@ -1,5 +1,6 @@
 ---
 title: How to
+description: Information explaining how to perform common octopus tasks.
 position: 11
 hideInThisSectionHeader: true
 ---

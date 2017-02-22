@@ -1,9 +1,10 @@
 ---
 title: Running Tentacle under a specific user account for use in Powershell
+description: Information on how to run Tentacle under a specific user account for use in Powershell.
 position: 5
 ---
 
-Every process within a Tentacle is executed by the user account configured on the **Octopus Tentacle**service. By default this account is **Local System.** There are times when you might like to run the Tentacle under a specific user account (i.e. you want to run administrator-level Powershell commands from your deployment process).
+Every process within a Tentacle is executed by the user account configured on the **Octopus Tentacle** service. By default this account is **Local System**. There are times when you might like to run the Tentacle under a specific user account (i.e. you want to run administrator-level Powershell commands from your deployment process).
 
 To change this setting go to Services ➜ Octopus Tentacle ➜ Properties ➜ Log On
 

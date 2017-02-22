@@ -1,5 +1,6 @@
 ---
 title: Multi-region deployment pattern
+description: Implementing multi-region deployments, i.e. deploying to multiple geographic regions, with Octopus.
 position: 6
 ---
 
@@ -18,8 +19,8 @@ You can use [Environments](/docs/key-concepts/environments/index.md) to repres
 By using this pattern you can:
 
 1. Use [Lifecycles](/docs/key-concepts/lifecycles.md) to define a strict process for promotion of releases between your regions. *Lifecycles can be used to design both simple and complex promotion processes.*
- 1. For example, you may want to test releases in Australia before rolling them out to the USA, and then to Europe
- 2. In another example, you may want to test releases in Australia before rolling them out simultaneously to all other regions
+  * For example, you may want to test releases in Australia before rolling them out to the USA, and then to Europe
+  * In another example, you may want to test releases in Australia before rolling them out simultaneously to all other regions
 2. Scope region-specific variables to the region-specific Environments
 3. Quickly see which releases are deployed to which regions on the main dashboard
 4. Quickly promote releases through your regions using the Project Overview

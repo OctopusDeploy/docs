@@ -1,5 +1,6 @@
 ---
-title: Sensitive Properties API Changes in Release 3.3
+title: Sensitive Properties API Changed in Release 3.3
+description: How the sensitive properties API changed in Octopus release 3.3.
 position: 22
 ---
 
@@ -25,7 +26,7 @@ For example, a deployment step with one sensitive and one non-sensitive property
 
 **Legacy deployment-process JSON**
 
-```js
+```json
 {
   "Id": "deploymentprocess-Projects-1",
   "ProjectId": "Projects-1",
@@ -72,7 +73,7 @@ In >= 3.3, this same resource would be represented as:
 
 **New deployment-process JSON**
 
-```js
+```json
 {
   "Id": "deploymentprocess-Projects-1",
   "ProjectId": "Projects-1",

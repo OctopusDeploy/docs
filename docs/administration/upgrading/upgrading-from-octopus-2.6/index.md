@@ -1,5 +1,6 @@
 ---
 title: Upgrading from Octopus 2.6
+description: Information on how to upgrade to Octopus 3.x from Octopus 2.6.
 position: 2
 ---
 
@@ -42,4 +43,4 @@ Read the full guide: [Upgrade with a new Server instance](/docs/administration/
 
 It is possible to install Octopus 3.x over the top of a 2.6 instance. You'll upgrade the Tentacles to 3.x, then upgrade the Octopus server.
 
-Read the full guide: [In place (over the top) upgrade](/docs/administration/upgrading/upgrading-from-octopus-2.6/in-place-upgrade-(install-over-2.6).md)
+Read the full guide: [In place (over the top) upgrade](/docs/administration/upgrading/upgrading-from-octopus-2.6/in-place-upgrade-install-over-2.6.md)

@@ -1,5 +1,6 @@
 ---
 title: Deploying Web Jobs
+description: Octopus Deploy can help you perform repeatable and controlled deployments of your applications into Azure Web Jobs.
 ---
 
 [Azure Web Jobs](https://azure.microsoft.com/en-us/documentation/articles/web-sites-create-web-jobs/) can either be packaged and deployed along with the Web App that they live under, or packaged and deployed independently.

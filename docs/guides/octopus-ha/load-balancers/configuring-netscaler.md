@@ -1,8 +1,9 @@
 ---
 title: Configuring Netscaler
+description: Script to configure a Netscaler load balancer for use with an Octopus High Availability instance.
 ---
 
-```text
+```bash
 #Servers
 add server octopus-node1_SVR 192.168.0.1
 add server octopus-node2_SVR 192.168.0.2

@@ -1,5 +1,6 @@
 ---
 title: OctoPack to include BuildEvent files
+description: Using OctoPack when you have a PostBuild event in Visual Studio and want to include files that are not specifically part of your build.
 position: 1
 ---
 
