@@ -1,5 +1,6 @@
 ---
 title: Custom Installation Directory
+description: The Custom Installation Directory feature allows you to have your package deployed to a specific location on the server.
 position: 5
 ---
 

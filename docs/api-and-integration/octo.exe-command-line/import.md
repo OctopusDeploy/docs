@@ -1,5 +1,6 @@
 ---
 title: Import
+description: Using the Octo.exe command line tool to import items exported from another Octopus Deploy server.
 position: 6
 ---
 
@@ -12,7 +13,7 @@ We currently support importing:
 
 [Usage:](/docs/api-and-integration/octo.exe-command-line/import.md)
 
-```powershell
+```text
 Usage: Octo import [<options>]
 		
 Where [<options>] is any of:
@@ -44,7 +45,7 @@ Before importing a project you have to ensure that the following exists on the O
 - The NuGet feeds used in the Project
 - The Library Variable Sets (if any) used in the Project
 - Corresponding Lifecycles (including those linked to channels)
-:::
+  :::
 
 The following options are required when importing a project.
 
@@ -53,12 +54,11 @@ The following options are required when importing a project.
 ```powershell
 --type				The type of object to export
 --filePath			The full path and name of the export file
-
 ```
 
 Usage:
 
-```powershell
+```bash
 octo import --server=http://octopusdeploy/api --apiKey=ABCDEF123456 --type=project --filePath=C:\path\to\export\file.json
 ```
 
@@ -135,7 +135,7 @@ The following options are required when importing a release, or a range of relea
 
 Usage:
 
-```powershell
+```bash
 octo import --server=http://octopusdeploy/api --apiKey=ABCDEF123456 --type=release --project=projectname --filePath=C:\path\to\export\file.json
 ```
 

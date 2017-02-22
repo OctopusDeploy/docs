@@ -1,5 +1,6 @@
 ---
 title: Working with tenant-specific variables
+description: Use variable templates as part of a multi-tenant deployment design.
 position: 3
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Service Accounts
+description: Creating Service Accounts to provide individual services with the least privileges required for the tasks they will perform. 
 position: 2
 ---
 

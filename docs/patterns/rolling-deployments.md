@@ -1,5 +1,6 @@
 ---
 title: Rolling deployments
+description: Implementing rolling deployments, i.e. deploying to release to servers one-by-one, with Octopus.
 position: 5
 ---
 
@@ -67,3 +68,5 @@ With this configuration, we run the entire website deployment step - taking the 
 ## Rolling deployments with child steps in action {#Rollingdeployments-Rollingdeploymentswithchildstepsinaction}
 
 This five minute video (with captions) will guide you through setting up a rolling deployment with child steps.
+
+<iframe src="//fast.wistia.net/embed/iframe/7wfdk4vtge" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="360" style="margin: 30px"></iframe>

@@ -1,5 +1,6 @@
 ---
 title: Polling Tentacles
+description: Octopus Polling Tentacles open a connection to the Octopus server to ask what to do.
 position: 1
 ---
 
@@ -36,11 +37,17 @@ This three minute video (with captions) will walk you through the process of ins
 
 ## Firewall changes {#PollingTentacles-Firewallchanges}
 
-To allow Tentacle to connect to your Octopus Deploy server, you'll need to allow access to port **10943** on the Octopus server (or the port you selected during the installation wizard - port 10943 is just the default). You will also need to allow Tentacle to access the Octopus HTTP web portal (typically port **80** or**443**- these bindings are selected when you [install the Octopus Deploy server](/docs/installation/installing-octopus/index.md)).
+To allow Tentacle to connect to your Octopus Deploy server, you'll need to allow access to port **10943** on the Octopus server (or the port you selected during the installation wizard - port 10943 is just the default). You will also need to allow Tentacle to access the Octopus HTTP web portal (typically port **80** or **443** - these bindings are selected when you [install the Octopus Deploy server](/docs/installation/installing-octopus/index.md)).
 
-Note that the port used to poll Octopus for jobs is different to the port used by your team to access the Octopus Deploy web interface; this is on purpose, and it means you can use different firewall conditions to allow Tentacles to access Octopus by IP address.
+If your network rules only allow port **80** and **443** to the Octopus server, you can change the server bindings to either HTTP or HTTPS and
+use the remaining port for polling tentacle connections. The listening port can be [changed from the command line](https://octopus.com/docs/administration/server-configuration-and-file-storage).
+Even if you do use port **80** for polling tentacles, the communication is still secure.
 
-Using polling mode, you won't typically need to make any firewall changes on the Tentacle.
+Note that the port used to poll Octopus for jobs is different to the port used by your team to access the Octopus Deploy web interface; 
+this is on purpose, and it means you can use different firewall conditions to allow Tentacles to access Octopus by IP address. It is not
+possible to use the same port as tentacle communication does not use HTTP. It would be similar attempting to run HTTPS and SSH on the same port.
+
+Using polling mode, you won't typically need to make any firewall changes on the Tentacle machine.
 
 :::success
 **Intermediary firewalls**

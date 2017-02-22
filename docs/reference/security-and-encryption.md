@@ -1,5 +1,6 @@
 ---
 title: Security and encryption
+description: End-to-end details of how Octopus is secured and data is encrypted.
 position: 1
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Deploying ASP.NET Core Web Applications
+description: This guide covers everything you need to perfor your first ASP.NET Core webapp deployment. 
 position: 1
 ---
 

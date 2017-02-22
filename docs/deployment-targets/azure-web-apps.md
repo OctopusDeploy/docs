@@ -1,5 +1,6 @@
 ---
-title: Azure Web Apps
+title: Azure Web App Deployment Targets
+description: Azure Web App deployment targets have been deprecated.
 position: 1
 ---
 

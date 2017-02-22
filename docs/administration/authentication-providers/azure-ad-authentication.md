@@ -1,5 +1,6 @@
 ---
 title: Azure AD authentication
+description: Octopus Deploy can use Azure AD authentication to identify users. 
 position: 1
 ---
 
@@ -74,7 +75,7 @@ The example below illustrates two roles, one for administrators and one for appl
 Make sure you replace `NEWGUID` with a generated guid.
 :::
 
-```powershell
+```json
 {
   "appId": "myAppGuid",
   "appRoles": [
@@ -224,7 +225,7 @@ Sometimes the contents of the security token sent back by Azure AD aren't exactl
    ![](/docs/images/5670656/5866123.png "width=500")
 
 5. Don't worry if jwt.io complains about the token signature, it doesn't support RS256 which is used by Azure AD.
-6. Octopus uses most of the data to validate the token, but primarily uses the `sub`, `email` and `name` claims. If these claims are not present you will likely see unexpected behaviour.
+6. Octopus uses most of the data to validate the token, but primarily uses the `sub`, `email` and `name` claims. If these claims are not present you will likely see unexpected behavior.
 
 ### Get in touch with our support team {#AzureADauthentication-Getintouchwithoursupportteam}
 

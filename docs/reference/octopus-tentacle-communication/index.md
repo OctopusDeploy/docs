@@ -1,5 +1,6 @@
 ---
 title: Octopus - Tentacle communication
+description: Octopus Server and Tentacle communications details.
 position: 1
 ---
 
@@ -68,6 +69,6 @@ We have built comprehensive troubleshooting guides for both [Listening Tentacle
 
 If you are seeing error messages like below, try [Troubleshooting Schannel and TLS](/docs/reference/octopus-tentacle-communication/troubleshooting-schannel-and-tls.md):
 
-Client-side:`System.Security.Authentication.AuthenticationException: A call to SSPI failed, see inner exception. ---&gt; System.ComponentModel.Win32Exception: One or more of the parameters passed to the function was invalid`
+Client-side:`System.Security.Authentication.AuthenticationException: A call to SSPI failed, see inner exception. ---> System.ComponentModel.Win32Exception: One or more of the parameters passed to the function was invalid`
 
 Server-side:`System.IO.IOException: Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host.`

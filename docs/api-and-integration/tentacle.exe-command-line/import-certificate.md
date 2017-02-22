@@ -1,5 +1,6 @@
 ---
 title: Import certificate
+description: Using the Tentacle.exe command line executable to replace the certificate that Tentacle uses to authenticate itself.
 ---
 
 Replace the certificate that Tentacle uses to authenticate itself
@@ -26,3 +27,4 @@ Or one of the common options:
       --nologo               Don't print title or version information
       --noconsolelogging     Don't log to the console
 ```
+

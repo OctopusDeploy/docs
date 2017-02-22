@@ -1,5 +1,6 @@
 ---
 title: Step Templates
+description: Octopus step templates are reusable steps based on the built-in steps with your own specific parameters and instructions. 
 position: 15
 ---
 
@@ -19,7 +20,7 @@ Community step templates are publically available step templates that are contri
 Is there something Octopus doesn't support out-of-the-box? Take a look at the [Community Library](https://library.octopusdeploy.com/) which is full of step templates that have been contributed and are maintained by the Octopus community.
 
 :::hint
-Octopus 3.7 introduced integration with the Community Library and community contributed step templates are now synchronised with the Octopus server. This change makes it a quick and easy process to install and add community step templates. The import and export process is still available for older versions of Octopus.
+Octopus 3.7 introduced integration with the Community Library and community contributed step templates are now synchronized with the Octopus server. This change makes it a quick and easy process to install and add community step templates. The import and export process is still available for older versions of Octopus.
 :::
 
 ![](/docs/images/5671696/5866126.png "width=500")

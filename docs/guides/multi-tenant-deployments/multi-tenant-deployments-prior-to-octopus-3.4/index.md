@@ -1,5 +1,6 @@
 ---
 title: Multi-tenant deployments prior to Octopus 3.4
+description: Trade-offs to consider deciding how to use Octopus (prior to Octopus 3.4) in scenarios that involve deployments for multiple managed customers.
 position: 4
 ---
 
@@ -7,7 +8,7 @@ This page describes some of the trade-offs you would consider deciding how to us
 
 :::success
 **Built-in support for multi-tenant deployments**
-Consider upgrading to Octopus 3.4 which provides built-in support for multi-tenant deployments. Read through our [multi-tenant deployment guide](/docs/guides/multi-tenant-deployments/index.md) to see if it fits your situation and [how to migrate to Octopus 3.4](/docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/migrating-to-octopus-3.4.md).
+Consider upgrading to Octopus 3.4 which provides built-in support for multi-tenant deployments. Read through our [multi-tenant deployment guide](/docs/guides/multi-tenant-deployments/index.md) to see if it fits your situation.
 :::
 
 ## Scenario: {#Multi-tenantdeploymentspriortoOctopus3.4-Scenario:}
@@ -40,7 +41,7 @@ Keep in mind that variables can be scoped per environment (thus customer).
 
 ## Project per customer {#Multi-tenantdeploymentspriortoOctopus3.4-Projectpercustomerproject-per-customer}
 
-In this scenario, we would set up a project with the three deployment steps, and use it as a template. We would then clone the project once per customer, and customise the variables and other settings per customer.
+In this scenario, we would set up a project with the three deployment steps, and use it as a template. We would then clone the project once per customer, and customize the variables and other settings per customer.
 
 ![](/docs/images/5669204/5865539.png "width=500")
 

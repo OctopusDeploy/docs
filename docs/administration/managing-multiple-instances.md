@@ -1,5 +1,6 @@
 ---
 title: Managing multiple instances
+description: Octopus and Tentacle Manager both have the ability to manage multiple instances. 
 position: 2
 ---
 

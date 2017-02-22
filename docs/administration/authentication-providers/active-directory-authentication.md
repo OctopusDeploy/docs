@@ -1,17 +1,8 @@
 ---
 title: Active Directory authentication
+description: Octopus Deploy can use Windows credentials to identify users. 
 position: 0
 ---
-
-- Active Directory sign in options
-- Integrated authentication
-- Forms-based authentication with Active Directory
-- Switching between username/password and Active Directory authentication
- - To select Active Directory authentication
- - To select username/password authentication
- - To specify a custom container
- - Trusted Domains
- - Troubleshooting
 
 Octopus Deploy can use Windows credentials to identify users. This option is chosen during installation of the Octopus Deploy server, or can be configured later.
 
@@ -67,9 +58,9 @@ Using this option, the credentials are posted back to the Octopus server, and Oc
 Keep in mind that if your Octopus server isn't [configured to use HTTPS](/docs/how-to/expose-the-octopus-web-portal-over-https.md), these are posted in plain text (just like signing in to any other website).
 :::
 
-If the Octopus Deploy server and its users are on the **same****domain**, it is sufficient to provide a simple username in this field, for example *paul**.*User Principal Names, of the form *user@domain.com* are also accepted in this scenario.
+If the Octopus Deploy server and its users are on the **same domain**, it is sufficient to provide a simple username in this field, for example *paul**.*User Principal Names, of the form *user@domain.com* are also accepted in this scenario.
 
-If the server and its users are on different domains, or **many domains** are in use, the *DOMAIN\user*username format must be provided for users who are not a member of the domain the server is in.
+If the server and its users are on different domains, or **many domains** are in use, the *DOMAIN\user* username format must be provided for users who are not a member of the domain the server is in.
 
 :::hint
 Users will receive the error "**Username not found.  UPN format may not be supported for your domain configuration."** if they have entered a UPN and their details could not be located in the domain. This could occur because the UPN really doesn't exist, or it exists in a domain other than the one the Octopus Deploy server is in (which as stated above is not supported).
@@ -79,7 +70,7 @@ Forms-based authentication can also be disabled:
 
 **Disabling HTML form sign-in**
 
-```text
+```bash
 Octopus.Server.exe service --stop
 Octopus.Server.exe configure --allowFormsAuthenticationForDomainUsers=false
 Octopus.Server.exe service --start
@@ -99,7 +90,7 @@ In versions prior to 3.5, Octopus Deploy maintains different User records for Ac
 
 When switching from username/password to Active Directory, after running the below commands you will find that duplicate accounts are created the first time an Active Directory user logs into Octopus Deploy. The pre-existing account should be either be deleted directly after the switch, or deleted after the user logs in for the first time using the Active Directory account. The Active Directory provisioned account will be recognizable as *paul*@domain compared to *paul*.
 
-In 3.5 the User records are handled differently, [learn more](/docs/administration/authentication-providers/index.md).
+In 3.5 the User records are handled differently, [learn more](/docs/administration/authentication-providers/index.md#AuthenticationProviders-usersandauthprovidersUsersandAuthenticationProviders).
 :::
 
 ### To select Active Directory authentication {#ActiveDirectoryauthentication-ToselectActiveDirectoryauthentication}
@@ -148,7 +139,7 @@ Where `"CN=Users,DC=GPN,DC=COM"` should be replaced with your Container.
 
 Using Trusted Domains is supported by Octopus Deploy.  Users from the domain the Octopus Deploy server is a member of will always be allowed to log in.  Users from domains that the Octopus Deploy server's domain trusts will also be able to log in.
 
-Learn about [configuring Teams to utilise Trusted Domains](/docs/administration/managing-users-and-teams/external-groups-and-roles.md).
+Learn about [configuring Teams to utilize Trusted Domains](/docs/administration/managing-users-and-teams/external-groups-and-roles.md).
 
 ### Troubleshooting {#ActiveDirectoryauthentication-Troubleshooting}
 

@@ -1,8 +1,9 @@
 ---
 title: Server comms
+description: Using the Tentacle.exe command line executable to configure how the Tentacle communicates with the Octopus Server.
 ---
 
-Configure how the Tentacle communicates with an Octopus server
+Configure how the Tentacle communicates with an Octopus Server
 
 **Server communication options**
 
@@ -27,3 +28,4 @@ Or one of the common options:
       --nologo               Don't print title or version information
       --noconsolelogging     Don't log to the console
 ```
+

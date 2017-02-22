@@ -1,25 +1,26 @@
 ---
 title: Multi-region deployment pattern
+description: Implementing multi-region deployments, i.e. deploying to multiple geographic regions, with Octopus.
 position: 6
 ---
 
 ## Scenario {#Multi-regiondeploymentpattern-Scenario}
 
-Your application is deployed to multiple geographic regions (or multiple data centres) to provide for your end-customer's performance (think latency) or legal requirements (like data sovereignty).
+Your application is deployed to multiple geographic regions (or multiple Data Centers) to provide for your end-customer's performance (think latency) or legal requirements (like data sovereignty).
 
 ![](/docs/images/5670886/5865791.png "width=500")
 
 ## Strict solution using Environments {#Multi-regiondeploymentpattern-StrictsolutionusingEnvironments}
 
-You can use [Environments](/docs/key-concepts/environments/index.md) to represent each region or data centre. In the example below we have defined a Dev and Test Environment as per normal, and then configured two "production" Environments, one for each region we want to deploy into.
+You can use [Environments](/docs/key-concepts/environments/index.md) to represent each region or data center. In the example below we have defined a Dev and Test Environment as per normal, and then configured two "production" Environments, one for each region we want to deploy into.
 
 ![](/docs/images/5670886/5865781.png "width=500")
 
 By using this pattern you can:
 
 1. Use [Lifecycles](/docs/key-concepts/lifecycles.md) to define a strict process for promotion of releases between your regions. *Lifecycles can be used to design both simple and complex promotion processes.*
- 1. For example, you may want to test releases in Australia before rolling them out to the USA, and then to Europe
- 2. In another example, you may want to test releases in Australia before rolling them out simultaneously to all other regions
+  * For example, you may want to test releases in Australia before rolling them out to the USA, and then to Europe
+  * In another example, you may want to test releases in Australia before rolling them out simultaneously to all other regions
 2. Scope region-specific variables to the region-specific Environments
 3. Quickly see which releases are deployed to which regions on the main dashboard
 4. Quickly promote releases through your regions using the Project Overview
@@ -29,7 +30,7 @@ By using this pattern you can:
 
 ## Rolling Solution {#Multi-regiondeploymentpattern-RollingSolution}
 
-In Octopus 3.4 we introduced [Cloud Regions](/docs/deployment-targets/cloud-regions.md) which enable you to configure [Rolling deployments](/docs/patterns/rolling-deployments.md) across your regions or data centres. In this case you can scope variables to the Cloud Regions and deploy to all regions at once, but you cannot control the order in which the rolling deployment executes.
+In Octopus 3.4 we introduced [Cloud Regions](/docs/deployment-targets/cloud-regions.md) which enable you to configure [Rolling deployments](/docs/patterns/rolling-deployments.md) across your regions or data centers. In this case you can scope variables to the Cloud Regions and deploy to all regions at once, but you cannot control the order in which the rolling deployment executes.
 
 ![](/docs/images/5670886/5865782.png "width=500")
 
@@ -42,7 +43,7 @@ By using this pattern you can:
 
 ## Tenanted Solution {#Multi-regiondeploymentpattern-TenantedSolution}
 
-Alternatively you could create [Tenants](/docs/key-concepts/tenants/index.md) to represent each region or data centre. By doing so you can:
+Alternatively you could create [Tenants](/docs/key-concepts/tenants/index.md) to represent each region or data center. By doing so you can:
 
 1. Use [Variable Templates](/docs/deploying-applications/variables/variable-templates.md) to prompt you for the variables required for each region (like the storage account details for that region) and when you introduce a new region Octopus will prompt you for the missing variables
 
@@ -70,7 +71,7 @@ Alternatively you could create [Tenants](/docs/key-concepts/tenants/index.md) t
 
 You do give up the advantage of enforcing the order in which you deploy your application to your regions, but you gain the flexibility to promote to your regions in different order depending on the circumstances.
 
-**Tenants offer a balanced approach to modelling multi-region deployments, offering a measure of control and flexibility.**
+**Tenants offer a balanced approach to modeling multi-region deployments, offering a measure of control and flexibility.**
 
 ## Conclusion {#Multi-regiondeploymentpattern-Conclusion}
 

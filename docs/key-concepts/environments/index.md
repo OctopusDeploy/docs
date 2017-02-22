@@ -1,5 +1,6 @@
 ---
 title: Environments
+description: Environments allow you to define a group of machines that you will deploy to at the same time; common examples of environments are **Dev**, **Test** or **Production**.
 position: 0
 ---
 

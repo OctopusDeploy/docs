@@ -1,5 +1,6 @@
 ---
 title: Creating teams for a user with mixed environment privileges
+description: This guide describes how to create a teams for a user with mixed environment privileges.
 ---
 
 A common scenario some users may face, is the desire to provide full access to one environment, but only read access to the next stage. For example the developers might be able to fully manage deployments to the development and staging environment, but only view the production deployments.
@@ -16,7 +17,7 @@ Give the team an appropriate name like "*Dev Deployers*"and add the **Project d
 
 ![](/docs/images/3702814/3964931.png "width=500")
 
-Now that we have the roles configured for this team, we want to ensure that they are only able to be effective on specific environments. Our developers should not be able to perform *UAT* or *Production* deployments and are only allowed to deploy to the *Development* and *Staging* environments. Set the **Environments** field on the team page to the environments that the team should have its selected roles effective for. If this field is blank it is assumed to apply to **All environments** so ensure that it is correctly filled out if it should exclude others. If you want the permissions to also/instead be scoped to specific projects, then add the required projects to the **Projects** field for the same behaviour.
+Now that we have the roles configured for this team, we want to ensure that they are only able to be effective on specific environments. Our developers should not be able to perform *UAT* or *Production* deployments and are only allowed to deploy to the *Development* and *Staging* environments. Set the **Environments** field on the team page to the environments that the team should have its selected roles effective for. If this field is blank it is assumed to apply to **All environments** so ensure that it is correctly filled out if it should exclude others. If you want the permissions to also/instead be scoped to specific projects, then add the required projects to the **Projects** field for the same behavior.
 
 With the permission rules configured add the users that you want them to apply to. Remember that if the user is a member of another team that has the same roles but for the production environment, then the permissions will be effective for both teams. The team permissions are all additive.
 

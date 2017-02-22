@@ -1,5 +1,6 @@
 ---
 title: Manual upgrade
+description: Information on how to manually upgrade to Octopus 3.x from Octopus 2.6.
 position: 1
 ---
 

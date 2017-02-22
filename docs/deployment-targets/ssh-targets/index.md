@@ -1,5 +1,6 @@
 ---
 title: SSH Targets
+description: SSH Targets allow you to target non-windows (*nix) machines to deploy your applications.
 position: 4
 ---
 
@@ -143,8 +144,10 @@ Due to the different platform, some environment variables available on a windows
 
 ## Health Checks {#SSHTargets-HealthChecks}
 
-Although there is no Tentacle involved with SSH endpoints there are still some useful metrics that are used to determine its health in regards to its ability to perform deployments. It is the absence of any dependencies (i.e. mono, tar) that deems the endpoint unhealthy (in addition to the typical checks of inability to even connect using the provided credentials) while an absence or out-of-date version of Calamari is considered only a warning as this will be updated when its required by a task.
+Although there is no Tentacle involved with SSH endpoints there are still some useful metrics that are used to determine its health in regards to its ability to perform deployments. For a standard SSH target, it is the absence of any dependencies (i.e. mono, tar) that deems the endpoint unhealthy (in addition to the typical checks of inability to even connect using the provided credentials) while an absence or out-of-date version of Calamari is considered only a warning as this will be updated when its required by a task.
 
 ![](/docs/images/3048063/3277600.png "width=500")
+
+The introduction of [Raw Scripting](/docs/deploying-applications/custom-scripts/raw-scripting.md) provides the ability to run scripts on SSH endpoints without any additional Octopus dependencies. To facilitate these targets, [machine policies](/docs/key-concepts/environments/machine-policies.md) allow you to configure health checks to test only for SSH connectivity to your machine to be considered healthy.
 
 Note that due to the Tentacle being effectively a “virtual Tentacle” running on the server itself, if the endpoint is healthy it will indicate in the health logs that the running version is the same as the server version.

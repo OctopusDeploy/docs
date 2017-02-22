@@ -1,5 +1,6 @@
 ---
 title: Changing the Collation of the Octopus Database
+description: Information on changing the collation of the Octopus SQL Server database.
 ---
 
 By default, the Octopus database is created using `Latin1_General_CI_AS` collation.

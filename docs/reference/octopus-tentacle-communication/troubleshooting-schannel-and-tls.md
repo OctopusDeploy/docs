@@ -1,5 +1,6 @@
 ---
 title: Troubleshooting Schannel and TLS
+description: Troubleshooting Octopus secure communication issues with Schannel and TLS.
 ---
 
 Octopus uses `Schannel` for secure communications and will attempt to use the best available protocol available to both servers. A few industry pressures and changes have been causing problems for Tentacle communications:
@@ -13,7 +14,7 @@ A mismatch in the enabled protocols, ciphers, hashes or key exchanges on either 
 
 **Error message you may see when Schannel fails:**
 
-Client-side:`System.Security.Authentication.AuthenticationException: A call to SSPI failed, see inner exception. ---&gt; System.ComponentModel.Win32Exception: One or more of the parameters passed to the function was invalid`
+Client-side:`System.Security.Authentication.AuthenticationException: A call to SSPI failed, see inner exception. ---> System.ComponentModel.Win32Exception: One or more of the parameters passed to the function was invalid`
 
 Server-side:`System.IO.IOException: Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host.`
 

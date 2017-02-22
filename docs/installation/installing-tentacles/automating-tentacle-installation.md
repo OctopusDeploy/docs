@@ -1,5 +1,6 @@
 ---
 title: Automating Tentacle installation
+description: Information on how to install and configure an Octopus Tentacle in a fully automated way from the command line.
 position: 2
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Multi-tenant roles and security
+description: Common approaches to structuring roles and teams to secure a multi-tenant Octopus instance.
 position: 8
 ---
 
@@ -34,32 +35,32 @@ It is usually a good idea to build smaller roles that can be composed together i
 1. In *Configuration > Teams > Roles* click **Add custom role** and call it **Tenant project deployer**
 2. Set the description to **Tenant project deployers can deploy releases on behalf of tenants**
 3. Choose the following permissions:
- 1. AccountView
- 2. ArtifactView
- 3. DeploymentCreate
- 4. DeploymentView
- 5. EnvironmentView
- 6. EventView
- 7. FeedView
- 8. InterruptionView
- 9. InterruptionViewSubmitResponsible
- 10. LibraryVariableSetView
- 11. LifecycleView
- 12. MachinePolicyView
- 13. MachineView
- 14. ProcessView
- 15. ProjectGroupView
- 16. ProjectView
- 17. ReleaseView
- 18. TaskCancel
- 19. TaskCreate
- 20. TaskView
- 21. TaskViewLog
- 22. TeamView
- 23. TenantEdit
- 24. TenantView
- 25. VariableView
- 26. VariableViewUnscoped
+   1. AccountView
+   2. ArtifactView
+   3. DeploymentCreate
+   4. DeploymentView
+   5. EnvironmentView
+   6. EventView
+   7. FeedView
+   8. InterruptionView
+   9. InterruptionViewSubmitResponsible
+   10. LibraryVariableSetView
+   11. LifecycleView
+   12. MachinePolicyView
+   13. MachineView
+   14. ProcessView
+   15. ProjectGroupView
+   16. ProjectView
+   17. ReleaseView
+   18. TaskCancel
+   19. TaskCreate
+   20. TaskView
+   21. TaskViewLog
+   22. TeamView
+   23. TenantEdit
+   24. TenantView
+   25. VariableView
+   26. VariableViewUnscoped
 
 ### Step 2: Configure the Account Managers team {#Multi-tenantrolesandsecurity-Step2:ConfiguretheAccountManagersteam}
 
@@ -96,7 +97,7 @@ Bob is a member of IT infrastructure team and he manages all the virtual servers
 Similarly to the previous example we will create a custom role with minimum permissions, in this case for viewing tenant details. Later on we will create a team that combines multiple roles together to achieve the desired effect.
 
 1. Create a role called **Tenant viewer** with the following permissions:
- 1. TenantView
+2. TenantView
 
 ### Step 2: Configure the Tenant Environment Managers team {#Multi-tenantrolesandsecurity-Step2:ConfiguretheTenantEnvironmentManagersteam}
 
@@ -104,13 +105,13 @@ In this example we will create a new team and combine multiple roles together to
 
 1. Create a new team called Tenant Environment Managers
 2. Add the Tenant viewer and Environment manager roles to the team
-![](/docs/images/5669453/5865794.png "width=500")
+   ![](/docs/images/5669453/5865794.png "width=500")
 3. Add any specific tenant/environment scoping that makes sense
 4. Add any specific members to the team that make sense
 
 ### Step 3: Test! {#Multi-tenantrolesandsecurity-Step3:Test!.1}
 
-Similarly to the previous example assign a user account, sign in, and test out the resulting behaviour. You should notice you can configure new or existing deployment targets including tenant configuration as we described in [Designing a multi-tenant hosting model](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md).
+Similarly to the previous example assign a user account, sign in, and test out the resulting behavior. You should notice you can configure new or existing deployment targets including tenant configuration as we described in [Designing a multi-tenant hosting model](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md).
 
 ### Step 4: Reduce scope of the team {#Multi-tenantrolesandsecurity-Step4:Reducescopeoftheteam.1}
 
@@ -144,4 +145,4 @@ Now you can create standard Octopus [user accounts](/docs/administration/managin
 
 ## Next steps {#Multi-tenantrolesandsecurity-Nextsteps}
 
-It's important to note that these are example roles and they may not suit every company.  The good news is that they're a great starting point and can be customised to suit different scenarios.
+It's important to note that these are example roles and they may not suit every company.  The good news is that they're a great starting point and can be customized to suit different scenarios.

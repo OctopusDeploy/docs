@@ -1,5 +1,6 @@
 ---
 title: Troubleshoot missing packages
+description: Further information for missing packages error messages that can occur when deploying package steps.
 ---
 
 When deploying your project you may see a message like one of the following examples:
@@ -46,3 +47,9 @@ If you are using an external feed you may see a message explaining the package c
     - By default Octopus will attempt several times to download the package from your external feed over a period of time.
     - Try to improve the indexing performance of your external feed by cleaning up old packages. Most external feeds provide automatic retention policies to help keep your feeds clean.
     - Make sure all packages required by the project are pushed to the external feed before starting the deployment of that project.
+
+### Configurable retries for external feeds {#ConfigurableRetriesForExternalFeeds}
+
+Since Octopus 3.8.6 you can configure how tolerant Octopus will be when attempting to source a package from an external feed.
+
+  ![](troubleshoot-missing-packages-retries.png "width=500")

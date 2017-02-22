@@ -1,5 +1,6 @@
 ---
 title: Deployment Processes
+description: Deployment Processes define the actions/steps performed on your behalf to deploy a project.
 position: 0
 ---
 
@@ -53,15 +54,15 @@ For more information, see the section on [rolling deployments](/docs/patterns/ro
 
 Steps and actions can also have conditions. You can restrict a step so that it only runs when deploying to specific [environments](/docs/key-concepts/environments/index.md) (e.g., an Email step that only runs on production deployments).
 
-![](/docs/images/3048075/3277617.png?effects=drop-shadow "width=500")
+![](/docs/images/3048075/3277617.png "width=500")
 
 If you have created some [channels](/docs/key-concepts/projects/channels.md), you can also specify whether a step runs only when deploying a release through specific channels (e.g., a Script step that only runs for deployments through certain channels to configure extra telemetry). *This will only appear if you have created one or more non-default channels.*
 
-![](/docs/images/3048075/3278573.png?effects=drop-shadow "width=500")
+![](/docs/images/3048075/3278573.png "width=500")
 
 You can also specify whether a step runs only when previous steps are successful (default), when a previous step fails, or always.
 
-![](/docs/images/3048075/3277616.png?effects=drop-shadow "width=500")
+![](/docs/images/3048075/3277616.png "width=500")
 
 ## Working with the Octopus API {#DeploymentProcesses-WorkingwiththeOctopusAPI}
 
@@ -72,7 +73,7 @@ Octopus Deploy is built API-first, which means everything you can do through the
   - Steps
    - Actions
 
-We have provided lots of helpful functions for building your deployment process in the [.NET SDK](/docs/api-and-integration/octopus-rest-api.md), or you can use the raw HTTP API if that suits your needs better.
+We have provided lots of helpful functions for building your deployment process in the [.NET SDK](/docs/api-and-integration/octopus.client.md), or you can use the raw HTTP API if that suits your needs better.
 
 Learn about using the [Octopus REST API](/docs/api-and-integration/octopus-rest-api.md).
 

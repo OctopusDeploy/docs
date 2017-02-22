@@ -1,5 +1,6 @@
 ---
 title: Administration
+description: Octopus administration tasks and command reference.
 position: 9
 hideInThisSectionHeader: true
 ---

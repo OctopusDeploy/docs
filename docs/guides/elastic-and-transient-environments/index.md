@@ -1,5 +1,6 @@
 ---
 title: Elastic and Transient Environments
+description: Elastic and transient environments is a group of features to facilitate deploying to machines that are intermittently available for deployment.
 position: 6
 ---
 

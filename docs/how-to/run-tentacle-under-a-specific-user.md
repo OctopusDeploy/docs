@@ -1,5 +1,6 @@
 ---
 title: Run Tentacle under a specific user
+description: How to run Tentacle under a specific user instead of the default system account.
 position: 9
 ---
 

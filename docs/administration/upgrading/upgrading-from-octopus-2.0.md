@@ -1,5 +1,6 @@
 ---
 title: Upgrading from Octopus 2.0
+description: Information on how to upgrade from Octopus 2.0 to a more modern version.
 position: 1
 ---
 
@@ -9,8 +10,8 @@ You will not be able to upgrade from Octopus 2.x to Octopus 3.0 directly. If you
 
 Upgrading Octopus 2.0 involves two major steps.
 
-- **Upgrading the Octopus Server**
-- **Upgrading Tentacles**
+- Upgrading the Octopus Server
+- Upgrading Tentacles
 
 Additional information on troubleshooting upgrades is below.
 

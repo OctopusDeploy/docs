@@ -1,5 +1,6 @@
 ---
 title: PCI Compliance and Octopus Deploy
+description: Using Octopus Deploy in PCI compliant environments.
 position: 5
 ---
 
@@ -25,14 +26,14 @@ PCI Compliance is primarily concerned with implementing "controls" or "practices
 - You can control how long you retain data and packages. Learn about [Retention Policies](/docs/administration/retention-policies/index.md).
 - You can insert an HTTP proxy server between Octopus Server and any Tentacles or SSH endpoints. This is helpful when you want to have DMZs in your network with controlled entry/exit points. Learn about [proxy support](/docs/installation/installing-tentacles/proxy-support.md).
 - If you really cannot use Tentacle or SSH, you can use Offline Package Drops for fully disconnected deployment automation. Learn about the [Offline Package Drop](/docs/deployment-targets/offline-package-drop.md) deployment target.
-- If you require isolated instance of Octopus Server our licensing model is quite flexible. Each licence of Octopus Deploy grants you the right to install and configure up to three (3) separate instances of Octopus Server. Learn about managing [Isolated Octopus Deploy servers](/docs/patterns/isolated-octopus-deploy-servers.md).
+- If you require isolated instance of Octopus Server our licensing model is quite flexible. Each license of Octopus Deploy grants you the right to install and configure up to three (3) separate instances of Octopus Server. Learn about managing [Isolated Octopus Deploy servers](/docs/patterns/isolated-octopus-deploy-servers.md).
 
 ## Security considerations {#PCIComplianceandOctopusDeploy-Securityconsiderations}
 
-- Learn about [Octopus - Tentacle communication](/docs/reference/octopus-tentacle-communication/index.md) to understand how automation instructions are transmitted securely to maintain trust.
- - Full support for TLS 1.2 was introduced in Octopus Deploy 3.1. We recommend using the latest version of Octopus Deploy whenever possible.
-- Learn about [security and encryption](/docs/reference/security-and-encryption.md) of sensitive information in Octopus Deploy.
-- Learn about how Octopus Deploy handles [sensitive variables](/docs/deploying-applications/variables/sensitive-variables.md).
+* Learn about [Octopus - Tentacle communication](/docs/reference/octopus-tentacle-communication/index.md) to understand how automation instructions are transmitted securely to maintain trust.  
+  * Full support for TLS 1.2 was introduced in Octopus Deploy 3.1. We recommend using the latest version of Octopus Deploy whenever possible.  
+* Learn about [security and encryption](/docs/reference/security-and-encryption.md) of sensitive information in Octopus Deploy.  
+* Learn about how Octopus Deploy handles [sensitive variables](/docs/deploying-applications/variables/sensitive-variables.md).  
 
 :::success
 We conduct independent security analysis and penetration testing for Octopus Deploy. Contact our support team for a copy of the most recent report.

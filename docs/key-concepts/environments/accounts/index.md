@@ -1,5 +1,6 @@
 ---
 title: Accounts
+description: Accounts allow you to capture machine and subscription details used within your deployments.
 position: 2
 ---
 

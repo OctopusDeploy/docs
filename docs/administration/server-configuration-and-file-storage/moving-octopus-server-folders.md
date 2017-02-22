@@ -1,14 +1,10 @@
 ---
 title: Moving Octopus Server folders
+description: Information on how to move any of the Octopus Server folders.
 position: 0
 ---
 
 If you need to move any of the folders used by the Octopus Server you can follow the instructions on this page to move individual folders and reconfigure the Octopus Server to use the new folder locations.
-
-- [Move the Octopus Home folder](/docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md)
-- [Move the Octopus NuGet Repository folder](/docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md)
-- [Move the Octopus artifacts folder](/docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md)
-- [Move the Octopus task logs folder](/docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md)
 
 ## Move Octopus Home folder {#MovingOctopusServerfolders-OctopusHomeMoveOctopusHomefolder}
 
@@ -82,7 +78,9 @@ Or one of the common options:
 
 ## Move NuGet repository folder {#MovingOctopusServerfolders-NuGetRepositoryMoveNuGetrepositoryfolder}
 
-A PowerShell script showing the steps is set out below. You need to change the variables to match your Octopus installation, and you may wish to run each step separately to deal with any issues like locked files.
+A PowerShell script showing the steps is set out below. You need to change the variables to match your Octopus installation,
+and you may wish to run each step separately to deal with any issues like locked files. 
+The new path will apply to existing packages in the repository, so it is important to move the packages.
 
 ```powershell
 $oldNuGetRepository = "C:\Octopus\Packages"
@@ -95,6 +93,16 @@ mv $oldNuGetRepository $newNuGetRepository
 & "$octopus" path --nugetRepository="$newNuGetRepository"
 & "$octopus" service --start
 ```
+
+The above script will take the server offline for the duration of the move. If there are a large number of packages, this can be quite some time, 
+and taking the server offline for the duration may not be possible. To prevent the server re-indexing all the packages however, the packages should
+not be removed from expected folder while the server is running. Therefore an alternative approach is to:
+1. Copy the folder while the server is running
+1. Stop the server
+1. Use a file mirroring tool like `robocopy` to ensure the new folder reflects the added and removed files while the copy was running
+1. Update the path in octopus config
+1. Start the server.
+
 
 ## Move artifacts folder {#MovingOctopusServerfolders-ArtifactsMoveartifactsfolder}
 

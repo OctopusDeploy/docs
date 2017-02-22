@@ -1,5 +1,6 @@
 ---
-title: Create &amp; Push Node.js Project
+title: Create & Push Node.js Project
+description: This guide describes how to package and publish a NodeJS application to Octopus from your development workstation.
 position: 1
 ---
 
@@ -50,7 +51,7 @@ Using the task runner of your choice, pick one of the following steps that you a
 
 ### Option 1 - Gulp publish task {#Create&amp;PushNode.jsProject-Option1-Gulppublishtask}
 
-Ensuring that you have checked out the **gulp**branch with the initial build tasks already configured, install the **gulp-octojs** package that will do all the packaging and pushing work for you. We will also include the external **[gulp-bump](https://github.com/stevelacy/gulp-bump)** library to increase the patch version number before each publish. That way the server will retain previous builds and we can easily manage and deploy each version in Octopus Deploy independently.
+Ensuring that you have checked out the **gulp** branch with the initial build tasks already configured, install the **gulp-octojs** package that will do all the packaging and pushing work for you. We will also include the external **[gulp-bump](https://github.com/stevelacy/gulp-bump)** library to increase the patch version number before each publish. That way the server will retain previous builds and we can easily manage and deploy each version in Octopus Deploy independently.
 
 ```bash
 git checkout gulp
@@ -86,7 +87,7 @@ Notice that we're just packaging up resources that will be needed to run the app
 
 To make life easier add the gulp publish script to your **package.json** scripts section like so
 
-```js
+```json
 "scripts": {
     ...
     "publish": "node ./node_modules/gulp/bin/gulp.js publish"
@@ -97,7 +98,7 @@ You can then execute the publish command directly through npm without having to 
 
 ### Option 2 - Grunt publish task {#Create&amp;PushNode.jsProject-Option2-Gruntpublishtask}
 
-Ensuring that you have checked out the **grunt**branch with the initial build tasks already configured, install the **grunt-octojs** package that will do all the packaging and pushing work for you. We will also include the external [grunt-bump](https://github.com/vojtajina/grunt-bump) library to increase the patch version number before each publish. That way the server will retain previous builds and we can easily manage and deploy each version in Octopus Deploy independently. We will also include the [grunt-contrib-clean](https://github.com/gruntjs/grunt-contrib-clean) library to clean the build output directory to avoid pushing the same packages on each publish
+Ensuring that you have checked out the **grunt** branch with the initial build tasks already configured, install the **grunt-octojs** package that will do all the packaging and pushing work for you. We will also include the external [grunt-bump](https://github.com/vojtajina/grunt-bump) library to increase the patch version number before each publish. That way the server will retain previous builds and we can easily manage and deploy each version in Octopus Deploy independently. We will also include the [grunt-contrib-clean](https://github.com/gruntjs/grunt-contrib-clean) library to clean the build output directory to avoid pushing the same packages on each publish
 
 ```bash
 git checkout grunt
@@ -105,7 +106,7 @@ npm install
 npm install --save-dev grunt-bump grunt-contrib-clean @octopusdeploy/grunt-octo
 ```
 
-In your IDE of choice, modify the **gruntfile.js** file to add the following grunt tasks, substituting the correct **host** address of your Octopus Server and **apiKey**  you generated for this purpose in the user profile section in Octopus Deploy.
+In your IDE of choice, modify the **gruntfile.js** file to add the following grunt tasks, substituting the correct **host** address of your Octopus Server and **apiKey** you generated for this purpose in the user profile section in Octopus Deploy.
 
 ```js
 grunt.initConfig({
@@ -136,7 +137,7 @@ grunt.registerTask('publish',  ['bump', 'build', 'clean:pkg',  'octo-pack:prod',
 
 Finally add the npm publish script using the grunt task runner.
 
-```js
+```json
 "scripts": {
     ...
     "publish": "node ./node_modules/grunt-cli/bin/grunt publish"

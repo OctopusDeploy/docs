@@ -1,5 +1,6 @@
 ---
 title: Partial Export
+description: Using the Octopus.Migrator.exe command line tool to export data to a directory filtered by a single project.
 ---
 
 :::hint
@@ -10,7 +11,7 @@ This command exports configuration data to a directory filtered by a single proj
 
 Usage:
 
-```text
+```bash
 Octopus.Migrator partial-export [<options>]
 ```
 
@@ -20,7 +21,7 @@ Where `[<options>]` is any of:
 
 ```text
 Partial export:
-      --instance=VALUE       Name of the instance to use
+      --instance=VALUE       [Optional] Name of the instance to use
       --directory=VALUE      Directory for exported files
       --password=VALUE       Password to encrypt any sensitive values
       --include-tasklogs     Include the task log folder as part of the
@@ -43,6 +44,6 @@ Common Options:
 
 This will export the project files from *AcmeWebStore*and then spider back through the relevant linked documents in the database and back up *only those that are required in some way* to reproduce that project in its entireity.
 
-```text
+```bash
 Octopus.Migrator.exe partial-export --instance=MyOctopusInstanceName --project=AcmeWebStore --password=5uper5ecret --directory=C:\Temp\AcmeWebStore
 ```

@@ -1,5 +1,6 @@
 ---
 title: Coordinating Multiple Projects
+description: This guide covers scenarios where it is necessary to co-ordinate deployment between multiple projects and take some action that depends on their combined status.
 position: 10
 ---
 
@@ -9,11 +10,6 @@ When working with multiple related projects, it is often necessary to co-ordinat
 **Samples**
 For in depth code samples covering many of the processes discussed in this guide, see the [Project Coordination Code Samples](/docs/guides/coordinating-multiple-projects/project-coordination-code-samples.md) page
 :::
-
-- Responding to events across multiple projects
-- Orchestrating the deployment of multiple projects
-- Master project
-- Cooperating projects
 
 ## Responding to events across multiple projects {#CoordinatingMultipleProjects-Respondingtoeventsacrossmultipleprojects}
 

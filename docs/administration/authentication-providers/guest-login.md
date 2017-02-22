@@ -1,5 +1,6 @@
 ---
 title: Guest login
+description: Octopus Deploy supports a guest login if enabled.
 position: 4
 ---
 

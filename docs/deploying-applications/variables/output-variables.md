@@ -1,5 +1,6 @@
 ---
 title: Output variables
+description: Output variables allow you to set dynamic variables in one step that can be used in subsequent steps.
 position: 6
 ---
 
@@ -123,6 +124,6 @@ From a F# script, you can use the`setVariable : name:string -> value:string -> u
 
 **F#**
 
-```f#
+```fsharp
 Octopus.setVariable "TestResult" "Passed"
 ```

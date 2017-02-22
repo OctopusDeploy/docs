@@ -1,9 +1,10 @@
 ---
-title: Manually fail a running or cancelling task
+title: Manually fail a running or canceling task
+description: How to manually fail a running or canceling task when tasks hang or get stuck.
 position: 2
 ---
 
-Octopus implements a queue of running background tasks. Sometimes, a task may hang, or be cancelled, but never actually finish cancelling. This prevents any new tasks from beginning, and new tasks will eventually appear as Timed Out.
+Octopus implements a queue of running background tasks. Sometimes, a task may hang, or be canceled, but never actually finish canceling. This prevents any new tasks from beginning, and new tasks will eventually appear as Timed Out.
 
 When a task is queued, you'll see a list of tasks that it is waiting on in the task summary:
 

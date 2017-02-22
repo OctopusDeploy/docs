@@ -1,5 +1,6 @@
 ---
 title: Prompted variables
+description: Prompted variables allow you to prompt a user to enter a value rather than storing it in Octopus.
 position: 3
 ---
 

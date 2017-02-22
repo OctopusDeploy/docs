@@ -1,5 +1,6 @@
 ---
 title: Adding steps
+description: Adding steps is the fast and easy way to define your project's deployment process.
 position: 1
 ---
 

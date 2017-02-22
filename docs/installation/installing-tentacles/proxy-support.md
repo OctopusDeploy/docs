@@ -1,5 +1,6 @@
 ---
 title: Proxy Support
+description: Octopus supports proxy servers to ensure Octopus Server and Tentacle can operate correctly.
 position: 6
 ---
 

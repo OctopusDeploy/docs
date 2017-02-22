@@ -1,5 +1,6 @@
 ---
 title: Script Modules
+description: Script modules allow users to create Powershell functions or Cmdlets that could later on be used in deployment processes across multiple projects. 
 position: 7
 ---
 
@@ -7,13 +8,13 @@ Script modules allow users to create *Powershell functions*or *Cmdlets* that co
 
 ## Creating a Script module {#ScriptModules-CreatingaScriptmodule}
 
-##   1.  Click on **Library**&#10140;**Script Modules**&#10140;**Add Script Module** {#ScriptModules-1.ClickonLibrary-&gt;ScriptModules-&gt;AddScriptModule}
+1.  Click on **Library->Script Modules->Add Script Module**
 
-**![](/docs/images/3048136/3278027.png "width=500")**
+![](/docs/images/3048136/3278027.png "width=500")
 
 2.  Name your new Script Module and click on **Save**
 
-**![](/docs/images/3048136/3278026.png "width=500")**
+![](/docs/images/3048136/3278026.png "width=500")
 
 3.  By default, your new script module will come with a function called *Say-Hello.* We will modify it a bit with the following code for the sake of showing a better example.
 
@@ -28,7 +29,7 @@ After inserting the modified function, the Script Module should look like this:
 
 ![](/docs/images/3048136/3278025.png "width=500")
 
-Once this is done, click on **Save.**
+Once this is done, click on **Save**.
 
 :::problem
 **Gotcha**
@@ -51,7 +52,7 @@ Once you have created a Script Module, you can start using the functions contai
 
 1.  Go to your **[Deployment Process](/docs/deploying-applications/index.md)** and click on Include **Script Modules**
 
-**![](/docs/images/3048136/3278024.png "width=500")**
+![](/docs/images/3048136/3278024.png "width=500")
 
 A new window will pop up up, prompting you to select you script module. Select the module you just created (make sure the checkbox is checked) and hit **Apply**.
 

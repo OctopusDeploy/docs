@@ -1,5 +1,6 @@
 ---
 title: Troubleshoot Polling Tentacles
+description: How to troubleshoot problems with polling Tentacles.
 position: 5
 ---
 
@@ -23,13 +24,13 @@ If you're at "square 1" and can't register a new Tentacle with the Octopus Serve
 
 If you are having problems with a previously-working machine, or you've successfully registered a machine but can't get communication to work afterwards, you can find information in three places:
 
-1. If the machine has been included in a Health Check or Deployment, examine the Raw Task Log. There's a link to this on the page containing the details of the Health Check or Deployment, which can usually be located using the *Tasks*page in the Octopus Web Portal.
-2. On the *Environments*page of the Octopus Web Portal, click on the problem machine and select the *Connectivity*tab. There's often specific information about the communication status of the machine here.
+1. If the machine has been included in a Health Check or Deployment, examine the Raw Task Log. There's a link to this on the page containing the details of the Health Check or Deployment, which can usually be located using the *Tasks* page in the Octopus Web Portal.
+2. On the *Environments* page of the Octopus Web Portal, click on the problem machine and select the *Connectivity* tab. There's often specific information about the communication status of the machine here.
 3. In the Octopus Web Portal, open *Configuration > Diagnostics*. Information on this page can be helpful to work out what's going on in the Octopus installation. Following the link to *Server logs* and searching for the machine's name or IP address can turn up useful information.
 
 :::success
-**Don&#39;t miss the great info already on the web**
-Many communication problems between Octopus Servers and Tentacles have been discussed online. A quick web search for *Octopus <your error message>*will often turn up useful information.
+**Don't miss the great info already on the web**
+Many communication problems between Octopus Servers and Tentacles have been discussed online. A quick web search for *Octopus <your error message>* will often turn up useful information.
 :::
 
 Verify the Tentacle communications settings
@@ -44,9 +45,9 @@ There are three pieces of information to verify.
 
 1. Ensure that the Tentacle is in *Polling* mode
 2. Check the port that the Tentacle polls the Octopus Server on
-3. Check that the **Octopus Server**thumbprint shown matches the one shown in the *Configuration > Certificates*screen in the Octopus Web Portal.
+3. Check that the **Octopus Server** thumbprint shown matches the one shown in the *Configuration > Certificates* screen in the Octopus Web Portal.
 
-Note that there are two thumbprints displayed - that of the Tentacle itself (shown first in bold) and the thumbprints of trusted servers (shown inline in the grey text).
+Note that there are two thumbprints displayed - that of the Tentacle itself (shown first in bold) and the thumbprints of trusted servers (shown inline in the gray text).
 
 :::hint
 **If any communication settings are incorrect...**
@@ -59,7 +60,7 @@ Finally, verify that the Tentacle's thumbprint, shown in bold in the large box, 
 
 If you're successfully connecting to the Octopus Web Portal with your web browser, you can be confident the Octopus Server service is running.
 
-The Tentacle Manager usually shows correct service status, but it pays to double-check.*On the Tentacle machine*, open the Windows Services Control Panel applet (`services.msc`) and look for "OctopusDeploy Tentacle". Verify that the service is in the "Running" state.
+The Tentacle Manager usually shows correct service status, but it pays to double-check. *On the Tentacle machine*, open the Windows Services Control Panel applet (`services.msc`) and look for "OctopusDeploy Tentacle". Verify that the service is in the "Running" state.
 
 :::hint
 **If the services is not running...**
@@ -70,7 +71,7 @@ If the service is up and running, continue to the next step.
 
 ## Connect locally to the Octopus Server polling endpoint using your browser {#TroubleshootPollingTentacles-ConnectlocallytotheOctopusServerpollingendpointusingyourbrowser}
 
-*On the Octopus Server machine*, open a web browser and navigate to [https://localhost:10934](https://localhost:10934) (or your chosen Tentacle communications port if it isn't the default). Make sure an**HTTPS**URL is used.
+*On the Octopus Server machine*, open a web browser and navigate to [https://localhost:10934](https://localhost:10934) (or your chosen Tentacle communications port if it isn't the default). Make sure an**HTTPS** URL is used.
 
 - If you're presented with a prompt to "confirm a certificate" or "select a certificate" choose "Cancel" - don't provide one
 
@@ -83,7 +84,7 @@ The page shown should look like the one below.
 If you've made it this far, good news! Your Octopus Server is running and ready to accept inbound connections from Polling Tentacles.
 
 :::hint
-**If you can&#39;t browse to the page...**
+**If you can't browse to the page...**
 If this is where your journey ends, there's a problem on the Octopus Serve machine itself. It is very likely that the Octopus Server is unable to open the communications port, either because of permissions, or because another process is listening on that port. Using the Windows `netstat -o -n -a -b` command can help to get to the bottom of this quickly. If you're still in trouble, check the Octopus Server [log files](/docs/reference/log-files.md) and contact Octopus Deploy support.
 :::
 
@@ -97,8 +98,8 @@ When forming the URL to check:
 - If this fails, try using the Octopus Server's IP address instead, e.g. [https://1.2.3.4:10934](https://1.2.3.4:10934) - success using the IP address but not the DNS hostname will indicate a DNS issue
 
 :::hint
-**If you can&#39;t connect...**
-Failing to connect at this step means that you have a network issue preventing traffic between the Tentacles and Octopus Server. Check that the Octopus Server polling port is open in any firewalls, and that other services on the network are working. There's not usually much that Octopus Deploy Support can suggest for these issues as networks are complex and highly varied. Having the network administrator from your organisation help diagnose the issue is the best first step. If that draws a blank, please get in touch.
+**If you can't connect...**
+Failing to connect at this step means that you have a network issue preventing traffic between the Tentacles and Octopus Server. Check that the Octopus Server polling port is open in any firewalls, and that other services on the network are working. There's not usually much that Octopus Deploy Support can suggest for these issues as networks are complex and highly varied. Having the network administrator from your organization help diagnose the issue is the best first step. If that draws a blank, please get in touch.
 
 Remember to check both the built-in Windows Firewall, and any other firewalls (in Amazon EC2, check your security group settings for example).
 :::
@@ -107,7 +108,7 @@ If the Tentacle welcome page is shown, good news - your network is fine.
 
 :::problem
 **Watch out for proxy servers or SSL offloading...**
-Octopus and Tentacle use TCP to communicate, with special handling to enable web browsers to connect for diagnostic purposes. Full HTTP is not supported, so network services like **SSL offloading**are not supported, and **proxies** are not supported in earlier versions of Octopus Deploy. Make sure there's a direct connection between the Tentacle and Octopus Server, without an HTTP proxy or a network appliance performing SSL offloading in between.
+Octopus and Tentacle use TCP to communicate, with special handling to enable web browsers to connect for diagnostic purposes. Full HTTP is not supported, so network services like **SSL offloading** are not supported, and **proxies** are not supported in earlier versions of Octopus Deploy. Make sure there's a direct connection between the Tentacle and Octopus Server, without an HTTP proxy or a network appliance performing SSL offloading in between.
 
 **NOTE**: Octopus Deploy 3.4 introduced [advanced support for HTTP proxies](/docs/installation/installing-tentacles/proxy-support.md).
 :::
@@ -129,7 +130,7 @@ Your Octopus Server may have multiple IP addresses that it listens on. For examp
 
 ## Check Octopus Server service account permissions {#TroubleshootPollingTentacles-CheckOctopusServerserviceaccountpermissions}
 
-If the Octopus Server is running as the *Local System*account you can skip this section.
+If the Octopus Server is running as the *Local System* account you can skip this section.
 
 If the Octopus Server is running as a specific user, make sure that the user has "full control" permission to the *Octopus Home* folder on the machine. This is usually `C:\Octopus` - apply permissions recursively.
 
@@ -145,15 +146,15 @@ Octopus.Server.exe help
 
 If the command help is not displayed immediately (< 1s) you may need to consider disabling the CRL check while the Octopus Server is configured.
 
-To do this open *Control Panel > Internet Options > Advanced*, and un-check the *Check for publisher's certificate revocation*option as shown below.
+To do this open *Control Panel > Internet Options > Advanced*, and un-check the *Check for publisher's certificate revocation* option as shown below.
 
-![](/docs/images/5670828/5865771.png)
+![](/docs/images/5670828/5865771.png)
 
 ## Schannel and TLS configuration mismatches {#TroubleshootPollingTentacles-SchannelandTLSconfigurationmismatches}
 
 Octopus uses `Schannel` for secure communications and will attempt to use the best available protocol available to both servers.  If you are seeing error messages like below, try [Troubleshooting Schannel and TLS](/docs/reference/octopus-tentacle-communication/troubleshooting-schannel-and-tls.md):
 
-Client-side:`System.Security.Authentication.AuthenticationException: A call to SSPI failed, see inner exception. ---&gt; System.ComponentModel.Win32Exception: One or more of the parameters passed to the function was invalid`
+Client-side:`System.Security.Authentication.AuthenticationException: A call to SSPI failed, see inner exception. ---> System.ComponentModel.Win32Exception: One or more of the parameters passed to the function was invalid`
 
 Server-side:`System.IO.IOException: Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host.`
 

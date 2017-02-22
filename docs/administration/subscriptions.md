@@ -1,5 +1,6 @@
 ---
 title: Subscriptions
+description: Subscriptions allow you to subscribe to events that are happening within Octopus, so you can be notified when events have occurred and react accordingly. 
 position: 16
 ---
 
@@ -45,7 +46,7 @@ The `Payload` includes:
 - **Subscription**: The subscription object that triggered this webhook (including all filtering criteria so you can see exactly why you are receiving this webhook).
 - **Event**: The event object that this webhook is responding to.
 
-\* This property will be null unless the publicly-accessible URL has been set for your Octopus instance (see the *Configuration > Nodes > Configuration Settings* menu).
+\* This property will be null unless the publicly-accessible URL has been set for your Octopus instance (see the *Configuration->Nodes->Configuration Settings* menu).
 
 ## Event Visibility and Permissions {#Subscriptions-EventVisibilityandPermissions}
 

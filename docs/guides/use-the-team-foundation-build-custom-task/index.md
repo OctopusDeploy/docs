@@ -1,5 +1,6 @@
 ---
 title: Using the Team Foundation Build Custom Task
+description: This guide walks you through integrating Octopus with Microsoft TFS or VSTS using the Octopus extension.
 position: 5
 ---
 
@@ -11,7 +12,7 @@ The new structure of Team Foundation Build gives us a great opportunity to integ
 - Deploying a Release to an Environment in Octopus
 - Promoting a Release from one Environment to the next
 
-In this help page:
+On this page:
 
 !toc
 

@@ -1,5 +1,6 @@
 ---
 title: Isolated Octopus Deploy servers
+description: Working with isolated Octopus Deploy servers due to infrastructure or governance requirements.
 position: 3
 ---
 

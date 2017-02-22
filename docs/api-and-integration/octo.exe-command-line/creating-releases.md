@@ -1,5 +1,6 @@
 ---
 title: Creating releases
+description: Using the Octo.exe command line tool to create releases.
 position: 2
 ---
 
@@ -14,7 +15,7 @@ If you are using Channels (introduced in Octopus 3.2) this command will automati
 
 Usage:
 
-```text
+```bash
 octo create-release [<options>]
 ```
 
@@ -101,12 +102,12 @@ Deployment:
                              zone is the current local time zone.
       --deployto=VALUE       [Optional] Environment to automatically deploy 
                              to, e.g., Production
-	  --tenant=VALUE		 [Optional] A tenant the deployment will be performed for; 
+      --tenant=VALUE         [Optional] A tenant the deployment will be performed for; 
                              specify this argument multiple times to add multiple tenants or 
                              use  `*` wildcard to deploy to tenants able to deploy.
-	  --tenanttag=VALUE		 [Optional] A tenant tag used to match tenants that the deployment will 
-							 be performed for; specify this argument multiple times to 
-						     add multiple tenant tags
+      --tenanttag=VALUE	     [Optional] A tenant tag used to match tenants that the deployment will 
+                             be performed for; specify this argument multiple times to 
+                             add multiple tenant tags
 
 Common options: 
 
@@ -136,13 +137,13 @@ Common options:
 
 This will create a new release of the *HelloWorld* project using the latest available NuGet packages for each step in the project. The version number of the release will be the highest NuGet package version. You can override this using:
 
-```text
+```bash
 octo create-release --project HelloWorld --server http://octopus/ --apiKey API-ABCDEF123456
 ```
 
 This will create a release with a specified release number (note that this is not the NuGet package version number):
 
-```text
+```bash
 octo create-release --project HelloWorld --version 1.0.3 --server http://octopus/ --apiKey API-ABCDEF123456
 ```
 
@@ -150,19 +151,19 @@ octo create-release --project HelloWorld --version 1.0.3 --server http://octopus
 
 This will create a release *(1.0.3)* with a specified NuGet package version *(1.0.1)*:
 
-```text
+```bash
 octo create-release --project HelloWorld --version 1.0.3 --packageversion 1.0.1 --server http://octopus/ --apiKey API-ABCDEF123456
 ```
 
 This will create a release for a project with multiple packages, each with a different version:
 
-```text
+```bash
 octo create-release --project HelloWorld --version 1.0.3 --package StepA:1.0.1 --package StepB:1.0.2 --server http://octopus/ --apiKey API-ABCDEF123456
 ```
 
 This will create a release for a project with multiple packages, by taking the version for each package from a folder containing the packages (this approach works well if your build server has just built the packages):
 
-```text
+```bash
 octo create-release --project HelloWorld --version 1.0.3 --packagesFolder packages --server http://octopus/ --apiKey API-ABCDEF123456
 ```
 
@@ -170,6 +171,6 @@ octo create-release --project HelloWorld --version 1.0.3 --packagesFolder packag
 
 To create a release *and* deploy it to an environment named *Production*:
 
-```text
+```bash
 octo create-release --project HelloWorld --deployto Production --server http://octopus/ --apiKey API-ABCDEF123456 --progress
 ```

@@ -1,5 +1,6 @@
 ---
 title: Library variable sets
+description: Library variable sets allow you to define and share common variables between your Octopus projects.
 position: 2
 ---
 

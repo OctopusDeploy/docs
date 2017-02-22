@@ -1,5 +1,6 @@
 ---
 title: Enable web request logging
+description: How to enable web request logging to help the Octopus team analyze usage patterns and detecting performance problems.
 position: 16
 ---
 
@@ -56,7 +57,7 @@ For exploratory analysis of the logs to look for performance issues or trends, 
 
 ![](/docs/images/3048520/3278330.png "width=500")
 
-4. By default, Octopus logs are written to C:\Octopus\Server\Logs, and have the \*.log extension. 
+4. By default, Octopus logs are written to `C:\Octopus\Server\Logs\`, and have the `*.log` extension. 
 
 ![](/docs/images/3048520/3278331.png "width=500")
 
@@ -64,7 +65,7 @@ For exploratory analysis of the logs to look for performance issues or trends, 
 
 ![](/docs/images/3048520/3278332.png "width=500")
 
-6. Double-click a view to open it, for example, the "IIS: Top 25 Slow URLs" view. You can then modify the query, or simply execute it.
+6. Double-click a view to open it, for example, the *IIS: Top 25 Slow URLs* view. You can then modify the query, or simply execute it.
 
 ![](/docs/images/3048520/3278333.png "width=500")
 

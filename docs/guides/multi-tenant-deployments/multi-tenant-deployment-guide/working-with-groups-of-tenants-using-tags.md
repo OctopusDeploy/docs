@@ -1,5 +1,6 @@
 ---
 title: Working with groups of tenants using tags
+description: How to use tenant tags to make working with tenanted deployments in Octopus.
 position: 4
 ---
 
@@ -44,14 +45,14 @@ Let's create a tag set called **Tenant importance** with some tags that represe
 
 1. Go to *Library > Tenant Tag Sets*
 2. Create a tag set called **Tenant importance** with the description:
-*Allows you to have different customers that we should pay more or less attention to*
+   *Allows you to have different customers that we should pay more or less attention to*
 3. Now add some tags to your tag set using these examples as a guide
 
-| Name | Description | Color |
-| --- | --- | --- |
-| VIP | Very important tenant - pay attention! | Dark Red |
-| Standard | These are our standard customers | Light Grey |
-| Trial | These are trial customers | Purple |
+| Name     | Description                            | Color      |
+| -------- | -------------------------------------- | ---------- |
+| VIP      | Very important tenant - pay attention! | Dark Red   |
+| Standard | These are our standard customers       | Light Gray |
+| Trial    | These are trial customers              | Purple     |
 
 The result should look like the screen below:
 

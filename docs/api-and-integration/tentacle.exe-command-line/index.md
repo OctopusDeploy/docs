@@ -1,5 +1,6 @@
 ---
 title: Tentacle.exe Command Line
+description: Tentacle.exe is the command line executable that runs the Octopus Tentacle instance.
 position: 10
 ---
 
@@ -7,19 +8,19 @@ position: 10
 
 ## Commands {#Tentacle.exeCommandLine-Commands}
 
-Octo.exe supports the following commands:
+`Tentacle.exe` supports the following commands:
 
 - **`configure`**: Sets Tentacle settings such as the port number and thumbprints
 - **`create-instance`**: Registers a new instance of the Tentacle service
 - **`delete-instance`**: Deletes an instance of the Tentacle service
 - **`deregister-from`**: Deregisters this machine from an Octopus Server
-- `import-certificate`: Replace the certificate that Tentacle uses to authenticate itself
+- **`import-certificate`**: Replace the certificate that Tentacle uses to authenticate itself
 - **`new-certificate`**: Creates and installs a new certificate for this Tentacle
-- `polling-proxy`:  Configure the HTTP proxy used by polling tentacles to reach the Octopus Server
-- `poll-server`: Configures an Octopus Server that this Tentacle will poll
-- `proxy`: Configure the HTTP proxy used by Octopus
+- **`polling-proxy`**:  Configure the HTTP proxy used by polling tentacles to reach the Octopus Server
+- **`poll-server`**: Configures an Octopus Server that this Tentacle will poll
+- **`proxy`**: Configure the HTTP proxy used by Octopus
 - **`register-with`**: Registers this machine with an Octopus Server
-- `server-comms`: Configure how the Tentacle communicates with an Octopus Server
+- **`server-comms`**: Configure how the Tentacle communicates with an Octopus Server
 - **`service`**: Start, stop, install and configure the Tentacle service
 - **`show-thumbprint`**: Show the thumbprint of this Tentacle's certificate
 

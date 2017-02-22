@@ -1,5 +1,6 @@
 ---
 title: Report on deployments using Excel
+description: How to report on deployments using Excel.
 position: 11
 ---
 
@@ -16,7 +17,7 @@ At a high-level, the steps are:
 2. Import the XML file in Excel
 3. Report on the data using a pivot table
 
-![](/docs/images/3048153/3278122.png?effects=border-simple,blur-border,tape "width=500")
+![](/docs/images/3048153/3278122.png "width=500")
 
 ## Export all deployments to an XML file {#ReportondeploymentsusingExcel-ExportalldeploymentstoanXMLfile}
 
@@ -131,6 +132,4 @@ There are two major limits to this approach to be aware of:
 
 1. As you have seen, only a small amount of data is available for use for reporting
 2. If you use [retention policies](/docs/administration/retention-policies/index.md), releases and deployments that have been deleted by the retention policy will also not be available for reporting
-
-We're working on a more integrated reporting solution, and making more data available, as part of Octopus 3.0.
 :::

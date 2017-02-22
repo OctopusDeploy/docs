@@ -1,11 +1,12 @@
 ---
 title: Reporting
+description: Octopus Reporting makes it easy to produce reports over your deployment history, using your preferred reporting tools. 
 position: 10
 ---
 
 Octopus 3.1 adds a reporting feature that makes it easy to produce reports over your deployment history, using your preferred reporting tools.
 
-Currently Octopus doesn't display this reporting data in the user interface anywhere, but we do expose raw data that you can query or consume in your favourite reporting tools. Hopefully, you'll be able to import this data, combine it with data from other sources, and slice and dice it in ways that make the most sense to you.
+Currently Octopus doesn't display this reporting data in the user interface anywhere, but we do expose raw data that you can query or consume in your favorite reporting tools. Hopefully, you'll be able to import this data, combine it with data from other sources, and slice and dice it in ways that make the most sense to you.
 
 Raw data is provided in two ways:
 
@@ -20,11 +21,11 @@ The data allows you to report on questions like:
 
 To help you get started, we provide a sample Excel spreadsheet that you can connect to your own Octopus server.
 
-![](/docs/images/3048643/3278354.png?effects=drop-shadow "width=500")
+![](/docs/images/3048643/3278354.png "width=500")
 
 ## Getting started {#Reporting-Gettingstarted}
 
-The fastest way to get started is to use our Excel spreadsheet template. The spreadsheet uses Pivot Tables and Pivot Charts to summarise the data. You can use it as a starting point, and then modify or adapt it to suit your needs.
+The fastest way to get started is to use our Excel spreadsheet template. The spreadsheet uses Pivot Tables and Pivot Charts to summarize the data. You can use it as a starting point, and then modify or adapt it to suit your needs.
 
 First, **[download the template](/docs/attachments/octopusreport.xlsx)** and open it in Excel. The template fetches data from our public [Demo Octopus Server](https://demo.octopusdeploy.com).
 
@@ -69,7 +70,8 @@ Where:
 
 For example:
 
-`https://demo.octopusdeploy.com/api/reporting/deployments/xml?apikey=API-GUEST`*(that one really works!)*`https://myoctopus/api/reporting/deployments/xml?apikey=API-1234567891234567891234567`
+`https://demo.octopusdeploy.com/api/reporting/deployments/xml?apikey=API-GUEST`*(that one really works!)*  
+`https://myoctopus/api/reporting/deployments/xml?apikey=API-1234567891234567891234567`
 
 The XML feed can be consumed programatically, or via Excel or [Microsoft PowerBI](https://powerbi.microsoft.com/).
 
@@ -78,13 +80,15 @@ Since a user-specific API key is used to consume the data, only data that the us
 :::hint
 If you encounter the following error when using your own Octopus Server
 
-`Unhandled exception from web server: The parameter is incorrect`
-`System.Net.HttpListenerException (0x80004005): The parameter is incorrect`
-`at System.Net.HttpResponseStream.Dispose(Boolean disposing)`
-`at System.IO.Stream.Close()`
-`at Octopus.Server.Web.OctopusNancyHost.OutputWithDefaultTransferEncoding(Response nancyResponse, HttpListenerResponse response) in Y:\work\refs\tags\3.2.0\source\Octopus.Server\Web\OctopusNancyHost.cs:line 353`
-`at Octopus.Server.Web.OctopusNancyHost.ConvertNancyResponseToResponse(NancyContext nancyRequest, Response nancyResponse, HttpListenerResponse response) in Y:\work\refs\tags\3.2.0\source\Octopus.Server\Web\OctopusNancyHost.cs:line 339`
-`at Octopus.Server.Web.OctopusNancyHost.Process(HttpListenerContext ctx) in Y:\work\refs\tags\3.2.0\source\Octopus.Server\Web\OctopusNancyHost.cs:line 447`
+```text
+Unhandled exception from web server: The parameter is incorrect
+System.Net.HttpListenerException (0x80004005): The parameter is incorrect
+at System.Net.HttpResponseStream.Dispose(Boolean disposing)
+at System.IO.Stream.Close()
+at Octopus.Server.Web.OctopusNancyHost.OutputWithDefaultTransferEncoding(Response nancyResponse, HttpListenerResponse response) in Y:\work\refs\tags\3.2.0\source\Octopus.Server\Web\OctopusNancyHost.cs:line 353
+at Octopus.Server.Web.OctopusNancyHost.ConvertNancyResponseToResponse(NancyContext nancyRequest, Response nancyResponse, HttpListenerResponse response) in Y:\work\refs\tags\3.2.0\source\Octopus.Server\Web\OctopusNancyHost.cs:line 339
+at Octopus.Server.Web.OctopusNancyHost.Process(HttpListenerContext ctx) in Y:\work\refs\tags\3.2.0\source\Octopus.Server\Web\OctopusNancyHost.cs:line 447
+```
 
 This is due to that the revocation information for the certificate is not retrievable, to get around it, do the following
 
@@ -97,7 +101,7 @@ This is due to that the revocation information for the certificate is not retrie
 7. Cancel the File Open dialog
 8. Cancel the Data Connection Wizard
 9. Paste the URL in the File Name field
-   :::
+:::
 
 ## Direct table access {#Reporting-Directtableaccess}
 

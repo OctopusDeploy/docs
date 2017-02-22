@@ -1,5 +1,6 @@
 ---
 title: Multi-tenant deployment pattern
+description: Implementing multi-tenant deployments, i.e. deploying the same components to an environment multiple times, with Octopus.
 position: 2
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Projects
+description: Projects allow you to define all the details required to deploy a project including the steps to run and variables to config it.
 position: 1
 ---
 

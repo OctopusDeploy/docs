@@ -1,5 +1,6 @@
 ---
 title: Octopus Server configuration file
+description: Octopus Server configuration file details.
 position: 3
 ---
 

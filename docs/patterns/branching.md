@@ -1,21 +1,10 @@
 ---
 title: Branching
+description: Implementing different branching strategies with Octopus Deploy.
 position: 4
 ---
 
-This section describes how different branching strategies can be modelled in Octopus Deploy.
-
-- Branching strategies
-- No branches
-- Release branches
-- Multiple active release branches
-- Feature branches
-- Environment branches
-- Other considerations
-- Multiple branches can be "currently deployed" at the same time
-- My branches are very different, and I need my deployment process to work differently between them
-- We sometimes need to make hotfixes that are deployed straight to staging/production
-- We need to deploy different components depending on whether it's a "full" release or a "partial" release
+This section describes how different branching strategies can be modeled in Octopus Deploy.
 
 :::hint
 **Channels in Octopus 3.2**
@@ -73,7 +62,7 @@ Multiple release branches may be supported over a period of time. For example, y
 
 ![](/docs/images/3048919/3278440.png)
 
-Modelling this in Octopus is a little more complicated than the scenarios above, but still easy to achieve. If the only thing that changes between branches is the NuGet package version numbers, and you create releases infrequently, then you can simply choose the correct package versions when creating a release via the release creation page:
+Modeling this in Octopus is a little more complicated than the scenarios above, but still easy to achieve. If the only thing that changes between branches is the NuGet package version numbers, and you create releases infrequently, then you can simply choose the correct package versions when creating a release via the release creation page:
 
 ![](/docs/images/3048919/3278469.png "width=500")
 
@@ -92,7 +81,7 @@ When designing channels in Octopus, don't think about channels as another name f
 
 For example, [Google Chrome have four different channels](https://www.chromium.org/getting-involved/dev-channel) (Stable, Beta, Dev, and Canary). Their channels are designed around user's tolerance for bleeding edge features vs. stability. Underneath, they may have many release branches contributing to those channels. You can read about implementing [early-access programs in the Channels Walkthrough](https://octopus.com/blog/channels-walkthrough#early-access-programs).
 
-It's important to realise that **branches will map to different channels over time**. For example, right now, packages from the `release/v2` branch might map to your "Stable" channel in Octopus, while packages from `release/v3` go to your "Early Adopter" channel.
+It's important to realize that **branches will map to different channels over time**. For example, right now, packages from the `release/v2` branch might map to your "Stable" channel in Octopus, while packages from `release/v3` go to your "Early Adopter" channel.
 
 Eventually, `release/v3` will become more and more stable, and packages from it will eventually go to your Stable channel, while `release/v4` packages will begin to go to your Early Adopter channel.
 :::
@@ -213,7 +202,7 @@ The only way to support that currently is with cloning, or skipping steps each d
 
 You might have a large project with many components. Sometimes you only need to deploy a single component, while other times you may need to deploy all components together.
 
-This can be modelled by creating a channel per component, plus a channel for a release of all components.
+This can be modeled by creating a channel per component, plus a channel for a release of all components.
 
 ![](/docs/images/3048919/3278478.png "width=500")
 

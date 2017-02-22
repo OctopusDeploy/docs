@@ -1,5 +1,6 @@
 ---
 title: Show Configuration
+description: The Octopus Server show configuration command is used to export Octopus Deploy's current configuration for use with configuration management tools such as Chef, Puppet or Desired State Configuration (DSC).
 position: 17
 ---
 
@@ -27,7 +28,7 @@ The format option defaults to XML, but also supports two json formats.
 
 The first format, json, outputs a 'flat' structure that is keyed in the same way the XML file is.  An example of the output is:
 
-```javascript
+```json
 {
     "Octopus.Communications.ServicesPort":"10943",
     "Octopus.Storage.NodeName":"NodeA",
@@ -38,7 +39,7 @@ The first format, json, outputs a 'flat' structure that is keyed in the same way
 
 The second format, json-hierarchical, outputs a hierarchical object structure based on the setting keys. An example of the output is:
 
-```javascript
+```json
 {
     "Octopus": {
         "Communications": {

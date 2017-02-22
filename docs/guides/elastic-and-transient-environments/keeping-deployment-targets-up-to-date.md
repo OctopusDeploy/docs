@@ -1,5 +1,6 @@
 ---
 title: Keeping deployment targets up to date
+description: Octopus can ensure that deployment targets are kept up to date with the relevant releases. This can be useful when deploying to transient targets or when new deployment targets are added to an environment.
 position: 2
 ---
 
@@ -45,7 +46,7 @@ Automatic deployments attempts to calculate the release to use for a project and
 
 **Octo.exe**
 
-```text
+```bash
 octo.exe create-autodeployoverride --server http://octopus/ --apiKey API-ABCDEF123456 --project HelloWorld --environment Test -version 1.3.0
 octo.exe delete-autodeployoverride --server http://octopus/ --apiKey API-ABCDEF123456 --project HelloWorld --environment Test
 ```

@@ -1,5 +1,6 @@
 ---
 title: Scoping variables
+description: Scoping variables allows you to specify different values for a variable depending on where you are deploying them.
 position: 0
 ---
 

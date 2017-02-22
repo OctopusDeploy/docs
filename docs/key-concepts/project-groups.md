@@ -1,5 +1,6 @@
 ---
 title: Project Groups
+description: Project groups allow you to group your projects together in a useful way.  
 position: 2
 ---
 

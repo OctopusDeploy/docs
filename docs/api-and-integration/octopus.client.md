@@ -1,5 +1,6 @@
 ---
 title: Octopus.Client
+description: Octopus.Client is an open source .NET library that makes it easy to write C# programs that interact with the Octopus Deploy REST API.
 position: 7
 ---
 
@@ -9,15 +10,6 @@ Because the Octopus Deploy application itself is built entirely on the API, C# p
 
 The NuGet package contains both a .NET Framework build as well as a .NET Standard build. The .NET Framework build targets 4.5 or later and contains both the synchronous and asynchronous API. The .NET Standard build is compatible with a [variety of runtimes](https://docs.microsoft.com/en-us/dotnet/articles/standard/library), including .NET Core 1.0 and only contains the asynchronous API.
 
-- Getting started
- - Synchronous API
- - Asynchronous API (Octopus.Client 4.0+)
- - Powershell
-- Working with resources
-- Working directly with the client
-- Loading in an octopus step
-- Documentation and samples
-
 ## Getting started {#Octopus.Client-Gettingstarted}
 
 :::hint
@@ -26,7 +18,7 @@ The complete details for the API itself - where to find it, how to authenticate,
 
 To use the C# client, first install the package via NuGet:
 
-```text
+```powershell
 Install-Package Octopus.Client
 ```
 
@@ -146,7 +138,6 @@ using Octopus.Client.Model;
 The variable `Octopus.Tentacle.Agent.ProgramDirectoryPath` was added in server version 3.7.12, which can be used to obtain the directory that contains the Octopus.Client assembly. For prior versions of the server, the variable `Octopus.Tentacle.Agent.ProgramDirectoryPath` can be used, but that will not work for steps that run on the octopus server or cloud regions.
 :::
 
-## 
-Documentation and samples {#Octopus.Client-Documentationandsamples}
+## Documentation and samples {#Octopus.Client-Documentationandsamples}
 
 [Documentation](https://github.com/OctopusDeploy/OctopusDeploy-Api/wiki) and [samples](https://github.com/OctopusDeploy/OctopusDeploy-Api) for the Octopus Deploy REST API are available on the **[Octopus REST API GitHub site](https://github.com/OctopusDeploy/OctopusDeploy-Api)**, along with [Octopus.Client samples](https://github.com/OctopusDeploy/OctopusDeploy-Api/tree/master/Octopus.Client).

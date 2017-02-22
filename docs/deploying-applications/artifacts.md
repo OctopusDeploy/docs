@@ -1,5 +1,6 @@
 ---
 title: Artifacts
+description: Artifacts in Octopus provide a convenient way to collect files from remote machines during deployments.
 position: 25
 ---
 
@@ -81,6 +82,6 @@ From a F# script, you can use the `createArtifact : path:string -&gt; fileName:
 
 **F#**
 
-```f#
+```fsharp
 Octopus.createArtifact @"C:\Windows\System32\drivers\etc\hosts" (System.Environment.MachineName + "-hosts.txt")
 ```

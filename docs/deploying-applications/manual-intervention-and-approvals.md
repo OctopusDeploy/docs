@@ -1,5 +1,6 @@
 ---
 title: Manual intervention and approvals
+description: Manual intervention and approvals allow a human to review, approve or sign off on deployments.
 position: 19
 ---
 

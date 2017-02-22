@@ -1,5 +1,6 @@
 ---
-title: Configuring SSH Connection
+title: Configuring SSH Connections
+description: Configuring an SSH target for use in your deployments.
 position: 2
 ---
 

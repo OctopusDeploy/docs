@@ -1,5 +1,6 @@
 ---
 title: Configure Octopus Deploy Project
+description: This guide describes how to configure your Octopus project to deploy a NodeJS application to a Linux deployment target.
 position: 2
 ---
 
@@ -44,7 +45,7 @@ The next step is to create a project that will extract the package.
 
 - Navigate to the Projects page via *Projects > All*and then click the *Add Project*button.
 - Give the new project an appropriate name and once saved, go to the project's *Process*page and click *Add Step > Deploy a Package*.
- - Ensure that the target role matches that which was assigned to the machine in the previous step and select *octofxjs* as the Package ID. This Package ID is derived from the first section of the package that was previously uploaded (see *Package Metadata* section of the [Supported Packages](/docs/packaging-applications/supported-packages.md) documentation for mode details).
+    * Ensure that the target role matches that which was assigned to the machine in the previous step and select *octofxjs* as the Package ID. This Package ID is derived from the first section of the package that was previously uploaded (see *Package Metadata* section of the [Supported Packages](/docs/packaging-applications/supported-packages.md) documentation for mode details).
 
 ![](/docs/images/3049555/3278590.png "width=500")
 
@@ -53,7 +54,7 @@ The next step is to create a project that will extract the package.
 - Click the *Configure features* link at the bottom of the step.
 - Disable the two configuration steps that are already selected
 - Enable the *Substitute variables in files* feature.
-- Enter **config/config.#{Octopus.Environment.Name}.js** as the substitution target file
+- Enter `config/config.#{Octopus.Environment.Name}.js` as the substitution target file
 
 ![](/docs/images/3049555/3278589.png "width=500")
 

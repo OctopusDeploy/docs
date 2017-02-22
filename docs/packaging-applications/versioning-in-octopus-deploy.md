@@ -1,5 +1,6 @@
 ---
 title: Versioning in Octopus Deploy
+description: Considerations when selecting a versioning scheme for your applications.
 position: 4
 ---
 
@@ -41,7 +42,7 @@ With a version like this we can communicate several semantic concepts with our c
     a. Major version change = beware of major breaking changes and new features - upgrading may require some manual intervention - check our release notes  
     a. Minor version change = new features, potential for minor breaking changes and database changes - upgrading should be easy, but rolling back will usually require restoring your database - check our release notes  
     a. Patch version change = small bug fixes and computational logic changes: **safe to update, safe to roll back**
-2. We can indicate if this is a "full release" or a "pre-release" and we even change the Main Menu colour to highlight this is a pre-release version of Octopus based on the Semantic Version.
+2. We can indicate if this is a "full release" or a "pre-release" and we even change the Main Menu color to highlight this is a pre-release version of Octopus based on the Semantic Version.
 3. We can uniquely identify the SHA hash of the git commit.
 4. We show the version as `3.5.0-beta.2` in the UI.
 5. We log the full "informational version" to all of our task logs so it is easy for us to identify exactly which version of Octopus Server and Calamari were used in a deployment based on a customer sending us a log file.
