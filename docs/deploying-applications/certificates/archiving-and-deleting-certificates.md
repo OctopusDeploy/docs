@@ -13,7 +13,7 @@ Archiving a certificate will prevent it from being selected as the value of a va
 
 Archived certificates can be viewed by navigating to {{Library,Certificates,View Archive}}.
 
-When a certificate is [replaced](certificates/replace-certificate.md), it is automatically archived if it is not already.
+When a certificate is [replaced](replace-certificate.md), it is automatically archived if it is not already.
 
 ## Deleting a certificate
 
