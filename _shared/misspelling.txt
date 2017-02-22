@@ -81,11 +81,6 @@ appetising
 appetisingly
 arbour
 arbours
-archaeological
-archaeologically
-archaeologist
-archaeologists
-archaeology
 ardour
 armour
 armoured
@@ -112,7 +107,6 @@ bastardise
 bastardised
 bastardises
 bastardising
-battleaxe
 baulk
 baulked
 baulking
@@ -155,8 +149,6 @@ brutalise
 brutalised
 brutalises
 brutalising
-buses
-busing
 caesarean
 caesareans
 calibre
@@ -168,8 +160,6 @@ canalise
 canalised
 canalises
 canalising
-cancellation
-cancellations
 cancelled
 cancelling
 candour
@@ -320,7 +310,6 @@ counselled
 counselling
 counsellor
 counsellors
-crenellated
 criminalise
 criminalised
 criminalises
@@ -644,11 +633,6 @@ gaoler
 gaolers
 gaoling
 gaols
-gases
-gauge
-gauged
-gauges
-gauging
 generalisation
 generalisations
 generalise
@@ -664,7 +648,6 @@ glamorise
 glamorised
 glamorises
 glamorising
-glamour
 globalisation
 globalise
 globalised
@@ -986,7 +969,6 @@ miniaturise
 miniaturised
 miniaturises
 miniaturising
-minibuses
 minimise
 minimised
 minimises
