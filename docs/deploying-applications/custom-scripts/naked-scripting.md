@@ -4,7 +4,7 @@ description: Naked Scripting allows you to transfer packages and execute scripts
 position: 2
 ---
 
-## Design Intentions {#NakedScripting-DesignIntentions}
+## Design Intentions {#RawScripting-DesignIntentions}
 
 Some Octopus users deploying to SSH Endpoints have had problems installing the Mono prerequisite that provides the runtime for Octopus Deploy's .NET orchestration tool [Calamari](/docs/api-and-integration/calamari.md). Although there is some momentum to package Calamari in a self-contained, cross-platform way with .NET Core, there exists a need now to be able to execute scripts directly on the server without all the added cost and complexity of uploading the latest Calamari. An experiential feature has been provided in Octopus 3.9, accessible via a project variable which will simply open a connection to the remote server and execute a deployment scrip within that session.
 
@@ -41,7 +41,7 @@ While naked scripting does not require a Transfer a Package step, the below scen
 
 :::hint
 **Naked Target Health Checks** {#NakedScripting-HealthChecks}
-Given that the point of naked scripting is to avoid having to install Mono and Calamari, you may need to create a custom [Machine Policy](/docs/key-concepts/environments/machine-policies) and select the `Only perform connection test` option under the section `Health check for SSH endpoints`. Targets configured with this policy will be considered healthy so long as a SSH connection can be established.
+Given that the point of naked scripting is to avoid having to install Mono and Calamari, you may need to create a custom [Machine Policy](/docs/key-concepts/environments/machine-policies.md) and select the `Only perform connection test` option under the section `Health check for SSH endpoints`. Targets configured with this policy will be considered healthy so long as a SSH connection can be established.
 ![](/docs/images/machine-policies/ssh-healthchecks.png "width=300")
 Using a standard machine policy will otherwise result in the endpoint being considered unhealthy if it is unable to find Mono or Calamari.
 :::
