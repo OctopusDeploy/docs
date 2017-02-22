@@ -1,6 +1,6 @@
 ---
 title: Build versions and Packaging in Team Build
-description: A guide to build version numbers in Team Foundation Server (TFS) or Visual Studio Team Services (VSTS) using Team Build, and how they work with packages for Octopus.
+description: A guide to build version numbers in Team Foundation Server (TFS) or Visual Studio Team Services (VSTS), and how they work with packages for Octopus.
 ---
 
 Correctly versioning the packages you deploy with Octopus Deploy is important so the right version gets deployed at the right time. With Team Foundation Server (TFS) and Visual Studio Team Services (VSTS), specifying a package version isn't always straightforward.
