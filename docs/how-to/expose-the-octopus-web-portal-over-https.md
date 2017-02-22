@@ -55,3 +55,14 @@ When you choose to select an existing certificate when configuring your HTTPS bi
 8. If all these requirements have been met (**private key** imported, either the **Web Hosting** or **Personal** stores, in the **Local Computer** scope), the certificate should appear when you select to use an existing certificate when adding your HTTPS binding:  
 
     ![](/docs/images/3048148/3278454.png "width=500")  
+
+## Forcing HTTPS {#ForcingHTTPS}
+
+A common scenario when hosting the Octopus Server is to redirect all requests initiated over HTTP to HTTPS. With this configuration you can navigate to the Octopus Server using either the `http://` or `https://` scheme, but have Octopus automatically redirect all `http://` requests to use the equivalent `https://` route.
+
+1. Configure binding(s) for `http://` - this allows browsers to initiate their request over HTTP so Octopus can then redirect to HTTPS
+2. Configure SSL binding(s) for https:// using the correct SSL certificate
+3. Test you can use Octopus with either `http://` or `https://` schemes without being redirected (the scheme stays the same) - this proves both endpoint bindings are working as expected
+4. Configure Octopus to `Redirect HTTP requests to HTTPS` - you can do this using the Octopus Server Manager application where you configure the bindings as soon as you have configured an HTTPS binding.
+
+    ![](expose-the-octopus-web-portal-over-https-force-https.png "width=500")
