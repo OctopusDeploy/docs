@@ -13,21 +13,11 @@ The new structure of Team Foundation Build gives us a great opportunity to integ
 
 In this help page:
 
-- [Installing the extension](#UsetheTeamFoundationBuildCustomTask-Installingtheextension)
-- [Add a Connection to Octopus Deploy](#UsetheTeamFoundationBuildCustomTask-AddaConnectiontoOctopusDeploy)
-- [Package your Application and Push to Octopus](#UsetheTeamFoundationBuildCustomTask-PackageyourApplicationandPushtoOctopus)
-- [Using OctoPack to Create and Push a Package](#UsetheTeamFoundationBuildCustomTask-using-octopackUsingOctoPacktoCreateandPushaPackage)
-- [Add Steps to your Build or Release Process](#UsetheTeamFoundationBuildCustomTask-AddStepstoyourBuildorReleaseProcess)
-- [Add a Package Application step](#UsetheTeamFoundationBuildCustomTask-package-application-stepAddaPackageApplicationstep)
-- [Publish Package Artifact](#UsetheTeamFoundationBuildCustomTask-PublishPackageArtifact)
-- [Add a Push Package(s) to Octopus Step](#UsetheTeamFoundationBuildCustomTask-push-packages-stepAddaPushPackage(s)toOctopusStep)
-- [Add a Create Octopus Release Step](#UsetheTeamFoundationBuildCustomTask-AddaCreateOctopusReleaseStep)
-- [Add a Deploy Octopus Release Step](#UsetheTeamFoundationBuildCustomTask-AddaDeployOctopusReleaseStep)
-- [Add a Promote Octopus Release Step](#UsetheTeamFoundationBuildCustomTask-AddaPromoteOctopusReleaseStep)
+!toc
 
 We've open-sourced the [OctoTFS repository in GitHub](https://github.com/OctopusDeploy/OctoTFS) if you'd like to contribute.
 
-## Installing the extension {#UsetheTeamFoundationBuildCustomTask-Installingtheextension}
+## Installing the extension
 
 If you're using **Visual Studio Team Services (VSTS) or on-premises Team Foundation Server (TFS) 2017 (or newer)** you can simply [install the extension from the marketplace](https://marketplace.visualstudio.com/items/octopusdeploy.octopus-deploy-build-release-tasks) and follow the instructions below.
 
@@ -37,12 +27,12 @@ If you're using an **on-premises TFS server older than 2015 Update 2**, the exte
 
 After installing the extension, follow the below steps to get it running for your build.
 
-:::success
+:::hint
 **Manually installing the extension (not recommended)**
 If you want to make changes to the build task that might not be appropriate for everyone, you can download and manually install the build task yourself. See [Manually install the Build Task (not recommended)](/docs/guides/use-the-team-foundation-build-custom-task/manually-install-the-build-task.md) for details.
 :::
 
-## Add a Connection to Octopus Deploy {#UsetheTeamFoundationBuildCustomTask-AddaConnectiontoOctopusDeploy}
+## Add a Connection to Octopus Deploy}
 
 Hover over the **Manage Project** cog in the top right corner of the project screen in Visual Studio Team Services, and click the **Services** link.
 
@@ -64,14 +54,14 @@ After you've saved the connection, it should be available from the Octopus Deplo
 
 To integrate with Octopus Deploy, an application must be packaged into either a NuGet or Zip package, and pushed to Octopus Deploy (or any NuGet repository).
 
+:::hint
+We strongly recommend reading the [Build Versions in Team Build](build-versions-in-team-build) guide for advice around build and package versions.
+:::
+
 There are two options for packaging and pushing:
 
 - [Use OctoPack](/docs/guides/use-the-team-foundation-build-custom-task/index.md) as part of your build process.
 - Use the [Package Application](/docs/guides/use-the-team-foundation-build-custom-task/index.md) and [Push Package to Octopus](/docs/guides/use-the-team-foundation-build-custom-task/index.md) Steps added by this extension.
-
-:::hint
-There are a number of useful variables provided by Visual Studio Team Services to help you locate files and folders. For a full list, look at the [build variables documentation](https://www.visualstudio.com/docs/build/define/variables).
-:::
 
 ### Using OctoPack to Create and Push a Package {#UsetheTeamFoundationBuildCustomTask-using-octopackUsingOctoPacktoCreateandPushaPackage}
 
@@ -109,15 +99,12 @@ Add a step to your Build or Release process, choose **Package**, click **Add** n
 
 ![](/docs/images/3048587/configure-package-step.jpg "width=500")
 
-:::hint
+:::success
 **Package versioning**
 In the above image, the package version is defined as $(Build.BuildNumber).
 It's a common (and handy) practice to do this, and set the Build Number to be a format that corresponds to a valid NuGet version number.
 
-To do this, in the **General** tab, you can set the Build Number format to something like `1.0.$(BuildID)$(Rev:.r)`.
-That will produce version numbers like `1.0.123.1`, incrementing the minor version each build.
-
-For more details on setting the Build Number format, see [the Microsoft documentation](https://www.visualstudio.com/en-us/docs/build/define/general).
+We recommend you read the [Build Versions in Team Build](build-versions-in-team-build) document for full details on versioning builds and packages.
 :::
 
 See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octo.exe command-line options](/docs/packaging-applications/nuget-packages/using-octo.exe.md) for more details).
