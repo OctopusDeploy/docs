@@ -419,7 +419,7 @@ add a variable named `Octopus.Action.PowerShell.ExecuteWithoutProfile` with a va
 
 ## Scripts that block deployments {#Customscripts-Scriptsthatblockdeployments}
 
-Sometimes a script launches a service or application that runs continuously. In this case the script does not complete until the application is terminated.  When the script is run in an Octopus deployment, the deployment will continue executing until the script exits.  In most cases this is undesirable. In order to avoid this behaviour the service or application should be launched in a separate process or session, allowing the deployment to continue executing immediately. For example:
+Sometimes a script launches a service or application that runs continuously. In this case the script does not complete until the application is terminated.  When the script is run in an Octopus deployment, the deployment will continue executing until the script exits.  In most cases this is undesirable. In order to avoid this behavior the service or application should be launched in a separate process or session, allowing the deployment to continue executing immediately. For example:
 
 ```powershell PowerShell
 Start-Process MyService

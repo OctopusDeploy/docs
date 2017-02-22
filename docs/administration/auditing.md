@@ -15,7 +15,7 @@ Below is a short list of just some of the things that Octopus captures:
 - Changes to [deployment processes](/docs/deploying-applications/index.md) and [variables](/docs/deploying-applications/variables/index.md)
 - Create/modify/delete events for [projects](/docs/key-concepts/projects/index.md), [environments](/docs/key-concepts/environments/index.md), [deployment targets](/docs/deployment-targets/index.md), releases, and so on
 - Environment changes, such as adding new deployment targets or modifying the environment a deployment target belongs to
-- Queuing and cancelling of deployments and other tasks
+- Queuing and canceling of deployments and other tasks
 
 :::info
 Whilst Octopus does not capture login and logout events for specific user accounts, it does capture the details of every action including who initiated the action.

@@ -202,7 +202,7 @@ Octopus.Step[S].Status.Error
 Octopus.Step[S].Status.ErrorDetail
 ```
 
-Status codes include `Pending`, `Skipped`, `Abandoned`, `Cancelled`, `Running`, `Succeeded` and `Failed`.
+Status codes include `Pending`, `Skipped`, `Abandoned`, `canceled`, `Running`, `Succeeded` and `Failed`.
 
 For an action `A:`
 

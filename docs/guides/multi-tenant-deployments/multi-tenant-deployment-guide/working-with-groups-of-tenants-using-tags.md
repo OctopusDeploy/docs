@@ -51,7 +51,7 @@ Let's create a tag set called **Tenant importance** with some tags that represe
 | Name     | Description                            | Color      |
 | -------- | -------------------------------------- | ---------- |
 | VIP      | Very important tenant - pay attention! | Dark Red   |
-| Standard | These are our standard customers       | Light Grey |
+| Standard | These are our standard customers       | Light Gray |
 | Trial    | These are trial customers              | Purple     |
 
 The result should look like the screen below:

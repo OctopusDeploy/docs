@@ -8,7 +8,7 @@ Octopus Deploy can help you perform repeatable and controlled deployments of you
 
 ## What kind of applications can I deploy to Azure? {#DeployingtoAzure-WhatkindofapplicationscanIdeploytoAzure?}
 
-The short answer is: anything and everything! As long as you can script the deployment, Octopus can automate your deployments into a Microsoft Azure Data Centre.
+The short answer is: anything and everything! As long as you can script the deployment, Octopus can automate your deployments into a Microsoft Azure Data Center.
 
 We provide built-in first-class support for the most common application services in Microsoft Azure. For everything else we provide a special step for running PowerShell scripts against Azure.
 
@@ -42,8 +42,8 @@ Octopus Deploy ships with a version of the Azure PowerShell cmdlets so you can d
 
 If you need to add firewall exclusions to a whitelist:
 
-- Figure out which Azure Data Centres you will be targeting
-- Figure out which Azure services you will be targeting in those Data Centres
+- Figure out which Azure Data Centers you will be targeting
+- Figure out which Azure services you will be targeting in those Data Centers
 - Configure a whitelist from the Octopus Server (where the deployments are performed) to the appropriate IP Address Ranges
 
-Download the latest list of IP Address Ranges from the [Microsoft Download Centre](https://www.microsoft.com/download/details.aspx?id=41653) (updated weekly).
+Download the latest list of IP Address Ranges from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653) (updated weekly).

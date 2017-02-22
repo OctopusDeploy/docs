@@ -163,4 +163,4 @@ Yes, you can determine which types of releases should be deployed to a your tena
 
 ## Are there any known limitations or problems with multi-tenant deployments? {#LimitationsAndBugs?}
 
-Whenever we discover a limitation or problem with multi-tenant deployments we create a GitHub Issue labelled with the `feature/tenants` to track its progress. [These issues](https://github.com/OctopusDeploy/Issues/issues?q=is%3Aopen+is%3Aissue+label%3Afeature%2Ftenants) represent anything we have agreed is a limitation or problem, and we intend to implement it in the near future. We recommend investigating whether these limitations will impact your specific scenario.
+Whenever we discover a limitation or problem with multi-tenant deployments we create a GitHub Issue labeled with the `feature/tenants` to track its progress. [These issues](https://github.com/OctopusDeploy/Issues/issues?q=is%3Aopen+is%3Aissue+label%3Afeature%2Ftenants) represent anything we have agreed is a limitation or problem, and we intend to implement it in the near future. We recommend investigating whether these limitations will impact your specific scenario.

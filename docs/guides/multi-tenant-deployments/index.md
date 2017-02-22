@@ -23,7 +23,7 @@ Starting with Octopus 3.4 you can manage tenants as a first-class citizen enabli
    a. tenant-per-tester
    a. tenant-per-feature/tenant-per-branch
    a. tenant-per-geographical-region
-   a. tenant-per-datacentre
+   a. tenant-per-datacenter
 2. Easily manage unique configuration settings using variables defined on the tenant;
 3. Promote releases to your tenants using safe customer-aware lifecycles, potentially through multiple environments;
    a. tenant-specific UAT and Production environments

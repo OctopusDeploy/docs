@@ -15,7 +15,7 @@ A process dump consists of all the memory the process is currently using.
 This includes deployment variables, credentials and certificates.
 
 Therefore we take great care in handling these dumps and will provide a 
-secure upload facility. We will also delete them as soon as they have been analysed.
+secure upload facility. We will also delete them as soon as they have been analyzed.
 :::
 
 :::warning

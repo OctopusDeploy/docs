@@ -47,7 +47,7 @@ There are three pieces of information to verify.
 2. Check the port that the Tentacle listens on
 3. Check that the **Octopus Server** thumbprint shown matches the one shown in the *Configuration > Certificates* screen in the Octopus Web Portal.
 
-Note that there are two thumbprints displayed - that of the Tentacle itself (shown first in bold) and the thumbprints of trusted servers (shown inline in the grey text).
+Note that there are two thumbprints displayed - that of the Tentacle itself (shown first in bold) and the thumbprints of trusted servers (shown inline in the gray text).
 
 :::hint
 **If any communication settings are incorrect...**
@@ -101,7 +101,7 @@ When forming the URL to check:
 
 :::hint
 **If you can't connect...**
-Failing to connect at this step means that you have a network issue preventing traffic between the Octopus Server and Tentacles. Check that the Tentacle port is open in any firewalls, and that other services on the network are working. There's not usually much that Octopus Deploy Support can suggest for these issues as networks are complex and highly varied. Having the network administrator from your organisation help diagnose the issue is the best first step. If that draws a blank, please get in touch.
+Failing to connect at this step means that you have a network issue preventing traffic between the Octopus Server and Tentacles. Check that the Tentacle port is open in any firewalls, and that other services on the network are working. There's not usually much that Octopus Deploy Support can suggest for these issues as networks are complex and highly varied. Having the network administrator from your organization help diagnose the issue is the best first step. If that draws a blank, please get in touch.
 
 Remember to check both the built-in Windows Firewall, and any other firewalls (in Amazon EC2, check your security group settings for example).
 :::

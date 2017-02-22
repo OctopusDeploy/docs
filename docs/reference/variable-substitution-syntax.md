@@ -95,7 +95,7 @@ And in *Production*it will be:
 <compilation >
 ```
 
-You could achieve a similar result, with a different default/fallback behaviour, using the unless syntax:
+You could achieve a similar result, with a different default/fallback behavior, using the unless syntax:
 
 ```powershell
 <compilation #{unless DebugDisabled}debug="true"#{/unless}>
