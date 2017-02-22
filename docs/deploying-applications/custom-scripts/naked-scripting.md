@@ -39,6 +39,13 @@ While naked scripting does not require a Transfer a Package step, the below scen
 4. Create a release and deploy the project. You should notice that unlike a typical deployment, there are no calls to upload or run Calamari and the whole thing runs a bit faster due to the reduced overhead. If you check your *~/.octopus* directory on the remote endpoint, you should also notice that there are no Calamari dependencies that have had to be uploaded for this deployment.  
    ![](/docs/images/naked-scripting/transferpackage-deployment.png "width=500")
 
+:::hint
+**Naked Target Health Checks** {#NakedScripting-HealthChecks}
+Given that the point of naked scripting is to avoid having to install Mono and Calamari, you may need to create a custom [Machine Policy](/docs/key-concepts/environments/machine-policies) and select the `Only perform connection test` option under the section `Health check for SSH endpoints`. Targets configured with this policy will be considered healthy so long as a SSH connection can be established.
+![](/docs/images/machine-policies/ssh-healthchecks.png "width=300")
+Using a standard machine policy will otherwise result in the endpoint being considered unhealthy if it is unable to find Mono or Calamari.
+:::
+
 ## Naked Tentacles {#NakedScripting-NakedTentacles}
 
 Naked scripting is also supported on standard Windows based Tentacles however in this case the scripts will always be executed in the context of a PowerShell session. Keep in mind that this still means that you need a fully functioning Tentacle actually running on the remote target.
