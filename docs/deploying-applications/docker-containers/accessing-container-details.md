@@ -35,7 +35,7 @@ A typical project may involve one step that first creates a network, and then cr
 
 ### Obtain Container IP address inside custom network {#AccessingContainerDetails-ObtainContainerIPaddressinsidecustomnetwork}
 
-Once a container has started and is attached to a network, an IP address will be assigned to it. Since the container may vet attached to more than one network, the network details are stored in the JSON as an object indexed by the network name. When trying to get the IP address assigned to a container which has been added to a custom network, there are two steps to the variable substitution. First we need the network name, then we need to inspect the container and find the network information that corresponds to that network name.
+Once a container has started and is attached to a network, an IP address will be assigned to it. Since the container may get attached to more than one network, the network details are stored in the JSON as an object indexed by the network name. When trying to get the IP address assigned to a container which has been added to a custom network, there are two steps to the variable substitution. First we need the network name, then we need to inspect the container and find the network information that corresponds to that network name.
 
 ```powershell
 #{Octopus.Action[Create Container Step Name].Output.Docker.Inspect.NetworkSettings.Networks[#{Octopus.Action[Create Network Step Name].Output.Docker.Inspect.Name}].IPAddress}

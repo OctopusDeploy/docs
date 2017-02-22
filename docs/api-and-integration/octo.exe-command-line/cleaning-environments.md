@@ -32,8 +32,10 @@ Usage: Octo clean-environment [<options>]
 Where [<options>] is any of: 
 Cleanup: 
       --environment=VALUE    Name of an environment to clean up.
-      --status=VALUE         Status of Machines to clean up (Online, Offline, 
+      --status=VALUE         (Deprecated) Status of Machines to clean up (Online, Offline, 
                              NeedsUpgrade, CalamariNeedsUpgrade, Disabled).
+      --health-status=VALUE  Health Status of machines to clean up (Healthy,
+                             Unavailable, Unknown, HasWarnings and Unhealthy).
 Common options: 
       --server=VALUE         The base URL for your Octopus server - e.g., 
                              http://your-octopus/

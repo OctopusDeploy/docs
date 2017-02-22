@@ -20,7 +20,7 @@ Lifecycle management can be found under **Library** and then **Lifecycles**.
 
 ![](/docs/images/3048104/3277868.png "width=500")
 
-To add a new Lifecycle click on the**Add Lifecycle** button.
+To add a new Lifecycle click on the **Add Lifecycle** button.
 
 ![](/docs/images/3048104/3277867.png "width=500")
 

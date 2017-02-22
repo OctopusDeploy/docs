@@ -2,11 +2,8 @@
 title: Cloud Regions
 description: Cloud Regions deployment targets allow steps to be executed multiple times to support deploying cloud applications in numerous geographic regions.
 position: 2
+version: 3.4
 ---
-
-:::hint
-Cloud Regions were shipped with Octopus 3.4.
-:::
 
 Cloud Region targets will enable steps which execute on the Octopus Server to execute multiple times, with variables scoped for each iteration. The specific scenario this is designed to support is deploying cloud applications to multiple geographic regions:
 

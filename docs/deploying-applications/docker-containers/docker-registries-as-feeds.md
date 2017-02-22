@@ -86,7 +86,7 @@ This image supports custom storage locations, certificates for HTTPS and authent
 
 There are many other options for private registries such as self hosting through [Docker Trusted Registry](https://docs.docker.com/docker-trusted-registry/) or [Artifactory](https://www.jfrog.com/artifactory/), or using a cloud provider like [Quay](https://quay.io/). If using Amazon's [EC2 Container Registry](https://aws.amazon.com/ecr/), keep in mind that it exposes a v2 feed, and that you must generate the username and password using the *aws ecr get-login* command and set these details into your Octopus Deploy feed configuration.
 
-Note that as of the current version of ProGet (version 4.6.7 (Build 2)), their Docker Registry Feed does not expose the full Docker API and is missing the [_catalog endpoint](https://docs.docker.com/registry/spec/api/#/listing-repositories) which is required to list the available pacakges for release selection. It has been indicated that this may change in a future release.
+Note that as of the current version of ProGet (version 4.6.7 (Build 2)), their Docker Registry Feed does not expose the full Docker API and is missing the [_catalog endpoint](https://docs.docker.com/registry/spec/api/#/listing-repositories) which is required to list the available packages for release selection. It has been indicated that this may change in a future release.
 
 :::problem
 **Searching in a v2 registry**

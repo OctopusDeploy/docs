@@ -31,6 +31,8 @@ Required. Used for the web page title tag `<head><title>`, displayed in the page
 
 ### Description
 Required. Used for the meta description tag (`<meta name="description" />`).
+Keep the description under 160 characters.
+Read [how to write a good description](https://moz.com/learn/seo/meta-description).
 
 ### Position
 Optional. Used for the position in the menu.
@@ -41,6 +43,10 @@ Optional. The versions that this file applies to. This meatadata supports ranges
 ## Menu
 
 The menu is auto generated based on the git repo folder structure and title and position metadata.
+
+## Version dropdown
+
+The list of versions displayed on the dropdown are loaded from [versions.json](versions.json).
 
 ## URLs
 
@@ -259,13 +265,21 @@ Which means elsewhere in the page you can link to it with this:
 
 ## Images
 
+You have a few options:
+
+1. Put your image in the same folder as the markdown file;
+2. For shared images, put your image in the [images folder](docs/images);
+3. For internet images, just reference it remembering to use the `https://` scheme;
+
 Images can be added using the following markdown syntax
 
-    ![Alt text](/docs/images/img.jpg "Optional title")
+    ![Alt text](img.jpg "Optional title width=500")
 
 With the minimal syntax being
 
-    ![](/docs/images/img.jpg)
+    ![](img.jpg)
+    
+Keep reading for a detailed explanation of the options available when working with images.
 
 ### Image paths
 Paths to internal images need to:

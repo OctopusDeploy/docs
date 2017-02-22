@@ -72,11 +72,7 @@ The values required for the script above are:
 
 **Password**: A secret value created by you. Ensure you record it, as you will need to enter it into Octopus Deploy.
 
-**Tenant ID**: The ID of the Active Directory tenant.  You can get this value from the old Azure portal.  If you navigate to the Active Directory tab, and inspect the URL of the link to the directory you will be using, the Tenant ID will be the final portal portion.
-
-e.g. https://manage.windowsazure.com/@papasmurf.smurfs.com#Workspaces/ActiveDirectoryExtension/Directory/**b88c0ac7-dade-3842-8a4f-3bc5db3ee8ca**
-
-![](/docs/images/3702850/3964967.png "width=500")
+**Tenant ID**: The ID of the Active Directory tenant.  You can get this value by clicking 'Properties' in the Directory blade & looking for the value labled Directory ID.
 
 ### Option 2: Use the Azure Portal {#CreatinganAzureServicePrincipalAccount-Option2:UsetheAzurePortal}
 

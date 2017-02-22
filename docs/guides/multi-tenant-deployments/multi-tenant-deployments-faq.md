@@ -10,10 +10,14 @@ This page contains some of the questions we are asked most often related to mult
 - Is there anything special about multi-tenant projects or environments?
 - Can I deploy to multiple tenants in a single deployment?
 - Can I deploy to multiple tenants at the same time?
+- Can I control the order in which tenanted deployments execute?
+- Can I perform tenanted deployments in batches?
 - Can I have a combination of tenanted and untenanted projects?
 - What is an "un-tenanted deployment"? Don't I have to choose a tenant when deploying my project?
 - Can I prevent "un-tenanted deployments" of a project?
 - Can I require a tenant for all deployments of a project?
+- Can I deploy a tenanted project onto an un-tenanted machine?
+- Can I deploy an un-tenanted project onto a tenanted machine?
 - Why can't I connect a tenant to my project, or perform a tenanted deployment of my project?
 - Why can't I connect a tenant to one of the environments for my project?
 - I want to deploy my project to a tenant, but I can't see that tenant in the list?
@@ -50,6 +54,26 @@ No. A tenant is treated like a smaller slice of an environment. Octopus creates 
 
 Yes! You can create multiple tenanted deployments at the same time very easily by using the Octopus UI, `octo.exe` or any of the build server extensions. You can choose multiple tenants using [Tenant Tags](/docs/key-concepts/tenants/tenant-tags.md) or all of the tenants in an environment. For more information refer to [deploying releases with octo.exe](/docs/api-and-integration/octo.exe-command-line/deploying-releases.md) and [designing a multi-tenant upgrade process](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md).
 
+## Can I control the order in which tenanted deployments execute?
+
+No. Octopus will execute deployment tasks as quickly as it can, and order cannot be guaranteed.
+
+When you want to deploy a release to multiple tenants, Octopus will create one deployment per-tenant. This means if you want to deploy to 20 tenants, you will end up with 20 tenanted deployments: one for each tenant. Each deployment is executed in its own task, and Octopus will work through those tasks as quickly as it can.
+
+There are a few ways you can achieve a predictable order of tenanted deployments:
+
+1. Deploy to each tenant manually, one at a time
+2. Use tenant tags to group tenants into batches, and work your way through these batches
+3. Write a simple orchestrator application using the Octopus API to coordinate your tenanted deployments
+
+We recommend avoiding order dependence of your deployments wherever possible.
+
+## Can I perform tenanted deployments in batches?
+
+Yes! This is a practice we recommend. You can use [tenant tags](/docs/key-concepts/tenants/tenant-tags.md) to group your tenants together into batches and then promote your releases through your tenants in batches. It can be convenient to deploy to some of your tenants first in order to detect any problems with your release before you promote to all of your other tenants.
+
+Learn more about [designing a multi-tenant upgrade process](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md).
+
 ## Can I have a combination of tenanted and untenanted projects? {#Multi-tenantdeploymentsFAQ-CanIhaveacombinationoftenantedanduntenantedprojects?}
 
 Yes! Each project can control its interaction with tenants. By default the multi-tenant deployment features are disabled. You can allow deployments with/without a tenant, which is a hybrid mode that is useful when you are transitioning to a fully multi-tenant project. There is also a mode where you can require a tenant for all deployments, which disables untenanted deployments for that project.
@@ -67,6 +91,14 @@ Yes. Choose the **Require a tenant for all deployments** option in the Project s
 ## Can I require a tenant for all deployments of a project? {#Multi-tenantdeploymentsFAQ-CanIrequireatenantforalldeploymentsofaproject?}
 
 Yes, see the previous question. For more information refer to [deploying a simple multi-tenant project](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md).
+
+## Can I deploy a tenanted project onto an un-tenanted machine?
+
+No, not at this point in time. We have an [open issue](https://github.com/OctopusDeploy/Issues/issues/2722) to address this limitation which details some viable workarounds you can use in the meantime.
+
+## Can I deploy an un-tenanted project onto a tenanted machine?
+
+No, not at this point in time. We have an [open issue](https://github.com/OctopusDeploy/Issues/issues/2722) to address this limitation which details some viable workarounds you can use in the meantime.
 
 ## Why can't I connect a tenant to my project, or perform a tenanted deployment of my project? {#Multi-tenantdeploymentsFAQ-Whycan&#39;tIconnectatenanttomyproject,orperformatenanteddeploymentofmyproject?}
 
