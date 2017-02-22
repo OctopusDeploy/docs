@@ -1,5 +1,6 @@
 ---
 title: Archiving and Deleting Certificates 
+description: Archiving and Deleting certificates managed by Octopus Deploy 
 position: 3 
 version: "3.11"
 ---

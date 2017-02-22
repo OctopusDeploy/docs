@@ -1,5 +1,6 @@
 ---
 title: Replace a Certificate 
+description: Replace a certificate managed by Octopus Deploy 
 position: 4 
 version: "3.11"
 ---
