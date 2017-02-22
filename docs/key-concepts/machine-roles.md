@@ -28,7 +28,7 @@ You can check all the roles assigned to your machines from the **Environments**
 
 ## Using roles on deployment steps {#MachineRoles-Usingrolesondeploymentsteps}
 
-Almost all the steps that run on a Tentacle can be scoped to one or more roles. This means that the step will only execute on Tentacles with at least one of those roles.
+Almost all the steps that run on a Tentacle can be scoped to one or more roles. This means that the step will only execute on Tentacles with at least one of those roles. This does not mean that if the step is scoped to multiple roles that it will run for each role. Instead it will run that step for _all machines that have any roles that match any of the step roles._
 
 To scope a step to a specific role, all you have to do is type in the role name on the **Machine Roles** field.
 
