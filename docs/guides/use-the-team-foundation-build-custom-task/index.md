@@ -56,7 +56,7 @@ After you've saved the connection, it should be available from the Octopus Deplo
 To integrate with Octopus Deploy, an application must be packaged into either a NuGet or Zip package, and pushed to Octopus Deploy (or any NuGet repository).
 
 :::hint
-We strongly recommend reading the [Build Versions in Team Build](build-versions-in-team-build) guide for advice around build and package versions.
+We strongly recommend reading the [Build Versions in Team Build](build-versions-in-team-build.md) guide for advice around build and package versions.
 :::
 
 There are two options for packaging and pushing:
@@ -105,7 +105,7 @@ Add a step to your Build or Release process, choose **Package**, click **Add** n
 In the above image, the package version is defined as $(Build.BuildNumber).
 It's a common (and handy) practice to do this, and set the Build Number to be a format that corresponds to a valid NuGet version number.
 
-We recommend you read the [Build Versions in Team Build](build-versions-in-team-build) document for full details on versioning builds and packages.
+We recommend you read the [Build Versions in Team Build](build-versions-in-team-build.md) document for full details on versioning builds and packages.
 :::
 
 See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octo.exe command-line options](/docs/packaging-applications/nuget-packages/using-octo.exe.md) for more details).

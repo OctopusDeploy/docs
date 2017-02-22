@@ -61,7 +61,7 @@ Setting the `AssemblyVersion` number to `x.y.*` will [fix the two most common pr
 1. If the version number is fixed (e.g. `1.0.0.0`), Octopus will complain that the package number already exists.
 2. If the version number only changes "revision" number (e.g. `1.0.0.*`), numbers can repeat.
 
-One problem remains - particularly for web projects. If you only change content files, triggering a new build _won't update the version number_ because Team Build realises no compilable code has changed. OctoPack won't get a new version number!
+One problem remains - particularly for web projects. If you only change content files, triggering a new build _won't update the version number_ because Team Build realizes no compilable code has changed. OctoPack won't get a new version number!
 
 ### OctoPack recommendation
 
