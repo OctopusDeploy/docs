@@ -7,7 +7,7 @@ position: 0
 A [Docker Registry](https://docs.docker.com/registry/) is treated in Octopus Deploy as a feed that supplies images that are run as containers on a Docker Engine host.
 
 :::success
-Learn more about using Docker Registries in our guide: [Docker run with networking](/docs/guides/docker/docker-run-with-networking.md)
+See an example of using Docker Registries in our guide: [Docker run with networking](/docs/guides/docker/docker-run-with-networking.md)
 :::
 
 ## Using Docker Registries in Octopus Deploy {#DockerRegistriesasFeeds-UsingDockerRegistriesinOctopusDeploy}
@@ -21,6 +21,8 @@ Octopus Deploy supports the Docker Registry [Version 1](https://docs.docker.com
 The Docker Registries you configure need to be accessed by both the Octopus Server and your [Deployment Targets](/docs/deployment-targets/index.md).
 
 The Octopus Server will contact your registry to obtain information on available images while designing and maintaining your projects. During deployment the `docker pull` command will be executed on the Deployment Targets themselves and they will pull the Images directly from the Docker Registry.
+
+When you add your Docker Registry as a feed in Octopus Deploy, Octopus will attempt to detect and connect using the appropriate version based on specifications outlined in the Docker API documentation. If your registry does not support the API correctly, it is possible that the connection will not be able to take place. We advise to click _Save and Test_ once you have entered the registry detils to allow the version detection to take place and confirm that your credentials are correct.
 
 :::hint
 **Container images are downloaded directly by the Deployment Target**
@@ -52,7 +54,13 @@ docker run -d -p 5000:5000 --name registry registry:2
 
 This image supports custom storage locations, certificates for HTTPS and authentication. For more details on setting up the registry checkout the [official docs](https://docs.docker.com/registry/deploying/).
 
-There are many other options for private registries such as self hosting through [Docker Trusted Registry](https://docs.docker.com/docker-trusted-registry/) or [Artifactory](https://www.jfrog.com/artifactory/), or using a cloud provider like [Quay](https://quay.io/). If using Amazon's [EC2 Container Registry](https://aws.amazon.com/ecr/), keep in mind that it exposes a v2 feed, and that you must generate the username and password using the *aws ecr get-login* command and set these details into your Octopus Deploy feed configuration.
+## Other Registry Options {#DockerRegistriesasFeeds-OtherOptions}
+There are many other options for private registries such as self hosting through [Docker Trusted Registry](https://docs.docker.com/docker-trusted-registry/) or [Artifactory](https://www.jfrog.com/artifactory/), or using a cloud provider like [Azure](https://azure.microsoft.com/en-au/services/container-registry/), [AWS](https://aws.amazon.com/ecr/) or [Quay](https://quay.io/)
+
+We have provided further details on setting up a Ocotpus Feed to the following Docker Registries:
+- [Docker Hub](/docs/deploying-applications/docker-containers/registries/docker-hub.md)
+- [Azure Container Services](/docs/deploying-applications/docker-containers/registries/azure-container-services) (currently in preview)
+- [Amazon EC2 Container Services](/docs/deploying-applications/docker-containers/registries/amazon-ec2-container-services)
 
 Note that as of the current version of ProGet (version 4.6.7 (Build 2)), their Docker Registry Feed does not expose the full Docker API and is missing the [_catalog endpoint](https://docs.docker.com/registry/spec/api/#/listing-repositories) which is required to list the available packages for release selection. It has been indicated that this may change in a future release.
 

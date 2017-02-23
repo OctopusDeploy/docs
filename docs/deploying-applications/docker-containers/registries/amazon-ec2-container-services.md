@@ -1,3 +1,9 @@
+---
+title: AWS EC2 Container Services
+description: How to add an AWS Docker Registry as an Octopus Deploy feed for use in Docker steps.
+position: 2
+---
+
 #Amazon - EC2 Container Service#
 
 AWS provides a v2 image registry and is available through their EC2 Container Serivice offering. 
