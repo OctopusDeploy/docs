@@ -39,7 +39,7 @@ When you deploy a project, you can deploy to one environment and a selection of 
 1. Find deployment targets in the target environment with the [roles](/docs/key-concepts/machine-roles.md) required by the deployment process
 2. Filter those deployment targets, selecting only those matching the tenant
 
-Each deployment will then proceed independently with the resulting set of deployment targets. We are going to leverage this behaviour to implement dedicated and shared hosting in our sample.
+Each deployment will then proceed independently with the resulting set of deployment targets. We are going to leverage this behavior to implement dedicated and shared hosting in our sample.
 
 ## Scenario: Dedicated hosting {#Designingamulti-tenanthostingmodel-Scenario:Dedicatedhosting}
 
@@ -68,7 +68,7 @@ In this case we are willing to host the applications of multiple tenants on the 
 Firstly let's create a tag set to identify which tenants should be hosted on which shared server farms:
 
 1. Go to *Library > Tenant Tag Sets* and create a new tag set called **Hosting**
-2. Add a tag called **Shared-Farm-1** and set the colour to green which will help identify tenants on shared hosting more quickly
+2. Add a tag called **Shared-Farm-1** and set the color to green which will help identify tenants on shared hosting more quickly
    ![](/docs/images/5669555/5865742.png "width=500")
 
 ### Step 2: Configure the shared server farm {#Designingamulti-tenanthostingmodel-Step2:Configurethesharedserverfarm}

@@ -1,6 +1,6 @@
 ---
 title: Project Triggers
-description: Project Triggers allow you to define unattended behaviour for your project such as automatically deploying a release to an environment.
+description: Project Triggers allow you to define unattended behavior for your project such as automatically deploying a release to an environment.
 position: 3
 version: 3.4
 ---

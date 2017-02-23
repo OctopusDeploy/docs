@@ -52,7 +52,7 @@ As of v3.5, when users log in to Octopus Deploy, the server will consider more t
 
 Some of the authentication providers rely on Forms style authentication, where the user provides a username and password directly on a form in the Octopus Deploy web application.  Other providers rely on a redirection to an external URL to authenticate the user.  This latter group of providers will, by default, present a link to the user to trigger the redirect to the external URL.
 
-Starting in v3.5, you can also configure Octopus Deploy to automatically redirect to the external URL so the user doesn't have to explicitly click on the link.  This behaviour is **not enabled by default**. To enable it, run the following:
+Starting in v3.5, you can also configure Octopus Deploy to automatically redirect to the external URL so the user doesn't have to explicitly click on the link.  This behavior is **not enabled by default**. To enable it, run the following:
 
 ```powershell
 Octopus.Server.exe configure --autoLoginEnabled=true

@@ -75,7 +75,7 @@ A new certificate has been generated and installed. Thumbprint:
 DE010ABF6FF8ED1B7895A31F005B8D88A3329867
 ```
 
-continue with the following steps to ensure the Octopus Server recognises this new thumbprint.
+continue with the following steps to ensure the Octopus Server recognizes this new thumbprint.
 :::
 3. Restart the Tentacle service.
 4. Execute the following command to display the updated thumbprint.

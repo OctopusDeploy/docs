@@ -31,6 +31,8 @@ Required. Used for the web page title tag `<head><title>`, displayed in the page
 
 ### Description
 Required. Used for the meta description tag (`<meta name="description" />`).
+Keep the description under 160 characters.
+Read [how to write a good description](https://moz.com/learn/seo/meta-description).
 
 ### Position
 Optional. Used for the position in the menu.
@@ -41,6 +43,10 @@ Optional. The versions that this file applies to. This meatadata supports ranges
 ## Menu
 
 The menu is auto generated based on the git repo folder structure and title and position metadata.
+
+## Version dropdown
+
+The list of versions displayed on the dropdown are loaded from [versions.json](versions.json).
 
 ## URLs
 
@@ -193,6 +199,17 @@ The number is 45.</p>
 </div>
 ```
 
+## Application Paths
+In order to be consistent when referencing certain areas of the application we have created a markdown extension to render application paths.
+To render an application path use the following syntax:
+```md
+{{my,application,path}}
+```
+Example:
+```md
+To enable Docker in your Octopus Server instance, toggle the feature on via {{Configuration,Features,Docker}}.
+```
+
 ## ToC
 Table of contents can be added to any page anywhere by adding `!toc` to the markdown.
 
@@ -261,9 +278,9 @@ Which means elsewhere in the page you can link to it with this:
 
 You have a few options:
 
-1. Put your image in the same folder as the markdown file and reference it like this ![Alt text](myimage.png "Optional title width=500")
-2. For shared images, put your image in the images folder and reference it like this ![Alt text](/docs/images/myimage.png "Optional title width=500")
-3. For internet images, just reference it remembering to use the `https://` scheme like this ![Alt text](https://my.image.com/myimage.png "Optional title width=500")
+1. Put your image in the same folder as the markdown file;
+2. For shared images, put your image in the [images folder](docs/images);
+3. For internet images, just reference it remembering to use the `https://` scheme;
 
 Images can be added using the following markdown syntax
 
@@ -271,8 +288,10 @@ Images can be added using the following markdown syntax
 
 With the minimal syntax being
 
-    ![](img.jpg)
-    
+    ![Alt text](img.jpg)
+
+**All** images should have [alt text](https://en.wikipedia.org/wiki/Alt_attribute).
+
 Keep reading for a detailed explanation of the options available when working with images.
 
 ### Image paths

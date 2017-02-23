@@ -41,7 +41,7 @@ Keep in mind that variables can be scoped per environment (thus customer).
 
 ## Project per customer {#Multi-tenantdeploymentspriortoOctopus3.4-Projectpercustomerproject-per-customer}
 
-In this scenario, we would set up a project with the three deployment steps, and use it as a template. We would then clone the project once per customer, and customise the variables and other settings per customer.
+In this scenario, we would set up a project with the three deployment steps, and use it as a template. We would then clone the project once per customer, and customize the variables and other settings per customer.
 
 ![](/docs/images/5669204/5865539.png "width=500")
 

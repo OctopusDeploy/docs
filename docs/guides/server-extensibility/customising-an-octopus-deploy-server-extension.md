@@ -1,6 +1,6 @@
 ---
-title: Customising an Octopus Deploy server extension
-description: Octopus Deploy built-in server extensions are available on GitHub and can be forked and customised.
+title: Customizing an Octopus Deploy server extension
+description: Octopus Deploy built-in server extensions are available on GitHub and can be forked and customized.
 ---
 
 :::hint
@@ -14,15 +14,15 @@ As part of the Octopus Deploy installation, a number of extensions are provided 
 - [Guest authentication](https://github.com/OctopusDeploy/GuestAuthenticationProvider)
 - [OpenID Connect based authentication](https://github.com/OctopusDeploy/OpenIDConnectAuthenticationProviders) (e.g. Azure AD and GoogleApps)
 
-One of the reasons behind open-sourcing these projects is to allow users to customise them if they need to.  For example, Active Directory configurations can vary dramatically and for some users it may make sense to modify parts of our implementation.
+One of the reasons behind open-sourcing these projects is to allow users to customize them if they need to.  For example, Active Directory configurations can vary dramatically and for some users it may make sense to modify parts of our implementation.
 
-## Customising the code {#CustomisinganOctopusDeployserverextension-Customisingthecode}
+## Customizing the code {#CustomisinganOctopusDeployserverextension-Customisingthecode}
 
-The simplest option for customising the code is to fork the project in GitHub.  This will allow you to keep up to date with any changes we might make and you'll be able to submit PRs.
+The simplest option for customizing the code is to fork the project in GitHub.  This will allow you to keep up to date with any changes we might make and you'll be able to submit PRs.
 
 ## Building the code {#CustomisinganOctopusDeployserverextension-Buildingthecode}
 
-Included in the project repositories are the [Cake](http://cakebuild.net/) build scripts we use to build the extensions.  These are used to both compile the dlls and produce the NuGet packages that we use for distribution.  To use a customised extension, you only need the compiled dll.
+Included in the project repositories are the [Cake](http://cakebuild.net/) build scripts we use to build the extensions.  These are used to both compile the dlls and produce the NuGet packages that we use for distribution.  To use a customized extension, you only need the compiled dll.
 
 ## Installing a custom extension {#CustomisinganOctopusDeployserverextension-&#39;Installing&#39;acustomextension}
 

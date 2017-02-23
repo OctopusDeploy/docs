@@ -139,7 +139,7 @@ Where `"CN=Users,DC=GPN,DC=COM"` should be replaced with your Container.
 
 Using Trusted Domains is supported by Octopus Deploy.  Users from the domain the Octopus Deploy server is a member of will always be allowed to log in.  Users from domains that the Octopus Deploy server's domain trusts will also be able to log in.
 
-Learn about [configuring Teams to utilise Trusted Domains](/docs/administration/managing-users-and-teams/external-groups-and-roles.md).
+Learn about [configuring Teams to utilize Trusted Domains](/docs/administration/managing-users-and-teams/external-groups-and-roles.md).
 
 ### Troubleshooting {#ActiveDirectoryauthentication-Troubleshooting}
 

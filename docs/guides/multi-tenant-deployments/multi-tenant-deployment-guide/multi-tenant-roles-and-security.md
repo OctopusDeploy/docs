@@ -111,7 +111,7 @@ In this example we will create a new team and combine multiple roles together to
 
 ### Step 3: Test! {#Multi-tenantrolesandsecurity-Step3:Test!.1}
 
-Similarly to the previous example assign a user account, sign in, and test out the resulting behaviour. You should notice you can configure new or existing deployment targets including tenant configuration as we described in [Designing a multi-tenant hosting model](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md).
+Similarly to the previous example assign a user account, sign in, and test out the resulting behavior. You should notice you can configure new or existing deployment targets including tenant configuration as we described in [Designing a multi-tenant hosting model](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md).
 
 ### Step 4: Reduce scope of the team {#Multi-tenantrolesandsecurity-Step4:Reducescopeoftheteam.1}
 
@@ -145,4 +145,4 @@ Now you can create standard Octopus [user accounts](/docs/administration/managin
 
 ## Next steps {#Multi-tenantrolesandsecurity-Nextsteps}
 
-It's important to note that these are example roles and they may not suit every company.  The good news is that they're a great starting point and can be customised to suit different scenarios.
+It's important to note that these are example roles and they may not suit every company.  The good news is that they're a great starting point and can be customized to suit different scenarios.

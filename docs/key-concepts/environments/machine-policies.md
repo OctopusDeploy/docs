@@ -1,13 +1,13 @@
 ---
 title: Machine Policies
-description: Machine Policies allow you to customise the behaviour of Tentacle and SSH endpoints like health check settings, machine connectivity, updates and more.
+description: Machine Policies allow you to customize the behavior of Tentacle and SSH endpoints like health check settings, machine connectivity, updates and more.
 position: 3
 version: 3.3
 ---
 
 Machine policies are groups of settings that can be applied to Tentacle and SSH endpoints to modify their behavior. They can be used to:
 
-- Customise the interval between health checks
+- Customize the interval between health checks
 - Run custom health check scripts
 - Ignore machines that are unavailable during health checks
 - Configure how Calamari and Tentacle are updated
@@ -39,7 +39,7 @@ Try {
 }
 ```
 
-The function *CheckDriveCapacity* informs you about how much space is available on your Tentacle's local hard disk and will write a warning if the free disk space is less than this threshold. You can add additional Powershell to this script to customize your health checks as you wish, modify or remove the disk space checking altogether. It's entirely up to you! Just remember, you can copy and paste the original script above *back* into your machine policy if you run into any problems and wish to get back to the default behaviour.
+The function *CheckDriveCapacity* informs you about how much space is available on your Tentacle's local hard disk and will write a warning if the free disk space is less than this threshold. You can add additional Powershell to this script to customize your health checks as you wish, modify or remove the disk space checking altogether. It's entirely up to you! Just remember, you can copy and paste the original script above *back* into your machine policy if you run into any problems and wish to get back to the default behavior.
 
 The health status of a deployment target can be set by custom health check scripts.  Deployment targets can have four health statuses:
 
@@ -62,7 +62,7 @@ Write-Error "This is an error"
 Fail-HealthCheck "This is an error"
 ```
 
-SSH targets do not include a disk space check by default like Tentacle targets do. As such, there is no default Bash script listed in your machine policy for SSH targets by default. However, you may write your own, or choose to add additional Bash script to run against your SSH targets during health checks. Again, it's entirely up to you.
+SSH targets do not include a disk space check by default like Tentacle targets do. As such, there is no default Bash script listed in your machine policy for SSH targets by default. However, you may write your own, or choose to add additional Bash script to run against your SSH targets during health checks. Again, it's entirely up to you. Unless you select the `Only perform connection test` option, there are some [system prerequisites](/docs/deployment-targets/ssh-targets/index.md#SSHTargets-Requirements) that are included as part of the standard health check.
 
 SSH deployment targets can use *echo\_warning*, *echo\_error* and *fail\_healthcheck* to convey a *healthy with warnings* or *unhealthy* status:
 

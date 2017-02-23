@@ -28,7 +28,7 @@ You can check all the roles assigned to your machines from the **Environments**
 
 ## Using roles on deployment steps {#MachineRoles-Usingrolesondeploymentsteps}
 
-Almost all the steps that run on a Tentacle can be scoped to one or more roles. This means that the step will only execute on Tentacles with at least one of those roles.
+Almost all the steps that run on a Tentacle can be scoped to one or more roles. This means that the step will only execute on Tentacles with at least one of those roles. This does not mean that if the step is scoped to multiple roles that it will run for each role. Instead it will run that step for _all machines that have any roles that match any of the step roles._
 
 To scope a step to a specific role, all you have to do is type in the role name on the **Machine Roles** field.
 
@@ -40,7 +40,7 @@ After you save the step, all the roles you’ve scoped it for can be viewed from
 
 According to the screenshot above, our deployment process will do the following:
 
-- Deploy NuGet package OctoFX.Database to deployment targets with the role**app-server**
+- Deploy NuGet package OctoFX.Database to deployment targets with the role **app-server**
 - Deploy NuGet package OctoFX.RateService to deployment targets with the role **web-server**
 
 ## Using roles with variables {#MachineRoles-Usingroleswithvariables}
@@ -58,7 +58,7 @@ You want to deploy the same package on each server but the deployment path will 
 
 ![](/docs/images/3048101/3277808.png "width=500")
 
-Then, on your deployment step, you can set the **[Custom Install Directory](/docs/deploying-applications/custom-installation-directory.md)**to *#{DeployPath}*on each of the 3 steps (one for each package Id & Role).
+Then, on your deployment step, you can set the **[Custom Install Directory](/docs/deploying-applications/custom-installation-directory.md)** to `#{DeployPath}` on each of the 3 steps (one for each package Id & Role).
 
 ![](/docs/images/3048101/3277807.png "width=500")
 

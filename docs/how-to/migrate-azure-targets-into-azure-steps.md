@@ -12,7 +12,7 @@ Ability to create Azure Targets was removed in Octopus Deploy 3.4.
 Deployment using existing Targets is still currently supported, but will be removed in a future release.
 :::
 
-The Azure Cloud Service and Web App Deployment Targets introduced in Octopus 3.0 were deprecated in favour of [Cloud Service](/docs/guides/azure-deployments/cloud-services/cloud-service-concepts.md#CloudServiceConcepts-CloudServiceDeploymentStep) and [Web App](/docs/guides/azure-deployments/web-apps/web-app-concepts.md#WebAppConcepts-WebAppDeploymentStep) Steps.  The reasoning behind that decision is explained in [this pos](https://octopus.com/blog/azure-changes)t.
+The Azure Cloud Service and Web App Deployment Targets introduced in Octopus 3.0 were deprecated in favor of [Cloud Service](/docs/guides/azure-deployments/cloud-services/cloud-service-concepts.md#CloudServiceConcepts-CloudServiceDeploymentStep) and [Web App](/docs/guides/azure-deployments/web-apps/web-app-concepts.md#WebAppConcepts-WebAppDeploymentStep) Steps.  The reasoning behind that decision is explained in [this pos](https://octopus.com/blog/azure-changes)t.
 
 ## Migrating {#MigrateAzureTargetsintoAzureSteps-Migrating}
 

@@ -18,7 +18,7 @@ Octopus uses variables to control almost every aspect of the deployment process.
 
 The default permissions applied to un-scoped variable editing are restrictive because, although the release details screen shows the values of included variables, it can be hard for a user performing a deployment to verify that the variable contents applied to the environment are appropriate.
 
-This default behaviour can be changed by granting an additional permission to the team.
+This default behavior can be changed by granting an additional permission to the team.
 
 ## Granting un-scoped variable editing permission {#Securityandun-scopedvariables-Grantingun-scopedvariableeditingpermission}
 

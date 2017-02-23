@@ -24,7 +24,7 @@ The Octopus Server will contact your registry to obtain information on available
 
 :::hint
 **Container images are downloaded directly by the Deployment Target**
-Octopus Deploy does not currently support functionality to push Images from the Octopus Deploy Server to the Deployment Targets in the same way that it does with other [supported packages](/docs/packaging-applications/supported-packages.md). That being said, the [layered architecture of Images](https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/) allows your Deployment Targets to retrieve only those pieces that have changed from previous versions that are locally available, which is behaviour built in to the Docker Engine.
+Octopus Deploy does not currently support functionality to push Images from the Octopus Deploy Server to the Deployment Targets in the same way that it does with other [supported packages](/docs/packaging-applications/supported-packages.md). That being said, the [layered architecture of Images](https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/) allows your Deployment Targets to retrieve only those pieces that have changed from previous versions that are locally available, which is behavior built in to the Docker Engine.
 :::
 
 :::success
@@ -44,7 +44,7 @@ When you create a release in Octopus, you need to choose the "version" of the Im
 
 ## Docker Hub {#DockerRegistriesasFeeds-DockerHub}
 
-The default Docker Registry, which is maintained by the Docker organisation, is the cloud-hosted [Docker Hub Registry](https://hub.docker.com/). This is the Registry which is used by docker engine when it is first installed and you call `docker search`.
+The default Docker Registry, which is maintained by the Docker organization, is the cloud-hosted [Docker Hub Registry](https://hub.docker.com/). This is the Registry which is used by docker engine when it is first installed and you call `docker search`.
 
 Searching for official public repositories do not require credentials. However searching for repositories of a non-official repository will require you to provide your Docker Hub username and password.
 

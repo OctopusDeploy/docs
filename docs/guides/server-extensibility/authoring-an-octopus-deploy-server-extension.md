@@ -54,7 +54,7 @@ Many extensions will want to store configuration related to their own specific f
 
 Things to note here are:
 
-- the configuration object is a POCO stored as serialised Json in the database, so properties that are enums (as above) or POCOs themselves are supported.
+- the configuration object is a POCO stored as serialized Json in the database, so properties that are enums (as above) or POCOs themselves are supported.
 - the configuration object itself must implement IId, to provide the Id for the Json data.  This is typically a constant unique to your extension.
 - the mapping class must be registered as an **IConfigurationDocumentMapper** in Autofac when the extension is loaded.
 

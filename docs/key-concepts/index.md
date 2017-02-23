@@ -4,7 +4,7 @@ description: Key concepts to understanding how Octopus Deploy works.
 position: 2
 ---
 
-Words like "release" and "deployment" are no doubt terms that you've used in your organisation prior to using Octopus Deploy. Perhaps you use them interchangeably, or perhaps they have well defined meanings. As you begin to use and master Octopus, there's some potential for confusion - the concept of a Release as implemented in Octopus might be very different to the concept of a Release currently in use in your organization. This page provides a high-level overview of the various concepts that exist in Octopus, to help to eliminate that confusion.
+Words like "release" and "deployment" are no doubt terms that you've used in your organization prior to using Octopus Deploy. Perhaps you use them interchangeably, or perhaps they have well defined meanings. As you begin to use and master Octopus, there's some potential for confusion - the concept of a Release as implemented in Octopus might be very different to the concept of a Release currently in use in your organization. This page provides a high-level overview of the various concepts that exist in Octopus, to help to eliminate that confusion.
 
 ## How to think like an Octopus {#KeyConcepts-HowtothinklikeanOctopus}
 
@@ -33,7 +33,7 @@ We say:
 
 In production, perhaps you have 10 machines with the web-server role. In staging, perhaps you have only 4. In test, perhaps there is a single machine. Roles make defining your deployment process much easier.
 
-You can define as many roles, environments and machines as you like - it all depends on how your application is deployed. Throughout our documentation, you'll see us using Development, Test, Staging and Production environments, and *web-server* and *app-server* roles, as examples, but your Octopus configuration is likely to be very different. "Production" to you might consist of multiple environments which are actually in different data centres (for example, in London, New York and Tokyo) and deployed to at different times.
+You can define as many roles, environments and machines as you like - it all depends on how your application is deployed. Throughout our documentation, you'll see us using Development, Test, Staging and Production environments, and *web-server* and *app-server* roles, as examples, but your Octopus configuration is likely to be very different. "Production" to you might consist of multiple environments which are actually in different data centers (for example, in London, New York and Tokyo) and deployed to at different times.
 
 Machines can also belong to more than one environment, although this is not very common.
 
