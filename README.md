@@ -199,6 +199,17 @@ The number is 45.</p>
 </div>
 ```
 
+## Application Paths
+In order to be consistent when referencing certain areas of the application we have created a markdown extension to render application paths.
+To render an application path use the following syntax:
+```md
+{{my,application,path}}
+```
+Example:
+```md
+To enable Docker in your Octopus Server instance, toggle the feature on via {{Configuration,Features,Docker}}.
+```
+
 ## ToC
 Table of contents can be added to any page anywhere by adding `!toc` to the markdown.
 
