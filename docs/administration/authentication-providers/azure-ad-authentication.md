@@ -158,9 +158,9 @@ Your Issuer should be a URL like `https://login.microsoftonline.com/GUID` where 
 
 #### Using the modern Azure portal {#AzureADauthentication-UsingthemodernAzureportal}
 
-1. In the modern portal, the **Application ID** in your App's **Settings/Properties** is your**Client ID
-   ![](/docs/images/5670656/5865869.png "width=500")**
-2. To get the **Issuer**, go the {{App Registrations,Endpoints}} and copy the **OAuth 2.0 Authorization Endpoint**and delete the **`/oauth2/authorize`**section from the end of the URL
+1. In the modern portal, the **Application ID** in your App's **Settings/Properties** is your **Client ID**
+   ![](/docs/images/5670656/5865869.png "width=500")
+2. To get the **Issuer**, go the {{App Registrations,Endpoints}} and copy the **OAuth 2.0 Authorization Endpoint**and delete the **`/oauth2/authorize`** section from the end of the URL
    ![](/docs/images/5670656/5865872.png "width=500")
 
 In our example the **OAuth 2.0 Authorization Endpoint** is
