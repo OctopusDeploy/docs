@@ -2,7 +2,6 @@ This repository contains the documentation for [Octopus Deploy](https:/octopus.c
 
 To contribute to documentation, read the following guide.
 
-
 # Conventions
 ## Lower case  and `-` delimited
 
