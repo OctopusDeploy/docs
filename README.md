@@ -277,8 +277,10 @@ Images can be added using the following markdown syntax
 
 With the minimal syntax being
 
-    ![](img.jpg)
-    
+    ![Alt text](img.jpg)
+
+**All** images should have [alt text](https://en.wikipedia.org/wiki/Alt_attribute).
+
 Keep reading for a detailed explanation of the options available when working with images.
 
 ### Image paths
