@@ -203,8 +203,10 @@ The number is 45.</p>
 In order to be consistent when referencing certain areas of the application we have created a markdown extension to render application paths.
 To render an application path use the following syntax:
 ```md
-{{my,application,path}}
+{{my,application,path}} or {{my>application>path}}
 ```
+The `,` or `>` are the separator characters.
+
 Example:
 ```md
 To enable Docker in your Octopus Server instance, toggle the feature on via {{Configuration,Features,Docker}}.
