@@ -183,7 +183,7 @@ If you have a lot of projects using Step Templates, updating them can be time co
 
 ### Exporting step templates {#StepTemplates-Exportingsteptemplates}
 
-If you want to transport, backup, or share your Step Templates with the community, you can export a template by finding your template in Library > Step templates, and clicking the **Export** link.
+If you want to transport, backup, or share your Step Templates with the community, you can export a template by finding your template in {{Library,Step templates}}, and clicking the **Export** link.
 
 ![](/docs/images/5671696/5866157.png "width=500")
 

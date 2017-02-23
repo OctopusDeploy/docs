@@ -43,7 +43,7 @@ Let's walk through an example of classifying our tenants by some measure of impo
 
 Let's create a tag set called **Tenant importance** with some tags that represent different reasons why we might treat one tenant differently to others.
 
-1. Go to *Library > Tenant Tag Sets*
+1. Go to {{Library,Tenant Tag Sets}}
 2. Create a tag set called **Tenant importance** with the description:
    *Allows you to have different customers that we should pay more or less attention to*
 3. Now add some tags to your tag set using these examples as a guide

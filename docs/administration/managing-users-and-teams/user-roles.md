@@ -47,7 +47,7 @@ Once the custom role is saved, the new role will be available to be assigned to 
 
 If for some reason a user has more/fewer permissions than they should, you can use the **Test Permissions** feature to get an easy to read list of all the permissions that a specific user has on the Octopus instance.
 
-To test the permissions go to **Configuration** &#10140; **Teams** &#10140; **Test Permissions** and select a user from the dropdown.
+To test the permissions go to {{Configuration,Teams,Test Permissions}} and select a user from the dropdown.
 
 The results will show
 

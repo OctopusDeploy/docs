@@ -36,7 +36,7 @@ The settings are:
 
 - **RunOctoPack**: specifies that OctoPack should create packages during the build
 - **OctoPackPackageVersion**: version number that should be given to packages created by OctoPack. Since Jenkins build numbers are integers like "12", we combine it with "1.1." to produce package versions such as "1.0.12".
-- **OctoPackPublishPackageToHttp**: tells OctoPack to push the package to the Octopus Deploy server. Read more about the [built-in NuGet repository in Octopus](/docs/packaging-applications/package-repositories/index.md). You'll find the URL to your repository on the **Library > Packages** tab in Octopus
+- **OctoPackPublishPackageToHttp**: tells OctoPack to push the package to the Octopus Deploy server. Read more about the [built-in NuGet repository in Octopus](/docs/packaging-applications/package-repositories/index.md). You'll find the URL to your repository on the {{Library,Packages}} tab in Octopus
 - **OctoPackPublishApiKey**: your Octopus Deploy API key
 
 :::success
@@ -53,7 +53,7 @@ Notice that we use `${OctopusApiKey}` to access an API key that we will use to a
 Learn about [how to create an API key](/docs/how-to/how-to-create-an-api-key.md).
 :::
 
-After running this job, and assuming OctoPack is correctly installed, your code should compile, and packages should be published to the Octopus Deploy server. You can go to **Library** > **Packages** in Octopus to check that the packages have been published.
+After running this job, and assuming OctoPack is correctly installed, your code should compile, and packages should be published to the Octopus Deploy server. You can go to {{Library,Packages}} in Octopus to check that the packages have been published.
 
 ## Creating a release {#Jenkins-Creatingarelease}
 

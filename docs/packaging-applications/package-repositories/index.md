@@ -75,7 +75,7 @@ It is important to understand that the Octopus server provides a write-only repo
 
 ### Pushing packages to the built-in repository {#Packagerepositories-Pushingpackagestothebuilt-inrepository}
 
-We offer several ways to add packages to the built-in repository, so many that we built a new page: [pushing packages to the built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md). Alternatively you can go to *Library > Packages* which describes some of the most convenient ways to push packages to the built-in repository.
+We offer several ways to add packages to the built-in repository, so many that we built a new page: [pushing packages to the built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md). Alternatively you can go to {{Library,Packages}} which describes some of the most convenient ways to push packages to the built-in repository.
 
 ![](/docs/images/3048094/3277775.png "width=500")
 
@@ -130,7 +130,7 @@ Earlier releases of Octopus Deploy only support external NuGet v2 feeds:
 - If you are using a MyGet external feed, please use the [v2 API URL](http://docs.myget.org/docs/reference/feed-endpoints) or upgrade to Octopus 3.4 (or later)
 :::
 
-If you're using an external NuGet feed, you can register it with Octopus and use them as part of your deployments. Go to *Library > External feeds*.
+If you're using an external NuGet feed, you can register it with Octopus and use them as part of your deployments. Go to {{Library,External feeds}}.
 
 ![](/docs/images/3048094/3277774.png "width=500")
 

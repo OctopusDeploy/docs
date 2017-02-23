@@ -35,13 +35,13 @@ This page contains some of the questions we are asked most often related to mult
 
 ## Why can't I see the tenant area in the main menu, or anything about tenants for that matter? {#Multi-tenantdeploymentsFAQ-Whycan'tIseethetenantareainthemainmenu,oranythingabouttenantsforthatmatter?}
 
-Multi-tenant deployments were shipped as part of Octopus 3.4, perhaps you need to upgrade your Octopus Server? You also need to enable the feature in *Configuration > Features*. For more information refer to [creating your first tenant](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-tenant.md).
+Multi-tenant deployments were shipped as part of Octopus 3.4, perhaps you need to upgrade your Octopus Server? You also need to enable the feature in {{Configuration,Features}}. For more information refer to [creating your first tenant](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-tenant.md).
 
 ## Is there anything special about multi-tenant projects or environments? {#Multi-tenantdeploymentsFAQ-Isthereanythingspecialaboutmulti-tenantprojectsorenvironments?}
 
 No, not really. Any good old Octopus project or environment can work with tenants. To start deploying a project using tenants:
 
-1. Configure the project to allow tenanted deployments in *Project > Settings**> Multi-tenant deployments* - multi-tenant deployments are disabled for your existing projects by default.
+1. Configure the project to allow tenanted deployments in {{Project,Settings,Multi-tenant deployments}} - multi-tenant deployments are disabled for your existing projects by default.
 2. Connect some tenants to the the project, including the environments where you want to deploy instances of your projects for each tenant.
 
 For more information refer to [creating your first multi-tenant project](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-multi-tenant-project.md) and [deploying a simple multi-tenant project](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md).

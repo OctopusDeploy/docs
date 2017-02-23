@@ -19,7 +19,7 @@ Email can be chosen as the step type when you click **Add Step** in your proje
 ![](/docs/images/5671696/5865915.png "width=170")
 
 :::success
-You'll need to enter SMTP server settings in *Configuration > SMTP* before Octopus will be able to send any email.
+You'll need to enter SMTP server settings in {{Configuration,SMTP}} before Octopus will be able to send any email.
 :::
 
 When adding an email step, you can choose the subject of the email, its body and a list of addresses to send it to (multiple emails should be separated by a comma).

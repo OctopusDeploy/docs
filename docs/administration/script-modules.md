@@ -8,7 +8,7 @@ Script modules allow users to create *Powershell functions*or *Cmdlets* that co
 
 ## Creating a Script module {#ScriptModules-CreatingaScriptmodule}
 
-1.  Click on **Library->Script Modules->Add Script Module**
+1.  Click on {{Library,Script Modules,Add Script Module}}
 
 ![](/docs/images/3048136/3278027.png "width=500")
 

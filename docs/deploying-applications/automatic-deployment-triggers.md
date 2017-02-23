@@ -194,7 +194,7 @@ You will need you to complete a successful deployment again before auto-deployme
 
 ### Investigate the diagnostic logs {#AutomaticDeploymentTriggers-Investigatethediagnosticlogs}
 
-Go to *Configuration > Diagnostics > Auto Deploy Logs*. The **verbose** logs usually contain the reason why a project trigger didn't take any action. For example:
+Go to {{Configuration,Diagnostics,Auto Deploy Logs}}. The **verbose** logs usually contain the reason why a project trigger didn't take any action. For example:
 
 `Auto-deploy: Machine 'Local' does not need to run release '2.6.6' for project 'My Project' and tenant '<none>' because it already exists on the machine or is pending deployment.`
 
@@ -202,4 +202,4 @@ Go to *Configuration > Diagnostics > Auto Deploy Logs*. The **verbose** logs usu
 
 ### Investigate the audit messages {#AutomaticDeploymentTriggers-Investigatetheauditmessages}
 
-The automatic deployments are all triggered based on events occurring in Octopus, all of which are logged reliably as audit events. Go to *Configuration > Audit* and filter down to see the events related to your deployments.
+The automatic deployments are all triggered based on events occurring in Octopus, all of which are logged reliably as audit events. Go to {{Configuration,Audit}} and filter down to see the events related to your deployments.

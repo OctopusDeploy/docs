@@ -111,7 +111,7 @@ See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?
 
 #### Publish Package Artifact {#UsetheTeamFoundationBuildCustomTask-PublishPackageArtifact}
 
-If your Package Application step is part of your Build process and your Push Packages to Octopus step is part of your Release process, then you will need to add a **Utility &#10140; Publish** Artifact step to make the package available to the Release process.
+If your Package Application step is part of your Build process and your Push Packages to Octopus step is part of your Release process, then you will need to add a {{Utility,Publish}} Artifact step to make the package available to the Release process.
 
 ![](/docs/images/3048587/5865475.png "width=500")
 

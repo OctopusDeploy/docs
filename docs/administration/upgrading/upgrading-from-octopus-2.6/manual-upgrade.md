@@ -21,7 +21,7 @@ You can upgrade between Octopus 2.6 and 3.x by downloading the latest [MSI's for
 To perform an in-place upgrade, follow these steps:
 
 :::problem
-There is a current issue where it is not importing your license key. Please back this up first from Configuration &#10140; License
+There is a current issue where it is not importing your license key. Please back this up first from {{Configuration,License}}.
 :::
 
 ### 1. Back up your Octopus 2.6 database and master key {#Manualupgrade-1.BackupyourOctopus2.6databaseandmasterkey}

@@ -7,7 +7,7 @@ position: 5
 You may want to use a different Azure subscription depending on which environment you are targeting. This can be achieved by binding the account field to an Octopus variable:
 
 1. Add an [Azure Subscription Account](/docs/key-concepts/environments/accounts/azure-subscription-account.md) to Octopus.
-    * If you want to use the Account ID in your variable, open the account you just added from **Environments &#10140; Accounts &#10140; [Account name]** and copy the account ID from the URL.
+    * If you want to use the Account ID in your variable, open the account you just added from {{Environments,Accounts,[Account name]}} and copy the account ID from the URL.
     ![](/docs/images/3049102/3278481.jpg "width=500")
         
     In the screenshot the account URL is **localhost/app#/accounts/azuresubscription-dalmiro-octopusdeploy-com** . The Account ID in this case would be **azuresubscription-dalmiro-octopusdeploy-com**

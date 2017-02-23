@@ -32,7 +32,7 @@ This role is loosely based on the built-in **Project deployer** role but removin
 It is usually a good idea to build smaller roles that can be composed together into a team to provide easier management of your team permissions. In this example we are creating a single role to grant all of the required permissions to keep the example simple. In this case you could create a **Tenant project viewer** role and a **Tenant project deployer** role and combine them together into a single team.
 :::
 
-1. In *Configuration > Teams > Roles* click **Add custom role** and call it **Tenant project deployer**
+1. In {{Configuration,Teams,Roles}} click **Add custom role** and call it **Tenant project deployer**
 2. Set the description to **Tenant project deployers can deploy releases on behalf of tenants**
 3. Choose the following permissions:
    1. AccountView
@@ -66,7 +66,7 @@ It is usually a good idea to build smaller roles that can be composed together i
 
 Now we will create a team for all the Account Managers and add the role we created in the last step.
 
-1. In *Configuration > Teams* click Add team and call it **Account Managers**
+1. In {{Configuration,Teams}} click Add team and call it **Account Managers**
 2. Click the **Add role** button and add the **Tenant project deployer role**
 3. Click the **Add member** button and add any user accounts that will form part of this team
 
