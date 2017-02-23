@@ -31,7 +31,9 @@ Set-AzureVmExtension `
     -VM $vm | Update-AzureVM
 
 Write-Host "Adding endpoint to allow network traffic from the server to the Tentacle"
-#optional - not required if this is a polling Tentacle
+# optionally add an endpoint to allow the Octopus Server to contact the Tentacle
+# not required if this is a polling Tentacle
+
 Add-AzureEndpoint -Name "OctopusTentacle" `
     -Protocol "tcp" `
     -PublicPort 10933 `
@@ -50,7 +52,7 @@ To remove an extension from a VM:
 
 ```powershell
 $vm = Get-AzureVm -Name "<vm-name>" -servicename "<cloud-service-name>"
-Remove-AzureVMExtension -VM $vm -ExtensionName "OctopusDeployWindowsTentacle" -Publisher "OctopusDeploy.Tentacle";
+Remove-AzureVMExtension -VM $vm -ExtensionName "OctopusDeployWindowsTentacle" -Publisher "OctopusDeploy.Tentacle"
 ```
 
 ## Azure Resource Manager (ARM) mode {#AzureVirtualMachines-AzureResourceManager}
@@ -70,9 +72,8 @@ Set-AzureRmVMExtension -ResourceGroupName "<resource-group-name>" `
     -Settings $publicSettings `
     -ProtectedSettings $privateSettings
 
-# optionally add an NSG rule to allow the Octopus Server to contact the Tentacle
+# optional - add an NSG rule to allow the Octopus Server to contact the Tentacle
 # only required in Listening mode
-
 $vm = Get-AzureRmVm -Name "<vm-name>" -ResourceGroupName "<resource-group-name>"
 $nic = Get-AzureRmNetworkInterface -ResourceGroupName "<resource-group-name>" | ? { $_.VirtualMachine.Id -eq $vm.Id -and $_.Primary }
 $secGrp = Get-AzureRmNetworkSecurityGroup -ResourceGroupName "<resource-group-name>" | ? { $_.Id -eq $nic.NetworkSecurityGroup.Id }

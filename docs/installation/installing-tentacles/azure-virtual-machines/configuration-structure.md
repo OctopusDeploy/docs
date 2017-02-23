@@ -1,6 +1,6 @@
 ---
-title: Azure VM Extension Configuration Structure
-description: Detailed file format information for the configuration files required for the Azure VM Extension
+title: Tentacle VM Extension Configuration Structure
+description: Detailed file format information for the configuration files required for the Azure Tentacle VM Extension
 position: 6
 ---
 
@@ -28,8 +28,8 @@ The schema for the public configuration file is:
 ```
 
 * `OctopusServerUrl`: (string) The url to the Octopus server portal.
-* `Environments`: (array of strings) The environments to which the Tentacle should be added.
-* `Roles`: (array of strings) The roles to assign to the Tentacle.
+* `Environments`: (array of string) The environments to which the Tentacle should be added.
+* `Roles`: (array of string) The roles to assign to the Tentacle.
 * `CommunicationMode`: (string) Whether the Tentacle should wait for connections from the server (`Listen`) or should poll the server (`Poll`).
 * `Port`: The port on which to listen for connections from the server (in `Listen` mode), or the port on which to connect to the Octopus server (`Poll` mode).
 
@@ -44,3 +44,5 @@ The schema for the private configuration file is:
 ```
 
 * `ApiKey`: (string) The Api Key to use to connect to the Octopus server.
+
+The private configuration will be encrypted by Azure, and is only decryptable on the Azure VM using a special certificate installed by the Azure VM Agent. 

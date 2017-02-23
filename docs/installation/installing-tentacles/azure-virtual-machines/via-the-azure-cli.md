@@ -106,7 +106,7 @@ info:    vm extension get command OK
 To remove an extension from a VM:
 
 ```sh
-$ azure vm extension set --uninstall "<vm-name>" "OctopusDeployWindowsTentacle" "OctopusDeploy.Tentacle" "2.0"
+$ azure vm extension set --uninstall "<vm-name>" "OctopusDeployWindowsTentacle" "OctopusDeploy.Tentacle" "<major_minor_version>"
 info:    Executing command vm extension set
 info:    Getting virtual machines
 info:    Uninstalling vm extension
