@@ -6,7 +6,7 @@ position: 4
 
 The VM Extension can be installed onto a virtual machine via the [Azure command line](https://docs.microsoft.com/en-us/azure/xplat-cli-install). The instructions are slightly different depending on whether you are using the the [Resource](#AzureResourceManagerMode) model or the [Classic](#AzureServiceManagementMode) model.
 
-Refer to the [configuration structure](configuration-structure) for information regarding the format of the `publicSettings.json` and `privateSettings.json` files mentioned in these examples.
+Refer to the [configuration structure](configuration-structure.md) for information regarding the format of the `publicSettings.json` and `privateSettings.json` files mentioned in these examples.
 
 ## Azure Resource Manager (ARM) mode {#AzureResourceManagerMode}
 

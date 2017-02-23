@@ -6,9 +6,9 @@ position: 3
 
 The Azure VM Extension can be added to your virtual machine using the Azure PowerShell cmdlets.
 
-Refer to the [configuration structure](configuration-structure) for information regarding the format of the `publicSettings.json` and `privateSettings.json` files mentioned in these examples.
+Refer to the [configuration structure](configuration-structure.md) for information regarding the format of the `publicSettings.json` and `privateSettings.json` files mentioned in these examples.
 
-### Azure Service Management (ARM) mode {#AzureVirtualMachines-AzureServiceManagement}
+## Azure Service Management (ARM) mode {#AzureVirtualMachines-AzureServiceManagement}
 
 To install the extension on a VM:
 
