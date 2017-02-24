@@ -7,7 +7,7 @@ position: 0
 A [Docker Registry](https://docs.docker.com/registry/) is treated in Octopus Deploy as a feed that supplies images that are run as containers on a Docker Engine host.
 
 :::success
-See an example of using Docker Registries in our guide: [Docker run with networking](/docs/guides/docker/docker-run-with-networking.md)
+See an example deployment using Docker Registries in our guide: [Docker run with networking](/docs/guides/docker/docker-run-with-networking.md)
 :::
 
 ## Using Docker Registries in Octopus Deploy {#DockerRegistriesasFeeds-UsingDockerRegistriesinOctopusDeploy}
@@ -22,7 +22,11 @@ The Docker Registries you configure need to be accessed by both the Octopus Serv
 
 The Octopus Server will contact your registry to obtain information on available images while designing and maintaining your projects. During deployment the `docker pull` command will be executed on the Deployment Targets themselves and they will pull the Images directly from the Docker Registry.
 
-When you add your Docker Registry as a feed in Octopus Deploy, Octopus will attempt to detect and connect using the appropriate version based on specifications outlined in the Docker API documentation. If your registry does not support the API correctly, it is possible that the connection will not be able to take place. We advise to click _Save and Test_ once you have entered the registry detils to allow the version detection to take place and confirm that your credentials are correct.
+## Docker Registry API version discovery {#DockerRegistriesasFeeds-VersionDiscovery}
+When you add your Docker Registry as a feed in Octopus Deploy, Octopus will attempt to detect and connect using the appropriate version based on specifications outlined in the relevant Docker API documentation. If your registry does not support the API correctly, it is possible that the connection will not be able to take place. We advise you to click _Save and Test_ once you have entered the registry detils to allow the version detection to take place and confirm that your credentials are correct. 
+
+According to the Docker API documentaiton, the [version 1](https://docs.docker.com/v1.6/reference/api/registry_api/) API should have a `/_ping` endpoint which will respond with a `X-Docker-Registry-Version` HTTP header in the response.
+Similarly, the [version 2](https://docs.docker.com/registry/spec/api/) API expects a `Docker-Distribution-API-Version` HTTP header with a value of `registry/2.0`. Both of these endpoints are expected to be located at an absolute path of either `/v1` or `/v2` from the host.
 
 :::hint
 **Container images are downloaded directly by the Deployment Target**
@@ -68,3 +72,4 @@ Note that as of the current version of ProGet (version 4.6.7 (Build 2)), their D
 **Searching in a v2 registry**
 Although a search feature is available in the v1 registry API, as of the time of writing there is no built-in search ability in the v2 specifications. There are ongoing discussions around an open [GitHub ticket](https://github.com/docker/distribution/issues/206) in the Docker registry Github repository however there is no clear indication if one will be provided due to changes in the philosophy behind the registry responsibilities. The current workaround, and one one that Octopus Deploy uses when a v2 Docker registry is provided, is to retrieve the full catalog via the [/v2/\_catalog](https://docs.docker.com/registry/spec/api/#/listing-repositories) endpoint and search for the required image locally.
 :::
+

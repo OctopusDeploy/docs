@@ -24,7 +24,6 @@ The Docker Hub API endpoint [https://index.docker.io/v1](https://index.docker.io
 We suggest using alternative registry when trying to manage your own private images. See here for more details on hosting your own [Private Registry](/docs/deploying-applications/docker-containers/docker-registries-as-feeds.md#DockerRegistriesasFeeds-PrivateRegistry).
 :::
 
-
 ##Using Docker Hub in Octopus Deploy##
 To use the Docker Hub registry in Octopus Deploy, create an external feed with the following settings:
 - **Feed Type:** Docker Container Registry
