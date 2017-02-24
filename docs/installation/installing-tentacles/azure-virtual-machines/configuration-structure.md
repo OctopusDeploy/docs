@@ -33,6 +33,11 @@ The schema for the public configuration file is:
 * `CommunicationMode`: (string) Whether the Tentacle should wait for connections from the server (`Listen`) or should poll the server (`Poll`).
 * `Port`: The port on which to listen for connections from the server (in `Listen` mode), or the port on which to connect to the Octopus server (`Poll` mode).
 
+:::hint
+In `Listen`ing mode, the Tentacle will register using the hostname of the machine. Therefore, you will need to ensure that there is hostname resolution from your Octopus Server to the Tentacle. The extension will automatically add a Windows Firewall rule to allow traffic, but you will still need to ensure that endpoints / NSG rules are added to allow network traffic to reach the server.
+:::
+
+
 ## Private Settings
 
 The schema for the private configuration file is:
