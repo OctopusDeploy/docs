@@ -43,10 +43,7 @@ Create your ARM template as normal, and add a `resources` element under your `Mi
       "protectedSettings": {
         "ApiKey": "API-ABCDEF1234567890ABCDEF12345"
       }
-    },
-    "dependsOn": [
-      "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
-    ]
+    }
   }
 ]
 ```
