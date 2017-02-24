@@ -18,7 +18,7 @@ info:    Executing command config mode
 info:    New mode is arm
 info:    config mode command OK
 
-$ azure vm extension set --resource-group "<resource-group-name>" --vm-name "<vm-name>" --name "OctopusDeployWindowsTentacle" --publisher-name "OctopusDeploy.Tentacle" --version "<major_minor_version>" --public-config-path "publicSettings.json" --private-config-path "privateSettings.json"
+$ azure vm extension set --resource-group "<resource-group-name>" --vm-name "<vm-name>" --name "OctopusDeployWindowsTentacle" --publisher-name "OctopusDeploy.Tentacle" --version "2.0" --public-config-path "publicSettings.json" --private-config-path "privateSettings.json"
 info:    Executing command vm extension set
 info:    Looking up the VM "<vm-name>"
 info:    Installing extension "OctopusDeployWindowsTentacle", VM: "<vm-name>"
@@ -71,7 +71,7 @@ info:    Executing command config mode
 info:    New mode is asm
 info:    config mode command OK
 
-$ azure vm extension set "<vm-name>" "OctopusDeployWindowsTentacle" "OctopusDeploy.Tentacle" "<major_minor_version>" --public-config-path "publicSettings.json" --private-config-path "privateSettings.json"
+$ azure vm extension set "<vm-name>" "OctopusDeployWindowsTentacle" "OctopusDeploy.Tentacle" "2.0" --public-config-path "publicSettings.json" --private-config-path "privateSettings.json"
 info:    Executing command vm extension set
 info:    Getting virtual machines
 info:    Updating vm extension
@@ -106,7 +106,7 @@ info:    vm extension get command OK
 To remove an extension from a VM:
 
 ```sh
-$ azure vm extension set --uninstall "<vm-name>" "OctopusDeployWindowsTentacle" "OctopusDeploy.Tentacle" "<major_minor_version>"
+$ azure vm extension set --uninstall "<vm-name>" "OctopusDeployWindowsTentacle" "OctopusDeploy.Tentacle" "2.0"
 info:    Executing command vm extension set
 info:    Getting virtual machines
 info:    Uninstalling vm extension

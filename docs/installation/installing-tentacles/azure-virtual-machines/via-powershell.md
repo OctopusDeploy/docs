@@ -25,7 +25,7 @@ Write-Host "Setting extension"
 Set-AzureVmExtension `
     -ExtensionName "OctopusDeployWindowsTentacle" `
     -Publisher "OctopusDeploy.Tentacle" `
-    -Version <"major_minor_version>" `
+    -Version "2.0" `
     -PublicConfigPath "publicsettings.config" `
     -PrivateConfigPath "privatesettings.config" `
     -VM $vm | Update-AzureVM
@@ -68,7 +68,7 @@ Set-AzureRmVMExtension -ResourceGroupName "<resource-group-name>" `
     -VMName "<vm-name>" `
     -Name "OctopusDeployWindowsTentacle" `
     -Publisher "OctopusDeploy.Tentacle" `
-    -TypeHandlerVersion "<major_minor_version>" `
+    -TypeHandlerVersion "2.0" `
     -Settings $publicSettings `
     -ProtectedSettings $privateSettings
 
