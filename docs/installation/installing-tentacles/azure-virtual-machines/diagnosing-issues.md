@@ -4,6 +4,10 @@ description: How to diagnose and resolve installation issues with the Tentacle V
 position: 7
 ---
 
+:::hint
+The Azure VM Extension is currently in preview.
+:::
+
 ## Diagnosing issues {#AzureVirtualMachines-Diagnosingissues}
 
 If, for some reason, the machine fails to register after 20 minutes, you can access logs on the VM to determine what went wrong.

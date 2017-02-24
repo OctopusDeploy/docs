@@ -5,6 +5,10 @@ position: 4
 hideInThisSectionHeader: true
 ---
 
+:::hint
+The Azure VM Extension is currently in preview.
+:::
+
 If you deploy software to virtual machines (VM's) hosted in Microsoft Azure, Octopus Deploy provides a [VM Extension](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-extensions-features?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) that makes it easy to install the [Tentacle agent](/docs/installation/installing-tentacles/index.md).
 
 Currently, only Windows Server 2012 R2 and Windows Server 2016 are supported.
