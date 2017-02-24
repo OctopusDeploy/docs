@@ -8,7 +8,7 @@ Most applications require some kind of configuration values that are considered 
 
 ## Configuring sensitive variables {#Sensitivevariables-Configuringsensitivevariables}
 
-Variables such as passwords or API keys can be marked as being **sensitive**.
+Variables such as passwords or API keys can be marked as being **sensitive**. Just like non-sensitive variables they can [reference other variables](docs/deploying-applications/variables/binding-syntax.md#Bindingsyntax-Referencingvariablesinstepdefinitions) but be careful with any part of your sensitive variable that could [unintentionally be interpreted](docs/deploying-applications/variables/sensitive-variables.md#Sensitivevariables-Avoidingcommonmistakes-SubstituionSyntax) as an attempted substitution.
 
 ![](/docs/images/3048089/3277722.png "width=500")
 
@@ -36,6 +36,7 @@ Here are some common pitfalls to avoid:
 - **Avoid short values:** only sensitive variables with length **greater than 3** characters will be masked. This is done to prevent false positives causing excessive obfuscation of the logs. Consider 8-30 characters depending on the requirements of your deployment.
 - **Avoid common language**: see the example below of "broke", use a password generator with high entropy [like this one](http://passwordsgenerator.net/).
 - **Avoid sequences that are interpreted by your scripting language of choice**: For example, certain escape sequences like `$^` will be misinterpreted by PowerShell potentially logging out your sensitive variable in clear-text.
+- **Avoid sequences that are part of the variable substitution syntax** {#Sensitivevariables-Avoidingcommonmistakes-SubstituionSyntax}: For example, the sequence `##{` will be replaced by `#{` by logic that's part of [referencing variables](docs/deploying-applications/variables/binding-syntax.md#Bindingsyntax-Referencingvariablesinstepdefinitions).
 - **Octopus is not a 2-way key vault**: use a password manager or key vault like [KeePass](http://keepass.info/).
 
 ## Logging {#Sensitivevariables-LoggingLogging}
