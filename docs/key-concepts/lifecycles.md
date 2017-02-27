@@ -34,7 +34,7 @@ Once these initial details are defined you can add your first phase.
 
 Phases define the deployment pipeline. A phase must have a complete successful deployment before further phases are able to be deployed to.
 
-To add a phase click the**+ Add Phase** button.
+To add a phase click the **+ Add Phase** button.
 
 ![](/docs/images/3048104/3277864.png "width=500")
 
