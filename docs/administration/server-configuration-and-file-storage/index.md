@@ -86,7 +86,7 @@ Or one of the options supported/provided by the server extensions.
 
 ## Server folders {#ServerconfigurationandFilestorage-Serverfolders}
 
-If you need to move other folders than the Octopus Home folder, you can do that using the command-line as described below. Also see [moving Octopus server folders](server-configuration-and-file-storage/moving-octopus-server-folders#MovingOctopusServerfolders-MoveotherOctopusServerfolders)
+If you need to move other folders than the Octopus Home folder, you can do that using the command-line as described below. Also see [moving Octopus server folders](/docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders)
 
 **Usage**
 
