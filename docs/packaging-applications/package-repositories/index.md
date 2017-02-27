@@ -101,7 +101,7 @@ If you are using [automatic release creation](/docs/deploying-applications/autom
 
 ### Moving the location of the built-in repository {#Packagerepositories-Movingthelocationofthebuilt-inrepository}
 
-See [moving octopus server folders](moving-octopus-server-folders#MovingOctopusServerfolders-MoveotherOctopusServerfolders)
+See [moving octopus server folders](/docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders#MovingOctopusServerfolders-MoveotherOctopusServerfolders)
 
 ## Using external repositories {#Packagerepositories-Usingexternalrepositories}
 

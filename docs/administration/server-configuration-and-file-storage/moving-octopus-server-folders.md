@@ -101,7 +101,7 @@ not be removed from expected folder while the server is running. Therefore an al
 1. Copy the folder while the server is running
 1. Stop the server
 1. Use a file mirroring tool like `robocopy` to ensure the new folder reflects the added and removed files while the copy was running
-1. Update the path in octopus config
+1. Update the path in Octopus config
 1. Start the server.
 
 
