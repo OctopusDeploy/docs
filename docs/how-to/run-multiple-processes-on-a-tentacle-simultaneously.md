@@ -33,3 +33,5 @@ When enabling **OctopusBypassDeploymentMutex** there are a couple of special var
     * This variable limits the maximum number of machines on which the action will concurrently execute
     * By default, this is set to `int.MaxValue`
 :::
+
+Given five projects with the **OctopusBypassDeploymentMutex** set as `True`, `True`, `False`, `True` and `True` respectively. Then assuming the are started in that order, the first two will run in parallel, but the third will wait untill they have finished. The last two will then also be blocked untill _project three completes_ at which point they both will run in parallel.
