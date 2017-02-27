@@ -101,18 +101,7 @@ If you are using [automatic release creation](/docs/deploying-applications/autom
 
 ### Moving the location of the built-in repository {#Packagerepositories-Movingthelocationofthebuilt-inrepository}
 
-In 3.0 you can now configure the directory that these packages are kept in. You will need to follow the steps below or you may lose some data.
-
-1. Stop your Octopus Server service
-2. Update the path location using the following command
-
-```powershell
-Octopus.Server.exe path --nugetRepository=your new location
-```
-3. Move your files from the old path (default is:  C:\Octopus\Packages) to your new location
-4. Restart the Octopus Server service
-
-The restart of the service will re-index the directory. If it is missing files, they will then go missing from the internal repository and again from your releases. So be sure that all files are moved.
+See [moving octopus server folders](moving-octopus-server-folders#MovingOctopusServerfolders-MoveotherOctopusServerfolders)
 
 ## Using external repositories {#Packagerepositories-Usingexternalrepositories}
 

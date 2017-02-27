@@ -93,6 +93,7 @@ mv $oldNuGetRepository $newNuGetRepository
 & "$octopus" path --nugetRepository="$newNuGetRepository"
 & "$octopus" service --start
 ```
+The restart of the service will re-index the directory. If it is missing files, they will then go missing from the internal repository and again from your releases. So be sure that all files are moved.
 
 The above script will take the server offline for the duration of the move. If there are a large number of packages, this can be quite some time, 
 and taking the server offline for the duration may not be possible. To prevent the server re-indexing all the packages however, the packages should
