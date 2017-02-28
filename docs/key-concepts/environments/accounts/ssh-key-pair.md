@@ -44,7 +44,7 @@ The easiest way to generate valid keys on windows is to use a tool like[ PuTTYge
 
 ![](/docs/images/3048109/3277899.png "width=400")
 
-Provide your passphrase if desired and export the private key to the accepted format by going to "Conversions > Export OpenSSH Key".  Clicking "Save private key" will actually produce a file that, while it can be used by this tool again, is not compatible with the standard SSH process. To get the public key over to the server you can either click "Save public key", copy the file across to the server and add the key to `~/.ssh/authorized_keys` as outlined above, or just cut+paste the content from the textbox directly into the remote file.
+Provide your passphrase if desired and export the private key to the accepted format by going to {{Conversions,Export OpenSSH Key}}.  Clicking "Save private key" will actually produce a file that, while it can be used by this tool again, is not compatible with the standard SSH process. To get the public key over to the server you can either click "Save public key", copy the file across to the server and add the key to `~/.ssh/authorized_keys` as outlined above, or just cut+paste the content from the textbox directly into the remote file.
 
 ### Useful Links {#SSHKeyPair-UsefulLinks}
 

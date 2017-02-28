@@ -75,7 +75,7 @@ It is important to understand that the Octopus server provides a write-only repo
 
 ### Pushing packages to the built-in repository {#Packagerepositories-Pushingpackagestothebuilt-inrepository}
 
-We offer several ways to add packages to the built-in repository, so many that we built a new page: [pushing packages to the built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md). Alternatively you can go to *Library > Packages* which describes some of the most convenient ways to push packages to the built-in repository.
+We offer several ways to add packages to the built-in repository, so many that we built a new page: [pushing packages to the built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md). Alternatively you can go to {{Library,Packages}} which describes some of the most convenient ways to push packages to the built-in repository.
 
 ![](/docs/images/3048094/3277775.png "width=500")
 
@@ -101,18 +101,7 @@ If you are using [automatic release creation](/docs/deploying-applications/autom
 
 ### Moving the location of the built-in repository {#Packagerepositories-Movingthelocationofthebuilt-inrepository}
 
-In 3.0 you can now configure the directory that these packages are kept in. You will need to follow the steps below or you may lose some data.
-
-1. Stop your Octopus Server service
-2. Update the path location using the following command
-
-```powershell
-Octopus.Server.exe path --nugetRepository=your new location
-```
-3. Move your files from the old path (default is:  C:\Octopus\Packages) to your new location
-4. Restart the Octopus Server service
-
-The restart of the service will re-index the directory. If it is missing files, they will then go missing from the internal repository and again from your releases. So be sure that all files are moved.
+See [moving Octopus server folders](/docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md#MovingOctopusServerfolders-OctopusHome)
 
 ## Using external repositories {#Packagerepositories-Usingexternalrepositories}
 
@@ -130,7 +119,7 @@ Earlier releases of Octopus Deploy only support external NuGet v2 feeds:
 - If you are using a MyGet external feed, please use the [v2 API URL](http://docs.myget.org/docs/reference/feed-endpoints) or upgrade to Octopus 3.4 (or later)
 :::
 
-If you're using an external NuGet feed, you can register it with Octopus and use them as part of your deployments. Go to *Library > External feeds*.
+If you're using an external NuGet feed, you can register it with Octopus and use them as part of your deployments. Go to {{Library,External feeds}}.
 
 ![](/docs/images/3048094/3277774.png "width=500")
 

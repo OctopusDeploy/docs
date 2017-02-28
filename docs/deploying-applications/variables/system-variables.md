@@ -48,6 +48,7 @@ Deployment-level variables are drawn from the project and release being deployed
 |**`Octopus.Release.Channel.Name`** <br/>The Channel name associated with the release | *2.x Feature Branch*|
 |**`Octopus.Release.Notes`** <br/>Release notes associated with the release, in Markdown format | *Fixes bugs 1, 2 & 3*|
 |**`Octopus.Release.Number`** <br/>The version number of the release | *1.2.3*|
+|**`Octopus.Release.Id`** <br/>The ID of the release | *releases-123*|
 |**`Octopus.Release.Previous.Id`** <br/>The ID of the last release of the project | *releases-122*|
 |**`Octopus.Release.Previous.Number`** <br/>The version number of the last release of the project | *1.2.2*|
 |**`Octopus.Release.PreviousForEnvironment.Id`** <br/>The ID of the last release of the project to the current environment | *releases-122*|

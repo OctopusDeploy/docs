@@ -5,7 +5,7 @@ description: Creating an Azure Account in Octopus Deploy contains the details of
 
 An Azure Account in Octopus Deploy contains the details of your Azure subscription.  It is used to authenticate with Azure when deploying or executing scripts.
 
-To create an Azure Account, navigate to *Environments &#10140; Accounts* and click *Add Account* in the *Azure Subscriptions* section.
+To create an Azure Account, navigate to {{Environments,Accounts}} and click *Add Account* in the *Azure Subscriptions* section.
 
 ![](/docs/images/3702887/3964985.png "width=500")
 

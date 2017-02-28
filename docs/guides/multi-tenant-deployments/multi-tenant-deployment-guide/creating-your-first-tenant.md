@@ -6,7 +6,7 @@ position: 0
 
 This page describes each step involved in creating your first tenant.
 
-1. Enable the **multi-tenancy** feature in *Configuration > Features* if you haven't already - *you will need an Octopus Administrator to do this*.
+1. Enable the **multi-tenancy** feature in {{Configuration,Features}} if you haven't already - *you will need an Octopus Administrator to do this*.
 
    ![](/docs/images/5669223/5865660.png "width=500")
 

@@ -32,6 +32,8 @@ To make integrating with TeamCity easy, a [plugin is available](https://octopus
 3. Copy the ZIP file with the plugin to `<TeamCity Data Directory>/plugins`
 4. Start TeamCity server: the plugin files will be unpacked and processed automatically
 
+The [TeamCity Data Directory](https://confluence.jetbrains.com/display/TCD10/TeamCity+Data+Directory) can be found on the **Administration | Global Settings** page for a running TeamCity server instance.
+
 ## Creating Octopus-compatible NuGet packages using TeamCity {#TeamCity-CreateNuGetPackageCreatingOctopus-compatibleNuGetpackagesusingTeamCity}
 
 Octopus requires that you package your applications into NuGet packages, whether or not you are using TeamCity. There are many ways to create [Octopus-compatible NuGet packages](/docs/packaging-applications/index.md), but the easiest way is with [OctoPack](https://github.com/OctopusDeploy/OctoPack).
@@ -62,7 +64,7 @@ Don't worry, TeamCity comes with a built-in [NuGet Pack build step](https://conf
 
 Octopus can be used as a [NuGet package package](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md), or can be configured to use an external feed (such as retrieving them from TeamCity).
 
-To push packages to Octopus during the OctoPack phase, enter the NuGet endpoint url (which you can get from *Library &#10140; Packages*; it looks like http://octopus.example.com/nuget/packages) into the **Publish packages to http** field, and [an API key](/docs/how-to/how-to-create-an-api-key.md) in the **Publish API Key** field.  OctoPack will then push the packages when the solution is built.
+To push packages to Octopus during the OctoPack phase, enter the NuGet endpoint url (which you can get from {{Library,Packages}}; it looks like http://octopus.example.com/nuget/packages) into the **Publish packages to http** field, and [an API key](/docs/how-to/how-to-create-an-api-key.md) in the **Publish API Key** field.  OctoPack will then push the packages when the solution is built.
 
 ## Consuming the TeamCity NuGet feed in Octopus {#TeamCity-ConsumeNuGetFeedInOctopusConsumingtheTeamCityNuGetfeedinOctopus}
 

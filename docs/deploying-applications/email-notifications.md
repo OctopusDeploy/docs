@@ -12,27 +12,54 @@ Deployments can have a strong impact on others whose work depends on the system 
 
 To support this, Octopus provides **Email Steps** in a project's deployment process.
 
+!toc
+
+## SMTP configuration
+
+You'll need to enter SMTP server settings in {{Configuration,SMTP}} before Octopus will be able to send any email.
+
+![SMTP Configuration](email-notifications-smtp-configuration.png "width=500")
+
 ## Adding an email step {#Emailnotifications-Addinganemailstep}
 
 Email can be chosen as the step type when you click **Add Step** in your project's **Process** tab. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/adding-steps.md) section.
 
-![](/docs/images/5671696/5865915.png "width=170")
+![Email Step Icon](/docs/images/5671696/5865915.png "width=170")
 
-:::success
-You'll need to enter SMTP server settings in *Configuration > SMTP* before Octopus will be able to send any email.
+When adding an email step, you can choose the subject of the email, its body, and the recipients to send it to.
+
+![Email Step Example](email-notifications.png "width=500")
+
+## Choosing recipients
+
+You have several options for choosing the recipients of your email:
+
+1. Enter a comma-separated list of email addresses
+2. Bind to a variable which defines a list of email addresses (this is really useful for tailoring your recipient list per-environment)
+3. Choose one or more teams to include members of those teams in the recipient list
+4. Use a combination of all of these options
+
+Octopus will build the resulting recipient list during the deployment, deduplicate the list of email addresses, and send the email to each recipient.
+
+![Email Recipients](email-notifications-recipients.png)
+
+## Choosing when to send the email notification
+
+You can choose when to send the email notification using the same conditions as for any other step in Octopus.
+
+- Send the email only for successful deployments to certain environments
+- Send a specific email for failed deployments
+- Send an email based on the value of a variable expression which works really well with [output variables](/docs/deploying-applications/variables/output-variables.md)
+
+![Email Step Conditions](email-notifications-conditions.png "width=500")
+
+## Email content {#Emailnotifications-Exampleemailtemplates}
+
+You can set the email subject and author the email body as plain text or HTML content. You can even use the Octopus [variable syntax](/docs/reference/variable-substitution-syntax.md) to include information about the deployment in the email.
+
+:::hint
+The binding helper to the right of each form field can be used to view the available variables.
 :::
-
-When adding an email step, you can choose the subject of the email, its body and a list of addresses to send it to (multiple emails should be separated by a comma).
-
-![](/docs/images/3048084/3277669.png "width=500")
-
-:::success
-Use the Octopus [variable syntax](/docs/reference/variable-substitution-syntax.md) to include information about the deployment in the email. The binding helper to the right of the *Body*field can be used to view the available variables.
-:::
-
-You can choose in which environments the email will be sent, and whether the email is sent only on successful completion of previous steps, on failure, or always.
-
-## Example email templates {#Emailnotifications-Exampleemailtemplates}
 
 The template below collects basic information about the deployment, including the package versions included in each step.
 
@@ -62,7 +89,7 @@ The template below collects basic information about the deployment, including th
 ```
 
 :::hint
-To use the template in your projects, replace `nuget.org` with the DNS name of your NuGet server, and `my-octopus` with the DNS name of your Octopus server. Make sure you select *Body is HTML*on the email step configuration page.
+To use the template in your projects, replace `nuget.org` with the DNS name of your NuGet server, and `my-octopus` with the DNS name of your Octopus server. Make sure you select *Body is HTML* on the email step configuration page.
 :::
 
 The output of the template will be an HTML email like:

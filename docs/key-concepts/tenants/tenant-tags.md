@@ -29,7 +29,7 @@ With tenant tags you can:
 
 ## Managing tenant tags {#TenantTags-Managingtenanttags}
 
-Go to *Library > Tenant tag sets* to create, modify and reorder tag sets and tags.
+Go to {{Library,Tenant tag sets}} to create, modify and reorder tag sets and tags.
 
 ![](/docs/images/5670003/5865644.png "width=500")
 

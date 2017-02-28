@@ -90,7 +90,7 @@ Some of the variables we just created require tenant-specific values like `#{Ten
 
 Rather than managing lots of duplicate data, we will use some default values that continue building upon a simple convention. In this case we will use some URL-friendly versions of the tenant and environment names to build our variable values, `Tenant.Alias` and `Environment.Alias`.
 
-1. Go to the *Variables > Variable Templates* tab in the **Mojo** project.
+1. Go to the {{Variables,Variable Templates}} tab in the **Mojo** project.
 2. Create the variable templates shown below:
 
 | Name                       | Label             | Default value                            | Help text                                | Control type           |
@@ -108,7 +108,7 @@ The result should look like the screenshot below:
 
 In the previous step we created some variable templates that use the `Environment.Alias` variable. We will create a simple [library variable set](/docs/deploying-applications/variables/library-variable-sets.md) to provide URL-friendly versions of the target environment's name which we can use in our other variables for defining environment-specific database and domain names.
 
-1. Go to *Library > Variable sets* and add a new variable set called **Environment variables**
+1. Go to {{Library,Variable sets}} and add a new variable set called **Environment variables**
 2. Create the variables shown below:
 
 | Variable            | Value        | Scope           |
@@ -126,7 +126,7 @@ The result should look like the screenshot below:
 
 In previous steps we also created some variable templates that depend on a variable called Tenant.Alias. In this case we want the tenant to provide a URL-friendly version of the tenant's name, and we will create a library variable template. By using a variable template from a library variable set the tenant will only be prompted once for this value.
 
-1. Go to *Library > Variable sets* and add a new variable set called **Standard tenant details**
+1. Go to {{Library,Variable sets}} and add a new variable set called **Standard tenant details**
 2. Go to the *Variable templates* tab and create the templates shown below:
 
 | Name                  | Label         | Default value | Help text                                | Control type         |
@@ -142,12 +142,12 @@ The result should look like the screenshot below:
 
 Now we have created the library variable sets we need to include them in the **Mojo** project so they take effect.
 
-1. Go to the *Variables > Library Variable Sets* tab of the **Mojo** project
+1. Go to the {{Variables,Library Variable Sets}} tab of the **Mojo** project
 2. Click *Include variable sets from the Library* and select the newly created **Environment variables** and **Standard tenant details** variable sets into the project, clicking *Apply* then *Save*.
 
 ### Step 6: Fill out the variable values for our tenants {#Workingwithtenant-specificvariables-Step6:Filloutthevariablevaluesforourtenants}
 
-Go to our tenant **Beverley Sanchez** and go to *Variables > Common Variables* where you should be able to fill in the variables required by our **Standard tenant details** variable set:
+Go to our tenant **Beverley Sanchez** and go to {{Variables,Common Variables}} where you should be able to fill in the variables required by our **Standard tenant details** variable set:
 
 ![](/docs/images/5669247/5865611.png "width=500")
 
@@ -157,7 +157,7 @@ Now go to the *Project Variables* tab and you should see the variables required
 
 ### Step 7: Validate the variable values for the project {#Workingwithtenant-specificvariables-Step7:Validatethevariablevaluesfortheproject}
 
-Go to the *Variables > All Variables* tab of the **Mojo** project and you can inspect all of the variables that will be used by the project. If something is wrong, you can click on the link to the source of the value and fix the problem.
+Go to the {{Variables,All Variables}} tab of the **Mojo** project and you can inspect all of the variables that will be used by the project. If something is wrong, you can click on the link to the source of the value and fix the problem.
 
 ![](/docs/images/5669247/5865620.png "width=500")
 

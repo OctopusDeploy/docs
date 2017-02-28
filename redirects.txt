@@ -15,3 +15,6 @@ docs/api-and-integration/compatibility.md -> docs/api-and-integration/index.md
 docs/administration/upgrading/migrating-from-redgate-deployment-manager-to-octopus-deploy.md -> docs/administration/upgrading/index.md
 docs/administration/how-to-move-the-octopus-server-to-another-server-or-vm.md -> docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md
 docs/deploying-applications/custom-scripts/naked-scripting.md -> docs/deploying-applications/custom-scripts/raw-scripting.md
+docs/guides/azure-deployments/cloud-services/cloud-service-concepts/cloud-service-accounts.md -> docs/blob/master/docs/guides/azure-deployments/cloud-services/getting-started-with-azure-cloud-services.md
+docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps-copy.md -> docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps.md
+docs/guides/azure-deployments/cloud-services/cloud-service-concepts/packaging-cloud-services.md -> docs/blob/master/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-cloud-service/index.md

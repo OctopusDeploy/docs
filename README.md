@@ -63,15 +63,15 @@ So a file existing at `/docs/myfolder/index.md` will have a URL of `https://octo
 Links to other documentation pages should be relative and contain the `.md` extension.
 The `.md` allows links to work inside the GitHub web UI. The `.md` will be trimmed when they are finally rendered.
 
-## "In this section" area
+## "In this section" area {#in-this-section}
 
-Index pages (`index.md`) automatically have a "In this section" section added to them (bottom of the content).
+Index pages (`index.md`) automatically have a "In this section" section added to them (bottom of the content), which lists all child pages in the folder.
 If the page does not need this section, you can opt out by adding the following metadata to the yaml:
 ```yaml
 hideInThisSection: true
 ```
 
-The rendering of "In this section" section [contains a header](_shared/in-this-section.md), if you need to omit this header:
+The rendering of "In this section" section [contains a header](_shared/in-this-section.md), if you need to omit this header (but still want it to contain the list of child pages):
 ```yaml
 hideInThisSectionHeader: true
 ```
@@ -203,15 +203,17 @@ The number is 45.</p>
 In order to be consistent when referencing certain areas of the application we have created a markdown extension to render application paths.
 To render an application path use the following syntax:
 ```md
-{{my,application,path}}
+{{my,application,path}} or {{my>application>path}}
 ```
+The `,` or `>` are the separator characters.
+
 Example:
 ```md
 To enable Docker in your Octopus Server instance, toggle the feature on via {{Configuration,Features,Docker}}.
 ```
 
 ## ToC
-Table of contents can be added to any page anywhere by adding `!toc` to the markdown.
+Table of contents can be added to any page anywhere by adding `!toc` to the markdown. The table of contents lists all headers (H1, H2 etc) in the current document (see [In This Section](#in-this-section) for child page links on index pages).
 
 ## Headings
 

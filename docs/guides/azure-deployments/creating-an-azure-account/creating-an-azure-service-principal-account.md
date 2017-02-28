@@ -80,7 +80,7 @@ Alternatively, you can [create a Service Principal via the Azure Portal](https:/
 
 ## Step 2: Allow Octopus to authenticate with Azure using a Service Principal {#CreatinganAzureServicePrincipalAccount-authenticate-with-service-principalStep2:AllowOctopustoauthenticatewithAzureusingaServicePrincipal}
 
-Navigate to *Environments &#10140; Accounts* and click *Add account* in the *Azure Subscriptions* section.
+Navigate to {{Environments,Accounts}} and click *Add account* in the *Azure Subscriptions* section.
 
 ![](/docs/images/3702850/3964965.png "width=500")
 

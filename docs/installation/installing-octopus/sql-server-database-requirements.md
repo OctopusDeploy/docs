@@ -54,7 +54,7 @@ The Octopus setup wizard will perform most of these activities for you if you ac
 
 Each installation of Octopus Deploy will likely have different data loads and usage patterns and as a result your DBMS may suggest performance optimizations such as creating new indexes in addition to those created automatically by the Octopus Deploy installation process. While we don't actively discourage users from adding these indexes its important to understand the results of modifying the schema.
 
-Certain assumptions are made about the database schema when an Octopus Deploy Server upgrade is performed, and the presence (or absence) of indexes may cause this process to fail. The System Integrity checks now available via *Configuration > Diagnostics > Server Logs* will let you know if there are any deviations from the expected database schema.
+Certain assumptions are made about the database schema when an Octopus Deploy Server upgrade is performed, and the presence (or absence) of indexes may cause this process to fail. The System Integrity checks now available via {{Configuration,Diagnostics,Server Logs}} will let you know if there are any deviations from the expected database schema.
 
 ![](/docs/images/3048120/5865723.png "width=500")
 
