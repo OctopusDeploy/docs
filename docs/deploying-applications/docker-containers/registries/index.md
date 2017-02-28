@@ -14,7 +14,7 @@ See an example deployment using Docker Registries in our guide: [Docker run with
 
 In Octopus Deploy, Docker Registries are treated very similarly to [Package Repositories](/docs/packaging-applications/package-repositories/index.md), and Images are treated very similarly to Packages.
 
-Octopus Deploy supports the Docker Registry [Version 1](https://docs.docker.com/v1.6/reference/api/registry_api/) and [Version 2](https://docs.docker.com/registry/spec/api/) API specifications as outlined in the Docker reference files. You can access Docker Registries with or without using credentials, depending on registry configuration. You can use one of the hosted public registries, like [Docker Hub](https://hub.docker.com/), or you can host your own [Private Registry](/docs/deploying-applications/docker-containers/docker-registries-as-feeds.md).
+Octopus Deploy supports the Docker Registry [Version 1](https://docs.docker.com/v1.6/reference/api/registry_api/) and [Version 2](https://docs.docker.com/registry/spec/api/) API specifications as outlined in the Docker reference files. You can access Docker Registries with or without using credentials, depending on registry configuration. You can use one of the hosted public registries, like [Docker Hub](https://hub.docker.com/), or you can host your own [Private Registry](/docs/deploying-applications/docker-containers/registries/index.md).
 
 ### How Octopus Server and Deployment Targets integrate with Docker Registries {#DockerRegistriesasFeeds-HowOctopusServerandDeploymentTargetsintegratewithDockerRegistries}
 
