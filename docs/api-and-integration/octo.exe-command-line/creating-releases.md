@@ -149,17 +149,31 @@ octo create-release --project HelloWorld --version 1.0.3 --server http://octopus
 
 ## Specifying the package version {#Creatingreleases-Specifyingthepackageversion}
 
+For each step that has a package, the version is determined in the following order:
+
+ 1. The step name matches a --packageVersion parameter or a file filename found by --packagesFolder
+ 1. The package id matches a --packageVersion parameter or a file found by --packagesFolder
+ 1. The value from the --package parameter
+
+ If there are duplicate names/ids as a result of the --packageVersion and --packagesFolder parameters, the last one specified is used.
+
+### Option --packageVersion
 This will create a release *(1.0.3)* with a specified NuGet package version *(1.0.1)*:
 
 ```bash
-octo create-release --project HelloWorld --version 1.0.3 --packageversion 1.0.1 --server http://octopus/ --apiKey API-ABCDEF123456
+octo create-release --project HelloWorld --version 1.0.3 --packageVersion 1.0.1 --server http://octopus/ --apiKey API-ABCDEF123456
 ```
 
-This will create a release for a project with multiple packages, each with a different version:
+### Option --package
+This will create a release for a project with multiple packages, each with a different version. You are able to specify a step name and version pair with this option. This way you can use different versions of the same package for different steps:
 
 ```bash
 octo create-release --project HelloWorld --version 1.0.3 --package StepA:1.0.1 --package StepB:1.0.2 --server http://octopus/ --apiKey API-ABCDEF123456
 ```
+
+If the step doesn't require a package it can be omitted, or if step level version specificity is not required use the other options
+
+### Option --packagesFolder
 
 This will create a release for a project with multiple packages, by taking the version for each package from a folder containing the packages (this approach works well if your build server has just built the packages):
 
