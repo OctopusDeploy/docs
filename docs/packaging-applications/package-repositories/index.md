@@ -13,7 +13,7 @@ The Octopus built-in repository [supports several different types of packages](/
 If you would like to use an external repository, two types of external repositories are supported:
 
  - [NuGet feeds](https://docs.nuget.org/create/hosting-your-own-nuget-feeds) (either HTTP or file-system based feeds).
- - [Docker feeds](/docs/deploying-applications/docker-containers/docker-registries-as-feeds.md)
+ - [Docker feeds](/docs/deploying-applications/docker-containers/registries/index.md)
 :::
 
 Your package repository will typically be:
@@ -110,7 +110,7 @@ See [moving Octopus server folders](/docs/administration/server-configuration-an
 
 :::hint
 **Only NuGet and Docker feeds are supported**
-The only external repository type supported are NuGet and Docker. If you wish to use an external repository, you must use NuGet packages or .
+The only external repository type supported are NuGet and Docker. If you wish to use an external repository, you must use NuGet packages or [Docker registries as feeds](/docs/deploying-applications/docker-containers/registries/index.md).
 :::
 
 :::warning
