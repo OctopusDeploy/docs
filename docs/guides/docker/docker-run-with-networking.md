@@ -36,12 +36,11 @@ Next we are going to create a connection to the official Docker Hub registry so 
 2. Go to {{Library,External feeds,Add Feed}}.
 3. Notice the presence of the new *Feed Type* drop down and select **Docker Container Registry**
 4. *S*et the *Name* to something meaningful like **DockerHub**
-5. Set the *URL* to the Docker Hub API url of **[https://index.docker.io/v1](https://index.docker.io/v1)**.
-6. Since this is a v1 endpoint of the docker registry api, select **V1** as the *Api Version*.
-7. Since the registry is accessible from both the Octopus Server and the SSH endpoint using the same URL, we can leave the *RegistryPath* field blank.
-8. Similarly since we will only be using **public official images** from Docker Hub we don't need to provide any credentials.
+5. Set the *URL* to the Docker Hub API url of **[https://index.docker.io](https://index.docker.io/v1)**.
+6. Since the registry is accessible from both the Octopus Server and the SSH endpoint using the same URL, we can leave the *RegistryPath* field blank.
+7. Similarly since we will only be using **public official images** from Docker Hub we don't need to provide any credentials.
  *If you wanted to access any **public unofficial images** you would need to provide your Docker Hub login details.*
-9. Click **Save and Test** to make sure the connection to the Docker Hub registry is working.
+8. Click **Save and Test** to make sure the connection to the Docker Hub registry is working.
 ![](/docs/images/5670973/5865796.png "width=500")
 
 ![](/docs/images/5670973/5865819.png "width=500")
