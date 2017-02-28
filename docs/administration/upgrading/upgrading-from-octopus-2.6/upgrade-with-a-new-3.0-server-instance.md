@@ -49,7 +49,7 @@ You will need to transfer them to the new server to `C:\Octopus\Packages`Once t
 
 ### 4. Use Hydra to automatically upgrade your Tentacles {#Upgradewithanew3.0serverinstance-4.UseHydratoautomaticallyupgradeyourTentacles}
 
-!include using-hydra
+!include <using-hydra>
 
 ### 5. Verify connectivity between the 3.x server and 3.x Tentacles {#Upgradewithanew3.0serverinstance-5.Verifyconnectivitybetweenthe3.xserverand3.xTentacles}
 

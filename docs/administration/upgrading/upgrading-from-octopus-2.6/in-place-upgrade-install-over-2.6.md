@@ -26,7 +26,7 @@ See the [Backup and restore](/docs/administration/upgrading/upgrading-from-octo
 
 ### 2. Use Hydra to automatically upgrade your Tentacles {#Inplaceupgrade(installover2.6)-2.UseHydratoautomaticallyupgradeyourTentacles}
 
-!include using-hydra
+!include <using-hydra>
 
 ### 3. Verify the upgrade has worked {#Inplaceupgrade(installover2.6)-3.Verifytheupgradehasworked}
 
