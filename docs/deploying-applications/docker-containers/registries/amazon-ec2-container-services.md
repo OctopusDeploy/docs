@@ -30,7 +30,7 @@ These are also the credentials that are needed by Octopus Deploy to access the e
 
 ![AWS EC2 Container Service Registry Feed](aws-feed.png)
 
-Save and test your registry to ensure that the connection is authorised successfully.
+Save and test your registry to ensure that the connection is authorized successfully.
 
 :::warning
 **AWS EC2 Container Service logins only last 12 hours**

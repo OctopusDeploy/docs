@@ -23,4 +23,4 @@ With the Admin user toggle enabled, you will be provided with username and passw
 
 ![Azure Container Services Registry Feed](azure-feed.png)
 
-Save and test your registry to ensure that the connection is authorised successfully.
+Save and test your registry to ensure that the connection is authorized successfully.
