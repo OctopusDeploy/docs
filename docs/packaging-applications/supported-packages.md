@@ -17,7 +17,7 @@ The package types supported by Octopus Deploy are:
 | Tar + Gzip   | *.tgz, .tar.gz, .tar.Z*   | [Built-In repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) only |                                          |
 | Tar + Bzip2  | *.tar.bz, .tar.bz2, .tbz* | [Built-In repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) only |                                          |
 | Zip          | *.zip*                    | [Built-In repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) only | Standard zip file as created through most common zip programs. |
-| Docker Image |                           | [Docker Registries](/docs/deploying-applications/docker-containers/docker-registries-as-feeds.md) | Learn about [Docker](/docs/guides/docker/index.md) in Octopus Deploy. |
+| Docker Image |                           | [Docker Registries](/docs/deploying-applications/docker-containers/registries/index.md) | Learn about [Docker](/docs/guides/docker/index.md) in Octopus Deploy. |
 
 :::warning
 NuGet packages and Docker images are the only package types that support external repositories. Currently, file-system feeds are NuGet only. If you want to use other package types, you must use the Octopus [built-in](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) repository.
