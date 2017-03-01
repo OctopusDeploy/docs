@@ -110,6 +110,14 @@ As yet we do not support running PowerShell scripts on Linux, either on their ow
 
 The deployment process will check for scripts either provided in the deployment step itself or embedded in the package, looking for `PreDeploy.sh`, `Deploy.sh` and `PostDeploy.sh` (names are case-sensitive). If these scripts are found, Calamari will then execute their contents at the appropriate time. Again an interesting side-effect of using Calamari on mono is that any C# or F# scripts should continue to function just like with normal Tentacles. Keep in mind the platform differences such as file paths or separators, line breaks, environment variables and security considerations.
 
+If you want to start some background task in an script that runs while the deployment continues to complete, you should become familiar with the `screen` command. For example, running
+```bash
+echo "Going to Sleep..."
+screen -d -m sleep 20
+echo "I'm Awake!"
+```
+will write out the two echo lines in sucession while the sleep command continues to run in the background. This will mean that the deployment can complete while the sleep process is still running.
+
 **Variables**
 
 The same variables that are accessible to PowerShell scripts are available to the bash scripts, albeit using a different syntax. All scripts that run are wrapped inside bootstrapping code that provides access to getting/setting variables and the ability to designate build artifacts.
