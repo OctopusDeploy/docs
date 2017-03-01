@@ -40,7 +40,7 @@ The schema for the public configuration file is:
 * `Port`: The port on which to listen for connections from the server (in `Listen` mode), or the port on which to connect to the Octopus server (`Poll` mode).
 * `PublicHostNameConfiguration`: If in listening mode, how the server should contact the Tentacle. Can be one of the following:
   * `PublicIP` - looks up the public IP address using <https://api.ipify.org>.
-  * `FQDN` - concatenates the local hostname with the domain name. Useful for domain joined computers.
+  * `FQDN` - concatenates the local hostname with the (active directory) domain name. Useful for domain joined computers.
   * `ComputerName` - uses the local hostname.
   * `Custom` - allows you to specify a custom value, using the `CustomPublicHostName` property.
 * `CustomPublicHostName`: If in listening mode, and `PublicHostNameConfiguration` is set to `Custom`, the address that the server should use for this Tentacle.
