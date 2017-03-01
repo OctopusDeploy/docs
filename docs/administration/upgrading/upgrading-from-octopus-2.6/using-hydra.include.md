@@ -59,9 +59,14 @@ These steps should be executed from your Octopus 2.6 server to your 2.6 Tentacle
 
  1. Ensure you choose or create a [Lifecycle](/docs/key-concepts/lifecycles.md)that allows you to deploy to all Tentacles.
  2. Ensure you set the Update Octopus Tentacle step to run for all appropriate Tentacles.
- 3. If you are using any polling Tentacles, add the new Octopus 3.x server address (including the polling port) in the Server Mapping field.
+ 3. Set the `Server Mapping` field:
+ 
+   - If you only use listenting Tentacles you can leave the `Server Mapping` field blank.
+   - If you are using any polling Tentacles, add the new Octopus 3.x server address (including the polling TCP port) in the Server Mapping field. See below for examples.
  
 :::hint
+**Server Mapping for Polling Tentacles**
+
 It is very important you get this value correct. An incorrect value will result in a polling Tentacle that can't be contacted by neither a 2.6 or 3.x server. Several different scenarios are supported:
 
 1. A single Polling Tentacle instance on a machine pointing to a single Octopus Server **the most common case**:
