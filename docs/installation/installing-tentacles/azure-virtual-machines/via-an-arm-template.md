@@ -38,7 +38,8 @@ Create your ARM template as normal, and add a `resources` element under your `Mi
           "Web Server"
         ],
         "CommunicationMode": "Listen",
-        "Port": 10933
+        "Port": 10933,
+        "PublicHostNameConfiguration": "PublicIP"
       },
       "protectedSettings": {
         "ApiKey": "API-ABCDEF1234567890ABCDEF12345"
@@ -47,3 +48,6 @@ Create your ARM template as normal, and add a `resources` element under your `Mi
   }
 ]
 ```
+
+Please refer to the [configuration structure](configuration-structure.md) for details regarding the format of the `settings` and `protectedSettings` elements.
+

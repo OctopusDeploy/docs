@@ -26,7 +26,9 @@ The schema for the public configuration file is:
     "app-server"
   ],
   "CommunicationMode": "Listen",
-  "Port": 10933
+  "Port": 10933,
+  "PublicHostNameConfiguration": "PublicIP|FQDN|ComputerName|Custom",
+  "CustomPublicHostName": "web01.example.com"
 }
 
 ```
@@ -36,9 +38,11 @@ The schema for the public configuration file is:
 * `Roles`: (array of string) The roles to assign to the Tentacle.
 * `CommunicationMode`: (string) Whether the Tentacle should wait for connections from the server (`Listen`) or should poll the server (`Poll`).
 * `Port`: The port on which to listen for connections from the server (in `Listen` mode), or the port on which to connect to the Octopus server (`Poll` mode).
+* `PublicHostNameConfiguration`: If in listening mode, how the server should contact the Tentacle. Can be `PublicIP`, `FQDN`, `ComputerName` or `Custom`.
+* `CustomPublicHostName`: If in listening mode, and `PublicHostNameConfiguration` is set to `Custom`, the address that the server should use for this Tentacle.
 
 :::hint
-In `Listen`ing mode, the Tentacle will register using the hostname of the machine. Therefore, you will need to ensure that there is hostname resolution from your Octopus Server to the Tentacle. The extension will automatically add a Windows Firewall rule to allow traffic, but you will still need to ensure that endpoints / NSG rules are added to allow network traffic to reach the server.
+The extension will automatically add a Windows Firewall rule to allow traffic, but you will still need to ensure that endpoints / NSG rules are added to allow network traffic to reach the server.
 :::
 
 
@@ -54,4 +58,4 @@ The schema for the private configuration file is:
 
 * `ApiKey`: (string) The Api Key to use to connect to the Octopus server.
 
-The private configuration will be encrypted by Azure, and is only decryptable on the Azure VM using a special certificate installed by the Azure VM Agent. 
+The private configuration will be encrypted by Azure, and is only decryptable on the Azure VM using a special certificate installed by the Azure VM Agent.
