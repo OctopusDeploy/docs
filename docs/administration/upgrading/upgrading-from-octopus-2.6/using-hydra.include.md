@@ -76,7 +76,7 @@ It is very important you get this value correct. An incorrect value will result 
 3. Multiple Polling Tentacle instances on the same machine pointing to different Octopus Servers **a very rare case**:
   - Use this syntax to tell Hydra the mapping from your old Octopus server to your new Octopus server: `https://oldserver:oldport=>https://newserver:newport,https://oldserver2:oldport2/=>https://newserver2:newport2` where each pair is separated by commas. This will match the first case and replace it => with the second case.
   
-        Click the ![](/docs/images/3048132/3278017.png) help button for more detailed instructions.
+Click the ![](/docs/images/3048132/3278017.png) help button for more detailed instructions.
 
 ![](/docs/images/3048132/3278014.png "width=500")
 
