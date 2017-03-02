@@ -85,6 +85,7 @@ Action-level variables are available during execution of an action. Indexer noti
 |**`Octopus.Action.Package.CustomInstallationDirectory`** <br/>If set, a specific directory to which the package will be copied after extraction | *C:\InetPub\WWWRoot\OctoFx*|
 |**`Octopus.Action.Package.CustomInstallationDirectoryShouldBePurgedBeforeDeployment`** <br/>If true, the all files in the `Octopus.Action.Package.CustomInstallationDirectory` will be deleted before deployment *(Boolean)* | *False*|
 |**`Octopus.Action.Package.DownloadOnTentacle`** <br/>If true, the package will be downloaded by the Tentacle, rather than pushed by the Octopus server*(Boolean)* | *False*|
+|**`Octopus.Action.Package.TreatConfigTransformationWarningsAsErrors`** <br/>If true, any warnings in configuration transformations will be treated as errors and will fail the deployment** ***(Boolean)* | *True*|
 |**`Octopus.Action.Package.IgnoreConfigTransformationErrors`** <br/>If true, any errors in configuration transformations will be treated as informational rather than errors that will fail the deployment** ***(Boolean)* | *False*|
 |**`Octopus.Action.Package.IgnoreVariableReplacementErrors`** <br/>If true, any errors in variable replacement will be treated as a warning rather than an error that will fail the deployment. (*Boolean*) | *False*|
 |**`Octopus.Action.Package.NuGetFeedId`** <br/>The ID of the NuGet feed from which the package being deployed was pulled | *feeds-123*|
