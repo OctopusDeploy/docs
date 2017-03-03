@@ -62,3 +62,9 @@ Octopus.Server.exe configure --autoLoginEnabled=true
 Note that even when enabled, **this functionality is only active when there is a single, non forms-based authentication provider enabled**.  If multiple providers are enabled, which includes Guest access being enabled, this setting is overridden.
 
 Also, when using the Active Directory provider, this function will only be active when **allowFormsAuthenticationForDomainUsers** is set to **false**.
+
+## OAuth 2.0, OpenID Connect and Octopus
+
+Octopus Deploy has historically used either a session cookie or an API key in each request to identify the calling user to the server APIs.  To reduce risk this mechanism was not modified with the introduction of the OpenID Connect based authentication providers.  Instead, we use the OpenID Connect provider to retrieve claims about the user, match those to our internal user records and then issue a session cookie the same way we always have.
+
+So in other words, we are only using the external identity provider to initially verify the user's identity. We do not use bearer tokens internally and we therefore do not support token expiration or revokation. In time we will look to fully support token based identity management, but the migration to that world will have to be managed carefully to maintain compatibility.
