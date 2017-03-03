@@ -95,7 +95,7 @@ By default, Calamari will be installed or updated when a machine is involved in 
 - the first time a machine is added to Octopus and then subsequently when it is involved in a deployment
 - any time Octopus detects Calamari is out of date (after health checks for example)
 
-Tentacle can be toggled to manually or automatically update Tentacle.  If **Automatically update Tentacle**is selected, Octopus will start a task to update Tentacles whenever Octopus detects that there is a pending Tentacle upgrade (after health checks for example). Conversely, Octopus will not automatically start a task to update Tentacle but will prompt to begin a Tentacle update on the environments screen.
+Tentacle can be toggled to manually or automatically update Tentacle.  If **Automatically update Tentacle** is selected, Octopus will start a task to update Tentacles whenever Octopus detects that there is a pending Tentacle upgrade (after health checks for example). Conversely, Octopus will not automatically start a task to update Tentacle but will prompt to begin a Tentacle update on the environments screen.
 
 ## Automatically delete machines {#MachinePolicies-Automaticallydeletemachines}
 
