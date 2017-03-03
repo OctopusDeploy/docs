@@ -65,6 +65,6 @@ Also, when using the Active Directory provider, this function will only be activ
 
 ## OAuth 2.0, OpenID Connect and Octopus
 
-Octopus Deploy has historically used either a session cookie or an API key in each request to identify the calling user to the server APIs.  To reduce risk this mechanism was not modified with the introduction of the OpenID Connect based authentication providers.  Instead, we use the OpenID Connect provider to retrieve claims about the user, match those to our internal user records and then issue a session cookie the same way we always have.
+Octopus server has 2 methods for identifying users. The first is session cookies, which are returned to the browser after a successful a login and then used in all communications with the server.  The second is API Keys, which are a shared secret that identify the user.
 
-So in other words, we are only using the external identity provider to initially verify the user's identity. We do not use bearer tokens internally and we therefore do not support token expiration or revokation. In time we will look to fully support token based identity management, but the migration to that world will have to be managed carefully to maintain compatibility.
+These mechanisms were not modified with the introduction of the OpenID Connect based authentication providers. Octopus uses the external identity provider only to initially verify the user's identity, and then returns a session cookie to the browser, which means OAuth token expiry and revocation are not currently supported.
