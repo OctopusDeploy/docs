@@ -190,7 +190,7 @@ Server-level variables describe the Octopus server on which the deployment is ru
 
 | Name and Description | Example                                  | 
 | -------------------  | ---------------------------------------- |
-| **`Octopus.Web.BaseUrl`** <br/>The default URL at which the server can be accessed | *[https://my-octopus](https://my-octopus)* |
+| **`Octopus.Web.BaseUrl`** <br/>The default URL at which the server can be accessed. Note that this is based off the server's ListenPrefixes and works in simple configuration scenarios. If you have a load balancer or reverse proxy this value will likely not be suitable for use in referring to the server from a client perspective, e.g. in email templates etc. | *[https://my-octopus](https://my-octopus)* |
 
 ## Tracking deployment status {#Systemvariables-DeploymentStatusTrackingdeploymentstatus}
 
