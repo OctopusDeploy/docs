@@ -5,7 +5,6 @@ version: 3.9
 position: 6
 ---
 
-##Azure Environments
 The vast majority of Azure users and subscriptions operate in the AzureCloud environment.  There are also an increasing number of other Azure environments, for example Azure Germany, Azure China, Azure US Gov, Azure US DoD.  These are designed to be isolated from other cloud environments, and as such have their own hosting and API endpoints etc.  In order to deploy to these environments from Octopus Deploy the endpoint configuration must therefore be overridden.  This page describes how to go about overriding the values.
 
 The defaults for all of the settings related to the environment are blank, which denotes the use of the AzureCloud environment.
