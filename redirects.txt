@@ -11,7 +11,6 @@ docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3
 docs/deploying-applications/docker-containers/docker-compose.md -> docs/deploying-applications/docker-containers/index.md
 docs/guides/elastic-and-transient-environments/deploying-to-transient-targets-copy.md -> docs/guides/elastic-and-transient-environments/deploying-to-transient-targets.md
 docs/administration/high-availability/removing-high-availability-nodes.md -> docs/administration/high-availability/managing-high-availability-nodes.md
-docs/api-and-integration/compatibility.md -> docs/api-and-integration/index.md
 docs/administration/upgrading/migrating-from-redgate-deployment-manager-to-octopus-deploy.md -> docs/administration/upgrading/index.md
 docs/administration/how-to-move-the-octopus-server-to-another-server-or-vm.md -> docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md
 docs/deploying-applications/custom-scripts/naked-scripting.md -> docs/deploying-applications/custom-scripts/raw-scripting.md
