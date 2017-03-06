@@ -161,18 +161,10 @@ Your Issuer should be a URL like `https://login.microsoftonline.com/GUID` where 
 
    ![](/docs/images/5670656/5865868.png "width=500")
    
-2. To get the **Issuer,** click on the View Endpoints button
+2. Locate the  GUID for the **Issuer** in the address for the above page
 
-   ![](/docs/images/5670656/5865870.png "width=500")
+   ![](issuer.png "width=500")
    
-3. Copy the **OAuth 2.0 Authorization Endpoint** and delete the **`/oauth2/authorize`** section from the end of the URL
-
-   ![](/docs/images/5670656/5865871.png)
-   
-   In our example the OAuth 2.0 Authorization Endpoint is
-   **`https://login.microsoftonline.com/b91ebf6a-84be-4c6f-97f3-32a1d0a11c8a/oauth2/authorize`**
-   So the Issuer should be
-   **`https://login.microsoftonline.com/b91ebf6a-84be-4c6f-97f3-32a1d0a11c8a`**
 
 #### Using the modern Azure portal {#AzureADauthentication-UsingthemodernAzureportal}
 
@@ -180,14 +172,9 @@ Your Issuer should be a URL like `https://login.microsoftonline.com/GUID` where 
 
    ![](/docs/images/5670656/5865869.png "width=500")
    
-2. To get the **Issuer**, go the {{App Registrations,Endpoints}} and copy the **OAuth 2.0 Authorization Endpoint**and delete the **`/oauth2/authorize`** section from the end of the URL
+2. The GUID for the **Issuer** can be found in the Properties of your Actice Directory tenant
 
-   ![](/docs/images/5670656/5865872.png "width=500")
-
-In our example the **OAuth 2.0 Authorization Endpoint** is
-**`https://login.microsoftonline.com/b91ebf6a-84be-4c6f-97f3-32a1d0a11c8a/oauth2/authorize`**
-So the Issuer should be
-**`https://login.microsoftonline.com/b91ebf6a-84be-4c6f-97f3-32a1d0a11c8a`**
+   ![](issuer-n.png "width=500")
 
 ### Setting the Client ID and Issuer into Octopus Deploy {#AzureADauthentication-SettingtheClientIDandIssuerintoOctopusDeploy}
 
