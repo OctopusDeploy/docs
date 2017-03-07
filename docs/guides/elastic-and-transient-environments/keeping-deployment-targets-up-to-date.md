@@ -17,13 +17,21 @@ Triggers are per-project settings that execute an action in response to an event
 ## Creating an automatic deployment trigger {#Keepingdeploymenttargetsuptodate-Creatinganautomaticdeploymenttrigger}
 
 1. Navigate to the project *Triggers* page
+
 2. Create a new trigger by selecting **Create trigger**
+
 ![](/docs/images/5669262/5865570.png "width=500")
+
 3. Add events to the trigger
+
  1. For Octopus 3.6 and above, select the event group *"Machine becomes available for deployment"*.
+ 
  2. For Octopus 3.4 and 3.5, select both available events so that it will fire when a *new deployment target becomes available* (eg. when a new deployment target is provisioned and added to Octopus) or when an *existing deployment target changes state* (eg. from unavailable to available, joins an environment, changes roles, etc.).
+ 
 4. Select the environments (**Test A**) that this trigger applies to.
+
 5. Select the deployment target roles (**TradingWebServer**) that this trigger applies to.
+
 ![](/docs/images/5669262/5865705.png)
 
 Once the trigger has been created, it will ensure that any deployment targets matching the trigger criteria will be kept up to date with the latest release of the project.
@@ -33,9 +41,13 @@ Once the trigger has been created, it will ensure that any deployment targets ma
 To test the trigger, we will disable a deployment target, deploy to that target's environment and then re-enable the target.  Octopus should automatically deploy the release to the target when it is re-enabled.
 
 1. Disable a target with the role **TradingWebServer**in the **Test A** environment:
+
 ![](/docs/images/5669262/5865573.png "width=500")
+
 2. Create a new release of OctoFX and deploy it to the **Test A** environment.  It will skip the steps that have been scoped to the **TradingWebServer** role because no deployment targets are available in that role:
+
 ![](/docs/images/5669262/5865574.png "width=500")
+
 3. Enable the deployment target **TAWeb01.** Octopus will automatically determine that it is missing the release we just deployed.  The deployment is re-queued and will run only for the **TAWeb01** target, creating a new log section below the original deployment log:
 
 ![](/docs/images/5669262/5865575.png "width=500")
