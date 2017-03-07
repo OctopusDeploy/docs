@@ -54,6 +54,10 @@ The following table outlines each event group and their included events:
 | **Machine is no longer available for deployment** | Machine disabled, Machine found to be unavailable, Machine found to be unhealthy |
 | **Deployment target is available for deployment** | Machine cleanup failed, Machine deleted, Machine deployment-related property modified, Machine disabled, Machine enabled, Machine found healthy, Machine found to be unavailable |
 
+:::success
+For the majority of cases where you want to auto-deploy your project as new deployment targets become available, we advise you use only the "Deployment target is available for deployment" event group.
+:::
+
 For Octopus 3.4 and 3.5, there are two types of events that can trigger an automatic deployment:
 
 ![](/docs/images/5671191/5865883.png "width=500")
@@ -105,11 +109,9 @@ You can use the advanced deployment screen to see an approximation of the deploy
 
 [Manual Intervention](/docs/deploying-applications/manual-intervention-and-approvals.md) steps and [Guided Failures](/docs/deploying-applications/guided-failures.md) will work just like they do in a manual deployment. At face value this may seem like it's not very automatic, and that's true. In the case where you use a Manual Intervention for smoke testing a new web server before it enters the load balanced pool you may want the step to pause until you've smoke tested. In the case where you use Manual Intervention for approving the deployment of a Release you may not want it to pause. We made the decision to pause for Manual Intervention steps and Guided Failures so that automatic deployments mimic manual deployments, like we described earlier.
 
-:::success
 We generally recommend avoiding the use of Manual Intervention steps unless absolutely necessary. If you need Manual Intervention steps to pause for manual deployments, but skip for automatic deployments, you can use a workaround: add the Manual Intervention step to a [Rolling Deployment](/docs/patterns/rolling-deployments.md) step which is targeted at a role that will never be part of an automatic deployment.
 
 ![](/docs/images/5671191/5865839.png "width=500")
-:::
 
 ### What happens if I disable some steps? {#AutomaticDeploymentTriggers-WhathappensifIdisablesomesteps?}
 
@@ -119,7 +121,6 @@ Disabled steps won't run in a manual deployment, and likewise they won't run in 
 
 Those steps will be skipped in automatic deployments as well. This decision is based on the principal of "configuring the new deployment target just like its counterparts" - if a step was skipped in the original deployment it should be skipped in subsequent automatic deployments. See the previous answer for more context.
 
-:::success
 **Resetting skipped steps**
 We generally recommend running full deployments, and only skipping steps and/or choosing specific deployment targets when absolutely necessary. If you need to run a deployment choosing to skip some steps, there are two ways you can reset the skipped steps:
 
@@ -127,7 +128,6 @@ We generally recommend running full deployments, and only skipping steps and/or 
 2. Configuring an [Auto Deploy Override](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/index.md) for the same Release to the same Environment/Tenant (this will result in a new deployment being generated without the manually skipped steps)
 
 In most cases configuring the Auto Deploy Override will work best.
-:::
 
 ### What happens if a deployment fails? {#AutomaticDeploymentTriggers-Whathappensifadeploymentfails?}
 
