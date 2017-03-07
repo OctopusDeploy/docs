@@ -100,7 +100,7 @@ Troubleshoot automatic deployment by viewing the auto deploy logs from the diagn
 **Why isn&#39;t my trigger working?**
 The verbose logs usually contain the reason why a project trigger didn't take any action. For example:
 
-`Auto-deploy: Machine 'Local' does not need to run release '2.6.6' for project 'My Project' and tenant '&lt;none&gt;' because it already exists on the machine or is pending deployment.`
+`Auto-deploy: Machine 'Local' does not need to run release '2.6.6' for project 'My Project' and tenant <none> because it already exists on the machine or is pending deployment.`
 :::
 
 ## Next steps {#Keepingdeploymenttargetsuptodate-Nextsteps}
