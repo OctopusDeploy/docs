@@ -45,6 +45,15 @@ For Octopus 3.6 and above, you can select any machine-related event to cause an 
 
 ![](/docs/images/5671191/5865884.png "width=500")
 
+The following table outlines each event group and their included events:
+
+| Event Group | Included Events |
+| ----------- | --------------- |
+| **Machine critical-events** | Machine cleanup failed, Machine found to be unavailable |
+| **Machine becomes available for deployment** | Machine enabled, Machine found healthy, Machine found to have warnings |
+| **Machine is no longer available for deployment** | Machine disabled, Machine found to be unavailable, Machine found to be unhealthy |
+| **Deployment target is available for deployment** | Machine cleanup failed, Machine deleted, Machine deployment-related property modified, Machine disabled, Machine enabled, Machine found healthy, Machine found to be unavailable |
+
 For Octopus 3.4 and 3.5, there are two types of events that can trigger an automatic deployment:
 
 ![](/docs/images/5671191/5865883.png "width=500")
