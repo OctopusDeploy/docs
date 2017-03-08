@@ -81,3 +81,13 @@ Make sure to select a **Role**, an **Environment** and to put a **Step Name**
 4.  Check the Release task log and expand all the steps. You should be able to see the output of the *Say-Hello* function in there.
 
 ![](/docs/images/3048136/3278020.png "width=500")
+
+:::hint
+To be able to access and use the script modules feature you will require the following permissions:
+
+To see the `Script modules` menu requires `VariableView` permission.
+To create a new `Script module` requires `LibraryVariableSetCreate` permission.
+To view an existing `Script module` requires `LibraryVariableSetView`, `VariableView` and `VariableViewUnscoped` permissions.
+To edit an existing `Script module` requires `LibraryVariableSetEdit`permissions`.
+:::
+
