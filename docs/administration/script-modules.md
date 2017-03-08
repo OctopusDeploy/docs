@@ -86,12 +86,12 @@ Make sure to select a **Role**, an **Environment** and to put a **Step Name**
 To be able to access and use the script modules feature you will require the following permissions:
 
 
-To see the `Script modules` menu requires `VariableView` permission.
+To see the `Script modules` menu requires the `VariableView` permission.
 
-To create a new `Script module` requires `LibraryVariableSetCreate` permission.
+To create a new `Script module` requires the `LibraryVariableSetCreate` permission.
 
-To view an existing `Script module` requires `LibraryVariableSetView`, `VariableView` and `VariableViewUnscoped` permissions.
+To view an existing `Script module` requires the `LibraryVariableSetView`, `VariableView` and `VariableViewUnscoped` permissions.
 
-To edit an existing `Script module` requires `LibraryVariableSetEdit`permissions.
+To edit an existing `Script module` requires the `LibraryVariableSetEdit`permission.
 :::
 
