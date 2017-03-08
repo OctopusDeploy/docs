@@ -38,6 +38,10 @@ In versions up to 3.5, only a single Authentication Provider could be enabled at
 
 Let's consider that we have UsernamePassword enabled and we create some users, and we've set their email address to their Active Directory domain email address.  The user's can now log in with the username and password stored against their User record.  If we now enable the Active Directory authentication provider, then the users can authenticate using either their original username and password, or they can use a username of user@domain or domain\user along with their domain password, or they can use the Integrated authentication button.  In the first scenario they are actually logging in via the UsernamePassword provider, in the latter 2 scenarios they are using the Active Directory provider, but in all of the cases they end up logged in as the same user (this is the driver behind the fallback checks described in the next section).
 
+:::warning
+When you create a new Octopus user for a domain account, you are now required to create a password for this user. This wasn't the case prior to 3.5. To allow for multiple simultaneous providers, a password is now needed, even if the user is currently only using Active Directory authentication. It applies only to to the UsernamePassword provider, and it isn't the user's Active Directory password.
+:::
+
 This scenario would work equally with Azure AD or GoogleApps in place of Active Directory.
 
 :::hint
