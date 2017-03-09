@@ -97,6 +97,11 @@ By default, Calamari will be installed or updated when a machine is involved in 
 
 Tentacle can be toggled to manually or automatically update Tentacle.  If **Automatically update Tentacle** is selected, Octopus will start a task to update Tentacles whenever Octopus detects that there is a pending Tentacle upgrade (after health checks for example). Conversely, Octopus will not automatically start a task to update Tentacle but will prompt to begin a Tentacle update on the environments screen.
 
+### Tentacle update account {#MachinePolicies-TentacleUpdateAccount}
+You can select a username/password account to perform automatic Tentacle updates.  When no account is selected, the account that the Tentacle service is running as will attempt to perform Tentacle updates. Sometimes that account does not have enough permission to perform Tentacle updates. Create a [username/password account](/docs/key-concepts/environments/accounts/username-and-password) for a user with enough permissions to install software on your machines (Administrator works great!) and select it from the drop down.
+
+**Note:** This option can not be used when Tentacle is running as Local System.
+
 ## Automatically delete machines {#MachinePolicies-Automaticallydeletemachines}
 
 Machine policies can be configured to automatically remove unavailable machines after a time period.  When a health check runs, it will detect if a machine is unavailable (cannot be contacted). When this option is set to **Automatically delete unavailable machines,** Octopus will periodically check how long the machine has been unavailable.  If the number of hours specified by **Hours unavailable** has elapsed, the machine will be permanently deleted from Octopus.
