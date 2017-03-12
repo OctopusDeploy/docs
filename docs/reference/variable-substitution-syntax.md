@@ -60,17 +60,12 @@ Given the variables:
 
 ### Conditionals {#VariableSubstitutionSyntax-Conditionalsconditionals}
 
-Two conditional statements are supported in Octopus prior to version 3.5 - `if` and `unless`; these have identical syntax, but if evaluates only if the variable is *truthy*, while unless evaluates if the variable is *falsy*.
+Two conditional statements are supported in Octopus prior to version 3.5 - `if` and `unless`; these have identical syntax, but `if` evaluates only if the variable is *truthy*, while `unless` evaluates if the variable is *falsy*.  `if` and `unless` syntax is as follows:
 
-Additional conditional statements are supported in Octopus 3.5 and onwards, including == and !=.
+`#{if VariableName}conditional statements{/if}`
+`#{unless VariableName}conditional statements{/unless}`
 
-:::hint
-Pre Octopus 3.5, you cannot use complex syntax, like `#{if Octopus.Environment.Name == "Production"}`, only *truthy* and *falsy* evaluations are supported. You can usually work around this limitation by scoping variables, or finding/creating a *truthy* or *falsy* variable to use in your evaluation, like the example shown below.
-
-From Octopus 3.5 and onwards, additional condition support was added for operators such as == and !=. So you can now run conditions such as `#{if Octopus.Environment.Name == "Production"}` or `#{if Octopus.Environment.Name != "Production"}`.
-:::
-
-Given the variables:
+Let's look at an example.  Given the variables:
 
 | Name           | Value   | Scope      |
 | -------------- | ------- | ---------- |
@@ -104,6 +99,18 @@ You could achieve a similar result, with a different default/fallback behavior, 
 #### *Truthy* and *Falsy* values {#VariableSubstitutionSyntax-TruthyandFalsyvalues}
 
 The `if` and `unless` statements consider a value to be *falsy* if it is undefined, empty, `False` or `0`. All other values are considered to be *truthy*.
+
+### Complex syntax
+Additional conditional statements are supported in Octopus 3.5 and onwards, including == and !=.
+
+Using complex syntax you can have expressions like `#{if Octopus.Environment.Name == "Production"}...{/if}` and `#{if Octopus.Environment.Name != "Production"}...{/if}`
+
+### Run conditions
+Conditions can be used to control whether a given step in a deployment process actually runs.  In this scenario the conditional statement should return true/false, depending on your requirements.
+
+Some examples would be,
+`#{if Octopus.Environment.Name == "Production"}true{/if}` would run the step only in Production.
+`#{if Octopus.Environment.Name != "Production"}true{/if}` would run the step in all environments other than Production.
 
 ### Repetition {#VariableSubstitutionSyntax-Repetition}
 
