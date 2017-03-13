@@ -62,9 +62,9 @@ Given the variables:
 
 Two conditional statements are supported in Octopus prior to version 3.5 - `if` and `unless`; these have identical syntax, but `if` evaluates only if the variable is *truthy*, while `unless` evaluates if the variable is *falsy*.  `if` and `unless` syntax is as follows:
 
-`#{if VariableName}conditional statements{/if}`
+`#{if VariableName}conditional statements#{/if}`
 
-`#{unless VariableName}conditional statements{/unless}`
+`#{unless VariableName}conditional statements#{/unless}`
 
 Let's look at an example.  Given the variables:
 
@@ -104,16 +104,16 @@ The `if` and `unless` statements consider a value to be *falsy* if it is undefi
 ### Complex syntax
 Additional conditional statements are supported in Octopus 3.5 and onwards, including == and !=.
 
-Using complex syntax you can have expressions like `#{if Octopus.Environment.Name == "Production"}...{/if}` and `#{if Octopus.Environment.Name != "Production"}...{/if}`
+Using complex syntax you can have expressions like `#{if Octopus.Environment.Name == "Production"}...#{/if}` and `#{if Octopus.Environment.Name != "Production"}...#{/if}`
 
 ### Run conditions
 Conditions can be used to control whether a given step in a deployment process actually runs.  In this scenario the conditional statement should return true/false, depending on your requirements.
 
 Some examples would be,
 
-`#{if Octopus.Environment.Name == "Production"}true{/if}` would run the step only in Production.
+`#{if Octopus.Environment.Name == "Production"}true#{/if}` would run the step only in Production.
 
-`#{if Octopus.Environment.Name != "Production"}true{/if}` would run the step in all environments other than Production.
+`#{if Octopus.Environment.Name != "Production"}true#{/if}` would run the step in all environments other than Production.
 
 ### Repetition {#VariableSubstitutionSyntax-Repetition}
 
