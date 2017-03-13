@@ -115,6 +115,8 @@ Some examples would be,
 
 `#{if Octopus.Environment.Name != "Production"}true#{/if}` would run the step in all environments other than Production.
 
+`#{unless Octopus.Action[StepName].Output.HasRun == "True"}true#{/unless}` would run the step unless it has run before. This would be useful for preventing something like an email step from executing every time an auto deploy executed for new machines in an environment.  It would be used in conjunction with the step calling `Set-OctopusVariable -name "HasRun" -value "True"` when it does run.
+
 ### Repetition {#VariableSubstitutionSyntax-Repetition}
 
 The `each` statement supports repetition over a set of variables, or over the individual values in a variable separated with commas.
