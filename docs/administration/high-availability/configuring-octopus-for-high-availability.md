@@ -167,7 +167,7 @@ Sometimes you go to a deployment and there are no steps displayed, and detailed 
 
 To fix this problem you should:
 
-1. Organise some downtime for your Octopus HA cluster
+1. Plan some downtime for your Octopus HA cluster
 2. Create shared storage as [described here](#ConfiguringOctopusforHighAvailability-SharedStorage)
 3. Put your Octopus HA cluster into maintenance mode after draining tasks from each node
 3. Reconfigure your Octopus HA cluster to use the shared storage
