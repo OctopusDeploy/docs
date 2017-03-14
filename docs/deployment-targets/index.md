@@ -12,41 +12,43 @@ Deployment targets are added to an environment from the Environments page.
 
 A deployment target can be one of the following types:
 
-- [Listening Tentacle](/docs/deployment-targets/index.md)
-- [Polling Tentacle](/docs/deployment-targets/index.md)
-- [Offline Package Drop](/docs/deployment-targets/index.md)
-- [SSH Connection](/docs/deployment-targets/index.md)
-- [Cloud Region](/docs/deployment-targets/index.md)
+- [Listening Tentacle](#listening-tentacle)
+- [Polling Tentacle](#polling-tentacle)
+- [Offline Package Drop](#offline-package-drop)
+- [SSH Connection](#ssh-connection)
+- [Cloud Region](#cloud-region)
+- [Azure Web App](#azure-web-app)
+- [Azure Cloud Service](#azure-cloud-service)
 
 ![](/docs/images/3048059/5865591.png "width=500")
 
-## Listening Tentacle  {#Deploymenttargets-ListeningTentacleListeningTentacle}
+## Listening Tentacle
 
 A [Listening Tentacle](/docs/installation/installing-tentacles/listening-tentacles.md) is a machine with the Tentacle service installed in *listening* mode.
 
-## Polling Tentacle  {#Deploymenttargets-PollingTentaclePollingTentacle}
+## Polling Tentacle
 
 A [Polling Tentacle](/docs/installation/installing-tentacles/polling-tentacles.md) is a machine with Tentacle service installed in *polling* mode.
 
-## Offline Package Drop  {#Deploymenttargets-OfflinePackageDropOfflinePackageDrop}
+## Offline Package Drop
 
 An [Offline Package Drop](/docs/deployment-targets/offline-package-drop.md) target is designed to allow deploying to a machine which the Octopus Deploy server cannot communicate with; for example, due to security policy or network topology.
 
-## SSH Connection  {#Deploymenttargets-SSHConnectionSSHConnection}
+## SSH Connection
 
 Currently, the Tentacle service can only be installed servers running Microsoft Windows. An [SSH Connection](/docs/deployment-targets/ssh-targets/index.md) target allows deployment to Linux machines.
 
-## Cloud Region {#Deploymenttargets-CloudRegion}
+## Cloud Region
 
 A [Cloud Region](/docs/deployment-targets/cloud-regions.md) is a way to model multi-region deployments as a way to replace the deprecated Azure Web App and Azure Cloud Service targets.
 
-## Azure Web App  {#Deploymenttargets-AzureWebAppAzureWebApp}
+## Azure Web App
 
 :::warning
 Azure Cloud Service deployment targets have been deprecated in Octopus 3.1. Don't worry - you can migrate your Azure Targets to use the equivalent Azure Steps by following [this guide](/docs/how-to/migrate-azure-targets-into-azure-steps.md).
 :::
 
-## Azure Cloud Service  {#Deploymenttargets-AzureCloudServiceAzureCloudService}
+## Azure Cloud Service
 
 :::warning
 Azure Web App deployment targets have been deprecated in Octopus 3.1. Don't worry - you can migrate your Azure Targets to use the equivalent Azure Steps by following [this guide](/docs/how-to/migrate-azure-targets-into-azure-steps.md).
