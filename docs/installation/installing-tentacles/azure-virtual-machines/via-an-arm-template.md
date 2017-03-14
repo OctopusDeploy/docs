@@ -15,7 +15,7 @@ Create your ARM template as normal, and add a `resources` element under your `Mi
 ```json
 "resources": [
   {
-    "type": "Microsoft.Compute/virtualMachines/extensions",
+    "type": "extensions",
     "name": "[concat(parameters('vmName'),'/OctopusDeployWindowsTentacle')]",
     "apiVersion": "2015-05-01-preview",
     "location": "[resourceGroup().location]",
