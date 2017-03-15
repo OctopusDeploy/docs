@@ -95,7 +95,6 @@ Make sure you replace `NEWGUID` with a generated guid.
 		"description": "Octopus Administrators",
 		"displayName": "Octopus Admins",
 		"isEnabled": true,
-		"origin": "Application",
 		"value": "octopusAdmins"
 	},
 	{
@@ -104,7 +103,6 @@ Make sure you replace `NEWGUID` with a generated guid.
 		"description": "Octopus Testers",
 		"displayName": "Octopus Testers",
 		"isEnabled": true,
-		"origin": "Application",
 		"value": "octopusTesters"
 	}
   ]
