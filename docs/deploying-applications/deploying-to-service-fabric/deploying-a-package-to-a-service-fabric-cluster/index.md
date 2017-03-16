@@ -76,7 +76,7 @@ Deployment to a Service Fabric cluster proceeds as follows (more details provide
 
 Service Fabric package files are extracted during deployment, as the `Publish-UpgradedServiceFabricapplication` cmdlet used by Calamari requires an `ApplicationPackagePath` parameter to the extracted package. This also allows Octopus to use available features such as Configuration Transforms and Variable Substitution.
 
-Setting the `Octopus.Action.Azure.FabricLogExtractedApplicationPackage` variable to `true` will cause the layout of the extracted package to be written into the Task Log. This may assist with finding the path to a particular file.
+Setting the `Octopus.Action.ServiceFabric.LogExtractedApplicationPackage` variable to `true` will cause the layout of the extracted package to be written into the Task Log. This may assist with finding the path to a particular file.
 
 ### Customizing the deployment process {#DeployingapackagetoaServiceFabricapplication-Customizingthedeploymentprocess}
 
