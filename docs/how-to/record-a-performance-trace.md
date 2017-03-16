@@ -18,14 +18,9 @@ We use [JetBrains dotTrace](https://www.jetbrains.com/profiler/) to record and a
 
 ## Getting prepared
 
-:::hint
-Some of these steps may require you to restart the Octopus Server. If you cannot restart the Octopus Server, or restarting the Octopus Server would remediate the problem, don't worry about reconfiguring Octopus logging. The most important thing is to record the performance trace while the problem is occurring.
-:::
-
 1. Download and install a trial of [JetBrains dotTrace](https://www.jetbrains.com/profiler/) on your Octopus Server
-2. [Enable detailed Octopus logging](/docs/reference/log-files.md)
-3. [Enable web request logging](enable-web-request-logging.md)
-4. Start recording CPU, RAM and Disk I/O using performance monitor (or similar)
+2. [Enable detailed Octopus logging](/docs/reference/log-files.md) - doesn't require a restart
+3. Start recording CPU, RAM and Disk I/O using performance monitor (or similar)
 
 ## Recording the performance trace
 
@@ -35,8 +30,8 @@ We don't usually need a long recording, the most important thing is to get a rec
 If we haven't asked for anything specific, start with a 1-5 minute recording so we can analyze it and go from there.
 :::
 
-1. Install dotTrace on the Octopus Server and start a free trial.
-2. Start dotTrace as an Administrator
+1. Install dotTrace on the machine hosting Octopus Server
+2. Start dotTrace as an Administrator and start a free trial (the trial can be paused after recording the trace)
 3. Start a [timeline trace](https://www.jetbrains.com/help/profiler/10.0/Concurrency_Profiling_Timeline_.html) by [attaching to the running Octopus Server process](https://www.jetbrains.com/help/profiler/10.0/Profile_Running_Process.html)
 4. When enough time has passed, take a [snapshot](https://www.jetbrains.com/help/profiler/10.0/Profiling_Guidelines__Launching_and_Controlling_the_Profiling_Process.html) using `Get Snapshot'n'Wait`
 5. Detach from the process.
