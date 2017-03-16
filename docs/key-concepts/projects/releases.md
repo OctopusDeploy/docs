@@ -20,7 +20,7 @@ The OctoFX deployment process include a package step which installs the web appl
 
 You can create a new release by selecting the _Create release_ button on the project details page.  This allows you to specify the version for the release, which packages are required and optional release notes.  Once you save this new release, you can simply select deploy and then promote it through the environments for this project.
 
-NOTE: If you had a fully automated build and deployment pipeline, the releases are generally created automatically.  For more information on this topic, see our [API and Integration](/api-and-integration/index.md) documentation.
+NOTE: If you had a fully automated build and deployment pipeline, the releases are generally created automatically.  For more information on this topic, see our [API and Integration](/docs/api-and-integration/index.md) documentation.
 
 ## Snapshots
 
