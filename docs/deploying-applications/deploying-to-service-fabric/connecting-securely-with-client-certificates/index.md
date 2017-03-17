@@ -42,7 +42,7 @@ The DNS name for Azure Service Fabric clusters can be found as the "Client conne
 
 An example of a Service Fabric cluster's DNS name is: `octopus-demo1-secure.australiasoutheast.cloudapp.azure.com`
 
-## Step 2: Generate the client certificate
+## Step 2: Generate the client certificate {#ConnectingSecurelywithClientCertificates-Step1:Generatetheclientcertificate}
 
 Using PowerShell, you can easily generate a self-signed certificate for testing purposes.
 
@@ -75,7 +75,7 @@ To override the location of the certificates for Service Fabric, the following v
 | OctopusFabricCertificateStoreName      | MY               | The store name that Octopus will pass as the 'StoreName' argument of the Service Fabric connection properties during a deployment |
 | OctopusFabricCertificateStoreName      | FindByThumbprint | The value used for searching certificates in the certificate store |
 
-## Step 3: Install the client certificate
+## Step 3: Install the client certificate {#ConnectingSecurelywithClientCertificates-Step1:Installtheclientcertificate}
 
 Now that you have a client certificate and thumbprint, the following steps can be completed:
 
@@ -85,12 +85,12 @@ Now that you have a client certificate and thumbprint, the following steps can b
 
 The client certificate should now be setup for your Octopus Server machine to communicate with your Service Fabric cluster.
 
-## Step 4: Configure and run a deployment step
+## Step 4: Configure and run a deployment step {#ConnectingSecurelywithClientCertificates-Step1:Configureandrunadeploymentstep}
 
 In Octopus, Service Fabric deployment steps that use "Client Certificate" as the security mode will need you to enter the Server Certificate and the Client Certificate.
 
 TODO: markse - show image of completed UI using certs
 
-## Connection Troubleshooting
+## Connection Troubleshooting {#ConnectingSecurelywithClientCertificates-Step1:ConnectionTroubleshooting}
 
 Calamari uses the [Connect-ServiceFabricCluster cmdlet](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/connect-servicefabriccluster) to connect to your Service Fabric cluster. The connection parameters are logged (Verbose) at the time of a deployment to help if you need to debug connection problems to your Service Fabric cluster.
