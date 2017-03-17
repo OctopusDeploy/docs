@@ -6,7 +6,7 @@ position: 28
 
 Octopus Deploy can help you perform repeatable and controlled deployments of your applications into Service Fabric clusters.
 
-## What kind of applications can I deploy to Service Fabric? {#DeployingtoServiceFabric-WhatkindofapplicationscanIdeploytoServiceFabric?}
+## What kind of applications can I deploy to Service Fabric? {#DeployingtoServiceFabric-Whatkindofapplications?}
 
 The short answer is: anything and everything! As long as you can script the deployment, Octopus can automate your deployments into a Service Fabric cluster.
 
@@ -25,9 +25,9 @@ Octopus Deploy provides first-class support for [deploying Service Fabric applic
 
 Octopus Deploy provides a convenient step for [executing PowerShell scripts using the Service Fabric SDK cmdlets](/docs/deploying-applications/custom-scripts/service-fabric-powershell-scripts.md)
 
-### Security Modes
+### Security Modes {#DeployingtoServiceFabric-SecurityModes}
 Both Service Fabric Applications and PowerShell Scripts require connection to a cluster.
 
-Octopus provides an option for [connecting to Service Fabric clusters securely with client certificates](/docs/deploying-applications/deploying-to-service-fabric/connecting-securely-with-client-certificates/index.md).
+Octopus provides an option for connecting to Service Fabric clusters securely with [Client Certificates](/docs/deploying-applications/deploying-to-service-fabric/connecting-securely-with-client-certificates/index.md).
 
-Octopus also provides an option for [connecting to Service Fabric clusters securely with Azure Active Directory](/docs/deploying-applications/deploying-to-service-fabric/connecting-securely-with-azure-active-directory/index.md).
+Octopus also provides an option for connecting to Service Fabric clusters securely with [Azure Active Directory](/docs/deploying-applications/deploying-to-service-fabric/connecting-securely-with-azure-active-directory/index.md).

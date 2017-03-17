@@ -42,7 +42,7 @@ Various options are available to deploy your Service Fabric application.
 Any of the settings above can be switched to use a variable binding expression. A common example is when you use a naming convention for your different application services, like **MyFabricApplication\_Production** and **MyFabricApplication\_Test** - you can use environment-scoped variables to automatically configure this step depending on the environment you are targeting.
 :::
 
-### Deployment features available to Service Fabric application steps {#DeployingapackagetoaServiceFabricapplication-DeploymentfeaturesavailabletoServiceFabricapplicationsteps}
+### Deployment features available to Service Fabric application steps {#DeployingapackagetoaServiceFabricapplication-Deploymentfeaturesavailable}
 
 The following features are available when deploying a package to a Service Fabric application:
 

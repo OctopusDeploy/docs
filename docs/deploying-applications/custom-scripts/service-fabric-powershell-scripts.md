@@ -34,6 +34,6 @@ If ($health.AggregatedHealthState -eq "OK") {
 }
 ```
 
-## Connection Troubleshooting
+## Connection Troubleshooting {#ServiceFabricPowerShellScripts-ConnectionTroubleshooting}
 
 Calamari uses the [Connect-ServiceFabricCluster cmdlet](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/connect-servicefabriccluster) to connect to your Service Fabric cluster. The connection parameters are logged (Verbose) at the time of a deployment to help if you need to debug connection problems to your Service Fabric cluster.
