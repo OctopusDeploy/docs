@@ -31,3 +31,5 @@ Both Service Fabric Applications and PowerShell Scripts require connection to a 
 Octopus provides an option for connecting to Service Fabric clusters securely with [Client Certificates](/docs/deploying-applications/deploying-to-service-fabric/connecting-securely-with-client-certificates/index.md).
 
 Octopus also provides an option for connecting to Service Fabric clusters securely with [Azure Active Directory](/docs/deploying-applications/deploying-to-service-fabric/connecting-securely-with-azure-active-directory/index.md).
+
+TODO: markse - link to any guides we write here
