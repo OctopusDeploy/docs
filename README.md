@@ -249,7 +249,7 @@ Partial Convention: filePrefix_key_nugetAlias_version.partial.md
 
 ### Defining a partial
 
-Add a file in the same folder as the page where you will use the partial to the docs repository that is named `filePrefix_key_version.partial.md`. For example, the file might be named `getting-started_theKey_2.0.partial.md`.
+Add a file in the same folder as the page where you will use the partial to the docs repository that is named `fileName_key_version.partial.md`. For example, the file might be named `getting-started_theKey_2.0.partial.md`.
 
 ### Using a partial
 
