@@ -4,7 +4,7 @@ description: Octopus step templates are reusable steps based on the built-in ste
 position: 15
 ---
 
-Octopus1 step templates are reusable steps based on the built-in steps with your own specific parameters and instructions.  Octopus supports two types of step templates.  Custom step templates and community step templates.
+Octopus step templates are reusable steps based on the built-in steps with your own specific parameters and instructions.  Octopus supports two types of step templates.  Custom step templates and community step templates.
 
 - Custom step templates are templates created within Octopus to encapsulate common steps/scenarios with a team or company.  Often they're built to encapsulate everything required to accomplish a task working with a specific framework or technology
 - Community step templates are custom step templates that have shared for others to take advantage of
@@ -30,8 +30,8 @@ Octopus 3.7 introduced integration with the Community Library and community cont
 Installing a community step template into Octopus is quick and easy.
 
 - [Install and add a community step template directly from your project's deployment process](/docs/deploying-applications/adding-steps.md#Addingsteps-Addingacommunitycontributedsteptemplates)
-- [Install a step template from the **Step templates** tab within the **Library** area](/docs/deploying-applications/step-templates.md#StepTemplates-InstallingasteptemplatefromtheCommunityLibrary)
-- [Manually import a step template from the **Step templates** tab within the **Library** area](/docs/deploying-applications/step-templates.md#StepTemplates-ImportingasteptemplatefromtheCommunityLibrary)
+- [Install a step template from the **Step templates** tab within the **Library** area](/docs/deploying-applications/step-templates/index.md#StepTemplates-InstallingasteptemplatefromtheCommunityLibrary)
+- [Manually import a step template from the **Step templates** tab within the **Library** area](/docs/deploying-applications/step-templates/index.md#StepTemplates-ImportingasteptemplatefromtheCommunityLibrary)
 
 It's also possible to create your own step templates.
 
@@ -171,17 +171,13 @@ To re-run the script against different deployment targets or modify the input pa
 
 ### Updating step templates {#StepTemplates-Updatingsteptemplates}
 
-:::warning
 Step Templates are effectively copied to projects using them. That means if you update a step template, you'll need to update the step in the project using it for your changes to have an effect.
-:::
 
 If your project is using an out-of-date step template, you will see a warning when editing that step in the deployment process of your project. You can click the **Update** button to start using the latest version.
 
-![](/docs/images/5671696/5866156.png "width=500")
+![Step Templates inline merge](step-templates-inline-merge.png "width=500")
 
-:::success
-If you have a lot of projects using Step Templates, updating them can be time consuming. We are planning to make this much easier, but until then you should consider the [BlueFin Chrome extension for Octopus](http://bluefin.teapotcoder.com/) which allows you to update a Step Template across all of your projects.
-:::
+!partial <bulkstepupdate>
 
 ### Exporting step templates {#StepTemplates-Exportingsteptemplates}
 

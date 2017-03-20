@@ -1,0 +1,1 @@
+If you have a lot of projects using Step Templates, updating them one by one can be time consuming.  Fortunately,  there is a way to update all your projects at once. Navigate to {{Library,Step templates, Name of the Step Template, Usage}}. 

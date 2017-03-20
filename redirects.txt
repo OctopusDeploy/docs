@@ -15,3 +15,4 @@ docs/api-and-integration/compatibility.md -> docs/api-and-integration/index.md
 docs/administration/upgrading/migrating-from-redgate-deployment-manager-to-octopus-deploy.md -> docs/administration/upgrading/index.md
 docs/administration/how-to-move-the-octopus-server-to-another-server-or-vm.md -> docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md
 docs/deploying-applications/custom-scripts/naked-scripting.md -> docs/deploying-applications/custom-scripts/raw-scripting.md
+docs/deploying-applications/step-templates.md -> docs/deploying-applications/step-templates/index.md

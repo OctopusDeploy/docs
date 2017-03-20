@@ -19,14 +19,14 @@ The [Community Library](http://library.octopusdeploy.com/) is an open source [re
 ![](/docs/images/5671696/5865902.png "width=500")
 
 :::hint
-Prior to Octopus 3.7, selecting the add step button showed a popup list of built-in steps and any installed step templates (community contributed or custom).  Installing a community step required visiting the [Community Library](http://library.octopusdeploy.com/) and importing the step manually.  For more information, see [step templates](/docs/deploying-applications/step-templates.md).
+Prior to Octopus 3.7, selecting the add step button showed a popup list of built-in steps and any installed step templates (community contributed or custom).  Installing a community step required visiting the [Community Library](http://library.octopusdeploy.com/) and importing the step manually.  For more information, see [step templates](/docs/deploying-applications/step-templates/index.md).
 
 ![](/docs/images/5672131/5865901.png "width=500")
 :::
 
 ## Adding an installed step {#Addingsteps-Addinganinstalledstep}
 
-The add step page displays the built-in steps first which includes common steps to deploy IIS web sites, windows services, run scripts and more.  The built-in steps have been develop by the Octopus team to handle the most common deployment scenarios and it also.  This section also includes any custom [step templates](/docs/deploying-applications/step-templates.md) added in the library.  Hover over a step and click add step to go configure the step.
+The add step page displays the built-in steps first which includes common steps to deploy IIS web sites, windows services, run scripts and more.  The built-in steps have been develop by the Octopus team to handle the most common deployment scenarios and it also.  This section also includes any custom [step templates](/docs/deploying-applications/step-templates/index.md) added in the library.  Hover over a step and click add step to go configure the step.
 
 ![](/docs/images/5671696/5866045.png "width=300")
 

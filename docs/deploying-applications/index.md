@@ -28,7 +28,7 @@ For more information, see the section on [simple and advanced deployment process
 Steps can be added to the deployment process using the **Add step** button. There are many different types of steps supported by Octopus and we are adding more specific steps all the time. For more information, see the [add step](/docs/deploying-applications/adding-steps.md) section.
 
 :::success
-If a step you want isn't built-in you should check out the community contributed [step templates](/docs/deploying-applications/step-templates.md). If you still don't find it, don't forget: *Octopus can do anything, as long as you can script the instructions*. Maybe you could contribute your scripts back to the community?
+If a step you want isn't built-in you should check out the community contributed [step templates](/docs/deploying-applications/step-templates/index.md). If you still don't find it, don't forget: *Octopus can do anything, as long as you can script the instructions*. Maybe you could contribute your scripts back to the community?
 :::
 
 ![](/docs/images/5671696/5865900.png "width=500")
