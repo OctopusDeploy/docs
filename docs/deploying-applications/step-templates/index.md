@@ -167,9 +167,7 @@ To run a script based step template, perform the following.
 
 To re-run the script against different deployment targets or modify the input parameters, simply click the **Modify and re-run** button.
 
-## Other {#StepTemplates-Other}
-
-### Updating step templates {#StepTemplates-Updatingsteptemplates}
+## Updating step templates {#StepTemplates-Updatingsteptemplates}
 
 Step Templates are effectively copied to projects using them. That means if you update a step template, you'll need to update the step in the project using it for your changes to have an effect.
 
@@ -179,7 +177,7 @@ If your project is using an out-of-date step template, you will see a warning wh
 
 !partial <bulkstepupdate>
 
-### Exporting step templates {#StepTemplates-Exportingsteptemplates}
+## Exporting step templates {#StepTemplates-Exportingsteptemplates}
 
 If you want to transport, backup, or share your Step Templates with the community, you can export a template by finding your template in {{Library,Step templates}}, and clicking the **Export** link.
 
