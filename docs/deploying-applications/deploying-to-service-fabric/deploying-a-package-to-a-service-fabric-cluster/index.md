@@ -11,13 +11,15 @@ Create a Service Fabric cluster (either in Azure, on-prem or in other clouds). O
 
 ## Step 2: Packaging {#DeployingapackagetoaServiceFabricapplication-Step2:Packaging}
 
-TODO: Shannon advice on packaging :allthethings:
+Package your Service Fabric application. See our guide to [Packaging a Service Fabric application](/docs/guides/service-fabric/packaging.md).
 
 ## Step 3: Create the Service Fabric application deployment step {#DeployingapackagetoaServiceFabricapplication-Step3:CreatetheServiceFabricapplicationdeploymentstep}
 
-Add a new Service Fabric application deployment step to your project. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/adding-steps.md) section.  
+Add a new Service Fabric application deployment step to your project.Â For information about adding a step to the deployment process, see theÂ [add step](/docs/deploying-applications/adding-steps.md)Â section.Â  
 
 ## Step 4: Configure the connection to your Service Fabric application {#DeployingapackagetoaServiceFabricapplication-Step4:ConfiguretheconnectiontoyourServiceFabricapplication}
+
+Select your Service Fabric package from your package feed.
 
 Add your Service Fabric cluster connection endpoint.
 
@@ -39,7 +41,7 @@ Various options are available to deploy your Service Fabric application.
 
 :::success
 **Use variable binding expressions**
-Any of the settings above can be switched to use a variable binding expression. A common example is when you use a naming convention for your different application services, like **MyFabricApplication\_Production** and **MyFabricApplication\_Test** - you can use environment-scoped variables to automatically configure this step depending on the environment you are targeting.
+Any of the settings above can be switched to use a variable binding expression. A common example is when you use a naming-convention for your various application services, like **MyFabricApplication\_Production** and **MyFabricApplication\_Test**Â - you can use environment-scoped variables to automatically configure this step depending on the environment you are targeting.
 :::
 
 ### Deployment features available to Service Fabric application steps {#DeployingapackagetoaServiceFabricapplication-Deploymentfeaturesavailable}
@@ -60,33 +62,37 @@ Please note these features actually run on the Octopus Server prior to deploying
 
 Deployment to a Service Fabric cluster proceeds as follows (more details provided below):
 
-1. Download the package from the [package repository](/docs/packaging-applications/package-repositories/index.md)
+1. Download the package from theÂ [package repository](/docs/packaging-applications/package-repositories/index.md)
 2. Extract the package on the Octopus server to a temporary location
-4. Any configured or packaged `PreDeploy` scripts are executed
+4. Any configured or packagedÂ `PreDeploy`Â scripts are executed
 6. [Substitute variables in files](/docs/deploying-applications/substitute-variables-in-files.md) (if configured)
-7. [XML configuration transformations](/docs/deploying-applications/configuration-files/index.md) (if configured) are performed
-8. [XML configuration variables](/docs/deploying-applications/configuration-files/index.md) (if configured) are replaced
-8. [JSON configuration variables](/docs/guides/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md) (if configured) are replaced
-9. Any configured or package `Deploy` scripts are executed
+7. [XML configuration transformations](/docs/deploying-applications/configuration-files/index.md)Â (if configured) are performed
+8. [XML configuration variables](/docs/deploying-applications/configuration-files/index.md)Â (if configured) are replaced
+8. [JSON configuration variables](/docs/guides/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md)Â (if configured) are replaced
+9. Any configured or packageÂ `Deploy`Â scripts are executed
 10. Generic variable substitution is carried out across all `*.config` and `*.xml` files in the extracted package
 11. Execute the Service Fabric application deployment script (see 'Customizing the deployment process' section below)
-12. Any configured or packaged `PostDeploy` scripts are executed
+12. Any configured or packagedÂ `PostDeploy`Â scripts are executed
 
 ### Extract the Service Fabric Package {#DeployingapackagetoaServiceFabricapplication-ExtracttheServiceFabricPackage}
 
 Service Fabric package files are extracted during deployment, as the `Publish-UpgradedServiceFabricapplication` cmdlet used by Calamari requires an `ApplicationPackagePath` parameter to the extracted package. This also allows Octopus to use available features such as Configuration Transforms and Variable Substitution.
 
-Setting the `Octopus.Action.ServiceFabric.LogExtractedApplicationPackage` variable to `true` will cause the layout of the extracted package to be written into the Task Log. This may assist with finding the path to a particular file.
+Setting theÂ `Octopus.Action.ServiceFabric.LogExtractedApplicationPackage`Â variable to `true` will cause the layout of the extracted package to be written into the Task Log. This may assist with finding the path to a particular file.
 
 ### Customizing the deployment process {#DeployingapackagetoaServiceFabricapplication-Customizingthedeploymentprocess}
 
-The deployment is performed using a PowerShell script called `DeployToServiceFabric.ps1`. If a file with this name exists within your package, Octopus will invoke it. Otherwise, Octopus will use a bundled version of the script as a default. You can **[view the bundled script here](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari.Azure/Scripts/DeployAzureServiceFabricApplication.ps1)**, and use it as a basis for creating your own custom deployment script.
+The deployment is performed using a PowerShell script calledÂ `DeployToServiceFabric.ps1`. If a file with this name exists within your package, Octopus will invoke it. Otherwise, Octopus will use a bundled version of the script as a default. You canÂ **[view the bundled script here](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari.Azure/Scripts/DeployAzureServiceFabricApplication.ps1)**, and use it as a basis for creating your own custom deployment script.
 
 ## Deploying to multiple geographic regions {#DeployingapackagetoaServiceFabricapplication-Deployingtomultiplegeographicregions}
 
 When your application is deployed to more than one geographic region, you are likely to need per-region configuration settings. You can achieve this result in many different ways, but the two most popular methods we have seen are:
 
-1. [Cloud Regions](/docs/deployment-targets/cloud-regions.md): introduced in Octopus 3.4 to enable [rolling deployments](/docs/patterns/rolling-deployments.md) across multiple geographic regions
-2. Environment-per-region: by creating an environment per region you can leverage [lifecycles](/docs/key-concepts/lifecycles.md) to create a strict release promotion process
+1. [Cloud Regions](/docs/deployment-targets/cloud-regions.md): introduced in Octopus 3.4 to enableÂ [rolling deployments](/docs/patterns/rolling-deployments.md) across multiple geographic regions
+2. Environment-per-region: by creating an environment per region you can leverageÂ [lifecycles](/docs/key-concepts/lifecycles.md) to create a strict release promotion process
 
 Both methods allow you to modify your deployment process and variables per-region, but have slightly different release promotion paths. Choose the one that suits you best.
+
+## Versioning {#DeployingapackagetoaServiceFabricapplication-Versioning}
+
+To learn more about how you can automate Service Fabric versioning with Octopus, see our guide on [Version Automation with Service Fabric application packages](/docs/guides/service-fabric/version-automation-with-service-fabric-application-packages/index.md).
