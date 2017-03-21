@@ -54,7 +54,7 @@ Create your ARM template as normal, and add a `resources` element under your `Mi
 
 * `publisher`: (string) Must be `OctopusDeploy.Tentacle`.
 * `type`: (string) Must be `OctopusDeployWindowsTentacle`.
-* `typeHandlerVersion`: (string): The major and minor version of the extension to apply. You can find what versions are available [via the Azure CLI](via-the-azure-cli).
+* `typeHandlerVersion`: (string): The major and minor version of the extension to apply. You can find what versions are available [via the Azure CLI](via-the-azure-cli.md).
 * `autoUpgradeMinorVersion`: (string) Indicates whether the extension version should be automatically updated to a newer minor version. Accepts the values `true` or `false`.
 * `forceUpdateTag`: (string) Any user defined value that can be modified to force the extension to re-run, even if none of the `settings` or `protectedSettings` have changed.
 
