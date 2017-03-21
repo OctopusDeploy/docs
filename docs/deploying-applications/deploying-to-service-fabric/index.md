@@ -32,4 +32,10 @@ Octopus provides an option for connecting to Service Fabric clusters securely wi
 
 Octopus also provides an option for connecting to Service Fabric clusters securely with [Azure Active Directory](/docs/deploying-applications/deploying-to-service-fabric/connecting-securely-with-azure-active-directory/index.md).
 
-TODO: markse - link to any guides we write here
+### Versioning {#DeployingtoServiceFabric-Versioning}
+
+To learn more about how you can automate Service Fabric versioning with Octopus, see our guide on [Version Automation with Service Fabric application packages](/docs/guides/service-fabric/version-automation-with-service-fabric-application-packages/index.md).
+
+### Application Packaging {#DeployingtoServiceFabric-Step2:Packaging}
+
+To learn more about the requirements for your Service Fabric application packages, see our guide to [Packaging a Service Fabric application](/docs/guides/service-fabric/packaging.md).
