@@ -5,6 +5,14 @@ position: 1
 version: "3.12"
 ---
 
+:::warning
+**This feature is still in beta**. We have tested this functionality, but would like some real world feedback. During this period the following caveats apply:
+- If using for critical deployments, be prepared to convert to TCP based polling tentacles
+- Proxies have not been extensively tested
+- The documentation is incomplete
+- Please let us know how you go via support channels
+:::
+
 Read about [(TCP) Polling Tentacles](polling-tentacles.md) before continuing.
 
 Polling Tentacles can be setup to operate over HTTPS (Secure WebSockets) instead of raw TCP sockets. The advantage is that the port can be shared with another website (e.g. IIS or Octopus itself). The downside is the setup is a little more complicated and network communications are slightly slower.
