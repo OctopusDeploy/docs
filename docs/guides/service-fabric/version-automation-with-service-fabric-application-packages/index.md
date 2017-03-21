@@ -9,7 +9,7 @@ In this section we will discuss some ways Octopus Deploy can help with versionin
 A Service Fabric application is not a single physical "thing", it is the combination of 1 or more services. Each service has it's own individual version, based on its code and configuration versions. The combination of service versions then make up the overall application version.
 
 ### Code and Config versioning
-As mentioned above, each service that makes up an application can be versioned independently. One strategy for managing these versions is to have the developers manually update them in the solution's manifest files. This is how the default Visual Studio based deployment model works, and is the default behaviour you will get from Octopus Deploy if no other action is taken.
+As mentioned above, each service that makes up an application can be versioned independently. One strategy for managing these versions is to have the developers manually update them in the solution's manifest files. This is how the [Visual Studio based deployment model](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-upgrade-tutorial) works, and is the default behaviour you will get from Octopus Deploy if no other action is taken.
 
 When using an automated build system as part of a Continuous Delivery pipeline it is common to stamp all of the binaries in the build as a set, with the same version number. Mature build tools will have a mechanism for easily managing the version number and assigning it to the assemblies during the build.
 
