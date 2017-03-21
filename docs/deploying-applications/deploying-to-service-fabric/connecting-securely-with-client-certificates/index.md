@@ -69,11 +69,11 @@ By default, the Service Fabric steps assume the certificate store location is `L
 
 To override the location of the certificates for Service Fabric, the following variables are available and can be overridden:
 
-| Variable                               | Default          | Description                              |
-| -------------------------------------- | ---------------- | ---------------------------------------- |
-| OctopusFabricCertificateStoreLocation  | LocalMachine     | The store location that Octopus will pass as the 'StoreLocation' argument of the Service Fabric connection properties during a deployment |
-| OctopusFabricCertificateStoreName      | MY               | The store name that Octopus will pass as the 'StoreName' argument of the Service Fabric connection properties during a deployment |
-| OctopusFabricCertificateStoreName      | FindByThumbprint | The value used for searching certificates in the certificate store |
+| Variable                                               | Default          | Description                              |
+| ------------------------------------------------------ | ---------------- | ---------------------------------------- |
+| Octopus.Action.ServiceFabric.CertificateStoreLocation  | LocalMachine     | The store location that Octopus will pass as the 'StoreLocation' argument of the Service Fabric connection properties during a deployment |
+| Octopus.Action.ServiceFabric.CertificateStoreName      | MY               | The store name that Octopus will pass as the 'StoreName' argument of the Service Fabric connection properties during a deployment |
+| Octopus.Action.ServiceFabric.CertificateFindType       | FindByThumbprint | The value used for searching certificates in the certificate store |
 
 ## Step 3: Install the client certificate {#ConnectingSecurelywithClientCertificates-Step1:Installtheclientcertificate}
 
@@ -87,7 +87,7 @@ The client certificate should now be setup for your Octopus Server machine to co
 
 ## Step 4: Configure and run a deployment step {#ConnectingSecurelywithClientCertificates-Step1:Configureandrunadeploymentstep}
 
-In Octopus, Service Fabric deployment steps that use "Client Certificate" as the security mode will need you to enter the Server Certificate and the Client Certificate.
+In Octopus, Service Fabric deployment steps that use "Client Certificate" as the security mode will need you to enter both the Server Certificate and the Client Certificate thumbprints.
 
 TODO: markse - show image of completed UI using certs
 
