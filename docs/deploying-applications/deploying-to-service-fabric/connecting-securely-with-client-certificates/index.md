@@ -53,8 +53,8 @@ In this PowerShell, we print the value of the certificate's thumbprint. Be sure 
 :::
 
 ```powershell
-$connectionEndpoint = "democtopus-sf1-secure.australiasoutheast.cloudapp.azure.com"
-$cert = New-SelfSignedCertificate -DnsName $connectionEndpoint -CertStoreLocation "cert:\LocalMachine\My"
+$dnsName = "democtopus-sf1-secure.australiasoutheast.cloudapp.azure.com"
+$cert = New-SelfSignedCertificate -DnsName $dnsName -CertStoreLocation "cert:\LocalMachine\My"
 Write-Host $cert.Thumbprint
 $password = ConvertTo-SecureString -String "MySuperSecurePasswordGoesHere" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath "C:\_export\democtopus-sf1-secure-server-cert.pfx" -Password $password

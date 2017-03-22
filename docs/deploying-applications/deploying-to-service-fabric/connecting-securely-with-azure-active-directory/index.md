@@ -35,15 +35,7 @@ These PowerShell variables correspond to the following Octopus variables:
 
 It is these values and variables that we will be discussing below.
 
-## Step 1: Get the DNS name of your Service Fabric cluster {#ConnectingSecurelywithAad-Step1:GettheDnsName}
-
-The following steps will need the DNS name of your Service Fabric cluster. 
-
-The DNS name for Azure Service Fabric clusters can be found as the "Client connection endpoint" field on the "Overview" tab of your Azure Service Fabric cluster in the Azure portal.
-
-An example of a Service Fabric cluster's DNS name is: `democtopus-sf1-secure.australiasoutheast.cloudapp.azure.com`
-
-## Step 2: Configure the Service Fabric cluster to use Azure Active Directory {#ConnectingSecurelywithAad-Step2:ConfiguretheServiceFabriccluster}
+## Step 1: Configure the Service Fabric cluster to use Azure Active Directory {#ConnectingSecurelywithAad-Step1:ConfiguretheServiceFabriccluster}
 
 The Azure Portal supports adding an AAD user to an AAD app (ie. a Service Fabric cluster application). So Octopus can authenticate using AAD with user credentials _(NOTE: At the time of writing (March 22nd, 2017), user credentials are the only supported method of authentication with SF and AAD. Client application credentials are not yet supported)_. We therefore need to setup an AAD user and grant them permissions to access our Service Fabric cluster, via an AAD app. This section will discuss how to do this.
 
@@ -56,7 +48,7 @@ After running through these scripts, we end up with the following AAD app regist
 - a cluster application
 - a client application
 
-## Step 3: Configure an Azure Active Directory user that Octopus can connect with during deployments {#ConnectingSecurelywithAad-Step3:ConfigureanAaduserthatOctopuscanconnectwith}
+## Step 2: Configure an Azure Active Directory user that Octopus can connect with during deployments {#ConnectingSecurelywithAad-Step2:ConfigureanAaduserthatOctopuscanconnectwith}
 
 Now that we have configured our Service Fabric cluster to use AAD, we can assign an AAD user to our Service Fabric cluster application.
 
@@ -77,7 +69,7 @@ Make note of this user's username (_not_ their display name) and password. The f
 
 We can then configure our deployment step to connect to our Service Fabric cluster using these user credentials.
 
-## Step 4: Configure and run a deployment step {#ConnectingSecurelywithAad-Step4:Configureandrunadeploymentstep}
+## Step 3: Configure and run a deployment step {#ConnectingSecurelywithAad-Step3:Configureandrunadeploymentstep}
 
 In Octopus, Service Fabric deployment steps that use "Azure Active Directory" as the security mode will need you to enter the username and password of the AAD user who has access to your SF cluster application. Octopus will use these user credentials to obtain an `AccessToken` that it will then pass as the `SecurityToken` when connecting to your Service Fabric cluster.
 
