@@ -40,7 +40,7 @@ The following steps will need the DNS name of your Service Fabric cluster.
 
 The DNS name for Azure Service Fabric clusters can be found as the "Client connection endpoint" field on the "Overview" tab of your Azure Service Fabric cluster in the Azure portal.
 
-An example of a Service Fabric cluster's DNS name is: `octopus-demo1-secure.australiasoutheast.cloudapp.azure.com`
+An example of a Service Fabric cluster's DNS name is: `democtopus-sf1-secure.australiasoutheast.cloudapp.azure.com`
 
 ## Step 2: Generate the client certificate {#ConnectingSecurelywithClientCertificates-Step1:Generatetheclientcertificate}
 
@@ -53,11 +53,11 @@ In this PowerShell, we print the value of the certificate's thumbprint. Be sure 
 :::
 
 ```powershell
-$connectionEndpoint = "octopus-demo1-secure.australiasoutheast.cloudapp.azure.com"
+$connectionEndpoint = "democtopus-sf1-secure.australiasoutheast.cloudapp.azure.com"
 $cert = New-SelfSignedCertificate -DnsName $connectionEndpoint -CertStoreLocation "cert:\LocalMachine\My"
 Write-Host $cert.Thumbprint
 $password = ConvertTo-SecureString -String "MySuperSecurePasswordGoesHere" -Force -AsPlainText
-Export-PfxCertificate -Cert $cert -FilePath "C:\_export\octopus-demo1-secure-server-cert.pfx" -Password $password
+Export-PfxCertificate -Cert $cert -FilePath "C:\_export\democtopus-sf1-secure-server-cert.pfx" -Password $password
 ```
 
 We can then take the exported certificate and thumbprint, and complete the following steps.
