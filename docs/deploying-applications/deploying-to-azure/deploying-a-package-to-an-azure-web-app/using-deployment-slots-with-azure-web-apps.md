@@ -59,7 +59,7 @@ So your step should look like:
 
 ### Step 2: Deploy your Package {#UsingDeploymentSlotswithAzureWebApps-Step2:DeployyourPackage}
 
-The next step is to deploy your package to the Staging slot.  We do this be creating a [Deploy an Azure Web App](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/index.md) step.
+The next step is to deploy your package to the Staging slot.  We do this by creating a [Deploy an Azure Web App](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/index.md) step.
 
 ![](/docs/images/3049371/3278554.png "width=500")
 
