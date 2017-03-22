@@ -71,9 +71,9 @@ Once we know this user is valid and can login, we can proceed again to your Azur
 - Select your cluster application that you setup earlier
 - Click on the link for "Managed Application In Local Directory"
 - Click "Users and groups"
-- Proceed to add your deployment user (`morty`) to your application, with the role of Admin
+- Proceed to add your deployment user to your application, with the role of Admin
 
-Make note of this user's username (_not_ their display name) and password. The format of an AAD username is typically something like this: `user@my-azure-directory.onmicrosoft.com`
+Make note of this user's username (_not_ their display name) and password. The format of an AAD username is typically something like this: `my-user@my-azure-directory.onmicrosoft.com`
 
 We can then configure our deployment step to connect to our Service Fabric cluster using these user credentials.
 
