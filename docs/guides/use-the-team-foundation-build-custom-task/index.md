@@ -53,6 +53,23 @@ Enter a valid [Octopus API Key](/docs/how-to/how-to-create-an-api-key.md) in the
 
 After you've saved the connection, it should be available from the Octopus Deploy Build Tasks.
 
+### Permissions required by the API key
+
+The API key you choose needs to have sufficient permissions to perform all the tasks specified by your builds.
+
+For the tasks themselves, these are relatively easy to determine (for example, creating a Release for Project A will require release creation permissions for that project).
+
+For the VSTS UI elements provided by the extension, the API key must also have the below permissions. If one or more are missing, you should still be able to use the extension, however the UI may encounter failures and require you to type values rather than select them from dropdowns. The dashboard widget will not work at all without its required permissions.
+
+If there are scope restrictions (e.g. by Project or Environment) against the account, the UI should still work, but results will be similarly restricted.
+
+- ProjectView (for project dropdowns)
+- EnvironmentView (for environment dropdowns)
+- TenantView (for tenant dropdowns)
+- ProcessView (for channel dropdowns)
+- DeploymentView (for the dashboard widget)
+- TaskView (for the dashboard widget)
+
 ## Package your Application and Push to Octopus {#UsetheTeamFoundationBuildCustomTask-PackageyourApplicationandPushtoOctopus}
 
 To integrate with Octopus Deploy, an application must be packaged into either a NuGet or Zip package, and pushed to Octopus Deploy (or any NuGet repository).
