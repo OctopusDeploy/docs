@@ -17,12 +17,12 @@ The following table shows compatibility between versions of VSTS, TFS, and the O
 
 | VSTS/TFS Version / Extension Version | 1.2.x | 2.0.36 | 2.0.x |
 | ------------------------------------ |:-----:|:------:|:-----:|
-| VSTS                                 | Yes | No | Yes |
-| TFS 2017 Update 1                    | Yes | * | Yes |
-| TFS 2017 RTM                         | Yes | Yes | No |
-| TFS 2015 Updates 2,3,4               | Yes | Yes | No |
+| VSTS                                 | <i class="fa fa-check"></i> | <i class="fa fa-times"></i> | <i class="fa fa-check"></i> |
+| TFS 2017 Update 1                    | <i class="fa fa-check"></i> | <i class="fa fa-asterisk"></i> | <i class="fa fa-check"></i> |
+| TFS 2017 RTM                         | <i class="fa fa-check"></i> | <i class="fa fa-check"></i> | <i class="fa fa-times"></i> |
+| TFS 2015 Updates 2,3,4               | <i class="fa fa-check"></i> | <i class="fa fa-check"></i> | <i class="fa fa-times"></i> |
 
-\* *Technically supported, but not recommended*
+<i class="fa fa-asterisk"></i> *Technically supported, but not recommended*
 
 Any version older than TFS 2015 Update 2 is not supported by any extension version.
 
