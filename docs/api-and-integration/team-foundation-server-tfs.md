@@ -18,7 +18,7 @@ The marketplace extension for VSTS (above) is not compatible with TFS 2015. You 
 
 ### Upgrading Team Foundation Server and the Extension
 
-You can safely upgrading from TFS 2015 to TFS 2017 with version 1.2.x of the extension without changes. The 1.2.x version of the extension will continue to work with TFS 2017.
+You can safely upgrade from TFS 2015 to TFS 2017 with version 1.2.x of the extension without needing to modify your builds. The 1.2.x version of the extension will continue to work with TFS 2017, and you can upgrade individual tasks in build definitions when you're ready.
 
 Upgrading from 1.2.x to version 2.x of the extension requires additional permissions to support the dashboard widget.
 
@@ -26,7 +26,7 @@ Upgrading from 1.2.x to version 2.x of the extension requires additional permiss
 
 ![](/docs/images/3048175/extension-upgrade-2.png)
 
-After approving the upgrade, builds can continue using the 1.2.x version of the extension, and you can upgrade the tasks in your build definitions whenever you're ready.
+After approving the upgrade, builds can continue using the 1.2.x version of the extension, and you can upgrade the tasks in your build definitions whenever you're ready. Just choose version 2.x in the dropdown for the appropriate tasks.
 
 ![](/docs/images/3048175/extension-version-choice.png)
 
