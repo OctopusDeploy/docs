@@ -3,6 +3,8 @@ title: VSTS and TFS Extension version compatibility
 description: This guide explains the Octopus extension versions that are compatible with different versions of VSTS and TFS
 ---
 
+!toc
+
 ## Octopus Extension versions
 
 There are three distinct versions (or version ranges) you need to worry about with respect to the Octopus Extension:
