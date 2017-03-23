@@ -6,16 +6,31 @@ position: 2
 
 Octopus Deploy integrates with Team Foundation Server to provide for a full automated build and deployment pipeline. This section provides information on integrating Octopus Deploy and TFS. The procedures on this page have been verified against Visual Studio 2013 but should also work with previous versions of TFS.
 
-:::success
-**Using Visual Studio Team Services (VSTS) or Team Foundation Server (TFS) 2017 or above?**
-We have built a [comprehensive extension for Visual Studio Team Services (VSTS)](/docs/api-and-integration/visual-studio-team-services-vsts.md) (formerly Visual Studio Online or VSO) which also works with TFS 2017. We highly recommend using this extension for VSTS/VSO and TFS 2017 or newer.
-:::
-:::success
-**Using Team Foundation Server (TFS) 2015 Update 2 or 3?**
-The marketplace extension for VSTS (above) is not compatible with TFS 2015. You can [download a version of the extension for TFS 2015 here](https://download.octopusdeploy.com/tfs-2015-extension/octopusdeploy.octopus-deploy-build-release-tasks-2.0.39.vsix).
-:::
+## Using the extension with Team Foundation Server
 
-## Packaging applications when building with Team Build {#TeamFoundationServer(TFS)-PackagingapplicationswhenbuildingwithTeamBuild}
+### Team Foundation Server (TFS) 2017 or above?
+
+We have built a [comprehensive extension for Visual Studio Team Services (VSTS)](/docs/api-and-integration/visual-studio-team-services-vsts.md) (formerly Visual Studio Online or VSO) which also works with TFS 2017. We highly recommend using this extension for VSTS/VSO and TFS 2017 or newer.
+
+### Team Foundation Server (TFS) 2015 Update 2 or 3
+
+The marketplace extension for VSTS (above) is not compatible with TFS 2015. You can [download a version of the extension for TFS 2015 here](https://download.octopusdeploy.com/tfs-2015-extension/octopusdeploy.octopus-deploy-build-release-tasks-2.0.39.vsix).
+
+### Upgrading Team Foundation Server and the Extension
+
+You can safely upgrading from TFS 2015 to TFS 2017 with version 1.2.x of the extension without changes. The 1.2.x version of the extension will continue to work with TFS 2017.
+
+Upgrading from 1.2.x to version 2.x of the extension requires additional permissions to support the dashboard widget.
+
+![](/docs/images/3048175/extension-upgrade.png)
+
+![](/docs/images/3048175/extension-upgrade-2.png)
+
+After approving the upgrade, builds can continue using the 1.2.x version of the extension, and you can upgrade the tasks in your build definitions whenever you're ready.
+
+![](/docs/images/3048175/extension-version-choice.png)
+
+## Packaging applications when building with Team Build (XAML-based builds) {#TeamFoundationServer(TFS)-PackagingapplicationswhenbuildingwithTeamBuild}
 
 When Team Build builds your solution, you will need to package your applications ready to be deployed. This can be done by [installing OctoPack](/docs/packaging-applications/nuget-packages/using-octopack/index.md) on the projects that you plan to deploy.
 
