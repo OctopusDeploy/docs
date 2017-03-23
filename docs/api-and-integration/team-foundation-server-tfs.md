@@ -6,29 +6,14 @@ position: 2
 
 Octopus Deploy integrates with Team Foundation Server to provide for a full automated build and deployment pipeline. This section provides information on integrating Octopus Deploy and TFS. The procedures on this page have been verified against Visual Studio 2013 but should also work with previous versions of TFS.
 
-## Using the extension with Team Foundation Server
+## Using the Octopus extension with Team Foundation Server
 
-### Team Foundation Server (TFS) 2017 or above?
+:::warning
+Ensure you are installing the correct version of the Octopus extension before continuing.
+[See the guide on version compatibility](/docs/guides/use-the-team-foundation-build-custom-task/extension-compatibility.md)
+:::
 
-We have built a [comprehensive extension for Visual Studio Team Services (VSTS)](/docs/api-and-integration/visual-studio-team-services-vsts.md) (formerly Visual Studio Online or VSO) which also works with TFS 2017. We highly recommend using this extension for VSTS/VSO and TFS 2017 or newer.
-
-### Team Foundation Server (TFS) 2015 Update 2 or 3
-
-The marketplace extension for VSTS (above) is not compatible with TFS 2015. You can [download a version of the extension for TFS 2015 here](https://download.octopusdeploy.com/tfs-2015-extension/octopusdeploy.octopus-deploy-build-release-tasks-2.0.39.vsix).
-
-### Upgrading Team Foundation Server and the Extension
-
-You can safely upgrade from TFS 2015 to TFS 2017 with version 1.2.x of the extension without needing to modify your builds. The 1.2.x version of the extension will continue to work with TFS 2017, and you can upgrade individual tasks in build definitions when you're ready.
-
-Upgrading from 1.2.x to version 2.x of the extension requires additional permissions to support the dashboard widget.
-
-![](/docs/images/3048175/extension-upgrade.png)
-
-![](/docs/images/3048175/extension-upgrade-2.png)
-
-After approving the upgrade, builds can continue using the 1.2.x version of the extension, and you can upgrade the tasks in your build definitions whenever you're ready. Just choose version 2.x in the dropdown for the appropriate tasks.
-
-![](/docs/images/3048175/extension-version-choice.png)
+If you're using Team Foundation Server 2015 Update 2 or above, you can use a fully-featured Octopus Extension. See the [Guide to using the extension here](/docs/guides/use-the-team-foundation-build-custom-task/index.md)
 
 ## Packaging applications when building with Team Build (XAML-based builds) {#TeamFoundationServer(TFS)-PackagingapplicationswhenbuildingwithTeamBuild}
 
