@@ -1,7 +1,7 @@
 ---
 title: List Instances
 description: Using the Tentacle.exe command line executable to query Tentacle settings.
-version: [3.11.14,)
+version: 3.11.14
 ---
 
 Lists all installed Octopus instances
