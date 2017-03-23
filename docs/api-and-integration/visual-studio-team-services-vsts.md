@@ -10,7 +10,7 @@ If you are using Visual Studio Team Services (VSTS) (formerly VSO) or an on-prem
 Take a look at our end-to-end guide on [using the Octopus extension for VSTS and TFS 2015](/docs/guides/use-the-team-foundation-build-custom-task/index.md).
 :::
 
-Using this extension you can:
+Using this extension, you can make use of the following additional Build and Release tasks:
 
 - [Package](/docs/guides/use-the-team-foundation-build-custom-task/index.md#UsetheTeamFoundationBuildCustomTask-package-application-stepAddaPackageApplicationstep) your built application ([See more about packaging here](/docs/packaging-applications/index.md))
 - [Push](/docs/guides/use-the-team-foundation-build-custom-task/index.md#UsetheTeamFoundationBuildCustomTask-push-packages-stepAddaPushPackage(s)toOctopusStep) those packages to the Octopus [built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md)
@@ -21,3 +21,7 @@ Using this extension you can:
 ![](/docs/images/3048587/add-package-step.jpg "width=500")
 
 ![](/docs/images/3048587/add-createrelease-step.jpg "width=500")
+
+You can also view the status of a deployment in any environment using the [Dashboard widget](/docs/guides/use-the-team-foundation-build-custom-task/index.md#Using-The-Dashboard-Widget):
+
+![](/docs/images/3048587/multiple-widget-preview.jpg)
