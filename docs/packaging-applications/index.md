@@ -36,7 +36,7 @@ When creating your packages you will need to choose a versioning scheme that is 
 
 ## Hosting packages {#Packagingapplications-Hostingpackages}
 
-Packages are kept in package repositories (or feeds). A repository can be as simple as a file share, or it could be a dedicated server. For more information, see the section on [choosing a package repository](/docs/packaging-applications/package-repositories/index.md).
+Packages are kept in package repositories (or external feeds). A repository can be as simple as a file share, or it could be a dedicated server. For more information, see the section on [choosing a package repository](/docs/packaging-applications/package-repositories/index.md).
 
 ## What's in a package? {#Packagingapplications-What&#39;sinapackage?}
 

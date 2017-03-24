@@ -25,7 +25,7 @@ octo clean-environment [<options>]
 
 Where `[<options>]` is any of:
 
-**create-environment options**
+**clean-environment options**
 
 ```text
 Usage: Octo clean-environment [<options>]
