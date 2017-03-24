@@ -88,7 +88,7 @@ Action-level variables are available during execution of an action. Indexer noti
 |**`Octopus.Action.Package.TreatConfigTransformationWarningsAsErrors`** <br/>If true, any warnings in configuration transformations will be treated as errors and will fail the deployment** ***(Boolean)* | *True*|
 |**`Octopus.Action.Package.IgnoreConfigTransformationErrors`** <br/>If true, any errors in configuration transformations will be treated as informational rather than errors that will fail the deployment** ***(Boolean)* | *False*|
 |**`Octopus.Action.Package.IgnoreVariableReplacementErrors`** <br/>If true, any errors in variable replacement will be treated as a warning rather than an error that will fail the deployment. (*Boolean*) | *False*|
-!partial packageVariables
+!partial <packageVariables>
 |**`Octopus.Action.Package.SkipIfAlreadyInstalled`** <br/>If true, and the version of the package being deployed is already present on the machine, its re-deployment will be skipped (use with caution) *(Boolean)* | *False*|
 |**`Octopus.Action.Package.Ssh.ApplicationsDirectoryPath`** <br/>The applications directory used for deployment on the target machine | */home/user/.tentacle/apps/*|
 |**`Octopus.Action.Package.Ssh.PackageFileName`** <br/>The package file being deployed on the target machine | */home/user/.tentacle/packages/OctoFx.RateService.1.2.3.nupkg.tar.gz*|
