@@ -21,11 +21,11 @@ You'll usually see a number of entries displayed.  Below is the details for one 
 
 Armed with that information you now need to head over to the Azure Account page in Octopus Deploy.  Depending on the authentication method (Management Certificate or Service Principal) the UI will look slightly different.  Service Principal accounts will appear as follows
 
-![](/docs/images/azure-environments/sp.png "width=500")
+![](/docs/images/azure-environments/sp.png?v=2 "width=500")
 
 and Management Certificate accounts as below
 
-![](/docs/images/azure-environments/mc.png "width=500")
+![](/docs/images/azure-environments/mc.png?v=2 "width=500")
 
 Once you have entered the environment name and endpoint values you should **Save and Test** the account.
 
