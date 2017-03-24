@@ -31,14 +31,14 @@ Alternatively you could create a custom MSBuild targets file that does the file 
 
 ```xml
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <PropertyGroup>
+	<PropertyGroup>
 		<PackageDependsOn>
 			$(PackageDependsOn);
 			OctoSFPackage
-    	</PackageDependsOn>
+		</PackageDependsOn>
 	</PropertyGroup>  
 	<PropertyGroup>
-    	<RunOctoSFPackage Condition="'$(RunOctoSFPackage)'==''">false</RunOctoSFPackage>
+		<RunOctoSFPackage Condition="'$(RunOctoSFPackage)'==''">false</RunOctoSFPackage>
 	</PropertyGroup>
 
 	<Target Name="OctoSFPackage">
@@ -48,17 +48,14 @@ Alternatively you could create a custom MSBuild targets file that does the file 
 			<PublishProfilesFiles Include="$([System.IO.Path]::GetFullPath($(PackageLocation)))\..\..\PublishProfiles\*.xml"/>  
 		</ItemGroup>
 	
-		<Copy  
-			SourceFiles="@(PublishProfilesFiles)" 
-			DestinationFolder="$([System.IO.Path]::GetFullPath($(PackageLocation)))\PublishProfiles"  
-		/>  
-		<Copy  
-            SourceFiles="@(ApplicationParametersFiles)" 
-            DestinationFolder="$([System.IO.Path]::GetFullPath($(PackageLocation)))\ApplicationParameters"  
-		/>  
+		<Copy SourceFiles="@(PublishProfilesFiles)" 
+			DestinationFolder="$([System.IO.Path]::GetFullPath($(PackageLocation)))\PublishProfiles" />  
+		<Copy SourceFiles="@(ApplicationParametersFiles)" 
+			DestinationFolder="$([System.IO.Path]::GetFullPath($(PackageLocation)))\ApplicationParameters" />  
 	</Target>
 </Project>
 ```
+
 If we assume that this file was saved as OctoSFPackage.targets in a tools folder below the solutions folder, you then simply add the following line as the last child element of the Project element of the sfproj file.
 
 ```xml
