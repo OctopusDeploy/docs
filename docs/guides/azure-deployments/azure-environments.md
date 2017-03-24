@@ -12,7 +12,7 @@ The defaults for all of the settings related to the environment are blank, which
 The first thing you are going to need when overriding the values is to know what the endpoints are for your target environment.  You can get these using the following PowerShell command (Note: you have to have the Azure powershell modules loaded)
 
 ```powershell
-Get-AzureEnviroment
+Get-AzureEnvironment
 ```
 
 You'll usually see a number of entries displayed.  Below is the details for one of the environments
