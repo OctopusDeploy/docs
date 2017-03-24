@@ -239,6 +239,7 @@ Add a file anywhere in the docs repository that is suffixed with `.include.md`. 
 ### Using an include
 
 Add the following to the markdown: `!include <key>`
+You need to include the `<>` around the key name
 
 ## Partials
 Partials are version specific files that contain markdown.
@@ -253,7 +254,8 @@ Add a file in the same folder as the page where you will use the partial to the 
 
 ### Using a partial
 
-Add the following to the markdown: `!partial <key>`
+Add the following to the markdown: `!partial <key>` 
+You need to include the `<>` around the key name
 
 ## Anchors
 
