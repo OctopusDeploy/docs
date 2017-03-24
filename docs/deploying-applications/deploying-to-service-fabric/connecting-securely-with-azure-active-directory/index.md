@@ -41,7 +41,7 @@ The Azure Portal supports adding an AAD user to an AAD app (ie. a Service Fabric
 
 For a Service Fabric cluster to be able to see our AAD user, we need to setup some AAD applications (a _cluster_ application and a _client_ application) and assign an AAD user to our cluster application.
 
-This process is made easier with scripts. Luckily for us, Microsoft have published an article on how to do exactly what we need, titled [Securing an Azure Service Fabric cluster with Azure Active Directory via the Azure Portal](https://blogs.msdn.microsoft.com/ncdevguy/2017/01/09/securing-an-azure-service-fabric-cluster-with-azure-active-directory-via-the-azure-portal-2/). This article includes some [sample scripts](http://servicefabricsdkstorage.blob.core.windows.net/publicrelease/MicrosoftAzureServiceFabric-AADHelpers.zip) you can use and customise to help setup your own cluster and client applications. We leave this as an exercise for the reader.
+This process is made easier with scripts. Luckily for us, Microsoft have published an article on how to do exactly what we need, titled [Securing an Azure Service Fabric cluster with Azure Active Directory via the Azure Portal](https://blogs.msdn.microsoft.com/ncdevguy/2017/01/09/securing-an-azure-service-fabric-cluster-with-azure-active-directory-via-the-azure-portal-2/). This article includes some [sample scripts](http://servicefabricsdkstorage.blob.core.windows.net/publicrelease/MicrosoftAzureServiceFabric-AADHelpers.zip) you can use and customize to help setup your own cluster and client applications. We leave this as an exercise for the reader.
 
 After running through these scripts, we end up with the following AAD app registrations:
 
