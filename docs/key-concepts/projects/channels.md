@@ -76,7 +76,7 @@ Following the standard 2.0.0 [semver syntax](http://semver.org/), a pre-release
 
 | **Pattern** | **Description** | **Example use-case** |
 | --- | --- | --- |
-| .\* | matches any pre-release | Enforce inability to push to production by specifying lifecycle that stops at staging |
+| .\+ | matches any pre-release | Enforce inability to push to production by specifying lifecycle that stops at staging |
 | ^$ | matches any non pre-release | Ensure a script step only runs for non pre-release packages |
 | beta.\* | matches pre-releases like beta and beta0003 | Deploy pre-releases using a Lifecycle that goes directly to a pre-release Environment |
 | ^(?!beta).+ | matches pre-releases that don't start with beta | Consider anything other than 'beta' to be a feature branch package so you can provision short-term infrastructure and deploy to it |
