@@ -5,6 +5,10 @@ description: Octopus Deploy can help you perform repeatable and controlled deplo
 
 Octopus Deploy supports deployment of [Azure Service Fabric applications](https://azure.microsoft.com/en-au/services/service-fabric/).
 
+:::hint
+The [Service Fabric SDK](https://g.octopushq.com/ServiceFabricSdkDownload) must be installed on the Octopus Server. If this SDK is missing, the step will fail with an error: _"Could not find the Azure Service Fabric SDK on this server."_
+:::
+
 ## Step 1: Create a Service Fabric cluster {#DeployingapackagetoaServiceFabricapplication-Step1:CreateaServiceFabriccluster}
 
 Create a Service Fabric cluster (either in Azure, on-prem or in other clouds). Octopus needs an existing Service Fabric cluster to connect to in order to deploy your application package.

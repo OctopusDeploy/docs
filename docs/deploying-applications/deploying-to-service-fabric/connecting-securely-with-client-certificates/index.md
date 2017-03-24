@@ -40,9 +40,9 @@ The following steps will need the DNS name of your Service Fabric cluster.
 
 The DNS name for Azure Service Fabric clusters can be found as the "Client connection endpoint" field on the "Overview" tab of your Azure Service Fabric cluster in the Azure portal.
 
-An example of a Service Fabric cluster's DNS name is: `octopus-demo1-secure.australiasoutheast.cloudapp.azure.com`
+An example of a Service Fabric cluster's DNS name is: `democtopus-sf1-secure.australiasoutheast.cloudapp.azure.com`
 
-## Step 2: Generate the client certificate {#ConnectingSecurelywithClientCertificates-Step1:Generatetheclientcertificate}
+## Step 2: Generate the client certificate {#ConnectingSecurelywithClientCertificates-Step2:Generatetheclientcertificate}
 
 Using PowerShell, you can easily generate a self-signed certificate for testing purposes.
 
@@ -53,11 +53,11 @@ In this PowerShell, we print the value of the certificate's thumbprint. Be sure 
 :::
 
 ```powershell
-$connectionEndpoint = "octopus-demo1-secure.australiasoutheast.cloudapp.azure.com"
-$cert = New-SelfSignedCertificate -DnsName $connectionEndpoint -CertStoreLocation "cert:\LocalMachine\My"
+$dnsName = "democtopus-sf1-secure.australiasoutheast.cloudapp.azure.com"
+$cert = New-SelfSignedCertificate -DnsName $dnsName -CertStoreLocation "cert:\LocalMachine\My"
 Write-Host $cert.Thumbprint
 $password = ConvertTo-SecureString -String "MySuperSecurePasswordGoesHere" -Force -AsPlainText
-Export-PfxCertificate -Cert $cert -FilePath "C:\_export\octopus-demo1-secure-server-cert.pfx" -Password $password
+Export-PfxCertificate -Cert $cert -FilePath "C:\_export\democtopus-sf1-secure-server-cert.pfx" -Password $password
 ```
 
 We can then take the exported certificate and thumbprint, and complete the following steps.
@@ -75,7 +75,7 @@ To override the location of the certificates for Service Fabric, the following v
 | Octopus.Action.ServiceFabric.CertificateStoreName      | MY               | The store name that Octopus will pass as the 'StoreName' argument of the Service Fabric connection properties during a deployment |
 | Octopus.Action.ServiceFabric.CertificateFindType       | FindByThumbprint | The value used for searching certificates in the certificate store |
 
-## Step 3: Install the client certificate {#ConnectingSecurelywithClientCertificates-Step1:Installtheclientcertificate}
+## Step 3: Install the client certificate {#ConnectingSecurelywithClientCertificates-Step3:Installtheclientcertificate}
 
 Now that you have a client certificate and thumbprint, the following steps can be completed:
 
@@ -85,12 +85,14 @@ Now that you have a client certificate and thumbprint, the following steps can b
 
 The client certificate should now be setup for your Octopus Server machine to communicate with your Service Fabric cluster.
 
-## Step 4: Configure and run a deployment step {#ConnectingSecurelywithClientCertificates-Step1:Configureandrunadeploymentstep}
+## Step 4: Configure and run a deployment step {#ConnectingSecurelywithClientCertificates-Step4:Configureandrunadeploymentstep}
 
 In Octopus, Service Fabric deployment steps that use "Client Certificate" as the security mode will need you to enter both the Server Certificate and the Client Certificate thumbprints.
 
-TODO: markse - show image of completed UI using certs
+![](/docs/deploying-applications/deploying-to-service-fabric/connecting-securely-with-client-certificates/secure-client-certs-template.png "width=300")
 
-## Connection Troubleshooting {#ConnectingSecurelywithClientCertificates-Step1:ConnectionTroubleshooting}
+## Connection Troubleshooting {#ConnectingSecurelywithClientCertificates-ConnectionTroubleshooting}
 
 Calamari uses the [Connect-ServiceFabricCluster cmdlet](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/connect-servicefabriccluster) to connect to your Service Fabric cluster. The connection parameters are logged (Verbose) at the time of a deployment to help if you need to debug connection problems to your Service Fabric cluster.
+
+If you wish to learn more about how Octopus connects securely to Service Fabric clusters, the PowerShell scripts used by Calamari can be [viewed here](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari.Azure/Scripts/AzureServiceFabricContext.ps1).
