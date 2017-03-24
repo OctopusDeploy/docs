@@ -18,52 +18,52 @@ The service code versions in the manifest XML files should also be assigned the 
 The first step to setting this up is to update the service's manifest with specific variable names that we'll define in Octopus later. Repeat this for each service, using `Service_CodeVersion` for all services and varying `MyStatelessService_ConfigVersion` per service:
 
 ```xml
-	<ServiceManifest Name="MyStatelessServicePkg"
-        Version="Code_#{Service_CodeVersion}_Config_#{MyStatelessService_ConfigVersion}"
-        xmlns="http://schemas.microsoft.com/2011/01/fabric"
-        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-        <ServiceTypes>
-            <StatelessServiceType ServiceTypeName="MyStatelessServiceType" />
-        </ServiceTypes>
-        <CodePackage Name="Code" Version="#{Service_CodeVersion}">
-        	<EntryPoint>
-        		<ExeHost>
-        			<Program>MyStatelessService.exe</Program>
-        		</ExeHost>
-            </EntryPoint>
-        </CodePackage>
-        <ConfigPackage Name="Config" Version="#{MyStatelessService_ConfigVersion}" />
+<ServiceManifest Name="MyStatelessServicePkg"
+    Version="Code_#{Service_CodeVersion}_Config_#{MyStatelessService_ConfigVersion}"
+    xmlns="http://schemas.microsoft.com/2011/01/fabric"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ServiceTypes>
+        <StatelessServiceType ServiceTypeName="MyStatelessServiceType" />
+    </ServiceTypes>
+    <CodePackage Name="Code" Version="#{Service_CodeVersion}">
+        <EntryPoint>
+            <ExeHost>
+                <Program>MyStatelessService.exe</Program>
+            </ExeHost>
+        </EntryPoint>
+    </CodePackage>
+    <ConfigPackage Name="Config" Version="#{MyStatelessService_ConfigVersion}" />
     ...
 ```
 
 Using this approach, the service's overall version is always a combination of its code and config version. Next, we use a similar approach to build the application's overall version, based on the services' code version and config versions:
 
 ```xml
-	<ApplicationManifest 
-        xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-        ApplicationTypeName="DemoFabricApplicationType" 
-        ApplicationTypeVersion="DemoApp_#{Service_CodeVersion}_MyStatelessService_#{MyStatelessService_ConfigVersion}"
-        xmlns="http://schemas.microsoft.com/2011/01/fabric">
-        <Parameters>
-            <Parameter Name="MyStatelessService_InstanceCount" DefaultValue="-1" />
-		</Parameters>
-		<ServiceManifestImport>
-			<ServiceManifestRef 
-            	ServiceManifestName="MyStatelessServicePkg"
-				ServiceManifestVersion="Code_#{Service_CodeVersion}_Config_#{MyStatelessService_ConfigVersion}" />
-			<ConfigOverrides />
-		</ServiceManifestImport>
+<ApplicationManifest 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    ApplicationTypeName="DemoFabricApplicationType" 
+    ApplicationTypeVersion="DemoApp_#{Service_CodeVersion}_MyStatelessService_#{MyStatelessService_ConfigVersion}"
+    xmlns="http://schemas.microsoft.com/2011/01/fabric">
+    <Parameters>
+        <Parameter Name="MyStatelessService_InstanceCount" DefaultValue="-1" />
+    </Parameters>
+    <ServiceManifestImport>
+        <ServiceManifestRef 
+            ServiceManifestName="MyStatelessServicePkg"
+            ServiceManifestVersion="Code_#{Service_CodeVersion}_Config_#{MyStatelessService_ConfigVersion}" />
+        <ConfigOverrides />
+    </ServiceManifestImport>
 	...
 ```
 
 If you have multiple services, you'll probably want a more efficient abbreviation scheme to keep the version strings to a reasonable length. From the code side, that's all there is to do. Next, let's look at the Octopus Deploy variables we now need to define:
 
-```
-    Service_CodeVersion: #{Octopus.Action.Package.PackageVersion}
-    MyStatelessService_ConfigVersion: 1.0.0
-```
+| Name | Value | Scope |
+| ---- | ----- | ----- |
+| Service_CodeVersion | #{Octopus.Action.Package.PackageVersion} | |
+| MyStatelessService_ConfigVersion | 1.0.0 | |
 
 The important part of this is `Octopus.Action.Package.PackageVersion`, which is the version taken from the package that was uploaded to the Octopus package feed. This lets us easily flow the version number from the build through to the deployment. From this point the code and overall versions will all be handled automatically. The config versions though are a little complicated and still require some manual handling.
 
@@ -71,43 +71,43 @@ They are complicated in that each service may have any number of configuration v
 
 To illustrate with an example, consider an application that is made up of two services (one that needs a connection setting and one that needs a port setting). We might end up with Octopus variables as follows:
 
-```
-    MyStatelessService1_ConfigVersion: 1.0.0
-    MyStatelessService1_Connection: abc
-    MyStatelessService2_ConfigVersion: 1.0.0
-    MyStatelessService2_Port: 8000
-```
+| Name | Value | Scope |
+| ---- | ----- | ----- |
+| MyStatelessService1_ConfigVersion | 1.0.0 | |
+| MyStatelessService1_Connection | abc | |
+| MyStatelessService2_ConfigVersion | 1.0.0 | |
+| MyStatelessService2_Port | 8000 | |
 
 If the connection setting for the first service was changed, then the resulting variables should be:
 
-```
-    MyStatelessService1_ConfigVersion: 1.0.1
-    MyStatelessService1_Connection: xyz
-    MyStatelessService2_ConfigVersion: 1.0.0
-    MyStatelessService2_Port: 8000
-```
+| Name | Value | Scope |
+| ---- | ----- | ----- |
+| MyStatelessService1_ConfigVersion | **1.0.1** | |
+| MyStatelessService1_Connection | **xyz** | |
+| MyStatelessService2_ConfigVersion | 1.0.0 | |
+| MyStatelessService2_Port | 8000 | |
 
 ### Environments and Tenants
 Any feature of Octopus that causes one of the service variables to be scoped creates further complexity, as the version needs to also be scoped to the most granular level that the variables are being scoped to. To illustrate, let's expand on the previous example and say the connection for the first service is environment specific. Now the variables would look like this:
 
-```
-    MyStatelessService1_ConfigVersion_Dev: 1.0.0
-    MyStatelessService1_Connection_Dev: abc
-    MyStatelessService1_ConfigVersion_UAT: 1.0.0
-    MyStatelessService1_Connection_UAT: def
-    MyStatelessService2_ConfigVersion: 1.0.0
-    MyStatelessService2_Port: 8000
-```
+| Name | Value | Scope |
+| ---- | ----- | ----- |
+| MyStatelessService1_ConfigVersion | 1.0.0 | Dev |
+| MyStatelessService1_Connection | abc | Dev |
+| MyStatelessService1_ConfigVersion | 1.0.0 | UAT |
+| MyStatelessService1_Connection | def | UAT |
+| MyStatelessService2_ConfigVersion | 1.0.0 | |
+| MyStatelessService2_Port | 8000 | |
 
 Any changes to the variables will also change the version in the same environment scope.
 
 For example, let's say the connection for the UAT environment needs to change, then the resulting variables would be:
 
-```
-    MyStatelessService1_ConfigVersion_Dev: 1.0.0
-    MyStatelessService1_Connection_Dev: abc
-    MyStatelessService1_ConfigVersion_UAT: 1.0.1
-    MyStatelessService1_Connection_UAT: xyz
-    MyStatelessService2_ConfigVersion: 1.0.0
-    MyStatelessService2_Port: 8000
-```
+| Name | Value | Scope |
+| ---- | ----- | ----- |
+| MyStatelessService1_ConfigVersion | 1.0.0 | Dev |
+| MyStatelessService1_Connection | abc | Dev |
+| MyStatelessService1_ConfigVersion | **1.0.1** | UAT |
+| MyStatelessService1_Connection | **xyz** | UAT |
+| MyStatelessService2_ConfigVersion | 1.0.0 | |
+| MyStatelessService2_Port | 8000 | |
