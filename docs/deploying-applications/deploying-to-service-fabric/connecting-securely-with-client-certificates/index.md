@@ -68,13 +68,16 @@ We can then take the exported certificate and thumbprint, and complete the follo
 By default, the Service Fabric steps assume the certificate store location is `LocalMachine` and that the certificate store name is `MY`. If you have this client certificate installed somewhere else, you will need to override these defaults using the variables mentioned below.
 :::
 
-To override the location of the certificates for Service Fabric, the following variables are available and can be overridden:
+To override certificate settings used when connecting to Service Fabric, the following variables are available:
 
-| Variable                                               | Default          | Description                              |
-| ------------------------------------------------------ | ---------------- | ---------------------------------------- |
-| Octopus.Action.ServiceFabric.CertificateStoreLocation  | LocalMachine     | The store location that Octopus will pass as the 'StoreLocation' argument of the Service Fabric connection properties during a deployment |
-| Octopus.Action.ServiceFabric.CertificateStoreName      | MY               | The store name that Octopus will pass as the 'StoreName' argument of the Service Fabric connection properties during a deployment |
-| Octopus.Action.ServiceFabric.CertificateFindType       | FindByThumbprint | The value used for searching certificates in the certificate store |
+| Variable                                                  | Default          | Description                              |
+| --------------------------------------------------------- | ---------------- | ---------------------------------------- |
+| Octopus.Action.ServiceFabric.CertificateStoreLocation     | LocalMachine     | The store location that Octopus will pass as the 'StoreLocation' argument of the Service Fabric connection properties during a deployment (see the `StoreLocation` section of the [Connect-ServiceFabricCluster documentation](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/connect-servicefabriccluster) for more information on this parameter with regards to Service Fabric|
+| Octopus.Action.ServiceFabric.CertificateStoreName         | MY               | The store name that Octopus will pass as the 'StoreName' argument of the Service Fabric connection properties during a deployment (see the `StoreName` section of the [Connect-ServiceFabricCluster documentation](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/connect-servicefabriccluster) for more information on this parameter with regards to Service Fabric |
+| Octopus.Action.ServiceFabric.CertificateFindType          | FindByThumbprint | The type of FindValue for searching certificates in the Azure certificate store (see the `FindType` section of the [Connect-ServiceFabricCluster documentation](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/connect-servicefabriccluster) for more information on this parameter with regards to Service Fabric |
+| Octopus.Action.ServiceFabric.CertificateFindValueOverride |                  | The FindValue for searching certificates in the Azure certificate store (see the `FindValue` section of the [Connect-ServiceFabricCluster documentation](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/connect-servicefabriccluster) for more information on this parameter with regards to Service Fabric |
+
+To be clear, you do not need to override these variables by default. However, they _are_ available if you require more flexibility over the default client certificate connection parameters.
 
 ## Step 3: Install the client certificate {#ConnectingSecurelywithClientCertificates-Step3:Installtheclientcertificate}
 
@@ -88,9 +91,9 @@ The client certificate should now be setup for your Octopus Server machine to co
 
 ## Step 4: Configure and run a deployment step {#ConnectingSecurelywithClientCertificates-Step4:Configureandrunadeploymentstep}
 
-In Octopus, Service Fabric deployment steps that use "Client Certificate" as the security mode will need you to enter both the Server Certificate and the Client Certificate thumbprints.
+In Octopus, Service Fabric deployment steps that use "Client Certificate" as the security mode will need you to enter the Server Certificate thumbprint and select the Client Certificate variable.
 
-![](secure-client-certs-template.png "width=300")
+![](secure-client-certs-template-b.png "width=300")
 
 ## Connection Troubleshooting {#ConnectingSecurelywithClientCertificates-ConnectionTroubleshooting}
 
