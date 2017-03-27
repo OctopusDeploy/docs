@@ -1,6 +1,7 @@
 ---
 title: Deploying a package to a Azure Service Fabric cluster
 description: Octopus Deploy can help you perform repeatable and controlled deployments to Service Fabric clusters.
+position: 0
 ---
 
 Octopus Deploy supports deployment of [Azure Service Fabric applications](https://azure.microsoft.com/en-au/services/service-fabric/).

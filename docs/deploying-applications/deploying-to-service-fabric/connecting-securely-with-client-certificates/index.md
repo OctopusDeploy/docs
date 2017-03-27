@@ -1,6 +1,7 @@
 ---
 title: Connecting Securely with Client Certificates
 description: Octopus Deploy can help you connect securely to Service Fabric clusters using Client Certificate authentication.
+position: 1
 ---
 
 As part of Service Fabric step templates, Octopus allows you to securely connect to a secure cluster by using client certificates.
@@ -89,7 +90,7 @@ The client certificate should now be setup for your Octopus Server machine to co
 
 In Octopus, Service Fabric deployment steps that use "Client Certificate" as the security mode will need you to enter both the Server Certificate and the Client Certificate thumbprints.
 
-![](/docs/deploying-applications/deploying-to-service-fabric/connecting-securely-with-client-certificates/secure-client-certs-template.png "width=300")
+![](secure-client-certs-template.png "width=300")
 
 ## Connection Troubleshooting {#ConnectingSecurelywithClientCertificates-ConnectionTroubleshooting}
 
