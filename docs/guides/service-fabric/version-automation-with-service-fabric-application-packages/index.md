@@ -62,7 +62,7 @@ If you have multiple services, you'll probably want a more efficient abbreviatio
 
 | Name | Value | Scope |
 | ---- | ----- | ----- |
-| Service_CodeVersion | #{Octopus.Action.Package.PackageVersion} | |
+| Service_CodeVersion | `#{Octopus.Action.Package.PackageVersion}` | |
 | MyStatelessService_ConfigVersion | 1.0.0 | |
 
 The important part of this is `Octopus.Action.Package.PackageVersion`, which is the version taken from the package that was uploaded to the Octopus package feed. This lets us easily flow the version number from the build through to the deployment. From this point the code and overall versions will all be handled automatically. The config versions though are a little complicated and still require some manual handling.

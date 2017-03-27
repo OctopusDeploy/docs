@@ -64,6 +64,8 @@ If we assume that this file was saved as OctoSFPackage.targets in a tools folder
 <Import Project="..\tools\OctoSFPackage.targets" Condition="Exists('..\tools\OctoSFPackage.targets')" />
 ```
 
+Once this line is added to the sfproj file, the target will get executed whenever the Package target executes. The Package target gets executed when the MSBuild command above (which is what your build server would be calling) is run or when you right-click the application project in Visual Studio and select Package.
+
 ## Octo.exe
 Whichever option from above that you select, the objective is to get the PublishProfiles and the ApplicationParameters folders from the Service Fabric project into the same folder as its package output. Octo.exe can then be used to create a package that is compatible with the Octopus package feed. You can get Octo.exe from the [Octopus downloads](http://octopus.com/downloads) page. The following example assumes you've added Octo.exe to a tools folder in your solution's folder.
 

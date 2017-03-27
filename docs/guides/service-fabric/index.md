@@ -26,7 +26,9 @@ Service Fabric application deployments follow the same conceptual process as oth
 - Perform variable substitution on the files in the work folder (both .xml and .config files are supported)
 - Invoke a PowerShell script that uses cmdlets to perform the deployment
 
-### Versioning
-One of the places that Service Fabric applications differ from a typical .NET applications is in their versioning configuration. They are more complex in that they are actually made up of one or more services, and each of those services can have its own code and config version, which all combine to make a specific application version.
+For a more detailed look at the deployment process see [Deploying a package to a Azure Service Fabric cluster](/docs/deploying-applications/deploying-to-service-fabric/deploying-a-package-to-a-service-fabric-cluster/index.md#deployment-process)
 
-Octopus Deploy does not enforce a particular process for managing application/service versions. [Learn more about how use Octopus Deploy to automate updates to the application/service versions](/docs/guides/service-fabric/version-automation-with-service-fabric-application-packages/index.md).
+### Versioning
+One of the places that Service Fabric applications differ from typical .NET applications is in their versioning configuration. They are more complex in that they are actually made up of one or more services, and each of those services can have its own code and config version, which all combine to make a specific application version. The set of services that make up an application are always deployed to the cluster using a single package.
+
+Octopus Deploy does not enforce a particular process for managing application/service versions. [Learn more about using Octopus Deploy to automate updates to the application/service versions](/docs/guides/service-fabric/version-automation-with-service-fabric-application-packages/index.md).
