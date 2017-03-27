@@ -16,7 +16,7 @@ This step allows you to run Service Fabric SDK PowerShell cmdlets against your c
 
 Please see the [Microsoft Service Fabric SDK documentation](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/servicefabric) for available cmdlets.
 
-## Example {#ServiceFabricPowerShellScripts-Example}
+## Example
 
 This example uses the Service Fabric SDK to query the health of an application, from the cluster that we've connected to.
 
@@ -28,12 +28,12 @@ This example uses the Service Fabric SDK to query the health of an application, 
 $clusterApplication = "fabric:/MyServiceFabricApp"
 $health = Get-ServiceFabricApplicationHealth -ApplicationName $clusterApplication
 If ($health.AggregatedHealthState -eq "OK") {
-    Write-Verbose "$($clusterApplication)'s health is ok!"
+    Write-Host "$($clusterApplication)'s health is ok!"
 } Else {
     Write-Error "$($clusterApplication)'s health was found to be $($health.AggregatedHealthState)!  This is not ok :("
 }
 ```
 
-## Connection Troubleshooting {#ServiceFabricPowerShellScripts-ConnectionTroubleshooting}
+## Connection Troubleshooting
 
 Calamari uses the [Connect-ServiceFabricCluster cmdlet](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/connect-servicefabriccluster) to connect to your Service Fabric cluster. The connection parameters are logged (Verbose) at the time of a deployment to help if you need to debug connection problems to your Service Fabric cluster.

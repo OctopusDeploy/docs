@@ -35,7 +35,7 @@ These PowerShell variables correspond to the following Octopus variables:
 
 It is these values and variables that we will be discussing below.
 
-## Step 1: Get the DNS name of your Service Fabric cluster {#ConnectingSecurelywithClientCertificates-Step1:GettheDnsName}
+## Step 1: Get the DNS name of your Service Fabric cluster
 
 The following steps will need the DNS name of your Service Fabric cluster. 
 
@@ -43,7 +43,7 @@ The DNS name for Azure Service Fabric clusters can be found as the "Client conne
 
 An example of a Service Fabric cluster's DNS name is: `democtopus-sf1-secure.australiasoutheast.cloudapp.azure.com`
 
-## Step 2: Generate the client certificate {#ConnectingSecurelywithClientCertificates-Step2:Generatetheclientcertificate}
+## Step 2: Generate the client certificate
 
 Using PowerShell, you can easily generate a self-signed certificate for testing purposes.
 
@@ -72,14 +72,14 @@ To override certificate settings used when connecting to Service Fabric, the fol
 
 | Variable                                                  | Default          | Description                              |
 | --------------------------------------------------------- | ---------------- | ---------------------------------------- |
-| Octopus.Action.ServiceFabric.CertificateStoreLocation     | LocalMachine     | The store location that Octopus will pass as the 'StoreLocation' argument of the Service Fabric connection properties during a deployment (see the `StoreLocation` section of the [Connect-ServiceFabricCluster documentation](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/connect-servicefabriccluster) for more information on this parameter with regards to Service Fabric|
-| Octopus.Action.ServiceFabric.CertificateStoreName         | MY               | The store name that Octopus will pass as the 'StoreName' argument of the Service Fabric connection properties during a deployment (see the `StoreName` section of the [Connect-ServiceFabricCluster documentation](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/connect-servicefabriccluster) for more information on this parameter with regards to Service Fabric |
-| Octopus.Action.ServiceFabric.CertificateFindType          | FindByThumbprint | The type of FindValue for searching certificates in the Azure certificate store (see the `FindType` section of the [Connect-ServiceFabricCluster documentation](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/connect-servicefabriccluster) for more information on this parameter with regards to Service Fabric |
-| Octopus.Action.ServiceFabric.CertificateFindValueOverride |                  | The FindValue for searching certificates in the Azure certificate store (see the `FindValue` section of the [Connect-ServiceFabricCluster documentation](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/connect-servicefabriccluster) for more information on this parameter with regards to Service Fabric |
+| Octopus.Action.ServiceFabric.CertificateStoreLocation     | LocalMachine     | The store location that Octopus will pass as the 'StoreLocation' argument of the Service Fabric connection properties during a deployment (see the `StoreLocation` section of the [Connect-ServiceFabricCluster documentation](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/connect-servicefabriccluster))|
+| Octopus.Action.ServiceFabric.CertificateStoreName         | MY               | The store name that Octopus will pass as the 'StoreName' argument of the Service Fabric connection properties during a deployment (see the `StoreName` section of the [Connect-ServiceFabricCluster documentation](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/connect-servicefabriccluster)) |
+| Octopus.Action.ServiceFabric.CertificateFindType          | FindByThumbprint | The type of FindValue for searching certificates in the Azure certificate store (see the `FindType` section of the [Connect-ServiceFabricCluster documentation](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/connect-servicefabriccluster)) |
+| Octopus.Action.ServiceFabric.CertificateFindValueOverride |                  | The FindValue for searching certificates in the Azure certificate store (see the `FindValue` section of the [Connect-ServiceFabricCluster documentation](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/connect-servicefabriccluster)) |
 
-To be clear, you do not need to override these variables by default. However, they _are_ available if you require more flexibility over the default client certificate connection parameters.
+You do not need to override these variables by default. However, they _are_ available if you require more flexibility over the default client certificate connection parameters.
 
-## Step 3: Install the client certificate {#ConnectingSecurelywithClientCertificates-Step3:Installtheclientcertificate}
+## Step 3: Install the client certificate
 
 Now that you have a client certificate and thumbprint, the following steps can be completed:
 
@@ -89,13 +89,13 @@ Now that you have a client certificate and thumbprint, the following steps can b
 
 The client certificate should now be setup for your Octopus Server machine to communicate with your Service Fabric cluster.
 
-## Step 4: Configure and run a deployment step {#ConnectingSecurelywithClientCertificates-Step4:Configureandrunadeploymentstep}
+## Step 4: Configure and run a deployment step
 
 In Octopus, Service Fabric deployment steps that use "Client Certificate" as the security mode will need you to enter the Server Certificate thumbprint and select the Client Certificate variable.
 
 ![](secure-client-certs-template-b.png "width=300")
 
-## Connection Troubleshooting {#ConnectingSecurelywithClientCertificates-ConnectionTroubleshooting}
+## Connection Troubleshooting
 
 Calamari uses the [Connect-ServiceFabricCluster cmdlet](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/connect-servicefabriccluster) to connect to your Service Fabric cluster. The connection parameters are logged (Verbose) at the time of a deployment to help if you need to debug connection problems to your Service Fabric cluster.
 

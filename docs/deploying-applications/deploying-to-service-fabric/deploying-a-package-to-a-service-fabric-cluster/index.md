@@ -10,19 +10,19 @@ Octopus Deploy supports deployment of [Azure Service Fabric applications](https:
 The [Service Fabric SDK](https://g.octopushq.com/ServiceFabricSdkDownload) must be installed on the Octopus Server. If this SDK is missing, the step will fail with an error: _"Could not find the Azure Service Fabric SDK on this server."_
 :::
 
-## Step 1: Create a Service Fabric cluster {#DeployingapackagetoaServiceFabricapplication-Step1:CreateaServiceFabriccluster}
+## Step 1: Create a Service Fabric cluster
 
 Create a Service Fabric cluster (either in Azure, on-prem or in other clouds). Octopus needs an existing Service Fabric cluster to connect to in order to deploy your application package.
 
-## Step 2: Packaging {#DeployingapackagetoaServiceFabricapplication-Step2:Packaging}
+## Step 2: Packaging
 
 Package your Service Fabric application. See our guide to [Packaging a Service Fabric application](/docs/guides/service-fabric/packaging.md).
 
-## Step 3: Create the Service Fabric application deployment step {#DeployingapackagetoaServiceFabricapplication-Step3:CreatetheServiceFabricapplicationdeploymentstep}
+## Step 3: Create the Service Fabric application deployment step
 
 Add a new Service Fabric application deployment step to your project. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/adding-steps.md) section.  
 
-## Step 4: Configure the connection to your Service Fabric application {#DeployingapackagetoaServiceFabricapplication-Step4:ConfiguretheconnectiontoyourServiceFabricapplication}
+## Step 4: Configure the connection to your Service Fabric application
 
 Select your Service Fabric package from your package feed.
 
@@ -30,7 +30,7 @@ Add your Service Fabric cluster connection endpoint.
 
 Select and configure the security mode required to connect to your cluster. The various security modes are described in detail in the [Deploying to Service Fabric documentation](/docs/deploying-applications/deploying-to-service-fabric/index.md)
 
-## Step 5: Configure your Service Fabric application step {#DeployingapackagetoaServiceFabricapplication-Step5:ConfigureyourServiceFabricapplicationstep}
+## Step 5: Configure your Service Fabric application step
 
 Various options are available to deploy your Service Fabric application.
 
@@ -49,7 +49,7 @@ Various options are available to deploy your Service Fabric application.
 Any of the settings above can be switched to use a variable binding expression. A common example is when you use a naming-convention for your various application services, like **MyFabricApplication\_Production** and **MyFabricApplication\_Test** - you can use environment-scoped variables to automatically configure this step depending on the environment you are targeting.
 :::
 
-### Deployment features available to Service Fabric application steps {#DeployingapackagetoaServiceFabricapplication-Deploymentfeaturesavailable}
+### Deployment features available to Service Fabric application steps
 
 The following features are available when deploying a package to a Service Fabric application:
 
@@ -63,7 +63,7 @@ The following features are available when deploying a package to a Service Fabri
 Please note these features actually run on the Octopus Server prior to deploying the Service Fabric application to your cluster. They don't execute in the cluster nodes you are eventually targeting.
 :::
 
-## Deployment process {#DeployingapackagetoaServiceFabricapplication-Deploymentprocess}
+## Deployment process
 
 Deployment to a Service Fabric cluster proceeds as follows (more details provided below):
 
@@ -79,17 +79,17 @@ Deployment to a Service Fabric cluster proceeds as follows (more details provide
 11. Execute the Service Fabric application deployment script (see 'Customizing the deployment process' section below)
 12. Any configured or packaged `PostDeploy` scripts are executed
 
-### Extract the Service Fabric Package {#DeployingapackagetoaServiceFabricapplication-ExtracttheServiceFabricPackage}
+### Extract the Service Fabric Package
 
 Service Fabric package files are extracted during deployment, as the `Publish-UpgradedServiceFabricapplication` cmdlet used by Calamari requires an `ApplicationPackagePath` parameter to the extracted package. This also allows Octopus to use available features such as Configuration Transforms and Variable Substitution.
 
 Setting the `Octopus.Action.ServiceFabric.LogExtractedApplicationPackage` variable to `true` will cause the layout of the extracted package to be written into the Task Log. This may assist with finding the path to a particular file.
 
-### Customizing the deployment process {#DeployingapackagetoaServiceFabricapplication-Customizingthedeploymentprocess}
+### Customizing the deployment process
 
 The deployment is performed using a PowerShell script called `DeployToServiceFabric.ps1`. If a file with this name exists within your package, Octopus will invoke it. Otherwise, Octopus will use a bundled version of the script as a default. You can **[view the bundled script here](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari.Azure/Scripts/DeployAzureServiceFabricApplication.ps1)**, and use it as a basis for creating your own custom deployment script.
 
-## Deploying to multiple geographic regions {#DeployingapackagetoaServiceFabricapplication-Deployingtomultiplegeographicregions}
+## Deploying to multiple geographic regions
 
 When your application is deployed to more than one geographic region, you are likely to need per-region configuration settings. You can achieve this result in many different ways, but the two most popular methods we have seen are:
 
@@ -98,6 +98,6 @@ When your application is deployed to more than one geographic region, you are li
 
 Both methods allow you to modify your deployment process and variables per-region, but have slightly different release promotion paths. Choose the one that suits you best.
 
-## Versioning {#DeployingapackagetoaServiceFabricapplication-Versioning}
+## Versioning
 
 To learn more about how you can automate Service Fabric versioning with Octopus, see our guide on [Version Automation with Service Fabric application packages](/docs/guides/service-fabric/version-automation-with-service-fabric-application-packages/index.md).
