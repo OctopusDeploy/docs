@@ -88,7 +88,7 @@ Action-level variables are available during execution of an action. Indexer noti
 |**`Octopus.Action.Package.TreatConfigTransformationWarningsAsErrors`** <br/>If true, any warnings in configuration transformations will be treated as errors and will fail the deployment** ***(Boolean)* | *True*|
 |**`Octopus.Action.Package.IgnoreConfigTransformationErrors`** <br/>If true, any errors in configuration transformations will be treated as informational rather than errors that will fail the deployment** ***(Boolean)* | *False*|
 |**`Octopus.Action.Package.IgnoreVariableReplacementErrors`** <br/>If true, any errors in variable replacement will be treated as a warning rather than an error that will fail the deployment. (*Boolean*) | *False*|
-|**`Octopus.Action.Package.InstallationDirectoryPath`** <br/>The directory where the package was installed. | *C:\InetPub\WWWRoot\OctoFx*|
+|**`Octopus.Action.Package.InstallationDirectoryPath`** <br/>The directory where the package was installed. It is not available prior to package extraction. | *C:\InetPub\WWWRoot\OctoFx*|
 |**`Octopus.Action.Package.NuGetFeedId`** <br/>The ID of the NuGet feed from which the package being deployed was pulled | *feeds-123*|
 |**`Octopus.Action.Package.NuGetPackageId`** <br/>The ID of the NuGet package being deployed | *OctoFx.RateService*|
 |**`Octopus.Action.Package.NuGetPackageVersion`** <br/>The version of the NuGet package being deployed | *1.2.3*|
