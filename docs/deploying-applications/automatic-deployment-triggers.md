@@ -43,7 +43,7 @@ There are quite a few complexities to the decision making process for automatic 
 
 For Octopus 3.6 and above, you can select any machine-related event to cause an automatic deployment. We have also provided a convenient event-grouping mechanism to select a pre-defined group of events:
 
-![](/docs/images/5671191/5865884.png "width=500")
+![](create-trigger.png "width=500")
 
 The following table outlines each event group and their included events:
 
