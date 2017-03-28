@@ -153,7 +153,7 @@ Output variables are collected during execution of a step and made available to 
 | -------------------- | ----------------------------------------|
 |**`Octopus.Action[_name_].Output.\_property\_`** <br/>The results of calling `Set-OctopusVariable` during an action are exposed for use in other actions using this pattern | *Octopus.Action[Website].Output.WarmUpResponseTime*|
 |**`Octopus.Action[_name_].Output.Manual.Notes`** <br/>Notes provided by the user who completed a manual step | *Signed off by Alice*|
-|**`Octopus.Action[_name_].Output.Package.InstallationDirectoryPath`** <br/>The directory to which the package was installed | *C:\Octopus\Tentacle\Apps\Production\MyApp\1.2.3*|
+|**`Octopus.Action[_name_].Output.Package.InstallationDirectoryPath`** <br/>The directory where the package was installed | *C:\Octopus\Tentacle\Apps\Production\MyApp\1.2.3*|
 |**`Octopus.Action[_name_].Output.Manual.ResponsibleUser.DisplayName`** <br/>The full name of the user who completed the manual step | *Alice King*|
 |**`Octopus.Action[_name_].Output.Manual.ResponsibleUser.EmailAddress`** <br/>The email address of the user who completed the manual step | *[alice@example.com](mailto:alice@example.com)*|
 |**`Octopus.Action[_name_].Output.Manual.ResponsibleUser.Id`** <br/>The ID of the user who completed the manual step | *users-123*|
