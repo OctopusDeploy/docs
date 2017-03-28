@@ -46,7 +46,7 @@ The schema for the public configuration file is:
 * `CustomPublicHostName`: If in listening mode, and `PublicHostNameConfiguration` is set to `Custom`, the address that the server should use for this Tentacle.
 
 :::hint
-In `Listen` mode, the extension will automatically add a Windows Firewall rule to allow inbound traffic, but you will still need to ensure that endpoints / NSG rules are added to allow network traffic from the Octopus Server to the Tentacle.
+In `Listen` mode, the extension will automatically add a Windows Firewall rule to allow inbound traffic, but you will still need to ensure that [endpoints](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/classic/setup-endpoints) / [NSG rules](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg) are added to allow network traffic from the Octopus Server to the Tentacle.
 The Tentacle will also need to be able to reach the Octopus Server portal to register the Tentacle. Once registered, this is no longer required.
 :::
 
