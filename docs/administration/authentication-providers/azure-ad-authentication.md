@@ -30,12 +30,19 @@ In order to configure the your instance of Octopus Deploy as an App, you will ne
 :::
 
 1. Navigate to Azure Active Directory, select the directory you want to use, and select the Applications tab.
+
    ![](/docs/images/5670656/5865860.png "width=500")
+   
 2. Click the **ADD** button and select **Add an application my organization is developing**.
+
    ![](/docs/images/5670656/5865861.png "width=500")
+   
 3. Choose **Web Application and/or Web API** for the **Type**, and enter a **Name** like Octopus Deploy. *This is the name that will appear at the top of the Azure authentication page when the users are entering their credentials.*
+
    ![](/docs/images/5670656/5865862.png "width=500")
+   
 4. Enter the public URL to your Octopus Server as both the Sign-On URL and AppId URL. *In this example we are configuring our own demo server, but you should use the public URL to your own Octopus Server.*
+
    ![](/docs/images/5670656/5865863.png "width=500")
 
 #### Configuring trusted Reply URLs {#AzureADauthentication-ConfiguringtrustedReplyURLs}
@@ -43,7 +50,9 @@ In order to configure the your instance of Octopus Deploy as an App, you will ne
 During the authentication with Azure AD, the user will be directed to an Azure page to enter their credentials. As part of the authentication flow, Octopus passes a Reply URL to tell Azure where to POST the user's security token. This URL must be added to a trusted whitelist in the App configuration or the authentication flow will be terminated by Azure.
 
 1. Find your App in AAD and go to the Configure tab.
+
    ![](/docs/images/5670656/5865865.png "width=500")
+   
 2. Scroll down to find the Reply URL section. Enter the public URL to your Octopus Server with `/api/users/authenticatedToken/AzureAD`.
    In our example this would be `https://demo.octopus.com/api/users/authenticatedToken/AzureAD`
 
@@ -63,6 +72,7 @@ If you want to manage user/team membership via AAD, you will need to configure R
 
 - In the [modern portal](https://portal.azure.com) you can edit the manifest directly in the browser
 - In the [old portal](https://manage.windowsazure.com) you will need to download and hand-edit the file:
+
   ![](/docs/images/5670656/5865864.png "width=500")
 
 - Select **Manage Manifest** and download your App's manifest JSON file.
@@ -85,7 +95,6 @@ Make sure you replace `NEWGUID` with a generated guid.
 		"description": "Octopus Administrators",
 		"displayName": "Octopus Admins",
 		"isEnabled": true,
-		"origin": "Application",
 		"value": "octopusAdmins"
 	},
 	{
@@ -94,7 +103,6 @@ Make sure you replace `NEWGUID` with a generated guid.
 		"description": "Octopus Testers",
 		"displayName": "Octopus Testers",
 		"isEnabled": true,
-		"origin": "Application",
 		"value": "octopusTesters"
 	}
   ]
@@ -119,7 +127,9 @@ At the time of writing, the Azure Active Directory is in preview in the modern p
 :::
 
 1. In the old portal, go to the **Applications** tab, select the App and then select the **Users** tab.
+
    ![](/docs/images/5670656/5865867.png "width=500")
+   
 2. The users/groups from your Azure AD should be displayed, with the Assigned column indicating whether they are already mapped.
 3. You can click the **Assign** or **Remove** buttons to manage which Users and Groups can access your instance of Octopus Deploy. You can also manage which Roles are assigned to each User and Group.
 
@@ -146,27 +156,23 @@ Your Issuer should be a URL like `https://login.microsoftonline.com/GUID` where 
 #### Using the old Azure portal {#AzureADauthentication-UsingtheoldAzureportal}
 
 1. Find the **Client ID** in your App's **Configure** tab and copy it as-is
+
    ![](/docs/images/5670656/5865868.png "width=500")
-2. To get the **Issuer,** click on the View Endpoints button
-   ![](/docs/images/5670656/5865870.png "width=500")
-3. Copy the **OAuth 2.0 Authorization Endpoint** and delete the **`/oauth2/authorize`** section from the end of the URL
-   ![](/docs/images/5670656/5865871.png)
-   In our example the OAuth 2.0 Authorization Endpoint is
-   **`https://login.microsoftonline.com/b91ebf6a-84be-4c6f-97f3-32a1d0a11c8a/oauth2/authorize`**
-   So the Issuer should be
-   **`https://login.microsoftonline.com/b91ebf6a-84be-4c6f-97f3-32a1d0a11c8a`**
+   
+2. Locate the  GUID for the **Issuer** in the address for the above page
+
+   ![](issuer.png "width=500")
+   
 
 #### Using the modern Azure portal {#AzureADauthentication-UsingthemodernAzureportal}
 
 1. In the modern portal, the **Application ID** in your App's **Settings/Properties** is your **Client ID**
-   ![](/docs/images/5670656/5865869.png "width=500")
-2. To get the **Issuer**, go the {{App Registrations,Endpoints}} and copy the **OAuth 2.0 Authorization Endpoint**and delete the **`/oauth2/authorize`** section from the end of the URL
-   ![](/docs/images/5670656/5865872.png "width=500")
 
-In our example the **OAuth 2.0 Authorization Endpoint** is
-**`https://login.microsoftonline.com/b91ebf6a-84be-4c6f-97f3-32a1d0a11c8a/oauth2/authorize`**
-So the Issuer should be
-**`https://login.microsoftonline.com/b91ebf6a-84be-4c6f-97f3-32a1d0a11c8a`**
+   ![](/docs/images/5670656/5865869.png "width=500")
+   
+2. The GUID for the **Issuer** can be found in the Properties of your Actice Directory tenant
+
+   ![](issuer-n.png "width=500")
 
 ### Setting the Client ID and Issuer into Octopus Deploy {#AzureADauthentication-SettingtheClientIDandIssuerintoOctopusDeploy}
 
@@ -219,9 +225,12 @@ Sometimes the contents of the security token sent back by Azure AD aren't exactl
 
 1. Open the Developer Tools of your browser and enable Network logging making sure the network logging is preserved across requests.
 2. In Chrome Dev Tools this is called "Preserve Log".
+
    ![](/docs/images/5670656/5866122.png)
+   
 3. Attempt to sign into Octopus using Azure AD and find the HTTP POST coming back to your Octopus instance from Azure AD on a route like `/api/users/authenticatedToken/azureAD`. You should see an `id_token` field in the HTTP POST body.
 4. Grab the contents of the `id_token` field and paste that into [https://jwt.io/](https://jwt.io/) which will decode the token for you.
+
    ![](/docs/images/5670656/5866123.png "width=500")
 
 5. Don't worry if jwt.io complains about the token signature, it doesn't support RS256 which is used by Azure AD.

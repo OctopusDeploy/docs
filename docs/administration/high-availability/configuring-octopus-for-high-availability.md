@@ -5,6 +5,8 @@ description: Information on configuring Octopus High Availablity including datab
 
 This section will walk through the different options and considerations for setting up Octopus: HA.
 
+!toc
+
 ## Setting up Octopus: High Availability {#ConfiguringOctopusforHighAvailability-SettingupOctopus:HighAvailability}
 
 This section will walk you through the different options and considerations for setting up Octopus: HA. For the sake of simplicity, the guide assumes that all of the servers are on-premises and are part of an Active Directory domain, as this is the most common configuration. Octopus: HA can work without the servers being part of an AD domain, but you'll need to vary the instructions accordingly.
@@ -156,3 +158,26 @@ Listening Tentacles require no special configuration for High Availability.  Po
 ```
 
 Notice there is an address entry for each Octopus Server in the High Availability configuration.
+
+## Troubleshooting
+
+### Task logs are empty for certain deployments {#missing-task-logs}
+
+Sometimes you go to a deployment and there are no steps displayed, and detailed logs are not available for the deployment. Sometimes refreshing your browser fixes it and the logs come back. The cause for this is when you have not configured [shared storage](#ConfiguringOctopusforHighAvailability-SharedStorage) correctly. The most common situation is when you have configured each node to use a folder on a local disk instead of a shared network location.
+
+To fix this problem you should:
+
+1. Plan some downtime for your Octopus HA cluster
+2. Create shared storage as [described here](#ConfiguringOctopusforHighAvailability-SharedStorage)
+3. Put your Octopus HA cluster into maintenance mode after draining tasks from each node
+3. Reconfigure your Octopus HA cluster to use the shared storage
+4. Copy all of the files into the shared storage location - there shouldn't be any filename collisions since each node will generally run independent tasks
+5. Bring yoour Octopus HA cluster back online
+
+### Deployment artifacts are not available for certain deployments
+
+This has the same root cause as missing task logs - [see above](#missing-task-logs).
+
+### Packages in the built-in repository are not available for some deployments
+
+This has the same root cause as missing task logs - [see above](#missing-task-logs).

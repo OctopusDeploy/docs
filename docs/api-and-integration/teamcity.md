@@ -32,6 +32,8 @@ To make integrating with TeamCity easy, a [plugin is available](https://octopus
 3. Copy the ZIP file with the plugin to `<TeamCity Data Directory>/plugins`
 4. Start TeamCity server: the plugin files will be unpacked and processed automatically
 
+The [TeamCity Data Directory](https://confluence.jetbrains.com/display/TCD10/TeamCity+Data+Directory) can be found on the **Administration | Global Settings** page for a running TeamCity server instance.
+
 ## Creating Octopus-compatible NuGet packages using TeamCity {#TeamCity-CreateNuGetPackageCreatingOctopus-compatibleNuGetpackagesusingTeamCity}
 
 Octopus requires that you package your applications into NuGet packages, whether or not you are using TeamCity. There are many ways to create [Octopus-compatible NuGet packages](/docs/packaging-applications/index.md), but the easiest way is with [OctoPack](https://github.com/OctopusDeploy/OctoPack).

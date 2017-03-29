@@ -98,6 +98,10 @@ Notes:
 - Ensure you replace sample partial group name ``SomeGroup`` with text that matches the start of a group name in the domain.
 - Per previous example script, it's recommended that you run this script as the same user you're running the Octopus service under
 
+:::hint
+Octopus only uses Security Groups for controlling access permissions. When searching for groups to add to an Octopus team, Distribution Groups will be filtered out.
+:::
+
 ## Logging {#TroubleshootingActiveDirectoryintegration-Logging}
 
 If problems persist, we suggest turning on active directory diagnostic logging and then executing the PowerShell script above to test changes based on the results.  We've found the best way to get actionable details out of the logs is to set the following registry settings on the the server running active directory directory services (i.e. you relevant domain controller).

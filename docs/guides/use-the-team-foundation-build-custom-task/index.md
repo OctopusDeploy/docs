@@ -1,5 +1,5 @@
 ---
-title: Using the Team Foundation Build Custom Task
+title: Using the Team Foundation Build Custom Tasks
 description: This guide walks you through integrating Octopus with Microsoft TFS or VSTS using the Octopus extension.
 position: 5
 ---
@@ -12,6 +12,8 @@ The new structure of Team Foundation Build gives us a great opportunity to integ
 - Deploying a Release to an Environment in Octopus
 - Promoting a Release from one Environment to the next
 
+You can also view the status of a project in an environment using the Dashboard Widget.
+
 On this page:
 
 !toc
@@ -22,9 +24,7 @@ We've open-sourced the [OctoTFS repository in GitHub](https://github.com/Octopu
 
 If you're using **Visual Studio Team Services (VSTS) or on-premises Team Foundation Server (TFS) 2017 (or newer)** you can simply [install the extension from the marketplace](https://marketplace.visualstudio.com/items/octopusdeploy.octopus-deploy-build-release-tasks) and follow the instructions below.
 
-If you're using an **on-premises TFS 2015 Update 2 or 3 server**, see [this document](/docs/api-and-integration/team-foundation-server-tfs.md) for details on where to get a compatible extension. 
-
-If you're using an **on-premises TFS server older than 2015 Update 2**, the extension is currently not available. You'll have to manually install the task by following [these instructions](/docs/guides/use-the-team-foundation-build-custom-task/manually-install-the-build-task.md). Alternatively, [D'Arcy Lussier has put together a complete walkthrough](http://geekswithblogs.net/dlussier/archive/2016/01/04/170820.aspx) that's very easy to follow.
+If you're using an earlier version of TFS, see the [Extension Compatibility documentation](/docs/guides/use-the-team-foundation-build-custom-task/extension-compatibility.md) for details on where to get a compatible extension. 
 
 After installing the extension, follow the below steps to get it running for your build.
 
@@ -33,7 +33,7 @@ After installing the extension, follow the below steps to get it running for you
 If you want to make changes to the build task that might not be appropriate for everyone, you can download and manually install the build task yourself. See [Manually install the Build Task (not recommended)](/docs/guides/use-the-team-foundation-build-custom-task/manually-install-the-build-task.md) for details.
 :::
 
-## Add a Connection to Octopus Deploy}
+## Add a Connection to Octopus Deploy
 
 Hover over the **Manage Project** cog in the top right corner of the project screen in Visual Studio Team Services, and click the **Services** link.
 
@@ -50,6 +50,23 @@ Enter a valid [Octopus API Key](/docs/how-to/how-to-create-an-api-key.md) in the
 ![](/docs/images/3048587/new-octopus-connection-2.jpg "width=500")
 
 After you've saved the connection, it should be available from the Octopus Deploy Build Tasks.
+
+### Permissions required by the API key
+
+The API key you choose needs to have sufficient permissions to perform all the tasks specified by your builds.
+
+For the tasks themselves, these are relatively easy to determine (for example, creating a Release for Project A will require release creation permissions for that project).
+
+For the VSTS UI elements provided by the extension, the API key must also have the below permissions. If one or more are missing, you should still be able to use the extension, however the UI may encounter failures and require you to type values rather than select them from dropdowns. The dashboard widget will not work at all without its required permissions.
+
+If there are scope restrictions (e.g. by Project or Environment) against the account, the UI should still work, but results will be similarly restricted.
+
+- ProjectView (for project dropdowns)
+- EnvironmentView (for environment dropdowns)
+- TenantView (for tenant dropdowns)
+- ProcessView (for channel dropdowns)
+- DeploymentView (for the dashboard widget)
+- TaskView (for the dashboard widget)
 
 ## Package your Application and Push to Octopus {#UsetheTeamFoundationBuildCustomTask-PackageyourApplicationandPushtoOctopus}
 
@@ -161,3 +178,17 @@ Add a step to your Build or Release process, choose **Deploy**, click **Add**�
 ![](/docs/images/3048587/configure-promote-step.jpg "width=500")
 
 See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octo.exe command-line options](/docs/api-and-integration/octo.exe-command-line/deploying-releases.md) for more details).
+
+## Using the Dashboard Widget
+
+On your VSTS dashboard, click the `+` icon to add a new widget, then search for "Octopus Deploy". Add the **Octopus Deploy Status** widget.
+
+Hover over the widget and click the wrench icon to configure the widget.
+
+Select an Octopus Deploy connection (see the [Add a Connection](#Add-a-Connection-to-Octopus-Deploy) section for details), a Project, and an Environment.
+
+![](widget-setup-preview.jpg)
+
+The widget should refresh to show the current status of the selected project in the selected environment.
+
+![](/docs/images/3048587/multiple-widget-preview.jpg)

@@ -48,13 +48,14 @@ Deployment-level variables are drawn from the project and release being deployed
 |**`Octopus.Release.Channel.Name`** <br/>The Channel name associated with the release | *2.x Feature Branch*|
 |**`Octopus.Release.Notes`** <br/>Release notes associated with the release, in Markdown format | *Fixes bugs 1, 2 & 3*|
 |**`Octopus.Release.Number`** <br/>The version number of the release | *1.2.3*|
+|**`Octopus.Release.Id`** <br/>The ID of the release | *releases-123*|
 |**`Octopus.Release.Previous.Id`** <br/>The ID of the last release of the project | *releases-122*|
 |**`Octopus.Release.Previous.Number`** <br/>The version number of the last release of the project | *1.2.2*|
 |**`Octopus.Release.PreviousForEnvironment.Id`** <br/>The ID of the last release of the project to the current environment | *releases-122*|
 |**`Octopus.Release.PreviousForEnvironment.Number`** <br/>The version number of the last release of the project to the current environment | *1.2.2*|
 |**`Octopus.Release.CurrentForEnvironment.Id`** <br/>The ID of the release of the last successful deployment to the current environment | *releases-122*|
 |**`Octopus.Release.CurrentForEnvironment.Number`** <br/>The version number of the release the last successful deployment to the current environment | *1.2.2*|
-|**`Octopus.Task.Argument[\_name\_]`** <br/>Argument values provided when creating the task | *deployments-123*|
+|**`Octopus.Task.Argument[_name_]`** <br/>Argument values provided when creating the task | *deployments-123*|
 |**`Octopus.Task.Id`** <br/>The ID of the task | *servertasks-123*|
 |**`Octopus.Task.Name`** <br/>The name of the task | *Deploy release 1.2.3 to Production*|
 |**`Octopus.Tentacle.CurrentDeployment.PackageFilePath`** <br/>The path to the package file being deployed | *C:\Octopus\Tentacle\Packages\OctoFx.1.2.3.nupkg*|
@@ -84,8 +85,10 @@ Action-level variables are available during execution of an action. Indexer noti
 |**`Octopus.Action.Package.CustomInstallationDirectory`** <br/>If set, a specific directory to which the package will be copied after extraction | *C:\InetPub\WWWRoot\OctoFx*|
 |**`Octopus.Action.Package.CustomInstallationDirectoryShouldBePurgedBeforeDeployment`** <br/>If true, the all files in the `Octopus.Action.Package.CustomInstallationDirectory` will be deleted before deployment *(Boolean)* | *False*|
 |**`Octopus.Action.Package.DownloadOnTentacle`** <br/>If true, the package will be downloaded by the Tentacle, rather than pushed by the Octopus server*(Boolean)* | *False*|
+|**`Octopus.Action.Package.TreatConfigTransformationWarningsAsErrors`** <br/>If true, any warnings in configuration transformations will be treated as errors and will fail the deployment** ***(Boolean)* | *True*|
 |**`Octopus.Action.Package.IgnoreConfigTransformationErrors`** <br/>If true, any errors in configuration transformations will be treated as informational rather than errors that will fail the deployment** ***(Boolean)* | *False*|
 |**`Octopus.Action.Package.IgnoreVariableReplacementErrors`** <br/>If true, any errors in variable replacement will be treated as a warning rather than an error that will fail the deployment. (*Boolean*) | *False*|
+|**`Octopus.Action.Package.InstallationDirectoryPath`** <br/>The directory where the package was installed. It is not available prior to package extraction. | *C:\InetPub\WWWRoot\OctoFx*|
 |**`Octopus.Action.Package.NuGetFeedId`** <br/>The ID of the NuGet feed from which the package being deployed was pulled | *feeds-123*|
 |**`Octopus.Action.Package.NuGetPackageId`** <br/>The ID of the NuGet package being deployed | *OctoFx.RateService*|
 |**`Octopus.Action.Package.NuGetPackageVersion`** <br/>The version of the NuGet package being deployed | *1.2.3*|
@@ -148,13 +151,13 @@ Output variables are collected during execution of a step and made available to 
 
 | Name and Description | Example|
 | -------------------- | ----------------------------------------|
-|**`Octopus.Action[\_name\_].Output.\_property\_`** <br/>The results of calling `Set-OctopusVariable` during an action are exposed for use in other actions using this pattern | *Octopus.Action[Website].Output.WarmUpResponseTime*|
-|**`Octopus.Action[\_name\_].Output.Manual.Notes`** <br/>Notes provided by the user who completed a manual step | *Signed off by Alice*|
-|**`Octopus.Action[\_name\_].Output.Package.InstallationDirectoryPath`** <br/>The directory to which the package was installed | *C:\Octopus\Tentacle\Apps\Production\MyApp\1.2.3*|
-|**`Octopus.Action[\_name\_].Output.Manual.ResponsibleUser.DisplayName`** <br/>The full name of the user who completed the manual step | *Alice King*|
-|**`Octopus.Action[\_name\_].Output.Manual.ResponsibleUser.EmailAddress`** <br/>The email address of the user who completed the manual step | *[alice@example.com](mailto:alice@example.com)*|
-|**`Octopus.Action[\_name\_].Output.Manual.ResponsibleUser.Id`** <br/>The ID of the user who completed the manual step | *users-123*|
-|**`Octopus.Action[\_name\_].Output.Manual.ResponsibleUser.Username`** <br/>The username of the user who completed the manual step | *alice*|
+|**`Octopus.Action[_name_].Output.\_property\_`** <br/>The results of calling `Set-OctopusVariable` during an action are exposed for use in other actions using this pattern | *Octopus.Action[Website].Output.WarmUpResponseTime*|
+|**`Octopus.Action[_name_].Output.Manual.Notes`** <br/>Notes provided by the user who completed a manual step | *Signed off by Alice*|
+|**`Octopus.Action[_name_].Output.Package.InstallationDirectoryPath`** <br/>The directory where the package was installed | *C:\Octopus\Tentacle\Apps\Production\MyApp\1.2.3*|
+|**`Octopus.Action[_name_].Output.Manual.ResponsibleUser.DisplayName`** <br/>The full name of the user who completed the manual step | *Alice King*|
+|**`Octopus.Action[_name_].Output.Manual.ResponsibleUser.EmailAddress`** <br/>The email address of the user who completed the manual step | *[alice@example.com](mailto:alice@example.com)*|
+|**`Octopus.Action[_name_].Output.Manual.ResponsibleUser.Id`** <br/>The ID of the user who completed the manual step | *users-123*|
+|**`Octopus.Action[_name_].Output.Manual.ResponsibleUser.Username`** <br/>The username of the user who completed the manual step | *alice*|
 
 ## Step {#Systemvariables-Step}
 
@@ -186,9 +189,9 @@ Agent-level variables describe the deployment agent or Tentacle on which the dep
 
 Server-level variables describe the Octopus server on which the deployment is running.
 
-| Name and Description | Example                                  | 
+| Name and Description | Example                                  |
 | -------------------  | ---------------------------------------- |
-| **`Octopus.Web.BaseUrl`** <br/>The default URL at which the server can be accessed | *[https://my-octopus](https://my-octopus)* |
+| **`Octopus.Web.BaseUrl`** <br/>The default URL at which the server can be accessed. Note that this is based off the server's ListenPrefixes and works in simple configuration scenarios. If you have a load balancer or reverse proxy this value will likely not be suitable for use in referring to the server from a client perspective, e.g. in email templates etc. | *[https://my-octopus](https://my-octopus)* |
 
 ## Tracking deployment status {#Systemvariables-DeploymentStatusTrackingdeploymentstatus}
 
@@ -238,4 +241,3 @@ The following variables can be defined as variables in your project to modify th
 |**`OctopusDeleteScriptsOnCleanup`** <br/>For packaged scripts, set to "False" to keep the PreDeploy/Deploy/PostDeploy scripts in the target directory (i.e. don't cleanup). | False|
 |**`Octopus.Action.Script.SuppressEnvironmentLogging`** <br/>To suppress/disable the environment logging that occurs from script (eg. PowerShell or Bash Script Environment Variables logging). This only suppresses script logging and does not suppress the Octopus or Calamari environment logging. ***Introduced in Calamari version 3.6.5 which was released with Octopus Deploy version 3.6.0.*** | True|
 |**`Octopus.Action.PowerShell.ExecuteWithoutProfile`** <br/>Set to `true` to not run the Tentacle service account's PowerShell profile script when running PowerShell script steps (available in version 3.3.21+) | True|
-

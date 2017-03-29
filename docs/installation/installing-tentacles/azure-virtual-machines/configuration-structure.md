@@ -4,6 +4,10 @@ description: Detailed file format information for the configuration files requir
 position: 6
 ---
 
+:::hint
+The Azure VM Extension is currently in preview.
+:::
+
 These files are required to install the extension [via the Azure CLI](via-the-azure-cli.md) or [via PowerShell](via-powershell.md).
 
 ## Public Settings
@@ -22,7 +26,9 @@ The schema for the public configuration file is:
     "app-server"
   ],
   "CommunicationMode": "Listen",
-  "Port": 10933
+  "Port": 10933,
+  "PublicHostNameConfiguration": "PublicIP|FQDN|ComputerName|Custom",
+  "CustomPublicHostName": "web01.example.com"
 }
 
 ```
@@ -32,6 +38,17 @@ The schema for the public configuration file is:
 * `Roles`: (array of string) The roles to assign to the Tentacle.
 * `CommunicationMode`: (string) Whether the Tentacle should wait for connections from the server (`Listen`) or should poll the server (`Poll`).
 * `Port`: The port on which to listen for connections from the server (in `Listen` mode), or the port on which to connect to the Octopus server (`Poll` mode).
+* `PublicHostNameConfiguration`: If in listening mode, how the server should contact the Tentacle. Can be one of the following:
+  * `PublicIP` - looks up the public IP address using <https://api.ipify.org>.
+  * `FQDN` - concatenates the local hostname with the (active directory) domain name. Useful for domain joined computers.
+  * `ComputerName` - uses the local hostname.
+  * `Custom` - allows you to specify a custom value, using the `CustomPublicHostName` property.
+* `CustomPublicHostName`: If in listening mode, and `PublicHostNameConfiguration` is set to `Custom`, the address that the server should use for this Tentacle.
+
+:::hint
+In `Listen` mode, the extension will automatically add a Windows Firewall rule to allow inbound traffic, but you will still need to ensure that [endpoints](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/classic/setup-endpoints) / [NSG rules](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg) are added to allow network traffic from the Octopus Server to the Tentacle.
+The Tentacle will also need to be able to reach the Octopus Server portal to register the Tentacle. Once registered, this is no longer required.
+:::
 
 ## Private Settings
 
@@ -45,4 +62,4 @@ The schema for the private configuration file is:
 
 * `ApiKey`: (string) The Api Key to use to connect to the Octopus server.
 
-The private configuration will be encrypted by Azure, and is only decryptable on the Azure VM using a special certificate installed by the Azure VM Agent. 
+The private configuration will be encrypted by Azure, and is only decryptable on the Azure VM using a special certificate installed by the Azure VM Agent.

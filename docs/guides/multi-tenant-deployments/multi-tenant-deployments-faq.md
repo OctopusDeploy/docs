@@ -6,32 +6,7 @@ position: 1
 
 This page contains some of the questions we are asked most often related to multi-tenant deployments in Octopus Deploy.
 
-- Why can't I see the tenant area in the main menu, or anything about tenants for that matter?
-- Is there anything special about multi-tenant projects or environments?
-- Can I deploy to multiple tenants in a single deployment?
-- Can I deploy to multiple tenants at the same time?
-- Can I control the order in which tenanted deployments execute?
-- Can I perform tenanted deployments in batches?
-- Can I have a combination of tenanted and untenanted projects?
-- What is an "un-tenanted deployment"? Don't I have to choose a tenant when deploying my project?
-- Can I prevent "un-tenanted deployments" of a project?
-- Can I require a tenant for all deployments of a project?
-- Can I deploy a tenanted project onto an un-tenanted machine?
-- Can I deploy an un-tenanted project onto a tenanted machine?
-- Why can't I connect a tenant to my project, or perform a tenanted deployment of my project?
-- Why can't I connect a tenant to one of the environments for my project?
-- I want to deploy my project to a tenant, but I can't see that tenant in the list?
-- Is licensing affected by the number of tenants I have?
-- Can I provide 3rd-party self-service sign in, so my tenants can manage their own deployments?
-- How are deployment targets selected for each deployment?
-- Can I configure deployment targets that are dedicated/limited to a single tenant?
-- Can I configure accounts that are dedicated/limited to a single tenant?
-- Can I deploy a mixture of projects to my tenants?
-- Can I provide my tenants with a staging and production environment?
-- Can I configure a standard set of variables that are required by each tenant like an alias or contact details?
-- Can I use tenants and channels together?
-- Can I pin or lock a tenant to a specific release?
-- Are there any known limitations or problems with multi-tenant deployments?
+!toc
 
 ## Why can't I see the tenant area in the main menu, or anything about tenants for that matter? {#Multi-tenantdeploymentsFAQ-Whycan'tIseethetenantareainthemainmenu,oranythingabouttenantsforthatmatter?}
 

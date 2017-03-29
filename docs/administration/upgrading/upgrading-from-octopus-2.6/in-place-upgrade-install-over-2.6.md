@@ -10,13 +10,7 @@ Due to the new communication method, you won't be able to communicate with your 
 
 ## Summary {#Inplaceupgrade(installover2.6)-Summary}
 
-1. Backup your Octopus 2.6 database and master key
-2. Use Hydra to automatically upgrade your Tentacles
-3. Verify the upgrade has worked
-4. Install Octopus 3.x on your Octopus Server
-5. Migrate your data from 2.6 to 3.x
-6. Verify the connectivity between the 3.x Octopus Server and the 3.x Tentacles
-7. **[Optional]** Clean up your Octopus Home folder, follow the instructions on this [page](/docs/administration/server-configuration-and-file-storage\index.md#ServerconfigurationandFilestorage-CleanUp)
+!toc
 
 ## Step by step {#Inplaceupgrade(installover2.6)-Stepbystep}
 
@@ -32,61 +26,7 @@ See the [Backup and restore](/docs/administration/upgrading/upgrading-from-octo
 
 ### 2. Use Hydra to automatically upgrade your Tentacles {#Inplaceupgrade(installover2.6)-2.UseHydratoautomaticallyupgradeyourTentacles}
 
-:::problem
-This is the point of no return. When your Tentacles are upgraded to 3.x your 2.6 server will not be able to communicate with them
-:::
-
-Hydra is a tool we've built that will help you update your Tentacles to the latest version. It is particularly useful migrating from 2.6 to 3.x as the communication methods have changed. Hydra is in two parts. A package that contains the latest Tentacle MSI installers, and a step template that does the upgrade to your environments. To account for issues with communicating with a Tentacle that has been 'cut off' from its Octopus Server, the Hydra process connects to the Tentacle and creates a scheduled task on the Tentacle Machine. If it is able to schedule the task it considers that install a success. The task runs one minute later.
-
-The task itself does the following:
-1. Find Tentacle services
-2. Stop all Tentacles (if they’re running)
-3. Run MSI
-4. Update configs for any polling Tentacles
-5. Starts any Tentacles that were running when we started
-
-With just one Tentacle service this should be a very quick process, but we cannot estimate how long it make take with many Tentacle services running on the one machine.
-
-:::problem
-The scheduled task is set to run as SYSTEM to ensure the MSI installation will succeed. If your Tentacles are running with restricted permissions, they may not be able to create this scheduled task. The only option is to upgrade your Tentacles manually.
-:::
-
-:::problem
-Hydra performs a Reinstall of each Tentacle. As part of the reinstall, the Service Account is reset to Local System. If you need your Tentacles to run under a different account, you will have to make the change after the upgrade completes (after you've re-established a connection from 3.x).
-
-You can do this manually, or using the following script:
-
-```powershell
-Tentacle.exe service --instance "Tentacle" --reconfigure --username=DOMAIN\ACCOUNT --password=accountpassword --start --console
-```
-:::
-
-To use Hydra, follow these steps:
-
-1. Download the latest Hydra NuGet package from [https://octopus.com/downloads](https://octopus.com/downloads)[
-](https://s3-eu-west-1.amazonaws.com/octopus-downloads/hydra/OctopusDeploy.Hydra.3.0.10.268.nupkg)
-2. Use the Upload Package feature of the library to upload the OctopusDeploy.Hydra package to the built-in NuGet repository on your Octopus 2.6 server.  
-![](/docs/images/3048135/3278019.png "width=500")
-3. Import the [Hydra script template](http://library.octopusdeploy.com/step-templates/d4fb1945-f0a8-4de4-9045-8441e14057fa/actiontemplate-hydra-update-octopus-tentacle) from the Community Library.  
-![](/docs/images/3048135/3278018.png "width=500")
-4. Create a [new project](/docs/key-concepts/projects/index.md) with a single "Update Octopus Tentacle" step from the step template
-    * Ensure you choose or create a [Lifecycle ](/docs/key-concepts/lifecycles.md)that allows you to deploy to all Tentacles.
-    * Ensure you set the Update Octopus Tentacle step to run for all appropriate Tentacles.
-    * If you are using any polling Tentacles and your 3.x server will have a new address or polling port, you'll need to add the new Octopus 3.x server address (including the polling port) in the Server Mapping field. If the URL and port will stay the same, there's no need to set this value.  
-    It is very important you get this value correct. An incorrect value will result in a polling Tentacle that can't be contacted by either a 2.6 or 3.x server.
-    If all of your polling Tentacles on the one server need to be pointed to the new location you need only put`https://octopus2.contoso.com:10934/` and it will update the old location with this new one.
-    If you have more than one polling Tentacle and each points to a different Octopus Server (this should be very rare) then the syntax is: `https://oldserver:oldport=>https://newserver:newport,https://oldserver2:oldport2/=>https://newserver2:newport2`  
-    Where each pair is separated by commas. This will match the first case and replace it => with the second case.  
-    Click the ![](/docs/images/3048132/3278017.png) help button for more detailed instructions.  
-    ![](/docs/images/3048132/3278014.png "width=500")   
-    ![](/docs/images/3048132/3278015.png "width=500")   
-5. Create a release and deploy. The deployment should succeed, and one minute later the Tentacles will be upgraded.
-    ![](/docs/images/3048132/3278010.png "width=500")
-
-:::hint
-We strongly recommend testing a deployment against a small subset of "canary" machines. The best way to do this is to create a new "canary" machine role and assign it to a few machines. Set the Update Octopus Tentacle step to only run against this "canary" role.
-Once you're confident the upgrade works as expected, you can deploy to all remaining machines.
-:::
+!include <using-hydra>
 
 ### 3. Verify the upgrade has worked {#Inplaceupgrade(installover2.6)-3.Verifytheupgradehasworked}
 
@@ -154,3 +94,9 @@ Log in to your new Octopus 3.x server and run health checks on all of your envir
 ![](/docs/images/3048132/3278009.png "width=500")
 
 If one or more health checks do not succeed after a few attempts, see the Troubleshooting section to identify possible issues.
+
+### Optionally clean up your Octopus Home folder
+
+We leave some files used by Octopus 2.6 in place so you can roll back if necessary. After the upgrade is complete these files will never be used again and can be safely deleted.
+
+You can follow the instructions on this [page](/docs/administration/server-configuration-and-file-storage\index.md#ServerconfigurationandFilestorage-CleanUp) to clean up files left over from your Octopus 2.6 to 3.x upgrade. 

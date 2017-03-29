@@ -79,18 +79,22 @@ Now that we have an XML file containing our deployments, we can import it into M
 
 1. Open Microsoft Excel, and create a new, blank workbook
 2. On the **Data** ribbon tab, click **From Other Sources**, then choose **From XML Data Import**. 
-![](/docs/images/3048153/3278132.png "width=500")
+
+   ![](/docs/images/3048153/3278132.png "width=500")
 3. Excel will prompt you that the XML file does not refer to a schema, and that one will be created. Click **OK**.
 4. Excel will ask you where to create a table. Choose the location in your workbook to put the new table, or just click **OK**.
 5. You should now have a table that lists each of the deployments you have performed with Octopus, along with the name of the environment, project and the date of the deployment. 
-![](/docs/images/3048153/3278131.png "width=500")
+
+   ![](/docs/images/3048153/3278131.png "width=500")
 
 ## Report on the data using a pivot table {#ReportondeploymentsusingExcel-Reportonthedatausingapivottable}
 
 It's easy to turn the table of deployments into a pivot table for reporting.
 
 1. Select any cell in the table, then from the **Insert** ribbon tab, click **PivotTable**. 
-![](/docs/images/3048153/3278130.png)
+
+   ![](/docs/images/3048153/3278130.png)
+   
 2. Excel will prompt you to ask where to place the new pivot table. Click **OK** to add it to a new worksheet in your workbook.
 3. You can now build the pivot table by dragging fields into the **Rows** or **Columns** of the pivot table.
 

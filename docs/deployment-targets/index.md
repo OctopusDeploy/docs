@@ -12,11 +12,7 @@ Deployment targets are added to an environment from the Environments page.
 
 A deployment target can be one of the following types:
 
-- [Listening Tentacle](/docs/deployment-targets/index.md)
-- [Polling Tentacle](/docs/deployment-targets/index.md)
-- [Offline Package Drop](/docs/deployment-targets/index.md)
-- [SSH Connection](/docs/deployment-targets/index.md)
-- [Cloud Region](/docs/deployment-targets/index.md)
+!toc
 
 ![](/docs/images/3048059/5865591.png "width=500")
 

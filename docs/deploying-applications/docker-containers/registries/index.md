@@ -7,20 +7,26 @@ position: 0
 A [Docker Registry](https://docs.docker.com/registry/) is treated in Octopus Deploy as a feed that supplies images that are run as containers on a Docker Engine host.
 
 :::success
-Learn more about using Docker Registries in our guide: [Docker run with networking](/docs/guides/docker/docker-run-with-networking.md)
+See an example deployment using Docker Registries in our guide: [Docker run with networking](/docs/guides/docker/docker-run-with-networking.md)
 :::
 
 ## Using Docker Registries in Octopus Deploy {#DockerRegistriesasFeeds-UsingDockerRegistriesinOctopusDeploy}
 
 In Octopus Deploy, Docker Registries are treated very similarly to [Package Repositories](/docs/packaging-applications/package-repositories/index.md), and Images are treated very similarly to Packages.
 
-Octopus Deploy supports the Docker Registry [Version 1](https://docs.docker.com/v1.6/reference/api/registry_api/) and [Version 2](https://docs.docker.com/registry/spec/api/) API specifications as outlined in the Docker reference files. You can access Docker Registries with or without using credentials, depending on registry configuration. You can use one of the hosted public registries, like [Docker Hub](https://hub.docker.com/), or you can host your own [Private Registry](/docs/deploying-applications/docker-containers/docker-registries-as-feeds.md).
+Octopus Deploy supports the Docker Registry [Version 1](https://docs.docker.com/v1.6/reference/api/registry_api/) and [Version 2](https://docs.docker.com/registry/spec/api/) API specifications as outlined in the Docker reference files. You can access Docker Registries with or without using credentials, depending on registry configuration. You can use one of the hosted public registries, like [Docker Hub](https://hub.docker.com/), or you can host your own [Private Registry](/docs/deploying-applications/docker-containers/registries/index.md).
 
 ### How Octopus Server and Deployment Targets integrate with Docker Registries {#DockerRegistriesasFeeds-HowOctopusServerandDeploymentTargetsintegratewithDockerRegistries}
 
 The Docker Registries you configure need to be accessed by both the Octopus Server and your [Deployment Targets](/docs/deployment-targets/index.md).
 
 The Octopus Server will contact your registry to obtain information on available images while designing and maintaining your projects. During deployment the `docker pull` command will be executed on the Deployment Targets themselves and they will pull the Images directly from the Docker Registry.
+
+## Docker Registry API version discovery {#DockerRegistriesasFeeds-VersionDiscovery}
+When you add your Docker Registry as a feed in Octopus Deploy, Octopus will attempt to detect and connect using the appropriate version based on specifications outlined in the relevant Docker API documentation. If your registry does not support the API correctly, it is possible that the connection will not be able to take place. We advise you to click _Save and Test_ once you have entered the registry detils to allow the version detection to take place and confirm that your credentials are correct. 
+
+According to the Docker API documentaiton, the [version 1](https://docs.docker.com/v1.6/reference/api/registry_api/) API should have a `/_ping` endpoint which will respond with a `X-Docker-Registry-Version` HTTP header in the response.
+Similarly, the [version 2](https://docs.docker.com/registry/spec/api/) API expects a `Docker-Distribution-API-Version` HTTP header with a value of `registry/2.0`. Both of these endpoints are expected to be located at an absolute path of either `/v1` or `/v2` from the host.
 
 :::hint
 **Container images are downloaded directly by the Deployment Target**
@@ -42,38 +48,6 @@ When you create a release in Octopus, you need to choose the "version" of the Im
 
 ![](/docs/images/5671031/5865828.png "width=500")
 
-## Docker Hub {#DockerRegistriesasFeeds-DockerHub}
-
-The default Docker Registry, which is maintained by the Docker organization, is the cloud-hosted [Docker Hub Registry](https://hub.docker.com/). This is the Registry which is used by docker engine when it is first installed and you call `docker search`.
-
-Searching for official public repositories do not require credentials. However searching for repositories of a non-official repository will require you to provide your Docker Hub username and password.
-
-:::problem
-**DockerHub private repository limitations**
-By design, Docker Hub **does not support [searching for private repositories](https://docs.docker.com/docker-hub/#/explore-repositories)** even with valid credentials. Additionally, while you will be able to search for a non-official repository, Docker Hub *will not return any tags for unofficial images*. If you are using an unofficial image, you will be able to select this when configuring your run step, but you will need to manually enter the version that you wish to deploy. So long as it exists in the registry, your Docker Engine will be able to pull it down. 
-The Docker Hub API endpoint [https://index.docker.io/v1](https://index.docker.io/v1) provides access to repositories with different levels of access
-
-| Repository | Shows In Search | Lists Tags |
-| --- | --- | --- |
-| Public + Official  | Yes | Yes |
-| Public + Unofficial | Yes | No |
-| Private | No | No |
-
-We suggest using alternative registry when trying to manage your own private images. See below for more details on hosting your own [Private Registry](/docs/deploying-applications/docker-containers/docker-registries-as-feeds.md).
-:::
-
-:::success
-**Using Docker Hub in Octopus Deploy**
-To use the Docker Hub registry in Octopus Deploy, create an external feed with the following settings:
-- **Feed Type:** Docker Container Registry
-- **Name:** DockerHub (or anything else that makes sense to you)
-- **URL:**[https://index.docker.io/v1](https://index.docker.io/v1)
-- **API Version:** v1
-- **Registry Path:** *leave blank*
-
-*![](/docs/images/5671031/5865826.png "width=500")*
-:::
-
 ## Private Registry {#DockerRegistriesasFeeds-PrivateRegistry}
 
 The simplest way to host your own private v2 Docker Registry is to run the run a container from the official registry image!
@@ -84,7 +58,13 @@ docker run -d -p 5000:5000 --name registry registry:2
 
 This image supports custom storage locations, certificates for HTTPS and authentication. For more details on setting up the registry checkout the [official docs](https://docs.docker.com/registry/deploying/).
 
-There are many other options for private registries such as self hosting through [Docker Trusted Registry](https://docs.docker.com/docker-trusted-registry/) or [Artifactory](https://www.jfrog.com/artifactory/), or using a cloud provider like [Quay](https://quay.io/). If using Amazon's [EC2 Container Registry](https://aws.amazon.com/ecr/), keep in mind that it exposes a v2 feed, and that you must generate the username and password using the *aws ecr get-login* command and set these details into your Octopus Deploy feed configuration.
+## Other Registry Options {#DockerRegistriesasFeeds-OtherOptions}
+There are many other options for private registries such as self hosting through [Docker Trusted Registry](https://docs.docker.com/docker-trusted-registry/) or [Artifactory](https://www.jfrog.com/artifactory/), or using a cloud provider like [Azure](https://azure.microsoft.com/en-au/services/container-registry/), [AWS](https://aws.amazon.com/ecr/) or [Quay](https://quay.io/)
+
+We have provided further details on setting up a Ocotpus Feed to the following Docker Registries:
+- [Docker Hub](/docs/deploying-applications/docker-containers/registries/docker-hub.md)
+- [Azure Container Services](/docs/deploying-applications/docker-containers/registries/azure-container-services.md) (currently in preview)
+- [Amazon EC2 Container Services](/docs/deploying-applications/docker-containers/registries/amazon-ec2-container-services.md)
 
 Note that as of the current version of ProGet (version 4.6.7 (Build 2)), their Docker Registry Feed does not expose the full Docker API and is missing the [_catalog endpoint](https://docs.docker.com/registry/spec/api/#/listing-repositories) which is required to list the available packages for release selection. It has been indicated that this may change in a future release.
 
@@ -92,3 +72,4 @@ Note that as of the current version of ProGet (version 4.6.7 (Build 2)), their D
 **Searching in a v2 registry**
 Although a search feature is available in the v1 registry API, as of the time of writing there is no built-in search ability in the v2 specifications. There are ongoing discussions around an open [GitHub ticket](https://github.com/docker/distribution/issues/206) in the Docker registry Github repository however there is no clear indication if one will be provided due to changes in the philosophy behind the registry responsibilities. The current workaround, and one one that Octopus Deploy uses when a v2 Docker registry is provided, is to retrieve the full catalog via the [/v2/\_catalog](https://docs.docker.com/registry/spec/api/#/listing-repositories) endpoint and search for the required image locally.
 :::
+

@@ -61,6 +61,8 @@ You can deploy a release to multiple tenants at the same time using the Octopus 
 **Tenanted and untenanted deployments explained**
 When you select **Deploy to one or more tenants** you are performing a **tenanted deployment** - deploying a release of a project to an environment for a specific tenant. When you perform a tenanted deployment the selected tenant can impact the entire process including which steps are run, which variable values are used, and which deployment targets are included, all depending on your deployment design.
 
+Also note Octopus will create a deployment per-tenant. This means if you select 20 tenants, Octopus will create 20 separate deployments: one for each tenant. Each of those deployments will execute in its own task.
+
 When you select **Deploy to one or more environments** you are performing an **untenanted deployment** - this is the same kind of deployment Octopus has always performed where you deploy a release of a project to an environment... there is no tenant for the deployment, and there will be no tenant influence on the deployment process.
 
 When you first enable multi-tenant deployments you won't have any tenants, and we don't want that to stop you from deploying your existing projects. Perhaps you are using an [environment-per-tenant](/docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/index.md) model and will migrate to tenants over a period of time, so some deployments will start to have a tenant whilst others do not.

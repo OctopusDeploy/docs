@@ -4,6 +4,10 @@ description: How to install the Tentacle VM Extension using the Powershell
 position: 3
 ---
 
+:::hint
+The Azure VM Extension is currently in preview.
+:::
+
 The Azure VM Extension can be added to your virtual machine using the Azure PowerShell cmdlets.
 
 Refer to the [configuration structure](configuration-structure.md) for information regarding the format of the `publicSettings.json` and `privateSettings.json` files mentioned in these examples.
@@ -25,7 +29,7 @@ Write-Host "Setting extension"
 Set-AzureVmExtension `
     -ExtensionName "OctopusDeployWindowsTentacle" `
     -Publisher "OctopusDeploy.Tentacle" `
-    -Version <"major_minor_version>" `
+    -Version "2.0" `
     -PublicConfigPath "publicsettings.config" `
     -PrivateConfigPath "privatesettings.config" `
     -VM $vm | Update-AzureVM
@@ -68,7 +72,7 @@ Set-AzureRmVMExtension -ResourceGroupName "<resource-group-name>" `
     -VMName "<vm-name>" `
     -Name "OctopusDeployWindowsTentacle" `
     -Publisher "OctopusDeploy.Tentacle" `
-    -TypeHandlerVersion "<major_minor_version>" `
+    -TypeHandlerVersion "2.0" `
     -Settings $publicSettings `
     -ProtectedSettings $privateSettings
 

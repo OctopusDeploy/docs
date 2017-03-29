@@ -10,7 +10,10 @@ When planning your Octopus installation, you will need to decide how to host you
 **Supported package and repository types**
 The Octopus built-in repository [supports several different types of packages](/docs/packaging-applications/supported-packages.md). If you would like to use a package type other than NuGet (zip or tag.gz for example) you must use the Octopus built-in repository.
 
-If you would like to use an external repository, the only external repository type supported are [NuGet feeds](https://docs.nuget.org/create/hosting-your-own-nuget-feeds) (either HTTP or file-system based feeds). If you want to use an external repository, you must use NuGet packages.
+If you would like to use an external repository, two types of external repositories are supported:
+
+ - [NuGet feeds](https://docs.nuget.org/create/hosting-your-own-nuget-feeds) (either HTTP or file-system based feeds).
+ - [Docker feeds](/docs/deploying-applications/docker-containers/registries/index.md)
 :::
 
 Your package repository will typically be:
@@ -101,24 +104,13 @@ If you are using [automatic release creation](/docs/deploying-applications/autom
 
 ### Moving the location of the built-in repository {#Packagerepositories-Movingthelocationofthebuilt-inrepository}
 
-In 3.0 you can now configure the directory that these packages are kept in. You will need to follow the steps below or you may lose some data.
-
-1. Stop your Octopus Server service
-2. Update the path location using the following command
-
-```powershell
-Octopus.Server.exe path --nugetRepository=your new location
-```
-3. Move your files from the old path (default is:  C:\Octopus\Packages) to your new location
-4. Restart the Octopus Server service
-
-The restart of the service will re-index the directory. If it is missing files, they will then go missing from the internal repository and again from your releases. So be sure that all files are moved.
+See [moving Octopus server folders](/docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md#MovingOctopusServerfolders-OctopusHome)
 
 ## Using external repositories {#Packagerepositories-Usingexternalrepositories}
 
 :::hint
-**Only NuGet feeds are supported**
-The only external repository type supported is NuGet. If you wish to use an external repository, you must use NuGet packages.
+**Only NuGet and Docker feeds are supported**
+The only external repository type supported are NuGet and Docker. If you wish to use an external repository, you must use NuGet packages or [Docker registries as feeds](/docs/deploying-applications/docker-containers/registries/index.md).
 :::
 
 :::warning

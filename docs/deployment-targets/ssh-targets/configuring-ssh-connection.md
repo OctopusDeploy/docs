@@ -29,7 +29,7 @@ If you didn't run the discovery process or the fingerprint on the target has cha
 **Finding the fingerprint**
 
 ```bash
-ssh-keygen -lf /etc/ssh/ssh_host_rsa_key.pub | cut -d' ' -f2 | awk '{ print $1}'
+ssh-keygen -E md5 -lf /etc/ssh/ssh_host_rsa_key.pub | cut -d' ' -f2 | awk '{ print $1}' | cut -d':' -f2-
 ```
 
 :::success

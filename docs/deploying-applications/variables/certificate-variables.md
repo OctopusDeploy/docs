@@ -33,6 +33,12 @@ At deploy-time, Certificate variables are expanded. For example, a variable _MyC
 | MyCertificate.NotBefore         | NotBefore date | 2016-06-15T13:45:30.0000000-07:00
 | MyCertificate.NotBefore         | NotAfter date | 2019-06-15T13:45:30.0000000-07:00
 
+For example, to access the certificate thumbprint in a PowerShell script:
+
+```powershell
+Write-Host $OctopusParameters["MyCertificate.Thumbprint"]
+```
+
 ### Private-Key Variables
 
 The variables which contain the private-key (if present) will be stored and transmitted as [sensitive-variables](/docs/deploying-applications/variables/sensitive-variables.md).  

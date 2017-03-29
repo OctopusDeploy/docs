@@ -111,25 +111,37 @@ Deployment:
 
 Common options: 
 
-      --server=VALUE         The base URL for your Octopus server - e.g., 
+      --server=VALUE         The base URL for your Octopus server - e.g.,
                              http://your-octopus/
-      --apiKey=VALUE         Your API key. Get this from the user profile 
-                             page.
-      --user=VALUE           [Optional] Username to use when authenticating 
+      --apiKey=VALUE         [Optional] Your API key. Get this from the user
+                             profile page. Your must provide an apiKey or
+                             username and password. If the guest account is
+                             enabled, a key of API-GUEST can be used.
+      --user=VALUE           [Optional] Username to use when authenticating
+                             with the server. Your must provide an apiKey or
+                             username and password.
+      --pass=VALUE           [Optional] Password to use when authenticating
                              with the server.
-      --pass=VALUE           [Optional] Password to use when authenticating 
-                             with the server.
-      --configFile=VALUE     [Optional] Text file of default values, with one 
+      --configFile=VALUE     [Optional] Text file of default values, with one
                              'key = value' per line.
       --debug                [Optional] Enable debug logging
-      --ignoreSslErrors      [Optional] Set this flag if your Octopus server 
-                             uses HTTPS but the certificate is not trusted on 
-                             this machine. Any certificate errors will be 
-                             ignored. WARNING: this option may create a 
+      --ignoreSslErrors      [Optional] Set this flag if your Octopus server
+                             uses HTTPS but the certificate is not trusted on
+                             this machine. Any certificate errors will be
+                             ignored. WARNING: this option may create a
                              security vulnerability.
       --enableServiceMessages
-                             [Optional] Enable TeamCity or Team Foundation 
+                             [Optional] Enable TeamCity or Team Foundation
                              Build service messages when logging.
+      --timeout=VALUE        [Optional] Timeout in seconds for network
+                             operations. Default is 600.
+      --proxy=VALUE          [Optional] The URI of the proxy to use, eg
+                             http://example.com:8080.
+      --proxyUser=VALUE      [Optional] The username for the proxy.
+      --proxyPass=VALUE      [Optional] The password for the proxy. If both
+                             the username and password are omitted and
+                             proxyAddress is specified, the default
+                             credentials are used.
 
 ```
 
@@ -149,17 +161,31 @@ octo create-release --project HelloWorld --version 1.0.3 --server http://octopus
 
 ## Specifying the package version {#Creatingreleases-Specifyingthepackageversion}
 
+For each step that has a package, the version is determined in the following order:
+
+ 1. The step name matches a --packageVersion parameter or a file filename found by --packagesFolder
+ 1. The package id matches a --packageVersion parameter or a file found by --packagesFolder
+ 1. The value from the --package parameter
+
+ If there are duplicate names/ids as a result of the --packageVersion and --packagesFolder parameters, the last one specified is used.
+
+### Option --packageVersion
 This will create a release *(1.0.3)* with a specified NuGet package version *(1.0.1)*:
 
 ```bash
-octo create-release --project HelloWorld --version 1.0.3 --packageversion 1.0.1 --server http://octopus/ --apiKey API-ABCDEF123456
+octo create-release --project HelloWorld --version 1.0.3 --packageVersion 1.0.1 --server http://octopus/ --apiKey API-ABCDEF123456
 ```
 
-This will create a release for a project with multiple packages, each with a different version:
+### Option --package
+This will create a release for a project with multiple packages, each with a different version. You are able to specify a step name and version pair with this option. This way you can use different versions of the same package for different steps:
 
 ```bash
 octo create-release --project HelloWorld --version 1.0.3 --package StepA:1.0.1 --package StepB:1.0.2 --server http://octopus/ --apiKey API-ABCDEF123456
 ```
+
+If the step doesn't require a package it can be omitted, or if step level version specificity is not required use the other options
+
+### Option --packagesFolder
 
 This will create a release for a project with multiple packages, by taking the version for each package from a folder containing the packages (this approach works well if your build server has just built the packages):
 

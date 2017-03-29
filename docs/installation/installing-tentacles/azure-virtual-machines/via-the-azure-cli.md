@@ -4,9 +4,17 @@ description: How to install the Tentacle VM Extension using the Azure Command Li
 position: 4
 ---
 
+:::hint
+The Azure VM Extension is currently in preview.
+:::
+
 The VM Extension can be installed onto a virtual machine via the [Azure command line](https://docs.microsoft.com/en-us/azure/xplat-cli-install). The instructions are slightly different depending on whether you are using the the [Resource](#AzureResourceManagerMode) model or the [Classic](#AzureServiceManagementMode) model.
 
 Refer to the [configuration structure](configuration-structure.md) for information regarding the format of the `publicSettings.json` and `privateSettings.json` files mentioned in these examples.
+
+:::hint
+If you need more the ability to customize more of the installation, you might want to consider using the [Azure Desired State Configuration (DSC) extension](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-extensions-dsc-overview) in conjunction with the [OctopusDSC](https://www.powershellgallery.com/packages/OctopusDSC) resource.
+:::
 
 ## Azure Resource Manager (ARM) mode {#AzureResourceManagerMode}
 
@@ -18,7 +26,7 @@ info:    Executing command config mode
 info:    New mode is arm
 info:    config mode command OK
 
-$ azure vm extension set --resource-group "<resource-group-name>" --vm-name "<vm-name>" --name "OctopusDeployWindowsTentacle" --publisher-name "OctopusDeploy.Tentacle" --version "<major_minor_version>" --public-config-path "publicSettings.json" --private-config-path "privateSettings.json"
+$ azure vm extension set --resource-group "<resource-group-name>" --vm-name "<vm-name>" --name "OctopusDeployWindowsTentacle" --publisher-name "OctopusDeploy.Tentacle" --version "2.0" --public-config-path "publicSettings.json" --private-config-path "privateSettings.json"
 info:    Executing command vm extension set
 info:    Looking up the VM "<vm-name>"
 info:    Installing extension "OctopusDeployWindowsTentacle", VM: "<vm-name>"
@@ -71,7 +79,7 @@ info:    Executing command config mode
 info:    New mode is asm
 info:    config mode command OK
 
-$ azure vm extension set "<vm-name>" "OctopusDeployWindowsTentacle" "OctopusDeploy.Tentacle" "<major_minor_version>" --public-config-path "publicSettings.json" --private-config-path "privateSettings.json"
+$ azure vm extension set "<vm-name>" "OctopusDeployWindowsTentacle" "OctopusDeploy.Tentacle" "2.0" --public-config-path "publicSettings.json" --private-config-path "privateSettings.json"
 info:    Executing command vm extension set
 info:    Getting virtual machines
 info:    Updating vm extension
@@ -106,7 +114,7 @@ info:    vm extension get command OK
 To remove an extension from a VM:
 
 ```sh
-$ azure vm extension set --uninstall "<vm-name>" "OctopusDeployWindowsTentacle" "OctopusDeploy.Tentacle" "<major_minor_version>"
+$ azure vm extension set --uninstall "<vm-name>" "OctopusDeployWindowsTentacle" "OctopusDeploy.Tentacle" "2.0"
 info:    Executing command vm extension set
 info:    Getting virtual machines
 info:    Uninstalling vm extension
