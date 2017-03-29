@@ -5,14 +5,6 @@ position: 1
 version: "3.12"
 ---
 
-:::warning
-**This feature is still in beta**. We have tested this functionality, but would like some real world feedback. During this period the following caveats apply:
-- If using for critical deployments, be prepared to convert to TCP based polling tentacles
-- Proxies have not been extensively tested
-- The documentation is incomplete
-- Please let us know how you go via support channels
-:::
-
 Read about [(TCP) Polling Tentacles](polling-tentacles.md) before continuing.
 
 Polling Tentacles can be setup to operate over HTTPS (Secure WebSockets) instead of raw TCP sockets. The advantage is that the port can be shared with another website (e.g. IIS or Octopus itself). The downside is the setup is a little more complicated and network communications are slightly slower.
@@ -39,25 +31,6 @@ Once selected the Octopus Server can be configured to listen on that prefix usin
 .\Octopus.Server.exe configure --instance OctopusServer --commsListenWebSocket https://+:443/OctopusComms
 .\Octopus.Server.exe service --instance OctopusServer --start
 ```
-
-### SSL Certificate
-Windows will need to be configured with an SSL certificate on the select address and port. Usually this is done by the other application sharing the port.
-The certificate does _not_ need to be trusted by the server or tentacle machine. The certificate also does not need to match the hostname.
-Self signed certificates are accepted, no chain of trust is required. It does need to be installed into the Personal certificate store of the Machine account.
-
-If you need to generate a self signed certificate, this can be done by issuing the following PowerShell command. Take note of the thumbprint generated.
-```powershell
-New-SelfSignedCertificate -Subject "CN=Example Website" -CertStoreLocation "Cert:\localMachine\My" -KeyExportPolicy Exportable
-```
-
-If your chosen certificate has not yet been associated with the selected address and port, use the `netsh` tool to install it. For example:
-```powershell
-netsh http add sslcert ipport=0.0.0.0:443 certhash=966857B08601B9ACA9A9F10E7D469AC521E2CD4B appid='{00112233-4455-6677-8899-AABBCCDDEEFF}'
-```
-```console
-netsh http add sslcert ipport=0.0.0.0:443 certhash=966857B08601B9ACA9A9F10E7D469AC521E2CD4B appid={00112233-4455-6677-8899-AABBCCDDEEFF}
-```
-For more details instructions, see Microsoft's [certificate HowTo](https://msdn.microsoft.com/en-us/library/ms733791(v=vs.110).aspx).
 
 ### Testing
 To confirm that the server is successfully configured, open the listen address in your browser. If you are using `+` for the host, replace that with `localhost`. For example `https://localhost:443/OctopusComms`.
@@ -93,6 +66,26 @@ When issuing the `poll-server` command to add additional nodes to poll, `--serve
 ```powershell
 poll-server --instance MyInstance --server "https://MyServer/"  --server-web-socket "wss://MyServer:443/OctopusComms" --apikey "API-CS0SW5SQJNLUBQCUBPK8LZY3KYO"
 ```
+## More Information
+
+### SSL Certificate
+Windows will need to be configured with an SSL certificate on the select address and port. Usually this is done by the other application sharing the port.
+The certificate does _not_ need to be trusted by the server or tentacle machine. The certificate also does not need to match the hostname.
+Self signed certificates are accepted, no chain of trust is required. It does need to be installed into the Personal certificate store of the Machine account.
+
+If you need to generate a self signed certificate, this can be done by issuing the following PowerShell command. Take note of the thumbprint generated.
+```powershell
+New-SelfSignedCertificate -Subject "CN=Example Website" -CertStoreLocation "Cert:\localMachine\My" -KeyExportPolicy Exportable
+```
+
+If your chosen certificate has not yet been associated with the selected address and port, use the `netsh` tool to install it. For example:
+```powershell
+netsh http add sslcert ipport=0.0.0.0:443 certhash=966857B08601B9ACA9A9F10E7D469AC521E2CD4B appid='{00112233-4455-6677-8899-AABBCCDDEEFF}'
+```
+```console
+netsh http add sslcert ipport=0.0.0.0:443 certhash=966857B08601B9ACA9A9F10E7D469AC521E2CD4B appid={00112233-4455-6677-8899-AABBCCDDEEFF}
+```
+For more details instructions, see Microsoft's [certificate HowTo](https://msdn.microsoft.com/en-us/library/ms733791(v=vs.110).aspx).
 
 ### Thumbprint
 Unlike other tentacle configurations, the tentacle must be configured to trust the thumbprint of the SSL certificate and not the Octopus server itself. This is due to HTTPSYS performing the certificate exchange (not the Octopus Server) and then delegating the connection. Both the tentacle and server still verify the certificate thumbprint match the trusted thumbprint.
