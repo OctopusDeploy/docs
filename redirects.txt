@@ -19,4 +19,3 @@ docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-w
 docs/guides/azure-deployments/cloud-services/cloud-service-concepts/packaging-cloud-services.md -> docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-cloud-service/index.md
 docs/deploying-applications/docker-containers/docker-registries-as-feeds.md -> docs/deploying-applications/docker-containers/registries/index.md
 docs/administration/retention-policies/retention-policies-and-channels.md -> docs/administration/retention-policies/index.md
-docs/deploying-applications/step-templates.md -> docs/deploying-applications/step-templates/index.md
