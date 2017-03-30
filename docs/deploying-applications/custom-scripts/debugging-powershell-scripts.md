@@ -33,10 +33,10 @@ Enter-PSHostProcess -Id 2284
 Debug-Runspace -Id 2
 ```
 
-If you have PowerShell remoting enabled, you can connect and debug remotely from either the command line or PowerShell ISE
+If you have PowerShell remoting enabled, you can connect and debug remotely from either the command line or PowerShell ISE.
 
-On the server, you omit the `Enter-PSSession`.
+If you are on the server which is running the script, you can omit the `Enter-PSSession` line.
 
-From PowerShell ISE, execute the specifed commands at the `PS >` prompt, and ISE will load the script, attach the debugger and allow you to step through the code.
+From PowerShell ISE, execute the specifed commands at the `PS >` prompt. ISE will load the script, attach the debugger and allow you to step through the code.
 
-Oncce you've finished debugging, you can either allow the script to run to the end, or you can choose `Stop Debugging` from the `Debug`. 
+Once you've finished debugging, you can either allow the script to run to the end, or you can choose `Stop Debugging` from the `Debug` menu.
