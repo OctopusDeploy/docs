@@ -131,4 +131,4 @@ the deployment is being performed. It recycles the App Pool, releasing any file 
 
 This can be done by including an `app_online.htm` file in your website and then renaming it to `app_offline.htm` at the 
 start of the deployment. This can be done via a script or the `IIS - Change App Offline` step in the 
-[community library](/docs/deploying-applications/step-templates/community-step-templates).
+[community library](/docs/deploying-applications/step-templates/community-step-template.md).
