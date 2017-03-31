@@ -4,12 +4,13 @@ description: This guide provides details on debugging PowerShell scripts with Oc
 position: 13
 ---
 
-This guide provides details on how to debug PowerShell scripts while they are being deployed by Octopus Deploy to remote machines. This guide demonstrates connecting to the worst case scenario: connecting via IP address to an untrusted machine on a public network. Some steps may be ommited when connecting to machines on the same subnet or domain.
+This guide provides details on how to debug PowerShell scripts while they are being deployed by Octopus Deploy to remote machines. This guide demonstrates connecting via IP address to an untrusted machine on a public network. Some steps may be ommited when connecting to machines on the same subnet or domain.
 
 ## Configuring PowerShell remoting
 PowerShell remoting must be enabled on the remote machine and configured for SSL and the trust established between the remote machine and the debugging machine.
 
 To enable PowerShell remoting on the remote machine:
+
 ```powershell
 Enable-PSRemoting -SkipNetworkProfileCheck -Force
 ```
@@ -25,6 +26,7 @@ New-NetFirewallRule -DisplayName "Windows Remote Management (HTTPS-In)" -Name "W
 ```
 
 We also need to export the certificate so that it can be trusted by the debugging machine:
+
 ```powershell
 Export-Certificate -Cert $certificate -FilePath "C:\remoting-certificate.cer"
 ```
@@ -40,7 +42,7 @@ Create a project with a "Run a Script" step that contains some PowerShell.  For 
 
 ![Sample PowerShell script](/docs/guides/debugging-powershell-scripts-script.png)
 
-PowerShell debugging is enabled by the adding the variable `Octopus.Action.PowerShell.DebugMode` and setting the value to `true`. See [the PowerShell debugging documentation](/docs/deploying-applications/custom-scripts/debugging-powershell-scripts.md) for all of the possible settings.
+PowerShell debugging is enabled by adding the variable `Octopus.Action.PowerShell.DebugMode` and setting the value to `true`. See [the PowerShell debugging documentation](/docs/deploying-applications/custom-scripts/debugging-powershell-scripts.md) for all of the possible settings.
 
 ![Variable to enable debugging](/docs/guides/debugging-powershell-scripts-variables.png)
 
