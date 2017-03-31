@@ -4,7 +4,7 @@ description: This guide provides details on debugging PowerShell scripts with Oc
 position: 13
 ---
 
-This guide provides details on how to debug PowerShell scripts while they are being deployed by Octopus Deploy to remote machines. This guide demonstrates connecting via IP address to an untrusted machine on a public network. Some steps may be ommited when connecting to machines on the same subnet or domain.
+This guide provides details on how to debug PowerShell scripts while they are being deployed by Octopus Deploy to remote machines. This guide demonstrates connecting via IP address to an untrusted machine on a public network. Some steps may be ommitted when connecting to machines on the same subnet or domain.
 
 ## Configuring PowerShell remoting
 PowerShell remoting must be enabled on the remote machine and configured for SSL and the trust established between the remote machine and the debugging machine.
@@ -15,7 +15,7 @@ To enable PowerShell remoting on the remote machine:
 Enable-PSRemoting -SkipNetworkProfileCheck -Force
 ```
 
-To establish trust between the debugging machine and the remote machine let's configure remoting over SSL.  The remote machine requires a self-signed certificate, an HTTPS listener and a firewall rule to allow incoming requests on port 5986:
+To establish trust between the debugging machine and the remote machine let's configure remoting over SSL.  The remote machine requires a certificate, an HTTPS listener and a firewall rule to allow incoming requests on port 5986:
 
 ```powershell
 $dnsName = "55.555.55.555" # The IP address you are using to connect to the machine
@@ -31,7 +31,7 @@ We also need to export the certificate so that it can be trusted by the debuggin
 Export-Certificate -Cert $certificate -FilePath "C:\remoting-certificate.cer"
 ```
 
-In order to connect to the remote machine, the debugging machine must add the certificate to its Trusted Root Certification Authorities. Copy the exported certificate (remoting-certificate.cer) from the remote machine to the machine that will be doing the debugging. Import the certificate into Trusted Root Certification Authorities:
+In order to connect to the remote machine, the debugging machine must add the certificate to its Trusted Root Certification Authorities. Copy the exported certificate (`remoting-certificate.cer`) from the remote machine to the machine that will be doing the debugging. Import the certificate into Trusted Root Certification Authorities:
 
 ```powershell
 Import-Certificate -Filepath "C:\remoting-certificate.cer" -CertStoreLocation "Cert:\LocalMachine\Root"
@@ -51,27 +51,24 @@ Now, create a release and deploy it.  The deployment will pause while waiting fo
 ![Deployment waiting for debugger to attach](/docs/guides/debugging-powershell-scripts-deploy.png)
 
 ## Starting the PowerShell debug session
-The deployment in Octopus outputs the information required to start debugging the PowerShell script. We will be connecting to our remote machine via IP address so we can not use the name indicated by Octopus. First we must start a session with the remote computer.  Open PowerShell ISE and run the following:
+The deployment in Octopus outputs the information required to start debugging the PowerShell script. If we has name resolution configured we could connect to the machine using the name indicated by Octopus, but in this instance we will use the machine's IP address. First we must start a session with the remote computer.  Open PowerShell ISE and run the following:
 
 ```powershell
-$userName = "Administrator" # The user name to use to connect to the remote machine
-$password = "MyPassword" # The password to use to connect to the remote machine
 $ipAddress = "55.555.55.555" # The IP address of the remote machine
 
-$securePassword = ConvertTo-SecureString $password -AsPlainText -Force
-$credentials = New-Object System.Management.Automation.PSCredential ($userName, $securePassword)
+$credentials = Get-Credential
 
 Enter-PSSession -ComputerName $ipAddress -UseSSL -Credential $credentials
 ```
 
-One the session is established we can connect to the PowerShell process and start debugging.  The information provided in the Octopus deployment log can be used here:
+Once the session is established we can connect to the PowerShell process and start debugging.  The information provided in the Octopus deployment log can be used here:
 
 ```powershell
 Enter-PSHostProcess -Id 3720
 Debug-Runspace -Id 2
 ```
 
-PowerShell ISE will open a window showing the script currently executing on the remote machine.  You can step through the script like in most debuggers.
+PowerShell ISE will open a window showing the script currently executing on the remote machine.  You can step through the script using `F10` to step over and `F11` to step in.
 
 ![Debugging remote PowerShell scripts](/docs/guides/debugging-powershell-scripts-debug.png)
 
