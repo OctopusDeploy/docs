@@ -40,3 +40,7 @@ If you are on the server which is running the script, you can omit the `Enter-PS
 From PowerShell ISE, execute the specifed commands at the `PS >` prompt. ISE will load the script, attach the debugger and allow you to step through the code.
 
 Once you've finished debugging, you can either allow the script to run to the end, or you can choose `Stop Debugging` from the `Debug` menu.
+
+:::hint
+If you receive an error message `The background process reported an error with the following message: "The named pipe target process has ended".`, you can safely ignore this - it is just reporting that the PowerShell process you were debugging has ended.
+:::
