@@ -7,7 +7,7 @@ version: 3.12
 
 When writing Step Templates or Scripts, it is sometimes useful to be able to debug through a script to track down hard to diagnose issues.
 
-Octopus supports PowerShell script debugging to enable you to step through the script as it is being run by the Tentacle, to set breakpoints, view the variable values, the call stack and more.
+In PowerShell version 5.0 and above, Octopus supports script debugging to enable you to step through the script as it is being run by the Tentacle, to set breakpoints, view the call stack, the values of variable and more.
 
 To enable debugging, add a variable to your project with the name `Octopus.Action.PowerShell.DebugMode`, with one of the following values:
 
