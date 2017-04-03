@@ -20,7 +20,7 @@ Emails may also include a link to your Octopus Audit screen, filtered to match t
 
 ## Webhook Notifications {#Subscriptions-WebhookNotifications}
 
-!partial <logolinkrun>
+!partial <webhooks>
 
 ## Event Visibility and Permissions {#Subscriptions-EventVisibilityandPermissions}
 
