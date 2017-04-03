@@ -25,8 +25,12 @@ Octo.exe supports the following commands:
 - **`list-machines`**: Lists the machines in one or more environments matching one or more statuses
 - **`list-projects`**: Lists all projects on the server
 - **`list-latestdeployments`**: Lists the latest deployments of a project
+- **`list-releases`**: Lists all releases by project
+- **`list-environments`**: Lists all environments
+- **`list-tenants`**: Lists all tenants
 - **`delete-releases`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/deleting-releases.md)
 - **`delete-autodeployoverride`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/deleting-auto-deploy-overrides.md)
+- **`dump-deployments`**: Writes deployments to an XML file that can be imported in Excel
 - **`pack`**: [Learn More](/docs/packaging-applications/nuget-packages/using-octo.exe.md) Creates a NUPKG from files on disk, without needing a .nuspec
 - **`push`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/pushing-packages.md): Pushes a package to the Octopus built-in repository
 
