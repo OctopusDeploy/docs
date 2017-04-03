@@ -181,6 +181,8 @@ Once you have those values, run the following from a command prompt in the folde
 ```powershell
 Octopus.Server.exe configure --azureADIsEnabled=true --azureADIssuer=Issuer --azureADClientId=ClientID
 
+#Eg:
+# Octopus.Server.exe configure --azureADIsEnabled=true --azureADIssuer=https://login.microsoftonline.com/12341234-xxxx-xxxx-xxxx-xxxxxxxxxxxx --azureADClientId=43214321-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 ### Octopus user accounts are still required {#AzureADauthentication-Octopususeraccountsarestillrequired}
