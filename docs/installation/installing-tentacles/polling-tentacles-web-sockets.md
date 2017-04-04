@@ -31,7 +31,7 @@ In most cases, we recommend using `+` as the host name and a unique string for p
 takes the highest precedence. For example, to listen on port 443: `https://+:443/OctopusComms`. The path should not be 
 used by the other applications listening on the port.
 
-A SSL certificate must be configured for the chosen address and port (the path is ignored). If an existing application (eg the Octopus Web UI) is already using that address and port, no extra configuration is required. If not see [Certificate section below](#Certificate).
+A SSL certificate must be configured for the chosen address and port (the path is ignored). If an existing application (eg the Octopus Web UI) is already using that address and port, no extra configuration is required. If not see [Certificate section below](#certificate).
 
 Once selected the Octopus Server can be configured to listen on that prefix using the following commands:
 ```
@@ -43,7 +43,7 @@ Once selected the Octopus Server can be configured to listen on that prefix usin
 ### Testing
 To confirm that the server is successfully configured, open the listen address in your browser. If you are using `+` for the host, replace that with `localhost`. For example `https://localhost:443/OctopusComms`. You should get a page titled `Octopus Server configured successfully`. 
 
-If you get a connection refused or reset error, check the address and port and ensure a certificate is [configured](#Certificate) for that address.
+If you get a connection refused or reset error, check the address and port and ensure a certificate is [configured](#certificate) for that address.
 
 If you get the other application that is listening on that port, ensure that your listen address has a [higher precedence](https://msdn.microsoft.com/en-us/library/windows/desktop/aa364698(v=vs.85).aspx) and that 
 the server sucessfully bound to that address in the [server log file](/docs/reference/log-files.md).
