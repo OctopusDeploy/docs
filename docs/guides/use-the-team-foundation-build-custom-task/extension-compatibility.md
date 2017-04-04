@@ -28,6 +28,8 @@ The following table shows compatibility between versions of VSTS, TFS, and the O
 
 Any version older than TFS 2015 Update 2 is not supported by any extension version.
 
+You may have success manually installing the task by following [these instructions](/docs/guides/use-the-team-foundation-build-custom-task/manually-install-the-build-task.md). Alternatively, [D'Arcy Lussier has put together a complete walkthrough](http://geekswithblogs.net/dlussier/archive/2016/01/04/170820.aspx) that's very easy to follow.
+
 ## Upgrading Extensions
 
 The ease of upgrades depends very much on the version of TFS (or VSTS) being used, and the extension versions involved.

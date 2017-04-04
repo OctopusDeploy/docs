@@ -23,7 +23,7 @@ position: 10
 - **`server-comms`**: Configure how the Tentacle communicates with an Octopus Server
 - **`service`**: Start, stop, install and configure the Tentacle service
 - **`show-thumbprint`**: Show the thumbprint of this Tentacle's certificate
-`!partial <list-instances-command>`
+!partial <list-instances-command>
 
 ## General usage {#Tentacle.exeCommandLine-Generalusage}
 

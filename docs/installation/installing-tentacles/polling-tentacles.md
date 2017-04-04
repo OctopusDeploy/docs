@@ -44,8 +44,9 @@ use the remaining port for polling tentacle connections. The listening port can 
 Even if you do use port **80** for polling tentacles, the communication is still secure.
 
 Note that the port used to poll Octopus for jobs is different to the port used by your team to access the Octopus Deploy web interface; 
-this is on purpose, and it means you can use different firewall conditions to allow Tentacles to access Octopus by IP address. It is not
-possible to use the same port as tentacle communication does not use HTTP. It would be similar attempting to run HTTPS and SSH on the same port.
+this is on purpose, and it means you can use different firewall conditions to allow Tentacles to access Octopus by IP address.
+
+!partial web-sockets
 
 Using polling mode, you won't typically need to make any firewall changes on the Tentacle machine.
 

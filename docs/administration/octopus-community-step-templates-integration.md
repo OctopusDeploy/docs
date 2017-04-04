@@ -4,7 +4,7 @@ description: Octopus community contributed step templates are synchronized with 
 position: 22
 ---
 
-Octopus 3.7 introduced integration with the [Octopus Library](http://library.octopus.com/) and community contributed [step templates](/docs/deploying-applications/step-templates.md) are now synchronized with the Octopus server. This makes it a quick and easy process to use community step templates in your project's deployment process.
+Octopus 3.7 introduced integration with the [Octopus Library](http://library.octopus.com/) and community contributed [step templates](/docs/deploying-applications/step-templates/index.md) are now synchronized with the Octopus server. This makes it a quick and easy process to use community step templates in your project's deployment process.
 
 Feature toggle
 

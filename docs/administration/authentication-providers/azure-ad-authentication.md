@@ -147,12 +147,6 @@ There is currently no UI for configuring Octopus to use Azure AD - it must be co
 
 There are two values you will need from the Azure AD configuration to complete the Octopus configuration: the **Client ID** and **Issuer**.
 
-:::success
-Your Client ID should be a GUID.
-
-Your Issuer should be a URL like `https://login.microsoftonline.com/GUID` where the GUID is a special GUID identifying your Azure Active Directory tenant.
-:::
-
 #### Using the old Azure portal {#AzureADauthentication-UsingtheoldAzureportal}
 
 1. Find the **Client ID** in your App's **Configure** tab and copy it as-is
@@ -176,11 +170,19 @@ Your Issuer should be a URL like `https://login.microsoftonline.com/GUID` where 
 
 ### Setting the Client ID and Issuer into Octopus Deploy {#AzureADauthentication-SettingtheClientIDandIssuerintoOctopusDeploy}
 
+:::success
+Your **Client ID** should be a GUID.
+
+Your **Issuer** should be a URL like `https://login.microsoftonline.com/GUID` where the GUID is a special GUID identifying your Azure Active Directory tenant.
+:::
+
 Once you have those values, run the following from a command prompt in the folder where you installed Octopus Server:
 
 ```powershell
 Octopus.Server.exe configure --azureADIsEnabled=true --azureADIssuer=Issuer --azureADClientId=ClientID
 
+#Eg:
+# Octopus.Server.exe configure --azureADIsEnabled=true --azureADIssuer=https://login.microsoftonline.com/12341234-xxxx-xxxx-xxxx-xxxxxxxxxxxx --azureADClientId=43214321-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 ### Octopus user accounts are still required {#AzureADauthentication-Octopususeraccountsarestillrequired}

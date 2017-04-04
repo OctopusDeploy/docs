@@ -156,7 +156,7 @@ Tentacle.exe help
 
 If the command help is not displayed immediately (< 1s) you may need to consider disabling the CRL check while the Tentacle is configured.
 
-To do this open {{Control Panel,Internet Options,Advanced}}, and un-check the *Check for publisher's certificate revocation* option as shown below.
+To do this open {{Control Panel,Internet Options,Advanced}}, and uncheck the *Check for publisher's certificate revocation* option as shown below.
 
 ![](/docs/images/3048143/3278077.png)
 
