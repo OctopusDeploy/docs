@@ -50,7 +50,7 @@ Don't forget to allow access not just in Windows Firewall, but also any intermed
 
 We have provided a detailed guide for [Troubleshooting Listening Tentacles](/docs/how-to/troubleshoot-listening-tentacles.md) but feel free to start with these simple steps.
 
-*On the Tentacle machine*, open a web browser and navigate to [https://localhost:10933](https://localhost:10933/) (or your chosen Tentacle communications port if it isn't the default). Make sure an**HTTPS**URL is used.
+*On the Tentacle machine*, open a web browser and navigate to [https://localhost:10933](https://localhost:10933/) (or your chosen Tentacle communications port if it isn't the default). Make sure an **HTTPS** URL is used.
 
 - If you're presented with a prompt to "confirm a certificate" or "select a certificate" choose "Cancel" - don't provide one
 - If you're presented with a warning about the invalidity of the site's certificate, "continue to the site" or "add an exception"
