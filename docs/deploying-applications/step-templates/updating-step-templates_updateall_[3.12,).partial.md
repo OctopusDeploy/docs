@@ -10,7 +10,7 @@ Most of the time the steps will be updated automatically but there will be cases
 
 ## Merge conflicts caused by new step template parameters
 
-One of the cases when we will need your assistance is when If you add a new parameter without a default value. There is a reason why a new parameter is added and if we updated steps without having a default value we could break your deployments. This is why we ask you to provide default values that are missing or to confirm that you are ok to use empty values as default values.
+One of the cases when we will need your assistance is when you add a new parameter without a default value. There is a reason why a new parameter is added and if we updated steps without having a default value we could break your deployments. This is why we ask you to provide default values that are missing or to confirm that you are ok to use empty values as default values.
 
 ![Steps that need default values](step-templates-update-all-defaults.png "width=500")
 
