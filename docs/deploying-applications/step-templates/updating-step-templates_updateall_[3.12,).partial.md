@@ -16,7 +16,7 @@ One of the cases when we will need your assistance is when you add a new paramet
 
 ## Merge conflicts caused by unsafe changes to the step template
 
-When you make a change to a step template that we can't be applied automatically we will ask you update each step manually. This should not happen often but when a type of a parameter changes or we don't have the pervious version of the step template we need you to tell us what the correct merge result looks like.  
+When you make a change to a step template that can't be applied automatically we will ask you to update each step manually. This should not happen often but when a type of a parameter changes or we don't have the pervious version of the step template we need you to tell us what the correct merge result looks like.  
 
 ![Steps that need to update manually](step-templates-update-all-manual.png "width=500")
 
