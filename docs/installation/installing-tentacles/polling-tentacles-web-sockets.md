@@ -19,7 +19,7 @@ The following prerequisites must be met to use this feature:
 
 - Both the Octopus Server and Tentacle must be running windows 2012 or later.
 - The server expects an SSL/TLS connection, so SSL offloading is not supported
-- The other application using the port must be using the standard Windows networking library ([HTTP.sys](https://www.microsoft.com/technet/prodtechnol/WindowsServer2003/Library/IIS/a2a45c42-38bc-464c-a097-d7a202092a54.mspx)). This includes IIS, .NET apps and Octopus itself. However, it does not include any applications that utilise non-HTTP.sys TCP/IP or HTTP stacks. Check your product's documentation for more information.
+- The other application using the port must be using the standard Windows networking library ([HTTP.sys](https://www.microsoft.com/technet/prodtechnol/WindowsServer2003/Library/IIS/a2a45c42-38bc-464c-a097-d7a202092a54.mspx)). This includes IIS, .NET apps and Octopus itself. However, it does not include any applications that utilize non-HTTP.sys TCP/IP or HTTP stacks. Check your product's documentation for more information.
 - The other application must be using HTTPS on that port
 
 ### Listen Address
@@ -46,7 +46,7 @@ To confirm that the server is successfully configured, open the listen address i
 If you get a connection refused or reset error, check the address and port and ensure a certificate is [configured](#Certificate) for that address.
 
 If you get the other application that is listening on that port, ensure that your listen address has a [higher precedence](https://msdn.microsoft.com/en-us/library/windows/desktop/aa364698(v=vs.85).aspx) and that 
-the server sucessfully bound to that address in the [server log file](/reference/log-files.md).
+the server sucessfully bound to that address in the [server log file](/docs/reference/log-files.md).
 
 If you encounter a certificate warning, ignore it and continue. This warning is due to the certificate not having a valid chain of trust back to a trusted certificate authority. Octopus [trusts certificates directly](https://octopus.com/blog/why-self-signed-certificates).
 
