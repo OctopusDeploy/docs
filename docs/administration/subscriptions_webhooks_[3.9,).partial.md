@@ -1,3 +1,5 @@
+## Webhook Notifications {#Subscriptions-WebhookNotifications}
+
 Webhook notifications allow you to receive a JSON payload, posted to a specified URL when events have occurred.
 
 Two payload types are supported
@@ -137,7 +139,7 @@ In this payload type, each payload will include an array of all events in the ba
                 "Self": {}
             }
         }, {
-            "Id": "Events-1234",
+            "Id": "Events-1235",
             "RelatedDocumentIds": ["...", "..."],
             "Category": "...",
             "UserId": "...",
@@ -158,18 +160,18 @@ In this payload type, each payload will include an array of all events in the ba
             }
         }],
         "BatchId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-		"TotalEventsInBatch": 2,
-		"IsPayloadTruncated": false
+        "TotalEventsInBatch": 2,
+        "IsPayloadTruncated": false
     }
 }
 ```
 
 ### Payload properties
 
-| Property                 | Description                              | Exclusive to payload Type  |
-| -----------------------  | ---------------------------------------- | |
-| ServerUri                | The Octopus server that generated this webhook \* | |
-| ServerAuditUri           | The URL to the Octopus server's audit screen where this event may be found in more detail \* | |
+| Property         | Description | Payload Type                             |
+| ---------------- | ----------- | ---------------------------------------- |
+| ServerUri                | The Octopus server that generated this webhook **\*** | |
+| ServerAuditUri           | The URL to the Octopus server's audit screen where this event may be found in more detail **\*** | |
 | Subscription             | The subscription object that triggered this webhook (including all filtering criteria so you can see exactly why you are receiving this webhook) | |
 | Event                    | The event object that this webhook is responding to | Single |
 | Events                   | The event objects that this webhook is responding to | Digest |
@@ -179,4 +181,4 @@ In this payload type, each payload will include an array of all events in the ba
 | EventNumberInBatch       | The event number of this event, in the current batch of events being processed | Single |
 | IsPayloadTruncated       | A boolean value that indicates whether the `Events` array has reached the maximum of 100 and was truncated | Digest |
 
-\* This property will be null unless the publicly-accessible URL has been set for your Octopus instance (see the {{Configuration,Nodes,Configuration Settings}} menu).
+**\*** This property will be `null` unless the publicly-accessible URL has been set for your Octopus instance (see the {{Configuration,Nodes,Configuration Settings}} menu).
