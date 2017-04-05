@@ -46,7 +46,7 @@ Even if you do use port **80** for Polling Tentacles, the communication is still
 Note that the port used to poll Octopus for jobs is different to the port used by your team to access the Octopus Deploy web interface; 
 this is on purpose, and it means you can use different firewall conditions to allow Tentacles to access Octopus by IP address.
 
-!partial web-sockets
+!partial <web-sockets>
 
 Using polling mode, you won't typically need to make any firewall changes on the Tentacle machine.
 

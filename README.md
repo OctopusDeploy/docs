@@ -253,7 +253,7 @@ Add a file in the same folder as the page where you will use the partial to the 
 
 ### Using a partial
 
-Add the following to the markdown: `!partial <key>`
+Add the following to the markdown: `!partial <key>` (including the `<>`s)
 
 ## Anchors
 
