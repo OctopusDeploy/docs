@@ -9,7 +9,7 @@ Read about [(TCP) Polling Tentacles](polling-tentacles.md) before continuing.
 
 Polling Tentacles can be setup to operate over HTTPS (Secure WebSockets) instead of raw TCP sockets. The advantage is that the port can be shared with another website (e.g. IIS or Octopus itself). The downside is the setup is a little more complicated and network communications are slightly slower.
 
-If there is an available port, we recommend using [TCP Polling Tentacles](polling-tentacles.md). If only port 443 and 80 are available, it is possible to run Octopus Web UI just on 443 (HTTPS) and a TCP Polling Tentacle on port 80. Even though it is using port 80, which is by convention HTTP, the tentacle communications will still use TLS and be secure.
+If there is an available port, we recommend using [TCP Polling Tentacles](polling-tentacles.md). If only port 443 and 80 are available, it is possible to run Octopus Web UI just on 443 (HTTPS) and a TCP Polling Tentacle on port 80. Even though it is using port 80, which is by convention HTTP, the Tentacle communications will still use TLS and be secure.
 
 !toc
 
@@ -51,16 +51,16 @@ the server sucessfully bound to that address in the [server log file](/docs/refe
 If you encounter a certificate warning, ignore it and continue. This warning is due to the certificate not having a valid chain of trust back to a trusted certificate authority. Octopus [trusts certificates directly](https://octopus.com/blog/why-self-signed-certificates).
 
 ## Tentacle Setup
-The setup of a WebSocket tentacle is the same as a TCP polling tentacle, except for the thumbprint and the command line option to specify the communications address.
+The setup of a WebSocket Tentacle is the same as a TCP Polling Tentacle, except for the thumbprint and the command line option to specify the communications address.
 
 ### Registering
-When issuing the `register-with` command during tentacle setup, omit the `--server-comms-port` parameter and specify the `--server-web-socket <address>` parameter. The address to use is the listen prefix (replacing `+` with the hostname) and `https` replaced with `wss` (e.g. `wss://example.com:443/OctopusComms`). For example:
+When issuing the `register-with` command during Tentacle setup, omit the `--server-comms-port` parameter and specify the `--server-web-socket <address>` parameter. The address to use is the listen prefix (replacing `+` with the hostname) and `https` replaced with `wss` (e.g. `wss://example.com:443/OctopusComms`). For example:
 ```powershell
 .\Tentacle.exe register-with --instance MyInstance --server "https://example.com/"  --server-web-socket "wss://example.com:443/OctopusComms" --comms-style TentacleActive --apikey "API-CS0SW5SQJNLUBQCUBPK8LZY3KYO" --environment "Test" --role "Web" 
 ```
 
 ### Changing an Existing Tentacle
-To change an existing tentacle to poll using WebSockets, run the following commands:
+To change an existing Tentacle to poll using WebSockets, run the following commands:
 ```powershell
 .\Tentacle.exe service --instance MyInstance --stop
 .\Tentacle.exe configure --reset-trust
@@ -98,4 +98,4 @@ netsh http add sslcert ipport=0.0.0.0:443 certhash=966857B08601B9ACA9A9F10E7D469
 For more details instructions, see Microsoft's [certificate HowTo](https://msdn.microsoft.com/en-us/library/ms733791(v=vs.110).aspx).
 
 ### Thumbprint
-Unlike other tentacle configurations, the tentacle must be configured to trust the thumbprint of the SSL certificate and not the thumprint Octopus uses for other methods of tentacle communication. This is due to HTTP.sys performing the certificate exchange (not the Octopus Server) and then delegating the connection. Both the tentacle and server still verify the certificate thumbprint match the trusted thumbprint.
+Unlike other Tentacle configurations, the Tentacle must be configured to trust the thumbprint of the SSL certificate and not the thumprint Octopus uses for other methods of Tentacle communication. This is due to HTTP.sys performing the certificate exchange (not the Octopus Server) and then delegating the connection. Both the Tentacle and server still verify the certificate thumbprint match the trusted thumbprint.

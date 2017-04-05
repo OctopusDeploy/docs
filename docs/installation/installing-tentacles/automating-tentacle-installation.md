@@ -46,7 +46,7 @@ To configure the Tentacle in listening or polling mode, it's easiest to run the 
 
 :::success
 **Advanced configuration options**
-When configuring your tentacle you can configure advanced options, like [proxies](/docs/installation/installing-tentacles/proxy-support.md), [machine policies](/docs/key-concepts/environments/machine-policies.md) and [tenants](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md), which can also be automated. Use the setup wizard to configure the Tentacle, and click the **Show Script** link which will show you the command-line equivalent to configure the Tentacle.
+When configuring your Tentacle you can configure advanced options, like [proxies](/docs/installation/installing-tentacles/proxy-support.md), [machine policies](/docs/key-concepts/environments/machine-policies.md) and [tenants](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md), which can also be automated. Use the setup wizard to configure the Tentacle, and click the **Show Script** link which will show you the command-line equivalent to configure the Tentacle.
 :::
 
 ## Example: Listening Tentacle {#AutomatingTentacleinstallation-Example:ListeningTentacle}
@@ -68,7 +68,7 @@ Tentacle.exe register-with --instance "Tentacle" --server "http://YOUR_OCTOPUS" 
 Tentacle.exe service --instance "Tentacle" --install --start --console
 ```
 
-You can also register a Tentacle with the Octopus Server after it has been installed by using Octopus.Client (i.e. register-with could be omitted above and the following could be used after the instance has started.  See below for how to obtain the tentacle's thumbprint):
+You can also register a Tentacle with the Octopus Server after it has been installed by using Octopus.Client (i.e. register-with could be omitted above and the following could be used after the instance has started.  See below for how to obtain the Tentacle's thumbprint):
 
 **Using Octopus.Client to register a Tentacle in an Octopus Server**
 

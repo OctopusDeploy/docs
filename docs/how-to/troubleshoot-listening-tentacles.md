@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Listening Tentacles
-description: How to troubleshoot problems with listening Tentacles.
+description: How to troubleshoot problems with Listening Tentacles.
 position: 4
 ---
 

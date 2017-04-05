@@ -8,7 +8,7 @@ These samples show how to perform various tasks related to project coordination.
 See the [OctopusDeploy-Api](https://github.com/OctopusDeploy/OctopusDeploy-Api) repository for further API documentation and examples using the [raw REST API](https://github.com/OctopusDeploy/OctopusDeploy-Api/tree/master/REST/PowerShell) or Octopus.Client in [C#](https://github.com/OctopusDeploy/OctopusDeploy-Api/tree/master/Octopus.Client/Csharp), [Powershell](https://github.com/OctopusDeploy/OctopusDeploy-Api/tree/master/Octopus.Client/PowerShell) or [LINQPad](https://github.com/OctopusDeploy/OctopusDeploy-Api/tree/master/Octopus.Client/LINQPad). If you are using powershell, the [OctoPosh ](https://github.com/Dalmirog/OctoPosh)project provides commandlets that wrap the API.
 
 :::success
-These examples use the [Octopus.Client](/docs/api-and-integration/octopus.client.md) library, see the [loading in an octopus step](/docs/api-and-integration/octopus.client.md#Octopus.Client-Loadinginanoctopusstep) section of the [Octopus.Client](/docs/api-and-integration/octopus.client.md) documentation for details on how to load the library from inside octopus using PowerShell or C# Script steps.
+These examples use the [Octopus.Client](/docs/api-and-integration/octopus.client.md) library, see the [Loading in an Octopus Step](/docs/api-and-integration/octopus.client.md#Octopus.Client-Loadinginanoctopusstep) section of the [Octopus.Client](/docs/api-and-integration/octopus.client.md) documentation for details on how to load the library from inside Octopus using PowerShell or C# Script steps.
 :::
 
 - Querying the current state

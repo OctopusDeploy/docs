@@ -65,7 +65,7 @@ $tentacleExe = "C:\Program Files\Octopus Deploy\Tentacle\Tentacle.exe"
 # Stop the current Tentacle service
 & "$tentacleExe" service --instance $instance --stop
 
-#Copy tentacle configuration and appliation files from OldHome to NewHome
+#Copy Tentacle configuration and appliation files from OldHome to NewHome
 new-item $newHome -type directory -Force
 $source = $oldHome + "\*"
 copy-item $source $newHome

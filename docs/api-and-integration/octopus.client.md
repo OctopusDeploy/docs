@@ -115,9 +115,9 @@ var me = await client.Get<UserResource>(client.RootDocument.Links["CurrentUser"]
 
 *(This example is superfluous as `repository.Users.GetCurrent()` wraps this common operation.)*
 
-## Loading in an octopus step {#Octopus.Client-Loadinginanoctopusstep}
+## Loading in an Octopus step {#Octopus.Client-Loadinginanoctopusstep}
 
-To use Octopus.Client from inside an octopus (for example in a script step, a package install script, or the script console) by loading it from the server or tentacle application directory. The credentials would still need to be supplied to establish the connection. For example:
+You can use Octopus.Client from inside Octopus (for example in a script step, a package install script, or the script console) by loading it from the server or Tentacle application directory. The credentials would still need to be supplied to establish the connection. For example:
 
 **PowerShell**
 
@@ -135,7 +135,7 @@ using Octopus.Client.Model;
 
 :::hint
 **Tip**
-The variable `Octopus.Tentacle.Agent.ProgramDirectoryPath` was added in server version 3.7.12, which can be used to obtain the directory that contains the Octopus.Client assembly. For prior versions of the server, the variable `Octopus.Tentacle.Agent.ProgramDirectoryPath` can be used, but that will not work for steps that run on the octopus server or cloud regions.
+The variable `Octopus.Tentacle.Agent.ProgramDirectoryPath` was added in server version 3.7.12, which can be used to obtain the directory that contains the Octopus.Client assembly. For prior versions of the server, the variable `Octopus.Tentacle.Agent.ProgramDirectoryPath` can be used, but that will not work for steps that run on the Octopus server or cloud regions.
 :::
 
 ## Documentation and samples {#Octopus.Client-Documentationandsamples}

@@ -16,7 +16,7 @@ position: 10
 - **`deregister-from`**: Deregisters this machine from an Octopus Server
 - **`import-certificate`**: Replace the certificate that Tentacle uses to authenticate itself
 - **`new-certificate`**: Creates and installs a new certificate for this Tentacle
-- **`polling-proxy`**:  Configure the HTTP proxy used by polling tentacles to reach the Octopus Server
+- **`polling-proxy`**:  Configure the HTTP proxy used by Polling Tentacles to reach the Octopus Server
 - **`poll-server`**: Configures an Octopus Server that this Tentacle will poll
 - **`proxy`**: Configure the HTTP proxy used by Octopus
 - **`register-with`**: Registers this machine with an Octopus Server

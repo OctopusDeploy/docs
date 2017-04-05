@@ -49,11 +49,11 @@ Please note that if you select "Use the proxy server configured in Internet Expl
 
 ## Configuring a Web Request Proxy {#ProxySupport-WebRequestConfiguringaWebRequestProxy}
 
-The Octopus Manager and Octopus Tentacle Manager applications also allow you to configure a proxy that will be used for other web requests made by the server or Tentacle, such as within a PowerShell script used as part of a deployment. This proxy is independent of the settings used for Tentacle/Server communications. To configure the web proxy used by a tentacle launch the Octopus Tentacle Manager application and click the "Change proxy server settings..." link.
+The Octopus Manager and Octopus Tentacle Manager applications also allow you to configure a proxy that will be used for other web requests made by the server or Tentacle, such as within a PowerShell script used as part of a deployment. This proxy is independent of the settings used for Tentacle/Server communications. To configure the web proxy used by a Tentacle launch the Octopus Tentacle Manager application and click the "Change proxy server settings..." link.
 
 ![](/docs/images/5669147/5865624.png "width=500")
 
-This launches the proxy settings wizard which will let you setup the proxy used by the Tentacle to make web requests. If this is a polling tentacle, you can also change the settings for the tentacle communications proxy in the "Polling Proxy" page of the wizard. This page will not be shown for Listening Tentacles.
+This launches the proxy settings wizard which will let you setup the proxy used by the Tentacle to make web requests. If this is a Polling Tentacle, you can also change the settings for the Tentacle communications proxy in the "Polling Proxy" page of the wizard. This page will not be shown for Listening Tentacles.
 
 ![](/docs/images/5669147/5865625.png "width=500")
 

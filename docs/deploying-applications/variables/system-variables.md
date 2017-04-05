@@ -182,7 +182,7 @@ Agent-level variables describe the deployment agent or Tentacle on which the dep
 |**`Octopus.Tentacle.Agent.ApplicationDirectoryPath`** <br/>The directory under which the agent installs packages | *C:\Octopus\Tentacle\Apps*|
 |**`Octopus.Tentacle.Agent.InstanceName`** <br/>The instance name that the agent runs under | *Tentacle*|
 |**`Octopus.Tentacle.Agent.ProgramDirectoryPath`** <br/>The directory containing the agent's own executables | *C:\Program Files\Octopus Deploy\Tentacle*|
-|**`Octopus.Agent.ProgramDirectoryPath`** <br/>The directory containing either the server or tentacle's executables depending on which the step being executed on | *C:\Program Files\Octopus Deploy\Octopus*|
+|**`Octopus.Agent.ProgramDirectoryPath`** <br/>The directory containing either the server or Tentacle's executables depending on which the step being executed on | *C:\Program Files\Octopus Deploy\Octopus*|
 
 
 ## Server {#Systemvariables-Server}

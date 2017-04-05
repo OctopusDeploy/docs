@@ -50,10 +50,10 @@ The communication protocol used by Octopus and Tentacle requires intact end-to-e
 :::
 
 :::warning
-**Proxy servers supported for tentacle communications since Octopus 3.4**
+**Proxy servers supported for Tentacle communications since Octopus 3.4**
 The communication protocol used by Octopus and Tentacle 3.4 and above supports proxies. Read more about configuring proxy servers for Tentacle communications in [proxy support](/docs/installation/installing-tentacles/proxy-support.md).
 
-If you are using a version of Octopus/Tentacle prior to 3.4 refer to either [listening tentacles](/docs/installation/installing-tentacles/listening-tentacles.md) or [polling tentacles](/docs/installation/installing-tentacles/polling-tentacles.md) for more information on configuring a bypass rule.
+If you are using a version of Octopus/Tentacle prior to 3.4 refer to either [Listening Tentacles](/docs/installation/installing-tentacles/listening-tentacles.md) or [Polling Tentacles](/docs/installation/installing-tentacles/polling-tentacles.md) for more information on configuring a bypass rule.
 :::
 
 Tentacle can be installed and configured directly from the command prompt, which is very useful when you need to install Tentacle on a large number of machines. See more in [automating Tentacle installations](/docs/installation/installing-tentacles/automating-tentacle-installation.md).
