@@ -50,7 +50,7 @@ If you can easily restart your Octopus Server, and the problem you are experienc
 1. Download the [JetBrains dotMemory application](https://www.jetbrains.com/dotmemory/) and install it on the machine hosting Octopus Server
 2. Start dotMemory **as an Administrator** and start a free trial (the trial can be paused afterwards)
 3. Stop the Octopus Deploy windows service
-4. Configure dotTrace to start your Octopus Server windows service
+4. Configure dotMemory to start your Octopus Server windows service
 ![dotMemory start Octopus Server](record-a-memory-trace-start-windows-service.png)
 5. If everything is working as expected you should see a screen like the one shown below
 ![dotMemory take snapshot](record-a-memory-trace-take-snapshot.png)
