@@ -30,9 +30,7 @@ ASP.NET Core applications can either run as a command line program with Kestrel,
 See the [ASP.NET Core IIS documentation](https://docs.asp.net/en/latest/publishing/iis.html#install-the-http-platform-handler) for instructions on setting up IIS for ASP.NET Core
 :::
 
-When running under IIS, ensure the Relative home directory is specified as "wwwroot" for compatibility with IIS.
-
-![](/docs/images/3702900/3964976.png "width=500")
+When running under IIS, ensure the .NET CLR Version is set to `No Managed Code`
 
 ## Configuration {#DeployingASP.NETCoreWebApplications-Configuration}
 
