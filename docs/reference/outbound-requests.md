@@ -38,8 +38,8 @@ When the checkbox "Automatically check for new Octopus releases" is checked duri
 2. A unique installation ID (read more below)
 
 :::hint
-**AWS**
-The octopusdeploy.com site is hosted on Amazon AWS EC2, so you will see traffic going to AWS services.
+**Microsoft Azure**
+The octopusdeploy.com site is hosted on Microsoft Azure, so you will see traffic going to Azure services.
 :::
 
 In addition, if you also check the box "Help improve Octopus by sending usage statistics", we'll attach:
@@ -53,6 +53,7 @@ In addition, if you also check the box "Help improve Octopus by sending usage st
 7. (As of 2.6) A SHA1 hash of your license key serial number
 8. (As of 2.6) The amount of memory Octopus is using
 9. (As of 2.6) The % of CPU Octopus is using on average
+10. (As of 3.12) The time to your first deployment
 
 The installation ID is a GUID that we generate when Octopus is installed. This GUID is simply a way for us to get a rough idea of the number of installations there are in the wild, and which versions people are using, so we can make decisions about backwards compatibility support.
 
