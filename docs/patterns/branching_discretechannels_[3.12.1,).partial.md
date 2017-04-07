@@ -1,3 +1,0 @@
-To prevent [retention policies](/docs/administration/retention-policies/index.md) for one channel from impacting deployments for another channel, you should set the `Discrete Channel Release` flag at under `Deployment Target settings` on the {{Project,Process}} page. Enabling this feature will also ensure that your project overview dashboard correctly shows which releases are current for each environment _in each channel_. Without this set, the default behaviour is for releases across channels to supersceed each other, for example in a hotfix scenario where the `3.2.2-bugfix` is expected to override the `3.2.2` release which may then be considered for retention policy cleanup. 
- 
- ![Discrete Channel Release](/docs/images/discrete-channel-release.png "width=500")
