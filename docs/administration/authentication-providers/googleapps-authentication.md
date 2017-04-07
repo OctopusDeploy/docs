@@ -59,6 +59,10 @@ When the security token is returned from the external identity provider, Octopus
 If you already have Octopus user accounts and you want to enable external authentication, simply make sure the Email Address matches in both Octopus and the external identity provider. This means your existing users will be able to sign in using an external identity provider and still belong to the same teams in Octopus.
 :::
 
+### Getting permissions
+
+!include <admin-user>
+
 ## Troubleshooting {#GoogleAppsauthentication-Troubleshooting}
 
 We do our best to log warnings to your Octopus Server log whenever possible. If you are having difficulty configuring Octopus to authenticate with GoogleApps, be sure to check your [server logs](/docs/reference/log-files.md) for warnings.
