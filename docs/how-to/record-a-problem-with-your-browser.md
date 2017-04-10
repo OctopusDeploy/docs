@@ -21,7 +21,7 @@ We recommend some small utilities to record your screen and web traffic. We are 
 These tools for Windows are both reputable and free. They should be installed and run on the computer you use to access your Octopus Server using your web browser:
 
 1. Download and install [FiddlerCap](http://www.telerik.com/fiddler/fiddlercap) for web traffic recording
-2. Download and install [Screen2Gif](http://www.screentogif.com/) for screen recording
+2. Download and install [ScreenToGif](http://www.screentogif.com/) for screen recording
 
 ## Recording
 
