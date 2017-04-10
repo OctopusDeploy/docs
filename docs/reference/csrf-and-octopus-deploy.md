@@ -50,4 +50,4 @@ If none of these troubleshooting steps work, please get in contact with our [sup
   e. Have you used any other versions of Octopus Deploy in this browser before?
   f. Do you have other web applications hosted on the same server?
   g. Do you have other web applications hosted on the same domain? (for example: octopus.mycompany.com and myapp.mycomany.com?)
-  h. Please record an HTTP network trace using [FiddlerCap](http://www.telerik.com/fiddler/fiddlercap). Please record the following steps: Logout, Login, then try to do the action that fails.
+  h. Please [record the problem occurring in your web browser](/docs/how-to/record-a-problem-with-your-browser.md) and send the recording to us for analysis. Please record the following steps: Sing out of Octopus Deploy, sign back in again, and then try to do the action that fails.
