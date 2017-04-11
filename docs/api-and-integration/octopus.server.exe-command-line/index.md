@@ -1,7 +1,7 @@
 ---
 title: Octopus.Server.exe Command Line
 description: Octopus.Server.exe is the executable that runs the Octopus instance, it can also be called from the command line.
-position: 10
+position: 9
 ---
 
 **Octopus.Server.exe** is the executable that runs the Octopus Tentacle instance. It includes several helpful commands that allow you to manage the instance some of which are built on top of the [Octopus Deploy HTTP API](/docs/api-and-integration/octopus-rest-api.md).
