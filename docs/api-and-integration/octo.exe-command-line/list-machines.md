@@ -1,36 +1,20 @@
 ---
-title: Cleaning environments
-description: Using the Octo.exe command line tool to delete/remove machines with a particular status from environments on your Octopus instance.
-position: 9
+title: List Machines
+description: Lists all machines
+position: 11
 ---
 
-[Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to delete/remove machines with a particular status from environments on your Octopus instance.
-
-:::hint
-This command was added in Octo.exe 3.3.4.
-:::
-
-:::success
-This is most useful when your environments can have temporary/ephemeral machines. The best example of this is in virtualized or cloud environments where new machines are created and destroyed frequently.
-:::
-
-:::success
-**Using Octopus 3.4 or newer?**
-We added first-class support for automatically [cleaning up environments](/docs/guides/elastic-and-transient-environments/cleaning-up-environments.md).
-:::
 
 ```bash
-octo clean-environment [<options>]
+octo list-machines [<options>]
 ```
 
 Where `[<options>]` is any of:
 
-**clean-environment options**
+**List Machines options**
 
 ```text
-Usage: Octo clean-environment [<options>]
-Where [<options>] is any of:
-Cleanup:
+
       --environment=VALUE          Name of an environment to clean up.
       --status=VALUE               (Deprecated) Status of Machines to clean up (Online, Offline,
                                    Unknown, NeedsUpgrade, CalamariNeedsUpgrade, Disabled).
@@ -42,13 +26,18 @@ Cleanup:
       --tentacle-outdated=VALUE    [Optional] State of Tentacle version to clean up.
                                      By default ignores Tentacle state.
 
+
 Common options:
+
       --server=VALUE         The base URL for your Octopus server - e.g.,
                              http://your-octopus/
-      --apiKey=VALUE         Your API key. Get this from the user profile
-                             page.
+      --apiKey=VALUE         [Optional] Your API key. Get this from the user
+                             profile page. Your must provide an apiKey or
+                             username and password. If the guest account is
+                             enabled, a key of API-GUEST can be used.
       --user=VALUE           [Optional] Username to use when authenticating
-                             with the server.
+                             with the server. Your must provide an apiKey or
+                             username and password.
       --pass=VALUE           [Optional] Password to use when authenticating
                              with the server.
       --configFile=VALUE     [Optional] Text file of default values, with one
@@ -60,19 +49,17 @@ Common options:
                              ignored. WARNING: this option may create a
                              security vulnerability.
       --enableServiceMessages
-                             [Optional] Enable TeamCity service messages when
-                             logging.
+                             [Optional] Enable TeamCity or Team Foundation
+                             Build service messages when logging.
+      --timeout=VALUE        [Optional] Timeout in seconds for network
+                             operations. Default is 600.
+      --proxy=VALUE          [Optional] The URI of the proxy to use, eg
+                             http://example.com:8080.
+      --proxyUser=VALUE      [Optional] The username for the proxy.
+      --proxyPass=VALUE      [Optional] The password for the proxy. If both
+                             the username and password are omitted and
+                             proxyAddress is specified, the default
+                             credentials are used.
+
+
 ```
-
-## Basic example {#Cleaningenvironments-Basicexample}
-
-The following command will clean any *offline* machines from the *production* environment.
-
-```bash
-Octo clean-environment --environment Production --status Offline --server http://MyOctopusServerURL.com --apikey MyAPIKey
-```
-
-:::success
-**Tip**
-Learn more about [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md), and [creating API keys](/docs/how-to/how-to-create-an-api-key.md).
-:::
