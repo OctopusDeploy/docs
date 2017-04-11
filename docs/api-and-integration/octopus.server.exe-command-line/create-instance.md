@@ -1,5 +1,5 @@
 ---
-title: Create Instance
+title: Create Instances
 description:  Registers a new instance of the Octopus service
 ---
 
@@ -20,4 +20,3 @@ Or one of the common options:
       --nologo               Don't print title or version information
       --noconsolelogging     Don't log to the console
 ```
-

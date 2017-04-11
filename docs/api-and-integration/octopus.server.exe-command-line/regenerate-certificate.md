@@ -1,5 +1,5 @@
 ---
-title: Regenerate Certificate
+title: Regenerate Certificates
 description:  Regenerate one or more of the certificates that Octopus uses
 ---
 

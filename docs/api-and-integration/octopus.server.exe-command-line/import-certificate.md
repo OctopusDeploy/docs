@@ -1,5 +1,5 @@
 ---
-title: Import Certificate
+title: Import Certificates
 description:  Replace the certificate that Octopus server uses to authenticate itself with its Tentacles
 ---
 
