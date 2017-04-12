@@ -3,7 +3,7 @@ title: Show Thumbprint
 description:  Shows the squid and thumbprint of the server instance
 ---
 
-Use the show thumbprint command to Shows the squid and thumbprint of the server instance.
+Use the show thumbprint command to show the squid and thumbprint of the server instance.
 
 **Show thumbprint options**
 

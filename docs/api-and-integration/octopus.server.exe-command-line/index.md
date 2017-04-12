@@ -40,6 +40,7 @@ position: 9
 - **`show-thumbprint`**:  Shows the squid and thumbprint of the server instance
 - **`show-configuration`**:  Outputs the server configuration
 - **`path`**:  Set the file paths that Octopus will use for storage
+- **`list-instances`**:  Lists all installed Octopus instances
 
 ## General usage {#Octopus.Server.exeCommandLine-Generalusage}
 
