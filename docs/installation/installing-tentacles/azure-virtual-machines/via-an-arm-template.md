@@ -4,10 +4,6 @@ description: How to install the Tentacle VM Extension using an Azure Resource Ma
 position: 5
 ---
 
-:::hint
-The Azure VM Extension is currently in preview.
-:::
-
 You can deploy the extension at virtual machine creation time, or update an extension resource group to apply the extension later.
 
 Create your ARM template as normal, and add a `resources` element under your `Microsoft.Compute/virtualMachine` resource:
