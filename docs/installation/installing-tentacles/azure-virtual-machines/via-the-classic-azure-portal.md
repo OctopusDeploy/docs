@@ -4,14 +4,6 @@ description: How to install a Tentacle using the Azure VM Extension via the clas
 position: 2
 ---
 
-:::problem
-**Azure VM Extension not currently available via the Azure Portal**
-The Octopus Tentacle VM extension is temporarily unavailable from the Azure Classic Portal. We are working with Microsoft to rectify this and you can watch [this GitHub Issue](https://github.com/OctopusDeploy/Issues/issues/2859) to be notified of progress. In the meantime, you can install the extension [via the Azure CLI](via-the-azure-cli.md) or [via PowerShell](via-powershell.md).
-:::
+The Azure VM Extension cannot be installed via the Classic Azure Portal, as it lacks support for adding extensions. We recommend either using the new Azure Portal, or using the [CLI](via-the-azure-cli.md) or [PowerShell](via-powershell.md) methods.
 
-
-<!--
-:::hint
-If you need the ability to customize more of the installation, the [CLI](via-the-azure-cli.md), [PowerShell](via-powershell.md) and [ARM Template](via-an-arm-template.md) methods expose more options than the Azure Portal. For even more customization, you might want to consider using the [Azure Desired State Configuration (DSC) extension](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-extensions-dsc-overview) in conjunction with the [OctopusDSC](https://www.powershellgallery.com/packages/OctopusDSC) resource.
-:::
--->
+For further information, please see the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/classic/manage-extensions?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
