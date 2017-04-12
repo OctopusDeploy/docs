@@ -105,6 +105,8 @@ Basic options:
                              NUPKG file will be written; defaults to '.'
       --basePath=VALUE       [Optional] The root folder containing files and
                              folders to pack; defaults to '.'
+      --verbose              [Optional] List more detailed output.
+                               e.g. Which files are being added.
 
 NuGet packages:
 
@@ -126,5 +128,4 @@ Advanced options:
                              *.dll - if none are specified, defaults to **
       --overwrite            [Optional] Allow an existing package file of the
                              same ID/version to be overwritten
-
 ```
