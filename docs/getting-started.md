@@ -19,8 +19,8 @@ Along with the Octopus Deploy server, you'll also install a lightweight agent se
 |                                          |                                          |
 | ---------------------------------------- | ---------------------------------------- |
 | ![](images/getting-started/pipeline-01.svg "width=400")<br>**1. Commit code**<br>Developer commits code to a github repository. | ![](images/getting-started/pipeline-02.svg "width=400")<br>**2. Compile & test**<br>A build server compiles the code and runs unit tests. |
-| ![](images/getting-started/pipeline-03.svg "width=400")<br>3. Packaged & pushed<br>The application is packaged and pushed to Octopus Deploy. | ![](images/getting-started/pipeline-04.svg "width=400")<br>4. Auto deploy to test<br>The application can be automatically deployed to a test environment. A suite of automated web tests are run against the application. |
-| ![](images/getting-started/pipeline-05.svg "width=400")<br>5. Deploy to UAT<br>The application is deployed to a UAT environment, for stakeholders to see new changes. | ![](images/getting-started/pipeline-06.svg "width=400")<br>6. Promote to production<br>When the various stakeholders are happy, the application is prompted to the production environment. |
+| ![](images/getting-started/pipeline-03.svg "width=400")<br>**3. Packaged & pushed**<br>The application is packaged and pushed to Octopus Deploy. | ![](images/getting-started/pipeline-04.svg "width=400")<br>**4. Auto deploy to test**<br>The application can be automatically deployed to a test environment. A suite of automated web tests are run against the application. |
+| ![](images/getting-started/pipeline-05.svg "width=400")<br>**5. Deploy to UAT**<br>The application is deployed to a UAT environment, for stakeholders to see new changes. | ![](images/getting-started/pipeline-06.svg "width=400")<br>**6. Promote to production**<br>When the various stakeholders are happy, the application is prompted to the production environment. |
 
 We designed Octopus to fit into teams that follow agile delivery practices. Octopus compliments your existing delivery pipeline:
 
