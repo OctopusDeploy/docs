@@ -33,7 +33,7 @@ We designed Octopus to fit into teams that follow agile delivery practices. Octo
 
 The job of Octopus, then, is to take these packages and push them to the machines that they will be deployed to. As a release manager, you define the process for deploying the software, including any environment-specific configuration variables. The Octopus web based dashboard then allows other members of your team to queue deployments; for example, you might enable testers to deploy applications to a test environment, but not to production. This approach means that even if different people are triggering the deployments, the deployment process is still consistent.
 
-## Install the Octopus server {#Gettingstarted-InstalltheOctopusserver}
+## Install and set up Octopus server {#Gettingstarted-InstalltheOctopusserver}
 
 Download the latest [Octopus Deploy MSI installer](https://octopus.com/downloads) from the Octopus Deploy website, and follow the instructions.
 
@@ -51,7 +51,7 @@ When your Octopus server is configured, the Octopus Manager UI will appear. This
 
 Open the Octopus Web Portal in your browser and sign in, using the address and credentials you specified during the setup wizard.
 
-![Octopus web portal sign in](/docs/images/3048178/3278210.png "width=500")
+![Octopus web portal sign in](/docs/images/getting-started/octopus-login.png "width=500")
 
 ## Create environments {#Gettingstarted-Createenvironments}
 
