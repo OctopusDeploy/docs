@@ -390,14 +390,20 @@ let appInstanceName3 = Octopus.tryFindVariable "Octopus.Action[Determine App Ins
 
 Does your deployment produce a log file, configuration files, binaries, or test results you want to publish and keep as part of your deployment? Your scripts can instruct the Octopus server to collect files as deployment artifacts. Refer to the documentation on [artifacts](/docs/deploying-applications/artifacts.md) for more information.
 
-This example comes from our [VSTS Extension](https://github.com/OctopusDeploy/OctoTFS/blob/master/deploy.ps1) which builds a VSIX package as part of the deployment process, which is then published as an artifact for convenience.
+```powershell PowerShell
+New-OctopusArtifact -Path "C:\Windows\System32\drivers\etc\hosts" -Name "$([System.Environment]::MachineName)-hosts.txt" 
+```
 
-```powershell
-$vsixPackages = Get-ChildItem "$PSScriptRoot\build\Artifacts\$environment\*.vsix"
+```c# C#
+Octopus.CreateArtifact(@"C:\Windows\System32\drivers\etc\hosts", System.Environment.MachineName + "-hosts.txt");
+```
 
-foreach ($vsix in $vsixPackages) {
-    New-OctopusArtifact -Path $vsix    
-}
+```bash Bash
+new_octopusartifact /etc/hosts $(hostname)-hosts.txt
+```
+
+```fsharp F#
+Octopus.createArtifact @"C:\Windows\System32\drivers\etc\hosts" (System.Environment.MachineName + "-hosts.txt")
 ```
 
 ![](/docs/images/3048092/5865519.png "width=500")
