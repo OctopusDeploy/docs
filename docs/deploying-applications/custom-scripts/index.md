@@ -287,7 +287,6 @@ echoerror "You can even define your own function to echo an error!"
 ```fsharp F#
 printfn "This will be logged as Information" 
 eprintfn "This will be logged as Error" 
-
 ```
 
 Try these out for yourself using the [Script Console](/docs/administration/script-console.md)!
@@ -346,8 +345,45 @@ This example is from the sample project in the [Channels Walkthrough](https://o
 
 ![](/docs/images/3048092/5865520.png "width=500")
 
-```powershell
+### Creating an Output Variable
+```powershell PowerShell
+Set-OctopusVariable -name "AppInstanceName" -value "MyAppInstance"
+```
+
+```c# C#
+Octopus.SetVariable("AppInstanceName", "MyAppInstance");
+```
+
+```bash Bash
+set_octopusvariable "AppInstanceName" "MyAppInstance"
+```
+
+```fsharp F#
+Octopus.setVariable "AppInstanceName" "MyAppInstance"
+```
+
+### Using the variable in another step
+```powershell PowerShell
 $appInstanceName = $OctopusParameters["Octopus.Action[Determine App Instance Name].Output.AppInstanceName"]
+```
+
+```c# C#
+var appInstanceName = Octopus.Parameters["Octopus.Action[Determine App Instance Name].Output.AppInstanceName"]
+```
+
+```bash Bash
+appInstanceName = $(get_octopusvariable "Octopus.Action[Determine App Instance Name].Output.AppInstanceName")
+```
+
+```fsharp F#
+//throw if not found
+let appInstanceName1 = Octopus.findVariable "Octopus.Action[Determine App Instance Name].Output.AppInstanceName"
+
+//supply a default value to use if not found
+let appInstanceName2 = Octopus.findVariableOrDefault "Value if not found" "Octopus.Action[Determine App Instance Name].Output.AppInstanceName"
+
+//return an Option type
+let appInstanceName3 = Octopus.tryFindVariable "Octopus.Action[Determine App Instance Name].Output.AppInstanceName"
 ```
 
 ## Collecting artifacts {#Customscripts-Collectingartifacts}
