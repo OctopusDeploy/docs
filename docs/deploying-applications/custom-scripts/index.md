@@ -89,7 +89,7 @@ $connectionString = $OctopusParameters["MyApp.ConnectionString"]
 Write-Host "Connection string is: $connectionString"
 ```
 
-```c# ScriptCS
+```c# C#
 // It's a good idea to copy the value into a local variable to avoid quoting issues
 var connectionString = Octopus.Parameters["MyApp.ConnectionString"];
 Console.WriteLine("MyApp.ConnectionString: " + connectionString);
@@ -268,7 +268,7 @@ Write-Warning "This will be logged as a Warning"
 Write-Error "This will be logged as an Error and may cause your script to stop running - take a look at the section on Error Handling"
 ```
 
-```c# ScriptCS
+```c# C#
 Console.WriteLine("This will be logged as Information");
 Console.Out.WriteLine("This will be logged as Information too!");
 Console.Error.WriteLine("This will be logged as an Error.");
