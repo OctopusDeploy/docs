@@ -4,15 +4,23 @@ description: From 0 to deployed, this guide walks you through getting started wi
 position: 0
 ---
 
-Welcome! This section will guide you through the process of setting up Octopus Deploy and completing your first deployment.
+Welcome! This section will show how Octopus fits into the delivery pipeline and guide you through the process of setting up Octopus Deploy to complete your first deployment.
+
+!toc
 
 ## Octopus in your delivery process {#Gettingstarted-Octopusinyourdeliveryprocess}
 
-Octopus Deploy is an automated deployment server, which you install yourself, much like you would install SQL Server, Team Foundation Server or JetBrains TeamCity. Octopus makes it easy to automate deployment of ASP.NET web applications and Windows Services into development, test and production environments.
+Octopus Deploy is an automated deployment server, which you install yourself, much like you would install SQL Server, Team Foundation Server or JetBrains TeamCity. Octopus makes it easy to automate deployment of ASP.NET web applications and Windows Services into development, test and production environments.
 
-Along with the Octopus Deploy server, you'll also install a lightweight agent service on each of the machines that you plan to deploy to, for example your web and application servers. We call this the Tentacle agent; the idea being that one Octopus server controls many Tentacles, potentially a lot more than 8! With Octopus and Tentacle, you can easily deploy to your own servers, or virtual machines in the cloud from infrastructure as a service providers like Amazon EC2 or Windows Azure virtual machines.
+Along with the Octopus Deploy server, you'll also install a lightweight agent service on each of the machines that you plan to deploy to, for example your web and application servers. We call this the Tentacle agent; the idea being that one Octopus server controls many Tentacles, potentially a lot more than 8! With Octopus and Tentacle, you can easily deploy to your own servers, or cloud services from providers like Amazon Web Services or Microsoft Azure.
 
-![Overview of Octopus in your continuous delivery process](/docs/images/3048178/5275670.png "width=800")
+### The delivery pipeline
+
+|                                          |                                          |
+| ---------------------------------------- | ---------------------------------------- |
+| ![](images/getting-started/pipeline-01.svg)<br>**1. Commit code**<br>Developer commits code to a github repository. | ![](images/getting-started/pipeline-02.svg)<br>**2. Compile & test**<br>A build server compiles the code and runs unit tests. |
+| ![](images/getting-started/pipeline-03.svg)<br>3. Packaged & pushed<br>The application is packaged and pushed to Octopus Deploy. | ![](images/getting-started/pipeline-04.svg)<br>4. Auto deploy to test<br>The application can be automatically deployed to a test environment. A suite of automated web tests are run against the application. |
+| ![](images/getting-started/pipeline-05.svg)<br>5. Deploy to UAT<br>The application is deployed to a UAT environment, for stakeholders to see new changes. | ![](images/getting-started/pipeline-06.svg)<br>6. Promote to production<br>When the various stakeholders are happy, the application is prompted to the production environment. |
 
 We designed Octopus to fit into teams that follow agile delivery practices. Octopus compliments your existing delivery pipeline:
 
