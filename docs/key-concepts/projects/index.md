@@ -24,7 +24,7 @@ You can create projects by clicking on the **Add project** button.
 
 ![](/docs/images/3048102/3277826.png "width=500")
 
-![](/docs/images/3048102/3277825.png "width=500")
+![](project-empty-state.png "width=500")
 
 ## Project permissions {#Projects-Projectpermissions}
 
