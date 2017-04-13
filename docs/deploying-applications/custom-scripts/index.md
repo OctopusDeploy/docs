@@ -89,7 +89,7 @@ $connectionString = $OctopusParameters["MyApp.ConnectionString"]
 Write-Host "Connection string is: $connectionString"
 ```
 
-```c# ScriptCS
+```c# C#
 // It's a good idea to copy the value into a local variable to avoid quoting issues
 var connectionString = Octopus.Parameters["MyApp.ConnectionString"];
 Console.WriteLine("MyApp.ConnectionString: " + connectionString);
@@ -268,7 +268,7 @@ Write-Warning "This will be logged as a Warning"
 Write-Error "This will be logged as an Error and may cause your script to stop running - take a look at the section on Error Handling"
 ```
 
-```c# ScriptCS
+```c# C#
 Console.WriteLine("This will be logged as Information");
 Console.Out.WriteLine("This will be logged as Information too!");
 Console.Error.WriteLine("This will be logged as an Error.");
@@ -287,7 +287,6 @@ echoerror "You can even define your own function to echo an error!"
 ```fsharp F#
 printfn "This will be logged as Information" 
 eprintfn "This will be logged as Error" 
-
 ```
 
 Try these out for yourself using the [Script Console](/docs/administration/script-console.md)!
@@ -346,22 +345,65 @@ This example is from the sample project in the [Channels Walkthrough](https://o
 
 ![](/docs/images/3048092/5865520.png "width=500")
 
-```powershell
+### Creating an Output Variable
+```powershell PowerShell
+Set-OctopusVariable -name "AppInstanceName" -value "MyAppInstance"
+```
+
+```c# C#
+Octopus.SetVariable("AppInstanceName", "MyAppInstance");
+```
+
+```bash Bash
+set_octopusvariable "AppInstanceName" "MyAppInstance"
+```
+
+```fsharp F#
+Octopus.setVariable "AppInstanceName" "MyAppInstance"
+```
+
+### Using the variable in another step
+```powershell PowerShell
 $appInstanceName = $OctopusParameters["Octopus.Action[Determine App Instance Name].Output.AppInstanceName"]
+```
+
+```c# C#
+var appInstanceName = Octopus.Parameters["Octopus.Action[Determine App Instance Name].Output.AppInstanceName"]
+```
+
+```bash Bash
+appInstanceName = $(get_octopusvariable "Octopus.Action[Determine App Instance Name].Output.AppInstanceName")
+```
+
+```fsharp F#
+//throw if not found
+let appInstanceName1 = Octopus.findVariable "Octopus.Action[Determine App Instance Name].Output.AppInstanceName"
+
+//supply a default value to use if not found
+let appInstanceName2 = Octopus.findVariableOrDefault "Value if not found" "Octopus.Action[Determine App Instance Name].Output.AppInstanceName"
+
+//return an Option type
+let appInstanceName3 = Octopus.tryFindVariable "Octopus.Action[Determine App Instance Name].Output.AppInstanceName"
 ```
 
 ## Collecting artifacts {#Customscripts-Collectingartifacts}
 
 Does your deployment produce a log file, configuration files, binaries, or test results you want to publish and keep as part of your deployment? Your scripts can instruct the Octopus server to collect files as deployment artifacts. Refer to the documentation on [artifacts](/docs/deploying-applications/artifacts.md) for more information.
 
-This example comes from our [VSTS Extension](https://github.com/OctopusDeploy/OctoTFS/blob/master/deploy.ps1) which builds a VSIX package as part of the deployment process, which is then published as an artifact for convenience.
+```powershell PowerShell
+New-OctopusArtifact -Path "C:\Windows\System32\drivers\etc\hosts" -Name "$([System.Environment]::MachineName)-hosts.txt" 
+```
 
-```powershell
-$vsixPackages = Get-ChildItem "$PSScriptRoot\build\Artifacts\$environment\*.vsix"
+```c# C#
+Octopus.CreateArtifact(@"C:\Windows\System32\drivers\etc\hosts", System.Environment.MachineName + "-hosts.txt");
+```
 
-foreach ($vsix in $vsixPackages) {
-    New-OctopusArtifact -Path $vsix    
-}
+```bash Bash
+new_octopusartifact /etc/hosts $(hostname)-hosts.txt
+```
+
+```fsharp F#
+Octopus.createArtifact @"C:\Windows\System32\drivers\etc\hosts" (System.Environment.MachineName + "-hosts.txt")
 ```
 
 ![](/docs/images/3048092/5865519.png "width=500")

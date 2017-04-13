@@ -146,7 +146,7 @@ If your example uses multiple languages or files, you can combine them together 
     ​```powershell PowerShell
     Write-Host "Hello"
     ​```
-    ​```c# ScriptCS
+    ​```c# C#
     Console.WriteLine("Hello");
     ​```
 
