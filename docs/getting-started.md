@@ -28,8 +28,8 @@ We designed Octopus to fit into teams that follow agile delivery practices. Octo
   You might be using Git, Team Foundation Server, Subversion or Mercurial; the choice is up to you.
 - **Your CI/build server compiles the code and runs unit tests**  
   Again, you might be using TeamCity, Jenkins, Bamboo, Team Foundation Server or CruiseControl.NET; the choice is up to you.
-- **Your application is packaged into a NuGet package**  
-  When the build is done, your CI/build server bundles all of the files – the binaries, images, scripts, configuration files and so on – needed to deploy your application into a NuGet package
+- **Your application is packaged**  
+  When the build is done, your CI/build server bundles all of the files (binaries, images, scripts, configuration files and so on), needed to deploy your application into a [supported package](/docs/packaging-applications/supported-packages.md).
 
 The job of Octopus, then, is to take these packages and push them to the machines that they will be deployed to. As a release manager, you define the process for deploying the software, including any environment-specific configuration variables. The Octopus web based dashboard then allows other members of your team to queue deployments; for example, you might enable testers to deploy applications to a test environment, but not to production. This approach means that even if different people are triggering the deployments, the deployment process is still consistent.
 
