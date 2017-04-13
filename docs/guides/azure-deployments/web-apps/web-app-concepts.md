@@ -35,7 +35,7 @@ Here is a sample Web App NuGet package: [HelloWeb.1.0.0.nupkg](https://download
 
 In order to make the NuGet package accessible to Octopus it needs to be uploaded to a [package repository](/docs/packaging-applications/package-repositories/index.md). The built-in Octopus package repository is accessible from {{Library,Packages}} and is a suitable place to upload your Web App NuGet package:
 
-![](/docs/images/3049436/3278572.png "width=500")
+![](/docs/images/3049356/3278535.png "width=500")
 
 ## Web App accounts {#WebAppConcepts-WebAppAccounts}
 
