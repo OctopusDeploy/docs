@@ -67,11 +67,11 @@ Learn more about [Environments](/docs/key-concepts/environments/index.md).
 
 Deployment targets represent the servers, machines and cloud services where your application and services will be deployed. 
 
-On each of the servers, you'll need to install the lightweight Tentacle agent, and then register the targets in your environments. Depending on network/firewall configuration, Tentacles can be installed in [listening](https://octopus.com/docs/installation/installing-tentacles/listening-tentacles) (Octopus calls Tentacle) or [polling](https://octopus.com/docs/installation/installing-tentacles/polling-tentacles) (Tentacle polls Octopus) mode. If you have many machines to manage, you can [install Tentacles automatically](https://octopus.com/docs/installation/installing-tentacles/automating-tentacle-installation). One Octopus server can control many Tentacles, potentially a lot more than 8! 
+On each of the servers, you'll need to install the lightweight Tentacle agent, and then register the targets in your environments. Depending on network/firewall configuration, Tentacles can be installed in [listening](/installation/installing-tentacles/listening-tentacles.md) (Octopus calls Tentacle) or [polling](/docs/installation/installing-tentacles/polling-tentacles.md) (Tentacle polls Octopus) mode. If you have many machines to manage, you can [install Tentacles automatically](/docs/installation/installing-tentacles/automating-tentacle-installation.md). One Octopus server can control many Tentacles, potentially a lot more than 8! 
 
 ![Add machines to environment](/docs/images/3048178/3278206.png "width=500")
 
-Learn more about the [deployment targets](https://octopus.com/docs/deployment-targets).
+Learn more about the [deployment targets](/docs/deployment-targets/index.md).
 
 ### Add an account {#Gettingstarted-Addanaccount}
 
@@ -85,29 +85,57 @@ To add an account, go to the environments page and click on the Accounts link.
 
 ![](/docs/images/getting-started/accounts.png "width=500")
 
-Learn more about [accounts](https://octopus.com/docs/key-concepts/environments/accounts).
+Learn more about [accounts](/docs/key-concepts/environments/accounts/index.md).
 
-## Package your applications for deployment {#Gettingstarted-Packageyourapplicationsfordeployment}
+## 3. Application packaging
 
-Whenever you want to deploy applications with Octopus, you'll need to package them into NuGet packages. There are three ways to do this:
+### Package and version applications for deployment {#Gettingstarted-Packageyourapplicationsfordeployment}
 
-- Create packages [manually using NuGet Package Explorer](/docs/packaging-applications/nuget-packages/manually.md); or,
-- Create packages [using OctoPack](/docs/packaging-applications/nuget-packages/using-octopack/index.md) via MSBuild; or,
-- Create packages [from the command line using NuGet.exe](/docs/packaging-applications/nuget-packages/using-nuget.exe.md)
+Whenever you want to deploy applications with Octopus, you'll need to package them into NuGet, zip, tar, tar gzip or tar bzip2 packages. A package contains an application’s executables, configuration files, scripts and any other files it needs to run. Once packaged, it will need to be versioned.
 
-Your packages need to be placed into a package repository.
+How you create the package depends on what app or service you are deploying:
 
-## Create a project {#Gettingstarted-Createaproject}
+- Use [OctoPack](/docs/packaging-applications/nuget-packages/using-octopack/index.md) to package ASP.NET apps or Windows Services applications.
+- Use [dotnet pack](https://docs.microsoft.com/en-us/dotnet/articles/core/tools/dotnet-pack) to package .NET Core apps.
+- To package a [java](/docs/guides/deploying-java-applications.md), nodejs or other applications and folders use [Octo.exe](/docs/packaging-applications/nuget-packages/using-octo.exe.md) or simply [zip](/docs/packaging-applications/supported-packages.md) up a folder.
+
+Learn more about [versioning](/docs/packaging-applications/versioning-in-octopus-deploy.md) and [packaging](/docs/packaging-applications/index.md).
+
+### Upload package {#Gettingstarted-Uploadpackage}
+
+Your packages need to be placed into a package repository. You can either push packages to the built-in repository manually or integrate with your existing build tool.  
+
+We recommend configuring your existing tool chain to push packages automatically to the built-in repository. 
+
+Use our [TeamCity](/docs/api-and-integration/teamcity.md), [VSTS](/docs/api-and-integration/visual-studio-team-services-vsts.md) or [TFS](/docs/api-and-integration/team-foundation-server-tfs.md) extensions to integrate with the built-in repository or explore the [other options](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) to push packages to it.
+
+Learn more about our [api and integration](/docs/api-and-integration/index.md).
+
+### Add an external feed {#Gettingstarted-Addanexternalfeed}
+
+Octopus can consume packages from external NuGet package repositories and Docker Container Registries.
+
+An external package repository would typically be:
+- A [remote feed](https://docs.microsoft.com/en-us/nuget/hosting-packages/nuget-server) exposed over HTTP
+- A [local feed](https://docs.microsoft.com/en-us/nuget/hosting-packages/local-feeds) exposed as a File Share or local directory
+- A [Docker Registry](/docs/deploying-applications/docker-containers/registries/index.md)
+- A [TeamCity](https://blog.jetbrains.com/dotnet/2011/08/24/native-nuget-support-in-teamcity/) server (version 7 and above)
+- A [MyGet](http://www.myget.org/) server
+- A [VSTS or TFS Package Management](https://www.visualstudio.com/en-us/docs/package/overview) feed
+
+Learn more about [external feeds](/docs/packaging-applications/package-repositories/index.md#Packagerepositories-Usingexternalrepositories).
+
+## 4. Create a project {#Gettingstarted-Createaproject}
+
+### Create a project
 
 Projects define a set of deployment steps that you want Octopus to perform, and their configuration variables.
 
 ![Creating a project](/docs/images/3048178/3278204.png "width=500")
 
-:::hint
-Learn more about [creating projects](/docs/key-concepts/projects/index.md).
-:::
+Learn more about [projects](/docs/key-concepts/projects/index.md).
 
-## Define your deployment process {#Gettingstarted-Defineyourdeploymentprocess}
+### Define your deployment process {#Gettingstarted-Defineyourdeploymentprocess}
 
 The **Process** tab within your project defines how your project will be deployed. You can add different steps to the process depending on what you plan to deploy:
 
@@ -121,7 +149,9 @@ The **Process** tab within your project defines how your project will be deploye
 
 Chances are, you'll need to configure your application differently depending on the what you are deploying to (for example, different connection strings in staging vs. production). Octopus has advanced support for managing these [variables](/docs/deploying-applications/variables/index.md) and scoping them, and can even manage passwords securely. Octopus can also take care of automatically [updating your .NET configuration files, and running configuration file transforms](/docs/deploying-applications/configuration-files/index.md).
 
-## Create a release and deploy it {#Gettingstarted-Createareleaseanddeployit}
+## 5. You're ready to deploy
+
+### Create release {#Gettingstarted-Createareleaseanddeployit}
 
 Next, create a release. Click the **Create release** button on any page of your project.
 
@@ -132,6 +162,8 @@ Enter an overall release version number for the release, and select the NuGet pa
 ![Release notes](/docs/images/3048178/3278201.png "width=500")
 
 Now that you have a release, you can deploy and promote it between environments. On the release page, use the green **Deploy to *environment*** button to promote it.
+
+### Deploy a release
 
 ![Deploy the release](/docs/images/3048178/3278200.png "width=500")
 
@@ -146,4 +178,3 @@ Congratulations, you've deployed a release! You might want to look at:
 - Triggering deployments from [TeamCity](/docs/api-and-integration/teamcity.md) or [TFS](/docs/api-and-integration/team-foundation-server-tfs.md)
 - [Inviting other users and adding them to teams](/docs/administration/managing-users-and-teams/index.md)
 - The comprehensive [Octopus Deploy REST API](/docs/api-and-integration/octopus-rest-api.md) and C# client
-
