@@ -33,12 +33,12 @@ We designed Octopus to fit into teams that follow agile delivery practices. Octo
 
 The job of Octopus, then, is to take these packages and push them to the machines that they will be deployed to. As a release manager, you define the process for deploying the software, including any environment-specific configuration variables. The Octopus web based dashboard then allows other members of your team to queue deployments; for example, you might enable testers to deploy applications to a test environment, but not to production. This approach means that even if different people are triggering the deployments, the deployment process is still consistent.
 
-## Install and set up Octopus server {#Gettingstarted-InstalltheOctopusserver}
+## 1. Install and set up Octopus server {#Gettingstarted-InstalltheOctopusserver}
 
 Download the latest [Octopus Deploy MSI installer](https://octopus.com/downloads) from the Octopus Deploy website, and follow the instructions.
 
 :::hint
-For more information, including a video walkthrough, see the [Installing Octopus](/docs/installation/installing-octopus/index.md) section.
+Learn more about [Installing Octopus](/docs/installation/installing-octopus/index.md) including a video walkthrough.
 :::
 
 When the MSI installer completes, a wizard will take you through the process of configuring your Octopus Deploy server.
@@ -53,25 +53,39 @@ Open the Octopus Web Portal in your browser and sign in, using the address and c
 
 ![Octopus web portal sign in](/docs/images/getting-started/octopus-login.png "width=500")
 
-## Create environments {#Gettingstarted-Createenvironments}
+## 2. Configure Infrastructure {#Gettingstarted-ConfigureInfrastructure}
+
+### Create environments {#Gettingstarted-Createenvironments}
 
 Next, you'll need to add environments to deploy to. Environments are really just groups of machines that you deploy to; for example, **Test**, **Staging** or **Production**.
 
 ![Creating environments](/docs/images/3048178/3278205.png "width=500")
 
-:::hint
-Learn more on the [Environments](/docs/key-concepts/environments/index.md) page.
-:::
+Learn more about [Environments](/docs/key-concepts/environments/index.md).
 
-## Add machines to your environments {#Gettingstarted-Addmachinestoyourenvironments}
+### Add deployment targets {#Gettingstarted-Adddeploymenttargets}
 
-On each of the web or application servers that you plan to deploy software to, you'll need to install the Tentacle agent, and then register the machines in your environments.
+Deployment targets represent the servers, machines and cloud services where your application and services will be deployed. 
+
+On each of the servers, you'll need to install the lightweight Tentacle agent, and then register the targets in your environments. Depending on network/firewall configuration, Tentacles can be installed in [listening](https://octopus.com/docs/installation/installing-tentacles/listening-tentacles) (Octopus calls Tentacle) or [polling](https://octopus.com/docs/installation/installing-tentacles/polling-tentacles) (Tentacle polls Octopus) mode. If you have many machines to manage, you can [install Tentacles automatically](https://octopus.com/docs/installation/installing-tentacles/automating-tentacle-installation). One Octopus server can control many Tentacles, potentially a lot more than 8! 
 
 ![Add machines to environment](/docs/images/3048178/3278206.png "width=500")
 
-:::hint
-See how on the [Installing Tentacles](/docs/installation/installing-tentacles/index.md) page. Depending on network/firewall configuration, Tentacles can be installed in [listening](/docs/installation/installing-tentacles/listening-tentacles.md) (Octopus calls Tentacle) or [polling](/docs/installation/installing-tentacles/polling-tentacles.md) (Tentacle polls Octopus) mode. If you have many machines to manage, you can [install Tentacles automatically](/docs/installation/installing-tentacles/automating-tentacle-installation.md).
-:::
+Learn more about the [deployment targets](https://octopus.com/docs/deployment-targets).
+
+### Add an account {#Gettingstarted-Addanaccount}
+
+Accounts allow you to capture machine and subscription details used within your deployments. Add your Azure subscription to accounts and use one of the Azure built-in step templates to deploy to the cloud. Although Azure subscriptions are associated with deployment targets, they are not visible on the environments page with the other targets.
+
+If you are deploying to a Linux target, SSH, username and passwords can be stored under accounts. 
+
+To add an account, go to the environments page and click on the Accounts link. 
+
+![](/docs/images/getting-started/environments-accounts.png "width=500")
+
+![](/docs/images/getting-started/accounts.png "width=500")
+
+Learn more about [accounts](https://octopus.com/docs/key-concepts/environments/accounts).
 
 ## Package your applications for deployment {#Gettingstarted-Packageyourapplicationsfordeployment}
 
