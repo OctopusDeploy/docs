@@ -1,6 +1,6 @@
 ---
 title: Getting started
-description: From 0 to deployed, this guide walks you through getting started with Octopus.
+description: From download to deployment, this guide walks you through getting started with Octopus.
 position: 0
 ---
 
@@ -103,9 +103,9 @@ Learn more about [versioning](/docs/packaging-applications/versioning-in-octopus
 
 ### Upload package {#Gettingstarted-Uploadpackage}
 
-Your packages need to be placed into a package repository. You can either push packages to the built-in repository manually or integrate with your existing build tool.  
+Your packages need to be placed into a package repository. You can either push packages to the built-in repository manually or integrate with your existing build tool.  We recommend configuring your existing tool chain to push packages automatically to the built-in repository. 
 
-We recommend configuring your existing tool chain to push packages automatically to the built-in repository. 
+![Octopus built-in package repository](/docs/images/getting-started/library-packages.png)
 
 Use our [TeamCity](/docs/api-and-integration/teamcity.md), [VSTS](/docs/api-and-integration/visual-studio-team-services-vsts.md) or [TFS](/docs/api-and-integration/team-foundation-server-tfs.md) extensions to integrate with the built-in repository or explore the [other options](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) to push packages to it.
 
@@ -122,6 +122,8 @@ An external package repository would typically be:
 - A [TeamCity](https://blog.jetbrains.com/dotnet/2011/08/24/native-nuget-support-in-teamcity/) server (version 7 and above)
 - A [MyGet](http://www.myget.org/) server
 - A [VSTS or TFS Package Management](https://www.visualstudio.com/en-us/docs/package/overview) feed
+
+![Octopus external feeds area](/docs/images/getting-started/library-externalfeeds.png)
 
 Learn more about [external feeds](/docs/packaging-applications/package-repositories/index.md#Packagerepositories-Usingexternalrepositories).
 
