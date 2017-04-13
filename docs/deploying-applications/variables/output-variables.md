@@ -10,8 +10,20 @@ Output variables can be set anywhere that Octopus runs scripts - for example, t
 
 For example, you might have a standalone [PowerShell script step](/docs/deploying-applications/custom-scripts/index.md) called **StepA** that does something like this:
 
-```powershell
+```powershell PowerShell
 Set-OctopusVariable -name "TestResult" -value "Passed"
+```
+
+```c# C#
+Octopus.SetVariable("TestResult", "Passed");
+```
+
+```bash Bash
+set_octopusvariable "TestResult" "Passed"
+```
+
+```fsharp F#
+Octopus.setVariable "TestResult" "Passed"
 ```
 
 You can then use the variable from other steps, either in [variable binding syntax](/docs/deploying-applications/variables/binding-syntax.md):
@@ -22,8 +34,20 @@ You can then use the variable from other steps, either in [variable binding synt
 
 Or other scripts:
 
-```powershell
-$TestResult = $OctopusParameters["Octopus.Action[StepA].Output.TestResult"]
+```powershell PowerShell
+$TestResult  = $OctopusParameters["Octopus.Action[StepA].Output.TestResult"]
+```
+
+```c# C#
+var testResult = Octopus.Parameters["Octopus.Action[StepA].Output.TestResult"]
+```
+
+```bash Bash
+testResult = $(get_octopusvariable "Octopus.Action[StepA].Output.TestResult")
+```
+
+```fsharp F#
+let testResult = Octopus.findVariable "Octopus.Action[StepA].Output.TestResult"
 ```
 
 ## System output variables {#Outputvariables-Systemoutputvariables}
