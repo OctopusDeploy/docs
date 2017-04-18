@@ -33,9 +33,17 @@ mv $oldHome $newHome
 & "$octopus" create-instance --instance=OctopusServer --config=$newConfig
 
 & "$octopus" configure --home="$newHome"
+
+<#
+You may also want to modify the path of your artifacts, logs and nuget repository when moving your home directory
+& "$octopus" path --nugetRepository="$nugetPath"
+& "$octopus" path --artifacts="$artifactPath"
+& "$octopus" path --taskLogs="$taskLogs"
+#>
+
 & "$octopus" service --start
 ```
-
+ 
 ## Move the Tentacle Home and Application folders {#MovetheOctopusHomefolderandtheTentacleHomeandApplicationfolders-MovetheTentacleHomeandApplicationfolders}
 
 Occasionally it may be necessary to change the location at which a Tentacle stores its data (called the "Tentacle Home" and "Tentacle Applications" folder) as well as the Registry Key which defines the Tentacle instance. This can be done using the command-line on the Tentacle server.
