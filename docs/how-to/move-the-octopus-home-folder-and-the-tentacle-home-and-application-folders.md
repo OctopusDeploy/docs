@@ -29,12 +29,11 @@ $newConfig = $newHome + "\OctopusServer.config"
 & "$octopus" service --stop
 mv $oldHome $newHome
 
-&"$octopus" delete-instance --instance=OctopusServer
-&"$octopus" create-instance --instance=OctopusServer --config=$newConfig
+& "$octopus" delete-instance --instance=OctopusServer
+& "$octopus" create-instance --instance=OctopusServer --config=$newConfig
 
 & "$octopus" configure --home="$newHome"
 & "$octopus" service --start
-
 ```
 
 ## Move the Tentacle Home and Application folders {#MovetheOctopusHomefolderandtheTentacleHomeandApplicationfolders-MovetheTentacleHomeandApplicationfolders}
