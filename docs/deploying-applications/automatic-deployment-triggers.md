@@ -52,7 +52,6 @@ The following table outlines each event group and their included events:
 | **Machine critical-events** | Machine cleanup failed, Machine found to be unavailable |
 | **Machine becomes available for deployment** | Machine enabled, Machine found healthy, Machine found to have warnings |
 | **Machine is no longer available for deployment** | Machine disabled, Machine found to be unavailable, Machine found to be unhealthy |
-| **Deployment target is available for deployment** | Machine cleanup failed, Machine deleted, Machine deployment-related property modified, Machine disabled, Machine enabled, Machine found healthy, Machine found to be unavailable |
 
 :::success
 For the majority of cases where you want to auto-deploy your project as new deployment targets become available, we advise you use only the "Deployment target is available for deployment" event group.
