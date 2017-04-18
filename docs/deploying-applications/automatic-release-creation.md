@@ -92,7 +92,7 @@ When you are using automatic release creation there are many reasons why a relea
   * `DeploymentCreate`  
   * `EnvironmentView`  
   * `FeedView`  
-  * `LibaryVariableSetView`  
+  * `LibraryVariableSetView`  
   * `LifecycleView`  
   * `MachineView`  
   * `ProcessView`  

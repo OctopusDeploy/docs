@@ -29,32 +29,38 @@ Where `[<options>]` is any of:
 
 ```text
 Usage: Octo clean-environment [<options>]
-Where [<options>] is any of: 
-Cleanup: 
-      --environment=VALUE    Name of an environment to clean up.
-      --status=VALUE         (Deprecated) Status of Machines to clean up (Online, Offline, 
-                             NeedsUpgrade, CalamariNeedsUpgrade, Disabled).
-      --health-status=VALUE  Health Status of machines to clean up (Healthy,
-                             Unavailable, Unknown, HasWarnings and Unhealthy).
-Common options: 
-      --server=VALUE         The base URL for your Octopus server - e.g., 
+Where [<options>] is any of:
+Cleanup:
+      --environment=VALUE          Name of an environment to clean up.
+      --status=VALUE               (Deprecated) Status of Machines to clean up (Online, Offline,
+                                   Unknown, NeedsUpgrade, CalamariNeedsUpgrade, Disabled).
+      --health-status=VALUE        Health Status of machines to clean up (Healthy,
+                                     Unavailable, Unknown, HasWarnings and Unhealthy).
+      --disabled=VALUE             [Optional]  status filter of Machine to clean up.
+      --calamari-outdated=VALUE    [Optional] State of Calamari to clean up.
+                                     By default ignores Calamari state.
+      --tentacle-outdated=VALUE    [Optional] State of Tentacle version to clean up.
+                                     By default ignores Tentacle state.
+
+Common options:
+      --server=VALUE         The base URL for your Octopus server - e.g.,
                              http://your-octopus/
-      --apiKey=VALUE         Your API key. Get this from the user profile 
+      --apiKey=VALUE         Your API key. Get this from the user profile
                              page.
-      --user=VALUE           [Optional] Username to use when authenticating 
+      --user=VALUE           [Optional] Username to use when authenticating
                              with the server.
-      --pass=VALUE           [Optional] Password to use when authenticating 
+      --pass=VALUE           [Optional] Password to use when authenticating
                              with the server.
-      --configFile=VALUE     [Optional] Text file of default values, with one 
+      --configFile=VALUE     [Optional] Text file of default values, with one
                              'key = value' per line.
       --debug                [Optional] Enable debug logging
-      --ignoreSslErrors      [Optional] Set this flag if your Octopus server 
-                             uses HTTPS but the certificate is not trusted on 
-                             this machine. Any certificate errors will be 
-                             ignored. WARNING: this option may create a 
+      --ignoreSslErrors      [Optional] Set this flag if your Octopus server
+                             uses HTTPS but the certificate is not trusted on
+                             this machine. Any certificate errors will be
+                             ignored. WARNING: this option may create a
                              security vulnerability.
       --enableServiceMessages
-                             [Optional] Enable TeamCity service messages when 
+                             [Optional] Enable TeamCity service messages when
                              logging.
 ```
 

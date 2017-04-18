@@ -68,7 +68,7 @@ Notes:
 
 - Ensure you replace the domain name ``acme.local`` with the appropriate value for you network.
 - Ensure you replace the active directory container string ``CN=Users, DC=acme, DC=local`` with the appropriate value for your network. If you're not sure of this value, we'd suggest talking to your network team (active directory expert) or trying different values and testing it w/ the script. For additional help on building/finding your container string, this StackOverflow answer is excellent. [http://serverfault.com/a/130556](http://serverfault.com/a/130556)
-- Ensure you replace the domain user name ``ExampleUser`` with a sample octopus username who would normally log into the system.
+- Ensure you replace the domain user name ``ExampleUser`` with a sample Octopus username who would normally log into the system.
 - It's recommended that you run this script as the same user you're running the Octopus service under and on the same server so it reproduces the problem accurately.
 
 Similarly, the following script duplicates the logic we use to search for groups (when you're trying to find one to add to a Team).

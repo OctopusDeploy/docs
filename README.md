@@ -146,7 +146,7 @@ If your example uses multiple languages or files, you can combine them together 
     ​```powershell PowerShell
     Write-Host "Hello"
     ​```
-    ​```c# ScriptCS
+    ​```c# C#
     Console.WriteLine("Hello");
     ​```
 
@@ -253,7 +253,7 @@ Add a file in the same folder as the page where you will use the partial to the 
 
 ### Using a partial
 
-Add the following to the markdown: `!partial <key>`
+Add the following to the markdown: `!partial <key>` (including the `<>`s)
 
 ## Anchors
 

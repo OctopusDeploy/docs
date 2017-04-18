@@ -181,6 +181,8 @@ Once you have those values, run the following from a command prompt in the folde
 ```powershell
 Octopus.Server.exe configure --azureADIsEnabled=true --azureADIssuer=Issuer --azureADClientId=ClientID
 
+#Eg:
+# Octopus.Server.exe configure --azureADIsEnabled=true --azureADIssuer=https://login.microsoftonline.com/12341234-xxxx-xxxx-xxxx-xxxxxxxxxxxx --azureADClientId=43214321-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 ### Octopus user accounts are still required {#AzureADauthentication-Octopususeraccountsarestillrequired}
@@ -196,6 +198,10 @@ When the security token is returned from the external identity provider, Octopus
 **Already have Octopus user accounts?**
 If you already have Octopus user accounts and you want to enable external authentication, simply make sure the Email Address matches in both Octopus and the external identity provider. This means your existing users will be able to sign in using an external identity provider and still belong to the same teams in Octopus.
 :::
+
+### Getting permissions
+
+!include <admin-user>
 
 ## What next? {#AzureADauthentication-Whatnext?}
 

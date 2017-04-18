@@ -4,9 +4,7 @@ description: Octopus Server and Tentacle process dumps
 position: 1
 ---
 
-For some problems, such as unresponsive servers/tentacles and hung tasks, providing
-a dump or dump analysis of the Octopus server and/or 
-tentacle process may speed up diagnosis and resolution.
+For some problems, such as unresponsive servers/Tentacles and hung tasks, providing a dump or dump analysis of the Octopus server and/or Tentacle process may speed up diagnosis and resolution.
 
 ## Creating a Process Dumps
 
@@ -34,7 +32,7 @@ to a few minutes, depending on the amount of memory in use and the disk speed
 
 This process creates an analysis file from a process dump file. This analysis file
 contains a limited set of information outlining the current state of the 
-application. This file can contain connection strings, tentacle thumbprints, project, step and machine names.
+application. This file can contain connection strings, Tentacle thumbprints, project, step and machine names.
 It should not contain sensitive variables or certificates. For our purposes it contains for which threads 
 are running and where they are in the code.
 

@@ -18,9 +18,9 @@ After you hit save, you'll notice that the two steps are now tied up together, m
 
 ![](/docs/images/3048080/3277650.png "width=500")
 
-## Steps in parallel on the same tentacle {#Runstepsinparallel-Stepsinparallelonthesametentacle}
+## Steps in parallel on the same Tentacle {#Runstepsinparallel-Stepsinparallelonthesametentacle}
 
-For safety reasons, by default Octopus runs only one step at the same time on a single tentacle. If you want to run multiple steps on a tentacle in parallel, [you'll need to enable that setting](/docs/how-to/run-multiple-processes-on-a-tentacle-simultaneously.md).
+For safety reasons, by default Octopus runs only one step at the same time on a single Tentacle. If you want to run multiple steps on a Tentacle in parallel, [you'll need to enable that setting](/docs/how-to/run-multiple-processes-on-a-tentacle-simultaneously.md).
 
 :::warning
 **Friendly reminder**

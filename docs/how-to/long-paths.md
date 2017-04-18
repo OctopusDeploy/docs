@@ -12,8 +12,6 @@ To enable it:
 
 Once this option is on, PowerShell scripts automatically support long file names. 
 
-As of Octopus `3.8.6`, Calamari supports this feature as well. This means that the majority of
-tentacle actions support long paths. For exampled packages resulting in long paths can be extracted and powershells scripts
-with a long filename can be run. 
+As of Octopus `3.8.6`, Calamari supports this feature as well. This means that the majority of Tentacle actions support long paths. For exampled packages resulting in long paths can be extracted and powershells scripts with a long filename can be run. 
 
 Some features, for example C# scripts, do not yet support long paths.
