@@ -31,3 +31,8 @@ The `Payload` includes:
 
 \* This property will be null unless the publicly-accessible URL has been set for your Octopus instance (see the {{Configuration,Nodes,Configuration Settings}} menu).
 \** This property is available since version `3.12.5`
+
+:::hint
+**Consuming events**
+While we make every effort to ensure events are only ever sent *once* to a given email or webhook subscription, we can offer no guarantees and advise that you design your comsuming API with this in mind.
+:::

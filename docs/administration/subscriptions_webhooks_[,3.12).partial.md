@@ -27,3 +27,8 @@ The `Payload` includes:
 | BatchProcessingDate      | The processing date for the current batch. For 'Single' payload types, the events will be sent in batches. The batch date is included here for your reference |
 
 \* This property will be null unless the publicly-accessible URL has been set for your Octopus instance (see the {{Configuration,Nodes,Configuration Settings}} menu).
+
+:::hint
+**Consuming events**
+While we make every effort to ensure events are only ever sent *once* to a given email or webhook subscription, we can offer no guarantees and advise that you design your comsuming API with this in mind.
+:::
