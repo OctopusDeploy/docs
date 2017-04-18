@@ -18,13 +18,13 @@ Webhook notifications allow you to receive a JSON payload, posted to a specified
 
 The `Payload` includes:
 
-| Property         | Description |
-| ---------------- | ----------- |
-| ServerUri                | The Octopus server that generated this webhook \* |
-| ServerAuditUri           | The URL to the Octopus server's audit screen where this event may be found in more detail \* |
-| Subscription             | The subscription object that triggered this webhook (including all filtering criteria so you can see exactly why you are receiving this webhook) |
-| Event                    | The event object that this webhook is responding to |
-| BatchProcessingDate      | The processing date for the current batch. For 'Single' payload types, the events will be sent in batches. The batch date is included here for your reference |
+| Property                     | Hint | Description |
+| ---------------------------- | ---- | ----------- |
+| ServerUri                    | \* |  The Octopus server that generated this webhook |
+| ServerAuditUri               | \* | The URL to the Octopus server's audit screen where this event may be found in more detail |
+| Subscription                 | | The subscription object that triggered this webhook (including all filtering criteria so you can see exactly why you are receiving this webhook) |
+| Event                        | | The event object that this webhook is responding to |
+| BatchProcessingDate          | | The processing date for the current batch. For 'Single' payload types, the events will be sent in batches. The batch date is included here for your reference |
 
 \* This property will be null unless the publicly-accessible URL has been set for your Octopus instance (see the {{Configuration,Nodes,Configuration Settings}} menu).
 
