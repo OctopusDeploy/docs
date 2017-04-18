@@ -54,7 +54,7 @@ The following table outlines each event group and their included events:
 | **Machine is no longer available for deployment** | Machine disabled, Machine found to be unavailable, Machine found to be unhealthy |
 
 :::success
-For the majority of cases where you want to auto-deploy your project as new deployment targets become available, we advise you use only the "Deployment target is available for deployment" event group.
+For the majority of cases where you want to auto-deploy your project as new deployment targets become available, we advise you use only the **Machine becomes available for deployment** event group. Note that by design, **machine**-related events do not include information about projects or environments, so combining machine-event filters with other filters (such an Environments or Project filters) is not advised (as it will cause your subscription to not trigger).
 :::
 
 For Octopus 3.4 and 3.5, there are two types of events that can trigger an automatic deployment:
