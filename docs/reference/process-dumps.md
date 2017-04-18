@@ -6,7 +6,7 @@ position: 1
 
 For some problems, such as unresponsive servers/Tentacles and hung tasks, providing a dump or dump analysis of the Octopus server and/or Tentacle process may speed up diagnosis and resolution.
 
-## Creating a Process Dumps
+## Creating a Process Dump
 
 :::warning
 A process dump consists of all the memory the process is currently using. 
