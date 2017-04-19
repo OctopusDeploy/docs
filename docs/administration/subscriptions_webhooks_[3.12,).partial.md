@@ -25,9 +25,9 @@ The `Payload` includes:
 | Subscription                 | | The subscription object that triggered this webhook (including all filtering criteria so you can see exactly why you are receiving this webhook) |
 | Event                        | | The event object that this webhook is responding to |
 | BatchProcessingDate          | | The processing date for the current batch. For 'Single' payload types, the events will be sent in batches. The batch date is included here for your reference |
-| BatchId                      | \** | A unique GUID given to the current batch of events being processed | |
-| TotalEventsInBatch           | \** | The total number of events, in the current batch of events being processed | |
-| EventNumberInBatch           | \** | The event number of this event, in the current batch of events being processed | Single |
+| BatchId                      | \** | A unique GUID given to the current batch of events being processed |
+| TotalEventsInBatch           | \** | The total number of events, in the current batch of events being processed |
+| EventNumberInBatch           | \** | The event number of this event, in the current batch of events being processed |
 
 \* This property will be null unless the publicly-accessible URL has been set for your Octopus instance (see the {{Configuration,Nodes,Configuration Settings}} menu).
 
