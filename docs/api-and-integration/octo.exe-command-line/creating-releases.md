@@ -43,9 +43,10 @@ Release creation:
       --packagesFolder=VALUE [Optional] A folder containing NuGet packages 
                              from which we should get versions.
       --releasenotes=VALUE   [Optional] Release Notes for the new release.
+                             Styling with Markdown is supported.
       --releasenotesfile=VALUE
                              [Optional] Path to a file that contains Release 
-                             Notes for the new release.
+                             Notes for the new release. Supports Markdown files.
       --ignoreexisting       [Optional, Flag] Don't create this release if 
                              there is already one with the same version 
                              number.
@@ -200,3 +201,7 @@ To create a release *and* deploy it to an environment named *Production*:
 ```bash
 octo create-release --project HelloWorld --deployto Production --server http://octopus/ --apiKey API-ABCDEF123456 --progress
 ```
+
+## Release notes supported syntax
+We use [showdownjs](https://github.com/showdownjs/showdown) to render release notes on the dashboard.
+Showdownjs supports the common markdown syntax as well as a rich set of extras such as tables and task lists. For the full list see https://github.com/showdownjs/showdown/wiki/Showdown's-Markdown-syntax.
