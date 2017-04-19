@@ -8,7 +8,11 @@ Emails may also include a link to your Octopus Audit screen, filtered to match t
 
 Let's say you have some critical projects and you want your administrators to receive an email if something is wrong with these deployments. You can setup an email subscription to notify your teams when these critical events have occurred.
 
-For example, we can select the _Deployment-critical events_ group, which will automatically filter all deployment-critical events for us.
+Consider the following example:
+
+![](subscriptions-email-example.png "width=800")
+
+We can select the _Deployment-critical events_ group, which will automatically filter all deployment-critical events for us.
 
 We can then select just the projects/environments we want to monitor. In this case: our _Infrastructure_ and _Code_ projects. Also, we only want to get notified when these critical events occur in our _Production_ environment.
 
@@ -18,8 +22,6 @@ So in this example, all users in the _Octopus Administrators_ team (with a valid
 **Dates and Timezone**
 In this example, we have also configured the timezone dropdown so all dates shown in the emails will be in our preferred timezone.
 :::
-
-![](subscriptions-email-example.png "width=800")
 
 We can then hit _Save_ and this subscription will show up in our subscriptions list screen.
 
