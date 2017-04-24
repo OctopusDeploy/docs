@@ -437,7 +437,7 @@ Note that if you are using a private Azure storage location that requires a SAS 
       "value": "MySuperSecretPassw0rd"
     },
     "vmDnsName": {
-      "value": "TentacleVM"
+      "value": "mytentaclevm"
     },
     "vmSize": {
       "value": "Standard_D2_v2"
@@ -474,7 +474,7 @@ To deploy the template, you can use the [Azure CLI](https://docs.microsoft.com/c
 
 ```bash
 az login
-
+az account set --subscription 'xxxxxxxxxxx'
 az group create --name "OctopusDeployTentacle" --location "Australia East"
 az group deployment create \
     --name "DeployTentacle" \
