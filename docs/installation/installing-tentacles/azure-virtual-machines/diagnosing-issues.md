@@ -1,7 +1,7 @@
 ---
 title: Diagnosing Tentacle VM Extension Issues
 description: How to diagnose and resolve installation issues with the Tentacle VM Extension
-position: 7
+position: 8
 ---
 
 ## Diagnosing issues {#AzureVirtualMachines-Diagnosingissues}
