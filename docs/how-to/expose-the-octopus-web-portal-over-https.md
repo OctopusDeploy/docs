@@ -66,3 +66,26 @@ A common scenario when hosting the Octopus Server is to redirect all requests in
 1. Configure Octopus to `Redirect HTTP requests to HTTPS` - you can do this using the Octopus Server Manager application where you configure the bindings as soon as you have configured an HTTPS binding
 
     ![](expose-the-octopus-web-portal-over-https-force-https.png "width=500")
+
+## HTTP Strict Transport Securtity (HSTS) {#HSTS}
+
+HTTP Strict Transport Security is an HTTP header that can be used to tell the web browser that it should only ever communicate with the website using HTTPS, even if the user tries to use HTTP. This allows you to lessen the risk of a Man-in-the-Middle (MITM) attack or a HTTP downgrade attack. However, it is not a panacea - it still requres a successful connection on first use (ie, it does not resolve the Trust-On-First-Use (TOFU) issue).
+
+Octopus 3.13 and above can send this header, but due to the potential pitfalls, it is opt-in. To switch it on, run the following commands on your octopus server:
+
+```text
+PS \> Octopus.Server.exe configure --hstsEnabled=true --hstsMaxAge=31556926
+PS \> Octopus.Server.exe service --stop --start
+```
+
+This will send the header on every HTTPS response, telling browsers to enforce HTTPS for 1 year (31556926 seconds) from the most recent request.
+
+:::warn
+Please note that enabling HSTS comes with its own challenges. For example:
+
+* Untrusted / self-signed certificates will not work with HSTS - the certificate chain needs to be fully trusted by the browser.
+* Your Octopus Server must be hosted on standard ports - HTTP on port 80 and HTTPS on port 443.
+* Reverting from HTTPS to HTTP will not be simple - each browser will need to be manually reconfigured to remove the HSTS entry.
+
+We highly recommend using a short value for hstsMaxAge until you are comfortable that it works in your environment.
+:::
