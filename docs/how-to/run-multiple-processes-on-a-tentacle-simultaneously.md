@@ -17,7 +17,7 @@ If you require multiple steps to run on a target, by multiple Projects in parall
 
 :::problem
 **Caution**
-When this variable is enabled, Octopus will be able to run multiple deployments simultaneity on the same machine. This can cause deployments to fail if the same file is modified more than once at the same time.
+When this variable is enabled, Octopus will be able to run multiple deployments simultaneousy on the same machine. This can cause deployments to fail if the same file is modified more than once at the same time.
 
 If you use **OctopusBypassDeploymentMutex**, make sure that your projects will not conflict with each other on the same machine.
 :::
