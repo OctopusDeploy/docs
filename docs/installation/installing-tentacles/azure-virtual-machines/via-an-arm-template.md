@@ -6,6 +6,10 @@ position: 5
 
 You can deploy the extension at virtual machine creation time, or update an extension resource group to apply the extension later.
 
+:::hint
+A [fully functioning example](https://azure.microsoft.com/en-gb/resources/templates/octopus-deploy-tentacle-windows/) can be found in the [Azure Quickstart Templates](https://azure.microsoft.com/en-gb/resources/templates/) library.
+:::
+
 Create your ARM template as normal, and add a `resources` element under your `Microsoft.Compute/virtualMachine` resource:
 
 ```json
