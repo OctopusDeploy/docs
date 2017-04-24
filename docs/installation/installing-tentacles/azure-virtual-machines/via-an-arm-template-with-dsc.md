@@ -366,7 +366,7 @@ configuration OctopusTentacle
         "forceUpdateTag": "2",
          "settings": {
             "configuration": {
-                "url": "https://gist.github.com/matt-richardson/1dd496c726ed77fe620c48ca98a28a09/raw/c31127d9cb520005eb1b6ffdc7b05c95742a226d/OctopusTentacle.zip",
+                "url": "https://myfilehost.example.com/OctopusTentacle.zip",
                 "script": "OctopusTentacle.ps1",
                 "function": "OctopusTentacle"
             },
@@ -404,7 +404,7 @@ If you are using your own template, and not the sample above, you can just add t
         "forceUpdateTag": "2",
          "settings": {
             "configuration": {
-                "url": "https://gist.github.com/matt-richardson/1dd496c726ed77fe620c48ca98a28a09/raw/c31127d9cb520005eb1b6ffdc7b05c95742a226d/OctopusTentacle.zip",
+                "url": "https://myfilehost.example.com/OctopusTentacle.zip",
                 "script": "OctopusTentacle.ps1",
                 "function": "OctopusTentacle"
             },
