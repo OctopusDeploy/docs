@@ -103,7 +103,7 @@ Switch-AzureWebsiteSlot -Name #{WebSite} -Slot1 Staging -Slot2 Production -Force
 ```powershell
 #Swap the staging slot into production
 $ParametersObject = @{targetSlot  = "Production"}
-Invoke-AzureRmResourceAction -ResourceGroupName MyResourceGroup -ResourceType Microsoft.Web/sites/slots -ResourceName #{WebSite}/Staging -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
+Invoke-AzureRmResourceAction -ResourceGroupName MyResourceGroup -ResourceType Microsoft.Web/sites/slots -ResourceName #{WebSite}/Staging -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01 -Force
 ```
 
 So your step will appear as:
