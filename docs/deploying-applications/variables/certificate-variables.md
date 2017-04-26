@@ -23,7 +23,7 @@ At deploy-time, Certificate variables are expanded. For example, a variable _MyC
 | MyCertificate.Type              | The variable type                                      | Certificate 
 | MyCertificate.Name              | The user-provided name                                 | My Development Certificate 
 | MyCertificate.Thumbprint        | Thumbprint                                             | A163E39F59560E6FE33A0299D19124B242D9B37E
-| MyCertificate.RawOriginal       | The base65 encoded original file, exactly as it was uploaded. | 
+| MyCertificate.RawOriginal       | The base64 encoded original file, exactly as it was uploaded. | 
 | MyCertificate.Password          | The password specified when the file was uploaded. | 
 | MyCertificate.Pfx               | The base64 encoded certificate in PKCS#12 format, including the private-key if present.  | 
 | MyCertificate.Certificate       | The base64 encoded DER ASN.1 certificate.              | 
