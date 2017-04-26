@@ -10,4 +10,4 @@ If you are setting up email subscriptions for the first time and would like a go
 
 If you are setting up webhook subscriptions for the first time and would like a simple test server where you can see the payloads that Octopus will actually send, we have found [request bin](https://requestb.in/) to be extremely helpful.
 
-For example, to test whether the subscription webhooks are sending correctly from Octopus, you could setup a temporary [request bin](https://requestb.in/), and use that URL in your subscription to confirm whether the payload is sending successfully from Octopus. This will also show you a real-time payload of what your `devopsoctofunc.azurewebsites.net` API can expect to receive from Octopus.
+For example, to test whether the subscription webhooks are sending correctly from Octopus, you could setup a temporary request bin, and use that URL in your subscription to confirm whether the payload is sending successfully from Octopus. This will also show you a real-time payload of what your API can expect to receive from an Octopus webhook subscription.
