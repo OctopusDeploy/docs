@@ -337,6 +337,8 @@ if ($LastExitCode -ne 0) {
 }
 ```
 
+!partial <fail-step>
+
 ## Output variables {#Customscripts-Outputvariables}
 
 Your scripts can emit variables that are available in subsequent deployment steps. This means you can factor your deployment into smaller, more well-defined steps that leverage the result of prior steps. It is an extremely powerful feature and you should refer to the documentation on [output variables](/docs/deploying-applications/variables/output-variables.md) for more information.
