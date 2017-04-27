@@ -99,7 +99,7 @@ Configuration SampleConfig
 SampleConfig
 
 # Run the configuration
-Start-DscConfiguration .\SampleConfig -Verbose -wait
+Start-DscConfiguration -Path ".\SampleConfig" -Verbose -wait
 
 # Test the configuration ran successfully
 Test-DscConfiguration
