@@ -9,9 +9,12 @@ Webhook notifications allow you to receive a JSON payload, posted to a specified
   "Payload": {
     "ServerUri": "http://my-octopus.com",
     "ServerAuditUri": "http://my-octopus.com",
-    "BatchProcessingDate": "0001-01-01T00:00:00+00:00",
     "Subscription": {},
-    "Event": {}
+    "Event": {},
+    "BatchProcessingDate": "0001-01-01T00:00:00+00:00",
+    "BatchId": "[guid]",
+    "TotalEventsInBatch": "3",
+    "EventNumberInBatch": "10"
   }
 }
 ```
