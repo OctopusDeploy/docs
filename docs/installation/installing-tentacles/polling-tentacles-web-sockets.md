@@ -99,6 +99,10 @@ New-SelfSignedCertificate -Subject "CN=Example Website" -CertStoreLocation "Cert
 
 If your chosen certificate has not yet been associated with the selected address and port, use the `netsh` tool to install it. For example:
 
+```powershell
+netsh http add sslcert ipport=0.0.0.0:443 certhash=966857B08601B9ACA9A9F10E7D469AC521E2CD4B appid='{00112233-4455-6677-8899-AABBCCDDEEFF}'
+```
+
 ```console
 netsh http add sslcert ipport=0.0.0.0:443 certhash=966857B08601B9ACA9A9F10E7D469AC521E2CD4B appid={00112233-4455-6677-8899-AABBCCDDEEFF}
 ```
