@@ -44,6 +44,8 @@ Once you have named the phase, you can add environments.
 
 You can define if this environment is automatically deployed to when the release enters the phase, or it is a manual deployment. Automatic deployment will send a release to the environment as soon as the phase becomes available for deployment. Automatic deployment environments are denoted by a lightning bolt icon next to the environment (see below).
 
+!partial <optionalphase>
+
 :::hint
 **Automatic Release Creation**
 If you have a project setup with [Automatic Release Creation](/docs/deploying-applications/automatic-release-creation.md) and set your first phase and environment to automatically deploy, pushing a package to the internal library will trigger both a release, and a deployment to that environment. A hands off deployment triggered by a build server push!
