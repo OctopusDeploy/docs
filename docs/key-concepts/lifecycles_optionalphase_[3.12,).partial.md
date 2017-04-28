@@ -4,4 +4,4 @@ Introduced in `3.12.8`, Optional Phases allow you to configure a phase to be opt
 
 This feature may be useful for scenarios such as the provision of `Testing` phase that can optionally be deployed to, but isn't crucial to progressing on to `Production`. A previous work around for this feature would involve adding the `Testing` environment to the previous `Dev` phase with a specific minimum deployed environment count set, however this may result in the project being deployed to `Testing` _instead of_ the required `Dev` before progression.
 
-![Optional LifeCycle](optional-lifecycle.png)
+![Optional Phase](optional-phase.png)
