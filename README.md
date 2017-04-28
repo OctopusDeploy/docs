@@ -141,7 +141,7 @@ Use GitHub-style fenced code blocks. Example:
     Write-Host "Hello"
     ​```
 
-If your example uses multiple languages or files, you can combine them together - they will be rendered as tabs:
+If your example uses multiple languages or files, you can combine them together and add tab headings - they will be rendered as tabs:
 
     ​```powershell PowerShell
     Write-Host "Hello"
