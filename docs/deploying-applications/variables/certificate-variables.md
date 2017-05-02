@@ -33,7 +33,7 @@ At deploy-time, Certificate variables are expanded. For example, a variable _MyC
 | MyCertificate.Subject           | The X.500 distinguished name of the subject            | 
 | MyCertificate.Issuer            | The X.500 distinguished name of the issuer             | 
 | MyCertificate.NotBefore         | NotBefore date | 2016-06-15T13:45:30.0000000-07:00
-| MyCertificate.NotBefore         | NotAfter date | 2019-06-15T13:45:30.0000000-07:00
+| MyCertificate.NotAfter         | NotAfter date | 2019-06-15T13:45:30.0000000-07:00
 
 For example, to access the certificate thumbprint in a PowerShell script:
 
