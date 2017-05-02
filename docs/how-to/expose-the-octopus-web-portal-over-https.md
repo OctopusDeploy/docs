@@ -81,7 +81,7 @@ PS \> Octopus.Server.exe service --stop --start
 This will send the header on every HTTPS response, telling browsers to enforce HTTPS for 1 year (31556926 seconds) from the most recent request.
 
 :::hint
-We highly recommend using a short value for hstsMaxAge, like 1 hour (3600 seconds) until you are comfortable that it works in your environment. This way you can disable HSTS and browsers will return to normal after 1 hour.
+We highly recommend using a short value for `hstsMaxAge`, like 1 hour (3600 seconds) until you are comfortable that it works in your environment. This way you can disable HSTS and browsers will return to normal after 1 hour.
 :::
 
 :::warning
