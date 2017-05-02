@@ -48,6 +48,32 @@ The menu is auto generated based on the git repo folder structure and title and 
 
 The list of versions displayed on the dropdown are loaded from [versions.json](versions.json).
 
+### Include pre-release documentation
+Support to publish pre-release versions of documentation.
+This is useful when we planning a new release or we are releasing betas or RCs.
+
+To use this functionality all you need to do is add the pre-release version to the versions.json file versions array, and leave the default the same version, the example above adds 3.13 pre-release:
+```json
+{
+   "versions": [
+     "3.6",
+     "3.7",
+     "3.8",
+     "3.9",
+     "3.10",
+     "3.11",
+     "3.12",
+     "3.13"
+   ],
+   "default": "3.12"
+}
+```
+
+Once this is done, the version selector on the website by default still displays the latest, but the new pre-release is now listed above:
+![image](https://cloud.githubusercontent.com/assets/122651/24811318/ee3d95b8-1c08-11e7-8f5a-1868b7302f29.png)
+And when selected a banner tells the user that they are seeing a "preview" of the documentation:
+![image](https://cloud.githubusercontent.com/assets/122651/24811350/1417c25e-1c09-11e7-867c-ca4fbafdbcef.png)
+
 ## URLs
 
 The directory structure where a `.md` exists is used to derive the URL for that document.

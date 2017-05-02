@@ -80,12 +80,14 @@ PS \> Octopus.Server.exe service --stop --start
 
 This will send the header on every HTTPS response, telling browsers to enforce HTTPS for 1 year (31556926 seconds) from the most recent request.
 
-:::warn
+:::hint
+We highly recommend using a short value for `hstsMaxAge`, like 1 hour (3600 seconds) until you are comfortable that it works in your environment. This way you can disable HSTS and browsers will return to normal after 1 hour.
+:::
+
+:::warning
 Please note that enabling HSTS comes with its own challenges. For example:
 
 * Untrusted / self-signed certificates will not work with HSTS - the certificate chain needs to be fully trusted by the browser.
 * Your Octopus Server must be hosted on standard ports - HTTP on port 80 and HTTPS on port 443.
 * Reverting from HTTPS to HTTP will not be simple - each browser will need to be manually reconfigured to remove the HSTS entry.
-
-We highly recommend using a short value for hstsMaxAge until you are comfortable that it works in your environment.
 :::
