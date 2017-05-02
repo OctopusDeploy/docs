@@ -72,6 +72,8 @@ You can manage your Azure subscription using custom PowerShell scripts and the A
 
 For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/adding-steps.md) section.
 
+!partial <service-fabric-powershell>
+
 ## Variables {#Customscripts-Variables}
 
 Octopus allows you to [define variables](/docs/deploying-applications/variables/index.md) to parameterize your deployments. These variables, along with some predefined variables, will be available from within your scripts.
