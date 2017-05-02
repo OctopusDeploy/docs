@@ -11,6 +11,10 @@ You can use all of the features we provide for [custom scripts](/docs/deploying-
 
 :::hint
 The [Service Fabric SDK](https://g.octopushq.com/ServiceFabricSdkDownload) must be installed on the Octopus Server. If this SDK is missing, the step will fail with an error: _"Could not find the Azure Service Fabric SDK on this server."_
+
+**PowerShell script execution** will also need to be enabled. See the _"Enable PowerShell script execution"_ section from the above link for more details. Eg. Run this PowerShell `Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser` as an administrator.
+
+After the above SDK has been installed, you will need to restart your Octopus service before the changes will take effect.
 :::
 
 This step allows you to run Service Fabric SDK PowerShell cmdlets against your cluster. Once a connection has been established to your Service Fabric cluster, these cmdlets can be used to query or control various aspects of your cluster/applications.

@@ -9,6 +9,10 @@ Octopus Deploy supports deployment of [Azure Service Fabric applications](https:
 
 :::hint
 The [Service Fabric SDK](https://g.octopushq.com/ServiceFabricSdkDownload) must be installed on the Octopus Server. If this SDK is missing, the step will fail with an error: _"Could not find the Azure Service Fabric SDK on this server."_
+
+**PowerShell script execution** will also need to be enabled. See the _"Enable PowerShell script execution"_ section from the above link for more details. Eg. Run this PowerShell `Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser` as an administrator.
+
+After the above SDK has been installed, you will need to restart your Octopus service before the changes will take effect.
 :::
 
 ## Step 1: Create a Service Fabric cluster
