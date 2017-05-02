@@ -2,6 +2,7 @@
 title: Continuous Integration for Service Fabric
 description: Learn how Octopus Deploy fits into a Continuous Deployment pipeline for you Service Fabric applications.
 position: 2
+version: "[3.13,)"
 ---
 
 In this section you'll learn about how to configure your Continuous Deployment pipeline to deploy Service Fabric applications using Octopus Deploy.

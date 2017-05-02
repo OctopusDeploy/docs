@@ -1,6 +1,7 @@
 ---
 title: Packaging a Service Fabric application
 description: Learn how to package a Service Fabric application so it can be deployed from Octopus.
+version: "[3.13,)"
 ---
 
 The Service Fabric SDK contains PowerShell cmdlets for deploying an application from a given folder on disk. The Service Fabric application projects provide targets that can be accessed via MSBuild, or used directly from Visual Studio, to package the content of that folder. The scripts provided in these projects can also be used to deploy the resulting package, but require access to the original source code tree to access the PublishProfiles and ApplicationParameters.

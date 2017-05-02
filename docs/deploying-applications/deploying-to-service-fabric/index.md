@@ -2,6 +2,7 @@
 title: Deploying to Service Fabric
 description: Octopus Deploy can help you perform repeatable and controlled deployments of your applications into Service Fabric clusters.
 position: 27
+version: "[3.13,)"
 ---
 
 Octopus Deploy can help you perform repeatable and controlled deployments of your applications into Service Fabric clusters.

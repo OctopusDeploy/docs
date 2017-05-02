@@ -1,6 +1,7 @@
 ---
 title: Version Automation with Service Fabric application packages
 description: Octopus Deploy can help you automate versioning of your Service Fabric application packages.
+version: "[3.13,)"
 ---
 
 In this section, we will discuss some ways Octopus Deploy can help with versioning your Service Fabric applications. Versioning in Service Fabric is a complex topic and the ideas discussed here are suggestions and possible options, not hard and fast rules.
