@@ -9,12 +9,12 @@ This guide will illustrate how the built in targets can be extended to produce a
 
 ## Service Fabric solution/project files
 
-The Package target that is part of a Service Fabric application project is designed to produce a package folder containing the ApplicationManifest.xml file, plus a folder for each service. The content of this folder however is not enough to actually deploy an Service Fabric application. In order to perform a deployment, a PublishProfile and its corresponding ApplicationParameters file are required.
+The Package target that is part of a Service Fabric application project is designed to produce a package folder containing the `ApplicationManifest.xml` file, plus a folder for each service. The content of this folder however is not enough to actually deploy a Service Fabric application. In order to perform a deployment, a PublishProfile and its corresponding ApplicationParameters file are required.
 
 When deploying straight from Visual Studio, the profile and parameters files are referenced from the source code, but when deploying through Octopus, they must be included in the NuGet/Zip package so they are available at deployment time.
 
 ## Packaging options
-There are a couple of options available to bring all of the required files together for the package. Illustrated below are two possible options. Both options are based off a build process that starts with the following MSBuild call (assumed to be executed from the solution's folder)
+There are a couple of options available to bring all of the required files together for the package. Illustrated below are two possible options. Both options are based off a build process that starts with the following MSBuild call (assumed to be executed from the solution's folder).
 
 ```
 msbuild -t:Package MyFabricApplication\MyFabricApplication.sfproj
@@ -44,21 +44,21 @@ Alternatively you could create a custom MSBuild targets file that does the file 
 	</PropertyGroup>
 
 	<Target Name="OctoSFPackage">
-		<Message Text="Customising package for Octo packing => $([System.IO.Path]::GetFullPath($(PackageLocation)))" />	
+		<Message Text="Customizing package for Octo packing => $([System.IO.Path]::GetFullPath($(PackageLocation)))" />
 		<ItemGroup>  
 			<ApplicationParametersFiles Include="$([System.IO.Path]::GetFullPath($(PackageLocation)))\..\..\ApplicationParameters\*.xml"/>  
 			<PublishProfilesFiles Include="$([System.IO.Path]::GetFullPath($(PackageLocation)))\..\..\PublishProfiles\*.xml"/>  
 		</ItemGroup>
-	
-		<Copy SourceFiles="@(PublishProfilesFiles)" 
+
+		<Copy SourceFiles="@(PublishProfilesFiles)"
 			DestinationFolder="$([System.IO.Path]::GetFullPath($(PackageLocation)))\PublishProfiles" />  
-		<Copy SourceFiles="@(ApplicationParametersFiles)" 
+		<Copy SourceFiles="@(ApplicationParametersFiles)"
 			DestinationFolder="$([System.IO.Path]::GetFullPath($(PackageLocation)))\ApplicationParameters" />  
 	</Target>
 </Project>
 ```
 
-If we assume that this file was saved as OctoSFPackage.targets in a tools folder below the solutions folder, you then simply add the following line as the last child element of the Project element of the sfproj file.
+If we assume that this file was saved as OctoSFPackage.targets in a tools folder below the solutions folder, you then need to add the following line as the last child element of the Project element of the sfproj file.
 
 ```xml
 <Import Project="..\tools\OctoSFPackage.targets" Condition="Exists('..\tools\OctoSFPackage.targets')" />
@@ -66,8 +66,8 @@ If we assume that this file was saved as OctoSFPackage.targets in a tools folder
 
 Once this line is added to the sfproj file, the target will get executed whenever the Package target executes. The Package target gets executed when the MSBuild command above (which is what your build server would be calling) is run or when you right-click the application project in Visual Studio and select Package.
 
-## Octo.exe
-Whichever option from above that you select, the objective is to get the PublishProfiles and the ApplicationParameters folders from the Service Fabric project into the same folder as its package output. Octo.exe can then be used to create a package that is compatible with the Octopus package feed. You can get Octo.exe from the [Octopus downloads](http://octopus.com/downloads) page. The following example assumes you've added Octo.exe to a tools folder in your solution's folder.
+## Package for Octopus with Octo.exe
+Whichever option from above that you select, the objective is to get the `PublishProfiles` and the `ApplicationParameters` folders from the Service Fabric project into the same folder as its package output. Octo.exe can then be used to create a package that is compatible with the Octopus package feed. You can get Octo.exe from the [Octopus downloads](http://octopus.com/downloads) page. The following example assumes you've added Octo.exe to a tools folder in your solution's folder.
 
 ```bash
 tools\octo.exe pack --id=MyFabricApplication --version=VERSION --format=Zip --outFolder=OUTPUT --basePath=MyFabricApplication\pkg\Release
