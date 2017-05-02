@@ -72,9 +72,7 @@ You can manage your Azure subscription using custom PowerShell scripts and the A
 
 For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/adding-steps.md) section.
 
-## Service Fabric PowerShell scripts {#Customscripts-ServiceFabricPowerShellScripts}
-
-You can manage your Service Fabric clusters using custom Service Fabric SDK PowerShell scripts - [more information](/docs/deploying-applications/custom-scripts/service-fabric-powershell-scripts.md).
+!partial <service-fabric-powershell>
 
 ## Variables {#Customscripts-Variables}
 
