@@ -12,7 +12,7 @@ You can use all of the features we provide for [custom scripts](/docs/deploying-
 :::hint
 The [Service Fabric SDK](https://g.octopushq.com/ServiceFabricSdkDownload) must be installed on the Octopus Server. If this SDK is missing, the step will fail with an error: _"Could not find the Azure Service Fabric SDK on this server."_
 
-**PowerShell script execution** will also need to be enabled. See the _"Enable PowerShell script execution"_ section from the above link for more details. Eg. Run this PowerShell `Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser` as an administrator.
+**PowerShell script execution** may also need to be enabled. See the _"Enable PowerShell script execution"_ section from the above link for more details.
 
 After the above SDK has been installed, you will need to restart your Octopus service before the changes will take effect.
 :::
@@ -42,3 +42,7 @@ If ($health.AggregatedHealthState -eq "OK") {
 ## Connection Troubleshooting
 
 Calamari uses the [Connect-ServiceFabricCluster cmdlet](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/connect-servicefabriccluster) to connect to your Service Fabric cluster. The connection parameters are logged (Verbose) at the time of a deployment to help if you need to debug connection problems to your Service Fabric cluster.
+
+If you receive an error such as: _"Unable to load DLL 'FabricCommon.dll': The specified module could not be found."_ and you have already installed the Service Fabric SDK on your server, the Octopus service may need to be restarted _after_ this SDK has been installed. Please see the [Service Fabric SDK](https://g.octopushq.com/ServiceFabricSdkDownload) documentation for more information.
+
+If you are using a secure Service Fabric cluster and receive errors such as _"An error occurred during this operation.  Please check the trace logs for more details."_, this is an error from Azure and may indicate that the Octopus Server was unable to connect to the Service Fabric cluster because of security reasons. If you are using [Client Certificates](/docs/deploying-applications/deploying-to-service-fabric/connecting-securely-with-client-certificates/index.md) for example, please ensure the client certificate is correctly installed on your Octopus Server in the `LocalMachine` (unless you have specifically overridden this store location).
