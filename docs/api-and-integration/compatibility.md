@@ -1,7 +1,7 @@
 ---
 title: Compatibility
 description: Backward compatibility between Octopus Server and related components
-position: 12
+position: 13
 ---
 
 The table below outlines the backward compatibility between Octopus Server and related components
@@ -12,4 +12,3 @@ The table below outlines the backward compatibility between Octopus Server and r
 | 3.3            | 3.3 ➜ latest            | 3.3          | 3.0 ➜ latest | 3.3 ➜ latest    |
 | 3.4            | 3.3 ➜ latest            | 3.4          | 3.0 ➜ latest | 3.3 ➜ latest    |
 | 3.5 ➜ latest   | 3.3 ➜ latest            | 3.5 ➜ latest | 3.0 ➜ latest | 3.3 ➜ latest    |
-

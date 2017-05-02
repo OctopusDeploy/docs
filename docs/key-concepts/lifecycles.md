@@ -61,6 +61,8 @@ Once all of your phases are defined your Lifecycle has a 'tree view'.
 
 It shows the flow of the deployment in a visual way.
 
+!partial <optionalphase>
+
 ## Lifecycles and Projects {#Lifecycles-LifecyclesandProjects}
 
 A project can only be deployed to any environments defined in their lifecycle.

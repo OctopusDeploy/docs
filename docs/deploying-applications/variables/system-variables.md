@@ -89,9 +89,7 @@ Action-level variables are available during execution of an action. Indexer noti
 |**`Octopus.Action.Package.IgnoreConfigTransformationErrors`** <br/>If true, any errors in configuration transformations will be treated as informational rather than errors that will fail the deployment** ***(Boolean)* | *False*|
 |**`Octopus.Action.Package.IgnoreVariableReplacementErrors`** <br/>If true, any errors in variable replacement will be treated as a warning rather than an error that will fail the deployment. (*Boolean*) | *False*|
 |**`Octopus.Action.Package.InstallationDirectoryPath`** <br/>The directory where the package was installed. It is not available prior to package extraction. | *C:\InetPub\WWWRoot\OctoFx*|
-|**`Octopus.Action.Package.NuGetFeedId`** <br/>The ID of the NuGet feed from which the package being deployed was pulled | *feeds-123*|
-|**`Octopus.Action.Package.NuGetPackageId`** <br/>The ID of the NuGet package being deployed | *OctoFx.RateService*|
-|**`Octopus.Action.Package.NuGetPackageVersion`** <br/>The version of the NuGet package being deployed | *1.2.3*|
+!partial <packageVariables>
 |**`Octopus.Action.Package.SkipIfAlreadyInstalled`** <br/>If true, and the version of the package being deployed is already present on the machine, its re-deployment will be skipped (use with caution) *(Boolean)* | *False*|
 |**`Octopus.Action.Package.Ssh.ApplicationsDirectoryPath`** <br/>The applications directory used for deployment on the target machine | */home/user/.tentacle/apps/*|
 |**`Octopus.Action.Package.Ssh.PackageFileName`** <br/>The package file being deployed on the target machine | */home/user/.tentacle/packages/OctoFx.RateService.1.2.3.nupkg.tar.gz*|
@@ -182,7 +180,7 @@ Agent-level variables describe the deployment agent or Tentacle on which the dep
 |**`Octopus.Tentacle.Agent.ApplicationDirectoryPath`** <br/>The directory under which the agent installs packages | *C:\Octopus\Tentacle\Apps*|
 |**`Octopus.Tentacle.Agent.InstanceName`** <br/>The instance name that the agent runs under | *Tentacle*|
 |**`Octopus.Tentacle.Agent.ProgramDirectoryPath`** <br/>The directory containing the agent's own executables | *C:\Program Files\Octopus Deploy\Tentacle*|
-|**`Octopus.Agent.ProgramDirectoryPath`** <br/>The directory containing either the server or tentacle's executables depending on which the step being executed on | *C:\Program Files\Octopus Deploy\Octopus*|
+|**`Octopus.Agent.ProgramDirectoryPath`** <br/>The directory containing either the server or Tentacle's executables depending on which the step being executed on | *C:\Program Files\Octopus Deploy\Octopus*|
 
 
 ## Server {#Systemvariables-Server}

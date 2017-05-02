@@ -63,6 +63,8 @@ You can read more about [Lifecycles ](/docs/key-concepts/lifecycles.md)and [Rete
 
 In this example the default for the Lifecycle is Keep 3.
 
+!partial <discretechannels>
+
 ## When the retention policy is run {#RetentionpolicyTentaclecleanupandtroubleshooting-Whentheretentionpolicyisrun}
 
 For a Tentacle the retention policy is run at the end of a deployment, for that project only. So for this example the deployment looks for the project (project-1) and finds all releases within the deployment journal. It finds 4 in total (current is never counted) leaving 3, knowing it just deployed one, it deletes one copy of each package.

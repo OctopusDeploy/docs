@@ -19,7 +19,7 @@ The communication protocol used by Octopus and Tentacle requires intact end-to-e
 :::
 
 :::warning
-**Proxy servers supported for tentacle communications since Octopus 3.4**
+**Proxy servers supported for Tentacle communications since Octopus 3.4**
 The communication protocol used by Octopus and Tentacle 3.4 and above supports proxies. Read more about configuring proxy servers for Tentacle communications in [proxy support](/docs/installation/installing-tentacles/proxy-support.md).
 
 If you are using a version of Octopus/Tentacle prior to 3.4 you will need to arrange a bypass/exception for traffic initiated from the Octopus server to the Tentacle on the configured TCP Port (port **10933** by default).
@@ -50,7 +50,7 @@ Don't forget to allow access not just in Windows Firewall, but also any intermed
 
 We have provided a detailed guide for [Troubleshooting Listening Tentacles](/docs/how-to/troubleshoot-listening-tentacles.md) but feel free to start with these simple steps.
 
-*On the Tentacle machine*, open a web browser and navigate to [https://localhost:10933](https://localhost:10933/) (or your chosen Tentacle communications port if it isn't the default). Make sure an**HTTPS**URL is used.
+*On the Tentacle machine*, open a web browser and navigate to [https://localhost:10933](https://localhost:10933/) (or your chosen Tentacle communications port if it isn't the default). Make sure an **HTTPS** URL is used.
 
 - If you're presented with a prompt to "confirm a certificate" or "select a certificate" choose "Cancel" - don't provide one
 - If you're presented with a warning about the invalidity of the site's certificate, "continue to the site" or "add an exception"

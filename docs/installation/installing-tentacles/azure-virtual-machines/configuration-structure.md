@@ -1,12 +1,8 @@
 ---
 title: Tentacle VM Extension Configuration Structure
 description: Detailed file format information for the configuration files required for the Azure Tentacle VM Extension
-position: 6
+position: 7
 ---
-
-:::hint
-The Azure VM Extension is currently in preview.
-:::
 
 These files are required to install the extension [via the Azure CLI](via-the-azure-cli.md) or [via PowerShell](via-powershell.md).
 

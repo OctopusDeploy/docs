@@ -10,8 +10,8 @@ description: This guide explains the Octopus extension versions that are compati
 There are three distinct versions (or version ranges) you need to worry about with respect to the Octopus Extension:
 
 - **Version 1.2.x** - now obsolete, but still usable for older versions of TFS and VSTS
-- **Version 2.0.36** - a specific "version 2" build for TFS 2015 Update 2, TFS 2015 Update 3, TFS 2015 Update 4, and TFS 2017 RTM
-- **Version 2.0.x** - the current, most recent version of the extension, for VSTS and TFS 2017 Update 1 and above
+- [**Version 2.0.36**](https://s3-eu-west-1.amazonaws.com/octopus-downloads/tfs-2015-extension/octopusdeploy.octopus-deploy-build-release-tasks-test-2.0.39.vsix) - a specific "version 2" build for TFS 2015 Update 2, TFS 2015 Update 3, TFS 2015 Update 4, and TFS 2017 RTM
+- [**Version 2.0.x**](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) - the current, most recent version of the extension, for VSTS and TFS 2017 Update 1 and above
 
 ## Extension Compatibility with Team Foundation Server
 

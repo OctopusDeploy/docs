@@ -15,22 +15,27 @@ We currently support importing:
 
 ```text
 Usage: Octo import [<options>]
-		
+
 Where [<options>] is any of:
+
+--type=VALUE           		The Octopus object type to import
+--filePath=VALUE       		The full path and name of the exported file
+--project=VALUE        		[Optional] The name of the project
+--dryRun=VALUE       		  [Optional] Perform a dry run of the import
+
+Common options:
+
 --server=VALUE         		The base URL for your Octopus server - e.g., http://your-octopus/
 --user=VALUE           		[Optional] Username to use when authenticating with the server.
 --pass=VALUE           		[Optional] Password to use when authenticating with the server.
 --apiKey=VALUE         		Your API key. Get this from the user profile page.
 --configFile=VALUE     		[Optional] Text file of default values, with one 'key = value' per line.
 --debug                		[Optional] Enable debug logging
---ignoreSslErrors      		[Optional] Set this flag if your Octopus server uses HTTPS 
-							but the certificate is not trusted on this machine. 
-							Any certificate errors will be ignored. 
-							WARNING: this option may create a security vulnerability.
+--ignoreSslErrors      		[Optional] Set this flag if your Octopus server uses HTTPS
+                            but the certificate is not trusted on this machine.
+                            Any certificate errors will be ignored.
+                            WARNING: this option may create a security vulnerability.
 --enableServiceMessages 	Enable TeamCity service messages when logging.
---type=VALUE           		The Octopus object type to import
---filePath=VALUE       		The full path and name of the exported file
---project=VALUE        		[Optional] The name of the project
 ```
 
 ## Import a project {#Import-Importaproject}
@@ -68,7 +73,7 @@ During the import, Octo.exe will validate that any dependencies, such as feeds a
 
 ```powershell
 Octopus Deploy Command Line Tool, version 1.0.0.0
-	
+
 Handshaking with Octopus server: http://localhost/octopuslive/
 Handshake successful. Octopus version: 2.4.4.43; API version: 3.0.0
 Finding importer 'project'
@@ -86,7 +91,7 @@ Exit code: -1
 
 ```powershell
 Octopus Deploy Command Line Tool, version 1.0.0.0
-	
+
 Handshaking with Octopus server: http://localhost/octopuslive/
 Handshake successful. Octopus version: 2.4.4.43; API version: 3.0.0
 Finding importer 'project'
@@ -143,7 +148,7 @@ octo import --server=http://octopusdeploy/api --apiKey=ABCDEF123456 --type=relea
 
 ```powershell
 Octopus Deploy Command Line Tool, version 1.0.0.0
-	
+
 Handshaking with Octopus server: http://localhost/octopuslive/
 Handshake successful. Octopus version: 2.4.4.43; API version: 3.0.0
 Finding importer 'release'

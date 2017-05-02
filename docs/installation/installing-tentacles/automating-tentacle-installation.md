@@ -1,7 +1,7 @@
 ---
 title: Automating Tentacle installation
 description: Information on how to install and configure an Octopus Tentacle in a fully automated way from the command line.
-position: 2
+position: 3
 ---
 
 The Tentacle agent can be installed fully automatically from the command line. This is very useful if you're deploying to a large number of servers, or you'll be provisioning servers automatically.
@@ -46,7 +46,7 @@ To configure the Tentacle in listening or polling mode, it's easiest to run the 
 
 :::success
 **Advanced configuration options**
-When configuring your tentacle you can configure advanced options, like [proxies](/docs/installation/installing-tentacles/proxy-support.md), [machine policies](/docs/key-concepts/environments/machine-policies.md) and [tenants](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md), which can also be automated. Use the setup wizard to configure the Tentacle, and click the **Show Script** link which will show you the command-line equivalent to configure the Tentacle.
+When configuring your Tentacle you can configure advanced options, like [proxies](/docs/installation/installing-tentacles/proxy-support.md), [machine policies](/docs/key-concepts/environments/machine-policies.md) and [tenants](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md), which can also be automated. Use the setup wizard to configure the Tentacle, and click the **Show Script** link which will show you the command-line equivalent to configure the Tentacle.
 :::
 
 ## Example: Listening Tentacle {#AutomatingTentacleinstallation-Example:ListeningTentacle}
@@ -68,7 +68,7 @@ Tentacle.exe register-with --instance "Tentacle" --server "http://YOUR_OCTOPUS" 
 Tentacle.exe service --instance "Tentacle" --install --start --console
 ```
 
-You can also register a Tentacle with the Octopus Server after it has been installed by using Octopus.Client (i.e. register-with could be omitted above and the following could be used after the instance has started.  See below for how to obtain the tentacle's thumbprint):
+You can also register a Tentacle with the Octopus Server after it has been installed by using Octopus.Client (i.e. register-with could be omitted above and the following could be used after the instance has started.  See below for how to obtain the Tentacle's thumbprint):
 
 **Using Octopus.Client to register a Tentacle in an Octopus Server**
 
@@ -185,3 +185,5 @@ Test-DscConfiguration
 ```
 
 DSC can be applied in various ways, such as [Group Policy](https://sdmsoftware.com/group-policy-blog/desired-state-configuration/desired-state-configuration-and-group-policy-come-together/), a [DSC Pull Server](https://msdn.microsoft.com/en-us/powershell/dsc/pullserver), [Azure Automation](https://msdn.microsoft.com/en-us/powershell/dsc/azuredsc), or even via configuration management tools such as [Chef](https://docs.chef.io/resource_dsc_resource.html) or [Puppet](https://github.com/puppetlabs/puppetlabs-dsc). A good resource to learn more about DSC is the [Microsoft Virtual Academy training course](http://www.microsoftvirtualacademy.com/training-courses/getting-started-with-powershell-desired-state-configuration-dsc-).
+
+For an in depth look, check out the [sample walkthrough](azure-virtual-machines/via-an-arm-template-with-dsc.md) of how to use DSC with an Azure ARM template to deploy and configure the Tentacle on an Azure VM.

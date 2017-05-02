@@ -199,6 +199,10 @@ When the security token is returned from the external identity provider, Octopus
 If you already have Octopus user accounts and you want to enable external authentication, simply make sure the Email Address matches in both Octopus and the external identity provider. This means your existing users will be able to sign in using an external identity provider and still belong to the same teams in Octopus.
 :::
 
+### Getting permissions
+
+!include <admin-user>
+
 ## What next? {#AzureADauthentication-Whatnext?}
 
 Now you're using an external identity provider it is easy to increase your security. You could consider configuring [Multi-Factor Authentication](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication) - after all Octopus Deploy has access to your production environments!

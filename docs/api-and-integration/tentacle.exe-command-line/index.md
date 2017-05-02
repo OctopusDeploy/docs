@@ -1,7 +1,7 @@
 ---
 title: Tentacle.exe Command Line
 description: Tentacle.exe is the command line executable that runs the Octopus Tentacle instance.
-position: 10
+position: 11
 ---
 
 **Tentacle.exe** is the executable that runs the Octopus Tentacle instance. It includes several helpful commands that allow you to manage the instance some of which are built on top of the [Octopus Deploy HTTP API](/docs/api-and-integration/octopus-rest-api.md).
@@ -16,7 +16,7 @@ position: 10
 - **`deregister-from`**: Deregisters this machine from an Octopus Server
 - **`import-certificate`**: Replace the certificate that Tentacle uses to authenticate itself
 - **`new-certificate`**: Creates and installs a new certificate for this Tentacle
-- **`polling-proxy`**:  Configure the HTTP proxy used by polling tentacles to reach the Octopus Server
+- **`polling-proxy`**:  Configure the HTTP proxy used by Polling Tentacles to reach the Octopus Server
 - **`poll-server`**: Configures an Octopus Server that this Tentacle will poll
 - **`proxy`**: Configure the HTTP proxy used by Octopus
 - **`register-with`**: Registers this machine with an Octopus Server

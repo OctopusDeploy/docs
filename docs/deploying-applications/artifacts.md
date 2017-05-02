@@ -62,7 +62,7 @@ The `fileName` optional parameter was [added](https://github.com/OctopusDeploy/C
 
 [Bash Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari/Integration/Scripting/Bash)
 
-In a Bash script you can use the `new_otopusartifact`function to collect artifacts. This function takes two positional parameters with the same purpose as the PowerShell CmdLet.
+In a Bash script you can use the `new_octopusartifact`function to collect artifacts. This function takes two positional parameters with the same purpose as the PowerShell CmdLet.
 
 **Bash**
 

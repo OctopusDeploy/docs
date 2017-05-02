@@ -62,6 +62,8 @@ Multiple release branches may be supported over a period of time. For example, y
 
 ![](/docs/images/3048919/3278440.png)
 
+!partial <discretechannels>
+
 Modeling this in Octopus is a little more complicated than the scenarios above, but still easy to achieve. If the only thing that changes between branches is the NuGet package version numbers, and you create releases infrequently, then you can simply choose the correct package versions when creating a release via the release creation page:
 
 ![](/docs/images/3048919/3278469.png "width=500")

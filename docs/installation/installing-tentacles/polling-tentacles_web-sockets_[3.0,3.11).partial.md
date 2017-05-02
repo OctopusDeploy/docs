@@ -1,0 +1,1 @@
+In Octopus version 3.12 and later, it is possible for a server to listen for Polling Tentacles on a shared HTTPS port.
