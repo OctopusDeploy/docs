@@ -21,21 +21,23 @@ In this step we install the MSI on a machine interactively so that we can comple
 Follow all the steps in the wizard and once you get to the last screen, click on `Show Script` (**do not click Install**).
 ![](show-script.png "width=500")
 
-Copy the script generated onto the clipboard.
+Save the script generated onto a new file.
 
-Here is an example what the script looks like, **you need to modify this script manually with your settings**:
+Here is an example of what the script may look like:
 ```bash
-"C:\Program Files\Octopus Deploy\MyOctopus\Octopus.Server.exe" create-instance --instance "new instance" --config "C:\Octopus\new instance\OctopusServer-new instance.config"
-"C:\Program Files\Octopus Deploy\MyOctopus\Octopus.Server.exe" configure --instance "new instance" --home "C:\Octopus\new instance" --storageConnectionString "Data Source=(local)\SQLEXPRESS;Initial Catalog=foo;Integrated Security=True" --upgradeCheck "True" --upgradeCheckWithStatistics "True" --webAuthenticationMode "UsernamePassword" --webForceSSL "False" --webListenPrefixes "http://localhost:80/" --commsListenPort "10943" --serverNodeName "JOHNSBOX"
-"C:\Program Files\Octopus Deploy\MyOctopus\Octopus.Server.exe" database --instance "new instance" --create --grant "NT AUTHORITY\SYSTEM"
-"C:\Program Files\Octopus Deploy\MyOctopus\Octopus.Server.exe" service --instance "new instance" --stop
-"C:\Program Files\Octopus Deploy\MyOctopus\Octopus.Server.exe" admin --instance "new instance" --username "admin" --email "" --password ""
-"C:\Program Files\Octopus Deploy\MyOctopus\Octopus.Server.exe" license --instance "new instance" --licenseBase64 "a very long license string"
-"C:\Program Files\Octopus Deploy\MyOctopus\Octopus.Server.exe" service --instance "new instance" --install --reconfigure --start --dependOn "MSSQL$SQLEXPRESS"
+"[INSTALLLOCATION]\Octopus.Server.exe" create-instance --instance "<instance name>" --config "<new instance config path>"
+"[INSTALLLOCATION]\Octopus.Server.exe" configure --instance "<instance name>" --home "<home directory>"
+"[INSTALLLOCATION]\Octopus.Server.exe" configure --instance "<instance name>" --storageConnectionString "<database connection string>" 
+"[INSTALLLOCATION]\Octopus.Server.exe" configure --instance "<instance name>" --upgradeCheck "True" --upgradeCheckWithStatistics "True" 
+"[INSTALLLOCATION]\Octopus.Server.exe" configure --instance "<instance name>" --webAuthenticationMode "UsernamePassword" --webForceSSL "False" --webListenPrefixes "<>" --commsListenPort "10943" --serverNodeName "<machine name>"
+"[INSTALLLOCATION]\Octopus.Server.exe" database --instance "<instance name>" --create --grant "NT AUTHORITY\SYSTEM"
+"[INSTALLLOCATION]\Octopus.Server.exe" service --instance "<instance name>" --stop
+"[INSTALLLOCATION]\Octopus.Server.exe" admin --instance "<instance name>" --username "<admin username>" --email "" --password "<admin password>"
+"[INSTALLLOCATION]\Octopus.Server.exe" license --instance "<instance name>" --licenseBase64 "<a very long license string>"
+"[INSTALLLOCATION]\Octopus.Server.exe" service --instance "<instance name>" --install --reconfigure --start --dependOn "MSSQL$SQLEXPRESS"
 ```
 
-
-### 2. Install MSI in central server silently
+### 2. Install MSI in server silently
 
 To install the MSI silently:
 
@@ -46,14 +48,14 @@ msiexec /i Octopus.<version>.msi /quiet RUNMANAGERONEXIT=no
 By default, the Octopus files are installed under **%programfiles%**. To change the installation directory, you can specify:
 
 ```bash
-msiexec /i Octopus.<version>.msi /quiet RUNMANAGERONEXIT=no INSTALLLOCATION="C:\YourDirectory"
+msiexec /i Octopus.<version>.msi /quiet RUNMANAGERONEXIT=no INSTALLLOCATION="<install path>"
 ```
 
 ### 3. Configuration
 
-The MSI installer simply extracts files and adds some shortcuts and event log sources. The actual configuration of Octopus Server is done later, via the script you copied above.
+The MSI installer simply extracts files and adds some shortcuts and event log sources. The actual configuration of Octopus Server is done later, via the script you saved above.
 
-To run the script start an admin shell prompt and paste the script onto it, this should apply all the settings to the new instance.
+To run the script start an admin shell prompt and execute the  script, this should apply all the settings to the new instance.
 
 ## Desired State Configuration
 
@@ -77,13 +79,13 @@ Configuration SampleConfig
             Name = "OctopusServer"
 
             # The url that Octopus will listen on
-            WebListenPrefix = "http://localhost:81"
+            WebListenPrefix = "http://localhost:80"
 
             SqlDbConnectionString = "Server=(local)\SQLEXPRESS;Database=Octopus;Trusted_Connection=True;"
 
             # The admin user to create
-            OctopusAdminUsername = "Admin"
-            OctopusAdminPassword = "SuperS3cretPassw0rd"
+            OctopusAdminUsername = "admin"
+            OctopusAdminPassword = "<my secret password>"
 
             # optional parameters
             AllowUpgradeCheck = $true
