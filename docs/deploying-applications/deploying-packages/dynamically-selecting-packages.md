@@ -60,7 +60,7 @@ You can use any values which are either unscoped/global, or values scoped to env
 
 There are some downsides to using dynamic packages. Firstly it becomes complex quite quickly and should be used only if necessary.
 
-## Try to minimize dynamic packages
+### Try to minimize dynamic packages
 
 Where possible we recommend keeping the number and size of dynamic packages to a minimum. Some strategies which can help with this are:
 
