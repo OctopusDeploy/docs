@@ -26,7 +26,14 @@ When adding a step to your deployment process, choose theÂ **Deploy a Package**Â
 
 ![](/docs/images/5671696/5865908.png "width=170")
 
-When deploying a package you will need to select the machine role that the package will be deployed to. You will also be asked to select the [feed](/docs/packaging-applications/package-repositories/index.md) that is the source of the package, and the ID of the package to deploy. You can define the feed with an Octopus variable. Please note that these variables can be scoped to environments but you must have an unscoped entry for release creation.
+When deploying a package you will need to select the machine role that the package will be deployed to. You will also be asked to select the [feed](/docs/packaging-applications/package-repositories/index.md) that is the source of the package, and the ID of the package to deploy.
+
+:::hint
+**Variable Package Feed and/or Package ID**
+You can define Package Feed and/or the Package ID using an Octopus variable expression.
+
+Please note: these variables can be scoped to environments and/or tenants but you must have at least one unscoped value for release creation.
+:::
 
 ![](/docs/images/3048090/5275675.png "width=500")
 
