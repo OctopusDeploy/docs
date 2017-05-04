@@ -14,7 +14,7 @@ We typically recommend using a static package configuration wherever possible - 
 
 You may want to use a different package feed for each environment. This can help when you have a slow connection between your main package feed and your deployment environments. In this case you could configure a package feed in your remote environments, and instruct Octopus to use the best package feed for each deployment.
 
-![Defining the feed value as a variable on the package step](dynamic-feed.jpg)
+![Defining the feed value as a variable on the package step](dynamic-feed.png)
 
 For example, you can bind the Package Feed to `#{FeedId}` and set the following environment-scoped variables:
 
@@ -43,6 +43,8 @@ Now you can configure Octopus to deploy your common package just like normal, bu
     Package ID = MyApp.Web.#{TenantAlias}
 
 You can now create the `3.1.6` release for the `MyApp.Web` project, but have Octopus deploy the correct styles/assets package for each tenant at deployment time.
+
+![Dynamic Package ID](dynamic-package-id.png)
 
 :::info
 In this example we recommend creating a [tenant-specific variable](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-tenant-specific-variables.md) called something like `TenantAlias`, where each tenant will provide a value. You could have used a built-in variable like `#{Octopus.Deployment.Tenant.Name}` but then your tenant name would be tightly coupled to your Package ID, and changing the tenant's name could break your deployments.
