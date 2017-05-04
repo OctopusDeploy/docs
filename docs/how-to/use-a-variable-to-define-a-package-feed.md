@@ -17,10 +17,10 @@ Create a new variable with the name as your feed variable and have it with out a
 
 Below are some screenshots that illustrate an example of this. In my example, I have a package feed that points to three different folders depending on their environment. I can call a single `#{Feed.Variable}` in my package step and have Octopus select the value based on the environment I am deploying to. 
 
-![Defining the feed value as a variable on the package step](process.JPG)
+![Defining the feed value as a variable on the package step](process.jpg)
 
 In my second screenshot, you can see the placeholder variable I have created which is unscoped. This allows Octopus to use the `#{Feed.Variable}` Variable at the time the release is created and apply the correct value when you deploy.
 
-![Defining a unscoped placeholder variable in the project variables with out a scope](variable.JPG)
+![Defining a unscoped placeholder variable in the project variables with out a scope](variable.jpg)
 
 Once the placeholder variable is set, the variable feed should work as expected.
