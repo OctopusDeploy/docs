@@ -2,7 +2,6 @@
 title: Use a variable to define a package feed
 description: Variables can be used to define a package feed, this guide will show you how.
 position: 0
-version: "[3.0)"
 ---
 
 In Octopus, you are able to define a package feed with a variable, this is useful for when the package feed may need to change based on different scoping.
