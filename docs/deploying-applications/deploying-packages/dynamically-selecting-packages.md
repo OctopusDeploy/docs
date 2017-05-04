@@ -18,8 +18,8 @@ You may want to use a different package feed for each environment. This can help
 
 For example, you can bind the Package Feed to `#{FeedId}` and set the following environment-scoped variables:
 
-    FeedId = my-dev-feed; Scope = Development Environment
-    FeedId = my-test-feed; Scope = Test Environment
+    FeedId = my-dev-feed;        Scope = Development Environment
+    FeedId = my-test-feed;       Scope = Test Environment
     FeedId = my-production-feed; Scope = Production Environment
 
 When deploying to the **Test Environment** Octopus will use the `my-test-feed` package feed.
