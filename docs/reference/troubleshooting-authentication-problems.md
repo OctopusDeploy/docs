@@ -51,8 +51,10 @@ If none of these troubleshooting steps work, please get in contact with our [sup
   b. Does the same thing happen with other browsers, like Internet Explorer, Google Chrome, Firefox?
   c. Does the same thing happen for other people/users?
   d. Does the same thing happen when you access Octopus Deploy over another network, like from home or over your cellular network?
-  e. Have you used any other versions of Octopus Deploy in this browser before?
-  f. Do you have other web applications hosted on the same server?
-  g. Do you have other web applications hosted on the same domain? (for example: octopus.mycompany.com and myapp.mycomany.com?)
-  h. Do you have any intermediary network devices (like proxies or web application firewalls) which may be stripping custom HTTP headers or cookies from your requests?
-  i. Please [record the problem occurring in your web browser](/docs/how-to/record-a-problem-with-your-browser.md) and send the recording to us for analysis. Please record the following steps: Sing out of Octopus Deploy, sign back in again, and then try to do the action that fails.
+  e. Does the same thing happen if you use InPrivate/Incognito mode in your browser?
+  f. Does the same thing happen after clearing all browser data for the Octopus Server (including cookies, history, local data, stored credentials)?
+  g. Have you used any other versions of Octopus Deploy in this browser before?
+  h. Do you have other web applications hosted on the same server?
+  i. Do you have other web applications hosted on the same domain? (for example: octopus.mycompany.com and myapp.mycomany.com?)
+  j. Do you have any intermediary network devices (like proxies or web application firewalls) which may be stripping custom HTTP headers or cookies from your requests?
+  k. Please [record the problem occurring in your web browser](/docs/how-to/record-a-problem-with-your-browser.md) and send the recording to us for analysis. Please record the following steps: Sing out of Octopus Deploy, sign back in again, and then try to do the action that fails.
