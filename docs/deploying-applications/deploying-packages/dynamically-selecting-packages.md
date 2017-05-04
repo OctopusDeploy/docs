@@ -23,6 +23,7 @@ For example, you can bind the Package Feed to `#{FeedId}` and set the following 
     FeedId = my-production-feed; Scope = Production Environment
 
 When deploying to the **Test Environment** Octopus will use the `my-test-feed` package feed.
+
 When deploying to the **Production Environment** Octopus will use the `my-production-feed` package feed.
 
 :::info
