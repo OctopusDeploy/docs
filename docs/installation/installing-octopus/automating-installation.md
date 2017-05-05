@@ -30,7 +30,7 @@ Here is an example of what the script may look like:
 "[INSTALLLOCATION]\Octopus.Server.exe" configure --instance "<instance name>" --home "<home directory>"
 "[INSTALLLOCATION]\Octopus.Server.exe" configure --instance "<instance name>" --storageConnectionString "<database connection string>" 
 "[INSTALLLOCATION]\Octopus.Server.exe" configure --instance "<instance name>" --upgradeCheck "True" --upgradeCheckWithStatistics "True" 
-"[INSTALLLOCATION]\Octopus.Server.exe" configure --instance "<instance name>" --webAuthenticationMode "UsernamePassword" --webForceSSL "False" --webListenPrefixes "<>" --commsListenPort "10943" --serverNodeName "<machine name>"
+"[INSTALLLOCATION]\Octopus.Server.exe" configure --instance "<instance name>" --webAuthenticationMode "UsernamePassword" --webForceSSL "False" --webListenPrefixes "<url to expose>" --commsListenPort "10943" --serverNodeName "<machine name>"
 "[INSTALLLOCATION]\Octopus.Server.exe" database --instance "<instance name>" --create --grant "NT AUTHORITY\SYSTEM"
 "[INSTALLLOCATION]\Octopus.Server.exe" service --instance "<instance name>" --stop
 "[INSTALLLOCATION]\Octopus.Server.exe" admin --instance "<instance name>" --username "<admin username>" --email "" --password "<admin password>"
