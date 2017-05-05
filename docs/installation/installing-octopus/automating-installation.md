@@ -19,6 +19,7 @@ Automating the installation of Octopus Server is a three step process.
 ### 1. Install MSI on a temporary machine interactively
 In this step we install the MSI on a machine interactively so that we can complete the wizard to add a new instance.
 Follow all the steps in the wizard and once you get to the last screen, click on `Show Script` (**do not click Install**).
+
 ![](show-script.png "width=500")
 
 Save the script generated onto a new file.
