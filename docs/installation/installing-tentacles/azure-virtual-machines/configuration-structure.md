@@ -21,6 +21,14 @@ The schema for the public configuration file is:
     "web-server",
     "app-server"
   ],
+  "Tenants": [
+    "Acme Corp"
+  ],
+  "TenantTags": [
+    "Tenant type/External",
+    "Upgrade ring/Early adopter"
+  ],
+  "MachinePolicy": "Transient machines",
   "CommunicationMode": "Listen",
   "Port": 10933,
   "PublicHostNameConfiguration": "PublicIP|FQDN|ComputerName|Custom",
@@ -33,6 +41,9 @@ The schema for the public configuration file is:
 * `Environments`: (array of string) The environments to which the Tentacle should be added.
 * `Roles`: (array of string) The roles to assign to the Tentacle.
 * `CommunicationMode`: (string) Whether the Tentacle should wait for connections from the server (`Listen`) or should poll the server (`Poll`).
+* `Tenants`: (array of string) The tenants to assign to the Tentacle.
+* `TenantTags`: (array of strings) The tenant tags in [canonical name format](/docs/key-concepts/tenants/tenant-tags.md#referencing-tenant-tags-tenanttags-referencingtenanttags) to assign to the Tentacle.
+* `MachinePolicy`: (string) The name of a machine policy to apply to the Tentacle.
 * `Port`: The port on which to listen for connections from the server (in `Listen` mode), or the port on which to connect to the Octopus server (`Poll` mode).
 * `PublicHostNameConfiguration`: If in listening mode, how the server should contact the Tentacle. Can be one of the following:
   * `PublicIP` - looks up the public IP address using <https://api.ipify.org>.
