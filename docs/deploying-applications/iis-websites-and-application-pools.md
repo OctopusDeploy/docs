@@ -38,15 +38,15 @@ Understanding the difference between Sites, Applications and Virtual Directories
 ![](/docs/images/3048088/5865719.png "width=500")
 
 
-| Field                     | Meaning | Examples | Notes |
-| ------------------------- | ------- | -------- | ----- |
-| **Web Site Name**         | The name of the IIS Web Site to create (or reconfigure, if the site already exists). | `MyWebSite` | | 
-| **Physical path**         | The physical path on disk this Web Site will point to | `/Path1/Path2/MySite` <br> `#{MyCustomInstallationDirectory}` | You can specify an absolute path, or a relative path inside the package installation directory. | 
-| **Application Pool name** | Name of the Application Pool in IIS to create (or reconfigure, if the application pool already exists) | `MyAppPool` | | 
-| **.NET CLR version**      | The version of the .NET Common Language Runtime this Application Pool will use. | <ul> <li> `v2.0` </li> <li> `v4.0` </li> </ul> | Choose v2.0 for applications built against .NET 2.0, 3.0 or 3.5.  <br> Choose v4.0 for .NET 4.0 or 4.5. | 
-| **Identity**              | Which account the Application Pool will run under. | <ul> <li>`Application Pool Identity`</li> <li>`Local Service`</li> <li>`Local System`</li> <li> `Network Service` </li> <li> `Custom user (you specify the username/password)` </li> </ul> | | 
-| **Bindings**              | Specify any number of HTTP/HTTPS bindings that should be added to the IIS Web Site | | | 
-| **Authentication modes**  | Choose which authentication mode(s) IIS should enable | <ul> <li> `Anonymous` </li> <li> `Basic` </li> <li> `Windows` </li> </ul> | You can select more than one authentication mode | 
+| Field                     | Meaning                                  | Examples                                 | Notes                                    |
+| ------------------------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| **Web Site Name**         | The name of the IIS Web Site to create (or reconfigure, if the site already exists). | `MyWebSite`                              |                                          |
+| **Physical path**         | The physical path on disk this Web Site will point to | `/Path1/Path2/MySite` <br> `#{MyCustomInstallationDirectory}` | You can specify an absolute path, or a relative path inside the package installation directory. |
+| **Application Pool name** | Name of the Application Pool in IIS to create (or reconfigure, if the application pool already exists) | `MyAppPool`                              |                                          |
+| **.NET CLR version**      | The version of the .NET Common Language Runtime this Application Pool will use. | <ul> <li> `v2.0` </li> <li> `v4.0` </li> </ul> | Choose v2.0 for applications built against .NET 2.0, 3.0 or 3.5.  <br> Choose v4.0 for .NET 4.0 or 4.5. |
+| **Identity**              | Which account the Application Pool will run under. | <ul> <li>`Application Pool Identity`</li> <li>`Local Service`</li> <li>`Local System`</li> <li> `Network Service` </li> <li> `Custom user (you specify the username/password)` </li> </ul> |                                          |
+| **Bindings**              | Specify any number of HTTP/HTTPS bindings that should be added to the IIS Web Site |                                          |                                          |
+| **Authentication modes**  | Choose which authentication mode(s) IIS should enable | <ul> <li> `Anonymous` </li> <li> `Basic` </li> <li> `Windows` </li> </ul> | You can select more than one authentication mode |
 
 ### Deploy IIS Virtual Directory {#IISWebsitesandApplicationPools-DeployIISVirtualDirectoryvirtual-directory}
 
@@ -85,15 +85,14 @@ The IIS Web Application step requires a parent Web Site to exist in IIS before i
 The Virtual Path and Physical Path do not need to match which is one of the true benefits of IIS. You can create a virtual mapping from a URL to a completely unrelated physical path on disk. See [below](/docs/deploying-applications/iis-websites-and-application-pools.md) for more details.
 :::
 
-| Field                    | Meaning | Examples | Notes |
-| ------------------------ | ------- | -------- | ----- |
-| **Parent Web Site Name** | The name of the parent IIS Web Site. | `Default Web Site`, `MyWebSite` | The parent Web Site must exist in IIS before this step runs. This step will not create the Web Site for you. |
-| **Virtual Path** | The relative path from the parent IIS Web Site to the Web Application
- | If you want a Web Application called `MyApplication` belonging to the Site `MySite` you would set the Virtual Path to `/MyApplication` | All parent applications/directories must exist. Does not need to match the physical path. | 
-| **Physical path** | The physical path on disk this Web Application will point to | `/Path1/Path2/MyApplication`, `#{MyCustomInstallationDirectory}` | You can specify an absolute path, or a relative path inside the package installation directory. |
-| **Application Pool name** | Name of the Application Pool in IIS to create (or reconfigure, if the Application Pool already exists) |  |  |
-| **.NET CLR version** | The version of the .NET Common Language Runtime this Application Pool will use. | `v2.0`, `v4.0` | Choose v2.0 for applications built against .NET 2.0, 3.0 or 3.5. Choose v4.0 for .NET 4.0 or 4.5. |
-| **Identity** | Which account the Application Pool will run under. | `Application Pool Identity`, `Local Service`, `Local System`, `Network Service`, `Custom user (you specify the username/password)` |  |
+| Field                     | Meaning                                  | Examples                                 | Notes                                    |
+| ------------------------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| **Parent Web Site Name**  | The name of the parent IIS Web Site.     | `Default Web Site`, `MyWebSite`          | The parent Web Site must exist in IIS before this step runs. This step will not create the Web Site for you. |
+| **Virtual Path**          | The relative path from the parent IIS Web Site to the Web Application | If you want a Web Application called `MyApplication` belonging to the Site `MySite` you would set the Virtual Path to `/MyApplication` | All parent applications/directories must exist. Does not need to match the physical path. |
+| **Physical path**         | The physical path on disk this Web Application will point to | `/Path1/Path2/MyApplication`, `#{MyCustomInstallationDirectory}` | You can specify an absolute path, or a relative path inside the package installation directory. |
+| **Application Pool name** | Name of the Application Pool in IIS to create (or reconfigure, if the Application Pool already exists) |                                          |                                          |
+| **.NET CLR version**      | The version of the .NET Common Language Runtime this Application Pool will use. | `v2.0`, `v4.0`                           | Choose v2.0 for applications built against .NET 2.0, 3.0 or 3.5. Choose v4.0 for .NET 4.0 or 4.5. |
+| **Identity**              | Which account the Application Pool will run under. | `Application Pool Identity`, `Local Service`, `Local System`, `Network Service`, `Custom user (you specify the username/password)` |                                          |
 
 ## How Octopus Deploys your Web Site {#IISWebsitesandApplicationPools-HowOctopusDeploysyourWebSite}
 
