@@ -27,6 +27,7 @@ Octopus Deploy provides first-class support for [deploying Service Fabric applic
 Octopus Deploy provides a convenient step for [executing PowerShell scripts using the Service Fabric SDK cmdlets](/docs/deploying-applications/custom-scripts/service-fabric-powershell-scripts.md)
 
 ### Security Modes
+
 Both Service Fabric Applications and PowerShell Scripts require connection to a cluster.
 
 Octopus provides an option for connecting to Service Fabric clusters securely with [Client Certificates](/docs/deploying-applications/deploying-to-service-fabric/connecting-securely-with-client-certificates/index.md).
