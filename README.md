@@ -271,7 +271,7 @@ Partials are version specific files that contain markdown.
 Markdown partials are pulled into the document prior to includes, so this means you can add includes to partials.
 They  are only rendered in the target page when the version filter matches the convention for a give file.
 
-Partial Convention: filePrefix_key_nugetAlias_version.partial.md
+Partial Convention: filePrefix_key_version.partial.md
 
 ### Defining a partial
 
