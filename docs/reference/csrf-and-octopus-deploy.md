@@ -34,13 +34,18 @@ If you see this kind of error message when using the Octopus Web Portal in your 
 1. Sign out of the Octopus Web Portal
 1. Sign back in to the Octopus Web Portal
 1. If this doesn't work, please try clearing the cookies from your browser and trying again
-1. After signing in, you should see two cookies from the Octopus Server - the authentication cookie and the anti-forgery cookie:
-
-    - If both cookies are missing your browser may be blocking cookies altogether, or blocking cookies from your Octopus Server
-    - If only the anti-forgery cookie is missing, you may have a network device (like a firewall or proxy) which is blocking cookies that are not `HttpOnly` - the Octopus JavaScript client requires access to the anti-forgery cookie. Please configure the network device to allow the anti-forgery cookie through to the browser.
-    - The time may be incorrect on either your machine, or the server hosting the Octopus Server.
-
+1. After signing in, you should see two cookies from the Octopus Server - the authentication cookie and the anti-forgery cookie. See the next section on [troubleshooting cookie problems](#cookies).
 1. If this doesn't work please get [ask us for help](#support) - see below
+
+#### Troubleshooting problems with cookies {#cookies}
+
+Octopus requires two cookies when using a web browser: the authentication cookie and the anti-forgery cookie. Check in your browser and make sure both cookies are available. Either one of these cookies can be missing for quite a number of reasons:
+
+1. Your web browser does not support cookies. Configure your browser to accept cookies from your Octopus Server. You may need to ask your systems administrator for help with this.
+1. The time is incorrect on your computer, or the time is incorrect on the Octopus Server. This can cause your authentication cookies to expire and become unusable. Correct the time and configure your computers to automatically synchronize their time from a time server.
+1. You are using Chrome and have not configured your Octopus Server to use HTTPS. Chrome has started to consider web sites served over `http://` as unsafe and will refuse to accept cookies from those unsafe sites. [Configure your Octopus Server to use HTTPS](/docs/how-to/expose-the-octopus-web-portal-over-https.md) instead of HTTP. [Learn more about Chrome and the move toward a more secure web](https://security.googleblog.com/2016/09/moving-towards-more-secure-web.html).
+1. You have a network device between your browser and your Octopus Server which is stripping cookies it doesn't trust. The anti-forgery cookie is configured as `httpOnly=false` because the Octopus JavaScript client requires access to the cookie. Some firewalls or proxies can be configured to strip cookies like this from the HTTP response headers. You should configure your network device to allow this cookie.
+1. You are hosting Octopus Server on the same domain as other applications. One of the other applications may be issuing a malformed cookie causing the Octopus authentication cookies to be misinterpreted. Move Octopus Server to a different domain to isolate it from the other applications, or stop the other applications from issuing malformed cookies. See [this GitHub Issue](https://github.com/OctopusDeploy/Issues/issues/2343) for more details.
 
 ### Using the Octopus REST API with raw HTTP
 
