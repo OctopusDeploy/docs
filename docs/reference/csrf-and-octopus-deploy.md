@@ -35,9 +35,11 @@ If you see this kind of error message when using the Octopus Web Portal in your 
 1. Sign back in to the Octopus Web Portal
 1. If this doesn't work, please try clearing the cookies from your browser and trying again
 1. After signing in, you should see two cookies from the Octopus Server - the authentication cookie and the anti-forgery cookie:
-  a. If both cookies are missing your browser may be blocking cookies altogether, or blocking cookies from your Octopus Server
-  b. If only the anti-forgery cookie is missing, you may have a network device (like a firewall or proxy) which is blocking cookies that are not `HttpOnly` - the Octopus JavaScript client requires access to the anti-forgery cookie. Please configure the network device to allow the anti-forgery cookie through to the browser.
-  c. The time may be incorrect on either your machine, or the server hosting the Octopus Server.
+
+    - If both cookies are missing your browser may be blocking cookies altogether, or blocking cookies from your Octopus Server
+    - If only the anti-forgery cookie is missing, you may have a network device (like a firewall or proxy) which is blocking cookies that are not `HttpOnly` - the Octopus JavaScript client requires access to the anti-forgery cookie. Please configure the network device to allow the anti-forgery cookie through to the browser.
+    - The time may be incorrect on either your machine, or the server hosting the Octopus Server.
+
 1. If this doesn't work please get [ask us for help](#support) - see below
 
 ### Using the Octopus REST API with raw HTTP
