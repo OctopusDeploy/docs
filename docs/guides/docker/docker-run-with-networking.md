@@ -49,7 +49,7 @@ Next we are going to create a connection to the official Docker Hub registry so 
 
 ### Step 1: Docker Network Step {#Dockerrunwithnetworking-Step1:DockerNetworkStep}
 
-In a newly created project, click {{Add Step,Create a Docker network}}, This step manages parameters that will be passed to the `docker network create` command.
+In a newly created project, click {{Add Step,Create a Docker network}}.  This step manages parameters that will be passed to the `docker network create` command.
 
 1. Ensure the step is set to run on the **docker-server** role (targeting the Docker host we created earlier)
 2. Set the *Name* to **Custom Network**. *This name will be referenced later on in subsequent steps that will link the containers to the created network.*
