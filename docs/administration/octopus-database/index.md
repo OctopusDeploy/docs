@@ -1,7 +1,7 @@
 ---
 title: Octopus database
 description: Octopus uses a Microsoft SQL Server database to store environments, projects, variables, releases and deployment history.
-position: 4
+position: 400
 ---
 
 To store environments, projects, variables, releases and deployment history, Octopus Deploy uses a Microsoft SQL Server database.

@@ -1,7 +1,7 @@
 ---
 title: Script Modules
 description: Script modules allow users to create Powershell functions or Cmdlets that could later on be used in deployment processes across multiple projects. 
-position: 7
+position: 700
 ---
 
 Script modules allow users to create *Powershell functions*or *Cmdlets* that could later on be used in deployment processes across multiple projects. You can think of them as regular Powershell Modules that will get loaded at deploy time.
