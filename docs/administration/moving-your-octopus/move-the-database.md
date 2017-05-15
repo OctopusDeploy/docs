@@ -9,7 +9,7 @@ This page outlines our recommended steps to move your SQL database to another se
 ## Step-by-step Process
 1. Place your Octopus instance into Maintenance Mode and stop the service when all deployments have completed. You can stop the service via the Octopus Manager, or via the command line using the following command.
 `Octopus.Server.exe service --stop`
-2. Ensure you have saved a copy of your [master key](/docs/reference/security-and-encryption#Securityandencryption-YourMasterKey).
+2. Ensure you have saved a copy of your [master key](/docs/reference/security-and-encryption.md#Securityandencryption-YourMasterKey).
 3. Take a backup of your Octopus database.
 4. Restore the database on your new server.
 5. On your original Octopus server, run the following command to update the connection string (where "VALUE" is your connection string).
@@ -17,7 +17,7 @@ This page outlines our recommended steps to move your SQL database to another se
 `Octopus.Server.exe configure --storageConnectionString="VALUE"`
 
 :::hint
-Ensure the user specified in the connection string has access to the database as a **dbo_owner**. Refer to our [SQL server database requirements](/docs/installation/installing-octopus/sql-server-database-requirements) documentation page.
+Ensure the user specified in the connection string has access to the database as a **dbo_owner**. Refer to our [SQL server database requirements](/docs/installation/installing-octopus/sql-server-database-requirements.md) documentation page.
 :::
 
 :::hint
