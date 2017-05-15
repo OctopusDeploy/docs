@@ -1,7 +1,7 @@
 ---
 title: Upgrading
 description: Everything you need to know about upgrade Octopus to a newer version.
-position: 8
+position: 800
 ---
 
 We release new versions of Octopus Deploy often, so we try to make the process of upgrading your Octopus server easy. This page outlines the process of upgrading between Octopus versions.

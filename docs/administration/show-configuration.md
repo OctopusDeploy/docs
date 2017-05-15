@@ -1,7 +1,7 @@
 ---
 title: Show Configuration
 description: The Octopus Server show configuration command is used to export Octopus Deploy's current configuration for use with configuration management tools such as Chef, Puppet or Desired State Configuration (DSC).
-position: 17
+position: 1700
 ---
 
 :::hint
