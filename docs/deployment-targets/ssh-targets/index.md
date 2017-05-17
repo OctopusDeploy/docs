@@ -22,7 +22,7 @@ The great thing about this approach is that by using effectively the same Calama
 
 We support any Unix-like OSthat can run mono, and we currently run automated tests against the following platforms:
 
-- Centos 7.2 + Mono 4.4.2
+- Centos 7.3 + Mono 4.4.2
 - Debian 8.4 + Mono 4.4.2
 - Fedora 23 + Mono 4.4.2
 - FreeBSD 10.3 + Mono 4.6.2
