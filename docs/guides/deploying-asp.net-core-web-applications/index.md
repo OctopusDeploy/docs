@@ -34,7 +34,7 @@ When running under IIS, ensure the .NET CLR Version is set to `No Managed Code`
 
 ## Antiforgery Cookie
 
-The `.AspNetCore.Antiforgery` cookie created by ASP.NET Core uses the application path to generate it's hash. By default Octopus will deploy to a new path every time, which causes a new cookie to be set every deploy, resulting in many unneeded cookies in the browser. See this [blog post](http://blog.novanet.no/a-pile-of-anti-forgery-cookies/) for more details. To change this behaviour, set the Antiforgery token in your `startup.cs` like this:
+The `.AspNetCore.Antiforgery` cookie created by ASP.NET Core uses the application path to generate it's hash. By default Octopus will deploy to a new path every time, which causes a new cookie to be set every deploy. This results in many unneeded cookies in the browser. See this [blog post](http://blog.novanet.no/a-pile-of-anti-forgery-cookies/) for more details. To change this behavior, set the Antiforgery token in your `startup.cs` like this:
 
 ```
 public void ConfigureServices(IServiceCollection services)  
