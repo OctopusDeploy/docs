@@ -123,11 +123,14 @@ Where [<options>] is any of:
       --xFrameOptionAllowFrom=VALUE
                              A uri to provide in the X-Frame-Option http
                                header in conjunction with the ALLOW-FROM value.
-      --hstsEnabled=VALUE    Enables the max-age value of the Strict-
-                               Transport-Security (HSTS) header.
-      --hstsMaxAge=VALUE     Sets the max-age value of the Strict-Transport-
-                               Security (HSTS) header. Defaults to 1 year
-                               (31556926 seconds).
+      --hstsEnabled=VALUE    Enables or disables sending the Strict-Transport-
+                               Security (HSTS) header. Defaults to false.
+      --hstsMaxAge=VALUE     Sets the max-age value (in seconds) of the
+                               Strict-Transport-Security (HSTS) header.
+                               Defaults to 1 year (31556926 seconds).
+      --webContentSecurityPolicyEnabled=VALUE
+                             Enables or disables sending the Content-Security-
+                               Policy header. Defaults to true.
       --autoLoginEnabled=VALUE
                              Enable/disable automatic user login.
       --webReferrerPolicy=VALUE
