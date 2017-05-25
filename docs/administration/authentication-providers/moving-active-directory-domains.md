@@ -6,7 +6,7 @@ position: 5
 
 This page describes the steps and considerations to move your Octopus Server from one Active Directory domain to another.  
 
-# Steps
+## Steps
 
 We assume your Octopus Server and users are currently in the same domain - `Domain A`.  It's also assumed that your users will remain in `Domain A`.
 
