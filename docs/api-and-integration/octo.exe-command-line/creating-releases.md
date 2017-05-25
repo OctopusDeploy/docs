@@ -38,8 +38,7 @@ Release creation:
                              Omit this argument to automatically select the 
                              best channel.
       --package=StepName     [Optional] Version number to use for a package 
-                             in the release. Format: --
-                             package=StepName:Version
+                             in the release. Format: --package=StepNameOrPackageId:Version
       --packagesFolder=VALUE [Optional] A folder containing NuGet packages 
                              from which we should get versions.
       --releasenotes=VALUE   [Optional] Release Notes for the new release.
