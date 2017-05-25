@@ -164,11 +164,11 @@ octo create-release --project HelloWorld --version 1.0.3 --server http://octopus
 
 For each step that has a package, the version is determined in the following order:
 
- 1. The step name matches a --packageVersion parameter or a file filename found by --packagesFolder
- 1. The package id matches a --packageVersion parameter or a file found by --packagesFolder
- 1. The value from the --package parameter
+ 1. The step name matches a `--package` parameter or a file filename found by `--packagesFolder`
+ 1. The package id matches a `--package` parameter or a file found by `--packagesFolder`
+ 1. The value from the ` --defaultpackageversion` or `--packageversion` parameter
 
- If there are duplicate names/ids as a result of the --packageVersion and --packagesFolder parameters, the last one specified is used.
+ If there are duplicate names/ids resulting from the `--package` and `--packagesFolder` parameters, the last one specified is used.
 
 ### Option --packageVersion
 This will create a release *(1.0.3)* with a specified NuGet package version *(1.0.1)*:
