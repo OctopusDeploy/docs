@@ -18,7 +18,7 @@ If needed, you can update the account the Octopus Server windows service is runn
 
 ---
 
-That should be it.  Assuming your users' email address, SAMAccountName or UPN do not change, then they should be able to login normally.
+Assuming your users' email address, SAMAccountName or UPN do not change, then they should now be able to login normally.
 
 ## Notes: 
 
