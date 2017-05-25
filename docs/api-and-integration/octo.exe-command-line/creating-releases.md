@@ -37,7 +37,7 @@ Release creation:
       --channel=VALUE        [Optional] Channel to use for the new release. 
                              Omit this argument to automatically select the 
                              best channel.
-      --package=StepName     [Optional] Version number to use for a package 
+      --package=StepName     [Optional] Version number to use for a step or package 
                              in the release. Format: --package=StepNameOrPackageId:Version
       --packagesFolder=VALUE [Optional] A folder containing NuGet packages 
                              from which we should get versions.
