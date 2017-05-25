@@ -37,9 +37,8 @@ Release creation:
       --channel=VALUE        [Optional] Channel to use for the new release. 
                              Omit this argument to automatically select the 
                              best channel.
-      --package=StepName     [Optional] Version number to use for a package 
-                             in the release. Format: --
-                             package=StepName:Version
+      --package=StepName     [Optional] Version number to use for a step or package 
+                             in the release. Format: --package=StepNameOrPackageId:Version
       --packagesFolder=VALUE [Optional] A folder containing NuGet packages 
                              from which we should get versions.
       --releasenotes=VALUE   [Optional] Release Notes for the new release.
@@ -164,11 +163,11 @@ octo create-release --project HelloWorld --version 1.0.3 --server http://octopus
 
 For each step that has a package, the version is determined in the following order:
 
- 1. The step name matches a --packageVersion parameter or a file filename found by --packagesFolder
- 1. The package id matches a --packageVersion parameter or a file found by --packagesFolder
- 1. The value from the --package parameter
+ 1. The step name matches a `--package` parameter or a file filename found by `--packagesFolder`
+ 1. The package id matches a `--package` parameter or a file found by `--packagesFolder`
+ 1. The value from the ` --defaultpackageversion` or `--packageversion` parameter
 
- If there are duplicate names/ids as a result of the --packageVersion and --packagesFolder parameters, the last one specified is used.
+ If there are duplicate names/ids resulting from the `--package` and `--packagesFolder` parameters, the last one specified is used.
 
 ### Option --packageVersion
 This will create a release *(1.0.3)* with a specified NuGet package version *(1.0.1)*:
