@@ -185,7 +185,7 @@ On your VSTS dashboard, click the `+` icon to add a new widget, then search for 
 
 Hover over the widget and click the wrench icon to configure the widget.
 
-Select an Octopus Deploy connection (see the [Add a Connection](#Add-a-Connection-to-Octopus-Deploy) section for details), a Project, and an Environment.
+Select an Octopus Deploy connection (see the [Add a Connection](#add-a-connection-to-octopus-deploy) section for details), a Project, and an Environment.
 
 ![](widget-setup-preview.jpg)
 
