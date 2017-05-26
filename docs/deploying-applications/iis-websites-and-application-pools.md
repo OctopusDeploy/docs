@@ -6,9 +6,9 @@ position: 6
 
 Configuring IIS is an essential part of deploying any ASP.NET web application. Octopus has built-in support for configuring IIS Web Sites, Applications and Virtual Directories.
 
-To deploy an IIS Web Site, add a *Deploy an IIS Web Site* step. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/adding-steps.md) section.
+To deploy an IIS, add a *Deploy to IIS* step. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/adding-steps.md) section.
 
-![](/docs/images/5671696/5865907.png "width=170")
+![](iis-step.png "width=170")
 
 :::hint
 **Pre Octopus 3.4.7**
@@ -25,9 +25,9 @@ Use the *Package Feed* and *Package ID* fields to select the [package](/docs/pa
 
 There are three options for how the Web Site is deployed:
 
-- [Web Site](/docs/deploying-applications/iis-websites-and-application-pools.md)
-- [Virtual Directory](/docs/deploying-applications/iis-websites-and-application-pools.md)
-- [Web Application](/docs/deploying-applications/iis-websites-and-application-pools.md)
+- [Web Site](/docs/deploying-applications/iis-websites-and-application-pools.md#IISWebsitesandApplicationPools-DeployIISWebSiteweb-site)
+- [Virtual Directory](/docs/deploying-applications/iis-websites-and-application-pools.md#IISWebsitesandApplicationPools-DeployIISVirtualDirectoryvirtual-directory)
+- [Web Application](/docs/deploying-applications/iis-websites-and-application-pools.md#IISWebsitesandApplicationPools-DeployIISWebApplicationweb-application)
 
 :::success
 Understanding the difference between Sites, Applications and Virtual Directories is important to understand how to use the IIS Websites and Application Pools features in Octopus. Learn more about [Sites, Applications and Virtual Directories in IIS](https://www.iis.net/learn/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis).
