@@ -6,7 +6,7 @@ position: 6
 
 Configuring IIS is an essential part of deploying any ASP.NET web application. Octopus has built-in support for configuring IIS Web Sites, Applications and Virtual Directories.
 
-To deploy an IIS, add a *Deploy to IIS* step. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/adding-steps.md) section.
+To deploy to IIS, add a *Deploy to IIS* step. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/adding-steps.md) section.
 
 ![](iis-step.png "width=170")
 
