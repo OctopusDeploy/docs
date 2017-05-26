@@ -1,3 +1,9 @@
+---
+title: Bamboo
+description: Octopus Deploy and Bamboo can work together to make automated, continuous delivery easy.
+position: 0
+---
+
 The Octopus Deploy add-on for Bamboo allows packages to be uploaded to an Octopus Deploy server, as well as creating, deploying and promoting releases to your Octopus Deploy [environments](https://octopus.com/docs/key-concepts/environments). The add-on does this by running the [Octopus Deploy Command Line tool](https://octopus.com/docs/api-and-integration/octo.exe-command-line).
 
 # Getting Started
@@ -89,7 +95,7 @@ Although this field is optional, it is highly recommended that the release numbe
 
 The `Environment(s)` field defines the [Octopus Deploy environments](https://octopus.com/docs/key-concepts#KeyConcepts-Environments,machinesandroles) that the new release is to be deployed to.
 
-It is recommended that this field be left blank, because the `Ignore existing releases` option needs to be enabled to allow builds to be rebuilt, 
+It is recommended that this field be left blank, because the `Ignore existing releases` option needs to be enabled to allow builds to be rebuilt,
 and if the environment already exists and the `Ignore existing releases` option is enabled no deployments will take place. We'll use a dedicated
 step to handle deployments.
 
@@ -127,8 +133,9 @@ Releases can be promoted to new environments with the `Octopus Deploy: Promote R
 
 This steps runs the [promote-release command](https://octopus.com/docs/api-and-integration/octo.exe-command-line/promoting-releases) on the command line tool.
 
-#### WARNING!
+:::warning
 Because the promotion from one environment to another is not tied to any particular release number, adding this task to a Bamboo build plan means every time the plan is run (or more importantly rerun), releases will be promoted between environments. This is almost certainly not the desired result, and so it is not recommended that promotions be done as part of a Bamboo build plan.
+:::
 
 ### Project
 
@@ -169,7 +176,7 @@ The `Enable debug logging` option is used to enable detailed logging from the co
 #### Additional command line arguments
 
 The `Additional command line arguments` field is used to specify additional arguments to pass to the command line tool.
-You can find more information on the arguments accepted by the command line tool at the 
+You can find more information on the arguments accepted by the command line tool at the
 [Octo.exe Command Line](https://octopus.com/docs/api-and-integration/octo.exe-command-line) page.
 
 # Using Bamboo Deployment Plans
