@@ -67,7 +67,7 @@ The `Force overwrite existing packages` option can be selected to allow existing
 
 Tick this option, as it allows a build to be rebuilt and the new package to be pushed again without error.
 
-![Push Package](https://github.com/OctopusDeploy/Octopus-Bamboo/blob/master/docs/PushPackage.PNG?raw=true)
+![Push Package](PushPackage.PNG)
 
 ## 4. Create a Release
 
@@ -99,7 +99,7 @@ The `Ignore existing releases` option can be selected to skip the create release
 
 Tick this option, as it allows builds to be rebuilt. Otherwise rebuilds will attempt to recreate an existing environment and the step will fail.
 
-![Create Release](https://github.com/OctopusDeploy/Octopus-Bamboo/blob/master/docs/CreateRelease.PNG?raw=true)
+![Create Release](CreateRelease.PNG)
 
 ## 5. Deploy a Release
 
@@ -119,7 +119,7 @@ The `Environment(s)` field defines the [Octopus Deploy environments](https://oct
 
 The `Release Number` field defines the release version number to deploy.
 
-![Deploy Release](https://github.com/OctopusDeploy/Octopus-Bamboo/blob/master/docs/DeployRelease.PNG?raw=true)
+![Deploy Release](DeployRelease.PNG)
 
 ## (Optional, and not recommended) Promote a Release
 
@@ -160,7 +160,7 @@ The `Octopus CLI` field references a [Bamboo capability](https://confluence.atla
 
 Click the `Add new executable` link to specify the location of the command line tool. The `Executable label` can be anything you want, and the `Path` is the full path to the command line tool executable file.
 
-![Add new executable](https://github.com/OctopusDeploy/Octopus-Bamboo/blob/master/docs/Executable.PNG?raw=true)
+![Add new executable](Executable.PNG)
 
 #### Enable debug logging
 
