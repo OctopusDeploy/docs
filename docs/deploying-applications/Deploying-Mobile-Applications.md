@@ -17,7 +17,7 @@ On our community library, we have a step template [HockeyApp - Upload Mobile App
 This template will let you push your app to the HockeyApp service and define the required HockeyApp parameters.
 
 
-## Using fastlane to deploy uour apps for testing/distribution 
+## Using fastlane to deploy your apps for testing/distribution 
 
 The next option we can suggest looking into is Fastlane. This solution involves packaging and pushing your mobile apps to Octopus and then using fastlane to submit/deploy them to Apple/Google. You can read more about this at https://fastlane.tools/
 
