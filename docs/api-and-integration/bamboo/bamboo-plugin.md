@@ -25,20 +25,18 @@ TODO: Include some instructions about finding the Octopus Deploy add-on here (i.
 There are a number of typical steps that are required to push a package to Octopus Deploy and deploy a release:
 
 1. Build the application with Bamboo.
-2. Create an archive with a tool like tar or 7zip complying with the Octopus Deploy [versioning requirements](https://octopus.com/docs/packaging-applications/versioning-in-octopus-deploy).
+2. Create an package that contains the application files.
 3. Push the package to Octopus Deploy.
 4. Create a release in Octopus Deploy.
 5. Deploy a release with Octopus Deploy.
 
-Let's take a look at the steps that you could use to push a Java WAR file built with Maven to Octopus Deploy.
-
 ## 1. Build the Application
-We'll assume that there is already a Bamboo build plan in place that produces a WAR file using Maven. The [Bamboo Documentation](https://confluence.atlassian.com/bamboo/maven-289277038.html) describes how this is done.
+We'll assume that there is already a Bamboo build plan in place that successfully builds an application.
 
 ## 2. Create the Package
-With the WAR file built, we need to add it to an archive that complies with the Octopus Deploy [versioning requirements](https://octopus.com/docs/packaging-applications/versioning-in-octopus-deploy). In this example we will stick to a simple `AppName.Major.Minor.Patch` semver format.
+With the application built, we need to add it to an archive that complies with the Octopus Deploy [versioning requirements](https://octopus.com/docs/packaging-applications/versioning-in-octopus-deploy). In this example we will stick to a simple `AppName.Major.Minor.Patch` semver format.
 
-Pushing the package to Octopus Deploy is done with the `Octopus Deploy: Pack Packages` task. In addition to the [common configuration fields](#commonConfiguration), this task requires the name of the package, the version number of the package, the base folder containing the files to be packaged, paths to be included in the package, and overwriting any existing package files.
+Creating the package is done with the `Octopus Deploy: Pack Packages` task. In addition to the [common configuration fields](#commonConfiguration), this task requires the name of the package, the type of package to create, the version number of the package, the base folder containing the files to be packaged, paths to be included in the package, and enabling any existing package files to be overwritten.
 
 This steps runs the [pack command](https://octopus.com/docs/packaging-applications/nuget-packages/using-octo.exe) on the command line tool.
 
@@ -49,17 +47,33 @@ The `Package ID` field defines the name or ID of the package to be created. In t
 
 The `Version number` fields defines the version of the package to create. This field is optional, but it is highly recommended that the version be generated from the Bamboo build number. We will set the version to `0.0.${bamboo.buildNumber}`.
 
+### Package format
+
+The `Package format` options allow you to build either a ZIP or a NUGET file. ZIP is the recommended format.
+
 ### Package base folder
 
-The `Package base folder` option defines the base folder that contains the files that are to be packed up. Because this is a Maven project, the WAR file that we want to pack up is located in `${bamboo.build.working.directory}/target`.
+The `Package base folder` option defines the base folder that contains the files that are to be packed up.
+
+For a Java application built by Maven, the files that we want to pack up are located in `${bamboo.build.working.directory}/target`.
+
+For a Java application built by Gradle, the files that we want to pack up are located in `${bamboo.build.working.directory}/build/libs`.
+
+For a .NET application the files will typically be found under a folder like `${bamboo.build.working.directory}/myapplication/bin/Release/netcoreapp1.1`.
 
 ### Package include paths
 
-The `Package include paths` field lists the files that are to be packed into the package. We only want the WAR file, so we set this field to `*.war`.
+The `Package include paths` field lists the files that are to be packed into the package.
+
+For a Java web application you would typically pack the WAR file, which can be included with the path `*.war`.
+
+For .NET applications you may be packing the DLL files, which can be included with the path `*.dll`.
 
 ### Overwrite existing package
 
 Selecting the `Overwrite existing package` option means that any existing local packages will be overwritten. It is useful to select this option because it means that packages can be repacked without error if the Bamboo build plan is rerun.
+
+![Create a package](create-package.png)
 
 ## 3. Push the Packages
 
@@ -69,9 +83,9 @@ This step runs the [push command](https://octopus.com/docs/api-and-integration/o
 
 ### Package paths
 
-The `Package paths` field defines the [Ant paths](https://ant.apache.org/manual/dirtasks.html) that are used to match packages to be pushed to Octopus Deploy. The Ant path `**/*${bamboo.buildNumber}.tar.gz` mathes the gzip file created with `tar`, while the path `**/*${bamboo.buildNumber}.zip` matches the zip file created with `7z`.
+The `Package paths` field defines the [Ant paths](https://ant.apache.org/manual/dirtasks.html) that are used to match packages to be pushed to Octopus Deploy. The Ant path `**/*${bamboo.buildNumber}.zip` mathes the zip file created with during the previous step.
 
-Note that it is recommended that the package paths defined here are specific to the build. While the Ant paths `**/*.tar.gz` and `**/*.zip` do match the packages, they also match any old packages that might have been created in previous builds and not cleaned up. This means these less specific paths can result in old packages being uploaded, which is usually not the desired result.
+Note that it is recommended that the package paths defined here are specific to the build. While the Ant paths `**/*.zip` does match the package, they also match any old packages that might have been created in previous builds and not cleaned up. This means these less specific paths can result in old packages being uploaded, which is usually not the desired result.
 
 ### Force overwrite existing packages
 
@@ -79,7 +93,7 @@ The `Force overwrite existing packages` option can be selected to allow existing
 
 Tick this option, as it allows a build to be rebuilt and the new package to be pushed again without error.
 
-![Push Package](PushPackage.PNG)
+![Push Package](push-package.PNG)
 
 ## 4. Create a Release
 
@@ -111,7 +125,7 @@ The `Ignore existing releases` option can be selected to skip the create release
 
 Tick this option, as it allows builds to be rebuilt. Otherwise rebuilds will attempt to recreate an existing environment and the step will fail.
 
-![Create Release](CreateRelease.PNG)
+![Create Release](create-release.PNG)
 
 ## 5. Deploy a Release
 
@@ -131,7 +145,7 @@ The `Environment(s)` field defines the [Octopus Deploy environments](https://oct
 
 The `Release Number` field defines the release version number to deploy.
 
-![Deploy Release](DeployRelease.PNG)
+![Deploy Release](deploy-release.PNG)
 
 ## (Optional, and not recommended) Promote a Release
 
@@ -173,7 +187,7 @@ The `Octopus CLI` field references a [Bamboo capability](https://confluence.atla
 
 Click the `Add new executable` link to specify the location of the command line tool. The `Executable label` can be anything you want, and the `Path` is the full path to the command line tool executable file.
 
-![Add new executable](Executable.PNG)
+![Add new executable](executable.PNG)
 
 #### Enable debug logging
 
