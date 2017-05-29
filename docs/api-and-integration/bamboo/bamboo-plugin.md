@@ -25,7 +25,7 @@ TODO: Include some instructions about finding the Octopus Deploy add-on here (i.
 There are a number of typical steps that are required to push a package to Octopus Deploy and deploy a release:
 
 1. Build the application with Bamboo.
-2. Create an package that contains the application files.
+2. Create a package that contains the application files.
 3. Push the package to Octopus Deploy.
 4. Create a release in Octopus Deploy.
 5. Deploy a release with Octopus Deploy.
@@ -55,9 +55,9 @@ The `Package format` options allow you to build either a ZIP or a NUGET file. ZI
 
 The `Package base folder` option defines the base folder that contains the files that are to be packed up.
 
-For a Java application built by Maven, the files that we want to pack up are located in `${bamboo.build.working.directory}/target`.
+For a Java application built by Maven, the files will typically be found under the folder `${bamboo.build.working.directory}/target`.
 
-For a Java application built by Gradle, the files that we want to pack up are located in `${bamboo.build.working.directory}/build/libs`.
+For a Java application built by Gradle, the files will typically be found under the folder `${bamboo.build.working.directory}/build/libs`.
 
 For a .NET application the files will typically be found under a folder like `${bamboo.build.working.directory}/myapplication/bin/Release/netcoreapp1.1`.
 
@@ -67,7 +67,7 @@ The `Package include paths` field lists the files that are to be packed into the
 
 For a Java web application you would typically pack the WAR file, which can be included with the path `*.war`.
 
-For .NET applications you may be packing the DLL files, which can be included with the path `*.dll`.
+For .NET applications you would typically be packing the DLL files, which can be included with the path `*.dll`.
 
 ### Overwrite existing package
 
@@ -85,7 +85,9 @@ This step runs the [push command](https://octopus.com/docs/api-and-integration/o
 
 The `Package paths` field defines the [Ant paths](https://ant.apache.org/manual/dirtasks.html) that are used to match packages to be pushed to Octopus Deploy. The Ant path `**/*${bamboo.buildNumber}.zip` mathes the zip file created with during the previous step.
 
-Note that it is recommended that the package paths defined here are specific to the build. While the Ant paths `**/*.zip` does match the package, they also match any old packages that might have been created in previous builds and not cleaned up. This means these less specific paths can result in old packages being uploaded, which is usually not the desired result.
+:::hint
+Note that it is recommended that the package paths defined here are specific to the build. While the Ant path `**/*.zip` does match the package, it also match any old packages that might have been created in previous builds and not cleaned up. This means these less specific paths can result in old packages being uploaded, which is usually not the desired result.
+:::
 
 ### Force overwrite existing packages
 
@@ -143,7 +145,7 @@ The `Environment(s)` field defines the [Octopus Deploy environments](https://oct
 
 ### Release number
 
-The `Release Number` field defines the release version number to deploy.
+The `Release Number` field defines the release version number to deploy. This should match the release number from the create release step i.e. `0.0.${bamboo.buildNumber}`.
 
 ![Deploy Release](deploy-release.PNG)
 
