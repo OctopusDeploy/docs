@@ -6,7 +6,7 @@ position: 0
 
 ## Deploying mobile applications to iOS/Android.
 
-We often get asked how you can use Octopus to deploy your iOS/Android applications. While we do not currentlly have `Out Of Box` support for iOS/Android apps, we can provide some pointers and recomendations that we have heard from our customers. Generally, its recomended to deploy iOS/Android apps to Apple/Google for review and deploy any supporting web services/databases/infrastructure at the same time. This co-ordination is the key value of using Octopus to version your releases and deploy your mobile app.
+We often get asked how you can use Octopus to deploy your iOS/Android applications. While we do not currentlly have `Out Of Box` support for iOS/Android apps, we can provide some pointers and recommendations that we have heard from our customers. Generally, its recommended to deploy iOS/Android apps to Apple/Google for review and deploy any supporting web services/databases/infrastructure at the same time. This co-ordination is the key value of using Octopus to version your releases and deploy your mobile app.
 
 
 ## Using HockeyApp to deploy your apps for testing/distribution.
