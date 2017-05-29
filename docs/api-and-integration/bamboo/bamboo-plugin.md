@@ -38,22 +38,28 @@ We'll assume that there is already a Bamboo build plan in place that produces a 
 ## 2. Create the Package
 With the WAR file built, we need to add it to an archive that complies with the Octopus Deploy [versioning requirements](https://octopus.com/docs/packaging-applications/versioning-in-octopus-deploy). In this example we will stick to a simple `AppName.Major.Minor.Patch` semver format.
 
-Creating the archive is done with a [Bamboo Script task](https://confluence.atlassian.com/bamboo/script-289277046.html) that calls an archive tool to generate an appropriately named archive file. Octopus Deploy supports a number of package types; see [Supported Packages in Octopus Deploy](https://octopus.com/docs/packaging-applications/supported-packages) for more information.
+Pushing the package to Octopus Deploy is done with the `Octopus Deploy: Pack Packages` task. In addition to the [common configuration fields](#commonConfiguration), this task requires the name of the package, the version number of the package, the base folder containing the files to be packaged, paths to be included in the package, and overwriting any existing package files.
 
-For Bamboo build agents hosted on a Linux server, the script body can call `tar` to create the archive. Note that we first enter the `target` directory and then create the archive. This is required to ensure the resulting gzip file does not include the `target` directory, just the WAR file.
+This steps runs the [pack command](https://octopus.com/docs/packaging-applications/nuget-packages/using-octo.exe) on the command line tool.
 
-```
-cd target
-tar -czf ../myapplication.0.0.${bamboo.buildNumber}.tar.gz *.war
-```
+### Package ID
+The `Package ID` field defines the name or ID of the package to be created. In this example we will use the ID `myapplication`.
 
-For Bamboo build agents hosted on a Windows server, you may want to use a tool like [7Zip](http://www.7-zip.org/download.html) to build the archive, in which case the following command can be used. Note the leading `./` before the path to the WAR file is significant, as it removes the `target` directory from the resulting zip file. See [this discussion](https://stackoverflow.com/questions/10753667/compressing-only-files-using-7z-without-preserving-the-path) on StackOverflow for more information.
+### Version number
 
-```
-"C:\Program Files\7-Zip\7z.exe" a -tzip myapplication.0.0.%bamboo_buildNumber%.zip ./target/*.war
-```
+The `Version number` fields defines the version of the package to create. This field is optional, but it is highly recommended that the version be generated from the Bamboo build number. We will set the version to `0.0.${bamboo.buildNumber}`.
 
-In both cases we have used the variable `bamboo.buildNumber` to generate a package whose filename includes the build number as the semver patch version e.g. `myapplication.0.0.23.tar.gz`. It is highly recommended that all packages and releases across Bamboo and Octopus Deploy reference a unique version tied to a specific build to make management and auditing easier.
+### Package base folder
+
+The `Package base folder` option defines the base folder that contains the files that are to be packed up. Because this is a Maven project, the WAR file that we want to pack up is located in `${bamboo.build.working.directory}/target`.
+
+### Package include paths
+
+The `Package include paths` field lists the files that are to be packed into the package. We only want the WAR file, so we set this field to `*.war`.
+
+### Overwrite existing package
+
+Selecting the `Overwrite existing package` option means that any existing local packages will be overwritten. It is useful to select this option because it means that packages can be repacked without error if the Bamboo build plan is rerun.
 
 ## 3. Push the Packages
 
@@ -232,6 +238,12 @@ running command line: \n/opt/octocli/Octo push --server http://localhost --apiKe
 
 This is the command that was run to perform the actual interaction with the Octopus Deploy server, with the exception of the
 redacted API key. You can take this command and run it manually to help diagnose any issues.
+
+## Bamboo Variables
+
+A number of the Bamboo step fields in this document have used Bamboo variables to reference build numbers and local paths.
+
+You can find a list of variables exposed by Bamboo at the [Bamboo Variables](https://confluence.atlassian.com/bamboo/bamboo-variables-289277087.html) page.
 
 # Error Codes
 
