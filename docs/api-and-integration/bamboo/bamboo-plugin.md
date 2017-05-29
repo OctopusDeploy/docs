@@ -40,6 +40,10 @@ Creating the package is done with the `Octopus Deploy: Pack Packages` task. In a
 
 This steps runs the [pack command](https://octopus.com/docs/packaging-applications/nuget-packages/using-octo.exe) on the command line tool.
 
+:::hint
+If you are building .NET applications on an instance of Bamboo hosted on Windows, you may prefer to use [OctoPack](https://octopus.com/docs/packaging-applications/nuget-packages/using-octopack) to build a package instead of manually packaging the application with the `Octopus Deploy: Pack Packages` task.
+:::
+
 ### Package ID
 The `Package ID` field defines the name or ID of the package to be created. In this example we will use the ID `myapplication`.
 
