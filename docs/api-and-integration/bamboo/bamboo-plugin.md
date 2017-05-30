@@ -71,7 +71,7 @@ The `Package include paths` field lists the files that are to be packed into the
 
 For a Java web application you would typically pack the WAR file, which can be included with the path `*.war`.
 
-For .NET applications you would typically be packing the DLL files, which can be included with the path `*.dll`.
+For .NET applications you would typically be packing all application files like executables, config files and DLLs so leave this blank unless you wish to specify a specific set of files.
 
 ### Overwrite existing package
 
