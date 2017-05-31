@@ -28,11 +28,9 @@ The use of a variable means that you can scope different values to different env
 
 The purge option will remove all files from within your directory after the package is extracted, and before your extracted files are moved to your custom installation directory.
 
-In Octopus 3.13.8, we introduced an enhancement to the *purge* option, which allows you to specify exclusions to what will be purged purged. Files and directory names can be specified to the exclusion list.
+Octopus 3.13.8 introduced an enhancement to the *purge* option, which allows you to specify exclusions to what will be purged. Files and directory names can be specified to the exclusion list, being newline-separated.
 
 ![exclude files and folders during purge](purging_exclusion_rules.png)
-
-You will see in your deployment logs that your package is extracted, and before the extracted files are moved to your custom installation directory, everything is purged except for your defined exlusions.
 
 Our Packages are extracted into a new directory each time (along the lines of C:\Octopus\Applications\[Environment name]\[Package name]\[Package version]\) , and this is no different for Custom Installation Directory.
 
