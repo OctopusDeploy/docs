@@ -28,7 +28,7 @@ The use of a variable means that you can scope different values to different env
 
 The purge option will remove all files from within your directory after the package is extracted, and before your extracted files are moved to your custom installation directory.
 
-In Octopus 3.13.8, we introduced an enhancement to the *purge* option, which allows you to specify exclusions to what is purged. Files and directory names can be specified to the exclusion list.
+In Octopus 3.13.8, we introduced an enhancement to the *purge* option, which allows you to specify exclusions to what will be purged purged. Files and directory names can be specified to the exclusion list.
 
 ![exclude files and folders during purge](purging_exclusion_rules.png)
 
