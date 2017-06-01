@@ -8,7 +8,7 @@ When planning your Octopus installation, you will need to decide how to host you
 
 :::hint
 **Supported package and repository types**
-The Octopus built-in repository [supports several different types of packages](/docs/packaging-applications/supported-packages.md). If you would like to use a package type other than NuGet (zip or tag.gz for example) you must use the Octopus built-in repository.
+The Octopus built-in repository [supports several different types of packages](/docs/packaging-applications/supported-packages.md). If you would like to use a package type other than NuGet (zip or tar.gz for example) you must use the Octopus built-in repository.
 
 If you would like to use an external repository, two types of external repositories are supported:
 
