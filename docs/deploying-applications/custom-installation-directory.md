@@ -33,7 +33,7 @@ Octopus 3.13.8 introduced an enhancement to the *purge* option, which allows you
 ![exclude files and folders during purge](purging_exclusion_rules.png)
 
 :::hint
-Wildcards are supported in the same way as in [configuration transforms](https://octopus.com/docs/deploying-applications/configuration-files#Configurationfiles-Relativepath).
+Extended Wildcard syntax is supported in the same way as in [configuration transforms](https://octopus.com/docs/deploying-applications/configuration-files#Configurationfiles-Relativepath).
 :::
 
 Our Packages are extracted into a new directory each time (along the lines of C:\Octopus\Applications\[Environment name]\[Package name]\[Package version]\) , and this is no different for Custom Installation Directory.
