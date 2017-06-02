@@ -8,7 +8,7 @@ Rolling deployments are a pattern whereby, instead of deploying a package to all
 
 Normally, when executing a deployment process with multiple steps, Octopus runs all of the steps **sequentially**; it waits for the first step to finish before starting the second, and so on.
 
-![](/docs/images/3702851/3964945.png "width=500")
+![](NormalDeployment.png "width=500")
 
 NuGet package steps and [PowerShell steps](/docs/deploying-applications/custom-scripts/index.md), however, target roles, which may contain multiple deployment targets. When a single step targets multiple machines, the step is run on those machines **in parallel**. So to recap:
 
@@ -21,11 +21,11 @@ However, sometimes this isn't desired. If you are deploying to a farm of 10 web 
 
 Rolling deployments can be configured on a PowerShell or NuGet package step by clicking **Configure a rolling deployment**.
 
-![](/docs/images/3702851/3964944.png "width=500")
+![](RollingDeployments02.png "width=500")
 
 When configuring a rolling deployment, you specify a **window size**.
 
-![](/docs/images/3702851/3964943.png "width=500")
+![](RollingDeployments03.png "width=500")
 
 The window size controls how many deployment targets can be deployed to at once.
 
@@ -38,28 +38,29 @@ Rolling deployments allow you to wait for a step to finish on one deployment tar
 
 First, open the menu for an existing step, and click **Add Child Step**.
 
-![](/docs/images/3702851/3964942.png "width=500")
+![](RollingDeployments04.png "width=500")
 
-Octopus 3.3 and newer support the following child steps.
+Octopus has numerous steps that support rolling deployments depending on your install version including:
 
-- NuGet package step
-- Script step
-- Octopus Server Script step
-- Azure Powershell script step
-- Email step
-- Manual Intervention step
+- Deploy to IIS step
+- Deploy a Windows Service step
+- Deploy a package step
+- Run a Script
+- Send an Email step
+- Manual intervention required step
+- Run an Azure PowerShell Script step
+- Deploy an Azure Resource Group step
+- Run a Service Fabric SDK PowerShell Script step 
 
-Prior versions of Octopus support NuGet package and Script child steps.
+![](RollingDeployments05.png "width=500")
 
-![](/docs/images/3702851/3964960.png "width=500")
+After adding a child step, the deployment process will now show the step as containing multiple actions:
 
-After adding the child step, the deployment process will now show the step as containing multiple actions:
-
-![](/docs/images/3702851/3964940.png "width=500")
+![](RollingDeployments01.png "width=500")
 
 All child steps run on the same machine at the same time, and you can add more than one child step. You can also change the order that the steps are executed in using the **Reorder steps** link.
 
-![](/docs/images/3702851/3964939.png "width=500")
+![](RollingDeployments06.png "width=500")
 
 You can edit the parent step to change the roles that the steps run on or the window size.
 
