@@ -92,6 +92,8 @@ The account that you use requires, at a minimum:
 - Read/Write permissions to the Tentacle "Home directory" that you selected when Tentacle was installed (typically, **C:\Octopus**)
 - Rights to manage Windows Services (start/stop) - [learn more](https://social.technet.microsoft.com/wiki/contents/articles/5752.how-to-grant-users-rights-to-manage-services-start-stop-etc.aspx)
 
+Please be aware that to perform automatic Tentacle updates you need an account with [extra permissions](/docs/key-concepts/environments/machine-policies.md#MachinePolicies-TentacleUpdateAccount).
+
 In addition, since you are probably using Tentacle to install software, you'll need to make sure that the service account has permissions to actually install your software. This totally depends on your applications, but it might mean:
 
 - Permissions to modify IIS (C:\Windows\system32\inetsrv)
