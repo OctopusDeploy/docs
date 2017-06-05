@@ -86,10 +86,11 @@ By default, the Tentacle Windows Service runs under the Local System context. Yo
 
 The account that you use requires, at a minimum:
 
-- Log on as a service rights on the current machine
-- Rights to view X.509 certificates in the local machine context
-- Read/Write access to the Tentacle "Home directory" that you selected when Tentacle was installed (typically, **C:\Octopus**)
-- Permissions to start/stop services
+- `Log on as a service` right on the current machine - [learn more](https://technet.microsoft.com/en-us/library/dn221981(v=ws.11).aspx)
+- Rights to enumerate the `Local Machine` certificate store
+- Permissions to load the private key of the Tentacle X.509 certificate from the `Local Machine` certificate store
+- Read/Write permissions to the Tentacle "Home directory" that you selected when Tentacle was installed (typically, **C:\Octopus**)
+- Rights to manage Windows Services (start/stop) - [learn more](https://social.technet.microsoft.com/wiki/contents/articles/5752.how-to-grant-users-rights-to-manage-services-start-stop-etc.aspx)
 
 In addition, since you are probably using Tentacle to install software, you'll need to make sure that the service account has permissions to actually install your software. This totally depends on your applications, but it might mean:
 
