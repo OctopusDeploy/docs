@@ -174,7 +174,7 @@ This `Promote from` field defines the environment whose release will be promoted
 This `Promote to` field defines the environment whose release will be promoted from the `Promote from` environment.
 
 <a name="commonConfiguration"></a>
-## Common Configuration
+### Common Configuration
 
 All of the Octopus Deploy tasks share a number of common configuration fields.
 
@@ -218,12 +218,12 @@ These steps will allow packages to be pushed and repushed, and new releases to b
 
 ## Troubleshooting
 
-### Unexpected Behaviour in Deployment Plans
+### Unexpected Behavior in Deployment Plans
 There are some issues to keep in mind when using the Octopus Deploy add-on tasks from a Bamboo deployment project.
 
 The first issue is that the `Octopus Deploy: Create Release` task is only suitable for creating and optionally deploying new releases, not rolling back to previous releases. Consider these following scenarios:
-1. The create release task is defined with no release number. Each time it is run, or rerun via a rollback initiated via the Bamboo deployment project, this task will create a new release in Octopus Deploy. This is not appropriate behaviour for a Bamboo deployment project.
-2. The create release task is defined with a fixed release number related to the Bamboo build. To allow this task to be rerun without error, the `Ignore existing releases` option needs to be selected. When `Ignore existing releases` is selected, the create release task is essentially skipped during a rerun, meaning no deployment is done. This is not the expected behaviour of a rollback initiated via the Bamboo deployment project.
+1. The create release task is defined with no release number. Each time it is run, or rerun via a rollback initiated via the Bamboo deployment project, this task will create a new release in Octopus Deploy. This is not appropriate behavior for a Bamboo deployment project.
+2. The create release task is defined with a fixed release number related to the Bamboo build. To allow this task to be rerun without error, the `Ignore existing releases` option needs to be selected. When `Ignore existing releases` is selected, the create release task is essentially skipped during a rerun, meaning no deployment is done. This is not the expected behavior of a rollback initiated via the Bamboo deployment project.
 
 The second issue is that the `Octopus Deploy: Promote Release` task may not work as you expect when used with a Bamboo deployment plan. Because the promotion from one environment to another is not dependent on any release versions, every time this step is run it will attempt to promote a release forward in Octopus Deploy, even if the task was run as part of a rollback.
 
