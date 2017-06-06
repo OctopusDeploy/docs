@@ -8,7 +8,7 @@ When planning your Octopus installation, you will need to decide how to host you
 
 :::hint
 **Supported package and repository types**
-The Octopus built-in repository [supports several different types of packages](/docs/packaging-applications/supported-packages.md). If you would like to use a package type other than NuGet (zip or tag.gz for example) you must use the Octopus built-in repository.
+The Octopus built-in repository [supports several different types of packages](/docs/packaging-applications/supported-packages.md). If you would like to use a package type other than NuGet (zip or tar.gz for example) you must use the Octopus built-in repository.
 
 If you would like to use an external repository, two types of external repositories are supported:
 
@@ -78,7 +78,7 @@ It is important to understand that the Octopus server provides a write-only repo
 
 ### Pushing packages to the built-in repository {#Packagerepositories-Pushingpackagestothebuilt-inrepository}
 
-We offer several ways to add packages to the built-in repository, so many that we built a new page: [pushing packages to the built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md). Alternatively you can go to {{Library,Packages}} which describes some of the most convenient ways to push packages to the built-in repository.
+We offer several ways to add packages to the built-in repository, so many that we built a new page: [pushing packages to the built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md). Alternatively you can go to {{Library,Packages}} which describes some of the most convenient ways to push packages to the built-in repository.  Simply click the `Show examples` link to see options to upload packages.
 
 ![](/docs/images/3048094/3277775.png "width=500")
 

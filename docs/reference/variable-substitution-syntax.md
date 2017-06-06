@@ -16,9 +16,9 @@ Octopus [variables ](/docs/deploying-applications/variables/index.md)support sub
 | `DatabaseServer`   | `TDB001`                    | Test       |
 | `ConnectionString` | `Server=#{DatabaseServer};` |            |
 
-The syntax `#{VarName}` will insert the value of the `VarName` variable in-place. For example the `ConnectionString`variable will have the value `Server=PDB001;` when evaluated in the *Production*environment. The use of one or more variables in the declaration of another is called a *binding.*
+The syntax `#{VarName}` will insert the value of the `VarName` variable in-place. For example the `ConnectionString`variable will have the value `Server=PDB001;` when evaluated in the *Production* environment. The use of one or more variables in the declaration of another is called a *binding.*
 
-In regular variable declarations, binding to a non-existent value will yield an empty string, so evaluating `ConnectionString` in the *Dev*environment will yield `Server=;` because no `DatabaseServer` is defined in that environment.
+In regular variable declarations, binding to a non-existent value will yield an empty string, so evaluating `ConnectionString` in the *Dev* environment will yield `Server=;` because no `DatabaseServer` is defined in that environment.
 
 If the file undergoing variable replacement includes a string that *shouldn't* be getting replaced, for example **#{NotToBeReplace}**, you should include an extra hash (#) character to force the replacement to ignore the substitution and remove the extra #.
 

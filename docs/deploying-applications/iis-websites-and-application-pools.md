@@ -6,9 +6,9 @@ position: 6
 
 Configuring IIS is an essential part of deploying any ASP.NET web application. Octopus has built-in support for configuring IIS Web Sites, Applications and Virtual Directories.
 
-To deploy an IIS Web Site, add a *Deploy an IIS Web Site* step. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/adding-steps.md) section.
+To deploy to IIS, add a *Deploy to IIS* step. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/adding-steps.md) section.
 
-![](/docs/images/5671696/5865907.png "width=170")
+![](iis-step.png "width=170")
 
 :::hint
 **Pre Octopus 3.4.7**
@@ -25,9 +25,9 @@ Use the *Package Feed* and *Package ID* fields to select the [package](/docs/pa
 
 There are three options for how the Web Site is deployed:
 
-- [Web Site](/docs/deploying-applications/iis-websites-and-application-pools.md)
-- [Virtual Directory](/docs/deploying-applications/iis-websites-and-application-pools.md)
-- [Web Application](/docs/deploying-applications/iis-websites-and-application-pools.md)
+- [Web Site](/docs/deploying-applications/iis-websites-and-application-pools.md#IISWebsitesandApplicationPools-DeployIISWebSiteweb-site)
+- [Virtual Directory](/docs/deploying-applications/iis-websites-and-application-pools.md#IISWebsitesandApplicationPools-DeployIISVirtualDirectoryvirtual-directory)
+- [Web Application](/docs/deploying-applications/iis-websites-and-application-pools.md#IISWebsitesandApplicationPools-DeployIISWebApplicationweb-application)
 
 :::success
 Understanding the difference between Sites, Applications and Virtual Directories is important to understand how to use the IIS Websites and Application Pools features in Octopus. Learn more about [Sites, Applications and Virtual Directories in IIS](https://www.iis.net/learn/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis).
@@ -35,7 +35,7 @@ Understanding the difference between Sites, Applications and Virtual Directories
 
 ### Deploy IIS Web Site {#IISWebsitesandApplicationPools-DeployIISWebSiteweb-site}
 
-![](/docs/images/3048088/5865719.png "width=500")
+![](deploy-iis-web-site.png "width=500")
 
 
 | Field                     | Meaning                                  | Examples                                 | Notes                                    |
@@ -45,6 +45,7 @@ Understanding the difference between Sites, Applications and Virtual Directories
 | **Application Pool name** | Name of the Application Pool in IIS to create (or reconfigure, if the application pool already exists) | `MyAppPool`                              |                                          |
 | **.NET CLR version**      | The version of the .NET Common Language Runtime this Application Pool will use. | <ul> <li> `v2.0` </li> <li> `v4.0` </li> </ul> | Choose v2.0 for applications built against .NET 2.0, 3.0 or 3.5.  <br> Choose v4.0 for .NET 4.0 or 4.5. |
 | **Identity**              | Which account the Application Pool will run under. | <ul> <li>`Application Pool Identity`</li> <li>`Local Service`</li> <li>`Local System`</li> <li> `Network Service` </li> <li> `Custom user (you specify the username/password)` </li> </ul> |                                          |
+!partial <startmode>
 | **Bindings**              | Specify any number of HTTP/HTTPS bindings that should be added to the IIS Web Site |                                          |                                          |
 | **Authentication modes**  | Choose which authentication mode(s) IIS should enable | <ul> <li> `Anonymous` </li> <li> `Basic` </li> <li> `Windows` </li> </ul> | You can select more than one authentication mode |
 
@@ -55,9 +56,9 @@ The IIS Virtual Directory step requires a parent Web Site to exist in IIS before
 
 1. Make sure the parent Web Site exists in IIS and is configured correctly
 2. Create any number of Web Applications and Virtual Directories as children of the parent Web Site
-   :::
+  :::
 
-![](/docs/images/3048088/5865718.png "width=500")
+![](deploy-iis-virtual-directory.png "width=500")
 
 | Field                    | Meaning                                  | Examples                                 | Notes                                    |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
@@ -79,7 +80,7 @@ The IIS Web Application step requires a parent Web Site to exist in IIS before i
 
 :::
 
-![](/docs/images/3048088/5865720.png "width=500")
+![](deploy-iis-web-application.png "width=500")
 
 :::success
 The Virtual Path and Physical Path do not need to match which is one of the true benefits of IIS. You can create a virtual mapping from a URL to a completely unrelated physical path on disk. See [below](/docs/deploying-applications/iis-websites-and-application-pools.md) for more details.

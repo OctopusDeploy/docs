@@ -70,8 +70,11 @@ To use this functionality all you need to do is add the pre-release version to t
 ```
 
 Once this is done, the version selector on the website by default still displays the latest, but the new pre-release is now listed above:
+
 ![image](https://cloud.githubusercontent.com/assets/122651/24811318/ee3d95b8-1c08-11e7-8f5a-1868b7302f29.png)
+
 And when selected a banner tells the user that they are seeing a "preview" of the documentation:
+
 ![image](https://cloud.githubusercontent.com/assets/122651/24811350/1417c25e-1c09-11e7-867c-ca4fbafdbcef.png)
 
 ## URLs
