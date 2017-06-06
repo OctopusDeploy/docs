@@ -45,7 +45,7 @@ Understanding the difference between Sites, Applications and Virtual Directories
 | **Application Pool name** | Name of the Application Pool in IIS to create (or reconfigure, if the application pool already exists) | `MyAppPool`                              |                                          |
 | **.NET CLR version**      | The version of the .NET Common Language Runtime this Application Pool will use. | <ul> <li> `v2.0` </li> <li> `v4.0` </li> </ul> | Choose v2.0 for applications built against .NET 2.0, 3.0 or 3.5.  <br> Choose v4.0 for .NET 4.0 or 4.5. |
 | **Identity**              | Which account the Application Pool will run under. | <ul> <li>`Application Pool Identity`</li> <li>`Local Service`</li> <li>`Local System`</li> <li> `Network Service` </li> <li> `Custom user (you specify the username/password)` </li> </ul> |                                          |
-!partial <startmode> 
+!partial <startmode>
 | **Bindings**              | Specify any number of HTTP/HTTPS bindings that should be added to the IIS Web Site |                                          |                                          |
 | **Authentication modes**  | Choose which authentication mode(s) IIS should enable | <ul> <li> `Anonymous` </li> <li> `Basic` </li> <li> `Windows` </li> </ul> | You can select more than one authentication mode |
 
