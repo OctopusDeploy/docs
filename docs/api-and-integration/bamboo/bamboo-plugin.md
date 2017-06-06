@@ -18,8 +18,6 @@ To verify that the command line tool can be run, execute it from a terminal. Whe
 
 Follow the instructions at [Installing add-ons](https://confluence.atlassian.com/display/UPM/Installing+add-ons) to install the Octopus Deploy Bamboo add-on.
 
-TODO: Include some instructions about finding the Octopus Deploy add-on here (i.e. what do you search for).
-
 # A Typical Workflow for Pushing Packages and Deploying Releases
 
 There are a number of typical steps that are required to push a package to Octopus Deploy and deploy a release:
