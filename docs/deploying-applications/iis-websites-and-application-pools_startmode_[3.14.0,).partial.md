@@ -1,0 +1,1 @@
+| **Start mode**            | Specifies whether the IIS Web Site and/or Application Pool are started after a successful release | <ul> <li>`IIS Application Pool and IIS Web Site`</li> <li>`IIS Application Pool Only`</li> <li>`Do not start either`</li> <li> </ul> |                                          |
