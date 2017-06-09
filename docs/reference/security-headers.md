@@ -15,7 +15,7 @@ First available: `2.6.5`
 
 ### Access-Control-Allow-* (CORS)
 
-The Cross Origin Resource Security (CORS) headers are used to instruct browsers to allow/disallow requests from other websites to access the Octopus Server. By default, it is disabled, preventing any access. To modify this setting, you can use the Octopus Server [configure](/docs/api-and-integration/octopus.server.exe-command-line/configure) command.
+The Cross Origin Resource Security (CORS) headers are used to instruct browsers to allow/disallow requests from other websites to access the Octopus Server. By default, it is disabled, preventing any access. To modify this setting, you can use the Octopus Server [configure](/docs/api-and-integration/octopus.server.exe-command-line/configure.md) command.
 
 First available: `2.6.5`
 
@@ -39,7 +39,7 @@ First available: `3.13.13`
 
 ### X-Frame-Options
 
-Instructs browsers whether to allow the Octopus site to be hosted in a frame. This is set to `DENY` by default, but can be configured via the Octopus Server [configure](/docs/api-and-integration/octopus.server.exe-command-line/configure) command.
+Instructs browsers whether to allow the Octopus site to be hosted in a frame. This is set to `DENY` by default, but can be configured via the Octopus Server [configure](/docs/api-and-integration/octopus.server.exe-command-line/configure.md) command.
 
 First available: `3.2.23`
 
@@ -57,7 +57,7 @@ First available: `3.13.0`
 
 ### Referrer-Policy
 
-This header instructs browsers on how much information to share, and with whom, when navigating between pages. This is enabled by default, and set to `no-referrer`. The value of this header can be modified using the Octopus Server [configure](/docs/api-and-integration/octopus.server.exe-command-line/configure) command.
+This header instructs browsers on how much information to share, and with whom, when navigating between pages. This is enabled by default, and set to `no-referrer`. The value of this header can be modified using the Octopus Server [configure](/docs/api-and-integration/octopus.server.exe-command-line/configure.md) command.
 
 First available: `3.13.1`
 
@@ -65,7 +65,7 @@ First available: `3.13.1`
 
 The `Content-Security-Policy` header defines the list of browser features required by the Octopus site and the whitelist of domains which Octopus uses. This is used to limit the attack surface area for XSS and data injection attacks.
 
-This is enabled by default, and set to the tightest policy that allows full functionality. This can be disabled via the Octopus Server [configure](/docs/api-and-integration/octopus.server.exe-command-line/configure) command.
+This is enabled by default, and set to the tightest policy that allows full functionality. This can be disabled via the Octopus Server [configure](/docs/api-and-integration/octopus.server.exe-command-line/configure.md) command.
 
 First available: `3.13.6`
 
