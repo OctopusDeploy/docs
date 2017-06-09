@@ -7,7 +7,7 @@ position: 1
 The Octopus Server supports a number of security related browser headers, designed to limit the attack surface area by locking down what browsers are able to do. This page describes what headers are available, whether they are configurable, how to configure them, and when they were first available.
 
 
-## `Server`
+## Server
 
 The `Server` browser header is set to `Octopus Deploy/ Microsoft-HTTPAPI/2.0`. This setting is not configurable.
 
@@ -19,7 +19,7 @@ The Cross Origin Resource Security (CORS) headers are used to instruct browsers 
 
 First available: `2.6.5`
 
-## `Cache-Control`
+## Cache-Control
 
 The `Cache-Control` header configures how responses are cached both by intermediate proxies and by the user's browser.
 
@@ -29,7 +29,7 @@ The dashboard has in-memory only caching (to increase performance), which can be
 
 First available: `3.13.0` (in its current incarnation)
 
-## `X-XSS-Protection`
+## X-XSS-Protection
 
 This header instructs browsers to enable their inbuilt Cross Site Scripting (XSS) filters. These are not foolproof filters, but can help prevent some forms of XSS attacks.
 
