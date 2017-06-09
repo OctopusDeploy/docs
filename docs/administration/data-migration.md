@@ -1,6 +1,6 @@
 ---
 title: Data migration
-description: Octopus Manager comes with an import/export wizard to support moving data between Octopus instances.  
+description: Octopus Manager comes with an import/export wizard to support moving data between Octopus instances.
 position: 900
 ---
 
@@ -11,6 +11,8 @@ Octopus Manager comes with an Import/Export wizard which supports a number of sc
 - Merging data from multiple Octopus servers into one
 
 *To migrate data from older versions of Octopus see [Upgrading from Octopus 2.6](/docs/administration/upgrading/upgrading-from-octopus-2.6/index.md)*
+
+In all scenarios, both the source Octopus server and the destination Octopus server must be running the same version.
 
 :::hint
 The Import/Export wizards are designed for moving configuration data between Octopus servers, or for creating snapshots which can be committed to source control or used for auditing purposes. It's not designed as a general disaster recovery or backup tool; for that, see the section on [backing up your Octopus server](/docs/administration/backup-and-restore.md).

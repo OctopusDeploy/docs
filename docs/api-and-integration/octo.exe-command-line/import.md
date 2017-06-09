@@ -6,6 +6,8 @@ position: 6
 
 This command allows you to import items from one Octopus Deploy server into another Octopus Deploy server.
 
+**Note:** Both the source and destination Octopus Deploy servers should be running the same version.
+
 We currently support importing:
 
 - Projects
