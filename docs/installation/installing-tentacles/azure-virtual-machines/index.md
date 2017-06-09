@@ -11,4 +11,8 @@ The extension has been tested and is supported on Windows 2008R2, Windows 2012, 
 
 When enabled, the extension automatically downloads the latest Tentacle MSI, installs it, and registers the agent with your [Octopus Server](/docs/installation/installing-octopus/index.md). After Azure deploys the extension to your VM, it executes a series of commands very similar to the those listed in our guide to [automatically installing the Tentacle agent](/docs/installation/installing-tentacles/automating-tentacle-installation.md).
 
+:::warning
+When using the extension, you should not apply additional configuration to the Tentacle via the Octopus Portal. This will result in the configuration on the Octopus Server being overwritten in certain circumstances (such as an extension upgrade). There needs to be only one "source of truth" for the configuration - the extension.
+:::
+
 The VM extension can be installed in a variety of ways. Please refer to the appropriate page for details.
