@@ -109,7 +109,7 @@ You should now be able to navigate to https://servername/ in your browser and lo
 Polling tentacles communicate with the Octopus Server over an end-to-end encrypted channel. This solution does not currently support polling tentacles.
 :::
 
-## Example: Add a Custom HTTP header in IIS
+## Example: Add a Custom HTTP Header in IIS
 
 Open the IIS Management Console (`inetmgr.exe`).
 
@@ -126,7 +126,7 @@ In the dialog, enter the following.
 
 Click OK.
 
-## Verify the custom HTTP Header
+## Verify the Custom HTTP Header
 
 Open a PowerShell prompt.
 
