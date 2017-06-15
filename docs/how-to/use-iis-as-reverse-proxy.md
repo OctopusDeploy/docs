@@ -13,10 +13,10 @@ This example assumes:
 
 Our starting configuration:
 
-- Octopus Deploy installed and running on http://servername:8080/
+- Octopus Deploy installed and running on <http://servername:8080/>
    For guidance on this topic, see [Installing Octopus](https://octopus.com/docs/installation/installing-octopus).
-- Valid SSL certificate installed in Local Certificate store
-   For guidance on this topic, please follow [this MSDN article](https://msdn.microsoft.com/en-us/library/ff720335.aspx).
+- Valid SSL certificate installed in the Local Certificate store.
+   For guidance on this topic, please follow [Importing your SSL certificate](https://octopus.com/docs/how-to/expose-the-octopus-web-portal-over-https#ExposetheOctopuswebportaloverHTTPS-ImportingyourSSLcertificate).
 - IIS Management Console installed.
    For guidance on this topic, please follow [this Microsoft Docs article](https://docs.microsoft.com/en-us/iis/install/installing-iis-85/installing-iis-85-on-windows-server-2012-r2).
 
@@ -29,9 +29,9 @@ At the end of this walkthrough, you should be able to:
 
 URLRewrite and Application Request Routing are provided by the [Microsoft Web Platform Installer](http://download.microsoft.com/download/C/F/F/CFF3A0B8-99D4-41A2-AE1A-496C08BEB904/WebPlatformInstaller_amd64_en-US.msi). After installing the Web Platform Installer, search for "URL Rewrite" and "Application Request Routing", and install.
 
-Alternatively, use the following PowerShell snippet
+Alternatively, use the following PowerShell snippet:
 
-```
+```powershell
 $downloadUrl = "http://download.microsoft.com/download/C/F/F/CFF3A0B8-99D4-41A2-AE1A-496C08BEB904/WebPlatformInstaller_amd64_en-US.msi"
 $downloadtarget = ([uri]$downloadUrl).segments | select -last 1
 Invoke-WebRequest $downloadUrl -OutFile $env:tmp\$downloadtarget
@@ -40,55 +40,55 @@ Set-Location ($env:ProgramFiles + "\Microsoft\Web Platform Installer")
 .\WebpiCmd.exe /Install /Products:'UrlRewrite2,ARRv3_0' /AcceptEULA /Log:$env:tmp\WebpiCmd.log
 ```
 
-## Configure SSL on the default site
+## Configure SSL on Default Web Site
 
-Open the IIS Management Console (inetmgr.exe)
+1. Open the IIS Management Console (`inetmgr.exe`)
 
-Navigate to the Default Web Site
+1. Navigate to the Default Web Site
 
-In the action pane, click on "Bindings"
+1. In the action pane, click on "Bindings"
 
-Click "Add"
+1. Click "Add"
 
-Select "https"
+1. Select "https"
 
-A dropdown box will appear with your installed certificates displayed
+1. A dropdown box will appear with your installed certificates displayed
 
-Select your installed certificate. If you don't see your certificate listed, refer back to [this MSDN Article](https://msdn.microsoft.com/en-us/library/ff720335.aspx)
+1. Select your installed certificate. If you don't see your certificate listed, refer back to [this MSDN Article](https://msdn.microsoft.com/en-us/library/ff720335.aspx)
 
-Optional: Fill in your correct IP address and/or hostname, and click "OK"
+1. Optional: Fill in your correct IP address and/or hostname, and click "OK"
 
-Optional: Remove the HTTP (non-SLL) binding
+1. Optional: Remove the HTTP (non-SSL) binding - this a recommended security practice
 
 ## Verify SSL is correctly configured
 
-In a web browser, navigate to https://servername (note the 's')
+In a web browser, navigate to <https://servername> (note the 's').
 
-You should see the IIS default page displayed in your browser
+You should see the IIS default page displayed in your browser.
 
 ![IIS Default Page](/docs/images/reverse-proxy/default-page.png)
 
-## Configure URLRewrite 
+## Configure URLRewrite
 
 :::success
 After installing URLRewrite and ARR, you may need to restart IIS and/or the IIS Management Console to ensure that the URLRewite icon appears correctly
 :::
 
-Open the IIS Mangement Console (inetmgr.exe)
+Open the IIS Management Console (`inetmgr.exe`).
 
-Navigate to the Default Web Site
+Navigate to the Default Web Site.
 
 Click on the URLRewrite icon to bring up the URLRewrite interface.
 
-In the action pane, click on "Add Rule(s)"
+In the action pane, click on "Add Rule(s)".
 
-Under "Select a Rule Template", choose "Reverse Proxy"
+Under "Select a Rule Template", choose "Reverse Proxy".
 
-![Adding a Reverse Proxy Rule in URL Rewrite](/docs/images/reverse-proxy/addrule.png)
+![Adding a Reverse Proxy Rule in URL Rewrite](/docs/images/reverse-proxy/addrules.png).
 
 If you have never enabled reverse proxy functionality before, you'll be prompted to enable it.
 
-In the "Add Reverse Proxy Rules" dialog, specify the URL of your backend Octopus Server in "Inbound Rules". In our example, this is `servername:8080`. 
+In the "Add Reverse Proxy Rules" dialog, specify the URL of your backend Octopus Server in "Inbound Rules". In our example, this is `servername:8080`.
 
 Select "Enable SSL offloading".
 
@@ -97,46 +97,47 @@ Cick OK.
 ![Configuring a Reverse Proxy Rule](/docs/images/reverse-proxy/rprules.png)
 
 :::success
-There is no need to specify outbound rules, as the Octopus Portal always uses relative links
+There is no need to specify outbound rules, as the Octopus Portal always uses relative links.
 :::
 
-Click OK and close down all dialogs
+Click OK and close down all dialogs.
 
 You should now be able to navigate to https://servername/ in your browser and log in to Octopus Deploy.
 
 :::warning
 **Polling Tentacles are not supported with this scenario**
-Polling tentacles communicate with the Octopus Server over an end-to-end encrypted channel. This solution does not currently support polling tentacles
+Polling tentacles communicate with the Octopus Server over an end-to-end encrypted channel. This solution does not currently support polling tentacles.
 :::
 
-## Add a Custom HTTP header in IIS
+## Example: Add a Custom HTTP header in IIS
 
-Open the IIS Management Console (inetmgr.exe)
+Open the IIS Management Console (`inetmgr.exe`).
 
-Navigate to the Default Web Site
+Navigate to the Default Web Site.
 
-In the Main window, navigate to "HTTP Response Headers"
+In the Main window, navigate to "HTTP Response Headers".
 
-In the action pane, click "add"
+In the action pane, click "add".
 
-In the dialog, enter the following
+In the dialog, enter the following.
 
-- Name: **x-octopus-servedby**
-- Value: **IIS**
+- Name: `x-octopus-servedby`
+- Value: `IIS`
 
-Click OK
+Click OK.
 
 ## Verify the custom HTTP Header
 
-Open a PowerShell prompt
+Open a PowerShell prompt.
 
-Type the following command (replacing 'servername' as appropriate)
+Type the following command (replacing 'servername' as appropriate):
 
+```powershell
+Invoke-WebRequest https://servername | select -expand Headers
 ```
-Invoke-WebRequest https://servername | select -expand Headers 
-```
 
-You should see your x-octopus-servedby header listed in the returned headers
+You should see your `x-octopus-servedby` header listed in the returned headers.
+
 
 
 
