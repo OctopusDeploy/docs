@@ -58,7 +58,7 @@ Set-Location ($env:ProgramFiles + "\Microsoft\Web Platform Installer")
 
 1. Optional: Fill in your correct IP address and/or hostname, and click "OK"
 
-1. Optional: Remove the HTTP (non-SSL) binding - this a recommended security practice
+1. Optional: Remove the HTTP (non-SSL) binding - this is a recommended security practice
 
 ## Verify SSL is correctly configured
 
@@ -71,7 +71,7 @@ You should see the IIS default page displayed in your browser.
 ## Configure URLRewrite
 
 :::success
-After installing URLRewrite and ARR, you may need to restart IIS and/or the IIS Management Console to ensure that the URLRewite icon appears correctly
+After installing URLRewrite and ARR, you may need to restart IIS and/or the IIS Management Console to ensure that the URLRewrite icon appears correctly
 :::
 
 Open the IIS Management Console (`inetmgr.exe`).
