@@ -4,7 +4,7 @@ description: How to set up IIS 7 (or later) as a Reverse Proxy for Octopus Deplo
 position: 10
 ---
 
-There are scenarios in which you may be required to run Octopus Deploy behind a reverse proxy, such as compliance with specific organisation standards, or a need to add custom HTTP headers. This document outlines how to use Microsoft's Internet Information Services (IIS) as that reverse proxy, using [URL Rewrite](https://www.iis.net/downloads/microsoft/url-rewrite) and [Application Request Routing](https://www.iis.net/downloads/microsoft/application-request-routing) (ARR).
+There are scenarios in which you may be required to run Octopus Deploy behind a reverse proxy, such as compliance with specific organization standards, or a need to add custom HTTP headers. This document outlines how to use Microsoft's Internet Information Services (IIS) as that reverse proxy, using [URL Rewrite](https://www.iis.net/downloads/microsoft/url-rewrite) and [Application Request Routing](https://www.iis.net/downloads/microsoft/application-request-routing) (ARR).
 
 This example assumes:
 
