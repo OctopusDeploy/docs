@@ -122,6 +122,8 @@ The plugin is simply a wrapper for [Octo.exe](/docs/api-and-integration/octo.ex
 
 The video below is from a webinar hosted by JetBrains in which we demonstrated these features:
 
+<iframe width="640" height="360" src="//www.youtube.com/embed/JWGLEEm9Qhg" frameborder="0" allowfullscreen></iframe>
+
 ## Using the plugin with Linux build agents {#TeamCity-LinuxAgentsUsingthepluginwithLinuxbuildagents}
 
 Traditionally the Octopus TeamCity plugin required a Windows build agent to work. As of version 4.2.1 will run on Linux build agents if they meet either **one** of the following requirements:
