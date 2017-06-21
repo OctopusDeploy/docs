@@ -151,6 +151,8 @@ Output variables are collected during execution of a step and made available to 
 |**`Octopus.Action[_name_].Output.Manual.ResponsibleUser.EmailAddress`** <br/>The email address of the user who completed the manual step | *[alice@example.com](mailto:alice@example.com)*|
 |**`Octopus.Action[_name_].Output.Manual.ResponsibleUser.Id`** <br/>The ID of the user who completed the manual step | *users-123*|
 |**`Octopus.Action[_name_].Output.Manual.ResponsibleUser.Username`** <br/>The username of the user who completed the manual step | *alice*|
+|**`Octopus.Action[_name_].Output.OctopusAzureCloudServiceDeploymentID`** <br/> The ID of the completed Azure Cloud Service deployment. ***Introduced in Calamari version 3.7.81 which was released with Octopus Deploy version 3.14.15.***| *c9f52da2b00a4313b3b64bb2ad0f409f* |
+|**`Octopus.Action[_name_].Output.OctopusAzureCloudServiceDeploymentUrl`** <br/>The Url of the completed Azure Cloud Service deployment. ***Introduced in Calamari version 3.7.81 which was released with Octopus Deploy version 3.14.15.***| *http://c9f52da2b00a4313b3b64bb2ad0f409f.cloudapp.net/* |
 
 ## Step {#Systemvariables-Step}
 
