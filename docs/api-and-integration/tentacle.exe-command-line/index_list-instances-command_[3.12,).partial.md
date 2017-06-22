@@ -1,1 +1,0 @@
-- **`list-instances`**: list all installed Tentacle instances
