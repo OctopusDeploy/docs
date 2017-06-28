@@ -9,9 +9,9 @@ When you install the Octopus Deploy server, you'll be asked whether Octopus shou
 Keep in mind that the user principal that the Octopus service runs as needs to be able to do many things:
 
 1. Run as a service ("Log on as a service" rights), so that the service can start
-2. Read and write the Octopus SQL Server database. If the SQL database is on another server, this is a good reason to use a custom user account.
-3. Read and write from the registry and file system (details below)
-4. Read any NuGet feeds that use local folders or file shares
+1. Read and write the Octopus SQL Server database. If the SQL database is on another server, this is a good reason to use a custom user account.
+1. Read and write from the registry and file system (details below)
+1. Read any NuGet feeds that use local folders or file shares
 
 The following table acts as a guide for the minimal permission set that Octopus must have for successful operation:
 
@@ -27,3 +27,5 @@ The following table acts as a guide for the minimal permission set that Octopus 
 If you rely on Octopus to run certain tasks on the Octopus server, you'll also need to grant appropriate permissions for these. Examples include:
 
 - If you use the Windows Azure deployment tasks in Octopus, these run on the Octopus server
+- Deploying to an [offline package drop](/docs/deployment-targets/offline-package-drop.md) deployment target
+- Running a [custom script](/docs/deploying-applications/custom-scripts/index.md) on the Octopus Server

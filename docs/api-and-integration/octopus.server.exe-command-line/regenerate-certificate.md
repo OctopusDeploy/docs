@@ -5,6 +5,8 @@ description:  Regenerate one or more of the certificates that Octopus uses
 
 Use the regenerate certificate command to regenerate one or more of the certificates that Octopus uses.
 
+**Deprecated**: The `regenerate-certificate` option has been deprecated and will be removed in a future version. Please use `new-certificate` in conjunction with `import-certificate` instead.
+
 **Regenerate Certificate options**
 
 ```text

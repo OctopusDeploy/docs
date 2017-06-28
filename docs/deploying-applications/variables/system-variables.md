@@ -91,11 +91,6 @@ Action-level variables are available during execution of an action. Indexer noti
 |**`Octopus.Action.Package.InstallationDirectoryPath`** <br/>The directory where the package was installed. It is not available prior to package extraction. | *C:\InetPub\WWWRoot\OctoFx*|
 !partial <packageVariables>
 |**`Octopus.Action.Package.SkipIfAlreadyInstalled`** <br/>If true, and the version of the package being deployed is already present on the machine, its re-deployment will be skipped (use with caution) *(Boolean)* | *False*|
-|**`Octopus.Action.Package.Ssh.ApplicationsDirectoryPath`** <br/>The applications directory used for deployment on the target machine | */home/user/.tentacle/apps/*|
-|**`Octopus.Action.Package.Ssh.PackageFileName`** <br/>The package file being deployed on the target machine | */home/user/.tentacle/packages/OctoFx.RateService.1.2.3.nupkg.tar.gz*|
-|**`Octopus.Action.Package.Ssh.PackagesDirectoryPath`** <br/>The packages directory used for deployment on the target machine | */home/user/.tentacle/packages/*|
-|**`Octopus.Action.Package.Ssh.RootDirectoryPath`** <br/>The root directory used for deployment on the target machine | */home/user/.tentacle/*|
-|**`Octopus.Action.Package.Ssh.ToolsDirectoryPath`** <br/>The tools directory used for deployment on the target machine | */home/user/.tentacle/tools/*|
 |**`Octopus.Action.Script.ScriptBody`** <br/>The script being run in a script step | *Write-Host 'Hello!'*|
 |**`Octopus.Action.Script.Syntax`** <br/>The syntax of the script being run in a script step | *PowerShell*|
 |**`Octopus.Action.SkipRemainingConventions`** <br/>If set by the user, completes processing of the action without runnning further conventions/scripts *(Boolean)* | *True*|
@@ -156,6 +151,8 @@ Output variables are collected during execution of a step and made available to 
 |**`Octopus.Action[_name_].Output.Manual.ResponsibleUser.EmailAddress`** <br/>The email address of the user who completed the manual step | *[alice@example.com](mailto:alice@example.com)*|
 |**`Octopus.Action[_name_].Output.Manual.ResponsibleUser.Id`** <br/>The ID of the user who completed the manual step | *users-123*|
 |**`Octopus.Action[_name_].Output.Manual.ResponsibleUser.Username`** <br/>The username of the user who completed the manual step | *alice*|
+|**`Octopus.Action[_name_].Output.OctopusAzureCloudServiceDeploymentID`** <br/> The ID of the completed Azure Cloud Service deployment. ***Introduced in Calamari version 3.7.81 which was released with Octopus Deploy version 3.14.15.***| *c9f52da2b00a4313b3b64bb2ad0f409f* |
+|**`Octopus.Action[_name_].Output.OctopusAzureCloudServiceDeploymentUrl`** <br/>The Url of the completed Azure Cloud Service deployment. ***Introduced in Calamari version 3.7.81 which was released with Octopus Deploy version 3.14.15.***| *http://c9f52da2b00a4313b3b64bb2ad0f409f.cloudapp.net/* |
 
 ## Step {#Systemvariables-Step}
 
