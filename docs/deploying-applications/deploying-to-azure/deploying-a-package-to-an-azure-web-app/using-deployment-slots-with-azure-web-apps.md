@@ -43,7 +43,7 @@ New-AzureWebsite -Name #{WebSite} -Slot Staging
 
 ```powershell
 #Remove the staging slot if it exists
-Remove-AzureRMWebAppSlot -Name #{WebSite} -Slot Staging -ResourceGroupName MyResourceGroup -Force
+Remove-AzureRMWebAppSlot -Name #{WebSite} -Slot Staging -ResourceGroupName MyResourceGroup -Force -ErrorAction Continue
 
 #Create the staging slot
 New-AzureRMWebAppSlot -Name #{WebSite} -Slot Staging -ResourceGroupName MyResourceGroup
@@ -102,8 +102,7 @@ Switch-AzureWebsiteSlot -Name #{WebSite} -Slot1 Staging -Slot2 Production -Force
 
 ```powershell
 #Swap the staging slot into production
-$ParametersObject = @{targetSlot  = "Production"}
-Invoke-AzureRmResourceAction -ResourceGroupName MyResourceGroup -ResourceType Microsoft.Web/sites/slots -ResourceName #{WebSite}/Staging -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01 -Force
+Switch-AzureRmWebAppSlot -ResourceGroupName #{ResourceGroup} -Name #{Website} -SourceSlotName staging -DestinationSlotName production -Force
 ```
 
 So your step will appear as:
