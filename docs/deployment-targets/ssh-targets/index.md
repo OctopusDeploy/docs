@@ -32,6 +32,7 @@ We support any Unix-like OS that can run mono, and we currently run automated te
 - Ubuntu 12.04 LTS + Mono 3.12.1
 - Ubuntu 14.04 LTS + Mono 4.0.5
 - Ubuntu 16.04 LTS + Mono 4.6.1
+- Mac OSX 10.12.5 + Mono 4.6.1
 
 :::warning
 **F# and ScriptCS Support**
