@@ -28,7 +28,7 @@ You do not have to create an account with Let's Encrypt to enable this integrati
 
 If the Octopus Server is not currently listening on the binding/port, it will require a server restart to add the binding. This will generally only be required the first time round - when Octopus doesn't know about the HTTPS binding.
 
-Octopus will then register with Let's Encrypt, handle the domain validation, request a new certificate and apply it to the Portal. If need be the server will be restarted. Once available, you will be able to access your server on the new HTTPS url.
+Octopus will then register with Let's Encrypt, handle the domain validation, request a new certificate and apply it to the Portal. If need be the server will be restarted. Once available, you will be able to access your server on the new HTTPS URL.
 
 The {{ Configuration, Certificates }} will now show when the SSL certificate was last renewed, and when it is due to expire. Every 24 hours, Octopus will check the certificate, and will automaticall renew if its due to expire in the next 21 days.
 
