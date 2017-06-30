@@ -20,16 +20,17 @@ The great thing about this approach is that by using effectively the same Calama
 
 ## Requirements {#SSHTargets-Requirements}
 
-We support any Unix-like OSthat can run mono, and we currently run automated tests against the following platforms:
+We support any Unix-like OS that can run mono, and we currently run automated tests against the following platforms:
 
 - Centos 7.3 + Mono 4.4.2
 - Debian 8.7 + Mono 4.4.2
 - Fedora 23 + Mono 4.4.2
 - FreeBSD 10.3 + Mono 4.6.2
+- Mac OSX 10.12.5 + Mono 4.6.1
 - openSUSE 13.2 + Mono 4.6.0
-- Redhat 7 + Mono 4.4.2
-- SUSE LES 12 SP1 + Mono 4.6.0
-- Ubuntu 12.02 LTS + Mono 3.12.1
+- Redhat 7.2 + Mono 4.4.2
+- SUSE LES 12 SP2 + Mono 4.6.0
+- Ubuntu 12.04 LTS + Mono 3.12.1
 - Ubuntu 14.04 LTS + Mono 4.0.5
 - Ubuntu 16.04 LTS + Mono 4.6.1
 
