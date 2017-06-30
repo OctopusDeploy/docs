@@ -26,13 +26,13 @@ We support any Unix-like OS that can run mono, and we currently run automated te
 - Debian 8.7 + Mono 4.4.2
 - Fedora 23 + Mono 4.4.2
 - FreeBSD 10.3 + Mono 4.6.2
+- Mac OSX 10.12.5 + Mono 4.6.1
 - openSUSE 13.2 + Mono 4.6.0
 - Redhat 7.2 + Mono 4.4.2
 - SUSE LES 12 SP2 + Mono 4.6.0
 - Ubuntu 12.04 LTS + Mono 3.12.1
 - Ubuntu 14.04 LTS + Mono 4.0.5
 - Ubuntu 16.04 LTS + Mono 4.6.1
-- Mac OSX 10.12.5 + Mono 4.6.1
 
 :::warning
 **F# and ScriptCS Support**
