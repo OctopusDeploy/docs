@@ -18,7 +18,7 @@ To enable under **Octopus Portal Let's Encrypt Integration** heading click the t
 From the list of bindings that Octopus currently listens on, choose the one that you want to have the new SSL certificate. If you choose a HTTP binding, you will need to enter the port number that you wish to use for HTTPS.
 
 :::warning
-Whichever binding you choose must be publically accessible from the internet (specifically the Let's Encrypt servers) as HTTP on port 80, so that Let's Encrypt can validate that you have control of this domain name. If your firewall can do it, we recommend only allowing paths starting with `http://youroctopusserver.example.com/.well-known/acme-challenge/`.
+Whichever binding you choose must be publicly accessible from the internet (specifically the Let's Encrypt servers) as HTTP on port 80, so that Let's Encrypt can validate that you have control of this domain name. If your firewall can do it, we recommend only allowing paths starting with `http://youroctopusserver.example.com/.well-known/acme-challenge/`.
 :::
 
 Once you have accepted the [Let's Encrypt Terms of Service](https://g.octopushq.com/LetsEncryptTermsOfService), and entered a registration email address, click the `Register` button.
