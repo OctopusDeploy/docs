@@ -1,7 +1,7 @@
 ---
 title: Versioning in Octopus Deploy
 description: Considerations when selecting a versioning scheme for your applications.
-position: 4
+position: 5
 ---
 
 Choosing the best versioning scheme for your applications can be a tricky act of balancing pragmatism and strictness. This page should help you understand how Octopus Deploy handles versions in [packages](/docs/packaging-applications/supported-packages.md), releases, and [channels](/docs/key-concepts/projects/channels.md), and subsequently design a versioning scheme that suits your needs.

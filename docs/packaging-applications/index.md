@@ -17,6 +17,8 @@ While some of our documentation may still refer to NuGet packages specifically, 
 
 ## Creating packages {#Packagingapplications-Creatingpackages}
 
+The first thing you must do is [choose a package ID](/docs/packaging-applications/package-id.md).
+
 How you create your packages depends on which package type you wish to create. Octopus generally treats all packages the same, so choose the tooling and package type that is easiest for you to create. For example:
 
 - ASP.NET apps (.NET Framework): use [OctoPack](/docs/packaging-applications/nuget-packages/using-octopack/index.md)
