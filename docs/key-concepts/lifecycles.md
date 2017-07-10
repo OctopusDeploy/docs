@@ -63,6 +63,10 @@ It shows the flow of the deployment in a visual way.
 
 !partial <optionalphase>
 
+### No Progression
+
+If you want to be able to deploy to any environment at any time then simply create a single phase which has `Phase Progression` set to `All must complete` and includes all your environments. 
+
 ## Lifecycles and Projects {#Lifecycles-LifecyclesandProjects}
 
 A project can only be deployed to any environments defined in their lifecycle.
