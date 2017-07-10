@@ -10,10 +10,9 @@ We have a lot of customers running Octopus Deploy in their PCI compliant environ
 This free e-book is a good starting place when considering how deployment automation can work well in a highly regulated environment: [DevOps for Finance - How DevOps will help you surpass the common challenges of financial services software development.](http://radar.oreilly.com/2015/09/devops-for-finance.html)
 :::
 
-:::success
-**Try not to give up too much automation wherever possible**
+## Try not to give up too much automation
+
 Pessimistic approaches to PCI compliance controls will, at first glance, make it more difficult to automate certain activities. One of the main benefits to using Octopus Deploy is end-to-end automation and we recommend not giving that up without spending time to understand why the automation is considered "harmful". Quite often our customers find that leveraging end-to-end automation in Octopus Deploy makes implementing compliance controls and auditing easier. It's often a case of working with your auditor and their concerns on a case-by-case basis.
-:::
 
 ## How Octopus Deploy can help with PCI Compliance {#PCIComplianceandOctopusDeploy-HowOctopusDeploycanhelpwithPCICompliance}
 
@@ -28,12 +27,16 @@ PCI Compliance is primarily concerned with implementing "controls" or "practices
 - If you really cannot use Tentacle or SSH, you can use Offline Package Drops for fully disconnected deployment automation. Learn about the [Offline Package Drop](/docs/deployment-targets/offline-package-drop.md) deployment target.
 - If you require isolated instance of Octopus Server our licensing model is quite flexible. Each license of Octopus Deploy grants you the right to install and configure up to three (3) separate instances of Octopus Server. Learn about managing [Isolated Octopus Deploy servers](/docs/patterns/isolated-octopus-deploy-servers.md).
 
+### Promoting releases across security zones
+
+Take a look at our Request for Comments (RFC) on a new set of features we're calling [Remote Release Promotions](https://octopus.com/blog/remote-release-promotions-rfc). These features will reduce the friction involved when bridging across multiple Octopus Servers, even across PCI Compliant security zones.
+
 ## Security considerations {#PCIComplianceandOctopusDeploy-Securityconsiderations}
 
-* Learn about [Octopus - Tentacle communication](/docs/reference/octopus-tentacle-communication/index.md) to understand how automation instructions are transmitted securely to maintain trust.  
-  * Full support for TLS 1.2 was introduced in Octopus Deploy 3.1. We recommend using the latest version of Octopus Deploy whenever possible.  
-* Learn about [security and encryption](/docs/reference/security-and-encryption.md) of sensitive information in Octopus Deploy.  
-* Learn about how Octopus Deploy handles [sensitive variables](/docs/deploying-applications/variables/sensitive-variables.md).  
+- Learn about [Octopus - Tentacle communication](/docs/reference/octopus-tentacle-communication/index.md) to understand how automation instructions are transmitted securely to maintain trust.
+  - Full support for TLS 1.2 was introduced in Octopus Deploy 3.1. We recommend using the latest version of Octopus Deploy whenever possible.
+- Learn about [security and encryption](/docs/reference/security-and-encryption.md) of sensitive information in Octopus Deploy.
+- Learn about how Octopus Deploy handles [sensitive variables](/docs/deploying-applications/variables/sensitive-variables.md).
 
 :::success
 We conduct independent security analysis and penetration testing for Octopus Deploy. Contact our support team for a copy of the most recent report.
