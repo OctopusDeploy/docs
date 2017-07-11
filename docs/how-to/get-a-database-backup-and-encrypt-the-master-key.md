@@ -4,13 +4,13 @@ description: Guides the user on producing a database backup binary file (.bak) a
 position: 28
 ---
 
-When you contact Octopus Deploy support, sometimes we aren't able to reproduce the issue you're experiencing. This can be due to specific circumstances in your instance, or corrupted data which we can't reproduce. We may ask you to send us a database backup and your encrypted master key. This guide will guide you through getting this information to help us troubleshoot these issues.
+When you contact Octopus Deploy support, sometimes we aren't able to reproduce the issue you're experiencing. This can be due to specific circumstances in your instance, or corrupted data which we can't reproduce. We may ask you to send us a database backup and your encrypted master key. This guide provides a walkthrough to get the best information for us to help troubleshoot these issues.
 
 ## Step-by-step guide
 
 1. Create the database backup
 
-The easiest way to import a database is to restore from a .bak (binary) file, and this is the format we will ask for. This can be produced in your SQL Server Mangement Studio. Right-click your database, and select *Tasks > Back Up...*, and select the directory in which the .bak file will save to.
+The easiest way to import a database is to restore from a .bak file, and this is the format we will ask for. This can be produced in your SQL Server Mangement Studio. Right-click your database, and select *Tasks > Back Up...*, and select the directory in which the .bak file will save to.
 
 ![Backup SQL database in SQL Server Management Studio](sql_server_management_studio_backup.png)
 
@@ -20,7 +20,7 @@ The easiest way to import a database is to restore from a .bak (binary) file, an
 You can get your master key from your [Octopus Manager](/docs/reference/security-and-encryption.md#Securityandencryption-YourMasterKey) or use the `show-master-key` command in [Octo.exe](/docs/api-and-integration/octopus.server.exe-command-line/show-master-key.md).
 :::
 
-We have a PowerShell snippet which will encrypt your master key. The security certificate to decrypt this is kept private for obvious reasons, so we won't display it here. You can use this snippet to encrypt, and when you send it to us, we can decrypt it and use it to restore your backup.
+We have a PowerShell snippet which will encrypt your master key. The security certificate to decrypt this is kept private, so we won't display it. You can use this snippet to encrypt your master key, and when you send it to us, we can decrypt it and use it to restore your backup.
 
 ```
 $octopusPublicKey = "MIIDnzCCAwigAwIBAgIJAK5yFHmnxrYxMA0GCSqGSIb3DQEBBQUAMIGSMQswCQYDVQQGEwJBVTEMMAoGA1UECBMDUUxEMREwDwYDVQQHEwhCcmlzYmFuZTEhMB8GA1UEChMYT2N0b3B1cyBEZXBsb3kgUHR5LiBMdGQuMRcwFQYDVQQDEw5PY3RvcHVzIERlcGxveTEmMCQGCSqGSIb3DQEJARYXaGVsbG9Ab
