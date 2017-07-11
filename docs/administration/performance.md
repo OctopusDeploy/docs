@@ -6,6 +6,12 @@ position: 10
 
 Over the years we have built Octopus to enable reliable and repeatable deployments, but that doesn't necessarily mean it has to be slow. In fact, Octopus can scale with you as you grow. Octopus is a complex system with a core component allowing you to run your own custom scripts. We work hard to ensure all the parts we control work quickly and efficiently leaving as many resources as possible for running your deployments. That being said, there are many things you can do to ensure your Octopus installation continues to operate efficiently.
 
+This page is intended to help Octopus System Administrators tune and maintain their Octopus installations and troubleshoot problems as they occur.
+
+:::tip
+Want to tune your deployments for optimum performance? Read our [detailed guide](/docs/deploying-applications/performance.md).
+:::
+
 ## Maintenance
 
 Routine maintenance can help your Octopus keep running at optimum performance and efficiency.
