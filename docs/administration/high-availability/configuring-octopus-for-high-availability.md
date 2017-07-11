@@ -147,10 +147,10 @@ Listening Tentacles require no special configuration for High Availability.  Po
 
 **Tentacle.config**
 
-Configuring the Tentacle via the command line is the preferred option with the command exectured once per server; an example command using the default instance can be seen below:
+Configuring the Tentacle via the command line is the preferred option with the command executed once per server; an example command using the default instance can be seen below:
 
 ```
-C:\Program Files\Octopus Deploy\Tentacle>Tentacle poll-server --server=10.0.255.160 --apikey=77751F90F9EEDCEE0C0CD84F7A3CC726AD123FA6
+C:\Program Files\Octopus Deploy\Tentacle>Tentacle poll-server --server=http://my.Octopus.server --apikey=API-77751F90F9EEDCEE0C0CD84F7A3CC726AD123FA6
 ```
 
 For more information on this command please refer to the [Tentacle Poll Server options document](https://octopus.com/docs/api-and-integration/tentacle.exe-command-line/poll-server)
