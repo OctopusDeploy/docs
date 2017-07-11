@@ -98,7 +98,7 @@ The **Validate a Configuration Wizard** appears, select **Run all Tests** and se
 
 When all validation appears OK, you will be returned to the **Create Cluster Wizard** where the **Access Point for Administering the Cluster** page appears, Choose an IP Address that is on the same Network as both Tentacles and a hostname that is 15 characters or less.
 
-*![](/docs/images/clustered-listening-tentacles/configure-clusterhostname)*
+*![](/docs/images/clustered-listening-tentacles/configure-clusterhostname.jpg)*
 
 Now complete the Wizard.
 
@@ -106,15 +106,15 @@ Now complete the Wizard.
 
 Right-Click **Roles** and select **Configure Roles** then Highlight **Generic Service**, click **Next**.
 
-*![](/docs/images/clustered-listening-tentacles/cluster-newrolewizard-servicetype)*
+*![](/docs/images/clustered-listening-tentacles/cluster-newrolewizard-servicetype.jpg)*
 
 Find and highlight **OctopusDeploy Tentacle** service in the list of available services, click **Next**
 
-*![](/docs/images/clustered-listening-tentacles/cluster-newrolewizard-selectservice)*
+*![](/docs/images/clustered-listening-tentacles/cluster-newrolewizard-selectservice.jpg)*
 
 Under **Client Access Point** choose an apropriate NetBIOS Name and IP Address for this clustered role. Note down this IP Address/DNS Hostname, you will be using it in the Octopus Server for connection to the Tentacle Cluster.
 
-*![](/docs/images/clustered-listening-tentacles/cluster-newrolewizard-clientaccess)*
+*![](/docs/images/clustered-listening-tentacles/cluster-newrolewizard-clientaccess.jpg)*
 
 Under **Select Storage** choose the Disk which we had mounted previously and installed the Home and Application folders to previously
 
