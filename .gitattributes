@@ -12,10 +12,11 @@
 *.ico	-text -diff
 *.ttf	-text -diff
 *.otf	-text -diff
-*.psm1 -text -diff
-*.ps1 -text -diff
+*.psm1  -text -diff
+*.ps1   -text -diff
 
 *.md text
 *.txt text eol=crlf
 
+*.xlsx binary
 *.zip binary
