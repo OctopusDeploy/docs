@@ -1,5 +1,3 @@
-how-to-get-database-backup-and-encrypt-master-key.md
-
 ---
 title: How to get a database backup and encrypt your master key
 description: Guides the user on producing a database backup binary file (.bak) and encrypt their master key to provide us with.
