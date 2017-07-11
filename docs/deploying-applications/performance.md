@@ -8,7 +8,7 @@ Over the years we have built Octopus to enable reliable and repeatable deploymen
 
 This page is intended to help you tune and maintain your deployment processes and troubleshoot problems as they occur.
 
-:::tip
+:::hint
 Want to tune your Octopus Server for optimum performance? Read our [detailed guide](/docs/administration/performance.md).
 :::
 
@@ -48,7 +48,7 @@ Fast and reliable deployment targets are also a foundation for fast and reliable
 - If your deployment does a lot of work in the CPU make sure your CPU has enough throughput/cores
 - If your deployment does anything, make sure your deployment target isn't already saturated running your applications, or choose a time of lower usage
 
-:::tip
+:::hint
 If a particular operation seems slow during deployment, test that single operation on your deployment target without Octopus in the mix. Octopus adds as little overhead as possible to your deployments, so there's a good chance that operation is slow because of some kind of bottleneck on the deployment target itself.
 :::
 

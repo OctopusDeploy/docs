@@ -8,7 +8,7 @@ Over the years we have built Octopus to enable reliable and repeatable deploymen
 
 This page is intended to help Octopus System Administrators tune and maintain their Octopus installations and troubleshoot problems as they occur.
 
-:::tip
+:::hint
 Want to tune your deployments for optimum performance? Read our [detailed guide](/docs/deploying-applications/performance.md).
 :::
 
@@ -78,7 +78,7 @@ The best place to start troubleshooting your Octopus Server is to inspect the [O
     - See [tips above](#tip-task-logs).
     - Make sure the disks used by your Octopus Server have sufficient throughput/IOPS available for processing the demand required by your scenario. Task logs are written and read directly from disk.
 
-:::tip
+:::hint
 Analyzing Octopus Server log files for performance problems is much easier in a tool like [Seq](https://getseq.net). We've built a [helpful tool](https://github.com/OctopusDeploy/SeqFlatFileImport) for importing Octopus Server and Task Logs directly into Seq for analysis.
 :::
 
