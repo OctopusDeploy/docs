@@ -36,7 +36,7 @@ This document implements shared storage using an iSCSI target with Multipath IO 
 
 On the first node in your Active/Passive Windows cluster, check that the shared drive is mounted by seeing that it is available in disk management and note down the Drive letter. If it hasn't already been done, bring the shared disk online and format it with a drive letter, we have chosen to use E:\
 
-*![](/docs/images/clustered-tentacles/shared-disk-properties.jpg)*
+*![](/docs/images/clustered-listening-tentacles/shared-disk-properties.jpg)*
 
 Run through the Tentacle MSI Installer to install Tentacle Manager to its default location (C:\Program Files\Octopus Deploy\Tentacle). Do not click "get started" in the Tentacle manager, install the Octopus Tentacle instance using the command prompt by opening `cmd` then run these commands:
 
