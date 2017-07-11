@@ -36,7 +36,7 @@ This document implements shared storage using an iSCSI target with Multipath IO 
 
 On the first node in your Active/Passive Windows cluster, check that the shared drive is mounted by seeing that it is available in disk management and note down the Drive letter. If it hasn't already been done, bring the shared disk online and format it with a drive letter, we have chosen to use E:\
 
-*![](/docs/images/clustered-tentacles/Shared_Disk_Properties.JPG)*
+*![](/docs/images/clustered-tentacles/shared-disk-properties.jpg)*
 
 Run through the Tentacle MSI Installer to install Tentacle Manager to its default location (C:\Program Files\Octopus Deploy\Tentacle). Do not click "get started" in the Tentacle manager, install the Octopus Tentacle instance using the command prompt by opening `cmd` then run these commands:
 
@@ -68,7 +68,7 @@ cd "C:\Program Files\Octopus Deploy\Tentacle\"
 Tentacle.exe new-certificate -e "TentacleClusterPrivateKey.txt"
 ```
 
-*![](/docs/images/clustered-listening-tentacles/Export_PrivateKey.JPG)*
+*![](/docs/images/clustered-listening-tentacles/export-privatekey.jpg)*
 
 ## Import the new Octopus Tentacle Private Key {#ClusteringTentacles-ImportPrivateKey}
 
@@ -82,7 +82,7 @@ Now on the second node, stop the Tentacle service and bring the shared storage o
 
 Once both Tentacles are installed and configured ensure that neither node has the Octopus Tentalce started and that the shared storage is brought offline.
 
-*![](/docs/images/clustered-listening-tentacles/Import_PrivateKey.JPG)*
+*![](/docs/images/clustered-listening-tentacles/import-privatekey.jpg)*
 
 ## Configure A new Clustered Service {#ClusteringTentacles-NewCluster}
 
@@ -98,7 +98,7 @@ The **Validate a Configuration Wizard** appears, select **Run all Tests** and se
 
 When all validation appears OK, you will be returned to the **Create Cluster Wizard** where the **Access Point for Administering the Cluster** page appears, Choose an IP Address that is on the same Network as both Tentacles and a hostname that is 15 characters or less.
 
-*![](/docs/images/clustered-listening-tentacles/Configure_ClusterHostname)*
+*![](/docs/images/clustered-listening-tentacles/configure-clusterhostname)*
 
 Now complete the Wizard.
 
@@ -106,27 +106,27 @@ Now complete the Wizard.
 
 Right-Click **Roles** and select **Configure Roles** then Highlight **Generic Service**, click **Next**.
 
-*![](/docs/images/clustered-listening-tentacles/Cluster_NewRoleWizard-ServiceType)*
+*![](/docs/images/clustered-listening-tentacles/cluster-newrolewizard-servicetype)*
 
 Find and highlight **OctopusDeploy Tentacle** service in the list of available services, click **Next**
 
-*![](/docs/images/clustered-listening-tentacles/Cluster_NewRoleWizard-SelectService)*
+*![](/docs/images/clustered-listening-tentacles/cluster-newrolewizard-selectservice)*
 
 Under **Client Access Point** choose an apropriate NetBIOS Name and IP Address for this clustered role. Note down this IP Address/DNS Hostname, you will be using it in the Octopus Server for connection to the Tentacle Cluster.
 
-*![](/docs/images/clustered-listening-tentacles/Cluster_NewRoleWizard-ClientAccess)*
+*![](/docs/images/clustered-listening-tentacles/cluster-newrolewizard-clientaccess)*
 
 Under **Select Storage** choose the Disk which we had mounted previously and installed the Home and Application folders to previously
 
-*![](/docs/images/clustered-listening-tentacles/Cluster_NewRoleWizard-Storage.JPG)*
+*![](/docs/images/clustered-listening-tentacles/cluster-newrolewizard-storage.jpg)*
 
 Under **Replication Registry Settings** Add a new root registry key of "Software\Octopus" and complete the wizard.
 
-*![](/docs/images/clustered-listening-tentacles/Cluster_NewRoleWizard-Key.JPG)*
+*![](/docs/images/clustered-listening-tentacles/cluster-newrolewizard-key.jpg)*
 
 You have now successfully completed the installation of Octopus Deploy Tentacles in a new Active/Passive Cluster, in listening mode.
 
-*![](/docs/images/clustered-listening-tentacles/Cluster_Complete.JPG)*
+*![](/docs/images/clustered-listening-tentacles/cluster-complete.jpg)*
 
 ## Connect Octopus Server to a Clustered Tentacle {#ClusteringTentacles-ConnectOctopusServer}
 
@@ -138,14 +138,14 @@ For the target type, choose **Listening Tentacle**.
 
 For the hostname, enter the IP Address of the Clustered Role, in this example it was 192.168.1.206 then click "Discover". 
 
-*![](/docs/images/clustered-listening-tentacles/Server_DiscoverTentacle.JPG)*
+*![](/docs/images/clustered-listening-tentacles/server-discovertentacle.jpg)*
 
 Type the display name in Octopus Deploy and give your new target a role
 
-*![](/docs/images/clustered-listening-tentacles/Server_IdentifyTargetJPG.JPG)*
+*![](/docs/images/clustered-listening-tentacles/server-identifytarget.jpg)*
 
 In a few minutes your new Tentacle cluster will appear as Healthy in the Octopus server
 
-*![](/docs/images/clustered-listening-tentacles/Server_TargetHealthy.JPG)*
+*![](/docs/images/clustered-listening-tentacles/server-targethealthy.jpg)*
 
 You have successfully configured an Active/Passive server cluster using Octopus Tentacles.
