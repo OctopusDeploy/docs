@@ -15,8 +15,8 @@ Variables such as passwords or API keys can be marked as being **sensitive**. J
 :::hint
 In Octopus version 3.11.0 we added an editor to the variables value section. Sensitive variables are now defined inside this section by selecting to enter a variable value, then selecting `Show editor`, see the below screenshot.
 :::
-![](./variable-editor.jpg)
 
+![Variable editor](variable-editor.jpg "width=500")
 
 ## How Octopus handles your sensitive variables {#Sensitivevariables-HowOctopushandlesyoursensitivevariables}
 
