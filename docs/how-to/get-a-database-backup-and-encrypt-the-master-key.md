@@ -12,7 +12,7 @@ When you contact Octopus Deploy support, sometimes we aren't able to reproduce t
 
 The easiest way to import a database is to restore from a .bak file, and this is the format we will ask for. This can be produced in your [SQL Server Mangement Studio](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server). Right-click your database, and select *Tasks > Back Up...*, and select the directory in which the .bak file will save to.
 
-![Backup SQL database in SQL Server Management Studio](sql_server_management_studio_backup.png)
+![Backup SQL database in SQL Server Management Studio](sql_server_management_studio_backup_db.png)
 
 2. Encrypt your master key
 
