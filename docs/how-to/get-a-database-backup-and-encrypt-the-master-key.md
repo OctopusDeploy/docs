@@ -4,7 +4,7 @@ description: Guides the user on producing a database backup binary file (.bak) a
 position: 28
 ---
 
-When you contact Octopus Deploy support, sometimes we aren't able to reproduce the issue you're experiencing. This can be due to specific circumstances in your instance, or corrupted data which we can't reproduce. We may ask you to send us a database backup and your encrypted master key. This guide provides a walkthrough to get the best information for us to help troubleshoot these issues.
+When you contact Octopus Deploy support, sometimes we aren't able to reproduce the issue you're experiencing. This can be due to specific circumstances in your instance, or corrupted data which we won't be able to reproduce. We may ask you to send us a database backup and your encrypted master key, which will allow us to accurately reproduce your environment and diagnose the issue. This guide provides a walkthrough to get the best information for us to help troubleshoot these issues.
 
 ## Step-by-step guide
 
@@ -17,10 +17,10 @@ The easiest way to import a database is to restore from a .bak file, and this is
 2. Encrypt your master key
 
 :::hint
-You can get your master key from your [Octopus Manager](/docs/reference/security-and-encryption.md#Securityandencryption-YourMasterKey) or use the `show-master-key` command in [Octo.exe](/docs/api-and-integration/octopus.server.exe-command-line/show-master-key.md).
+You can find your master key from your [Octopus Manager](/docs/reference/security-and-encryption.md#Securityandencryption-YourMasterKey) or use the `show-master-key` command in [Octo.exe](/docs/api-and-integration/octopus.server.exe-command-line/show-master-key.md).
 :::
 
-We have a PowerShell snippet which will encrypt your master key. The security certificate to decrypt this is kept private, so we won't display it. You can use this snippet to encrypt your master key, and when you send it to us, we can decrypt it and use it to restore your backup.
+We have a PowerShell snippet which will encrypt your master key, where the security certificate to decrypt it is kept private, and we won't display it. You can use this snippet to encrypt your master key, and when we receive it, we will decrypt it and use it to restore the database you have provided to us.
 
 ```
 $octopusPublicKey = "MIIDnzCCAwigAwIBAgIJAK5yFHmnxrYxMA0GCSqGSIb3DQEBBQUAMIGSMQswCQYDVQQGEwJBVTEMMAoGA1UECBMDUUxEMREwDwYDVQQHEwhCcmlzYmFuZTEhMB8GA1UEChMYT2N0b3B1cyBEZXBsb3kgUHR5LiBMdGQuMRcwFQYDVQQDEw5PY3RvcHVzIERlcGxveTEmMCQGCSqGSIb3DQEJARYXaGVsbG9Ab
@@ -46,5 +46,4 @@ write-host $message
 
 3. Upload your database backup and encrypted master key
 
-In your email or forum thread with Octopus support, we will provide to you a secure and private link in which you can upload your database backup and encrypted master key to. Only we have access to view and download these.
-
+In your email or forum thread with Octopus support, we will provide you with a secure and private link in which you can upload your database backup and encrypted master key to. Only we have access to view and download these.
