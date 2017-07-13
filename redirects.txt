@@ -21,3 +21,4 @@ docs/deploying-applications/docker-containers/docker-registries-as-feeds.md -> d
 docs/administration/retention-policies/retention-policies-and-channels.md -> docs/administration/retention-policies/index.md
 docs/administration/moving-your-octopus/replicating-your-octopus-instance-in-a-test-environment.md -> docs/administration/moving-your-octopus/index.md
 docs/administration/subscriptions.md -> docs/administration/subscriptions/index.md
+docs/administration/subscription_events.md -> docs/administration/subscriptions/subscriptions-events.md
