@@ -46,4 +46,4 @@ write-host $message
 
 3. Upload your database backup and encrypted master key
 
-In your email or forum thread with Octopus support, we will provide you with a secure and private link in which you can upload your database backup and encrypted master key to. Only we have access to view and download these.
+In your email or forum thread with Octopus support, we will provide you with a secure and private link in which you can upload your database backup and encrypted master key to. Only we have access to view and download these, and we will only allow upload access to it. We will also ensure your forum thread is marked as private if it hasn't already been, to ensure only you and our team can see the link.
