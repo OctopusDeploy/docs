@@ -26,7 +26,7 @@ A tighter retention policy means your Octopus Server will run faster across the 
 
 :::hint
 **We need to keep everything for auditing purposes**
-You may not need to keep the entire history of releases - we record the entire history of your Octopus Server for [auditing](/docs/docs/administration/auditing.md) purposes. This means you can safely use a short-lived [retention policy](/docs/administration/retention-policies/index.md) to have a fast-running Octopus Server, all the while knowing your audit history is safely kept intact. The retention policy simply cleans up the "potential to deploy a release" - it does not erase the fact a release was created, nor the deployments of that release, from history.
+You may not need to keep the entire history of releases - we record the entire history of your Octopus Server for [auditing](/docs/administration/auditing.md) purposes. This means you can safely use a short-lived [retention policy](/docs/administration/retention-policies/index.md) to have a fast-running Octopus Server, all the while knowing your audit history is safely kept intact. The retention policy simply cleans up the "potential to deploy a release" - it does not erase the fact a release was created, nor the deployments of that release, from history.
 :::
 
 ### SQL Server Maintenance {#sql-maintenance}
