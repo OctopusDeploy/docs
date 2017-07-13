@@ -76,7 +76,7 @@ $tentacleExe = "C:\Program Files\Octopus Deploy\Tentacle\Tentacle.exe"
 #Copy Tentacle configuration and appliation files from OldHome to NewHome
 new-item $newHome -type directory -Force
 $source = $oldHome + "\*"
-copy-item $source $newHome
+copy-item -Recurse $source $newHome
 
 # Delete the current Tentacle instance
 & "$tentacleExe" delete-instance --instance $instance
