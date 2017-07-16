@@ -51,7 +51,7 @@ This is a list of all options for subscriptions including Event Groups, Events a
 |Machine found to have warnings|
 |Machine health changed|
 |Manual intervention interruption raised|
-|Task cancelled|
+|Task canceled|
 
 |DOCUMENT TYPES|
 |---|

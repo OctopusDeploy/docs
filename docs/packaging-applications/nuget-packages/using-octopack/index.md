@@ -109,7 +109,7 @@ If you need to include other files in your package for deployment, use the Visua
 
 :::success
 **Config Transforms for other types of .NET applications**
-Did you know you can use XML Config Transforms on any XML files including the `app.config` file for Windows Service, Console, Windows Forms or WPF applications? Make sure the transform files are copied to the build output directory as part of your build, and the will be packaged by OctoPack so you can[use them as part of the deployment](/docs/deploying-applications/configuration-files/index.md).
+Did you know you can use XML Config Transforms on any XML files including the `app.config` file for Windows Service, Console, Windows Forms or WPF applications? Make sure the transform files are copied to the build output directory as part of your build, and the will be packaged by OctoPack so you can [use them as part of the deployment](/docs/deploying-applications/configuration-files/index.md).
 :::
 
 ### Including additional files using a NuSpec file (.nuspec) {#UsingOctoPack-IncludingadditionalfilesusingaNuSpecfile(.nuspec)}
