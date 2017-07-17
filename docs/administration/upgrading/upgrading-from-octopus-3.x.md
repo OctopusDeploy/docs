@@ -41,6 +41,12 @@ Upgrading the Octopus Deploy Server is easy, you will just need to follow these 
     ![](/docs/images/3048440/5865780.png "width=500")
 
 1. Download the latest [Octopus Deploy MSI installer](https://octopus.com/downloads).
+
+:::success
+**No internet connection required for install**
+Once you have downloaded the required version of the Octopus Server MSI no further internet connectivity is required. This allows for installation on servers and systems that have no internet connectivity.
+:::
+
 1. Run the installer and follow the prompts.
 1. Turn Maintenance Mode `OFF`.
 
@@ -50,7 +56,7 @@ Upgrading the Octopus Deploy Server is easy, you will just need to follow these 
 
 :::success
 **No need to upgrade the Tentacle**
-Given that the deployment code is now embedded within Calamari, and this gets pushed out automatically as needed by the Octopus Deploy Server, you no longer need be concerned about ensuring the version number between Tentacle and Server remain in lockstep. Although builds of the Server will be available for download with matching build numbers of the Tentacle, this is an artifact of our project structure and something we would soon like to address. You should rarely be required to update the Tentacle, regardless of what version of the Server you are running.
+Given that the deployment code is now embedded within Calamari, and this gets pushed out automatically as needed by the Octopus Deploy Server, you no longer need be concerned about ensuring the version number between Tentacle and Server remain in lockstep. Builds of the Server and the Tentacle are no longer in sync as of Octopus Deploy 3.14, and Octopus Server v3.x is compatible with all Tentacle 3.x versions. We hope splitting the Tentacle helps relieve some of the hassle and friction involved with upgrading Octopus and provides better communication about changes to Tentacle.
 :::
 
 ## Upgrading Octopus HA {#upgrading-octopus-ha}
