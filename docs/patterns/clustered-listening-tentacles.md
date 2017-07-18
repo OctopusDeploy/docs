@@ -4,7 +4,7 @@ description: Configuring the Octopus Tentacle in an active/passive cluster.
 position: 0
 ---
 
-You can configure a pair of Octopus Tentacles in an active/passive failover cluster on shared storage with the **Failover Cluster Manager**. You may need to do this if you're running an application in a failover cluster and would like to use Octopus Deploy to deploy your application to it irrespective of the fail-over state. In this scenario your Octopus Deploy Server will always be communicating with Octopus Tentacle that is installed on the active node within the failover cluster. This approach has been tested on Windows Server 2016. 
+You can configure a pair of Octopus Tentacles in an active/passive failover cluster on shared storage with the **Failover Cluster Manager**. You may need to do this if you're running an application in a failover cluster and would like to use Octopus Deploy to deploy your application to it irrespective of the fail-over state. In this scenario your Octopus Deploy Server will always be communicating with the Octopus Tentacle that is installed on the active node within the failover cluster. This approach has been tested on Windows Server 2016. 
 
 :::warning
 **Shared Storage Considerations**
