@@ -6,6 +6,12 @@ position: 10
 
 Over the years we have built Octopus to enable reliable and repeatable deployments, but that doesn't necessarily mean it has to be slow. In fact, Octopus can scale with you as you grow. Octopus is a complex system with a core component allowing you to run your own custom scripts. We work hard to ensure all the parts we control work quickly and efficiently leaving as many resources as possible for running your deployments. That being said, there are many things you can do to ensure your Octopus installation continues to operate efficiently.
 
+This page is intended to help Octopus System Administrators tune and maintain their Octopus installations and troubleshoot problems as they occur.
+
+:::hint
+Want to tune your deployments for optimum performance? Read our [detailed guide](/docs/deploying-applications/performance.md).
+:::
+
 ## Maintenance
 
 Routine maintenance can help your Octopus keep running at optimum performance and efficiency.
@@ -17,6 +23,11 @@ Octopus are generally hygienic creatures, cleaning up after themselves, and your
 _The one exception to this is the `Events` table which records an [audit trail](/docs/administration/auditing.md) of every significant event in your Octopus._
 
 A tighter retention policy means your Octopus Server will run faster across the board.
+
+:::hint
+**We need to keep everything for auditing purposes**
+You may not need to keep the entire history of releases - we record the entire history of your Octopus Server for [auditing](/docs/administration/auditing.md) purposes. This means you can safely use a short-lived [retention policy](/docs/administration/retention-policies/index.md) to have a fast-running Octopus Server, all the while knowing your audit history is safely kept intact. The retention policy simply cleans up the "potential to deploy a release" - it does not erase the fact a release was created, nor the deployments of that release, from history.
+:::
 
 ### SQL Server Maintenance {#sql-maintenance}
 
@@ -72,7 +83,7 @@ The best place to start troubleshooting your Octopus Server is to inspect the [O
     - See [tips above](#tip-task-logs).
     - Make sure the disks used by your Octopus Server have sufficient throughput/IOPS available for processing the demand required by your scenario. Task logs are written and read directly from disk.
 
-:::tip
+:::hint
 Analyzing Octopus Server log files for performance problems is much easier in a tool like [Seq](https://getseq.net). We've built a [helpful tool](https://github.com/OctopusDeploy/SeqFlatFileImport) for importing Octopus Server and Task Logs directly into Seq for analysis.
 :::
 

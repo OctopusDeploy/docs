@@ -17,11 +17,11 @@ Your Octopus Deploy server requires:
 - Windows Server 2008 SP2+, 2008 R2, 2012, 2012 R2 or 2016 ("Server with a GUI" install, not Server Core)
 - .NET Framework 4.5+ ([download](https://www.microsoft.com/en-au/download/details.aspx?id=30653))
 - .NET Framework 4.5.1+ for Octopus Server 3.4.0 and later
-- SQL Server installed locally or on another server, or Microsoft Azure SQL Database ([more details](/docs/installation/installing-octopus/sql-server-database-requirements.md))
+- Microsoft SQL Server installed locally, on another server, or using a hosted service ([more details](/docs/installation/installing-octopus/sql-server-database-requirements.md))
 - Hardware:
-- Absolute minimum to make it run: 512MB RAM, 1GHz CPU, 2GB free disk space
-- Recommended for smaller deployments (less than 30 Tentacles for example): 2GB RAM, dual-core CPU, 10GB free disk space
-- Recommended for larger deployments: 4GB RAM, dual-core, 20GB free disk space
+    - Absolute minimum to make it run: 512MB RAM, 1GHz CPU, 2GB free disk space
+    - Recommended for smaller deployments (less than 30 Tentacles for example): 2GB RAM, dual-core CPU, 10GB free disk space
+    - Recommended for larger deployments: 4GB RAM, dual-core, 20GB free disk space
 
 :::success
 The latest Octopus Deploy MSI can always be [downloaded from the Octopus Deploy downloads page](https://octopus.com/downloads). You can also use our [permalinks](/docs/reference/download-permalinks.md) if you plan to automate the download.
