@@ -50,18 +50,20 @@ Follow these tips to tune and maintain the performance of your Octopus:
     - Consider sharding your teams/projects across "spaces" using the upcoming [Octopus Data Center Manager](https://octopus.com/blog/odcm-rfc) especially if your teams/projects are loosely coupled to each other.
 1. Try not to do too much work in parallel, especially without thorough testing. Performing lots of deployment tasks in parallel can be a false economy more often than not:
     - You can configure how many tasks from the task queue will run at the same time on any given Octopus Server node by going to {{Configuration>Nodes}}. The default task cap is `5` (safe-by-default). You can increase this cap to push your Octopus to work harder.
-    - Learn about [tuning your deployment processes for performance]().
+    - Learn about [tuning your deployment processes for performance](/docs/deploying-applications/performance.md).
 1. Consider how you transfer your packages:
     - If network bandwidth is the limiting factor, consider using [delta compression for package transfers](/docs/deploying-applications/delta-compression-for-package-transfers.md).
-    - If network bandwidth is not a limiting factor, consider using a custom package feed close to your deployment targets, and download the packages directly on the agent.
+    - If network bandwidth is not a limiting factor, consider using a custom package feed close to your deployment targets, and download the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
+    - If Octopus Server CPU and disk IOPS is a limiting factor, avoid using [delta compression for package transfers](/docs/deploying-applications/delta-compression-for-package-transfers.md). Instead, consider downloading the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
 1. Consider the size of your packages:
     - Larger packages require more network bandwidth to transfer to your deployment targets.
-    - When using [delta compression for package transfers](/docs/deploying-applications/delta-compression-for-package-transfers.md), larger packages require more CPU on the Octopus Server to calculate deltas - this is a tradeoff you can determine through testing.
+    - When using [delta compression for package transfers](/docs/deploying-applications/delta-compression-for-package-transfers.md), larger packages require more CPU and disk IOPS on the Octopus Server to calculate deltas - this is a tradeoff you can determine through testing.
 1. Consider the size of your Task Logs: {#tip-task-logs}
     - Larger task logs put the entire Octopus pipeline under more pressure.
     - We recommend printing messages required to understand progress and deployment failures. The rest of the information should be streamed to a file, then published as a deployment [artifact](/docs/deploying-applications/artifacts.md).
 1. Prefer [Listening Tentacles](/docs/installation/installing-tentacles/listening-tentacles.md) or [SSH](/docs/deployment-targets/ssh-targets/index.md) instead of [Polling Tentacles](/docs/installation/installing-tentacles/polling-tentacles.md) wherever possible:
     - Listening Tentacles and SSH place the Octopus Server under less load.
+    - We try to make Polling Tentacles as efficient as possible, but by their very nature, they can place the Octopus Server under high load just handling the incoming connections.
 1. Reduce the frequency and complexity of automated health checks using [machine policies](/docs/key-concepts/environments/machine-policies.md).
 1. Disable automatic indexing of the [built-in package repository](/docs/packaging-applications/package-repositories/index.md) if not required.
 
