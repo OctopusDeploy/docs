@@ -62,6 +62,6 @@ There is typically a happy balance you can strike for each of your projects. The
 
 - If your project could be broken down into logical components which ship on their own cadence, do it! Make each component its own project.
 - If your project could be broken down into logical components which ship at the same time, you can do that too! Consider breaking your deployment into multiple logical projects and [coordinate their deployments](/docs/guides/coordinating-multiple-projects/index.md).
-- If your project cannot be broken down logically, consider combining some of your steps together into a single step. For example, you may be able to run your [custom scripts](/docs/deploying-applications/custom-scripts.md) as a pre- or post- activity.
+- If your project cannot be broken down logically, consider combining some of your steps together into a single step. For example, you may be able to run your [custom scripts](/docs/deploying-applications/custom-scripts/index.md) as a pre- or post- activity.
 
 **More tips coming soon!**
