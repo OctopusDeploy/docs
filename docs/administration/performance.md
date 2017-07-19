@@ -33,6 +33,28 @@ You may not need to keep the entire history of releases - we record the entire h
 
 [SQL Server](/docs/installation/installing-octopus/sql-server-database-requirements.md) is the data persistence backbone of Octopus. Performance problems with your SQL Server will make Octopus run and feel slow and sluggish. You should implement a routine maintenance plan for your Octopus database. Here is a [sure guide](http://g.octopushq.com/SQLServerMaintenanceGuide) (free e-book) for maintaining SQL Server.
 
+## Task cap
+
+You can control how hard each of your Octopus Servers will work by controlling their **task cap**.
+
+Octopus Servers do quite a lot of work during deployments, mostly around package acquisition:
+
+- Downloading packages from the package source (network-bound)
+- Verifying package hashes (CPU-bound)
+- Calculating deltas between packages for [delta compression](/docs/deploying-applications/delta-compression-for-package-transfers.md) (I/O-bound and CPU-bound)
+- Uploading packages to deployment targets (network-bound)
+- Monitoring deployment targets for job status, and collecting logs
+
+At some point your server hardware is going to limit how many of these things a single Octopus Server can do concurrently. If a server over commits itself and hits these limits, timeouts (network or SQL connections) will begin to occur, and deployments can begin to fail. Above all else, your deployments should be repeatable and reliable.
+
+An ideal situation would be an Octopus Server that's performing as many parallel deployments as it can, while staying just under these limits. We tried several techniques to automatically throttle Octopus Server, but in practice this kind of approach proved to be unreliable.
+
+Instead, we decided to put this control into your hands, allowing you to control how many tasks each Octopus Server node will execute concurrently. This way, you can measure server metrics for **your own deployments**, and then increase/decrease the task cap appropriately. Administrators can change the task cap in {{Configuration>Nodes}}.
+
+The default task cap is set to `5` out of the box. Based on our load testing, this offered the best balance of throughput and stability for most scenarios.
+
+See this [blog post](https://octopus.com/blog/running-task-cap-and-high-availability) for more details on why we chose this approach.
+
 ## Tips
 
 Follow these tips to tune and maintain the performance of your Octopus:
