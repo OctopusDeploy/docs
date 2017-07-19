@@ -33,9 +33,7 @@ You may not need to keep the entire history of releases - we record the entire h
 
 [SQL Server](/docs/installation/installing-octopus/sql-server-database-requirements.md) is the data persistence backbone of Octopus. Performance problems with your SQL Server will make Octopus run and feel slow and sluggish. You should implement a routine maintenance plan for your Octopus database. Here is a [sure guide](http://g.octopushq.com/SQLServerMaintenanceGuide) (free e-book) for maintaining SQL Server.
 
-## Task cap
-
-You can control how hard each of your Octopus Servers will work by controlling their **task cap**.
+## Scaling Octopus Server
 
 Octopus Servers do quite a lot of work during deployments, mostly around package acquisition:
 
@@ -47,6 +45,13 @@ Octopus Servers do quite a lot of work during deployments, mostly around package
 
 At some point your server hardware is going to limit how many of these things a single Octopus Server can do concurrently. If a server over commits itself and hits these limits, timeouts (network or SQL connections) will begin to occur, and deployments can begin to fail. Above all else, your deployments should be repeatable and reliable.
 
+We offer two options for scaling your Octopus Server:
+
+- scale up by controlling the **task cap** and providing more server resources as required
+- scale out using [Octopus High Availability](/docs/administration/high-availability/index.md)
+
+### Task cap
+
 An ideal situation would be an Octopus Server that's performing as many parallel deployments as it can, while staying just under these limits. We tried several techniques to automatically throttle Octopus Server, but in practice this kind of approach proved to be unreliable.
 
 Instead, we decided to put this control into your hands, allowing you to control how many tasks each Octopus Server node will execute concurrently. This way, you can measure server metrics for **your own deployments**, and then increase/decrease the task cap appropriately. Administrators can change the task cap in {{Configuration>Nodes}}.
@@ -54,6 +59,10 @@ Instead, we decided to put this control into your hands, allowing you to control
 The default task cap is set to `5` out of the box. Based on our load testing, this offered the best balance of throughput and stability for most scenarios.
 
 See this [blog post](https://octopus.com/blog/running-task-cap-and-high-availability) for more details on why we chose this approach.
+
+### Octopus High Availability
+
+You can scale out your Octopus Server by implementing a [High Availability](/docs/administration/high-availability/index.md) cluster. In addition to linearly increasing the performance of your cluster, you can perform certain kinds of maintenance on your Octopus Servers without incurring downtime.
 
 ## Tips
 
