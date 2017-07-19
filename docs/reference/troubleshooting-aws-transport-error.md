@@ -4,7 +4,7 @@ description: A guide for troubleshooting AWS Transport Errors.
 position: 7
 ---
 :::warning
-**Information subject to change**
+**Information may be subject to change**
 The information on this page is to be considered incomplete and relies heavily on external links that are subject to change. We will endeavor as much as possible to keep these links and issues up to date.
 :::
 
