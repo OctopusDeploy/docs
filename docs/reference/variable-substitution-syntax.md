@@ -8,7 +8,7 @@ Variable substitutions are a flexible way to adjust configuration based on your 
 
 ## Basic Syntax {#VariableSubstitutionSyntax-BasicSyntax}
 
-Octopus [variables ](/docs/deploying-applications/variables/index.md)support substitution throughout: a variable may be bound to an expression that incorporates the values of other variables:
+Octopus [variables](/docs/deploying-applications/variables/index.md) support substitution throughout: a variable may be bound to an expression that incorporates the values of other variables:
 
 | Name               | Value                       | Scope      |
 | ------------------ | --------------------------- | ---------- |
@@ -79,13 +79,13 @@ Then the following template:
 <compilation #{if DebugEnabled}debug="true"#{/if}>
 ```
 
-The resulting text in the *Dev*environment will be:
+The resulting text in the *Dev* environment will be:
 
 ```xml
 <compilation debug="true">
 ```
 
-And in *Production*it will be:
+And in *Production* it will be:
 
 ```xml
 <compilation >
