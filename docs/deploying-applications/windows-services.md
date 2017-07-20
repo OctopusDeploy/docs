@@ -77,10 +77,11 @@ You can inject your own logic into this process using [custom scripts](/docs/de
 
 If your step's `Start mode` is not set to `Automatic` or `Automatic (delayed)`, Octopus will not start your service. You can choose to start the service by adding a `PostDeploy` script, for example:
 
-```powershell
+```powershell PowerShell
 Start-Service $OctopusParameters["Octopus.Action.WindowsService.ServiceName"]
 ```
-```c#
+
+```c# C#
 #r "System.ServiceProcess"
 new System.ServiceProcess.ServiceController(Octopus.Parameters["Octopus.Action.WindowsService.ServiceName"]).Start();
 ```
