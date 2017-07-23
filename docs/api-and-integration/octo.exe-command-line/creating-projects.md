@@ -20,6 +20,7 @@ Project creation:
       --projectGroup=VALUE   The name of the project group to add this
                              project to. If the group doesn't exist, it will
                              be created.
+      --lifecycle=VALUE      The name of the lifecycle that the project will use.
       --ignoreIfExists       If the project already exists, an error will be
                              returned. Set this flag to ignore the error.
 Common options:
