@@ -51,7 +51,7 @@ With a version like this we can communicate several semantic concepts with our c
 
 One of the mantras at Octopus Deploy is "build once, deploy many times" and "deploy the same binaries you tested". This works really well when your versioning scheme can be a simple incremental scheme: every time you build you increment the build number. For example, an internal web application where the version number has no binding ramifications - it's primarily to enable traceability for bugs.
 
-When it comes to versioning Octopus Deploy, we decided to take a slightly different approach and rebuild when we want a new version. The main driver for this is their are differences in the agreement we have with our customers for pre-releases and full-releases.
+When it comes to versioning Octopus Deploy, we decided to take a slightly different approach and rebuild when we want a new version. The main driver for this is there are differences in the agreement we have with our customers for pre-releases and full-releases.
 
 For example:
 
