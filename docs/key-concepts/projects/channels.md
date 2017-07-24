@@ -136,8 +136,6 @@ When enabling [Automatic Release Creation](/docs/deploying-applications/automati
 
 Any releases created automatically will use the configured channel.  Additionally, any Version Rules configured for the Channel will be used to decide whether a release is automatically created.
 
-For example, if version 3.1.0 of a package Acme.Web is pushed to the Octopus internal NuGet repository, and the Channel selected for Automatic Release Creation has a Version Rule as pictured below,
-
-then no release will be created.
+For example, if version 3.1.0 of a package Acme.Web is pushed to the Octopus internal NuGet repository, and the Channel selected for Automatic Release Creation has a Version Rule as pictured below, then no release will be created.
 
 ![](/docs/images/3048999/3278461.png "width=500")
