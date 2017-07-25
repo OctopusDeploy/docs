@@ -61,7 +61,7 @@ This image supports custom storage locations, certificates for HTTPS and authent
 ## Other Registry Options {#DockerRegistriesasFeeds-OtherOptions}
 There are many other options for private registries such as self hosting through [Docker Trusted Registry](https://docs.docker.com/docker-trusted-registry/) or [Artifactory](https://www.jfrog.com/artifactory/), or using a cloud provider like [Azure](https://azure.microsoft.com/en-au/services/container-registry/), [AWS](https://aws.amazon.com/ecr/) or [Quay](https://quay.io/)
 
-We have provided further details on setting up a Ocotpus Feed to the following Docker Registries:
+We have provided further details on setting up a Octopus Feed to the following Docker Registries:
 - [Docker Hub](/docs/deploying-applications/docker-containers/registries/docker-hub.md)
 - [Azure Container Services](/docs/deploying-applications/docker-containers/registries/azure-container-services.md) (currently in preview)
 - [Amazon EC2 Container Services](/docs/deploying-applications/docker-containers/registries/amazon-ec2-container-services.md)
