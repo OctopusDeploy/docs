@@ -1,7 +1,7 @@
 ---
 title: Self-Contained Calamari
 description: A self-contained build of Calamari can be used on SSH Targets. This means Mono does not need to be installed.  
-position: 4
+position: 3
 version: "[3.16,)"
 ---
 
