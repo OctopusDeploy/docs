@@ -1,0 +1,1 @@
+Calamari runs on .NET. For deployments to *nix operating-systems the [Mono framework](mono-calamari.md) is required.  

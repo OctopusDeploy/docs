@@ -1,0 +1,1 @@
+Calamari runs on .NET. For *nix operating-systems, Calamari can either run on the [Mono framework](mono-calamari.md) or as a [self-contained .NET Core distributable](self-contained-calamari.md).   
