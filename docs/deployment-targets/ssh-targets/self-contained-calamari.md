@@ -5,7 +5,7 @@ position: 4
 version: "[3.16,)"
 ---
 
-SSH Targets can be configured to use a self-contained build of Calamari. This means neither Mono nor .NET Core needs to be installed on the target server (there are still some [pre-requisite dependencies](#dependencies)).
+SSH Targets can be configured to use a self-contained build of [Calamari](/docs/api-and-integration/calamari.md). This means neither Mono nor .NET Core needs to be installed on the target server (there are still some [pre-requisite dependencies](#dependencies)).
 
 :::hint
 Self-contained Calamari support was added in Octopus 3.16

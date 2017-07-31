@@ -5,7 +5,7 @@ position: 3
 version: "[3.0,)"
 ---
 
-[Calamari](/docs/api-and-integration/calamari) can execute on the [Mono framework](http://www.mono-project.com/), allowing Octopus to deploy via SSH to *nix operating systems.
+[Calamari](/docs/api-and-integration/calamari.md) can execute on the [Mono framework](http://www.mono-project.com/), allowing Octopus to deploy via SSH to *nix operating systems.
 
 Version 3.10 or greater of Mono is required.  
 
