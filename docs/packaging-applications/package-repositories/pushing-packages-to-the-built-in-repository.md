@@ -8,7 +8,7 @@ description: Pushing packages to the Octopus Built-In repository can be done in 
 The Octopus built-in repository has always supported NuGet packages, and since Octopus 3.3 it can [support many different types of packages](/docs/packaging-applications/supported-packages.md).
 :::
 
-We offer several ways to add/upload/push packages to the built-in feed:
+The built-in repository is enabled by default on each Octopus Server and we offer several ways to add/upload/push packages to it:
 
 - Using the Octopus web portal
 - Using your build server
