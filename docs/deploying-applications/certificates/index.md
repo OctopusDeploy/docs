@@ -27,6 +27,16 @@ There is a "Certificate expiry events" event-group, and three events:
 - Certificate expiry 10-day warning  
 - Certificate expired
 
+:::info
+Certificate-expiry events are _not_ raised for [achived](archiving-and-deleting-certificates.md) certificates.
+:::
+
+:::info
+The background task which raises the certificate-expiry events runs:
+- 10 minutes after the Octopus Server service starts 
+- Every 4 hours
+:::
+
 ## Import Certificates into the Windows Certificate Store  
 
 Certificates can be imported to Windows Certificate Stores as part of a deployment process using the [Import Certificate Deployment Step](/docs/deploying-applications/certificates/import-certificate-step.md)
