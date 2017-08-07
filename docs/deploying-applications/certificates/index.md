@@ -30,7 +30,7 @@ There is a "Certificate expiry events" event-group, and three events:
 - Certificate expired
 
 :::info
-Certificate-expiry events are _not_ raised for [achived](archiving-and-deleting-certificates.md) certificates.
+Certificate-expiry events are _not_ raised for [archived](archiving-and-deleting-certificates.md) certificates.
 :::
 
 :::info
