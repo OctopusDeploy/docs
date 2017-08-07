@@ -34,6 +34,17 @@ To use this feature there are the following requirements:
 
 The health check that takes places once you configure the target should check for these requirements and let you know if any dependencies are missing.
 
+:::warning
+You may see the error message `"Required command 'mono' is not available".` when connecting to a Mac OSX instance via SSH, despite the fact that mono is installed and can be executed from a local shell. This is because the environment exposed to a SSH session can differ from the environment used by a local shell.
+
+To fix this, create a file called `.bashrc` in the home folder of the user that is connecting to the Mac OSX instance. If the remote user is called `octopus`, then this file will be located at `/Users/octopus/.bashrc`.
+
+Then modify the path environment variable inside the `.bashrc` file to include the location of the mono executable e.g.
+```
+export PATH=/Library/Frameworks/Mono.framework/Versions/Current/bin/:${PATH}
+```
+:::
+
 ### .NET
 
 !partial <calamari>
@@ -83,7 +94,7 @@ See our [Node.js sample](/docs/guides/node-on-nix-deployments/index.md) for an e
 
 **Features**
 
-The vast majority of Octopus features are supported when deploying to SSH targets. 
+The vast majority of Octopus features are supported when deploying to SSH targets.
 
 Keep in mind the platform differences such as file paths or separators, line breaks, environment variables and security considerations.
 
