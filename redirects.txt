@@ -19,4 +19,4 @@ docs/guides/azure-deployments/cloud-services/cloud-service-concepts/packaging-cl
 docs/deploying-applications/docker-containers/docker-registries-as-feeds.md -> docs/deploying-applications/docker-containers/registries/index.md
 docs/administration/retention-policies/retention-policies-and-channels.md -> docs/administration/retention-policies/index.md
 docs/administration/moving-your-octopus/replicating-your-octopus-instance-in-a-test-environment.md -> docs/administration/moving-your-octopus/index.md
-docs/api-and-integration/tfs-vsts.md -> docs/api-and-integration/tfs-vsts/index.md
+docs/api-and-integration/team-foundation-server-tfs.md -> docs/api-and-integration/tfs-vsts/index.md
