@@ -27,6 +27,10 @@ For example, you could assign the guest user to your **Octopus Administrators** 
 ![](/docs/images/3048126/3277967.png "width=500")
 :::
 
+:::warning
+Please note, if you do add the guest user to your **Octopus Administrators** team, they will be able to view **all** settings and configuration. This includes viewing the license key, viewing the private keys for any uploaded certificates and potentially other information you dont want readable. Depending on your use case, you may want to create a custom role instead.
+:::
+
 ## Configuring guest login {#Guestlogin-Configuringguestlogin}
 
 Octopus Server can be configured to enable or disable guest access via the command line, as follows:
