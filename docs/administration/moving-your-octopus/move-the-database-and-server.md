@@ -19,7 +19,7 @@ You may need to move your Octopus installation of Server and database. The follo
 
 Below are instructions on how to move your Octopus Server and SQL Database.
 
-1. Place your Octopus instance into [Maintenance Mode](/docs/administration/maintenance-mode.md) and stop the service when all deployments have completed. You can stop the service via the Octopus Manager, or via the command line using the following command.
+1. Place your Octopus instance into Maintenance Mode and stop the service when all deployments have completed. You can stop the service via the Octopus Manager, or via the command line using the following command.
 `Octopus.Server.exe service --stop`
 2. Ensure you have saved a copy of your [master key](/docs/reference/security-and-encryption.md#Securityandencryption-YourMasterKey).
 3. Take a backup of your Octopus database.

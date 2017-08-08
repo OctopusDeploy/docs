@@ -8,8 +8,6 @@ version: "3.11"
 
 X.509 certificates are a key component of many deployment processes. Octopus Deploy provides the ability to securely store and manage your certificates, and easily use them in your Octopus Projects.  
 
-!toc
-
 ## Securely Store Certificates and Private-Keys 
 
 ![](certificate-list.png "width=500")
@@ -28,16 +26,6 @@ There is a "Certificate expiry events" event-group, and three events:
 - Certificate expiry 20-day warning  
 - Certificate expiry 10-day warning  
 - Certificate expired
-
-:::info
-Certificate-expiry events are _not_ raised for [archived](archiving-and-deleting-certificates.md) certificates.
-:::
-
-:::info
-The background task which raises the certificate-expiry events runs:
-- 10 minutes after the Octopus Server service starts 
-- Every 4 hours
-:::
 
 ## Import Certificates into the Windows Certificate Store  
 

@@ -5,7 +5,6 @@ docs/guides/azure-deployments/web-apps/web-app-concepts/packaging-web-apps.md ->
 docs/guides/azure-deployments/web-apps/web-app-concepts/web-app-deployment-step/preserve-specific-paths-when-deploying-azure-web-app.md -> docs/guides/azure-deployments/web-apps/web-app-concepts.md
 docs/guides/azure-deployments/web-apps/web-app-concepts/web-app-deployment-step/index.md -> docs/guides/azure-deployments/web-apps/web-app-concepts.md
 docs/guides/azure-deployments/web-apps/web-app-concepts/web-app-accounts.md -> docs/guides/azure-deployments/web-apps/web-app-concepts.md
-docs/guides/use-the-team-foundation-build-custom-task/manually-install-the-build-task-(not-recommended).md -> docs/guides/use-the-team-foundation-build-custom-task/manually-install-the-build-task.md
 docs/guides/multi-tenant-deployments/other-scenarios-for-multi-tenant-deployments.md -> docs/guides/multi-tenant-deployments/index.md
 docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/migrating-to-octopus-3.4.md -> docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/index.md
 docs/deploying-applications/docker-containers/docker-compose.md -> docs/deploying-applications/docker-containers/index.md
@@ -20,3 +19,4 @@ docs/guides/azure-deployments/cloud-services/cloud-service-concepts/packaging-cl
 docs/deploying-applications/docker-containers/docker-registries-as-feeds.md -> docs/deploying-applications/docker-containers/registries/index.md
 docs/administration/retention-policies/retention-policies-and-channels.md -> docs/administration/retention-policies/index.md
 docs/administration/moving-your-octopus/replicating-your-octopus-instance-in-a-test-environment.md -> docs/administration/moving-your-octopus/index.md
+docs/api-and-integration/tfs-vsts.md -> docs/api-and-integration/tfs-vsts/index.md
