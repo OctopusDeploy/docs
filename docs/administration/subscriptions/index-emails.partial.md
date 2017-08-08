@@ -12,7 +12,7 @@ Consider the following example:
 
 ![](subscriptions-email-example.png "width=800")
 
-We can select the _Deployment-critical events_ group, which will automatically filter all deployment-critical events for us.
+We can select the _Deployment-critical events_ group, which will automatically filter all deployment-critical events for us. 
 
 We can then select just the projects/environments we want to monitor. In this case: our _Infrastructure_ and _Code_ projects. Also, we only want to get notified when these critical events occur in our _Production_ environment.
 
