@@ -107,7 +107,7 @@ Your packages need to be placed into a package repository. You can either push p
 
 ![Octopus built-in package repository](/docs/images/getting-started/library-packages.png)
 
-Use our [TeamCity](/docs/api-and-integration/teamcity.md), [VSTS](/docs/api-and-integration/visual-studio-team-services-vsts.md) or [TFS](/docs/api-and-integration/team-foundation-server-tfs.md) extensions to integrate with the built-in repository or explore the [other options](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) to push packages to it.
+Use our [TeamCity](/docs/api-and-integration/teamcity.md), [VSTS](/ /docs/api-and-integration/tfs-vsts/using-octopus-extension/index.md) or [TFS](/docs/api-and-integration/tfs-vsts/index.md) extensions to integrate with the built-in repository or explore the [other options](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) to push packages to it.
 
 Learn more about our [api and integration](/docs/api-and-integration/index.md).
 
@@ -177,6 +177,6 @@ The deployment page shows you a log of all the activity that happens during the 
 
 Congratulations, you've deployed a release! You might want to look at:
 
-- Triggering deployments from [TeamCity](/docs/api-and-integration/teamcity.md) or [TFS](/docs/api-and-integration/team-foundation-server-tfs.md)
+- Triggering deployments from [TeamCity](/docs/api-and-integration/teamcity.md) or [TFS](/docs/api-and-integration/tfs-vsts/index.md)
 - [Inviting other users and adding them to teams](/docs/administration/managing-users-and-teams/index.md)
 - The comprehensive [Octopus Deploy REST API](/docs/api-and-integration/octopus-rest-api.md) and C# client

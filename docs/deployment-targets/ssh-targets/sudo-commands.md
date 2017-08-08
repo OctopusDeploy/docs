@@ -1,7 +1,7 @@
 ---
 title: Sudo Commands
 description: Useful sudo commands to help you with your deployments to SSH Targets.
-position: 4
+position: 2
 ---
 
 By default, most distros will require the user to provide a password when executing a command with the security privileges of another user. This behavior takes place typically when a user wishes to execute some command as the superuser or root by using the `sudo` command.

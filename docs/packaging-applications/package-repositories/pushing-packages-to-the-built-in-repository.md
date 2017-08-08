@@ -8,7 +8,7 @@ description: Pushing packages to the Octopus Built-In repository can be done in 
 The Octopus built-in repository has always supported NuGet packages, and since Octopus 3.3 it can [support many different types of packages](/docs/packaging-applications/supported-packages.md).
 :::
 
-The built-in repository is enabled by default on each Octopus Server and we offer several ways to add/upload/push packages to it:
+We offer several ways to add/upload/push packages to the built-in feed:
 
 - Using the Octopus web portal
 - Using your build server
@@ -26,7 +26,7 @@ You can manually upload a package file from your local machine via the Octopus w
 ![](/docs/images/3048094/3277775.png "width=500")
 
 :::success
-We generally recommend using a continuous integration/build server like [TeamCity](/docs/api-and-integration/teamcity.md), [Jenkins](/docs/api-and-integration/jenkins.md), [Bamboo](/docs/api-and-integration/bamboo.md) or [Team Foundation Server (TFS)](/docs/api-and-integration/team-foundation-server-tfs.md) to build, test, package and automatically push your release packages into the Octopus Deploy built-in repository. See below for examples on doing this.
+We generally recommend using a continuous integration/build server like [TeamCity](/docs/api-and-integration/teamcity.md), [Jenkins](/docs/api-and-integration/jenkins.md), [Bamboo](/docs/api-and-integration/bamboo.md) or [Team Foundation Server (TFS)](/docs/api-and-integration/tfs-vsts/index.md) to build, test, package and automatically push your release packages into the Octopus Deploy built-in repository. See below for examples on doing this.
 :::
 
 :::hint

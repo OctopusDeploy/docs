@@ -2,24 +2,42 @@
 title: SSH Targets
 description: SSH Targets allow you to target non-windows (*nix) machines to deploy your applications.
 position: 4
-version: "[3.0,)"
 ---
 
 You may want to target your deployment for non-windows machines where you don't have the ability to run a full Tentacle. In cases such as this, a SSH Target is the next best thing.
 
 ## Topology {#SSHTargets-Topology}
 
-In the standard-model the Octopus server talks to the Tentacle (ignoring the distinction between between [Polling](/docs/installation/installing-tentacles/polling-tentacles.md) and [Listening](/docs/installation/installing-tentacles/listening-tentacles.md)) who in turn delegates the actual deployment work to [Calamari](/docs/api-and-integration/calamari.md), which contains all the information regarding conventions and deployments. Calamari then executes the scripts and the Tentacle passes back to the Server the task progress, logs and artifacts.
+In the standard-model the Octopus server talks to the Tentacle (ignoring the distinction between between [Polling](/docs/installation/installing-tentacles/polling-tentacles.md) and [Listening](/docs/installation/installing-tentacles/listening-tentacles.md)) who in turn delegates the actual deployment work to Calamari, which contains all the information regarding conventions and deployments. Calamari then executes the scripts and the Tentacle passes back to the Server the task progress, logs and artifacts.
 
 ![](/docs/images/3048063/3277601.png)
 
-The Octopus Server will communicate with the target server via SSH and execute bash scripts to invoke Calamari, in much the same way that would be done by a Tentacle.
+As of Octopus Deploy 3.0, Calamari can now also run on mono and therefore any Unix-like OS that supports mono. In this set up the Octopus Server will communicate via SSH and execute bash scripts to invoke Calamari in much the same way that would be done by a Tentacle.
 
 ![](/docs/images/3048063/3277602.png)
 
 The great thing about this approach is that by using effectively the same Calamari code base, it should continue to have almost complete feature parity!
 
 ## Requirements {#SSHTargets-Requirements}
+
+We support any Unix-like OS that can run mono, and we currently run automated tests against the following platforms:
+
+- Centos 7.3 + Mono 4.4.2
+- Debian 8.7 + Mono 4.4.2
+- Fedora 23 + Mono 4.4.2
+- FreeBSD 10.3 + Mono 4.6.2
+- Mac OSX 10.12.5 + Mono 4.6.1
+- openSUSE 13.2 + Mono 4.6.0
+- Redhat 7.2 + Mono 4.4.2
+- SUSE LES 12 SP2 + Mono 4.6.0
+- Ubuntu 12.04 LTS + Mono 3.12.1
+- Ubuntu 14.04 LTS + Mono 4.0.5
+- Ubuntu 16.04 LTS + Mono 4.6.1
+
+:::warning
+**F# and ScriptCS Support**
+Please note that F# and ScriptCS support are only available with Mono 4 and above.
+:::
 
 We generally expect deployments with Octopus to work with practically any distribution so long as a few key prerequisites are met. Of course, if you notice it failing on some other popular distribution then please drop us a line.
 
@@ -28,6 +46,7 @@ To use this feature there are the following requirements:
 - It must be accessible using SSH and SFTP
 - The `$HOME` environment variable must be available
 - `bash` 3+ is available at `/bin/bash`. (It does not need to be the user’s default shell.)
+- `mono-complete` 3.10+ is available (you can find instructions on how to install mono on the related [mono docs page](http://www.mono-project.com/docs/getting-started/install/linux/)).
 - `tar` is available - for unpacking calamari
 - `base64` is available - for encoding/decoding variables
 - `grep` is available - Everyone needs grep!
@@ -35,19 +54,9 @@ To use this feature there are the following requirements:
 The health check that takes places once you configure the target should check for these requirements and let you know if any dependencies are missing.
 
 :::warning
-You may see the error message `"Required command 'mono' is not available".` when connecting to a Mac OSX instance via SSH, despite the fact that mono is installed and can be executed from a local shell. This is because the environment exposed to a SSH session can differ from the environment used by a local shell.
-
-To fix this, create a file called `.bashrc` in the home folder of the user that is connecting to the Mac OSX instance. If the remote user is called `octopus`, then this file will be located at `/Users/octopus/.bashrc`.
-
-Then modify the path environment variable inside the `.bashrc` file to include the location of the mono executable e.g.
-```
-export PATH=/Library/Frameworks/Mono.framework/Versions/Current/bin/:${PATH}
-```
+**SSL Certificates in Mono**
+If you configure your deployment such that the target pulls down the package itself directly from the NuGet repository, the correct SSL certificates need to also be available to mono. By default, mono pre 3.12 didn’t trust any certificates and the root certs in question would need to be either manually imported, or synced with Mozilla’s list by invoking `mozroots` or `cert-sync`. Thankfully mono's latest builds perform this step during installation so it should “just work”. See [mono’s security FAQ](http://www.mono-project.com/docs/faq/security/) for more details.
 :::
-
-### .NET
-
-!partial <calamari>
 
 ## Footprint {#SSHTargets-Footprint}
 
@@ -94,17 +103,13 @@ See our [Node.js sample](/docs/guides/node-on-nix-deployments/index.md) for an e
 
 **Features**
 
-The vast majority of Octopus features are supported when deploying to SSH targets.
-
-Keep in mind the platform differences such as file paths or separators, line breaks, environment variables and security considerations.
-
-Obviously Windows-specific features such as IIS and Windows Services are not supported when deploying to non-Windows targets.
+The vast majority of Octopus features are supported, with the exception of IIS steps and Windows services. To support windows services under Mono, we suggest using [mono-service](https://linux.die.net/man/1/mono-service).
 
 **Scripts**
 
 As yet we do not support running PowerShell scripts on Linux, either on their own as a script task, or as pre-deploy/deploy/post-deploy steps. We do however support running bash scripts on SSH endpoints. Conversely, bash is not yet supported on normal Windows Tentacles, even with Cygwin available.
 
-The deployment process will check for scripts either provided in the deployment step itself or embedded in the package, looking for `PreDeploy.sh`, `Deploy.sh` and `PostDeploy.sh` (names are case-sensitive). If these scripts are found, Calamari will then execute their contents at the appropriate time. 
+The deployment process will check for scripts either provided in the deployment step itself or embedded in the package, looking for `PreDeploy.sh`, `Deploy.sh` and `PostDeploy.sh` (names are case-sensitive). If these scripts are found, Calamari will then execute their contents at the appropriate time. Again an interesting side-effect of using Calamari on mono is that any C# or F# scripts should continue to function just like with normal Tentacles. Keep in mind the platform differences such as file paths or separators, line breaks, environment variables and security considerations.
 
 If you want to start some background task in an script that runs while the deployment continues to complete, you should become familiar with the `screen` command. For example, running
 ```bash
@@ -136,6 +141,11 @@ Collecting artifacts:
 
 which results in the server retrieving that file, at the end of that step. Keep in mind that this means the file must be accessible over SFTP using the same credentials as that used during execution.
 
+:::problem
+**XML Transformation Only Supported on Mono 4.2.3+**
+In addition to not supporting PowerShell scripts it should also be noted that **XML transformations are only supported on Mono 4.2.3 and above**. Prior to this, variable substitutions will still work without a problem, but the XML transformations will not as they rely on some code in mono that was broken. For details around this bug, please see [Xamarin bug 19426](https://bugzilla.xamarin.com/show_bug.cgi?id=19426).
+:::
+
 :::warning
 **Environment Variable Differences**
 Due to the different platform, some environment variables available on a windows machine will either be named differently or possibly non-existent on other platforms. For example the Windows based variable `env:USERNAME` roughly correlates to `env:USER` on an Ubuntu machine however `env:ProgramFiles(x86)` has no corollary.
@@ -143,7 +153,7 @@ Due to the different platform, some environment variables available on a windows
 
 ## Health Checks {#SSHTargets-HealthChecks}
 
-Although there is no Tentacle involved with SSH endpoints there are still some useful metrics that are used to determine its health in regards to its ability to perform deployments. For a standard SSH target, it is the absence of any dependencies (e.g. tar) that deems the endpoint unhealthy (in addition to the typical checks of inability to even connect using the provided credentials) while an absence or out-of-date version of Calamari is considered only a warning as this will be updated when its required by a task.
+Although there is no Tentacle involved with SSH endpoints there are still some useful metrics that are used to determine its health in regards to its ability to perform deployments. For a standard SSH target, it is the absence of any dependencies (i.e. mono, tar) that deems the endpoint unhealthy (in addition to the typical checks of inability to even connect using the provided credentials) while an absence or out-of-date version of Calamari is considered only a warning as this will be updated when its required by a task.
 
 ![](/docs/images/3048063/3277600.png "width=500")
 
