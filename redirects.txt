@@ -20,3 +20,7 @@ docs/deploying-applications/docker-containers/docker-registries-as-feeds.md -> d
 docs/administration/retention-policies/retention-policies-and-channels.md -> docs/administration/retention-policies/index.md
 docs/administration/moving-your-octopus/replicating-your-octopus-instance-in-a-test-environment.md -> docs/administration/moving-your-octopus/index.md
 docs/guides/use-the-team-foundation-build-custom-task/build-versions-in-team-build.md -> docs/api-and-integration/tfs-vsts/index.md
+docs/guides/use-the-team-foundation-build-custom-task -> docs/api-and-integration/tfs-vsts/index.md
+docs/api-and-integration/visual-studio-team-services-vsts -> docs/api-and-integration/tfs-vsts/index.md
+docs/api-and-integration/team-foundation-server-tfs -> docs/api-and-integration/tfs-vsts/index.md
+docs/guides/use-the-team-foundation-build-custom-task/extension-compatibility -> docs/api-and-integration/tfs-vsts/using-octopus-extension/extension-compatibility.md
