@@ -78,6 +78,18 @@ The values required for the script above are:
 
 Alternatively, you can [create a Service Principal via the Azure Portal](https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/).
 
+:::warning
+The Service Principal will default to expiring in 1 year from the time of creation.
+
+Using the PowerShell script in option 1, you can specify the expiry date by adding the *-EndDate* parameter to the *New-AzureRmADApplication* command
+
+```powershell
+-EndDate (new-object System.DateTime 2018, 12, 31)
+```
+
+Using option 2, the Azure portal will allow you to select the expiry time when creating the key. 
+:::
+
 ## Step 2: Allow Octopus to authenticate with Azure using a Service Principal {#CreatinganAzureServicePrincipalAccount-authenticate-with-service-principalStep2:AllowOctopustoauthenticatewithAzureusingaServicePrincipal}
 
 Navigate to {{Environments,Accounts}} and click *Add account* in the *Azure Subscriptions* section.
@@ -102,3 +114,5 @@ Use the *Save and test* button to confirm the account can interact with Azure.
 **What is actually tested?**
 When you click the Save and Test button, Octopus will attempt to use the account credentials to access the Azure Resource Management (ARM) API and list the Resource Groups in that subscription. You may need to whitelist the appropriate IP Addresses for the Azure Data Center you are targeting. See [deploying to Azure via a Firewall](/docs/deploying-applications/deploying-to-azure/index.md) for more details.
 :::
+
+
