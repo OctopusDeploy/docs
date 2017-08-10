@@ -115,4 +115,52 @@ Use the *Save and test* button to confirm the account can interact with Azure.
 When you click the Save and Test button, Octopus will attempt to use the account credentials to access the Azure Resource Management (ARM) API and list the Resource Groups in that subscription. You may need to whitelist the appropriate IP Addresses for the Azure Data Center you are targeting. See [deploying to Azure via a Firewall](/docs/deploying-applications/deploying-to-azure/index.md) for more details.
 :::
 
+## Creating a new Service Principal Credential {#CreatingAnAzureServicePrincipalCredential}
 
+If you need to create a new **Service Principal Credential**, this can also be done either via PowerShell or the Azure Portal.
+
+### Step 1: Creating a new AAD Service Principal Credential
+
+#### Option 1: Use PowerShell {#CreatinganAzureServicePrincipalCredential-Option1:UsePowerShell}
+The following PowerShell script will create an additional credential under the existing AAD application
+
+
+```powershell
+# Obviously, replace the following with your own values
+$subscriptionId = "cd21dc34-73dc-4c7d-bd86-041284e0bc45"
+$tenantId = "2a681dca-3230-4e01-abcb-b1fd225c0982"
+$applicationId = "1d7f3207-0d20-4ff3-bdd2-c6928a5dd3f0" 
+$password = "correct horse battery staple 2"
+
+# Login to your Azure Subscription
+Login-AzureRMAccount
+Set-AzureRMContext -SubscriptionId $subscriptionId -TenantId $tenantId
+
+# Get the Azure AD Appliction
+Write-Output "Getting the Azure AD Application"
+$azureAdApp = Get-AzureRmADApplication -ApplicationId $applicationId
+$azureAdApp | Format-Table
+
+Write-Output "Getting the Azure AD Service Principal"
+$azureAdServicePrincpal = Get-AzureRmADServicePrincipal -SearchString $azureAdApp.DisplayName
+$azureAdServicePrincpal | Format-Table
+
+Write-Output "Creating a new Service Principal Credential"
+$servicePrincipalCred = New-AzureRmADSPCredential -ObjectId $azureAdServicePrincipal.Id -EndDate (New-Object System.DateTime 2019,1,31) -Password $password
+$servicePrincipalCred | Format-Table
+
+```
+#### Option 2: Use the Azure Portal {#CreatinganAzureServicePrincipalCredential-Option2:UsetheAzurePortal}
+
+For the Azure Portal steps, create a new Key using the directions [here](https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/).
+
+### Step 2: Updating the password/key in the Octopus Azure Subscriptions
+
+Navigate to {{Environments,Accounts}} and click on the account you wish to update in the *Azure Subscriptions* section.
+
+Use the **Change** button to modify the password or key and enter the password or key from Step 1.
+
+
+![](/docs/images/3702850/3964968.png "width=500")
+
+Use the *Save and test* button to confirm the account can interact with Azure.
