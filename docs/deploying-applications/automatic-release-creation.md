@@ -11,11 +11,11 @@ In Octopus Deploy 2.6 a feature was added called Automatic Release Creation prim
 We have extensions/plugins available for the most popular build servers. These extensions will help you [create packages](/docs/packaging-applications/index.md), [push those packages to the built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md), create releases and deploy them to your environments:
 
 - [TeamCity](/docs/api-and-integration/teamcity.md)
-- [Visual Studio Team Services (VSTS) (formerly VSO) and TFS 2015](/docs/api-and-integration/visual-studio-team-services-vsts.md)
+- [Visual Studio Team Services (VSTS) (formerly VSO) and TFS 2015](/ /docs/api-and-integration/tfs-vsts/using-octopus-extension/index.md)
   :::
 
 :::success
-Take a look at the [end-to-end guide for TFS](/docs/api-and-integration/team-foundation-server-tfs.md) which covers building and packaging your application, creating releases and deploying to your environments.
+Take a look at the [end-to-end guide for TFS](/docs/api-and-integration/tfs-vsts/index.md) which covers building and packaging your application, creating releases and deploying to your environments.
 :::
 
 :::hint

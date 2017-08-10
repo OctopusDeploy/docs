@@ -17,11 +17,14 @@ While Octopus Deploy will be used to take those NuGet packages and to push them 
 
 Integration with TeamCity involves two major parts:
 
-1. Creating the NuGet packages from your applications
+1. Creating the NuGet packages from your applications.
+
 2. Optionally, when a build completes, having TeamCity make requests to your Octopus Server to:
-   (a) Create releases;
-   (b) Trigger deployments and/or
-   (c) Promote releases when a build completes
+   - Create releases
+   
+   - Trigger deployments and/or
+   
+   - Promote releases when a build completes
 
 ## Installing the plugin {#TeamCity-InstallPluginInstallingtheplugin}
 

@@ -1,21 +1,12 @@
 ---
-title: Team Foundation Server (TFS)
-description: Octopus Deploy integrates with Team Foundation Server to provide for a full automated build and deployment pipeline.
-position: 2
+title: Using Octopack and Octo.exe with XAML-based builds in TFS
+description: Using Octopack
+position: 1
 ---
 
-Octopus Deploy integrates with Team Foundation Server to provide for a full automated build and deployment pipeline. This section provides information on integrating Octopus Deploy and TFS. The procedures on this page have been verified against Visual Studio 2013 but should also work with previous versions of TFS.
+!toc
 
-## Using the Octopus extension with Team Foundation Server
-
-:::warning
-Ensure you are installing the correct version of the Octopus extension before continuing.
-[See the guide on version compatibility](/docs/guides/use-the-team-foundation-build-custom-task/extension-compatibility.md)
-:::
-
-If you're using Team Foundation Server 2015 Update 2 or above, you can use a fully-featured Octopus Extension. See the [Guide to using the extension here](/docs/guides/use-the-team-foundation-build-custom-task/index.md)
-
-## Packaging applications when building with Team Build (XAML-based builds) {#TeamFoundationServer(TFS)-PackagingapplicationswhenbuildingwithTeamBuild}
+## Packaging applications when building with Team Build (XAML-based builds) {#Packaging}
 
 When Team Build builds your solution, you will need to package your applications ready to be deployed. This can be done by [installing OctoPack](/docs/packaging-applications/nuget-packages/using-octopack/index.md) on the projects that you plan to deploy.
 
@@ -53,7 +44,18 @@ To find your Octopus NuGet repository URL, see the [Package repositories](/docs/
 To create an API key, see the [How to create an API key](/docs/how-to/how-to-create-an-api-key.md) section.
 :::
 
-## Deploying automatically after a build {#TeamFoundationServer(TFS)-Deployingautomaticallyafterabuild}
+## Deploying automatically after a build {#Deployingautomaticallyafterabuild}
+
+### Using Octo.exe (recommended) {#Deployingautomaticallyafterabuild-Using-OctoExe}
+
+`Octo.exe` is a command line tool built on top of our REST API. Its fairly easy to hook up into almost any process from a simple script. In the case of old XAML-based builds, we recommend user to include a call to `Octo.exe` in the *post-deploy script* of their build definition, so it gets called after MSBuild ran and Octopack created the package and pushed it to the repository.
+
+`Octo.exe` has [plenty of commands](\docs\api-and-integration\octo.exe-command-line\index.md), but the ones you should look into for the post-deploy script are:
+
+- [Create-Release](\docs\api-and-integration\octo.exe-command-line\creating-releases.md) to create a release in Octopus. 
+- [Deploy-Release](\docs\api-and-integration\octo.exe-command-line\deploying-releases.md) to deploy the previously created release.
+
+### Using Lifecycles and automatic deployments {#Deployingautomaticallyafterabuild-Using-AutomaticDeployments}
 
 Version 2.6 of Octopus Deploy introduced [Lifecycles ](/docs/key-concepts/lifecycles.md)and [Automatic Release Creation](/docs/deploying-applications/automatic-release-creation.md). You can use these two features to automatically deploy to one or more environments when a new package is pushed to the built-in NuGet repository.
 
@@ -66,15 +68,12 @@ By adding these features to the steps above, you can set up complete end-to-end 
 3. Automatic Release Creation will create a new Release
 4. Your Lifecycle will trigger a deployment when the release is created
 
-## Walkthrough {#TeamFoundationServer(TFS)-Walkthrough}
+## Video Walkthrough {#VideoWalkthrough}
 
 This 6 minute video walks through the above steps to create an end-to-end continuous deployment process for Team Foundation Server.
 
+:::Info
+While the video was recorded using Octopus `2.6`, it is still valid for Octopus 3.X.
+:::
+
 <iframe src="//fast.wistia.net/embed/iframe/jmnuxifuyo" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="360" style="margin: 30px"></iframe>
-
-## See also {#TeamFoundationServer(TFS)-Seealso}
-
-The following posts have more details on integrating Octopus Deploy with TFS:
-
-- [Automated deployment with TFS Preview](https://octopus.com/blog/automated-deployment-with-tfspreview-octopack-myget), a complete end-to-end walkthrough
-- [Automated deployment with TFS Team Build](https://octopus.com/blog/using-octopus-and-tfs-builds)
