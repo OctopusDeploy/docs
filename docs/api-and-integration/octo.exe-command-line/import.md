@@ -23,7 +23,7 @@ Where [<options>] is any of:
 --type=VALUE           		The Octopus object type to import
 --filePath=VALUE       		The full path and name of the exported file
 --project=VALUE        		[Optional] The name of the project
---dryRun             			[Optional] Perform a dry run of the import
+--dryRun               		[Optional] Perform a dry run of the import
 
 Common options:
 
