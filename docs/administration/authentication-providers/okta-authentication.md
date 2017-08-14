@@ -5,12 +5,12 @@ position: 6
 ---
 
 :::hint
-Okta authentication is available in Octopus Deploy 3.16 and later
+Authentication using [Okta](https://www.okta.com/), a cloud-based identity management service, is available in Octopus Deploy 3.16 and later.
 :::
 
 To use Okta authentication with Octopus you will need to:
 
-1. Configure Okta to trust your Octopus Deploy instance (by setting it up as an App in Okta)
+1. Configure Okta to trust your Octopus Deploy instance (by setting it up as an App in Okta).
 2. Configure your Octopus Deploy instance to trust and use Okta as an Identity Provider.
 
 ## Configuring Okta {#Oktaauthentication-ConfiguringOkta}
@@ -24,14 +24,14 @@ You must first have an account at [Okta](https://www.okta.com/). You can sign up
 Once you have an account, log in to the Okta admin portal.
 
 :::hint
-After signing up to Okta you will receive your own url to access the Okta portal. For a developer account, it will look something similar to: `https://dev-xxxxxx-admin.oktapreview.com`
+After signing up to Okta you will receive your own url to access the Okta portal. For a developer account, it will look something similar to: `https://dev-xxxxxx-admin.oktapreview.com`.
 :::
 
-1. Select the Applications tab and click the **Add Application** button
+1. Select the Applications tab and click the **Add Application** button.
 
    ![](/docs/images/okta-authentication/okta-add-app.png "width=500")
 
-2. Click the **Create New App** button
+2. Click the **Create New App** button.
 
    ![](/docs/images/okta-authentication/okta-create-new-app.png "width=500")
 
@@ -45,12 +45,12 @@ After signing up to Okta you will receive your own url to access the Okta portal
 
 :::hint
 **Reply URLs are case-sensitive**
-Please take care when adding this URL! They are **case-sensitive** and can be sensitive to trailing **slash** characters
+Please take care when adding this URL! They are **case-sensitive** and can be sensitive to trailing **slash** characters.
 :::
 
 :::hint
 **Not using SSL?**
-That's OK, you can use `http` if you do not have SSL enabled on your Octopus Server. Please beware of the security implications in accepting a security token over an insecure channel.
+We highly recommend using SSL, but we know its not always possible (it may be [easier than you think](/docs/administration/lets-encrypt-integration.md)). You can use `http` if you do not have SSL enabled on your Octopus Server. Please beware of the security implications in accepting a security token over an insecure channel.
 :::
 
 5. You should see the **General Settings** for the app you have just created. For the **Allowed grant types** ensure that both **Implicit (Hybrid)** and **Allow ID Token with implicit grant type** are checked. Click the **Save** button to continue.
@@ -86,8 +86,8 @@ There is currently no UI for configuring Octopus to use Okta - it must be config
 You will need the **Client ID** (aka **Audience**) and **Issuer** obtained from the Okta portal as described above.
 
 :::success
-Your **Client ID** should be a string value like `0a4bxxxxxxxxxxxx9yc3`
-Your **Issuer** should be a URL like `https://dev-xxxxxx.oktapreview.com`
+Your **Client ID** should be a string value like `0a4bxxxxxxxxxxxx9yc3`.
+Your **Issuer** should be a URL like `https://dev-xxxxxx.oktapreview.com`.
 :::
 
 Once you have those values, run the following from a command prompt in the folder where you installed Octopus Server:
@@ -101,11 +101,11 @@ Octopus.Server.exe configure --OktaIsEnabled=true --OktaIssuer=Issuer --OktaClie
 
 ### Octopus user accounts are still required {#Oktaauthentication-Octopususeraccountsarestillrequired}
 
-Even if you are using an external identity provider, Octopus still requires a [user account](/docs/administration/managing-users-and-teams/index.md) so you can assign those people to Octopus teams and subsequently grant permissions to Octopus resources. Octopus will automatically create a [user account](/docs/administration/managing-users-and-teams/index.md) based on the profile information returned in the security token, which includes an **Identifier**, **Name**, and **Email Address**.
+Octopus still requires a [user account](/docs/administration/managing-users-and-teams/index.md) so you can assign those people to Octopus teams and subsequently grant permissions to Octopus resources. Octopus will automatically create a [user account](/docs/administration/managing-users-and-teams/index.md) based on the profile information returned in the security token, which includes an **Identifier**, **Name**, and **Email Address**.
 
 :::hint
 **How Octopus matches external identities to user accounts**
-When the security token is returned from the external identity provider, Octopus looks for a user account with a **matching Identifier**. If there is no match, Octopus looks for a user account with a **matching Email Address**. If a user account is found, the External Identifier will be added to the user account for next time. If a user account is not found, Octopus will create one using the profile information in the security token.
+When the security token is returned from the external identity provider, Octopus looks for a user account with a matching **Identifier**. If there is no match, Octopus looks for a user account with a matching **Email Address**. If a user account is found, the External Identifier will be added to the user account for next time. If a user account is not found, Octopus will create one using the profile information in the security token.
 :::
 
 :::success
@@ -131,7 +131,7 @@ Unfortunately security-related configuration is sensitive to everything. Make su
 
 - you don't have any typos or copy-paste errors
 - remember things are case-sensitive
-- remember to remove or add slash characters as we've instructed - they matter too!
+- remember to remove or add slash characters - they matter too!
 
 ### Check OpenID Connect metadata is working {#Oktaauthentication-CheckOpenIDConnectmetadataisworking}
 
@@ -151,6 +151,9 @@ Perhaps the contents of the security token sent back by Okta aren't exactly the 
 
    ![](/docs/images/5670656/5866123.png "width=500")
 
-5. Don't worry if jwt.io complains about the token signature, it doesn't support RS256 which is used by Okta.
-6. Octopus uses most of the data to validate the token, but primarily uses the `sub`, `email` and `name` claims. If these claims are not present you will likely see unexpected behavior.
-7. If you are not able to figure out what is going wrong, please send a copy of the decoded payload to our [support team](https://octopus.com/support) and let them know what behavior you are experiencing.
+:::hint
+Don't worry if jwt.io complains about the token signature, it doesn't support RS256 which is used by Okta.
+:::
+
+5. Octopus uses most of the data to validate the token, but primarily uses the `sub`, `email` and `name` claims. If these claims are not present you will likely see unexpected behavior.
+6. If you are not able to figure out what is going wrong, please send a copy of the decoded payload to our [support team](https://octopus.com/support) and let them know what behavior you are experiencing.
