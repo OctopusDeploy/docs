@@ -32,7 +32,7 @@ On the first node, check that the shared drive is mounted and note down the driv
 
 *![](/docs/images/clustered-listening-tentacles/shared-disk-properties.jpg)*
 
-Run through the Tentacle MSI Installer to install Tentacle Manager to its default location `C:\Program Files\Octopus Deploy\Tentacle)`. Do not click "get started" in the Tentacle manager; instead install the Octopus Tentacle instance using the command prompt as an Administrator by opening `cmd` then run these commands (replacing relevant values as appropriate):
+Run through the Tentacle MSI Installer to install Tentacle Manager to its default location `C:\Program Files\Octopus Deploy\Tentacle`. Do not click "get started" in the Tentacle manager; instead install the Octopus Tentacle instance using the command prompt as an Administrator by opening `cmd` then run these commands (replacing relevant values as appropriate):
 
 ```batchfile
 cd "C:\Program Files\Octopus Deploy\Tentacle\"
@@ -76,7 +76,7 @@ Once both Tentacles are installed and configured ensure that neither node has th
 
 Ensure each node that will be participating in the Tentacle Cluster is joined to the Active Directory Domain and has the **Failover Clustering** feature installed in Windows. For more information on installing the Failover Clustering feature in Windows please see the  [Microsoft Failover Clustering documentation](https://blogs.msdn.microsoft.com/clustering/2012/04/06/installing-the-failover-cluster-feature-and-tools-in-windows-server-2012/ "installing the failover cluster service feature and toold in windows server 2012").
 
-Open the **Failover Cluster Manager** console on one of the nodes. If there is no cluster configured yet, you can right click **Failover Cluster Manager** amd select **New Cluster**
+Open the **Failover Cluster Manager** console on one of the nodes. If there is no cluster configured yet, you can right click **Failover Cluster Manager** and select **New Cluster**
 
 On the **Select Servers** page, enter the Fully Qualified Domain Name of each node that will be in this cluster.
 
