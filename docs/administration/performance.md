@@ -4,7 +4,9 @@ description: Octopus is all about reliable and repeatable deployments, but that 
 position: 10
 ---
 
-Over the years we have built Octopus to enable reliable and repeatable deployments, but that doesn't necessarily mean it has to be slow. In fact, Octopus can scale with you as you grow. Octopus is a complex system with a core component allowing you to run your own custom scripts. We work hard to ensure all the parts we control work quickly and efficiently leaving as many resources as possible for running your deployments. That being said, there are many things you can do to ensure your Octopus installation continues to operate efficiently.
+Over the years we have built Octopus to enable reliable and repeatable deployments, but that doesn't necessarily mean it has to be slow. In fact, Octopus can scale with you as you grow. Some Octopus customers are reliably deploying hundreds of projects to many thousands of deployment targets from a single [Octopus High Availability](/docs/administration/high-availability/index.md) cluster.
+
+Octopus is a complex system, where we control some parts of the deployment whilst offering you the freedom to inject your own custom steps into the process. We work hard to make our parts work quickly and efficiently, leaving as many resources available for running your parts of the deployment. We can't control the performance of your custom parts, but there are many things you can do as an Octopus administrator to ensure your installation operates efficiently.
 
 This page is intended to help Octopus System Administrators tune and maintain their Octopus installations and troubleshoot problems as they occur.
 
