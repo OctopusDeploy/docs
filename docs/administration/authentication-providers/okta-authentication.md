@@ -50,7 +50,8 @@ Please take care when adding this URL! They are **case-sensitive** and can be se
 
 :::hint
 **Not using SSL?**
-We highly recommend using SSL, but we know its not always possible (it may be [easier than you think](/docs/administration/lets-encrypt-integration.md)). You can use `http` if you do not have SSL enabled on your Octopus Server. Please beware of the security implications in accepting a security token over an insecure channel.
+We highly recommend using SSL, but we know its not always possible. You can use `http` if you do not have SSL enabled on your Octopus Server. Please beware of the security implications in accepting a security token over an insecure channel.
+Octopus now integrates with [Let's Encrypt](/docs/administration/lets-encrypt-integration.md) making it easier to setup SSL on your Octopus Server.
 :::
 
 5. You should see the **General Settings** for the app you have just created. For the **Allowed grant types** ensure that both **Implicit (Hybrid)** and **Allow ID Token with implicit grant type** are checked. Click the **Save** button to continue.
