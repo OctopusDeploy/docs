@@ -50,6 +50,10 @@ We offer two options for scaling your Octopus Server:
 - scale up by controlling the **task cap** and providing more server resources as required
 - scale out using [Octopus High Availability](/docs/administration/high-availability/index.md)
 
+We are planning a third option for scaling your Octopus Server:
+
+- sharding across multiple Octopus Servers using [Spaces](https://octopus.com/blog/octopuses) - planned for Octopus 4.x
+
 ### Task cap
 
 An ideal situation would be an Octopus Server that's performing as many parallel deployments as it can, while staying just under these limits. We tried several techniques to automatically throttle Octopus Server, but in practice this kind of approach proved to be unreliable.
