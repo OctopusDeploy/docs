@@ -49,6 +49,28 @@ Yes! This is a practice we recommend. You can use [tenant tags](/docs/key-concep
 
 Learn more about [designing a multi-tenant upgrade process](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md).
 
+## Can I send a single email at the end of a batch of tenanted deployments?
+
+No. Each tenanted deployment is independent. See below.
+
+## If I deploy to a batch of tenants and one fails can Octopus automatically roll the entire batch back?
+
+No. Each tenanted deployment is independent. See below.
+
+## Can I have a single step run once at the beginning or end of a batch of tenanted deployments?
+
+No. Each tenanted deployment is independent. See below.
+
+## Can Octopus coordinate multiple tenanted deployments?
+
+No. Each tenanted deployment is independent. There is no built-in way to perform complex orchestrations across multiple tenants. We considered the idea, but quickly realized there is no "one size fits all approach":
+
+- I want to send an email when a batch of tenanted deployments complete with the results of those deployments
+- I want to send an email once release `1.2.6` has been successfully deployed to all of my tenants in production
+- I want to upgrade a batch of tenants, and if one fails, I want them all to roll-back to the last known good version
+
+You can achieve these behaviors using a custom script/application which leverages the [Octopus REST API](/docs/api-and-integration/octopus-rest-api.md) and taking advantage of [Subscriptions](/docs/administration/subscriptions.md). This way you can use the information provided by Octopus to perform a complex deployment orchestration with any custom logic that suits your scenario perfectly. For example, you could write a script/application which starts a batch of tenanted deployments using a specific tag, then monitor the progress of those deployments, and finally take any action based on the results.
+
 ## Can I have a combination of tenanted and untenanted projects? {#Multi-tenantdeploymentsFAQ-CanIhaveacombinationoftenantedanduntenantedprojects?}
 
 Yes! Each project can control its interaction with tenants. By default the multi-tenant deployment features are disabled. You can allow deployments with/without a tenant, which is a hybrid mode that is useful when you are transitioning to a fully multi-tenant project. There is also a mode where you can require a tenant for all deployments, which disables untenanted deployments for that project.
