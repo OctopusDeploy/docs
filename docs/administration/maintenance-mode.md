@@ -22,7 +22,7 @@ Once Octopus is in Maintenance Mode:
 - The task queue will still be processed:
   - Tasks which were already running will run through to completion.
   - Tasks which were already queued (including [scheduled deployments](/docs/deploying-applications/scheduled-deployments.md)) will be started and run through to completion.
-  - System tasks will still be queued and execute at their scheduled intervals.
+  - System tasks will still be queued and execute at their scheduled intervals. These kinds of tasks can be ignored since they are designed to be safe to cancel at any point in time.
 
 ## What about high availability
 
