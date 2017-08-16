@@ -91,11 +91,11 @@ Yes, see the previous question. For more information refer to [deploying a sim
 
 ## Can I deploy a tenanted project onto an un-tenanted machine?
 
-No, not at this point in time. We have an [open issue](https://github.com/OctopusDeploy/Issues/issues/2722) to address this limitation which details some viable workarounds you can use in the meantime.
+Yes! We shipped support for this in [Octopus 3.15](https://octopus.com/blog/octopus-release-3-15).
 
 ## Can I deploy an un-tenanted project onto a tenanted machine?
 
-No, not at this point in time. We have an [open issue](https://github.com/OctopusDeploy/Issues/issues/2722) to address this limitation which details some viable workarounds you can use in the meantime.
+Yes! We shipped support for this in [Octopus 3.15](https://octopus.com/blog/octopus-release-3-15).
 
 ## Why can't I connect a tenant to my project, or perform a tenanted deployment of my project? {#Multi-tenantdeploymentsFAQ-Whycan&#39;tIconnectatenanttomyproject,orperformatenanteddeploymentofmyproject?}
 
