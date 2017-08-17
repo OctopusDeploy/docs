@@ -71,8 +71,11 @@ You can go one step further and automate release creation using [Octo.exe](/docs
 
 1. [Download Octo.exe](https://octopus.com/downloads), and extract it to a folder on your Bamboo build runner, such as `C:\Tools\Octo\Octo.exe`
 2. Add a new Command Line task to your build plan, and define the new executable:
+
 ![](/docs/images/3048164/3278159.png "width=500")
+
 3. Describe the command line task, and specify the arguments to Octo.exe:
+
 ![](/docs/images/3048164/3278158.png "width=500")
 
 In the **Argument** field, we are passing:
