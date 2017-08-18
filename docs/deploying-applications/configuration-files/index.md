@@ -255,3 +255,7 @@ To suppress these errors and report them as informational only, use the `Octopus
 ## PowerShell {#Configurationfiles-PowerShell}
 
 If these conventions aren’t enough to configure your application, you can always [use PowerShell to perform custom configuration tasks](/docs/deploying-applications/custom-scripts/index.md). Variables will be passed to your PowerShell script, and PowerShell has [rich XML API's](https://www.codeproject.com/Articles/61900/PowerShell-and-XML).
+
+## Troubleshooting {#Configurationfiles-Troubleshooting}
+
+If you're new to configuration transformation, first check the package(s) part of the deployment are structured and contain what you expect. Following on from that review the deployment logs and output of the package(s) on your deployment targets to get investigate any unexpected behavior. You can try using the `Octopus.Action.Package.TreatConfigTransformationWarningsAsErrors` variable defined in the [System Variables](/docs/deploying-applications/variables/system-variables.md) section of the documentation while you set it up the first time.
