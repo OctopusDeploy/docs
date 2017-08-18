@@ -6,7 +6,7 @@ position: 2
 
 Octopus Deploy integrates with Team Foundation Server and VSTS to provide for a full automated build and deployment pipeline. This section provides information about how to  integrate Octopus Deploy and the various verions of Microsoft's build server.
 
-![](\docs\images\5672460\5672461.png "align=center")
+![](\docs\images\5672460\5672461.png)
 
 ## Supported TFS/VSTS versions
 
