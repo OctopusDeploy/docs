@@ -247,7 +247,51 @@ The `Enable/Disable deployment in WildFly` step is used to modify the state of a
 
 The `Deploy Java Archive` step is used to copy a Java archive to the target machine's filesystem. This step is not tied to any particular application server, and can be used to deploy applications to any server that will accept files copied into a deployment directory.
 
-This step mirrors the functionality of the `Deploy a package` step, which is documented [here](https://octopus.com/docs/deploying-applications/deploying-packages).
+This step mirrors the functionality of the `Deploy a package` step, which is documented [here](https://octopus.com/docs/deploying-applications/deploying-packages).\
+
+## Variable Substitution in Java Packages
+
+Octopus provides the [ability to replace variables in packages during deployment](https://octopus.com/docs/deploying-applications/substitute-variables-in-files). This is done using a [specific syntax](https://octopus.com/docs/reference/variable-substitution-syntax) implemented by the [Octostash](https://github.com/OctopusDeploy/Octostache) library.
+
+The syntax used by Octostash and Java libraries such as Spring do overlap, so care must be taken to ensure that files intended to be used as Octostash templates during deployment don't interfere with local development.
+
+For example, you may have a `application.properties` file that defines an environment variable which reflects the environment that the application has been published to.
+
+```properties
+environment: #{Environment}
+```
+
+This file is expected to be used as an Octostash template during deployment, but when testing locally you will receive an error like `Unsatisfied dependency expressed through field 'environment';`. This is because during local development the template file has not been processed, and the common syntax between Spring and Octostash means Spring is attempting to resolve the variable `Environment`, which doesn't exist.
+
+[Spring profiles](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-properties-and-configuration.html) provide a convenient way to load valid properties files for local development, while leaving environment specific templates for deployments processed by Octopus.
+
+For example, you may create a file called `application-dev.properties` with the following settings:
+
+```properties
+environment: Development
+```
+
+Maven can then be instructed to active the `dev` profile for testing:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <argLine>-Dspring.profiles.active=dev</argLine>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+```
+
+Now local testing is done against a valid properties file, while the main `application.properties` file is used a template during deployment to environments managed by Octopus.
 
 ## Error Messages
 
