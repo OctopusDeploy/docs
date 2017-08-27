@@ -4,7 +4,7 @@ description: Deploy to WildFly, Red Hat JBoss EAP and Tomcat using Octopus Deplo
 position: 6
 ---
 
-Octopus Deploy comes with a number of steps that allow you to deploy and modify the state of Java applications for a number of Java application servers.
+Octopus Deploy comes with a number of steps that allow you to deploy and modify the state of Java applications for popular Java application servers.
 
 In addition, Java packages like `jar`, `war`, `ear` and `rar` files can be managed as part of the Octopus Deploy library.
 
@@ -166,7 +166,7 @@ The `Deploy to WildFly or Red Hat JBoss EAP` step is used to deploy a package fr
 
 There are multiple ways that the context of an application deployed to WildFly and JBoss EAP is defined.
 
-The `WEB-INF/jboss-web.xml` file inside a war package can define the context path, for example:
+The `WEB-INF/jboss-web.xml` file inside a war package can define the context path. For example a war package with the following `jboss-web.xml` file will be deployed to the `/myapplication` context.
 
 ```xml
 <jboss-web>
