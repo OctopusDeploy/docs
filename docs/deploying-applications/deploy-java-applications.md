@@ -40,46 +40,9 @@ The package filenames have to adhere to the standard Octopus [versioning rules](
 
 :::hint
 Java packages tend to be formatted with Maven versioning schemes. Maven versions are mostly compatible with SemVer, but the two versioning schemes are not identical.
-
-See the section [Building SemVer Compatible Artifacts](#building_semver_compatible_artifacts) for tips on creating valid package filenames from builds tools like Maven and Gradle.
 :::
 
 Valid packages can then be added to the library using the [web based interface, or using the CLI tool](https://octopus.com/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository).
-
-#### <a name="building_semver_compatible_artifacts"></a>Building SemVer Compatible Artifacts
-The most common incompatibility between Maven and SemVer formatting comes from the use of a dash to separate the package name from the version.
-
-For example, by default Maven will build artifacts with names like `myapplication-1.0.0-SNAPSHOT.war`. To be Semver compatible, this filename needs to be in the format `myapplication.1.0.0-SNAPSHOT.war`.
-
-The easiest way to generate the correct filenames in a Maven build is to set the `finalName` element to `<finalName>${project.name}.${project.version}</finalName>`.
-
-The following xml is a snippet from a `pom.xml` file that defines the `finalName` option in a SemVer compatible format.
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<project
-xmlns="http://maven.apache.org/POM/4.0.0"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <build>
-    <finalName>${project.name}.${project.version}</finalName>
-  </build>
-</project>
-```
-
-Gradle builds can define the filename through the `war.archiveName` property.
-
-The following code is a snippet of a `build.gradle` file that defines the name of the WAR file in a Semver compatible format.
-
-```
-apply plugin: 'java'
-apply plugin: 'war'
-
-group = 'com.example'
-version = '0.0.1-SNAPSHOT'
-
-war.archiveName "${project.name}.${version}.war"
-```
 
 ### 2. Ensure the Target Meets the Minimum Requirements
 
