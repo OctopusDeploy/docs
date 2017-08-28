@@ -291,6 +291,16 @@ Maven can then be instructed to active the `dev` profile for testing:
 </project>
 ```
 
+Gradle can do the same:
+
+```
+test {
+    systemProperties = [
+            "spring.profiles.active": "dev"
+    ]
+}
+```
+
 Now local testing is done against a valid properties file, while the main `application.properties` file is used a template during deployment to environments managed by Octopus.
 
 ## Error Messages
