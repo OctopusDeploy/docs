@@ -243,11 +243,26 @@ The `Enable/Disable deployment in WildFly` step is used to modify the state of a
 |Enabled Server Groups | No | | When deploying to a domain controller, this field lists the server groups that will have the deployment enabled in. Multiple server groups can be supplied as a comma separated list. This field has no effect when deploying to a standalone server. |
 |Disabled Server Groups |No | | When deploying to a domain controller, this field lists the server groups that will have the deployment disabled in. Multiple server groups can be supplied as a comma separated list. This field has no effect when deploying to a standalone server. |
 
-## Deploying via Package Copy
+## Deploy via Package Copy
 
 The `Deploy Java Archive` step is used to copy a Java archive to the target machine's filesystem. This step is not tied to any particular application server, and can be used to deploy applications to any server that will accept files copied into a deployment directory.
 
-This step mirrors the functionality of the `Deploy a package` step, which is documented [here](https://octopus.com/docs/deploying-applications/deploying-packages).\
+The following steps can be used to deploy an application via a file copy to an application server.
+
+* Select the `Package feed` and `Package ID` that references the Java application to be deployed.
+* Set the `Install to` field to the location within the application server where deployments are located. For WildFly or JBoss EAP, this will be a directory like `standalone/deployments`, and for Tomcat it will be `webapps`.
+* Set the `Package file name` field to a filename that reflects the desired context path.
+  *  For WildFly or JBoss EAP, the filename will be used for the context. For example, setting `Package file name` to `myapplication.war` will result in the application being deployed under the `/myapplication` context. See [Defining Context Paths](#context_path) for more information.
+  * For Tomcat the filename takes the form `context#subcontext##version.war`. For example, setting `Package file name` to `myapplication#v1##10.war` will result in the application being deployed under the context `myapplication/v1` with a Tomcat version of `10`. The version and subcontext are optional, so you could set `Package file name` to `myapplication.war`, in which case Tomcat would deploy the application under the `/mayapplication` context with no version information.
+
+## Deploy Java Archive Step Details
+
+| Field Name |Required | Default | Field Description |
+|-|-|-|-|
+| Package feed | Yes | | The feed to use to source the Java package from. |
+| Package ID | Yes | | The Java package to deploy. |
+| Install to | No | The package will be copied into the local Octopus Applications directory by default e.g. `C:\Octopus\Applications\Local\myapplication\0.0.1-SNAPSHOT_8\myapplication.0.0.1-SNAPSHOT.war` | Defines the destination directory that the repacked package will be copied into. |
+| Package file name | No | The original library filename | Defines the name of the file that is copied into the destination directory. |
 
 ## Variable Substitution in Java Packages
 
