@@ -12,18 +12,21 @@ This page is intended to help you tune and maintain your deployment processes an
 Want to tune your Octopus Server for optimum performance? Read our [detailed guide](/docs/administration/performance.md).
 :::
 
+!toc
+
 ## Key considerations
 
-By the time your deployment starts, the Octopus API and database are no longer the bottleneck. The key concerns are now:
+By the time your deployment starts, the Octopus HTTP API and database are no longer the bottleneck. The key concerns are now:
 
 - The throughput and reliability of the connection from Octopus Server to your deployment targets
 - The speed and reliability of your deployment targets themselves
+- The load your deployment targets are under while the deployment is taking place
 - The number of steps in your deployment process
 - The size and number of packages you are deploying
 - How your packages are acquired/transferred to your deployment targets
+- The amount and size of log messages you write during deployment
 - How many deployment targets you deploy to in parallel
 - Whether your steps run serially (one-after-the-other) or in parallel (at the same time)
-- The amount and size of log messages you write during deployment
 - The number and size of your variables
 - Other processes on the deployment target interfering with your deployment
 
@@ -52,6 +55,14 @@ Fast and reliable deployment targets are also a foundation for fast and reliable
 If a particular operation seems slow during deployment, test that single operation on your deployment target without Octopus in the mix. Octopus adds as little overhead as possible to your deployments, so there's a good chance that operation is slow because of some kind of bottleneck on the deployment target itself.
 :::
 
+### Reduce load on your deployment targets during deployment {#reduce-target-load}
+
+If the applications running on your deployment targets are busy, this will slow down your deployment. Similarly, when you run a deployment it will be taking resources from your running applications. Octopus does not perform any kind of throttling on the deployment target - it will attempt to run your deployment process on your targets as fast as possible.
+
+One of the best ways to reduce load on your deployment targets is to temporarily remove them from the active pool of servers. For example, with web applications you can do this by removing the server from your load balancer, perhaps using a [rolling deployment](/docs/patterns/rolling-deployments.md).
+
+If you don't want to take this kind of approach, you can safely deploy your application to an active server, but you should take some time to understand the impact this has on your running applications and the speed of your deployments.
+
 ### Optimize the size of your deployment process {#optimize-size-of-process}
 
 By their very nature, each step in your deployment process comes with an overhead. On one hand a deployment process with more steps can be easier to understand at a high level, and easier to manage over time. On the other hand, more steps results in more system variables, more communication overhead, more startup/teardown cost, and more contention on Octopus Server resources.
@@ -63,5 +74,45 @@ There is typically a happy balance you can strike for each of your projects. The
 - If your project could be broken down into logical components which ship on their own cadence, do it! Make each component its own project.
 - If your project could be broken down into logical components which ship at the same time, you can do that too! Consider breaking your deployment into multiple logical projects and [coordinate their deployments](/docs/guides/coordinating-multiple-projects/index.md).
 - If your project cannot be broken down logically, consider combining some of your steps together into a single step. For example, you may be able to run your [custom scripts](/docs/deploying-applications/custom-scripts/index.md) as a pre- or post- activity.
+
+### Consider the size of your packages {#package-size}
+
+Size really does matter when it comes to your packages:
+
+- Larger packages require more network bandwidth to transfer to your deployment targets.
+- Larger packages take more resources to unpack on your deployment targets.
+- When using [delta compression for package transfers](/docs/deploying-applications/delta-compression-for-package-transfers.md), larger packages require more CPU and disk IOPS on the Octopus Server to calculate deltas - this is a tradeoff you can determine through testing.
+- Larger packages usually result in larger file systems on your deployment targets, making any steps which scan files much slower. For example, [substituting variables in files](/docs/deploying-applications/substitute-variables-in-files.md) can be configured to scan every file extracted from your package.
+
+Consider whether one large package is better in your scenario, or perhaps you could split your application into multiple smaller packages, one for each deployable component.
+
+### Consider how you transfer your packages {#package-transfer}
+
+Octopus provides two primary methods for transferring your packages to your deployment targets:
+
+- Push from the Octopus Server to your targets
+- Pull from an external feed to your targets
+
+Each option provides different performance benefits, depending on your specific scenario:
+
+- If network bandwidth is the limiting factor, consider:
+  - pushing the package from the Octopus Server to your targets using [delta compression for package transfers](/docs/deploying-applications/delta-compression-for-package-transfers.md); or
+  - using custom package feed in the same network as your deployment targets and download the packages directly on the agent.
+- If network bandwidth is not a limiting factor consider downloading the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
+- If Octopus Server CPU and disk IOPS is a limiting factor, avoid using [delta compression for package transfers](/docs/deploying-applications/delta-compression-for-package-transfers.md). Instead, consider downloading the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
+
+### Consider the size of your Task Logs {#task-logs}
+
+Larger task logs put the entire Octopus pipeline under more pressure. A good rule of thumb is to keep your log files under 20MB. We recommend printing messages required to understand progress and the reason for any deployment failures. The rest of the information should be streamed to a file, then published as a deployment [artifact](/docs/deploying-applications/artifacts.md).
+
+### Consider how many targets you deploy to in parallel {#parallel-targets}
+
+Imagine you have step in your deployment process which runs across all deployment targets with a specific role, and that results in 1,000 targets. Octopus will attempt to run that step simultaneously across all 1,000 deployment targets. This will cause your deployment to go slower since the Octopus Server spends most of its time task switching rather than being productive.
+
+Consider using a [rolling deployment](/docs/patterns/rolling-deployments.md) to deploy to a subset of these deployment targets at any one time. Rolling deployments allow you to define a "window" which is the maximum number of deployment targets which will run the step at any one time.
+
+::: info
+This default behavior makes a lot of sense for smaller installations, but it is an unsafe default for larger installations. We are looking to [change this default behavior in Octopus 4.x](https://github.com/OctopusDeploy/Issues/issues/3305).
+:::
 
 **More tips coming soon!**

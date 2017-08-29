@@ -1,7 +1,7 @@
 ---
-title: Using the Team Foundation Build Custom Tasks
-description: This guide walks you through integrating Octopus with Microsoft TFS or VSTS using the Octopus extension.
-position: 5
+title: Using the Octopus Extension
+description: Octopus Deploy and Visual Studio Team Services (VSTS) can work together to make automated, continuous delivery easy.
+position: 1
 ---
 
 The new structure of Team Foundation Build gives us a great opportunity to integrate better with your build and release processes from Visual Studio Team Services (VSTS) (formerly VSO) and on-premises Team Foundation Server (TFS) servers. We've created a [public extension](https://marketplace.visualstudio.com/items/octopusdeploy.octopus-deploy-build-release-tasks) you can install into your VSTS instance or TFS 2017 server.  This extension makes the following tasks available to your Build and Release processes:
@@ -24,13 +24,13 @@ We've open-sourced the [OctoTFS repository in GitHub](https://github.com/Octopu
 
 If you're using **Visual Studio Team Services (VSTS) or on-premises Team Foundation Server (TFS) 2017 (or newer)** you can simply [install the extension from the marketplace](https://marketplace.visualstudio.com/items/octopusdeploy.octopus-deploy-build-release-tasks) and follow the instructions below.
 
-If you're using an earlier version of TFS, see the [Extension Compatibility documentation](/docs/guides/use-the-team-foundation-build-custom-task/extension-compatibility.md) for details on where to get a compatible extension. 
+If you're using an earlier version of TFS, see the [Extension Compatibility documentation](extension-compatibility.md) for details on where to get a compatible extension. 
 
 After installing the extension, follow the below steps to get it running for your build.
 
 :::hint
 **Manually installing the extension (not recommended)**
-If you want to make changes to the build task that might not be appropriate for everyone, you can download and manually install the build task yourself. See [Manually install the Build Task (not recommended)](/docs/guides/use-the-team-foundation-build-custom-task/manually-install-the-build-task.md) for details.
+If you want to make changes to the build task that might not be appropriate for everyone, you can download and manually install the build task yourself. See [Manually install the Build Task (not recommended)](manually-install-the-build-task.md) for details.
 :::
 
 ## Add a Connection to Octopus Deploy
@@ -68,7 +68,7 @@ If there are scope restrictions (e.g. by Project or Environment) against the acc
 - DeploymentView (for the dashboard widget)
 - TaskView (for the dashboard widget)
 
-## Package your Application and Push to Octopus {#UsetheTeamFoundationBuildCustomTask-PackageyourApplicationandPushtoOctopus}
+## Package your Application and Push to Octopus {#PackageyourApplicationandPushtoOctopus}
 
 To integrate with Octopus Deploy, an application must be packaged into either a NuGet or Zip package, and pushed to Octopus Deploy (or any NuGet repository).
 
@@ -78,10 +78,11 @@ We strongly recommend reading the [Build Versions in Team Build](build-versions-
 
 There are two options for packaging and pushing:
 
-- [Use OctoPack](/docs/guides/use-the-team-foundation-build-custom-task/index.md) as part of your build process.
-- Use the [Package Application](/docs/guides/use-the-team-foundation-build-custom-task/index.md) and [Push Package to Octopus](/docs/guides/use-the-team-foundation-build-custom-task/index.md) Steps added by this extension.
+- Use the [Package Application](#UsetheTeamFoundationBuildCustomTask-AddStepstoyourBuildorReleaseProcess-packageUsingExtension) Steps added by this extension.
+- [Use OctoPack](#PackageyourApplicationandPushtoOctopus-UsingOctoPack) as part of your build process.
 
-### Using OctoPack to Create and Push a Package {#UsetheTeamFoundationBuildCustomTask-using-octopackUsingOctoPacktoCreateandPushaPackage}
+
+### Using OctoPack to Create and Push a Package {#PackageyourApplicationandPushtoOctopus-UsingOctoPack}
 
 Follow the [OctoPack instructions](/docs/packaging-applications/nuget-packages/using-octopack/index.md) to add OctoPack to your project and configure the msbuild arguments.
 
@@ -104,11 +105,11 @@ To add a step to your Build process, edit your Build Definition and click **Add 
 To add a step to your Release process, edit your Release Definition, select the Environment, and click **Add tasks**.
 :::
 
-### Add a Package Application step {#UsetheTeamFoundationBuildCustomTask-package-application-stepAddaPackageApplicationstep}
+### Add a Package Application step {#UsetheTeamFoundationBuildCustomTask-AddStepstoyourBuildorReleaseProcess-packageUsingExtension}
 
 :::hint
 **If not using OctoPack**
-This step is only required if you are not [using OctoPack](/docs/guides/use-the-team-foundation-build-custom-task/index.md) to create your package.
+This step is only required if you are not [using OctoPack](\docs\api-and-integration\tfs-vsts\using-octopack.md) to create your package.
 :::
 
 Add a step to your Build or Release process, choose **Package**, click **Add** next to the **Package Application** task.

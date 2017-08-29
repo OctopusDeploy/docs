@@ -120,6 +120,7 @@ If you need to go beyond this and include additional files, or you want to contr
 <files>
   <file src="bin\*.dll" target="bin" />
   <file src="Content\*.css" target="Content" />
+  <file src="Files\**\*.*" target="Files" exclude="Files\SuperSecret.cert" />
 </files>
 ```
 

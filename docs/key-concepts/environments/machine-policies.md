@@ -35,7 +35,7 @@ Try {
 	Get-WmiObject win32_LogicalDisk -ErrorAction Stop  | ? { ($_.DriveType -eq 3) -and ($_.FreeSpace -ne $null)} |  % { CheckDriveCapacity @{Name =$_.DeviceId; FreeSpace=$_.FreeSpace} }
 } Catch [System.Runtime.InteropServices.COMException] {
 	Get-WmiObject win32_Volume | ? { ($_.DriveType -eq 3) -and ($_.FreeSpace -ne $null) -and ($_.DriveLetter -ne $null)} | % { CheckDriveCapacity @{Name =$_.DriveLetter; FreeSpace=$_.FreeSpace} }
-	Get-WmiObject Win32_MappedLogicalDisk | ? { ($_.FreeSpace -ne $null) -and ($_.DeviceId -ne $null)} | % { CheckDriveCapacity @{Name =$_.DeviceId; FreeSpace=$_.FreeSpace} }	
+	Get-WmiObject Win32_MappedLogicalDisk | ? { ($_.FreeSpace -ne $null) -and ($_.DeviceId -ne $null)} | % { CheckDriveCapacity @{Name =$_.DeviceId; FreeSpace=$_.FreeSpace} }
 }
 ```
 
@@ -75,6 +75,12 @@ echo_warning "This is a warning"
 echo_error "This is an error"
 fail_healthcheck "This is an error"
 ```
+
+:::hint
+**Agent-level variables**
+
+When using a custom health check script, the script execution through Calamari is bypassed. This results in some behavioral differences as compared with the normal scripting in Octopus that you would be accustomed to. You can still use the standard `#` variable substitution syntax, however since this is replaced on the server, environment variables from your target will not be available through Octopus variables.
+:::
 
 ## Ignore machines that are unavailable during health checks {#MachinePolicies-Ignoremachinesthatareunavailableduringhealthchecks}
 
