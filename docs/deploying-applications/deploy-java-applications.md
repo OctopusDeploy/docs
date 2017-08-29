@@ -262,7 +262,7 @@ The following steps can be used to deploy an application via a file copy to an a
 | Package feed | Yes | | The feed to use to source the Java package from. |
 | Package ID | Yes | | The Java package to deploy. |
 | Install to | No | The package will be copied into the local Octopus Applications directory by default e.g. `C:\Octopus\Applications\Local\myapplication\0.0.1-SNAPSHOT_8\myapplication.0.0.1-SNAPSHOT.war` | Defines the destination directory that the repacked package will be copied into. |
-| Package file name | No | The original library filename | Defines the name of the file that is copied into the destination directory. |
+| Package file name | No | The file will default to the original filename from the feed. | Defines the name of the file that is copied into the destination directory. |
 
 ## Variable Substitution in Java Packages
 
