@@ -250,7 +250,7 @@ The `Deploy Java Archive` step is used to copy a Java archive to the target mach
 The following steps can be used to deploy an application via a file copy to an application server.
 
 * Select the `Package feed` and `Package ID` that references the Java application to be deployed.
-* Set the `Install to` field to the location within the application server where deployments are located. For WildFly or JBoss EAP, this will be a directory like `standalone/deployments`, and for Tomcat it will be `webapps`.
+* Set the `Install to` field to the location within the application server where deployments are located. For WildFly or JBoss EAP, this will be a directory like `$JBOSS_HOME/standalone/deployments`, and for Tomcat it will be `$CATALINA_HOME/webapps`.
 * Set the `Package file name` field to a filename that reflects the desired context path.
   *  For WildFly or JBoss EAP, the filename will be used for the context. For example, setting `Package file name` to `myapplication.war` will result in the application being deployed under the `/myapplication` context. See [Defining Context Paths](#context_path) for more information.
   * For Tomcat the filename takes the form `context#subcontext##version.war`. For example, setting `Package file name` to `myapplication#v1##10.war` will result in the application being deployed under the context `myapplication/v1` with a Tomcat version of `10`. The version and subcontext are optional, so you could set `Package file name` to `myapplication.war`, in which case Tomcat would deploy the application under the `/mayapplication` context with no version information.
