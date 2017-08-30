@@ -93,9 +93,9 @@ The `Deploy to Tomcat via Manager` step takes advantage of the [Manager applicat
 
 Tomcat needs to be configured with a user that Octopus can use to log into the Manager API.
 
-Tomcat users are defined in the `tomcat-users.xml` file. The user that will deploy the applications must be added to the `manager-script` group.
+Tomcat users are defined in the `$CATALINA_HOME/conf/tomcat-users.xml` file. The user that will deploy the applications must be added to the `manager-script` group.
 
-Here is an example of a `tomcat-users.xml` file that defines a user called `tomcat` in the `manager-script` group.
+Here is an example of a `$CATALINA_HOME/conf/tomcat-users.xml` file that defines a user called `tomcat` in the `manager-script` group.
 
 ```xml
 <?xml version='1.0' encoding='utf-8'?>
