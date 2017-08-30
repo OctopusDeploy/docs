@@ -390,6 +390,9 @@ Failed to deploy the package to the WildFly/EAP standalone instance
 ### WILDFLY-DEPLOY-ERROR-0016
 Failed to deploy the package to the WildFly/EAP domain
 
+### WILDFLY-DEPLOY-ERROR-0017
+There was a mismatch between the server type defined in the Octopus Deploy step and the server that was being deployed to. For example, the Octopus Deploy step defined the server as `Standalone` in the `Standalone or Domain Server` field, but the server was actually a domain controller. This error won't stop the deployment, but possibly means that the Octopus Step has not configured the correct fields.
+
 ###  TOMCAT-DEPLOY-ERROR-0001
 There was an error deploying the package to Tomcat
 
@@ -424,6 +427,3 @@ The application was not successfully started or stopped.
 This can happen if the application failed to initialize. Check the Tomcat logs for information on why the application could not be started.
 
 Also confirm that the context path and version match a deployed application.
-
-### TOMCAT-DEPLOY-ERROR-0009
-There was a mismatch between the server type defined in the Octopus Deploy step and the server that was being deployed to. For example, the Octopus Deploy step defined the server as `Standalone` in the `Standalone or Domain Server` field, but the server was actually a domain controller. This error won't stop the deployment, but possibly means that the Octopus Step has not configured the correct fields.
