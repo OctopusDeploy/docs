@@ -4,11 +4,15 @@ description: Deploy to WildFly, Red Hat JBoss EAP and Tomcat using Octopus Deplo
 position: 6
 ---
 
+:::hint
+This documentation targets Octopus 3.17, which is in testing.
+:::
+
 Octopus Deploy comes with a number of steps that allow you to deploy and modify the state of Java applications for popular Java application servers.
 
 In addition, Java packages like `jar`, `war`, `ear` and `rar` files can be managed as part of the Octopus Deploy library.
 
-## Supported Application Servers
+# Supported Application Servers
 
 The following application servers are supported by Octopus Deploy:
 
@@ -26,11 +30,11 @@ The `Deploy Java Archive` step deploys a Java package to a location on the targe
 The application servers listed above are those that are tested with Octopus Deploy, and have custom steps for deploying and managing the state of applications.
 :::
 
-## Deploying Java Applications via Octopus
+# Deploying Java Applications via Octopus
 
 Regardless of which application server you are deploying to, there are a number of common steps that need to be performed.
 
-### 1. Push a Package to Octopus
+## 1. Push a Package to Octopus
 
 For a package to be made available to the deployment steps, it first must be added to the Octopus library.
 
@@ -46,7 +50,7 @@ See the section [Building SemVer Compatible Artifacts](#building_semver_compatib
 
 Valid packages can then be added to the library using the [web based interface, or using the CLI tool](https://octopus.com/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository).
 
-#### <a name="building_semver_compatible_artifacts"></a>Building SemVer Compatible Artifacts
+### <a name="building_semver_compatible_artifacts"></a>Building SemVer Compatible Artifacts
 The most common incompatibility between Maven and SemVer formatting comes from the use of a dash to separate the package name from the version.
 
 For example, by default Maven will build artifacts with names like `myapplication-1.0.0-SNAPSHOT.war`. To be Semver compatible, this filename needs to be in the format `myapplication.1.0.0-SNAPSHOT.war`.
@@ -81,15 +85,15 @@ version = '0.0.1-SNAPSHOT'
 war.archiveName "${project.name}.${version}.war"
 ```
 
-### 2. Ensure the Target Meets the Minimum Requirements
+## 2. Ensure the Target Meets the Minimum Requirements
 
 The target machine must have Java 1.8 installed, and the `java` executable must either be on the path, or the `JAVA_HOME` environment variable must be set.
 
-## Deploying to Tomcat via the Manager
+# Deploying to Tomcat via the Manager
 
 The `Deploy to Tomcat via Manager` step takes advantage of the [Manager application](https://tomcat.apache.org/tomcat-7.0-doc/manager-howto.html) shipped with Tomcat to deploy Java applications. The following steps describe the process of deploying a web application (a WAR package) to Tomcat through Octopus Deploy.
 
-### <a name="configure_tomcat"></a>1. Configure Tomcat
+## <a name="configure_tomcat"></a>1. Configure Tomcat
 
 Tomcat needs to be configured with a user that Octopus can use to log into the Manager API.
 
@@ -110,7 +114,7 @@ Here is an example of a `$CATALINA_HOME/conf/tomcat-users.xml` file that defines
 
 See the [Tomcat documentation](https://tomcat.apache.org/tomcat-7.0-doc/manager-howto.html#Configuring_Manager_Application_Access) for more details on the groups used by the manager application.
 
-### 2. Populate the Tomcat Deployment Step
+## 2. Populate the Tomcat Deployment Step
 
 The `Deploy to Tomcat via Manager` step is used to deploy a package from the Octopus library to Tomcat. The following steps can be used to deploy an application to a Tomcat server.
 
@@ -121,7 +125,7 @@ The `Deploy to Tomcat via Manager` step is used to deploy a package from the Oct
 * Supply the `Management User` and `Management Password` of the user was defined using the instructions from [Configure Tomcat](#configure_tomcat).
 * The `Start/Stop the Deployment` option allows you to deploy the application in a started or stopped state. Typically you will deploy in a started state.
 
-## Deploying to Tomcat via Manager Step Details
+# Deploying to Tomcat via Manager Step Details
 
 | Field Name | Required | Default Value | Field Description |
 |-|-|-|-|
@@ -134,11 +138,11 @@ The `Deploy to Tomcat via Manager` step is used to deploy a package from the Oct
 | Management Password | Yes | | The password that is supplied when logging into the Tomcat manager API. |
 | Start/Stop the Deployment | Yes |  | This field defines the state of the application after it is deployed. |
 
-## Deploying to WildFly/JBoss EAP
+# Deploying to WildFly/JBoss EAP
 
 The `Deploy to WildFly or Red Hat JBoss EAP` step uses the management API to deploy applications and change their state. The following steps describe the process of deploying a web application (a WAR package) to WildFly or JBoss EAP through Octopus Deploy.
 
-### 1. Configure Authentication
+## 1. Configure Authentication
 
 You have two options for authenticating with WildFly and JBoss EAP servers.
 
@@ -148,7 +152,7 @@ To take advantage of silent authentication, the user running the Octopus deploym
 
 The second option is to use the application server `add-user` script to create a new user, and use these credentials in the Octopus deployment steps.
 
-### 2. Populate the WildFly/JBoss EAP Deployment Step
+## 2. Populate the WildFly/JBoss EAP Deployment Step
 
 The `Deploy to WildFly or Red Hat JBoss EAP` step is used to deploy a package from the Octopus library to a WildFly or Red Hat JBoss EAP instance.
 
@@ -162,7 +166,7 @@ The `Deploy to WildFly or Red Hat JBoss EAP` step is used to deploy a package fr
 * If you are deploying to a domain controller, the server groups that will have the deployment enabled must be specified in the `Enabled Server Groups` field. Likewise the server groups that will have the deployment disabled must be specified in the `Disabled Server Groups`. Multiple server groups can be specified separated by a comma. These fields has no effect when deploying to a standalone server.
 
 <a name="context_path"></a>
-#### Defining Context Paths
+### Defining Context Paths
 
 There are multiple ways that the context of an application deployed to WildFly and JBoss EAP is defined.
 
@@ -180,7 +184,7 @@ If the war file has the special name `ROOT.war` it will be deployed to the root 
 
 See [Setting the context root of a web application](https://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch06.html) for more information.
 
-## WildFly/JBoss EAP Deployment Step Details
+# WildFly/JBoss EAP Deployment Step Details
 
 | Field Name |Required | Default | Field Description |
 |-|-|-|-|
@@ -196,7 +200,7 @@ See [Setting the context root of a web application](https://docs.jboss.org/jboss
 |Enabled Server Groups | No | | When deploying to a domain controller, this field lists the server groups that will have the deployment enabled in. Multiple server groups can be supplied as a comma separated list. This field has no effect when deploying to a standalone server. |
 |Disabled Server Groups | No | | When deploying to a domain controller, this field lists the server groups that will have the deployment disabled in. Multiple server groups can be supplied as a comma separated list. This field has no effect when deploying to a standalone server. |
 
-## Starting/Stopping Tomcat Applications
+# Starting/Stopping Tomcat Applications
 
 The `Start/Stop App in Tomcat` step is used to start or stop applications that have already been deployed to Tomcat. The following steps can be used to start or stop an application deployed to a Tomcat server.
 
@@ -206,7 +210,7 @@ The `Start/Stop App in Tomcat` step is used to start or stop applications that h
 * Supply the `Management User` and `Management Password` of the user was defined using the instructions from [Configure Tomcat](#configure_tomcat).
 * The `Start/Stop the Deployment` option allows you to start or stop the deployed application.
 
-## Starting/Stopping Tomcat Applications Step Details
+# Starting/Stopping Tomcat Applications Step Details
 
 | Field Name | Required | Default | Field Description |
 |-|-|-|-|
@@ -217,7 +221,7 @@ The `Start/Stop App in Tomcat` step is used to start or stop applications that h
 | Management Password | Yes | | The password that is supplied when logging into the Tomcat manager API. |
 | Start/Stop the Deployment | Yes | |This field defines whether the application will be started or stopped. |
 
-## Enabling/Disabling WildFly and EAP Applications
+# Enabling/Disabling WildFly and EAP Applications
 
 The `Enable/Disable deployment in WildFly` step is used to modify the state of a deployed application. The following steps can be used to enable or disable an application deployed to an application server.
 
@@ -229,7 +233,7 @@ The `Enable/Disable deployment in WildFly` step is used to modify the state of a
 * If you are deploying to a standalone server, the deployment can be enabled or disabled using the `Enable/Disable the Deployment` field. This field has no effect when deploying to a domain controller.
 * If you are deploying to a domain controller, the server groups that will have the deployment enabled must be specified in the `Enabled Server Groups` field. Likewise the server groups that will have the deployment disabled must be specified in the `Disabled Server Groups`. Multiple server groups can be specified separated by a comma. These fields has no effect when deploying to a standalone server.
 
-## Enabling/Disabling WildFly and EAP Applications Step Details
+# Enabling/Disabling WildFly and EAP Applications Step Details
 
 | Field Name | Required | Default | Field Description |
 |-|-|-|-|
@@ -243,7 +247,7 @@ The `Enable/Disable deployment in WildFly` step is used to modify the state of a
 |Enabled Server Groups | No | | When deploying to a domain controller, this field lists the server groups that will have the deployment enabled in. Multiple server groups can be supplied as a comma separated list. This field has no effect when deploying to a standalone server. |
 |Disabled Server Groups |No | | When deploying to a domain controller, this field lists the server groups that will have the deployment disabled in. Multiple server groups can be supplied as a comma separated list. This field has no effect when deploying to a standalone server. |
 
-## Deploy via Package Copy
+# Deploy via Package Copy
 
 The `Deploy Java Archive` step is used to copy a Java archive to the target machine's filesystem. This step is not tied to any particular application server, and can be used to deploy applications to any server that will accept files copied into a deployment directory.
 
@@ -255,7 +259,7 @@ The following steps can be used to deploy an application via a file copy to an a
   *  For WildFly or JBoss EAP, the filename will be used for the context. For example, setting `Package file name` to `myapplication.war` will result in the application being deployed under the `/myapplication` context. See [Defining Context Paths](#context_path) for more information.
   * For Tomcat the filename takes the form `context#subcontext##version.war`. For example, setting `Package file name` to `myapplication#v1##10.war` will result in the application being deployed under the context `myapplication/v1` with a Tomcat version of `10`. The version and subcontext are optional, so you could set `Package file name` to `myapplication.war`, in which case Tomcat would deploy the application under the `/mayapplication` context with no version information.
 
-## Deploy Java Archive Step Details
+# Deploy Java Archive Step Details
 
 | Field Name |Required | Default | Field Description |
 |-|-|-|-|
@@ -264,7 +268,7 @@ The following steps can be used to deploy an application via a file copy to an a
 | Install to | No | The package will be copied into the local Octopus Applications directory by default e.g. `C:\Octopus\Applications\Local\myapplication\0.0.1-SNAPSHOT_8\myapplication.0.0.1-SNAPSHOT.war` | Defines the destination directory that the repacked package will be copied into. |
 | Package file name | No | The file will default to the original filename from the feed. | Defines the name of the file that is copied into the destination directory. |
 
-## Variable Substitution in Java Packages
+# Variable Substitution in Java Packages
 
 Octopus provides the [ability to replace variables in packages during deployment](https://octopus.com/docs/deploying-applications/substitute-variables-in-files). This is done using a [specific syntax](https://octopus.com/docs/reference/variable-substitution-syntax) implemented by the [Octostash](https://github.com/OctopusDeploy/Octostache) library.
 
@@ -318,7 +322,7 @@ test {
 
 Now local testing is done against a valid properties file, while the main `application.properties` file is used a template during deployment to environments managed by Octopus.
 
-## Error Messages
+# Error Messages
 
 The Java deployment steps include a number of unique error codes that may be displayed in the output if there was an error. Below is a list of the errors, along with any additional troubleshooting steps that can be taken to rectify them.
 
