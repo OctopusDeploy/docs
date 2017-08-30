@@ -403,7 +403,7 @@ There was an error enabling or disabling a package in Tomcat
 #### TOMCAT-DEPLOY-ERROR-0005
 This is a catch all error message for unexpected errors during a Tomcat deployment. Ensure that:
 
-* The manager URL is correct. Ensure the URL includes the context of the manager application, and that the port and hostname/IP address are correct. Also ensure that the hostname/IP address can be resolved from the target machine hosting the tentacle. A common example of a correct manager URL is `http://localhost:8080/manager`.
+* The manager URL is correct. Ensure the URL includes the context of the manager application, and that the port and hostname/IP address are correct. Also ensure that the hostname/IP address can be resolved from the target machine hosting the Tentacle. A common example of a correct manager URL is `http://localhost:8080/manager`.
 * The Tomcat credentials are correct.
 * The firewall allows connection to the Tomcat server.
 * Tomcat is started and running.
