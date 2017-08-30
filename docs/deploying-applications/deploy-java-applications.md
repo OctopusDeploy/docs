@@ -326,81 +326,81 @@ Now local testing is done against a valid properties file, while the main `appli
 
 The Java deployment steps include a number of unique error codes that may be displayed in the output if there was an error. Below is a list of the errors, along with any additional troubleshooting steps that can be taken to rectify them.
 
-#### WILDFLY-DEPLOY-ERROR-0001
+### WILDFLY-DEPLOY-ERROR-0001
 There was an error taking a snapshot of the current configuration.
 
-#### WILDFLY-DEPLOY-ERROR-0002
+### WILDFLY-DEPLOY-ERROR-0002
 There was an error deploying the artifact.
 
-#### WILDFLY-DEPLOY-ERROR-0003
+### WILDFLY-DEPLOY-ERROR-0003
 There was an error reading the existing deployments.
 
-####  WILDFLY-DEPLOY-ERROR-0004
+### WILDFLY-DEPLOY-ERROR-0004
 There was an error adding the package to the server group.
 
-#### WILDFLY-DEPLOY-ERROR-0005
+### WILDFLY-DEPLOY-ERROR-0005
 There was an error deploying the package to the server group.
 
 This may be due to duplicate context paths. Check that the context path is not already assigned to an existing application.
 
 See [Defining Context Paths](#context_path) for more information on how context paths are assigned in WildFly.
 
-#### WILDFLY-DEPLOY-ERROR-0006
+### WILDFLY-DEPLOY-ERROR-0006
 There was an error undeploying the package to the server group
 
-#### WILDFLY-DEPLOY-ERROR-0007
+### WILDFLY-DEPLOY-ERROR-0007
 There was an error deploying the package to the standalone server.
 
 This may be due to duplicate context paths. Check that the context path is not already assigned to an existing application.
 
 See [Defining Context Paths](#context_path) for more information on how context paths are assigned in WildFly.
 
-#### WILDFLY-DEPLOY-ERROR-0008
+### WILDFLY-DEPLOY-ERROR-0008
 There was an error enabling the package in the standalone server
 
-####  WILDFLY-DEPLOY-ERROR-0009
+###  WILDFLY-DEPLOY-ERROR-0009
 There was an error logging into the management API.
 
 Make sure the credentials are correct.
 
-####  WILDFLY-DEPLOY-ERROR-0010
+###  WILDFLY-DEPLOY-ERROR-0010
 There was an error logging out of the management API
 
-####  WILDFLY-DEPLOY-ERROR-0011
+###  WILDFLY-DEPLOY-ERROR-0011
 There was an error terminating the CLI object
 
-####  WILDFLY-DEPLOY-ERROR-0012
+###  WILDFLY-DEPLOY-ERROR-0012
 There was an error changing the deployed state of the application
 
-#### WILDFLY-DEPLOY-ERROR-0013
+### WILDFLY-DEPLOY-ERROR-0013
 The login was not completed in a reasonable amount of time.
 
 This can happen if no credentials where supplied with the step, and silent authentication failed.
 
 Either supply credentials to be used, or ensure that the user performing the deployment (the Tentacle service user in Windows or the SSH user in Linux and MacOS) has access to the application server `$JBOSS_HOME/standalone/tmp/auth` or `$JBOSS_HOME/domain/tmp/auth` directory.
 
-#### WILDFLY-DEPLOY-ERROR-0014
+### WILDFLY-DEPLOY-ERROR-0014
 An exception was thrown during the deployment.
 
-####  WILDFLY-DEPLOY-ERROR-0015
+###  WILDFLY-DEPLOY-ERROR-0015
 Failed to deploy the package to the WildFly/EAP standalone instance
 
-#### WILDFLY-DEPLOY-ERROR-0016
+### WILDFLY-DEPLOY-ERROR-0016
 Failed to deploy the package to the WildFly/EAP domain
 
-####  TOMCAT-DEPLOY-ERROR-0001
+###  TOMCAT-DEPLOY-ERROR-0001
 There was an error deploying the package to Tomcat
 
-####  TOMCAT-DEPLOY-ERROR-0002
+###  TOMCAT-DEPLOY-ERROR-0002
 There was an error deploying a tagged package to Tomcat
 
-####  TOMCAT-DEPLOY-ERROR-0003
+###  TOMCAT-DEPLOY-ERROR-0003
 There was an error undeploying a package from Tomcat
 
-####  TOMCAT-DEPLOY-ERROR-0004
+###  TOMCAT-DEPLOY-ERROR-0004
 There was an error enabling or disabling a package in Tomcat
 
-#### TOMCAT-DEPLOY-ERROR-0005
+### TOMCAT-DEPLOY-ERROR-0005
 This is a catch all error message for unexpected errors during a Tomcat deployment. Ensure that:
 
 * The manager URL is correct. Ensure the URL includes the context of the manager application, and that the port and hostname/IP address are correct. Also ensure that the hostname/IP address can be resolved from the target machine hosting the Tentacle. A common example of a correct manager URL is `http://localhost:8080/manager`.
@@ -408,15 +408,15 @@ This is a catch all error message for unexpected errors during a Tomcat deployme
 * The firewall allows connection to the Tomcat server.
 * Tomcat is started and running.
 
-#### TOMCAT-DEPLOY-ERROR-0006
+### TOMCAT-DEPLOY-ERROR-0006
 A HTTP return code indicated that the login failed due to bad credentials. Make sure the username and password are correct.
 
-#### TOMCAT-DEPLOY-ERROR-0007
+### TOMCAT-DEPLOY-ERROR-0007
 A HTTP return code indicated that the login failed due to invalid group membership. Make sure the user is part of the `manager-script` group in the `tomcat-users.xml` file.
 
 See the [Tomcat documentation](https://tomcat.apache.org/tomcat-7.0-doc/manager-howto.html#Configuring_Manager_Application_Access) for more details on the groups used by the manager application.
 
-#### TOMCAT-DEPLOY-ERROR-0008
+### TOMCAT-DEPLOY-ERROR-0008
 The application was not successfully started or stopped.
 
 This can happen if the application failed to initialize. Check the Tomcat logs for information on why the application could not be started.
