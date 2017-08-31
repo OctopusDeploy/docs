@@ -427,3 +427,5 @@ The application was not successfully started or stopped.
 This can happen if the application failed to initialize. Check the Tomcat logs for information on why the application could not be started.
 
 Also confirm that the context path and version match a deployed application.
+
+This is treated as a warning during deployment, but an error if encountered during the Tomcat start/stop step.
