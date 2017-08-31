@@ -347,7 +347,15 @@ This may be due to duplicate context paths. Check that the context path is not a
 
 See [Defining Context Paths](#context_path) for more information on how context paths are assigned in WildFly.
 
-This may also occur if invalid server group names where supplied when deploying to a domain controller.
+This may also occur if invalid server group names where supplied when deploying to a domain controller. Look for entries like this in the verbose log output:
+
+```
+INFO: Result as JSON: {
+    "outcome" : "failed",
+    "failure-description" : "WFLYCTL0216: Management resource '[(\"server-group\" => \"invalid-server-group-name\")]' not found",
+    "rolled-back" : true
+}
+```
 
 ### WILDFLY-DEPLOY-ERROR-0006
 There was an error undeploying the package to the server group
