@@ -53,7 +53,7 @@ Valid packages can then be added to the library using the [web based interface, 
 #### <a name="building_semver_compatible_artifacts"></a>Building SemVer Compatible Artifacts
 The most common incompatibility between Maven and SemVer formatting comes from the use of a dash to separate the package name from the version.
 
-For example, by default Maven will build artifacts with names like `myapplication-1.0.0-SNAPSHOT.war`. To be managed by the built in Octopus library compatible, this filename needs to be in the format `myapplication.1.0.0-SNAPSHOT.war`.
+For example, by default Maven will build artifacts with names like `myapplication-1.0.0-SNAPSHOT.war`. To be managed by the built in Octopus library, this filename needs to be in the format `myapplication.1.0.0-SNAPSHOT.war`.
 
 The easiest way to generate the correct filenames in a Maven build is to set the `finalName` element to `<finalName>${project.name}.${project.version}</finalName>`.
 
