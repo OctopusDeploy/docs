@@ -363,6 +363,8 @@ There was an error enabling the package in the standalone server
 ###  WILDFLY-DEPLOY-ERROR-0009
 There was an error logging into the management API.
 
+Ensure the server has started and that the ip/hostname and port details are correct.
+
 Make sure the credentials are correct.
 
 ###  WILDFLY-DEPLOY-ERROR-0010
