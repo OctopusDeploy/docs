@@ -139,3 +139,7 @@ Any releases created automatically will use the configured channel.  Additional
 For example, if version 3.1.0 of a package Acme.Web is pushed to the Octopus internal NuGet repository, and the Channel selected for Automatic Release Creation has a Version Rule as pictured below, then no release will be created.
 
 ![](/docs/images/3048999/3278461.png "width=500")
+
+:::hint
+If adding a pre-release tag to channels, you will also need to add the tag `^$` to your `default` channel
+:::
