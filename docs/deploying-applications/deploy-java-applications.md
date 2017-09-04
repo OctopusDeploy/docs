@@ -402,6 +402,10 @@ This can happen if no credentials where supplied with the step, and silent authe
 
 Either supply credentials to be used, or ensure that the user performing the deployment (the Tentacle service user in Windows or the SSH user in Linux and MacOS) has access to the application server `$JBOSS_HOME/standalone/tmp/auth` or `$JBOSS_HOME/domain/tmp/auth` directory.
 
+Also ensure that the hostname and port are correct. You should be able to open the admin console using these details.
+
+![Wildfly Admin Console](wildfly-admin-console.png)
+
 ### WILDFLY-DEPLOY-ERROR-0014
 An exception was thrown during the deployment.
 
