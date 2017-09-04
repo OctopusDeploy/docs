@@ -38,19 +38,15 @@ In versions up to 3.5, only a single Authentication Provider could be enabled at
 
 Let's consider that we have UsernamePassword enabled and we create some users, and we've set their email address to their Active Directory domain email address.  The user's can now log in with the username and password stored against their User record.  If we now enable the Active Directory authentication provider, then the users can authenticate using either their original username and password, or they can use a username of user@domain or domain\user along with their domain password, or they can use the Integrated authentication button.  In the first scenario they are actually logging in via the UsernamePassword provider, in the latter 2 scenarios they are using the Active Directory provider, but in all of the cases they end up logged in as the same user (this is the driver behind the fallback checks described in the next section).
 
-:::warning
-When you create a new Octopus user for a domain account, you are now required to create a password for this user. This wasn't the case prior to 3.5. To allow for multiple simultaneous providers, a password is now needed, even if the user is currently only using Active Directory authentication. It applies only to to the UsernamePassword provider, and it isn't the user's Active Directory password.
-:::
-
 This scenario would work equally with Azure AD or GoogleApps in place of Active Directory.
 
-:::hint
-For this reason, when specifying usernames for commands like **admin**, you should use fully qualified domain usernames for referring to Active Directory accounts. For example, user@domain or domain\user
-:::
+Starting from version 3.17, there is also the ability to specify the details for multiple logins for each user. For example, you could specify that a user can log is as a specific UPN/SamAccountName from Active Directory or that they could login using a specific account/email address using GoogleApps. Whichever option is actually used to login, Octopus will identify them as the same user.
 
 ## Usernames, email addresses, UPNs and External Ids {#AuthenticationProviders-Usernames,emailaddresses,UPNsandExternalIds}
 
 As of v3.5, when users log in to Octopus Deploy, the server will consider more than just their username to determine if they are already a known user.  It will also check their email address and external provider Id.  The external provider Id is the value provided by the external identity managers, e.g. Active Directory, Azure AD or GoogleApps.
+
+In v3.17 the details for the logins listed against users is checked first. If the user cannot be immediately identified then the above fallbacks to email address and username will be checked. If the user is located this way then the login details they just used will be automatically added to the user record, to optimise subsequent logins.
 
 ## Auto Login {#AuthenticationProviders-AutoLogin}
 
@@ -66,6 +62,21 @@ Octopus.Server.exe configure --autoLoginEnabled=true
 Note that even when enabled, **this functionality is only active when there is a single, non forms-based authentication provider enabled**.  If multiple providers are enabled, which includes Guest access being enabled, this setting is overridden.
 
 Also, when using the Active Directory provider, this function will only be active when **allowFormsAuthenticationForDomainUsers** is set to **false**.
+
+## Automatic user creation
+
+The active directory and OpenID connect providers will, by default, automatically create a new user record for any user who can successfully authenicate but is not currently recognised (based on the checks and fallbacks described above).
+
+This has its benefits in some scenarios, for example if groups from Active Directory have been assigned accees to Teams in Octopus, then no adminstration is required in Octopus for new users who are added to those groups in Active Directoy. All the users need to do is login in to Octopus and a user will be created and it'll will be associated with the correct Team(s), based on group assignement.
+
+However, this automatic user creation doesn't suit all scenarios so as of v3.17 it can be disabled. To disabled automatic user creation for the Active Directory provider use the following command
+
+```powershell
+Octopus.Server.exe configure --activeDirectoryAllowAutoUserCreation=false
+```
+
+The OpenID connect providers also support disabling automatic user creation, through their own options to the configure command.
+
 
 ## OAuth 2.0, OpenID Connect and Octopus
 
