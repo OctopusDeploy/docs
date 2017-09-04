@@ -13,11 +13,6 @@ Self-contained Calamari support was added in Octopus 3.16
 
 Self-contained Calamari is built as a [.NET Core self-contained distributable](https://docs.microsoft.com/en-us/dotnet/core/deploying/#self-contained-deployments-scd). 
 
-:::warning
-Self-contained Calamari is built against a preview version of .NET Core 2.0  
-This feature is currently in beta. 
-:::
-
 ## Supported Distros
 
 A list of the distros supported by .NET Core 2.0 can be found on the [.NET Core road-map](https://github.com/dotnet/core/blob/master/roadmap.md#net-core-20---supported-os-versions).    
