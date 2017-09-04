@@ -441,3 +441,8 @@ This can happen if the application failed to initialize. Check the Tomcat logs f
 Also confirm that the context path and version match a deployed application.
 
 This is treated as a warning during deployment, but an error if encountered during the Tomcat start/stop step.
+
+### JAVA-DEPLOY-ERROR-0001
+The `Deploy a package` step was used with an unsupported package. This step does not support specialized file formats, like those used with Java packages.
+
+You may want to use a step like `Deploy Java Archive` instead.
