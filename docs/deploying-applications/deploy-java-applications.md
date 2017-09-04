@@ -256,10 +256,13 @@ The `Deploy Java Archive` step is used to copy a Java archive to the target mach
 The following steps can be used to deploy an application via a file copy to an application server.
 
 * Select the `Package feed` and `Package ID` that references the Java application to be deployed.
-* Set the `Install to` field to the location within the application server where deployments are located. For WildFly or JBoss EAP, this will be a directory like `$JBOSS_HOME/standalone/deployments`, and for Tomcat it will be `$CATALINA_HOME/webapps`.
-* Set the `Package file name` field to a filename that reflects the desired context path.
+* Unselect the `Explode` option. This means we will be copying a repacked package instead of the extracted contents of the original prackage.
+* Select the `Custom Deploy Directory` option.
+* Set the `Deploy Directory` field to the location within the application server where deployments are located. For WildFly or JBoss EAP, this will be a directory like `$JBOSS_HOME/standalone/deployments`, and for Tomcat it will be `$CATALINA_HOME/webapps`.
+* Set the `Deployed Package File Name` field to a filename that reflects the desired context path.
   *  For WildFly or JBoss EAP, the filename will be used for the context. For example, setting `Package file name` to `myapplication.war` will result in the application being deployed under the `/myapplication` context. See [Defining Context Paths](#context_path) for more information.
   * For Tomcat the filename takes the form `context#subcontext##version.war`. For example, setting `Package file name` to `myapplication#v1##10.war` will result in the application being deployed under the context `myapplication/v1` with a Tomcat version of `10`. The version and subcontext are optional, so you could set `Package file name` to `myapplication.war`, in which case Tomcat would deploy the application under the `/mayapplication` context with no version information.
+* Unselect the `Purge` option because we don't want to uninstall any existing applications in the deployment directories. 
 
 ## Deploy Java Archive Step Details
 
@@ -267,8 +270,12 @@ The following steps can be used to deploy an application via a file copy to an a
 |-|-|-|-|
 | Package feed | Yes | | The feed to use to source the Java package from. |
 | Package ID | Yes | | The Java package to deploy. |
-| Install to | No | The package will be copied into the local Octopus Applications directory by default e.g. `C:\Octopus\Applications\Local\myapplication\0.0.1-SNAPSHOT_8\myapplication.0.0.1-SNAPSHOT.war` | Defines the destination directory that the repacked package will be copied into. |
-| Package file name | No | The file will default to the original filename from the feed. | Defines the name of the file that is copied into the destination directory. |
+| Explode  | No  |   | If selected, the package will be deployed extracted. Note that the package is always extracted as part of the deployment process, to allow features such as substituting variables in files. By default the package is re-created before deploying to the destination. If the `Explode` option is selected it remains extracted.  |
+| Custom Deploy Directory   | No  |   | By default the package will be deployed to the target's application directory. This options allows setting a custom deploymented directory.   |
+| Deploy Directory | No | The package will be copied into the local Octopus Applications directory by default e.g. `C:\Octopus\Applications\Local\myapplication\0.0.1-SNAPSHOT_8\myapplication.0.0.1-SNAPSHOT.war` | The installed package will be copied to this location on the remote machine. |
+| Deployed Package File Name | No | The file will default to the original filename from the feed. | Defines the name of the file that is copied into the destination directory. |
+| Purge  | No  |   | If selected, all files in this location will be removed before the package is copied.  |
+| Exclude from purge   | No  |   | A newline-separated list of file or directory names, relative to the installation directory, to leave when it is purged. Extended wildcard syntax is supported. E.g., appsettings.config, Config\*.config, **\*.config |
 
 ## Variable Substitution in Java Packages
 
@@ -384,7 +391,9 @@ There was an error logging out of the management API
 There was an error terminating the CLI object
 
 ###  WILDFLY-DEPLOY-ERROR-0012
-There was an error changing the deployed state of the application
+There was an error changing the deployed state of the application.
+
+Make sure the application name is correct.
 
 ### WILDFLY-DEPLOY-ERROR-0013
 The login was not completed in a reasonable amount of time.
