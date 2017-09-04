@@ -143,13 +143,13 @@ Using Trusted Domains is supported by Octopus Deploy.  Users from the domain th
 
 The following diagram illustrates a typical configuration when there is a 2 way trust between the domains.
 
-![](domains-twoway.png)
+![Two-way trust](domains-twoway.png)
 
 In this configuration the Octopus server is executing as a service account from the same domain that the machine is a member of. When logging in, users from DomainA can use their AD username or UPN whereas users from DomainB must use *DOMAIN\user* username format. This is required so that the API calls Octopus makes can locate the domain controller for the correct domain (DomainB in this example).
 
 Another common scenario is to have a 1 way trust between the domains. This configuration is illustrated in the following diagram
 
-![](domains-oneway.png)
+![One-way trust](domains-oneway.png)
 
 In this example, DomainA trusts DomainB. Given that both domains trust users from DomainB, the Octopus service should be configured to run as an account from DomainB. If the service was configured to run as an account from DomainA then users from DomainB wouldn't be able to log in and Octopus wouldn't be able to query group information from DomainB.
 
