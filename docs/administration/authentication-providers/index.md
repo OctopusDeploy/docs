@@ -36,7 +36,7 @@ Octopus Deploy 3.5 introduces similar functionality for assigning OpenID Connect
 
 In versions up to 3.5, only a single Authentication Provider could be enabled at a time (either Domain or UsernamePassword).  In that scenario Users were managed based on the currently enabled provider and switching providers meant re-configuring Users.  With 3.5 comes the ability to have multiple Authentication Providers enabled simultaneously and as such the User management has been adjusted to be provider agnostic.  What does that mean?  Let's consider an example scenario.
 
-Let's consider that we have UsernamePassword enabled and we create some users, and we've set their email address to their Active Directory domain email address.  The user's can now log in with the username and password stored against their User record.  If we now enable the Active Directory authentication provider, then the users can authenticate using either their original username and password, or they can use a username of user@domain or domain\user along with their domain password, or they can use the Integrated authentication button.  In the first scenario they are actually logging in via the UsernamePassword provider, in the latter 2 scenarios they are using the Active Directory provider, but in all of the cases they end up logged in as the same user (this is the driver behind the fallback checks described in the next section).
+Let's consider that we have UsernamePassword enabled and we create some users, and we've set their email address to their Active Directory domain email address.  The users can now log in with the username and password stored against their user record.  If we now enable the Active Directory authentication provider, then the users can authenticate using either their original username and password, or they can use a username of user@domain or domain\user along with their domain password, or they can use the Integrated authentication button.  In the first scenario they are actually logging in via the UsernamePassword provider, in the latter 2 scenarios they are using the Active Directory provider, but in all of the cases they end up logged in as the same user (this is the driver behind the fallback checks described in the next section).
 
 This scenario would work equally with Azure AD or GoogleApps in place of Active Directory.
 
@@ -50,7 +50,7 @@ In v3.17 the details for the logins listed against users is checked first. If th
 
 ## Auto Login {#AuthenticationProviders-AutoLogin}
 
-Some of the authentication providers rely on Forms style authentication, where the user provides a username and password directly on a form in the Octopus Deploy web application.  Other providers rely on a redirection to an external URL to authenticate the user.  This latter group of providers will, by default, present a link to the user to trigger the redirect to the external URL.
+Some of the authentication providers rely on forms style authentication, where the user provides a username and password directly on a form in the Octopus Deploy web application.  Other providers rely on a redirection to an external URL to authenticate the user.  This latter group of providers will, by default, present a link to the user to trigger the redirect to the external URL.
 
 Starting in v3.5, you can also configure Octopus Deploy to automatically redirect to the external URL so the user doesn't have to explicitly click on the link.  This behavior is **not enabled by default**. To enable it, run the following:
 
