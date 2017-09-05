@@ -46,7 +46,7 @@ Starting from version 3.17, there is also the ability to specify the details for
 
 As of v3.5, when users log in to Octopus Deploy, the server will consider more than just their username to determine if they are already a known user.  It will also check their email address and external provider Id.  The external provider Id is the value provided by the external identity managers, e.g. Active Directory, Azure AD or GoogleApps.
 
-In v3.17 the details for the logins listed against users is checked first. If the user cannot be immediately identified then the above fallbacks to email address and username will be checked. If the user is located this way then the login details they just used will be automatically added to the user record, to optimise subsequent logins.
+In v3.17 the details for the logins listed against users is checked first. If the user cannot be immediately identified then the above fallbacks to email address and username will be checked. If the user is located this way then the login details they just used will be automatically added to the user record, to optimize subsequent logins.
 
 ## Auto Login {#AuthenticationProviders-AutoLogin}
 
