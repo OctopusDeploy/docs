@@ -22,8 +22,9 @@ position: 11
 - **`register-with`**: Registers this machine with an Octopus Server
 - **`server-comms`**: Configure how the Tentacle communicates with an Octopus Server
 - **`service`**: Start, stop, install and configure the Tentacle service
+- **`show-configuration`**:  Outputs the Tentacle configuration (3.17+)
 - **`show-thumbprint`**: Show the thumbprint of this Tentacle's certificate
-- **`list-instances`**: list all installed Tentacle instances
+- **`list-instances`**: list all installed Tentacle instances (3.12+)
 
 ## General usage {#Tentacle.exeCommandLine-Generalusage}
 
