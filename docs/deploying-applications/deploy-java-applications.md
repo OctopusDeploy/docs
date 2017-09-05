@@ -184,7 +184,7 @@ If the war file has the special name `ROOT.war` it will be deployed to the root 
 
 See [Setting the context root of a web application](https://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch06.html) for more information.
 
-The context of a web application can also be defined iin the `application.xml` file inside a ear package. For example, package `module-web-1.0-SNAPSHOT.war` in an ear package with the following `application.xml` file would de be deployed to the `/custom-context-root` context.
+The context of a web application can also be defined in the `application.xml` file inside a ear package. For example, package `module-web-1.0-SNAPSHOT.war` in an ear package with the following `application.xml` file would de be deployed to the `/custom-context-root` context.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
