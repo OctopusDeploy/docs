@@ -184,6 +184,27 @@ If the war file has the special name `ROOT.war` it will be deployed to the root 
 
 See [Setting the context root of a web application](https://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch06.html) for more information.
 
+The context of a web application can also be defined iin the `application.xml` file inside a ear package. For example, package `module-web-1.0-SNAPSHOT.war` in an ear package with the following `application.xml` file would de be deployed to the `/custom-context-root` context.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/application_7.xsd" version="7">
+  <display-name>module-ear</display-name>
+  <module>
+    <web>
+      <web-uri>module-web-1.0-SNAPSHOT.war</web-uri>
+      <context-root>/custom-context-root</context-root>
+    </web>
+  </module>
+</application>
+```
+
+The context that an application has been deployed to is shown in the WildFly logs. Look for an entry with the text `Registered web context`.
+
+```
+2017-09-05 02:57:15,598 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 77) WFLYUT0021: Registered web context: /custom-context-root
+```
+
 ## WildFly/JBoss EAP Deployment Step Details
 
 | Field Name |Required | Default | Field Description |
@@ -271,7 +292,7 @@ The following steps can be used to deploy an application via a file copy to an a
 | Package feed | Yes | | The feed to use to source the Java package from. |
 | Package ID | Yes | | The Java package to deploy. |
 | Explode  | No  |   | If selected, the package will be deployed extracted. Note that the package is always extracted as part of the deployment process, to allow features such as substituting variables in files. By default the package is re-created before deploying to the destination. If the `Explode` option is selected it remains extracted.  |
-| Custom Deploy Directory   | No  |   | By default the package will be deployed to the target's application directory. This options allows setting a custom deploymented directory.   |
+| Custom Deploy Directory   | No  |   | By default the package will be deployed to the target's application directory. This options allows setting a custom deployment directory.   |
 | Deploy Directory | No | The package will be copied into the local Octopus Applications directory by default e.g. `C:\Octopus\Applications\Local\myapplication\0.0.1-SNAPSHOT_8\myapplication.0.0.1-SNAPSHOT.war` | The installed package will be copied to this location on the remote machine. |
 | Deployed Package File Name | No | The file will default to the original filename from the feed. | Defines the name of the file that is copied into the destination directory. |
 | Purge  | No  |   | If selected, all files in this location will be removed before the package is copied.  |
