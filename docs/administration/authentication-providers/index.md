@@ -63,21 +63,6 @@ Note that even when enabled, **this functionality is only active when there is 
 
 Also, when using the Active Directory provider, this function will only be active when **allowFormsAuthenticationForDomainUsers** is set to **false**.
 
-## Automatic user creation
-
-The active directory and OpenID connect providers will, by default, automatically create a new user record for any user who can successfully authenicate but is not currently recognised (based on the checks and fallbacks described above).
-
-This has its benefits in some scenarios, for example if groups from Active Directory have been assigned accees to Teams in Octopus, then no adminstration is required in Octopus for new users who are added to those groups in Active Directoy. All the users need to do is login in to Octopus and a user will be created and it'll will be associated with the correct Team(s), based on group assignement.
-
-However, this automatic user creation doesn't suit all scenarios so as of v3.17 it can be disabled. To disabled automatic user creation for the Active Directory provider use the following command
-
-```powershell
-Octopus.Server.exe configure --activeDirectoryAllowAutoUserCreation=false
-```
-
-The OpenID connect providers also support disabling automatic user creation, through their own options to the configure command.
-
-
 ## OAuth 2.0, OpenID Connect and Octopus
 
 Octopus server has 2 methods for identifying users. The first is session cookies, which are returned to the browser after a successful a login and then used in all communications with the server.  The second is API Keys, which are a shared secret that identify the user.
