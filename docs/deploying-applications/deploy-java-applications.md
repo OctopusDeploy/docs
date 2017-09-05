@@ -4,10 +4,6 @@ description: Deploy to WildFly, Red Hat JBoss EAP and Tomcat using Octopus Deplo
 position: 6
 ---
 
-:::hint
-This documentation targets Octopus 3.17, which is in testing.
-:::
-
 Octopus Deploy comes with a number of steps that allow you to deploy and modify the state of Java applications for popular Java application servers.
 
 In addition, Java packages like `jar`, `war`, `ear` and `rar` files can be managed as part of the Octopus Deploy library.
