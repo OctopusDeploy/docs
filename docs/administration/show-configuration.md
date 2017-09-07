@@ -59,7 +59,7 @@ The second format, json-hierarchical, outputs a hierarchical object structure b
 Where this second format really comes into play is in languages such as PowerShell or node.js, as it can be parsed easily into an object structure for use in the script.  An example of how you could use this in PowerShell would be:
 
 ```powershell
-$config = & Octopus.Server.exe show-configuration --format=json-hierarchical --noconsolelogging --console | ConvertFrom-Json
+$config = & .\Octopus.Server.exe show-configuration --format=json-hierarchical --noconsolelogging --console | Out-String | ConvertFrom-Json
 
 if ($config.Octopus.WebPortal.AutoLoginEnabled -eq $FALSE) {
     & Octopus.Server.exe configure --autoLoginEnabled=true --console
