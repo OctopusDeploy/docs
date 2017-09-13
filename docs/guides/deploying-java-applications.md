@@ -5,7 +5,7 @@ position: 12
 ---
 
 :::hint
-See [Java Applications](https://octopus.com/docs/deploying-applications/deploy-java-applications) for details on deploying Java application servers.
+See [Java Applications](/docs/deploying-applications/deploy-java-applications.md) for details on deploying Java application servers.
 :::
 
 This guide provides a simple example of deploying a Java application using Octopus Deploy.
