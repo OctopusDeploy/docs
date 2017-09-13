@@ -14,7 +14,7 @@ You can configure a variable to be prompted when editing the variable:
 
 ![](/docs/images/3048314/3278298.png "width=500")
 
-When defining a prompted variable, you can provide a friendly name and description, and specify if the value is required.
+When defining a prompted variable, you can provide a friendly name and description, and specify if the value is required. A required variable must be supplied when the deployment is created and must not be empty or white space.
 
 ![](/docs/images/3048314/3278299.png "width=500")
 
