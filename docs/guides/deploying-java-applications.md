@@ -4,6 +4,10 @@ description: This guide provides a simple example of deploying a Java applicatio
 position: 12
 ---
 
+:::hint
+See [Java Applications](https://octopus.com/docs/deploying-applications/deploy-java-applications) for details on deploying Java application servers.
+:::
+
 This guide provides a simple example of deploying a Java application using Octopus Deploy.
 
 ## Prerequisites {#DeployingJavaapplications-Prerequisites}
@@ -66,7 +70,7 @@ Start-Process java PressAnyKey
 ```bash
 screen -d -m -S "PressAnyKey" java PressAnyKey
 ```
-    
+
 ![](/docs/images/5672443/5866219.png)
 
 :::hint
