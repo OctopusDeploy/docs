@@ -78,6 +78,10 @@ The values required for the script above are:
 
 Alternatively, you can [create a Service Principal via the Azure Portal](https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/).
 
+:::hint
+Note on roles: Your Service Principal will need to be assigned the *Contributor* role in order to deploy.
+:::
+
 :::warning
 The Service Principal will default to expiring in 1 year from the time of creation.
 
