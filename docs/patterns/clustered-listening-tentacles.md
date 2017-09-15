@@ -15,7 +15,7 @@ It is not possible to store the `tentacle.config` file in shared storage because
 
 This guide assumes you already have the following setup:
 
-- An Active Directory Domain and a local DNS server.
+- An Active Directory domain and a local DNS server.
 - An Octopus Server (this does not need to be joined to the domain).
 - A two node active/passive Windows cluster where each node is joined to the domain.
 - A local IP Address available for the cluster.
@@ -135,7 +135,7 @@ Type the display name in Octopus Deploy and give your new target a role.
 
 *![](/docs/images/clustered-listening-tentacles/server-identifytarget.jpg)*
 
-In a few minutes your new Tentacle cluster will appear as Healthy in the Octopus server.
+In a few minutes your new Tentacle cluster will appear as healthy in the Octopus server.
 
 *![](/docs/images/clustered-listening-tentacles/server-targethealthy.jpg)*
 
