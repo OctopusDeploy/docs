@@ -7,7 +7,7 @@ position: 0
 You can configure a pair of Octopus Tentacles in an active/passive failover cluster on shared storage with the **Failover Cluster Manager**. You may need to do this if you're running an application in a failover cluster and would like to use Octopus Deploy to deploy your application to it irrespective of the fail-over state. In this scenario your Octopus Deploy Server will always be communicating with the Octopus Tentacle that is installed on the active node within the failover cluster. This approach has been tested on Windows Server 2016. 
 
 :::warning
-**Shared Storage Considerations**
+**Shared storage Considerations**
 It is not possible to store the `tentacle.config` file in shared storage because the Tentacle.Certificate component gets encrypted using a node's machine-specific key. If you attempt to store the tentacle.config file in shared storage, you will encounter this error: `Key not valid for use in specified state` upon switching to a new active node. This occurs because the new active node is not able to decrypt the private key resulting in the Tentacle service failing to start.
 :::
 
@@ -15,16 +15,16 @@ It is not possible to store the `tentacle.config` file in shared storage because
 
 This guide assumes you already have the following setup:
 
-- An Active Directory Domain and a local DNS server.
+- An Active Directory domain and a local DNS server.
 - An Octopus Server (this does not need to be joined to the domain).
 - A two node active/passive Windows cluster where each node is joined to the domain.
 - A local IP Address available for the cluster.
-- Shared Storage configured for the cluster (in this example we are using `E:\`)
+- Shared storage configured for the cluster (in this example we are using `E:\`)
 
 ## Installation {#ClusteringTentacles-Installation}
 
 :::warning
-**Installing Tentacles with Shared storage**
+**Installing Tentacles with shared storage**
 This guide implements shared storage using an iSCSI target with Multi-Path IO confgured on the Tentacle servers, in this scenario it is best to avoid accessing the same iSCSI volume from two different hosts at the same time as doing so may result in corrupt data on the iSCSI volume.
 :::
 
@@ -44,13 +44,13 @@ Tentacle.exe service --instance "Tentacle" --install --stop --start
 ```
 In the script, we:
  - Installed the tentacle instance using the default instance name of `Tentacle` and made sure the `Tentacle.config` file was installed into the default location of `C:\Octopus\Tentacle.config`.
- - Configured the new instance to listen on TCP Port `10933` and set the Application and Home directories to our Shared Storage drive.
+ - Configured the new instance to listen on TCP Port `10933` and set the Application and Home directories to our shared storage drive.
  - Configured the tentacle to trust our Octopus Server holding a certificate which matches the specified certificate thumbprint.
  - Ensured the Windows Firewall has a rule configured to allow incoming connections on TCP Port `10933`, allowing the Octopus Server to talk to our new Tentacle.
 
 Using the Tentacle Manager stop the Octopus Tentacle service which was just installed on the first node and take the shared disk offline in Windows Disk Management. 
 
-Now go to the second tentacle server in the active/passive cluster and bring the same disk online, repeating the steps which were just performed on the first node to install the Octopus Tentacle service. Please keep the Octopus Tentacle service started and ensure that the Shared Storage is still mounted this time so that the .pfx file can be exported out of Octopus Tentacle.
+Now go to the second tentacle server in the active/passive cluster and bring the same disk online, repeating the steps which were just performed on the first node to install the Octopus Tentacle service. Please keep the Octopus Tentacle service started and ensure that the shared storage is still mounted this time so that the .pfx file can be exported out of Octopus Tentacle.
 
 ## Generate an Octopus Tentacle PFX File {#ClusteringTentacles-Newpfx}
 
@@ -68,7 +68,7 @@ Tentacle.exe import-certificate --instance="Tentacle" --from-file="<SHARED STORA
 Tentacle.exe service --instance="Tentacle" --stop --start
 ```
 
-Now on the second node, stop the Tentacle service and bring the shared storage offline the same way you have done before. This time go back to the first node in the cluster, bringing the Shared Storage drive back online and start the tentacle service. Then, import the pfx file into the first node to ensure both nodes in the cluster hold the same private key. 
+Now on the second node, stop the Tentacle service and bring the shared storage offline the same way you have done before. This time go back to the first node in the cluster, bringing the shared storage drive back online and start the tentacle service. Then, import the pfx file into the first node to ensure both nodes in the cluster hold the same private key. 
 
 Once both Tentacles are installed and configured ensure that neither node has the Octopus Tentacle started and that the shared storage is brought offline.
 
@@ -135,7 +135,7 @@ Type the display name in Octopus Deploy and give your new target a role.
 
 *![](/docs/images/clustered-listening-tentacles/server-identifytarget.jpg)*
 
-In a few minutes your new Tentacle cluster will appear as Healthy in the Octopus server.
+In a few minutes your new Tentacle cluster will appear as healthy in the Octopus server.
 
 *![](/docs/images/clustered-listening-tentacles/server-targethealthy.jpg)*
 
