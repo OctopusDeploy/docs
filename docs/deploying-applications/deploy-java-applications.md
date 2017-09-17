@@ -391,6 +391,8 @@ This may be due to duplicate context paths. Check that the context path is not a
 
 See [Defining Context Paths](#context_path) for more information on how context paths are assigned in WildFly.
 
+This may also be caused by an error that prevents the application being deployed from starting up. Check the application server logs for more information.
+
 ### WILDFLY-DEPLOY-ERROR-0008
 There was an error enabling the package in the standalone server
 
