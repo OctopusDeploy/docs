@@ -62,8 +62,9 @@ Deployment:
                              tasks
       --rawlogfile=VALUE     [Optional] Redirect the raw log of failed tasks
                              to a file
-  -v, --variable=VALUE       [Optional] Values for any prompted variables in
-                             the format Label:Value
+  -v, --variable=VALUE       [Optional] Values for any prompted variables in 
+                             the format Label:Value. For JSON values, embedded 
+                             quotation marks should be escaped with a backslash
       --deployat=VALUE       [Optional] Time at which deployment should start
                              (scheduled deployment), specified as any valid
                              DateTimeOffset format, and assuming the time
