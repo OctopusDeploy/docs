@@ -25,7 +25,7 @@ The following prerequisites must be met to use this feature:
 ### Listen Address
 
 The first step is to select a URL listen prefix. HTTP.sys handles the initial TLS handshake and then routes the request based on the HTTP headers. This means that the request can be routed based on IP, hostname and path. See the 
-[UrlPrefix documentation](https://msdn.microsoft.com/en-us/library/windows/desktop/aa364698(v=vs.85).aspx) for the syntax and how routes are matches. 
+[UrlPrefix documentation](https://msdn.microsoft.com/en-us/library/windows/desktop/aa364698(v=vs.85).aspx) for the syntax and how routes are matched. 
 
 In most cases, we recommend using `+` as the host name and a unique string for path. This will ensure that address
 takes the highest precedence. For example, to listen on port 443: `https://+:443/OctopusComms`. The path should not be 
