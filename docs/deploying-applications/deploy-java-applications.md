@@ -478,3 +478,19 @@ This is treated as a warning during deployment, but an error if encountered duri
 The `Deploy a package` step was used with an unsupported package. This step does not support specialized file formats, like those used with Java packages.
 
 You may want to use a step like `Deploy Java Archive` instead.
+
+### TOMCAT-HTTPS-ERROR-0001
+
+### TOMCAT-HTTPS-ERROR-0002
+
+### TOMCAT-HTTPS-ERROR-0003
+
+### TOMCAT-HTTPS-ERROR-0004
+
+### TOMCAT-HTTPS-ERROR-0005
+
+### TOMCAT-HTTPS-ERROR-0006
+You have attempted to add an additional certificate to an existing `<Connector>` configuration where the new protocol does not match the existing protocol. For example the configuration already defines a `<Connector>` with the NIO protocol, and you are attempting to add a certificate with the APR protocol. This is not supported as changing the protocol may leave existing configurations in an invalid state.
+
+### TOMCAT-HTTPS-ERROR-0007
+Tomcat 8.5 and above do not support the BIO protocol
