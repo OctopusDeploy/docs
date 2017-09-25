@@ -547,13 +547,27 @@ Failed to extract the version number from the information supplied.
 Failed to generate a unique file.
 
 ### TOMCAT-HTTPS-ERROR-0013
-The server.xml file was not valid XML.
+The server.xml file was not valid XML, or was not accessible.
+
+Check to make sure that the user running the Octopus Tentacle in Windows or the SSH user in Linux/MacOS has permissions to read the server.xml file.
 
 ### TOMCAT-HTTPS-ERROR-0014
-Failed to save the server.xml file
+Failed to save the server.xml file.
+
+Check to make sure that the user running the Octopus Tentacle in Windows or the SSH user in Linux/MacOS has permissions to write to the server.xml file.
 
 ### TOMCAT-HTTPS-ERROR-0015
 Failed to create the keystore file.
+
+### TOMCAT-HTTPS-ERROR-0016
+The private key could not be created.
+
+Check to make sure that the user running the Octopus Tentacle in Windows or the SSH user in Linux/MacOS has permissions to create files in the Tomcat `conf` directory.
+
+### TOMCAT-HTTPS-ERROR-0017
+The public key could not be created.
+
+Check to make sure that the user running the Octopus Tentacle in Windows or the SSH user in Linux/MacOS has permissions to create files in the Tomcat `conf` directory.
 
 ### JAVA-HTTPS-ERROR-0001
 Certificate file does not contain any certificates. This is probably because the input certificate file is invalid.
