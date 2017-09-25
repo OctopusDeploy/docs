@@ -510,7 +510,7 @@ If we have an existing configuration like this:
   SSLCertificateFile="/usr/local/ssl/server.crt"
   SSLCertificateKeyFile="/usr/local/ssl/server.pem"/>
 ```
-then this certificate configuration is assumed to have the hostName of `myHostName`, because it is derived from the `defaultSSLHostConfigName` attribute. At this point trying to add another named `<SSLHostConfig>` element will fail. For example, this is not a valid configuration:
+then this certificate configuration is assumed to have the hostName of `myHostName`, because it is derived from the `defaultSSLHostConfigName` attribute. At this point trying to add another default `<SSLHostConfig>` element will fail. For example, this is not a valid configuration:
 ```xml
  <Connector
   defaultSSLHostConfigName="myHostName"
@@ -531,3 +531,21 @@ The error `TOMCAT-HTTPS-ERROR-0008` means Octopus prevented a certificate deploy
 
 ### TOMCAT-HTTPS-ERROR-0009
 Tomcat 7.0 does not support the Non-Blocking IO 2 Connector
+
+### TOMCAT-HTTPS-ERROR-0010
+The server.xml file could not be found.
+
+### TOMCAT-HTTPS-ERROR-0011
+Failed to extract the version number from the information supplied
+
+### JAVA-HTTPS-ERROR-0001
+Certificate file does not contain any certificates. This is probably because the input certificate file is invalid.
+
+### JAVA-HTTPS-ERROR-0002
+Could not find a private key. This is probably because the input key file is invalid.
+
+### JAVA-HTTPS-ERROR-0003
+The path supplied as the location of a unique file was not a directory.
+
+### JAVA-HTTPS-ERROR-0004
+The path supplied as the location of a unique file does not exist.
