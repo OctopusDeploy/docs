@@ -484,7 +484,7 @@ You may want to use a step like `Deploy Java Archive` instead.
 ### TOMCAT-HTTPS-ERROR-0002
 
 ### TOMCAT-HTTPS-ERROR-0003
-The supplied path was not a file or a directory when one or the other was expected.
+You have attempted to deploy a certificate using a protocol that is not supported by the installed version of Tomcat.
 
 ### TOMCAT-HTTPS-ERROR-0004
 
@@ -531,6 +531,8 @@ then this certificate configuration is assumed to have the hostName of `myHostNa
 The above will throw an error about having duplicate default configurations.
 
 The error `TOMCAT-HTTPS-ERROR-0008` means Octopus prevented a certificate deployment that would lead to this invalid configuration.
+
+You can fix this error by not deploying the new certificate as the default, or by manually moving the certificate configuration from the `<Connector>` element into a `<SSLHostConfig>` before deploying another certificate with Octopus.
 
 ### TOMCAT-HTTPS-ERROR-0009
 Tomcat 7.0 does not support the Non-Blocking IO 2 Connector
