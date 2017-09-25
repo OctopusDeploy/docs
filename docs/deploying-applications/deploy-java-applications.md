@@ -547,6 +547,9 @@ The server.xml file was not valid XML.
 ### TOMCAT-HTTPS-ERROR-0014
 Failed to save the server.xml file
 
+### TOMCAT-HTTPS-ERROR-0015
+Failed to create the keystore file.
+
 ### JAVA-HTTPS-ERROR-0001
 Certificate file does not contain any certificates. This is probably because the input certificate file is invalid.
 
