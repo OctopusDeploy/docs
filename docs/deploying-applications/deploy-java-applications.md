@@ -528,3 +528,6 @@ then this certificate configuration is assumed to have the hostName of `myHostNa
 The above will throw an error about having duplicate default configurations.
 
 The error `TOMCAT-HTTPS-ERROR-0008` means Octopus prevented a certificate deployment that would lead to this invalid configuration.
+
+### TOMCAT-HTTPS-ERROR-0009
+Tomcat 7.0 does not support the Non-Blocking IO 2 Connector
