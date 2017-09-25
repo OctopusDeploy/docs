@@ -492,6 +492,8 @@ You may want to use a step like `Deploy Java Archive` instead.
 ### TOMCAT-HTTPS-ERROR-0006
 You have attempted to add an additional certificate to an existing `<Connector>` configuration where the new protocol does not match the existing protocol. For example the configuration already defines a `<Connector>` with the NIO protocol, and you are attempting to add a certificate with the APR protocol. This is not supported as changing the protocol may leave existing configurations in an invalid state.
 
+This error may also be thrown if a certificate is being added to an existing `<Connector>` that does not define the `protocol` attribute. Tomcat will auto-switch between APR and NIO if the `protocol` attribute is not set, but Octopus requires a fixed implementation to be defined before it can deploy a certificate.
+
 ### TOMCAT-HTTPS-ERROR-0007
 Tomcat 8.5 and above do not support the BIO protocol.
 
@@ -500,7 +502,7 @@ Tomcat 8.5 and above do not support the BIO protocol.
 If we have an existing configuration like this:
 ```xml
 <Connector
-  defaultSSLHostConfigName="default"
+  defaultSSLHostConfigName="myHostName"
   port="12345"
   scheme="https"
   secure="true"
@@ -508,17 +510,17 @@ If we have an existing configuration like this:
   SSLCertificateFile="/usr/local/ssl/server.crt"
   SSLCertificateKeyFile="/usr/local/ssl/server.pem"/>
 ```
-then this configuration is assumed to have the hostName of default, because it is derived from the defaultSSLHostConfigName attribute. At this point trying to add another default named <SSLHostConfig> element will fail. For example, this is not a valid configuration:
+then this certificate configuration is assumed to have the hostName of `myHostName`, because it is derived from the `defaultSSLHostConfigName` attribute. At this point trying to add another named `<SSLHostConfig>` element will fail. For example, this is not a valid configuration:
 ```xml
  <Connector
-  defaultSSLHostConfigName="default"
+  defaultSSLHostConfigName="myHostName"
   port="12345"
   scheme="https"
   secure="true"
   SSLEnabled="true"
   SSLCertificateFile="/usr/local/ssl/server.crt"
   SSLCertificateKeyFile="/usr/local/ssl/server.pem">
-      <SSLHostConfig hostName="default">
+      <SSLHostConfig hostName="myHostName">
           <Certificate ... />
       </SSLHostConfig>
   </Connector>
