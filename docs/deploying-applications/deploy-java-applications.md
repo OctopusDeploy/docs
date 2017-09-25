@@ -536,7 +536,16 @@ Tomcat 7.0 does not support the Non-Blocking IO 2 Connector
 The server.xml file could not be found.
 
 ### TOMCAT-HTTPS-ERROR-0011
-Failed to extract the version number from the information supplied
+Failed to extract the version number from the information supplied.
+
+### TOMCAT-HTTPS-ERROR-0012
+Failed to generate a unique file.
+
+### TOMCAT-HTTPS-ERROR-0013
+The server.xml file was not valid XML.
+
+### TOMCAT-HTTPS-ERROR-0014
+Failed to save the server.xml file
 
 ### JAVA-HTTPS-ERROR-0001
 Certificate file does not contain any certificates. This is probably because the input certificate file is invalid.
