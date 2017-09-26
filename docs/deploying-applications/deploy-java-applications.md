@@ -569,6 +569,11 @@ The public key could not be created.
 
 Check to make sure that the user running the Octopus Tentacle in Windows or the SSH user in Linux/MacOS has permissions to create files in the Tomcat `conf` directory.
 
+### TOMCAT-HTTPS-ERROR-0018
+Failed to find the `lib/catalina.jar` file in the Tomcat directory.
+
+Make sure the Tomcat installation path is correct.
+
 ### JAVA-HTTPS-ERROR-0001
 Certificate file does not contain any certificates. This is probably because the input certificate file is invalid.
 
