@@ -556,9 +556,6 @@ Failed to save the server.xml file.
 
 Check to make sure that the user running the Octopus Tentacle in Windows or the SSH user in Linux/MacOS has permissions to write to the server.xml file.
 
-### TOMCAT-HTTPS-ERROR-0015
-Failed to create the keystore file.
-
 ### TOMCAT-HTTPS-ERROR-0016
 The private key could not be created.
 
@@ -580,6 +577,33 @@ The path defined to hold the keys does not exist.
 ### WILDFLY-HTTPS-ERROR-0001
 An exception was thrown during the HTTPS configuration.
 
+### WILDFLY-HTTPS-ERROR-0002
+There was an error configuring the Elytron key store.
+
+### WILDFLY-HTTPS-ERROR-0003
+There was an error configuring the Elytron key manager.
+
+### WILDFLY-HTTPS-ERROR-0004
+There was an error configuring the Elytron server SSL context
+
+### WILDFLY-HTTPS-ERROR-0005
+There was an error removing the legacy security realm.
+
+### WILDFLY-HTTPS-ERROR-0006
+There was an error adding the Elytron security context.
+
+### WILDFLY-HTTPS-ERROR-0007
+There was an error with the batched operation to remove the legacy security realm and add the Elytron security context.
+
+### WILDFLY-HTTPS-ERROR-0008
+There was an error reloading the server.
+
+### WILDFLY-ERROR-0001
+There was an error entering batch mode.
+
+### WILDFLY-ERROR-0002
+There was an error running the batch.
+
 ### JAVA-HTTPS-ERROR-0001
 Certificate file does not contain any certificates. This is probably because the input certificate file is invalid.
 
@@ -591,3 +615,6 @@ The path supplied as the location of a unique file was not a directory.
 
 ### JAVA-HTTPS-ERROR-0004
 The path supplied as the location of a unique file does not exist.
+
+### JAVA-HTTPS-ERROR-0005
+Failed to create the keystore file.
