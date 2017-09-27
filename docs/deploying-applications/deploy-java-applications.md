@@ -577,12 +577,6 @@ The path defined to hold the keys does not exist.
 ### WILDFLY-HTTPS-ERROR-0001
 An exception was thrown during the HTTPS configuration.
 
-### WILDFLY-HTTPS-ERROR-0002
-There was an error configuring the Elytron key store.
-
-### WILDFLY-HTTPS-ERROR-0003
-There was an error configuring the Elytron key manager.
-
 ### WILDFLY-HTTPS-ERROR-0004
 There was an error configuring the Elytron server SSL context
 
@@ -597,6 +591,24 @@ There was an error with the batched operation to remove the legacy security real
 
 ### WILDFLY-HTTPS-ERROR-0008
 There was an error reloading the server.
+
+### WILDFLY-HTTPS-ERROR-0009
+There was an error adding the Elytron key store.
+
+### WILDFLY-HTTPS-ERROR-0010
+There was an error configuring the Elytron key store.
+
+### WILDFLY-HTTPS-ERROR-0011
+There was an error adding the Elytron key manager.
+
+### WILDFLY-HTTPS-ERROR-0012
+There was an error configuring the Elytron key manager.
+
+### WILDFLY-HTTPS-ERROR-0013
+There was an error adding the Elytron server ssl context.
+
+### WILDFLY-HTTPS-ERROR-0014
+There was an error configuring the Elytron server ssl context.
 
 ### WILDFLY-ERROR-0001
 There was an error entering batch mode.
