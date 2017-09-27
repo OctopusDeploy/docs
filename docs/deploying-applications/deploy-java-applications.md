@@ -574,6 +574,12 @@ Failed to find the `lib/catalina.jar` file in the Tomcat directory.
 
 Make sure the Tomcat installation path is correct.
 
+### TOMCAT-HTTPS-ERROR-0019
+The path defined to hold the keys does not exist.
+
+### WILDFLY-HTTPS-ERROR-0001
+An exception was thrown during the HTTPS configuration.
+
 ### JAVA-HTTPS-ERROR-0001
 Certificate file does not contain any certificates. This is probably because the input certificate file is invalid.
 
