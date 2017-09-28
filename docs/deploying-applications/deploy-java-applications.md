@@ -616,6 +616,9 @@ There was an error reading the app server config path.
 ### WILDFLY-HTTPS-ERROR-0016
 This step does not support deploying to a domain controller.
 
+### WILDFLY-HTTPS-ERROR-0017
+Configuring a keystore requires that the keystore name be defined.
+
 ### WILDFLY-ERROR-0001
 There was an error entering batch mode.
 
