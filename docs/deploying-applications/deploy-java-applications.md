@@ -610,6 +610,12 @@ There was an error adding the Elytron server ssl context.
 ### WILDFLY-HTTPS-ERROR-0014
 There was an error configuring the Elytron server ssl context.
 
+### WILDFLY-HTTPS-ERROR-0015
+There was an error reading the app server config path.
+
+### WILDFLY-HTTPS-ERROR-0016
+This step does not support deploying to a domain controller.
+
 ### WILDFLY-ERROR-0001
 There was an error entering batch mode.
 
@@ -630,3 +636,9 @@ The path supplied as the location of a unique file does not exist.
 
 ### JAVA-HTTPS-ERROR-0005
 Failed to create the keystore file.
+
+### KEYSTORE-ERROR-0001
+An exception was thrown during the deployment of the Java keystore.
+
+### KEYSTORE-ERROR-0002
+The keystoreName and defaultCertificateLocation both can not be blank.
