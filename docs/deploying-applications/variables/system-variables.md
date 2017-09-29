@@ -58,6 +58,8 @@ Deployment-level variables are drawn from the project and release being deployed
 |**`Octopus.Task.Argument[_name_]`** <br/>Argument values provided when creating the task | *deployments-123*|
 |**`Octopus.Task.Id`** <br/>The ID of the task | *servertasks-123*|
 |**`Octopus.Task.Name`** <br/>The name of the task | *Deploy release 1.2.3 to Production*|
+|**`Octopus.Task.QueueTime`** <br/>The date and time the task should be queued for execution. ***Introduced in Octopus Deploy version 3.17.3*** | *Tuesday 10th September 1:30 PM* |
+|**`Octopus.Task.QueueTimeExpiry`** <br/>The date and time before which the task must start. ***Introduced in Octopus Deploy version 3.17.3*** | *Tuesday 10th September 2:30 PM* |
 |**`Octopus.Tentacle.CurrentDeployment.PackageFilePath`** <br/>The path to the package file being deployed | *C:\Octopus\Tentacle\Packages\OctoFx.1.2.3.nupkg*|
 |**`Octopus.Tentacle.CurrentDeployment.TargetedRoles`** <br/>The intersection of the roles targeted by the step, and those applied to the machine | *web-server*|
 |**`Octopus.Tentacle.PreviousInstallation.CustomInstallationDirectory`** <br/>The directory into which the previous version of the package was deployed | *C:\InetPub\WWWRoot\OctoFx*|
