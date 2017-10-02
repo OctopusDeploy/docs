@@ -613,11 +613,14 @@ There was an error configuring the Elytron server ssl context.
 ### WILDFLY-HTTPS-ERROR-0015
 There was an error reading the app server config path.
 
-### WILDFLY-HTTPS-ERROR-0016
-This step does not support deploying to a domain controller.
-
 ### WILDFLY-HTTPS-ERROR-0017
 Configuring a keystore requires that the keystore name be defined.
+
+### WILDFLY-HTTPS-ERROR-0018
+A required property was not defined.
+
+### WILDFLY-HTTPS-ERROR-0019
+The server being configured did not match the type of server (either standalone or domain) defined in the step.
 
 ### WILDFLY-ERROR-0001
 There was an error entering batch mode.
