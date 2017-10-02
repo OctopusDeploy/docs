@@ -649,6 +649,12 @@ Failed to get the https socket binding.
 ### WILDFLY-HTTPS-ERROR-0028
 Failed to get socket binding for standalone.
 
+### WILDFLY-HTTPS-ERROR-0029
+There was an error adding a new https connector in the web subsystem.
+
+### WILDFLY-HTTPS-ERROR-0030
+There was an error configuring the existing https connector.
+
 ### WILDFLY-ERROR-0001
 There was an error entering batch mode.
 
