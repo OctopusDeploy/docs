@@ -646,6 +646,9 @@ Failed to get the default interface for socket group.
 ### WILDFLY-HTTPS-ERROR-0027
 Failed to get the https socket binding.
 
+### WILDFLY-HTTPS-ERROR-0028
+Failed to get socket binding for standalone.
+
 ### WILDFLY-ERROR-0001
 There was an error entering batch mode.
 
