@@ -622,6 +622,30 @@ A required property was not defined.
 ### WILDFLY-HTTPS-ERROR-0019
 The server being configured did not match the type of server (either standalone or domain) defined in the step.
 
+### WILDFLY-HTTPS-ERROR-0020
+There was an error adding the security realm.
+
+### WILDFLY-HTTPS-ERROR-0021
+There was an error adding the keystore to the security realm.
+
+### WILDFLY-HTTPS-ERROR-0022
+There was an error configuring the existing keystore information in the security realm.
+
+### WILDFLY-HTTPS-ERROR-0023
+There was an error getting the undertow servers.
+
+### WILDFLY-HTTPS-ERROR-0024
+There was an error adding a new https listener in undertow.
+
+### WILDFLY-HTTPS-ERROR-0025
+There was an error configuring the existing https listener.
+
+### WILDFLY-HTTPS-ERROR-0026
+Failed to get the default interface for socket group.
+
+### WILDFLY-HTTPS-ERROR-0027
+Failed to get the https socket binding.
+
 ### WILDFLY-ERROR-0001
 There was an error entering batch mode.
 
