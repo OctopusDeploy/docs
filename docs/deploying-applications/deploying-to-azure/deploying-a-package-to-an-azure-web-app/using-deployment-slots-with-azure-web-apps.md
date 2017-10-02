@@ -102,7 +102,7 @@ Switch-AzureWebsiteSlot -Name #{WebSite} -Slot1 Staging -Slot2 Production -Force
 
 ```powershell
 #Swap the staging slot into production
-Switch-AzureRmWebAppSlot -ResourceGroupName #{ResourceGroup} -Name #{Website} -SourceSlotName Staging -DestinationSlotName Production -Force
+Switch-AzureRmWebAppSlot -ResourceGroupName #{ResourceGroup} -Name #{Website} -SourceSlotName Staging -DestinationSlotName Production
 ```
 
 So your step will appear as:
