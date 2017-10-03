@@ -32,8 +32,8 @@ Learn about [Octopus Server performance](/docs/administration/performance.md).
 
 Octopus Server can be installed on the following versions of Windows Server:
 
-- Windows Server 2008 SP2+
-- Windows Server 2008 R2
+- Windows Server 2008 SP2
+- Windows Server 2008 R2
 - Windows Server 2012
 - Windows Server 2012 R2
 - Windows Server 2016
