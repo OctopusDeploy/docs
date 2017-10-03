@@ -11,10 +11,14 @@ Octopus is a complex system, where we control some parts of the deployment whils
 This page is intended to help Octopus System Administrators tune and maintain their Octopus installations and troubleshoot problems as they occur.
 
 :::hint
-Want to tune your deployments for optimum performance? Read our [detailed guide](/docs/deploying-applications/performance.md).
+Want to tune your deployments for optimum performance? Read our [detailed guide on optimizing your deployments](/docs/deploying-applications/performance.md).
 :::
 
-## Maintenance
+## Minimum requirements
+
+There is no "one size fits all" approach to sizing your Octopus Server. If you are just starting out with Octopus Server you should begin with the [minimum requirements](/docs/installation/installing-octopus/index.md) then monitor the performance of your server. Once your server is up and running you should consider [maintenance](#maintenance) and [scaling](#scaling) as you see fit.
+
+## Maintenance {#maintenance}
 
 Routine maintenance can help your Octopus keep running at optimum performance and efficiency.
 
@@ -41,7 +45,7 @@ You may not need to keep the entire history of releases - we record the entire h
 
 [SQL Server](/docs/installation/installing-octopus/sql-server-database-requirements.md) is the data persistence backbone of Octopus. Performance problems with your SQL Server will make Octopus run and feel slow and sluggish. You should implement a routine maintenance plan for your Octopus database. Here is a [sure guide](http://g.octopushq.com/SQLServerMaintenanceGuide) (free e-book) for maintaining SQL Server.
 
-## Scaling Octopus Server
+## Scaling Octopus Server {#scaling}
 
 Octopus Servers do quite a lot of work during deployments, mostly around package acquisition:
 
