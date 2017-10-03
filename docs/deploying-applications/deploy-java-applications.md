@@ -664,6 +664,9 @@ Failed to get slave hosts.
 ### WILDFLY-HTTPS-ERROR-0033
 Failed to get master hosts.
 
+### WILDFLY-HTTPS-ERROR-0034
+Failed to get master hosts.
+
 ### WILDFLY-ERROR-0001
 There was an error entering batch mode.
 
