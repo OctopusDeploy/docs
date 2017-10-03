@@ -655,6 +655,15 @@ There was an error adding a new https connector in the web subsystem.
 ### WILDFLY-HTTPS-ERROR-0030
 There was an error configuring the existing https connector.
 
+### WILDFLY-HTTPS-ERROR-0031
+Failed to get socket binding for host.
+
+### WILDFLY-HTTPS-ERROR-0032
+Failed to get slave hosts.
+
+### WILDFLY-HTTPS-ERROR-0033
+Failed to get master hosts.
+
 ### WILDFLY-ERROR-0001
 There was an error entering batch mode.
 
