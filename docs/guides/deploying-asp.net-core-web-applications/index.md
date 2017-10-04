@@ -32,7 +32,7 @@ See the [ASP.NET Core IIS documentation](https://docs.asp.net/en/latest/publishi
 
 When running under IIS, ensure the .NET CLR Version is set to `No Managed Code`
 
-## Antiforgery Cookie
+## Antiforgery Cookie {#DeployingASP.NETCoreWebApplications-AntiforgeryCookie}
 
 The `.AspNetCore.Antiforgery` cookie created by ASP.NET Core uses the application path to generate it's hash. By default Octopus will deploy to a new path every time, which causes a new cookie to be set every deploy. This results in many unneeded cookies in the browser. See this [blog post](http://blog.novanet.no/a-pile-of-anti-forgery-cookies/) for more details. To change this behavior, set the Antiforgery token in your `startup.cs` like this:
 
@@ -40,6 +40,17 @@ The `.AspNetCore.Antiforgery` cookie created by ASP.NET Core uses the applicatio
 public void ConfigureServices(IServiceCollection services)  
 {
     services.AddAntiforgery(opts => opts.CookieName = "AntiForgery.MyAppName");
+}
+```
+
+## Cookie Authentication in ASP.NET Core 2 {#DeployingASP.NETCoreWebApplications-AuthCookie}
+
+Similar to antiforgery cookies, cookie authentication in ASP.NET Core 2 uses Microsoft's data protection API (DPAPI) which can use the application path to isolates applications from one another.  This can cause older cookies to simply not work. To change this behaviour, you need to set the application name so 
+
+```
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddDataProtection().SetApplicationName("my application");
 }
 ```
 
