@@ -45,7 +45,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## Cookie Authentication in ASP.NET Core 2 {#DeployingASP.NETCoreWebApplications-AuthCookie}
 
-Similar to antiforgery cookies, cookie authentication in ASP.NET Core 2 uses Microsoft's data protection API (DPAPI) which can use the application path to isolates applications from one another.  This can cause older cookies to simply not work. To change this behaviour, you need to set the application name so 
+Similar to antiforgery cookies, cookie authentication in ASP.NET Core 2 uses Microsoft's data protection API (DPAPI) which can use the application path to isolates applications from one another.  This can cause older cookies to simply not work. To change this behaviour, you need to set the application name in your `startup.cs` like this:
 
 ```
 public void ConfigureServices(IServiceCollection services)
