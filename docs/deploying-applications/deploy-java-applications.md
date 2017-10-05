@@ -667,6 +667,12 @@ Failed to get master hosts.
 ### WILDFLY-HTTPS-ERROR-0034
 Failed to get master hosts.
 
+### WILDFLY-HTTPS-ERROR-0035
+Failed to get servers for host.
+
+### WILDFLY-HTTPS-ERROR-0036
+Failed to save legacy web subsystem https connector as a batch operation.
+
 ### WILDFLY-ERROR-0001
 There was an error entering batch mode.
 
