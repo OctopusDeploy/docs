@@ -571,6 +571,8 @@ Failed to find the `lib/catalina.jar` file in the Tomcat directory.
 
 Make sure the Tomcat installation path is correct.
 
+Also check to make sure that the user running the Octopus Tentacle in Windows or the SSH user in Linux/MacOS has permissions list the Tomcat `lib` directory, and has read access to the `lib/catalina.jar` file.
+
 ### TOMCAT-HTTPS-ERROR-0019
 The path defined to hold the keys does not exist.
 
