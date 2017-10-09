@@ -639,6 +639,12 @@ There was an error getting the undertow servers.
 ### WILDFLY-HTTPS-ERROR-0024
 There was an error adding a new https listener in undertow.
 
+This can happen if the application server fails to start an existing https listener. Check the log files for messages like:
+
+```
+No SSL Context available from security realm 'realmname'. Either the realm is not configured for SSL, or the server has not been reloaded since the SSL config was added.
+```
+
 ### WILDFLY-HTTPS-ERROR-0025
 There was an error configuring the existing https listener.
 
