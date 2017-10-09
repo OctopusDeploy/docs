@@ -694,6 +694,8 @@ The path supplied as the location of a unique file does not exist.
 ### JAVA-HTTPS-ERROR-0005
 Failed to create the keystore file.
 
+Ensure that the user running the tentacle service for a Windows target or the SSH account Octopus used connects to the Linux or MacOS target has permissions to create a new file at the configured path.
+
 ### KEYSTORE-ERROR-0001
 An exception was thrown during the deployment of the Java keystore.
 
