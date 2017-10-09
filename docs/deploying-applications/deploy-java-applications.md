@@ -681,6 +681,9 @@ Failed to get servers for host.
 ### WILDFLY-HTTPS-ERROR-0036
 Failed to save legacy web subsystem https connector as a batch operation.
 
+### WILDFLY-HTTPS-ERROR-0037
+A supplied profile did not exist in the domain.
+
 ### WILDFLY-ERROR-0001
 There was an error entering batch mode.
 
