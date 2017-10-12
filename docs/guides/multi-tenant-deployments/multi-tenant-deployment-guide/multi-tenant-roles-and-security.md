@@ -70,7 +70,7 @@ Now we will create a team for all the Account Managers and add the role we creat
 2. Click the **Add role** button and add the **Tenant project deployer role**
 3. Click the **Add member** button and add any user accounts that will form part of this team
 
-![](/docs/images/5669453/5865792.png "width=500")
+![](account-managers.png "width=500")
 
 ### Step 3: Test! {#Multi-tenantrolesandsecurity-Step3:Test!}
 
@@ -86,7 +86,7 @@ You will probably notice you can see all tenants, projects and environments. We 
 
 Quite often you will want to allocate certain tenants to a team, or restrict which projects/environments a team can access. Using the team you just created you can experiment with reducing scope. You can restrict the team to a specific list of tenants, projects and/or environments.
 
-![](/docs/images/5669453/5865793.png "width=500")
+![](account-managers-tenants.png "width=500")
 
 ## Infrastructure manager {#Multi-tenantrolesandsecurity-Infrastructuremanager}
 
@@ -105,7 +105,7 @@ In this example we will create a new team and combine multiple roles together to
 
 1. Create a new team called Tenant Environment Managers
 2. Add the Tenant viewer and Environment manager roles to the team
-   ![](/docs/images/5669453/5865794.png "width=500")
+   ![](tenant-environment-managers.png "width=500")
 3. Add any specific tenant/environment scoping that makes sense
 4. Add any specific members to the team that make sense
 
@@ -129,11 +129,11 @@ You may want to provide the capabilities of Octopus Deploy to your customers wit
 
 Firstly we need to create a team with scope limited to the single tenant.
 
-1. Create a new team called **Self-Service: <TenantName>** like**Self-Service: Beverley Sanchez** in our example.
+1. Create a new team called **Self-Service: <TenantName>** like **Self-Service: Beverley Sanchez** in our example.
 2. Add any roles you desire, in our example we're providing the tenant with the **Tenant project deployer** role
 3. Scope the team to a single tenant
 
-![](/docs/images/5669453/5865795.png "width=500")
+![](self-service.png "width=500")
 
 ### Step 2: Test! {#Multi-tenantrolesandsecurity-Step2:Test!}
 
