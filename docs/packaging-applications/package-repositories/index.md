@@ -124,13 +124,13 @@ Earlier releases of Octopus Deploy only support external NuGet v2 feeds:
 
 If you're using an external NuGet feed, you can register it with Octopus and use them as part of your deployments. Go to {{Library,External feeds}}.
 
-![](/docs/images/3048094/3277774.png "width=500")
-
 You can add NuGet feeds by clicking the **Add feed** button.
 
-![](/docs/images/3048094/3277773.png "width=500")
+![](/docs/images/3048094/3277774.png "width=500")
 
 In the URL field, enter the HTTP/HTTPS URL to the feed, or the file share or local directory path. Then click **Save and test**.
+
+![](/docs/images/3048094/3277773.png "width=500")
 
 On the test page, you can check whether the feed is working by searching for packages:
 
