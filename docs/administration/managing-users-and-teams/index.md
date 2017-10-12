@@ -1,6 +1,6 @@
 ---
 title: Managing users and teams
-description: Octopus users can be organised in to teams and given various permissions via roles based security.  Teams can be further restricted to specific projects, environments and more.
+description: Octopus users can be organized in to teams and given various permissions via roles based security.  Teams can be further restricted to specific projects, environments and more.
 position: 300
 ---
 
@@ -10,7 +10,7 @@ You can manage users from the **Users** tab under **Configuration** in the Octop
 
 You can manage teams from the **Teams** tab under **Configuration** in the Octopus Deploy web portal.
 
-![](/docs/images/3048123/3277938.png "width=500")
+![](teams.png "width=500")
 
 ## User and Service accounts {#Managingusersandteams-UserandServiceaccounts}
 
@@ -28,7 +28,7 @@ You can add teams using the **Add Team** button. A team is a group of users, and
 
 For example, we can create a team that gives Anne and Bob access to view projects and deploy them to pre-production environments:
 
-![](/docs/images/3048123/3277937.png "width=500")
+![](teams-create-new.png "width=500")
 
 In the example above, we've granted Anne and Bob the **Project deployer** role for the two OctoFX projects, but limited it to the pre-production environments - they won't have permission to deploy to Production.
 
@@ -37,17 +37,17 @@ In the example above, we've granted Anne and Bob the **Project deployer** role f
 Team members can be granted many different roles:
 
 - **Project viewer**:
-Project viewers have read-only access to a project. They can see the project in their dashboard, view releases and deployments.
+  Project viewers have read-only access to a project. They can see the project in their dashboard, view releases and deployments.
 - **Project contributor**:
-Project viewer, plus: editing and viewing variables and deployment steps.
+  Project viewer, plus: editing and viewing variables and deployment steps.
 - **Project lead**: 
-Project contributor, plus: create releases (but not deploy them).
+  Project contributor, plus: create releases (but not deploy them).
 - **Project deployer**: 
-Project contributor, plus: deploying releases (but not creating releases).
+  Project contributor, plus: deploying releases (but not creating releases).
 - **Environment viewer**:
-View environments and their machines, but not edit them.
+  View environments and their machines, but not edit them.
 - **Environment manager**:
-View and edit environments and their machines.
+  View and edit environments and their machines.
 
 Note that project leads can create releases but not deploy them, while project deployers can deploy releases but not create them - this allows you assign these permissions independently. If you need members to be able to both create and deploy releases, you can add both roles.
 

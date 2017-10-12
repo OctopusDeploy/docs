@@ -10,13 +10,13 @@ Adding external groups or roles to Octopus Teams can be helpful in controlling t
 
 Depending on which authentication providers you have enabled, the following buttons may appear on the Team page.
 
-![](/docs/images/5672303/5866190.png "width=694")
+![](members-buttons.png "width=694")
 
 ## Add Active Directory group {#ExternalGroupsandRoles-AddActiveDirectorygroup}
 
 This button appears if you have the Active Directory authentication provider enabled, and when activated you will see the following dialog
 
-![](/docs/images/5672303/5866191.png)
+![](add-ad-group.png)
 
 The search on this dialog will locate any groups in the domain that start with the text you provide.
 
@@ -32,6 +32,6 @@ Domain trust is the only constraint when Active Directory users authenticate wit
 
 This button appears if you have an external authentication provider enabled (e.g. Azure AD), and when activated you will see the following dialog
 
-![](/docs/images/5672303/5866192.png)
+![](add-external-role.png)
 
 The Role Id corresponds to the role id from the external provider (learn more about [roles for Azure AD](/docs/administration/authentication-providers/azure-ad-authentication.md)), Display Name is purely for display in the Team page.
