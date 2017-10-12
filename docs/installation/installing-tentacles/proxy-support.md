@@ -27,11 +27,11 @@ The process for configuring a proxy for Tentacle communication differs for Liste
 
 For Listening Tentacles, the Octopus Server can be configured to communicate with the Tentacle via a proxy. Go to {{Environments,Proxies}} to configure proxy servers to use when connecting to Listening Tentacles. Multiple proxies can be setup here depending on the requirements of your network topology.
 
-![](/docs/images/5669147/5865687.png "width=500")
+![](proxy-create.png "width=500")
 
 Once you have created a proxy, Listening Tentacles can be set to use that proxy in the communication part of Deployment Target Settings.
 
-![](/docs/images/5669147/5865530.png "width=500")
+![](machine-proxy.png "width=500")
 
 ### SSH Targets {#ProxySupport-SSHTargets}
 
