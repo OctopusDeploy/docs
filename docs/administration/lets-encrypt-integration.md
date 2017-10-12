@@ -2,18 +2,18 @@
 title: Let's Encrypt integration
 description: Octopus can integrate with Let's Encrypt to setup and automatically renew the Octopus Portal SSL certificate.
 position: 2300
-version: [3.15,4.0)
+version: 3.15
 ---
 
 Octopus can integrate with [Let's Encrypt](https://g.octopushq.com/LetsEncryptOrg) to setup and manage the SSL certificate for the Octopus Portal. When the certificate nears its expiration date, Octopus will automatically renew the certificate with no intervention required.
 
 Let's Encrypt ingration can be found under {{Configuration,Certificates}}.
 
-![](/docs/administration/lets-encrypt.png "width=758")
+![](/docs/images/lets-encrypt-integration/configure-lets-encrypt.png "width=758")
 
-To enable, click the `Configure` button under the **Octopus Portal Let's Encrypt Integration** heading.
+To enable under **Octopus Portal Let's Encrypt Integration** heading click the the `Configure` button.
 
-![](/docs/administration/lets-encrypt-dialog.png "width=614")
+![](/docs/images/lets-encrypt-integration/configure-lets-encrypt-dialog.png "width=614")
 
 From the list of bindings that Octopus currently listens on, choose the one that you want to have the new SSL certificate. If you choose a HTTP binding, you will need to enter the port number that you wish to use for HTTPS.
 
@@ -31,7 +31,7 @@ If the Octopus Server is not currently listening on the binding/port, it will re
 
 Octopus will then register with Let's Encrypt, handle the domain validation, request a new certificate and apply it to the Portal. If need be the server will be restarted. Once available, you will be able to access your server on the new HTTPS URL.
 
-The {{Configuration,Certificates}} will now show when the SSL certificate was last renewed, and when it is due to expire. Every 24 hours, Octopus will check the certificate, and will automatically renew if its due to expire in the next 21 days.
+The {{Configuration,Certificates}} will now show when the SSL certificate was last renewed, and when it is due to expire. Every 24 hours, Octopus will check the certificate, and will automaticall renew if its due to expire in the next 21 days.
 
 At this point, we recommend enabling [Force SSL](https://octopus.com/docs/how-to/expose-the-octopus-web-portal-over-https#ForcingHTTPS) and [HSTS](https://octopus.com/docs/how-to/expose-the-octopus-web-portal-over-https#HSTS).
 
