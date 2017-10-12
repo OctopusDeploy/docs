@@ -25,13 +25,13 @@ The built-in User Roles can be modified to contain more or less roles to suit sp
 
 ## Creating User Roles {#UserRoles-CreatingUserRoles}
 
-!partial <creating-user-roles>
+!partial <creating>
 
 ## Troubleshooting Permissions {#UserRoles-TroubleshootingPermissions}
 
 If for some reason a user has more/fewer permissions than they should, you can use the **Test Permissions** feature to get an easy to read list of all the permissions that a specific user has on the Octopus instance.
 
-!partial <testing-user-permissions>
+!partial <testing>
 
 The results will show
 
