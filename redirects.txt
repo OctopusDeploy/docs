@@ -25,3 +25,5 @@ docs/api-and-integration/visual-studio-team-services-vsts -> docs/api-and-integr
 docs/api-and-integration/team-foundation-server-tfs -> docs/api-and-integration/tfs-vsts/index.md
 docs/guides/use-the-team-foundation-build-custom-task/extension-compatibility -> docs/api-and-integration/tfs-vsts/using-octopus-extension/extension-compatibility.md
 docs/guides/use-the-team-foundation-build-custom-task/manually-install-the-build-task -> docs/api-and-integration/tfs-vsts/using-octopus-extension/manually-install-the-build-task.md
+docs/images/lets-encrypt-integration/configure-lets-encrypt-dialog.png -> docs/administration/lets-encrypt-dialog.png
+docs/images/lets-encrypt-integration/configure-lets-encrypt.png -> docs/administration/lets-encrypt.png
