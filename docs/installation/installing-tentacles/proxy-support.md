@@ -25,11 +25,11 @@ The process for configuring a proxy for Tentacle communication differs for Liste
 
 ### Listening Tentacles {#ProxySupport-ListeningTentacles}
 
-!partial <listeningtargets>
+!partial <listening-targets>
 
 ### SSH Targets {#ProxySupport-SSHTargets}
 
-!partial <sshtargets>
+!partial <ssh-targets>
 
 ### Polling Tentacles {#ProxySupport-PollingTentacles}
 
