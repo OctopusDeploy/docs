@@ -69,11 +69,21 @@ The drain toggle can be used to prevent an Octopus Server node from executing an
 
 ## Load balancing {#ManagingHighAvailabilityNodes-Loadbalancing}
 
-To distribute the load among Octopus Server nodes with a single point of access it is recommend to use a load balancer.  Octopus Server facilitates this by providing the url `/api/octopusservernodes/ping` for a load balancer to ping:
+To distribute HTTP load among Octopus Server nodes with a single point of access it is recommend to use an HTTP load balancer. We typically recommend using a round-robin (or similar) approach for sharing traffic between the nodes in your cluster.
+
+Octopus Server provides a health check endpoint for your load balancer to ping: `/api/octopusservernodes/ping`
 
 ![](/docs/images/3048617/3278353.png)
 
-The url will return HTTP status code 200 as long as the Octopus Server node is online and not in drain mode.
+Making a standard `HTTP GET` request to this URL on your Octopus Server nodes will return:
+
+- HTTP Status Code `200 OK` as long as the Octopus Server node is online and not in [drain mode](#ManagingHighAvailabilityNodes-Drain).
+- HTTP Status Code `418 I'm a teapot` when the Octopus Server node is online, but it is currently in [drain mode](#ManagingHighAvailabilityNodes-Drain) preparing for maintenance.
+- Anything else indicates the Octopus Server node is offline, or something has gone wrong with this node.
+
+:::hint
+The Octopus Server node configuration is also returned as JSON in the HTTP response body.
+:::
 
 ## Example procedure: installing Windows Updates {#ManagingHighAvailabilityNodes-Exampleprocedure:installingWindowsUpdates}
 
