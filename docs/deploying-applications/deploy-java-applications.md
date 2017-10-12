@@ -684,6 +684,9 @@ Failed to save legacy web subsystem https connector as a batch operation.
 ### WILDFLY-HTTPS-ERROR-0037
 A supplied profile did not exist in the domain.
 
+### WILDFLY-HTTPS-ERROR-0038
+The server is not in a running state.
+
 ### WILDFLY-ERROR-0001
 There was an error entering batch mode.
 
