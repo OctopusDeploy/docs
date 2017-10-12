@@ -143,9 +143,19 @@ You may already have an existing Octopus Deploy server, that you wish to make hi
 
 ## Configuring High Availability Polling Tentacles {#ConfiguringOctopusforHighAvailability-ConfiguringHighAvailabilityPollingTentacles}
 
-Listening Tentacles require no special configuration for High Availability.  Polling Tentacles, however, poll a server at regular intervals to check if there are any tasks waiting for the Tentacle to perform. In a High Availability scenario Polling Tentacles must poll all of the Octopus Servers in your configuration. You could poll a load balancer but there is a risk, depending on your load balancer configuration, that the Tentacle will not poll all servers in a timely manner.  You could also configure the Tentacle to poll each server by registering it with one of your Octopus Servers and then adding each Octopus Server to the Tentacle.config file (this is interpreted as a JSON array of servers):
+Listening Tentacles require no special configuration for High Availability.  Polling Tentacles, however, poll a server at regular intervals to check if there are any tasks waiting for the Tentacle to perform. In a High Availability scenario Polling Tentacles must poll all of the Octopus Servers in your configuration. You could poll a load balancer but there is a risk, depending on your load balancer configuration, that the Tentacle will not poll all servers in a timely manner.  You could also configure the Tentacle to poll each server by registering it with one of your Octopus Servers and then adding each Octopus Server to the Tentacle.config file. There are two options to add Octopus servers, via the command line or via editing the Tentacle.config file directly:
 
 **Tentacle.config**
+
+Configuring the Tentacle via the command line is the preferred option with the command executed once per server; an example command using the default instance can be seen below:
+
+```
+C:\Program Files\Octopus Deploy\Tentacle>Tentacle poll-server --server=http://my.Octopus.server --apikey=API-77751F90F9EEDCEE0C0CD84F7A3CC726AD123FA6
+```
+
+For more information on this command please refer to the [Tentacle Poll Server options document](https://octopus.com/docs/api-and-integration/tentacle.exe-command-line/poll-server)
+
+Alternatively you can edit Tentacle.config directly to add each Octopus server (this is interpreted as a JSON array of servers). This method is not recommended as the Octopus service for each server will need to be restarted to accept incoming connections via this method.
 
 ```xml
 <set key="Tentacle.Communication.TrustedOctopusServers">
@@ -169,7 +179,7 @@ To fix this problem you should:
 
 1. Plan some downtime for your Octopus HA cluster
 2. Create shared storage as [described here](#ConfiguringOctopusforHighAvailability-SharedStorage)
-3. Put your Octopus HA cluster into maintenance mode after draining tasks from each node
+3. Put your Octopus HA cluster into [Maintenance Mode](/docs/administration/maintenance-mode.md) after draining tasks from each node
 3. Reconfigure your Octopus HA cluster to use the shared storage
 4. Copy all of the files into the shared storage location - there shouldn't be any filename collisions since each node will generally run independent tasks
 5. Bring yoour Octopus HA cluster back online

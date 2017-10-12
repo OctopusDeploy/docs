@@ -58,6 +58,8 @@ Deployment-level variables are drawn from the project and release being deployed
 |**`Octopus.Task.Argument[_name_]`** <br/>Argument values provided when creating the task | *deployments-123*|
 |**`Octopus.Task.Id`** <br/>The ID of the task | *servertasks-123*|
 |**`Octopus.Task.Name`** <br/>The name of the task | *Deploy release 1.2.3 to Production*|
+|**`Octopus.Task.QueueTime`** <br/>The date and time the task should be queued for execution. ***Introduced in Octopus Deploy version 3.17.3*** | *Tuesday 10th September 1:30 PM* |
+|**`Octopus.Task.QueueTimeExpiry`** <br/>The date and time before which the task must start. ***Introduced in Octopus Deploy version 3.17.3*** | *Tuesday 10th September 2:30 PM* |
 |**`Octopus.Tentacle.CurrentDeployment.PackageFilePath`** <br/>The path to the package file being deployed | *C:\Octopus\Tentacle\Packages\OctoFx.1.2.3.nupkg*|
 |**`Octopus.Tentacle.CurrentDeployment.TargetedRoles`** <br/>The intersection of the roles targeted by the step, and those applied to the machine | *web-server*|
 |**`Octopus.Tentacle.PreviousInstallation.CustomInstallationDirectory`** <br/>The directory into which the previous version of the package was deployed | *C:\InetPub\WWWRoot\OctoFx*|
@@ -91,11 +93,6 @@ Action-level variables are available during execution of an action. Indexer noti
 |**`Octopus.Action.Package.InstallationDirectoryPath`** <br/>The directory where the package was installed. It is not available prior to package extraction. | *C:\InetPub\WWWRoot\OctoFx*|
 !partial <packageVariables>
 |**`Octopus.Action.Package.SkipIfAlreadyInstalled`** <br/>If true, and the version of the package being deployed is already present on the machine, its re-deployment will be skipped (use with caution) *(Boolean)* | *False*|
-|**`Octopus.Action.Package.Ssh.ApplicationsDirectoryPath`** <br/>The applications directory used for deployment on the target machine | */home/user/.tentacle/apps/*|
-|**`Octopus.Action.Package.Ssh.PackageFileName`** <br/>The package file being deployed on the target machine | */home/user/.tentacle/packages/OctoFx.RateService.1.2.3.nupkg.tar.gz*|
-|**`Octopus.Action.Package.Ssh.PackagesDirectoryPath`** <br/>The packages directory used for deployment on the target machine | */home/user/.tentacle/packages/*|
-|**`Octopus.Action.Package.Ssh.RootDirectoryPath`** <br/>The root directory used for deployment on the target machine | */home/user/.tentacle/*|
-|**`Octopus.Action.Package.Ssh.ToolsDirectoryPath`** <br/>The tools directory used for deployment on the target machine | */home/user/.tentacle/tools/*|
 |**`Octopus.Action.Script.ScriptBody`** <br/>The script being run in a script step | *Write-Host 'Hello!'*|
 |**`Octopus.Action.Script.Syntax`** <br/>The syntax of the script being run in a script step | *PowerShell*|
 |**`Octopus.Action.SkipRemainingConventions`** <br/>If set by the user, completes processing of the action without runnning further conventions/scripts *(Boolean)* | *True*|
@@ -156,6 +153,8 @@ Output variables are collected during execution of a step and made available to 
 |**`Octopus.Action[_name_].Output.Manual.ResponsibleUser.EmailAddress`** <br/>The email address of the user who completed the manual step | *[alice@example.com](mailto:alice@example.com)*|
 |**`Octopus.Action[_name_].Output.Manual.ResponsibleUser.Id`** <br/>The ID of the user who completed the manual step | *users-123*|
 |**`Octopus.Action[_name_].Output.Manual.ResponsibleUser.Username`** <br/>The username of the user who completed the manual step | *alice*|
+|**`Octopus.Action[_name_].Output.OctopusAzureCloudServiceDeploymentID`** <br/> The ID of the completed Azure Cloud Service deployment. ***Introduced in Calamari version 3.7.81 which was released with Octopus Deploy version 3.14.15.***| *c9f52da2b00a4313b3b64bb2ad0f409f* |
+|**`Octopus.Action[_name_].Output.OctopusAzureCloudServiceDeploymentUrl`** <br/>The Url of the completed Azure Cloud Service deployment. ***Introduced in Calamari version 3.7.81 which was released with Octopus Deploy version 3.14.15.***| *http://c9f52da2b00a4313b3b64bb2ad0f409f.cloudapp.net/* |
 
 ## Step {#Systemvariables-Step}
 
@@ -239,3 +238,4 @@ The following variables can be defined as variables in your project to modify th
 |**`OctopusDeleteScriptsOnCleanup`** <br/>For packaged scripts, set to "False" to keep the PreDeploy/Deploy/PostDeploy scripts in the target directory (i.e. don't cleanup). | False|
 |**`Octopus.Action.Script.SuppressEnvironmentLogging`** <br/>To suppress/disable the environment logging that occurs from script (eg. PowerShell or Bash Script Environment Variables logging). This only suppresses script logging and does not suppress the Octopus or Calamari environment logging. ***Introduced in Calamari version 3.6.5 which was released with Octopus Deploy version 3.6.0.*** | True|
 |**`Octopus.Action.PowerShell.ExecuteWithoutProfile`** <br/>Set to `true` to not run the Tentacle service account's PowerShell profile script when running PowerShell script steps (available in version 3.3.21+) | True|
+|**`OctopusSuppressDuplicateVariableWarning`** <br/>Set to `true` to have the duplicate variable message logged as verbose instead of warning. ***Do this if you are aware of the duplication and that it isn't causing any issues in your deployment***  (available in version 3.17.0+) | True|

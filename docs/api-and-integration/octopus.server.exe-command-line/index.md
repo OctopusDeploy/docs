@@ -21,8 +21,10 @@ position: 9
 - **`delete-instance`**:  Deletes an instance of the Octopus service
 - **`database`**:  Create or drop the Octopus database
 - **`configure`**:  Configure this Octopus instance
+- **`new-certificate`**:  Creates a new certificate that Octopus server can use to authenticate itself with its Tentacles
 - **`import-certificate`**:  Replace the certificate that Octopus server uses to authenticate itself with its Tentacles
-- **`regenerate-certificate`**:  Regenerate one or more of the certificates that Octopus uses
+- **`export-certificate`**:  Exports the certificate that Octopus server can use to authenticate itself with its Tentacles
+- **`regenerate-certificate`**:  DEPRECATED: Regenerate one or more of the certificates that Octopus uses
 - **`show-master-key`**:  Print the server's Master Encryption Key, so that it can be backed up
 - **`show-thumbprint`**:  Shows the squid and thumbprint of the server instance
 - **`show-configuration`**:  Outputs the server configuration

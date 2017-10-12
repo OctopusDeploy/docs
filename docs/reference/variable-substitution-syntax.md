@@ -8,7 +8,7 @@ Variable substitutions are a flexible way to adjust configuration based on your 
 
 ## Basic Syntax {#VariableSubstitutionSyntax-BasicSyntax}
 
-Octopus [variables ](/docs/deploying-applications/variables/index.md)support substitution throughout: a variable may be bound to an expression that incorporates the values of other variables:
+Octopus [variables](/docs/deploying-applications/variables/index.md) support substitution throughout: a variable may be bound to an expression that incorporates the values of other variables:
 
 | Name               | Value                       | Scope      |
 | ------------------ | --------------------------- | ---------- |
@@ -16,9 +16,9 @@ Octopus [variables ](/docs/deploying-applications/variables/index.md)support sub
 | `DatabaseServer`   | `TDB001`                    | Test       |
 | `ConnectionString` | `Server=#{DatabaseServer};` |            |
 
-The syntax `#{VarName}` will insert the value of the `VarName` variable in-place. For example the `ConnectionString`variable will have the value `Server=PDB001;` when evaluated in the *Production*environment. The use of one or more variables in the declaration of another is called a *binding.*
+The syntax `#{VarName}` will insert the value of the `VarName` variable in-place. For example the `ConnectionString`variable will have the value `Server=PDB001;` when evaluated in the *Production* environment. The use of one or more variables in the declaration of another is called a *binding.*
 
-In regular variable declarations, binding to a non-existent value will yield an empty string, so evaluating `ConnectionString` in the *Dev*environment will yield `Server=;` because no `DatabaseServer` is defined in that environment.
+In regular variable declarations, binding to a non-existent value will yield an empty string, so evaluating `ConnectionString` in the *Dev* environment will yield `Server=;` because no `DatabaseServer` is defined in that environment.
 
 If the file undergoing variable replacement includes a string that *shouldn't* be getting replaced, for example **#{NotToBeReplace}**, you should include an extra hash (#) character to force the replacement to ignore the substitution and remove the extra #.
 
@@ -79,13 +79,13 @@ Then the following template:
 <compilation #{if DebugEnabled}debug="true"#{/if}>
 ```
 
-The resulting text in the *Dev*environment will be:
+The resulting text in the *Dev* environment will be:
 
 ```xml
 <compilation debug="true">
 ```
 
-And in *Production*it will be:
+And in *Production* it will be:
 
 ```xml
 <compilation >

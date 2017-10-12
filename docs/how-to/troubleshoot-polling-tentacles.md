@@ -4,7 +4,7 @@ description: How to troubleshoot problems with polling Tentacles.
 position: 5
 ---
 
-When an Octopus Tentacle is configured in [Polling mode](/docs/installation/installing-tentacles/polling-tentacles.md), it will attempt to connect to the Octopus Server on the configured TCP port (by default TCP port **10934** on the Octopus Server) poll the Octopus Server for work to be performed.
+When an Octopus Tentacle is configured in [Polling mode](/docs/installation/installing-tentacles/polling-tentacles.md), it will attempt to connect to the Octopus Server on the configured TCP port (by default TCP port **10943** on the Octopus Server) poll the Octopus Server for work to be performed.
 
 ![](/docs/images/5670828/5865874.png)
 
@@ -20,7 +20,7 @@ If you have worked through this guide without success, it can be worthwhile to c
 
 ## Home in on the problem {#TroubleshootPollingTentacles-Homeinontheproblem}
 
-If you're at "square 1" and can't register a new Tentacle with the Octopus Server, take note of the error presented when you attempt to register the Tentacle. During the registration phase the tooling attempts to use the Octopus Server API (by default TCP Port **80** or **443**). It is not until the registration is successful that the Tentacle will attempt to start polling the Octopus Server (by default TCP port **10934** on the Octopus Server).
+If you're at "square 1" and can't register a new Tentacle with the Octopus Server, take note of the error presented when you attempt to register the Tentacle. During the registration phase the tooling attempts to use the Octopus Server API (by default TCP Port **80** or **443**). It is not until the registration is successful that the Tentacle will attempt to start polling the Octopus Server (by default TCP port **10943** on the Octopus Server).
 
 If you are having problems with a previously-working machine, or you've successfully registered a machine but can't get communication to work afterwards, you can find information in three places:
 
@@ -71,7 +71,7 @@ If the service is up and running, continue to the next step.
 
 ## Connect locally to the Octopus Server polling endpoint using your browser {#TroubleshootPollingTentacles-ConnectlocallytotheOctopusServerpollingendpointusingyourbrowser}
 
-*On the Octopus Server machine*, open a web browser and navigate to [https://localhost:10934](https://localhost:10934) (or your chosen Tentacle communications port if it isn't the default). Make sure an**HTTPS** URL is used.
+*On the Octopus Server machine*, open a web browser and navigate to [https://localhost:10943](https://localhost:10943) (or your chosen Tentacle communications port if it isn't the default). Make sure an**HTTPS** URL is used.
 
 - If you're presented with a prompt to "confirm a certificate" or "select a certificate" choose "Cancel" - don't provide one
 
@@ -94,8 +94,8 @@ Next, repeat the process of connecting to the Octopus Server with a web browser,
 
 When forming the URL to check:
 
-- First try using the Octopus Server's DNS hostname, e.g. [https://my-octopus:10934](https://my-octopus:10934)
-- If this fails, try using the Octopus Server's IP address instead, e.g. [https://1.2.3.4:10934](https://1.2.3.4:10934) - success using the IP address but not the DNS hostname will indicate a DNS issue
+- First try using the Octopus Server's DNS hostname, e.g. [https://my-octopus:10943](https://my-octopus:10943)
+- If this fails, try using the Octopus Server's IP address instead, e.g. [https://1.2.3.4:10943](https://1.2.3.4:10943) - success using the IP address but not the DNS hostname will indicate a DNS issue
 
 :::hint
 **If you can't connect...**

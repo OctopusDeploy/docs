@@ -46,7 +46,7 @@ To use Hydra, follow these steps:
 These steps should be executed from your Octopus 2.6 server to your 2.6 Tentacles.
 :::
 
-1. Download the latest Hydra NuGet package from [https://octopus.com/downloads](https://octopus.com/downloads)
+1. Download the latest Hydra NuGet package from [https://octopus.com/downloads/latest/Hydra](https://octopus.com/downloads/latest/Hydra)
 2. Use the Upload Package feature of the library to upload the OctopusDeploy. Hydra package to the built-in NuGet repository on your Octopus 2.6 server.
 
 ![](/docs/images/3048135/3278019.png "width=500")

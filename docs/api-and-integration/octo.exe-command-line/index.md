@@ -76,5 +76,5 @@ Learn about [how to create an API key](/docs/how-to/how-to-create-an-api-key.md)
 :::
 
 :::hint
-Octo.exe is built and maintained by the Octopus Deploy team, but it is also open source. You can [view the Octopus Tools project on GitHub](https://github.com/OctopusDeploy/Octo.exe).
+Octo.exe is built and maintained by the Octopus Deploy team, but it is also open source. You can [view the Octopus Clients project on GitHub](https://github.com/OctopusDeploy/OctopusClients).
 :::

@@ -62,6 +62,8 @@ If the Octopus Deploy server and its users are on the **same domain**, it is su
 
 If the server and its users are on different domains, or **many domains** are in use, the *DOMAIN\user* username format must be provided for users who are not a member of the domain the server is in.
 
+See below for more details and examples related to Trusted Domains.
+
 :::hint
 Users will receive the error "**Username not found.  UPN format may not be supported for your domain configuration."** if they have entered a UPN and their details could not be located in the domain. This could occur because the UPN really doesn't exist, or it exists in a domain other than the one the Octopus Deploy server is in (which as stated above is not supported).
 :::
@@ -138,6 +140,18 @@ Where `"CN=Users,DC=GPN,DC=COM"` should be replaced with your Container.
 ### Trusted Domains {#ActiveDirectoryauthentication-TrustedDomains}
 
 Using Trusted Domains is supported by Octopus Deploy.  Users from the domain the Octopus Deploy server is a member of will always be allowed to log in.  Users from domains that the Octopus Deploy server's domain trusts will also be able to log in.
+
+The following diagram illustrates a typical configuration when there is a 2 way trust between the domains.
+
+![Two-way trust](domains-twoway.png)
+
+In this configuration the Octopus server is executing as a service account from the same domain that the machine is a member of. When logging in, users from DomainA can use their AD username or UPN whereas users from DomainB must use *DOMAIN\user* username format. This is required so that the API calls Octopus makes can locate the domain controller for the correct domain (DomainB in this example).
+
+Another common scenario is to have a 1 way trust between the domains. This configuration is illustrated in the following diagram
+
+![One-way trust](domains-oneway.png)
+
+In this example, DomainA trusts DomainB. Given that both domains trust users from DomainB, the Octopus service should be configured to run as an account from DomainB. If the service was configured to run as an account from DomainA then users from DomainB wouldn't be able to log in and Octopus wouldn't be able to query group information from DomainB.
 
 Learn about [configuring Teams to utilize Trusted Domains](/docs/administration/managing-users-and-teams/external-groups-and-roles.md).
 

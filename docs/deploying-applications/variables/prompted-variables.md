@@ -14,7 +14,7 @@ You can configure a variable to be prompted when editing the variable:
 
 ![](/docs/images/3048314/3278298.png "width=500")
 
-When defining a prompted variable, you can provide a friendly name and description, and specify if the value is required.
+When defining a prompted variable, you can provide a friendly name and description, and specify if the value is required. A required variable must be supplied when the deployment is created and must not be empty or white space.
 
 ![](/docs/images/3048314/3278299.png "width=500")
 
@@ -28,10 +28,10 @@ When deploying (not creating a release), you'll be prompted to provide a value f
 
 ![](/docs/images/3048314/3278301.png "width=500")
 
-Prompted variables can also be provided when using the [command-line Octo.exe tool to deploy releases](/docs/api-and-integration/octo.exe-command-line/deploying-releases.md):
+A value can also be passed to a prompted variable when using `Octo.exe` through the `--variable` parameter of the [Create-Release](/docs/api-and-integration/octo.exe-command-line/creating-releases.md) or [Deploy-Release](/docs/api-and-integration/octo.exe-command-line/deploying-releases.md) commands
 
 ```ruby
-octo.exe create-release ... --variable "Launch codes:LAUNCH123" --variable "Variable 2:Some value"
+octo.exe create-release ... --variable "Missile launch code:LAUNCH123" --variable "Variable 2:Some value"
 ```
 
 :::hint

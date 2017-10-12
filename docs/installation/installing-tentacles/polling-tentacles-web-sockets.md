@@ -25,7 +25,7 @@ The following prerequisites must be met to use this feature:
 ### Listen Address
 
 The first step is to select a URL listen prefix. HTTP.sys handles the initial TLS handshake and then routes the request based on the HTTP headers. This means that the request can be routed based on IP, hostname and path. See the 
-[UrlPrefix documentation](https://msdn.microsoft.com/en-us/library/windows/desktop/aa364698(v=vs.85).aspx) for the syntax and how routes are matches. 
+[UrlPrefix documentation](https://msdn.microsoft.com/en-us/library/windows/desktop/aa364698(v=vs.85).aspx) for the syntax and how routes are matched. 
 
 In most cases, we recommend using `+` as the host name and a unique string for path. This will ensure that address
 takes the highest precedence. For example, to listen on port 443: `https://+:443/OctopusComms`. The path should not be 
@@ -35,7 +35,7 @@ An SSL certificate must be configured for the chosen address and port (the path 
 
 Once selected the Octopus Server can be configured to listen on that prefix using the following commands:
 
-```
+```console
 .\Octopus.Server.exe service --instance OctopusServer --stop
 .\Octopus.Server.exe configure --instance OctopusServer --commsListenWebSocket https://+:443/OctopusComms
 .\Octopus.Server.exe service --instance OctopusServer --start
@@ -99,11 +99,11 @@ New-SelfSignedCertificate -Subject "CN=Example Website" -CertStoreLocation "Cert
 
 If your chosen certificate has not yet been associated with the selected address and port, use the `netsh` tool to install it. For example:
 
-```powershell
+```powershell PowerShell
 netsh http add sslcert ipport=0.0.0.0:443 certhash=966857B08601B9ACA9A9F10E7D469AC521E2CD4B appid='{00112233-4455-6677-8899-AABBCCDDEEFF}'
 ```
 
-```console
+```console Cmd
 netsh http add sslcert ipport=0.0.0.0:443 certhash=966857B08601B9ACA9A9F10E7D469AC521E2CD4B appid={00112233-4455-6677-8899-AABBCCDDEEFF}
 ```
 

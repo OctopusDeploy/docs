@@ -80,6 +80,10 @@ Since OctoPack is built for .NET applications, with special knowledge about the 
 
 If you are packaging a .NET application, OctoPack will **automatically package all of the files in the build output directory for the project**. In most cases this will be the `bin`, `bin\Debug` or `bin\Release` folder, depending on the build configuration and whether you have[ changed the build output directory for your project in Visual Studio](https://msdn.microsoft.com/en-us/library/ms165410.aspx).
 
+:::hint
+If you have customized the output directory and you have added a custom `<files>` element to your custom nuspec file, all paths you specify must be relative to the nuspec file's location. This means that for the binaries files that are being built by the project you will have to use some combination of `..\` style prefix to refer to the assemblies.
+:::
+
 For Windows Service or Console applications, and many Windows Forms or WPF applications, the build output directory contains everything you need to deploy your application.
 
 The example below shows a Windows Service called `OctoFX.RateService.exe` and all of the files required to run the application, including libraries and configuration files.
@@ -109,7 +113,7 @@ If you need to include other files in your package for deployment, use the Visua
 
 :::success
 **Config Transforms for other types of .NET applications**
-Did you know you can use XML Config Transforms on any XML files including the `app.config` file for Windows Service, Console, Windows Forms or WPF applications? Make sure the transform files are copied to the build output directory as part of your build, and the will be packaged by OctoPack so you can[use them as part of the deployment](/docs/deploying-applications/configuration-files/index.md).
+Did you know you can use XML Config Transforms on any XML files including the `app.config` file for Windows Service, Console, Windows Forms or WPF applications? Make sure the transform files are copied to the build output directory as part of your build, and the will be packaged by OctoPack so you can [use them as part of the deployment](/docs/deploying-applications/configuration-files/index.md).
 :::
 
 ### Including additional files using a NuSpec file (.nuspec) {#UsingOctoPack-IncludingadditionalfilesusingaNuSpecfile(.nuspec)}
@@ -120,6 +124,7 @@ If you need to go beyond this and include additional files, or you want to contr
 <files>
   <file src="bin\*.dll" target="bin" />
   <file src="Content\*.css" target="Content" />
+  <file src="Files\**\*.*" target="Files" exclude="Files\SuperSecret.cert" />
 </files>
 ```
 

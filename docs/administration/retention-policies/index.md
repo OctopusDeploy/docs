@@ -1,7 +1,7 @@
 ---
 title: Retention Policies
 description: Retention policies allow you to specify the releases, packages and files you want to keep as well as the ones you want cleaned up.
-position: 5
+position: 500
 ---
 
 As you deploy more often and to different environments, files and releases can build up. This is what retention policies are for. They allow you to define what is kept in terms of releases, packages and files.  
@@ -21,8 +21,8 @@ The Tentacle settings delete **packages**, and expanded **files and folders** f
 The in-built NuGet repository will delete any **packages** that are not attached to any release. If you happen to have higher versions of packages that have not been released, we will keep them assuming a release will be created. If you delete releases using the Octopus Server retention policy then any packages that were associated with those releases will then be deleted with that task.
 
 :::hint
-**Projects that use variables in package IDs**
-If you reference [variables](/docs/deploying-applications/variables/index.md) when defining which NuGet package to deploy in a package step, things get more complicated. [Read this page to learn more](http://help.octopusdeploy.com/discussions/problems/43995).
+**Projects that use variables in Package IDs**
+You can [configure Octopus to select packages dynamically using variables](/docs/deploying-applications/deploying-packages/dynamically-selecting-packages.md), which makes things more complicated for retention policies. [Read this page to learn more](http://help.octopusdeploy.com/discussions/problems/43995).
 :::
 
 ## When the retention policies are applied {#RetentionPolicies-Whentheretentionpoliciesareapplied}

@@ -1,6 +1,6 @@
 ---
 title: Lifecycles
-description: Lifecycles allow you to control the way releases are promoted between environments.
+description: Lifecycles allow you to control the way releases are promoted between environments. You can define automatic deployment environments in your lifecycle phases. This will automate deployments to an environment as soon as the phase becomes available.
 position: 4
 ---
 
@@ -62,6 +62,10 @@ Once all of your phases are defined your Lifecycle has a 'tree view'.
 It shows the flow of the deployment in a visual way.
 
 !partial <optionalphase>
+
+### No Progression
+
+If you want to be able to deploy to any environment at any time then simply create a single phase which has `Phase Progression` set to `All must complete` and includes all your environments. 
 
 ## Lifecycles and Projects {#Lifecycles-LifecyclesandProjects}
 

@@ -1,7 +1,7 @@
 ---
 title: Service Watchdog
 description: The Octopus Server and Tentacle watchdog command can be used to configure a Windows Scheduled Task that ensures the services are running.
-position: 23
+position: 2300
 ---
 
 In some environment the Windows Services for Octopus Deploy Server and Tentacle may not reliably start when the server is rebooted.  This typically occurs during a restart after Windows Updates have been installed.

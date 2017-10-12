@@ -33,7 +33,7 @@ msiexec INSTALLLOCATION=C:\YourDirectory /i Octopus.Tentacle.<version>.msi /quie
 ```
 
 :::problem
-Whilst you can set a customer INSTALLLOCATION for the Tentacle, please be aware that upgrades initiated by Octopus Server will currently install the upgraded Tentacle back into the default location. This may have an impact if you are using the [Service Watchdog](/docs/administration/service-watchdog.md).
+While you can set a custom INSTALLLOCATION for the Tentacle, please be aware that upgrades initiated by Octopus Server will currently install the upgraded Tentacle back into the default location. This may have an impact if you are using the [Service Watchdog](/docs/administration/service-watchdog.md).
 :::
 
 ## Configuration {#AutomatingTentacleinstallation-Configuration}
@@ -137,7 +137,7 @@ Tentacle.exe show-thumbprint --instance "Tentacle" --nologo
 
 ## Desired State Configuration {#AutomatingTentacleinstallation-DSCDesiredStateConfiguration}
 
-Tentacles can also be installed via [Desired State Configuration](https://msdn.microsoft.com/en-us/powershell/dsc/overview) (DSC). Using the module from the [OctopusDSC GitHub repository](https://github.com/OctopusDeploy/OctopusDSC), you can add, remove, start and stop Tentacles in either polling or listening mode.
+Tentacles can also be installed via [Desired State Configuration](https://msdn.microsoft.com/en-us/powershell/dsc/overview) (DSC). Using the module from the [OctopusDSC GitHub repository](https://www.powershellgallery.com/packages/OctopusDSC), you can add, remove, start and stop Tentacles in either polling or listening mode.
 
 The following PowerShell script will install a Tentacle listening on port `10933` against the Octopus server at `https://YOUR_OCTOPUS`, add it to the `Development` environment and assign the `web-server` and `app-server` roles:
 

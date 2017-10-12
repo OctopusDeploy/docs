@@ -20,7 +20,7 @@ We talk more about tenanted and un-tenanted deployments in [Deploying a simple m
 
 :::warning
 **Mixing tenanted and un-tenanted deployments on the same machine**
-In Octopus 3.4 you cannot mix tenanted and un-tenanted deployments on the same machine(s). This was a design decision we made based on feedback and testing during the Octopus 3.4 beta program - to be safe by default. We are planning to implement some features to enable mixing an matching both tenanted and un-tenanted deployments on the same machine, and you can get involved by following this [GitHub Issue](https://github.com/OctopusDeploy/Issues/issues/2722).
+In Octopus 3.4 you cannot mix tenanted and un-tenanted deployments on the same machine(s). This was a design decision we made based on feedback and testing during the Octopus 3.4 beta program - to be safe by default. We are planning to implement some features to enable mixing and matching both tenanted and un-tenanted deployments on the same machine, and you can get involved by following this [GitHub Issue](https://github.com/OctopusDeploy/Issues/issues/2722).
 
 In the meantime you can work around this by creating a single dummy tenant for your un-tenanted project as described in that GitHub Issue.
 :::

@@ -8,7 +8,7 @@ Words like "release" and "deployment" are no doubt terms that you've used in you
 
 ## How to think like an Octopus {#KeyConcepts-HowtothinklikeanOctopus}
 
-Like all software, Octopus is designed around model of a specific problem domain - in our case, the domain of deployment automation. In order to truly understand how Octopus works and how to get the best use out of it, it's helpful to take the time to understand our model and some of the terms that we use. It's helpful to think like an Octopus!
+Like all software, Octopus is designed around a model of a specific problem domain - in our case, the domain of deployment automation. In order to truly understand how Octopus works and how to get the best use out of it, it's helpful to take the time to understand our model and some of the terms that we use. It's helpful to think like an Octopus!
 
 :::success
 **Domain driven design**
@@ -77,7 +77,7 @@ The deployment process for a project specifies how the project will be deployed.
 
 We expect that beyond the initial setup and tweaking, your deployment process won't change between all of these deployments. But of course, the software that you are deploying will. You will make changes to code, commit them to source control, and have a [build server](/docs/api-and-integration/index.md) build them and run tests. Then the software will be [packaged](/docs/packaging-applications/index.md) and ready for deployment.
 
-In Octopus, a release is a snapshot of the *deployment process*and*variables,* with a set of *packages* selected. That *release* is then *deployed* to multiple environments, typically to one, then promoted to the next environment if successful.
+In Octopus, a release is a snapshot of the *deployment process* and *variables,* with a set of *packages* selected. That *release* is then *deployed* to multiple environments, typically to one, then promoted to the next environment if successful.
 
 ![](/docs/images/3048100/3277799.png "width=500")
 

@@ -17,43 +17,68 @@ When an update is available, a bullhorn icon will appear in the top status bar w
 You can find the differences between your current version and the newest version using our [Compare versions](https://octopus.com/downloads/compare) page. Please note that this will also list the release notes for major and minor version changes which may include **breaking changes** or **dependencies** that you may need to also update. It is important to know what might be effected by your upgrade.
 :::
 
+## Scheduling maintenance
+
+Upgrading Octopus Server is normally quite fast, however you should allow yourself time to perform a good [backup and restore process](/docs/administration/backup-and-restore.md).
+
+You should also consider how long the actual upgrade may take:
+
+- [Patch](/docs/administration/upgrading/index.md##Upgrading-HowweversionOctopusDeploy) upgrades are usually very fast - only the executable binaries are upgraded.
+- [Minor](/docs/administration/upgrading/index.md##Upgrading-HowweversionOctopusDeploy) upgrades are usually quite fast, however these releases typically require database changes.
+- [Major](/docs/administration/upgrading/index.md##Upgrading-HowweversionOctopusDeploy) upgrades usually require detailed planning.
+
 ## Upgrading Octopus Server {#UpgradingfromOctopus3.x-UpgradingOctopusServerUpgradingOctopusServer}
 
 Upgrading the Octopus Deploy Server is easy, you will just need to follow these steps:
 
-1. Switch your server to Maintenance Mode and wait until all current tasks and deployments have completed. This ensures that no further changes will be made that may potentially become lost if the upgrade fails and you need to rollback.
+1. Schedule a maintenance window: Octopus Server will be unavailable during the upgrade (unless you are [upgrading Octopus HA](#upgrading-octopus-ha))
+1. Switch your server to [Maintenance Mode](/docs/administration/maintenance-mode.md) and wait until all current tasks and deployments have completed. This ensures that no further changes will be made that may potentially become lost if the upgrade fails and you need to rollback.
 
-![](/docs/images/3048440/5865775.png "width=500")
+    ![](/docs/images/3048440/5865775.png "width=500")
 
-2. [Backup your database and master key](/docs/administration/backup-and-restore.md) so that it can be restored in case anything goes wrong.
+1. [Backup your database and master key](/docs/administration/backup-and-restore.md) so that it can be restored in case anything goes wrong.
 
-![](/docs/images/3048440/5865780.png "width=500")
+    ![](/docs/images/3048440/5865780.png "width=500")
 
-3. Download the latest [Octopus Deploy MSI installer](https://octopus.com/downloads).
+1. Download the latest [Octopus Deploy MSI installer](https://octopus.com/downloads).
 
-![](/docs/images/3048440/5865777.png "width=500")
+:::success
+**No internet connection required for install**
+Once you have downloaded the required version of the Octopus Server MSI no further internet connectivity is required. This allows for installation on servers and systems that have no internet connectivity.
+:::
 
-4. Run the installer and follow the prompts.
+1. Run the installer and follow the prompts.
+1. Turn [Maintenance Mode](/docs/administration/maintenance-mode.md) `OFF`.
 
-![](/docs/images/3048440/5865779.png "width=500")
+    ![](/docs/images/3048440/5865776.png "width=500")
 
-5. Disable Maintenance Mode.
-
-![](/docs/images/3048440/5865776.png "width=500")
-
-6. Calamari will then be automatically updated if required with the next health check or deployment that takes place.
+1. Calamari will then be automatically updated if required with the next health check or deployment that takes place.
 
 :::success
 **No need to upgrade the Tentacle**
-Given that the deployment code is now embedded within Calamari, and this gets pushed out automatically as needed by the Octopus Deploy Server, you no longer need be concerned about ensuring the version number between Tentacle and Server remain in lockstep. Although builds of the Server will be available for download with matching build numbers of the Tentacle, this is an artifact of our project structure and something we would soon like to address. You should rarely be required to update the Tentacle, regardless of what version of the Server you are running.
+Given that the deployment code is now embedded within Calamari, and this gets pushed out automatically as needed by the Octopus Deploy Server, you no longer need be concerned about ensuring the version number between Tentacle and Server remain in lockstep. Builds of the Server and the Tentacle are no longer in sync as of Octopus Deploy 3.14, and Octopus Server v3.x is compatible with all Tentacle 3.x versions. We hope splitting the Tentacle helps relieve some of the hassle and friction involved with upgrading Octopus and provides better communication about changes to Tentacle.
 :::
 
-:::success
-**Upgrading server nodes in Octopus HA**
-You should follow the same instructions as above, but drain tasks from each node in the HA cluster and upgrade them individually. This will allow you to keep the cluster running and avoid interruption to your users. Read more about [Managing High Availability Nodes](/docs/administration/high-availability/managing-high-availability-nodes.md).
+## Upgrading Octopus HA {#upgrading-octopus-ha}
 
-![](/docs/images/3048440/5865778.png "width=500")
+You should generally follow the same instructions as above but upgrade one node at a time. This will allow you to keep the cluster running and avoid interruption to your users. Read more about [Managing High Availability Nodes](/docs/administration/high-availability/managing-high-availability-nodes.md).
+
+:::warning
+It is important to upgrade all nodes in your cluster during the same maintenance window, especially if the database schema is changed. The database schema will be upgraded when you upgrade the first node. Any nodes running the old version can fail due to a database schema mismatch.
 :::
+
+### Upgrading Octopus HA nodes
+
+Follow these steps to upgrade each node in your cluster:
+
+1. Go to the {{Configuration>Nodes}} page
+1. Set Drain to `ON` for the node you want to upgrade
+
+    ![](/docs/images/3048440/5865778.png "width=500")
+
+1. Wait until all the running tasks complete
+1. Upgrade the Octopus Server instance on the node
+1. Set Drain to `OFF` so the node starts processing tasks again
 
 ## Upgrading Calamari {#UpgradingfromOctopus3.x-UpgradingCalamariUpgradingCalamari}
 
@@ -154,7 +179,7 @@ If you are upgrading to a 3.5+ version please backup your server config file pri
 
 If for any reason you need to downgrade to a previous version of Octopus Server, follow the steps below:
 
-1. Navigate to ‘Configuration’, then select the ‘Maintenance’ tab on the sidebar.  Toggle the switch for ‘Maintenance Mode’ to ‘ON’.
+1. Turn [Maintenance Mode](/docs/administration/maintenance-mode.md) `ON`.
 
 :::warning
 Wait until all current tasks and deployments have completed.
@@ -182,7 +207,7 @@ Any data that has been created from between when the backup was taken to when it
 There is no need to uninstall the newer version you were trying to upgrade to.
 :::
 
-6. Turn off Maintenance mode from Step 1.
+6. Turn [Maintenance Mode](/docs/administration/maintenance-mode.md) `OFF`.
 
 ## Troubleshooting {#UpgradingfromOctopus3.x-Troubleshooting}
 

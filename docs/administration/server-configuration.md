@@ -1,7 +1,7 @@
 ---
 title: Server Configuration
 description: The Octopus Server Configuration screen is available from Configuration > Nodes > Configuration Settings and allows administrators to see which server extensions are enabled for the Octopus Server.
-position: 18
+position: 1800
 version: 3.5
 ---
 

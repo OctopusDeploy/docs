@@ -17,6 +17,8 @@ While some of our documentation may still refer to NuGet packages specifically, 
 
 ## Creating packages {#Packagingapplications-Creatingpackages}
 
+The first thing you must do is [choose a package ID](/docs/packaging-applications/package-id.md).
+
 How you create your packages depends on which package type you wish to create. Octopus generally treats all packages the same, so choose the tooling and package type that is easiest for you to create. For example:
 
 - ASP.NET apps (.NET Framework): use [OctoPack](/docs/packaging-applications/nuget-packages/using-octopack/index.md)
@@ -24,7 +26,7 @@ How you create your packages depends on which package type you wish to create. O
 - .NET Core apps: use `dotnet pack`
 - JavaScript apps: use [grunt, gulp or octojs](/docs/guides/node-on-nix-deployments/create-&-push-node.js-project.md)
 - Working with TeamCity: use our [extension](/docs/api-and-integration/teamcity.md), `octo.exe pack` or even the built in tools for [TeamCity](https://blog.jetbrains.com/teamcity/2010/02/artifact-packaging-with-teamcity/)
-- Working with VSTS: use our [extension](/docs/api-and-integration/visual-studio-team-services-vsts.md) and/or `octo.exe pack`
+- Working with VSTS: use our [extension](/docs/api-and-integration/tfs-vsts/using-octopus-extension/index.md) and/or `octo.exe pack`
 - Just want to package up a folder as-is: use `octo.exe pack` or just zip it up!
 
 As long as you can create one of our [supported packages](/docs/packaging-applications/supported-packages.md), you can deploy your application with Octopus Deploy!

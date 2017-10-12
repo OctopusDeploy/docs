@@ -72,6 +72,8 @@ You can manage your Azure subscription using custom PowerShell scripts and the A
 
 For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/adding-steps.md) section.
 
+!partial <service-fabric-powershell>
+
 ## Variables {#Customscripts-Variables}
 
 Octopus allows you to [define variables](/docs/deploying-applications/variables/index.md) to parameterize your deployments. These variables, along with some predefined variables, will be available from within your scripts.
@@ -291,6 +293,16 @@ eprintfn "This will be logged as Error"
 
 Try these out for yourself using the [Script Console](/docs/administration/script-console.md)!
 
+### Service Message ###
+The following service messages can be written directly to standard output which will be parsed by the server and the subsiquent log lines will be treated with the relevant log level.
+```
+##octopus[stdout-ignore]
+##octopus[stdout-error]
+##octopus[stdout-default]
+##octopus[stdout-warning]
+##octopus[stdout-verbose]
+```
+
 ## Error handling {#Customscripts-Errorhandling}
 
 Calamari examines the exit code of the script engine to determine whether the script failed. If the exit code is zero, Calamari assumes the script ran successfully. If the exit code is non-zero, then Calamari assumes the script failed.
@@ -388,6 +400,12 @@ let appInstanceName2 = Octopus.findVariableOrDefault "Value if not found" "Octop
 let appInstanceName3 = Octopus.tryFindVariable "Octopus.Action[Determine App Instance Name].Output.AppInstanceName"
 ```
 
+### Service Message ###
+The following service message can be written directly (substituting the properties with the relevant values) to standard output which will be parsed by the server and the values processed as an output variable. Note that the properties must be supplied as a base64 encoded UTF-8 string.
+```
+##octopus[setVariable name='<Base64Encoded-VariableName>' value='<Base64Encoded-VariableValue>']
+```
+
 ## Collecting artifacts {#Customscripts-Collectingartifacts}
 
 Does your deployment produce a log file, configuration files, binaries, or test results you want to publish and keep as part of your deployment? Your scripts can instruct the Octopus server to collect files as deployment artifacts. Refer to the documentation on [artifacts](/docs/deploying-applications/artifacts.md) for more information.
@@ -409,6 +427,12 @@ Octopus.createArtifact @"C:\Windows\System32\drivers\etc\hosts" (System.Environm
 ```
 
 ![](/docs/images/3048092/5865519.png "width=500")
+
+### Service Message ###
+The following service message can be written directly (substituting the properties with the relevant values) to standard output which will be parsed by the server and the artifact retrieved at the end of the step. Note that the properties must be supplied as a base64 encoded UTF-8 string.
+```
+##octopus[createArtifact path='<Base64Encoded-FullPath>' name='<Base64Encoded-FileName>' length='<Base64Encoded-FileLength>']
+```
 
 ## Security and permissions {#Customscripts-Securityandpermissions}
 

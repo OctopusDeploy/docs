@@ -17,11 +17,14 @@ While Octopus Deploy will be used to take those NuGet packages and to push them 
 
 Integration with TeamCity involves two major parts:
 
-1. Creating the NuGet packages from your applications
+1. Creating the NuGet packages from your applications.
+
 2. Optionally, when a build completes, having TeamCity make requests to your Octopus Server to:
-   (a) Create releases;
-   (b) Trigger deployments and/or
-   (c) Promote releases when a build completes
+   - Create releases
+   
+   - Trigger deployments and/or
+   
+   - Promote releases when a build completes
 
 ## Installing the plugin {#TeamCity-InstallPluginInstallingtheplugin}
 
@@ -64,7 +67,7 @@ Don't worry, TeamCity comes with a built-in [NuGet Pack build step](https://conf
 
 Octopus can be used as a [NuGet package package](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md), or can be configured to use an external feed (such as retrieving them from TeamCity).
 
-To push packages to Octopus during the OctoPack phase, enter the NuGet endpoint url (which you can get from {{Library,Packages}}; it looks like http://octopus.example.com/nuget/packages) into the **Publish packages to http** field, and [an API key](/docs/how-to/how-to-create-an-api-key.md) in the **Publish API Key** field.  OctoPack will then push the packages when the solution is built.
+To push packages to Octopus during the OctoPack phase, enter the NuGet endpoint url into the **Publish packages to http** field, and [an API key](/docs/how-to/how-to-create-an-api-key.md) in the **Publish API Key** field.  OctoPack will then push the packages when the solution is built.  You'll find the URL to your repository on the {{Library,Packages}} tab in Octopus.  Simply click the `Show examples` link to see options to upload packages including the repository URL.
 
 ## Consuming the TeamCity NuGet feed in Octopus {#TeamCity-ConsumeNuGetFeedInOctopusConsumingtheTeamCityNuGetfeedinOctopus}
 
@@ -121,6 +124,8 @@ The plugin is simply a wrapper for [Octo.exe](/docs/api-and-integration/octo.ex
 ![](/docs/images/3048176/3278185.jpg "width=500")
 
 The video below is from a webinar hosted by JetBrains in which we demonstrated these features:
+
+<iframe width="640" height="360" src="//www.youtube.com/embed/JWGLEEm9Qhg" frameborder="0" allowfullscreen></iframe>
 
 ## Using the plugin with Linux build agents {#TeamCity-LinuxAgentsUsingthepluginwithLinuxbuildagents}
 

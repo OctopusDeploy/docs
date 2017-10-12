@@ -107,7 +107,7 @@ Now you can optionally configure some external tenants as opting in to early or 
 
 ### Step 5: Deploy! {#Designingamulti-tenantupgradeprocess-Step5:Deploy!}
 
-Now it's time to deploy using tenant tags as a way to easily select multiple tenants. In this example we are going to deploy **version 1.0.1** to all of the tenants tagged `Upgrade ring/Tester` who are connected to the the **MT Test** environment. You can use multiple tags and complex tag queries to achieve other interesting scenarios as discussed we discussed [earlier](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md).
+Now it's time to deploy using tenant tags as a way to easily select multiple tenants. In this example we are going to deploy **version 1.0.1** to all of the tenants tagged with `Upgrade ring/Tester` who are connected to the the **MT Test** environment. You can use multiple tags and complex tag queries to achieve other interesting scenarios as discussed we discussed [earlier](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md).
 
 ![](/docs/images/5669342/5865763.png "width=500")
 
@@ -131,13 +131,13 @@ Learn more about [defining a limited Lifecycle for your test Channel](/docs/key-
 
 ### Step 2: Configure a channel for the test program {#Designingamulti-tenantupgradeprocess-Step2:Configureachannelforthetestprogram}
 
-Earlier in this guide we created the with **`Upgrade ring/Tester`** tag and tagged some tenants. Now we will create a Channel leveraging that tag to restrict releases in the Channel to the Lifecycle we just created.
+Earlier in this guide we created the **`Upgrade ring/Tester`** tag and tagged some tenants. Now we will create a Channel leveraging that tag to restrict releases in the Channel to the Lifecycle we just created.
 
 ![](/docs/images/5669342/5866199.png "width=500")
 
 ### Step 3: Create a test release {#Designingamulti-tenantupgradeprocess-Step3:Createatestrelease}
 
-Now create a release in the new **1.x Test** channel giving it a SemVer pre-release version like **1.0.1-alpha.19** indicating this is a pre-release of **1.0.1** for testing purposes.
+Now create a release in the new **1.x Test** channel giving it a [SemVer](http://semver.org/) pre-release version like **1.0.1-alpha.19** indicating this is a pre-release of **1.0.1** for testing purposes.
 
 ![](/docs/images/5669342/5866201.png "width=500")
 

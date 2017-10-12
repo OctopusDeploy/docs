@@ -55,7 +55,7 @@ The settings are:
 
 - **RunOctoPack**: specifies that OctoPack should create packages during the build
 - **OctoPackPackageVersion**: version number that should be given to packages created by OctoPack. Since Bamboo build numbers are integers like "12", we combine it with "1.0." to produce package versions such as "1.0.12".
-- **OctoPackPublishPackageToHttp**: tells OctoPack to push the package to the Octopus Deploy server. Read more about the [built-in NuGet repository in Octopus](/docs/packaging-applications/package-repositories/index.md). You'll find the URL to your repository on the {{Library,Packages}} tab in Octopus
+- **OctoPackPublishPackageToHttp**: tells OctoPack to push the package to the Octopus Deploy server. Read more about the [built-in NuGet repository in Octopus](/docs/packaging-applications/package-repositories/index.md). You'll find the URL to your repository on the {{Library,Packages}} tab in Octopus.  Simply click the `Show examples` link.
 - **OctoPackPublishApiKey**: your Octopus Deploy API key. Since we defined it as a Bamboo variable above, we reference the variable here.
 
 :::success
@@ -71,8 +71,11 @@ You can go one step further and automate release creation using [Octo.exe](/docs
 
 1. [Download Octo.exe](https://octopus.com/downloads), and extract it to a folder on your Bamboo build runner, such as `C:\Tools\Octo\Octo.exe`
 2. Add a new Command Line task to your build plan, and define the new executable:
+
 ![](/docs/images/3048164/3278159.png "width=500")
+
 3. Describe the command line task, and specify the arguments to Octo.exe:
+
 ![](/docs/images/3048164/3278158.png "width=500")
 
 In the **Argument** field, we are passing:

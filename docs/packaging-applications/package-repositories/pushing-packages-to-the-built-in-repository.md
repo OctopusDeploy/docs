@@ -26,7 +26,7 @@ You can manually upload a package file from your local machine via the Octopus w
 ![](/docs/images/3048094/3277775.png "width=500")
 
 :::success
-We generally recommend using a continuous integration/build server like [TeamCity](/docs/api-and-integration/teamcity.md), [Jenkins](/docs/api-and-integration/jenkins.md), [Bamboo](/docs/api-and-integration/bamboo.md) or [Team Foundation Server (TFS)](/docs/api-and-integration/team-foundation-server-tfs.md) to build, test, package and automatically push your release packages into the Octopus Deploy built-in repository. See below for examples on doing this.
+We generally recommend using a continuous integration/build server like [TeamCity](/docs/api-and-integration/teamcity.md), [Jenkins](/docs/api-and-integration/jenkins.md), [Bamboo](/docs/api-and-integration/bamboo.md) or [Team Foundation Server (TFS)](/docs/api-and-integration/tfs-vsts/index.md) to build, test, package and automatically push your release packages into the Octopus Deploy built-in repository. See below for examples on doing this.
 :::
 
 :::hint
@@ -59,7 +59,7 @@ You can upload a package via the [Octopus Deploy API](/docs/api-and-integration
 
 ## Using NuGet.exe push {#PushingpackagestotheBuilt-Inrepository-UsingNuGet.exepush}
 
-To push a package using `NuGet.exe` you'll need a the URL for the Octopus NuGet feed to use with your build server or `NuGet.exe`. To find this, open the {{Library,Packages}} tab of the Octopus web portal. The screen shows an example command-line that can be used to push packages to the feed using [NuGet.exe](http://docs.nuget.org/docs/start-here/installing-nuget). You'll need to supply the NuGet package file (`.nupkg`) and an [Octopus API key](/docs/how-to/how-to-create-an-api-key.md).
+To push a package using `NuGet.exe` you'll need a the URL for the Octopus NuGet feed to use with your build server or `NuGet.exe`. To find this, open the {{Library,Packages}} tab of the Octopus web portal.  Simply click the `Show examples` link to see options to upload packages. The screen shows an example command-line that can be used to push packages to the feed using [NuGet.exe](http://docs.nuget.org/docs/start-here/installing-nuget). You'll need to supply the NuGet package file (`.nupkg`) and an [Octopus API key](/docs/how-to/how-to-create-an-api-key.md).
 
 ![](/docs/images/3048094/3277775.png "width=500")
 

@@ -1,7 +1,7 @@
 ---
 title: Versioning in Octopus Deploy
 description: Considerations when selecting a versioning scheme for your applications.
-position: 4
+position: 5
 ---
 
 Choosing the best versioning scheme for your applications can be a tricky act of balancing pragmatism and strictness. This page should help you understand how Octopus Deploy handles versions in [packages](/docs/packaging-applications/supported-packages.md), releases, and [channels](/docs/key-concepts/projects/channels.md), and subsequently design a versioning scheme that suits your needs.
@@ -20,7 +20,7 @@ We strongly recommend using [Semantic Versioning](http://semver.org/) as a guide
 
 We highly recommend using [Semantic Versioning](http://semver.org/) for your applications - we use it internally at Octopus Deploy and have found it to be a useful way of communicating semantic meaning with our versions. Think about these factors when considering your own approach to versioning your applications and packages:
 
-1. Can you trace a version back to the commit/checkin the application/package was built from? *For example: We stamp the SHA hash of the git commit into the metadata component of the Semantic Version for Octopus Deploy which makes it easier to find and fix bugs. We also tag the commit with the version of Octopus Deploy it produced so you can quickly determine which commit produced a particular version of Octopus Deploy.*
+1. Can you trace a version back to the commit/check-in the application/package was built from? *For example: We stamp the SHA hash of the git commit into the metadata component of the Semantic Version for Octopus Deploy which makes it easier to find and fix bugs. We also tag the commit with the version of Octopus Deploy it produced so you can quickly determine which commit produced a particular version of Octopus Deploy.*
 2. Can your users easily report a version to the development team that supports #1?
 3. Will your version numbers be confusing, or will they help people understand the changes that have been made to the software? *For example: bumping a major version component (first part) means there are potentially breaking changes, but bumping a patch (3rd part) should be safe to upgrade, and safe to rollback if something goes wrong.*
 4. Does your tool chain support the versioning scheme? *For example: Octopus Deploy supports Semantic Versioning, which enables enhanced features like [Channels](/docs/key-concepts/projects/channels.md).*
@@ -55,7 +55,7 @@ When it comes to versioning Octopus Deploy, we decided to take a slightly differ
 
 For example:
 
-- When preparing to ship Octopus Deploy 3.5, we will build and ship several pre-releases to our customers with a version like `3.5.0-beta.1+Branch.release/3.4.0.SHA.53cf8e84bb88e24ae4b4b3df2bsdaab91a3735d8` - note the `-beta.1` prerelease tag.
+- When preparing to ship Octopus Deploy 3.5, we will build and ship several pre-releases to our customers with a version like `3.5.0-beta.1+Branch.release/3.4.0.SHA.53cf8e84bb88e24ae4b4b3df2bsdaab91a3735d8` - note the `-beta.1` pre-release tag.
 - When we are ready to ship a full release, we go through the effort to rebuild the software with a version like `3.5.0+Branch.master.SHA.27cf8e84bb88e24ae4b4b3df2b77aab91a3735d8`, and take it through all the same testing before shipping to our customers - notice this is a "full-release" with no pre-release tag.
 
 If you are like us, and the pre-release tag carries significant meaning, you should consider taking a similar approach. Otherwise, if the pre-release tag is just for information, perhaps you can consider whether it is useful for other purposes like configuring [Channels](/docs/key-concepts/projects/channels.md).
@@ -79,8 +79,7 @@ These are the decisions we made on handling versions:
         i. `3.0.0-beta.10 > 3.0.0-beta.9`  
         i. `1.4.008 < 1.4.9`  
 
-3. **Creating packages (using Octopus tooling like [OctoPack](/docs/packaging-applications/nuget-packages/using-octopack/index.md) and [octo.exe](/docs/packaging-applications/nuget-packages/using-octo.exe.md)):**[WYSIWYG](https://en.wikipedia.org/wiki/WYSIWYG) provided the version you've specified is a valid SemanticVersion (as described earlier). For example:  
-   If you build a package using `octo.exe pack --id=MyPackage --version=2016.01.02` you should be expect the output file to be `MyPackage.2016.01.02.nupkg`.  
+3. **Creating packages (using Octopus tooling like [OctoPack](/docs/packaging-applications/nuget-packages/using-octopack/index.md) and [octo.exe](/docs/packaging-applications/nuget-packages/using-octo.exe.md)):** [WYSIWYG](https://en.wikipedia.org/wiki/WYSIWYG) provided the version you've specified is a valid SemanticVersion (as described earlier). For example, if you build a package using `octo.exe pack --id=MyPackage --version=2016.01.02` the output file will be `MyPackage.2016.01.02.nupkg`.  
 4. **Interacting with package feeds/repositories (many and varied, including our own):** We just ask the feed for a package with the version string we stored in the release, and accept what the feed tells us.  
 
 :::hint

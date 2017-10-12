@@ -33,7 +33,7 @@ Here is a sample Web App NuGet package: [HelloWeb.1.0.0.nupkg](https://download
 
 ### Upload to a NuGet feed {#WebAppConcepts-UploadtoaNuGetfeed}
 
-In order to make the NuGet package accessible to Octopus it needs to be uploaded to a [package repository](/docs/packaging-applications/package-repositories/index.md). The built-in Octopus package repository is accessible from {{Library,Packages}} and is a suitable place to upload your Web App NuGet package:
+In order to make the NuGet package accessible to Octopus it needs to be uploaded to a [package repository](/docs/packaging-applications/package-repositories/index.md). The built-in Octopus package repository is accessible from {{Library,Packages}} (click the `Show examples` link) and is a suitable place to upload your Web App NuGet package:
 
 ![](/docs/images/3049356/3278535.png "width=500")
 
@@ -140,20 +140,3 @@ For example, to preserve any paths beginning with `\Component` you could use:
 ```powershell
 \\Component.*(\\.*|$)
 ```
-
-:::hint
-Note: Because of the way the rules work for [WebDeploy](https://www.iis.net/downloads/microsoft/web-deploy) (which is used internally by Octopus when deploying Azure Websites), your pattern must also match any parent directories of the path you wish to preserve.
-
-For e.g. if you had the paths:
-
-```powershell
-\Components\ComponentA
-\Components\ComponentB
-```
-
-and you wanted to preserve `ComponentA` but *not* `ComponentB`, then you would have to set the variable to:
-
-```powershell
-\\Components;\\Components\\ComponentA(\\.*|$)
-```
-:::

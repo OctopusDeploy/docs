@@ -1,7 +1,7 @@
 ---
 title: Script Console
 description: The Script Console allows Octopus administrators to execute scripts and perform adminsitrative tasks against individual or groups of deployment targets.
-position: 6
+position: 600
 ---
 
 Octopus is designed to make deployment a repeatable process, avoiding the human error that is introduced when software is configured by hand, or in an ad-hoc fashion. Projects, deployment processes, releases, and deployments are all important concepts for realizing this aim.
