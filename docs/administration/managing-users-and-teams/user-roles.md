@@ -25,29 +25,13 @@ The built-in User Roles can be modified to contain more or less roles to suit sp
 
 ## Creating User Roles {#UserRoles-CreatingUserRoles}
 
-A custom User Role can be created with any combination of permissions. To create a custom user role:
-
-1. Go to the Teams page, and look for the **Roles** link
-
-   ![](roles-link.png "width=500")
-
-2. Click **Add custom role**
-
-   ![](add-custom-role-action.png "width=500")
-
-3. Select the set of permissions you'd like this new User Role to contain, and give the role a name and description
-
-   ![](select-permissions.png "width=500")
-
-Once the custom role is saved, the new role will be available to be assigned to any team on Octopus.
-
-![](add-role.png "width=500")
+!partial <creating-user-roles>
 
 ## Troubleshooting Permissions {#UserRoles-TroubleshootingPermissions}
 
 If for some reason a user has more/fewer permissions than they should, you can use the **Test Permissions** feature to get an easy to read list of all the permissions that a specific user has on the Octopus instance.
 
-To test the permissions go to {{Configuration,Teams,Test Permissions}} and select a user from the dropdown.
+!partial <testing-user-permissions>
 
 The results will show
 
