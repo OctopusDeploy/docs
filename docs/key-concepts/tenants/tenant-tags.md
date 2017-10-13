@@ -13,7 +13,7 @@ Have you read [our guide](/docs/guides/multi-tenant-deployments/multi-tenant-dep
 
 ## What can you do with tenant tags? {#TenantTags-Whatcanyoudowithtenanttags?}
 
-![](/docs/images/5670003/5865643.png "width=500")
+![](tag-sets.png "width=500")
 
 With tenant tags you can:
 
@@ -31,7 +31,7 @@ With tenant tags you can:
 
 Go to {{Library,Tenant tag sets}} to create, modify and reorder tag sets and tags.
 
-![](/docs/images/5670003/5865644.png "width=500")
+![](tenant-importance.png "width=500")
 
 
 ### Design your tag sets carefully
@@ -78,7 +78,7 @@ When paired with a well-structured tag design, this logic will enable you to tai
 - Only specify a tenant "by name" (explicitly) if you absolutely want that tenant included in the result, otherwise leave it blank
 - A filter with tags in the same tag set will be more inclusive since they are combined using **`OR`**
 - A filter with tags across different tag sets will become more reductive since they are combined using **`AND`**
-:::
+  :::
 
 ## Referencing tenant tags {#TenantTags-Referencingtenanttags}
 
@@ -86,7 +86,7 @@ If you want to use tenant tags to automate Octopus Deploy you should use the **C
 
 Consider an example deploying a release to the tenants tagged with the **Early adopter** tag in the **Upgrade ring** tag set.
 
-![](/docs/images/5670003/5865679.png)
+![](upgrade-ring.png)
 
 ```powershell
 # Deploys My Project 1.0.1 to all tenants tagged as early adopters
