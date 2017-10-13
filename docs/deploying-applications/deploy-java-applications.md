@@ -687,6 +687,11 @@ A supplied profile did not exist in the domain.
 ### WILDFLY-HTTPS-ERROR-0038
 The server is not in a running state.
 
+### WILDFLY-HTTPS-ERROR-0039
+Failed to find either web or undertow subsystems.
+
+This means that Calamari has tried to find either the web or undertow subsystem to determine how the certificate is to be configured, and neither could be found. This probably means the server is still starting up and is not responding to the read-resource queries.
+
 ### WILDFLY-ERROR-0001
 There was an error entering batch mode.
 
