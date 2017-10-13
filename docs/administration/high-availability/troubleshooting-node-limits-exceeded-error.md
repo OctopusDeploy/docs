@@ -15,6 +15,6 @@ This may unintentionally occur if you have copied or moved your Octopus folders 
 
 ### Instructions to remove unwanted nodes {#TroubleshootingNodeLimitsExceededError-Instructionstoremoveunwantednodes}
 
-If you go to your nodes screen {{Configuration,Nodes}}, you can delete the node(s) that are no longer applicable.
+If you go to your nodes screen {{Configuration,Nodes}}, you can delete the node(s) that are no longer applicable using the Delete option in the node's overflow menu.
 
-![](/docs/images/5671853/5866111.png "width=500")
+![](deleting-nodes.png "width=500")
