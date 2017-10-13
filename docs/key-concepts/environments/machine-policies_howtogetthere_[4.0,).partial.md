@@ -1,0 +1,1 @@
+Machine policies can be accessed from the Infrastructure area:
