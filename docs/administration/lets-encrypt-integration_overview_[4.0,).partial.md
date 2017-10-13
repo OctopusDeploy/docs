@@ -1,13 +1,4 @@
----
-title: Let's Encrypt integration
-description: Octopus can integrate with Let's Encrypt to setup and automatically renew the Octopus Portal SSL certificate.
-position: 2300
-version: "[4.0,)"
----
-
-Octopus can integrate with [Let's Encrypt](https://g.octopushq.com/LetsEncryptOrg) to setup and manage the SSL certificate for the Octopus Portal. When the certificate nears its expiration date, Octopus will automatically renew the certificate with no intervention required.
-
-Let's Encrypt ingration can be found under {{Configuration,Let's Encrypt}}.
+Let's Encrypt integration can be found under {{Configuration,Let's Encrypt}}.
 
 ![](/docs/administration/lets-encrypt.png "width=758")
 
@@ -29,24 +20,8 @@ You do not have to create an account with Let's Encrypt to enable this integrati
 
 By default, Octopus will bind the new SSL certificate to `0.0.0.0`, which means all IP addresses on the machine. If you are running other sites on this machine, this will remove any other bindings. If this is the case, please enter the specific IP address to which you want the certificate bound.
 
-If the Octopus Server is not currently listening on the binding/port, it will require a server restart to add the binding. This will generally only be required the first time round - when Octopus doesn't know about the HTTPS binding.
+If the Octopus Server is not currently listening on the binding/port, it will require a server restart to add the binding. This will generally only be required the first time round - when Octopus doesn't know about the HTTPS binding.b
 
 Octopus will then register with Let's Encrypt, handle the domain validation, request a new certificate and apply it to the Portal. If need be, the server will be restarted. Once available, you will be able to access your server on the new HTTPS URL.
 
 The {{Configuration,Let's Encrypt}} page will now show when the SSL certificate was last renewed, and when it is due to expire. Every 24 hours, Octopus will check the certificate, and will automatically renew if its due to expire in the next 21 days.
-
-At this point, we recommend enabling [Force SSL](https://octopus.com/docs/how-to/expose-the-octopus-web-portal-over-https#ForcingHTTPS) and [HSTS](https://octopus.com/docs/how-to/expose-the-octopus-web-portal-over-https#HSTS).
-
-## Troubleshooting
-
-There are a few gotchas involved with Let's Encrypt:
-
-### HTTP challenge failure
-
-If you find that the HTTP challenge fails with a message similar to `The Let's Encrypt HTTP challenge failed with status 'invalid'`, check that the HTTP endpoint is publicly accessible. Find the URL that Let's Encrypt is requesting from the log and ensure its publicly available from the internet.
-
-Be careful if you have previously enabled HSTS - this can cause browser redirects while testing that are hard to spot. The server **must** respond on HTTP, not redirect to HTTPS.
-
-### Server is not accessible on HTTPS
-
-Check that the local firewall allows traffic on the port you selected - usually 443.
