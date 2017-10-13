@@ -28,7 +28,7 @@ To streamline the process of adding multiple users you can use the **User invite
 
 ![](user-invites.png "width=500")
 
-:::tip
+:::hint
 Prior to version 4.0 this feature was accessed via the **Invite users** button on the **Users** page
 :::
 
