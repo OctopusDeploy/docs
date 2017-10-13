@@ -56,7 +56,7 @@ Let's create a tag set called **Tenant importance** with some tags that represe
 
 The result should look like the screen below:
 
-![](/docs/images/5669428/5865650.png "width=500")
+![](tenant-importance.png "width=500")
 
 :::success
 Order is important for tag sets, and tags within those tag sets. Octopus will sort tag sets and tags based on the order you define in the library. This allows you to tailor the Octopus user interface to your own situation.
