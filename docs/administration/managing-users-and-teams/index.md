@@ -24,11 +24,11 @@ You should create a different User account for each person that will use Octopus
 
 ## Inviting users {#Managingusersandteams-Invitingusers}
 
-To streamline the process of adding multiple users you can use the **User invites** feature to generate one or more unique registration codes bound to one or more existing teams. These links can then be issued to users so that they can register their own details and be giving automatic permissions for the team(s) the codes are bound to:
+To streamline the process of adding multiple users you can use the **User invites** feature to generate one or more unique registration codes bound to one or more existing teams. These links can then be issued to users so that they can register their own details and be given automatic permissions for the team(s) the codes are bound to:
 
 ![](user-invites.png "width=500")
 
-:::tip
+:::hint
 Prior to version 4.0 this feature was accessed via the **Invite users** button on the **Users** page
 :::
 
