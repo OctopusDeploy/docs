@@ -81,7 +81,7 @@ Next you will need to assign your app to people or groups within your Okta direc
 
 ## Configuring Octopus Deploy Server {#Oktaauthentication-ConfiguringOctopusDeployServer}
 
-!partial<settingshint>
+!partial <settingshint>
 
 You will need the **Client ID** (aka **Audience**) and **Issuer** obtained from the Okta portal as described above.
 
@@ -99,7 +99,7 @@ Octopus.Server.exe configure --OktaIsEnabled=true --OktaIssuer=Issuer --OktaClie
 # Octopus.Server.exe configure --OktaIsEnabled=true --OktaIssuer=https://dev-xxxxxx.oktapreview.com --OktaClientId=0a4bxxxxxxxxxxxx9yc3
 ```
 
-!partial<settings>
+!partial <settings>
 
 ### Octopus user accounts are still required {#Oktaauthentication-Octopususeraccountsarestillrequired}
 

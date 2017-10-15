@@ -45,7 +45,7 @@ Once you have those values, run the following from a command prompt in the folde
 Octopus.Server.exe configure --googleAppsIsEnabled=true --googleAppsClientId=ClientID --googleAppsHostedDomain=yourdomain.com
 ```
 
-!partial<settings>
+!partial <settings>
 
 ### Octopus user accounts are still required {#GoogleAppsauthentication-Octopususeraccountsarestillrequired}
 
