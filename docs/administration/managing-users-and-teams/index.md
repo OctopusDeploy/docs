@@ -50,7 +50,7 @@ We limit which projects and environments these permissions apply to by adding sp
 
 ## Roles {#Managingusersandteams-Roles}
 
-The different roles that can be assigned to teams are: 
+Team members can be assigned the following roles: 
 
 - **Project viewer**:
   Project viewers have read-only access to a project. They can see the project in their dashboard, view releases and deployments.
