@@ -40,17 +40,17 @@ Invite codes are only valid for 48-hours aftering being generated, so make sure 
 
 ## Creating teams {#Managingusersandteams-Creatingteams}
 
-You can add teams using the **Add Team** button. A team is a group of users, and being a member of a team gives those users certain roles, which can be scoped.
+Creating teams lets you assign the same roles to groups of users. Users can be added to or removed from multiple teams, making it eaiser to manage permissions for specific users and teams. You can create new teams by using the **Add Team** button.
 
-For example, we can create a team that gives Anne and Bob access to view projects and deploy them to pre-production environments:
+For example, we can create a team that gives Anne and Bob access to view projects and deploy them to pre-production environments by assigning the role **Project deployer** to the team.
+
+We limit which projects and environments these permissions apply to by adding specific projects and environments to the team.
 
 ![](teams-create-new.png "width=500")
 
-In the example above, we've granted Anne and Bob the **Project deployer** role for the two OctoFX projects, but limited it to the pre-production environments - they won't have permission to deploy to Production.
-
 ## Roles {#Managingusersandteams-Roles}
 
-Team members can be granted many different roles:
+The different roles that can be assigned to teams are: 
 
 - **Project viewer**:
   Project viewers have read-only access to a project. They can see the project in their dashboard, view releases and deployments.
