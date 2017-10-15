@@ -1,6 +1,6 @@
 ---
 title: Active Directory authentication
-description: Octopus Deploy can use Windows credentials to identify users. 
+description: Octopus Deploy can use Windows credentials to identify users.
 position: 0
 ---
 
@@ -20,7 +20,7 @@ If you are using Active Directory Authentication with Octopus, there are two way
 
 ## Integrated authentication {#ActiveDirectoryauthentication-Integratedauthentication}
 
-The easiest way to sign in when using Active Directory is to click the *sign in with your Microsoft Windows account* link.
+The easiest way to sign in when using Active Directory is to click the *Sign in with a domain account* link.
 
 ![](/docs/images/3048127/5865886.png)
 
