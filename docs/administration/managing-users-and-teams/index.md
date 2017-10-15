@@ -16,7 +16,7 @@ You can manage teams from the **Teams** tab under **Configuration** in the Octop
 
 **User accounts** are allowed to use both the Octopus web portal and the Octopus API, and can authenticate with a username and password, [Active Directory credentials](/docs/administration/authentication-providers/active-directory-authentication.md), or an [Octopus API key](/docs/how-to/how-to-create-an-api-key.md).
 
-[Service accounts](/docs/administration/managing-users-and-teams/service-accounts.md) are **API-only accounts** that should be used for automated services that integrate with Octopus Deploy, and can only authenticate with an [Octopus API key](/docs/how-to/how-to-create-an-api-key.md). For more information refer to our page dedicated to [Service accounts](/docs/administration/managing-users-and-teams/service-accounts.md).
+[Service accounts](/docs/administration/managing-users-and-teams/service-accounts.md) are **API-only accounts** that should be used for automated services that integrate with Octopus Deploy, and can only authenticate with an [Octopus API key](/docs/how-to/how-to-create-an-api-key.md). For more information refer to [Service accounts](/docs/administration/managing-users-and-teams/service-accounts.md).
 
 :::success
 You should create a different User account for each person that will use Octopus Deploy. You should create a different [Service account](/docs/administration/managing-users-and-teams/service-accounts.md) for each service that will integrate with Octopus Deploy.
@@ -24,7 +24,7 @@ You should create a different User account for each person that will use Octopus
 
 ## Inviting users {#Managingusersandteams-Invitingusers}
 
-To streamline the process of adding multiple users you can use the **User invites** feature to generate one or more unique registration codes bound to one or more existing teams. These links can then be issued to users so that they can register their own details and be given automatic permissions for the team(s) the codes are bound to:
+To streamline the process of adding multiple users you can use the **User invites** feature to generate one or more unique registration codes bound to one or more existing teams. These links can then be issued to users so that they can register their own details and be given automatic permissions for the team(s) the codes are bound to.
 
 ![](user-invites.png "width=500")
 
