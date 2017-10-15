@@ -10,7 +10,7 @@ Welcome! This section will show how Octopus fits into the delivery pipeline and 
 
 ## Octopus in your delivery process {#Gettingstarted-Octopusinyourdeliveryprocess}
 
-Octopus Deploy is an automated deployment server, which you install yourself, much like you would install SQL Server, Team Foundation Server, or JetBrains TeamCity. Octopus makes it easy to automate deployment of ASP.NET web applications, Java applications, and Windows Services into development, test and production environments.
+Octopus Deploy is an automated deployment server, which you install yourself, much like you would install SQL Server, Team Foundation Server, or JetBrains TeamCity. Octopus makes it easy to automate deployment of ASP.NET web applications, Java applications, and Windows Services into development, test, and production environments.
 
 Along with the Octopus Deploy server, you'll also install a lightweight agent service on each of the machines that you plan to deploy to, for example your web and application servers. We call this the Tentacle agent; the idea being that one Octopus server controls many Tentacles, potentially a lot more than 8! With Octopus and Tentacle, you can easily deploy to your own servers, or cloud services from providers like Amazon Web Services or Microsoft Azure.
 
