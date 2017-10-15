@@ -12,4 +12,4 @@ The types of accounts supported are:
 - [SSH Key Pairs](/docs/key-concepts/environments/accounts/ssh-key-pair.md)
 - [Username and Password](/docs/key-concepts/environments/accounts/username-and-password.md)
 
-![](/docs/images/3048107/3277897.png "width=500")
+![](accounts-summary.png "width=500")
