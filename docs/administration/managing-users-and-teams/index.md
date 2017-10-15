@@ -22,6 +22,22 @@ You can manage teams from the **Teams** tab under **Configuration** in the Octop
 You should create a different User account for each person that will use Octopus Deploy. You should create a different [Service account](/docs/administration/managing-users-and-teams/service-accounts.md) for each service that will integrate with Octopus Deploy.
 :::
 
+## Inviting users {#Managingusersandteams-Invitingusers}
+
+To streamline the process of adding multiple users you can use the **User invites** feature to generate one or more unique registration codes bound to one or more existing teams. These links can then be issued to users so that they can register their own details and be given automatic permissions for the team(s) the codes are bound to:
+
+![](user-invites.png "width=500")
+
+:::hint
+Prior to version 4.0 this feature was accessed via the **Invite users** button on the **Users** page
+:::
+
+In the example above, we are generating codes for the **Octopus Administrators** team, so anyone who uses one of the codes will automatically join that team when they have completed registration.
+
+:::warning
+Invite codes are only valid for 48-hours aftering being generated, so make sure you issue them quickly before the expire.
+:::
+
 ## Creating teams {#Managingusersandteams-Creatingteams}
 
 You can add teams using the **Add Team** button. A team is a group of users, and being a member of a team gives those users certain roles, which can be scoped.

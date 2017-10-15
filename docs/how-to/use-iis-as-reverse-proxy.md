@@ -106,7 +106,7 @@ You should now be able to navigate to https://servername/ in your browser and lo
 
 :::warning
 **Polling Tentacles are not supported with this scenario**
-Polling tentacles communicate with the Octopus Server over an end-to-end encrypted channel. This solution does not currently support polling tentacles.
+Polling Tentacles communicate with the Octopus Server over an end-to-end encrypted channel. This solution does not currently support polling Tentacles.
 :::
 
 ## Example: Add a Custom HTTP Header in IIS

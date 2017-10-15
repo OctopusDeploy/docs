@@ -8,7 +8,7 @@ You can configure a pair of Octopus Tentacles in an active/passive failover clus
 
 :::warning
 **Shared storage Considerations**
-It is not possible to store the `tentacle.config` file in shared storage because the Tentacle.Certificate component gets encrypted using a node's machine-specific key. If you attempt to store the tentacle.config file in shared storage, you will encounter this error: `Key not valid for use in specified state` upon switching to a new active node. This occurs because the new active node is not able to decrypt the private key resulting in the Tentacle service failing to start.
+It is not possible to store the `tentacle.config` file in shared storage because the Tentacle.Certificate component gets encrypted using a node's machine-specific key. If you attempt to store the config file in shared storage, you will encounter the error: `Key not valid for use in specified state` upon switching to a new active node. This occurs because the new active node is not able to decrypt the private key resulting in the Tentacle service failing to start.
 :::
 
 ## Requirements {#ClusteringTentacles-Requirements}
@@ -43,14 +43,14 @@ Tentacle.exe configure --instance "Tentacle" --trust "<OCTOPUS SERVER THUMBPRINT
 Tentacle.exe service --instance "Tentacle" --install --stop --start
 ```
 In the script, we:
- - Installed the tentacle instance using the default instance name of `Tentacle` and made sure the `Tentacle.config` file was installed into the default location of `C:\Octopus\Tentacle.config`.
+ - Installed the Tentacle instance using the default instance name of `Tentacle` and made sure the `Tentacle.config` file was installed into the default location of `C:\Octopus\Tentacle.config`.
  - Configured the new instance to listen on TCP Port `10933` and set the Application and Home directories to our shared storage drive.
- - Configured the tentacle to trust our Octopus Server holding a certificate which matches the specified certificate thumbprint.
+ - Configured the Tentacle to trust the Octopus Server holding a certificate which matches the specified certificate thumbprint.
  - Ensured the Windows Firewall has a rule configured to allow incoming connections on TCP Port `10933`, allowing the Octopus Server to talk to our new Tentacle.
 
 Using the Tentacle Manager stop the Octopus Tentacle service which was just installed on the first node and take the shared disk offline in Windows Disk Management. 
 
-Now go to the second tentacle server in the active/passive cluster and bring the same disk online, repeating the steps which were just performed on the first node to install the Octopus Tentacle service. Please keep the Octopus Tentacle service started and ensure that the shared storage is still mounted this time so that the .pfx file can be exported out of Octopus Tentacle.
+Now go to the second Tentacle server in the active/passive cluster and bring the same disk online, repeating the steps which were just performed on the first node to install the Octopus Tentacle service. Please keep the Octopus Tentacle service started and ensure that the shared storage is still mounted this time so that the .pfx file can be exported out of Octopus Tentacle.
 
 ## Generate an Octopus Tentacle PFX File {#ClusteringTentacles-Newpfx}
 
@@ -68,7 +68,7 @@ Tentacle.exe import-certificate --instance="Tentacle" --from-file="<SHARED STORA
 Tentacle.exe service --instance="Tentacle" --stop --start
 ```
 
-Now on the second node, stop the Tentacle service and bring the shared storage offline the same way you have done before. This time go back to the first node in the cluster, bringing the shared storage drive back online and start the tentacle service. Then, import the pfx file into the first node to ensure both nodes in the cluster hold the same private key. 
+Now on the second node, stop the Tentacle service and bring the shared storage offline the same way you have done before. This time go back to the first node in the cluster, bringing the shared storage drive back online and start the Tentacle service. Then, import the pfx file into the first node to ensure both nodes in the cluster hold the same private key. 
 
 Once both Tentacles are installed and configured ensure that neither node has the Octopus Tentacle started and that the shared storage is brought offline.
 

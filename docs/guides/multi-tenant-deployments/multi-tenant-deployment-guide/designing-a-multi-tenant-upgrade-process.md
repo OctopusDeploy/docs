@@ -87,7 +87,7 @@ Firstly we we create a tag set called **Upgrade ring** with tags allowing each 
 1. Create a new tenant tag set called **Upgrade ring** and add tags for **Tester**, **Early adopter**, and **Stable**.
 2. Make sure to choose colors that highlight different tenants.
 
-![](/docs/images/5669342/5865761.png "width=500")
+![](upgrade-ring.png "width=500")
 
 ### Step 2: Configure a test tenant {#Designingamulti-tenantupgradeprocess-Step2:Configureatesttenant.1}
 
@@ -161,7 +161,7 @@ Learn more about [defining a limited Lifecycle for your test Channel](/docs/key-
 
 ### Step 2: Configure the tenant tags {#Designingamulti-tenantupgradeprocess-Step2:Configurethetenanttags}
 
-![](/docs/images/5669342/5865757.png "width=500")
+![](early-program.png "width=500")
 
 ### Step 3: Select the tenants participating in the Beta program {#Designingamulti-tenantupgradeprocess-Step3:SelectthetenantsparticipatingintheBetaprogram}
 
@@ -189,7 +189,7 @@ Quite often you will want to disable/prevent deployments to a tenant during a pe
 
 In the tenant tag set you created earlier, add a new tag called **Pinned** with a color that really stands out.
 
-![](/docs/images/5669342/5865756.png "width=500")
+![](upgrade-ring-pinned.png "width=500")
 
 ### Step 2: Configure the Channels to prevent deployments to Pinned tenants {#Designingamulti-tenantupgradeprocess-Step2:ConfiguretheChannelstopreventdeploymentstoPinnedtenants}
 
