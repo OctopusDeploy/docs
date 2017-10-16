@@ -72,7 +72,7 @@ The values required for the script above are:
 
 **Password**: A secret value created by you. Ensure you record it, as you will need to enter it into Octopus Deploy.
 
-**Tenant ID**: The ID of the Active Directory tenant.  You can get this value by clicking 'Properties' in the Directory blade & looking for the value labled Directory ID.
+**Tenant ID**: The ID of the Active Directory tenant.  You can find this in the *Properties* blade of the *Azure Active Directory*, listed as 'Directory ID'.
 
 ### Option 2: Use the Azure Portal {#CreatinganAzureServicePrincipalAccount-Option2:UsetheAzurePortal}
 
@@ -96,28 +96,7 @@ Using option 2, the Azure portal will allow you to select the expiry time when c
 
 ## Step 2: Allow Octopus to authenticate with Azure using a Service Principal {#CreatinganAzureServicePrincipalAccount-authenticate-with-service-principalStep2:AllowOctopustoauthenticatewithAzureusingaServicePrincipal}
 
-Navigate to {{Environments,Accounts}} and click *Add account* in the *Azure Subscriptions* section.
-
-![](/docs/images/3702850/3964965.png "width=500")
-
-On the Create New Account page, in the *Authentication Method* field select *Use a Service Principal*.
-
-![](/docs/images/3702850/3964966.png "width=500")
-
-The values for the following fields come from Azure:
-
-**Subscription ID**:  The ID of the Azure Subscription this account will interact with.
-
-**Client ID**:  This is the ID of the application in Azure Active Directory.  It is known as ApplicationID in the PowerShell API, but Client ID in the Azure Portal.
-
-**Tenant ID**: The ID of the Active Directory tenant.  The *Creating a Service Principal via PowerShell* section above shows how the Tenant ID can be obtained.
-
-Use the *Save and test* button to confirm the account can interact with Azure.
-
-:::hint
-**What is actually tested?**
-When you click the Save and Test button, Octopus will attempt to use the account credentials to access the Azure Resource Management (ARM) API and list the Resource Groups in that subscription. You may need to whitelist the appropriate IP Addresses for the Azure Data Center you are targeting. See [deploying to Azure via a Firewall](/docs/deploying-applications/deploying-to-azure/index.md) for more details.
-:::
+!partial <add>
 
 ## Creating a new Service Principal Credential {#CreatingAnAzureServicePrincipalCredential}
 

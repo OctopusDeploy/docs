@@ -125,7 +125,7 @@ If you haven't already, create an [Azure Subscription Account](/docs/key-conce
 
 1. Add a new 'Deploy an Azure Web App' step to your project. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/adding-steps.md) section. 
 
-![](/docs/images/5671696/5865899.png "width=170")
+![](add-deploy-web-app.png "width=170")
 
 ## Step 4: Configure your Azure Web App step. {#DeployingapackagetoanAzureWebApp-Step4:ConfigureyourAzureWebAppstep.}
 
@@ -133,7 +133,7 @@ Once an Account is selected, the list of Azure Web Apps available to the subscri
 
 If you choose to run this step on behalf of target roles (maybe you are deploying to multiple geographic regions), you will need to ensure a Deployment Target exists when deploying your Azure Web App. For this, we introduced [Cloud Regions](/docs/deployment-targets/cloud-regions.md). If you select a role and no Deployment Targets exist at the time of deploying, Octopus will log warnings in your deployment's task log.
 
-![](/docs/images/3048686/deploying-an-azure-web-app.png "width=500")
+![](deploying-an-azure-web-app.png "width=500")
 
 | Setting                     | Default     | Description                              |
 | --------------------------- | ----------- | ---------------------------------------- |
