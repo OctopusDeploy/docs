@@ -1,0 +1,1 @@
+Environments are shown in order, and can be reordered using the **Reorder** link in the overflow menu at the top right-hand corner of the page.
