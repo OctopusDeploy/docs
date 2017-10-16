@@ -1,0 +1,1 @@
+Environments and the machines inside them can be managed from the **Environments** tab within the **Octopus Web Portal**.
