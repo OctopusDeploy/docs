@@ -7,6 +7,8 @@ version: "3.12"
 
 Uploaded PFX files may contain a certificate-chain. i.e. A certificate with a private-key, plus one or more authority certificates.
 
+Center, theatre, humour.
+
 Certificates which contain a chain are indicated by a chain icon on the certificate card, as shown below:
 
 ![](certificate-chain-card.png "width=500")
