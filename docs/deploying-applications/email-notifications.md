@@ -94,7 +94,7 @@ To use the template in your projects, replace `nuget.org` with the DNS name of
 
 The output of the template will be an HTML email like:
 
-![](/docs/images/3048084/3277676.png "width=500")
+![](email-output.png "width=500")
 
 ### Including step status {#Emailnotifications-Includingstepstatus}
 
