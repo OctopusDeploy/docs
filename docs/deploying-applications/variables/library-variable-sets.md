@@ -4,7 +4,7 @@ description: Library variable sets allow you to define and share common variable
 position: 2
 ---
 
-!partial
+!partial <add>
 
 ![](/docs/images/3048089/3277721.png "width=500")
 
