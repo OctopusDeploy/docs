@@ -21,11 +21,11 @@ However, sometimes this isn't desired. If you are deploying to a farm of 10 web 
 
 Rolling deployments can be configured on a PowerShell or NuGet package step by clicking **Configure a rolling deployment**.
 
-![](rolling-deployments02.png "width=500")
+![](rolling-deployments-select.png "width=500")
 
 When configuring a rolling deployment, you specify a **window size**.
 
-![](rolling-deployments03.png "width=500")
+![](rolling-deployments-window-size.png "width=500")
 
 The window size controls how many deployment targets can be deployed to at once.
 
@@ -38,7 +38,7 @@ Rolling deployments allow you to wait for a step to finish on one deployment tar
 
 First, open the menu for an existing step, and click **Add Child Step**.
 
-![](rolling-deployments04.png "width=500")
+![](rolling-deployments-child-step.png "width=500")
 
 Octopus has numerous steps that support rolling deployments depending on your install version including:
 
@@ -52,15 +52,15 @@ Octopus has numerous steps that support rolling deployments depending on your in
 - Deploy an Azure Resource Group step
 - Run a Service Fabric SDK PowerShell Script step 
 
-![](rolling-deployments05.png "width=500")
+![](rolling-deployments-package-type.png "width=500")
 
 After adding a child step, the deployment process will now show the step as containing multiple actions:
 
-![](rolling-deployments01.png "width=500")
+![](rolling-deployments-multiple-actions.png "width=500")
 
 All child steps run on the same machine at the same time, and you can add more than one child step. You can also change the order that the steps are executed in using the **Reorder steps** link.
 
-![](rolling-deployments06.png "width=500")
+![](rolling-deployments-reorder.png "width=500")
 
 You can edit the parent step to change the roles that the steps run on or the window size.
 
@@ -68,6 +68,6 @@ With this configuration, we run the entire website deployment step - taking the 
 
 ## Rolling deployments with child steps in action {#Rollingdeployments-Rollingdeploymentswithchildstepsinaction}
 
-This five minute video (with captions) will guide you through setting up a rolling deployment with child steps.
+This five minute video (with captions) will guide you through setting up a rolling deployment with child steps.rolling-deployments
 
 <iframe src="//fast.wistia.net/embed/iframe/7wfdk4vtge" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="360" style="margin: 30px"></iframe>
