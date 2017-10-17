@@ -33,7 +33,7 @@ When deploying a package you will need to select the machine role that the packa
 You can dynamically select a Package Feed and/or the Package ID at deployment time using an Octopus variable expression. Learn more about [using dynamically selecting packages at deployment time](/docs/deploying-applications/deploying-packages/dynamically-selecting-packages.md).
 :::
 
-![](/docs/images/3048090/5275675.png "width=500")
+![](deploy-package-step.png "width=500")
 
 :::hint
 When multiple machines are in the role you select, Octopus deploys to all of the machines in parallel. If you need to change this behavior, you can [configure a rolling deployment](/docs/patterns/rolling-deployments.md).
@@ -45,9 +45,9 @@ Octopus is built to make it easy to deploy .NET applications, and contains a num
 
 You can enable or disable features by clicking **Configure features**.
 
-![](/docs/images/3048090/5275676.png)
+![](configure-features.png)
 
-![](/docs/images/3048090/3277744.png "width=500")
+![](configure-features-details.png "width=500")
 
 For more details on some of the features, see the topics below.
 
