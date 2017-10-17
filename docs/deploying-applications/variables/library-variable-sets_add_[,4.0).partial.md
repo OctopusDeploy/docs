@@ -1,0 +1,1 @@
+Library variable sets make it possible to **share variables between projects.** You can create them from the **Variable Sets** tab in the **Library** area, by clicking **Add variable set**.
