@@ -50,7 +50,7 @@ Octopus has numerous steps that support rolling deployments depending on your in
 - Manual intervention required step
 - Run an Azure PowerShell Script step
 - Deploy an Azure Resource Group step
-- Run a Service Fabric SDK PowerShell Script step 
+- Run a Service Fabric SDK PowerShell Script step
 
 ![](rolling-deployments05.png "width=500")
 
@@ -58,9 +58,7 @@ After adding a child step, the deployment process will now show the step as cont
 
 ![](rolling-deployments01.png "width=500")
 
-All child steps run on the same machine at the same time, and you can add more than one child step. You can also change the order that the steps are executed in using the **Reorder steps** link.
-
-![](rolling-deployments06.png "width=500")
+!partial <childsteps>
 
 You can edit the parent step to change the roles that the steps run on or the window size.
 
