@@ -18,11 +18,14 @@ After you hit save, you'll notice that the two steps are now tied up together, m
 
 ![](/docs/images/3048080/3277650.png "width=500")
 
+## Maximum parellelism
+
+To help your Octopus Server remain stable, we have limited the maximum number of steps you can run concurrently in any given deployment to `10`. You can configure any number of steps to run in parallel, and Octopus will roll through them as quickly as possible, but it will only run `10` of them at any one time.
+
 ## Steps in parallel on the same Tentacle {#Runstepsinparallel-Stepsinparallelonthesametentacle}
 
 For safety reasons, by default Octopus runs only one step at the same time on a single Tentacle. If you want to run multiple steps on a Tentacle in parallel, [you'll need to enable that setting](/docs/how-to/run-multiple-processes-on-a-tentacle-simultaneously.md).
 
-:::warning
-**Friendly reminder**
-Watch out not to run steps that depend on each other in parallel. If **Step2** depends on the success of **Step1**, it might not be the best idea to run them in parallel, but one after the other only if **Step1** was successful
-:::
+## Steps which depend on each other
+
+Watch out not to run steps that depend on each other in parallel. If **Step2** depends on the success of **Step1**, it might not be the best idea to run them in parallel, but one after the other only if **Step1** was successful.
