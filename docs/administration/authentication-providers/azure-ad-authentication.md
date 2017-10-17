@@ -1,6 +1,6 @@
 ---
 title: Azure AD authentication
-description: Octopus Deploy can use Azure AD authentication to identify users. 
+description: Octopus Deploy can use Azure AD authentication to identify users.
 position: 1
 ---
 
@@ -32,15 +32,15 @@ In order to configure the your instance of Octopus Deploy as an App, you will ne
 1. Navigate to Azure Active Directory, select the directory you want to use, and select the Applications tab.
 
    ![](/docs/images/5670656/5865860.png "width=500")
-   
+
 2. Click the **ADD** button and select **Add an application my organization is developing**.
 
    ![](/docs/images/5670656/5865861.png "width=500")
-   
+
 3. Choose **Web Application and/or Web API** for the **Type**, and enter a **Name** like Octopus Deploy. *This is the name that will appear at the top of the Azure authentication page when the users are entering their credentials.*
 
    ![](/docs/images/5670656/5865862.png "width=500")
-   
+
 4. Enter the public URL to your Octopus Server as both the Sign-On URL and AppId URL. *In this example we are configuring our own demo server, but you should use the public URL to your own Octopus Server.*
 
    ![](/docs/images/5670656/5865863.png "width=500")
@@ -52,7 +52,7 @@ During the authentication with Azure AD, the user will be directed to an Azure p
 1. Find your App in AAD and go to the Configure tab.
 
    ![](/docs/images/5670656/5865865.png "width=500")
-   
+
 2. Scroll down to find the Reply URL section. Enter the public URL to your Octopus Server with `/api/users/authenticatedToken/AzureAD`.
    In our example this would be `https://demo.octopus.com/api/users/authenticatedToken/AzureAD`
 
@@ -129,7 +129,7 @@ At the time of writing, the Azure Active Directory is in preview in the modern p
 1. In the old portal, go to the **Applications** tab, select the App and then select the **Users** tab.
 
    ![](/docs/images/5670656/5865867.png "width=500")
-   
+
 2. The users/groups from your Azure AD should be displayed, with the Assigned column indicating whether they are already mapped.
 3. You can click the **Assign** or **Remove** buttons to manage which Users and Groups can access your instance of Octopus Deploy. You can also manage which Roles are assigned to each User and Group.
 
@@ -152,18 +152,18 @@ There are two values you will need from the Azure AD configuration to complete t
 1. Find the **Client ID** in your App's **Configure** tab and copy it as-is
 
    ![](/docs/images/5670656/5865868.png "width=500")
-   
+
 2. Locate the  GUID for the **Issuer** in the address for the above page
 
    ![](issuer.png "width=500")
-   
+
 
 #### Using the modern Azure portal {#AzureADauthentication-UsingthemodernAzureportal}
 
 1. In the modern portal, the **Application ID** in your App's **Settings/Properties** is your **Client ID**
 
    ![](/docs/images/5670656/5865869.png "width=500")
-   
+
 2. The GUID for the **Issuer** can be found in the Properties of your Actice Directory tenant
 
    ![](issuer-n.png "width=500")
@@ -184,6 +184,8 @@ Octopus.Server.exe configure --azureADIsEnabled=true --azureADIssuer=Issuer --az
 #Eg:
 # Octopus.Server.exe configure --azureADIsEnabled=true --azureADIssuer=https://login.microsoftonline.com/12341234-xxxx-xxxx-xxxx-xxxxxxxxxxxx --azureADClientId=43214321-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
+
+!partial <settings>
 
 ### Octopus user accounts are still required {#AzureADauthentication-Octopususeraccountsarestillrequired}
 
@@ -233,7 +235,7 @@ Sometimes the contents of the security token sent back by Azure AD aren't exactl
 2. In Chrome Dev Tools this is called "Preserve Log".
 
    ![](/docs/images/5670656/5866122.png)
-   
+
 3. Attempt to sign into Octopus using Azure AD and find the HTTP POST coming back to your Octopus instance from Azure AD on a route like `/api/users/authenticatedToken/azureAD`. You should see an `id_token` field in the HTTP POST body.
 4. Grab the contents of the `id_token` field and paste that into [https://jwt.io/](https://jwt.io/) which will decode the token for you.
 

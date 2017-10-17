@@ -14,9 +14,9 @@ You can manage teams from the **Teams** tab under **Configuration** in the Octop
 
 ## User and Service accounts {#Managingusersandteams-UserandServiceaccounts}
 
-**User accounts** are allowed to use both the Octopus web portal and the Octopus API, and can authenticate with a username and password, or [Active Directory credentials](/docs/administration/authentication-providers/active-directory-authentication.md), or an [Octopus API key](/docs/how-to/how-to-create-an-api-key.md).
+**User accounts** are allowed to use both the Octopus web portal and the Octopus API, and can authenticate with a username and password, [Active Directory credentials](/docs/administration/authentication-providers/active-directory-authentication.md), or an [Octopus API key](/docs/how-to/how-to-create-an-api-key.md).
 
-[Service accounts](/docs/administration/managing-users-and-teams/service-accounts.md) are **API-only accounts** that should be used for automated services that integrate with Octopus Deploy, and can only authenticate with an [Octopus API key](/docs/how-to/how-to-create-an-api-key.md). For more information refer to our page dedicated to [Service accounts](/docs/administration/managing-users-and-teams/service-accounts.md).
+[Service accounts](/docs/administration/managing-users-and-teams/service-accounts.md) are **API-only accounts** that should be used for automated services that integrate with Octopus Deploy, and can only authenticate with an [Octopus API key](/docs/how-to/how-to-create-an-api-key.md). For more information refer to [Service accounts](/docs/administration/managing-users-and-teams/service-accounts.md).
 
 :::success
 You should create a different User account for each person that will use Octopus Deploy. You should create a different [Service account](/docs/administration/managing-users-and-teams/service-accounts.md) for each service that will integrate with Octopus Deploy.
@@ -24,11 +24,11 @@ You should create a different User account for each person that will use Octopus
 
 ## Inviting users {#Managingusersandteams-Invitingusers}
 
-To streamline the process of adding multiple users you can use the **User invites** feature to generate one or more unique registration codes bound to one or more existing teams. These links can then be issued to users so that they can register their own details and be giving automatic permissions for the team(s) the codes are bound to:
+To streamline the process of adding multiple users you can use the **User invites** feature to generate one or more unique registration codes bound to one or more existing teams. These links can then be issued to users so that they can register their own details and be given automatic permissions for the team(s) the codes are bound to.
 
 ![](user-invites.png "width=500")
 
-:::tip
+:::hint
 Prior to version 4.0 this feature was accessed via the **Invite users** button on the **Users** page
 :::
 
@@ -40,17 +40,17 @@ Invite codes are only valid for 48-hours aftering being generated, so make sure 
 
 ## Creating teams {#Managingusersandteams-Creatingteams}
 
-You can add teams using the **Add Team** button. A team is a group of users, and being a member of a team gives those users certain roles, which can be scoped.
+Creating teams lets you assign the same roles to groups of users. Users can be added to or removed from multiple teams, making it eaiser to manage permissions for specific users and teams. You can create new teams by using the **Add Team** button.
 
-For example, we can create a team that gives Anne and Bob access to view projects and deploy them to pre-production environments:
+For example, we can create a team that gives Anne and Bob access to view projects and deploy them to pre-production environments by assigning the role **Project deployer** to the team.
+
+We limit which projects and environments these permissions apply to by adding specific projects and environments to the team.
 
 ![](teams-create-new.png "width=500")
 
-In the example above, we've granted Anne and Bob the **Project deployer** role for the two OctoFX projects, but limited it to the pre-production environments - they won't have permission to deploy to Production.
-
 ## Roles {#Managingusersandteams-Roles}
 
-Team members can be granted many different roles:
+Team members can be assigned the following roles: 
 
 - **Project viewer**:
   Project viewers have read-only access to a project. They can see the project in their dashboard, view releases and deployments.

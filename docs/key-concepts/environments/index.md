@@ -8,13 +8,13 @@ In Octopus, an *environment* is a group of machines that you will deploy to at t
 
 ## Managing environments {#Environments-Managingenvironments}
 
-Environments and the machines inside them can be managed from the **Environments** tab within the **Octopus Web Portal**.
+!partial <location>
 
-![](/docs/images/3048106/3277884.png "width=500")
+![](environments.png "width=500")
 
 Environments can be added using the **Add environment** button.
 
-![](/docs/images/3048106/3277883.png "width=500")
+![](add-environment.png "width=500")
 
 :::success
 **Tip: don&#39;t forget project groups**
@@ -30,13 +30,11 @@ Machines can be added to environments in different ways, [depending on how they
 
 ## Environment ordering {#Environments-Environmentordering}
 
-Environments are shown in order, and can be reordered using the **Reorder** link in the top right-hand corner of the page.
+!partial <reorder-link>
 
-![](/docs/images/3048106/3277879.png "width=500")
+![](environment-reordering-button.png "width=500")
 
-![](/docs/images/3048106/3277882.png "width=500")
-
-![](/docs/images/3048106/3277880.png "width=500")
+![](environment-reordering.png "width=500")
 
 The order that environments are shown on the Environments tab also affects:
 
@@ -49,15 +47,13 @@ It's a good idea to put your least production-like environments first, and the m
 
 [Guided failure mode](/docs/deploying-applications/guided-failures.md) can be enabled on an environment by default. This is useful for critical environments that are usually deployed to manually (for example, staging and production-like environments), though you may want to disable this feature for environments which are deployed to automatically such as smoke testing environments.
 
-Guided failure mode is an option when adding or editing an environment:
+Guided failure mode is an option when editing an environment:
 
-![](/docs/images/3048106/3277881.png "width=500")
+![](guided-failure.png "width=500")
 
 (Note that this option only sets it *by* *default*: for individual deployments it can be overridden)
 
-When guided failure more is enabled by default, an icon appears next to the environment:
-
-![](/docs/images/3048106/3277878.png "width=500")
+!partial <guided-failure-indicator>
 
 ## Associating projects with environments {#Environments-Associatingprojectswithenvironments}
 

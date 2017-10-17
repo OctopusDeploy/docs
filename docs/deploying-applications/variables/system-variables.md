@@ -12,7 +12,7 @@ Deployment-level variables are drawn from the project and release being deployed
 
 | Name and Description | Example|
 | -------------------- | -------|
-|**`Octopus.Acquire.MaxParallelism`** <br/>Controls the number of package acquisitions that will be allowed to run concurrently. | *2*|
+|**`Octopus.Acquire.MaxParallelism`** <br/>Controls the number of package acquisitions that will be allowed to run concurrently. Also controls retention processing at the end of the deployment. *Default: 10* | *2*|
 |**`Octopus.Acquire.DeltaCompressionEnabled`** <br/>Toggle whether delta compression is enabled when sending packages to targets. | true|
 |**`Octopus.Deployment.Comments`** <br/>User-provided comments on the deployment | *Signed off by Alice*|
 |**`Octopus.Deployment.Created`** <br/>The date and time at which the deployment was created | *Tuesday 10th September 1:23 PM*|
@@ -81,7 +81,7 @@ Action-level variables are available during execution of an action. Indexer noti
 |**`Octopus.Action.IsSkipped`** <br/>Whether or not the action has been skipped in the current deployment *(Boolean)* | *True*|
 |**`Octopus.Action.Manual.Instructions`** <br/>The instructions provided for a manual step | *Don't break anything :)*|
 |**`Octopus.Action.Manual.ResponsibleTeamIds`** <br/>The teams responsible for completing a manual step*(List)* | *teams-123,teams-124*|
-|**`Octopus.Action.MaxParallelism`** <br/>The maximum number of machines on which the action will concurrently execute *(Number)* | *5*|
+|**`Octopus.Action.MaxParallelism`** <br/>The maximum number of machines on which the action will concurrently execute. This value can be set in a project variable to change the default for the project. Additionally you can scope a value to specific actions to control concurrency across your deployment. This is the same variable which is set when configuring a [rolling deployment](/docs/patterns/rolling-deployments.md). *(Number - Default: 10)* | *5*|
 |**`Octopus.Action.Name`** <br/>The name of the action | *Website*|
 |**`Octopus.Action.Number`** <br/>The sequence number of the action in the deployment process *(Number)* | *5*|
 |**`Octopus.Action.Package.CustomInstallationDirectory`** <br/>If set, a specific directory to which the package will be copied after extraction | *C:\InetPub\WWWRoot\OctoFx*|

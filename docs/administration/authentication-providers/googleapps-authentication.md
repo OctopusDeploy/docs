@@ -1,6 +1,6 @@
 ---
 title: GoogleApps authentication
-description: Octopus Deploy can use GoogleApps authentication to identify users. 
+description: Octopus Deploy can use GoogleApps authentication to identify users.
 position: 2
 ---
 
@@ -37,13 +37,15 @@ That's OK, you can use `http` if you do not have SSL enabled on your Octopus Ser
 
 ## Configuring Octopus Deploy Server {#GoogleAppsauthentication-ConfiguringOctopusDeployServer}
 
-There is currently no UI for configuring Octopus to use GoogleApps - it must be configured from the command line. You will need the **Client ID** from the Credentials tab and your **hosted domain name**.
+You can configure the GoogleApps settings from the command line. You will need the **Client ID** from the Credentials tab and your **hosted domain name**.
 
 Once you have those values, run the following from a command prompt in the folder where you installed Octopus Server:
 
 ```powershell
 Octopus.Server.exe configure --googleAppsIsEnabled=true --googleAppsClientId=ClientID --googleAppsHostedDomain=yourdomain.com
 ```
+
+!partial <settings>
 
 ### Octopus user accounts are still required {#GoogleAppsauthentication-Octopususeraccountsarestillrequired}
 
@@ -86,7 +88,7 @@ Perhaps the contents of the security token sent back by GoogleApps aren't exactl
 1. Open the Developer Tools of your browser and enable Network logging making sure the network logging is preserved across requests.
 2. In Chrome Dev Tools this is called "Preserve Log".  
    ![](/docs/images/5670656/5866122.png)
-3. Attempt to sign into Octopus using GoogleApps and find the HTTP POST coming back to your Octopus instance from GoogleApps on a route like `/api/users/authenticatedToken/GoogleApps`. You should see an `id_token` field in the HTTP POST body.  
+3. Attempt to sign into Octopus using GoogleApps and find the HTTP POST coming back to your Octopus instance from GoogleApps on a route like `/api/users/authenticatedToken/GoogleApps`. You should see an `id_token` field in the HTTP POST body. 
    ![](/docs/images/5670664/5866125.png "width=500")
 4. Grab the contents of the `id_token` field and paste that into [https://jwt.io/](https://jwt.io/) which will decode the token for you.  
    ![](/docs/images/5670656/5866123.png "width=500")

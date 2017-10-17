@@ -69,27 +69,27 @@ While multiple Octopus Server nodes form a logical "cluster" of servers, Octopus
 
 On the first Octopus Server node, [download the Octopus Server MSI](https://octopus.com/downloads), and walk through the setup wizard. Use the Getting Started wizard to configure the first Octopus node:
 
-![](/docs/images/3048862/3278424.png "width=500")
+![](get-started.png "width=500")
 
 The Octopus home directory is local to each specific node, and *should not be shared* between nodes. This is usually at `C:\Octopus`.
 
-![](/docs/images/3048862/3278425.png "width=500")
+![](wizard-home.png "width=500")
 
 Since each node will use shared storage, ensure you use a custom service account that has permission to access the shared database:
 
-![](/docs/images/3048862/3278427.png "width=500")
+![](wizard-service-account.png "width=500")
 
 Configure the shared SQL database:
 
-![](/docs/images/3048862/3278428.png "width=500")
+![](wizard-database.png "width=500")
 
 Follow the rest of the setup guide, and install the first node.
 
-![](/docs/images/3048862/3278429.png "width=500")
+![](wizard-installation.png "width=500")
 
 Once the Octopus server has been configured, from Octopus Manager, copy the master key - you will need this to set up the additional nodes.
 
-![](/docs/images/3048862/3278430.png "width=500")
+![](master-key.png "width=500")
 
 Finally, you need to tell Octopus to store artifacts, task logs and packages in the shared storage that you provisioned, that way each Octopus node can see the same files. To do this, you'll need to use the command line:
 
@@ -109,15 +109,15 @@ This configuration is stored in the database, so you only have to perform this o
 
 Once the first node has been created and started, you can add the additional nodes. Again, install the Octopus Server MSI, but instead of using the Getting Started wizard, use the link to add this server as a node for the cluster:
 
-![](/docs/images/3048862/3278431.png "width=500")
+![](add-to-ha-cluster.png "width=500")
 
 Connect to the same shared SQL database:
 
-![](/docs/images/3048862/3278432.png "width=500")
+![](wizard-same-database.png "width=500")
 
 On the Cluster details page, enter the master key from the original node:
 
-![](/docs/images/3048862/3278433.png "width=500")
+![](wizard-cluster-details.png "width=500")
 
 Complete the setup wizard. You'll now have a second node in the cluster!
 
@@ -129,7 +129,7 @@ Octopus can work with any load balancer technology, including hardware and softw
 
 If you don't have a hardware load balancer available, an easy option is the [Application Request Routing module for IIS](http://www.iis.net/downloads/microsoft/application-request-routing). You can also use Apache or Nginx as a reverse load-balancing proxy.
 
-![](/docs/images/3048862/3278434.png "width=500")
+![](create-server-farm.png "width=500")
 
 ## Migrating a Single Server to a High Availability setup {#ConfiguringOctopusforHighAvailability-MigratingaSingleServertoaHighAvailabilitysetup}
 
