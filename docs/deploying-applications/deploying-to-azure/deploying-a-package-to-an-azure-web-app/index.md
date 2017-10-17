@@ -125,7 +125,7 @@ If you haven't already, create an [Azure Subscription Account](/docs/key-conce
 
 1. Add a new 'Deploy an Azure Web App' step to your project. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/adding-steps.md) section. 
 
-![](add-deploy-web-app.png "width=170")
+![](/docs/images/5671696/5865899.png "width=170")
 
 ## Step 4: Configure your Azure Web App step. {#DeployingapackagetoanAzureWebApp-Step4:ConfigureyourAzureWebAppstep.}
 
