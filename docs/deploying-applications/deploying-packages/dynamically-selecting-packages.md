@@ -67,7 +67,7 @@ There are some downsides to using dynamic packages. Firstly it becomes complex q
 Where possible we recommend keeping the number and size of dynamic packages to a minimum. Some strategies which can help with this are:
 
 1. Try building any environment- or tenant-specific differences using configuration instead of requiring an entirely different package.
-1. Try to keep everything that is common about your application together, pushing environment- or tenant-specific differences into small satellite packages.
+2. Try to keep everything that is common about your application together, pushing environment- or tenant-specific differences into small satellite packages.
 
 ### Dynamic packages and retention policies
 
@@ -79,7 +79,7 @@ Learn about [retention policies](/docs/administration/retention-policies/index.m
 
 1. Older versions of `octo.exe` and the build server extension would fail to create releases if you are using a variable binding for your Package Feed. You would see an error message like this: `The version number for step 'Deploy' cannot be automatically resolved because the feed or package ID is dynamic.`
     - The best way to work around this is to upgrade `octo.exe` or your build server extension. Otherwise you can work around this by defining an unscoped/global variable with the same name referring to a valid package feed.
-    ![Working around but with older octo.exe](dynamic-feed-variable-workaround.jpg)
+      ![Working around but with older octo.exe](dynamic-feed-variable-workaround.png)
 
-1. You haven't provided a version for each required package in your deployment process. You would see an error message like this: `Package versions could not be resolved for one or more of the package steps in this release. See the errors above for details. Either ensure the latest version of the package can be automatically resolved, or set the version to use specifically by using the --package argument.`
+2. You haven't provided a version for each required package in your deployment process. You would see an error message like this: `Package versions could not be resolved for one or more of the package steps in this release. See the errors above for details. Either ensure the latest version of the package can be automatically resolved, or set the version to use specifically by using the --package argument.`
     - Make sure you specify a package version for the dynamic package. Octopus cannot select a package for you automatically since it doesn't know either the Package Feed to inspect, or the Package ID it should use to find the latest version.
