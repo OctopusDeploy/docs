@@ -35,6 +35,7 @@ mv $oldHome $newHome
 & "$octopus" configure --home="$newHome"
 
 # You also want to update the path to your artifacts, logs and internal nuget repository when moving your home directory
+# The following path updates only update the paths, if you want to keep your existing artifacts and logos make sure you copy them to the new location 
 $nugetPath = $newHome + "\Packages"
 $artifactPath = $newHome + "\Artifacts"
 $taskLogs = $newHome + "\TaskLogs"
