@@ -24,7 +24,7 @@ You can create projects by clicking on the **Add project** button.
 
 ![](index-3277826.png "width=500")
 
-![](project-empty-state.png "width=500")
+![](index-project-empty-state.png "width=500")
 
 ## Project permissions {#Projects-Projectpermissions}
 
@@ -56,7 +56,7 @@ Alternatively, there may only be one team, who work on both the rate service and
 
 You can clone a project by opening an existing project, and then selecting the settings tab and clicking the **Clone** link on the right side bar
 
-![](index-3277824.png "width=500")
+![](index-clone-project.png "width=500")
 
 On the **Create project** page you will now see an additional control specifying what project is used to clone from
 
