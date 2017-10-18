@@ -71,7 +71,7 @@ If you want to be able to deploy to any environment at any time then simply crea
 
 A project can only be deployed to any environments defined in their lifecycle.
 
-![](/docs/images/3048104/3277860.png "width=500")
+![](deployment-process.png "width=500")
 
 The overview for a project now shows where a release is up to on the deployment process.
 
