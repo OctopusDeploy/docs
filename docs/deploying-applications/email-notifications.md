@@ -41,7 +41,7 @@ You have several options for choosing the recipients of your email:
 
 Octopus will build the resulting recipient list during the deployment, deduplicate the list of email addresses, and send the email to each recipient.
 
-![Email Recipients](email-notifications-recipients.png)
+![Email Recipients](email-notifications-recipients.png "width=500")
 
 ## Choosing when to send the email notification
 
