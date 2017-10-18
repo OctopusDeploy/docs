@@ -8,7 +8,7 @@ The Azure VM Extension can be added to your virtual machine using the Azure Powe
 
 Refer to the [configuration structure](configuration-structure.md) for information regarding the format of the `publicSettings.json` and `privateSettings.json` files mentioned in these examples.
 
-## Azure Service Management (ARM) mode {#AzureVirtualMachines-AzureServiceManagement}
+## Azure Service Management (ASM) mode {#AzureVirtualMachines-AzureServiceManagement}
 
 To install the extension on a VM:
 
@@ -60,8 +60,15 @@ Remove-AzureVMExtension -VM $vm -ExtensionName "OctopusDeployWindowsTentacle" -P
 To install the extension on a VM:
 
 ```powershell
-$publicSettings = "{`"OctopusServerUrl`": `"https://octopus.example.com`", `"Environments`": [ `"Env1`", `"Env2`" ], `"Roles`": [ `"app-server`", `"web-server`" ], `"CommunicationMode`": `"Listen`", `"Port`": 10933 }"
-$privateSettings = "{`"ApiKey`": `"MY SECRET API KEY`"}"
+$publicSettings = @{
+  OctopusServerUrl = "https://octopus.example.com";
+  Environments = @("Env1", "Env2");
+  Roles = @("app-server", "web-server");
+  CommunicationMode = "Listen";
+  Port = 10933
+}
+
+$privateSettings = @{"ApiKey" = "<MY SECRET API KEY>"}
 
 Set-AzureRmVMExtension -ResourceGroupName "<resource-group-name>" `
     -Location "Australia East" `
