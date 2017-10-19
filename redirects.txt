@@ -27,3 +27,4 @@ docs/guides/use-the-team-foundation-build-custom-task/extension-compatibility ->
 docs/guides/use-the-team-foundation-build-custom-task/manually-install-the-build-task -> docs/api-and-integration/tfs-vsts/using-octopus-extension/manually-install-the-build-task.md
 docs/images/lets-encrypt-integration/configure-lets-encrypt-dialog.png -> docs/administration/lets-encrypt-dialog.png
 docs/images/lets-encrypt-integration/configure-lets-encrypt.png -> docs/administration/lets-encrypt.png
+docs/administration/subscription_events.md -> docs/administration/subscription-events.md
