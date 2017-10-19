@@ -10,7 +10,7 @@ A project is a collection of [deployment steps](/docs/deploying-applications/ind
 
 ## Managing projects {#Projects-Managingprojects}
 
-+!partial <projects>
+!partial <projects>
 
 ![](index-3277829.png "width=500")
 
