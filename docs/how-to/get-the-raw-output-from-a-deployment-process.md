@@ -8,7 +8,8 @@ When you contact Octopus Deploy support with a deployment related issue, we'll s
 
 ## Step-by-step guide
 
-1. Navigate to the deployment process screen.
+1. Navigate to the deployment process screen.  
+
   ![](deployment-process.png "width=500")
 
 !partial <steps>
