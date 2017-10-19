@@ -18,11 +18,11 @@ Octopus Deploy has built-in support for deploying Virtual Hard Drives. The featu
 
 To deploy a Virtual Hard Drive, add a *Deploy a VHD* step. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/adding-steps.md) section.
 
-![](/docs/images/5671980/5866193.png)
+![](deploying-virtual-hard-drives-add-step.png)
 
 ## Configuring the Step {#DeployingVirtualHardDrives-ConfiguringtheStep}
 
-![](/docs/images/5671980/5866127.png "width=500")
+![](deploying-virtual-hard-drives-configure-step.png "width=500")
 
 ### Step 1: Select a Package {#DeployingVirtualHardDrives-Step1:SelectaPackage}
 
@@ -41,11 +41,11 @@ Use the Package Feed and Package ID fields to select the [package](/docs/packag
 |                          | - `PublishedApps\MyApplication`                                             |
 +--------------------------+-----------------------------------------------------------------------------+
 | **Add VHD to Hyper-V**   | Attach the VHD to an existing Hyper-V virtual machine. Octopus will         |
-|                          | shutdown the virtual machine, add the VHD (replacing the current first      | 
+|                          | shutdown the virtual machine, add the VHD (replacing the current first      |
 |                          | virtual drive if there is one) then restart the virtual machine.            |
 +--------------------------+-----------------------------------------------------------------------------+
 | **Virtual Machine Name** | The name of the virtual machine to add the VHD to.                          |
-+--------------------------+-----------------------------------------------------------------------------+	
++--------------------------+-----------------------------------------------------------------------------+
 
 ## Accessing the VHD in deployment scripts {#DeployingVirtualHardDrives-AccessingtheVHDindeploymentscripts}
 
