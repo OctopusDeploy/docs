@@ -8,7 +8,8 @@ Octopus 3.7 introduced integration with the [Octopus Library](http://library.oct
 
 Feature toggle
 
-![](/docs/images/5671696/5866121.png "width=500")
+![](community-step-integration-integration_(,4.0).png "width=500")
+![](community-step-integration-integration.png "width=500")
 
 This feature is enabled by default however it can be disabled in the **Features** tab in the **Configuration** area.  The synchronization process is executed as a standard Octopus task and you can view its execution details from the **Tasks** area.  The Octopus server synchronizes with the Octopus Library on startup and then every 24 hours over the Internet thus it requires Internet access.  If there are any updates or changes, the sync process then retrieves all the step templates and stores the relevant community step templates in the Octopus database.  Whilst the step templates are persisted locally, they cannot be used in a deployment process until they are explicitly installed.
 
