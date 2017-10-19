@@ -10,7 +10,7 @@ A project is a collection of [deployment steps](/docs/deploying-applications/ind
 
 ## Managing projects {#Projects-Managingprojects}
 
-You can add or view a list of all projects by going to the **Projects** tab and choosing **All** within the Octopus Web Portal.
++!partial <projects>
 
 ![](index-3277829.png "width=500")
 
