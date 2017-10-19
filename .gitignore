@@ -4,4 +4,4 @@ _site/
 .vscode/
 .idea
 *.iml
-.DS_Store/
+.DS_Store
