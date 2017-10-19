@@ -59,7 +59,7 @@ Open the Octopus Web Portal in your browser and sign in, using the address and c
 
 Next, you'll need to add environments to deploy to. Environments are really just groups of machines that you deploy to; for example, **Test**, **Staging** or **Production**.
 
-![Creating environments](/docs/images/3048178/3278205.png "width=500")
+![Creating environments](environments.png "width=500")
 
 Learn more about [Environments](/docs/key-concepts/environments/index.md).
 
@@ -69,7 +69,7 @@ Deployment targets represent the servers, machines and cloud services where your
 
 On each of the servers, you'll need to install the lightweight Tentacle agent, and then register the targets in your environments. Depending on network/firewall configuration, Tentacles can be installed in [listening](/installation/installing-tentacles/listening-tentacles.md) (Octopus calls Tentacle) or [polling](/docs/installation/installing-tentacles/polling-tentacles.md) (Tentacle polls Octopus) mode. If you have many machines to manage, you can [install Tentacles automatically](/docs/installation/installing-tentacles/automating-tentacle-installation.md). One Octopus server can control many Tentacles, potentially a lot more than 8! 
 
-![Add machines to environment](/docs/images/3048178/3278206.png "width=500")
+![Add machines to environment](deployment-targets.png "width=500")
 
 Learn more about the [deployment targets](/docs/deployment-targets/index.md).
 
@@ -81,9 +81,9 @@ If you are deploying to a Linux target, SSH, username and passwords can be store
 
 To add an account, go to the environments page and click on the Accounts link. 
 
-![](/docs/images/getting-started/environments-accounts.png "width=500")
+![](infrastructure-accounts.png "width=500")
 
-![](/docs/images/getting-started/accounts.png "width=500")
+![](accounts.png "width=500")
 
 Learn more about [accounts](/docs/key-concepts/environments/accounts/index.md).
 
@@ -105,7 +105,7 @@ Learn more about [versioning](/docs/packaging-applications/versioning-in-octopus
 
 Your packages need to be placed into a package repository. You can either push packages to the built-in repository manually or integrate with your existing build tool.  We recommend configuring your existing tool chain to push packages automatically to the built-in repository. 
 
-![Octopus built-in package repository](/docs/images/getting-started/library-packages.png)
+![Octopus built-in package repository](library-packages.png)
 
 Use our [TeamCity](/docs/api-and-integration/teamcity.md), [VSTS](/ /docs/api-and-integration/tfs-vsts/using-octopus-extension/index.md) or [TFS](/docs/api-and-integration/tfs-vsts/index.md) extensions to integrate with the built-in repository or explore the [other options](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) to push packages to it.
 
@@ -123,7 +123,7 @@ An external package repository would typically be:
 - A [MyGet](http://www.myget.org/) server
 - A [VSTS or TFS Package Management](https://www.visualstudio.com/en-us/docs/package/overview) feed
 
-![Octopus external feeds area](/docs/images/getting-started/library-externalfeeds.png)
+![Octopus external feeds area](library-externalfeeds.png)
 
 Learn more about [external feeds](/docs/packaging-applications/package-repositories/index.md#Packagerepositories-Usingexternalrepositories).
 
@@ -133,7 +133,7 @@ Learn more about [external feeds](/docs/packaging-applications/package-repositor
 
 Projects define a set of deployment steps that you want Octopus to perform, and their configuration variables.
 
-![Creating a project](/docs/images/3048178/3278204.png "width=500")
+![Creating a project](create-project.png "width=500")
 
 Learn more about [projects](/docs/key-concepts/projects/index.md).
 
@@ -147,7 +147,7 @@ The **Process** tab within your project defines how your project will be deploye
 - For custom or advanced installation actions, see [Custom scripts](/docs/deploying-applications/custom-scripts/index.md)
 - To pause deployment for a human to approve or perform an action, see [Manual intervention and approvals](/docs/deploying-applications/manual-intervention-and-approvals.md)
 
-![Your deployment process](/docs/images/3048178/3278203.png "width=500")
+![Your deployment process](deployment-process.png "width=500")
 
 Chances are, you'll need to configure your application differently depending on the what you are deploying to (for example, different connection strings in staging vs. production). Octopus has advanced support for managing these [variables](/docs/deploying-applications/variables/index.md) and scoping them, and can even manage passwords securely. Octopus can also take care of automatically [updating your .NET configuration files, and running configuration file transforms](/docs/deploying-applications/configuration-files/index.md).
 
@@ -157,21 +157,21 @@ Chances are, you'll need to configure your application differently depending on 
 
 Next, create a release. Click the **Create release** button on any page of your project.
 
-![Creating a release](/docs/images/3048178/3278202.png "width=500")
+![Creating a release](create-release-button.png "width=500")
 
 Enter an overall release version number for the release, and select the NuGet package versions that you want to include in the release. You can also add release notes to tell your team what the release contains.
 
-![Release notes](/docs/images/3048178/3278201.png "width=500")
+![Release notes](create-release.png "width=500")
 
 Now that you have a release, you can deploy and promote it between environments. On the release page, use the green **Deploy to *environment*** button to promote it.
 
 ### Deploy a release
 
-![Deploy the release](/docs/images/3048178/3278200.png "width=500")
+![Deploy the release](deploy-release.png "width=500")
 
 The deployment page shows you a log of all the activity that happens during the deployment, on both the Octopus server and any Tentacles, including the output of any custom scripts.
 
-![Running deployment](/docs/images/3048178/3278199.png "width=500")
+![Running deployment](deployment-details.png "width=500")
 
 ## Next steps {#Gettingstarted-Nextsteps}
 
