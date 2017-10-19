@@ -51,7 +51,7 @@ When your Octopus server is configured, the Octopus Manager UI will appear. This
 
 Open the Octopus Web Portal in your browser and sign in, using the address and credentials you specified during the setup wizard.
 
-![Octopus web portal sign in](/docs/images/getting-started/octopus-login.png "width=500")
+![Octopus web portal sign in](octopus-login.png "width=500")
 
 ## 2. Configure Infrastructure {#Gettingstarted-ConfigureInfrastructure}
 
