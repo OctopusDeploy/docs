@@ -20,6 +20,6 @@ Just like defining project variables, library variables can be scoped to environ
 
 ![](/docs/images/3048089/3277718.png "width=500")
 
-The **Project Variables** page will show the shared variable set that has been included.
+!partial <view>
 
 ![](/docs/images/3048089/3277717.png "width=500")
