@@ -3,15 +3,15 @@
 
 In Octopus Deploy, go to the Environments tab and select Accounts:
 
-![](/docs/images/3049331/3278521.png "width=500")
+![Accounts](../images/account-link.png "width=500")
 
 Add an Azure Subscription account and fill in your account details:
 
-![](/docs/images/3049356/3278536.png "width=500")
+![Azure account](/docs/images/3049356/3278536.png "width=500")
 
-If you are allowing Octopus to generate a management certificate for you, first save the account and then upload the generated certificate to your Azure management certificates in the Azure Portal.  At the time of writing this setting is available in the classic portal:
+If you are allowing Octopus to generate a management certificate for you, first save the account and then upload the generated certificate to your Azure management certificates in the Azure Portal.
 
-![](/docs/images/3049331/3278522.png "width=500")
+![Upload certificate](../images/azure-cert-upload.png "width=500")
 
 ## Create an environment {#GettingstartedwithAzureWebApps-Createanenvironment}
 

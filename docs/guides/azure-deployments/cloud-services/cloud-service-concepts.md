@@ -28,7 +28,7 @@ Octo.exe pack --id=HelloCloud --basePath=C:\PathToAzureCloudService
 
 Octo.exe will generate a NuGet package containing the .cspkg and .cscfg files:
 
-![](nuget-package-explorer.png "width=500")
+![NuGet Package Explorer](nuget-package-explorer.png "width=500")
 
 Here is a sample Cloud Service NuGet package: [HelloCloud.1.0.0.nupkg](https://download.octopusdeploy.com/demo/HelloCloud.1.0.0.nupkg)
 
@@ -36,7 +36,7 @@ Here is a sample Cloud Service NuGet package: [HelloCloud.1.0.0.nupkg](https://
 
 In order to make the NuGet package accessible to Octopus it needs to be uploaded to a [package repository](/docs/packaging-applications/package-repositories/index.md). The built-in Octopus package repository is accessible from Library > Packages and is a suitable place to upload your Cloud Service NuGet package:
 
-![](package-feed.png "width=500")
+![Package feed](package-feed.png "width=500")
 
 ## Cloud Service accounts {#CloudServiceConcepts-CloudServiceAccounts}
 
@@ -44,13 +44,13 @@ Deploying a Cloud Service in Octopus requires the configuration of an Azure Subs
 
 ### Creating the account {#CloudServiceConcepts-Creatingtheaccount}
 
-![](create-account-blank.png "width=500")
+![Create account](create-account-blank.png "width=500")
 
 #### Subscription Id {#CloudServiceConcepts-SubscriptionId}
 
-The subscription Id can be found on the Settings tab of the Azure Management portal.
+The subscription Id can be found on the Settings tab of the Azure portal.
 
-![](azure-subscription-id.png "width=500")
+![Azure Subscription Id](../images/azure-subscription-id.png "width=500")
 
 #### Management certificate {#CloudServiceConcepts-Managementcertificate}
 
@@ -66,11 +66,11 @@ del temp.pem
 
 If you allow Octopus Deploy to generate your certificate, you will need to upload the certificate to the Azure Management Portal.  After clicking 'Save', the Account settings page provides instructions for downloading the certificate public-key from Octopus Deploy, and uploading it into the Azure Management Portal.
 
-![](management-cert.png "width=500")
+![Management Certificate](management-cert.png "width=500")
 
 Uploaded certificates can be viewed on the 'Management Certificates' tab of the 'Settings' page in the Azure Management Portal.
 
-![](azure-portal-certs.png "width=500")
+![Azure management certificates](../images/azure-portal-certs.png "width=500")
 
 The certificate will be named `Octopus Deploy - {Your Account Name}.`
 
@@ -82,7 +82,7 @@ Octopus Deploy supports deployment of [Azure Cloud Services](http://azure.micros
 
 Add a new "Deploy an Azure Cloud Service" step to your project. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/adding-steps.md) section.
 
-![](/docs/images/5671696/5865904.png "width=170")
+![Cloud Service step template](/docs/images/5671696/5865904.png "width=170")
 
 #### **Account** {#CloudServiceConcepts-Account}
 
