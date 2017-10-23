@@ -4,34 +4,34 @@ description: From download to deployment, this guide walks you through getting s
 position: 0
 ---
 
-Welcome! This section will show how Octopus fits into the delivery pipeline and guide you through the process of setting up Octopus Deploy to complete your first deployment.
+Welcome! This section will show how Octopus Deploy fits into the delivery pipeline and guide you through the process of setting up Octopus Deploy to complete your first deployment.
 
 !toc
 
 ## Octopus in your delivery process {#Gettingstarted-Octopusinyourdeliveryprocess}
 
-Octopus Deploy is an automated deployment server, which you install yourself, much like you would install SQL Server, Team Foundation Server, or JetBrains TeamCity. Octopus makes it easy to automate deployment of ASP.NET web applications, Java applications, and Windows Services into development, test, and production environments.
+Octopus Deploy is an automated deployment server, which you install yourself, much like you would install SQL Server, Team Foundation Server, or JetBrains TeamCity. Octopus makes it easy to automate the deployment of ASP.NET web applications, Java applications, and Windows Services into development, test, and production environments.
 
-Along with the Octopus Deploy server, you'll also install a lightweight agent service on each of the machines that you plan to deploy to, for example your web and application servers. We call this the Tentacle agent; the idea being that one Octopus server controls many Tentacles, potentially a lot more than 8! With Octopus and Tentacle, you can easily deploy to your own servers, or cloud services from providers like Amazon Web Services or Microsoft Azure.
+In addition to the Octopus Deploy server, you'll also install a lightweight agent service on each of the machines that you plan to deploy to, for example, your web and application servers. We call this the Tentacle agent; the idea being that one Octopus server controls many Tentacles, potentially a lot more than 8! With Octopus and Tentacle, you can easily deploy to your own servers or cloud services from providers like Amazon Web Services or Microsoft Azure.
 
 ### The delivery pipeline
 
 |                                          |                                          |
 | ---------------------------------------- | ---------------------------------------- |
-| ![](images/getting-started/pipeline-01.svg "width=400")<br>**1. Commit code**<br>Developer commits code to a github repository. | ![](images/getting-started/pipeline-02.svg "width=400")<br>**2. Compile & test**<br>A build server compiles the code and runs unit tests. |
+| ![](images/getting-started/pipeline-01.svg "width=400")<br>**1. Commit code**<br>A developer commits code to a GitHub repository. | ![](images/getting-started/pipeline-02.svg "width=400")<br>**2. Compile & test**<br>A build server compiles the code and runs unit tests. |
 | ![](images/getting-started/pipeline-03.svg "width=400")<br>**3. Packaged & pushed**<br>The application is packaged and pushed to Octopus Deploy. | ![](images/getting-started/pipeline-04.svg "width=400")<br>**4. Auto deploy to test**<br>The application can be automatically deployed to a test environment. A suite of automated web tests are run against the application. |
-| ![](images/getting-started/pipeline-05.svg "width=400")<br>**5. Deploy to UAT**<br>The application is deployed to a UAT environment, for stakeholders to see new changes. | ![](images/getting-started/pipeline-06.svg "width=400")<br>**6. Promote to production**<br>When the various stakeholders are happy, the application is prompted to the production environment. |
+| ![](images/getting-started/pipeline-05.svg "width=400")<br>**5. Deploy to UAT**<br>The application is deployed to a UAT environment, for stakeholders to see new changes. | ![](images/getting-started/pipeline-06.svg "width=400")<br>**6. Promote to production**<br>When the various stakeholders are happy, the application is promoted to the production environment. |
 
 We designed Octopus to fit into teams that follow agile delivery practices. Octopus compliments your existing delivery pipeline:
 
 - **Developers commit their code into your existing source control system**  
-  You might be using Git, Team Foundation Server, Subversion or Mercurial; the choice is up to you.
+  You might be using Git, Team Foundation Server, Subversion, or Mercurial; the choice is up to you.
 - **Your CI/build server compiles the code and runs unit tests**  
-  Again, you might be using TeamCity, Jenkins, Bamboo, Team Foundation Server or CruiseControl.NET; the choice is up to you.
+  Again, you might be using TeamCity, Jenkins, Bamboo, Team Foundation Server, or CruiseControl.NET; the choice is up to you.
 - **Your application is packaged**  
-  When the build is done, your CI/build server bundles all of the files (binaries, images, scripts, configuration files and so on), needed to deploy your application into a [supported package](/docs/packaging-applications/supported-packages.md).
+  When the build is ready, your CI/build server bundles all of the files (binaries, images, scripts, configuration files, and so on), needed to deploy your application into a [supported package](/docs/packaging-applications/supported-packages.md).
 
-The job of Octopus, then, is to take these packages and push them to the machines that they will be deployed to. As a release manager, you define the process for deploying the software, including any environment-specific configuration variables. The Octopus web based dashboard then allows other members of your team to queue deployments; for example, you might enable testers to deploy applications to a test environment, but not to production. This approach means that even if different people are triggering the deployments, the deployment process is still consistent.
+When the packages are ready, Octopus pushes these packages to the deployment targets. As a release manager, you define the process for deploying the software, including any environment-specific configuration variables. The Octopus web-based dashboard then allows other members of your team to queue deployments; for example, you might enable testers to deploy applications to a test environment, but not to production. This approach means that even if different people are triggering the deployments, the deployment process is still consistent.
 
 ## 1. Install and set up Octopus server {#Gettingstarted-InstalltheOctopusserver}
 
