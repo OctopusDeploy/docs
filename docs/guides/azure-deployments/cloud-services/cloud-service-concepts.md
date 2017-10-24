@@ -82,7 +82,7 @@ Octopus Deploy supports deployment of [Azure Cloud Services](http://azure.micros
 
 Add a new "Deploy an Azure Cloud Service" step to your project. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/adding-steps.md) section.
 
-![Cloud Service step template](/docs/images/5671696/5865904.png "width=170")
+![Cloud Service step template](../../../images/5671696/5865904.png "width=170")
 
 #### **Account** {#CloudServiceConcepts-Account}
 
@@ -113,7 +113,7 @@ If you have scaled your Windows Azure service using the management portal (for e
 
 #### Variable-expressions {#CloudServiceConcepts-Variable-expressions}
 
-Any of the fields above can be switched to use a custom expression by clicking the box next to the field:
+Any of the fields above can be switched to use a custom expression by clicking the control next to the field:
 
 ![](vip-swap-binding-pointer.png "width=500")
 

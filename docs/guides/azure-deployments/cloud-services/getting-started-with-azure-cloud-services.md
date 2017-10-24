@@ -18,7 +18,7 @@ Upload your NuGet package to the Octopus [built-in package repository](/docs/pac
 
 ## Create an account {#GettingstartedwithAzureCloudServices-Createanaccount}
 
-In Octopus Deploy, go to the Environments tab and select Accounts:
+In Octopus Deploy, select Accounts:
 
 ![Accounts](../images/account-link.png "width=500")
 
@@ -26,7 +26,7 @@ Add an Azure Subscription account and fill in your account details:
 
 ![](create-management-cert.png "width=500")
 
-If you are allowing Octopus to generate a management certificate for you, first save the account and then upload the generated certificate to your Azure management certificates in the Azure Portal.
+If you are allowing Octopus to generate a management certificate for you, first save the account and then upload the generated certificate to your Azure management certificates in the Azure Portal. To download the generated certificate, click on the public key value that is displayed in step 1 of the upload instructions shown above.
 
 ![Upload certificate](../images/azure-cert-upload.png "width=500")
 
@@ -38,11 +38,15 @@ In order to deploy a Cloud Service we require an Octopus environment to deploy t
 
 ## Create a project {#GettingstartedwithAzureCloudServices-Createaproject}
 
-Now have the NuGet package we want to deploy, the account we are going to use for the deployment and an environment to deploy to.  Now all we need is a project to do all the work.  Create a new project:
+Now have the NuGet package we want to deploy, the account we are going to use for the deployment and an environment to deploy to, all we need is a project to do all the work.  Create a new project:
 
 ![Create project](create-project.png "width=500")
 
-In the project's process add a new Deploy an Azure Cloud Service step. Select the NuGet package that you are going to deploy and the Azure account to use for the deployment. The settings for this step should look something like this:
+In the project's process add a new Deploy an Azure Cloud Service step.
+
+![Cloud Service step template](../../../images/5671696/5865904.png "width=170")
+
+Select the NuGet package that you are going to deploy and the Azure account to use for the deployment. The settings for this step should look something like this:
 
 ![Cloud Service Step Template](cloud-service-step.png "width=500")
 
