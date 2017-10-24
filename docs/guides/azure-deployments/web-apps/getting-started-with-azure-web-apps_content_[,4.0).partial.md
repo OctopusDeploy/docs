@@ -27,10 +27,10 @@ Now have the NuGet package we want to deploy, the account we are going to use fo
 
 In the project's process add a new Deploy an Azure Web App step. Select the NuGet package that you are going to deploy and the Azure account to use for the deployment. The settings for this step should look something like this:
 
-![](3278539.png "width=500")
+![Azure Web App Step](web-app-step.png "width=500")
 
 Save the step and create a release for your project. Deploy the release to the Staging environment:
 
-![](3278540.png "width=500")
+![Deploy Web App](deploy-to-staging.png "width=500")
 
 Grab a coffee and by the time you get back your application should be deployed to Azure Web Apps.

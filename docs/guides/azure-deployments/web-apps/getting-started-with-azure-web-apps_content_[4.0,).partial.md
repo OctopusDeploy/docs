@@ -13,11 +13,11 @@ In order to deploy a Web App we require an Octopus environment to deploy to. Und
 
 We now have the NuGet package we want to deploy, the account we are going to use for the deployment and an environment to deploy to: all we need is a project to do all the work.  Create a new project:
 
-![Create project](add-new-project.png "width=500")
+![Create project](create-project.png "width=500")
 
 In the new project's *Process* tab, add a new 'Deploy an Azure Web App' step. Select the NuGet package that you are going to deploy and the Azure account to use for the deployment. The settings for this step should look something like this:
 
-![Azure Web App Step](add-azure-step.png "width=500")
+![Azure Web App Step](web-app-step.png "width=500")
 
 Save the step and create a release for your project. Deploy the release to the Staging environment:
 
