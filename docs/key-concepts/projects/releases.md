@@ -26,6 +26,7 @@ NOTE: If you had a fully automated build and deployment pipeline, the releases a
 
 Octopus releases should be considered read-only.  When you create a new release, Octopus takes a snapshot (i.e. a complete copy) of your project's deployment process, variables, and package details (package IDs and versions) so that release can deployed over and over.  This enables you to modify your deployment process for newer versions of your app (i.e. 1.1, 1.2, 2.0 etc) without affecting the reliability of your existing releases.  This is a large part of the safety and reliablility of your Octopus deployments.
 
-:::hint
-There is one common ‘gotcha’ involving creating releases and snapshots.  If you modify your deployment process and try to redeploy it, you’ll find the latest changes aren’t included.  This is because the release snapshot details are captured when you create a release.  The solution is to simply create a new release  (i.e. 1.1.0-patch1), which will cause any changes to be include in the new release and subsequent deployments. 
-:::
+### Updating release variables
+There is one common ‘gotcha’ involving creating releases and snapshots.  If you modify your deployment process and try to redeploy it, you’ll find the latest changes aren’t included.  This is because the release snapshot details are captured when you create a release. 
+That said, you can modify the variables of a release, but be aware, you cannot reverse this operation.  
+![Edit release  variables](update-variables.png "width=500")
