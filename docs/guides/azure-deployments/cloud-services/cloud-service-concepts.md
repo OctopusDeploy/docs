@@ -50,7 +50,7 @@ Deploying a Cloud Service in Octopus requires the configuration of an Azure Subs
 
 The subscription Id can be found on the Settings tab of the Azure portal.
 
-![Azure Subscription Id](../images/azure-subscription-id.png "width=500")
+![Azure Subscription Id](azure-subscription-id.png "width=500")
 
 #### Management certificate {#CloudServiceConcepts-Managementcertificate}
 
@@ -70,7 +70,7 @@ If you allow Octopus Deploy to generate your certificate, you will need to uploa
 
 Uploaded certificates can be viewed on the 'Management Certificates' tab of the 'Settings' page in the Azure Management Portal.
 
-![Azure management certificates](../images/azure-portal-certs.png "width=500")
+![Azure management certificates](azure-portal-certs.png "width=500")
 
 The certificate will be named `Octopus Deploy - {Your Account Name}.`
 
