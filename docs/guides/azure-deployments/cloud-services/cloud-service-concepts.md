@@ -44,7 +44,7 @@ Deploying a Cloud Service in Octopus requires the configuration of an Azure Subs
 
 ### Creating the account {#CloudServiceConcepts-Creatingtheaccount}
 
-![Create account](create-account-blank.png "width=500")
+![Create account](../images/create-account-blank.png "width=500")
 
 #### Subscription Id {#CloudServiceConcepts-SubscriptionId}
 

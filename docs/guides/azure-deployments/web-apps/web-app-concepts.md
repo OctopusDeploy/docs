@@ -13,7 +13,7 @@ In order to deploy Web Apps they must be packaged into an Octopus compatible NuG
 
 Publish your Web App with Visual Studio to the file system:
 
-![](/docs/images/3049436/3278570.png "width=500")
+![Publish an Azure Web Application](vs-package.png "width=500")
 
 ### Generate a NuGet package {#WebAppConcepts-GenerateaNuGetpackage}
 
@@ -27,7 +27,7 @@ Octo.exe pack --id=HelloWeb --basePath=C:\PathToWebApp
 
 Octo.exe will generate a NuGet package containing your Web App:
 
-![](/docs/images/3049436/3278571.png "width=500")
+![NuGet Package Explorer](nuget-package-explorer.png "width=500")
 
 Here is a sample Web App NuGet package: [HelloWeb.1.0.0.nupkg](https://download.octopusdeploy.com/demo/HelloWeb.1.0.0.nupkg)
 
@@ -35,7 +35,7 @@ Here is a sample Web App NuGet package: [HelloWeb.1.0.0.nupkg](https://download
 
 In order to make the NuGet package accessible to Octopus it needs to be uploaded to a [package repository](/docs/packaging-applications/package-repositories/index.md). The built-in Octopus package repository is accessible from {{Library,Packages}} (click the `Show examples` link) and is a suitable place to upload your Web App NuGet package:
 
-![](/docs/images/3049356/3278535.png "width=500")
+![Package feed](package-feed.png "width=500")
 
 ## Web App accounts {#WebAppConcepts-WebAppAccounts}
 
@@ -43,13 +43,13 @@ Deploying a Web App in Octopus requires the configuration of an Azure Subscripti
 
 ### Creating the account {#WebAppConcepts-Creatingtheaccount}
 
-![](/docs/images/3049434/3278565.png "width=500")
+![Create account](../images/create-account-blank.png "width=500")
 
 #### Subscription Id {#WebAppConcepts-SubscriptionId}
 
 The subscription Id can be found on the Settings tab of the Azure Management portal.
 
-![](/docs/images/3049434/3278564.png "width=500")
+![Azure Subscription Id](../images/azure-subscription-id.png "width=500")
 
 #### Management certificate {#WebAppConcepts-Managementcertificate}
 
@@ -65,11 +65,11 @@ del temp.pem
 
 If you allow Octopus Deploy to generate your certificate, you will need to upload the certificate to the Azure Management Portal.  After clicking 'Save', the Account settings page provides instructions for downloading the certificate public-key from Octopus Deploy, and uploading it into the Azure Management Portal.
 
-![](/docs/images/3049434/3278566.png "width=500")
+![Management Certificate](management-cert.png "width=500")
 
 Uploaded certificates can be viewed on the 'Management Certificates' tab of the 'Settings' page in the Azure Management Portal.
 
-![](/docs/images/3049434/3278567.png "width=500")
+![Azure management certificates](../images/azure-portal-certs.png "width=500")
 
 The certificate will be named `Octopus Deploy - {Your Account Name}.`
 
@@ -81,9 +81,9 @@ Octopus Deploy supports automated deployment of [Azure Web Apps](http://azure.m
 
 Add a new 'Deploy an Azure Web App' step to your project. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/adding-steps.md) section.
 
-![](/docs/images/5671696/5865899.png "width=170")
+![Azure Web App tile](/docs/images/5671696/5865899.png "width=170")
 
-![](/docs/images/3049430/3278562.png "width=500")
+![Azure Web App Step](web-app-step.png "width=500")
 
 Once an Account is selected, the list of Azure Web Apps available to the subscription associated with the account will populate the 'Web App' select-list.
 

@@ -13,6 +13,6 @@ You will need a NuGet package containing the web application that you want to de
 
 Upload your NuGet package to the Octopus [built-in package repository](/docs/packaging-applications/package-repositories/index.md):
 
-![](/docs/images/3049356/3278535.png "width=500")
+![Package feed](package-feed.png "width=500")
 
 !partial <content>
