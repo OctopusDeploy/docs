@@ -28,3 +28,4 @@ docs/guides/use-the-team-foundation-build-custom-task/manually-install-the-build
 docs/images/lets-encrypt-integration/configure-lets-encrypt-dialog.png -> docs/administration/lets-encrypt-dialog.png
 docs/images/lets-encrypt-integration/configure-lets-encrypt.png -> docs/administration/lets-encrypt.png
 docs/administration/subscription_events.md -> docs/administration/subscription-events.md
+docs/installation/installing-tentacles/running-tentacle-under-a-specific-user-account-for-use-in-powershell.md -> docs/installation/installing-tentacles/running-tentacle-under-a-specific-user-account.md
