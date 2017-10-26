@@ -10,11 +10,11 @@ We strongly recommend taking the following actions to minimize the migration dur
 
 ## Remove unnecessary data from your 2.6 instance 
 
-Our strongest recommendation is to use [retention-policies](/docs/administration/retention-policies) in your 2.6 instance to remove some data.
+Our strongest recommendation is to use [retention-policies](/docs/administration/retention-policies) in your 2.6 instance to remove unnecessary data.
 
-The goal is for the document count in the 2.6 RavenDB as low as possible.
-You can find the document count by viewing Raven through the Octopus Manager. The document count is in the footer of the RavenDB studio.
-Less than 150k documents is a rule-of-thumb.
+The goal is for the document count in the 2.6 RavenDB to be as low as possible.
+You can find the document count by viewing the RavenDB studio through the Octopus Manager. The document count is in the footer of the RavenDB studio.
+Less than 150k documents is a rough guide, though obviously some customers will simply have more required data than this.
 
 :::hint
 The original complete backup can always be retained if it is required for audit purposes.
@@ -23,12 +23,14 @@ The original complete backup can always be retained if it is required for audit 
 
 ## RAM, RAM and more RAM
 
-The migrator is a memory-hungry process.  Allocate (possibly temporarily) the machine which will execute the migrator process as much memory as possible.  The more memory is available, the faster the process will run.
+The migrator is a memory-hungry process.  Allocate the machine which will execute the migrator process as much memory as possible.  The more memory is available, the faster the process will run.
 
 As a rule-of-thumb: 
 
-- If your .octobak file is > 500MB, allow at least 16GB of RAM 
+- If your .octobak file is >500MB, allow at least 16GB of RAM 
 - If your .octobak file is >1GB, allow at least 32GB of RAM
+
+This RAM is only required for the migration, and can be deallocated once it is complete. 
 
 ## No Logs
 
