@@ -10,7 +10,7 @@ We strongly recommend taking the following actions to minimize the migration dur
 
 ## Remove unnecessary data from your 2.6 instance 
 
-Our strongest recommendation is to use [retention-policies](/docs/administration/retention-policies) in your 2.6 instance to remove unnecessary data.
+Our strongest recommendation is to use [retention-policies](/docs/administration/retention-policies/index.md) in your 2.6 instance to remove unnecessary data.
 
 The goal is for the document count in the 2.6 RavenDB to be as low as possible.
 You can find the document count by viewing the RavenDB studio through the Octopus Manager. The document count is in the footer of the RavenDB studio.
@@ -35,7 +35,7 @@ This RAM is only required for the migration, and can be deallocated once it is c
 ## No Logs
 
 To minimize the initial migration time, you can skip migrating the server-task log files.  
-This option is available as a check-box in the Octopus Manager, or can be supplied as a `--nologs` option if running via the [command-line](/docs/api-and-integration/octopus.migrator.exe-command-line/migrator-import).
+This option is available as a check-box in the Octopus Manager, or can be supplied as a `--nologs` option if running via the [command-line](/docs/api-and-integration/octopus.migrator.exe-command-line/migrator-import.md).
 
 :::hint
 The logs can always be imported later using the `--onlylogs` option if required
