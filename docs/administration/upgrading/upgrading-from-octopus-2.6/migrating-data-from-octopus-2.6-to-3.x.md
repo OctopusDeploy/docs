@@ -14,8 +14,8 @@ When upgrading from Octopus 2.6 to 3.x you can migrate your data. There are some
 - You can optionally limit the days of historical data to migrate - see [below](/docs/administration/upgrading/upgrading-from-octopus-2.6/migrating-data-from-octopus-2.6-to-3.x.md) for more details
 
 :::hint
-**RAM Requirements**
-Where the .octobak file is greater than 600mb, you should upgrade your system RAM to at least 16GB. This will save a considerable amount of time with the migration. This is only required during the migration and the RAM can be scaled back down afterwards if needed.
+** The migrator can take a long time **
+Please see our [tips for minimizing the migration duration](minimize-migration-time.md).
 :::
 
 ## Importing your 2.6 Backup into 3.x {#MigratingdatafromOctopus2.6to3.x-Importingyour2.6Backupinto3.x}
