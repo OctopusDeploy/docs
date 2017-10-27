@@ -1,7 +1,7 @@
 
 ## Create an account {#GettingstartedwithAzureWebApps-Createanaccount}
 
-To set up a new Azure Subscription, follow the directions in [Creating an Azure Account](https://octopus.com/docs/v/4.0/guides/azure-deployments/creating-an-azure-account).
+To set up a new Azure account, follow the directions in [Creating an Azure Account](/docs/guides/azure-deployments/creating-an-azure-account/index.md).
 
 ## Create an environment {#GettingstartedwithAzureWebApps-Createanenvironment}
 

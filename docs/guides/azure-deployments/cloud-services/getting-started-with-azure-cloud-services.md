@@ -18,17 +18,7 @@ Upload your NuGet package to the Octopus [built-in package repository](/docs/pac
 
 ## Create an account {#GettingstartedwithAzureCloudServices-Createanaccount}
 
-In Octopus Deploy, select Accounts:
-
-![Accounts](../images/account-link.png "width=500")
-
-Add an Azure Subscription account and fill in your account details:
-
-![](create-management-cert.png "width=500")
-
-If you are allowing Octopus to generate a management certificate for you, first save the account and then upload the generated certificate to your Azure management certificates in the Azure Portal. To download the generated certificate, click on the public key value that is displayed in step 1 of the upload instructions shown above.
-
-![Upload certificate](../images/azure-cert-upload.png "width=500")
+To set up a new Azure Management Certificate account, follow the directions in [Creating an Azure Management Certificate  Account](/docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-management-certificate-account.md).
 
 ## Create an environment {#GettingstartedwithAzureCloudServices-Createanenvironment}
 
