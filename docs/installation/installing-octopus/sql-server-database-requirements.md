@@ -6,7 +6,7 @@ position: 0
 
 Octopus Deploy stores projects, environments, and deployment history in a Microsoft SQL Server database.
 
-## Supported versions and editions {#SQLServerDatabaseRequirements-Supportedversionsandeditions}
+## Supported Versions and Editions {#SQLServerDatabaseRequirements-Supportedversionsandeditions}
 
 Octopus works with a wide range of versions and editions of SQL Server, from a local SQL Server Express instance, all the way to an Enterprise Edition cluster, or hosted database-as-a-service. The following versions/editions are supported:
 
@@ -33,7 +33,7 @@ We automatically test every release of Octopus Server against each of these data
 
 The easiest, and cheapest way to get started is [download SQL Server Express](http://downloadsqlserverexpress.com/) and install Octopus Server and SQL Server Express side-by-side on your machine/server. This is a great way to test Octopus for a proof of concept. Depending on your needs, you might decide to use SQL Server Express, or upgrade to another supported edition.
 
-## Creating the database
+## Creating the Database
 
 The Octopus installation wizard can create the database for you (our preferred method). Otherwise you can point Octopus to an existing database. Octopus works with both local and remote database servers, but it is worth considering the [performance implications](/docs/administration/performance.md) before making a decision.
 
@@ -41,7 +41,7 @@ The Octopus installation wizard can create the database for you (our preferred m
 If you are using a hosted database service you will need to [create your own database](#create-your-own) and provide Octopus with the connection details.
 :::
 
-### Let the Octopus setup wizard create the database
+### Let the Octopus Setup Wizard Create the Database
 
 1. Start the Octopus Server setup wizard
     - The user running the wizard must have the privileges on your SQL Server to create databases and grant permissions
@@ -52,7 +52,7 @@ If you are using a hosted database service you will need to [create your own dat
 
 ![](/docs/images/3048120/3278498.png "width=500")
 
-### Create your own database {#create-your-own}
+### Create Your Own Database {#create-your-own}
 
 If you need to create the database yourself:
 
@@ -70,6 +70,6 @@ If you need to create the database yourself:
 See [here](/docs/administration/octopus-database/changing-the-collation-of-the-octopus-database.md) for information about changing the database collation after the initial Octopus installation.
 :::
 
-## Database administration and maintenance
+## Database Administration and Maintenance
 
 For more information about maintaining your Octopus database please read our [database administrators guide](/docs/administration/octopus-database/index.md).
