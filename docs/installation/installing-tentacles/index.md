@@ -27,12 +27,12 @@ In essence, Tentacle is a job runner. It waits for Octopus to give it a job (dep
 
 Tentacle uses a pretty small amount of memory when idle, usually around 10MB (it may appear higher in task manager because memory is shared with other .NET processes that are running). When deploying, depending on what happens during the deployment, this may expand to 60-100MB, and will then go back down after the deployment is complete. Tentacle will happily run on single-core machines, and only uses about 100MB of disk space, though of course you'll need more than that to deploy your applications.
 
-## Installation {#InstallingTentacles-Installation}
 
-:::success
-**Download the Tentacle MSI**
-The latest Tentacle MSI can always be [downloaded from the Octopus Deploy downloads page](https://octopus.com/downloads).
-:::
+## Download the Tentacle Installer
+
+The latest Octopus Tentacle MSI can always be [downloaded from the Octopus Deploy downloads page](https://octopus.com/downloads). You can also download any [previous releases](https://octopus.com/downloads/previous) from our archive.
+
+## Installation {#InstallingTentacles-Installation}
 
 Octopus and Tentacle can be configured to communicate two different ways depending on your network setup. The mode you are using will change the installation process slightly.
 
