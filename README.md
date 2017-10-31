@@ -27,7 +27,7 @@ version: "[3.0,4.0)"
 ```
 
 ### Title
-Required. Used for the web page title tag `<head><title>`, displayed in the page content
+Required. Used for the web page title tag `<head><title>`, displayed in the page content. Please use Title Case for titles. If you're not sure what makes title case, there are a few converters online, for instance: http://titlecaseconverter.com/
 
 ### Description
 Required. Used for the meta description tag (`<meta name="description" />`).
