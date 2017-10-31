@@ -10,13 +10,13 @@ There are several core concepts involved in deploying Azure Web Apps.  Read on f
 
 In order to deploy Cloud Services they must be packaged into the Cloud Service .cspkg format and then packaged inside an Octopus compatible NuGet package.
 
-### Generate a Cloud Service package {#CloudServiceConcepts-GenerateaCloudServicepackage}
+### Generate a Cloud Service Package {#CloudServiceConcepts-GenerateaCloudServicepackage}
 
 Packaging into a .cspkg can be done in Visual Studio by right-clicking on the Cloud Service and selecting "Package...".  This action with generate a .cspkg and .cscfg file which can be deployed to Azure Cloud Services.
 
 ![Packaging an Azure Cloud Service](vs-package.png "width=500")
 
-### Generate a NuGet package {#CloudServiceConcepts-GenerateaNuGetpackage}
+### Generate a NuGet Package {#CloudServiceConcepts-GenerateaNuGetpackage}
 
 Octopus requires additional metadata that is not present in the .cspkg file.  The .cspkg and .cscfg must be packaged into a NuGet package for use by Octopus. The easiest way generate a NuGet package is to use the [Octo.exe](/docs/packaging-applications/nuget-packages/using-octo.exe.md) command line tool:
 
@@ -32,13 +32,13 @@ Octo.exe will generate a NuGet package containing the .cspkg and .cscfg files:
 
 Here is a sample Cloud Service NuGet package: [HelloCloud.1.0.0.nupkg](https://download.octopusdeploy.com/demo/HelloCloud.1.0.0.nupkg)
 
-### Upload to a NuGet feed {#CloudServiceConcepts-UploadtoaNuGetfeed}
+### Upload to a NuGet Feed {#CloudServiceConcepts-UploadtoaNuGetfeed}
 
 In order to make the NuGet package accessible to Octopus it needs to be uploaded to a [package repository](/docs/packaging-applications/package-repositories/index.md). The built-in Octopus package repository is accessible from Library > Packages and is a suitable place to upload your Cloud Service NuGet package:
 
 ![Package feed](package-feed.png "width=500")
 
-## Cloud Service accounts {#CloudServiceConcepts-CloudServiceAccounts}
+## Cloud Service Accounts {#CloudServiceConcepts-CloudServiceAccounts}
 
 To set up a new Azure Management Certificate account, follow the directions in [Creating an Azure Management Certificate  Account](/docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-management-certificate-account.md).
 
@@ -75,7 +75,7 @@ If 'Always deploy' is select, the package will always be deployed to the selecte
 
 If 'Swap staging to production if possible' is selected and the selected Slot is Production, then a swap will occur between Production and Staging (if there is a deployment in the Staging slot). See [VIP Swap](/docs/guides/azure-deployments/cloud-services/vip-swap.md) for more information on how to configure a VIP swap.
 
-#### Instance count {#CloudServiceConcepts-Instancecount}
+#### Instance Count {#CloudServiceConcepts-Instancecount}
 
 If you have scaled your Windows Azure service using the management portal (for example, changing the role count from 1 to 4), during a deployment Octopus can be configured to keep the existing instance counts rather than using the instance counts defined in your cloud service configuration file.
 
@@ -85,7 +85,7 @@ Any of the fields above can be switched to use a custom expression by clicking t
 
 ![](vip-swap-binding-pointer.png "width=500")
 
-### Deployment process {#CloudServiceConcepts-Deploymentprocess}
+### Deployment Process {#CloudServiceConcepts-Deploymentprocess}
 
 Deployment to an Azure Cloud Service target proceeds as follows (more details provided below):
 
@@ -111,7 +111,7 @@ To extract the Cloud Service Package, it is first converted to the CTP format (a
 
 Setting the `Octopus.Action.Azure.LogExtractedCspkg` variable to `true` will cause the layout of the extracted package to be written into the Task Log. This may assist with finding the path to a particular file.
 
-#### Variable substitutions in Cloud Service configuration file {#CloudServiceConcepts-VariablesubstitutionsinCloudServiceconfigurationfile}
+#### Variable Substitutions in Cloud Service Configuration File {#CloudServiceConcepts-VariablesubstitutionsinCloudServiceconfigurationfile}
 
 Octopus will attempt to modify your `.cscfg` file. For example, take the following configuration:
 
@@ -136,7 +136,7 @@ Octopus will attempt to modify your `.cscfg` file. For example, take the follo
 
 If a variable named `HelloMessage` is defined in your Octopus project variables, Octopus will automatically update it in the configuration file. You can also name the variable `Humpty.Worker/HelloMessage` to scope the setting to a specific web/worker role.
 
-#### Customizing the deployment process {#CloudServiceConcepts-Customizingthedeploymentprocess}
+#### Customizing the Deployment Process {#CloudServiceConcepts-Customizingthedeploymentprocess}
 
 The deployment is performed using a PowerShell script called `DeployToAzure.ps1`. If a file with this name exists within your NuGet package, Octopus will invoke it. Otherwise, Octopus will use a bundled version of the script as a default. You can **[view the bundled script here](https://github.com/OctopusDeploy/Calamari/blob/ce3b69e94b60c8c73619bc584eca52e11c68930a/source/Calamari.Azure/Scripts/DeployAzureCloudService.ps1)**, and use it as a basis for creating your own custom deployment script.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure deployments
+title: Azure Deployments
 description: Octopus Deploy provides first-class support for deploying Azure Cloud Services and Azure Web Applications.
 position: 0
 ---

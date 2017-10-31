@@ -43,7 +43,7 @@ $password = "correct horse battery staple"
 Login-AzureRMAccount
 Set-AzureRMContext -SubscriptionId $subscriptionId -TenantId $tenantId
 
-# Create an Octopus Deploy application in Active Directory
+# Create an Octopus Deploy Application in Active Directory
 Write-Output "Creating AAD application..."
 $azureAdApplication = New-AzureRmADApplication -DisplayName "Octopus Deploy" -HomePage "http://octopus.com" -IdentifierUris "http://octopus.com" -Password $password
 $azureAdApplication | Format-Table
@@ -53,16 +53,16 @@ Write-Output "Creating AAD service principal..."
 $servicePrincipal = New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
 $servicePrincipal | Format-Table
 
-# Sleep, to ensure the Service Principal is actually created
+# Sleep, to Ensure the Service Principal is Actually Created
 Write-Output "Sleeping for 10s to give the service principal a chance to finish creating..."
 Start-Sleep -s 10
  
-# Assign the Service Principal the Contributor role to the subscription.
-# Roles can be granted at the Resource Group level if desired.
+# Assign the Service Principal the Contributor Role to the Subscription.
+# Roles can be Granted at the Resource Group Level if Desired.
 Write-Output "Assigning the Contributor role to the service principal..."
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $azureAdApplication.ApplicationId
 
-# The Application ID (aka Client ID) will be required when creating the Account in Octopus Deploy
+# The Application ID (aka Client ID) will be Required When Creating the Account in Octopus Deploy
 Write-Output "Client ID: $($azureAdApplication.ApplicationId)"
 ```
 
@@ -94,15 +94,15 @@ Using the PowerShell script in option 1, you can specify the expiry date by addi
 Using option 2, the Azure portal will allow you to select the expiry time when creating the key. 
 :::
 
-## Step 2: Allow Octopus to authenticate with Azure using a Service Principal {#CreatinganAzureServicePrincipalAccount-authenticate-with-service-principalStep2:AllowOctopustoauthenticatewithAzureusingaServicePrincipal}
+## Step 2: Allow Octopus to Authenticate with Azure using a Service Principal {#CreatinganAzureServicePrincipalAccount-authenticate-with-service-principalStep2:AllowOctopustoauthenticatewithAzureusingaServicePrincipal}
 
 !partial <add>
 
-## Creating a new Service Principal Credential {#CreatingAnAzureServicePrincipalCredential}
+## Creating a New Service Principal Credential {#CreatingAnAzureServicePrincipalCredential}
 
 If you need to create a new **Service Principal Credential**, this can also be done either via PowerShell or the Azure Portal.
 
-### Step 1: Creating a new AAD Service Principal Credential
+### Step 1: Creating a New AAD Service Principal Credential
 
 #### Option 1: Use PowerShell {#CreatinganAzureServicePrincipalCredential-Option1:UsePowerShell}
 The following PowerShell script will create an additional credential under the existing AAD application
@@ -137,7 +137,7 @@ $servicePrincipalCred | Format-Table
 
 For the Azure Portal steps, create a new Key using the directions [here](https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/).
 
-### Step 2: Updating the password/key in the Octopus Azure Subscriptions
+### Step 2: Updating the Password/Key in the Octopus Azure Subscriptions
 
 Navigate to {{Environments,Accounts}} and click on the account you wish to update in the *Azure Subscriptions* section.
 

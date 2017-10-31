@@ -1,5 +1,5 @@
 ---
-title: Getting started with Azure Cloud Services
+title: Getting Started with Azure Cloud Services
 description: This guide will help you deploy your first Azure Cloud Service application with Octopus Deploy.
 position: 0
 ---
@@ -8,7 +8,7 @@ This guide will help you deploy your first Azure Cloud Service application using
 
 In order to complete this guide you will need to have an Azure account and create an Azure Cloud Service and Azure Storage Account. Please refer to the [Azure documentation](https://azure.microsoft.com/en-us/documentation/) for completing these steps.  In this guide the Cloud Service is called hello-octopus and the storage account is called octostore.
 
-## Create a package {#GettingstartedwithAzureCloudServices-Createapackage}
+## Create a Package {#GettingstartedwithAzureCloudServices-Createapackage}
 
 You will need a NuGet package containing the Azure Cloud Service application you want to deploy.  The NuGet package contains the .cspkg and .cscfg files that are published from Visual Studio. Here is one we prepared earlier that you can use for this guide: [HelloCloud.1.0.0.nupkg](https://download.octopusdeploy.com/demo/HelloCloud.1.0.0.nupkg)
 
@@ -16,17 +16,17 @@ Upload your NuGet package to the Octopus [built-in package repository](/docs/pac
 
 ![Package feed](package-feed.png "width=500")
 
-## Create an account {#GettingstartedwithAzureCloudServices-Createanaccount}
+## Create an Account {#GettingstartedwithAzureCloudServices-Createanaccount}
 
 To set up a new Azure Management Certificate account, follow the directions in [Creating an Azure Management Certificate  Account](/docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-management-certificate-account.md).
 
-## Create an environment {#GettingstartedwithAzureCloudServices-Createanenvironment}
+## Create an Environment {#GettingstartedwithAzureCloudServices-Createanenvironment}
 
 In order to deploy a Cloud Service we require an Octopus environment to deploy to. Cloud Services have slots which map nicely to environments. Create a new environment called "Staging":
 
 ![Create environment](create-env.png "width=500")
 
-## Create a project {#GettingstartedwithAzureCloudServices-Createaproject}
+## Create a Project {#GettingstartedwithAzureCloudServices-Createaproject}
 
 Now have the NuGet package we want to deploy, the account we are going to use for the deployment and an environment to deploy to, all we need is a project to do all the work.  Create a new project:
 
