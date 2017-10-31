@@ -47,7 +47,7 @@ Some versions of Octopus Server require a different minimum version of the .NET 
 
 Whilst Octopus Server will run on "Windows Server Core", the easiest installation path is to use "Windows Server with a GUI" and run our installation wizard. If you want to use "Windows Server Core" you will need to add some missing Windows Features and configure Octopus Server yourself. Learn about [automating installation](/docs/installation/installing-octopus/automating-installation.md).
 
-## Downloading the Installer
+## Download the Installer
 
 The latest Octopus Deploy MSI can always be [downloaded from the Octopus Deploy downloads page](https://octopus.com/downloads). You can also download any [previous releases](https://octopus.com/downloads/previous) from our archive.
 
