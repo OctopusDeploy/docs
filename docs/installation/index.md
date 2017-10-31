@@ -7,7 +7,7 @@ description: This section walks you through installation of Octopus and Tentacle
 Installing Octopus Deploy involves three main steps:
 
 1. Install the central [Octopus Deploy Server](/docs/installation/installing-octopus/index.md).
-2. Install the [Tentacle deployment agent](/docs/installation/installing-tentacles/index.md) on any machine you plan to deploy software to.
+2. Install the [Tentacle Deployment Agent](/docs/installation/installing-tentacles/index.md) on any machine you plan to deploy software to.
 3. Decide [where to store your packages](/docs/packaging-applications/package-repositories/index.md).
 
 ## Upgrading {#Installation-Upgrading}
