@@ -53,7 +53,7 @@ This launches the proxy settings wizard which will let you setup the proxy used 
 
 Configuring the proxy used by the Octopus Server to make web requests is done in the same manner, using the Octopus Manager application.
 
-## Choosing a proxy server {#Choosing-a-proxy-server}
+## Choosing a Proxy Server {#Choosing-a-proxy-server}
 
  **Any** HTTP proxy should work as long as it supports HTTPS/SSL. We recommend selecting and configuring the HTTP proxy server which best suits your security requirements. Every release of Octopus Deploy is automatically tested against a [squid proxy](http://www.squid-cache.org/), and has been proven to work with [CCProxy](http://www.youngzsoft.net/ccproxy/) and [WinGate Proxy Server](http://www.wingate.com/products/wingate/index.php) to name just a few options.
  
@@ -61,7 +61,7 @@ Configuring the proxy used by the Octopus Server to make web requests is done in
 Do not enable SSL offloading for Tentacle Communication - the Tentacle communication protocol uses Client Certificate Authentication and requires an uninterrupted TLS tunnel.
 :::
 
-## Which proxy should I configure? {#ProxySupport-WhichproxyshouldIconfigure?}
+## Which Proxy Should I Configure? {#ProxySupport-WhichproxyshouldIconfigure?}
 
 Depending on the context of the operation you are trying to perform, you will need to configure different components in your Octopus Deploy installation.
 
@@ -81,18 +81,18 @@ The Octopus Server will query your external Docker Registry when creating releas
 
 The Docker steps will access your external Docker Registry when deploying. You should configure the Web Request Proxy using the Tentacle Manager on each of your Tentacles as required.
 
-### Making web requests from Custom Scripts {#ProxySupport-MakingwebrequestsfromCustomScripts}
+### Making Web Requests From Custom Scripts {#ProxySupport-MakingwebrequestsfromCustomScripts}
 
 You should configure the Web Request Proxy using either the Octopus Server Manager or Tentacle Manager depending on where your custom script actually executes.
 
-### Configuring a Polling Tentacle to communicate via proxy {#ProxySupport-ConfiguringaPollingTentacletocommunicateviaproxy}
+### Configuring a Polling Tentacle to Communicate via Proxy {#ProxySupport-ConfiguringaPollingTentacletocommunicateviaproxy}
 
 You should use the Tentacle Manager to configure the Polling Tentacle Proxy Settings. See above for an example of configuring a Polling Tentacle.
 
-### Configuring a Listening Tentacle to communicate via proxy {#ProxySupport-ConfiguringaListeningTentacletocommunicateviaproxy}
+### Configuring a Listening Tentacle to Communicate via Proxy {#ProxySupport-ConfiguringaListeningTentacletocommunicateviaproxy}
 
 You should configure a Proxy in your Octopus Server, and configure the Listening Tentacle Deployment Target to use that Proxy. See above for an example of configuring a Listening Tentacle.
 
-### Configuring a proxy for communicating with an SSH target {#ProxySupport-ConfiguringaproxyforcommunicatingwithanSSHtarget}
+### Configuring a Proxy for Communication with an SSH Target {#ProxySupport-ConfiguringaproxyforcommunicatingwithanSSHtarget}
 
 You should configure a Proxy in your Octopus Server, and configure the SSH Deployment Target to use that Proxy. See above for an example of configuring an SSH endpoint.
