@@ -18,7 +18,7 @@ To successfully install Octopus Server you will need:
 - A Windows Server with the correct version of .NET Framework installed (see below)
 - A Microsoft SQL Server instance which can be accessed by your Octopus Server ([more details](/docs/installation/installing-octopus/sql-server-database-requirements.md))
 
-### Hardware requirements
+### Hardware Requirements
 
 There is no "one size fits all" approach for Octopus Server. The best approach is to start with a working Octopus Server, start deploying your applications while monitoring your server statistics, and scale from there.
 
@@ -28,7 +28,7 @@ There is no "one size fits all" approach for Octopus Server. The best approach i
 
 Learn about [Octopus Server performance](/docs/administration/performance.md).
 
-### Windows Server requirements
+### Windows Server Requirements
 
 Octopus Server can be installed on the following versions of Windows Server:
 
@@ -47,7 +47,7 @@ Some versions of Octopus Server require a different minimum version of the .NET 
 
 Whilst Octopus Server will run on "Windows Server Core", the easiest installation path is to use "Windows Server with a GUI" and run our installation wizard. If you want to use "Windows Server Core" you will need to add some missing Windows Features and configure Octopus Server yourself. Learn about [automating installation](/docs/installation/installing-octopus/automating-installation.md).
 
-## Downloading the installer
+## Downloading the Installer
 
 The latest Octopus Deploy MSI can always be [downloaded from the Octopus Deploy downloads page](https://octopus.com/downloads). You can also download any [previous releases](https://octopus.com/downloads/previous) from our archive.
 
