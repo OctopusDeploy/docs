@@ -51,7 +51,7 @@ Whilst Octopus Server will run on "Windows Server Core", the easiest installatio
 
 The latest Octopus Deploy MSI can always be [downloaded from the Octopus Deploy downloads page](https://octopus.com/downloads). You can also download any [previous releases](https://octopus.com/downloads/previous) from our archive.
 
-If you plan to [script your installation](/docs/installation/installing-octopus/automating-installation.md), you can use one of these [permalinks](/docs/installation#download-permalinks) to automate the download.
+If you plan to [script your installation](/docs/installation/installing-octopus/automating-installation.md), you can use one of these [permalinks](/docs/installation/index#download-permalinks) to automate the download.
 
 ## Installation {#InstallingOctopus-Installation}
 
