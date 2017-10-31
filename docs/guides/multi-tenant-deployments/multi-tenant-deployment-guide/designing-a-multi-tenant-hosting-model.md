@@ -9,20 +9,20 @@ Previous step: [Working with groups of tenants using tags](/docs/guides/multi-t
 This page describes how to design and implement both **dedicated** and **shared** multi-tenant hosting models using [Environments](/docs/key-concepts/environments/index.md), [Deployment Targets](/docs/deployment-targets/index.md) and [Accounts](/docs/key-concepts/environments/accounts/index.md) and [Tenant Tags](/docs/key-concepts/tenants/tenant-tags.md).
 
 :::hint
-**Tenanted and un-tenanted deployments**
-In this section we will focus on tenanted deployments, but un-tenanted deployments deserve some explanation with regards to hosting. Un-tenanted deployments provide a way for you to start introducing tenants into your existing Octopus configuration. An un-tenanted deployment is just like good old Octopus - a deployment to an environment **without** a tenant. Octopus decides which deployment targets to include in a deployment like this:
+**Tenanted and untenanted deployments**
+In this section we will focus on tenanted deployments, but untenanted deployments deserve some explanation with regards to hosting. Untenanted deployments provide a way for you to start introducing tenants into your existing Octopus configuration. An untenanted deployment is just like good old Octopus - a deployment to an environment **without** a tenant. Octopus decides which deployment targets to include in a deployment like this:
 
 - **Tenanted deployments** will use **matching tenanted deployment targets**
-- **Un-tenanted deployments** will only use **un-tenanted deployment targets**
+- **Untenanted deployments** will only use **untenanted deployment targets**
 
-We talk more about tenanted and un-tenanted deployments in [Deploying a simple multi-tenant project](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md).
+We talk more about tenanted and untenanted deployments in [Deploying a simple multi-tenant project](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md).
 :::
 
 :::warning
-**Mixing tenanted and un-tenanted deployments on the same machine**
-In Octopus 3.4 you cannot mix tenanted and un-tenanted deployments on the same machine(s). This was a design decision we made based on feedback and testing during the Octopus 3.4 beta program - to be safe by default. We are planning to implement some features to enable mixing and matching both tenanted and un-tenanted deployments on the same machine, and you can get involved by following this [GitHub Issue](https://github.com/OctopusDeploy/Issues/issues/2722).
+**Mixing tenanted and untenanted deployments on the same machine**
+In Octopus 3.4 you cannot mix tenanted and untenanted deployments on the same machine(s). This was a design decision we made based on feedback and testing during the Octopus 3.4 beta program - to be safe by default. We are planning to implement some features to enable mixing and matching both tenanted and untenanted deployments on the same machine, and you can get involved by following this [GitHub Issue](https://github.com/OctopusDeploy/Issues/issues/2722).
 
-In the meantime you can work around this by creating a single dummy tenant for your un-tenanted project as described in that GitHub Issue.
+In the meantime you can work around this by creating a single dummy tenant for your untenanted project as described in that GitHub Issue.
 :::
 
 ## Multi-tenant hosting {#Designingamulti-tenanthostingmodel-Multi-tenanthosting}
