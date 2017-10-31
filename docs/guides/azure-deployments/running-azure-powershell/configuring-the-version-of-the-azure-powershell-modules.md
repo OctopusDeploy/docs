@@ -1,5 +1,5 @@
 ---
-title: Configuring the version of the Azure PowerShell modules
+title: Configuring the Version of the Azure PowerShell Modules
 description: A version of Azure PowerShell is bundled with Octopus Deploy and it's possible to configure which version you wish to use in your deployments.
 ---
 

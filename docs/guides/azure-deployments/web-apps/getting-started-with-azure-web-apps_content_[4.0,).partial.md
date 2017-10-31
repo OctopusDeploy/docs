@@ -1,15 +1,15 @@
 
-## Create an account {#GettingstartedwithAzureWebApps-Createanaccount}
+## Create an Account {#GettingstartedwithAzureWebApps-Createanaccount}
 
 To set up a new Azure account, follow the directions in [Creating an Azure Account](/docs/guides/azure-deployments/creating-an-azure-account/index.md).
 
-## Create an environment {#GettingstartedwithAzureWebApps-Createanenvironment}
+## Create an Environment {#GettingstartedwithAzureWebApps-Createanenvironment}
 
 In order to deploy a Web App we require an Octopus environment to deploy to. Under {{Infrastructure, Environments}}, create a new environment called "Staging":
 
 ![Create environment](create-env.png "width=500")
 
-## Create a project {#GettingstartedwithAzureWebApps-Createaproject}
+## Create a Project {#GettingstartedwithAzureWebApps-Createaproject}
 
 We now have the NuGet package we want to deploy, the account we are going to use for the deployment and an environment to deploy to: all we need is a project to do all the work.  Create a new project:
 

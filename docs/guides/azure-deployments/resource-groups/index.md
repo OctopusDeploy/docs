@@ -1,5 +1,5 @@
 ---
-title: Deploy using an Azure Resource Group Template
+title: Deploy Using an Azure Resource Group Template
 description: Deploy using an Azure Resource Group Templates.
 ---
 
@@ -139,7 +139,7 @@ The Parameter JSON file can be in one of two formats:
 
 ```
 
-### Accessing ARM template output parameters {#DeployusinganAzureResourceGroupTemplate-AccessingARMtemplateoutputparameters}
+### Accessing ARM Template Output Parameters {#DeployusinganAzureResourceGroupTemplate-AccessingARMtemplateoutputparameters}
 
 Any [outputs](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/#outputs) from the ARM template step are made available as [Octopus output-variables](/docs/deploying-applications/variables/output-variables.md) automatically. For example, an output `Foo` would be available as:
 
@@ -147,7 +147,7 @@ Any [outputs](https://azure.microsoft.com/en-us/documentation/articles/resource-
 Octopus.Action[ArmTemplateStepName].Output.AzureRMOutputs[Foo]
 ```
 
-### Using linked templates {#DeployusinganAzureResourceGroupTemplate-Usinglinkedtemplates}
+### Using Linked Templates {#DeployusinganAzureResourceGroupTemplate-Usinglinkedtemplates}
 
 Azure Resource Manager supports the concept of [linking templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-linked-templates). In this model you create a "master" template which links to other templates and parameters files via URI. This can be a really useful way to break your ARM templates into manageable components. In this case you would configure Octopus to deploy your "master" template, and the Azure Resource Manager will download any linked templates and parameters files as required to complete the deployment.
 
