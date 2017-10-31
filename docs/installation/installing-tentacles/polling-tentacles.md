@@ -35,7 +35,7 @@ This three minute video (with captions) will walk you through the process of ins
 
 <iframe src="//fast.wistia.net/embed/iframe/lcvaq44184" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="360" style="margin: 30px"></iframe>
 
-## Firewall changes {#PollingTentacles-Firewallchanges}
+## Firewall Changes {#PollingTentacles-Firewallchanges}
 
 To allow Tentacle to connect to your Octopus Deploy server, you'll need to allow access to port **10943** on the Octopus server (or the port you selected during the installation wizard - port 10943 is just the default). You will also need to allow Tentacle to access the Octopus HTTP web portal (typically port **80** or **443** - these bindings are selected when you [install the Octopus Deploy server](/docs/installation/installing-octopus/index.md)).
 
