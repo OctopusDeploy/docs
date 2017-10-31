@@ -35,18 +35,18 @@ The latest Tentacle MSI can always be [downloaded from the Octopus Deploy downlo
 This four minute video (with captions) will walk you through the process of installing a Tentacle in listening mode, and registering it with your [Octopus Deploy server](/docs/installation/installing-octopus/index.md).
 <iframe src="//fast.wistia.net/embed/iframe/qp12uky9qy" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="360" style="margin: 30px"></iframe>
 
-## Firewall changes {#ListeningTentacles-Firewallchanges}
+## Firewall Changes {#ListeningTentacles-Firewallchanges}
 
 To allow your Octopus Deploy server to connect to the Tentacle, you'll need to allow access to TCP port **10933** on the Tentacle (or the port you selected during the installation wizard - port 10933 is just the default).
 
 Using listening mode, you won't typically need to make any firewall changes on the Octopus Deploy server.
 
 :::success
-**Intermediary firewalls**
+**Intermediary Firewalls**
 Don't forget to allow access not just in Windows Firewall, but also any intermediary firewalls between the Octopus server and your Tentacle. For example, if your Tentacle server is hosted in Amazon EC2, you'll also need to modify the AWS security group firewall to tell EC2 to allow the traffic. Similarly if your Tentacle server is hosted in Microsoft Azure you'll also need to add an Endpoint to tell Azure to allow the traffic.
 :::
 
-## Troubleshooting connections {#ListeningTentacles-Troubleshootingconnections}
+## Troubleshooting Connections {#ListeningTentacles-Troubleshootingconnections}
 
 We have provided a detailed guide for [Troubleshooting Listening Tentacles](/docs/how-to/troubleshoot-listening-tentacles.md) but feel free to start with these simple steps.
 
