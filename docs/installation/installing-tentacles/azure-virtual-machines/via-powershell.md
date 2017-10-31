@@ -1,5 +1,5 @@
 ---
-title: Installing the Tentacle VM Extension via Poweshell
+title: Installing the Tentacle VM Extension via PowerShell
 description: How to install the Tentacle VM Extension using the Powershell
 position: 3
 ---
@@ -8,7 +8,7 @@ The Azure VM Extension can be added to your virtual machine using the Azure Powe
 
 Refer to the [configuration structure](configuration-structure.md) for information regarding the format of the `publicSettings.json` and `privateSettings.json` files mentioned in these examples.
 
-## Azure Service Management (ASM) mode {#AzureVirtualMachines-AzureServiceManagement}
+## Azure Service Management (ASM) Mode {#AzureVirtualMachines-AzureServiceManagement}
 
 To install the extension on a VM:
 

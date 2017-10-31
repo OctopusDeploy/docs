@@ -1,5 +1,5 @@
 ---
-title: Packaging applications
+title: Packaging Applications
 description: Applications executables, configuration files, scripts need to be packaged and versioned so they can be deployed.
 position: 3
 ---
@@ -15,7 +15,7 @@ Originally, Octopus Deploy supported only [NuGet packages](/docs/packaging-appli
 While some of our documentation may still refer to NuGet packages specifically, all packages are generally treated the same.
 :::
 
-## Creating packages {#Packagingapplications-Creatingpackages}
+## Creating Packages {#Packagingapplications-Creatingpackages}
 
 The first thing you must do is [choose a package ID](/docs/packaging-applications/package-id.md).
 
@@ -32,15 +32,15 @@ How you create your packages depends on which package type you wish to create. O
 As long as you can create one of our [supported packages](/docs/packaging-applications/supported-packages.md), you can deploy your application with Octopus Deploy!
 
 :::success
-**Choosing the best versioning scheme**
+**Choosing the  best versioning scheme**
 When creating your packages you will need to choose a versioning scheme that is supported by Octopus Deploy and suits your needs. Learn about [versioning in Octopus Deploy](/docs/packaging-applications/versioning-in-octopus-deploy.md).
 :::
 
-## Hosting packages {#Packagingapplications-Hostingpackages}
+## Hosting Packages {#Packagingapplications-Hostingpackages}
 
 Packages are kept in package repositories (or external feeds). A repository can be as simple as a file share, or it could be a dedicated server. For more information, see the section on [choosing a package repository](/docs/packaging-applications/package-repositories/index.md).
 
-## What's in a package? {#Packagingapplications-What&#39;sinapackage?}
+## What's in a Package? {#Packagingapplications-What&#39;sinapackage?}
 
 Octopus expects your package to contain all of the files needed to run the application when it is deployed (along with [any scripts needed for deployment](/docs/deploying-applications/custom-scripts/index.md), and any [configuration transformation files](/docs/deploying-applications/configuration-files/index.md), etc).
 
