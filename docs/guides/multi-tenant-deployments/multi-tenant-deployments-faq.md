@@ -77,11 +77,11 @@ Yes! Each project can control its interaction with tenants. By default the multi
 
 ![](/docs/images/5669243/5865711.png)
 
-## What is an "un-tenanted deployment"? Don't I have to choose a tenant when deploying my project? {#Multi-tenantdeploymentsFAQ-Whatisan&quot;un-tenanteddeployment&quot;?Don&#39;tIhavetochooseatenantwhendeployingmyproject?}
+## What is an "untenanted deployment"? Don't I have to choose a tenant when deploying my project? {#Multi-tenantdeploymentsFAQ-Whatisan&quot;un-tenanteddeployment&quot;?Don&#39;tIhavetochooseatenantwhendeployingmyproject?}
 
-When you first enable multi-tenant deployments you won't have any tenants, and we don't want that to stop you from deploying your existing projects. Perhaps you are using an environment-per-tenant model and will migrate to tenants over a period of time, so some deployments will start to have a tenant whilst others do not. Essentially an "un-tenanted deployment" is the same kind of deployment Octopus always performed: *there is no tenant for this deployment*. When you deploy using a tenant Octopus includes variables from the tenant, and the selected tenant can impact which steps are run, which variable values are used, and which deployment targets are included, at your discretion. For more information refer to [deploying a simple multi-tenant project](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md).
+When you first enable multi-tenant deployments you won't have any tenants, and we don't want that to stop you from deploying your existing projects. Perhaps you are using an environment-per-tenant model and will migrate to tenants over a period of time, so some deployments will start to have a tenant whilst others do not. Essentially an "untenanted deployment" is the same kind of deployment Octopus always performed: *there is no tenant for this deployment*. When you deploy using a tenant Octopus includes variables from the tenant, and the selected tenant can impact which steps are run, which variable values are used, and which deployment targets are included, at your discretion. For more information refer to [deploying a simple multi-tenant project](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md).
 
-## Can I prevent "un-tenanted deployments" of a project? {#Multi-tenantdeploymentsFAQ-CanIprevent&quot;un-tenanteddeployments&quot;ofaproject?}
+## Can I prevent "untenanted deployments" of a project? {#Multi-tenantdeploymentsFAQ-CanIprevent&quot;un-tenanteddeployments&quot;ofaproject?}
 
 Yes. Choose the **Require a tenant for all deployments** option in the Project settings. For more information refer to [deploying a simple multi-tenant project](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md).
 
@@ -89,11 +89,11 @@ Yes. Choose the **Require a tenant for all deployments** option in the Project s
 
 Yes, see the previous question. For more information refer to [deploying a simple multi-tenant project](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md).
 
-## Can I deploy a tenanted project onto an un-tenanted machine?
+## Can I deploy a tenanted project onto an untenanted machine?
 
 Yes! We shipped support for this in [Octopus 3.15](https://octopus.com/blog/octopus-release-3-15).
 
-## Can I deploy an un-tenanted project onto a tenanted machine?
+## Can I deploy an untenanted project onto a tenanted machine?
 
 Yes! We shipped support for this in [Octopus 3.15](https://octopus.com/blog/octopus-release-3-15).
 
@@ -122,7 +122,7 @@ Yes, take a look at our [guide on enabling self-service sign in for your tenants
 Octopus uses this rule to determine which deployment targets should be included in a deployment:
 
 - Tenanted deployments will include tenanted deployment targets matching the deployment's tenant
-- Un-tenanted deployments will include un-tenanted deployment targets (just like good old Octopus)
+- Untenanted deployments will include untenanted deployment targets (just like good old Octopus)
 
 For more information refer to [designing a multi-tenant hosting model](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md).
 
