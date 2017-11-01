@@ -39,7 +39,7 @@ By using this pattern you can:
 1. Scope region-specific variables to the Cloud Region targets
 2. Conveniently deploy to all regions at the same time
 
-**If you don't really mind which order you regions are deployed, or you always upgrade all regions a the same time, Cloud Regions are probably the right fit for you.**
+**If you don't really mind which order you regions are deployed, or you always upgrade all regions at the same time, Cloud Regions are probably the right fit for you.**
 
 ## Tenanted Solution {#Multi-regiondeploymentpattern-TenantedSolution}
 
