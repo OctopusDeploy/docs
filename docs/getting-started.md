@@ -1,20 +1,20 @@
 ---
 title: Getting started
-description: From download to deployment, this guide walks you through getting started with Octopus.
+description: A Conceptual Overview of Octopus Deploy.
 position: 0
 ---
 
-Welcome! This section will show how Octopus Deploy fits into the delivery pipeline and guide you through the process of setting up Octopus Deploy to complete your first deployment.
+Welcome! This section provides a conceptual overview of Octopus Deploy and shows how Octopus Deploy fits into the delivery pipeline.
 
 !toc
 
-## Octopus in your delivery process {#Gettingstarted-Octopusinyourdeliveryprocess}
+## Octopus in Your Delivery Process {#Gettingstarted-Octopusinyourdeliveryprocess}
 
-Octopus Deploy is an automated deployment server, which you install yourself, much like you would install SQL Server, Team Foundation Server, or JetBrains TeamCity. Octopus makes it easy to automate the deployment of ASP.NET web applications, Java applications, and Windows Services into development, test, and production environments.
+Octopus Deploy is an automated deployment server that makes it easy to automate the deployment of ASP.NET web applications, Java applications, and Windows Services into development, test, and production environments.
 
-In addition to the Octopus Deploy server, you'll also install a lightweight agent service on each of the machines that you plan to deploy to, for example, your web and application servers. We call this the Tentacle agent; the idea being that one Octopus server controls many Tentacles, potentially a lot more than 8! With Octopus and Tentacle, you can easily deploy to your own servers or cloud services from providers like Amazon Web Services or Microsoft Azure.
+The Octopus Deploy server works together with lightweight agent services, called Tentacles, that are installed on the machines you plan to deploy your web apps, applications, or services to. With Octopus and Tentacle, you can easily deploy to your own servers or cloud services from providers like Amazon Web Services or Microsoft Azure.
 
-### The delivery pipeline
+### The Delivery Pipeline
 
 |                                          |                                          |
 | ---------------------------------------- | ---------------------------------------- |
