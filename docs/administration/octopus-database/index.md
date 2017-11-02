@@ -1,20 +1,20 @@
 ---
-title: Octopus database
-description: Octopus uses a Microsoft SQL Server database to store environments, projects, variables, releases and deployment history.
+title: Octopus Database
+description: Octopus uses a Microsoft SQL Server database to store environments, projects, variables, releases, and deployment history.
 position: 400
 ---
 
-To store environments, projects, variables, releases and deployment history, Octopus Deploy uses a Microsoft SQL Server database.
+To store environments, projects, variables, releases, and deployment history, Octopus Deploy uses a Microsoft SQL Server database.
 
 ## Installing Octopus Server {#Octopusdatabase-InstallingOctopusServer}{#installing}
 
-Octopus Server requires access to a SQL Server to use for storing relational data. You can create the database ahead of time, or you can let the installer create the database on your behalf. Refer to [SQL Server Database Requirements](/docs/installation/installing-octopus/sql-server-database-requirements.md) for more information on the SQL Server editions supported by Octopus Deploy and installation instructions.
+Octopus Server requires access to an SQL Server to use for storing relational data. You can create the database ahead of time, or you can let the installer create the database on your behalf. Refer to [SQL Server Database Requirements](/docs/installation/installing-octopus/sql-server-database-requirements.md) for more information on the SQL Server editions supported by Octopus Deploy and installation instructions.
 
-## Routine maintenance {#maintenance}
+## Routine Maintenance {#maintenance}
 
 You are responsible for the routine maintenance of your Octopus database. Performance problems with your SQL Server will make Octopus run and feel slow and sluggish. You should implement a routine maintenance plan for your Octopus database. Here is a [sure guide](http://g.octopushq.com/SQLServerMaintenanceGuide) (free e-book) for maintaining SQL Server.
 
-### Database backups {#Octopusdatabase-DatabaseBackups}{#backups}
+### Database Backups {#Octopusdatabase-DatabaseBackups}{#backups}
 
 You are responsible for taking database backups and testing your disaster recovery plans. Refer to [Backup and restore](/docs/administration/backup-and-restore.md) for more information about backing up Octopus Deploy and recovering from failure.
 
@@ -26,11 +26,11 @@ The System Integrity Check at {{Configuration,Diagnostics}} will let you know if
 
 ![](/docs/images/3048120/5865723.png "width=500")
 
-### Modifying the schema {#modifying-the-schema}
+### Modifying the Schema {#modifying-the-schema}
 
 If you customize the Octopus database it may cause problems when upgrading Octopus Server, and make your installation difficult to support. There are certain scenarios where you can modify the schema safely (indexes, statistics), and other scenarios which will cause Octopus Server to fail (tables, views, stored procedures, functions).
 
-### Index recommendations
+### Index Recommendations
 
 Each installation of Octopus Deploy will have different data and usage patterns. Some of our customers have huge environments and a few projects, others have many projects deploying to small environments. Some customers may create hundreds of releases each day, whilst others deploy releases every few days. As a result, the Database Engine Tuning Advisor, or hosted offerings like Azure SQL Database, may suggest performance optimizations like creating additional indexes.
 
