@@ -32,8 +32,7 @@ We designed Octopus to fit into teams that follow agile delivery practices. A ty
 
 1. Octopus Deploy Pushes Your Packages.
 
-   Octopus deploys the applications to the environments you've configured. These could be testing 
-
+   Octopus deploys the applications to the environments you've configured. These could be testing, dev, or production environments. 
 
 ### Consistent Releases
 
