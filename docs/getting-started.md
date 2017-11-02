@@ -48,6 +48,8 @@ The [Installation documentation](/docs/installation/index.md) provides the instr
 
 ## Access the Octopus Web Portal
 
+![Octopus web portal sign in](octopus-login.png "width=500")
+
 ## Configure Your Infrastructure
 
 ### Environments
@@ -72,27 +74,6 @@ The [Installation documentation](/docs/installation/index.md) provides the instr
 
 ## Deploy a Release
 
-
-
-## 1. Install and set up Octopus server {#Gettingstarted-InstalltheOctopusserver}
-
-Download the latest [Octopus Deploy MSI installer](https://octopus.com/downloads) from the Octopus Deploy website, and follow the instructions.
-
-:::hint
-Learn more about [Installing Octopus](/docs/installation/installing-octopus/index.md) including a video walkthrough.
-:::
-
-When the MSI installer completes, a wizard will take you through the process of configuring your Octopus Deploy server.
-
-![Wizard: Welcome page](/docs/images/3048178/3278212.png "width=500")
-
-When your Octopus server is configured, the Octopus Manager UI will appear. This is an administrator-only interface designed for configuring your Octopus server.
-
-![Wizard: Overview](/docs/images/3048178/3278211.png "width=500")
-
-Open the Octopus Web Portal in your browser and sign in, using the address and credentials you specified during the setup wizard.
-
-![Octopus web portal sign in](octopus-login.png "width=500")
 
 ## 2. Configure Infrastructure {#Gettingstarted-ConfigureInfrastructure}
 
