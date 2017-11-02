@@ -52,19 +52,27 @@ The [Installation documentation](/docs/installation/index.md) provides the instr
 
 ## Configure Your Infrastructure
 
+The central Octopus Deploy Server works with Tentacles that are installed on the infrastructure you deploy your applications to. That infrastructure could be your own servers or cloud services from providers like Amazon Web Services or Microsoft Azure.
+
+:::info
+Throughout this guide we refer to both your servers and the cloud services you deploy your applications to as **Machines**. 
+:::
+
 ### Environments
+
+Environments are groups of machines that you deploy to. These might be organized into groups such as, **Test Environment**, **Staging Environment**, or **Production Environment**.
+
 ### Deployment Targets
 ### Accounts
 ### Machine Roles?
 
 ## Packaging Applications
 
+## Repositories
 ### The Octopus Library
 ### Uploading Packages
 ### Adding an External Feed
 ### Was there another one?
-
-## Repositories
 
 ## Projects
 
