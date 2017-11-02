@@ -1,5 +1,5 @@
 ---
-title: Getting started
+title: Getting Started
 description: A Conceptual Overview of Octopus Deploy.
 position: 0
 ---
@@ -16,22 +16,31 @@ The Octopus Deploy server works together with lightweight agent services, called
 
 ### The Delivery Pipeline
 
-|                                          |                                          |
-| ---------------------------------------- | ---------------------------------------- |
-| ![](images/getting-started/pipeline-01.svg "width=400")<br>**1. Commit code**<br>A developer commits code to a GitHub repository. | ![](images/getting-started/pipeline-02.svg "width=400")<br>**2. Compile & test**<br>A build server compiles the code and runs unit tests. |
-| ![](images/getting-started/pipeline-03.svg "width=400")<br>**3. Packaged & pushed**<br>The application is packaged and pushed to Octopus Deploy. | ![](images/getting-started/pipeline-04.svg "width=400")<br>**4. Auto deploy to test**<br>The application can be automatically deployed to a test environment. A suite of automated web tests are run against the application. |
-| ![](images/getting-started/pipeline-05.svg "width=400")<br>**5. Deploy to UAT**<br>The application is deployed to a UAT environment, for stakeholders to see new changes. | ![](images/getting-started/pipeline-06.svg "width=400")<br>**6. Promote to production**<br>When the various stakeholders are happy, the application is promoted to the production environment. |
+We designed Octopus to fit into teams that follow agile delivery practices. A typical workflow would be:
 
-We designed Octopus to fit into teams that follow agile delivery practices. Octopus compliments your existing delivery pipeline:
+1. Commit Code to Your Existing Source Control System.
 
-- **Developers commit their code into your existing source control system**  
-  You might be using Git, Team Foundation Server, Subversion, or Mercurial; the choice is up to you.
-- **Your CI/build server compiles the code and runs unit tests**  
-  Again, you might be using TeamCity, Jenkins, Bamboo, Team Foundation Server, or CruiseControl.NET; the choice is up to you.
-- **Your application is packaged**  
-  When the build is ready, your CI/build server bundles all of the files (binaries, images, scripts, configuration files, and so on), needed to deploy your application into a [supported package](/docs/packaging-applications/supported-packages.md).
+   You might be using Git, Team Foundation Server, Subversion, or Mercurial; the choice is yours.
 
-When the packages are ready, Octopus pushes these packages to the deployment targets. As a release manager, you define the process for deploying the software, including any environment-specific configuration variables. The Octopus web-based dashboard then allows other members of your team to queue deployments; for example, you might enable testers to deploy applications to a test environment, but not to production. This approach means that even if different people are triggering the deployments, the deployment process is still consistent.
+1. Your CI/Build Server Compiles the Code and Runs Unit Tests.
+
+   You might be using TeamCity, Jenkins, Bamboo, Team Foundation Server, or CruiseControl.NET, again, the choice is yours.
+
+1. Package Your Application.
+
+   When the build is ready, your CI/build server bundles all of the files (binaries, images, scripts, configuration files, and so on) needed to deploy your application into a [supported package](/docs/packaging-applications/supported-packages.md).
+
+1. Octopus Deploy Pushes Your Packages.
+
+   Octopus deploys the applications to the environments you've configured. These could be testing 
+
+
+### Consistent Releases
+
+As a release manager, you define the process for deploying the software. You can specify the environments the applications are deployed to, and who on your team can deploy to which environments; for instance, you might want testers to deploy to test environments, but not to production. Taking this approach, means that even if different members of the team are triggering deployments, the deployment process is still consistent.
+
+The rest of this guide goes into more detail about working with  Octopus Deploy and links to the relevant sections of the documentation.
+
 
 ## 1. Install and set up Octopus server {#Gettingstarted-InstalltheOctopusserver}
 
