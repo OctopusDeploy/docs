@@ -30,23 +30,21 @@ We designed Octopus to fit into teams that follow agile delivery practices. A ty
 
    When the build is ready, your CI/build server bundles all of the files (binaries, images, scripts, configuration files, and so on) needed to deploy your application into a [supported package](/docs/packaging-applications/supported-packages.md).
 
-1. Octopus Deploy Pushes Your Packages.
+1. Octopus Deploy Pushes Your Packaged Applications.
 
    Octopus deploys the applications to the environments you've configured. These could be testing, dev, or production environments. 
 
 ### Consistent Releases
 
-As a release manager, you define the process for deploying the software. You can specify the environments the applications are deployed to, and who on your team can deploy to which environments; for instance, you might want testers to deploy to test environments, but not to production. Taking this approach, means that even if different members of the team are triggering deployments, the deployment process is still consistent.
+As a release manager, you define the process for deploying the software. You can specify the environments the applications are deployed to and who on your team can deploy to which environments; for instance, you might want testers to deploy to test environments, but not to production. Taking this approach means that even if different members of the team are triggering deployments, the deployment process is still consistent.
 
 The rest of this guide goes into more detail about working with  Octopus Deploy and links to the relevant sections of the documentation.
 
 ## Install Octopus Deploy
 
-To [install Octopus Deploy](/docs/installation/index.md)  you need the central [Octopus Deploy Server](/docs/installation/installing-octopus/index.md) which runs as a Windows Service on one of your servers. Octopus stores its data in an SQL Server Database, and includes an embedded HTTP server which serves the Octopus Rest API and the Octopus Web Portal.
+To [install Octopus Deploy](/docs/installation/index.md)  you need the central [Octopus Deploy Server](/docs/installation/installing-octopus/index.md) which runs as a Windows Service on one of your servers. Octopus stores its data in an [SQL Server Database](/docs/installation/installing-octopus/sql-server-datasbase-requirements.md) and includes an embedded HTTP server which serves the [Octopus REST API](/docs/api-and-integration/octopus-rest-api.md) and the **Octopus Web Portal**.
 
-
-
-[Installation](/docs/installation/index.md) 
+The [Installation documentation](/docs/installation/index.md) provides the instructions for installing and configuring your Octopus.
 
 ## Access the Octopus Web Portal
 
