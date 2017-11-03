@@ -126,7 +126,7 @@ We also currently have the following resources for automating the configuration 
 [cOctopusServerUsernamePasswordAuthentication](https://github.com/OctopusDeploy/OctopusDSC/tree/master/OctopusDSC/DSCResources/cOctopusServerUsernamePasswordAuthentication)
 [cOctopusServerServerWatchdog](https://github.com/OctopusDeploy/OctopusDSC/tree/master/OctopusDSC/DSCResources/cOctopusServerWatchdog)
 
-##Links
+## Links
 If you would like to contribue to the OctopusDSC open source repository, please follow the instructions on this documentaitons parent page.
 
 [Automating Infrastructure with DSC](link to main page)
