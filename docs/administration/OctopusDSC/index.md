@@ -1,5 +1,5 @@
 ---
-title: Automating Infrastructure with DSC.md
+title: Automating Infrastructure with DSC
 description: OctopusDSC is an Open-Source powershell module designed to assist with the automation of Octopus infrastructure
 position: 20
 ---
