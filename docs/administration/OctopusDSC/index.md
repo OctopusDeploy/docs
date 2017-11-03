@@ -1,3 +1,4 @@
+Automating Infrastructure with DSC.md
 [OctopusDSC](https://github.com/OctopusDeploy/OctopusDSC) is an in-house and open source PowerShell module with DSC resource designed to reduce the overhead when automating the installation and configuration of your Octopus infrastructure. See the following documentation for examples on automating [Octopus Deploy Server]() and [Tentacle Agent]() with OctopusDSC.
 
 :::hint
