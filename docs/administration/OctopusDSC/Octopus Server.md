@@ -1,3 +1,9 @@
+---
+title: Automating Octopus Server configuration
+description: Use OctopusDSC to automate the installation and configuration of Octopus Server.
+---
+
+
 OctopusDSC is an in-house PowerShell module designed for the automation of your Octopus infrastructure. The following documentation page will cover some basic examples of using OctopusDSC to automate the installation and configuration of an Octopus Server instance. Below is a sample script with a basic example of using OctopusDSC to install and configure the Octopus Server service.
 
 :::note
