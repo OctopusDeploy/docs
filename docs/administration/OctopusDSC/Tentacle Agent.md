@@ -1,6 +1,9 @@
-# cTentacleAgent
+---
+title: Automating Octopus Tentacle Agent configuration
+description: Use OctopusDSC to automate the installation and configuration of the Octopus Tentacle Agent.
+---
 
-## Sample
+## Example
 
 First, ensure the OctopusDSC module is on your `$env:PSModulePath`. Then you can create and apply configuration like this.
 
