@@ -85,23 +85,19 @@ You can define as many environments, machines, and roles as you need; it all dep
 
 Learn more about [machine roles](/docs/deployment-targets/machine-roles/index.md)
 
+### Deployment Targets
+
+Deployment targets represent the servers, machines, and cloud services where your application and services will be deployed. 
+
+Each of your deployment targets needs Tentacle installed and to be registered in your environments.
+
+Learn more about the [deployment targets](/docs/deployment-targets/index.md).
+
 ### Install Tentacles
 
 The central Octopus Deploy Server works with Tentacles. Tentacle is a secure, lightweight agent service that Octopus uses to deploy software to your infrastructure. That infrastructure could be your own servers or cloud services from providers like Amazon Web Services or Microsoft Azure.
 
 The [Installation documentation](/docs/installation/index.md) provides the instructions for installing and configuring your Tentacles.
-
-### Deployment Targets
-
-
-Deployment targets represent the servers, machines and cloud services where your application and services will be deployed. 
-
-On each of the servers, you'll need to install the lightweight Tentacle agent, and then register the targets in your environments. Depending on network/firewall configuration, Tentacles can be installed in [listening](/docs/installation/installing-tentacles/listening-tentacles.md) (Octopus calls Tentacle) or [polling](/docs/installation/installing-tentacles/polling-tentacles.md) (Tentacle polls Octopus) mode. If you have many machines to manage, you can [install Tentacles automatically](/docs/installation/installing-tentacles/automating-tentacle-installation.md). One Octopus server can control many Tentacles, potentially a lot more than 8! 
-
-![Add machines to environment](deployment-targets.png "width=500")
-
-Learn more about the [deployment targets](/docs/deployment-targets/index.md).
-
 
 ### Accounts
 
