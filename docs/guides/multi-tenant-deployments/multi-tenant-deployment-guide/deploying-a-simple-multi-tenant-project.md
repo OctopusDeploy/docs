@@ -49,7 +49,7 @@ Now your tenant is connected to the **Mojo** project you can start deploying re
 
 ![](deploying-a-simple-multi-tenant-project-5865649.png "width=300")
 
-Once the deployment completes you should see the result of running the [script we set up in an earlier ste](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-multi-tenant-project.md)p, where the **Octopus.Tenant.Name** is written to the log, and the database connection string is calculated. At the moment the connection string and URL are empty - we are going to configure tenant-specific variables in the next step.
+Once the deployment completes you should see the result of running the [script we set up in an earlier step](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-multi-tenant-project.md), where the **Octopus.Tenant.Name** is written to the log, and the database connection string is calculated. At the moment the connection string and URL are empty - we are going to configure tenant-specific variables in the next step.
 
 ![](deploying-a-simple-multi-tenant-project-5865596.png "width=500")
 
