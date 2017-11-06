@@ -4,12 +4,12 @@ description: Accounts allow you to capture machine and subscription details used
 position: 2
 ---
 
-Octopus Deploy has the concept of accounts, which may be associated with deployment targets.
+Accounts allow you to capture machine and subscription details used within your deployments. Add your Azure subscription to accounts and use one of the Azure built-in step templates to deploy to the cloud. Although Azure subscriptions are associated with deployment targets, they are not visible on the environments page with the other targets.
 
-The types of accounts supported are:
+If you are deploying to a Linux target, SSH, username and passwords can be stored under accounts. 
 
-- [Azure Subscriptions](/docs/key-concepts/environments/accounts/azure-subscription-account.md)
-- [SSH Key Pairs](/docs/key-concepts/environments/accounts/ssh-key-pair.md)
-- [Username and Password](/docs/key-concepts/environments/accounts/username-and-password.md)
+To add an account, go to the environments page and click on the Accounts link. 
 
-![](accounts-summary.png "width=500")
+![](infrastructure-accounts.png "width=500")
+
+![](accounts.png "width=500")

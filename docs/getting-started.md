@@ -99,22 +99,6 @@ The central Octopus Deploy Server works with Tentacles. Tentacle is a secure, li
 
 The [Installation documentation](/docs/installation/index.md) provides the instructions for installing and configuring your Tentacles.
 
-### Accounts
-
-### Add an account {#Gettingstarted-Addanaccount}
-
-Accounts allow you to capture machine and subscription details used within your deployments. Add your Azure subscription to accounts and use one of the Azure built-in step templates to deploy to the cloud. Although Azure subscriptions are associated with deployment targets, they are not visible on the environments page with the other targets.
-
-If you are deploying to a Linux target, SSH, username and passwords can be stored under accounts. 
-
-To add an account, go to the environments page and click on the Accounts link. 
-
-![](infrastructure-accounts.png "width=500")
-
-![](accounts.png "width=500")
-
-Learn more about [accounts](/docs/key-concepts/environments/accounts/index.md).
-
 ## Packaging Applications
 ### Package and version applications for deployment {#Gettingstarted-Packageyourapplicationsfordeployment}
 
