@@ -129,20 +129,20 @@ Octopus Deploy includes a built-in package repository. We recommend configuring 
 Learn more about the [package repository](/docs/packaging-applications/package-repository/index.md) or how to automate your existing tool chain to push packages to your Octopus Deploy server with our [API and Integrations](/docs/api-and-integration/index.md).
 
 ## Projects
+Projects are one of the most important concepts in Octopus. A project defines:
 
-## 4. Create a project {#Gettingstarted-Createaproject}
+- A *[deployment process](/docs/deploying-applications/index.md)*, which specifies the steps that need to happen in a given order during the deployment
+- *[Variables](/docs/deploying-applications/variables/index.md)*, which allow deployments to be parameterized across environments
 
-### Create a project
+![](/docs/images/3048100/3277800.png "width=500")
 
-Projects define a set of deployment steps that you want Octopus to perform, and their configuration variables.
+A project in Octopus can consist of many deliverable components (e.g., web sites, Windows services). It's usually helpful to think of Octopus projects in terms of business projects: if you have 5 developers working together on the "HR Portal rewrite" project, than that's probably a single project in Octopus.
 
-![Creating a project](create-project.png "width=500")
+## Defining Your Deployment Process
 
-Learn more about [projects](/docs/key-concepts/projects/index.md).
+Words like "release" and "deployment" are no doubt terms that you've used in your organization prior to using Octopus Deploy. Perhaps you use them interchangeably, or perhaps they have well defined meanings. As you begin to use and master Octopus, there's some potential for confusion - the concept of a Release as implemented in Octopus might be very different to the concept of a Release currently in use in your organization. This page provides a high-level overview of the various concepts that exist in Octopus, to help to eliminate that confusion.
 
-## Define Your Deployment Process
 
-### Define your deployment process {#Gettingstarted-Defineyourdeploymentprocess}
 
 The **Process** tab within your project defines how your project will be deployed. You can add different steps to the process depending on what you plan to deploy:
 
@@ -154,36 +154,11 @@ The **Process** tab within your project defines how your project will be deploye
 
 ![Your deployment process](deployment-process.png "width=500")
 
-Chances are, you'll need to configure your application differently depending on the what you are deploying to (for example, different connection strings in staging vs. production). Octopus has advanced support for managing these [variables](/docs/deploying-applications/variables/index.md) and scoping them, and can even manage passwords securely. Octopus can also take care of automatically [updating your .NET configuration files, and running configuration file transforms](/docs/deploying-applications/configuration-files/index.md).
+### Variables
 
-## Releases
+Chances are, you'll need to configure your application differently depending on the what you are deploying to (for example, different connection strings in staging vs. production). Octopus has advanced support for managing these variables and scoping them, and can even manage passwords securely. Octopus can also take care of automatically [updating your .NET configuration files, and running configuration file transforms](/docs/deploying-applications/configuration-files/index.md).
 
-
-## 5. You're ready to deploy
-
-### Create release {#Gettingstarted-Createareleaseanddeployit}
-
-Next, create a release. Click the **Create release** button on any page of your project.
-
-![Creating a release](create-release-button.png "width=500")
-
-Enter an overall release version number for the release, and select the NuGet package versions that you want to include in the release. You can also add release notes to tell your team what the release contains.
-
-![Release notes](create-release.png "width=500")
-
-Now that you have a release, you can deploy and promote it between environments. On the release page, use the green **Deploy to *environment*** button to promote it.
-
-### Deploy a release
-
-![Deploy the release](deploy-release.png "width=500")
-
-The deployment page shows you a log of all the activity that happens during the deployment, on both the Octopus server and any Tentacles, including the output of any custom scripts.
-
-![Running deployment](deployment-details.png "width=500")
-
-
-
-Words like "release" and "deployment" are no doubt terms that you've used in your organization prior to using Octopus Deploy. Perhaps you use them interchangeably, or perhaps they have well defined meanings. As you begin to use and master Octopus, there's some potential for confusion - the concept of a Release as implemented in Octopus might be very different to the concept of a Release currently in use in your organization. This page provides a high-level overview of the various concepts that exist in Octopus, to help to eliminate that confusion.
+Learn more about [variables](/docs/deploying-applications/variables/index.md)
 
 ## Releases and deployments {#KeyConcepts-Releasesanddeployments}
 
@@ -205,14 +180,3 @@ When you start working with Octopus you will typically be creating releases from
 ## Tenants
 
 Over time your software may become so successful that you on-sell it to some external customers, and due to the way the software is architected, you need to deploy a copy of the software once per customer. You could achieve this in Octopus by creating an environment-per-customer, or even a project-per-customer, but this leads to duplication and unnecessary complexity. In Octopus 3.4 we introduced the concept of [*tenants* ](/docs/key-concepts/tenants/index.md)that you can manage alongside your existing projects and environments.
-
---------------------------------------
-
-
-## Next steps {#Gettingstarted-Nextsteps}
-
-Congratulations, you've deployed a release! You might want to look at:
-
-- Triggering deployments from [TeamCity](/docs/api-and-integration/teamcity.md) or [TFS](/docs/api-and-integration/tfs-vsts/index.md)
-- [Inviting other users and adding them to teams](/docs/administration/managing-users-and-teams/index.md)
-- The comprehensive [Octopus Deploy REST API](/docs/api-and-integration/octopus-rest-api.md) and C# client

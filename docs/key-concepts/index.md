@@ -6,19 +6,6 @@ position: 2
 
 ## Projects, deployment processes, lifecycles and variables {#KeyConcepts-Projects,deploymentprocesses,lifecyclesandvariables}
 
-A *project* is one of the most important concepts in Octopus. A project defines:
-
-- A *[deployment process](/docs/deploying-applications/index.md)*, which specifies the steps that need to happen in a given order during the deployment
-- *[Variables](/docs/deploying-applications/variables/index.md)*, which allow deployments to be parameterized across environments
-
-![](/docs/images/3048100/3277800.png "width=500")
-
-A project in Octopus can consist of many deliverable components (e.g., web sites, Windows services). It's usually helpful to think of Octopus projects in terms of business projects: if you have 5 developers working together on the "HR Portal rewrite" project, than that's probably a single project in Octopus.
-
-:::success
-**Tip**
-Don't confuse Octopus projects with Visual Studio projects. A project in Octopus is more likely to map to an entire Visual Studio solution.
-:::
 
 The deployment process consists of a number of steps. Octopus supports many different kinds of steps, such as:
 
