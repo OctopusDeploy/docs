@@ -89,7 +89,7 @@ Learn more about [machine roles](/docs/deployment-targets/machine-roles/index.md
 
 Deployment targets represent the servers, machines, and cloud services where your application and services will be deployed. 
 
-Each of your deployment targets needs Tentacle installed and to be registered in your environments.
+You need to install Tentacles on all of your deployment targets and to register each Tentacle with an environment. 
 
 Learn more about the [deployment targets](/docs/deployment-targets/index.md).
 
@@ -97,52 +97,36 @@ Learn more about the [deployment targets](/docs/deployment-targets/index.md).
 
 The central Octopus Deploy Server works with Tentacles. Tentacle is a secure, lightweight agent service that Octopus uses to deploy software to your infrastructure. That infrastructure could be your own servers or cloud services from providers like Amazon Web Services or Microsoft Azure.
 
-The [Installation documentation](/docs/installation/index.md) provides the instructions for installing and configuring your Tentacles.
+The [Installation documentation](/docs/installation/index.md) provides the instructions for installing Tentacles and configuring your deployment targets.
 
-## Packaging Applications
-### Package and version applications for deployment {#Gettingstarted-Packageyourapplicationsfordeployment}
+## Application Packages
 
-Whenever you want to deploy applications with Octopus, you'll need to package them into NuGet, zip, tar, tar gzip or tar bzip2 packages. A package contains an application’s executables, configuration files, scripts and any other files it needs to run. Once packaged, it will need to be versioned.
+### Packaging Applications
 
-How you create the package depends on what app or service you are deploying:
+Before you can deploy applications with Octopus, you need to package all the files needed for the application into a supported package and version the package. Octopus supports the following package types:
 
-- Use [OctoPack](/docs/packaging-applications/nuget-packages/using-octopack/index.md) to package ASP.NET apps or Windows Services applications.
-- Use [dotnet pack](https://docs.microsoft.com/en-us/dotnet/articles/core/tools/dotnet-pack) to package .NET Core apps.
-- To package a [java](/docs/guides/deploying-java-applications.md), nodejs or other applications and folders use [Octo.exe](/docs/packaging-applications/nuget-packages/using-octo.exe.md) or simply [zip](/docs/packaging-applications/supported-packages.md) up a folder.
+* NuGet
+* Tar
+* Tar Gzip
+* Tar bzip2
+* Zip
+* Docker Image
 
-Learn more about [versioning](/docs/packaging-applications/versioning-in-octopus-deploy.md) and [packaging](/docs/packaging-applications/index.md).
+Learn more about [packaging applications](/docs/packaging-applications/index.md)
 
-### Upload package {#Gettingstarted-Uploadpackage}
+### Versioning Packages
 
-Your packages need to be placed into a package repository. You can either push packages to the built-in repository manually or integrate with your existing build tool.  We recommend configuring your existing tool chain to push packages automatically to the built-in repository. 
+Versioning is an important part of how Octopus Deploy automates application deployment. Octopus recommends using [Semantic Versioning](http://semver.org) for your applications. 
+
+Learn more about [Versioning in Octopus Deploy](/docs/packaging-applications/versioning-in-octopus-deploy.md).
+
+### Uploading Packages 
+
+Octopus Deploy includes a built-in package repository. We recommend configuring your existing tool chain to push packages automatically to the built-in repository; however, you can push packages manually to the repository if you choose to.
 
 ![Octopus built-in package repository](library-packages.png)
 
-Use our [TeamCity](/docs/api-and-integration/teamcity.md), [VSTS](/ /docs/api-and-integration/tfs-vsts/using-octopus-extension/index.md) or [TFS](/docs/api-and-integration/tfs-vsts/index.md) extensions to integrate with the built-in repository or explore the [other options](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) to push packages to it.
-
-Learn more about our [api and integration](/docs/api-and-integration/index.md).
-
-### Add an external feed {#Gettingstarted-Addanexternalfeed}
-
-Octopus can consume packages from external NuGet package repositories and Docker Container Registries.
-
-An external package repository would typically be:
-- A [remote feed](https://docs.microsoft.com/en-us/nuget/hosting-packages/nuget-server) exposed over HTTP
-- A [local feed](https://docs.microsoft.com/en-us/nuget/hosting-packages/local-feeds) exposed as a File Share or local directory
-- A [Docker Registry](/docs/deploying-applications/docker-containers/registries/index.md)
-- A [TeamCity](https://blog.jetbrains.com/dotnet/2011/08/24/native-nuget-support-in-teamcity/) server (version 7 and above)
-- A [MyGet](http://www.myget.org/) server
-- A [VSTS or TFS Package Management](https://www.visualstudio.com/en-us/docs/package/overview) feed
-
-![Octopus external feeds area](library-externalfeeds.png)
-
-Learn more about [external feeds](/docs/packaging-applications/package-repositories/index.md#Packagerepositories-Usingexternalrepositories).
-
-## Repositories
-### The Octopus Library
-### Uploading Packages
-### Adding an External Feed
-### Was there another one?
+Learn more about the [package repository](/docs/packaging-applications/package-repository/index.md) or how to automate your existing tool chain to push packages to your Octopus Deploy server with our [API and Integrations](/docs/api-and-integration/index.md).
 
 ## Projects
 
