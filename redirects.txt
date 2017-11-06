@@ -35,3 +35,4 @@ docs/key-concepts/environments/machine-policies.md -> docs/deployment-targets/en
 docs/key-concepts/environments/accounts/index.md -> docs/deployment-targets/environments/accounts/index.md
 docs/key-concepts/environments/accounts/azure-subscription-account.md -> docs/deployment-targets/environments/accounts/azure-subscription-account.md
 docs/key-concepts/environments/accounts/ssh-key-pair.md -> docs/deployment-targets/environments/accounts/ssh-key-pair.mddocs/key-concepts/environments/accounts/username-and-password.md -> docs/deployment-targets/environments/accounts/username-and-password.md
+docs/key-concepts/environments/machine-roles.md -> docs/deployment-targets/machine-roles/index.md
