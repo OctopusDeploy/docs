@@ -1,11 +1,11 @@
 
 Navigate to {{Environments,Accounts}} and click *Add account* in the *Azure Subscriptions* section.
 
-![](/docs/images/3702850/3964965.png "width=500")
+![accounts](../../../images/3702850/3964965.png "width=500")
 
 On the Create New Account page, in the *Authentication Method* field select *Use a Service Principal*.
 
-![](/docs/images/3702850/3964966.png "width=500")
+![add account](../../../images/3702850/3964966.png "width=500")
 
 The values for the following fields come from Azure:
 

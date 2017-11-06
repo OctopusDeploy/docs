@@ -7,7 +7,7 @@ An Azure Account in Octopus Deploy contains the details of your Azure subscripti
 
 To create an Azure Account, navigate to {{Environments,Accounts}} and click *Add Account* in the *Azure Subscriptions* section.
 
-![](add-new-azure-account.png "width=500")
+![accounts](add-new-azure-account.png "width=500")
 
 ## Authentication Method {#CreatinganAzureAccount-AuthenticationMethod}
 
@@ -18,4 +18,4 @@ The divide in authentication-methods in Octopus reflects the divide within Azure
 - If you wish to use Resource Manager mode, then you will need to [create a Service Principal account](/docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-service-principal-account.md).
 - If you wish to Service Management mode, then you will need to create a [Management Certificate account](/docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-management-certificate-account.md).
 
-![](add-new-azure-account-detail.png "width=500")
+![add account](add-new-azure-account-detail.png "width=500")
