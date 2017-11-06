@@ -62,7 +62,7 @@ Octopus groups your infrastructure into environments. Environments are groups of
 Throughout this guide we refer to both your servers and the cloud services you deploy your applications to as **machines**. 
 :::
 
-Learn how to add and manage environments in the [Environments documentation]().
+Learn how to add and manage environments in the [environments documentation](/docs/deployment-targets/environments/index.md).
 
 ### Machine Roles
 
@@ -71,7 +71,7 @@ Every machine in your environments is tagged with a set of roles.
 ![](sample-environments.png)
 In production, your web sites and Windows Services might run on different physical servers; perhaps dozens of them. However, unless you are extremely lucky, it's unlikely that you have the budget to have an equal number of servers in any of your pre-production environments. When testing your software in a test environment, you might only have a single virtual machine which will run all of the web sites and services on the same machine.
 
-Octopus handles these differences by introducing a layer of indirection: roles. Instead of saying:
+Octopus handles these differences by applying roles to the machines within your environments. Instead of saying:
 
 > The trading website ASP.NET application should be deployed to PWEB01, PWEB02, ...
 
@@ -83,7 +83,7 @@ In production, perhaps you have 10 machines with the web-server role. In staging
 
 You can define as many environments, machines, and roles as you need; it all depends on how your applications are deployed.
 
-Learn more about machine roles **TODO!!!**
+Learn more about [machine roles](/docs/deployment-targets/machine-roles/index.md)
 
 ### Install Tentacles
 

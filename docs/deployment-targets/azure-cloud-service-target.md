@@ -1,7 +1,7 @@
 ---
 title: Azure Cloud Service Deployment Targets
 description: Azure Cloud Service deployment targets have been deprecated.
-position: 0
+position: 1
 ---
 
 :::warning
