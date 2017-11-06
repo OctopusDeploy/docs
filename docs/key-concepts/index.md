@@ -4,15 +4,6 @@ description: Key concepts to understanding how Octopus Deploy works.
 position: 2
 ---
 
-## Environments, machines and roles {#KeyConcepts-Environments,machinesandroles}
-
-Before you can deploy software, you need somewhere to deploy it *to*. Any non-trivial application is likely to run on more than one server - you might have Windows Services that run on application servers, or ASP.NET applications that run under IIS on web servers. 
-
-
-![](/docs/images/3048100/3277804.png "width=500")
-
-
-
 ## Projects, deployment processes, lifecycles and variables {#KeyConcepts-Projects,deploymentprocesses,lifecyclesandvariables}
 
 A *project* is one of the most important concepts in Octopus. A project defines:
