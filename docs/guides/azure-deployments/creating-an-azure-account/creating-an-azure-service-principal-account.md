@@ -144,6 +144,6 @@ Navigate to {{Environments,Accounts}} and click on the account you wish to updat
 Use the **Change** button to modify the password or key and enter the password or key from Step 1.
 
 
-![](/docs/images/3702850/3964968.png "width=500")
+![Edit password](sp-password.png "width=500")
 
 Use the *Save and test* button to confirm the account can interact with Azure.

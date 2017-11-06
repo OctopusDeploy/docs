@@ -14,13 +14,13 @@ To interact with Azure Resource Manager (ARM), like when Octopus deploys a [Reso
 
 To create an Azure Management Certificate Account, select Management Certificate as the Authentication Method.
 
-![](/docs/images/3703001/3964988.png "width=500")
+![Add management certificate](add-new-cert-account.png "width=500")
 
 ## Step 1: Subscription ID {#CreatinganAzureManagementCertificateAccount-Step1:SubscriptionID}
 
 The Subscription Id can be found on the *Settings* tab of the Azure Management portal.
 
-![](/docs/images/3703001/3964989.png "width=500")
+![Azure subscription Id](../images/azure-subscription-id.png "width=500")
 
 ## Step 2: Management Certificate {#CreatinganAzureManagementCertificateAccount-Step2:ManagementCertificate}
 
@@ -36,11 +36,11 @@ del temp.pem
 
 If you allow Octopus Deploy to generate your certificate, you will need to upload the certificate to the Azure Management Portal.  After clicking 'Save', the Account settings page provides instructions for downloading the certificate public-key from Octopus Deploy, and uploading it into the Azure Management Portal.
 
-![](/docs/images/3703001/3964991.png "width=500")
+![Upload certificate to Azure](../images/azure-cert-upload.png "width=500")
 
-Uploaded certificates can be viewed on the 'Management Certificates' tab of the 'Settings' page in the Azure Management Portal.
+Uploaded certificates can be viewed on the 'Management Certificates' tab of the 'Settings' page in the Azure Portal.
 
-![](/docs/images/3703001/3964990.png "width=500")
+![Download management certificate](azure-cert-account-download.png "width=500")
 
 The certificate will be named `Octopus Deploy -``{Your Account Name}.`
 

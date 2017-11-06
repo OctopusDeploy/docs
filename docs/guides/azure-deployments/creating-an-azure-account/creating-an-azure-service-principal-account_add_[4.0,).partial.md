@@ -1,11 +1,11 @@
 
 Navigate to {{Infrastructure,Accounts}} and click *Add account* in the *Azure Subscriptions* section.
 
-![](add-new-azure-account.png "width=500")
+![accounts](add-new-azure-account.png "width=500")
 
 On the Create New Account page, in the *Authentication Method* field select *Use a Service Principal*.
 
-![](add-new-azure-account-detail.png "width=500")
+![add account](add-new-azure-account-detail.png "width=500")
 
 The values for the following fields come from Azure:
 
