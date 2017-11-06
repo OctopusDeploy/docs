@@ -1,7 +1,7 @@
 ---
 title: Project Groups
 description: Project groups allow you to group your projects together in a useful way.
-position: 2
+position: 2000
 ---
 
 As your usage of Octopus grows, and you start to have many environments and many projects, *project groups* can be a useful way to organize your Octopus Deploy installation.

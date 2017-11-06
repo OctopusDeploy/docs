@@ -140,6 +140,8 @@ A project in Octopus can consist of many deliverable components (e.g., web sites
 
 ## Defining Your Deployment Process
 
+
+
 Words like "release" and "deployment" are no doubt terms that you've used in your organization prior to using Octopus Deploy. Perhaps you use them interchangeably, or perhaps they have well defined meanings. As you begin to use and master Octopus, there's some potential for confusion - the concept of a Release as implemented in Octopus might be very different to the concept of a Release currently in use in your organization. This page provides a high-level overview of the various concepts that exist in Octopus, to help to eliminate that confusion.
 
 
