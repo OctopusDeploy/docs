@@ -36,7 +36,7 @@ We designed Octopus to fit into teams that follow agile delivery practices. A ty
 
 ### Consistent Releases
 
-As a release manager, you define the process for deploying the software. You can specify the environments the applications are deployed to and who on your team can deploy to which environments; for instance, you might want testers to deploy to test environments, but not to production. Taking this approach means that even if different members of the team are triggering deployments, the deployment process remains consistent.
+As a release manager, you define the process for deploying the software. You specify the environments the applications are deployed to and who on your team can deploy to which environments; for instance, you might want testers to deploy to test environments, but not to production. Taking this approach means that even if different members of the team are triggering deployments, the deployment process remains consistent.
 
 The rest of this guide goes into more detail about working with  Octopus Deploy and links to the relevant sections of the documentation for more information.
 
@@ -44,9 +44,9 @@ The rest of this guide goes into more detail about working with  Octopus Deploy 
 
 Installing [Octopus Deploy](/docs/installation/index.md) sets up the central [Octopus Deploy Server](/docs/installation/installing-octopus/index.md) which runs as a Windows Service on one of your servers. Octopus stores its data in an [SQL Server Database](/docs/installation/installing-octopus/sql-server-datasbase-requirements.md) and includes an embedded HTTP server which serves the [Octopus REST API](/docs/api-and-integration/octopus-rest-api.md) and the **Octopus Web Portal**.
 
-The [Installation documentation](/docs/installation/index.md) provides the instructions for installing and configuring your Octopus.
+The [installation documentation](/docs/installation/index.md) provides the instructions for installing and configuring your Octopus.
 
-## Access the Octopus Web Portal
+### Access the Octopus Web Portal
 
 **To Do! - provide a very high level overview** 
 
@@ -56,7 +56,7 @@ The [Installation documentation](/docs/installation/index.md) provides the instr
 
 ### Environments
 
-Octopus groups your infrastructure into environments. Environments are groups of machines that you deploy to at the same time; for instance, you might have an environment of test servers that you deploy your apps to as part of your QA process, a UAT environment, and a production environment. Grouping machines in this way let's you define your deployment processes (no matter how many machines are involved) and have Octopus deploy the right versions of your apps to the right environments at the right time.
+Octopus organizes your infrastructure into environments. Environments are groups of machines that you deploy to at the same time; for instance, you might have an environment of test servers that you deploy your apps to as part of your QA process, a UAT environment, and a production environment. Grouping machines in this way let's you define your deployment processes (no matter how many machines are involved) and have Octopus deploy the right versions of your apps to the right environments at the right time.
 
 :::info
 Throughout this guide we refer to both your servers and the cloud services you deploy your applications to as **machines**. 
@@ -99,9 +99,7 @@ The central Octopus Deploy Server works with Tentacles. Tentacle is a secure, li
 
 The [Installation documentation](/docs/installation/index.md) provides the instructions for installing Tentacles and configuring your deployment targets.
 
-## Application Packages
-
-### Packaging Applications
+## Packaging Applications
 
 Before you can deploy applications with Octopus, you need to package all the files needed for the application into a supported package and version the package. Octopus supports the following package types:
 
@@ -128,31 +126,24 @@ Octopus Deploy includes a built-in package repository. We recommend configuring 
 
 Learn more about the [package repository](/docs/packaging-applications/package-repository/index.md) or how to automate your existing tool chain to push packages to your Octopus Deploy server with our [API and Integrations](/docs/api-and-integration/index.md).
 
-## Projects
-Projects are one of the most important concepts in Octopus. A project defines:
+## Deploying Your Applications
 
-- A *[deployment process](/docs/deploying-applications/index.md)*, which specifies the steps that need to happen in a given order during the deployment
-- *[Variables](/docs/deploying-applications/variables/index.md)*, which allow deployments to be parameterized across environments
+### Deployment Process
 
-![](/docs/images/3048100/3277800.png "width=500")
+Because Octopus is designed to work with teams following agile software development methodologies, and continuously deploying software to environments, getting feedback, making changes, and redeploying, Octopus has been designed to deploy software projects repeatedly. 
 
-A project in Octopus can consist of many deliverable components (e.g., web sites, Windows services). It's usually helpful to think of Octopus projects in terms of business projects: if you have 5 developers working together on the "HR Portal rewrite" project, than that's probably a single project in Octopus.
+After the initial setup, and with some tweaking, your deployment process shouldn't change between all of these deployments. Of Course, the software that you're deploying will. You will make changes to code, commit them to source control, and have a [build server](/docs/api-and-integration/index.md) build them and run tests. Then the software will be [packaged](/docs/packaging-applications/index.md) and ready for deployment.
 
-## Defining Your Deployment Process
+### Defining the Deployment Process
 
+When you define your deployment process, you add different steps to be run in a specific order. Steps can be set to run only if certain conditions are met, or to run parallel with each other. Depending on the applications you plan to deploy, you could:
 
-
-Words like "release" and "deployment" are no doubt terms that you've used in your organization prior to using Octopus Deploy. Perhaps you use them interchangeably, or perhaps they have well defined meanings. As you begin to use and master Octopus, there's some potential for confusion - the concept of a Release as implemented in Octopus might be very different to the concept of a Release currently in use in your organization. This page provides a high-level overview of the various concepts that exist in Octopus, to help to eliminate that confusion.
-
-
-
-The **Process** tab within your project defines how your project will be deployed. You can add different steps to the process depending on what you plan to deploy:
-
-- To deploy changes to a SQL Server database, see [SQL Server databases](/docs/deploying-applications/sql-server-databases.md)
-- To deploy an ASP.NET web site to an IIS server, see [IIS Websites and Application Pools](/docs/deploying-applications/iis-websites-and-application-pools.md)
-- To install or configure a Windows Service, see [Windows Services](/docs/deploying-applications/windows-services.md)
-- For custom or advanced installation actions, see [Custom scripts](/docs/deploying-applications/custom-scripts/index.md)
-- To pause deployment for a human to approve or perform an action, see [Manual intervention and approvals](/docs/deploying-applications/manual-intervention-and-approvals.md)
+- Deploy changes to an [SQL Server databases](/docs/deploying-applications/sql-server-databases.md)
+- Deploy an ASP.NET website to an [IIS Websites and Application Pool](/docs/deploying-applications/iis-websites-and-application-pools.md)
+- [Deploy a Java application](/docs/guides/deploying-java-applications).
+- Install or configure a [Windows Services](/docs/deploying-applications/windows-services.md)
+- Deploy a [custom scripts](/docs/deploying-applications/custom-scripts/index.md)
+- Pause deployment for [manual intervention and approval](/docs/deploying-applications/manual-intervention-and-approvals.md)
 
 ![Your deployment process](deployment-process.png "width=500")
 
@@ -162,18 +153,28 @@ Chances are, you'll need to configure your application differently depending on 
 
 Learn more about [variables](/docs/deploying-applications/variables/index.md)
 
-## Releases and deployments {#KeyConcepts-Releasesanddeployments}
+### Releases
 
-The deployment process for a project specifies how the project will be deployed. But Octopus isn't designed to deploy something just once; it's designed to deploy the same project over, and over, and over, and over. It's designed for teams that follow agile software development methods, continuously deploying software to environments, getting feedback, making changes, and then deploying again.
-
-We expect that beyond the initial setup and tweaking, your deployment process won't change between all of these deployments. But of course, the software that you are deploying will. You will make changes to code, commit them to source control, and have a [build server](/docs/api-and-integration/index.md) build them and run tests. Then the software will be [packaged](/docs/packaging-applications/index.md) and ready for deployment.
-
-In Octopus, a release is a snapshot of the *deployment process* and *variables,* with a set of *packages* selected. That *release* is then *deployed* to multiple environments, typically to one, then promoted to the next environment if successful.
+A **release** in Octopus, is a snapshot of the *deployment process* and *variables,* with a set of *packages* selected. That *release* is then *deployed* to multiple environments, typically to one, then promoted to the next environment if successful.
 
 ![](/docs/images/3048100/3277799.png "width=500")
 
-Each time you have a new candidate build that is ready to test, you'll create a *release*. When you apply a release to an environment, that is a *deployment*.
+Each time you have a new candidate build that is ready to test, you'll create a *release*. When you apply a release to an environment, that is referred to as a *deployment*.
 
+### Projects
+
+Octopus Deploy can manage the deployment of many applications across your organization. Projects within Octopus Deploy lets  you manage multiple software projects across different environments with deployment processes (the specific deployment steps) defined per project.
+
+A project in Octopus can consist of many deliverable components (e.g., web sites, Windows services). It's usually helpful to think of Octopus projects in terms of business projects: if you have 5 developers working together on the "HR Portal rewrite" project, than that's probably a single project in Octopus.
+
+![](/docs/images/3048100/3277800.png "width=500")
+
+Learn more about [projects](/docs/deploying-applications/projects/index.md)
+
+
+### Lifecycle
+
+When you define a project, you also select a [lifecycle](/docs/key-concepts/lifecycles.md). The lifecycle defines the rules around how releases of the project are allowed to be deployed between environments.
 
 ## Channels
 
