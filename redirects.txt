@@ -42,3 +42,4 @@ docs/key-concepts/projects/releases.md -> docs/deploying-applications/projects/r
 docs/key-concepts/projects/reporting.md -> docs/deploying-applications/projects/reporting.md
 docs/key-concepts/project-groups.md -> docs/deploying-applications/projects/project-groups.md
 docs/key-concepts/lifecycles.md -> docs/deploying-applications/projects/lifecycles/index.md
+docs/key-concepts/tenants.md -> docs/guides/multi-tenant-deployments/index.md
