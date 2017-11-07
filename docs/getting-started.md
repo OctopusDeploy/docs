@@ -174,7 +174,11 @@ Learn more about [projects](/docs/deploying-applications/projects/index.md)
 
 ### Lifecycle
 
-When you define a project, you also select a [lifecycle](/docs/key-concepts/lifecycles.md). The lifecycle defines the rules around how releases of the project are allowed to be deployed between environments.
+When you define a project, you also select a lifecycle. The lifecycle defines the rules around how releases of the project are deployed between environments.
+
+Lifecycles are defined by **phases**. Each phase can have one or more environments. And each environment can be defined as an automatic deployment environment or a manual deployment environment. Each phase can have a set number of environments that must be released to before the next phase is available for deployment.
+
+Learn more about [lifecycles](/docs/deploying-applications/lifecycles).
 
 ## Channels
 

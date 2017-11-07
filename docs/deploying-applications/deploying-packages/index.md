@@ -1,7 +1,7 @@
 ---
 title: Deploying packages
 description: Package steps allow you to deploy your applications and services that you have packaged and configured with Octopus.
-position: 3
+position: 4
 ---
 
 When defining your [deployment process](/docs/deploying-applications/index.md), the most common step type will be a package step. This step type allows you to deploy an [application that you have packaged](/docs/packaging-applications/index.md) onto one or more [Tentacles](/docs/installation/installing-tentacles/index.md).

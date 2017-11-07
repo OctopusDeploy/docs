@@ -1,7 +1,7 @@
 ---
 title: Windows Services
 description: Octopus can install, reconfigure, and start Windows Services during deployment, usually without requiring any custom scripts.
-position: 8
+position: 9
 ---
 
 Octopus Deploy includes first class support for Windows Service deployments. Octopus can install, reconfigure, and start Windows Services during deployment, usually without requiring any custom scripts.
