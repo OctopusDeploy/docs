@@ -75,6 +75,7 @@ First available: `3.13.6`
 This header is used to define the allowed certificate fingerprints used for the TLS certificates for the site.
 
 The Octopus portal does not support the `Public-Key-Pins` header.
+The Octopus portal does not support the `Public-Key-Pins` header. Note that an [intention to deprecate and remove from chromium](https://groups.google.com/a/chromium.org/d/msg/blink-dev/he9tr7p3rZ8/eNMwKPmUBAAJ) has been announced.
 
 ## Expect_CT
 
