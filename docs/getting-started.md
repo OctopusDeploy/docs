@@ -4,7 +4,7 @@ description: A Conceptual Overview of Octopus Deploy.
 position: 0
 ---
 
-Welcome! This section provides a conceptual overview of Octopus Deploy and explains how Octopus Deploy fits into the delivery pipeline.
+Welcome! This section provides an overview of Octopus Deploy by providing a brief explanation of the major components/concepts and explaining how Octopus fits in the delivery pipeline. Each section links to the relevant documentation, which explore concepts further and guides you through implementing them with your own Octopus. 
 
 !toc
 
@@ -16,7 +16,7 @@ The Octopus Deploy server works together with lightweight agent services, called
 
 ### The Delivery Pipeline
 
-We designed Octopus to fit into teams that follow agile delivery practices. A typical workflow would be:
+We designed Octopus Deploy to fit into teams that follow agile delivery practices. A typical workflow would be:
 
 1. Commit Code to Your Existing Source Control System.
 
@@ -48,7 +48,7 @@ The [installation documentation](/docs/installation/index.md) provides the instr
 
 ### Access the Octopus Web Portal
 
-**To Do! - provide a very high level overview** 
+Once Octopus is installed you can access the Octopus Web Portal. This is where you'll manage your infrastructure, projects, access the built-in repository, and deploy your applications from.
 
 ![Octopus web portal sign in](octopus-login.png "width=500")
 
@@ -66,12 +66,13 @@ Learn how to add and manage environments in the [environments documentation](/do
 
 ### Machine Roles
 
-Every machine in your environments is tagged with a set of roles. 
+Each environment that you work with, for instance, Dev, Test, or Production, will likely have multiple machines. In production, your web sites and Windows Services might run on different physical servers; perhaps dozens of them. However, unless you are extremely lucky, it's unlikely that you have the budget to have an equal number of servers in any of your pre-production environments. When testing your software in a test environment, you might only have a single virtual machine which will run all of the web sites and services on the same machine.
+
+Octopus handles these differences by applying roles to the machines within your environments.
 
 ![](sample-environments.png)
-In production, your web sites and Windows Services might run on different physical servers; perhaps dozens of them. However, unless you are extremely lucky, it's unlikely that you have the budget to have an equal number of servers in any of your pre-production environments. When testing your software in a test environment, you might only have a single virtual machine which will run all of the web sites and services on the same machine.
 
-Octopus handles these differences by applying roles to the machines within your environments. Instead of saying:
+Instead of saying:
 
 > The trading website ASP.NET application should be deployed to PWEB01, PWEB02, ...
 
@@ -83,7 +84,7 @@ In production, perhaps you have 10 machines with the web-server role. In staging
 
 You can define as many environments, machines, and roles as you need; it all depends on how your applications are deployed.
 
-Learn more about [machine roles](/docs/deployment-targets/machine-roles/index.md)
+Learn more about [machine roles](/docs/deployment-targets/machine-roles/index.md).
 
 ### Deployment Targets
 
@@ -91,7 +92,7 @@ Deployment targets represent the servers, machines, and cloud services where you
 
 You need to install Tentacles on all of your deployment targets and to register each Tentacle with an environment. 
 
-Learn more about the [deployment targets](/docs/deployment-targets/index.md).
+Learn more about [deployment targets](/docs/deployment-targets/index.md).
 
 ### Install Tentacles
 
@@ -130,46 +131,44 @@ Learn more about the [package repository](/docs/packaging-applications/package-r
 
 ### Deployment Process
 
-Because Octopus is designed to work with teams following agile software development methodologies, and continuously deploying software to environments, getting feedback, making changes, and redeploying, Octopus has been designed to deploy software projects repeatedly. 
+Because Octopus is designed to work with teams following agile software development methodologies, and continuously deploying software to environments, getting feedback, making changes, and redeploying, Octopus deploys software projects repeatedly. 
 
-After the initial setup, and with some tweaking, your deployment process shouldn't change between all of these deployments. Of Course, the software that you're deploying will. You will make changes to code, commit them to source control, and have a [build server](/docs/api-and-integration/index.md) build them and run tests. Then the software will be [packaged](/docs/packaging-applications/index.md) and ready for deployment.
+After the initial setup, and with some tweaking, your deployment process shouldn't change between all of these deployments. Of course, the software that you're deploying will. You will make changes to code, commit them to source control, and have a [build server](/docs/api-and-integration/index.md) build them and run tests. Then the software will be [packaged](/docs/packaging-applications/index.md) and ready for deployment.
 
 ### Defining the Deployment Process
 
-When you define your deployment process, you add different steps to be run in a specific order. Steps can be set to run only if certain conditions are met, or to run parallel with each other. Depending on the applications you plan to deploy, you could:
+When you define your deployment process, you add different steps to be run in a specific order. Steps can be set to run automatically, or if certain conditions are met, or even to run parallel with each other. Depending on the applications you plan to deploy, you could:
 
-- Deploy changes to an [SQL Server databases](/docs/deploying-applications/sql-server-databases.md)
-- Deploy an ASP.NET website to an [IIS Websites and Application Pool](/docs/deploying-applications/iis-websites-and-application-pools.md)
+- Deploy changes to an [SQL Server databases](/docs/deploying-applications/sql-server-databases.md).
+- Deploy an ASP.NET website to an [IIS Websites and Application Pool](/docs/deploying-applications/iis-websites-and-application-pools.md).
 - [Deploy a Java application](/docs/guides/deploying-java-applications.md).
-- Install or configure a [Windows Services](/docs/deploying-applications/windows-services.md)
-- Deploy a [custom scripts](/docs/deploying-applications/custom-scripts/index.md)
-- Pause deployment for [manual intervention and approval](/docs/deploying-applications/manual-intervention-and-approvals.md)
+- Install or configure a [Windows Services](/docs/deploying-applications/windows-services.md).
+- Deploy a [custom scripts](/docs/deploying-applications/custom-scripts/index.md).
+- Pause deployment for [manual intervention and approval](/docs/deploying-applications/manual-intervention-and-approvals.md).
 
 ![Your deployment process](deployment-process.png "width=500")
 
 ### Variables
 
-Chances are, you'll need to configure your application differently depending on the what you are deploying to (for example, different connection strings in staging vs. production). Octopus has advanced support for managing these variables and scoping them, and can even manage passwords securely. Octopus can also take care of automatically [updating your .NET configuration files, and running configuration file transforms](/docs/deploying-applications/configuration-files/index.md).
+Chances are, you'll need to configure your application differently depending on the what you are deploying to, for example, different connection strings in staging vs. production. Octopus has advanced support for managing and scoping these variables, and can even manage passwords securely.
 
 Learn more about [variables](/docs/deploying-applications/variables/index.md)
 
 ### Releases
 
-A **release** in Octopus, is a snapshot of the *deployment process* and *variables,* with a set of *packages* selected. That *release* is then *deployed* to multiple environments, typically to one, then promoted to the next environment if successful.
+A **release** in Octopus, is a snapshot of the packaged software, variables, and the deployment process.
 
-![](/docs/images/3048100/3277799.png "width=500")
+A release is *deployed* to the environments defined in the deployment process. Typically, releases are deployed to one environment and then promoted to next environment when they are successful.
 
 Each time you have a new candidate build that is ready to test, you'll create a *release*. When you apply a release to an environment, that is referred to as a *deployment*.
 
 ### Projects
 
-Octopus Deploy can manage the deployment of many applications across your organization. Projects within Octopus Deploy lets  you manage multiple software projects across different environments with deployment processes (the specific deployment steps) defined per project.
+Octopus Deploy can manage the deployment of many applications across your organization. **Projects** within Octopus Deploy lets  you manage multiple software projects across different environments with deployment processes (the specific deployment steps) defined per project.
 
 A project in Octopus can consist of many deliverable components (e.g., web sites, Windows services). It's usually helpful to think of Octopus projects in terms of business projects: if you have 5 developers working together on the "HR Portal rewrite" project, than that's probably a single project in Octopus.
 
-![](/docs/images/3048100/3277800.png "width=500")
-
-Learn more about [projects](/docs/deploying-applications/projects/index.md)
+Learn more about [projects](/docs/deploying-applications/projects/index.md).
 
 ### Lifecycle
 
@@ -181,8 +180,12 @@ Learn more about [lifecycles](/docs/deploying-applications/projects/lifecycles/i
 
 ## Channels
 
-When you start working with Octopus you will typically be creating releases from your main source code branch that are considered to be release candidates for your final production environment. Over time you may find you want to start working on an experimental branch of code, perhaps to introduce a new feature, or an entirely new version of your software. In this case you can either create an entirely new project, or clone the existing project, to manage deployments of this experimental software - but that leads to a lot of possible duplication and rework. In Octopus 3.2 we introduced the concept of [*channels* ](/docs/deploying-applications/projects/channels.md)which let you modify the entire deployment process on a per-release basis, all within the same project. For example, you can promote releases created from your main code branch through to your production environment, but restrict releases created from your experimental feature branch to a special test environment perhaps with extra steps and variables.
+When you start working with Octopus, you will typically create releases from your main source code branch that are considered to be release candidates for your final production environment. Over time you may find you want to start working on an experimental branch of code, perhaps to introduce a new feature, or an entirely new version of your software. In this case you can either create an entirely new project, or clone the existing project, to manage deployments of this experimental software - but that leads to a lot of possible duplication and rework. In Octopus 3.2 we introduced the concept of [*channels* ](/docs/deploying-applications/projects/channels.md) which let you modify the entire deployment process on a per-release basis, all within the same project. For example, you can promote releases created from your main code branch through to your production environment, but restrict releases created from your experimental feature branch to a special test environment perhaps with extra steps and variables.
+
+Learn more about [channels](/docs/deploying-applications/projects/channels.md).
 
 ## Tenants
 
-Over time your software may become so successful that you on-sell it to some external customers, and due to the way the software is architected, you need to deploy a copy of the software once per customer. You could achieve this in Octopus by creating an environment-per-customer, or even a project-per-customer, but this leads to duplication and unnecessary complexity. In Octopus 3.4 we introduced the concept of [tenants](/docs/guides/multi-tenant-deployments/index.md) that you can manage alongside your existing projects and environments.
+Over time your software may become so successful that you on-sell it to some external customers, and due to the way the software is architected, you need to deploy a copy of the software once per customer. You could achieve this in Octopus by creating an environment-per-customer, or even a project-per-customer, but this leads to duplication and unnecessary complexity. In Octopus 3.4 we introduced the concept of tenants that you can manage alongside your existing projects and environments.
+
+Learn more about tenants in our [Multi-tenant Deployments Guide](/docs/guides/multi-tenant-deployments/index.md). 
