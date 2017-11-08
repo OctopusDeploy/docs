@@ -30,7 +30,7 @@ The settings for the extension are:
 
 `API Key`: [Your API key](/docs/how-to/how-to-create-an-api-key.md). This key will only be used when registering the machine with the Octopus server; it isn't used for [subsequent communication](/docs/reference/octopus-tentacle-communication/index.md).
 
-`Environments`: The name of the [environment](/docs/deploy-targets/environments/index.md) to add the machine to. You can specify more than one by using commas; for example: `UAT1,UAT2`
+`Environments`: The name of the [environment](/docs/deployment-targets/environments/index.md) to add the machine to. You can specify more than one by using commas; for example: `UAT1,UAT2`
 
 `Roles`: The roles to give to the machine. Again, separate them using commas for more than one, for example: `web-server,app-server`
 

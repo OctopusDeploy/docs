@@ -121,7 +121,7 @@ You may decide to use channels as a safety measure, to restrict test releases to
 
 ### Step 1: Create the Lifecycle {#Designingamulti-tenantupgradeprocess-Step1:CreatetheLifecycle}
 
-Firstly we will create a new [Lifecycle](/docs/deploying-applications/projects/lifecycles.md)
+Firstly we will create a new [Lifecycle](/docs/deploying-applications/projects/lifecycles/index.md)
 
 ![](/docs/images/5669342/5866198.png "width=300")
 
@@ -151,7 +151,7 @@ Quite often you want to involve certain customers in testing early releases of m
 
 ### Step 1: Create the Lifecycle {#Designingamulti-tenantupgradeprocess-Step1:CreatetheLifecycle.1}
 
-Firstly we will create a new [Lifecycle](/docs/deploying-applications/projects/lifecycles.md)
+Firstly we will create a new [Lifecycle](/docs/deploying-applications/projects/lifecycles/index.md)
 
 ![](/docs/images/5669342/5865747.png)
 

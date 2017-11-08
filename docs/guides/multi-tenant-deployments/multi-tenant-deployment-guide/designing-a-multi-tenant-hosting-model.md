@@ -97,7 +97,7 @@ That's it! Now let's deploy the project for one of these tenants and see the res
 
 :::success
 **Accounts can also be restricted to tenants**
-Imagine a scenario where you have tenant-specific [Accounts](/docs/deploying-applications/environments/accounts/index.md) - you can similarly configure which tenants should be authorized to use particular accounts.
+Imagine a scenario where you have tenant-specific [Accounts](/docs/deployment-targets/environments/accounts/index.md) - you can similarly configure which tenants should be authorized to use particular accounts.
 :::
 
 ## Next steps {#Designingamulti-tenanthostingmodel-Nextsteps}
