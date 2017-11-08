@@ -4,7 +4,7 @@ description: A Conceptual Overview of Octopus Deploy.
 position: 0
 ---
 
-Welcome! This section provides an overview of Octopus Deploy by providing a brief explanation of the major components/concepts and explaining how Octopus fits in the delivery pipeline. Each section links to the relevant documentation, which explore concepts further and guides you through implementing them with your own Octopus. 
+Welcome! This section provides an overview of Octopus Deploy by providing a brief explanation of the major concepts and explaining how Octopus fits in the delivery pipeline. Each section links to the relevant documentation, which explore concepts further and guides you through implementing them with your own Octopus. 
 
 !toc
 
@@ -131,7 +131,7 @@ Learn more about the [package repository](/docs/packaging-applications/package-r
 
 ### Deployment Process
 
-Because Octopus is designed to work with teams following agile software development methodologies, and continuously deploying software to environments, getting feedback, making changes, and redeploying, Octopus deploys software projects repeatedly. 
+Because Octopus is designed to work with teams following agile software development methodologies, that is, continuously deploying software to environments, getting feedback, making changes, and redeploying, Octopus deploys software projects repeatedly.
 
 After the initial setup, and with some tweaking, your deployment process shouldn't change between all of these deployments. Of course, the software that you're deploying will. You will make changes to code, commit them to source control, and have a [build server](/docs/api-and-integration/index.md) build them and run tests. Then the software will be [packaged](/docs/packaging-applications/index.md) and ready for deployment.
 
