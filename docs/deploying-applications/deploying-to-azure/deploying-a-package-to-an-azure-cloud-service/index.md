@@ -135,6 +135,6 @@ The deployment is performed using a PowerShell script called `DeployToAzure.ps1
 When your application is deployed to more than one geographic region, you are likely to need per-region configuration settings. You can achieve this result in many different ways, but the two most popular methods we have seen are:
 
 1. [Cloud Regions](/docs/deployment-targets/cloud-regions.md): introduced in Octopus 3.4 to enable [rolling deployments](/docs/patterns/rolling-deployments.md) across multiple geographic regions
-2. Environment-per-region: by creating an environment per region you can leverage [lifecycles](/docs/deploying-applications/projects/lifecycles.md) to create a strict release promotion process
+2. Environment-per-region: by creating an environment per region you can leverage [lifecycles](/docs/deploying-applications/projects/lifecycles/index.md) to create a strict release promotion process
 
 Both methods allow you to modify your deployment process and variables per-region, but have slightly different release promotion paths. Choose the one that suits you best.

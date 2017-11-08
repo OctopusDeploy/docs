@@ -21,6 +21,6 @@ Project Triggers allow you to choose from a subset of **events** that can occur 
 
 - Automatically create a release when packages are pushed to a repository (think of a more intelligent version of [Automatic Release Creation](/docs/deploying-applications/automatic-release-creation.md))
 - Automatically deploy a release to a particular [Environment](/docs/deployment-targets/environments/index.md) when the Release is created
-- Automatically deploy the current release to a [Tenant](/docs/guides/multi-tenancy-deployments/index.md) when they are [connected to a Project and Environment](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md)
+- Automatically deploy the current release to a [Tenant](/docs/guides/multi-tenant-deployments/index.md) when they are [connected to a Project and Environment](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md)
 
 Get in touch and let us know what you think of these ideas!
