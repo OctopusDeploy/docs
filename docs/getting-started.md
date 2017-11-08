@@ -42,7 +42,7 @@ The rest of this guide goes into more detail about working with  Octopus Deploy 
 
 ## Install Octopus Deploy
 
-Installing [Octopus Deploy](/docs/installation/index.md) sets up the central [Octopus Deploy Server](/docs/installation/installing-octopus/index.md) which runs as a Windows Service on one of your servers. Octopus stores its data in an [SQL Server Database](/docs/installation/installing-octopus/sql-server-datasbase-requirements.md) and includes an embedded HTTP server which serves the [Octopus REST API](/docs/api-and-integration/octopus-rest-api.md) and the **Octopus Web Portal**.
+Installing [Octopus Deploy](/docs/installation/index.md) sets up the central [Octopus Deploy Server](/docs/installation/installing-octopus/index.md) which runs as a Windows Service on one of your servers. Octopus stores its data in an [SQL Server Database](/docs/installation/installing-octopus/sql-server-database-requirements.md) and includes an embedded HTTP server which serves the [Octopus REST API](/docs/api-and-integration/octopus-rest-api.md) and the **Octopus Web Portal**.
 
 The [installation documentation](/docs/installation/index.md) provides the instructions for installing and configuring your Octopus.
 
@@ -124,7 +124,7 @@ Octopus Deploy includes a built-in package repository. We recommend configuring 
 
 ![Octopus built-in package repository](library-packages.png)
 
-Learn more about the [package repository](/docs/packaging-applications/package-repository/index.md) or how to automate your existing tool chain to push packages to your Octopus Deploy server with our [API and Integrations](/docs/api-and-integration/index.md).
+Learn more about the [package repository](/docs/packaging-applications/package-repositories/index.md) or how to automate your existing tool chain to push packages to your Octopus Deploy server with our [API and Integrations](/docs/api-and-integration/index.md).
 
 ## Deploying Your Applications
 
@@ -140,7 +140,7 @@ When you define your deployment process, you add different steps to be run in a 
 
 - Deploy changes to an [SQL Server databases](/docs/deploying-applications/sql-server-databases.md)
 - Deploy an ASP.NET website to an [IIS Websites and Application Pool](/docs/deploying-applications/iis-websites-and-application-pools.md)
-- [Deploy a Java application](/docs/guides/deploying-java-applications).
+- [Deploy a Java application](/docs/guides/deploying-java-applications.md).
 - Install or configure a [Windows Services](/docs/deploying-applications/windows-services.md)
 - Deploy a [custom scripts](/docs/deploying-applications/custom-scripts/index.md)
 - Pause deployment for [manual intervention and approval](/docs/deploying-applications/manual-intervention-and-approvals.md)
@@ -177,7 +177,7 @@ When you define a project, you also select a lifecycle. The lifecycle defines th
 
 Lifecycles are defined by **phases**. Each phase can have one or more environments. And each environment can be defined as an automatic deployment environment or a manual deployment environment. Each phase can have a set number of environments that must be released to before the next phase is available for deployment.
 
-Learn more about [lifecycles](/docs/deploying-applications/lifecycles).
+Learn more about [lifecycles](/docs/deploying-applications/projects/lifecycles/index.md).
 
 ## Channels
 
