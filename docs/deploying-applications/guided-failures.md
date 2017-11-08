@@ -15,7 +15,7 @@ Guided failure mode is off by default. You can enable it when deploying a releas
 ![](/docs/images/3048076/3277632.png "width=500")
 
 :::hint
-See the section on [managing environments](/docs/key-concepts/environments/index.md) to enable guided failure mode by default for all deployments to a specific environment.
+See the section on [managing environments](/docs/deployment-targets/environments/index.md) to enable guided failure mode by default for all deployments to a specific environment.
 :::
 
 ## What happens {#Guidedfailures-Whathappens}

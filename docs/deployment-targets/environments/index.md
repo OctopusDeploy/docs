@@ -18,7 +18,7 @@ Environments can be added using the **Add environment** button.
 
 :::success
 **Tip: don&#39;t forget project groups**
-[Project groups](/docs/key-concepts/project-groups.md) can be used to limit which environments a project can be deployed to. When adding an environment, don't forget to modify any project groups to add the new environment!
+[Project groups](/docs/deploying-applications/projects/project-groups.md) can be used to limit which environments a project can be deployed to. When adding an environment, don't forget to modify any project groups to add the new environment!
 :::
 
 ## Adding Machines to Environments {#Environments-Addingmachinestoenvironments}
@@ -57,7 +57,7 @@ Guided failure mode is an option when editing an environment:
 
 ## Associating Projects with Environments {#Environments-Associatingprojectswithenvironments}
 
-By default, a project can be deployed to any environment. You can limit which projects can be deployed to which environment using [Lifecycles](/docs/key-concepts/lifecycles.md). This is useful if you have one set of environments for projects developed by one team, and another set of environments for projects developed by another team.
+By default, a project can be deployed to any environment. You can limit which projects can be deployed to which environment using [Lifecycles](/docs/deploying-applications/projects/lifecycles/index.md). This is useful if you have one set of environments for projects developed by one team, and another set of environments for projects developed by another team.
 
 ## Environment Permissions {#Environments-Environmentpermissions}
 

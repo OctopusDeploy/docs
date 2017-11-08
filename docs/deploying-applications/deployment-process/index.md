@@ -19,7 +19,7 @@ Also by default, a step that is configured to execute across multiple deployment
 
 ![](5865850.png "width=300")
 
-For more information, see the section on [simple and advanced deployment processes](/docs/key-concepts/projects/deployment-processes.md) and [rolling deployments](/docs/patterns/rolling-deployments.md).
+For more information, see the section on [simple and advanced deployment processes](/docs/deploying-applications/projects/deployment-processes.md) and [rolling deployments](/docs/patterns/rolling-deployments.md).
 :::
 
 ### Adding Steps {#Deployingapplications-Addingsteps}
@@ -43,11 +43,11 @@ Be careful when changing names! Octopus commonly uses names as a convenient iden
 
 ### Conditions {#Deployingapplications-Conditions}
 
-Steps can also have conditions. You can restrict a step so that it only runs when deploying to specific [environments](/docs/key-concepts/environments/index.md) (e.g., an Email step that only runs on production deployments).
+Steps can also have conditions. You can restrict a step so that it only runs when deploying to specific [environments](/docs/deploying-applications/environments/index.md) (e.g., an Email step that only runs on production deployments).
 
 ![](3277617.png "width=500")
 
-If you have created some [channels](/docs/key-concepts/projects/channels.md), you can also specify whether a step runs only when deploying a release through specific channels (e.g., a Script step that only runs for deployments through certain channels to configure extra telemetry). *This will only appear if you have created one or more non-default channels.*
+If you have created some [channels](/docs/deploying-applications/projects/channels.md), you can also specify whether a step runs only when deploying a release through specific channels (e.g., a Script step that only runs for deployments through certain channels to configure extra telemetry). *This will only appear if you have created one or more non-default channels.*
 
 ![](3278573.png "width=500")
 
@@ -56,6 +56,6 @@ You can also specify whether a step runs only when previous steps are successful
 ![](3277616.png "width=500")
 
 :::success
-You can achieve very complex deployment processes in Octopus by leveraging advanced concepts like parallel execution of steps and rolling deployments. Learn more about [simple and complex deployment processes](/docs/key-concepts/projects/deployment-processes.md).
+You can achieve very complex deployment processes in Octopus by leveraging advanced concepts like parallel execution of steps and rolling deployments. Learn more about [simple and complex deployment processes](/docs/deploying-applications/projects/deployment-processes.md).
 :::
 

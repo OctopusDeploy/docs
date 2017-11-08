@@ -6,11 +6,11 @@ position: 4
 
 Previous step: [Working with tenant-specific variables](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-tenant-specific-variables.md)
 
-This page describes how to use [tenant tags](/docs/key-concepts/tenants/tenant-tags.md) to make working with tenanted deployments in Octopus much easier.
+This page describes how to use [tenant tags](/docs/reference/tenant-tags.md) to make working with tenanted deployments in Octopus much easier.
 
 ## Classifying and working with groups of tenants {#Workingwithgroupsoftenantsusingtags-Classifyingandworkingwithgroupsoftenants}
 
-Working with a small number of tenants is quite easy, they all fit on one page, and you can tailor deployments for your projects and environments based in individual tenants. Working with a lot of tenants (we hope all of our customers are this successful!) is much harder if you try to tailor everything based on individual tenants. This is where it makes sense to work with tenants in aggregate, just like [environments](/docs/key-concepts/environments/index.md) and [machine roles](/docs/key-concepts/machine-roles.md) let you work with machines in aggregate instead of individually.
+Working with a small number of tenants is quite easy, they all fit on one page, and you can tailor deployments for your projects and environments based in individual tenants. Working with a lot of tenants (we hope all of our customers are this successful!) is much harder if you try to tailor everything based on individual tenants. This is where it makes sense to work with tenants in aggregate, just like [environments](/docs/deploying-applications/environments/index.md) and [machine roles](/docs/deployment-targets/environments/machine-roles.md) let you work with machines in aggregate instead of individually.
 
 Consider the example of setting up new infrastructure as a shared host for multiple tenants: Instead of specifying each tenant by their name, you could tag each tenant as belonging to a shared pool, and add that single tag to each deployment target in the pool. You can [jump ahead in our guide](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md) if this is of interest to you.
 
@@ -24,7 +24,7 @@ Consider the example of setting up new infrastructure as a shared host for multi
 
 ## Introducing tenant tags {#Workingwithgroupsoftenantsusingtags-Introducingtenanttags}
 
-In Octopus, tenant tags help you to classify your tenants using custom tags that meet your needs, and tailor tenanted deployments for your projects and environments. You can read more about [tenant tags](/docs/key-concepts/tenants/tenant-tags.md) in our reference documentation, or jump to other sections in this guide to learn about tailoring your projects and environments for your tenants:
+In Octopus, tenant tags help you to classify your tenants using custom tags that meet your needs, and tailor tenanted deployments for your projects and environments. You can read more about [tenant tags](/docs/reference/tenant-tags.md) in our reference documentation, or jump to other sections in this guide to learn about tailoring your projects and environments for your tenants:
 
 - [Designing a multi-tenant upgrade process](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md)
 - [Designing a multi-tenant hosting model](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md)
@@ -96,7 +96,7 @@ if ($tenantName) {
 
 :::success
 **Tenant filter design/preview**
-Clicking the Design/Preview link will open a dialog to help you design your tenant filter. You can [learn more about designing complex tenant filters in our reference documentation](/docs/key-concepts/tenants/tenant-tags.md).
+Clicking the Design/Preview link will open a dialog to help you design your tenant filter. You can [learn more about designing complex tenant filters in our reference documentation](/docs/reference/tenant-tags.md).
 :::
 
 The resulting deployment process should look like this:

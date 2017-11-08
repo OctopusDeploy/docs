@@ -90,7 +90,7 @@ Quite often you will want to allocate certain tenants to a team, or restrict whi
 
 ## Infrastructure manager {#Multi-tenantrolesandsecurity-Infrastructuremanager}
 
-Bob is a member of IT infrastructure team and he manages all the virtual servers in the cloud. His only interaction with tenants is to associate them with the appropriate [deployment targets](/docs/deployment-targets/index.md) and [environments](/docs/key-concepts/environments/index.md).  He should have read-only access to tenant details required, and have the ability to manage deployment targets and accounts. This time we will configure the team using a composition of built-in and custom roles.
+Bob is a member of IT infrastructure team and he manages all the virtual servers in the cloud. His only interaction with tenants is to associate them with the appropriate [deployment targets](/docs/deployment-targets/index.md) and [environments](/docs/deployment-targets/environments/index.md).  He should have read-only access to tenant details required, and have the ability to manage deployment targets and accounts. This time we will configure the team using a composition of built-in and custom roles.
 
 ### Step 1: Configure the Tenant viewer role {#Multi-tenantrolesandsecurity-Step1:ConfiguretheTenantviewerrole}
 
