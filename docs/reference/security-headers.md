@@ -8,7 +8,7 @@ position: 1
 
 The Octopus Web Portal supports a number of security related browser headers, designed to limit the attack surface area by locking down what browsers are able to do. This page describes what headers are available, whether they are configurable, how to configure them, and when they were first available.
 
-#### Server
+### Server
 
 The `Server` browser header is set to `Octopus Deploy/ Microsoft-HTTPAPI/2.0`. This setting is not configurable.
 
