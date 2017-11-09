@@ -145,7 +145,7 @@ When you define your deployment process, you add different steps to be run in a 
 - Deploy an ASP.NET website to an [IIS Websites and Application Pool](/docs/deploying-applications/iis-websites-and-application-pools.md).
 - [Deploy a Java application](/docs/guides/deploying-java-applications.md).
 - Install or configure a [Windows Services](/docs/deploying-applications/windows-services.md).
-- Deploy a [custom scripts](/docs/deploying-applications/custom-scripts/index.md).
+- Deploy a [custom script](/docs/deploying-applications/custom-scripts/index.md).
 - Pause deployment for [manual intervention and approval](/docs/deploying-applications/manual-intervention-and-approvals.md).
 
 ![Your deployment process](deployment-process.png "width=500")
