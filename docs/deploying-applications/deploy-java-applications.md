@@ -470,6 +470,8 @@ The application was not successfully started or stopped.
 
 This can happen if the application failed to initialize. Check the Tomcat logs for information on why the application could not be started.
 
+When deploying an application with a version, make sure that the version is greater than an existing deployment. Otherwise Tomcat may deploy what it sees to be an old version, remove the old version, and then the old version can not be started or stopped.
+
 Also confirm that the context path and version match a deployed application.
 
 This is treated as a warning during deployment, but an error if encountered during the Tomcat start/stop step.
