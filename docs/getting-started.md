@@ -4,7 +4,9 @@ description: A Conceptual Overview of Octopus Deploy.
 position: 0
 ---
 
-Welcome! This section provides an overview of Octopus Deploy by providing a brief explanation of the major concepts and explaining how Octopus fits in the delivery pipeline. Each section links to the relevant documentation, which explore concepts further and guides you through implementing them with your own Octopus. 
+Welcome! 
+
+This section provides an overview of Octopus Deploy by explaining how Octopus Deploy fits into the delivery pipeline. It also provides an overview of the major concepts in Octopus and links to the relevant documentation, which explore the concepts further and guides you through implementing them with your own Octopus. 
 
 !toc
 
