@@ -12,7 +12,7 @@ This section provides an overview of Octopus Deploy by explaining how Octopus De
 
 ## Octopus in Your Delivery Process {#Gettingstarted-Octopusinyourdeliveryprocess}
 
-Octopus Deploy is an automated deployment server that makes it easy to automate the deployment of ASP.NET web applications, Java applications, scripts, and Windows Services into development, test, and production environments.
+Octopus Deploy is an automated deployment server that makes it easy to automate the deployment of ASP.NET web applications, Java applications, Node.js, scripts, and Windows Services into development, test, and production environments.
 
 The Octopus Deploy server works together with lightweight agent services, called Tentacles, that are installed on the machines you plan to deploy your web apps, applications, or services to. With Octopus and Tentacle, you can easily deploy to your own servers or cloud services from providers like Amazon Web Services or Microsoft Azure.
 
