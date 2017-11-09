@@ -152,21 +152,23 @@ When you define your deployment process, you add different steps to be run in a 
 
 ### Variables
 
-Chances are, you'll need to configure your application differently depending on the what you are deploying to, for example, different connection strings in staging vs. production. Octopus has advanced support for managing and scoping these variables, and can even manage passwords securely.
+Chances are, you'll need to configure your application differently depending on the environment you're deploying to. For instance, the connection strings in staging versus production.
 
-Learn more about [variables](/docs/deploying-applications/variables/index.md)
+Octopus has advanced support for managing and scoping variables, and can even manage passwords securely.
+
+Learn more about [variables](/docs/deploying-applications/variables/index.md).
 
 ### Releases
 
-A **release** in Octopus, is a snapshot of the packaged software, variables, and the deployment process.
+A release in Octopus, is a snapshot of the packaged software, variables, and the deployment process.
 
-A release is *deployed* to the environments defined in the deployment process. Typically, releases are deployed to one environment and then promoted to next environment when they are successful.
+A release is deployed to the environments defined in the deployment process. Typically, releases are deployed to one environment and then promoted to next environment when they are successful.
 
-Each time you have a new candidate build that is ready to test, you'll create a *release*. When you apply a release to an environment, that is referred to as a *deployment*.
+Each time you have a new candidate build that is ready to test, you'll create a release. When you apply a release to an environment, that is referred to as a deployment.
 
 ### Projects
 
-Octopus Deploy can manage the deployment of many applications across your organization. **Projects** within Octopus Deploy lets  you manage multiple software projects across different environments with deployment processes (the specific deployment steps) defined per project.
+Octopus Deploy can manage the deployment of many applications across your organization. Projects within Octopus Deploy lets  you manage multiple software projects across different environments with deployment processes (the specific deployment steps) defined per project.
 
 A project in Octopus can consist of many deliverable components (e.g., web sites, Windows services). It's usually helpful to think of Octopus projects in terms of business projects: if you have 5 developers working together on the "HR Portal rewrite" project, than that's probably a single project in Octopus.
 
@@ -176,13 +178,13 @@ Learn more about [projects](/docs/deploying-applications/projects/index.md).
 
 When you define a project, you also select a lifecycle. The lifecycle defines the rules around how releases of the project are deployed between environments.
 
-Lifecycles are defined by **phases**. Each phase can have one or more environments. And each environment can be defined as an automatic deployment environment or a manual deployment environment. Each phase can have a set number of environments that must be released to before the next phase is available for deployment.
+Lifecycles are defined by phases, each phase can have one or more environments, and each environment can be defined as an automatic deployment environment or a manual deployment environment. Each phase can have a set number of environments that must be released to before the next phase is available for deployment.
 
 Learn more about [lifecycles](/docs/deploying-applications/projects/lifecycles/index.md).
 
 ## Channels
 
-When you start working with Octopus, you will typically create releases from your main source code branch that are considered to be release candidates for your final production environment. Over time you may find you want to start working on an experimental branch of code, perhaps to introduce a new feature, or an entirely new version of your software. In this case you can either create an entirely new project, or clone the existing project, to manage deployments of this experimental software - but that leads to a lot of possible duplication and rework. In Octopus 3.2 we introduced the concept of [*channels* ](/docs/deploying-applications/projects/channels.md) which let you modify the entire deployment process on a per-release basis, all within the same project. For example, you can promote releases created from your main code branch through to your production environment, but restrict releases created from your experimental feature branch to a special test environment perhaps with extra steps and variables.
+When you start working with Octopus, you will typically create releases from your main source code branch that are considered to be release candidates for your final production environment. Over time you may find you want to start working on an experimental branch of code, perhaps to introduce a new feature, or an entirely new version of your software. In this case you can either create an entirely new project, or clone the existing project, to manage deployments of this experimental software - but that leads to a lot of possible duplication and rework. In Octopus 3.2 we introduced the concept of [channels](/docs/deploying-applications/projects/channels.md) which let you modify the entire deployment process on a per-release basis, all within the same project. For example, you can promote releases created from your main code branch through to your production environment, but restrict releases created from your experimental feature branch to a special test environment perhaps with extra steps and variables.
 
 Learn more about [channels](/docs/deploying-applications/projects/channels.md).
 
