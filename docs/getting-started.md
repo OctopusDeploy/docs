@@ -6,14 +6,16 @@ position: 0
 
 Welcome! 
 
-This section provides an overview of Octopus Deploy by explaining how Octopus Deploy fits into the delivery pipeline. It also provides an overview of the major concepts in Octopus and links to the relevant documentation, which explore the concepts further and guides you through implementing them with your own Octopus. 
+This section provides an overview of Octopus Deploy by explaining how Octopus Deploy fits into your application delivery pipeline. It also provides an overview of the major concepts in Octopus and links to the relevant documentation, which explore the concepts further and guides you through implementing them with your own Octopus. 
 
 !toc
 
 ## Octopus in Your Delivery Process {#Gettingstarted-Octopusinyourdeliveryprocess}
 
-Octopus Deploy is an automated deployment server that makes it easy to automate the deployment of ASP.NET web applications, Java applications, Node.js, scripts, and Windows Services into development, test, and production environments.
+Octopus Deploy is an automated deployment server that makes it easy to automate the deployment of ASP.NET web applications, Java applications, database updates, NodeJS application, and custom scripts into development, test, and production environments.
 
+
+!!!! Rework, not just tentacles.
 The Octopus Deploy server works together with lightweight agent services, called Tentacles, that are installed on the machines you plan to deploy your web apps, applications, or services to. With Octopus and Tentacle, you can easily deploy to your own servers or cloud services from providers like Amazon Web Services or Microsoft Azure.
 
 ### The Delivery Pipeline
@@ -38,13 +40,13 @@ We designed Octopus Deploy to fit into teams that follow agile delivery practice
 
 ### Consistent Releases
 
-As a release manager, you define the process for deploying the software. You specify the environments the applications are deployed to and who on your team can deploy to which environments; for instance, you might want testers to deploy to test environments, but not to production. Taking this approach means that even if different members of the team are triggering deployments, the deployment process remains consistent.
+As an Octopus user, you define the process for deploying the software. You specify the environments the applications are deployed to and who on your team can deploy to which environments; for instance, you might want testers to deploy to test environments, but not to production. Taking this approach means that even if different members of the team are triggering deployments, the deployment process remains consistent.
 
 The rest of this guide goes into more detail about working with  Octopus Deploy and links to the relevant sections of the documentation for more information.
 
 ## Install Octopus Deploy
 
-Installing [Octopus Deploy](/docs/installation/index.md) sets up the central [Octopus Deploy Server](/docs/installation/installing-octopus/index.md) which runs as a Windows Service on one of your servers. Octopus stores its data in an [SQL Server Database](/docs/installation/installing-octopus/sql-server-database-requirements.md) and includes an embedded HTTP server which serves the [Octopus REST API](/docs/api-and-integration/octopus-rest-api.md) and the **Octopus Web Portal**.
+Installing [Octopus Deploy](/docs/installation/index.md) sets up the central [Octopus Deploy Server](/docs/installation/installing-octopus/index.md), which provides the **Octopus Web Portal** and the [Octopus REST API](/docs/api-and-integration/octopus-rest-api.md).
 
 The [installation documentation](/docs/installation/index.md) provides the instructions for installing and configuring your Octopus.
 
@@ -90,17 +92,34 @@ Learn more about [machine roles](/docs/deployment-targets/machine-roles/index.md
 
 ### Deployment Targets
 
-Deployment targets represent the servers, machines, and cloud services where your application and services will be deployed. 
+Deployment targets represent the servers, virtual machines, and cloud services where your application and services will be deployed. The central Octopus Deploy server communicates with  different types of infrastructure in different ways.
 
-You need to install Tentacles on all of your deployment targets and to register each Tentacle with an environment. 
+#### Windows Targets
+
+Tentacles are a secure, lightweight agent service that Octopus uses to deploy software to your Windows infrasture.
+
+Learn more about installing and configuring [Tentacles](/docs/installation/index.md) .
+
+#### SSH Targets
+
+For Linux and Unix systems, you can use configure Octopus Deploy to communicate with your deployment targets through SSH.
+
+Learn more about configuring [SSH Targets](/docs/deployment-targets/ssh-targets/index.md).
+
+#### Offline Package Drop
+
+For scenarios where it is not possible to connect directly with the deployment target, Octopus can be configured to bundle all of the files needed to perform the deployment on the target server. These bundles can be copied directly to the target server to execute the deployment.
+
+Learn more about [Offline Package Drops](/docs/deployment-targets/offline-package-drop.md).
+
+#### Azure Cloud Services
+
+**Description goes here**
+
+
 
 Learn more about [deployment targets](/docs/deployment-targets/index.md).
 
-### Install Tentacles
-
-The central Octopus Deploy Server works with Tentacles. Tentacle is a secure, lightweight agent service that Octopus uses to deploy software to your infrastructure. That infrastructure could be your own servers or cloud services from providers like Amazon Web Services or Microsoft Azure.
-
-The [Installation documentation](/docs/installation/index.md) provides the instructions for installing Tentacles and configuring your deployment targets.
 
 ## Packaging Applications
 
