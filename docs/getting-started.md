@@ -155,24 +155,42 @@ Because Octopus is designed to work with teams following agile software developm
 
 After the initial setup, and with some tweaking, your deployment process shouldn't change between all of these deployments. Of course, the software that you're deploying will. You will make changes to code, commit them to source control, and have a [build server](/docs/api-and-integration/index.md) build them and run tests. Then the software will be [packaged](/docs/packaging-applications/index.md) and ready for deployment.
 
-### Defining the Deployment Process
+### Defining your Deployment Process
 
-When you define your deployment process, you add different steps to be run in a specific order. Steps can be set to run automatically, or if certain conditions are met, or even to run parallel with each other. Depending on the applications you plan to deploy, you could:
+When you define your deployment process, you add different steps to be run in a specific order. Steps can be set to run automatically, or if certain conditions are met, or even to run parallel with each other. Octopus Deploy provides a range of built-in step templates:
 
-- Deploy changes to an [SQL Server databases](/docs/deploying-applications/sql-server-databases.md).
-- Deploy an ASP.NET website to an [IIS Websites and Application Pool](/docs/deploying-applications/iis-websites-and-application-pools.md).
-- [Deploy a Java application](/docs/guides/deploying-java-applications.md).
-- Install or configure a [Windows Services](/docs/deploying-applications/windows-services.md).
-- Deploy a [custom script](/docs/deploying-applications/custom-scripts/index.md).
-- Pause deployment for [manual intervention and approval](/docs/deploying-applications/manual-intervention-and-approvals.md).
+* Deploy to IIS
+* Deploy a Windows Service
+* Deploy a Package
+* Run a Script
+* Deploy an Azure Cloud Service
+* Deploy an Azure Web App
+* Deploy a Service Fabric App
+* Run a Service Fabric SDK PowerShell Script
+* Run an Azure PowerShell Script
+* Deploy an Azure Resource Group
+* Create a Docker Network
+* Run a Docker Container
+* Stop a Docker Resource
+* Send an Email
+* Health Check
+* Transfer a Package
+* Manual Intervention Required
+* Deploy a VHD
+* Deploy a Java Archive
+* Deploy to Tomcat Via Manager
+* Start/Stop App in Tomcat
+* Deploy to WildFly or EAP
+* Enable/Disable Deployment in WildFly or EAP
+* Import Certificate
 
-![Your deployment process](deployment-process.png "width=500")
+In addition to the built-in steps, there are also community contributed steps which are available to install.
+
+Learn more about [deploying applications](/docs/deploying-applications/index.md) and [adding steps](/docs/deploying-applications/adding-steps.md).
 
 ### Variables
 
-Chances are, you'll need to configure your application differently depending on the environment you're deploying to. For instance, the connection strings in staging versus production.
-
-Octopus has advanced support for managing and scoping variables, and can even manage passwords securely.
+As you deploy your applications, you'll need to change their configuration files based on the scope of the deployment. Octopus has advance support for managing and scoping variables. 
 
 Learn more about [variables](/docs/deploying-applications/variables/index.md).
 
@@ -188,7 +206,7 @@ Each time you have a new candidate build that is ready to test, you'll create a 
 
 Octopus Deploy can manage the deployment of many applications across your organization. Projects within Octopus Deploy let you manage multiple software projects across different environments with deployment processes (the specific deployment steps) defined per project.
 
-A project in Octopus can consist of many deliverable components (e.g., web sites, Windows services). It's usually helpful to think of Octopus projects in terms of business projects: if you have 5 developers working together on the "HR Portal rewrite" project, then that's probably a single project in Octopus.
+A project in Octopus can consist of many deliverable components (e.g., web sites, micro services, and database scripts). It's usually helpful to think of Octopus projects in terms of business projects: if you have 5 developers working together on the "HR Portal rewrite" project, then that's probably a single project in Octopus.
 
 Learn more about [projects](/docs/deploying-applications/projects/index.md).
 
