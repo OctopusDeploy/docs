@@ -92,11 +92,11 @@ Learn more about [machine roles](/docs/deployment-targets/machine-roles/index.md
 
 ### Deployment Targets
 
-Deployment targets represent the servers, virtual machines, and cloud services where your application and services will be deployed. The central Octopus Deploy server communicates with  different types of infrastructure in different ways.
+Deployment targets represent the servers, virtual machines, and cloud services where your application and services will be deployed. The central Octopus Deploy server communicates with  different types of deployment targets in different ways.
 
 #### Windows Targets
 
-Tentacles are a secure, lightweight agent service that Octopus uses to deploy software to your Windows infrasture.
+For Windows systems, we have tentacles. Tentacles are a secure, lightweight agent service that Octopus uses to deploy software to your Windows infrastructure.
 
 Learn more about installing and configuring [Tentacles](/docs/installation/index.md) .
 
