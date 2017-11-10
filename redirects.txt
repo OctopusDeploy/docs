@@ -30,3 +30,4 @@ docs/images/lets-encrypt-integration/configure-lets-encrypt.png -> docs/administ
 docs/administration/subscription_events.md -> docs/administration/subscription-events.md
 docs/installation/installing-tentacles/running-tentacle-under-a-specific-user-account-for-use-in-powershell.md -> docs/installation/installing-tentacles/running-tentacle-under-a-specific-user-account.md
 docs/reference/download-permalinks.md -> docs/installation/index.md
+docs/key-concepts/environments/accounts/azure-subscription-account.md -> docs/key-concepts/environments/accounts/azure-account.md

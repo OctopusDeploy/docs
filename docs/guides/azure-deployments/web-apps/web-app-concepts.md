@@ -39,7 +39,7 @@ In order to make the NuGet package accessible to Octopus it needs to be uploaded
 
 ## Web App accounts {#WebAppConcepts-WebAppAccounts}
 
-Deploying a Web App in Octopus requires the configuration of an Azure Subscription Account.  Azure Subscription Accounts contain the details of Azure subscriptions.
+Deploying a Web App in Octopus requires the configuration of an Azure Account.  Azure Accounts contain the details of Azure subscriptions.
 
 ### Creating the account {#WebAppConcepts-Creatingtheaccount}
 
