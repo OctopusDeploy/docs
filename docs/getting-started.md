@@ -94,6 +94,8 @@ Learn more about [machine roles](/docs/deployment-targets/machine-roles/index.md
 
 Deployment targets represent the servers, virtual machines, and cloud services where your application and services will be deployed. The central Octopus Deploy server communicates with  different types of deployment targets in different ways.
 
+Learn more about [deployment targets](/docs/deployment-targets/index.md).
+
 #### Windows Targets
 
 For Windows systems, we have tentacles. Tentacles are a secure, lightweight agent service that Octopus uses to deploy software to your Windows infrastructure.
@@ -114,12 +116,9 @@ Learn more about [Offline Package Drops](/docs/deployment-targets/offline-packag
 
 #### Azure Cloud Services
 
-**Description goes here**
+Octopus Deploy includes steps that let you deploy your applications to the Azure Cloud Service.
 
-
-
-Learn more about [deployment targets](/docs/deployment-targets/index.md).
-
+Learn more about [deploying Azure Web Apps](/docs/guides/azure-deployments/cloud-services/cloud-service-concepts.md).
 
 ## Packaging Applications
 
