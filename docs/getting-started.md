@@ -162,15 +162,15 @@ Learn more about [variables](/docs/deploying-applications/variables/index.md).
 
 A release in Octopus, is a snapshot of the packaged software, variables, and the deployment process.
 
-A release is deployed to the environments defined in the deployment process. Typically, releases are deployed to one environment and then promoted to next environment when they are successful.
+A release is deployed to the environments defined in the deployment process. Typically, releases are deployed to one environment and then promoted to the next environment when they are successful.
 
 Each time you have a new candidate build that is ready to test, you'll create a release. When you apply a release to an environment, that is referred to as a deployment.
 
 ### Projects
 
-Octopus Deploy can manage the deployment of many applications across your organization. Projects within Octopus Deploy lets  you manage multiple software projects across different environments with deployment processes (the specific deployment steps) defined per project.
+Octopus Deploy can manage the deployment of many applications across your organization. Projects within Octopus Deploy let you manage multiple software projects across different environments with deployment processes (the specific deployment steps) defined per project.
 
-A project in Octopus can consist of many deliverable components (e.g., web sites, Windows services). It's usually helpful to think of Octopus projects in terms of business projects: if you have 5 developers working together on the "HR Portal rewrite" project, than that's probably a single project in Octopus.
+A project in Octopus can consist of many deliverable components (e.g., web sites, Windows services). It's usually helpful to think of Octopus projects in terms of business projects: if you have 5 developers working together on the "HR Portal rewrite" project, then that's probably a single project in Octopus.
 
 Learn more about [projects](/docs/deploying-applications/projects/index.md).
 
