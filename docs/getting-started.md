@@ -153,40 +153,19 @@ Learn more about the [package repository](/docs/packaging-applications/package-r
 
 Because Octopus is designed to work with teams following agile software development methodologies, that is, continuously deploying software to environments, getting feedback, making changes, and redeploying, Octopus deploys software projects repeatedly.
 
-After the initial setup, and with some tweaking, your deployment process shouldn't change between all of these deployments. Of course, the software that you're deploying will. You will make changes to code, commit them to source control, and have a [build server](/docs/api-and-integration/index.md) build them and run tests. Then the software will be [packaged](/docs/packaging-applications/index.md) and ready for deployment.
-
 ### Defining your Deployment Process
 
-When you define your deployment process, you add different steps to be run in a specific order. Steps can be set to run automatically, or if certain conditions are met, or even to run parallel with each other. Octopus Deploy provides a range of built-in step templates:
+The deployment process is like a recipe. You define the recipe by adding steps to the process. Each step is a specific instruction (or set of instructions) that is executed as part of the deployment process every time your application is deployed. After the initial setup, your deployment process shouldn't change between deployments even though the software being deployed has changed as part of the development process.
 
-* Deploy to IIS
-* Deploy a Windows Service
-* Deploy a Package
-* Run a Script
-* Deploy an Azure Cloud Service
-* Deploy an Azure Web App
-* Deploy a Service Fabric App
-* Run a Service Fabric SDK PowerShell Script
-* Run an Azure PowerShell Script
-* Deploy an Azure Resource Group
-* Create a Docker Network
-* Run a Docker Container
-* Stop a Docker Resource
-* Send an Email
-* Health Check
-* Transfer a Package
-* Manual Intervention Required
-* Deploy a VHD
-* Deploy a Java Archive
-* Deploy to Tomcat Via Manager
-* Start/Stop App in Tomcat
-* Deploy to WildFly or EAP
-* Enable/Disable Deployment in WildFly or EAP
-* Import Certificate
+Learn more about the [deployment process](/docs/deploying-applications/index.md).
 
-In addition to the built-in steps, there are also community contributed steps which are available to install.
+### Adding Steps
 
-Learn more about [deploying applications](/docs/deploying-applications/index.md) and [adding steps](/docs/deploying-applications/adding-steps.md).
+Octopus Deploy provides a range of steps that can be included in your deployment processes. Depending on your deployment needs, the steps can run automatically and in order one after another, or they could run in parallel. You can add conditions that need to be met before a step executes, and you can even specify a manual intervention step if a member of your team needs to be involved in the process, for instance, to approve a change before it is deployed.
+
+In addition to the built-in steps, there are also community contributed steps.
+
+Learn more about [adding steps](/docs/deploying-applications/adding-steps.md).
 
 ### Variables
 
