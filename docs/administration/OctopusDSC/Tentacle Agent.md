@@ -64,7 +64,7 @@ OctopusDSC can also be used to create and register new Tentacle instances on ser
 Ensure you have replaced the values under `SampleConfig` with valid connection information and an `API-Key` for an Octopus user who has permiassions to register new Tentalces with the Octopus server.:::
 
 Successfully running thescript should return the following:
-![Successfully run OctopusDSC Tentacle Agent script](/docs/administration/OctopusDSC/successful%20run.jpg "Optional title width=500")
+![Successfully run OctopusDSC Tentacle Agent script](./successful%20run.jpg)
 
 Thats it! OctopusDSC has installed, configured, and registered your Tentacle agent. This can be used to remotely manage large or dynamic infrastructures remotely with ease. Or it can be packaged with your OS images and used on initial server configuration.
 
