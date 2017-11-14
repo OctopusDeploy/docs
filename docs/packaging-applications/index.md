@@ -1,7 +1,7 @@
 ---
 title: Packaging Applications
 description: Applications executables, configuration files, scripts need to be packaged and versioned so they can be deployed.
-position: 3
+position: 2
 ---
 
 Before you can deploy an application using Octopus, you will need to bundle all of the executables, DLL's, configuration files, installation scripts, and anything else the application needs to run into a package.
