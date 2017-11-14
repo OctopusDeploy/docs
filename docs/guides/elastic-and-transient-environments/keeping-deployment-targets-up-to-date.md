@@ -84,24 +84,7 @@ $repository.Projects.Modify($project)
 
 Automatic deployment overrides are cleared when a deployment is performed to the same project/environment/tenant combination as the override.  For example: if an override is set for version 1.2 of HelloWorld to the Test environment and version 1.3 of HelloWorld is deployed to the Test environment, the 1.2 override will be deleted. Release overrides will be cleared as soon as they have automated an actual deployment.
 
-## Troubleshooting automatic deployments {#Keepingdeploymenttargetsuptodate-TroubleshootingTroubleshootingautomaticdeployments}
-
-Octopus will attempt to automatically deploy the current releases for the environments that are appropriate for a machine. The current release is the one that was most recently *successfully* deployed as shown on the project dashboard. Octopus will not automatically deploy a release if the deployment for that release was not successful. If the initial deployment of a release was successful but an automatic deployment of that release fails, **Octopus will stop automatically deploying that release**.
-
-:::hint
-For example: If you cancel a deployment or a deployment fails for whatever reason, auto-deploy will now be blocked for the given release and any new machines that come online will **not** be auto-deployed to. You will need you to complete a successful deployment again before auto-deployments can continue for the given release.
-:::
-
-Troubleshoot automatic deployment by viewing the auto deploy logs from the diagnostics page in the configuration section or viewing the [Audit log](/docs/administration/auditing.md):
-
-![](/docs/images/5669262/5865582.png "width=500")
-
-:::success
-**Why isn&#39;t my trigger working?**
-The verbose logs usually contain the reason why a project trigger didn't take any action. For example:
-
-`Auto-deploy: Machine 'Local' does not need to run release '2.6.6' for project 'My Project' and tenant <none> because it already exists on the machine or is pending deployment.`
-:::
+!partial <troubleshooting>
 
 ## Next steps {#Keepingdeploymenttargetsuptodate-Nextsteps}
 
