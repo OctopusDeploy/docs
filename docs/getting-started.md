@@ -1,182 +1,218 @@
 ---
-title: Getting started
-description: From download to deployment, this guide walks you through getting started with Octopus.
+title: Getting Started
+description: A Conceptual Overview of Octopus Deploy.
 position: 0
 ---
 
-Welcome! This section will show how Octopus Deploy fits into the delivery pipeline and guide you through the process of setting up Octopus Deploy to complete your first deployment.
+Welcome! 
+
+This section provides an overview of Octopus Deploy by explaining how Octopus Deploy fits into your application delivery pipeline. It also provides an overview of the major concepts in Octopus and links to the relevant documentation, which explore the concepts further and guides you through implementing them with your own Octopus. 
 
 !toc
 
-## Octopus in your delivery process {#Gettingstarted-Octopusinyourdeliveryprocess}
+## Octopus in Your Delivery Process {#Gettingstarted-Octopusinyourdeliveryprocess}
 
-Octopus Deploy is an automated deployment server, which you install yourself, much like you would install SQL Server, Team Foundation Server, or JetBrains TeamCity. Octopus makes it easy to automate the deployment of ASP.NET web applications, Java applications, and Windows Services into development, test, and production environments.
+Octopus Deploy is an automated deployment server that makes it easy to automate the deployment of ASP.NET web applications, Java applications, database updates, NodeJS application, and custom scripts into development, test, and production environments.
 
-In addition to the Octopus Deploy server, you'll also install a lightweight agent service on each of the machines that you plan to deploy to, for example, your web and application servers. We call this the Tentacle agent; the idea being that one Octopus server controls many Tentacles, potentially a lot more than 8! With Octopus and Tentacle, you can easily deploy to your own servers or cloud services from providers like Amazon Web Services or Microsoft Azure.
+The Octopus Deploy server works together with lightweight agent services, called Tentacles, that are installed on the machines you plan to deploy your web apps, applications, or services to. With Octopus and Tentacle, you can easily deploy to your own servers or cloud services from providers like Amazon Web Services or Microsoft Azure.
 
-### The delivery pipeline
+### The Delivery Pipeline
 
-|                                          |                                          |
-| ---------------------------------------- | ---------------------------------------- |
-| ![](images/getting-started/pipeline-01.svg "width=400")<br>**1. Commit code**<br>A developer commits code to a GitHub repository. | ![](images/getting-started/pipeline-02.svg "width=400")<br>**2. Compile & test**<br>A build server compiles the code and runs unit tests. |
-| ![](images/getting-started/pipeline-03.svg "width=400")<br>**3. Packaged & pushed**<br>The application is packaged and pushed to Octopus Deploy. | ![](images/getting-started/pipeline-04.svg "width=400")<br>**4. Auto deploy to test**<br>The application can be automatically deployed to a test environment. A suite of automated web tests are run against the application. |
-| ![](images/getting-started/pipeline-05.svg "width=400")<br>**5. Deploy to UAT**<br>The application is deployed to a UAT environment, for stakeholders to see new changes. | ![](images/getting-started/pipeline-06.svg "width=400")<br>**6. Promote to production**<br>When the various stakeholders are happy, the application is promoted to the production environment. |
+We designed Octopus Deploy to fit into teams that follow agile delivery practices. A typical workflow would be:
 
-We designed Octopus to fit into teams that follow agile delivery practices. Octopus compliments your existing delivery pipeline:
+1. Commit Code to Your Existing Source Control System.
 
-- **Developers commit their code into your existing source control system**  
-  You might be using Git, Team Foundation Server, Subversion, or Mercurial; the choice is up to you.
-- **Your CI/build server compiles the code and runs unit tests**  
-  Again, you might be using TeamCity, Jenkins, Bamboo, Team Foundation Server, or CruiseControl.NET; the choice is up to you.
-- **Your application is packaged**  
-  When the build is ready, your CI/build server bundles all of the files (binaries, images, scripts, configuration files, and so on), needed to deploy your application into a [supported package](/docs/packaging-applications/supported-packages.md).
+   You might be using Git, Team Foundation Server, Subversion, or Mercurial; the choice is yours.
 
-When the packages are ready, Octopus pushes these packages to the deployment targets. As a release manager, you define the process for deploying the software, including any environment-specific configuration variables. The Octopus web-based dashboard then allows other members of your team to queue deployments; for example, you might enable testers to deploy applications to a test environment, but not to production. This approach means that even if different people are triggering the deployments, the deployment process is still consistent.
+1. Your CI/Build Server Compiles the Code and Runs Unit Tests.
 
-## 1. Install and set up Octopus server {#Gettingstarted-InstalltheOctopusserver}
+   You might be using TeamCity, Jenkins, Bamboo, Team Foundation Server, or CruiseControl.NET, again, the choice is yours.
 
-Download the latest [Octopus Deploy MSI installer](https://octopus.com/downloads) from the Octopus Deploy website, and follow the instructions.
+1. Package Your Application.
 
-:::hint
-Learn more about [Installing Octopus](/docs/installation/installing-octopus/index.md) including a video walkthrough.
-:::
+   When the build is ready, your CI/build server bundles all of the files (binaries, images, scripts, configuration files, and so on) needed to deploy your application into a supported package.
 
-When the MSI installer completes, a wizard will take you through the process of configuring your Octopus Deploy server.
+1. Octopus Deploy Pushes Your Packaged Application.
 
-![Wizard: Welcome page](/docs/images/3048178/3278212.png "width=500")
+   Octopus deploys the applications to the environments you've configured. These could be testing, dev, or production environments. 
 
-When your Octopus server is configured, the Octopus Manager UI will appear. This is an administrator-only interface designed for configuring your Octopus server.
+### Consistent Releases
 
-![Wizard: Overview](/docs/images/3048178/3278211.png "width=500")
+As an Octopus user, you define the process for deploying the software. You specify the environments the applications are deployed to and who on your team can deploy to which environments; for instance, you might want testers to deploy to test environments, but not to production. Taking this approach means that even if different members of the team are triggering deployments, the deployment process remains consistent.
 
-Open the Octopus Web Portal in your browser and sign in, using the address and credentials you specified during the setup wizard.
+The rest of this guide goes into more detail about working with  Octopus Deploy and links to the relevant sections of the documentation for more information.
+
+## Install Octopus Deploy
+
+Installing [Octopus Deploy](/docs/installation/index.md) sets up the central [Octopus Deploy Server](/docs/installation/installing-octopus/index.md), which provides the **Octopus Web Portal** and the [Octopus REST API](/docs/api-and-integration/octopus-rest-api.md).
+
+The [installation documentation](/docs/installation/index.md) provides the instructions for installing and configuring your Octopus.
+
+### Access the Octopus Web Portal
+
+Once Octopus is installed you can access the Octopus Web Portal. This is where you'll manage your infrastructure, projects, access the built-in repository, and deploy your applications from.
 
 ![Octopus web portal sign in](octopus-login.png "width=500")
 
-## 2. Configure Infrastructure {#Gettingstarted-ConfigureInfrastructure}
+## Configure Your Infrastructure
 
-### Create environments {#Gettingstarted-Createenvironments}
+### Environments
 
-Next, you'll need to add environments to deploy to. Environments are really just groups of machines that you deploy to; for example, **Test**, **Staging** or **Production**.
+Octopus organizes your infrastructure into environments. Environments are groups of machines that you deploy to at the same time; for instance, you might have an environment of test servers that you deploy your apps to as part of your QA process, a UAT environment, and a production environment. Grouping machines in this way lets you define your deployment processes (no matter how many machines are involved) and have Octopus deploy the right versions of your apps to the right environments at the right time.
 
-![Creating environments](environments.png "width=500")
+:::info
+Throughout this guide we refer to both your servers and the cloud services you deploy your applications to as **machines**. 
+:::
 
-Learn more about [Environments](/docs/key-concepts/environments/index.md).
+Learn how to add and manage environments in the [environments documentation](/docs/deployment-targets/environments/index.md).
 
-### Add deployment targets {#Gettingstarted-Adddeploymenttargets}
+### Machine Roles
 
-Deployment targets represent the servers, machines and cloud services where your application and services will be deployed. 
+Each environment that you work with, for instance, Dev, Test, or Production, will likely have multiple machines. In production, your web sites and Windows Services might run on different physical servers; perhaps dozens of them. However, unless you are extremely lucky, it's unlikely that you have the budget to have an equal number of servers in any of your pre-production environments. When testing your software in a test environment, you might only have a single virtual machine which will run all of the web sites and services on the same machine.
 
-On each of the servers, you'll need to install the lightweight Tentacle agent, and then register the targets in your environments. Depending on network/firewall configuration, Tentacles can be installed in [listening](/docs/installation/installing-tentacles/listening-tentacles.md) (Octopus calls Tentacle) or [polling](/docs/installation/installing-tentacles/polling-tentacles.md) (Tentacle polls Octopus) mode. If you have many machines to manage, you can [install Tentacles automatically](/docs/installation/installing-tentacles/automating-tentacle-installation.md). One Octopus server can control many Tentacles, potentially a lot more than 8! 
+Octopus handles these differences by applying roles to the machines within your environments.
 
-![Add machines to environment](deployment-targets.png "width=500")
+![](sample-environments.png)
 
-Learn more about the [deployment targets](/docs/deployment-targets/index.md).
+Instead of saying:
 
-### Add an account {#Gettingstarted-Addanaccount}
+> The trading website ASP.NET application should be deployed to PWEB01, PWEB02, ...
 
-Accounts allow you to capture machine and subscription details used within your deployments. Add your Azure subscription to accounts and use one of the Azure built-in step templates to deploy to the cloud. Although Azure subscriptions are associated with deployment targets, they are not visible on the environments page with the other targets.
+We say:
 
-If you are deploying to a Linux target, SSH, username and passwords can be stored under accounts. 
+> The trading website ASP.NET application should be deployed to machines that are tagged with the **web-server** role.
 
-To add an account, go to the environments page and click on the Accounts link. 
+In production, perhaps you have 10 machines with the web-server role. In staging, perhaps you have only 4. In test, perhaps there is a single machine. Roles make defining your deployment process much easier.
 
-![](infrastructure-accounts.png "width=500")
+You can define as many environments, machines, and roles as you need; it all depends on how your applications are deployed.
 
-![](accounts.png "width=500")
+Learn more about [machine roles](/docs/deployment-targets/machine-roles/index.md).
 
-Learn more about [accounts](/docs/key-concepts/environments/accounts/index.md).
+### Deployment Targets
 
-## 3. Application packaging
+Deployment targets represent the servers, virtual machines, and cloud services where your application and services will be deployed. The central Octopus Deploy server communicates with  different types of deployment targets in different ways.
 
-### Package and version applications for deployment {#Gettingstarted-Packageyourapplicationsfordeployment}
+Learn more about [deployment targets](/docs/deployment-targets/index.md).
 
-Whenever you want to deploy applications with Octopus, you'll need to package them into NuGet, zip, tar, tar gzip or tar bzip2 packages. A package contains an application’s executables, configuration files, scripts and any other files it needs to run. Once packaged, it will need to be versioned.
+#### Windows Targets
 
-How you create the package depends on what app or service you are deploying:
+For Windows systems, we have tentacles. Tentacles are a secure, lightweight agent service that Octopus uses to deploy software to your Windows infrastructure.
 
-- Use [OctoPack](/docs/packaging-applications/nuget-packages/using-octopack/index.md) to package ASP.NET apps or Windows Services applications.
-- Use [dotnet pack](https://docs.microsoft.com/en-us/dotnet/articles/core/tools/dotnet-pack) to package .NET Core apps.
-- To package a [java](/docs/guides/deploying-java-applications.md), nodejs or other applications and folders use [Octo.exe](/docs/packaging-applications/nuget-packages/using-octo.exe.md) or simply [zip](/docs/packaging-applications/supported-packages.md) up a folder.
+Learn more about installing and configuring [Tentacles](/docs/installation/index.md) .
 
-Learn more about [versioning](/docs/packaging-applications/versioning-in-octopus-deploy.md) and [packaging](/docs/packaging-applications/index.md).
+#### SSH Targets
 
-### Upload package {#Gettingstarted-Uploadpackage}
+For Linux and Unix systems, you can use configure Octopus Deploy to communicate with your deployment targets through SSH.
 
-Your packages need to be placed into a package repository. You can either push packages to the built-in repository manually or integrate with your existing build tool.  We recommend configuring your existing tool chain to push packages automatically to the built-in repository. 
+Learn more about configuring [SSH Targets](/docs/deployment-targets/ssh-targets/index.md).
+
+#### Offline Package Drop
+
+For scenarios where it is not possible to connect directly with the deployment target, Octopus can be configured to bundle all of the files needed to perform the deployment on the target server. These bundles can be copied directly to the target server to execute the deployment.
+
+Learn more about [Offline Package Drops](/docs/deployment-targets/offline-package-drop.md).
+
+#### Azure Cloud Services
+
+Octopus Deploy includes steps that let you deploy your applications to the Azure Cloud Service.
+
+Learn more about [deploying Azure Web Apps](/docs/guides/azure-deployments/cloud-services/cloud-service-concepts.md).
+
+## Packaging Applications
+
+Before you can deploy applications with Octopus, you need to package all the files needed for the application into a supported package and version the package. Octopus supports the following package types:
+
+* NuGet
+* Tar
+* Tar Gzip
+* Tar bzip2
+* Zip
+* Docker Image
+
+Learn more about [packaging applications](/docs/packaging-applications/index.md)
+
+### Versioning Packages
+
+Versioning is an important part of how Octopus Deploy automates application deployment. Octopus recommends using [Semantic Versioning](http://semver.org) for your applications. 
+
+Learn more about [Versioning in Octopus Deploy](/docs/packaging-applications/versioning-in-octopus-deploy.md).
+
+### Uploading Packages 
+
+Octopus Deploy includes a built-in package repository. We recommend configuring your existing tool chain to push packages automatically to the built-in repository; however, you can push packages manually to the repository if you choose to.
 
 ![Octopus built-in package repository](library-packages.png)
 
-Use our [TeamCity](/docs/api-and-integration/teamcity.md), [VSTS](/ /docs/api-and-integration/tfs-vsts/using-octopus-extension/index.md) or [TFS](/docs/api-and-integration/tfs-vsts/index.md) extensions to integrate with the built-in repository or explore the [other options](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) to push packages to it.
+Learn more about the [package repository](/docs/packaging-applications/package-repositories/index.md) or how to automate your existing tool chain to push packages to your Octopus Deploy server with our [API and Integrations](/docs/api-and-integration/index.md).
 
-Learn more about our [api and integration](/docs/api-and-integration/index.md).
+## Deploying Your Applications
 
-### Add an external feed {#Gettingstarted-Addanexternalfeed}
+### Deployment Process
 
-Octopus can consume packages from external NuGet package repositories and Docker Container Registries.
+Because Octopus is designed to work with teams following agile software development methodologies, that is, continuously deploying software to environments, getting feedback, making changes, and redeploying, Octopus deploys software projects repeatedly.
 
-An external package repository would typically be:
-- A [remote feed](https://docs.microsoft.com/en-us/nuget/hosting-packages/nuget-server) exposed over HTTP
-- A [local feed](https://docs.microsoft.com/en-us/nuget/hosting-packages/local-feeds) exposed as a File Share or local directory
-- A [Docker Registry](/docs/deploying-applications/docker-containers/registries/index.md)
-- A [TeamCity](https://blog.jetbrains.com/dotnet/2011/08/24/native-nuget-support-in-teamcity/) server (version 7 and above)
-- A [MyGet](http://www.myget.org/) server
-- A [VSTS or TFS Package Management](https://www.visualstudio.com/en-us/docs/package/overview) feed
+### Defining your Deployment Process
 
-![Octopus external feeds area](library-externalfeeds.png)
+The deployment process is like a recipe. You define the recipe by adding steps to the process. Each step is a specific instruction (or set of instructions) that is executed as part of the deployment process every time your application is deployed. After the initial setup, your deployment process shouldn't change between deployments even though the software being deployed has changed as part of the development process.
 
-Learn more about [external feeds](/docs/packaging-applications/package-repositories/index.md#Packagerepositories-Usingexternalrepositories).
+Learn more about the [deployment process](/docs/deploying-applications/index.md).
 
-## 4. Create a project {#Gettingstarted-Createaproject}
+### Adding Steps
 
-### Create a project
+Octopus Deploy provides a range of steps that can be included in your deployment processes. Depending on your deployment needs, the steps can run automatically and in order one after another, or they could run in parallel. You can add conditions that need to be met before a step executes, and you can even specify a manual intervention step if a member of your team needs to be involved in the process, for instance, to approve a change before it is deployed.
 
-Projects define a set of deployment steps that you want Octopus to perform, and their configuration variables.
+In addition to the built-in steps, there are also community contributed steps.
 
-![Creating a project](create-project.png "width=500")
+Learn more about [adding steps](/docs/deploying-applications/adding-steps.md).
 
-Learn more about [projects](/docs/key-concepts/projects/index.md).
+### Variables
 
-### Define your deployment process {#Gettingstarted-Defineyourdeploymentprocess}
+As you deploy your applications, you'll need to change their configuration files based on the scope of the deployment. Octopus has advance support for managing and scoping variables. 
 
-The **Process** tab within your project defines how your project will be deployed. You can add different steps to the process depending on what you plan to deploy:
+Learn more about [variables](/docs/deploying-applications/variables/index.md).
 
-- To deploy changes to a SQL Server database, see [SQL Server databases](/docs/deploying-applications/sql-server-databases.md)
-- To deploy an ASP.NET web site to an IIS server, see [IIS Websites and Application Pools](/docs/deploying-applications/iis-websites-and-application-pools.md)
-- To install or configure a Windows Service, see [Windows Services](/docs/deploying-applications/windows-services.md)
-- For custom or advanced installation actions, see [Custom scripts](/docs/deploying-applications/custom-scripts/index.md)
-- To pause deployment for a human to approve or perform an action, see [Manual intervention and approvals](/docs/deploying-applications/manual-intervention-and-approvals.md)
+### Releases
 
-![Your deployment process](deployment-process.png "width=500")
+A release in Octopus, is a snapshot of the packaged software, variables, and the deployment process.
 
-Chances are, you'll need to configure your application differently depending on the what you are deploying to (for example, different connection strings in staging vs. production). Octopus has advanced support for managing these [variables](/docs/deploying-applications/variables/index.md) and scoping them, and can even manage passwords securely. Octopus can also take care of automatically [updating your .NET configuration files, and running configuration file transforms](/docs/deploying-applications/configuration-files/index.md).
+A release is deployed to the environments defined in the deployment process. Typically, releases are deployed to one environment and then promoted to the next environment when they are successful.
 
-## 5. You're ready to deploy
+Each time you have a new candidate build that is ready to test, you'll create a release. When you apply a release to an environment, that is referred to as a deployment.
 
-### Create release {#Gettingstarted-Createareleaseanddeployit}
+### Projects
 
-Next, create a release. Click the **Create release** button on any page of your project.
+Octopus Deploy can manage the deployment of many applications across your organization. Projects within Octopus Deploy let you manage multiple software projects across different environments with deployment processes (the specific deployment steps) defined per project.
 
-![Creating a release](create-release-button.png "width=500")
+A project in Octopus can consist of many deliverable components (e.g., web sites, micro services, and database scripts). It's usually helpful to think of Octopus projects in terms of business projects: if you have 5 developers working together on the "HR Portal rewrite" project, then that's probably a single project in Octopus.
 
-Enter an overall release version number for the release, and select the NuGet package versions that you want to include in the release. You can also add release notes to tell your team what the release contains.
+Learn more about [projects](/docs/deploying-applications/projects/index.md).
 
-![Release notes](create-release.png "width=500")
+### Lifecycle
 
-Now that you have a release, you can deploy and promote it between environments. On the release page, use the green **Deploy to *environment*** button to promote it.
+When you define a project, you also select a lifecycle. The lifecycle defines the rules around how releases of the project are deployed between environments.
 
-### Deploy a release
+Lifecycles are defined by phases, each phase can have one or more environments, and each environment can be defined as an automatic deployment environment or a manual deployment environment. Each phase can have a set number of environments that must be released to before the next phase is available for deployment.
 
-![Deploy the release](deploy-release.png "width=500")
+Learn more about [lifecycles](/docs/deploying-applications/projects/lifecycles/index.md).
 
-The deployment page shows you a log of all the activity that happens during the deployment, on both the Octopus server and any Tentacles, including the output of any custom scripts.
+## Channels
 
-![Running deployment](deployment-details.png "width=500")
+When you start working with Octopus, you will typically create releases from your main source code branch that are considered to be release candidates for your final production environment. Over time you may find you want to start working on an experimental branch of code, perhaps to introduce a new feature, or an entirely new version of your software. In this case you can either create an entirely new project, or clone the existing project, to manage deployments of this experimental software - but that leads to a lot of possible duplication and rework. In Octopus 3.2 we introduced the concept of [channels](/docs/deploying-applications/projects/channels.md) which let you modify the entire deployment process on a per-release basis, all within the same project. For example, you can promote releases created from your main code branch through to your production environment, but restrict releases created from your experimental feature branch to a special test environment perhaps with extra steps and variables.
 
-## Next steps {#Gettingstarted-Nextsteps}
+Learn more about [channels](/docs/deploying-applications/projects/channels.md).
 
-Congratulations, you've deployed a release! You might want to look at:
+## Tenants
 
-- Triggering deployments from [TeamCity](/docs/api-and-integration/teamcity.md) or [TFS](/docs/api-and-integration/tfs-vsts/index.md)
-- [Inviting other users and adding them to teams](/docs/administration/managing-users-and-teams/index.md)
-- The comprehensive [Octopus Deploy REST API](/docs/api-and-integration/octopus-rest-api.md) and C# client
+Over time your software may become so successful that you on-sell it to some external customers, and due to the way the software is architected, you need to deploy a copy of the software once per customer. You could achieve this in Octopus by creating an environment-per-customer, or even a project-per-customer, but this leads to duplication and unnecessary complexity. In Octopus 3.4 we introduced the concept of tenants that you can manage alongside your existing projects and environments.
+
+Learn more about tenants in our [Multi-tenant Deployments Guide](/docs/guides/multi-tenant-deployments/index.md). 
+
+## Next
+
+What would you like to learn about next:
+
+* [Installing Octopus](/docs/installation/index.md)
+* [Deployment Targets](/docs/deployment-targets/index.md)
+* [Packaging Applications](/docs/packaging-applications/index.md)
+* [Deploying Applications](/docs/deploying-applications/index.md)
+* [API and Integrations](/docs/api-and-integration/index.md)

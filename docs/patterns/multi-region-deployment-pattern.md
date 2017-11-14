@@ -12,13 +12,13 @@ Your application is deployed to multiple geographic regions (or multiple Data Ce
 
 ## Strict solution using Environments {#Multi-regiondeploymentpattern-StrictsolutionusingEnvironments}
 
-You can use [Environments](/docs/key-concepts/environments/index.md) to represent each region or data center. In the example below we have defined a Dev and Test Environment as per normal, and then configured two "production" Environments, one for each region we want to deploy into.
+You can use [Environments](/docs/deployment-targets/environments/index.md) to represent each region or data center. In the example below we have defined a Dev and Test Environment as per normal, and then configured two "production" Environments, one for each region we want to deploy into.
 
 ![](/docs/images/5670886/5865781.png "width=500")
 
 By using this pattern you can:
 
-1. Use [Lifecycles](/docs/key-concepts/lifecycles.md) to define a strict process for promotion of releases between your regions. *Lifecycles can be used to design both simple and complex promotion processes.*
+1. Use [Lifecycles](/docs/deploying-applications/projects/lifecycles/index.md) to define a strict process for promotion of releases between your regions. *Lifecycles can be used to design both simple and complex promotion processes.*
   * For example, you may want to test releases in Australia before rolling them out to the USA, and then to Europe
   * In another example, you may want to test releases in Australia before rolling them out simultaneously to all other regions
 2. Scope region-specific variables to the region-specific Environments
@@ -43,7 +43,7 @@ By using this pattern you can:
 
 ## Tenanted Solution {#Multi-regiondeploymentpattern-TenantedSolution}
 
-Alternatively you could create [Tenants](/docs/key-concepts/tenants/index.md) to represent each region or data center. By doing so you can:
+Alternatively you could create [Tenants](/docs/guides/multi-tenant-deployments/index.md) to represent each region or data center. By doing so you can:
 
 1. Use [Variable Templates](/docs/deploying-applications/variables/variable-templates.md) to prompt you for the variables required for each region (like the storage account details for that region) and when you introduce a new region Octopus will prompt you for the missing variables
 
@@ -75,4 +75,4 @@ You do give up the advantage of enforcing the order in which you deploy your app
 
 ## Conclusion {#Multi-regiondeploymentpattern-Conclusion}
 
-[Environments](/docs/key-concepts/environments/index.md), [Tenants](/docs/key-concepts/tenants/index.md) and [Cloud Regions](/docs/deployment-targets/cloud-regions.md) can be used to model multi-region deployments in Octopus, but each different choice is optimized to a particular style of situation. Choose the one that suits your needs best!
+[Environments](/docs/deployment-targets/environments/index.md), [Tenants](/docs/guides/multi-tenant-deployments/index.md) and [Cloud Regions](/docs/deployment-targets/cloud-regions.md) can be used to model multi-region deployments in Octopus, but each different choice is optimized to a particular style of situation. Choose the one that suits your needs best!

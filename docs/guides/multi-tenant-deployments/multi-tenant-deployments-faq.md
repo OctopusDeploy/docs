@@ -27,7 +27,7 @@ No. A tenant is treated like a smaller slice of an environment. Octopus creates 
 
 ## Can I deploy to multiple tenants at the same time? {#Multi-tenantdeploymentsFAQ-CanIdeploytomultipletenantsatthesametime?}
 
-Yes! You can create multiple tenanted deployments at the same time very easily by using the Octopus UI, `octo.exe` or any of the build server extensions. You can choose multiple tenants using [Tenant Tags](/docs/key-concepts/tenants/tenant-tags.md) or all of the tenants in an environment. For more information refer to [deploying releases with octo.exe](/docs/api-and-integration/octo.exe-command-line/deploying-releases.md) and [designing a multi-tenant upgrade process](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md).
+Yes! You can create multiple tenanted deployments at the same time very easily by using the Octopus UI, `octo.exe` or any of the build server extensions. You can choose multiple tenants using [Tenant Tags](/docs/reference/tenant-tags.md) or all of the tenants in an environment. For more information refer to [deploying releases with octo.exe](/docs/api-and-integration/octo.exe-command-line/deploying-releases.md) and [designing a multi-tenant upgrade process](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md).
 
 ## Can I control the order in which tenanted deployments execute?
 
@@ -45,7 +45,7 @@ We recommend avoiding order dependence of your deployments wherever possible.
 
 ## Can I perform tenanted deployments in batches?
 
-Yes! This is a practice we recommend. You can use [tenant tags](/docs/key-concepts/tenants/tenant-tags.md) to group your tenants together into batches and then promote your releases through your tenants in batches. It can be convenient to deploy to some of your tenants first in order to detect any problems with your release before you promote to all of your other tenants.
+Yes! This is a practice we recommend. You can use [tenant tags](/docs/reference/tenant-tags.md) to group your tenants together into batches and then promote your releases through your tenants in batches. It can be convenient to deploy to some of your tenants first in order to detect any problems with your release before you promote to all of your other tenants.
 
 Learn more about [designing a multi-tenant upgrade process](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md).
 

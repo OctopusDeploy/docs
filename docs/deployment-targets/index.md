@@ -1,10 +1,14 @@
 ---
 title: Deployment Targets
-description: Deployment Targets are the machines or services that your applications are deployed to including Windows Servers, Azure cloud services and Linux servers running SSH.
-position: 5
+description: Deployment Targets are the machines or services that your applications are deployed to including Windows Servers, Azure cloud services, and Linux servers running SSH.
+position: 2
 ---
 
 Now that you have packaged your application, you need something to deploy it to. The destination might be a Windows server, or an Azure web application, or a Linux server running SSH. In Octopus, each of these destinations are called *Deployment Targets*.
+
+Before you can add deployments targets, you need to set up Environments.
+
+Learn about [Environments](/docs/deployment-targets/environments/index.md).
 
 Deployment targets are added to an environment from the Environments page.
 

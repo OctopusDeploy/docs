@@ -30,4 +30,24 @@ docs/images/lets-encrypt-integration/configure-lets-encrypt.png -> docs/administ
 docs/administration/subscription_events.md -> docs/administration/subscription-events.md
 docs/installation/installing-tentacles/running-tentacle-under-a-specific-user-account-for-use-in-powershell.md -> docs/installation/installing-tentacles/running-tentacle-under-a-specific-user-account.md
 docs/reference/download-permalinks.md -> docs/installation/index.md
-docs/key-concepts/environments/accounts/azure-subscription-account.md -> docs/key-concepts/environments/accounts/azure-account.md
+docs/key-concepts/environments/index.md -> docs/deployment-targets/environments/index.md
+docs/key-concepts/environments/machine-policies.md -> docs/deployment-targets/environments/machine-policies.md
+docs/key-concepts/environments/accounts/index.md -> docs/deployment-targets/environments/accounts/index.md
+docs/key-concepts/environments/accounts/azure-subscription-account.md -> docs/deployment-targets/environments/accounts/azure-account.md
+docs/key-concepts/environments/accounts/azure-account.md -> docs/deployment-targets/environments/accounts/azure-account.md
+docs/key-concepts/environments/accounts/ssh-key-pair.md -> docs/deployment-targets/environments/accounts/ssh-key-pair.md
+docs/key-concepts/environments/accounts/username-and-password.md -> docs/deployment-targets/environments/accounts/username-and-password.md
+docs/key-concepts/environments/machine-roles.md -> docs/deployment-targets/machine-roles/index.md
+docs/key-concepts/projects/index.md -> docs/deploying-applications/projects/index.md
+docs/key-concepts/projects/deployment-processes.md -> docs/deploying-applications/projects/deployment-processes.md
+docs/key-concepts/projects/releases.md -> docs/deploying-applications/projects/releases.md
+docs/key-concepts/projects/channels.md -> docs/deploying-applications/projects/channels.md
+docs/key-concepts/projects/project-triggers.md -> docs/deploying-applications/projects/project-triggers.md
+docs/key-concepts/projects/reporting.md -> docs/deploying-applications/projects/reporting.md
+docs/key-concepts/project-groups.md -> docs/deploying-applications/projects/project-groups.md
+docs/key-concepts/lifecycles.md -> docs/deploying-applications/projects/lifecycles/index.md
+docs/key-concepts/tenants.md -> docs/guides/multi-tenant-deployments/index.md
+docs/key-concepts/index.md -> docs/getting-started.md
+docs/key-concepts/machine-roles -> docs/deployment-targets/machine-roles/index.md
+docs/key-concepts/tenants/tenant-tags -> docs/reference/tenant-tags.md
+

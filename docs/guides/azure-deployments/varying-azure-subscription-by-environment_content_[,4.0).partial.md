@@ -1,4 +1,4 @@
-1. Add an [Azure Account](/docs/key-concepts/environments/accounts/azure-account.md) to Octopus.
+1. Add an [Azure Subscription Account](/docs/deployment-targets/environments/accounts/azure-account.md) to Octopus.
     * If you want to use the Account ID in your variable, open the account you just added from {{Environments,Accounts,[Account name]}} and copy the account ID from the URL.
 
     ![Account Id](../../images/3049102/3278481.jpg "width=500")

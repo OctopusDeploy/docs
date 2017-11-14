@@ -4,7 +4,7 @@ description: Projects allow you to define all the details required to deploy a p
 position: 1
 ---
 
-Once you've [packaged your applications for deployment](/docs/packaging-applications/index.md), and defined the [environments](/docs/key-concepts/environments/index.md) that you are deploying to, you will need to create projects.
+Once you've [packaged your applications for deployment](/docs/packaging-applications/index.md), and defined the [environments](/docs/deployment-targets/environments/index.md) that you are deploying to, you will need to create projects.
 
 A project is a collection of [deployment steps](/docs/deploying-applications/index.md) that you want Octopus and Tentacle to run, and [variables](/docs/deploying-applications/variables/index.md) to configure it. A project is like a recipe - you define how your software is deployed, and then you create many releases to deploy different versions of that software.
 
@@ -32,7 +32,7 @@ You can control who has access to view or edit environments, as well as who has 
 
 :::hint
 **Assigning projects to project groups**
-To set retention policies and the environments a project can be deployed to, as well as to apply some grouping in the dashboard and elsewhere, projects can be [assigned to project groups](/docs/key-concepts/project-groups.md).
+To set retention policies and the environments a project can be deployed to, as well as to apply some grouping in the dashboard and elsewhere, projects can be [assigned to project groups](/docs/deploying-applications/projects/project-groups.md).
 :::
 
 ## Do I need one or many projects?  {#Projects-DoIneedoneormanyprojects?}

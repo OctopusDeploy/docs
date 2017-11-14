@@ -37,7 +37,7 @@ In this example we will create a machine policy to automatically delete machines
 7. Turn the machine off and run a health check.  A scheduled task will detect that the machine is unavailable and remove it from Octopus.  The task runs every 5 minutes so there may be a delay from the health check running and the machine being deleted.
 
 :::hint
-Read more about [machine policies](/docs/key-concepts/environments/machine-policies.md)
+Read more about [machine policies](/docs/deployment-targets/environments/machine-policies.md)
 :::
 
 ## Troubleshooting automatic environment clean up {#Cleaningupenvironments-Troubleshootingautomaticenvironmentcleanup}

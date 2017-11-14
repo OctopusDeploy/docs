@@ -4,7 +4,7 @@ description: Octopus Deploy and Bamboo can work together to make automated, cont
 position: 0
 ---
 
-The Octopus Deploy add-on for Bamboo allows packages to be uploaded to an Octopus Deploy server, as well as creating, deploying and promoting releases to your Octopus Deploy [environments](https://octopus.com/docs/key-concepts/environments). The add-on does this by running the [Octopus Deploy Command Line tool](https://octopus.com/docs/api-and-integration/octo.exe-command-line).
+The Octopus Deploy add-on for Bamboo allows packages to be uploaded to an Octopus Deploy server, as well as creating, deploying and promoting releases to your Octopus Deploy [environments](docs/deployment-targets/environments/index.md). The add-on does this by running the [Octopus Deploy Command Line tool](https://octopus.com/docs/api-and-integration/octo.exe-command-line).
 
 ## Getting Started
 
@@ -107,7 +107,7 @@ This steps runs the [create-release command](https://octopus.com/docs/api-and-in
 
 #### Project
 
-The `Project` field defines the name of the [Octopus Deploy project](https://octopus.com/docs/key-concepts#KeyConcepts-Projects,deploymentprocesses,lifecyclesandvariables) that the release will be created for.
+The `Project` field defines the name of the [Octopus Deploy project](/docs/deploying-applications/projects/index.md) that the release will be created for.
 
 #### Release number
 
@@ -117,7 +117,7 @@ Although this field is optional, it is highly recommended that the release numbe
 
 #### Environment(s)
 
-The `Environment(s)` field defines the [Octopus Deploy environments](https://octopus.com/docs/key-concepts#KeyConcepts-Environments,machinesandroles) that the new release is to be deployed to.
+The `Environment(s)` field defines the [Octopus Deploy environments](/docs/deployment-targets/environments/index.md) that the new release is to be deployed to.
 
 It is recommended that this field be left blank, because the `Ignore existing releases` option needs to be enabled to allow builds to be rebuilt,
 and if the environment already exists and the `Ignore existing releases` option is enabled no deployments will take place. We'll use a dedicated
@@ -139,11 +139,11 @@ This steps runs the [deploy-release command](https://octopus.com/docs/api-and-in
 
 #### Project
 
-The `Project` field defines the name of the [Octopus Deploy project](https://octopus.com/docs/key-concepts#KeyConcepts-Projects,deploymentprocesses,lifecyclesandvariables) that the deployment will be done for.
+The `Project` field defines the name of the [Octopus Deploy project](/docs/deploying-applications/projects/index.md) that the deployment will be done for.
 
 #### Environment(s)
 
-The `Environment(s)` field defines the [Octopus Deploy environments](https://octopus.com/docs/key-concepts#KeyConcepts-Environments,machinesandroles) that the release is to be deployed to.
+The `Environment(s)` field defines the [Octopus Deploy environments](/docs/deployment-targets/environments/index.md) that the release is to be deployed to.
 
 #### Release number
 
@@ -163,7 +163,7 @@ Because the promotion from one environment to another is not tied to any particu
 
 #### Project
 
-The `Project` field defines the name of the [Octopus Deploy project](https://octopus.com/docs/key-concepts#KeyConcepts-Projects,deploymentprocesses,lifecyclesandvariables) that the deployment will be done for.
+The `Project` field defines the name of the [Octopus Deploy project](/docs/deploying-applications/projects/index.md) that the deployment will be done for.
 
 #### Promote from
 

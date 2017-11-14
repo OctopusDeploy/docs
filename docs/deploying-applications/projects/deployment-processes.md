@@ -4,11 +4,11 @@ description: Deployment Processes define the actions/steps performed on your beh
 position: 0
 ---
 
-Each [project](/docs/key-concepts/projects/index.md) defines the actions you want Octopus to perform on your behalf. In Octopus terms this is called the **deployment process**. The deployment process is like a recipe. It defines the set of instructions that will be run repeatably each time the project is deployed.
+Each [project](/docs/deploying-applications/projects/index.md) defines the actions you want Octopus to perform on your behalf. In Octopus terms this is called the **deployment process**. The deployment process is like a recipe. It defines the set of instructions that will be run repeatably each time the project is deployed.
 
 ## Example: A simple deployment process {#DeploymentProcesses-Example:Asimpledeploymentprocess}
 
-In the example shown below there are three steps that will be executed from top to bottom. The first is a [manual intervention](/docs/deploying-applications/manual-intervention-and-approvals.md) which executes on the Octopus Server pausing the deployment until someone intervenes and allow the deployment to continue. *You may have noticed this step will only execute when targeting the Production [environment](/docs/key-concepts/environments/index.md) - we'll talk more about that below.* The remaining steps both [deploy a package](/docs/deploying-applications/deploying-packages/index.md) and execute [custom scripts](/docs/deploying-applications/custom-scripts/index.md) on all of the [deployment targets](/docs/deployment-targets/index.md) with the [role](/docs/key-concepts/machine-roles.md) **web-server**.
+In the example shown below there are three steps that will be executed from top to bottom. The first is a [manual intervention](/docs/deploying-applications/manual-intervention-and-approvals.md) which executes on the Octopus Server pausing the deployment until someone intervenes and allow the deployment to continue. *You may have noticed this step will only execute when targeting the Production [environment](/docs/deployment-targets/environments/index.md) - we'll talk more about that below.* The remaining steps both [deploy a package](/docs/deploying-applications/deploying-packages/index.md) and execute [custom scripts](/docs/deploying-applications/custom-scripts/index.md) on all of the [deployment targets](/docs/deployment-targets/index.md) with the [role](/docs/deployment-targets/machine-roles/index.md) **web-server**.
 
 ![](simple-process.png "width=500")
 
@@ -52,11 +52,11 @@ For more information, see the section on [rolling deployments](/docs/patterns/ro
 
 ### Conditions {#DeploymentProcesses-Conditions}
 
-Steps and actions can also have conditions. You can restrict a step so that it only runs when deploying to specific [environments](/docs/key-concepts/environments/index.md) (e.g., an Email step that only runs on production deployments).
+Steps and actions can also have conditions. You can restrict a step so that it only runs when deploying to specific [environments](/docs/deployment-targets/environments/index.md) (e.g., an Email step that only runs on production deployments).
 
 ![](3277617.png "width=500")
 
-If you have created some [channels](/docs/key-concepts/projects/channels.md), you can also specify whether a step runs only when deploying a release through specific channels (e.g., a Script step that only runs for deployments through certain channels to configure extra telemetry). *This will only appear if you have created one or more non-default channels.*
+If you have created some [channels](/docs/deploying-applications/projects/channels.md), you can also specify whether a step runs only when deploying a release through specific channels (e.g., a Script step that only runs for deployments through certain channels to configure extra telemetry). *This will only appear if you have created one or more non-default channels.*
 
 ![](3278573.png "width=500")
 

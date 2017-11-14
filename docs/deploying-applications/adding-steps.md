@@ -1,7 +1,7 @@
 ---
 title: Adding steps
 description: Adding steps is the fast and easy way to define your project's deployment process.
-position: 1
+position: 3
 ---
 
 Octopus strives to make it quick and easy to define your project's deployment process.  Selecting the add step button displays a list of built-in steps, custom step templates as well as any community contributed step templates available to install.  Built-in steps are powerful and flexible to handle the most common deployment scenarios.  Octopus community library integration makes it easy to find steps templates that work with the frameworks and technologies you use without the need for custom scripting.  And finally, custom step templates enable you to encapsulate common steps/scenarios within your team or company.  This process also applies to child steps that are a part of a [rolling deployment](/docs/patterns/rolling-deployments.md).

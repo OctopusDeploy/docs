@@ -11,7 +11,7 @@ This page describes how to use Octopus to manage deployments of your application
 
 Starting with Octopus 3.4 you can manage tenants as a first-class citizen enabling you to:
 
-1. Deploy multiple instances of your project into the same [Environment](/docs/key-concepts/environments/index.md);
+1. Deploy multiple instances of your project into the same [Environment](/docs/deployment-targets/environments/index.md);
    a. tenant-per-customer
    a. tenant-per-tester
    a. tenant-per-feature/tenant-per-branch
