@@ -1,0 +1,1 @@
+For more information on deploying to Azure see [Cloud Regions](cloud-regions.md) and [Deploying a package to an Azure Cloud Service](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-cloud-service/index.md)

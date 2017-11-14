@@ -8,17 +8,17 @@ This page describes each step involved in creating your first tenant.
 
 1. Enable the **multi-tenancy** feature in {{Configuration,Features}} if you haven't already - *you will need an Octopus Administrator to do this*.
 
-   ![](/docs/images/5669223/5865660.png "width=500")
+   ![](images/enabling-tenant-feature.png "width=500")
 
 The Tenants link should be added to the main menu of Octopus when you click the **Save** button.
 
 2. Go to *Tenants* and click the **Add tenant** button
 
-   ![](/docs/images/5669223/5865661.png "width=500")
+   ![](images/add-new-tenant.png "width=500")
 
 3. Enter the name you want to use for the tenant and click the **Save** button.
 
-    ![](/docs/images/5669223/5865662.png "width=500")
+    ![](images/creating-new-tenant.png "width=500")
 
 That's it - you've created your first tenant, but you may have noticed you cannot do much with that tenant right now. In the following steps we will create a project and connect this tenant to that project and deploy it into the tenant's environment.
 
