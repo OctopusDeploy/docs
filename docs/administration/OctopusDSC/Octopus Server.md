@@ -4,13 +4,14 @@ description: Use OctopusDSC to automate the installation and configuration of Oc
 ---
 
 
-OctopusDSC is an in-house PowerShell module designed for the automation of your Octopus infrastructure. The following documentation page will cover some basic examples of using OctopusDSC to automate the installation and configuration of an Octopus Server instance. Below is a sample script with a basic example of using OctopusDSC to install and configure the Octopus Server service.
+## Automate Octopus Server installation and configuration via OctopusDSC.
+Before you use this guide, you will need to confirm that you have [installed the OctopusDSC PowerShell module](link to index).
+
+Once you have installed the OctopusDSC module you are ready to automate the installation and configuration of Octopus Server. Below is a basic example for installing the Octopus Server Manager and configuring your new instance. You can use this to test and see the results.
 
 :::note
 Before continuing, please ensure that you have [installed the OctopusDSC PowerShell module](link to main page).
 :::
-
-##Install and Configure Octopus Deploy Server.
 
 Below is a basic script to get you going. First, ensure the OctopusDSC module is on your `$env:PSModulePath`. Then you can create and apply configuration like this.
 
@@ -68,7 +69,21 @@ You are able to define a custom `DownloadUrl` in your script which can point to 
 Example: `DownloadUrl = "\\192.168.10.100\installers\Octopus\Server\Latest\Octopus.3.17.11-x64.msi"`
 :::
 
-## Ensure and State settings. -- Better place for this?
+##### What happens here?
+OctopusDSC will download the latest version of the Octopus Server manager from our website. It will then install the msi and create an instance with any configuration settings you pass through to it in the script. (The above is a barebone script)
+
+OctopusDSC can also be used to create and register new server instances on servers which already have a server instance. To do this simply change the value of `Name = "OctopusServer"` to the instance name you desire.
+
+:::hint
+Ensure you have replaced the values from the above script which require specific values, such as `SqlDbConnectionString`, `OctopusAdminUsername` and `OctopusAdminPassword` etc. :::
+
+Successfully running the script should return the following:
+image[image here]
+
+Thats it! OctopusDSC has installed, configured, and registered your new server instance. This can be used to remotely manage your infrastructure. Or it can be packaged with your OS images and used on initial server configuration.
+
+## Settings
+Your OctopusDSC script can be configured to match most usecases we see. Below we have information on what you can customise in your script and the format you should present it.
 
 When `Ensure` is set to `Present`, the resource will:
 
@@ -86,7 +101,7 @@ When `Ensure` is set to `Absent`, the resource will:
 
 When `State` is `Started`, the resource will ensure that the Octopus Servr windows service is running. When `Stopped`, it will ensure the service is stopped.
 
-## Properties
+##### Properties
 Below are the properties that you can define in your cOctopusServerDSC script.
 
 | Property                                 | Type                                     | Default Value                            | Description                              |
@@ -106,6 +121,207 @@ Below are the properties that you can define in your cOctopusServerDSC script.
 | `ListenPort`                             | `int`                                    | `10943`                                  | The port on which the Server should listen for communication from `Polling` Tentacles. |
 | `AutoLoginEnabled`                       | `boolean`                                | `$false`                                 | If an authentication provider is enabled that supports pass through authentcation (eg Active Directory), allow the user to automatically sign in. Only supported from Octopus 3.5. |
 
+
+
+##Authentication automation with OctopusDSC
+We also currently have the following resources for automating the configuration of various authentication methods/providers. See the below list for links to our script repository:
+
+#### Active Directory
+[OctopusServerActiveDirectoryAuthentication](https://github.com/OctopusDeploy/OctopusDSC/tree/master/OctopusDSC/DSCResources/cOctopusServerActiveDirectoryAuthentication)
+```Powershell
+Configuration SampleConfig
+{
+    Import-DscResource -Module OctopusDSC
+
+    Node "localhost"
+    {
+        cOctopusServerActiveDirectoryAuthentication "Enable AD authentication"
+        {
+            InstanceName = "OctopusServer"
+            Enabled = $true
+            AllowFormsAuthenticationForDomainUsers = $false
+            ActiveDirectoryContainer = "CN=Users,DC=GPN,DC=COM"
+        }
+    }
+}
+
+SampleConfig
+
+Start-DscConfiguration .\SampleConfig -Verbose -wait
+
+Test-DscConfiguration
+```
+###### Active Directory Authentication Properties
+
+| Property                                  | Type         | Default Value    | Description |
+| ------------------------------------------| ------------ | -----------------| ------------|
+| `InstanceName`                            | `string`     |                  | The name of the Octopus Server instance. Use `OctopusServer` by convention unless you have more than one instance. |
+| `Enabled`                                 | `boolean`    | `$false`         | Whether to enable Active Directory authentication. |
+| `AllowFormsAuthenticationForDomainUsers`  | `boolean`    | `$false`         | Whether to allow users to manually enter a username and password. |
+| `ActiveDirectoryContainer`                | `string`     |                  | The active directory container (if user objects are stored in a non-standard location).  |
+#### Azure Active Directory
+[OctopusServerAzureADAuthentication](https://github.com/OctopusDeploy/OctopusDSC/tree/master/OctopusDSC/DSCResources/cOctopusServerAzureADAuthentication)
+```powershell
+Configuration SampleConfig
+{
+    Import-DscResource -Module OctopusDSC
+
+    Node "localhost"
+    {
+        cOctopusServerAzureADAuthentication "Enable AzureAD authentication"
+        {
+            InstanceName = "OctopusServer"
+            Enabled = $true
+            Issuer = "https://login.microsoftonline.com/b91ebf6a-84be-4c6f-97f3-32a1d0a11c8a"
+            ClientId = "0272262a-b31d-4acf-8891-56e96d302018"
+        }
+    }
+}
+
+SampleConfig
+
+Start-DscConfiguration .\SampleConfig -Verbose -wait
+
+Test-DscConfiguration
+```
+###### Properties
+
+| Property            | Type         | Default Value    | Description |
+| --------------------| ------------ | -----------------| ------------|
+| `InstanceName`      | `string`     |                  | The name of the Octopus Server instance. Use `OctopusServer` by convention unless you have more than one instance. |
+| `Enabled`           | `boolean`    | `$false`         | Whether to enable AzureAD authentication. |
+| `Issuer`            | `string`     |                  | The `OAuth 2.0 Authorization Endpoint` from the Azure Portal, with the trailing `/oauth2/authorize` removed. |
+| `ClientId`          | `string`     |                  | The `Application ID` from the Azure Portal. |
+#### GoogleApps
+[OctopusServerGoogleAppsAuthentication](https://github.com/OctopusDeploy/OctopusDSC/tree/master/OctopusDSC/DSCResources/cOctopusServerGoogleAppsAuthentication)
+```powershell
+Configuration SampleConfig
+{
+    Import-DscResource -Module OctopusDSC
+
+    Node "localhost"
+    {
+        cOctopusServerGoogleAppsAuthentication "Enable Google Apps authentication"
+        {
+            InstanceName = "OctopusServer"
+            Enabled = $true
+            ClientID = "5743519123-1232358520259-3634528"
+            HostedDomain = "https://octopus.example.com"
+        }
+    }
+}
+
+SampleConfig
+
+Start-DscConfiguration .\SampleConfig -Verbose -wait
+
+Test-DscConfiguration
+```
+
+###### Properties
+
+| Property            | Type         | Default Value    | Description |
+| --------------------| ------------ | -----------------| ------------|
+| `InstanceName`      | `string`     |                  | The name of the Octopus Server instance. Use `OctopusServer` by convention unless you have more than one instance. |
+| `Enabled`           | `boolean`    | `$false`         | Whether to enable GoogleApps authentication. |
+| `ClientId`          | `string`     |                  | The `Client ID` from the Google Developer console. |
+| `HostedDomain`      | `string`     |                  | The url of your octopus server. |
+#### Guest Login
+[OctopusServerGuestAuthentication](https://github.com/OctopusDeploy/OctopusDSC/tree/master/OctopusDSC/DSCResources/cOctopusServerGuestAuthentication)
+```powershell
+Configuration SampleConfig
+{
+    Import-DscResource -Module OctopusDSC
+
+    Node "localhost"
+    {
+        cOctopusServerGuestAuthentication "Enable guest account login"
+        {
+            InstanceName = "OctopusServer"
+            Enabled = $true
+        }
+    }
+}
+
+SampleConfig
+
+Start-DscConfiguration .\SampleConfig -Verbose -wait
+
+Test-DscConfiguration
+```
+
+###### Properties
+
+| Property            | Type         | Default Value    | Description |
+| --------------------| ------------ | -----------------| ------------|
+| `InstanceName`      | `string`     |                  | The name of the Octopus Server instance. Use `OctopusServer` by convention unless you have more than one instance. |
+| `Enabled`           | `boolean`    | `$false`         | Whether to enable the read-only guest account. |
+#### OKTA
+[OctopusServerOktaAuthentiaction](https://github.com/OctopusDeploy/OctopusDSC/tree/master/OctopusDSC/DSCResources/cOctopusServerOktaAuthentication)
+```powershell
+Configuration SampleConfig
+{
+    Import-DscResource -Module OctopusDSC
+
+    Node "localhost"
+    {
+        cOctopusServerOktaAuthentication "Enable Okta authentication"
+        {
+            InstanceName = "OctopusServer"
+            Enabled = $true
+            Issuer = "https://dev-258251.oktapreview.com"
+            ClientId = "752nx5basdskrsbqansE"
+        }
+    }
+}
+
+SampleConfig
+
+Start-DscConfiguration .\SampleConfig -Verbose -wait
+
+Test-DscConfiguration
+```
+###### Properties
+
+| Property            | Type         | Default Value    | Description |
+| --------------------| ------------ | -----------------| ------------|
+| `InstanceName`      | `string`     |                  | The name of the Octopus Server instance. Use `OctopusServer` by convention unless you have more than one instance. |
+| `Enabled`           | `boolean`    | `$false`         | Whether to enable Okta authentication. |
+| `Issuer`            | `string`     |                  | The 'Issuer' from the Application settings in the Okta portal. |
+| `ClientId`          | `string`     |                  | The 'Audience' from the Application settings in the Okta portal. |
+
+#### Username and Password
+[OctopusServerUsernamePasswordAuthentication](https://github.com/OctopusDeploy/OctopusDSC/tree/master/OctopusDSC/DSCResources/cOctopusServerUsernamePasswordAuthentication)
+```powershell
+Configuration SampleConfig
+{
+    Import-DscResource -Module OctopusDSC
+
+    Node "localhost"
+    {
+        cOctopusServerUsernamePasswordAuthentication "Enable Username/Password Auth"
+        {
+            InstanceName = "OctopusServer"
+            Enabled = $true
+        }
+    }
+}
+
+SampleConfig
+
+Start-DscConfiguration .\SampleConfig -Verbose -wait
+
+Test-DscConfiguration
+```
+###### Properties
+
+| Property            | Type         | Default Value    | Description |
+| --------------------| ------------ | -----------------| ------------|
+| `InstanceName`      | `string`     |                  | The name of the Octopus Server instance. Use `OctopusServer` by convention unless you have more than one instance. |
+| `Enabled`           | `boolean`    | `$false`         | Whether to enable internal username/password authentication. |
+#### Watchdog where put this?
+[OctopusServerServerWatchdog](https://github.com/OctopusDeploy/OctopusDSC/tree/master/OctopusDSC/DSCResources/cOctopusServerWatchdog)
+
 ## Drift
 
 Currently the resource does not consider `SqlDbConnectionString`, `OctopusAdminUsername` or `OctopusAdminPassword` when testing for drift.
@@ -116,18 +332,8 @@ If the DownloadUrl property changes, it will detect the configuration drift and 
 
 However if you need to change any of the `SqlDbConnectionString`, `OctopusAdminUsername` or `OctopusAdminPassword`properties, you will need to uninstall then reinstall the server (by changing `Ensure` to `Absent` and then back to `Present`).
 
-##Authentication automation with OctopusDSC -- Wondering what extra information I should put here
-We also currently have the following resources for automating the configuration of various authentication methods/providers. See the below list for links to our script repository:
-[cOctopusServerActiveDirectoryAuthentication](https://github.com/OctopusDeploy/OctopusDSC/tree/master/OctopusDSC/DSCResources/cOctopusServerActiveDirectoryAuthentication)
-[cOctopusServerAzureADAuthentication](https://github.com/OctopusDeploy/OctopusDSC/tree/master/OctopusDSC/DSCResources/cOctopusServerAzureADAuthentication)
-[cOctopusServerGoogleAppsAuthentication](https://github.com/OctopusDeploy/OctopusDSC/tree/master/OctopusDSC/DSCResources/cOctopusServerGoogleAppsAuthentication)
-[cOctopusServerGuestAuthentication](https://github.com/OctopusDeploy/OctopusDSC/tree/master/OctopusDSC/DSCResources/cOctopusServerGuestAuthentication)
-[cOctopusServerOktaAuthentiaction](https://github.com/OctopusDeploy/OctopusDSC/tree/master/OctopusDSC/DSCResources/cOctopusServerOktaAuthentication)
-[cOctopusServerUsernamePasswordAuthentication](https://github.com/OctopusDeploy/OctopusDSC/tree/master/OctopusDSC/DSCResources/cOctopusServerUsernamePasswordAuthentication)
-[cOctopusServerServerWatchdog](https://github.com/OctopusDeploy/OctopusDSC/tree/master/OctopusDSC/DSCResources/cOctopusServerWatchdog)
-
-## Links
+##Links
 If you would like to contribue to the OctopusDSC open source repository, please follow the instructions on this documentaitons parent page.
 
 [Automating Infrastructure with DSC](link to main page)
-[Installing Octopus Server via DSC](link to tentacle dsc page)
+[Installing Octopus Tentacle Agent via DSC](link to tentacle dsc page)
