@@ -3,13 +3,13 @@ title: Automating Infrastructure with DSC
 description: OctopusDSC is an Open-Source powershell module designed to assist with the automation of Octopus infrastructure
 position: 20
 ---
-[OctopusDSC](https://github.com/OctopusDeploy/OctopusDSC) is an in-house and open source PowerShell module with DSC resource designed to reduce the overhead when automating the installation and configuration of your Octopus infrastructure. See the following documentation for examples on automating [Octopus Deploy Server]() and [Tentacle Agent]() with OctopusDSC.
+[OctopusDSC](https://github.com/OctopusDeploy/OctopusDSC) is an in-house and open source PowerShell module with DSC resource designed to reduce the overhead when automating the installation and configuration of your Octopus infrastructure.
 
 We have the following documentation pages regarding OctopusDSC:
 
-[Installing Octopus Tentacle Agent via DSC](http://docs.octopus.com/adminstration/OctopusDSC/Tentacle%20Agent.md)
+[Installing Octopus Tentacle Agent via DSC](.\Tentacle Agend.md)
 
-[Installing Octopus Server via DSC](http://docs.octopus.com/adminstration/OctopusDSC/Octopus%20Server.md)
+[Installing Octopus Server via DSC](.\Octopus Server.md)
 
 ## Installing the OctopusDSC PowerShell module.
 
@@ -34,6 +34,9 @@ The community has also submitted a few [other options](https://github.com/Octopu
 
 DSC can be applied in various ways, such as [Group Policy](https://sdmsoftware.com/group-policy-blog/desired-state-configuration/desired-state-configuration-and-group-policy-come-together/), a [DSC Pull Server](https://msdn.microsoft.com/en-us/powershell/dsc/pullserver), [Azure Automation](https://msdn.microsoft.com/en-us/powershell/dsc/azuredsc), or even via configuration management tools such as [Chef](https://docs.chef.io/resource_dsc_resource.html) or [Puppet](https://github.com/puppetlabs/puppetlabs-dsc). A good resource to learn more about DSC is the [Microsoft Virtual Academy training course](http://www.microsoftvirtualacademy.com/training-courses/getting-started-with-powershell-desired-state-configuration-dsc-).
 
+
+
+
 ## Contributing to the OctopusDSC Open-Source repository.
 
 :::hint
@@ -45,7 +48,7 @@ There are two main code repositories associated with this module, the blow links
 :::
 
 
-As OctopusDSC is an OpenSource project, we encourage everyone to contribute their custom scripts to help build a formidable OctopusDSC script respository. Below are instructions on how to contribute to the OctopusDSC repository.
+As OctopusDSC is an Open Source project, we encourage everyone to contribute their custom scripts to help build a formidable OctopusDSC script repository. Below are instructions on how to contribute to the OctopusDSC repository.
 
 This project is setup to use [Vagrant](vagrant.io) to provide a dev/test environment. Once you've installed Vagrant, you can use [build-virtualbox.sh](build-virtualbox.sh) to spin up a local virtual machine using [VirtualBox](virtualbox.org) and run the test scenarios (**NOTE:** The first time you run `vagrant up` it has to download the `octopusdeploy/dsc-test-server` box and this can take some time depending on your Internet speed, so be patient and go grab a coffee while it downloads). On a build server, you most likely want to use [build-aws.sh](build-aws.sh) to spin up a virtual machine on AWS to run the tests.
 
@@ -73,4 +76,4 @@ As there are no windows specific build scripts at present, if you want to run th
 
 Tests are written in [ServerSpec](serverspec.org), which is an infrastructure oriented layer over [RSpec](rspec.info).
 
-When creating a PR, please ensure that all existing tests run succesfully against VirtualBox, and please include a new scenario where possible. Before you start, please raise an issue to discuss your plans so we can make sure it fits with the goals of the project.
+When creating a PR, please ensure that all existing tests run successfully against VirtualBox, and please include a new scenario where possible. Before you start, please raise an issue to discuss your plans so we can make sure it fits with the goals of the project.
