@@ -336,4 +336,4 @@ However if you need to change any of the `SqlDbConnectionString`, `OctopusAdminU
 If you would like to contribue to the OctopusDSC open source repository, please follow the instructions on this documentaitons parent page.
 
 [Automating Infrastructure with DSC](.\Index.md)
-[Installing Octopus Tentacle Agent via DSC](.\Tentacle Agent)
+[Installing Octopus Tentacle Agent via DSC](.\Tentacle%20Agent.md)
