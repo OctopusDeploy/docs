@@ -5,13 +5,11 @@ position: 20
 ---
 [OctopusDSC](https://github.com/OctopusDeploy/OctopusDSC) is an in-house and open source PowerShell module with DSC resource designed to reduce the overhead when automating the installation and configuration of your Octopus infrastructure. See the following documentation for examples on automating [Octopus Deploy Server]() and [Tentacle Agent]() with OctopusDSC.
 
-:::hint
-There are two main code repositories associated with this module, the blow links will direct you to our open source GitHub page for the Server and Tentacle agent repositories respectively.
+We have the following documentation pages regarding OctopusDSC:
 
-[cOctopusServer](https://github.com/OctopusDeploy/OctopusDSC/blob/master/README-cOctopusServer.md) is used to install and configure the Octopus Server.
+[Installing Octopus Tentacle Agent via DSC]()
 
-[cTentacleAgent](https://github.com/OctopusDeploy/OctopusDSC/blob/master/README-cTentacleAgent.md) is used to install and configure the Octopus Tentacle agent.
-:::
+[Installing Octopus Server via DSC]()
 
 ## Installing the OctopusDSC PowerShell module.
 
@@ -32,13 +30,19 @@ Manual Installation:
 :::hint
 The community has also submitted a few [other options](https://github.com/OctopusDeploy/OctopusDSC/issues/14). :::
 
+## OctopusDSC management.
 
-
-
-
-
+DSC can be applied in various ways, such as [Group Policy](https://sdmsoftware.com/group-policy-blog/desired-state-configuration/desired-state-configuration-and-group-policy-come-together/), a [DSC Pull Server](https://msdn.microsoft.com/en-us/powershell/dsc/pullserver), [Azure Automation](https://msdn.microsoft.com/en-us/powershell/dsc/azuredsc), or even via configuration management tools such as [Chef](https://docs.chef.io/resource_dsc_resource.html) or [Puppet](https://github.com/puppetlabs/puppetlabs-dsc). A good resource to learn more about DSC is the [Microsoft Virtual Academy training course](http://www.microsoftvirtualacademy.com/training-courses/getting-started-with-powershell-desired-state-configuration-dsc-).
 
 ## Contributing to the OctopusDSC Open-Source repository.
+
+:::hint
+There are two main code repositories associated with this module, the blow links will direct you to our open source GitHub page for the Server and Tentacle agent repositories respectively.
+
+[cOctopusServer](https://github.com/OctopusDeploy/OctopusDSC/blob/master/README-cOctopusServer.md) is used to install and configure the Octopus Server.
+
+[cTentacleAgent](https://github.com/OctopusDeploy/OctopusDSC/blob/master/README-cTentacleAgent.md) is used to install and configure the Octopus Tentacle agent.
+:::
 
 
 As OctopusDSC is an OpenSource project, we encourage everyone to contribute their custom scripts to help build a formidable OctopusDSC script respository. Below are instructions on how to contribute to the OctopusDSC repository.
@@ -70,9 +74,3 @@ As there are no windows specific build scripts at present, if you want to run th
 Tests are written in [ServerSpec](serverspec.org), which is an infrastructure oriented layer over [RSpec](rspec.info).
 
 When creating a PR, please ensure that all existing tests run succesfully against VirtualBox, and please include a new scenario where possible. Before you start, please raise an issue to discuss your plans so we can make sure it fits with the goals of the project.
-
-##Documentation Links
-
-[Installing Octopus Tentacle Agent via DSC]()
-
-[Installing Octopus Server via DSC]()
