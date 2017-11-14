@@ -135,5 +135,5 @@ However, if you were to set the `ListenPort` to a new port, the drift detection 
 ## Links
 If you would like to contribute to the OctopusDSC open source repository, please follow the instructions on this documentations parent page.
 
-[Automating Infrastructure with DSC](.\Index.md)
-[Installing Octopus Server Manager via DSC](.\Octopus Server.md)
+[Automating Infrastructure with DSC](./Index.md)
+[Installing Octopus Server Manager via DSC](./Octopus%20Server.md)
