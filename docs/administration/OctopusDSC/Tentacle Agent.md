@@ -2,7 +2,6 @@
 title: Automating Octopus Tentacle Agent configuration
 description: Use OctopusDSC to automate the installation and configuration of the Octopus Tentacle Agent.
 ---
-
 ## Deploy and configure Octopus Tentacle Agent with OctopusDSC
 
 Before you use this guide, you will need to confirm that you have [installed the OctopusDSC PowerShell module](link to index).
@@ -55,26 +54,26 @@ Test-DscConfiguration
 ```
 
 ##### What happens here?
-OctopusDSC will download the latest version of the Octopus Tentacle agent from our website. It will then install the msi and create an instance with any configuration settings you pass through to it in the script. (The above is a barebone script)
-Once the Tentacle is installed and configured, it will register on the Octopus server you have defined under `SampleConfig`. The script will set the Tentacle name, connection infomration, Environment, and Roles.
+OctopusDSC will download the latest version of the Octopus Tentacle agent from our website. It will then install the msi and create an instance with any configuration settings you pass through to it in the script. (The above is a barebones script)
+Once the Tentacle is installed and configured, it will register on the Octopus server you have defined under `SampleConfig`. The script will set the Tentacle name, connection information, Environment, and Roles.
 
 OctopusDSC can also be used to create and register new Tentacle instances on servers with pre-existing tentacle installations. To do this simply change the value of `Name = "Tentalce"` to the Tentacle Agent instance name you desire.
 
 :::hint
-Ensure you have replaced the values under `SampleConfig` with valid connection information and an `API-Key` for an Octopus user who has permiassions to register new Tentalces with the Octopus server.:::
+Ensure you have replaced the values under `SampleConfig` with valid connection information and an `API-Key` for an Octopus user who has permissions to register new Tentacles with the Octopus server.:::
 
-Successfully running thescript should return the following:
-![Successfully run OctopusDSC Tentacle Agent script](./successfulruntentacle.jpg)
+Successfully running the script should return the following:
+image[image here]
 
-Thats it! OctopusDSC has installed, configured, and registered your Tentacle agent. This can be used to remotely manage large or dynamic infrastructures remotely with ease. Or it can be packaged with your OS images and used on initial server configuration.
+That's it! OctopusDSC has installed, configured, and registered your Tentacle agent. This can be used to remotely manage large or dynamic infrastructures remotely with ease. Or it can be packaged with your OS images and used on initial server configuration.
 
 
 ## Configure your OctopusDSC script
 
 :::hint
-If you would like to see some examples of different OctopusDSC Tentacle agent scripts, please see our opensource GitHub repository.
+If you would like to see some examples of different OctopusDSC Tentacle agent scripts, please see our Open Source GitHub repository.
 :::
-Your OctopusDSC script can be configured to match most usecases we see. Below we have information on what you can customise in your script and the format you should present it.
+Your OctopusDSC script can be configured to match most use cases we see. Below we have information on what you can customise in your script and the format you should present it.
 
 When `Ensure` is set to `Present`, the resource will:
 
@@ -133,7 +132,7 @@ If the tentacleDownloadUrl / tentacleDownloadUrl64 properties change, it will de
 However, if you were to set the `ListenPort` to a new port, the drift detection isn't smart enough to check the old configuration, nor update the registered machine. You'll need to uninstall and reinstall for these other settings to take effect.
 
 ## Links
-If you would like to contribue to the OctopusDSC open source repository, please follow the instructions on this documentaitons parent page.
+If you would like to contribute to the OctopusDSC open source repository, please follow the instructions on this documentations parent page.
 
-[Automating Infrastructure with DSC](link to main page)
-[Installing Octopus Server Manager via DSC](link to tentacle dsc page)
+[Automating Infrastructure with DSC](.\Index.md)
+[Installing Octopus Server Manager via DSC](.\Octopus Server.md)
