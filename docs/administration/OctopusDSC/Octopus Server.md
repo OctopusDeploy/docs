@@ -332,8 +332,8 @@ If the DownloadUrl property changes, it will detect the configuration drift and 
 
 However if you need to change any of the `SqlDbConnectionString`, `OctopusAdminUsername` or `OctopusAdminPassword`properties, you will need to uninstall then reinstall the server (by changing `Ensure` to `Absent` and then back to `Present`).
 
-##Links
+## Links
 If you would like to contribue to the OctopusDSC open source repository, please follow the instructions on this documentaitons parent page.
 
-[Automating Infrastructure with DSC](link to main page)
-[Installing Octopus Tentacle Agent via DSC](link to tentacle dsc page)
+[Automating Infrastructure with DSC](.\Index.md)
+[Installing Octopus Tentacle Agent via DSC](.\Tentacle Agent)
