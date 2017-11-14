@@ -1,21 +1,20 @@
 Things I want to change / do with these docs.
 
-Getting more screenshots of succesful results from code.
+### Fix things:
+fix any spelling.grammar issues (Looks mostly fine, things hide though)
+fix formatting issues, lots of Hint and Note, need to see that they are handled as expected
+table contents going to display well on published page?
 
-Move authentication from server to its own page.
 
-fix any spelling.grammar issues
-fix formatting issues
+### Things to ADD:
 ADD anchors
+Getting more screenshots of succesful results from code.
+troubleshooting section (Find out more info here)
+More screens?
+Not sure what other information I should add.
 
-
-Things to ADD:
-
-
-
-
-
-Things to Change:
+### Things to Change:
+Move Authentication from server page to its own?
 
 
 
