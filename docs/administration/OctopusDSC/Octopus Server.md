@@ -3,15 +3,10 @@ title: Automating Octopus Server configuration
 description: Use OctopusDSC to automate the installation and configuration of Octopus Server.
 ---
 
-
 ## Automate Octopus Server installation and configuration via OctopusDSC.
-Before you use this guide, you will need to confirm that you have [installed the OctopusDSC PowerShell module](link to index).
+Before you use this guide, you will need to confirm that you have [installed the OctopusDSC PowerShell module](.\Index.md).
 
 Once you have installed the OctopusDSC module you are ready to automate the installation and configuration of Octopus Server. Below is a basic example for installing the Octopus Server Manager and configuring your new instance. You can use this to test and see the results.
-
-:::note
-Before continuing, please ensure that you have [installed the OctopusDSC PowerShell module](link to main page).
-:::
 
 Below is a basic script to get you going. First, ensure the OctopusDSC module is on your `$env:PSModulePath`. Then you can create and apply configuration like this.
 
@@ -70,7 +65,7 @@ Example: `DownloadUrl = "\\192.168.10.100\installers\Octopus\Server\Latest\Octop
 :::
 
 ##### What happens here?
-OctopusDSC will download the latest version of the Octopus Server manager from our website. It will then install the msi and create an instance with any configuration settings you pass through to it in the script. (The above is a barebone script)
+OctopusDSC will download the latest version of the Octopus Server manager from our website. It will then install the msi and create an instance with any configuration settings you pass through to it in the script. (The above is a barebones script)
 
 OctopusDSC can also be used to create and register new server instances on servers which already have a server instance. To do this simply change the value of `Name = "OctopusServer"` to the instance name you desire.
 
@@ -80,10 +75,10 @@ Ensure you have replaced the values from the above script which require specific
 Successfully running the script should return the following:
 image[image here]
 
-Thats it! OctopusDSC has installed, configured, and registered your new server instance. This can be used to remotely manage your infrastructure. Or it can be packaged with your OS images and used on initial server configuration.
+That's it! OctopusDSC has installed, configured, and registered your new server instance. This can be used to remotely manage your infrastructure. Or it can be packaged with your OS images and used on initial server configuration.
 
 ## Settings
-Your OctopusDSC script can be configured to match most usecases we see. Below we have information on what you can customise in your script and the format you should present it.
+Your OctopusDSC script can be configured to match most use cases we see. Below we have information on what you can customise in your script and the format you should present it.
 
 When `Ensure` is set to `Present`, the resource will:
 
@@ -99,7 +94,7 @@ When `Ensure` is set to `Absent`, the resource will:
 1. Delete the Octopus Server windows service
 2. Uninstall using the MSI if there are no other instances installed on this machine
 
-When `State` is `Started`, the resource will ensure that the Octopus Servr windows service is running. When `Stopped`, it will ensure the service is stopped.
+When `State` is `Started`, the resource will ensure that the Octopus Server windows service is running. When `Stopped`, it will ensure the service is stopped.
 
 ##### Properties
 Below are the properties that you can define in your cOctopusServerDSC script.
@@ -330,10 +325,10 @@ This means that the server will be automatically reconfigured if you change any 
 
 If the DownloadUrl property changes, it will detect the configuration drift and upgrade the Server as appropriate. However, if you leave it as default (ie 'install latest'), it will not upgrade when a new version is released - it only actions on change of the property.
 
-However if you need to change any of the `SqlDbConnectionString`, `OctopusAdminUsername` or `OctopusAdminPassword`properties, you will need to uninstall then reinstall the server (by changing `Ensure` to `Absent` and then back to `Present`).
+However, if you need to change any of the `SqlDbConnectionString`, `OctopusAdminUsername` or `OctopusAdminPassword`properties, you will need to uninstall then reinstall the server (by changing `Ensure` to `Absent` and then back to `Present`).
 
-## Links
-If you would like to contribue to the OctopusDSC open source repository, please follow the instructions on this documentaitons parent page.
+##Links
+If you would like to contribute to the OctopusDSC open source repository, please follow the instructions on this documentations parent page.
 
 [Automating Infrastructure with DSC](.\Index.md)
 [Installing Octopus Tentacle Agent via DSC](.\Tentacle%20Agent.md)
