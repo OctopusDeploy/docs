@@ -1,19 +1,14 @@
 ---
 title: Packaging Applications
-description: Applications executables, configuration files, scripts need to be packaged and versioned so they can be deployed.
+description: Packaging applications for deployment with Octopus Deploy.
 position: 2
 ---
 
-Before you can deploy an application using Octopus, you will need to bundle all of the executables, DLL's, configuration files, installation scripts, and anything else the application needs to run into a package.
+Deploying software with Octopus Deploy involves defining your deployment process with predictable and repeatable steps. That process starts with the software you are deploying, and the first step is bundling your software into a supported package. 
+
+When you bundle your software, you must include all the files that your software needs to run.
 
 See our [supported package types](/docs/packaging-applications/supported-packages.md).
-
-:::hint
-**Isn&#39;t Octopus Deploy all about NuGet?**
-Originally, Octopus Deploy supported only [NuGet packages](/docs/packaging-applications/nuget-packages/index.md) but that is no longer the case. In Octopus 3.3 we added support for zip packages, and in Octopus 3.5 we added support for Docker images. We will be continuing to support other packaging concepts as they become relevant to the deployment ecosystem.
-
-While some of our documentation may still refer to NuGet packages specifically, all packages are generally treated the same.
-:::
 
 ## Creating Packages {#Packagingapplications-Creatingpackages}
 
