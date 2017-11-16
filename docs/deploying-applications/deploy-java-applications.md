@@ -732,3 +732,6 @@ The keystoreName and defaultCertificateLocation both can not be blank.
 
 ### KEYSTORE-ERROR-0003
 The keystore filename must be an absolute path if it is specified.
+
+### KEYSTORE-ERROR-0004
+The keystore filename must be supplied.
