@@ -639,6 +639,9 @@ There was an error getting the undertow servers.
 ### WILDFLY-HTTPS-ERROR-0024
 There was an error adding a new https listener in undertow.
 
+### WILDFLY-HTTPS-ERROR-0025
+The keystore filename must be an absolute path if it is specified.
+
 This can happen if the application server fails to start an existing https listener. Check the log files for messages like:
 
 ```
