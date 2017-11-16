@@ -22,7 +22,7 @@ During our Jenkins job, we will:
 3. Publish these NuGet packages to the Octopus Deploy server
 4. Create a release in Octopus, ready to be deployed
 
-Jenkins uses the MSBuild plugin to compile Visual Studio solutions. [Once OctoPack has been installed](/docs/packaging-applications/nuget-packages/using-octopack/index.md) on your C#/VB projects, you can configure Jenkin's MSBuild task to pass the appropriate parameters to MSBuild to have OctoPack run:
+Jenkins uses the MSBuild plugin to compile Visual Studio solutions. [Once OctoPack has been installed](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md) on your C#/VB projects, you can configure Jenkin's MSBuild task to pass the appropriate parameters to MSBuild to have OctoPack run:
 
 ![](/docs/images/3048162/3278145.png "width=500")
 
@@ -41,7 +41,7 @@ The settings are:
 
 :::success
 **OctoPack arguments**
-Learn more about the available [OctoPack parameters](/docs/packaging-applications/nuget-packages/using-octopack/index.md).
+Learn more about the available [OctoPack parameters](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md).
 :::
 
 Notice that we use `${OctopusApiKey}` to access an API key that we will use to authenticate with Octopus. You define this using the fields provided by the **Mask Passwords plugin** on your job.

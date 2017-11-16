@@ -20,10 +20,10 @@ NuGet is a good choice for packaging your applications, for the following reason
 
 You can create NuGet packages in a number of ways:
 
-- [Manually using a GUI](/docs/packaging-applications/nuget-packages/manually.md)
-- Automatically [using NuGet.exe](/docs/packaging-applications/nuget-packages/using-nuget.exe.md)
-- Automatically [using Octo.exe](/docs/packaging-applications/nuget-packages/using-octo.exe.md)
-- Automatically [using OctoPack](/docs/packaging-applications/nuget-packages/using-octopack/index.md)
+- [Manually using a GUI](/docs/packaging-applications/creating-packages/nuget-packages/manually.md)
+- Automatically [using NuGet.exe](/docs/packaging-applications/creating-packages/nuget-packages/using-nuget.exe.md)
+- Automatically [using Octo.exe](/docs/packaging-applications/creating-packages/nuget-packages/using-octo.exe.md)
+- Automatically [using OctoPack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md)
 
 :::success
 **Tip: Structure the package as you want it extracted on disk**

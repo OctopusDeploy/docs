@@ -17,7 +17,7 @@ Publish your Web App with Visual Studio to the file system:
 
 ### Generate a NuGet package {#WebAppConcepts-GenerateaNuGetpackage}
 
-Octopus requires a Web Apps to be packaged in NuGet package for use by Octopus. The easiest way generate a NuGet package is to use the [Octo.exe](/docs/packaging-applications/nuget-packages/using-octo.exe.md) command line tool:
+Octopus requires a Web Apps to be packaged in NuGet package for use by Octopus. The easiest way generate a NuGet package is to use the [Octo.exe](/docs/packaging-applications/creating-packages/nuget-packages/using-octo.exe.md) command line tool:
 
 **Packaging a Cloud Service with Octo.exe**
 

@@ -59,7 +59,7 @@ Your application should be packaged into a [supported package](/docs/packaging-
     \---web.config
 ```
 
-A really convenient way to package Web Apps is [using OctoPack](/docs/packaging-applications/nuget-packages/using-octopack/index.md). Here's a simplified example that would build the package discussed above.
+A really convenient way to package Web Apps is [using OctoPack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md). Here's a simplified example that would build the package discussed above.
 
 **MyWebApp.nuspec**
 

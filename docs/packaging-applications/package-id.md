@@ -1,7 +1,7 @@
 ---
 title: Package ID 
 description: Choose an ID for your package 
-position: 4
+position: 2
 ---
 
 The combination of package ID and [version](versioning-in-octopus-deploy.md) will uniquely identify a package.

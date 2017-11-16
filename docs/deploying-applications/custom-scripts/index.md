@@ -45,7 +45,7 @@ If you are using OctoPack to package a Windows Service or console application, s
 
 ![](/docs/images/3048092/3277765.png "width=500")
 
-Read more about [using OctoPack](/docs/packaging-applications/nuget-packages/using-octopack/index.md).
+Read more about [using OctoPack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md).
 :::
 
 ## Scripts in package steps {#Customscripts-Scriptsinpackagestepsscripts-configured-in-steps}

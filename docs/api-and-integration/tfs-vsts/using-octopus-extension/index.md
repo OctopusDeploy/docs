@@ -84,7 +84,7 @@ There are two options for packaging and pushing:
 
 ### Using OctoPack to Create and Push a Package {#PackageyourApplicationandPushtoOctopus-UsingOctoPack}
 
-Follow the [OctoPack instructions](/docs/packaging-applications/nuget-packages/using-octopack/index.md) to add OctoPack to your project and configure the msbuild arguments.
+Follow the [OctoPack instructions](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md) to add OctoPack to your project and configure the msbuild arguments.
 
 In the new Team Foundation build process, the arguments below should be in the **MSBuild Arguments** field for the **Visual Studio Build** or **MSBuild** step. Here is a list of the available variables that you can use from the Microsoft [Build use variables](https://msdn.microsoft.com/Library/vs/alm/Build/scripts/variables).
 
@@ -126,7 +126,7 @@ It's a common (and handy) practice to do this, and set the Build Number to be a 
 We recommend you read the [Build Versions in Team Build](build-versions-in-team-build.md) document for full details on versioning builds and packages.
 :::
 
-See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octo.exe command-line options](/docs/packaging-applications/nuget-packages/using-octo.exe.md) for more details).
+See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octo.exe command-line options](/docs/packaging-applications/creating-packages/nuget-packages/using-octo.exe.md) for more details).
 
 #### Publish Package Artifact {#UsetheTeamFoundationBuildCustomTask-PublishPackageArtifact}
 
