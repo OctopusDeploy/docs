@@ -1,7 +1,7 @@
 ---
 title: Creating ZIP packages
 description: Using the octo.exe command line tool to create ZIP packages is fast and easy.
-position: 3
+position: 2
 ---
 
 :::hint

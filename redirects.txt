@@ -56,3 +56,4 @@ docs/packaging-applications/nuget-packages/using-nuget.exe.md -> docs/packaging-
 docs/packaging-applications/nuget-packages/using-octo.exe.md -> docs/packaging-applications/creating-packages/nuget-packages/using-octo.exe.md
 docs/packaging-applications/nuget-packages/using-octopack/index.md -> docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md
 docs/packaging-applications/nuget-packages/using-octopack/octopack-to-include-buildevent-files.md -> docs/packaging-applications/creating-packages/nuget-packages/using-octopack/octopack-to-include-buildevent-files.md
+docs/packaging-applications/creating-zip-packages.md -> docs/packaging-applications/creating-packages/creating-zip-packages.exe.md
