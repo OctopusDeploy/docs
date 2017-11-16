@@ -1,20 +1,19 @@
 ---
-title: Package repositories
+title: Package Repositories
 description: Octopus need to retrieve applications from a package repository; options include the built-in repository, local and remote NuGet feeds, JetBrains TeamCity, MyGet and VSTS or TFS Package Management.
-position: 0
+position: 5
 ---
 
-When planning your Octopus installation, you will need to decide how to host your packages. Your continuous integration server should create your packages, and publish them to a package repository.
+When planning your Octopus installation, you will need to decide how to host your packages. Your continuous integration server should create your packages, and publish them to a package repository. A repository can be as simple as a file share, or it could be a dedicated server.
 
-:::hint
-**Supported package and repository types**
+## Supported Package and Repository Types
+
 The Octopus built-in repository [supports several different types of packages](/docs/packaging-applications/supported-packages.md). If you would like to use a package type other than NuGet (zip or tar.gz for example) you must use the Octopus built-in repository.
 
 If you would like to use an external repository, two types of external repositories are supported:
 
  - [NuGet feeds](https://docs.nuget.org/create/hosting-your-own-nuget-feeds) (either HTTP or file-system based feeds).
  - [Docker feeds](/docs/deploying-applications/docker-containers/registries/index.md)
-:::
 
 Your package repository will typically be:
 
@@ -26,12 +25,12 @@ Your package repository will typically be:
 - A [VSTS or TFS Package Management](https://www.visualstudio.com/en-us/docs/package/overview) feed (see note below)
 
 :::success
-**Mix and match feeds**
+**Mix and Match Feeds**
 Octopus can consume packages from multiple feeds at once if necessary.
 :::
 
 :::warning
-**NuGet v3 feed support**
+**NuGet v3 Feed Support**
 Support for NuGet v3 external feeds was introduced in Octopus Deploy 3.4.
 
 Earlier releases of Octopus Deploy only support external NuGet v2 feeds:
@@ -54,7 +53,7 @@ If you are using TFS Package Management, Octopus can consume either the v2 or v3
 Although the TFS documentation states that a Personal Access Token can be used, we have not had success authenticating using one with `NuGet.exe`.
 :::
 
-## Choosing the right repository {#Packagerepositories-Choosingtherightrepository}
+## Choosing the Right Repository {#Packagerepositories-Choosingtherightrepository}
 
 :::success
 The Octopus built-in repository is generally the best choice for deployment packages because it offers better performance and most suitable [retention policies](/docs/administration/retention-policies/index.md).
@@ -67,16 +66,16 @@ Our recommendation is to use different repositories for different purposes, and 
 
 This configuration will make it easier to find the right packages for the right purpose, but the most important benefit of the built-in repository is that Octopus Deploy knows exactly which deployment packages are still required according to the [retention policies](/docs/administration/retention-policies/index.md) you have configured, and which packages can be cleaned up.
 
-## Using the built-in repository {#Packagerepositories-Usingthebuilt-inrepository}
+## Using the Built-in Repository {#Packagerepositories-Usingthebuilt-inrepository}
 
 Your Octopus server comes with a built-in repository which is the best choice for deployment packages. It offers **better performance** for your deployments and the most **robust [retention policy](/docs/administration/retention-policies/index.md) support** for deployment packages.
 
 :::hint
-**Built-in feed can only be consumed by Octopus**
+**Built-in Feed Can Only Be Consumed by Octopus**
 It is important to understand that the Octopus server provides a write-only repository; intended for hosting deployment packages only. Packages that are pushed to the Octopus server can't be consumed by other NuGet clients like Visual Studio. If you need a NuGet feed for sharing libraries between your development projects, a separate NuGet repository is required.
 :::
 
-### Pushing packages to the built-in repository {#Packagerepositories-Pushingpackagestothebuilt-inrepository}
+### Pushing Packages to the Built-in Repository {#Packagerepositories-Pushingpackagestothebuilt-inrepository}
 
 We offer several ways to add packages to the built-in repository, so many that we built a new page: [pushing packages to the built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md). Alternatively you can go to {{Library,Packages}} which describes some of the most convenient ways to push packages to the built-in repository.  Simply click the `Show examples` link to see options to upload packages.
 
@@ -86,35 +85,35 @@ We offer several ways to add packages to the built-in repository, so many that w
 To push packages to the built-in repository you will need an [Octopus API key](/docs/how-to/how-to-create-an-api-key.md).
 :::
 
-### Security considerations {#Packagerepositories-Securityconsiderations}
+### Security Considerations {#Packagerepositories-Securityconsiderations}
 
 To add a new package to the built-in feed requires the `BuiltInFeedPush` permission. To delete a package, or replace an existing package requires the `BuiltInFeedAdminister` permission.
 
 For your convenience Octopus Deploy provides a built-in role called **Package Publisher** that has been granted the `BuiltInFeedPush` permission.
 
 :::hint
-**Consider using a Service Account**
+**Consider Using a Service Account**
 Instead of using your own API key, consider using a [Service Account](/docs/administration/managing-users-and-teams/service-accounts.md) to provide limited permissions since packages will normally be pushed by an automated service like your build server. Service Accounts are API-only accounts that cannot be used sign in to the Octopus Deploy web portal.
 :::
 
 :::hint
-**Using automatic release creation?**
+**Using Automatic Release Creation?**
 If you are using [automatic release creation](/docs/deploying-applications/automatic-release-creation.md) you will also require the permissions to create a release for all of the relevant projects in the required environments. To diagnose issues with pushing packages used for automatic release creation follow the troubleshooting guide on the [automatic release creation](/docs/deploying-applications/automatic-release-creation.md) page.
 :::
 
-### Moving the location of the built-in repository {#Packagerepositories-Movingthelocationofthebuilt-inrepository}
+### Moving the Location of the Built-in Repository {#Packagerepositories-Movingthelocationofthebuilt-inrepository}
 
 See [moving Octopus server folders](/docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md#MovingOctopusServerfolders-OctopusHome)
 
-## Using external repositories {#Packagerepositories-Usingexternalrepositories}
+## Using External Repositories {#Packagerepositories-Usingexternalrepositories}
 
 :::hint
-**Only NuGet and Docker feeds are supported**
+**Only NuGet and Docker Feeds are Supported**
 The only external repository type supported are NuGet and Docker. If you wish to use an external repository, you must use NuGet packages or [Docker registries as feeds](/docs/deploying-applications/docker-containers/registries/index.md).
 :::
 
 :::warning
-**NuGet v3 feed support**
+**NuGet v3 Feed Support**
 Support for NuGet v3 external feeds was introduced in Octopus Deploy 3.4.
 
 Earlier releases of Octopus Deploy only support external NuGet v2 feeds:
@@ -136,7 +135,7 @@ On the test page, you can check whether the feed is working by searching for pac
 
 ![](/docs/images/3048094/3277772.png "width=500")
 
-## NuGet.Server performance {#Packagerepositories-NuGet.Serverperformance}
+## NuGet.Server Performance {#Packagerepositories-NuGet.Serverperformance}
 
 A popular external NuGet hosting option is **NuGet.Server**. However, be aware that it suffers from performance problems when dealing with large packages or large numbers of smaller packages. Users may report high CPU usage, timeouts when displaying package details, or memory issues. A great alternative that we recommend is [NuGet.Lucene](https://github.com/themotleyfool/NuGet.Lucene).
 
