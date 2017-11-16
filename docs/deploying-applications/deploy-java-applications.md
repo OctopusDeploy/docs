@@ -642,14 +642,14 @@ There was an error getting the undertow servers.
 ### WILDFLY-HTTPS-ERROR-0024
 There was an error adding a new https listener in undertow.
 
-### WILDFLY-HTTPS-ERROR-0025
-The keystore filename must be an absolute path if it is specified.
-
 This can happen if the application server fails to start an existing https listener. Check the log files for messages like:
 
 ```
 No SSL Context available from security realm 'realmname'. Either the realm is not configured for SSL, or the server has not been reloaded since the SSL config was added.
 ```
+
+### WILDFLY-HTTPS-ERROR-0025
+The keystore filename must be an absolute path if it is specified.
 
 ### WILDFLY-HTTPS-ERROR-0025
 There was an error configuring the existing https listener.
@@ -729,3 +729,6 @@ An exception was thrown during the deployment of the Java keystore.
 
 ### KEYSTORE-ERROR-0002
 The keystoreName and defaultCertificateLocation both can not be blank.
+
+### KEYSTORE-ERROR-0003
+The keystore filename must be an absolute path if it is specified.
