@@ -576,6 +576,9 @@ Also check to make sure that the user running the Octopus Tentacle in Windows or
 ### TOMCAT-HTTPS-ERROR-0019
 The path defined to hold the keys does not exist.
 
+### TOMCAT-HTTPS-ERROR-0020
+The keystore filename must be an absolute path if it is specified.
+
 ### WILDFLY-HTTPS-ERROR-0001
 An exception was thrown during the HTTPS configuration.
 
