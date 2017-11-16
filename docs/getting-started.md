@@ -120,30 +120,9 @@ Learn more about [deploying Azure Web Apps](/docs/guides/azure-deployments/cloud
 
 ## Packaging Applications
 
-Before you can deploy applications with Octopus, you need to package all the files needed for the application into a supported package and version the package. Octopus supports the following package types:
+Before you can deploy software with Octopus Deploy, you need to bundle all the files needed for the application to run into a supported package. The package must be versioned and stored in a package repository. Octopus Deploy includes a built-in repository. We recommend configuring your existing tool chain to push packages automatically to the built-in repository; however, you can push packages manually to the repository if you choose to.
 
-* NuGet
-* Tar
-* Tar Gzip
-* Tar bzip2
-* Zip
-* Docker Image
-
-Learn more about [packaging applications](/docs/packaging-applications/index.md)
-
-### Versioning Packages
-
-Versioning is an important part of how Octopus Deploy automates application deployment. Octopus recommends using [Semantic Versioning](http://semver.org) for your applications. 
-
-Learn more about [Versioning in Octopus Deploy](/docs/packaging-applications/versioning-in-octopus-deploy.md).
-
-### Uploading Packages 
-
-Octopus Deploy includes a built-in package repository. We recommend configuring your existing tool chain to push packages automatically to the built-in repository; however, you can push packages manually to the repository if you choose to.
-
-![Octopus built-in package repository](library-packages.png)
-
-Learn more about the [package repository](/docs/packaging-applications/package-repositories/index.md) or how to automate your existing tool chain to push packages to your Octopus Deploy server with our [API and Integrations](/docs/api-and-integration/index.md).
+Learn more about [packaging your applications](/docs/packaging-applications/index.md) or how to automate your existing tool chain to push packages to your Octopus Deploy server with our [API and Integrations](/docs/api-and-integration/index.md).
 
 ## Deploying Your Applications
 
