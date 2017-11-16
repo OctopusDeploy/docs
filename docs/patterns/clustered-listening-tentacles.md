@@ -25,7 +25,7 @@ This guide assumes you already have the following setup:
 
 :::warning
 **Installing Tentacles with shared storage**
-This guide implements shared storage using an iSCSI target with Multi-Path IO confgured on the Tentacle servers, in this scenario it is best to avoid accessing the same iSCSI volume from two different hosts at the same time as doing so may result in corrupt data on the iSCSI volume.
+This guide implements shared storage using an iSCSI target with Multipath IO confgured on the Tentacle servers, in this scenario it is best to avoid accessing the same iSCSI volume from two different hosts at the same time as doing so may result in corrupt data on the iSCSI volume.
 :::
 
 On the first node, check that the shared drive is mounted and note down the drive letter.
