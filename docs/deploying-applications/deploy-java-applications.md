@@ -1,7 +1,7 @@
 ---
 title: Java Applications
 description: Deploy to WildFly, Red Hat JBoss EAP and Tomcat using Octopus Deploy
-position: 7
+position: 6
 ---
 
 Octopus Deploy comes with a number of steps that allow you to deploy and modify the state of Java applications for popular Java application servers.
@@ -470,8 +470,6 @@ The application was not successfully started or stopped.
 
 This can happen if the application failed to initialize. Check the Tomcat logs for information on why the application could not be started.
 
-When deploying an application with a version, make sure that the version is greater than an existing deployment. Otherwise Tomcat may deploy what it sees to be an old version, remove the old version, and then the old version can not be started or stopped.
-
 Also confirm that the context path and version match a deployed application.
 
 This is treated as a warning during deployment, but an error if encountered during the Tomcat start/stop step.
@@ -705,6 +703,9 @@ The keystore filename must be an absolute path if it is specified.
 
 ### WILDFLY-HTTPS-ERROR-0042
 When the keystore is not relative to a path, it must be absolute.
+
+### WILDFLY-HTTPS-ERROR-0043
+When the keystore is relative to a path, it must not absolute.
 
 ### WILDFLY-ERROR-0001
 There was an error entering batch mode.
