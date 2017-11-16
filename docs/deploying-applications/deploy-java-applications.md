@@ -577,7 +577,7 @@ Also check to make sure that the user running the Octopus Tentacle in Windows or
 The path defined to hold the keys does not exist.
 
 ### TOMCAT-HTTPS-ERROR-0020
-The keystore filename must be an absolute path if it is specified.
+The keystore, private key or public key filename must be an absolute path if it is specified.
 
 ### WILDFLY-HTTPS-ERROR-0001
 An exception was thrown during the HTTPS configuration.
@@ -649,9 +649,6 @@ No SSL Context available from security realm 'realmname'. Either the realm is no
 ```
 
 ### WILDFLY-HTTPS-ERROR-0025
-The keystore filename must be an absolute path if it is specified.
-
-### WILDFLY-HTTPS-ERROR-0025
 There was an error configuring the existing https listener.
 
 ### WILDFLY-HTTPS-ERROR-0026
@@ -700,6 +697,12 @@ This means that Calamari has tried to find either the web or undertow subsystem 
 
 ### WILDFLY-HTTPS-ERROR-0040
 Failed to load any extensions.
+
+### WILDFLY-HTTPS-ERROR-0041
+The keystore filename must be an absolute path if it is specified.
+
+### WILDFLY-HTTPS-ERROR-0042
+When the keystore is not relative to a path, it must be absolute.
 
 ### WILDFLY-ERROR-0001
 There was an error entering batch mode.
