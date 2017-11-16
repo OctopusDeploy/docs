@@ -701,6 +701,8 @@ Failed to load any extensions.
 ### WILDFLY-HTTPS-ERROR-0041
 The keystore filename must be an absolute path if it is specified.
 
+For example, you may have entered a value like `my.store` as the `Keystore Filename`. This value is required to be a path like `C:\my.store` or `/opt/my.store`.
+
 ### WILDFLY-HTTPS-ERROR-0042
 When the keystore is not relative to a path, it must be absolute.
 
@@ -738,6 +740,8 @@ The keystoreName and defaultCertificateLocation both can not be blank.
 
 ### KEYSTORE-ERROR-0003
 The keystore filename must be an absolute path if it is specified.
+
+For example, you may have entered a value like `my.store` as the `Keystore Filename`. This value is required to be a path like `C:\my.store` or `/opt/my.store`.
 
 ### KEYSTORE-ERROR-0004
 The keystore filename must be supplied.
