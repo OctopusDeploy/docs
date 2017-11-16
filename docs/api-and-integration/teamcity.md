@@ -43,7 +43,7 @@ Octopus requires that you package your applications into NuGet packages, whether
 
 :::hint
 **Using OctoPack**
-For more information on using OctoPack to create NuGet packages, see [using OctoPack](/docs/packaging-applications/nuget-packages/using-octopack/index.md).
+For more information on using OctoPack to create NuGet packages, see [using OctoPack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md).
 :::
 
 When you set up your build configuration in TeamCity, use either the MSBuild runner or the Visual Studio build runner. At the bottom of the runner settings, you'll see some options to run OctoPack during the build:

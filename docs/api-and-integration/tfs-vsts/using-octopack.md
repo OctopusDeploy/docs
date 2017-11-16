@@ -8,7 +8,7 @@ position: 1
 
 ## Packaging applications when building with Team Build (XAML-based builds) {#Packaging}
 
-When Team Build builds your solution, you will need to package your applications ready to be deployed. This can be done by [installing OctoPack](/docs/packaging-applications/nuget-packages/using-octopack/index.md) on the projects that you plan to deploy.
+When Team Build builds your solution, you will need to package your applications ready to be deployed. This can be done by [installing OctoPack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md) on the projects that you plan to deploy.
 
 When defining your build definition, you can expand the **Advanced** properties to specify custom arguments for MSBuild. At a minimum, you'll need to pass:
 
@@ -20,7 +20,7 @@ When defining your build definition, you can expand the **Advanced** properties 
 
 :::success
 **OctoPack**
-There are plenty of other properties that you can pass here. For example, you can tell OctoPack to publish the resulting packages to a file share or another NuGet repository. See the "Publishing a new package to Octopus" section below, or [Learn more in the section on OctoPack](/docs/packaging-applications/nuget-packages/using-octopack/index.md).
+There are plenty of other properties that you can pass here. For example, you can tell OctoPack to publish the resulting packages to a file share or another NuGet repository. See the "Publishing a new package to Octopus" section below, or [Learn more in the section on OctoPack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md).
 :::
 
 Publishing a new package to Octopus

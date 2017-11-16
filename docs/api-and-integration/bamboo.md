@@ -23,7 +23,7 @@ The rest of this page will walk you through the process of integrating Octopus D
 
 ## Building with Bamboo and OctoPack {#Bamboo-BuildingwithBambooandOctoPack}
 
-The first step to making Octopus and Bamboo work together, is for Bamboo to create artifacts that Octopus is able to deploy. [Octopus uses NuGet packages](/docs/packaging-applications/index.md), and [OctoPack](/docs/packaging-applications/nuget-packages/using-octopack/index.md) makes it easy to package your application using MSBuild.
+The first step to making Octopus and Bamboo work together, is for Bamboo to create artifacts that Octopus is able to deploy. [Octopus uses NuGet packages](/docs/packaging-applications/index.md), and [OctoPack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md) makes it easy to package your application using MSBuild.
 
 During our build, we will:
 
@@ -41,7 +41,7 @@ To interact with our Octopus Deploy server, we need an API key. It's a good idea
 Learn about [how to create an API key](/docs/how-to/how-to-create-an-api-key.md).
 :::
 
-Bamboo uses an MSBuild runner to compile Visual Studio solutions. [Once OctoPack has been installed](/docs/packaging-applications/nuget-packages/using-octopack/index.md) on your C#/VB projects, you can configure Bamboo's MSBuild task to pass the appropriate parameters to MSBuild to have OctoPack run:
+Bamboo uses an MSBuild runner to compile Visual Studio solutions. [Once OctoPack has been installed](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md) on your C#/VB projects, you can configure Bamboo's MSBuild task to pass the appropriate parameters to MSBuild to have OctoPack run:
 
 ![](/docs/images/3048164/3278161.png "width=500")
 
@@ -60,7 +60,7 @@ The settings are:
 
 :::success
 **OctoPack arguments**
-Learn more about the available [OctoPack parameters](/docs/packaging-applications/nuget-packages/using-octopack/index.md).
+Learn more about the available [OctoPack parameters](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md).
 :::
 
 ## Creating a release {#Bamboo-Creatingarelease}

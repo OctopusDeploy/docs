@@ -8,7 +8,7 @@ position: 18
 This feature was added in Octopus 3.2.4.
 :::
 
-When pushing to the [built-in Octopus package repository](/docs/packaging-applications/package-repositories/index.md) using [OctoPack](/docs/packaging-applications/nuget-packages/using-octopack/index.md) or [NuGet.exe](/docs/packaging-applications/nuget-packages/using-nuget.exe.md), the default URL looks like this:
+When pushing to the [built-in Octopus package repository](/docs/packaging-applications/package-repositories/index.md) using [OctoPack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md) or [NuGet.exe](/docs/packaging-applications/creating-packages/nuget-packages/using-nuget.exe.md), the default URL looks like this:
 
 `NuGet.exe push YourApp.1.0.0.nupkg -ApiKey <Your-API-Key> -Source http://localhost:8065/nuget/packages`
 
