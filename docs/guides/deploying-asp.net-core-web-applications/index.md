@@ -18,7 +18,7 @@ dotnet publish source/MyApp.Web --output published-app --configuration Release
 octo pack --id MyApp.Web --version 1.0.0 --basePath published-app 
 ```
 
-If you are using the built-in repository, you can create a [zip file](/docs/packaging-applications/creating-zip-packages.md) instead. The generated nupkg or zip file should then be then be [pushed to a repository](/docs/packaging-applications/package-repositories/index.md).
+If you are using the built-in repository, you can create a [zip file](/docs/packaging-applications/creating-packages/creating-zip-packages.md) instead. The generated nupkg or zip file should then be then be [pushed to a repository](/docs/packaging-applications/package-repositories/index.md).
 
 If you are using TeamCity, you can use the [new TeamCity plugin for dotnet commands](https://github.com/JetBrains/teamcity-dnx-plugin).
 
