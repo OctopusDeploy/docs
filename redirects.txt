@@ -64,7 +64,7 @@ docs/installation/installing-octopus/sql-server-database-requirements.md -> docs
 docs/installation/installing-tentacles/listening-tentacles.md -> docs/deployment-targets/windows-targets/listening-tentacles.md
 docs/installation/installing-tentacles/polling-tentacles.md -> docs/deployment-targets/windows-targets/polling-tentacles.mddocs/installation/installing-tentacles/proxy-support.md -> docs/deployment-targets/windows-targets/proxy-support.mddocs/installation/installing-tentacles/running-tentacle-under-a-specific-user-account.md -> docs/deployment-targets/windows-targets/running-tentacle-under-a-specific-user-account.md
 docs/installation/installing-tentacles/azure-virtual-machines/index.md -> docs/deployment-targets/windows-targets/azure-virtual-machines/index.md
-docs/installation/installing-tentacles/azure-virtual-machines/configuation-structure.md -> docs/deployment-targets/windows-targets/azure-virtual-machines/configuation-structure.md
+docs/installation/installing-tentacles/azure-virtual-machines/configuration-structure.md -> docs/deployment-targets/windows-targets/azure-virtual-machines/configuration-structure.md
 docs/installation/installing-tentacles/azure-virtual-machines/diagnosing-issues.md -> docs/deployment-targets/windows-targets/azure-virtual-machines/diagnosing-issues.md
 docs/installation/installing-tentacles/azure-virtual-machines/via-an-arm-template-with-dsc.md -> docs/deployment-targets/windows-targets/azure-virtual-machines/via-an-arm-template-with-dsc.md
 docs/installation/installing-tentacles/azure-virtual-machines/via-an-arm-template.md -> docs/deployment-targets/windows-targets/azure-virtual-machines/via-an-arm-template.md
