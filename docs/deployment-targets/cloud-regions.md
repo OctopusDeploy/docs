@@ -1,7 +1,7 @@
 ---
 title: Cloud Regions
 description: Cloud Regions deployment targets allow steps to be executed multiple times to support deploying cloud applications in numerous geographic regions.
-position: 3
+position: 5
 version: 3.4
 ---
 

@@ -1,14 +1,14 @@
 ---
-title: Installing Tentacles
+title: Windows Targets
 description: Everything you need to know about installing and configuring Octopus Tentacles for use with your deployments.
 position: 2
 ---
 
-Tentacle is a secure, lightweight agent service that Octopus uses to deploy software. Tentacle runs as a Windows Service, and is installed on all of the machines that you plan to deploy software to, such as your application and web servers.
+Tentacle is a secure, lightweight agent service that Octopus uses to deploy software to Windows targets. Tentacle runs as a Windows Service, and is installed on all of the machines that you plan to deploy software to, such as your application and web servers.
 
 In essence, Tentacle is a job runner. It waits for Octopus to give it a job (deploy a package, run a script), and it executes it, reporting the progress and result back to the Octopus server.
 
-## Requirements {#InstallingTentacles-Requirements}
+## Installation Requirements for Tentacle{#InstallingTentacles-Requirements}
 
 - Windows Server 2003 SP2 (**N.B. Not supported for Tentacle 3.1 and up due to .NET 4.5 dependency**)
   Windows Server 2008 (**N.B. SP1 not supported for Tentacle 3.1 and up due to .NET 4.5 dependency**)
