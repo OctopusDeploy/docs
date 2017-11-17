@@ -44,7 +44,7 @@ The settings for the extension are:
 
 After entering the extension settings, click **OK**, and the extension will be installed.
 
-After a few minutes, the machine should appear in the environments tab of your Octopus Deploy server. If it doesn't, please read the [Diagnosing issues](/docs/installation/installing-tentacles/azure-virtual-machines/diagnosing-issues.md) section.
+After a few minutes, the machine should appear in the environments tab of your Octopus Deploy server. If it doesn't, please read the [Diagnosing issues](/docs/deployment-targets/windows-targets/azure-virtual-machines/diagnosing-issues.md) section.
 
 :::hint
 If you need the ability to customize more of the installation, the [CLI](via-the-azure-cli.md), [PowerShell](via-powershell.md) and [ARM Template](via-an-arm-template.md) methods expose more options than the Azure Portal. For even more customization, you might want to consider using the [Azure Desired State Configuration (DSC) extension](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-extensions-dsc-overview) in conjunction with the [OctopusDSC](https://www.powershellgallery.com/packages/OctopusDSC) resource.

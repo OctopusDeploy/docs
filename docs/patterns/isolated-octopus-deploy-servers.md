@@ -4,7 +4,7 @@ description: Working with isolated Octopus Deploy servers due to infrastructure 
 position: 3
 ---
 
-Octopus was designed to be a single, central point of truth for application deployments. In an ideal world, you would only need one Octopus server, and then many Tentacles. Octopus uses a [secure communication channel](/docs/reference/octopus-tentacle-communication/index.md) when communicating with remote endpoints, and can work in both [listening and polling mode](/docs/installation/installing-tentacles/index.md), giving you multiple options to work around firewall issues.
+Octopus was designed to be a single, central point of truth for application deployments. In an ideal world, you would only need one Octopus server, and then many Tentacles. Octopus uses a [secure communication channel](/docs/reference/octopus-tentacle-communication/index.md) when communicating with remote endpoints, and can work in both [listening and polling mode](/docs/deployment-targets/windows-targets/index.md), giving you multiple options to work around firewall issues.
 
 Of course, the real world and the ideal world don't always overlap, and you might need to have separate Octopus servers. Common examples are:
 
@@ -40,4 +40,4 @@ Your Octopus Deploy license includes the ability to install and configure up to 
 
 > An agency manages lots of small applications on behalf of their customers, and wants to use Octopus to manage deployments. Quite often the production environment is managed by the customer and even after being convinced to allow the Tentacle agent to be installed on their servers, they want communication to be controlled by a proxy server.
 
-In this scenario you would install Tentacle onto the customer's servers, but configure all communication to go via the customer's proxy server. Learn about [proxy support](/docs/installation/installing-tentacles/proxy-support.md) in Octopus Deploy.
+In this scenario you would install Tentacle onto the customer's servers, but configure all communication to go via the customer's proxy server. Learn about [proxy support](/docs/deployment-targets/windows-targets/proxy-support.md) in Octopus Deploy.

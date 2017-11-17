@@ -1,14 +1,14 @@
 ---
-title: Installing Tentacles
+title: Windows Targets
 description: Everything you need to know about installing and configuring Octopus Tentacles for use with your deployments.
 position: 2
 ---
 
-Tentacle is a secure, lightweight agent service that Octopus uses to deploy software. Tentacle runs as a Windows Service, and is installed on all of the machines that you plan to deploy software to, such as your application and web servers.
+Tentacle is a secure, lightweight agent service that Octopus uses to deploy software to Windows targets. Tentacle runs as a Windows Service, and is installed on all of the machines that you plan to deploy software to, such as your application and web servers.
 
 In essence, Tentacle is a job runner. It waits for Octopus to give it a job (deploy a package, run a script), and it executes it, reporting the progress and result back to the Octopus server.
 
-## Requirements {#InstallingTentacles-Requirements}
+## Installation Requirements for Tentacle{#InstallingTentacles-Requirements}
 
 - Windows Server 2003 SP2 (**N.B. Not supported for Tentacle 3.1 and up due to .NET 4.5 dependency**)
   Windows Server 2008 (**N.B. SP1 not supported for Tentacle 3.1 and up due to .NET 4.5 dependency**)
@@ -36,8 +36,8 @@ The latest Octopus Tentacle MSI can always be [downloaded from the Octopus Deplo
 
 Octopus and Tentacle can be configured to communicate two different ways depending on your network setup. The mode you are using will change the installation process slightly.
 
-- [Listening mode](/docs/installation/installing-tentacles/listening-tentacles.md) (recommended)
-- [Polling mode](/docs/installation/installing-tentacles/polling-tentacles.md)
+- [Listening mode](/docs/deployment-targets/windows-targets/listening-tentacles.md) (recommended)
+- [Polling mode](/docs/deployment-targets/windows-targets/polling-tentacles.md)
 
 :::success
 **Listening mode is recommended**
@@ -51,18 +51,18 @@ The communication protocol used by Octopus and Tentacle requires intact end-to-e
 
 :::warning
 **Proxy Servers Supported for Tentacle Communications Since Octopus 3.4**
-The communication protocol used by Octopus and Tentacle 3.4 and above supports proxies. Read more about configuring proxy servers for Tentacle communications in [proxy support](/docs/installation/installing-tentacles/proxy-support.md).
+The communication protocol used by Octopus and Tentacle 3.4 and above supports proxies. Read more about configuring proxy servers for Tentacle communications in [proxy support](/docs/deployment-targets/windows-targets/proxy-support.md).
 
-If you are using a version of Octopus/Tentacle prior to 3.4 refer to either [Listening Tentacles](/docs/installation/installing-tentacles/listening-tentacles.md) or [Polling Tentacles](/docs/installation/installing-tentacles/polling-tentacles.md) for more information on configuring a bypass rule.
+If you are using a version of Octopus/Tentacle prior to 3.4 refer to either [Listening Tentacles](/docs/deployment-targets/windows-targets/listening-tentacles.md) or [Polling Tentacles](/docs/deployment-targets/windows-targets/polling-tentacles.md) for more information on configuring a bypass rule.
 :::
 
-Tentacle can be installed and configured directly from the command prompt, which is very useful when you need to install Tentacle on a large number of machines. See more in [automating Tentacle installations](/docs/installation/installing-tentacles/automating-tentacle-installation.md).
+Tentacle can be installed and configured directly from the command prompt, which is very useful when you need to install Tentacle on a large number of machines. See more in [automating Tentacle installations](/docs/deployment-targets/windows-targets/automating-tentacle-installation.md).
 
 :::warning
 **Cloning Tentacle VMs**
 In a virtualized environment, it may be desirable to install Tentacle on a base virtual machine image, and clone this image to create multiple machines.
 
-If you choose to do this, please **do not complete the configuration wizard** before taking the snapshot. The configuration wizard generates a unique per-machine cryptographic certificate that should not be duplicated. Instead, use PowerShell to [automate configuration](/docs/installation/installing-tentacles/automating-tentacle-installation.md) after the clone has been materialized.
+If you choose to do this, please **do not complete the configuration wizard** before taking the snapshot. The configuration wizard generates a unique per-machine cryptographic certificate that should not be duplicated. Instead, use PowerShell to [automate configuration](/docs/deployment-targets/windows-targets/automating-tentacle-installation.md) after the clone has been materialized.
 :::
 
 After installation, Tentacle runs as a Windows Service named **OctopusDeploy Tentacle**.

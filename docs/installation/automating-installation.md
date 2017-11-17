@@ -1,6 +1,7 @@
 ---
 title: Automating Octopus installation
 description: Information on how to install and configure an Octopus server in a fully automated way from the command line.
+position: 2
 ---
 
 ## Octopus Installers

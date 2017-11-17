@@ -16,7 +16,7 @@ Want to tune your deployments for optimum performance? Read our [detailed guide 
 
 ## Minimum requirements
 
-There is no "one size fits all" approach to sizing your Octopus Server. If you are just starting out with Octopus Server you should begin with the [minimum requirements](/docs/installation/installing-octopus/index.md) then monitor the performance of your server. Once your server is up and running you should consider [maintenance](#maintenance) and [scaling](#scaling) as you see fit.
+There is no "one size fits all" approach to sizing your Octopus Server. If you are just starting out with Octopus Server you should begin with the [minimum requirements](/docs/installation/index.md) then monitor the performance of your server. Once your server is up and running you should consider [maintenance](#maintenance) and [scaling](#scaling) as you see fit.
 
 ## Maintenance {#maintenance}
 
@@ -43,7 +43,7 @@ You may not need to keep the entire history of releases - we record the entire h
 
 ### SQL Server Maintenance {#sql-maintenance}
 
-[SQL Server](/docs/installation/installing-octopus/sql-server-database-requirements.md) is the data persistence backbone of Octopus. Performance problems with your SQL Server will make Octopus run and feel slow and sluggish. You should implement a routine maintenance plan for your Octopus database. Here is a [sure guide](http://g.octopushq.com/SQLServerMaintenanceGuide) (free e-book) for maintaining SQL Server.
+[SQL Server](/docs/installation/sql-server-database-requirements.md) is the data persistence backbone of Octopus. Performance problems with your SQL Server will make Octopus run and feel slow and sluggish. You should implement a routine maintenance plan for your Octopus database. Here is a [sure guide](http://g.octopushq.com/SQLServerMaintenanceGuide) (free e-book) for maintaining SQL Server.
 
 ## Scaling Octopus Server {#scaling}
 
@@ -109,7 +109,7 @@ Follow these tips to tune and maintain the performance of your Octopus:
 1. Consider the size of your Task Logs: {#tip-task-logs}
     - Larger task logs put the entire Octopus pipeline under more pressure.
     - We recommend printing messages required to understand progress and deployment failures. The rest of the information should be streamed to a file, then published as a deployment [artifact](/docs/deploying-applications/artifacts.md).
-1. Prefer [Listening Tentacles](/docs/installation/installing-tentacles/listening-tentacles.md) or [SSH](/docs/deployment-targets/ssh-targets/index.md) instead of [Polling Tentacles](/docs/installation/installing-tentacles/polling-tentacles.md) wherever possible:
+1. Prefer [Listening Tentacles](/docs/deployment-targets/windows-targets/listening-tentacles.md) or [SSH](/docs/deployment-targets/ssh-targets/index.md) instead of [Polling Tentacles](/docs/deployment-targets/windows-targets/polling-tentacles.md) wherever possible:
     - Listening Tentacles and SSH place the Octopus Server under less load.
     - We try to make Polling Tentacles as efficient as possible, but by their very nature, they can place the Octopus Server under high load just handling the incoming connections.
 1. Reduce the frequency and complexity of automated health checks using [machine policies](/docs/deployment-targets/environments/machine-policies.md).

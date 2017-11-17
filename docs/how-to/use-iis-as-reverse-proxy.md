@@ -9,7 +9,7 @@ There are scenarios in which you may be required to run Octopus Deploy behind a 
 This example assumes:
 
 - IIS will terminate your SSL connections.
-- [Polling Tentacles](https://octopus.com/docs/installation/installing-tentacles/polling-tentacles) are not required.
+- [Polling Tentacles](https://octopus.com/docs/deployment-targets/windows-targets/polling-tentacles) are not required.
 
 Our starting configuration:
 

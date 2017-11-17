@@ -17,7 +17,7 @@ This page outlines our recommended steps to move your SQL database to another se
 Octopus.Server.exe configure --storageConnectionString="VALUE"
 ```
 :::hint
-Ensure the user specified in the connection string has access to the database as a **dbo_owner**. Refer to our [SQL server database requirements](/docs/installation/installing-octopus/sql-server-database-requirements.md) documentation page.
+Ensure the user specified in the connection string has access to the database as a **dbo_owner**. Refer to our [SQL server database requirements](/docs/installation/sql-server-database-requirements.md) documentation page.
 :::
 
 :::hint

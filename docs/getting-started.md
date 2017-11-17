@@ -40,7 +40,7 @@ The rest of this guide goes into more detail about working with  Octopus Deploy 
 
 ## Install Octopus Deploy
 
-Installing [Octopus Deploy](/docs/installation/index.md) sets up the central [Octopus Deploy Server](/docs/installation/installing-octopus/index.md), which provides the **Octopus Web Portal** and the [Octopus REST API](/docs/api-and-integration/octopus-rest-api.md).
+Installing [Octopus Deploy](/docs/installation/index.md) sets up the central [Octopus Deploy Server](/docs/installation/index.md), which provides the **Octopus Web Portal** and the [Octopus REST API](/docs/api-and-integration/octopus-rest-api.md).
 
 The [installation documentation](/docs/installation/index.md) provides the instructions for installing and configuring your Octopus.
 
