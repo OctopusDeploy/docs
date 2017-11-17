@@ -26,7 +26,7 @@ We designed Octopus Deploy to fit into teams that follow agile delivery practice
 
 1. Package Your Application.
 
-   When the build is ready, your CI/build server bundles all of the files (binaries, images, scripts, configuration files, and so on) needed to deploy your application into a supported package.
+   When the build is ready, your CI/build server bundles all of the files your software needs to run into a supported package.
 
 1. Octopus Deploy Pushes Your Packaged Application.
 
@@ -116,7 +116,7 @@ Learn more about [deploying Azure Web Apps](/docs/guides/azure-deployments/cloud
 
 ## Packaging Applications
 
-Before you can deploy software with Octopus Deploy, you need to bundle all the files needed for the application to run into a supported package. The package must be versioned and stored in a package repository. Octopus Deploy includes a built-in repository. We recommend configuring your existing tool chain to push packages automatically to the built-in repository; however, you can push packages manually to the repository if you choose to.
+Before you can deploy software with Octopus Deploy, you need to bundle all the files needed for the software to run into a supported package. The package must be versioned and stored in a package repository. Octopus Deploy includes a built-in repository. We recommend configuring your existing tool chain to push packages automatically to the built-in repository; however, you can push packages manually to the repository if you choose to.
 
 Learn more about [packaging your applications](/docs/packaging-applications/index.md) or how to automate your existing tool chain to push packages to your Octopus Deploy server with our [API and Integrations](/docs/api-and-integration/index.md).
 
