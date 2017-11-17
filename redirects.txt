@@ -73,3 +73,4 @@ docs/installation/installing-tentacles/azure-virtual-machines/via-the-azure-cli.
 docs/installation/installing-tentacles/azure-virtual-machines/via-the-azure-portal.md -> docs/deployment-targets/windows-targets/azure-virtual-machines/via-the-azure-portal.md
 docs/installation/installing-tentacles/azure-virtual-machines/via-the-classic-azure-portal.md -> docs/deployment-targets/windows-targets/azure-virtual-machines/via-the-classic-azure-portal.md
 docs/installation/installing-tentacles/polling-tentacles-web-sockets.md -> docs/deployment-targets/windows-targets/polling-tentacles-web-sockets.md
+docs/installation/installing-tentacles/automating-tentacle-installation.md -> docs/deployment-targets/windows-targets/automating-tentacle-installation.md
