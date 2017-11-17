@@ -1,7 +1,7 @@
 ---
 title: Creating ZIP packages
 description: Using the octo.exe command line tool to create ZIP packages is fast and easy.
-position: 3
+position: 2
 ---
 
 :::hint
@@ -14,7 +14,7 @@ This page describes how to use `octo.exe` to create **zip** packages. You could 
 - help you get the filename format correct
 - ensure file timestamps are retained when extracting which helps with some forms of content delivery networks (CDN) and caching
 - ensure [delta compression for package transfers](/docs/deploying-applications/delta-compression-for-package-transfers.md) works as expected
-- Avoid [known issues](/docs/packaging-applications/creating-zip-packages.md) with other compression libraries
+- Avoid [known issues](/docs/packaging-applications/creating-packages/creating-zip-packages.md) with other compression libraries
 :::
 
 To create a zip package of the application, open a command prompt and change directory to where the application is located.

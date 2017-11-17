@@ -12,7 +12,7 @@ The **pack** command turns any folder into a NuGet or Zip package - plain and si
 ## Packaging your application from a folder {#UsingOcto.exe-Packagingyourapplicationfromafolder}
 
 :::hint
-In Octo.exe version 3.3.8 we have expanded the functionality of the `pack` command to allow creating **zip** packages in addition to **NuGet** packages. [Learn more](/docs/packaging-applications/creating-zip-packages.md).
+In Octo.exe version 3.3.8 we have expanded the functionality of the `pack` command to allow creating **zip** packages in addition to **NuGet** packages. [Learn more](/docs/packaging-applications/creating-packages/creating-zip-packages.md).
 :::
 
 For the purposes of this page, I have created an ASP.NET web site called OctoWeb, and when built the output folder contains all the files required to run my web site.
