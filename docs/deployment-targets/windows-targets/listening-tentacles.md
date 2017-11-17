@@ -20,7 +20,7 @@ The communication protocol used by Octopus and Tentacle requires intact end-to-e
 
 :::warning
 **Proxy servers supported for Tentacle communications since Octopus 3.4**
-The communication protocol used by Octopus and Tentacle 3.4 and above supports proxies. Read more about configuring proxy servers for Tentacle communications in [proxy support](/docs/installation/installing-tentacles/proxy-support.md).
+The communication protocol used by Octopus and Tentacle 3.4 and above supports proxies. Read more about configuring proxy servers for Tentacle communications in [proxy support](/docs/deployment-targets/windows-targets/proxy-support.md).
 
 If you are using a version of Octopus/Tentacle prior to 3.4 you will need to arrange a bypass/exception for traffic initiated from the Octopus server to the Tentacle on the configured TCP Port (port **10933** by default).
 :::
@@ -32,7 +32,7 @@ If you are using a version of Octopus/Tentacle prior to 3.4 you will need to arr
 The latest Tentacle MSI can always be [downloaded from the Octopus Deploy downloads page](https://octopus.com/downloads).
 :::
 
-This four minute video (with captions) will walk you through the process of installing a Tentacle in listening mode, and registering it with your [Octopus Deploy server](/docs/installation/installing-octopus/index.md).
+This four minute video (with captions) will walk you through the process of installing a Tentacle in listening mode, and registering it with your [Octopus Deploy server](/docs/installation/index.md).
 <iframe src="//fast.wistia.net/embed/iframe/qp12uky9qy" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="360" style="margin: 30px"></iframe>
 
 ## Firewall Changes {#ListeningTentacles-Firewallchanges}

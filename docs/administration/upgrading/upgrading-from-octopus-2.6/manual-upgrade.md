@@ -35,7 +35,7 @@ See the [Backup and restore](/docs/administration/upgrading/upgrading-from-octo
 When upgrading to Octopus 3.x please use the latest version available. We have been constantly improving the 2.6 to 3.x data migration process whilst adding new features and fixing bugs.
 :::
 
-See the [Installing Octopus 3.x](/docs/installation/installing-octopus/index.md) page for instructions on installing a new Octopus 3.x instance.
+See the [Installing Octopus 3.x](/docs/installation/index.md) page for instructions on installing a new Octopus 3.x instance.
 
 After installing the MSI, you will be presented with an upgrade page.
 

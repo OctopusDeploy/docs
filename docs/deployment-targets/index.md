@@ -22,11 +22,11 @@ A deployment target can be one of the following types:
 
 ## Listening Tentacle  {#Deploymenttargets-ListeningTentacleListeningTentacle}
 
-A [Listening Tentacle](/docs/installation/installing-tentacles/listening-tentacles.md) is a machine with the Tentacle service installed in *listening* mode.
+A [Listening Tentacle](/docs/deployment-targets/windows-targets/listening-tentacles.md) is a machine with the Tentacle service installed in *listening* mode.
 
 ## Polling Tentacle  {#Deploymenttargets-PollingTentaclePollingTentacle}
 
-A [Polling Tentacle](/docs/installation/installing-tentacles/polling-tentacles.md) is a machine with Tentacle service installed in *polling* mode.
+A [Polling Tentacle](/docs/deployment-targets/windows-targets/polling-tentacles.md) is a machine with Tentacle service installed in *polling* mode.
 
 ## Offline Package Drop  {#Deploymenttargets-OfflinePackageDropOfflinePackageDrop}
 

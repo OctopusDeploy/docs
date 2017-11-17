@@ -15,7 +15,7 @@ This feature is enabled by default however it can be disabled in the **Feature
 NOTE: The relevant permissions to install and manage step templates are ActionTemplateCreate, ActionTemplateEdit, ActionTemplateView and ActionTemplateDelete.
 
 :::hint
-The community step template synchronization process works great with proxy servers.  For more information, see [Proxy support](/docs/installation/installing-tentacles/proxy-support.md).
+The community step template synchronization process works great with proxy servers.  For more information, see [Proxy support](/docs/deployment-targets/windows-targets/proxy-support.md).
 :::
 
 ## Community step template linking {#Octopuscommunitysteptemplatesintegration-Communitysteptemplatelinking}

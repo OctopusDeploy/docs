@@ -4,7 +4,7 @@ description: Package steps allow you to deploy your applications and services th
 position: 4
 ---
 
-When defining your [deployment process](/docs/deploying-applications/index.md), the most common step type will be a package step. This step type allows you to deploy an [application that you have packaged](/docs/packaging-applications/index.md) onto one or more [Tentacles](/docs/installation/installing-tentacles/index.md).
+When defining your [deployment process](/docs/deploying-applications/index.md), the most common step type will be a package step. This step type allows you to deploy an [application that you have packaged](/docs/packaging-applications/index.md) onto one or more [Tentacles](/docs/deployment-targets/windows-targets/index.md).
 
 The process of deploying a package looks approximately like this:
 

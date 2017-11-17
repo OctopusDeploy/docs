@@ -46,12 +46,12 @@ To configure the Tentacle in listening or polling mode, it's easiest to run the 
 
 :::success
 **Advanced configuration options**
-When configuring your Tentacle you can configure advanced options, like [proxies](/docs/installation/installing-tentacles/proxy-support.md), [machine policies](/docs/deployment-targets/environments/machine-policies.md) and [tenants](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md), which can also be automated. Use the setup wizard to configure the Tentacle, and click the **Show Script** link which will show you the command-line equivalent to configure the Tentacle.
+When configuring your Tentacle you can configure advanced options, like [proxies](/docs/deployment-targets/windows-targets/proxy-support.md), [machine policies](/docs/deployment-targets/environments/machine-policies.md) and [tenants](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md), which can also be automated. Use the setup wizard to configure the Tentacle, and click the **Show Script** link which will show you the command-line equivalent to configure the Tentacle.
 :::
 
 ## Example: Listening Tentacle {#AutomatingTentacleinstallation-Example:ListeningTentacle}
 
-The following example configures a [listening Tentacle](/docs/installation/installing-tentacles/listening-tentacles.md), and registers it with an Octopus Deploy server:
+The following example configures a [listening Tentacle](/docs/deployment-targets/windows-targets/listening-tentacles.md), and registers it with an Octopus Deploy server:
 
 **Using Tentacle.exe to create Listening Tentacle instance**
 
@@ -102,7 +102,7 @@ Want to register your Tentacles another way? Take a look at the examples in our 
 
 ## Example: Polling Tentacle {#AutomatingTentacleinstallation-Example:PollingTentacle}
 
-The following example configures a [polling Tentacle](/docs/installation/installing-tentacles/polling-tentacles.md), and registers it with an Octopus Deploy server:
+The following example configures a [polling Tentacle](/docs/deployment-targets/windows-targets/polling-tentacles.md), and registers it with an Octopus Deploy server:
 
 **Polling Tentacle**
 
@@ -186,4 +186,4 @@ Test-DscConfiguration
 
 DSC can be applied in various ways, such as [Group Policy](https://sdmsoftware.com/group-policy-blog/desired-state-configuration/desired-state-configuration-and-group-policy-come-together/), a [DSC Pull Server](https://msdn.microsoft.com/en-us/powershell/dsc/pullserver), [Azure Automation](https://msdn.microsoft.com/en-us/powershell/dsc/azuredsc), or even via configuration management tools such as [Chef](https://docs.chef.io/resource_dsc_resource.html) or [Puppet](https://github.com/puppetlabs/puppetlabs-dsc). A good resource to learn more about DSC is the [Microsoft Virtual Academy training course](http://www.microsoftvirtualacademy.com/training-courses/getting-started-with-powershell-desired-state-configuration-dsc-).
 
-For an in depth look, check out the [sample walkthrough](azure-virtual-machines/via-an-arm-template-with-dsc.md) of how to use DSC with an Azure ARM template to deploy and configure the Tentacle on an Azure VM.
+For an in depth look, check out the [sample walkthrough](docs/deployment-targets/windows-targets/azure-virtual-machines/via-an-arm-template-with-dsc.md) of how to use DSC with an Azure ARM template to deploy and configure the Tentacle on an Azure VM.

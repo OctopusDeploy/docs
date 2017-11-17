@@ -4,11 +4,11 @@ description: Octopus Polling Tentacles open a connection to the Octopus server t
 position: 1
 ---
 
-When installing a Tentacle, you will be asked to choose how Tentacle will communicate with the Octopus server. In **polling** mode, Tentacle will poll the Octopus server periodically to check whether there are any tasks for it to perform. Polling mode is the opposite to [listening mode](/docs/installation/installing-tentacles/listening-tentacles.md). *In polling mode, Octopus is the TCP server, and Tentacle is the TCP client.*
+When installing a Tentacle, you will be asked to choose how Tentacle will communicate with the Octopus server. In **polling** mode, Tentacle will poll the Octopus server periodically to check whether there are any tasks for it to perform. Polling mode is the opposite to [listening mode](/docs/deployment-targets/windows-targets/listening-tentacles.md). *In polling mode, Octopus is the TCP server, and Tentacle is the TCP client.*
 
 ![](/docs/images/3048113/5865875.png)
 
-The advantage to polling mode is that you don't need to make any firewall changes on the Tentacle side; you only need to allow access to a port on the Octopus server. The disadvantage is that it also uses more resources on the Tentacle side, since Tentacle needs to poll periodically even if there aren't any jobs for it to perform. That's why [we recommend listening mode](/docs/installation/installing-tentacles/listening-tentacles.md) most of the time.
+The advantage to polling mode is that you don't need to make any firewall changes on the Tentacle side; you only need to allow access to a port on the Octopus server. The disadvantage is that it also uses more resources on the Tentacle side, since Tentacle needs to poll periodically even if there aren't any jobs for it to perform. That's why [we recommend listening mode](/docs/deployment-targets/windows-targets/listening-tentacles.md) most of the time.
 
 Polling mode is good for scenarios that involve Tentacle being behind NAT or a dynamic IP address. A good example might be servers at branch offices or a chain of retail stores, where the IP address of each server running Tentacle may change.
 
@@ -19,7 +19,7 @@ The communication protocol used by Octopus and Tentacle requires intact end-to-e
 
 :::warning
 **Proxy servers supported for Tentacle communications since Octopus 3.4**
-The communication protocol used by Octopus and Tentacle 3.4 and above supports proxies. Read more about configuring proxy servers for Tentacle communications in [proxy support](/docs/installation/installing-tentacles/proxy-support.md).
+The communication protocol used by Octopus and Tentacle 3.4 and above supports proxies. Read more about configuring proxy servers for Tentacle communications in [proxy support](/docs/deployment-targets/windows-targets/proxy-support.md).
 
 If you are using a version of Octopus/Tentacle prior to 3.4 you will need to arrange a bypass/exception for traffic initiated from the Tentacle to the Octopus server on the configured TCP Port (port **10943** by default).
 :::
@@ -31,13 +31,13 @@ If you are using a version of Octopus/Tentacle prior to 3.4 you will need to arr
 The latest Tentacle MSI can always be [downloaded from the Octopus Deploy downloads page](https://octopus.com/downloads).
 :::
 
-This three minute video (with captions) will walk you through the process of installing a Tentacle in polling mode, and registering it with your [Octopus Deploy server](/docs/installation/installing-octopus/index.md).
+This three minute video (with captions) will walk you through the process of installing a Tentacle in polling mode, and registering it with your [Octopus Deploy server](/docs/installation/index.md).
 
 <iframe src="//fast.wistia.net/embed/iframe/lcvaq44184" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="360" style="margin: 30px"></iframe>
 
 ## Firewall Changes {#PollingTentacles-Firewallchanges}
 
-To allow Tentacle to connect to your Octopus Deploy server, you'll need to allow access to port **10943** on the Octopus server (or the port you selected during the installation wizard - port 10943 is just the default). You will also need to allow Tentacle to access the Octopus HTTP web portal (typically port **80** or **443** - these bindings are selected when you [install the Octopus Deploy server](/docs/installation/installing-octopus/index.md)).
+To allow Tentacle to connect to your Octopus Deploy server, you'll need to allow access to port **10943** on the Octopus server (or the port you selected during the installation wizard - port 10943 is just the default). You will also need to allow Tentacle to access the Octopus HTTP web portal (typically port **80** or **443** - these bindings are selected when you [install the Octopus Deploy server](/docs/installation/index.md)).
 
 If your network rules only allow port **80** and **443** to the Octopus server, you can change the server bindings to either HTTP or HTTPS and
 use the remaining port for polling Tentacle connections. The listening port can be [changed from the command line](https://octopus.com/docs/administration/server-configuration-and-file-storage).
