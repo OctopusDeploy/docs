@@ -18,7 +18,7 @@ This guide assumes you already have the following setup:
 - An Active Directory domain and a local DNS server.
 - An Octopus Server (this does not need to be joined to the domain).
 - A two node active/passive Windows cluster where each node is joined to the domain.
-- A local IP Address available for the cluster.
+- A local IP address available for the cluster.
 - Shared storage configured for the cluster (in this example we are using `E:\`)
 
 ## Installation {#ClusteringTentacles-Installation}
