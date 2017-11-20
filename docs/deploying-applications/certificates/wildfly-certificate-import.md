@@ -38,7 +38,7 @@ By selecting the `Create a new keystore` option, Octopus will create a new Java 
 
 The `Select certificate variable` field is used to define the variable that references the certificate to be deployed as a Java keystore.
 
-The location of the new keystore file can be optionally defined in the `Keystore Filename` field. Any path specified in this field must be an absolute path, and any existing file at that location will be overwritten. If left blank, a keystore will created with a unique filename based on the certificate subject in the application server `standalone/configuration` directory.
+The location of the new keystore file can be optionally defined in the `Keystore filename` field. Any path specified in this field must be an absolute path, and any existing file at that location will be overwritten. If left blank, a keystore will created with a unique filename based on the certificate subject in the application server `standalone/configuration` directory.
 
 The `Private Key Password` field defines a custom password for the new keystore file. If this field is left blank, the keystore will be configured with the default password of `changeit`.
 
@@ -52,13 +52,13 @@ When `Reference an existing keystore` is selected, a number of fields are requir
 
 The value of the `Keystore Filename` field can either be the absolute path to the keystore (in which case the `Relative base path` option has to be set to `none`), or it can be a path relative to one of the path locations defined in the `Relative base path` field.
 
-For example, if you wish the to reference an existing keystore file at `/opt/my.store`, set the `Keystore Filename` field to `/opt/my.store` and the `Relative base path` option to `none`. If you want to reference a keystore file in the `standalone/configuration` directory with a filename of `my.store`, set the `Keystore Filename` field to `my.store` and set the `Relative base path` field to `jboss.server.config.dir`.
+For example, if you wish the to reference an existing keystore file at `/opt/my.store`, set the `Keystore filename` field to `/opt/my.store` and the `Relative base path` option to `none`. If you want to reference a keystore file in the `standalone/configuration` directory with a filename of `my.store`, set the `Keystore filename` field to `my.store` and set the `Relative base path` field to `jboss.server.config.dir`.
 
 #### Setting the Keystore Password and Alias
 
-The `Private Key Password` field defines a custom password for the existing keystore file. If this field is left blank, the keystore is assumed to have the default password of `changeit`.
+The `Private key password` field defines a custom password for the existing keystore file. If this field is left blank, the keystore is assumed to have the default password of `changeit`.
 
-The `Keystore Alias` field defines a custom alias under which the certificate and private key are stored. If left blank, the keystore is assumed to have the default alias of  `Octopus`.
+The `Keystore alias` field defines a custom alias under which the certificate and private key are stored. If left blank, the keystore is assumed to have the default alias of  `Octopus`.
 
 ## Deploying a Certificate to a Domain
 
@@ -79,15 +79,15 @@ It is highly recommended that the keystore file be saved in the `domain/configur
 
 Once all the domain slaves have a local copy of the keystore file deployed to them, the domain can be configured to reference these files.
 
-Selecting `Domain` from the `Standalone or Domain Server` field in the `Server Type Details` section indicates that the certificate is to be configured as part of a WildFly or JBoss EAP domain.
+Selecting `Domain` from the `Standalone or domain server` field in the `Server Type Details` section indicates that the certificate is to be configured as part of a WildFly or JBoss EAP domain.
 
-The `Domain Profiles` field defines a comma separated list of profiles that will be updated to reference the existing keystore file. Typical profiles names include `default`, `ha`, `full` and `full-ha`.
+The `Domain profiles` field defines a comma separated list of profiles that will be updated to reference the existing keystore file. Typical profiles names include `default`, `ha`, `full` and `full-ha`.
 
-The `Keystore Filename` is either the absolute path to the existing keystore file (in which case the `Relative base path` field has to be set to `none`), or is a relative path using the value of the `Relative base path` field as the base.
+The `Keystore filename` is either the absolute path to the existing keystore file (in which case the `Relative base path` field has to be set to `none`), or is a relative path using the value of the `Relative base path` field as the base.
 
-The `Private Key Password` field defines the optional password used to access the existing keystore file. If this field is left blank, the keystore is assumed to have the default password of `changeit`.
+The `Private key password` field defines the optional password used to access the existing keystore file. If this field is left blank, the keystore is assumed to have the default password of `changeit`.
 
-The `Keystore Alias` field defines the optional alias under which the certificate and private key are stored. If left blank, the keystore is assumed to have a default alias of  `Octopus`.
+The `Keystore alias` field defines the optional alias under which the certificate and private key are stored. If left blank, the keystore is assumed to have a default alias of  `Octopus`.
 
 ## Advanced Options
 
@@ -97,7 +97,7 @@ If you are unsure what these advanced values refer to, it is best to leave them 
 
 The `Advanced Options` section is the same whether deploying to a domain or standalone instance. The fields in this section can be used to override the default values used when configuring a keystore in WildFly or JBoss EAP.
 
-The `HTTPS Socket Binding Name` can be used to override the default socket binding that will be used to expose access to HTTPS. The default value is `https`.
+The `HTTPS socket binding name` can be used to override the default socket binding that will be used to expose access to HTTPS. The default value is `https`.
 
 This value refers to the `name` attribute in the `<socket-binding>` elements in the `domain/configuration/domain.xml` or `standalone/configuration/standalone.xml` files.
 
