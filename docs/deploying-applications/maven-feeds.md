@@ -17,6 +17,30 @@ The following steps can be followed to add an external Maven feed.
 5. If the Maven repository is password protected, the credentials can be entered into the `Feed login` and `Feed password` field.
 6. The `Download attempts (attempts)` field defines the number of times that Octopus will attempt to download an artifact from a Maven repository. Failed attempts will wait for the number of seconds defined in the `Download retry backoff (seconds)` field before attempting to download the artifact again.
 
+## Referencing Maven Artifacts
+
+When referencing a Maven artifact, the package ID is in the format `group:artifact`.
+
+For example, to reference the Maven artifact with the group of `org.wildfly.swarm.testsuite` and artifact of `testsuite-https` (i.e. the artifacts found at https://repo.maven.apache.org/maven2/org/wildfly/swarm/testsuite/testsuite-https/), you would enter a package ID of `org.wildfly.swarm.testsuite:testsuite-https`.
+
+![Maven Artifact Names](maven-artifact-names.png)
+
+The packaging type is determined automatically from the extensions supported by Octopus, which are:
+
+* zip
+* jar
+* ear
+* rar
+* war
+
+So the package ID `org.wildfly.swarm.testsuite:testsuite-https` for version `2017.10.0` would download the WAR file https://repo.maven.apache.org/maven2/org/wildfly/swarm/testsuite/testsuite-https/2017.10.0/testsuite-https-2017.10.0.war.
+
+## Searching for Maven Artifacts
+
+As Maven repositories do not expose an API (repositories are just a filesystem structure), there is no way to search them in Octopus the way you might search a NuGet repository. The package ID for a Maven artifact must be complete for Octopus to identify it, and partial package IDs will not return a list of partial matches.
+
+![Maven Package Suggestion](maven-package-suggestion.png)
+
 ## Downloading SNAPSHOT Releases
 
 When downloading SNAPSHOT releases of Maven artifacts, the latest SNAPSHOT version will be downloaded. This version is then saved in the Octopus cache, and will be reused in subsequent deployments of the same SNAPSHOT version.
