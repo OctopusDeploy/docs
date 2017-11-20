@@ -13,7 +13,7 @@ The following steps can be followed to add an external Maven feed.
 1. Select {{Library>External feeds}} and click the `ADD FEED` button.
 2. Select `Maven Feed` from the `Feed Type` field.
 3. Enter the name of the feed in the `Feed name` field.
-4. In the `Feed url` field, enter the URL of the Maven feed. The URL must point to the directory under which the initial directory that makes up the Maven artifact group ids are found. For example, for the Maven central repo the URL is https://repo.maven.apache.org/maven2/. The SonaType Snapshot repo URL is https://oss.sonatype.org/content/repositories/snapshots/.
+4. In the `Feed url` field, enter the URL of the Maven feed. The URL must point to the directory under which the initial directory that makes up the Maven artifact group ids are found. For example, for the Maven central repo the URL is https://repo.maven.apache.org/maven2/ and the SonaType Snapshot repo URL is https://oss.sonatype.org/content/repositories/snapshots/.
 5. If the Maven repository is password protected, the credentials can be entered into the `Feed login` and `Feed password` field.
 6. The `Download attempts (attempts)` field defines the number of times that Octopus will attempt to download an artifact from a Maven repository. Failed attempts will wait for the number of seconds defined in the `Download retry backoff (seconds)` field before attempting to download the artifact again.
 
