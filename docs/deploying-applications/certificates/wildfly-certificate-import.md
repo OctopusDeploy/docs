@@ -65,15 +65,7 @@ Domains can be used to distribute the configuration required to access a keystor
 
 ### Deploying Keystore Files
 
-The `Deploy a keystore to the filesystem` step can be used to take a certificate managed by Octopus and save it as a Java keystore on the target machine.
-
-The `Select certificate variable` field is used to define the variable that references the certificate to be deployed.
-
-The location of the new keystore file must be defined in the `Keystore Filename` field. This must be an absolute path, and any existing file at that location will be overwritten.
-
-The `Private Key Password` field defines a custom password for the new keystore file. If this field is left blank, the keystore will be configured with the default password of `changeit`.
-
-The `Keystore Alias` field defines a custom alias under which the certificate and private key are stored. If left blank, the default alias of `Octopus` will be used.
+!partial <java-keystore-export>
 
 :::hint
 It is highly recommended that the keystore file be saved in the `domain/configuration` directory. This allows the keystore file to be referenced using the base relative path identified by `jboss.domain.config.dir`.
