@@ -95,6 +95,10 @@ The `Keystore Alias` field defines the optional alias under which the certificat
 
 ## Advanced Options
 
+:::hint
+If you are unsure what these advanced values refer to, it is best to leave them blank and assume the default values.
+:::
+
 The `Advanced Options` section is the same whether deploying to a domain or standalone instance. The fields in this section can be used to override the default values used when configuring a keystore in WildFly or JBoss EAP.
 
 The `HTTPS Socket Binding Name` can be used to override the default socket binding that will be used to expose access to HTTPS. The default value is `https`.
