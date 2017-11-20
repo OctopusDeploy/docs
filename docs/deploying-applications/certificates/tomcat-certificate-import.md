@@ -61,13 +61,13 @@ Server Name Indication (SNI) is supported by Tomcat 8.5 and above to map a certi
 
 The `Certificate SNI hostname` field defines the hostname that the deployed certificate will map to. If left blank, this value is assumed to be `_default_`, which is the default value for the `defaultSSLHostConfigName` attribute on the `<Connector>` element.
 
-For example, When set to the hostname `example.org`, the certificate being deployed with be used to secure requests to URLs like `https://example.org`.
+For example, When set to the hostname `example.org`, the certificate being deployed will be used to secure requests to URLs like `https://example.org`.
 
 :::hint
 Defining the `Certificate SNI hostname` field will result in an error when deploying to Tomcat 8 and below.
 :::
 
-The `Default Certificate` field can be used to indicate if the certificate being deployed will be the default one for the connector. By selecting `Make this the default certificate`, this certificate will be used for any request to a hostname that does not have a certificate specifically mapped to it. Selecting `Leave this certificate's default status unchanged` will leave the existing default hostname unchanged.
+The `Default Certificate` field can be used to indicate if the certificate being deployed will be the default for the connector. By selecting `Make this the default certificate`, this certificate will be used for any request to a hostname that does not have a certificate specifically mapped to it. Selecting `Leave this certificate's default status unchanged` will leave the existing default hostname unchanged.
 
 :::hint
 There must always be a default certificate. If the certificate being deployed is the only certificate available to the connector, it will be made the default even if `Make this the default certificate` is not selected.
@@ -77,20 +77,20 @@ There must always be a default certificate. If the certificate being deployed is
 
 A number of optional settings around how the certificate is created are defined in `Tomcat Certificate Options` section. These options differ depending on the SSL implementation that was selected.
 
-The JSEE SSL implementations of BIO, NIO and NIO2 rely on a Java keystore file. The APR implementation uses a certificate and a PEM file for the private key.
+The JSSE SSL implementations of BIO, NIO and NIO2 rely on a Java keystore file. The APR implementation uses a certificate file and a PEM private key file.
 
 #### Java Keystore Options
 
 When no `Private Key Password` is defined, the Java keystore will have the default password of `changeit`. This is the default password specified by Tomcat. If a password is defined then that password will be used to secure the Java keystore and included in the Tomcat configuration.
 
-The `Keystore Filename` field can be used to define the location of the certificate created as part of the step. If left blank, the keystore file will be created with a unique filename in the `CATALINA_BASE/conf` directory, and the filename will be based on the certificate subject. If specified, a keystore will be created at the specified location, overwriting any existing file. Any value entered for the filename must be an absolute path.
+The `Keystore Filename` field can be used to define the location of the keystore created as part of the step. If left blank, the keystore file will be created with a unique filename in the `CATALINA_BASE/conf` directory, and the filename will be based on the certificate subject. If specified, a keystore will be created at the specified location, overwriting any existing file. Any value entered for the filename must be an absolute path.
 
 The `Keystore Alias` field defines the alias under which the certificate will be saved. If not defined, it will default to the alias of `octopus`.
 
 #### Certificate and PEM File Options
 
-When no password is defined, PEM files used by the `APR` SSL implementation remain unencrypted, with a key file starting with `-----BEGIN RSA PRIVATE KEY-----`. When a password is defined, the key file is encrypted, starts with `-----BEGIN ENCRYPTED PRIVATE KEY-----`, and the password is included in the Tomcat configuration file.
+When no password is defined, PEM files created for the `APR` SSL implementation remain unencrypted, with a key file starting with `-----BEGIN RSA PRIVATE KEY-----`. When a password is defined, the key file is encrypted, starts with `-----BEGIN ENCRYPTED PRIVATE KEY-----`, and the password is included in the Tomcat configuration file.
 
 The `Private Key Filename` field is used to define the location of the private key PEM file. If left blank, the private key file will be created with a unique filename in the `CATALINA_BASE/conf` directory, and the filename will be based on the certificate subject. If specified, a private key file will be created at the specified location, overwriting any existing file. Any value entered for the filename must be an absolute path.
 
-The `Public Key Filename` field is used to define the location of the public certificate. If left blank, the private certificate file will be created with a unique filename in the `CATALINA_BASE/conf` directory, and the filename will be based on the certificate subject. If specified, a certificate file will be created at the specified location, overwriting any existing file. Any value entered for the filename must be an absolute path.
+The `Public Key Filename` field is used to define the location of the public certificate. If left blank, the public certificate file will be created with a unique filename in the `CATALINA_BASE/conf` directory, and the filename will be based on the certificate subject. If specified, a certificate file will be created at the specified location, overwriting any existing file. Any value entered for the filename must be an absolute path.
