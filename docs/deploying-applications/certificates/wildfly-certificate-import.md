@@ -132,3 +132,7 @@ The `Elytron Server SSL Context name` defines the name of the Elytron SSL Contex
 :::hint
 You can find more information of the Elytron subsystem components in the [WildFly documentation](https://docs.jboss.org/author/display/WFLY/Using+the+Elytron+Subsystem#UsingtheElytronSubsystem-onewayapps).
 :::
+
+## Configuration File Backups
+
+Before any changes are made to the WildFly or JBoss EAP configurations, a `:take-snapshot` command is run. This will create a backup file in the `domain/configuration/standalone_xml_history/snapshot` or `standaline/configuration/standalone_xml_history/snapshot` directory.

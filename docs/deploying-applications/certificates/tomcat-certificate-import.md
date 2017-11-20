@@ -94,3 +94,7 @@ When no password is defined, PEM files created for the `APR` SSL implementation 
 The `Private Key Filename` field is used to define the location of the private key PEM file. If left blank, the private key file will be created with a unique filename in the `CATALINA_BASE/conf` directory, and the filename will be based on the certificate subject. If specified, a private key file will be created at the specified location, overwriting any existing file. Any value entered for the filename must be an absolute path.
 
 The `Public Key Filename` field is used to define the location of the public certificate. If left blank, the public certificate file will be created with a unique filename in the `CATALINA_BASE/conf` directory, and the filename will be based on the certificate subject. If specified, a certificate file will be created at the specified location, overwriting any existing file. Any value entered for the filename must be an absolute path.
+
+## Configuration File Backups
+
+Before any change is made to the `server.xml` file, it is saved to the `octopus_backup.zip` archive. This archive can be used to restore previous versions of the `server.xml` file.
