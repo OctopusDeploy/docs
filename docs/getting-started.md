@@ -50,6 +50,12 @@ Once Octopus is installed you can access the Octopus Web Portal. This is where y
 
 ![Octopus web portal sign in](octopus-login.png "width=500")
 
+## Packaging Applications
+
+Before you can deploy software with Octopus Deploy, you need to bundle all the files needed for the software to run into a supported package. The package must be versioned and stored in a package repository. Octopus Deploy includes a built-in repository. We recommend configuring your existing tool chain to push packages automatically to the built-in repository; however, you can push packages manually to the repository if you choose to.
+
+Learn more about [packaging your applications](/docs/packaging-applications/index.md) or how to automate your existing tool chain to push packages to your Octopus Deploy server with our [API and Integrations](/docs/api-and-integration/index.md).
+
 ## Configure Your Infrastructure
 
 ### Environments
@@ -113,12 +119,6 @@ Learn more about [Offline Package Drops](/docs/deployment-targets/offline-packag
 Octopus Deploy includes steps that let you deploy your applications to the Azure Cloud Service.
 
 Learn more about [deploying Azure Web Apps](/docs/guides/azure-deployments/cloud-services/cloud-service-concepts.md).
-
-## Packaging Applications
-
-Before you can deploy software with Octopus Deploy, you need to bundle all the files needed for the software to run into a supported package. The package must be versioned and stored in a package repository. Octopus Deploy includes a built-in repository. We recommend configuring your existing tool chain to push packages automatically to the built-in repository; however, you can push packages manually to the repository if you choose to.
-
-Learn more about [packaging your applications](/docs/packaging-applications/index.md) or how to automate your existing tool chain to push packages to your Octopus Deploy server with our [API and Integrations](/docs/api-and-integration/index.md).
 
 ## Deploying Your Applications
 
