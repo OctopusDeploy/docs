@@ -5,7 +5,7 @@ hideInThisSection: true
 position: 2
 ---
 
-Deploying software with Octopus Deploy involves defining your deployment process with predictable and repeatable steps. That process starts with the software you are deploying. 
+Deploying software with Octopus Deploy involves defining your deployment process with predictable and repeatable steps. That process starts with packaging the software you are deploying. 
 
 Before you can deploy your software you need to:
 
