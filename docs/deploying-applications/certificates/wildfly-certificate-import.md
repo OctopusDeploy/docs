@@ -86,7 +86,7 @@ It is highly recommended that the keystore file be saved in the `domain/configur
 
 ### Configuring the Domain
 
-Once all the domain slaves have a local copy of the keystore file deployed to them, the domain can be configured to reference these files.
+Once all the domain slaves have a local copy of the keystore file deployed to them, the domain profiles can be configured to reference these files.
 
 Selecting `Domain` from the `Standalone or domain server` field in the `Server Type Details` section indicates that the certificate is to be configured as part of a WildFly or JBoss EAP domain.
 
@@ -110,7 +110,7 @@ The `HTTPS socket binding name` can be used to override the default socket bindi
 
 This value refers to the `name` attribute in the `<socket-binding>` elements in the `domain/configuration/domain.xml` or `standalone/configuration/standalone.xml` files.
 
-The default configuration for the `standard-sockets` socket binding group is shown below, and shows that the `https` socket binding uses port 8443 by default.
+The default configuration for the `standard-sockets` socket binding group is shown below, and shows that the `https` socket binding uses port 8443 by default. This is the same port and socket binding name used by all default socket binding groups.
 
 ```xml
 <socket-binding-group name="standard-sockets" default-interface="public">
