@@ -66,14 +66,14 @@ The Octopus Deploy ecosystem includes a wide variety of external services which 
 
 These are the decisions we made on handling versions:
 
-1. **Valid versions:** A version string will be considered valid if it is a "strictly compliant" Semantic Version (according to [SemVer 1.0](http://semver.org/spec/v1.0.0.html) or [SemVer 2.0](http://semver.org/spec/v2.0.0.html)). We will also allow for 4-digit versions (like `1.0.0.0`) and zero-padded versions (like `2016.09.01`). 
+1. **Valid versions:** A version string will be considered valid if it is a "strictly compliant" Semantic Version (according to [SemVer 1.0](http://semver.org/spec/v1.0.0.html) or [SemVer 2.0](http://semver.org/spec/v2.0.0.html)). We will also allow for 4-digit versions (like `1.0.0.0`) and zero-padded versions (like `2016.09.01`).
 2. **Comparing versions:** We will compare versions using the "semantic" value (as per the Semantic Version specification).  
 
-   a. **Equality:** Two versions will be considered to be equal if they are "semantically equivalent". Some examples: 
+   a. **Equality:** Two versions will be considered to be equal if they are "semantically equivalent". Some examples:
 
         i. `1.0.0.0 == 1.0.0`  
         i. `2016.01.02 == 2016.1.2 == 2016.01.2`  
-   a. **Ordering:** Versions will be sorted "semantically". Some examples: 
+   a. **Ordering:** Versions will be sorted "semantically". Some examples:
 
         i. `1.4.10 > 1.4.9`  
         i. `3.0.0-beta.10 > 3.0.0-beta.9`  
@@ -92,3 +92,13 @@ This is a really good decision when considering the NuGet ecosystem in isolation
 
 This caused us to take stock of how we handle versions across the Octopus Deploy ecosystem and make the decisions we outlined earlier.
 :::
+
+## How Octopus Deploy treats Maven versions
+
+When working with artifacts from a Maven feed, Octopus respects the [Maven versioning scheme](https://octopus.com/blog/maven-versioning-explained). This versioning scheme is implemented as a copy of the [ComparableVersion](https://github.com/apache/maven/blob/master/maven-artifact/src/main/java/org/apache/maven/artifact/versioning/ComparableVersion.java) class from the Maven library itself.
+
+## When to use SemVer and when to use Maven versions
+
+SemVer is still recommended (or required) when versioning any artifact to be deployed to the built-in library or an external NuGet feed.
+
+The only time Maven versions are used by Octopus is when an artifact is sourced from an external Maven feed. Accordingly, the only time to use the Maven versioning scheme over SemVer is when you are deploying artifacts to a Maven repository.
