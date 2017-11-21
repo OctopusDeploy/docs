@@ -119,7 +119,7 @@ The default configuration for the `standard-sockets` socket binding group is sho
 
 The `Legacy security realm name` defines the name of the security realm that is configured in application servers that do not support the `Elytron` subsystem. If left blank, this value will default to `OctopusHttps`.
 
-![Security Realm](security-realm.png)
+![Security Realm](security-realm.png "width=500")
 
 :::hint
 Elytron is the new security subsystem introduced with WildFly 11 and JBoss EAP 7.1. All previous versions of WildFly and JBoss EAP use what is referred to as the "legacy" security system.
