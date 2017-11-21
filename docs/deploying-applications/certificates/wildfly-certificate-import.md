@@ -14,17 +14,17 @@ If a new keystore is to be created as part of the deployment, the certificate be
 
 Regardless of whether you are deploying a certificate to a standalone or domain instance, there are a number of common connection settings that need to be defined in the `Application Server Details` section.
 
-Set the `Management Host or IP` field to the address that the WildFly management interface is listening to. This value is relative to the target machine that is performing the deployment. Since the target machine performing the deployment is typically the same machine hosting the application server, this value will usually be `localhost`.
+Set the `Management host or IP` field to the address that the WildFly management interface is listening to. This value is relative to the target machine that is performing the deployment. Since the target machine performing the deployment is typically the same machine hosting the application server, this value will usually be `localhost`.
 
-Set the `Management Port` to the port bound to the WildFly management interface. For WildFly 10+ and JBoss EAP 7+, this will default to `9990`. For JBoss EAP 6, this will default to `9999`.
+Set the `Management port` to the port bound to the WildFly management interface. For WildFly 10+ and JBoss EAP 7+, this will default to `9990`. For JBoss EAP 6, this will default to `9999`.
 
-The `Management Protocol` field defines the protocol to be used when interacting with the management interface. For WildFly 10+ and JBoss EAP 7+, this will default to `http-remoting` or `remote+http` (the two are equivalent). For JBoss EAP 6, this will default to `remoting`.
+The `Management protocol` field defines the protocol to be used when interacting with the management interface. For WildFly 10+ and JBoss EAP 7+, this will default to `http-remoting` or `remote+http` (the two are equivalent). For JBoss EAP 6, this will default to `remoting`.
 
-If you wish to use [silent authentication](https://access.redhat.com/documentation/en-us/jboss_enterprise_application_platform/6.2/html/security_guide/chap-network_security#Secure_the_Management_Interfaces), and have configured the required permissions for the `$JBOSS_HOME/standalone/tmp/auth` or `$JBOSS_HOME/domain/tmp/auth` directory, then the `Management User` and `Management Password` fields can be left blank. Alternatively these fields can hold the credentials that were configured via the `add-user` script.
+If you wish to use [silent authentication](https://access.redhat.com/documentation/en-us/jboss_enterprise_application_platform/6.2/html/security_guide/chap-network_security#Secure_the_Management_Interfaces), and have configured the required permissions for the `$JBOSS_HOME/standalone/tmp/auth` or `$JBOSS_HOME/domain/tmp/auth` directory, then the `Management user` and `Management password` fields can be left blank. Alternatively these fields can hold the credentials that were configured via the `add-user` script.
 
 ## Deploying a Certificate to a Standalone Instance
 
-Selecting `Standalone` from the `Standalone or Domain Server` field in the `Server Type Details` section indicates that the certificate is to be deployed to a standalone server instance.
+Selecting `Standalone` from the `Standalone or domain Server` field in the `Server Type Details` section indicates that the certificate is to be deployed to a standalone server instance.
 
 :::hint
 Selecting the wrong server type will result in an error at deploy time.
@@ -40,9 +40,9 @@ The `Select certificate variable` field is used to define the variable that refe
 
 The location of the new keystore file can be optionally defined in the `Keystore filename` field. Any path specified in this field must be an absolute path, and any existing file at that location will be overwritten. If left blank, a keystore will created with a unique filename based on the certificate subject in the application server `standalone/configuration` directory.
 
-The `Private Key Password` field defines a custom password for the new keystore file. If this field is left blank, the keystore will be configured with the default password of `changeit`.
+The `Private key password` field defines a custom password for the new keystore file. If this field is left blank, the keystore will be configured with the default password of `changeit`.
 
-The `Keystore Alias` field defines a custom alias under which the certificate and private key are stored. If left blank, the default alias of `Octopus` will be used.
+The `Keystore alias` field defines a custom alias under which the certificate and private key are stored. If left blank, the default alias of `Octopus` will be used.
 
 ### Referencing an Existing Keystore
 
@@ -50,7 +50,7 @@ When `Reference an existing keystore` is selected, a number of fields are requir
 
 #### Defining the Keystore File Name
 
-The value of the `Keystore Filename` field can either be the absolute path to the keystore (in which case the `Relative base path` option has to be set to `none`), or it can be a path relative to one of the path locations defined in the `Relative base path` field.
+The value of the `Keystore filename` field can either be the absolute path to the keystore (in which case the `Relative base path` option has to be set to `none`), or it can be a path relative to one of the locations defined in the `Relative base path` field.
 
 For example, if you wish the to reference an existing keystore file at `/opt/my.store`, set the `Keystore filename` field to `/opt/my.store` and the `Relative base path` option to `none`. If you want to reference a keystore file in the `standalone/configuration` directory with a filename of `my.store`, set the `Keystore filename` field to `my.store` and set the `Relative base path` field to `jboss.server.config.dir`.
 
@@ -65,11 +65,20 @@ The `Keystore alias` field defines a custom alias under which the certificate an
 Domains can be used to distribute the configuration required to access a keystore, but can not be used to distribute the keystore files themselves. Since each slave in the domain needs to have access to the keystore file, configuring certificates is therefor a two step process:
 
 1. Deploying a keystore file to all slave instances.
-2. Configuring the domain controller to reference the keystore files.
+2. Configuring the profiles managed by the domain controller to reference the keystore files.
 
 ### Deploying Keystore Files
 
-!partial <java-keystore-export>
+The `Deploy a keystore to the filesystem` step can be used to take a certificate managed by Octopus and save it as a Java keystore on the target machine.
+
+The `Select certificate variable` field is used to define the variable that references the certificate to be deployed.
+
+The location of the new keystore file must be defined in the `Keystore filename` field. This must be an absolute path, and any existing file at that location will be overwritten.
+
+The `Private key password` field defines a custom password for the new keystore file. If this field is left blank, the keystore will be configured with the default password of `changeit`.
+
+The `Keystore alias` field defines a custom alias under which the certificate and private key are stored. If left blank, the default alias of `Octopus` will be used.
+
 
 :::hint
 It is highly recommended that the keystore file be saved in the `domain/configuration` directory. This allows the keystore file to be referenced using a relative path against the base path identified by `jboss.domain.config.dir`.
