@@ -48,7 +48,7 @@ The [installation documentation](/docs/installation/index.md) provides the instr
 
 Once Octopus is installed you can access the Octopus Web Portal. This is where you'll manage your infrastructure, projects, access the built-in repository, and deploy your applications from.
 
-![Octopus web portal sign in](octopus-login.png "width=500")
+![Octopus Dashboard](octopus-dashboard.png "width=500")
 
 ## Packaging Applications
 
@@ -56,17 +56,13 @@ Before you can deploy software with Octopus Deploy, you need to bundle all the f
 
 Learn more about [packaging your applications](/docs/packaging-applications/index.md) or how to automate your existing tool chain to push packages to your Octopus Deploy server with our [API and Integrations](/docs/api-and-integration/index.md).
 
-## Configure Your Infrastructure
+## Deployment Targets
 
-### Environments
+Deployment targets are the machines and services that your packaged software is deployed to. These deployment targets could be Windows servers, Linux servers, cloud regions, or an offline package drop.
 
-Octopus organizes your infrastructure into environments. Environments are groups of machines that you deploy to at the same time; for instance, you might have an environment of test servers that you deploy your apps to as part of your QA process, a UAT environment, and a production environment. Grouping machines in this way lets you define your deployment processes (no matter how many machines are involved) and have Octopus deploy the right versions of your apps to the right environments at the right time.
+Octopus organizes your infrastructure (those deployment targets) into groups called environments. Typical examples of environments are **Test**, **Staging**, or **Production**.  Grouping deployment targets in this way lets you define your deployment processes (no matter how many machines are involved) and have Octopus deploy the right versions of your software to the right environments at the right time. 
 
-:::info
-Throughout this guide we refer to both your servers and the cloud services you deploy your applications to as **machines**. 
-:::
-
-Learn how to add and manage environments in the [environments documentation](/docs/deployment-targets/environments/index.md).
+Learn more about [deployment targets](/docs/deployment-targets/index.md).
 
 ### Machine Roles
 
@@ -89,36 +85,6 @@ In production, perhaps you have 10 machines with the web-server role. In staging
 You can define as many environments, machines, and roles as you need; it all depends on how your applications are deployed.
 
 Learn more about [machine roles](/docs/deployment-targets/machine-roles/index.md).
-
-### Deployment Targets
-
-Deployment targets represent the servers, virtual machines, and cloud services where your application and services will be deployed. The central Octopus Deploy server communicates with  different types of deployment targets in different ways.
-
-Learn more about [deployment targets](/docs/deployment-targets/index.md).
-
-#### Windows Targets
-
-For Windows systems, we have tentacles. Tentacles are a secure, lightweight agent service that Octopus uses to deploy software to your Windows infrastructure.
-
-Learn more about installing and configuring [Tentacles](/docs/installation/index.md) .
-
-#### SSH Targets
-
-For Linux and Unix systems, you can use configure Octopus Deploy to communicate with your deployment targets through SSH.
-
-Learn more about configuring [SSH Targets](/docs/deployment-targets/ssh-targets/index.md).
-
-#### Offline Package Drop
-
-For scenarios where it is not possible to connect directly with the deployment target, Octopus can be configured to bundle all of the files needed to perform the deployment on the target server. These bundles can be copied directly to the target server to execute the deployment.
-
-Learn more about [Offline Package Drops](/docs/deployment-targets/offline-package-drop.md).
-
-#### Azure Cloud Services
-
-Octopus Deploy includes steps that let you deploy your applications to the Azure Cloud Service.
-
-Learn more about [deploying Azure Web Apps](/docs/guides/azure-deployments/cloud-services/cloud-service-concepts.md).
 
 ## Deploying Your Applications
 
