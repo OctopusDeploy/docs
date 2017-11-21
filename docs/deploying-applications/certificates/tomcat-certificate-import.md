@@ -34,7 +34,7 @@ The `Select certificate variable` field provides a list of all the certificate v
 
 The `Tomcat service name` field references that name of the service in the `conf/server.xml` file that the certificate will be deployed to. By default, the service is called `Catalina`, as defined by the `name` attribute in the `<Service name="Catalina">` element.
 
-The `SSL Implementation` field lists the standard Tomcat SSL implementations. Different versions of Tomcat support different SSL implementations. You can find more information on the implementations supported by each version of Tomcat in the following Tomcat documentation links:
+The `SSL implementation` field lists the standard Tomcat SSL implementations. Different versions of Tomcat support different SSL implementations. You can find more information on the implementations supported by each version of Tomcat in the following Tomcat documentation links:
 
 * [Tomcat 9](https://tomcat.apache.org/tomcat-9.0-doc/ssl-howto.html#Edit_the_Tomcat_Configuration_File)
 * [Tomcat 8.5](https://tomcat.apache.org/tomcat-8.5-doc/ssl-howto.html#Edit_the_Tomcat_Configuration_File)
@@ -61,7 +61,7 @@ Server Name Indication (SNI) is supported by Tomcat 8.5 and above to map a certi
 
 The `Certificate SNI hostname` field defines the hostname that the deployed certificate will map to. If left blank, this value is assumed to be `_default_`, which is the default value for the `defaultSSLHostConfigName` attribute on the `<Connector>` element.
 
-For example, When set to the hostname `example.org`, the certificate being deployed will be used to secure requests to URLs like `https://example.org`.
+For example, when set to the hostname `example.org`, the certificate being deployed will be used to secure requests to URLs like `https://example.org`.
 
 :::hint
 Defining the `Certificate SNI hostname` field will result in an error when deploying to Tomcat 8 and below.
@@ -75,7 +75,7 @@ There must always be a default certificate. If the certificate being deployed is
 
 ### Tomcat Certificate Options
 
-A number of optional settings around how the certificate is created are defined in `Tomcat Certificate Options` section. These options differ depending on the SSL implementation that was selected.
+A number of optional settings around how the certificate is created are defined in the `Tomcat Certificate Options` section. These options differ depending on the SSL implementation that was selected.
 
 The JSSE SSL implementations of BIO, NIO and NIO2 rely on a Java keystore file. The APR implementation uses a certificate file and a PEM private key file.
 
