@@ -77,5 +77,4 @@ docs/installation/installing-tentacles/azure-virtual-machines/via-the-azure-port
 docs/installation/installing-tentacles/azure-virtual-machines/via-the-classic-azure-portal.md -> docs/deployment-targets/windows-targets/azure-virtual-machines/via-the-classic-azure-portal.md
 docs/installation/installing-tentacles/polling-tentacles-web-sockets.md -> docs/deployment-targets/windows-targets/polling-tentacles-web-sockets.md
 docs/installation/installing-tentacles/automating-tentacle-installation.md -> docs/deployment-targets/windows-targets/automating-tentacle-installation.md
-docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-cloud-service/azure-steps-migrated-from-octopus-deploy-2.md -> docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-cloud-service/index.md
 docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4.md -> docs/guides/multi-tenant-deployments/index.md
