@@ -48,9 +48,9 @@ We limit which projects and environments these permissions apply to by adding sp
 
 ![](teams-create-new.png "width=500")
 
-### Locking down which projects you can see
+### Restricting project and project group access
 
-When specifying both `Project Groups`and `Projects`  filters please be aware that both these filters complement each other, to better illustrate these filters in action lets consider the following project structure:
+When specifying both `Project Groups`and `Projects`  filters please be aware that both these filters complement each other. To better illustrate these filters in action let's consider the following project structure:
 
 | Project Groups | Projects                     |
 | -------------- | ---------------------------- |
@@ -65,7 +65,7 @@ The following table illustrates the combination of possible permissions when spe
 | `Empty`          | Project1   | Project1                                 |
 | GroupB           | `Empty`    | Project4 and Project5                    |
 | GroupA           | Project5   | Project1, Project2, Project3 and Project5 |
-| GroupB           | Project4   | Project4 and, Project5                   |
+| GroupB           | Project4   | Project4 and Project5                    |
 
 ## Roles {#Managingusersandteams-Roles}
 
