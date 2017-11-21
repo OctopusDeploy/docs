@@ -119,15 +119,23 @@ The default configuration for the `standard-sockets` socket binding group is sho
 
 The `Legacy security realm name` defines the name of the security realm that is configured in application servers that do not support the `Elytron` subsystem. If left blank, this value will default to `OctopusHttps`.
 
+![Security Realm](security-realm.png)
+
 :::hint
 Elytron is the new security subsystem introduced with WildFly 11 and JBoss EAP 7.1. All previous versions of WildFly and JBoss EAP use what is referred to as the "legacy" security system.
 :::
 
 The `Elytron key store name` defines the name of the Elytron Key Store in application servers that support the `Elytron` subsystem.  If left blank, this value defaults to `OctopusHttpsKS`.
 
+![Elyton Key Store](elytron-keystore.png "width=500")
+
 The `Elytron key manager name` defines the name of the Elytron Key Manager in application servers that support the `Elytron` subsystem.  If left blank, this value defaults to `OctopusHttpsKM`.
 
+![Elyton Key Manager](elytron-keymanager.png "width=500")
+
 The `Elytron server SSL context name` defines the name of the Elytron SSL Context name in application servers that support the `Elytron` subsystem.  If left blank, this value defaults to `OctopusHttpsSSC`.
+
+![Elyton Server SSL Context](elytron-ssl-context.png "width=500")
 
 :::hint
 You can find more information of the Elytron subsystem components in the [WildFly documentation](https://docs.jboss.org/author/display/WFLY/Using+the+Elytron+Subsystem#UsingtheElytronSubsystem-onewayapps).
