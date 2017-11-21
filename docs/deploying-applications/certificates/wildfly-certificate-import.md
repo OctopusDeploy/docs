@@ -1,6 +1,6 @@
 ---
-title: Importing Certificates into Tomcat
-description: Configure Tomcat with a certificate managed by Octopus.
+title: Importing Certificates into WildFly and JBoss EAP
+description: Configure WildFly or JBoss EAP with a certificate managed by Octopus.
 version: "4.1"
 ---
 
