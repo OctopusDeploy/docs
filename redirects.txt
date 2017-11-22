@@ -59,7 +59,7 @@ docs/deployment-targets/azure-cloud-service-target.md -> docs/infrastructure/azu
 docs/deployment-targets/cloud-regions.md -> docs/infrastructure/cloud-regions.mddocs/deployment-targets/offline-package-drop.md -> docs/infrastructure/offline-package-drop.mddocs/deployment-targets/environments/index.md -> docs/infrastructure/environments/index.md
 docs/deployment-targets/environments/machine-policies.md -> docs/infrastructure/environments/machine-policies.md
 docs/deployment-targets/environments/accounts/index.md -> docs/infrastructure/environments/accounts/index.md
-docs/deployment-targets/environments/accounts/azure-accounts.md -> docs/infrastructure/environments/accounts/azure-accounts.md
+docs/deployment-targets/environments/accounts/azure-account.md -> docs/infrastructure/environments/accounts/azure-account.md
 docs/deployment-targets/environments/accounts/ssh-key-pair.md -> docs/infrastructure/environments/accounts/ssh-key-pair.md
 docs/deployment-targets/environments/accounts/username-and-password.md -> docs/infrastructure/environments/accounts/username-and-password.md
 docs/deployment-targets/machine-roles/index.md -> docs/infrastructure/target-roles/index.md
