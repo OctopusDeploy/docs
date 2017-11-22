@@ -20,7 +20,7 @@ Select SSH Connection from the list of available targets. Notice that you then 
 
 ## Configuration {#ConfiguringSSHConnection-Configuration}
 
-Just as with other targets, SSH Endpoints can be linked to environments and roles. Unlike conventional Tentacles however, the deployment target must be configured with a specific account that will allow the server to connect over the SSH protocol. We currently support [Key Pair](/docs/deployment-targets/environments/accounts/ssh-key-pair.md) or [Username and Password](/docs/deployment-targets/environments/accounts/username-and-password.md) as valid authentication methods which can be set up via the accounts area.
+Just as with other targets, SSH Endpoints can be linked to environments and roles. Unlike conventional Tentacles however, the deployment target must be configured with a specific account that will allow the server to connect over the SSH protocol. We currently support [Key Pair](/docs/infrastructure/environments/accounts/ssh-key-pair.md) or [Username and Password](/docs/infrastructure/environments/accounts/username-and-password.md) as valid authentication methods which can be set up via the accounts area.
 
 ![](ssh-connection-configuration.png "width=500")
 

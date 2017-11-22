@@ -43,7 +43,7 @@ Be careful when changing names! Octopus commonly uses names as a convenient iden
 
 ### Conditions {#Deployingapplications-Conditions}
 
-Steps can also have conditions. You can restrict a step so that it only runs when deploying to specific [environments](/docs/deployment-targets/environments/index.md) (e.g., an Email step that only runs on production deployments).
+Steps can also have conditions. You can restrict a step so that it only runs when deploying to specific [environments](/docs/infrastructure/environments/index.md) (e.g., an Email step that only runs on production deployments).
 
 ![](3277617.png "width=500")
 

@@ -23,8 +23,8 @@ PCI Compliance is primarily concerned with implementing "controls" or "practices
 - You can implement strict, fine-grained, environment-aware security permissions. Learn about [managing users and teams](/docs/administration/managing-users-and-teams/index.md).
 - Every activity is carefully audited. Learn more about [auditing](/docs/administration/auditing.md).
 - You can control how long you retain data and packages. Learn about [Retention Policies](/docs/administration/retention-policies/index.md).
-- You can insert an HTTP proxy server between Octopus Server and any Tentacles or SSH endpoints. This is helpful when you want to have DMZs in your network with controlled entry/exit points. Learn about [proxy support](/docs/deployment-targets/windows-targets/proxy-support.md).
-- If you really cannot use Tentacle or SSH, you can use Offline Package Drops for fully disconnected deployment automation. Learn about the [Offline Package Drop](/docs/deployment-targets/offline-package-drop.md) deployment target.
+- You can insert an HTTP proxy server between Octopus Server and any Tentacles or SSH endpoints. This is helpful when you want to have DMZs in your network with controlled entry/exit points. Learn about [proxy support](/docs/infrastructure/windows-targets/proxy-support.md).
+- If you really cannot use Tentacle or SSH, you can use Offline Package Drops for fully disconnected deployment automation. Learn about the [Offline Package Drop](/docs/infrastructure/offline-package-drop.md) deployment target.
 - If you require isolated instance of Octopus Server our licensing model is quite flexible. Each license of Octopus Deploy grants you the right to install and configure up to three (3) separate instances of Octopus Server. Learn about managing [Isolated Octopus Deploy servers](/docs/patterns/isolated-octopus-deploy-servers.md).
 
 ### Promoting releases across security zones

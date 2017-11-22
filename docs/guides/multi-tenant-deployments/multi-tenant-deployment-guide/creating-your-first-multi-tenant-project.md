@@ -18,10 +18,10 @@ Already have a project you'd like to try out with your tenant? That's fine, just
 In this step you will build your entire environment and project structure ready for multi-tenant deployments.
 
 :::hint
-Multi-tenant deployments is an advanced deployment concept, so we expect you to be familiar with Octopus concepts like [projects](/docs/deploying-applications/projects/index.md), [environments](/docs/deployment-targets/environments/index.md), [lifecycles](/docs/deploying-applications/projects/lifecycles/index.md), [variables](/docs/deploying-applications/variables/index.md) and [deploying applications](/docs/deploying-applications/index.md).
+Multi-tenant deployments is an advanced deployment concept, so we expect you to be familiar with Octopus concepts like [projects](/docs/deploying-applications/projects/index.md), [environments](/docs/infrastructure/environments/index.md), [lifecycles](/docs/deploying-applications/projects/lifecycles/index.md), [variables](/docs/deploying-applications/variables/index.md) and [deploying applications](/docs/deploying-applications/index.md).
 :::
 
-1. Create a new [environment](/docs/deployment-targets/environments/index.md) called **MT Production** to represent your production environment for this guide. *We will create other environments later on.*
+1. Create a new [environment](/docs/infrastructure/environments/index.md) called **MT Production** to represent your production environment for this guide. *We will create other environments later on.*
 2. Add a new cloud region deployment target called **MT Web Server** with the role **MT-web-server**.
    *Note: We are using a cloud region to simulate a real deployment target as a convenience - you could equivalently use any other deployment target you already have available.*
 3. Create a new [lifecycle](/docs/deploying-applications/projects/lifecycles/index.md) called **MT Lifecycle** adding a single phase called **MT Production** deploying manually into the **MT Production** environment we created earlier.

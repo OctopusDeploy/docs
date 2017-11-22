@@ -4,7 +4,7 @@ description: Working with isolated Octopus Deploy servers due to infrastructure 
 position: 3
 ---
 
-Octopus was designed to be a single, central point of truth for application deployments. In an ideal world, you would only need one Octopus server, and then many Tentacles. Octopus uses a [secure communication channel](/docs/reference/octopus-tentacle-communication/index.md) when communicating with remote endpoints, and can work in both [listening and polling mode](/docs/deployment-targets/windows-targets/index.md), giving you multiple options to work around firewall issues.
+Octopus was designed to be a single, central point of truth for application deployments. In an ideal world, you would only need one Octopus server, and then many Tentacles. Octopus uses a [secure communication channel](/docs/reference/octopus-tentacle-communication/index.md) when communicating with remote endpoints, and can work in both [listening and polling mode](/docs/infrastructure/windows-targets/index.md), giving you multiple options to work around firewall issues.
 
 Of course, the real world and the ideal world don't always overlap, and you might need to have separate Octopus servers. Common examples are:
 
@@ -17,7 +17,7 @@ On this page, we discuss two different scenarios, and the features and options t
 
 > Chris's Consulting are developing an application for a government client. They're using Octopus internally to manage pre-production deployments (dev, UAT, and so-on). However, the client have advised that they won't allow the consultancy to install the Tentacle agent on their production servers, nor the Octopus server. They'd prefer the consultancy to provide them with a something they can run from a USB stick.
 
-In Octopus 3.0, you can configure an [Offline Package Drop deployment target](/docs/deployment-targets/offline-package-drop.md). This allows you to "deploy" to a location on the filesystem and take that deployment offline to be used elsewhere. The dropped package contains everything you need to deploy to a location offsite.
+In Octopus 3.0, you can configure an [Offline Package Drop deployment target](/docs/infrastructure/offline-package-drop.md). This allows you to "deploy" to a location on the filesystem and take that deployment offline to be used elsewhere. The dropped package contains everything you need to deploy to a location offsite.
 
 ## Tentacle can be installed (isolated Octopus servers) {#IsolatedOctopusDeployservers-Tentaclecanbeinstalled(isolatedOctopusservers)}
 
@@ -40,4 +40,4 @@ Your Octopus Deploy license includes the ability to install and configure up to 
 
 > An agency manages lots of small applications on behalf of their customers, and wants to use Octopus to manage deployments. Quite often the production environment is managed by the customer and even after being convinced to allow the Tentacle agent to be installed on their servers, they want communication to be controlled by a proxy server.
 
-In this scenario you would install Tentacle onto the customer's servers, but configure all communication to go via the customer's proxy server. Learn about [proxy support](/docs/deployment-targets/windows-targets/proxy-support.md) in Octopus Deploy.
+In this scenario you would install Tentacle onto the customer's servers, but configure all communication to go via the customer's proxy server. Learn about [proxy support](/docs/infrastructure/windows-targets/proxy-support.md) in Octopus Deploy.
