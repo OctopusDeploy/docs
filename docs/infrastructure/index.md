@@ -12,7 +12,7 @@ Learn how to configure and manage your [environments](/docs/infrastructure/envir
 
 Octopus also uses roles to further refine which software is deployed to which deployment targets in each environment. This is useful when you have a different number of deployment targets in different environment.
 
-Learn more about [machine roles](/docs/infrastructure/machine-roles/index.md).
+Learn more about [target roles](/docs/infrastructure/target-roles/index.md).
 
 The process for configuring deployment targets depends on the type of target being configured:
 ## Windows Targets
