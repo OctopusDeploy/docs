@@ -15,13 +15,13 @@ Octopus also uses roles to further refine which software is deployed to which de
 Learn more about [machine roles](/docs/deployment-targets/machine-roles/index.md).
 
 The process for configuring deployment targets depends on the type of target being configured:
-#### Windows Targets
+## Windows Targets
 
 For Windows systems, we have tentacles. Tentacles are a secure, lightweight agent service that Octopus uses to deploy software to your Windows infrastructure. Tentacles can configured in [listening mode](/docs/deployment-targets/windows-targets/listening-tentacles.md)  or [polling mode](/docs/deployment-targets/windows-targets/polling-tentacles.md) .
 
 Learn more about installing and configuring [Tentacles](/docs/deployment-targets/windows-targets/index.md) .
 
-#### Linux Targets
+## Linux Targets
 
 For Linux and Unix systems, you can configure Octopus Deploy to communicate with your deployment targets through [SSH](/docs/deployment-targets/ssh-targets/index.md).
 
@@ -33,7 +33,7 @@ A [Cloud Region](/docs/deployment-targets/cloud-regions.md) is a way to model m
 Azure Web App and Azure Cloud Service deployment targets were deprecated in Octopus 3.1. If you need to migrate your Azure Targets to use the equivalent Azure steps, following [this guide](/docs/how-to/migrate-azure-targets-into-azure-steps.md).
 :::
 
-#### Offline Package Drop
+## Offline Package Drop
 
 For scenarios where it is not possible to connect directly with the deployment target, Octopus can be configured to bundle all of the files needed to perform the deployment on the target server. These bundles can be copied directly to the deployment target to execute the deployment.
 
