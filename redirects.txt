@@ -28,7 +28,7 @@ docs/guides/use-the-team-foundation-build-custom-task/manually-install-the-build
 docs/images/lets-encrypt-integration/configure-lets-encrypt-dialog.png -> docs/administration/lets-encrypt-dialog.png
 docs/images/lets-encrypt-integration/configure-lets-encrypt.png -> docs/administration/lets-encrypt.png
 docs/administration/subscription_events.md -> docs/administration/subscription-events.md
-docs/installation/installing-tentacles/running-tentacle-under-a-specific-user-account-for-use-in-powershell.md -> docs/deployment-targets/windows-targets/running-tentacle-under-a-specific-user-account.md
+docs/installation/installing-tentacles/running-tentacle-under-a-specific-user-account-for-use-in-powershell.md -> docs/nfrastructure/windows-targets/running-tentacle-under-a-specific-user-account.md
 docs/reference/download-permalinks.md -> docs/installation/index.md
 docs/key-concepts/environments/index.md -> docs/deployment-targets/environments/index.md
 docs/key-concepts/environments/machine-policies.md -> docs/deployment-targets/environments/machine-policies.md
@@ -65,7 +65,6 @@ docs/installation/installing-tentacles/index.md -> docs/deployment-targets/windo
 docs/installation/installing-tentacles/listening-tentacles.md -> docs/deployment-targets/windows-targets/listening-tentacles.md
 docs/installation/installing-tentacles/polling-tentacles.md -> docs/deployment-targets/windows-targets/polling-tentacles.md
 docs/installation/installing-tentacles/proxy-support.md -> docs/deployment-targets/windows-targets/proxy-support.md
-docs/installation/installing-tentacles/running-tentacle-under-a-specific-user-account.md -> docs/deployment-targets/windows-targets/running-tentacle-under-a-specific-user-account.md
 docs/installation/installing-tentacles/azure-virtual-machines/index.md -> docs/deployment-targets/windows-targets/azure-virtual-machines/index.md
 docs/installation/installing-tentacles/azure-virtual-machines/configuration-structure.md -> docs/deployment-targets/windows-targets/azure-virtual-machines/configuration-structure.md
 docs/installation/installing-tentacles/azure-virtual-machines/diagnosing-issues.md -> docs/deployment-targets/windows-targets/azure-virtual-machines/diagnosing-issues.md
