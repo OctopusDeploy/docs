@@ -1,54 +1,40 @@
 ---
 title: Deployment Targets
-description: Configure your infrastructure so Octopus can deploy software to your Windows servers, Linux servers, or Azure cloud services.
+description: Configure your infrastructure so Octopus can deploy software to your Windows servers, Linux servers, or Cloud Regions.
 position: 3
 ---
 
+Deployment targets are the machines and services that your [packaged software](docs/packaging-applications/index.md) is deployed to. These deployment targets could be Windows servers, Linux servers, Cloud Regions, or an offline package drop.
 
-Now that you have packaged your application, you need something to deploy it to. The destination might be a Windows server, or an Azure web application, or a Linux server running SSH. In Octopus, each of these destinations are called *Deployment Targets*.
+Octopus organizes your infrastructure (those deployment targets) into groups called environments. Typical examples of environments are **Test**, **Staging**, and **Production**.  Grouping deployment targets in this way lets you define your deployment processes (no matter how many machines are involved) and have Octopus deploy the right versions of your software to the right environments at the right time. 
 
-Before you can add deployments targets, you need to set up Environments.
+Learn how to configure and manage your [environments](/docs/deployment-targets/environments/index.md).
 
-Learn about [Environments](/docs/deployment-targets/environments/index.md).
+Octopus also uses roles to further refine which software is deployed to which deployment targets in each environment. This is useful when you have a different number of deployment targets in different environment.
 
-Deployment targets are added to an environment from the Environments page.
+Learn more about [machine roles](/docs/deployment-targets/machine-roles/index.md).
 
-![](/docs/images/3048059/3277592.png "width=500")
+The process for configuring deployment targets depends on the type of target being configured:
+#### Windows Targets
 
-A deployment target can be one of the following types:
+For Windows systems, we have tentacles. Tentacles are a secure, lightweight agent service that Octopus uses to deploy software to your Windows infrastructure. Tentacles can configured in [listening mode](/docs/deployment-targets/windows-targets/listening-tentacles.md)  or [polling mode](/docs/deployment-targets/windows-targets/polling-tentacles.md) .
 
-!toc
+Learn more about installing and configuring [Tentacles](/docs/deployment-targets/windows-targets/index.md) .
 
-![](/docs/images/3048059/5865591.png "width=500")
+#### Linux Targets
 
-## Listening Tentacle  {#Deploymenttargets-ListeningTentacleListeningTentacle}
+For Linux and Unix systems, you can configure Octopus Deploy to communicate with your deployment targets through [SSH](/docs/deployment-targets/ssh-targets/index.md).
 
-A [Listening Tentacle](/docs/deployment-targets/windows-targets/listening-tentacles.md) is a machine with the Tentacle service installed in *listening* mode.
-
-## Polling Tentacle  {#Deploymenttargets-PollingTentaclePollingTentacle}
-
-A [Polling Tentacle](/docs/deployment-targets/windows-targets/polling-tentacles.md) is a machine with Tentacle service installed in *polling* mode.
-
-## Offline Package Drop  {#Deploymenttargets-OfflinePackageDropOfflinePackageDrop}
-
-An [Offline Package Drop](/docs/deployment-targets/offline-package-drop.md) target is designed to allow deploying to a machine which the Octopus Deploy server cannot communicate with; for example, due to security policy or network topology.
-
-## SSH Connection  {#Deploymenttargets-SSHConnectionSSHConnection}
-
-Currently, the Tentacle service can only be installed servers running Microsoft Windows. An [SSH Connection](/docs/deployment-targets/ssh-targets/index.md) target allows deployment to Linux machines.
-
-## Cloud Region {#Deploymenttargets-CloudRegion}
+## Cloud Region
 
 A [Cloud Region](/docs/deployment-targets/cloud-regions.md) is a way to model multi-region deployments as a way to replace the deprecated Azure Web App and Azure Cloud Service targets.
 
-## Azure Web App  {#Deploymenttargets-AzureWebAppAzureWebApp}
-
 :::warning
-Azure Cloud Service deployment targets have been deprecated in Octopus 3.1. Don't worry - you can migrate your Azure Targets to use the equivalent Azure Steps by following [this guide](/docs/how-to/migrate-azure-targets-into-azure-steps.md).
+Azure Web App and Azure Cloud Service deployment targets were deprecated in Octopus 3.1. If you need to migrate your Azure Targets to use the equivalent Azure steps, following [this guide](/docs/how-to/migrate-azure-targets-into-azure-steps.md).
 :::
 
-## Azure Cloud Service  {#Deploymenttargets-AzureCloudServiceAzureCloudService}
+#### Offline Package Drop
 
-:::warning
-Azure Web App deployment targets have been deprecated in Octopus 3.1. Don't worry - you can migrate your Azure Targets to use the equivalent Azure Steps by following [this guide](/docs/how-to/migrate-azure-targets-into-azure-steps.md).
-:::
+For scenarios where it is not possible to connect directly with the deployment target, Octopus can be configured to bundle all of the files needed to perform the deployment on the target server. These bundles can be copied directly to the deployment target to execute the deployment.
+
+Learn more about [Offline Package Drops](/docs/deployment-targets/offline-package-drop.md).
