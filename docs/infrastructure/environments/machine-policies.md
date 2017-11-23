@@ -13,10 +13,6 @@ Machine policies are groups of settings that can be applied to Tentacle and SSH 
 - Configure how Calamari and Tentacle are updated
 - Automatically delete machines
 
-!partial <howtogetthere>
-
-Machine policies can be accessed from the Environments screen:
-
 ![](/docs/images/5669423/5865583.png "width=500")
 
 ## Health check interval {#MachinePolicies-Healthcheckinterval}
@@ -64,7 +60,7 @@ Write-Error "This is an error"
 Fail-HealthCheck "This is an error"
 ```
 
-SSH targets do not include a disk space check by default like Tentacle targets do. As such, there is no default Bash script listed in your machine policy for SSH targets by default. However, you may write your own, or choose to add additional Bash script to run against your SSH targets during health checks. Again, it's entirely up to you. Unless you select the `Only perform connection test` option, there are some [system prerequisites](/docs/deployment-targets/ssh-targets/index.md#SSHTargets-Requirements) that are included as part of the standard health check.
+SSH targets do not include a disk space check by default like Tentacle targets do. As such, there is no default Bash script listed in your machine policy for SSH targets by default. However, you may write your own, or choose to add additional Bash script to run against your SSH targets during health checks. Again, it's entirely up to you. Unless you select the `Only perform connection test` option, there are some [system prerequisites](/docs/infrastructure/ssh-targets/index.md#SSHTargets-Requirements) that are included as part of the standard health check.
 
 SSH deployment targets can use *echo\_warning*, *echo\_error* and *fail\_healthcheck* to convey a *healthy with warnings* or *unhealthy* status:
 
@@ -106,7 +102,7 @@ By default, Calamari will be installed or updated when a machine is involved in 
 Tentacle can be toggled to manually or automatically update Tentacle.  If **Automatically update Tentacle** is selected, Octopus will start a task to update Tentacles whenever Octopus detects that there is a pending Tentacle upgrade (after health checks for example). Conversely, Octopus will not automatically start a task to update Tentacle but will prompt to begin a Tentacle update on the environments screen.
 
 ### Tentacle update account {#MachinePolicies-TentacleUpdateAccount}
-You can select a username/password account to perform automatic Tentacle updates.  When no account is selected, the account that the Tentacle service is running as will attempt to perform Tentacle updates. Sometimes that account does not have enough permission to perform Tentacle updates. Create a [username/password account](/docs/deployment-targets/environments/accounts/username-and-password.md) for a user with enough permissions to install software on your machines (Administrator works great!) and select it from the drop down.
+You can select a username/password account to perform automatic Tentacle updates.  When no account is selected, the account that the Tentacle service is running as will attempt to perform Tentacle updates. Sometimes that account does not have enough permission to perform Tentacle updates. Create a [username/password account](/docs/infrastructure/ssh-targets/username-and-password.md) for a user with enough permissions to install software on your machines (Administrator works great!) and select it from the drop down.
 
 **Note:** This option can not be used when Tentacle is running as Local System.
 

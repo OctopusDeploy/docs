@@ -15,8 +15,6 @@ This provides many benefits, including:
 Deployment Slots are only available to Azure Web Apps running in Standard or Premium [App Service plans](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/)
 :::
 
-See the [Azure Web Blue-Green Sample project](https://demo.octopusdeploy.com/app#/projects/azure-web-blue-green-sample/process) on our demo server, for a complete example.
-
 ## Walk-Through {#UsingDeploymentSlotswithAzureWebApps-Walk-Through}
 
 Here we will give an example of how to setup a Blue-Green deployment for an Azure Web App using Deployment Slots.

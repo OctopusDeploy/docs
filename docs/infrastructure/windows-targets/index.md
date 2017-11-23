@@ -1,7 +1,7 @@
 ---
 title: Windows Targets
 description: Everything you need to know about installing and configuring Octopus Tentacles for use with your deployments.
-position: 2
+position: 4
 ---
 
 Tentacle is a secure, lightweight agent service that Octopus uses to deploy software to Windows targets. Tentacle runs as a Windows Service, and is installed on all of the machines that you plan to deploy software to, such as your application and web servers.
@@ -36,8 +36,8 @@ The latest Octopus Tentacle MSI can always be [downloaded from the Octopus Deplo
 
 Octopus and Tentacle can be configured to communicate two different ways depending on your network setup. The mode you are using will change the installation process slightly.
 
-- [Listening mode](/docs/deployment-targets/windows-targets/listening-tentacles.md) (recommended)
-- [Polling mode](/docs/deployment-targets/windows-targets/polling-tentacles.md)
+- [Listening mode](/docs/infrastructure/windows-targets/listening-tentacles.md) (recommended)
+- [Polling mode](/docs/infrastructure/windows-targets/polling-tentacles.md)
 
 :::success
 **Listening mode is recommended**
@@ -51,18 +51,18 @@ The communication protocol used by Octopus and Tentacle requires intact end-to-e
 
 :::warning
 **Proxy Servers Supported for Tentacle Communications Since Octopus 3.4**
-The communication protocol used by Octopus and Tentacle 3.4 and above supports proxies. Read more about configuring proxy servers for Tentacle communications in [proxy support](/docs/deployment-targets/windows-targets/proxy-support.md).
+The communication protocol used by Octopus and Tentacle 3.4 and above supports proxies. Read more about configuring proxy servers for Tentacle communications in [proxy support](/docs/infrastructure/windows-targets/proxy-support.md).
 
-If you are using a version of Octopus/Tentacle prior to 3.4 refer to either [Listening Tentacles](/docs/deployment-targets/windows-targets/listening-tentacles.md) or [Polling Tentacles](/docs/deployment-targets/windows-targets/polling-tentacles.md) for more information on configuring a bypass rule.
+If you are using a version of Octopus/Tentacle prior to 3.4 refer to either [Listening Tentacles](/docs/infrastructure/windows-targets/listening-tentacles.md) or [Polling Tentacles](/docs/infrastructure/windows-targets/polling-tentacles.md) for more information on configuring a bypass rule.
 :::
 
-Tentacle can be installed and configured directly from the command prompt, which is very useful when you need to install Tentacle on a large number of machines. See more in [automating Tentacle installations](/docs/deployment-targets/windows-targets/automating-tentacle-installation.md).
+Tentacle can be installed and configured directly from the command prompt, which is very useful when you need to install Tentacle on a large number of machines. See more in [automating Tentacle installations](/docs/infrastructure/windows-targets/automating-tentacle-installation.md).
 
 :::warning
 **Cloning Tentacle VMs**
 In a virtualized environment, it may be desirable to install Tentacle on a base virtual machine image, and clone this image to create multiple machines.
 
-If you choose to do this, please **do not complete the configuration wizard** before taking the snapshot. The configuration wizard generates a unique per-machine cryptographic certificate that should not be duplicated. Instead, use PowerShell to [automate configuration](/docs/deployment-targets/windows-targets/automating-tentacle-installation.md) after the clone has been materialized.
+If you choose to do this, please **do not complete the configuration wizard** before taking the snapshot. The configuration wizard generates a unique per-machine cryptographic certificate that should not be duplicated. Instead, use PowerShell to [automate configuration](/docs/infrastructure/windows-targets/automating-tentacle-installation.md) after the clone has been materialized.
 :::
 
 After installation, Tentacle runs as a Windows Service named **OctopusDeploy Tentacle**.
@@ -92,7 +92,7 @@ The account that you use requires, at a minimum:
 - Read/Write permissions to the Tentacle "Home directory" that you selected when Tentacle was installed (typically, **C:\Octopus**).
 - Rights to manage Windows Services (start/stop) - [learn more](https://social.technet.microsoft.com/wiki/contents/articles/5752.how-to-grant-users-rights-to-manage-services-start-stop-etc.aspx).
 
-Please be aware that to perform automatic Tentacle updates you need an account with [extra permissions](/docs/deployment-targets/environments/machine-policies.md#MachinePolicies-TentacleUpdateAccount).
+Please be aware that to perform automatic Tentacle updates you need an account with [extra permissions](/docs/infrastructure/environments/machine-policies.md#MachinePolicies-TentacleUpdateAccount).
 
 In addition, since you are probably using Tentacle to install software, you'll need to make sure that the service account has permissions to actually install your software. This totally depends on your applications, but it might mean:
 

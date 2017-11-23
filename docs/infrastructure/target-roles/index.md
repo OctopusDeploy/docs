@@ -1,10 +1,26 @@
 ---
-title: Machine Roles
-description: Machine roles allow you to “tag” machines with a specific keyword which can be used in your deployments.
+title: Target Roles
+description: Target roles allow you to “tag” machines with a specific keyword which can be used in your deployments.
 position: 1
 ---
 
-Machine roles allow you to “tag” machines with a specific keyword which you can later on use to scope deployment steps and/or variables.
+Each environment that you work with, for instance, Dev, Test, or Production, will likely have multiple machines. In production, your web sites and Windows Services might run on different physical servers; perhaps dozens of them. However, unless you are extremely lucky, it's unlikely that you have the budget to have an equal number of servers in any of your pre-production environments. When testing your software in a test environment, you might only have a single virtual machine which will run all of the web sites and services on the same machine.
+
+Octopus handles these differences by applying roles to the machines within your environments.
+
+![](sample-environments.png)
+
+Instead of saying:
+
+> The trading website ASP.NET application should be deployed to PWEB01, PWEB02, ...
+
+We say:
+
+> The trading website ASP.NET application should be deployed to machines that are tagged with the **web-server** role.
+
+In production, perhaps you have 10 machines with the web-server role. In staging, perhaps you have only 4. In test, perhaps there is a single machine. Roles make defining your deployment process much easier.
+
+You can define as many environments, machines, and roles as you need; it all depends on how your applications are deployed.
 
 ## Creating a role and assigning it to a Tentacle {#MachineRoles-CreatingaroleandassigningittoaTentacle}
 

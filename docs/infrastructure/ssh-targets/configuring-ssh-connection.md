@@ -1,7 +1,7 @@
 ---
 title: Configuring SSH Connections
 description: Configuring an SSH target for use in your deployments.
-position: 2
+position: 3
 ---
 
 Setting up a SSH target is a simple process and in many ways requires less steps than standard targets due its lack of need for a separate Tentacle installation.
@@ -20,7 +20,7 @@ Select SSH Connection from the list of available targets. Notice that you then 
 
 ## Configuration {#ConfiguringSSHConnection-Configuration}
 
-Just as with other targets, SSH Endpoints can be linked to environments and roles. Unlike conventional Tentacles however, the deployment target must be configured with a specific account that will allow the server to connect over the SSH protocol. We currently support [Key Pair](/docs/deployment-targets/environments/accounts/ssh-key-pair.md) or [Username and Password](/docs/deployment-targets/environments/accounts/username-and-password.md) as valid authentication methods which can be set up via the accounts area.
+Just as with other targets, SSH Endpoints can be linked to environments and roles. Unlike conventional Tentacles however, the deployment target must be configured with a specific account that will allow the server to connect over the SSH protocol. We currently support [Key Pair](/docs/infrastructure/ssh-targets/ssh-key-pair.md) or [Username and Password](/docs/infrastructure/ssh-targets/username-and-password.md) as valid authentication methods which can be set up via the accounts area.
 
 ![](ssh-connection-configuration.png "width=500")
 

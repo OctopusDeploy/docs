@@ -1,15 +1,15 @@
 ---
 title: SSH Targets
-description: SSH Targets allow you to target non-windows (*nix) machines to deploy your applications.
-position: 7
+description: Deploying software to Linux and Unix deployment targets.
+position: 5
 version: "[3.0,)"
 ---
 
-You may want to target your deployment for non-windows machines where you don't have the ability to run a full Tentacle. In cases such as this, a SSH Target is the next best thing.
+For Linux and Unix systems, you can configure Octopus Deploy to communicate with your deployment targets through SSH.
 
 ## Topology {#SSHTargets-Topology}
 
-In the standard-model the Octopus server talks to the Tentacle (ignoring the distinction between between [Polling](/docs/deployment-targets/windows-targets/polling-tentacles.md) and [Listening](/docs/deployment-targets/windows-targets/listening-tentacles.md)) who in turn delegates the actual deployment work to [Calamari](/docs/api-and-integration/calamari.md), which contains all the information regarding conventions and deployments. Calamari then executes the scripts and the Tentacle passes back to the Server the task progress, logs and artifacts.
+In the standard-model the Octopus server talks to the Tentacle (ignoring the distinction between between [Polling](/docs/infrastructure/windows-targets/polling-tentacles.md) and [Listening](/docs/infrastructure/windows-targets/listening-tentacles.md)) who in turn delegates the actual deployment work to [Calamari](/docs/api-and-integration/calamari.md), which contains all the information regarding conventions and deployments. Calamari then executes the scripts and the Tentacle passes back to the Server the task progress, logs and artifacts.
 
 ![](/docs/images/3048063/3277601.png)
 
@@ -147,6 +147,6 @@ Although there is no Tentacle involved with SSH endpoints there are still some u
 
 ![](/docs/images/3048063/3277600.png "width=500")
 
-The introduction of [Raw Scripting](/docs/deploying-applications/custom-scripts/raw-scripting.md) provides the ability to run scripts on SSH endpoints without any additional Octopus dependencies. To facilitate these targets, [machine policies](/docs/deployment-targets/environments/machine-policies.md) allow you to configure health checks to test only for SSH connectivity to your machine to be considered healthy.
+The introduction of [Raw Scripting](/docs/deploying-applications/custom-scripts/raw-scripting.md) provides the ability to run scripts on SSH endpoints without any additional Octopus dependencies. To facilitate these targets, [machine policies](/docs/infrastructure/environments/machine-policies.md) allow you to configure health checks to test only for SSH connectivity to your machine to be considered healthy.
 
 Note that due to the Tentacle being effectively a “virtual Tentacle” running on the server itself, if the endpoint is healthy it will indicate in the health logs that the running version is the same as the server version.

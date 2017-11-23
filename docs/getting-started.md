@@ -56,35 +56,15 @@ Before you can deploy software with Octopus Deploy, you need to bundle all the f
 
 Learn more about [packaging your applications](/docs/packaging-applications/index.md) or how to automate your existing tool chain to push packages to your Octopus Deploy server with our [API and Integrations](/docs/api-and-integration/index.md).
 
-## Deployment Targets
+## Infrastructure
 
-Deployment targets are the machines and services that your packaged software is deployed to. These deployment targets could be Windows servers, Linux servers, cloud regions, or an offline package drop.
+Octopus organizes your infrastructure (the machines you deploy software to) into groups called environments. Typical examples of environments are **Test**, **Staging**, or **Production**. 
 
-Octopus organizes your infrastructure (those deployment targets) into groups called environments. Typical examples of environments are **Test**, **Staging**, or **Production**.  Grouping deployment targets in this way lets you define your deployment processes (no matter how many machines are involved) and have Octopus deploy the right versions of your software to the right environments at the right time. 
+With Octopus you can deploy software to Windows servers, Linux servers, Microsoft Azure, cloud regions, or even an offline package drop.
 
-Learn more about [deployment targets](/docs/deployment-targets/index.md).
+Grouping your deployment targets (the machines you are deploying software to) lets you define your deployment processes (no matter how many machines are involved) and have Octopus deploy the right versions of your software to the right environments at the right time. 
 
-### Machine Roles
-
-Each environment that you work with, for instance, Dev, Test, or Production, will likely have multiple machines. In production, your web sites and Windows Services might run on different physical servers; perhaps dozens of them. However, unless you are extremely lucky, it's unlikely that you have the budget to have an equal number of servers in any of your pre-production environments. When testing your software in a test environment, you might only have a single virtual machine which will run all of the web sites and services on the same machine.
-
-Octopus handles these differences by applying roles to the machines within your environments.
-
-![](sample-environments.png)
-
-Instead of saying:
-
-> The trading website ASP.NET application should be deployed to PWEB01, PWEB02, ...
-
-We say:
-
-> The trading website ASP.NET application should be deployed to machines that are tagged with the **web-server** role.
-
-In production, perhaps you have 10 machines with the web-server role. In staging, perhaps you have only 4. In test, perhaps there is a single machine. Roles make defining your deployment process much easier.
-
-You can define as many environments, machines, and roles as you need; it all depends on how your applications are deployed.
-
-Learn more about [machine roles](/docs/deployment-targets/machine-roles/index.md).
+Learn more about managing your [infrastructure](/docs/infrastructure/index.md).
 
 ## Deploying Your Applications
 
@@ -153,7 +133,7 @@ Learn more about tenants in our [Multi-tenant Deployments Guide](/docs/guides/mu
 What would you like to learn about next:
 
 * [Installing Octopus](/docs/installation/index.md)
-* [Deployment Targets](/docs/deployment-targets/index.md)
+* [Deployment Targets](/docs/infrastructure/index.md)
 * [Packaging Applications](/docs/packaging-applications/index.md)
 * [Deploying Applications](/docs/deploying-applications/index.md)
 * [API and Integrations](/docs/api-and-integration/index.md)

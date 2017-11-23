@@ -91,7 +91,7 @@ Octopus.Server.exe watchdog --create --instances OctopusServer --interval 10
 Please note that the task created by the watchdog references the Octopus Server/Tentacle executable from the location is was in when the watchdog command was executed.
 
 :::hint
-If Tentacle has been installed to a non-default location, as illustrated in [Automating Tentacle installation](/docs/deployment-targets/windows-targets/automating-tentacle-installation.md), then the watchdog task could fall out of sync with Tentacle if it gets upgraded by the server. In this scenario the service would be running from the default location and the watchdog would be running from the original location.
+If Tentacle has been installed to a non-default location, as illustrated in [Automating Tentacle installation](/docs/infrastructure/windows-targets/automating-tentacle-installation.md), then the watchdog task could fall out of sync with Tentacle if it gets upgraded by the server. In this scenario the service would be running from the default location and the watchdog would be running from the original location.
 
 For this reason, it is recommended that you have your Tentacle installed in the default location before configuring the watchdog.
 :::

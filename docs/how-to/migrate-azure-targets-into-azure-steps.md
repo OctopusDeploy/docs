@@ -28,7 +28,7 @@ You will use the same package as your original step, and the values supplied to 
 
 ![](/docs/images/5671835/5866081.png "width=500")
 
-The Azure Steps do not require a Deployment Target (you can deploy to an empty Environment).  The target is effectively specified in the Step.  They will ignore any Targets in the Environment being deployed to, with the exception of [Cloud Regions](/docs/deployment-targets/cloud-regions.md) (see *Deploying to Multiple Regions* below).
+The Azure Steps do not require a Deployment Target (you can deploy to an empty Environment).  The target is effectively specified in the Step.  They will ignore any Targets in the Environment being deployed to, with the exception of [Cloud Regions](/docs/infrastructure/cloud-regions.md) (see *Deploying to Multiple Regions* below).
 
 ### Remove Azure Targets {#MigrateAzureTargetsintoAzureSteps-RemoveAzureTargets}
 
@@ -38,4 +38,4 @@ Once the new Steps have been created, you can remove the deprecated Azure Deploy
 
 Using the deprecated Azure Targets, a common pattern was to create multiple Targets to represent different Azure Regions.  Deploying to the Environment would then concurrently deploy the package to all regions.
 
-We introduced [Cloud Region Targets](/docs/deployment-targets/cloud-regions.md) to allow the same result to be achieved using the Azure Steps.
+We introduced [Cloud Region Targets](/docs/infrastructure/cloud-regions.md) to allow the same result to be achieved using the Azure Steps.

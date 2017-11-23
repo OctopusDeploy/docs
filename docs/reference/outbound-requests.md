@@ -13,7 +13,7 @@ For security reasons, we minimize the number of outbound requests made by the Te
 - [Certificate revocation list checking](http://en.wikipedia.org/wiki/Revocation_list), which is a security feature of the .NET framework.
 - [Automatic root certificate updates](http://help.octopusdeploy.com/discussions/problems/30827), again triggered by the .NET framework
 - NuGet package downloads (only when using the **Tentacle downloads directly from NuGet** option)
-- Connections back to the Octopus server (only when Tentacle is configured in [polling mode](/docs/deployment-targets/windows-targets/polling-tentacles.md))
+- Connections back to the Octopus server (only when Tentacle is configured in [polling mode](/docs/infrastructure/windows-targets/polling-tentacles.md))
 
 It's possible that PowerShell scripts in your packages may make outbound requests; in this case you should take care when deploying packages created by a third party.
 

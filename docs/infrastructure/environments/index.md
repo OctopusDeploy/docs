@@ -1,6 +1,6 @@
 ---
 title: Environments
-description: Environments allow you to define a group of machines that you will deploy to at the same time; common examples of environments are **Dev**, **Test** or **Production**.
+description: Environments allow you to define a group of machines that you will deploy to at the same time; common examples of environments are Dev, Test or Production.
 position: 0
 ---
 
@@ -16,17 +16,12 @@ Environments can be added using the **Add environment** button.
 
 ![](add-environment.png "width=500")
 
-:::success
-**Tip: don&#39;t forget project groups**
-[Project groups](/docs/deploying-applications/projects/project-groups.md) can be used to limit which environments a project can be deployed to. When adding an environment, don't forget to modify any project groups to add the new environment!
-:::
-
 ## Adding Machines to Environments {#Environments-Addingmachinestoenvironments}
 
-Machines can be added to environments in different ways, [depending on how they will communicate](/docs/deployment-targets/windows-targets/index.md) with the Octopus Deploy Server.
+Machines can be added to environments in different ways, [depending on how they will communicate](/docs/infrastructure/windows-targets/index.md) with the Octopus Deploy Server.
 
-- Adding [listening machines](/docs/deployment-targets/windows-targets/listening-tentacles.md)
-- Adding [polling machines](/docs/deployment-targets/windows-targets/polling-tentacles.md)
+- Adding [listening machines](/docs/infrastructure/windows-targets/listening-tentacles.md)
+- Adding [polling machines](/docs/infrastructure/windows-targets/polling-tentacles.md)
 
 ## Environment Ordering {#Environments-Environmentordering}
 
