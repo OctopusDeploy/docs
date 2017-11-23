@@ -19,7 +19,7 @@ In the Octopus Deploy web portal, you can access configuration by navigating to 
 
 ## Octopus.Client
 
-Using [Octopus.Client](/docs/api-and-integration/octopus.client.md), each of the configuration types can be managed programmatically, reading from and writing back to the Octopus Deploy database.
+Using [Octopus.Client](/docs/api-and-integration/octopus.client.md), each of the configuration types can be managed programmatically, reading from and writing back to the Octopus Deploy database. 
 
 The class definitions for each of the configurations is available by referencing the relevant `Octopus.Client.Extensibility.*` library, which are available via NuGet:
 
@@ -32,13 +32,17 @@ The class definitions for each of the configurations is available by referencing
 
 Web Portal and Authentication types are available in [Octopus.Client.Extensibility](https://www.nuget.org/packages/Octopus.Client.Extensibility/)
 
+:::hint
+This requires version 4.27.0 or later of the client library.
+:::
+
 ### .Net / C#
 
 To access the API from .Net you will need to add a NuGet reference to the [Octopus.Client](https://www.nuget.org/packages/Octopus.Client/) library and to at least one of the above Extensibility libraries.
 
 ```cs
 var server = "http://myoctopusserver";
-var apikey = "API-https://www.nuget.org/packages/Octopus.Node.Extensibility.Authentication/";
+var apikey = "API-XXXXXXXX";
 var endpoint = new OctopusServerEndpoint(server, apikey);
 var repository = new OctopusRepository(endpoint);
 var guestConfig = repository.Configuration.Get<GuestConfigurationResource>();
@@ -46,7 +50,7 @@ guestConfig.IsEnabled = true;
 guestConfig = repository.Configuration.Modify(guestConfig);
 ```
 
-For the Web Portal and Authentication configurations, you need the [Octopus.Client](https://www.nuget.org/packages/Octopus.Client/) and the [Octopus.Client.Extensibility](https://www.nuget.org/packages/Octopus.Node.Extensibility.Authentication/) NuGet packages
+For the Web Portal and Authentication configurations, you need the [Octopus.Client](https://www.nuget.org/packages/Octopus.Client/) and the [Octopus.Client.Extensibility](https://www.nuget.org/packages/Octopus.Client.Extensibility/) NuGet packages
 
 ```cs
 var server = "http://myoctopusserver/";   
