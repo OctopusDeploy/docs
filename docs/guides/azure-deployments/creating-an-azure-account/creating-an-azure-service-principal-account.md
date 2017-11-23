@@ -7,7 +7,7 @@ description: Creating an Azure Service Principal Account in Octopus Deploy.
 **Azure Service Principal Accounts work with the Azure Resource Management (ARM) API only**
 **Azure Service Principal Accounts are only available from Octopus Deploy version 3.3 onwards.**
 
-Prior to Octopus Deploy 3.3, [Azure Management Certificate Accounts](/docs/infrastructure/environments/accounts/azure-account.md) (previously known simply as "Azure Subscription Accounts") were the only type of Azure Account available.
+Prior to Octopus Deploy 3.3, [Azure Management Certificate Accounts](/docs/infrastructure/azure.md) (previously known simply as "Azure Subscription Accounts") were the only type of Azure Account available.
 
 [Azure Management Certificate Accounts](/docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-management-certificate-account.md) are only able to interact with the legacy Azure interface known as the "Azure Service Management API", which is used when Octopus deploys [Cloud Services](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-cloud-service/index.md) and [Azure Web Apps](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/index.md).
 

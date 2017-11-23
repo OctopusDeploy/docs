@@ -119,7 +119,7 @@ We have written about these options in detail in [our blog](https://octopus.com/
 
 ## Step 2: Create an Azure Account {#DeployingapackagetoanAzureWebApp-Step2:CreateanAzureAccount}
 
-If you haven't already, create an [Azure Account](/docs/infrastructure/environments/accounts/azure-account.md) to grant Octopus Deploy access to your Azure Subscription.
+If you haven't already, create an [Azure Account](/docs/infrastructure/azure.md) to grant Octopus Deploy access to your Azure Subscription.
 
 ## Step 3: Create the Azure Web App deployment step {#DeployingapackagetoanAzureWebApp-Step3:CreatetheAzureWebAppdeploymentstep}
 
@@ -137,7 +137,7 @@ If you choose to run this step on behalf of target roles (maybe you are deployin
 
 | Setting                     | Default     | Description                              |
 | --------------------------- | ----------- | ---------------------------------------- |
-| **Account**                 |             | The [Azure Account](/docs/infrastructure/environments/accounts/azure-account.md) you want to target when deploying this web app. Select one from the list, or use a [variable binding](/docs/deploying-applications/variables/binding-syntax.md) to select an account by its name or ID. |
+| **Account**                 |             | The [Azure Account](/docs/infrastructure/azure.md) you want to target when deploying this web app. Select one from the list, or use a [variable binding](/docs/deploying-applications/variables/binding-syntax.md) to select an account by its name or ID. |
 | **Web App**                 |             | The actual web app you want to target. Select one from the list, or use a [variable binding](/docs/deploying-applications/variables/binding-syntax.md) to define the name of the web app. |
 | **Physical Path**           |             | The physical path relative to site root on the web app host. e.g. 'foo' will deploy to 'site\wwwroot\foo'. Leave blank to deploy to root. |
 | **Remove additional files** | *False*     | When *True* instructs Web Deploy to delete files from the destination that aren't in the source package |
