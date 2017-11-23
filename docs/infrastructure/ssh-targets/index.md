@@ -1,11 +1,11 @@
 ---
 title: SSH Targets
-description: SSH Targets allow you to target non-windows (*nix) machines to deploy your applications.
-position: 7
+description: Deploying software to Linux and Unix deployment targets.
+position: 5
 version: "[3.0,)"
 ---
 
-You may want to target your deployment for non-windows machines where you don't have the ability to run a full Tentacle. In cases such as this, a SSH Target is the next best thing.
+For Linux and Unix systems, you can configure Octopus Deploy to communicate with your deployment targets through SSH.
 
 ## Topology {#SSHTargets-Topology}
 

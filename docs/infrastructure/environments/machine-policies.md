@@ -13,10 +13,6 @@ Machine policies are groups of settings that can be applied to Tentacle and SSH 
 - Configure how Calamari and Tentacle are updated
 - Automatically delete machines
 
-!partial <howtogetthere>
-
-Machine policies can be accessed from the Environments screen:
-
 ![](/docs/images/5669423/5865583.png "width=500")
 
 ## Health check interval {#MachinePolicies-Healthcheckinterval}

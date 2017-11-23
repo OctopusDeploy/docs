@@ -1,7 +1,7 @@
 ---
 title: Configuring SSH Connections
 description: Configuring an SSH target for use in your deployments.
-position: 2
+position: 3
 ---
 
 Setting up a SSH target is a simple process and in many ways requires less steps than standard targets due its lack of need for a separate Tentacle installation.

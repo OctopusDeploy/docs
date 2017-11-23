@@ -1,7 +1,7 @@
 ---
 title: Windows Targets
 description: Everything you need to know about installing and configuring Octopus Tentacles for use with your deployments.
-position: 2
+position: 4
 ---
 
 Tentacle is a secure, lightweight agent service that Octopus uses to deploy software to Windows targets. Tentacle runs as a Windows Service, and is installed on all of the machines that you plan to deploy software to, such as your application and web servers.
