@@ -38,7 +38,7 @@ To access the API from .Net you will need to add a NuGet reference to the [Octop
 
 ```cs
 var server = "http://myoctopusserver";
-var apikey = "API-https://www.nuget.org/packages/Octopus.Node.Extensibility.Authentication/";
+var apikey = "API-XXXXXXXX";
 var endpoint = new OctopusServerEndpoint(server, apikey);
 var repository = new OctopusRepository(endpoint);
 var guestConfig = repository.Configuration.Get<GuestConfigurationResource>();
