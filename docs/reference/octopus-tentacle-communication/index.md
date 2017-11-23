@@ -4,7 +4,7 @@ description: Octopus Server and Tentacle communications details.
 position: 1
 ---
 
-This page describes how the [Octopus Deploy server](/docs/installation/index.md) and the [Tentacle deployment agents](/docs/deployment-targets/windows-targets/index.md) communicate in a secure way.
+This page describes how the [Octopus Deploy server](/docs/installation/index.md) and the [Tentacle deployment agents](/docs/infrastructure/windows-targets/index.md) communicate in a secure way.
 
 ## Background {#Octopus-Tentaclecommunication-Background}
 
@@ -16,7 +16,7 @@ We achieve this security using [public-key cryptography](http://en.wikipedia.or
 
 ## Octopus/Tentacle trust relationship {#Octopus-Tentaclecommunication-Octopus/Tentacletrustrelationship}
 
-Regardless of whether Tentacle is in [listening mode](/docs/deployment-targets/windows-targets/listening-tentacles.md) or [polling mode](/docs/deployment-targets/windows-targets/polling-tentacles.md), all communication between the Tentacle and Octopus is performed over HTTPS. Octopus and Tentacle both have a public/private key pair that they use to establish the HTTPS connection and verify the identity of the other party.
+Regardless of whether Tentacle is in [listening mode](/docs/infrastructure/windows-targets/listening-tentacles.md) or [polling mode](/docs/infrastructure/windows-targets/polling-tentacles.md), all communication between the Tentacle and Octopus is performed over HTTPS. Octopus and Tentacle both have a public/private key pair that they use to establish the HTTPS connection and verify the identity of the other party.
 
 When Tentacle is configured, you give it the thumbprint (which uniquely identifies the public key) of the Octopus server. Likewise, you tell Octopus the thumbprint of the Tentacle. This establishes a trust relationship between the two machines:
 
@@ -34,7 +34,7 @@ If necessary you can further restrict access using IPSec or VPNs.
 The X.509 certificates used by Octopus and Tentacle are generated on installation and use 2048-bit private keys. There is an insightful discussion of [why Octopus uses self-signed certificates](https://octopus.com/blog/why-self-signed-certificates) by default.
 
 :::hint
-Instead of having Tentacle generate its own certificate, you can [import a Tentacle certificate](/docs/how-to/export-and-import-tentacle-certificates-without-a-profile.md) which is helpful when [automating Tentacle installation](/docs/deployment-targets/windows-targets/automating-tentacle-installation.md).
+Instead of having Tentacle generate its own certificate, you can [import a Tentacle certificate](/docs/how-to/export-and-import-tentacle-certificates-without-a-profile.md) which is helpful when [automating Tentacle installation](/docs/infrastructure/windows-targets/automating-tentacle-installation.md).
 :::
 
 ### Scenario: Listening Tentacles {#Octopus-Tentaclecommunication-Scenario:ListeningTentacles}

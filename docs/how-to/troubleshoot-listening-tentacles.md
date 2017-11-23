@@ -4,7 +4,7 @@ description: How to troubleshoot problems with Listening Tentacles.
 position: 4
 ---
 
-When an Octopus Tentacle is configured in [Listening mode](/docs/deployment-targets/windows-targets/listening-tentacles.md), it will open the specified port (by default TCP port **10933**) and listen for inbound connections from the Octopus server.
+When an Octopus Tentacle is configured in [Listening mode](/docs/infrastructure/windows-targets/listening-tentacles.md), it will open the specified port (by default TCP port **10933**) and listen for inbound connections from the Octopus server.
 
 ![](/docs/images/3048143/5865873.png)
 
@@ -112,7 +112,7 @@ If the Tentacle welcome page is shown, good news - your network is fine.
 **Watch out for proxy servers or SSL offloading...**
 Octopus and Tentacle use TCP to communicate, with special handling to enable web browsers to connect for diagnostic purposes. Full HTTP is not supported, so network services like **SSL offloading** are not supported, and **proxies** are not supported in earlier versions of Octopus Deploy. Make sure there's a direct connection between the Octopus Server and Tentacle, without an HTTP proxy or a network appliance performing SSL offloading in between.
 
-**NOTE**: Octopus Deploy 3.4 introduced [advanced support for HTTP proxies](/docs/deployment-targets/windows-targets/proxy-support.md).
+**NOTE**: Octopus Deploy 3.4 introduced [advanced support for HTTP proxies](/docs/infrastructure/windows-targets/proxy-support.md).
 :::
 
 ## Tentacle ping {#TroubleshootListeningTentacles-Tentacleping}

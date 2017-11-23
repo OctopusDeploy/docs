@@ -16,7 +16,7 @@ Bamboo deployments provide many advantages. For example, if you are using JIRA, 
 
 - Octopus can run deployment steps in parallel across many agents. Instead of having a single agent remotely installing and configuring software, Octopus can send packages to all of the web and application servers in parallel, and execute the deployments locally, bringing the results back to a central log.
 - Octopus has a large number of built-in conventions for common deployment tasks, such as [managing configuration files](/docs/deploying-applications/configuration-files/index.md), installing [Windows Services](/docs/deploying-applications/windows-services.md), and creating [IIS web sites](/docs/deploying-applications/iis-websites-and-application-pools.md), reducing the amount of scripting required.
-- Octopus makes it easy to coordinate deployments with machines across a [variety of network configurations](/docs/deployment-targets/windows-targets/index.md)
+- Octopus makes it easy to coordinate deployments with machines across a [variety of network configurations](/docs/infrastructure/windows-targets/index.md)
 - [Manual steps](/docs/deploying-applications/manual-intervention-and-approvals.md) in Octopus make it possible to include both automated and human deployment steps
 
 The rest of this page will walk you through the process of integrating Octopus Deploy with Bamboo.

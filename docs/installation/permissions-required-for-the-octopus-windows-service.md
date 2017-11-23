@@ -28,5 +28,5 @@ The following table acts as a guide for the minimal permission set that Octopus 
 If you rely on Octopus to run certain tasks on the Octopus server, you'll also need to grant appropriate permissions for these. Examples include:
 
 - If you use the Windows Azure deployment tasks in Octopus, these run on the Octopus server
-- Deploying to an [offline package drop](/docs/deployment-targets/offline-package-drop.md) deployment target
+- Deploying to an [offline package drop](/docs/infrastructure/offline-package-drop.md) deployment target
 - Running a [custom script](/docs/deploying-applications/custom-scripts/index.md) on the Octopus Server

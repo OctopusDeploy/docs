@@ -62,7 +62,7 @@ Deployment targets are the machines and services that your packaged software is 
 
 Octopus organizes your infrastructure (those deployment targets) into groups called environments. Typical examples of environments are **Test**, **Staging**, or **Production**.  Grouping deployment targets in this way lets you define your deployment processes (no matter how many machines are involved) and have Octopus deploy the right versions of your software to the right environments at the right time. 
 
-Learn more about [deployment targets](/docs/deployment-targets/index.md).
+Learn more about [deployment targets](/docs/infrastructure/index.md).
 
 ## Deploying Your Applications
 
@@ -131,7 +131,7 @@ Learn more about tenants in our [Multi-tenant Deployments Guide](/docs/guides/mu
 What would you like to learn about next:
 
 * [Installing Octopus](/docs/installation/index.md)
-* [Deployment Targets](/docs/deployment-targets/index.md)
+* [Deployment Targets](/docs/infrastructure/index.md)
 * [Packaging Applications](/docs/packaging-applications/index.md)
 * [Deploying Applications](/docs/deploying-applications/index.md)
 * [API and Integrations](/docs/api-and-integration/index.md)

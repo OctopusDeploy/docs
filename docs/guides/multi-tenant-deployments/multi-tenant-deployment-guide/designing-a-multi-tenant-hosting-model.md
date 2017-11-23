@@ -6,7 +6,7 @@ position: 5
 
 Previous step: [Working with groups of tenants using tags](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md)
 
-This page describes how to design and implement both **dedicated** and **shared** multi-tenant hosting models using [Environments](/docs/deployment-targets/environments/index.md), [Deployment Targets](/docs/deployment-targets/index.md) and [Accounts](/docs/deployment-targets/environments/accounts/index.md) and [Tenant Tags](/docs/reference/tenant-tags.md).
+This page describes how to design and implement both **dedicated** and **shared** multi-tenant hosting models using [Environments](/docs/infrastructure/environments/index.md), [Deployment Targets](/docs/infrastructure/index.md) and [Accounts](/docs/infrastructure/environments/accounts/index.md) and [Tenant Tags](/docs/reference/tenant-tags.md).
 
 :::hint
 **Tenanted and untenanted deployments**
@@ -36,7 +36,7 @@ The hosting model you want to achieve will vary depending on your application, y
 
 When you deploy a project, you can deploy to one environment and a selection of tenants. Octopus creates one deployment for each environment/tenant combination, and calculates which deployment targets to include in each deployment using logic like this:
 
-1. Find deployment targets in the target environment with the [roles](/docs/deployment-targets/machine-roles/index.md) required by the deployment process
+1. Find deployment targets in the target environment with the [roles](/docs/infrastructure/target-roles/index.md) required by the deployment process
 2. Filter those deployment targets, selecting only those matching the tenant
 
 Each deployment will then proceed independently with the resulting set of deployment targets. We are going to leverage this behavior to implement dedicated and shared hosting in our sample.
@@ -97,7 +97,7 @@ That's it! Now let's deploy the project for one of these tenants and see the res
 
 :::success
 **Accounts can also be restricted to tenants**
-Imagine a scenario where you have tenant-specific [Accounts](/docs/deployment-targets/environments/accounts/index.md) - you can similarly configure which tenants should be authorized to use particular accounts.
+Imagine a scenario where you have tenant-specific [Accounts](/docs/infrastructure/environments/accounts/index.md) - you can similarly configure which tenants should be authorized to use particular accounts.
 :::
 
 ## Next steps {#Designingamulti-tenanthostingmodel-Nextsteps}

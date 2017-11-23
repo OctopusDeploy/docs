@@ -30,7 +30,7 @@ The settings for the extension are:
 
 `API Key`: [Your API key](/docs/how-to/how-to-create-an-api-key.md). This key will only be used when registering the machine with the Octopus server; it isn't used for [subsequent communication](/docs/reference/octopus-tentacle-communication/index.md).
 
-`Environments`: The name of the [environment](/docs/deployment-targets/environments/index.md) to add the machine to. You can specify more than one by using commas; for example: `UAT1,UAT2`
+`Environments`: The name of the [environment](/docs/infrastructure/environments/index.md) to add the machine to. You can specify more than one by using commas; for example: `UAT1,UAT2`
 
 `Roles`: The roles to give to the machine. Again, separate them using commas for more than one, for example: `web-server,app-server`
 
@@ -44,7 +44,7 @@ The settings for the extension are:
 
 After entering the extension settings, click **OK**, and the extension will be installed.
 
-After a few minutes, the machine should appear in the environments tab of your Octopus Deploy server. If it doesn't, please read the [Diagnosing issues](/docs/deployment-targets/windows-targets/azure-virtual-machines/diagnosing-issues.md) section.
+After a few minutes, the machine should appear in the environments tab of your Octopus Deploy server. If it doesn't, please read the [Diagnosing issues](/docs/infrastructure/windows-targets/azure-virtual-machines/diagnosing-issues.md) section.
 
 :::hint
 If you need the ability to customize more of the installation, the [CLI](via-the-azure-cli.md), [PowerShell](via-powershell.md) and [ARM Template](via-an-arm-template.md) methods expose more options than the Azure Portal. For even more customization, you might want to consider using the [Azure Desired State Configuration (DSC) extension](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-extensions-dsc-overview) in conjunction with the [OctopusDSC](https://www.powershellgallery.com/packages/OctopusDSC) resource.

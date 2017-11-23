@@ -4,7 +4,7 @@ description: Automatic Deployment Triggers allow you to define an unattended beh
 position: 23
 ---
 
-Automatic Deployment Triggers (also known as auto-deploy) allow you to define an unattended behavior for your [Projects](/docs/deploying-applications/projects/index.md) that will cause an automatic deployment of a release into an [Environment](/docs/deployment-targets/environments/index.md).
+Automatic Deployment Triggers (also known as auto-deploy) allow you to define an unattended behavior for your [Projects](/docs/deploying-applications/projects/index.md) that will cause an automatic deployment of a release into an [Environment](/docs/infrastructure/environments/index.md).
 
 :::hint
 Automatic Deployment Triggers were introduced in Octopus Deploy 3.4.

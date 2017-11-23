@@ -4,7 +4,7 @@ description: How to troubleshoot problems with polling Tentacles.
 position: 5
 ---
 
-When an Octopus Tentacle is configured in [Polling mode](/docs/deployment-targets/windows-targets/polling-tentacles.md), it will attempt to connect to the Octopus Server on the configured TCP port (by default TCP port **10943** on the Octopus Server) poll the Octopus Server for work to be performed.
+When an Octopus Tentacle is configured in [Polling mode](/docs/infrastructure/windows-targets/polling-tentacles.md), it will attempt to connect to the Octopus Server on the configured TCP port (by default TCP port **10943** on the Octopus Server) poll the Octopus Server for work to be performed.
 
 ![](/docs/images/5670828/5865874.png)
 
@@ -110,7 +110,7 @@ If the Tentacle welcome page is shown, good news - your network is fine.
 **Watch out for proxy servers or SSL offloading...**
 Octopus and Tentacle use TCP to communicate, with special handling to enable web browsers to connect for diagnostic purposes. Full HTTP is not supported, so network services like **SSL offloading** are not supported, and **proxies** are not supported in earlier versions of Octopus Deploy. Make sure there's a direct connection between the Tentacle and Octopus Server, without an HTTP proxy or a network appliance performing SSL offloading in between.
 
-**NOTE**: Octopus Deploy 3.4 introduced [advanced support for HTTP proxies](/docs/deployment-targets/windows-targets/proxy-support.md).
+**NOTE**: Octopus Deploy 3.4 introduced [advanced support for HTTP proxies](/docs/infrastructure/windows-targets/proxy-support.md).
 :::
 
 ## Tentacle ping {#TroubleshootPollingTentacles-Tentacleping}

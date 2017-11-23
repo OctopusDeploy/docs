@@ -12,7 +12,7 @@ Your application is deployed to multiple geographic regions (or multiple Data Ce
 
 ## Strict solution using Environments {#Multi-regiondeploymentpattern-StrictsolutionusingEnvironments}
 
-You can use [Environments](/docs/deployment-targets/environments/index.md) to represent each region or data center. In the example below we have defined a Dev and Test Environment as per normal, and then configured two "production" Environments, one for each region we want to deploy into.
+You can use [Environments](/docs/infrastructure/environments/index.md) to represent each region or data center. In the example below we have defined a Dev and Test Environment as per normal, and then configured two "production" Environments, one for each region we want to deploy into.
 
 ![](/docs/images/5670886/5865781.png "width=500")
 
@@ -30,7 +30,7 @@ By using this pattern you can:
 
 ## Rolling Solution {#Multi-regiondeploymentpattern-RollingSolution}
 
-In Octopus 3.4 we introduced [Cloud Regions](/docs/deployment-targets/cloud-regions.md) which enable you to configure [Rolling deployments](/docs/patterns/rolling-deployments.md) across your regions or data centers. In this case you can scope variables to the Cloud Regions and deploy to all regions at once, but you cannot control the order in which the rolling deployment executes.
+In Octopus 3.4 we introduced [Cloud Regions](/docs/infrastructure/cloud-regions.md) which enable you to configure [Rolling deployments](/docs/patterns/rolling-deployments.md) across your regions or data centers. In this case you can scope variables to the Cloud Regions and deploy to all regions at once, but you cannot control the order in which the rolling deployment executes.
 
 ![](/docs/images/5670886/5865782.png "width=500")
 
@@ -75,4 +75,4 @@ You do give up the advantage of enforcing the order in which you deploy your app
 
 ## Conclusion {#Multi-regiondeploymentpattern-Conclusion}
 
-[Environments](/docs/deployment-targets/environments/index.md), [Tenants](/docs/guides/multi-tenant-deployments/index.md) and [Cloud Regions](/docs/deployment-targets/cloud-regions.md) can be used to model multi-region deployments in Octopus, but each different choice is optimized to a particular style of situation. Choose the one that suits your needs best!
+[Environments](/docs/infrastructure/environments/index.md), [Tenants](/docs/guides/multi-tenant-deployments/index.md) and [Cloud Regions](/docs/infrastructure/cloud-regions.md) can be used to model multi-region deployments in Octopus, but each different choice is optimized to a particular style of situation. Choose the one that suits your needs best!
