@@ -56,13 +56,15 @@ Before you can deploy software with Octopus Deploy, you need to bundle all the f
 
 Learn more about [packaging your applications](/docs/packaging-applications/index.md) or how to automate your existing tool chain to push packages to your Octopus Deploy server with our [API and Integrations](/docs/api-and-integration/index.md).
 
-## Deployment Targets
+## Infrastructure
 
-Deployment targets are the machines and services that your packaged software is deployed to. These deployment targets could be Windows servers, Linux servers, cloud regions, or an offline package drop.
+Octopus organizes your infrastructure (the machines you deploy software to) into groups called environments. Typical examples of environments are **Test**, **Staging**, or **Production**. 
 
-Octopus organizes your infrastructure (those deployment targets) into groups called environments. Typical examples of environments are **Test**, **Staging**, or **Production**.  Grouping deployment targets in this way lets you define your deployment processes (no matter how many machines are involved) and have Octopus deploy the right versions of your software to the right environments at the right time. 
+With Octopus you can deploy software to Windows servers, Linux servers, Microsoft Azure, cloud regions, or even an offline package drop.
 
-Learn more about [deployment targets](/docs/infrastructure/index.md).
+Grouping your deployment targets (the machines you are deploying software to) lets you define your deployment processes (no matter how many machines are involved) and have Octopus deploy the right versions of your software to the right environments at the right time. 
+
+Learn more about managing your [infrastructure](/docs/infrastructure/index.md).
 
 ## Deploying Your Applications
 
