@@ -78,4 +78,4 @@ docs/deployment-targets/windows-targets/running-tentacle-under-a-specific-user-a
 docs/deployment-targets/azure-web-apps.md -> docs/infrastructure/azure.md
 docs/infrastructure/azure-web-apps.md -> docs/infrastructure/azure.md
 docs/deployment-targets/azure-cloud-service-targets.md -> docs/infrastructure/azure.md
-docs/deployment-targets/azure-cloud-service-target.md -> docs/infrastructure/azure.mddocs/infrastructure/azure-cloud-service-target.md -> docs/infrastructure/azure.md
+docs/deployment-targets/azure-cloud-service-target.md -> docs/infrastructure/azure.mddocs/infrastructure/azure-cloud-service-target.md -> docs/infrastructure/azure.mddocs/infrastructure/environments/accounts/azure-account.md -> docs/infrastructure/azure.md
