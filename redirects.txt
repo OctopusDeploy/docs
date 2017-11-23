@@ -77,3 +77,7 @@ docs/deployment-targets/windows-targets/azure-virtual-machines/via-the-azure-cli
 docs/deployment-targets/windows-targets/azure-virtual-machines/via-the-azure-portal.md -> docs/infrastructure/windows-targets/azure-virtual-machines/via-the-azure-portal.md
 docs/deployment-targets/windows-targets/azure-virtual-machines/via-the-classic-azure-portal.md -> docs/infrastructure/windows-targets/azure-virtual-machines/via-the-classic-azure-portal.md
 docs/deployment-targets/windows-targets/running-tentacle-under-a-specific-user-account.md -> docs/infrastructure/windows-targets/running-tentacle-under-a-specific-user-account.md
+docs/deployment-targets/azure-web-apps.md -> docs/infrastructure/azure.md
+docs/infrastructure/azure-web-apps.md -> docs/infrastructure/azure.md
+docs/deployment-targets/azure-cloud-service-targets.md -> docs/infrastructure/azure.md
+docs/infrastructure/azure-cloud-service-targets.md -> docs/infrastructure/azure.md
