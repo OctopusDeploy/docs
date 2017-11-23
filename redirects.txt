@@ -54,8 +54,6 @@ docs/installation/installing-octopus/permissions-required-for-the-octopus-window
 docs/installation/installing-octopus/sql-server-database-requirements.md -> docs/installation/sql-server-database-requirements.md
 docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4.md -> docs/guides/multi-tenant-deployments/index.md
 docs/deployment-targets/index.md -> docs/infrastructure/index.md
-docs/deployment-targets/azure-web-apps.md -> docs/infrastructure/azure-web-apps.md
-docs/deployment-targets/azure-cloud-service-target.md -> docs/infrastructure/azure-cloud-service-target.md
 docs/deployment-targets/cloud-regions.md -> docs/infrastructure/cloud-regions.mddocs/deployment-targets/offline-package-drop.md -> docs/infrastructure/offline-package-drop.mddocs/deployment-targets/environments/index.md -> docs/infrastructure/environments/index.md
 docs/deployment-targets/environments/machine-policies.md -> docs/infrastructure/environments/machine-policies.md
 docs/deployment-targets/environments/accounts/index.md -> docs/infrastructure/environments/accounts/index.md
