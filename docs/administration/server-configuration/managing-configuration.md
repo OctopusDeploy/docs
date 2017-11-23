@@ -46,7 +46,7 @@ guestConfig.IsEnabled = true;
 guestConfig = repository.Configuration.Modify(guestConfig);
 ```
 
-For the Web Portal and Authentication configurations, you need the [Octopus.Client](https://www.nuget.org/packages/Octopus.Client/) and the [Octopus.Client.Extensibility](https://www.nuget.org/packages/Octopus.Node.Extensibility.Authentication/) NuGet packages
+For the Web Portal and Authentication configurations, you need the [Octopus.Client](https://www.nuget.org/packages/Octopus.Client/) and the [Octopus.Client.Extensibility](https://www.nuget.org/packages/Octopus.Client.Extensibility/) NuGet packages
 
 ```cs
 var server = "http://myoctopusserver/";   
