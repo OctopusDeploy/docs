@@ -15,6 +15,6 @@ Configuring your infrastructure involves:
 * Configuring your deployment targets:
 	* [Windows Targets](/docs/infrastructure/windows-targets/index.md)
 	* [Linux and Unix Targets](/docs/infrastructure/ssh-targets/index.md)
+	* [Microsoft Azure](/docs/infrastructure/azure/index.md)
 	* [Offline Package Drops](/docs/infrastructure/offline-package-drop.md)
-	* [Microsoft Azure](/docs/infrastructure/azure.md)
 	* [Cloud Regions](/docs/infrastructure/cloud-regions.md)

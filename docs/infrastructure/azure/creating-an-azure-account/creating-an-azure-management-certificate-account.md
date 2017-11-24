@@ -5,7 +5,7 @@ description: Creating an Azure Management Certificate Account in Octopus Deploy.
 
 :::hint
 **Azure Management Certificate Accounts Work with the Azure Service Management API only**
-Prior to Octopus Deploy 3.3, [Azure Management Certificate Accounts](/docs/infrastructure/azure.md) (previously known simply as "Azure Subscription Accounts") were the only type of Azure Account available.
+Prior to Octopus Deploy 3.3, [Azure Management Certificate Accounts](/docs/infrastructure/azure/index.md) (previously known simply as "Azure Subscription Accounts") were the only type of Azure Account available.
 
 Azure Management Certificate Accounts are only able to interact with the legacy Azure interface known as the "Azure Service Management API", which is used when Octopus deploys [Cloud Services](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-cloud-service/index.md) and [Azure Web Apps](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/index.md).
 
