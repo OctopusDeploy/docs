@@ -709,9 +709,6 @@ When the keystore is not relative to a path, it must be absolute.
 ### WILDFLY-HTTPS-ERROR-0043
 When the keystore is relative to a path, it must not absolute.
 
-### WILDFLY-HTTPS-ERROR-0044
-When the keystore is not relative to a path, it must be absolute.
-
 ### WILDFLY-ERROR-0001
 There was an error entering batch mode.
 
