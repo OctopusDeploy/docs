@@ -43,7 +43,7 @@ Deploying a Web App in Octopus requires the configuration of an Azure Account. Â
 
 ### Creating the account {#WebAppConcepts-Creatingtheaccount}
 
-To set up a new Azure account, follow the directions in [Creating an Azure Account](/docs/guides/azure-deployments/creating-an-azure-account/index.md).
+To set up a new Azure account, follow the directions in [Creating an Azure Account](/docs/infrastructure/azure/creating-an-azure-account/index.md).
 
 ## Web App deployment step {#WebAppConcepts-WebAppDeploymentStep}
 

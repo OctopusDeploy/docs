@@ -1,7 +1,7 @@
 
 ## Create an Account {#GettingstartedwithAzureWebApps-Createanaccount}
 
-To set up a new Azure account, follow the directions in [Creating an Azure Account](/docs/guides/azure-deployments/creating-an-azure-account/index.md).
+To set up a new Azure account, follow the directions in [Creating an Azure Account](/docs/infrastructure/azure/creating-an-azure-account/index.md).
 
 ## Create an Environment {#GettingstartedwithAzureWebApps-Createanenvironment}
 
