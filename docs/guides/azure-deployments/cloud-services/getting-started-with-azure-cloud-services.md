@@ -18,7 +18,7 @@ Upload your NuGet package to the Octopus [built-in package repository](/docs/pac
 
 ## Create an Account {#GettingstartedwithAzureCloudServices-Createanaccount}
 
-To set up a new Azure Management Certificate account, follow the directions in [Creating an Azure Management Certificate  Account](/docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-management-certificate-account.md).
+To set up a new Azure Management Certificate account, follow the directions in [Creating an Azure Management Certificate  Account](/docs/infrastructure/azure/creating-an-azure-account/creating-an-azure-management-certificate-account.md).
 
 ## Create an Environment {#GettingstartedwithAzureCloudServices-Createanenvironment}
 
