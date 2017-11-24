@@ -20,7 +20,7 @@ To create an Azure Management Certificate Account, select Management Certificate
 
 The Subscription Id can be found on the *Settings* tab of the Azure Management portal.
 
-![Azure subscription Id](../images/azure-subscription-id.png "width=500")
+![Azure subscription Id](azure-subscription-id.png "width=500")
 
 ## Step 2: Management Certificate {#CreatinganAzureManagementCertificateAccount-Step2:ManagementCertificate}
 
@@ -36,7 +36,7 @@ del temp.pem
 
 If you allow Octopus Deploy to generate your certificate, you will need to upload the certificate to the Azure Management Portal.  After clicking 'Save', the Account settings page provides instructions for downloading the certificate public-key from Octopus Deploy, and uploading it into the Azure Management Portal.
 
-![Upload certificate to Azure](../images/azure-cert-upload.png "width=500")
+![Upload certificate to Azure](azure-cert-upload.png "width=500")
 
 Uploaded certificates can be viewed on the 'Management Certificates' tab of the 'Settings' page in the Azure Portal.
 
