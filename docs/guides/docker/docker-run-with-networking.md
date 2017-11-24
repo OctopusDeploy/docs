@@ -18,7 +18,7 @@ If not, you will need to configure a host for our sample application. We recomme
 
 1. Install Ubuntu
 2. Configure your Ubuntu machine as an [SSH Target](/docs/infrastructure/ssh-targets/index.md) in Octopus - [this guide may be helpful](/docs/guides/node-on-nix-deployments/configuring-target-machine.md)
-    * Make sure this Deployment Target has a [Machine Role](/docs/infrastructure/target-roles/index.md) like **docker-test**. We will configure the Docker steps to target this role.
+    * Make sure this Deployment Target has a [Machine Role](/docs/infrastructure/environments/target-roles/index.md) like **docker-test**. We will configure the Docker steps to target this role.
  
 ![](/docs/images/5670973/5865822.png "width=500")
 
