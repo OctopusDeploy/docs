@@ -103,4 +103,4 @@ docs/infrastructure/environments/accounts/azure-account.md -> docs/infrastructur
 docs/infrastructure/azure.md -> docs/infrastructure/azure/index.md
 docs/guides/azure-deployments/creating-an-azure-account/index.md -> docs/infrastructure/azure/creating-an-azure-account/index.md
 docs/guides/azure-deployments/creating-an-azure-management-certificate-account.md -> docs/infrastructure/azure/creating-an-azure-management-certificate-account.md
-docs/guides/azure-deployments/creating-an-azure-service-principalaccount.md -> docs/infrastructure/azure/creating-an-azure-service-principalaccount.md
+docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-service-principal-account.md -> docs/infrastructure/azure/creating-an-azure-account/creating-an-azure-service-principal-account.md
