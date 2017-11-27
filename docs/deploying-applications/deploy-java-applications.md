@@ -538,7 +538,13 @@ You can fix this error by not deploying the new certificate as the default, or b
 Tomcat 7.0 does not support the Non-Blocking IO 2 Connector
 
 ### TOMCAT-HTTPS-ERROR-0010
-The server.xml file could not be found.
+The `server.xml` file could not be found.
+
+When the `CATALINA_BASE` location is defined, `server.xml` is expected to be found at `$CATALINA_BASE/conf/server.xml`.
+
+When the `CATALINA_BASE` location is not defined, `server.xml` is expected to be found at `CATALINA_HOME/conf/server.xml`.
+
+Ensure that the `CATALINA_BASE` directory is valid (if it is defined) and that the user account performing the deployment (i.e. the Tentacle service or the SSH user) has permissions to access the `server.xml` file.
 
 ### TOMCAT-HTTPS-ERROR-0011
 Failed to extract the version number from the information supplied.
