@@ -1,15 +1,14 @@
 ---
 title: Installation
 position: 0
-description: How to install the central Octopus Deploy server, requirements, and troubleshooting.
+description: How to install the central Octopus Deploy server.
 ---
 
-The Octopus Deploy Server is software that you download and install on one of your own servers, just like you would install Microsoft SQL Server. The Octopus Deploy Server:
+The Octopus Deploy server:
 
 - Runs as a Windows Service.
 - Stores its data in a [SQL Server database](/docs/administration/octopus-database/index.md).
-- Has an embedded HTTP server which serves the [Octopus REST API](/docs/api-and-integration/octopus-rest-api.md) and presents the main Octopus user interface (the **Octopus Web Portal**).
-- Orchestrates your automated deployments.
+- Has an embedded HTTP server which serves the [Octopus REST API](/docs/api-and-integration/octopus-rest-api.md) and the  **Octopus Web Portal** that you will use to manage your deployments.
 
 ## Upgrading {#Installation-Upgrading}
 
@@ -17,39 +16,32 @@ If Octopus is already installed, and you want to upgrade to a new version, pleas
 
 ## Requirements {#InstallingOctopus-Requirements}
 
-To successfully install Octopus Server you will need:
+To successfully install the Octopus server you need:
 
-- A Windows Server with the correct version of .NET Framework installed (see below).
+- Any of the following Windows servers:
+	- Windows Server 2008 SP2
+	- Windows Server 2008 R2
+	- Windows Server 2012
+	- Windows Server 2012 R2
+	- Windows Server 2016
+- .NET Framework:
+	- Octopus 3.0.0 - 3.3.27 requires [.NET Framework 4.5](https://www.microsoft.com/en-au/download/details.aspx?id=30653) or newer.
+	- Octopus 3.4 onward requires [.NET Framework 4.5.1](https://www.microsoft.com/en-au/download/details.aspx?id=40773) or newer.
 - A Microsoft SQL Server instance which can be accessed by your Octopus Server ([more details](/docs/installation/sql-server-database-requirements.md)).
+
+### Windows Server Core
+
+Whilst Octopus Server will run on "Windows Server Core", the easiest installation path is to use "Windows Server with a GUI" and run our installation wizard. If you want to use "Windows Server Core" you will need to add some missing Windows Features and configure Octopus server yourself. Learn about [automating installation](/docs/installation/automating-installation.md).
 
 ### Hardware Requirements
 
-There is no "one size fits all" approach for Octopus Server. The best approach is to start with a working Octopus Server, start deploying your applications while monitoring your server statistics, and scale from there.
+There is no "one size fits all" approach for Octopus server. The best approach is to start with a working Octopus server, start deploying your applications, monitor your server statistics, and scale from there.
 
 - Absolute minimum to make it run: 512MB RAM, 1GHz CPU, 2GB free disk space.
 - Recommended starting point for smaller deployments (less than 30 deployment targets for example): 2GB RAM, dual-core CPU, 10GB free disk space.
 - Recommended starting point for larger deployments: 4GB RAM, dual-core, 20GB free disk space.
 
 Learn about [Octopus Server performance](/docs/administration/performance.md).
-
-### Windows Server Requirements
-
-Octopus Server can be installed on the following versions of Windows Server:
-
-- Windows Server 2008 SP2
-- Windows Server 2008 R2
-- Windows Server 2012
-- Windows Server 2012 R2
-- Windows Server 2016
-
-Some versions of Octopus Server require a different minimum version of the .NET Framework to be installed on the server:
-
-- Octopus 3.0.0 - 3.3.27 requires [.NET Framework 4.5](https://www.microsoft.com/en-au/download/details.aspx?id=30653) or newer.
-- Octopus 3.4 onward requires [.NET Framework 4.5.1](https://www.microsoft.com/en-au/download/details.aspx?id=40773) or newer.
-
-#### Windows Server Core
-
-Whilst Octopus Server will run on "Windows Server Core", the easiest installation path is to use "Windows Server with a GUI" and run our installation wizard. If you want to use "Windows Server Core" you will need to add some missing Windows Features and configure Octopus Server yourself. Learn about [automating installation](/docs/installation/automating-installation.md).
 
 ## Downloads
 
@@ -83,7 +75,7 @@ Learn about [using Managed Service Accounts](https://technet.microsoft.com/en-us
 
 ## Troubleshooting {#InstallingOctopus-Troubleshooting}
 
-In a few cases a bug in a 3rd party component causes the installer displays a "Installation directory must be on a local hard drive" error. If this occurs, running the install again from an elevated command prompt using the following command (replacing Octopus.3.3.4-x64.msi with the name of the installer you are using)
+In a few cases a bug in a 3rd party component causes the installer to display an "Installation directory must be on a local hard drive" error. If this occurs, run the install again from an elevated command prompt using the following command (replacing Octopus.3.3.4-x64.msi with the name of the installer you are using):
 
 `msiexec /i Octopus.3.3.4-x64.msi WIXUI_DONTVALIDATEPATH="1"`
 
