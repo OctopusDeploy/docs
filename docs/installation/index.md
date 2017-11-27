@@ -18,16 +18,16 @@ If Octopus is already installed, and you want to upgrade to a new version, pleas
 
 To successfully install the Octopus server you need:
 
+- A Microsoft SQL Server instance which can be accessed by your Octopus Server ([more details](/docs/installation/sql-server-database-requirements.md)).
+- .NET Framework:
+	- Octopus 3.0.0 - 3.3.27 requires [.NET Framework 4.5](https://www.microsoft.com/en-au/download/details.aspx?id=30653) or newer.
+	- Octopus 3.4 onward requires [.NET Framework 4.5.1](https://www.microsoft.com/en-au/download/details.aspx?id=40773) or newer.
 - Any of the following Windows servers:
 	- Windows Server 2008 SP2
 	- Windows Server 2008 R2
 	- Windows Server 2012
 	- Windows Server 2012 R2
 	- Windows Server 2016
-- .NET Framework:
-	- Octopus 3.0.0 - 3.3.27 requires [.NET Framework 4.5](https://www.microsoft.com/en-au/download/details.aspx?id=30653) or newer.
-	- Octopus 3.4 onward requires [.NET Framework 4.5.1](https://www.microsoft.com/en-au/download/details.aspx?id=40773) or newer.
-- A Microsoft SQL Server instance which can be accessed by your Octopus Server ([more details](/docs/installation/sql-server-database-requirements.md)).
 
 ### Windows Server Core
 
