@@ -9,7 +9,7 @@ With Octopus Deploy you can deploy software to Windows servers, Linux servers, M
 
 Grouping your deployment targets by environment lets you define your deployment processes (no matter how many machines are involved) and have Octopus deploy the right versions of your software to the right environments at the right time.
 
-Learn more about defining your [environments](/docs/infrastructure/environments/index.md), and configuring your deployment targets:
+Learn how to define your [environments](/docs/infrastructure/environments/index.md) and configure your deployment targets:
 * [Windows Targets](/docs/infrastructure/windows-targets/index.md)
 * [Linux and Unix Targets](/docs/infrastructure/ssh-targets/index.md)
 * [Microsoft Azure](/docs/infrastructure/azure/index.md)
