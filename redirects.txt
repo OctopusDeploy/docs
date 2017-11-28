@@ -105,3 +105,4 @@ docs/guides/azure-deployments/creating-an-azure-account/index.md -> docs/infrast
 docs/guides/azure-deployments/creating-an-azure-management-certificate-account.md -> docs/infrastructure/azure/creating-an-azure-account/creating-an-azure-management-certificate-account.md
 docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-service-principal-account.md -> docs/infrastructure/azure/creating-an-azure-account/creating-an-azure-service-principal-account.md
 docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-management-certificate-account.md -> docs/infrastructure/azure/creating-an-azure-account/creating-an-azure-management-certificate-account.md
+docs/api-and-integration/bamboo/bamboo-plugin.md -> docs/api-and-integration/bamboo.md
