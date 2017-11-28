@@ -4,7 +4,9 @@ position: 0
 description: How to install the central Octopus Deploy server.
 ---
 
-The Octopus Deploy server:
+This section walks you through installing the Octopus Deploy server.
+
+Once installed, the Octopus Deploy server:
 
 - Runs as a Windows Service.
 - Stores its data in a [SQL Server database](/docs/administration/octopus-database/index.md).
