@@ -112,3 +112,5 @@ docs/guides/node-on-nix-deployments/configure-octopus-deploy-project.md -> docs/
 docs/guides/node-on-nix-deployments/configuring-target-machine.md -> docs/deploying-applications/node-on-nix-deployments/configuring-target-machine.md
 docs/guides/node-on-nix-deployments/create-&-push-node.js-project.md -> docs/deploying-applications/node-on-nix-deployments/create-&-push-node.js-project.md
 docs/guides/node-on-nix-deployments/index.md -> docs/deploying-applications/node-on-nix-deployments/index.md
+docs/guides/deploying-asp.net-core-web-applications/index.md -> docs/deploying-applications/deploying-asp.net-core-web-applications/index.md
+docs/guides/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md -> docs/deploying-applications/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md
