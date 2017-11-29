@@ -12,7 +12,7 @@ This applies to:
 
 :::hint
 **Azure PowerShell Module version**
-For information on viewing and configuration the version of the Azure PowerShell modules used by Octopus, see [this page](/docs/guides/azure-deployments/running-azure-powershell/configuring-the-version-of-the-azure-powershell-modules.md).
+For information on viewing and configuration the version of the Azure PowerShell modules used by Octopus, see [this page](/docs/deploying-applications/azure-deployments/running-azure-powershell/configuring-the-version-of-the-azure-powershell-modules.md).
 :::
 
 :::success

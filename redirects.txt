@@ -116,3 +116,16 @@ docs/guides/deploying-asp.net-core-web-applications/index.md -> docs/deploying-a
 docs/guides/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md -> docs/deploying-applications/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md
 docs/guides/coordinating-multiple-projects/index.md -> docs/deploying-applications/coordinating-multiple-projects/index.md
 docs/guides/coordinating-multiple-projects/project-coordination-code-samples.md -> docs/deploying-applications/coordinating-multiple-projects/project-coordination-code-samples.md
+docs/guides/azure-deployments/index.md -> docs/deploying-applications/azure-deployments/index.md
+docs/guides/azure-deployments/azure-environments.md -> docs/deploying-applications/azure-deployments/azure-environments.md
+docs/guides/azure-deployments/varying-azure-subscription-by-environment.md -> docs/deploying-applications/azure-deployments/varying-azure-subscription-by-environment.md
+docs/guides/azure-deployments/cloud-services/index.md -> docs/deploying-applications/azure-deployments/cloud-services/index.md
+docs/guides/azure-deployments/cloud-services/cloud-service-concepts.md -> docs/deploying-applications/azure-deployments/cloud-services/cloud-service-concepts.md
+docs/guides/azure-deployments/cloud-services/getting-started-with-azure-cloud-services.md -> docs/deploying-applications/azure-deployments/cloud-services/getting-started-with-azure-cloud-services.md
+docs/guides/azure-deployments/cloud-services/vip-swap.md -> docs/deploying-applications/azure-deployments/cloud-services/vip-swap.md
+docs/guides/azure-deployments/resource-groups/index.md -> docs/deploying-applications/azure-deployments/resource-groups/index.md
+docs/guides/azure-deployments/running-azure-powershell/index.md -> docs/deploying-applications/azure-deployments/running-azure-powershell/index.md
+docs/guides/azure-deployments/running-azure-powershell/configuring-the-version-of-the-azure-powershell-modules.md -> docs/deploying-applications/azure-deployments/running-azure-powershell/configuring-the-version-of-the-azure-powershell-modules.md
+docs/guides/azure-deployments/web-apps/index.md -> docs/deploying-applications/azure-deployments/web-apps/index.md
+docs/guides/azure-deployments/web-apps/getting-started-with-azure-web-apps.md -> docs/deploying-applications/azure-deployments/web-apps/getting-started-with-azure-web-apps.md
+docs/guides/azure-deployments/web-apps/web-app-concepts.md -> docs/deploying-applications/azure-deployments/web-apps/web-app-concepts.md

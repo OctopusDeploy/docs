@@ -73,7 +73,7 @@ When set, skip Delete operations in the **App\_Data** directory.
 
 :::hint
 **Preserve Specific Paths**
-If you wish to set the "Remove additional files" option but preserve specific paths, see[ this document](/docs/guides/azure-deployments/web-apps/web-app-concepts.md#WebAppConcepts-PreserveSpecificPathsWhenDeployingAzureWebApp).
+If you wish to set the "Remove additional files" option but preserve specific paths, see[ this document](/docs/deploying-applications/azure-deployments/web-apps/web-app-concepts.md#WebAppConcepts-PreserveSpecificPathsWhenDeployingAzureWebApp).
 :::
 
 **Enable AppOffline**
@@ -103,7 +103,7 @@ PowerShell custom scripts executed against an Azure Web App target will have the
 
 ### Preserve Specific Paths When Deploying Azure Web App {#WebAppConcepts-PreserveSpecificPathsWhenDeployingAzureWebApp}
 
-When configuring the[ Deploy an Azure Web App](/docs/guides/azure-deployments/web-apps/web-app-concepts.md#WebAppConcepts-WebAppDeploymentStep) step, if you wish to set the "Remove additional files" option but preserve specific paths (i.e. other than App\_Data) you can create a variable named `Octopus.Action.Azure.PreservePaths`.
+When configuring the[ Deploy an Azure Web App](/docs/deploying-applications/azure-deployments/web-apps/web-app-concepts.md#WebAppConcepts-WebAppDeploymentStep) step, if you wish to set the "Remove additional files" option but preserve specific paths (i.e. other than App\_Data) you can create a variable named `Octopus.Action.Azure.PreservePaths`.
 
 The value should be set to a list of regexes, delimeted by `;` that will be used to select directories and files to preserve.
 

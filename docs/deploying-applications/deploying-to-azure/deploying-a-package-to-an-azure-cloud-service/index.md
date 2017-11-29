@@ -58,7 +58,7 @@ Please note these features actually run on the Octopus Server prior to deploying
 :::
 
 :::hint
-For your convenience the PowerShell session for your [custom scripts](/docs/deploying-applications/custom-scripts/index.md) will have the Azure PowerShell module loaded, and the subscription from the account associated with the target will be selected. This means you don't have to worry about loading the Azure PowerShell module nor authenticate with Azure yourself. See the [Azure Powershell documentation](/docs/guides/azure-deployments/running-azure-powershell/index.md) for more information. You can write very straightforward scripts like the example below:
+For your convenience the PowerShell session for your [custom scripts](/docs/deploying-applications/custom-scripts/index.md) will have the Azure PowerShell module loaded, and the subscription from the account associated with the target will be selected. This means you don't have to worry about loading the Azure PowerShell module nor authenticate with Azure yourself. See the [Azure Powershell documentation](/docs/deploying-applications/azure-deployments/running-azure-powershell/index.md) for more information. You can write very straightforward scripts like the example below:
 
 ```powershell
 #Swap the staging slot into production

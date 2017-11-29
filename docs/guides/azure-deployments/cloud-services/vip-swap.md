@@ -21,7 +21,7 @@ VIP swap is a great way for you to implement [Blue-green deployments](/docs/pat
 When Octopus performs the VIP swap for a Cloud Service it simply calls `Move-AzureDeployment -ServiceName $OctopusAzureServiceName`. You can see the script in our open source [Calamari](https://github.com/OctopusDeploy/Calamari) project [here](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari.Azure/Scripts/SwapAzureCloudServiceDeployment.ps1).
 :::
 
-In order to complete this guide you should have a Cloud Service project set up in Octopus Deploy that is deploying to the staging or production slot.  Please see [Getting started with Azure Cloud Services](/docs/guides/azure-deployments/cloud-services/getting-started-with-azure-cloud-services.md) for more information.
+In order to complete this guide you should have a Cloud Service project set up in Octopus Deploy that is deploying to the staging or production slot.  Please see [Getting started with Azure Cloud Services](/docs/deploying-applications/azure-deployments/cloud-services/getting-started-with-azure-cloud-services.md) for more information.
 
 ## Environment Configuration {#VIPSwap-Environmentconfiguration}
 
