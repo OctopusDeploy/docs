@@ -1,7 +1,7 @@
 ---
-title: Deploying Java applications
+title: Deploying Java Applications
 description: This guide provides a simple example of deploying a Java application with Octopus Deploy.
-position: 12
+position: 52
 ---
 
 :::hint
