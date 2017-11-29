@@ -106,3 +106,5 @@ docs/guides/azure-deployments/creating-an-azure-management-certificate-account.m
 docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-service-principal-account.md -> docs/infrastructure/azure/creating-an-azure-account/creating-an-azure-service-principal-account.md
 docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-management-certificate-account.md -> docs/infrastructure/azure/creating-an-azure-account/creating-an-azure-management-certificate-account.md
 docs/api-and-integration/bamboo/bamboo-plugin.md -> docs/api-and-integration/bamboo.md
+docs/guides/deploying-html-and-javascript-applications.md -> docs/deploying-applications/deploying-html-and-javascript-applications.md ->
+docs/guides/deploying-java-applications.md -> docs/deploying-applications/deploying-java-applications.md
