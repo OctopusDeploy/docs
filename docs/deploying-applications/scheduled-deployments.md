@@ -1,7 +1,7 @@
 ---
 title: Scheduled Deployments
 description: Deployments can be scheduled to run at specific times in the future.
-position: 21
+position: 14
 ---
 
 Deployments now have the option to be scheduled in advance with the Scheduled Deployments feature available with Octopus Server 2.5.

@@ -1,7 +1,7 @@
 ---
 title: SQL Server databases
 description: Options for deploying to SQL Server databases including a model-driven approach and a change-script-driven approach.
-position: 17
+position: 30
 ---
 
 There are a variety of ways that SQL Server databases can be managed in Octopus Deploy. This section will provide a broad outline of the different approaches, and then drill into one possible solution to use as an example.

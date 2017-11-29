@@ -1,7 +1,7 @@
 ---
 title: Automatic Deployment Triggers
 description: Automatic Deployment Triggers allow you to define an unattended behavior for your projects that will cause automatic deployment of a release into an environment.
-position: 23
+position: 16
 ---
 
 Automatic Deployment Triggers (also known as auto-deploy) allow you to define an unattended behavior for your [Projects](/docs/deploying-applications/projects/index.md) that will cause an automatic deployment of a release into an [Environment](/docs/infrastructure/environments/index.md).

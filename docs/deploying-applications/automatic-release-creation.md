@@ -1,7 +1,7 @@
 ---
 title: Automatic Release Creation
 description: Automatic Release Creation allows you to automatically create a new release when a new package is pushed to the built-in package repository.
-position: 22
+position: 15
 ---
 
 In Octopus Deploy 2.6 a feature was added called Automatic Release Creation primarily to support older versions of Team Foundation Server (TFS).
