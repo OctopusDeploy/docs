@@ -1,14 +1,14 @@
 ---
 title: Coordinating Multiple Projects
 description: This guide covers scenarios where it is necessary to co-ordinate deployment between multiple projects and take some action that depends on their combined status.
-position: 10
+position: 19
 ---
 
 When working with multiple related projects, it is often necessary to co-ordinate between them and take some action that depends on their combined status. For example, ensure a related project is deployed first or send an email when all projects are deployed. This guide discusses some approaches to this problem and provides some examples showing how to query and control projects programatically.
 
 :::success
 **Samples**
-For in depth code samples covering many of the processes discussed in this guide, see the [Project Coordination Code Samples](/docs/guides/coordinating-multiple-projects/project-coordination-code-samples.md) page
+For in depth code samples covering many of the processes discussed in this guide, see the [Project Coordination Code Samples](/docs/deploying-applications/coordinating-multiple-projects/project-coordination-code-samples.md) page
 :::
 
 ## Responding to events across multiple projects {#CoordinatingMultipleProjects-Respondingtoeventsacrossmultipleprojects}
@@ -21,7 +21,7 @@ There are various ways to respond to events within Octopus, which is useful for:
 - Triggering another process, for example another deployment
 - Verifying that some conditions have been met
 
-The simplest trigger is a periodic timer setup through a Windows schedules task, Azure Function or as a windows service. Alternatively it can also be a project within Octopus as a project that re-queues itself when run (see the [samples](/docs/guides/coordinating-multiple-projects/project-coordination-code-samples.md)).
+The simplest trigger is a periodic timer setup through a Windows schedules task, Azure Function or as a windows service. Alternatively it can also be a project within Octopus as a project that re-queues itself when run (see the [samples](/docs/deploying-applications/coordinating-multiple-projects/project-coordination-code-samples.md)).
 
 Octopus 3.5 introduced [subscriptions](/docs/administration/subscriptions.md), which can call a web service or send an email when Octopus events occur.
 
