@@ -1,5 +1,5 @@
 ---
-title: Delta compression for package transfers
+title: Delta Compression for Package Transfers
 description: Octopus delta compression for package transfers can dramatically reduce the time for package acquisition during deployment.
 position: 18
 ---
