@@ -69,7 +69,7 @@ If you're using a continuous integration server like TeamCity to produce package
 
 ## Using npm.exe, grunt or gulp {#PushingpackagestotheBuilt-Inrepository-Usingnpm.exe,gruntorgulp}
 
-You can upload packages using npm.exe or using our grunt or gulp tasks. Take a look at our [guide for packaging and deploying Node.js applications using Octopus Deploy](/docs/guides/node-on-nix-deployments/index.md).
+You can upload packages using npm.exe or using our grunt or gulp tasks. Take a look at our [guide for packaging and deploying Node.js applications using Octopus Deploy](/docs/deploying-applications/node-on-nix-deployments/index.md).
 
 ## Using curl {#PushingpackagestotheBuilt-Inrepository-Usingcurl}
 

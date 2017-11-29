@@ -17,7 +17,7 @@ If you already have a working Linux machine with Docker Engine installed you can
 If not, you will need to configure a host for our sample application. We recommend using **Ubuntu Trusty 14.04 LTS** or **Ubuntu Xenial 16.04 LTS** for this sample.
 
 1. Install Ubuntu
-2. Configure your Ubuntu machine as an [SSH Target](/docs/infrastructure/ssh-targets/index.md) in Octopus - [this guide may be helpful](/docs/guides/node-on-nix-deployments/configuring-target-machine.md)
+2. Configure your Ubuntu machine as an [SSH Target](/docs/infrastructure/ssh-targets/index.md) in Octopus - [this guide may be helpful](/docs/deploying-applications/node-on-nix-deployments/configuring-target-machine.md)
     * Make sure this Deployment Target has a [Machine Role](/docs/infrastructure/environments/target-roles/index.md) like **docker-test**. We will configure the Docker steps to target this role.
  
 ![](/docs/images/5670973/5865822.png "width=500")
