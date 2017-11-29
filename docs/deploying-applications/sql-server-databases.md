@@ -1,5 +1,5 @@
 ---
-title: SQL Server databases
+title: SQL Server Databases
 description: Options for deploying to SQL Server databases including a model-driven approach and a change-script-driven approach.
 position: 30
 ---
