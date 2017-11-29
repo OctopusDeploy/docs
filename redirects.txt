@@ -114,3 +114,5 @@ docs/guides/node-on-nix-deployments/create-&-push-node.js-project.md -> docs/dep
 docs/guides/node-on-nix-deployments/index.md -> docs/deploying-applications/node-on-nix-deployments/index.md
 docs/guides/deploying-asp.net-core-web-applications/index.md -> docs/deploying-applications/deploying-asp.net-core-web-applications/index.md
 docs/guides/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md -> docs/deploying-applications/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md
+docs/guides/coordinating-multiple-projects/index.md -> docs/deploying-applications/coordinating-multiple-projects/index.md
+docs/guides/coordinating-multiple-projects/project-coordination-code-samples.md -> docs/deploying-applications/coordinating-multiple-projects/project-coordination-code-samples.md
