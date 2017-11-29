@@ -1,5 +1,5 @@
 ---
-title: Configuration files
+title: Configuration Files
 description: Configuring applications to work in specific environments is an essential part of deploying applications with Octopus Deploy and this can include updating database connection strings and app settings.
 position: 8
 ---
