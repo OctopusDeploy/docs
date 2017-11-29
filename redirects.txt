@@ -111,3 +111,4 @@ docs/guides/deploying-java-applications.md -> docs/deploying-applications/deploy
 docs/guides/node-on-nix-deployments/configure-octopus-deploy-project.md -> docs/deploying-applications/node-on-nix-deployments/configure-octopus-deploy-project.md
 docs/guides/node-on-nix-deployments/configuring-target-machine.md -> docs/deploying-applications/node-on-nix-deployments/configuring-target-machine.md
 docs/guides/node-on-nix-deployments/create-&-push-node.js-project.md -> docs/deploying-applications/node-on-nix-deployments/create-&-push-node.js-project.md
+docs/guides/node-on-nix-deployments/index.md -> docs/deploying-applications/node-on-nix-deployments/index.md
