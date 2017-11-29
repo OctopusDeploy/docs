@@ -1,5 +1,5 @@
 ---
-title: Run steps in parallel
+title: Run Steps in Parallel
 description: Running deployment steps in parallel can help reduce your deployment times.
 position: 13
 ---
