@@ -55,7 +55,7 @@ The best way we've found to troubleshoot Active Directory issues is by running t
 [System.Reflection.Assembly]::LoadWithPartialName("System.DirectoryServices.ActiveDirectory")
 
 # Only uncomment the remainder of this line if Octopus is scoped to a specific container.
-$principalContext = new-object -TypeName System.DirectoryServices.AccountManagement.PrincipalContext "Domain"#, "acme.local", "CN=Users, DC=acme, DC=local"
+$principalContext = new-object -TypeName System.DirectoryServices.AccountManagement.PrincipalContext "Domain", "acme.local"#, "CN=Users, DC=acme, DC=local"
 
 $principal = [System.DirectoryServices.AccountManagement.UserPrincipal]::FindByIdentity($principalContext, "ExampleUser")
 # Get Authorized Users Groups. This reads inherited groups but fails in some situations based on security and configuration
