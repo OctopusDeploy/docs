@@ -1,7 +1,7 @@
 ---
 title: Deployment Processes
 description: Deployment Processes define the actions/steps performed on your behalf to deploy a project.
-position: 0
+position: 10
 ---
 
 Each [project](/docs/deploying-applications/projects/index.md) defines the actions you want Octopus to perform on your behalf. In Octopus terms this is called the **deployment process**. The deployment process is like a recipe. It defines the set of instructions that will be run repeatably each time the project is deployed.
