@@ -17,6 +17,10 @@ The following steps can be followed to add an external Maven feed.
 5. If the Maven repository is password protected, the credentials can be entered into the `Feed login` and `Feed password` field.
 6. The `Download attempts (attempts)` field defines the number of times that Octopus will attempt to download an artifact from a Maven repository. Failed attempts will wait for the number of seconds defined in the `Download retry backoff (seconds)` field before attempting to download the artifact again.
 
+:::hint
+When configuring external Maven repositories, we need to link to the repository itself and not the services that are used to search the repositories. For example URLs like [https://search.maven.org/](https://search.maven.org/) or [https://mvnrepository.com/](https://mvnrepository.com/) can't be entered because these are sites for searching the repositories, and not the repositories themselves.
+:::
+
 ## Referencing Maven Artifacts
 
 When referencing a Maven artifact, the package ID is in the format `group:artifact`.
