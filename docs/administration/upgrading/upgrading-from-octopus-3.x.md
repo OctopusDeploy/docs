@@ -14,7 +14,7 @@ When an update is available, a bullhorn icon will appear in the top status bar w
 
 :::warning
 **What is included in the release?**
-You can find the differences between your current version and the newest version using our [Compare versions](https://octopus.com/downloads/compare) page. Please note that this will also list the release notes for major and minor version changes which may include **breaking changes** or **dependencies** that you may need to also update. It is important to know what might be effected by your upgrade.
+You can find the differences between your current version and the newest version using our [Compare versions](https://octopus.com/downloads/compare) page. Please note that this will also list the release notes for major and minor version changes which may include **breaking changes** or **dependencies** that you may need to also update. It is important to know what might be affected by your upgrade.
 :::
 
 ## Scheduling maintenance
