@@ -4,7 +4,11 @@ description: Everything you need to know about upgrade Octopus to a newer versio
 position: 800
 ---
 
-We release new versions of Octopus Deploy often, so we try to make the process of upgrading Octopus easy. This page outlines the process of upgrading between Octopus versions. This page describes some of the general concepts around upgrading Octopus, and we provide guides for 
+We release new versions of Octopus Deploy often, so we try to make the process of upgrading Octopus easy. This page outlines the process of upgrading between Octopus versions. This page describes some of the general concepts around upgrading Octopus, and we provide guides for the more complicated upgrades.
+
+:::success
+Octopus 4 has been released! Go [download it now](https://octopus.com/downloads).
+:::
 
 ## Before you begin
 
@@ -20,11 +24,12 @@ There are lots of improvements and changes between major versions of Octopus. Pl
 
 - [Upgrading from Octopus 1.6 to 2.x](/docs/administration/upgrading/upgrading-from-octopus-1.6.md)
   - If you are running a version of Octopus prior to `1.6`, you will need to upgrade to `1.6` and then upgrade to `2.x`.
-  - Hint: You can upgrade from Octopus `1.6` to any version of Octopus `2.x`. We recommend upgrading from Octopus `1.6` to the latest version of Octopus `2.6` directly. This is the quickest path to continue upgrading to Octopus `3.x` and beyond.
+  - Hint: You can upgrade from Octopus `1.6` to any version of Octopus `2.x`. We recommend upgrading from Octopus `1.6` to the latest version of Octopus `2.6` directly. This is the quickest path to continue upgrading to the latest version of Octopus.
 - [Upgrading from Octopus 2.x](/docs/administration/upgrading/upgrading-from-octopus-2.0.md)
-- [Upgrading from Octopus 2.6 to 3.x](/docs/administration/upgrading/upgrading-from-octopus-2.6/index.md)
-  - If you are running a version of Octopus prior to `2.6`, you will need to upgrade to `2.6` and then upgrade to `3.x`.
-- [Upgrading from Octopus 3.x](/docs/administration/upgrading/upgrading-from-octopus-3.x.md)
+- [Upgrading from Octopus 2.6 to a newer version of Octopus](/docs/administration/upgrading/upgrading-from-octopus-2.6/index.md)
+  - If you are running a version of Octopus prior to `2.6`, you will need to upgrade to `2.6` and then upgrade to the latest version of Octopus.
+- [Upgrading newer versions of Octopus](/docs/administration/upgrading/upgrading-from-octopus-3.x.md) is generally easy.
+  - Want to install Octopus 4.x? Great! Follow the same process as you would normally to upgrade your Octopus 3.x installation.
 
 ## How we version Octopus Deploy {#Upgrading-HowweversionOctopusDeploy}
 

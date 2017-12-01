@@ -6,7 +6,7 @@ position: 3
 
 Setting up a SSH target is a simple process and in many ways requires less steps than standard targets due its lack of need for a separate Tentacle installation.
 
-Begin by clicking 'Add deployment target' from the environments page.
+!partial <nav>
 
 ![](add-deployment-target.png "width=500")
 

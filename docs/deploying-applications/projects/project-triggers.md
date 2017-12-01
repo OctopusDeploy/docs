@@ -11,7 +11,7 @@ Project Triggers allow you to define an unattended behavior for your [Projects]
 We have written a [comprehensive guide](/docs/guides/elastic-and-transient-environments/index.md) about using Project Triggers (specifically [Automatic Deployment Triggers](/docs/deploying-applications/automatic-deployment-triggers.md)) with a focus on deploying to elastic and transient environments.
 :::
 
-Project Triggers allow you to choose from a subset of **events** that can occur in Octopus Deploy, apply a **filter** to those events, and decide on an **action** you want performed once the trigger fires. The example below shows an [Automatic Deployment Trigger](/docs/deploying-applications/automatic-deployment-triggers.md) configured to fire when a [Deployment Target](/docs/infrastructure/index.md) with the [Machine Role](/docs/infrastructure/target-roles/index.md) **web-server** belonging to the **Production** [Environment](/docs/infrastructure/environments/index.md) becomes available.
+Project Triggers allow you to choose from a subset of **events** that can occur in Octopus Deploy, apply a **filter** to those events, and decide on an **action** you want performed once the trigger fires. The example below shows an [Automatic Deployment Trigger](/docs/deploying-applications/automatic-deployment-triggers.md) configured to fire when a [Deployment Target](/docs/infrastructure/index.md) with the [Machine Role](/docs/infrastructure/environments/target-roles/index.md) **web-server** belonging to the **Production** [Environment](/docs/infrastructure/environments/index.md) becomes available.
 
 ![](/docs/images/5671189/5865830.png "width=500")
 

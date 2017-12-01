@@ -1,7 +1,7 @@
 ---
 title: Performance
 description: Octopus is all about reliable and repeatable deployments, but that doesn't mean it has to be slow. This page will help you tune your deployments for the best performance in your scenario.
-position: 1000
+position: 20
 ---
 
 Over the years we have built Octopus to enable reliable and repeatable deployments, but that doesn't necessarily mean it has to be slow. In fact, Octopus can scale with you as you grow. Octopus is a complex system with a core component allowing you to run your own custom scripts. We work hard to ensure all the parts we control work quickly and efficiently leaving as many resources as possible for running your deployments. That being said, there are many things you can do to ensure your Octopus deployments execute efficiently.
@@ -72,7 +72,7 @@ A deployment process with a single giant step might be the most efficient approa
 There is typically a happy balance you can strike for each of your projects. The most common problem related to performance is having too many steps, where "too many" depends on your specific situation, but we typically consider an average project to use 10-20 steps, and we have many customers deploying projects with 50-80 steps. If your projects have hundreds of steps, perhaps you should consider modeling your deployments differently?
 
 - If your project could be broken down into logical components which ship on their own cadence, do it! Make each component its own project.
-- If your project could be broken down into logical components which ship at the same time, you can do that too! Consider breaking your deployment into multiple logical projects and [coordinate their deployments](/docs/guides/coordinating-multiple-projects/index.md).
+- If your project could be broken down into logical components which ship at the same time, you can do that too! Consider breaking your deployment into multiple logical projects and [coordinate their deployments](/docs/deploying-applications/coordinating-multiple-projects/index.md).
 - If your project cannot be broken down logically, consider combining some of your steps together into a single step. For example, you may be able to run your [custom scripts](/docs/deploying-applications/custom-scripts/index.md) as a pre- or post- activity.
 
 ### Consider the size of your packages {#package-size}

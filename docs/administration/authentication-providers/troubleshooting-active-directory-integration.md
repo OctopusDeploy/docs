@@ -53,7 +53,10 @@ The best way we've found to troubleshoot Active Directory issues is by running t
 [System.Reflection.Assembly]::LoadWithPartialName("System.DirectoryServices.AccountManagement")
 [System.Reflection.Assembly]::LoadWithPartialName("System.DirectoryServices")
 [System.Reflection.Assembly]::LoadWithPartialName("System.DirectoryServices.ActiveDirectory")
-$principalContext = new-object -TypeName System.DirectoryServices.AccountManagement.PrincipalContext "Domain", "acme.local", "CN=Users, DC=acme, DC=local"
+
+# Only uncomment the remainder of this line if Octopus is scoped to a specific container.
+$principalContext = new-object -TypeName System.DirectoryServices.AccountManagement.PrincipalContext "Domain", "acme.local"#, "CN=Users, DC=acme, DC=local"
+
 $principal = [System.DirectoryServices.AccountManagement.UserPrincipal]::FindByIdentity($principalContext, "ExampleUser")
 # Get Authorized Users Groups. This reads inherited groups but fails in some situations based on security and configuration
 $groups = $principal.GetAuthorizationGroups()
@@ -67,9 +70,13 @@ $principalContext.Dispose()
 Notes:
 
 - Ensure you replace the domain name ``acme.local`` with the appropriate value for you network.
-- Ensure you replace the active directory container string ``CN=Users, DC=acme, DC=local`` with the appropriate value for your network. If you're not sure of this value, we'd suggest talking to your network team (active directory expert) or trying different values and testing it w/ the script. For additional help on building/finding your container string, this StackOverflow answer is excellent. [http://serverfault.com/a/130556](http://serverfault.com/a/130556)
 - Ensure you replace the domain user name ``ExampleUser`` with a sample Octopus username who would normally log into the system.
 - It's recommended that you run this script as the same user you're running the Octopus service under and on the same server so it reproduces the problem accurately.
+
+If specifing a container.
+- Ensure you replace the active directory container string ``CN=Users, DC=acme, DC=local`` with the appropriate value for your network. If you're not sure of this value, we suggest talking to your network team (active directory expert) or trying different values and testing it with the script. For additional help on building/finding your container string, this StackOverflow answer is excellent. [http://serverfault.com/a/130556](http://serverfault.com/a/130556)
+
+See the following documentation page for further information on configuring Octopus to use a [specific Active Directory contianer](https://octopus.com/docs/how-to/specifying-a-custom-container-to-use-for-ad-authentication).
 
 Similarly, the following script duplicates the logic we use to search for groups (when you're trying to find one to add to a Team).
 

@@ -1,7 +1,7 @@
 ---
-title: Run steps in parallel
+title: Run Steps in Parallel
 description: Running deployment steps in parallel can help reduce your deployment times.
-position: 24
+position: 13
 ---
 
 In Octopus 2.6 we added support to run steps in parallel. Before this feature, if you wanted to deploy many packages to different servers, you had to wait for step to finish before another one could start. By being able to run steps in parallel you can cut down your deployment time considerably in some scenarios.

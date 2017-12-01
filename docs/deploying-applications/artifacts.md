@@ -1,7 +1,7 @@
 ---
 title: Artifacts
 description: Artifacts in Octopus provide a convenient way to collect files from remote machines during deployments.
-position: 25
+position: 19
 ---
 
 Artifacts in Octopus provide a convenient way to collect files from remote machines, and copy them to the Octopus server, where they can then be viewed from the web interface. Examples of where artifacts may be useful are:
