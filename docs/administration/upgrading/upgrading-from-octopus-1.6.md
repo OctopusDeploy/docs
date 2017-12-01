@@ -5,7 +5,7 @@ position: 1
 ---
 
 :::problem
-You will not be able to upgrade from Octopus 1.6 to Octopus 3.0 directly. If you are running a version of Octopus prior to 2.0, use this guide to upgrade from 1.6 to 2.6, then follow the [guide to upgrade from 2.6 to 3.0](/docs/administration/upgrading/upgrading-from-octopus-2.6/index.md).
+You will not be able to upgrade directly from Octopus 1.6 to the latest version of Octopus. If you are running a version of Octopus prior to 2.0, use this guide to upgrade from 1.6 to 2.6, then follow the [guide to upgrade from 2.6 to the latest version of Octopus](/docs/administration/upgrading/upgrading-from-octopus-2.6/index.md).
 :::
 
 A **lot** changed between Octopus 1.6 and Octopus 2.0; so much that we had to to handle upgrades differently to the way we handle upgrades from, say, 1.5 to 1.6. This page will walk you through the process of upgrading an Octopus 1.6 instance to Octopus 2.0. Rather than being an in-place upgrade, Octopus 2.0 is designed to be a **side-by-side** upgrade.
