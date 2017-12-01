@@ -16,7 +16,7 @@ Upgrading to newer versions of Octopus is only possible from Octopus 2.6.x; if y
 When upgrading to newer versions of Octopus please use the latest version available. We have been constantly improving the data migration process whilst adding new features and fixing bugs.
 :::
 
-# Planning your upgrade
+## Planning your upgrade
 
 There are two main parts to the upgrade:
 
@@ -28,23 +28,23 @@ We recommend choosing from two different approaches for upgrading from Octopus 2
 - Create a new Octopus Server and migrate to it. We recommend this approach.
 - Install over the top of your existing Octopus Server.
 
-## Approach 1: Install the new version of Octopus on a new server, and migrate to it (recommended) {#UpgradingfromOctopus2.6-Approach1:Install3.xonanewserver,andmigratetoit(recommended)}
+### Approach 1: Install the new version of Octopus on a new server, and migrate to it (recommended) {#UpgradingfromOctopus2.6-Approach1:Install3.xonanewserver,andmigratetoit(recommended)}
 
 If you are able to provision a new Octopus server, this is the safest option. That way, if something goes wrong in the upgrade, it will be easy to discard the new server and start the process again. And when it works, you can decommission the old Octopus server.
 
 Read the full guide: [Upgrade with a new Server instance](/docs/administration/upgrading/upgrading-from-octopus-2.6/upgrade-with-a-new-3.0-server-instance.md)
 
-## Approach 2: In-place (over the top) upgrade of an existing server {#UpgradingfromOctopus2.6-Approach2:In-place(overthetop)upgradeofanexistingserver}
+### Approach 2: In-place (over the top) upgrade of an existing server {#UpgradingfromOctopus2.6-Approach2:In-place(overthetop)upgradeofanexistingserver}
 
 It is possible to install newer versions of Octopus over the top of a 2.6 instance. You'll upgrade the Tentacles, then upgrade the Octopus server.
 
 Read the full guide: [In place (over the top) upgrade](/docs/administration/upgrading/upgrading-from-octopus-2.6/in-place-upgrade-install-over-2.6.md)
 
-# Upgrading your existing Tentacles {#tentacles}
+## Upgrading your existing Tentacles {#tentacles}
 
 We have significantly change the communications protocol used by Tentacle. This means your 2.6 Tentacles won't be able to communicate to your new Octopus Server. Likewise, new Tentacles won't be able to communicate with your old Octopus Server. Once you upgrade, going back can be difficult. Please take time to plan your upgrade carefully using this guide.
 
-## Smaller installations
+### Small number of Tentacles
 
 > "I have an Octopus server and a handful of Tentacles. I don't mind manually running the new Tentacle MSI's on each of my Tentacle machines."
 
@@ -52,7 +52,7 @@ If you only have a small number of Tentacles, it's easiest to just download the 
 
 Read the full guide: [Manual upgrades for smaller instances](/docs/administration/upgrading/upgrading-from-octopus-2.6/manual-upgrade.md)
 
-## Larger installations {#UpgradingfromOctopus2.6-Largerinstallations}
+### Lots of Tentacles {#UpgradingfromOctopus2.6-Largerinstallations}
 
 > "I have lots of Tentacles; there's no way I'm manually updating them all!"
 
