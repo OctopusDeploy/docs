@@ -21,31 +21,8 @@ N.B. The delete-instance command will not actually delete any files, just the Re
 
 A PowerShell script showing the steps is set out below. You need to change the variables to match your Octopus installation, and you may wish to run each step separately to deal with any issues like locked files.
 
-```powershell
-$oldHome = "C:\Octopus"
-$newHome = "C:\YourNewHomeDir"
-$octopus = "C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe"
-$newConfig = $newHome + "\OctopusServer.config"
-& "$octopus" service --stop
-mv $oldHome $newHome
+!partial <serverscript>
 
-& "$octopus" delete-instance --instance=OctopusServer
-& "$octopus" create-instance --instance=OctopusServer --config=$newConfig
-
-& "$octopus" configure --home="$newHome"
-
-# You also want to update the path to your artifacts, logs and internal nuget repository when moving your home directory
-# The following path updates only update the paths, if you want to keep your existing artifacts and logs make sure you copy them to the new location 
-$nugetPath = $newHome + "\Packages"
-$artifactPath = $newHome + "\Artifacts"
-$taskLogs = $newHome + "\TaskLogs"
-& "$octopus" path --nugetRepository="$nugetPath"
-& "$octopus" path --artifacts="$artifactPath"
-& "$octopus" path --taskLogs="$taskLogs"
-
-& "$octopus" service --start
-```
- 
 ## Move the Tentacle Home and Application folders {#MovetheOctopusHomefolderandtheTentacleHomeandApplicationfolders-MovetheTentacleHomeandApplicationfolders}
 
 Occasionally it may be necessary to change the location at which a Tentacle stores its data (called the "Tentacle Home" and "Tentacle Applications" folder) as well as the Registry Key which defines the Tentacle instance. This can be done using the command-line on the Tentacle server.
