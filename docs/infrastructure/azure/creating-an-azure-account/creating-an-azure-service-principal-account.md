@@ -94,6 +94,16 @@ Using the PowerShell script in option 1, you can specify the expiry date by addi
 Using option 2, the Azure portal will allow you to select the expiry time when creating the key. 
 :::
 
+## Note on least privilege
+
+In the PowerShell example above the service principal is assigned the `Contributor` role on the subscription. This isn't always the best idea, you might want to apply a principle of least privilege to the access the service principal has. If that is the case then there are a couple of things worth noting.
+
+Firstly, you might want to constrain the service principal to a single resource group, in which case you just need to assign it the `Contributor` role on the resource group.
+
+Next you might want to get even more granular and constrain the service principal to a single resource, e.g. a Web App. **In this case you have to assign the `Contributor` role on the Web App and also explicitly assign the `Reader` role on the subscription itself**.
+
+The reason behind this is to do with the way Octopus queries for the web app resources in Azure. In order to be able to handle scenarios where ASEs are being used, Octopus first queries the resource groups and then queries for the web apps within each resource group. When the service principal is assigned `Contributor` on a resource group it seems to implicitly get `Reader` on the subscription, but this doesn't seem to be the case when `Contributor` is assigned directly to a web app and you have to assign `Reader` explicitly.
+
 ## Step 2: Allow Octopus to Authenticate with Azure using a Service Principal {#CreatinganAzureServicePrincipalAccount-authenticate-with-service-principalStep2:AllowOctopustoauthenticatewithAzureusingaServicePrincipal}
 
 !partial <add>
