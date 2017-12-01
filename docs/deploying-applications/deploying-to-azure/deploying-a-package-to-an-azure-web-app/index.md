@@ -119,7 +119,7 @@ We have written about these options in detail in [our blog](https://octopus.com/
 
 ## Step 2: Create an Azure Account {#DeployingapackagetoanAzureWebApp-Step2:CreateanAzureAccount}
 
-If you haven't already, create an [Azure Account](/docs/infrastructure/azure.md) to grant Octopus Deploy access to your Azure Subscription.
+If you haven't already, create an [Azure Account](/docs/infrastructure/azure/index.md) to grant Octopus Deploy access to your Azure Subscription.
 
 ## Step 3: Create the Azure Web App deployment step {#DeployingapackagetoanAzureWebApp-Step3:CreatetheAzureWebAppdeploymentstep}
 
@@ -137,7 +137,7 @@ If you choose to run this step on behalf of target roles (maybe you are deployin
 
 | Setting                     | Default     | Description                              |
 | --------------------------- | ----------- | ---------------------------------------- |
-| **Account**                 |             | The [Azure Account](/docs/infrastructure/azure.md) you want to target when deploying this web app. Select one from the list, or use a [variable binding](/docs/deploying-applications/variables/binding-syntax.md) to select an account by its name or ID. |
+| **Account**                 |             | The [Azure Account](/docs/infrastructure/azure/index.md) you want to target when deploying this web app. Select one from the list, or use a [variable binding](/docs/deploying-applications/variables/binding-syntax.md) to select an account by its name or ID. |
 | **Web App**                 |             | The actual web app you want to target. Select one from the list, or use a [variable binding](/docs/deploying-applications/variables/binding-syntax.md) to define the name of the web app. |
 | **Physical Path**           |             | The physical path relative to site root on the web app host. e.g. 'foo' will deploy to 'site\wwwroot\foo'. Leave blank to deploy to root. |
 | **Remove additional files** | *False*     | When *True* instructs Web Deploy to delete files from the destination that aren't in the source package |
@@ -157,7 +157,7 @@ The following features are available when deploying a package to an Azure Web Ap
 - [Custom Scripts](/docs/deploying-applications/custom-scripts/index.md)
 - [Configuration Variables](/docs/deploying-applications/configuration-files/index.md)
 - [Configuration Transforms](/docs/deploying-applications/configuration-files/index.md)
-- [JSON configuration variables](/docs/guides/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md)
+- [JSON configuration variables](/docs/deploying-applications/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md)
 - [Substitute variables in files](/docs/reference/variable-substitution-syntax.md)
 
 :::hint
@@ -165,7 +165,7 @@ Please note these features actually run on the Octopus Server prior to executing
 :::
 
 :::hint
-For your convenience the PowerShell session for your [custom scripts](/docs/deploying-applications/custom-scripts/index.md) will have the Azure PowerShell module loaded, and the subscription from the account associated with the target will be selected. This means you don't have to worry about loading the Azure PowerShell module nor authenticate with Azure yourself. See the [Azure Powershell documentation](/docs/guides/azure-deployments/running-azure-powershell/index.md) for more information. You can write very straightforward scripts like the example below which is from our [guide on using deployment slots with Azure Web Apps](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps.md):
+For your convenience the PowerShell session for your [custom scripts](/docs/deploying-applications/custom-scripts/index.md) will have the Azure PowerShell module loaded, and the subscription from the account associated with the target will be selected. This means you don't have to worry about loading the Azure PowerShell module nor authenticate with Azure yourself. See the [Azure Powershell documentation](/docs/deploying-applications/azure-deployments/running-azure-powershell/index.md) for more information. You can write very straightforward scripts like the example below which is from our [guide on using deployment slots with Azure Web Apps](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps.md):
 
 ```powershell
 #Swap the staging slot into production

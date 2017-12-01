@@ -95,6 +95,28 @@ The `Private key filename` field is used to define the location of the private k
 
 The `Public key filename` field is used to define the location of the public certificate. If left blank, the public certificate file will be created with a unique filename in the `CATALINA_BASE/conf` directory, and the filename will be based on the certificate subject. If specified, a certificate file will be created at the specified location, overwriting any existing file. Any value entered for the filename must be an absolute path.
 
+## Multiple Certificate Types
+In Tomcat 8.5 and above, [multiple certificates](https://octopus.com/blog/mixing-keys-in-tomcat) can be assigned to a single port. This is most useful for assigning a RSA and a ECDSA certificate, and allowing the client to select the most secure option.
+
+When exporting a certificate from Octopus to Tomcat 8.5+, the type of certificate is automatically determined, and multiple certificates of different types can be assigned to the same port.
+
+For example, if you had both an RSA and a ECDSA certificate managed by Octopus, and you had two `Deploy a certificate to Tomcat` steps that deployed each certificate to the same Tomcat 8.5+ instance and the same port, you would end up with a configuration that looks like this:
+
+```xml
+<Connector SSLEnabled="true" port="8443" protocol="org.apache.coyote.http11.Http11AprProtocol">
+  <SSLHostConfig>
+    <Certificate certificateFile="${catalina.base}/conf/ecdsa.crt" certificateKeyFile="${catalina.base}/conf/ecdsa.key" type="EC"/>
+    <Certificate certificateFile="${catalina.base}/conf/rsa.crt" certificateKeyFile="${catalina.base}/conf/rsa.key" type="RSA"/>
+  </SSLHostConfig>
+</Connector>
+```
+
+:::hint
+Although the example above uses the `APR` protocol, any protocol can be used to deploy multiple certificate types.
+:::
+
+With this configuration, newer browsers would select the ECDSA certificate, while older browsers may fall back to the RSA certificate.
+
 ## Configuration File Backups
 
 Before any change is made to the `server.xml` file, it is saved to the `octopus_backup.zip` archive. This archive can be used to restore previous versions of the `server.xml` file.

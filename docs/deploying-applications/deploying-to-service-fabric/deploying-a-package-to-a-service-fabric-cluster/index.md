@@ -61,7 +61,7 @@ The following features are available when deploying a package to a Service Fabri
 - [Custom Scripts](/docs/deploying-applications/custom-scripts/index.md)
 - [Configuration Variables](/docs/deploying-applications/configuration-files/index.md)
 - [Configuration Transforms](/docs/deploying-applications/configuration-files/index.md)
-- [JSON configuration variables](/docs/guides/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md)
+- [JSON configuration variables](/docs/deploying-applications/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md)
 - [Substitute variables in files](/docs/reference/variable-substitution-syntax.md)
 
 :::hint
@@ -78,7 +78,7 @@ Deployment to a Service Fabric cluster proceeds as follows (more details provide
 6. [Substitute variables in files](/docs/deploying-applications/substitute-variables-in-files.md) (if configured)
 7. [XML configuration transformations](/docs/deploying-applications/configuration-files/index.md) (if configured) are performed
 8. [XML configuration variables](/docs/deploying-applications/configuration-files/index.md) (if configured) are replaced
-8. [JSON configuration variables](/docs/guides/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md) (if configured) are replaced
+8. [JSON configuration variables](/docs/deploying-applications/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md) (if configured) are replaced
 9. Any configured or package `Deploy` scripts are executed
 10. Generic variable substitution is carried out across all `*.config` and `*.xml` files in the extracted package
 11. Execute the Service Fabric application deployment script (see 'Customizing the deployment process' section below)

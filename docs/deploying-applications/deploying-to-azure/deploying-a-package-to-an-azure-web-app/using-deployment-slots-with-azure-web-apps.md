@@ -21,7 +21,7 @@ Here we will give an example of how to setup a Blue-Green deployment for an Azur
 
 ### Step 1: Create Staging Slot {#UsingDeploymentSlotswithAzureWebApps-Step1:CreateStagingSlot}
 
-Create a [Run an Azure PowerShell Script](/docs/guides/azure-deployments/running-azure-powershell/index.md) step.
+Create a [Run an Azure PowerShell Script](/docs/deploying-applications/azure-deployments/running-azure-powershell/index.md) step.
 
 ![](azure-powershell-script-step.png "width=500")
 

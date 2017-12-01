@@ -17,7 +17,7 @@ An Azure cloud service package is normally compiled into a `.cspkg` file. This
 
 ## Step 2: Create an Azure Account {#DeployingapackagetoanAzureCloudService-Step2:CreateanAzureAccount}
 
-If you haven't already, create an [Azure Subscription Account](/docs/infrastructure/azure.md) to grant Octopus Deploy access to your Azure Subscription.
+If you haven't already, create an [Azure Subscription Account](/docs/infrastructure/azure/index.md) to grant Octopus Deploy access to your Azure Subscription.
 
 ## Step 3: Create the Azure Cloud Service deployment step {#DeployingapackagetoanAzureCloudService-Step3:CreatetheAzureCloudServicedeploymentstep}
 
@@ -31,7 +31,7 @@ Once an Account is selected, the list of Cloud Services and Storage Accounts ava
 
 | Setting         | Default | Description                              |
 | --------------- | ------- | ---------------------------------------- |
-| Account         |         | The [Azure Account](/docs/infrastructure/azure.md) you want to  target when deploying this cloud service. Select one from the list, or use a [variable binding](/docs/deploying-applications/variables/binding-syntax.md) to select an account by its name or ID. |
+| Account         |         | The [Azure Account](/docs/infrastructure/azure/index.md) you want to  target when deploying this cloud service. Select one from the list, or use a [variable binding](/docs/deploying-applications/variables/binding-syntax.md) to select an account by its name or ID. |
 | Cloud Service   |         | The actual cloud service you want to target. Select one from the list, or use a [variable binding](/docs/deploying-applications/variables/binding-syntax.md) to define the name of the cloud service. |
 | Storage Account |         | The Azure Storage Account where the Cloud Service Package (`*.cspkg`) file will be pushed in order to be deployed. |
 | Slot            |         | You can choose to deploy to either the Staging or Production slot. |
@@ -50,7 +50,7 @@ The following features are available when deploying a package to an Azure Cloud 
 - [Custom Scripts](/docs/deploying-applications/custom-scripts/index.md)
 - [Configuration Variables](/docs/deploying-applications/configuration-files/index.md)
 - [Configuration Transforms](/docs/deploying-applications/configuration-files/index.md)
-- [JSON configuration variables](/docs/guides/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md)
+- [JSON configuration variables](/docs/deploying-applications/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md)
 - [Substitute variables in files](/docs/reference/variable-substitution-syntax.md)
 
 :::hint
@@ -58,7 +58,7 @@ Please note these features actually run on the Octopus Server prior to deploying
 :::
 
 :::hint
-For your convenience the PowerShell session for your [custom scripts](/docs/deploying-applications/custom-scripts/index.md) will have the Azure PowerShell module loaded, and the subscription from the account associated with the target will be selected. This means you don't have to worry about loading the Azure PowerShell module nor authenticate with Azure yourself. See the [Azure Powershell documentation](/docs/guides/azure-deployments/running-azure-powershell/index.md) for more information. You can write very straightforward scripts like the example below:
+For your convenience the PowerShell session for your [custom scripts](/docs/deploying-applications/custom-scripts/index.md) will have the Azure PowerShell module loaded, and the subscription from the account associated with the target will be selected. This means you don't have to worry about loading the Azure PowerShell module nor authenticate with Azure yourself. See the [Azure Powershell documentation](/docs/deploying-applications/azure-deployments/running-azure-powershell/index.md) for more information. You can write very straightforward scripts like the example below:
 
 ```powershell
 #Swap the staging slot into production

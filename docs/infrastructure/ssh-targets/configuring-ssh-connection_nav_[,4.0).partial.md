@@ -1,0 +1,1 @@
+Begin by clicking 'Add deployment target' from the environments page.

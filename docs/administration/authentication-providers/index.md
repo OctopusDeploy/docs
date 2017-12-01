@@ -15,9 +15,10 @@ Octopus.Server.exe configure --usernamePasswordIsEnabled=true
 Octopus.Server.exe configure --activeDirectoryIsEnabled=true
 Octopus.Server.exe configure --azureADIsEnabled=true
 Octopus.Server.exe configure --googleAppsIsEnabled=true
+Octopus.Server.exe configure --oktaAppsIsEnabled=true
 ```
 
-The webAuthenticationMode parameter for the configure command is still supported, but can only be used to enable either the UsernamePassword or Active Directory provider.  The important difference is that all other provides will be disabled when you use this parameter, i.e. if you use webAuthenticationMode=Domain, then the Active Directory provider will be enabled and all other providers will be disabled.
+!partial <webauthenticationmode>
 
 :::success
 **No authentication providers enabled?**
