@@ -18,7 +18,7 @@ Octopus 3.7 introduced integration with the Community Library and community cont
 
 Installing a community step template into Octopus is quick and easy.
 
-- [Install and add a community step template directly from your project's deployment process](/docs/deploying-applications/deployment-process/steps#Addingsteps-Addingacommunitycontributedsteptemplates)
+- [Install and add a community step template directly from your project's deployment process](/docs/deploying-applications/deployment-process/steps.md#Addingsteps-Addingacommunitycontributedsteptemplates)
 - [Install a step template from the **Step templates** tab within the **Library** area](/docs/deploying-applications/step-templates/community-step-templates.md#StepTemplates-InstallingasteptemplatefromtheCommunityLibrary)
 - [Manually import a step template from the **Step templates** tab within the **Library** area](/docs/deploying-applications/step-templates/community-step-templates.md#StepTemplates-ImportingasteptemplatefromtheCommunityLibrary)
 
