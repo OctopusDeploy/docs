@@ -137,8 +137,8 @@ If you choose to run this step on behalf of target roles (maybe you are deployin
 
 | Setting                     | Default     | Description                              |
 | --------------------------- | ----------- | ---------------------------------------- |
-| **Account**                 |             | The [Azure Account](/docs/infrastructure/azure/index.md) you want to target when deploying this web app. Select one from the list, or use a [variable binding](/docs/deploying-applications/variables/binding-syntax.md) to select an account by its name or ID. |
-| **Web App**                 |             | The actual web app you want to target. Select one from the list, or use a [variable binding](/docs/deploying-applications/variables/binding-syntax.md) to define the name of the web app. |
+| **Account**                 |             | The [Azure Account](/docs/infrastructure/azure/index.md) you want to target when deploying this web app. Select one from the list, or use a [variable binding](/docs/deploying-applications/deployment-process/variables/binding-syntax.md) to select an account by its name or ID. |
+| **Web App**                 |             | The actual web app you want to target. Select one from the list, or use a [variable binding](/docs/deploying-applications/deployment-process/variables/binding-syntax.md) to define the name of the web app. |
 | **Physical Path**           |             | The physical path relative to site root on the web app host. e.g. 'foo' will deploy to 'site\wwwroot\foo'. Leave blank to deploy to root. |
 | **Remove additional files** | *False*     | When *True* instructs Web Deploy to delete files from the destination that aren't in the source package |
 | **Preserve App\_Data**      | *False*     | When *True* instructs Web Deploy to skip Delete operations in the **App\_Data** directory |

@@ -90,7 +90,7 @@ Learn more about [adding steps](/docs/deploying-applications/deployment-process/
 
 As you deploy your applications, you'll need to change their configuration files based on the scope of the deployment. Octopus has advance support for managing and scoping variables. 
 
-Learn more about [variables](/docs/deploying-applications/variables/index.md).
+Learn more about [variables](/docs/deploying-applications/deployment-process/variables/index.md).
 
 ### Releases
 

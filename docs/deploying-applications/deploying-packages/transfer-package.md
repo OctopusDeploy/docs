@@ -21,7 +21,7 @@ This package will be transferred to the target during the package acquisition ph
 
 ## Output Variables {#TransferPackage-OutputVariables}
 
-Since the Transfer a Package step has been kept simple by-design, most deployments will probably want to use the transferred package for some further processing. For this purpose, the following [output variables](/docs/deploying-applications/variables/output-variables.md) are generated for access by subsequent steps.
+Since the Transfer a Package step has been kept simple by-design, most deployments will probably want to use the transferred package for some further processing. For this purpose, the following [output variables](/docs/deploying-applications/deployment-process/variables/output-variables.md) are generated for access by subsequent steps.
 
 - `Octopus.Action[StepName].Output.Package.DirectoryPath`- The directory the package was transferred to
 - `Octopus.Action[StepName].Output.Package.FileName` - The name of the package
