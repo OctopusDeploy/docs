@@ -132,7 +132,7 @@ docs/guides/azure-deployments/web-apps/web-app-concepts.md -> docs/deploying-app
 docs/deploying-applications/projects/index.md -> docs/deploying-applications/deployment-process/projects/index.md
 docs/deploying-applications/projects/channels.md -> docs/deploying-applications/deployment-process/projects/channels.md
 docs/deploying-applications/projects/project-groups.md -> docs/deploying-applications/deployment-process/projects/index.md
-docs/deploying-applications/projects/project-triggers.md -> docs/deploying-applications/deployment-process/projects-triggers.md
+docs/deploying-applications/projects/project-triggers.md -> docs/deploying-applications/deployment-process/projects/projects-triggers.md
 docs/deploying-applications/projects/reporting.md -> docs/deploying-applications/deployment-process/projects/reporting.md
 docs/deploying-applications/projects/releases.md -> docs/deploying-applications/deployment-process/projects/releases.md 
 docs/deploying-applications/projects/lifecycles/index.md -> docs/deploying-applications/deployment-process/projects/lifecycles/index.md
