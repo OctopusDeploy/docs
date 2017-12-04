@@ -123,7 +123,7 @@ If you haven't already, create an [Azure Account](/docs/infrastructure/azure/i
 
 ## Step 3: Create the Azure Web App deployment step {#DeployingapackagetoanAzureWebApp-Step3:CreatetheAzureWebAppdeploymentstep}
 
-1. Add a new 'Deploy an Azure Web App' step to your project. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/adding-steps.md) section. 
+1. Add a new 'Deploy an Azure Web App' step to your project. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/deployment-process/steps.md) section. 
 
 ![](/docs/images/5671696/5865899.png "width=170")
 

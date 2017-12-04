@@ -22,7 +22,7 @@ Each part of a package step is [executed in a specific order](/docs/reference/pa
 
 ## Adding a package step {#Deployingpackages-Addingapackagestep}
 
-When adding a step to your deployment process, choose the **Deploy a Package** option. For more information, see the [add step](/docs/deploying-applications/adding-steps.md) section.
+When adding a step to your deployment process, choose the **Deploy a Package** option. For more information, see the [add step](/docs/deploying-applications/deployment-process/steps.md) section.
 
 ![](/docs/images/5671696/5865908.png "width=170")
 

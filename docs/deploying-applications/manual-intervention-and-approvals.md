@@ -15,7 +15,7 @@ To support these scenarios, you can add **Manual Steps** to your deployment proc
 
 ## Adding manual steps {#Manualinterventionandapprovals-Addingmanualsteps}
 
-Manual steps are one of the step types that appear when you click **Add step** on the **Process** tab of your project. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/adding-steps.md) section.
+Manual steps are one of the step types that appear when you click **Add step** on the **Process** tab of your project. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/deployment-process/steps.md) section.
 
 ![](/docs/images/5671696/5865911.png "width=170")
 
