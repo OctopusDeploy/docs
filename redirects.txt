@@ -136,7 +136,7 @@ docs/deploying-applications/projects/project-triggers.md -> docs/deploying-appli
 docs/deploying-applications/projects/reporting.md -> docs/deploying-applications/deployment-process/projects/reporting.md
 docs/deploying-applications/projects/releases.md -> docs/deploying-applications/deployment-process/projects/releases.md 
 docs/deploying-applications/projects/lifecycles/index.md -> docs/deploying-applications/deployment-process/projects/lifecycles/index.md
-docs/deploying-applications/adding-steps.md -> docs/deploying-applications/deployment-process/steps.md
+docs/deploying-applications/adding-steps.md -> docs/deploying-applications/deployment-process/steps/index.md
 docs/deploying-applications/projects/deployment-processes.md -> docs/deploying-applications/deployment-process/index.md
 docs/deploying-applications/variables/index.md -> docs/deploying-applications/deployment-process/variables/index.md
 docs/deploying-applications/variables/binding-syntax.md -> docs/deploying-applications/deployment-process/variables/binding-syntax.md
