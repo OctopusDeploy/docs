@@ -42,7 +42,7 @@ To ensure that a machine which has been skipped is kept up to date, consider [ke
 In this example, OctoFX will deploy to **RateServer** and then run a Health Check step before it deploys to **TradingWebServer**, ensuring that only currently available targets are involved in the deployment.
 
 1. Navigate to the OctoFX project process page
-2. Select **Add Step** and then select **Health check**. For more information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/deployment-process/steps.md) section. 
+2. Select **Add Step** and then select **Health check**. For more information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/deployment-process/steps/index.md) section. 
 
    ![](/docs/images/5671696/5865910.png "width=170")
 

@@ -148,3 +148,8 @@ docs/deploying-applications/variables/scoping-variables.md -> docs/deploying-app
 docs/deploying-applications/variables/sensitive-variables.md -> docs/deploying-applications/deployment-process/variables/sensitive-variables.md
 docs/deploying-applications/variables/system-variables.md -> docs/deploying-applications/deployment-process/variables/system-variables.md
 docs/deploying-applications/variables/variable-templates.md -> docs/deploying-applications/deployment-process/variables/variable-templates.md
+docs/deploying-applications/step-templates/index.md -> docs/deploying-applications/deployment-process/steps/index.md
+docs/deploying-applications/step-templates/community-step-templates.md -> docs/deploying-applications/deployment-process/steps/community-step-templates.md
+docs/deploying-applications/step-templates/custom-step-templates.md -> docs/deploying-applications/deployment-process/steps/custom-step-templates.md
+docs/deploying-applications/step-templates/exporting-step-templates.md -> docs/deploying-applications/deployment-process/steps/exporting-step-templates.md
+docs/deploying-applications/step-templates/updating-step-templates.md -> docs/deploying-applications/deployment-process/steps/updating-step-templates.md

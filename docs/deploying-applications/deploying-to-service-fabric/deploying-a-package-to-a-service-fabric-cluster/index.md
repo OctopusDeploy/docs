@@ -25,7 +25,7 @@ Package your Service Fabric application. See our guide to [Packaging a Service F
 
 ## Step 3: Create the Service Fabric application deployment step
 
-Add a new Service Fabric application deployment step to your project. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/deployment-process/steps.md) section.  
+Add a new Service Fabric application deployment step to your project. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/deployment-process/steps/index.md) section.  
 
 ## Step 4: Configure the connection to your Service Fabric application
 

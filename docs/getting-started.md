@@ -84,7 +84,7 @@ Octopus Deploy provides a range of steps that can be included in your deployment
 
 In addition to the built-in steps, there are also community contributed steps.
 
-Learn more about [adding steps](/docs/deploying-applications/deployment-process/steps.md).
+Learn more about [adding steps](/docs/deploying-applications/deployment-process/steps/index.md).
 
 ### Variables
 

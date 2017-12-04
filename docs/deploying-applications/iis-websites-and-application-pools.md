@@ -6,7 +6,7 @@ position: 25
 
 Configuring IIS is an essential part of deploying any ASP.NET web application. Octopus has built-in support for configuring IIS Web Sites, Applications and Virtual Directories.
 
-To deploy to IIS, add a *Deploy to IIS* step. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/deployment-process/steps.md) section.
+To deploy to IIS, add a *Deploy to IIS* step. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/deployment-process/steps/index.md) section.
 
 ![](iis-step.png "width=170")
 
@@ -131,4 +131,4 @@ the deployment is being performed. It recycles the App Pool, releasing any file 
 
 This can be done by including an `app_online.htm` file in your website and then renaming it to `app_offline.htm` at the 
 start of the deployment. This can be done via a script or the `IIS - Change App Offline` step in the 
-[community library](/docs/deploying-applications/step-templates/community-step-templates.md).
+[community library](/docs/deploying-applications/deployment-process/steps/community-step-templates.md).

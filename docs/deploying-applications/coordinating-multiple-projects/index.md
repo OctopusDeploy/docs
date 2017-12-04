@@ -25,7 +25,7 @@ The simplest trigger is a periodic timer setup through a Windows schedules task,
 
 Octopus 3.5 introduced [subscriptions](/docs/administration/subscriptions.md), which can call a web service or send an email when Octopus events occur.
 
-The event can also be a script step in a project. If the script is defined as a [step template](/docs/deploying-applications/step-templates/index.md) it can be  shared among the related projects. However it is difficult to ensure that two copies of the script do not run at the same time.
+The event can also be a script step in a project. If the script is defined as a [step template](/docs/deploying-applications/deployment-process/steps/index.md) it can be  shared among the related projects. However it is difficult to ensure that two copies of the script do not run at the same time.
 
 ## Orchestrating the deployment of multiple projects {#CoordinatingMultipleProjects-Orchestratingthedeploymentofmultipleprojects}
 

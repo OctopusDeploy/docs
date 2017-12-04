@@ -21,22 +21,28 @@ Built-in steps are powerful and flexible enough to handle the most common deploy
 
 ![](built-in-steps.png "width=500")
 
+Custom step templates enable you to encapsulate common steps/scenarios within your team or company. 
+
+Learn more about [Custom Step Templates](/docs/deploying-applications/deployment-process/steps/custom-step-templates.md).
+
 Octopus community library integration makes it easy to find steps templates that work with the frameworks and technologies you use without the need for custom scripting.
 
-![](community-steps.png "width=500") 
+Learn more about [Community Step Templates](/docs/deploying-applications/deployment-process/steps/community-step-templates.md).
 
-Custom step templates enable you to encapsulate common steps/scenarios within your team or company.  This process also applies to child steps that are a part of a [rolling deployment](/docs/patterns/rolling-deployments.md).
+![](community-steps.png "width=500") 
 
 :::hint
 Octopus community step templates integration is enabled by default but this can be changed in the **Features** tab in the **Configuration** area. For more information, see [Octopus community step templates integration](/docs/administration/octopus-community-step-templates-integration.md).
 :::
+
+Learn more about [Updating Step Templates](/docs/administration/updating-step-templates.md) and [Exporting Step Templates](/docs/administration/exporting-step-templates.md)
 
 :::success
 The [Community Library](http://library.octopusdeploy.com/) is an open source [repository](https://github.com/octopusdeploy/library/) of community contributed step templates automating a diverse set of actions.  If you still don't find what you are looking for, don't forget: Octopus can do anything, as long as you can script the instructions. Maybe you could [contribute](https://github.com/OctopusDeploy/Library/blob/master/CONTRIBUTING.md) your scripts back to the community?
 :::
 
 :::hint
-Prior to Octopus 3.7, selecting the add step button showed a popup list of built-in steps and any installed step templates (community contributed or custom).  Installing a community step required visiting the [Community Library](http://library.octopusdeploy.com/) and importing the step manually.  For more information, see [step templates](/docs/deploying-applications/step-templates/index.md).
+Prior to Octopus 3.7, selecting the add step button showed a popup list of built-in steps and any installed step templates (community contributed or custom).  Installing a community step required visiting the [Community Library](http://library.octopusdeploy.com/) and importing the step manually.  For more information, see [step templates](/docs/deploying-applications/deployment-process/steps/index.md).
 
 ![](/docs/images/5672131/5865901.png "width=500")
 :::
@@ -52,7 +58,7 @@ Be careful when changing names! Octopus commonly uses names as a convenient iden
 
 ## Adding an installed step {#Addingsteps-Addinganinstalledstep}
 
-The add step page displays the built-in steps first which includes common steps to deploy IIS web sites, windows services, run scripts and more.  The built-in steps have been develop by the Octopus team to handle the most common deployment scenarios and it also.  This section also includes any custom [step templates](/docs/deploying-applications/step-templates/index.md) added in the library.  Hover over a step and click add step to go configure the step.
+The add step page displays the built-in steps first which includes common steps to deploy IIS web sites, windows services, run scripts and more.  The built-in steps have been develop by the Octopus team to handle the most common deployment scenarios and it also.  This section also includes any custom [step templates](/docs/deploying-applications/deployment-process/steps/index.md) added in the library.  Hover over a step and click add step to go configure the step.
 
 ![](add-builtin-step.png "width=300")
 
@@ -77,7 +83,7 @@ Sometimes updates are available for step templates.  In this case, you will not
 ![](update-community-step-details.png "width=500")
 
 :::success
-If a step you want isn't built-in you should check out the community contributed [step templates](/docs/deploying-applications/step-templates/index.md). If you still don't find it, don't forget: *Octopus can do anything, as long as you can script the instructions*. Maybe you could contribute your scripts back to the community?
+If a step you want isn't built-in you should check out the community contributed [step templates](/docs/deploying-applications/deployment-process/steps/index.md). If you still don't find it, don't forget: *Octopus can do anything, as long as you can script the instructions*. Maybe you could contribute your scripts back to the community?
 :::
 
 ## Conditions {#Deployingapplications-Conditions}

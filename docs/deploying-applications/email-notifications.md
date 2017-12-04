@@ -22,7 +22,7 @@ You'll need to enter SMTP server settings in {{Configuration,SMTP}} before Octop
 
 ## Adding an email step {#Emailnotifications-Addinganemailstep}
 
-Email can be chosen as the step type when you click **Add Step** in your project's **Process** tab. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/deployment-process/steps.md) section.
+Email can be chosen as the step type when you click **Add Step** in your project's **Process** tab. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/deployment-process/steps/index.md) section.
 
 ![Email Step Icon](/docs/images/5671696/5865915.png "width=170")
 
