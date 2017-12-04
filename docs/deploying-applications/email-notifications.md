@@ -49,7 +49,7 @@ You can choose when to send the email notification using the same conditions as 
 
 - Send the email only for successful deployments to certain environments
 - Send a specific email for failed deployments
-- Send an email based on the value of a variable expression which works really well with [output variables](/docs/deploying-applications/variables/output-variables.md)
+- Send an email based on the value of a variable expression which works really well with [output variables](/docs/deploying-applications/deployment-process/variables/output-variables.md)
 
 ![Email Step Conditions](email-notifications-conditions.png "width=500")
 
@@ -122,5 +122,5 @@ The outcome of each step can be included using a template like the one below (Oc
 **Step error detail**
 `step.Status.Error` and `step.Status.ErrorDetail` will only display the exit code and Octopus stack trace for the error. As we cannot parse the deployment log, we can only extract the exit/error codes. It cannot show detailed information on what caused the error. For full information on what happened when the deployment fails, you will need to reference the logs.
 
-See [System variables](/docs/deploying-applications/variables/system-variables.md)
+See [System variables](/docs/deploying-applications/deployment-process/variables/system-variables.md)
 :::

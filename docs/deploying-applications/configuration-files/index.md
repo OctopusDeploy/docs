@@ -12,7 +12,7 @@ This feature can be enabled for any NuGet package step.
 
 ![](/docs/images/3048087/3277705.png "width=500")
 
-If a [variable](/docs/deploying-applications/variables/index.md) is defined in the Octopus web portal, and an **appSettings, applicationSettings** or **connectionStrings** element exists for it in any of your **.config** files, Tentacle will automatically replace the value after extracting your package.
+If a [variable](/docs/deploying-applications/deployment-process/variables/index.md) is defined in the Octopus web portal, and an **appSettings, applicationSettings** or **connectionStrings** element exists for it in any of your **.config** files, Tentacle will automatically replace the value after extracting your package.
 
 For example, suppose you have this configuration file:
 
@@ -86,7 +86,7 @@ Values are matched based on the **key** attribute for **appSettings**, and th
 
 There may be other variables you would like Octopus to replace in your configuration files that are outside both the appSettings and connectionStrings areas.
 
-There are three ways you can do this, two of which involve using [Octopus Variables](/docs/deploying-applications/variables/index.md).
+There are three ways you can do this, two of which involve using [Octopus Variables](/docs/deploying-applications/deployment-process/variables/index.md).
 
 1. Insert `#{OctopusVariables}` where you would like the replacement to happen and use the [Substitute Variables in Files](/docs/deploying-applications/substitute-variables-in-files.md) feature in the package step (see below for sample)
 2. Insert `#{OctopusVariables}` where you would like the replacement to happen and then use the [Regular Expression Find and Replace](https://library.octopusdeploy.com/step-templates/0bef8c07-5739-4030-8c04-287ceeb51153/actiontemplate-file-system-regular-expression-find-and-replace-(updated)) library template (this means you can replace any Octopus Variable in any file outside of the package step, the only distinction to the first option)
@@ -250,7 +250,7 @@ Fatal    14:56:06
 One or more errors were encountered when applying the XML configuration transformation file: e:\Octopus\Applications\MyEnv\MyApp\1.0.0.1234\Web.Release.config. View the deployment log for more details, or set the special variable Octopus.Action.Package.IgnoreConfigTranformationErrors to True to ignore this error.
 ```
 
-To suppress these errors and report them as informational only, use the `Octopus.Action.Package.IgnoreConfigTransformationErrors` variable defined in the [System Variables](/docs/deploying-applications/variables/system-variables.md) section of the documentation.
+To suppress these errors and report them as informational only, use the `Octopus.Action.Package.IgnoreConfigTransformationErrors` variable defined in the [System Variables](/docs/deploying-applications/deployment-process/variables/system-variables.md) section of the documentation.
 
 ## PowerShell {#Configurationfiles-PowerShell}
 
@@ -258,4 +258,4 @@ If these conventions aren’t enough to configure your application, you can alwa
 
 ## Troubleshooting {#Configurationfiles-Troubleshooting}
 
-If you're new to configuration transformation, first check the package(s) part of the deployment are structured and contain what you expect. Following on from that review the deployment logs and output of the package(s) on your deployment targets to get investigate any unexpected behavior. You can try using the `Octopus.Action.Package.TreatConfigTransformationWarningsAsErrors` variable defined in the [System Variables](/docs/deploying-applications/variables/system-variables.md) section of the documentation while you set it up the first time.
+If you're new to configuration transformation, first check the package(s) part of the deployment are structured and contain what you expect. Following on from that review the deployment logs and output of the package(s) on your deployment targets to get investigate any unexpected behavior. You can try using the `Octopus.Action.Package.TreatConfigTransformationWarningsAsErrors` variable defined in the [System Variables](/docs/deploying-applications/deployment-process/variables/system-variables.md) section of the documentation while you set it up the first time.

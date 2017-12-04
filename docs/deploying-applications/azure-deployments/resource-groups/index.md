@@ -57,7 +57,7 @@ Although you can use variables directly in the template, it is more idiomatic to
 Parameters marked as [secure strings](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/) represent sensitive data and it is important to make sure they aren't stored in plain text form.
 :::
 
-The field displayed when "From Octopus" option is selected stores data as plain text so sensitive data shouldn't be typed directly into it.  Instead, the value of the parameter should be provided either via a [Sensitive Variable](/docs/deploying-applications/variables/sensitive-variables.md) if the value is stored in Octopus or via [Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-keyvault-parameter/) if the value is stored outside of Octopus. Azure Resource Group Templates provide [out of the box integration with Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-keyvault-parameter/).
+The field displayed when "From Octopus" option is selected stores data as plain text so sensitive data shouldn't be typed directly into it.  Instead, the value of the parameter should be provided either via a [Sensitive Variable](/docs/deploying-applications/deployment-process/variables/sensitive-variables.md) if the value is stored in Octopus or via [Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-keyvault-parameter/) if the value is stored outside of Octopus. Azure Resource Group Templates provide [out of the box integration with Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-keyvault-parameter/).
 
 ![](azure-resource-group-sensitive-data.png "width=500")
 
@@ -141,7 +141,7 @@ The Parameter JSON file can be in one of two formats:
 
 ### Accessing ARM Template Output Parameters {#DeployusinganAzureResourceGroupTemplate-AccessingARMtemplateoutputparameters}
 
-Any [outputs](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/#outputs) from the ARM template step are made available as [Octopus output-variables](/docs/deploying-applications/variables/output-variables.md) automatically. For example, an output `Foo` would be available as:
+Any [outputs](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/#outputs) from the ARM template step are made available as [Octopus output-variables](/docs/deploying-applications/deployment-process/variables/output-variables.md) automatically. For example, an output `Foo` would be available as:
 
 ```powershell
 Octopus.Action[ArmTemplateStepName].Output.AzureRMOutputs[Foo]

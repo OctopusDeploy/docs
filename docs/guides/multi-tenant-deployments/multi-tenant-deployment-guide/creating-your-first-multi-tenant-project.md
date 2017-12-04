@@ -18,7 +18,7 @@ Already have a project you'd like to try out with your tenant? That's fine, just
 In this step you will build your entire environment and project structure ready for multi-tenant deployments.
 
 :::hint
-Multi-tenant deployments is an advanced deployment concept, so we expect you to be familiar with Octopus concepts like [projects](/docs/deploying-applications/deployment-process/projects/index.md), [environments](/docs/infrastructure/environments/index.md), [lifecycles](/docs/deploying-applications/deployment-process/projects/lifecycles/index.md), [variables](/docs/deploying-applications/variables/index.md) and [deploying applications](/docs/deploying-applications/index.md).
+Multi-tenant deployments is an advanced deployment concept, so we expect you to be familiar with Octopus concepts like [projects](/docs/deploying-applications/deployment-process/projects/index.md), [environments](/docs/infrastructure/environments/index.md), [lifecycles](/docs/deploying-applications/deployment-process/projects/lifecycles/index.md), [variables](/docs/deploying-applications/deployment-process/variables/index.md) and [deploying applications](/docs/deploying-applications/index.md).
 :::
 
 1. Create a new [environment](/docs/infrastructure/environments/index.md) called **MT Production** to represent your production environment for this guide. *We will create other environments later on.*

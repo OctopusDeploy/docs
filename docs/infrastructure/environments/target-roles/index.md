@@ -61,7 +61,7 @@ According to the screenshot above, our deployment process will do the following:
 
 ## Using roles with variables {#MachineRoles-Usingroleswithvariables}
 
-Variables can also be [scoped to specific roles](/docs/deploying-applications/variables/index.md). This means that the variable will take the specified value only when it is used on a deployment step that runs on a Tentacle with the specified role. This feature can be really handy when you want to use the same variable name multiple times and have their values changed depending on the Tentacle they are running on.
+Variables can also be [scoped to specific roles](/docs/deploying-applications/deployment-process/variables/index.md). This means that the variable will take the specified value only when it is used on a deployment step that runs on a Tentacle with the specified role. This feature can be really handy when you want to use the same variable name multiple times and have their values changed depending on the Tentacle they are running on.
 
 Let’s say you have the following Tentacles with their respective roles:
 

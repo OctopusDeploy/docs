@@ -4,7 +4,7 @@ description: Package steps have a feature that allows you to replace variables 
 position: 10
 ---
 
-Package steps have a feature that allows you to replace [Octopus Variables](/docs/deploying-applications/variables/index.md) in any file. This comes in handy when you want to replace variables in configuration files outside of **appSettings**, **applicationSettings**, and **connectionStrings**, but also for other configuration that is related to scoping and deployments.
+Package steps have a feature that allows you to replace [Octopus Variables](/docs/deploying-applications/deployment-process/variables/index.md) in any file. This comes in handy when you want to replace variables in configuration files outside of **appSettings**, **applicationSettings**, and **connectionStrings**, but also for other configuration that is related to scoping and deployments.
 
 Turning on the feature can be done inside the NuGet package step under 'Configure Features'.
 

@@ -8,7 +8,7 @@ Most applications require some kind of configuration values that are considered 
 
 ## Configuring sensitive variables {#Sensitivevariables-Configuringsensitivevariables}
 
-Variables such as passwords or API keys can be marked as being **sensitive**. Just like non-sensitive variables they can [reference other variables](docs/deploying-applications/variables/binding-syntax.md#Bindingsyntax-Referencingvariablesinstepdefinitions) but be careful with any part of your sensitive variable that could [unintentionally be interpreted](docs/deploying-applications/variables/sensitive-variables.md#Sensitivevariables-Avoidingcommonmistakes-SubstituionSyntax) as an attempted substitution.
+Variables such as passwords or API keys can be marked as being **sensitive**. Just like non-sensitive variables they can [reference other variables](docs/deploying-applications/deployment-process/variables/binding-syntax.md#Bindingsyntax-Referencingvariablesinstepdefinitions) but be careful with any part of your sensitive variable that could [unintentionally be interpreted](docs/deploying-applications/deployment-process/variables/sensitive-variables.md#Sensitivevariables-Avoidingcommonmistakes-SubstituionSyntax) as an attempted substitution.
 
 ![](/docs/images/3048089/3277722.png "width=500")
 
@@ -24,7 +24,7 @@ In Octopus version 3.11.0 we added an editor to the variables value section. Sen
 Learn more about [security and encryption](/docs/reference/security-and-encryption.md) in Octopus Deploy.
 :::
 
-When dealing with sensitive variables, Octopus will encrypt these values using **AES128 encryption** any time they are in transmission, or "at rest" like when they are stored in the Octopus database or staged on a deployment target as part of a deployment. You can use these sensitive values in your deployment process just like normal [variables](/docs/deploying-applications/variables/index.md), with two notable exceptions:
+When dealing with sensitive variables, Octopus will encrypt these values using **AES128 encryption** any time they are in transmission, or "at rest" like when they are stored in the Octopus database or staged on a deployment target as part of a deployment. You can use these sensitive values in your deployment process just like normal [variables](/docs/deploying-applications/deployment-process/variables/index.md), with two notable exceptions:
 
 - Once the variable is saved, Octopus will **never allow you to retrieve the value** via the [REST API](/docs/api-and-integration/octopus-rest-api.md) or the Octopus web portal; and
 - Whenever possible, Octopus will **mask these sensitive values in logs**.
@@ -42,7 +42,7 @@ Here are some common pitfalls to avoid:
 - **Avoid short values:** only sensitive variables with length **greater than 3** characters will be masked. This is done to prevent false positives causing excessive obfuscation of the logs. Consider 8-30 characters depending on the requirements of your deployment.
 - **Avoid common language**: see the example below of "broke", use a password generator with high entropy [like this one](http://passwordsgenerator.net/).
 - **Avoid sequences that are interpreted by your scripting language of choice**: For example, certain escape sequences like `$^` will be misinterpreted by PowerShell potentially logging out your sensitive variable in clear-text.
-- **Avoid sequences that are part of the variable substitution syntax** {#Sensitivevariables-Avoidingcommonmistakes-SubstituionSyntax}: For example, the sequence `##{` will be replaced by `#{` by logic that's part of [referencing variables](docs/deploying-applications/variables/binding-syntax.md#Bindingsyntax-Referencingvariablesinstepdefinitions) so you would need to escape it by modifying it to be `###{` which will result in `##{`, see also [variable substitution syntax](docs/reference/variable-substitution-syntax.md).
+- **Avoid sequences that are part of the variable substitution syntax** {#Sensitivevariables-Avoidingcommonmistakes-SubstituionSyntax}: For example, the sequence `##{` will be replaced by `#{` by logic that's part of [referencing variables](docs/deploying-applications/deployment-process/variables/binding-syntax.md#Bindingsyntax-Referencingvariablesinstepdefinitions) so you would need to escape it by modifying it to be `###{` which will result in `##{`, see also [variable substitution syntax](docs/reference/variable-substitution-syntax.md).
 
 - **Octopus is not a 2-way key vault**: use a password manager or key vault like [KeePass](http://keepass.info/).
 
