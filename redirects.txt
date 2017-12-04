@@ -147,4 +147,4 @@ docs/deploying-applications/variables/prompted-variables.md -> docs/deploying-ap
 docs/deploying-applications/variables/scoping-variables.md -> docs/deploying-applications/deployment-process/variables/scoping-variables.md
 docs/deploying-applications/variables/sensitive-variables.md -> docs/deploying-applications/deployment-process/variables/sensitive-variables.md
 docs/deploying-applications/variables/system-variables.md -> docs/deploying-applications/deployment-process/variables/system-variables.md
-docs/deploying-applications/variables/variable-template.md -> docs/deploying-applications/deployment-process/variables/variable-template.md
+docs/deploying-applications/variables/variable-templates.md -> docs/deploying-applications/deployment-process/variables/variable-templates.md
