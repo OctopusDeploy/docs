@@ -43,4 +43,4 @@ Write-Host $OctopusParameters["MyCertificate.Thumbprint"]
 
 ### Private-Key Variables
 
-The variables which contain the private-key (if present) will be stored and transmitted as [sensitive-variables](/docs/deploying-applications/variables/sensitive-variables.md).  
+The variables which contain the private-key (if present) will be stored and transmitted as [sensitive-variables](/docs/deploying-applications/deployment-process/variables/sensitive-variables.md).  

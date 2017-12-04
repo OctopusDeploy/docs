@@ -13,7 +13,7 @@ That's fine! This example uses AngularJS but the same basic principles apply for
 
 ## Prerequisites {#DeployingHTMLandJavaScriptApplications-Prerequisites}
 
-This guide assumes some familiarity with common Octopus concepts like configuring [Projects ](/docs/deploying-applications/deployment-process/projects/index.md)and [Variables](/docs/deploying-applications/variables/index.md). To deploy this package using this guide you will need a server with IIS installed since it uses the [IIS Websites and Application Pools](/docs/deploying-applications/iis-websites-and-application-pools.md) deployment steps. Alternatively you could use any other web host, like Express in NodeJS, since this is just a single HTML file with no other dependencies.
+This guide assumes some familiarity with common Octopus concepts like configuring [Projects ](/docs/deploying-applications/deployment-process/projects/index.md)and [Variables](/docs/deploying-applications/deployment-process/variables/index.md). To deploy this package using this guide you will need a server with IIS installed since it uses the [IIS Websites and Application Pools](/docs/deploying-applications/iis-websites-and-application-pools.md) deployment steps. Alternatively you could use any other web host, like Express in NodeJS, since this is just a single HTML file with no other dependencies.
 
 ## Sample Application {#DeployingHTMLandJavaScriptApplications-SampleApplication}
 
@@ -69,7 +69,7 @@ Now we need to create the project and configure it ready to deploy our JavaScrip
 
 1. Create a new Project and choose an appropriate Lifecycle for testing this sample application.
  1. Remember you need to target a web server running IIS in order to follow this guide verbatim.
-2. Configure some project variables to match the JavaScript shown above. *You can use these values or any other values you wish - we've chosen to show a [complex expression](/docs/deploying-applications/variables/binding-syntax.md) including an [Octopus System Variable](/docs/deploying-applications/variables/system-variables.md).*
+2. Configure some project variables to match the JavaScript shown above. *You can use these values or any other values you wish - we've chosen to show a [complex expression](/docs/deploying-applications/deployment-process/variables/binding-syntax.md) including an [Octopus System Variable](/docs/deploying-applications/deployment-process/variables/system-variables.md).*
 ![](/docs/images/5672397/5866206.png "width=500")
 3. Configure the deployment process to deploy the MyApp package and host it in an IIS Web Site. Our web servers in this example belong to the **web-server** role.
 

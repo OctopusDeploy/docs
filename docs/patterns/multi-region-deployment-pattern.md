@@ -45,7 +45,7 @@ By using this pattern you can:
 
 Alternatively you could create [Tenants](/docs/guides/multi-tenant-deployments/index.md) to represent each region or data center. By doing so you can:
 
-1. Use [Variable Templates](/docs/deploying-applications/variables/variable-templates.md) to prompt you for the variables required for each region (like the storage account details for that region) and when you introduce a new region Octopus will prompt you for the missing variables
+1. Use [Variable Templates](/docs/deploying-applications/deployment-process/variables/variable-templates.md) to prompt you for the variables required for each region (like the storage account details for that region) and when you introduce a new region Octopus will prompt you for the missing variables
 
 ![](/docs/images/5670886/5865790.png "width=500")
 

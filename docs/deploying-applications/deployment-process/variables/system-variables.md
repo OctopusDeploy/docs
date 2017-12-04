@@ -4,7 +4,7 @@ description: System variables are variables provided by Octopus that can be used
 position: 5
 ---
 
-This page lists built-in [variables](/docs/deploying-applications/variables/index.md) provided by Octopus that can be used in your deployment [Custom scripts](/docs/deploying-applications/custom-scripts/index.md).
+This page lists built-in [variables](/docs/deploying-applications/deployment-process/variables/index.md) provided by Octopus that can be used in your deployment [Custom scripts](/docs/deploying-applications/custom-scripts/index.md).
 
 ## Deployment {#Systemvariables-Deployment}
 
@@ -20,8 +20,8 @@ Deployment-level variables are drawn from the project and release being deployed
 |**`Octopus.Deployment.CreatedBy.EmailAddress`** <br/>The email address of the user who initiated the deployment | *[alice@example.com](mailto:alice@example.com)*|
 |**`Octopus.Deployment.CreatedBy.Id`** <br/>The ID of the user who initiated the deployment | *users-123*|
 |**`Octopus.Deployment.CreatedBy.Username`** <br/>The username of the user who initiated the deployment | *alice*|
-|**`Octopus.Deployment.Error`** <br/>This variable outputs the error/exit code for a failed deployment. [See here](/docs/deploying-applications/variables/system-variables.md) | *Script returned exit code 123*|
-|**`Octopus.Deployment.ErrorDetail`** <br/>The error/exit code for the deployment along with the Octopus stack trace. [See here](/docs/deploying-applications/variables/system-variables.md) | *System.IO.FileNotFoundException: file C:\Missing.txt does not exist (at...)*|
+|**`Octopus.Deployment.Error`** <br/>This variable outputs the error/exit code for a failed deployment. [See here](/docs/deploying-applications/deployment-process/variables/system-variables.md) | *Script returned exit code 123*|
+|**`Octopus.Deployment.ErrorDetail`** <br/>The error/exit code for the deployment along with the Octopus stack trace. [See here](/docs/deploying-applications/deployment-process/variables/system-variables.md) | *System.IO.FileNotFoundException: file C:\Missing.txt does not exist (at...)*|
 |**`Octopus.Deployment.ForcePackageDownload`** <br/>If true, the package will be freshly downloaded from the feed/repository regardless of whether it is already present on the endpoint *(Boolean)* | *False*|
 |**`Octopus.Deployment.Id`** <br/>The ID of the deployment | *deployments-123*|
 |**`Octopus.Deployment.Name`** <br/>The name of the deployment | *Deploy to Production*|
@@ -142,7 +142,7 @@ Action-level variables are available during execution of an action. Indexer noti
 
 ## Output {#Systemvariables-Output}
 
-Output variables are collected during execution of a step and made available to subsequent steps using notation such as `Octopus.Action[Website].Output[WEBSVR01].Package.InstallationDirectoryPath`to refer to values base on the action and machine that produced them. See also [Output variables](/docs/deploying-applications/variables/output-variables.md).
+Output variables are collected during execution of a step and made available to subsequent steps using notation such as `Octopus.Action[Website].Output[WEBSVR01].Package.InstallationDirectoryPath`to refer to values base on the action and machine that produced them. See also [Output variables](/docs/deploying-applications/deployment-process/variables/output-variables.md).
 
 | Name and Description | Example|
 | -------------------- | ----------------------------------------|

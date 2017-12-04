@@ -20,7 +20,7 @@ You can reference variables from other variables:
 
 ## Referencing variables in step definitions {#Bindingsyntax-Referencingvariablesinstepdefinitions}
 
-This binding syntax can also be used to dynamically change the values of deployment step settings. If [variables are scoped](/docs/deploying-applications/variables/scoping-variables.md), this makes it really easy to alter a deployment step settings based on the target environment.
+This binding syntax can also be used to dynamically change the values of deployment step settings. If [variables are scoped](/docs/deploying-applications/deployment-process/variables/scoping-variables.md), this makes it really easy to alter a deployment step settings based on the target environment.
 
 Most text fields that support binding to variables will have a variable insert button:
 

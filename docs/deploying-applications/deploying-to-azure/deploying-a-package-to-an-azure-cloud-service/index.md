@@ -31,8 +31,8 @@ Once an Account is selected, the list of Cloud Services and Storage Accounts ava
 
 | Setting         | Default | Description                              |
 | --------------- | ------- | ---------------------------------------- |
-| Account         |         | The [Azure Account](/docs/infrastructure/azure/index.md) you want to  target when deploying this cloud service. Select one from the list, or use a [variable binding](/docs/deploying-applications/variables/binding-syntax.md) to select an account by its name or ID. |
-| Cloud Service   |         | The actual cloud service you want to target. Select one from the list, or use a [variable binding](/docs/deploying-applications/variables/binding-syntax.md) to define the name of the cloud service. |
+| Account         |         | The [Azure Account](/docs/infrastructure/azure/index.md) you want to  target when deploying this cloud service. Select one from the list, or use a [variable binding](/docs/deploying-applications/deployment-process/variables/binding-syntax.md) to select an account by its name or ID. |
+| Cloud Service   |         | The actual cloud service you want to target. Select one from the list, or use a [variable binding](/docs/deploying-applications/deployment-process/variables/binding-syntax.md) to define the name of the cloud service. |
 | Storage Account |         | The Azure Storage Account where the Cloud Service Package (`*.cspkg`) file will be pushed in order to be deployed. |
 | Slot            |         | You can choose to deploy to either the Staging or Production slot. |
 | Swap            |         | Azure allows staging and production deployments to be swapped, by switching virtual IP addresses. When deploying to production, Octopus can detect whether the current staging deployment can be swapped, and if so, it can do a swap rather than a new deployment.<br/>If **Always deploy** is selected, the package will always be deployed to the selected Slot.<br/>If **Swap staging to production if possible** is selected and the selected Slot is Production, then a swap will occur between Production and Staging (if there is a deployment in the Staging slot). |
