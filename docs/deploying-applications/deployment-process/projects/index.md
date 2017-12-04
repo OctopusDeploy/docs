@@ -12,13 +12,15 @@ The first time you navigate to the **Projects** area of the **Octopus Web Portal
 
 ### Projects
 
-When you add a project, we recommend using a meaningful name and description.
+To add your first project, select **ADD PROJECT**. 
+
+We recommend using a meaningful name and description.
 
 Under the **Advanced Settings** you can specify a **Project Group** and the [Lifecycle](docs/deploying-applications/deployment-process/projects/lifecycles/index.md).
 
 If you have existing projects you can *Disable*, *Clone*, or *Delete* the project from the project's settings.
 
-Cloning a project will copy the deployment process and variables but not the release history.
+Cloning a project will copy the deployment process and variables but not the release history of the project being cloned.
 
 ### Project Groups
 
