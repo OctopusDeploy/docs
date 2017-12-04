@@ -107,19 +107,3 @@ In the example shown below there are three steps that will be executed from top 
 Let's consider a more complex example like the one shown below. In this example we have configured Octopus to deploy a web application across one or more servers in a web farm behind a load balancer. This process has a single **step** and three **actions** which form a [rolling deployment](/docs/patterns/rolling-deployments.md).
 
 ![](rolling-process.png "width=500")
-## Working with the Octopus API {#DeploymentProcesses-WorkingwiththeOctopusAPI}
-
-Octopus Deploy is built API-first, which means everything you can do through the Octopus UI can be done with the API. In the API we model the deployment process the same way, starting at the Project:
-
-- Project
-- Deployment Process
-- Steps
-- Actions
-
-We have provided lots of helpful functions for building your deployment process in the [.NET SDK](/docs/api-and-integration/octopus.client.md), or you can use the raw HTTP API if that suits your needs better.
-
-Learn about using the [Octopus REST API](/docs/api-and-integration/octopus-rest-api.md).
-
-:::success
-Record the HTTP requests made by the Octopus UI to see how we build your deployment processes using the Octopus API. You can do this in the Chrome developer tools, or using a tool like Fiddler.
-:::
