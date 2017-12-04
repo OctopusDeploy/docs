@@ -9,7 +9,7 @@ Transfer a package was introduced in Octopus Deploy 3.7.12
 
 ## Transferring a package to your target without extraction {#TransferPackage-Transferringapackagetoyourtargetwithoutextraction}
 
-If you just want to transfer a package to your remote target without extracting or processing its contents like the standard [Deploy a package](/docs/deploying-applications/deploying-packages/index.md) step, then you will want to use the Transfer a package step. When adding this step to your deployment process, choose the **Transfer a Package** option. For more information, see the [add step](/docs/deploying-applications/adding-steps.md) section.
+If you just want to transfer a package to your remote target without extracting or processing its contents like the standard [Deploy a package](/docs/deploying-applications/deploying-packages/index.md) step, then you will want to use the Transfer a package step. When adding this step to your deployment process, choose the **Transfer a Package** option. For more information, see the [add step](/docs/deploying-applications/deployment-process/steps.md) section.
 
 ![](/docs/images/5671696/5866194.png)
 

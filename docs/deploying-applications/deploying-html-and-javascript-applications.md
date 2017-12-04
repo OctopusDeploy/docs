@@ -13,7 +13,7 @@ That's fine! This example uses AngularJS but the same basic principles apply for
 
 ## Prerequisites {#DeployingHTMLandJavaScriptApplications-Prerequisites}
 
-This guide assumes some familiarity with common Octopus concepts like configuring [Projects ](/docs/deploying-applications/projects/index.md)and [Variables](/docs/deploying-applications/variables/index.md). To deploy this package using this guide you will need a server with IIS installed since it uses the [IIS Websites and Application Pools](/docs/deploying-applications/iis-websites-and-application-pools.md) deployment steps. Alternatively you could use any other web host, like Express in NodeJS, since this is just a single HTML file with no other dependencies.
+This guide assumes some familiarity with common Octopus concepts like configuring [Projects ](/docs/deploying-applications/deployment-process/projects/index.md)and [Variables](/docs/deploying-applications/variables/index.md). To deploy this package using this guide you will need a server with IIS installed since it uses the [IIS Websites and Application Pools](/docs/deploying-applications/iis-websites-and-application-pools.md) deployment steps. Alternatively you could use any other web host, like Express in NodeJS, since this is just a single HTML file with no other dependencies.
 
 ## Sample Application {#DeployingHTMLandJavaScriptApplications-SampleApplication}
 

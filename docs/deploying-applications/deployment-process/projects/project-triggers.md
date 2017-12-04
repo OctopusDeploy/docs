@@ -5,7 +5,7 @@ position: 3
 version: 3.4
 ---
 
-Project Triggers allow you to define an unattended behavior for your [Projects](/docs/deploying-applications/projects/index.md).
+Project Triggers allow you to define an unattended behavior for your [Projects](/docs/deploying-applications/deployment-process/projects/index.md).
 
 :::success
 We have written a [comprehensive guide](/docs/guides/elastic-and-transient-environments/index.md) about using Project Triggers (specifically [Automatic Deployment Triggers](/docs/deploying-applications/automatic-deployment-triggers.md)) with a focus on deploying to elastic and transient environments.

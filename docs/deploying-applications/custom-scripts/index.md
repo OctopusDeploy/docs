@@ -70,7 +70,7 @@ You can manage your Azure subscription using custom PowerShell scripts and the A
 
 ![](/docs/images/5671696/5865912.png "width=170")
 
-For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/adding-steps.md) section.
+For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/deployment-process/steps.md) section.
 
 !partial <service-fabric-powershell>
 

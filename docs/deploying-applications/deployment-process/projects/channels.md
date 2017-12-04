@@ -20,7 +20,7 @@ Channels in Octopus Deploy will help you if you want to:
 
 Each Release you create in Octopus Deploy is placed into a Channel, and Releases in each Channel can be treated differently. For each Channel you can define:
 
-- Which [Lifecycle](/docs/deploying-applications/projects/lifecycles/index.md) to use for promoting Releases: for example, feature releases may be promoted through the testing environments, while hot-fix releases may go directly to production.
+- Which [Lifecycle](/docs/deploying-applications/deployment-process/projects/lifecycles/index.md) to use for promoting Releases: for example, feature releases may be promoted through the testing environments, while hot-fix releases may go directly to production.
 - Which [Deployment Process](/docs/deploying-applications/index.md) to use when deploying Releases: for example, steps can be enabled for specific channels.
 - Which [Variables](/docs/deploying-applications/variables/index.md) to use: Variables can be scoped to channels.
 - Which tenants should be included when deploying Releases: for example, you can ensure only Releases from certain Channels are deployed to certain Tenants.
@@ -122,7 +122,7 @@ When you are creating a Release, you can select a Channel.
 
 Selecting the Channel will cause the Release to use the Lifecycle associated with the Channel (or the Project default, if the Channel does not have a Lifecycle).  It will also cause the Deployment Process and Variables to be modified as specified above.
 
-The package list allows you to select the version of each package involved in the deployment.  The *latest* column displays the latest packages that match the version rules defined for the Channel (see [version rules](/docs/deploying-applications/projects/channels.md) for more information).
+The package list allows you to select the version of each package involved in the deployment.  The *latest* column displays the latest packages that match the version rules defined for the Channel (see [version rules](/docs/deploying-applications/deployment-process/projects/channels.md) for more information).
 
 ### Using Build Server Extensions or Octo.exe {#Channels-UsingBuildServerExtensionsorOcto.exe}
 

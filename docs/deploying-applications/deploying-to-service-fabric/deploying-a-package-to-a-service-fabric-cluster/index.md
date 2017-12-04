@@ -25,7 +25,7 @@ Package your Service Fabric application. See our guide to [Packaging a Service F
 
 ## Step 3: Create the Service Fabric application deployment step
 
-Add a new Service Fabric application deployment step to your project. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/adding-steps.md) section.  
+Add a new Service Fabric application deployment step to your project. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/deployment-process/steps.md) section.  
 
 ## Step 4: Configure the connection to your Service Fabric application
 
@@ -103,7 +103,7 @@ If you choose to override the deployment script, remember that your `DeployToSer
 When your application is deployed to more than one geographic region, you are likely to need per-region configuration settings. You can achieve this result in many different ways, but the two most popular methods we have seen are:
 
 1. [Cloud Regions](/docs/infrastructure/cloud-regions.md): introduced in Octopus 3.4 to enable [rolling deployments](/docs/patterns/rolling-deployments.md) across multiple geographic regions
-2. Environment-per-region: by creating an environment per region you can leverage [lifecycles](/docs/deploying-applications/projects/lifecycles/index.md) to create a strict release promotion process
+2. Environment-per-region: by creating an environment per region you can leverage [lifecycles](/docs/deploying-applications/deployment-process/projects/lifecycles/index.md) to create a strict release promotion process
 
 Both methods allow you to modify your deployment process and variables per-region, but have slightly different release promotion paths. Choose the one that suits you best.
 
