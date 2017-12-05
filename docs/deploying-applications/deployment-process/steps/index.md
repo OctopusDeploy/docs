@@ -7,7 +7,7 @@ position: 2
 The steps that you add to your deployment process are specific actions (or sets of actions) that Octopus will execute. Steps can include more than one action, and by default, the steps in a deployment process are run in sequence.
 
 ![](5865849.png "width=300")
-If a step is configured to execute across multiple deployment targets, it will execute across all of those deployment targets in parallel.
+If a step is configured to execute across multiple deployment targets, it will execute across all of those deployment targets in parallel, unless you specify a window size. Specifying a window size limits the number of deployment targets steps will execute against in parallel.
 
 ![](5865850.png "width=300")
 
