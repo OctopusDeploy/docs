@@ -2,6 +2,7 @@
 title: Maven Repositories as Feeds
 description: Configuring Maven repositories as Octopus Feeds
 version: "4.1"
+position: 3
 ---
 
 Maven repositories can be configured as an external feed, allowing the artifacts contained in the repository to be consumed by the Octopus steps that deploy Java packages, as well as the generic `Transfer a package` step.

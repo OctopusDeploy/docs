@@ -153,3 +153,4 @@ docs/deploying-applications/step-templates/community-step-templates.md -> docs/d
 docs/deploying-applications/step-templates/custom-step-templates.md -> docs/deploying-applications/deployment-process/steps/custom-step-templates.md
 docs/deploying-applications/step-templates/exporting-step-templates.md -> docs/deploying-applications/deployment-process/steps/exporting-step-templates.md
 docs/deploying-applications/step-templates/updating-step-templates.md -> docs/deploying-applications/deployment-process/steps/updating-step-templates.md
+docs/deploying-applications/maven-feeds.md -> docs/packaging-applications/package-repositories/maven-feeds.md
