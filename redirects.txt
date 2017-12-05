@@ -175,3 +175,4 @@ docs/deploying-applications/delta-compression-for-package-transfers.md -> docs/d
 docs/deploying-applications/deploying-virtual-hard-drives.md -> docs/deploying-applications/deployment-process/deploying-virtual-hard-drives.md
 docs/deploying-applications/email-notifications.md -> docs/deploying-applications/deployment-process/email-notifications.md
 docs/deploying-applications/manual-intervention-and-approvals.md -> docs/deploying-applications/deployment-process/manual-intervention-and-approvals.md
+docs/deploying-applications/run-steps-parallel.md -> docs/deploying-applications/deployment-process/run-steps-parallel.md
