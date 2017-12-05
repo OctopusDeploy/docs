@@ -104,7 +104,7 @@ The example below shows a web application called **OctoFX.TradingWebsite** and y
 
 :::hint
 **Config Transformation is part of the deployment process**
-OctoPack won't run web.config transformation files, because these will be run as [part of the deployment instead](/docs/deploying-applications/configuration-files/index.md). Make sure you set **Build Action: Content** for your config transform files (like `web.Release.config`) to ensure these files are packaged and used as part of your deployment.
+OctoPack won't run web.config transformation files, because these will be run as [part of the deployment instead](/docs/deploying-applications/deployment-process/configuration-files/index.md). Make sure you set **Build Action: Content** for your config transform files (like `web.Release.config`) to ensure these files are packaged and used as part of your deployment.
 :::
 
 ### Including additional files using Copy to Output Directory {#UsingOctoPack-IncludingadditionalfilesusingCopytoOutputDirectory}
@@ -113,7 +113,7 @@ If you need to include other files in your package for deployment, use the Visua
 
 :::success
 **Config Transforms for other types of .NET applications**
-Did you know you can use XML Config Transforms on any XML files including the `app.config` file for Windows Service, Console, Windows Forms or WPF applications? Make sure the transform files are copied to the build output directory as part of your build, and the will be packaged by OctoPack so you can [use them as part of the deployment](/docs/deploying-applications/configuration-files/index.md).
+Did you know you can use XML Config Transforms on any XML files including the `app.config` file for Windows Service, Console, Windows Forms or WPF applications? Make sure the transform files are copied to the build output directory as part of your build, and the will be packaged by OctoPack so you can [use them as part of the deployment](/docs/deploying-applications/deployment-process/configuration-files/index.md).
 :::
 
 ### Including additional files using a NuSpec file (.nuspec) {#UsingOctoPack-IncludingadditionalfilesusingaNuSpecfile(.nuspec)}

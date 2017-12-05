@@ -164,3 +164,5 @@ docs/deploying-applications/deploying-packages/dynamically-selecting-packages.md
 docs/deploying-applications/deploying-packages/transfer-package.md -> docs/deploying-applications/deployment-process/deploying-packages/transfer-package.md
 docs/deploying-applications/deploying-packages/troubleshoot-missing-packages.md -> docs/deploying-applications/deployment-process/deploying-packages/troubleshoot-missing-packages.md
 docs/deploying-applications/performance.md -> docs/deploying-applications/deployment-process/performance.md
+docs/deploying-applications/configuration-files/index.md -> docs/deploying-applications/deployment-process/configuration-files/index.md
+docs/deploying-applications/configuration-files/advanced-configuration-transforms-examples.md -> docs/deploying-applications/deployment-process/configuration-files/advanced-configuration-transforms-examples

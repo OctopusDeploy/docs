@@ -33,7 +33,7 @@ We currently execute automated tests against the following platforms:
 
 ### Configuration Transformations only available in Mono >= 4.2.3  
 
-The [Configuration Transforms](/docs/deploying-applications/configuration-files/index.md#Configuration-variables) feature will only work on Mono 4.2.3 and above.
+The [Configuration Transforms](/docs/deploying-applications/deployment-process/configuration-files/index.md#Configuration-variables) feature will only work on Mono 4.2.3 and above.
 
 This was due to a [bug with XML Transformations](https://bugzilla.xamarin.com/show_bug.cgi?id=19426).
 

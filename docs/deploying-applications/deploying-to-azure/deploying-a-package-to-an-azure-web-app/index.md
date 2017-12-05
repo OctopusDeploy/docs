@@ -155,8 +155,8 @@ Any of the settings above can be switched to use a variable binding expression. 
 The following features are available when deploying a package to an Azure Web App.
 
 - [Custom Scripts](/docs/deploying-applications/custom-scripts/index.md)
-- [Configuration Variables](/docs/deploying-applications/configuration-files/index.md)
-- [Configuration Transforms](/docs/deploying-applications/configuration-files/index.md)
+- [Configuration Variables](/docs/deploying-applications/deployment-process/configuration-files/index.md)
+- [Configuration Transforms](/docs/deploying-applications/deployment-process/configuration-files/index.md)
 - [JSON configuration variables](/docs/deploying-applications/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md)
 - [Substitute variables in files](/docs/reference/variable-substitution-syntax.md)
 
@@ -181,8 +181,8 @@ Deployment to an Azure Web App proceeds as follows (more details provided below)
 2. Extract the package on the Octopus server to a temporary location
 3. Any configured or packaged `PreDeploy` scripts are executed
 4. [Substitute variables in files ](/docs/deploying-applications/substitute-variables-in-files.md)(if configured)
-5. [XML configuration transformations](/docs/deploying-applications/configuration-files/index.md) (if configured) are performed
-6. [XML configuration variables](/docs/deploying-applications/configuration-files/index.md) (if configured) are replaced
+5. [XML configuration transformations](/docs/deploying-applications/deployment-process/configuration-files/index.md) (if configured) are performed
+6. [XML configuration variables](/docs/deploying-applications/deployment-process/configuration-files/index.md) (if configured) are replaced
 7. Any configured or package `Deploy` scripts are executed
 8. Execute web deploy to synchronize the resultant files in the temporary location to the web app host
 9. Any configured or packaged `PostDeploy` scripts are executed

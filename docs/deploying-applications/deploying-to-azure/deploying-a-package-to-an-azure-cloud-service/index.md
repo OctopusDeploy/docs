@@ -48,8 +48,8 @@ Any of the settings above can be switched to use a variable binding expression. 
 The following features are available when deploying a package to an Azure Cloud Service:
 
 - [Custom Scripts](/docs/deploying-applications/custom-scripts/index.md)
-- [Configuration Variables](/docs/deploying-applications/configuration-files/index.md)
-- [Configuration Transforms](/docs/deploying-applications/configuration-files/index.md)
+- [Configuration Variables](/docs/deploying-applications/deployment-process/configuration-files/index.md)
+- [Configuration Transforms](/docs/deploying-applications/deployment-process/configuration-files/index.md)
 - [JSON configuration variables](/docs/deploying-applications/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md)
 - [Substitute variables in files](/docs/reference/variable-substitution-syntax.md)
 
@@ -85,8 +85,8 @@ Deployment to an Azure Cloud Service proceeds as follows (more details provided 
 4. Any configured or packaged `PreDeploy` scripts are executed
 5. Variable substitutions in Cloud Service configuration file (`.cscfg`)
 6. [Substitute variables in files](/docs/deploying-applications/substitute-variables-in-files.md) (if configured)
-7. [XML configuration transformations](/docs/deploying-applications/configuration-files/index.md) (if configured) are performed
-8. [XML configuration variables](/docs/deploying-applications/configuration-files/index.md) (if configured) are replaced
+7. [XML configuration transformations](/docs/deploying-applications/deployment-process/configuration-files/index.md) (if configured) are performed
+8. [XML configuration variables](/docs/deploying-applications/deployment-process/configuration-files/index.md) (if configured) are replaced
 9. Any configured or package `Deploy` scripts are executed
 10. Re-package the Cloud Service Package
 11. Upload the Cloud Service Package to Azure Storage
