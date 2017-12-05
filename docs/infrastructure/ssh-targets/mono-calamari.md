@@ -37,7 +37,7 @@ The [Configuration Transforms](/docs/deploying-applications/deployment-process/c
 
 This was due to a [bug with XML Transformations](https://bugzilla.xamarin.com/show_bug.cgi?id=19426).
 
-Note that [Substitute Variables in Files](/docs/deploying-applications/substitute-variables-in-files.md) can still be used without issue on earlier Mono versions.
+Note that [Substitute Variables in Files](/docs/deploying-applications/deployment-process/substitute-variables-in-files.md) can still be used without issue on earlier Mono versions.
 
 ### Package Repository SSL Certificates
 

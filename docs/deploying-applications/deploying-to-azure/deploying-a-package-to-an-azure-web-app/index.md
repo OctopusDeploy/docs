@@ -180,7 +180,7 @@ Deployment to an Azure Web App proceeds as follows (more details provided below)
 1. Download the package from the [package repository](/docs/packaging-applications/package-repositories/index.md)
 2. Extract the package on the Octopus server to a temporary location
 3. Any configured or packaged `PreDeploy` scripts are executed
-4. [Substitute variables in files ](/docs/deploying-applications/substitute-variables-in-files.md)(if configured)
+4. [Substitute variables in files ](/docs/deploying-applications/deployment-process/substitute-variables-in-files.md)(if configured)
 5. [XML configuration transformations](/docs/deploying-applications/deployment-process/configuration-files/index.md) (if configured) are performed
 6. [XML configuration variables](/docs/deploying-applications/deployment-process/configuration-files/index.md) (if configured) are replaced
 7. Any configured or package `Deploy` scripts are executed
