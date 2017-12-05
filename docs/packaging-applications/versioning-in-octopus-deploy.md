@@ -102,3 +102,5 @@ When working with artifacts from a Maven feed, Octopus respects the [Maven versi
 SemVer is still recommended (or required) when versioning any artifact to be deployed to the built-in library or an external NuGet feed.
 
 The only time Maven versions are used by Octopus is when an artifact is sourced from an external Maven feed. Accordingly, the only time to use the Maven versioning scheme over SemVer is when you are deploying artifacts to a Maven repository.
+
+Learn how to [create packages](/docs/packaging-applications/creating-packages/index.md)

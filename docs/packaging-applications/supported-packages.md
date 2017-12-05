@@ -15,7 +15,7 @@ Octopus Deploy uses the **file extension** to determine the correct extraction a
 | Tar + Gzip   | *.tgz, .tar.gz, .tar.Z*  | All | [Built-In repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) only |                                          |
 | Tar + Bzip2  | *.tar.bz, .tar.bz2, .tbz* | All | [Built-In repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) only |                                          |
 | Zip          | *.zip*                    | 3.3+ | [Built-In repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) only | Standard zip file as created through most common zip programs. |
-| Docker Image |                           | 3.5+ | [Docker Registries](/docs/deploying-applications/docker-containers/registries/index.md) | Learn about [Docker](/docs/guides/docker/index.md) in Octopus Deploy. || JAR WAR EAR RAR | .jar, .war, .ear, .rar | 3.17+ |  [Built-In repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) (and [Maven Feeds](/docs/packaging-applications/package-repositories/maven-feeds.md) from 4.1) |  Learn about [Maven Feeds](/docs/packaging-applications/package-repositories/maven-feeds.md) |
+| Docker Image |                           | 3.5+ | [Docker Registries](/docs/deploying-applications/docker-containers/registries/index.md) | Learn about [Docker](/docs/guides/docker/index.md) in Octopus Deploy. || JAR WAR EAR RAR | .jar, .war, .ear, .rar | 3.17+ |  [Built-In repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) (and [Maven Feeds](/docs/packaging-applications/package-repositories/maven-feeds.md) from 4.1) |  Learn about [Maven Feeds](/docs/packaging-applications/package-repositories/maven-feeds.md). |
 
 ## Package Metadata {#SupportedPackages-PackageMetadata}
 
@@ -37,6 +37,4 @@ So for example the package name for version *2.3* of you project *Sample.Web*,
 Notice that the version is defined as consisting of the part of the file name from the first instance of a digit, until the file extension. So long as your project name doesn't contain a "*.&lt;number&gt;" component it will parse the version correctly. Note that this means you can also have pre-release tags as part of your version number. This approach allows Octopus to support as generic a package format as possible, while still extracting the information needed for it to do its job.
 :::
 
-:::success
-Learn about [versioning in Octopus Deploy](/docs/packaging-applications/versioning-in-octopus-deploy.md).
-:::
+Learn about [package IDs](/docs/packaging-applications/package-id.md).

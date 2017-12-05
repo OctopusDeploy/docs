@@ -30,3 +30,5 @@ Also valid examples include:
 - acme
 - acme-billing.web
 - Acme_Billing.Web
+
+Learn about [versioning in Octopus Deploy](/docs/packaging-applications/versioning-in-octopus-deploy.md).

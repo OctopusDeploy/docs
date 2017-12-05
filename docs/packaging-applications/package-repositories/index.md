@@ -8,21 +8,23 @@ When planning your Octopus installation, you will need to decide how to host you
 
 ## Supported Package and Repository Types
 
-The Octopus built-in repository [supports several different types of packages](/docs/packaging-applications/supported-packages.md). If you would like to use a package type other than NuGet (zip or tar.gz for example) you must use the Octopus built-in repository.
+The Octopus built-in repository [supports several different types of packages](/docs/packaging-applications/supported-packages.md). 
 
-If you would like to use an external repository, two types of external repositories are supported:
+If you would like to use an external repository, the following external repositories are supported:
 
  - [NuGet feeds](https://docs.nuget.org/create/hosting-your-own-nuget-feeds) (either HTTP or file-system based feeds).
- - [Docker feeds](/docs/deploying-applications/docker-containers/registries/index.md)
+ - [Docker feeds](/docs/deploying-applications/docker-containers/registries/index.md).
+ - [Maven feeds](/docs/packaging applications/package-repositories/maven-feeds.md).
 
 Your package repository will typically be:
 
 - The Octopus server's built-in repository
-- A [remote feed](http://docs.nuget.org/docs/creating-packages/hosting-your-own-nuget-feeds#Creating_Remote_Feeds "Remote NuGet feeds") exposed over HTTP
-- A [local feed](http://docs.nuget.org/docs/creating-packages/hosting-your-own-nuget-feeds#Creating_Local_Feeds "Local NuGet package repositories") exposed as a File Share or local directory
+- A [remote feed](http://docs.nuget.org/docs/creating-packages/hosting-your-own-nuget-feeds#Creating_Remote_Feeds "Remote NuGet feeds") exposed over HTTP.
+- A [local feed](http://docs.nuget.org/docs/creating-packages/hosting-your-own-nuget-feeds#Creating_Local_Feeds "Local NuGet package repositories") exposed as a File Share or local directory.
+- A [maven feed](/docs/packaging applications/package-repositories/maven-feeds.md).
 - A [JetBrains TeamCity](http://blogs.jetbrains.com/dotnet/2011/08/native-nuget-support-in-teamcity/ "JetBrains TeamCity") server (version 7 and above)
-- A [MyGet](http://www.myget.org/ "MyGet") server
-- A [VSTS or TFS Package Management](https://www.visualstudio.com/en-us/docs/package/overview) feed (see note below)
+- A [MyGet](http://www.myget.org/ "MyGet") server.
+- A [VSTS or TFS Package Management](https://www.visualstudio.com/en-us/docs/package/overview) feed (see note below).
 
 :::success
 **Mix and Match Feeds**
@@ -107,10 +109,7 @@ See [moving Octopus server folders](/docs/administration/server-configuration-an
 
 ## Using External Repositories {#Packagerepositories-Usingexternalrepositories}
 
-:::hint
-**Only NuGet and Docker Feeds are Supported**
-The only external repository type supported are NuGet and Docker. If you wish to use an external repository, you must use NuGet packages or [Docker registries as feeds](/docs/deploying-applications/docker-containers/registries/index.md).
-:::
+The only external repository type supported are NuGet, Docker, and Maven. If you wish to use an external repository, you must use NuGet packages, a [Maven feed](/docs/packaging-applications/package-repositories/maven-feeds.md), or [Docker registries as feeds](/docs/deploying-applications/docker-containers/registries/index.md).
 
 :::warning
 **NuGet v3 Feed Support**
