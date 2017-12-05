@@ -166,3 +166,4 @@ docs/deploying-applications/deploying-packages/troubleshoot-missing-packages.md 
 docs/deploying-applications/performance.md -> docs/deploying-applications/deployment-process/performance.md
 docs/deploying-applications/configuration-files/index.md -> docs/deploying-applications/deployment-process/configuration-files/index.md
 docs/deploying-applications/configuration-files/advanced-configuration-transforms-examples.md -> docs/deploying-applications/deployment-process/configuration-files/advanced-configuration-transforms-examples.md
+docs/deploying-applications/custom-installation-directory.md -> docs/deploying-applications/deployment-process/custom-installation-directory.md
