@@ -177,3 +177,4 @@ docs/deploying-applications/email-notifications.md -> docs/deploying-application
 docs/deploying-applications/manual-intervention-and-approvals.md -> docs/deploying-applications/deployment-process/manual-intervention-and-approvals.md
 docs/deploying-applications/run-steps-in-parallel.md -> docs/deploying-applications/deployment-process/run-steps-in-parallel.md
 docs/deploying-applications/scheduled-deployments.md -> docs/deploying-applications/deployment-process/scheduled-deployments.md
+docs/deploying-applications/substitute-variables-in-files.md -> docs/deploying-applications/deployment-process/substitute-variables-in-files.md
