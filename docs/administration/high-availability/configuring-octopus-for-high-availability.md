@@ -45,15 +45,15 @@ Octopus stores a number of files that are not suitable to store in the database.
 - [Artifacts](/docs/deploying-applications/artifacts.md) collected during a deployment. Teams using Octopus sometimes use this feature to collect large log files and other files from machines during a deployment.
 - Task logs, which are text files that store all of the log output from deployments and other tasks.
 
+As with the database, from the Octopus perspective, you'll simply tell the Octopus servers where to store them as a file path within your operating system. Octopus doesn't really care what technology you use to present the shared storage, it could be a mapped network drive, or a UNC path to a file share. Each of these three types of data can be stored in a different place.
+
 Whichever way you provide the shared storage, a few considerations to keep in mind:
 
-- To Octopus, it needs to appear as a local or mapped network drive (e.g., `D:\`) or a file share (e.g., `\\server\path`)
-- The service account that Octopus runs as needs full control over the directory
-- Remember, drives are mapped per-user, so you should map the drive using the same service account that Octopus is running under
+- To Octopus, it needs to appear as a mapped network drive (e.g., `D:\`) or a UNC path to a file share (e.g., `\\server\path`)
+- The service account that Octopus runs as needs **full control** over the directory
+- Drives are mapped per-user, so you should map the drive using the same service account that Octopus is running under
 
 #### Shared storage on-premises
-
-As with the database, from the Octopus perspective, you'll simply tell the Octopus servers where to store them as a file path within your operating system. Octopus doesn't really care what technology you use to present the shared storage, it could be a mapped network drive, or a UNC path to a file share. Each of these three types of data can be stored in a different place.
 
 The simplest way to provide shared storage, assuming the Octopus server nodes are part of the same Active Directory domain, is by creating a file share that each of the Octopus Server nodes can access. Of course, this assumes that the underlying directory is reliable, such as in a RAID array.
 
