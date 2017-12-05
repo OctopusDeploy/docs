@@ -173,3 +173,4 @@ docs/deploying-applications/automatic-release-creation.md -> docs/deploying-appl
 docs/deploying-applications/blocking-deployments.md -> docs/deploying-applications/deployment-process/blocking-deployments.md
 docs/deploying-applications/delta-compression-for-package-transfers.md -> docs/deploying-applications/deployment-process/delta-compression-for-package-transfers.md
 docs/deploying-applications/deploying-virtual-hard-drives.md -> docs/deploying-applications/deployment-process/deploying-virtual-hard-drives.md
+docs/deploying-applications/email-notifications.md -> docs/deploying-applications/deployment-process/email-notifications.md
