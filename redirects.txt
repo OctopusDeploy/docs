@@ -154,7 +154,7 @@ docs/deploying-applications/step-templates/custom-step-templates.md -> docs/depl
 docs/deploying-applications/step-templates/exporting-step-templates.md -> docs/deploying-applications/deployment-process/steps/exporting-step-templates.md
 docs/deploying-applications/step-templates/updating-step-templates.md -> docs/deploying-applications/deployment-process/steps/updating-step-templates.md
 docs/deploying-applications/maven-feeds.md -> docs/packaging-applications/package-repositories/maven-feeds.md
-/docs/deploying-applications/docker-containers/registries/index.md -> /docs/packaging-applications/package-repositories/registries/index.md
-/docs/deploying-applications/docker-containers/registries/amazon-ec2-container-services.md -> /docs/packaging-applications/package-repositories/registries/amazon-ec2-container-services.md
-/docs/deploying-applications/docker-containers/registries/azure-container-services.md -> /docs/packaging-applications/package-repositories/registries/azure-container-services.md
-/docs/deploying-applications/docker-containers/registries/docker-hub.md -> /docs/packaging-applications/package-repositories/registries/docker-hub.md
+docs/deploying-applications/docker-containers/registries/index.md -> docs/packaging-applications/package-repositories/registries/index.md
+docs/deploying-applications/docker-containers/registries/amazon-ec2-container-services.md -> docs/packaging-applications/package-repositories/registries/amazon-ec2-container-services.md
+docs/deploying-applications/docker-containers/registries/azure-container-services.md -> docs/packaging-applications/package-repositories/registries/azure-container-services.md
+docs/deploying-applications/docker-containers/registries/docker-hub.md -> docs/packaging-applications/package-repositories/registries/docker-hub.md
