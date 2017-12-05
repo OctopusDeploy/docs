@@ -14,7 +14,7 @@ To deploy a Windows Service, add a *Deploy a Windows Service* step. For infor
 
 :::hint
 **Pre Octopus 3.4.7**
-The *Deploy a Windows Service Step* was introduced in Octopus version **3.4.7**. Prior to this Windows Services were deployed by enabling the *Windows Service* feature on a [Deploy a Package Step](/docs/deploying-applications/deploying-packages/index.md).
+The *Deploy a Windows Service Step* was introduced in Octopus version **3.4.7**. Prior to this Windows Services were deployed by enabling the *Windows Service* feature on a [Deploy a Package Step](/docs/deploying-applications/deployment-process/deploying-packages/index.md).
 
 ![](/docs/images/3048082/3277662.png "width=500")
 :::
@@ -48,7 +48,7 @@ This three minute video (with captions) demonstrates how to deploy a C# Windows 
 
 ## How does Octopus actually deploy my Windows Service? {#WindowsServices-HowdoesOctopusactuallydeploymyWindowsService?}
 
-Out of the box, Octopus will do the right thing to deploy your Windows Service, and the conventions we have chosen will eliminate a lot of problems with file locks, and leaving stale files behind. By default Octopus will follow the conventions described in [Deploying packages](/docs/deploying-applications/deploying-packages/index.md) and apply the different features you select in the order described in [Package deployment feature ordering](/docs/reference/package-deployment-feature-ordering.md).
+Out of the box, Octopus will do the right thing to deploy your Windows Service, and the conventions we have chosen will eliminate a lot of problems with file locks, and leaving stale files behind. By default Octopus will follow the conventions described in [Deploying packages](/docs/deploying-applications/deployment-process/deploying-packages/index.md) and apply the different features you select in the order described in [Package deployment feature ordering](/docs/reference/package-deployment-feature-ordering.md).
 
 :::success
 Avoid using the [Custom Installation Directory](/docs/deploying-applications/custom-installation-directory.md) feature unless you are absolutely required to put your packaged files into a specific physical location on disk.

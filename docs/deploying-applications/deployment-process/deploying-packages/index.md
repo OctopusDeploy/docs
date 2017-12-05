@@ -30,7 +30,7 @@ When deploying a package you will need to select the machine role that the packa
 
 :::hint
 **Variable Package Feed and/or Package ID**
-You can dynamically select a Package Feed and/or the Package ID at deployment time using an Octopus variable expression. Learn more about [using dynamically selecting packages at deployment time](/docs/deploying-applications/deploying-packages/dynamically-selecting-packages.md).
+You can dynamically select a Package Feed and/or the Package ID at deployment time using an Octopus variable expression. Learn more about [using dynamically selecting packages at deployment time](/docs/deploying-applications/deployment-process/deploying-packages/dynamically-selecting-packages.md).
 :::
 
 ![](deploy-package-step.png "width=500")

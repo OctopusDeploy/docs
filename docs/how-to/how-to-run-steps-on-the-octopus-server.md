@@ -4,7 +4,7 @@ description: How to run steps directly on the Octopus Server in scenarios where 
 position: 21
 ---
 
-When adding a [NuGet Package step](/docs/deploying-applications/deploying-packages/index.md) or [Script step](/docs/deploying-applications/custom-scripts/index.md), Octopus will expect you to choose a Tentacle that the step will run on. However, sometimes you might not want to run the step on another machine, and instead wish to run it on the central Octopus Server. This guide explains how you can accomplish this.
+When adding a [NuGet Package step](/docs/deploying-applications/deployment-process/deploying-packages/index.md) or [Script step](/docs/deploying-applications/custom-scripts/index.md), Octopus will expect you to choose a Tentacle that the step will run on. However, sometimes you might not want to run the step on another machine, and instead wish to run it on the central Octopus Server. This guide explains how you can accomplish this.
 
 :::hint
 Octopus 3.3 and newer support [Running Scripts on the Octopus Server](/docs/deploying-applications/custom-scripts/index.md). These will run in the same user context as the Octopus Server.

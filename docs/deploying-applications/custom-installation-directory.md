@@ -4,10 +4,10 @@ description: The Custom Installation Directory feature allows you to have your p
 position: 7
 ---
 
-For [Package steps](/docs/deploying-applications/deploying-packages/index.md) & [IIS Steps](/docs/deploying-applications/iis-websites-and-application-pools.md), the Custom Installation Directory feature allows you to have your package deployed to a specific location on the server. This feature helps when you are using something like a Content Management System (CMS) or some other coordinating application which requires files to reside in a certain physical location.
+For [Package steps](/docs/deploying-applications/deployment-process/deploying-packages/index.md) & [IIS Steps](/docs/deploying-applications/iis-websites-and-application-pools.md), the Custom Installation Directory feature allows you to have your package deployed to a specific location on the server. This feature helps when you are using something like a Content Management System (CMS) or some other coordinating application which requires files to reside in a certain physical location.
 
 :::success
-Only use the Custom Installation Directory feature when it is truly required. Out of the box, Octopus will usually do the right thing when deploying your package. You can read more about [how packages are deployed by convention](/docs/deploying-applications/deploying-packages/index.md), and the [order of each step in the process](/docs/reference/package-deployment-feature-ordering.md). The standard convention eliminates problems caused by file locks and stale files being left in the deployment folder. It also provides smoother deployments and less downtime for Windows Services and Web Applications.
+Only use the Custom Installation Directory feature when it is truly required. Out of the box, Octopus will usually do the right thing when deploying your package. You can read more about [how packages are deployed by convention](/docs/deploying-applications/deployment-process/deploying-packages/index.md), and the [order of each step in the process](/docs/reference/package-deployment-feature-ordering.md). The standard convention eliminates problems caused by file locks and stale files being left in the deployment folder. It also provides smoother deployments and less downtime for Windows Services and Web Applications.
 :::
 
 In your *Package Deploy* or *IIS* steps, look for the **Configure Features** link at the bottom

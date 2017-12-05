@@ -159,3 +159,8 @@ docs/deploying-applications/docker-containers/registries/amazon-ec2-container-se
 docs/deploying-applications/docker-containers/registries/azure-container-services.md -> docs/packaging-applications/package-repositories/registries/azure-container-services.md
 docs/deploying-applications/docker-containers/registries/docker-hub.md -> docs/packaging-applications/package-repositories/registries/docker-hub.md
 docs/deploying-applications/guided-failures.md -> docs/deploying-applications/deployment-process/guided-failures.md
+docs/deploying-applications/deploying-packages/index.md -> docs/deploying-applications/deployment-process/deploying-packages/index.md
+docs/deploying-applications/deploying-packages/dynamically-selecting-packages.md -> docs/deploying-applications/deployment-process/deploying-packages/dynamically-selecting-packages.md
+docs/deploying-applications/deploying-packages/transfer-package.md -> docs/deploying-applications/deployment-process/deploying-packages/transfer-package.md
+docs/deploying-applications/deploying-packages/package-indexing.md -> docs/deploying-applications/deployment-process/deploying-packages/package-indexing.md
+docs/deploying-applications/deploying-packages/troubleshoot-missing-packages.md -> docs/deploying-applications/deployment-process/deploying-packages/troubleshoot-missing-packages.md
