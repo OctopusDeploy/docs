@@ -108,7 +108,7 @@ Follow these tips to tune and maintain the performance of your Octopus:
     - When using [delta compression for package transfers](/docs/deploying-applications/delta-compression-for-package-transfers.md), larger packages require more CPU and disk IOPS on the Octopus Server to calculate deltas - this is a tradeoff you can determine through testing.
 1. Consider the size of your Task Logs: {#tip-task-logs}
     - Larger task logs put the entire Octopus pipeline under more pressure.
-    - We recommend printing messages required to understand progress and deployment failures. The rest of the information should be streamed to a file, then published as a deployment [artifact](/docs/deploying-applications/artifacts.md).
+    - We recommend printing messages required to understand progress and deployment failures. The rest of the information should be streamed to a file, then published as a deployment [artifact](/docs/deploying-applications/deployment-process/artifacts.md).
 1. Prefer [Listening Tentacles](/docs/infrastructure/windows-targets/listening-tentacles.md) or [SSH](/docs/infrastructure/ssh-targets/index.md) instead of [Polling Tentacles](/docs/infrastructure/windows-targets/polling-tentacles.md) wherever possible:
     - Listening Tentacles and SSH place the Octopus Server under less load.
     - We try to make Polling Tentacles as efficient as possible, but by their very nature, they can place the Octopus Server under high load just handling the incoming connections.

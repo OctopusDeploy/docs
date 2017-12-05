@@ -64,7 +64,7 @@ As an approximation including the Windows Service manager integration:
 6. Execute each of your [custom scripts](/docs/deploying-applications/custom-scripts/index.md) and the [deployment features](/docs/deploying-applications/index.md) you've configured will be executed to perform the deployment [following this order by convention](/docs/reference/package-deployment-feature-ordering.md).
 7. As part of this process Windows Service will be created, or reconfigured if it already exists, including updating the **binPath** to point to this folder and your executable entry point
 8. If the `Start mode` is `Automatic` or `Automatic (delayed)`, your Windows Service will be started
-9. [Output variables](/docs/deploying-applications/deployment-process/variables/output-variables.md) and deployment [artifacts](/docs/deploying-applications/artifacts.md) from this step are sent back to the Octopus Server
+9. [Output variables](/docs/deploying-applications/deployment-process/variables/output-variables.md) and deployment [artifacts](/docs/deploying-applications/deployment-process/artifacts.md) from this step are sent back to the Octopus Server
 
 :::success
 You can see exactly how Octopus deploys your Windows Service by looking at the scripts in our open-source [open-source Calamari](https://github.com/OctopusDeploy/Calamari) project which actually performs the deployment:

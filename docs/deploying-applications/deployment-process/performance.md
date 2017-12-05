@@ -103,7 +103,7 @@ Each option provides different performance benefits, depending on your specific 
 
 ### Consider the size of your Task Logs {#task-logs}
 
-Larger task logs put the entire Octopus pipeline under more pressure. A good rule of thumb is to keep your log files under 20MB. We recommend printing messages required to understand progress and the reason for any deployment failures. The rest of the information should be streamed to a file, then published as a deployment [artifact](/docs/deploying-applications/artifacts.md).
+Larger task logs put the entire Octopus pipeline under more pressure. A good rule of thumb is to keep your log files under 20MB. We recommend printing messages required to understand progress and the reason for any deployment failures. The rest of the information should be streamed to a file, then published as a deployment [artifact](/docs/deploying-applications/deployment-process/artifacts.md).
 
 ### Consider how many targets you deploy to in parallel {#parallel-targets}
 

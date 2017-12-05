@@ -111,7 +111,7 @@ As an approximation including the IIS integration:
 4. Extract the package into the newly created folder
 5. Execute each of your [custom scripts](/docs/deploying-applications/custom-scripts/index.md) and the [deployment features](/docs/deploying-applications/index.md) you've configured will be executed to perform the deployment [following this order by convention](/docs/reference/package-deployment-feature-ordering.md).
 6. As part of this process the IIS Web Site, Web Application or Virtual Directory will be configured in a single transaction with IIS, including updating the Physical Path to point to this folder
-7. [Output variables](/docs/deploying-applications/deployment-process/variables/output-variables.md) and deployment [artifacts](/docs/deploying-applications/artifacts.md) from this step are sent back to the Octopus Server
+7. [Output variables](/docs/deploying-applications/deployment-process/variables/output-variables.md) and deployment [artifacts](/docs/deploying-applications/deployment-process/artifacts.md) from this step are sent back to the Octopus Server
 
 :::success
 You can see exactly how Octopus integrates with IIS in the [open-source Calamari library](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari/Scripts/Octopus.Features.IISWebSite_BeforePostDeploy.ps1).
