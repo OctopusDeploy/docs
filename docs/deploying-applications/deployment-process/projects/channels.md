@@ -45,7 +45,7 @@ You can associate a Lifecycle with the Channel, or it may inherit the default fr
 
 ### Defining Version Rules {#Channels-versionrules}
 
-Version rules assist in selecting the correct versions of packages for the Channel.  They are only used when creating a release, either manually or via [Automatic Release Creation](/docs/deploying-applications/automatic-release-creation.md).
+Version rules assist in selecting the correct versions of packages for the Channel.  They are only used when creating a release, either manually or via [Automatic Release Creation](/docs/deploying-applications/deployment-process/automatic-release-creation.md).
 
 :::hint
 **SemVer works best**
@@ -130,7 +130,7 @@ When using one of the [build server extensions](/docs/api-and-integration/index
 
 ### Automatic Release Creation {#Channels-AutomaticReleaseCreation}
 
-When enabling [Automatic Release Creation](/docs/deploying-applications/automatic-release-creation.md) for your project, you are required to select a Channel (if the project has more than one).
+When enabling [Automatic Release Creation](/docs/deploying-applications/deployment-process/automatic-release-creation.md) for your project, you are required to select a Channel (if the project has more than one).
 
 ![](/docs/images/3048999/3278462.png "width=500")
 

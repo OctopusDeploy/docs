@@ -87,7 +87,7 @@ When you are using automatic release creation there are many reasons why a relea
 
 5. Ensure you are pushing a **new version** of the package - Octopus will not create a release where the package has already been used for creating a release
 
-6. Ensure you are pushing a package that Octopus will consider as the **latest available package** - see the conversation about [automatically creating pre-releases](/docs/deploying-applications/automatic-release-creation.md) above
+6. Ensure you are pushing a package that Octopus will consider as the **latest available package** - see the conversation about [automatically creating pre-releases](/docs/deploying-applications/deployment-process/automatic-release-creation.md) above
 
 7. Ensure the release creation package step **DOES NOT use variables for the PackageId** - Octopus will only create a release where the package is constant
 
@@ -95,7 +95,7 @@ When you are using automatic release creation there are many reasons why a relea
 
 9. When using Channels the package **must satisfy the version rules** for the Channel being used for automatic release creation - try creating some releases manually
 
-10. Are you pushing **pre-release** packages? See the section above on [automatically creating pre-releases](/docs/deploying-applications/automatic-release-creation.md).
+10. Are you pushing **pre-release** packages? See the section above on [automatically creating pre-releases](/docs/deploying-applications/deployment-process/automatic-release-creation.md).
 
 11. Ensure the account pushing the package has the required permissions for **each** of the **Projects** and **Environments** that will be involved in creating (and potentially deploying) the release. Consider which of the following permissions may be required depending on your circumstances:  
 
