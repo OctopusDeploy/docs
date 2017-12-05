@@ -171,3 +171,4 @@ docs/deploying-applications/artifacts.md -> docs/deploying-applications/deployme
 docs/deploying-applications/automatic-deployment-triggers.md -> docs/deploying-applications/deployment-process/automatic-deployment-triggers.md
 docs/deploying-applications/automatic-release-creation.md -> docs/deploying-applications/deployment-process/automatic-release-creation.md
 docs/deploying-applications/blocking-deployments.md -> docs/deploying-applications/deployment-process/blocking-deployments.md
+docs/deploying-applications/delta-compression-for-package-transfers.md -> docs/deploying-applications/deployment-process/delta-compression-for-package-transfers.md

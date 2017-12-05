@@ -105,7 +105,7 @@ Avoid using the [Custom Installation Directory](/docs/deploying-applications/dep
 
 As an approximation including the IIS integration:
 
-1. Acquire the package as optimally as possible (local package cache and [delta compression](/docs/deploying-applications/delta-compression-for-package-transfers.md))
+1. Acquire the package as optimally as possible (local package cache and [delta compression](/docs/deploying-applications/deployment-process/delta-compression-for-package-transfers.md))
 2. Create a new folder for the deployment (which avoids many common problems like file locks, leaving stale files behind, and multiple Application Pool restarts)
 3. Example: `C:\Octopus\Applications\[Tenant name]\[Environment name]\[Package name]\[Package version]\` where `C:\Octopus\Applications` is the Tentacle application directory you configured when installing Tentacle)
 4. Extract the package into the newly created folder
