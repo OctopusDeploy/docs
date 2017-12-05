@@ -28,8 +28,10 @@ From the Octopus perspective, how the database is made highly available is reall
 
 Octopus: HA works with:
 
-- SQL Server Failover Clustering (recommended)
-- SQL Server AlwaysOn Availability Groups
+- [SQL Server Failover Clusters](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server)
+- [SQL Server AlwaysOn Availability Groups](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
+- [Amazon Relational Database Services (RDS)](https://aws.amazon.com/rds/)
 
 Octopus: HA has not been tested with Log Shipping or Database Mirroring, and does not support SQL Server replication.
 
