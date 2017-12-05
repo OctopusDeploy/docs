@@ -45,16 +45,29 @@ Octopus stores a number of files that are not suitable to store in the database.
 - [Artifacts](/docs/deploying-applications/artifacts.md) collected during a deployment. Teams using Octopus sometimes use this feature to collect large log files and other files from machines during a deployment.
 - Task logs, which are text files that store all of the log output from deployments and other tasks.
 
-As with the database, from the Octopus perspective, you'll simply tell the Octopus servers where to store them as a file path - Octopus doesn't really care what technology you use to present the shared storage. Each of these three types of data can be stored in a different place.
+Whichever way you provide the shared storage, a few considerations to keep in mind:
+
+- To Octopus, it needs to appear as a local or mapped network drive (e.g., `D:\`) or a file share (e.g., `\\server\path`)
+- The service account that Octopus runs as needs full control over the directory
+- Remember, drives are mapped per-user, so you should map the drive using the same service account that Octopus is running under
+
+#### Shared storage on-premises
+
+As with the database, from the Octopus perspective, you'll simply tell the Octopus servers where to store them as a file path within your operating system. Octopus doesn't really care what technology you use to present the shared storage, it could be a mapped network drive, or a UNC path to a file share. Each of these three types of data can be stored in a different place.
 
 The simplest way to provide shared storage, assuming the Octopus server nodes are part of the same Active Directory domain, is by creating a file share that each of the Octopus Server nodes can access. Of course, this assumes that the underlying directory is reliable, such as in a RAID array.
 
 A better alternative is [Microsoft DFS](https://en.wikipedia.org/wiki/Distributed_File_System_(Microsoft)), or a SAN.
 
-Whichever way you provide the shared storage, a few considerations to keep in mind:
+#### Shared storage in Microsoft Azure
 
-- To Octopus, it needs to appear as a local drive (e.g., D:\...) or a file share (\\server\path)
-- The service account that Octopus runs as needs full control over the directory
+If your Octopus Server is running in Microsoft Azure, you can use [Azure File Storage](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-introduction) - it just presents a file share over SMB 3.0.
+
+Once you have [created your File Share](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-create-file-share)you can [mount the drive](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-windows) for use by Octopus. Remember, drives are mounted per user. Make sure to map a persistent network drive for the user account the Octopus Server is running under.
+
+#### Shared storage in Amazon AWS
+
+If your Octopus Server is running in Amazon AWS you will need to configure your own file share using something like [Microsoft DFS](https://en.wikipedia.org/wiki/Distributed_File_System_(Microsoft)). Unfortunately [Amazon Elastic File System (EFS)](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEFS.html) is not supported on Windows, and [Amazon Elastic Block Store (EBS) volumes](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html) can only be mounted on a single instance.
 
 ### Octopus Server nodes {#ConfiguringOctopusforHighAvailability-OctopusServernodes}
 
@@ -170,6 +183,26 @@ Alternatively you can edit Tentacle.config directly to add each Octopus server (
 Notice there is an address entry for each Octopus Server in the High Availability configuration.
 
 ## Troubleshooting
+
+### Octopus Server starts and stops again
+
+Something has gone wrong and the Octopus Server has crashed. Look at the Octopus Server log to see what has gone wrong.
+
+You may see a message in the Octopus Server logs like this:
+
+```plain
+Could not find a part of the path 'Z:\Octopus\TaskLogs'
+```
+
+This usually means the drive `Z:\` has not been mapped for the user account running the Octopus Server, or the mapping has not been persisted across sessions. Drives are mounted per-user, so you need to create a persistent mapping for the user account the Octopus Server is running under.
+
+You may see a message in the Octopus Server logs like this:
+
+```plain
+Access to the path 'Z:\Octopus\TaskLogs' is denied
+```
+
+This usually means the user account running the Octopus Server does not have the correct permissions to the file share. Make sure this user account has full control over each of the folders. You may need to share permissions, and check the ACLs on the actual folders.
 
 ### Task logs are empty for certain deployments {#missing-task-logs}
 
