@@ -14,7 +14,7 @@ If you would like to use an external repository, the following external reposito
 
  - [NuGet feeds](https://docs.nuget.org/create/hosting-your-own-nuget-feeds) (either HTTP or file-system based feeds).
  - [Docker feeds](/docs/deploying-applications/docker-containers/registries/index.md).
- - [Maven feeds](/docs/packaging applications/package-repositories/maven-feeds.md).
+ - [Maven feeds](/docs/packaging-applications/package-repositories/maven-feeds.md).
 
 Your package repository will typically be:
 

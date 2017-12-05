@@ -58,7 +58,7 @@ Learn more about [packaging your applications](/docs/packaging-applications/inde
 
 ## Infrastructure
 
-Octopus Deploy organizes your infrastructure (the machines you deploy software to) into groups called environments. Typical examples of environments are **Test**, **Stage**, or **Production**. 
+Octopus Deploy organizes your infrastructure (the machines you deploy software to) into groups called environments. Typical examples of environments are **Test**, **Stage**, and **Production**. 
 
 With Octopus you can deploy software to Windows servers, Linux servers, Microsoft Azure, cloud regions, or even an offline package drop.
 
@@ -66,25 +66,13 @@ Organizing your infrastructure into environments lets you define your deployment
 
 Learn more about managing your [infrastructure](/docs/infrastructure/index.md).
 
-## Deploying Your Applications
+## Deploying Applications
 
-### Deployment Process
+Octopus Deploy is designed to work with teams following agile software development methodologies, that is, continuously deploying software to environments, getting feedback, making changes, and redeploying. 
 
-Because Octopus Deploy is designed to work with teams following agile software development methodologies, that is, continuously deploying software to environments, getting feedback, making changes, and redeploying, Octopus deploys software projects repeatedly.
-
-### Defining your Deployment Process
-
-The deployment process is like a recipe. You define the recipe by adding steps to the process. Each step is a specific instruction (or set of instructions) that is executed as part of the deployment process every time your software is deployed. After the initial setup, your deployment process shouldn't change between deployments even though the software being deployed will change as part of the development process.
+The deployment process that Octopus executes is like a recipe for deploying your software. You define the recipe by adding steps and variables to a project. Octopus Deploy provides a range of steps that can be included in your deployment processes, you can steps from the community step library, and even define your own steps. Each step contains a specific action (or set of actions) that is executed as part of the deployment process each time your software is deployed. After the initial setup, your deployment process shouldn't change between deployments even though the software being deployed will change as part of the development process.
 
 Learn more about [deploying applications](/docs/deploying-applications/index.md).
-
-### Adding Steps
-
-Octopus Deploy provides a range of steps that can be included in your deployment processes. Depending on your deployment needs, the steps can run automatically and in order one after another, or they could run in parallel. You can add conditions that need to be met before a step executes, and you can even specify a manual intervention step if a member of your team needs to be involved in the process, for instance, to approve a change before it is deployed.
-
-In addition to the built-in steps, there are also community contributed steps.
-
-Learn more about [adding steps](/docs/deploying-applications/deployment-process/steps/index.md).
 
 ### Variables
 
