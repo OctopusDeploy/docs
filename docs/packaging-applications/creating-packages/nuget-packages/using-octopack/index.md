@@ -11,7 +11,7 @@ OctoPack is built and maintained by the Octopus Deploy team, but it is also open
 :::
 
 :::hint
-**OctoPack uses nuget.exe**
+**OctoPack Uses nuget.exe**
 Under the hood, OctoPack eventually calls good old `nuget.exe pack` to build the NuGet package, and `nuget.exe push` to publish the package (if so desired). OctoPack adds value because it understands .NET applications and uses that knowledge to build the right kind of package for each kind of .NET application.
 :::
 
@@ -107,7 +107,7 @@ The example below shows a web application called **OctoFX.TradingWebsite** and y
 OctoPack won't run web.config transformation files, because these will be run as [part of the deployment instead](/docs/deploying-applications/deployment-process/configuration-files/index.md). Make sure you set **Build Action: Content** for your config transform files (like `web.Release.config`) to ensure these files are packaged and used as part of your deployment.
 :::
 
-### Including Additional Files using Copy to Output Directory {#UsingOctoPack-IncludingadditionalfilesusingCopytoOutputDirectory}
+### Including Additional Files Using Copy to Output Directory {#UsingOctoPack-IncludingadditionalfilesusingCopytoOutputDirectory}
 
 If you need to include other files in your package for deployment, use the Visual Studio properties panel to set the **Copy to Output Directory** attribute to **Copy if newer** or **Copy always**. These files will be copied to the build output directory when the project builds, and subsequently packaged by OctoPack.
 

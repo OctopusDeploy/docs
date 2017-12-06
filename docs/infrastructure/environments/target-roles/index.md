@@ -22,7 +22,7 @@ In production, perhaps you have 10 machines with the web-server role. In staging
 
 You can define as many environments, machines, and roles as you need; it all depends on how your applications are deployed.
 
-## Creating a role and assigning it to a Tentacle {#MachineRoles-CreatingaroleandassigningittoaTentacle}
+## Creating a Role and Assigning it to a Tentacle {#MachineRoles-CreatingaroleandassigningittoaTentacle}
 
 Roles are created and saved in the database the moment you assign them to a Tentacle. To do so, just:
 
@@ -42,7 +42,7 @@ You can check all the roles assigned to your machines from the **Environments**
 
 ![](/docs/images/3048101/3277811.png "width=500")
 
-## Using roles on deployment steps {#MachineRoles-Usingrolesondeploymentsteps}
+## Using Roles on Deployment Steps {#MachineRoles-Usingrolesondeploymentsteps}
 
 Almost all the steps that run on a Tentacle can be scoped to one or more roles. This means that the step will only execute on Tentacles with at least one of those roles. This does not mean that if the step is scoped to multiple roles that it will run for each role. Instead it will run that step for _all machines that have any roles that match any of the step roles._
 
@@ -59,7 +59,7 @@ According to the screenshot above, our deployment process will do the following:
 - Deploy NuGet package OctoFX.Database to deployment targets with the role **app-server**
 - Deploy NuGet package OctoFX.RateService to deployment targets with the role **web-server**
 
-## Using roles with variables {#MachineRoles-Usingroleswithvariables}
+## Using Roles with Variables {#MachineRoles-Usingroleswithvariables}
 
 Variables can also be [scoped to specific roles](/docs/deploying-applications/deployment-process/variables/index.md). This means that the variable will take the specified value only when it is used on a deployment step that runs on a Tentacle with the specified role. This feature can be really handy when you want to use the same variable name multiple times and have their values changed depending on the Tentacle they are running on.
 
@@ -79,6 +79,6 @@ Then, on your deployment step, you can set the **[Custom Install Directory](/doc
 ![](/docs/images/3048101/3277807.png "width=500")
 
 :::warning
-**Being smart with Machine Roles**
+**Being Smart with Machine Roles**
 By definition, a role is "the function assumed by a thing in a particular situation". Roles are not **Environments** or **OS versions**. Try to use roles to tag servers by their utility and watch out if you find yourself putting more than 3 roles on the same server.
 :::

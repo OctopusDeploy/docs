@@ -59,7 +59,7 @@ Calamari is also copied across by the deployment if a new version is detected an
 By making all paths relative to the user's home directory, you can then theoretically use the same physical machine with multiple user accounts acting as separate targets. The Octopus server can then treat each machine\user as a separate SSH endpoint which will update Calamari and deploy independently of each other.
 
 :::success
-**Bash startup files**
+**Bash Startup Files**
 When connecting to a target over SSH, Octopus Deploy connects then executes the script via the `/bin/bash` command to ensure it is running with a bash shell (and not the default terminal shell for that user). Any login scripts that you wish to run should therefore be put into the `.bashrc`script file since this is invoked for non-login shells.
 
 For example, with targets on a Mac the default $PATH variable may be missing `/usr/sbin`. This can be added in the `.bashrc`script with the line
@@ -86,7 +86,7 @@ Before any processing is begun we do an initial check to ensure the available Ca
 Leveraging Calamari means that the deployment can obtain the package via the same methods as a normal Tentacle; either pushed from the server or directly from a NuGet repository. There is therefore no bottleneck in acquisition if there are multiple SSH endpoints all trying to retrieve the same package independently.
 
 :::success
-**Non-NuGet package types**
+**Non-NuGet Package Types**
 Since version 3.3, Octopus Deploy has [support for tar packages](/docs/packaging-applications/supported-packages.md).
 
 See our [Node.js sample](/docs/deploying-applications/node-on-nix-deployments/index.md) for an example of deploying to a Linux target

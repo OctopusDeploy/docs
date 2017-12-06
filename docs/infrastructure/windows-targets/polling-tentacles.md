@@ -13,12 +13,12 @@ The advantage to polling mode is that you don't need to make any firewall change
 Polling mode is good for scenarios that involve Tentacle being behind NAT or a dynamic IP address. A good example might be servers at branch offices or a chain of retail stores, where the IP address of each server running Tentacle may change.
 
 :::warning
-**SSL offloading is not supported**
+**SSL Offloading is Not Supported**
 The communication protocol used by Octopus and Tentacle requires intact end-to-end TLS connection for message encryption, tamper-proofing, and authentication. For this reason SSL offloading is not supported.
 :::
 
 :::warning
-**Proxy servers supported for Tentacle communications since Octopus 3.4**
+**Proxy Servers Supported for Tentacle Communications Since Octopus 3.4**
 The communication protocol used by Octopus and Tentacle 3.4 and above supports proxies. Read more about configuring proxy servers for Tentacle communications in [proxy support](/docs/infrastructure/windows-targets/proxy-support.md).
 
 If you are using a version of Octopus/Tentacle prior to 3.4 you will need to arrange a bypass/exception for traffic initiated from the Tentacle to the Octopus server on the configured TCP Port (port **10943** by default).
@@ -51,7 +51,7 @@ this is on purpose, and it means you can use different firewall conditions to al
 Using polling mode, you won't typically need to make any firewall changes on the Tentacle machine.
 
 :::success
-**Intermediary firewalls**
+**Intermediary Firewalls**
 Don't forget to allow access not just in Windows Firewall, but also any intermediary firewalls between the Tentacle and your Octopus server. For example, if your Octopus server is hosted in Amazon EC2, you'll also need to modify the AWS security group firewall to tell EC2 to allow the traffic. Similarly if your Octopus server is hosted in Microsoft Azure you'll also need to add an Endpoint to tell Azure to allow the traffic.
 :::
 
@@ -70,7 +70,7 @@ You may be prompted to provide a client certificate, you can simply cancel this 
 
 If you can browse to the Octopus server listening endpoint, but Tentacle is unable to communicate with it, try using remote desktop on the Tentacle server and browsing to the Octopus listening endpoint address using the format above. If you can't access the Octopus server, check any intermediary firewalls.
 
-**Like using curl?**
+**Like Using Curl?**
 
 ```bash
 curl https://your-octopus:10943 -k

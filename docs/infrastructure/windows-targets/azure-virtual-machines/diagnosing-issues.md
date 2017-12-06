@@ -4,7 +4,7 @@ description: How to diagnose and resolve installation issues with the Tentacle V
 position: 8
 ---
 
-## Diagnosing issues {#AzureVirtualMachines-Diagnosingissues}
+## Diagnosing Issues {#AzureVirtualMachines-Diagnosingissues}
 
 If, for some reason, the machine fails to register after 20 minutes, you can access logs on the VM to determine what went wrong.
 

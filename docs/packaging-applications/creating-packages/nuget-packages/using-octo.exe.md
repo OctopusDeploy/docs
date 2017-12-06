@@ -9,7 +9,7 @@ There is, however, another way that you can create a NuGet package from just a f
 
 The **pack** command turns any folder into a NuGet or Zip package - plain and simple!
 
-## Packaging your application from a folder {#UsingOcto.exe-Packagingyourapplicationfromafolder}
+## Packaging Your Application From a Folder {#UsingOcto.exe-Packagingyourapplicationfromafolder}
 
 :::hint
 In Octo.exe version 3.3.8 we have expanded the functionality of the `pack` command to allow creating **zip** packages in addition to **NuGet** packages. [Learn more](/docs/packaging-applications/creating-packages/creating-zip-packages.md).

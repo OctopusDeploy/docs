@@ -9,17 +9,17 @@ When installing a Tentacle, you will be asked to choose how Tentacle will commun
 *![](/docs/images/3048114/5865876.png)*
 
 :::success
-**Listening mode is recommended**
+**Listening Mode is Recommended**
 When choosing a communication mode, we recommend listening mode when possible. Listening mode uses the least resources (listening on a TCP port is cheaper than actively trying to connect to one). It also gives you the most control (you can use rules in your firewall to limit which IP addresses can connect to the port). [Octopus and Tentacle use SSL when communicating](/docs/reference/octopus-tentacle-communication/index.md), and Tentacle will outright reject connections that aren't from an Octopus server that it trusts (identified by an X.509 certificate public key that you provide during setup).
 :::
 
 :::warning
-**SSL offloading is not supported**
+**SSL Offloading is Not Supported**
 The communication protocol used by Octopus and Tentacle requires intact end-to-end TLS connection for message encryption, tamper-proofing, and authentication. For this reason SSL offloading is not supported.
 :::
 
 :::warning
-**Proxy servers supported for Tentacle communications since Octopus 3.4**
+**Proxy Servers Supported for Tentacle Communications Since Octopus 3.4**
 The communication protocol used by Octopus and Tentacle 3.4 and above supports proxies. Read more about configuring proxy servers for Tentacle communications in [proxy support](/docs/infrastructure/windows-targets/proxy-support.md).
 
 If you are using a version of Octopus/Tentacle prior to 3.4 you will need to arrange a bypass/exception for traffic initiated from the Octopus server to the Tentacle on the configured TCP Port (port **10933** by default).
@@ -61,7 +61,7 @@ The page shown should look like the one below.
 
 If you can browse to the Tentacle server, but Octopus is unable to communicate with it, try using remote desktop on the Octopus server and browsing to the Tentacle address using the format above. If you can't access the Tentacle, check any intermediary firewalls.
 
-**Like using curl?**
+**Like Using Curl?**
 
 ```bash
 curl https://localhost:10933 -k

@@ -10,11 +10,11 @@ Package identifiers in Octopus follow similar rules to [NuGet](https://docs.micr
 
 They must conform to the following specification:
 
-1. Package IDs consist of one or more segments separated by one of the following separator characters: `-` `.` `_`
+1. Package IDs consist of one or more segments separated by one of the following separator characters: `-` `.` `_`.
 
 1. Segments contain only alphanumeric characters.
 
-1. Must be unique within your Octopus Deploy instance
+1. Must be unique within your Octopus Deploy instance.
 
 ## Best Practice
 

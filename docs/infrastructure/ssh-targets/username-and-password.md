@@ -6,7 +6,7 @@ position: 2
 
 A Username/Password Account is one mechanism that can be used to authenticate to [SSH Targets](/docs/infrastructure/ssh-targets/index.md).
 
-## Creating the account {#UsernameandPassword-Creatingtheaccount}
+## Creating the Account {#UsernameandPassword-Creatingtheaccount}
 
 You must provide both the username and password which will be used during the initial authentication phase of the SSH connection.
 
@@ -37,6 +37,6 @@ service ssh restart
 If you still experience problems it may help to try connect directly to the target machine using these credentials though a client like putty to help eliminate any networking related problems with your Octopus configuration.
 
 :::warning
-**Different distributions use different conventions**
+**Different Distributions use Different Conventions**
 While the above instructions should work on common platforms like Ubuntu or RedHat, you may need to double check the details for specific instructions relating to ssh authentication on target operating system. There are many different \*Nix based distributions some of which have their own unique way of doing things. For this reason we cannot guarantee that these SSH instructions will work in every case.
 :::

@@ -97,10 +97,30 @@ This caused us to take stock of how we handle versions across the Octopus Deploy
 
 When working with artifacts from a Maven feed, Octopus respects the [Maven versioning scheme](https://octopus.com/blog/maven-versioning-explained). This versioning scheme is implemented as a copy of the [ComparableVersion](https://github.com/apache/maven/blob/master/maven-artifact/src/main/java/org/apache/maven/artifact/versioning/ComparableVersion.java) class from the Maven library itself.
 
-## When to use SemVer and When to use Maven Versions
+## When to Use Semver and When to Use Maven Versions
 
 SemVer is still recommended (or required) when versioning any artifact to be deployed to the built-in library or an external NuGet feed.
 
 The only time Maven versions are used by Octopus is when an artifact is sourced from an external Maven feed. Accordingly, the only time to use the Maven versioning scheme over SemVer is when you are deploying artifacts to a Maven repository.
+
+## Package Metadata {#SupportedPackages-PackageMetadata}
+
+The only required pieces of information Octopus Deploy **requires** for a package are an ID, Version, and Format. Other metadata like release notes or descriptions are optional.
+
+- NuGet packages: NuGet packages support embedding metadata within the contents of the package. We use this metadata to determine the version of the package.
+- All other packages: In all other cases we have to parse the file name itself and extract the ID, Version and Format.
+
+The expected package convention is therefore:
+
+> `<id>.<version>.<extension>`
+
+So for example the package name for version *2.3* of you project *Sample.Web*, archived with tar & gzip should be named
+
+> `Sample.Web.2.3.tar.gz`
+
+:::success
+**Avoid Using Numbers in Your Package ID**
+Notice that the version is defined as consisting of the part of the file name from the first instance of a digit, until the file extension. So long as your project name doesn't contain a "*.&lt;number&gt;" component it will parse the version correctly. Note that this means you can also have pre-release tags as part of your version number. This approach allows Octopus to support as generic a package format as possible, while still extracting the information needed for it to do its job.
+:::
 
 Learn how to [create packages](/docs/packaging-applications/creating-packages/index.md)

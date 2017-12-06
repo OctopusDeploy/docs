@@ -12,7 +12,7 @@ Refer to the [configuration structure](configuration-structure.md) for informati
 If you need more the ability to customize more of the installation, you might want to consider using the [Azure Desired State Configuration (DSC) extension](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-extensions-dsc-overview) in conjunction with the [OctopusDSC](https://www.powershellgallery.com/packages/OctopusDSC) resource.
 :::
 
-## Azure Resource Manager (ARM) mode {#AzureResourceManagerMode}
+## Azure Resource Manager (ARM) Mode {#AzureResourceManagerMode}
 
 To install the extension on a VM:
 
@@ -65,7 +65,7 @@ Uninstalling extension "OctopusDeployWindowsTentacle", VM: "<vm-name>"
 vm extension set command OK
 ```
 
-## Azure Service Management (ASM/Classic) mode {#AzureServiceManagementMode}
+## Azure Service Management (ASM/Classic) Mode {#AzureServiceManagementMode}
 
 To install the extension on a VM:
 

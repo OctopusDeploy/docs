@@ -40,12 +40,12 @@ Octopus and Tentacle can be configured to communicate two different ways dependi
 - [Polling mode](/docs/infrastructure/windows-targets/polling-tentacles.md)
 
 :::success
-**Listening mode is recommended**
+**Listening Mode is Recommended**
 When choosing a communication mode, we recommend listening mode when possible. Listening mode uses the least resources (listening on a TCP port is cheaper than actively trying to connect to one). It also gives you the most control (you can use rules in your firewall to limit which IP addresses can connect to the port). [Octopus and Tentacle use SSL when communicating](/docs/reference/octopus-tentacle-communication/index.md), and Tentacle will outright reject connections that aren't from an Octopus server that it trusts (identified by an X.509 certificate public key that you provide during setup).
 :::
 
 :::warning
-**SSL offloading is not supported**
+**SSL Offloading is Not Supported**
 The communication protocol used by Octopus and Tentacle requires intact end-to-end TLS connection for message encryption, tamper-proofing, and authentication. For this reason SSL offloading is not supported.
 :::
 

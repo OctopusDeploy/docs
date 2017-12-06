@@ -33,7 +33,7 @@ These are also the credentials that are needed by Octopus Deploy to access the e
 Save and test your registry to ensure that the connection is authorized successfully.
 
 :::warning
-**AWS EC2 Container Service logins only last 12 hours**
+**AWS EC2 Container Service Logins Only Last 12 Hours**
 As noted in the AWS [registry documentation](http://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html) the token that is returned in the above `get-login` command is only valid for 12 hours. This means that you will more than likely need to reset these credentials often. At the moment there is no first class support to automatically  retrieve and update these AWS credentials in Octopus Deploy.
 :::
 

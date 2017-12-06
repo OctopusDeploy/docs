@@ -15,17 +15,17 @@ Machine policies are groups of settings that can be applied to Tentacle and SSH 
 
 ![](/docs/images/5669423/5865583.png "width=500")
 
-## Health check interval {#MachinePolicies-Healthcheckinterval}
+## Health Check Interval {#MachinePolicies-Healthcheckinterval}
 
 Octopus periodically runs health checks on deployment targets to ensure that they are available for deployment.  Setting "Time between checks" configures how frequently automatic health checks run.
 
 ![](/docs/images/5669423/5865585.png "width=500")
 
-## Custom health check scripts {#MachinePolicies-Customhealthcheckscripts}
+## Custom Health Check Scripts {#MachinePolicies-Customhealthcheckscripts}
 
 Machine policies allow the configuration of custom health check scripts for Tentacle and SSH targets. While we do not expose the full underlying script that runs during health checks, we give you an entry point to inject your own custom scripts. For example, here is the default custom health check script for Tentacles that checks disk space:
 
-**Default Tentacle health check script**
+**Default Tentacle Health Check Script**
 
 ```powershell
 $freeDiskSpaceThreshold = 5GB
@@ -50,7 +50,7 @@ A *healthy* deployment target completes a health check without any errors or wa
 
 A health check script can set the status of a target by returning a non-zero exit code or by writing a service message during the health check. Tentacle deployment targets can use *Write-Warning*, *Write-Error* and *Fail-HealthCheck* to convey a healthy with warnings or unhealthy status:
 
-**Tentacle health check service messages**
+**Tentacle Health Check Service Messages**
 
 ```powershell
 # For setting a health status of Healthy with Warnings:
@@ -64,7 +64,7 @@ SSH targets do not include a disk space check by default like Tentacle targets d
 
 SSH deployment targets can use *echo\_warning*, *echo\_error* and *fail\_healthcheck* to convey a *healthy with warnings* or *unhealthy* status:
 
-**SSH health check service messages**
+**SSH Health Check Service Messages**
 
 ```bash
 # For setting a health status of Healthy with Warnings:
@@ -75,12 +75,12 @@ fail_healthcheck "This is an error"
 ```
 
 :::hint
-**Agent-level variables**
+**Agent-Level Variables**
 
 When using a custom health check script, the script execution through Calamari is bypassed. This results in some behavioral differences as compared with the normal scripting in Octopus that you would be accustomed to. You can still use the standard `#` variable substitution syntax, however since this is replaced on the server, environment variables from your target will not be available through Octopus variables.
 :::
 
-## Ignore machines that are unavailable during health checks {#MachinePolicies-Ignoremachinesthatareunavailableduringhealthchecks}
+## Ignore Machines That are Unavailable During Health Checks {#MachinePolicies-Ignoremachinesthatareunavailableduringhealthchecks}
 
 By default, health checks fail if any deployment targets are unavailable during the health check.  Machine policies offer an option to ignore machines if they are unavailable during a health check:
 
@@ -88,7 +88,7 @@ By default, health checks fail if any deployment targets are unavailable during 
 
 By selecting **Unavailable machines will not cause health checks to fail,** any deployment targets that Octopus cannot contact during a health check will be skipped and the health check marked as successful. If the target is contactable but encounters an error or warning, the usual health check behavior will proceed (ie. a warning will be reported or the health check will fail with an error).
 
-## Configure how Calamari and Tentacle are updated {#MachinePolicies-ConfigurehowCalamariandTentacleareupdated}
+## Configure How Calamari and Tentacle are Updated {#MachinePolicies-ConfigurehowCalamariandTentacleareupdated}
 
 Brand new Tentacle and SSH endpoints require the installation of Calamari to perform a deployment.  Also, if Calamari is updated, the Octopus Server will push the update to Tentacle and SSH endpoints. When there is a Tentacle update, Octopus can automatically update Tentacle endpoints.  Machine policies allow the customization of when Calamari and Tentacle updates occur.
 
@@ -101,18 +101,18 @@ By default, Calamari will be installed or updated when a machine is involved in 
 
 Tentacle can be toggled to manually or automatically update Tentacle.  If **Automatically update Tentacle** is selected, Octopus will start a task to update Tentacles whenever Octopus detects that there is a pending Tentacle upgrade (after health checks for example). Conversely, Octopus will not automatically start a task to update Tentacle but will prompt to begin a Tentacle update on the environments screen.
 
-### Tentacle update account {#MachinePolicies-TentacleUpdateAccount}
+### Tentacle Update Account {#MachinePolicies-TentacleUpdateAccount}
 You can select a username/password account to perform automatic Tentacle updates.  When no account is selected, the account that the Tentacle service is running as will attempt to perform Tentacle updates. Sometimes that account does not have enough permission to perform Tentacle updates. Create a [username/password account](/docs/infrastructure/ssh-targets/username-and-password.md) for a user with enough permissions to install software on your machines (Administrator works great!) and select it from the drop down.
 
 **Note:** This option can not be used when Tentacle is running as Local System.
 
-## Automatically delete machines {#MachinePolicies-Automaticallydeletemachines}
+## Automatically Delete Machines {#MachinePolicies-Automaticallydeletemachines}
 
 Machine policies can be configured to automatically remove unavailable machines after a time period.  When a health check runs, it will detect if a machine is unavailable (cannot be contacted). When this option is set to **Automatically delete unavailable machines,** Octopus will periodically check how long the machine has been unavailable.  If the number of hours specified by **Hours unavailable** has elapsed, the machine will be permanently deleted from Octopus.
 
 ![](/docs/images/5669423/5865595.png "width=500")
 
-## Assign machine policies to machines {#MachinePolicies-Assignmachinepoliciestomachines}
+## Assign Machine Policies to Machines {#MachinePolicies-Assignmachinepoliciestomachines}
 
 Assign a machine policy to a machine by selecting a machine from the *Environments* screen and using the *Policy* drop down to select the machine policy:
 
@@ -120,7 +120,7 @@ Assign a machine policy to a machine by selecting a machine from the *Environmen
 
 Machine policy can also be set from the command line by using the --policy argument:
 
-**Setting machine policy**
+**Setting Machine Policy**
 
 ```powershell
 Tentacle.exe register-with --instance "Tentacle" --server "http://YOUR_OCTOPUS" --apiKey="API-YOUR_API_KEY" --role "web-server" --environment "Staging" --comms-style TentaclePassive --policy "Transient machines"

@@ -1,10 +1,10 @@
 ---
-title: Pushing packages to the Built-In repository
+title: Pushing Packages to the Built-In Repository
 description: Pushing packages to the Octopus Built-In repository can be done in numerous ways including the Octopus web portal, your build server and common command line utilities.
 ---
 
 :::success
-**Supported packages**
+**Supported Packages**
 The Octopus built-in repository has always supported NuGet packages, and since Octopus 3.3 it can [support many different types of packages](/docs/packaging-applications/supported-packages.md).
 :::
 
@@ -19,7 +19,7 @@ We offer several ways to add/upload/push packages to the built-in feed:
 - Using curl
 - Security considerations
 
-## Using the Octopus web portal {#PushingpackagestotheBuilt-Inrepository-UsingtheOctopuswebportal}
+## Using the Octopus Web Portal {#PushingpackagestotheBuilt-Inrepository-UsingtheOctopuswebportal}
 
 You can manually upload a package file from your local machine via the Octopus web portal via the {{Library,Packages}} tab by clicking the *Upload package* button.
 
@@ -36,7 +36,7 @@ For pushing packages using the methods described below you'll need:
 2. An [Octopus API key](/docs/how-to/how-to-create-an-api-key.md) with the required permissions (see [security considerations](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md))
 :::
 
-## Using your build server {#PushingpackagestotheBuilt-Inrepository-Usingyourbuildserver}
+## Using Your Build Server {#PushingpackagestotheBuilt-Inrepository-Usingyourbuildserver}
 
 We have built integrations/plugins/extensions for the most popular build servers. You can read more about [integrating Octopus Deploy with your build server](/docs/api-and-integration/index.md). In most cases you simply provide the build server with the URL to your Octopus Server and an [Octopus API key](/docs/how-to/how-to-create-an-api-key.md) with the required permissions  (see [security considerations](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md)).
 
@@ -57,7 +57,7 @@ You can upload a package via the [Octopus Deploy API](/docs/api-and-integration
 - [C# example (LINQPad)](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/Octopus.Client/LINQPad/Push%20Package%20to%20Built-In%20Repository.linq)
 - [PowerShell example](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/REST/PowerShell/Packages/PushPackage.ps1)
 
-## Using NuGet.exe push {#PushingpackagestotheBuilt-Inrepository-UsingNuGet.exepush}
+## Using NuGet.exe Push {#PushingpackagestotheBuilt-Inrepository-UsingNuGet.exepush}
 
 To push a package using `NuGet.exe` you'll need a the URL for the Octopus NuGet feed to use with your build server or `NuGet.exe`. To find this, open the {{Library,Packages}} tab of the Octopus web portal.  Simply click the `Show examples` link to see options to upload packages. The screen shows an example command-line that can be used to push packages to the feed using [NuGet.exe](http://docs.nuget.org/docs/start-here/installing-nuget). You'll need to supply the NuGet package file (`.nupkg`) and an [Octopus API key](/docs/how-to/how-to-create-an-api-key.md).
 
@@ -67,11 +67,11 @@ To push a package using `NuGet.exe` you'll need a the URL for the Octopus NuGe
 If you're using a continuous integration server like TeamCity to produce packages you can use their built-in NuGet Push step. Supply the Octopus NuGet feed URL shown above and an [Octopus API key](/docs/how-to/how-to-create-an-api-key.md) when prompted for the feed details.
 :::
 
-## Using npm.exe, grunt or gulp {#PushingpackagestotheBuilt-Inrepository-Usingnpm.exe,gruntorgulp}
+## Using npm.exe, Grunt or Gulp {#PushingpackagestotheBuilt-Inrepository-Usingnpm.exe,gruntorgulp}
 
 You can upload packages using npm.exe or using our grunt or gulp tasks. Take a look at our [guide for packaging and deploying Node.js applications using Octopus Deploy](/docs/deploying-applications/node-on-nix-deployments/index.md).
 
-## Using curl {#PushingpackagestotheBuilt-Inrepository-Usingcurl}
+## Using Curl {#PushingpackagestotheBuilt-Inrepository-Usingcurl}
 
 You can upload packages using `curl`. Like all of the other examples you will need your Octopus Server URL and an API Key. This will perform a POST uploading the file contents as multi-part form data.
 
@@ -83,18 +83,18 @@ curl -X POST https://demo.octopus.com/api/packages/raw -H "X-Octopus-ApiKey: API
 You may need to use the `-k` argument if you are using an untrusted connection.
 :::
 
-## Security considerations {#PushingpackagestotheBuilt-Inrepository-Securityconsiderationssecurityconsiderations}
+## Security Considerations {#PushingpackagestotheBuilt-Inrepository-Securityconsiderationssecurityconsiderations}
 
 To add a new package to the built-in feed requires the `BuiltInFeedPush` permission. To delete a package, or replace an existing package requires the `BuiltInFeedAdminister` permission.
 
 For your convenience Octopus Deploy provides a built-in role called **Package Publisher** that has been granted the `BuiltInFeedPush` permission.
 
 :::hint
-**Consider using a Service Account**
+**Consider Using a Service Account**
 Instead of using your own API key, consider using a [Service Account](/docs/administration/managing-users-and-teams/service-accounts.md) to provide limited permissions since packages will normally be pushed by an automated service like your build server. Service Accounts are API-only accounts that cannot be used sign in to the Octopus Deploy web portal.
 :::
 
 :::hint
-**Using automatic release creation?**
+**Using Automatic Release Creation?**
 If you are using [automatic release creation](/docs/deploying-applications/deployment-process/automatic-release-creation.md) you will also require the permissions to create a release for all of the relevant projects in the required environments. To diagnose issues with pushing packages used for automatic release creation follow the troubleshooting guide on the [automatic release creation](/docs/deploying-applications/deployment-process/automatic-release-creation.md) page.
 :::

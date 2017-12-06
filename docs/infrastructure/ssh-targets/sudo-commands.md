@@ -20,7 +20,7 @@ in Ubuntu, and
 
 in Red Hat
 
-## Enabling Sudo command {#SudoCommands-EnablingSudocommand}
+## Enabling Sudo Command {#SudoCommands-EnablingSudocommand}
 
 The recommended way to enable these commands to be run is to disable the password prompt for the user account used for deployments.
 
@@ -62,11 +62,11 @@ Alternatively you can make this configuration more precice by targeting specific
 (By default the Ubuntu does not contain this configuration and this modification should not be required)
 
 :::problem
-**Be selective with permissions**
+**Be Selective with Permissions**
 Ideally your Octopus Deploy ssh endpoint should be configured with a special user user solely for the purposes of running deployments. In this case you should consider configuring just that user's sudo capabilities to be limited to those commands needed to execute the deployment scripts.
 :::
 
 :::warning
-**Different distributions use different conventions**
+**Different Distributions use Different Conventions**
 While the above instructions should work on common platforms like Ubuntu or RedHat, you may need to double check the details for specific instructions relating to ssh authentication on target operating system. There are many different \*Nix based distributions some of which have their own unique way of doing things. For this reason we cannot guarantee that these instructions will work in every case.
 :::

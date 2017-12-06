@@ -55,7 +55,7 @@ $vm = Get-AzureVm -Name "<vm-name>" -servicename "<cloud-service-name>"
 Remove-AzureVMExtension -VM $vm -ExtensionName "OctopusDeployWindowsTentacle" -Publisher "OctopusDeploy.Tentacle"
 ```
 
-## Azure Resource Manager (ARM) mode {#AzureVirtualMachines-AzureResourceManager}
+## Azure Resource Manager (ARM) Mode {#AzureVirtualMachines-AzureResourceManager}
 
 To install the extension on a VM:
 

@@ -66,7 +66,7 @@ If you need to create the database yourself:
     - The SQL user account defined in your connection string must be a member of the **db\_owner** role for that database.
 
 :::hint
-**Changing the database collation**
+**Changing the Database Collation**
 See [here](/docs/administration/octopus-database/changing-the-collation-of-the-octopus-database.md) for information about changing the database collation after the initial Octopus installation.
 :::
 

@@ -4,8 +4,8 @@ description: Creating an Azure Service Principal Account in Octopus Deploy.
 ---
 
 :::hint
-**Azure Service Principal Accounts work with the Azure Resource Management (ARM) API only**
-**Azure Service Principal Accounts are only available from Octopus Deploy version 3.3 onwards.**
+**Azure Service Principal Accounts Work with the Azure Resource Management (ARM) API only**
+**Azure Service Principal Accounts Are Only Available from Octopus Deploy Version 3.3 Onwards**
 
 Prior to Octopus Deploy 3.3, [Azure Management Certificate Accounts](/docs/infrastructure/azure/index.md) (previously known simply as "Azure Subscription Accounts") were the only type of Azure Account available.
 
@@ -19,7 +19,7 @@ There are two steps to enable your Octopus Server to manage your Azure subscript
 1. Create an Azure Active Directory application and service principal (via PowerShell or the Azure Portal)
 2. Allow Octopus to authenticate with Azure using a Service Principal
 
-## Step 1: Create an Azure Active Directory application and service principal {#CreatinganAzureServicePrincipalAccount-create-service-principalStep1:CreateanAzureActiveDirectoryapplicationandserviceprincipal}
+## Step 1: Create an Azure Active Directory Application and Service Principal {#CreatinganAzureServicePrincipalAccount-create-service-principalStep1:CreateanAzureActiveDirectoryapplicationandserviceprincipal}
 
 The first step is to create an Azure Active Directory (AAD) application and service principal. You will configure your Octopus Server to authenticate using the service principal you create in AAD, which means you can configure finely grained authorization for your Octopus Server. Creating an Azure Active Directory application and service principal can be done either via PowerShell or the Azure Portal.
 
@@ -94,7 +94,7 @@ Using the PowerShell script in option 1, you can specify the expiry date by addi
 Using option 2, the Azure portal will allow you to select the expiry time when creating the key. 
 :::
 
-## Note on least privilege
+## Note on Least Privilege
 
 In the PowerShell example above the service principal is assigned the `Contributor` role on the subscription. This isn't always the best idea, you might want to apply a principle of least privilege to the access the service principal has. If that is the case then there are a couple of things worth noting.
 

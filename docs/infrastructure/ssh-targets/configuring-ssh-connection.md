@@ -30,14 +30,14 @@ Just as with other targets, SSH Endpoints can be linked to environments and role
 
 If you didn't run the discovery process or the fingerprint on the target has changed for some reason, you can retrieve the correct fingerprint in a couple of ways. The first is to just let the health check take place. If the fingerprint returned during the handshake is different to whats been stored in the database, the new fingerprint will show up in the logs (Remember if you aren't expecting a change and you start getting this error it might mean you have been compromised!). The other way to get the fingerprint is directly off the machine itself. Running the following command will print out the fingerprint of the default key configured in your sshd\_config file.
 
-**Finding the fingerprint**
+**Finding the Fingerprint**
 
 ```bash
 ssh-keygen -E md5 -lf /etc/ssh/ssh_host_rsa_key.pub | cut -d' ' -f2 | awk '{ print $1}' | cut -d':' -f2-
 ```
 
 :::success
-**Don't forget to open your port!**
+**Don't Forget to Open Your Port!**
 Remember to ensure that your target machine is accessible over the selected SSH port. This is usually port 22.
 :::
 

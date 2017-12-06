@@ -16,25 +16,25 @@ In Octopus Deploy, Docker Registries are treated very similarly to [Package Rep
 
 Octopus Deploy supports the Docker Registry [Version 1](https://docs.docker.com/v1.6/reference/api/registry_api/) and [Version 2](https://docs.docker.com/registry/spec/api/) API specifications as outlined in the Docker reference files. You can access Docker Registries with or without using credentials, depending on registry configuration. You can use one of the hosted public registries, like [Docker Hub](https://hub.docker.com/), or you can host your own [Private Registry](/docs/packaging-applications/package-repositories/registries/index.md).
 
-### How Octopus Server and Deployment Targets integrate with Docker Registries {#DockerRegistriesasFeeds-HowOctopusServerandDeploymentTargetsintegratewithDockerRegistries}
+### How Octopus Server and Deployment Targets Integrate with Docker Registries {#DockerRegistriesasFeeds-HowOctopusServerandDeploymentTargetsintegratewithDockerRegistries}
 
 The Docker Registries you configure need to be accessed by both the Octopus Server and your [Deployment Targets](/docs/infrastructure/index.md).
 
 The Octopus Server will contact your registry to obtain information on available images while designing and maintaining your projects. During deployment the `docker pull` command will be executed on the Deployment Targets themselves and they will pull the Images directly from the Docker Registry.
 
-## Docker Registry API version discovery {#DockerRegistriesasFeeds-VersionDiscovery}
+## Docker Registry API Version Discovery {#DockerRegistriesasFeeds-VersionDiscovery}
 When you add your Docker Registry as a feed in Octopus Deploy, Octopus will attempt to detect and connect using the appropriate version based on specifications outlined in the relevant Docker API documentation. If your registry does not support the API correctly, it is possible that the connection will not be able to take place. We advise you to click _Save and Test_ once you have entered the registry detils to allow the version detection to take place and confirm that your credentials are correct. 
 
 According to the Docker API documentaiton, the [version 1](https://docs.docker.com/v1.6/reference/api/registry_api/) API should have a `/_ping` endpoint which will respond with a `X-Docker-Registry-Version` HTTP header in the response.
 Similarly, the [version 2](https://docs.docker.com/registry/spec/api/) API expects a `Docker-Distribution-API-Version` HTTP header with a value of `registry/2.0`. Both of these endpoints are expected to be located at an absolute path of either `/v1` or `/v2` from the host.
 
 :::hint
-**Container images are downloaded directly by the Deployment Target**
+**Container Images Are Downloaded Directly by the Deployment Target**
 Octopus Deploy does not currently support functionality to push Images from the Octopus Deploy Server to the Deployment Targets in the same way that it does with other [supported packages](/docs/packaging-applications/supported-packages.md). That being said, the [layered architecture of Images](https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/) allows your Deployment Targets to retrieve only those pieces that have changed from previous versions that are locally available, which is behavior built in to the Docker Engine.
 :::
 
 :::success
-**Accessing Docker Registries from different security zones**
+**Accessing Docker Registries from Different Security Zones**
 It is possible that the URI to the Docker Registry will be different for the Octopus Server and the Deployment Targets. You can use the *Registry Path* field when configuring the Docker Registry in Octopus to provide an alternative URI to use on the Deployment Target.
 :::
 
@@ -69,7 +69,7 @@ We have provided further details on setting up a Octopus Feed to the following D
 Note that as of the current version of ProGet (version 4.6.7 (Build 2)), their Docker Registry Feed does not expose the full Docker API and is missing the [_catalog endpoint](https://docs.docker.com/registry/spec/api/#/listing-repositories) which is required to list the available packages for release selection. It has been indicated that this may change in a future release.
 
 :::problem
-**Searching in a v2 registry**
+**Searching in a v2 Registry**
 Although a search feature is available in the v1 registry API, as of the time of writing there is no built-in search ability in the v2 specifications. There are ongoing discussions around an open [GitHub ticket](https://github.com/docker/distribution/issues/206) in the Docker registry Github repository however there is no clear indication if one will be provided due to changes in the philosophy behind the registry responsibilities. The current workaround, and one one that Octopus Deploy uses when a v2 Docker registry is provided, is to retrieve the full catalog via the [/v2/\_catalog](https://docs.docker.com/registry/spec/api/#/listing-repositories) endpoint and search for the required image locally.
 :::
 

@@ -14,21 +14,21 @@ Offline Package Drop is available as a deployment target.
 
 ![](images/create-new-offline-package-drop-target-part2.png "width=500")
 
-### Drop folder path {#OfflinePackageDrop-Dropfolderpath}
+### Drop Folder Path {#OfflinePackageDrop-Dropfolderpath}
 
 Configure the drop folder path field with the [UNC path](http://en.wikipedia.org/wiki/Path_%28computing%29#Uniform_Naming_Convention) to the directory you wish your offline packages to be located.
 
-### Sensitive-variables encryption password  {#OfflinePackageDrop-Sensitive-variablesencryptionpasswordSensitive-variablesencryptionpassword}
+### Sensitive-variables Encryption Password  {#OfflinePackageDrop-Sensitive-variablesencryptionpasswordSensitive-variablesencryptionpassword}
 
 As a security measure, any sensitive variables are written to a separate file which is then encrypted.  To perform the encryption\decryption, a password is required.  If your project does not contain any sensitive-variables, this field may be left un-set.  If a project is deployed to an offline package drop target which does not have an encryption password set, the deployment will fail with an indicative error.
 
 Please ensure you store your encryption password in a secure location, as you will require it when executing the batch file to perform the deployment on the target server.
 
-### Applications directory {#OfflinePackageDrop-Applicationsdirectory}
+### Applications Directory {#OfflinePackageDrop-Applicationsdirectory}
 
 The applications directory is the directory packages will be extracted to, and is the location applications will execute from by default (if no custom-installation-location is set).  On a regular Tentacle, this is set to `C:\Applications` by default.
 
-### Octopus working directory {#OfflinePackageDrop-Octopusworkingdirectory}
+### Octopus Working Directory {#OfflinePackageDrop-Octopusworkingdirectory}
 
 The Octopus working directory is a location where some supporting files (e.g. the deployment journal XML file) are stored.
 
