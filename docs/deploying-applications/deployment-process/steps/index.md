@@ -4,19 +4,6 @@ description: Adding steps to define your project's deployment process.
 position: 2
 ---
 
-The steps that you add to your deployment process are specific actions (or sets of actions) that Octopus will execute. Steps can include more than one action, and by default, the steps in a deployment process are run in sequence.
-
-![](5865849.png "width=300")
-If a step is configured to execute across multiple deployment targets, it will execute across all of those deployment targets in parallel, unless you specify a window size. Specifying a window size limits the number of deployment targets steps will execute against in parallel.
-
-![](5865850.png "width=300")
-
-Steps can include multiple actions.
-
-![](5865848.png "width=500")
-
-## Adding Steps
-
 Octopus strives to make it quick and easy to define your project's deployment process.  Selecting the **ADD STEP** button displays a list of built-in step templates, custom step templates, and community contributed step templates.
 
 Built-in steps are powerful and flexible enough to handle the most common deployment scenarios.  
@@ -80,6 +67,18 @@ Sometimes updates are available for step templates.  In this case, you will not
 If a step you want isn't built-in you should check out the community contributed [step templates](/docs/deploying-applications/deployment-process/steps/index.md). If you still don't find it, don't forget: *Octopus can do anything, as long as you can script the instructions*. Maybe you could contribute your scripts back to the community?
 :::
 
+## Execution Order
+
+The steps that you add to your deployment process will, by default, execute in sequence.
+
+![](5865849.png "width=300")
+If a step is configured to execute across multiple deployment targets, it will execute across all of those deployment targets in parallel, unless you specify a window size. Specifying a window size limits the number of deployment targets steps will execute against in parallel.
+
+![](5865850.png "width=300")
+
+Steps can include multiple actions.
+
+![](5865848.png "width=500")
 
 ## Example: A simple deployment process {#DeploymentProcesses-Example:Asimpledeploymentprocess}
 
