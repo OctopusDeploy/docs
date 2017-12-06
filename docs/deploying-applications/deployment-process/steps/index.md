@@ -52,7 +52,7 @@ Be careful when changing names! Octopus commonly uses names as a convenient iden
 
 ## Adding an installed step {#Addingsteps-Addinganinstalledstep}
 
-The add step page displays the built-in steps first which includes common steps to deploy IIS web sites, windows services, run scripts and more.  The built-in steps have been develop by the Octopus team to handle the most common deployment scenarios and it also.  This section also includes any custom [step templates](/docs/deploying-applications/deployment-process/steps/index.md) added in the library.  Hover over a step and click add step to go configure the step.
+The add step page displays the built-in steps first which includes common steps to deploy IIS web sites, windows services, run scripts and more.  The built-in steps have been develop by the Octopus team to handle the most common deployment scenarios and it also.  This section also includes any custom step templates added in the library.  Hover over a step and click add step to go configure the step.
 
 ![](add-builtin-step.png "width=300")
 
