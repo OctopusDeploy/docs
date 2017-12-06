@@ -84,19 +84,6 @@ Sometimes updates are available for step templates.  In this case, you will not
 If a step you want isn't built-in you should check out the community contributed [step templates](/docs/deploying-applications/deployment-process/steps/index.md). If you still don't find it, don't forget: *Octopus can do anything, as long as you can script the instructions*. Maybe you could contribute your scripts back to the community?
 :::
 
-## Conditions {#Deployingapplications-Conditions}
-
-Steps and actions can also have conditions. You can restrict a step so that it only runs when deploying to specific [environments](/docs/infrastructure/environments/index.md) (e.g., an Email step that only runs on production deployments).
-
-![](3277617.png "width=500")
-
-If you have created some [channels](/docs/deploying-applications/deployment-process/projects/channels.md), you can also specify whether a step runs only when deploying a release through specific channels (e.g., a Script step that only runs for deployments through certain channels to configure extra telemetry). *This will only appear if you have created one or more non-default channels.*
-
-![](3278573.png "width=500")
-
-You can also specify whether a step runs only when previous steps are successful (default), when a previous step fails, or always.
-
-![](3277616.png "width=500")
 
 ## Example: A simple deployment process {#DeploymentProcesses-Example:Asimpledeploymentprocess}
 
