@@ -35,10 +35,6 @@ Learn more about [Community Step Templates](/docs/deploying-applications/deploym
 
 Learn more about [Updating Step Templates](/docs/deploying-applications/deployment-process/steps/updating-step-templates.md) and [Exporting Step Templates](/docs/deploying-applications/deployment-process/steps/exporting-step-templates.md)
 
-:::success
-The [Community Library](http://library.octopusdeploy.com/) is an open source [repository](https://github.com/octopusdeploy/library/) of community contributed step templates automating a diverse set of actions.  If you still don't find what you are looking for, don't forget: Octopus can do anything, as long as you can script the instructions. Maybe you could [contribute](https://github.com/OctopusDeploy/Library/blob/master/CONTRIBUTING.md) your scripts back to the community?
-:::
-
 :::hint
 Prior to Octopus 3.7, selecting the add step button showed a popup list of built-in steps and any installed step templates (community contributed or custom).  Installing a community step required visiting the [Community Library](http://library.octopusdeploy.com/) and importing the step manually.  For more information, see [community step templates](/docs/deploying-applications/deployment-process/steps/community-step-templates.md).
 

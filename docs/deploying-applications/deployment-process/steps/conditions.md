@@ -4,8 +4,6 @@ description: Adding conditions to steps to define your project's deployment proc
 position: 6
 ---
 
-## Conditions {#Deployingapplications-Conditions}
-
 Steps and actions can also have conditions. You can restrict a step so that it only runs when deploying to specific [environments](/docs/infrastructure/environments/index.md) (e.g., an Email step that only runs on production deployments).
 
 ![](3277617.png "width=500")
