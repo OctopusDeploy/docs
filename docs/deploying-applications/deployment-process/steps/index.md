@@ -40,7 +40,7 @@ The [Community Library](http://library.octopusdeploy.com/) is an open source [re
 :::
 
 :::hint
-Prior to Octopus 3.7, selecting the add step button showed a popup list of built-in steps and any installed step templates (community contributed or custom).  Installing a community step required visiting the [Community Library](http://library.octopusdeploy.com/) and importing the step manually.  For more information, see [step templates](/docs/deploying-applications/deployment-process/steps/index.md).
+Prior to Octopus 3.7, selecting the add step button showed a popup list of built-in steps and any installed step templates (community contributed or custom).  Installing a community step required visiting the [Community Library](http://library.octopusdeploy.com/) and importing the step manually.  For more information, see [community step templates](/docs/deploying-applications/deployment-process/steps/community-step-templates).
 
 ![](/docs/images/5672131/5865901.png "width=500")
 :::
