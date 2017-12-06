@@ -178,3 +178,5 @@ docs/deploying-applications/manual-intervention-and-approvals.md -> docs/deployi
 docs/deploying-applications/run-steps-in-parallel.md -> docs/deploying-applications/deployment-process/run-steps-in-parallel.md
 docs/deploying-applications/scheduled-deployments.md -> docs/deploying-applications/deployment-process/scheduled-deployments.md
 docs/deploying-applications/substitute-variables-in-files.md -> docs/deploying-applications/deployment-process/substitute-variables-in-files.md
+docs/deploying-applications/coordinating-multiple-projects/index.md -> docs/deploying-applications/deployment-process/coordinating-multiple-projects/index.md
+docs/deploying-applications/coordinating-multiple-projects/project-coordination-code-camples.md -> docs/deploying-applications/deployment-process/coordinating-multiple-projects/project-coordination-code-camples.md
