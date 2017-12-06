@@ -33,10 +33,6 @@ Octopus community library integration makes it easy to find steps templates that
 
 Learn more about [Community Step Templates](/docs/deploying-applications/deployment-process/steps/community-step-templates.md).
 
-:::hint
-Octopus community step templates integration is enabled by default but this can be changed in the **Features** tab in the **Configuration** area. For more information, see [Octopus community step templates integration](/docs/administration/octopus-community-step-templates-integration.md).
-:::
-
 Learn more about [Updating Step Templates](/docs/deploying-applications/deployment-process/steps/updating-step-templates.md) and [Exporting Step Templates](/docs/deploying-applications/deployment-process/steps/exporting-step-templates.md)
 
 :::success
