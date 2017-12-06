@@ -29,9 +29,9 @@ Learn more about [Custom Step Templates](/docs/deploying-applications/deployment
 
 Octopus community library integration makes it easy to find steps templates that work with the frameworks and technologies you use without the need for custom scripting.
 
-Learn more about [Community Step Templates](/docs/deploying-applications/deployment-process/steps/community-step-templates.md).
-
 ![](community-steps.png "width=500") 
+
+Learn more about [Community Step Templates](/docs/deploying-applications/deployment-process/steps/community-step-templates.md).
 
 :::hint
 Octopus community step templates integration is enabled by default but this can be changed in the **Features** tab in the **Configuration** area. For more information, see [Octopus community step templates integration](/docs/administration/octopus-community-step-templates-integration.md).
