@@ -1,5 +1,5 @@
 ---
-title: NuGet packages
+title: NuGet Packages
 description: Using NuGet to package applications for use in your deployments.
 position: 2
 ---
@@ -16,7 +16,7 @@ NuGet is a good choice for packaging your applications, for the following reason
 3. NuGet packages can be consumed via a feed, so other applications can easily query the available packages
 4. Developer familiarity
 
-## Creating NuGet packages {#NuGetpackages-CreatingNuGetpackages}
+## Creating NuGet Packages {#NuGetpackages-CreatingNuGetpackages}
 
 You can create NuGet packages in a number of ways:
 

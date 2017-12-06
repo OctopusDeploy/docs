@@ -15,6 +15,8 @@ Steps can include multiple actions.
 
 ![](5865848.png "width=500")
 
+## Adding Steps
+
 Octopus strives to make it quick and easy to define your project's deployment process.  Selecting the **ADD STEP** button displays a list of built-in step templates, custom step templates, and community contributed step templates.
 
 Built-in steps are powerful and flexible enough to handle the most common deployment scenarios.  

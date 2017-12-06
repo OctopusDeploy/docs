@@ -16,7 +16,7 @@ We strongly recommend using [Semantic Versioning](http://semver.org/) as a guide
 **If you want everything to "just work" in every situation, stick with strict SemVer.** To cater for alternative scenarios we have also chosen to support a "pragmatic" implementation of SemVer including support for 4-digit versions (like `1.0.0.0`) and versions that can be sorted alphanumerically, like `2016.09.01-beta.0001`. Read further to learn about choosing a versioning scheme, and why we treat versions this way in Octopus Deploy.
 :::
 
-## Choosing a versioning scheme {#VersioninginOctopusDeploy-Choosingaversioningscheme}
+## Choosing a Versioning Scheme {#VersioninginOctopusDeploy-Choosingaversioningscheme}
 
 We highly recommend using [Semantic Versioning](http://semver.org/) for your applications - we use it internally at Octopus Deploy and have found it to be a useful way of communicating semantic meaning with our versions. Think about these factors when considering your own approach to versioning your applications and packages:
 
@@ -25,13 +25,13 @@ We highly recommend using [Semantic Versioning](http://semver.org/) for your app
 3. Will your version numbers be confusing, or will they help people understand the changes that have been made to the software? *For example: bumping a major version component (first part) means there are potentially breaking changes, but bumping a patch (3rd part) should be safe to upgrade, and safe to rollback if something goes wrong.*
 4. Does your tool chain support the versioning scheme? *For example: Octopus Deploy supports Semantic Versioning, which enables enhanced features like [Channels](/docs/deploying-applications/deployment-process/projects/channels.md).*
 
-### Strictness versus pragmatism {#VersioninginOctopusDeploy-Strictnessversuspragmatism}
+### Strictness Versus Pragmatism {#VersioninginOctopusDeploy-Strictnessversuspragmatism}
 
 Strictly speaking about SemVer 2.0, a version like `1.5.2-rc.1` is considered a "pre-release" and `1.5.2` would be considered a "full release".  In practice, these kinds of concepts carry weight when you are talking about hierarchies of application dependencies like classical NuGet packages or NPM dependencies. This kind of strict semantic versioning enables dependency management tooling to interpret what kind of changes each package version represents. For example, they can automatically protect your software, by preventing you from accidentally upgrading to pre-release versions, or versions that may introduce breaking changes.
 
 When it comes to application versioning however, we suggest the "pre-release tag" (the bit after the `-`) can be used for whatever you want. For example: you could build version `1.5.2-rc` of your application, and configure a [Channel](/docs/deploying-applications/deployment-process/projects/channels.md) to promote packages like `*-rc` to Staging and eventually Production.
 
-### How we version Octopus Deploy {#VersioninginOctopusDeploy-HowweversionOctopusDeploy}
+### How we Version Octopus Deploy {#VersioninginOctopusDeploy-HowweversionOctopusDeploy}
 
 In practice, we use [GitVersion](https://gitversion.readthedocs.io/en/latest/why/) which interprets our git repository to calculate deterministic versions like `3.5.0-beta.2+Branch.master.SHA.56e05fced214c44a37759efa2dfc25a65d8ae98d` which are fully SemVer 2.0 compliant.
 
@@ -47,7 +47,7 @@ With a version like this we can communicate several semantic concepts with our c
 4. We show the version as `3.5.0-beta.2` in the UI.
 5. We log the full "informational version" to all of our task logs so it is easy for us to identify exactly which version of Octopus Server and Calamari were used in a deployment based on a customer sending us a log file.
 
-### Build once, deploy many times {#VersioninginOctopusDeploy-Buildonce,deploymanytimes}
+### Build Once, Deploy Many Times {#VersioninginOctopusDeploy-Buildonce,deploymanytimes}
 
 One of the mantras at Octopus Deploy is "build once, deploy many times" and "deploy the same binaries you tested". This works really well when your versioning scheme can be a simple incremental scheme: every time you build you increment the build number. For example, an internal web application where the version number has no binding ramifications - it's primarily to enable traceability for bugs.
 
@@ -60,7 +60,7 @@ For example:
 
 If you are like us, and the pre-release tag carries significant meaning, you should consider taking a similar approach. Otherwise, if the pre-release tag is just for information, perhaps you can consider whether it is useful for other purposes like configuring [Channels](/docs/deploying-applications/deployment-process/projects/channels.md).
 
-## How Octopus Deploy treats versions {#VersioninginOctopusDeploy-HowOctopusDeploytreatsversions}
+## How Octopus Deploy Treats Versions {#VersioninginOctopusDeploy-HowOctopusDeploytreatsversions}
 
 The Octopus Deploy ecosystem includes a wide variety of external services which care about versions, with some of them being quite opinionated in their versioning implementations, with potential inconsistencies amongst them. Rather than implementing a "lowest common denominator" approach, we have chosen to take a "string-based" approach. This enables you to leverage the idiomatic/natural versioning schemes of your target ecosystem.
 
@@ -93,11 +93,11 @@ This is a really good decision when considering the NuGet ecosystem in isolation
 This caused us to take stock of how we handle versions across the Octopus Deploy ecosystem and make the decisions we outlined earlier.
 :::
 
-## How Octopus Deploy treats Maven versions
+## How Octopus Deploy Treats Maven Versions
 
 When working with artifacts from a Maven feed, Octopus respects the [Maven versioning scheme](https://octopus.com/blog/maven-versioning-explained). This versioning scheme is implemented as a copy of the [ComparableVersion](https://github.com/apache/maven/blob/master/maven-artifact/src/main/java/org/apache/maven/artifact/versioning/ComparableVersion.java) class from the Maven library itself.
 
-## When to use SemVer and when to use Maven versions
+## When to use SemVer and When to use Maven Versions
 
 SemVer is still recommended (or required) when versioning any artifact to be deployed to the built-in library or an external NuGet feed.
 
