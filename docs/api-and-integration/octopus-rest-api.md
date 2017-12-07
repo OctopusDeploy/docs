@@ -28,4 +28,4 @@ If you plan to use the REST API from C# or another .NET project, see the [Octop
 
 As of `3.17`, Octopus now includes the default Swagger UI dor displaying the API documentaiton in a nice human readable way. To browse that UI just open your browser and go to `[OctopusServerURL]/swaggerui/`
 
-![](/docs/images/3048161/3278405.png)
+![](/docs/images/3048161/3278406.png)
