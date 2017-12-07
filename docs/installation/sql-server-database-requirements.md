@@ -6,9 +6,11 @@ position: 0
 
 Octopus Deploy stores projects, environments, and deployment history in a Microsoft SQL Server database.
 
+!toc
+
 ## Supported Versions and Editions {#SQLServerDatabaseRequirements-Supportedversionsandeditions}
 
-Octopus works with a wide range of versions and editions of SQL Server, from a local SQL Server Express instance, all the way to an Enterprise Edition cluster, or hosted database-as-a-service. The following versions/editions are supported:
+Octopus works with a wide range of versions and editions of SQL Server, from a local SQL Server Express instance, all the way to an Enterprise Edition [SQL Server Failover Cluster](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server) or [SQL Server AlwaysOn Availability Group](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server), or even one of the hosted database-as-a-service offerings. The following versions/editions are supported and tested for each release of Octopus Server:
 
 - Supported versions:
     * SQL Server 2008
@@ -69,6 +71,18 @@ If you need to create the database yourself:
 **Changing the Database Collation**
 See [here](/docs/administration/octopus-database/changing-the-collation-of-the-octopus-database.md) for information about changing the database collation after the initial Octopus installation.
 :::
+
+## Using SQL Server AlwaysOn
+
+Octopus will work with [any of the supported highly available SQL Server implementations](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
+
+Make sure the Octopus Server is connecting to the listener which will route database requests to the active SQL Server node and allow for automatic fail over. Learn about [connecting to listeners and  handling fail over](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover).
+
+A typical connection string for using a SQL Server AlwaysOn availability group looks like this:
+
+```plain
+Server=tcp:AGListener,1433;Database=Octopus;IntegratedSecurity=SSPI;MultiSubnetFailover=True
+```
 
 ## Database Administration and Maintenance
 
