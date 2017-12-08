@@ -10,6 +10,15 @@ When guest login is enabled, the sign in page for the Octopus web portal will pr
 
 ![](/docs/images/3048126/5865814.png "width=500")
 
+## Enable Guest user via UI {#Guestlogin-Enableguestlogin}
+
+In Octopus 4.0 we added the ability to enable your guest account via the UI. The option can be found under Configuration -> Settings -> Guest Login. From there you can select the `Is Enabled` button the active the the Guest account.
+
+![](./enableguests1.jpg "width=500")
+![](./enableguests2.jpg "width=500")
+
+The guest account will now be activated and added to your Octopus Users.
+
 ## Guest user permissions {#Guestlogin-Guestuserpermissions}
 
 The guest user is created as a standard user managed by Octopus. If you are using Active Directory authentication, you don't need a matching AD user account. The user is automatically added to the **Everyone** team. The guest user can be found in the **Users** tab in the **Configuration** area:
