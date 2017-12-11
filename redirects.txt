@@ -168,7 +168,7 @@ docs/deploying-applications/configuration-files/index.md -> docs/deploying-appli
 docs/deploying-applications/configuration-files/advanced-configuration-transforms-examples.md -> docs/deploying-applications/deployment-process/configuration-files/advanced-configuration-transforms-examples.md
 docs/deploying-applications/custom-installation-directory.md -> docs/deploying-applications/deployment-process/custom-installation-directory.md
 docs/deploying-applications/artifacts.md -> docs/deploying-applications/deployment-process/artifacts.md
-docs/deploying-applications/automatic-deployment-triggers.md -> docs/deploying-applications/deployment-process/automatic-deployment-triggers.md
+docs/deploying-applications/automatic-deployment-triggers.md -> docs/deploying-applications/deployment-process/project-triggers.md
 docs/deploying-applications/automatic-release-creation.md -> docs/deploying-applications/deployment-process/automatic-release-creation.md
 docs/deploying-applications/blocking-deployments.md -> docs/deploying-applications/deployment-process/blocking-deployments.md
 docs/deploying-applications/delta-compression-for-package-transfers.md -> docs/deploying-applications/deployment-process/delta-compression-for-package-transfers.md

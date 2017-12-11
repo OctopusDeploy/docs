@@ -23,10 +23,6 @@ Automatic Deployment Triggers (also known as auto-deploy) allow you to define an
 Automatic Deployment Triggers were introduced in Octopus Deploy 3.4.
 :::
 
-:::success
-We have written a [comprehensive guide](/docs/guides/elastic-and-transient-environments/index.md) about using Automatic Deployment Triggers with a focus on deploying to elastic and transient environments. Lots of our customers who deploy into elastic or transient environments were building custom scripts to achieve a similar result.
-:::
-
 Automatic Deployment Triggers can help you:
 
 - [Elastically scale a farm of servers](/docs/guides/elastic-and-transient-environments/index.md)
