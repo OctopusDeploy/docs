@@ -34,7 +34,7 @@ docs/key-concepts/environments/index.md -> docs/infrastructure/environments/inde
 docs/key-concepts/environments/machine-policies.md -> docs/infrastructure/environments/machine-policies.md
 docs/key-concepts/projects/index.md -> docs/deploying-applications/deployment-process/projects/index.md
 docs/key-concepts/projects/deployment-processes.md -> docs/deploying-applications/deployment-process/index.md
-docs/key-concepts/projects/releases.md -> docs/deploying-applications/deployment-process/projects/releases.md
+docs/key-concepts/projects/releases.md -> docs/deploying-applications/deployment-process/releases.md
 docs/key-concepts/projects/channels.md -> docs/deploying-applications/deployment-process/channels.md
 docs/key-concepts/projects/project-triggers.md -> docs/deploying-applications/deployment-process/project-triggers.md
 docs/key-concepts/projects/reporting.md -> docs/deploying-applications/deployment-process/projects/reporting.md
@@ -134,7 +134,7 @@ docs/deploying-applications/projects/channels.md -> docs/deploying-applications/
 docs/deploying-applications/projects/project-groups.md -> docs/deploying-applications/deployment-process/projects/index.md
 docs/deploying-applications/projects/project-triggers.md -> docs/deploying-applications/deployment-process/project-triggers.md
 docs/deploying-applications/projects/reporting.md -> docs/deploying-applications/deployment-process/projects/reporting.md
-docs/deploying-applications/projects/releases.md -> docs/deploying-applications/deployment-process/projects/releases.md 
+docs/deploying-applications/projects/releases.md -> docs/deploying-applications/deployment-process/releases.md 
 docs/deploying-applications/projects/lifecycles/index.md -> docs/deploying-applications/deployment-process/projects/lifecycles/index.md
 docs/deploying-applications/adding-steps.md -> docs/deploying-applications/deployment-process/steps/index.md
 docs/deploying-applications/projects/deployment-processes.md -> docs/deploying-applications/deployment-process/index.md
@@ -183,3 +183,4 @@ docs/deploying-applications/coordinating-multiple-projects/project-coordination-
 docs/deploying-applications/deployment-process/projects/project-triggers.md -> docs/deploying-applications/deployment-process/project-triggers.md
 docs/deploying-applications/deployment-process/projects/channels.md -> docs/deploying-applications/deployment-process/channels.md
 docs/deploying-applications/deployment-process/automatic-deployment-triggers.md -> docs/deploying-applications/deployment-process/project-triggers.md
+docs/deploying-applications/deployment-process/projects/releases.md -> docs/deploying-applications/deployment-process/releases.md
