@@ -1,7 +1,7 @@
 ---
 title: Channels
 description: Channels allow you to dynamically change the deployment logic and lifecycle of a project based on the version being deployed.
-position: 2
+position: 5
 version: 3.2
 ---
 
@@ -122,7 +122,7 @@ When you are creating a Release, you can select a Channel.
 
 Selecting the Channel will cause the Release to use the Lifecycle associated with the Channel (or the Project default, if the Channel does not have a Lifecycle).  It will also cause the Deployment Process and Variables to be modified as specified above.
 
-The package list allows you to select the version of each package involved in the deployment.  The *latest* column displays the latest packages that match the version rules defined for the Channel (see [version rules](/docs/deploying-applications/deployment-process/projects/channels.md) for more information).
+The package list allows you to select the version of each package involved in the deployment.  The *latest* column displays the latest packages that match the version rules defined for the Channel (see [version rules](/docs/deploying-applications/deployment-process//channels.md) for more information).
 
 ### Using Build Server Extensions or Octo.exe {#Channels-UsingBuildServerExtensionsorOcto.exe}
 

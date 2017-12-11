@@ -117,7 +117,7 @@ You can also use the Project Overview to deploy to groups of tenants by grouping
 
 ## Using channels and tenant tags to restrict test releases to the test team {#Designingamulti-tenantupgradeprocess-Usingchannelsandtenanttagstorestricttestreleasestothetestteam}
 
-You may decide to use channels as a safety measure, to restrict test releases to a limited set of test tenants. By using a combination of [Channels](/docs/deploying-applications/deployment-process/projects/channels.md) and [Tenant Tags](/docs/reference/tenant-tags.md) you can make sure test releases are only deployed to the correct tenants and environments.
+You may decide to use channels as a safety measure, to restrict test releases to a limited set of test tenants. By using a combination of [Channels](/docs/deploying-applications/deployment-process//channels.md) and [Tenant Tags](/docs/reference/tenant-tags.md) you can make sure test releases are only deployed to the correct tenants and environments.
 
 ### Step 1: Create the Lifecycle {#Designingamulti-tenantupgradeprocess-Step1:CreatetheLifecycle}
 
@@ -126,7 +126,7 @@ Firstly we will create a new [Lifecycle](/docs/deploying-applications/deploymen
 ![](/docs/images/5669342/5866198.png "width=300")
 
 :::hint
-Learn more about [defining a limited Lifecycle for your test Channel](/docs/deploying-applications/deployment-process/projects/channels.md).
+Learn more about [defining a limited Lifecycle for your test Channel](/docs/deploying-applications/deployment-process//channels.md).
 :::
 
 ### Step 2: Configure a channel for the test program {#Designingamulti-tenantupgradeprocess-Step2:Configureachannelforthetestprogram}
@@ -147,7 +147,7 @@ Now when you deploy this release, you will be able to choose from the limited se
 
 ## Using channels and tenant tags to implement an early access program {#Designingamulti-tenantupgradeprocess-Usingchannelsandtenanttagstoimplementanearlyaccessprogram}
 
-Quite often you want to involve certain customers in testing early releases of major upgrades. By using a combination of [Channels](/docs/deploying-applications/deployment-process/projects/channels.md) and [Tenant Tags](/docs/reference/tenant-tags.md) you can implement an opt-in early access program using tenants, making sure the beta releases are only deployed to the correct tenants and environments.
+Quite often you want to involve certain customers in testing early releases of major upgrades. By using a combination of [Channels](/docs/deploying-applications/deployment-process//channels.md) and [Tenant Tags](/docs/reference/tenant-tags.md) you can implement an opt-in early access program using tenants, making sure the beta releases are only deployed to the correct tenants and environments.
 
 ### Step 1: Create the Lifecycle {#Designingamulti-tenantupgradeprocess-Step1:CreatetheLifecycle.1}
 
@@ -156,7 +156,7 @@ Firstly we will create a new [Lifecycle](/docs/deploying-applications/deploymen
 ![](/docs/images/5669342/5865747.png)
 
 :::hint
-Learn more about [defining a limited Lifecycle for your test Channel](/docs/deploying-applications/deployment-process/projects/channels.md).
+Learn more about [defining a limited Lifecycle for your test Channel](/docs/deploying-applications/deployment-process//channels.md).
 :::
 
 ### Step 2: Configure the tenant tags {#Designingamulti-tenantupgradeprocess-Step2:Configurethetenanttags}
@@ -183,7 +183,7 @@ Now when you are deploying **2.0.0-beta.1** you will be able to select tenants 
 
 ## Pinning tenants to a release {#Designingamulti-tenantupgradeprocess-Pinningtenantstoarelease}
 
-Quite often you will want to disable/prevent deployments to a tenant during a period of time where the customer wants guarantees of stability. You can prevent deployments to tenants using a combination of [Channels](/docs/deploying-applications/deployment-process/projects/channels.md) and [Tenant Tags](/docs/reference/tenant-tags.md).
+Quite often you will want to disable/prevent deployments to a tenant during a period of time where the customer wants guarantees of stability. You can prevent deployments to tenants using a combination of [Channels](/docs/deploying-applications/deployment-process//channels.md) and [Tenant Tags](/docs/reference/tenant-tags.md).
 
 ### Step 1: Create the Upgrade Ring/Pinned tag {#Designingamulti-tenantupgradeprocess-Step1:CreatetheUpgradeRing/Pinnedtag}
 
