@@ -182,3 +182,4 @@ docs/deploying-applications/coordinating-multiple-projects/index.md -> docs/depl
 docs/deploying-applications/coordinating-multiple-projects/project-coordination-code-samples.md -> docs/deploying-applications/deployment-process/coordinating-multiple-projects/project-coordination-code-samples.md
 docs/deploying-applications/deployment-process/projects/project-triggers.md -> docs/deploying-applications/deployment-process/project-triggers.md
 docs/deploying-applications/deployment-process/projects/channels.md -> docs/deploying-applications/deployment-process/channels.md
+docs/deploying-applications/deployment-process/automatic-deployment-triggers.md -> docs/deploying-applications/deployment-process/project-triggers.md
