@@ -29,7 +29,7 @@ The fundamental design of Automatic Deployments revolves around "configuring new
 
 ## How it works {#AutomaticDeploymentTriggers-Howitworks}
 
-All [Project Triggers](/docs/deploying-applications/deployment-process/projects/project-triggers.md) in Octopus work on an event-sourcing basis. Automatic deployment triggers look for events like when deployment targets are added to an environment, or they are enabled, or given a new role, or deployments of a project are completed successfully.
+All [Project Triggers](/docs/deploying-applications/deployment-process/project-triggers.md) in Octopus work on an event-sourcing basis. Automatic deployment triggers look for events like when deployment targets are added to an environment, or they are enabled, or given a new role, or deployments of a project are completed successfully.
 
 A scheduled task runs in Octopus every 30 seconds looking for new events to determine whether any automatic deployment triggers need to fire. Each trigger is inspected to see if the recent stream of events should cause the trigger to fire, and if so, the appropriate deployments will be queued.
 
