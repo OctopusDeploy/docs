@@ -6,6 +6,8 @@ position: 15
 
 In Octopus Deploy 2.6 a feature was added called Automatic Release Creation primarily to support older versions of Team Foundation Server (TFS).
 
+Automatic release creation is available in Octopus 2.6 up to and including Octopus 3.3. If you are using Octopus 3.4 or higher please see [project triggers](/docs/deploying-applications/deployment-process/project-triggers.md).
+
 :::success
 **Consider using a build server extension**
 We have extensions/plugins available for the most popular build servers. These extensions will help you [create packages](/docs/packaging-applications/index.md), [push those packages to the built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md), create releases and deploy them to your environments:
@@ -30,11 +32,6 @@ If you use the[ built-in Octopus package repository](/docs/packaging-application
 The process starts on the project process page.
 
 ![](/docs/images/3048079/3277644.png "width=500")
-
-:::hint
-**Automatic release creation has moved**
-Automatic release creation has moved to the Triggers page in Octopus 3.4.
-:::
 
 When you select that you want to turn this feature on you need to select which package will trigger the release creation.
 
@@ -87,7 +84,7 @@ When you are using automatic release creation there are many reasons why a relea
 
 5. Ensure you are pushing a **new version** of the package - Octopus will not create a release where the package has already been used for creating a release
 
-6. Ensure you are pushing a package that Octopus will consider as the **latest available package** - see the conversation about [automatically creating pre-releases](/docs/deploying-applications/deployment-process/automatic-release-creation.md) above
+6. Ensure you are pushing a package that Octopus will consider as the **latest available package** - see the conversation about [automatically creating pre-releases](/docs/deploying-applications/deployment-process/steps/automatic-release-creation.md) above
 
 7. Ensure the release creation package step **DOES NOT use variables for the PackageId** - Octopus will only create a release where the package is constant
 
@@ -95,7 +92,7 @@ When you are using automatic release creation there are many reasons why a relea
 
 9. When using Channels the package **must satisfy the version rules** for the Channel being used for automatic release creation - try creating some releases manually
 
-10. Are you pushing **pre-release** packages? See the section above on [automatically creating pre-releases](/docs/deploying-applications/deployment-process/automatic-release-creation.md).
+10. Are you pushing **pre-release** packages? See the section above on [automatically creating pre-releases](/docs/deploying-applications/deployment-process/steps/automatic-release-creation.md).
 
 11. Ensure the account pushing the package has the required permissions for **each** of the **Projects** and **Environments** that will be involved in creating (and potentially deploying) the release. Consider which of the following permissions may be required depending on your circumstances:  
 
