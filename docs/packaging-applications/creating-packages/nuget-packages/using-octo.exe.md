@@ -3,6 +3,8 @@ title: Using Octo.exe
 description: Packaging applications using the octo.exe command line tool for use in your deployments.
 ---
 
+!toc
+
 If you don't want to (or can't) add [OctoPack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md) to your Visual Studio project, or you have a project that doesn't use Visual Studio then packaging your applications into a NuGet package would involve using NuGet.exe, together with a manifest file (.nuspec file), to create your packages.
 
 There is, however, another way that you can create a NuGet package from just a folder of files and subdirectories. **Octo.exe** is our API command line tool that allows you to interact with your Octopus Deploy server using different **commands**, but, it also has a, not so known command, the **pack** command. The [Octo.exe Command Line](/docs/api-and-integration/octo.exe-command-line/index.md) page will show you how to get the API command line tool installed and ready to use.
@@ -129,3 +131,8 @@ Advanced options:
       --overwrite            [Optional] Allow an existing package file of the
                              same ID/version to be overwritten
 ```
+## Using .NET Core?
+
+If you are using .NET Core for class libraries, we recommend using [dotnet pack from Microsoft](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-pack).
+
+If you are using .NET Core for web applications, we recommend publishing to a folder and then using [Octo.exe pack](/docs/packaging-applications/creating-packages/nuget-packages/using-octo.exe), as described in the "Publishing and Packing the Website" section of the [Deploying ASP.NET Core Web Applications documentation](/docs/deploying-applications/deploying-asp.net-core-web-applications#DeployingASP.NETCoreWebApplications-PublishingandPackingtheWebsite).
