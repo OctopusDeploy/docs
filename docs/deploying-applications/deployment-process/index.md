@@ -11,7 +11,8 @@ To define your deployment process your must:
 
 1. Create a [project](docs/deploying-applications/deployment-process/projects/index.md).
 1. Add [steps](docs/deploying-applications/deployment-process/steps/index.md) to the project.
-1. Add [configuration variables]() to the project.
+1. Add [configuration variables](docs/deploying-applications/deployment-process/variables/index.md) to the project.
+1. Create a [release](docs/deploying-applications/deployment-process/releases.md).
 
 ## Working with the Octopus API {#DeploymentProcesses-WorkingwiththeOctopusAPI}
 
