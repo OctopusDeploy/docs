@@ -158,7 +158,8 @@ docs/deploying-applications/docker-containers/registries/index.md -> docs/packag
 docs/deploying-applications/docker-containers/registries/amazon-ec2-container-services.md -> docs/packaging-applications/package-repositories/registries/amazon-ec2-container-services.md
 docs/deploying-applications/docker-containers/registries/azure-container-services.md -> docs/packaging-applications/package-repositories/registries/azure-container-services.md
 docs/deploying-applications/docker-containers/registries/docker-hub.md -> docs/packaging-applications/package-repositories/registries/docker-hub.md
-docs/deploying-applications/guided-failures.md -> docs/deploying-applications/deployment-process/guided-failures.md
+docs/deploying-applications/guided-failures.md -> docs/deploying-applications/deployment-process/releases/guided-failures.md
+docs/deploying-applications/deployment-process/guided-failures.md -> docs/deploying-applications/deployment-process/releases/guided-failures.md
 docs/deploying-applications/deploying-packages/index.md -> docs/deploying-applications/deployment-process/deploying-packages/index.md
 docs/deploying-applications/deploying-packages/dynamically-selecting-packages.md -> docs/deploying-applications/deployment-process/deploying-packages/dynamically-selecting-packages.md
 docs/deploying-applications/deploying-packages/transfer-package.md -> docs/deploying-applications/deployment-process/deploying-packages/transfer-package.md

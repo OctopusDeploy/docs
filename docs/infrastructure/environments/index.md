@@ -40,7 +40,7 @@ It's a good idea to put your least production-like environments first, and the m
 
 ## Guided Failures {#Environments-Guidedfailures}
 
-[Guided failure mode](/docs/deploying-applications/deployment-process/guided-failures.md) can be enabled on an environment by default. This is useful for critical environments that are usually deployed to manually (for example, staging and production-like environments), though you may want to disable this feature for environments which are deployed to automatically such as smoke testing environments.
+[Guided failure mode](/docs/deploying-applications/deployment-process/releases/guided-failures.md) can be enabled on an environment by default. This is useful for critical environments that are usually deployed to manually (for example, staging and production-like environments), though you may want to disable this feature for environments which are deployed to automatically such as smoke testing environments.
 
 Guided failure mode is an option when editing an environment:
 
