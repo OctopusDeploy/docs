@@ -7,6 +7,11 @@ description: Using OctoPack is the easiest way to package .NET applications for 
 
 The easiest way to package .NET applications from your continuous integration/automated build process is to use OctoPack. OctoPack adds a custom MSBuild target that hooks into the build process of your solution. When enabled, OctoPack will package your Windows Service and ASP.NET applications when MSBuild runs. This makes it easy to integrate OctoPack with your build server - as long as you can pass properties to MSBuild, you can use OctoPack.
 
+:::warning
+**OctoPack is not compatible with ASP.NET Core applications**
+Please see [this section](#UsingOctoPack-UsingNETCore) for more details.
+:::
+
 :::hint
 **OctoPack is Open-Source**
 OctoPack is built and maintained by the Octopus Deploy team, but it is also open source. You can [view the OctoPack project on GitHub](https://github.com/OctopusDeploy/OctoPack).
@@ -144,8 +149,8 @@ NuGet packages have version numbers. When you use OctoPack, the NuGet package ve
 
 1. The command line, if you pass `/p:OctoPackPackageVersion=<version>` as an MSBuild parameter when building your project.
 2. If the assembly contains a `GitVersionInformation` type, the field `GitVersionInformation.NuGetVersion` is used
-3. If you pass `/p:OctoPackUseProductVersion=true` as an MSBuild parameter, `[assembly: AssemblyInformationalVersion]` (AKA Assembly's product version) is used 
-4. If you pass `/p:OctoPackUseFileVersion=true` as an MSBuild parameter, `[assembly: AssemblyFileVersion]` (AKA Assembly's file version) is used 
+3. If you pass `/p:OctoPackUseProductVersion=true` as an MSBuild parameter, `[assembly: AssemblyInformationalVersion]` (AKA Assembly's product version) is used
+4. If you pass `/p:OctoPackUseFileVersion=true` as an MSBuild parameter, `[assembly: AssemblyFileVersion]` (AKA Assembly's file version) is used
 5. If the `[assembly: AssemblyInformationalVersion]` value is not valid, the `[assembly: AssemblyFileVersion]` is used
 6. If the `[assembly: AssemblyFileVersion]` is the same as the `[assembly: AssemblyInformationalVersion]` (AKA ProductVersion), then we'll use the `[assembly: AssemblyVersion]` attribute in your `AssemblyInfo.cs` file
 7. Otherwise we take the `[assembly: AssemblyInformationalVersion]`.
@@ -257,6 +262,7 @@ In addition to the common arguments above, OctoPack has a number of other parame
 | `OctoPackUseFileVersion`               | `true`                                  | Use this parameter to use `[assembly: AssemblyFileVersion]` (Assembly File Version) as the package version (see [version numbers](#UsingOctoPack-Versionnumbers)) |
 | `OctoPackUseProductVersion`            | `true`                                  | Use this parameter to use `[assembly: AssemblyInformationalVersion]` (Assembly Product Version) as the package version (see [version numbers](#UsingOctoPack-Versionnumbers)). Introduced in OctoPack `3.5.0` |
 | `OctoPackAppendProjectToFeed`          | `true`                                  | Append the project name onto the feed so you can nest packages under folders on publish |
+
 ## Troubleshooting OctoPack {#UsingOctoPack-TroubleshootingOctoPack}
 
 Sometimes OctoPack doesn't work the way you expected it to, or perhaps you are having trouble configuring your `.nuspec` file. Here are some steps to help you diagnose what is going wrong, and fix the problem.
@@ -268,7 +274,7 @@ Sometimes OctoPack doesn't work the way you expected it to, or perhaps you are h
   ```
   The `/p:RunOctoPack=true` argument configures OctoPack to run as part of the build process
   The `/fl` argument configures `msbuild.exe` to write the output to a log file which will usually look like `msbuild.log`.   Refer to the [MSBuild documentation](https://msdn.microsoft.com/en-us/library/ms171470.aspx) for more details.
-  Note: You may need to change some of these parameters to match the process you are using on your build server. Take a look   at the build server logs and try to emulate the process as closely as possible.  
+  Note: You may need to change some of these parameters to match the process you are using on your build server. Take a look   at the build server logs and try to emulate the process as closely as possible.
 
 2. Inspect the [MSBuild output log file](https://msdn.microsoft.com/en-us/library/ms171470.aspx). If OctoPack has executed successfully you should see log entries like the ones shown below generated using OctoPack 3.0.42:
 
@@ -290,8 +296,8 @@ Task "CreateOctoPackPackage"
   OctoPack: PackageVersion: 0.0.0.0
   OctoPack: ProjectName: MyApplication.Web
   OctoPack: PrimaryOutputAssembly: c:\dev\MyApplication\source\MyApplication.Web\bin\MyApplication.Web.dll
-  OctoPack: NugetArguments: 
-  OctoPack: NugetProperties: 
+  OctoPack: NugetArguments:
+  OctoPack: NugetProperties:
   OctoPack: ---------------
   OctoPack: Written files: 299
   OctoPack: Create directory: c:\dev\MyApplication\source\MyApplication.Web\obj\octopacking
@@ -333,7 +339,7 @@ Done executing task "Copy".
 Task "Message" skipped, due to false condition; ('$(OctoPackPublishPackageToHttp)' != '') was evaluated as ('' != '').
 Task "Exec" skipped, due to false condition; ('$(OctoPackPublishPackageToHttp)' != '') was evaluated as ('' != '').
 Done building target "OctoPack" in project "MyApplication.Web.csproj".
-```  
+```
 
  * If you cannot see any OctoPack-related log messages, perhaps OctoPack isn't installed into your project(s) correctly?
    * Try completely uninstalling OctoPack and installing it again
@@ -347,3 +353,11 @@ Done building target "OctoPack" in project "MyApplication.Web.csproj".
    * For web applications, files that are configured with the Visual Studio property **Build Action: Content** will be included in the package
    * If you have specified the `<files>` element in a custom `.nuspec` file, perhaps you need to add the `/p:OctoPackEnforceAddingFiles=true` MSBuild argument as discussed above?
    * If you have specified the `<files>` element in a custom `.nuspec` file, perhaps you need to experiment with some different combinations of include and exclude?
+
+## Using .NET Core? {#UsingOctoPack-UsingNETCore}
+
+OctoPack does not support .NET Core projects.
+
+If you are using .NET Core for class libraries, we recommend using [dotnet pack from Microsoft](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-pack).
+
+If you are using .NET Core for web applications, we recommend publishing to a folder and then using [Octo.exe pack](/docs/packaging-applications/creating-packages/nuget-packages/using-octo.exe.md), as described in the "Publishing and Packing the Website" section of the [Deploying ASP.NET Core Web Applications documentation](/docs/deploying-applications/deploying-asp.net-core-web-applications/index.md#DeployingASP.NETCoreWebApplications-PublishingandPackingtheWebsite).
