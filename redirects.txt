@@ -173,7 +173,8 @@ docs/deploying-applications/artifacts.md -> docs/deploying-applications/deployme
 docs/deploying-applications/automatic-deployment-triggers.md -> docs/deploying-applications/deployment-process/project-triggers.md
 docs/deploying-applications/automatic-release-creation.md -> docs/deploying-applications/deployment-process/steps/automatic-release-creation.md
 docs/deploying-applications/deployment-process/automatic-release-creation.md -> docs/deploying-applications/deployment-process/steps/automatic-release-creation.md
-docs/deploying-applications/blocking-deployments.md -> docs/deploying-applications/deployment-process/blocking-deployments.md
+docs/deploying-applications/blocking-deployments.md -> docs/deploying-applications/deployment-process/releases/blocking-deployments.md
+docs/deploying-applications/deployment-process/blocking-deployments.md -> docs/deploying-applications/deployment-process/releases/blocking-deployments.md
 docs/deploying-applications/delta-compression-for-package-transfers.md -> docs/deploying-applications/deployment-process/delta-compression-for-package-transfers.md
 docs/deploying-applications/deploying-virtual-hard-drives.md -> docs/deploying-applications/deployment-process/deploying-virtual-hard-drives.md
 docs/deploying-applications/email-notifications.md -> docs/deploying-applications/deployment-process/email-notifications.md
@@ -181,7 +182,8 @@ docs/deploying-applications/manual-intervention-and-approvals.md -> docs/deployi
 docs/deploying-applications/deployment-process/manual-intervention-and-approvals.md -> docs/deploying-applications/deployment-process/steps/manual-intervention-and-approvals.md
 docs/deploying-applications/run-steps-in-parallel.md -> docs/deploying-applications/deployment-process/steps/run-steps-in-parallel.md
 docs/deploying-applications/deployment-process/run-steps-in-parallel.md -> docs/deploying-applications/deployment-process/steps/run-steps-in-parallel.md
-docs/deploying-applications/scheduled-deployments.md -> docs/deploying-applications/deployment-process/scheduled-deployments.md
+docs/deploying-applications/scheduled-deployments.md -> docs/deploying-applications/deployment-process/releases/scheduled-deployments.md
+docs/deploying-applications/deployment-process/scheduled-deployments.md -> docs/deploying-applications/deployment-process/releases/scheduled-deployments.md
 docs/deploying-applications/substitute-variables-in-files.md -> docs/deploying-applications/deployment-process/substitute-variables-in-files.md
 docs/deploying-applications/coordinating-multiple-projects/index.md -> docs/deploying-applications/deployment-process/coordinating-multiple-projects/index.md
 docs/deploying-applications/coordinating-multiple-projects/project-coordination-code-samples.md -> docs/deploying-applications/deployment-process/coordinating-multiple-projects/project-coordination-code-samples.md
