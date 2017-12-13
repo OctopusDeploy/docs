@@ -192,3 +192,6 @@ docs/deploying-applications/deployment-process/projects/project-triggers.md -> d
 docs/deploying-applications/deployment-process/projects/channels.md -> docs/deploying-applications/deployment-process/channels.md
 docs/deploying-applications/deployment-process/automatic-deployment-triggers.md -> docs/deploying-applications/deployment-process/project-triggers.md
 docs/deploying-applications/deployment-process/projects/releases.md -> docs/deploying-applications/deployment-process/releases/index.md
+docs/guides/octopus-ha/index.md -> docs/reference/octopus-ha/index.md
+docs/guides/octopus-ha/load-balancers/index.md -> docs/reference/octopus-ha/load-balancers/index.md
+docs/guides/octopus-ha/load-balancers/configuring-netscaler.md -> docs/reference/octopus-ha/load-balancers/configuring-netscaler.md
