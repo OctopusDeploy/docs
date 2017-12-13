@@ -1,7 +1,7 @@
 ---
 title: Coordinating Multiple Projects
 description: This guide covers scenarios where it is necessary to co-ordinate deployment between multiple projects and take some action that depends on their combined status.
-position: 19
+position: 7
 ---
 
 When working with multiple related projects, it is often necessary to co-ordinate between them and take some action that depends on their combined status. For example, ensure a related project is deployed first or send an email when all projects are deployed. This guide discusses some approaches to this problem and provides some examples showing how to query and control projects programatically.
