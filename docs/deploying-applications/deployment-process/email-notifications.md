@@ -8,7 +8,7 @@ Deployments can have a strong impact on others whose work depends on the system 
 
 - Notify stakeholders when a new version of an app has been deployed to production
 - Let testers know when a new version is available in UAT
-- Use email in conjuction with [manual approvals](/docs/deploying-applications/deployment-process/manual-intervention-and-approvals.md) to make sure everyone is ready for a new deployment
+- Use email in conjuction with [manual approvals](/docs/deploying-applications/deployment-process/steps/manual-intervention-and-approvals.md) to make sure everyone is ready for a new deployment
 
 To support this, Octopus provides **Email Steps** in a project's deployment process.
 
