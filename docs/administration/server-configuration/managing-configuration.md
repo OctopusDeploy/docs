@@ -30,7 +30,7 @@ The class definitions for each of the configurations is available by referencing
 - [Octopus.Client.Extensibility.Authentication.GoogleApps](https://www.nuget.org/packages/Octopus.Client.Extensibility.Authentication.GoogleApps/)
 - [Octopus.Client.Extensibility.Authentication.Okta](https://www.nuget.org/packages/Octopus.Client.Extensibility.Authentication.Okta/)
 
-Web Portal and Authentication types are available in [Octopus.Client.Extensibility](https://www.nuget.org/packages/Octopus.Client.Extensibility/)
+Web Portal and Authentication types are available in [Octopus.Client](https://www.nuget.org/packages/Octopus.Client/)
 
 :::hint
 This requires version 4.27.0 or later of the client library.
@@ -50,7 +50,7 @@ guestConfig.IsEnabled = true;
 guestConfig = repository.Configuration.Modify(guestConfig);
 ```
 
-For the Web Portal and Authentication configurations, you need the [Octopus.Client](https://www.nuget.org/packages/Octopus.Client/) and the [Octopus.Client.Extensibility](https://www.nuget.org/packages/Octopus.Client.Extensibility/) NuGet packages
+For the Web Portal and Authentication configurations, you need the [Octopus.Client](https://www.nuget.org/packages/Octopus.Client/) NuGet package
 
 ```cs
 var server = "http://myoctopusserver/";   
