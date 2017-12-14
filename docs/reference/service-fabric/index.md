@@ -17,7 +17,7 @@ Octopus Deploy deployments are also based on a package. A package in this contex
 
 To package and deploy Service Fabric applications through Octopus Deploy, we combine these two package concepts. A NuGet/Zip package is uploaded to Octopus Deploy and it contains the files/folders that make up the Service Fabric package.
 
-[Learn more about how to create an Octopus Deploy NuGet/Zip package for a Service Fabric application package](/docs/guides/service-fabric/packaging.md).
+[Learn more about how to create an Octopus Deploy NuGet/Zip package for a Service Fabric application package](/docs/reference/service-fabric/packaging.md).
 
 ## Deployment
 Service Fabric application deployments follow the same conceptual process as other deployments in Octopus Deploy. The process is summarized as:
@@ -32,4 +32,4 @@ For a more detailed look at the deployment process see [Deploying a package to a
 ### Versioning
 One of the places that Service Fabric applications differ from typical .NET applications is in their versioning configuration. They are more complex in that they are actually made up of one or more services, and each of those services can have its own code and config version, which all combine to make a specific application version. The set of services that make up an application are always deployed to the cluster using a single package.
 
-Octopus Deploy does not enforce a particular process for managing application/service versions. [Learn more about using Octopus Deploy to automate updates to the application/service versions](/docs/guides/service-fabric/version-automation-with-service-fabric-application-packages/index.md).
+Octopus Deploy does not enforce a particular process for managing application/service versions. [Learn more about using Octopus Deploy to automate updates to the application/service versions](/docs/reference/service-fabric/version-automation-with-service-fabric-application-packages/index.md).

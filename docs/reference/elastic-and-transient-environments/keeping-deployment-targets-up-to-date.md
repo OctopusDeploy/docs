@@ -8,7 +8,7 @@ position: 2
 The features discussed in this guide are available in Octopus 3.4 and newer.
 :::
 
-Octopus Deploy can ensure that deployment targets are kept up to date with the relevant releases.  This can be useful when [deploying to transient targets](/docs/guides/elastic-and-transient-environments/deploying-to-transient-targets.md) or when new deployment targets are added to an environment.
+Octopus Deploy can ensure that deployment targets are kept up to date with the relevant releases.  This can be useful when [deploying to transient targets](/docs/reference/elastic-and-transient-environments/deploying-to-transient-targets.md) or when new deployment targets are added to an environment.
 
 ## Triggers {#Keepingdeploymenttargetsuptodate-Triggers}
 
@@ -88,4 +88,4 @@ Automatic deployment overrides are cleared when a deployment is performed to the
 
 ## Next steps {#Keepingdeploymenttargetsuptodate-Nextsteps}
 
-With machines now being kept up to date automatically you may be interested in [cleaning up environments](/docs/guides/elastic-and-transient-environments/cleaning-up-environments.md) to automatically remove machines when they are terminated.
+With machines now being kept up to date automatically you may be interested in [cleaning up environments](/docs/reference/elastic-and-transient-environments/cleaning-up-environments.md) to automatically remove machines when they are terminated.

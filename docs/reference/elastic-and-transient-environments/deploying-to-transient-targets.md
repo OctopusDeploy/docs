@@ -34,7 +34,7 @@ This example uses the OctoFX project that does a deployment to two roles: **Rate
    ![](/docs/images/5671847/5866105.png "width=500")
 
 :::success
-To ensure that a machine which has been skipped is kept up to date, consider [keeping deployment targets up to date](/docs/guides/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md).
+To ensure that a machine which has been skipped is kept up to date, consider [keeping deployment targets up to date](/docs/reference/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md).
 :::
 
 ## Including and excluding targets during a deployment {#Deployingtotransienttargets-Includingandexcludingtargetsduringadeployment}
@@ -64,4 +64,4 @@ In this case, the machine **SWeb01** has been found and included in the rest of 
 
 ![](/docs/images/5671847/5866100.png "width=500")
 
-Now that deployment targets can be automatically removed from a deployment, it may be useful to [keep them up to date when they become available.](/docs/guides/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md)
+Now that deployment targets can be automatically removed from a deployment, it may be useful to [keep them up to date when they become available.](/docs/reference/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md)
