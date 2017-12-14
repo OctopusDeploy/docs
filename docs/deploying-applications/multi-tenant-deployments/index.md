@@ -1,8 +1,8 @@
 ---
-title: Multi-tenant deployments
+title: Multi-tenant Deployments
 description: How to use Octopus to manage deployments of your applications to multiple end-customers.
 version: 3.4
-position: 2
+position: 21
 ---
 
 This page describes how to use Octopus to manage deployments of your applications to multiple end-customers.
@@ -62,7 +62,7 @@ Consider the following example:
 The key issue in this scenario is that the same components need to be deployed multiple times, one for each end-customer, with different configuration settings for each customer, possibly targeting multiple environments.
 
 :::success
-You don't need Octopus Deploy to implement a multi-tenant SaaS application: you can also architect your application so you can deploy it once and serve multiple customers. We have built multi-tenant deployments into Octopus for those situations where you want to deploy your application once for each end-customer. See the section below about [building multi-tenant applications](/docs/guides/multi-tenant-deployments/index.md) and [considering architectural changes](/docs/guides/multi-tenant-deployments/index.md).
+You don't need Octopus Deploy to implement a multi-tenant SaaS application: you can also architect your application so you can deploy it once and serve multiple customers. We have built multi-tenant deployments into Octopus for those situations where you want to deploy your application once for each end-customer. See the section below about [building multi-tenant applications](/docs/deploying-applications/multi-tenant-deployments/index.md) and [considering architectural changes](/docs/deploying-applications/multi-tenant-deployments/index.md).
 :::
 
 ## Building multi-tenant applications {#Multi-tenantdeployments-Buildingmulti-tenantapplications}
@@ -91,6 +91,6 @@ For example, if deployment consists of many copies of the exact same website, ju
 
 We have worked hard to design multi-tenant deployments in Octopus Deploy to work with a wide variety of scenarios. That being said there may be some limitations and problems which may hamper your adoption. In order to decide if you should adopt multi-tenant deployments for your scenario we recommend:
 
-1. Read through the [multi-tenant deployment guide](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/index.md)
+1. Read through the [multi-tenant deployment guide](/docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployment-guide/index.md)
 2. Investigate if there are any current [limitations or problems](https://github.com/OctopusDeploy/Issues/issues?q=is%3Aopen+is%3Aissue+label%3Afeature%2Ftenants) which will impact your specific scenario.
 3. Get in touch with our [support team](https://octopus.com/support) who can help you understand if multi-tenant deployments are right for you, and how to best model your deployments using Octopus Deploy!

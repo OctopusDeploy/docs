@@ -16,6 +16,6 @@ The key issue in this scenario is that the same components need to be deployed m
 
 ## Multi-tenant deployments using Octopus {#Multi-tenantdeploymentpattern-Multi-tenantdeploymentsusingOctopus}
 
-We have introduced first-class support for multi-tenant deployments in Octopus 3.4. For more information refer to our comprehensive guide: [Multi-tenant deployments](/docs/guides/multi-tenant-deployments/index.md)
+We have introduced first-class support for multi-tenant deployments in Octopus 3.4. For more information refer to our comprehensive guide: [Multi-tenant deployments](/docs/deploying-applications/multi-tenant-deployments/index.md)
 
 !partial <before>

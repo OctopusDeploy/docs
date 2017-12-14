@@ -4,7 +4,7 @@ description: How to design a multi-tenant upgrade process.
 position: 6
 ---
 
-Previous step: [Designing a multi-tenant hosting model](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md)
+Previous step: [Designing a multi-tenant hosting model](/docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md)
 
 This page describes how to design a multi-tenant upgrade process using some of the features built in to Octopus Deploy.
 
@@ -107,7 +107,7 @@ Now you can optionally configure some external tenants as opting in to early or 
 
 ### Step 5: Deploy! {#Designingamulti-tenantupgradeprocess-Step5:Deploy!}
 
-Now it's time to deploy using tenant tags as a way to easily select multiple tenants. In this example we are going to deploy **version 1.0.1** to all of the tenants tagged with `Upgrade ring/Tester` who are connected to the the **MT Test** environment. You can use multiple tags and complex tag queries to achieve other interesting scenarios as discussed we discussed [earlier](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md).
+Now it's time to deploy using tenant tags as a way to easily select multiple tenants. In this example we are going to deploy **version 1.0.1** to all of the tenants tagged with `Upgrade ring/Tester` who are connected to the the **MT Test** environment. You can use multiple tags and complex tag queries to achieve other interesting scenarios as discussed we discussed [earlier](/docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md).
 
 ![](/docs/images/5669342/5865763.png "width=500")
 
@@ -209,4 +209,4 @@ Find a tenant you want to pin and apply the **Upgrade ring/Pinned** tag, removi
 
 ## Next steps {#Designingamulti-tenantupgradeprocess-Nextsteps}
 
-Now you can continue and investigate how you can [use the Octopus security model with tenants](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/multi-tenant-roles-and-security.md).
+Now you can continue and investigate how you can [use the Octopus security model with tenants](/docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployment-guide/multi-tenant-roles-and-security.md).

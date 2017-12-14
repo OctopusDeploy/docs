@@ -47,7 +47,7 @@ You can now create the `3.1.6` release for the `MyApp.Web` project, but have Oct
 ![Dynamic Package ID](dynamic-package-id.png "width=500")
 
 :::info
-In this example we recommend creating a [tenant-specific variable](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-tenant-specific-variables.md) called something like `TenantAlias`, where each tenant will provide a value. You could have used a built-in variable like `#{Octopus.Deployment.Tenant.Name}` but then your tenant name would be tightly coupled to your Package ID, and changing the tenant's name could break your deployments.
+In this example we recommend creating a [tenant-specific variable](/docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-tenant-specific-variables.md) called something like `TenantAlias`, where each tenant will provide a value. You could have used a built-in variable like `#{Octopus.Deployment.Tenant.Name}` but then your tenant name would be tightly coupled to your Package ID, and changing the tenant's name could break your deployments.
 :::
 
 :::hint

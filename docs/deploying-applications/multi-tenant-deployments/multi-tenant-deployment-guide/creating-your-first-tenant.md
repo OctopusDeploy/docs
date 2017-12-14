@@ -32,4 +32,4 @@ In reality your tenants would be other businesses, but for our sample we've used
 
 ## Next steps {#Creatingyourfirsttenant-Nextsteps}
 
-In the following steps we will [create a multi-tenant project](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-multi-tenant-project.md) and then [deploy that project into the tenant's environment](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md).
+In the following steps we will [create a multi-tenant project](/docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-multi-tenant-project.md) and then [deploy that project into the tenant's environment](/docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md).
