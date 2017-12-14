@@ -209,3 +209,5 @@ docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-
 docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-tenant-specific-variables.md -> docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-tenant-specific-variables.md
 docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/index.md -> docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/index.md
 docs/guides/debugging-powershell-scripts.md -> docs/reference/debugging-powershell-scripts.md
+docs/guides/user-role-&-team-configurations/index.md -> docs/administration/managing-users-and-teams/index.md
+docs/guides/user-role-&-team-configurations/creating-teams-for-a-user-with-mixed-environment-privileges.md -> docs/administration/managing-users-and-teams/creating-teams-for-a-user-with-mixed-environment-privileges.md
