@@ -227,3 +227,4 @@ docs/guides/server-extensibility/building-an-authentication-provider/building-an
 docs/guides/service-fabric/index.md -> docs/reference/service-fabric/index.md
 docs/guides/service-fabric/packaging.md -> docs/reference/service-fabric/packaging.md
 docs/guides/service-fabric/version-automation-with-service-fabric-application-packages/index.md -> docs/reference/service-fabric/version-automation-with-service-fabric-application-packages/index.md
+docs/guides/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md -> docs/reference/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md
