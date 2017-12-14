@@ -59,7 +59,6 @@ docs/installation/installing-tentacles/listening-tentacles.md -> docs/infrastruc
 docs/installation/installing-tentacles/polling-tentacles.md -> docs/infrastructure/windows-targets/polling-tentacles.md
 docs/installation/installing-tentacles/polling-tentacles-web-sockets.md -> docs/infrastructure/windows-targets/polling-tentacles-web-sockets.md
 docs/installation/installing-tentacles/automating-tentacle-installation.md -> docs/infrastructure/windows-targets/automating-tentacle-installation.md
-docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4.md -> docs/deploying-applications/multi-tenant-deployments/index.md
 docs/deployment-targets/index.md -> docs/infrastructure/index.md
 docs/deployment-targets/cloud-regions.md -> docs/infrastructure/cloud-regions.md
 docs/deployment-targets/offline-package-drop.md -> docs/infrastructure/offline-package-drop.md
