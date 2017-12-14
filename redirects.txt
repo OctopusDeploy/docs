@@ -218,8 +218,8 @@ docs/guides/elastic-and-transient-environments/cleaning-up-environments.md -> do
 docs/guides/elastic-and-transient-environments/deploying-to-transient-targets.md -> docs/reference/elastic-and-transient-environments/deploying-to-transient-targets.md
 docs/guides/elastic-and-transient-environments/immutable-infrastructure.md -> docs/reference/elastic-and-transient-environments/immutable-infrastructure.md
 docs/guides/server-extensibility/index.md -> docs/reference/server-extensibility/index.md
-docs/guides/server-extensibility/authoring-an-octopus-deploy-server-extensions.md -> docs/reference/server-extensibility/authoring-an-octopus-deploy-server-extensions.md
-docs/guides/server-extensibility/customising-an-octopus-deploy-server-extensions.md -> docs/reference/server-extensibility/customising-an-octopus-deploy-server-extensions.md
+docs/guides/server-extensibility/authoring-an-octopus-deploy-server-extension.md -> docs/reference/server-extensibility/authoring-an-octopus-deploy-server-extension.md
+docs/guides/server-extensibility/customising-an-octopus-deploy-server-extension.md -> docs/reference/server-extensibility/customising-an-octopus-deploy-server-extension.md
 docs/guides/server-extensibility/installing-a-custom-server-extension.md -> docs/reference/server-extensibility/installing-a-custom-server-extension.md
 docs/guides/server-extensibility/building-an-authentication-provider/index.md -> docs/reference/server-extensibility/building-an-authentication-provider/index.md
 docs/guides/server-extensibility/building-an-authentication-provider/building-a-forms-based-authentication-provider.md -> docs/reference/server-extensibility/building-an-authentication-provider/building-a-forms-based-authentication-provider.md
