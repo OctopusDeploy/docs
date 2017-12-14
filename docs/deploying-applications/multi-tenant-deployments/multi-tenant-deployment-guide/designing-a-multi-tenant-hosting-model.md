@@ -4,7 +4,7 @@ description: Design and implement both dedicated and shared multi-tenant hosting
 position: 5
 ---
 
-Previous step: [Working with groups of tenants using tags](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md)
+Previous step: [Working with groups of tenants using tags](/docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md)
 
 This page describes how to design and implement both **dedicated** and **shared** multi-tenant hosting models using [Environments](/docs/infrastructure/environments/index.md), [Deployment Targets](/docs/infrastructure/index.md), and [Tenant Tags](/docs/reference/tenant-tags.md).
 
@@ -15,7 +15,7 @@ In this section we will focus on tenanted deployments, but untenanted deployment
 - **Tenanted deployments** will use **matching tenanted deployment targets**
 - **Untenanted deployments** will only use **untenanted deployment targets**
 
-We talk more about tenanted and untenanted deployments in [Deploying a simple multi-tenant project](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md).
+We talk more about tenanted and untenanted deployments in [Deploying a simple multi-tenant project](/docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md).
 :::
 
 :::warning
@@ -97,4 +97,4 @@ That's it! Now let's deploy the project for one of these tenants and see the res
 
 ## Next steps {#Designingamulti-tenanthostingmodel-Nextsteps}
 
-We will [design and implement a multi-tenant upgrade process](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md).
+We will [design and implement a multi-tenant upgrade process](/docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md).

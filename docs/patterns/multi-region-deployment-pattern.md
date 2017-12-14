@@ -43,7 +43,7 @@ By using this pattern you can:
 
 ## Tenanted Solution {#Multi-regiondeploymentpattern-TenantedSolution}
 
-Alternatively you could create [Tenants](/docs/guides/multi-tenant-deployments/index.md) to represent each region or data center. By doing so you can:
+Alternatively you could create [Tenants](/docs/deploying-applications/multi-tenant-deployments/index.md) to represent each region or data center. By doing so you can:
 
 1. Use [Variable Templates](/docs/deploying-applications/deployment-process/variables/variable-templates.md) to prompt you for the variables required for each region (like the storage account details for that region) and when you introduce a new region Octopus will prompt you for the missing variables
 
@@ -75,4 +75,4 @@ You do give up the advantage of enforcing the order in which you deploy your app
 
 ## Conclusion {#Multi-regiondeploymentpattern-Conclusion}
 
-[Environments](/docs/infrastructure/environments/index.md), [Tenants](/docs/guides/multi-tenant-deployments/index.md) and [Cloud Regions](/docs/infrastructure/cloud-regions.md) can be used to model multi-region deployments in Octopus, but each different choice is optimized to a particular style of situation. Choose the one that suits your needs best!
+[Environments](/docs/infrastructure/environments/index.md), [Tenants](/docs/deploying-applications/multi-tenant-deployments/index.md) and [Cloud Regions](/docs/infrastructure/cloud-regions.md) can be used to model multi-region deployments in Octopus, but each different choice is optimized to a particular style of situation. Choose the one that suits your needs best!

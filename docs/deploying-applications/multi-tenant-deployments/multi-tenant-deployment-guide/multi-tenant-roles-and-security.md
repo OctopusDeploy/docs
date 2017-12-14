@@ -4,7 +4,7 @@ description: Common approaches to structuring roles and teams to secure a multi-
 position: 8
 ---
 
-Previous step: [Designing a multi-tenant upgrade process](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md)
+Previous step: [Designing a multi-tenant upgrade process](/docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md)
 
 This page describes several common approaches to structuring roles and teams to secure a multi-tenant Octopus instance. Using the permissions system in Octopus you can configure internal team members with different roles who interact with tenants in different ways. You can also configure Octopus to provide access for your external customers. This page explores several of those roles for both internal and external parties.
 
@@ -111,7 +111,7 @@ In this example we will create a new team and combine multiple roles together to
 
 ### Step 3: Test! {#Multi-tenantrolesandsecurity-Step3:Test!.1}
 
-Similarly to the previous example assign a user account, sign in, and test out the resulting behavior. You should notice you can configure new or existing deployment targets including tenant configuration as we described in [Designing a multi-tenant hosting model](/docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md).
+Similarly to the previous example assign a user account, sign in, and test out the resulting behavior. You should notice you can configure new or existing deployment targets including tenant configuration as we described in [Designing a multi-tenant hosting model](/docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md).
 
 ### Step 4: Reduce scope of the team {#Multi-tenantrolesandsecurity-Step4:Reducescopeoftheteam.1}
 

@@ -5,8 +5,8 @@ docs/guides/azure-deployments/web-apps/web-app-concepts/packaging-web-apps.md ->
 docs/guides/azure-deployments/web-apps/web-app-concepts/web-app-deployment-step/preserve-specific-paths-when-deploying-azure-web-app.md -> docs/deploying-applications/azure-deployments/web-apps/web-app-concepts.md
 docs/guides/azure-deployments/web-apps/web-app-concepts/web-app-deployment-step/index.md -> docs/deploying-applications/azure-deployments/web-apps/web-app-concepts.md
 docs/guides/azure-deployments/web-apps/web-app-concepts/web-app-accounts.md -> docs/deploying-applications/azure-deployments/web-apps/web-app-concepts.md
-docs/guides/multi-tenant-deployments/other-scenarios-for-multi-tenant-deployments.md -> docs/guides/multi-tenant-deployments/index.md
-docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/migrating-to-octopus-3.4.md -> docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/index.md
+docs/guides/multi-tenant-deployments/other-scenarios-for-multi-tenant-deployments.md -> docs/deploying-applications/multi-tenant-deployments/index.md
+docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/migrating-to-octopus-3.4.md -> docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/index.md
 docs/deploying-applications/docker-containers/docker-compose.md -> docs/deploying-applications/docker-containers/index.md
 docs/guides/elastic-and-transient-environments/deploying-to-transient-targets-copy.md -> docs/guides/elastic-and-transient-environments/deploying-to-transient-targets.md
 docs/administration/high-availability/removing-high-availability-nodes.md -> docs/administration/high-availability/managing-high-availability-nodes.md
@@ -40,7 +40,7 @@ docs/key-concepts/projects/project-triggers.md -> docs/deploying-applications/de
 docs/key-concepts/projects/reporting.md -> docs/deploying-applications/deployment-process/projects/reporting.md
 docs/key-concepts/project-groups.md -> docs/deploying-applications/deployment-process/projects/index.md
 docs/key-concepts/lifecycles.md -> docs/deploying-applications/deployment-process/projects/lifecycles/index.md
-docs/key-concepts/tenants.md -> docs/guides/multi-tenant-deployments/index.md
+docs/key-concepts/tenants.md -> docs/deploying-applications/multi-tenant-deployments/index.md
 docs/key-concepts/index.md -> docs/getting-started.md
 docs/key-concepts/tenants/tenant-tags -> docs/reference/tenant-tags.md
 docs/packaging-applications/nuget-packages/index.md -> docs/packaging-applications/creating-packages/nuget-packages/index.md
@@ -59,7 +59,7 @@ docs/installation/installing-tentacles/listening-tentacles.md -> docs/infrastruc
 docs/installation/installing-tentacles/polling-tentacles.md -> docs/infrastructure/windows-targets/polling-tentacles.md
 docs/installation/installing-tentacles/polling-tentacles-web-sockets.md -> docs/infrastructure/windows-targets/polling-tentacles-web-sockets.md
 docs/installation/installing-tentacles/automating-tentacle-installation.md -> docs/infrastructure/windows-targets/automating-tentacle-installation.md
-docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4.md -> docs/guides/multi-tenant-deployments/index.md
+docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4.md -> docs/deploying-applications/multi-tenant-deployments/index.md
 docs/deployment-targets/index.md -> docs/infrastructure/index.md
 docs/deployment-targets/cloud-regions.md -> docs/infrastructure/cloud-regions.md
 docs/deployment-targets/offline-package-drop.md -> docs/infrastructure/offline-package-drop.md
@@ -195,3 +195,17 @@ docs/deploying-applications/deployment-process/projects/releases.md -> docs/depl
 docs/guides/octopus-ha/index.md -> docs/reference/octopus-ha/index.md
 docs/guides/octopus-ha/load-balancers/index.md -> docs/reference/octopus-ha/load-balancers/index.md
 docs/guides/octopus-ha/load-balancers/configuring-netscaler.md -> docs/reference/octopus-ha/load-balancers/configuring-netscaler.md
+
+docs/guides/multi-tenant-deployments/index.md -> docs/deploying-applications/multi-tenant-deployments/index.md
+docs/guides/multi-tenant-deployments/multi-tenant-deployments-faq.md -> docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployments-faq.md
+docs/guides/multi-tenant-deployments/troubleshooting-multi-tenant-deployments.md -> docs/deploying-applications/multi-tenant-deployments/troubleshooting-multi-tenant-deployments.md
+docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/index.md -> docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployment-guide/index.md
+docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-multi-tenant-project.md -> docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-multi-tenant-project.md
+docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-multi-tenant.md -> docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-multi-tenant.md
+docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md -> docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md
+docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md -> docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md
+docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md -> docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md
+docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/multi-tenant-roles-and-security.md -> docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployment-guide/multi-tenant-roles-and-security.md
+docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md -> docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md
+docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-tenant-specific-variables.md -> docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-tenant-specific-variables.md
+docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/index.md -> docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/index.md
