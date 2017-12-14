@@ -2,7 +2,7 @@
 title: Multi-tenant Deployments
 description: How to use Octopus to manage deployments of your applications to multiple end-customers.
 version: 3.4
-position: 21
+position: 50
 ---
 
 This page describes how to use Octopus to manage deployments of your applications to multiple end-customers.
