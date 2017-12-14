@@ -208,3 +208,4 @@ docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/multi-tenant-
 docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md -> docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md
 docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-tenant-specific-variables.md -> docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-tenant-specific-variables.md
 docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/index.md -> docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/index.md
+docs/guides/debugging-powershell-scripts.md -> docs/reference/debugging-powershell-scripts.md
