@@ -29,7 +29,7 @@ Here is an example of what the script may look like:
 ```bash
 "[INSTALLLOCATION]\Octopus.Server.exe" create-instance --instance "<instance name>" --config "<new instance config path>"
 "[INSTALLLOCATION]\Octopus.Server.exe" database --instance "<instance name>" --connectionString "<database connection string>" --create
-"[INSTALLLOCATION]\Octopus.Server.exe" configure --instance "<instance name>" --upgradeCheck "True" --upgradeCheckWithStatistics "True" --webAuthenticationMode "UsernamePassword" --webForceSSL "False" --webListenPrefixes "<url to expose>" --commsListenPort "10943" --serverNodeName "<machine name>"
+"[INSTALLLOCATION]\Octopus.Server.exe" configure --instance "<instance name>" --upgradeCheck "True" --upgradeCheckWithStatistics "True" --usernamePasswordIsEnabled "True" --webForceSSL "False" --webListenPrefixes "<url to expose>" --commsListenPort "10943" --serverNodeName "<machine name>"
 "[INSTALLLOCATION]\Octopus.Server.exe" service --instance "<instance name>" --stop
 "[INSTALLLOCATION]\Octopus.Server.exe" admin --instance "<instance name>" --username "<admin username>" --email "<admin email>" --password "<admin password>"
 "[INSTALLLOCATION]\Octopus.Server.exe" license --instance "<instance name>" --licenseBase64 "<a very long license string>"

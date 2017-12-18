@@ -20,9 +20,5 @@ Where [<options>] is any of:
       --pfx-password=VALUE   The password to use for the exported pfx file
 
 Or one of the common options:
-      --console              Don't attempt to run as a service, even if the
-                               user is non-interactive
-      --nologo               Don't print title or version information
-      --noconsolelogging     Don't log messages to the stdout - errors are
-                               still logged to stderr
+      --help                 Show detailed help for this command
 ```

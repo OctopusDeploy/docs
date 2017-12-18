@@ -11,14 +11,12 @@ Use the admin command to reset admin user passwords, re-enable them, and ensure 
 Usage: Octopus.Server admin [<options>]
 
 Where [<options>] is any of:
+      --instance=VALUE      Name of the instance to create
       --wait=VALUE          Milliseconds to wait
       --username=VALUE      The username of the administrator to create/modify
       --email=VALUE         The email of the administrator to create/modify
       --password=VALUE      The password to set for the administrator
 
-Or one of the common options:
-      --console              Don't attempt to run as a service, even if the
-                               user is non-interactive
-      --nologo               Don't print title or version information
-      --noconsolelogging     Don't log to the console
+Or one of the common options: 
+      --help                 Show detailed help for this command
 ```
