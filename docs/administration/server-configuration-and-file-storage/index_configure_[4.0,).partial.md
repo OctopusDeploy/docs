@@ -19,7 +19,7 @@
       --commsListenWebSocket=VALUE
                              WebSocket prefix that the communications service 
                                should listen on (e.g. 
-                               'https://+:443/OctopusComms`); Set to blank to 
+                               'https://+:443/OctopusComms'); Set to blank to 
                                disable websockets; Refer to http://g.octopush-
                                q.com/WebSocketComms
       --webListenPrefixes=VALUE
