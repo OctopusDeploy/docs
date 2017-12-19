@@ -102,7 +102,7 @@ Firstly, you might want to constrain the service principal to a single resource 
 
 Next you might want to get even more granular and constrain the service principal to a single resource, e.g. a Web App. **In this case you have to assign the `Contributor` role on the Web App and also explicitly assign the `Reader` role on the subscription itself**.
 
-The reason behind this is to do with the way Octopus queries for the web app resources in Azure. In order to be able to handle scenarios where ASEs are being used, Octopus first queries the resource groups and then queries for the web apps within each resource group. When the service principal is assigned `Contributor` on a resource group it seems to implicitly get `Reader` on the subscription, but this doesn't seem to be the case when `Contributor` is assigned directly to a web app and you have to assign `Reader` explicitly.
+The reason behind this is to do with the way Octopus queries for the web app resources in Azure. In order to be able to handle scenarios where [ASEs](../../../deploying-applications/azure-deployments/ase/index.md#resource_groups) are being used, Octopus first queries the resource groups and then queries for the web apps within each resource group. When the service principal is assigned `Contributor` on a resource group it seems to implicitly get `Reader` on the subscription, but this doesn't seem to be the case when `Contributor` is assigned directly to a web app and you have to assign `Reader` explicitly.
 
 ## Step 2: Allow Octopus to Authenticate with Azure using a Service Principal {#CreatinganAzureServicePrincipalAccount-authenticate-with-service-principalStep2:AllowOctopustoauthenticatewithAzureusingaServicePrincipal}
 
