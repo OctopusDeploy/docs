@@ -1,6 +1,6 @@
 ---
 title: Automating Infrastructure with DSC
-description: OctopusDSC is an Open-Source powershell module designed to assist with the automation of Octopus infrastructure
+description: OctopusDSC is an Open-Source PowerShell module designed to assist with the automation of Octopus infrastructure
 position: 20
 ---
 [OctopusDSC](https://github.com/OctopusDeploy/OctopusDSC) is an in-house and open source PowerShell module with DSC resource designed to reduce the overhead when automating the installation and configuration of your Octopus infrastructure.
@@ -17,7 +17,7 @@ It is recommended that you use PowerShell 5 alongside [PowerShellGet](https://do
 
 Quick Installation:
 
-1. install PowerShellGet from [PowerShell Gallery](https://docs.microsoft.com/en-us/powershell/gallery/readme)
+1. Install PowerShellGet from [PowerShell Gallery](https://docs.microsoft.com/en-us/powershell/gallery/readme)
 2. Install DSC module via `PowerShellGet\Install-Module -Name OctopusDSC`
 
 Manual Installation:
@@ -25,7 +25,7 @@ Manual Installation:
 1. Download the [latest release](https://github.com/OctopusDeploy/OctopusDSC/releases)
 2. If required, unblock the zip file
 3. Extract the zip file to a folder called OctopusDSC under your modules folder (usually `%USERPROFILE%\Documents\WindowsPowerShell\Modules`)
-4. To confirm it's installed correctly, in a new powershell session run `Get-Module -ListAvailable -Name OctopusDSC`
+4. To confirm it's installed correctly, in a new PowerShell session run `Get-Module -ListAvailable -Name OctopusDSC`
 
 :::hint
 The community has also submitted a few [other options](https://github.com/OctopusDeploy/OctopusDSC/issues/14). :::
@@ -54,7 +54,7 @@ This project is setup to use [Vagrant](vagrant.io) to provide a dev/test environ
 
 Configuration is handled by environment variables. The shell scripts will show a message letting you know what variables need to be set.
 
-As there are no windows specific build scripts at present, if you want to run the tests against AWS on windows:
+As there are no Windows specific build scripts at present, if you want to run the tests against AWS on windows:
 
 1. Install Vagrant from [vagrantup.com](http://vagrantup.com)
 2. Install VirtualBox from [virtualbox.org](http://virtualbox.org)
