@@ -271,3 +271,4 @@ docs/deploying-applications/deployment-process/steps/manual-intervention-and-app
 docs/deploying-applications/deployment-process/steps/run-steps-in-parallel.md -> docs/deployment-process/steps/run-steps-in-parallel.md
 docs/deploying-applications/deployment-process/releases/scheduled-deployments.md -> docs/deployment-process/releases/scheduled-deployments.md
 docs/deploying-applications/deployment-process/substitute-variables-in-files.md -> docs/deployment-process/substitute-variables-in-files.md
+docs/deploying-applications/deployment-process/steps/conditions.md -> docs/deployment-process/steps/conditions.md
