@@ -55,7 +55,7 @@ When configuring HTTPS bindings for [IIS Websites](/docs/deploying-applications/
 
 ## Create Certificate-Typed Variables 
 
-Certificates managed by Octopus can be configured as the [value of variables](/docs/deploying-applications/deployment-process/variables/certificate-variables.md), and used from custom deployment scripts.
+Certificates managed by Octopus can be configured as the [value of variables](/docsvariables/certificate-variables.md), and used from custom deployment scripts.
 
 ![](/docs/images/certificates/certificate-variables-scoped.png "width=500")
 

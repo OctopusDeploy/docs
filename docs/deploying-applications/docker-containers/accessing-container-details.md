@@ -6,7 +6,7 @@ position: 1
 
 When creating a container or network via one of the new Docker steps, you may wish to use details of the resulting resource in a subsequent step. All information about the networking configuration, volumes, environment variable and hardware resource allocation can be obtained for the container via the `docker inspect` command and similar information for the network via the `docker network inspect` command.
 
-To allow access to this information Octopus invokes this command right after creating a container (or network) which results in a large detailed JSON array (since you can request multiple container details from a single invocation) that will look something like the examples below. This output is then returned back to the server and processed as an [Output Variable](/docs/deploying-applications/deployment-process/variables/output-variables.md) with the format `#{Octopus.Action[<action name>].Output.Docker.Inspect}`.
+To allow access to this information Octopus invokes this command right after creating a container (or network) which results in a large detailed JSON array (since you can request multiple container details from a single invocation) that will look something like the examples below. This output is then returned back to the server and processed as an [Output Variable](/docsvariables/output-variables.md) with the format `#{Octopus.Action[<action name>].Output.Docker.Inspect}`.
 
 :::warning
 **Inspection timing and relevance**

@@ -18,13 +18,13 @@ You can use [Environments](/docs/infrastructure/environments/index.md) to repr
 
 By using this pattern you can:
 
-1. Use [Lifecycles](/docs/deploying-applications/deployment-process/projects/lifecycles/index.md) to define a strict process for promotion of releases between your regions. *Lifecycles can be used to design both simple and complex promotion processes.*
+1. Use [Lifecycles](/docsprojects/lifecycles/index.md) to define a strict process for promotion of releases between your regions. *Lifecycles can be used to design both simple and complex promotion processes.*
   * For example, you may want to test releases in Australia before rolling them out to the USA, and then to Europe
   * In another example, you may want to test releases in Australia before rolling them out simultaneously to all other regions
 2. Scope region-specific variables to the region-specific Environments
 3. Quickly see which releases are deployed to which regions on the main dashboard
 4. Quickly promote releases through your regions using the Project Overview
-5. Use [Scheduled Deployments](/docs/deploying-applications/deployment-process/releases/scheduled-deployments.md) to plan deployments for times of low usage
+5. Use [Scheduled Deployments](/docsreleases/scheduled-deployments.md) to plan deployments for times of low usage
 
 **This is a really good solution if you want to enforce a particular order of deployments through your regions.**
 
@@ -45,7 +45,7 @@ By using this pattern you can:
 
 Alternatively you could create [Tenants](/docs/deploying-applications/multi-tenant-deployments/index.md) to represent each region or data center. By doing so you can:
 
-1. Use [Variable Templates](/docs/deploying-applications/deployment-process/variables/variable-templates.md) to prompt you for the variables required for each region (like the storage account details for that region) and when you introduce a new region Octopus will prompt you for the missing variables
+1. Use [Variable Templates](/docsvariables/variable-templates.md) to prompt you for the variables required for each region (like the storage account details for that region) and when you introduce a new region Octopus will prompt you for the missing variables
 
 ![](/docs/images/5670886/5865790.png "width=500")
 
@@ -65,7 +65,7 @@ Alternatively you could create [Tenants](/docs/deploying-applications/multi-ten
 
 ![](/docs/images/5670886/5865789.png "width=500")
 
-6. Use [Scheduled Deployments](/docs/deploying-applications/deployment-process/releases/scheduled-deployments.md) to plan deployments for times of low usage
+6. Use [Scheduled Deployments](/docsreleases/scheduled-deployments.md) to plan deployments for times of low usage
 
 ![](/docs/images/5670886/5865787.png "width=500")
 

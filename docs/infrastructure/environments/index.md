@@ -40,7 +40,7 @@ It's a good idea to put your least production-like environments first, and the m
 
 ## Guided Failures {#Environments-Guidedfailures}
 
-[Guided failure mode](/docs/deploying-applications/deployment-process/releases/guided-failures.md) can be enabled on an environment by default. This is useful for critical environments that are usually deployed to manually (for example, staging and production-like environments), though you may want to disable this feature for environments which are deployed to automatically such as smoke testing environments.
+[Guided failure mode](/docsreleases/guided-failures.md) can be enabled on an environment by default. This is useful for critical environments that are usually deployed to manually (for example, staging and production-like environments), though you may want to disable this feature for environments which are deployed to automatically such as smoke testing environments.
 
 Guided failure mode is an option when editing an environment:
 
@@ -52,7 +52,7 @@ Guided failure mode is an option when editing an environment:
 
 ## Associating Projects with Environments {#Environments-Associatingprojectswithenvironments}
 
-By default, a project can be deployed to any environment. You can limit which projects can be deployed to which environment using [Lifecycles](/docs/deploying-applications/deployment-process/projects/lifecycles/index.md). This is useful if you have one set of environments for projects developed by one team, and another set of environments for projects developed by another team.
+By default, a project can be deployed to any environment. You can limit which projects can be deployed to which environment using [Lifecycles](/docsprojects/lifecycles/index.md). This is useful if you have one set of environments for projects developed by one team, and another set of environments for projects developed by another team.
 
 ## Environment Permissions {#Environments-Environmentpermissions}
 
