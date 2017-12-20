@@ -21,7 +21,7 @@ Once Octopus is in Maintenance Mode:
 - Users with the `Administer System` permission can still do anything they want, just like normal. All other users are prevented from making changes, which includes queuing new deployments or other tasks.
 - The task queue will still be processed:
   - Tasks which were already running will run through to completion.
-  - Tasks which were already queued (including [scheduled deployments](/docs/deploying-applications/deployment-process/releases/scheduled-deployments.md)) will be started and run through to completion.
+  - Tasks which were already queued (including [scheduled deployments](/docs/deployment-process/releases/scheduled-deployments.md)) will be started and run through to completion.
   - System tasks will still be queued and execute at their scheduled intervals. These kinds of tasks can be ignored since they are designed to be safe to cancel at any point in time.
 
 ## What about high availability

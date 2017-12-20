@@ -79,7 +79,7 @@ From the project process page, add a new step via {{Add Step,Run a Docker Contai
 
 :::success
 **Using output variables from Docker Inspect**
-Once Octopus creates the network in the previous step, it invokes the [docker network inspect](https://docs.docker.com/engine/reference/commandline/network_inspect/) command and stores the JSON output in an [output variable](/docs/deploying-applications/deployment-process/variables/output-variables.md). This data contains all the information about the network and we will use the network name to signify to the container that it should connect to that network. All the values of the inspect command can be accessed with standard [variable substitution syntax](/docs/reference/variable-substitution-syntax.md).
+Once Octopus creates the network in the previous step, it invokes the [docker network inspect](https://docs.docker.com/engine/reference/commandline/network_inspect/) command and stores the JSON output in an [output variable](/docs/deployment-process/variables/output-variables.md). This data contains all the information about the network and we will use the network name to signify to the container that it should connect to that network. All the values of the inspect command can be accessed with standard [variable substitution syntax](/docs/reference/variable-substitution-syntax.md).
 :::
 6. Set *Network Alias* to **FirstServer**. *This will make it easier to identify this specific container from another container in the network.*
 7. Skip down to the *Additional Arguments* section, and set the *Command* to be `/bin/sh -c "ping localhost"`. *This arbitrary script instructs the linux instance to ping itself forever, keeping the container alive for this demonstration.*

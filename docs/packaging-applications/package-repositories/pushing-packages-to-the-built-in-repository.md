@@ -96,5 +96,5 @@ Instead of using your own API key, consider using a [Service Account](/docs/admi
 
 :::hint
 **Using Automatic Release Creation?**
-If you are using [automatic release creation](/docs/deploying-applications/deployment-process/steps/automatic-release-creation.md) you will also require the permissions to create a release for all of the relevant projects in the required environments. To diagnose issues with pushing packages used for automatic release creation follow the troubleshooting guide on the [automatic release creation](/docs/deploying-applications/deployment-process/steps/automatic-release-creation.md) page.
+If you are using [automatic release creation](/docs/deployment-process/steps/automatic-release-creation.md) you will also require the permissions to create a release for all of the relevant projects in the required environments. To diagnose issues with pushing packages used for automatic release creation follow the troubleshooting guide on the [automatic release creation](/docs/deployment-process/steps/automatic-release-creation.md) page.
 :::
