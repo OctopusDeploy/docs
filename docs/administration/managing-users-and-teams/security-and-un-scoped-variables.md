@@ -4,7 +4,7 @@ description: Rationale behind limited user access to unscope variables if their 
 position: 1
 ---
 
-Sometimes, a team will be granted contributor access to a project, but be restricted in the environments that it can access. By default, Octopus's security system will then prevent members of the team editing [variables](/docsvariables/index.md) that apply outside of their allowed environments. During development this can be inconvenient, as variables frequently need to be added in support of new application features.
+Sometimes, a team will be granted contributor access to a project, but be restricted in the environments that it can access. By default, Octopus's security system will then prevent members of the team editing [variables](/docs/deploying-applications/deployment-process/variables/index.md) that apply outside of their allowed environments. During development this can be inconvenient, as variables frequently need to be added in support of new application features.
 
 ## Why restrict editing of un-scoped variables? {#Securityandun-scopedvariables-Whyrestricteditingofun-scopedvariables?}
 

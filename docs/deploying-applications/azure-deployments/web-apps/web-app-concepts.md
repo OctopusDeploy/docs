@@ -51,7 +51,7 @@ Octopus Deploy supports automated deployment of [Azure Web Apps](http://azure.m
 
 ### Deployment Step {#WebAppdeploymentstep-DeploymentStep}
 
-Add a new 'Deploy an Azure Web App' step to your project. For information about adding a step to the deployment process, see the [add step](/docssteps/index.md) section.
+Add a new 'Deploy an Azure Web App' step to your project. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/deployment-process/steps/index.md) section.
 
 ![Azure Web App tile](/docs/images/5671696/5865899.png "width=170")
 
@@ -93,8 +93,8 @@ Any of the fields above can be switched to use a custom expression.
 The following features are available when deploying a package to an Azure Web App.
 
 - [Custom Scripts](/docs/deploying-applications/custom-scripts/index.md)
-- [Configuration Variables](/docsconfiguration-files/index.md)
-- [Configuration Transforms](/docsconfiguration-files/index.md)
+- [Configuration Variables](/docs/deploying-applications/deployment-process/configuration-files/index.md)
+- [Configuration Transforms](/docs/deploying-applications/deployment-process/configuration-files/index.md)
 - [Substitute variables in files](/docs/reference/variable-substitution-syntax.md)
 
 #### PowerShell {#WebAppdeploymentstep-PowerShell}

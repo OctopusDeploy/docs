@@ -27,7 +27,7 @@ Learn more about [configuring the right Azure Account](/docs/infrastructure/azur
 
 ## Run an Azure PowerShell Script Step {#RunningAzurePowerShell-RunanAzurePowerShellScriptStep}
 
-Octopus Deploy provides a *Run an Azure PowerShell Script* step type, for executing PowerShell in the context of an Azure Subscription. For information about adding a step to the deployment process, see the [add step](/docssteps/index.md) section.
+Octopus Deploy provides a *Run an Azure PowerShell Script* step type, for executing PowerShell in the context of an Azure Subscription. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/deployment-process/steps/index.md) section.
 
 ![](/docs/images/5671696/5865912.png "width=170")
 

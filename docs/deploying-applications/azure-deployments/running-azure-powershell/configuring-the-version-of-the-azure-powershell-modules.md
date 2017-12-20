@@ -15,7 +15,7 @@ If you wish to use a different version, you can install the Azure PowerShell mod
 
 ## Octopus 3.3 (or newer) {#ConfiguringtheversionoftheAzurePowerShellmodules-Octopus3.3(ornewer)}
 
-We made this configurable by variables in Octopus 3.3 to be more flexible. Create a [variable](/docsvariables/index.md) named **Octopus.Action.Azure.UseBundledAzurePowerShellModules** and set it's value to **False**.
+We made this configurable by variables in Octopus 3.3 to be more flexible. Create a [variable](/docs/deploying-applications/deployment-process/variables/index.md) named **Octopus.Action.Azure.UseBundledAzurePowerShellModules** and set it's value to **False**.
 
 With this value set, Octopus Deploy will not load the bundled Azure PowerShell modules, and PowerShell will automatically load the Azure modules installed on the Octopus Server.
 

@@ -6,7 +6,7 @@ position: 3
 
 Previous step: [Deploying a simple multi-tenant project](/docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md)
 
-This page describes how to use [variable templates](/docsvariables/variable-templates.md) as part of a multi-tenant deployment design. We start by building on the existing scenario, providing some background information, and then providing an end-to-end implementation of that scenario.
+This page describes how to use [variable templates](/docs/deploying-applications/deployment-process/variables/variable-templates.md) as part of a multi-tenant deployment design. We start by building on the existing scenario, providing some background information, and then providing an end-to-end implementation of that scenario.
 
 ## Tenant-provided variable values {#Workingwithtenant-specificvariables-Tenant-providedvariablevalues}
 
@@ -14,7 +14,7 @@ Quite often you want to define variable values that are different for each tenan
 
 :::hint
 **Tenant-provided variables are not snapshotted**
-When you [create a release](/docs/api-and-integration/octo.exe-command-line/creating-releases.md) in Octopus Deploy we take a snapshot of the deployment process and the current state of the [project-variables](/docsvariables/index.md), however we do not take a snapshot of tenant-variables. This enables you to add new tenants at any time and deploy to them without creating a new release. This means any changes you make to tenant-variables will take immediate effect.
+When you [create a release](/docs/api-and-integration/octo.exe-command-line/creating-releases.md) in Octopus Deploy we take a snapshot of the deployment process and the current state of the [project-variables](/docs/deploying-applications/deployment-process/variables/index.md), however we do not take a snapshot of tenant-variables. This enables you to add new tenants at any time and deploy to them without creating a new release. This means any changes you make to tenant-variables will take immediate effect.
 :::
 
 We set out with a vision to make this as easy as possible to manage, like the examples shown below.
@@ -33,9 +33,9 @@ If you have a wide display we will also put environments side-by-side for easy c
 
 ## Introducing variable templates {#Workingwithtenant-specificvariables-Introducingvariabletemplates}
 
-To make this possible we have introduced the concept of [variable templates](/docsvariables/variable-templates.md). Variable templates let you configure which variables are required to successfully deploy a project. Each variable template can define the data type, name, label, help text, and default value.
+To make this possible we have introduced the concept of [variable templates](/docs/deploying-applications/deployment-process/variables/variable-templates.md). Variable templates let you configure which variables are required to successfully deploy a project. Each variable template can define the data type, name, label, help text, and default value.
 
-For more information see our reference section: [Variable templates](/docsvariables/variable-templates.md)
+For more information see our reference section: [Variable templates](/docs/deploying-applications/deployment-process/variables/variable-templates.md)
 
 :::success
 **Which variable templates apply to each tenant?**
@@ -106,7 +106,7 @@ The result should look like the screenshot below:
 
 ### Step 3: Create the "Environment variables" library variable set {#Workingwithtenant-specificvariables-Step3:Createthe&quot;Environmentvariables&quot;libraryvariableset}
 
-In the previous step we created some variable templates that use the `Environment.Alias` variable. We will create a simple [library variable set](/docsvariables/library-variable-sets.md) to provide URL-friendly versions of the target environment's name which we can use in our other variables for defining environment-specific database and domain names.
+In the previous step we created some variable templates that use the `Environment.Alias` variable. We will create a simple [library variable set](/docs/deploying-applications/deployment-process/variables/library-variable-sets.md) to provide URL-friendly versions of the target environment's name which we can use in our other variables for defining environment-specific database and domain names.
 
 1. Go to {{Library,Variable sets}} and add a new variable set called **Environment variables**
 2. Create the variables shown below:

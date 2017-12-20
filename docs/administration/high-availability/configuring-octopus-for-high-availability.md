@@ -44,7 +44,7 @@ Since each of the Octopus Server nodes will need access to the database, we reco
 Octopus stores a number of files that are not suitable to store in the database. These include:
 
 - NuGet packages used by the [built-in NuGet repository inside Octopus](/docs/packaging-applications/package-repositories/index.md). These packages can often be very large.
-- [Artifacts](/docsartifacts.md) collected during a deployment. Teams using Octopus sometimes use this feature to collect large log files and other files from machines during a deployment.
+- [Artifacts](/docs/deploying-applications/deployment-process/artifacts.md) collected during a deployment. Teams using Octopus sometimes use this feature to collect large log files and other files from machines during a deployment.
 - Task logs, which are text files that store all of the log output from deployments and other tasks.
 
 As with the database, from the Octopus perspective, you'll simply tell the Octopus servers where to store them as a file path within your operating system. Octopus doesn't really care what technology you use to present the shared storage, it could be a mapped network drive, or a UNC path to a file share. Each of these three types of data can be stored in a different place.

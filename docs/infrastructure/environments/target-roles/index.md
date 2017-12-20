@@ -61,7 +61,7 @@ According to the screenshot above, our deployment process will do the following:
 
 ## Using Roles with Variables {#MachineRoles-Usingroleswithvariables}
 
-Variables can also be [scoped to specific roles](/docsvariables/index.md). This means that the variable will take the specified value only when it is used on a deployment step that runs on a Tentacle with the specified role. This feature can be really handy when you want to use the same variable name multiple times and have their values changed depending on the Tentacle they are running on.
+Variables can also be [scoped to specific roles](/docs/deploying-applications/deployment-process/variables/index.md). This means that the variable will take the specified value only when it is used on a deployment step that runs on a Tentacle with the specified role. This feature can be really handy when you want to use the same variable name multiple times and have their values changed depending on the Tentacle they are running on.
 
 Let’s say you have the following Tentacles with their respective roles:
 
@@ -74,7 +74,7 @@ You want to deploy the same package on each server but the deployment path will 
 
 ![](/docs/images/3048101/3277808.png "width=500")
 
-Then, on your deployment step, you can set the **[Custom Install Directory](/docssteps/custom-installation-directory.md)** to `#{DeployPath}` on each of the 3 steps (one for each package Id & Role).
+Then, on your deployment step, you can set the **[Custom Install Directory](/docs/deploying-applications/deployment-process/steps/custom-installation-directory.md)** to `#{DeployPath}` on each of the 3 steps (one for each package Id & Role).
 
 ![](/docs/images/3048101/3277807.png "width=500")
 

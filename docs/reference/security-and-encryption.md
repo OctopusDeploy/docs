@@ -12,7 +12,7 @@ When an Octopus server is installed, we generate a special key used for encrypti
 
 The master key is then used along with [AES-128](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) to encrypt certain sensitive data in the Octopus database, including:
 
-- [Sensitive variables](/docsvariables/sensitive-variables.md)
+- [Sensitive variables](/docs/deploying-applications/deployment-process/variables/sensitive-variables.md)
 - Private keys used for [Octopus/Tentacle](/docs/reference/octopus-tentacle-communication/index.md) communication, and for authenticating with [Azure](/docs/infrastructure/azure/index.md) and [SSH endpoints](/docs/infrastructure/ssh-targets/configuring-ssh-connection.md)
 - Credentials used to authenticate with [SSH](/docs/infrastructure/ssh-targets/username-and-password.md) (for username/password auth) and [external NuGet feeds](/docs/packaging-applications/package-repositories/index.md)
 
