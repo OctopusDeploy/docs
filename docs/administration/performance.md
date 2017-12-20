@@ -11,7 +11,7 @@ Octopus is a complex system, where we control some parts of the deployment whils
 This page is intended to help Octopus System Administrators tune and maintain their Octopus installations and troubleshoot problems as they occur.
 
 :::hint
-Want to tune your deployments for optimum performance? Read our [detailed guide on optimizing your deployments](/docs/deploying-applications/deployment-process/performance.md).
+Want to tune your deployments for optimum performance? Read our [detailed guide on optimizing your deployments](/docs/deployment-process/performance.md).
 :::
 
 ## Minimum requirements
@@ -30,7 +30,7 @@ As an example, many customers have reported speed improvements of 50-90% for the
 
 ### Retention policies
 
-Octopus are generally hygienic creatures, cleaning up after themselves, and your Octopus is no different. Configuration documents, like [projects](/docs/deploying-applications/deployment-process/projects/index.md) and [environments](/docs/infrastructure/environments/index.md), are stored until you delete them, unlike historical documents like [releases](/docs/deploying-applications/deployment-process/releases/index.md). These will be cleaned up according to the [retention policies](/docs/administration/retention-policies/index.md) you configure.
+Octopus are generally hygienic creatures, cleaning up after themselves, and your Octopus is no different. Configuration documents, like [projects](/docs/deployment-process/projects/index.md) and [environments](/docs/infrastructure/environments/index.md), are stored until you delete them, unlike historical documents like [releases](/docs/deployment-process/releases/index.md). These will be cleaned up according to the [retention policies](/docs/administration/retention-policies/index.md) you configure.
 
 _The one exception to this is the `Events` table which records an [audit trail](/docs/administration/auditing.md) of every significant event in your Octopus._
 
@@ -51,7 +51,7 @@ Octopus Servers do quite a lot of work during deployments, mostly around package
 
 - Downloading packages from the package source (network-bound)
 - Verifying package hashes (CPU-bound)
-- Calculating deltas between packages for [delta compression](/docs/deploying-applications/deployment-process/delta-compression-for-package-transfers.md) (I/O-bound and CPU-bound)
+- Calculating deltas between packages for [delta compression](/docs/deployment-process/delta-compression-for-package-transfers.md) (I/O-bound and CPU-bound)
 - Uploading packages to deployment targets (network-bound)
 - Monitoring deployment targets for job status, and collecting logs
 
@@ -98,17 +98,17 @@ Follow these tips to tune and maintain the performance of your Octopus:
     - Consider sharding your teams/projects across "spaces" using the upcoming [Octopus Data Center Manager](https://octopus.com/blog/odcm-rfc) especially if your teams/projects are loosely coupled to each other.
 1. Try not to do too much work in parallel, especially without thorough testing. Performing lots of deployment tasks in parallel can be a false economy more often than not:
     - You can configure how many tasks from the task queue will run at the same time on any given Octopus Server node by going to {{Configuration>Nodes}}. The default task cap is `5` (safe-by-default). You can increase this cap to push your Octopus to work harder.
-    - Learn about [tuning your deployment processes for performance](/docs/deploying-applications/deployment-process/performance.md).
+    - Learn about [tuning your deployment processes for performance](/docs/deployment-process/performance.md).
 1. Consider how you transfer your packages: {#package-transfer}
-    - If network bandwidth is the limiting factor, consider using [delta compression for package transfers](/docs/deploying-applications/deployment-process/delta-compression-for-package-transfers.md).
+    - If network bandwidth is the limiting factor, consider using [delta compression for package transfers](/docs/deployment-process/delta-compression-for-package-transfers.md).
     - If network bandwidth is not a limiting factor, consider using a custom package feed close to your deployment targets, and download the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
-    - If Octopus Server CPU and disk IOPS is a limiting factor, avoid using [delta compression for package transfers](/docs/deploying-applications/deployment-process/delta-compression-for-package-transfers.md). Instead, consider downloading the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
+    - If Octopus Server CPU and disk IOPS is a limiting factor, avoid using [delta compression for package transfers](/docs/deployment-process/delta-compression-for-package-transfers.md). Instead, consider downloading the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
 1. Consider the size of your packages:
     - Larger packages require more network bandwidth to transfer to your deployment targets.
-    - When using [delta compression for package transfers](/docs/deploying-applications/deployment-process/delta-compression-for-package-transfers.md), larger packages require more CPU and disk IOPS on the Octopus Server to calculate deltas - this is a tradeoff you can determine through testing.
+    - When using [delta compression for package transfers](/docs/deployment-process/delta-compression-for-package-transfers.md), larger packages require more CPU and disk IOPS on the Octopus Server to calculate deltas - this is a tradeoff you can determine through testing.
 1. Consider the size of your Task Logs: {#tip-task-logs}
     - Larger task logs put the entire Octopus pipeline under more pressure.
-    - We recommend printing messages required to understand progress and deployment failures. The rest of the information should be streamed to a file, then published as a deployment [artifact](/docs/deploying-applications/deployment-process/artifacts.md).
+    - We recommend printing messages required to understand progress and deployment failures. The rest of the information should be streamed to a file, then published as a deployment [artifact](/docs/deployment-process/artifacts.md).
 1. Prefer [Listening Tentacles](/docs/infrastructure/windows-targets/listening-tentacles.md) or [SSH](/docs/infrastructure/ssh-targets/index.md) instead of [Polling Tentacles](/docs/infrastructure/windows-targets/polling-tentacles.md) wherever possible:
     - Listening Tentacles and SSH place the Octopus Server under less load.
     - We try to make Polling Tentacles as efficient as possible, but by their very nature, they can place the Octopus Server under high load just handling the incoming connections.
@@ -134,7 +134,7 @@ The best place to start troubleshooting your Octopus Server is to inspect the [O
     - Make sure the disks used by your Octopus Server have sufficient throughput/IOPS available for processing the demand required by your scenario. Task logs are written and read directly from disk.
 1. If you are experiencing overly high CPU or memory usage during deployments which may be causing your deployments to become unreliable:
    - Try reducing your Task Cap back towards the default of `5` and then increase progressively until your server is reliable again.
-   - Look for potential [performance problems in your deployment processes](/docs/deploying-applications/deployment-process/performance.md), especially:
+   - Look for potential [performance problems in your deployment processes](/docs/deployment-process/performance.md), especially:
        - Consider how you [transfer your packages](#package-transfer).
        - Consider reducing the amount of parallelism in your deployments by reducing the number of steps you run in parallel, or the number of machines you deploy to in parallel.
 1. `System.InvalidOperationException: Timeout expired. The timeout period elapsed prior to obtaining a connection from the pool. This may have occurred because all pooled connections were in use and max pool size was reached.`: This error indicates two possible scenarios:

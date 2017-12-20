@@ -25,7 +25,7 @@ Package your Service Fabric application. See our guide to [Packaging a Service F
 
 ## Step 3: Create the Service Fabric application deployment step
 
-Add a new Service Fabric application deployment step to your project. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/deployment-process/steps/index.md) section.  
+Add a new Service Fabric application deployment step to your project. For information about adding a step to the deployment process, see the [add step](/docs/deployment-process/steps/index.md) section.  
 
 ## Step 4: Configure the connection to your Service Fabric application
 
@@ -59,8 +59,8 @@ Any of the settings above can be switched to use a variable binding expression. 
 The following features are available when deploying a package to a Service Fabric application:
 
 - [Custom Scripts](/docs/deploying-applications/custom-scripts/index.md)
-- [Configuration Variables](/docs/deploying-applications/deployment-process/configuration-files/index.md)
-- [Configuration Transforms](/docs/deploying-applications/deployment-process/configuration-files/index.md)
+- [Configuration Variables](/docs/deployment-process/configuration-files/index.md)
+- [Configuration Transforms](/docs/deployment-process/configuration-files/index.md)
 - [JSON configuration variables](/docs/deploying-applications/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md)
 - [Substitute variables in files](/docs/reference/variable-substitution-syntax.md)
 
@@ -75,9 +75,9 @@ Deployment to a Service Fabric cluster proceeds as follows (more details provide
 1. Download the package from the [package repository](/docs/packaging-applications/package-repositories/index.md)
 2. Extract the package on the Octopus server to a temporary location
 4. Any configured or packaged `PreDeploy` scripts are executed
-6. [Substitute variables in files](/docs/deploying-applications/deployment-process/substitute-variables-in-files.md) (if configured)
-7. [XML configuration transformations](/docs/deploying-applications/deployment-process/configuration-files/index.md) (if configured) are performed
-8. [XML configuration variables](/docs/deploying-applications/deployment-process/configuration-files/index.md) (if configured) are replaced
+6. [Substitute variables in files](/docs/deployment-process/substitute-variables-in-files.md) (if configured)
+7. [XML configuration transformations](/docs/deployment-process/configuration-files/index.md) (if configured) are performed
+8. [XML configuration variables](/docs/deployment-process/configuration-files/index.md) (if configured) are replaced
 8. [JSON configuration variables](/docs/deploying-applications/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md) (if configured) are replaced
 9. Any configured or package `Deploy` scripts are executed
 10. Generic variable substitution is carried out across all `*.config` and `*.xml` files in the extracted package
@@ -103,7 +103,7 @@ If you choose to override the deployment script, remember that your `DeployToSer
 When your application is deployed to more than one geographic region, you are likely to need per-region configuration settings. You can achieve this result in many different ways, but the two most popular methods we have seen are:
 
 1. [Cloud Regions](/docs/infrastructure/cloud-regions.md): introduced in Octopus 3.4 to enable [rolling deployments](/docs/patterns/rolling-deployments.md) across multiple geographic regions
-2. Environment-per-region: by creating an environment per region you can leverage [lifecycles](/docs/deploying-applications/deployment-process/projects/lifecycles/index.md) to create a strict release promotion process
+2. Environment-per-region: by creating an environment per region you can leverage [lifecycles](/docs/deployment-process/projects/lifecycles/index.md) to create a strict release promotion process
 
 Both methods allow you to modify your deployment process and variables per-region, but have slightly different release promotion paths. Choose the one that suits you best.
 

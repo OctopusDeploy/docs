@@ -12,7 +12,7 @@ You can manage your Azure subscription using the Azure PowerShell SDK for the Re
 
 ![](/docs/images/5671696/5865912.png "width=170")
 
-These scripts are executed on the Octopus Server and will be pre-authenticated using the selected Azure Account. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/deployment-process/steps/index.md) section.
+These scripts are executed on the Octopus Server and will be pre-authenticated using the selected Azure Account. For information about adding a step to the deployment process, see the [add step](/docs/deployment-process/steps/index.md) section.
 
 :::hint
 Refer to [this guide](/docs/infrastructure/azure/creating-an-azure-account/index.md) for more details, and the impact of choosing the right kind of Azure Account on the Azure SDK that will be available.

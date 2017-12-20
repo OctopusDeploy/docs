@@ -4,7 +4,7 @@ description: Creating packages for use in your Octopus deployments.
 position: 4
 ---
 
-Octopus expects your package to contain all of the files needed to run the application when it is deployed (along with [any scripts needed for deployment](/docs/deploying-applications/custom-scripts/index.md), and any [configuration transformation files](/docs/deploying-applications/deployment-process/configuration-files/index.md), etc).
+Octopus expects your package to contain all of the files needed to run the application when it is deployed (along with [any scripts needed for deployment](/docs/deploying-applications/custom-scripts/index.md), and any [configuration transformation files](/docs/deployment-process/configuration-files/index.md), etc).
 
 An ASP.NET MVC application, packaged using NuGet for example, would look like this:
 
