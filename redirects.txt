@@ -254,7 +254,7 @@ docs/deploying-applications/deployment-process/steps/exporting-step-templates.md
 docs/deploying-applications/deployment-process/steps/updating-step-templates.md -> docs/deployment-process/steps/updating-step-templates.md
 docs/deploying-applications/deployment-process/releases/guided-failures.md -> docs/deployment-process/releases/guided-failures.md
 docs/deploying-applications/deployment-process/deploying-packages/index.md -> docs/deployment-process/deploying-packages/index.md
-docs/deploying-applications/deployment-process/deploying-packages/dynamically-selecting-packages.md ->  docs/deploying-applications/deployment-process/deploying-packages/dynamically-selecting-packages.md
+docs/deploying-applications/deployment-process/deploying-packages/dynamically-selecting-packages.md -> docs/deployment-process/deploying-packages/dynamically-selecting-packages.md
 docs/deploying-applications/deployment-process/deploying-packages/transfer-package.md -> docs/deployment-process/deploying-packages/transfer-package.md
 docs/deploying-applications/deployment-process/deploying-packages/troubleshoot-missing-packages.md -> docs/deployment-process/deploying-packages/troubleshoot-missing-packages.md
 docs/deploying-applications/deployment-process/performance.md -> docs/deployment-process/performance.md
