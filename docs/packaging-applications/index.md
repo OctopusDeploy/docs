@@ -2,7 +2,7 @@
 title: Packaging Applications
 description: Packaging applications for deployment with Octopus Deploy.
 hideInThisSection: true
-position: 2
+position: 3
 ---
 
 Deploying software with Octopus Deploy involves defining your deployment process with predictable and repeatable steps. That process starts with packaging the software you are deploying. 
