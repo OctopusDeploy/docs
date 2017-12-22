@@ -37,7 +37,7 @@ docs/key-concepts/projects/deployment-processes.md -> docs/deployment-process/in
 docs/key-concepts/projects/releases.md -> docs/deployment-process/releases/index.md
 docs/key-concepts/projects/channels.md -> docs/deployment-process/channels.md
 docs/key-concepts/projects/project-triggers.md -> docs/deployment-process/project-triggers.md
-docs/key-concepts/projects/reporting.md -> docs/deployment-process/projects/reporting.md
+docs/key-concepts/projects/reporting.md -> docs/administration/reporting.md
 docs/key-concepts/project-groups.md -> docs/deployment-process/projects/index.md
 docs/key-concepts/lifecycles.md -> docs/deployment-process/projects/lifecycles/index.md
 docs/key-concepts/tenants.md -> docs/deploying-applications/multi-tenant-deployments/index.md
@@ -132,7 +132,7 @@ docs/deploying-applications/projects/index.md -> docs/deployment-process/project
 docs/deploying-applications/projects/channels.md -> docs/deployment-process/channels.md
 docs/deploying-applications/projects/project-groups.md -> docs/deployment-process/projects/index.md
 docs/deploying-applications/projects/project-triggers.md -> docs/deployment-process/project-triggers.md
-docs/deploying-applications/projects/reporting.md -> docs/deployment-process/projects/reporting.md
+docs/deploying-applications/projects/reporting.md -> docs/administration/reporting.md
 docs/deploying-applications/projects/releases.md -> docs/deployment-process/releases/index.md 
 docs/deploying-applications/projects/lifecycles/index.md -> docs/deployment-process/projects/lifecycles/index.md
 docs/deploying-applications/adding-steps.md -> docs/deployment-process/steps/index.md
@@ -233,7 +233,7 @@ docs/deploying-applications/deployment-process/index.md -> docs/deployment-proce
 docs/deploying-applications/deployment-process/releases/index.md -> docs/deployment-process/releases/index.md
 docs/deploying-applications/deployment-process/channels.md -> docs/deployment-process/channels.md
 docs/deploying-applications/deployment-process/project-triggers.md -> docs/deployment-process/project-triggers.md
-docs/deploying-applications/deployment-process/projects/reporting.md -> docs/deployment-process/projects/reporting.md
+docs/deploying-applications/deployment-process/projects/reporting.md -> docs/administration/reporting.md
 docs/deploying-applications/deployment-process/projects/lifecycles/index.md -> docs/deployment-process/projects/lifecycles/index.md
 docs/deploying-applications/deployment-process/coordinating-multiple-projects/index.md -> docs/deployment-process/coordinating-multiple-projects/index.md
 docs/deploying-applications/deployment-process/coordinating-multiple-projects/project-coordination-code-samples.md -> docs/deployment-process/coordinating-multiple-projects/project-coordination-code-samples.md
