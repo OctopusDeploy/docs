@@ -273,3 +273,4 @@ docs/deploying-applications/deployment-process/releases/scheduled-deployments.md
 docs/deploying-applications/deployment-process/substitute-variables-in-files.md -> docs/deployment-process/substitute-variables-in-files.md
 docs/deploying-applications/deployment-process/steps/conditions.md -> docs/deployment-process/steps/conditions.md
 docs/deployment-process/projects/reporting.md -> docs/administration/reporting.md
+docs/deployment-process/projects/lifecyles/index.md -> docs/deployment-process/lifecycles/index.md
