@@ -88,6 +88,6 @@ In the example shown below there are three steps that will be executed from top 
 
 ## Example: A rolling deployment {#DeploymentProcesses-Example:Arollingdeployment} {#rolling-deployments}
 
-Let's consider a more complex example like the one shown below. In this example we have configured Octopus to deploy a web application across one or more servers in a web farm behind a load balancer. This process has a single **step** and three **actions** which form a [rolling deployment](/docs/patterns/rolling-deployments.md).
+Let's consider a more complex example like the one shown below. In this example we have configured Octopus to deploy a web application across one or more servers in a web farm behind a load balancer. This process has a single **step** and three **actions** which form a [rolling deployment](/docs/deployment-patterns/rolling-deployments.md).
 
 ![](rolling-process.png "width=500")

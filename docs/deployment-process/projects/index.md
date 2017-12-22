@@ -16,7 +16,7 @@ To add your first project, select **ADD PROJECT**.
 
 We recommend using a meaningful name and description.
 
-Under the **Advanced Settings** you can specify a **Project Group** and the [Lifecycle](docs/deployment-process/projects/lifecycles/index.md).
+Under the **Advanced Settings** you can specify a **Project Group** and the [Lifecycle](docs/deployment-process/lifecycles/index.md).
 
 If you have existing projects you can *Disable*, *Clone*, or *Delete* the project from the project's settings.
 

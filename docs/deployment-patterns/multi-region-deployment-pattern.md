@@ -18,7 +18,7 @@ You can use [Environments](/docs/infrastructure/environments/index.md) to repr
 
 By using this pattern you can:
 
-1. Use [Lifecycles](/docs/deployment-process/projects/lifecycles/index.md) to define a strict process for promotion of releases between your regions. *Lifecycles can be used to design both simple and complex promotion processes.*
+1. Use [Lifecycles](/docs/deployment-process/lifecycles/index.md) to define a strict process for promotion of releases between your regions. *Lifecycles can be used to design both simple and complex promotion processes.*
   * For example, you may want to test releases in Australia before rolling them out to the USA, and then to Europe
   * In another example, you may want to test releases in Australia before rolling them out simultaneously to all other regions
 2. Scope region-specific variables to the region-specific Environments
@@ -30,7 +30,7 @@ By using this pattern you can:
 
 ## Rolling Solution {#Multi-regiondeploymentpattern-RollingSolution}
 
-In Octopus 3.4 we introduced [Cloud Regions](/docs/infrastructure/cloud-regions.md) which enable you to configure [Rolling deployments](/docs/patterns/rolling-deployments.md) across your regions or data centers. In this case you can scope variables to the Cloud Regions and deploy to all regions at once, but you cannot control the order in which the rolling deployment executes.
+In Octopus 3.4 we introduced [Cloud Regions](/docs/infrastructure/cloud-regions.md) which enable you to configure [Rolling deployments](/docs/deployment-patterns/rolling-deployments.md) across your regions or data centers. In this case you can scope variables to the Cloud Regions and deploy to all regions at once, but you cannot control the order in which the rolling deployment executes.
 
 ![](/docs/images/5670886/5865782.png "width=500")
 

@@ -41,7 +41,7 @@ The multi-tenant features in Octopus Deploy will simplify your deployments in al
 - you want to provide each tester with an isolated test deployment so they can work on test data, and choose when to upgrade
 - you want to provide isolated, time-limited, deployments for work on feature branches
 - you want to manage deployments to individual targets across environments, like managing a fleet of embedded devices, or a fleet of laptops/workstations
-- you deploy your application to multiple geographic regions - this way you can avoid creating multiple environments instead modeling each region as a tenant in the same environment - [example](/docs/patterns/multi-region-deployment-pattern.md)
+- you deploy your application to multiple geographic regions - this way you can avoid creating multiple environments instead modeling each region as a tenant in the same environment - [example](/docs/deployment-patterns/multi-region-deployment-pattern.md)
 - you deploy unique instances of your application for each end-customer - keep reading!
 
 ### You want to deploy a multi-tenant application {#Multi-tenantdeployments-Youwanttodeployamulti-tenantapplication}

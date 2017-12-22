@@ -16,11 +16,11 @@ Channels in Octopus Deploy will help you if you want to:
 - [Deploy a hot-fix directly to Production](https://octopus.com/blog/channels-walkthrough#hotfix-deployments) where you would normal promote each release through a series of Environments.
 - [Provide your customers with access to early builds of your project](https://octopus.com/blog/channels-walkthrough#early-access-programs).
 - [Automatically deploy feature-branch builds to a test environment](https://octopus.com/blog/channels-walkthrough#feature-branch-deployments), sometimes called a Phoenix environment. For example, as soon as a developer commits code to a feature branch, you want that version of the project to be deployed into a sandbox test environment.
-- [You use a branching strategy in your source code repository](/docs/patterns/branching.md). For example, you might be using [GitFlow](http://nvie.com/posts/a-successful-git-branching-model/) or another source code branching strategy.
+- [You use a branching strategy in your source code repository](/docs/deployment-patterns/branching.md). For example, you might be using [GitFlow](http://nvie.com/posts/a-successful-git-branching-model/) or another source code branching strategy.
 
 Each Release you create in Octopus Deploy is placed into a Channel, and Releases in each Channel can be treated differently. For each Channel you can define:
 
-- Which [Lifecycle](/docs/deployment-process/projects/lifecycles/index.md) to use for promoting Releases: for example, feature releases may be promoted through the testing environments, while hot-fix releases may go directly to production.
+- Which [Lifecycle](/docs/deployment-process/lifecycles/index.md) to use for promoting Releases: for example, feature releases may be promoted through the testing environments, while hot-fix releases may go directly to production.
 - Which [Deployment Process](/docs/deploying-applications/index.md) to use when deploying Releases: for example, steps can be enabled for specific channels.
 - Which [Variables](/docs/deployment-process/variables/index.md) to use: Variables can be scoped to channels.
 - Which tenants should be included when deploying Releases: for example, you can ensure only Releases from certain Channels are deployed to certain Tenants.

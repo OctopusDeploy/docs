@@ -30,6 +30,6 @@ When deploying, you can then choose which environment to deploy to - either blue
 
 ![](/docs/images/3048181/3278245.png "width=500")
 
-Configuring your [lifecycle](/docs/deployment-process/projects/lifecycles/index.md) will need to be done accordingly. Typically you would have both your blue and green environments in a shared "Production/Staging" phase.
+Configuring your [lifecycle](/docs/deployment-process/lifecycles/index.md) will need to be done accordingly. Typically you would have both your blue and green environments in a shared "Production/Staging" phase.
 
 ![](/docs/images/3048181/3278246.png "width=500")

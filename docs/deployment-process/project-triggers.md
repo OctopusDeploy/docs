@@ -117,7 +117,7 @@ You can use the advanced deployment screen to see an approximation of the deploy
 
 [Manual Intervention](/docs/deployment-process/steps/manual-intervention-and-approvals.md) steps and [Guided Failures](/docs/deployment-process/releases/guided-failures.md) will work just like they do in a manual deployment. At face value this may seem like it's not very automatic, and that's true. In the case where you use a Manual Intervention for smoke testing a new web server before it enters the load balanced pool you may want the step to pause until you've smoke tested. In the case where you use Manual Intervention for approving the deployment of a Release you may not want it to pause. We made the decision to pause for Manual Intervention steps and Guided Failures so that automatic deployments mimic manual deployments, like we described earlier.
 
-We generally recommend avoiding the use of Manual Intervention steps unless absolutely necessary. If you need Manual Intervention steps to pause for manual deployments, but skip for automatic deployments, you can use a workaround: add the Manual Intervention step to a [Rolling Deployment](/docs/patterns/rolling-deployments.md) step which is targeted at a role that will never be part of an automatic deployment.
+We generally recommend avoiding the use of Manual Intervention steps unless absolutely necessary. If you need Manual Intervention steps to pause for manual deployments, but skip for automatic deployments, you can use a workaround: add the Manual Intervention step to a [Rolling Deployment](/docs/deployment-patterns/rolling-deployments.md) step which is targeted at a role that will never be part of an automatic deployment.
 
 ![](/docs/images/5671191/5865839.png "width=500")
 

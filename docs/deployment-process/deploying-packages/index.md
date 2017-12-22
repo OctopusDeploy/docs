@@ -36,7 +36,7 @@ You can dynamically select a Package Feed and/or the Package ID at deployment ti
 ![](deploy-package-step.png "width=500")
 
 :::hint
-When multiple machines are in the role you select, Octopus deploys to all of the machines in parallel. If you need to change this behavior, you can [configure a rolling deployment](/docs/patterns/rolling-deployments.md).
+When multiple machines are in the role you select, Octopus deploys to all of the machines in parallel. If you need to change this behavior, you can [configure a rolling deployment](/docs/deployment-patterns/rolling-deployments.md).
 :::
 
 ## Configuring features {#Deployingpackages-Configuringfeatures}

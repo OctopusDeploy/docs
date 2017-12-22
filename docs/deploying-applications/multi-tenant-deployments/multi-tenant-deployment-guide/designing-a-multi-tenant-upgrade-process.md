@@ -9,7 +9,7 @@ Previous step: [Designing a multi-tenant hosting model](/docs/deploying-applica
 This page describes how to design a multi-tenant upgrade process using some of the features built in to Octopus Deploy.
 
 :::success
-You should understand [Lifecycles](/docs/deployment-process/projects/lifecycles/index.md) and [Tenant Tags](/docs/reference/tenant-tags.md) before continuing with this guide.
+You should understand [Lifecycles](/docs/deployment-process/lifecycles/index.md) and [Tenant Tags](/docs/reference/tenant-tags.md) before continuing with this guide.
 :::
 
 ## Upgrading tenanted applications {#Designingamulti-tenantupgradeprocess-Upgradingtenantedapplications}
@@ -18,7 +18,7 @@ Quite often you want to upgrade tenanted applications by rolling the upgrade thr
 
 ## Tenants and Lifecycles {#Designingamulti-tenantupgradeprocess-TenantsandLifecycles}
 
-Quite often you want to provide a tenant-specific "test" environment where upgrades can be tested by the customers before you upgrade their "production" environment. This is how Octopus Deploy behaves out of the box - if a tenant is connected to multiple environments of a project, you will be required to promote a release through the environments in the order defined by the [Lifecycle](/docs/deployment-process/projects/lifecycles/index.md). Let's build on our working example and test this out. We are going to perform an untenanted deployment into the **MT Dev** environment, then promote those releases to our test team in the **MT Test** environment, upgrade the **MT Staging** environment for our tenant, and finally upgrade their instance of the application in the **MT Production** environment.
+Quite often you want to provide a tenant-specific "test" environment where upgrades can be tested by the customers before you upgrade their "production" environment. This is how Octopus Deploy behaves out of the box - if a tenant is connected to multiple environments of a project, you will be required to promote a release through the environments in the order defined by the [Lifecycle](/docs/deployment-process/lifecycles/index.md). Let's build on our working example and test this out. We are going to perform an untenanted deployment into the **MT Dev** environment, then promote those releases to our test team in the **MT Test** environment, upgrade the **MT Staging** environment for our tenant, and finally upgrade their instance of the application in the **MT Production** environment.
 
 ### Step 1: Configure the Lifecycle {#Designingamulti-tenantupgradeprocess-Step1:ConfiguretheLifecycle}
 
@@ -121,7 +121,7 @@ You may decide to use channels as a safety measure, to restrict test releases to
 
 ### Step 1: Create the Lifecycle {#Designingamulti-tenantupgradeprocess-Step1:CreatetheLifecycle}
 
-Firstly we will create a new [Lifecycle](/docs/deployment-process/projects/lifecycles/index.md)
+Firstly we will create a new [Lifecycle](/docs/deployment-process/lifecycles/index.md)
 
 ![](/docs/images/5669342/5866198.png "width=300")
 
@@ -151,7 +151,7 @@ Quite often you want to involve certain customers in testing early releases of m
 
 ### Step 1: Create the Lifecycle {#Designingamulti-tenantupgradeprocess-Step1:CreatetheLifecycle.1}
 
-Firstly we will create a new [Lifecycle](/docs/deployment-process/projects/lifecycles/index.md)
+Firstly we will create a new [Lifecycle](/docs/deployment-process/lifecycles/index.md)
 
 ![](/docs/images/5669342/5865747.png)
 

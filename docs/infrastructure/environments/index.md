@@ -52,7 +52,7 @@ Guided failure mode is an option when editing an environment:
 
 ## Associating Projects with Environments {#Environments-Associatingprojectswithenvironments}
 
-By default, a project can be deployed to any environment. You can limit which projects can be deployed to which environment using [Lifecycles](/docs/deployment-process/projects/lifecycles/index.md). This is useful if you have one set of environments for projects developed by one team, and another set of environments for projects developed by another team.
+By default, a project can be deployed to any environment. You can limit which projects can be deployed to which environment using [Lifecycles](/docs/deployment-process/lifecycles/index.md). This is useful if you have one set of environments for projects developed by one team, and another set of environments for projects developed by another team.
 
 ## Environment Permissions {#Environments-Environmentpermissions}
 
