@@ -4,7 +4,7 @@ description: Create a simple project and environment in preparation to deploy a 
 position: 1
 ---
 
-Previous step: [Creating your first tenant](/docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-tenant.md)
+Previous step: [Creating your first tenant](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-tenant.md)
 
 In this section we will create a simple project and environment in preparation to deploy a project to your tenant. We will create an isolated environment, deployment target, lifecycle, project group and project so we can design our multi-tenant deployments without affecting anything else on our Octopus Server.
 
@@ -63,4 +63,4 @@ We'll leave this setting alone right now and let Octopus configure it for us in 
 
 ## Next steps {#Creatingyourfirstmulti-tenantproject-Nextsteps}
 
-We will [connect your tenant to this project and deploy it into the tenant's production environment](/docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md). Talk about living life on the edge!
+We will [connect your tenant to this project and deploy it into the tenant's production environment](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md). Talk about living life on the edge!

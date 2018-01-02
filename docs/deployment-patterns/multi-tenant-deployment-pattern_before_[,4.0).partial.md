@@ -1,1 +1,0 @@
-If you are using an earlier version of Octopus we have provided some recommendations and trade-offs for you to consider: [Multi-tenant deployments prior to Octopus 3.4](/docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/index.md)

@@ -9,7 +9,7 @@ This page describes some of the trade-offs you would consider deciding how to us
 
 :::success
 **Built-in support for multi-tenant deployments**
-Consider upgrading to Octopus 3.4 which provides built-in support for multi-tenant deployments. Read through our [multi-tenant deployment guide](/docs/deploying-applications/multi-tenant-deployments/index.md) to see if it fits your situation.
+Consider upgrading to Octopus 3.4 which provides built-in support for multi-tenant deployments. Read through our [multi-tenant deployment guide](/docs/deployment-patterns/multi-tenant-deployments/index.md) to see if it fits your situation.
 :::
 
 ## Scenario: {#Multi-tenantdeploymentspriortoOctopus3.4-Scenario:}
