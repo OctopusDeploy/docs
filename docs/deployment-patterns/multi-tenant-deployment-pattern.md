@@ -1,5 +1,5 @@
 ---
-title: Multi-tenant deployment pattern
+title: Multi-tenant Deployment Pattern
 description: Implementing multi-tenant deployments, i.e. deploying the same components to an environment multiple times, with Octopus.
 position: 2
 ---
@@ -14,7 +14,7 @@ Consider the following scenario:
 
 The key issue in this scenario is that the same components need to be deployed multiple times, one for each end-customer.
 
-## Multi-tenant deployments using Octopus {#Multi-tenantdeploymentpattern-Multi-tenantdeploymentsusingOctopus}
+## Multi-tenant Deployments Using Octopus {#Multi-tenantdeploymentpattern-Multi-tenantdeploymentsusingOctopus}
 
 We have introduced first-class support for multi-tenant deployments in Octopus 3.4. For more information refer to our comprehensive guide: [Multi-tenant deployments](/docs/deploying-applications/multi-tenant-deployments/index.md)
 

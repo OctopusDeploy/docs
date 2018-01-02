@@ -1,5 +1,5 @@
 ---
-title: Isolated Octopus Deploy servers
+title: Isolated Octopus Deploy Servers
 description: Working with isolated Octopus Deploy servers due to infrastructure or governance requirements.
 position: 3
 ---
@@ -13,13 +13,13 @@ Of course, the real world and the ideal world don't always overlap, and you migh
 
 On this page, we discuss two different scenarios, and the features and options that exist for dealing with them.
 
-## Tentacle can't be installed (offline deployments) {#IsolatedOctopusDeployservers-Tentaclecan&#39;tbeinstalled(offlinedeployments)}
+## Tentacle Can't be Installed (Offline Deployments) {#IsolatedOctopusDeployservers-Tentaclecan&#39;tbeinstalled(offlinedeployments)}
 
 > Chris's Consulting are developing an application for a government client. They're using Octopus internally to manage pre-production deployments (dev, UAT, and so-on). However, the client have advised that they won't allow the consultancy to install the Tentacle agent on their production servers, nor the Octopus server. They'd prefer the consultancy to provide them with a something they can run from a USB stick.
 
 In Octopus 3.0, you can configure an [Offline Package Drop deployment target](/docs/infrastructure/offline-package-drop.md). This allows you to "deploy" to a location on the filesystem and take that deployment offline to be used elsewhere. The dropped package contains everything you need to deploy to a location offsite.
 
-## Tentacle can be installed (isolated Octopus servers) {#IsolatedOctopusDeployservers-Tentaclecanbeinstalled(isolatedOctopusservers)}
+## Tentacle Can be Installed (Isolated Octopus Servers) {#IsolatedOctopusDeployservers-Tentaclecanbeinstalled(isolatedOctopusservers)}
 
 > A credit card processing gateway have decided to use Octopus to manage deployments. For PCI-compliance reasons, the production environment is required to be on a different network to the pre-production environments, and very little is shared. Since they own the servers, they can install the Octopus servers and Tentacles on each environment, but they just can't share an Octopus server between environments.
 

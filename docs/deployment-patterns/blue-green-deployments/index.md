@@ -1,5 +1,5 @@
 ---
-title: Blue-green deployments
+title: Blue-green Deployments
 description: Implementing blue-green deployments, i.e. having two production environments ("blue" and "green"), with Octopus.
 position: 1
 ---

@@ -11,7 +11,7 @@ This section describes how different branching strategies can be modeled in Octo
 In Octopus 3.2 we implemented [Channels](/docs/deployment-process/channels.md) as a way to support deployments using some of the source code branching strategies discussed here. We've produced a [comprehensive walkthrough of Channels](https://octopus.com/blog/channels-walkthrough) that covers most of these strategies in detail.
 :::
 
-## Branching strategies {#Branching-Branchingstrategies}
+## Branching Strategies {#Branching-Branchingstrategies}
 
 When thinking about branching and Octopus, keep this rule in mind:
 
@@ -23,7 +23,7 @@ Octopus, on the other hand, only sees packages. It doesn't particularly care whi
 
 The section below describes some common branching strategies, and what they mean in terms of NuGet packages and releases in Octopus.
 
-### No branches {#Branching-Nobranches}
+### No Branches {#Branching-Nobranches}
 
 :::hint
 **Development note**
@@ -38,7 +38,7 @@ Builds from this single branch will produce a NuGet package, and that package go
 
 ![](/docs/images/3048919/3278468.png "width=500")
 
-### Release branches {#Branching-Releasebranches}
+### Release Branches {#Branching-Releasebranches}
 
 :::hint
 **Development note**
@@ -51,7 +51,7 @@ Sometimes developers work on new features that aren't quite ready to ship, whils
 
 So long as one release branch never overlaps another, from an Octopus point of view, the process is similar to the "no branches" scenario above - new NuGet packages are built, and those packages go into a release, which is deployed. Octopus doesn't care that they came from a branch; to Octopus, there's just a stream of new, incrementing package versions.
 
-### Multiple active release branches {#Branching-Multipleactivereleasebranches}
+### Multiple Active Release Branches {#Branching-Multipleactivereleasebranches}
 
 :::hint
 **Development note**
@@ -88,7 +88,7 @@ It's important to realize that **branches will map to different channels over ti
 Eventually, `release/v3` will become more and more stable, and packages from it will eventually go to your Stable channel, while `release/v4` packages will begin to go to your Early Adopter channel.
 :::
 
-### Feature branches {#Branching-Featurebranches}
+### Feature Branches {#Branching-Featurebranches}
 
 :::hint
 **Development note**
@@ -107,7 +107,7 @@ Again, channels can be used to make it easier to create releases for feature bra
 
 ![](/docs/images/3048919/3278471.png "width=500")
 
-### Environment branches {#Branching-Environmentbranches}
+### Environment Branches {#Branching-Environmentbranches}
 
 :::hint
 **Development note**
@@ -128,11 +128,11 @@ You can make this work in Octopus, by creating a package for each environment an
 
 However, on the whole, this isn't a scenario we've set out to support in Octopus, and we don't believe it's a good idea in general.
 
-## Other considerations {#Branching-Otherconsiderations}
+## Other Considerations {#Branching-Otherconsiderations}
 
 The above section describes common branching strategies and how they map to NuGet packages, releases and channels in Octopus. However, depending on your release process, there may be other things to consider. Below are some issues that often come up in relation to branching and Octopus.
 
-### Multiple branches can be "currently deployed" at the same time {#Branching-Multiplebranchescanbe&quot;currentlydeployed&quot;atthesametime}
+### Multiple Branches Can be "Currently Deployed" at the Same Time {#Branching-Multiplebranchescanbe&quot;currentlydeployed&quot;atthesametime}
 
 Normally in Octopus, a single release for a project is deployed to a single environment at a time - for example, only one release is "currently" in Production. When you have multiple active release branches, or sometimes even feature branches, it might be that you actually have more than one "current" release.
 

@@ -1,5 +1,5 @@
 ---
-title: Multi-region deployment pattern
+title: Multi-region Deployment Pattern
 description: Implementing multi-region deployments, i.e. deploying to multiple geographic regions, with Octopus.
 position: 6
 ---
@@ -10,7 +10,7 @@ Your application is deployed to multiple geographic regions (or multiple Data Ce
 
 ![](/docs/images/5670886/5865791.png "width=500")
 
-## Strict solution using Environments {#Multi-regiondeploymentpattern-StrictsolutionusingEnvironments}
+## Strict Solution Using Environments {#Multi-regiondeploymentpattern-StrictsolutionusingEnvironments}
 
 You can use [Environments](/docs/infrastructure/environments/index.md) to represent each region or data center. In the example below we have defined a Dev and Test Environment as per normal, and then configured two "production" Environments, one for each region we want to deploy into.
 
