@@ -74,7 +74,7 @@ Consider the following example:
 The key issue in this scenario is that the same components need to be deployed multiple times, one for each end-customer, with different configuration settings for each customer, possibly targeting multiple environments.
 
 :::success
-You don't need Octopus Deploy to implement a multi-tenant SaaS application: you can also architect your application so you can deploy it once and serve multiple customers. We have built multi-tenant deployments into Octopus for those situations where you want to deploy your application once for each end-customer. See the section below about [building multi-tenant applications](/docs/deployment-patterns/multi-tenant-deployments/index.md) and [considering architectural changes](/docs/deployment-patterns/multi-tenant-deployments/index.md).
+You don't need Octopus Deploy to implement a multi-tenant SaaS application: you can also architect your application so you can deploy it once and serve multiple customers. We have built multi-tenant deployments into Octopus for those situations where you want to deploy your application once for each end-customer.
 :::
 
 ## Building multi-tenant applications {#Multi-tenantdeployments-Buildingmulti-tenantapplications}
