@@ -297,3 +297,4 @@ docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployment-gui
 docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployment-guide/multi-tenant-roles-and-security.md -> docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/multi-tenant-roles-and-security.md
 docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md -> docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md
 docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-tenant-specific-variables.md -> docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-tenant-specific-variables.md
+docs/deployment-patterns/multi-tenant-deployment-pattern.md -> docs/deployment-patterns/multi-tenant-deployments/index.md
