@@ -282,7 +282,7 @@ docs/patterns/canary-deployments.md -> docs/deployment-patterns/canary-deploymen
 docs/patterns/clustered-listening-tentacles.md -> docs/deployment-patterns/clustered-listening-tentacles.md
 docs/patterns/isolated-octopus-deploy-servers.md -> docs/deployment-patterns/isolated-octopus-deploy-servers.md
 docs/patterns/multi-region-deployment-pattern.md -> docs/deployment-patterns/multi-region-deployment-pattern.md
-docs/patterns/multi-tenant-deployment-pattern.md -> docs/deployment-patterns/multi-tenant-deployment-pattern.md
+docs/patterns/multi-tenant-deployment-pattern.md -> docs/deployment-patterns/multi-tenant-deployments/index.md
 docs/patterns/rolling-deployments.md -> docs/deployment-patterns/rolling-deployments.md
 docs/deploying-applications/multi-tenant-deployments/index.md -> docs/deployment-patterns/multi-tenant-deployments/index.md
 docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/index.md -> docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/index.md
