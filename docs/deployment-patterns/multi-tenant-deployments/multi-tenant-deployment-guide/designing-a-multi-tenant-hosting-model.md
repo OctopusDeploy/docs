@@ -6,7 +6,7 @@ position: 5
 
 Previous step: [Working with groups of tenants using tags](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md)
 
-This page describes how to design and implement both **dedicated** and **shared** multi-tenant hosting models using [Environments](/docs/infrastructure/environments/index.md), [Deployment Targets](/docs/infrastructure/index.md), and [Tenant Tags](/docs/reference/tenant-tags.md).
+This page describes how to design and implement both **dedicated** and **shared** multi-tenant hosting models using [Environments](/docs/infrastructure/environments/index.md), [Deployment Targets](/docs/infrastructure/index.md), and [Tenant Tags](/docs/deployment-patterns/multi-tenant-deployments/tenant-tags.md).
 
 :::hint
 **Tenanted and untenanted deployments**

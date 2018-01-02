@@ -42,7 +42,8 @@ docs/key-concepts/project-groups.md -> docs/deployment-process/projects/index.md
 docs/key-concepts/lifecycles.md -> docs/deployment-process/lifecycles/index.md
 docs/key-concepts/tenants.md -> docs/deployment-patterns/multi-tenant-deployments/index.md
 docs/key-concepts/index.md -> docs/getting-started.md
-docs/key-concepts/tenants/tenant-tags -> docs/reference/tenant-tags.md
+docs/key-concepts/tenants/tenant-tags -> docs/deployment-patterns/multi-tenant-deployments/tenant-tags.md
+docs/reference/tenant-tags -> docs/deployment-patterns/multi-tenant-deployments/tenant-tags.md
 docs/packaging-applications/nuget-packages/index.md -> docs/packaging-applications/creating-packages/nuget-packages/index.md
 docs/packaging-applications/nuget-packages/manually.md -> docs/packaging-applications/creating-packages/nuget-packages/manually.md
 docs/packaging-applications/nuget-packages/using-nuget.exe.md -> docs/packaging-applications/creating-packages/nuget-packages/using-nuget.exe.md

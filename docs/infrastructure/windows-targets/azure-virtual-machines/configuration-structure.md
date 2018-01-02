@@ -42,7 +42,7 @@ The schema for the public configuration file is:
 * `Roles`: (array of string) The roles to assign to the Tentacle.
 * `CommunicationMode`: (string) Whether the Tentacle should wait for connections from the server (`Listen`) or should poll the server (`Poll`).
 * `Tenants`: (array of string) The tenants to assign to the Tentacle.
-* `TenantTags`: (array of strings) The tenant tags in [canonical name format](/docs/reference/tenant-tags.md#referencing-tenant-tags-tenanttags-referencingtenanttags) to assign to the Tentacle.
+* `TenantTags`: (array of strings) The tenant tags in [canonical name format](/docs/deployment-patterns/multi-tenant-deployments/tenant-tags.md#referencing-tenant-tags-tenanttags-referencingtenanttags) to assign to the Tentacle.
 * `MachinePolicy`: (string) The name of a machine policy to apply to the Tentacle.
 * `Port`: The port on which to listen for connections from the server (in `Listen` mode), or the port on which to connect to the Octopus server (`Poll` mode).
 * `PublicHostNameConfiguration`: If in listening mode, how the server should contact the Tentacle. Can be one of the following:
