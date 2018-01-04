@@ -8,7 +8,7 @@ Before you use this guide, you will need to confirm that you have [installed the
 
 Once you have installed the OctopusDSC module you are ready to automate the installation and configuration of Octopus Server. Below is a basic example for installing the Octopus Server Manager and configuring your new instance. You can use this to test and see the results.
 
-Below is a basic script to get you going. First, ensure the OctopusDSC module is on your `$env:PSModulePath`. Then you can create and apply configuration like this.
+Below is an example script to give you an idea. First, ensure the OctopusDSC module is on your `$env:PSModulePath`. Then you can create and apply configuration like this.
 
 ```PowerShell
 Configuration SampleConfig
@@ -32,8 +32,7 @@ Configuration SampleConfig
             SqlDbConnectionString = "Server=(local)\SQLEXPRESS;Database=Octopus;Trusted_Connection=True;"
 
             # The admin user to create
-            OctopusAdminUsername = "Admin"
-            OctopusAdminPassword = "SuperS3cretPassw0rd"
+            OctopusAdminCredential = $PSCredentialObject
 
             # optional parameters
             AllowUpgradeCheck = $true
@@ -47,6 +46,9 @@ Configuration SampleConfig
             LegacyWebAuthenticationMode = "UsernamePassword"
 
             HomeDirectory = "C:\Octopus"
+
+            # if not supplied, Octopus will use a free license
+            LicenseKey = "base64encodedlicense"
         }
     }
 }
@@ -57,6 +59,7 @@ Start-DscConfiguration .\SampleConfig -Verbose -wait
 
 Test-DscConfiguration
 ```
+
 :::hint
 For more OctopusDSC server scripts and examples, please see our GitHub repository [examples page](https://github.com/OctopusDeploy/OctopusDSC/tree/master/OctopusDSC/Examples).
 :::hint
@@ -65,15 +68,18 @@ Example: `DownloadUrl = "\\192.168.10.100\installers\Octopus\Server\Latest\Octop
 :::
 
 ##### What happens here?
-OctopusDSC will download the latest version of the Octopus Server manager from our website. It will then install the msi and create an instance with any configuration settings you pass through to it in the script. (The above is a barebones script)
+
+The above script is a basic example of the configuration. In order to run the server installation, you will need a certificate to encrypt your desired Octopus administrator login information. The is can be done by referencing the following [Microsoft documentation](https://docs.microsoft.com/en-us/powershell/dsc/secureMOF).
+
+OctopusDSC will download the latest version of the Octopus Server manager from our website. It will then install the msi and create an instance with any configuration settings you pass through to it in the above configuration script.
 
 OctopusDSC can also be used to create and register new server instances on servers which already have a server instance. To do this simply change the value of `Name = "OctopusServer"` to the instance name you desire.
 
 :::hint
 Ensure you have replaced the values from the above script which require specific values, such as `SqlDbConnectionString`, `OctopusAdminUsername` and `OctopusAdminPassword` etc. :::
 
-Successfully running the script should return the following:
-image[image here]
+Successfully running the script should return something along the lines of the following:
+![Output from Octopus Server DSC script](./successfulServer.jpg)
 
 That's it! OctopusDSC has installed, configured, and registered your new server instance. This can be used to remotely manage your infrastructure. Or it can be packaged with your OS images and used on initial server configuration.
 
@@ -99,24 +105,27 @@ When `State` is `Started`, the resource will ensure that the Octopus Server wind
 ##### Properties
 Below are the properties that you can define in your cOctopusServerDSC script.
 
-| Property                                 | Type                                     | Default Value                            | Description                              |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| `Ensure`                                 | `string` - `Present` or `Absent`         | `Present`                                | The desired state of the Octopus Server - effectively whether to install or uninstall. |
-| `Name`                                   | `string`                                 |                                          | The name of the Octopus Server instance. Use `OctopusServer` by convention unless you have more than one instance. |
-| `State`                                  | `string` - `Started` or `Stopped`        | `Started`                                | The desired state of the Octopus Server service. |
-| `DownloadUrl`                            | `string`                                 | `https://octopus.com/downloads/latest/WindowsX64/OctopusServer`, `C:\installers\OctopusServer\Latest\Octopus.3.17.11-x64.msi`, `\\192.168.10.100\installers\Octopus\Server\Latest\Octopus.3.17.11-x64.msi` | The url to use to download the msi.      |
-| `SqlDbConnectionString`                  | `string`                                 |                                          | The connection string to use to connect to the SQL Server database. |
-| `WebListenPrefix`                        | `string`                                 |                                          | A semi-colon (`;`) delimited list of urls on which the server should listen. eg `https://octopus.example.com:81`. |
-| `OctopusAdminUsername`                   | `string`                                 |                                          | The name of the administrative user to create on first install. |
-| `OctopusAdminPassword`                   | `string`                                 |                                          | The password of the administrative user to create on first install. |
-| `AllowUpgradeCheck`                      | `boolean`                                | `$true`                                  | Whether the server should check for updates periodically. |
-| `AllowCollectionOfAnonymousUsageStatistics` | `boolean`                                | `$true`                                  | Allow anonymous reporting of usage statistics. |
-| `LegacyWebAuthenticationMode`            | `string` - `UsernamePassword`, `Domain` or `Ignore` | `Ignore`                                 | For Octopus version older than 3.5, allows you to configure how users login. For 3.5 and above, this must be set to `ignore`. |
-| `ForceSSL`                               | `boolean`                                | `$false`                                 | Whether SSL should be required (HTTP requests get redirected to HTTPS) |
-| `ListenPort`                             | `int`                                    | `10943`                                  | The port on which the Server should listen for communication from `Polling` Tentacles. |
-| `AutoLoginEnabled`                       | `boolean`                                | `$false`                                 | If an authentication provider is enabled that supports pass through authentcation (eg Active Directory), allow the user to automatically sign in. Only supported from Octopus 3.5. |
-
-
+| Property                                     | Type                                                | Default Value                                                   | Description |
+| -------------------------------------------- | --------------------------------------------------- | ----------------------------------------------------------------| ------------|
+| `Ensure`                                     | `string` - `Present` or `Absent`                    | `Present`                                                       | The desired state of the Octopus Server - effectively whether to install or uninstall. |
+| `Name`                                       | `string`                                            |                                                                 | The name of the Octopus Server instance. Use `OctopusServer` by convention unless you have more than one instance. |
+| `State`                                      | `string` - `Started` or `Stopped`                   | `Started`                                                       | The desired state of the Octopus Server service. |
+| `DownloadUrl`                                | `string`                                            | `https://octopus.com/downloads/latest/WindowsX64/OctopusServer` | The url to use to download the msi. |
+| `SqlDbConnectionString`                      | `string`                                            |                                                                 | The connection string to use to connect to the SQL Server database. |
+| `WebListenPrefix`                            | `string`                                            |                                                                 | A semi-colon (`;`) delimited list of urls on which the server should listen. eg `https://octopus.example.com:81`. |
+| `OctopusAdminCredential`                     | `PSCredential`                                      | `[PSCredential]::Empty`                                         | The name/password of the administrative user to create on first install. |
+| `AllowUpgradeCheck`                          | `boolean`                                           | `$true`                                                         | Whether the server should check for updates periodically. |
+| `AllowCollectionOfAnonymousUsageStatistics`  | `boolean`                                           | `$true`                                                         | Allow anonymous reporting of usage statistics. |
+| `LegacyWebAuthenticationMode`                | `string` - `UsernamePassword`, `Domain` or `Ignore` | `Ignore`                                                        | For Octopus version older than 3.5, allows you to configure how users login. For 3.5 and above, this must be set to `ignore`.  |
+| `ForceSSL`                                   | `boolean`                                           | `$false`                                                        | Whether SSL should be required (HTTP requests get redirected to HTTPS) |
+| `ListenPort`                                 | `int`                                               | `10943`                                                         | The port on which the Server should listen for communication from `Polling` Tentacles. |
+| `AutoLoginEnabled`                           | `boolean`                                           | `$false`                                                        | If an authentication provider is enabled that supports pass through authentcation (eg Active Directory), allow the user to automatically sign in. Only supported from Octopus 3.5. |
+| `OctopusServiceCredential`                   | `PSCredential`                                      | `[PSCredential]::Empty`                                         | Credentials of the account used to run the Octopus Service |
+| `HomeDirectory`                              | `string`                                            | `C:\Octopus`                                                    | Home directory for Octopus logs and config (where supported) |
+| `LicenseKey`                                 | `string`                                            |                                                                 | The Base64 (UTF8) encoded license key. If not supplied, uses a free license. Drift detection is only supported from Octopus 4.1.3. |
+| `GrantDatabasePermissions`                   | `boolean`                                           | `$true`                                                         | Whether to grant `db_owner` permissions to the service account user (`$OctopusServiceCredential` user if supplied, or `NT AUTHORITY\System`)  |
+| `OctopusMasterKey`                           | `PSCredential`                                      | `[PSCredential]::Empty`                                         | The master key for the existing database. |
+| `OctopusRunOnServerCredential`               | `PSCredential`                                      | `[PSCredential]::Empty`                                         | The user account to use to execute run-on-server scripts. If not supplied, executes scripts under the service account used for `Octopus.Server.exe` |
 
 ##Authentication automation with OctopusDSC
 We also currently have the following resources for automating the configuration of various authentication methods/providers. See the below list for links to our script repository:
