@@ -304,4 +304,4 @@ docs/how-to/get-the-raw-output-from-a-deployment-process.md -> docs/support/get-
 docs/how-to/record-a-memory-trace.md -> docs/support/record-a-memory-trace.md
 docs/how-to/record-a-problem-with-your-browser.md -> docs/support/record-a-problem-with-your-browser.md
 docs/how-to/debug-problems-with-octopus-variables.md -> docs/support/debug-problems-with-octopus-variables.md
-docs/how-to/capture-a-crash-dump -> docs/support/capture-a-crash-dump
+docs/how-to/capture-a-crash-dump.md -> docs/support/capture-a-crash-dump.md
