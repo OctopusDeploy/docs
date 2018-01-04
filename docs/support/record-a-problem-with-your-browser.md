@@ -36,7 +36,7 @@ You can usually reduce the frame rate of the screen capture tool to reduce the o
 1. Start recording web traffic
 1. Reproduce the problem including any steps required to make the problem happen (like setting up your deployment process in a certain way)
 1. Stop the recordings
-1. Zip the recordings along with any log files which may be helpful for diagnosing the problem (like [Task Logs](/docs/how-to/get-the-raw-output-from-a-task.md) or [Octopus Server logs](/docs/reference/log-files.md))
+1. Zip the recordings along with any log files which may be helpful for diagnosing the problem (like [Task Logs](/docs/support/get-the-raw-output-from-a-task.md) or [Octopus Server logs](/docs/reference/log-files.md))
 1. Upload the zip file bundle to the secure and private share which should have been provided by an Octopus team member, then get back in touch with us - unfortunately we don't get notified of file uploads
 
 ## Analysis
