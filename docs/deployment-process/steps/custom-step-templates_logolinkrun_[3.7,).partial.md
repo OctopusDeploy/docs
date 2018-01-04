@@ -33,6 +33,6 @@ To run a script based step template, perform the following.
 4. Click the **Run now** button. This will execute the step as a new task and provide the full script. 
    ![Task summary](step-templates-run-task-summary.png "width=500")
    ![Task log](step-templates-run-task-log.png "width=500")
-   ![Task parameters](step-templates-run-task-parameters.png.png "width=500")
+   ![Task parameters](step-templates-run-task-parameters.png "width=500")
 
 To re-run the script against different deployment targets or modify the input parameters, simply click the **Modify and re-run** button.
