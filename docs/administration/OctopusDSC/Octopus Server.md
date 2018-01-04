@@ -79,7 +79,7 @@ OctopusDSC can also be used to create and register new server instances on serve
 Ensure you have replaced the values from the above script which require specific values, such as `SqlDbConnectionString`, `OctopusAdminUsername` and `OctopusAdminPassword` etc. :::
 
 Successfully running the script should return something along the lines of the following:
-![Output from Octopus Server DSC script](./successfulServer.jpg)
+![Output from Octopus Server DSC script](./Successfulserver.jpg)
 
 That's it! OctopusDSC has installed, configured, and registered your new server instance. This can be used to remotely manage your infrastructure. Or it can be packaged with your OS images and used on initial server configuration.
 
