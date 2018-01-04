@@ -166,8 +166,8 @@ In addition to answering those questions, please collect and attach the followin
 
 1. Attach a screen recording showing the performance problem.
 1. Attach any charts showing the Octopus Server performance (CPU/RAM) for normal deployment workloads both before/after the performance problem started.
-1. [Record and attach the performance problem occurring in your web browser](/docs/how-to/record-a-problem-with-your-browser.md) (if applicable).
+1. [Record and attach the performance problem occurring in your web browser](/docs/support/record-a-problem-with-your-browser.md) (if applicable).
 1. Attach the [Octopus Server logs](/docs/reference/log-files.md).
 1. Attach the [raw task logs](/docs/support/get-the-raw-output-from-a-task.md) for any tasks exhibiting the performance problem, or that may have been running at the same time as the performance problem.
 1. If the performance problem is causing high CPU utilization on the Octopus Server, please [record and attach a performance trace](/docs/how-to/record-a-performance-trace.md).
-1. If the performance problem is causing high memory utilization on the Octopus Server, please [record and attach a memory trace](/docs/how-to/record-a-memory-trace.md).
+1. If the performance problem is causing high memory utilization on the Octopus Server, please [record and attach a memory trace](/docs/support/record-a-memory-trace.md).

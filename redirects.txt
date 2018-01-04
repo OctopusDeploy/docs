@@ -301,4 +301,6 @@ docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployment-gui
 docs/deployment-patterns/multi-tenant-deployment-pattern.md -> docs/deployment-patterns/multi-tenant-deployments/index.md
 docs/how-to/get-the-raw-output-from-a-task.md -> docs/support/get-the-raw-output-from-a-task.md
 docs/how-to/get-the-raw-output-from-a-deployment-process.md -> docs/support/get-the-raw-output-from-a-deployment-process.md
-
+docs/how-to/record-a-memory-trace.md -> docs/support/record-a-memory-trace.md
+docs/how-to/record-a-problem-with-your-browser.md -> docs/support/record-a-problem-with-your-browser.md
+docs/how-to/debug-problems-with-octopus-variables.md -> docs/support/debug-problems-with-octopus-variables.md
