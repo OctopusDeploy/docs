@@ -64,7 +64,7 @@ Ensure you have replaced the values under `SampleConfig` with valid connection i
 
 Successfully running the script should return the following:
 
-![Output from Tentacle Agent DSC script](./successfulruntentacle.jpg)
+![Output from Tentacle Agent DSC script](successfulruntentacle.jpg)
 
 That's it! OctopusDSC has installed, configured, and registered your Tentacle agent. This can be used to remotely manage large or dynamic infrastructures remotely with ease. Or it can be packaged with your OS images and used on initial server configuration.
 

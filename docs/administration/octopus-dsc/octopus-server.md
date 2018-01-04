@@ -79,12 +79,12 @@ OctopusDSC can also be used to create and register new server instances on serve
 Ensure you have replaced the values from the above script which require specific values, such as `SqlDbConnectionString`, `OctopusAdminUsername` and `OctopusAdminPassword` etc. :::
 
 Successfully running the script should return something along the lines of the following:
-![Output from Octopus Server DSC script](./Successfulserver.jpg)
+![Output from Octopus Server DSC script](Successfulserver.jpg)
 
 That's it! OctopusDSC has installed, configured, and registered your new server instance. This can be used to remotely manage your infrastructure. Or it can be packaged with your OS images and used on initial server configuration.
 
 ## Settings
-Your OctopusDSC script can be configured to match most use cases we see. Below we have information on what you can customise in your script and the format you should present it.
+Your OctopusDSC script can be configured to match most use cases we see. Below we have information on what you can customize in your script and the format you should present it.
 
 When `Ensure` is set to `Present`, the resource will:
 
@@ -92,7 +92,7 @@ When `Ensure` is set to `Present`, the resource will:
 2. Install the MSI
 3. Create the database
 4. Set the admin username and password
-5. Configure with a free licence
+5. Configure with a free license
 6. Start the service
 
 When `Ensure` is set to `Absent`, the resource will:

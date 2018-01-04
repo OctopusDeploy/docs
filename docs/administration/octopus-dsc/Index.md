@@ -7,9 +7,9 @@ position: 20
 
 We have the following documentation pages regarding OctopusDSC:
 
-[Installing Octopus Tentacle Agent via DSC](.\Tentacle Agend.md)
+[Installing Octopus Tentacle Agent via DSC](Tentacle Agend.md)
 
-[Installing Octopus Server via DSC](.\Octopus Server.md)
+[Installing Octopus Server via DSC](/docs/administration/octopus-dsc/octopus-server.md)
 
 ## Installing the OctopusDSC PowerShell module.
 
