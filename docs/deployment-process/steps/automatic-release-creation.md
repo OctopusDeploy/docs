@@ -6,7 +6,7 @@ position: 15
 
 In Octopus Deploy 2.6 a feature was added called Automatic Release Creation primarily to support older versions of Team Foundation Server (TFS).
 
-Automatic release creation is available in Octopus 2.6 up to and including Octopus 3.3. If you are using Octopus 3.4 or higher please see [project triggers](/docs/deployment-process/project-triggers.md).
+If you are using Octopus 3.4 or higher, please note that Automatic Release Creation moved into the Project Triggers sidebar, but still functions in exactly the same way (it's just accessed from a different menu in your project).
 
 :::success
 **Consider using a build server extension**
