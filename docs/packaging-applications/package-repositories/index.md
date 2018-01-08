@@ -135,7 +135,7 @@ On the test page, you can check whether the feed is working by searching for pac
 ![](/docs/images/3048094/3277772.png "width=500")
 
 ## Planning Package Repository Placement {#Packagerepositories-Placement}
-By default, when you deploy a package to a Tentacle, the package will be pushed from the Octopus Server to the Tentacle. You can override this by setting the [Action System Variable](https://octopus.com/docs/deployment-process/variables/system-variables#Systemvariables-Action) `Octopus.Action.Package.DownloadOnTentacle`, which is a `boolean` data type. When set to `False`, the default behaviour is applied and when set to `True` the package will be downloaded by the Tentacle, rather than pushed by the Octopus server.
+By default, when you deploy a package to a Tentacle, the package will be pushed from the Octopus Server to the Tentacle. You can override this by setting the [Action System Variable](https://octopus.com/docs/deployment-process/variables/system-variables#Systemvariables-Action) `Octopus.Action.Package.DownloadOnTentacle`, which is a `boolean` data type. When set to `False`, the default behavior is applied and when set to `True` the package will be downloaded by the Tentacle, rather than pushed by the Octopus server.
 
 To reduce network latency, it is ideal to place your package repository in close proximity to the Octopus Server while `Octopus.Action.Package.DownloadOnTentacle` is set to the default value of `False`. Alternatively if you have explicitly set the Tentacles to download packages by the Tentacle to `True`, you would likely want to place your package repository in close proximity to your Tentacles. 
 
