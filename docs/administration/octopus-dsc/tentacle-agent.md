@@ -92,7 +92,7 @@ When `Ensure` is set to `Absent`, the resource will:
 
 When `State` is `Started`, the resource will ensure that the Tentacle windows service is running. When `Stopped`, it will ensure the service is stopped.
 
-##### Properties
+### Properties
 
 Below is the list of properties that you can be used to customise your script.
 
@@ -135,5 +135,5 @@ However, if you were to set the `ListenPort` to a new port, the drift detection 
 ## Links
 If you would like to contribute to the OctopusDSC open source repository, please follow the instructions on this documentations parent page.
 
-[Automating Infrastructure with DSC](./Index.md)
-[Installing Octopus Server Manager via DSC](./Octopus%20Server.md)
+[Automating Infrastructure with DSC](/docs/administration/octopus-dsc/Index.md)
+[Installing Octopus Server Manager via DSC](/docs/administration/octopus-dsc/octopus-server.md)
