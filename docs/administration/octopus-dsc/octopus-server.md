@@ -79,7 +79,7 @@ OctopusDSC can also be used to create and register new server instances on serve
 Ensure you have replaced the values from the above script which require specific values, such as `SqlDbConnectionString`, `OctopusAdminUsername` and `OctopusAdminPassword` etc. :::
 
 Successfully running the script should return something along the lines of the following:
-![Output from Octopus Server DSC script](Successfulserver.jpg)
+![Output from Octopus Server DSC script](successfulserver.jpg)
 
 That's it! OctopusDSC has installed, configured, and registered your new server instance. This can be used to remotely manage your infrastructure. Or it can be packaged with your OS images and used on initial server configuration.
 
@@ -127,10 +127,10 @@ Below are the properties that you can define in your cOctopusServerDSC script.
 | `OctopusMasterKey`                           | `PSCredential`                                      | `[PSCredential]::Empty`                                         | The master key for the existing database. |
 | `OctopusRunOnServerCredential`               | `PSCredential`                                      | `[PSCredential]::Empty`                                         | The user account to use to execute run-on-server scripts. If not supplied, executes scripts under the service account used for `Octopus.Server.exe` |
 
-##Authentication automation with OctopusDSC
+## Authentication automation with OctopusDSC
 We also currently have the following resources for automating the configuration of various authentication methods/providers. See the below list for links to our script repository:
 
-#### Active Directory
+### Active Directory
 [OctopusServerActiveDirectoryAuthentication](https://github.com/OctopusDeploy/OctopusDSC/tree/master/OctopusDSC/DSCResources/cOctopusServerActiveDirectoryAuthentication)
 ```Powershell
 Configuration SampleConfig
@@ -155,7 +155,7 @@ Start-DscConfiguration .\SampleConfig -Verbose -wait
 
 Test-DscConfiguration
 ```
-###### Active Directory Authentication Properties
+#### Active Directory Authentication Properties
 
 | Property                                  | Type         | Default Value    | Description |
 | ------------------------------------------| ------------ | -----------------| ------------|
@@ -188,7 +188,7 @@ Start-DscConfiguration .\SampleConfig -Verbose -wait
 
 Test-DscConfiguration
 ```
-###### Properties
+#### Properties
 
 | Property            | Type         | Default Value    | Description |
 | --------------------| ------------ | -----------------| ------------|
@@ -222,7 +222,7 @@ Start-DscConfiguration .\SampleConfig -Verbose -wait
 Test-DscConfiguration
 ```
 
-###### Properties
+#### Properties
 
 | Property            | Type         | Default Value    | Description |
 | --------------------| ------------ | -----------------| ------------|
@@ -254,7 +254,7 @@ Start-DscConfiguration .\SampleConfig -Verbose -wait
 Test-DscConfiguration
 ```
 
-###### Properties
+#### Properties
 
 | Property            | Type         | Default Value    | Description |
 | --------------------| ------------ | -----------------| ------------|
@@ -285,7 +285,7 @@ Start-DscConfiguration .\SampleConfig -Verbose -wait
 
 Test-DscConfiguration
 ```
-###### Properties
+#### Properties
 
 | Property            | Type         | Default Value    | Description |
 | --------------------| ------------ | -----------------| ------------|
@@ -317,7 +317,7 @@ Start-DscConfiguration .\SampleConfig -Verbose -wait
 
 Test-DscConfiguration
 ```
-###### Properties
+#### Properties
 
 | Property            | Type         | Default Value    | Description |
 | --------------------| ------------ | -----------------| ------------|
@@ -336,8 +336,8 @@ If the DownloadUrl property changes, it will detect the configuration drift and 
 
 However, if you need to change any of the `SqlDbConnectionString`, `OctopusAdminUsername` or `OctopusAdminPassword`properties, you will need to uninstall then reinstall the server (by changing `Ensure` to `Absent` and then back to `Present`).
 
-##Links
+## Links
 If you would like to contribute to the OctopusDSC open source repository, please follow the instructions on this documentations parent page.
 
-[Automating Infrastructure with DSC](.\Index.md)
-[Installing Octopus Tentacle Agent via DSC](.\Tentacle%20Agent.md)
+[Automating Infrastructure with DSC](/docs/administration/octopus-dsc/Index.md)
+[Installing Octopus Tentacle Agent via DSC](/docs/administration/octopus-dsc/Tentacle-Agent.md)
