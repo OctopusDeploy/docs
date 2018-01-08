@@ -67,7 +67,7 @@ You are able to define a custom `DownloadUrl` in your script which can point to 
 Example: `DownloadUrl = "\\192.168.10.100\installers\Octopus\Server\Latest\Octopus.3.17.11-x64.msi"`
 :::
 
-##### What happens here?
+### What happens here?
 
 The above script is a basic example of the configuration. In order to run the server installation, you will need a certificate to encrypt your desired Octopus administrator login information. The is can be done by referencing the following [Microsoft documentation](https://docs.microsoft.com/en-us/powershell/dsc/secureMOF).
 
@@ -102,7 +102,7 @@ When `Ensure` is set to `Absent`, the resource will:
 
 When `State` is `Started`, the resource will ensure that the Octopus Server windows service is running. When `Stopped`, it will ensure the service is stopped.
 
-##### Properties
+### Properties
 Below are the properties that you can define in your cOctopusServerDSC script.
 
 | Property                                     | Type                                                | Default Value                                                   | Description |
