@@ -12,10 +12,10 @@ You can manage your Azure subscription using the Azure PowerShell SDK for the Re
 
 ![](/docs/images/5671696/5865912.png "width=170")
 
-These scripts are executed on the Octopus Server and will be pre-authenticated using the selected Azure Account. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/adding-steps.md) section.
+These scripts are executed on the Octopus Server and will be pre-authenticated using the selected Azure Account. For information about adding a step to the deployment process, see the [add step](/docs/deployment-process/steps/index.md) section.
 
 :::hint
-Refer to [this guide](/docs/guides/azure-deployments/creating-an-azure-account/index.md) for more details, and the impact of choosing the right kind of Azure Account on the Azure SDK that will be available.
+Refer to [this guide](/docs/infrastructure/azure/creating-an-azure-account/index.md) for more details, and the impact of choosing the right kind of Azure Account on the Azure SDK that will be available.
 :::
 
 ## Example {#AzurePowerShellscripts-Example}
@@ -34,4 +34,4 @@ New-AzureWebsite -Name #{WebSite} -Slot Staging
 
 ## Bring your own Azure SDK {#AzurePowerShellscripts-BringyourownAzureSDK}
 
-We bundle a version of the Azure SDKs with Octopus Server so you can start deploying to Azure very quickly. In certain situations you may want (or need) to use a different version of the Azure SDK. Refer to [this guide](/docs/guides/azure-deployments/running-azure-powershell/configuring-the-version-of-the-azure-powershell-modules.md) for more details.
+We bundle a version of the Azure SDKs with Octopus Server so you can start deploying to Azure very quickly. In certain situations you may want (or need) to use a different version of the Azure SDK. Refer to [this guide](/docs/deploying-applications/azure-deployments/running-azure-powershell/configuring-the-version-of-the-azure-powershell-modules.md) for more details.

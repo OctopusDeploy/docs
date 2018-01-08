@@ -59,7 +59,7 @@ Your application should be packaged into a [supported package](/docs/packaging-
     \---web.config
 ```
 
-A really convenient way to package Web Apps is [using OctoPack](/docs/packaging-applications/nuget-packages/using-octopack/index.md). Here's a simplified example that would build the package discussed above.
+A really convenient way to package Web Apps is [using OctoPack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md). Here's a simplified example that would build the package discussed above.
 
 **MyWebApp.nuspec**
 
@@ -119,11 +119,11 @@ We have written about these options in detail in [our blog](https://octopus.com/
 
 ## Step 2: Create an Azure Account {#DeployingapackagetoanAzureWebApp-Step2:CreateanAzureAccount}
 
-If you haven't already, create an [Azure Subscription Account](/docs/key-concepts/environments/accounts/azure-subscription-account.md) to grant Octopus Deploy access to your Azure Subscription.
+If you haven't already, create an [Azure Account](/docs/infrastructure/azure/index.md) to grant Octopus Deploy access to your Azure Subscription.
 
 ## Step 3: Create the Azure Web App deployment step {#DeployingapackagetoanAzureWebApp-Step3:CreatetheAzureWebAppdeploymentstep}
 
-1. Add a new 'Deploy an Azure Web App' step to your project. For information about adding a step to the deployment process, see the [add step](/docs/deploying-applications/adding-steps.md) section. 
+1. Add a new 'Deploy an Azure Web App' step to your project. For information about adding a step to the deployment process, see the [add step](/docs/deployment-process/steps/index.md) section. 
 
 ![](/docs/images/5671696/5865899.png "width=170")
 
@@ -131,14 +131,14 @@ If you haven't already, create an [Azure Subscription Account](/docs/key-conce
 
 Once an Account is selected, the list of Azure Web Apps available to the subscription associated with the account will populate the 'Web App' select-list.
 
-If you choose to run this step on behalf of target roles (maybe you are deploying to multiple geographic regions), you will need to ensure a Deployment Target exists when deploying your Azure Web App. For this, we introduced [Cloud Regions](/docs/deployment-targets/cloud-regions.md). If you select a role and no Deployment Targets exist at the time of deploying, Octopus will log warnings in your deployment's task log.
+If you choose to run this step on behalf of target roles (maybe you are deploying to multiple geographic regions), you will need to ensure a Deployment Target exists when deploying your Azure Web App. For this, we introduced [Cloud Regions](/docs/infrastructure/cloud-regions.md). If you select a role and no Deployment Targets exist at the time of deploying, Octopus will log warnings in your deployment's task log.
 
 ![](deploying-an-azure-web-app.png "width=500")
 
 | Setting                     | Default     | Description                              |
 | --------------------------- | ----------- | ---------------------------------------- |
-| **Account**                 |             | The [Azure Account](/docs/key-concepts/environments/accounts/azure-subscription-account.md) you want to target when deploying this web app. Select one from the list, or use a [variable binding](/docs/deploying-applications/variables/binding-syntax.md) to select an account by its name or ID. |
-| **Web App**                 |             | The actual web app you want to target. Select one from the list, or use a [variable binding](/docs/deploying-applications/variables/binding-syntax.md) to define the name of the web app. |
+| **Account**                 |             | The [Azure Account](/docs/infrastructure/azure/index.md) you want to target when deploying this web app. Select one from the list, or use a [variable binding](/docs/deployment-process/variables/binding-syntax.md) to select an account by its name or ID. |
+| **Web App**                 |             | The actual web app you want to target. Select one from the list, or use a [variable binding](/docs/deployment-process/variables/binding-syntax.md) to define the name of the web app. |
 | **Physical Path**           |             | The physical path relative to site root on the web app host. e.g. 'foo' will deploy to 'site\wwwroot\foo'. Leave blank to deploy to root. |
 | **Remove additional files** | *False*     | When *True* instructs Web Deploy to delete files from the destination that aren't in the source package |
 | **Preserve App\_Data**      | *False*     | When *True* instructs Web Deploy to skip Delete operations in the **App\_Data** directory |
@@ -155,9 +155,9 @@ Any of the settings above can be switched to use a variable binding expression. 
 The following features are available when deploying a package to an Azure Web App.
 
 - [Custom Scripts](/docs/deploying-applications/custom-scripts/index.md)
-- [Configuration Variables](/docs/deploying-applications/configuration-files/index.md)
-- [Configuration Transforms](/docs/deploying-applications/configuration-files/index.md)
-- [JSON configuration variables](/docs/guides/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md)
+- [Configuration Variables](/docs/deployment-process/configuration-files/index.md)
+- [Configuration Transforms](/docs/deployment-process/configuration-files/index.md)
+- [JSON configuration variables](/docs/deploying-applications/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md)
 - [Substitute variables in files](/docs/reference/variable-substitution-syntax.md)
 
 :::hint
@@ -165,7 +165,7 @@ Please note these features actually run on the Octopus Server prior to executing
 :::
 
 :::hint
-For your convenience the PowerShell session for your [custom scripts](/docs/deploying-applications/custom-scripts/index.md) will have the Azure PowerShell module loaded, and the subscription from the account associated with the target will be selected. This means you don't have to worry about loading the Azure PowerShell module nor authenticate with Azure yourself. See the [Azure Powershell documentation](/docs/guides/azure-deployments/running-azure-powershell/index.md) for more information. You can write very straightforward scripts like the example below which is from our [guide on using deployment slots with Azure Web Apps](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps.md):
+For your convenience the PowerShell session for your [custom scripts](/docs/deploying-applications/custom-scripts/index.md) will have the Azure PowerShell module loaded, and the subscription from the account associated with the target will be selected. This means you don't have to worry about loading the Azure PowerShell module nor authenticate with Azure yourself. See the [Azure Powershell documentation](/docs/deploying-applications/azure-deployments/running-azure-powershell/index.md) for more information. You can write very straightforward scripts like the example below which is from our [guide on using deployment slots with Azure Web Apps](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps.md):
 
 ```powershell
 #Swap the staging slot into production
@@ -180,9 +180,9 @@ Deployment to an Azure Web App proceeds as follows (more details provided below)
 1. Download the package from the [package repository](/docs/packaging-applications/package-repositories/index.md)
 2. Extract the package on the Octopus server to a temporary location
 3. Any configured or packaged `PreDeploy` scripts are executed
-4. [Substitute variables in files ](/docs/deploying-applications/substitute-variables-in-files.md)(if configured)
-5. [XML configuration transformations](/docs/deploying-applications/configuration-files/index.md) (if configured) are performed
-6. [XML configuration variables](/docs/deploying-applications/configuration-files/index.md) (if configured) are replaced
+4. [Substitute variables in files ](/docs/deployment-process/substitute-variables-in-files.md)(if configured)
+5. [XML configuration transformations](/docs/deployment-process/configuration-files/index.md) (if configured) are performed
+6. [XML configuration variables](/docs/deployment-process/configuration-files/index.md) (if configured) are replaced
 7. Any configured or package `Deploy` scripts are executed
 8. Execute web deploy to synchronize the resultant files in the temporary location to the web app host
 9. Any configured or packaged `PostDeploy` scripts are executed
@@ -191,7 +191,7 @@ Deployment to an Azure Web App proceeds as follows (more details provided below)
 
 When your application is deployed to more than one geographic region, you are likely to need per-region configuration settings. You can achieve this result in many different ways, but the two most popular methods we have seen are:
 
-1. [Cloud Regions](/docs/deployment-targets/cloud-regions.md): introduced in Octopus 3.4 to enable [rolling deployments](/docs/patterns/rolling-deployments.md) across multiple geographic regions
-2. Environment-per-region: by creating an environment per region you can leverage [lifecycles](/docs/key-concepts/lifecycles.md) to create a strict release promotion process
+1. [Cloud Regions](/docs/infrastructure/cloud-regions.md): introduced in Octopus 3.4 to enable [rolling deployments](/docs/deployment-patterns/rolling-deployments.md) across multiple geographic regions
+2. Environment-per-region: by creating an environment per region you can leverage [lifecycles](/docs/deployment-process/lifecycles/index.md) to create a strict release promotion process
 
 Both methods allow you to modify your deployment process and variables per-region, but have slightly different release promotion paths. Choose the one that suits you best.

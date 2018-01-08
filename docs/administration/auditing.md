@@ -12,8 +12,8 @@ For team members to collaborate in the deployment of software, there needs to be
 
 Below is a short list of just some of the things that Octopus captures:
 
-- Changes to [deployment processes](/docs/deploying-applications/index.md) and [variables](/docs/deploying-applications/variables/index.md)
-- Create/modify/delete events for [projects](/docs/key-concepts/projects/index.md), [environments](/docs/key-concepts/environments/index.md), [deployment targets](/docs/deployment-targets/index.md), releases, and so on
+- Changes to [deployment processes](/docs/deploying-applications/index.md) and [variables](/docs/deployment-process/variables/index.md)
+- Create/modify/delete events for [projects](/docs/deployment-process/projects/index.md), [environments](/docs/infrastructure/environments/index.md), [deployment targets](/docs/infrastructure/index.md), releases, and so on
 - Environment changes, such as adding new deployment targets or modifying the environment a deployment target belongs to
 - Queuing and canceling of deployments and other tasks
 

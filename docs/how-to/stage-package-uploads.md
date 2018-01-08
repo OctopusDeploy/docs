@@ -27,10 +27,10 @@ You'll see this when the deployment executes:
 
 During the acquire packages stage, Octopus will upload all NuGet packages used in the deployment to all servers. We do this because package uploads can be time consuming, so we want to minimize the downtime between installing packages A and B in this example.
 
-If you have a small window for downtime, you might like to **pre-stage** your packages. An easy way to do this is to use a [manual intervention step](/docs/deploying-applications/manual-intervention-and-approvals.md). The deployment process would become:
+If you have a small window for downtime, you might like to **pre-stage** your packages. An easy way to do this is to use a [manual intervention step](/docs/deployment-process/steps/manual-intervention-and-approvals.md). The deployment process would become:
 
 - **Acquire packages**
-- [Manual intervention step](/docs/deploying-applications/manual-intervention-and-approvals.md)
+- [Manual intervention step](/docs/deployment-process/steps/manual-intervention-and-approvals.md)
 - Deploy package A
 - Deploy package B
 - Run another script

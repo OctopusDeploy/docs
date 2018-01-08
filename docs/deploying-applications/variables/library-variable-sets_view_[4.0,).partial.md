@@ -1,1 +1,0 @@
-The **Project Variables** page, while selecting **Variable Sets** will show the shared variable set that has been included.

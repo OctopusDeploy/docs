@@ -14,7 +14,7 @@ In order to provide the ability to perform raw scripting and just execute exactl
 
 The script that is provided by the user is executed "as-is" through the open SSH connection so the actual shell will depend on what you have configured for that account and it may not actually be bash. Keep this in mind when expecting certain commands to be available.
 
-The bootstrapping script that is provided by Calamari will not be available and so you will lose the ability to use helper functions like [new\_octopusartifact](/docs/deploying-applications/artifacts.md), [set\_octopusvariable](/docs/deploying-applications/variables/output-variables.md) or [get\_octopusvariable](/docs/deploying-applications/custom-scripts/index.md). You can still use the standard **#{MyVariable}** variable substitution syntax however since this is replaced on the server, environment variables from your target will not be available through Octopus variables.
+The bootstrapping script that is provided by Calamari will not be available and so you will lose the ability to use helper functions like [new\_octopusartifact](/docs/deployment-process/artifacts.md), [set\_octopusvariable](/docs/deployment-process/variables/output-variables.md) or [get\_octopusvariable](/docs/deploying-applications/custom-scripts/index.md). You can still use the standard **#{MyVariable}** variable substitution syntax however since this is replaced on the server, environment variables from your target will not be available through Octopus variables.
 
 While still available as an option in the UI, raw scripts cannot currently be sourced from inside a package unless manually extracted & executed in conjunction with a `Transfer a Package` step.
 :::
@@ -25,7 +25,7 @@ Raw scripting is great for use cases where you are unable to install and run Mon
 
 While raw scripting does not require a Transfer a Package step, the below scenario walks though a basic scenario of using a raw script in conjunction with the Transfer a Package step to extract a package on a SSH endpoint where Mono is unable to be installed.
 
-1. Add a [Transfer A Package](/docs/deploying-applications/deploying-packages/transfer-package.md) step and provide a  location that it should be moved to as part of the deployment. In this case we will transfer it to `~/temp/uploads`.  Note that this directory will be created if it does not already exist. Give the step the name *Transfer AcmeWeb* and Include the relevant role for your SSH target.
+1. Add a [Transfer A Package](/docs/deployment-process/deploying-packages/transfer-package.md) step and provide a  location that it should be moved to as part of the deployment. In this case we will transfer it to `~/temp/uploads`.  Note that this directory will be created if it does not already exist. Give the step the name *Transfer AcmeWeb* and Include the relevant role for your SSH target.
    ![](/docs/images/raw-scripting/transferpackage-transfer.png "width=500")
 2. Add a [Run A Script](/docs/deploying-applications/custom-scripts/standalone-scripts.md) step and explicitly clear and extract the package to your desired location. In the below example we know that the target shell will be bash so we can use output values from the previous *Transfer AcmeWeb* step to locate the package and extract it to a directory at *~/temp/somewhere*. Note that although we have selected the *Bash* script type for this step, this is purely for helpful syntax highlighting since whatever script is provided will be executed through the open connection regardless of selected type.
 
@@ -34,14 +34,14 @@ While raw scripting does not require a Transfer a Package step, the below scenar
    unzip -d ~/temp/somewhere "#{Octopus.Action[Transfer AcmeWeb].Output.Package.FilePath}"
    ```
     ![](/docs/images/raw-scripting/transferpackage-script.png "width=500")
-3. On the Variables tab set the variable `OctopusUseRawScript` to the value `True` which instructs Octopus to perform package transfers and script execution without the aid of Calamari. This means that package transfer will not be able to use [delta compression](/docs/deploying-applications/delta-compression-for-package-transfers.md) during the package acquisition phase and it will actually be _moved_ from the upload location when the transfer step runs. This is because no target-side logs are kept for this transfer and hence [retention policy](/docs/administration/retention-policies/index.md) will be unable to clean old packages.
+3. On the Variables tab set the variable `OctopusUseRawScript` to the value `True` which instructs Octopus to perform package transfers and script execution without the aid of Calamari. This means that package transfer will not be able to use [delta compression](/docs/deployment-process/delta-compression-for-package-transfers.md) during the package acquisition phase and it will actually be _moved_ from the upload location when the transfer step runs. This is because no target-side logs are kept for this transfer and hence [retention policy](/docs/administration/retention-policies/index.md) will be unable to clean old packages.
 
 4. Create a release and deploy the project. You should notice that unlike a typical deployment, there are no calls to upload or run Calamari and the whole thing runs a bit faster due to the reduced overhead. If you check your *~/.octopus* directory on the remote endpoint, you should also notice that there are no Calamari dependencies that have had to be uploaded for this deployment.  
    ![](/docs/images/raw-scripting/transferpackage-deployment.png "width=500")
 
 :::hint
 **Raw Target Health Checks** {#RawScripting-HealthChecks}
-Given that the point of raw scripting is to avoid having to install Mono and Calamari, you may need to create a custom [Machine Policy](/docs/key-concepts/environments/machine-policies.md) and select the `Only perform connection test` option under the section `Health check for SSH endpoints`. Targets configured with this policy will be considered healthy so long as a SSH connection can be established.
+Given that the point of raw scripting is to avoid having to install Mono and Calamari, you may need to create a custom [Machine Policy](/docs/infrastructure/environments/machine-policies.md) and select the `Only perform connection test` option under the section `Health check for SSH endpoints`. Targets configured with this policy will be considered healthy so long as a SSH connection can be established.
 
 ![](/docs/images/machine-policies/ssh-healthchecks.png "width=300")
 

@@ -1,1 +1,0 @@
-Machine policies can be accessed from the Environments screen:

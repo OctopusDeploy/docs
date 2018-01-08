@@ -1,0 +1,1 @@
+The **Project Variables** page, while under **Library Sets** will show the shared variable set that has been included.

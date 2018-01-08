@@ -73,7 +73,7 @@ Different instances of Tentacle need to listen on different TCP ports, and shoul
 ### Upgrading multiple instances
 Upgrades of Tentacles deployed on the same machine are all done at the same time, in other words, if you have multiple Tentacles running on the same machine, when the upgrade is run, all Tentacles will be upgraded.  
 The automatic Tentacle upgrade from Octopus feature does support upgrading multiple instances on the same machine.  
-If Tentacles are running under different accounts, please ensure the [upgrade account](/docs/key-concepts/environments/machine-policies.md#MachinePolicies-TentacleUpdateAccount) has enough rights to upgrade all Tentacles.
+If Tentacles are running under different accounts, please ensure the [upgrade account](/docs/infrastructure/environments/machine-policies.md#MachinePolicies-TentacleUpdateAccount) has enough rights to upgrade all Tentacles.
 
 
 ## Deleting instances {#Managingmultipleinstances-Deletinginstances}

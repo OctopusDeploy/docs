@@ -15,17 +15,15 @@ This provides many benefits, including:
 Deployment Slots are only available to Azure Web Apps running in Standard or Premium [App Service plans](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/)
 :::
 
-See the [Azure Web Blue-Green Sample project](https://demo.octopusdeploy.com/app#/projects/azure-web-blue-green-sample/process) on our demo server, for a complete example.
-
 ## Walk-Through {#UsingDeploymentSlotswithAzureWebApps-Walk-Through}
 
 Here we will give an example of how to setup a Blue-Green deployment for an Azure Web App using Deployment Slots.
 
 ### Step 1: Create Staging Slot {#UsingDeploymentSlotswithAzureWebApps-Step1:CreateStagingSlot}
 
-Create a [Run an Azure PowerShell Script](/docs/guides/azure-deployments/running-azure-powershell/index.md) step.
+Create a [Run an Azure PowerShell Script](/docs/deploying-applications/azure-deployments/running-azure-powershell/index.md) step.
 
-![](/docs/images/3049371/3278543.png "width=500")
+![](azure-powershell-script-step.png "width=500")
 
 Assuming you have a variable named 'WebSite' that contains the name of your Azure Web Site, your script should be:
 
@@ -55,13 +53,13 @@ The reason for the first line, which removes the Staging Slot, is to ensure we a
 
 So your step should look like:
 
-![](/docs/images/3049371/3278549.png "width=500")
+![](azure-remove-staging-slot-script.png "width=500")
 
 ### Step 2: Deploy your Package {#UsingDeploymentSlotswithAzureWebApps-Step2:DeployyourPackage}
 
 The next step is to deploy your package to the Staging slot.  We do this by creating a [Deploy an Azure Web App](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/index.md) step.
 
-![](/docs/images/3049371/3278554.png "width=500")
+![](deploy-azure-web-app-step.png "width=500")
 
 :::hint
 Slots in Azure are themselves real Web Apps with their own hostnames.  They are named with the format:
@@ -73,9 +71,9 @@ WebsiteName(SlotName) 
 
 If your Staging Slot already exists, you can see it in the select-list of available sites for your account.
 
-![](/docs/images/3049371/3278555.png "width=500")
+![](azure-web-app-selector-with-slot.png "width=500")
 
-To use a variable for the WebSite name, check the "Use a Custom Expression" box, and enter
+!partial <sitename-custom-expression>
 
 ```
 #{WebsiteName}(Staging)
@@ -83,7 +81,7 @@ To use a variable for the WebSite name, check the "Use a Custom Expression" box,
 
 As shown below:
 
-![](/docs/images/3049371/3278556.png "width=500")
+![](azure-web-app-selector-with-name-binding.png "width=500")
 
 ### Step 3: Swap the Staging and Production Slots {#UsingDeploymentSlotswithAzureWebApps-Step3:SwaptheStagingandProductionSlots}
 
@@ -107,8 +105,8 @@ Switch-AzureRmWebAppSlot -ResourceGroupName #{ResourceGroup} -Name #{Website} -S
 
 So your step will appear as:
 
-![](/docs/images/3049371/3278558.png "width=500")
+![](azure-web-app-swap-slots-script.png "width=500")
 
 At this point you should have a working Blue-Green deployment process for your Azure Web App.
 
-![](/docs/images/3049371/3278559.png "width=500")
+![](azure-web-app-with-slots-process.png "width=500")

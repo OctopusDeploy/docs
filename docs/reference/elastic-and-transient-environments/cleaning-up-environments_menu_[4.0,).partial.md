@@ -1,0 +1,1 @@
+Machine policies are machine related settings that can be applied per-machine. They can be accessed at {{Infrastructure,Machine policies}}

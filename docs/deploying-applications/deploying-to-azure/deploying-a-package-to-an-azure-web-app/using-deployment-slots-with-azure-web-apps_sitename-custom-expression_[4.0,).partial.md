@@ -1,0 +1,1 @@
+To use a variable for the WebSite name, click the "Bind" ![Bind](bind.png "width=10 Bind") button, and enter

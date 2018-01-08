@@ -1,1 +1,0 @@
-You can add or view a list of all projects by going to the **Projects** tab within the Octopus Web Portal.

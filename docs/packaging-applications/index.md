@@ -1,58 +1,18 @@
 ---
 title: Packaging Applications
-description: Applications executables, configuration files, scripts need to be packaged and versioned so they can be deployed.
+description: Packaging applications for deployment with Octopus Deploy.
+hideInThisSection: true
 position: 3
 ---
 
-Before you can deploy an application using Octopus, you will need to bundle all of the executables, DLL's, configuration files, installation scripts, and anything else the application needs to run into a package.
+Deploying software with Octopus Deploy involves defining your deployment process with predictable and repeatable steps. That process starts with packaging the software you are deploying. 
 
-See our [supported package types](/docs/packaging-applications/supported-packages.md).
+Before you can deploy your software you need to:
 
-:::hint
-**Isn&#39;t Octopus Deploy all about NuGet?**
-Originally, Octopus Deploy supported only [NuGet packages](/docs/packaging-applications/nuget-packages/index.md) but that is no longer the case. In Octopus 3.3 we added support for zip packages, and in Octopus 3.5 we added support for Docker images. We will be continuing to support other packaging concepts as they become relevant to the deployment ecosystem.
+1. Decide which [format](/docs/packaging-applications/supported-packages.md) to use to package your software.
+1. Give your package a [package ID](/docs/packaging-applications/package-id.md).
+1. Choose and apply a [versioning](/docs/packaging-applications/versioning-in-octopus-deploy.md) scheme for your software.
+1. [Create the package](/docs/packaging-applications/creating-packages/index.md) with all the files your software needs to run.
+1. Host the packages in a [package repository](/docs/packaging-applications/package-repositories/index.md).
 
-While some of our documentation may still refer to NuGet packages specifically, all packages are generally treated the same.
-:::
-
-## Creating Packages {#Packagingapplications-Creatingpackages}
-
-The first thing you must do is [choose a package ID](/docs/packaging-applications/package-id.md).
-
-How you create your packages depends on which package type you wish to create. Octopus generally treats all packages the same, so choose the tooling and package type that is easiest for you to create. For example:
-
-- ASP.NET apps (.NET Framework): use [OctoPack](/docs/packaging-applications/nuget-packages/using-octopack/index.md)
-- Windows Services (.NET Framework): use [OctoPack](/docs/packaging-applications/nuget-packages/using-octopack/index.md)
-- .NET Core apps: use `dotnet pack`
-- JavaScript apps: use [grunt, gulp or octojs](/docs/guides/node-on-nix-deployments/create-&-push-node.js-project.md)
-- Working with TeamCity: use our [extension](/docs/api-and-integration/teamcity.md), `octo.exe pack` or even the built in tools for [TeamCity](https://blog.jetbrains.com/teamcity/2010/02/artifact-packaging-with-teamcity/)
-- Working with VSTS: use our [extension](/docs/api-and-integration/tfs-vsts/using-octopus-extension/index.md) and/or `octo.exe pack`
-- Just want to package up a folder as-is: use `octo.exe pack` or just zip it up!
-
-As long as you can create one of our [supported packages](/docs/packaging-applications/supported-packages.md), you can deploy your application with Octopus Deploy!
-
-:::success
-**Choosing the  best versioning scheme**
-When creating your packages you will need to choose a versioning scheme that is supported by Octopus Deploy and suits your needs. Learn about [versioning in Octopus Deploy](/docs/packaging-applications/versioning-in-octopus-deploy.md).
-:::
-
-## Hosting Packages {#Packagingapplications-Hostingpackages}
-
-Packages are kept in package repositories (or external feeds). A repository can be as simple as a file share, or it could be a dedicated server. For more information, see the section on [choosing a package repository](/docs/packaging-applications/package-repositories/index.md).
-
-## What's in a Package? {#Packagingapplications-What&#39;sinapackage?}
-
-Octopus expects your package to contain all of the files needed to run the application when it is deployed (along with [any scripts needed for deployment](/docs/deploying-applications/custom-scripts/index.md), and any [configuration transformation files](/docs/deploying-applications/configuration-files/index.md), etc).
-
-An ASP.NET MVC application, packaged using NuGet for example, would look like this:
-
-![](/docs/images/3048093/3277771.png "width=500")
-
-While a Windows Service application might look like this:
-
-![](/docs/images/3048093/3277770.png "width=500")
-
-Note that in both examples:
-
-- Only binaries and files needed at runtime are included - C# source code files, for example, are not in the package
-- The binaries aren't just for the current application - they also include any other assemblies needed for the application to run
+The combination of a package format, package ID, and version number makes deploying your software across different environments repeatable, reliable, and predictable. This means that once the deployment process has been defined, your software can be deployed again and again. Octopus makes it easy to trace which software has been deployed to which environments and isolate specific changes within the software. 

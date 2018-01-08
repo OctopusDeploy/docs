@@ -40,13 +40,32 @@ Invite codes are only valid for 48-hours aftering being generated, so make sure 
 
 ## Creating teams {#Managingusersandteams-Creatingteams}
 
-Creating teams lets you assign the same roles to groups of users. Users can be added to or removed from multiple teams, making it eaiser to manage permissions for specific users and teams. You can create new teams by using the **Add Team** button.
+Creating teams lets you assign the same roles to groups of users. Users can be added to or removed from multiple teams, making it easier to manage permissions for specific users and teams. You can create new teams by using the **Add Team** button.
 
 For example, we can create a team that gives Anne and Bob access to view projects and deploy them to pre-production environments by assigning the role **Project deployer** to the team.
 
 We limit which projects and environments these permissions apply to by adding specific projects and environments to the team.
 
 ![](teams-create-new.png "width=500")
+
+### Restricting project and project group access
+
+When specifying both `Project Groups`and `Projects`  filters please be aware that both these filters complement each other. To better illustrate these filters in action let's consider the following project structure:
+
+| Project Groups | Projects                     |
+| -------------- | ---------------------------- |
+| GroupA         | Project1, Project2, Project3 |
+| GroupB         | Project4, Project5           |
+
+The following table illustrates the combination of possible permissions when specifying both `Project Groups` and `Projects` filters:
+
+| `Project Groups` | `Projects` | Result                                   |
+| ---------------- | ---------- | ---------------------------------------- |
+| `Empty`          | `Empty`    | Project1, Project2, Project3, Project4 and Project5 |
+| `Empty`          | Project1   | Project1                                 |
+| GroupB           | `Empty`    | Project4 and Project5                    |
+| GroupA           | Project5   | Project1, Project2, Project3 and Project5 |
+| GroupB           | Project4   | Project4 and Project5                    |
 
 ## Roles {#Managingusersandteams-Roles}
 

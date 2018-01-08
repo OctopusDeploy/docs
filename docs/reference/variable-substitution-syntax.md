@@ -8,7 +8,7 @@ Variable substitutions are a flexible way to adjust configuration based on your 
 
 ## Basic Syntax {#VariableSubstitutionSyntax-BasicSyntax}
 
-Octopus [variables](/docs/deploying-applications/variables/index.md) support substitution throughout: a variable may be bound to an expression that incorporates the values of other variables:
+Octopus [variables](/docs/deployment-process/variables/index.md) support substitution throughout: a variable may be bound to an expression that incorporates the values of other variables:
 
 | Name               | Value                       | Scope      |
 | ------------------ | --------------------------- | ---------- |

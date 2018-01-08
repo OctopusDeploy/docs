@@ -34,7 +34,7 @@ The **Script Body** tab can be used to see the contents of the script, and you c
 
 ## Collecting artifacts {#ScriptConsole-Collectingartifacts}
 
-Sometimes you might like to collect files from each of the machines as part of your script. To do this, see the section on [artifacts](/docs/deploying-applications/artifacts.md).
+Sometimes you might like to collect files from each of the machines as part of your script. To do this, see the section on [artifacts](/docs/deployment-process/artifacts.md).
 
 ## Audit records {#ScriptConsole-Auditrecords}
 

@@ -1,7 +1,7 @@
 ---
 title: Azure steps migrated from Octopus Deploy 2
 description: Azure Steps migrated from Octopus Deploy 2 will work without modification.
-version: "[3.0,4.0)"
+version: "[3.0,4.1]"
 ---
 
 Azure Steps migrated from Octopus Deploy 2 will work without modification.

@@ -22,7 +22,7 @@ If you are using Active Directory Authentication with Octopus, there are two way
 
 The easiest way to sign in when using Active Directory is to click the *Sign in with a domain account* link.
 
-![](/docs/images/3048127/5865886.png)
+![](ad-integrated.png)
 
 This will instruct the Octopus server to issue a browser challenge. If you are signed in on Windows, your Windows credentials will be automatically used to sign you in.
 
@@ -31,9 +31,7 @@ By default, Octopus issues an NTLM challenge to the browser, but you can configu
 **Changing authentication schemes**
 
 ```bash
-Octopus.Server.exe service --stop
 Octopus.Server.exe configure --webAuthenticationScheme=IntegratedWindowsAuthentication
-Octopus.Server.exe service --start
 ```
 
 You can use `IntegratedWindowsAuthentication` to instruct Octopus to use Kerberos instead. [Read about other supported values](https://msdn.microsoft.com/en-us/library/system.net.authenticationschemes(v=vs.110).aspx).
@@ -49,7 +47,7 @@ When the link is clicked, it redirects to a page which is configured to tell HTT
 
 Octopus also lets users sign in by entering their Active Directory credentials manually using the HTML form. This is useful if users sometimes need to authenticate with a different account than the one they are signed in to Windows as, or if network configuration prevents integrated authentication from working correctly.
 
-![](/docs/images/3048127/5865886.png)
+![](ad-forms.png)
 
 :::hint
 **How it works**
@@ -73,14 +71,12 @@ Forms-based authentication can also be disabled:
 **Disabling HTML form sign-in**
 
 ```bash
-Octopus.Server.exe service --stop
 Octopus.Server.exe configure --allowFormsAuthenticationForDomainUsers=false
-Octopus.Server.exe service --start
 ```
 
 This will result in integrated sign in being the only option:
 
-![](/docs/images/3048127/5865889.png)
+![](ad-integrated-only.png)
 
 ## Switching between username/password and Active Directory authentication {#ActiveDirectoryauthentication-Switchingbetweenusername/passwordandActiveDirectoryauthentication}
 
@@ -102,10 +98,9 @@ To switch from username/password authentication to Active Directory authenticati
 **Selecting Active Directory authentication**
 
 ```bash
-Octopus.Server.exe service --stop
-Octopus.Server.exe configure --webAuthenticationMode=Domain
+Octopus.Server.exe configure --activeDirectoryIsEnabled=true
+Octopus.Server.exe configure --usernamePasswordIsEnabled=false
 Octopus.Server.exe admin --username=YOURUSERNAME
-Octopus.Server.exe service --start
 ```
 
 The text `YOURUSERNAME` should be your Active Directory account name, in either **user@domain** or **domain\user** format (see [Authentication Providers](/docs/administration/authentication-providers/index.md)).
@@ -117,10 +112,9 @@ To switch from Active Directory authentication to username/password authenticati
 **Switching to username/password authentication**
 
 ```bash
-Octopus.Server.exe service --stop
-Octopus.Server.exe configure --webAuthenticationMode=UsernamePassword
+Octopus.Server.exe configure --activeDirectoryIsEnabled=false
+Octopus.Server.exe configure --usernamePasswordIsEnabled=true
 Octopus.Server.exe admin --username=YOURUSERNAME
-Octopus.Server.exe service --start
 ```
 
 ### To specify a custom container {#ActiveDirectoryauthentication-Tospecifyacustomcontainer}
@@ -130,9 +124,7 @@ In Octopus Deploy version 2.5.11 and newer you can specify a custom container t
 **Setting a custom container**
 
 ```bash
-Octopus.Server.exe service --stop
 Octopus.Server.exe configure --activeDirectoryContainer "CN=Users,DC=GPN,DC=COM"
-Octopus.Server.exe service --start
 ```
 
 Where `"CN=Users,DC=GPN,DC=COM"` should be replaced with your Container.
