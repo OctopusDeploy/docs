@@ -4,7 +4,7 @@ description: Use OctopusDSC to automate the installation and configuration of Oc
 ---
 
 ## Automate Octopus Server installation and configuration via OctopusDSC.
-Before you use this guide, you will need to confirm that you have [installed the OctopusDSC PowerShell module](.\Index.md).
+Before you use this guide, you will need to confirm that you have [installed the OctopusDSC PowerShell module](/docs/administration/octopus-dsc/Index.md).
 
 Once you have installed the OctopusDSC module you are ready to automate the installation and configuration of Octopus Server. Below is a basic example for installing the Octopus Server Manager and configuring your new instance. You can use this to test and see the results.
 
