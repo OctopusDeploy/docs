@@ -8,7 +8,7 @@ hideInThisSection: true
 
 We have the following documentation pages regarding OctopusDSC:
 
-[Installing Octopus Tentacle Agent via DSC](Tentacle Agend.md)
+[Installing Octopus Tentacle Agent via DSC](/docs/administration/octopus-dsc/tentacle-agent.md)
 
 [Installing Octopus Server via DSC](/docs/administration/octopus-dsc/octopus-server.md)
 
