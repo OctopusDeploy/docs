@@ -4,7 +4,7 @@ description: Use OctopusDSC to automate the installation and configuration of th
 ---
 ## Deploy and configure Octopus Tentacle Agent with OctopusDSC
 
-Before you use this guide, you will need to confirm that you have [installed the OctopusDSC PowerShell module](link to index).
+Before you use this guide, you will need to confirm that you have [installed the OctopusDSC PowerShell module](/docs/administration/octopus-dsc/index.md).
 
 Once you have installed the OctopusDSC module you are ready to automate the deployment and configuration of Tentacle Agent. Below is a basic example for installing Tentacle agent, configuring the instance and registering it with your Octopus server. You can use this to test and see the results.
 
@@ -13,7 +13,7 @@ First, ensure the OctopusDSC module is on your `$env:PSModulePath`. Then you can
 :::
 
 
-Create a powershell script from the following code which can on our open source GitHub repository for [OctopusDSC]().
+Create a powershell script from the following code which can on our open source GitHub repository for OctopusDSC.
 
 
 ```powershell
@@ -53,7 +53,7 @@ Start-DscConfiguration .\SampleConfig -Verbose -wait
 Test-DscConfiguration
 ```
 
-##### What happens here?
+### What happens here?
 OctopusDSC will download the latest version of the Octopus Tentacle agent from our website. It will then install the msi and create an instance with any configuration settings you pass through to it in the script. (The above is a barebones script)
 Once the Tentacle is installed and configured, it will register on the Octopus server you have defined under `SampleConfig`. The script will set the Tentacle name, connection information, Environment, and Roles.
 
