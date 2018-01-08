@@ -74,7 +74,7 @@ That's it! OctopusDSC has installed, configured, and registered your Tentacle ag
 :::hint
 If you would like to see some examples of different OctopusDSC Tentacle agent scripts, please see our Open Source GitHub repository.
 :::
-Your OctopusDSC script can be configured to match most use cases we see. Below we have information on what you can customise in your script and the format you should present it.
+Your OctopusDSC script can be configured to match most use cases we see. Below we have information on what you can customize in your script and the format you should present it.
 
 When `Ensure` is set to `Present`, the resource will:
 
@@ -94,7 +94,7 @@ When `State` is `Started`, the resource will ensure that the Tentacle windows se
 
 ### Properties
 
-Below is the list of properties that you can be used to customise your script.
+Below is the list of properties that you can be used to customize your script.
 
 | Property                      | Type                                                       | Default Value                                                 | Description |
 | ----------------------------- | ---------------------------------------------------------- | ------------------------------------------------------------- | ------------|
