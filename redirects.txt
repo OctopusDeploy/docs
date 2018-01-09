@@ -310,3 +310,5 @@ docs/how-to/how-to-create-an-api-key.md -> docs/api-and-integration/api/how-to-c
 docs/how-to/push-a-nuget-package-that-already-exists.md -> docs/packaging-applications/creating-packages/nuget-packages/push-a-nuget-package-that-already-exists.md
 docs/how-to/manually-fail-a-running-or-cancelling-task.md -> docs/deployment-process/manually-fail-a-running-or-cancelling-task.md
 docs/how-to/record-a-performance-trace.md -> docs/support/record-a-performance-trace.md
+docs/how-to/troubleshoot-polling-tentacles.md -> docs/infrastructure/windows-targets/polling-tentacles/troubleshoot-polling-tentacles.md
+docs/how-to/troubleshoot-listening-tentacles.md -> docs/infrastructure/windows-targets/listening-tentacles/troubleshoot-listening-tentacles.md
