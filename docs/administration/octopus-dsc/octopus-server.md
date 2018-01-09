@@ -61,7 +61,7 @@ Test-DscConfiguration
 ```
 
 :::hint
-For more OctopusDSC server scripts and examples, please see our GitHub repository [examples page](https://github.com/OctopusDeploy/OctopusDSC/tree/master/OctopusDSC/Examples).
+For more OctopusDSC server scripts and examples, please see our GitHub repository [examples page](https://github.com/OctopusDeploy/OctopusDSC/tree/master/OctopusDSC/Examples).:::
 :::hint
 You are able to define a custom `DownloadUrl` in your script which can point to internal drives or directories. When doing so, you must ensure that you are pointing directly to the .MSI installer and not the directory.
 Example: `DownloadUrl = "\\192.168.10.100\installers\Octopus\Server\Latest\Octopus.3.17.11-x64.msi"`
