@@ -176,7 +176,6 @@ docs/deploying-applications/deployment-process/automatic-release-creation.md -> 
 docs/deploying-applications/blocking-deployments.md -> docs/deployment-process/releases/blocking-deployments.md
 docs/deploying-applications/deployment-process/blocking-deployments.md -> docs/deployment-process/releases/blocking-deployments.md
 docs/deploying-applications/delta-compression-for-package-transfers.md -> docs/deployment-process/delta-compression-for-package-transfers.md
-docs/deploying-applications/deploying-virtual-hard-drives.md -> docs/deployment-process/deploying-virtual-hard-drives.md
 docs/deploying-applications/email-notifications.md -> docs/deployment-process/steps/email-notifications.md
 docs/deploying-applications/deployment-process/email-notifications.md -> docs/deployment-process/steps/email-notifications.md
 docs/deploying-applications/manual-intervention-and-approvals.md -> docs/deployment-process/steps/manual-intervention-and-approvals.md
@@ -266,7 +265,7 @@ docs/deploying-applications/deployment-process/artifacts.md -> docs/deployment-p
 docs/deploying-applications/deployment-process/steps/automatic-release-creation.md -> docs/deployment-process/steps/automatic-release-creation.md
 docs/deploying-applications/deployment-process/releases/blocking-deployments.md -> docs/deployment-process/releases/blocking-deployments.md
 docs/deploying-applications/deployment-process/delta-compression-for-package-transfers.md -> docs/deployment-process/delta-compression-for-package-transfers.md
-docs/deploying-applications/deployment-process/deploying-virtual-hard-drives.md -> docs/deployment-process/deploying-virtual-hard-drives.md
+docs/deploying-applications/deployment-process/deploying-virtual-hard-drives.md -> docs/deploying-applications/deploying-virtual-hard-drives.md
 docs/deploying-applications/deployment-process/steps/email-notifications.md -> docs/deployment-process/steps/email-notifications.md
 docs/deploying-applications/deployment-process/steps/manual-intervention-and-approvals.md -> docs/deployment-process/steps/manual-intervention-and-approvals.md
 docs/deploying-applications/deployment-process/steps/run-steps-in-parallel.md -> docs/deployment-process/steps/run-steps-in-parallel.md
@@ -305,3 +304,4 @@ docs/how-to/record-a-memory-trace.md -> docs/support/record-a-memory-trace.md
 docs/how-to/record-a-problem-with-your-browser.md -> docs/support/record-a-problem-with-your-browser.md
 docs/how-to/debug-problems-with-octopus-variables.md -> docs/support/debug-problems-with-octopus-variables.md
 docs/how-to/capture-a-crash-dump.md -> docs/support/capture-a-crash-dump.md
+docs/deployment-process/deploying-virtual-hard-drives.md -> docs/deploying-applications/deploying-virtual-hard-drives.md
