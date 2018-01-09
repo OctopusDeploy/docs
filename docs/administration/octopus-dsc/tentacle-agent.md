@@ -6,14 +6,14 @@ description: Use OctopusDSC to automate the installation and configuration of th
 
 Before you use this guide, you will need to confirm that you have [installed the OctopusDSC PowerShell module](/docs/administration/octopus-dsc/index.md).
 
-Once you have installed the OctopusDSC module you are ready to automate the deployment and configuration of Tentacle Agent. Below is a basic example for installing Tentacle agent, configuring the instance and registering it with your Octopus server. You can use this to test and see the results.
+Once you have installed the OctopusDSC module, you are ready to automate the deployment and configuration of Tentacle Agent. Below is a basic example for installing Tentacle agent, configuring the instance and registering it with your Octopus server. You can use this to test and see the results.
 
 :::hint
 First, ensure the OctopusDSC module is on your `$env:PSModulePath`. Then you can create and apply configuration like this.
 :::
 
 
-Create a powershell script from the following code which can on our open source GitHub repository for OctopusDSC.
+Create a powershell script from the following code which you can find on our [open source GitHub repository](https://github.com/OctopusDeploy/OctopusDSC) for OctopusDSC.
 
 
 ```powershell
@@ -54,10 +54,10 @@ Test-DscConfiguration
 ```
 
 ### What happens here?
-OctopusDSC will download the latest version of the Octopus Tentacle agent from our website. It will then install the msi and create an instance with any configuration settings you pass through to it in the script. (The above is a barebones script)
+OctopusDSC will download the latest version of the Octopus Tentacle agent from our website. It will then install the MSI and create an instance with any configuration settings you pass through to it in the script. (The above is a barebones script)
 Once the Tentacle is installed and configured, it will register on the Octopus server you have defined under `SampleConfig`. The script will set the Tentacle name, connection information, Environment, and Roles.
 
-OctopusDSC can also be used to create and register new Tentacle instances on servers with pre-existing tentacle installations. To do this simply change the value of `Name = "Tentalce"` to the Tentacle Agent instance name you desire.
+OctopusDSC can also be used to create and register new Tentacle instances on servers with pre-existing tentacle installations. To do this, simply change the value of `Name = "Tentalce"` to the Tentacle Agent instance name you desire.
 
 :::hint
 Ensure you have replaced the values under `SampleConfig` with valid connection information and an `API-Key` for an Octopus user who has permissions to register new Tentacles with the Octopus server.
@@ -67,7 +67,7 @@ Successfully running the script should return the following:
 
 ![Output from Tentacle Agent DSC script](successfulruntentacle.jpg)
 
-That's it! OctopusDSC has installed, configured, and registered your Tentacle agent. This can be used to remotely manage large or dynamic infrastructures remotely with ease. Or it can be packaged with your OS images and used on initial server configuration.
+That's it! OctopusDSC has installed, configured, and registered your Tentacle agent. This can be used to remotely manage large or dynamic infrastructures remotely with ease, or it can be packaged with your OS images and used on initial server configuration.
 
 
 ## Configure your OctopusDSC script
@@ -89,7 +89,7 @@ When `Ensure` is set to `Present`, the resource will:
 When `Ensure` is set to `Absent`, the resource will:
 
  1. De-register the Tentacle from your Octopus server, using the registration settings
- 2. Delete the Tentacle windows service
+ 2. Delete the Tentacle Windows service
  3. Uninstall using the MSI if there are no other Tentacles installed on this machine
 
 When `State` is `Started`, the resource will ensure that the Tentacle windows service is running. When `Stopped`, it will ensure the service is stopped.
@@ -135,7 +135,7 @@ If the tentacleDownloadUrl / tentacleDownloadUrl64 properties change, it will de
 However, if you were to set the `ListenPort` to a new port, the drift detection isn't smart enough to check the old configuration, nor update the registered machine. You'll need to uninstall and reinstall for these other settings to take effect.
 
 ## Links
-If you would like to contribute to the OctopusDSC open source repository, please follow the instructions on this documentations parent page.
+If you would like to contribute to the OctopusDSC open source repository, please follow the instructions on this documentation's parent page.
 
 [Automating Infrastructure with DSC](/docs/administration/octopus-dsc/Index.md)
 [Installing Octopus Server Manager via DSC](/docs/administration/octopus-dsc/octopus-server.md)
