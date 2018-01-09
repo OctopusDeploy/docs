@@ -16,7 +16,7 @@ We achieve this security using [public-key cryptography](http://en.wikipedia.or
 
 ## Octopus/Tentacle trust relationship {#Octopus-Tentaclecommunication-Octopus/Tentacletrustrelationship}
 
-Regardless of whether Tentacle is in [listening mode](/docs/infrastructure/windows-targets/listening-tentacles.md) or [polling mode](/docs/infrastructure/windows-targets/polling-tentacles.md), all communication between the Tentacle and Octopus is performed over HTTPS. Octopus and Tentacle both have a public/private key pair that they use to establish the HTTPS connection and verify the identity of the other party.
+Regardless of whether Tentacle is in [listening mode](/docs/infrastructure/installing-tentacles/listening-tentacles/index.md) or [polling mode](/docs/installation/installing-tentacles/polling-tentacles/index.md), all communication between the Tentacle and Octopus is performed over HTTPS. Octopus and Tentacle both have a public/private key pair that they use to establish the HTTPS connection and verify the identity of the other party.
 
 When Tentacle is configured, you give it the thumbprint (which uniquely identifies the public key) of the Octopus server. Likewise, you tell Octopus the thumbprint of the Tentacle. This establishes a trust relationship between the two machines:
 

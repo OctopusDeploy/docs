@@ -20,8 +20,8 @@ Environments can be added using the **Add environment** button.
 
 Machines can be added to environments in different ways, [depending on how they will communicate](/docs/infrastructure/windows-targets/index.md) with the Octopus Deploy Server.
 
-- Adding [listening machines](/docs/infrastructure/windows-targets/listening-tentacles.md)
-- Adding [polling machines](/docs/infrastructure/windows-targets/polling-tentacles.md)
+- Adding [listening machines](/docs/infrastructure/installing-tentacles/listening-tentacles/index.md)
+- Adding [polling machines](/docs/installation/installing-tentacles/polling-tentacles/index.md)
 
 ## Environment Ordering {#Environments-Environmentordering}
 
