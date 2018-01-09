@@ -63,7 +63,7 @@ Test-DscConfiguration
 For more OctopusDSC server scripts and examples, please see our GitHub repository [examples page](https://github.com/OctopusDeploy/OctopusDSC/tree/master/OctopusDSC/Examples).
 
 :::hint
-You are able to define a custom `DownloadUrl` in your script which can point to internal drives or directories. When doing so, you must ensure that you are pointing directly to the .MSI installer and not the directory.
+You are able to define a custom `DownloadUrl` in your script which can point to internal drives or directories. When doing so, you must ensure that you are pointing directly to the MSI installer and not the directory.
 Example: `DownloadUrl = "\\192.168.10.100\installers\Octopus\Server\Latest\Octopus.3.17.11-x64.msi"`
 :::
 
@@ -71,7 +71,7 @@ Example: `DownloadUrl = "\\192.168.10.100\installers\Octopus\Server\Latest\Octop
 
 The above script is a basic example of the configuration. In order to run the server installation, you will need a certificate to encrypt your desired Octopus administrator login information. The is can be done by referencing the following [Microsoft documentation](https://docs.microsoft.com/en-us/powershell/dsc/secureMOF).
 
-OctopusDSC will download the latest version of the Octopus Server manager from our website. It will then install the msi and create an instance with any configuration settings you pass through to it in the above configuration script.
+OctopusDSC will download the latest version of the Octopus Server manager from our website. It will then install the MSI and create an instance with any configuration settings you pass through to it in the above configuration script.
 
 OctopusDSC can also be used to create and register new server instances on servers which already have a server instance. To do this simply change the value of `Name = "OctopusServer"` to the instance name you desire.
 
@@ -156,6 +156,7 @@ Start-DscConfiguration .\SampleConfig -Verbose -wait
 
 Test-DscConfiguration
 ```
+
 #### Active Directory Authentication Properties
 
 | Property                                  | Type         | Default Value    | Description |
@@ -189,6 +190,7 @@ Start-DscConfiguration .\SampleConfig -Verbose -wait
 
 Test-DscConfiguration
 ```
+
 #### Properties
 
 | Property            | Type         | Default Value    | Description |
@@ -286,6 +288,7 @@ Start-DscConfiguration .\SampleConfig -Verbose -wait
 
 Test-DscConfiguration
 ```
+
 #### Properties
 
 | Property            | Type         | Default Value    | Description |
@@ -318,6 +321,7 @@ Start-DscConfiguration .\SampleConfig -Verbose -wait
 
 Test-DscConfiguration
 ```
+
 #### Properties
 
 | Property            | Type         | Default Value    | Description |
