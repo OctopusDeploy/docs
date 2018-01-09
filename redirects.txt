@@ -305,5 +305,5 @@ docs/how-to/record-a-problem-with-your-browser.md -> docs/support/record-a-probl
 docs/how-to/debug-problems-with-octopus-variables.md -> docs/support/debug-problems-with-octopus-variables.md
 docs/how-to/capture-a-crash-dump.md -> docs/support/capture-a-crash-dump.md
 docs/deployment-process/deploying-virtual-hard-drives.md -> docs/deploying-applications/deploying-virtual-hard-drives.md
-docs/api-and-integrations/octopus-rest-api.md -> docs/api-and-integration/api/index.md
+docs/api-and-integration/octopus-rest-api.md -> docs/api-and-integration/api/index.md
 docs/how-to/how-to-create-an-api-key.md -> docs/api-and-integration/api/how-to-create-an-api-key.md
