@@ -60,7 +60,8 @@ Once the Tentacle is installed and configured, it will register on the Octopus s
 OctopusDSC can also be used to create and register new Tentacle instances on servers with pre-existing tentacle installations. To do this simply change the value of `Name = "Tentalce"` to the Tentacle Agent instance name you desire.
 
 :::hint
-Ensure you have replaced the values under `SampleConfig` with valid connection information and an `API-Key` for an Octopus user who has permissions to register new Tentacles with the Octopus server.:::
+Ensure you have replaced the values under `SampleConfig` with valid connection information and an `API-Key` for an Octopus user who has permissions to register new Tentacles with the Octopus server.
+:::
 
 Successfully running the script should return the following:
 
@@ -74,6 +75,7 @@ That's it! OctopusDSC has installed, configured, and registered your Tentacle ag
 :::hint
 If you would like to see some examples of different OctopusDSC Tentacle agent scripts, please see our Open Source GitHub repository.
 :::
+
 Your OctopusDSC script can be configured to match most use cases we see. Below we have information on what you can customize in your script and the format you should present it.
 
 When `Ensure` is set to `Present`, the resource will:
