@@ -324,8 +324,6 @@ Test-DscConfiguration
 | --------------------| ------------ | -----------------| ------------|
 | `InstanceName`      | `string`     |                  | The name of the Octopus Server instance. Use `OctopusServer` by convention unless you have more than one instance. |
 | `Enabled`           | `boolean`    | `$false`         | Whether to enable internal username/password authentication. |
-#### Watchdog where put this?
-[OctopusServerServerWatchdog](https://github.com/OctopusDeploy/OctopusDSC/tree/master/OctopusDSC/DSCResources/cOctopusServerWatchdog)
 
 ## Drift
 
