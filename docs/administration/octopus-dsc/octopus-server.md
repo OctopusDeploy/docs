@@ -60,11 +60,12 @@ Start-DscConfiguration .\SampleConfig -Verbose -wait
 Test-DscConfiguration
 ```
 
-:::hint
-For more OctopusDSC server scripts and examples, please see our GitHub repository [examples page](https://github.com/OctopusDeploy/OctopusDSC/tree/master/OctopusDSC/Examples).:::
+For more OctopusDSC server scripts and examples, please see our GitHub repository [examples page](https://github.com/OctopusDeploy/OctopusDSC/tree/master/OctopusDSC/Examples).
+
 :::hint
 You are able to define a custom `DownloadUrl` in your script which can point to internal drives or directories. When doing so, you must ensure that you are pointing directly to the .MSI installer and not the directory.
-Example: `DownloadUrl = "\\192.168.10.100\installers\Octopus\Server\Latest\Octopus.3.17.11-x64.msi"`:::
+Example: `DownloadUrl = "\\192.168.10.100\installers\Octopus\Server\Latest\Octopus.3.17.11-x64.msi"`
+:::
 
 ### What happens here?
 
@@ -75,7 +76,8 @@ OctopusDSC will download the latest version of the Octopus Server manager from o
 OctopusDSC can also be used to create and register new server instances on servers which already have a server instance. To do this simply change the value of `Name = "OctopusServer"` to the instance name you desire.
 
 :::hint
-Ensure you have replaced the values from the above script which require specific values, such as `SqlDbConnectionString`, `OctopusAdminUsername` and `OctopusAdminPassword` etc.:::
+Ensure you have replaced the values from the above script which require specific values, such as `SqlDbConnectionString`, `OctopusAdminUsername` and `OctopusAdminPassword` etc.
+:::
 
 Successfully running the script should return something along the lines of the following:
 ![Output from Octopus Server DSC script](successfulserver.jpg)
