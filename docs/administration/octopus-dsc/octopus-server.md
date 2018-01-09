@@ -76,7 +76,8 @@ OctopusDSC will download the latest version of the Octopus Server manager from o
 OctopusDSC can also be used to create and register new server instances on servers which already have a server instance. To do this simply change the value of `Name = "OctopusServer"` to the instance name you desire.
 
 :::hint
-Ensure you have replaced the values from the above script which require specific values, such as `SqlDbConnectionString`, `OctopusAdminUsername` and `OctopusAdminPassword` etc. :::
+Ensure you have replaced the values from the above script which require specific values, such as `SqlDbConnectionString`, `OctopusAdminUsername` and `OctopusAdminPassword` etc.
+:::
 
 Successfully running the script should return something along the lines of the following:
 ![Output from Octopus Server DSC script](successfulserver.jpg)
