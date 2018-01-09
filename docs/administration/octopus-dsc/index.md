@@ -28,7 +28,8 @@ Manual Installation:
 4. To confirm it's installed correctly, in a new PowerShell session run `Get-Module -ListAvailable -Name OctopusDSC`
 
 :::hint
-The community has also submitted a few [other options](https://github.com/OctopusDeploy/OctopusDSC/issues/14). :::
+The community has also submitted a few [other options](https://github.com/OctopusDeploy/OctopusDSC/issues/14).
+:::
 
 ## OctopusDSC management.
 
