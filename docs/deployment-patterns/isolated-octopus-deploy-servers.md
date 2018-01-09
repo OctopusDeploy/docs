@@ -29,7 +29,7 @@ In this scenario, the customer would install different instances of Octopus in b
 - The migration tool could be reused periodically to keep both servers in sync. Because the resulting export is simply a collection of JSON files in folders, a source control system like Git could be used for this purpose. Any imports subsequent to the initial import would result in a merge of any changes.
 - They can manually keep some additional settings in sync, such as common Nuget feeds.
 - Packages can be moved between environments using [NuGet.exe](http://docs.nuget.org/docs/reference/command-line-reference) to push packages to both Octopus servers. For example, the CI server could publish packages to both the pre-production and production Octopus server after a build, or they could manually use Nuget to push them when ready to promote.
-- Finally, to automate anything else that isn't possible above, the [REST API](/docs/api-and-integration/octopus-rest-api.md) or [Octopus.Client](/docs/api-and-integration/octopus.client.md) can be used.
+- Finally, to automate anything else that isn't possible above, the [REST API](/docs/api-and-integration/api/index.md) or [Octopus.Client](/docs/api-and-integration/octopus.client.md) can be used.
 
 :::success
 **Friendly multi-instance licensing model**

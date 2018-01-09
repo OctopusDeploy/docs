@@ -4,7 +4,7 @@ description: Octo.exe is the Octopus command line tool that builds on top of the
 position: 6
 ---
 
-**Octo.exe** is a command line tool that builds on top of the [Octopus Deploy REST API](/docs/api-and-integration/octopus-rest-api.md).
+**Octo.exe** is a command line tool that builds on top of the [Octopus Deploy REST API](/docs/api-and-integration/api/index.md).
 
 The latest version of Octo.exe can always be downloaded from the [Octopus downloads page](https://octopus.com/downloads) or [installed via Chocolatey](https://chocolatey.org/packages/OctopusTools).
 

@@ -122,7 +122,7 @@ You can also reduce the scope of this team to a certain set of tenants or enviro
 You may want to provide your actual customers with their own user account in Octopus and the ability to see a personalized dashboard, and potentially perform their own upgrades. This is possible by using the techniques we've already used by scoping a team to a single tenant.
 
 :::success
-You may want to provide the capabilities of Octopus Deploy to your customers without them knowing it's Octopus under the covers. Octopus is built API-first, and you can use the [Octopus API](/docs/api-and-integration/octopus-rest-api.md) to build your own web user interface over the top of Octopus to provide all the capabilities of Octopus with your own user experience.
+You may want to provide the capabilities of Octopus Deploy to your customers without them knowing it's Octopus under the covers. Octopus is built API-first, and you can use the [Octopus API](/docs/api-and-integration/api/index.md) to build your own web user interface over the top of Octopus to provide all the capabilities of Octopus with your own user experience.
 :::
 
 ### Step 1: Configure a team for the tenant {#Multi-tenantrolesandsecurity-Step1:Configureateamforthetenant}

@@ -49,7 +49,7 @@ Octopus requires two cookies when using a web browser: the authentication cookie
 
 ### Using the Octopus REST API with raw HTTP
 
-If you use raw HTTP to access Octopus Deploy we recommend using an [API Key](/docs/how-to/how-to-create-an-api-key.md) to authenticate your requests. Learn about the [Octopus REST API](/docs/api-and-integration/octopus-rest-api.md) and [authenticating with the Octopus REST API](https://github.com/OctopusDeploy/OctopusDeploy-Api/wiki/Authentication).
+If you use raw HTTP to access Octopus Deploy we recommend using an [API Key](/docs/how-to/how-to-create-an-api-key.md) to authenticate your requests. Learn about the [Octopus REST API](/docs/api-and-integration/api/index.md) and [authenticating with the Octopus REST API](https://github.com/OctopusDeploy/OctopusDeploy-Api/wiki/Authentication).
 
 ### Getting help from us {#support}
 

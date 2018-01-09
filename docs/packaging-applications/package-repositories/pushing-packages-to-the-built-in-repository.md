@@ -52,7 +52,7 @@ For more information refer to [Pushing packages with Octo.exe](/docs/api-and-in
 
 ## Using the Octopus API (HTTP POST) {#PushingpackagestotheBuilt-Inrepository-UsingtheOctopusAPI(HTTPPOST)}
 
-You can upload a package via the [Octopus Deploy API](/docs/api-and-integration/octopus-rest-api.md) - `POST /api/packages/raw HTTP 1.1`.
+You can upload a package via the [Octopus Deploy API](/docs/api-and-integration/api/index.md) - `POST /api/packages/raw HTTP 1.1`.
 
 - [C# example (LINQPad)](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/Octopus.Client/LINQPad/Push%20Package%20to%20Built-In%20Repository.linq)
 - [PowerShell example](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/REST/PowerShell/Packages/PushPackage.ps1)

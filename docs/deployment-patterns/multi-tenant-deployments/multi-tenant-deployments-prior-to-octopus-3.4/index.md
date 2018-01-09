@@ -59,7 +59,7 @@ If all customers tend to be very similar, with perhaps just a few configuration 
 If each customer had major differences, and possibly bespoke work, we recommended **project-per-customer**.
 :::
 
-The solutions above would work well for a few dozen customers, and with some effort, be made to work for many more using the [REST API](/docs/api-and-integration/octopus-rest-api.md) and [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md).
+The solutions above would work well for a few dozen customers, and with some effort, be made to work for many more using the [REST API](/docs/api-and-integration/api/index.md) and [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md).
 
 ## Consider architectural changes {#Multi-tenantdeploymentspriortoOctopus3.4-Considerarchitecturalchangesarchitectural-changes}
 
