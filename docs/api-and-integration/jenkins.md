@@ -50,7 +50,7 @@ Notice that we use `${OctopusApiKey}` to access an API key that we will use to a
 
 :::success
 **Creating API keys**
-Learn about [how to create an API key](/docs/how-to/how-to-create-an-api-key.md).
+Learn about [how to create an API key](/docs/api-and-integration/api/how-to-create-an-api-key.md).
 :::
 
 After running this job, and assuming OctoPack is correctly installed, your code should compile, and packages should be published to the Octopus Deploy server. You can go to {{Library,Packages}} in Octopus to check that the packages have been published.

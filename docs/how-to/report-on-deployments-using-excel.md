@@ -30,7 +30,7 @@ octo.exe dump-deployments --server http://your-octopus --apiKey API-YOURAPIKEY12
 ```
 
 :::success
-Learn more about [how to create an API key](/docs/how-to/how-to-create-an-api-key.md), and [how to use Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md)
+Learn more about [how to create an API key](/docs/api-and-integration/api/how-to-create-an-api-key.md), and [how to use Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md)
 :::
 
 The output will appear as follows:

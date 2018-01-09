@@ -84,7 +84,7 @@ We offer several ways to add packages to the built-in repository, so many that w
 ![](/docs/images/3048094/3277775.png "width=500")
 
 :::success
-To push packages to the built-in repository you will need an [Octopus API key](/docs/how-to/how-to-create-an-api-key.md).
+To push packages to the built-in repository you will need an [Octopus API key](/docs/api-and-integration/api/how-to-create-an-api-key.md).
 :::
 
 ### Security Considerations {#Packagerepositories-Securityconsiderations}

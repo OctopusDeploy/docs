@@ -41,7 +41,7 @@ In most cases, you'll want to push your newly-created package to the built-in Oc
 **Built-in Nuget and API keys**
 To find your Octopus NuGet repository URL, see the [Package repositories](/docs/packaging-applications/package-repositories/index.md) section.
 
-To create an API key, see the [How to create an API key](/docs/how-to/how-to-create-an-api-key.md) section.
+To create an API key, see the [How to create an API key](/docs/api-and-integration/api/how-to-create-an-api-key.md) section.
 :::
 
 ## Deploying automatically after a build {#Deployingautomaticallyafterabuild}

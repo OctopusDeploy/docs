@@ -72,7 +72,7 @@ octo ... --server http://your-octopus-server/ --apiKey API-ABCDEF123456
 
 :::success
 **Creating API keys**
-Learn about [how to create an API key](/docs/how-to/how-to-create-an-api-key.md).
+Learn about [how to create an API key](/docs/api-and-integration/api/how-to-create-an-api-key.md).
 :::
 
 :::hint
