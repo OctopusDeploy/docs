@@ -15,7 +15,7 @@ Octopus 3.3 and newer support [Running Scripts on the Octopus Server](/docs/depl
 Follow these steps to install a Tentacle on the Octopus Server.
 
 1. Follow the steps on [installing Tentacles](/docs/infrastructure/windows-targets/index.md) to download the Tentacle MSI and install it on the Octopus Server.
-2. Configure the Tentacle in [listening mode](/docs/infrastructure/windows-targets/listening-tentacles.md), and register it so that it appears in your [Environments](/docs/infrastructure/environments/index.md) tab.
+2. Configure the Tentacle in [listening mode](/docs/infrastructure/windows-targets/listening-tentacles/index.md), and register it so that it appears in your [Environments](/docs/infrastructure/environments/index.md) tab.
 3. Assign the machine to all of your applicable environments, and give it a role like `octopus-server`:
 
 ![](/docs/images/3702872/3964962.png "width=500")

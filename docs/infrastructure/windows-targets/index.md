@@ -36,8 +36,8 @@ The latest Octopus Tentacle MSI can always be [downloaded from the Octopus Deplo
 
 Octopus and Tentacle can be configured to communicate two different ways depending on your network setup. The mode you are using will change the installation process slightly.
 
-- [Listening mode](/docs/infrastructure/installing-tentacles/listening-tentacles/index.md) (recommended)
-- [Polling mode](/docs/installation/installing-tentacles/polling-tentacles/index.md)
+- [Listening mode](/docs/infrastructure/windows-targets/listening-tentacles/index.md) (recommended)
+- [Polling mode](/docs/infrastructure/windows-targerts/polling-tentacles/index.md)
 
 :::success
 **Listening Mode is Recommended**
@@ -53,7 +53,7 @@ The communication protocol used by Octopus and Tentacle requires intact end-to-e
 **Proxy Servers Supported for Tentacle Communications Since Octopus 3.4**
 The communication protocol used by Octopus and Tentacle 3.4 and above supports proxies. Read more about configuring proxy servers for Tentacle communications in [proxy support](/docs/infrastructure/windows-targets/proxy-support.md).
 
-If you are using a version of Octopus/Tentacle prior to 3.4 refer to either [Listening Tentacles](/docs/infrastructure/installing-tentacles/listening-tentacles/index.md) or [Polling Tentacles](/docs/installation/installing-tentacles/polling-tentacles/index.md) for more information on configuring a bypass rule.
+If you are using a version of Octopus/Tentacle prior to 3.4 refer to either [Listening Tentacles](/docs/infrastructure/windows-targets/listening-tentacles/index.md) or [Polling Tentacles](/docs/infrastructure/windows-targets/polling-tentacles/index.md) for more information on configuring a bypass rule.
 :::
 
 Tentacle can be installed and configured directly from the command prompt, which is very useful when you need to install Tentacle on a large number of machines. See more in [automating Tentacle installations](/docs/infrastructure/windows-targets/automating-tentacle-installation.md).

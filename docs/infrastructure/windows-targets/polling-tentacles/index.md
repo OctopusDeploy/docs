@@ -4,11 +4,11 @@ description: Octopus Polling Tentacles open a connection to the Octopus server t
 position: 1
 ---
 
-When installing a Tentacle, you will be asked to choose how Tentacle will communicate with the Octopus server. In **polling** mode, Tentacle will poll the Octopus server periodically to check whether there are any tasks for it to perform. Polling mode is the opposite to [listening mode](/docs/infrastructure/windows-targets/listening-tentacles.md). *In polling mode, Octopus is the TCP server, and Tentacle is the TCP client.*
+When installing a Tentacle, you will be asked to choose how Tentacle will communicate with the Octopus server. In **polling** mode, Tentacle will poll the Octopus server periodically to check whether there are any tasks for it to perform. Polling mode is the opposite to [listening mode](/docs/infrastructure/windows-targets/listening-tentacles/index.md). *In polling mode, Octopus is the TCP server, and Tentacle is the TCP client.*
 
 ![](/docs/images/3048113/5865875.png)
 
-The advantage to polling mode is that you don't need to make any firewall changes on the Tentacle side; you only need to allow access to a port on the Octopus server. The disadvantage is that it also uses more resources on the Tentacle side, since Tentacle needs to poll periodically even if there aren't any jobs for it to perform. That's why [we recommend listening mode](/docs/infrastructure/windows-targets/listening-tentacles.md) most of the time.
+The advantage to polling mode is that you don't need to make any firewall changes on the Tentacle side; you only need to allow access to a port on the Octopus server. The disadvantage is that it also uses more resources on the Tentacle side, since Tentacle needs to poll periodically even if there aren't any jobs for it to perform. That's why [we recommend listening mode](/docs/infrastructure/windows-targets/listening-tentacles/index.md) most of the time.
 
 Polling mode is good for scenarios that involve Tentacle being behind NAT or a dynamic IP address. A good example might be servers at branch offices or a chain of retail stores, where the IP address of each server running Tentacle may change.
 
@@ -57,7 +57,7 @@ Don't forget to allow access not just in Windows Firewall, but also any intermed
 
 ## Troubleshooting {#PollingTentacles-Troubleshooting}
 
-We have provided a detailed guide for [Troubleshooting Polling Tentacles](/docs/how-to/troubleshoot-polling-tentacles.md) but feel free to start with these simple steps.
+We have provided a detailed guide for [Troubleshooting Polling Tentacles](/docs/infrastructure/windows-targets/polling-targets/troubleshoot-polling-tentacles.md) but feel free to start with these simple steps.
 
 If Tentacle is unable to connect to the Octopus Deploy server, any errors will appear in the Windows Event Viewer. You can also open a web browser on the Tentacle and try browsing to the Octopus Deploy server using **HTTPS** (will not work with HTTP) and be welcomed with a friendly message.
 
