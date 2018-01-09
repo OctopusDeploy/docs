@@ -37,7 +37,7 @@ The latest Octopus Tentacle MSI can always be [downloaded from the Octopus Deplo
 Octopus and Tentacle can be configured to communicate two different ways depending on your network setup. The mode you are using will change the installation process slightly.
 
 - [Listening mode](/docs/infrastructure/windows-targets/listening-tentacles/index.md) (recommended)
-- [Polling mode](/docs/infrastructure/windows-targerts/polling-tentacles/index.md)
+- [Polling mode](/docs/infrastructure/windows-targets/polling-tentacles/index.md)
 
 :::success
 **Listening Mode is Recommended**

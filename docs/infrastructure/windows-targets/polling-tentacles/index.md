@@ -57,7 +57,7 @@ Don't forget to allow access not just in Windows Firewall, but also any intermed
 
 ## Troubleshooting {#PollingTentacles-Troubleshooting}
 
-We have provided a detailed guide for [Troubleshooting Polling Tentacles](/docs/infrastructure/windows-targets/polling-targets/troubleshoot-polling-tentacles.md) but feel free to start with these simple steps.
+We have provided a detailed guide for [Troubleshooting Polling Tentacles](/docs/infrastructure/windows-targets/polling-tentacles/troubleshoot-polling-tentacles.md) but feel free to start with these simple steps.
 
 If Tentacle is unable to connect to the Octopus Deploy server, any errors will appear in the Windows Event Viewer. You can also open a web browser on the Tentacle and try browsing to the Octopus Deploy server using **HTTPS** (will not work with HTTP) and be welcomed with a friendly message.
 
