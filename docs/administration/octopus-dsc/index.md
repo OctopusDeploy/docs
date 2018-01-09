@@ -47,11 +47,11 @@ There are two main code repositories associated with this module, the below link
 
 As OctopusDSC is an Open Source project, we encourage everyone to contribute their custom scripts to help build a formidable OctopusDSC script repository. Below are instructions on how to contribute to the OctopusDSC repository.
 
-This project is setup to use [Vagrant](https://www.vagrantup.com) to provide a dev/test environment. Once you've installed Vagrant, you can use *build-virtualbox.sh* to spin up a local virtual machine using [VirtualBox](https://www.virtualbox.org) and run the test scenarios (**NOTE:** The first time you run `vagrant up` it has to download the `octopusdeploy/dsc-test-server` box and this can take some time depending on your Internet speed, so be patient and go grab a coffee while it downloads). On a build server, you most likely want to use *build-aws.sh* to spin up a virtual machine on AWS to run the tests.
+This project is setup to use [Vagrant](https://www.vagrantup.com) to provide a dev/test environment. Once you've installed Vagrant, you can use *build-virtualbox.sh* to spin up a local virtual machine using [VirtualBox](https://www.virtualbox.org) and run the test scenarios (**NOTE:** The first time you run `vagrant up` it has to download the `octopusdeploy/dsc-test-server` box and this can take some time depending on your internet speed, so be patient and go grab a coffee while it downloads). On a build server, you most likely want to use *build-aws.sh* to spin up a virtual machine on AWS to run the tests.
 
 Configuration is handled by environment variables. The shell scripts will show a message letting you know what variables need to be set.
 
-As there are no Windows specific build scripts at present, if you want to run the tests against AWS on windows:
+As there are no Windows specific build scripts at present, if you want to run the tests against AWS on Windows:
 
 1. Install Vagrant from [vagrantup.com](http://vagrantup.com).
 2. Install VirtualBox from [virtualbox.org](http://virtualbox.org).
