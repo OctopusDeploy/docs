@@ -38,7 +38,7 @@ DSC can be applied in various ways, such as [Group Policy](https://sdmsoftware.c
 ## Contributing to the OctopusDSC Open-Source repository.
 
 :::hint
-There are two main code repositories associated with this module, the blow links will direct you to our open source GitHub page for the Server and Tentacle agent repositories respectively.
+There are two main code repositories associated with this module, the below links will direct you to our open source GitHub page for the Server and Tentacle agent repositories respectively.
 
 [cOctopusServer](https://github.com/OctopusDeploy/OctopusDSC/blob/master/README-cOctopusServer.md) is used to install and configure the Octopus Server.
 
