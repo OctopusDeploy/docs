@@ -1,7 +1,7 @@
 ---
 title: HTTP Security Headers
 description: Describes the security related browser headers that Octopus supports
-position: 1
+position: 19
 ---
 
 ## Octopus Web Portal
@@ -84,7 +84,7 @@ The Octopus portal does not support this header.
 
 ## Octopus Server Communications Port
 
-The Octopus Server listens on a port (usually 10943) for connections from polling Tentacles. It uses a [custom communications protocol](octopus-tentacle-communication/index.md) with self signed certificates, and shows a diagnostics page when accessed via a web browser. 
+The Octopus Server listens on a port (usually 10943) for connections from polling Tentacles. It uses a [custom communications protocol](docs/reference/octopus-tentacle-communication/index.md) with self signed certificates, and shows a diagnostics page when accessed via a web browser. 
 
 While there is limited scope for attack on this page, as some security scanning tools can report errors on this page, the following headers are supported on this port since version `3.17.13`:
 
@@ -114,7 +114,7 @@ The Octopus Server sets this header to `1; block`, enabling the filters and inst
 
 ## Octopus Tentacle Communications Port
 
-The Octopus Tentacle listens on a port (usually 10933) for connections from the Octopus Server. It uses a [custom communications protocol](octopus-tentacle-communication/index.md) with self signed certificates, and shows a diagnostics page when accessed via a web browser. 
+The Octopus Tentacle listens on a port (usually 10933) for connections from the Octopus Server. It uses a [custom communications protocol](docs/reference/octopus-tentacle-communication/index.md) with self signed certificates, and shows a diagnostics page when accessed via a web browser. 
 
 While there is limited scope for attack on this page, as some security scanning tools can report errors on this page, the following headers are supported on this port since Tentacle version `3.16.1`:
 
