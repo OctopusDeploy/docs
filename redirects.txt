@@ -83,7 +83,8 @@ docs/deployment-targets/windows-targets/index.md -> docs/infrastructure/windows-
 docs/deployment-targets/windows-targets/automating-tentacle-installation.md -> docs/infrastructure/windows-targets/automating-tentacle-installation.md
 docs/deployment-targets/windows-targets/listening-tentacles.md -> docs/infrastructure/windows-targets/listening-tentacles.md
 docs/deployment-targets/windows-targets/polling-tentacles.md -> docs/infrastructure/windows-targets/polling-tentacles/index.md
-docs/deployment-targets/windows-targets/polling-tentacles-web-sockets.md -> docs/infrastructure/windows-targets/polling-tentacles-web-sockets.md
+docs/deployment-targets/windows-targets/polling-tentacles-web-sockets.md -> docs/infrastructure/windows-targets/polling-tentacles/polling-tentacles-web-sockets.md
+docs/infrastructure/windows-targets/polling-tentacles-web-sockets.md -> docs/infrastructure/windows-targets/polling-tentacles/polling-tentacles-web-sockets.md
 docs/deployment-targets/windows-targets/proxy-support.md -> docs/infrastructure/windows-targets/proxy-support.md
 docs/deployment-targets/windows-targets/azure-virtual-machines/index.md -> docs/infrastructure/windows-targets/azure-virtual-machines/index.md
 docs/deployment-targets/windows-targets/azure-virtual-machines/configuration-structure.md -> docs/infrastructure/windows-targets/azure-virtual-machines/configuration-structure.md
