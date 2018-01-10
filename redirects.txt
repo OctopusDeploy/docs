@@ -81,7 +81,7 @@ docs/deployment-targets/ssh-targets/self-contained-calamari.md -> docs/infrastru
 docs/deployment-targets/ssh-targets/sudo-commands.md -> docs/infrastructure/ssh-targets/sudo-commands.md
 docs/deployment-targets/windows-targets/index.md -> docs/infrastructure/windows-targets/index.md
 docs/deployment-targets/windows-targets/automating-tentacle-installation.md -> docs/infrastructure/windows-targets/automating-tentacle-installation.md
-docs/deployment-targets/windows-targets/listening-tentacles.md -> docs/infrastructure/windows-targets/listening-tentacles.md
+docs/deployment-targets/windows-targets/listening-tentacles.md -> docs/infrastructure/windows-targets/listening-tentacles/index.md
 docs/deployment-targets/windows-targets/polling-tentacles.md -> docs/infrastructure/windows-targets/polling-tentacles/index.md
 docs/deployment-targets/windows-targets/polling-tentacles-web-sockets.md -> docs/infrastructure/windows-targets/polling-tentacles/polling-tentacles-web-sockets.md
 docs/infrastructure/windows-targets/polling-tentacles-web-sockets.md -> docs/infrastructure/windows-targets/polling-tentacles/polling-tentacles-web-sockets.md
