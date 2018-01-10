@@ -26,7 +26,7 @@ A deployment will be initiated which adds the extension to your virtual machine.
 
 The settings for the extension are:
 
-`Octopus Server URL`: URL to your Octopus Deploy server. You'll need your own Octopus server (possibly also running on Azure), and you should [consider using HTTPS](/docs/how-to/expose-the-octopus-web-portal-over-https.md). The extension will use the [Octopus REST API](/docs/api-and-integration/api/index.md) against this URL to register the machine.
+`Octopus Server URL`: URL to your Octopus Deploy server. You'll need your own Octopus server (possibly also running on Azure), and you should [consider using HTTPS](/docs/installation/expose-the-octopus-web-portal-over-https.md). The extension will use the [Octopus REST API](/docs/api-and-integration/api/index.md) against this URL to register the machine.
 
 `API Key`: [Your API key](/docs/api-and-integration/api/how-to-create-an-api-key.md). This key will only be used when registering the machine with the Octopus server; it isn't used for [subsequent communication](/docs/reference/octopus-tentacle-communication/index.md).
 

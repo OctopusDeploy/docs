@@ -89,7 +89,7 @@ Windows will need to be configured with a SSL certificate on the selected addres
 The certificate does _not_ need have a valid chain of trust to a certificate authority. Therefore [Self signed certificates](https://octopus.com/blog/why-self-signed-certificates) can be used. The certificate also does not need to match the hostname.
 It does need to be installed into the Personal certificate store of the Machine account.
 
-The easiest way to get the SSL certificate set up is to configure [Octopus to use HTTPS](/docs/how-to/expose-the-octopus-web-portal-over-https.md) on that address and port.
+The easiest way to get the SSL certificate set up is to configure [Octopus to use HTTPS](/docs/installation/expose-the-octopus-web-portal-over-https.md) on that address and port.
 
 If you need to generate a self signed certificate, this can be done by issuing the following PowerShell command. Take note of the thumbprint generated.
 

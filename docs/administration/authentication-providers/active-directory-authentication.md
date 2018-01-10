@@ -53,7 +53,7 @@ Octopus also lets users sign in by entering their Active Directory credentials m
 **How it works**
 Using this option, the credentials are posted back to the Octopus server, and Octopus validates them against Active Directory by invoking the Windows API `LogonUser()` function. If that is successful, Octopus will then query Active Directory for information about the user.
 
-Keep in mind that if your Octopus server isn't [configured to use HTTPS](/docs/how-to/expose-the-octopus-web-portal-over-https.md), these are posted in plain text (just like signing in to any other website).
+Keep in mind that if your Octopus server isn't [configured to use HTTPS](/docs/installation/expose-the-octopus-web-portal-over-https.md), these are posted in plain text (just like signing in to any other website).
 :::
 
 If the Octopus Deploy server and its users are on the **same domain**, it is sufficient to provide a simple username in this field, for example *paul**.*User Principal Names, of the form *user@domain.com* are also accepted in this scenario.
