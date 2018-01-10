@@ -315,3 +315,4 @@ docs/how-to/troubleshoot-polling-tentacles.md -> docs/infrastructure/windows-tar
 docs/how-to/troubleshoot-listening-tentacles.md -> docs/infrastructure/windows-targets/listening-tentacles/troubleshoot-listening-tentacles.md
 docs/how-to/deploy-to-a-specific-subset-of-targets.md -> docs/deployment-process/deploy-to-a-specific-subset-of-targets.md
 docs/how-to/stage-package-uploads.md -> docs/deployment-process/stage-package-uploads.md
+docs/how-to/expose-the-octopus-web-portal-over-https.md -> docs/installation/expose-the-octopus-web-portal-over-https.md
