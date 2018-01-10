@@ -319,3 +319,4 @@ docs/how-to/expose-the-octopus-web-portal-over-https.md -> docs/installation/exp
 docs/how-to/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md -> docs/deployment-process/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md
 docs/how-to/move-the-octopus-home-folder-and-the-tentacle-home-and-application-folders.md -> docs/administration/moving-your-octopus/move-the-octopus-home-folder-and-the-tentacle-home-and-application-folders.md
 docs/how-to/get-a-database-backup-and-encrypt-the-master-key.md -> docs/administration/get-a-database-backup-and-encrypt-the-master-key.md
+docs/how-to/how-to-turn-on-variable-logging-and-export-the-task-log.md -> docs/support/how-to-turn-on-variable-logging-and-export-the-task-log.md
