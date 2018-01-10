@@ -44,7 +44,7 @@ The JSON will be parsed, and your parameters will appear dynamically as fields i
 The parameter fields will show text boxes or select-lists as appropriate.  You can enter values directly, or bind the parameters to Octopus Variables (e.g. see the *siteName* parameter in the image above).
 
 :::success
-Octopus will perform [variable-substitution](/docs/reference/variable-substitution-syntax.md) on the JSON template.
+Octopus will perform [variable-substitution](/docs/deployment-process/variable-substitution-syntax.md) on the JSON template.
 
 Although you can use variables directly in the template, it is more idiomatic to use parameters, and plug the variables into those (as seen above). This will allow you to use or test your template outside of Octopus Deploy.
 :::
@@ -70,7 +70,7 @@ By selecting *File inside a Package* as the *Template Source*, you can select
 The Template Path and Parameters Path fields should contain the relative path to these files within the package.
 
 :::success
-Octopus will perform [variable-substitution](/docs/reference/variable-substitution-syntax.md) on both the Template and Parameter files.
+Octopus will perform [variable-substitution](/docs/deployment-process/variable-substitution-syntax.md) on both the Template and Parameter files.
 :::
 
 #### Parameter File Format {#DeployusinganAzureResourceGroupTemplate-ParameterFileFormat}

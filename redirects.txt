@@ -337,3 +337,4 @@ docs/how-to/send-a-secret-to-octopus.md -> docs/support/send-a-secret-to-octopus
 docs/how-to/export-and-import-tentacle-certificates-without-a-profile.md -> docs/administration/export-and-import-tentacle-certificates-without-a-profile.md
 docs/how-to/index.md -> docs/getting-started.md
 docs/reference/credits.md -> docs/credits.md
+docs/reference/variable-substitution-syntax.md -> docs/deployment-process/variable-substitution-syntax.md

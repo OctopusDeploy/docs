@@ -1,7 +1,7 @@
 ---
 title: Variable Substitution Syntax
 description: Variable substitutions are a flexible way to adjust configuration based on your variables and the context of your deployment.
-position: 1
+position: 25
 ---
 
 Variable substitutions are a flexible way to adjust configuration based on your variables and the context of your deployment. You can often tame the number and complexity of your variables by breaking them down into simple variables and combining them together using expressions.
