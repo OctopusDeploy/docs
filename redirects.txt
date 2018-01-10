@@ -58,7 +58,7 @@ docs/installation/installing-octopus/sql-server-database-requirements.md -> docs
 docs/installation/installing-tentacles/index.md -> docs/infrastructure/windows-targets/index.md
 docs/installation/installing-tentacles/listening-tentacles.md -> docs/infrastructure/windows-targets/listening-tentacles/index.md
 docs/installation/installing-tentacles/polling-tentacles/index.md -> docs/infrastructure/windows-targets/polling-tentacles/index.md
-docs/installation/installing-tentacles/polling-tentacles-web-sockets.md -> docs/infrastructure/windows-targets/polling-tentacles-web-sockets.md
+docs/installation/installing-tentacles/polling-tentacles-web-sockets.md -> docs/infrastructure/windows-targets/polling-tentacles/polling-tentacles-web-sockets.md
 docs/installation/installing-tentacles/automating-tentacle-installation.md -> docs/infrastructure/windows-targets/automating-tentacle-installation.md
 docs/deployment-targets/index.md -> docs/infrastructure/index.md
 docs/deployment-targets/cloud-regions.md -> docs/infrastructure/cloud-regions.md
