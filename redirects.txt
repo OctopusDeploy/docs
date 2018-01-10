@@ -330,3 +330,4 @@ docs/how-to/how-to-use-custom-certificates-with-octopus-server-and-tentacle.md -
 docs/how-to/sensitive-properties-api-changes-in-release-3.3.md -> docs/api-and-integration/api/sensitive-properties-api-changes-in-release-3.3.md
 docs/how-to/migrate-azure-targets-into-azure-steps.md -> docs/deployment-process/migrate-azure-targets-into-azure-steps.md
 docs/how-to/run-tentacle-under-a-specific-user.md -> docs/administration/run-tentacle-under-a-specific-user.md
+docs/how-to/run-multiple-processes-on-a-tentacle-simultaneously.md -> docs/administration/run-multiple-processes-on-a-tentacle-simultaneously.md

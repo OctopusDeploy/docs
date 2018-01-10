@@ -24,7 +24,7 @@ To help your Octopus Server remain stable, we have limited the maximum number of
 
 ## Steps in parallel on the same Tentacle {#Runstepsinparallel-Stepsinparallelonthesametentacle}
 
-For safety reasons, by default Octopus runs only one step at the same time on a single Tentacle. If you want to run multiple steps on a Tentacle in parallel, [you'll need to enable that setting](/docs/how-to/run-multiple-processes-on-a-tentacle-simultaneously.md).
+For safety reasons, by default Octopus runs only one step at the same time on a single Tentacle. If you want to run multiple steps on a Tentacle in parallel, [you'll need to enable that setting](/docs/administration/run-multiple-processes-on-a-tentacle-simultaneously.md).
 
 ## Steps which depend on each other
 
