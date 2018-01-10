@@ -322,3 +322,4 @@ docs/how-to/get-a-database-backup-and-encrypt-the-master-key.md -> docs/administ
 docs/how-to/how-to-turn-on-variable-logging-and-export-the-task-log.md -> docs/support/how-to-turn-on-variable-logging-and-export-the-task-log.md
 docs/how-to/providing-database-performance-metrics.md -> docs/administration/providing-database-performance-metrics.md
 docs/how-to/report-on-deployments-using-excel.md -> docs/administration/report-on-deployments-using-excel.md
+docs/how-to/use-iis-as-reverse-proxy.md -> docs/administration/use-iis-as-reverse-proxy.md

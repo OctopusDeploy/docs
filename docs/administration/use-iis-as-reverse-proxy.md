@@ -138,7 +138,3 @@ Invoke-WebRequest https://servername | select -expand Headers
 
 You should see your `x-octopus-servedby` header listed in the returned headers.
 
-
-
-
-
