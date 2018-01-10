@@ -316,3 +316,4 @@ docs/how-to/troubleshoot-listening-tentacles.md -> docs/infrastructure/windows-t
 docs/how-to/deploy-to-a-specific-subset-of-targets.md -> docs/deployment-process/deploy-to-a-specific-subset-of-targets.md
 docs/how-to/stage-package-uploads.md -> docs/deployment-process/stage-package-uploads.md
 docs/how-to/expose-the-octopus-web-portal-over-https.md -> docs/installation/expose-the-octopus-web-portal-over-https.md
+docs/how-to/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md -> docs/deployment-process/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md
