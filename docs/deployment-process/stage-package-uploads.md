@@ -1,7 +1,7 @@
 ---
 title: Stage package uploads
 description: How to stage package uploads to reduce your applications or services downtime.
-position: 15
+position: 25
 ---
 
 To reduce downtime, Octopus always uploads all packages before installing any of them. For example, given a deployment process that looks like this:

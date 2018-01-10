@@ -314,3 +314,4 @@ docs/how-to/record-a-performance-trace.md -> docs/support/record-a-performance-t
 docs/how-to/troubleshoot-polling-tentacles.md -> docs/infrastructure/windows-targets/polling-tentacles/troubleshoot-polling-tentacles.md
 docs/how-to/troubleshoot-listening-tentacles.md -> docs/infrastructure/windows-targets/listening-tentacles/troubleshoot-listening-tentacles.md
 docs/how-to/deploy-to-a-specific-subset-of-targets.md -> docs/deployment-process/deploy-to-a-specific-subset-of-targets.md
+docs/how-to/stage-package-uploads.md -> docs/deployment-process/stage-package-uploads.md
