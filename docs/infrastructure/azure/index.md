@@ -10,6 +10,6 @@ Octopus Deploy provides first-class support for deploying Azure Cloud Services a
 Learn how to [create an Azure account](/docs/infrastructure/azure/creating-an-azure-account/index.md).
 
 :::warning
-Azure Web App and Azure Cloud Service deployment targets were deprecated in Octopus 3.1. If you need to migrate your Azure Targets to use the equivalent Azure steps, following [this guide](/docs/how-to/migrate-azure-targets-into-azure-steps.md).
+Azure Web App and Azure Cloud Service deployment targets were deprecated in Octopus 3.1. If you need to migrate your Azure Targets to use the equivalent Azure steps, following [this guide](/docs/deployment-process/migrate-azure-targets-into-azure-steps.md).
 :::
 
