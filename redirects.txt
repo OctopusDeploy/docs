@@ -326,3 +326,4 @@ docs/how-to/use-iis-as-reverse-proxy.md -> docs/administration/use-iis-as-revers
 docs/how-to/specifying-a-custom-container-to-use-for-ad-authentication.md -> docs/administration/specifying-a-custom-container-to-use-for-ad-authentication.md
 docs/how-to/enable-web-request-logging.md -> docs/administration/enable-web-request-logging.md
 docs/how-to/how-to-run-steps-on-the-octopus-server.md -> docs/deployment-process/how-to-run-steps-on-the-octopus-server.md
+docs/how-to/how-to-use-custom-certificates-with-octopus-server-and-tentacle.md -> docs/administration/how-to-use-custom-certificates-with-octopus-server-and-tentacle.md
