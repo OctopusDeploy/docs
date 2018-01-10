@@ -333,3 +333,4 @@ docs/how-to/run-tentacle-under-a-specific-user.md -> docs/administration/run-ten
 docs/how-to/run-multiple-processes-on-a-tentacle-simultaneously.md -> docs/administration/run-multiple-processes-on-a-tentacle-simultaneously.md
 docs/how-to/reference-files-within-a-package.md -> docs/deploying-applications/custom-scripts/reference-files-within-a-package.md
 docs/how-to/long-paths.md -> docs/deploying-applications/custom-scripts/long-paths.md
+docs/how-to/send-a-secret-to-octopus.md -> docs/support/send-a-secret-to-octopus.md
