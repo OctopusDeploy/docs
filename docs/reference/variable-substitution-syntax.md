@@ -26,6 +26,10 @@ If the file undergoing variable replacement includes a string that *shouldn't* 
 | --------------------- | -------------------- |
 | `##{NotToBeReplaced}` | `#{NotToBeReplaced}` |
 
+:::info
+Also read about [common mistakes for variables](/docs/deployment-process/variables/sensitive-variables.md#Sensitivevariables-Avoidingcommonmistakes) for more information
+:::
+
 ## Extended Syntax {#VariableSubstitutionSyntax-ExtendedSyntax}
 
 Octopus supports an extended variable substitution syntax with capabilities similar to text templating languages.  It's worth noting that this is now available everywhere whereas previously it was limited to certain scenarios.
