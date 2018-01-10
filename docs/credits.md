@@ -1,7 +1,7 @@
 ---
 title: Credits
 description: Octopus Deploy 3.0 is made possible thanks to the many great third-party products.
-position: 1
+position: 100
 ---
 
 Octopus Deploy 3.0 is made possible thanks to the following great third-party products.
