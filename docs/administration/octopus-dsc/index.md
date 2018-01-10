@@ -11,7 +11,7 @@ We have the following documentation pages regarding OctopusDSC:
 * [Installing Octopus Tentacle Agent via DSC](/docs/administration/octopus-dsc/tentacle-agent.md)
 * [Installing Octopus Server via DSC](/docs/administration/octopus-dsc/octopus-server.md)
 
-## Installing the OctopusDSC PowerShell module.
+## Installing the OctopusDSC PowerShell module
 
 It is recommended that you use PowerShell 5 alongside [PowerShellGet](https://docs.microsoft.com/en-us/powershell/module/powershellget/?view=powershell-5.1).
 
