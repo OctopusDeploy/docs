@@ -1,7 +1,7 @@
 ---
 title: Sensitive Properties API Changed in Release 3.3
 description: How the sensitive properties API changed in Octopus release 3.3.
-position: 22
+position: 200
 ---
 
 :::warning
