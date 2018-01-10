@@ -131,4 +131,4 @@ Also note that the data:
 
 ## What about information on concurrent users, web front-end performance, etc.? {#Reporting-Whataboutinformationonconcurrentusers,webfront-endperformance,etc.?}
 
-You may want to look at [enabling HTTP logging](/docs/how-to/enable-web-request-logging.md).
+You may want to look at [enabling HTTP logging](/docs/administration/enable-web-request-logging.md).

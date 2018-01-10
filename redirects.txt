@@ -324,3 +324,4 @@ docs/how-to/providing-database-performance-metrics.md -> docs/administration/pro
 docs/how-to/report-on-deployments-using-excel.md -> docs/administration/report-on-deployments-using-excel.md
 docs/how-to/use-iis-as-reverse-proxy.md -> docs/administration/use-iis-as-reverse-proxy.md
 docs/how-to/specifying-a-custom-container-to-use-for-ad-authentication.md -> docs/administration/specifying-a-custom-container-to-use-for-ad-authentication.md
+docs/how-to/enable-web-request-logging.md -> docs/administration/enable-web-request-logging.md
