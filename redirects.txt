@@ -313,3 +313,4 @@ docs/how-to/manually-fail-a-running-or-cancelling-task.md -> docs/deployment-pro
 docs/how-to/record-a-performance-trace.md -> docs/support/record-a-performance-trace.md
 docs/how-to/troubleshoot-polling-tentacles.md -> docs/infrastructure/windows-targets/polling-tentacles/troubleshoot-polling-tentacles.md
 docs/how-to/troubleshoot-listening-tentacles.md -> docs/infrastructure/windows-targets/listening-tentacles/troubleshoot-listening-tentacles.md
+docs/how-to/deploy-to-a-specific-subset-of-targets.md -> docs/deployment-process/deploy-to-a-specific-subset-of-targets.md
