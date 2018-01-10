@@ -48,7 +48,7 @@ Don't forget to allow access not just in Windows Firewall, but also any intermed
 
 ## Troubleshooting Connections {#ListeningTentacles-Troubleshootingconnections}
 
-We have provided a detailed guide for [Troubleshooting Listening Tentacles](/docs/infrastructure/windows-targets/listening-targets/troubleshoot-listening-tentacles.md) but feel free to start with these simple steps.
+We have provided a detailed guide for [Troubleshooting Listening Tentacles](/docs/infrastructure/windows-targets/listening-tentacles/troubleshoot-listening-tentacles.md) but feel free to start with these simple steps.
 
 *On the Tentacle machine*, open a web browser and navigate to [https://localhost:10933](https://localhost:10933/) (or your chosen Tentacle communications port if it isn't the default). Make sure an **HTTPS** URL is used.
 

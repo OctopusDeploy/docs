@@ -65,7 +65,7 @@ TLS 1.2 requires .NET 4.5 which was introduced as a requirement in Octopus 3.1. 
 
 ## Troubleshooting Tentacle communication problems {#Octopus-Tentaclecommunication-TroubleshootingTentaclecommunicationproblems}
 
-We have built comprehensive troubleshooting guides for both [Listening Tentacles](/docs/infrastructure/windows-targets/listening-tentacles/troubleshoot-listening-tentacles.md) and [Polling Tentacles](/docs/infrastructure/windows-targets/troubleshoot-polling-tentacles.md).
+We have built comprehensive troubleshooting guides for both [Listening Tentacles](/docs/infrastructure/windows-targets/listening-tentacles/troubleshoot-listening-tentacles.md) and [Polling Tentacles](/docs/infrastructure/windows-targets/polling-tentacles/troubleshoot-polling-tentacles.md).
 
 If you are seeing error messages like below, try [Troubleshooting Schannel and TLS](/docs/reference/octopus-tentacle-communication/troubleshooting-schannel-and-tls.md):
 
