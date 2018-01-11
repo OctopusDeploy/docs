@@ -349,3 +349,4 @@ docs/reference/octopus-ha/index.md -> docs/administration/high-availability/inde
 docs/reference/octopus-ha/load-balancers/index.md -> docs/administration/high-availability/index.md
 docs/reference/octopus-server-configuration-file.md -> docs/administration/octopus-server-configuration-file.md
 docs/reference/debugging-powershell-scripts.md -> docs/deploying-applications/custom-scripts/debugging-powershell-scripts.md
+docs/reference/package-deployment-feature-ordering.md -> docs/deployment-process/package-deployment-feature-ordering.md
