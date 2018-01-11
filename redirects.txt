@@ -346,4 +346,5 @@ docs/reference/fips-and-octopus-deploy.md -> docs/administration/fips-and-octopu
 docs/reference/outbound-requests.md -> docs/administration/outbound-requests.md
 docs/reference/octopus-ha/load-balancers/configuring-netscaler.md -> docs/administration/high-availability/configuring-netscaler.md
 docs/reference/octopus-ha/index.md -> docs/administration/high-availability/index.md
-docs/reference/octopus-ha/load-balancers/index.md -> docs/administration/high-availability/load-balancers/index.md
+docs/reference/octopus-ha/load-balancers/index.md -> docs/administration/high-availability/index.md
+docs/reference/octopus-server-configuration-file.md -> docs/administration/octopus-server-configuration-file.md
