@@ -194,7 +194,7 @@ docs/deploying-applications/deployment-process/automatic-deployment-triggers.md 
 docs/deploying-applications/deployment-process/projects/releases.md -> docs/deployment-process/releases/index.md
 docs/guides/octopus-ha/index.md -> docs/reference/octopus-ha/index.md
 docs/guides/octopus-ha/load-balancers/index.md -> docs/reference/octopus-ha/load-balancers/index.md
-docs/guides/octopus-ha/load-balancers/configuring-netscaler.md -> docs/reference/octopus-ha/load-balancers/configuring-netscaler.md
+docs/guides/octopus-ha/load-balancers/configuring-netscaler.md -> docs/administration/high-availability/configuring-netscaler.md
 docs/guides/multi-tenant-deployments/index.md -> docs/deployment-patterns/multi-tenant-deployments/index.md
 docs/guides/multi-tenant-deployments/multi-tenant-deployments-faq.md -> docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployments-faq.md
 docs/guides/multi-tenant-deployments/troubleshooting-multi-tenant-deployments.md -> docs/deployment-patterns/multi-tenant-deployments/troubleshooting-multi-tenant-deployments.md
