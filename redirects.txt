@@ -344,4 +344,4 @@ docs/reference/docker/index.md -> docs/administration/docker/index.md
 docs/reference/docker/docker-run-with-networking.md -> docs/administration/docker/docker-run-with-networking.md
 docs/reference/fips-and-octopus-deploy.md -> docs/administration/fips-and-octopus-deploy.md
 docs/reference/outbound-requests.md -> docs/administration/outbound-requests.md
-docs/reference/octopus-ha/load-balancers/configuring-netscaler.md -> docs/administration/high-availability/docs/reference/reference/octopus-ha/load-balancers/configuring-netscaler.md
+docs/reference/octopus-ha/load-balancers/configuring-netscaler.md -> docs/administration/high-availability/configuring-netscaler.md
