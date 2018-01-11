@@ -17,7 +17,7 @@ The easiest way to import a database is to restore from a .bak file, and this is
 2. Encrypt your master key
 
 :::hint
-You can get your master key using [Octopus Manager](/docs/reference/security-and-encryption.md#Securityandencryption-YourMasterKey) or by using the `show-master-key` command in [Octopus.Server.exe](/docs/api-and-integration/octopus.server.exe-command-line/show-master-key.md).
+You can get your master key using [Octopus Manager](/docs/administration/security-and-encryption.md#Securityandencryption-YourMasterKey) or by using the `show-master-key` command in [Octopus.Server.exe](/docs/api-and-integration/octopus.server.exe-command-line/show-master-key.md).
 :::
 
 We have a PowerShell snippet which will encrypt your master key, using Public Key Cryptography so only Octopus can decrypt it. You can use this snippet to encrypt your master key, and when we receive it, we will decrypt it and use it to restore the database you have provided to us.

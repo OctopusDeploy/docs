@@ -35,7 +35,7 @@ Take a look at our Request for Comments (RFC) on a new set of features we're cal
 
 - Learn about [Octopus - Tentacle communication](/docs/reference/octopus-tentacle-communication/index.md) to understand how automation instructions are transmitted securely to maintain trust.
   - Full support for TLS 1.2 was introduced in Octopus Deploy 3.1. We recommend using the latest version of Octopus Deploy whenever possible.
-- Learn about [security and encryption](/docs/reference/security-and-encryption.md) of sensitive information in Octopus Deploy.
+- Learn about [security and encryption](/docs/administration/security-and-encryption.md) of sensitive information in Octopus Deploy.
 - Learn about how Octopus Deploy handles [sensitive variables](/docs/deployment-process/variables/sensitive-variables.md).
 
 :::success

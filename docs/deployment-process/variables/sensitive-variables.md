@@ -21,7 +21,7 @@ In Octopus version 3.11.0 we added an editor to the variables value section. Sen
 ## How Octopus handles your sensitive variables {#Sensitivevariables-HowOctopushandlesyoursensitivevariables}
 
 :::hint
-Learn more about [security and encryption](/docs/reference/security-and-encryption.md) in Octopus Deploy.
+Learn more about [security and encryption](/docs/administration/security-and-encryption.md) in Octopus Deploy.
 :::
 
 When dealing with sensitive variables, Octopus will encrypt these values using **AES128 encryption** any time they are in transmission, or "at rest" like when they are stored in the Octopus database or staged on a deployment target as part of a deployment. You can use these sensitive values in your deployment process just like normal [variables](/docs/deployment-process/variables/index.md), with two notable exceptions:
