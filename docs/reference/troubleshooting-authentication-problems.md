@@ -25,7 +25,7 @@ Octopus Server prevents Cross-Site Request Forgery (CSRF) using an anti-forgery 
 
 `A required anti-forgery token was not supplied or was invalid.`
 
-See our [detailed troubleshooting guide](/docs/reference/csrf-and-octopus-deploy.md) for solving problems with anti-forgery validation.
+See our [detailed troubleshooting guide](/docs/administration/csrf-and-octopus-deploy.md) for solving problems with anti-forgery validation.
 
 ## Active Directory
 
