@@ -359,3 +359,4 @@ docs/reference/server-extensibility/installing-a-custom-server-extension.md -> d
 docs/reference/server-extensibility/building-an-authentication-provider/index.md -> docs/api-and-integration/server-extensibility/building-an-authentication-provider/index.md
 docs/reference/server-extensibility/building-an-authentication-provider/building-a-forms-based-authentication-provider.md -> docs/api-and-integration/server-extensibility/building-an-authentication-provider/building-a-forms-based-authentication-provider.md
 docs/reference/server-extensibility/building-an-authentication-provider/building-an-external-authentication-provider.md -> docs/api-and-integration/server-extensibility/building-an-authentication-provider/building-an-external-authentication-provider.md
+docs/reference/troubleshooting-authentication-problems.md -> docs/administration/troubleshooting-authentication-problems.md
