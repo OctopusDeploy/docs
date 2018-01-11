@@ -21,7 +21,7 @@ You can also use Octopus embedded template syntax to conditionally list files th
 The default option for Output file encoding (Detect from template) will use the Byte Order Mark (BOM) of the file to determine the encoding.
 
 :::warning
-If you include a configuration file that you are also doing a transformation and variable swap on, the variable change will run under the 'substitute variables in files' before the transformation as defined in the [package deployment feature ordering](/docs/reference/package-deployment-feature-ordering.md) process.
+If you include a configuration file that you are also doing a transformation and variable swap on, the variable change will run under the 'substitute variables in files' before the transformation as defined in the [package deployment feature ordering](/docs/deployment-process/package-deployment-feature-ordering.md) process.
 :::
 
 ## Some Examples {#SubstituteVariablesinFiles-SomeExamples}

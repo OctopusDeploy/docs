@@ -12,12 +12,12 @@ The process of deploying a package looks approximately like this:
 1. Create a new folder for the deployment (which avoids many common problems like file locks and leaving stale files behind)
     - Example: `C:\Octopus\Applications\[Tenant name]\[Environment name]\[Package name]\[Package version]\` where `C:\Octopus\Applications` is the Tentacle application directory you configured when installing Tentacle)
 1. Extract the package into the newly created folder
-1. Execute each of your [custom scripts](/docs/deploying-applications/custom-scripts/index.md) and the [deployment features](/docs/deploying-applications/index.md) you've configured will be executed to perform the deployment [following this order by convention](/docs/reference/package-deployment-feature-ordering.md).
+1. Execute each of your [custom scripts](/docs/deploying-applications/custom-scripts/index.md) and the [deployment features](/docs/deploying-applications/index.md) you've configured will be executed to perform the deployment [following this order by convention](/docs/deployment-process/package-deployment-feature-ordering.md).
 1. [Output variables](/docs/deployment-process/variables/output-variables.md) and deployment [artifacts](/docs/deployment-process/artifacts.md) from this step are sent back to the Octopus Server
 
 :::hint
 **Package deployment feature ordering**
-Each part of a package step is [executed in a specific order](/docs/reference/package-deployment-feature-ordering.md) by the open-source [Calamari project](https://github.com/OctopusDeploy/Calamari) to enable more complex deployment scenarios.
+Each part of a package step is [executed in a specific order](/docs/deployment-process/package-deployment-feature-ordering.md) by the open-source [Calamari project](https://github.com/OctopusDeploy/Calamari) to enable more complex deployment scenarios.
 :::
 
 ## Adding a package step {#Deployingpackages-Addingapackagestep}
