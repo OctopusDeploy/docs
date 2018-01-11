@@ -1,7 +1,7 @@
 ---
 title: Cross-Site Request Forgery (CSRF) and Octopus Deploy
 description: Octopus Server actively prevents Cross-Site Request Forgery (CSRF) using anti-forgery tokens.
-position: 5
+position: 50
 ---
 
 We take every reasonable effort to make Octopus Deploy secure against known vulnerabilities, mainly related to browser vulnerabilities. One such browser vulnerability is Cross-Site Request Forgery (CSRF).

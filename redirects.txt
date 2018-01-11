@@ -351,3 +351,4 @@ docs/reference/octopus-server-configuration-file.md -> docs/administration/octop
 docs/reference/debugging-powershell-scripts.md -> docs/deploying-applications/custom-scripts/debugging-powershell-scripts.md
 docs/reference/package-deployment-feature-ordering.md -> docs/deployment-process/package-deployment-feature-ordering.md
 docs/reference/process-dumps.md -> docs/administration/process-dumps.md
+docs/reference/csrf-and-octopus-deploy.md -> docs/administration/csrf-and-octopus-deploy.md
