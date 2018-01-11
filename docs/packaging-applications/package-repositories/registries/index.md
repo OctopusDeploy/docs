@@ -7,7 +7,7 @@ position: 0
 A [Docker Registry](https://docs.docker.com/registry/) is treated in Octopus Deploy as a feed that supplies images that are run as containers on a Docker Engine host.
 
 :::success
-See an example deployment using Docker Registries in our guide: [Docker run with networking](/docs/reference/docker/docker-run-with-networking.md)
+See an example deployment using Docker Registries in our guide: [Docker run with networking](/docs/administration/docker/docker-run-with-networking.md)
 :::
 
 ## Using Docker Registries in Octopus Deploy {#DockerRegistriesasFeeds-UsingDockerRegistriesinOctopusDeploy}
@@ -18,7 +18,7 @@ Octopus Deploy supports the Docker Registry [Version 1](https://docs.docker.com
 
 ### How Octopus Server and Deployment Targets Integrate with Docker Registries {#DockerRegistriesasFeeds-HowOctopusServerandDeploymentTargetsintegratewithDockerRegistries}
 
-The Docker Registries you configure need to be accessed by both the Octopus Server and your [Deployment Targets](/docs/infrastructure/index.md).
+The Docker Registries you configure need to be accessed by both the Octopus Server  and your [Deployment Targets](/docs/infrastructure/index.md).
 
 The Octopus Server will contact your registry to obtain information on available images while designing and maintaining your projects. During deployment the `docker pull` command will be executed on the Deployment Targets themselves and they will pull the Images directly from the Docker Registry.
 
