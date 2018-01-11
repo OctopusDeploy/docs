@@ -21,7 +21,7 @@ It is important to **include only your extension dll(s)** (and none of the depen
 
 To verify which extensions are currently loaded, use the **Server Extensions** panel (under the System Information) on the {{Configuration,Diagnostics}} page sidebar.  Note that you'll need admin permissions in Octopus Deploy to see this page.
 
-The panel will show the author in bold for any custom extensions,  i.e. If you haven't changed the Author value on the OctopusExtension attribute (see [Authoring an Octopus Deploy server extension](/docs/reference/server-extensibility/authoring-an-octopus-deploy-server-extension.md)) then it will still display as 'Octopus Deploy', but the text will be bold if it was loaded from the CustomExtensions folder.
+The panel will show the author in bold for any custom extensions,  i.e. If you haven't changed the Author value on the OctopusExtension attribute (see [Authoring an Octopus Deploy server extension](/docs/api-and-integration/server-extensibility/authoring-an-octopus-deploy-server-extension.md)) then it will still display as 'Octopus Deploy', but the text will be bold if it was loaded from the CustomExtensions folder.
 
 ## Dependencies {#Installingacustomserverextension-Dependencies}
 

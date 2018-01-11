@@ -23,6 +23,6 @@ Octopus Deploy's server UI is currently implemented using AngularJS.  The UI pr
 
 As of Server Extensibility v2.0, the out of the box Server Extensions for [OpenID Connect](https://github.com/OctopusDeploy/OpenIDConnectAuthenticationProviders) and [Directory Services](https://github.com/OctopusDeploy/DirectoryServicesAuthenticationProvider) both use Angular modules for their UI.
 
-Learn more about [authoring a Forms based authentication provider](/docs/reference/server-extensibility/building-an-authentication-provider/building-a-forms-based-authentication-provider.md).
+Learn more about [authoring a Forms based authentication provider](/docs/api-and-integration/server-extensibility/building-an-authentication-provider/building-a-forms-based-authentication-provider.md).
 
-Learn more about [authoring an External provider](/docs/reference/server-extensibility/building-an-authentication-provider/building-an-external-authentication-provider.md).
+Learn more about [authoring an External provider](/docs/api-and-integration/server-extensibility/building-an-authentication-provider/building-an-external-authentication-provider.md).
