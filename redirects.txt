@@ -350,3 +350,4 @@ docs/reference/octopus-ha/load-balancers/index.md -> docs/administration/high-av
 docs/reference/octopus-server-configuration-file.md -> docs/administration/octopus-server-configuration-file.md
 docs/reference/debugging-powershell-scripts.md -> docs/deploying-applications/custom-scripts/debugging-powershell-scripts.md
 docs/reference/package-deployment-feature-ordering.md -> docs/deployment-process/package-deployment-feature-ordering.md
+docs/reference/process-dumps.md -> docs/administration/process-dumps.md
