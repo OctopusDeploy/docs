@@ -17,9 +17,13 @@ Below is a short list of just some of the things that Octopus captures:
 - Environment changes, such as adding new deployment targets or modifying the environment a deployment target belongs to
 - Queuing and canceling of deployments and other tasks
 
-:::info
-Whilst Octopus does not capture login and logout events for specific user accounts, it does capture the details of every action including who initiated the action.
-:::
+Some  general points worth noting:
+
+- Octopus **does** capture the details of every mutating action (create/edit/delete) including who initiated the action
+- Octopus **does not** capture login and logout events for specific user accounts
+- Octopus **does not** capture when data is read, however certain sensitive actions like downloading a certificate with its private key is captured
+
+If you are concerned that Octopus does not capture a specific action of interest to you, please contact our [support team](https://octopus.com/support).
 
 ## Viewing the audit history {#Auditing-Viewingtheaudithistory}
 
