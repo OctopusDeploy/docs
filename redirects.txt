@@ -340,7 +340,7 @@ docs/reference/credits.md -> docs/credits.md
 docs/reference/variable-substitution-syntax.md -> docs/deployment-process/variable-substitution-syntax.md
 docs/reference/security-headers.md -> docs/administration/security-headers.md
 docs/reference/security-and-encryption.md -> docs/administration/security-and-encryption.md
-docs/reference/docker/index.md -> docs/deploying-applications/docker/index.md
+docs/reference/docker/index.md -> docs/deploying-applications/docker-containers/index.md
 docs/reference/docker/docker-run-with-networking.md -> docs/administration/docker/docker-run-with-networking.md
 docs/reference/fips-and-octopus-deploy.md -> docs/administration/fips-and-octopus-deploy.md
 docs/reference/outbound-requests.md -> docs/administration/outbound-requests.md
