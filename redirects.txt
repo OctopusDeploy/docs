@@ -214,7 +214,7 @@ docs/guides/user-role-&-teams-configurations/creating-teams-for-a-user-with-mixe
 docs/guides/docker/index.md -> docs/deploying-applications/docker-containers/index.md
 docs/guides/docker/docker-run-with-networking.md -> docs/deploying-applications/docker-containers/docker-run-with-networking.md
 docs/guides/index.md -> docs/getting-started.md
-docs/guides/elastic-and-transient-environments/index.md -> docs/infrastructure/envinroments/elastic-and-transient-environments/index.md
+docs/guides/elastic-and-transient-environments/index.md -> docs/infrastructure/environments/elastic-and-transient-environments/index.md
 docs/guides/elastic-and-transient-environments/cleaning-up-environments.md -> docs/infrastructure/environments/elastic-and-transient-environments/cleaning-up-environments.md
 docs/guides/elastic-and-transient-environments/deploying-to-transient-targets.md -> docs/infrastructure/environments/elastic-and-transient-environments/deploying-to-transient-targets.md
 docs/guides/elastic-and-transient-environments/immutable-infrastructure.md -> docs/infrastructure/environments/elastic-and-transient-environments/immutable-infrastructure.md
