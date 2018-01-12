@@ -52,7 +52,7 @@ First available: `3.12.7`
 
 ### Strict-Transport-Security (HSTS)
 
-The `Strict-Transport-Security` header is used to instruct browsers that all future requests (for a specified amount of time) are sent over HTTPS, even if the user types `http://` into the browser address bar. This is not enabled by default, but as it can cause issues if implemented incorrectly, please read [our HSTS documentation](/docs/installation/expose-the-octopus-web-portal-over-https.md#HSTS) before implementing.
+The `Strict-Transport-Security` header is used to instruct browsers that all future requests (for a specified amount of time) are sent over HTTPS, even if the user types `http://` into the browser address bar. This is not enabled by default, but as it can cause issues if implemented incorrectly, please read [our HSTS documentation](/docs/administration/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md#HSTS) before implementing.
 
 First available: `3.13.0`
 

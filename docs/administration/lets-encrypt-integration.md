@@ -9,7 +9,7 @@ Octopus 3.16 or newer can integrate with [Let's Encrypt](https://g.octopushq.com
 
 !partial <overview>
 
-At this point, we recommend enabling [Force SSL](/docs/installation/expose-the-octopus-web-portal-over-https.md#ForcingHTTPS) and [HSTS](/docs/installation/expose-the-octopus-web-portal-over-https.md#HSTS).
+At this point, we recommend enabling [Force SSL](/docs/administration/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md#ForcingHTTPS) and [HSTS](/docs/administration/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md#HSTS).
 
 ## Troubleshooting
 
