@@ -10,7 +10,11 @@ Your entire Octopus installation and all of the targets you deploy to could be c
 
 ## Security and encryption
 
-We take security very seriously at Octopus Deploy and have gone to great lengths to protect your privacy and security. Learn more about how Octopus handles [security and encryption](/docs/administration/security-and-encryption.md).
+We take security very seriously at Octopus Deploy and have gone to great lengths to protect your privacy and security.
+
+Learn more about [how Octopus handles security and encryption of your data](/docs/administration/security-and-encryption.md).
+
+Learn more about [how Octopus communicates with Tentacle](/docs/administration/octopus-tentacle-communication/index.md).
 
 We undertake routine penetration testing and security audits. These reports are available on request by contacting our [support team](https://octopus.com/support).
 
