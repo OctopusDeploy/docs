@@ -365,3 +365,4 @@ docs/administration/docker/docker-run-with-networking.md -> docs/deploying-appli
 docs/administration/docker/index.md -> docs/deploying-applications/docker-containers/index.md
 docs/administration/script-modules.md -> docs/deploying-applications/custom-scripts/script-modules.md
 docs/reference/troubleshooting-aws-transport-error.md -> docs/support/troubleshooting-aws-transport-error.md
+docs/reference/log-files.md -> docs/support/log-files.md
