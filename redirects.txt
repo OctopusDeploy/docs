@@ -8,7 +8,7 @@ docs/guides/azure-deployments/web-apps/web-app-concepts/web-app-accounts.md -> d
 docs/guides/multi-tenant-deployments/other-scenarios-for-multi-tenant-deployments.md -> docs/deployment-patterns/multi-tenant-deployments/index.md
 docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/migrating-to-octopus-3.4.md -> docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/index.md
 docs/deploying-applications/docker-containers/docker-compose.md -> docs/deploying-applications/docker-containers/index.md
-docs/guides/elastic-and-transient-environments/deploying-to-transient-targets-copy.md -> docs/reference/elastic-and-transient-environments/deploying-to-transient-targets.md
+docs/guides/elastic-and-transient-environments/deploying-to-transient-targets-copy.md -> docs/infrastructure/environments/elastic-and-transient-environments/deploying-to-transient-targets.md
 docs/administration/high-availability/removing-high-availability-nodes.md -> docs/administration/high-availability/managing-high-availability-nodes.md
 docs/administration/upgrading/migrating-from-redgate-deployment-manager-to-octopus-deploy.md -> docs/administration/upgrading/index.md
 docs/administration/how-to-move-the-octopus-server-to-another-server-or-vm.md -> docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md
@@ -214,10 +214,10 @@ docs/guides/user-role-&-teams-configurations/creating-teams-for-a-user-with-mixe
 docs/guides/docker/index.md -> docs/deploying-applications/docker-containers/index.md
 docs/guides/docker/docker-run-with-networking.md -> docs/deploying-applications/docker-containers/docker-run-with-networking.md
 docs/guides/index.md -> docs/getting-started.md
-docs/guides/elastic-and-transient-environments/index.md -> docs/reference/elastic-and-transient-environments/index.md
-docs/guides/elastic-and-transient-environments/cleaning-up-environments.md -> docs/reference/elastic-and-transient-environments/cleaning-up-environments.md
-docs/guides/elastic-and-transient-environments/deploying-to-transient-targets.md -> docs/reference/elastic-and-transient-environments/deploying-to-transient-targets.md
-docs/guides/elastic-and-transient-environments/immutable-infrastructure.md -> docs/reference/elastic-and-transient-environments/immutable-infrastructure.md
+docs/guides/elastic-and-transient-environments/index.md -> docs/infrastructure/envinroments/elastic-and-transient-environments/index.md
+docs/guides/elastic-and-transient-environments/cleaning-up-environments.md -> docs/infrastructure/environments/elastic-and-transient-environments/cleaning-up-environments.md
+docs/guides/elastic-and-transient-environments/deploying-to-transient-targets.md -> docs/infrastructure/environments/elastic-and-transient-environments/deploying-to-transient-targets.md
+docs/guides/elastic-and-transient-environments/immutable-infrastructure.md -> docs/infrastructure/environments/elastic-and-transient-environments/immutable-infrastructure.md
 docs/guides/server-extensibility/index.md -> docs/api-and-integration/server-extensibility/index.md
 docs/guides/server-extensibility/authoring-an-octopus-deploy-server-extension.md -> docs/api-and-integration/server-extensibility/authoring-an-octopus-deploy-server-extension.md
 docs/guides/server-extensibility/customising-an-octopus-deploy-server-extension.md -> docs/api-and-integration/server-extensibility/customising-an-octopus-deploy-server-extension.md
@@ -228,7 +228,7 @@ docs/guides/server-extensibility/building-an-authentication-provider/building-an
 docs/guides/service-fabric/index.md -> docs/reference/service-fabric/index.md
 docs/guides/service-fabric/packaging.md -> docs/reference/service-fabric/packaging.md
 docs/guides/service-fabric/version-automation-with-service-fabric-application-packages/index.md -> docs/reference/service-fabric/version-automation-with-service-fabric-application-packages/index.md
-docs/guides/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md -> docs/reference/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md
+docs/guides/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md -> docs/infrastructure/environments/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md
 docs/deploying-applications/deployment-process/projects/index.md -> docs/deployment-process/projects/index.md
 docs/deploying-applications/deployment-process/index.md -> docs/deployment-process/index.md
 docs/deploying-applications/deployment-process/releases/index.md -> docs/deployment-process/releases/index.md
@@ -369,3 +369,8 @@ docs/reference/log-files.md -> docs/support/log-files.md
 docs/reference/pci-compliance-and-octopus-deploy.md -> docs/administration/pci-compliance-and-octopus-deploy.md
 docs/reference/octopus-tentacle-communication/troubleshooting-schannel-and-tls.md -> docs/administration/octopus-tentacle-communication/troubleshooting-schannel-and-tls.md
 docs/reference/octopus-tentacle-communication/index.md -> docs/administration/octopus-tentacle-communication/index.md
+docs/reference/elastic-and-transient-environments/index.md -> docs/infrastructure/environments/elastic-and-transient-environments/index.md
+docs/reference/elastic-and-transient-environments/cleaning-up-environments.md -> docs/infrastructure/environments/elastic-and-transient-environments/cleaning-up-environments.md
+docs/reference/elastic-and-transient-environments/deploying-to-transient-targets.md -> docs/infrastructure/environments/elastic-and-transient-environments/deploying-to-transient-targets.md
+docs/reference/elastic-and-transient-environments/immutable-infrastructure.md -> docs/infrastructure/environments/elastic-and-transient-environments/immutable-infrastructure.md
+docs/reference/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md -> docs/infrastructure/environments/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md
