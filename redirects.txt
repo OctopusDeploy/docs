@@ -363,3 +363,4 @@ docs/reference/troubleshooting-authentication-problems.md -> docs/administration
 docs/administration/process-dumps.md -> docs/support/process-dumps.md
 docs/administration/docker/docker-run-with-networking.md -> docs/deploying-applications/docker-containers/docker-run-with-networking.md
 docs/administration/docker/index.md -> docs/deploying-applications/docker-containers/index.md
+docs/administration/script-modules.md -> docs/deploying-applications/custom-scripts/script-modules.md
