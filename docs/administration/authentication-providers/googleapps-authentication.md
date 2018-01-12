@@ -67,7 +67,7 @@ If you already have Octopus user accounts and you want to enable external authen
 
 ## Troubleshooting {#GoogleAppsauthentication-Troubleshooting}
 
-We do our best to log warnings to your Octopus Server log whenever possible. If you are having difficulty configuring Octopus to authenticate with GoogleApps, be sure to check your [server logs](/docs/reference/log-files.md) for warnings.
+We do our best to log warnings to your Octopus Server log whenever possible. If you are having difficulty configuring Octopus to authenticate with GoogleApps, be sure to check your [server logs](/docs/support/log-files.md) for warnings.
 
 ### Double and Triple check your configuration {#GoogleAppsauthentication-DoubleandTriplecheckyourconfiguration}
 

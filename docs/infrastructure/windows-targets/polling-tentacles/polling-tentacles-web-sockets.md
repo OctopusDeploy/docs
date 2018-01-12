@@ -48,7 +48,7 @@ To confirm that the server is successfully configured, open the listen address i
 If you get a connection refused or reset error, check the address and port and ensure a certificate is [configured](#certificate) for that address.
 
 If you get the other application that is listening on that port, ensure that your listen address has a [higher precedence](https://msdn.microsoft.com/en-us/library/windows/desktop/aa364698(v=vs.85).aspx) and that 
-the server sucessfully bound to that address in the [server log file](/docs/reference/log-files.md).
+the server sucessfully bound to that address in the [server log file](/docs/support/log-files.md).
 
 If you encounter a certificate warning, ignore it and continue. This warning is due to the certificate not having a valid chain of trust back to a trusted certificate authority. Octopus [trusts certificates directly](https://octopus.com/blog/why-self-signed-certificates).
 
