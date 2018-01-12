@@ -212,7 +212,7 @@ docs/guides/debugging-powershell-scripts.md -> docs/deploying-applications/custo
 docs/guides/user-role-&-teams-configurations/index.md -> docs/administration/managing-users-and-teams/index.md
 docs/guides/user-role-&-teams-configurations/creating-teams-for-a-user-with-mixed-environment-privileges.md -> docs/administration/managing-users-and-teams/creating-teams-for-a-user-with-mixed-environment-privileges.md
 docs/guides/docker/index.md -> docs/deploying-applications/docker-containers/index.md
-docs/guides/docker/docker-run-with-networking.md -> docs/administration/docker/docker-run-with-networking.md
+docs/guides/docker/docker-run-with-networking.md -> docs/deploying-applications/docker-containers/docker-run-with-networking.md
 docs/guides/index.md -> docs/getting-started.md
 docs/guides/elastic-and-transient-environments/index.md -> docs/reference/elastic-and-transient-environments/index.md
 docs/guides/elastic-and-transient-environments/cleaning-up-environments.md -> docs/reference/elastic-and-transient-environments/cleaning-up-environments.md
