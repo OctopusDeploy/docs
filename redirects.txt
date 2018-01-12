@@ -211,7 +211,7 @@ docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3
 docs/guides/debugging-powershell-scripts.md -> docs/deploying-applications/custom-scripts/debugging-powershell-scripts.md
 docs/guides/user-role-&-teams-configurations/index.md -> docs/administration/managing-users-and-teams/index.md
 docs/guides/user-role-&-teams-configurations/creating-teams-for-a-user-with-mixed-environment-privileges.md -> docs/administration/managing-users-and-teams/creating-teams-for-a-user-with-mixed-environment-privileges.md
-docs/guides/docker/index.md -> docs/administration/docker/index.md
+docs/guides/docker/index.md -> docs/deploying-applications/docker-containers/index.md
 docs/guides/docker/docker-run-with-networking.md -> docs/administration/docker/docker-run-with-networking.md
 docs/guides/index.md -> docs/getting-started.md
 docs/guides/elastic-and-transient-environments/index.md -> docs/reference/elastic-and-transient-environments/index.md
@@ -340,7 +340,7 @@ docs/reference/credits.md -> docs/credits.md
 docs/reference/variable-substitution-syntax.md -> docs/deployment-process/variable-substitution-syntax.md
 docs/reference/security-headers.md -> docs/administration/security-headers.md
 docs/reference/security-and-encryption.md -> docs/administration/security-and-encryption.md
-docs/reference/docker/index.md -> docs/administration/docker/index.md
+docs/reference/docker/index.md -> docs/deploying-applications/docker/index.md
 docs/reference/docker/docker-run-with-networking.md -> docs/administration/docker/docker-run-with-networking.md
 docs/reference/fips-and-octopus-deploy.md -> docs/administration/fips-and-octopus-deploy.md
 docs/reference/outbound-requests.md -> docs/administration/outbound-requests.md
@@ -362,3 +362,4 @@ docs/reference/server-extensibility/building-an-authentication-provider/building
 docs/reference/troubleshooting-authentication-problems.md -> docs/administration/troubleshooting-authentication-problems.md
 docs/administration/process-dumps.md -> docs/support/process-dumps.md
 docs/administration/docker/docker-run-with-networking.md -> docs/deploying-applications/docker-containers/docker-run-with-networking.md
+docs/administration/docker/index.md -> docs/deploying-applications/docker-containers/index.md
