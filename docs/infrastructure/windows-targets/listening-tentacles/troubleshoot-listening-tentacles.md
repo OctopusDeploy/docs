@@ -64,7 +64,7 @@ The Tentacle Manager usually shows correct service status, but it pays to double
 
 :::hint
 **If the services is not running...**
-If the Tentacle service is not running, you can try to start it from the Services applet. Allow 30 seconds for the service to start work, then refresh the Services screen. **If the Tentacle service keeps running**, go back to the Octopus Web Portal and try Health Checking the affected machine again. **If the service stops**, it is likely that the service is crashing during startup; this can be caused by a number of things, most of which can be diagnosed from the Tentacle log files. Inspect these yourself, and either send the [log files](/docs/reference/log-files.md) or extracts from them showing the issue to the Octopus Deploy Support email address for assistance.
+If the Tentacle service is not running, you can try to start it from the Services applet. Allow 30 seconds for the service to start work, then refresh the Services screen. **If the Tentacle service keeps running**, go back to the Octopus Web Portal and try Health Checking the affected machine again. **If the service stops**, it is likely that the service is crashing during startup; this can be caused by a number of things, most of which can be diagnosed from the Tentacle log files. Inspect these yourself, and either send the [log files](/docs/support/log-files.md) or extracts from them showing the issue to the Octopus Deploy Support email address for assistance.
 :::
 
 If the service is up and running, continue to the next step.
@@ -87,7 +87,7 @@ If you've made it this far, good news! Your Tentacle is running and ready to acc
 
 :::hint
 **If you can't browse to the page...**
-If this is where your journey ends, there's a problem on the Tentacle machine. It is very likely that the Tentacle is unable to open the communications port, either because of permissions, or because another process is listening on that port. Using the Windows `netstat -o -n -a -b` command can help to get to the bottom of this quickly. If you're still in trouble, check the Tentacle [log files](/docs/reference/log-files.md) and contact Octopus Deploy support.
+If this is where your journey ends, there's a problem on the Tentacle machine. It is very likely that the Tentacle is unable to open the communications port, either because of permissions, or because another process is listening on that port. Using the Windows `netstat -o -n -a -b` command can help to get to the bottom of this quickly. If you're still in trouble, check the Tentacle [log files](/docs/support/log-files.md) and contact Octopus Deploy support.
 :::
 
 ## Connect from the Octopus Server {#TroubleshootListeningTentacles-ConnectfromtheOctopusServer}

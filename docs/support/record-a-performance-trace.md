@@ -19,7 +19,7 @@ We use [JetBrains dotTrace](https://www.jetbrains.com/profiler/) to record and a
 ## Getting prepared
 
 1. Download and install a trial of [JetBrains dotTrace](https://www.jetbrains.com/profiler/) on your Octopus Server
-2. [Enable detailed Octopus logging](/docs/reference/log-files.md) - doesn't require a restart
+2. [Enable detailed Octopus logging](/docs/support/log-files.md) - doesn't require a restart
 3. Start recording CPU, RAM and Disk I/O using performance monitor (or similar)
 
 ## Recording the performance trace
