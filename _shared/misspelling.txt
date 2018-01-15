@@ -1449,7 +1449,6 @@ specialise
 specialised
 specialises
 specialising
-spectre
 spectres
 spiralled
 spiralling
