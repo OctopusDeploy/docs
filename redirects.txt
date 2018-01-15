@@ -327,7 +327,8 @@ docs/administration/use-iis-as-reverse-proxy.md -> docs/administration/security/
 docs/how-to/specifying-a-custom-container-to-use-for-ad-authentication.md -> docs/administration/specifying-a-custom-container-to-use-for-ad-authentication.md
 docs/how-to/enable-web-request-logging.md -> docs/administration/enable-web-request-logging.md
 docs/how-to/how-to-run-steps-on-the-octopus-server.md -> docs/deployment-process/how-to-run-steps-on-the-octopus-server.md
-docs/how-to/how-to-use-custom-certificates-with-octopus-server-and-tentacle.md -> docs/administration/how-to-use-custom-certificates-with-octopus-server-and-tentacle.md
+docs/how-to/how-to-use-custom-certificates-with-octopus-server-and-tentacle.md -> docs/administration/security/octopus-tentacle-communication/how-to-use-custom-certificates-with-octopus-server-and-tentacle.md
+docs/administration/how-to-use-custom-certificates-with-octopus-server-and-tentacle.md -> docs/administration/security/octopus-tentacle-communication/how-to-use-custom-certificates-with-octopus-server-and-tentacle.md
 docs/how-to/sensitive-properties-api-changes-in-release-3.3.md -> docs/api-and-integration/api/sensitive-properties-api-changes-in-release-3.3.md
 docs/how-to/migrate-azure-targets-into-azure-steps.md -> docs/deployment-process/migrate-azure-targets-into-azure-steps.md
 docs/how-to/run-tentacle-under-a-specific-user.md -> docs/administration/run-tentacle-under-a-specific-user.md
