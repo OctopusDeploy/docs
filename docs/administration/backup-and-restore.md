@@ -1,5 +1,5 @@
 ---
-title: Backup and restore
+title: Backup and Restore
 description: Information on where Octopus data is stored and how to backup and restore an Octopus instance.
 position: 100
 ---
@@ -8,6 +8,9 @@ A successful disaster recovery plan for Octopus Deploy requires the ability to r
 
 1. The Octopus [SQL Server database](/docs/administration/octopus-database/index.md)
 2. The Octopus [data stored on the file system](/docs/administration/server-configuration-and-file-storage/index.md)
+
+
+
 
 :::problem
 **Without your master key, backups are useless**
