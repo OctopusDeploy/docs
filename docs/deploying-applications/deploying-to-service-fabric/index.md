@@ -36,8 +36,8 @@ Octopus also provides an option for connecting to Service Fabric clusters secure
 
 ### Versioning
 
-To learn more about how you can automate Service Fabric versioning with Octopus, see our guide on [Version Automation with Service Fabric application packages](/docs/reference/service-fabric/version-automation-with-service-fabric-application-packages/index.md).
+To learn more about how you can automate Service Fabric versioning with Octopus, see our guide on [Version Automation with Service Fabric application packages](/docs/deploying-applications/service-fabric/version-automation-with-service-fabric-application-packages/index.md).
 
 ### Application Packaging
 
-To learn more about the requirements for your Service Fabric application packages, see our guide to [Packaging a Service Fabric application](/docs/reference/service-fabric/packaging.md).
+To learn more about the requirements for your Service Fabric application packages, see our guide to [Packaging a Service Fabric application](/docs/deploying-applications/service-fabric/packaging.md).
