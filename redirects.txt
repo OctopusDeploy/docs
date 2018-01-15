@@ -371,7 +371,7 @@ docs/administration/docker/index.md -> docs/deploying-applications/docker-contai
 docs/administration/script-modules.md -> docs/deploying-applications/custom-scripts/script-modules.md
 docs/reference/troubleshooting-aws-transport-error.md -> docs/support/troubleshooting-aws-transport-error.md
 docs/reference/log-files.md -> docs/support/log-files.md
-docs/reference/pci-compliance-and-octopus-deploy.md -> docs/administration/pci-compliance-and-octopus-deploy.md
+docs/reference/pci-compliance-and-octopus-deploy.md -> docs/administration/security/pci-compliance-and-octopus-deploy.md
 docs/administration/pci-compliance-and-octopus-deploy.md -> docs/administration/security/pci-compliance-and-octopus-deploy.md
 docs/reference/octopus-tentacle-communication/troubleshooting-schannel-and-tls.md -> docs/administration/octopus-tentacle-communication/troubleshooting-schannel-and-tls.md
 docs/reference/octopus-tentacle-communication/index.md -> docs/administration/octopus-tentacle-communication/index.md
