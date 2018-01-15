@@ -1,7 +1,7 @@
 ---
 title: HTTP Security Headers
 description: Describes the security related browser headers that Octopus supports
-position: 19
+position: 1
 ---
 
 ## Octopus Web Portal

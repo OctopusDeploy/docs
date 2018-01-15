@@ -1,7 +1,7 @@
 ---
 title: Exposing Octopus
 description: You can keep your Octopus installation inside your corporate network, or you may want to expose it to the internet. This section describes how to safely expose your Octopus installation and the security implications you should consider.
-position: 3
+position: 1
 ---
 
 Your entire Octopus installation and all of the targets you deploy to could be contained safely within your corporate network. This is nice from a security perspective, however you may want your team to access Octopus from outside your corporate network, or you may need to deploy to servers outside your corporate network. This section will help you plan your Octopus installation and help you understand the security implications of different network topologies.
