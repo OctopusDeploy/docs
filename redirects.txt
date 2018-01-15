@@ -342,7 +342,8 @@ docs/reference/security-headers.md -> docs/administration/security-headers.md
 docs/reference/security-and-encryption.md -> docs/administration/security-and-encryption.md
 docs/reference/docker/index.md -> docs/deploying-applications/docker-containers/index.md
 docs/reference/docker/docker-run-with-networking.md -> docs/deploying-applications/docker-containers/docker-run-with-networking.md
-docs/reference/fips-and-octopus-deploy.md -> docs/administration/fips-and-octopus-deploy.md
+docs/reference/fips-and-octopus-deploy.md -> docs/administration/security/cve/fips-and-octopus-deploy.md
+docs/administration/fips-and-octopus-deploy.md -> docs/administration/security/cve/fips-and-octopus-deploy.md
 docs/reference/outbound-requests.md -> docs/administration/outbound-requests.md
 docs/reference/octopus-ha/load-balancers/configuring-netscaler.md -> docs/administration/high-availability/configuring-netscaler.md
 docs/reference/octopus-ha/index.md -> docs/administration/high-availability/index.md
