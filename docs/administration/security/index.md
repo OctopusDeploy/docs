@@ -12,7 +12,7 @@ This section provides information about the responsibility we take to provide a 
 
 Octopus Deploy encrypts any data which we deem to be sensitive. You can also instruct Octopus Deploy to encrypt sensitive variables which can be used as part of your deployments.
 
-Learn about [data encryption](/docs/administration/security-and-encryption.md) and [sensitive variables](/docs/deployment-process/variables/sensitive-variables.md).
+Learn about [data encryption](/docs/administration/security/data-encryption.md) and [sensitive variables](/docs/deployment-process/variables/sensitive-variables.md).
 
 ## Secure communication
 

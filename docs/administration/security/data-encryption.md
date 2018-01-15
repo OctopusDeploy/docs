@@ -1,6 +1,6 @@
 ---
-title: Security and encryption
-description: End-to-end details of how Octopus is secured and data is encrypted.
+title: Data encryption
+description: This section describes how Octopus Deploy encrypts sensitive data at rest.
 position: 1
 ---
 

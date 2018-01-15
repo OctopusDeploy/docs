@@ -12,7 +12,7 @@ Your entire Octopus installation and all of the targets you deploy to could be c
 
 We take security very seriously at Octopus Deploy and have gone to great lengths to protect your privacy and security.
 
-Learn more about [how Octopus handles security and encryption of your data](/docs/administration/security-and-encryption.md).
+Learn more about [how Octopus handles security and encryption of your data](/docs/administration/security/data-encryption.md).
 
 Learn more about [how Octopus communicates with Tentacle](/docs/administration/octopus-tentacle-communication/index.md).
 
