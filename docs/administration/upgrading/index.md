@@ -15,7 +15,7 @@ Octopus 4 has been released! Go [download it now](https://octopus.com/downloads)
 Before you start your upgrade, you should take time to:
 
 - Test your [backup and restore process](/docs/administration/backup-and-restore.md)
-- Learn about [maintenance mode](/docs/administration/maintenance-mode.md)
+- Learn about [maintenance mode](/docs/administration/upgrading/maintenance-mode.md)
 - [Plan your upgrade](#upgrade-path)
 
 ## Upgrade path {#upgrade-path}

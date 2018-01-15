@@ -382,3 +382,4 @@ docs/reference/elastic-and-transient-environments/deploying-to-transient-targets
 docs/reference/elastic-and-transient-environments/immutable-infrastructure.md -> docs/infrastructure/environments/elastic-and-transient-environments/immutable-infrastructure.md
 docs/reference/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md -> docs/infrastructure/environments/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md
 docs/administration/lets-encrypt-integration.md -> docs/administration/security/exposing-octopus/lets-encrypt-integration.md
+docs/administration/maintenance-mode.md -> docs/administration/upgrading/maintenance-mode.md
