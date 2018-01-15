@@ -339,7 +339,8 @@ docs/how-to/export-and-import-tentacle-certificates-without-a-profile.md -> docs
 docs/how-to/index.md -> docs/getting-started.md
 docs/reference/credits.md -> docs/credits.md
 docs/reference/variable-substitution-syntax.md -> docs/deployment-process/variable-substitution-syntax.md
-docs/reference/security-headers.md -> docs/administration/security-headers.md
+docs/reference/security-headers.md -> docs/administration/http-security-headers.md
+docs/administration/security-headers.md -> docs/administration/security/http-security-headers.md
 docs/reference/security-and-encryption.md -> docs/administration/security/data-encryption.md
 docs/administration/security-and-encryption.md -> docs/administration/security/data-encryption.md
 docs/reference/docker/index.md -> docs/deploying-applications/docker-containers/index.md
