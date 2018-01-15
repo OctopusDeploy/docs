@@ -1,6 +1,7 @@
 ---
 title: Project Coordination Code Samples
 description: Project Coordination guide Code Samples that show how to perform various tasks covered in the guide.
+position: 2
 ---
 
 These samples show how to perform various tasks related to project coordination.
