@@ -392,3 +392,4 @@ docs/administration/maintenance-mode.md -> docs/administration/upgrading/mainten
 docs/reference/service-fabric/index.md -> docs/deploying-applications/service-fabric/index.md
 docs/reference/service-fabric/packaging.md -> docs/deploying-applications/service-fabric/packaging.md
 docs/reference/service-fabric/version-automation-with-service-fabric-application-packages/index.md -> docs/deploying-applications/service-fabric/version-automation-with-service-fabric-application-packages/index.md
+docs/reference/index.md -> docs/getting-started.md
