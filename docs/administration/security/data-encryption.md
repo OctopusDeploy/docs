@@ -5,7 +5,7 @@ position: 1
 ---
 
 :::hint
-This section focuses on securing data in the [Octopus database](/docs/administration/octopus-database/index.md), [backup files](/docs/administration/backup-and-restore.md), and other settings in the registry and on disk. For information on how Octopus secures data between Octopus and Tentacles, see [Octopus - Tentacle communication](/docs/administration/octopus-tentacle-communication/index.md).
+This section focuses on securing data in the [Octopus database](/docs/administration/octopus-database/index.md), [backup files](/docs/administration/backup-and-restore.md), and other settings in the registry and on disk. For information on how Octopus secures data between Octopus and Tentacles, see [Octopus - Tentacle communication](/docs/administration/security/octopus-tentacle-communication/index.md).
 :::
 
 When an Octopus server is installed, we generate a special key used for encryption, called the **master key**. The master key is then encrypted asymmetrically, using [DPAPI](http://msdn.microsoft.com/en-us/library/ms995355.aspx), and stored in the Octopus configuration file.
@@ -13,7 +13,7 @@ When an Octopus server is installed, we generate a special key used for encrypti
 The master key is then used along with [AES-128](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) to encrypt certain sensitive data in the Octopus database, including:
 
 - [Sensitive variables](/docs/deployment-process/variables/sensitive-variables.md)
-- Private keys used for [Octopus/Tentacle](/docs/administration/octopus-tentacle-communication/index.md) communication, and for authenticating with [Azure](/docs/infrastructure/azure/index.md) and [SSH endpoints](/docs/infrastructure/ssh-targets/configuring-ssh-connection.md)
+- Private keys used for [Octopus/Tentacle](/docs/administration/security/octopus-tentacle-communication/index.md) communication, and for authenticating with [Azure](/docs/infrastructure/azure/index.md) and [SSH endpoints](/docs/infrastructure/ssh-targets/configuring-ssh-connection.md)
 - Credentials used to authenticate with [SSH](/docs/infrastructure/ssh-targets/username-and-password.md) (for username/password auth) and [external NuGet feeds](/docs/packaging-applications/package-repositories/index.md)
 
 The practical impact of this is:

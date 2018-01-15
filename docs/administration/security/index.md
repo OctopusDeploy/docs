@@ -18,7 +18,7 @@ Learn about [data encryption](/docs/administration/security/data-encryption.md) 
 
 Your Octopus Server communicates with the machines you configure as targets for your deployments using transport encryption and tamper proofing techniques.
 
-Learn about [secure communication](/docs/administration/octopus-tentacle-communication/index.md).
+Learn about [secure communication](/docs/administration/security/octopus-tentacle-communication/index.md).
 
 ## Safely exposing your Octopus Deploy installation
 
