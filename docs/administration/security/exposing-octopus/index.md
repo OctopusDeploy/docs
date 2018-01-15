@@ -57,7 +57,7 @@ If you are not using Polling Tentacles you can keep that port closed on your fir
 
 The Octopus Server generally makes outbound requests according to your specific deployment scenarios, like sending instructions to a Listening Tentacle or SSH endpoint, or reaching out to an external web service. You should consider the security implications related to your Octopus Server and outbound requests to design a set of network restrictions which balance security and usability.
 
-Learn more about [outbound requests](/docs/administration/outbound-requests.md).
+Learn more about [outbound requests](/docs/administration/security/outbound-requests.md).
 
 ### Proxy servers
 
