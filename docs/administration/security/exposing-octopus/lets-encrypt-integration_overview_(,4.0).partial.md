@@ -1,10 +1,10 @@
 Let's Encrypt integration can be found under {{Configuration,Certificates}}.
 
-![](/docs/administration/lets-encrypt.png "width=758")
+![](lets-encrypt.png "width=758")
 
 To enable, click the `Configure` button under the **Octopus Portal Let's Encrypt Integration** heading.
 
-![](/docs/administration/lets-encrypt-dialog.png "width=614")
+![](lets-encrypt-dialog.png "width=614")
 
 From the list of bindings that Octopus currently listens on, choose the one that you want to have the new SSL certificate. If you choose a HTTP binding, you will need to enter the port number that you wish to use for HTTPS.
 

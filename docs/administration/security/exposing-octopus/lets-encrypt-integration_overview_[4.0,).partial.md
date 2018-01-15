@@ -1,10 +1,10 @@
 Let's Encrypt integration can be found under {{Configuration,Let's Encrypt}}.
 
-![](/docs/administration/lets-encrypt.png "width=758")
+![](lets-encrypt.png "width=758")
 
 To enable, click the `Configure` button.
 
-![](/docs/administration/lets-encrypt-dialog.png "width=614")
+![](lets-encrypt-dialog.png "width=614")
 
 Enter the DNS name that you want to have on the new SSL certificate. Do not enter a prefix such as `http://` or `https://`.
 
