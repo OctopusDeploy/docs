@@ -25,8 +25,6 @@ docs/api-and-integration/visual-studio-team-services-vsts -> docs/api-and-integr
 docs/api-and-integration/team-foundation-server-tfs -> docs/api-and-integration/tfs-vsts/index.md
 docs/guides/use-the-team-foundation-build-custom-task/extension-compatibility -> docs/api-and-integration/tfs-vsts/using-octopus-extension/extension-compatibility.md
 docs/guides/use-the-team-foundation-build-custom-task/manually-install-the-build-task -> docs/api-and-integration/tfs-vsts/using-octopus-extension/manually-install-the-build-task.md
-docs/images/lets-encrypt-integration/configure-lets-encrypt-dialog.png -> docs/administration/lets-encrypt-dialog.png
-docs/images/lets-encrypt-integration/configure-lets-encrypt.png -> docs/administration/lets-encrypt.png
 docs/administration/subscription_events.md -> docs/administration/subscription-events.md
 docs/installation/installing-tentacles/running-tentacle-under-a-specific-user-account-for-use-in-powershell.md -> docs/infrastructure/windows-targets/running-tentacle-under-a-specific-user-account.md
 docs/reference/download-permalinks.md -> docs/installation/index.md
@@ -383,3 +381,4 @@ docs/reference/elastic-and-transient-environments/cleaning-up-environments.md ->
 docs/reference/elastic-and-transient-environments/deploying-to-transient-targets.md -> docs/infrastructure/environments/elastic-and-transient-environments/deploying-to-transient-targets.md
 docs/reference/elastic-and-transient-environments/immutable-infrastructure.md -> docs/infrastructure/environments/elastic-and-transient-environments/immutable-infrastructure.md
 docs/reference/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md -> docs/infrastructure/environments/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md
+docs/administration/lets-encrypt-integration.md -> docs/administration/security/exposing-octopus/lets-encrypt-integration.md
