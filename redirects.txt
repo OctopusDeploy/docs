@@ -223,9 +223,9 @@ docs/guides/server-extensibility/installing-a-custom-server-extension.md -> docs
 docs/guides/server-extensibility/building-an-authentication-provider/index.md -> docs/api-and-integration/server-extensibility/building-an-authentication-provider/index.md
 docs/guides/server-extensibility/building-an-authentication-provider/building-a-forms-based-authentication-provider.md -> docs/api-and-integration/server-extensibility/building-an-authentication-provider/building-a-forms-based-authentication-provider.md
 docs/guides/server-extensibility/building-an-authentication-provider/building-an-external-authentication-provider.md -> docs/api-and-integration/server-extensibility/building-an-authentication-provider/building-an-external-authentication-provider.md
-docs/guides/service-fabric/index.md -> docs/reference/service-fabric/index.md
-docs/guides/service-fabric/packaging.md -> docs/reference/service-fabric/packaging.md
-docs/guides/service-fabric/version-automation-with-service-fabric-application-packages/index.md -> docs/reference/service-fabric/version-automation-with-service-fabric-application-packages/index.md
+docs/guides/service-fabric/index.md -> docs/deploying-applications/service-fabric/index.md
+docs/guides/service-fabric/packaging.md -> docs/deploying-applications/service-fabric/packaging.md
+docs/guides/service-fabric/version-automation-with-service-fabric-application-packages/index.md -> docs/deploying-applications/service-fabric/version-automation-with-service-fabric-application-packages/index.md
 docs/guides/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md -> docs/infrastructure/environments/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md
 docs/deploying-applications/deployment-process/projects/index.md -> docs/deployment-process/projects/index.md
 docs/deploying-applications/deployment-process/index.md -> docs/deployment-process/index.md
