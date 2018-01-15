@@ -36,7 +36,7 @@ Once a person has verified their identity, you can control which activities thes
 
 Learn about [managing users and teams](/docs/administration/managing-users-and-teams/index.md).
 
-# Auditing
+## Auditing
 
 Arguably one of the most appreciated features in Octopus Deploy is our support for detailed auditing of important activity.
 
