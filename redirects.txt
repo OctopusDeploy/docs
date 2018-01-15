@@ -379,7 +379,7 @@ docs/reference/pci-compliance-and-octopus-deploy.md -> docs/administration/secur
 docs/administration/pci-compliance-and-octopus-deploy.md -> docs/administration/security/pci-compliance-and-octopus-deploy.md
 docs/reference/octopus-tentacle-communication/troubleshooting-schannel-and-tls.md -> docs/administration/security/octopus-tentacle-communication/troubleshooting-schannel-and-tls.md
 docs/administration/octopus-tentacle-communication/troubleshooting-schannel-and-tls.md -> docs/administration/security/octopus-tentacle-communication/troubleshooting-schannel-and-tls.md
-docs/reference/octopus-tentacle-communication/index.md -> docs/administration/octopus-tentacle-communication/index.md
+docs/reference/octopus-tentacle-communication/index.md -> docs/administration/security/octopus-tentacle-communication/index.md
 docs/administration/octopus-tentacle-communication/index.md -> docs/administration/security/octopus-tentacle-communication/index.md
 docs/reference/elastic-and-transient-environments/index.md -> docs/infrastructure/environments/elastic-and-transient-environments/index.md
 docs/reference/elastic-and-transient-environments/cleaning-up-environments.md -> docs/infrastructure/environments/elastic-and-transient-environments/cleaning-up-environments.md
