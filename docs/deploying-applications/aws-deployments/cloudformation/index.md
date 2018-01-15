@@ -1,7 +1,6 @@
 ---
 title: Deploy Using an AWS CloudFormation
 description:  Deploy Using an AWS CloudFormation.
-version: "[4.3,)"
 ---
 
 ## Error Messages
