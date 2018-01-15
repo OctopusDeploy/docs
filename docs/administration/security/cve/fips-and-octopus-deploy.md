@@ -1,7 +1,7 @@
 ---
 title: FIPS and Octopus Deploy
 description: Details of using Octopus Deploy in a FIPS compliant environment.
-position: 4
+position: 1
 ---
 
 We take every reasonable effort to make Octopus Server, Tentacle and Calamari FIPS 140 compliant. If something is not FIPS 140 compliant we will take every reasonable effort to fix the problem, or otherwise degrade the feature gracefully.
