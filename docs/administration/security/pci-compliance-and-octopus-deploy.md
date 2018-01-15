@@ -1,7 +1,7 @@
 ---
 title: PCI Compliance and Octopus Deploy
 description: Using Octopus Deploy in PCI compliant environments.
-position: 5
+position: 1
 ---
 
 We have a lot of customers running Octopus Deploy in their PCI compliant environments. We don't claim to be experts in PCI compliance, especially since every situation is slightly different. What we can do is offer some recommendations primarily focused on your use of Octopus Deploy and different models you can achieve with it.
