@@ -62,10 +62,10 @@ The supplied account can optionally be used to assume a second role. This can be
 
 Under the `CloudFormation` section, the AWS region and stack name need to be defined.
 
-You can also optionally wait for the stack to complete before finishing the step by selecting the `Wait for completion` checkbox.
+You can also optionally wait for the stack to be deleted completely before finishing the step by selecting the `Wait for completion` checkbox.
 
 :::hint
-Unselecting the `Wait for completion` checkbox will allow the step to complete once that CloudFormation process has been started. However unselecting the option means that the step will not fail if the CloudFormation stack removal fails.
+Unselecting the `Wait for completion` checkbox will allow the step to complete once that CloudFormation deletion has been initiated. However unselecting the option means that the step will not fail if the CloudFormation stack deletion fails.
 :::
 
 ![AWS Region](step-aws-region.png "width=500")
