@@ -1,11 +1,12 @@
 ---
 title: Deploy Using an AWS CloudFormation
 description:  Deploy Using an AWS CloudFormation.
+version: "[4.3,)"
 ---
 
 Octopus supports the deployment of AWS CloudFormation templates through the `Deploy a CloudFormation Template` step. This step executes a CloudFormation template using AWS credentials managed by Octopus, and captures the CloudFormation outputs as Octopus output variables.
 
-The following steps can be followed to configure the `Deploy a CloudFormation Template` step.
+The proceeding instructions can be followed to configure the `Deploy a CloudFormation Template` step.
 
 ## Create an AWS Account
 
@@ -77,7 +78,7 @@ Unselecting the `Wait for completion` checkbox will allow the step to complete o
 
 ### Template Section
 
-The CloudFormation template can come from two sources.
+The CloudFormation template can come from two sources: directly entered source code or from files in a package.
 
 #### Source Code
 
