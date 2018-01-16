@@ -1,6 +1,6 @@
 ---
-title: Running Scripts Against the AWS CLI
-description:  Running Scripts Against the AWS CLI.
+title: AWS CLI PowerShell Scripts
+description: AWS CLI PowerShell Scripts.
 ---
 
 Octopus allows you to write custom Powershell scripts that have access to the AWS CLI in an environment that handles authentication using an Octopus managed AWS account. This is done via the `Run an AWS CLI Script` step.
@@ -68,6 +68,8 @@ The default AWS region in which to execute AWS CLI commands is defined in the `R
 ![AWS Region](step-aws-region.png "width=500")
 
 ## Script Section
+
+PowerShell scripts run by the `Run an AWS CLI Script` step have access to the AWS CLI executable `aws` on the path. In addition the environment variables `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_DEFAULT_REGION` are configured. The `AWS_SESSION_TOKEN` environment variable is also configured if the script was run against an assumed role, or if the role assigned to the EC2 instance running the script (i.e. the Octopus server) was used.
 
 Scripts can be run from two different locations: source code added to the step, or a script from a package.
 
