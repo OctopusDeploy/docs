@@ -184,7 +184,7 @@ The `Octopus URL` field defines the URL of the Octopus Deploy server that the pa
 
 #### API key
 
-The `API key` field defines the API key that is used to authenticate with the Octopus Deploy server. See [How to create an API key](/docs/api-and-integration/how-to-create-an-api-key) for more information.
+The `API key` field defines the API key that is used to authenticate with the Octopus Deploy server. See [How to create an API key](/docs/api-and-integration/api/how-to-create-an-api-key) for more information.
 
 #### Octopus CLI
 The `Octopus CLI` field references a [Bamboo capability](https://confluence.atlassian.com/bamboo/capability-289277445.html) that defines the path to the Octopus Deploy Command Line tool.
