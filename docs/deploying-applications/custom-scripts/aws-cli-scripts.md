@@ -12,7 +12,7 @@ The proceeding instructions can be followed to configure the `Run an AWS CLI Scr
 
 AWS steps can use an Octopus managed AWS account for authentication. This account must first be created under {{Infrastructure>Accounts}} by clicking the `ADD ACCOUNT` button in the `Amazon Web Services Account` section.
 
-::hint
+:::hint
 AWS steps can also defer to the IAM role assigned to the instance that hosts the Octopus server for authentication. In this scenario there is no need to create the AWS account.
 :::
 
