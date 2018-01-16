@@ -36,7 +36,7 @@ For a package to be made available to the deployment steps, it first must be add
 
 The Octopus library accepts files with the `jar`, `war`, `ear` and `rar` file extensions.
 
-The package filenames have to adhere to the standard Octopus [versioning rules](https://octopus.com/docs/packaging-applications/versioning-in-octopus-deploy), which are based on the SemVer format.
+The package filenames have to adhere to the standard Octopus [versioning rules](/docs/packaging-applications/versioning-in-octopus-deploy.md), which are based on the SemVer format.
 
 :::hint
 Java packages tend to be formatted with Maven versioning schemes. Maven versions are mostly compatible with SemVer, but the two versioning schemes are not identical.
@@ -44,7 +44,7 @@ Java packages tend to be formatted with Maven versioning schemes. Maven versions
 See the section [Building SemVer Compatible Artifacts](#building_semver_compatible_artifacts) for tips on creating valid package filenames from builds tools like Maven and Gradle.
 :::
 
-Valid packages can then be added to the library using the [web based interface, or using the CLI tool](https://octopus.com/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository).
+Valid packages can then be added to the library using the [web based interface, or using the CLI tool](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md).
 
 #### <a name="building_semver_compatible_artifacts"></a>Building SemVer Compatible Artifacts
 The most common incompatibility between Maven and SemVer formatting comes from the use of a dash to separate the package name from the version.
@@ -296,7 +296,7 @@ The following steps can be used to deploy an application via a file copy to an a
 
 ## Variable Substitution in Java Packages
 
-Octopus provides the [ability to replace variables in packages during deployment](https://octopus.com/docs/deploying-applications/substitute-variables-in-files). This is done using a [specific syntax](https://octopus.com/docs/reference/variable-substitution-syntax) implemented by the [Octostash](https://github.com/OctopusDeploy/Octostache) library.
+Octopus provides the [ability to replace variables in packages during deployment](/docs/deployment-process/substitute-variables-in-files). This is done using a [specific syntax](/docs/deployment-process/variable-substitution-syntax) implemented by the [Octostash](https://github.com/OctopusDeploy/Octostache) library.
 
 The syntax used by Octostash and Java libraries such as Spring do overlap, so care must be taken to ensure that files intended to be used as Octostash templates during deployment don't interfere with local development.
 

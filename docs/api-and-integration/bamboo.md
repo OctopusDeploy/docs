@@ -4,11 +4,11 @@ description: Octopus Deploy and Bamboo can work together to make automated, cont
 position: 3
 ---
 
-The Octopus Deploy add-on for Bamboo allows packages to be uploaded to an Octopus Deploy server, as well as creating, deploying and promoting releases to your Octopus Deploy [environments](docs/infrastructure/environments/index.md). The add-on does this by running the [Octopus Deploy Command Line tool](https://octopus.com/docs/api-and-integration/octo.exe-command-line).
+The Octopus Deploy add-on for Bamboo allows packages to be uploaded to an Octopus Deploy server, as well as creating, deploying and promoting releases to your Octopus Deploy [environments](docs/infrastructure/environments/index.md). The add-on does this by running the [Octopus Deploy Command Line tool](/docs/api-and-integration/octo.exe-command-line/index.md).
 
 ## Getting Started
 
-The plugin relies on a local copy of the Octopus Deploy Command Line tool being available to the build agent. The command line tool can be downloaded from the [Octopus Deploy Download](https://octopus.com/docs/api-and-integration/octo.exe-command-line) page.
+The plugin relies on a local copy of the Octopus Deploy Command Line tool being available to the build agent. The command line tool can be downloaded from the [Octopus Deploy Download](/docs/api-and-integration/octo.exe-command-line/index.md) page.
 
 Note that while the command line tool package is largely self contained, some Linux distributions require additional libraries to be installed before .NET Core applications will run. These packages are documented at the [Get started with .NET Core](https://www.microsoft.com/net/core) website.
 
@@ -32,14 +32,14 @@ There are a number of typical steps that are required to push a package to Octop
 We'll assume that there is already a Bamboo build plan in place that successfully builds an application.
 
 ### 2. Create the Package
-With the application built, we need to add it to an archive that complies with the Octopus Deploy [versioning requirements](https://octopus.com/docs/packaging-applications/versioning-in-octopus-deploy). In this example we will stick to a simple `AppName.Major.Minor.Patch` semver format.
+With the application built, we need to add it to an archive that complies with the Octopus Deploy [versioning requirements](/docs/packaging-applications/versioning-in-octopus-deploy.md). In this example we will stick to a simple `AppName.Major.Minor.Patch` semver format.
 
 Creating the package is done with the `Octopus Deploy: Pack Packages` task. In addition to the [common configuration fields](#commonConfiguration), this task requires the name of the package, the type of package to create, the version number of the package, the base folder containing the files to be packaged, paths to be included in the package, and enabling any existing package files to be overwritten.
 
-This steps runs the [pack command](https://octopus.com/docs/packaging-applications/nuget-packages/using-octo.exe) on the command line tool.
+This steps runs the [pack command](/docs/packaging-applications/creating-packages/nuget-packages/using-octo.exe.md) on the command line tool.
 
 :::hint
-If you are building .NET applications on an instance of Bamboo hosted on Windows, you may prefer to use [OctoPack](https://octopus.com/docs/packaging-applications/nuget-packages/using-octopack) to build a package instead of manually packaging the application with the `Octopus Deploy: Pack Packages` task.
+If you are building .NET applications on an instance of Bamboo hosted on Windows, you may prefer to use [OctoPack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md) to build a package instead of manually packaging the application with the `Octopus Deploy: Pack Packages` task.
 :::
 
 #### Package ID
@@ -81,7 +81,7 @@ Selecting the `Overwrite existing package` option means that any existing local 
 
 Pushing the package to Octopus Deploy is done with the `Octopus Deploy: Push Packages` task. In addition to the [common configuration fields](#commonConfiguration), this task requires the paths to the packages to be pushed and forcing package uploads.
 
-This step runs the [push command](https://octopus.com/docs/api-and-integration/octo.exe-command-line/pushing-packages) on the command line tool.
+This step runs the [push command](/docs/api-and-integration/octo.exe-command-line/pushing-packages.md) on the command line tool.
 
 #### Package paths
 
@@ -103,7 +103,7 @@ Tick this option, as it allows a build to be rebuilt and the new package to be p
 
 Creating a release is done with the `Octopus Deploy: Create Release` task. In addition to the [common configuration fields](#commonConfiguration), this task requires the Octopus Deploy project to create the release for and the version number of the release.
 
-This steps runs the [create-release command](https://octopus.com/docs/api-and-integration/octo.exe-command-line/creating-releases) on the command line tool.
+This steps runs the [create-release command](/docs/api-and-integration/octo.exe-command-line/creating-releases.md) on the command line tool.
 
 #### Project
 
@@ -135,7 +135,7 @@ Tick this option, as it allows builds to be rebuilt. Otherwise rebuilds will att
 
 Releases can be deployed with the `Octopus Deploy: Deploy Release` task. In addition to the [common configuration fields](#commonConfiguration), this task requires the Octopus Deploy project to deploy, the environments to deploy to, and the release number to deploy.
 
-This steps runs the [deploy-release command](https://octopus.com/docs/api-and-integration/octo.exe-command-line/deploying-releases) on the command line tool.
+This steps runs the [deploy-release command](/docs/api-and-integration/octo.exe-command-line/deploying-releases.md) on the command line tool.
 
 #### Project
 
@@ -155,7 +155,7 @@ The `Release Number` field defines the release version number to deploy. This sh
 
 Releases can be promoted to new environments with the `Octopus Deploy: Promote Release` task. In addition to the [common configuration fields](#commonConfiguration), this task requires the Octopus Deploy project to deploy, the environment to promote from, and the environment to promote to.
 
-This steps runs the [promote-release command](https://octopus.com/docs/api-and-integration/octo.exe-command-line/promoting-releases) on the command line tool.
+This steps runs the [promote-release command](/docs/api-and-integration/octo.exe-command-line/promoting-releases.md) on the command line tool.
 
 :::warning
 Because the promotion from one environment to another is not tied to any particular release number, adding this task to a Bamboo build plan means every time the plan is run (or more importantly rerun), releases will be promoted between environments. This is almost certainly not the desired result, and so it is not recommended that promotions be done as part of a Bamboo build plan.
@@ -184,7 +184,7 @@ The `Octopus URL` field defines the URL of the Octopus Deploy server that the pa
 
 #### API key
 
-The `API key` field defines the API key that is used to authenticate with the Octopus Deploy server. See [How to create an API key](https://octopus.com/docs/how-to/how-to-create-an-api-key) for more information.
+The `API key` field defines the API key that is used to authenticate with the Octopus Deploy server. See [How to create an API key](/docs/api-and-integration/how-to-create-an-api-key) for more information.
 
 #### Octopus CLI
 The `Octopus CLI` field references a [Bamboo capability](https://confluence.atlassian.com/bamboo/capability-289277445.html) that defines the path to the Octopus Deploy Command Line tool.
@@ -201,7 +201,7 @@ The `Enable debug logging` option is used to enable detailed logging from the co
 
 The `Additional command line arguments` field is used to specify additional arguments to pass to the command line tool.
 You can find more information on the arguments accepted by the command line tool at the
-[Octo.exe Command Line](https://octopus.com/docs/api-and-integration/octo.exe-command-line) page.
+[Octo.exe Command Line](/docs/api-and-integration/octo.exe-command-line/index.md) page.
 
 ## Using Bamboo Deployment Plans
 

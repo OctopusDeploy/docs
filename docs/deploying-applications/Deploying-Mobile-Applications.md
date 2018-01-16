@@ -22,5 +22,5 @@ The next option we can suggest looking into is Fastlane. This solution involves 
 Using fastlane to submit iOS/Android apps will require adding an SSH account to connect to `macOS` or `Linux with Ruby 2.0.0 or above`, you will then need to write a bash script to execute fastlane. For more information on using fastlane, you can check out their [Documentation](https://docs.fastlane.tools/)
 
 :::hint
-These are the two best current methods we know of for deploying iOS/Android apps. However, Octopus is capable of orchestrating your deployment via [Custom Scripts](https://octopus.com/docs/deploying-applications/custom-scripts) and the deployment/transfer of packages. So even if there are no templates available, as long as your application can be manually deployed/configured via script, you can use Octopus to deploy it.
+These are the two best current methods we know of for deploying iOS/Android apps. However, Octopus is capable of orchestrating your deployment via [Custom Scripts](/docs/deploying-applications/custom-scripts/index.md) and the deployment/transfer of packages. So even if there are no templates available, as long as your application can be manually deployed/configured via script, you can use Octopus to deploy it.
 :::
