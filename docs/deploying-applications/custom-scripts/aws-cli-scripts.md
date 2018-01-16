@@ -1,7 +1,6 @@
 ---
 title: Running Scripts Against the AWS CLI
 description:  Running Scripts Against the AWS CLI.
-version: "[4.3,)"
 ---
 
 Octopus allows you to write custom Powershell scripts that have access to the AWS CLI in an environment that handles authentication using an Octopus managed AWS account. This is done via the `Run an AWS CLI Script` step.

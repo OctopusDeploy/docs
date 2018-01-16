@@ -393,5 +393,3 @@ docs/reference/service-fabric/index.md -> docs/deploying-applications/service-fa
 docs/reference/service-fabric/packaging.md -> docs/deploying-applications/service-fabric/packaging.md
 docs/reference/service-fabric/version-automation-with-service-fabric-application-packages/index.md -> docs/deploying-applications/service-fabric/version-automation-with-service-fabric-application-packages/index.md
 docs/reference/index.md -> docs/getting-started.md
-docs/deploying-applications/aws-deployments/cloudformation/index.md -> docs/deploying-applications/index.md
-docs/deploying-applications/custom-scripts/aws-cli-scripts.md -> docs/deploying-applications/custom-scripts/index.md
