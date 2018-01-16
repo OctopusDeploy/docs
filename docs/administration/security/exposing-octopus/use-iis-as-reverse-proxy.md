@@ -9,14 +9,14 @@ There are scenarios in which you may be required to run Octopus Deploy behind a 
 This example assumes:
 
 - IIS will terminate your SSL connections.
-- [Polling Tentacles](https://octopus.com/docs/infrastructure/windows-targets/polling-tentacles) are not required.
+- [Polling Tentacles](/docs/infrastructure/windows-targets/polling-tentacles/index.md) are not required.
 
 Our starting configuration:
 
 - Octopus Deploy installed and running on <http://servername:8080/>
-   For guidance on this topic, see [Installing Octopus](https://octopus.com/docs/installation/installing-octopus).
+   For guidance on this topic, see [Installing Octopus](/docs/installation/index.md).
 - Valid SSL certificate installed in the Local Certificate store.
-   For guidance on this topic, please follow [Importing your SSL certificate](https://octopus.com/docs/how-to/expose-the-octopus-web-portal-over-https#ExposetheOctopuswebportaloverHTTPS-ImportingyourSSLcertificate).
+   For guidance on this topic, please follow [Importing your SSL certificate](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https#ExposetheOctopuswebportaloverHTTPS-ImportingyourSSLcertificate).
 - IIS Management Console installed.
    For guidance on this topic, please follow [this Microsoft Docs article](https://docs.microsoft.com/en-us/iis/install/installing-iis-85/installing-iis-85-on-windows-server-2012-r2).
 
