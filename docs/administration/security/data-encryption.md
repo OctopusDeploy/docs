@@ -1,5 +1,5 @@
 ---
-title: Data encryption
+title: Data Encryption
 description: This section describes how Octopus Deploy encrypts sensitive data at rest.
 position: 1
 ---

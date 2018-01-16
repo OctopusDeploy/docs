@@ -31,11 +31,11 @@ AWS accounts are included in a project through a project variable of the type `A
 
 ![AWS Account Variable](aws-account-variable.png "width=500")
 
-TODO: This check this wording
-
 The `Add Variable` window is then displayed and lists all the AWS accounts, as well as an account called `Role Assigned to the AWS Instance Executing the Deployment`.
 
 The `Role Assigned to the AWS Instance Executing the Deployment` account can be selected to defer to the IAM role that is assigned to the AWS EC2 instance where the deployment is executed from. This means no AWS credentials need to be stored by Octopus.
+
+The `Role Assigned to the AWS Instance Executing the Deployment` account always exists, meaning it does not need to be created like a `Amazon Web Services Account`.
 
 Because CloudFormation deployments are performed on the Octopus server today, the Octopus server must be installed on an EC2 instance that has an IAM role assigned to it in order to take advantage of the `Role Assigned to the AWS Instance Executing the Deployment` account.
 
@@ -55,7 +55,7 @@ Add the `Deploy a CloudFormation template` step to the project, and provide it a
 
 ### AWS Section
 
-Select the variable that references the account variable under the `AWS Account` section.
+Select the variable that references the `Amazon Web Services Account` under the `AWS Account` section.
 
 ![AWS Account](step-aws-account.png "width=500")
 
@@ -70,7 +70,7 @@ Under the `CloudFormation` section, the AWS region and stack name need to be def
 You can also optionally wait for the stack to complete before finishing the step by selecting the `Wait for completion` checkbox.
 
 :::hint
-Unselecting the `Wait for completion` checkbox will allow the step to complete once that CloudFormation process has been started. However Unselecting the option does mean that the output variables may be missing or outdated, because they will be read before the stack is finished deploying. It also means that the step will not fail if the CloudFormation deployment fails.
+Unselecting the `Wait for completion` checkbox will allow the step to complete once that CloudFormation process has been started. However unselecting the option does mean that the output variables may be missing or outdated, because they will be read before the stack has finished deploying. It also means that the step will not fail if the CloudFormation deployment fails.
 :::
 
 ![AWS Region](step-aws-region.png "width=500")

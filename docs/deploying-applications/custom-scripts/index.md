@@ -31,6 +31,8 @@ After extracting your package, Calamari will detect these scripts and invoke th
 
 As mentioned above, you can create a file named `DeployFailed.<ext>`, which will be invoked if the package deployment fails. Our blog post about this feature [describes how DeployFailed.<ext> works](https://octopus.com/blog/deployfailed).
 
+As of 4.2.0, you can prevent the running of scripts in packages by adding the `Octopus.Action.Package.RunScripts` variable to your project (scoped as needed) and setting it to `false`.
+
 :::hint
 **Script Support on Deployment Targets**
 Of course, Bash scripts will only be supported on Linux / OSX Targets and PowerShell and Script CS will only run on Windows. So ensure you've selected the correct language for your deployment target
