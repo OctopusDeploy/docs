@@ -133,7 +133,7 @@ docs/deploying-applications/projects/channels.md -> docs/deployment-process/chan
 docs/deploying-applications/projects/project-groups.md -> docs/deployment-process/projects/index.md
 docs/deploying-applications/projects/project-triggers.md -> docs/deployment-process/project-triggers.md
 docs/deploying-applications/projects/reporting.md -> docs/administration/reporting.md
-docs/deploying-applications/projects/releases.md -> docs/deployment-process/releases/index.md 
+docs/deploying-applications/projects/releases.md -> docs/deployment-process/releases/index.md
 docs/deploying-applications/projects/lifecycles/index.md -> docs/deployment-process/lifecycles/index.md
 docs/deploying-applications/adding-steps.md -> docs/deployment-process/steps/index.md
 docs/deploying-applications/projects/deployment-processes.md -> docs/deployment-process/index.md
@@ -281,7 +281,7 @@ docs/patterns/canary-deployments.md -> docs/deployment-patterns/canary-deploymen
 docs/patterns/clustered-listening-tentacles.md -> docs/deployment-patterns/clustered-listening-tentacles.md
 docs/patterns/isolated-octopus-deploy-servers.md -> docs/deployment-patterns/isolated-octopus-deploy-servers.md
 docs/patterns/multi-region-deployment-pattern.md -> docs/deployment-patterns/multi-region-deployment-pattern.md
-docs/patterns/multi-tenant-deployment-pattern.md -> docs/deployment-patterns/multi-tenant-deployments/index.md 
+docs/patterns/multi-tenant-deployment-pattern.md -> docs/deployment-patterns/multi-tenant-deployments/index.md
 docs/patterns/rolling-deployments.md -> docs/deployment-patterns/rolling-deployments.md
 docs/deploying-applications/multi-tenant-deployments/index.md -> docs/deployment-patterns/multi-tenant-deployments/index.md
 docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/index.md -> docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/index.md
@@ -393,3 +393,5 @@ docs/reference/service-fabric/index.md -> docs/deploying-applications/service-fa
 docs/reference/service-fabric/packaging.md -> docs/deploying-applications/service-fabric/packaging.md
 docs/reference/service-fabric/version-automation-with-service-fabric-application-packages/index.md -> docs/deploying-applications/service-fabric/version-automation-with-service-fabric-application-packages/index.md
 docs/reference/index.md -> docs/getting-started.md
+docs/deploying-applications/aws-deployments/cloudformation/index.md -> docs/deploying-applications/index.md
+docs/deploying-applications/custom-scripts/aws-cli-scripts.md -> docs/deploying-applications/custom-scripts/index.md
