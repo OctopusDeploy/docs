@@ -1,1 +1,1 @@
-CloudFormation support is comming in version 4.3.
+CloudFormation support is coming in version 4.3.
