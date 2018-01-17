@@ -106,3 +106,13 @@ The last `Status Reason` from the stack events is displayed in the Octopus logs,
 In the screenshot below you can see that the specified instance type could only be used in a VPC, triggering the rollback.
 
 ![CloudFormation Events](cloud-formation-error.png "width=500")
+
+### AWS-CLOUDFORMATION-ERROR-0002
+The AWS account used to perform the operation does not have the required permissions to query the current state of the CloudFormation stack. This step will complete without waiting for the stack to complete, and will not fail if the stack finishes in an error state.
+
+The error message will include the error from AWS, which looks like this:
+```
+User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: cloudformation:DescribeStackEvents on resource: arn:aws:cloudformation:us-east-1:123456789012:stack/MyStack/*
+```
+
+To resolve the error, ensure that the user has the appropriate permissions in AWS.
