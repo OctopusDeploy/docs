@@ -393,4 +393,3 @@ docs/reference/service-fabric/index.md -> docs/deploying-applications/service-fa
 docs/reference/service-fabric/packaging.md -> docs/deploying-applications/service-fabric/packaging.md
 docs/reference/service-fabric/version-automation-with-service-fabric-application-packages/index.md -> docs/deploying-applications/service-fabric/version-automation-with-service-fabric-application-packages/index.md
 docs/reference/index.md -> docs/getting-started.md
-docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4 -> https://octopus.com/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide
