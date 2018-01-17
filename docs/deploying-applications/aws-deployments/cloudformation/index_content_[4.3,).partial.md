@@ -117,12 +117,22 @@ User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: clou
 
 To resolve the error, ensure that the user has the appropriate permissions in AWS.
 
-### AWS-CLOUDFORMATION-ERROR-0003:
+### AWS-CLOUDFORMATION-ERROR-0003
 The AWS account used to perform the operation does not have the required permissions to describe the stack.
 
 If the step was configured to create or update a stack, it is assumed that the stack does not exist and the stack will attempt to be created. In the event that the stack already exists, the step will fail as it will incorrectly attempt to create the stack instead of update it.
 
 If the step was configured to delete the stack, it is assumed that the stack does exist and it will attempt to be deleted.
+
+The error message will include the error from AWS, which looks like this:
+```
+User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: cloudformation:DescribeStacks on resource: arn:aws:cloudformation:us-east-1:123456789012:stack/MyStack/*
+```
+
+To resolve the error, ensure that the user has the appropriate permissions in AWS.
+
+### AWS-CLOUDFORMATION-ERROR-0004
+The AWS account used to perform the operation does not have  the required permissions to describe the CloudFormation stack. This means that the step is not able to generate any output variables.
 
 The error message will include the error from AWS, which looks like this:
 ```
