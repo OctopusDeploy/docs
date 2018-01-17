@@ -26,3 +26,5 @@ While the AWS cli makes a clear distinction between creating and updating CloudF
 
 For this reason it is recommended that the AWS account used to deploy a CloudFormation template have the permissions for both creating and updating stacks.
 :::
+
+In addition the AWS account used with the CloudFormation steps needs to have permissions to create, update and delete any of the resources referenced by the CloudFormation template. Refer to the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) for more information on which permissions are required and how to assign them.
