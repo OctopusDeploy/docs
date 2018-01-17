@@ -120,9 +120,10 @@ To resolve the error, ensure that the user has the appropriate permissions in AW
 ### AWS-CLOUDFORMATION-ERROR-0003
 The AWS account used to perform the operation does not have the required permissions to describe the stack.
 
-If the step was configured to create or update a stack, it is assumed that the stack does not exist and the stack will attempt to be created. In the event that the stack already exists, the step will fail as it will incorrectly attempt to create the stack instead of update it.
+This is logged as a warning as Octopus will make some assumptions about the state of the stack and attempt to continue on:
 
-If the step was configured to delete the stack, it is assumed that the stack does exist and it will attempt to be deleted.
+* If the step was configured to create or update a stack, it is assumed that the stack does not exist and the stack will attempt to be created. In the event that the stack already exists, the step will fail as it will incorrectly attempt to create the stack instead of update it.
+* If the step was configured to delete the stack, it is assumed that the stack does exist and it will attempt to be deleted.
 
 The error message will include the error from AWS, which looks like this:
 ```
@@ -132,7 +133,7 @@ User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: clou
 To resolve the error, ensure that the user has the appropriate permissions in AWS.
 
 ### AWS-CLOUDFORMATION-ERROR-0004
-The AWS account used to perform the operation does not have  the required permissions to describe the CloudFormation stack. This means that the step is not able to generate any output variables.
+The AWS account used to perform the operation does not have the required permissions to describe the CloudFormation stack. This means that the step is not able to generate any output variables.
 
 The error message will include the error from AWS, which looks like this:
 ```
@@ -148,7 +149,7 @@ An unrecognized exception was thrown while querying the CloudFormation stacks.
 An unrecognized exception was thrown while checking to see if the CloudFormation stack exists.
 
 ### AWS-CLOUDFORMATION-ERROR-0007
-The AWS account used to perform the operation does not have the required permissions to create the CloudFormation stack. 
+The AWS account used to perform the operation does not have the required permissions to create the CloudFormation stack.
 
 The error message will include the error from AWS, which looks like this:
 ```
@@ -161,7 +162,7 @@ To resolve the error, ensure that the user has the appropriate permissions in AW
 An unrecognized exception was thrown while creating a CloudFormation stack.
 
 ### AWS-CLOUDFORMATION-ERROR-0009
-The AWS account used to perform the operation does not have  the required permissions to delete the CloudFormation stack.
+The AWS account used to perform the operation does not have the required permissions to delete the CloudFormation stack.
 
 The error message will include the error from AWS, which looks like this:
 ```
@@ -174,7 +175,7 @@ To resolve the error, ensure that the user has the appropriate permissions in AW
 An unrecognized exception was thrown while deleting a CloudFormation stack.
 
 ### AWS-CLOUDFORMATION-ERROR-0011
-The AWS account used to perform the operation does not have  the required permissions to update the CloudFormation stack.
+The AWS account used to perform the operation does not have the required permissions to update the CloudFormation stack.
 
 The error message will include the error from AWS, which looks like this:
 ```
