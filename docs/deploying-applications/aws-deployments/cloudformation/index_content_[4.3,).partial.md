@@ -142,10 +142,10 @@ User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: clou
 To resolve the error, ensure that the user has the appropriate permissions in AWS.
 
 ### AWS-CLOUDFORMATION-ERROR-0005
-An unrecognised exception was thrown while querying the CloudFormation stacks.
+An unrecognized exception was thrown while querying the CloudFormation stacks.
 
 ### AWS-CLOUDFORMATION-ERROR-0006
-An unrecognised exception was thrown while checking to see if the CloudFormation stack exists.
+An unrecognized exception was thrown while checking to see if the CloudFormation stack exists.
 
 ### AWS-CLOUDFORMATION-ERROR-0007
 The AWS account used to perform the operation does not have  the required permissions to create the CloudFormation stack. This means that the step is not able to generate any output variables.
@@ -158,7 +158,7 @@ User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: clou
 To resolve the error, ensure that the user has the appropriate permissions in AWS.
 
 ### AWS-CLOUDFORMATION-ERROR-0008
-An unrecognised exception was thrown while creating a CloudFormation stack.
+An unrecognized exception was thrown while creating a CloudFormation stack.
 
 ### AWS-CLOUDFORMATION-ERROR-0009
 The AWS account used to perform the operation does not have  the required permissions to delete the CloudFormation stack. This means that the step is not able to generate any output variables.
@@ -171,7 +171,7 @@ User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: clou
 To resolve the error, ensure that the user has the appropriate permissions in AWS.
 
 ### AWS-CLOUDFORMATION-ERROR-0010
-An unrecognised exception was thrown while deleting a CloudFormation stack.
+An unrecognized exception was thrown while deleting a CloudFormation stack.
 
 ### AWS-CLOUDFORMATION-ERROR-0011
 The AWS account used to perform the operation does not have  the required permissions to update the CloudFormation stack. This means that the step is not able to generate any output variables.
@@ -184,4 +184,4 @@ User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: clou
 To resolve the error, ensure that the user has the appropriate permissions in AWS.
 
 ### AWS-CLOUDFORMATION-ERROR-0012
-An unrecognised exception was thrown while updating a CloudFormation stack.
+An unrecognized exception was thrown while updating a CloudFormation stack.
