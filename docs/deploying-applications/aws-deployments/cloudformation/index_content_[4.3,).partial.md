@@ -197,7 +197,17 @@ This typically occurs because the step has used the `Role Assigned to the AWS In
 
 Failed to access the metadata URI, or failed to parse the response. We are unable to generate keys from the metadata endpoint.
 
-This can happen if the role that was assigned to the instance does not trust the instance it was assigned to. For example, a role assigned to an EC2 instance needs to have a trust relationship policy something like this:
+This can happen if the role that was assigned to the instance does not trust the instance it was assigned to. This can be verified by accesssing the URL [http://169.254.169.254/latest/meta-data/iam/security-credentials/ROLENAME](http://169.254.169.254/latest/meta-data/iam/security-credentials/ROLENAME) (replace `ROLENAME` with the name of the role assigned to the instance) from the Octopus server. If the response looks like:
+
+```json
+{
+  "Code" : "AssumeRoleUnauthorizedAccess",
+  "Message" : "EC2 cannot assume the role ROLENAME.  Please see documentation at http://docs.amazonwebservices.com/IAM/latest/UserGuide/RolesTroubleshooting.html.",
+  "LastUpdated" : "2018-01-18T23:43:19Z"
+}
+```
+
+then the role assigned to an EC2 instance needs to have a trust relationship policy something like this:
 
 ```json
 {
