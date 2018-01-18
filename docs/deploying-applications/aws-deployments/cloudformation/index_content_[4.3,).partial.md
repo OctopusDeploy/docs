@@ -266,3 +266,9 @@ The role being assumed then needs trust relationship with the role or user that 
 ```
 
 ![Trust Relationships](trust-relationships.png "width=500")
+
+### AWS-LOGIN-ERROR-0005
+
+Failed to verify the credentials. Please check the keys assigned to the Amazon Web Services Account associated with this step.
+
+This can be done by opening {{Infrastructure>Accounts}}, selecting the account, and clicking the `SAVE AND TEST` button. If the verification fails, it means the keys are not valid.
