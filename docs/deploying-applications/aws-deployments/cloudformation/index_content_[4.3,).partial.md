@@ -213,3 +213,5 @@ This can happen if the role that was assigned to the instance does not trust the
   ]
 }
 ```
+
+See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) for more details.
