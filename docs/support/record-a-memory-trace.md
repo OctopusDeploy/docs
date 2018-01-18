@@ -35,13 +35,12 @@ This is the best way to start, especially if you cannot restart your Octopus Ser
 
 1. Download the [dotMemory command-line tool](https://www.jetbrains.com/dotmemory/download/#section=command-line-profiler) and extract it to a location on the Octopus Server like `C:\tools\dotmemory.exe`.
 2. Open a command prompt as an Administrator (elevation is required)
-3. Find the PID for your Octopus Server process (you can find this in Task Manager > Details > Octopus.Server.exe)
-4. Run: `dotmemory.exe get-snapshot 11988` where 11988 would be the PID of your Octopus Server
-5. Take note of the location where the dotMemory workspace file was saved (you'll need this later)
-6. Use Octopus in a way which causes the memory problem
-7. Get another snapshot using the same command as before
-8. Zip the dotMemory Workspaces, the Octopus Server logs, Task Logs for tasks running during that period of time, and server metrics or a performance chart covering that period in time
-9. Upload the zip file bundle to the secure and private share which should have been provided by an Octopus team member, then get back in touch with us - unfortunately we don't get notified of file uploads
+3. Run: `dotmemory.exe get-snapshot Octopus.Server`
+4. Take note of the location where the dotMemory workspace file was saved (you'll need this later)
+5. Use Octopus in a way which causes the memory problem
+6. Get another snapshot using the same command as before
+7. Zip the dotMemory Workspaces, the Octopus Server logs, Task Logs for tasks running during that period of time, and server metrics or a performance chart covering that period in time
+8. Upload the zip file bundle to the secure and private share which should have been provided by an Octopus team member, then get back in touch with us - unfortunately we don't get notified of file uploads
 
 ### Start Octopus Server with dotMemory (alternative method)
 
