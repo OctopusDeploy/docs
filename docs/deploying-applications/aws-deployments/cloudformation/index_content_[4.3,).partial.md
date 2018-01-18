@@ -216,13 +216,9 @@ This can happen if the role that was assigned to the instance does not trust the
 
 See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) for more details.
 
-### AWS-LOGIN-ERROR-0002
-
-Filed to parse the ARN.
-
 ### AWS-LOGIN-ERROR-0003
 
-Failed to get the caller identity. This may be because the instance does not have a role assigned to it.
+Failed to access the security credentials URI, or failed to parse the response. This may be because the instance does not have a role assigned to it.
 
 You can confirm the roles assigned to the instance by performing a GET request on the URL [http://169.254.169.254/latest/meta-data/iam/security-credentials](http://169.254.169.254/latest/meta-data/iam/security-credentials) from the instance. This request will list the assigned roles.
 
