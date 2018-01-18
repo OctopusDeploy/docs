@@ -193,7 +193,7 @@ Failed to get the caller identity. This may be because the instance does not hav
 
 This typically occurs because the step has used the `Role Assigned to the AWS Instance Executing the Deployment` account, but the instance running the deployment does not have a role assigned to it. See the [AWS Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html?icmpid=docs_ec2_console) for more details.
 
-### AWS-CLOUDFORMATION-ERROR-0013
+### AWS-CLOUDFORMATION-ERROR-0014
 
 Failed to access the metadata URI, or failed to parse the response. We are unable to generate keys from the metadata endpoint.
 
@@ -215,3 +215,7 @@ This can happen if the role that was assigned to the instance does not trust the
 ```
 
 See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) for more details.
+
+### AWS-CLOUDFORMATION-ERROR-0015:
+
+Filed to parse the ARN.
