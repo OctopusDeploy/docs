@@ -186,3 +186,30 @@ To resolve the error, ensure that the user has the appropriate permissions in AW
 
 ### AWS-CLOUDFORMATION-ERROR-0012
 An unrecognized exception was thrown while updating a CloudFormation stack.
+
+### AWS-CLOUDFORMATION-ERROR-0013
+
+Failed to get the caller identity. This may be because the instance does not have a role assigned to it.
+
+This typically occurs because the step has used the `Role Assigned to the AWS Instance Executing the Deployment` account, but the instance running the deployment does not have a role assigned to it. See the [AWS Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html?icmpid=docs_ec2_console) for more details.
+
+### AWS-CLOUDFORMATION-ERROR-0013
+
+Failed to access the metadata URI, or failed to parse the response. We are unable to generate keys from the metadata endpoint.
+
+This can happen if the role that was assigned to the instance does not trust the instance it was assigned to. For example, a role assigned to an EC2 instance needs to have a trust relationship policy something like this:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "ec2.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+```
