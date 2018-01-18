@@ -216,6 +216,47 @@ This can happen if the role that was assigned to the instance does not trust the
 
 See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) for more details.
 
-### AWS-CLOUDFORMATION-ERROR-0015:
+### AWS-CLOUDFORMATION-ERROR-0015
 
 Filed to parse the ARN.
+
+### AWS-CLOUDFORMATION-ERROR-0016
+
+Failed to assume the role. Make sure the correct permissions have been enabled in AWS.
+
+The role or user that is assuming the role need to have the `sts:AssumeRole` permission e.g.
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Stmt1512947264000",
+            "Effect": "Allow",
+            "Action": [
+                "sts:AssumeRole"
+            ],
+            "Resource": [
+                "arn:aws:iam::123456789012:role/RoleBeingAssumed"
+            ]
+        }
+    ]
+}
+```
+
+The role being assumed then needs trust relationship with the role or user that is assuming it.
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::123456789012:user/RoleDoingTheAssuming"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+```
