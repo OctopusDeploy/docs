@@ -260,3 +260,5 @@ The role being assumed then needs trust relationship with the role or user that 
   ]
 }
 ```
+
+![Trust Relationships](trust-relationships.png "width=500")
