@@ -224,6 +224,8 @@ Filed to parse the ARN.
 
 Failed to get the caller identity. This may be because the instance does not have a role assigned to it.
 
+Refer to the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) for more information on assigning roles to EC2 instances.
+
 ### AWS-LOGIN-ERROR-0004
 
 Failed to assume the role. Make sure the correct permissions have been enabled in AWS.
