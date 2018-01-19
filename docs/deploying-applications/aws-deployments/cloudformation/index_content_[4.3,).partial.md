@@ -4,21 +4,7 @@ The proceeding instructions can be followed to configure the `Deploy a CloudForm
 
 ## Create an AWS Account
 
-AWS steps can use an Octopus managed AWS account for authentication. This account must first be created under {{Infrastructure>Accounts}} by clicking the `ADD ACCOUNT` button in the `Amazon Web Services Account` section.
-
-:::hint
-AWS steps can also defer to the IAM role assigned to the instance that hosts the Octopus server for authentication. In this scenario there is no need to create the AWS account.
-:::
-
-![AWS Account](aws-accounts.png "width=500")
-
-And AWS account requires a `Name`, the `Access Key` and the `Secret Key`.
-
-![AWS Account](new-aws-account.png "width=500")
-
-Clicking the `SAVE AND TEST` button will verify that the credentials are valid.
-
-![Account Verification](account-verification.png "width=500")
+The instructions at [Creating an AWS Account](infrastructure/aws/creating-an-aws-account/index.md) detail the procedure for creating an account in Octopus.
 
 ## Create a AWS Account Project Variable
 
