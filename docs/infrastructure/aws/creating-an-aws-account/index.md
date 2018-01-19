@@ -1,6 +1,6 @@
 ---
-title: Deploy Using an AWS CloudFormation
-description:  Deploy Using an AWS CloudFormation.
+title: Creating an AWS Account
+description:  Creating an AWS Account.
 ---
 
 !partial <content>
