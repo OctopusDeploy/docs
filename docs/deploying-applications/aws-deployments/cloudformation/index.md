@@ -1,6 +1,6 @@
 ---
-title: Deploy Using an AWS CloudFormation
-description:  Deploy Using an AWS CloudFormation.
+title: Deploy an AWS CloudFormation Template
+description: Deploy an AWS CloudFormation Template.
 ---
 
 !partial <content>
