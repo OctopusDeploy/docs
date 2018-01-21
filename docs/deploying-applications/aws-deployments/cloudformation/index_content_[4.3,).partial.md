@@ -4,7 +4,7 @@ The proceeding instructions can be followed to configure the `Deploy a CloudForm
 
 ## Create an AWS Account
 
-The instructions at [Creating an AWS Account](infrastructure/aws/creating-an-aws-account/index.md) detail the procedure for creating an account in Octopus.
+The instructions at [Creating an AWS Account](/docs/infrastructure/aws/creating-an-aws-account/index.md) detail the procedure for creating an account in Octopus.
 
 ## Create a AWS Account Project Variable
 
