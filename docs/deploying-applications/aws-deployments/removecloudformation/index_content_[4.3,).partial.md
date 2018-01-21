@@ -44,9 +44,13 @@ The supplied account can optionally be used to assume a second role. This can be
 
 ![AWS Role](step-aws-role.png "width=500")
 
-### Template Section
+### CloudFormation Section
 
 Under the `CloudFormation` section, the AWS region and stack name need to be defined.
+
+:::hint
+If the stack does not exist, this step will succeed and not attempt to delete it again.
+:::
 
 You can also optionally wait for the stack to be deleted completely before finishing the step by selecting the `Wait for completion` checkbox.
 
