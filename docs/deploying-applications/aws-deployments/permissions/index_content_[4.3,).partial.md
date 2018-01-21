@@ -6,7 +6,7 @@ For stacks that are created, updated or deleted by Octopus, the following permis
 * `cloudformation:DescribeStackEvents`
 
 :::hint
-If these permissions are not available, Octopus will make some assumptions about the state of the CloudFormation stacks. However there are situations where these assumptions are not valid. For example, if Octopus can't determine if a stack exists due to the lack of the `cloudformation:DescribeStacks` permission, it will assume the stack does not exist and attempt to create the stack. This may not work if the stack does in fact exist.
+If these permissions are not available, Octopus will make some assumptions about the state of the CloudFormation stacks. However there are situations where these assumptions are not valid. For example, if Octopus can't determine if a stack that it is trying to deploy exists due to the lack of the `cloudformation:DescribeStacks` permission, it will assume the stack does not exist and attempt to create the it. This may not work if the stack does in fact already exist, as in this case it must be updated instead of created.
 
 For this reason it is recommended that both the `cloudformation:DescribeStacks` and `cloudformation:DescribeStackEvents` permissions be assigned to the AWS account performing any CloudFormation steps.
 :::
