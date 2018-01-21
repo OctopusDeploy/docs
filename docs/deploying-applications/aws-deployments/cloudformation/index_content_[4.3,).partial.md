@@ -103,7 +103,7 @@ User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: clou
 
 To resolve the error, ensure that the user has the appropriate permissions in AWS.
 
-To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deploying-applications/aws-deployments/cloudformation/permissions/index.md) contains an overview of the permissions required by the AWS steps.
+To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deploying-applications/aws-deployments/permissions/index.md) contains an overview of the permissions required by the AWS steps.
 
 ### AWS-CLOUDFORMATION-ERROR-0003
 The AWS account used to perform the operation does not have the required permissions to describe the stack.
@@ -120,7 +120,7 @@ User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: clou
 
 To resolve the error, ensure that the user has the appropriate permissions in AWS.
 
-To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deploying-applications/aws-deployments/cloudformation/permissions/index.md) contains an overview of the permissions required by the AWS steps.
+To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deploying-applications/aws-deployments/permissions/index.md) contains an overview of the permissions required by the AWS steps.
 
 ### AWS-CLOUDFORMATION-ERROR-0004
 The AWS account used to perform the operation does not have the required permissions to describe the CloudFormation stack. This means that the step is not able to generate any output variables.
@@ -132,7 +132,7 @@ User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: clou
 
 To resolve the error, ensure that the user has the appropriate permissions in AWS.
 
-To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deploying-applications/aws-deployments/cloudformation/permissions/index.md) contains an overview of the permissions required by the AWS steps.
+To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deploying-applications/aws-deployments/permissions/index.md) contains an overview of the permissions required by the AWS steps.
 
 ### AWS-CLOUDFORMATION-ERROR-0005
 An unrecognized exception was thrown while querying the CloudFormation stacks. This is a catch-all exception.
@@ -150,7 +150,7 @@ User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: clou
 
 To resolve the error, ensure that the user has the appropriate permissions in AWS.
 
-To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deploying-applications/aws-deployments/cloudformation/permissions/index.md) contains an overview of the permissions required by the AWS steps.
+To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deploying-applications/aws-deployments/permissions/index.md) contains an overview of the permissions required by the AWS steps.
 
 ### AWS-CLOUDFORMATION-ERROR-0008
 An unrecognized exception was thrown while creating a CloudFormation stack.
@@ -165,7 +165,7 @@ User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: clou
 
 To resolve the error, ensure that the user has the appropriate permissions in AWS.
 
-To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deploying-applications/aws-deployments/cloudformation/permissions/index.md) contains an overview of the permissions required by the AWS steps.
+To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deploying-applications/aws-deployments/permissions/index.md) contains an overview of the permissions required by the AWS steps.
 
 ### AWS-CLOUDFORMATION-ERROR-0010
 An unrecognized exception was thrown while deleting a CloudFormation stack.
@@ -178,7 +178,7 @@ The error message will include the error from AWS, which looks like this:
 User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: cloudformation:UpdateStack on resource: arn:aws:cloudformation:us-east-1:123456789012:stack/MyStack/*
 ```
 
-To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deploying-applications/aws-deployments/cloudformation/permissions/index.md) contains an overview of the permissions required by the AWS steps.
+To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deploying-applications/aws-deployments/permissions/index.md) contains an overview of the permissions required by the AWS steps.
 
 ### AWS-CLOUDFORMATION-ERROR-0012
 An unrecognized exception was thrown while updating a CloudFormation stack.
