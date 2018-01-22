@@ -170,7 +170,7 @@ Unable to load the service index for source http://example.com/MyFeed/nuget/v3/i
 
 along with additional details that can look like:
 
-* `Response status code does not indicate success: 404 (Not Found).`
-* `An error occurred while sending the request. The remote name could not be resolved: 'hostname'`
+* Response status code does not indicate success: 404 (Not Found).
+* An error occurred while sending the request. The remote name could not be resolved: 'hostname'
 
 These errors give you an indication as to why NuGet could not access the requested server.
