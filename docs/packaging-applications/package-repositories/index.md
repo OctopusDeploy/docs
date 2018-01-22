@@ -150,7 +150,7 @@ The built-in NuGet server in Octopus stores metadata in SQL Server, and doesn't 
 - For network file shares, keep in mind that Octopus and Tentacle run under system accounts by default, which may not have access to the file share
 - NuGet.Server only allows 30MB packages [by default](http://help.octopusdeploy.com/discussions/problems/184-30mb-default-maximum-nuget-package-size)
 
-A good first step for diagnosing NuGet feed issues is to ensure that the NuGet command line executable can access the same feed from the Octopus server or target machine if the download on target option is selected. The following steps can be used to troubleshoot NuGet feeds.
+A good first step for diagnosing NuGet feed issues is to ensure that the NuGet command line executable can access the same feed from the Octopus server or target machine if the `Each Tentacle will download the package directly from the remote server` option is selected. The following steps can be used to troubleshoot NuGet feeds.
 
 Run the command:
 
