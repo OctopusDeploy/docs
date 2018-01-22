@@ -31,7 +31,7 @@ After extracting your package, Calamari will detect these scripts and invoke th
 
 As mentioned above, you can create a file named `DeployFailed.<ext>`, which will be invoked if the package deployment fails. Our blog post about this feature [describes how DeployFailed.<ext> works](https://octopus.com/blog/deployfailed).
 
-As of 4.2.0, you can prevent the running of scripts in packages by adding the `Octopus.Action.Package.RunScripts` variable to your project (scoped as needed) and setting it to `false`.
+As of 4.1.10, you can prevent the running of scripts in packages by adding the `Octopus.Action.Package.RunScripts` variable to your project (scoped as needed) and setting it to `false`.
 
 :::hint
 **Script Support on Deployment Targets**
@@ -289,8 +289,8 @@ echoerror "You can even define your own function to echo an error!"
 ```
 
 ```fsharp F#
-printfn "This will be logged as Information" 
-eprintfn "This will be logged as Error" 
+printfn "This will be logged as Information"
+eprintfn "This will be logged as Error"
 ```
 
 Try these out for yourself using the [Script Console](/docs/administration/script-console.md)!
@@ -413,7 +413,7 @@ The following service message can be written directly (substituting the properti
 Does your deployment produce a log file, configuration files, binaries, or test results you want to publish and keep as part of your deployment? Your scripts can instruct the Octopus server to collect files as deployment artifacts. Refer to the documentation on [artifacts](/docs/deployment-process/artifacts.md) for more information.
 
 ```powershell PowerShell
-New-OctopusArtifact -Path "C:\Windows\System32\drivers\etc\hosts" -Name "$([System.Environment]::MachineName)-hosts.txt" 
+New-OctopusArtifact -Path "C:\Windows\System32\drivers\etc\hosts" -Name "$([System.Environment]::MachineName)-hosts.txt"
 ```
 
 ```c# C#
@@ -466,9 +466,9 @@ Where [<options>] is any of:
       --script=VALUE         Path to the script to execute. If --package is
                              used, it can be a script inside the package.
       --scriptParameters=VALUE
-							 Parameters to pass to the script. Parameters 
-							 need to be provided in a language specific way. 
-							 E.g. -Parameter1 Value1 -Parameter2 Value2 for PowerShell or 
+							 Parameters to pass to the script. Parameters
+							 need to be provided in a language specific way.
+							 E.g. -Parameter1 Value1 -Parameter2 Value2 for PowerShell or
 							 Value1 Value2 for Bash.
       --sensitiveVariables=VALUE
                              Password protected JSON file containing
@@ -484,7 +484,7 @@ Where [<options>] is any of:
 Octopus Scripts are executed by Calamari, the command-line tool invoked by the Octopus Server or Tentacle during a deployment, within a the context of a working directory.  This location is C:\Octopus\Work\ by default.  If you're executing a script contained within a package, the package contents will be uncompressed and copied to this directory but the working directory is the directory containing the script within it.
 
 ## Preventing the PowerShell profile from running
-The execution of the Tentacle service account's PowerShell profile script can sometimes cause a long delay each time a script is run. Starting in version 3.3.21, to prevent it being run, 
+The execution of the Tentacle service account's PowerShell profile script can sometimes cause a long delay each time a script is run. Starting in version 3.3.21, to prevent it being run,
 add a variable named `Octopus.Action.PowerShell.ExecuteWithoutProfile` with a value of `true` to your project.
 
 ## Scripts that block deployments {#Customscripts-Scriptsthatblockdeployments}

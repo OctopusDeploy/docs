@@ -36,7 +36,7 @@ In this example we will create a machine policy to automatically delete machines
 
 7. Turn the machine off and run a health check.
 
-In Octopus versions prior to 4.2 a separate scheduled task ran periodically and removed machines from Octopus.  As of Octopus version 4.2, machine deletion happens as part of health checks.
+In Octopus versions prior to 2018.1 a separate scheduled task ran periodically and removed machines from Octopus.  As of Octopus version 2018.1, machine deletion happens as part of health checks.
 
 
 :::hint
