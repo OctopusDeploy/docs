@@ -6,4 +6,4 @@ position: 29
 
 Octopus Deploy provides first-class support for deploying Azure Cloud Services and Azure Web Applications.
 
-Add your [Azure account](/docs/infrastructure/azure/index.md) to Octopus Deploy. 
+Add your [Azure account](/docs/infrastructure/azure/index.md) to Octopus Deploy.

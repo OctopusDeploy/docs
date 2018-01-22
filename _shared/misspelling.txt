@@ -977,7 +977,6 @@ misbehaviour
 misdemeanour
 misdemeanours
 misspelt
-mitre
 mitres
 mobilisation
 mobilise
@@ -1450,7 +1449,6 @@ specialise
 specialised
 specialises
 specialising
-spectre
 spectres
 spiralled
 spiralling

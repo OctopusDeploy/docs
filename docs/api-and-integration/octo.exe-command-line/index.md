@@ -53,6 +53,7 @@ And you can get help for a specific command using:
 
 ```powershell
 octo help <command>
+octo <command> --help
 ```
 
 Arguments are not case sensitive and can take the following forms:
@@ -69,6 +70,8 @@ All commands require you to pass the URL of the Octopus Server's API endpoint, a
 ```bash
 octo ... --server http://your-octopus-server/ --apiKey API-ABCDEF123456
 ```
+
+Most commands also support [JSON formatted output](formatted-output.md).
 
 :::success
 **Creating API keys**

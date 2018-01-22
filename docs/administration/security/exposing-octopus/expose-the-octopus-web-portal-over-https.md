@@ -4,17 +4,17 @@ description: How to expose the Octopus web portal securely over HTTPS.
 position: 6
 ---
 
-The Octopus web portal is the main interface that your team will use to interact with the Octopus Deploy server. During installation, you'll choose a port number for the server to listen on, and it uses HTTP by default. However, Octopus can also be configured to run on HTTPS. You can force all traffic to use HTTPS and even enable HSTS if desired. Octopus supports different types of SSL certificates, with built-in support for [Let's Encrypt](/docs/administration/lets-encrypt-integration.md) to make HTTPS as simple as possible.
+The Octopus web portal is the main interface that your team will use to interact with the Octopus Deploy server. During installation, you'll choose a port number for the server to listen on, and it uses HTTP by default. However, Octopus can also be configured to run on HTTPS. You can force all traffic to use HTTPS and even enable HSTS if desired. Octopus supports different types of SSL certificates, with built-in support for [Let's Encrypt](/docs/administration/security/exposing-octopus/lets-encrypt-integration.md) to make HTTPS as simple as possible.
 
 !toc
 
 ## Choosing an SSL Certificate
 
-Octopus can use any valid SSL certificate, whether it is from a Certificate Authority, managed by Let's Encrypt, or even a self-signed certificate. The easiest way to get started with HTTPS is to use [Let's Encrypt](/docs/administration/lets-encrypt-integration.md) which is trusted and free to use forever in production systems.
+Octopus can use any valid SSL certificate, whether it is from a Certificate Authority, managed by Let's Encrypt, or even a self-signed certificate. The easiest way to get started with HTTPS is to use [Let's Encrypt](/docs/administration/security/exposing-octopus/lets-encrypt-integration.md) which is trusted and free to use forever in production systems.
 
 ### Use Let's Encrypt to manage your SSL certificate
 
-Let's Encrypt is the best way to get started with HTTPS in Octopus. It is a trusted and free service, which automatically renews your SSL certificate so you don't need to worry about expiry. We have built a wizard to do all the hard work so you can get up and running with HTTPS in a couple of minutes. [Get started with Let's Encrypt](/docs/administration/lets-encrypt-integration.md).
+Let's Encrypt is the best way to get started with HTTPS in Octopus. It is a trusted and free service, which automatically renews your SSL certificate so you don't need to worry about expiry. We have built a wizard to do all the hard work so you can get up and running with HTTPS in a couple of minutes. [Get started with Let's Encrypt](/docs/administration/security/exposing-octopus/lets-encrypt-integration.md).
 
 ### Bring your own SSL certificate {#ExposetheOctopuswebportaloverHTTPS-ImportingyourSSLcertificate}
 

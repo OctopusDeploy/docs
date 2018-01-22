@@ -162,7 +162,7 @@ To do this open {{Control Panel,Internet Options,Advanced}}, and uncheck the *
 
 ## Schannel and TLS configuration mismatches {#TroubleshootListeningTentacles-SchannelandTLSconfigurationmismatches}
 
-Octopus uses `Schannel` for secure communications and will attempt to use the best available protocol available to both servers.  If you are seeing error messages like below, try [Troubleshooting Schannel and TLS](/docs/administration/octopus-tentacle-communication/troubleshooting-schannel-and-tls.md):
+Octopus uses `Schannel` for secure communications and will attempt to use the best available protocol available to both servers.  If you are seeing error messages like below, try [Troubleshooting Schannel and TLS](/docs/administration/security/octopus-tentacle-communication/troubleshooting-schannel-and-tls.md):
 
 Client-side:`System.Security.Authentication.AuthenticationException: A call to SSPI failed, see inner exception. ---> System.ComponentModel.Win32Exception: One or more of the parameters passed to the function was invalid`
 

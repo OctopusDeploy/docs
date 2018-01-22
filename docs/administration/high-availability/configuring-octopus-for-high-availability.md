@@ -168,7 +168,7 @@ Configuring the Tentacle via the command line is the preferred option with the c
 C:\Program Files\Octopus Deploy\Tentacle>Tentacle poll-server --server=http://my.Octopus.server --apikey=API-77751F90F9EEDCEE0C0CD84F7A3CC726AD123FA6
 ```
 
-For more information on this command please refer to the [Tentacle Poll Server options document](https://octopus.com/docs/api-and-integration/tentacle.exe-command-line/poll-server)
+For more information on this command please refer to the [Tentacle Poll Server options document](/docs/api-and-integration/tentacle.exe-command-line/poll-server.md)
 
 Alternatively you can edit Tentacle.config directly to add each Octopus server (this is interpreted as a JSON array of servers). This method is not recommended as the Octopus service for each server will need to be restarted to accept incoming connections via this method.
 
@@ -214,7 +214,7 @@ To fix this problem you should:
 
 1. Plan some downtime for your Octopus HA cluster
 2. Create shared storage as [described here](#ConfiguringOctopusforHighAvailability-SharedStorage)
-3. Put your Octopus HA cluster into [Maintenance Mode](/docs/administration/maintenance-mode.md) after draining tasks from each node
+3. Put your Octopus HA cluster into [Maintenance Mode](/docs/administration/upgrading/maintenance-mode.md) after draining tasks from each node
 3. Reconfigure your Octopus HA cluster to use the shared storage
 4. Copy all of the files into the shared storage location - there shouldn't be any filename collisions since each node will generally run independent tasks
 5. Bring yoour Octopus HA cluster back online
