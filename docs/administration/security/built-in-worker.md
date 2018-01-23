@@ -26,7 +26,7 @@ By default Octopus Server runs as the highly privileged `Local System` account o
 
 When you first install Octopus Server the built-in worker is configured to run using the same user account as the Octopus Server itself. This means your deployment process can do the same things the Octopus Server can do.
 
-### Running tasks on the Octopus Server as a different user
+## Running tasks on the Octopus Server as a different user
 
 In Octopus `2018.1` you can configure the built-in worker to execute tasks as a different user account. This user account can be a down-level account with very restricted privileges.
 
