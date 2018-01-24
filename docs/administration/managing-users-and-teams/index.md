@@ -100,4 +100,4 @@ The **Everyone** team always contains all users, but you can assign different 
 
 The second team is **Octopus Administrators.** Members of this team always have permission to do anything in Octopus. You can add or remove members from this team. We recommend only adding a few key users to this team.
 
-The third team is **Octopus Managers.** Members of this team can do everything **Octopus Administrators** can do, except for change the Octopus Server hosting configuration. You can also add or remove members from this team. We recommend adding users to this team who should be able to manage teams and other top-level things in Octopus, but not be able to change how Octopus is hosted.
+The third team is **Octopus Managers.** Members of this team can do everything **Octopus Administrators** can do, except for certain system-level functions reserved for **Octopus Administrators**. You can also add or remove members from this team. We recommend adding users to this team who should be able to manage teams and other top-level things in Octopus, but not be able to change how Octopus is hosted.
