@@ -1,13 +1,16 @@
 ---
 title: Deploy Release Step 
 description: The Deploy Release Step allows you to trigger the deployment of a Release of a Project from another Project 
-position: 1
 version: 2018.2 
 ---
 
 The _Deploy Release_ step allows you to trigger the deployment of a release of a project from another project.  This is useful when you are [coordinating multiple Projects](index.md).
 
+![Deploy Release Step Card](deploy-release-card.png "width=500")
+
 When you add a _Deploy Release_ step to your deployment process, you are then able to select the project which will be deployed.
+
+![Deploy Release Select Project](deploy-release-step-select-project.png "width=500")
 
 You can add many _Deploy Release_ steps to your process, if you wish to deploy releases of many projects.
 
@@ -24,6 +27,8 @@ A _Deploy Release_ step can be configured to:
 ## Variables
 
 Variables can be passed to the deployment triggered by the _Deploy Release_ step. These will be made available to steps within the child deployment's process, just like regular [project variables](/docs/deployment-process/variables/index.md).  Variables passed in will override existing variables in the child project if the names collide.
+
+![Deploy Release Variables](deploy-release-step-variables.png "width=500")
 
 ### Output Variables
 
