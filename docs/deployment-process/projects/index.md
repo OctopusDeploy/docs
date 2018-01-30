@@ -36,6 +36,10 @@ After you have created a project group there are a number of ways you can add pr
 
 Any projects and project groups you create will be accessible from the projects page. If a project group does not have any projects associated with it, click *SHOW EMPTY GROUPS* to reveal the group.
 
+### Edit or Delete Project Groups
+
+To edit or delete a project group click the project group’s overflow menu and select **edit**. From there you can edit the groups name or description. If you need to delete the group, click the overflow menu again and select **Delete**. 
+
 ## Project Permissions {#Projects-Projectpermissions}
 
 You can control who has access to view or edit environments, as well as who has access to deploy to environments, by assigning users to Teams and assigning roles to those teams. For more information, see the section on [managing users and teams](/docs/administration/managing-users-and-teams/index.md).
