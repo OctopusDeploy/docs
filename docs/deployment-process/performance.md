@@ -24,7 +24,9 @@ By the time your deployment starts, the Octopus HTTP API and database are no lon
 - The number of steps in your deployment process
 - The size and number of packages you are deploying
 - How your packages are acquired/transferred to your deployment targets
+- How many packages you keep in your package feed and how you configure retention policies
 - The amount and size of log messages you write during deployment
+- How many deployment targets acquire packages in parallel
 - How many deployment targets you deploy to in parallel
 - Whether your steps run serially (one-after-the-other) or in parallel (at the same time)
 - The number and size of your variables
@@ -101,18 +103,42 @@ Each option provides different performance benefits, depending on your specific 
 - If network bandwidth is not a limiting factor consider downloading the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
 - If Octopus Server CPU and disk IOPS is a limiting factor, avoid using [delta compression for package transfers](/docs/deployment-process/delta-compression-for-package-transfers.md). Instead, consider downloading the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
 
+### Consider retention policies for your package feeds {#package-retention}
+
+Imagine if you keep every package you've ever built or deployed. Over time your package feed will get slower and slower to index, query, and stream packages for your deployments.
+
+If you are using the [built-in feed](/docs/packaging-applications/package-repositories/index.md#Packagerepositories-Choosingtherightrepository), you can configure [retention policies](/docs/administration/retention-policies/index.md) to keep it running fast.
+
+If you are using another feed, you should configure its retention policies yourself, making sure to cater for packages you may want to deploy.
+
 ### Consider the size of your Task Logs {#task-logs}
 
 Larger task logs put the entire Octopus pipeline under more pressure. A good rule of thumb is to keep your log files under 20MB. We recommend printing messages required to understand progress and the reason for any deployment failures. The rest of the information should be streamed to a file, then published as a deployment [artifact](/docs/deployment-process/artifacts.md).
 
+### Consider how many targets acquire packages in parallel {#parallel-acquisition}
+
+Imagine you have 1,000 deployment targets configured to stream packages from the Octopus Server and you configure your deployment so all of the packages are acquired across all of your deployment targets in parallel. This can put a lot of strain on your Octopus Server as the constraint in this mix.
+
+Alternatively, imagine if you have 1,000 deployment targets configured to download packages directly from a package feed or a file share. Now the package feed or file share becomes the constraint.
+
+Firstly, [consider how you transfer your packages](#package-transfer) and then consider the degree of parallelism will suit your scenario best. Octopus ships with a sensible and stable default configuration of `10`, and you can tune the degree of parallelism by setting the `Octopus.Acquire.MaxParallelism` variable as an unscoped/global value in your project. Start by slowly increasing this number until you reach a constraint for your scenario, and continue to tune from there.
+
 ### Consider how many targets you deploy to in parallel {#parallel-targets}
 
-Imagine you have step in your deployment process which runs across all deployment targets with a specific role, and that results in 1,000 targets. Octopus will attempt to run that step simultaneously across all 1,000 deployment targets. This will cause your deployment to go slower since the Octopus Server spends most of its time task switching rather than being productive.
+Imagine you have step in your deployment process which runs across all deployment targets with a specific role, and that results in 1,000 targets. Octopus will attempt to run that step simultaneously across all 1,000 deployment targets. This will cause your deployment to go slower since the Octopus Server spends most of its time task dealing with all the concurrent noise rather than being productive.
+
+Alternatively if you constrain your process to a single deployment target at a time, the Octopus Server and your deployment targets will be bored, and your deployments will take longer.
 
 Consider using a [rolling deployment](/docs/deployment-patterns/rolling-deployments.md) to deploy to a subset of these deployment targets at any one time. Rolling deployments allow you to define a "window" which is the maximum number of deployment targets which will run the step at any one time.
 
 ::: info
-This default behavior makes a lot of sense for smaller installations, but it is an unsafe default for larger installations. We are looking to [change this default behavior in Octopus 4.x](https://github.com/OctopusDeploy/Issues/issues/3305).
+This default behavior makes a lot of sense for smaller installations, but it is an unsafe default for larger installations. We are looking to [change this default behavior in a future version of Octopus](https://github.com/OctopusDeploy/Issues/issues/3305).
 :::
+
+### Consider how many steps you run in parallel {#parallel-steps}
+
+Steps and actions in your deployment process can be configured to start after the previous step has succeeded (the default) or you can configure them to start at the same time (run in parallel).
+
+Similarly to [parallel targets](#parallel-targets), running too many steps in parallel can cause your Octopus Server to become the bottleneck and make your deployments take longer overall.
 
 **More tips coming soon!**
