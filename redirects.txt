@@ -354,7 +354,7 @@ docs/administration/outbound-requests.md -> docs/administration/security/outboun
 docs/reference/octopus-ha/load-balancers/configuring-netscaler.md -> docs/administration/high-availability/configuring-netscaler.md
 docs/reference/octopus-ha/index.md -> docs/administration/high-availability/index.md
 docs/reference/octopus-ha/load-balancers/index.md -> docs/administration/high-availability/index.md
-docs/reference/octopus-server-configuration-file.md -> docs/administrationserver-configuration-and-file-storage/index.md
+docs/reference/octopus-server-configuration-file.md -> docs/administration/server-configuration-and-file-storage/index.md
 docs/reference/debugging-powershell-scripts.md -> docs/deploying-applications/custom-scripts/debugging-powershell-scripts.md
 docs/reference/package-deployment-feature-ordering.md -> docs/deployment-process/package-deployment-feature-ordering.md
 docs/reference/process-dumps.md -> docs/support/process-dumps.md
