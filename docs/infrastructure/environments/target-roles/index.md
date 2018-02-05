@@ -24,7 +24,7 @@ You can define as many environments, machines, and roles as you need; it all dep
 
 ## Creating a Role and Assigning it to a Tentacle {#MachineRoles-CreatingaroleandassigningittoaTentacle}
 
-Roles are created and saved in the database the moment you assign them to a Tentacle. To do so, just:
+Roles are created and saved in the database the moment you assign them to a Tentacle. Decide on the naming convention you will use, before creating your first role as it is not possible to change the case after the role has been created, for instance, all lowercase to camel case.
 
 1) Register a Tentacle or click on an already registered Tentacle and go to **Settings.**
 
