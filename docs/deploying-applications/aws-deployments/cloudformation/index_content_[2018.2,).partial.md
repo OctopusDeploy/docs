@@ -54,6 +54,20 @@ You can also optionally wait for the stack to complete before finishing the step
 Unselecting the `Wait for completion` checkbox will allow the step to complete once that CloudFormation process has been started. However unselecting the option does mean that the output variables may be missing or outdated, because they will be read before the stack has finished deploying. It also means that the step will not fail if the CloudFormation deployment fails.
 :::
 
+If creating the CloudFormation stack, you can select `Disable rollback` to prevent a failed stack from being rolled back. This is useful if you need to debug the resources that were not created successfully.
+
+#### IAM Capabilities
+
+This is a quote from the [AWS documentation](http://g.octopushq.com/AwsDocsControllingIAM):
+
+> Before you can create a stack, AWS CloudFormation validates your template. During validation, AWS CloudFormation checks your template for IAM resources that it might create. IAM resources, such as an IAM user with full access, can access and modify any resource in your AWS account. Therefore, we recommend that you review the permissions associated with each IAM resource before proceeding so that you don't unintentionally create resources with escalated permissions. To ensure that you've done so, you must acknowledge that the template contains those resources, giving AWS CloudFormation the specified capabilities before it creates the stack.
+
+To acknowledge that the CloudFormation template contains IAM resources, you can select an option under `IAM Resources`.
+
+If your template includes IAM resources, you can select `The template has IAM resources (CAPABILITY_IAM)` or `The template has IAM resources with custom names (CAPABILITY_NAMED_IAM)`.
+
+If your template includes custom names for IAM resources, you must select `The template has IAM resources with custom names (CAPABILITY_NAMED_IAM)`.
+
 ![AWS Region](step-aws-region.png "width=500")
 
 ### Template Section
@@ -79,18 +93,6 @@ Once the `SAVE` button is clicked, the parameters defined in the template will b
 The second option is to reference a CloudFormation template and properties file from a package. This is done by selecting the `File inside a package` option, specifying the package, and the supplying the name of the template file (which can be a JSON or YAML file), and optionally the path to the parameters file (which [only supports JSON](https://github.com/aws/aws-cli/issues/2275)).
 
 ![Package](step-aws-package.png "width=500")
-
-## IAM Capabilities
-
-This is a quote from the [AWS documentation](http://g.octopushq.com/AwsDocsControllingIAM):
-
-> Before you can create a stack, AWS CloudFormation validates your template. During validation, AWS CloudFormation checks your template for IAM resources that it might create. IAM resources, such as an IAM user with full access, can access and modify any resource in your AWS account. Therefore, we recommend that you review the permissions associated with each IAM resource before proceeding so that you don't unintentionally create resources with escalated permissions. To ensure that you've done so, you must acknowledge that the template contains those resources, giving AWS CloudFormation the specified capabilities before it creates the stack.
-
-To acknowledge that the CloudFormation template contains IAM resources, you can select an option under `IAM Resources`.
-
-If your template includes IAM resources, you can select `The template has IAM resources (CAPABILITY_IAM)` or `The template has IAM resources with custom names (CAPABILITY_NAMED_IAM)`.
-
-If your template includes custom names for IAM resources, you must select `The template has IAM resources with custom names (CAPABILITY_NAMED_IAM)`.
 
 ## Error Messages
 
