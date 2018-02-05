@@ -71,3 +71,18 @@ This variable will be available in subsequent steps of the _Project Voltron_ pro
 The Lifecycles of project's being deployed by a _Deploy Release_ step must be compatible with the coordinating project.
 
 For example, if you have two projects, `Project A` and `Project B` which are referenced by _Deploy Release_ steps in another project `Project Alphabet`. When deploying `Project Alphabet` to the `Test` environment, the release versions chosen for `Project A` and `Project B` must be eligible to be deployed to the `Test` environment according to the lifecycles of those projects. 
+
+## Multi-Tenant Deployments
+
+When it is a [tenanted](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/index.md) project being deployed by _Deploy Release_ step, then the parent project should also be created as tenanted.
+
+When triggering a tenanted deployment of the parent project, the tenant will be used to trigger the child deployment.
+
+If the child project is untenanted, and the parent project is deployed with a tenant selected, then the untenanted child project will simply be deployed, ignoring the tenant.
+
+### Deploying a Combination of Tenanted and Untenanted Projects
+
+A project can contain multiple _Deploy Release_ steps which deploy a combination of tenanted and untenanted projects. There are a number of approaches which can be used to control which _Deploy Release_ steps will be executed.   
+
+- Scope the _Deploy Release_  step to one or more tenants.  This is useful if the child project should only be deployed for particular tenants.  
+- If the child project is untenanted, and should only be deployed _once_ for all tenants, then the [Deployment Conditions](#conditional-deployment) can be used to specify that is should only be deployed if the version does not match.  This will prevent it from being deployed multiple times if multiple tenanted-deployments of the parent project are created. 
