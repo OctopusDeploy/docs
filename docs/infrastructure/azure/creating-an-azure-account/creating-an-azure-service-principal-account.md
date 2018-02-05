@@ -45,7 +45,8 @@ Set-AzureRMContext -SubscriptionId $subscriptionId -TenantId $tenantId
 
 # Create an Octopus Deploy Application in Active Directory
 Write-Output "Creating AAD application..."
-$azureAdApplication = New-AzureRmADApplication -DisplayName "Octopus Deploy" -HomePage "http://octopus.com" -IdentifierUris "http://octopus.com" -Password $password
+$securePassword = ConvertTo-SecureString $password -AsPlainText -Force
+$azureAdApplication = New-AzureRmADApplication -DisplayName "Octopus Deploy" -HomePage "http://octopus.com" -IdentifierUris "http://octopus.com" -Password $securePassword
 $azureAdApplication | Format-Table
 
 # Create the Service Principal
@@ -139,7 +140,8 @@ $azureAdServicePrincpal = Get-AzureRmADServicePrincipal -SearchString $azureAdAp
 $azureAdServicePrincpal | Format-Table
 
 Write-Output "Creating a new Service Principal Credential"
-$servicePrincipalCred = New-AzureRmADSPCredential -ObjectId $azureAdServicePrincipal.Id -EndDate (New-Object System.DateTime 2019,1,31) -Password $password
+$securePassword = ConvertTo-SecureString $password -AsPlainText -Force
+$servicePrincipalCred = New-AzureRmADSPCredential -ObjectId $azureAdServicePrincipal.Id -EndDate (New-Object System.DateTime 2019,1,31) -Password $securePassword
 $servicePrincipalCred | Format-Table
 
 ```
