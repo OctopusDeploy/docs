@@ -80,6 +80,18 @@ The second option is to reference a CloudFormation template and properties file 
 
 ![Package](step-aws-package.png "width=500")
 
+## IAM Capabilities
+
+This is a quote from the [AWS documentation](http://g.octopushq.com/AwsDocsControllingIAM):
+
+> Before you can create a stack, AWS CloudFormation validates your template. During validation, AWS CloudFormation checks your template for IAM resources that it might create. IAM resources, such as an IAM user with full access, can access and modify any resource in your AWS account. Therefore, we recommend that you review the permissions associated with each IAM resource before proceeding so that you don't unintentionally create resources with escalated permissions. To ensure that you've done so, you must acknowledge that the template contains those resources, giving AWS CloudFormation the specified capabilities before it creates the stack.
+
+To acknowledge that the CloudFormation template contains IAM resources, you can select an option under `IAM Resources`.
+
+If your template includes IAM resources, you can select `The template has IAM resources (CAPABILITY_IAM)` or `The template has IAM resources with custom names (CAPABILITY_NAMED_IAM)`.
+
+If your template includes custom names for IAM resources, you must select `The template has IAM resources with custom names (CAPABILITY_NAMED_IAM)`.
+
 ## Error Messages
 
 The AWS deployment steps include a number of unique error codes that may be displayed in the output if there was an error. Below is a list of the errors, along with any additional troubleshooting steps that can be taken to rectify them.
