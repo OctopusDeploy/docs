@@ -155,6 +155,10 @@ To resolve the error, ensure that the user has the appropriate permissions in AW
 ### AWS-CLOUDFORMATION-ERROR-0008
 An unrecognized exception was thrown while creating a CloudFormation stack.
 
+If the following text `Requires capabilities : [CAPABILITY_NAMED_IAM]` or `Requires capabilities : [CAPABILITY_IAM]` appears in the error message, you will need to define these capabilities in the CloudFormation deployment step.
+
+![IAM Capabilities](iam-capabilities.png "width=500")
+
 ### AWS-CLOUDFORMATION-ERROR-0009
 The AWS account used to perform the operation does not have the required permissions to delete the CloudFormation stack.
 
