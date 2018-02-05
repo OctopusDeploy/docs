@@ -51,3 +51,5 @@ This approach consists of each project taking on the role of checking that the o
 
 - Trigger a deployment of Project A if it has not been deployed to the environment
 - If Project B is running, wait for it to reach step 3
+
+!partial <deployreleasestep>
