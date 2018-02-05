@@ -25,7 +25,7 @@ If you are using the built-in repository, you can create a [zip file](/docs/pac
 If you are using TeamCity, you can use the [new TeamCity plugin for dotnet commands](https://github.com/JetBrains/teamcity-dnx-plugin).
 
 :::warning
-** Why not OctoPack?**
+**Why not OctoPack?**
 OctoPack is not compatible with ASP.NET Core applications. Please see [the OctoPack documentation](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md#UsingOctoPack-UsingNETCore) for more details.
 :::
 

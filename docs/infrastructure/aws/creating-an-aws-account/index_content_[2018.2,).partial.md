@@ -16,8 +16,6 @@ And AWS account requires a `Name`, the `Access Key` and the `Secret Key`.
 
 ![AWS Account](new-aws-account.png "width=500")
 
-See the [AWS documentation](https://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html) for details on how to create the access and secret keys.
-
 Clicking the `SAVE AND TEST` button will verify that the credentials are valid.
 
 ![Account Verification](account-verification.png "width=500")

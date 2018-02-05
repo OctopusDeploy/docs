@@ -20,7 +20,7 @@ Once you have an account, log in to [https://console.developers.google.com](htt
 
 1. Create a project for Octopus (this might take a minute or so) and then within that project
 2. Select {{API Manager,Credentials menu}}.
-3. Set the **OAuth consent screen** information.
+3. Set the **OAuth consent screen** information. In the **Product Logo URL** box, paste in `https://octopus.com/images/company/Logo-Blue_140px_rgb.png` to display the Octopus Deploy logo next to this app, so it's easy to identify.
 4. Select the Credentials tab and Create a new **OAuth client ID** for a **Web app**.
 5. Enter a **Name** for identification, e.g. Octopus.  This is the name that will appear when the user is asked to allow access to their details.
 6. Add `https://octopus.example.com/api/users/authenticatedToken/GoogleApps` (replacing `https://octopus.example.com` with the url of your Octopus server) to the **Authorized Redirect URIs**.
