@@ -34,9 +34,9 @@ In Octopus `2018.1` you can configure the built-in worker to execute tasks as a 
 Octopus.Server.exe builtin-worker --username=OctopusWorker --password=XXXXXXXXXX
 ```
 
-All tasks which execute on the Octopus Server will run as that user account. The only gotcha is that the user account running the Octopus Server needs the correct privileges to launch processes as the built-in worker user and impersonate the built-in worker user.
+All tasks which execute on the Octopus Server will run as that user account. The only gotcha is that the user account running the Octopus Server must be a member of the `BUILTIN\Administrators` group to launch new processes as the built-in worker user and impersonate the built-in worker user.
 
-Since this can be so tricky to get right, this same command-line tool can automatically configure the correct user accounts on the local machine, and wire it all up for you.
+This same command-line tool can automatically configure the correct user accounts on the local machine, and wire it all up for you.
 
 ```plaintext
 Octopus.Server.exe builtin-worker --auto-configure
