@@ -1,8 +1,9 @@
 ---
 title: Deploy Release Step 
 description: The Deploy Release Step allows you to trigger the deployment of a Release of a Project from another Project 
-version: 2018.2 
 ---
+
+!partial <versionwarning>
 
 The _Deploy Release_ step allows you to trigger the deployment of a release of a project from another project.  This is useful when you are [coordinating multiple Projects](index.md).
 
