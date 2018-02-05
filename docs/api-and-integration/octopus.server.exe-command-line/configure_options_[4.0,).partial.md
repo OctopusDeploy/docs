@@ -93,7 +93,7 @@ Where [<options>] is any of:
                              When Domain authentication is used, specifies 
                                whether to support security groups from AD.
       --activeDirectoryAllowAutoUserCreation=VALUE
-                             Whether unknown users will be automatically upon 
+                             Whether unknown users will be automatically created upon 
                                successful login.
       --googleAppsIsEnabled=VALUE
                              Set the googleApps IsEnabled, used for 

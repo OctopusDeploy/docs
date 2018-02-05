@@ -14,6 +14,8 @@ AWS steps can also defer to the IAM role assigned to the instance that hosts the
 
 And AWS account requires a `Name`, the `Access Key` and the `Secret Key`.
 
+See the [AWS documentation](https://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html) for details on how to create the access and secret keys.
+
 ![AWS Account](new-aws-account.png "width=500")
 
 Clicking the `SAVE AND TEST` button will verify that the credentials are valid.

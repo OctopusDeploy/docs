@@ -10,7 +10,7 @@ If you are reading this page: [PLEASE BACK UP YOUR MASTER KEY!](/docs/api-and-in
 
 ## Recover the master key
 
-The fastest and easiest way to get up and running is to recover the master key. The only way to recover the master key is to get the dead machine up and running again. The master key is stored in the [Octopus Server configuration file](/docs/administration/octopus-server-configuration-file.md) and encrypted using the machine's encryption key. Simply having a copy of the config file is not enough. The master key can only be decrypted by the machine where the config file came from.
+The fastest and easiest way to get up and running is to recover the master key. The only way to recover the master key is to get the dead machine up and running again. The master key is stored in the Octopus Server configuration file and encrypted using the machine's encryption key. Simply having a copy of the config file is not enough. The master key can only be decrypted by the machine where the config file came from.
 
 ## What is lost
 
