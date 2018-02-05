@@ -52,4 +52,10 @@ This approach consists of each project taking on the role of checking that the o
 - Trigger a deployment of Project A if it has not been deployed to the environment
 - If Project B is running, wait for it to reach step 3
 
-!partial <deployreleasestep>
+## Deploy Release Step
+
+!partial <deployreleasestepversion>
+
+The [Deploy Release step](/docs/deployment-process/coordinating-multiple-projects/deploy-release-step/index.md) is helpful when implementing the _Master project_  or _Cooperating projects_ approaches described above. It makes it simple to deploy a release of a project from another project.    
+
+![Deploy Release Step Example Process](voltron-project-process.png)
