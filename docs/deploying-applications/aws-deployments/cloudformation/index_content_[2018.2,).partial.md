@@ -14,14 +14,6 @@ AWS accounts are included in a project through a project variable of the type `A
 
 The `Add Variable` window is then displayed and lists all the AWS accounts.
 
-It is also possible to defer to the AWS service role assigned to an AWS EC2 instance where the deployment is executed from. This means no AWS credentials need to be stored by Octopus.
-
-Because CloudFormation deployments are performed on the Octopus server today, the Octopus server must be installed on an EC2 instance that has a service role assigned to it in order to take advantage of this.
-
-:::hint
-In future it is expected that AWS steps will be deployed from worker instances that can be hosted on separate EC2 instances with service roles assigned to them. This will make this option much more powerful.
-:::
-
 Select the account that was created in the previous step to assign it to the variable.
 
 ![AWS Account Variable Selection](aws-account-variable-selection.png "width=500")
