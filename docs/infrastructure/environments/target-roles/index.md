@@ -22,19 +22,19 @@ In production, perhaps you have 10 machines with the web-server role. In staging
 
 You can define as many environments, machines, and roles as you need; it all depends on how your applications are deployed.
 
-## Creating a Role and Assigning it to a Tentacle {#MachineRoles-CreatingaroleandassigningittoaTentacle}
+## Creating a Role and Assigning it to a Deployment Target {#MachineRoles-CreatingaroleandassigningittoaTarget}
 
-Roles are created and saved in the database the moment you assign them to a Tentacle. To do so, just:
+Roles are created and saved in the database the moment you assign them to a deployment target. Decide on the naming convention you will use, before creating your first role as it is not possible to change the case after the role has been created, for instance, all lowercase to camel case.
 
-1) Register a Tentacle or click on an already registered Tentacle and go to **Settings.**
+1) Register a deployment target or click on an already registered target and go to **Settings.**
 
 2) On the **Roles** field, type in a single word without spaces and hit enter. This word will be the role name.
 
-3) Save the Tentacle settings.
+3) Save the target settings.
 
-Once this is done, the role will not only be assigned to that Tentacle, but it will also be available to be added to all the other Tentacles.
+The role has been created and assigned to the deployment target and is available to other targets.
 
-On the screenshot below we've created a role called **WebServer** and assigned it to our Tentacle **Server02.**
+On the screenshot below we've created a role called **WebServer** and assigned it to our target **Server02.**
 
 **![](/docs/images/3048101/3277812.png "width=500")**
 
@@ -44,7 +44,7 @@ You can check all the roles assigned to your machines from the **Environments**
 
 ## Using Roles on Deployment Steps {#MachineRoles-Usingrolesondeploymentsteps}
 
-Almost all the steps that run on a Tentacle can be scoped to one or more roles. This means that the step will only execute on Tentacles with at least one of those roles. This does not mean that if the step is scoped to multiple roles that it will run for each role. Instead it will run that step for _all machines that have any roles that match any of the step roles._
+Almost all the steps that run on a deployment target can be scoped to one or more roles. This means that the step will only execute on targets with at least one of those roles. This does not mean that if the step is scoped to multiple roles that it will run for each role. Instead it will run that step for _all machines that have any roles that match any of the step roles._
 
 To scope a step to a specific role, all you have to do is type in the role name on the **Machine Roles** field.
 
@@ -61,14 +61,14 @@ According to the screenshot above, our deployment process will do the following:
 
 ## Using Roles with Variables {#MachineRoles-Usingroleswithvariables}
 
-Variables can also be [scoped to specific roles](/docs/deployment-process/variables/index.md). This means that the variable will take the specified value only when it is used on a deployment step that runs on a Tentacle with the specified role. This feature can be really handy when you want to use the same variable name multiple times and have their values changed depending on the Tentacle they are running on.
+Variables can also be [scoped to specific roles](/docs/deployment-process/variables/index.md). This means that the variable will take the specified value only when it is used on a deployment step that runs on a deployment target with the specified role. This feature can be really handy when you want to use the same variable name multiple times and have their values changed depending on the target they are running on.
 
-Let’s say you have the following Tentacles with their respective roles:
+Let’s say you have the following targets with their respective roles:
 
-| Tentacle   | Role       |
+| Target   | Role       |
 | ---------- | ---------- |
-| Tentacle 1 | app-server |
-| Tentacle 2 | web-server |
+| Target 1 | app-server |
+| Target 2 | web-server |
 
 You want to deploy the same package on each server but the deployment path will be different between servers. In this case you can set the same variables (we’ll call it *DeployPath*) with a different value for each machine role:
 
