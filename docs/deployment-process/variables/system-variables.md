@@ -26,7 +26,7 @@ Deployment-level variables are drawn from the project and release being deployed
 |**`Octopus.Deployment.Id`** <br/>The ID of the deployment | *deployments-123*|
 |**`Octopus.Deployment.Name`** <br/>The name of the deployment | *Deploy to Production*|
 |**`Octopus.Deployment.PreviousSuccessful.Id`** <br/>The ID of the previous successful deployment of this project in the target environment | *deployments-122*|
-|**`Octopus.Deployment.Machines`** <br/>Ids of machines being targeted by the deployment. | machines-123,machines-124|
+!partial <deploymentMachineVariables>
 |**`Octopus.Deployment.SpecificMachines`** <br/>Specific machines being targeted by the deployment, if any*(List)* | *machines-123,machines-124*|
 |**`Octopus.Deployment.ExcludedMachines`** <br/>Ids of machines that have been excluded from the deployment (generally for being unavailable) | machines-123,machines-124|
 |**`Octopus.Deployment.Tenant.Id`** <br/>The ID of the Tenant being deployed for. If the deployment is untenanted (or pre 3.4.0) then this variable will not be present. | *Tenants-123*|
