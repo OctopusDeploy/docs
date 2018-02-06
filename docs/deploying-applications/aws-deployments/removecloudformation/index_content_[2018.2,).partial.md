@@ -4,7 +4,7 @@ The proceeding instructions can be followed to configure the `Delete a CloudForm
 
 ## Create an AWS Account
 
-The instructions at [Creating an AWS Account](/docs/infrastructure/aws/creating-an-aws-account/index.md) detail the procedure for creating an account in Octopus.
+The instructions at [Creating an AWS Account](/docs/infrastructure/aws/creating-an-aws-account/index.md) detail the procedure for creating an account in Octopus. You can also choose to use a service role of an EC2 instance, in which case creating an AWS account is not required.
 
 ## Create a AWS Account Project Variable
 
