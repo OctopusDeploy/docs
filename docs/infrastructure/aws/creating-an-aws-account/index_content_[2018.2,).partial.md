@@ -22,9 +22,9 @@ Clicking the `SAVE AND TEST` button will verify that the credentials are valid.
 
 ![Account Verification](account-verification.png "width=500")
 
-## Using the role assigned to the instance
+## Using AWS service roles for an EC2 instances
 
-AWS allows you to assign a role to an EC2 instance, and that role can be accessed to generate the credentials that are used to deploy AWS resources and run scripts.
+AWS allows you to assign a role to an EC2 instance, referred to as an [AWS service role for an EC2 instance](https://g.octopushq.com/AwsDocsRolesTermsAndConcepts), and that role can be accessed to generate the credentials that are used to deploy AWS resources and run scripts.
 
 Because the AWS steps run on the Octopus server, this means that Octopus itself needs to be running on an EC2 instance with an IAM role applied in order to take advantage of this feature.
 
