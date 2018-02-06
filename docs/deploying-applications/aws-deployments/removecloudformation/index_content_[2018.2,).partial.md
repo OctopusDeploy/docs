@@ -12,7 +12,7 @@ AWS accounts are included in a project through a project variable of the type `A
 
 ![AWS Account Variable](aws-account-variable.png "width=500")
 
-The `Add Variable` window is then displayed and lists all the AWS accounts, as well as an account called `Role Assigned to the AWS Instance Executing the Deployment`.
+The `Add Variable` window is then displayed and lists all the AWS accounts.
 
 Select the account that was created in the previous step to assign it to the variable.
 
@@ -26,11 +26,11 @@ Add the `Delete a CloudFormation stack` step to the project, and provide it a na
 
 ### AWS Section
 
-Select the variable that references the `Amazon Web Services Account` under the `AWS Account` section.
+Select the variable that references the `Amazon Web Services Account` under the `AWS Account` section or choose to execute using a service role assigned to the EC2 instance.
 
 ![AWS Account](step-aws-account.png "width=500")
 
-The supplied account can optionally be used to assume a second role. This can be used to run the AWS commands with a role that limits the services that can be affected.
+The supplied account can optionally be used to assume a different AWS service role. This can be used to run the AWS commands with a role that limits the services that can be affected.
 
 ![AWS Role](step-aws-role.png "width=500")
 
