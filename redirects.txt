@@ -174,7 +174,7 @@ docs/deploying-applications/automatic-release-creation.md -> docs/deployment-pro
 docs/deploying-applications/deployment-process/automatic-release-creation.md -> docs/deployment-process/steps/automatic-release-creation.md
 docs/deploying-applications/blocking-deployments.md -> docs/deployment-process/releases/blocking-deployments.md
 docs/deploying-applications/deployment-process/blocking-deployments.md -> docs/deployment-process/releases/blocking-deployments.md
-docs/deploying-applications/delta-compression-for-package-transfers.md -> docs/deployment-process/delta-compression-for-package-transfers.md
+docs/deploying-applications/delta-compression-for-package-transfers.md -> docs/deployment-process/deploying-packages/delta-compression-for-package-transfers.md
 docs/deploying-applications/email-notifications.md -> docs/deployment-process/steps/email-notifications.md
 docs/deploying-applications/deployment-process/email-notifications.md -> docs/deployment-process/steps/email-notifications.md
 docs/deploying-applications/manual-intervention-and-approvals.md -> docs/deployment-process/steps/manual-intervention-and-approvals.md
@@ -263,7 +263,7 @@ docs/deploying-applications/deployment-process/steps/custom-installation-directo
 docs/deploying-applications/deployment-process/artifacts.md -> docs/deployment-process/artifacts.md
 docs/deploying-applications/deployment-process/steps/automatic-release-creation.md -> docs/deployment-process/steps/automatic-release-creation.md
 docs/deploying-applications/deployment-process/releases/blocking-deployments.md -> docs/deployment-process/releases/blocking-deployments.md
-docs/deploying-applications/deployment-process/delta-compression-for-package-transfers.md -> docs/deployment-process/delta-compression-for-package-transfers.md
+docs/deploying-applications/deployment-process/delta-compression-for-package-transfers.md -> docs/deployment-process/deploying-packages/delta-compression-for-package-transfers.md
 docs/deploying-applications/deployment-process/deploying-virtual-hard-drives.md -> docs/deploying-applications/deploying-virtual-hard-drives.md
 docs/deploying-applications/deployment-process/steps/email-notifications.md -> docs/deployment-process/steps/email-notifications.md
 docs/deploying-applications/deployment-process/steps/manual-intervention-and-approvals.md -> docs/deployment-process/steps/manual-intervention-and-approvals.md
