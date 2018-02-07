@@ -8,7 +8,7 @@ When defining your [deployment process](/docs/deploying-applications/index.md), 
 
 The process of deploying a package looks approximately like this:
 
-1. Acquire the package as optimally as possible (local package cache and [delta compression](/docs/deployment-process/delta-compression-for-package-transfers.md))
+1. Acquire the package as optimally as possible (local package cache and [delta compression](/docs/deployment-process/deploying-packages/delta-compression-for-package-transfers.md))
 1. Create a new folder for the deployment (which avoids many common problems like file locks and leaving stale files behind)
     - Example: `C:\Octopus\Applications\[Tenant name]\[Environment name]\[Package name]\[Package version]\` where `C:\Octopus\Applications` is the Tentacle application directory you configured when installing Tentacle)
 1. Extract the package into the newly created folder

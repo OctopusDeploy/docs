@@ -55,7 +55,7 @@ The best way to guarantee the best size reduction is to use the tools provided b
 If you want to use your own tools, that is fine! Just be sure to test the performance of delta compression to make sure you have configured everything correctly.
 
 :::hint
-The most common mistake causing delta compression to yield minimal size reduction is when artificial differences are injected into the package file. One example is when timestamps are changed each time the package is built. The tools provied by Octopus Deploy are designed to yield high size reductions based on the actual content of your packaged files.
+The most common mistake causing delta compression to yield minimal size reduction is when artificial differences are injected into the package file. One example is when timestamps are changed each time the package is built. The tools provided by Octopus Deploy are designed to yield high size reductions based on the actual content of your packaged files.
 :::
 
 ## Turning delta compression off {#Deltacompressionforpackagetransfers-TurningCompressionoff}

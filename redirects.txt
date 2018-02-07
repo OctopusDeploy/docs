@@ -394,3 +394,4 @@ docs/reference/service-fabric/packaging.md -> docs/deploying-applications/servic
 docs/reference/service-fabric/version-automation-with-service-fabric-application-packages/index.md -> docs/deploying-applications/service-fabric/version-automation-with-service-fabric-application-packages/index.md
 docs/reference/index.md -> docs/getting-started.md
 docs/administration/octopus-server-configuration-file.md -> docs/administration/server-configuration-and-file-storage/index.md
+docs/deployment-process/delta-compression-for-package-transfers.md -> docs/deployment-process/deploying-packages/delta-compression-for-package-transfers.md
