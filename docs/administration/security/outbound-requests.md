@@ -42,44 +42,26 @@ When the checkbox "Automatically check for new Octopus releases" is checked duri
 The octopus.com site is hosted on Microsoft Azure, so you will see traffic going to Azure services.
 :::
 
-In addition, if you also check the box "Help improve Octopus by sending usage statistics", we'll attach:
+In addition, if you also check the box "Help improve Octopus by sending usage statistics", we'll send some specific aggregate criteria along with the request. This has evolved a bit over time, so it depends on the version you are running:
 
-1. The number of environments that you have
-2. The number of machines and deployment targets that you have (including Listening Tentacles, Polling Tentacles, Offline package drops, Azure Web Apps, Azure Cloud Services and SSH connections)
-3. The number of projects that you have
-4. The number of each of the different types of deployment steps that you have
-5. The number of releases and deployments that you have done in the last 90 days
-6. The number of users that you have
+| Version Added | Metrics |
+| ------------- | ------- |
+| pre-2.6       | The number of environments that you have |
+| pre-2.6       | The number of machines and deployment targets that you have (including Listening Tentacles, Polling Tentacles, Offline package drops, Azure Web Apps, Azure Cloud Services and SSH connections) |
+| pre-2.6       | The number of projects that you have |
+| pre-2.6       | The number of each of the different types of deployment steps that you have |
+| pre-2.6       | The number of releases and deployments that you have done in the last 90 days |
+| pre-2.6       | The number of users that you have |
+| 2.6           | A SHA1 hash of your license key serial number |
+| 2.6           | The amount of memory Octopus is using |
+| 2.6           | The % of CPU Octopus is using on average |
+| 3.2           | The number of channels you are using |
+| 3.4           | Usage of multi-tenant features (number of tenants, number of tenant tags) |
+| 3.11.2        | The number of certificates you have |
+| 3.12          | The time to your first deployment |
+| 3.15          | Whether you are using LetsEncrypt |
+| 3.16.1        | Whether you are using the guest account |
 
-**As of v2.6**
-
-7. A SHA1 hash of your license key serial number
-8. The amount of memory Octopus is using
-9. The % of CPU Octopus is using on average
-
-**As of v3.2**
-
-10. The number of channels you are using
-
-**As of v3.4**
-
-11. Usage of multi-tenant features (number of tenants, number of tenant tags)
-
-**As of v3.11.2**
-
-12. The number of certificates you have
-
-**As of v3.12**
-
-13. The time to your first deployment
-
-**As of v3.15**
-
-14. Whether you are using LetsEncrypt
-
-**As of v3.16.1**
-
-15. Whether you are using any guest accounts
 
 The installation ID is a GUID that we generate when Octopus is installed. This GUID is simply a way for us to get a rough idea of the number of installations there are in the wild, and which versions people are using, so we can make decisions about backwards compatibility support.
 
