@@ -109,8 +109,6 @@ The error message will include the error from AWS, which looks like this:
 User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: cloudformation:DescribeStackEvents on resource: arn:aws:cloudformation:us-east-1:123456789012:stack/MyStack/*
 ```
 
-To resolve the error, ensure that the user has the appropriate permissions in AWS.
-
 To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deploying-applications/aws-deployments/permissions/index.md) contains an overview of the permissions required by the AWS steps.
 
 ### AWS-CLOUDFORMATION-ERROR-0003
@@ -126,8 +124,6 @@ The error message will include the error from AWS, which looks like this:
 User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: cloudformation:DescribeStacks on resource: arn:aws:cloudformation:us-east-1:123456789012:stack/MyStack/*
 ```
 
-To resolve the error, ensure that the user has the appropriate permissions in AWS.
-
 To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deploying-applications/aws-deployments/permissions/index.md) contains an overview of the permissions required by the AWS steps.
 
 ### AWS-CLOUDFORMATION-ERROR-0004
@@ -137,8 +133,6 @@ The error message will include the error from AWS, which looks like this:
 ```
 User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: cloudformation:DescribeStacks on resource: arn:aws:cloudformation:us-east-1:123456789012:stack/MyStack/*
 ```
-
-To resolve the error, ensure that the user has the appropriate permissions in AWS.
 
 To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deploying-applications/aws-deployments/permissions/index.md) contains an overview of the permissions required by the AWS steps.
 
@@ -156,8 +150,6 @@ The error message will include the error from AWS, which looks like this:
 User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: cloudformation:CreateStack on resource: arn:aws:cloudformation:us-east-1:123456789012:stack/MyStack/*
 ```
 
-To resolve the error, ensure that the user has the appropriate permissions in AWS.
-
 To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deploying-applications/aws-deployments/permissions/index.md) contains an overview of the permissions required by the AWS steps.
 
 ### AWS-CLOUDFORMATION-ERROR-0008
@@ -174,8 +166,6 @@ The error message will include the error from AWS, which looks like this:
 ```
 User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: cloudformation:DeleteStack on resource: arn:aws:cloudformation:us-east-1:123456789012:stack/MyStack/*
 ```
-
-To resolve the error, ensure that the user has the appropriate permissions in AWS.
 
 To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deploying-applications/aws-deployments/permissions/index.md) contains an overview of the permissions required by the AWS steps.
 
