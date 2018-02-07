@@ -84,7 +84,7 @@ Deployment to an Azure Cloud Service proceeds as follows (more details provided 
 3. Extract the Cloud Service package (`.cspkg`) to a temporary location
 4. Any configured or packaged `PreDeploy` scripts are executed
 5. Variable substitutions in Cloud Service configuration file (`.cscfg`)
-6. [Substitute variables in files](/docs/deployment-process/substitute-variables-in-files.md) (if configured)
+6. [Substitute variables in files](/docs/deployment-process/configuration-files/substitute-variables-in-files.md) (if configured)
 7. [XML configuration transformations](/docs/deployment-process/configuration-files/index.md) (if configured) are performed
 8. [XML configuration variables](/docs/deployment-process/configuration-files/index.md) (if configured) are replaced
 9. Any configured or package `Deploy` scripts are executed

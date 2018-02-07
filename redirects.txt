@@ -183,7 +183,7 @@ docs/deploying-applications/run-steps-in-parallel.md -> docs/deployment-process/
 docs/deploying-applications/deployment-process/run-steps-in-parallel.md -> docs/deployment-process/steps/run-steps-in-parallel.md
 docs/deploying-applications/scheduled-deployments.md -> docs/deployment-process/releases/scheduled-deployments.md
 docs/deploying-applications/deployment-process/scheduled-deployments.md -> docs/deployment-process/releases/scheduled-deployments.md
-docs/deploying-applications/substitute-variables-in-files.md -> docs/deployment-process/substitute-variables-in-files.md
+docs/deploying-applications/substitute-variables-in-files.md -> docs/deployment-process/configuration-files/substitute-variables-in-files.md
 docs/deploying-applications/coordinating-multiple-projects/index.md -> docs/deployment-process/coordinating-multiple-projects/index.md
 docs/deploying-applications/coordinating-multiple-projects/project-coordination-code-samples.md -> docs/deployment-process/coordinating-multiple-projects/project-coordination-code-samples.md
 docs/deploying-applications/deployment-process/projects/project-triggers.md -> docs/deployment-process/project-triggers.md
@@ -269,7 +269,7 @@ docs/deploying-applications/deployment-process/steps/email-notifications.md -> d
 docs/deploying-applications/deployment-process/steps/manual-intervention-and-approvals.md -> docs/deployment-process/steps/manual-intervention-and-approvals.md
 docs/deploying-applications/deployment-process/steps/run-steps-in-parallel.md -> docs/deployment-process/steps/run-steps-in-parallel.md
 docs/deploying-applications/deployment-process/releases/scheduled-deployments.md -> docs/deployment-process/releases/scheduled-deployments.md
-docs/deploying-applications/deployment-process/substitute-variables-in-files.md -> docs/deployment-process/substitute-variables-in-files.md
+docs/deploying-applications/deployment-process/substitute-variables-in-files.md -> docs/deployment-process/configuration-files/substitute-variables-in-files.md
 docs/deploying-applications/deployment-process/steps/conditions.md -> docs/deployment-process/steps/conditions.md
 docs/deployment-process/projects/reporting.md -> docs/administration/reporting.md
 docs/deployment-process/projects/lifecycles/index.md -> docs/deployment-process/lifecycles/index.md
@@ -398,3 +398,5 @@ docs/deployment-process/delta-compression-for-package-transfers.md -> docs/deplo
 docs/deployment-process/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md -> docs/deployment-process/configuration-files/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md
 docs/deployment-process/package-deployment-feature-ordering.md -> docs/deployment-process/deploying-packages/package-deployment-feature-ordering.md
 docs/deployment-process/stage-package-uploads.md -> docs/deployment-process/deploying-packages/stage-package-uploads.md
+docs/deployment-process/substitute-variables-in-files.md -> docs/deployment-process/configuration-files/substitute-variables-in-files.md
+docs/deployment-process/variable-substitution-syntax.md -> docs/deployment-process/variables/variable-substitution-syntax.md
