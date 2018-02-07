@@ -101,7 +101,7 @@ There are three ways you can do this, two of which involve using [Octopus Varia
 There are pros and cons to each of these methods. For the first two it can break your configuration files locally. But if you make use of environment transforms (see below) you can avoid this. See the [Substitute Variables in Files](/docs/deployment-process/substitute-variables-in-files.md) documentation for an example of using Octopus Variables in your config files.
 
 :::success
-Using the Substitute Variables in Files feature will change the order that variables are replaced. Using Configuration Transformations and Configuration Variables, does the transformation and then replaces variables. Defining files within the substitution will have all of their variables replaced first prior to the transformation. But this will only happen for any configuration or transformation files that are explicitly listed in the Substitute files list. Read about the order of [package step feature ordering here](/docs/deployment-process/package-deployment-feature-ordering.md).
+Using the Substitute Variables in Files feature will change the order that variables are replaced. Using Configuration Transformations and Configuration Variables, does the transformation and then replaces variables. Defining files within the substitution will have all of their variables replaced first prior to the transformation. But this will only happen for any configuration or transformation files that are explicitly listed in the Substitute files list. Read about the order of [package step feature ordering here](/docs/deployment-process/deploying-packages/package-deployment-feature-ordering.md).
 :::
 
 ## Configuration transforms {#Configurationfiles-ConfigurationTransformationConfigurationtransforms}
