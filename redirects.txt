@@ -314,7 +314,7 @@ docs/how-to/troubleshoot-listening-tentacles.md -> docs/infrastructure/windows-t
 docs/how-to/deploy-to-a-specific-subset-of-targets.md -> docs/deployment-process/deploy-to-a-specific-subset-of-targets.md
 docs/how-to/stage-package-uploads.md -> docs/deployment-process/stage-package-uploads.md
 docs/how-to/expose-the-octopus-web-portal-over-https.md -> docs/administration/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md
-docs/how-to/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md -> docs/deployment-process/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md
+docs/how-to/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md -> docs/deployment-process/configuration-files/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md
 docs/how-to/move-the-octopus-home-folder-and-the-tentacle-home-and-application-folders.md -> docs/administration/moving-your-octopus/move-the-octopus-home-folder-and-the-tentacle-home-and-application-folders.md
 docs/how-to/get-a-database-backup-and-encrypt-the-master-key.md -> docs/support/get-a-database-backup-and-encrypt-the-master-key.md
 docs/administration/get-a-database-backup-and-encrypt-the-master-key.md -> docs/support/get-a-database-backup-and-encrypt-the-master-key.md
@@ -395,3 +395,4 @@ docs/reference/service-fabric/version-automation-with-service-fabric-application
 docs/reference/index.md -> docs/getting-started.md
 docs/administration/octopus-server-configuration-file.md -> docs/administration/server-configuration-and-file-storage/index.md
 docs/deployment-process/delta-compression-for-package-transfers.md -> docs/deployment-process/deploying-packages/delta-compression-for-package-transfers.md
+docs/deployment-process/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md -> docs/deployment-process/configuration-files/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md
