@@ -14,7 +14,21 @@ Using a CSRF attack a malicious actor could potentially simulate requests to the
 
 ## Does Octopus Deploy prevent CSRF attacks?
 
-Yes. The Octopus HTTP API is protected from CSRF attacks out of the box by requiring an anti-forgery token. If you are using any tools provided by Octopus Deploy, including the Web Portal, and Client SDK, this is all done for you automatically.
+Yes. The Octopus HTTP API is protected from CSRF attacks out of the box by requiring an anti-forgery token using a combination of the [Synchronizer Token Pattern](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet#Synchronizer_.28CSRF.29_Tokens) and the [Encrypted Token Pattern](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet#Encrypted_Token_Pattern). If you are using any tools provided by Octopus Deploy, including the Web Portal, and Client SDK, this is all done for you automatically and transparently.
+
+### Headers, Cookies, and HttpOnly
+
+Upon authenticating your client, Octopus Server sends two cookies back to the browser via HTTP Headers:
+
+- ​`OctopusIdentificationToken` with `HttpOnly=true` - this is an encrypted session token which can be used by the Octopus Server to identify the authenticated user who is making the HTTP Request.
+- `Octopus-Csrf-Token` with `HttpOnly=false` - this cookie contains the encrypted synchronizer token which should be sent as a special header as part of every authenticated HTTP request.
+
+After authenticating, your HTTP request should contain these headers to prove the identity and origin of the HTTP request:
+
+- Cookies header containing the ​`OctopusIdentificationToken`
+- `X-Octopus-Csrf-Token header` - this header contains the encrypted synchronizer token which proves the request is legitimate
+
+If you are using any tools provided by Octopus Deploy, including the Web Portal, and Client SDK, this is all done for you automatically and transparently.
 
 ## Troubleshooting
 
