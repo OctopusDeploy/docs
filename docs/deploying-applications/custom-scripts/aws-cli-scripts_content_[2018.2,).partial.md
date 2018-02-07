@@ -1,4 +1,4 @@
-Octopus allows you to write custom Powershell scripts that have access to the AWS CLI via the `Run an AWS CLI Script` step. In addition, the script is run in an environment that handles authentication by creating the `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_DEFAULT_REGION` environment variables based on the AWS account that was selected for the step.
+Octopus allows you to write custom Powershell scripts that have access to the [AWS CLI](https://aws.amazon.com/cli/) via the `Run an AWS CLI Script` step. In addition, the script is run in an environment that handles authentication by creating the `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_DEFAULT_REGION` environment variables based on the AWS account that was selected for the step.
 
 The proceeding instructions can be followed to configure the `Run an AWS CLI Script` step.
 
@@ -40,7 +40,7 @@ The default AWS region in which to execute AWS CLI commands is defined in the `R
 
 ## Script Section
 
-PowerShell scripts run by the `Run an AWS CLI Script` step have access to the AWS CLI executable `aws` on the path. In addition the environment variables `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_DEFAULT_REGION` are configured. The `AWS_SESSION_TOKEN` environment variable is also configured if the script was run against an assumed role, or if the role assigned to the EC2 instance running the script (i.e. the Octopus server) was used.
+PowerShell scripts run by the `Run an AWS CLI Script` step have access to the AWS CLI executable `aws.exe` on the path. In addition the environment variables `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_DEFAULT_REGION` are configured. The `AWS_SESSION_TOKEN` environment variable is also configured if the script was run against an assumed role, or if the AWS service role for the EC2 instance running the script (i.e. the Octopus server) was used.
 
 Scripts can be run from two different locations: source code added to the step, or a script from a package.
 
