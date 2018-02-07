@@ -199,7 +199,7 @@ An unrecognized exception was thrown while updating a CloudFormation stack.
 
 Failed to get the caller identity. This may be because the instance does not have a role assigned to it.
 
-This typically occurs because the step has used the `Role Assigned to the AWS Instance Executing the Deployment` account, but the instance running the deployment does not have a role assigned to it. See the [AWS Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html?icmpid=docs_ec2_console) for more details.
+This typically occurs because the step has specified `Yes` to the `Execute using the AWS service role for an EC2 instance` option, but the instance running the deployment does not have a role assigned to it. See the [AWS Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html?icmpid=docs_ec2_console) for more details.
 
 ### AWS-LOGIN-ERROR-0001
 
