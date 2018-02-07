@@ -1,6 +1,6 @@
-Octopus supports the deployment of AWS CloudFormation templates through the `Deploy a CloudFormation Template` step. This step executes a CloudFormation template using AWS credentials managed by Octopus, and captures the CloudFormation outputs as Octopus output variables.
+Octopus supports the deployment of AWS CloudFormation templates through the `Deploy an AWS CloudFormation Template` step. This step executes a CloudFormation template using AWS credentials managed by Octopus, and captures the CloudFormation outputs as Octopus output variables.
 
-The proceeding instructions can be followed to configure the `Deploy a CloudFormation Template` step.
+The proceeding instructions can be followed to configure the `Deploy an AWS CloudFormation Template` step.
 
 ## Create an AWS Account
 
@@ -20,9 +20,9 @@ Select the account that was created in the previous step to assign it to the var
 
 ## Add the CloudFormation Step
 
-Add the `Deploy a CloudFormation template` step to the project, and provide it a name.
+Add the `Deploy an AWS CloudFormation template` step to the project, and provide it a name.
 
-![Deploy a CloudFormation Template Step](deploy-cloudformation-step.png "width=500")
+![Deploy an AWS CloudFormation Template Step](deploy-cloudformation-step.png "width=500")
 
 ### AWS Section
 
