@@ -62,7 +62,7 @@ The following features are available when deploying a package to a Service Fabri
 - [Configuration Variables](/docs/deployment-process/configuration-files/index.md)
 - [Configuration Transforms](/docs/deployment-process/configuration-files/index.md)
 - [JSON configuration variables](/docs/deploying-applications/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md)
-- [Substitute variables in files](/docs/deployment-process/variable-substitution-syntax.md)
+- [Substitute variables in files](/docs/deployment-process/variables/variable-substitution-syntax.md)
 
 :::hint
 Please note these features actually run on the Octopus Server prior to deploying the Service Fabric application to your cluster. They don't execute in the cluster nodes you are eventually targeting.
@@ -75,7 +75,7 @@ Deployment to a Service Fabric cluster proceeds as follows (more details provide
 1. Download the package from the [package repository](/docs/packaging-applications/package-repositories/index.md)
 2. Extract the package on the Octopus server to a temporary location
 4. Any configured or packaged `PreDeploy` scripts are executed
-6. [Substitute variables in files](/docs/deployment-process/substitute-variables-in-files.md) (if configured)
+6. [Substitute variables in files](/docs/deployment-process/configuration-files/substitute-variables-in-files.md) (if configured)
 7. [XML configuration transformations](/docs/deployment-process/configuration-files/index.md) (if configured) are performed
 8. [XML configuration variables](/docs/deployment-process/configuration-files/index.md) (if configured) are replaced
 8. [JSON configuration variables](/docs/deploying-applications/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md) (if configured) are replaced

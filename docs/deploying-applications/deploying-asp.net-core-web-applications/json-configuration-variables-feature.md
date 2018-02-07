@@ -3,7 +3,7 @@ title: JSON Configuration Variables Feature
 description: The JSON Configuration Variables feature updates your JSON configuration files with the values from matching Octopus variables.
 ---
 
-The **JSON configuration variables** feature updates your JSON configuration files with the values from matching Octopus variables. In many ways this feature works similarly to the [Substitute Variables in Files](/docs/deployment-process/substitute-variables-in-files.md) feature, but uses a special matching syntax so you can update configuration nested in JSON object and array literals.
+The **JSON configuration variables** feature updates your JSON configuration files with the values from matching Octopus variables. In many ways this feature works similarly to the [Substitute Variables in Files](/docs/deployment-process/configuration-files/substitute-variables-in-files.md) feature, but uses a special matching syntax so you can update configuration nested in JSON object and array literals.
 
 :::hint
 **Available in 3.3**
@@ -39,7 +39,7 @@ approot\packages\ASPNET.Core.Sample\1.0.0\root\appSettings.json
 ```
 :::
 
-Note that you can even use the [Variable Substitution Syntax](/docs/deployment-process/variable-substitution-syntax.md) patterns in this file selection input box itself to do things like reference environment specific files, or conditionally include them based on scoped variables.
+Note that you can even use the [Variable Substitution Syntax](/docs/deployment-process/variables/variable-substitution-syntax.md) patterns in this file selection input box itself to do things like reference environment specific files, or conditionally include them based on scoped variables.
 
 ![JSON variable subsitute](5275656.png "width=500")
 
