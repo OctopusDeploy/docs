@@ -97,7 +97,7 @@ CloudFormation stack finished in a rollback state. Commonly this occurs because 
 
 The last `Status Reason` from the stack events is displayed in the Octopus logs, but you can find more information about the error in the AWS CloudFormation console under the Events section for the stack.
 
-In the screenshot below you can see that the specified instance type could only be used in a VPC, triggering the rollback.
+For example, in the screenshot below you can see that the specified instance type could only be used in a VPC, triggering the rollback of this particular CloudFormation deployment.
 
 ![CloudFormation Events](cloud-formation-error.png "width=500")
 
