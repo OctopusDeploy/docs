@@ -32,7 +32,7 @@ During installation, Octopus will ask you whether you want to check for new rele
 
 ![](/docs/images/3048073/3277613.png "width=500")
 
-When the checkbox "Automatically check for new Octopus releases" is checked during installation, Octopus will make a HTTPS request to the `octopusdeploy.com` domain every 8 hours. This request includes:
+When the checkbox "Automatically check for new Octopus releases" is checked during installation, Octopus will make a HTTPS request to the `octopus.com` domain every 8 hours. This request includes:
 
 1. The current Octopus Deploy version number that you are running
 2. A unique installation ID (read more below)
@@ -50,10 +50,36 @@ In addition, if you also check the box "Help improve Octopus by sending usage st
 4. The number of each of the different types of deployment steps that you have
 5. The number of releases and deployments that you have done in the last 90 days
 6. The number of users that you have
-7. (As of 2.6) A SHA1 hash of your license key serial number
-8. (As of 2.6) The amount of memory Octopus is using
-9. (As of 2.6) The % of CPU Octopus is using on average
-10. (As of 3.12) The time to your first deployment
+
+**As of v2.6**
+
+7. A SHA1 hash of your license key serial number
+8. The amount of memory Octopus is using
+9. The % of CPU Octopus is using on average
+
+**As of v3.2**
+
+10. The number of channels you are using
+
+**As of v3.4**
+
+11. Usage of multi-tenant features (number of tenants, number of tenant tags)
+
+**As of v3.11.2**
+
+12. The number of certificates you have
+
+**As of v3.12**
+
+13. The time to your first deployment
+
+**As of v3.15**
+
+14. Whether you are using LetsEncrypt
+
+**As of v3.16.1**
+
+15. Whether you are using any guest accounts
 
 The installation ID is a GUID that we generate when Octopus is installed. This GUID is simply a way for us to get a rough idea of the number of installations there are in the wild, and which versions people are using, so we can make decisions about backwards compatibility support.
 
