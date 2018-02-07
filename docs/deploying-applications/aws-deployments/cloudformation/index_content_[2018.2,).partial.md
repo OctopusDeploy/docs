@@ -34,6 +34,10 @@ The supplied account can optionally be used to assume a different AWS service ro
 
 ![AWS Role](step-aws-role.png "width=500")
 
+:::hint
+If you select `Yes` to `Execute using the AWS service role for an EC2 instance`, you do not need an AWS account or account variable. Instead the AWS service role for the EC2 instance executing the deployment will be used. See the [AWS documentation](https://g.octopushq.com/AwsDocsRolesTermsAndConcepts) for more information on service roles.
+:::
+
 ### Template Section
 
 Under the `CloudFormation` section, the AWS region and stack name need to be defined.
