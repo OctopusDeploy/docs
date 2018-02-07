@@ -296,7 +296,7 @@ The following steps can be used to deploy an application via a file copy to an a
 
 ## Variable Substitution in Java Packages
 
-Octopus provides the [ability to replace variables in packages during deployment](/docs/deployment-process/configuration-files/substitute-variables-in-files.md). This is done using a [specific syntax](/docs/deployment-process/variable-substitution-syntax.md) implemented by the [Octostash](https://github.com/OctopusDeploy/Octostache) library.
+Octopus provides the [ability to replace variables in packages during deployment](/docs/deployment-process/configuration-files/substitute-variables-in-files.md). This is done using a [specific syntax](/docs/deployment-process/variables/variable-substitution-syntax.md) implemented by the [Octostash](https://github.com/OctopusDeploy/Octostache) library.
 
 The syntax used by Octostash and Java libraries such as Spring do overlap, so care must be taken to ensure that files intended to be used as Octostash templates during deployment don't interfere with local development.
 

@@ -158,7 +158,7 @@ The following features are available when deploying a package to an Azure Web Ap
 - [Configuration Variables](/docs/deployment-process/configuration-files/index.md)
 - [Configuration Transforms](/docs/deployment-process/configuration-files/index.md)
 - [JSON configuration variables](/docs/deploying-applications/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md)
-- [Substitute variables in files](/docs/deployment-process/variable-substitution-syntax.md)
+- [Substitute variables in files](/docs/deployment-process/variables/variable-substitution-syntax.md)
 
 :::hint
 Please note these features actually run on the Octopus Server prior to executing web deploy to synchronize the resultant files to the Azure Web App slot. They don't execute in the Azure Web App host you are eventually targeting.

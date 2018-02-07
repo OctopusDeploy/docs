@@ -55,7 +55,7 @@ You can choose when to send the email notification using the same conditions as 
 
 ## Email content {#Emailnotifications-Exampleemailtemplates}
 
-You can set the email subject and author the email body as plain text or HTML content. You can even use the Octopus [variable syntax](/docs/deployment-process/variable-substitution-syntax.md) to include information about the deployment in the email.
+You can set the email subject and author the email body as plain text or HTML content. You can even use the Octopus [variable syntax](/docs/deployment-process/variables/variable-substitution-syntax.md) to include information about the deployment in the email.
 
 :::hint
 The binding helper to the right of each form field can be used to view the available variables.

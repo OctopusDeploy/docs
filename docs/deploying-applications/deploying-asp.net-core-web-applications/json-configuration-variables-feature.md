@@ -39,7 +39,7 @@ approot\packages\ASPNET.Core.Sample\1.0.0\root\appSettings.json
 ```
 :::
 
-Note that you can even use the [Variable Substitution Syntax](/docs/deployment-process/variable-substitution-syntax.md) patterns in this file selection input box itself to do things like reference environment specific files, or conditionally include them based on scoped variables.
+Note that you can even use the [Variable Substitution Syntax](/docs/deployment-process/variables/variable-substitution-syntax.md) patterns in this file selection input box itself to do things like reference environment specific files, or conditionally include them based on scoped variables.
 
 ![JSON variable subsitute](5275656.png "width=500")
 
