@@ -356,7 +356,7 @@ docs/reference/octopus-ha/index.md -> docs/administration/high-availability/inde
 docs/reference/octopus-ha/load-balancers/index.md -> docs/administration/high-availability/index.md
 docs/reference/octopus-server-configuration-file.md -> docs/administration/server-configuration-and-file-storage/index.md
 docs/reference/debugging-powershell-scripts.md -> docs/deploying-applications/custom-scripts/debugging-powershell-scripts.md
-docs/reference/package-deployment-feature-ordering.md -> docs/deployment-process/deploying-packages/package-deployment-feature-ordering.md
+docs/reference/package-deployment-feature-ordering.md -> docs/deployment-process/deploying-packages/deploying-packages/package-deployment-feature-ordering.md
 docs/reference/process-dumps.md -> docs/support/process-dumps.md
 docs/reference/csrf-and-octopus-deploy.md -> docs/administration/security/cve/csrf-and-octopus-deploy.md
 docs/administration/csrf-and-octopus-deploy.md -> docs/administration/security/cve/csrf-and-octopus-deploy.md
@@ -397,3 +397,4 @@ docs/administration/octopus-server-configuration-file.md -> docs/administration/
 docs/deployment-process/delta-compression-for-package-transfers.md -> docs/deployment-process/deploying-packages/delta-compression-for-package-transfers.md
 docs/deployment-process/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md -> docs/deployment-process/configuration-files/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md
 docs/deployment-process/package-deployment-feature-ordering.md -> docs/deployment-process/deploying-packages/package-deployment-feature-ordering.md
+docs/deployment-process/stage-package-uploads.md -> docs/deployment-process/deploying-packages/stage-package-uploads.md
