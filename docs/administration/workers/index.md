@@ -4,7 +4,7 @@ description: Worker setup and configuration.
 position: 1400
 ---
 
-When your deployment process runs a script or extracts a package without involving a Tentacle or SSH target, the process is performed by a worker (see [where steps run](#where-steps-run) below). By default the worker lives inside the Octopus Server process (the built-in worker), however you can also configure an [external worker](#external-worker). 
+When your deployment process runs a script or extracts a package without involving a Tentacle or an SSH target, the process is performed by a worker (see [where steps run](#where-steps-run) below). By default the worker lives inside the Octopus Server process (the built-in worker), however you can also configure an [external worker](#external-worker). 
 
 ## Built-in Worker
 
