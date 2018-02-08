@@ -29,7 +29,7 @@ AWS allows you to assign a role to an EC2 instance, referred to as an [AWS servi
 Because the AWS steps run on the Octopus server, this means that Octopus itself needs to be running on an EC2 instance with an IAM role applied in order to take advantage of this feature.
 
 :::hint
-It is expected that in future these steps will be run on worker instances, which can execute on their own EC2 instances with their own roles applies. This will make IAM roles much more useful and flexible.
+It is expected that in future these steps will be run on [worker instances](https://github.com/OctopusDeploy/Specs/blob/master/Workers/index.md), which can execute on their own EC2 instances with their own roles applies. This will make IAM roles much more useful and flexible.
 :::
 
 When using the IAM role assigned to the Octopus EC2 instance, there is no need to create an AWS account in Octopus.
