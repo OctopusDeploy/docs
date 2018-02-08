@@ -41,7 +41,7 @@ The external worker currently has the following limitations
 - There can only be one
 - It does not participate in Health Checks unless it is also a deployment target
 - Packages are always transfered from the server to the worker, download on target is not supported
-- The worker will run steps from different projects simultaneously (keeping the behaviour of the built-in worker), which could allow one project to access the working folder of another project 
+- The worker will run steps from different projects simultaneously (keeping the behavior of the built-in worker), which could allow one project to access the working folder of another project 
 
 ## Where steps run
 The following step types and configurations run on a worker
