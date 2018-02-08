@@ -8,7 +8,7 @@ When your deployment process runs a script or extracts a package without involvi
 
 ## Built-in Worker
 
-Any time a script needs to be run (e.g. PowerShell or Calamari), Octopus Server spawns a new process from its process under its security context. In `2018.1.0` we introduced the ability to [change the security context](/docs/administration/security/built-in-worker) under which those new processes spawned, adding a layer of security.
+Any time a script needs to be run (e.g. PowerShell or Calamari), Octopus Server spawns a new process from its process under its security context. In `2018.1.0` we introduced the ability to [change the security context](/docs/administration/security/built-in-worker/index.md) under which those new processes spawned, adding a layer of security.
 
 ## External Worker
 
