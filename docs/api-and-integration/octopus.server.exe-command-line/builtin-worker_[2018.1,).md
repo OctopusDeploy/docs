@@ -1,6 +1,6 @@
 ---
 title: Octopus Server commands - Built-in Worker
-description: Creates a new certificate that Octopus server can use to authenticate itself with its Tentacles
+description: Configure the built-in worker used to run deployment actions and scripts on the Octopus Server
 ---
 
 Use the builtin-worker command to configure the user context that the [built-in worker](/docs/administration/workers#built-in-worker) runs under.
