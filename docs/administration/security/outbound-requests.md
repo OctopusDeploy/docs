@@ -34,8 +34,8 @@ During installation, Octopus will ask you whether you want to check for new rele
 
 When the checkbox "Automatically check for new Octopus releases" is checked during installation, Octopus will make a HTTPS request to the `octopus.com` domain every 8 hours. This request includes:
 
-1. The current Octopus Deploy version number that you are running
-2. A unique installation ID (read more below)
+- The current Octopus Deploy version number that you are running
+- A unique installation ID (read more below)
 
 :::hint
 **Microsoft Azure**
@@ -44,23 +44,23 @@ The octopus.com site is hosted on Microsoft Azure, so you will see traffic going
 
 In addition, if you also check the box "Help improve Octopus by sending usage statistics", we'll send some specific aggregate criteria along with the request. This has evolved a bit over time, so it depends on the version you are running:
 
-| Version Added | Metrics |
+| Metrics       | Since   |
 | ------------- | ------- |
-| pre-2.6       | The number of environments that you have |
-| pre-2.6       | The number of machines and deployment targets that you have (including Listening Tentacles, Polling Tentacles, Offline package drops, Azure Web Apps, Azure Cloud Services and SSH connections) |
-| pre-2.6       | The number of projects that you have |
-| pre-2.6       | The number of each of the different types of deployment steps that you have |
-| pre-2.6       | The number of releases and deployments that you have done in the last 90 days |
-| pre-2.6       | The number of users that you have |
-| 2.6           | A SHA1 hash of your license key serial number |
-| 2.6           | The amount of memory Octopus is using |
-| 2.6           | The % of CPU Octopus is using on average |
-| 3.2           | The number of channels you are using |
-| 3.4           | Usage of multi-tenant features (number of tenants, number of tenant tags) |
-| 3.11.2        | The number of certificates you have |
-| 3.12          | The time to your first deployment |
-| 3.15          | Whether you are using LetsEncrypt |
-| 3.16.1        | Whether you are using the guest account |
+| The number of environments that you have | <2.6 |
+| The number of machines and deployment targets that you have (including Listening Tentacles, Polling Tentacles, Offline package drops, Azure Web Apps, Azure Cloud Services and SSH connections) | <2.6 |
+| The number of projects that you have | <2.6 |
+| The number of each of the different types of deployment steps that you have | <2.6 |
+| The number of releases and deployments that you have done in the last 90 days | <2.6 |
+| The number of users that you have | <2.6 |
+| A SHA1 hash of your license key serial number | 2.6 |
+| The amount of memory Octopus is using | 2.6 |
+| The % of CPU Octopus is using on average | 2.6 |
+| The number of channels you are using | 3.2 |
+| Usage of multi-tenant features (number of tenants, number of tenant tags) | 3.4 |
+| The number of certificates you have | 3.11.2 |
+| The time to your first deployment | 3.12 |
+| Whether you are using LetsEncrypt | 3.15 |
+| Whether you are using the guest account | 3.16.1 |
 
 
 The installation ID is a GUID that we generate when Octopus is installed. This GUID is simply a way for us to get a rough idea of the number of installations there are in the wild, and which versions people are using, so we can make decisions about backwards compatibility support.
