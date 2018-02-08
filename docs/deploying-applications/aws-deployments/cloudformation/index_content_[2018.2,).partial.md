@@ -84,7 +84,7 @@ Once the `OK` button is clicked, the parameters defined in the template will be 
 
 #### Package
 
-The second option is to reference a CloudFormation template and properties file from a package. This is done by selecting the `File inside a package` option, specifying the package, and the supplying the name of the template file (which can be a JSON or YAML file), and optionally the path to the parameters file (which [only supports JSON](https://github.com/aws/aws-cli/issues/2275)).
+The second option is to reference a CloudFormation template and properties file from a package. This is done by selecting the `File inside a package` option, specifying the package, and the supplying the name of the template file (which can be a JSON or YAML file), and optionally the path to the parameters file (which [only supports JSON](https://aws.uservoice.com/forums/598381-aws-command-line-interface/suggestions/33168310-cloudformation-external-parameter-file-do-not-supp)).
 
 ![Package](step-aws-package.png "width=500")
 
