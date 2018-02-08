@@ -88,6 +88,24 @@ The second option is to reference a CloudFormation template and properties file 
 
 ![Package](step-aws-package.png "width=500")
 
+## CloudFormation Deployment Workflow
+
+The AWS CLI makes a clear distinction between creating and updating CloudFormation stacks. When using the CLI directly, it is up to you to know if the stack exists, and what state the stack is in, in order to know whether to create or update the stack.
+
+Octopus takes a different approach. The CloudFormation steps are designed to be idempotent, which means you can run them multiple times and the result will be the same. This means that Octopus will create the stack if it doesn't exist, update the stack if it does exist, and ignore cases where the stack has no updates. Likewise deleting a stack will complete successfully if there is no stack to delete.
+
+In addition, there are several states that a stack can be in where the only way to apply updates is to first delete the stack. A stack can enter one of these states for a variety of reasons, such as failing to be successfully created the first time.
+
+The following states are those that require the stack to be deleted before they can be recreated:
+
+* CREATE_FAILED
+* ROLLBACK_COMPLETE
+* ROLLBACK_FAILED
+* DELETE_FAILED
+* UPDATE_ROLLBACK_FAILED
+
+The [AWS documentation](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-describing-stacks.html#w2ab2c15c15c17c11) contains more details on the CloudFormation state states.
+
 ## Error Messages
 
 The AWS deployment steps include a number of unique error codes that may be displayed in the output if there was an error. Below is a list of the errors, along with any additional troubleshooting steps that can be taken to rectify them.
