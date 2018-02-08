@@ -46,7 +46,7 @@ The external worker currently has the following limitations:
 ## Where steps run
 The following step types and configurations run on a worker:
 - Any step that runs a script (usually user supplied) or has a package that has an execution plan of `Octopus Server` or `Octopus Server on behalf of roles`.
-- Any step that runs on a target other than a Tentacle, SSH or Offline Drop (eg Cloud Region, Azure Target).
+- Any steps that run on a Cloud Region, an Azure Target, or any target that isn’t a Tentacle, SSH Target, or Offline Drop.
 - All AWS and Azure steps.
 
 The following steps always run inside the Octopus Server process (and do not run user-supplied code)
