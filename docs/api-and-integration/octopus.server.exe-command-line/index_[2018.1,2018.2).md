@@ -18,7 +18,6 @@ position: 9
 - **`database`**:  Create or drop the Octopus database
 - **`delete-instance`**:  Deletes an instance of the Octopus service
 - **`export-certificate`**:  Exports the certificate that Octopus server can use to authenticate itself with its Tentacles
-- **`external-worker`**:  Configure the external worker used to run deployment actions and scripts on the Octopus Server.
 - **`help`**:  Prints this help text
 - **`import-certificate`**:  Replace the certificate that Octopus server uses to authenticate itself with its Tentacles
 - **`license`**:  Import a license key

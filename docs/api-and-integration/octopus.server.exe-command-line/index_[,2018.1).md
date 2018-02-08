@@ -11,14 +11,12 @@ position: 9
 `Octopus.Server.exe` supports the following commands:
 
 - **`admin`**:  Reset admin user passwords, re-enable them, and ensure they are in the admin group
-- **`builtin-worker`**:  Configure the built-in worker used to run deployment actions and scripts on the Octopus Server.
 - **`checkservices`**:  Checks the Octopus instances are running
 - **`configure`**:  Configure this Octopus instance
 - **`create-instance`**:  Registers a new instance of the Octopus service
 - **`database`**:  Create or drop the Octopus database
 - **`delete-instance`**:  Deletes an instance of the Octopus service
 - **`export-certificate`**:  Exports the certificate that Octopus server can use to authenticate itself with its Tentacles
-- **`external-worker`**:  Configure the external worker used to run deployment actions and scripts on the Octopus Server.
 - **`help`**:  Prints this help text
 - **`import-certificate`**:  Replace the certificate that Octopus server uses to authenticate itself with its Tentacles
 - **`license`**:  Import a license key
