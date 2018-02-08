@@ -32,33 +32,41 @@ During installation, Octopus will ask you whether you want to check for new rele
 
 ![](/docs/images/3048073/3277613.png "width=500")
 
-When the checkbox "Automatically check for new Octopus releases" is checked during installation, Octopus will make a HTTPS request to the `octopusdeploy.com` domain every 8 hours. This request includes:
+When the checkbox "Automatically check for new Octopus releases" is checked during installation, Octopus will make a HTTPS request to the `octopus.com` domain every 8 hours. This request includes:
 
 1. The current Octopus Deploy version number that you are running
 2. A unique installation ID (read more below)
 
 :::hint
 **Microsoft Azure**
-The octopusdeploy.com site is hosted on Microsoft Azure, so you will see traffic going to Azure services.
+The octopus.com site is hosted on Microsoft Azure, so you will see traffic going to Azure services.
 :::
 
-In addition, if you also check the box "Help improve Octopus by sending usage statistics", we'll attach:
+In addition, if you also check the box "Help improve Octopus by sending usage statistics", we'll send some specific aggregate criteria along with the request. This has evolved a bit over time, so it depends on the version you are running:
 
-1. The number of environments that you have
-2. The number of machines and deployment targets that you have (including Listening Tentacles, Polling Tentacles, Offline package drops, Azure Web Apps, Azure Cloud Services and SSH connections)
-3. The number of projects that you have
-4. The number of each of the different types of deployment steps that you have
-5. The number of releases and deployments that you have done in the last 90 days
-6. The number of users that you have
-7. (As of 2.6) A SHA1 hash of your license key serial number
-8. (As of 2.6) The amount of memory Octopus is using
-9. (As of 2.6) The % of CPU Octopus is using on average
-10. (As of 3.12) The time to your first deployment
+| Version Added | Metrics |
+| ------------- | ------- |
+| pre-2.6       | The number of environments that you have |
+| pre-2.6       | The number of machines and deployment targets that you have (including Listening Tentacles, Polling Tentacles, Offline package drops, Azure Web Apps, Azure Cloud Services and SSH connections) |
+| pre-2.6       | The number of projects that you have |
+| pre-2.6       | The number of each of the different types of deployment steps that you have |
+| pre-2.6       | The number of releases and deployments that you have done in the last 90 days |
+| pre-2.6       | The number of users that you have |
+| 2.6           | A SHA1 hash of your license key serial number |
+| 2.6           | The amount of memory Octopus is using |
+| 2.6           | The % of CPU Octopus is using on average |
+| 3.2           | The number of channels you are using |
+| 3.4           | Usage of multi-tenant features (number of tenants, number of tenant tags) |
+| 3.11.2        | The number of certificates you have |
+| 3.12          | The time to your first deployment |
+| 3.15          | Whether you are using LetsEncrypt |
+| 3.16.1        | Whether you are using the guest account |
+
 
 The installation ID is a GUID that we generate when Octopus is installed. This GUID is simply a way for us to get a rough idea of the number of installations there are in the wild, and which versions people are using, so we can make decisions about backwards compatibility support.
 
 Together, this information helps us when making decisions about the product. For example, we expected users to only have a handful of machines, but the statistics tell us that some customers have over 900; we now take that into account when designing the user experience.
 
-Be assured that **we only send a *count* of the items, and no other details** - names, descriptions, URI's and so on are \_never\_ included.
+Be assured that **we only send a *count* of the items, and no other details** - names, descriptions, URI's and so on are _never_ included.
 
 Please do consider enabling usage statistics reporting. We look at the data every week, and it really does help us to make a better product.
