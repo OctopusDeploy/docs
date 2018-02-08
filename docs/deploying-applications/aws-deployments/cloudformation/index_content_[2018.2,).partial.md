@@ -78,7 +78,7 @@ This will present a dialog in which the CloudFormation template can be pasted, i
 
 ![Source Code Dialog](step-aws-code-dialog.png "width=500")
 
-Once the `SAVE` button is clicked, the parameters defined in the template will be shown under the `Parameters` section.
+Once the `OK` button is clicked, the parameters defined in the template will be shown under the `Parameters` section.
 
 ![Parameters](step-parameters.png "width=500")
 
