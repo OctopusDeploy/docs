@@ -17,37 +17,37 @@ In `2018.2.0` we added the ability to nominate a Tentacle to perform the role of
 :::hint
 Future versions of Octopus Server will expand on the [worker concept](https://github.com/OctopusDeploy/Specs/blob/master/Workers/index.md), allowing you to create worker pools with multiple workers. Steps then can be configured to run on those pools.
 
-When that feature is released, the commandline options will be removed. If an external worker is configured, it will automatically be added to the default worker pool.
+When that feature is released, the command-line options will be removed. If an external worker is configured, it will automatically be added to the default worker pool.
 :::
 
 ### Setup
 
 To enable the external worker, you will need to set up a Tentacle, either on the same machine as the server or a different machine. You can use an existing Tentacle that is used as a deployment target. We recommend that the Tentacle is on the same local network as the server to speed up package transfers.
 
-Once you have done that, and have its address and thumbprint, run the following command.
+Once you have done that, and have its address and thumbprint, run the following command, remembering to replace the thumbprint below with the thumbprint from your tentacle:
 
 ```
 Octopus.Server external-worker --address=https://example.com:10933 --thumbprint C7524763110D271520C15B6A50296200DA6DDCAA
 ```
 
-After restarting, the built-in worker will be disabled. If you want to revert to the built-in worker, run the following command.
+After restarting the built-in worker will be disabled. If you want to revert to the built-in worker, run the following command.
 
 ```
 Octopus.Server external-worker --reset
 ```
 
 ### Limitations
-The external worker currently has the following limitations
-- There can only be one
-- It does not participate in Health Checks unless it is also a deployment target
-- Packages are always transfered from the server to the worker, download on target is not supported
-- The worker will run steps from different projects simultaneously (keeping the behavior of the built-in worker), which could allow one project to access the working folder of another project 
+The external worker currently has the following limitations:
+- There can only be one.
+- It does not participate in Health Checks unless it is also a deployment target.
+- Packages are always transferred from the server to the worker, download on target is not supported.
+- The worker will run steps from different projects simultaneously (keeping the behavior of the built-in worker), which could allow one project to access the working folder of another project.
 
 ## Where steps run
-The following step types and configurations run on a worker
-- Any step that runs a script (usually user supplied) or has a package that has an execution plan of `Octopus Server` or `Octopus Server on behalf of roles`
-- Any step that runs on a target other than a Tentacle, SSH or Offline Drop (eg Cloud Region, Azure Target)
-- All AWS and Azure steps
+The following step types and configurations run on a worker:
+- Any step that runs a script (usually user supplied) or has a package that has an execution plan of `Octopus Server` or `Octopus Server on behalf of roles`.
+- Any step that runs on a target other than a Tentacle, SSH or Offline Drop (eg Cloud Region, Azure Target).
+- All AWS and Azure steps.
 
 The following steps always run inside the Octopus Server process (and do not run user-supplied code)
 - Health Check
