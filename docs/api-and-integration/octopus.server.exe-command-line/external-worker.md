@@ -3,7 +3,7 @@ title: Octopus Server commands - External Worker
 description: Configure the external worker used to run deployment actions and scripts on the Octopus Server
 ---
 
-Use the external-worker command to configure an [external worker](/docs/administration/workers#external-worker).
+Use the external-worker command to configure an [external worker](/docs/administration/workers#external-worker). Available in `2018.2.0` and later.
 
 **external-worker options**
 
