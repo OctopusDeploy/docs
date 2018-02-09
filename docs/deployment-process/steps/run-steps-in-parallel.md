@@ -22,7 +22,14 @@ After you hit save, you'll notice that the two steps are now tied up together, m
 
 To help your Octopus Server remain stable, we have defaulted the maximum number of steps you can run concurrently in any given deployment to `10`. You can configure any number of steps to run in parallel, and Octopus will roll through them as quickly as possible, but it will only run `10` of them at any one time by default.
 
-If you really want to change this behavior, you can! Set the `Octopus.Action.MaxParallelism` variable at the project-level to change how many steps will execute in parallel. This variable value also controls the maximum number of deployment targets any step will be executed across in parallel.
+### Overriding maximum parallelism
+
+If you really want to change this behavior, you can! Set the `Octopus.Action.MaxParallelism` variable at the project-level to change how many steps will execute in parallel. This variable value controls:
+
+1. the maximum number of steps which will execute at the same time during your deployment
+2. the maximum number of deployment targets any step will be executed across at the same time
+
+As we mentioned earlier, this acts like a window, where Octopus will roll through your parallel steps, and parallel deployment targets, up to `Octopus.Action.MaxParallelism` at any time.
 
 ## Steps in parallel on the same deployment target {#Runstepsinparallel-Stepsinparallelonthesametentacle}
 
