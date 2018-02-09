@@ -81,7 +81,7 @@ Action-level variables are available during execution of an action. Indexer noti
 |**`Octopus.Action.IsSkipped`** <br/>Whether or not the action has been skipped in the current deployment *(Boolean)* | *True*|
 |**`Octopus.Action.Manual.Instructions`** <br/>The instructions provided for a manual step | *Don't break anything :)*|
 |**`Octopus.Action.Manual.ResponsibleTeamIds`** <br/>The teams responsible for completing a manual step*(List)* | *teams-123,teams-124*|
-|**`Octopus.Action.MaxParallelism`** <br/>The maximum number of machines on which the action will concurrently execute. This value can be set in a project variable to change the default for the project. Additionally you can scope a value to specific actions to control concurrency across your deployment. This is the same variable which is set when configuring a [rolling deployment](/docs/deployment-patterns/rolling-deployments.md). *(Number - Default: 10)* | *5*|
+|**`Octopus.Action.MaxParallelism`** <br/>The maximum number of deployment targets on which the action will concurrently execute, and the maximum number of steps which will run in parallel. This value can be set in a project variable to change the default for the project. Additionally you can scope a value to specific actions to control concurrency across your deployment targets. This is the same variable which is set when configuring a [rolling deployment](/docs/deployment-patterns/rolling-deployments.md). *(Number - Default: 10)* | *5*|
 |**`Octopus.Action.Name`** <br/>The name of the action | *Website*|
 |**`Octopus.Action.Number`** <br/>The sequence number of the action in the deployment process *(Number)* | *5*|
 |**`Octopus.Action.Package.CustomInstallationDirectory`** <br/>If set, a specific directory to which the package will be copied after extraction | *C:\InetPub\WWWRoot\OctoFx*|
@@ -229,6 +229,7 @@ The following variables can be defined as variables in your project to modify th
 | Name and Description | Example |
 | -------------------- | ------- |
 |**`Octopus.Acquire.MaxParallelism`** <br/>Maximum number of NuGet packages that should be downloaded at once when acquiring packages. | 3|
+|**`Octopus.Action.MaxParallelism`** <br/>The maximum number of deployment targets on which the action will concurrently execute, and the maximum number of steps which will run in parallel. This value can be set in a project variable to change the default for the project. Additionally you can scope a value to specific actions to control concurrency across your deployment targets. This is the same variable which is set when configuring a [rolling deployment](/docs/deployment-patterns/rolling-deployments.md). *(Number - Default: 10)* | *5*|
 |**`OctopusPrintVariables`** <br/>Set to "True" to tell Tentacle to print the value of all variables passed to it. We recommend only using this setting for non-production environments. | True|
 |**`OctopusPrintEvaluatedVariables`** <br/>Set to "True" to tell Tentacle to print the value of all variables passed to it after evaluating them. We recommend only using this setting for non-production environments. | True|
 |**`OctopusTreatWarningsAsErrors`** <br/>Set to "True" to have warnings from XML configuration transforms or PowerShell scripts treated as if they were errors, failing the deployment. | True|
