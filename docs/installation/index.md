@@ -3,6 +3,14 @@ title: Installation
 position: 0
 description: How to install the central Octopus Deploy server.
 ---
+Notes before publishing: 
+Old screen shots and video.
+	- Remove the video.
+Talk about creating the database. 
+Talk about copying the master key and link to relevant docs.
+Link to infrastructure as the next step.
+Stop the bloat.
+---
 
 This section walks you through installing the central Octopus Deploy server.
 
@@ -14,24 +22,46 @@ Once installed, the central Octopus Deploy server:
 
 ## Requirements {#InstallingOctopus-Requirements}
 
-To successfully install the Octopus server you need:
+To successfully install the Octopus Deploy server you need:
 
-- A Microsoft SQL Server instance which can be accessed by your Octopus Server ([more details](/docs/installation/sql-server-database-requirements.md)).
-- .NET Framework:
-	- Octopus 3.0.0 - 3.3.27 requires [.NET Framework 4.5](https://www.microsoft.com/en-au/download/details.aspx?id=30653) or newer.
-	- Octopus 3.4 onward requires [.NET Framework 4.5.1](https://www.microsoft.com/en-au/download/details.aspx?id=40773) or newer.
-- Any of the following Windows servers:
+### .NET Framework:
+
+Octopus 3.4 onward requires [.NET Framework 4.5.1](https://www.microsoft.com/en-au/download/details.aspx?id=40773) or newer.
+
+### Windows Server:
+
+Any of the following Windows Servers:
+
 	- Windows Server 2008 SP2
 	- Windows Server 2008 R2
 	- Windows Server 2012
 	- Windows Server 2012 R2
 	- Windows Server 2016
 
-### Windows Server Core
-
 Octopus Server will run on "Windows Server Core”; however, the easiest installation path is to use "Windows Server with a GUI" and run our installation wizard. If you want to use "Windows Server Core" you will need to add some missing Windows Features and configure Octopus server yourself. 
 
 Learn about [automating installation](/docs/installation/automating-installation.md).
+
+### SQL Server Database
+
+The following versions of SQL Database Server are supported and automatically tested against every release of Octopus Deploy server:
+
+    * SQL Server 2008
+    * SQL Server 2008 R2
+    * SQL Server 2012
+    * SQL Server 2014
+    * SQL Server 2016
+
+Supported editions:
+
+    * Express (free)
+    * Web
+    * Datacenter
+    * Standard
+    * Enterprise
+- Microsoft Azure SQL Database
+- AWS RDS SQL Database
+Octopus works with a wide range of versions and editions of SQL Server, from a local SQL Server Express instance, all the way to an Enterprise Edition [SQL Server Failover Cluster](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server) or [SQL Server AlwaysOn Availability Group](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server), or even one of the hosted database-as-a-service offerings.
 
 ### Hardware Requirements
 
@@ -59,9 +89,7 @@ If you are writing a script or utility to automatically download the latest vers
 
 ## Installation {#InstallingOctopus-Installation}
 
-This three minute video will walk you through the installation process:
 
-<iframe src="//fast.wistia.net/embed/iframe/fsxoijvtvm" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" oallowfullscreen="" msallowfullscreen="" width="640" height="360" style="margin: 30px"></iframe>
 
 ### Using a Managed Service Account (MSA) {#InstallingOctopus-UsingaManagedServiceAccount(MSA)}
 
