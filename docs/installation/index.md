@@ -4,17 +4,13 @@ position: 0
 description: How to install the central Octopus Deploy server.
 ---
 
-This section walks you through installing the Octopus Deploy server.
+This section walks you through installing the central Octopus Deploy server.
 
-Once installed, the Octopus Deploy server:
+Once installed, the central Octopus Deploy server:
 
 - Runs as a Windows Service.
 - Stores its data in a [SQL Server database](/docs/administration/octopus-database/index.md).
 - Has an embedded HTTP server which serves the [Octopus REST API](/docs/api-and-integration/api/index.md) and the  **Octopus Web Portal** that you will use to manage your deployments.
-
-## Upgrading {#Installation-Upgrading}
-
-If Octopus is already installed, and you want to upgrade to a new version, please follow the steps in the [upgrade guide](/docs/administration/upgrading/index.md).
 
 ## Requirements {#InstallingOctopus-Requirements}
 
@@ -33,7 +29,9 @@ To successfully install the Octopus server you need:
 
 ### Windows Server Core
 
-Whilst Octopus Server will run on "Windows Server Core", the easiest installation path is to use "Windows Server with a GUI" and run our installation wizard. If you want to use "Windows Server Core" you will need to add some missing Windows Features and configure Octopus server yourself. Learn about [automating installation](/docs/installation/automating-installation.md).
+Octopus Server will run on "Windows Server Core”; however, the easiest installation path is to use "Windows Server with a GUI" and run our installation wizard. If you want to use "Windows Server Core" you will need to add some missing Windows Features and configure Octopus server yourself. 
+
+Learn about [automating installation](/docs/installation/automating-installation.md).
 
 ### Hardware Requirements
 
@@ -85,3 +83,7 @@ In a few cases a bug in a 3rd party component causes the installer to display an
 **Deploying applications to an Azure website?**
 If you get the following error it means you have a local copy of Web Deploy and that is being used. You will either need to upgrade your local version of Web Deploy to 3.5 or greater, or uninstall the local copy so Octopus can reference the embedded copy.
 :::
+
+## Upgrading {#Installation-Upgrading}
+
+If Octopus is already installed, and you want to upgrade to a new version, please follow the steps in the [upgrade guide](/docs/administration/upgrading/index.md).
