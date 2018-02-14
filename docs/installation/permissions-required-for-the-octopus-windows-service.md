@@ -1,7 +1,7 @@
 ---
 title: Permissions Required for the Octopus Windows Service
 description: Information on the permissions required by the Octopus windows service to operate.
-position: 1
+position: 4
 ---
 
 When you install the Octopus Deploy server, you'll be asked whether Octopus should run as the Local System account, or as a custom user. It's a good practice to set up a dedicated user account for the Octopus server.
