@@ -31,14 +31,14 @@ Please note the following if you need to create the database yourself:
 
 ### Changing the Database Collation
 
-See [here](/docs/administration/octopus-database/changing-the-collation-of-the-octopus-database.md) for information about changing the database collation after the initial Octopus installation.
+Learn more about [changing the database collation](/docs/administration/octopus-database/changing-the-collation-of-the-octopus-database.md) after the initial Octopus installation.
 
 
 ### Using SQL Server AlwaysOn
 
 Octopus will work with [any of the supported highly available SQL Server implementations](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
 
-Make sure the Octopus Server is connecting to the listener which will route database requests to the active SQL Server node and allow for automatic fail over. Learn about [connecting to listeners and  handling fail over](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover).
+Make sure the Octopus Server is connecting to the listener which will route database requests to the active SQL Server node and allow for automatic fail over. Learn about [connecting to listeners and handling fail over](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover).
 
 A typical connection string for using a SQL Server AlwaysOn availability group looks like this:
 
@@ -48,4 +48,4 @@ Server=tcp:AGListener,1433;Database=Octopus;IntegratedSecurity=SSPI;MultiSubnetF
 
 ### Database Administration and Maintenance
 
-For more information about maintaining your Octopus database please read our [database administrators guide](/docs/administration/octopus-database/index.md).
+For more information about maintaining your Octopus database, please read our [database administrators guide](/docs/administration/octopus-database/index.md).

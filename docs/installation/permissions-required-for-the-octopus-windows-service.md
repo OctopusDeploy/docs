@@ -1,6 +1,6 @@
 ---
 title: Permissions Required for the Octopus Windows Service
-description: Information on the permissions required by the Octopus windows service to operate.
+description: Information about the permissions required by the Octopus windows service to operate.
 position: 4
 ---
 
