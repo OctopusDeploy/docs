@@ -35,7 +35,7 @@ Octopus: HA works with:
 
 Octopus: HA has not been tested with Log Shipping or Database Mirroring, and does not support SQL Server replication.
 
-See also: [SQL Server Database](/docs/installation/sql-server-database.md), which explains the editions and versions of SQL Server that Octopus supports, and explains the requirements for how the database must be configured.
+See also: [SQL Server Database](/docs/installation/sql-database-server.md), which explains the editions and versions of SQL Server that Octopus supports, and explains the requirements for how the database must be configured.
 
 Since each of the Octopus Server nodes will need access to the database, we recommend creating a special user account in Active Directory with **db\_owner** permission on the Octopus database, and using that account as the service account when configuring Octopus.
 
