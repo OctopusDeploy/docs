@@ -15,7 +15,7 @@ This page outlines our recommended steps to move your SQL database to another se
 5. On your original Octopus server, run the following command to update the connection string (where "VALUE" is your connection string).
 !partial <connectionstring>
 :::hint
-Ensure the user specified in the connection string has access to the database as a **dbo_owner**. Refer to our [SQL server database](/docs/installation/sql-database-server.md) documentation page.
+Ensure the user specified in the connection string has access to the database as a **dbo_owner**. Refer to our [SQL server database](/docs/installation/sql-server-database.md) documentation page.
 :::
 
 :::hint
