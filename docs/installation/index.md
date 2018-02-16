@@ -21,7 +21,7 @@ You need to download the latest version of the [Octopus Installer](/docs/install
 
   Accept the **License Agreement**, and either accept the default **Destination Folder** or choose a different location.
 
-3. Click Install, and give the app permission to **make changes to your device**.
+1. Click Install, and give the app permission to **make changes to your device**.
 1. Click finish to exit the installation wizard and launch the **Getting started wizard** to configure your Octopus Deploy server.
 1. Click **Get Started** and either enter your details to start a free trial of Octopus or enter your **license key**.
 2. Accept the default **Home Directory** or enter a location of your choice.
@@ -29,14 +29,14 @@ You need to download the latest version of the [Octopus Installer](/docs/install
 
   Learn more about the [permissions required for the Octopus Windows Service](/docs/installation/permissions-required-for-the-octopus-windows-service.md), using a [Managed Service Account](/docs/installation/managed-service-account.md), or [configuring authentication providers](/docs/administration/authentication-providers/index.md).
 
-4. On the **Database** page, click the dropdown arrow in the **Server Name** field to detect the SQL Server Database.
+1. On the **Database** page, click the dropdown arrow in the **Server Name** field to detect the SQL Server Database.
 5. Enter a name for the database, and click OK to create the database.
 
   Be careful **not** to use the name of an existing database as the setup process will install Octopus into that pre-existing database.
 
-6. Accept the default port and directory or enter your own.
-7. If you’re using *username and passwords stored in Octopus* authentication mode, enter the username and password that will be used for the Octopus Administrator. If you are using active directory, enter the active directory user details.
-8. Click Install.
+1. Accept the default port and directory or enter your own.
+1. If you’re using *username and passwords stored in Octopus* authentication mode, enter the username and password that will be used for the Octopus Administrator. If you are using active directory, enter the active directory user details.
+1. Click Install.
 
 When the installation has completed, click Finish to launch the **Octopus Manager**.
 
