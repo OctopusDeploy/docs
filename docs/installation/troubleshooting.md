@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Octopus Installation
+title: Troubleshooting the Octopus Installation
 description: Troubleshooting steps for installing Octopus Deploy
 position: 6
 ---
