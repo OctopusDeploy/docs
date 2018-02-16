@@ -3,85 +3,65 @@ title: Installation
 position: 0
 description: How to install the central Octopus Deploy server.
 ---
-
-This section walks you through installing the Octopus Deploy server.
+This section walks you through installing the central Octopus Deploy server.
 
 Once installed, the Octopus Deploy server:
 
 - Runs as a Windows Service.
-- Stores its data in a [SQL Server database](/docs/administration/octopus-database/index.md).
+- Stores its data in an [SQL Server database](/docs/administration/octopus-database/index.md).
 - Has an embedded HTTP server which serves the [Octopus REST API](/docs/api-and-integration/api/index.md) and the  **Octopus Web Portal** that you will use to manage your deployments.
 
-## Upgrading {#Installation-Upgrading}
+Before you install Octopus Deploy, please review the software and hardware [requirements](/docs/installation/requirements.md), and make sure you have access to an instance of [SQL Database Server](/docs/installation/sql-server-database.md) that you can use with Octopus Deploy.
 
-If Octopus is already installed, and you want to upgrade to a new version, please follow the steps in the [upgrade guide](/docs/administration/upgrading/index.md).
+You need to download the latest version of the [Octopus Installer](/docs/installation/downloads.md).
 
-## Requirements {#InstallingOctopus-Requirements}
+## Installation
 
-To successfully install the Octopus server you need:
+1. Start the Octopus Installer and follow the onscreen prompts.
 
-- A Microsoft SQL Server instance which can be accessed by your Octopus Server ([more details](/docs/installation/sql-server-database-requirements.md)).
-- .NET Framework:
-	- Octopus 3.0.0 - 3.3.27 requires [.NET Framework 4.5](https://www.microsoft.com/en-au/download/details.aspx?id=30653) or newer.
-	- Octopus 3.4 onward requires [.NET Framework 4.5.1](https://www.microsoft.com/en-au/download/details.aspx?id=40773) or newer.
-- Any of the following Windows servers:
-	- Windows Server 2008 SP2
-	- Windows Server 2008 R2
-	- Windows Server 2012
-	- Windows Server 2012 R2
-	- Windows Server 2016
+  Accept the **License Agreement**, and either accept the default **Destination Folder** or choose a different location.
 
-### Windows Server Core
+3. Click Install, and give the app permission to **make changes to your device**.
+1. Click finish to exit the installation wizard and launch the **Getting started wizard** to configure your Octopus Deploy server.
+1. Click **Get Started** and either enter your details to start a free trial of Octopus or enter your **license key**.
+2. Accept the default **Home Directory** or enter a location of your choice.
+3. Decide whether to use a **Local System Account** or a **Custom Domain Account**.
 
-Whilst Octopus Server will run on "Windows Server Core", the easiest installation path is to use "Windows Server with a GUI" and run our installation wizard. If you want to use "Windows Server Core" you will need to add some missing Windows Features and configure Octopus server yourself. Learn about [automating installation](/docs/installation/automating-installation.md).
+  Learn more about the [permissions required for the Octopus Windows Service](/docs/installation/permissions-required-for-the-octopus-windows-service.md), using a [Managed Service Account](/docs/installation/managed-service-account.md), or [configuring authentication providers](/docs/administration/authentication-providers/index.md).
 
-### Hardware Requirements
+4. On the **Database** page, click the dropdown arrow in the **Server Name** field to detect the SQL Server Database.
+5. Enter a name for the database, and click OK to create the database.
 
-There is no "one size fits all" approach for Octopus server. The best approach is to start with a working Octopus server, start deploying your applications, monitor your server statistics, and scale from there.
+  Be careful **not** to use the name of an existing database as the setup process will install Octopus into that pre-existing database.
 
-- Absolute minimum to make it run: 512MB RAM, 1GHz CPU, 2GB free disk space.
-- Recommended starting point for smaller deployments (less than 30 deployment targets for example): 2GB RAM, dual-core CPU, 10GB free disk space.
-- Recommended starting point for larger deployments: 4GB RAM, dual-core, 20GB free disk space.
+6. Accept the default port and directory or enter your own.
+7. If you’re using *username and passwords stored in Octopus* authentication mode, enter the username and password that will be used for the Octopus Administrator. If you are using active directory, enter the active directory user details.
+8. Click Install.
 
-Learn about [Octopus Server performance](/docs/administration/performance.md).
+When the installation has completed, click Finish to launch the **Octopus Manager**.
 
-## Downloads
+## Octopus Manager
 
-The latest Octopus Deploy MSI can always be [downloaded from the Octopus Deploy downloads page](https://octopus.com/downloads). You can also download any [previous releases](https://octopus.com/downloads/previous) from our archive.
-### Download Permalinks
+You can launch the Octopus Web Portal from the Octopus Manager, by clicking **Open in Browser**.
 
-If you are writing a script or utility to automatically download the latest version of one of our products, you can use the following permanent links:
- 
- - [OctopusServer x64](https://octopus.com/downloads/latest/WindowsX64/OctopusServer)
- - [OctopusServer 32-bit/x86](https://octopus.com/downloads/latest/WindowsX86/OctopusServer)
- - [OctopusTentacle x64](https://octopus.com/downloads/latest/WindowsX64/OctopusTentacle) 
- - [OctopusTentacle 32-bit/x86](https://octopus.com/downloads/latest/WindowsX86/OctopusTentacle)
- - [CommandLineTools](https://octopus.com/downloads/latest/CommandLineTools) 
- - [TeamCityPlugin](https://octopus.com/downloads/latest/TeamCityPlugin)
+Before you do, it's worth taking note of the other settings such as controlling the Octopus Windows Service.
 
-## Installation {#InstallingOctopus-Installation}
+## Save the Master Key
 
-This three minute video will walk you through the installation process:
+Under the storage section, you will see a link to **View Master Key**. The **Master Key**
 
-<iframe src="//fast.wistia.net/embed/iframe/fsxoijvtvm" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" oallowfullscreen="" msallowfullscreen="" width="640" height="360" style="margin: 30px"></iframe>
+When Octopus is installed, it generates a master key which is a random string that is used to encrypt sensitive data in your Octopus database. You will need to the master key if you ever need to restore an Octopus backup.
 
-### Using a Managed Service Account (MSA) {#InstallingOctopus-UsingaManagedServiceAccount(MSA)}
+Take a copy of the master key and save it in a secure location.
 
-You can run the Octopus Server using a Managed Service Account (MSA):
+## Launch the Octopus Web Portal
 
-1. Install the Octopus Server and make sure it is running correctly using one of the built-in Windows Service accounts or a Custom Account.
-1. Reconfigure the Octopus Server Windows Service to use the MSA, either manually using the Service snap-in, or using `sc.exe config "OctopusDeploy" obj= Domain\Username$`
-1. Restart the Octopus Server Windows Service.
+Click **Open in browser** to launch the **Octopus Web Portal** and log in using the authentication details you set up during the configuration process.
 
-Learn about [using Managed Service Accounts](https://technet.microsoft.com/en-us/library/dd548356(v=ws.10).aspx).
+## Troubleshooting
 
-## Troubleshooting {#InstallingOctopus-Troubleshooting}
+If you've had any problems with the installation, review the [troubleshooting page](/docs/installation/troubleshooting.md).
 
-In a few cases a bug in a 3rd party component causes the installer to display an "Installation directory must be on a local hard drive" error. If this occurs, run the install again from an elevated command prompt using the following command (replacing Octopus.3.3.4-x64.msi with the name of the installer you are using):
+## Next Steps
 
-`msiexec /i Octopus.3.3.4-x64.msi WIXUI_DONTVALIDATEPATH="1"`
-
-:::warning
-**Deploying applications to an Azure website?**
-If you get the following error it means you have a local copy of Web Deploy and that is being used. You will either need to upgrade your local version of Web Deploy to 3.5 or greater, or uninstall the local copy so Octopus can reference the embedded copy.
-:::
+Now that you've installed the Octopus Deploy server, it's time to configure your [Infrastructure](/docs/infrastructure/index.md).

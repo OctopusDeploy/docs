@@ -1,7 +1,7 @@
 ---
 title: Permissions Required for the Octopus Windows Service
-description: Information on the permissions required by the Octopus windows service to operate.
-position: 1
+description: Information about the permissions required by the Octopus windows service to operate.
+position: 4
 ---
 
 When you install the Octopus Deploy server, you'll be asked whether Octopus should run as the Local System account, or as a custom user. It's a good practice to set up a dedicated user account for the Octopus server.
@@ -23,7 +23,7 @@ The following table acts as a guide for the minimal permission set that Octopus 
 | Full control | The `OctopusDeploy` Windows Service | Octopus must be able to upgrade and restart itself for remote administration | SC.EXE |
 | Listen | Port **10943** | Octopus accepts commands from polling Tentacles on this port | NETSH.EXE |
 | Listen | Port **80** | The Octopus server responds to browser requests on this port | NETSH.EXE |
-| db\_owner | For the SQL database. [Learn more](/docs/installation/sql-server-database-requirements.md). | Octopus needs to be able to manage its database, including making schema changes | SQL Server Management Studio |
+| db\_owner | For the SQL database. [Learn more](/docs/installation/sql-server-database.md). | Octopus needs to be able to manage its database, including making schema changes | SQL Server Management Studio |
 
 If you rely on Octopus to run certain tasks on the Octopus server, you'll also need to grant appropriate permissions for these. Examples include:
 

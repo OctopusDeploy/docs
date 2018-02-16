@@ -43,7 +43,7 @@ You may not need to keep the entire history of releases - we record the entire h
 
 ### SQL Server Maintenance {#sql-maintenance}
 
-[SQL Server](/docs/installation/sql-server-database-requirements.md) is the data persistence backbone of Octopus. Performance problems with your SQL Server will make Octopus run and feel slow and sluggish. You should implement a routine maintenance plan for your Octopus database. Here is a [sure guide](http://g.octopushq.com/SQLServerMaintenanceGuide) (free e-book) for maintaining SQL Server.
+[SQL Server](/docs/installation/sql-server-database.md) is the data persistence backbone of Octopus. Performance problems with your SQL Server will make Octopus run and feel slow and sluggish. You should implement a routine maintenance plan for your Octopus database. Here is a [sure guide](http://g.octopushq.com/SQLServerMaintenanceGuide) (free e-book) for maintaining SQL Server.
 
 ## Scaling Octopus Server {#scaling}
 
