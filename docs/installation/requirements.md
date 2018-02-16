@@ -23,9 +23,9 @@ Octopus Server will run on "Windows Server Core”; however, the easiest install
 
 Learn about [automating installation](/docs/installation/automating-installation.md).
 
-## SQL Database Server
+## SQL Server Database
 
-The following versions of SQL Database Server are supported and automatically tested against every release of Octopus Deploy server:
+The following versions of SQL Server Database are supported and automatically tested against every release of Octopus Deploy server:
 
     * SQL Server 2008
     * SQL Server 2008 R2
