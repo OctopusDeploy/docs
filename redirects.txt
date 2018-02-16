@@ -401,3 +401,4 @@ docs/deployment-process/stage-package-uploads.md -> docs/deployment-process/depl
 docs/deployment-process/substitute-variables-in-files.md -> docs/deployment-process/configuration-files/substitute-variables-in-files.md
 docs/deployment-process/variable-substitution-syntax.md -> docs/deployment-process/variables/variable-substitution-syntax.md
 docs/deployment-process/steps/automatic-release-creation.md -> docs/deployment-process/releases/automatic-release-creation.md
+docs/installation/sql-server-database-requirements.md -> docs/installation/sql-server-database.md
