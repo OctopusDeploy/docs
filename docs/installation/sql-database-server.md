@@ -7,7 +7,7 @@ Review the supported versions and edition of [SQL Database Server](/docs/install
 
 Octopus Deploy stores projects, environments, and deployment history in a Microsoft SQL Server database.
 
-### Using SQL Server Express {#SQLServerDatabaseRequirements-UsingSQLServerExpress}
+## Using SQL Server Express {#SQLServerDatabaseRequirements-UsingSQLServerExpress}
 
 The easiest and cheapest way to get started is with [SQL Server Express](http://downloadsqlserverexpress.com/) and install the Octopus Deploy Server and SQL Server Express side-by-side on your machine/server. This is a great way to test Octopus for a proof of concept. Depending on your needs, you might decide to use SQL Server Express, or upgrade to another supported edition.
 

@@ -5,11 +5,11 @@ position: 1
 ---
 To successfully install the Octopus Deploy server you need:
 
-### .NET Framework:
+## .NET Framework:
 
 Octopus 3.4 onward requires [.NET Framework 4.5.1](https://www.microsoft.com/en-au/download/details.aspx?id=40773) or newer.
 
-### Windows Server:
+## Windows Server:
 
 Any of the following Windows Servers:
 
@@ -23,7 +23,7 @@ Octopus Server will run on "Windows Server Core”; however, the easiest install
 
 Learn about [automating installation](/docs/installation/automating-installation.md).
 
-### SQL Database Server
+## SQL Database Server
 
 The following versions of SQL Database Server are supported and automatically tested against every release of Octopus Deploy server:
 
@@ -45,7 +45,7 @@ Supported editions:
 
 Octopus works with a wide range of versions and editions of SQL Server, from a local SQL Server Express instance, all the way to an Enterprise Edition [SQL Server Failover Cluster](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server) or [SQL Server AlwaysOn Availability Group](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server), or even one of the hosted database-as-a-service offerings.
 
-### Hardware Requirements
+## Hardware Requirements
 
 There is no "one size fits all" approach for Octopus server. The best approach is to start with a working Octopus server, start deploying your applications, monitor your server statistics, and scale from there.
 
