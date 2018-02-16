@@ -13,11 +13,11 @@ Octopus 3.4 onward requires [.NET Framework 4.5.1](https://www.microsoft.com/en-
 
 Any of the following Windows Servers:
 
-* Windows Server 2008 SP2
-* Windows Server 2008 R2
-* Windows Server 2012
-* Windows Server 2012 R2
-* Windows Server 2016
+- Windows Server 2008 SP2
+- Windows Server 2008 R2
+- Windows Server 2012
+- Windows Server 2012 R2
+- Windows Server 2016
 
 Octopus Server will run on "Windows Server Core”; however, the easiest installation path is to use "Windows Server with a GUI" and run our installation wizard. If you want to use "Windows Server Core" you will need to add some missing Windows Features and configure Octopus server yourself.
 
@@ -27,19 +27,19 @@ Learn about [automating installation](/docs/installation/automating-installation
 
 The following versions of SQL Server Database are supported and automatically tested against every release of Octopus Deploy server:
 
-* SQL Server 2008
-* SQL Server 2008 R2
-* SQL Server 2012
-* SQL Server 2014
-* SQL Server 2016
+- SQL Server 2008
+- SQL Server 2008 R2
+- SQL Server 2012
+- SQL Server 2014
+- SQL Server 2016
 
 Supported editions:
 
-* Express (free)
-* Web
-* Datacenter
-* Standard
-* Enterprise
+- Express (free)
+- Web
+- Datacenter
+- Standard
+- Enterprise
 - Microsoft Azure SQL Database
 - AWS RDS SQL Database
 
