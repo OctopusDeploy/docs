@@ -13,11 +13,11 @@ Octopus 3.4 onward requires [.NET Framework 4.5.1](https://www.microsoft.com/en-
 
 Any of the following Windows Servers:
 
-	- Windows Server 2008 SP2
-	- Windows Server 2008 R2
-	- Windows Server 2012
-	- Windows Server 2012 R2
-	- Windows Server 2016
+	* Windows Server 2008 SP2
+	* Windows Server 2008 R2
+	* Windows Server 2012
+	* Windows Server 2012 R2
+	* Windows Server 2016
 
 Octopus Server will run on "Windows Server Core”; however, the easiest installation path is to use "Windows Server with a GUI" and run our installation wizard. If you want to use "Windows Server Core" you will need to add some missing Windows Features and configure Octopus server yourself.
 
