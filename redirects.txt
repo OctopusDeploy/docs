@@ -52,7 +52,7 @@ docs/packaging-applications/creating-zip-packages.md -> docs/packaging-applicati
 docs/installation/installing-octopus/index.md -> docs/installation/index.md
 docs/installation/installing-octopus/automating-installation.md -> docs/installation/automating-installation.md
 docs/installation/installing-octopus/permissions-required-for-the-octopus-windows-service.md -> docs/installation/permissions-required-for-the-octopus-windows-service.md
-docs/installation/installing-octopus/sql-server-database-requirements.md -> docs/installation/sql-database-server.md
+docs/installation/installing-octopus/sql-server-database-requirements.md -> docs/installation/sql-server-database.md
 docs/installation/installing-tentacles/index.md -> docs/infrastructure/windows-targets/index.md
 docs/installation/installing-tentacles/listening-tentacles.md -> docs/infrastructure/windows-targets/listening-tentacles/index.md
 docs/installation/installing-tentacles/polling-tentacles/index.md -> docs/infrastructure/windows-targets/polling-tentacles/index.md
