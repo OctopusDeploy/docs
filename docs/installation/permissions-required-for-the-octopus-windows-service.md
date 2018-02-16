@@ -17,13 +17,13 @@ The following table acts as a guide for the minimal permission set that Octopus 
 
 | Permission | Object | Reason | Applied with |
 | --- | --- | --- | --- |
-| Full control | The Octopus "Home" folder, e.g. `C:\Octopus` | Octopus stores logs, temporary data, and dynamic configuration in this folder | Windows Explorer |
-| Read | The directory Octopus was installed to (typically C:\Program Files\Octopus Deploy) | Octopus needs these files in order to run | Windows Explorer |
-| Read | The `HLKM\Software\Octopus` registry key | Octopus determines the location of its configuration files from this key | Regedit |
-| Full control | The `OctopusDeploy` Windows Service | Octopus must be able to upgrade and restart itself for remote administration | SC.EXE |
-| Listen | Port **10943** | Octopus accepts commands from polling Tentacles on this port | NETSH.EXE |
-| Listen | Port **80** | The Octopus server responds to browser requests on this port | NETSH.EXE |
-| db\_owner | For the SQL database. [Learn more](/docs/installation/sql-server-database.md). | Octopus needs to be able to manage its database, including making schema changes | SQL Server Management Studio |
+| Full control | The Octopus "Home" folder, e.g. `C:\Octopus` | Octopus stores logs, temporary data, and dynamic configuration in this folder. | Windows Explorer |
+| Read | The directory Octopus was installed to (typically C:\Program Files\Octopus Deploy) | Octopus needs these files in order to run. | Windows Explorer |
+| Read | The `HLKM\Software\Octopus` registry key | Octopus determines the location of its configuration files from this key. | Regedit |
+| Full control | The `OctopusDeploy` Windows Service | Octopus must be able to upgrade and restart itself for remote administration. | SC.EXE |
+| Listen | Port **10943** | Octopus accepts commands from polling Tentacles on this port. | NETSH.EXE |
+| Listen | Port **80** | The Octopus server responds to browser requests on this port. | NETSH.EXE |
+| db\_owner | For the SQL database. [Learn more](/docs/installation/sql-server-database.md). | Octopus needs to be able to manage its database, including making schema changes. | SQL Server Management Studio |
 
 If you rely on Octopus to run certain tasks on the Octopus server, you'll also need to grant appropriate permissions for these. Examples include:
 
