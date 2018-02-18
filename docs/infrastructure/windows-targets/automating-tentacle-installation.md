@@ -112,13 +112,13 @@ cd "C:\Program Files\Octopus Deploy\Tentacle"
 Tentacle.exe create-instance --instance "Tentacle" --config "C:\Octopus\Tentacle.config" --console
 Tentacle.exe new-certificate --instance "Tentacle" --if-blank --console
 Tentacle.exe configure --instance "Tentacle" --reset-trust --console
-Tentacle.exe configure --instance "Tentacle" --home "C:\Octopus" --app "C:\Octopus\Applications" --port "10933" --noListen "True" --console
+Tentacle.exe configure --instance "Tentacle" --home "C:\Octopus" --app "C:\Octopus\Applications" --noListen "True" --console
 Tentacle.exe register-with --instance "Tentacle" --server "http://YOUR_OCTOPUS" --name "YOUR_TENTACLE_NAME" --apiKey "API-YOUR_API_KEY" --comms-style "TentacleActive" --server-comms-port "10943" --force --environment "YOUR_TENTACLE_ENVIRONMENTS" --role "YOUR_TENTACLE_ROLES" --console
 Tentacle.exe service --instance "Tentacle" --install --start --console
 ```
 
 :::warning
-If you are running this from a Powershell remote session, make sure to add `--console` at the end of each command to force Tentacle.exe not to run as a service
+If you are running this from a Powershell remote session, make sure to add `--console` at the end of each command to force Tentacle.exe not to run as a service.
 :::
 
 :::success
