@@ -17,7 +17,7 @@ The Octopus installation wizard can create the database for you (our preferred m
 
 If you are using a hosted database service you will need to [create your own database](#create-your-own) and provide Octopus with the connection details.
 
-### Create Your Own Database {#create-your-own}
+## Create Your Own Database {#create-your-own}
 
 Please note the following if you need to create the database yourself:
 
@@ -29,12 +29,12 @@ Please note the following if you need to create the database yourself:
     - The account the Octopus Deploy windows server process runs under (by default, the `Local System` account) must be a member of the **db\_owner** role for that database.
 1. If you are using **SQL Authentication** to connect to your database, the SQL user account defined in your connection string must be a member of the **db\_owner** role for that database.
 
-### Changing the Database Collation
+## Changing the Database Collation
 
 Learn more about [changing the database collation](/docs/administration/octopus-database/changing-the-collation-of-the-octopus-database.md) after the initial Octopus installation.
 
 
-### Using SQL Server AlwaysOn
+## Using SQL Server AlwaysOn
 
 Octopus will work with [any of the supported highly available SQL Server implementations](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
 
@@ -46,6 +46,6 @@ A typical connection string for using a SQL Server AlwaysOn availability group l
 Server=tcp:AGListener,1433;Database=Octopus;IntegratedSecurity=SSPI;MultiSubnetFailover=True
 ```
 
-### Database Administration and Maintenance
+## Database Administration and Maintenance
 
 For more information about maintaining your Octopus database, please read our [database administrators guide](/docs/administration/octopus-database/index.md).

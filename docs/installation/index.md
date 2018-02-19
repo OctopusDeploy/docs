@@ -44,7 +44,7 @@ When the installation has completed, click Finish to launch the **Octopus Manage
 
 You can launch the Octopus Web Portal from the Octopus Manager, by clicking **Open in Browser**.
 
-Before you do, it's worth taking note of the other settings such as controlling the Octopus Windows Service.
+Before you do, it's worth taking note of the other settings such as controlling the Octopus Windows Service, importing and exporting the data Octopus stores in the SQL server, and viewing the master key.
 
 ## Save the Master Key
 
