@@ -1,6 +1,6 @@
 ---
-title: Deploy an AWS CloudFormation Template
-description: Deploy an AWS CloudFormation Template.
+title: Deploy a Terraform Template
+description: Deploy a Terraform Template
 ---
 
 !partial <content>
