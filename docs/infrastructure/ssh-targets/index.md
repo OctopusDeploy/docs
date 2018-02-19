@@ -1,7 +1,7 @@
 ---
 title: SSH Targets
 description: Deploying software to Linux and Unix deployment targets.
-position: 5
+position: 2
 version: "[3.0,)"
 ---
 

@@ -7,7 +7,6 @@ Octopus Deploy organizes your infrastructure, that is the deployment targets you
 
 Organizing your deployment targets into environments lets you define your deployment processes (no matter how many targets are involved) and have Octopus deploy the right versions of your software to the right environments at the right time.
 
-
 ## Managing Environments {#Environments-Managingenvironments}
 
 !partial <location>
