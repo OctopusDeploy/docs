@@ -3,8 +3,10 @@ title: Environments
 description: Environments allow you to define a group of machines that you will deploy to at the same time; common examples of environments are Dev, Test or Production.
 position: 0
 ---
+Octopus Deploy organizes your infrastructure, that is the deployment targets you deploy software to (whether on-premises servers or cloud services), into *environments*. Typical examples of environments are **Test**, **Stage**, and **Production**.
 
-In Octopus, an *environment* is a group of machines that you will deploy to at the same time; common examples of environments are **Test**, **Acceptance**, **Staging** or **Production**.
+Organizing your deployment targets into environments lets you define your deployment processes (no matter how many targets are involved) and have Octopus deploy the right versions of your software to the right environments at the right time.
+
 
 ## Managing Environments {#Environments-Managingenvironments}
 
