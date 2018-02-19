@@ -4,9 +4,9 @@ description: A Conceptual Overview of Octopus Deploy.
 position: 0
 ---
 
-Welcome! 
+Welcome!
 
-This section provides an overview of Octopus Deploy by explaining how Octopus Deploy fits into your application delivery pipeline. It provides an overview of the major concepts in Octopus and links to the relevant documentation, which explore the concepts further and guide you through implementing them with your own Octopus. 
+This section provides an overview of Octopus Deploy by explaining how Octopus Deploy fits into your application delivery pipeline. It provides an overview of the major concepts in Octopus and links to the relevant documentation, which explore the concepts further and guide you through implementing them with your own Octopus.
 
 ## Octopus in Your Delivery Process {#Gettingstarted-Octopusinyourdeliveryprocess}
 
@@ -30,7 +30,7 @@ We designed Octopus Deploy to fit into teams that follow agile delivery practice
 
 1. Octopus Deploy Pushes Your Packaged Application.
 
-   Octopus deploys your applications to the environments you've configured. These could be testing, dev, or production environments. 
+   Octopus deploys your applications to the environments you've configured. These could be testing, dev, or production environments.
 
 ### Consistent Releases
 
@@ -50,25 +50,25 @@ Once Octopus is installed you can access the Octopus Web Portal. This is where y
 
 ![Octopus Dashboard](octopus-dashboard.png "width=500")
 
+## Infrastructure
+
+Octopus Deploy organizes your infrastructure (the machines you deploy software to) into groups called environments. Typical examples of environments are **Test**, **Stage**, and **Production**.
+
+With Octopus you can deploy software to Windows servers, Linux servers, Microsoft Azure, cloud regions, or even an offline package drop.
+
+Organizing your infrastructure into environments lets you define your deployment processes (no matter how many machines are involved) and have Octopus deploy the right versions of your software to the right environments at the right time.
+
+Learn more about managing your [infrastructure](/docs/infrastructure/index.md).
+
 ## Packaging Applications
 
 Before you can deploy software with Octopus Deploy, you need to bundle all the files needed for the software to run into a supported package. The package must be versioned and stored in a repository. Octopus Deploy includes a built-in repository. We recommend configuring your existing tool chain to push packages automatically to the built-in repository; however, you can push packages manually to the repository if you choose to.
 
 Learn more about [packaging your applications](/docs/packaging-applications/index.md) or how to automate your existing tool chain to push packages to your Octopus Deploy server with our [API and Integrations](/docs/api-and-integration/index.md).
 
-## Infrastructure
-
-Octopus Deploy organizes your infrastructure (the machines you deploy software to) into groups called environments. Typical examples of environments are **Test**, **Stage**, and **Production**. 
-
-With Octopus you can deploy software to Windows servers, Linux servers, Microsoft Azure, cloud regions, or even an offline package drop.
-
-Organizing your infrastructure into environments lets you define your deployment processes (no matter how many machines are involved) and have Octopus deploy the right versions of your software to the right environments at the right time. 
-
-Learn more about managing your [infrastructure](/docs/infrastructure/index.md).
-
 ## Deploying Applications
 
-Octopus Deploy is designed to work with teams following agile software development methodologies, that is, continuously deploying software to environments, getting feedback, making changes, and redeploying. 
+Octopus Deploy is designed to work with teams following agile software development methodologies, that is, continuously deploying software to environments, getting feedback, making changes, and redeploying.
 
 The deployment process that Octopus executes is like a recipe for deploying your software. You define the recipe by adding steps and variables to a project. Octopus Deploy provides a range of steps that can be included in your deployment processes, you can steps from the community step library, and even define your own steps. Each step contains a specific action (or set of actions) that is executed as part of the deployment process each time your software is deployed. After the initial setup, your deployment process shouldn't change between deployments even though the software being deployed will change as part of the development process.
 
@@ -76,7 +76,7 @@ Learn more about [deploying applications](/docs/deploying-applications/index.md)
 
 ### Variables
 
-As you deploy your applications, you'll need to change their configuration files based on the scope of the deployment. Octopus has advance support for managing and scoping variables. 
+As you deploy your applications, you'll need to change their configuration files based on the scope of the deployment. Octopus has advance support for managing and scoping variables.
 
 Learn more about [variables](/docs/deployment-process/variables/index.md).
 
@@ -114,4 +114,4 @@ Learn more about [channels](/docs/deployment-process/channels.md).
 
 Over time your software may become so successful that you on-sell it to some external customers, and due to the way the software is architected, you need to deploy a copy of the software once per customer. You could achieve this in Octopus by creating an environment-per-customer, or even a project-per-customer, but this leads to duplication and unnecessary complexity. In Octopus 3.4 we introduced the concept of tenants that you can manage alongside your existing projects and environments.
 
-Learn more about tenants in our [Multi-tenant Deployments Guide](/docs/deployment-patterns/multi-tenant-deployments/index.md). 
+Learn more about tenants in our [Multi-tenant Deployments Guide](/docs/deployment-patterns/multi-tenant-deployments/index.md).
