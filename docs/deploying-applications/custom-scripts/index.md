@@ -296,7 +296,7 @@ eprintfn "This will be logged as Error"
 Try these out for yourself using the [Script Console](/docs/administration/script-console.md)!
 
 ### Service Message ###
-The following service messages can be written directly to standard output which will be parsed by the server and the subsiquent log lines will be treated with the relevant log level.
+The following service messages can be written directly to standard output which will be parsed by the server and the subsequent log lines will be treated with the relevant log level.
 ```
 ##octopus[stdout-ignore]
 ##octopus[stdout-error]
