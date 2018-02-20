@@ -8,7 +8,7 @@ This section walks you through installing the central Octopus Deploy server.
 Once installed, the Octopus Deploy server:
 
 - Runs as a Windows Service.
-- Stores its data in an [SQL Server database](/docs/administration/octopus-database/index.md).
+- Stores its data in an [SQL Server database](/docs/installation/sql-server-databse.md).
 - Has an embedded HTTP server which serves the [Octopus REST API](/docs/api-and-integration/api/index.md) and the  **Octopus Web Portal** that you will use to manage your deployments.
 
 Before you install Octopus Deploy, please review the software and hardware [requirements](/docs/installation/requirements.md), and make sure you have access to an instance of [SQL Server Database](/docs/installation/sql-server-database.md) that you can use with Octopus Deploy.
