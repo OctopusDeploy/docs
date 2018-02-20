@@ -300,3 +300,5 @@ The role being assumed then needs trust relationship with the role or user that 
 Failed to verify the credentials. Please check the keys assigned to the Amazon Web Services Account associated with this step.
 
 This can be done by opening {{Infrastructure>Accounts}}, selecting the account, and clicking the `SAVE AND TEST` button. If the verification fails, it means the keys are not valid.
+
+This error can also be displayed if the proxy settings are incorrect.
