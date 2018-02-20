@@ -22,7 +22,7 @@ Clicking the `SAVE AND TEST` button will verify that the credentials are valid.
 
 ![Account Verification](account-verification.png "width=500")
 
-## Using AWS service roles for an EC2 instances
+## Using AWS Service Roles for an EC2 Instances
 
 AWS allows you to assign a role to an EC2 instance, referred to as an [AWS service role for an EC2 instance](https://g.octopushq.com/AwsDocsRolesTermsAndConcepts), and that role can be accessed to generate the credentials that are used to deploy AWS resources and run scripts.
 
