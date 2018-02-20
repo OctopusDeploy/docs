@@ -1,5 +1,5 @@
 ---
-title: Deploying to transient targets
+title: Deploying to Transient Targets
 description: Transient deployment targets are targets that are intermittently available for a deployment.
 position: 0
 ---
@@ -16,7 +16,7 @@ Transient deployment targets are targets that are intermittently available for a
 
 A typical Octopus deployment requires that all deployment targets are available when the deployment starts and will remain available while the deployment is in progress.  Elastic Environments provides mechanisms for deploying to targets that may become unavailable while a deployment is in progress. You can also run a health check during a deployment and, based on those results, opt to add or remove machines from the deployment.
 
-## Deploying to targets that become unavailable during a deployment {#Deployingtotransienttargets-Deployingtotargetsthatbecomeunavailableduringadeployment}
+## Deploying to Targets That Become Unavailable During a Deployment {#Deployingtotransienttargets-Deployingtotargetsthatbecomeunavailableduringadeployment}
 
 This example uses the OctoFX project that does a deployment to two roles: **RateServer** and **TradingWebServer**. We have decided to auto-scale the machines in the **TradingWebServer** role and want to continue deploying the web site to the available machines, ignoring any machines that are no longer available, perhaps due to being scaled down.
 
@@ -37,12 +37,12 @@ This example uses the OctoFX project that does a deployment to two roles: **Rate
 To ensure that a machine which has been skipped is kept up to date, consider [keeping deployment targets up to date](/docs/infrastructure/environments/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md).
 :::
 
-## Including and excluding targets during a deployment {#Deployingtotransienttargets-Includingandexcludingtargetsduringadeployment}
+## Including and Excluding Targets During a Deployment {#Deployingtotransienttargets-Includingandexcludingtargetsduringadeployment}
 
 In this example, OctoFX will deploy to **RateServer** and then run a Health Check step before it deploys to **TradingWebServer**, ensuring that only currently available targets are involved in the deployment.
 
 1. Navigate to the OctoFX project process page
-2. Select **Add Step** and then select **Health check**. For more information about adding a step to the deployment process, see the [add step](/docs/deployment-process/steps/index.md) section. 
+2. Select **Add Step** and then select **Health check**. For more information about adding a step to the deployment process, see the [add step](/docs/deployment-process/steps/index.md) section.
 
    ![](/docs/images/5671696/5865910.png "width=170")
 
