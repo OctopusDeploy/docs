@@ -11,14 +11,14 @@ When an Octopus Tentacle is configured in [Listening mode](/docs/infrastructure/
 All of the 'classic' problems of TCP networking: firewalls, proxies, timeouts, DNS issues and so-on can affect Octopus Tentacles. This guide will help to track down these issues when either a machine cannot be "Discovered" to add to the Octopus installation, or a previously working machine fails to health-check with errors from the networking stack.
 
 :::success
-Before following the steps below, it can be worthwhile to restart the Octopus and Tentacle services, and refresh the browser you're using to connect to the Octopus Web Portal. Neither action *should*fix a communication problem, but sometimes they can help flush a problem out.
+Before following the steps below, it can be worthwhile to restart the Octopus and Tentacle services, and refresh the browser you're using to connect to the Octopus Web Portal. Neither action *should* fix a communication problem, but sometimes they can help flush a problem out.
 :::
 
 :::success
 If you have worked through this guide without success, it can be worthwhile to completely remove the Tentacle configuration, data, and working folders, and then reconfigure it from scratch. This can be done without any impact to the applications you have deployed. Learn about [manually uninstalling Tentacle](/docs/administration/tentacle-configuration-and-file-storage/manually-uninstall-tentacle.md). Working from a clean slate can sometimes expose the underlying problem.
 :::
 
-## Home in on the problem {#TroubleshootListeningTentacles-Homeinontheproblem}
+## Identify the Problem {#TroubleshootListeningTentacles-Homeinontheproblem}
 
 If you're at "square 1" and can't connect to a new Tentacle machine, take note of the error presented in the "Discover" page.
 
@@ -56,7 +56,7 @@ If any of the communications settings are incorrect, choose *Delete this Tentacl
 
 Finally, verify that the Tentacle's thumbprint, shown in bold in the large box, matches any that have been presented in error messages, and in the *Machine Settings* page on the Octopus Web Portal.
 
-## Verify the Octopus and Tentacle services are running {#TroubleshootListeningTentacles-VerifytheOctopusandTentacleservicesarerunning}
+## Verify the Octopus and Tentacle Services are Running {#TroubleshootListeningTentacles-VerifytheOctopusandTentacleservicesarerunning}
 
 If you're successfully connecting to the Octopus Web Portal with your web browser, you can be confident the Octopus Server service is running.
 
@@ -69,7 +69,7 @@ If the Tentacle service is not running, you can try to start it from the Service
 
 If the service is up and running, continue to the next step.
 
-## Connect locally to the Tentacle {#TroubleshootListeningTentacles-ConnectlocallytotheTentacle}
+## Connect Locally to the Tentacle {#TroubleshootListeningTentacles-ConnectlocallytotheTentacle}
 
 The Tentacle service can only be controlled by a trusted Octopus, but to help with diagnostics it will present a welcome page if visited in a web browser.
 
@@ -90,7 +90,7 @@ If you've made it this far, good news! Your Tentacle is running and ready to acc
 If this is where your journey ends, there's a problem on the Tentacle machine. It is very likely that the Tentacle is unable to open the communications port, either because of permissions, or because another process is listening on that port. Using the Windows `netstat -o -n -a -b` command can help to get to the bottom of this quickly. If you're still in trouble, check the Tentacle [log files](/docs/support/log-files.md) and contact Octopus Deploy support.
 :::
 
-## Connect from the Octopus Server {#TroubleshootListeningTentacles-ConnectfromtheOctopusServer}
+## Connect From the Octopus Server {#TroubleshootListeningTentacles-ConnectfromtheOctopusServer}
 
 Next, repeat the process of connecting to the Tentacle with a web browser, but do this *from the Octopus Server machine*.
 
@@ -115,7 +115,7 @@ Octopus and Tentacle use TCP to communicate, with special handling to enable web
 **NOTE**: Octopus Deploy 3.4 introduced [advanced support for HTTP proxies](/docs/infrastructure/windows-targets/proxy-support.md).
 :::
 
-## Tentacle ping {#TroubleshootListeningTentacles-Tentacleping}
+## Tentacle Ping {#TroubleshootListeningTentacles-Tentacleping}
 
 We have built a small utility for testing the communications protocol between two servers called [Tentacle Ping](https://github.com/OctopusDeploy/TentaclePing). This tool helps isolate the source of communication problems without needing a full Octopus configuration. It is built as a simple client and server component that emulates the communications protocol used by Octopus Server and Tentacle.
 
@@ -126,11 +126,11 @@ In Octopus 3.0 you will need **TentaclePing** and **TentaclePong**, you cannot t
 
 Use the output to help diagnose what is going wrong.
 
-## Check the listening IP address {#TroubleshootListeningTentacles-CheckthelisteningIPaddress}
+## Check the Listening IP Address {#TroubleshootListeningTentacles-CheckthelisteningIPaddress}
 
 Your Tentacle server may have multiple IP addresses that it listens on. For example, in Amazon EC2 machines in a VPN might have both an internal IP address and an external addresses using NAT. Tentacle may not listen on all addresses; you can check which addresses are configured on the server by running `ipconfig /all` from the command line and looking for the IPv4 addresses.
 
-## Check for zombie child processes locking TCP ports {#TroubleshootListeningTentacles-CheckforzombiechildprocesseslockingTCPports}
+## Check for Zombie Child Processes Locking TCP Ports {#TroubleshootListeningTentacles-CheckforzombiechildprocesseslockingTCPports}
 
 If Tentacle fails to start with an error message like this: **A required communications port is already in use.**
 
@@ -138,13 +138,13 @@ The most common scenario is when you already have an instance of Tentacle (or so
 
 Take a look at [this thread](http://help.octopusdeploy.com/discussions/problems/40076-tentacle-wont-start-after-stopped#comment_38833291) for more background and troubleshooting tips.
 
-## Check Tentacle service account permissions {#TroubleshootListeningTentacles-CheckTentacleserviceaccountpermissions}
+## Check Tentacle Service Account Permissions {#TroubleshootListeningTentacles-CheckTentacleserviceaccountpermissions}
 
 If the Octopus Tentacle is running as the *Local System*account you can skip this section.
 
 If the Tentacle is running as a specific user, make sure that the user has "full control" permission to the *Octopus Home* folder on the Tentacle machine. This is usually `C:\Octopus` - apply permissions recursively.
 
-## Check Tentacle.exe load time {#TroubleshootListeningTentacles-CheckTentacle.exeloadtime}
+## Check Tentacle.exe Load Time {#TroubleshootListeningTentacles-CheckTentacle.exeloadtime}
 
 In some DMZ-style environments without Internet access, failing to disable Windows code signing certificate revocation list checking will cause Windows to pause during loading of the Octopus applications and installers. This can have a significant negative performance impact, which may prevent Octopus and Tentacles connecting.
 
@@ -160,7 +160,7 @@ To do this open {{Control Panel,Internet Options,Advanced}}, and uncheck the *
 
 ![](/docs/images/3048143/3278077.png)
 
-## Schannel and TLS configuration mismatches {#TroubleshootListeningTentacles-SchannelandTLSconfigurationmismatches}
+## Schannel and TLS Configuration Mismatches {#TroubleshootListeningTentacles-SchannelandTLSconfigurationmismatches}
 
 Octopus uses `Schannel` for secure communications and will attempt to use the best available protocol available to both servers.  If you are seeing error messages like below, try [Troubleshooting Schannel and TLS](/docs/administration/security/octopus-tentacle-communication/troubleshooting-schannel-and-tls.md):
 

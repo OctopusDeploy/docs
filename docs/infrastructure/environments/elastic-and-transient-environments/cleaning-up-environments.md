@@ -1,5 +1,5 @@
 ---
-title: Cleaning up environments
+title: Cleaning up Environments
 description: Octopus can automatically remove unwanted machines from environments based on their health status.  
 position: 3
 ---
@@ -10,13 +10,13 @@ The features discussed in this guide are available in Octopus 3.4 and newer.
 
 Octopus can automatically remove unwanted machines from environments based on their health status.  This is useful when an environment is scaled down and orphaned deployment targets remain in Octopus.  Automatic environment clean up can be configured through machine policies.
 
-## Machine policies {#Cleaningupenvironments-Machinepolicies}
+## Machine Policies {#Cleaningupenvironments-Machinepolicies}
 
 !partial <menu>
 
 In this example we will create a machine policy to automatically delete machines when they become unavailable.
 
-## Creating a machine policy for environment cleanup {#Cleaningupenvironments-Creatingamachinepolicyforenvironmentcleanup}
+## Creating a Machine Policy for Environment Cleanup {#Cleaningupenvironments-Creatingamachinepolicyforenvironmentcleanup}
 
 1. Navigate to the *Machine policies* screen
 2. Create a new machine policy by selecting **Add machine policy**:
@@ -43,7 +43,7 @@ In Octopus versions prior to 2018.1 a separate scheduled task ran periodically a
 Read more about [machine policies](/docs/infrastructure/environments/machine-policies.md)
 :::
 
-## Troubleshooting automatic environment clean up {#Cleaningupenvironments-Troubleshootingautomaticenvironmentcleanup}
+## Troubleshooting Automatic Environment Clean Up {#Cleaningupenvironments-Troubleshootingautomaticenvironmentcleanup}
 
 !partial <troubleshoot>
 
