@@ -11,14 +11,14 @@ When an Octopus Tentacle is configured in [Listening mode](/docs/infrastructure/
 All of the 'classic' problems of TCP networking: firewalls, proxies, timeouts, DNS issues and so-on can affect Octopus Tentacles. This guide will help to track down these issues when either a machine cannot be "Discovered" to add to the Octopus installation, or a previously working machine fails to health-check with errors from the networking stack.
 
 :::success
-Before following the steps below, it can be worthwhile to restart the Octopus and Tentacle services, and refresh the browser you're using to connect to the Octopus Web Portal. Neither action *should*fix a communication problem, but sometimes they can help flush a problem out.
+Before following the steps below, it can be worthwhile to restart the Octopus and Tentacle services, and refresh the browser you're using to connect to the Octopus Web Portal. Neither action *should* fix a communication problem, but sometimes they can help flush a problem out.
 :::
 
 :::success
 If you have worked through this guide without success, it can be worthwhile to completely remove the Tentacle configuration, data, and working folders, and then reconfigure it from scratch. This can be done without any impact to the applications you have deployed. Learn about [manually uninstalling Tentacle](/docs/administration/tentacle-configuration-and-file-storage/manually-uninstall-tentacle.md). Working from a clean slate can sometimes expose the underlying problem.
 :::
 
-## Home in on the problem {#TroubleshootListeningTentacles-Homeinontheproblem}
+## Identify the Problem {#TroubleshootListeningTentacles-Homeinontheproblem}
 
 If you're at "square 1" and can't connect to a new Tentacle machine, take note of the error presented in the "Discover" page.
 
@@ -56,7 +56,7 @@ If any of the communications settings are incorrect, choose *Delete this Tentacl
 
 Finally, verify that the Tentacle's thumbprint, shown in bold in the large box, matches any that have been presented in error messages, and in the *Machine Settings* page on the Octopus Web Portal.
 
-## Verify the Octopus and Tentacle services are running {#TroubleshootListeningTentacles-VerifytheOctopusandTentacleservicesarerunning}
+## Verify the Octopus and Tentacle Services are Running {#TroubleshootListeningTentacles-VerifytheOctopusandTentacleservicesarerunning}
 
 If you're successfully connecting to the Octopus Web Portal with your web browser, you can be confident the Octopus Server service is running.
 
@@ -69,7 +69,7 @@ If the Tentacle service is not running, you can try to start it from the Service
 
 If the service is up and running, continue to the next step.
 
-## Connect locally to the Tentacle {#TroubleshootListeningTentacles-ConnectlocallytotheTentacle}
+## Connect Locally to the Tentacle {#TroubleshootListeningTentacles-ConnectlocallytotheTentacle}
 
 The Tentacle service can only be controlled by a trusted Octopus, but to help with diagnostics it will present a welcome page if visited in a web browser.
 
