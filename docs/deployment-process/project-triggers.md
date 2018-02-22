@@ -70,7 +70,7 @@ For Octopus 3.4 and 3.5, there are two types of events that can trigger an autom
 
 ![](/docs/images/5671191/5865883.png "width=500")
 
-| Event | Description | Examples | 
+| Event | Description | Examples |
 | ----- | ----------- | ---------|
 | **New deployment target becomes available** | Occurs when a deployment target is added to Octopus for the first time | |
 | **Existing deployment target changes state** | Occurs when a deployment target has a *positive* state change (it doesn't really make sense to deploy to a freshly disabled deployment target) | <ul> <li>Health status changes from Unhealthy to Healthy</li> <li>A new environment/role/tenant is added to the deployment target</li> <li>The deployment target is enabled</li> </ul> |
@@ -112,6 +112,10 @@ You can use the advanced deployment screen to see an approximation of the deploy
 
 ![](/docs/images/5671191/5865838.png "width=500")
 :::
+
+### How to exclude steps? {#AutomaticDeploymentTriggers-HowToExcludeSteps?}
+
+The current recommendation is to not have any steps in the project that you do not want to run, as there is not a way to determine if it's a manual or automatic deployment. There isn't a variable or other approach to determine how a deployment was triggered.
 
 ### What happens with Manual Interventions and Guided Failures? {#AutomaticDeploymentTriggers-WhathappenswithManualInterventionsandGuidedFailures?}
 
