@@ -9,7 +9,7 @@ Organizing your deployment targets into environments lets you define your deploy
 
 ## Managing Environments {#Environments-Managingenvironments}
 
-!partial <location>
+Environments and the machines inside them can be managed from {{Infrastructure,Environments}} within the **Octopus Web Portal**.
 
 ![](environments.png "width=500")
 
@@ -26,7 +26,7 @@ Machines can be added to environments in different ways, [depending on how they
 
 ## Environment Ordering {#Environments-Environmentordering}
 
-!partial <reorder-link>
+Environments are shown in order, and can be reordered using the **Reorder** link in the overflow menu at the top right-hand corner of the page.
 
 ![](environment-reordering-button.png "width=500")
 
