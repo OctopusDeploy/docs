@@ -66,7 +66,6 @@ In addition, if you also check the box "Help improve Octopus by sending usage st
 | Whether you have a custom account configured for the built-in worker | 2018.2.2 |
 | The number of non built-in workers you have | 2018.2.2 |
 
-
 The installation ID is a GUID that we generate when Octopus is installed. This GUID is simply a way for us to get a rough idea of the number of installations there are in the wild, and which versions people are using, so we can make decisions about backwards compatibility support.
 
 Together, this information helps us when making decisions about the product. For example, we expected users to only have a handful of machines, but the statistics tell us that some customers have over 900; we now take that into account when designing the user experience.

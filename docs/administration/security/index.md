@@ -8,6 +8,8 @@ We pride ourselves on making Octopus Deploy a secure product. The security and i
 
 This section provides information about the responsibility we take to provide a secure software product, and considerations for you as the host and administrator of your Octopus Deploy installation.
 
+!toc
+
 ## Responsibility
 
 Octopus Deploy take responsibility to provide a secure and stable platform for managing your deployments.
@@ -58,6 +60,12 @@ Learn about [auditing](/docs/administration/auditing.md).
 
 To make Octopus Deploy useful to your organization it needs a high level of access to your servers and infrastructure. We take great care to understand common vulnerabilities and exploits which could affect your Octopus Deploy installation, and ensure our software prevents anyone from leveraging these.
 
+### FIPS compliance
+
+We take every reasonable effort to make Octopus Server, Tentacle, Calamari, and any other tools we provide FIPS 140 compliant. If something is not FIPS 140 compliant we will take every reasonable effort to fix the problem, or otherwise degrade the feature gracefully.
+
+Learn about [FIPS and Octopus Deploy](fips-and-octopus-deploy.md).
+
 ## Provided by the host
 
 The following sections describe the responsibilities taken by whomever is hosing your Octopus Server. If you are using Octopus Cloud, that's us. If you are self-hosting, this is you.
@@ -94,15 +102,27 @@ You can configure the Octopus Server to send certain standard HTTP security head
 
 Learn about [HTTP security headers](http-security-headers.md).
 
+## PCI/DSS compliance
+
+We have a lot of customers running Octopus Deploy in their PCI compliant environments. We don't claim to be experts in PCI compliance, especially since every situation is slightly different. What we can do is offer some recommendations primarily focused on your use of Octopus Deploy and different models you can achieve with it.
+
+Learn about [PCI/DSS compliance and Octopus Deploy](pci-compliance-and-octopus-deploy.md).
+
+## Outbound requests
+
+Some components in Octopus Deploy will make outbound requests from time to time. Generally these requests are required to perform your deployments, some of them are for things like certificate revocation checks, and some are designed to help us build a better product for you.
+
+Learn about the [outbound requests](outbound-requests.md) made by Octopus Deploy.
+
+## Privacy
+
+Learn about our [privacy policy](https://octopus.com/privacy). We are currently preparing for the General Data Protection Regulation (GDPR) to be ready ahead of the 25 May 2018 enforcement date.
+
 ## Security disclosure policy
 
 No software is ever bug free, and as such, there will occasionally be security issues. Once we have fixed a verified security vulnerability we follow a practice of [responsible disclosure](https://en.wikipedia.org/wiki/Responsible_disclosure). You can view the entire list of disclosed security vulnerabilities in the [MITRE CVE database](https://www.cvedetails.com/vulnerability-list/vendor_id-16785/product_id-39115/Octopus-Octopus-Deploy.html).
 
 Learn about our [security disclosure policy](https://octopus.com/security/disclosure).
-
-## Privacy
-
-Learn about our [privacy policy](https://octopus.com/privacy). We are currently preparing for the General Data Protection Regulation (GDPR) to be ready ahead of the 25 May 2018 enforcement date.
 
 ## Contact us
 
