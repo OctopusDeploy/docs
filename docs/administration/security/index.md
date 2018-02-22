@@ -88,6 +88,12 @@ Once a person has verified their identity, you can control which activities thes
 
 Learn about [managing users and teams](/docs/administration/managing-users-and-teams/index.md).
 
+### HTTP security headers
+
+You can configure the Octopus Server to send certain standard HTTP security headers with each HTTP response. The Octopus Server will be secure by default, however you can enable certain advanced HTTP security headers, like HSTS if you desire.
+
+Learn about [HTTP security headers](http-security-headers.md).
+
 ## Security disclosure policy
 
 No software is ever bug free, and as such, there will occasionally be security issues. Once we have fixed a verified security vulnerability we follow a practice of [responsible disclosure](https://en.wikipedia.org/wiki/Responsible_disclosure). You can view the entire list of disclosed security vulnerabilities in the [MITRE CVE database](https://www.cvedetails.com/vulnerability-list/vendor_id-16785/product_id-39115/Octopus-Octopus-Deploy.html).
