@@ -19,10 +19,13 @@ Environments can be added using the **Add environment** button.
 
 ## Adding Machines to Environments {#Environments-Addingmachinestoenvironments}
 
-Machines can be added to environments in different ways, [depending on how they will communicate](/docs/infrastructure/windows-targets/index.md) with the Octopus Deploy Server.
+Machines can be added to environments in different ways, depending on the type of target and how they will communicate with the Octopus Deploy Server.
 
-- Adding [listening machines](/docs/infrastructure/windows-targets/listening-tentacles/index.md)
-- Adding [polling machines](/docs/infrastructure/windows-targets/polling-tentacles/index.md)
+- [Windows targets in listening mode](/docs/infrastructure/windows-targets/listening-tentacles/index.md)
+- [Windows targets in polling mode](/docs/infrastructure/windows-targets/polling-tentacles/index.md)
+- [SSH targets](/docs/infrastructure/ssh-targets/index.md)
+- [AWS targets](/docs/infrastructure/aws/index.md)
+- [Azure targets](/docs/infrastructure/azure/index.md)
 
 ## Environment Ordering {#Environments-Environmentordering}
 
