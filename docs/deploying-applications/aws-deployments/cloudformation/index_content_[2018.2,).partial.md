@@ -88,6 +88,27 @@ The second option is to reference a CloudFormation template and properties file 
 
 ![Package](step-aws-package.png "width=500")
 
+#### Variable Replacements
+
+Variable replacement is performed before the template is deployed when deploying from either an inline script or a package. For example, if you were deploying from a package and your properties file looked like this:
+
+```json
+[
+  {
+    "ParameterKey": "KeyPairName",
+    "ParameterValue": "#{KeyName}"
+  },
+  {
+    "ParameterKey": "InstanceType",
+    "ParameterValue": "#{InstanceType}"
+  }
+]
+```
+
+Then the values from the project variables `KeyName` and `InstanceType` would be substituted for the markers `#{KeyName}` and `#{InstanceType}`.
+
+See the [variable substitution](https://octopus.com/docs/deployment-process/variables/variable-substitution-syntax) documentation for more information.
+
 ## CloudFormation Deployment Workflow
 
 The AWS CLI makes a clear distinction between creating and updating CloudFormation stacks. When using the CLI directly, it is up to you to know if the stack exists, and what state the stack is in, in order to know whether to create or update the stack.
