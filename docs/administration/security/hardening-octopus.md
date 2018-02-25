@@ -37,24 +37,77 @@ Depending on your familiarity with Octopus Server, or networking, or your host o
 1. Securely expose your Octopus Server to your users, infrastructure, and external services
     a. Use HTTPS over SSL
     b. Configure HTTP security
-1. Use external workers
-1. Configure the way your Octopus Server communicates with deployment targets
+1. Configure your workers
+1. Configure the way Octopus Server communicates with deployment targets
+
+### Securely expose your Octopus Server
+
+For Octopus Server to be useful you need to expose its HTTP API to your users, and perhaps your infrastructure and some external services. There are many different approaches to solving this problem, but at its core you will want to:
+
+1. Use HTTPS over SSL. Learn about [safely exposing your Octopus Server](/docs/administration/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md).
+1. Configure the built in HTTP security features as appropriate for your scenario. Learn about [HTTP security headers](/docs/administration/security/http-security-headers.md).
+
+### Configure your workers {#configuring-workers}
+
+Workers offer a convenient way to run scripts and certain deployment steps. Learn about [workers](/docs/administration/workers/index.md).
+
+We highly recommend configuring external workers running on a different host to your Octopus Server. This is the easiest and more secure approach to prevent user-provided scripts from doing harm to your Octopus Server.
+
+Learn about the [built-in worker](/docs/administration/workers/built-in-worker.md).
+
+Learn about [external workers](/docs/administration/workers/external-workers.md).
+
+### Configure how Octopus Server communicates with deployment targets
+
+Octopus Server always uses a secure and tamper-proof communications transport for communicating with deployment targets:
+
+- Learn about [Octopus Server to Tentacle communication](/docs/administration/security/octopus-tentacle-communication/index.md).
+- Learn about [Octopus Server to SSH communication](/docs/infrastructure/ssh-targets/index.md).
+
+The decisions you need to make are:
+
+1. Which kind of deployment targets do you want to allow? Listening Tentacles? Polling Tentacles? SSH? This will have an impact on how you configure your network. See [harden your network](#harden-your-network).
+1. Do you want to use a proxy server? Learn about [proxy support in Octopus Deploy](/docs/infrastructure/windows-targets/proxy-support.md).
 
 ## Harden your host operating system
 
 These steps apply to the host operating system for your Octopus Server. You may want to consider similar hardening for your [deployment targets](/docs/infrastructure/index.md) and any [workers](/docs/administration/workers/index.md).
 
-1. Configure your operating system firewall - see [harden your network](#harden-your-network)
-1. Configure file access control
-1. Prevent unwanted execution
-1. Prevent creating scheduled tasks
 1. Rename local administrator account
+1. Configure malware protection
+1. Prevent user-provided scripts from doing harm
+  a. Run workers under a different security context
+  b. Prevent unwanted file access
+  c. Prevent unwanted file execution
+  d. Prevent creating scheduled tasks
+1. Configure your operating system firewall - see [harden your network](#harden-your-network)
+
+### Rename local administrator accounts
+
+It might seem really simple, but by renaming your `Administrator` account to anything else makes it that much harder for attackers to use this attack vector in to your Octopus Server.
+
+Here is an example script to rename the built-in `Administrator` account in Windows.
+
+```powershell
+Write-Output "Ensure local Administrator account renamed..."
+
+$user = Get-LocalUser -Name Administrator -ErrorAction SilentlyContinue
+
+if($user) {
+  Write-Output "Renaming local 'Administrator' account to 'Bob'..."
+  Rename-LocalUser -Name Administrator -NewName Bob
+} else {
+  Write-Output "The local 'Administrator' account has already been renamed."
+}
+```
 
 ### Configure malware protection
 
-Applies to: `Everywhere`
+Depending on your host operating system, and your requirements for malware protection, you may want to install and configure a specific application. At the very least, Windows Defender is a very good starting place on modern Windows operating systems.
 
+Here is an example script for configuring Windows Defender to exclude the Octopus work folders, and to automatically download new definitions.
 
+**Note:** you may need to change the excluded folders/files if you install Octopus Server or Tentacle into a different location.
 
 ```powershell
 # Install and Configure: https://docs.microsoft.com/en-us/windows/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016
@@ -68,26 +121,59 @@ Write-Output "Setting Windows Update to 'Download updates but let me choose whet
 Write-Output "This value allows Windows Defender to download and install definition updates automatically, but other updates are not automatically installed."
 cscript C:\Windows\System32\Scregedit.wsf /AU 3
 
-Write-Output "Excluding D:\Octopus\Calamari from Windows Defender..."
-Add-MpPreference -ExclusionPath "D:\Octopus\Calamari"
-Add-MpPreference -ExclusionPath "D:\Octopus\Calamari\*"
+Write-Output "Excluding the Calamari folder from Windows Defender..."
+Add-MpPreference -ExclusionPath "C:\Octopus\Calamari"
+Add-MpPreference -ExclusionPath "C:\Octopus\Calamari\*"
 
-Write-Output "Excluding D:\Octopus\Work from Windows Defender..."
-Add-MpPreference -ExclusionPath "D:\Octopus\Work"
-Add-MpPreference -ExclusionPath "D:\Octopus\Work\*"
+Write-Output "Excluding Octopus Work folder from Windows Defender..."
+Add-MpPreference -ExclusionPath "C:\Octopus\Work"
+Add-MpPreference -ExclusionPath "C:\Octopus\Work\*"
 ```
 
-### Configure file access control
+### Prevent user-provided scripts from doing harm
 
-Applies to: `Workers`, `Tentacle` targets, and `SSH` targets
+These steps only apply if you are running either the built-in worker or an external worker on the same host operating system as the Octopus Server itself. You should prevent custom scripts executed by these workers from doing harm to your Octopus Server.
 
+:::hint
+Consider using an [external worker](/docs/administration/workers/external-workers.md) and moving this workload to a different server. This is the very best way to prevent any potential for harm to your Octopus Server, and you won't need to rely on the rest of these steps to prevent harm to your Octopus Server.
+:::
 
+#### Run as a different user
+
+Applies to: `Built-in worker` and `External worker` running on the Octopus Server
+
+The first step is to make the worker run under a different security context to the Octopus Server. This enables you to make the distinction between what the Octopus Server should be able to do, versus what the worker should be able to do.
+
+See [configuring workers](#configuring-workers).
+
+#### Prevent unwanted file access
+
+Applies to: `Built-in worker` and `External worker` running on the Octopus Server
+
+Here is an example script preventing the worker from accessing the Octopus Server configuration which contains sensitive information.
+
+**Note:** In your scenario you may need to use a different username and/or Octopus Home folder path.
+
+```powershell
+$username = "svcWorker"
+$octopusHome = "C:\Octopus"
+$acl = Get-Acl -Path $octopusHome
+$acl.SetAccessRule(New-Object System.Security.AccessControl.FileSystemAccessRule("$username","FullControl","Deny"))
+Set-Acl -Path $octopusHome -AclObject $acl
+```
+
+If you are using an external worker, that's all you need to do. However if you are using the built-in worker you should allow access to its `Work` directory which is located under the Octopus Home directory.
+
+```powershell
+$workDirectory = Join-Path $octopusHome "OctopusServer\Work"
+$acl = Get-Acl -Path $workDirectory
+$acl.SetAccessRule(New-Object System.Security.AccessControl.FileSystemAccessRule("$username","FullControl","Allow"))
+Set-Acl -Path $workDirectory -AclObject $acl
+```
 
 ### Prevent unwanted execution
 
-Applies to: `Workers`, `Tentacle` targets, and `SSH` targets
-
-You should prevent user-provided scripts from executing certain sensitive programs on the host operating system. User-provided scripts are executed by workers and Tentacles.
+Applies to: `Built-in worker` and `External worker` running on the Octopus Server
 
 Here is an example script for preventing execution of certain Windows executables which could be used by an attacker to learn information about your network.
 
@@ -107,7 +193,7 @@ foreach ($executable in $executables) {
 
 ### Prevent creating scheduled tasks or chron jobs
 
-Applies to: `Workers`, `Tentacle` targets, and `SSH` targets
+Applies to: `Built-in worker` and `External worker` running on the Octopus Server
 
 Attackers could potentially create a scheduled task or chron job to run as a privileged user account.
 
@@ -121,29 +207,6 @@ Write-Output "Prevent users from creating scheduled tasks..."
 # (CI)        "Container Inherit"
 # (Rc)        "Read Permissions"
 & "$env:SystemRoot\System32\icacls.exe" "$env:SystemRoot\System32\Tasks\" "/grant:r" "*S-1-5-11:(CI)(Rc)"
-```
-
-### Rename local administrator accounts
-
-Applies to: `Everything`
-
-Rename the `Administrator` account to something else.
-
-It might seem really simple, but by renaming your `Administrator` account to anything else makes it that much harder for attackers to use this attack vector in to your Octopus Server.
-
-Here is an example script to rename the built-in `Administrator` account in Windows.
-
-```powershell
-Write-Output "Ensure local Administrator account renamed..."
-
-$user = Get-LocalUser -Name Administrator -ErrorAction SilentlyContinue
-
-if($user) {
-  Write-Output "Renaming local 'Administrator' account to 'Bob'..."
-  Rename-LocalUser -Name Administrator -NewName Bob
-} else {
-  Write-Output "The local 'Administrator' account has already been renamed."
-}
 ```
 
 ## Harden your network {#harden-your-network}
