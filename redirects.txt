@@ -402,3 +402,4 @@ docs/deployment-process/substitute-variables-in-files.md -> docs/deployment-proc
 docs/deployment-process/variable-substitution-syntax.md -> docs/deployment-process/variables/variable-substitution-syntax.md
 docs/deployment-process/steps/automatic-release-creation.md -> docs/deployment-process/releases/automatic-release-creation.md
 docs/installation/sql-server-database-requirements.md -> docs/installation/sql-server-database.md
+docs/administration/security/security-hardening-octopus.md -> docs/administration/security/hardening-octopus.md
