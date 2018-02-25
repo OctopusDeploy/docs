@@ -1,5 +1,5 @@
 ---
-title: Security hardening Octopus Server
+title: Hardening Octopus
 description: If you are hosting Octopus Deploy yourself, this guide will help you harden your network, host operating system, and Octopus Server itself.
 position: 1
 ---
