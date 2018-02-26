@@ -24,13 +24,13 @@ Depending on your scenario you may want to relax or ignore these recommendations
 
 ### Familiarize yourself with Octopus Server
 
-If you consider networking, the host operating system, and Octopus Server: it is very likely Octopus Server is the new kid on the block. You should consider downloading a free trial of Octopus Server and setting it up on your local machine so you are familiar with how it works. This will eliminate some potential surprises as you progress through the security hardening.
+If you consider networking, the host operating system, Microsoft SQL Server, and Octopus Server: it is very likely Octopus Server is the new kid on the block. You should consider downloading a free trial of Octopus Server and setting it up on your local machine so you are familiar with how it works. This will eliminate some potential surprises as you progress through the security hardening.
 
 Learn about [getting started with Octopus Deploy](/docs/getting-started.md).
 
 ### Choose your order for hardening
 
-Depending on your familiarity with Octopus Server, or networking, or your host operating system, you should consider the order in which you perform the hardening. For example, if you are unfamiliar with Octopus Server, perhaps you should start there, getting your server up and running and working as you'd expect, then move on to the operating system, and finally your networking.
+Depending on your familiarity with Octopus Server, or SQL Server, or networking, or your host operating system, you should consider the order in which you perform the hardening. For example, if you are unfamiliar with Octopus Server, perhaps you should start there, getting your server up and running and working as you'd expect, then move on to the host operating system, the SQL Server, and finally your networking.
 
 ## Harden your Octopus Server
 
@@ -208,6 +208,15 @@ Write-Output "Prevent users from creating scheduled tasks..."
 # (Rc)        "Read Permissions"
 & "$env:SystemRoot\System32\icacls.exe" "$env:SystemRoot\System32\Tasks\" "/grant:r" "*S-1-5-11:(CI)(Rc)"
 ```
+
+## Harden your SQL Server
+
+You don't need to do very much here specific to Octopus Server.
+
+1. Use Integrated Security for the database connection if possible, otherwise use a strong password.
+1. Prevent the Octopus Server's Server Principal (Login) from doing harm outside its own database.
+
+Learn about managing your [Octopus SQL database](/docs/installation/sql-server-database.md).
 
 ## Harden your network {#harden-your-network}
 

@@ -33,7 +33,6 @@ Please note the following if you need to create the database yourself:
 
 Learn more about [changing the database collation](/docs/administration/octopus-database/changing-the-collation-of-the-octopus-database.md) after the initial Octopus installation.
 
-
 ## Using SQL Server AlwaysOn
 
 Octopus will work with [any of the supported highly available SQL Server implementations](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
