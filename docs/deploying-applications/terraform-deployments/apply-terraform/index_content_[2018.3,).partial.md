@@ -6,7 +6,7 @@ The proceeding instructions can be followed to configure the `Apply a Terraform 
 
 When running Terraform on a local PC, the state of the resources managed by Terraform is saved in a local file. This state is queried to learn which resources already exist in order to properly apply updates and destroy resources.
 
-When Terraform is run by Octopus, this state file is not preserved between executions. This means that, for almost all practical application of Terraform through Octopus, a remote backend must be configured. A remote backend allows this state information to be preserved between Terraform steps.
+When Terraform is run by Octopus, this state file is not preserved between executions. This means that, for almost all practical applications of Terraform through Octopus, a remote backend must be configured. A remote backend allows this state information to be preserved between Terraform steps.
 
 Refer to the [Terraform documentation](https://www.terraform.io/docs/backends/index.html) for more information on configuring backends.
 
@@ -16,7 +16,7 @@ While neither Octopus nor Terraform will generate errors if a remote backend is 
 
 ## AWS Account Support
 
-If you wish to use the AWS credentials managed by Octopus when deploying Terraform templates, the AWS account will need to be added to Octopus and a variable referencing the account configured in the project.
+If you wish to use AWS credentials managed by Octopus when deploying Terraform templates, the AWS account will need to be added to Octopus, and a variable referencing the account configured in the project.
 
 :::hint
 Using AWS credentials managed by Octopus is optional. These credentials can be saved directly into the Terraform template if that approach is preferable.
@@ -82,7 +82,7 @@ This will present a dialog in which the Terraform template can be pasted, in eit
 
 ![Source Code Dialog](step-aws-code-dialog.png "width=500")
 
-Once the `OK` button is clicked, the parameters defined in the template will be shown under the `Parameters` section.
+Once the `OK` button is clicked, the input variables defined in the template will be shown under the `Variables` section.
 
 ![Parameters](step-parameters.png "width=500")
 
@@ -96,7 +96,7 @@ Lists and maps are supplied as raw HCL or JSON structures, depending on the form
 
 The second option is to use the files contained in a package. This is done by selecting the `File inside a package` option, and specifying the package.
 
-The contents of the package will be extracted, and Terraform will automatically detect the files to use. See the [Terraform documentation](https://www.terraform.io/docs/configuration/load.html) for more details.
+The contents of the package will be extracted, and Terraform will automatically detect the files to use. See the [Terraform documentation](https://www.terraform.io/docs/configuration/load.html) for more details on the file load order.
 
 ![Package](step-aws-package.png "width=500")
 
@@ -129,7 +129,7 @@ See the [variable substitution](https://octopus.com/docs/deployment-process/vari
 
 You can optionally control how Terraform downloads plugins and where the plugins will be located in the `Advanced Options` section.
 
-The `Terraform plugin cache directory` can be optional set to a directory where Terraform will look for existing plugins, and optionally download new plugins into. By default this directory is not shared between targets, so additional plugins have to be downloaded to all targets. By setting this value to a shared location, the plugins can be downloaded once and shared.
+The `Terraform plugin cache directory` can be optional set to a directory where Terraform will look for existing plugins, and optionally download new plugins into. By default this directory is not shared between targets, so additional plugins have to be downloaded by all targets. By setting this value to a shared location, the plugins can be downloaded once and shared amongst all targets.
 
 The `Allow additional plugin downloads` option can be checked to allow Terraform to download missing plugins, and unchecked to prevent these downloads.
 
