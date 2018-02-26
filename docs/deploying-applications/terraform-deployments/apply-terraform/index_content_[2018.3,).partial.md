@@ -74,6 +74,12 @@ Once the `OK` button is clicked, the parameters defined in the template will be 
 
 ![Parameters](step-parameters.png "width=500")
 
+Terraform variables are either strings, lists or maps.
+
+Strings (including numbers and `true`/`false`) are supplied without quotes. For example `my string`, `true` or `3.1415`.
+
+Lists and maps are supplied as raw HCL or JSON structures, depending on the format of the template. For example, if the template is written in HCL, a list variable would be provided as `["item1", {item2="embedded map"}]` and a map variable would be provided as `{item1="hi", item2="there"}`. If the template is written is JSON, a list variable would be provided as `["item1", {"item2": "embedded map" }]` and a map variable would be provided as `{"item1": "hi", "item2": "there"}`.
+
 #### Package
 
 The second option is to use the files contained in a package. This is done by selecting the `File inside a package` option, and specifying the package.
