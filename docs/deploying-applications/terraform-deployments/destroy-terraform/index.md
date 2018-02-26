@@ -1,6 +1,6 @@
 ---
-title: Deploy an Terraform Template
-description: Deploy an Terraform Template.
+title: Destroy Existing Terraform Resources
+description: Destroy existing terraform resources.
 ---
 
 !partial <content>
