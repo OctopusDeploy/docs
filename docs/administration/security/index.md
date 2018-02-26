@@ -118,7 +118,7 @@ Learn about the [outbound requests](outbound-requests.md) made by Octopus Deploy
 
 Learn about our [privacy policy](https://octopus.com/privacy). We are currently preparing for the General Data Protection Regulation (GDPR) to be ready ahead of the 25 May 2018 enforcement date.
 
-## Security disclosure policy
+## Security disclosure policy {#disclosure-policy}
 
 No software is ever bug free, and as such, there will occasionally be security issues. Once we have fixed a verified security vulnerability we follow a practice of [responsible disclosure](https://en.wikipedia.org/wiki/Responsible_disclosure). You can view the entire list of disclosed security vulnerabilities in the [MITRE CVE database](https://www.cvedetails.com/vulnerability-list/vendor_id-16785/product_id-39115/Octopus-Octopus-Deploy.html).
 

@@ -34,11 +34,16 @@ Depending on your familiarity with Octopus Server, or SQL Server, or networking,
 
 ## Harden your Octopus Server
 
+1. Upgrade to the latest version
 1. Securely expose your Octopus Server to your users, infrastructure, and external services
     a. Use HTTPS over SSL
     b. Configure HTTP security
 1. Configure your workers
 1. Configure the way Octopus Server communicates with deployment targets
+
+### Upgrade to the latest version
+
+Generally speaking, the latest available version of Octopus Server will be the most secure. You should consider a strategy for keeping Octopus Server updated. We follow a [responsible disclosure policy](index.md#disclosure-policy) so it is possible for you to be aware of any known issues which affect the security and integrity of your Octopus Server.
 
 ### Securely expose your Octopus Server
 
