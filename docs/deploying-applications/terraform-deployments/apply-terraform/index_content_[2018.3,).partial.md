@@ -112,3 +112,13 @@ resource "aws_instance" "example" {
 Then the values from the project variable `AMI` would be substituted for the markers `#{AMI}`.
 
 See the [variable substitution](https://octopus.com/docs/deployment-process/variables/variable-substitution-syntax) documentation for more information.
+
+## Advanced Options Section
+
+You can optionally control how Terraform downloads plugins and where the plugins will be located in the `Advanced Options` section.
+
+The `Terraform plugin cache directory` can be optional set to a directory where Terraform will look for existing plugins, and optionally download new plugins into. By default this directory is not shared between targets, so additional plugins have to be downloaded to all targets. By setting this value to a shared location, the plugins can be downloaded once and shared.
+
+The `Allow additional plugin downloads` option can be checked to allow Terraform to download missing plugins, and unchecked to prevent these downloads.
+
+![Terraform Advanced Options](terraform-advanced.png "width=500")
