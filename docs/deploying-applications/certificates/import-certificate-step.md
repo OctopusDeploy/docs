@@ -9,6 +9,8 @@ The *Import Certificate* step can be used to import a certificate managed by Oct
 
 ![](import-certificate-step-select.png "width=500")
 
+## Import Details 
+
 ### Store Location
 The certificate can be imported to the *Local Machine* or *Current User* locations, or enter a *Custom User* to install the certificate for.
 
