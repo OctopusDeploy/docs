@@ -76,10 +76,10 @@ These steps apply to the host operating system for your Octopus Server. You may 
 1. Rename local administrator account
 1. Configure malware protection
 1. Prevent user-provided scripts from doing harm
-   a. Run workers under a different security context
-   a. Prevent unwanted file access
-   a. Prevent unwanted file execution
-   a. Prevent creating scheduled tasks
+    a. Run workers under a different security context
+    a. Prevent unwanted file access
+    a. Prevent unwanted file execution
+    a. Prevent creating scheduled tasks
 1. Configure your operating system firewall - see [harden your network](#harden-your-network)
 
 ### Rename local administrator accounts
