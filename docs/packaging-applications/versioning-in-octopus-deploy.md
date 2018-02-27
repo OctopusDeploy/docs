@@ -4,14 +4,14 @@ description: Considerations when selecting a versioning scheme for your applicat
 position: 3
 ---
 
-Choosing the best versioning scheme for your applications can be a tricky act of balancing pragmatism and strictness. This page should help you understand how Octopus Deploy handles versions in [packages](/docs/packaging-applications/supported-packages.md), releases, and [channels](/docs/deployment-process/channels.md), and subsequently design a versioning scheme that suits your needs.
+Choosing the best versioning scheme for your applications can be a tricky act of balancing pragmatism and strictness. This page should help you understand how Octopus Deploy handles versions in [packages](/docs/packaging-applications/supported-packages.md), [releases](/docs/deployment-process/releases/index.md), and [channels](/docs/deployment-process/channels.md), and subsequently design a versioning scheme that suits your needs.
 
 :::success
 **Use Semantic Versioning (SemVer)**
 We strongly recommend using [Semantic Versioning](http://semver.org/) as a guide when designing a versioning scheme for your applications. Over the years Octopus Deploy has supported different versions of SemVer:
 
-- [SemVer 2.0](http://semver.org/spec/v2.0.0.html) (recommended): requires [Octopus Deploy 3.4](https://octopus.com/blog/semver2) or greater
-- [SemVer 1.0](http://semver.org/spec/v1.0.0.html): all prior versions of Octopus Deploy
+- [SemVer 2.0](http://semver.org/spec/v2.0.0.html) (recommended): requires [Octopus Deploy 3.4](https://octopus.com/blog/semver2) or greater.
+- [SemVer 1.0](http://semver.org/spec/v1.0.0.html): all prior versions of Octopus Deploy.
 
 **If you want everything to "just work" in every situation, stick with strict SemVer.** To cater for alternative scenarios we have also chosen to support a "pragmatic" implementation of SemVer including support for 4-digit versions (like `1.0.0.0`) and versions that can be sorted alphanumerically, like `2016.09.01-beta.0001`. Read further to learn about choosing a versioning scheme, and why we treat versions this way in Octopus Deploy.
 :::
@@ -117,10 +117,5 @@ The expected package convention is therefore:
 So for example the package name for version *2.3* of you project *Sample.Web*, archived with tar & gzip should be named
 
 > `Sample.Web.2.3.tar.gz`
-
-:::success
-**Avoid Using Numbers in Your Package ID**
-Notice that the version is defined as consisting of the part of the file name from the first instance of a digit, until the file extension. So long as your project name doesn't contain a "*.&lt;number&gt;" component it will parse the version correctly. Note that this means you can also have pre-release tags as part of your version number. This approach allows Octopus to support as generic a package format as possible, while still extracting the information needed for it to do its job.
-:::
 
 Learn how to [create packages](/docs/packaging-applications/creating-packages/index.md)
