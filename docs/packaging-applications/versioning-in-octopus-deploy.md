@@ -4,14 +4,14 @@ description: Considerations when selecting a versioning scheme for your applicat
 position: 3
 ---
 
-Choosing the best versioning scheme for your applications can be a tricky act of balancing pragmatism and strictness. This page should help you understand how Octopus Deploy handles versions in [packages](/docs/packaging-applications/supported-packages.md), releases, and [channels](/docs/deployment-process/channels.md), and subsequently design a versioning scheme that suits your needs.
+Choosing the best versioning scheme for your applications can be a tricky act of balancing pragmatism and strictness. This page should help you understand how Octopus Deploy handles versions in [packages](/docs/packaging-applications/supported-packages.md), [releases](/docs/deployment-process/releases/index.md), and [channels](/docs/deployment-process/channels.md), and subsequently design a versioning scheme that suits your needs.
 
 :::success
 **Use Semantic Versioning (SemVer)**
 We strongly recommend using [Semantic Versioning](http://semver.org/) as a guide when designing a versioning scheme for your applications. Over the years Octopus Deploy has supported different versions of SemVer:
 
-- [SemVer 2.0](http://semver.org/spec/v2.0.0.html) (recommended): requires [Octopus Deploy 3.4](https://octopus.com/blog/semver2) or greater
-- [SemVer 1.0](http://semver.org/spec/v1.0.0.html): all prior versions of Octopus Deploy
+- [SemVer 2.0](http://semver.org/spec/v2.0.0.html) (recommended): requires [Octopus Deploy 3.4](https://octopus.com/blog/semver2) or greater.
+- [SemVer 1.0](http://semver.org/spec/v1.0.0.html): all prior versions of Octopus Deploy.
 
 **If you want everything to "just work" in every situation, stick with strict SemVer.** To cater for alternative scenarios we have also chosen to support a "pragmatic" implementation of SemVer including support for 4-digit versions (like `1.0.0.0`) and versions that can be sorted alphanumerically, like `2016.09.01-beta.0001`. Read further to learn about choosing a versioning scheme, and why we treat versions this way in Octopus Deploy.
 :::
