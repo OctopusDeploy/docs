@@ -121,7 +121,7 @@ resource "aws_instance" "example" {
 
 ```
 
-Then the values from the project variable `AMI` would be substituted for the markers `#{AMI}`.
+Then the value from the project variable `AMI` would be substituted for the marker `#{AMI}`.
 
 See the [variable substitution](https://octopus.com/docs/deployment-process/variables/variable-substitution-syntax) documentation for more information.
 
