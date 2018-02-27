@@ -116,4 +116,4 @@ Over time your software may become so successful that you on-sell it to some ext
 
 Learn more about tenants in our [Multi-tenant Deployments Guide](/docs/deployment-patterns/multi-tenant-deployments/index.md).
 
-If you'd like to take a closer look, you can visit our [Demo Site](https://demo.octopus.com).
+If you'd like to take a closer look at working instance of Octopus Deploy, you can visit our [Demo Site](https://demo.octopus.com).
