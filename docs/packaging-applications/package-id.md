@@ -16,6 +16,16 @@ They must conform to the following specification:
 
 - Must be unique within your Octopus Deploy instance.
 
+Additionally, avoid using numbers in your package ID. This is because the package ID and version number will be combined like so:
+
+> `<id>.<version>.<extension>`
+
+For instance:
+
+> `Sample.Web.2.3.tar.gz`
+
+Including numbers in the package ID will result in the version being incorrectly parsed.
+
 ## Best Practice
 
 We recommend naming your packages similar to namespaces in .NET. i.e. Pascal-cased and dot-separated.

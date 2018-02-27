@@ -118,9 +118,4 @@ So for example the package name for version *2.3* of you project *Sample.Web*,
 
 > `Sample.Web.2.3.tar.gz`
 
-:::success
-**Avoid Using Numbers in Your Package ID**
-Notice that the version is defined as consisting of the part of the file name from the first instance of a digit, until the file extension. So long as your project name doesn't contain a "*.&lt;number&gt;" component it will parse the version correctly. Note that this means you can also have pre-release tags as part of your version number. This approach allows Octopus to support as generic a package format as possible, while still extracting the information needed for it to do its job.
-:::
-
 Learn how to [create packages](/docs/packaging-applications/creating-packages/index.md)
