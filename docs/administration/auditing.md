@@ -41,10 +41,18 @@ This feature makes it extremely easy to see who made what changes on the Octopus
 
 ## Security concerns
 
+We take great care to ensure the security and integrity of your audit logs, to make sure they are a trustworthy indelible record of every important activity in your Octopus installation. If you have any concerns please [reach out to us](https://octopus.com/support).
+
 ### Viewing audit logs
 
-In Octopus 3.4 we have introduced a new permission called **AuditView** which allows someone to view the audit logs without needing other permissions. In earlier versions of Octopus you would require the **AdministerSystem** permission. Learn about [managing users and teams](/docs/administration/managing-users-and-teams/index.md).
+In Octopus 3.4 we introduced a new permission called **AuditView** which allows someone to view the audit logs without needing other permissions. In earlier versions of Octopus you would require the **AdministerSystem** permission. Learn about [managing users and teams](/docs/administration/managing-users-and-teams/index.md).
 
 ### Modifying and deleting audit logs is prevented
 
 Octopus actively prevents modifying or deleting audit logs via its API. That being said, a user with the appropriate permissions to the `Events` table in your Octopus SQL Database could modify or delete records in that table. If you are concerned about this kind of tampering you should configure the permissions to the `Events` table in your Octopus SQL Database appropriately.
+
+### Sensitive values in audit logs
+
+If you make a change to a sensitive value in Octopus, you will notice we write an audit log showing the fact the sensitive value changed. The value we show in the audit log is simply **an indicator the value has changed**. This is **not** the unencrypted/raw value. This is **not** even the encrypted value.
+
+We take the sensitive value and hash it using an irreversible hash algorithm. We then encrypt that hash with a new, unique, non-deterministic salt. We use this irreversible value as an indicator that the sensitive value actually changed in some way.

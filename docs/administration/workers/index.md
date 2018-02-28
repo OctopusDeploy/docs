@@ -4,52 +4,39 @@ description: Worker setup and configuration.
 position: 1400
 ---
 
-When your deployment process runs a script or extracts a package without involving a Tentacle or an SSH target, the process is performed by a worker (see [where steps run](#where-steps-run) below). By default the worker lives inside the Octopus Server process (the built-in worker), however you can also configure an [external worker](#external-worker). 
+Your deployment process will normally need to deal with packages and execute scripts. Quite often those packages will be pushed across to a Tentacle or SSH deployment target, and your scripts will execute on those machines. However, many deployments don't need a Tentacle or SSH target - like deployments to cloud services or similar. In this case it would be annoying if you had to set up a Tentacle or SSH target just to push a package to an API, or run a script but you don't care where that script runs.
 
-## Built-in Worker
+In Octopus `3.0` we introduced the concept of a worker which can deal with packages and execute scripts without the need to install and configure a Tentacle or SSH target.
 
-Any time a script needs to be run (e.g. PowerShell or Calamari), Octopus Server spawns a new process from its process under its security context. In `2018.1.0` we introduced the ability to [change the security context](/docs/administration/security/built-in-worker.md) under which those new processes spawned, adding a layer of security.
+There are two kinds of workers you can use in Octopus:
 
-## External Worker
+1. The built-in worker (default)
+1. External workers
 
-In `2018.2.0` we added the ability to nominate a Tentacle to perform the role of the worker. This Tentacle can run under a different user account and also on a different machine, adding extra layers of security. The built-in worker is automatically disabled when an external worker is configured, preventing the Octopus Server from running any user provided scripts.
+## Built-in worker
 
-:::hint
-Future versions of Octopus Server will expand on the [worker concept](https://github.com/OctopusDeploy/Specs/blob/master/Workers/index.md), allowing you to create worker pools with multiple workers. Steps then can be configured to run on those pools.
+When you first install Octopus Server, by default, the worker lives inside the Octopus Server process. We call this the **built-in worker**. This is very convenient but it does come with some security implications.
 
-When that feature is released, the command-line options will be removed. If an external worker is configured, it will automatically be added to the default worker pool.
-:::
+Any time a script needs to be run (e.g. PowerShell or Calamari), Octopus Server spawns a new process from its process under its security context. In `2018.1.0` we introduced the ability to [change the security context](/docs/administration/workers/built-in-worker.md) under which those new processes spawned, adding a layer of security.
 
-### Setup
+Learn about the [built-in worker](built-in-worker.md).
 
-To enable the external worker, you will need to set up a Tentacle, either on the same machine as the server or a different machine. You can use an existing Tentacle that is used as a deployment target. We recommend that the Tentacle is on the same local network as the server to speed up package transfers.
+## External workers
 
-Once you have done that, and have its address and thumbprint, run the following command, remembering to replace the thumbprint below with the thumbprint from your tentacle:
+In `2018.2.0` we added the ability disable the built-in worker and delegate this work to a Tentacle. We call this the **external worker**. This Tentacle can be installed on the Octopus Server or any other machine, and it can run under a different user account. If you configure an external worker on a different machine, you effectively prevent any user-provided scripts from executing on the Octopus Server itself. In a future version of Octopus you will be able to configure multiple external workers and configure them as members of worker pools.
 
-```
-Octopus.Server external-worker --address=https://example.com:10933 --thumbprint C7524763110D271520C15B6A50296200DA6DDCAA
-```
-
-After restarting the built-in worker will be disabled. If you want to revert to the built-in worker, run the following command.
-
-```
-Octopus.Server external-worker --reset
-```
-
-### Limitations
-The external worker currently has the following limitations:
-- There can only be one.
-- It does not participate in Health Checks unless it is also a deployment target.
-- Packages are always transferred from the server to the worker, download on target is not supported.
-- The worker will run steps from different projects simultaneously (keeping the behavior of the built-in worker), which could allow one project to access the working folder of another project.
+Learn about [external workers](external-workers.md).
 
 ## Where steps run
+
 The following step types and configurations run on a worker:
+
 - Any step that runs a script (usually user supplied) or has a package that has an execution plan of `Octopus Server` or `Octopus Server on behalf of roles`.
 - Any steps that run on a Cloud Region, an Azure Target, or any target that isn’t a Tentacle, SSH Target, or Offline Drop.
 - All AWS and Azure steps.
 
 The following steps always run inside the Octopus Server process (and do not run user-supplied code)
+
 - Health Check
 - Email
 - Manual Intervention

@@ -1,5 +1,3 @@
-## Error Messages
+Octopus Deploy provides first-class support for deploying Terrform templates.
 
-The Terraform deployment steps include a number of unique error codes that may be displayed in the output if there was an error. Below is a list of the errors, along with any additional troubleshooting steps that can be taken to rectify them.
-
-### TERRAFORM-ERROR-0001
+The `Apply a Terraform template` step can be used to create or update a resources from a Terraform template, while the `Destroy Terraform resources` step can be used to destroy existing Terraform resources.

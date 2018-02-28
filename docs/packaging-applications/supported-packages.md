@@ -4,9 +4,9 @@ description: Octopus Deploy supports numerous package formats including NuGet, T
 position: 1
 ---
 
-Octopus Deploy supports several package types and will continue to add more in the future.
+Octopus Deploy supports several package types that can be used when [packaging your applications](/docs/packaging-applications/index.md) and will continue to add more in the future.
 
-Octopus Deploy uses the **file extension** to determine the correct extraction algorithm to use, so it is important that your package has the correct extension for the package format.
+Octopus uses the **file extension** to determine the correct extraction algorithm to use, so it is important that your package has the correct extension for the package format.
 
 | Package Type | File Extensions          | Supported In | Repositories                             | Notes                                    |
 | ------------ | ------------------------- | ----------- | ---------------------------------------- | ---------------------------------------- |
@@ -15,6 +15,6 @@ Octopus Deploy uses the **file extension** to determine the correct extraction a
 | Tar + Gzip   | *.tgz, .tar.gz, .tar.Z*  | All | [Built-In repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) only |                                          |
 | Tar + Bzip2  | *.tar.bz, .tar.bz2, .tbz* | All | [Built-In repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) only |                                          |
 | Zip          | *.zip*                    | 3.3+ | [Built-In repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) only | Standard zip file as created through most common zip programs. |
-| Docker Image |                           | 3.5+ | [Docker Registries](/docs/packaging-applications/package-repositories/registries/index.md) | Learn about [Docker](/docs/deploying-applications/docker-containers/index.md) in Octopus Deploy. || JAR WAR EAR RAR | .jar, .war, .ear, .rar | 3.17+ |  [Built-In repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) (and [Maven Feeds](/docs/packaging-applications/package-repositories/maven-feeds.md) from 4.1) |  Learn about [Maven Feeds](/docs/packaging-applications/package-repositories/maven-feeds.md). |
+| Docker Image |                           | 3.5+ | [Docker Registries](/docs/packaging-applications/package-repositories/registries/index.md) | Learn about [Docker](/docs/deploying-applications/docker-containers/index.md) and Octopus Deploy. || JAR WAR EAR RAR | .jar, .war, .ear, .rar | 3.17+ |  [Built-In repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) (and [Maven Feeds](/docs/packaging-applications/package-repositories/maven-feeds.md) from 4.1) |  Learn about [Maven Feeds](/docs/packaging-applications/package-repositories/maven-feeds.md). |
 
 Learn about [package IDs](/docs/packaging-applications/package-id.md).

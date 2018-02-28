@@ -5,7 +5,7 @@ description: The Deploy Release Step allows you to trigger the deployment of a R
 
 !partial <versionwarning>
 
-The _Deploy Release_ step allows you to trigger the deployment of a release of a project from another project.  This is useful when you are [coordinating multiple Projects](index.md).
+Introduced in Octopus 2018.2.1, the _Deploy Release_ step allows you to trigger the deployment of a release of a project from another project.  This is useful when you are [coordinating multiple Projects](index.md).
 
 ![Deploy Release Step Card](deploy-release-card.png "width=500")
 

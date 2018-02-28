@@ -88,6 +88,27 @@ The second option is to reference a CloudFormation template and properties file 
 
 ![Package](step-aws-package.png "width=500")
 
+#### Variable Replacements
+
+Variable replacement is performed before the template is deployed when deploying from either an inline script or a package. For example, if you were deploying from a package and your properties file looked like this:
+
+```json
+[
+  {
+    "ParameterKey": "KeyPairName",
+    "ParameterValue": "#{KeyName}"
+  },
+  {
+    "ParameterKey": "InstanceType",
+    "ParameterValue": "#{InstanceType}"
+  }
+]
+```
+
+Then the values from the project variables `KeyName` and `InstanceType` would be substituted for the markers `#{KeyName}` and `#{InstanceType}`.
+
+See the [variable substitution](https://octopus.com/docs/deployment-process/variables/variable-substitution-syntax) documentation for more information.
+
 ## CloudFormation Deployment Workflow
 
 The AWS CLI makes a clear distinction between creating and updating CloudFormation stacks. When using the CLI directly, it is up to you to know if the stack exists, and what state the stack is in, in order to know whether to create or update the stack.
@@ -208,6 +229,12 @@ An unrecognized exception was thrown while updating a CloudFormation stack.
 Failed to get the caller identity. This may be because the instance does not have a role assigned to it.
 
 This typically occurs because the step has specified `Yes` to the `Execute using the AWS service role for an EC2 instance` option, but the instance running the deployment does not have a role assigned to it. See the [AWS Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html?icmpid=docs_ec2_console) for more details.
+
+### AWS-CLOUDFORMATION-ERROR-0014
+
+An exception was thrown while contacting the AWS API.
+
+This can happen if accessing AWS via a proxy, and the response from AWS indicated an error. The response body is printed to the logs in these cases.
 
 ### AWS-LOGIN-ERROR-0001
 
