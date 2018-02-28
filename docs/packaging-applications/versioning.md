@@ -8,7 +8,9 @@ The [Package ID](/docs/packaging-applications/package-id.md) and version number 
 
 ## Choosing a Versioning Scheme {#VersioninginOctopusDeploy-Choosingaversioningscheme}
 
-We recommend using [Semantic Versioning](http://semver.org/) for your applications. Consider the following factors when deciding on the versioning scheme you'll use for your applications and packages:
+The technology you're working with will, in some cases, determine the type of versioning scheme that you choose. We recommend using [Semantic Versioning](http://semver.org/) for your applications, unless you are deploying artifacts to a Maven repository, in which case you will need to use [Maven Versions](https://octopus.com/blog/maven-versioning-explained).
+
+Consider the following factors when deciding on the versioning scheme you'll use for your applications and packages:
 
 1. Can you trace a version back to the commit/check-in the application/package was built from? *For example: We stamp the SHA hash of the git commit into the metadata component of the Semantic Version for Octopus Deploy which makes it easier to find and fix bugs. We also tag the commit with the version of Octopus Deploy it produced so you can quickly determine which commit produced a particular version of Octopus Deploy.*
 2. Can your users easily report a version to the development team that supports #1?
