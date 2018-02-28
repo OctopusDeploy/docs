@@ -49,7 +49,7 @@ These are the decisions we made on handling versions:
 
 ## How Octopus Deploy Treats Maven Versions
 
-When working with artifacts from a Maven feed, Octopus respects the [Maven versioning scheme](https://octopus.com/blog/maven-versioning-explained). This versioning scheme is implemented as a copy of the [ComparableVersion](https://github.com/apache/maven/blob/master/maven-artifact/src/main/java/org/apache/maven/artifact/versioning/ComparableVersion.java) class from the Maven library itself.
+When working with artifacts from a [Maven feed](/docs/packaging-applications/package-repositories/maven-feeds.md), Octopus respects the [Maven versioning scheme](https://octopus.com/blog/maven-versioning-explained). This versioning scheme is implemented as a copy of the [ComparableVersion](https://github.com/apache/maven/blob/master/maven-artifact/src/main/java/org/apache/maven/artifact/versioning/ComparableVersion.java) class from the Maven library itself.
 
 ## When to Use Semver and When to Use Maven Versions
 
