@@ -43,18 +43,7 @@ These are the decisions we made on handling versions:
         i. `1.4.008 < 1.4.9`  
 
 3. **Creating packages (using Octopus tooling like [OctoPack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md) and [octo.exe](/docs/packaging-applications/creating-packages/nuget-packages/using-octo.exe.md)):** [WYSIWYG](https://en.wikipedia.org/wiki/WYSIWYG) provided the version you've specified is a valid SemanticVersion (as described earlier). For example, if you build a package using `octo.exe pack --id=MyPackage --version=2016.01.02` the output file will be `MyPackage.2016.01.02.nupkg`.  
-4. **Interacting with package feeds/repositories (many and varied, including our own):** We just ask the feed for a package with the version string we stored in the release, and accept what the feed tells us.  
-
-:::hint
-**NuGet &quot;Zero Quirks&quot;**
-The NuGet team recently made the choice to "normalize" versions which affects everything in the NuGet ecosystem from building packages all the way through to consuming them. The basis for that decision is to ensure there is only ever one "literal representation" of a given "semantic version". This makes things a lot easier in the long run since "literal comparison" becomes equivalent to "semantic comparison".
-
-[http://docs.nuget.org/ndocs/create-packages/dependency-versions#normalized-version-numbers](http://docs.nuget.org/ndocs/create-packages/dependency-versions#normalized-version-numbers)
-
-This is a really good decision when considering the NuGet ecosystem in isolation. It doesn't work well, however, in the Octopus Deploy ecosystem where you may not be using NuGet's tooling everywhere. Consider the simple example of building a package in a continuous integration tool chain, and then wanting to push that package somewhere. If you happened to build your shiny new `v2.0.0.0` package, it will be written to disk as `MyPackage.2.0.0.nupkg` causing your scripts to break if they depended on the filename to be `MyPackage.2.0.0.0.nupkg`.
-
-This caused us to take stock of how we handle versions across the Octopus Deploy ecosystem and make the decisions we outlined earlier.
-:::
+4. **Interacting with package feeds/repositories (many and varied, including our own):** We just ask the feed for a package with the version string we stored in the release, and accept what the feed tells us.
 
 ## How Octopus Deploy Treats Maven Versions
 
