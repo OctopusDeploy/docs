@@ -4,7 +4,7 @@ description: Considerations when selecting a versioning scheme for your applicat
 position: 3
 ---
 
-Choosing the best versioning scheme for your applications can be a tricky act of balancing pragmatism and strictness. This page should help you understand how Octopus Deploy handles versions in [packages](/docs/packaging-applications/supported-packages.md), [releases](/docs/deployment-process/releases/index.md), and [channels](/docs/deployment-process/channels.md), and subsequently design a versioning scheme that suits your needs.
+The [Package ID](/docs/packaging-applications/package-id.md) and version number uniquely identify your packages, so it's important to choose the right versioning scheme, but it can be a tricky balance between pragmatism and strictness. This page should help you understand how Octopus Deploy handles versions in [packages](/docs/packaging-applications/supported-packages.md), [releases](/docs/deployment-process/releases/index.md), and [channels](/docs/deployment-process/channels.md), and subsequently design a versioning scheme that suits your needs.
 
 ## Choosing a Versioning Scheme {#VersioninginOctopusDeploy-Choosingaversioningscheme}
 
@@ -54,7 +54,7 @@ If you are like us, and the pre-release tag carries significant meaning, you sho
 
 ## How Octopus Deploy Treats Versions {#VersioninginOctopusDeploy-HowOctopusDeploytreatsversions}
 
-The Octopus Deploy ecosystem includes a wide variety of external services which care about versions, with some of them being quite opinionated in their versioning implementations, with potential inconsistencies amongst them. Rather than implementing a "lowest common denominator" approach, we have chosen to take a "string-based" approach. This enables you to leverage the idiomatic/natural versioning schemes of your target ecosystem.
+The Octopus Deploy ecosystem includes a wide variety of external services which care about versions, with some of them being quite opinionated in their versioning implementations, with potential inconsistencies amongst them. Rather than implementing a "lowest common denominator" approach, we've taken a "string-based" approach. This enables you to leverage the idiomatic/natural versioning schemes of your target ecosystem.
 
 These are the decisions we made on handling versions:
 
