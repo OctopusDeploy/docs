@@ -23,19 +23,6 @@ Strictly speaking about SemVer 2.0, a version like `1.5.2-rc.1` is considered 
 
 When it comes to application versioning however, we suggest the "pre-release tag" (the bit after the `-`) can be used for whatever you want. For example: you could build version `1.5.2-rc` of your application, and configure a [Channel](/docs/deployment-process/channels.md) to promote packages like `*-rc` to Staging and eventually Production.
 
-### Build Once, Deploy Many Times {#VersioninginOctopusDeploy-Buildonce,deploymanytimes}
-
-One of the mantras at Octopus Deploy is "build once, deploy many times" and "deploy the same binaries you tested". This works really well when your versioning scheme can be a simple incremental scheme: every time you build you increment the build number. For example, an internal web application where the version number has no binding ramifications - it's primarily to enable traceability for bugs.
-
-When it comes to versioning Octopus Deploy, we decided to take a slightly different approach and rebuild when we want a new version. The main driver for this is there are differences in the agreement we have with our customers for pre-releases and full-releases.
-
-For example:
-
-- When preparing to ship Octopus Deploy 3.5, we will build and ship several pre-releases to our customers with a version like `3.5.0-beta.1+Branch.release/3.4.0.SHA.53cf8e84bb88e24ae4b4b3df2bsdaab91a3735d8` - note the `-beta.1` pre-release tag.
-- When we are ready to ship a full release, we go through the effort to rebuild the software with a version like `3.5.0+Branch.master.SHA.27cf8e84bb88e24ae4b4b3df2b77aab91a3735d8`, and take it through all the same testing before shipping to our customers - notice this is a "full-release" with no pre-release tag.
-
-If you are like us, and the pre-release tag carries significant meaning, you should consider taking a similar approach. Otherwise, if the pre-release tag is just for information, perhaps you can consider whether it is useful for other purposes like configuring [Channels](/docs/deployment-process/channels.md).
-
 ## How Octopus Deploy Treats Versions {#VersioninginOctopusDeploy-HowOctopusDeploytreatsversions}
 
 The Octopus Deploy ecosystem includes a wide variety of external services which care about versions, with some of them being quite opinionated in their versioning implementations, with potential inconsistencies amongst them. Rather than implementing a "lowest common denominator" approach, we've taken a "string-based" approach. This enables you to leverage the idiomatic/natural versioning schemes of your target ecosystem.
