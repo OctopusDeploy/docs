@@ -23,22 +23,6 @@ Strictly speaking about SemVer 2.0, a version like `1.5.2-rc.1` is considered 
 
 When it comes to application versioning however, we suggest the "pre-release tag" (the bit after the `-`) can be used for whatever you want. For example: you could build version `1.5.2-rc` of your application, and configure a [Channel](/docs/deployment-process/channels.md) to promote packages like `*-rc` to Staging and eventually Production.
 
-### How we Version Octopus Deploy {#VersioninginOctopusDeploy-HowweversionOctopusDeploy}
-
-In practice, we use [GitVersion](https://gitversion.readthedocs.io/en/latest/why/) which interprets our git repository to calculate deterministic versions like `3.5.0-beta.2+Branch.master.SHA.56e05fced214c44a37759efa2dfc25a65d8ae98d` which are fully SemVer 2.0 compliant.
-
-With a version like this we can communicate several semantic concepts with our customers:
-
-1. We can indicate the type of changes between two versions, with these promises:
-
-    a. Major version change = beware of major breaking changes and new features - upgrading may require some manual intervention - check our release notes  
-    a. Minor version change = new features, potential for minor breaking changes and database changes - upgrading should be easy, but rolling back will usually require restoring your database - check our release notes  
-    a. Patch version change = small bug fixes and computational logic changes: **safe to update, safe to roll back**
-2. We can indicate if this is a "full release" or a "pre-release" and we even change the Main Menu color to highlight this is a pre-release version of Octopus based on the Semantic Version.
-3. We can uniquely identify the SHA hash of the git commit.
-4. We show the version as `3.5.0-beta.2` in the UI.
-5. We log the full "informational version" to all of our task logs so it is easy for us to identify exactly which version of Octopus Server and Calamari were used in a deployment based on a customer sending us a log file.
-
 ### Build Once, Deploy Many Times {#VersioninginOctopusDeploy-Buildonce,deploymanytimes}
 
 One of the mantras at Octopus Deploy is "build once, deploy many times" and "deploy the same binaries you tested". This works really well when your versioning scheme can be a simple incremental scheme: every time you build you increment the build number. For example, an internal web application where the version number has no binding ramifications - it's primarily to enable traceability for bugs.
