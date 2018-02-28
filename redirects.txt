@@ -403,3 +403,4 @@ docs/deployment-process/variable-substitution-syntax.md -> docs/deployment-proce
 docs/deployment-process/steps/automatic-release-creation.md -> docs/deployment-process/releases/automatic-release-creation.md
 docs/installation/sql-server-database-requirements.md -> docs/installation/sql-server-database.md
 docs/administration/security/hardening-octopus-server.md -> docs/administration/security/hardening-octopus.md
+docs/packaging-applications/versioning-in-octopus-deploy.md -> docs/packaging-applications/versioning.md
