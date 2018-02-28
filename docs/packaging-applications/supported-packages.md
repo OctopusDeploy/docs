@@ -4,7 +4,7 @@ description: Octopus Deploy supports numerous package formats including NuGet, T
 position: 1
 ---
 
-Octopus Deploy supports several package types and will continue to add more in the future.
+Octopus Deploy supports several package types that can be used when [packaging your applications](/docs/packaging-applications/index.md) and will continue to add more in the future.
 
 Octopus Deploy uses the **file extension** to determine the correct extraction algorithm to use, so it is important that your package has the correct extension for the package format.
 
