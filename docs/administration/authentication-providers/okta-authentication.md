@@ -30,19 +30,19 @@ After signing up to Okta you will receive your own url to access the Okta portal
 
 1. Select the Applications tab and click the **Add Application** button.
 
-   ![](/docs/images/okta-authentication/okta-add-app.png "width=500")
+   ![](../../images/okta-authentication/okta-add-app.png "width=500")
 
 2. Click the **Create New App** button.
 
-   ![](/docs/images/okta-authentication/okta-create-new-app.png "width=500")
+   ![](../../images/okta-authentication/okta-create-new-app.png "width=500")
 
 3. Choose **Web** for the **Platform** and **OpenID Connect** for the **Sign on method** and click the **Create** button.
 
-   ![](/docs/images/okta-authentication/okta-new-app-integration.png "width=400")
+   ![](../../images/okta-authentication/okta-new-app-integration.png "width=400")
 
 4. Enter an **Application Name** like Octopus Deploy and for the **Login redirect URIs** enter `https://octopus.example.com/api/users/authenticatedToken/Okta` replacing `https://octopus.example.com` with the public url of your Octopus server, and click the **Save** button.
 
-   ![](/docs/images/okta-authentication/okta-create-openid-integration.png "width=500")
+   ![](../../images/okta-authentication/okta-create-openid-integration.png "width=500")
 
 :::hint
 **Reply URLs are case-sensitive**
@@ -57,7 +57,9 @@ Octopus now integrates with [Let's Encrypt](/docs/administration/security/exposi
 
 5. You should see the **General Settings** for the app you have just created. For the **Allowed grant types** ensure that both **Implicit (Hybrid)** and **Allow ID Token with implicit grant type** are checked. Click the **Save** button to continue.
 
-   ![](/docs/images/okta-authentication/okta-general-settings.png "width=500")
+   ![](../../images/okta-authentication/okta-general-settings.png "width=500")
+
+   If you want to allow users to log in directly from Okta, you should change the **Login initiated by** to _Either Okta or App_. You should also configure it to _Redirect to app to initiate login_ and then set [Auto Login](index.md#AuthenticationProviders-AutoLogin) to true in Octopus.
 
 ### OpenID Connect Settings {#Oktaauthentication-OpenIDConnectSettings}
 
@@ -65,7 +67,7 @@ There are two values you will need from the Okta configuration to complete the O
 
 Select the **Sign On** tab and scroll down to the **OpenID Connect ID Token** section. Take note of the **Issuer** and **Audience** as you will need both these values to configure your Octopus server.
 
-![](/docs/images/okta-authentication/okta-openid-token.png "width=500")
+![](../../images/okta-authentication/okta-openid-token.png "width=500")
 
 ### Assign App {#Oktaauthentication-AssignApp}
 
@@ -73,11 +75,11 @@ Next you will need to assign your app to people or groups within your Okta direc
 
 1. Select the **Assignments** tab and click the **Assign** button. You can assign your app to people, and to groups.
 
-   ![](/docs/images/okta-authentication/okta-assign-app.png "width=500")
+   ![](../../images/okta-authentication/okta-assign-app.png "width=500")
 
 2. To assign the app to all users, you can simply assign the default **Everyone** group to the app, and click **Done**.
 
-   ![](/docs/images/okta-authentication/okta-assign-to-groups.png "width=500")
+   ![](../../images/okta-authentication/okta-assign-to-groups.png "width=500")
 
 ## Configuring Octopus Deploy Server {#Oktaauthentication-ConfiguringOctopusDeployServer}
 
@@ -125,7 +127,7 @@ We do our best to log warnings to your Octopus Server log whenever possible. If
 
 You can also check Okta logs by clicking the **View Logs** link on the Okta admin portal.
 
-![](/docs/images/okta-authentication/okta-view-logs.png "width=500")
+![](../../images/okta-authentication/okta-view-logs.png "width=500")
 
 ### Double and Triple check your configuration {#Oktaauthentication-DoubleandTriplecheckyourconfiguration}
 
@@ -146,12 +148,12 @@ Perhaps the contents of the security token sent back by Okta aren't exactly the 
 1. Open the Developer Tools of your browser and enable Network logging making sure the network logging is preserved across requests.
 2. In Chrome Dev Tools this is called "Preserve Log".
 
-   ![](/docs/images/5670656/5866122.png)
+   ![](../../images/5670656/5866122.png)
 
 3. Attempt to sign into Octopus using Okta and find the HTTP POST coming back to your Octopus instance from Okta on a route like `/api/users/authenticatedToken/Okta`. You should see an `id_token` field in the HTTP POST body.
 4. Grab the contents of the `id_token` field and paste that into [https://jwt.io/](https://jwt.io/) which will decode the token for you.
 
-   ![](/docs/images/5670656/5866123.png "width=500")
+   ![](../../images/5670656/5866123.png "width=500")
 
 :::hint
 Don't worry if jwt.io complains about the token signature, it doesn't support RS256 which is used by Okta.
