@@ -1,24 +1,14 @@
 ---
-title: Versioning in Octopus Deploy
+title: Versioning
 description: Considerations when selecting a versioning scheme for your applications.
 position: 3
 ---
 
 Choosing the best versioning scheme for your applications can be a tricky act of balancing pragmatism and strictness. This page should help you understand how Octopus Deploy handles versions in [packages](/docs/packaging-applications/supported-packages.md), [releases](/docs/deployment-process/releases/index.md), and [channels](/docs/deployment-process/channels.md), and subsequently design a versioning scheme that suits your needs.
 
-:::success
-**Use Semantic Versioning (SemVer)**
-We strongly recommend using [Semantic Versioning](http://semver.org/) as a guide when designing a versioning scheme for your applications. Over the years Octopus Deploy has supported different versions of SemVer:
-
-- [SemVer 2.0](http://semver.org/spec/v2.0.0.html) (recommended): requires [Octopus Deploy 3.4](https://octopus.com/blog/semver2) or greater.
-- [SemVer 1.0](http://semver.org/spec/v1.0.0.html): all prior versions of Octopus Deploy.
-
-**If you want everything to "just work" in every situation, stick with strict SemVer.** To cater for alternative scenarios we have also chosen to support a "pragmatic" implementation of SemVer including support for 4-digit versions (like `1.0.0.0`) and versions that can be sorted alphanumerically, like `2016.09.01-beta.0001`. Read further to learn about choosing a versioning scheme, and why we treat versions this way in Octopus Deploy.
-:::
-
 ## Choosing a Versioning Scheme {#VersioninginOctopusDeploy-Choosingaversioningscheme}
 
-We highly recommend using [Semantic Versioning](http://semver.org/) for your applications - we use it internally at Octopus Deploy and have found it to be a useful way of communicating semantic meaning with our versions. Think about these factors when considering your own approach to versioning your applications and packages:
+We highly recommend using [Semantic Versioning](http://semver.org/) for your applications. Consider the following factors when deciding on the versioning scheme you'll use for your applications and packages:
 
 1. Can you trace a version back to the commit/check-in the application/package was built from? *For example: We stamp the SHA hash of the git commit into the metadata component of the Semantic Version for Octopus Deploy which makes it easier to find and fix bugs. We also tag the commit with the version of Octopus Deploy it produced so you can quickly determine which commit produced a particular version of Octopus Deploy.*
 2. Can your users easily report a version to the development team that supports #1?
@@ -26,6 +16,8 @@ We highly recommend using [Semantic Versioning](http://semver.org/) for your app
 4. Does your tool chain support the versioning scheme? *For example: Octopus Deploy supports Semantic Versioning, which enables enhanced features like [Channels](/docs/deployment-process/channels.md).*
 
 ### Strictness Versus Pragmatism {#VersioninginOctopusDeploy-Strictnessversuspragmatism}
+
+Octopus supports a "pragmatic" implementation of SemVer, including support for 4-digit versions (like `1.0.0.0`) and versions that can be sorted alphanumerically, like `2016.09.01-beta.0001`.
 
 Strictly speaking about SemVer 2.0, a version like `1.5.2-rc.1` is considered a "pre-release" and `1.5.2` would be considered a "full release".  In practice, these kinds of concepts carry weight when you are talking about hierarchies of application dependencies like classical NuGet packages or NPM dependencies. This kind of strict semantic versioning enables dependency management tooling to interpret what kind of changes each package version represents. For example, they can automatically protect your software, by preventing you from accidentally upgrading to pre-release versions, or versions that may introduce breaking changes.
 
