@@ -230,6 +230,12 @@ Failed to get the caller identity. This may be because the instance does not hav
 
 This typically occurs because the step has specified `Yes` to the `Execute using the AWS service role for an EC2 instance` option, but the instance running the deployment does not have a role assigned to it. See the [AWS Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html?icmpid=docs_ec2_console) for more details.
 
+### AWS-CLOUDFORMATION-ERROR-0014
+
+An exception was thrown while contacting the AWS API.
+
+This can happen if accessing AWS via a proxy, and the response from AWS indicated an error. The response body is printed to the logs in these cases.
+
 ### AWS-LOGIN-ERROR-0001
 
 Failed to access the metadata URI, or failed to parse the response. We are unable to generate keys from the metadata endpoint.

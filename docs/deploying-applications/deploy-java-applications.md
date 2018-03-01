@@ -36,7 +36,7 @@ For a package to be made available to the deployment steps, it first must be add
 
 The Octopus library accepts files with the `jar`, `war`, `ear` and `rar` file extensions.
 
-The package filenames have to adhere to the standard Octopus [versioning rules](/docs/packaging-applications/versioning-in-octopus-deploy.md), which are based on the SemVer format.
+The package filenames have to adhere to the standard Octopus [versioning rules](/docs/packaging-applications/versioning.md), which are based on the SemVer format.
 
 :::hint
 Java packages tend to be formatted with Maven versioning schemes. Maven versions are mostly compatible with SemVer, but the two versioning schemes are not identical.

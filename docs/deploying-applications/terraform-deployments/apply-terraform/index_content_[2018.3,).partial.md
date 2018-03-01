@@ -98,6 +98,10 @@ The second option is to use the files contained in a package. This is done by se
 
 The contents of the package will be extracted, and Terraform will automatically detect the files to use. See the [Terraform documentation](https://www.terraform.io/docs/configuration/load.html) for more details on the file load order.
 
+:::hint
+Given that Terraform templates and variable files are plain text, you may find it convenient to use the GitHub Repository Feed to provide the packages used by Terraform steps. Using GitHub releases means you do not have to manually create and upload a package, and can instead tag a release and download it directly from GitHub.
+:::
+
 ![Package](step-aws-package.png "width=500")
 
 #### Variable Replacements
@@ -121,7 +125,9 @@ resource "aws_instance" "example" {
 
 ```
 
-Then the values from the project variable `AMI` would be substituted for the markers `#{AMI}`.
+Then the value from the project variable `AMI` would be substituted for the marker `#{AMI}`.
+
+When applying an inline template, the variable fields can also include replacement markers. For example, if a map variable for a HCL template was defined as `{"key" = "value", #{MapValues}}` and the Octopus project had a variable called `MapValues` defined as `"key2" = "value2"`, then the final variable would resolve to `{"key" = "value", "key2" = "value2"}`.
 
 See the [variable substitution](https://octopus.com/docs/deployment-process/variables/variable-substitution-syntax) documentation for more information.
 

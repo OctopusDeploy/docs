@@ -1,6 +1,6 @@
 ---
-title: Deploy an Terraform Template
-description: Deploy an Terraform Template.
+title: Apply a Terraform Template
+description: Apply a Terraform Template.
 ---
 
 !partial <content>
