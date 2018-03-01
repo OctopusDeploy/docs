@@ -18,7 +18,7 @@ Remember that whatever files you want to import into Octopus Deploy need to be a
 
 After the script runs the files will be uploaded to Octopus Server and made available as deployment artifacts which are available for download from the task output, or via the [Octopus API](https://github.com/OctopusDeploy/OctopusDeploy-Api/wiki/Artifacts).
 
-![](/docs/images/3048122/3277920.png "width=500")
+![](artifacts-access.png "width=500")
 
 ## Collecting artifacts using scripts {#Artifacts-Collectingartifactsusingscripts}
 
