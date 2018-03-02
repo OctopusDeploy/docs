@@ -7,6 +7,4 @@ While [using OctoPack](/docs/packaging-applications/creating-packages/nuget-pack
 
 For other scenarios, you can use the NuGet.exe command line tool to create packages.
 
-:::hint
 You can download Nuget and read full documentation on NuGet.exe usage at the [NuGet.exe pack command line reference](https://docs.microsoft.com/en-us/nuget/tools/nuget-exe-cli-reference).
-:::
