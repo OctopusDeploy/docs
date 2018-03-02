@@ -4,9 +4,7 @@ description: How to push a NuGet package that already exists.
 position: 18
 ---
 
-:::hint
-This feature was added in Octopus 3.2.4.
-:::
+This feature was added in **Octopus 3.2.4**.
 
 When pushing to the [built-in Octopus package repository](/docs/packaging-applications/package-repositories/index.md) using [OctoPack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md) or [NuGet.exe](/docs/packaging-applications/creating-packages/nuget-packages/using-nuget.exe.md), the default URL looks like this:
 
