@@ -8,10 +8,6 @@ The [Using OctoPack](/docs/packaging-applications/creating-packages/nuget-packag
 
 This page will give an example of extending the use of OctoPack when you have a PostBuild event in Visual Studio and want to include files that are not specifically part of your build, such as files that have been moved using Xcopy.
 
-:::hint
-Please note this option for OctoPack was added to version 2.1.3 please ensure your OctoPack NuGet extension is up to date.
-:::
-
 This shows, by example, the use of a PostBuild event in Visual Studio and the OctoPack option **OctoPackEnforceAddingFiles**.
 
 I created a Post-Build Event using the Visual Studio Build Events feature. It uses Xcopy to move files from a path to my solution.
