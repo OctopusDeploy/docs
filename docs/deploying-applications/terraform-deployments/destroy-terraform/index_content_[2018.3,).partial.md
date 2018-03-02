@@ -98,6 +98,8 @@ The second option is to use the files contained in a package. This is done by se
 
 The contents of the package will be extracted, and Terraform will automatically detect the files to use. See the [Terraform documentation](https://www.terraform.io/docs/configuration/load.html) for more details on the file load order.
 
+You can optional run Terraform from a subdirectory in the package by specifying the path in the `Terraform template directory` field. If your package has the Terraform templates in the root folder, leave this field blank.
+
 :::hint
 Given that Terraform templates and variable files are plain text, you may find it convenient to use the GitHub Repository Feed to provide the packages used by Terraform steps. Using GitHub releases means you do not have to manually create and upload a package, and can instead tag a release and download it directly from GitHub.
 :::
