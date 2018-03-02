@@ -4,10 +4,6 @@ description: Octopus can automatically remove unwanted machines from environment
 position: 3
 ---
 
-:::hint
-The features discussed in this guide are available in Octopus 3.4 and newer.
-:::
-
 Octopus can automatically remove unwanted machines from environments based on their health status.  This is useful when an environment is scaled down and orphaned deployment targets remain in Octopus.  Automatic environment clean up can be configured through machine policies.
 
 ## Machine Policies {#Cleaningupenvironments-Machinepolicies}

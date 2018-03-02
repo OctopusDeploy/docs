@@ -4,10 +4,6 @@ description: Octopus can ensure that deployment targets are kept up to date with
 position: 2
 ---
 
-:::hint
-The features discussed in this guide are available in Octopus 3.4 and newer.
-:::
-
 Octopus Deploy can ensure that deployment targets are kept up to date with the relevant releases.  This can be useful when [deploying to transient targets](/docs/infrastructure/environments/elastic-and-transient-environments/deploying-to-transient-targets.md) or when new deployment targets are added to an environment.
 
 ## Triggers {#Keepingdeploymenttargetsuptodate-Triggers}

@@ -4,10 +4,6 @@ description: Transient deployment targets are targets that are intermittently av
 position: 0
 ---
 
-:::hint
-The features discussed in this guide are available in Octopus 3.4 and newer.
-:::
-
 Transient deployment targets are targets that are intermittently available for a deployment.  They frequently join and leave the network causing their deployment availability to become unpredictable. They might be:
 
 - auto-scale instances that are provisioned and terminated,
