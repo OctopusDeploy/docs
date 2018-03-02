@@ -124,7 +124,6 @@ resource "aws_instance" "example" {
     Name = "My EC2 Instance"
   }
 }
-
 ```
 
 Then the value from the project variable `AMI` would be substituted for the marker `#{AMI}`.
@@ -142,3 +141,23 @@ The `Terraform plugin cache directory` can be optional set to a directory where 
 The `Allow additional plugin downloads` option can be checked to allow Terraform to download missing plugins, and unchecked to prevent these downloads.
 
 ![Terraform Advanced Options](terraform-advanced.png "width=500")
+
+## Output Variables
+
+Terraform's output variables are captured as Octopus variables after a template is applied. Each output variable is captured in two different formats: the JSON representation of the variable, and the value only of the variable.
+
+The JSON representation of the output variable is the result of calling `terraform output -json variablename`. For example, the JSON representation of a string output variable (which would appear in the logs as `Saving variable "Octopus.Action[Apply Template].Output.TerraformJsonOutputs[test]" with the JSON value of "test"`) would look similar to this:
+
+```json
+{
+    "sensitive":  false,
+    "type":  "string",
+    "value":  "hi there"
+}
+```
+
+While the value only output (which would appear in the logs as `Saving variable "Octopus.Action[Apply Template].Output.TerraformValueOutputs[test]" with the value only of "test"`) would look similar to this:
+
+```
+"hi there"
+```
