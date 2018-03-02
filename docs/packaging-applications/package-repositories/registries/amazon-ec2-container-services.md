@@ -4,9 +4,9 @@ description: How to add an AWS Docker Registry as an Octopus Deploy feed for use
 position: 2
 ---
 
-#Amazon - EC2 Container Service#
+## Amazon - EC2 Container Service#
 
-AWS provides a v2 image registry and is available through their [EC2 Container Serivice](https://aws.amazon.com/ecs/) offering. 
+AWS provides a v2 image registry and is available through their [EC2 Container Serivice](https://aws.amazon.com/ecs/) offering.
 
 From their Services dashboard go to `EC2 Container Service`.
 
@@ -16,7 +16,7 @@ Under the `Repositories` area you need to create a repository to match the what 
 
 ![AWS Registries](aws-registries.png)
 
-Take note of the Repository URI, this will provide you with the path that you need to add into the Octopus Deploy Docker Feed. In the example above we can see that the URI for the `mypackage` repository is `96802670493.dkr.ecr.ap-southeast-1.amazonaws.com/mypackage`. In this case we can drop the repository name and just provide Octopus with the `HTTPS` address `https://96802670493.dkr.ecr.ap-southeast-1.amazonaws.com`. 
+Take note of the Repository URI, this will provide you with the path that you need to add into the Octopus Deploy Docker Feed. In the example above we can see that the URI for the `mypackage` repository is `96802670493.dkr.ecr.ap-southeast-1.amazonaws.com/mypackage`. In this case we can drop the repository name and just provide Octopus with the `HTTPS` address `https://96802670493.dkr.ecr.ap-southeast-1.amazonaws.com`.
 
 To get the credentials for an AWS container instance you will need to invoke a command via the aws cli. Details for setting this up can be found in the [aws installation guides](http://docs.aws.amazon.com/cli/latest/userguide/installing.html). With the cli installed, run (with the appropriate region)
 ```
