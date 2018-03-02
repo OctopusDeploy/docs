@@ -4,18 +4,14 @@ description: Using the octo.exe command line tool to create ZIP packages is fast
 position: 2
 ---
 
-:::hint
-In Octo.exe version 3.3.8 we have expanded the functionality of the `pack` command to allow creating **zip** packages in addition to **NuGet** packages.
-:::
+In **Octo.exe version 3.3.8** we have expanded the functionality of the `pack` command to allow creating **zip** packages in addition to **NuGet** packages.
 
-:::success
 This page describes how to use `octo.exe` to create **zip** packages. You could use any zip program or library, but **octo.exe pack** will:
 
-- help you get the filename format correct
-- ensure file timestamps are retained when extracting which helps with some forms of content delivery networks (CDN) and caching
-- ensure [delta compression for package transfers](/docs/deployment-process/deploying-packages/delta-compression-for-package-transfers.md) works as expected
-- Avoid [known issues](/docs/packaging-applications/creating-packages/creating-zip-packages.md) with other compression libraries
-:::
+- help you get the filename format correct.
+- ensure file timestamps are retained when extracting which helps with some forms of content delivery networks (CDN) and caching.
+- ensure [delta compression for package transfers](/docs/deployment-process/deploying-packages/delta-compression-for-package-transfers.md) works as expected.
+- Avoid [known issues](/docs/packaging-applications/creating-packages/creating-zip-packages.md) with other compression libraries.
 
 To create a zip package of the application, open a command prompt and change directory to where the application is located.
 
@@ -130,4 +126,4 @@ Advanced options:
 - Atlassian Bamboo users who are using [Adam Myatt's  Zip File Task](https://bitbucket.org/adammyatt/bamboo-zip-file-tasks) and are extracting to a Linux machine may find that the contents don't get extracted into the correct folder structure but instead flattened with the path as the file name. This is the result of a [known issue](https://bitbucket.org/adammyatt/bamboo-zip-file-tasks/issues/4/change-request-use-forward-slashes-as-file) whereby the task does not confirm to the correct [PKWARE ZIP §4.4.17.1](http://help.octopusdeploy.com/discussions/problems/48081/r?go=aHR0cHM6Ly9wa3dhcmUuY2FjaGVmbHkubmV0L3dlYmRvY3MvY2FzZXN0dWRpZXMvQVBQTk9URS5UWFQ= "Link outside Support: https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT") specifications and is using a back slash instead of forward slash as the file separator. We would recommend avoiding this task where possible.
 - Prior to the .NET framework 4.6.1, the *System.IO.Compression* library incorrectly preserved the windows-style back slash separator for file paths. This has since been fixed from [.NET Framework 4.6.1](https://msdn.microsoft.com/en-us/library/mt712573) and the fix carried over into [.NET Core](https://github.com/dotnet/corefx/commit/7b9331e89a795c72709aef38898929e74c343dfb).
 - The above *System.IO.Compression bug* found its way into [Octo.exe](https://github.com/OctopusDeploy/Issues/issues/2583) when support for zip compression was added. A fix was not included until release 3.3.18 of Octo.exe to manually convert a back slash the to forward slash.
-- The PKZIP specification requires that Zip files only need to store dates in the internal file headers with two bytes in the [MS-DOS format](https://users.cs.jmu.edu/buchhofp/forensics/formats/pkzip.html) (whereas tar file headers are stored in [UNIX epoch format](http://www.gnu.org/software/tar/manual/html_node/Standard.html)). This means that unless the compression library makes use of extra fields in the file headers, that a file compressed at some point in time on a machine in one timezone, may result in misleading dates when uncompressed in a different timezone. 
+- The PKZIP specification requires that Zip files only need to store dates in the internal file headers with two bytes in the [MS-DOS format](https://users.cs.jmu.edu/buchhofp/forensics/formats/pkzip.html) (whereas tar file headers are stored in [UNIX epoch format](http://www.gnu.org/software/tar/manual/html_node/Standard.html)). This means that unless the compression library makes use of extra fields in the file headers, that a file compressed at some point in time on a machine in one timezone, may result in misleading dates when uncompressed in a different timezone.
