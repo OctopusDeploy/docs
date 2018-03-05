@@ -3,9 +3,7 @@ title: Partial Export
 description: Using the Octopus.Migrator.exe command line tool to export data to a directory filtered by a single project.
 ---
 
-:::hint
-This feature is available in Octopus 3.4 and newer.
-:::
+This feature is available in **Octopus 3.4** and newer.
 
 This command exports configuration data to a directory filtered by a single project.
 
