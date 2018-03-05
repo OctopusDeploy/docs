@@ -321,7 +321,7 @@ docs/administration/get-a-database-backup-and-encrypt-the-master-key.md -> docs/
 docs/how-to/how-to-turn-on-variable-logging-and-export-the-task-log.md -> docs/support/how-to-turn-on-variable-logging-and-export-the-task-log.md
 docs/how-to/providing-database-performance-metrics.md -> docs/support/providing-database-performance-metrics.md
 docs/administration/providing-database-performance-metrics.md -> docs/support/providing-database-performance-metrics.md
-docs/how-to/report-on-deployments-using-excel.md -> docs/administration/report-on-deployments-using-excel.md
+docs/how-to/report-on-deployments-using-excel.md -> docs/administration/reporting/report-on-deployments-using-excel.md
 docs/how-to/use-iis-as-reverse-proxy.md -> docs/administration/security/exposing-octopus/use-iis-as-reverse-proxy.md
 docs/administration/use-iis-as-reverse-proxy.md -> docs/administration/security/exposing-octopus/use-iis-as-reverse-proxy.md
 docs/how-to/specifying-a-custom-container-to-use-for-ad-authentication.md -> docs/administration/specifying-a-custom-container-to-use-for-ad-authentication.md
@@ -405,3 +405,4 @@ docs/installation/sql-server-database-requirements.md -> docs/installation/sql-s
 docs/administration/security/hardening-octopus-server.md -> docs/administration/security/hardening-octopus.md
 docs/packaging-applications/versioning-in-octopus-deploy.md -> docs/packaging-applications/versioning.md
 docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4.md -> docs/deployment-patterns/multi-tenant-deployments/index.md
+docs/administration/report-on-deployments-using-excel.md -> docs/administration/reporting/report-on-deployments-using-excel.md
