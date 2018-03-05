@@ -205,7 +205,7 @@ docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-m
 docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/multi-tenant-roles-and-security.md -> docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/multi-tenant-roles-and-security.md
 docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md -> docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md
 docs/guides/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-tenant-specific-variables.md -> docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-tenant-specific-variables.md
-docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/index.md -> docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/index.md
+docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/index.md -> docs/deployment-patterns/multi-tenant-deployments/index.md
 docs/guides/debugging-powershell-scripts.md -> docs/deploying-applications/custom-scripts/debugging-powershell-scripts.md
 docs/guides/user-role-&-teams-configurations/index.md -> docs/administration/managing-users-and-teams/index.md
 docs/guides/user-role-&-teams-configurations/creating-teams-for-a-user-with-mixed-environment-privileges.md -> docs/administration/managing-users-and-teams/creating-teams-for-a-user-with-mixed-environment-privileges.md
