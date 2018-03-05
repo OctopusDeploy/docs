@@ -3,9 +3,7 @@ title: Deploying a package to an Azure Cloud Service
 description: Octopus Deploy can help you perform repeatable and controlled deployments to Azure Cloud Services.
 ---
 
-:::hint
-The Azure Cloud Service step was added in Octopus 3.1
-:::
+The Azure Cloud Service step was added in **Octopus 3.1**
 
 Octopus Deploy supports deployment of [Azure Cloud Services](http://azure.microsoft.com/en-us/services/cloud-services/).
 
@@ -21,7 +19,7 @@ If you haven't already, create an [Azure Subscription Account](/docs/infrastru
 
 ## Step 3: Create the Azure Cloud Service deployment step {#DeployingapackagetoanAzureCloudService-Step3:CreatetheAzureCloudServicedeploymentstep}
 
-Add a new Azure Cloud Service Deployment Step to your project. For information about adding a step to the deployment process, see the [add step](/docs/deployment-process/steps/index.md) section.  
+Add a new Azure Cloud Service Deployment Step to your project. For information about adding a step to the deployment process, see the [add step](/docs/deployment-process/steps/index.md) section. 
 
 ![](/docs/images/5671696/5865904.png "width=170")
 
@@ -63,15 +61,15 @@ For your convenience the PowerShell session for your [custom scripts](/docs/depl
 ```powershell
 #Swap the staging slot into production
 $ServiceName = $OctopusParameters["Octopus.Action.Azure.CloudServiceName"]
-$Deployment = Get-AzureDeployment -Slot "Staging" -ServiceName $ServiceName 
-if ($Deployment -ne $null -AND $Deployment.DeploymentId  -ne $null) { 
-  Write-Host ("Current Status of staging slot for {0}" -f $ServiceName) 
-  $Deployment 
-  $MoveStatus = Move-AzureDeployment -ServiceName $ServiceName 
+$Deployment = Get-AzureDeployment -Slot "Staging" -ServiceName $ServiceName
+if ($Deployment -ne $null -AND $Deployment.DeploymentId  -ne $null) {
+  Write-Host ("Current Status of staging slot for {0}" -f $ServiceName)
+  $Deployment
+  $MoveStatus = Move-AzureDeployment -ServiceName $ServiceName
   Write-Host ("Vip swap of {0} status: {1}" -f $ServiceName, $MoveStatus.OperationStatus)     
-} else { 
-  Write-Host ("There is no deployment in staging slot of {0} to swap." -f $ServiceName) 
-} 
+} else {
+  Write-Host ("There is no deployment in staging slot of {0} to swap." -f $ServiceName)
+}
 ```
 :::
 
