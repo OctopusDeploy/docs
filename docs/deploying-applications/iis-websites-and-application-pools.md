@@ -10,12 +10,6 @@ To deploy to IIS, add a *Deploy to IIS* step. For information about adding a 
 
 ![](iis-step.png "width=170")
 
-:::hint
-**Pre Octopus 3.4.7**
-The *Deploy an IIS Web Site Step* was introduced in Octopus version **3.4.7**. Prior to this IIS Web Sites were deployed by enabling the *IIS web site and application pool* feature on a [Deploy a Package Step](/docs/deployment-process/deploying-packages/index.md).
-
-![](/docs/images/3048088/3277713.png "width=500")
-:::
 
 ## Select a Package {#IISWebsitesandApplicationPools-SelectaPackage}
 
@@ -129,6 +123,6 @@ A IIS Website can be taken offline by placing a `app_offline.htm` file into the 
 that file will be shown to anyone accessing the site. This is useful if you do not want to users to access the site while
 the deployment is being performed. It recycles the App Pool, releasing any file locks the site may have.
 
-This can be done by including an `app_online.htm` file in your website and then renaming it to `app_offline.htm` at the 
-start of the deployment. This can be done via a script or the `IIS - Change App Offline` step in the 
+This can be done by including an `app_online.htm` file in your website and then renaming it to `app_offline.htm` at the
+start of the deployment. This can be done via a script or the `IIS - Change App Offline` step in the
 [community library](/docs/deployment-process/steps/community-step-templates.md).
