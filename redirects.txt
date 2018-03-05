@@ -284,7 +284,7 @@ docs/patterns/multi-region-deployment-pattern.md -> docs/deployment-patterns/mul
 docs/patterns/multi-tenant-deployment-pattern.md -> docs/deployment-patterns/multi-tenant-deployments/index.md
 docs/patterns/rolling-deployments.md -> docs/deployment-patterns/rolling-deployments.md
 docs/deploying-applications/multi-tenant-deployments/index.md -> docs/deployment-patterns/multi-tenant-deployments/index.md
-docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/index.md -> docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/index.md
+docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/index.md -> docs/deployment-patterns/multi-tenant-deployments/index.md
 docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployments-faq.md -> docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployments-faq.md
 docs/deploying-applications/multi-tenant-deployments/troubleshooting-multi-tenant-deployments.md -> docs/deployment-patterns/multi-tenant-deployments/troubleshooting-multi-tenant-deployments.md
 docs/deploying-applications/multi-tenant-deployments/multi-tenant-deployment-guide/index.md -> docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/index.md
