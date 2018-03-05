@@ -17,11 +17,9 @@ Project Triggers allow you to choose from a subset of **events** that can occur 
 
 ## Automatic Deployment Triggers
 
-Automatic Deployment Triggers (also known as auto-deploy) allow you to define an unattended behavior for your [Projects](/docs/deployment-process/projects/index.md) that will cause an automatic deployment of a release into an [Environment](/docs/infrastructure/environments/index.md).
+Automatic Deployment Triggers were introduced in **Octopus Deploy 3.4**.
 
-:::hint
-Automatic Deployment Triggers were introduced in Octopus Deploy 3.4.
-:::
+Automatic Deployment Triggers (also known as auto-deploy) allow you to define an unattended behavior for your [Projects](/docs/deployment-process/projects/index.md) that will cause an automatic deployment of a release into an [Environment](/docs/infrastructure/environments/index.md).
 
 Automatic Deployment Triggers can help you:
 
