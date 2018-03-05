@@ -3,11 +3,10 @@ title: Deploy Using an Azure Resource Group Template
 description: Deploy using an Azure Resource Group Templates.
 ---
 
-:::hint
-Azure Resource Manager support is available in Octopus Deploy **3.3** onwards.
+Azure Resource Manager support was introduced in Octopus **3.3**.
 
-Azure Key Vault support is available in Octopus Deploy **3.3.25** onwards.
-:::
+Azure Key Vault support was introduced in Octopus **3.3.25**.
+
 
 From [Authoring Azure Resource Manager Templates](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/):
 
