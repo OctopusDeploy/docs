@@ -6,7 +6,7 @@ position: 11
 
 :::hint
 **Reporting in Octopus 3.1+**
-Also take a look at the [Reporting features we shipped as part of Octopus 3.1](/docs/administration/reporting.md) which provides reporting optimized views of the live deployment data, no longer requiring an XML export.
+Also take a look at the [Reporting features we shipped as part of Octopus 3.1](/docs/administration/reporting.index.md) which provides reporting optimized views of the live deployment data, no longer requiring an XML export.
 :::
 
 Ever wonder how many deployments you did this month? In this page, we'll help you to answer this question by walking you through how to export your deployments to Excel, and then to view them in a pivot table.
@@ -94,7 +94,7 @@ It's easy to turn the table of deployments into a pivot table for reporting.
 1. Select any cell in the table, then from the **Insert** ribbon tab, click **PivotTable**. 
 
    ![](/docs/images/3048153/3278130.png)
-   
+
 2. Excel will prompt you to ask where to place the new pivot table. Click **OK** to add it to a new worksheet in your workbook.
 3. You can now build the pivot table by dragging fields into the **Rows** or **Columns** of the pivot table.
 
