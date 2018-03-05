@@ -4,9 +4,7 @@ description: VHD steps allow you to deploy a virtual harddrive and optionally at
 position: 31
 ---
 
-:::hint
-The Deploy a VHD Step was introduced in Octopus 3.11.1.
-:::
+The Deploy a VHD Step was introduced in Octopus **3.11.1**.
 
 :::warning
 The Deploy a VHD Step requires the target Machine to be running Windows Server 2012 or newer, and the Tentacle service to have Administrator privileges.
