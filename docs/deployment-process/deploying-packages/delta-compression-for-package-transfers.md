@@ -4,7 +4,7 @@ description: Octopus delta compression for package transfers can dramatically re
 position: 18
 ---
 
-Octopus Deploy 3.0 supports delta compression for package transfer using our [delta compression library](https://github.com/OctopusDeploy/Octodiff). Delta compression will speed up the package acquisition phase of your deployments, especially when the limiting factor is transfer bandwidth, or if the delta achieves significant size reduction.
+Octopus supports delta compression for package transfer using our [delta compression library](https://github.com/OctopusDeploy/Octodiff). Delta compression will speed up the package acquisition phase of your deployments, especially when the limiting factor is transfer bandwidth, or if the delta achieves significant size reduction.
 
 :::info
 Delta compression is not available when a package is downloaded directly on your machine(s).
