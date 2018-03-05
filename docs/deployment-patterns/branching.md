@@ -6,11 +6,6 @@ position: 4
 
 This section describes how different branching strategies can be modeled in Octopus Deploy.
 
-:::hint
-**Channels in Octopus 3.2**
-In Octopus 3.2 we implemented [Channels](/docs/deployment-process/channels.md) as a way to support deployments using some of the source code branching strategies discussed here. We've produced a [comprehensive walkthrough of Channels](https://octopus.com/blog/channels-walkthrough) that covers most of these strategies in detail.
-:::
-
 ## Branching Strategies {#Branching-Branchingstrategies}
 
 When thinking about branching and Octopus, keep this rule in mind:
