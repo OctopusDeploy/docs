@@ -3,7 +3,7 @@ title: Octopus Server commands - Built-in Worker
 description: Configure the built-in worker used to run deployment actions and scripts on the Octopus Server
 ---
 
-Use the builtin-worker command to configure the user context that the [built-in worker](/docs/administration/workers/index.md#built-in-worker) runs under.  Available in `2018.1.0` and later.
+Use the builtin-worker command to configure the user context that the [built-in worker](/docs/administration/workers/index.md#built-in-worker) runs under.  Available in **Octopus 2018.1.0** and later.
 
 **builtin-worker options**
 
