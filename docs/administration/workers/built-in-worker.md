@@ -12,11 +12,11 @@ This page describes how to configure the built-in worker for a variety of scenar
 
 ## Built-in worker
 
-Prior to Octopus `3.0` you required a Tentacle somewhere to do work as part of a deployment. If you wanted to deploy a web site to Azure, you would need to configure a Tentacle as a deployment target and use it as a jump box, when all you needed to do was push your package to Azure and call some APIs. That Tentacle wasn't really a deployment target at all.
+Prior to **Octopus 3.0** you required a Tentacle somewhere to do work as part of a deployment. If you wanted to deploy a web site to Azure, you would need to configure a Tentacle as a deployment target and use it as a jump box, when all you needed to do was push your package to Azure and call some APIs. That Tentacle wasn't really a deployment target at all.
 
-In Octopus `3.0` we added the concept of a **worker** into Octopus Server. Now you could install Octopus Server and deploy a web site to Azure in minutes all without any Tentacles involved.
+In **Octopus 3.0** we added the concept of a **worker** into Octopus Server. Now you could install Octopus Server and deploy a web site to Azure in minutes all without any Tentacles involved.
 
-In Octopus `3.3` we added a feature which lets you [run deployment steps on the Octopus Server](/docs/deployment-process/how-to-run-steps-on-the-octopus-server.md) which again removed a lot of friction for scenarios other than deploying to Azure.
+In **Octopus 3.3** we added a feature which lets you [run deployment steps on the Octopus Server](/docs/deployment-process/how-to-run-steps-on-the-octopus-server.md) which again removed a lot of friction for scenarios other than deploying to Azure.
 
 However, this convenience comes at a cost: **security**.
 
@@ -28,7 +28,7 @@ When you first install Octopus Server the built-in worker is configured to run u
 
 ## Running tasks on the Octopus Server as a different user
 
-In Octopus `2018.1` you can configure the built-in worker to execute tasks as a different user account. This user account can be a down-level account with very restricted privileges.
+In **Octopus 2018.1** you can configure the built-in worker to execute tasks as a different user account. This user account can be a down-level account with very restricted privileges.
 
 ```plaintext
 Octopus.Server.exe builtin-worker --username=OctopusWorker --password=XXXXXXXXXX
