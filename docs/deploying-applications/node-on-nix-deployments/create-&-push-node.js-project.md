@@ -64,8 +64,8 @@ In your IDE of choice, modify the **gulpfile.js** file to add the following gul
 ```js
 var bump = require('gulp-bump');
 var octo = require('@octopusdeploy/gulp-octo');
- 
- ... 
+
+ ...
 
 gulp.task('bump', function(){
   return gulp.src('./package.json')
@@ -126,12 +126,12 @@ grunt.initConfig({
 	},
 	clean: { pkg: ['./bin/**/*'] }
 });
-	
+
 grunt.loadNpmTasks('@octopusdeploy/grunt-octo');
 grunt.loadNpmTasks('grunt-contrib-clean');
 grunt.loadNpmTasks('grunt-bump');
 grunt.registerTask('publish',  ['bump', 'build', 'clean:pkg',  'octo-pack:prod', 'octo-push']);
- 
+
 ...
 ```
 
@@ -159,8 +159,6 @@ npm run publish
 ```
 
 The package should now show up in the built-in package feed in your Octopus Deploy instance.
-
-![](/docs/images/3049551/3278579.png "width=500")
 
 :::success
 While this guide executes the publish task from your local machine, you will likely set up your CI process to run with tests etc via some build tool such as Team City or Jenkins.
