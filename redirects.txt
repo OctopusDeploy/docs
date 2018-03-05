@@ -6,7 +6,7 @@ docs/guides/azure-deployments/web-apps/web-app-concepts/web-app-deployment-step/
 docs/guides/azure-deployments/web-apps/web-app-concepts/web-app-deployment-step/index.md -> docs/deploying-applications/azure-deployments/web-apps/web-app-concepts.md
 docs/guides/azure-deployments/web-apps/web-app-concepts/web-app-accounts.md -> docs/deploying-applications/azure-deployments/web-apps/web-app-concepts.md
 docs/guides/multi-tenant-deployments/other-scenarios-for-multi-tenant-deployments.md -> docs/deployment-patterns/multi-tenant-deployments/index.md
-docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/migrating-to-octopus-3.4.md -> docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/index.md
+docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/migrating-to-octopus-3.4.md -> docs/deployment-patterns/multi-tenant-deployments/index.md
 docs/deploying-applications/docker-containers/docker-compose.md -> docs/deploying-applications/docker-containers/index.md
 docs/guides/elastic-and-transient-environments/deploying-to-transient-targets-copy.md -> docs/infrastructure/environments/elastic-and-transient-environments/deploying-to-transient-targets.md
 docs/administration/high-availability/removing-high-availability-nodes.md -> docs/administration/high-availability/managing-high-availability-nodes.md
