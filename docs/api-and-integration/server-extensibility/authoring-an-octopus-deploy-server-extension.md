@@ -3,10 +3,6 @@ title: Authoring an Octopus Deploy server extension
 description: Technical details of how to author an Octopus Deploy server extension.
 ---
 
-:::hint
-Server extensibility is available in Octopus Deploy 3.5 and later
-:::
-
 ## Octopus.Server.Extensibility {#AuthoringanOctopusDeployserverextension-Octopus.Server.Extensibility}
 
 This is the key NuGet package you will need in order to build an Octopus Deploy server extension.

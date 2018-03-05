@@ -3,10 +3,6 @@ title: Customizing an Octopus Deploy server extension
 description: Octopus Deploy built-in server extensions are available on GitHub and can be forked and customized.
 ---
 
-:::hint
-Server extensibility is available in Octopus Deploy 3.5 and later
-:::
-
 As part of the Octopus Deploy installation, a number of extensions are provided out-of-the-box.  All of these extensions are managed as open-source projects on GitHub.  They include:
 
 - [UsernamePassword authentication](https://github.com/OctopusDeploy/UsernamePasswordAuthenticationProvider)
