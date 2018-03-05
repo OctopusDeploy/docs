@@ -10,7 +10,6 @@ To deploy to IIS, add a *Deploy to IIS* step. For information about adding a 
 
 ![](iis-step.png "width=170")
 
-
 ## Select a Package {#IISWebsitesandApplicationPools-SelectaPackage}
 
 Use the *Package Feed* and *Package ID* fields to select the [package](/docs/packaging-applications/index.md) containing the web site content.

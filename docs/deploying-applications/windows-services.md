@@ -12,13 +12,6 @@ To deploy a Windows Service, add a *Deploy a Windows Service* step. For infor
 
 ![](/docs/images/5671696/5865909.png "width=170")
 
-:::hint
-**Pre Octopus 3.4.7**
-The *Deploy a Windows Service Step* was introduced in Octopus version **3.4.7**. Prior to this Windows Services were deployed by enabling the *Windows Service* feature on a [Deploy a Package Step](/docs/deployment-process/deploying-packages/index.md).
-
-![](/docs/images/3048082/3277662.png "width=500")
-:::
-
 ## Configuring the Step {#WindowsServices-ConfiguringtheStep}
 
 ![](/docs/images/3048082/5865715.png "width=500")
