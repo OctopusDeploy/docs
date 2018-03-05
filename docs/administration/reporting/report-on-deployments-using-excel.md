@@ -6,7 +6,7 @@ position: 11
 
 :::hint
 **Reporting in Octopus 3.1+**
-Also take a look at the [Reporting features we shipped as part of Octopus 3.1](/docs/administration/reporting.index.md) which provides reporting optimized views of the live deployment data, no longer requiring an XML export.
+Also take a look at the [Reporting features we shipped as part of Octopus 3.1](/docs/administration/reporting/index.md) which provides reporting optimized views of the live deployment data, no longer requiring an XML export.
 :::
 
 Ever wonder how many deployments you did this month? In this page, we'll help you to answer this question by walking you through how to export your deployments to Excel, and then to view them in a pivot table.
