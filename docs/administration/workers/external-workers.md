@@ -4,9 +4,9 @@ description: You can disable the built-in worker and delegate work to external w
 position: 1
 ---
 
-In Octopus `3.0` we introduced the concept of a [worker](index.md) which can deal with packages and execute scripts without the need to install and configure a Tentacle or SSH target. When you first install Octopus Server, by default, this kind of work is performed by the [built-in worker](built-in-worker.md).
+In **Octopus 3.0** we introduced the concept of a [worker](index.md) which can deal with packages and execute scripts without the need to install and configure a Tentacle or SSH target. When you first install Octopus Server, by default, this kind of work is performed by the [built-in worker](built-in-worker.md).
 
-In Octopus `2018.2.0` we added the ability to nominate a Tentacle to replace the [built-in worker](built-in-worker.md). We call this the **external worker**. This Tentacle can be installed on the Octopus Server or any other machine, and it can run under a different user account. If you configure an external worker on a different machine, you effectively prevent any user-provided scripts from executing on the Octopus Server itself.
+In **Octopus 2018.2.0** we added the ability to nominate a Tentacle to replace the [built-in worker](built-in-worker.md). We call this the **external worker**. This Tentacle can be installed on the Octopus Server or any other machine, and it can run under a different user account. If you configure an external worker on a different machine, you effectively prevent any user-provided scripts from executing on the Octopus Server itself.
 
 :::hint
 The built-in worker is automatically disabled when an external worker is configured.
