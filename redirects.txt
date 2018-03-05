@@ -404,3 +404,4 @@ docs/deployment-process/steps/automatic-release-creation.md -> docs/deployment-p
 docs/installation/sql-server-database-requirements.md -> docs/installation/sql-server-database.md
 docs/administration/security/hardening-octopus-server.md -> docs/administration/security/hardening-octopus.md
 docs/packaging-applications/versioning-in-octopus-deploy.md -> docs/packaging-applications/versioning.md
+docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4.md -> docs/deployment-patterns/multi-tenant-deployments/index.md
