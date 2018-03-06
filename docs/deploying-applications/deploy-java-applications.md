@@ -110,6 +110,20 @@ Here is an example of a `$CATALINA_HOME/conf/tomcat-users.xml` file that defines
 
 See the [Tomcat documentation](https://tomcat.apache.org/tomcat-7.0-doc/manager-howto.html#Configuring_Manager_Application_Access) for more details on the groups used by the manager application.
 
+:::hint
+By default you can only upload files of around 50MB through the manager. This is often not large enough for big packages, so you can set a higher limit by editing the `webapps/manager/WEB-INF/web.xml` file. Inside you will find a `<multipart-config>`` element whose child elements define the maximum file upload size.
+
+This example sets the maximum file upload size to 250MB.
+
+```xml
+<multipart-config>
+  <max-file-size>262144000</max-file-size>
+  <max-request-size>262144000</max-request-size>
+  <file-size-threshold>0</file-size-threshold>
+</multipart-config>
+```
+:::
+
 ### 2. Populate the Tomcat Deployment Step
 
 The `Deploy to Tomcat via Manager` step is used to deploy a package from the Octopus library to Tomcat. The following steps can be used to deploy an application to a Tomcat server.
