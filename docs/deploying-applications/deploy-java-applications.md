@@ -19,6 +19,7 @@ The following application servers are supported by Octopus Deploy:
 * Red Hat JBoss EAP 7
 * WildFly 10
 * WildFly 11
+* WildFly 12
 
 :::hint
 The `Deploy Java Archive` step deploys a Java package to a location on the target machine's filesystem. This means that any Java application server that can deploy applications with a file copy can make use of Octopus Deploy.
