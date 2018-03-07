@@ -236,6 +236,8 @@ An exception was thrown while contacting the AWS API.
 
 This can happen if accessing AWS via a proxy, and the response from AWS indicated an error. The response body is printed to the logs in these cases.
 
+An incorrect AWS region can result in this error. Ensure that the region matches one from the [AWS documentation](https://g.octopushq.com/AWSRegions).
+
 ### AWS-LOGIN-ERROR-0001
 
 Failed to access the metadata URI, or failed to parse the response. We are unable to generate keys from the metadata endpoint.
