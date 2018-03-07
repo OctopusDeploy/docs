@@ -1,5 +1,5 @@
 ---
-title: Community step templates
+title: Community Step Templates
 description: How to take advantage of step templates contributed by the Octopus community
 position: 1
 ---

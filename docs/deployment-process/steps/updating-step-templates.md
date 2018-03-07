@@ -1,5 +1,5 @@
 ---
-title: Updating step templates
+title: Updating Step Templates
 description: How to update steps that are based on a step templates
 position: 2
 ---

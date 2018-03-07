@@ -1,6 +1,6 @@
 ---
-title: Exporting step templates
-description: How to export step templates 
+title: Exporting Step Templates
+description: How to export step templates
 position: 3
 ---
 
