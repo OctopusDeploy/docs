@@ -8,6 +8,8 @@ Octopus Deploy supports several package types that can be used when [packaging y
 
 Octopus uses the **file extension** to determine the correct extraction algorithm to use, so it is important that your package has the correct extension for the package format.
 
+Learn more about [creating packages](docs/packaging-applications/creating-packages/index.md).
+
 | Package Type | File Extensions          | Supported In | Repositories                             | Notes                                    |
 | ------------ | ------------------------- | ----------- | ---------------------------------------- | ---------------------------------------- |
 | NuGet        | *.nupkg*                  | All |Any NuGet repository (including the [Built-In repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md)) | Currently only NuGet packages will have extra metadata like release notes and description extracted from the package metadata. |
