@@ -2,4 +2,4 @@
 
 ## In This Section
 
-The rest of this section includes the following documents:
+The following topics are explained further in this section:
