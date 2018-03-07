@@ -110,7 +110,7 @@ Given that Terraform templates and variable files are plain text, you may find i
 
 Variable replacement is performed before the template is applied or destroyed when defined in either an inline script or a package.
 
-When deploying a template from a package, all `*.tf`, `*.tfvar`, `*.tf.json` and `*.tfvar.json` files will have variable substitution applied to them.
+When deploying a template from a package, all `*.tf`, `*.tfvar`, `*.tf.json` and `*.tfvar.json` files will have variable substitution applied to them. You can also have variable substitution applied to additional files by defining the file names in the `Target files` field.
 
 For example, if you were deploying from a package and your template file looked like this:
 
