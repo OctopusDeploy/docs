@@ -16,5 +16,3 @@ Before you can deploy your software you need to:
 1. Host the packages in a [package repository](/docs/packaging-applications/package-repositories/index.md).
 
 The combination of a **package format**, **package ID**, and **version number** makes deploying your software across different environments repeatable, reliable, and predictable. This means that once the deployment process has been defined, your software can be deployed again and again. Octopus makes it easy to track which software has been deployed to which environments and isolate specific changes within the software.
-
-Learn about the different [package types](/docs/packaging-applications/supported-packages.md) supported by Octopus.
