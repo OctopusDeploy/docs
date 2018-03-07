@@ -1,10 +1,13 @@
 {
    "versions": [
-     "2018.2",
      "2018.3"
    ],
    "default": "2018.3",
    "legacy": [
+    {
+      "version": "2018.2",
+      "firstReleased": "8 Feb 2018"
+     },
      {
       "version": "2018.1",
       "firstReleased": "24 Jan 2018"
