@@ -15,6 +15,7 @@ If you would like to use an external repository, the following external reposito
  - [NuGet feeds](https://docs.nuget.org/create/hosting-your-own-nuget-feeds) (either HTTP or file-system based feeds).
  - [Docker feeds](/docs/packaging-applications/package-repositories/registries/index.md).
  - [Maven feeds](/docs/packaging-applications/package-repositories/maven-feeds.md).
+ - [GitHub feeds](/docs/packaging-applications/package-repositories/github-feeds.md).
 
 Your package repository will typically be:
 
@@ -65,6 +66,7 @@ Our recommendation is to use different repositories for different purposes, and 
 
 - For application library packages consider using the repository provided by your build server, a [file-share](http://docs.nuget.org/docs/creating-packages/hosting-your-own-nuget-feeds#Creating_Local_Feeds), or something like [MyGet](http://www.myget.org/ "MyGet") or [VSTS Package Management](https://www.visualstudio.com/en-us/docs/package/overview).
 - For deployment packages consider using the Octopus built-in repository (see below).
+- For deployment scripts that you want to store in your source control and where a build process might be unnecessary, the [GitHub](/docs/packaging-applications/package-repositories/github-feeds.md) feed type may be appropriate.
 
 This configuration will make it easier to find the right packages for the right purpose, but the most important benefit of the built-in repository is that Octopus Deploy knows exactly which deployment packages are still required according to the [retention policies](/docs/administration/retention-policies/index.md) you have configured, and which packages can be cleaned up.
 
@@ -109,7 +111,7 @@ See [moving Octopus server folders](/docs/administration/server-configuration-an
 
 ## Using External Repositories {#Packagerepositories-Usingexternalrepositories}
 
-The only external repository type supported are NuGet, Docker, and Maven. If you wish to use an external repository, you must use NuGet packages, a [Maven feed](/docs/packaging-applications/package-repositories/maven-feeds.md), or [Docker registries as feeds](/docs/packaging-applications/package-repositories/registries/index.md).
+If you wish to use an external repository, you must use NuGet packages, a [Maven feed](/docs/packaging-applications/package-repositories/maven-feeds.md), [GitHub](/docs/packaging-applications/package-repositories/github-feeds.md) or [Docker registries as feeds](/docs/packaging-applications/package-repositories/registries/index.md).
 
 :::warning
 **NuGet v3 Feed Support**
