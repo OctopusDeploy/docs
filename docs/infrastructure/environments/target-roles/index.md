@@ -34,13 +34,11 @@ Roles are created and saved in the database the moment you assign them to a depl
 
 The role has been created and assigned to the deployment target and is available to other targets.
 
-On the screenshot below we've created a role called **WebServer** and assigned it to our target **Server02.**
+On the screenshot below we've created the roles **octofx-app** and **octofx-web** and assigned them to our target **DWebApp01**.
 
-**![](/docs/images/3048101/3277812.png "width=500")**
+![](target-roles.png "width=500")
 
-You can check all the roles assigned to your machines from the **Environments**screen
-
-![](/docs/images/3048101/3277811.png "width=500")
+You can check all the roles assigned to your machines from the **Infrastructure** screen.
 
 ## Using Roles on Deployment Steps {#MachineRoles-Usingrolesondeploymentsteps}
 
