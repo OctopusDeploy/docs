@@ -136,6 +136,8 @@ See the [variable substitution](https://octopus.com/docs/deployment-process/vari
 
 You can optionally control how Terraform downloads plugins and where the plugins will be located in the `Advanced Options` section.
 
+The `Terraform workspace` field can optionally be set to the desired workspace. If the workspace does not exist it will be created and selected, and if it does it exist it will be selected.
+
 The `Terraform plugin cache directory` can be optional set to a directory where Terraform will look for existing plugins, and optionally download new plugins into. By default this directory is not shared between targets, so additional plugins have to be downloaded by all targets. By setting this value to a shared location, the plugins can be downloaded once and shared amongst all targets.
 
 The `Allow additional plugin downloads` option can be checked to allow Terraform to download missing plugins, and unchecked to prevent these downloads.
