@@ -16,7 +16,7 @@ Under `Configuration` -> `Nodes` Select your Octopus Node.
 3. In the new window you can select a new maximum synchronous Task Cap and save:
 
 
-![taskcap.png](taskcap.png "width=500")
+![taskcap.png](task-cap.png "width=500")
 
 
 Increasing the task cap will increase the maximum number of tasks the Octopus server can run simultaneously. This should be increased with caution, as Octopus will require more system resources to handle the increased limit.
