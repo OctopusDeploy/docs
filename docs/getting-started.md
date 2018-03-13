@@ -52,7 +52,7 @@ Once Octopus is installed you can access the Octopus Web Portal. This is where y
 
 ## Infrastructure
 
-Octopus Deploy organizes your infrastructure (the machines you deploy software to) into groups called environments. Typical examples of environments are **Test**, **Stage**, and **Production**.
+Octopus Deploy organizes your infrastructure (the machines you deploy software to) into groups called environments. Typical examples of environments are **Development**, **Test**, and **Production**.
 
 With Octopus you can deploy software to Windows servers, Linux servers, Microsoft Azure, cloud regions, or even an offline package drop.
 
