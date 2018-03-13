@@ -1,13 +1,13 @@
 ---
 title: Upgrading
 description: Everything you need to know about upgrade Octopus to a newer version.
-position: 800
+position: 1
 ---
 
 We release new versions of Octopus Deploy often, so we try to make the process of upgrading Octopus easy. This page outlines the process of upgrading between Octopus versions. This page describes some of the general concepts around upgrading Octopus, and we provide guides for the more complicated upgrades.
 
 :::success
-Octopus 4 has been released! Go [download it now](https://octopus.com/downloads).
+Octopus 2018 has been released! Go [download it now](https://octopus.com/downloads).
 :::
 
 ## Before you begin

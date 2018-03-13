@@ -1,7 +1,7 @@
 ---
 title: Maintenance mode
 description: You can put Octopus Server into maintenance mode so you can safely perform server maintenance or other administrative activities.
-position: 101
+position: 1
 ---
 
 From time to time you will need to perform certain administrative activities on your Octopus Server, like [upgrading Octopus](/docs/administration/upgrading/index.md) or [applying operating system patches](/docs/administration/applying-operating-system-upgrades.md). Typically you will want to schedule a maintenance window where you perform these activities, and Octopus Server helps with this by switching to **Maintenance Mode**.

@@ -1,7 +1,7 @@
 ---
 title: Upgrading from Octopus 1.6
 description: Information on how to upgrade from Octopus 1.6 to a more modern version.
-position: 1
+position: 4
 ---
 
 :::problem
@@ -85,23 +85,23 @@ function Uninstall-OldTentacle {
 }
 
 function Upgrade-Tentacle ($rel, $loc, $hm, $sthumb, $sxsPort)
-{ 
+{
   Write-Output "Beginning Tentacle installation"
   Write-Output "Downloading Octopus Tentacle MSI..."
   $downloader = new-object System.Net.WebClient
   $downloader.DownloadFile("http://download.octopusdeploy.com/octopus/Octopus.Tentacle.$rel.msi", [System.IO.Path]::GetFullPath(".\Tentacle.msi"))
- 
-  Write-Output "Installing MSI" 
+
+  Write-Output "Installing MSI"
   $msiExitCode = (Start-Process -FilePath "msiexec.exe" -ArgumentList "/i Tentacle.msi /quiet" -Wait -Passthru).ExitCode
   Write-Output "Tentacle MSI installer returned exit code $msiExitCode"
   if ($msiExitCode -ne 0) {
     throw "Installation aborted"
   }
- 
+
   Write-Output "Configuring the 2.0 Tentacle"
-  
+
   cd "$loc"
- 
+
   & .\tentacle.exe create-instance --instance "Tentacle" --config "$hm\Tentacle\Tentacle.config" --console
   & .\tentacle.exe import-certificate --instance "Tentacle" --from-registry  --console
   & .\tentacle.exe new-certificate --instance "Tentacle" --if-blank --console
