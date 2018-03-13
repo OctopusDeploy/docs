@@ -11,11 +11,11 @@ Organizing your deployment targets into environments lets you define your deploy
 
 Add new environments to Octopus Deploy, by navigating to **{{Infrastructure,Environments}}** in the **Octopus Web Portal** and click **ADD ENVIRONMENT**:
 
-1[](add-environment.png)
+![](add-environment.png)
 
 Give your new environment a meaningful name:
 
-1[](environment-name.png)
+![](environment-name.png)
 
 ## Managing Environments {#Environments-Managingenvironments}
 
