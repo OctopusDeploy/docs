@@ -58,11 +58,11 @@ As shown in the above screenshots, the exact `Octo.exe` command that was execute
 ```
 *In this case we are using `Octo.exe` version `3.3.8` against an Octopus Server version `3.15.8`*
 
-- If the version of `Octo.exe` that your build server is using is out of date, and you downloaded that same version and you were able to reproduce the error, try downloading the latest version available of `Octo.exe` and see if you can still reproduce it. You can [download every single version of octo.exe from Nuget](https://www.nuget.org/packages/OctopusTools/). It's possible that the bug was already fixed and we only need to ship a new version of the plugin/extension with the fixed `octo.exe`. If that's the case, then [log an issue in our forum](https://help.octopusdeploy.com) so we can take care of it.
+- If the version of `Octo.exe` that your build server is using is out of date, and you downloaded that same version and you were able to reproduce the error, try downloading the latest version available of `Octo.exe` and see if you can still reproduce it. You can [download every single version of octo.exe from Nuget](https://www.nuget.org/packages/OctopusTools/). It's possible that the bug was already fixed and we only need to ship a new version of the plugin/extension with the fixed `octo.exe`. If that's the case, then [log an issue in our forum](https://help.octopus.com) so we can take care of it.
 
 ### Last resource - Ask for help {#Octopus-Steps-Ask-for-help}
 
-The Octopus support team will always be there to give you a hand. But do know that the first thing we'll ask you is if you read this guide and followed all the steps on it! If you did and you still couldn't find the error, then [log a ticket in our forum](https://help.octopusdeploy.com) and include:
+The Octopus support team will always be there to give you a hand. But do know that the first thing we'll ask you is if you read this guide and followed all the steps on it! If you did and you still couldn't find the error, then [log a ticket in our forum](https://help.octopus.com) and include:
 
 - Version of Octopus Server you are running.
 - Name and Version of the build server technology you are using.
