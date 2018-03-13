@@ -9,10 +9,10 @@ With Octopus Deploy you can deploy software to Windows servers, Linux servers, M
 
 In this section, learn how to configure, manage, and work with:
 
-* [Environments](/docs/infrastructure/environments/index.md).
-* [Windows Targets](/docs/infrastructure/windows-targets/index.md).
-* [Linux and Unix Targets](/docs/infrastructure/ssh-targets/index.md).
+* [Environments](/docs/infrastructure/environments/index.md)
+* [Windows Targets](/docs/infrastructure/windows-targets/index.md)
+* [Linux and Unix Targets](/docs/infrastructure/ssh-targets/index.md)
 * [Microsoft Azure](/docs/infrastructure/azure/index.md)
 * [AWS](/docs/infrastructure/aws/index.md)
-* [Offline Package Drops](/docs/infrastructure/offline-package-drop.md).
-* [Cloud Regions](/docs/infrastructure/cloud-regions.md).
+* [Offline Package Drops](/docs/infrastructure/offline-package-drop.md)
+* [Cloud Regions](/docs/infrastructure/cloud-regions.md)
