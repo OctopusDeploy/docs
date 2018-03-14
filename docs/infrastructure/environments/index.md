@@ -36,6 +36,21 @@ The order that environments are shown in the environments tab also affects:
 
 It's a good idea to put your least production-like environments first, and the most production-like environments last.
 
+### Advanced Filters
+
+You can use advanced filters to search your environments by clicking on **SHOW ADVANCED FILTERS** from the environment tab.
+
+This will let you search by:
+
+- Name
+- Deployment Target
+- Environment
+- Target Roles
+- Health Status
+- Communication Style
+
+![](advanced-filters.png)
+
 ## Adding Machines to Environments {#Environments-Addingmachinestoenvironments}
 
 Machines can be added to environments in different ways, depending on the type of target and how they will communicate with the Octopus Deploy Server.
