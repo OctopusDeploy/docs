@@ -7,6 +7,8 @@ position: 2
 
 With Octopus Deploy you can deploy software to Windows servers, Linux servers, Microsoft Azure, AWS, an offline package drop, or cloud regions. These machines and services are your *deployment targets*, and because software is typically deployed to more than one machine (or deployment target) Octopus organizes your deployment targets into groups called *environments*. Typical environments are **Development**, **Test**, and **Production**.
 
+Your environments and deployment targets are managed from the **Infrastructure** tab of the **Octopus Web Portal**.
+
 In this section, learn how to configure, manage, and work with:
 
 * [Environments](/docs/infrastructure/environments/index.md)
