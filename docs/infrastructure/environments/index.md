@@ -9,7 +9,7 @@ Organizing your deployment targets into environments lets you define your deploy
 
 ## Add a New Environment
 
-Add new environments to Octopus Deploy, by navigating to **{{Infrastructure,Environments}}** in the **Octopus Web Portal** and click **ADD ENVIRONMENT**:
+Add new environments to Octopus Deploy by navigating to **{{Infrastructure,Environments}}** in the **Octopus Web Portal** and click **ADD ENVIRONMENT**:
 
 ![](add-environments.png)
 
@@ -17,11 +17,24 @@ Give your new environment a meaningful name, like **Development**, **Test**, or 
 
 ![](environment-name.png)
 
-## Managing Environments {#Environments-Managingenvironments}
+## Managing Your Environments {#Environments-Managingenvironments}
 
-Environments and the machines inside them can be managed from **{{Infrastructure,Environments}}** within the **Octopus Web Portal**.
+If you're working with a large number of environments and deployment targets, the infrastructure tab makes it easy to sort, filter, and view your environments.
 
 ![](environments.png "width=500")
+
+### Sorting Your Environments {#Environments-Environmentordering}
+
+Click the overflow menu on the environments sections to reveal the **reorder** menu and access a drag and drop pane to sort your environments
+
+![](environment-reordering.png "width=500")
+
+The order that environments are shown in the environments tab also affects:
+
+- The order that they are shown in the Dashboard.
+- The order that they are listed in when choosing which environment to deploy a release to.
+
+It's a good idea to put your least production-like environments first, and the most production-like environments last.
 
 ## Adding Machines to Environments {#Environments-Addingmachinestoenvironments}
 
@@ -33,20 +46,6 @@ Machines can be added to environments in different ways, depending on the type 
 - [AWS targets](/docs/infrastructure/aws/index.md)
 - [Azure targets](/docs/infrastructure/azure/index.md)
 
-## Environment Ordering {#Environments-Environmentordering}
-
-Environments are shown in order, and can be reordered using the **Reorder** link in the overflow menu at the top right-hand corner of the page.
-
-![](environment-reordering-button.png "width=500")
-
-![](environment-reordering.png "width=500")
-
-The order that environments are shown on the Environments tab also affects:
-
-- The order that they are shown in the Dashboard
-- The order that they are listed in when choosing which environment to deploy a release to
-
-It's a good idea to put your least production-like environments first, and the most production-like environments last.
 
 ## Guided Failures {#Environments-Guidedfailures}
 
