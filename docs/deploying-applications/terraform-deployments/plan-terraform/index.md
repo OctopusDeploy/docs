@@ -5,13 +5,13 @@ description: Planning changes made by applying or destorying terraform templates
 
 The Terraform `plan` command is used to identify changes that would be executed if a template was applied or destroyed. This information is useful to confirm the intended changes before they are executed.
 
-Octopus has two steps that generate plan information: a and b. As their names suggest, a will generate a plan for the result of running `apply` on the template, while b will generate a plan for the result of running `destroy` on the template.
+Octopus has two steps that generate plan information: Plan to apply a Terraform template and Plan a Terraform destroy. As their names suggest, a will generate a plan for the result of running `apply` on the template, while b will generate a plan for the result of running `destroy` on the template.
 
 ![Octopus Steps](octopus-terraform-plan-step.png "width=500")
 
 ## Step options
 
-The options for the planning steps are the same as those that are specified for the [a](../apply-template/index.md) and [a](../destroy-template/index.md) steps. You can refer to the documentation for those steps for more details on the options for the plan steps.
+The options for the planning steps are the same as those that are specified for the [Apply a Terraform template](../apply-terraform/index.md) and [Destroy Terraform resources](../destroy-terraform/index.md) steps. You can refer to the documentation for those steps for more details on the options for the plan steps.
 
 :::warning
 The plan steps do not support saving the plan to a file and applying that file at a later date. This means the plan information only makes sense when the same values are used in the plan and apply/destroy steps. Configuring shared variables for the step fields ensures that the same values will be used.
