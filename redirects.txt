@@ -70,8 +70,8 @@ docs/deployment-targets/environments/accounts/ssh-key-pair.md -> docs/infrastruc
 docs/infrastructure/environments/accounts/ssh-key-pair.md -> docs/infrastructure/ssh-targets/ssh-key-pair.md
 docs/deployment-targets/environments/accounts/username-and-password.md -> docs/infrastructure/ssh-targets/username-and-password.md
 docs/infrastructure/environments/accounts/username-and-password.md -> docs/infrastructure/ssh-targets/username-and-password.md
-docs/deployment-targets/machine-roles/index.md -> docs/infrastructure/environments/target-roles/index.md
-docs/infrastructure/target-roles/index.md -> docs/infrastructure/environments/target-roles/index.md
+docs/deployment-targets/machine-roles/index.md -> docs/infrastructure/target-roles/index.md
+docs/infrastructure/target-roles/index.md -> docs/infrastructure/target-roles/index.md
 docs/deployment-targets/ssh-targets/index.md -> docs/infrastructure/ssh-targets/index.md
 docs/deployment-targets/ssh-targets/configuring-ssh-connection.md -> docs/infrastructure/ssh-targets/configuring-ssh-connection.md
 docs/deployment-targets/ssh-targets/mono-calamari.md -> docs/infrastructure/ssh-targets/mono-calamari.md
