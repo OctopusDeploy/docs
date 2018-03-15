@@ -29,7 +29,7 @@ docs/administration/subscription_events.md -> docs/administration/subscription-e
 docs/installation/installing-tentacles/running-tentacle-under-a-specific-user-account-for-use-in-powershell.md -> docs/infrastructure/windows-targets/running-tentacle-under-a-specific-user-account.md
 docs/reference/download-permalinks.md -> docs/installation/index.md
 docs/key-concepts/environments/index.md -> docs/infrastructure/environments/index.md
-docs/key-concepts/environments/machine-policies.md -> docs/infrastructure/environments/machine-policies.md
+docs/key-concepts/environments/machine-policies.md -> docs/infrastructure/machine-policies.md
 docs/key-concepts/projects/index.md -> docs/deployment-process/projects/index.md
 docs/key-concepts/projects/deployment-processes.md -> docs/deployment-process/index.md
 docs/key-concepts/projects/releases.md -> docs/deployment-process/releases/index.md
@@ -411,3 +411,4 @@ docs/infrastructure/environments/elastic-and-transient-environments/deploying-to
 docs/infrastructure/environments/elastic-and-transient-environments/immutable-infrastructure.md -> docs/deployment-patterns/elastic-and-transient-environments/immutable-infrastructure.md
 docs/infrastructure/environments/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md -> docs/deployment-patterns/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md
 docs/infrastructure/environments/target-roles/index.md -> docs/infrastructure/target-roles/index.md
+docs/infrastructure/environments/machine-policies.md -> docs/infrastructure/machine-policies.md
