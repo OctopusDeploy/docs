@@ -71,7 +71,6 @@ docs/infrastructure/environments/accounts/ssh-key-pair.md -> docs/infrastructure
 docs/deployment-targets/environments/accounts/username-and-password.md -> docs/infrastructure/ssh-targets/username-and-password.md
 docs/infrastructure/environments/accounts/username-and-password.md -> docs/infrastructure/ssh-targets/username-and-password.md
 docs/deployment-targets/machine-roles/index.md -> docs/infrastructure/target-roles/index.md
-docs/infrastructure/target-roles/index.md -> docs/infrastructure/target-roles/index.md
 docs/deployment-targets/ssh-targets/index.md -> docs/infrastructure/ssh-targets/index.md
 docs/deployment-targets/ssh-targets/configuring-ssh-connection.md -> docs/infrastructure/ssh-targets/configuring-ssh-connection.md
 docs/deployment-targets/ssh-targets/mono-calamari.md -> docs/infrastructure/ssh-targets/mono-calamari.md
@@ -411,4 +410,4 @@ docs/infrastructure/environments/elastic-and-transient-environments/cleaning-up-
 docs/infrastructure/environments/elastic-and-transient-environments/deploying-to-transient-targets.md -> docs/deployment-patterns/elastic-and-transient-environments/deploying-to-transient-targets.md
 docs/infrastructure/environments/elastic-and-transient-environments/immutable-infrastructure.md -> docs/deployment-patterns/elastic-and-transient-environments/immutable-infrastructure.md
 docs/infrastructure/environments/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md -> docs/deployment-patterns/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md
-docs/infrastructure/environments/target-roles/index.md -> docs/infrastructure/target-roles/index.md 
+docs/infrastructure/environments/target-roles/index.md -> docs/infrastructure/target-roles/index.md
