@@ -124,7 +124,4 @@ The thumbprint of this Tentacle is: DE010ABF6FF8ED1B7895A31F005B8D88A3329867
 
 5. Open the Octopus web portal and select to the Tentacle on the Environments Page.
 6. Update the Tentacle thumbprint to use the value from Step 4 above and click the save button.
-
-![](/docs/images/3049117/3278508.png "width=500")
-
 7. Select the Connectivity tab and then click Check health to verify the connection is working.  If it's not, double check the Octopus Server and Tentacle thumbprints to ensure they are correct.
