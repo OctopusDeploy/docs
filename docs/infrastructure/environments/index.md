@@ -38,7 +38,7 @@ The order that environments are shown in the environments tab also affects:
 
 It's a good idea to put your least production-like environments first, and the most production-like environments last.
 
-### Advanced Filters
+### Using Advanced Filters
 
 You can use advanced filters to search your environments by clicking on **SHOW ADVANCED FILTERS** from the environment tab.
 
