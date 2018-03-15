@@ -36,7 +36,7 @@ In Octopus versions prior to 2018.1 a separate scheduled task ran periodically a
 
 
 :::hint
-Read more about [machine policies](/docs/infrastructure/environments/machine-policies.md)
+Read more about [machine policies](/docs/infrastructure/machine-policies.md)
 :::
 
 ## Troubleshooting Automatic Environment Clean Up {#Cleaningupenvironments-Troubleshootingautomaticenvironmentcleanup}

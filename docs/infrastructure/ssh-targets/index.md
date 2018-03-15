@@ -147,6 +147,6 @@ Although there is no Tentacle involved with SSH endpoints there are still some u
 
 ![](/docs/images/3048063/3277600.png "width=500")
 
-The introduction of [Raw Scripting](/docs/deploying-applications/custom-scripts/raw-scripting.md) provides the ability to run scripts on SSH endpoints without any additional Octopus dependencies. To facilitate these targets, [machine policies](/docs/infrastructure/environments/machine-policies.md) allow you to configure health checks to test only for SSH connectivity to your machine to be considered healthy.
+The introduction of [Raw Scripting](/docs/deploying-applications/custom-scripts/raw-scripting.md) provides the ability to run scripts on SSH endpoints without any additional Octopus dependencies. To facilitate these targets, [machine policies](/docs/infrastructure/machine-policies.md) allow you to configure health checks to test only for SSH connectivity to your machine to be considered healthy.
 
 Note that due to the Tentacle being effectively a “virtual Tentacle” running on the server itself, if the endpoint is healthy it will indicate in the health logs that the running version is the same as the server version.
