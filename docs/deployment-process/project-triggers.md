@@ -217,8 +217,6 @@ Go to {{Configuration,Diagnostics,Auto Deploy Logs}}. The **verbose** logs usual
 
 `Auto-deploy: Machine 'Local' does not need to run release '2.6.6' for project 'My Project' and tenant '<none>' because it already exists on the machine or is pending deployment.`
 
-![](/docs/images/5669262/5865582.png "width=500")
-
 ### Investigate the audit messages {#AutomaticDeploymentTriggers-Investigatetheauditmessages}
 
 The automatic deployments are all triggered based on events occurring in Octopus, all of which are logged reliably as audit events. Go to {{Configuration,Audit}} and filter down to see the events related to your deployments.
