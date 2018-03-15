@@ -16,7 +16,7 @@ This is most useful when your environments can have temporary/ephemeral machines
 
 :::success
 **Using Octopus 3.4 or newer?**
-We added first-class support for automatically [cleaning up environments](/docs/infrastructure/environments/elastic-and-transient-environments/cleaning-up-environments.md).
+We added first-class support for automatically [cleaning up environments](/docs/deployment-patterns/elastic-and-transient-environments/cleaning-up-environments.md).
 :::
 
 ```bash
