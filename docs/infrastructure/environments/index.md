@@ -57,7 +57,7 @@ This will let you search by:
 
 [Guided failure mode](/docs/deployment-process/releases/guided-failures.md) can be enabled on an environment by default. This is useful for critical environments that are usually deployed to manually (for example, staging and production-like environments), though you may want to disable this feature for environments which are deployed to automatically such as smoke testing environments.
 
-To enable guided failure mode by default for individual environments, click the overflow menu for the environment, select *Default Guided Failure Mode* and click the checkbox. Note, you can still override this setting for individual deployments. For more information, see the section on [Guided Failures](/docs/deployment-process/releases/guided-failures).
+To enable guided failure mode by default for individual environments, click the overflow menu for the environment, select *Default Guided Failure Mode* and click the checkbox. Note, you can still override this setting for individual deployments. For more information, see the section on [Guided Failures](/docs/deployment-process/releases/guided-failures.md).
 
 ### Environment Permissions {#Environments-Environmentpermissions}
 
