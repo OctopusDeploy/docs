@@ -62,7 +62,7 @@ docs/deployment-targets/index.md -> docs/infrastructure/index.md
 docs/deployment-targets/cloud-regions.md -> docs/infrastructure/cloud-regions.md
 docs/deployment-targets/offline-package-drop.md -> docs/infrastructure/offline-package-drop.md
 docs/deployment-targets/environments/index.md -> docs/infrastructure/environments/index.md
-docs/deployment-targets/environments/machine-policies.md -> docs/infrastructure/environments/machine-policies.md
+docs/deployment-targets/environments/machine-policies.md -> docs/infrastructure/machine-policies.md
 docs/deployment-targets/environments/accounts/index.md -> docs/infrastructure/index.md
 docs/infrastructure/environments/accounts/index.md -> docs/infrastructure/index.md
 docs/deployment-targets/environments/accounts/azure-account.md -> docs/infrastructure/azure/index.md
