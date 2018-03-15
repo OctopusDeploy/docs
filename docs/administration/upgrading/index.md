@@ -25,12 +25,12 @@ There are lots of improvements and changes between major versions of Octopus. Pl
 - [Upgrading from Octopus 3.x](/docs/administration/upgrading/upgrading-from-octopus-3.x.md) is generally easy.
   - Upgrading from `3.x` to `4.x` or `2018.x`
   Want to install Octopus 4.x? Great! Follow the same process as you would normally to upgrade your Octopus 3.x installation.
-  - [Upgrading from Octopus 2.6 to a newer version of Octopus](/docs/administration/upgrading/upgrading-from-octopus-2.6/index.md).
-    - If you are running a version of Octopus prior to `2.6`, you will need to upgrade to `2.6` and then upgrade to the latest version of Octopus.  
+- [Upgrading from Octopus 2.6 to a newer version of Octopus](/docs/administration/upgrading/upgrading-from-octopus-2.6/index.md).
+  - If you are running a version of Octopus prior to `2.6`, you will need to upgrade to `2.6` and then upgrade to the latest version of Octopus.  
 - [Upgrading from Octopus 2.x](/docs/administration/upgrading/upgrading-from-octopus-2.0.md).
-  - [Upgrading from Octopus 1.6 to 2.x](/docs/administration/upgrading/upgrading-from-octopus-1.6.md).
-    - If you are running a version of Octopus prior to `1.6`, you will need to upgrade to `1.6` and then upgrade to `2.x`.
-    - Hint: You can upgrade from Octopus `1.6` to any version of Octopus `2.x`. We recommend upgrading from Octopus `1.6` to the latest version of Octopus `2.6` directly. This is the quickest path to continue upgrading to the latest version of Octopus.
+- [Upgrading from Octopus 1.6 to 2.x](/docs/administration/upgrading/upgrading-from-octopus-1.6.md).
+  - If you are running a version of Octopus prior to `1.6`, you will need to upgrade to `1.6` and then upgrade to `2.x`.
+  - Hint: You can upgrade from Octopus `1.6` to any version of Octopus `2.x`. We recommend upgrading from Octopus `1.6` to the latest version of Octopus `2.6` directly. This is the quickest path to continue upgrading to the latest version of Octopus.
 
 ## How we version Octopus Deploy {#Upgrading-HowweversionOctopusDeploy}
 
