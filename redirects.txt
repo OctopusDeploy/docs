@@ -411,3 +411,4 @@ docs/infrastructure/environments/elastic-and-transient-environments/cleaning-up-
 docs/infrastructure/environments/elastic-and-transient-environments/deploying-to-transient-targets.md -> docs/deployment-patterns/elastic-and-transient-environments/deploying-to-transient-targets.md
 docs/infrastructure/environments/elastic-and-transient-environments/immutable-infrastructure.md -> docs/deployment-patterns/elastic-and-transient-environments/immutable-infrastructure.md
 docs/infrastructure/environments/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md -> docs/deployment-patterns/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md
+docs/infrastructure/environments/target-roles/index.md -> docs/infrastructure/target-roles/index.md 
