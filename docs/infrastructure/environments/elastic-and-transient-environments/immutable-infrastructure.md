@@ -17,8 +17,6 @@ In this example we will create an infrastructure project and an application proj
 
 The Tentacles provisioned in this guide belong the to **Immutable Infrastructure** machine policy. For now, create a new machine policy called **Immutable Infrastructure** and leave all of the settings at their default value.
 
-![](/docs/images/5670238/5865674.png "width=500")
-
 ## Application Project {#ImmutableInfrastructure-Applicationproject}
 
 For this demonstration, let's create a project called **Hello World** that will run a script echoing "Hello World" to each of our Tentacles.  In practice, this would be the project that deploys your application to the Tentacles.
@@ -26,30 +24,20 @@ For this demonstration, let's create a project called **Hello World** that will 
 1. Create a project called **Hello World**
 2. Add a script step that outputs "Hello World" on each Tentacle:
 
-   ![](/docs/images/5670238/5865675.png "width=500")
-
 ## Infrastructure Project {#ImmutableInfrastructure-Infrastructureproject}
 
 The infrastructure project runs a script that provisions two new Tentacles and removes any old Tentacles in the environment we are deploying to. In practice this project would create your new infrastructure, add it to your load balancer and terminate your old infrastructure.
 
 1. Download the [HelloWorldInfrastructure.1.0.0.0.zip](/docs/attachments/helloworldinfrastructure.1.0.0.0.zip) package that contains the scripts that run in this project and make any modifications required by your Octopus installation.
-2. Upload the package to your Octopus package feed:
-
-   ![](/docs/images/5670238/5865676.png "width=500")
-
+2. Upload the package to your Octopus package feed.
 3. Install Tentacle on the same machine as your Octopus Server (there is no need to configure a Tentacle instance).
 4. Create a project called **Hello World Infrastructure**.
-5. Add a step that runs the script called **Provision.ps1** from the package **HelloWorldInfrastructure** on the Octopus Server:
-
-   ![](/docs/images/5670238/5865669.png "width=500")
-
+5. Add a step that runs the script called **Provision.ps1** from the package **HelloWorldInfrastructure** on the Octopus Server.
 6. Add a step that performs a health check, excluding unavailable machines from the deployment:
 
    ![](/docs/images/5670238/5865670.png "width=500")
 
-7. Add a step that runs **Teminate.ps1** from the package **HelloWorldInfrastructure** on the Octopus Server on behalf of all roles:
-
-   ![](/docs/images/5670238/5865671.png "width=500")
+7. Add a step that runs **Teminate.ps1** from the package **HelloWorldInfrastructure** on the Octopus Server on behalf of all roles.
 
 ## Intermission {#ImmutableInfrastructure-Intermission}
 
