@@ -108,7 +108,7 @@ You can select a username/password account to perform automatic Tentacle updates
 
 ## Automatically Delete Machines {#MachinePolicies-Automaticallydeletemachines}
 
-!partial <automatically-delete-machines>
+Machine policies can be configured to automatically remove unavailable machines after a time period.  When a health check runs, Octopus detects if machines are unavailable (cannot be contacted). When the **Automatically delete unavailable machines** option is set, Octopus checks how long a machine has been unavailable.  If the specified time period has elapsed, the machine is permanently deleted from Octopus.
 
 ![](/docs/images/5669423/5865595.png "width=500")
 
