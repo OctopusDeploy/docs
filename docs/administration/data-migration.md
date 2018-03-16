@@ -1,5 +1,5 @@
 ---
-title: Data migration
+title: Data Migration
 description: Octopus Manager comes with an import/export wizard to support moving data between Octopus instances.
 position: 900
 ---

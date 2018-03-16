@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting integrations between build servers and Octopus
+title: Troubleshooting Integrations Between Build Servers and Octopus
 description: General guide to troubleshoot integrations between build servers such as TeamCity or VSTS with Octopus Deploy
 position: 14
 ---
@@ -51,7 +51,7 @@ As shown in the above screenshots, the exact `Octo.exe` command that was execute
 [15:00:43][Octopus Deploy] Running command:   octo.exe create-release --server https://demo.octopusdeploy.com --apikey SECRET --project OctoFX --enableservicemessages --version 3.3.379 --deployto Dev --progress --packageversion 3.3.379 --releasenotes Release created automatically via TeamCity
 [15:00:43][Octopus Deploy] Creating Octopus Deploy release
 [15:00:43][Octopus Deploy] Octopus Deploy Command Line Tool, version 3.3.8+Branch.master.Sha.f8a34fc6097785d7d382ddfaa9a7f009f29bc5fb
-[15:00:43][Octopus Deploy] 
+[15:00:43][Octopus Deploy]
 [15:00:43][Octopus Deploy] Build environment is NoneOrUnknown
 [15:00:43][Octopus Deploy] Handshaking with Octopus server: https://demo.octopusdeploy.com
 [15:00:44][Octopus Deploy] Handshake successful. Octopus version: 3.15.8; API version: 3.0.0
@@ -78,7 +78,6 @@ Make sure to set the ticket as **private** before attaching any kind of log, as 
 
 ## Troubleshooting build steps created by non-octopus-team-members {#Custom-Steps}
 
-If you are using a custom step/plugin/extension to hook up your Build server with Octopus, then all we can recommend you is to know your `Octo.exe` game very well. 
+If you are using a custom step/plugin/extension to hook up your Build server with Octopus, then all we can recommend you is to know your `Octo.exe` game very well.
 
 If you are using a build server technology [that's not in our supported list](\docs\api-and-integration\index.md), then we encourage you to go to our [Uservoice page](https://octopusdeploy.uservoice.com/) and log a feature request asking us to support it. If enough users vote for it, It'll show up in our radar and we might be able to do something about it.
-
