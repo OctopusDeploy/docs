@@ -1,5 +1,5 @@
 ---
-title: Enable web request logging
+title: Enable Web Request Logging
 description: How to enable web request logging to help the Octopus team analyze usage patterns and detecting performance problems.
 position: 16
 ---
