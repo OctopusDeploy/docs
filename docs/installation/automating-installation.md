@@ -10,7 +10,7 @@ Octopus comes in a MSI that can be deployed via group policy or other means.
 
 The latest Octopus MSI can always be [downloaded from the Octopus Deploy downloads page](https://octopus.com/downloads).
 
-Permalinks to always get the latest MSIs are:
+We make the latest MSIs available at the following links:
 
 - 32-bit: [https://octopus.com/downloads/latest/WindowsX86/OctopusServer](https://octopus.com/downloads/latest/WindowsX86/OctopusServer)
 - 64-bit: [https://octopus.com/downloads/latest/WindowsX64/OctopusServer](https://octopus.com/downloads/latest/WindowsX64/OctopusServer)
