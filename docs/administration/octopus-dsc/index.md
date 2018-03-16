@@ -37,40 +37,4 @@ DSC can be applied in various ways, such as [Group Policy](https://sdmsoftware.c
 
 ## Contributing to the OctopusDSC Open-Source repository.
 
-:::hint
-There are two main code repositories associated with this module, the below links will direct you to our open source GitHub page for the Server and Tentacle agent repositories respectively.
-
-[cOctopusServer](https://github.com/OctopusDeploy/OctopusDSC/blob/master/README-cOctopusServer.md) is used to install and configure the Octopus Server.
-
-[cTentacleAgent](https://github.com/OctopusDeploy/OctopusDSC/blob/master/README-cTentacleAgent.md) is used to install and configure the Octopus Tentacle agent.
-:::
-
-As OctopusDSC is an Open Source project, we encourage everyone to contribute their custom scripts to help build a formidable OctopusDSC script repository. Below are instructions on how to contribute to the OctopusDSC repository.
-
-This project is setup to use [Vagrant](https://www.vagrantup.com) to provide a dev/test environment. Once you've installed Vagrant, you can use *build-virtualbox.sh* to spin up a local virtual machine using [VirtualBox](https://www.virtualbox.org) and run the test scenarios (**NOTE:** The first time you run `vagrant up` it has to download the `octopusdeploy/dsc-test-server` box and this can take some time depending on your internet speed, so be patient and go grab a coffee while it downloads). On a build server, you most likely want to use *build-aws.sh* to spin up a virtual machine on AWS to run the tests.
-
-Configuration is handled by environment variables. The shell scripts will show a message letting you know what variables need to be set.
-
-As there are no Windows specific build scripts at present, if you want to run the tests against AWS on Windows:
-
-1. Install Vagrant from [vagrantup.com](http://vagrantup.com).
-2. Install VirtualBox from [virtualbox.org](http://virtualbox.org).
-3. **If you are on a Mac or Linux** you need to install [PowerShell](https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md).
-4. If you want to test locally using virtualbox
-    - Run `vagrant plugin install vagrant-dsc`
-    - Run `vagrant plugin install vagrant-winrm`
-    - Run `vagrant plugin install vagrant-winrm-syncedfolders`
-    - Run `vagrant up -- provider virtualbox`. This will run all the scenarios under the Tests folder.
-5. If you want to test using AWS
-    - Run `vagrant plugin install vagrant-aws`
-    - Run `vagrant plugin install vagrant-aws-winrm`
-    - Set an environment variable `AWS_ACCESS_KEY_ID` to a valid value
-    - Set an environment variable `AWS_SECRET_ACCESS_KEY` to a valid value
-    - Set an environment variable `AWS_SUBNET_ID` to a valid subnet where you want the instance launched
-    - Set an environment variable `AWS_SECURITY_GROUP_ID` to a valid security group you want to assign to the instance
-    - Run `vagrant up --provider aws`. This will run all the scenarios under the Tests folder.
-6. Run `vagrant destroy -f` once you have finished to kill the virtual machine.
-
-Tests are written in [ServerSpec](http://serverspec.org), which is an infrastructure oriented layer over RSpec.
-
-When creating a PR, please ensure that all existing tests run successfully against VirtualBox, and please include a new scenario where possible. Before you start, please raise an issue to discuss your plans so we can make sure it fits with the goals of the project.
+OctopusDSC is open-source, if you'd like to contribute, please visit the [GitHub Repository](https://github.com/OctopusDeploy/OctopusDSC).
