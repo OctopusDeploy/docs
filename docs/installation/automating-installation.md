@@ -59,7 +59,7 @@ To run the script start an admin shell prompt and execute the script, this shoul
 
 Octopus can also be installed via [Desired State Configuration](https://msdn.microsoft.com/en-us/powershell/dsc/overview) (DSC). Using the module from the [OctopusDSC GitHub repository](https://www.powershellgallery.com/packages/OctopusDSC).
 
-The following PowerShell script will install an Octopus server listening on port `80`:
+The following PowerShell script will install an Octopus server listening on port `80`. Make sure the OctopusDSC module is on your `$env:PSModulePath`:
 
 ```powershell
 Configuration SampleConfig
@@ -104,5 +104,11 @@ Start-DscConfiguration -Path ".\SampleConfig" -Verbose -wait
 # Test the configuration ran successfully
 Test-DscConfiguration
 ```
+
+### Settings and Properties
+
+To review the latest available settings and properties, refer to the [OctopusDSC Server readme.md](https://github.com/OctopusDeploy/OctopusDSC/blob/master/README-cOctopusServer.md) in the GitHub repository.
+
+## Taking DSC Further
 
 DSC can be applied in various ways, such as [Group Policy](https://sdmsoftware.com/group-policy-blog/desired-state-configuration/desired-state-configuration-and-group-policy-come-together/), a [DSC Pull Server](https://msdn.microsoft.com/en-us/powershell/dsc/pullserver), [Azure Automation](https://msdn.microsoft.com/en-us/powershell/dsc/azuredsc), or even via configuration management tools such as [Chef](https://docs.chef.io/resource_dsc_resource.html) or [Puppet](https://github.com/puppetlabs/puppetlabs-dsc). Learn more about Desired State Configuration at [Windows PowerShell Desired State Configuration ](https://docs.microsoft.com/en-us/powershell/dsc/overview).

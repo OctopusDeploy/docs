@@ -4,37 +4,22 @@ description: OctopusDSC is an Open-Source PowerShell module designed to assist w
 position: 20
 hideInThisSection: true
 ---
-[OctopusDSC](https://github.com/OctopusDeploy/OctopusDSC) is an in-house and open-source PowerShell module with DSC resource designed to reduce the overhead when automating the installation and configuration of your Octopus infrastructure.
+OctopusDSC is an in-house open-source PowerShell module with DSC resource designed to reduce the overhead when automating the installation and configuration of your Octopus infrastructure.
 
-We have the following documentation pages regarding OctopusDSC:
+For the latest information about OctopusDSC please refer to the GitHub [OctopusDSC readme.md](https://github.com/OctopusDeploy/OctopusDSC).
 
-* [Installing Octopus Tentacle Agent via DSC](/docs/administration/octopus-dsc/tentacle-agent.md)
-* [Installing Octopus Server via DSC](/docs/administration/octopus-dsc/octopus-server.md)
+You can use DSC to install:
 
-## Installing the OctopusDSC PowerShell module.
+- [The Central Octopus Deploy Server](/docs/installation/automating-installation.md#desired-state-configuration).
+-[Octopus Tentacles](/docs/infrastructure/windows-targets/automating-tentacle-installation.md#AutomatingTentacleinstallation-DSCDesiredStateConfiguration).
 
-It is recommended that you use PowerShell 5 alongside [PowerShellGet](https://docs.microsoft.com/en-us/powershell/module/powershellget/?view=powershell-5.1).
+## Authentication Automation with OctopusDSC
 
-Quick Installation:
+The following resources are available for automating authentication configuration:
 
-1. Install PowerShellGet from [PowerShell Gallery](https://docs.microsoft.com/en-us/powershell/gallery/readme).
-2. Install DSC module via `PowerShellGet\Install-Module -Name OctopusDSC`
-
-Manual Installation:
-
-1. Download the [latest release](https://github.com/OctopusDeploy/OctopusDSC/releases).
-2. If required, unblock the zip file.
-3. Extract the zip file to a folder called OctopusDSC under your modules folder (usually `%USERPROFILE%\Documents\WindowsPowerShell\Modules`)
-4. To confirm it's installed correctly, in a new PowerShell session run `Get-Module -ListAvailable -Name OctopusDSC`
-
-:::hint
-The community has also submitted a few [other options](https://github.com/OctopusDeploy/OctopusDSC/issues/14).
-:::
-
-## OctopusDSC management.
-
-DSC can be applied in various ways, such as [Group Policy](https://sdmsoftware.com/group-policy-blog/desired-state-configuration/desired-state-configuration-and-group-policy-come-together/), a [DSC Pull Server](https://msdn.microsoft.com/en-us/powershell/dsc/pullserver), [Azure Automation](https://msdn.microsoft.com/en-us/powershell/dsc/azuredsc), or even via configuration management tools such as [Chef](https://docs.chef.io/resource_dsc_resource.html) or [Puppet](https://github.com/puppetlabs/puppetlabs-dsc). A good resource to learn more about DSC is the [Microsoft Virtual Academy training course](http://www.microsoftvirtualacademy.com/training-courses/getting-started-with-powershell-desired-state-configuration-dsc-).
-
-## Contributing to the OctopusDSC Open-Source repository.
-
-OctopusDSC is open-source, if you'd like to contribute, please visit the [GitHub Repository](https://github.com/OctopusDeploy/OctopusDSC).
+- [Octopus Server Active Directory Authentication](https://github.com/OctopusDeploy/OctopusDSC/tree/master/OctopusDSC/DSCResources/cOctopusServerActiveDirectoryAuthentication).
+- [Octopus Server Azure Active Directory Authentication](https://github.com/OctopusDeploy/OctopusDSC/tree/master/OctopusDSC/DSCResources/cOctopusServerAzureADAuthentication).
+- [Octopus Server Google Apps Authentication](https://github.com/OctopusDeploy/OctopusDSC/tree/master/OctopusDSC/DSCResources/cOctopusServerGoogleAppsAuthentication).
+- [Octopus Server Guest Authentication](https://github.com/OctopusDeploy/OctopusDSC/tree/master/OctopusDSC/DSCResources/cOctopusServerGuestAuthentication).
+- [Octopus Server Okta Authentication](https://github.com/OctopusDeploy/OctopusDSC/tree/master/OctopusDSC/DSCResources/cOctopusServerOktaAuthentication).
+- [Octopus Server Username and Password Authentication](https://github.com/OctopusDeploy/OctopusDSC/tree/master/OctopusDSC/DSCResources/cOctopusServerUsernamePasswordAuthentication).
