@@ -412,3 +412,5 @@ docs/infrastructure/environments/elastic-and-transient-environments/immutable-in
 docs/infrastructure/environments/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md -> docs/deployment-patterns/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md
 docs/infrastructure/environments/target-roles/index.md -> docs/infrastructure/target-roles/index.md
 docs/infrastructure/environments/machine-policies.md -> docs/infrastructure/machine-policies.md
+docs/administration/octopus-dsc/tentacle-agent.md -> docs/infrastructure/windows-targets/automating-tentacle-installation.md
+docs/administration/octopus-dsc/octopus-server.md -> docs/installation/automating-installation.md
