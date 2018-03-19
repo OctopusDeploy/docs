@@ -1,3 +1,8 @@
+---
+title: Upload to AWS S3 Template
+description: Upload to AWS S3 Template.
+---
+
 Octopus supports the uploading an entire package or the files contained within a package through the `Upload a package to an AWS S3 bucket` step. This step uploads the package or the file(s) contained within the package
 using the AWS managed by Octopus.
 
