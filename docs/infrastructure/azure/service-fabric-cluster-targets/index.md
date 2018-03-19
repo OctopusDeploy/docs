@@ -1,21 +1,43 @@
 ---
 title: Azure Service Fabric Cluster targets
-description: Azure Service Fabric Cluster targets allow you to target a Service Fabric Cluster app in your Azure subscription.
+description: Azure Service Fabric Cluster deployment targets allow you to reference existing Service Fabric Cluster apps that are available in your Azure subscription, that you can then reference by role during deployments.
 position: 100
 version: "[2018.4,)"
 ---
 
-Azure Service Fabric Cluster targets
+Azure Service Fabric Cluster deployment targets allow you to reference existing Service Fabric Cluster apps that are available in your Azure subscription, that you can then reference by role during deployments.
 
 ## Requirements
 
-TODO: Refer to SF doco and link to that doco.
-TODO: Discuss how you have to have an existing cluster app on Azure that this simply links to.
+:::hint
+The [Service Fabric SDK](https://g.octopushq.com/ServiceFabricSdkDownload) must be installed on the Octopus Server. If this SDK is missing, the step will fail with an error: _"Could not find the Azure Service Fabric SDK on this server."_
 
-## Creating Web App targets
+**PowerShell script execution** may also need to be enabled. See the _"Enable PowerShell script execution"_ section from the above link for more details.
 
-TODO - Show a screenshot showing how we reference an existing app in your subscription, with example role etc.
+After the above SDK has been installed, you will need to restart your Octopus service before the changes will take effect.
+:::
 
-## Health checks
+You will need to create a Service Fabric cluster (either in Azure, on-prem or in other clouds). Octopus needs an existing Service Fabric cluster to connect to in order to reference it as a deployment target.
 
-TODO - Discuss how health checks work with Azure SF targets.
+To learn more about App Services, the Azure team provide [useful documentation on Service Fabric](https://azure.microsoft.com/en-au/services/service-fabric/) that can help you get started.
+
+## Creating Service Fabric Cluster targets
+
+Once you have a Service Fabric Cluster application setup within your Azure subscription, you are then ready to map that to an Octopus deployment target.
+
+To create an Azure Service Fabric Cluster target within Octopus:
+
+- Go to `Infrastructure` > `Deployment Targets` > `Add Deployment Target`
+- Select `Azure Service Fabric Cluster` from the list of available targets and click _Next_
+- Fill out the necessary fields, being sure to provide a unique role that clearly identifies your Azure Service Fabric Cluster target
+
+![](create-azre-service-fabric-cluster-target.png "width=500")
+
+- After clicking _Save_, your deployment target will be added and go through a health check to ensure Octopus can connect to it.
+- If all goes well, you should see your newly created target in your `Deployment Targets` list, with a status of _Healthy_
+
+## Troubleshooting
+
+If your Azure Service Fabric Cluster target is not completing a health check successfully, you may need to check that your Octopus Server can communicate with Azure. If your Octopus Server is behind a proxy or firewall, you will need to consult with your Systems Administrator to ensure it is able to communicate with Azure.
+
+Alternatively, it could be the security settings of your Service Fabric Cluster denying access. Our deployments documentation discusses [the various security modes of Service Fabric](/docs/deploying-applications/deploying-to-service-fabric.md#security-modes) in greater detail.
