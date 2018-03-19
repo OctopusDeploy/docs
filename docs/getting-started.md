@@ -94,7 +94,7 @@ Octopus Deploy can manage the deployment of many applications across your organi
 
 A project in Octopus can consist of many deliverable components (e.g., web sites, micro services, and database scripts). It's usually helpful to think of Octopus projects in terms of business projects: if you have 5 developers working together on the "HR Portal rewrite" project, then that's probably a single project in Octopus.
 
-Learn more about [projects](/docs/deployment-process/projects/index.md).
+Learn more about [projects](/docs/deployment-process/projects.md).
 
 ### Lifecycle
 

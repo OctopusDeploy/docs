@@ -9,7 +9,7 @@ The deployment process is like a recipe for deploying your software. You define 
 
 To define your deployment process your must:
 
-1. Create a [project](docs/deployment-process/projects/index.md).
+1. Create a [project](docs/deployment-process/projects.md).
 1. Add [steps](docs/deployment-process/steps/index.md) to the project.
 1. Add [configuration variables](docs/deployment-process/variables/index.md) to the project.
 1. Create a [release](docs/deployment-process/releases/index.md).
