@@ -6,17 +6,11 @@ position: 0
 
 This page describes each step involved in creating your first tenant.
 
-1. Enable the **multi-tenancy** feature in {{Configuration,Features}} if you haven't already - *you will need an Octopus Administrator to do this*.
-
-   ![](images/enabling-tenant-feature.png "width=500")
-
-The Tenants link should be added to the main menu of Octopus when you click the **Save** button.
-
-2. Go to *Tenants* and click the **Add tenant** button
+1. Go to {{Addons,Tenants}} and click the **Add tenant** button
 
    ![](images/add-new-tenant.png "width=500")
 
-3. Enter the name you want to use for the tenant and click the **Save** button.
+2. Enter the name you want to use for the tenant and click the **Save** button.
 
     ![](images/creating-new-tenant.png "width=500")
 
