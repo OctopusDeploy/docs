@@ -40,3 +40,31 @@ It is expected that in future these steps will be run on [worker instances](http
 :::
 
 When using the IAM role assigned to the Octopus EC2 instance, there is no need to create an AWS account in Octopus.
+
+## Manually Using AWS Account Details in a Step
+
+A number of steps in Octopus use the AWS account directly. For example, in the CloudFormation steps, you define the AWS account variable that will be used to execute the template deployment, and the step will take care of passing along the access and secret keys defined in the account.
+
+It is also possible to use the keys defined in the AWS account manually, such as in script steps.
+
+First, add the AWS Account as a variable. In the screenshot below, the account has been assigned to the `AWS Account` variable.
+
+The `OctopusPrintVariables` has been set to true to print the variables to the output logs. This is a handy way to view the available variables that can be consumed by a custom script. You can find more information on debugging variables at [Debug problems with Octopus variables](/docs/support/debug-problems-with-octopus-variables.md).
+
+![Variables](variables.png "width=500")
+
+When running a step, the available variables will be printed to the log. In this example, the following variables are shown:
+
+```
+[AWS Account] = 'amazonwebservicesaccount-aws-account' 
+[AWS Account.AccessKey] = 'ABCDEFGHIJKLONOPQRST'
+[AWS Account.SecretKey] = '********'
+```
+
+`AWS Account.AccessKey` is the access key associated with the AWS account, and `AWS Account.SecretKey` is the secret key. The secret key is hidden as asterisks in the log because it is a sensitive value, but the complete key is available to your script.
+
+You can then use these variables in your scripts or other step types. For example, the following PowerShell script would print the access key to the console.
+
+```
+Write-Host "$($OctopusParameters["AWS Account.AccessKey"])"
+```
