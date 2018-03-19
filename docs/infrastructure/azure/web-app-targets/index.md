@@ -34,6 +34,10 @@ To create an Azure Web App target within Octopus:
 
 ![](deployment-targets-web-app-healthy.png "width=500")
 
+## Deploying to Web App targets
+
+See our [documentation about this topic](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app.md)
+
 ## Troubleshooting
 
 If your Azure Web App target is not completing a health check successfully, you may need to check that your Octopus Server can communicate with Azure. It may be worth checking that your Azure Account is able to complete a _Save and Test_ to ensure Octopus can communicate with Azure. If your Octopus Server is behind a proxy or firewall, you will need to consult with your Systems Administrator to ensure it is able to communicate with Azure.

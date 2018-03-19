@@ -40,6 +40,10 @@ To create an Azure Service Fabric Cluster target within Octopus:
 - After clicking _Save_, your deployment target will be added and go through a health check to ensure Octopus can connect to it.
 - If all goes well, you should see your newly created target in your `Deployment Targets` list, with a status of _Healthy_
 
+## Deploying to Service Fabric Targets
+
+See our [documentation about this topic](/docs/deploying-applications/deploying-to-service-fabric.md)
+
 ## Troubleshooting
 
 If your Azure Service Fabric Cluster target is not completing a health check successfully, you may need to check that your Octopus Server can communicate with Azure. If your Octopus Server is behind a proxy or firewall, you will need to consult with your Systems Administrator to ensure it is able to communicate with Azure.
