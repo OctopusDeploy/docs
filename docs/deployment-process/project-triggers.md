@@ -82,8 +82,6 @@ Yes! You can apply a filter to the events to restrict which deployment targets w
 
 The best way to answer this is to look at your dashboard or project overview. By default Octopus will re-run the *currently successful* deployment for the project/environment/tenant combination. The end result should be that the new deployment target is configured just like its counterparts.
 
-![](/docs/images/5671191/5865836.png "width=500")
-
 You can override this behavior by configuring an [Auto Deploy Override](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/index.md).
 
 ### Which steps will be run during automatic deployments? {#AutomaticDeploymentTriggers-Whichstepswillberunduringautomaticdeployments?}
