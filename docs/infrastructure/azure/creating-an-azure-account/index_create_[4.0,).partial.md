@@ -1,1 +1,0 @@
-To create an Azure Account, navigate to {{Infrastructure,Accounts}} and click *Add Account* in the *Azure Subscriptions* section.
