@@ -297,10 +297,10 @@ echoerror "You can even define your own function to echo an error!"
 
 ```fsharp F#
 printfn "This will be logged as Information"
-Octopus.writeVerbose "Verbose!!"
-Octopus.writeHighlight "This is a highlight"
-Octopus.writeWait "Deployment is waiting on something"
-Octopus.writeWarning "Warning"
+writeVerbose "Verbose!!"
+writeHighlight "This is a highlight"
+writeWait "Deployment is waiting on something"
+writeWarning "Warning"
 eprintfn "This will be logged as Error"
 ```
 
@@ -448,7 +448,7 @@ new_octopusartifact /etc/hosts $(hostname)-hosts.txt
 ```
 
 ```fsharp F#
-Octopus.createArtifact @"C:\Windows\System32\drivers\etc\hosts" (System.Environment.MachineName + "-hosts.txt")
+createArtifact @"C:\Windows\System32\drivers\etc\hosts" (Some (System.Environment.MachineName + "-hosts.txt"))
 ```
 
 ![](/docs/images/3048092/5865519.png "width=500")
