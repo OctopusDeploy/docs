@@ -57,7 +57,7 @@ $servicePrincipal | Format-Table
 # Sleep, to Ensure the Service Principal is Actually Created
 Write-Output "Sleeping for 10s to give the service principal a chance to finish creating..."
 Start-Sleep -s 10
- 
+
 # Assign the Service Principal the Contributor Role to the Subscription.
 # Roles can be Granted at the Resource Group Level if Desired.
 Write-Output "Assigning the Contributor role to the service principal..."
@@ -92,7 +92,7 @@ Using the PowerShell script in option 1, you can specify the expiry date by addi
 -EndDate (new-object System.DateTime 2018, 12, 31)
 ```
 
-Using option 2, the Azure portal will allow you to select the expiry time when creating the key. 
+Using option 2, the Azure portal will allow you to select the expiry time when creating the key.
 :::
 
 ## Note on Least Privilege
@@ -107,13 +107,14 @@ The reason behind this is to do with the way Octopus queries for the web app res
 
 ## Step 2: Allow Octopus to Authenticate with Azure using a Service Principal {#CreatinganAzureServicePrincipalAccount-authenticate-with-service-principalStep2:AllowOctopustoauthenticatewithAzureusingaServicePrincipal}
 
+
 Navigate to {{Infrastructure,Accounts}} and click *Add account* in the *Azure Subscriptions* section.
 
-![accounts](C:/Source/Octopus/docs/docs/infrastructure/azure/creating-an-azure-account/add-new-azure-account.png "width=500")
+![accounts](add-new-azure-account.png "width=500")
 
 On the Create New Account page, in the *Authentication Method* field select *Use a Service Principal*.
 
-![add account](C:/Source/Octopus/docs/docs/infrastructure/azure/creating-an-azure-account/add-new-azure-account-detail.png "width=500")
+![add account](add-new-azure-account-detail.png "width=500")
 
 The values for the following fields come from Azure:
 
@@ -146,7 +147,7 @@ The following PowerShell script will create an additional credential under the e
 # Obviously, replace the following with your own values
 $subscriptionId = "cd21dc34-73dc-4c7d-bd86-041284e0bc45"
 $tenantId = "2a681dca-3230-4e01-abcb-b1fd225c0982"
-$applicationId = "1d7f3207-0d20-4ff3-bdd2-c6928a5dd3f0" 
+$applicationId = "1d7f3207-0d20-4ff3-bdd2-c6928a5dd3f0"
 $password = "correct horse battery staple 2"
 
 # Login to your Azure Subscription

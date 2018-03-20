@@ -8,9 +8,9 @@ This page contains some of the questions we are asked most often related to mult
 
 !toc
 
-## Why can't I see the tenant area in the main menu, or anything about tenants for that matter? {#Multi-tenantdeploymentsFAQ-Whycan'tIseethetenantareainthemainmenu,oranythingabouttenantsforthatmatter?}
+## Why can't I see the tenant area in the main menu, or anything about tenants for that matter? {#Multi-tenantdeploymentsFAQ-WhycantIseethetenantareainthemainmenu,oranythingabouttenantsforthatmatter?}
 
-Multi-tenant deployments were shipped as part of Octopus 3.4, perhaps you need to upgrade your Octopus Server? You also need to enable the feature in {{Configuration,Features}}. For more information refer to [creating your first tenant](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-tenant.md).
+Multi-tenant deployments were shipped as part of Octopus 3.4, perhaps you need to upgrade your Octopus Server? Also, before creating your first tenant, you can find tenants in {{Addons,Tenants}}. For more information refer to [creating your first tenant](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-tenant.md).
 
 ## Is there anything special about multi-tenant projects or environments? {#Multi-tenantdeploymentsFAQ-Isthereanythingspecialaboutmulti-tenantprojectsorenvironments?}
 
@@ -77,11 +77,11 @@ Yes! Each project can control its interaction with tenants. By default the multi
 
 ![](/docs/images/5669243/5865711.png)
 
-## What is an "untenanted deployment"? Don't I have to choose a tenant when deploying my project? {#Multi-tenantdeploymentsFAQ-Whatisan&quot;un-tenanteddeployment&quot;?Don&#39;tIhavetochooseatenantwhendeployingmyproject?}
+## What is an "untenanted deployment"? Don't I have to choose a tenant when deploying my project? {#Multi-tenantdeploymentsFAQ-Whatisanun-tenanteddeploymentDontIhavetochooseatenantwhendeployingmyproject?}
 
 When you first enable multi-tenant deployments you won't have any tenants, and we don't want that to stop you from deploying your existing projects. Perhaps you are using an environment-per-tenant model and will migrate to tenants over a period of time, so some deployments will start to have a tenant whilst others do not. Essentially an "untenanted deployment" is the same kind of deployment Octopus always performed: *there is no tenant for this deployment*. When you deploy using a tenant Octopus includes variables from the tenant, and the selected tenant can impact which steps are run, which variable values are used, and which deployment targets are included, at your discretion. For more information refer to [deploying a simple multi-tenant project](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md).
 
-## Can I prevent "untenanted deployments" of a project? {#Multi-tenantdeploymentsFAQ-CanIprevent&quot;un-tenanteddeployments&quot;ofaproject?}
+## Can I prevent "untenanted deployments" of a project? {#Multi-tenantdeploymentsFAQ-CanIpreventun-tenanteddeploymentsofaproject?}
 
 Yes. Choose the **Require a tenant for all deployments** option in the Project settings. For more information refer to [deploying a simple multi-tenant project](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md).
 
@@ -97,7 +97,7 @@ Yes! We shipped support for this in [Octopus 3.15](https://octopus.com/blog/octo
 
 Yes! We shipped support for this in [Octopus 3.15](https://octopus.com/blog/octopus-release-3-15).
 
-## Why can't I connect a tenant to my project, or perform a tenanted deployment of my project? {#Multi-tenantdeploymentsFAQ-Whycan&#39;tIconnectatenanttomyproject,orperformatenanteddeploymentofmyproject?}
+## Why can't I connect a tenant to my project, or perform a tenanted deployment of my project? {#Multi-tenantdeploymentsFAQ-WhycantIconnectatenanttomyproject,orperformatenanteddeploymentofmyproject?}
 
 As long as you have _Project View_ permissions for the project, and that project is configured to enable tenanted deployments, you should be able to connect your tenants to that project. Each project can opt-in to tenanted deployment features, perhaps your project needs to enable tenanted deployments? See above for more details.
 
@@ -105,7 +105,7 @@ As long as you have _Project View_ permissions for the project, and that project
 
 Firstly check you can select a project for your tenant (see above for more details). As long as you have _Environment View_ permissions for the environment, and that environment is included in one of the lifecycles used by your project, you should be able to connect your tenants to that environment. Check each of the lifecycles used by your project (each channel can specify a different lifecycle) and make sure at least one of them includes the environment.
 
-## I want to deploy my project to a tenant, but I can't see that tenant in the list? {#Multi-tenantdeploymentsFAQ-Iwanttodeploymyprojecttoatenant,butIcan&#39;tseethattenantinthelist?}
+## I want to deploy my project to a tenant, but I can't see that tenant in the list? {#Multi-tenantdeploymentsFAQ-Iwanttodeploymyprojecttoatenant,butIcantseethattenantinthelist?}
 
 Granted, multi-tenant deployments can get complicated very quickly, so we've written a [troubleshooting guide](/docs/deployment-patterns/multi-tenant-deployments/troubleshooting-multi-tenant-deployments.md) to help when you get stuck. At the very least, make sure your tenant is connected to the correct project and environment(s). For more information refer to [deploying a simple multi-tenant project](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md).
 

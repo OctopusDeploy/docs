@@ -74,7 +74,9 @@ You can manage your Azure subscription using custom PowerShell scripts and the A
 
 For information about adding a step to the deployment process, see the [add step](/docs/deployment-process/steps/index.md) section.
 
-!partial <service-fabric-powershell>
+## Service Fabric PowerShell scripts {#Customscripts-ServiceFabricPowerShellScripts}
+
+You can manage your Service Fabric clusters using custom Service Fabric SDK PowerShell scripts - [more information](/docs/deploying-applications/custom-scripts/service-fabric-powershell-scripts.md).
 
 ## Variables {#Customscripts-Variables}
 
@@ -297,10 +299,10 @@ echoerror "You can even define your own function to echo an error!"
 
 ```fsharp F#
 printfn "This will be logged as Information"
-Octopus.writeVerbose "Verbose!!"
-Octopus.writeHighlight "This is a highlight"
-Octopus.writeWait "Deployment is waiting on something"
-Octopus.writeWarning "Warning"
+writeVerbose "Verbose!!"
+writeHighlight "This is a highlight"
+writeWait "Deployment is waiting on something"
+writeWarning "Warning"
 eprintfn "This will be logged as Error"
 ```
 
@@ -374,7 +376,26 @@ if ($LastExitCode -ne 0) {
 }
 ```
 
-!partial <fail-step>
+### Failing a script with a message
+
+The fail step function will stop your script execution and return a non-zero error code. An optional message can be supplied. If supplied, the message replaces
+the `The remote script failed with exit code <code>` text in the deployment process overview page.
+
+```powershell PowerShell
+Fail-Step "A friendly message"
+```
+
+```c# C#
+Octopus.FailStep("A friendly message");
+```
+
+```bash Bash
+fail_step "A friendly message"
+```
+
+```fsharp F#
+Octopus.failStep "A friendly message"
+```
 
 ## Output variables {#Customscripts-Outputvariables}
 
@@ -448,7 +469,7 @@ new_octopusartifact /etc/hosts $(hostname)-hosts.txt
 ```
 
 ```fsharp F#
-Octopus.createArtifact @"C:\Windows\System32\drivers\etc\hosts" (System.Environment.MachineName + "-hosts.txt")
+createArtifact @"C:\Windows\System32\drivers\etc\hosts" (Some (System.Environment.MachineName + "-hosts.txt"))
 ```
 
 ![](/docs/images/3048092/5865519.png "width=500")

@@ -5,7 +5,7 @@ position: 4
 version: 3.4
 ---
 
-Project Triggers allow you to define an unattended behavior for your [Projects](/docs/deployment-process/projects/index.md).
+Project Triggers allow you to define an unattended behavior for your [Projects](/docs/deployment-process/projects.md).
 
 :::success
 We have written a [comprehensive guide](/docs/deployment-patterns/elastic-and-transient-environments/index.md) about using Project Triggers with a focus on deploying to elastic and transient environments.
@@ -19,7 +19,7 @@ Project Triggers allow you to choose from a subset of **events** that can occur 
 
 Automatic Deployment Triggers were introduced in **Octopus Deploy 3.4**.
 
-Automatic Deployment Triggers (also known as auto-deploy) allow you to define an unattended behavior for your [Projects](/docs/deployment-process/projects/index.md) that will cause an automatic deployment of a release into an [Environment](/docs/infrastructure/environments/index.md).
+Automatic Deployment Triggers (also known as auto-deploy) allow you to define an unattended behavior for your [Projects](/docs/deployment-process/projects.md) that will cause an automatic deployment of a release into an [Environment](/docs/infrastructure/environments/index.md).
 
 Automatic Deployment Triggers can help you:
 
@@ -81,8 +81,6 @@ Yes! You can apply a filter to the events to restrict which deployment targets w
 ### Which release will be deployed automatically? {#AutomaticDeploymentTriggers-Whichreleasewillbedeployedautomatically?}
 
 The best way to answer this is to look at your dashboard or project overview. By default Octopus will re-run the *currently successful* deployment for the project/environment/tenant combination. The end result should be that the new deployment target is configured just like its counterparts.
-
-![](/docs/images/5671191/5865836.png "width=500")
 
 You can override this behavior by configuring an [Auto Deploy Override](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/index.md).
 

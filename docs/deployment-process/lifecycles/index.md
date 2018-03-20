@@ -26,8 +26,6 @@ To add a new Lifecycle click on the **Add Lifecycle** button.
 
 To start with you define a Name, description and default retention policy for the whole Lifecycle. Each phase will inherit the Lifecycle retention policy unless it's own is defined.
 
-!partial <retentionpolicy>
-
 Once these initial details are defined you can add your first phase.
 
 ## Lifecycle Phases {#Lifecycles-LifecyclePhases}
@@ -49,7 +47,19 @@ You can define if this environment is automatically deployed to when the release
 If you have a project setup with [Automatic Release Creation](/docs/deployment-process/releases/automatic-release-creation.md) and set your first phase and environment to automatically deploy, pushing a package to the internal library will trigger both a release, and a deployment to that environment. A hands off deployment triggered by a build server push!
 :::
 
-!partial <gatedphase>
+Once you have more than one environment defined in a phase you can gate the phase.
+
+![](lifecycle-gated-phase.png "width=500")
+
+There is a setting for the phase called "Required to progress". This allows you to state how many environments within a phase must be deployed to before the next phase can be activated. If you have 5 environments and set this value to 2, only two environments must be deployed to before the next phase can be actively deployed to. If any environments within the next phase have automatic deployments set, they will trigger.
+
+To configure this, click the **Change** button and select the option you would like to use.
+
+![](lifecycle-gated-phase-progression.png "width=500")
+
+Click **OK** to save your changes
+
+![](lifecycle-gated-phase-only-one.png "width=500")
 
 Once all of your phases are defined your Lifecycle has a 'tree view'.
 
@@ -57,7 +67,13 @@ Once all of your phases are defined your Lifecycle has a 'tree view'.
 
 It shows the flow of the deployment in a visual way.
 
-!partial <optionalphase>
+### Optional Phases {#Lifecycles-OptionalPhases}
+
+Introduced in `3.12.8`, Optional Phases allow you to configure a phase to be optionally skipped when it is reached in the Lifecycle. This allows you to release to environments in the next phase without being required to deploy to _any_ in the optional phase. The standard Lifecycle progression and Automatic Deployment rules apply that determine when an optional phase is deployable.
+
+This feature may be useful for scenarios such as the provision of a `Testing` phase that can optionally be deployed to, but isn't crucial to progressing on to `Production`. A previous work around for this feature would involve adding the `Testing` environment to the previous `Dev` phase with a specific minimum deployed environment count set, however this may result in the project being deployed to `Testing` _instead of_ the required `Dev` before progression.
+
+![Optional Phase](optional-phase.png)
 
 ### No Progression
 

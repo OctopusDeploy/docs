@@ -47,7 +47,7 @@ export PATH=/Library/Frameworks/Mono.framework/Versions/Current/bin/:${PATH}
 
 ### .NET
 
-!partial <calamari>
+Calamari runs on .NET. For unix-like operating-systems, Calamari can either run on the [Mono framework](mono-calamari.md) or as a [self-contained .NET Core distributable](self-contained-calamari.md).
 
 ## Footprint {#SSHTargets-Footprint}
 

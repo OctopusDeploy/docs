@@ -1,1 +1,0 @@
-![](lifecycle-retention-policy.png "width=500")

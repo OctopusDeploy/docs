@@ -73,7 +73,7 @@ If your Staging Slot already exists, you can see it in the select-list of availa
 
 ![](azure-web-app-selector-with-slot.png "width=500")
 
-!partial <sitename-custom-expression>
+To use a variable for the WebSite name, click the "Bind" ![Bind](bind.png "width=10 Bind") button, and enter
 
 ```
 #{WebsiteName}(Staging)
