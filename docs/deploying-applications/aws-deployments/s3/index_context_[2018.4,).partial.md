@@ -44,7 +44,7 @@ If you select `Yes` to `Execute using the AWS service role for an EC2 instance`,
 Under the `Package Section`, define how the target package and the associated file uploads should behave for
 the step. The entire package can be uploaded or individual file(s) from the package can be specified for upload.
 
- ![S3 target options](upload-s3-target-options "width=500")
+ ![S3 target options](upload-s3-target-options.png "width=500")
 
 :::hint
 The [Github feed](https://octopus.com/docs/packaging-applications/package-repositories/github-feeds) synergizes well with the upload to S3 step when no build process is involved and content needs to be pushed to S3 and versioned separately.
