@@ -8,9 +8,9 @@ position: 1
 
 
 
-In the Octopus Web UI, click your username in the top right corner of the screen. !partial <profile>
+In the Octopus Web UI, click your username in the top right corner of the screen. Select **Profile** to go to your profile page.
 
-
+![](/docs/how-to/select-profile.png "width=500")
 
 To change your password, select **Change password**:
 
