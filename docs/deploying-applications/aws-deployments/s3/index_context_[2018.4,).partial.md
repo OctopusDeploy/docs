@@ -103,7 +103,8 @@ Metadata and tags can be provided for the package or for file selections for the
 The canned ACL must be specified when uploading files as it dictates the permissions for a file within the S3 bucket. Please see the [Aws documentation](https://g.octopushq.com/AwsS3CannedAcl) for information regarding Canned ACLs.
 
 ### Storage Class
-The storage class for files specify the performance access requirements for a file. In the absence of a provided storage class, the default of STANDARD is used. Please see the [Aws documentation](https://g.octopushq.com/AwsS3StorageClasses) for more information regarding Storage classes.
+The storage class for files specify the performance access requirements for a file.
+Please see the [Aws documentation](https://g.octopushq.com/AwsS3StorageClasses) for more information regarding Storage classes.
 
 ## Error Messages
 The AWS deployment steps include a number of unique error codes that may be displayed in the output if there was an error. Below is a list of the errors, along with any additional troubleshooting steps that can be taken to rectify them.
