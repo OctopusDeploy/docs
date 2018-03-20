@@ -91,7 +91,9 @@ Action-level variables are available during execution of an action. Indexer noti
 |**`Octopus.Action.Package.IgnoreConfigTransformationErrors`** <br/>If true, any errors in configuration transformations will be treated as informational rather than errors that will fail the deployment** ***(Boolean)* | *False*|
 |**`Octopus.Action.Package.IgnoreVariableReplacementErrors`** <br/>If true, any errors in variable replacement will be treated as a warning rather than an error that will fail the deployment. (*Boolean*) | *False*|
 |**`Octopus.Action.Package.InstallationDirectoryPath`** <br/>The directory where the package was installed. It is not available prior to package extraction. | *C:\InetPub\WWWRoot\OctoFx*|
-!partial <packageVariables>
+|**`Octopus.Action.Package.FeedId`** <br/>The ID of the feed from which the package being deployed was pulled | *feeds-123*|
+|**`Octopus.Action.Package.PackageId`** <br/>The ID of the package being deployed | *OctoFx.RateService*|
+|**`Octopus.Action.Package.PackageVersion`** <br/>The version of the package being deployed | *1.2.3*|
 |**`Octopus.Action.Package.SkipIfAlreadyInstalled`** <br/>If true, and the version of the package being deployed is already present on the machine, its re-deployment will be skipped (use with caution) *(Boolean)* | *False*|
 |**`Octopus.Action.Script.ScriptBody`** <br/>The script being run in a script step | *Write-Host 'Hello!'*|
 |**`Octopus.Action.Script.Syntax`** <br/>The syntax of the script being run in a script step | *PowerShell*|
