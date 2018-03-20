@@ -1,1 +1,0 @@
-If you have a lot of projects using Step Templates, updating them can be time consuming. We are planning to make this much easier, but until then you should consider the [BlueFin Chrome extension for Octopus](http://bluefin.teapotcoder.com/) which allows you to update a Step Template across all of your projects.
