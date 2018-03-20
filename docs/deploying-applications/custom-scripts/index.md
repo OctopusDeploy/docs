@@ -74,7 +74,9 @@ You can manage your Azure subscription using custom PowerShell scripts and the A
 
 For information about adding a step to the deployment process, see the [add step](/docs/deployment-process/steps/index.md) section.
 
-!partial <service-fabric-powershell>
+## Service Fabric PowerShell scripts {#Customscripts-ServiceFabricPowerShellScripts}
+
+You can manage your Service Fabric clusters using custom Service Fabric SDK PowerShell scripts - [more information](/docs/deploying-applications/custom-scripts/service-fabric-powershell-scripts.md).
 
 ## Variables {#Customscripts-Variables}
 
@@ -374,7 +376,26 @@ if ($LastExitCode -ne 0) {
 }
 ```
 
-!partial <fail-step>
+### Failing a script with a message
+
+The fail step function will stop your script execution and return a non-zero error code. An optional message can be supplied. If supplied, the message replaces
+the `The remote script failed with exit code <code>` text in the deployment process overview page.
+
+```powershell PowerShell
+Fail-Step "A friendly message"
+```
+
+```c# C#
+Octopus.FailStep("A friendly message");
+```
+
+```bash Bash
+fail_step "A friendly message"
+```
+
+```fsharp F#
+Octopus.failStep "A friendly message"
+```
 
 ## Output variables {#Customscripts-Outputvariables}
 
