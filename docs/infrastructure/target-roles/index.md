@@ -30,7 +30,7 @@ Whereas, the deployment targets in your **production** environment are more like
 
 You can define as many environments, deployment targets, and target roles as you need; it all depends on how software is deployed.
 
-## Creating a Role and Assigning it to a Deployment Target {#MachineRoles-CreatingaroleandassigningittoaTarget}
+## Creating Target Roles
 
 Roles are created and saved in the database as soon as you assign them to a deployment target.
 
