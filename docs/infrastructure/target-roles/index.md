@@ -12,7 +12,7 @@ When you deploy your software, you deploy it to deployment targets tagged with s
 
 Instead of saying:
 
-> The trading webs app should be deployed to the deployment targets PWEB01, PWEB02, ...
+> The trading web app should be deployed to the deployment targets PWEB01, PWEB02, ...
 
 We say:
 
