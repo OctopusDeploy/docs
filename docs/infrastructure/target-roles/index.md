@@ -12,7 +12,7 @@ For instance, you might the following roles:
 
 - web-server
 - app-server
-- db-sender
+- db-server
 
 ![](sample-environments.png)
 
@@ -26,7 +26,7 @@ We say:
 
 In production, perhaps you have 10 machines with the web-server role. In staging, perhaps you have only 4. In test, perhaps there is a single machine. Roles make defining your deployment process much easier.
 
-You can define as many environments, machines, and roles as you need; it all depends on how your applications are deployed.
+You can define as many environments, deployment targets, and roles as you need; it all depends on how your applications are deployed.
 
 ## Creating a Role and Assigning it to a Deployment Target {#MachineRoles-CreatingaroleandassigningittoaTarget}
 
