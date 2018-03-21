@@ -8,7 +8,7 @@ When executing PowerShell against Azure, Octopus Deploy will automatically impor
 This applies to:
 
 - 'Run an Azure PowerShell Script' steps
-- Scripts packaged or configured with [Deploying a package to an Azure Cloud Service](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-cloud-service/index.md) or [Azure Web App](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/index.md) steps
+- Scripts packaged or configured with [Deploying a package to an Azure Cloud Service](/docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-cloud-service/index.md) or [Azure Web App](/docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md) steps
 
 :::hint
 **Azure PowerShell Module version**

@@ -5,7 +5,7 @@ hideInThisSection: true
 position: 6
 ---
 
-Octopus Deploy provides first-class support for deploying to different PaaS products in the Azure Cloud by using [Azure Targets](#azure-targets). To deploy software to Azure, remember you must first add your Azure subscription to Octopus Deploy by [creating an Azure account](/docs/infrastructure/azure/creating-an-azure-account/index.md). Once that's done, follow the below links depending on the Azure Target you want to deploy to.
+Octopus Deploy provides first-class support for deploying to different PaaS products in the Azure Cloud by using [Azure Targets](#azure-targets). To deploy software to Azure, remember that you must first add your Azure subscription to Octopus Deploy by [creating an Azure account](/docs/infrastructure/azure/creating-an-azure-account/index.md). Once that's done, follow the below links depending on the Azure Target you want to deploy to.
 
 ## Azure targets
 
@@ -17,9 +17,9 @@ Octopus' Azure targets provide a reference to actual targets in your Azure infra
 
 The currently supported Azure targets are:
 
-- [Azure Web Apps](/docs/infrastructure/azure/web-app-targets/index.md) (also works for Azure Functions).
+- [Azure Web Apps](/web-app-targets/index.md) (also works for Azure Functions).
 
-- [Azure Service Fabric Clusters](/docs/infrastructure/azure/service-fabric-cluster-targets/index.md).
+- [Azure Service Fabric Clusters](/service-fabric-cluster-targets/index.md).
 
 - The one you were looking for is not here? [Let us know in Uservoice!](https://octopusdeploy.uservoice.com/).
 
