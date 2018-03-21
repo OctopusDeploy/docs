@@ -24,9 +24,9 @@ For instance, you could have the following target roles:
 - app-server
 - db-server
 
-The deployment targets in your **test** environment might be tagged with all three targets roles. This lets you deploy your software to all the deployment targets in your test environment.
+The deployment targets in your **test** environment might be tagged with all three target roles. This lets you deploy your software to all the deployment targets in your test environment.
 
-Whereas, the deployment targets in your **production** are more likely to tagged with specific roles. This lets you deploy you software to production, confident it will only be deployed to the appropriate deployment targets, for instance, only the targets tagged with **web-server**, **db-server** or whatever the case might be.
+Whereas, the deployment targets in your **production** environment are more likely to tagged with specific roles. This lets you deploy you software to production, confident it will only be deployed to the appropriate deployment targets, for instance, only the targets tagged with **web-server**, **db-server** or whatever the case might be.
 
 You can define as many environments, deployment targets, and target roles as you need; it all depends on how software is deployed.
 
