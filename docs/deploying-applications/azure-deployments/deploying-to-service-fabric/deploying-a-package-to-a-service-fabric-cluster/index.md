@@ -21,7 +21,7 @@ Create a Service Fabric cluster (either in Azure, on-prem or in other clouds). O
 
 ## Step 2: Packaging
 
-Package your Service Fabric application. See our guide to [Packaging a Service Fabric application](/docs/deploying-applications/service-fabric/packaging.md).
+Package your Service Fabric application. See our guide to [Packaging a Service Fabric application](/docs/deploying-applications/azure-deployments/service-fabric/packaging.md).
 
 ## Step 3: Create the Service Fabric application deployment step
 
@@ -33,7 +33,7 @@ Select your Service Fabric package from your package feed.
 
 Add your Service Fabric cluster connection endpoint.
 
-Select and configure the security mode required to connect to your cluster. The various security modes are described in detail in the [Deploying to Service Fabric documentation](/docs/deploying-applications/deploying-to-service-fabric/index.md)
+Select and configure the security mode required to connect to your cluster. The various security modes are described in detail in the [Deploying to Service Fabric documentation](/docs/deploying-applications/azure-deployments/deploying-to-service-fabric/index.md)
 
 ## Step 5: Configure your Service Fabric application step
 
@@ -109,4 +109,4 @@ Both methods allow you to modify your deployment process and variables per-regio
 
 ## Versioning
 
-To learn more about how you can automate Service Fabric versioning with Octopus, see our guide on [Version Automation with Service Fabric application packages](/docs/deploying-applications/service-fabric/version-automation-with-service-fabric-application-packages/index.md).
+To learn more about how you can automate Service Fabric versioning with Octopus, see our guide on [Version Automation with Service Fabric application packages](/docs/deploying-applications/azure-deployments/service-fabric/version-automation-with-service-fabric-application-packages/index.md).

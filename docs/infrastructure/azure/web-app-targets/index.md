@@ -2,7 +2,6 @@
 title: Azure Web App targets
 description: Azure Web App deployment targets allow you to reference existing Web Apps in your Azure subscription, that you can then reference by role during deployments.
 position: 100
-version: "[2018.4,)"
 ---
 
 Azure Web App deployment targets allow you to reference existing Web Apps in your Azure subscription, that you can then reference by role during deployments.
@@ -36,7 +35,7 @@ To create an Azure Web App target within Octopus:
 
 ## Deploying to Web App targets
 
-See our [documentation about this topic](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app.md)
+See our [documentation about this topic](/docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md)
 
 ## Troubleshooting
 
