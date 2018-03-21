@@ -46,7 +46,7 @@ To configure the Tentacle in listening or polling mode, it's easiest to run the 
 
 :::success
 **Advanced configuration options**
-When configuring your Tentacle you can configure advanced options, like [proxies](/docs/infrastructure/windows-targets/proxy-support.md), [machine policies](/docs/infrastructure/environments/machine-policies.md) and [tenants](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md), which can also be automated. Use the setup wizard to configure the Tentacle, and click the **Show Script** link which will show you the command-line equivalent to configure the Tentacle.
+When configuring your Tentacle you can configure advanced options, like [proxies](/docs/infrastructure/windows-targets/proxy-support.md), [machine policies](/docs/infrastructure/machine-policies.md) and [tenants](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md), which can also be automated. Use the setup wizard to configure the Tentacle, and click the **Show Script** link which will show you the command-line equivalent to configure the Tentacle.
 :::
 
 ## Example: Listening Tentacle {#AutomatingTentacleinstallation-Example:ListeningTentacle}
@@ -74,8 +74,8 @@ You can also register a Tentacle with the Octopus Server after it has been insta
 
 ```powershell
 Add-Type -Path 'Newtonsoft.Json.dll'
-Add-Type -Path 'Octopus.Client.dll' 
- 
+Add-Type -Path 'Octopus.Client.dll'
+
 $octopusApiKey = 'API-ABCXYZ'
 $octopusURI = 'http://YOUR_OCTOPUS'
 
@@ -183,6 +183,10 @@ Start-DscConfiguration .\SampleConfig -Verbose -wait
 # Test the configuration ran successfully
 Test-DscConfiguration
 ```
+### Settings and Properties
+
+To review the latest available settings and properties, refer to the [OctopusDSC Tentacle readme.md](https://github.com/OctopusDeploy/OctopusDSC/blob/master/README-cTentacleAgent.md) in the GitHub repository.
+
 
 DSC can be applied in various ways, such as [Group Policy](https://sdmsoftware.com/group-policy-blog/desired-state-configuration/desired-state-configuration-and-group-policy-come-together/), a [DSC Pull Server](https://msdn.microsoft.com/en-us/powershell/dsc/pullserver), [Azure Automation](https://msdn.microsoft.com/en-us/powershell/dsc/azuredsc), or even via configuration management tools such as [Chef](https://docs.chef.io/resource_dsc_resource.html) or [Puppet](https://github.com/puppetlabs/puppetlabs-dsc). A good resource to learn more about DSC is the [Microsoft Virtual Academy training course](http://www.microsoftvirtualacademy.com/training-courses/getting-started-with-powershell-desired-state-configuration-dsc-).
 

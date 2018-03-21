@@ -472,6 +472,14 @@ This is a catch all error message for unexpected errors during a Tomcat deployme
 * The firewall allows connection to the Tomcat server.
 * Tomcat is started and running.
 
+If you see errors such as:
+```
+23:22:33   Error    |       TOMCAT-DEPLOY-ERROR-0005: An exception was thrown during the deployment. http://g.octopushq.com/JavaAppDeploy#tomcat-deploy-error-0005
+23:22:33   Error    |       org.apache.http.conn.HttpHostConnectException: Connect to tomcat-server:8080 [tomcat-server/127.0.1.1] failed: Connection refused
+```
+
+Then ensure that the IP address of the tomcat server (`127.0.1.1` in this example, as found in the list `[tomcat-server/127.0.1.1]`) is valid. If not, there may be a DNS issue.
+
 ### TOMCAT-DEPLOY-ERROR-0006
 A HTTP return code indicated that the login failed due to bad credentials. Make sure the username and password are correct.
 

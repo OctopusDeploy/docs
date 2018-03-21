@@ -83,5 +83,5 @@ From a F# script, you can use the `createArtifact : path:string -&gt; fileName:
 **F#**
 
 ```fsharp
-Octopus.createArtifact @"C:\Windows\System32\drivers\etc\hosts" (System.Environment.MachineName + "-hosts.txt")
+Octopus.createArtifact @"C:\Windows\System32\drivers\etc\hosts" (Some (System.Environment.MachineName + "-hosts.txt"))
 ```

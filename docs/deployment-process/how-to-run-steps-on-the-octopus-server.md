@@ -1,5 +1,5 @@
 ---
-title: How to run steps on the Octopus Server
+title: How to Run Steps on the Octopus Server
 description: How to run steps directly on the Octopus Server in scenarios where they don't need to be run on a deployment target.
 position: 21
 ---

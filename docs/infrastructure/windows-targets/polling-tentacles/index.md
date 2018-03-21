@@ -43,10 +43,8 @@ If your network rules only allow port **80** and **443** to the Octopus server, 
 use the remaining port for polling Tentacle connections. The listening port can be [changed from the command line](/docs/administration/server-configuration-and-file-storage/index.md).
 Even if you do use port **80** for Polling Tentacles, the communication is still secure.
 
-Note that the port used to poll Octopus for jobs is different to the port used by your team to access the Octopus Deploy web interface; 
+Note that the port used to poll Octopus for jobs is different to the port used by your team to access the Octopus Deploy web interface;
 this is on purpose, and it means you can use different firewall conditions to allow Tentacles to access Octopus by IP address.
-
-!partial <web-sockets>
 
 Using polling mode, you won't typically need to make any firewall changes on the Tentacle machine.
 

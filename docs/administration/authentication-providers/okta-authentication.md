@@ -69,6 +69,12 @@ Select the **Sign On** tab and scroll down to the **OpenID Connect ID Token** se
 
 ![](../../images/okta-authentication/okta-openid-token.png "width=500")
 
+If you want groups from Okta to flow through to Octopus, you'll need to change the _Groups claim_ fields as follows
+
+![Okta Groups claim](okta-groups-claimtype.png)
+
+Note that the Regex is ```.*```, the period is important!
+
 ### Assign App {#Oktaauthentication-AssignApp}
 
 Next you will need to assign your app to people or groups within your Okta directory.
@@ -82,8 +88,6 @@ Next you will need to assign your app to people or groups within your Okta direc
    ![](../../images/okta-authentication/okta-assign-to-groups.png "width=500")
 
 ## Configuring Octopus Deploy Server {#Oktaauthentication-ConfiguringOctopusDeployServer}
-
-!partial <hint>
 
 You will need the **Client ID** (aka **Audience**) and **Issuer** obtained from the Okta portal as described above.
 
@@ -101,7 +105,15 @@ Octopus.Server.exe configure --OktaIsEnabled=true --OktaIssuer=Issuer --OktaClie
 # Octopus.Server.exe configure --OktaIsEnabled=true --OktaIssuer=https://dev-xxxxxx.oktapreview.com --OktaClientId=0a4bxxxxxxxxxxxx9yc3
 ```
 
-!partial <settings>
+Alternatively these settings can be defined through the user interface by selecting {{Configuration,Settings,Okta}} and populating the fields `Issuer`, `ClientId` and `IsEnabled`.
+
+![Settings](okta-settings.png)
+
+:::info
+
+In versions prior to 2018.3.5 the Role Claim Type and Scope had different defaults and these values will need to be updated. For new installations of 2018.3.5 and greater these values should default to the above values.
+
+:::
 
 ### Octopus user accounts are still required {#Oktaauthentication-Octopususeraccountsarestillrequired}
 

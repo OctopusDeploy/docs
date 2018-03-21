@@ -1,5 +1,5 @@
 ---
-title: Octopus community step templates integration
+title: Octopus Community Step Templates Integration
 description: Octopus community contributed step templates are synchronized with the Octopus server which makes it a quick and easy process to use community step templates in your project's deployment process.
 position: 2200
 ---

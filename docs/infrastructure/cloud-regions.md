@@ -1,8 +1,7 @@
 ---
 title: Cloud Regions
 description: Cloud Regions deployment targets allow steps to be executed multiple times to support deploying cloud applications in numerous geographic regions.
-position: 6
-version: 3.4
+position: 9
 ---
 
 Cloud Region targets will enable steps which execute on the Octopus Server to execute multiple times, with variables scoped for each iteration. The specific scenario this is designed to support is deploying cloud applications to multiple geographic regions:
@@ -26,4 +25,24 @@ We originally considered calling these "Generic Targets" because they can be use
 
 You can create Cloud Regions just like other deployment targets.
 
-!partial <newtarget>
+1. Go to {{Infrastructure,Deployment Targets}} and click **Add deployment target** in the environment where you want to create the cloud region.
+
+2. Select **Cloud Region** from the list of available deployment target types.
+
+![](images/adding-new-cloud-region.png "width=500")
+
+3. Give the cloud region a name and select the roles for the cloud region.
+
+![](images/adding-new-cloud-region-part2.png "width=500")
+
+4. Now you can see the cloud regions in the {{Infrastructure,Deployment Targets}} page, just like the other deployment targets.
+
+![](images/cloud-region-list.png "width=500")
+
+5. To make use of your cloud regions you should scope region-specific variables to them appropriately.
+
+![](images/project-with-cloud-region-scoped-variables.png "width=500")
+
+6. Now when you deploy your application, the appropriate steps will run once per region.
+
+![](images/cloud-region-deployment-complete.png "width=500")

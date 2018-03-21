@@ -100,7 +100,7 @@ If the page does not need this section, you can opt out by adding the following 
 hideInThisSection: true
 ```
 
-The rendering of "In this section" section [contains a header](_shared/in-this-section.md), if you need to omit this header (but still want it to contain the list of child pages):
+The rendering of "In This Section" section [contains a header](_shared/in-this-section.md), if you need to omit this header (but still want it to contain the list of child pages):
 ```yaml
 hideInThisSectionHeader: true
 ```
@@ -304,6 +304,7 @@ Which means elsewhere in the page you can link to it with this:
     [Goto My Heading](#My-Heading)
     [Goto a different page](/docs/getting-started.md#My-Heading)
 
+If you create anchors in the markdown, do not use special characters in the achor text as they will cause the link to be truncated.
 
 ## Images
 

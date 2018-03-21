@@ -29,17 +29,11 @@ Canary deployments are similar to using a staging environment. The difference is
 
 ## Canary Deployments in Octopus {#Canarydeployments-CanarydeploymentsinOctopus}
 
-There are two ways to implement canary deployments in Octopus. The first, and simplest, is to use the "Deploy to a subset of deployment targets" feature when deploying the release. This allows you to limit which deployment targets to deploy to:
-
-![](/docs/images/3048182/3278251.png "width=500")
+There are two ways to implement canary deployments in Octopus. The first, and simplest, is to use the "Deploy to a subset of deployment targets" feature when deploying the release. This allows you to limit which deployment targets to deploy to.
 
 First, you would deploy using just the canary servers, then after testing, you can deploy again using the remaining servers. This approach works well if you have a small number of servers and don't deploy to production too frequently.
 
-The alternative approach is to build canary deployments into your deployment process:
-
-![](/docs/images/3048182/3278252.png "width=500")
-
-In this process, we:
+The alternative approach is to build canary deployments into your deployment process.
 
 1. Deploy the package to the canary server (one or more deployment targets may be assigned to the *canary* role)
 2. Have a [manual intervention](/docs/deployment-process/steps/manual-intervention-and-approvals.md) step to wait until we are satisfied

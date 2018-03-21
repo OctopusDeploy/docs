@@ -52,12 +52,12 @@ var projects = repository.Projects.FindAll().Select(p => p.Id).ToArray();
 var environments = repository.Environments.FindAll().Select(e => e.Id).ToArray();
 List<DeploymentResource> recentDeployments = new List<DeploymentResource>();
 var after = DateTimeOffset.Now.AddDays(-7);
-repository.Deployments.Paginate(projects, environments, 
-	page => 
+repository.Deployments.Paginate(projects, environments,
+	page =>
 	 	{
 			recentDeployments.AddRange(page.Items.Where(d => d.Created >= after));
 			// Deployments are returned most recent first
-			return page.Items.All(i => i.Created >= after); 
+			return page.Items.All(i => i.Created >= after);
 	 	}
  );
 ```
@@ -87,9 +87,9 @@ var tasks = toBePromoted
 						.Select(d => repository.Deployments.Create(d))
 						.Select(d => repository.Tasks.Get(d.TaskId))
 						.ToArray();
-repository.Tasks.WaitForCompletion(tasks);
+repository.Tasks.WaitForCompletion(tasks, timeoutAfterMinutes: 0);
 var completed = repository.Tasks.Get(tasks.Select(t => t.Id).ToArray());
-if(completed.Any(c => c.State != TaskState.Success)
+if(completed.Any(c => c.State != TaskState.Success))
 	throw new Exception("One or more projects did not complete successfully");
 ```
 

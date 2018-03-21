@@ -1,1 +1,0 @@
-Configuring a proxy for a SSH Target works in essentially the same way as with a Listening Tentacle as described above. Simply configure up the proxy details via {{Environments,Proxies}} and then select the appropriate proxy in the SSH Target details screen.
