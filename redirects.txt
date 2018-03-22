@@ -136,7 +136,7 @@ docs/deploying-applications/adding-steps.md -> docs/deployment-process/steps/ind
 docs/deploying-applications/projects/deployment-processes.md -> docs/deployment-process/index.md
 docs/deploying-applications/variables/index.md -> docs/deployment-process/variables/index.md
 docs/deploying-applications/variables/binding-syntax.md -> docs/deployment-process/variables/binding-syntax.md
-docs/deploying-applications/variables/certificate-variables.md -> docs/deployment-process/variables/certificate-variables.md
+docs/deploying-applications/variables/certificate-variables.md -> docs/deployment-process/variables/typed-variables.md
 docs/deploying-applications/variables/library-variable-sets.md -> docs/deployment-process/variables/library-variable-sets.md
 docs/deploying-applications/variables/output-variables.md -> docs/deployment-process/variables/output-variables.md
 docs/deploying-applications/variables/prompted-variables.md -> docs/deployment-process/variables/prompted-variables.md
@@ -236,7 +236,7 @@ docs/deploying-applications/deployment-process/coordinating-multiple-projects/pr
 docs/deploying-applications/deployment-process/steps/index.md -> docs/deployment-process/steps/index.md
 docs/deploying-applications/deployment-process/variables/index.md -> docs/deployment-process/variables/index.md
 docs/deploying-applications/deployment-process/variables/binding-syntax.md -> docs/deployment-process/variables/binding-syntax.md
-docs/deploying-applications/deployment-process/variables/certificate-variables.md -> docs/deployment-process/variables/certificate-variables.md
+docs/deploying-applications/deployment-process/variables/certificate-variables.md -> docs/deployment-process/variables/typed-variables.md
 docs/deploying-applications/deployment-process/variables/library-variable-sets.md -> docs/deployment-process/variables/library-variable-sets.md
 docs/deploying-applications/deployment-process/variables/output-variables.md -> docs/deployment-process/variables/output-variables.md
 docs/deploying-applications/deployment-process/variables/prompted-variables.md -> docs/deployment-process/variables/prompted-variables.md
