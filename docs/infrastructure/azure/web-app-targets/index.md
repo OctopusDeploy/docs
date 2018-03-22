@@ -8,13 +8,11 @@ Azure Web App deployment targets allow you to reference existing Web Apps in you
 
 ## Requirements
 
-:::hint
-This new target type was introduced in `2018.4`. You can read more about all the new PaaS targets [in our blog](https://octopusdeploy.com/blog/paas-targets).
-:::
+- This new target type was introduced in `2018.4`, so you'll need to be running at least that version of the Octopus Server. You can read more about all the new PaaS targets [in our blog](https://octopusdeploy.com/blog/paas-targets).
 
-You will firstly need an [Azure Service Principal account](/docs/infrastructure/azure/creating-an-azure-account/creating-an-azure-service-principal-account.md) that references your Azure subscription.
+- You will firstly need an [Azure Service Principal account](/docs/infrastructure/azure/creating-an-azure-account/creating-an-azure-service-principal-account.md) that references your Azure subscription.
 
-Once your Azure account is setup, you will then need an existing Azure Web App / App Service setup within your Azure subscription. To learn more about App Services, the Azure team provide [useful documentation on App Services](https://docs.microsoft.com/en-us/azure/app-service/) that can help you get started.
+- Once your Azure account is setup, you will then need an existing Azure Web App / App Service setup within your Azure subscription. To learn more about App Services, the Azure team provide [useful documentation on App Services](https://docs.microsoft.com/en-us/azure/app-service/) that can help you get started. If you are dynamically creating the web app during your deployment, check our section about [creating Web App targets by scripts using service messages](#creating-web-app-targets-by-scripts).
 
 ## Creating Web App targets
 
@@ -37,7 +35,7 @@ To create an Azure Web App target within Octopus:
 
 Azure Web App targets can also be created via a Powershell Cmdlet within a Deployment Process, this can be especially handy if you are also creating the Azure Web App via a script.
 
-See [Creating Resources by script](/docs/infrastructure/managing-resources-using-scripts) for more information on creating Azure Web Apps via a script.
+See [Creating Resources by script](/docs/infrastructure/managing-resources-using-scripts.md) for more information on creating Azure Web Apps via a script.
 
 ## Deploying to Web App targets
 
