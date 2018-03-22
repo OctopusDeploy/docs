@@ -18,46 +18,6 @@ Before following the steps below, it can be worthwhile to restart the Octopus an
 If you have worked through this guide without success, it can be worthwhile to completely remove the Tentacle configuration, data, and working folders, and then reconfigure it from scratch. This can be done without any impact to the applications you have deployed. Learn about [manually uninstalling Tentacle](/docs/administration/tentacle-configuration-and-file-storage/manually-uninstall-tentacle.md). Working from a clean slate can sometimes expose the underlying problem.
 :::
 
-## Troubleshooting Connections {#ListeningTentacles-Troubleshootingconnections}
-
-Start with these simple steps to identify connection issues.
-
-*On the Tentacle machine*, open a web browser and navigate to [https://localhost:10933](https://localhost:10933/) (or your chosen Tentacle communications port if it isn't the default). Make sure an **HTTPS** URL is used.
-
-- If you're presented with a prompt to "confirm a certificate" or "select a certificate" choose "Cancel" - don't provide one
-- If you're presented with a warning about the invalidity of the site's certificate, "continue to the site" or "add an exception"
-
-The page shown should look like the one below.
-
-![](/docs/images/3048114/3277907.png "width=500")
-
-If you can browse to the Tentacle server, but Octopus is unable to communicate with it, try using remote desktop on the Octopus server and browsing to the Tentacle address using the format above. If you can't access the Tentacle, check any intermediary firewalls.
-
-**Like Using Curl?**
-
-```bash
-curl https://localhost:10933 -k
-```
-
-**Prefer PowerShell?**
-
-```powershell
-Add-Type @"
-    using System.Net;
-    using System.Security.Cryptography.X509Certificates;
-    public class TrustAllCertsPolicy : ICertificatePolicy {
-        public bool CheckValidationResult(
-            ServicePoint srvPoint, X509Certificate certificate,
-            WebRequest request, int certificateProblem) {
-            return true;
-        }
-    }
-"@
-
-[System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
-Invoke-WebRequest -Uri https://localhost:10933
-```
-
 ## Identify the Problem {#TroubleshootListeningTentacles-Homeinontheproblem}
 
 If you're at "square 1" and can't connect to a new Tentacle machine, take note of the error presented in the "Discover" page.
@@ -129,6 +89,31 @@ If you've made it this far, good news! Your Tentacle is running and ready to acc
 **If you can't browse to the page...**
 If this is where your journey ends, there's a problem on the Tentacle machine. It is very likely that the Tentacle is unable to open the communications port, either because of permissions, or because another process is listening on that port. Using the Windows `netstat -o -n -a -b` command can help to get to the bottom of this quickly. If you're still in trouble, check the Tentacle [log files](/docs/support/log-files.md) and contact Octopus Deploy support.
 :::
+
+**Like Using Curl?**
+
+```bash
+curl https://localhost:10933 -k
+```
+
+**Prefer PowerShell?**
+
+```powershell
+Add-Type @"
+    using System.Net;
+    using System.Security.Cryptography.X509Certificates;
+    public class TrustAllCertsPolicy : ICertificatePolicy {
+        public bool CheckValidationResult(
+            ServicePoint srvPoint, X509Certificate certificate,
+            WebRequest request, int certificateProblem) {
+            return true;
+        }
+    }
+"@
+
+[System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
+Invoke-WebRequest -Uri https://localhost:10933
+```
 
 ## Connect From the Octopus Server {#TroubleshootListeningTentacles-ConnectfromtheOctopusServer}
 
