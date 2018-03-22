@@ -412,4 +412,5 @@ docs/infrastructure/environments/target-roles/index.md -> docs/infrastructure/ta
 docs/infrastructure/environments/machine-policies.md -> docs/infrastructure/machine-policies.md
 docs/administration/octopus-dsc/tentacle-agent.md -> docs/infrastructure/windows-targets/automating-tentacle-installation.md
 docs/administration/octopus-dsc/octopus-server.md -> docs/installation/automating-installation.md
+docs/installation/upgrading.md -> docs/administration/upgrading/index.md
 docs/deploying-applications/azure-deployments/index.md#DeployingtoAzure-DeployingtoAzureviaafirewall -> docs/deploying-applications/azure-deployments/deploying-to-azure-via-a-firewall/index.md
