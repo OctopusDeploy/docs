@@ -14,8 +14,6 @@ docs/administration/upgrading/migrating-from-redgate-deployment-manager-to-octop
 docs/administration/how-to-move-the-octopus-server-to-another-server-or-vm.md -> docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md
 docs/deploying-applications/custom-scripts/naked-scripting.md -> docs/deploying-applications/custom-scripts/raw-scripting.md
 docs/guides/azure-deployments/cloud-services/cloud-service-concepts/cloud-service-accounts.md -> docs/deploying-applications/azure-deployments/cloud-services/getting-started-with-azure-cloud-services.md
-docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps-copy.md -> docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps.md
-docs/guides/azure-deployments/cloud-services/cloud-service-concepts/packaging-cloud-services.md -> docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-cloud-service/index.md
 docs/deploying-applications/docker-containers/docker-registries-as-feeds.md -> docs/packaging-applications/package-repositories/registries/index.md
 docs/administration/retention-policies/retention-policies-and-channels.md -> docs/administration/retention-policies/index.md
 docs/administration/moving-your-octopus/replicating-your-octopus-instance-in-a-test-environment.md -> docs/administration/moving-your-octopus/index.md
@@ -138,7 +136,7 @@ docs/deploying-applications/adding-steps.md -> docs/deployment-process/steps/ind
 docs/deploying-applications/projects/deployment-processes.md -> docs/deployment-process/index.md
 docs/deploying-applications/variables/index.md -> docs/deployment-process/variables/index.md
 docs/deploying-applications/variables/binding-syntax.md -> docs/deployment-process/variables/binding-syntax.md
-docs/deploying-applications/variables/certificate-variables.md -> docs/deployment-process/variables/certificate-variables.md
+docs/deploying-applications/variables/certificate-variables.md -> docs/deployment-process/variables/typed-variables.md
 docs/deploying-applications/variables/library-variable-sets.md -> docs/deployment-process/variables/library-variable-sets.md
 docs/deploying-applications/variables/output-variables.md -> docs/deployment-process/variables/output-variables.md
 docs/deploying-applications/variables/prompted-variables.md -> docs/deployment-process/variables/prompted-variables.md
@@ -222,9 +220,9 @@ docs/guides/server-extensibility/installing-a-custom-server-extension.md -> docs
 docs/guides/server-extensibility/building-an-authentication-provider/index.md -> docs/api-and-integration/server-extensibility/building-an-authentication-provider/index.md
 docs/guides/server-extensibility/building-an-authentication-provider/building-a-forms-based-authentication-provider.md -> docs/api-and-integration/server-extensibility/building-an-authentication-provider/building-a-forms-based-authentication-provider.md
 docs/guides/server-extensibility/building-an-authentication-provider/building-an-external-authentication-provider.md -> docs/api-and-integration/server-extensibility/building-an-authentication-provider/building-an-external-authentication-provider.md
-docs/guides/service-fabric/index.md -> docs/deploying-applications/service-fabric/index.md
-docs/guides/service-fabric/packaging.md -> docs/deploying-applications/service-fabric/packaging.md
-docs/guides/service-fabric/version-automation-with-service-fabric-application-packages/index.md -> docs/deploying-applications/service-fabric/version-automation-with-service-fabric-application-packages/index.md
+docs/guides/service-fabric/index.md -> docs/deploying-applications/azure-deployments/service-fabric/index.md
+docs/guides/service-fabric/packaging.md -> docs/deploying-applications/azure-deployments/service-fabric/packaging.md
+docs/guides/service-fabric/version-automation-with-service-fabric-application-packages/index.md -> docs/deploying-applications/azure-deployments/service-fabric/version-automation-with-service-fabric-application-packages/index.md
 docs/guides/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md -> docs/deployment-patterns/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md
 docs/deploying-applications/deployment-process/projects/index.md -> docs/deployment-process/projects.md
 docs/deploying-applications/deployment-process/index.md -> docs/deployment-process/index.md
@@ -238,7 +236,7 @@ docs/deploying-applications/deployment-process/coordinating-multiple-projects/pr
 docs/deploying-applications/deployment-process/steps/index.md -> docs/deployment-process/steps/index.md
 docs/deploying-applications/deployment-process/variables/index.md -> docs/deployment-process/variables/index.md
 docs/deploying-applications/deployment-process/variables/binding-syntax.md -> docs/deployment-process/variables/binding-syntax.md
-docs/deploying-applications/deployment-process/variables/certificate-variables.md -> docs/deployment-process/variables/certificate-variables.md
+docs/deploying-applications/deployment-process/variables/certificate-variables.md -> docs/deployment-process/variables/typed-variables.md
 docs/deploying-applications/deployment-process/variables/library-variable-sets.md -> docs/deployment-process/variables/library-variable-sets.md
 docs/deploying-applications/deployment-process/variables/output-variables.md -> docs/deployment-process/variables/output-variables.md
 docs/deploying-applications/deployment-process/variables/prompted-variables.md -> docs/deployment-process/variables/prompted-variables.md
@@ -388,9 +386,9 @@ docs/reference/elastic-and-transient-environments/immutable-infrastructure.md ->
 docs/reference/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md -> docs/deployment-patterns/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md
 docs/administration/lets-encrypt-integration.md -> docs/administration/security/exposing-octopus/lets-encrypt-integration.md
 docs/administration/maintenance-mode.md -> docs/administration/upgrading/maintenance-mode.md
-docs/reference/service-fabric/index.md -> docs/deploying-applications/service-fabric/index.md
-docs/reference/service-fabric/packaging.md -> docs/deploying-applications/service-fabric/packaging.md
-docs/reference/service-fabric/version-automation-with-service-fabric-application-packages/index.md -> docs/deploying-applications/service-fabric/version-automation-with-service-fabric-application-packages/index.md
+docs/reference/service-fabric/index.md -> docs/deploying-applications/azure-deployments/service-fabric/index.md
+docs/reference/service-fabric/packaging.md -> docs/deploying-applications/azure-deployments/service-fabric/packaging.md
+docs/reference/service-fabric/version-automation-with-service-fabric-application-packages/index.md -> docs/deploying-applications/azure-deployments/service-fabric/version-automation-with-service-fabric-application-packages/index.md
 docs/reference/index.md -> docs/getting-started.md
 docs/administration/octopus-server-configuration-file.md -> docs/administration/server-configuration-and-file-storage/index.md
 docs/deployment-process/delta-compression-for-package-transfers.md -> docs/deployment-process/deploying-packages/delta-compression-for-package-transfers.md
@@ -415,3 +413,4 @@ docs/infrastructure/environments/machine-policies.md -> docs/infrastructure/mach
 docs/administration/octopus-dsc/tentacle-agent.md -> docs/infrastructure/windows-targets/automating-tentacle-installation.md
 docs/administration/octopus-dsc/octopus-server.md -> docs/installation/automating-installation.md
 docs/installation/upgrading.md -> docs/administration/upgrading/index.md
+docs/deploying-applications/azure-deployments/index.md#DeployingtoAzure-DeployingtoAzureviaafirewall -> docs/deploying-applications/azure-deployments/deploying-to-azure-via-a-firewall/index.md
