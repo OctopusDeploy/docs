@@ -414,3 +414,11 @@ docs/administration/octopus-dsc/tentacle-agent.md -> docs/infrastructure/windows
 docs/administration/octopus-dsc/octopus-server.md -> docs/installation/automating-installation.md
 docs/installation/upgrading.md -> docs/administration/upgrading/index.md
 docs/deploying-applications/azure-deployments/index.md#DeployingtoAzure-DeployingtoAzureviaafirewall -> docs/deploying-applications/azure-deployments/deploying-to-azure-via-a-firewall/index.md
+docs/deploying-applications/deploying-to-service-fabric/index.md -> docs/deploying-applications/azure-deployments/deploying-to-service-fabric/index.md
+docs/deploying-applications/deploying-to-service-fabric/connecting-securely-with-azure-active-directory/index.md -> docs/deploying-applications/azure-deployments/deploying-to-service-fabric/connecting-securely-with-azure-active-directory/index.md
+docs/deploying-applications/deploying-to-azure/index.md -> docs/deploying-applications/azure-deployments/index.md
+docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-cloud-service/index.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-cloud-service/index.md
+docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-cloud-service/azure-steps-migrated-from-octopus-deploy-2.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-cloud-service/azure-steps-migrated-from-octopus-deploy-2.md
+docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/index.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md
+docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/deploying-web-jobs.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-web-app/deploying-web-jobs.md
+docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps.md
