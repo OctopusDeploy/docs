@@ -4,7 +4,7 @@ description: Target roles allow you to “tag” machines with a specific keywor
 position: 1
 ---
 
-All of the environments that you work with, for instance, Development, Test, or Production, will likely have multiple deployment targets. In production, your web sites and Windows Services might run on different physical servers; perhaps dozens of them. However, unless you are extremely lucky, it's unlikely that you have the budget to have an equal number of servers in any of your pre-production environments. When testing your software in a test environment, you might only have a single virtual machine which will run all of the software on the same machine.
+All of the environments that you work with, for instance, Development, Test, or Production, will likely have multiple deployment targets. In production, your software might run on different physical servers or cloud services; perhaps dozens of them. However, unless you are extremely lucky, it's unlikely that you have the budget to have an equal number of deployment targets in any of your pre-production environments. When testing your software in a test environment, you might only have a single virtual machine which is used to test all of your software.
 
 Octopus handles these differences by applying roles to the deployment targets within your environments.
 
@@ -46,4 +46,6 @@ The role has been created and assigned to the deployment target and is now avail
 
 ![](target-roles.png "width=500")
 
-You can check all the roles assigned to your deployment targets from the **Infrastructure** screen.
+You can check all the roles assigned to your deployment targets from the **Infrastructure** tab.
+
+Learn more about [using target roles in your deployment process](/docs/deployment-process/steps/using-target-roles-in-deployment-steps.md).
