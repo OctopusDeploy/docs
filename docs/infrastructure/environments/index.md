@@ -5,7 +5,7 @@ position: 0
 ---
 Octopus Deploy organizes your infrastructure, that is the deployment targets you deploy software to (whether on-premises servers or cloud services), into *environments*. Typical examples of environments are **Development**, **Test**, and **Production**.
 
-Organizing your deployment targets into environments lets you define your deployment processes (no matter how many targets or steps are involved) and have Octopus deploy the right versions of your software to the right environments at the right time.
+Organizing your deployment targets into environments lets you define your deployment processes (no matter how many deployment targets or steps are involved) and have Octopus deploy the right versions of your software to the right environments at the right time.
 
 ## Add a New Environment
 
@@ -22,8 +22,6 @@ Give your new environment a meaningful name, like **Development**, **Test**, or 
 If you're working with a large number of environments and deployment targets, the infrastructure tab makes it easy to sort, filter, and view your environments.
 
 ![](environments.png "width=500")
-
-To edit individual environments, click the overflow menu for that environment. From here, it is possible to edit the environment, description, select [guided failure mode](/docs/infrastructure/environments/index.md#Environments-Guidedfailures), or delete the environment.
 
 ### Sorting Your Environments {#Environments-Environmentordering}
 
@@ -53,7 +51,11 @@ This will let you search by:
 
 ![](advanced-filters.png)
 
-### Guided Failures {#Environments-Guidedfailures}
+### Edit Your Environments
+
+To edit individual environments, click the overflow menu for that environment. From here, it is possible to edit the environment, description, select [guided failure mode](/docs/infrastructure/environments/index.md#Environments-Guidedfailures), or delete the environment.
+
+#### Guided Failures {#Environments-Guidedfailures}
 
 [Guided failure mode](/docs/deployment-process/releases/guided-failures.md) can be enabled on an environment by default. This is useful for critical environments that are usually deployed to manually (for example, staging and production-like environments), though you may want to disable this feature for environments which are deployed to automatically such as smoke testing environments.
 
