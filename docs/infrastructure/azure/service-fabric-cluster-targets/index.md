@@ -2,6 +2,7 @@
 title: Azure Service Fabric Cluster targets
 description: Azure Service Fabric Cluster deployment targets allow you to reference existing Service Fabric Cluster apps that are available in your Azure subscription, that you can then reference by role during deployments.
 position: 100
+version: "[2018.4,)"
 ---
 
 Azure Service Fabric Cluster deployment targets allow you to reference existing Service Fabric Cluster apps that are available in your Azure subscription, that you can then reference by role during deployments.
