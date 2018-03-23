@@ -426,5 +426,3 @@ docs/deploying-applications/deploying-to-service-fabric/connecting-securely-with
 docs/deploying-applications/deploying-to-service-fabric/deploying-a-package-to-a-service-fabric-cluster/index.md -> docs/deploying-applications/azure-deployments/deploying-to-service-fabric/deploying-a-package-to-a-service-fabric-cluster/index.md
 docs/deploying-applications/service-fabric/index.md -> docs/deploying-applications/azure-deployments/service-fabric/index.md
 docs/deploying-applications/service-fabric/packaging.md -> docs/deploying-applications/azure-deployments/service-fabric/packaging.md
-docs/deployment-process/variables/certificate-variables -> docs/deployment-process/variables/typed-variables.md
-docs/deploying-applications/service-fabric/version-automation-with-service-fabric-application-packages -> docs/deploying-applications/azure-deployments/service-fabric/version-automation-with-service-fabric-application-packages
