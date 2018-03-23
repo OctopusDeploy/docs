@@ -2,12 +2,13 @@
 title: Managing Resources using scripts
 description: Octopus resources can be created using service messages allowing resources that you currently can script in Azure to be modeled in Octopus.
 position: 10
+version: "[2018.5,)"
 ---
 
 Some resources can be created within Octopus from the same scripts that you use to create them on Azure. By adding some additional commands Web Apps you create on Azure can also be created within Octopus as deployment targets.
 
 :::warning
-As of the 2018.4 release, only Azure Service Principal Accounts, Azure Web Apps and Azure Service Fabric targets are supported.
+As of the `2018.5` release, only Azure Service Principal Accounts, Azure Web Apps and Azure Service Fabric targets are supported.
 :::
 
 ## Available Commands and Syntax

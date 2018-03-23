@@ -3,7 +3,7 @@ Octopus Deploy provides first-class support for deploying to different PaaS prod
 ## Azure targets
 
 :::hint
-These new target types were introduced in `2018.4`. You can read more about all the new PaaS targets [in our blog](https://octopusdeploy.com/blog/paas-targets).
+These new target types were introduced in `2018.5`. You can read more about all the new PaaS targets [in our blog](https://octopusdeploy.com/blog/paas-targets).
 :::
 
 Octopus' Azure targets provide a reference to actual targets in your Azure infrastructure, allowing you to target several PaaS products by role during a deployment. Azure targets are setup the same way as regular deployment targets and go through health checks, so you can know the status of your Azure infrastructure targets and spot any problems early.

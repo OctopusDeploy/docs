@@ -2,7 +2,7 @@
 title: Azure Service Fabric Cluster targets
 description: Azure Service Fabric Cluster deployment targets allow you to reference existing Service Fabric Cluster apps that are available in your Azure subscription, that you can then reference by role during deployments.
 position: 100
-version: "[2018.4,)"
+version: "[2018.5,)"
 ---
 
 Azure Service Fabric Cluster deployment targets allow you to reference existing Service Fabric Cluster apps that are available in your Azure subscription, that you can then reference by role during deployments.
@@ -10,7 +10,7 @@ Azure Service Fabric Cluster deployment targets allow you to reference existing 
 ## Requirements
 
 :::hint
-This new target type was introduced in `2018.4`. You can read more about all the new PaaS targets [in our blog](https://octopusdeploy.com/blog/paas-targets).
+This new target type was introduced in `2018.5`. You can read more about all the new PaaS targets [in our blog](https://octopusdeploy.com/blog/paas-targets).
 :::
 
 :::hint
