@@ -1,16 +1,9 @@
 ---
-title: Typed Variables
-description: Variables in Octopus Deploy can have an entire type as value instead of just a string.
+title: Certificate Variables 
+description: Variables in Octopus Deploy can have a certificate as the value 
 position: 8
+version: "3.11"
 ---
-
-!toc
-
-## Azure Account Variables
-
-## AWS Account Variables
-
-## Certificate Variables
 
 In the variable-editor, selecting *Certificate* as the variable type allows you to create a variable with a certificate managed by Octopus as the value.
 
@@ -20,7 +13,7 @@ Certificate variables can be [scoped](scoping-variables.md), similar to regular 
 
 ![](/docs/images/certificates/certificate-variables-scoped.png "width=500")
 
-### Expanded Properties
+## Expanded Properties
 
 At deploy-time, Certificate variables are expanded. For example, a variable _MyCertificate_ becomes:
 
@@ -48,6 +41,6 @@ For example, to access the certificate thumbprint in a PowerShell script:
 Write-Host $OctopusParameters["MyCertificate.Thumbprint"]
 ```
 
-#### Private-Key Variables
+### Private-Key Variables
 
 The variables which contain the private-key (if present) will be stored and transmitted as [sensitive-variables](/docs/deployment-process/variables/sensitive-variables.md).  
