@@ -9,22 +9,6 @@ Octopus supports the deletion of an existing AWS CloudFormation stack through th
 
 The proceeding instructions can be followed to configure the `Delete an AWS CloudFormation stack` step.
 
-## Create an AWS Account
-
-The instructions at [Creating an AWS Account](/docs/infrastructure/aws/creating-an-aws-account/index.md) detail the procedure for creating an account in Octopus. You can also choose to use a service role of an EC2 instance, in which case creating an AWS account is not required.
-
-## Create a AWS Account Project Variable
-
-AWS accounts are included in a project through a project variable of the type `Amazon Web Services Account`.
-
-![AWS Account Variable](aws-account-variable.png "width=500")
-
-The `Add Variable` window is then displayed and lists all the AWS accounts.
-
-Select the account that was created in the previous step to assign it to the variable.
-
-![AWS Account Variable Selection](aws-account-variable-selection.png "width=500")
-
 ## Add the CloudFormation Step
 
 Add the `Delete an AWS CloudFormation stack` step to the project, and provide it a name.
@@ -33,7 +17,7 @@ Add the `Delete an AWS CloudFormation stack` step to the project, and provide it
 
 ### AWS Section
 
-Select the variable that references the `Amazon Web Services Account` under the `AWS Account` section or choose to execute using a service role assigned to the EC2 instance.
+Select the variable that references the `Amazon Web Services Account` under the `AWS Account` section or choose to execute using a service role assigned to the EC2 instance. If you don't have an `AWS Account Variable` yet, check our [documentation on how to create one](/docs/deployment-process/variables/aws-account-variables.md).
 
 ![AWS Account](step-aws-account.png "width=500")
 
