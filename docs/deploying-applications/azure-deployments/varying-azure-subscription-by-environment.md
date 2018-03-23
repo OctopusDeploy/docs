@@ -25,11 +25,11 @@ You may want to use a different Azure subscription depending on which environmen
 
    ![](varying-variables-cs.png "width=500")
 
-4. If you are deploying an **Azure Web App** - On your [Azure Web App step](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/index.md) use the variables to set the **Account** and **WebApp**
+4. If you are deploying an **Azure Web App** - On your [Azure Web App step](/docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md) use the variables to set the **Account** and **WebApp**
 
    ![Web app bindings](varying-bindings-wa.png "width=500")
 
-   If you are deploying an **Azure Cloud Service** - On your [Azure Cloud Service step](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-cloud-service/index.md) use the variables to set the **Account**, **Cloud Service** and **Storage Account**
+   If you are deploying an **Azure Cloud Service** - On your [Azure Cloud Service step](/docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-cloud-service/index.md) use the variables to set the **Account**, **Cloud Service** and **Storage Account**
 
    ![Cloud service bindings](varying-bindings-cs.png "width=500")
 
