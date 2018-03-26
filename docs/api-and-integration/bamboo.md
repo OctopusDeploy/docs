@@ -32,7 +32,7 @@ There are a number of typical steps that are required to push a package to Octop
 We'll assume that there is already a Bamboo build plan in place that successfully builds an application.
 
 ### 2. Create the Package
-With the application built, we need to add it to an archive that complies with the Octopus Deploy [versioning requirements](/docs/packaging-applications/versioning.md). In this example we will stick to a simple `AppName.Major.Minor.Patch` semver format.
+With the application built, we need to add it to an archive that complies with the Octopus Deploy [versioning requirements](/docs/packaging-applications/creating-packages/versioning.md). In this example we will stick to a simple `AppName.Major.Minor.Patch` semver format.
 
 Creating the package is done with the `Octopus Deploy: Pack Packages` task. In addition to the [common configuration fields](#commonConfiguration), this task requires the name of the package, the type of package to create, the version number of the package, the base folder containing the files to be packaged, paths to be included in the package, and enabling any existing package files to be overwritten.
 

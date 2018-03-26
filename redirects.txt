@@ -1,10 +1,9 @@
 from-file-path -> to-file-path   #DO NOT DELETE THIS LINE
 docs/guides/azure-deployments/cloud-services/cloud-service-concepts/cloud-service-deployment-step.md -> docs/deploying-applications/azure-deployments/cloud-services/cloud-service-concepts.md
 docs/guides/azure-deployments/resource-groups/deploy-using-an-azure-resource-group-template.md -> docs/deploying-applications/azure-deployments/resource-groups/index.md
-docs/guides/azure-deployments/web-apps/web-app-concepts/packaging-web-apps.md -> docs/deploying-applications/azure-deployments/web-apps/web-app-concepts.md
-docs/guides/azure-deployments/web-apps/web-app-concepts/web-app-deployment-step/preserve-specific-paths-when-deploying-azure-web-app.md -> docs/deploying-applications/azure-deployments/web-apps/web-app-concepts.md
-docs/guides/azure-deployments/web-apps/web-app-concepts/web-app-deployment-step/index.md -> docs/deploying-applications/azure-deployments/web-apps/web-app-concepts.md
-docs/guides/azure-deployments/web-apps/web-app-concepts/web-app-accounts.md -> docs/deploying-applications/azure-deployments/web-apps/web-app-concepts.md
+docs/deploying-applications/azure-deployments/web-apps/web-app-concepts.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md
+docs/guides/azure-deployments/web-apps/web-app-concepts/web-app-deployment-step/index.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md
+docs/guides/azure-deployments/web-apps/web-app-concepts/web-app-accounts.md -> docs/infrastructure/azure/creating-an-azure-account/index.md
 docs/guides/multi-tenant-deployments/other-scenarios-for-multi-tenant-deployments.md -> docs/deployment-patterns/multi-tenant-deployments/index.md
 docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/migrating-to-octopus-3.4.md -> docs/deployment-patterns/multi-tenant-deployments/index.md
 docs/deploying-applications/docker-containers/docker-compose.md -> docs/deploying-applications/docker-containers/index.md
@@ -122,9 +121,9 @@ docs/guides/azure-deployments/cloud-services/vip-swap.md -> docs/deploying-appli
 docs/guides/azure-deployments/resource-groups/index.md -> docs/deploying-applications/azure-deployments/resource-groups/index.md
 docs/guides/azure-deployments/running-azure-powershell/index.md -> docs/deploying-applications/azure-deployments/running-azure-powershell/index.md
 docs/guides/azure-deployments/running-azure-powershell/configuring-the-version-of-the-azure-powershell-modules.md -> docs/deploying-applications/azure-deployments/running-azure-powershell/configuring-the-version-of-the-azure-powershell-modules.md
-docs/guides/azure-deployments/web-apps/index.md -> docs/deploying-applications/azure-deployments/web-apps/index.md
-docs/guides/azure-deployments/web-apps/getting-started-with-azure-web-apps.md -> docs/deploying-applications/azure-deployments/web-apps/getting-started-with-azure-web-apps.md
-docs/guides/azure-deployments/web-apps/web-app-concepts.md -> docs/deploying-applications/azure-deployments/web-apps/web-app-concepts.md
+docs/guides/azure-deployments/web-apps/index.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md
+docs/guides/azure-deployments/web-apps/getting-started-with-azure-web-apps.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md
+docs/guides/azure-deployments/web-apps/web-app-concepts.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md
 docs/deploying-applications/projects/index.md -> docs/deployment-process/projects.md
 docs/deploying-applications/projects/channels.md -> docs/deployment-process/channels.md
 docs/deploying-applications/projects/project-groups.md -> docs/deployment-process/projects.md
@@ -397,7 +396,7 @@ docs/deployment-process/variable-substitution-syntax.md -> docs/deployment-proce
 docs/deployment-process/steps/automatic-release-creation.md -> docs/deployment-process/releases/automatic-release-creation.md
 docs/installation/sql-server-database-requirements.md -> docs/installation/sql-server-database.md
 docs/administration/security/hardening-octopus-server.md -> docs/administration/security/hardening-octopus.md
-docs/packaging-applications/versioning-in-octopus-deploy.md -> docs/packaging-applications/versioning.md
+docs/packaging-applications/versioning-in-octopus-deploy.md -> docs/packaging-applications/creating-packages/versioning.md
 docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4.md -> docs/deployment-patterns/multi-tenant-deployments/index.md
 docs/administration/report-on-deployments-using-excel.md -> docs/administration/reporting/report-on-deployments-using-excel.md
 docs/infrastructure/environments/elastic-and-transient-environments/index.md -> docs/deployment-patterns/elastic-and-transient-environments/index.md
