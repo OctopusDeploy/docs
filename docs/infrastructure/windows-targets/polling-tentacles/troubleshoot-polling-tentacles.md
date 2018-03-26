@@ -25,7 +25,7 @@ If you're at "square 1" and can't register a new Tentacle with the Octopus Serve
 If you are having problems with a previously-working machine, or you've successfully registered a machine but can't get communication to work afterwards, you can find information in three places:
 
 1. If the machine has been included in a Health Check or Deployment, examine the Raw Task Log. There's a link to this on the page containing the details of the Health Check or Deployment, which can usually be located using the *Tasks* page in the Octopus Web Portal.
-2. On the *Environments* page of the Octopus Web Portal, click on the problem machine and select the *Connectivity* tab. There's often specific information about the communication status of the machine here.
+2. On the *Infrastructure* page of the Octopus Web Portal, click on the problem machine and select the *Connectivity* tab. There's often specific information about the communication status of the machine here.
 3. In the Octopus Web Portal, open {{Configuration,Diagnostics}}. Information on this page can be helpful to work out what's going on in the Octopus installation. Following the link to *Server logs* and searching for the machine's name or IP address can turn up useful information.
 
 :::success
