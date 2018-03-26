@@ -1,19 +1,9 @@
 ---
-title: Project Triggers
-description: Project Triggers allow you to define unattended behavior for your project such as automatically deploying a release to an environment.
-position: 4
+title: Automatic Deployment Triggers
+description: Automatic deployment triggers allow you to define unattended behavior for your project that will cause an automatic deployment of a release into an environment.
+position: 1
 version: 3.4
 ---
-
-Project Triggers allow you to define an unattended behavior for your [Projects](/docs/deployment-process/projects.md).
-
-:::success
-We have written a [comprehensive guide](/docs/deployment-patterns/elastic-and-transient-environments/index.md) about using Project Triggers with a focus on deploying to elastic and transient environments.
-:::
-
-Project Triggers allow you to choose from a subset of **events** that can occur in Octopus Deploy, apply a **filter** to those events, and decide on an **action** you want performed once the trigger fires. The example below shows an Automatic Deployment Trigger configured to fire when a [Deployment Target](/docs/infrastructure/index.md) with the [Machine Role](/docs/infrastructure/target-roles/index.md) **web-server** belonging to the **Production** [Environment](/docs/infrastructure/environments/index.md) becomes available.
-
-![](/docs/images/5671189/5865830.png "width=500")
 
 ## Automatic Deployment Triggers
 
