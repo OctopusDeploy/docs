@@ -9,9 +9,9 @@ Deploying software with Octopus Deploy involves defining your deployment process
 
 Before you can deploy your software you need to:
 
-1. Decide which [format](/docs/packaging-applications/supported-packages.md) to use to package your software.
-1. Give your package a [package ID](/docs/packaging-applications/package-id.md).
-1. Choose and apply a [versioning](/docs/packaging-applications/versioning.md) scheme for your software.
+1. Decide which [format](/docs/packaging-applications/creating-packages/supported-packages.md) to use to package your software.
+1. Give your package a [package ID](/docs/packaging-applications/creating-packages/package-id.md).
+1. Choose and apply a [versioning](/docs/packaging-applications/creating-packages/versioning.md) scheme for your software.
 1. [Create the package](/docs/packaging-applications/creating-packages/index.md) with all the files your software needs to run.
 1. Host the packages in a [package repository](/docs/packaging-applications/package-repositories/index.md).
 
