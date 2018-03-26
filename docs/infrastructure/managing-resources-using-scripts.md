@@ -20,7 +20,6 @@ Each of the resource commands is available as a Powershell function anywhere tha
 #### Azure Web App
 **New-OctopusAzureWebAppTarget**
 
-
 | Parameter                 | Value                                         |
 | ------------------------- | --------------------------------------------- |
 | `-name`                   | name for the Octopus deployment target        |
@@ -41,7 +40,6 @@ New-OctopusAzureWebAppTarget -name "My Azure Web Application" `
 #### Azure Service Fabric
 **New-OctopusServiceFabricTarget**
 
-
 | Parameter                       | Value                                              |
 | ------------------------------- | -------------------------------------------------  |
 | `-name`                         | Name for the Octopus deployment target             |
@@ -57,21 +55,23 @@ New-OctopusAzureWebAppTarget -name "My Azure Web Application" `
 
 _Security Mode Options_
 
-
 | Mode | Aliases |
 | --- | --- |
 | Unsecure | `unsecure` |
 | Secure Client Certificate | `certificate` `clientcertificate` `secureclientcertificate` |
-| Secure Azure Active Directory | `aad` `azureactivedirectory`| 
-
+| Secure Azure Active Directory | `aad` `azureactivedirectory`|
 
 ```powershell
-New-OctopusServiceFabricTarget 
+New-OctopusServiceFabricTarget
 ```
+
+### Azure Cloud Service
+**New-OctopusAzureCloudServiceTarget**
+
+// TODO: mark.siedle - Talk to Ben about what we need here.
 
 #### Delete Target
 **Remove-OctopusTarget**
-
 
 | Parameter | Value |
 | --- | --- |
@@ -95,4 +95,3 @@ Remote-OctopusTarget -targetIdOrName "My Azure Web Application"
 ### Deploying and ARM template
 
 ### Tearing down a test environment
-
