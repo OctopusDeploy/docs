@@ -424,8 +424,8 @@ docs/deploying-applications/service-fabric/packaging.md -> docs/deploying-applic
 docs/deploying-applications/service-fabric/version-automation-with-service-fabric-application-packages/index.md -> docs/deploying-applications/azure-deployments/service-fabric/version-automation-with-service-fabric-application-packages/index.md
 docs/how-to/migrate-azure-targets-into-azure-steps.md -> docs/index.md
 docs/deployment-process/migrate-azure-targets-into-azure-steps.md -> docs/index.md
-docs/packaging-applications/package-id -> docs/packaging-applications/creating-packages/package-id
-docs/packaging-applications/supported-packages -> docs/packaging-applications/creating-packages/supported-packages
-docs/packaging-applications/versioning -> docs/packaging-applications/creating-packages/versioning
-docs/deploying-applications/azure-deployments/web-apps -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md
-docs/deploying-applications/azure-deployments/web-apps/getting-started-with-azure-web-apps -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md
+docs/packaging-applications/package-id.md -> docs/packaging-applications/creating-packages/package-id.md
+docs/packaging-applications/supported-packages.md -> docs/packaging-applications/creating-packages/supported-packages.md
+docs/packaging-applications/versioning.md -> docs/packaging-applications/creating-packages/versioning.md
+docs/deploying-applications/azure-deployments/web-apps/index.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md
+docs/deploying-applications/azure-deployments/web-apps/getting-started-with-azure-web-apps.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md
