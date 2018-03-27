@@ -29,22 +29,16 @@ If you haven't already, create an [Azure Account](/docs/infrastructure/azure/c
 
 ## Step 3: Add an Azure Web App deployment step {#DeployingapackagetoanAzureWebApp-Step3:CreatetheAzureWebAppdeploymentstep}
 
-1. Add a new `Deploy an Azure Web App` step to your project. For information about adding a step to the deployment process, see the [add step](/docs/deployment-process/steps/index.md) section. 
+1. Add a new `Deploy an Azure Web App` step to your [project's deployment process](/docs/deployment-process/steps/index.md).
 
 ![](/docs/images/5671696/5865899.png "width=170")
 
-## Step 4: Configure your Azure Web App step. {#DeployingapackagetoanAzureWebApp-Step4:ConfigureyourAzureWebAppstep.}
+## Step 4: Configure your Azure Web App step. {#DeployingapackagetoanAzureWebApp-Step4:ConfigureyourAzureWebAppstep}
 
-Once an Account is selected, the list of Azure Web Apps available to the subscription associated with the account will populate the 'Web App' select-list.
-
-If you choose to run this step on behalf of target roles (maybe you are deploying to multiple geographic regions), you will need to ensure a Deployment Target exists when deploying your Azure Web App. For this, we introduced [Cloud Regions](/docs/infrastructure/cloud-regions.md). If you select a role and no Deployment Targets exist at the time of deploying, Octopus will log warnings in your deployment's task log.
-
-![](deploying-an-azure-web-app.png "width=500")
+!partial <configurestep>
 
 | Setting                     | Default     | Description                              |
 | --------------------------- | ----------- | ---------------------------------------- |
-| **Account**                 |             | The [Azure Account](/docs/infrastructure/azure/index.md) you want to target when deploying this web app. Select one from the list, or use a [variable binding](/docs/deployment-process/variables/binding-syntax.md) to select an account by its name or ID. |
-| **Web App**                 |             | The actual web app you want to target. Select one from the list, or use a [variable binding](/docs/deployment-process/variables/binding-syntax.md) to define the name of the web app. |
 | **Physical Path**           |             | The physical path relative to site root on the web app host. e.g. 'foo' will deploy to 'site\wwwroot\foo'. Leave blank to deploy to root. |
 | **Remove additional files** | *False*     | When *True* instructs Web Deploy to delete files from the destination that aren't in the source package |
 | **Preserve App\_Data**      | *False*     | When *True* instructs Web Deploy to skip Delete operations in the **App\_Data** directory |
@@ -90,7 +84,7 @@ When the `Deploy an Azure Web App` step gets executed, the below actions will ha
 5. [XML configuration transformations](/docs/deployment-process/configuration-files/index.md) (if configured) are performed
 6. [XML configuration variables](/docs/deployment-process/configuration-files/index.md) (if configured) are replaced
 7. Any configured or packaged `Deploy` scripts are executed
-8. Execute web deploy to synchronize the resultant files in the temporary location to the web app host
+8. Push your package content to the Web App in Azure.
 9. Any configured or packaged `PostDeploy` scripts are executed
 
 ## Simple and advanced deployment scenarios{#DeployingapackagetoanAzureWebApp-Simpleandadvanceddeploymentscenarios}
