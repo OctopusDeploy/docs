@@ -102,7 +102,6 @@ This can happen when accessing AWS via a proxy, and the response from AWS indica
 
 An incorrect AWS region can result in this error. Ensure that the region matches one from the [AWS documentation](https://g.octopushq.com/AWSRegions).
 
-
 ### AWS-S3-ERROR-0002
 The AWS account used to perform the operation does not have the required permissions to upload to the bucket.
 
@@ -111,3 +110,9 @@ An exception was thrown while contacting the AWS API.
 This can happen when accessing AWS via a proxy, and the response from AWS indicated an error. The response body is printed to the logs in these cases.
 
 An incorrect AWS region can result in this error. Ensure that the region matches one from the [AWS documentation](https://g.octopushq.com/AWSRegions).
+
+### AWS-S3-ERROR-0003
+An error occurred uploading a file to a bucket possibly due to metadata. Specified value has invalid HTTP header characters.
+
+This can happen if the metadata key and or value has invalid characters. Ensure characters as per the [AWS documentation](https://g.octopushq.com/AwsS3UsingMetadata) is not used as part of
+metadata.
