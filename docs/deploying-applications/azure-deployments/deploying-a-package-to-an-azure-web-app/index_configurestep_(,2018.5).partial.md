@@ -1,6 +1,16 @@
-1) On the `Package` section, select your `Package Feed` and `Package Id`
+## Step 2: Create an Azure Account {#DeployingapackagetoanAzureWebApp-Step2:CreateanAzureAccount}
 
-2) On the `Azure` Section, select the `Azure Account` that you created in the previous step. Once you do this, the web apps in your subscription will populate the `Web App` dropdown list for you to pick the one you want to deploy to.
+If you haven't already, create an [Azure Account](/docs/infrastructure/azure/creating-an-azure-account/index.md) to grant Octopus Deploy access to your Azure Subscription.
+
+## Step 3: Configure your Azure Web App step. {#DeployingapackagetoanAzureWebApp-Step4:ConfigureyourAzureWebAppstep}
+
+1. Add a new `Deploy an Azure Web App` step to your [project's deployment process](/docs/deployment-process/steps/index.md).
+
+![](/docs/images/5671696/5865899.png "width=170")
+
+2. On the `Package` section of the step configuration page, select your `Package Feed` and `Package Id`
+
+3. On the `Azure` Section, select the `Azure Account` that you created in the previous step. Once you do this, the web apps in your subscription will populate the `Web App` dropdown list for you to pick the one you want to deploy to.
 
 For both the `Azure Account` and the `Web App` you can use [variable binding](/docs/deployment-process/variables/binding-syntax.md) to set their values.
 

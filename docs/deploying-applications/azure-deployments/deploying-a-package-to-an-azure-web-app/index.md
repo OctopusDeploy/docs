@@ -23,19 +23,9 @@ The default values for these variables were chosen to match Visual Studio follow
 
 See our guide on [how to package a web application](/docs/packaging-applications/application-types/web-apps/index.md)
 
-## Step 2: Create an Azure Account {#DeployingapackagetoanAzureWebApp-Step2:CreateanAzureAccount}
-
-If you haven't already, create an [Azure Account](/docs/infrastructure/azure/creating-an-azure-account/index.md) to grant Octopus Deploy access to your Azure Subscription.
-
-## Step 3: Add an Azure Web App deployment step {#DeployingapackagetoanAzureWebApp-Step3:CreatetheAzureWebAppdeploymentstep}
-
-1. Add a new `Deploy an Azure Web App` step to your [project's deployment process](/docs/deployment-process/steps/index.md).
-
-![](/docs/images/5671696/5865899.png "width=170")
-
-## Step 4: Configure your Azure Web App step. {#DeployingapackagetoanAzureWebApp-Step4:ConfigureyourAzureWebAppstep}
-
 !partial <configurestep>
+
+4. On the `Deployment` section you can configure any of the below settings which are related to *how* your files are going to be pushed to Azure.
 
 | Setting                     | Default     | Description                              |
 | --------------------------- | ----------- | ---------------------------------------- |
