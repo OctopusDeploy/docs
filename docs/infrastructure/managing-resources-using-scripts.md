@@ -78,7 +78,7 @@ New-OctopusServiceFabricTarget
 | `-targetIdOrName` | The Name or Id of the target to delete |
 
 ```powershell
-Remote-OctopusTarget -targetIdOrName "My Azure Web Application"
+Remove-OctopusTarget -targetIdOrName "My Azure Web Application"
 ```
 
 ### Accounts
