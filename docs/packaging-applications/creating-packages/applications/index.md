@@ -1,8 +1,8 @@
 ---
-title: Application Types
+title: Applications
 description: Packaging applications for deployment with Octopus Deploy.
 hideInThisSection: false
 position: 6
 ---
 
-Application types
+Applications
