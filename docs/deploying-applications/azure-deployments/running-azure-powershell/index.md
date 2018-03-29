@@ -10,11 +10,6 @@ This applies to:
 - 'Run an Azure PowerShell Script' steps
 - Scripts packaged or configured with [Deploying a package to an Azure Cloud Service](/docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-cloud-service/index.md) or [Azure Web App](/docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md) steps
 
-:::hint
-**Azure PowerShell Module version**
-For information on viewing and configuration the version of the Azure PowerShell modules used by Octopus, see [this page](/docs/deploying-applications/azure-deployments/running-azure-powershell/configuring-the-version-of-the-azure-powershell-modules.md).
-:::
-
 :::success
 **Choosing the right Azure Account type**
 Azure supports two authentication methods, each of which provides access to a different set of Azure APIs:
@@ -32,3 +27,8 @@ Octopus Deploy provides a *Run an Azure PowerShell Script* step type, for exec
 ![](/docs/images/5671696/5865912.png "width=170")
 
 ![](azure-new-powershell-script-step.png "width=500")
+
+:::success
+**Bring your own Azure PowerShell cmdlets**
+Octopus Deploy ships with a version of the Azure PowerShell cmdlets so you can deploy applications as soon as you install Octopus Deploy. Microsoft Azure is changing very quickly, introducing more application services and PowerShell cmdlets frequently. You can use the built-in cmdlets if they cover everything you need, or you can [configure Octopus Deploy to use your own custom version of the Azure PowerShell cmdlets](/docs/deploying-applications/azure-deployments/running-azure-powershell/configuring-the-version-of-the-azure-powershell-modules.md).
+:::

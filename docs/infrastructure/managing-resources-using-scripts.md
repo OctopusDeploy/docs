@@ -2,12 +2,13 @@
 title: Managing Resources using scripts
 description: Octopus resources can be created using service messages allowing resources that you currently can script in Azure to be modeled in Octopus.
 position: 10
+version: "[2018.5,)"
 ---
 
 Some resources can be created within Octopus from the same scripts that you use to create them on Azure. By adding some additional commands Web Apps you create on Azure can also be created within Octopus as deployment targets.
 
 :::warning
-As of the 2018.4 release, only Azure Service Principal Accounts, Azure Web Apps and Azure Service Fabric targets are supported.
+As of the `2018.5` release, only Azure Service Principal Accounts, Azure Web Apps and Azure Service Fabric targets are supported.
 :::
 
 ## Available Commands and Syntax
@@ -39,7 +40,6 @@ New-OctopusAzureWebAppTarget -name "My Azure Web Application" `
 #### Azure Service Fabric
 _New-OctopusAzureServiceFabricTarget_
 
-
 | Parameter                       | Value                                              |
 | ------------------------------- | -------------------------------------------------  |
 | `-name`                         | Name for the Octopus deployment target             |
@@ -54,7 +54,6 @@ _New-OctopusAzureServiceFabricTarget_
 | `-octopusRoles`                 | Comma separated list of Roles to assign            |
 
 _Security Mode Options_
-
 
 | Mode | Aliases |
 | --- | --- |
@@ -124,16 +123,20 @@ New-OctopusAzureCloudServiceTarget -name "My Azure Web Application" `
                                    -octopusRoles "AzureCloudService"
 ```
 
+### Azure Cloud Service
+**New-OctopusAzureCloudServiceTarget**
+
+// TODO: mark.siedle - Talk to Ben about what we need here.
+
 #### Delete Target
 _Remove-OctopusTarget__
-
 
 | Parameter | Value |
 | --- | --- |
 | `-targetIdOrName` | The Name or Id of the target to delete |
 
 ```powershell
-Remote-OctopusTarget -targetIdOrName "My Azure Web Application"
+Remove-OctopusTarget -targetIdOrName "My Azure Web Application"
 ```
 
 ### Accounts
@@ -150,4 +153,3 @@ Remote-OctopusTarget -targetIdOrName "My Azure Web Application"
 ### Deploying and ARM template
 
 ### Tearing down a test environment
-

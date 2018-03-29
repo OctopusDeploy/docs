@@ -25,7 +25,7 @@ If you're at "square 1" and can't connect to a new Tentacle machine, take note o
 If you are having problems with a previously-working machine, or you've successfully "Discovered" a machine but can't get communication to work afterwards, you can find information in three places:
 
 1. If the machine has been included in a Health Check or Deployment, examine the Raw Task Log. There's a link to this on the page containing the details of the Health Check or Deployment, which can usually be located using the *Tasks* page in the Octopus Web Portal.
-2. On the *Environments* page of the Octopus Web Portal, click on the problem machine and select the *Connectivity* tab. There's often specific information about the communication status of the machine here.
+2. On the *Infrastructure* page of the Octopus Web Portal, click on the problem machine and select the *Connectivity* tab. There's often specific information about the communication status of the machine here.
 3. In the Octopus Web Portal, open {{Configuration,Diagnostics}}. Information on this page can be helpful to work out what's going on in the Octopus installation. Following the link to *Server logs* and searching for the machine's name or IP address can turn up useful information.
 
 :::success
@@ -89,6 +89,31 @@ If you've made it this far, good news! Your Tentacle is running and ready to acc
 **If you can't browse to the page...**
 If this is where your journey ends, there's a problem on the Tentacle machine. It is very likely that the Tentacle is unable to open the communications port, either because of permissions, or because another process is listening on that port. Using the Windows `netstat -o -n -a -b` command can help to get to the bottom of this quickly. If you're still in trouble, check the Tentacle [log files](/docs/support/log-files.md) and contact Octopus Deploy support.
 :::
+
+**Like Using Curl?**
+
+```bash
+curl https://localhost:10933 -k
+```
+
+**Prefer PowerShell?**
+
+```powershell
+Add-Type @"
+    using System.Net;
+    using System.Security.Cryptography.X509Certificates;
+    public class TrustAllCertsPolicy : ICertificatePolicy {
+        public bool CheckValidationResult(
+            ServicePoint srvPoint, X509Certificate certificate,
+            WebRequest request, int certificateProblem) {
+            return true;
+        }
+    }
+"@
+
+[System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
+Invoke-WebRequest -Uri https://localhost:10933
+```
 
 ## Connect From the Octopus Server {#TroubleshootListeningTentacles-ConnectfromtheOctopusServer}
 
