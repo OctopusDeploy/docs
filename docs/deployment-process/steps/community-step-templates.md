@@ -51,9 +51,8 @@ If you don't have the Community Library feature turned on you can still use comm
 
 1. Navigate to the [Community Library](http://library.octopus.com/) website, find the template you want to use and click on the **Copy to clipboard** button. *Step Templates are transported as a JSON document containing all of the information required by Octopus.*
    ![Import from community library](step-templates-import-from-community-library.png "width=500")
-2. Navigate to {{Library,Step templates}} area within the Octopus web portal and select **Import** from the custom step templates section
-   ![Import step template](step-templates-import.png "width=500")
-3. Paste in the JSON document for the Step Template and click the **Import** button
+2. Navigate to {{Library,Step templates}} area within the Octopus web portal and select **Import** from the custom step templates section.
+3. Paste in the JSON document for the Step Template and click the **Import** button.
    ![Content](step-templates-import-content.png "width=500")
-4. Now you can add this new kind of step to your deployment process
+4. Now you can add this new kind of step to your deployment process.
    ![Import confirmation](step-templates--step-template-import-confirmed.png "width=500")
