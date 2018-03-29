@@ -17,8 +17,7 @@ Each of the resource commands is available as a Powershell function anywhere tha
 ### Targets
 
 #### Azure Web App
-**New-OctopusAzureWebAppTarget**
-
+_New-OctopusAzureWebAppTarget_
 
 | Parameter                 | Value                                         |
 | ------------------------- | --------------------------------------------- |
@@ -38,7 +37,7 @@ New-OctopusAzureWebAppTarget -name "My Azure Web Application" `
 ```
 
 #### Azure Service Fabric
-**New-OctopusServiceFabricTarget**
+_New-OctopusAzureServiceFabricTarget_
 
 
 | Parameter                       | Value                                              |
@@ -63,13 +62,70 @@ _Security Mode Options_
 | Secure Client Certificate | `certificate` `clientcertificate` `secureclientcertificate` |
 | Secure Azure Active Directory | `aad` `azureactivedirectory`| 
 
-
+Examples:
 ```powershell
-New-OctopusServiceFabricTarget 
+# Unsecure
+New-OctopusAzureServiceFabricTarget -name "My Service Fabric Target 1" `
+                                    -azureConnectionEndpoint "connectionEndpoint" `
+                                    -azureSecurityMode "unsecure" `
+                                    -octopusRoles "ServiceFabricRole"
+
+# Client Certificate
+New-OctopusAzureServiceFabricTarget -name "My Service Fabric Target 2" `
+                                    -azureConnectionEndpoint "connectionEndpoint" `
+                                    -azureSecurityMode "certificate" `
+                                    -azureCertificateThumbprint "1234567890" `
+                                    -octopusCertificateIdOrName "My Service Fabric Certificate" `
+                                    -octopusRoles "Service Fabric Role"
+
+# Client Certificate overriding certificate store
+New-OctopusAzureServiceFabricTarget -name "My Service Fabric Target 3" `
+                                    -azureConnectionEndpoint "https://localhost" `
+                                    -azureSecurityMode "certificate" `
+                                    -azureCertificateThumbprint "1234" `
+                                    -certificateStoreLocation "Custom Store Location" `
+                                    -certificateStoreName "My Store Name" `
+                                    -octopusCertificateIdOrName "cert" `
+                                    -octopusRoles "sfrole"
+
+# Azure Active Directory
+New-OctopusAzureServiceFabricTarget -name "My Service Fabric Target 4" `
+                                   -azureConnectionEndpoint "connectionEndpoint" `
+                                   -azureSecurityMode  "azureactivedirectory" `
+                                   -azureCertificateThumbprint "1234567890" `                             
+                                   -octopusCertificateIdOrName "cert" 
+                                   -octopusRoles "Service Fabric Role"
+
+```
+
+#### Azure Cloud Service
+_New-OctopusAzureCloudServiceTarget
+
+| Parameter | Value |
+| --- | --- |
+| `-name`                         | Name for the Octopus deployment target             |
+| `-azureCloudServiceName` | Name of the Azure Cloud Service |
+| `-azureStorageAccount` | Name of the Azure Storage Account |
+| `-azureDeploymentSlot` | Deployment slot. Options are `staging` (default), `production`) |
+| `-swap` | Swap staging to production, or just deploy. Options are `swap` (default), `deploy` |
+| `-instanceCount` | Use the current instance count from Azure, or use the value in the configuration file. Options are `current` (default), `configuration` |
+| `-octopusAccountIdOrName` | Name or Id of the Account Resource in Octopus. Must be a Management Certificate Account |
+| `-octopusRoles`                 | Comma separated list of Roles to assign            |
+
+Example:
+```powershell
+New-OctopusAzureCloudServiceTarget -name "My Azure Web Application" `
+                                   -azureCloudServiceName "CloudService1" `
+                                   -azureStorageAccount "MyAzureCloudStorageAccount"      `
+                                   -azureDeploymentSlot "staging" `
+                                   -swap "swap" `
+                                   -instanceCount "current"
+                                   -octopusAccountIdOrName "Service Management Cert      Account" `
+                                   -octopusRoles "AzureCloudService"
 ```
 
 #### Delete Target
-**Remove-OctopusTarget**
+_Remove-OctopusTarget__
 
 
 | Parameter | Value |
