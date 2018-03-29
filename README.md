@@ -212,7 +212,7 @@ When used sparingly, alerts can effectively draw the user's attention to importa
 
 Alerts are added through bootstrap alerts https://getbootstrap.com/components/#alerts.
 
-There are several keys each of which map to a different colored alert:
+There are several keys, each of which map to a different colored alert:
 
 | Key       | Color  |
 | --------- | ------ |
@@ -272,17 +272,15 @@ Add a file anywhere in the docs repository that is suffixed with `.include.md`. 
 ## Partials
 Partials are version specific files that contain markdown.
 Markdown partials are pulled into the document prior to includes, so this means you can add includes to partials.
-They  are only rendered in the target page when the version filter matches the convention for a give file.
+They are only rendered in the target page when the version filter matches the convention for a give file.
 
 Partial Convention: filePrefix_key_version.partial.md
 
-### Defining a Partial
+### Defining and Using Partial
 
 Add a file in the same folder as the page where you will use the partial to the docs repository that is named `fileName_key_version.partial.md`. For example, the file might be named `getting-started_theKey_2.0.partial.md`.
 
-### Using a Partial
-
-Add the following to the markdown: `!partial <key>` (including the `<>`s)
+To include the content in the partial, add the following to the markdown: `!partial <key>` (including the `<>`s)
 
 ## Anchors
 
@@ -304,21 +302,19 @@ Which means elsewhere in the page you can link to it with this:
     [Goto My Heading](#My-Heading)
     [Goto a different page](/docs/getting-started.md#My-Heading)
 
-If you create anchors in the markdown, do not use special characters in the achor text as they will cause the link to be truncated.
+If you create anchors in the markdown, do not use special characters in the anchor text as they will cause the link to be truncated.
 
 ## Images
 
-You have a few options:
+Put images in the same folder as the markdown file that references it.
 
-1. Put your image in the same folder as the markdown file;
-2. For shared images, put your image in the [images folder](docs/images);
-3. For internet images, just reference it remembering to use the `https://` scheme;
+If you're including images from the internet, reference using the `https://` scheme;
 
-Images can be added using the following markdown syntax
+Images can be added using the following markdown syntax:
 
     ![Alt text](img.jpg "Optional title width=500")
 
-With the minimal syntax being
+With the minimal syntax being;
 
     ![Alt text](img.jpg)
 
@@ -326,61 +322,39 @@ With the minimal syntax being
 
 Keep reading for a detailed explanation of the options available when working with images.
 
-### Image Paths
-Paths to internal images need to:
-
-- be relative or absolute
-- all lower case
-- can include `.` and `-`
-- can also have version range, see [image versioning](#image-versioning)
-
-Example `/docs/images/naked-scripting/transferpackage-transfer.png`
-
-### Image Versioning
-Images can be versioned. To version an image you need to include the default image and the versioned images.
-The convention is `imagename_version.ext`
-
-Here is an example:
-Let's say we want to display a different versions of `myimage.png` for v1.0 and v2.0 and we are currently on version 3.0.
-All we need to do is create the new image and name it with a version range  `myimages_[1.0,3.0).png`.
-So in the end you have 2 images, `myimage.png` and `myimages_[1.0,3.0).png`.
-
-**All versioned images need to be in the same folder as the default image.**
-
-
 ### Image Sizing
 
 Image size can be controlled by adding the text `width=x` to the end of the title
 
-For example
+For example:
 
-    ![Alt text](/path/to/img.jpg "Optional title width=x")
+    ![Alt text](img.jpg "Optional-title width=x")
 
-With the minimal syntax being
+With the minimal syntax being:
 
-    ![](/path/to/img.jpg "width=x")
+    ![](img.jpg "width=x")
 
-This will result in the image being re-sized with the following parameters
+This will result in the image being re-sized with the following parameters:
 
     width="x" height="auto"
 
 It will also wrap the image in a clickable lightbox so the full image can be accessed.
 
 ## Redirects
-When a file is deleted, renamed or versioned you need to consider adding a redirect for that file.
+When a file is deleted or renamed you need to consider adding a redirect for that file.
 Redirects are added to [redirects.txt](redirects.txt).
 This file looks something like:
 ```
 from-file-path -> to-file-path                 #DO NOT DELETE THIS LINE
-docs/page1.md -> docs/page3.md
+docs/page1.md -> docs/page2.md
 ```
-In the above example, `/docs/page1` is redirected to `/docs/page2`
+In the above example, `/docs/page1` is redirected to `/docs/page2`.
 
-Once a redirect is added, the source file needs to be deleted from the repo, or in the case of docs, if the file is versioned, the version range needs to exclude the versions that want to be redirected, if all versions are to be redirected then the file needs to be deleted.
+Once a redirect is added, the source file needs to be deleted from the repo.
 
 The destination is validated and needs to exist.
 
-If a file is deleted or the version range no longer includes that file, a redirect need to exist for it, otherwise the sync fails.
+If a file is deleted, a redirect need to exist for it, otherwise publishing fails.
 
 ## Useful Characters
 
