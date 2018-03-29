@@ -77,7 +77,7 @@ To use this functionality all you need to do is add the pre-release version to t
 
 The version selector on the website still displays the latest version by default, but the new pre-release is now listed above:
 
-![](images/version-selector.png)
+![](/docs/images/version-selector.png)
 
 And when selected a banner tells the user that they are seeing a "preview" of the documentation:
 
