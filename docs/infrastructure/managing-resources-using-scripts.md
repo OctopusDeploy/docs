@@ -113,7 +113,7 @@ _New-OctopusAzureCloudServiceTarget
 
 Example:
 ```powershell
-New-OctopusAzureCloudServiceTarget -name "My Azure Web Application" `
+New-OctopusAzureCloudServiceTarget -name "My Azure Cloud Service Target" `
                                    -azureCloudServiceName "CloudService1" `
                                    -azureStorageAccount "MyAzureCloudStorageAccount"      `
                                    -azureDeploymentSlot "staging" `
