@@ -42,7 +42,7 @@ The MSI installer simply extracts files and adds some shortcuts and event log so
 
 To configure the Tentacle in listening or polling mode, it's easiest to run the installation wizard once, and at the end, use the Show Script option in the setup wizard. This will show you the command-line equivalent to configure a Tentacle.
 
-![](/docs/images/3048115/3277908.png "width=500")
+![Tentacle installation wizard](tentacle-setup.png)
 
 :::success
 **Advanced configuration options**
