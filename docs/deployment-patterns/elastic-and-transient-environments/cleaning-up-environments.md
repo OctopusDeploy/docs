@@ -8,7 +8,7 @@ Octopus can automatically remove unwanted machines from environments based on th
 
 ## Machine Policies {#Cleaningupenvironments-Machinepolicies}
 
-!partial <menu>
+Machine policies are machine related settings that can be applied per-machine. They can be accessed at {{Infrastructure,Machine policies}}
 
 In this example we will create a machine policy to automatically delete machines when they become unavailable.
 
@@ -41,6 +41,6 @@ Read more about [machine policies](/docs/infrastructure/machine-policies.md)
 
 ## Troubleshooting Automatic Environment Clean Up {#Cleaningupenvironments-Troubleshootingautomaticenvironmentcleanup}
 
-!partial <troubleshoot>
+As of Octopus version 2018.1, machine clean up is part of health checks and machine clean up logs are not stored.  Machine clean up logging is written to the log of the health check task that performed the deletion.  Audit events recording the automatic clean up of machines can be accessed via the {{Configuration,Diagnostics}} page by selecting **Machine clean up events**, which redirects to the audit log of automatic machine removals.
 
 ![](deletion-audit.png "width=500")
