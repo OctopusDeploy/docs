@@ -81,7 +81,7 @@ The version selector on the website displays the latest version by default, but 
 
 And when selected, a banner tells the user that they are seeing a "preview" of the documentation:
 
-![](/docs/images/preview.jpg)
+![](/docs/images/preview.png)
 
 ## URLs
 
