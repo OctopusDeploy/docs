@@ -352,9 +352,9 @@ In the above example, `/docs/page1` is redirected to `/docs/page2`.
 
 Once a redirect is added, the source file needs to be deleted from the repo.
 
-The destination is validated and needs to exist.
+The destination is validated and must exist.
 
-If a file is deleted, a redirect need to exist for it, otherwise publishing fails.
+If a file is deleted, a redirect must be added for it, otherwise publishing fails.
 
 ## Useful Characters
 
