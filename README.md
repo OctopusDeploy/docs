@@ -3,7 +3,7 @@ This repository contains the documentation for [Octopus Deploy](https:/octopus.c
 To contribute to documentation, read the following guide.
 
 # Conventions
-## Lower case  and `-` delimited
+## Lowercase  and `-` Delimited
 
 All content files (`.md`, `.png`, `.jpg` etc) and directories must be lower case.
 All links pointing to them must be lower case.
@@ -39,11 +39,11 @@ Optional. Used for the position in the menu.
 
 The menu is auto generated based on the git repo folder structure and title and position metadata.
 
-## Version dropdown
+## Version Dropdown
 
 The version dropdown menu let's user choose between [legacy versions](https://legacydocs.octopus.com) of the documentation, the latest (default) version, and pre-release versions.
 
-### Include pre-release documentation
+### Include Pre-release Documentation
 
 The list of versions displayed on the dropdown are loaded from [versions.json](versions.json).
 
@@ -86,7 +86,7 @@ And when selected, a banner tells the user that they are seeing a "preview" of t
 ## URLs
 
 The directory structure where a `.md` exists is used to derive the URL for that document.
-So a file existing at `/docs/myfolder/mypage.md` will have a URL of `https://octopus.com/docs/myfolder/mypage`.
+So a file that is located at `/docs/myfolder/mypage.md` will have a URL of `https://octopus.com/docs/myfolder/mypage`.
 
 ### Index Pages
 
@@ -98,7 +98,7 @@ So a file existing at `/docs/myfolder/index.md` will have a URL of `https://octo
 Links to other documentation pages should be relative and contain the `.md` extension.
 The `.md` allows links to work inside the GitHub web UI. The `.md` will be trimmed when they are finally rendered.
 
-## "In this section" area {#in-this-section}
+## "In This Section" Area {#in-this-section}
 
 Index pages (`index.md`) automatically have a "In this section" section added to them (bottom of the content), which lists all child pages in the folder.
 If the page does not need this section, you can opt out by adding the following metadata to the yaml:
@@ -116,9 +116,9 @@ hideInThisSectionHeader: true
 The site is rendered using [markdig](https://github.com/lunet-io/markdig), Markdig supports [GitHub Flavored Markdown](https://help.github.com/articles/github-flavored-markdown) as well as some extra syntax.
 
 ### Lists
-Lists can be created using a few different styles, please be aware that `Roman` and `Letters` won't render properly in github (this is a markdig extension).
+Lists can be created using a few different styles, please be aware that `Roman` and `Letters` won't render properly in GitHub (this is a markdig extension).
 
-To ensure the list items are correctly formmatted it is recommended to not number the items, instead let the markdown renderer do that job automatically, so for a numeric list use one `1`s for a letter list use one `a.`s and for a roman list use only `i`s.
+To ensure the list items are correctly formatted it is recommended not to number the items, instead let the markdown renderer do that job automatically, so for a numeric list use one `1`s for a letter list use one `a.`s and for a roman list use only `i`s.
 
 #### Bullets
 Example:
@@ -202,13 +202,17 @@ Snippets are highlighted by Highlight.js
 | f#           | `fsharp`       |
 | text         | text           |
 
-**Always use fenced code blocks with a language.** If no language is defined then highlightjs will guess the language and it regularly gets it wrong. Example:
+**Always use fenced code blocks with a language.** If no language is defined then highlightjs will guess the language and it regularly gets it wrong.
 
 ### Alerts
 
-Sometimes it is necessary to draw attention to items you want to call out in a document.
-This is achieved through bootstrap alerts https://getbootstrap.com/components/#alerts
-There are several keys each of which map to a different colored alert
+Sometimes it's necessary to draw attention to items you want to call out in a document.
+
+When used sparingly, alerts can effectively draw the user's attention to important information. When used excessively, alerts can have the opposite effect and train users to ignore the alerts. Before adding an alert, consider if it is the best approach or if the user might benefit from the information being presented as part of the main body of text.
+
+Alerts are added through bootstrap alerts https://getbootstrap.com/components/#alerts.
+
+There are several keys each of which map to a different colored alert:
 
 | Key       | Color  |
 | --------- | ------ |
@@ -217,12 +221,12 @@ There are several keys each of which map to a different colored alert
 | `warning` | yellow |
 | `problem` | red    |
 
-Keys can be used in the following manner
+Use the following syntax to add keys:
 
 ```md
 :::hint
 **Guess what**
-The number is 45.
+The answer is 42.
 :::
 ```
 
@@ -230,7 +234,7 @@ will be rendered as
 ```html
 <div class="alert alert-info">
 <p><strong>Guess what</strong></br>
-The number is 45.</p>
+The answer is 42.</p>
 </div>
 ```
 
@@ -247,33 +251,23 @@ Example:
 To enable Docker in your Octopus Server instance, toggle the feature on via {{Configuration,Features,Docker}}.
 ```
 
-## ToC
+## Table of Contents
 Table of contents can be added to any page anywhere by adding `!toc` to the markdown. The table of contents lists all headers (H1, H2 etc) in the current document (see [In This Section](#in-this-section) for child page links on index pages).
 
 ## Headings
 
-The first (and all top level) headers in a `.md` page should be a `h2` (i.e. `##`) with sub-headings under it being `h3`, `h4`, etc.
+The first (and all top level) headers in a `.md` page should be a `h2` (i.e., `##`) with sub-headings under it being `h3`, `h4`, etc.
 DO NOT skip headers, eg. h1 > h2 > h4, not valid!
 
 You must also separate the '##' and the heading with a space.  If you don't the heading will render correctly in the Preview in GitHub, and in many other tools, but will not render correctly on the docs site.
-
-## Folder Version
-You can version the content of a whole folder by versioning the `index.md` for the folder.
-Example:
-If we want to hide the whole docker doco for versions prior to v3.4, we can add `version: [3.4,)` to the `docs/guides/docker/index.md` metadata.
-This will exclude docker content from all versions prior to v3.4.
 
 ## Includes
 Sometimes you need to duplicate content in multiple pages, this is where includes are handy.
 Markdown includes are pulled into the document prior to passing the content through the markdown conversion.
 
-### Defining an include
+### Defining and Using Includes
 
-Add a file anywhere in the docs repository that is suffixed with `.include.md`. For example, the file might be named `theKey.include.md`.
-
-### Using an include
-
-Add the following to the markdown: `!include <key>`
+Add a file anywhere in the docs repository that is suffixed with `.include.md`. For example, the file might be named `theKey.include.md`. To include the content in `theKey.include.md` in another file, add the following to the markdown: `!include <key>`.
 
 ## Partials
 Partials are version specific files that contain markdown.
@@ -282,11 +276,11 @@ They  are only rendered in the target page when the version filter matches the c
 
 Partial Convention: filePrefix_key_version.partial.md
 
-### Defining a partial
+### Defining a Partial
 
 Add a file in the same folder as the page where you will use the partial to the docs repository that is named `fileName_key_version.partial.md`. For example, the file might be named `getting-started_theKey_2.0.partial.md`.
 
-### Using a partial
+### Using a Partial
 
 Add the following to the markdown: `!partial <key>` (including the `<>`s)
 
@@ -332,7 +326,7 @@ With the minimal syntax being
 
 Keep reading for a detailed explanation of the options available when working with images.
 
-### Image paths
+### Image Paths
 Paths to internal images need to:
 
 - be relative or absolute
@@ -342,7 +336,7 @@ Paths to internal images need to:
 
 Example `/docs/images/naked-scripting/transferpackage-transfer.png`
 
-### Image versioning
+### Image Versioning
 Images can be versioned. To version an image you need to include the default image and the versioned images.
 The convention is `imagename_version.ext`
 
@@ -354,7 +348,7 @@ So in the end you have 2 images, `myimage.png` and `myimages_[1.0,3.0).png`.
 **All versioned images need to be in the same folder as the default image.**
 
 
-### Image sizing
+### Image Sizing
 
 Image size can be controlled by adding the text `width=x` to the end of the title
 
