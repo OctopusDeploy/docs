@@ -57,11 +57,9 @@ You'll also see a handy counter next to the Usage tab so you can see at a glance
 
 ![Step templates usage](step-templates-usage.png "width=500")
 
-### Custom logo {#StepTemplates-Customlogo}
+### Custom Logo {#StepTemplates-Customlogo}
 
 Custom step templates inherit their logo from the template that was used to create them. This means that most of them will share the same logo. Fortunately this can be easily changed and each custom template can have its own unique logo. To do that navigate to the Settings tab and upload a custom logo from there.
-
-![Step template custom log](step-templates-custom-logo.png "width=500")
 
 ### Linking custom step templates to community step templates {#StepTemplates-Linkingcustomsteptemplatestocommunitysteptemplates}
 
