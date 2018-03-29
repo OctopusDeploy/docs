@@ -2,7 +2,6 @@ This repository contains the documentation for [Octopus Deploy](https:/octopus.c
 
 To contribute to documentation, read the following guide.
 
-
 # Conventions
 ## Lower case  and `-` delimited
 
@@ -22,7 +21,6 @@ For example:
 title: Getting started
 description: From 0 to deployed, this guide walks you through getting started with Octopus.
 position: 0
-version: "[3.0,4.0)"
 ---
 ```
 
@@ -37,41 +35,49 @@ Read [how to write a good description](https://moz.com/learn/seo/meta-descriptio
 ### Position
 Optional. Used for the position in the menu.
 
-### Version
-Optional. The versions that this file applies to. This meatadata supports ranges, same syntax as [nuget](https://docs.microsoft.com/en-us/nuget/create-packages/dependency-versions#version-ranges).
-
 ## Menu
 
 The menu is auto generated based on the git repo folder structure and title and position metadata.
 
 ## Version dropdown
 
-The list of versions displayed on the dropdown are loaded from [versions.json](versions.json).
+The version dropdown menu let's user choose between [legacy versions](https://legacydocs.octopus.com) of the documentation, the latest (default) version, and pre-release versions.
 
 ### Include pre-release documentation
+
+The list of versions displayed on the dropdown are loaded from [versions.json](versions.json).
+
 Support to publish pre-release versions of documentation.
 This is useful when we are planning a new release or we are releasing betas or RCs.
 
-To use this functionality all you need to do is add the pre-release version to the versions.json file versions array, and leave the default the same version, the example above adds 3.13 pre-release:
+To use this functionality all you need to do is add the pre-release version to the versions.json file versions array, and leave the default the same version, the example above adds 2018.4 pre-release:
 ```json
 {
    "versions": [
-     "3.6",
-     "3.7",
-     "3.8",
-     "3.9",
-     "3.10",
-     "3.11",
-     "3.12",
-     "3.13"
+     "2018.3",
+     "2018.4"
    ],
-   "default": "3.12"
-}
+   "default": "2018.3",
+   "legacy": [
+    {
+      "version": "2018.2",
+      "firstReleased": "8 Feb 2018"
+     },
+     {
+      "version": "2018.1",
+      "firstReleased": "24 Jan 2018"
+     },
+     {
+      "version": "4.1",
+      "firstReleased": "5 Dec 2017"
+     }
+   ]
+ }
 ```
 
-Once this is done, the version selector on the website by default still displays the latest, but the new pre-release is now listed above:
+The version selector on the website still displays the latest version by default, but the new pre-release is now listed above:
 
-![image](https://cloud.githubusercontent.com/assets/122651/24811318/ee3d95b8-1c08-11e7-8f5a-1868b7302f29.png)
+![](images/version-selector.png)
 
 And when selected a banner tells the user that they are seeing a "preview" of the documentation:
 
@@ -389,4 +395,3 @@ Just go to http://htmlarrows.com/symbols/
 ## More Information
 
 * [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
-
