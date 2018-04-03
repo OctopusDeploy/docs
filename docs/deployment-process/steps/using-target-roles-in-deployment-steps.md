@@ -14,7 +14,7 @@ After you save the step, all the roles you’ve scoped it for can be viewed from
 
 ![Display target roles](display-role.png)
 
-According to the screenshot above, our deployment process will run on allow deployment targets with the role **web-server**.
+According to the screenshot above, our deployment process will run on deployment targets with the role **web-server**.
 
 ## Using Roles with Variables {#MachineRoles-Usingroleswithvariables}
 
@@ -27,15 +27,15 @@ Let’s say you have the following targets with their respective roles:
 | Target 1 | app-server |
 | Target 2 | web-server |
 
-You want to deploy the same package on each server but the deployment path will be different between servers. In this case you can set the same variables (we’ll call it *DeployPath*) with a different value for each machine role:
+You want to deploy the same package on each server but the deployment path will be different between servers. In this case you can set the same variable (we’ll call it *DeployPath*) with a different value for each target role:
 
-![](/docs/images/3048101/3277808.png "width=500")
+![](deploy-path-variable.png)
 
-Then, on your deployment step, you can set the **[Custom Install Directory](/docs/deployment-process/steps/custom-installation-directory.md)** to `#{DeployPath}` on each of the 3 steps (one for each package Id & Role).
+Then, on your deployment step, you can set the **[Custom Install Directory](/docs/deployment-process/steps/custom-installation-directory.md)** to `#{DeployPath}`.
 
-![](/docs/images/3048101/3277807.png "width=500")
+![](custom-install-path.png)
 
 :::warning
-**Being Smart with Machine Roles**
+**Being Smart with Target Roles**
 By definition, a role is "the function assumed by a thing in a particular situation". Roles are not **Environments** or **OS versions**. Try to use roles to tag servers by their utility and watch out if you find yourself putting more than 3 roles on the same server.
 :::
