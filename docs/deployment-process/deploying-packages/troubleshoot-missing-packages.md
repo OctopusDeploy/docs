@@ -50,6 +50,4 @@ If you are using an external feed you may see a message explaining the package c
 
 ### Configurable retries for external feeds {#ConfigurableRetriesForExternalFeeds}
 
-Since Octopus 3.8.6 you can configure how tolerant Octopus will be when attempting to source a package from an external feed.
-
-  ![](troubleshoot-missing-packages-retries.png "width=500")
+You can configure how tolerant Octopus will be when attempting to source a package from an external feed, by specifying how many times to attempt the download and how long to leave between attempts. This can be configured when you define the external feed.
