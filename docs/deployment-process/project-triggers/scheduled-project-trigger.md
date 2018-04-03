@@ -22,11 +22,15 @@ Examples of when this option would be useful is if you wanted to:
 * Run a deployment to clean up your test environments once a day at 9:00pm
 * Run a deployment to health check your services every hour
 
+![](/docs/images/scheduled-project-triggers/scheduled-project-triggers-daily-schedule.png "width=500")
+
 ### Days per week
 The Days Per Week schedule works the same to the daily schedule, however you can also choose the days of the week you want the schedule to run on.
 
 Example:
 * Run a deployment to provision a new test environment at 6:00am, Monday - Friday
+
+![](/docs/images/scheduled-project-triggers/scheduled-project-triggers-days-per-week-schedule.png "width=500")
 
 ### Days per month
 The Days Per Month schedule allows you to configure a trigger that will run on a specific date of the month or specific day of week of every month
@@ -34,6 +38,8 @@ The Days Per Month schedule allows you to configure a trigger that will run on a
 Example:
 * Run a deployment to promote the latest build from staging to production on the 1st day of the month
 * Run a deployment to perform maintenance on the last Saturday of the month
+
+![](/docs/images/scheduled-project-triggers/scheduled-project-triggers-days-per-month-schedule.png "width=500")
 
 ### Cron expression
 Allows you to configure a trigger that will run according to the specific CRON expression.
@@ -43,6 +49,8 @@ Example:
 `0 0 06 * * Mon-Fri`
 
 Runs at 06:00 AM, Monday through Friday
+
+![](/docs/images/scheduled-project-triggers/scheduled-project-triggers-cron-expression.png "width=500")
 
 :::success
 The Cron expression must consist of all 6 fields, there is an optional 7th field for "Year".
@@ -84,3 +92,5 @@ If your project is configured to use [Prompted variables](/deployment-process/va
 The variables specified in this section have a lifetime of one deployment. Only deployments created by the scheduled trigger will have the variable values specified in this section. Manually deploying a release created or deployed by a scheduled trigger will cause the variable values to revert to the values defined in the project or library variable set.
 
 The variables defined in this section have a [specificity](https://octopus.com/docs/deployment-process/variables/scoping-variables#Scopingvariables-Scopespecificity) equal to unscoped variables. Project or library set variables that have a more specific scoping will be prefered to trigger contributed variables.
+
+![](/docs/images/scheduled-project-triggers/scheduled-project-triggers-prompt-variables.png "width=500")
