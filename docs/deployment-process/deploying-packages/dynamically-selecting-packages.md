@@ -1,5 +1,5 @@
 ---
-title: Dynamically selecting packages at deployment time
+title: Dynamically Selecting Packages at Deployment Time
 description: You can configure Octopus to dynamically resolve package details, including Feed and Package ID at deployment time by using variables. This can be useful if you want a different package feed for each environment, or a different package per environment or tenant.
 position: 0
 ---
