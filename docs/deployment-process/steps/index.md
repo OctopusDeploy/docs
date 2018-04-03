@@ -10,23 +10,17 @@ Built-in steps are powerful and flexible enough to handle the most common deploy
 
 ![](built-in-steps.png "width=500")
 
-Custom step templates enable you to encapsulate common steps/scenarios within your team or company. 
+Custom step templates enable you to encapsulate common steps/scenarios within your team or company.
 
 Learn more about [Custom Step Templates](/docs/deployment-process/steps/custom-step-templates.md).
 
 Octopus community library integration makes it easy to find steps templates that work with the frameworks and technologies you use without the need for custom scripting.
 
-![](community-steps.png "width=500") 
+![](community-steps.png "width=500")
 
 Learn more about [Community Step Templates](/docs/deployment-process/steps/community-step-templates.md).
 
 Learn more about [Updating Step Templates](/docs/deployment-process/steps/updating-step-templates.md) and [Exporting Step Templates](/docs/deployment-process/steps/exporting-step-templates.md)
-
-:::hint
-Prior to Octopus 3.7, selecting the add step button showed a popup list of built-in steps and any installed step templates (community contributed or custom).  Installing a community step required visiting the [Community Library](http://library.octopusdeploy.com/) and importing the step manually.  For more information, see [community step templates](/docs/deployment-process/steps/community-step-templates.md).
-
-![](/docs/images/5672131/5865901.png "width=500")
-:::
 
 ## Common Step Properties {#Deployingapplications-Commonstepproperties}
 

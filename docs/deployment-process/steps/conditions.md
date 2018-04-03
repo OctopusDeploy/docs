@@ -19,7 +19,21 @@ If you have created some [channels](/docs/deployment-process/channels.md), you c
 
 ## Run condition
 
-You can also specify whether a step runs only when previous steps are successful (default), when a previous step fails, or always.
+You can also specify whether a step runs only when the previous step is successful (default), when the previous step fails, always, or when a variable expression evaluates to true. Variable expressions with machine level variables are not supported.
+
+You can use the following expression to run a step only when the deployment is successful and when a variable evaluates to true:
+
+```
+#{unless Octopus.Deployment.Error}#{Variable}#{/unless}
+```
+
+You can achieve the opposite effect by swapping `unless` with `if`:
+
+```
+#{if Octopus.Deployment.Error}#{Variable}#{/if}
+```
+
+It's also possible to check the status of specific [steps and actions](/docs/deployment-process/variables/system-variables.md#Systemvariables-DeploymentStatusTrackingdeploymentstatus).
 
 ![](3277616.png "width=500")
 
