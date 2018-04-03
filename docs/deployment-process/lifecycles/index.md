@@ -1,7 +1,7 @@
 ---
 title: Lifecycles
 description: Lifecycles allow you to control the way releases are promoted between environments. You can define automatic deployment environments in your lifecycle phases. This will automate deployments to an environment as soon as the phase becomes available.
-position: 4000
+position: 2
 ---
 
 Lifecycles allow you to control the way releases are promoted between environments. Lifecycles enable a number of advanced deployment workflow features:
