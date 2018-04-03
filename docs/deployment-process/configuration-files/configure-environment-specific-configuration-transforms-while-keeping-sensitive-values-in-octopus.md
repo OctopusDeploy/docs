@@ -8,8 +8,6 @@ Octopus Deploy has great support for transforming configuration files based on t
 
 As an example scenario, let's assume we have a web application that's being deployed to a Development, Staging, and Production environment, and you want to change your `Web.Config` file to reflect environment-specific values.
 
-![](/docs/images/3049047/3278464.png "width=500")
-
 There are three Octopus features that are commonly used to help provide an environment-specific configuration to your deployed application.
 
 1. Use the **[Configuration Variables](/docs/deployment-process/configuration-files/index.md) feature** to automatically replace `appSettings`, `applicationSettings`, and `connectionStrings` values in your `.config` files with ones from your variables list.
