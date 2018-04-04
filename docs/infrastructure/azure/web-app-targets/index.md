@@ -36,7 +36,7 @@ To create an Azure Web App target within Octopus:
 
 Azure Web App targets can also be created via a Powershell Cmdlet within a Deployment Process, this can be especially handy if you are also creating the Azure Web App via a script.
 
-See [Managing Resources by script](/docs/infrastructure/managing-resources-using-scripts.md) for more information on creating Azure Web Apps via a script.
+See [Managing Resources by script](/docs/infrastructure/dynamic-infrastructure/index.md) for more information on creating Azure Web Apps via a script.
 
 ## Deploying to Web App targets
 
