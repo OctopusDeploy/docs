@@ -8,7 +8,7 @@ version: "[2018.5,)"
 Some resources can be created within Octopus from the same scripts that you use to create them on Azure. By adding some additional commands Web Apps you create on Azure can also be created within Octopus as deployment targets.
 
 :::warning
-As of the `2018.5` release, only Azure Service Principal Accounts, Azure Web Apps and Azure Service Fabric targets are supported.
+As of the `2018.5` release, only Azure Service Principal Accounts, Azure Web Apps, Azure Service Fabric and Azure Cloud Services targets are supported.
 :::
 
 ## Available Commands and Syntax
@@ -18,7 +18,7 @@ Each of the resource commands is available as a Powershell function anywhere tha
 ### Targets
 
 #### Azure Web App
-_New-OctopusAzureWebAppTarget_
+Command: **_New-OctopusAzureWebAppTarget_**
 
 | Parameter                 | Value                                         |
 | ------------------------- | --------------------------------------------- |
@@ -38,7 +38,7 @@ New-OctopusAzureWebAppTarget -name "My Azure Web Application" `
 ```
 
 #### Azure Service Fabric
-_New-OctopusAzureServiceFabricTarget_
+Command: **_New-OctopusAzureServiceFabricTarget_**
 
 | Parameter                       | Value                                              |
 | ------------------------------- | -------------------------------------------------  |
@@ -98,7 +98,7 @@ New-OctopusAzureServiceFabricTarget -name "My Service Fabric Target 4" `
 ```
 
 #### Azure Cloud Service
-_New-OctopusAzureCloudServiceTarget
+Command: **_New-OctopusAzureCloudServiceTarget_**
 
 | Parameter | Value |
 | --- | --- |
@@ -113,28 +113,31 @@ _New-OctopusAzureCloudServiceTarget
 
 Example:
 ```powershell
+# Using default options
 New-OctopusAzureCloudServiceTarget -name "My Azure Cloud Service Target" `
                                    -azureCloudServiceName "CloudService1" `
-                                   -azureStorageAccount "MyAzureCloudStorageAccount"      `
-                                   -azureDeploymentSlot "staging" `
-                                   -swap "swap" `
-                                   -instanceCount "current"
-                                   -octopusAccountIdOrName "Service Management Cert      Account" `
+                                   -azureStorageAccount "MyAzureCloudStorageAccount" `
+                                   -octopusAccountIdOrName "Service Management Cert Account" `
+                                   -octopusRoles "AzureCloudService"
+
+New-OctopusAzureCloudServiceTarget -name "My Azure Cloud Service Target" `
+                                   -azureCloudServiceName "CloudService1" `
+                                   -azureStorageAccount "MyAzureCloudStorageAccount" `
+                                   -azureDeploymentSlot "production" `
+                                   -swap "deploy" `
+                                   -instanceCount "configuration"
+                                   -octopusAccountIdOrName "Service Management Cert Account" `
                                    -octopusRoles "AzureCloudService"
 ```
 
-### Azure Cloud Service
-**New-OctopusAzureCloudServiceTarget**
-
-// TODO: mark.siedle - Talk to Ben about what we need here.
-
 #### Delete Target
-_Remove-OctopusTarget__
+Command: **_Remove-OctopusTarget_**
 
 | Parameter | Value |
 | --- | --- |
 | `-targetIdOrName` | The Name or Id of the target to delete |
 
+Example:
 ```powershell
 Remove-OctopusTarget -targetIdOrName "My Azure Web Application"
 ```
@@ -142,14 +145,46 @@ Remove-OctopusTarget -targetIdOrName "My Azure Web Application"
 ### Accounts
 
 #### Azure Service Principal Account
-```powershell
+Command: **_New-OctopusAzureServicePrincipalAccount_**
 
+Example:
+```powershell
+# Targeting the Azure Global Cloud
+New-OctopusAzureServicePrincipalAccount -name "My Azure Account" `
+                                        -azureSubscription "dea39b53-1ac8-4adc-b291-a44b205921af" `
+                                        -azureApplicationId "f83ece42-857d-44ed-9652-0765af7fa7d4" `
+                                        -azureTenantId "e91671b4-a676-4cb6-8ff8-69fcb8e048d6" `
+                                        -azurePassword "correct horse battery staple" `
+
+# Targeting an isolated Cloud, e.g AzureGermanCloud
+New-OctopusAzureServicePrincipalAccount -name "My Azure Account" `
+                                        -azureSubscription "dea39b53-1ac8-4adc-b291-a44b205921af" `
+                                        -azureApplicationId "f83ece42-857d-44ed-9652-0765af7fa7d4" `
+                                        -azureTenantId "e91671b4-a676-4cb6-8ff8-69fcb8e048d6" `
+                                        -azurePassword "correct horse battery staple" `
+                                        -azureEnvironment "AzureGermanCloud" `
+                                        -azureBaseUri "https://login.microsoftonline.de/" `
+                                        -azureResourceManagementBaseUri "https://management.microsoftazure.de/"
 ```
+
+**Azure Environment Options**
+
+The valid options for `-azureEnvironment` are available via the following command:
+```powershell
+Get-AzureRmEnvironment | Select-Object -Property Name,ActiveDirectoryAuthority,ResourceManagerUrl
+```
+
+- AzureChina
+- AzureCloud
+- AzureGermanCloud
+- AzureUSGovernment
 
 ## Scenarios
 
 ### Creating a Web App
 
-### Deploying and ARM template
+
+
+### Deploying an ARM template
 
 ### Tearing down a test environment
