@@ -38,7 +38,7 @@ As of 4.1.10, you can prevent the running of scripts in packages by adding the `
 Of course, Bash scripts will only be supported on Linux / OSX Targets and PowerShell and Script CS will only run on Windows. So ensure you've selected the correct language for your deployment target
 :::
 
-:::success
+
 Make sure that the scripts are included in your package. If you are using OctoPack for an ASP.NET web application, you'll need to make sure the file is marked as **Build Action =** **Content**.
 
 ![](/docs/images/3048092/3277766.png "width=500")
@@ -48,7 +48,7 @@ If you are using OctoPack to package a Windows Service or console application, s
 ![](/docs/images/3048092/3277765.png "width=500")
 
 Read more about [using OctoPack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md).
-:::
+
 
 ## Scripts in package steps {#Customscripts-Scriptsinpackagestepsscripts-configured-in-steps}
 
