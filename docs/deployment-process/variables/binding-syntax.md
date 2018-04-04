@@ -1,5 +1,5 @@
 ---
-title: Binding syntax
+title: Binding Syntax
 description: Octopus supports a special binding syntax that can be used to refer to variables.
 position: 1
 ---

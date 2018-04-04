@@ -1,5 +1,5 @@
 ---
-title: Output variables
+title: Output Variables
 description: Output variables allow you to set dynamic variables in one step that can be used in subsequent steps.
 position: 6
 ---
@@ -55,7 +55,7 @@ testResult = $(get_octopusvariable "Octopus.Action[StepA].Output.TestResult")
 let testResult = Octopus.findVariable "Octopus.Action[StepA].Output.TestResult"
 ```
 
-## System output variables {#Outputvariables-Systemoutputvariables}
+## System Output Variables {#Outputvariables-Systemoutputvariables}
 
 After a step runs, Octopus captures the output variables, and keeps them for use in subsequent steps. In addition to variables that you create yourself using `Set-OctopusVariable`, Octopus also makes a number of built-in variables available. Here are some examples of commonly used built-in output variables:
 
@@ -68,7 +68,7 @@ After a step runs, Octopus captures the output variables, and keeps them for use
   - `Octopus.Action[StepName].Output.Manual.ResponsibleUser.DisplayName`
   - `Octopus.Action[StepName].Output.Manual.ResponsibleUser.EmailAddress`
 
-## Output from multiple machines {#Outputvariables-Outputfrommultiplemachines}
+## Output From Multiple Machines {#Outputvariables-Outputfrommultiplemachines}
 
 Output variables become more complex when multiple machines are involved, but they can still be used.
 
@@ -96,7 +96,7 @@ For some practical examples of using output variables, and how scoping rules are
 - [Fun with output variables](https://octopus.com/blog/fun-with-output-variables)
 - [Changing website ports using output variables](http://octopus.com/blog/changing-website-port-on-each-deployment)
 
-## Setting output variables using scripts {#Outputvariables-Settingoutputvariablesusingscripts}
+## Setting Output Variables Using Scripts {#Outputvariables-Settingoutputvariablesusingscripts}
 
 You can set output variables using any of the scripting languages supported by Octopus. In each case we make special functions available to your scripts by bootstrapping them with a template defined in the [open-source Calamari project](https://github.com/OctopusDeploy/Calamari).
 

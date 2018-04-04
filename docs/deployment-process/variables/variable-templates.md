@@ -1,5 +1,5 @@
 ---
-title: Variable templates
+title: Variable Templates
 description: Variable templates can be defined in Octopus to indicate which variable values are required to successfully deploy a project.
 position: 7
 ---
