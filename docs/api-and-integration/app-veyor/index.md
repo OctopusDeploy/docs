@@ -12,7 +12,7 @@ Create a new AppVeyor project and use the Git repository `https://github.com/Oct
 ## Build Phase
 Go to the Build page and add `nuget restore` to the `Before build script` command line input since AppVeyor will not perform this operation by default. 
 
-Under `Automatic Packaging` select `Package Web Applications for Octopus Deployment`. By ticking this box AppVeyor will run `octo.exe pack` after MSBuild has finished its `publish` command. _Keep in mind that since AppVeyor is doing a publish, some of the files that would usually be included by the [`OctoPack`](https://octopus.com/docs/packaging-applications/creating-packages/nuget-packages/using-octopack) MSBuild target might not be included by default (this includes the various `web.*.config` files). To ensure these files are included in the package make sure they are configured to `Copy to Output Directory` is Visual Studio.
+Under `Automatic Packaging` select `Package Web Applications for Octopus Deployment`. By ticking this box AppVeyor will run `octo.exe pack` after MSBuild has finished its `publish` command. _Keep in mind that since AppVeyor is doing a publish, some of the files that would usually be included by the [`OctoPack`](packaging-applications/creating-packages/nuget-packages/using-octopack) MSBuild target might not be included by default (this includes the various `web.*.config` files). To ensure these files are included in the package make sure they are configured to `Copy to Output Directory` is Visual Studio.
 
 ![AppVeyor MSBuild Build](appveyor_build_msbuild.png)
 
@@ -21,7 +21,7 @@ Under `Automatic Packaging` select `Package Web Applications for Octopus Deploym
 | ------------- | ------- |
 | OCTOPUS_PACKAGE_VERSION | Overrides the version in the package name. (default AppVeyor build version)|
 | OCTOPUS_PACKAGE_NUGET | Overrides the package type. (default nupkg) |
-| OCTOPUS_PACKAGE_ADVANCED | [Additional arguments](/docs/packaging-applications/creating-packages/nuget-packages/using-octo.exe) to pass to `octo.exe pack` |
+| OCTOPUS_PACKAGE_ADVANCED | [Additional arguments](packaging-applications/creating-packages/nuget-packages/using-octo.exe) to pass to `octo.exe pack` |
 
 ### Non-MSbuild projects
 AppVeyor have included `octo.exe` into the base Windows build VM and is available via the command line. If running a project _not_ using msbuild you can manually invoke the octo.exe pack command directly during the build phase.
@@ -39,7 +39,7 @@ With the build page configured, go to `Deployment` and select the new `Octopus D
 
 When you define an "Octopus package" in AppVeyor through the `Package Web Applications for Octopus Deployment` flag or `Artifacts` page, then AppVeyor will automatically select that package to push to your Octopus Server. Set the `Artifact(s)` field on the `Deployment` page if you have manually created an archive.
 
- If your Octopus Deploy project doesn't make use of [automatic release creation](/docs/deployment-process/releases/automatic-release-creation) or automatic lifecycle progression you can optionally trigger these actions from within the AppVeyor configuration providing the appropriate values in the inputs provided.
+ If your Octopus Deploy project doesn't make use of [automatic release creation](eployment-process/releases/automatic-release-creation) or automatic lifecycle progression you can optionally trigger these actions from within the AppVeyor configuration providing the appropriate values in the inputs provided.
 Unless overridden, the AppVeyor project name will be used in place of the Octopus project name when creating a release.
 
 # Build Configuration in Code
