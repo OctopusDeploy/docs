@@ -6,11 +6,11 @@ position: 9
 
 One of the essential steps in deploying software is configuring it to work in a specific environment. This might mean pointing your application to the right database connection string, or tweaking settings to run in production.
 
-## Configuration variables {#Configurationfiles-ConfigurationVariablesConfigurationvariables}
+## Configuration Variables {#Configurationfiles-ConfigurationVariablesConfigurationvariables}
 
-This feature can be enabled for any NuGet package step.
+This feature can be enabled for package deploy steps.
 
-![](/docs/images/3048087/3277705.png "width=500")
+![Configuration variables screenshot](configuration-variables.png)
 
 If a [variable](/docs/deployment-process/variables/index.md) is defined in the Octopus web portal, and an **appSettings, applicationSettings** or **connectionStrings** element exists for it in any of your **.config** files, Tentacle will automatically replace the value after extracting your package.
 
@@ -35,9 +35,7 @@ For example, suppose you have this configuration file:
 </configuration>
 ```
 
-And you have these variables defined in your Octopus web portal:
-
-![](/docs/images/3048087/3277704.png "width=500")
+The variables **AWSAccessKey**, **AWSSecretKey**, and **DBConnectionString** can be access in the project menu unnder variables.
 
 After deploying to an environment named "**Production**", Octopus will have updated the file to:
 
@@ -47,7 +45,7 @@ After deploying to an environment named "**Production**", Octopus will have upda
     <add key="AWSAccessKey" value="ABCDEFGHIJKLMNOP"/>
     <add key="AWSSecretKey" value="MfOWQdSJWi8JDYc/6YmoaHafz8jByBl9aksCoSLB"/>
   </appSettings>
- 
+
   <connectionStrings>
     <add name="DBConnectionString" connectionString="Server=PRDSQL02;Database=OnlineStore;Integrated Security=SSPI" />
   </connectionStrings>
@@ -82,7 +80,7 @@ The same concept applies to strongly-typed **applicationSettings** using the [Ap
 Values are matched based on the **key** attribute for **appSettings**, and the **name** element for **applicationSettings** and **connectionStrings**.
 :::
 
-## Replacing variables outside appSettings, applicationSettings and connectionStrings {#Configurationfiles-VariablesInFilesReplacingvariablesoutsideappSettings,applicationSettingsandconnectionStrings}
+## Replacing Variables Outside appSettings, applicationSettings and connectionStrings {#Configurationfiles-VariablesInFilesReplacingvariablesoutsideappSettings,applicationSettingsandconnectionStrings}
 
 There may be other variables you would like Octopus to replace in your configuration files that are outside both the appSettings and connectionStrings areas.
 
@@ -104,9 +102,9 @@ There are pros and cons to each of these methods. For the first two it can break
 Using the Substitute Variables in Files feature will change the order that variables are replaced. Using Configuration Transformations and Configuration Variables, does the transformation and then replaces variables. Defining files within the substitution will have all of their variables replaced first prior to the transformation. But this will only happen for any configuration or transformation files that are explicitly listed in the Substitute files list. Read about the order of [package step feature ordering here](/docs/deployment-process/deploying-packages/package-deployment-feature-ordering.md).
 :::
 
-## Configuration transforms {#Configurationfiles-ConfigurationTransformationConfigurationtransforms}
+## Configuration Transforms {#Configurationfiles-ConfigurationTransformationConfigurationtransforms}
 
-![](/docs/images/3048087/3277703.png "width=500")
+![Configuration Transforms screenshot](configuration-transforms.png)
 
 If this feature is enabled, Tentacle will also look for any files that follow the Microsoft [web.config transformation process](https://msdn.microsoft.com/en-us/library/dd465326.aspx) – **even files that are not web.config files!** *Keep reading for examples.*
 
@@ -126,7 +124,7 @@ An example web.config transformation that removes the `<compilation debug="true
 The team at [AppHarbor](https://appharbor.com/) created a useful tool to [help test configuration file transformations](https://webconfigtransformationtester.apphb.com/).
 :::
 
-### Naming configuration transform files {#Configurationfiles-Namingconfigurationtransformfiles}
+### Naming Configuration Transform Files {#Configurationfiles-Namingconfigurationtransformfiles}
 
 This feature will run your configuration transforms based on looking for transform files named with the following conventions. The configuration transformation files can either be named `*.Release.config`, or `*.<Environment>.config` and will be executed in this order:
 
@@ -189,7 +187,7 @@ Transform.config => Target.config
 
 The above transform definition will apply **Transform.config** to **Target.config** when the files are in the same directory.
 
-### Relative path {#Configurationfiles-Relativepath}
+### Relative Path {#Configurationfiles-Relativepath}
 
 **Relative path config transform**
 
