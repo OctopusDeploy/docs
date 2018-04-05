@@ -35,7 +35,7 @@ For example, suppose you have this configuration file:
 </configuration>
 ```
 
-The variables **AWSAccessKey**, **AWSSecretKey**, and **DBConnectionString** can be access in the project menu unnder variables.
+The variables **AWSAccessKey**, **AWSSecretKey**, and **DBConnectionString** can be access in the project menu under variables.
 
 After deploying to an environment named "**Production**", Octopus will have updated the file to:
 
