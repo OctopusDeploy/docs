@@ -50,15 +50,13 @@ If you are using OctoPack to package a Windows Service or console application, s
 Read more about [using OctoPack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md).
 
 
-## Scripts in package steps {#Customscripts-Scriptsinpackagestepsscripts-configured-in-steps}
+## Scripts in Package Steps {#Customscripts-Scriptsinpackagestepsscripts-configured-in-steps}
 
-Rather than embed scripts in packages, you can also define scripts within the package step definition in Octopus. This is a feature that can be enabled on package steps:
+Rather than embed scripts in packages, you can also define scripts within the package step definition in Octopus. This is a feature that can be enabled on package steps by clicking **CONFIGURE FEATURES** and selecting **custom deploy scripts**.
 
-![](/docs/images/3048092/3277758.png "width=500")
+![Enabling custom deployment scripts](deployment-scripts.png)
 
-When enabled, you can define your PreDeploy/Deploy/PostDeploy scripts within the Octopus user interface:
-
-![](/docs/images/3048092/5865605.png "width=500")
+When enabled, you will see **Configuration Scripts** under the features section of the process definition.
 
 ## Standalone scripts {#Customscripts-Standalonescripts}
 
