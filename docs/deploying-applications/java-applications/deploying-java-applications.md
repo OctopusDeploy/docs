@@ -1,11 +1,11 @@
 ---
-title: Deploying Java Applications
+title: Deploying a Sample Java Application
 description: This guide provides a simple example of deploying a Java application with Octopus Deploy.
-position: 52
+position: 2
 ---
 
 :::hint
-See [Java Applications](/docs/deploying-applications/deploy-java-applications.md) for details on deploying Java application servers.
+See [Java Applications](/docs/deploying-applications/java-applications/index.md) for details on deploying Java application servers.
 :::
 
 This guide provides a simple example of deploying a Java application using Octopus Deploy.
