@@ -1,5 +1,5 @@
 ---
-title: Service Fabric PowerShell scripts
+title: Service Fabric PowerShell Scripts
 description: Service Fabric PowerShell scripts allow you to manage your Service Fabric clusters using the Service Fabric SDK as part of your deployment process.
 position: 1
 version: "[3.13,)"
@@ -26,7 +26,7 @@ Please see the [Microsoft Service Fabric SDK documentation](https://docs.microso
 This example uses the Service Fabric SDK to query the health of an application, from the cluster that we've connected to.
 
 ```powershell
-# Hey, we can query things about our cluster because this PowerShell session 
+# Hey, we can query things about our cluster because this PowerShell session
 # is connected to our SF cluster and we have context!
 
 # Determine the health of an application on our cluster.
