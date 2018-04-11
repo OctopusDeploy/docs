@@ -105,7 +105,7 @@ docs/api-and-integration/bamboo/bamboo-plugin.md -> docs/api-and-integration/bam
 docs/guides/deploying-html-and-javascript-applications.md -> docs/deploying-applications/deploying-html-and-javascript-applications.md
 docs/guides/deploying-java-applications.md -> docs/deploying-applications/java-applications/index.md
 docs/deploying-applications/deploying-java-applications.md -> docs/deploying-applications/java-applications/index.md
-docs/deploying-applications/deploy-java-applications.md -> docs/deploying-applications/java-applications/deploy-java-applications
+docs/deploying-applications/deploy-java-applications.md -> docs/deploying-applications/java-applications/deploying-java-applications.md
 docs/guides/node-on-nix-deployments/configure-octopus-deploy-project.md -> docs/deploying-applications/node-on-nix-deployments/configure-octopus-deploy-project.md
 docs/guides/node-on-nix-deployments/configuring-target-machine.md -> docs/deploying-applications/node-on-nix-deployments/configuring-target-machine.md
 docs/guides/node-on-nix-deployments/create-&-push-node.js-project.md -> docs/deploying-applications/node-on-nix-deployments/create-&-push-node.js-project.md
