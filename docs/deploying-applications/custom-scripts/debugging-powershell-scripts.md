@@ -41,15 +41,15 @@ Import-Certificate -Filepath "C:\remoting-certificate.cer" -CertStoreLocation "C
 ## Setting up Octopus for PowerShell debugging
 Create a project with a "Run a Script" step that contains some PowerShell.  For example:
 
-![Sample PowerShell script](debugging-powershell-scripts-script.png)
+```powershell
+$sampleDebugValue = 45
 
-PowerShell debugging is enabled by adding the variable `Octopus.Action.PowerShell.DebugMode` and setting the value to `true`. See [the PowerShell debugging documentation](/docs/deploying-applications/custom-scripts/debugging-powershell-scripts.md) for all of the possible settings.
+Write-Host "$sampleDebugValue"
+```
 
-![Variable to enable debugging](debugging-powershell-scripts-variables.png)
+PowerShell debugging is enabled by adding the project variable `Octopus.Action.PowerShell.DebugMode` and setting the value to `true`. See [the PowerShell debugging documentation](/docs/deploying-applications/custom-scripts/debugging-powershell-scripts.md) for all of the possible settings.
 
-Now, create a release and deploy it.  The deployment will pause while waiting for a PowerShell debugger to attach:
-
-![Deployment waiting for debugger to attach](debugging-powershell-scripts-deploy.png)
+Now, create a release and deploy it.  The deployment will pause while waiting for a PowerShell debugger to attach.
 
 ## Starting the PowerShell debug session
 The deployment in Octopus outputs the information required to start debugging the PowerShell script. If we has name resolution configured we could connect to the machine using the name indicated by Octopus, but in this instance we will use the machine's IP address. First we must start a session with the remote computer.  Open PowerShell ISE and run the following:
