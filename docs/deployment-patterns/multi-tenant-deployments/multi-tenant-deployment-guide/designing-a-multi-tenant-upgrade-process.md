@@ -33,18 +33,14 @@ Let's make sure all of the environments exist and configure our lifecycle. If yo
 
 Now we will create a new tenant for one of the people in our quality assurance or test team.
 
-1. Configure a new tenant giving it any name and tags that make sense
-2. Connect the tenant to the project and the **MT Test**environment
+1. Configure a new tenant giving it any name and tags that make sense.
+2. Connect the tenant to the project and the **MT Test** environment.
 
-![](/docs/images/5669342/5865753.png "width=500")
-
-### Step 3: Configure another tenant with multiple environments {#Designingamulti-tenantupgradeprocess-Step3:Configureanothertenantwithmultipleenvironments}
+### Step 3: Configure Another Tenant with Multiple Environments
 
 Now we will configure a tenant to deploy into multiple environments. If you have been working through this guide you will already have a tenant you can use.
 
 1. Connect a tenant to the project and both the **MT Staging** and **MT Production** environments.
-
-![](/docs/images/5669342/5865749.png "width=500")
 
 ### Step 4: Deploy!
 
@@ -52,11 +48,7 @@ Now we will configure a tenant to deploy into multiple environments. If you have
 
 You can deploy to a single tenant, or a handful of tenants in a batch by selecting them manually. This can be a good way to get started with multi-tenant deployments, and it's also a good fallback when you need it.
 
-![](/docs/images/5669342/5865765.png "width=500")
-
 You can also use the Project Overview to deploy to individual tenants by selecting a release and clicking the **Deploy** buttons.
-
-![](/docs/images/5669342/5865766.png "width=500")
 
 ## Deploying to all Tenants in an Environment
 
@@ -93,17 +85,13 @@ Firstly we we create a tag set called **Upgrade ring** with tags allowing each 
 
 Now you can configure the test tenant you created earlier as part of the test team who will receive upgrades before any of the external tenants.
 
-1. Tag your test tenant(s) with **`Upgrade ring/Tester`**
-
-![](/docs/images/5669342/5865754.png "width=500")
+1. Tag your test tenant(s) with **`Upgrade ring/Tester`**.
 
 ### Step 3: Configure Some Early Adopter Tenants and Stable Tenants
 
 Now you can optionally configure some external tenants as opting in to early or stable releases to see the effect.
 
-1. Find or create some tenants and tag them as either **`Upgrade ring/Stable`** or **`Upgrade ring/Early adopter`**
-
-![](/docs/images/5669342/5865760.png "width=500")
+1. Find or create some tenants and tag them as either **`Upgrade ring/Stable`** or **`Upgrade ring/Early adopter`**.
 
 ### Step 5: Deploy! {#Designingamulti-tenantupgradeprocess-Step5:Deploy!}
 
