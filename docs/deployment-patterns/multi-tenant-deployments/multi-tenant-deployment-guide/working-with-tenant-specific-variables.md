@@ -14,22 +14,18 @@ Quite often you want to define variable values that are different for each tenan
 
 :::hint
 **Tenant-provided variables are not snapshotted**
-When you [create a release](/docs/api-and-integration/octo.exe-command-line/creating-releases.md) in Octopus Deploy we take a snapshot of the deployment process and the current state of the [project-variables](/docs/deployment-process/variables/index.md), however we do not take a snapshot of tenant-variables. This enables you to add new tenants at any time and deploy to them without creating a new release. This means any changes you make to tenant-variables will take immediate effect.
+When you [create a release](/docs/api-and-integration/octo.exe-command-line/creating-releases.md) in Octopus Deploy we take a snapshot of the deployment process and the current state of the [project-variables](/docs/deployment-process/variables/index.md), however, we do not take a snapshot of tenant-variables. This enables you to add new tenants at any time and deploy to them without creating a new release. This means any changes you make to tenant-variables will take immediate effect.
 :::
 
-We set out with a vision to make this as easy as possible to manage, like the examples shown below.
+To add variables for a tenant, select the tenant from the **Tenants** page and click **Variables**.
 
-![](/docs/images/5669247/5865614.png "width=500")
+![Tenant Variables](tenant-variables.png)
 
-*In the example above we are collecting common variable values that remain constant across projects and environments. This could be really useful for values like a tenant alias, contact details, or other values that will remain constant for each tenant across any projects they are connected to. You could think of these like "custom fields" for your tenants. You can also see a warning indicator leading the way to a problem with Project Variables.*
+**Common Variables** and **Project Variables** can be added per tenant.
 
-![](/docs/images/5669247/5865615.png "width=500")
+**Common Variables** are variable values that remain constant across projects and environments for this tenant. This could be really useful for values like a tenant alias, contact details, or other values that will remain constant for each tenant across any projects they are connected to. You could think of these like "custom fields" for your tenants.
 
-*In the example above we are collecting tenant-specific values that differ between projects and environments. This could be really useful for settings for connecting to a database for that tenant/environment. In this example we are using a default value as a template drawing from some common variable values. You can also see the warning indicator telling us we need to provide a value for the **Database password** in the **MT Staging** environment.*
-
-:::success
-If you have a wide display we will also put environments side-by-side for easy comparison.
-:::
+**Project Variables** are values that differ between projects and environments for this tenant. This could be really useful for settings for connecting to a database for that tenant/environment. In this example, we are using a default value as a template drawing from some common variable values.
 
 ## Introducing Variable Templates
 
