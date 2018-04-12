@@ -68,9 +68,7 @@ Let's tag your existing tenant to see how easy it is to work with tags.
 
 1. Find your tenant, our example, **Beverley Sanchez** and tag them as a **VIP**, remembering to click **Save**. That's it!
 
-The result should look like the screen below:
-
-![](/docs/images/5669428/5865653.png "width=500")
+When you navigate to the tenant's overview page, you'll see the tags you've applied to them.
 
 ### Step 3: Tailor the Deployment Process for VIP Tenants
 
@@ -99,21 +97,15 @@ if ($tenantName) {
 Clicking the Design/Preview link will open a dialog to help you design your tenant filter. You can [learn more about designing complex tenant filters in our reference documentation](/docs/deployment-patterns/multi-tenant-deployments/tenant-tags.md).
 :::
 
-The resulting deployment process should look like this:
-
-![](/docs/images/5669428/5865656.png "width=500")
+The resulting deployment process will include the step that emails tenants tagged with the **VIP** tag.
 
 ### Step 4: Deploy the Project to Your VIP Tenant
 
 Now this new step in your deployment process will execute when deploying to VIP tenants, but not for any other tenants.
 
-![](/docs/images/5669428/5865657.png "width=500")
-
 ### Step 5: Create and Tag Some More Tenants to See the Results
 
-To really see the benefit of tagging you could go and create some more tenants and tag them. The example shown below are taken from a fully built sample showing how tenant tags can help with your multi-tenant deployments.
-
-![](/docs/images/5669428/5865698.png "width=500")
+To really see the benefit of tagging you could go and create some more tenants and tag them. On the tenants page you can click **SHOW ADVANCED FILTERS** and view your tenants based on which tags have been applied to which tenants.
 
 ## Next Steps
 
