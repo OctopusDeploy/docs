@@ -6,7 +6,7 @@ position: 2
 
 Octopus Deploy stores projects, environments, and deployment history in a Microsoft SQL Server database.
 
-!include.sql
+!include <sql>
 
 ## Using SQL Server Express {#SQLServerDatabaseRequirements-UsingSQLServerExpress}
 
