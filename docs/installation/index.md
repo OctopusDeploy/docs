@@ -48,7 +48,7 @@ Before you do, it's worth taking note of the other settings such as controlling 
 
 ## Save the Master Key
 
-Under the storage section, you will see a link to **View Master Key**. The **Master Key**
+Under the storage section, you will see a link to **View Master Key**.
 
 When Octopus is installed, it generates a master key which is a random string that is used to encrypt sensitive data in your Octopus database. You will need to the master key if you ever need to restore an Octopus backup.
 

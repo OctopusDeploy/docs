@@ -1,5 +1,5 @@
 ---
-title: Designing a multi-tenant upgrade process
+title: Designing a Multi-tenant Upgrade Process
 description: How to design a multi-tenant upgrade process.
 position: 6
 ---
@@ -12,15 +12,15 @@ This page describes how to design a multi-tenant upgrade process using some of t
 You should understand [Lifecycles](/docs/deployment-process/lifecycles/index.md) and [Tenant Tags](/docs/deployment-patterns/multi-tenant-deployments/tenant-tags.md) before continuing with this guide.
 :::
 
-## Upgrading tenanted applications {#Designingamulti-tenantupgradeprocess-Upgradingtenantedapplications}
+## Upgrading Tenanted Applications
 
 Quite often you want to upgrade tenanted applications by rolling the upgrade through each of your tenants in a controlled fashion, instead of upgrading every tenant simultaneously. You can achieve any upgrade process you want by deploying upgrades to your tenants one at a time, but that can be an error-prone and time-consuming task. Octopus Deploy provides features to make it safer and easier to roll upgrades through your tenants.
 
-## Tenants and Lifecycles {#Designingamulti-tenantupgradeprocess-TenantsandLifecycles}
+## Tenants and Lifecycles
 
 Quite often you want to provide a tenant-specific "test" environment where upgrades can be tested by the customers before you upgrade their "production" environment. This is how Octopus Deploy behaves out of the box - if a tenant is connected to multiple environments of a project, you will be required to promote a release through the environments in the order defined by the [Lifecycle](/docs/deployment-process/lifecycles/index.md). Let's build on our working example and test this out. We are going to perform an untenanted deployment into the **MT Dev** environment, then promote those releases to our test team in the **MT Test** environment, upgrade the **MT Staging** environment for our tenant, and finally upgrade their instance of the application in the **MT Production** environment.
 
-### Step 1: Configure the Lifecycle {#Designingamulti-tenantupgradeprocess-Step1:ConfiguretheLifecycle}
+### Step 1: Configure the Lifecycle
 
 Let's make sure all of the environments exist and configure our lifecycle. If you have been working through this guide you will already have the **MT Normal Lifecycle** with the **MT Production** environment.
 
@@ -29,40 +29,32 @@ Let's make sure all of the environments exist and configure our lifecycle. If yo
 
 ![](/docs/images/5669342/5865746.png)
 
-### Step 2: Configure a test tenant {#Designingamulti-tenantupgradeprocess-Step2:Configureatesttenant}
+### Step 2: Configure a Test Tenant
 
 Now we will create a new tenant for one of the people in our quality assurance or test team.
 
-1. Configure a new tenant giving it any name and tags that make sense
-2. Connect the tenant to the project and the **MT Test**environment
+1. Configure a new tenant giving it any name and tags that make sense.
+2. Connect the tenant to the project and the **MT Test** environment.
 
-![](/docs/images/5669342/5865753.png "width=500")
-
-### Step 3: Configure another tenant with multiple environments {#Designingamulti-tenantupgradeprocess-Step3:Configureanothertenantwithmultipleenvironments}
+### Step 3: Configure Another Tenant with Multiple Environments
 
 Now we will configure a tenant to deploy into multiple environments. If you have been working through this guide you will already have a tenant you can use.
 
 1. Connect a tenant to the project and both the **MT Staging** and **MT Production** environments.
 
-![](/docs/images/5669342/5865749.png "width=500")
+### Step 4: Deploy!
 
-### Step 4: Deploy! {#Designingamulti-tenantupgradeprocess-Step4:Deploy!}
-
-## Deploying to individual tenants {#Designingamulti-tenantupgradeprocess-Deployingtoindividualtenants}
+## Deploying to Individual Tenants
 
 You can deploy to a single tenant, or a handful of tenants in a batch by selecting them manually. This can be a good way to get started with multi-tenant deployments, and it's also a good fallback when you need it.
 
-![](/docs/images/5669342/5865765.png "width=500")
-
 You can also use the Project Overview to deploy to individual tenants by selecting a release and clicking the **Deploy** buttons.
 
-![](/docs/images/5669342/5865766.png "width=500")
-
-## Deploying to all tenants in an environment {#Designingamulti-tenantupgradeprocess-Deployingtoalltenantsinanenvironment}
+## Deploying to all Tenants in an Environment
 
 You can deploy to all of the tenants in an environment using the Octopus UI, `octo.exe` or any of the build-server extensions. Octopus will create a deployment for each tenant which is ready for that release to be deployed to the project/environment. Octopus will automatically exclude the tenants which are not ready for that release yet - perhaps they haven't met their lifecycle requirements.
 
-### Using octo.exe {#Designingamulti-tenantupgradeprocess-Usingocto.exe}
+### Using octo.exe
 
 For example you can use this command-line with `octo.exe` to deploy the `1.0.1` release of `Mojo` to all the tenants in the `MT Dev` environment:
 
@@ -70,17 +62,17 @@ For example you can use this command-line with `octo.exe` to deploy the `1.0.1
 octo.exe deploy-release --project Mojo --version 1.0.1 --deployto "MT Dev" --tenant * --server http://octopus/ --apiKey API-ABCDEF123456
 ```
 
-### Using a build-server extension {#Designingamulti-tenantupgradeprocess-Usingabuild-serverextension}
+### Using a Build-server Extension
 
 When using the Create Release, Deploy Release or Promote Release features of the build-server extensions, you can set the **`Tenants`** value to **`*`**
 
 ![](/docs/images/5669342/5866226.png "width=500")
 
-## Deploying to tenants using tenant tags {#Designingamulti-tenantupgradeprocess-Deployingtotenantsusingtenanttags}
+## Deploying to Tenants Using Tenant Tags
 
 You can create tenant tag sets specifically to help with deployments and rolling out upgrades. Quite often you want to deploy targeted releases to your testers, and once testing is finished you want to flight/prove that upgrade with a smaller group of tenants before rolling it out to the rest of your tenants. Let's design that kind of process using tenant tags.
 
-### Step 1: Create a tag set called "Upgrade ring" {#Designingamulti-tenantupgradeprocess-Step1:Createatagsetcalled&quot;Upgradering&quot;}
+### Step 1: Create a Tag Set Called "Upgrade ring"
 
 Firstly we we create a tag set called **Upgrade ring** with tags allowing each tenant to choose how early in the development/test cycle they want to receive upgrades.
 
@@ -89,21 +81,17 @@ Firstly we we create a tag set called **Upgrade ring** with tags allowing each 
 
 ![](upgrade-ring.png "width=500")
 
-### Step 2: Configure a test tenant {#Designingamulti-tenantupgradeprocess-Step2:Configureatesttenant.1}
+### Step 2: Configure a Test Tenant
 
 Now you can configure the test tenant you created earlier as part of the test team who will receive upgrades before any of the external tenants.
 
-1. Tag your test tenant(s) with **`Upgrade ring/Tester`**
+1. Tag your test tenant(s) with **`Upgrade ring/Tester`**.
 
-![](/docs/images/5669342/5865754.png "width=500")
-
-### Step 3: Configure some early adopter tenants and stable tenants {#Designingamulti-tenantupgradeprocess-Step3:Configuresomeearlyadoptertenantsandstabletenants}
+### Step 3: Configure Some Early Adopter Tenants and Stable Tenants
 
 Now you can optionally configure some external tenants as opting in to early or stable releases to see the effect.
 
-1. Find or create some tenants and tag them as either **`Upgrade ring/Stable`** or **`Upgrade ring/Early adopter`**
-
-![](/docs/images/5669342/5865760.png "width=500")
+1. Find or create some tenants and tag them as either **`Upgrade ring/Stable`** or **`Upgrade ring/Early adopter`**.
 
 ### Step 5: Deploy! {#Designingamulti-tenantupgradeprocess-Step5:Deploy!}
 

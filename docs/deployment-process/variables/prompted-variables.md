@@ -1,5 +1,5 @@
 ---
-title: Prompted variables
+title: Prompted Variables
 description: Prompted variables allow you to prompt a user to enter a value rather than storing it in Octopus.
 position: 3
 ---
@@ -8,21 +8,21 @@ Sometimes you may not want to store the value of a variable inside Octopus (thou
 
 Octopus can handle this using **Prompted variables**.
 
-## Defining a prompted variable {#Promptedvariables-Definingapromptedvariable}
+## Defining a Prompted Variable {#Promptedvariables-Definingapromptedvariable}
 
 You can configure a variable to be prompted when editing the variable:
 
-![](/docs/images/3048314/3278298.png "width=500")
+To edit the variable, select the **project**, then click **Variables**. Click the value of the variable you want to edit and click **Open Editor**.
+
+![](prompted-variable.png)
 
 When defining a prompted variable, you can provide a friendly name and description, and specify if the value is required. A required variable must be supplied when the deployment is created and must not be empty or white space.
 
-![](/docs/images/3048314/3278299.png "width=500")
+You can identify prompted variables by looking for then icon next to the value:
 
-Prompted variables will appear with an icon next to the value:
+![](prompted-variable-icon.png)
 
-![](/docs/images/3048314/3278300.png "width=500")
-
-## Providing a value for the variable {#Promptedvariables-Providingavalueforthevariable}
+## Providing a Value For the Variable {#Promptedvariables-Providingavalueforthevariable}
 
 When deploying (not creating a release), you'll be prompted to provide a value for the variable:
 

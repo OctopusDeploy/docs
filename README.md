@@ -306,9 +306,16 @@ If you create anchors in the markdown, do not use special characters in the anch
 
 ## Images
 
+Images can be incredibly helpful for your audience, but the downside of images is how quickly they can become inaccurate.
+
+Before adding a screenshot of the Octopus UI or another UI that users will interact with, consider the following:
+
+1. How likely is it the UI will change and the old screenshot will confuse readers?
+1. Have you provided text that describes the steps users need to take (for accessibility reasons you should), is the text clear enough that the screenshot isn't necessary?
+
 Put images in the same folder as the markdown file that references it.
 
-If you're including images from the internet, reference using the `https://` scheme;
+If you're including images from the internet, reference using the `https://` scheme.
 
 Images can be added using the following markdown syntax:
 
@@ -324,7 +331,7 @@ Keep reading for a detailed explanation of the options available when working wi
 
 ### Image Sizing
 
-Image size can be controlled by adding the text `width=x` to the end of the title
+Image size can be controlled by adding the text `width=x` to the end of the title.
 
 For example:
 

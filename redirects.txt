@@ -103,7 +103,9 @@ docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-servic
 docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-management-certificate-account.md -> docs/infrastructure/azure/creating-an-azure-account/creating-an-azure-management-certificate-account.md
 docs/api-and-integration/bamboo/bamboo-plugin.md -> docs/api-and-integration/bamboo.md
 docs/guides/deploying-html-and-javascript-applications.md -> docs/deploying-applications/deploying-html-and-javascript-applications.md
-docs/guides/deploying-java-applications.md -> docs/deploying-applications/deploying-java-applications.md
+docs/guides/deploying-java-applications.md -> docs/deploying-applications/java-applications/index.md
+docs/deploying-applications/deploying-java-applications.md -> docs/deploying-applications/java-applications/index.md
+docs/deploying-applications/deploy-java-applications.md -> docs/deploying-applications/java-applications/deploying-java-applications.md
 docs/guides/node-on-nix-deployments/configure-octopus-deploy-project.md -> docs/deploying-applications/node-on-nix-deployments/configure-octopus-deploy-project.md
 docs/guides/node-on-nix-deployments/configuring-target-machine.md -> docs/deploying-applications/node-on-nix-deployments/configuring-target-machine.md
 docs/guides/node-on-nix-deployments/create-&-push-node.js-project.md -> docs/deploying-applications/node-on-nix-deployments/create-&-push-node.js-project.md
@@ -414,7 +416,7 @@ docs/deploying-applications/deploying-to-service-fabric/index.md -> docs/deployi
 docs/deploying-applications/deploying-to-service-fabric/connecting-securely-with-azure-active-directory/index.md -> docs/deploying-applications/azure-deployments/deploying-to-service-fabric/connecting-securely-with-azure-active-directory/index.md
 docs/deploying-applications/deploying-to-azure/index.md -> docs/deploying-applications/azure-deployments/index.md
 docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-cloud-service/index.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-cloud-service/index.md
-docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-cloud-service/azure-steps-migrated-from-octopus-deploy-2.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-cloud-service/azure-steps-migrated-from-octopus-deploy-2.md
+docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-cloud-service/azure-steps-migrated-from-octopus-deploy-2.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-cloud-service/index.md
 docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/index.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md
 docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/deploying-web-jobs.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-web-app/deploying-web-jobs.md
 docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps.md
@@ -426,3 +428,4 @@ docs/deploying-applications/service-fabric/version-automation-with-service-fabri
 docs/how-to/migrate-azure-targets-into-azure-steps.md -> docs/index.md
 docs/deployment-process/migrate-azure-targets-into-azure-steps.md -> docs/index.md
 docs/deployment-process/project-triggers.md -> docs/deployment-process/project-triggers/index.md
+docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-cloud-service/azure-steps-migrated-from-octopus-deploy-2.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-cloud-service/index.md

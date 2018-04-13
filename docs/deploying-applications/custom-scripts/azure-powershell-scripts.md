@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell scripts
+title: Azure PowerShell Scripts
 description: Azure PowerShell scripts allow you to manage your Azure subscription using the Azure PowerShell SDK for the Resource Management (RM) or Service Management (SM) API as part of your deployment process.
 position: 1
 ---
@@ -25,7 +25,7 @@ This example uses the Service Management API to create a new Staging slot as par
 ```powershell
 #Remove the staging slot if it exists
 Remove-AzureWebsite -Name #{WebSite} -Slot Staging -Force
- 
+
 #Create the staging slot
 New-AzureWebsite -Name #{WebSite} -Slot Staging
 ```

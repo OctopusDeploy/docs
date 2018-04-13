@@ -105,12 +105,12 @@ You could achieve a similar result, with a different default/fallback behavior, 
 
 The `if` and `unless` statements consider a value to be *falsy* if it is undefined, empty, `False` or `0`. All other values are considered to be *truthy*.
 
-### Complex syntax
+### Complex Syntax
 Additional conditional statements are supported in Octopus 3.5 and onwards, including == and !=.
 
 Using complex syntax you can have expressions like `#{if Octopus.Environment.Name == "Production"}...#{/if}` and `#{if Octopus.Environment.Name != "Production"}...#{/if}`
 
-### Run conditions
+### Run Conditions
 Conditions can be used to control whether a given step in a deployment process actually runs.  In this scenario the conditional statement should return true/false, depending on your requirements.
 
 Some examples would be,
@@ -188,7 +188,7 @@ Within the context of an iteration template, some special variables are availabl
 | `Octopus.Template.Each.First` | `"True" if the element is the first in the collection`, otherwise "False" |
 | `Octopus.Template.Each.Last`  | "True" if the element is the last in the collection, otherwise "False" |
 
-### 
+###
 Filters {#VariableSubstitutionSyntax-Filters}
 
 By default, bindings are inserted into the output as-is; no consideration is given as to whether the target variable or file is XML, HTML, JSON etc. That is, the target file type is always treated as plain text.

@@ -1,5 +1,5 @@
 ---
-title: Creating your first tenant
+title: Creating Your First Tenant
 description: Creating your first tenant.
 position: 0
 ---
@@ -24,6 +24,6 @@ Try adding a logo for your tenant - this will make it much easier to distinguish
 
 In reality your tenants would be other businesses, but for our sample we've used anonymous people data from [http://api.randomuser.me/](http://api.randomuser.me/).
 
-## Next steps {#Creatingyourfirsttenant-Nextsteps}
+## Next Steps {#Creatingyourfirsttenant-Nextsteps}
 
 In the following steps we will [create a multi-tenant project](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-multi-tenant-project.md) and then [deploy that project into the tenant's environment](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md).

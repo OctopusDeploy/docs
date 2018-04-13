@@ -3,9 +3,10 @@ title: SQL Server Database
 description: Information about using SQL Server database with Octopus Deploy.
 position: 2
 ---
-Review the supported versions and edition of [SQL Server Database](/docs/installation/requirements.md/#sql-database-server) if you haven’t already done so.
 
 Octopus Deploy stores projects, environments, and deployment history in a Microsoft SQL Server database.
+
+!include <sql>
 
 ## Using SQL Server Express {#SQLServerDatabaseRequirements-UsingSQLServerExpress}
 
