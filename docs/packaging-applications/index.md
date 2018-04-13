@@ -18,7 +18,7 @@ The combination of a **package format**, **package ID**, and **version number** 
 
 ## Example Package
 
-One of the simplest examples of a package that is deployable by Octopus look like this:
+One of the simplest examples of a package that is deployable by Octopus looks like this:
 
 > hello-world.1.0.0.zip
 
