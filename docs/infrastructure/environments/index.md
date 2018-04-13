@@ -7,11 +7,13 @@ Octopus Deploy organizes your infrastructure, that is the deployment targets you
 
 Organizing your deployment targets into environments lets you define your deployment processes (no matter how many deployment targets or steps are involved) and have Octopus deploy the right versions of your software to the right environments at the right time.
 
-## Add a New Environment
+## Add New Environments
 
 Add new environments to Octopus Deploy by navigating to **{{Infrastructure,Environments}}** in the **Octopus Web Portal** and click **ADD ENVIRONMENT**:
 
-Give your new environment a meaningful name, like **Development**, **Test**, or **Production**.
+Give your new environments meaningful names, like **Development**, **Test**, or **Production**.
+
+You can add as many environments as you need.
 
 ## Managing Your Environments
 
