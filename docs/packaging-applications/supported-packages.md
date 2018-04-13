@@ -1,5 +1,5 @@
 ---
-title: Supported Packages
+title: Supported Formats
 description: Octopus Deploy supports numerous package formats including NuGet, Tar, ZIP and docker images.
 position: 1
 ---
