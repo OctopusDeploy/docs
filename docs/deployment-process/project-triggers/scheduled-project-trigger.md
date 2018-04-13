@@ -89,11 +89,3 @@ The Deploy New Release action will create a new release and deploy it to the sel
 
 The newly created release will select the latest package versions that match the channel rules that the release is created in.
 
-### Handling Prompted Variables
-If your project is configured to use [Prompted variables](/docs/deployment-process/variables/prompted-variables.md) you can supply those variables as part of the scheduled project trigger. Any variables that are specified in the variable section of the action will replace existing variables in the project.
-
-The variables specified in this section have a lifetime of one deployment. Only deployments created by the scheduled trigger will have the variable values specified in this section. Manually deploying a release created or deployed by a scheduled trigger will cause the variable values to revert to the values defined in the project or library variable set.
-
-The variables defined in this section have a [specificity](https://octopus.com/docs/deployment-process/variables/scoping-variables#Scopingvariables-Scopespecificity) equal to unscoped variables. Project or library set variables that have a more specific scoping will be preferred to trigger contributed variables.
-
-![](/docs/images/scheduled-project-triggers/scheduled-project-triggers-prompt-variables.png "width=500")
