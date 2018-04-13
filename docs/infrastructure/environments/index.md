@@ -69,7 +69,7 @@ You can control who has access to view, edit, and deploy to environments by assi
 
 By default, [projects](/docs/deployment-process/projects.md) can be deployed to any environment.
 
-You can limit which projects can be deployed to which environments using [Lifecycles](/docs/deployment-process/lifecycles/index.md). This is useful if you have one set of environments for projects developed by one team, and another set of environments for projects developed by another team.
+You can limit which projects can be deployed to which environments using [Lifecycles](/docs/infrastructure/lifecycles/index.md). This is useful if you have one set of environments for projects developed by one team, and another set of environments for projects developed by another team.
 
 ## Adding Deployment Targets to Environments {#Environments-Addingmachinestoenvironments}
 

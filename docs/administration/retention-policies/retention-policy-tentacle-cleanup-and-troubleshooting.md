@@ -59,7 +59,7 @@ Defining retention policies is done within Lifecycles. Each phase can have a dif
 
 ![](/docs/images/3048641/3278386.png "width=500")
 
-You can read more about [Lifecycles ](/docs/deployment-process/lifecycles/index.md)and [Retention Policies](/docs/administration/retention-policies/index.md) on their own detailed pages.
+You can read more about [Lifecycles ](/docs/infrastructure/lifecycles/index.md)and [Retention Policies](/docs/administration/retention-policies/index.md) on their own detailed pages.
 
 In this example the default for the Lifecycle is Keep 3.
 
