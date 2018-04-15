@@ -311,7 +311,7 @@ Images can be incredibly helpful for your audience, but the downside of images i
 Before adding a screenshot of the Octopus UI or another UI that users will interact with, consider the following:
 
 1. How likely is it the UI will change and the old screenshot will confuse readers?
-1. Have you provided text that describes the steps users need to take (for accessibility reasons you should), is the text clear enough that the screenshot isn't necessary?
+1. Have you provided text that describes the steps users need to take (for accessibility reasons you shouldn't rely on screenshots to relay information), is the text clear enough that the screenshot isn't necessary?
 
 Put images in the same folder as the markdown file that references it.
 
