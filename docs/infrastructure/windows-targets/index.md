@@ -12,7 +12,10 @@ Once installed, Tentacles:
 - Wait for jobs from Octopus (deploy a package, run a script, etc).
 - Report the progress and results back to the Octopus Server.
 
-Before you install Tentacle, review the the software and hardware requirements for the [latest version of Tentacle](/docs/infrastructure/windows-targets/requirements.md) or [versions of Tentacle prior to 3.1](/docs/infrastructure/windows-targets/requirements.md).
+Before you install Tentacle, review the the software and hardware requirements:
+
+- [The latest version of Tentacle](/docs/infrastructure/windows-targets/requirements.md).
+- [Versions of Tentacle prior to 3.1](/docs/infrastructure/windows-targets/requirements.md).
 
 ## Download the Tentacle Installer
 
