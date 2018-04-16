@@ -10,7 +10,7 @@ Your environments and deployment targets are managed from the **Infrastructure**
 
 ## Lifecycles
 
-After you've configured your environments, you can define [lifecycles](/docs/infrastructure/lifecycles/index.md) that specifies how your software is promoted through your environments, and which projects are associated with which environments.
+After you've configured your environments, you can define [lifecycles](/docs/infrastructure/lifecycles/index.md) that specify how your software is promoted through your environments, and which projects are associated with which environments.
 
 Learn more about [Lifecycles](/docs/infrastructure/lifecycles/index.md).
 
