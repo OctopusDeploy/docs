@@ -18,8 +18,7 @@ Learn more about [Lifecycles](/docs/infrastructure/lifecycles/index.md).
 
 Deployment targets are added to environments in different ways, depending on the type of target and how they will communicate with the Octopus Deploy Server.
 
-- [Tentacles on Windows targets in listening mode](/docs/infrastructure/windows-targets/listening-tentacles/index.md)
-- [Tentacles on Windows targets in polling mode](/docs/infrastructure/windows-targets/polling-tentacles/index.md)
+- [Tentacles on Windows targets](/docs/infrastructure/windows-targets/index.md)
 - [SSH targets](/docs/infrastructure/ssh-targets/index.md)
 - [AWS targets](/docs/infrastructure/aws/index.md)
 - [Azure targets](/docs/infrastructure/azure/index.md)
