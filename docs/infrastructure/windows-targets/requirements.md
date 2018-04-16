@@ -8,23 +8,23 @@ If you're not using the latest Tentacle, refer to the [installation requirements
 
 The installation requirements for the latest version of Tentacle are:
 
-### Windows Server
+## Windows Server
 
 -  Windows Server 2008 R2
 -  Windows Server 2012
 -  Windows Server 2012 R2 
 -  Windows Server 2016 (Both "Server Core" and "Server with a GUI" installations are supported for Tentacle).
 
-### .NET Framework.
+## .NET Framework.
 
 - Tentacle 3.1+ (TLS 1.0 or 1.2): .NET Framework 4.5+ ([download](http://www.microsoft.com/en-au/download/details.aspx?id=42643)).
 
-### Windows PowerShell
+## Windows PowerShell
 
 - Windows PowerShell 2.0. This is automatically installed on 2008 R2.
 - Windows PowerShell 3.0 or 4.0 is recommended, both of which are compatible with PowerShell 2.0, but execute against .NET 4.0+.
 
-### Hardware Requirements
+## Hardware Requirements
 
 - Hardware minimum: 512MB RAM, 1GHz CPU, 2GB free disk space.
 
