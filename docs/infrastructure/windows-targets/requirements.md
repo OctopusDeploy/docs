@@ -4,7 +4,7 @@ description: Software and hardware requirements for installing the latest versio
 position: 1
 ---
 
-If you're not using the latest Tentacle, refer to the [installation requirements for older versions of Tentacle](/docs/infrastructure/windows-targets/legacy-requirments.md).
+If you're not using the latest Tentacle, refer to the [installation requirements for older versions of Tentacle](/docs/infrastructure/windows-targets/legacy-requirements.md).
 
 The installation requirements for the latest version of Tentacle are:
 
