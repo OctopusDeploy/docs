@@ -4,14 +4,6 @@ description: Octopus Polling Tentacles open a connection to the Octopus server t
 position: 40
 ---
 
-When installing a Tentacle, you will be asked to choose how Tentacle will communicate with the Octopus server. In **polling** mode, Tentacle will poll the Octopus server periodically to check whether there are any tasks for it to perform. Polling mode is the opposite to [listening mode](/docs/infrastructure/windows-targets/listening-tentacles/index.md). *In polling mode, Octopus is the TCP server, and Tentacle is the TCP client.*
-
-![](/docs/images/3048113/5865875.png)
-
-The advantage to polling mode is that you don't need to make any firewall changes on the Tentacle side; you only need to allow access to a port on the Octopus server. The disadvantage is that it also uses more resources on the Tentacle side, since Tentacle needs to poll periodically even if there aren't any jobs for it to perform. That's why [we recommend listening mode](/docs/infrastructure/windows-targets/listening-tentacles/index.md) most of the time.
-
-Polling mode is good for scenarios that involve Tentacle being behind NAT or a dynamic IP address. A good example might be servers at branch offices or a chain of retail stores, where the IP address of each server running Tentacle may change.
-
 :::warning
 **SSL Offloading is Not Supported**
 The communication protocol used by Octopus and Tentacle requires intact end-to-end TLS connection for message encryption, tamper-proofing, and authentication. For this reason SSL offloading is not supported.

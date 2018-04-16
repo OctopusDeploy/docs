@@ -4,15 +4,6 @@ description: Octopus Listening Tentacles wait for a connection from the Octopus 
 position: 30
 ---
 
-When installing a Tentacle, you will be asked to choose how Tentacle will communicate with the Octopus server. In **listening** mode, Tentacle *listens* on a TCP port (port **10933** by default). When a package needs to be deployed, Octopus will connect to the Tentacle service on that port. *In listening mode Tentacle is the TCP server, and Octopus is the TCP client.*
-
-*![](/docs/images/3048114/5865876.png)*
-
-:::success
-**Listening Mode is Recommended**
-When choosing a communication mode, we recommend listening mode when possible. Listening mode uses the least resources (listening on a TCP port is cheaper than actively trying to connect to one). It also gives you the most control (you can use rules in your firewall to limit which IP addresses can connect to the port). [Octopus and Tentacle use SSL when communicating](/docs/administration/security/octopus-tentacle-communication/index.md), and Tentacle will outright reject connections that aren't from an Octopus server that it trusts (identified by an X.509 certificate public key that you provide during setup).
-:::
-
 :::warning
 **SSL Offloading is Not Supported**
 The communication protocol used by Octopus and Tentacle requires intact end-to-end TLS connection for message encryption, tamper-proofing, and authentication. For this reason SSL offloading is not supported.
