@@ -50,3 +50,9 @@ There are three options to choose from:
 - Before package acqusition: Packages will be acquired after this step runs
 
 This option is hidden when it does not make sense, for example, when a script step is configured to run after a package step (packages must be acquired by this point).
+
+## Required
+
+By default deployment steps can be skipped when creating a deployment.  Marking a step as Required will result in it being unable to be skipped.
+
+![](required-step-condition.png "width=500")
