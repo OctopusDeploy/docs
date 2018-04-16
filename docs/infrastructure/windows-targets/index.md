@@ -4,28 +4,15 @@ description: Everything you need to know about installing and configuring Octopu
 position: 40
 ---
 
-Tentacle is a secure, lightweight agent service that Octopus uses to deploy software to Windows targets. Tentacle runs as a Windows Service, and is installed on all of the machines that you plan to deploy software to, such as your application and web servers.
+When you deploy software to Windows Servers, you need to install Tentacle, a lightweight agent service, on all of those Window Servers.
 
-In essence, Tentacle is a job runner. It waits for Octopus to give it a job (deploy a package, run a script), and it executes it, reporting the progress and result back to the Octopus server.
+Once installed, Tentacles:
 
-## Installation Requirements for Tentacle{#InstallingTentacles-Requirements}
+- Run as a Windows Service called **OctopusDeploy Tentacle**.
+- Wait for jobs from Octopus (deploy a package, run a script, etc).
+- Report the progress and results back to the Octopus Server.
 
-- Windows Server 2003 SP2 (**N.B. Not supported for Tentacle 3.1 and up due to .NET 4.5 dependency**)
--  Windows Server 2008 (**N.B. SP1 not supported for Tentacle 3.1 and up due to .NET 4.5 dependency**)
--  Windows Server 2008 R2
--  Windows Server 2012
--  Windows Server 2012 R2 
--  Windows Server 2016 (Both "Server Core" and "Server with a GUI" installations are supported for Tentacle).
-- .NET Framework.
-- Tentacle 3.0 (TLS 1.0): .NET Framework 4.0+ ([download](http://www.microsoft.com/en-au/download/details.aspx?id=17851)).
-- Tentacle 3.1+ (TLS 1.0 or 1.2): .NET Framework 4.5+ ([download](http://www.microsoft.com/en-au/download/details.aspx?id=42643)).
-- Windows PowerShell 2.0. This is automatically installed on 2008 R2, but for 2008 pre-R2 you'll need to install it ([x86 download](http://www.microsoft.com/download/en/details.aspx?id=11829&amp;__hstc=254453975.06c54f702f3aed3215f4224e6b75b56f.1380851265147.1386910090621.1387188601891.78&amp;__hssc=254453975.2.1387188601891&amp;__hsfp=4151299608), [x64 download](http://www.microsoft.com/download/en/details.aspx?displaylang=en&amp;id=20430&amp;__hstc=254453975.06c54f702f3aed3215f4224e6b75b56f.1380851265147.1386910090621.1387188601891.78&amp;__hssc=254453975.2.1387188601891&amp;__hsfp=4151299608)).
-- Windows PowerShell 3.0 or 4.0 is recommended, both of which are compatible with PowerShell 2.0, but execute against .NET 4.0+.
-- Windows Server 2003 servers will need [Windows Management Framework](http://support.microsoft.com/kb/968930?__hstc=254453975.06c54f702f3aed3215f4224e6b75b56f.1380851265147.1386910090621.1387188601891.78&amp;__hssc=254453975.2.1387188601891&amp;__hsfp=4151299608) installed (this includes PowerShell).
-- Hardware minimum: 512MB RAM, 1GHz CPU, 2GB free disk space.
-
-Tentacle uses a pretty small amount of memory when idle, usually around 10MB (it may appear higher in task manager because memory is shared with other .NET processes that are running). When deploying, depending on what happens during the deployment, this may expand to 60-100MB, and will then go back down after the deployment is complete. Tentacle will happily run on single-core machines, and only uses about 100MB of disk space, though of course you'll need more than that to deploy your applications.
-
+Before you install Tentacle, review the the software and hardware requirements for the [latest version of Tentacle](/docs/infrastructure/windows-targets/requirements.md) and [versions of Tentacle prior to version 3.1](/docs/infrastructure/windows-targets/requirements.md).
 
 ## Download the Tentacle Installer
 
@@ -63,8 +50,6 @@ In a virtualized environment, it may be desirable to install Tentacle on a base 
 
 If you choose to do this, please **do not complete the configuration wizard** before taking the snapshot. The configuration wizard generates a unique per-machine cryptographic certificate that should not be duplicated. Instead, use PowerShell to [automate configuration](/docs/infrastructure/windows-targets/automating-tentacle-installation.md) after the clone has been materialized.
 :::
-
-After installation, Tentacle runs as a Windows Service named **OctopusDeploy Tentacle**.
 
 :::warning
 **Calamari Warning in Health Check**
