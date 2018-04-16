@@ -1,7 +1,7 @@
 ---
 title: Legacy Tentacle Installation Requirements
 description: Software and hardware requirements for installing legacy versions of Tentacles.
-position: 1
+position: 20
 ---
 
 These are the installation requirements for Tentacles prior to Tentacle version 3.1.
