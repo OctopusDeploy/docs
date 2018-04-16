@@ -19,7 +19,7 @@ Before you install Tentacle, review the the software and hardware requirements:
 
 ## Tentacle Communication
 
-Octopus and Tentacle can be configured to communicate two different ways depending on your network setup. The mode you are using will change the installation process slightly.
+Octopus and Tentacles can be configured to communicate two different ways depending on your network setup. The mode you are using will change the installation process slightly.
 
 ### Listening Tentacles
 
@@ -51,10 +51,26 @@ The latest Octopus Tentacle MSI can always be [downloaded from the Octopus Deplo
 
 ## Installation
 
+MSI and Wizard
+
+### Listening (recommended)
+
+Port
+Firewall (and intermediary firewalls)
+
+### Polling
 
 
 
+## Firewall
 
+## Registering the Tentacle with Octopus
+
+Thumbprint
+
+
+
+## Health Check
 
 
 
