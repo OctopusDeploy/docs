@@ -9,16 +9,12 @@ These are the installation requirements for Tentacles prior to Tentacle version 
 ## Windows Server
 
 - Windows Server 2003 SP2 (**N.B. Not supported for Tentacle 3.1 and up due to .NET 4.5 dependency**)
--  Windows Server 2008 (**N.B. SP1 not supported for Tentacle 3.1 and up due to .NET 4.5 dependency**)
--  Windows Server 2008 R2
--  Windows Server 2012
--  Windows Server 2012 R2 
--  Windows Server 2016 (Both "Server Core" and "Server with a GUI" installations are supported for Tentacle).
+- Windows Server 2008 (**N.B. SP1 not supported for Tentacle 3.1 and up due to .NET 4.5 dependency**)
+
 
 ## .NET Framework
 
 - Tentacle 3.0 (TLS 1.0): .NET Framework 4.0+ ([download](http://www.microsoft.com/en-au/download/details.aspx?id=17851)).
-- Tentacle 3.1+ (TLS 1.0 or 1.2): .NET Framework 4.5+ ([download](http://www.microsoft.com/en-au/download/details.aspx?id=42643)).
 
 ## Windows PowerShell
 
