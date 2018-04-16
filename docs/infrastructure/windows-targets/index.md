@@ -17,6 +17,10 @@ Before you install Tentacle, review the the software and hardware requirements:
 - [The latest version of Tentacle](/docs/infrastructure/windows-targets/requirements.md).
 - [Versions prior to Tentacle 3.1](/docs/infrastructure/windows-targets/requirements.md).
 
+## Download the Tentacle Installer
+
+The latest Octopus Tentacle MSI can always be [downloaded from the Octopus Deploy downloads page](https://octopus.com/downloads).
+
 ## Tentacle Communication
 
 Octopus and Tentacles can be configured to communicate two different ways depending on your network setup. The mode you are using will change the installation process slightly.
@@ -45,28 +49,40 @@ The advantage to polling mode is that you don't need to make any firewall change
 
 Polling mode is good for scenarios that involve Tentacle being behind NAT or a dynamic IP address. A good example might be servers at branch offices or a chain of retail stores, where the IP address of each server running Tentacle may change.
 
-## Download the Tentacle Installer
-
-The latest Octopus Tentacle MSI can always be [downloaded from the Octopus Deploy downloads page](https://octopus.com/downloads).
-
 ## Installation
 
-MSI and Wizard
+1. Start the Tentacle Installer and follow the onscreen prompts.
+2. Accept the license agreement, and either accept the default installation location or choose a different location.
+3. Click install, and give the app permission to **make changes to your device**.
+4. Click finish to exit the installation wizard and launch the setup wizard to configure your tentacle.
+5. Click **Get Started** and **Next**.
+6. Accept the default *configuration and log* directory and *application* directory or choose different locations.
+7. Choose the communication style for the Tentacle.
 
-### Listening (recommended)
+### Configuring a Listening Tentacle (recommended)
 
-Port
+
+### Configuring a Polling Tentacle
+
+
+
+
+
+Port opened on the tentacle server
 Firewall (and intermediary firewalls)
-
-### Polling
-
-
 
 ## Firewall
 
 ## Registering the Tentacle with Octopus
 
 Thumbprint
+
+### Polling
+
+Port opened on the Octopus server (only when listening mode isn't an option)
+Authenticate
+Roles in the wizard this time? Still true?
+
 
 
 
