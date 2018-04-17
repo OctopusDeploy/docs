@@ -146,7 +146,7 @@ There are two values you will need from the Azure AD configuration to complete t
 
 2. The GUID for the **Issuer** is your Azure Active Directory Tenant ID which can be found in the **Properties** sheet of Azure Actice Directory
 
- ![Get the AzureAD tenant from the Portal](get-aad-tenant-portal.png.png "width=500")
+ ![Get the AzureAD tenant from the Portal](get-aad-tenant-portal.png "width=500")
 
 ### Setting the Client ID and Issuer into Octopus Deploy {#AzureADauthentication-SettingtheClientIDandIssuerintoOctopusDeploy}
 
