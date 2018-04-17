@@ -27,21 +27,21 @@ In order to configure the your instance of Octopus Deploy as an App, you will ne
 
 1. Login to the "[Azure Portal](https://portal.azure.com)" , click on your account positioned at the top-right of the screen, then select your desired directory.
 
-   ![Switch Azure Directories](./switch-azure-directories.png "width=500")
+   ![Switch Azure Directories](switch-azure-directories.png "width=500")
 
 2. Click the **All services** button and select the **Azure Active Directory** service.
 
-   ![Open AzureAD service](./aad-service.png "width=500")
+   ![Open AzureAD service](aad-service.png "width=500")
 
 3. Select **App registrations** then choose **New application registration**
 
-   ![New App registration](./new-app-registration.png "width=500")
+   ![New App registration](new-app-registration.png "width=500")
 
 4. Choose a **Name** like *Octopus Deploy*, specify **Application Type** of *Web app/API*, and enter a value for **Sign-On URL** like *https://octopus.example.com* Then click **Create**. 
  - The value you specify for Name will appear at the top of the Azure authentication page when the users are entering their credentials.
  - The value you specify for Sign-On URL should be a public URL to your own Octopus Server.
  
-   ![Filling the App registration form](./new-app-registration-form.png "width=500")
+   ![Filling the App registration form](new-app-registration-form.png "width=500")
 
 #### Configuring trusted Reply URLs {#AzureADauthentication-ConfiguringtrustedReplyURLs}
 
@@ -49,12 +49,12 @@ During the authentication with Azure AD, the user will be directed to an Azure p
 
 1. Find your new App registration in AzureAD.
 To ensure your new App registration appears in the list, you will need to set the filter to **All apps**.
-   ![Finding the App registration](./find-app-registration.png "width=500")
+   ![Finding the App registration](find-app-registration.png "width=500")
 
 2. Select **Settings** and choose **Reply URLs**. Under the Reply URLs section, enter the public URL to your Octopus Server with `/api/users/authenticatedToken/AzureAD` attached to the end.
 In our example this would be `https://octopus.example.com/api/users/authenticatedToken/AzureAD`
 
-   ![Setting the App registration ReplyURL](./set-app-registration-replyurl.png "width=500")
+   ![Setting the App registration ReplyURL](set-app-registration-replyurl.png "width=500")
 
 Please take care when adding this URL! They are **case-sensitive** and can be sensitive to trailing **slash** characters. The specification highly recommends using SSL to ensure the security and integrity of your tokens. You can use `http` here if you do not have SSL enabled on the public interface of your Octopus Server. Please beware of the security implications in accepting a security token over an insecure channel.
 
@@ -65,7 +65,7 @@ If you want to manage user/team membership via AAD, you will need to configure R
 
 1. Under the App Registration, select **Manifest** and select **Edit** to modify your manifest as required.
 
-  ![Editing an App registration manifest](./edit-app-registration-manifest.png "width=500")
+  ![Editing an App registration manifest](edit-app-registration-manifest.png "width=500")
 
 The example below illustrates two roles, one for administrators and one for application testers.
 
@@ -99,7 +99,7 @@ Make sure you replace `NEWGUID` with a generated guid.
 
 Once you have completed editing the manifest, select the **Save** option.
 
-  ![Saving an App registration manifest](./save-app-registration-manifest.png "width=500")
+  ![Saving an App registration manifest](save-app-registration-manifest.png "width=500")
   
 
 :::hint
@@ -117,13 +117,13 @@ Once the App Role(s) have been defined, users/groups from Azure AD may be mapped
 
  1. Under the App Registration, select your App registrations name under **Managed application in local directory**.
 
-  ![Editing App registration users](./edit-app-registration-users.png "width=500")
+  ![Editing App registration users](edit-app-registration-users.png "width=500")
 
 2. Choose **Users and groups** and select **Add user** to create a new role assignment.
 
 3. Select the users which you would like to assign roles to. Next, under **Select Role** specify one of the AppRoles that you added to the App registration manifest.
 
-  ![Editing App registration users role](./edit-app-registration-users-role.png "width=500")
+  ![Editing App registration users role](edit-app-registration-users-role.png "width=500")
   
 4. To save your changes, select the **Assign** button.
 
@@ -142,11 +142,11 @@ There are two values you will need from the Azure AD configuration to complete t
 
 1. In the Azure portal, the **Application ID** in your App's **Essentials section** is your **Client ID**
 
-  ![Getting the App registration](./get-app-registration-id.png "width=500")
+  ![Getting the App registration](get-app-registration-id.png "width=500")
 
 2. The GUID for the **Issuer** is your Azure Active Directory Tenant ID which can be found in the **Properties** sheet of Azure Actice Directory
 
- ![Get the AzureAD tenant from the Portal](./get-aad-tenant-portal.png.png "width=500")
+ ![Get the AzureAD tenant from the Portal](get-aad-tenant-portal.png.png "width=500")
 
 ### Setting the Client ID and Issuer into Octopus Deploy {#AzureADauthentication-SettingtheClientIDandIssuerintoOctopusDeploy}
 
@@ -178,10 +178,10 @@ If you followed the optional steps for modifying the App registration's manifest
 2. Either Create a new **Team** or select an existing one.
 
 3. Under the **Members** section, select the option **Add External Group/Role**
- ![Adding Octopus Teams from External Providers](./add-octopus-teams-external.png "width=500")
+ ![Adding Octopus Teams from External Providers](add-octopus-teams-external.png "width=500")
  
 4. Enter the details from your App registration's manifest. In this example we need to supply `octopusTesters` as the **Group/Role ID** and `Octopus Testers` as the **Display Name** 
- ![Add Octopus Teams Dialog](./add-octopus-teams-external-dialog.png "width=500")
+ ![Add Octopus Teams Dialog](add-octopus-teams-external-dialog.png "width=500")
 
 5. Save your changes by clicking the **Save** button.
 
