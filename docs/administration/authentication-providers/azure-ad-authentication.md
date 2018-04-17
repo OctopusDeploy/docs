@@ -20,64 +20,54 @@ The first steps are to configure your Azure Active Directory to trust your insta
 
 ### Configure Octopus Deploy as an App in your AAD {#AzureADauthentication-ConfigureOctopusDeployasanAppinyourAAD}
 
-:::hint
-At the time of writing this documentation, the "new" Azure Portal's **Azure Active Directory** feature was in preview.  The following instructions are based on the "old" portal at [https://manage.windowsazure.com](https://manage.windowsazure.com).
-:::
+The following instructions are based on the "[new](https://portal.azure.com)" Azure Portal's **Azure Active Directory** service because the "old" portal at [https://manage.windowsazure.com](https://manage.windowsazure.com) is no longer in use by Microsoft Azure.
 
 :::success
 **Get the right permissions for your Azure Active Directory tenant before starting**
 In order to configure the your instance of Octopus Deploy as an App, you will need administrator permissions to the desired Azure Active Directory tenant in your subscription.
 :::
 
-1. Navigate to Azure Active Directory, select the directory you want to use, and select the Applications tab.
+1. Login to the "[new](https://portal.azure.com)" Azure Portal, click on your account positioned at the top-right of the screen, then select your desired directory.
 
-   ![](../../images/5670656/5865860.png "width=500")
+   ![](./switch-azure-directories.png "width=500")
 
-2. Click the **ADD** button and select **Add an application my organization is developing**.
+2. Click the **All services** button and select the **Azure Active Directory** service.
 
-   ![](../../images/5670656/5865861.png "width=500")
+   ![](./aad-service.png "width=500")
 
-3. Choose **Web Application and/or Web API** for the **Type**, and enter a **Name** like Octopus Deploy. *This is the name that will appear at the top of the Azure authentication page when the users are entering their credentials.*
+3. Select **App registrations** then choose **New application registration**
 
-   ![](../../images/5670656/5865862.png "width=500")
+   ![](./new-app-registration.png "width=500")
 
-4. Enter the public URL to your Octopus Server as both the Sign-On URL and AppId URL. *In this example we are configuring our own demo server, but you should use the public URL to your own Octopus Server.*
-
-   ![](../../images/5670656/5865863.png "width=500")
+4. Choose a **Name** like *Octopus Deploy*, specify **Application Type** of *Web app/API*, and enter a value for **Sign-On URL** like *https://octopus.example.com* Then click **Create**. 
+ - The value you specify for Name will appear at the top of the Azure authentication page when the users are entering their credentials.
+ - The value you specify for Sign-On URL should be a public URL to your own Octopus Server.
+ 
+   ![](./new-app-registration-form.png "width=500")
 
 #### Configuring trusted Reply URLs {#AzureADauthentication-ConfiguringtrustedReplyURLs}
 
 During the authentication with Azure AD, the user will be directed to an Azure page to enter their credentials. As part of the authentication flow, Octopus passes a Reply URL to tell Azure where to POST the user's security token. This URL must be added to a trusted whitelist in the App configuration or the authentication flow will be terminated by Azure.
 
-1. Find your App in AAD and go to the Configure tab.
+1. Find your new App registration in AzureAD.
+To ensure your new App registration appears in the list, you will need to set the filter to **All apps**.
+   ![](./find-app-registration.png "width=500")
 
-   ![](../../images/5670656/5865865.png "width=500")
+2. Select **Settings** and choose **Reply URLs**. Under the Reply URLs section, enter the public URL to your Octopus Server with `/api/users/authenticatedToken/AzureAD` attached to the end.
+In our example this would be `https://octopus.example.com/api/users/authenticatedToken/AzureAD`
 
-2. Scroll down to find the Reply URL section. Enter the public URL to your Octopus Server with `/api/users/authenticatedToken/AzureAD`.
-   In our example this would be `https://demo.octopus.com/api/users/authenticatedToken/AzureAD`
+   ![](./set-app-registration-replyurl.png "width=500")
 
-:::hint
-**Reply URLs are sensitive**
-Please take care when adding this URL! They are **case-sensitive** and can be sensitive to trailing **slash** characters
-:::
+Please take care when adding this URL! They are **case-sensitive** and can be sensitive to trailing **slash** characters. The specification highly recommends using SSL to ensure the security and integrity of your tokens. You can use `http` here if you do not have SSL enabled on the public interface of your Octopus Server. Please beware of the security implications in accepting a security token over an insecure channel.
 
-:::hint
-**Not using SSL?**
-The specification highly recommends using SSL to ensure the security and integrity of your tokens. You can use `http` if you do not have SSL enabled on the public interface of your Octopus Server. Please beware of the security implications in accepting a security token over an insecure channel.
-:::
 
 #### Mapping AAD Users into Octopus Teams (optional) {#AzureADauthentication-MappingRolesMappingAADUsersintoOctopusTeams(optional)}
 
 If you want to manage user/team membership via AAD, you will need to configure Roles for your App.  To add a Role(s) you will need to edit the App's manifest.
 
-- In the [modern portal](https://portal.azure.com) you can edit the manifest directly in the browser
-- In the [old portal](https://manage.windowsazure.com) you will need to download and hand-edit the file:
+1. Under the App Registration, select **Manifest** and select **Edit** to modify your manifest as required.
 
-  ![](../../images/5670656/5865864.png "width=500")
-
-- Select **Manage Manifest** and download your App's manifest JSON file.
-- Edit the downloaded file to add the required Role(s), see below for further details.
-- Select **Manage Manifest** and upload the modified manifest.
+  ![](./edit-app-registration-manifest.png "width=500")
 
 The example below illustrates two roles, one for administrators and one for application testers.
 
@@ -109,6 +99,11 @@ Make sure you replace `NEWGUID` with a generated guid.
 }
 ```
 
+Once you have completed editing the manifest, select the **Save** option.
+
+  ![](./save-app-registration-manifest.png "width=500")
+  
+
 :::hint
 The **value** property is the most important one. This value becomes the external Role ID you will use later on when [adding this role to a Team](/docs/administration/managing-users-and-teams/index.md) in Octopus Deploy.
 :::
@@ -122,16 +117,17 @@ For more advanced scenarios, please see the [Azure manifest file documentation](
 
 Once the App Role(s) have been defined, users/groups from Azure AD may be mapped into these Roles.
 
-:::hint
-At the time of writing, the Azure Active Directory is in preview in the modern portal[ and mapping users has been problematic.](https://portal.azure.com) We currently recommend doing this in the old portal.
-:::
+ 1. Under the App Registration, select your App registrations name under **Managed application in local directory**.
 
-1. In the old portal, go to the **Applications** tab, select the App and then select the **Users** tab.
+  ![](./edit-app-registration-users.png "width=500")
 
-   ![](../../images/5670656/5865867.png "width=500")
+2. Choose **Users and groups** and select **Add user** to create a new role assignment.
 
-2. The users/groups from your Azure AD should be displayed, with the Assigned column indicating whether they are already mapped.
-3. You can click the **Assign** or **Remove** buttons to manage which Users and Groups can access your instance of Octopus Deploy. You can also manage which Roles are assigned to each User and Group.
+3. Select the users which you would like to assign roles to. Next, under **Select Role** specify one of the AppRoles that you added to the App registration manifest.
+
+  ![](./edit-app-registration-users-role.png "width=500")
+  
+4. To save your changes, select the **Assign** button.
 
 :::hint
 If you only have one Role it will be automatically assigned. If you have **multiple** Roles a popup will appear when you click the **Assign** button so you can select the Role to assign.
@@ -139,34 +135,20 @@ If you only have one Role it will be automatically assigned. If you have **multi
 
 ## Configuring Octopus Deploy Server {#AzureADauthentication-ConfiguringOctopusDeployServer}
 
-:::hint
-There is currently no UI for configuring Octopus to use Azure AD - it must be configured from the command line.
-:::
 
 ### Get the Client ID and Issuer {#AzureADauthentication-GettheClientIDandIssuer}
 
 There are two values you will need from the Azure AD configuration to complete the Octopus configuration: the **Client ID** and **Issuer**.
 
-#### Using the old Azure portal {#AzureADauthentication-UsingtheoldAzureportal}
+#### Using the Azure portal {#AzureADauthentication-UsingthemodernAzureportal}
 
-1. Find the **Client ID** in your App's **Configure** tab and copy it as-is
+1. In the Azure portal, the **Application ID** in your App's **Essentials section** is your **Client ID**
 
-   ![](../../images/5670656/5865868.png "width=500")
+  ![](./get-app-registration-id.png "width=500")
 
-2. Locate the  GUID for the **Issuer** in the address for the above page
+2. The GUID for the **Issuer** is your Azure Active Directory Tenant ID which can be found in the **Properties** sheet of Azure Actice Directory
 
-   ![](issuer.png "width=500")
-
-
-#### Using the modern Azure portal {#AzureADauthentication-UsingthemodernAzureportal}
-
-1. In the modern portal, the **Application ID** in your App's **Settings/Properties** is your **Client ID**
-
-   ![](../../images/5670656/5865869.png "width=500")
-
-2. The GUID for the **Issuer** can be found in the Properties of your Actice Directory tenant
-
-   ![](issuer-n.png "width=500")
+ ![](./get-aad-tenant-portal.png.png "width=500")
 
 ### Setting the Client ID and Issuer into Octopus Deploy {#AzureADauthentication-SettingtheClientIDandIssuerintoOctopusDeploy}
 
@@ -188,6 +170,22 @@ Octopus.Server.exe configure --azureADIsEnabled=true --azureADIssuer=Issuer --az
 Alternatively these settings can be defined through the user interface by selecting {{Configuration,Settings,Azure AD}} and populating the fields `Issuer`, `ClientId` and `IsEnabled`.
 
 ![Settings](azure-ad-settings.png)
+
+### Assign App registration roles to Octopus Teams (Optional) {#AzureADauthentication-SettingtheClientIDandIssuerintoOctopusDeploy}
+
+If you followed the optional steps for modifying the App registration's manifest to include new roles, you can assign them to **Teams** in the Octopus Portal.
+
+1. Open the Octopus Portal and select {{Configuration,Teams}} 
+
+2. Either Create a new **Team** or select an existing one.
+
+3. Under the **Members** section, select the option **Add External Group/Role**
+ ![](./add-octopus-teams-external.png "width=500")
+ 
+4. Enter the details from your App registration's manifest. In this example we need to supply `octopusTesters` as the **Group/Role ID** and `Octopus Testers` as the **Display Name** 
+ ![](./add-octopus-teams-external-dialog.png "width=500")
+
+5. Save your changes by clicking the **Save** button.
 
 ### Octopus user accounts are still required {#AzureADauthentication-Octopususeraccountsarestillrequired}
 
