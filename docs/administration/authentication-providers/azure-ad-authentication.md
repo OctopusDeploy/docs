@@ -181,7 +181,7 @@ If you followed the optional steps for modifying the App registration's manifest
  ![Adding Octopus Teams from External Providers](./add-octopus-teams-external.png "width=500")
  
 4. Enter the details from your App registration's manifest. In this example we need to supply `octopusTesters` as the **Group/Role ID** and `Octopus Testers` as the **Display Name** 
- ![](./add-octopus-teams-external-dialog.png "width=500")
+ ![Add Octopus Teams Dialog](./add-octopus-teams-external-dialog.png "width=500")
 
 5. Save your changes by clicking the **Save** button.
 
