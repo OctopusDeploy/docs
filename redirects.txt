@@ -427,5 +427,4 @@ docs/deploying-applications/service-fabric/packaging.md -> docs/deploying-applic
 docs/deploying-applications/service-fabric/version-automation-with-service-fabric-application-packages/index.md -> docs/deploying-applications/azure-deployments/service-fabric/version-automation-with-service-fabric-application-packages/index.md
 docs/how-to/migrate-azure-targets-into-azure-steps.md -> docs/index.md
 docs/deployment-process/migrate-azure-targets-into-azure-steps.md -> docs/index.md
-docs/deployment-process/project-triggers.md -> docs/deployment-process/project-triggers/index.md
 docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-cloud-service/azure-steps-migrated-from-octopus-deploy-2.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-cloud-service/index.md
