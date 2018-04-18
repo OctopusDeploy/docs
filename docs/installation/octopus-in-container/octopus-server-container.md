@@ -1,7 +1,6 @@
 ---
-title: Octopus as a Container
-description: Running the Octopus Server or Tentacle from inside the official Docker container
-position: 8
+title: Octopus Server Container
+description: An Octopus Server instance can be run directly from within a container.
 ---
 
 ## Octopus Server
@@ -23,7 +22,7 @@ Using `-p "1322:81"` we are mapping the _container port_ `81` to `1322` on the h
 
 To set the connection string we provide an _environment variable_ `sqlDbConnectionString` (in this case to a local SQL server).
 
-In this case we are running the image `octopusdeploy/octopusdeploy:2018.3.13`. The tag maps directly to the Octopus Server version that is bundled in the image.
+In this case we are running the image `octopusdeploy/octopusdeploy:2018.3.13`. The tag maps directly to the Octopus Server version that is bundled inside the image.
 
 ### Configuration
 When running an Octopus Server Image, the following values can be provided to configure the running Octopus Server instance.
@@ -44,7 +43,7 @@ Read Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#pub
 |**81**|Port for API and HTTP portal |
 |**10943**|Port for Polling Tentacles to contact the server|
 
-_The Octopus Server container does not currently support HTTPS however this should be available sometime soon_
+_The Octopus Server container does not currently support HTTPS however this should be available sometime in the future_
 
 #### Volume Mounts
 Read Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#mount-volume--v---read-only) about mounting volume.
@@ -56,9 +55,9 @@ Read Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#mou
 |**C:\TaskLogs**|Path where task logs are stored|
 
 ### Upgrading
-When the volume are externally mounted to the host filesystem, upgrades between Octopus versions become a breeze. We can picture the upgrade process with a container as being similar to [moving a standard Octopus Server](/docs/administration/moving-your-octopus/move-the-database-and-server.md) since containers, being immutable, don't themselves get updated.
+When the volumes are externally mounted to the host filesystem, upgrades between Octopus versions become a breeze. We can picture the upgrade process with a container as being similar to [moving a standard Octopus Server](/docs/administration/moving-your-octopus/move-the-database-and-server.md) since containers, being immutable, don't themselves get updated.
 
-Similar to when moving an instance, to perform the container upgrade you will need the master key that was used to set up the original database. The master-key for for an Octopus Server in a container can be found by consulting its logs. When the initial configuration takes place, the same [`show-master-key`](/docs/api-and-integration/octopus.server.exe-command-line/show-master-key.md) command is invoked that you could otherwise do with a standard installation.
+Similar to moving an instance, to perform the container upgrade you will need the master key that was used to set up the original database. The master-key for an Octopus Server in a container can be found by consulting its logs. When the initial container startup takes place, the same [`show-master-key`](/docs/api-and-integration/octopus.server.exe-command-line/show-master-key.md) command is invoked that you could otherwise do with a standard installation.
 
 e.g
 ```
@@ -80,4 +79,4 @@ With the master key in hand, you can stop the running Octopus Server container i
 docker run -i  --name OctopusServer -d -p "1322:81" -e masterKey=5qJcW9E6B99teMmrOzaYNA== -e sqlDbConnectionString="Server=172.23.192.1,1433;Initial Catalog=Octopus;Persist Security Info=False;User ID=sa;Password=P@ssw0rd;MultipleActiveResultSets=False;Connection Timeout=30;" -v "C:/Octopus/Logs:C:/TaskLogs" octopusdeploy/octopusdeploy:2018.4.0
 ```
 
-While you dont strictly _need_ to mount the internal directory locations to somewhere on the host, it will mean that the newly upgraded server has access to all the same packages, logs and artifacts as before. The standard backup and restore procedures for this [data stored on the filesystem](/docs/administration/backup-and-restore.md#octopus-file-storage) and the connected [SQL Server](/docs/administration/octopus-database/index.md) still apply as per normal Octopus installations.
+While you dont strictly _need_ to mount the internal directory locations, it will mean that the newly upgraded server will still access to all the same packages, logs and artifacts as before. The standard backup and restore procedures for the [data stored on the filesystem](/docs/administration/backup-and-restore.md#octopus-file-storage) and the connected [SQL Server](/docs/administration/octopus-database/index.md) still apply as per normal Octopus installations.

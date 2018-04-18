@@ -1,7 +1,6 @@
 ---
-title: Octopus as a Container
-description: Running the Octopus Server or Tentacle from inside the official Docker container
-position: 8
+title: Octopus Tentacle Container
+description: An Octopus Tentacle instance can be run directly from within a container.
 ---
 
 ## Octopus Tentacle
@@ -41,8 +40,6 @@ Read Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#pub
 |||
 |--|--|
 |**10933**|Port tentacle will be listening on (if in listening mode)|
-
-_The Octopus Server container does not currently support HTTPS however this should be available sometime in the future_
 
 #### Volume Mounts
 Read Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#mount-volume--v---read-only) about mounting volume.
