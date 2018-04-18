@@ -60,7 +60,7 @@ docker-compose --poject-name Octopus up -d
 
 Once both containers are healthy you can browse directly to `http://localhost:5441` from your host machine.
 
-Upgrades with a Docker Compose project are similar to the steps with [upgrading a single Octopus Server container](./octopus-server-container.md). You will still need to get the master-key from the original Octopus Server container used when initially setting up the database. With this key in hand, a simple change to the `.env` file to include the master-key and update the Octopus version is all that is required.
+Upgrades with a Docker Compose project are similar to the steps with [upgrading a single Octopus Server container](octopus-server-container.md). You will still need to get the master-key from the original Octopus Server container used when initially setting up the database. With this key in hand, a simple change to the `.env` file to include the master-key and update the Octopus version is all that is required.
 
 ```
 SA_PASSWORD=P@ssw0rd!
@@ -148,4 +148,4 @@ OCTOPUS_ADMIN_PASSWORD=Password01!
 ```
 
 #### Import
-Since the tentacle will perform a `register-with` command when it starts up, we need to ensure that our fresh new Octopus Server has an environment available to add the targets to. This is accomplished above by providing some files in the `./Import` directory. This folder contains files that are generated as part of an [Octopus.Migrator.exe export](https://octopus.com/docs/api-and-integration/octopus.migrator.exe-command-line) invocation performed against an existing installation. Currently the import process requires the export password to be `blank`. When the Octopus Server starts up in the container, this directory is inspected and [Octopus.Migrator.exe import](https://octopus.com/docs/api-and-integration/octopus.migrator.exe-command-line/migrator-import) is invoked if a `metadata.json` file is present.
+Since the tentacle will perform a `register-with` command when it starts up, we need to ensure that our fresh new Octopus Server has an environment available to add the targets to. This is accomplished above by providing some files in the `./Import` directory. This folder contains files that are generated as part of an [Octopus.Migrator.exe export](docs/api-and-integration/octopus.migrator.exe-command-line/index.md) invocation performed against an existing installation. Currently the import process requires the export password to be `blank`. When the Octopus Server starts up in the container, this directory is inspected and [Octopus.Migrator.exe import](docs/api-and-integration/octopus.migrator.exe-command-line/migrator-import.md) is invoked if a `metadata.json` file is present.
