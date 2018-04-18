@@ -32,7 +32,6 @@ docs/key-concepts/projects/index.md -> docs/deployment-process/projects.md
 docs/key-concepts/projects/deployment-processes.md -> docs/deployment-process/index.md
 docs/key-concepts/projects/releases.md -> docs/deployment-process/releases/index.md
 docs/key-concepts/projects/channels.md -> docs/deployment-process/channels.md
-docs/key-concepts/projects/project-triggers.md -> docs/deployment-process/project-triggers/index.md
 docs/key-concepts/projects/reporting.md -> docs/administration/reporting/index.md
 docs/key-concepts/project-groups.md -> docs/deployment-process/projects.md
 docs/key-concepts/lifecycles.md -> docs/infrastructure/lifecycles/index.md
