@@ -30,8 +30,9 @@ When running an Octopus Server Image, the following values can be provided to co
 
 #### Environment Variables
 Read Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#set-environment-variables--e---env---env-file) about setting environment variables.
-|||
-|---| --- |
+
+|  Name       |    |
+| ------------- | ------- |
 |**SqlDbConnectionString**|Connection string to the database to use|
 |**masterKey**|The master key to use to connect to an existing database. If not supplied, and the database does not exist, it will generate a new one. If the database does exist, this is mandatory|
 |**OctopusAdminUsername**|The admin user to create for the Octopus Server|
@@ -39,8 +40,9 @@ Read Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#set
 
 #### Exposed Ports
 Read Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#publish-or-expose-port--p---expose) about exposing ports.
-|||
-|--|--|
+
+|  Name       |    |
+| ------------- | ------- |
 |**81**|Port for API and HTTP portal |
 |**10943**|Port for Polling Tentacles to contact the server|
 
@@ -48,8 +50,9 @@ _The Octopus Server container does not currently support HTTPS however this shou
 
 #### Volume Mounts
 Read Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#mount-volume--v---read-only) about mounting volume.
-|||
-|--|--|
+
+|  Name       |    |
+| ------------- | ------- |
 |**C:\Import**|Imports from this folder if [Octopus Migrator](/docs/api-and-integration/octopus.migrator.exe-command-line/index.md) metadata.json exists then migrator `Import` takes place on startup|
 |**C:\Repository**|Package path for the built-in package repository|
 |**C:\Artifacts**|Path where artifacts are stored|
