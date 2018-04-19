@@ -22,8 +22,9 @@ When running an Octopus Tentacle Image, the following values can be provided to 
 
 #### Environment Variables
 Read Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#set-environment-variables--e---env---env-file) about setting environment variables.
-|||
-|---| --- |
+
+|  Name       |    |
+| ------------- | ------- |
 |**ServerApiKey**|The API Key of the Octopus Server the Tentacle should register with|
 |**ServerUsername**|If not using an api key, the user to use when registering the Tentacle with the Octopus Server|
 |**ServerPassword**|If not using an api key, the password to use when registering the Tentacle|
@@ -38,12 +39,14 @@ Read Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#set
 
 #### Exposed Ports
 Read Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#publish-or-expose-port--p---expose) about exposing ports.
-|||
-|--|--|
+
+|  Name       |    |
+| ------------- | ------- |
 |**10933**|Port tentacle will be listening on (if in listening mode)|
 
 #### Volume Mounts
 Read Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#mount-volume--v---read-only) about mounting volume.
-|||
-|--|--|
+
+|  Name       |    |
+| ------------- | ------- |
 |**C:\Applications**|Default directory to deploy applications to|
