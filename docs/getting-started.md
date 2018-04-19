@@ -102,7 +102,7 @@ When you define a project, you also select a lifecycle. The lifecycle defines th
 
 Lifecycles are defined by phases, each phase can have one or more environments, and each environment can be defined as an automatic deployment environment or a manual deployment environment. Each phase can have a set number of environments that must be released to before the next phase is available for deployment.
 
-Learn more about [lifecycles](/docs/deployment-process/lifecycles/index.md).
+Learn more about [lifecycles](/docs/infrastructure/lifecycles/index.md).
 
 ## Channels
 

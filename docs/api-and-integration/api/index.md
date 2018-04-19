@@ -24,6 +24,6 @@ If you plan to use the REST API from C# or another .NET project, see the [Octop
 
 ## REST API documentation via Swagger
 
-As of `3.17`, Octopus now includes the default Swagger UI for displaying the API documentaiton in a nice human readable way. To browse that UI just open your browser and go to `[OctopusServerURL]/swaggerui/`
+As of `3.17`, Octopus now includes the default Swagger UI for displaying the API documentation in a nice human readable way. To browse that UI just open your browser and go to `[OctopusServerURL]/swaggerui/`. The original Non-Swagger API page is still available and can always be accessed via `[OctopusServerURL]/api/`.
 
 ![](/docs/images/3048161/3278406.png)

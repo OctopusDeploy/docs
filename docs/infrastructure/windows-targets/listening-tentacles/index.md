@@ -1,7 +1,7 @@
 ---
 title: Listening Tentacles
 description: Octopus Listening Tentacles wait for a connection from the Octopus server to be told what to do.
-position: 0
+position: 30
 ---
 
 When installing a Tentacle, you will be asked to choose how Tentacle will communicate with the Octopus server. In **listening** mode, Tentacle *listens* on a TCP port (port **10933** by default). When a package needs to be deployed, Octopus will connect to the Tentacle service on that port. *In listening mode Tentacle is the TCP server, and Octopus is the TCP client.*

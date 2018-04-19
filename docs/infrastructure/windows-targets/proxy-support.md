@@ -1,7 +1,7 @@
 ---
 title: Proxy Support
 description: Octopus supports proxy servers to ensure Octopus Server and Tentacle can operate correctly.
-position: 6
+position: 60
 ---
 
 Octopus has support for proxies in two use cases. You can specify a proxy server for Octopus to use when communicating with a Tentacle, you can also specify a proxy server when a Tentacle and the Octopus Server make web requests to other servers.
