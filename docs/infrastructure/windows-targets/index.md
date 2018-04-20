@@ -15,7 +15,7 @@ Once installed, Tentacles:
 Before you install Tentacle, review the the software and hardware requirements:
 
 - [The latest version of Tentacle](/docs/infrastructure/windows-targets/requirements.md).
-- [Versions prior to Tentacle 3.1](/docs/infrastructure/windows-targets/requirements.md).
+- [Versions prior to Tentacle 3.1](/docs/infrastructure/windows-targets/legacy-requirements.md).
 
 ## Download the Tentacle Installer
 
@@ -23,7 +23,7 @@ The latest Octopus Tentacle MSI can always be [downloaded from the Octopus Deplo
 
 ## Tentacle Communication <!-- move into a separate file?  -->
 
-Octopus and Tentacles can be configured to communicate two different ways depending on your network setup. The mode you are using will change the installation process slightly.
+Octopus and Tentacles can be configured to communicate in two different ways depending on your network setup. The mode you are using will change the installation process slightly.
 
 ### Listening Tentacles
 
@@ -39,7 +39,7 @@ When choosing a communication mode, we recommend listening mode when possible. L
 
 ### Polling Tentacles
 
-In **polling** mode, Tentacle will poll the Octopus server periodically to check whether there are any tasks for it to perform. Polling mode is the opposite to **listening mode**.
+In **polling** mode, Tentacle will poll the Octopus server periodically to check if there are any tasks for it to perform. Polling mode is the opposite to **listening mode**.
 
 In polling mode, Octopus is the TCP server, and Tentacle is the TCP client.
 
@@ -56,7 +56,6 @@ The communication protocol used by Octopus and Tentacle requires intact end-to-e
 ### Proxy Servers Supported for Tentacle Communications
 
 The communication protocol used by Octopus and Tentacle 3.4 and above supports proxies. Read more about configuring proxy servers for Tentacle communications in [proxy support](/docs/infrastructure/windows-targets/proxy-support.md).
-
 
 ## Installation
 
