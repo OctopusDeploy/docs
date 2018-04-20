@@ -4,6 +4,8 @@ description: Octopus Listening Tentacles wait for a connection from the Octopus 
 position: 30
 ---
 
+<!-- all content replicated one level down -->
+
 :::warning
 **SSL Offloading is Not Supported**
 The communication protocol used by Octopus and Tentacle requires intact end-to-end TLS connection for message encryption, tamper-proofing, and authentication. For this reason SSL offloading is not supported.
@@ -32,7 +34,5 @@ To allow your Octopus Deploy server to connect to the Tentacle, you'll need to a
 
 Using listening mode, you won't typically need to make any firewall changes on the Octopus Deploy server.
 
-:::success
 **Intermediary Firewalls**
 Don't forget to allow access not just in Windows Firewall, but also any intermediary firewalls between the Octopus server and your Tentacle. For example, if your Tentacle server is hosted in Amazon EC2, you'll also need to modify the AWS security group firewall to tell EC2 to allow the traffic. Similarly if your Tentacle server is hosted in Microsoft Azure you'll also need to add an Endpoint to tell Azure to allow the traffic.
-:::

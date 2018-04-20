@@ -9,7 +9,7 @@ When you deploy software to Windows Servers, you need to install Tentacle, a lig
 Once installed, Tentacles:
 
 - Run as a Windows Service called **OctopusDeploy Tentacle**.
-- Wait for jobs from Octopus (deploy a package, run a script, etc).
+- Wait for tasks from Octopus (deploy a package, run a script, etc).
 - Report the progress and results back to the Octopus Server.
 
 Before you install Tentacle, review the the software and hardware requirements:
@@ -21,7 +21,7 @@ Before you install Tentacle, review the the software and hardware requirements:
 
 The latest Octopus Tentacle MSI can always be [downloaded from the Octopus Deploy downloads page](https://octopus.com/downloads).
 
-## Tentacle Communication
+## Tentacle Communication <!-- move into a separate file?  -->
 
 Octopus and Tentacles can be configured to communicate two different ways depending on your network setup. The mode you are using will change the installation process slightly.
 
@@ -35,7 +35,7 @@ In listening mode Tentacle is the TCP server, and Octopus is the TCP client.
 
 #### Listening Mode is Recommended
 
-When choosing a communication mode, we recommend listening mode when possible. Listening mode uses the least resources (listening on a TCP port is cheaper than actively trying to connect to one). It also gives you the most control (you can use rules in your firewall to limit which IP addresses can connect to the port). [Octopus and Tentacle use SSL when communicating](/docs/administration/security/octopus-tentacle-communication/index.md), and Tentacle will outright reject connections that aren't from an Octopus server that it trusts (identified by an X.509 certificate public key that you provide during setup).
+When choosing a communication mode, we recommend listening mode when possible. Listening mode uses the least resources (listening on a TCP port is cheaper than actively trying to connect to one). It also gives you the most control (you can use rules in your firewall to limit which IP addresses can connect to the port). [Octopus and Tentacle use SSL when communicating](/docs/administration/security/octopus-tentacle-communication/index.md), and Tentacle will outright reject connections that aren't from an Octopus server that it trusts, identified by an X.509 certificate public key that you provide during setup (see below).
 
 ### Polling Tentacles
 
@@ -49,6 +49,15 @@ The advantage to polling mode is that you don't need to make any firewall change
 
 Polling mode is good for scenarios that involve Tentacle being behind NAT or a dynamic IP address. A good example might be servers at branch offices or a chain of retail stores, where the IP address of each server running Tentacle may change.
 
+### SSL Offloading is Not Supported
+
+The communication protocol used by Octopus and Tentacle requires intact end-to-end TLS connection for message encryption, tamper-proofing, and authentication. For this reason SSL offloading is not supported.
+
+### Proxy Servers Supported for Tentacle Communications
+
+The communication protocol used by Octopus and Tentacle 3.4 and above supports proxies. Read more about configuring proxy servers for Tentacle communications in [proxy support](/docs/infrastructure/windows-targets/proxy-support.md).
+
+
 ## Installation
 
 1. Start the Tentacle Installer and follow the onscreen prompts.
@@ -57,9 +66,28 @@ Polling mode is good for scenarios that involve Tentacle being behind NAT or a d
 4. Click finish to exit the installation wizard and launch the setup wizard to configure your tentacle.
 5. Click **Get Started** and **Next**.
 6. Accept the default *configuration and log* directory and *application* directory or choose different locations.
-7. Choose the communication style for the Tentacle.
+7. Choose the communication style for the Tentacle. <!-- if comms is moved link to it from here -->
 
 ### Configuring a Listening Tentacle (recommended)
+
+To complete the installation we need to setup communication between the Octopus Server and the Tentacle. This is done on both the server where you installed Tentacle and the central Octopus Deploy server. We'll start with the Octopus Server and come back to the Tentacle.
+
+1. In the **Octopus Web Portal**, navigate to the **infrastructure** tab, select **Deployment Targets** and click **ADD DEPLOYMENT TARGET**.
+2. Select **Listening Tentacle**.
+3. Copy the **Thumbprint** (the long alphanumerical string).
+4. Back on the Tentacle server, select **Listening Tentacle** and click **Next**.
+2. Accept the default listening port **10933** or provide your own.
+5. Paste the **Thumbprint** into the **Octopus Thumbprint** field and click **next**.
+6. Click **INSTALL**.
+7. Back in the **Octopus Web Portal**, enter the DNS or IP address of the tentacle, i.e., `example.com` or `10.0.1.23`, and click **NEXT**.
+
+**Firewalls**
+
+To allow your Octopus Deploy server to connect to the Tentacle, you'll need to allow access to TCP port **10933** on the Tentacle (or the port you selected during the installation wizard).
+
+**Intermediary Firewalls**
+
+Don't forget to allow access in any intermediary firewalls between the Octopus server and your Tentacle (not just in Windows Firewall). For example, if your Tentacle server is hosted in Amazon EC2, you'll also need to modify the AWS security group firewall to tell EC2 to allow the traffic. Similarly if your Tentacle server is hosted in Microsoft Azure you'll also need to add an Endpoint to tell Azure to allow the traffic.
 
 
 ### Configuring a Polling Tentacle
@@ -91,18 +119,6 @@ Roles in the wizard this time? Still true?
 
 
 
-- [Listening mode](/docs/infrastructure/windows-targets/listening-tentacles/index.md) (recommended)
-- [Polling mode](/docs/infrastructure/windows-targets/polling-tentacles/index.md)
-
-:::warning
-**SSL Offloading is Not Supported**
-The communication protocol used by Octopus and Tentacle requires intact end-to-end TLS connection for message encryption, tamper-proofing, and authentication. For this reason SSL offloading is not supported.
-:::
-
-:::warning
-**Proxy Servers Supported for Tentacle Communications Since Octopus 3.4**
-The communication protocol used by Octopus and Tentacle 3.4 and above supports proxies. Read more about configuring proxy servers for Tentacle communications in [proxy support](/docs/infrastructure/windows-targets/proxy-support.md).
-:::
 
 Tentacle can be installed and configured directly from the command prompt, which is very useful when you need to install Tentacle on a large number of machines. See more in [automating Tentacle installations](/docs/infrastructure/windows-targets/automating-tentacle-installation.md).
 
