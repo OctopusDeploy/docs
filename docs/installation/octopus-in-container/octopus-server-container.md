@@ -39,7 +39,7 @@ Read Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#set
 |  Name       |    |
 | ------------- | ------- |
 |**SqlDbConnectionString**|Connection string to the database to use|
-|**masterKey**|The master key to use to connect to an existing database. If not supplied, and the database does not exist, it will generate a new one. If the database does exist, this is mandatory|
+|**MasterKey**|The master key to use to connect to an existing database. If not supplied, and the database does not exist, it will generate a new one. If the database does exist, this is mandatory|
 |**OctopusAdminUsername**|The admin user to create for the Octopus Server|
 |**OctopusAdminPassword**|The password for the admin user for the Octopus Server|
 

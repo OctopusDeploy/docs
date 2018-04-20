@@ -13,8 +13,16 @@ Running a Tentacle inside a container may be preferable in some environments whe
 
 When an Octopus Tentacle container starts up, it will attempt to invoke the [`register-with`](/docs/api-and-integration/tentacle.exe-command-line/register-with.md) command to connect and add itself as a machine to that server with the provided roles and environments. Note that due to some limitations in Windows Containers that have only recently been fixed and made available in the 1709 Windows release, this registration will occur on every startup and you may end up with multiple instances if you stop/start a container. Our goal is to update this image to de-register the Tentacle when the container `SIGKILL` signal is passed in.
 
-```
-docker run --name OctopusTentacle -p 10931:10933 -i --env "ListeningPort=10931" --env "ServerApiKey=API-MZKUUUMK3EYX7TBJP6FAKIFHIEO" --env "TargetEnvironment=Development" --env "TargetRole=container-server" --env "ServerUrl=http://172.23.191.1:8065" octopusdeploy/tentacle:3.19.2
+```PowerShell
+docker run --interactive --detach `
+ --name OctopusTentacle `
+ --publish 10931:10933 `
+ --env "ListeningPort=10931"
+ --env "ServerApiKey=API-MZKUUUMK3EYX7TBJP6FAKIFHIEO" `
+ --env "TargetEnvironment=Development" `
+ --env "TargetRole=container-server" `
+ --env "ServerUrl=http://172.23.191.1:8065" `
+ octopusdeploy/tentacle:3.19.2
 ```
 
 ### Configuration
