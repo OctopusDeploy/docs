@@ -28,4 +28,4 @@ As of `3.17`, Octopus now includes the default Swagger UI for displaying the API
 
 ![](/docs/images/3048161/3278406.png)
 
-You can view the API through the Octopus Demo server as [demo.octopus.com/swaggerui/index.html](https://demo.octopus.com/swaggerui/index.html).
+You can view the API through the Octopus Demo server at [demo.octopus.com/swaggerui/index.html](https://demo.octopus.com/swaggerui/index.html).
