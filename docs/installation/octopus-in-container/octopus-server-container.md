@@ -9,17 +9,22 @@ Running the Octopus Server inside a container provides a simple way to set up an
 
 Although there are a few different configuration options, a simple example of starting up an Octopus Server container is as follows:
 
-```shell
-docker run -i -d --name OctopusServer -p "1322:81" -e sqlDbConnectionString="Server=172.23.192.1,1433;Initial Catalog=Octopus;Persist Security Info=False;User ID=sa;Password=P@ssw0rd;MultipleActiveResultSets=False;Connection Timeout=30;" -v "C:/Octopus/Logs:C:/TaskLogs" octopusdeploy/octopusdeploy:2018.3.13
+```PowerShell
+docker run --interactive --detach `
+ --name OctopusServer `
+ --publish "1322:81" `
+ --env sqlDbConnectionString="Server=172.23.192.1,1433;Initial Catalog=Octopus;Persist Security Info=False;User ID=sa;Password=P@ssw0rd;MultipleActiveResultSets=False;Connection Timeout=30;" `
+ --volume "E:/Octopus/Logs:C:/TaskLogs" `
+ octopusdeploy/octopusdeploy:2018.3.13
 ```
 
-We run in detached mode with `-d` to allow the container to run in the background.
+We run in detached mode with `--detach` to allow the container to run in the background.
 
-The `-i` argument ensures that `STDIN` is kept open which is required since internally this is what the running `Octopus.Server.exe` process is waiting on to close.
+The `--interactive` argument ensures that `STDIN` is kept open which is required since internally this is what the running `Octopus.Server.exe` process is waiting on to close.
 
 Setting `--name OctopusServer` just gives us an easy to remember name for this container for if we want to perform some action on the container later. This is optional, but we recommend you provide a name that is meaningful to you.
 
-Using `-p "1322:81"` we are mapping the _container port_ `81` to `1322` on the host so that the Octopus instance is accessible outside this sever.
+Using `--publish "1322:81"` we are mapping the _container port_ `81` to `1322` on the host so that the Octopus instance is accessible outside this sever.
 
 To set the connection string we provide an _environment variable_ `sqlDbConnectionString` (in this case to a local SQL server).
 
@@ -79,8 +84,14 @@ VERBOSE: [2018-04-16T02:21:26] done.
 
 With the master key in hand, you can stop the running Octopus Server container instance (delete if if you plan on using the same name), and run _almost_ the same command as before, but passing in the master key as an environment variable and referencing the new Octopus Server version. When this new container starts up, it will use the same credentials to and detect that the database has already been set up and use the master key to access its sensitive values.
 
-```shell
-docker run -i  --name OctopusServer -d -p "1322:81" -e masterKey=5qJcW9E6B99teMmrOzaYNA== -e sqlDbConnectionString="Server=172.23.192.1,1433;Initial Catalog=Octopus;Persist Security Info=False;User ID=sa;Password=P@ssw0rd;MultipleActiveResultSets=False;Connection Timeout=30;" -v "C:/Octopus/Logs:C:/TaskLogs" octopusdeploy/octopusdeploy:2018.4.0
+```PowerShell
+docker run --interactive --detach `
+ --name OctopusServer `
+ --publish "1322:81" `
+ --env sqlDbConnectionString="Server=172.23.192.1,1433;Initial Catalog=Octopus;Persist Security Info=False;User ID=sa;Password=P@ssw0rd;MultipleActiveResultSets=False;Connection Timeout=30;" `
+ --volume "E:/Octopus/Logs:C:/TaskLogs" `
+ --env masterKey=5qJcW9E6B99teMmrOzaYNA== `
+ octopusdeploy/octopusdeploy:2018.4.0
 ```
 
 While you dont strictly _need_ to mount the internal directory locations, it will mean that the newly upgraded server will still access to all the same packages, logs and artifacts as before. The standard backup and restore procedures for the [data stored on the filesystem](/docs/administration/backup-and-restore.md#octopus-file-storage) and the connected [SQL Server](/docs/administration/octopus-database/index.md) still apply as per normal Octopus installations.

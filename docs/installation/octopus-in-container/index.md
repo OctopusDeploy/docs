@@ -10,6 +10,6 @@ These documents don't dive into all the details about using Docker and running c
 
 :::info
 
-Both of the containers are built on top of the `microsoft/windowsservercore:latest` base image so at the time of writing they will only run on Windows where the [Windows Containers](https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/) feature has been enabled. The images are available from [DockerHub](https://hub.docker.com/r/octopusdeploy/), and the DockerFiles can be accessed via the open source [Octopus-Docker GitHub repository](https://github.com/OctopusDeploy/Octopus-Docker).
+Both of the containers are built on top of the `microsoft/windowsservercore:latest` (non 1709) base image so at the time of writing they will only run on Windows where the [Windows Containers](https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/) feature has been enabled. The images are available from [DockerHub](https://hub.docker.com/r/octopusdeploy/), and the DockerFiles can be accessed via the open source [Octopus-Docker GitHub repository](https://github.com/OctopusDeploy/Octopus-Docker).
 
 :::
