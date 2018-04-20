@@ -43,7 +43,7 @@ Read Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#set
 |**OctopusAdminUsername**|The admin user to create for the Octopus Server|
 |**OctopusAdminPassword**|The password for the admin user for the Octopus Server|
 
-#### Exposed Ports
+#### Exposed Container Ports
 Read Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#publish-or-expose-port--p---expose) about exposing ports.
 
 |  Name       |    |
