@@ -77,8 +77,17 @@ To complete the installation we need to setup communication between the Octopus 
 4. Back on the Tentacle server, select **Listening Tentacle** and click **Next**.
 2. Accept the default listening port **10933** or provide your own.
 5. Paste the **Thumbprint** into the **Octopus Thumbprint** field and click **next**.
-6. Click **INSTALL**.
+6. Click **INSTALL**, and after the installation has finished click **Finish**.
 7. Back in the **Octopus Web Portal**, enter the DNS or IP address of the tentacle, i.e., `example.com` or `10.0.1.23`, and click **NEXT**.
+
+Skip ahead to **Create Deployment Target**: <!-- move to after configuring a polling tentacle and link to from both. Assuming they're the same. -->
+
+1. Add a display name for the deployment target (the listening tentacle).
+2. Select which environment the deployment target will be assigned to.
+3. Choose at least one target role for the deployment target (learn about [target roles]()).
+4. Click save.
+
+Your deployment target is configured.
 
 **Firewalls**
 
@@ -89,9 +98,31 @@ To allow your Octopus Deploy server to connect to the Tentacle, you'll need to a
 Don't forget to allow access in any intermediary firewalls between the Octopus server and your Tentacle (not just in Windows Firewall). For example, if your Tentacle server is hosted in Amazon EC2, you'll also need to modify the AWS security group firewall to tell EC2 to allow the traffic. Similarly if your Tentacle server is hosted in Microsoft Azure you'll also need to add an Endpoint to tell Azure to allow the traffic.
 
 
+
 ### Configuring a Polling Tentacle
 
+1. Select **Polling Tentacle** and click next.
+2. If you are using a proxy see [Proxy Support](/docs/infrastructure/windows-targets/proxy-support.md), or click next.
+3. Add the Octopus credentials the tentacle will use to connect to the Octopus server.
+  i. The Octopus URL, for instance, the DNS or IP address followed by port 10943 (or the port you specified during installation):
 
+> http://example.com:10943
+
+  ii. The username and password you use to log into Octopus, or:
+  iii. Your Octopus [API key](/docs/api-integration/api/how-to-create-an-api-key.md).
+4. 
+
+
+1. In the **Octopus Web Portal**, navigate to the **infrastructure** tab, select **Deployment Targets** and click **ADD DEPLOYMENT TARGET**.
+2. Select **Listening Tentacle**.
+3. Copy the **Thumbprint** (the long alphanumerical string).
+4. Back on the Tentacle server, select **Listening Tentacle** and click **Next**.
+2. Accept the default listening port **10933** or provide your own.
+5. Paste the **Thumbprint** into the **Octopus Thumbprint** field and click **next**.
+6. Click **INSTALL**, and after the installation has finished click **Finish**.
+7. Back in the **Octopus Web Portal**, enter the DNS or IP address of the tentacle, i.e., `example.com` or `10.0.1.23`, and click **NEXT**.
+
+Skip ahead to **Create Deployment Target**: <!-- move to after configuring a polling tentacle and link to from both. Assuming they're the same. -->
 
 
 
