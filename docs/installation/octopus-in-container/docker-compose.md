@@ -4,10 +4,10 @@ description: A fully self-contained SQL Server, Octopus Server and Octopus Tenta
 position: 3
 ---
 
-## Start everything with Docker Compose
-For evaluation purposes you may want to run a stand-alone SQL Server instance to run alongside the Octopus Server. For this scenario you can leverage [Docker Compose](https://docs.docker.com/compose/overview/) to spin up and manage a multi-container Docker application as a single unit.
+## Start Everything with Docker Compose
+For evaluation purposes you may want to run a stand-alone SQL Server instance to run alongside the Octopus Server. For this scenario, you can leverage [Docker Compose](https://docs.docker.com/compose/overview/) to spin up and manage a multi-container Docker application as a single unit.
 
-A simple example of a `docker-compose.yml` file combining a SQL Server instance along with a dependant Octopus Server looks as follows.
+A simple example of a `docker-compose.yml` file combining a SQL Server instance along with a dependent Octopus Server looks as follows.
 
 ```YAML
 version: '2.1'
@@ -61,7 +61,7 @@ docker-compose --poject-name Octopus up -d
 
 Once both containers are healthy you can browse directly to `http://localhost:5441` from your host machine.
 
-Upgrades with a Docker Compose project are similar to the steps with [upgrading a single Octopus Server container](octopus-server-container.md). You will still need to get the master-key from the original Octopus Server container used when initially setting up the database. With this key in hand, a simple change to the `.env` file to include the master-key and update the Octopus version is all that is required.
+Upgrades with a Docker Compose project are similar to the steps with [upgrading a single Octopus Server container](octopus-server-container.md). You will still need to get the master key from the original Octopus Server container used when initially setting up the database. When you have the master key, a simple change to the `.env` file to include the master key and update the Octopus version is all that is required.
 
 ```
 SA_PASSWORD=P@ssw0rd!
@@ -74,7 +74,7 @@ OCTOPUS_MASTER_KEY=U9ZrQR98uLXyz4CXJzUuCA==
 Run the same `docker-compose` command as provided above and Docker will detect that the changes only impact the the Octopus container. It will then stop and recreate only the Octopus Server, leaving the SQL Server running as-is. For further information about the additional configuration of the SQL Server container consult the appropriate [Docker Hub repository information](https://hub.docker.com/r/microsoft/mssql-server-windows-express/) pages. It is generally advised however, to not run SQL Server inside a container for production purposes.
 
 ### Octopus server and Tentacle
-For a complete environment of SQL Server, Octopus Server and Octopus Tentacle, you can use the following sample `docker-compose.yml` file:
+For a complete environment of SQL Server, Octopus Server, and Octopus Tentacle, you can use the following sample `docker-compose.yml` file:
 
 ```yml
 version: '2.1'
