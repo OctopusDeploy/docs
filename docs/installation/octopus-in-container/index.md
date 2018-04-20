@@ -4,9 +4,9 @@ description: Running the Octopus Server or Tentacle from inside the official Doc
 position: 8
 ---
 
-Octopus Server and Octopus Tentacle Docker containers are published and are now being made available for each release. Running Octopus from inside a container allows you to avoid installing Octopus directly on top of your infrastructure and makes getting up and running with Octopus as simple as a one line command.
+Octopus Server and Octopus Tentacle Docker containers are published and are now being made available for each release. Running Octopus from inside a container lets you avoid installing Octopus directly on top of your infrastructure and makes getting up and running with Octopus as simple as a one line command.
 
-These documents don't dive into all the details about using Docker and running containers and assumes some minimum level of knowledge on these topics. Be sure to read the [Docker docs](https://docs.docker.com/) for more in-depth and up to date information.
+These documents assume some familiarity with Docker and containers and don't dive into all the details about using Docker and running containers. Read the [Docker docs](https://docs.docker.com/) for more in-depth and up to date information.
 
 :::info
 
