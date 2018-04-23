@@ -1,7 +1,6 @@
 ---
 title: Create Azure Cloud Service Target Command
 description: Cmdlet for creating an Azure Cloud Service target
-version: "[2018.5,)"
 position: 40
 ---
 
@@ -13,14 +12,12 @@ Command: **_New-OctopusAzureCloudServiceTarget_**
 | `-name`                       | Name for the Octopus deployment target                                                  |
 | `-azureCloudServiceName`      | Name of the Azure Cloud Service                                                         |
 | `-azureStorageAccount`        | Name of the Azure Storage Account                                                       |
-| `-azureDeploymentSlot`        | Deployment slot. Options are `staging` (default), `production`)                         |
-| `-swap`                       | Swap staging to production, or just deploy. Options are `swap` (default), `deploy`      |
+| `-azureDeploymentSlot`        | Deployment slot. <br>Options are `staging` (default), `production`)                         |
+| `-swap`                       | Swap staging to production, or just deploy. <br>Options are `swap` (default), `deploy`      |
 | `-instanceCount`              | Use the current instance count from Azure, or use the value in the configuration file.<br>Options are `current` (default), `configuration` |
 | `-octopusAccountIdOrName`     | Name or Id of the Account Resource in Octopus. Must be a Management Certificate Account |
 | `-octopusRoles`               | Comma separated list of Roles to assign                                                 |
 
-
-Options are `current` (default), `configuration`
 
 Example:
 ```powershell

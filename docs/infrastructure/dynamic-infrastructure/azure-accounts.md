@@ -1,23 +1,22 @@
 ---
 title: Create Azure Service Principal Account Command
 description: Cmdlet for creating an Azure Service Principal account
-version: "[2018.5,)"
 position: 10
 ---
 
 ## Azure Service Principal Account
 Command: **_New-OctopusAzureServicePrincipalAccount_**
 
-| Parameters                    | Value                                                             |
-|-------------------------------|-------------------------------------------------------------------|
-| `-name`                       | Name for the Octopus Service Principal account                    |
-| `-azureSubscription`          | GUID Id of the Azure Subscription                                 |
-| `-azureApplicationId`         | GUID Id of the Azure Application                                  |
-| `-azureTenantId`              | GUID Id of the Azure AD Tenant                                    |
-| `-azurePassword`              | Azure AD Password                                                 |
-| `-azureEnvironment`           | Azure Environment Identifier, see Azure Environment Options below |
-| `-azureBaseUri`               | Azure Base Login URI, see Azure Environment Options below         |
-| `-azureResourceManagementUri` | Azure Resource Management URI,see Azure Environment Options below |
+| Parameters                    | Value                                                                                                      |
+|-------------------------------|------------------------------------------------------------------------------------------------------------|
+| `-name`                       | Name for the Octopus Service Principal account                                                             |
+| `-azureSubscription`          | GUID Id of the Azure Subscription                                                                          |
+| `-azureApplicationId`         | GUID Id of the Azure Application                                                                           |
+| `-azureTenantId`              | GUID Id of the Azure AD Tenant                                                                             |
+| `-azurePassword`              | Azure AD Password                                                                                          |
+| `-azureEnvironment`           | Azure Environment Identifier,  see [Azure Environment Options](#azure-environment-options) below           |
+| `-azureBaseUri`               | Azure Base Login URI, see [Azure Environment Options](#azure-environment-options) below                    |
+| `-azureResourceManagementUri` | Azure Resource Management URI,  see [Azure Environment Options](#azure-environment-options) below          |
 
 Example:
 ```powershell
@@ -39,13 +38,14 @@ New-OctopusAzureServicePrincipalAccount -name "My Azure Account" `
                                         -azureResourceManagementBaseUri "https://management.microsoftazure.de/"
 ```
 
-**Azure Environment Options**
+### Azure Environment Options
 
 The valid options for `-azureEnvironment` are available via the following command:
 ```powershell
 Get-AzureRmEnvironment | Select-Object -Property Name,ActiveDirectoryAuthority,ResourceManagerUrl
 ```
 
+Valid Azure cloud names are:
 - AzureChina
 - AzureCloud
 - AzureGermanCloud

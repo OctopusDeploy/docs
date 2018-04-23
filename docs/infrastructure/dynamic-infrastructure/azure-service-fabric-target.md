@@ -1,25 +1,24 @@
 ---
 title: Create Azure Service Fabric Target Command
 description: Cmdlet for creating an Azure Service Fabric target
-version: "[2018.5,)"
 position: 30
 ---
 
 ## Azure Service Fabric
 Command: **_New-OctopusAzureServiceFabricTarget_**
 
-| Parameter                       | Value                                              |
-| ------------------------------- | -------------------------------------------------  |
-| `-name`                         | Name for the Octopus deployment target             |
-| `-azureConnectionEndpoint`      | Connection endpoint for the Service Fabric Cluster |
-| `-azureSecurityMode`            | Security mode, use one of the aliases in the table below |
-| `-azureCertificateThumbprint`   | Certificate thumbprint of the Azure Certificate    |
-| `-azureActiveDirectoryUsername` | Username for accessing the Service Fabric Cluster  |
-| `-azureActiveDirectoryPassword` | Password for accessing the Service Fabric Cluster  |
-| `-certificateStoreLocation`     | Override the default certificate store location    |
-| `-certificateStoreName`         | Override the default certificate store name        |
-| `-octopusCertificateIdOrName`   | Name or Id of the Certificate Resource in Octopus  |
-| `-octopusRoles`                 | Comma separated list of Roles to assign            |
+| Parameter                       | Value                                                       |
+| ------------------------------- | -------------------------------------------------           |
+| `-name`                         | Name for the Octopus deployment target                      |
+| `-azureConnectionEndpoint`      | Connection endpoint for the Service Fabric Cluster          |
+| `-azureSecurityMode`            | Security mode, use one of the aliases in the table below    |
+| `-azureCertificateThumbprint`   | Certificate thumbprint of the Azure Certificate             |
+| `-azureActiveDirectoryUsername` | Username for accessing the Service Fabric Cluster           |
+| `-azureActiveDirectoryPassword` | Password for accessing the Service Fabric Cluster           |
+| `-certificateStoreLocation`     | (Optional) Override the default certificate store location  |
+| `-certificateStoreName`         | (Optional) Override the default certificate store name      |
+| `-octopusCertificateIdOrName`   | Name or Id of the Certificate Resource in Octopus           |
+| `-octopusRoles`                 | Comma separated list of Roles to assign                     |
 
 _Security Mode Options_
 
@@ -59,7 +58,7 @@ New-OctopusAzureServiceFabricTarget -name "My Service Fabric Target 3" `
 New-OctopusAzureServiceFabricTarget -name "My Service Fabric Target 4" `
                                    -azureConnectionEndpoint "connectionEndpoint" `
                                    -azureSecurityMode  "azureactivedirectory" `
-                                   -azureCertificateThumbprint "1234567890" `                             
+                                   -azureCertificateThumbprint "1234567890" `
                                    -octopusCertificateIdOrName "cert" 
                                    -octopusRoles "Service Fabric Role"
 

@@ -1,7 +1,7 @@
 ---
 title: Managing Resources using scripts
 description: Octopus resources can be created using service messages allowing resources that you currently can script in Azure to be modeled in Octopus.
-version: "[2018.5,)"
+position: 110
 ---
 
 Some resources can be created within Octopus from the same scripts that you use to create them on Azure. By adding some additional commands Web Apps you create on Azure can also be created within Octopus as deployment targets.
@@ -14,16 +14,18 @@ As of the `2018.5` release, only Azure Service Principal Accounts, Azure Web App
 
 Each of the resource commands is available as a Powershell function anywhere that a step allows you to run a Powershell script.
 
+### Accounts
+
+[Azure Service Principal Account](/docs/infrastructure/dynamic-infrastructure/azure-accounts.md)
+
 ### Targets
+
+Before you can create dynamic targets in an Environment, the environment needs to be configured to allow it. See [Dynamic Targets in an Environment](/docs/infrastructure/environments/index.md#dynamic-targets-in-an-environment) for more information.
 
 [Azure Web App](/docs/infrastructure/dynamic-infrastructure/azure-web-app-target.md)
 [Azure Service Fabric](/docs/infrastructure/dynamic-infrastructure/azure-service-fabric-target.md)
 [Azure Cloud Service](/docs/infrastructure/dynamic-infrastructure/azure-cloud-service-target.md)
 [Remove Target](/docs/infrastructure/dynamic-infrastructure/remove-target.md)
-
-### Accounts
-
-[Azure Service Principal Account](/docs/infrastructure/dynamic-infrastructure/azure-accounts.md)
 
 ### Restrictions
 

@@ -1,11 +1,10 @@
 ---
 title: Create Azure Web App Target Command
 description: Cmdlet for creating an Azure Web App target
-version: "[2018.5,)"
 position: 20
 ---
 
-#### Azure Web App
+## Azure Web App
 Command: **_New-OctopusAzureWebAppTarget_**
 
 | Parameter                 | Value                                         |
