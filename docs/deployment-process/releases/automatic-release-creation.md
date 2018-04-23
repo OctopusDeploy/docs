@@ -29,15 +29,11 @@ External package repositories **cannot be used to automatically create releases*
 
 If you use the[ built-in Octopus package repository](/docs/packaging-applications/package-repositories/index.md), you can now select a package, that when uploaded it will automatically create a release.
 
-The process starts on the project process page.
+From the project's trigger tab, under the section called **Automatic Release Creation**, click **Setup**, and then select the package that will trigger the release:
 
-![](/docs/images/3048079/3277644.png "width=500")
+![](automatic-release-creation.png)
 
-When you select that you want to turn this feature on you need to select which package will trigger the release creation.
-
-![](/docs/images/3048079/3277648.png "width=477")
-
-As a project can contain multiple packages you need to select the package that will upload LAST in your build and push CI process. So in the case of three packages as shown, the process uploads all three packages, but OctoFX Trading Website is always last to be uploaded. So this will be selected to trigger the release.
+As a project can contain multiple packages you need to select the package that will upload LAST in your build and push CI process. If you have multiple packages, make sure you select the package that is always uploaded last.
 
 :::warning
 **Cannot use variables for PackageId**
@@ -50,7 +46,7 @@ When a release is set to be created this way, the audit will tell you that is ho
 
 ![](/docs/images/3048079/3277646.png "width=701")
 
-If you combine uploading a package with the automatic deployment feature within [Lifecycles phases](/docs/deployment-process/lifecycles/index.md#Lifecycles-LifecyclePhases), you can push a package to the internal repository, create a release, and have it automatically deploy.
+If you combine uploading a package with the automatic deployment feature within [Lifecycles phases](/docs/infrastructure/lifecycles/index.md#Lifecycles-LifecyclePhases), you can push a package to the internal repository, create a release, and have it automatically deploy.
 
 :::hint
 The release number that is created is guided by the Release Versioning settings under {{Project,Settings}}. It will use the rules defined.

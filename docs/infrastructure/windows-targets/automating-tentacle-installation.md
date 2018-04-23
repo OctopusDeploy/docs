@@ -1,7 +1,7 @@
 ---
 title: Automating Tentacle Installation
 description: Information on how to install and configure an Octopus Tentacle in a fully automated way from the command line.
-position: 3
+position: 60
 ---
 
 The Tentacle agent can be installed fully automatically from the command line. This is very useful if you're deploying to a large number of servers, or you'll be provisioning servers automatically.
@@ -42,7 +42,7 @@ The MSI installer simply extracts files and adds some shortcuts and event log so
 
 To configure the Tentacle in listening or polling mode, it's easiest to run the installation wizard once, and at the end, use the Show Script option in the setup wizard. This will show you the command-line equivalent to configure a Tentacle.
 
-![](/docs/images/3048115/3277908.png "width=500")
+![Tentacle installation wizard](tentacle-setup.png)
 
 :::success
 **Advanced configuration options**

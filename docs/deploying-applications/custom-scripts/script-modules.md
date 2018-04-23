@@ -6,7 +6,7 @@ position: 700
 
 Script modules allow users to create *Powershell functions* or *Cmdlets* that could later on be used in deployment processes across multiple projects. You can think of them as regular Powershell Modules that will get loaded at deploy time.
 
-## Creating a Script module {#ScriptModules-CreatingaScriptmodule}
+## Creating a Script Module {#ScriptModules-CreatingaScriptmodule}
 
 1.  Click on {{Library,Script Modules,Add Script Module}}
 
@@ -31,8 +31,8 @@ After inserting the modified function, the Script Module should look like this:
 
 Once this is done, click on **Save**.
 
-:::problem
-**Gotcha**
+### Gotcha
+
 The script modules get loaded once for every step on your deployment process. If you process has 4 steps (i.e Stop IIS, Backup ,Deploy, Start IIS) the entire module will get loaded once at the start of each step. Because of this we encourage users to avoid putting code outside functions on your Script Modules. This way the code will only get executed when the function is properly called from a Powershell Script step.
 
 In the example Script Module below, the first line which attempts to stop the service "ImportantService" will run for every Powershell-Script-based step on your deployment . The first time it might succeed (stopping the service), but the subsequent tries will most likely make the overall deployment fail.
@@ -44,7 +44,7 @@ function Say-Hello($name) {
 	Write-output "Hello $name. Welcome to Octopus!"
 }
 ```
-:::
+
 
 ## Using a Script Module on a Deployment {#ScriptModules-UsingaScriptModuleonaDeployment}
 

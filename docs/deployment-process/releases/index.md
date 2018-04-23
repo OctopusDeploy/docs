@@ -8,7 +8,7 @@ position: 6
 
 There are two important concepts involved in deploying your Octopus projects:  **releases** and **deployments**.  Recall that a project is like a recipe that describes the steps (instructions) and variables (ingredients) required to deploy your apps and services.  A _release_ captures all the project and package details so it be deployed over and over in a safe and repeatable way.  A _deployment_ is the execution of the steps to deploy a release to an environment.  An individual _release_ can be _deployed_ numerous times to different environments.  
 
-For example, suppose you have a financial services web app called OctoFX and your ready to deploy and test a new update, it would look something like the following.  
+For example, suppose you have a financial services web app called OctoFX and you're ready to deploy and test a new update, it would look something like the following.  
 
 ![OctoFX deployment process](octofx-deployment-process.png "width=500")
 

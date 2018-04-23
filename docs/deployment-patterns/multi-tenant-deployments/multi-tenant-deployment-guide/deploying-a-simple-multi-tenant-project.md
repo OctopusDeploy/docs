@@ -1,5 +1,5 @@
 ---
-title: Deploying a simple multi-tenant project
+title: Deploying a Simple Multi-tenant Project
 description: Connect your tenant.
 position: 2
 ---
@@ -8,7 +8,7 @@ Previous step: [Creating your first multi-tenant project](/docs/deployment-patt
 
 In this step we will connect your tenant to the **Mojo** project and deploy it to the **MT Production** environment for your tenant.
 
-## Connecting your tenant to a project {#Deployingasimplemulti-tenantproject-Connectingyourtenanttoaproject}
+## Connecting Your Tenant to a Project
 
 By connecting tenants to projects you can control which projects will be deployed into which environments for each tenant.
 
@@ -38,7 +38,7 @@ You can connect each tenant to any number of projects, and for each project any 
 - You can also provide most of your tenants with a single environment while offering certain special customers extra environments. For example, you could provide certain customers with a test/staging/acceptance environment where they can test new releases before you upgrade their production environment.
   :::
 
-## Deploying the project to your tenant {#Deployingasimplemulti-tenantproject-Deployingtheprojecttoyourtenant}
+## Deploying the Project to Your Tenant {#Deployingasimplemulti-tenantproject-Deployingtheprojecttoyourtenant}
 
 Now your tenant is connected to the **Mojo** project you can start deploying releases to your tenant.
 
@@ -50,8 +50,6 @@ Now your tenant is connected to the **Mojo** project you can start deploying re
 ![](deploying-a-simple-multi-tenant-project-5865649.png "width=300")
 
 Once the deployment completes you should see the result of running the [script we set up in an earlier step](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-multi-tenant-project.md), where the **Octopus.Tenant.Name** is written to the log, and the database connection string is calculated. At the moment the connection string and URL are empty - we are going to configure tenant-specific variables in the next step.
-
-![](deploying-a-simple-multi-tenant-project-5865596.png "width=500")
 
 :::success
 You can deploy a release to multiple tenants at the same time using the Octopus UI, `octo.exe` or any of the build-server extensions! See [this FAQ](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployments-faq.md) for more details.
@@ -72,6 +70,6 @@ At some point in time you may want to disable untenanted deployments and require
 ![](deploying-a-simple-multi-tenant-project-require-tenant.png)
 :::
 
-## Next steps {#Deployingasimplemulti-tenantproject-Nextsteps}
+## Next Steps {#Deployingasimplemulti-tenantproject-Nextsteps}
 
 Now that we can deploy the **Mojo** project to your tenant, we need to make sure it is configured correctly for each tenant - we are going to [start working with tenant-specific variables](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-tenant-specific-variables.md).

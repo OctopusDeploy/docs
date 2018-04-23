@@ -1,7 +1,7 @@
 ---
 title: Polling Tentacles
 description: Octopus Polling Tentacles open a connection to the Octopus server to ask what to do.
-position: 1
+position: 40
 ---
 
 When installing a Tentacle, you will be asked to choose how Tentacle will communicate with the Octopus server. In **polling** mode, Tentacle will poll the Octopus server periodically to check whether there are any tasks for it to perform. Polling mode is the opposite to [listening mode](/docs/infrastructure/windows-targets/listening-tentacles/index.md). *In polling mode, Octopus is the TCP server, and Tentacle is the TCP client.*

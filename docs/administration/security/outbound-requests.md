@@ -25,6 +25,9 @@ The Octopus Deploy server makes the following outbound requests:
 2. Downloading packages from the [NuGet feeds](/docs/packaging-applications/package-repositories/index.md) that you configure
 3. Windows Azure traffic (only when deploying to an Azure deployment target)
 4. Checking for updates (if enabled)
+5. Checking for updated [community contribute step templates](docs/deployment-process/steps/community-step-templates.md)  (if enabled) 
+
+NOTE: Our community contributed step template integration queries `library.octopus.com` for updates.
 
 ## What information is included when Octopus checks for updates? {#Outboundrequests-WhatinformationisincludedwhenOctopuschecksforupdates?}
 

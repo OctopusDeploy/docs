@@ -1,8 +1,7 @@
 ---
 title: SSH Targets
 description: Deploying software to Linux and Unix deployment targets.
-position: 2
-version: "[3.0,)"
+position: 50
 ---
 
 For Linux and Unix systems, you can configure Octopus Deploy to communicate with your deployment targets through SSH.

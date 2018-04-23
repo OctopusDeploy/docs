@@ -1,5 +1,5 @@
 ---
-title: Package deployment feature ordering
+title: Package Deployment Feature Ordering
 description: The order of actions executed when Octopus deploys a package.
 position: 200
 ---

@@ -31,10 +31,11 @@ docs/key-concepts/projects/index.md -> docs/deployment-process/projects.md
 docs/key-concepts/projects/deployment-processes.md -> docs/deployment-process/index.md
 docs/key-concepts/projects/releases.md -> docs/deployment-process/releases/index.md
 docs/key-concepts/projects/channels.md -> docs/deployment-process/channels.md
-docs/key-concepts/projects/project-triggers.md -> docs/deployment-process/project-triggers.md
+docs/key-concepts/projects/project-triggers.md -> docs/deployment-process/project-triggers/index.md	
 docs/key-concepts/projects/reporting.md -> docs/administration/reporting/index.md
 docs/key-concepts/project-groups.md -> docs/deployment-process/projects.md
-docs/key-concepts/lifecycles.md -> docs/deployment-process/lifecycles/index.md
+docs/key-concepts/lifecycles.md -> docs/infrastructure/lifecycles/index.md
+docs/deployment-process/lifecycles/index.md -> docs/infrastructure/lifecycles/index.md
 docs/key-concepts/tenants.md -> docs/deployment-patterns/multi-tenant-deployments/index.md
 docs/key-concepts/index.md -> docs/getting-started.md
 docs/key-concepts/tenants/tenant-tags -> docs/deployment-patterns/multi-tenant-deployments/tenant-tags.md
@@ -102,7 +103,9 @@ docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-servic
 docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-management-certificate-account.md -> docs/infrastructure/azure/creating-an-azure-account/creating-an-azure-management-certificate-account.md
 docs/api-and-integration/bamboo/bamboo-plugin.md -> docs/api-and-integration/bamboo.md
 docs/guides/deploying-html-and-javascript-applications.md -> docs/deploying-applications/deploying-html-and-javascript-applications.md
-docs/guides/deploying-java-applications.md -> docs/deploying-applications/deploying-java-applications.md
+docs/guides/deploying-java-applications.md -> docs/deploying-applications/java-applications/index.md
+docs/deploying-applications/deploying-java-applications.md -> docs/deploying-applications/java-applications/index.md
+docs/deploying-applications/deploy-java-applications.md -> docs/deploying-applications/java-applications/deploying-java-applications.md
 docs/guides/node-on-nix-deployments/configure-octopus-deploy-project.md -> docs/deploying-applications/node-on-nix-deployments/configure-octopus-deploy-project.md
 docs/guides/node-on-nix-deployments/configuring-target-machine.md -> docs/deploying-applications/node-on-nix-deployments/configuring-target-machine.md
 docs/guides/node-on-nix-deployments/create-&-push-node.js-project.md -> docs/deploying-applications/node-on-nix-deployments/create-&-push-node.js-project.md
@@ -127,10 +130,10 @@ docs/guides/azure-deployments/web-apps/web-app-concepts.md -> docs/deploying-app
 docs/deploying-applications/projects/index.md -> docs/deployment-process/projects.md
 docs/deploying-applications/projects/channels.md -> docs/deployment-process/channels.md
 docs/deploying-applications/projects/project-groups.md -> docs/deployment-process/projects.md
-docs/deploying-applications/projects/project-triggers.md -> docs/deployment-process/project-triggers.md
+docs/deploying-applications/projects/project-triggers.md -> docs/deployment-process/project-triggers/index.md
 docs/deploying-applications/projects/reporting.md -> docs/administration/reporting/index.md
 docs/deploying-applications/projects/releases.md -> docs/deployment-process/releases/index.md
-docs/deploying-applications/projects/lifecycles/index.md -> docs/deployment-process/lifecycles/index.md
+docs/deploying-applications/projects/lifecycles/index.md -> docs/infrastructure/lifecycles/index.md
 docs/deploying-applications/adding-steps.md -> docs/deployment-process/steps/index.md
 docs/deploying-applications/projects/deployment-processes.md -> docs/deployment-process/index.md
 docs/deploying-applications/variables/index.md -> docs/deployment-process/variables/index.md
@@ -164,7 +167,7 @@ docs/deploying-applications/configuration-files/advanced-configuration-transform
 docs/deploying-applications/custom-installation-directory.md -> docs/deployment-process/steps/custom-installation-directory.md
 docs/deploying-applications/deployment-process/custom-installation-directory.md -> docs/deployment-process/steps/custom-installation-directory.md
 docs/deploying-applications/artifacts.md -> docs/deployment-process/artifacts.md
-docs/deploying-applications/automatic-deployment-triggers.md -> docs/deployment-process/project-triggers.md
+docs/deploying-applications/automatic-deployment-triggers.md -> docs/deployment-process/project-triggers/index.md
 docs/deploying-applications/automatic-release-creation.md -> docs/deployment-process/releases/automatic-release-creation.md
 docs/deploying-applications/deployment-process/automatic-release-creation.md -> docs/deployment-process/releases/automatic-release-creation.md
 docs/deploying-applications/blocking-deployments.md -> docs/deployment-process/releases/blocking-deployments.md
@@ -181,9 +184,9 @@ docs/deploying-applications/deployment-process/scheduled-deployments.md -> docs/
 docs/deploying-applications/substitute-variables-in-files.md -> docs/deployment-process/configuration-files/substitute-variables-in-files.md
 docs/deploying-applications/coordinating-multiple-projects/index.md -> docs/deployment-process/coordinating-multiple-projects/index.md
 docs/deploying-applications/coordinating-multiple-projects/project-coordination-code-samples.md -> docs/deployment-process/coordinating-multiple-projects/project-coordination-code-samples.md
-docs/deploying-applications/deployment-process/projects/project-triggers.md -> docs/deployment-process/project-triggers.md
+docs/deploying-applications/deployment-process/projects/project-triggers.md -> docs/deployment-process/project-triggers/index.md
 docs/deploying-applications/deployment-process/projects/channels.md -> docs/deployment-process/channels.md
-docs/deploying-applications/deployment-process/automatic-deployment-triggers.md -> docs/deployment-process/project-triggers.md
+docs/deploying-applications/deployment-process/automatic-deployment-triggers.md -> docs/deployment-process/project-triggers/index.md
 docs/deploying-applications/deployment-process/projects/releases.md -> docs/deployment-process/releases/index.md
 docs/guides/octopus-ha/index.md -> docs/administration/high-availability/index.md
 docs/guides/octopus-ha/load-balancers/index.md -> docs/administration/high-availability/index.md
@@ -226,9 +229,8 @@ docs/deploying-applications/deployment-process/projects/index.md -> docs/deploym
 docs/deploying-applications/deployment-process/index.md -> docs/deployment-process/index.md
 docs/deploying-applications/deployment-process/releases/index.md -> docs/deployment-process/releases/index.md
 docs/deploying-applications/deployment-process/channels.md -> docs/deployment-process/channels.md
-docs/deploying-applications/deployment-process/project-triggers.md -> docs/deployment-process/project-triggers.md
 docs/deploying-applications/deployment-process/projects/reporting.md -> docs/administration/reporting/index.md
-docs/deploying-applications/deployment-process/projects/lifecycles/index.md -> docs/deployment-process/lifecycles/index.md
+docs/deploying-applications/deployment-process/projects/lifecycles/index.md -> docs/infrastructure/lifecycles/index.md
 docs/deploying-applications/deployment-process/coordinating-multiple-projects/index.md -> docs/deployment-process/coordinating-multiple-projects/index.md
 docs/deploying-applications/deployment-process/coordinating-multiple-projects/project-coordination-code-samples.md -> docs/deployment-process/coordinating-multiple-projects/project-coordination-code-samples.md
 docs/deploying-applications/deployment-process/steps/index.md -> docs/deployment-process/steps/index.md
@@ -266,7 +268,7 @@ docs/deploying-applications/deployment-process/releases/scheduled-deployments.md
 docs/deploying-applications/deployment-process/substitute-variables-in-files.md -> docs/deployment-process/configuration-files/substitute-variables-in-files.md
 docs/deploying-applications/deployment-process/steps/conditions.md -> docs/deployment-process/steps/conditions.md
 docs/deployment-process/projects/reporting.md -> docs/administration/reporting/index.md
-docs/deployment-process/projects/lifecycles/index.md -> docs/deployment-process/lifecycles/index.md
+docs/deployment-process/projects/lifecycles/index.md -> docs/infrastructure/lifecycles/index.md
 docs/patterns/index.md -> docs/deployment-patterns/index.md
 docs/patterns/blue-green-deployments/index.md -> docs/deployment-patterns/blue-green-deployments/index.md
 docs/patterns/blue-green-deployments/blue-green-deployments-in-iis.md -> docs/deployment-patterns/blue-green-deployments/blue-green-deployments-in-iis.md
@@ -413,7 +415,7 @@ docs/deploying-applications/deploying-to-service-fabric/index.md -> docs/deployi
 docs/deploying-applications/deploying-to-service-fabric/connecting-securely-with-azure-active-directory/index.md -> docs/deploying-applications/azure-deployments/deploying-to-service-fabric/connecting-securely-with-azure-active-directory/index.md
 docs/deploying-applications/deploying-to-azure/index.md -> docs/deploying-applications/azure-deployments/index.md
 docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-cloud-service/index.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-cloud-service/index.md
-docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-cloud-service/azure-steps-migrated-from-octopus-deploy-2.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-cloud-service/azure-steps-migrated-from-octopus-deploy-2.md
+docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-cloud-service/azure-steps-migrated-from-octopus-deploy-2.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-cloud-service/index.md
 docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/index.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md
 docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/deploying-web-jobs.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-web-app/deploying-web-jobs.md
 docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps.md
@@ -429,3 +431,4 @@ docs/packaging-applications/supported-packages.md -> docs/packaging-applications
 docs/packaging-applications/versioning.md -> docs/packaging-applications/creating-packages/versioning.md
 docs/deploying-applications/azure-deployments/web-apps/index.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md
 docs/deploying-applications/azure-deployments/web-apps/getting-started-with-azure-web-apps.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md
+docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-cloud-service/azure-steps-migrated-from-octopus-deploy-2.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-cloud-service/index.md

@@ -18,7 +18,7 @@ You can use [Environments](/docs/infrastructure/environments/index.md) to repr
 
 By using this pattern you can:
 
-1. Use [Lifecycles](/docs/deployment-process/lifecycles/index.md) to define a strict process for promotion of releases between your regions. *Lifecycles can be used to design both simple and complex promotion processes.*
+1. Use [Lifecycles](/docs/infrastructure/lifecycles/index.md) to define a strict process for promotion of releases between your regions. *Lifecycles can be used to design both simple and complex promotion processes.*
   * For example, you may want to test releases in Australia before rolling them out to the USA, and then to Europe
   * In another example, you may want to test releases in Australia before rolling them out simultaneously to all other regions
 2. Scope region-specific variables to the region-specific Environments
