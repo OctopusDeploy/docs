@@ -2,7 +2,7 @@
 
 If you haven't already, create an [Azure Account](/docs/infrastructure/azure/creating-an-azure-account/index.md) to grant Octopus Deploy access to your Azure Subscription.
 
-If instead you want to **dynamically** create you account during your deployment, check our [documentation on how to do so](/docs/infrastructure/managing-resources-using-scripts.md)
+If instead you want to **dynamically** create you account during your deployment, check our [documentation on how to do so](/docs/infrastructure/dynamic-infrastructure/index.md)
 
 ## Step 3: Configure your Azure Web App step. {#DeployingapackagetoanAzureWebApp-Step4:ConfigureyourAzureWebAppstep}
 
@@ -18,7 +18,7 @@ The below instructions are valid Octopus Servers running version `2018.5` and ab
 
 - Manually before running your deployment. [See documentation](/docs/infrastructure/azure/web-app-targets/index.md).
 
-- Dynamically during the deployment using scripts. [See documentation](/docs/infrastructure/managing-resources-using-scripts.md)
+- Dynamically during the deployment using scripts. [See documentation](/docs/infrastructure/dynamic-infrastructure/index.md)
 
 3. On the `Package` section, select your `Package Feed` and `Package Id`
 
