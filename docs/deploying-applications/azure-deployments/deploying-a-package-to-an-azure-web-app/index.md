@@ -21,7 +21,7 @@ The default values for these variables were chosen to match Visual Studio follow
 
 ## Step 1: Packaging {#DeployingapackagetoanAzureWebApp-Step1:Packaging}
 
-See our guide on [how to package a web application](/docs/packaging-applications/application-types/web-apps/index.md)
+See our guide on [how to package a web application](/docs/packaging-applications/creating-packages/applications/web-apps/index.md)
 
 !partial <configurestep>
 
