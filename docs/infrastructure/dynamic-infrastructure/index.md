@@ -37,7 +37,7 @@ This cannot be overridden through the commands.
 
 
 
-## Scenarios
+## Examples
 
 ### Creating an Azure Web App
 
@@ -61,14 +61,18 @@ New-AzureRmWebApp -Name $uniqueName -Location "WestUS" -AppServicePlan $uniqueNa
 New-OctopusAzureWebAppTarget -Name $uniqueName -AzureWebApp $uniqueName -AzureResourceGroupName $uniqueName -OctopusAccountIdOrName "my-octopus-azure-serviceprincipal-account" -OctopusRoles "acme-web"
 ```
 
-** TODO ** insert screen shot to support above scenario
-
-
-
 ### Tearing down a test environment
 
 Building on the Web App example, you may wish to spin up an application and then tear it down at the end of the day. By combining [Recurring Deployments](https://octopus.com/blog/recurring-deployments) and a tear-down script, you can keep your cloud hosting costs down.
 
-
+Using as little as two lines of Powershell you can remove all the resources from Azure and Octopus:
+```
+Remove-AzureRmResourceGroup -Name "AzureWebAppResourceGroup" -Force
+Remove-OctopusTarget -targetIdOrName "AzureWebApp"
+```
 
 ### Deploying an ARM template
+
+You can also use the above Powershell Cmdlets when deploying Azure resources using an ARM template
+
+** TODO ** : fill this in
