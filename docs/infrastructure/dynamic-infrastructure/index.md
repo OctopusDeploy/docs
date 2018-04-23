@@ -17,8 +17,11 @@ Each of the resource commands is available as a Powershell function anywhere tha
 ### Targets
 
 [Azure Web App](/docs/infrastructure/dynamic-infrastructure/azure-web-app-target.md)
+
 [Azure Service Fabric](/docs/infrastructure/dynamic-infrastructure/azure-service-fabric-target.md)
+
 [Azure Cloud Service](/docs/infrastructure/dynamic-infrastructure/azure-cloud-service-target.md)
+
 [Remove Target](/docs/infrastructure/dynamic-infrastructure/remove-target.md)
 
 ### Accounts
