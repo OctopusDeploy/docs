@@ -23,8 +23,11 @@ Each of the resource commands is available as a Powershell function anywhere tha
 Before you can create dynamic targets in an Environment, the environment needs to be configured to allow it. See [Dynamic Targets in an Environment](/docs/infrastructure/environments/index.md#dynamic-targets-in-an-environment) for more information.
 
 [Azure Web App](/docs/infrastructure/dynamic-infrastructure/azure-web-app-target.md)
+
 [Azure Service Fabric](/docs/infrastructure/dynamic-infrastructure/azure-service-fabric-target.md)
+
 [Azure Cloud Service](/docs/infrastructure/dynamic-infrastructure/azure-cloud-service-target.md)
+
 [Remove Target](/docs/infrastructure/dynamic-infrastructure/remove-target.md)
 
 ### Restrictions
