@@ -41,7 +41,7 @@ Invoke-WebRequest -Uri https://your-octopus:10943
 ```
 
 
-When an Octopus Tentacle is configured in [Polling mode](/docs/infrastructure/windows-targets/polling-tentacles/index.md), it will attempt to connect to the Octopus Server on the configured TCP port (by default TCP port **10943** on the Octopus Server) poll the Octopus Server for work to be performed.
+When an Octopus Tentacle is configured in [Polling mode](/docs/infrastructure/windows-targets/tentacle-communication.md#polling-tentacles), it will attempt to connect to the Octopus Server on the configured TCP port (by default TCP port **10943** on the Octopus Server) poll the Octopus Server for work to be performed.
 
 ![](/docs/images/5670828/5865874.png)
 

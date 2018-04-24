@@ -4,7 +4,7 @@ description: How to troubleshoot problems with Listening Tentacles.
 position: 64
 ---
 
-When an Octopus Tentacle is configured in [Listening mode](/docs/infrastructure/windows-targets/listening-tentacles/index.md), it will open the specified port (by default TCP port **10933**) and listen for inbound connections from the Octopus server.
+When an Octopus Tentacle is configured in [Listening mode](/docs/infrastructure/windows-targets/tentacle-communication.md#listening-tentacles-recommended)), it will open the specified port (by default TCP port **10933**) and listen for inbound connections from the Octopus server.
 
 ![](/docs/images/3048143/5865873.png)
 
