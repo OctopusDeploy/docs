@@ -427,8 +427,8 @@ docs/deploying-applications/service-fabric/version-automation-with-service-fabri
 docs/how-to/migrate-azure-targets-into-azure-steps.md -> docs/index.md
 docs/deployment-process/migrate-azure-targets-into-azure-steps.md -> docs/index.md
 docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-cloud-service/azure-steps-migrated-from-octopus-deploy-2.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-cloud-service/index.md
-docs/infrastructure/windows-targets/listening-tentacles/index.md -> docs/infrastructure/windows-targets/index.md
 docs/infrastructure/windows-targets/listening-tentacles.md -> docs/infrastructure/windows-targets/index.md
 docs/infrastructure/windows-targets/polling-tentacles.md -> docs/infrastructure/windows-targets/index.md
 docs/infrastructure/windows-targets/listening-tentacles/troubleshoot-listening-tentacles.md -> docs/infrastructure/windows-targets/troubleshoot-listening-tentacles.md
 docs/infrastructure/windows-targets/polling-tentacles/polling-tentacles-web-sockets.md -> docs/infrastructure/windows-targets/polling-tentacles-web-sockets.md
+docs/infrastructure/windows-targets/polling-tentacles/troubleshoot-polling-tentacles.md -> docs/infrastructure/windows-targets/troubleshoot-polling-tentacles.md
