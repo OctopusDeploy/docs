@@ -32,7 +32,7 @@ docs/key-concepts/projects/index.md -> docs/deployment-process/projects.md
 docs/key-concepts/projects/deployment-processes.md -> docs/deployment-process/index.md
 docs/key-concepts/projects/releases.md -> docs/deployment-process/releases/index.md
 docs/key-concepts/projects/channels.md -> docs/deployment-process/channels.md
-docs/key-concepts/projects/project-triggers.md -> docs/deployment-process/project-triggers/index.md	
+docs/key-concepts/projects/project-triggers.md -> docs/deployment-process/project-triggers/index.md
 docs/key-concepts/projects/reporting.md -> docs/administration/reporting/index.md
 docs/key-concepts/project-groups.md -> docs/deployment-process/projects.md
 docs/key-concepts/lifecycles.md -> docs/infrastructure/lifecycles/index.md
@@ -53,9 +53,9 @@ docs/installation/installing-octopus/automating-installation.md -> docs/installa
 docs/installation/installing-octopus/permissions-required-for-the-octopus-windows-service.md -> docs/installation/permissions-required-for-the-octopus-windows-service.md
 docs/installation/installing-octopus/sql-server-database-requirements.md -> docs/installation/sql-server-database.md
 docs/installation/installing-tentacles/index.md -> docs/infrastructure/windows-targets/index.md
-docs/installation/installing-tentacles/listening-tentacles.md -> docs/infrastructure/windows-targets/listening-tentacles/index.md
-docs/installation/installing-tentacles/polling-tentacles/index.md -> docs/infrastructure/windows-targets/polling-tentacles/index.md
-docs/installation/installing-tentacles/polling-tentacles-web-sockets.md -> docs/infrastructure/windows-targets/polling-tentacles/polling-tentacles-web-sockets.md
+docs/installation/installing-tentacles/listening-tentacles.md -> docs/infrastructure/windows-targets/index.md
+docs/installation/installing-tentacles/polling-tentacles/index.md -> docs/infrastructure/windows-targets/index.md
+docs/installation/installing-tentacles/polling-tentacles-web-sockets.md -> docs/infrastructure/windows-targets/polling-tentacles-web-sockets.md
 docs/installation/installing-tentacles/automating-tentacle-installation.md -> docs/infrastructure/windows-targets/automating-tentacle-installation.md
 docs/deployment-targets/index.md -> docs/infrastructure/index.md
 docs/deployment-targets/cloud-regions.md -> docs/infrastructure/cloud-regions.md
@@ -77,10 +77,10 @@ docs/deployment-targets/ssh-targets/self-contained-calamari.md -> docs/infrastru
 docs/deployment-targets/ssh-targets/sudo-commands.md -> docs/infrastructure/ssh-targets/sudo-commands.md
 docs/deployment-targets/windows-targets/index.md -> docs/infrastructure/windows-targets/index.md
 docs/deployment-targets/windows-targets/automating-tentacle-installation.md -> docs/infrastructure/windows-targets/automating-tentacle-installation.md
-docs/deployment-targets/windows-targets/listening-tentacles.md -> docs/infrastructure/windows-targets/listening-tentacles/index.md
-docs/deployment-targets/windows-targets/polling-tentacles.md -> docs/infrastructure/windows-targets/polling-tentacles/index.md
-docs/deployment-targets/windows-targets/polling-tentacles-web-sockets.md -> docs/infrastructure/windows-targets/polling-tentacles/polling-tentacles-web-sockets.md
-docs/infrastructure/windows-targets/polling-tentacles-web-sockets.md -> docs/infrastructure/windows-targets/polling-tentacles/polling-tentacles-web-sockets.md
+docs/deployment-targets/windows-targets/listening-tentacles.md -> docs/infrastructure/windows-targets/index.md
+docs/deployment-targets/windows-targets/polling-tentacles.md -> docs/infrastructure/windows-targets/index.md
+docs/deployment-targets/windows-targets/polling-tentacles-web-sockets.md -> docs/infrastructure/windows-targets/polling-tentacles-web-sockets.md
+docs/infrastructure/windows-targets/polling-tentacles-web-sockets.md -> docs/infrastructure/windows-targets/polling-tentacles-web-sockets.md
 docs/deployment-targets/windows-targets/proxy-support.md -> docs/infrastructure/windows-targets/proxy-support.md
 docs/deployment-targets/windows-targets/azure-virtual-machines/index.md -> docs/infrastructure/windows-targets/azure-virtual-machines/index.md
 docs/deployment-targets/windows-targets/azure-virtual-machines/configuration-structure.md -> docs/infrastructure/windows-targets/azure-virtual-machines/configuration-structure.md
@@ -306,8 +306,8 @@ docs/how-to/how-to-create-an-api-key.md -> docs/api-and-integration/api/how-to-c
 docs/how-to/push-a-nuget-package-that-already-exists.md -> docs/packaging-applications/creating-packages/nuget-packages/push-a-nuget-package-that-already-exists.md
 docs/how-to/manually-fail-a-running-or-cancelling-task.md -> docs/deployment-process/manually-fail-a-running-or-cancelling-task.md
 docs/how-to/record-a-performance-trace.md -> docs/support/record-a-performance-trace.md
-docs/how-to/troubleshoot-polling-tentacles.md -> docs/infrastructure/windows-targets/polling-tentacles/troubleshoot-polling-tentacles.md
-docs/how-to/troubleshoot-listening-tentacles.md -> docs/infrastructure/windows-targets/listening-tentacles/troubleshoot-listening-tentacles.md
+docs/how-to/troubleshoot-polling-tentacles.md -> docs/infrastructure/windows-targets/troubleshoot-polling-tentacles.md
+docs/how-to/troubleshoot-listening-tentacles.md -> docs/infrastructure/windows-targets/troubleshoot-listening-tentacles.md
 docs/how-to/deploy-to-a-specific-subset-of-targets.md -> docs/deployment-process/deploy-to-a-specific-subset-of-targets.md
 docs/how-to/stage-package-uploads.md -> docs/deployment-process/deploying-packages/stage-package-uploads.md
 docs/how-to/expose-the-octopus-web-portal-over-https.md -> docs/administration/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md
@@ -428,3 +428,8 @@ docs/deploying-applications/service-fabric/version-automation-with-service-fabri
 docs/how-to/migrate-azure-targets-into-azure-steps.md -> docs/index.md
 docs/deployment-process/migrate-azure-targets-into-azure-steps.md -> docs/index.md
 docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-cloud-service/azure-steps-migrated-from-octopus-deploy-2.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-cloud-service/index.md
+docs/infrastructure/windows-targets/listening-tentacles/index.md -> docs/infrastructure/windows-targets/index.md
+docs/infrastructure/windows-targets/listening-tentacles.md -> docs/infrastructure/windows-targets/index.md
+docs/infrastructure/windows-targets/polling-tentacles.md -> docs/infrastructure/windows-targets/index.md
+docs/infrastructure/windows-targets/listening-tentacles/troubleshoot-listening-tentacles.md -> docs/infrastructure/windows-targets/troubleshoot-listening-tentacles.md
+docs/infrastructure/windows-targets/polling-tentacles/polling-tentacles-web-sockets.md -> docs/infrastructure/windows-targets/polling-tentacles-web-sockets.md
