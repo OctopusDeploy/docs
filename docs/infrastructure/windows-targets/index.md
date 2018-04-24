@@ -1,9 +1,8 @@
 ---
-title: Windows Targets (Tentacles)
+title: Windows Targets
 description: Everything you need to know about installing and configuring Octopus Tentacles on Windows targets for use with your deployments.
 position: 40
 ---
-
 When you deploy software to Windows Servers, you need to install Tentacle, a lightweight agent service, on all of those Window Servers.
 
 Once installed, Tentacles:
