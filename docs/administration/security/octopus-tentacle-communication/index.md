@@ -16,7 +16,7 @@ We achieve this security using [public-key cryptography](http://en.wikipedia.or
 
 ## Octopus/Tentacle trust relationship {#Octopus-Tentaclecommunication-Octopus/Tentacletrustrelationship}
 
-Regardless of whether Tentacle is in [listening mode](/docs/infrastructure/windows-targets/listening-tentacles/index.md) or [polling mode](/docs/infrastructure/windows-targets/polling-tentacles/index.md), all communication between the Tentacle and Octopus is performed over HTTPS. Octopus and Tentacle both have a public/private key pair that they use to establish the HTTPS connection and verify the identity of the other party.
+Regardless of whether Tentacle is in [listening mode](/docs/infrastructure/windows-targets/tentacle-communication.md#listening-tentacles-recommended) or [polling mode](/docs/infrastructure/windows-targets/tentacle-communication.md#polling-tentacles), all communication between the Tentacle and Octopus is performed over HTTPS. Octopus and Tentacle both have a public/private key pair that they use to establish the HTTPS connection and verify the identity of the other party.
 
 When Tentacle is configured, you give it the thumbprint (which uniquely identifies the public key) of the Octopus server. Likewise, you tell Octopus the thumbprint of the Tentacle. This establishes a trust relationship between the two machines:
 
@@ -65,7 +65,7 @@ TLS 1.2 requires .NET 4.5 which was introduced as a requirement in Octopus 3.1. 
 
 ## Troubleshooting Tentacle communication problems {#Octopus-Tentaclecommunication-TroubleshootingTentaclecommunicationproblems}
 
-We have built comprehensive troubleshooting guides for both [Listening Tentacles](/docs/infrastructure/windows-targets/listening-tentacles/troubleshoot-listening-tentacles.md) and [Polling Tentacles](/docs/infrastructure/windows-targets/polling-tentacles/troubleshoot-polling-tentacles.md).
+We have built comprehensive troubleshooting guides for both [Listening Tentacles](/docs/infrastructure/windows-targets/troubleshoot-listening-tentacles.md) and [Polling Tentacles](/docs/infrastructure/windows-targets/troubleshoot-polling-tentacles.md).
 
 If you are seeing error messages like below, try [Troubleshooting Schannel and TLS](troubleshooting-schannel-and-tls.md):
 

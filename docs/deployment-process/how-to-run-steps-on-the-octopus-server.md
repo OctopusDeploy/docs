@@ -11,7 +11,7 @@ When adding a [NuGet Package step](/docs/deployment-process/deploying-packages/i
 ## Install Tentacle on the Octopus Server
 
 1. Follow the steps to [install Tentacles](/docs/infrastructure/windows-targets/index.md) to download the Tentacle MSI and install it on the Octopus Server.
-2. Configure the Tentacle in [listening mode](/docs/infrastructure/windows-targets/listening-tentacles/index.md) and register it so that it appears in your [Environments](/docs/infrastructure/environments/index.md) tab.
+2. Configure the Tentacle in [listening mode](/docs/infrastructure/windows-targets/index.md) and register it so that it appears in your [Environments](/docs/infrastructure/environments/index.md) tab.
 3. Assign the machine to all of your applicable environments, and give it a role like `octopus-server`.
 4. When configuring your step, you can now choose the `octopus-server` role as your target role.
 

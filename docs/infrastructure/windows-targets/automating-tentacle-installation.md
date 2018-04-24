@@ -6,6 +6,13 @@ position: 60
 
 The Tentacle agent can be installed fully automatically from the command line. This is very useful if you're deploying to a large number of servers, or you'll be provisioning servers automatically.
 
+:::warning
+**Cloning Tentacle VMs**
+In a virtualized environment, it may be desirable to install Tentacle on a base virtual machine image, and clone this image to create multiple machines.
+
+If you choose to do this, please **do not complete the configuration wizard** before taking the snapshot. The configuration wizard generates a unique per-machine cryptographic certificate that should not be duplicated. Instead, use PowerShell to [automate configuration](/docs/infrastructure/windows-targets/automating-tentacle-installation.md) after the clone has been materialized.
+:::
+
 ## Tentacle Installers {#AutomatingTentacleinstallation-Tentacleinstallers}
 
 Tentacle comes in an MSI that can be deployed via group policy or other means.
@@ -51,7 +58,7 @@ When configuring your Tentacle you can configure advanced options, like [proxies
 
 ## Example: Listening Tentacle {#AutomatingTentacleinstallation-Example:ListeningTentacle}
 
-The following example configures a [listening Tentacle](/docs/infrastructure/windows-targets/listening-tentacles/index.md), and registers it with an Octopus Deploy server:
+The following example configures a [listening Tentacle](/docs/infrastructure/windows-targets/tentacle-communication.md#listening-tentacles-recommended), and registers it with an Octopus Deploy server:
 
 **Using Tentacle.exe to create Listening Tentacle instance**
 
@@ -102,7 +109,7 @@ Want to register your Tentacles another way? Take a look at the examples in our 
 
 ## Example: Polling Tentacle {#AutomatingTentacleinstallation-Example:PollingTentacle}
 
-The following example configures a [polling Tentacle](/docs/infrastructure/windows-targets/polling-tentacles/index.md), and registers it with an Octopus Deploy server:
+The following example configures a [polling Tentacle](/docs/infrastructure/windows-targets/tentacle-communication.md#polling-tentacles), and registers it with an Octopus Deploy server:
 
 **Polling Tentacle**
 

@@ -12,7 +12,7 @@ There were a few cons to this architecture:
 
 - To add or modify features, a new version of the Tentacle service was required.  And some folks have a *lot* of Tentacles.
 - Deploying to a target which shouldn't require a Tentacle (e.g. an Azure WebSite), required that the deployment go via a Tentacle.
-- This wouldn't support SSH targets.  All SSH can do is to run commands and move files. All the logic and conventions for configuration transforms, etc. would need to be pushed from the Octopus Server
+- This wouldn't support SSH targets.  All SSH can do is to run commands and move files. All the logic and conventions for configuration transforms, etc. would need to be pushed from the Octopus Server.
 
 And so the *communication channel* (Tentacle) was decoupled from the *deployment engine*: Calamari was born.
 
