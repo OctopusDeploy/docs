@@ -139,6 +139,12 @@ When applying an inline template, the variable fields can also include replaceme
 
 See the [variable substitution](https://octopus.com/docs/deployment-process/variables/variable-substitution-syntax) documentation for more information.
 
+#### Additional Variable Files
+
+The `Additional variable files` option contains a new-line separated list of variable files to use with the deployment. All files called `terraform.tfvars`, `terraform.tfvars.json`, `*.auto.tfvars` and `*.auto.tfvars.json` are automatically loaded by Terraform, and do not need to be listed here. However you may want to reference environment specific variable files by referencing them with files names built around variable substitution such as `#{Octopus.Environment.Name}.tfvars`.
+
+Each line entered into this field will be passed to Terraform as `-var-file '<filename>'`
+
 ## Advanced Options Section
 
 You can optionally control how Terraform downloads plugins and where the plugins will be located in the `Advanced Options` section.
@@ -149,4 +155,14 @@ The `Terraform plugin cache directory` can be optional set to a directory where 
 
 The `Allow additional plugin downloads` option can be checked to allow Terraform to download missing plugins, and unchecked to prevent these downloads.
 
+The `Custom terraform init parameters` option can be optionally set to include any parameters to pass to the `terraform init` action.
+
+The `Custom terraform apply parameters` option can be optionally set to include any parameters to pass to the `terraform destroy` action.
+
 ![Terraform Advanced Options](terraform-advanced.png "width=500")
+
+### Special Variables
+
+Setting the variable `Octopus.Action.Terraform.CustomTerraformExecutable` to the absolute path of a custom Terraform executable will result in the step using that executable instead of the one shipped with Octopus. You can use this variable to force the Terraform steps to use a specific version of Terraform, or to use the x64 version if you wish.
+
+For example, setting `Octopus.Action.Terraform.CustomTerraformExecutable` to `C:\Apps\terraform.exe` will cause the steps to execute `C:\Apps\terraform.exe` rather than the built in copy of Terraform.
