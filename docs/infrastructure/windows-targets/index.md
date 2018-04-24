@@ -75,7 +75,7 @@ Don't forget to allow access in any intermediary firewalls between the Octopus s
 1. The Octopus URL; the DNS or IP address.
 1. Select the authentication mode and enter the details:
   i. The username and password you use to log into Octopus, or:
-  ii. Your Octopus API key, see [How to create an API key](/docs/api-integration/api/how-to-create-an-api-key.md).
+  ii. Your Octopus API key, see [How to create an API key](/docs/api-and-integration/api/how-to-create-an-api-key.md).
 1. Click **Verify credentials**, and then next.
 1. Give the machine a meaningful name and select which environment to add to the machine to.
 1. Choose or create at least one target role for the deployment target (learn about [target roles](/docs/infrastructure/target-roles/index.md)).
@@ -88,7 +88,7 @@ If the tentacle isn't connecting, try the steps on the [troubleshooting page](/d
 
 #### Polling Tentacles over WebSockets
 
-Polling Tentacles can be setup to operate over HTTPS (Secure WebSockets) instead of raw TCP sockets. Learn about configuring [Polling Tentacles over WebSockets](/docs/infrastructure/windows-targets/polling-tentacles-over-web-sockets.md).
+Polling Tentacles can be setup to operate over HTTPS (Secure WebSockets) instead of raw TCP sockets. Learn about configuring [Polling Tentacles over WebSockets](/docs/infrastructure/windows-targets/polling-tentacles-web-sockets.md).
 
 #### Update your Octopus Server Firewall
 
@@ -114,7 +114,7 @@ The Octopus Server performs regular health checks to ensure tentacles are connec
 2. Click the overflow menu and select **Check Health**. If you've installed multiple tentacles, it will check all of your tentacles (if you'd rather check only one tentacle, select that tentacle from the Deployment Targets section, click **Connectivity** and then **Check health**).
 
 The first time you complete a health check on a tentacle, you will see the tentacle has health warnings and needs to install calamari.
-Calamari is an [open-source](https://github.com/OctopusDeploy/Calamari), console-application.  It supports many commands, which are responsible for performing deployment-steps. Learn more about [calamari](/docs/api-integration/calamari.md). Octopus will automatically push the latest version of Calamari with your first deployment, but you can do the following to install Calamari:
+Calamari is an [open-source](https://github.com/OctopusDeploy/Calamari), console-application.  It supports many commands, which are responsible for performing deployment-steps. Learn more about [calamari](/docs/api-and-integration/calamari.md). Octopus will automatically push the latest version of Calamari with your first deployment, but you can do the following to install Calamari:
 
 1. From the Infrastructure tab, select deployment targets.
 2. Click the overflow menu and select **Upgrade Calamari on Deployment Targets**.

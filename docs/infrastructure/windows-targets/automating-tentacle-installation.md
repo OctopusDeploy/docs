@@ -58,7 +58,7 @@ When configuring your Tentacle you can configure advanced options, like [proxies
 
 ## Example: Listening Tentacle {#AutomatingTentacleinstallation-Example:ListeningTentacle}
 
-The following example configures a [listening Tentacle](/docs/infrastructure/windows-targets/listening-tentacles/index.md), and registers it with an Octopus Deploy server:
+The following example configures a [listening Tentacle](/docs/infrastructure/windows-targets/tentacle-communication.md#listening-tentacles-recommended), and registers it with an Octopus Deploy server:
 
 **Using Tentacle.exe to create Listening Tentacle instance**
 
@@ -109,7 +109,7 @@ Want to register your Tentacles another way? Take a look at the examples in our 
 
 ## Example: Polling Tentacle {#AutomatingTentacleinstallation-Example:PollingTentacle}
 
-The following example configures a [polling Tentacle](/docs/infrastructure/windows-targets/polling-tentacles/index.md), and registers it with an Octopus Deploy server:
+The following example configures a [polling Tentacle](/docs/infrastructure/windows-targets/tentacle-communication.md#polling-tentacles), and registers it with an Octopus Deploy server:
 
 **Polling Tentacle**
 
