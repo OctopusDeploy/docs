@@ -21,186 +21,99 @@ Before you install Tentacle, review the the software and hardware requirements:
 
 The latest Octopus Tentacle MSI can always be [downloaded from the Octopus Deploy downloads page](https://octopus.com/downloads).
 
-## Tentacle Communication <!-- move into a separate file?  -->
+## Install Tentacle Manager
 
-Octopus and Tentacles can be configured to communicate in two different ways depending on your network setup. The mode you are using will change the installation process slightly.
+Tentacle Manager is the Windows application that configures your Tentacle. Once installed, you can access it any time from your start menu/start screen. Tentacle Manager can configure Tentacles to use a proxy, delete the tentacle, and show diagnostic information about the Tentacle.
 
-### Listening Tentacles
-
-In **listening** mode, Tentacles *listen* on a TCP port (port **10933** by default). When a package needs to be deployed, Octopus connects to the Tentacle service on that port.
-
-In listening mode Tentacle is the TCP server, and Octopus is the TCP client.
-
-![octopus to Listening Tentacle communication](listening-tentacle.png)
-
-#### Listening Mode is Recommended
-
-When choosing a communication mode, we recommend listening mode when possible. Listening mode uses the least resources (listening on a TCP port is cheaper than actively trying to connect to one). It also gives you the most control (you can use rules in your firewall to limit which IP addresses can connect to the port). [Octopus and Tentacle use SSL when communicating](/docs/administration/security/octopus-tentacle-communication/index.md), and Tentacle will outright reject connections that aren't from an Octopus server that it trusts, identified by an X.509 certificate public key that you provide during setup (see below).
-
-### Polling Tentacles
-
-In **polling** mode, Tentacle will poll the Octopus server periodically to check if there are any tasks for it to perform. Polling mode is the opposite to **listening mode**.
-
-In polling mode, Octopus is the TCP server, and Tentacle is the TCP client.
-
-![Polling Tentacle to Octopus communication](polling-tentacle.png)
-
-The advantage to polling mode is that you don't need to make any firewall changes on the Tentacle side; you only need to allow access to a port on the Octopus server. The disadvantage is that it also uses more resources on the Tentacle side, since Tentacle needs to poll periodically even if there aren't any jobs for it to perform.
-
-Polling mode is good for scenarios that involve Tentacle being behind NAT or a dynamic IP address. A good example might be servers at branch offices or a chain of retail stores, where the IP address of each server running Tentacle may change.
-
-### SSL Offloading is Not Supported
-
-The communication protocol used by Octopus and Tentacle requires intact end-to-end TLS connection for message encryption, tamper-proofing, and authentication. For this reason SSL offloading is not supported.
-
-### Proxy Servers Supported for Tentacle Communications
-
-The communication protocol used by Octopus and Tentacle 3.4 and above supports proxies. Read more about configuring proxy servers for Tentacle communications in [proxy support](/docs/infrastructure/windows-targets/proxy-support.md).
-
-## Installation
-
-1. Start the Tentacle Installer and follow the onscreen prompts.
+1. Start the Tentacle installer and follow the onscreen prompts.
 2. Accept the license agreement, and either accept the default installation location or choose a different location.
 3. Click install, and give the app permission to **make changes to your device**.
 4. Click finish to exit the installation wizard and launch the setup wizard to configure your tentacle.
 5. Click **Get Started** and **Next**.
 6. Accept the default *configuration and log* directory and *application* directory or choose different locations.
-7. Choose the communication style for the Tentacle. <!-- if comms is moved link to it from here -->
 
-### Configuring a Listening Tentacle (recommended)
+Tentacles can be configured in Listening mode (recommended) or Polling mode. Learn more about [Tentacle communication](/docs/infrastructure/windows-targets/tentacle-communication.md).
 
-To complete the installation we need to setup communication between the Octopus Server and the Tentacle. This is done on both the server where you installed Tentacle and the central Octopus Deploy server. We'll start with the Octopus Server and come back to the Tentacle.
+7. Choose the communication style for the Tentacle. Configure a [Listening tentacle (recommended)](/docs/infrastructure/windows-targets/) or configure a [Polling tentacle](/docs/infrastructure/windows-targets/) <!-- add these links -->.
+
+
+### Configure a Listening Tentacle (recommended)
+
+To complete the installation we need to configure communication between the Octopus Server and the Tentacle. This is done on both the server where you installed Tentacle and the central Octopus Deploy server. We'll start with the Octopus Server and come back to the Tentacle.
 
 1. In the **Octopus Web Portal**, navigate to the **infrastructure** tab, select **Deployment Targets** and click **ADD DEPLOYMENT TARGET**.
-2. Select **Listening Tentacle**.
-3. Copy the **Thumbprint** (the long alphanumerical string).
-4. Back on the Tentacle server, select **Listening Tentacle** and click **Next**.
-2. Accept the default listening port **10933** or provide your own.
-5. Paste the **Thumbprint** into the **Octopus Thumbprint** field and click **next**.
-6. Click **INSTALL**, and after the installation has finished click **Finish**.
-7. Back in the **Octopus Web Portal**, enter the DNS or IP address of the tentacle, i.e., `example.com` or `10.0.1.23`, and click **NEXT**.
+1. Select **Listening Tentacle**.
+1. Copy the **Thumbprint** (the long alphanumerical string).
+1. Back on the Tentacle server, select **Listening Tentacle** and click **Next**.
+1. Accept the default listening port **10933** or provide your own.
+1. Paste the **Thumbprint** into the **Octopus Thumbprint** field and click **next**.
+1. Click **INSTALL**, and after the installation has finished click **Finish**.
+1. Back in the **Octopus Web Portal**, enter the DNS or IP address of the tentacle, i.e., `example.com` or `10.0.1.23`, and click **NEXT**.
+1. Add a display name for the deployment target (the server where you just installed the listening tentacle).
+1. Select which environment the deployment target will be assigned to.
+1. Choose or create at least one target role for the deployment target (learn about [target roles](/docs/infrastructure/target-roles/index.md)).
+1. Click save.
 
-Skip ahead to **Create Deployment Target**: <!-- move to after configuring a polling tentacle and link to from both. Assuming they're the same. -->
+Your deployment target is configured, next you need to preform a [health check and Update Calamari](/docs/infrastructure/windows-targets/). <!-- add this link -->
 
-1. Add a display name for the deployment target (the listening tentacle).
-2. Select which environment the deployment target will be assigned to.
-3. Choose at least one target role for the deployment target (learn about [target roles]()).
-4. Click save.
+If the tentacle isn't connecting, try the steps on the [troubleshooting page](/docs/infrastructure/windows-targets/troubleshooting-listening-tentacles.md).
 
-Your deployment target is configured.
+#### Update your Tentacle Firewall
 
-**Firewalls**
-
-To allow your Octopus Deploy server to connect to the Tentacle, you'll need to allow access to TCP port **10933** on the Tentacle (or the port you selected during the installation wizard).
+To allow your Octopus Deploy server to connect to the Tentacle, you'll need to allow access to TCP port **10943** on the Tentacle (or the port you selected during the installation wizard).
 
 **Intermediary Firewalls**
 
 Don't forget to allow access in any intermediary firewalls between the Octopus server and your Tentacle (not just in Windows Firewall). For example, if your Tentacle server is hosted in Amazon EC2, you'll also need to modify the AWS security group firewall to tell EC2 to allow the traffic. Similarly if your Tentacle server is hosted in Microsoft Azure you'll also need to add an Endpoint to tell Azure to allow the traffic.
 
+### Configure a Polling Tentacle
 
+1. Select **Polling Tentacle** and click **next**.
+1. If you are using a proxy see [Proxy Support](/docs/infrastructure/windows-targets/proxy-support.md), or click **next**.
+1. Add the Octopus credentials the tentacle will use to connect to the Octopus server.
+1. The Octopus URL; the DNS or IP address.
+1. Select the authentication mode and enter the details:
+  i. The username and password you use to log into Octopus, or:
+  ii. Your Octopus API key, see [How to create an API key](/docs/api-integration/api/how-to-create-an-api-key.md).
+1. Click **Verify credentials**, and then next.
+1. Give the machine a meaningful name and select which environment to add to the machine to.
+1. Choose or create at least one target role for the deployment target (learn about [target roles](/docs/infrastructure/target-roles/index.md)).
+1. Leave **Tenants** and **Tenant tags** blank unless you are already using Octopus to deploy applications to multiple end users. If you are using Octopus for multiple tenants, enter the **Tenants** and **Tenant Tags**. Learn more about [Multi-tenant Deployments](/docs/deployment-patterns/multi-tenant-deployments/index.md).
+1. Click **Install**, and when the script has finished, click **Finish**.
 
-### Configuring a Polling Tentacle
+Your deployment target is configured, next you need to preform a  [health check and Update Calamari](/docs/infrastructure/windows-targets/). <!-- add this link -->
 
-1. Select **Polling Tentacle** and click next.
-2. If you are using a proxy see [Proxy Support](/docs/infrastructure/windows-targets/proxy-support.md), or click next.
-3. Add the Octopus credentials the tentacle will use to connect to the Octopus server.
-  i. The Octopus URL, for instance, the DNS or IP address followed by port 10943 (or the port you specified during installation):
+If the tentacle isn't connecting, try the steps on the [troubleshooting page](/docs/infrastructure/windows-targets/troubleshooting-polling-tentacles.md).
 
-> http://example.com:10943
+#### Polling Tentacles over WebSockets
 
-  ii. The username and password you use to log into Octopus, or:
-  iii. Your Octopus [API key](/docs/api-integration/api/how-to-create-an-api-key.md).
-4. 
+Polling Tentacles can be setup to operate over HTTPS (Secure WebSockets) instead of raw TCP sockets. Learn about configuring [Polling Tentacles over WebSockets](/docs/infrastructure/windows-targets/polling-tentacles-over-web-sockets.md).
 
+#### Update your Octopus Server Firewall
 
-1. In the **Octopus Web Portal**, navigate to the **infrastructure** tab, select **Deployment Targets** and click **ADD DEPLOYMENT TARGET**.
-2. Select **Listening Tentacle**.
-3. Copy the **Thumbprint** (the long alphanumerical string).
-4. Back on the Tentacle server, select **Listening Tentacle** and click **Next**.
-2. Accept the default listening port **10933** or provide your own.
-5. Paste the **Thumbprint** into the **Octopus Thumbprint** field and click **next**.
-6. Click **INSTALL**, and after the installation has finished click **Finish**.
-7. Back in the **Octopus Web Portal**, enter the DNS or IP address of the tentacle, i.e., `example.com` or `10.0.1.23`, and click **NEXT**.
+To allow Tentacle to connect to your Octopus Deploy server, you'll need to allow access to port **10943** on the Octopus server (or the port you selected during the installation wizard - port 10943 is just the default). You will also need to allow Tentacle to access the Octopus HTTP web portal (typically port **80** or **443** - these bindings are selected when you [install the Octopus Deploy server](/docs/installation/index.md)).
 
-Skip ahead to **Create Deployment Target**: <!-- move to after configuring a polling tentacle and link to from both. Assuming they're the same. -->
+If your network rules only allow port **80** and **443** to the Octopus server, you can change the server bindings to either HTTP or HTTPS and
+use the remaining port for polling Tentacle connections. The listening port can be [changed from the command line](/docs/administration/server-configuration-and-file-storage/index.md).
+Even if you do use port **80** for Polling Tentacles, the communication is still secure.
 
+Note that the port used to poll Octopus for jobs is different to the port used by your team to access the Octopus Deploy web interface;
+this is on purpose, and it means you can use different firewall conditions to allow Tentacles to access Octopus by IP address.
 
+Using polling mode, you won't typically need to make any firewall changes on the Tentacle machine.
 
-Port opened on the tentacle server
-Firewall (and intermediary firewalls)
+**Intermediary Firewalls**
+Don't forget to allow access not just in Windows Firewall, but also any intermediary firewalls between the Tentacle and your Octopus server. For example, if your Octopus server is hosted in Amazon EC2, you'll also need to modify the AWS security group firewall to tell EC2 to allow the traffic. Similarly if your Octopus server is hosted in Microsoft Azure you'll also need to add an Endpoint to tell Azure to allow the traffic.
 
-## Firewall
+## Health Check and Upgrade Calamari
 
-## Registering the Tentacle with Octopus
+The Octopus Server performs regular health checks to ensure tentacles are connected and running the latest version of Calamari. After installing and configuring a new tentacle, you need to run a health check and can upgrade the version of Calamari.
 
-Thumbprint
+1. From the Infrastructure tab, select deployment targets.
+2. Click the overflow menu and select **Check Health**. If you've installed multiple tentacles, it will check all of your tentacles (if you'd rather check only one tentacle, select that tentacle from the Deployment Targets section, click **Connectivity** and then **Check health**).
 
-### Polling
+The first time you complete a health check on a tentacle, you will see the tentacle has health warnings and needs to install calamari.
+Calamari is an [open-source](https://github.com/OctopusDeploy/Calamari), console-application.  It supports many commands, which are responsible for performing deployment-steps. Learn more about [calamari](/docs/api-integration/calamari.md). Octopus will automatically push the latest version of Calamari with your first deployment, but you can do the following to install Calamari:
 
-Port opened on the Octopus server (only when listening mode isn't an option)
-Authenticate
-Roles in the wizard this time? Still true?
-
-
-
-
-## Health Check
-
-
-
-
-
-Tentacle can be installed and configured directly from the command prompt, which is very useful when you need to install Tentacle on a large number of machines. See more in [automating Tentacle installations](/docs/infrastructure/windows-targets/automating-tentacle-installation.md).
-
-:::warning
-**Cloning Tentacle VMs**
-In a virtualized environment, it may be desirable to install Tentacle on a base virtual machine image, and clone this image to create multiple machines.
-
-If you choose to do this, please **do not complete the configuration wizard** before taking the snapshot. The configuration wizard generates a unique per-machine cryptographic certificate that should not be duplicated. Instead, use PowerShell to [automate configuration](/docs/infrastructure/windows-targets/automating-tentacle-installation.md) after the clone has been materialized.
-:::
-
-:::warning
-**Calamari Warning in Health Check**
-When you first install a Tentacle it does not have the latest Calamari package installed. So, on the first health check a warning will be written to the log with the following message ***Not running latest version of Calamari. Directory does not exist: C:\<TentacleHomeDirectoryChosenDuringInstallation>\Calamari***, this message can safely be ignored as we will automatically push the latest Calamari package to the Tentacle on the first deployment made to it, or you can manually push the latest Calamari package to the Tentacle from the Environments page.
-:::
-
-## Tentacle Manager
-
-The Tentacle MSI installer is very simple: it extracts the core program files on disk, adds an event log source, and that's about it. The actual configuration of your Tentacle is done through a tool called **Tentacle Manager**. When the MSI completes Tentacle Manager will appear, and you can access it any time from your start menu/start screen. Tentacle Manager is a Windows application that:
-
-- Has a setup wizard to configure your Tentacle instance
-- Has wizards to configure Tentacle to use a proxy server, or delete the Tentacle instance
-- Shows other diagnostic information about Tentacle
-
-## Permissions
-
-By default, the Tentacle Windows Service runs under the Local System context. You can configure Tentacle to run under a different user account by modifying the service properties via the Services MMC snap-in (**services.msc**).
-
-The account that you use requires, at a minimum:
-
-- `Log on as a service` right on the current machine - [learn more](https://technet.microsoft.com/en-us/library/dn221981(v=ws.11).aspx).
-- Rights to enumerate the `Local Machine` certificate store.
-- Permissions to load the private key of the Tentacle X.509 certificate from the `Local Machine` certificate store.
-- Read/Write permissions to the Tentacle "Home directory" that you selected when Tentacle was installed (typically, **C:\Octopus**).
-- Rights to manage Windows Services (start/stop) - [learn more](https://social.technet.microsoft.com/wiki/contents/articles/5752.how-to-grant-users-rights-to-manage-services-start-stop-etc.aspx).
-
-Please be aware that to perform automatic Tentacle updates you need an account with [extra permissions](/docs/infrastructure/machine-policies.md#MachinePolicies-TentacleUpdateAccount).
-
-In addition, since you are probably using Tentacle to install software, you'll need to make sure that the service account has permissions to actually install your software. This totally depends on your applications, but it might mean:
-
-- Permissions to modify IIS (C:\Windows\system32\inetsrv).
-- Permissions to connect a SQL Server database.
-
-:::problem
-If you **Reinstall** a Tentacle using the Tentacle Manager, the Windows Service account will revert to Local System.
-:::
-
-### Using a Managed Service Account (MSA)
-
-You can run Tentacle using a Managed Service Account (MSA):
-
-1. Install the Tentacle and make sure it is running correctly using one of the built-in Windows Service accounts or a Custom Account.
-2. Reconfigure the `Tentacle` Windows Service to use the MSA, either manually using the Service snap-in, or using `sc.exe config "OctopusDeploy Tentacle" obj= Domain\Username$`.
-3. Restart the Tentacle Windows Service.
-
-Learn about [using Managed Service Accounts](https://technet.microsoft.com/en-us/library/dd548356(v=ws.10).aspx).
+1. From the Infrastructure tab, select deployment targets.
+2. Click the overflow menu and select **Upgrade Calamari on Deployment Targets**.

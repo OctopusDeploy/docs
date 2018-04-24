@@ -1,8 +1,45 @@
 ---
 title: Troubleshoot Polling Tentacles
 description: How to troubleshoot problems with polling Tentacles.
-position: 5
+position: 65
 ---
+
+If Tentacle is unable to connect to the Octopus Deploy server, any errors will appear in the Windows Event Viewer. You can also open a web browser on the Tentacle and try browsing to the Octopus Deploy server using **HTTPS** (will not work with HTTP) and be welcomed with a friendly message.
+
+:::hint
+**Client Certificates and Certificate Warnings**
+You may be prompted to provide a client certificate, you can simply cancel this prompt and move on. You may also be warned the connection is not private or the server is not trusted which happens because Octopus uses a self-signed certificate for its listening endpoint. You can safely ignore these warnings and proceed to the site.
+:::
+
+![](/docs/images/3048113/3277906.png "width=500")
+
+If you can browse to the Octopus server listening endpoint, but Tentacle is unable to communicate with it, try using remote desktop on the Tentacle server and browsing to the Octopus listening endpoint address using the format above. If you can't access the Octopus server, check any intermediary firewalls.
+
+**Like Using Curl?**
+
+```bash
+curl https://your-octopus:10943 -k
+```
+
+**Prefer PowerShell?**
+
+```powershell
+Add-Type @"
+    using System.Net;
+    using System.Security.Cryptography.X509Certificates;
+    public class TrustAllCertsPolicy : ICertificatePolicy {
+        public bool CheckValidationResult(
+            ServicePoint srvPoint, X509Certificate certificate,
+            WebRequest request, int certificateProblem) {
+            return true;
+        }
+    }
+"@
+
+[System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
+Invoke-WebRequest -Uri https://your-octopus:10943
+```
+
 
 When an Octopus Tentacle is configured in [Polling mode](/docs/infrastructure/windows-targets/polling-tentacles/index.md), it will attempt to connect to the Octopus Server on the configured TCP port (by default TCP port **10943** on the Octopus Server) poll the Octopus Server for work to be performed.
 

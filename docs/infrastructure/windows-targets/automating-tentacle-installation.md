@@ -6,6 +6,13 @@ position: 60
 
 The Tentacle agent can be installed fully automatically from the command line. This is very useful if you're deploying to a large number of servers, or you'll be provisioning servers automatically.
 
+:::warning
+**Cloning Tentacle VMs**
+In a virtualized environment, it may be desirable to install Tentacle on a base virtual machine image, and clone this image to create multiple machines.
+
+If you choose to do this, please **do not complete the configuration wizard** before taking the snapshot. The configuration wizard generates a unique per-machine cryptographic certificate that should not be duplicated. Instead, use PowerShell to [automate configuration](/docs/infrastructure/windows-targets/automating-tentacle-installation.md) after the clone has been materialized.
+:::
+
 ## Tentacle Installers {#AutomatingTentacleinstallation-Tentacleinstallers}
 
 Tentacle comes in an MSI that can be deployed via group policy or other means.
