@@ -34,8 +34,9 @@ Tentacle Manager is the Windows application that configures your Tentacle. Once 
 
 Tentacles can be configured in Listening mode (recommended) or Polling mode. Learn more about [Tentacle communication](/docs/infrastructure/windows-targets/tentacle-communication.md).
 
-7. Choose the communication style for the Tentacle. Configure a [Listening tentacle (recommended)](/docs/infrastructure/windows-targets/) or configure a [Polling tentacle](/docs/infrastructure/windows-targets/) <!-- add these links -->.
-
+7. Choose the communication style for the Tentacle:
+  - [Listening tentacle (recommended)](/docs/infrastructure/windows-targets/index.md#configure-a-listening-tentacle-recommended).
+  - [Polling tentacle](/docs/infrastructure/windows-targets/index.md#configure-a-polling-tentacle).
 
 ### Configure a Listening Tentacle (recommended)
 
@@ -54,7 +55,7 @@ To complete the installation we need to configure communication between the Octo
 1. Choose or create at least one target role for the deployment target (learn about [target roles](/docs/infrastructure/target-roles/index.md)).
 1. Click save.
 
-Your deployment target is configured, next you need to preform a [health check and Update Calamari](/docs/infrastructure/windows-targets/). <!-- add this link -->
+Your deployment target is configured, next you need to preform a [health check and Update Calamari](/docs/infrastructure/windows-targets/index.md#health-check-and-upgrade-calamari).
 
 If the tentacle isn't connecting, try the steps on the [troubleshooting page](/docs/infrastructure/windows-targets/troubleshooting-listening-tentacles.md).
 
@@ -81,7 +82,7 @@ Don't forget to allow access in any intermediary firewalls between the Octopus s
 1. Leave **Tenants** and **Tenant tags** blank unless you are already using Octopus to deploy applications to multiple end users. If you are using Octopus for multiple tenants, enter the **Tenants** and **Tenant Tags**. Learn more about [Multi-tenant Deployments](/docs/deployment-patterns/multi-tenant-deployments/index.md).
 1. Click **Install**, and when the script has finished, click **Finish**.
 
-Your deployment target is configured, next you need to preform a  [health check and Update Calamari](/docs/infrastructure/windows-targets/). <!-- add this link -->
+Your deployment target is configured, next you need to preform a  [health check and Update Calamari](/docs/infrastructure/windows-targets/index.md#health-check-and-upgrade-calamari).
 
 If the tentacle isn't connecting, try the steps on the [troubleshooting page](/docs/infrastructure/windows-targets/troubleshooting-polling-tentacles.md).
 
