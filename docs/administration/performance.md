@@ -1,6 +1,6 @@
 ---
 title: Performance
-description: Octopus is all about reliable and repeatable deployments, but that doesn't mean it has to be slow. This page will help you tune your Octopus installation for the best performance in your scenario. 
+description: Octopus is all about reliable and repeatable deployments, but that doesn't mean it has to be slow. This page will help you tune your Octopus installation for the best performance in your scenario.
 position: 10
 ---
 
@@ -109,7 +109,7 @@ Follow these tips to tune and maintain the performance of your Octopus:
 1. Consider the size of your Task Logs: {#tip-task-logs}
     - Larger task logs put the entire Octopus pipeline under more pressure.
     - We recommend printing messages required to understand progress and deployment failures. The rest of the information should be streamed to a file, then published as a deployment [artifact](/docs/deployment-process/artifacts.md).
-1. Prefer [Listening Tentacles](/docs/infrastructure/windows-targets/listening-tentacles/index.md) or [SSH](/docs/infrastructure/ssh-targets/index.md) instead of [Polling Tentacles](/docs/infrastructure/windows-targets/polling-tentacles/index.md) wherever possible:
+1. Prefer [Listening Tentacles](/docs/infrastructure/windows-targets/tentacle-communication.md#listening-tentacles-recommended) or [SSH](/docs/infrastructure/ssh-targets/index.md) instead of [Polling Tentacles](/docs/infrastructure/windows-targets/tentacle-communication.md#polling-tentacles) wherever possible:
     - Listening Tentacles and SSH place the Octopus Server under less load.
     - We try to make Polling Tentacles as efficient as possible, but by their very nature, they can place the Octopus Server under high load just handling the incoming connections.
 1. Reduce the frequency and complexity of automated health checks using [machine policies](/docs/infrastructure/machine-policies.md).
