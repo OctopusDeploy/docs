@@ -25,7 +25,7 @@ In addition, since you are probably using Tentacle to install software, you'll n
 If you **Reinstall** a Tentacle using the Tentacle Manager, the Windows Service account will revert to Local System.
 :::
 
-### Using a Managed Service Account (MSA)
+## Using a Managed Service Account (MSA)
 
 You can run Tentacle using a Managed Service Account (MSA):
 
