@@ -25,7 +25,7 @@ New-OctopusAzureServicePrincipalAccount -name "My Azure Account" `
                                         -azureSubscription "dea39b53-1ac8-4adc-b291-a44b205921af" `
                                         -azureApplicationId "f83ece42-857d-44ed-9652-0765af7fa7d4" `
                                         -azureTenantId "e91671b4-a676-4cb6-8ff8-69fcb8e048d6" `
-                                        -azurePassword "correct horse battery staple" `
+                                        -azurePassword "correct horse battery staple" 
 
 # Targeting an isolated Cloud, e.g AzureGermanCloud
 New-OctopusAzureServicePrincipalAccount -name "My Azure Account" `
