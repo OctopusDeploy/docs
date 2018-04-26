@@ -432,4 +432,4 @@ docs/infrastructure/windows-targets/polling-tentacles.md -> docs/infrastructure/
 docs/infrastructure/windows-targets/listening-tentacles/troubleshoot-listening-tentacles.md -> docs/infrastructure/windows-targets/troubleshoot-listening-tentacles.md
 docs/infrastructure/windows-targets/polling-tentacles/polling-tentacles-web-sockets.md -> docs/infrastructure/windows-targets/polling-tentacles-web-sockets.md
 docs/infrastructure/windows-targets/polling-tentacles/troubleshoot-polling-tentacles.md -> docs/infrastructure/windows-targets/troubleshoot-polling-tentacles.md
-docs/infrastructure/windows-targets/legacy-requirments.md -> docs/infrastructure/windows-targets/requirements/legacy-requirments.md
+docs/infrastructure/windows-targets/legacy-requirments.md -> docs/infrastructure/windows-targets/requirements/legacy-requirements.md
