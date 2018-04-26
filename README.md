@@ -76,6 +76,10 @@ Lists can be created using a few different styles, please be aware that `Roman` 
 
 To ensure the list items are correctly formatted it is recommended not to number the items, instead let the markdown renderer do that job automatically, so for a numeric list use one `1`s for a letter list use one `a.`s and for a roman list use only `i`s.
 
+#### Nested Lists
+
+You can nest lists, by adding four spaces before the nested list items.
+
 #### Bullets
 Example:
 ```md
