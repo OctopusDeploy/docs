@@ -70,11 +70,11 @@ Don't forget to allow access in any intermediary firewalls between the Octopus s
 
 1. Select **Polling Tentacle** and click **next**.
 1. If you are using a proxy see [Proxy Support](/docs/infrastructure/windows-targets/proxy-support.md), or click **next**.
-1. Add the Octopus credentials the Tentacle will use to connect to the Octopus server.
-1. The Octopus URL; the DNS or IP address.
-1. Select the authentication mode and enter the details:
-    i. The username and password you use to log into Octopus, or:
-    ii. Your Octopus API key, see [How to create an API key](/docs/api-and-integration/api/how-to-create-an-api-key.md).
+1. Add the Octopus credentials the Tentacle will use to connect to the Octopus server:
+    a. The Octopus URL; the DNS or IP address.
+    b. Select the authentication mode and enter the details:
+        i. The username and password you use to log into Octopus, or:
+        i. Your Octopus API key, see [How to create an API key](/docs/api-and-integration/api/how-to-create-an-api-key.md).
 1. Click **Verify credentials**, and then next.
 1. Give the machine a meaningful name and select which environment to add to the machine to.
 1. Choose or create at least one target role for the deployment target (learn about [target roles](/docs/infrastructure/target-roles/index.md)).
