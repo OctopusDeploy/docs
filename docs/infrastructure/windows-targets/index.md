@@ -51,7 +51,7 @@ To complete the installation we need to configure communication between the Octo
 1. Back in the **Octopus Web Portal**, enter the DNS or IP address of the tentacle, i.e., `example.com` or `10.0.1.23`, and click **NEXT**.
 1. Add a display name for the deployment target (the server where you just installed the listening tentacle).
 1. Select which environment the deployment target will be assigned to.
-1. Choose or create at least one target role for the deployment target (learn about [target roles](/docs/infrastructure/target-roles/index.md)).
+1. Choose or create at least one target role for the deployment target. Learn about [target roles](/docs/infrastructure/target-roles/index.md).
 1. Click save.
 
 Your deployment target is configured, next you need to preform a [health check and update Calamari](/docs/infrastructure/windows-targets/index.md#health-check-and-upgrade-calamari).
@@ -84,10 +84,6 @@ Don't forget to allow access in any intermediary firewalls between the Octopus s
 Your deployment target is configured, next you need to preform a  [health check and update Calamari](/docs/infrastructure/windows-targets/index.md#health-check-and-upgrade-calamari).
 
 If the Tentacle isn't connecting, try the steps on the [troubleshooting page](/docs/infrastructure/windows-targets/troubleshoot-polling-tentacles.md).
-
-### Polling Tentacles over WebSockets
-
-Polling Tentacles can be setup to operate over HTTPS (Secure WebSockets) instead of raw TCP sockets. Learn about configuring [Polling Tentacles over WebSockets](/docs/infrastructure/windows-targets/polling-tentacles-web-sockets.md).
 
 ### Update your Octopus Server Firewall
 
