@@ -39,50 +39,6 @@ Optional. Used for the position in the menu.
 
 The menu is auto generated based on the git repo folder structure and title and position metadata.
 
-## Version Dropdown
-
-The version dropdown menu let's user choose between [legacy versions](https://legacydocs.octopus.com) of the documentation, the latest (default) version, and pre-release versions.
-
-### Include Pre-release Documentation
-
-The list of versions displayed on the dropdown are loaded from [versions.json](versions.json).
-
-Support to publish pre-release versions of documentation.
-This is useful when we are planning a new release or we are releasing betas or RCs.
-
-To use this functionality all you need to do is add the pre-release version to the versions.json file versions array, and leave the default the same version, the example above adds 2018.4 pre-release:
-```json
-{
-   "versions": [
-     "2018.3",
-     "2018.4"
-   ],
-   "default": "2018.3",
-   "legacy": [
-    {
-      "version": "2018.2",
-      "firstReleased": "8 Feb 2018"
-     },
-     {
-      "version": "2018.1",
-      "firstReleased": "24 Jan 2018"
-     },
-     {
-      "version": "4.1",
-      "firstReleased": "5 Dec 2017"
-     }
-   ]
- }
-```
-
-The version selector on the website displays the latest version by default, but the new pre-release is now listed above:
-
-![](/docs/images/version-selector.png)
-
-And when selected, a banner tells the user that they are seeing a "preview" of the documentation:
-
-![](/docs/images/preview.png)
-
 ## URLs
 
 The directory structure where a `.md` exists is used to derive the URL for that document.
@@ -362,6 +318,51 @@ Once a redirect is added, the source file needs to be deleted from the repo.
 The destination is validated and must exist.
 
 If a file is deleted, a redirect must be added for it, otherwise publishing fails.
+
+## Version Dropdown
+
+The version dropdown menu let's user choose between [legacy versions](https://legacydocs.octopus.com) of the documentation, the latest (default) version, and pre-release versions.
+
+### Include Pre-release Documentation
+
+The list of versions displayed on the dropdown are loaded from [versions.json](versions.json).
+
+Support to publish pre-release versions of documentation.
+This is useful when we are planning a new release or we are releasing betas or RCs.
+
+To use this functionality all you need to do is add the pre-release version to the versions.json file versions array, and leave the default the same version, the example above adds 2018.4 pre-release:
+```json
+{
+   "versions": [
+     "2018.3",
+     "2018.4"
+   ],
+   "default": "2018.3",
+   "legacy": [
+    {
+      "version": "2018.2",
+      "firstReleased": "8 Feb 2018"
+     },
+     {
+      "version": "2018.1",
+      "firstReleased": "24 Jan 2018"
+     },
+     {
+      "version": "4.1",
+      "firstReleased": "5 Dec 2017"
+     }
+   ]
+ }
+```
+
+The version selector on the website displays the latest version by default, but the new pre-release is now listed above:
+
+![](/docs/images/version-selector.png)
+
+And when selected, a banner tells the user that they are seeing a "preview" of the documentation:
+
+![](/docs/images/preview.png)
+
 
 ## Useful Characters
 
