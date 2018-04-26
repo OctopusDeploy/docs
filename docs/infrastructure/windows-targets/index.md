@@ -41,7 +41,7 @@ Tentacles can be configured in Listening mode (recommended) or Polling mode. Lea
 
 To complete the installation we need to configure communication between the Octopus Server and the Tentacle. This is done on both the server where you installed Tentacle and the central Octopus Deploy server. We'll start with the Octopus Server and come back to the Tentacle.
 
-1. In the **Octopus Web Portal**, navigate to the **infrastructure** tab, select **Deployment Targets** and click **ADD DEPLOYMENT TARGET**.
+1. In the **Octopus Web Portal**, navigate to the **Infrastructure** tab, select **Deployment Targets** and click **ADD DEPLOYMENT TARGET**.
 1. Select **Listening Tentacle**.
 1. Copy the **Thumbprint** (the long alphanumerical string).
 1. Back on the Tentacle server, select **Listening Tentacle** and click **Next**.
@@ -60,21 +60,21 @@ If the Tentacle isn't connecting, try the steps on the [troubleshooting page](/d
 
 #### Update your Tentacle Firewall
 
-To allow your Octopus Deploy server to connect to the Tentacle, you'll need to allow access to TCP port **10943** on the Tentacle (or the port you selected during the installation wizard).
+To allow your Octopus Deploy server to connect to the Tentacle, you'll need to allow access to TCP port **10933** on the Tentacle (or the port you selected during the installation wizard).
 
 **Intermediary Firewalls**
 
-Don't forget to allow access in any intermediary firewalls between the Octopus server and your Tentacle (not just in Windows Firewall). For example, if your Tentacle server is hosted in Amazon EC2, you'll also need to modify the AWS security group firewall to tell EC2 to allow the traffic. Similarly if your Tentacle server is hosted in Microsoft Azure you'll also need to add an Endpoint to tell Azure to allow the traffic.
+Don't forget to allow access in any intermediary firewalls between the Octopus server and your Tentacle (not just the Windows Firewall). For example, if your Tentacle server is hosted in Amazon EC2, you'll also need to modify the AWS security group firewall to tell EC2 to allow the traffic. Similarly if your Tentacle server is hosted in Microsoft Azure you'll also need to add an Endpoint to tell Azure to allow the traffic.
 
 ### Configure a Polling Tentacle
 
 1. Select **Polling Tentacle** and click **next**.
 1. If you are using a proxy see [Proxy Support](/docs/infrastructure/windows-targets/proxy-support.md), or click **next**.
-1. Add the Octopus credentials the tentacle will use to connect to the Octopus server.
+1. Add the Octopus credentials the Tentacle will use to connect to the Octopus server.
 1. The Octopus URL; the DNS or IP address.
 1. Select the authentication mode and enter the details:
-  i. The username and password you use to log into Octopus, or:
-  ii. Your Octopus API key, see [How to create an API key](/docs/api-and-integration/api/how-to-create-an-api-key.md).
+    i. The username and password you use to log into Octopus, or:
+    ii. Your Octopus API key, see [How to create an API key](/docs/api-and-integration/api/how-to-create-an-api-key.md).
 1. Click **Verify credentials**, and then next.
 1. Give the machine a meaningful name and select which environment to add to the machine to.
 1. Choose or create at least one target role for the deployment target (learn about [target roles](/docs/infrastructure/target-roles/index.md)).
