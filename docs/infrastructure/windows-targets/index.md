@@ -22,20 +22,20 @@ The latest Octopus Tentacle MSI can always be [downloaded from the Octopus Deplo
 
 ## Install Tentacle Manager
 
-Tentacle Manager is the Windows application that configures your Tentacle. Once installed, you can access it any time from your start menu/start screen. Tentacle Manager can configure Tentacles to use a proxy, delete the tentacle, and show diagnostic information about the Tentacle.
+Tentacle Manager is the Windows application that configures your Tentacle. Once installed, you can access it any time from your start menu/start screen. Tentacle Manager can configure Tentacles to use a proxy, delete the Tentacle, and show diagnostic information about the Tentacle.
 
 1. Start the Tentacle installer and follow the onscreen prompts.
 2. Accept the license agreement, and either accept the default installation location or choose a different location.
 3. Click install, and give the app permission to **make changes to your device**.
-4. Click finish to exit the installation wizard and launch the setup wizard to configure your tentacle.
+4. Click finish to exit the installation wizard and launch the setup wizard to configure your Tentacle.
 5. Click **Get Started** and **Next**.
 6. Accept the default *configuration and log* directory and *application* directory or choose different locations.
 
 Tentacles can be configured in Listening mode (recommended) or Polling mode. Learn more about [Tentacle communication](/docs/infrastructure/windows-targets/tentacle-communication.md).
 
 7. Choose the communication style for the Tentacle:
-  - [Listening tentacle (recommended)](/docs/infrastructure/windows-targets/index.md#configure-a-listening-tentacle-recommended).
-  - [Polling tentacle](/docs/infrastructure/windows-targets/index.md#configure-a-polling-tentacle).
+  - [Listening Tentacle (recommended)](/docs/infrastructure/windows-targets/index.md#configure-a-listening-tentacle-recommended).
+  - [Polling Tentacle](/docs/infrastructure/windows-targets/index.md#configure-a-polling-tentacle).
 
 ### Configure a Listening Tentacle (recommended)
 
@@ -56,7 +56,7 @@ To complete the installation we need to configure communication between the Octo
 
 Your deployment target is configured, next you need to preform a [health check and Update Calamari](/docs/infrastructure/windows-targets/index.md#health-check-and-upgrade-calamari).
 
-If the tentacle isn't connecting, try the steps on the [troubleshooting page](/docs/infrastructure/windows-targets/troubleshoot-listening-tentacles.md).
+If the Tentacle isn't connecting, try the steps on the [troubleshooting page](/docs/infrastructure/windows-targets/troubleshoot-listening-tentacles.md).
 
 #### Update your Tentacle Firewall
 
@@ -83,7 +83,7 @@ Don't forget to allow access in any intermediary firewalls between the Octopus s
 
 Your deployment target is configured, next you need to preform a  [health check and Update Calamari](/docs/infrastructure/windows-targets/index.md#health-check-and-upgrade-calamari).
 
-If the tentacle isn't connecting, try the steps on the [troubleshooting page](/docs/infrastructure/windows-targets/troubleshoot-polling-tentacles.md).
+If the Tentacle isn't connecting, try the steps on the [troubleshooting page](/docs/infrastructure/windows-targets/troubleshoot-polling-tentacles.md).
 
 #### Polling Tentacles over WebSockets
 
@@ -107,12 +107,12 @@ Don't forget to allow access not just in Windows Firewall, but also any intermed
 
 ## Health Check and Upgrade Calamari
 
-The Octopus Server performs regular health checks to ensure tentacles are connected and running the latest version of Calamari. After installing and configuring a new tentacle, you need to run a health check and can upgrade the version of Calamari.
+The Octopus Server performs regular health checks to ensure Tentacles are connected and running the latest version of Calamari. After installing and configuring a new Tentacle, you need to run a health check and can upgrade the version of Calamari.
 
 1. From the Infrastructure tab, select deployment targets.
-2. Click the overflow menu and select **Check Health**. If you've installed multiple tentacles, it will check all of your tentacles (if you'd rather check only one tentacle, select that tentacle from the Deployment Targets section, click **Connectivity** and then **Check health**).
+2. Click the overflow menu and select **Check Health**. If you've installed multiple Tentacles, it will check all of your Tentacles (if you'd rather check only one Tentacle, select that Tentacle from the Deployment Targets section, click **Connectivity** and then **Check health**).
 
-The first time you complete a health check on a tentacle, you will see the tentacle has health warnings and needs to install calamari.
+The first time you complete a health check on a Tentacle, you will see the Tentacle has health warnings and needs to install calamari.
 Calamari is an [open-source](https://github.com/OctopusDeploy/Calamari), console-application.  It supports many commands, which are responsible for performing deployment-steps. Learn more about [calamari](/docs/api-and-integration/calamari.md). Octopus will automatically push the latest version of Calamari with your first deployment, but you can do the following to install Calamari:
 
 1. From the Infrastructure tab, select deployment targets.
