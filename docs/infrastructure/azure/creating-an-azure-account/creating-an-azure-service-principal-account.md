@@ -66,34 +66,6 @@ Click the 'Settings' button and then select the the 'Keys' blade. Add a new Pass
 
 That's it, you now have your 'registered application' ID and password.
 
-### Permissions {#CreatinganAzureServicePrincipalAccount-Option1:AzureResourceGroupPermissions}
-
-The final step is to ensure your registered app has permission to work with your Azure resources. Navigate to the `Resource Groups` service and select the resource group(s) that you want the registered app to access.
-
-![Resource Group permission](resource-group-perms01.png "width=500")
-
-Next, select the 'Access Control (IAM)' blade and if your app isn't listed, click the 'Add' button. Select the appropriate role (`Contributor` is a common option) and search for your new application name. Select it from the search results and then click the 'Save' button.  
-
-![Resource Group permission](resource-group-perms02.png "width=500")
-
-Microsoft's page on [how to create a Service Principal via the Azure Portal](https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/) is excellent as well.
-
-:::hint
-Note on roles: Your Service Principal will need to be assigned the *Contributor* role in order to deploy.
-:::
-
-:::warning
-The Service Principal will default to expiring in 1 year from the time of creation.
-
-Using the PowerShell script in option 1, you can specify the expiry date by adding the *-EndDate* parameter to the *New-AzureRmADApplication* command
-
-```powershell
--EndDate (new-object System.DateTime 2018, 12, 31)
-```
-
-Using option 1, the Azure portal will allow you to select the expiry time when creating the key.
-:::
-
 ### Option 2: Use PowerShell {#CreatinganAzureServicePrincipalAccount-Option2:UsePowerShell}
 
 You can use the PowerShell script below to create the Service Principal.
@@ -146,9 +118,37 @@ The values required for the script above are:
 
 **Tenant ID**: The ID of the Active Directory tenant.  You can find this in the *Properties* blade of the *Azure Active Directory*, listed as 'Directory ID'.
 
+## Permissions {#CreatinganAzureServicePrincipalAccount-Option1:AzureResourceGroupPermissions}
+
+The final step is to ensure your registered app has permission to work with your Azure resources. Navigate to the `Resource Groups` service and select the resource group(s) that you want the registered app to access.
+
+![Resource Group permission](resource-group-perms01.png "width=500")
+
+Next, select the 'Access Control (IAM)' blade and if your app isn't listed, click the 'Add' button. Select the appropriate role (`Contributor` is a common option) and search for your new application name. Select it from the search results and then click the 'Save' button.  
+
+![Resource Group permission](resource-group-perms02.png "width=500")
+
+Microsoft's page on [how to create a Service Principal via the Azure Portal](https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/) is excellent as well.
+
+:::hint
+Note on roles: Your Service Principal will need to be assigned the *Contributor* role in order to deploy.
+:::
+
+:::warning
+The Service Principal will default to expiring in 1 year from the time of creation.
+
+Using the PowerShell script in option 1, you can specify the expiry date by adding the *-EndDate* parameter to the *New-AzureRmADApplication* command
+
+```powershell
+-EndDate (new-object System.DateTime 2018, 12, 31)
+```
+
+Using option 1, the Azure portal will allow you to select the expiry time when creating the key.
+:::
+
 ## Note on Least Privilege
 
-In the PowerShell example above the service principal is assigned the `Contributor` role on the subscription. This isn't always the best idea, you might want to apply a principle of least privilege to the access the service principal has. If that is the case then there are a couple of things worth noting.
+In the PowerShell and Permissions example above the service principal is assigned the `Contributor` role on the subscription. This isn't always the best idea, you might want to apply a principle of least privilege to the access the service principal has. If that is the case then there are a couple of things worth noting.
 
 Firstly, you might want to constrain the service principal to a single resource group, in which case you just need to assign it the `Contributor` role on the resource group.
 
