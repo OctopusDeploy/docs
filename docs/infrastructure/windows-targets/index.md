@@ -13,7 +13,7 @@ Once installed, Tentacles:
 
 Before you install Tentacle, review the the software and hardware requirements for:
 
-- [The latest version of Tentacle](/docs/infrastructure/windows-targets/requirements.md).
+- [The latest version of Tentacle](/docs/infrastructure/windows-targets/requirements/index.md).
 - [Versions prior to Tentacle 3.1](/docs/infrastructure/windows-targets/requirements/legacy-requirements.md).
 
 ## Download the Tentacle Installer
