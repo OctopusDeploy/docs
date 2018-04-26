@@ -37,7 +37,7 @@ Tentacles can be configured in Listening mode (recommended) or Polling mode. Lea
   - [Listening Tentacle (recommended)](/docs/infrastructure/windows-targets/index.md#configure-a-listening-tentacle-recommended).
   - [Polling Tentacle](/docs/infrastructure/windows-targets/index.md#configure-a-polling-tentacle).
 
-### Configure a Listening Tentacle (recommended)
+## Configure a Listening Tentacle (recommended)
 
 To complete the installation we need to configure communication between the Octopus Server and the Tentacle. This is done on both the server where you installed Tentacle and the central Octopus Deploy server. We'll start with the Octopus Server and come back to the Tentacle.
 
@@ -54,11 +54,11 @@ To complete the installation we need to configure communication between the Octo
 1. Choose or create at least one target role for the deployment target (learn about [target roles](/docs/infrastructure/target-roles/index.md)).
 1. Click save.
 
-Your deployment target is configured, next you need to preform a [health check and Update Calamari](/docs/infrastructure/windows-targets/index.md#health-check-and-upgrade-calamari).
+Your deployment target is configured, next you need to preform a [health check and update Calamari](/docs/infrastructure/windows-targets/index.md#health-check-and-upgrade-calamari).
 
 If the Tentacle isn't connecting, try the steps on the [troubleshooting page](/docs/infrastructure/windows-targets/troubleshoot-listening-tentacles.md).
 
-#### Update your Tentacle Firewall
+### Update your Tentacle Firewall
 
 To allow your Octopus Deploy server to connect to the Tentacle, you'll need to allow access to TCP port **10933** on the Tentacle (or the port you selected during the installation wizard).
 
@@ -66,30 +66,30 @@ To allow your Octopus Deploy server to connect to the Tentacle, you'll need to a
 
 Don't forget to allow access in any intermediary firewalls between the Octopus server and your Tentacle (not just the Windows Firewall). For example, if your Tentacle server is hosted in Amazon EC2, you'll also need to modify the AWS security group firewall to tell EC2 to allow the traffic. Similarly if your Tentacle server is hosted in Microsoft Azure you'll also need to add an Endpoint to tell Azure to allow the traffic.
 
-### Configure a Polling Tentacle
+## Configure a Polling Tentacle
 
 1. Select **Polling Tentacle** and click **next**.
 1. If you are using a proxy see [Proxy Support](/docs/infrastructure/windows-targets/proxy-support.md), or click **next**.
 1. Add the Octopus credentials the Tentacle will use to connect to the Octopus server:
-    a. The Octopus URL; the DNS or IP address.
+    a. The Octopus URL: the DNS or IP address.
     b. Select the authentication mode and enter the details:
         i. The username and password you use to log into Octopus, or:
         i. Your Octopus API key, see [How to create an API key](/docs/api-and-integration/api/how-to-create-an-api-key.md).
 1. Click **Verify credentials**, and then next.
 1. Give the machine a meaningful name and select which environment to add to the machine to.
-1. Choose or create at least one target role for the deployment target (learn about [target roles](/docs/infrastructure/target-roles/index.md)).
+1. Choose or create at least one target role for the deployment target. Learn about [target roles](/docs/infrastructure/target-roles/index.md).
 1. Leave **Tenants** and **Tenant tags** blank unless you are already using Octopus to deploy applications to multiple end users. If you are using Octopus for multiple tenants, enter the **Tenants** and **Tenant Tags**. Learn more about [Multi-tenant Deployments](/docs/deployment-patterns/multi-tenant-deployments/index.md).
 1. Click **Install**, and when the script has finished, click **Finish**.
 
-Your deployment target is configured, next you need to preform a  [health check and Update Calamari](/docs/infrastructure/windows-targets/index.md#health-check-and-upgrade-calamari).
+Your deployment target is configured, next you need to preform a  [health check and update Calamari](/docs/infrastructure/windows-targets/index.md#health-check-and-upgrade-calamari).
 
 If the Tentacle isn't connecting, try the steps on the [troubleshooting page](/docs/infrastructure/windows-targets/troubleshoot-polling-tentacles.md).
 
-#### Polling Tentacles over WebSockets
+### Polling Tentacles over WebSockets
 
 Polling Tentacles can be setup to operate over HTTPS (Secure WebSockets) instead of raw TCP sockets. Learn about configuring [Polling Tentacles over WebSockets](/docs/infrastructure/windows-targets/polling-tentacles-web-sockets.md).
 
-#### Update your Octopus Server Firewall
+### Update your Octopus Server Firewall
 
 To allow Tentacle to connect to your Octopus Deploy server, you'll need to allow access to port **10943** on the Octopus server (or the port you selected during the installation wizard - port 10943 is just the default). You will also need to allow Tentacle to access the Octopus HTTP web portal (typically port **80** or **443** - these bindings are selected when you [install the Octopus Deploy server](/docs/installation/index.md)).
 
