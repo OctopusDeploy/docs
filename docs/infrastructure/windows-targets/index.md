@@ -18,11 +18,11 @@ Before you install Tentacle, review the the software and hardware requirements f
 
 ## Download the Tentacle Installer
 
-The latest Octopus Tentacle MSI can always be [downloaded from the Octopus Deploy downloads page](https://octopus.com/downloads).
+The latest Octopus Tentacle MSI can always be downloaded from the [Octopus Deploy downloads page](https://octopus.com/downloads).
 
 ## Install Tentacle Manager
 
-Tentacle Manager is the Windows application that configures your Tentacle. Once installed, you can access it any time from your start menu/start screen. Tentacle Manager can configure Tentacles to use a proxy, delete the Tentacle, and show diagnostic information about the Tentacle.
+Tentacle Manager is the Windows application that configures your Tentacle. Once installed, you can access it from your start menu/start screen. Tentacle Manager can configure Tentacles to use a [proxy](/docs/infrastructure/windows-targets/proxy-support.md), delete the Tentacle, and show diagnostic information about the Tentacle.
 
 1. Start the Tentacle installer and follow the onscreen prompts.
 2. Accept the license agreement, and either accept the default installation location or choose a different location.
