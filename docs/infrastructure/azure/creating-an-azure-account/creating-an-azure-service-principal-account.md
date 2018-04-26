@@ -34,7 +34,7 @@ The first option to create an Azure Active Directory registered appliation is to
 
 The first three values are GUIDs, and the final one is a password. 
 
-### Azure Subscrition ID {#CreatinganAzureServicePrincipalAccount-Option1:AzureSubscriptionId}
+### Azure Subscription ID {#CreatinganAzureServicePrincipalAccount-Option1:AzureSubscriptionId}
 
 Finding your Azure Subscription ID is very easy. Navigate to the Azure Portal `Subscriptions` service and pick the appropriate Subscription ID.
 
