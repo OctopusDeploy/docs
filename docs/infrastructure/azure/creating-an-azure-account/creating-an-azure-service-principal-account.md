@@ -16,14 +16,85 @@ To interact with Azure Resource Manager (ARM), like when Octopus deploys a [Reso
 
 There are two steps to enable your Octopus Server to manage your Azure subscription via a Service Principal:
 
-1. Create an Azure Active Directory application and service principal (via PowerShell or the Azure Portal)
+1. Create an Azure Active Directory registered application (or application registration) and service principal (via the Azure Portal or PowerShell)
 2. Allow Octopus to authenticate with Azure using a Service Principal
 
 ## Step 1: Create an Azure Active Directory Application and Service Principal {#CreatinganAzureServicePrincipalAccount-create-service-principalStep1:CreateanAzureActiveDirectoryapplicationandserviceprincipal}
 
 The first step is to create an Azure Active Directory (AAD) application and service principal. You will configure your Octopus Server to authenticate using the service principal you create in AAD, which means you can configure finely grained authorization for your Octopus Server. Creating an Azure Active Directory application and service principal can be done either via PowerShell or the Azure Portal.
 
-### Option 1: Use PowerShell {#CreatinganAzureServicePrincipalAccount-Option1:UsePowerShell}
+### Option 1: Use the Azure Portal {#CreatinganAzureServicePrincipalAccount-Option1:UsetheAzurePortal}
+
+The first option to create an Azure Active Directory registered appliation is to use the Azure Portal. Azure Accounts in Octopus require four values which are used to authenticate with Azure and interact with it securely.
+
+* Azure Subscription ID
+* Azure AD Tenant ID
+* Azure AD Registered Application ID
+* Azure AD Registered Application Password/Key
+
+The first three values are GUIDs, and the final one is a password. 
+
+### Azure Subscrition ID {#CreatinganAzureServicePrincipalAccount-Option1:AzureSubscriptionId}
+
+Finding your Azure Subscription ID is very easy. Navigate to the Azure Portal `Subscriptions` service and pick the appropriate Subscription ID.
+
+![Azure subscriptions](azure-subscriptions.png "width=500")
+
+### Azure AD Tenant ID {#CreatinganAzureServicePrincipalAccount-Option1:AzureAdTenantId}
+
+Finding your Azure AD Tenant ID is also very easy. Navigate to the `Azure Active Directory` service and select the Properties blade. The Directory is your AAD Tenant ID. NOTE: This value is a GUID.
+
+![Azure Active Directory properties](azure-ad-properties.png "width=500")
+
+### Azure AD Registered Application ID and AAD Registered Application Password/Key {#CreatinganAzureServicePrincipalAccount-Option1:AzureAdRegisteredApp}
+
+If you have created an AAD registered application, then it's relatively straight forward to note the Application ID and Password/Key. Navigate to to the `Azure Active Directory` service and select the 'App registrations' blade. Make sure to click the 'View all applications' button if you don't see anything there. If you have already created a 'registered app' for integration, select the app and note its Application ID. 
+
+![AAD registered applications](azure-ad-registered-apps.png "width=500")
+
+If you haven't created an registered app, Click the 'New application registration' button and fill in the appropriate details and then click the 'Save' button. Then copy or note the Application ID. 
+
+![Create AAD registered app](azure-ad-create-registered-app01.png "width=500")
+
+![Create AAD registered app](azure-ad-create-registered-app02.png "width=500")
+
+Application Passwords are one-time generated tokens so if you don't know your existing password, you'll need to generate a new one. If you haven't set one, the process is the same. 
+
+Click the 'Settings' button and then select the the 'Keys' blade. Add a new Password with a good description and click the 'Save' button. The password will be displayed after saving. Be sure to copy it as it won't be available once you navigate away. 
+
+![Set AAD registered app password](azure-ad-registered-app-password.png "width=500")
+
+That's it, you now have your 'registered application' ID and password.
+
+### Permissions {#CreatinganAzureServicePrincipalAccount-Option1:AzureResourceGroupPermissions}
+
+The final step is to ensure your registered app has permission to work with your Azure resources. Navigate to the `Resource Groups` service and select the resource group(s) that you want the registered app to access.
+
+![Resource Group permission](resource-group-perms01.png "width=500")
+
+Next, select the 'Access Control (IAM)' blade and if your app isn't listed, click the 'Add' button. Select the appropriate role (`Contributor` is a common option) and search for your new application name. Select it from the search results and then click the 'Save' button.  
+
+![Resource Group permission](resource-group-perms02.png "width=500")
+
+Microsoft's page on [how to create a Service Principal via the Azure Portal](https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/) is excellent as well.
+
+:::hint
+Note on roles: Your Service Principal will need to be assigned the *Contributor* role in order to deploy.
+:::
+
+:::warning
+The Service Principal will default to expiring in 1 year from the time of creation.
+
+Using the PowerShell script in option 1, you can specify the expiry date by adding the *-EndDate* parameter to the *New-AzureRmADApplication* command
+
+```powershell
+-EndDate (new-object System.DateTime 2018, 12, 31)
+```
+
+Using option 1, the Azure portal will allow you to select the expiry time when creating the key.
+:::
+
+### Option 2: Use PowerShell {#CreatinganAzureServicePrincipalAccount-Option2:UsePowerShell}
 
 You can use the PowerShell script below to create the Service Principal.
 
@@ -74,26 +145,6 @@ The values required for the script above are:
 **Password**: A secret value created by you. Ensure you record it, as you will need to enter it into Octopus Deploy.
 
 **Tenant ID**: The ID of the Active Directory tenant.  You can find this in the *Properties* blade of the *Azure Active Directory*, listed as 'Directory ID'.
-
-### Option 2: Use the Azure Portal {#CreatinganAzureServicePrincipalAccount-Option2:UsetheAzurePortal}
-
-Alternatively, you can [create a Service Principal via the Azure Portal](https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/).
-
-:::hint
-Note on roles: Your Service Principal will need to be assigned the *Contributor* role in order to deploy.
-:::
-
-:::warning
-The Service Principal will default to expiring in 1 year from the time of creation.
-
-Using the PowerShell script in option 1, you can specify the expiry date by adding the *-EndDate* parameter to the *New-AzureRmADApplication* command
-
-```powershell
--EndDate (new-object System.DateTime 2018, 12, 31)
-```
-
-Using option 2, the Azure portal will allow you to select the expiry time when creating the key.
-:::
 
 ## Note on Least Privilege
 
@@ -178,7 +229,6 @@ For the Azure Portal steps, create a new Key using the directions [here](https:/
 Navigate to {{Environments,Accounts}} and click on the account you wish to update in the *Azure Subscriptions* section.
 
 Use the **Change** button to modify the password or key and enter the password or key from Step 1.
-
 
 ![Edit password](sp-password.png "width=500")
 
