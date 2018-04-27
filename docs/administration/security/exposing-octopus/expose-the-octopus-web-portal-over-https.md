@@ -78,7 +78,7 @@ A common scenario when hosting the Octopus Server is to redirect all requests in
 
     ![](expose-the-octopus-web-portal-over-https-force-https.png "width=500")
 
-## HTTP Strict Transport Securtity (HSTS) {#HSTS}
+## HTTP Strict Transport Security (HSTS) {#HSTS}
 
 HTTP Strict Transport Security is an HTTP header that can be used to tell the web browser that it should only ever communicate with the website using HTTPS, even if the user tries to use HTTP. This allows you to lessen the risk of a Man-in-the-Middle (MITM) attack or a HTTP downgrade attack. However, it is not a panacea - it still requires a successful connection on first use (ie, it does not resolve the Trust-On-First-Use (TOFU) issue).
 
