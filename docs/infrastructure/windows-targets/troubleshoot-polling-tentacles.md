@@ -80,8 +80,9 @@ The application should show the service as running.
 
 There are three pieces of information to verify.
 
-1. Ensure that the Tentacle is in *Polling* mode
-2. Check the port that the Tentacle polls the Octopus Server on
+1. Ensure that the Tentacle is in *Polling* mode.
+Below the thumbprint, you should see the text *This Tentacle polls the Octopus server...*.
+2. Check the port that the Tentacle polls the Octopus Server on.
 3. Check that the **Octopus Server** thumbprint shown matches the one shown in the {{Configuration,Certificates}} screen in the Octopus Web Portal.
 
 Note that there are two thumbprints displayed - that of the Tentacle itself (shown first in bold) and the thumbprints of trusted servers (shown inline in the gray text).

@@ -4,7 +4,7 @@ description: How to troubleshoot problems with Listening Tentacles.
 position: 64
 ---
 
-When an Octopus Tentacle is configured in [Listening mode](/docs/infrastructure/windows-targets/tentacle-communication.md#listening-tentacles-recommended)), it will open the specified port (by default TCP port **10933**) and listen for inbound connections from the Octopus server.
+When an Octopus Tentacle is configured in [Listening mode](/docs/infrastructure/windows-targets/tentacle-communication.md#listening-tentacles-recommended), it will open the specified port (by default TCP port **10933**) and listen for inbound connections from the Octopus server.
 
 ![](/docs/images/3048143/5865873.png)
 
@@ -43,8 +43,9 @@ The application should show the service as running.
 
 There are three pieces of information to verify.
 
-1. Ensure that the Tentacle is in *Listening* mode
-2. Check the port that the Tentacle listens on
+1. Ensure that the Tentacle is in *Listening* mode.
+Below the thumbprint, you should see the text *This Tentacles listens for connections on port 10933.*
+2. Check the port that the Tentacle listens on.
 3. Check that the **Octopus Server** thumbprint shown matches the one shown in the {{Configuration,Certificates}} screen in the Octopus Web Portal.
 
 Note that there are two thumbprints displayed - that of the Tentacle itself (shown first in bold) and the thumbprints of trusted servers (shown inline in the gray text).
