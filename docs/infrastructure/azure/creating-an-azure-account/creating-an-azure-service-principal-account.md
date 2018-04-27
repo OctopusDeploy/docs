@@ -36,7 +36,7 @@ The first three values are GUIDs, and the final one is a password.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/KnN-ahD6nN4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-### Azure Subscrition ID 
+### Azure Subscription ID 
 
 Finding your Azure Subscription ID is very easy. Navigate to the Azure Portal `Subscriptions` service and pick the appropriate Subscription ID.
 
