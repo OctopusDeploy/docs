@@ -19,11 +19,11 @@ There are two steps to enable your Octopus Server to manage your Azure subscript
 1. Create an Azure Active Directory registered application (or application registration) and service principal (via the Azure Portal or PowerShell)
 2. Allow Octopus to authenticate with Azure using a Service Principal
 
-## Step 1: Create an Azure Active Directory Application and Service Principal {#CreatinganAzureServicePrincipalAccount-create-service-principalStep1:CreateanAzureActiveDirectoryapplicationandserviceprincipal}
+## Step 1: Create an Azure Active Directory Application and Service Principal 
 
 The first step is to create an Azure Active Directory (AAD) application and service principal. You will configure your Octopus Server to authenticate using the service principal you create in AAD, which means you can configure finely grained authorization for your Octopus Server. Creating an Azure Active Directory application and service principal can be done either via PowerShell or the Azure Portal.
 
-### Option 1: Use the Azure Portal {#CreatinganAzureServicePrincipalAccount-Option1:UsetheAzurePortal}
+### Option 1: Use the Azure Portal
 
 The first option to create an Azure Active Directory registered appliation is to use the Azure Portal. Azure Accounts in Octopus require four values which are used to authenticate with Azure and interact with it securely.
 
@@ -34,19 +34,21 @@ The first option to create an Azure Active Directory registered appliation is to
 
 The first three values are GUIDs, and the final one is a password. 
 
-### Azure Subscrition ID {#CreatinganAzureServicePrincipalAccount-Option1:AzureSubscriptionId}
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KnN-ahD6nN4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+### Azure Subscrition ID 
 
 Finding your Azure Subscription ID is very easy. Navigate to the Azure Portal `Subscriptions` service and pick the appropriate Subscription ID.
 
 ![Azure subscriptions](azure-subscriptions.png "width=500")
 
-### Azure AD Tenant ID {#CreatinganAzureServicePrincipalAccount-Option1:AzureAdTenantId}
+### Azure AD Tenant ID 
 
 Finding your Azure AD Tenant ID is also very easy. Navigate to the `Azure Active Directory` service and select the Properties blade. The Directory is your AAD Tenant ID. NOTE: This value is a GUID.
 
 ![Azure Active Directory properties](azure-ad-properties.png "width=500")
 
-### Azure AD Registered Application ID and AAD Registered Application Password/Key {#CreatinganAzureServicePrincipalAccount-Option1:AzureAdRegisteredApp}
+### Azure AD Registered Application ID and AAD Registered Application Password/Key 
 
 If you have created an AAD registered application, then it's relatively straight forward to note the Application ID and Password/Key. Navigate to to the `Azure Active Directory` service and select the 'App registrations' blade. Make sure to click the 'View all applications' button if you don't see anything there. If you have already created a 'registered app' for integration, select the app and note its Application ID. 
 
@@ -66,7 +68,7 @@ Click the 'Settings' button and then select the the 'Keys' blade. Add a new Pass
 
 That's it, you now have your 'registered application' ID and password.
 
-### Option 2: Use PowerShell {#CreatinganAzureServicePrincipalAccount-Option2:UsePowerShell}
+### Option 2: Use PowerShell 
 
 You can use the PowerShell script below to create the Service Principal.
 
@@ -118,7 +120,7 @@ The values required for the script above are:
 
 **Tenant ID**: The ID of the Active Directory tenant.  You can find this in the *Properties* blade of the *Azure Active Directory*, listed as 'Directory ID'.
 
-## Permissions {#CreatinganAzureServicePrincipalAccount-Option1:AzureResourceGroupPermissions}
+## Permissions 
 
 The final step is to ensure your registered app has permission to work with your Azure resources. Navigate to the `Resource Groups` service and select the resource group(s) that you want the registered app to access.
 
@@ -156,8 +158,7 @@ Next you might want to get even more granular and constrain the service principa
 
 The reason behind this is to do with the way Octopus queries for the web app resources in Azure. In order to be able to handle scenarios where [ASEs](../../../deploying-applications/azure-deployments/ase/index.md#resource_groups) are being used, Octopus first queries the resource groups and then queries for the web apps within each resource group. When the service principal is assigned `Contributor` on a resource group it seems to implicitly get `Reader` on the subscription, but this doesn't seem to be the case when `Contributor` is assigned directly to a web app and you have to assign `Reader` explicitly.
 
-## Step 2: Allow Octopus to Authenticate with Azure using a Service Principal {#CreatinganAzureServicePrincipalAccount-authenticate-with-service-principalStep2:AllowOctopustoauthenticatewithAzureusingaServicePrincipal}
-
+## Step 2: Allow Octopus to Authenticate with Azure using a Service Principal 
 
 Navigate to {{Infrastructure,Accounts}} and click *Add account* in the *Azure Subscriptions* section.
 
@@ -184,13 +185,13 @@ Use the *Save and test* button to confirm the account can interact with Azure.
 When you click the Save and Test button, Octopus will attempt to use the account credentials to access the Azure Resource Management (ARM) API and list the Resource Groups in that subscription. You may need to whitelist the appropriate IP Addresses for the Azure Data Center you are targeting. See [deploying to Azure via a Firewall](/docs/deploying-applications/azure-deployments/index.md) for more details.
 :::
 
-## Creating a New Service Principal Credential {#CreatingAnAzureServicePrincipalCredential}
+## Creating a New Service Principal Credential 
 
 If you need to create a new **Service Principal Credential**, this can also be done either via PowerShell or the Azure Portal.
 
 ### Step 1: Creating a New AAD Service Principal Credential
 
-#### Option 1: Use PowerShell {#CreatinganAzureServicePrincipalCredential-Option1:UsePowerShell}
+#### Option 1: Use PowerShell 
 The following PowerShell script will create an additional credential under the existing AAD application
 
 
@@ -220,7 +221,7 @@ $servicePrincipalCred = New-AzureRmADSPCredential -ObjectId $azureAdServicePrinc
 $servicePrincipalCred | Format-Table
 
 ```
-#### Option 2: Use the Azure Portal {#CreatinganAzureServicePrincipalCredential-Option2:UsetheAzurePortal}
+#### Option 2: Use the Azure Portal 
 
 For the Azure Portal steps, create a new Key using the directions [here](https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/).
 
