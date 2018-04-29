@@ -24,7 +24,7 @@ This is because importing to the Root store for a specific user results in a sec
 
 ## Downloading Certificate Chains
 
-When downloading a certificate containing a chain, the behaviour depends on the format being downloaded. 
+When downloading a certificate containing a chain, the behavior depends on the format being downloaded. 
 
 - `Original`: The downloaded file will be exactly what was originally uploaded.
 - `PFX`: The entire chain will be included in the exported file. 
