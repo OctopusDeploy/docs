@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Tentacles
+title: Troubleshooting Tentacles
 description: How to troubleshoot problems with Octopus Tentacles.
 position: 63
 ---
