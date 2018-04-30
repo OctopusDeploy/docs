@@ -1,7 +1,7 @@
 ---
 title: Projects
 description: Projects allow you to define all the details required to deploy a project including the steps to run and variables to configure it.
-position: 1
+position: 0
 ---
 
 A project is a collection of deployment steps and configuration variables that define how your software is deployed.
