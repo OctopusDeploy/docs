@@ -76,6 +76,12 @@ Remove-OctopusTarget -targetIdOrName "AzureWebApp"
 
 ### Deploying an ARM template
 
-You can also use the above Powershell Cmdlets when deploying Azure resources using an ARM template
+You can also use the above Powershell Cmdlets when deploying Azure resources using an ARM template.
 
-** TODO ** : fill this in
+Firstly, turn on **Custom deployment scripts** under _Configure Features_ on your _Deploy an Azure Resource Group_ step.
+
+![Configure features on ARM template step](arm-template-step-configure-features.png "width=500")
+
+Under the _Features_ section you will have _Pre-deployment_, _Deployment_, and _Post-deployment_ scripts.
+
+In the _Post-deployment_ script section, you can [access the output paramaters](/docs/deploying-applications/azure-deployments/resource-groups#DeployusinganAzureResourceGroupTemplate-AccessingARMtemplateoutputparameters) and use those output parameters to run any of the Cmdlets above.
