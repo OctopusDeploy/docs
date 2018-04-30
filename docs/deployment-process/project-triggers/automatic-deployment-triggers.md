@@ -22,7 +22,7 @@ On the surface Automatic Deployments appear to be simple, however they can grow 
 The fundamental design of Automatic Deployments revolves around "configuring new deployment targets to be just like their counterparts".
 :::
 
-## How it works {#AutomaticDeploymentTriggers-Howitworks}
+## How it Works
 
 All [Project Triggers](/docs/deployment-process/project-triggers/automatic-deployment-triggers.md) in Octopus work on an event-sourcing basis. Automatic deployment triggers look for events like when deployment targets are added to an environment, or they are enabled, or given a new role, or deployments of a project are completed successfully.
 
@@ -32,9 +32,9 @@ When the trigger fires and queues a deployment it will run the steps appropriate
 
 There are quite a few complexities to the decision making process for automatic deployments, most of which are discussed in the following sections.
 
-## Frequently Asked Questions {#AutomaticDeploymentTriggers-FrequentlyAskedQuestions}
+## Frequently Asked Questions
 
-### Which events can trigger an automatic deployment? {#AutomaticDeploymentTriggers-Whicheventscantriggeranautomaticdeployment?}
+### Which Events Can Trigger an Automatic Deployment?
 
 For Octopus 3.6 and above, you can select any machine-related event to cause an automatic deployment. We have also provided a convenient event-grouping mechanism to select a pre-defined group of events:
 
@@ -61,18 +61,19 @@ For Octopus 3.4 and 3.5, there are two types of events that can trigger an autom
 | **New deployment target becomes available** | Occurs when a deployment target is added to Octopus for the first time | |
 | **Existing deployment target changes state** | Occurs when a deployment target has a *positive* state change (it doesn't really make sense to deploy to a freshly disabled deployment target) | <ul> <li>Health status changes from Unhealthy to Healthy</li> <li>A new environment/role/tenant is added to the deployment target</li> <li>The deployment target is enabled</li> </ul> |
 
-### Can I configure automatic deployments for a specific role or environment? {#AutomaticDeploymentTriggers-CanIconfigureautomaticdeploymentsforaspecificroleorenvironment?}
+### Can I Configure Automatic Deployments for a Specific Role or Environment?
+
 Yes! You can apply a filter to the events to restrict which deployment targets will actually cause the trigger to fire, and consequently, which deployment targets will be automatically deployed to. Consider the example of an auto-scaling web farm shown below where we only want to trigger automatic deployments for **TradingWebServers** in the **Production** environment.
 
 ![](/docs/images/5671191/5865833.png "width=500")
 
-### Which release will be deployed automatically? {#AutomaticDeploymentTriggers-Whichreleasewillbedeployedautomatically?}
+### Which Release Will be Deployed Automatically?
 
 The best way to answer this is to look at your dashboard or project overview. By default Octopus will re-run the *currently successful* deployment for the project/environment/tenant combination. The end result should be that the new deployment target is configured just like its counterparts.
 
 You can override this behavior by configuring an [Auto Deploy Override](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/index.md).
 
-### Which steps will be run during automatic deployments? {#AutomaticDeploymentTriggers-Whichstepswillberunduringautomaticdeployments?}
+### Which Steps Will be Run During Automatic Deployments?
 
 The automatic deployment will run the same steps as you would expect for a manual deployment to the deployment target(s) involved in the automatic deployment. The basic idea is to "configure the new deployment targets just like their counterparts".
 
@@ -97,11 +98,11 @@ You can use the advanced deployment screen to see an approximation of the deploy
 ![](/docs/images/5671191/5865838.png "width=500")
 :::
 
-### How to exclude steps? {#AutomaticDeploymentTriggers-HowToExcludeSteps?}
+### How to Exclude Steps?
 
 The current recommendation is to not have any steps in the project that you do not want to run, as there is not a way to determine if it's a manual or automatic deployment. There isn't a variable or other approach to determine how a deployment was triggered.
 
-### What happens with Manual Interventions and Guided Failures? {#AutomaticDeploymentTriggers-WhathappenswithManualInterventionsandGuidedFailures?}
+### What Happens with Manual Interventions and Guided Failures?
 
 [Manual Intervention](/docs/deployment-process/steps/manual-intervention-and-approvals.md) steps and [Guided Failures](/docs/deployment-process/releases/guided-failures.md) will work just like they do in a manual deployment. At face value this may seem like it's not very automatic, and that's true. In the case where you use a Manual Intervention for smoke testing a new web server before it enters the load balanced pool you may want the step to pause until you've smoke tested. In the case where you use Manual Intervention for approving the deployment of a Release you may not want it to pause. We made the decision to pause for Manual Intervention steps and Guided Failures so that automatic deployments mimic manual deployments, like we described earlier.
 
@@ -109,11 +110,11 @@ We generally recommend avoiding the use of Manual Intervention steps unless abso
 
 ![](/docs/images/5671191/5865839.png "width=500")
 
-### What happens if I disable some steps? {#AutomaticDeploymentTriggers-WhathappensifIdisablesomesteps?}
+### What Happens if I Disable Some Steps?
 
 Disabled steps won't run in a manual deployment, and likewise they won't run in an automatic deployment.
 
-### What happens if I skip steps in a manual deployment? {#AutomaticDeploymentTriggers-WhathappensifIskipstepsinamanualdeployment?}
+### What Happens if I Skip Steps in a Manual Deployment?
 
 Those steps will be skipped in automatic deployments as well. This decision is based on the principal of "configuring the new deployment target just like its counterparts" - if a step was skipped in the original deployment it should be skipped in subsequent automatic deployments. See the previous answer for more context.
 
@@ -125,7 +126,7 @@ We generally recommend running full deployments, and only skipping steps and/or 
 
 In most cases configuring the Auto Deploy Override will work best.
 
-### What happens if a deployment fails? {#AutomaticDeploymentTriggers-Whathappensifadeploymentfails?}
+### What Happens if a Deployment Fails?
 
 If a deployment of a release to an environment fails for any reason (including canceling a deployment), subsequent automatic deployments will be blocked for that release/environment. This decision is based in being safe-by-default - if a deployment fails, further automatic deployments are likely to fail also.
 
@@ -138,17 +139,17 @@ To unblock automatic deployments you can either:
 You can be notified when this situation occurs, or use web hooks to code your own recovery actions - see [Subscriptions](/docs/administration/subscriptions.md) for more details.
 :::
 
-### Can automatic deployments become blocked? {#AutomaticDeploymentTriggers-Canautomaticdeploymentsbecomeblocked?}
+### Can Automatic Deployments Become Blocked?
 
 Yes. See the previous answer for more context.
 
-### Can multiple deployment targets be included in an automatic deployment? {#AutomaticDeploymentTriggers-Canmultipledeploymenttargetsbeincludedinanautomaticdeployment?}
+### Can Multiple Deployment Targets be Included in an Automatic Deployment? 
 
 Yes. If, for example, multiple identical deployment targets all become available within the same 30 second polling window, they will all be included in the same automatic deployment. This could happen if you scale your web farm up by four nodes, and all four nodes finish provisioning within the same time window.
 
 Since this is not an exact science, we would discourage you from depending on this kind of behavior, instead designing your deployment process to cater for single and/or multiple deployment targets as part of the same automatic deployment process.
 
-### Can I control the order of automatic deployments? {#AutomaticDeploymentTriggers-CanIcontroltheorderofautomaticdeployments?}
+### Can I Control the Order of Automatic Deployments?
 
 No. Projects are considered to be independent by Octopus, and there is no built-in way to define dependencies between Projects or control the order in which Projects are deployed.
 
@@ -168,27 +169,27 @@ In this case you could:
 The [Chain Deployment](https://library.octopusdeploy.com/step-template/actiontemplate-chain-deployment) step template might be a perfect fit for you in this situation, or you may want to customize this step template for more advanced scenarios.
 :::
 
-### Can I choose a Release that hasn't been deployed yet? {#AutomaticDeploymentTriggers-CanIchooseaReleasethathasn&#39;tbeendeployedyet?}
+### Can I Choose a Release That Hasn't Been Deployed Yet?
 
 Yes! You can configure an [Auto Deploy Override](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/index.md) to override the default automatic deployment behavior. This is really useful for scenarios like [Immutable Infrastructure](/docs/deployment-patterns/elastic-and-transient-environments/immutable-infrastructure.md) or [Deploying to transient targets](/docs/deployment-patterns/elastic-and-transient-environments/deploying-to-transient-targets.md).
 
-### Octopus is choosing the wrong Release, can I force it? {#AutomaticDeploymentTriggers-OctopusischoosingthewrongRelease,canIforceit?}
+### Octopus is Choosing the Wrong Release, Can I Force It?
 
 Yes. If Octopus is calculating the wrong release for a particular situation you can configure an [Auto Deploy Overrides](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/index.md) to force automatic deployments to use a specific release for a specific environment/tenant.
 
-### Can I be notified of Automatic Deployment events (like blockages or failures)? {#AutomaticDeploymentTriggers-CanIbenotifiedofAutomaticDeploymentevents(likeblockagesorfailures)?}
+### Can I be Notified of Automatic Deployment Events (like blockages or failures)?
 
 Yes you can! By configuring [Subscriptions](/docs/administration/subscriptions.md) you can be notified by email or use web hooks to create your own notification channels. You can even use web hooks to code your own recovery behavior based on your specific situation.
 
-### Can I include disabled machines in my automated deployments? {#AutomaticDeploymentTriggers-CanIincludedisabledmachinesinmyautomateddeployments?}
+### Can I Include Disabled Machines in my Automated Deployments?
 
 Starting in Octopus 3.6, you can! Because we allow selection of any machine event, you can select 'MachineDisabled' as a trigger event. This may be useful if you wish to disable a machine in Octopus and have a deployment process that removes disabled machines from your load balancer. It also means that you need to be careful when selecting your trigger event types, because if you create a project trigger with 'MachineDisabled' selected and did not mean to, anytime a machine becomes disabled it will re-deploy your project to this disabled machine.
 
-## Troubleshooting automatic deployments {#AutomaticDeploymentTriggers-Troubleshootingautomaticdeployments}
+## Troubleshooting Automatic Deployments
 
 There are a number of reasons why automatic deployments may not work the way you expected, some of which we've already discussed earlier. Here are some troubleshooting steps you can take to figure out what is going wrong.
 
-### Is the dashboard green? {#AutomaticDeploymentTriggers-Isthedashboardgreen?}
+### Is the Dashboard Green?
 
 Octopus will attempt to automatically deploy the current releases for the environments that are appropriate for a machine. The current release is the one that was most recently *successfully* deployed as shown on the project dashboard.
 
@@ -197,12 +198,12 @@ Octopus will attempt to automatically deploy the current releases for the enviro
 
 You will need you to complete a successful deployment again before auto-deployments can continue for the given release, or configure an [Auto Deploy Override](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/index.md).
 
-### Investigate the diagnostic logs {#AutomaticDeploymentTriggers-Investigatethediagnosticlogs}
+### Investigate the Diagnostic Logs
 
 Go to {{Configuration,Diagnostics,Auto Deploy Logs}}. The **verbose** logs usually contain the reason why a project trigger didn't take any action. For example:
 
 `Auto-deploy: Machine 'Local' does not need to run release '2.6.6' for project 'My Project' and tenant '<none>' because it already exists on the machine or is pending deployment.`
 
-### Investigate the audit messages {#AutomaticDeploymentTriggers-Investigatetheauditmessages}
+### Investigate the Audit Messages
 
 The automatic deployments are all triggered based on events occurring in Octopus, all of which are logged reliably as audit events. Go to {{Configuration,Audit}} and filter down to see the events related to your deployments.
