@@ -35,6 +35,9 @@ Before you can create dynamic targets in an Environment, the environment needs t
 All of the commands will result in an Account or Deployment Target, which will automatically be scoped to the Environment and Tenant (if the deployment is for a tenant).
 This cannot be overridden through the commands.
 
+:::warn
+These commands will not work if run from the **Script Console**
+:::
 
 
 ## Examples
