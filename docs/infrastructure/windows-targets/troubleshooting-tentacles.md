@@ -28,7 +28,7 @@ If you get to the end of this guide without success, it can be worthwhile to com
 
 ## Communication Mode
 
-Before continuing, it's worth briefly revisiting the concept of **Listening Tentacles** and **Polling Tentacles**. As you troubleshoot problems with your tentacles, please pay attention to which communication mode they are configured for.
+Before continuing, it's worth briefly revisiting the concept of **Listening Tentacles** and **Polling Tentacles**. As you troubleshoot problems with your Tentacles, please pay attention to which communication mode they are configured for.
 
 ### Listening Tentacles
 
@@ -48,7 +48,7 @@ If you are having problems with a previously-working machine, or you've successf
 
 1. If the machine has been included in a Health Check or Deployment, examine the Raw Task Log. There's a link to this on the page containing the details of the Health Check or Deployment, which can usually be located using the *Tasks* page in the Octopus Web Portal.
 2. On the *Infrastructure* page of the Octopus Web Portal, click on the problem machine and select the *Connectivity* tab. There's often specific information about the communication status of the machine here.
-3. In the Octopus Web Portal, open {{Configuration,Diagnostics}}. Information on this page can be helpful to work out what's going on in the Octopus installation. Following the link to *Server logs* and searching for the machine's name or IP address can turn up useful information.
+3. In the Octopus Web Portal, open {{Configuration,Diagnostics}}. Information on this page can be helpful to work out what's going on in the Octopus installation. Look at the information under *Server logs* and searching for the machine's name or IP address can turn up useful information.
 
 ## Check the Octopus and Tentacle Services are Running
 
@@ -64,9 +64,7 @@ If the service is running, continue to the next step.
 
 ## Communication Settings
 
-Verify the Tentacle communications settings in the Tentacle Manager app. If any of the communications settings are incorrect, choose *Delete this Tentacle instance...*. After doing so, you'll be presented with the Tentacle installation wizard, where the correct settings can be chosen.
-
-To verify thye communication settings, *On the Tentacle machine*, open the Tentacle Manager application from the Start screen or Start menu.
+To verify the communication settings, *On the Tentacle machine*, open the Tentacle Manager application from the Start screen or Start menu.
 
 There are three pieces of information to verify and they are slightly different, depending on whether you configured you Tentacle to communicate in **Listening** mode or **Polling** mode:
 
@@ -94,11 +92,11 @@ If any of the communications settings are incorrect, choose *Delete this Tentacl
 
 ### Check the Tentacle Thumbprint
 
-Finally, verify that the Tentacle's thumbprint, shown in bold in the large box, matches any that have been presented in error messages, and in the *Machine Settings* page on the Octopus Web Portal.
+Verify that the Tentacle's thumbprint, shown in bold in the large box, matches any that have been presented in error messages, and in the *Machine Settings* page on the Octopus Web Portal.
 
 ## Check the Connections
 
-To help with diagnostics, we've include a welcome page you can connect to from your web browser. The process of connecting is slightly different dependiong on if you are using a listening Tentacle or a polling Tentacle.
+To help with diagnostics, we've include a welcome page you can connect to from your web browser. The process of connecting is slightly different depending on if you are using a listening Tentacle or a polling Tentacle.
 
 When you conduct these checks:
 
@@ -107,7 +105,7 @@ When you conduct these checks:
 
 ### Checking a Listening Tentacle
 
-*On the Tentacle machine*, open a web browser and navigate to [https://localhost:10933](https://localhost:10933) (or your chosen Tentacle communications port if it isn't the default). Make sure an **HTTPS** URL is used.
+*On the Tentacle machine*, open a web browser and navigate to [https://localhost:10933](https://localhost:10933) (or your chosen Tentacle communications port if it isn't the default). Make sure you use an **HTTPS** URL is used.
 
 The page shown should look like the one below.
 
@@ -130,7 +128,7 @@ Remember to check both the built-in Windows Firewall, and any other firewalls (i
 
 ### Checking a Polling Tentacle
 
-*On the Octopus Server machine*, open a web browser and navigate to [https://localhost:10943](https://localhost:10943) (or your chosen Tentacle communications port if it isn't the default). Make sure an**HTTPS** URL is used.
+*On the Octopus server machine*, open a web browser and navigate to [https://localhost:10943](https://localhost:10943) (or your chosen Tentacle communications port if it isn't the default). Make sure an**HTTPS** URL is used.
 
 The page shown should look like the one below.
 
@@ -154,8 +152,6 @@ When forming the URL to check:
 Failing to connect at this step means that you have a network issue preventing traffic between the Tentacles and Octopus Server. Check that the Octopus Server polling port is open in any firewalls, and that other services on the network are working. There's not usually much that Octopus Deploy Support can suggest for these issues as networks are complex and highly varied. Having the network administrator from your organization help diagnose the issue is the best first step. If that draws a blank, please get in touch.
 
 Remember to check both the built-in Windows Firewall, and any other firewalls (in Amazon EC2, check your security group settings for example).
-
-If the Tentacle welcome page is shown, good news - your network is fine.
 
 If the Tentacle welcome page is shown, good news - your network is fine.
 
@@ -202,7 +198,7 @@ Take a look at [this thread](http://help.octopusdeploy.com/discussions/problems
 
 ### Listening Tentacle
 
-If the Octopus Tentacle is running as the *Local System* account you can skip this section.
+If the Tentacle is running as the *Local System* account you can skip this section.
 
 If the Tentacle is running as a specific user, make sure that the user has "full control" permission to the *Octopus Home* folder on the Tentacle machine. This is usually `C:\Octopus` - apply permissions recursively.
 
