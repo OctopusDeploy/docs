@@ -4,11 +4,23 @@ description: How to troubleshoot problems with Octopus Tentacles.
 position: 63
 ---
 
-All of the 'classic' problems of TCP networking: firewalls, proxies, timeouts, DNS issues and so-on can affect Octopus Tentacles. This guide will help to track down these issues when either a machine cannot be "Discovered" (Listening Tentacle) or "Registered" (Polling Tentacle)with the Octopus installation, or a previously working machine fails to health-check with errors from the networking stack.
+All of the 'classic' problems of TCP networking: firewalls, proxies, timeouts, DNS issues, and so-on can affect Octopus Tentacles. This guide will help to track down these issues when either a machine cannot be "Discovered" (Listening Tentacles) or "Registered" (Polling Tentacles) with the Octopus server, or a previously working machine fails a health-check with errors from the networking stack.
 
 ## Restart the Octopus and Tentacle Services
 
 Before following the steps below, it can be worthwhile to restart the Octopus and Tentacle services, and refresh the browser you're using to connect to the Octopus Web Portal. Neither action *should* fix a communication problem, but sometimes they can help flush a problem out.
+
+### Restart the Octopus Service
+
+Open the Octopus Manager app, and select **Restart**.
+
+Alternatively, open the **Services** app, find **OctopusDeploy**, and click restart.
+
+### Restart the Tentacle Service
+
+Open the Tentacle Manager app, and select **Restart**.
+
+Alternatively, open the **Services** app, find **OctopusDeploy Tentacle**, and click restart.
 
 ## Uninstall Tentacles
 
@@ -16,7 +28,7 @@ If you get to the end of this guide without success, it can be worthwhile to com
 
 ## Communication Mode
 
-Before continuing, it's worth briefly revisiting the concept of **Listening Tentacles** and **Polling Tentacles**. As you troubleshoot problems with your tentacles, please pay attention to which communication mode they are configured for. 
+Before continuing, it's worth briefly revisiting the concept of **Listening Tentacles** and **Polling Tentacles**. As you troubleshoot problems with your tentacles, please pay attention to which communication mode they are configured for.
 
 ### Listening Tentacles
 
@@ -56,7 +68,7 @@ Verify the Tentacle communications settings in the Tentacle Manager app. If any 
 
 To verify thye communication settings, *On the Tentacle machine*, open the Tentacle Manager application from the Start screen or Start menu.
 
-There are three pieces of information to verify and they are slightly different, depending on whether you configured you Tentacle to communicate in **Listening** mode or **Polling** mode: 
+There are three pieces of information to verify and they are slightly different, depending on whether you configured you Tentacle to communicate in **Listening** mode or **Polling** mode:
 
 ### Listening Tentacle
 
@@ -154,13 +166,13 @@ Octopus and Tentacle use TCP to communicate, with special handling to enable web
 **NOTE**: Octopus Deploy 3.4 introduced [advanced support for HTTP proxies](/docs/infrastructure/windows-targets/proxy-support.md).
 :::
 
-## Tentacle Ping 
+## Tentacle Ping
 
 We have built a small utility for testing the communications protocol between two servers called [Tentacle Ping](https://github.com/OctopusDeploy/TentaclePing). This tool helps isolate the source of communication problems without needing a full Octopus configuration. It is built as a simple client and server component that emulates the communications protocol used by Octopus Server and Tentacle.
 
 In Octopus 3.0 you will need **TentaclePing** and **TentaclePong**, you cannot test directly to Octopus Server nor Tentacle:
 
-### Listening Tentacles 
+### Listening Tentacles
 
 - Run **TentaclePing** on your Octopus Server machine (which is the client in this relationship)
 - Run **TentaclePong** on your Tentacle machine (which is the server in this relationship)
@@ -174,7 +186,7 @@ Use the output to help diagnose what is going wrong.
 
 Use the output to help diagnose what is going wrong.
 
-## Check the IP Address 
+## Check the IP Address
 
 Your Octopus Server or Tentacle Server may have multiple IP addresses that they listen on. For example, in Amazon EC2 machines in a VPN might have both an internal IP address and an external addresses using NAT. Octopus Server and Tentacle Server may not listen on all addresses; you can check which addresses are configured on the server by running `ipconfig /all` from the command line and looking for the IPv4 addresses.
 
@@ -186,7 +198,7 @@ The most common scenario is when you already have an instance of Tentacle (or so
 
 Take a look at [this thread](http://help.octopusdeploy.com/discussions/problems/40076-tentacle-wont-start-after-stopped#comment_38833291) for more background and troubleshooting tips.
 
-## Check the Server Service Account Permissions 
+## Check the Server Service Account Permissions
 
 ### Listening Tentacle
 
