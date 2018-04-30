@@ -19,6 +19,7 @@ Command: **_New-OctopusAzureServiceFabricTarget_**
 | `-certificateStoreName`         | (Optional) Override the default certificate store name      |
 | `-octopusCertificateIdOrName`   | Name or Id of the Certificate Resource in Octopus           |
 | `-octopusRoles`                 | Comma separated list of Roles to assign                     |
+| `-updateIfExisting`           | Will update an existing Service Fabric target with the same name, create if it doesn't exist |
 
 _Security Mode Options_
 
@@ -35,6 +36,7 @@ New-OctopusAzureServiceFabricTarget -name "My Service Fabric Target 1" `
                                     -azureConnectionEndpoint "connectionEndpoint" `
                                     -azureSecurityMode "unsecure" `
                                     -octopusRoles "ServiceFabricRole"
+                                    -updateIfExisting
 
 # Client Certificate
 New-OctopusAzureServiceFabricTarget -name "My Service Fabric Target 2" `
