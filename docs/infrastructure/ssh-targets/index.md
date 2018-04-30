@@ -8,7 +8,7 @@ For Linux and Unix systems, you can configure Octopus Deploy to communicate with
 
 ## Topology {#SSHTargets-Topology}
 
-In the standard-model the Octopus server talks to the Tentacle (ignoring the distinction between between [Polling](/docs/infrastructure/windows-targets/polling-tentacles/index.md) and [Listening](/docs/infrastructure/windows-targets/listening-tentacles/index.md)) who in turn delegates the actual deployment work to [Calamari](/docs/api-and-integration/calamari.md), which contains all the information regarding conventions and deployments. Calamari then executes the scripts and the Tentacle passes back to the Server the task progress, logs and artifacts.
+In the standard-model the Octopus server talks to the Tentacle (ignoring the distinction between between [Polling](/docs/infrastructure/windows-targets/tentacle-communication.md#polling-tentacles) and [Listening](/docs/infrastructure/windows-targets/tentacle-communication.md#listening-tentacles-recommended)) who in turn delegates the actual deployment work to [Calamari](/docs/api-and-integration/calamari.md), which contains all the information regarding conventions and deployments. Calamari then executes the scripts and the Tentacle passes back to the Server the task progress, logs and artifacts.
 
 ![](/docs/images/3048063/3277601.png)
 

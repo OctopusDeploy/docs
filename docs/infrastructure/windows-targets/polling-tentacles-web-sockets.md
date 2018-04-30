@@ -1,16 +1,12 @@
 ---
 title: Polling Tentacles over WebSockets
 description: Octopus Polling Tentacles open a connection to the Octopus server over WebSockets to ask what to do.
-position: 2
+position: 62
 ---
 
-Read about [(TCP) Polling Tentacles](docs/infrastructure/windows-targets/polling-tentacles/index.md) before continuing.
+[(TCP) Polling Tentacles](docs/infrastructure/windows-targets/tentacle-communication.md#polling-tentacles) can be setup to operate over HTTPS (Secure WebSockets) instead of raw TCP sockets. The advantage is that the port can be shared with another website (e.g. IIS or Octopus itself). The downside is the setup is a little more complicated and network communications are slightly slower.
 
-Polling Tentacles can be setup to operate over HTTPS (Secure WebSockets) instead of raw TCP sockets. The advantage is that the port can be shared with another website (e.g. IIS or Octopus itself). The downside is the setup is a little more complicated and network communications are slightly slower.
-
-If there is an available port, we recommend using [TCP Polling Tentacles](docs/infrastructure/windows-targets/polling-tentacles/index.md). If only port 443 and 80 are available, it is possible to run Octopus Web UI just on 443 (HTTPS) and a TCP Polling Tentacle on port 80. Even though it is using port 80, which is by convention HTTP, the Tentacle communications will still use TLS and be secure.
-
-!toc
+If there is an available port, we recommend using [TCP Polling Tentacles](docs/infrastructure/windows-targets/tentacle-communication.md#polling-tentacles). If only port 443 and 80 are available, it is possible to run Octopus Web UI just on 443 (HTTPS) and a TCP Polling Tentacle on port 80. Even though it is using port 80, which is by convention HTTP, the Tentacle communications will still use TLS and be secure.
 
 ## Server Setup
 
@@ -23,11 +19,11 @@ The following prerequisites must be met to use this feature:
 
 ### Listen Address
 
-The first step is to select a URL listen prefix. HTTP.sys handles the initial TLS handshake and then routes the request based on the HTTP headers. This means that the request can be routed based on IP, hostname and path. See the 
-[UrlPrefix documentation](https://msdn.microsoft.com/en-us/library/windows/desktop/aa364698(v=vs.85).aspx) for the syntax and how routes are matched. 
+The first step is to select a URL listen prefix. HTTP.sys handles the initial TLS handshake and then routes the request based on the HTTP headers. This means that the request can be routed based on IP, hostname and path. See the
+[UrlPrefix documentation](https://msdn.microsoft.com/en-us/library/windows/desktop/aa364698(v=vs.85).aspx) for the syntax and how routes are matched.
 
 In most cases, we recommend using `+` as the host name and a unique string for path. This will ensure that address
-takes the highest precedence. For example, to listen on port 443: `https://+:443/OctopusComms`. The path should not be 
+takes the highest precedence. For example, to listen on port 443: `https://+:443/OctopusComms`. The path should not be
 used by the other applications listening on the port.
 
 An SSL certificate must be configured for the chosen address and port (the path is ignored). If an existing application (eg the Octopus Web UI) is already using that address and port, no extra configuration is required. If not see [Certificate section below](#certificate).
@@ -42,11 +38,11 @@ Once selected the Octopus Server can be configured to listen on that prefix usin
 
 ### Testing
 
-To confirm that the server is successfully configured, open the listen address in your browser. If you are using `+` for the host, replace that with `localhost`. For example `https://localhost:443/OctopusComms`. You should get a page titled `Octopus Server configured successfully`. 
+To confirm that the server is successfully configured, open the listen address in your browser. If you are using `+` for the host, replace that with `localhost`. For example `https://localhost:443/OctopusComms`. You should get a page titled `Octopus Server configured successfully`.
 
 If you get a connection refused or reset error, check the address and port and ensure a certificate is [configured](#certificate) for that address.
 
-If you get the other application that is listening on that port, ensure that your listen address has a [higher precedence](https://msdn.microsoft.com/en-us/library/windows/desktop/aa364698(v=vs.85).aspx) and that 
+If you get the other application that is listening on that port, ensure that your listen address has a [higher precedence](https://msdn.microsoft.com/en-us/library/windows/desktop/aa364698(v=vs.85).aspx) and that
 the server sucessfully bound to that address in the [server log file](/docs/support/log-files.md).
 
 If you encounter a certificate warning, ignore it and continue. This warning is due to the certificate not having a valid chain of trust back to a trusted certificate authority. Octopus [trusts certificates directly](https://octopus.com/blog/why-self-signed-certificates).
@@ -60,7 +56,7 @@ The setup of a WebSocket Tentacle is the same as a TCP Polling Tentacle, except 
 When issuing the `register-with` command during Tentacle setup, omit the `--server-comms-port` parameter and specify the `--server-web-socket <address>` parameter. The address to use is the listen prefix (replacing `+` with the hostname) and `https` replaced with `wss` (e.g. `wss://example.com:443/OctopusComms`). For example:
 
 ```powershell
-.\Tentacle.exe register-with --instance MyInstance --server "https://example.com/"  --server-web-socket "wss://example.com:443/OctopusComms" --comms-style TentacleActive --apikey "API-CS0SW5SQJNLUBQCUBPK8LZY3KYO" --environment "Test" --role "Web" 
+.\Tentacle.exe register-with --instance MyInstance --server "https://example.com/"  --server-web-socket "wss://example.com:443/OctopusComms" --comms-style TentacleActive --apikey "API-CS0SW5SQJNLUBQCUBPK8LZY3KYO" --environment "Test" --role "Web"
 ```
 
 ### Changing an Existing Tentacle
@@ -70,7 +66,7 @@ To change an existing Tentacle to poll using WebSockets, run the following comma
 ```powershell
 .\Tentacle.exe service --instance MyInstance --stop
 .\Tentacle.exe configure --reset-trust
-.\Tentacle.exe register-with --instance MyInstance --server "https://example.com/" --server-web-socket "wss://example.com:443/OctopusComms" --comms-style TentacleActive --apikey "API-CS0SW5SQJNLUBQCUBPK8LZY3KYO" --environment "Test" --role "Web" 
+.\Tentacle.exe register-with --instance MyInstance --server "https://example.com/" --server-web-socket "wss://example.com:443/OctopusComms" --comms-style TentacleActive --apikey "API-CS0SW5SQJNLUBQCUBPK8LZY3KYO" --environment "Test" --role "Web"
 .\Tentacle.exe service --instance MyInstance --start
 ```
 

@@ -5,7 +5,7 @@ position: 5
 version: "3.11"
 ---
 
-Certificates can be downloaded via the Octopus Portal.  The certificate may be exported in any of the [supported file-formats]()/docs/deploying-applications/certificates/file-formats.md, or exactly as it was originally uploaded.
+Certificates can be downloaded via the Octopus Portal.  The certificate may be exported in any of the [supported file-formats](/docs/deploying-applications/certificates/file-formats.md), or exactly as it was originally uploaded.
 
 ![](download-certificate-btn.png "width=500")
 

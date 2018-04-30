@@ -73,7 +73,7 @@ Name, all Parameters and Script Body property have to match for the linking proc
 
 ### Running script based custom step templates {#StepTemplates-Runningscriptbasedcustomsteptemplates}
 
-Octopus 3.7 introduced the ability to run script based custom step templates on a group of machines. This can be very handy to execute script based step templates to test them before starting to use them in your projects as well as performing regular admin or operations functions. This should be familiar to people who have used the script console (link) in the past.
+Octopus 3.7 introduced the ability to run script based custom step templates on a group of machines. This can be very handy to execute script based step templates to test them before starting to use them in your projects as well as performing regular admin or operations functions. This should be familiar to people who have used the [script console](https://octopus.com/docs/administration/script-console) in the past.
 
 :::hint
 It's important to note that you can only run script based custom step templates. It's not currently possible to execute step templates based off other step types.
@@ -82,12 +82,19 @@ It's important to note that you can only run script based custom step templates.
 To run a script based step template, perform the following.
 
 1. Navigate to {{Library,Step templates}} area and click the **Run** button next to the script based custom step template or alternately, select a script template and click the **Run** button from the template editor page
+
    ![Run step template](step-templates-run.png "width=500")
+   
 2. Select a group of targets to run the step on. This can be done by target name or by environments and roles.
+
    ![Select run targets](step-templates-run-targets.png "width=500")
+   
 3. Enter any required parameters.
+
    ![Enter parameter values](step-templates-run-parameters.png "width=500")
+   
 4. Click the **Run now** button. This will execute the step as a new task and provide the full script. 
+
    ![Task summary](step-templates-run-task-summary.png "width=500")
    ![Task log](step-templates-run-task-log.png "width=500")
    ![Task parameters](step-templates-run-task-parameters.png "width=500")
