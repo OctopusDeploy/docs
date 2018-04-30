@@ -36,7 +36,7 @@ All of the commands will result in an Account or Deployment Target, which will a
 This cannot be overridden through the commands.
 
 :::warning
-These commands will not work if run from the **Script Console**
+These commands are not available in the **Script Console**
 :::
 
 
