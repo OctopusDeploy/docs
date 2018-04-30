@@ -56,7 +56,7 @@ To complete the installation we need to configure communication between the Octo
 
 Your deployment target is configured, next you need to preform a [health check and update Calamari](/docs/infrastructure/windows-targets/index.md#health-check-and-upgrade-calamari).
 
-If the Tentacle isn't connecting, try the steps on the [troubleshooting page](/docs/infrastructure/windows-targets/troubleshoot-listening-tentacles.md).
+If the Tentacle isn't connecting, try the steps on the [troubleshooting page](/docs/infrastructure/windows-targets/troubleshooting-tentacles.md).
 
 ### Update your Tentacle Firewall
 
@@ -83,7 +83,7 @@ Don't forget to allow access in any intermediary firewalls between the Octopus s
 
 Your deployment target is configured, next you need to preform a  [health check and update Calamari](/docs/infrastructure/windows-targets/index.md#health-check-and-upgrade-calamari).
 
-If the Tentacle isn't connecting, try the steps on the [troubleshooting page](/docs/infrastructure/windows-targets/troubleshoot-polling-tentacles.md).
+If the Tentacle isn't connecting, try the steps on the [troubleshooting page](/docs/infrastructure/windows-targets/troubleshooting-tentacles.md).
 
 ### Update your Octopus Server Firewall
 
