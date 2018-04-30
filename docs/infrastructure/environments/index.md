@@ -61,6 +61,6 @@ You can control who has access to view, edit, and deploy to environments by assi
 
 ### Dynamic Targets in an Environment
 
-To manage the targets within an Environment dynamically using the [Dynamic Infrastructure](/docs/infrastructure/dynamic-infrastructure/index.md) Powershell Cmdlets, you will need to enable the setting in the environment by clicking **Edit** in the overflow menu for the environment.
+To manage the targets within an Environment dynamically using the [Dynamic Infrastructure](/docs/infrastructure/dynamic-infrastructure/index.md) PowerShell Cmdlets, select **Edit** in the overflow menu for the environment, expand the **Dynamic Infrastructure** section, and click the checkbox to *Allow managing dynamic infrastructure*.
 
 ![Dynamic Infrastructure Configuration](dynamic-infrastructure-config.png "width=500")
