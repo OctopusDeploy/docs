@@ -1,7 +1,7 @@
 ---
 title: Target Roles
 description: Target roles allow you to “tag” machines with a specific keyword which can be used in your deployments.
-position: 30
+position: 70
 ---
 
 All of the environments that you work with, for instance, Development, Test, or Production, will likely have multiple deployment targets. In production, your software might run on different physical servers or cloud services; perhaps dozens of them. However, unless you are extremely lucky, it's unlikely that you have the budget to have an equal number of deployment targets in any of your pre-production environments. When testing your software in a test environment, you might only have a single virtual machine which is used to test all of your software.
