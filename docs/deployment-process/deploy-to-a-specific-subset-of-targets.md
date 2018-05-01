@@ -1,7 +1,7 @@
 ---
 title: Deploy to a Specific Subset of Targets
 description: How to deploy to a specific subset of deployment targets.
-position: 23
+position: 123
 ---
 
 When deploying a Release to an Environment, you can specify a subset of targets within the Environment.
