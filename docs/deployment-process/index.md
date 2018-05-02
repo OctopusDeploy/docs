@@ -16,6 +16,29 @@ To define your deployment process, your must:
 1. Add [configuration variables](docs/deployment-process/variables/index.md) to the project.
 1. Create a [release](docs/deployment-process/releases/index.md).
 
+## Hello World Deployment Process
+
+For this example process, we've configured a **Test** environment with one **Deployment Target**. We'll use Octopus Deploy to design a simple process with only one step that runs a script on the Deployment Target.
+
+If you need a refresher on **Environments**, **Deployment Targets**, or how to configure them, review the [Infrastructure docs](docs/infrastructure/index.md).
+
+### Define the Project
+
+A project is a collection of deployment steps and configuration variables that define how your software is deployed.
+
+Before we can define our deployment process we need to create a project.
+
+1. If you're not already logged into the Octopus Web Portal, do that now.
+2. Select **Projects** from the main navigation, and click **ADD PROJECT**.
+3. Give the project a name that's meaning to you, and anybody else who'll work on the project. I've called this one *Hello World*.
+4. Click **Save** and you will be taken to the newly created project's overview page.
+
+If you are likely to have a lot of projects, in addition to giving them meaningful names you can also add a project logo. From the project's overview page, select settings and click logo. From there you can add your image.
+
+### Define Your Deployment Process
+
+
+
 ## Working with the Octopus API {#DeploymentProcesses-WorkingwiththeOctopusAPI}
 
 Octopus Deploy is built API-first, which means everything you can do through the Octopus UI can be done with the API. In the API we model the deployment process the same way, starting at the Project:
