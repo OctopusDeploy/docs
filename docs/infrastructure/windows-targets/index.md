@@ -48,7 +48,7 @@ To complete the installation we need to configure communication between the Octo
 1. Accept the default listening port **10933** or provide your own.
 1. Paste the **Thumbprint** into the **Octopus Thumbprint** field and click **next**.
 1. Click **INSTALL**, and after the installation has finished click **Finish**.
-1. Back in the **Octopus Web Portal**, enter the DNS or IP address of the tentacle, i.e., `example.com` or `10.0.1.23`, and click **NEXT**.
+1. Back in the **Octopus Web Portal**, enter the DNS or IP address of the machine the Tentacle is installed on, i.e., `example.com` or `10.0.1.23`, and click **NEXT**.
 1. Add a display name for the deployment target (the server where you just installed the listening tentacle).
 1. Select which environment the deployment target will be assigned to.
 1. Choose or create at least one target role for the deployment target. Learn about [target roles](/docs/infrastructure/target-roles/index.md).
