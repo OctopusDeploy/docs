@@ -10,10 +10,6 @@ Octopus also allows you to run standalone scripts as part of your deployment pro
 You can use all of the features we provide for [custom scripts](/docs/deploying-applications/custom-scripts/index.md), like [using variables](/docs/deploying-applications/custom-scripts/index.md#Customscripts-Variables), [passing parameters](/docs/deploying-applications/custom-scripts/index.md#Customscripts-Passingparameterstoscripts), publishing [output variables](/docs/deploying-applications/custom-scripts/index.md#Customscripts-Outputvariables) and [collecting artifacts](/docs/deploying-applications/custom-scripts/index.md#Customscripts-Collectingartifacts).
 :::
 
-- Choosing where the script will run
-- Choosing where to source the script
-- Passing parameters to scripts
-
 ![](/docs/images/5671696/5865914.png "width=170")
 
 ## Choosing Where the Script Will Run {#Standalonescripts-Choosingwherethescriptwillrun}
