@@ -3,7 +3,7 @@ title: Steps
 description: Adding steps to define your project's deployment process.
 position: 3
 ---
-Steps are the actions your deployment process will execute rsch time your software is deployed. 
+Steps are the actions your deployment process will execute each time your software is deployed. 
 
 Octopus strives to make it quick and easy to define your project's deployment process.  Selecting the **ADD STEP** button displays a list of built-in step templates, custom step templates, and community contributed step templates.
 
