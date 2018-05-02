@@ -9,7 +9,7 @@ Now that you have [Octopus installed](docs/installation/index.md), your [infrast
 
 The deployment process is like a recipe for deploying your software. You define the recipe by adding steps and variables to a project. Each step contains a specific action (or set of actions) that is executed as part of the deployment process each time your software is deployed. After the initial setup, your deployment process shouldn't change between deployments even though the software being deployed will change as part of the development process.
 
-To define your deployment process your must:
+To define your deployment process, your must:
 
 1. Create a [project](docs/deployment-process/projects.md).
 1. Add [steps](docs/deployment-process/steps/index.md) to the project.
