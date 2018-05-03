@@ -18,7 +18,7 @@ To define your deployment process, your must:
 
 ## Hello World Deployment Process
 
-For this example process, we've configured a **Test** environment with one **Deployment Target**. We'll use Octopus Deploy to design a simple process with only one step that runs a script on the Deployment Target.
+For this example process, we've configured a **Test** environment with one **Deployment Target** that has the target role **web-server**. We'll use Octopus Deploy to create a simple process with only one step that runs a script on the Deployment Target.
 
 If you need a refresher on **Environments**, **Deployment Targets**, or how to configure them, review the [Infrastructure docs](docs/infrastructure/index.md).
 
@@ -30,16 +30,34 @@ Before we can define our deployment process we need to create a project.
 
 1. If you're not already logged into the Octopus Web Portal, do that now.
 2. Select **Projects** from the main navigation, and click **ADD PROJECT**.
-3. Give the project a name that's meaning to you, and anybody else who'll work on the project. I've called this one *Hello World*.
+3. Give the project a name that's meaningful to you, and anybody else who'll work on the project. I've called this one *Hello World*.
 4. Click **Save** and you will be taken to the newly created project's overview page.
 
 If you are likely to have a lot of projects, in addition to giving them meaningful names you can also add a project logo. From the project's overview page, select settings and click logo. From there you can add your image.
 
 ### Define Your Deployment Process
 
+Deployment processes can have one or many steps, steps can run in sequence or parallel, in addition to a variety of deployment steps, you can include manual intervention steps to get sign off before deployment, include notification steps to keep everybody informed about your process, or even skip steps under different circumstances.
+
+To define your process you can choose from the installed steps or community provided steps.
+
+In this example, we'll use the *Run a Script* step.
+
+1. From your new project's overview page, click **DEFINE YOUR DEPLOYMENT PROCESS**.
+2. Click **ADD STEP**, and then select the **Run a Script** step.
+3. Give the step a name, for instance, *Say Hello*.
+4. For the execution plan, leave the selection at the default *Deployment targets* and select the target role *web-server*. Learn more about [target roles](/doc/infrastructure/target-roles/index.md).
+5. For the script section of the process, leave the *Script Source* selection on the default *The Script is defined below*.
+6. Expand the *Script content* section, by clicking on it. We're using a PowerShell script, paste the script into the text box:
+​```powershell
+Write-Host "Hello, World!"
+​```
+7. For Environments, either let the process run for all available environments if you only have the test environment, or you can select **Run only for specific environments** and choose your test environment, or select **Skip specific environments** and select the environments you want to exclude.
+8. The rest of the options can be left with the defaults selected.
+9. Click Save.
 
 
-## Working with the Octopus API {#DeploymentProcesses-WorkingwiththeOctopusAPI}
+## Working with the Octopus API
 
 Octopus Deploy is built API-first, which means everything you can do through the Octopus UI can be done with the API. In the API we model the deployment process the same way, starting at the Project:
 
