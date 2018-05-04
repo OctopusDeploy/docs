@@ -17,7 +17,7 @@ For example, suppose you have a financial services web app called OctoFX and you
 
 ![OctoFX deployment process](octofx-deployment-process.png "width=500")
 
-The OctoFX deployment process include a package step which installs the web application on Windows servers running IIS.  The deployment process also includes steps to add and remove the machine from a load balancer in a rolling deployment.
+The OctoFX deployment process includes a package step which installs the web application on Windows servers running IIS.  The deployment process also includes steps to add and remove the machine from a load balancer in a rolling deployment.
 
 ![Creating a release](octofx-create-release.png "width=500")
 
