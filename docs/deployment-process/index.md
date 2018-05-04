@@ -41,7 +41,7 @@ In this example, we'll use the *Run a Script* step.
 1. From your new project's overview page, click **DEFINE YOUR DEPLOYMENT PROCESS**.
 2. Click **ADD STEP**, and then select the **Run a Script** step. Learn more about the available [steps](docs/deployment-process/steps/index.md).
 3. Give the step a name, for instance, *Say Hello*.
-4. For the execution plan, leave the selection at the default *Deployment targets* and select the target role *web-server*. Learn more about [target roles](/doc/infrastructure/target-roles/index.md).
+4. For the execution plan, leave the selection at the default *Deployment targets* and select the target role *web-server*. Learn more about [target roles](doc/infrastructure/target-roles/index.md).
 5. For the script section of the process, leave the *Script Source* selection on the default *The Script is defined below*.
 6. Expand the *Script content* section, by clicking on it. We're using a PowerShell script, paste the script into the text box:
 ​```powershell
@@ -69,7 +69,6 @@ You'll be taken to a screen where you can see the progression of the release.
 Because this a simple deployment process there isn't much to see, but if you click on the **task** in the **Progression** section of the page, you'll be taken the task summary for the deployment. From there, you can click on the text under task deployment, and you'll find more details about the process and the deployment targets it ran on. In this case, you'll see the *Hello, World!* script ran on the deployment target in the *test* environment tagged with the target role *web-server*.
 
 Learn more about [releases](docs/deployment-process/releases/index.md).
-
 
 ## Working with the Octopus API
 
