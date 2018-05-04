@@ -9,13 +9,6 @@ Now that you have [Octopus installed](docs/installation/index.md), your [infrast
 
 The deployment process is like a recipe for deploying your software. You define the recipe by adding steps and variables to a project. Each step contains a specific action (or set of actions) that is executed as part of the deployment process each time your software is deployed. After the initial setup, your deployment process shouldn't change between deployments even though the software being deployed will change as part of the development process.
 
-To define your deployment process, your must:
-
-1. Create a [project](docs/deployment-process/projects.md).
-1. Add [steps](docs/deployment-process/steps/index.md) to the project.
-1. Add [configuration variables](docs/deployment-process/variables/index.md) to the project.
-1. Create a [release](docs/deployment-process/releases/index.md).
-
 ## Hello World Deployment Process
 
 For this example process, we've configured a **Test** environment with one **Deployment Target** that has the target role **web-server**. We'll use Octopus Deploy to create a simple process with only one step that runs a script on the Deployment Target.
@@ -35,6 +28,8 @@ Before we can define our deployment process we need to create a project.
 
 If you are likely to have a lot of projects, in addition to giving them meaningful names you can also add a project logo. From the project's overview page, select settings and click logo. From there you can add your image.
 
+Learn more about managing [projects](docs/deployment-process/projects.md).
+
 ### Define Your Deployment Process
 
 Deployment processes can have one or many steps, steps can run in sequence or parallel, in addition to a variety of deployment steps, you can include manual intervention steps to get sign off before deployment, include notification steps to keep everybody informed about your process, or even skip steps under different circumstances.
@@ -44,7 +39,7 @@ To define your process you can choose from the installed steps or community prov
 In this example, we'll use the *Run a Script* step.
 
 1. From your new project's overview page, click **DEFINE YOUR DEPLOYMENT PROCESS**.
-2. Click **ADD STEP**, and then select the **Run a Script** step.
+2. Click **ADD STEP**, and then select the **Run a Script** step. Learn more about the available [steps](docs/deployment-process/steps/index.md).
 3. Give the step a name, for instance, *Say Hello*.
 4. For the execution plan, leave the selection at the default *Deployment targets* and select the target role *web-server*. Learn more about [target roles](/doc/infrastructure/target-roles/index.md).
 5. For the script section of the process, leave the *Script Source* selection on the default *The Script is defined below*.
@@ -54,7 +49,26 @@ Write-Host "Hello, World!"
 ​```
 7. For Environments, either let the process run for all available environments if you only have the test environment, or you can select **Run only for specific environments** and choose your test environment, or select **Skip specific environments** and select the environments you want to exclude.
 8. The rest of the options can be left with the defaults selected.
-9. Click Save.
+9. Click **Save**.
+
+Learn more about [steps](docs/deployment-process/steps/index.md).
+
+### Create a Release and Deploy
+
+Now that the process has been defined, you can create a release and deploy the software.
+
+1. From the project's overview page, click **CREATE RELEASE**.
+2. Give the release a version number, for instance, `1.0.0`. Subsequent releases will automatically increment the release number, but you can override the number and provide your own.
+3. Optionally, enter some text for the release notes describing what's changed in the release.
+4. Click **Save**.
+
+This will deploy the release.
+
+You'll be taken to a screen where you can see the progression of the release.
+
+Because this a simple deployment process there isn't much to see, but if you click on the **task** in the **Progression** section of the page, you'll be taken the task summary for the deployment. From there, you can click on the text under task deployment, and you'll find more details about the process and the deployment targets it ran on. In this case, you'll see the *Hello, World!* script ran on the deployment target in the *test* environment tagged with the target role *web-server*.
+
+Learn more about [releases](docs/deployment-process/releases/index.md).
 
 
 ## Working with the Octopus API
