@@ -41,7 +41,7 @@ In this example, we'll use the *Run a Script* step.
 1. From your new project's overview page, click **DEFINE YOUR DEPLOYMENT PROCESS**.
 2. Click **ADD STEP**, and then select the **Run a Script** step. Learn more about the available [steps](docs/deployment-process/steps/index.md).
 3. Give the step a name, for instance, *Say Hello*.
-4. For the execution plan, leave the selection at the default *Deployment targets* and select the target role *web-server*. Learn more about [target roles](doc/infrastructure/target-roles/index.md).
+4. For the execution plan, leave the selection at the default *Deployment targets* and select the target role *web-server*. Learn more about [target roles](docs/infrastructure/target-roles/index.md).
 5. For the script section of the process, leave the *Script Source* selection on the default *The Script is defined below*.
 6. Expand the *Script content* section, by clicking on it. We're using a PowerShell script, paste the script into the text box:
 ​```powershell
