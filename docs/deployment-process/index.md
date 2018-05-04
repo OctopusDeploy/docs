@@ -15,7 +15,7 @@ For this example process, we've configured a **Test** environment with one **Dep
 
 If you need a refresher on **Environments**, **Deployment Targets**, or how to configure them, review the [Infrastructure docs](docs/infrastructure/index.md).
 
-### Define the Project
+### Create a Project
 
 A project is a collection of deployment steps and configuration variables that define how your software is deployed.
 
