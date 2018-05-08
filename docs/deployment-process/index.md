@@ -70,6 +70,25 @@ Because this a simple deployment process there isn't much to see, but if you cli
 
 Learn more about [releases](docs/deployment-process/releases/index.md).
 
+###  Update the Software and Create a New Release
+
+Now that the deployment process has been defined, you can update your software and deploy a new release.
+
+In the case of our hello world script you would perform the following steps:
+
+1. Navigate to the **Projects** section of the Octopus Web Portal and select the *Hello World* project.
+2. Click **Process** and select the step you want to update.
+3. Click the **Script Content** section of the step, edit the script, and click **Save**.
+4. Click **CREATE RELEASE**.
+5. From here you can accept the automatic increment that's been applied to the version or provide your own. You can also add release notes describing your changes.
+6. Click **Save**.
+
+This will deploy the new release of the software.
+
+In a real world scenario, where the software you're developing is more complicated than a simple script, you could configure your continuous integration/build server to compile the code, package the software, and push it the built-in repository for automatic deployment.
+
+Learn more about configuring your continuous integration/build server to work with Octopus in the [API and Integrations documentation](docs/api-and-integration/index.md).
+
 ## Working with the Octopus API
 
 Octopus Deploy is built API-first, which means everything you can do through the Octopus UI can be done with the API. In the API we model the deployment process the same way, starting at the Project:
