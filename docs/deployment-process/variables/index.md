@@ -1,7 +1,7 @@
 ---
 title: Variables
 description: Defining variables in Octopus allows you to promote your applications through environments and update their configuration files.
-position: 4
+position: 20
 ---
 
 As you promote your application through test, UAT, staging and production, there are going to be differences in database connection strings, application settings, web service URLs, and many other parameters.

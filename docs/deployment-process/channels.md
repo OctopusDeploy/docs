@@ -1,7 +1,7 @@
 ---
 title: Channels
 description: Channels allow you to dynamically change the deployment logic and lifecycle of a project based on the version being deployed.
-position: 105
+position: 40
 ---
 
 :::success
