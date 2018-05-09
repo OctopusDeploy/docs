@@ -23,9 +23,10 @@ If you need a refresher on **Environments**, **Deployment Targets**, or how to c
 6. For the execution plan, leave the selection at the default *Deployment targets* and select the target role *server*.
 7. For the script section, expand the **Script content** section by clicking on it. Paste the PowerShell script into the text box and click **Save**:
 
-​```powershell
+​```
 Write-Host "Hello, World!"
 ​```
+
 8. From the project's overview page, click **CREATE RELEASE**, and then click **Save**.
 9. Click **DEPLOY TO TEST**, then click **DEPLOY**.
 
