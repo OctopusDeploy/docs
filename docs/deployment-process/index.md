@@ -28,7 +28,7 @@ Write-Host "Hello, World!"
 8. From the project's overview page, click **CREATE RELEASE**, and then click **Save**.
 9. Click **DEPLOY TO TEST**, then click **DEPLOY**.
 
-This will deploy the release. In the task summary, you see the release was deployed to your *Test* environment. The step *Hello world* ran on the deployment target, in this case *TWeb01*.
+This will deploy the release. In the task summary, you'll see the release was deployed to your *Test* environment, and the step *Hello world* ran on the deployment target, in this case *TWeb01*.
 
 ![Hello world task summary](hello-world.png)
 
