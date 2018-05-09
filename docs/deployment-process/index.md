@@ -22,6 +22,7 @@ If you need a refresher on **Environments**, **Deployment Targets**, or how to c
 5. Give the step a name, for instance, *Say Hello*.
 6. For the execution plan, leave the selection at the default *Deployment targets* and select the target role *server*.
 7. For the script section, expand the **Script content** section by clicking on it. Paste the PowerShell script into the text box and click **Save**:
+
 ​```powershell
 Write-Host "Hello, World!"
 ​```
