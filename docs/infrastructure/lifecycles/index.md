@@ -25,8 +25,6 @@ Lifecycle management can be found under **Library** and then **Lifecycles**.
 3. Add a description.
 4. Define the Retention Policy. The retention policy defines how long releases are kept for, and how long extracted packages and files are kept on tentacles. The default for both is to keep all.
 
-<!-- continue from here -->
-
 ![](lifecycle-create-new.png "width=500")
 
 To start with you define a Name, description and default retention policy for the whole Lifecycle. Each phase will inherit the Lifecycle retention policy unless it's own is defined.
