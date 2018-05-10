@@ -14,7 +14,7 @@ These examples use the [Octopus.Client](/docs/api-and-integration/octopus.clien
 
 !toc
 
-## Querying the current state {#ProjectCoordinationCodeSamples-Queryingthecurrentstate}
+## Querying the Current State {#ProjectCoordinationCodeSamples-Queryingthecurrentstate}
 
 The best way to get the current state for one or more projects is to use the Dashboard API, which is also used by the dashboards in the WebUI:
 
@@ -43,7 +43,7 @@ $repository.Dashboards.GetDashboard().Items
  http://localhost/api/dashboard
 ```
 
-## Viewing recent deployments {#ProjectCoordinationCodeSamples-Viewingrecentdeployments}
+## Viewing Recent Deployments {#ProjectCoordinationCodeSamples-Viewingrecentdeployments}
 
 The following code returns the deployments started in the last 7 days:
 
@@ -95,7 +95,7 @@ if(completed.Any(c => c.State != TaskState.Success))
 
 ## Queuing a project to run later {#ProjectCoordinationCodeSamples-Queuingaprojecttorunlater}
 
-This example re-queues the currently executing project at 3am the next day
+This example re-queues the currently executing project at 3am the next day.
 
 ```csharp
 var releaseId = Octopus.Parameters["Octopus.Web.ReleaseLink"].Split('/').Last();
@@ -165,7 +165,7 @@ if (latestRelease != null && last.ReleaseId != latestRelease.Id)
 }
 ```
 
-## Waiting for another project to reach a certain stage {#ProjectCoordinationCodeSamples-Waitingforanotherprojecttoreachacertainstage}
+## Waiting for Another Project to Reach a Certain Stage {#ProjectCoordinationCodeSamples-Waitingforanotherprojecttoreachacertainstage}
 
 This example builds on the previous, by waiting until a particular step is complete instead of the whole task.
 

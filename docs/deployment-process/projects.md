@@ -4,7 +4,7 @@ description: Projects allow you to define all the details required to deploy a p
 position: 0
 ---
 
-Projects let you manage multiple software projects from the **Octopus Web Portal**. For each project you have, you'll define a deployment process (the steps or actions required to deploy your software), configuration variables (for example, application settings, connection strings), and the environments the software will be deployed to (for example, Development, Test, and Production).
+Projects let you manage multiple software projects from the **Octopus Web Portal**. For each project you have, you define a deployment process (the steps or actions required to deploy your software), configuration variables (for example, application settings, connection strings), and the environments the software will be deployed to (for example, Development, Test, and Production).
 
 Projects can consist of multiple steps and deliverable components, or they might only have a single step.
 
@@ -13,13 +13,13 @@ It can be difficult to decide whether you need a single project or multiple proj
 - If the packages are delivered by different teams, or have different release schedules and deadlines, use separate projects.
 - If the packages are always deployed at the same time, and there is good communication between the teams developing them (or they are the same team), use a single project.
 
-There are other options, for instance, with the [Deploy Release Step](docs/deployment-process/coordinating-multiple-projects/deploy-release-step.md) it's possible to break bigger projects into smaller projects, that can be released individually or as part of a larger overarching project.
+There are other options, for instance, with the [Deploy Release Step](/docs/deployment-process/coordinating-multiple-projects/deploy-release-step.md) it's possible to break bigger projects into smaller projects, that can be released individually or as part of a larger master project. For more options, see the [Coordinating Multiple Releases docs](/docs/deployment-process/projects/coordinating-multiple-releases/index.md).
 
 ## Managing Projects
 
-Projects are managed from the **Projects** area of the **Web Portal**. From here you can see and manage all of your projects and [project groups](docs/deployment-process/projects.md#project-groups).
+Projects are managed from the **Projects** area of the **Web Portal**. From here you can see and manage all of your projects and [project groups](/docs/deployment-process/projects.md#project-groups).
 
-The first time you navigate to the **Projects** area you have the option to either [ADD PROJECT](docs/deployment-process/projects.md#add-a-project) or [ADD GROUP](docs/deployment-process/projects.md#add-a-project-group).
+The first time you navigate to the **Projects** area you have the option to either [ADD PROJECT](/docs/deployment-process/projects.md#add-a-project) or [ADD GROUP](/docs/deployment-process/projects.md#add-a-project-group).
 
 ## Add a Project
 
