@@ -4,25 +4,47 @@ description: Projects allow you to define all the details required to deploy a p
 position: 0
 ---
 
-A project is a collection of deployment steps and configuration variables that define how your software is deployed.
+Projects let you manage multiple software projects from the **Octopus Web Portal**. For each project you have, you'll define a deployment process (the steps or actions required to deploy your software), configuration variables (for example, application settings, connection strings), and the environments the software will be deployed to (for example, Development, Test, and Production).
 
-## Creating Projects
+Projects can consist of multiple steps and deliverable components, or they might only have a single step.
 
-The first time you navigate to the **Projects** area of the **Octopus Web Portal** you have the option to either **ADD GROUP** or **ADD PROJECT**.
+It can be difficult to decide whether you need a single project or multiple projects. Here are somethings to consider:
 
-### Projects
+- If the packages are delivered by different teams, or have different release schedules and deadlines, use separate projects.
+- If the packages are always deployed at the same time, and there is good communication between the teams developing them (or they are the same team), use a single project.
 
-To add your first project, select **ADD PROJECT**.
+There are other options, for instance, with the [Deploy Release Step](docs/deployment-process/coordinating-multiple-projects/deploy-release-step.md) it's possible to break bigger projects into smaller projects, that can be released individually or as part of a larger overarching project.
 
-We recommend using a meaningful name and description.
+## Managing Projects
 
-Under the **Advanced Settings** you can specify a **Project Group** and the [Lifecycle](docs/infrastructure/lifecycles/index.md).
+Projects are managed from the **Projects** area of the **Web Portal**. From here you can see and manage all of your projects and [project groups](docs/deployment-process/projects.md#project-groups).
 
-If you have existing projects you can *Disable*, *Clone*, or *Delete* the project from the project's settings.
+The first time you navigate to the **Projects** area you have the option to either [ADD PROJECT](docs/deployment-process/projects.md#add-a-project) or [ADD GROUP](docs/deployment-process/projects.md#add-a-project-group).
 
-Cloning a project will copy the deployment process and variables but not the release history of the project being cloned.
+## Add a Project
 
-### Project Groups
+Before you can define your deployment process, you must create a project.
+
+1. Select **Projects** from the main navigation, and click **ADD PROJECT**.
+2. Give the project a name that's meaningful to you, and anybody else who'll work on the project.
+3. Click **Save** and you will be taken to the newly created project's overview page.
+
+## Project Settings
+
+You can access the project settings menu from the project's overview page. From here it's possible to edit details about the project, such as the name, description, and the project group, add a logo, and control different aspects of the project's release behavior.
+
+## Project Logo
+
+If you are likely to have a lot of projects, in addition to giving them meaningful names you can also add a project logo, and make it easier to quickly locate them on the project's page.
+
+1. From the project's overview page, select **settings**.
+2. Click the **Logo** section of the settings page.
+3. Click the file selector and select a file to upload.
+4. Click **open** to upload your logo image, and click **Save**.
+
+<!-- continue -->
+
+## Add a Project Group
 
 Project groups are a way of organizing your projects.
 
@@ -40,13 +62,6 @@ Any projects and project groups you create will be accessible from the projects 
 
 To edit or delete a project group click the project group’s overflow menu and select **edit**. From there you can edit the groups name or description. If you need to delete the group, click the overflow menu again and select **Delete**.
 
-## Project Permissions {#Projects-Projectpermissions}
+## Project Permissions
 
-You can control who has access to view or edit environments, as well as who has access to deploy to environments, by assigning users to Teams and assigning roles to those teams. For more information, see the section on [managing users and teams](/docs/administration/managing-users-and-teams/index.md).
-
-## Do I Need One or Many Projects?
-
-It can be hard to decide whether to create lots of single-step projects in Octopus, or one big project. Here are two rules of thumb that may help:
-
-- If the packages are delivered by different teams, or have different release schedules and deadlines, use separate projects.
-- If the packages are always deployed at the same time, and there is good communication between the teams developing them (or they are the same team), use a single project.
+For information about project permissions, see [managing users and teams](/docs/administration/managing-users-and-teams/index.md).
