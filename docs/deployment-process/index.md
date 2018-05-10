@@ -5,7 +5,7 @@ hideInThisSection: true
 position: 5
 ---
 
-Now that you have [Octopus installed](docs/installation/index.md), your [infrastructure configured](docs/infrastructure/index.md), and your [applications packaged](docs/packaging-applications/index.md), you are ready to start deploying your software. This section explains the process and explores the options that are available.
+Now that you have the [ Central Octopus server installed](docs/installation/index.md), your [infrastructure configured](docs/infrastructure/index.md), and your [applications packaged](docs/packaging-applications/index.md), you are ready to start deploying your software. This section explains the process and explores the options that are available.
 
 The deployment process is like a recipe for deploying your software. You define the recipe by adding steps and variables to a project. Each step contains a specific action (or set of actions) that is executed as part of the deployment process each time your software is deployed. After the initial setup, your deployment process shouldn't change between deployments even though the software being deployed will change as part of the development process.
 
@@ -36,22 +36,21 @@ This will deploy the release. In the task summary, you'll see the release was de
 
 This is an example of a very simple process, the following sections go into more detail about each part of the process and link to supporting documentation.
 
+## Projects
+
+Before you can define you how your software is deployed, you must create a project for the deployment process. Projects contain the deployment steps and configuration variables that define how your software is deployed.
+
 ### Create a Project
 
-A project is a collection of deployment steps and configuration variables that define how your software is deployed.
-
-Before we can define our deployment process we need to create a project.
-
-1. If you're not already logged into the Octopus Web Portal, do that now.
-2. Select **Projects** from the main navigation, and click **ADD PROJECT**.
-3. Give the project a name that's meaningful to you, and anybody else who'll work on the project. I've called this one *Hello World*.
-4. Click **Save** and you will be taken to the newly created project's overview page.
-
-If you are likely to have a lot of projects, in addition to giving them meaningful names you can also add a project logo. From the project's overview page, select settings and click logo. From there you can add your image.
+1. Select **Projects** from the main navigation, and click **ADD PROJECT**.
+2. Give the project a name that's meaningful to you, and anybody else who'll work on the project.
+3. Click **Save** and you will be taken to the newly created project's overview page.
 
 Learn more about managing [projects](docs/deployment-process/projects.md).
 
-### Define Your Deployment Process
+<!--
+
+## Define Your Deployment Process
 
 Deployment processes can have one or many steps, steps can run in sequence or parallel, in addition to a variety of deployment steps, you can include manual intervention steps to get sign off before deployment, include notification steps to keep everybody informed about your process, or even skip steps under different circumstances.
 
@@ -74,7 +73,7 @@ Write-Host "Hello, World!"
 
 Learn more about [steps](docs/deployment-process/steps/index.md).
 
-### Create a Release and Deploy
+## Create a Release and Deploy
 
 Now that the process has been defined, you can create a release and deploy the software.
 
@@ -91,7 +90,7 @@ Because this a simple deployment process there isn't much to see, but if you cli
 
 Learn more about [releases](docs/deployment-process/releases/index.md).
 
-###  Update the Software and Create a New Release
+##  Update the Software and Create a New Release
 
 Now that the deployment process has been defined, you can update your software and deploy a new release.
 
@@ -112,7 +111,7 @@ Learn more about configuring your continuous integration/build server to work wi
 
 
 
-
+-->
 
 ## Working with the Octopus API
 
