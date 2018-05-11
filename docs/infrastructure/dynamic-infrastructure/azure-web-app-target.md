@@ -22,6 +22,6 @@ New-OctopusAzureWebAppTarget -name "My Azure Web Application" `
                              -azureWebApp "WebApp1" `
                              -azureResourceGroupName "WebApp1-ResourceGroup"  `
                              -octopusAccountIdOrName "Dev Azure Account" `
-                             -octopusRoles "AzureWebApp"
+                             -octopusRoles "AzureWebApp" `
                              -updateIfExisting
 ```
