@@ -70,7 +70,7 @@ If you want to manage user/team membership via AAD, you will need to configure R
 The example below illustrates two roles, one for administrators and one for application testers.
 
 :::success
-Make sure you replace `NEWGUID` with a generated guid.
+Make sure you replace the `NEWGUID`s with a generated guid (unique per entry).
 :::
 
 ```json
@@ -78,7 +78,7 @@ Make sure you replace `NEWGUID` with a generated guid.
   "appId": "myAppGuid",
   "appRoles": [
 	{
-		"id": "NEWGUID",
+		"id": "NEWGUID1",
 		"allowedMemberTypes": ["User"],
 		"description": "Octopus Administrators",
 		"displayName": "Octopus Admins",
@@ -86,7 +86,7 @@ Make sure you replace `NEWGUID` with a generated guid.
 		"value": "octopusAdmins"
 	},
 	{
-		"id": "NEWGUID",
+		"id": "NEWGUID2",
 		"allowedMemberTypes": ["User"],
 		"description": "Octopus Testers",
 		"displayName": "Octopus Testers",

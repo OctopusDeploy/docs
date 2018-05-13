@@ -23,7 +23,7 @@ Learn about the [built-in worker](built-in-worker.md).
 
 ## External workers
 
-In **Octopus 2018.2.0** we added the ability disable the built-in worker and delegate this work to a Tentacle. We call this the **external worker**. This Tentacle can be installed on the Octopus Server or any other machine, and it can run under a different user account. If you configure an external worker on a different machine, you effectively prevent any user-provided scripts from executing on the Octopus Server itself. In a future version of Octopus you will be able to configure multiple external workers and configure them as members of worker pools.
+In **Octopus 2018.2.0** we added the ability to disable the built-in worker and delegate this work to a Tentacle. We call this the **external worker**. This Tentacle can be installed on the Octopus Server or any other machine, and it can run under a different user account. If you configure an external worker on a different machine, you effectively prevent any user-provided scripts from executing on the Octopus Server itself. In a future version of Octopus you will be able to configure multiple external workers and configure them as members of worker pools.
 
 Learn about [external workers](external-workers.md).
 

@@ -205,13 +205,7 @@ If you want to use a specific version of a package for `StepA`, and the latest v
 octo create-release --project HelloWorld --version 1.0.3 --package StepA:1.0.1 --server http://octopus/ --apiKey API-ABCDEF123456
 ```
 
-or you can use the keyword `latest` like this:
-
-```bash
-octo create-release --project HelloWorld --version 1.0.3 --package StepA:latest --server http://octopus/ --apiKey API-ABCDEF123456
-```
-
-both examples will achive the same goal: `1.0.3` will be used for `StepA`, and the latest version available at the moment for `StepB`.
+This example will use `1.0.3` for `StepA`, and the latest version available at the moment for `StepB`.
 
 ### Option --packagesFolder
 

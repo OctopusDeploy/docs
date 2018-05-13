@@ -1,7 +1,7 @@
 ---
 title: Projects
 description: Projects allow you to define all the details required to deploy a project including the steps to run and variables to configure it.
-position: 1
+position: 0
 ---
 
 A project is a collection of deployment steps and configuration variables that define how your software is deployed.
@@ -44,7 +44,7 @@ To edit or delete a project group click the project group’s overflow menu and 
 
 You can control who has access to view or edit environments, as well as who has access to deploy to environments, by assigning users to Teams and assigning roles to those teams. For more information, see the section on [managing users and teams](/docs/administration/managing-users-and-teams/index.md).
 
-## Do I Need One or Many Projects?  {#Projects-DoIneedoneormanyprojects?}
+## Do I Need One or Many Projects?
 
 It can be hard to decide whether to create lots of single-step projects in Octopus, or one big project. Here are two rules of thumb that may help:
 
