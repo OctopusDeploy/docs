@@ -46,7 +46,7 @@ Before you can define you how your software is deployed, you must create a proje
 2. Give the project a name that's meaningful to you, and anybody else who'll work on the project.
 3. Click **Save** and you will be taken to the newly created project's overview page.
 
-Learn more about managing [projects](docs/deployment-process/projects.md).
+Learn more about managing [projects](docs/deployment-process/projects/index.md).
 
 <!--
 

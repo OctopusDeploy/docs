@@ -17,9 +17,9 @@ There are other options, for instance, with the [Deploy Release Step](/docs/depl
 
 ## Managing Projects
 
-Projects are managed from the **Projects** area of the **Web Portal**. From here you can see and manage all of your projects and [project groups](/docs/deployment-process/projects.md#project-groups).
+Projects are managed from the **Projects** area of the **Web Portal**. From here you can see and manage all of your projects and [project groups](/docs/deployment-process/projects/index.md#project-groups).
 
-The first time you navigate to the **Projects** area you have the option to either [ADD PROJECT](/docs/deployment-process/projects.md#add-a-project) or [ADD GROUP](/docs/deployment-process/projects.md#add-a-project-group).
+The first time you navigate to the **Projects** area you have the option to either [ADD PROJECT](/docs/deployment-process/projects/index.md#add-a-project) or [ADD GROUP](/docs/deployment-process/projects/index.md#add-a-project-group).
 
 ## Add a Project
 
