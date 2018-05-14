@@ -8,7 +8,7 @@ When planning your Octopus installation, you will need to decide how to host you
 
 ## Supported Package and Repository Types
 
-The Octopus built-in repository [supports several different types of packages](/docs/packaging-applications/supported-packages.md).
+The Octopus built-in repository [supports several different types of packages](/docs/packaging-applications/creating-packages/supported-packages.md).
 
 If you would like to use an external repository, the following external repositories are supported:
 

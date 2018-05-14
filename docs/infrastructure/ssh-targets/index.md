@@ -86,7 +86,7 @@ Leveraging Calamari means that the deployment can obtain the package via the sam
 
 :::success
 **Non-NuGet Package Types**
-Since version 3.3, Octopus Deploy has [support for tar packages](/docs/packaging-applications/supported-packages.md).
+Since version 3.3, Octopus Deploy has [support for tar packages](/docs/packaging-applications/creating-packages/supported-packages.md).
 
 See our [Node.js sample](/docs/deploying-applications/node-on-nix-deployments/index.md) for an example of deploying to a Linux target
 :::

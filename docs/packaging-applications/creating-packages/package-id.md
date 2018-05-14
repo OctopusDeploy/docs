@@ -47,4 +47,4 @@ The following examples are also valid:
 - acme-billing.web
 - Acme_Billing.Web
 
-Learn about [versioning your applications and software in Octopus Deploy](/docs/packaging-applications/versioning.md).
+Learn about [versioning your apllications and software in Octopus Deploy](/docs/packaging-applications/creating-packages/versioning.md).
