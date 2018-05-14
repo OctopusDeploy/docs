@@ -426,7 +426,6 @@ docs/deploying-applications/service-fabric/version-automation-with-service-fabri
 docs/how-to/migrate-azure-targets-into-azure-steps.md -> docs/index.md
 docs/deployment-process/migrate-azure-targets-into-azure-steps.md -> docs/index.md
 docs/packaging-applications/creating-packages/package-id.md -> docs/packaging-applications/package-id.md
-docs/packaging-applications/creating-packages/supported-packages.md -> docs/packaging-applications/supported-packages.md
 docs/deploying-applications/azure-deployments/web-apps/index.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md
 docs/deploying-applications/azure-deployments/web-apps/getting-started-with-azure-web-apps.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md
 docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-cloud-service/azure-steps-migrated-from-octopus-deploy-2.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-cloud-service/index.md
