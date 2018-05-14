@@ -397,7 +397,7 @@ docs/deployment-process/variable-substitution-syntax.md -> docs/deployment-proce
 docs/deployment-process/steps/automatic-release-creation.md -> docs/deployment-process/releases/automatic-release-creation.md
 docs/installation/sql-server-database-requirements.md -> docs/installation/sql-server-database.md
 docs/administration/security/hardening-octopus-server.md -> docs/administration/security/hardening-octopus.md
-docs/packaging-applications/versioning-in-octopus-deploy.md -> docs/packaging-applications/creating-packages/versioning.md
+docs/packaging-applications/creating-packages/versioning-in-octopus-deploy.md -> docs/packaging-applications/versioning.md
 docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4.md -> docs/deployment-patterns/multi-tenant-deployments/index.md
 docs/administration/report-on-deployments-using-excel.md -> docs/administration/reporting/report-on-deployments-using-excel.md
 docs/infrastructure/environments/elastic-and-transient-environments/index.md -> docs/deployment-patterns/elastic-and-transient-environments/index.md
@@ -425,9 +425,8 @@ docs/deploying-applications/service-fabric/packaging.md -> docs/deploying-applic
 docs/deploying-applications/service-fabric/version-automation-with-service-fabric-application-packages/index.md -> docs/deploying-applications/azure-deployments/service-fabric/version-automation-with-service-fabric-application-packages/index.md
 docs/how-to/migrate-azure-targets-into-azure-steps.md -> docs/index.md
 docs/deployment-process/migrate-azure-targets-into-azure-steps.md -> docs/index.md
-docs/packaging-applications/package-id.md -> docs/packaging-applications/creating-packages/package-id.md
-docs/packaging-applications/supported-packages.md -> docs/packaging-applications/creating-packages/supported-packages.md
-docs/packaging-applications/versioning.md -> docs/packaging-applications/creating-packages/versioning.md
+docs/packaging-applications/creating-packages/package-id.md -> docs/packaging-applications/package-id.md
+docs/packaging-applications/creating-packages/supported-packages.md -> docs/packaging-applications/supported-packages.md
 docs/deploying-applications/azure-deployments/web-apps/index.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md
 docs/deploying-applications/azure-deployments/web-apps/getting-started-with-azure-web-apps.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md
 docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-cloud-service/azure-steps-migrated-from-octopus-deploy-2.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-cloud-service/index.md
@@ -439,3 +438,12 @@ docs/infrastructure/windows-targets/polling-tentacles/troubleshoot-polling-tenta
 docs/infrastructure/windows-targets/legacy-requirements.md -> docs/infrastructure/windows-targets/requirements/legacy-requirements.md
 docs/infrastructure/windows-targets/troubleshoot-listening-tentacles.md -> docs/infrastructure/windows-targets/troubleshooting-tentacles.md
 docs/infrastructure/windows-targets/troubleshoot-polling-tentacles.md -> docs/infrastructure/windows-targets/troubleshooting-tentacles.md
+docs/packaging-applications/creating-packages/applications/index.md -> docs/packaging-applications/index.md
+docs/packaging-applications/creating-packages/applications/web-apps -> docs/packaging-applications/index.md
+docs/packaging-applications/creating-packages/build-tools -> docs/packaging-applications/index.md
+docs/packaging-applications/creating-packages/build-tools/appveyor -> docs/packaging-applications/index.md
+ocs/packaging-applications/creating-packages/build-tools/bamboo -> ocs/packaging-applications/index.md
+docs/packaging-applications/creating-packages/build-tools/cake -> docs/packaging-applications/index.md
+docs/packaging-applications/creating-packages/build-tools/jenkins -> docs/packaging-applications/index.md
+docs/packaging-applications/creating-packages/build-tools/teamcity -> docs/packaging-applications/index.md
+docs/packaging-applications/creating-packages/build-tools/vsts -> docs/packaging-applications/index.md

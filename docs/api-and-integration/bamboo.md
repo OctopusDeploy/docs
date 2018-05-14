@@ -32,7 +32,7 @@ There are a number of typical steps that are required to push a package to Octop
 We'll assume that there is already a Bamboo build plan in place that successfully builds an application.
 
 ### 2. Create the Package
-With the application built, we need to add it to an archive that complies with the Octopus Deploy [versioning requirements](/docs/packaging-applications/creating-packages/versioning.md). In this example we will stick to a simple `AppName.Major.Minor.Patch` semver format.
+With the application built, we need to add it to an archive that complies with the Octopus Deploy [versioning requirements](/docs/packaging-applications/versioning.md). In this example we will stick to a simple `AppName.Major.Minor.Patch` semver format.
 
 Creating the package is done with the `Octopus Deploy: Pack Packages` task. In addition to the [common configuration fields](#commonConfiguration), this task requires the name of the package, the type of package to create, the version number of the package, the base folder containing the files to be packaged, paths to be included in the package, and enabling any existing package files to be overwritten.
 
@@ -272,4 +272,3 @@ Error conditions encountered by the add-on have unique error codes, which are li
 | OCTOPUS-BAMBOO-INPUT-ERROR-0001 | No matching files could be found to push to Octopus Deploy. Check that the file pattern matches a file in the Bamboo working directory. |
 | OCTOPUS-BAMBOO-INPUT-ERROR-0002 | A required field was empty. |
 | OCTOPUS-BAMBOO-INPUT-ERROR-0003 | The server capability that defines the path to the Octopus CLI has an incorrect path. Make sure The path you assigned to the Octopus CLI is correct. |
-

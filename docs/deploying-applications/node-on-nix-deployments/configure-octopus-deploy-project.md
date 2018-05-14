@@ -40,7 +40,7 @@ The next step is to create a project that will extract the package.
 
 - Navigate to the Projects page via {{Projects,All}} and then click the *Add Project* button.
 - Give the new project an appropriate name and once saved, go to the project's *Process*page and click {{Add Step,Deploy a Package}}.
-    * Ensure that the target role matches that which was assigned to the machine in the previous step and select *octofxjs* as the Package ID. This Package ID is derived from the first section of the package that was previously uploaded (see *Package Metadata* section of the [Supported Packages](/docs/packaging-applications/creating-packages/supported-packages.md) documentation for mode details).
+    * Ensure that the target role matches that which was assigned to the machine in the previous step and select *octofxjs* as the Package ID. This Package ID is derived from the first section of the package that was previously uploaded (see *Package Metadata* section of the [Supported Packages](/docs/packaging-applications/supported-packages.md) documentation for mode details).
 
 ![](/docs/images/3049555/3278590.png "width=500")
 

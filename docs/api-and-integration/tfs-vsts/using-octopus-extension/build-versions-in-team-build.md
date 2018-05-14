@@ -19,7 +19,7 @@ While this is a valid Team Build build number, it can cause issues when trying t
 
 ## Semver
 
-Packages used by Octopus must conform to [Semver 1.0 or 2.0](/docs/packaging-applications/creating-packages/versioning.md) depending on the version of Octopus you're using.
+Packages used by Octopus must conform to [Semver 1.0 or 2.0](/docs/packaging-applications/versioning.md) depending on the version of Octopus you're using.
 
 The link above explains versioning in detail, but in its simplest form it means two things:
 

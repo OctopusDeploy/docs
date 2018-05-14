@@ -4,9 +4,9 @@ description: Choose an ID for your package
 position: 2
 ---
 
-The combination of package ID and [version number](versioning.md) uniquely identify a package.
+The combination of package ID and [version number](/docs/packaging-applications/versioning.md) uniquely identify a package.
 
-From our [example package](docs/packaging-applications/index.md#example-package):
+From our [example package](/docs/packaging-applications/index.md#example-package):
 
 > `hello-world.1.0.0.zip`
 
