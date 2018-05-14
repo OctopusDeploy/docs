@@ -84,4 +84,4 @@ Firstly, turn on **Custom deployment scripts** under _Configure Features_ on you
 
 Under the _Features_ section you will have _Pre-deployment_, _Deployment_, and _Post-deployment_ scripts.
 
-In the _Post-deployment_ script section, you can [access the output paramaters](/docs/deploying-applications/azure-deployments/resource-groups#DeployusinganAzureResourceGroupTemplate-AccessingARMtemplateoutputparameters) and use those output parameters to run any of the Cmdlets above.
+In the _Post-deployment_ script section, you can [access the output paramaters](/docs/deploying-applications/azure-deployments/resource-groups/index.md#DeployusinganAzureResourceGroupTemplate-AccessingARMtemplateoutputparameters) and use those output parameters to run any of the Cmdlets above.
