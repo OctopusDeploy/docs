@@ -439,14 +439,6 @@ docs/infrastructure/windows-targets/legacy-requirements.md -> docs/infrastructur
 docs/infrastructure/windows-targets/troubleshoot-listening-tentacles.md -> docs/infrastructure/windows-targets/troubleshooting-tentacles.md
 docs/infrastructure/windows-targets/troubleshoot-polling-tentacles.md -> docs/infrastructure/windows-targets/troubleshooting-tentacles.md
 docs/packaging-applications/creating-packages/applications/index.md -> docs/packaging-applications/index.md
-docs/packaging-applications/creating-packages/build-tools -> docs/packaging-applications/index.md
-docs/packaging-applications/creating-packages/build-tools/appveyor -> docs/packaging-applications/index.md
-ocs/packaging-applications/creating-packages/build-tools/bamboo -> docs/packaging-applications/index.md
-docs/packaging-applications/creating-packages/build-tools/cake -> docs/packaging-applications/index.md
-docs/packaging-applications/creating-packages/build-tools/jenkins -> docs/packaging-applications/index.md
-docs/packaging-applications/creating-packages/build-tools/teamcity -> docs/packaging-applications/index.md
-docs/packaging-applications/creating-packages/build-tools/vsts -> docs/packaging-applications/index.md
-docs/packaging-applications/creating-packages/applications/index.md -> docs/packaging-applications/index.md
 docs/packaging-applications/creating-packages/applications/web-apps/index.md -> docs/packaging-applications/index.md
 docs/packaging-applications/creating-packages/build-tools/index.md -> docs/packaging-applications/index.md
 docs/packaging-applications/creating-packages/build-tools/appveyor/index.md -> docs/packaging-applications/index.md
