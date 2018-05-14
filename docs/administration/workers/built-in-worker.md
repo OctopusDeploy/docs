@@ -16,7 +16,7 @@ Prior to **Octopus 3.0** you required a Tentacle somewhere to do work as part of
 
 In **Octopus 3.0** we added the concept of a **worker** into Octopus Server. Now you could install Octopus Server and deploy a web site to Azure in minutes all without any Tentacles involved.
 
-In **Octopus 3.3** we added a feature which lets you [run deployment steps on the Octopus Server](/docs/deployment-process/how-to-run-steps-on-the-octopus-server.md) which again removed a lot of friction for scenarios other than deploying to Azure.
+In **Octopus 3.3** we added a feature which lets you [run deployment steps on the Octopus Server](/docs/deployment-process/steps/how-to-run-steps-on-the-octopus-server.md) which again removed a lot of friction for scenarios other than deploying to Azure.
 
 However, this convenience comes at a cost: **security**.
 

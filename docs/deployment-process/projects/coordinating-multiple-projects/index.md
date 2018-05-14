@@ -8,7 +8,7 @@ When working with multiple related projects, it is often necessary to co-ordinat
 
 :::success
 **Samples**
-For in depth code samples covering many of the processes discussed in this section, see the [Project Coordination Code Samples](/docs/deployment-process/coordinating-multiple-projects/project-coordination-code-samples.md) page
+For in depth code samples covering many of the processes discussed in this section, see the [Project Coordination Code Samples](/docs/deployment-process/projects/coordinating-multiple-projects/project-coordination-code-samples.md) page
 :::
 
 ## Responding to Events Across Multiple Projects
@@ -21,7 +21,7 @@ There are various ways to respond to events within Octopus, which is useful for:
 - Triggering another process, for example another deployment.
 - Verifying that some conditions have been met.
 
-The simplest trigger is a periodic timer setup through a Windows schedules task, Azure Function, or as a windows service. Alternatively, it can also be a project within Octopus as a project that re-queues itself when run (see the [samples](/docs/deployment-process/coordinating-multiple-projects/project-coordination-code-samples.md)).
+The simplest trigger is a periodic timer setup through a Windows schedules task, Azure Function, or as a windows service. Alternatively, it can also be a project within Octopus as a project that re-queues itself when run (see the [samples](/docs/deployment-process/projects/coordinating-multiple-projects/project-coordination-code-samples.md)).
 
 Octopus 3.5 introduced [subscriptions](/docs/administration/subscriptions.md), which can call a web service or send an email when Octopus events occur.
 
@@ -56,6 +56,6 @@ This approach consists of each project taking on the role of checking that the o
 
 The Deploy Release step was introduced to Octopus in version `2018.2`.
 
-The [Deploy Release step](/docs/deployment-process/coordinating-multiple-projects/deploy-release-step/index.md) is helpful when implementing the _Master Project_  or _Cooperating Projects_ approaches described above. It makes it simple to deploy a release of a project from another project.    
+The [Deploy Release step](/docs/deployment-process/projects/coordinating-multiple-projects/deploy-release-step/index.md) is helpful when implementing the _Master Project_  or _Cooperating Projects_ approaches described above. It makes it simple to deploy a release of a project from another project.    
 
 ![Deploy Release Step Example Process](voltron-project-process.png "width=500")

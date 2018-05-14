@@ -4,7 +4,7 @@ description: Custom scripts allows you to script anything you want using PowerSh
 position: 29
 ---
 
-As a convention-oriented deployment tool, Octopus can perform a number of actions automatically, such as [managing configuration files](/docs/deployment-process/configuration-files/index.md), creating [IIS websites and application pools](/docs/deploying-applications/iis-websites-and-application-pools.md), and installing [Windows Services](/docs/deploying-applications/windows-services.md). Sometimes however you’ll need to do more than the built-in conventions support – and that’s where custom scripts come in.
+As a convention-oriented deployment tool, Octopus can perform a number of actions automatically, such as [managing configuration files](/docs/deployment-process/steps/configuration-files/index.md), creating [IIS websites and application pools](/docs/deploying-applications/iis-websites-and-application-pools.md), and installing [Windows Services](/docs/deploying-applications/windows-services.md). Sometimes however you’ll need to do more than the built-in conventions support – and that’s where custom scripts come in.
 
 !toc
 
@@ -27,7 +27,7 @@ In your package, you can add any of the following script files in any of the scr
 - `PostDeploy.<ext>`
 - `DeployFailed.<ext>`
 
-After extracting your package, Calamari will detect these scripts and invoke them. Which file you use depends on when you need your custom activity to run – see the section on [what order are conventions run in](/docs/deployment-process/deploying-packages/package-deployment-feature-ordering.md) for details. Your scripts can do anything your scripting language supports, as well as setting [output variables](/docs/deployment-process/variables/output-variables.md) and [collecting artifacts](/docs/deployment-process/artifacts.md). These scripts must be located in the root of your package.
+After extracting your package, Calamari will detect these scripts and invoke them. Which file you use depends on when you need your custom activity to run – see the section on [what order are conventions run in](/docs/deployment-process/steps/deploying-packages/package-deployment-feature-ordering.md) for details. Your scripts can do anything your scripting language supports, as well as setting [output variables](/docs/deployment-process/variables/output-variables.md) and [collecting artifacts](/docs/deployment-process/artifacts.md). These scripts must be located in the root of your package.
 
 As mentioned above, you can create a file named `DeployFailed.<ext>`, which will be invoked if the package deployment fails. Our blog post about this feature [describes how DeployFailed.<ext> works](https://octopus.com/blog/deployfailed).
 
