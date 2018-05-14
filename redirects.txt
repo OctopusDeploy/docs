@@ -27,13 +27,13 @@ docs/installation/installing-tentacles/running-tentacle-under-a-specific-user-ac
 docs/reference/download-permalinks.md -> docs/installation/index.md
 docs/key-concepts/environments/index.md -> docs/infrastructure/environments/index.md
 docs/key-concepts/environments/machine-policies.md -> docs/infrastructure/machine-policies.md
-docs/key-concepts/projects/index.md -> docs/deployment-process/projects.md
+docs/key-concepts/projects/index.md -> docs/deployment-process/projects/index.md
 docs/key-concepts/projects/deployment-processes.md -> docs/deployment-process/index.md
 docs/key-concepts/projects/releases.md -> docs/deployment-process/releases/index.md
 docs/key-concepts/projects/channels.md -> docs/deployment-process/channels.md
 docs/key-concepts/projects/project-triggers.md -> docs/deployment-process/project-triggers/index.md
 docs/key-concepts/projects/reporting.md -> docs/administration/reporting/index.md
-docs/key-concepts/project-groups.md -> docs/deployment-process/projects.md
+docs/key-concepts/project-groups.md -> docs/deployment-process/projects/index.md
 docs/key-concepts/lifecycles.md -> docs/infrastructure/lifecycles/index.md
 docs/deployment-process/lifecycles/index.md -> docs/infrastructure/lifecycles/index.md
 docs/key-concepts/tenants.md -> docs/deployment-patterns/multi-tenant-deployments/index.md
@@ -126,9 +126,8 @@ docs/guides/azure-deployments/running-azure-powershell/configuring-the-version-o
 docs/guides/azure-deployments/web-apps/index.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md
 docs/guides/azure-deployments/web-apps/getting-started-with-azure-web-apps.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md
 docs/guides/azure-deployments/web-apps/web-app-concepts.md -> docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md
-docs/deploying-applications/projects/index.md -> docs/deployment-process/projects.md
 docs/deploying-applications/projects/channels.md -> docs/deployment-process/channels.md
-docs/deploying-applications/projects/project-groups.md -> docs/deployment-process/projects.md
+docs/deploying-applications/projects/project-groups.md -> docs/deployment-process/projects/index.md
 docs/deploying-applications/projects/project-triggers.md -> docs/deployment-process/project-triggers/index.md
 docs/deploying-applications/projects/reporting.md -> docs/administration/reporting/index.md
 docs/deploying-applications/projects/releases.md -> docs/deployment-process/releases/index.md
@@ -224,7 +223,6 @@ docs/guides/service-fabric/index.md -> docs/deploying-applications/azure-deploym
 docs/guides/service-fabric/packaging.md -> docs/deploying-applications/azure-deployments/service-fabric/packaging.md
 docs/guides/service-fabric/version-automation-with-service-fabric-application-packages/index.md -> docs/deploying-applications/azure-deployments/service-fabric/version-automation-with-service-fabric-application-packages/index.md
 docs/guides/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md -> docs/deployment-patterns/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md
-docs/deploying-applications/deployment-process/projects/index.md -> docs/deployment-process/projects.md
 docs/deploying-applications/deployment-process/index.md -> docs/deployment-process/index.md
 docs/deploying-applications/deployment-process/releases/index.md -> docs/deployment-process/releases/index.md
 docs/deploying-applications/deployment-process/channels.md -> docs/deployment-process/channels.md
