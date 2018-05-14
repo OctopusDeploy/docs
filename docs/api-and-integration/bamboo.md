@@ -272,4 +272,3 @@ Error conditions encountered by the add-on have unique error codes, which are li
 | OCTOPUS-BAMBOO-INPUT-ERROR-0001 | No matching files could be found to push to Octopus Deploy. Check that the file pattern matches a file in the Bamboo working directory. |
 | OCTOPUS-BAMBOO-INPUT-ERROR-0002 | A required field was empty. |
 | OCTOPUS-BAMBOO-INPUT-ERROR-0003 | The server capability that defines the path to the Octopus CLI has an incorrect path. Make sure The path you assigned to the Octopus CLI is correct. |
-

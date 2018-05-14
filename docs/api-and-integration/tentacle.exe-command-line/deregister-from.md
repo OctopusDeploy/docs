@@ -5,7 +5,7 @@ description: Using the Tentacle.exe command line executable to deregister a mach
 
 Deregisters this machine from an Octopus Server
 
-**New certificate options**
+**Deregister from options**
 
 ```text
 Usage: Tentacle deregister-from [<options>]
