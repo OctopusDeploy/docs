@@ -13,7 +13,7 @@ It can be difficult to decide whether you need a single project or multiple proj
 - If the packages are delivered by different teams, or have different release schedules and deadlines, use separate projects.
 - If the packages are always deployed at the same time, and there is good communication between the teams developing them (or they are the same team), use a single project.
 
-There are other options, for instance, with the [Deploy Release Step](/docs/deployment-process/projects/coordinating-multiple-projects/deploy-release-step/index.md) it's possible to break bigger projects into smaller projects, that can be released individually or as part of a larger master project. For more options, see the [Coordinating Multiple Releases docs](/docs/deployment-process/projects/coordinating-multiple-p;rojects/index.md).
+There are other options, for instance, with the [Deploy Release Step](/docs/deployment-process/projects/coordinating-multiple-projects/deploy-release-step/index.md) it's possible to break bigger projects into smaller projects, that can be released individually or as part of a larger master project. For more options, see the [Coordinating Multiple Releases docs](/docs/deployment-process/projects/coordinating-multiple-projects/index.md).
 
 ## Managing Projects
 
