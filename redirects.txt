@@ -448,7 +448,7 @@ docs/packaging-applications/creating-packages/supported-packages -> docs/packagi
 docs/packaging-applications/creating-packages/versioning -> docs/packaging-applications/versioning.md
 docs/deployment-process/coordinating-multiple-projects/index.md -> docs/deployment-process/projects/coordinating-multiple-projects/index.md
 docs/deployment-process/configuration-files/index.md -> docs/deployment-process/steps/configuration-files/index.md
-docs/deployment-process/configuration-files/advanced-configuration-transforms-examples.md -> docs/deployment-process/steps/configuration-files/advanced-configuration-transforms-examples
+docs/deployment-process/configuration-files/advanced-configuration-transforms-examples.md -> docs/deployment-process/steps/configuration-files/advanced-configuration-transforms-examples.md
 docs/deployment-process/deploying-packages/index.md -> docs/deployment-process/steps/deploying-packages/index.md
 docs/deployment-process/deploying-packages/dynamically-selecting-packages.md -> docs/deployment-process/steps/deploying-packages/dynamically-selecting-packages.md
 docs/deployment-process/deploying-packages/transfer-package.md -> docs/deployment-process/steps/deploying-packages/transfer-package.md
