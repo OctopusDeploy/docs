@@ -22,6 +22,16 @@ Before you start your upgrade, you should take time to:
 
 There are lots of improvements and changes between major versions of Octopus. Please take the time to plan your upgrade path carefully.
 
+:::warning
+**Upgrade bug discovered**
+
+If you are upgrading to Octopus Server 2018.4 or later from a version earlier than Octopus Server 3.4 you will need to upgrade in a few steps until we fix [this bug](https://github.com/OctopusDeploy/Issues/issues/4509):
+
+- Upgrade to `3.4.15`
+- Upgrade to `3.17.14`
+- Upgrade to the latest version
+:::
+
 - [Upgrading from Octopus 3.x](/docs/administration/upgrading/upgrading-from-octopus-3.x.md) is generally easy.
   - Upgrading from `3.x` to `4.x` or `2018.x`
   Want to install Octopus 4.x? Great! Follow the same process as you would normally to upgrade your Octopus 3.x installation.
