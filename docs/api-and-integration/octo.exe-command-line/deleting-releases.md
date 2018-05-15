@@ -97,3 +97,5 @@ On the example above, both **minversion** and **maxversion** will be delete as w
 **Tip**
 Learn more about [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md), and [creating API keys](/docs/api-and-integration/api/how-to-create-an-api-key.md).
 :::
+
+Want to delete individual releases via the web portal? This process is outlined in our [deleting releases](https://octopus.com/docs/deployment-process/releases/deleting-releases) documentation page.
