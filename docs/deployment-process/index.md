@@ -40,78 +40,33 @@ This is an example of a very simple process, the following sections go into more
 
 Before you can define you how your software is deployed, you must create a project for the deployment process. Projects contain the deployment steps and configuration variables that define how your software is deployed.
 
-### Create a Project
-
-1. Select **Projects** from the main navigation, and click **ADD PROJECT**.
-2. Give the project a name that's meaningful to you, and anybody else who'll work on the project.
-3. Click **Save** and you will be taken to the newly created project's overview page.
-
 Learn more about managing [projects](docs/deployment-process/projects/index.md).
 
-<!--
+## Deployment Steps
 
-## Define Your Deployment Process
+Steps are the actions your deployment process will execute each time your software is deployed.
 
-Deployment processes can have one or many steps, steps can run in sequence or parallel, in addition to a variety of deployment steps, you can include manual intervention steps to get sign off before deployment, include notification steps to keep everybody informed about your process, or even skip steps under different circumstances.
+Deployment processes can have one or many steps, steps can run in sequence or parallel, in addition to a variety of deployment steps, you can include manual intervention steps to get sign off before deployment, include email notification steps to keep everybody informed about your process, or even skip steps under different circumstances.
 
-To define your process you can choose from the installed steps or community provided steps.
+Learn more about [steps](/docs/deployment-process/steps/index.md)
 
-In this example, we'll use the *Run a Script* step.
+## Configuration Files
 
-1. From your new project's overview page, click **DEFINE YOUR DEPLOYMENT PROCESS**.
-2. Click **ADD STEP**, and then select the **Run a Script** step. Learn more about the available [steps](docs/deployment-process/steps/index.md).
-3. Give the step a name, for instance, *Say Hello*.
-4. For the execution plan, leave the selection at the default *Deployment targets* and select the target role *web-server*. Learn more about [target roles](docs/infrastructure/target-roles/index.md).
-5. For the script section of the process, leave the *Script Source* selection on the default *The Script is defined below*.
-6. Expand the *Script content* section, by clicking on it. We're using a PowerShell script, paste the script into the text box:
-​```powershell
-Write-Host "Hello, World!"
-​```
-7. For Environments, either let the process run for all available environments if you only have the test environment, or you can select **Run only for specific environments** and choose your test environment, or select **Skip specific environments** and select the environments you want to exclude.
-8. The rest of the options can be left with the defaults selected.
-9. Click **Save**.
+When you deploy your software, it needs to be configured for the specific environments it will be deployed to. Configuration files let you define custom installation directories, database connections, and other settings that make it possible to deploy your software.
 
-Learn more about [steps](docs/deployment-process/steps/index.md).
+Learn more about [configuration files](/docs/deployment-process/steps/configuration-files/index.md).
 
-## Create a Release and Deploy
+## Variables
 
-Now that the process has been defined, you can create a release and deploy the software.
+Octopus supports variables to make it easier to define application settings for your deployment processes without the need to hardcode them. For instance, you might use different connection strings for apps deployed to Test and Production. Variables let you define these settings and then refer to them by the variable name throughout the deployment process, meaning you don't have to manually change them between deployments, or even give them much thought after the variables and deployment process have been defined.
 
-1. From the project's overview page, click **CREATE RELEASE**.
-2. Give the release a version number, for instance, `1.0.0`. Subsequent releases will automatically increment the release number, but you can override the number and provide your own.
-3. Optionally, enter some text for the release notes describing what's changed in the release.
-4. Click **Save**.
+Learn more about [variables](/docs/deployment-process/variables/index.md).
 
-This will deploy the release.
+## Releases and Deploying
 
-You'll be taken to a screen where you can see the progression of the release.
-
-Because this a simple deployment process there isn't much to see, but if you click on the **task** in the **Progression** section of the page, you'll be taken the task summary for the deployment. From there, you can click on the text under task deployment, and you'll find more details about the process and the deployment targets it ran on. In this case, you'll see the *Hello, World!* script ran on the deployment target in the *test* environment tagged with the target role *web-server*.
+In Octopus you create releases to be deployed. Projects have multiple releases and releases can be deployed multiple times to across different infrastructure.
 
 Learn more about [releases](docs/deployment-process/releases/index.md).
-
-##  Update the Software and Create a New Release
-
-Now that the deployment process has been defined, you can update your software and deploy a new release.
-
-In the case of our hello world script you would perform the following steps:
-
-1. Navigate to the **Projects** section of the Octopus Web Portal and select the *Hello World* project.
-2. Click **Process** and select the step you want to update.
-3. Click the **Script Content** section of the step, edit the script, and click **Save**.
-4. Click **CREATE RELEASE**.
-5. From here you can accept the automatic increment that's been applied to the version or provide your own. You can also add release notes describing your changes.
-6. Click **Save**.
-
-This will deploy the new release of the software.
-
-In a real world scenario, where the software you're developing is more complicated than a simple script, you could configure your continuous integration/build server to compile the code, package the software, and push it the built-in repository for automatic deployment.
-
-Learn more about configuring your continuous integration/build server to work with Octopus in the [API and Integrations documentation](docs/api-and-integration/index.md).
-
-
-
--->
 
 ## Working with the Octopus API
 
