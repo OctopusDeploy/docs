@@ -457,7 +457,7 @@ docs/deployment-process/manually-fail-a-running-or-cancelling-task.md -> docs/de
 docs/deployment-process/deploy-to-a-specific-subset-of-targets.md -> docs/deployment-process/releases/deploy-to-a-specific-subset-of-targets.md
 docs/deployment-process/how-to-run-steps-on-the-octopus-server.md -> docs/deployment-process/steps/how-to-run-steps-on-the-octopus-server.md
 docs/deployment-process/coordinating-multiple-projects/deploy-release-step/index.md -> docs/deployment-process/projects/coordinating-multiple-projects/deploy-release-step/index.md
-docs/deployment-process/configuration-files/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md -> docs/deployment-process/steps/configuration-files/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus
+docs/deployment-process/configuration-files/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md -> docs/deployment-process/steps/configuration-files/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md
 docs/deployment-process/configuration-files/substitute-variables-in-files.md -> docs/deployment-process/steps/configuration-files/substitute-variables-in-files.md
 docs/deployment-process/deploying-packages/delta-compression-for-package-transfers.md -> docs/deployment-process/steps/deploying-packages/delta-compression-for-package-transfers.md
 docs/deployment-process/deploying-packages/package-deployment-feature-ordering.md -> docs/deployment-process/deploying-packages/steps/package-deployment-feature-ordering.md
