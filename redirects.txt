@@ -260,7 +260,7 @@ docs/deploying-applications/deployment-process/delta-compression-for-package-tra
 docs/deploying-applications/deployment-process/deploying-virtual-hard-drives.md -> docs/deploying-applications/deploying-virtual-hard-drives.md
 docs/deploying-applications/deployment-process/steps/email-notifications.md -> docs/deployment-process/steps/email-notifications.md
 docs/deploying-applications/deployment-process/steps/manual-intervention-and-approvals.md -> docs/deployment-process/steps/manual-intervention-and-approvals.md
-docs/deploying-applications/deployment-process/steps/run-steps-in-parallel.md -> docs/deployment-process/steps/run-steps-in-parallel.md
+docs/deploying-applications/deployment-process/steps/run-steps-in-parallel.md -> docs/deployment-process/steps/conditions/run-steps-in-parallel.md
 docs/deploying-applications/deployment-process/releases/scheduled-deployments.md -> docs/deployment-process/releases/scheduled-deployments.md
 docs/deploying-applications/deployment-process/substitute-variables-in-files.md -> docs/deployment-process/steps/configuration-files/substitute-variables-in-files.md
 docs/deploying-applications/deployment-process/steps/conditions.md -> docs/deployment-process/steps/conditions.md
