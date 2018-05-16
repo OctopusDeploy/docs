@@ -18,7 +18,7 @@ After you hit save, you'll notice that the two steps are now tied up together, m
 
 ![](run-steps-in-parallel-now-in-parallel.png "width=500")
 
-## Maximum parellelism
+## Maximum Parallelism
 
 To help your Octopus Server remain stable, we have defaulted the maximum number of steps you can run concurrently in any given deployment to `10`. You can configure any number of steps to run in parallel, and Octopus will roll through them as quickly as possible, but it will only run `10` of them at any one time by default.
 
