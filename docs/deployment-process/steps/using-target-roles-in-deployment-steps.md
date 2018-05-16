@@ -1,7 +1,7 @@
 ---
 title: Using Target Roles in Deployment Steps
 description: Target roles allow you to “tag” machines with a specific keyword which can be used in your deployment steps.
-position: 1
+position: 10
 ---
 
 Almost all the steps that run on a deployment target can be scoped to one or more roles. This means that the step will only execute on targets with at least one of those roles. This does not mean that if the step is scoped to multiple roles that it will run for each role. Instead it will run that step for _all machines that have any roles that match any of the step roles._
