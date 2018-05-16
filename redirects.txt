@@ -263,7 +263,7 @@ docs/deploying-applications/deployment-process/steps/manual-intervention-and-app
 docs/deploying-applications/deployment-process/steps/run-steps-in-parallel.md -> docs/deployment-process/steps/conditions/run-steps-in-parallel.md
 docs/deploying-applications/deployment-process/releases/scheduled-deployments.md -> docs/deployment-process/releases/scheduled-deployments.md
 docs/deploying-applications/deployment-process/substitute-variables-in-files.md -> docs/deployment-process/steps/configuration-files/substitute-variables-in-files.md
-docs/deploying-applications/deployment-process/steps/conditions.md -> docs/deployment-process/steps/conditions.md
+docs/deploying-applications/deployment-process/steps/conditions.md -> docs/deployment-process/steps/conditions/index.md
 docs/deployment-process/projects/reporting.md -> docs/administration/reporting/index.md
 docs/deployment-process/projects/lifecycles/index.md -> docs/infrastructure/lifecycles/index.md
 docs/patterns/index.md -> docs/deployment-patterns/index.md
