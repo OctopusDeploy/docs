@@ -86,7 +86,7 @@ There may be other variables you would like Octopus to replace in your configura
 
 There are three ways you can do this, two of which involve using [Octopus Variables](/docs/deployment-process/variables/index.md).
 
-1. Insert `#{OctopusVariables}` where you would like the replacement to happen and use the [Substitute Variables in Files](/docs/deployment-process/configuration-files/substitute-variables-in-files.md) feature in the package step (see below for sample)
+1. Insert `#{OctopusVariables}` where you would like the replacement to happen and use the [Substitute Variables in Files](/docs/deployment-process/steps/configuration-files/substitute-variables-in-files.md) feature in the package step (see below for sample)
 2. Insert `#{OctopusVariables}` where you would like the replacement to happen and then use the [Regular Expression Find and Replace](https://library.octopusdeploy.com/step-templates/0bef8c07-5739-4030-8c04-287ceeb51153/actiontemplate-file-system-regular-expression-find-and-replace-(updated)) library template (this means you can replace any Octopus Variable in any file outside of the package step, the only distinction to the first option)
 3. Write and use a PowerShell script to find and replace variables inside of your configuration files
 
@@ -96,10 +96,10 @@ There are three ways you can do this, two of which involve using [Octopus Varia
     </authentication>
 ```
 
-There are pros and cons to each of these methods. For the first two it can break your configuration files locally. But if you make use of environment transforms (see below) you can avoid this. See the [Substitute Variables in Files](/docs/deployment-process/configuration-files/substitute-variables-in-files.md) documentation for an example of using Octopus Variables in your config files.
+There are pros and cons to each of these methods. For the first two it can break your configuration files locally. But if you make use of environment transforms (see below) you can avoid this. See the [Substitute Variables in Files](/docs/deployment-process/steps/configuration-files/substitute-variables-in-files.md) documentation for an example of using Octopus Variables in your config files.
 
 :::success
-Using the Substitute Variables in Files feature will change the order that variables are replaced. Using Configuration Transformations and Configuration Variables, does the transformation and then replaces variables. Defining files within the substitution will have all of their variables replaced first prior to the transformation. But this will only happen for any configuration or transformation files that are explicitly listed in the Substitute files list. Read about the order of [package step feature ordering here](/docs/deployment-process/deploying-packages/package-deployment-feature-ordering.md).
+Using the Substitute Variables in Files feature will change the order that variables are replaced. Using Configuration Transformations and Configuration Variables, does the transformation and then replaces variables. Defining files within the substitution will have all of their variables replaced first prior to the transformation. But this will only happen for any configuration or transformation files that are explicitly listed in the Substitute files list. Read about the order of [package step feature ordering here](/docs/deployment-process/steps/deploying-packages/package-deployment-feature-ordering.md).
 :::
 
 ## Configuration Transforms {#Configurationfiles-ConfigurationTransformationConfigurationtransforms}

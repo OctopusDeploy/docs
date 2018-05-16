@@ -8,16 +8,16 @@ When defining your [deployment process](/docs/deploying-applications/index.md), 
 
 The process of deploying a package looks approximately like this:
 
-1. Acquire the package as optimally as possible (local package cache and [delta compression](/docs/deployment-process/deploying-packages/delta-compression-for-package-transfers.md))
+1. Acquire the package as optimally as possible (local package cache and [delta compression](/docs/deployment-process/steps/deploying-packages/delta-compression-for-package-transfers.md))
 1. Create a new folder for the deployment (which avoids many common problems like file locks and leaving stale files behind)
     - Example: `C:\Octopus\Applications\[Tenant name]\[Environment name]\[Package name]\[Package version]\` where `C:\Octopus\Applications` is the Tentacle application directory you configured when installing Tentacle)
 1. Extract the package into the newly created folder
-1. Execute each of your [custom scripts](/docs/deploying-applications/custom-scripts/index.md) and the [deployment features](/docs/deploying-applications/index.md) you've configured will be executed to perform the deployment [following this order by convention](/docs/deployment-process/deploying-packages/package-deployment-feature-ordering.md).
+1. Execute each of your [custom scripts](/docs/deploying-applications/custom-scripts/index.md) and the [deployment features](/docs/deploying-applications/index.md) you've configured will be executed to perform the deployment [following this order by convention](/docs/deployment-process/steps/deploying-packages/package-deployment-feature-ordering.md).
 1. [Output variables](/docs/deployment-process/variables/output-variables.md) and deployment [artifacts](/docs/deployment-process/artifacts.md) from this step are sent back to the Octopus Server
 
 :::hint
 **Package deployment feature ordering**
-Each part of a package step is [executed in a specific order](/docs/deployment-process/deploying-packages/package-deployment-feature-ordering.md) by the open-source [Calamari project](https://github.com/OctopusDeploy/Calamari) to enable more complex deployment scenarios.
+Each part of a package step is [executed in a specific order](/docs/deployment-process/steps/deploying-packages/package-deployment-feature-ordering.md) by the open-source [Calamari project](https://github.com/OctopusDeploy/Calamari) to enable more complex deployment scenarios.
 :::
 
 ## Adding a package step {#Deployingpackages-Addingapackagestep}
@@ -30,7 +30,7 @@ When deploying a package you will need to select the machine role that the packa
 
 :::hint
 **Variable Package Feed and/or Package ID**
-You can dynamically select a Package Feed and/or the Package ID at deployment time using an Octopus variable expression. Learn more about [using dynamically selecting packages at deployment time](/docs/deployment-process/deploying-packages/dynamically-selecting-packages.md).
+You can dynamically select a Package Feed and/or the Package ID at deployment time using an Octopus variable expression. Learn more about [using dynamically selecting packages at deployment time](/docs/deployment-process/steps/deploying-packages/dynamically-selecting-packages.md).
 :::
 
 ![](deploy-package-step.png "width=500")
@@ -51,6 +51,6 @@ You can enable or disable features by clicking **Configure features**.
 
 For more details on some of the features, see the topics below.
 
-- [Configuration files](/docs/deployment-process/configuration-files/index.md)
+- [Configuration files](/docs/deployment-process/steps/configuration-files/index.md)
 - [Windows Services](/docs/deploying-applications/windows-services.md)
 - [IIS Websites and Application Pools](/docs/deploying-applications/iis-websites-and-application-pools.md)

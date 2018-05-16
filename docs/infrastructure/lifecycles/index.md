@@ -1,26 +1,29 @@
 ---
 title: Lifecycles
-description: Lifecycles allow you to control the way releases are promoted between environments. You can define automatic deployment environments in your lifecycle phases. This will automate deployments to an environment as soon as the phase becomes available.
+description: Lifecycles allow you to control the way releases are promoted between environments.
 position: 20
 ---
 
 Lifecycles allow you to control the way releases are promoted between environments. Lifecycles enable a number of advanced deployment workflow features:
 
-- Control the order of promotion: for example, to prevent a release being deployed to Production if it hasn't been deployed to Staging
-- Automate the deployment to environments: for example, automatically deploy to Test as soon as a release is created
-- Retention policies: specify the number of releases to keep depending on how far they have progressed through the lifecycle
+- Control the order of promotion: for example, to prevent a release being deployed to Production if it hasn't been deployed to Staging.
+- Automate the deployment to environments: for example, automatically deploy to Test as soon as a release is created.
+- Retention policies: specify the number of releases to keep depending on how far they have progressed through the lifecycle.
 
 A Lifecycle is defined by **phases**. Each phase can have one or more environments. And each environment can be defined as an automatic deployment environment or a manual deployment environment. Each phase can have a set number of environments that must be released to before the next phase is available for deployment.
 
 A Lifecycle can have a default retention policy defined and each phase inherits this policy or can also have it's own policy defined.
 
-## Managing Lifecycles {#Lifecycles-ManagingLifecycles}
+## Managing Lifecycles
 
 Lifecycle management can be found under **Library** and then **Lifecycles**.
 
-![](lifecycles.png "width=500")
+### Create a New Lifecycle
 
-To add a new Lifecycle click on the **Add Lifecycle** button.
+1. From the Lifecycle page, click on the **ADD LIFECYCLE** button.
+2. Give the Lifecycle a name.
+3. Add a description.
+4. Define the Retention Policy. The retention policy defines how long releases are kept for, and how long extracted packages and files are kept on tentacles. The default for both is to keep all.
 
 ![](lifecycle-create-new.png "width=500")
 
@@ -28,9 +31,9 @@ To start with you define a Name, description and default retention policy for th
 
 Once these initial details are defined you can add your first phase.
 
-## Lifecycle Phases {#Lifecycles-LifecyclePhases}
+## Lifecycle Phases
 
-Phases define the deployment pipeline. A phase must have a complete successful deployment before further phases are able to be deployed to.
+Phases define the deployment pipeline. A phase must have a complete successful deployment before further phases can be deployed to.
 
 To add a phase click the **+ Add Phase** button.
 

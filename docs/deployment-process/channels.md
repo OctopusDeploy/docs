@@ -1,7 +1,7 @@
 ---
 title: Channels
 description: Channels allow you to dynamically change the deployment logic and lifecycle of a project based on the version being deployed.
-position: 105
+position: 40
 ---
 
 :::success
@@ -32,11 +32,7 @@ Channels can also help you to create consistent Releases by specifying Version R
 
 Channels are managed per project.  Select the **Channels** menu item from the Project page.
 
-![](/docs/images/3048999/3278456.png "width=500")
-
 Click **Create Channel** to create a new Channel.
-
-![](/docs/images/3048999/3278457.png "width=500")
 
 The Channel must have a unique name per project.
 

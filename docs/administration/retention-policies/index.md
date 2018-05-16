@@ -22,7 +22,7 @@ The in-built NuGet repository will delete any **packages** that are not attached
 
 :::hint
 **Projects that use variables in Package IDs**
-You can [configure Octopus to select packages dynamically using variables](/docs/deployment-process/deploying-packages/dynamically-selecting-packages.md), which makes things more complicated for retention policies. [Read this page to learn more](http://help.octopusdeploy.com/discussions/problems/43995).
+You can [configure Octopus to select packages dynamically using variables](/docs/deployment-process/steps/deploying-packages/dynamically-selecting-packages.md), which makes things more complicated for retention policies. [Read this page to learn more](http://help.octopusdeploy.com/discussions/problems/43995).
 :::
 
 ## When the retention policies are applied {#RetentionPolicies-Whentheretentionpoliciesareapplied}
