@@ -31,7 +31,7 @@ You want to deploy the same package on each server but the deployment path will 
 
 ![](deploy-path-variable.png)
 
-Then, on your deployment step, you can set the **[Custom Install Directory](/docs/deployment-process/steps/custom-installation-directory.md)** to `#{DeployPath}`.
+Then, on your deployment step, you can set the **[Custom Install Directory](/docs/deployment-process/steps/configuration-files/custom-installation-directory.md)** to `#{DeployPath}`.
 
 ![](custom-install-path.png)
 
