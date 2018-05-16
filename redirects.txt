@@ -175,7 +175,7 @@ docs/deploying-applications/email-notifications.md -> docs/deployment-process/st
 docs/deploying-applications/deployment-process/email-notifications.md -> docs/deployment-process/steps/email-notifications.md
 docs/deploying-applications/manual-intervention-and-approvals.md -> docs/deployment-process/steps/manual-intervention-and-approvals.md
 docs/deploying-applications/deployment-process/manual-intervention-and-approvals.md -> docs/deployment-process/steps/manual-intervention-and-approvals.md
-docs/deploying-applications/run-steps-in-parallel.md -> docs/deployment-process/steps/run-steps-in-parallel.md
+docs/deploying-applications/run-steps-in-parallel.md -> docs/deployment-process/steps/conditions/run-steps-in-parallel.md
 docs/deploying-applications/deployment-process/run-steps-in-parallel.md -> docs/deployment-process/steps/run-steps-in-parallel.md
 docs/deploying-applications/scheduled-deployments.md -> docs/deployment-process/releases/scheduled-deployments.md
 docs/deploying-applications/deployment-process/scheduled-deployments.md -> docs/deployment-process/releases/scheduled-deployments.md
