@@ -1,7 +1,7 @@
 ---
 title: Conditions
 description: Adding conditions to steps to define your project's deployment process.
-position: 6
+position: 10
 ---
 
 ## Environments
