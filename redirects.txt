@@ -252,7 +252,7 @@ docs/deploying-applications/deployment-process/deploying-packages/troubleshoot-m
 docs/deploying-applications/deployment-process/performance.md -> docs/deployment-process/performance.md
 docs/deploying-applications/deployment-process/configuration-files/index.md -> docs/deployment-process/steps/configuration-files/index.md
 docs/deploying-applications/deployment-process/configuration-files/advanced-configuration-transforms-examples.md -> docs/deployment-process/steps/configuration-files/advanced-configuration-transforms-examples.md
-docs/deploying-applications/deployment-process/steps/custom-installation-directory.md -> docs/deployment-process/steps/custom-installation-directory.md
+docs/deploying-applications/deployment-process/steps/custom-installation-directory.md -> docs/deployment-process/steps/configuration-files/custom-installation-directory.md
 docs/deploying-applications/deployment-process/artifacts.md -> docs/deployment-process/artifacts.md
 docs/deploying-applications/deployment-process/steps/automatic-release-creation.md -> docs/deployment-process/releases/automatic-release-creation.md
 docs/deploying-applications/deployment-process/releases/blocking-deployments.md -> docs/deployment-process/releases/blocking-deployments.md
