@@ -460,6 +460,6 @@ docs/deployment-process/coordinating-multiple-projects/deploy-release-step/index
 docs/deployment-process/configuration-files/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md -> docs/deployment-process/steps/configuration-files/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md
 docs/deployment-process/configuration-files/substitute-variables-in-files.md -> docs/deployment-process/steps/configuration-files/substitute-variables-in-files.md
 docs/deployment-process/deploying-packages/delta-compression-for-package-transfers.md -> docs/deployment-process/steps/deploying-packages/delta-compression-for-package-transfers.md
-docs/deployment-process/deploying-packages/package-deployment-feature-ordering.md -> docs/deployment-process/steps/deploying-packages/steps/package-deployment-feature-ordering.md
+docs/deployment-process/deploying-packages/package-deployment-feature-ordering.md -> docs/deployment-process/steps/steps/deploying-packages/package-deployment-feature-ordering.md
 docs/deployment-process/deploying-packages/steps/package-deployment-feature-ordering.md -> docs/deployment-process/steps/deploying-packages/steps/package-deployment-feature-ordering.md
 docs/deployment-process/deploying-packages/stage-package-uploads.md -> docs/deployment-process/steps/deploying-packages/stage-package-uploads
