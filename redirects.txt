@@ -463,3 +463,4 @@ docs/deployment-process/deploying-packages/delta-compression-for-package-transfe
 docs/deployment-process/deploying-packages/package-deployment-feature-ordering.md -> docs/deployment-process/steps/deploying-packages/package-deployment-feature-ordering.md
 docs/deployment-process/deploying-packages/stage-package-uploads.md -> docs/deployment-process/steps/deploying-packages/stage-package-uploads.md
 docs/deployment-process/coordinating-multiple-projects/project-coordination-code-samples.md -> docs/deployment-process/projects/coordinating-multiple-projects/project-coordination-code-samples.md
+docs/deployment-process/steps/run-steps-in-parallel.md -> docs/deployment-process/steps/conditions/run-steps-in-parallel.md
