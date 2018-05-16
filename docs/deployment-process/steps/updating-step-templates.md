@@ -1,7 +1,7 @@
 ---
 title: Updating Step Templates
 description: How to update steps that are based on a step templates
-position: 2
+position: 20
 ---
 
 Step Templates are effectively copied to projects using them. That means if you update a step template, you'll need to update the step in the project using it for your changes to have an effect.

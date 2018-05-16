@@ -1,7 +1,7 @@
 ---
 title: Custom Step Templates
 description: How to create reusable steps
-position: 10
+position: 2
 ---
 
 Custom step templates can be based on a built-in or an installed community step template. These step templates can be reused in projects and managed in the step template library.
