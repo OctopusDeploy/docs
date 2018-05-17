@@ -26,7 +26,7 @@ New-OctopusAzureCloudServiceTarget -name "My Azure Cloud Service Target" `
                                    -azureCloudServiceName "CloudService1" `
                                    -azureStorageAccount "MyAzureCloudStorageAccount" `
                                    -octopusAccountIdOrName "Service Management Cert Account" `
-                                   -octopusRoles "AzureCloudService"
+                                   -octopusRoles "AzureCloudService" `
                                    -updateIfExisting
 
 # Overriding default values
@@ -35,7 +35,7 @@ New-OctopusAzureCloudServiceTarget -name "My Azure Cloud Service Target" `
                                    -azureStorageAccount "MyAzureCloudStorageAccount" `
                                    -azureDeploymentSlot "production" `
                                    -swap "deploy" `
-                                   -instanceCount "configuration"
+                                   -instanceCount "configuration" `
                                    -octopusAccountIdOrName "Service Management Cert Account" `
                                    -octopusRoles "AzureCloudService"
 ```
