@@ -40,7 +40,13 @@ This is an example of a very simple process, the following sections go into more
 
 Before you can define you how your software is deployed, you must create a project for the deployment process. Projects contain the deployment steps and configuration variables that define how your software is deployed.
 
-Learn more about managing [projects](docs/deployment-process/projects/index.md).
+Learn more about managing [projects](/docs/deployment-process/projects/index.md).
+
+## Lifecycles
+
+Lifecycles control how your software is promoted through your environments and which projects are associated with which environments. With lifecycles, you can specify automatic deployment to environments, for instance, deploy to *test* as soon as a release is created, and prevent deployments advancing to other environments out of order, for instance, don't deploy to *production* if the release hasn't been deployed to *staging*.
+
+Learn more about [Lifecycles](/docs/deployment-process/lifecycles/index.md).
 
 ## Deployment Steps
 
@@ -66,7 +72,7 @@ Learn more about [variables](/docs/deployment-process/variables/index.md).
 
 In Octopus you create releases to be deployed. Projects have multiple releases and releases can be deployed multiple times to across different infrastructure.
 
-Learn more about [releases](docs/deployment-process/releases/index.md).
+Learn more about [releases](/docs/deployment-process/releases/index.md).
 
 ## Working with the Octopus API
 

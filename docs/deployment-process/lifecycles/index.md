@@ -1,7 +1,7 @@
 ---
 title: Lifecycles
 description: Lifecycles allow you to control the way releases are promoted between environments.
-position: 20
+position: 2
 ---
 
 Lifecycles allow you to control the way releases are promoted between environments. Lifecycles enable a number of advanced deployment workflow features:

@@ -21,7 +21,7 @@ If you're working with a large number of environments and deployment targets, th
 
 ![](environments.png "width=500")
 
-### Sorting Your Environments
+## Sorting Your Environments
 
 Click the overflow menu on the environments sections to reveal the **reorder** menu and access a drag and drop pane to sort your environments
 
@@ -32,7 +32,7 @@ The order that environments are shown in the environments tab also affects:
 
 It's a good idea to put your least production-like environments first, and the most production-like environments last.
 
-### Using Advanced Filters
+## Using Advanced Filters
 
 You can use advanced filters to search your environments by clicking on **SHOW ADVANCED FILTERS** from the environment tab.
 
@@ -45,22 +45,20 @@ This will let you search by:
 - Health Status
 - Communication Style
 
-### Editing Your Environments
+## Editing Your Environments
 
 To edit individual environments, click the overflow menu for that environment. From here, it is possible to edit the environment, description, select [guided failure mode](/docs/infrastructure/environments/index.md#Environments-Guidedfailures), or delete the environment.
 
-### Guided Failures
+## Guided Failures
 
 [Guided failure mode](/docs/deployment-process/releases/guided-failures.md) can be enabled on an environment by default. This is useful for critical environments that are usually deployed to manually (for example, staging and production-like environments), though you might want to disable this feature for environments which are deployed to automatically such as smoke testing environments.
 
 To enable guided failure mode by default for individual environments, click the overflow menu for the environment, select *Default Guided Failure Mode* and click the checkbox. Note, you can still override this setting for individual deployments. For more information, see the section on [Guided Failures](/docs/deployment-process/releases/guided-failures.md).
 
-### Environment Permissions
+## Environment Permissions
 
 You can control who has access to view, edit, and deploy to environments by assigning users to Teams and assigning roles to those teams. For more information, see the section on [managing users and teams](/docs/administration/managing-users-and-teams/index.md).
 
-### Dynamic Targets in an Environment
+## Dynamic Targets in an Environment
 
 To manage the targets within an Environment dynamically using the [Dynamic Infrastructure](/docs/infrastructure/dynamic-infrastructure/index.md) PowerShell Cmdlets, select **Edit** in the overflow menu for the environment, expand the **Dynamic Infrastructure** section, and click the checkbox to *Allow managing dynamic infrastructure*.
-
-![Dynamic Infrastructure Configuration](dynamic-infrastructure-config.png "width=500")

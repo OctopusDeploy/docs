@@ -57,7 +57,7 @@ These steps should be executed from your Octopus 2.6 server to your 2.6 Tentacle
 
 4. Create a [new project](/docs/deployment-process/projects/index.md) with a single "Update Octopus Tentacle" step from the step template
 
- 1. Ensure you choose or create a [Lifecycle](/docs/infrastructure/lifecycles/index.md)that allows you to deploy to all Tentacles.
+ 1. Ensure you choose or create a [Lifecycle](/docs/deployment-process/lifecycles/index.md)that allows you to deploy to all Tentacles.
  2. Ensure you set the Update Octopus Tentacle step to run for all appropriate Tentacles.
  3. Set the `Server Mapping` field:
  
