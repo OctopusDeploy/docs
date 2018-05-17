@@ -27,7 +27,7 @@ _Security Mode Options_
 | --- | --- |
 | Unsecure | `unsecure` |
 | Secure Client Certificate | `certificate` `clientcertificate` `secureclientcertificate` |
-| Secure Azure Active Directory | `aad` `azureactivedirectory`| 
+| Secure Azure Active Directory | `aad` `azureactivedirectory`|
 
 Examples:
 ```powershell
@@ -35,7 +35,7 @@ Examples:
 New-OctopusAzureServiceFabricTarget -name "My Service Fabric Target 1" `
                                     -azureConnectionEndpoint "connectionEndpoint" `
                                     -azureSecurityMode "unsecure" `
-                                    -octopusRoles "ServiceFabricRole"
+                                    -octopusRoles "ServiceFabricRole" `
                                     -updateIfExisting
 
 # Client Certificate
@@ -61,7 +61,7 @@ New-OctopusAzureServiceFabricTarget -name "My Service Fabric Target 4" `
                                    -azureConnectionEndpoint "connectionEndpoint" `
                                    -azureSecurityMode  "azureactivedirectory" `
                                    -azureCertificateThumbprint "1234567890" `
-                                   -octopusCertificateIdOrName "cert" 
+                                   -octopusCertificateIdOrName "cert" `
                                    -octopusRoles "Service Fabric Role"
 
 ```
