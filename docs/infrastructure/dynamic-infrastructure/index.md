@@ -6,7 +6,7 @@ position: 110
 
 Some resources can be created within Octopus from the same scripts that you use to create them on Azure. By adding some additional commands Web Apps you create on Azure can also be created within Octopus as deployment targets.
 
-:::warning
+:::success
 As of the `2018.5` release, only Azure Service Principal Accounts, Azure Web Apps, Azure Service Fabric and Azure Cloud Services targets are supported.
 :::
 
@@ -20,7 +20,9 @@ Each of the resource commands is available as a Powershell function anywhere tha
 
 ### Targets
 
+:::warning
 Before you can create dynamic targets in an Environment, the environment needs to be configured to allow it. See [Dynamic Targets in an Environment](/docs/infrastructure/environments/index.md#dynamic-targets-in-an-environment) for more information.
+:::
 
 [Azure Web App](/docs/infrastructure/dynamic-infrastructure/azure-web-app-target.md)
 
