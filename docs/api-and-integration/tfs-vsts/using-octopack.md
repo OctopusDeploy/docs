@@ -57,7 +57,7 @@ To create an API key, see the [How to create an API key](/docs/api-and-integrati
 
 ### Using Lifecycles and automatic deployments {#Deployingautomaticallyafterabuild-Using-AutomaticDeployments}
 
-Version 2.6 of Octopus Deploy introduced [Lifecycles ](/docs/infrastructure/lifecycles/index.md)and [Automatic Release Creation](/docs/deployment-process/releases/automatic-release-creation.md). You can use these two features to automatically deploy to one or more environments when a new package is pushed to the built-in NuGet repository.
+Version 2.6 of Octopus Deploy introduced [Lifecycles ](/docs/deployment-process/lifecycles/index.md)and [Automatic Release Creation](/docs/deployment-process/releases/automatic-release-creation.md). You can use these two features to automatically deploy to one or more environments when a new package is pushed to the built-in NuGet repository.
 
 First, turn on Automatic Release Creation to create a new release when your package is pushed. Then, using the project Lifecycle configure one or more environments in your first phase to deploy automatically when a new release is available.
 
