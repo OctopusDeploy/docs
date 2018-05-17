@@ -26,8 +26,12 @@ The first time you navigate to the **Projects** area you have the option to eith
 Before you can define your deployment process, you must create a project.
 
 1. Select **Projects** from the main navigation, and click **ADD PROJECT**.
-2. Give the project a name that's meaningful to you, and anybody else who'll work on the project.
-3. Click **Save** and you will be taken to the newly created project's overview page.
+1. Give the project a name that's meaningful to you, and anybody else who'll work on the project.
+1. Add a description for the project.
+1. If you want to specify the [project group](/docs/deployment-process/projects/index.md#project-group) or [lifecycle](/docs/deployment-process/lifecycles/index.md), click **Advanced Settings**.
+1. Select the Project group from the dropdown menu. (Learn more about [project groups](/docs/deployment-process/projects/index.md#project-group)).
+1. Select the lifecycle from the dropdown menu. (Learn more about [Lifecycles](/docs/deployment-process/lifecycles/index.md)).
+1. Click **Save** and you will be taken to the newly created project's overview page.
 
 ## Project Settings
 
@@ -42,19 +46,22 @@ If you are likely to have a lot of projects, in addition to giving them meaningf
 3. Click the file selector and select a file to upload.
 4. Click **open** to upload your logo image, and click **Save**.
 
-<!-- continue -->
 
-## Add a Project Group
+## Project Group
 
-Project groups are a way of organizing your projects.
+Project groups are a way of organising your projects.
 
 When you create a project group, we recommend using a meaningful name and adding a description.
 
+Note, the *All Projects* group contains all of the projects that have not been added to another group.
+
+## Add Projects to a Group
+
 After you have created a project group there are a number of ways you can add projects to the group:
 
-1. Click **ADD PROJECT** from the group's section of the **Projects** page.
-1. Edit an existing project by navigating to the project, selecting **Settings** and editing the **Project Group**.
-1. Specify the **Project Group** under **Advanced Settings** when you create a new project.
+- Click **ADD PROJECT** from the group's section of the **Projects** page.
+- Edit an existing project by navigating to the project, selecting **Settings** and editing the **Project Group**.
+- Specify the **Project Group** under **Advanced Settings** when you create a new project.
 
 Any projects and project groups you create will be accessible from the projects page. If a project group does not have any projects associated with it, click *SHOW EMPTY GROUPS* to reveal the group.
 
