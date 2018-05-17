@@ -46,7 +46,7 @@ Learn more about managing [projects](docs/deployment-process/projects/index.md).
 
 Lifecycles control how your software is promoted through your environments and which projects are associated with which environments. With lifecycles, you can specify automatic deployment to environments, for instance, deploy to *test* as soon as a release is created, and prevent deployments advancing to other environments out of order, for instance, don't deploy to *production* if the release hasn't been deployed to *staging*.
 
-Learn more about [Lifecycles](/docs/infrastructure/deployment-process/index.md).
+Learn more about [Lifecycles](/doc/deployment-process/lifecycles/index.md).
 
 ## Deployment Steps
 

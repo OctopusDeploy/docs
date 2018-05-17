@@ -49,7 +49,7 @@ If you are likely to have a lot of projects, in addition to giving them meaningf
 
 ## Project Group
 
-Project groups are a way of organising your projects.
+Project groups are a way of organizing your projects.
 
 When you create a project group, we recommend using a meaningful name and adding a description.
 

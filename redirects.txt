@@ -35,7 +35,6 @@ docs/key-concepts/projects/project-triggers.md -> docs/deployment-process/projec
 docs/key-concepts/projects/reporting.md -> docs/administration/reporting/index.md
 docs/key-concepts/project-groups.md -> docs/deployment-process/projects/index.md
 docs/key-concepts/lifecycles.md -> docs/deployment-process/lifecycles/index.md
-docs/deployment-process/lifecycles/index.md -> docs/deployment-process/lifecycles/index.md
 docs/key-concepts/tenants.md -> docs/deployment-patterns/multi-tenant-deployments/index.md
 docs/key-concepts/index.md -> docs/getting-started.md
 docs/key-concepts/tenants/tenant-tags -> docs/deployment-patterns/multi-tenant-deployments/tenant-tags.md
