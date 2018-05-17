@@ -181,18 +181,19 @@ While the value only output (which would appear in the logs as a message similar
 "hi there"
 ```
 
-## Accessing terraform output variables
+## Accessing Terraform Output Variables
 
-Using the previous example output variable called test you can access the output using Powershell using:
+Using the previous example output variable called `test` you can access the output using Powershell as follows:
+
 ```
 $value = $OctopusParameters["Octopus.Action[Apply Template].Output.TerraformValueOutputs[test]]"] | ConvertFrom-Json
 
 // OR
 
 $value = $OctopusParameters["Octopus.Action[Apply Template].Output.TerraformJsonOutputs[test]"] | ConvertFrom-Json  | select -ExpandProperty value
-
 ```
-The syntax for accessing JSON variables as covered by our [documentation here](/docs/deployment-process/variables/variable-substitution-syntax.md#VariableSubstitutionSyntax-JSONParsingjson) applies to both `TerraformJsonOutputs` as well as `TerraformValueOutputs` however the latter is less useful as it can also be a primitive value. In this case octostache won't know that it should deserialize the value and will provide you with a JSON encoded result. It is therefore recommended to prefer `TerraformJsonOutputs` where possible. The following syntax can be used to access the value using the binding syntax:
+
+The syntax for accessing JSON variables as covered by our [documentation here](/docs/deployment-process/variables/variable-substitution-syntax.md#VariableSubstitutionSyntax-JSONParsingjson) applies to both `TerraformJsonOutputs` as well as `TerraformValueOutputs`. However the latter is less useful as it can also be a primitive value. In this case Octostache won't know that it should deserialize the value and will provide you with a JSON encoded result. It is therefore recommended to prefer `TerraformJsonOutputs` where possible. The following syntax can be used to access the value using the binding syntax:
 
 ```
 #{Octopus.Action[Apply Template].Output.TerraformJsonOutputs[test].value}
