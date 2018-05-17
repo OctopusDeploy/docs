@@ -58,3 +58,9 @@ To enable guided failure mode by default for individual environments, click the 
 ### Environment Permissions
 
 You can control who has access to view, edit, and deploy to environments by assigning users to Teams and assigning roles to those teams. For more information, see the section on [managing users and teams](/docs/administration/managing-users-and-teams/index.md).
+
+### Dynamic Targets in an Environment
+
+To manage the targets within an Environment dynamically using the [Dynamic Infrastructure](/docs/infrastructure/dynamic-infrastructure/index.md) PowerShell Cmdlets, select **Edit** in the overflow menu for the environment, expand the **Dynamic Infrastructure** section, and click the checkbox to *Allow managing dynamic infrastructure*.
+
+![Dynamic Infrastructure Configuration](dynamic-infrastructure-config.png "width=500")

@@ -1,7 +1,7 @@
 ---
 title: Exporting Step Templates
 description: How to export step templates
-position: 3
+position: 4
 ---
 
 If you want to transport, backup, or share your Step Templates with the community, you can export a template by finding your template in {{Library,Step templates}}, and clicking the **Export** link.

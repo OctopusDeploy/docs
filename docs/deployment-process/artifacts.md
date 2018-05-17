@@ -1,7 +1,7 @@
 ---
 title: Artifacts
 description: Artifacts in Octopus provide a convenient way to collect files from remote machines during deployments.
-position: 19
+position: 60
 ---
 
 Artifacts in Octopus provide a convenient way to collect files from remote machines, and copy them to the Octopus server, where they can then be viewed from the web interface. Examples of where artifacts may be useful are:
@@ -38,7 +38,7 @@ For example:
 **PowerShell**
 
 ```powershell
-New-OctopusArtifact -Path "C:\Windows\System32\drivers\etc\hosts" -Name "$([System.Environment]::MachineName)-hosts.txt" 
+New-OctopusArtifact -Path "C:\Windows\System32\drivers\etc\hosts" -Name "$([System.Environment]::MachineName)-hosts.txt"
 ```
 
 ### C# {#Artifacts-C#}

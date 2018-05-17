@@ -1,7 +1,7 @@
 ---
 title: Windows Targets
 description: Everything you need to know about installing and configuring Octopus Tentacles on Windows targets for use with your deployments.
-position: 40
+position: 30
 ---
 When you deploy software to Windows Servers, you need to install Tentacle, a lightweight agent service, on all of those Window Servers.
 
@@ -48,7 +48,7 @@ To complete the installation we need to configure communication between the Octo
 1. Accept the default listening port **10933** or provide your own.
 1. Paste the **Thumbprint** into the **Octopus Thumbprint** field and click **next**.
 1. Click **INSTALL**, and after the installation has finished click **Finish**.
-1. Back in the **Octopus Web Portal**, enter the DNS or IP address of the tentacle, i.e., `example.com` or `10.0.1.23`, and click **NEXT**.
+1. Back in the **Octopus Web Portal**, enter the DNS or IP address of the machine the Tentacle is installed on, i.e., `example.com` or `10.0.1.23`, and click **NEXT**.
 1. Add a display name for the deployment target (the server where you just installed the listening tentacle).
 1. Select which environment the deployment target will be assigned to.
 1. Choose or create at least one target role for the deployment target. Learn about [target roles](/docs/infrastructure/target-roles/index.md).
@@ -56,7 +56,7 @@ To complete the installation we need to configure communication between the Octo
 
 Your deployment target is configured, next you need to preform a [health check and update Calamari](/docs/infrastructure/windows-targets/index.md#health-check-and-upgrade-calamari).
 
-If the Tentacle isn't connecting, try the steps on the [troubleshooting page](/docs/infrastructure/windows-targets/troubleshoot-listening-tentacles.md).
+If the Tentacle isn't connecting, try the steps on the [troubleshooting page](/docs/infrastructure/windows-targets/troubleshooting-tentacles.md).
 
 ### Update your Tentacle Firewall
 
@@ -83,7 +83,7 @@ Don't forget to allow access in any intermediary firewalls between the Octopus s
 
 Your deployment target is configured, next you need to preform a  [health check and update Calamari](/docs/infrastructure/windows-targets/index.md#health-check-and-upgrade-calamari).
 
-If the Tentacle isn't connecting, try the steps on the [troubleshooting page](/docs/infrastructure/windows-targets/troubleshoot-polling-tentacles.md).
+If the Tentacle isn't connecting, try the steps on the [troubleshooting page](/docs/infrastructure/windows-targets/troubleshooting-tentacles.md).
 
 ### Update your Octopus Server Firewall
 

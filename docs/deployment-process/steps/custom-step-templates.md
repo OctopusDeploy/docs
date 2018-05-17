@@ -1,7 +1,7 @@
 ---
 title: Custom Step Templates
 description: How to create reusable steps
-position: 0
+position: 2
 ---
 
 Custom step templates can be based on a built-in or an installed community step template. These step templates can be reused in projects and managed in the step template library.
@@ -84,15 +84,15 @@ To run a script based step template, perform the following.
 1. Navigate to {{Library,Step templates}} area and click the **Run** button next to the script based custom step template or alternately, select a script template and click the **Run** button from the template editor page
 
    ![Run step template](step-templates-run.png "width=500")
-   
+
 2. Select a group of targets to run the step on. This can be done by target name or by environments and roles.
 
    ![Select run targets](step-templates-run-targets.png "width=500")
-   
+
 3. Enter any required parameters.
 
    ![Enter parameter values](step-templates-run-parameters.png "width=500")
-   
+
 4. Click the **Run now** button. This will execute the step as a new task and provide the full script. 
 
    ![Task summary](step-templates-run-task-summary.png "width=500")

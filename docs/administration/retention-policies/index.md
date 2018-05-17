@@ -16,13 +16,13 @@ There are three different types of retention policies that run. Those on the Oct
 
 The Octopus Server settings delete **releases** from the database. This is a data deletion. It also cleans up any **artifacts**, **deployments, tasks, events** and **logs** attached to the release. Releases that are still on the overall dashboard are never deleted. It is assumed to be the working release and may still be promoted (even if their dates fall well outside the retention policy). No packages from the internal NuGet repository will be deleted as part of this policy, but they may be deleted by a corresponding repository retention policy.
 
-The Tentacle settings delete **packages**, and expanded **files and folders** from packages on the Tentacle machine that is being deployed to. Note that if you use the [Custom Installation Directory ](/docs/deployment-process/steps/custom-installation-directory.md)feature, we will never delete from that directory during retention policies. This can be purged during deployment in the project step settings. But it is assumed this will have a working release in it.
+The Tentacle settings delete **packages**, and expanded **files and folders** from packages on the Tentacle machine that is being deployed to. Note that if you use the [Custom Installation Directory ](/docs/deployment-process/steps/configuration-files/custom-installation-directory.md)feature, we will never delete from that directory during retention policies. This can be purged during deployment in the project step settings. But it is assumed this will have a working release in it.
 
 The in-built NuGet repository will delete any **packages** that are not attached to any release. If you happen to have higher versions of packages that have not been released, we will keep them assuming a release will be created. If you delete releases using the Octopus Server retention policy then any packages that were associated with those releases will then be deleted with that task.
 
 :::hint
 **Projects that use variables in Package IDs**
-You can [configure Octopus to select packages dynamically using variables](/docs/deployment-process/deploying-packages/dynamically-selecting-packages.md), which makes things more complicated for retention policies. [Read this page to learn more](http://help.octopusdeploy.com/discussions/problems/43995).
+You can [configure Octopus to select packages dynamically using variables](/docs/deployment-process/steps/deploying-packages/dynamically-selecting-packages.md), which makes things more complicated for retention policies. [Read this page to learn more](http://help.octopusdeploy.com/discussions/problems/43995).
 :::
 
 ## When the retention policies are applied {#RetentionPolicies-Whentheretentionpoliciesareapplied}

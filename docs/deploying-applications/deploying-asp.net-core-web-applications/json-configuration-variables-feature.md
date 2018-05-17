@@ -3,7 +3,7 @@ title: JSON Configuration Variables Feature
 description: The JSON Configuration Variables feature updates your JSON configuration files with the values from matching Octopus variables.
 ---
 
-The **JSON configuration variables** feature updates your JSON configuration files with the values from matching Octopus variables. In many ways this feature works similarly to the [Substitute Variables in Files](/docs/deployment-process/configuration-files/substitute-variables-in-files.md) feature, but uses a special matching syntax so you can update configuration nested in JSON object and array literals.
+The **JSON configuration variables** feature updates your JSON configuration files with the values from matching Octopus variables. In many ways this feature works similarly to the [Substitute Variables in Files](/docs/deployment-process/steps/configuration-files/substitute-variables-in-files.md) feature, but uses a special matching syntax so you can update configuration nested in JSON object and array literals.
 
 :::hint
 ASP.NET Core 1.0 (previously known as ASP.NET 5) has been released! Microsoft's [ASP.NET documentation site](http://docs.asp.net/) is the best resource on the ASP.NET Core web application platform. Their [Configuration page](http://docs.asp.net/en/latest/fundamentals/configuration.html) provides detailed information on the configuration options available.

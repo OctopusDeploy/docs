@@ -30,7 +30,7 @@ As an example, many customers have reported speed improvements of 50-90% for the
 
 ### Retention policies
 
-Octopus are generally hygienic creatures, cleaning up after themselves, and your Octopus is no different. Configuration documents, like [projects](/docs/deployment-process/projects.md) and [environments](/docs/infrastructure/environments/index.md), are stored until you delete them, unlike historical documents like [releases](/docs/deployment-process/releases/index.md). These will be cleaned up according to the [retention policies](/docs/administration/retention-policies/index.md) you configure.
+Octopus are generally hygienic creatures, cleaning up after themselves, and your Octopus is no different. Configuration documents, like [projects](/docs/deployment-process/projects/index.md) and [environments](/docs/infrastructure/environments/index.md), are stored until you delete them, unlike historical documents like [releases](/docs/deployment-process/releases/index.md). These will be cleaned up according to the [retention policies](/docs/administration/retention-policies/index.md) you configure.
 
 _The one exception to this is the `Events` table which records an [audit trail](/docs/administration/auditing.md) of every significant event in your Octopus._
 
@@ -51,7 +51,7 @@ Octopus Servers do quite a lot of work during deployments, mostly around package
 
 - Downloading packages from the package source (network-bound)
 - Verifying package hashes (CPU-bound)
-- Calculating deltas between packages for [delta compression](/docs/deployment-process/deploying-packages/delta-compression-for-package-transfers.md) (I/O-bound and CPU-bound)
+- Calculating deltas between packages for [delta compression](/docs/deployment-process/steps/deploying-packages/delta-compression-for-package-transfers.md) (I/O-bound and CPU-bound)
 - Uploading packages to deployment targets (network-bound)
 - Monitoring deployment targets for job status, and collecting logs
 
@@ -100,12 +100,12 @@ Follow these tips to tune and maintain the performance of your Octopus:
     - You can configure how many tasks from the task queue will run at the same time on any given Octopus Server node by going to {{Configuration>Nodes}}. The default task cap is `5` (safe-by-default). You can increase this cap to push your Octopus to work harder.
     - Learn about [tuning your deployment processes for performance](/docs/deployment-process/performance.md).
 1. Consider how you transfer your packages: {#package-transfer}
-    - If network bandwidth is the limiting factor, consider using [delta compression for package transfers](/docs/deployment-process/deploying-packages/delta-compression-for-package-transfers.md).
+    - If network bandwidth is the limiting factor, consider using [delta compression for package transfers](/docs/deployment-process/steps/deploying-packages/delta-compression-for-package-transfers.md).
     - If network bandwidth is not a limiting factor, consider using a custom package feed close to your deployment targets, and download the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
-    - If Octopus Server CPU and disk IOPS is a limiting factor, avoid using [delta compression for package transfers](/docs/deployment-process/deploying-packages/delta-compression-for-package-transfers.md). Instead, consider downloading the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
+    - If Octopus Server CPU and disk IOPS is a limiting factor, avoid using [delta compression for package transfers](/docs/deployment-process/steps/deploying-packages/delta-compression-for-package-transfers.md). Instead, consider downloading the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
 1. Consider the size of your packages:
     - Larger packages require more network bandwidth to transfer to your deployment targets.
-    - When using [delta compression for package transfers](/docs/deployment-process/deploying-packages/delta-compression-for-package-transfers.md), larger packages require more CPU and disk IOPS on the Octopus Server to calculate deltas - this is a tradeoff you can determine through testing.
+    - When using [delta compression for package transfers](/docs/deployment-process/steps/deploying-packages/delta-compression-for-package-transfers.md), larger packages require more CPU and disk IOPS on the Octopus Server to calculate deltas - this is a tradeoff you can determine through testing.
 1. Consider the size of your Task Logs: {#tip-task-logs}
     - Larger task logs put the entire Octopus pipeline under more pressure.
     - We recommend printing messages required to understand progress and deployment failures. The rest of the information should be streamed to a file, then published as a deployment [artifact](/docs/deployment-process/artifacts.md).

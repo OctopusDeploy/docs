@@ -2,7 +2,7 @@
 title: Azure
 description: Configure your infrastructure so Octopus can deploy software to your Windows servers, Linux servers, or Cloud Regions.
 hideInThisSection: true
-position: 70
+position: 50
 ---
 
 !partial <content>

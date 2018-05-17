@@ -3,6 +3,7 @@ title: Steps
 description: Adding steps to define your project's deployment process.
 position: 3
 ---
+Steps are the actions your deployment process will execute each time your software is deployed. 
 
 Octopus strives to make it quick and easy to define your project's deployment process.  Selecting the **ADD STEP** button displays a list of built-in step templates, custom step templates, and community contributed step templates.
 
@@ -76,7 +77,7 @@ Steps can include multiple actions.
 
 ## Example: A simple deployment process {#DeploymentProcesses-Example:Asimpledeploymentprocess}
 
-In the example shown below there are three steps that will be executed from top to bottom. The first is a [manual intervention](/docs/deployment-process/steps/manual-intervention-and-approvals.md) which executes on the Octopus Server pausing the deployment until someone intervenes and allow the deployment to continue. This step will only execute when targeting the Production [environment](/docs/infrastructure/environments/index.md). The remaining steps both [deploy a package](/docs/deployment-process/deploying-packages/index.md) and execute [custom scripts](/docs/deploying-applications/custom-scripts/index.md) on all of the [deployment targets](/docs/infrastructure/index.md) with the [role](/docs/infrastructure/target-roles/index.md) **web-server**.
+In the example shown below there are three steps that will be executed from top to bottom. The first is a [manual intervention](/docs/deployment-process/steps/manual-intervention-and-approvals.md) which executes on the Octopus Server pausing the deployment until someone intervenes and allow the deployment to continue. This step will only execute when targeting the Production [environment](/docs/infrastructure/environments/index.md). The remaining steps both [deploy a package](/docs/deployment-process/steps/deploying-packages/index.md) and execute [custom scripts](/docs/deploying-applications/custom-scripts/index.md) on all of the [deployment targets](/docs/infrastructure/index.md) with the [role](/docs/infrastructure/target-roles/index.md) **web-server**.
 
 ![](simple-process.png "width=500")
 

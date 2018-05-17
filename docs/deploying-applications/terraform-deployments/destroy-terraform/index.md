@@ -143,7 +143,7 @@ See the [variable substitution](https://octopus.com/docs/deployment-process/vari
 
 The `Additional variable files` option contains a new-line separated list of variable files to use with the deployment. All files called `terraform.tfvars`, `terraform.tfvars.json`, `*.auto.tfvars` and `*.auto.tfvars.json` are automatically loaded by Terraform, and do not need to be listed here. However you may want to reference environment specific variable files by referencing them with files names built around variable substitution such as `#{Octopus.Environment.Name}.tfvars`.
 
-Each line entered into this field will be passed to Terraform as `-var-file '<filename>'`
+Each line entered into this field will be passed to Terraform as `-var-file '<filename>'`.
 
 ## Advanced Options Section
 

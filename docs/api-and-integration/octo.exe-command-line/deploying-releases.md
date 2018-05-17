@@ -70,7 +70,7 @@ Deployment:
                              build a query/filter with multiple tags, just 
                              like you can in the user interface.
       --project=VALUE        Name of the project
-      --deployto=VALUE       Environment to deploy to, e.g., Production
+      --deployto=VALUE       Environment to deploy to, e.g., Production; specify this argument multiple times to deploy to multiple environments
       --releaseNumber, --version=VALUE
                              Version number of the release to deploy. Or 
                              specify --version=latest for the latest release.

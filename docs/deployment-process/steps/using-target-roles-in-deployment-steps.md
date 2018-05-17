@@ -1,7 +1,7 @@
 ---
 title: Using Target Roles in Deployment Steps
 description: Target roles allow you to “tag” machines with a specific keyword which can be used in your deployment steps.
-position: 1
+position: 100
 ---
 
 Almost all the steps that run on a deployment target can be scoped to one or more roles. This means that the step will only execute on targets with at least one of those roles. This does not mean that if the step is scoped to multiple roles that it will run for each role. Instead it will run that step for _all machines that have any roles that match any of the step roles._
@@ -31,7 +31,7 @@ You want to deploy the same package on each server but the deployment path will 
 
 ![](deploy-path-variable.png)
 
-Then, on your deployment step, you can set the **[Custom Install Directory](/docs/deployment-process/steps/custom-installation-directory.md)** to `#{DeployPath}`.
+Then, on your deployment step, you can set the **[Custom Install Directory](/docs/deployment-process/steps/configuration-files/custom-installation-directory.md)** to `#{DeployPath}`.
 
 ![](custom-install-path.png)
 

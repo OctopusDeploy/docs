@@ -10,10 +10,6 @@ Octopus also allows you to run standalone scripts as part of your deployment pro
 You can use all of the features we provide for [custom scripts](/docs/deploying-applications/custom-scripts/index.md), like [using variables](/docs/deploying-applications/custom-scripts/index.md#Customscripts-Variables), [passing parameters](/docs/deploying-applications/custom-scripts/index.md#Customscripts-Passingparameterstoscripts), publishing [output variables](/docs/deploying-applications/custom-scripts/index.md#Customscripts-Outputvariables) and [collecting artifacts](/docs/deploying-applications/custom-scripts/index.md#Customscripts-Collectingartifacts).
 :::
 
-- Choosing where the script will run
-- Choosing where to source the script
-- Passing parameters to scripts
-
 ![](/docs/images/5671696/5865914.png "width=170")
 
 ## Choosing Where the Script Will Run {#Standalonescripts-Choosingwherethescriptwillrun}
@@ -30,7 +26,7 @@ Choosing the right combination of **Target** and **Roles** enables some really i
 
 | Target            | Roles                  | Description                              | Variables                                | Example scenarios                        |                              |
 | ----------------- | ---------------------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Deployment target | `web-serverapp-server` | The script will run on each deployment target with either of the `web-server` or `app-server` roles | The variables scoped to the deployment target will be available to the script. For example, `Octopus.Machine.Name` will be the deployment target's name | Apply server hardening or ensure standard pre-requisites are met on each deployment target |
+| Deployment target | `web-server` `app-server` | The script will run on each deployment target with either of the `web-server` or `app-server` roles | The variables scoped to the deployment target will be available to the script. For example, `Octopus.Machine.Name` will be the deployment target's name | Apply server hardening or ensure standard pre-requisites are met on each deployment target |
 | Octopus Server    |                        | The script will run once on the Octopus Server | Scope variables to the Step in order to customize variables for this script | Calculate some output variables to be used by other steps or run a database upgrade process |
 | Octopus Server    | `web-server`           | The script will run on the Octopus Server on behalf of the deployment targets with the `web-server` role. The script will execute once per deployment target | The variables scoped to the deployment target will be available to the script. For example, `Octopus.Machine.Name` will be the deployment target's name | Remove web servers from a load balancer as part of a [rolling deployment](/docs/deployment-patterns/rolling-deployments.md) where access to the load balancer API is restricted |
 

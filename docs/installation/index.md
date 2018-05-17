@@ -56,6 +56,8 @@ Take a copy of the master key and save it in a **secure** location.
 
 Click **Open in browser** to launch the **Octopus Web Portal** and log in using the authentication details you set up during the configuration process.
 
+The **Octopus Web Portal**  is where you'll manage your infrastructure, projects, access the built-in repository, and deploy your software from.
+
 ## Troubleshooting
 
 If you've had any problems with the installation, review the [troubleshooting page](/docs/installation/troubleshooting.md).

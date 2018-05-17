@@ -107,7 +107,7 @@ This steps runs the [create-release command](/docs/api-and-integration/octo.exe-
 
 #### Project
 
-The `Project` field defines the name of the [Octopus Deploy project](/docs/deployment-process/projects.md) that the release will be created for.
+The `Project` field defines the name of the [Octopus Deploy project](/docs/deployment-process/projects/index.md) that the release will be created for.
 
 #### Release number
 
@@ -139,7 +139,7 @@ This steps runs the [deploy-release command](/docs/api-and-integration/octo.exe-
 
 #### Project
 
-The `Project` field defines the name of the [Octopus Deploy project](/docs/deployment-process/projects.md) that the deployment will be done for.
+The `Project` field defines the name of the [Octopus Deploy project](/docs/deployment-process/projects/index.md) that the deployment will be done for.
 
 #### Environment(s)
 
@@ -163,7 +163,7 @@ Because the promotion from one environment to another is not tied to any particu
 
 #### Project
 
-The `Project` field defines the name of the [Octopus Deploy project](/docs/deployment-process/projects.md) that the deployment will be done for.
+The `Project` field defines the name of the [Octopus Deploy project](/docs/deployment-process/projects/index.md) that the deployment will be done for.
 
 #### Promote from
 
@@ -272,4 +272,3 @@ Error conditions encountered by the add-on have unique error codes, which are li
 | OCTOPUS-BAMBOO-INPUT-ERROR-0001 | No matching files could be found to push to Octopus Deploy. Check that the file pattern matches a file in the Bamboo working directory. |
 | OCTOPUS-BAMBOO-INPUT-ERROR-0002 | A required field was empty. |
 | OCTOPUS-BAMBOO-INPUT-ERROR-0003 | The server capability that defines the path to the Octopus CLI has an incorrect path. Make sure The path you assigned to the Octopus CLI is correct. |
-

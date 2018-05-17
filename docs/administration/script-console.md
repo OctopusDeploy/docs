@@ -16,7 +16,7 @@ For these situations, the Octopus **Script Console** can be used.
 
 ## Using the Script Console
 
-The Script Console can be found under the Tasks area, and is only available to Octopus administrators:
+The Script Console can be found under the Tasks area:
 
 ![](/docs/images/3048122/3277924.png "width=500")
 
