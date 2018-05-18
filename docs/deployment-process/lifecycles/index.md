@@ -45,10 +45,7 @@ If you have a project setup with [Automatic Release Creation](/docs/deployment-p
 
 ![Optional Phase](optional-phase.png)
 
-10. Set the retention policy for the for the phase.
-
-Each phase of the lifecycle will inherit the Lifecycle retention policy unless its own is defined.
-
+10. Set the retention policy or the phase if you don't want it to inherit the retention policy defined for the Lifecycle.
 11. Add as many additional phases as you need.
 12. Click **SAVE**.
 
