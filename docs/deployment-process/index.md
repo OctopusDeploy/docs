@@ -1,7 +1,7 @@
 ---
 title: Deployment Process
 description: Deploying applications starts with defining a project's deployment process.
-hideInThisSection: true
+hideInThisSection: false
 position: 5
 ---
 
