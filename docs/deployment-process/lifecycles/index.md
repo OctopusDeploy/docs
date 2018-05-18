@@ -4,36 +4,35 @@ description: Lifecycles allow you to control the way releases are promoted betwe
 position: 2
 ---
 
-Lifecycles allow you to control the way releases are promoted between environments. Lifecycles enable a number of advanced deployment workflow features:
+Lifecycles give you control over the way releases are promoted between environments. Lifecycles enable a number of advanced deployment workflow features:
 
-- Control the order of promotion: for example, to prevent a release being deployed to Production if it hasn't been deployed to Staging.
-- Automate the deployment to environments: for example, automatically deploy to Test as soon as a release is created.
-- Retention policies: specify the number of releases to keep depending on how far they have progressed through the lifecycle.
+- **Control the order of promotion**: for example, to prevent a release being deployed to *Production* if it hasn't been deployed to *Staging*.
+- **Automate deployment to specific environments**: for example, automatically deploy to *Test* as soon as a release is created.
+- **Retention policies**: specify the number of releases to keep depending on how far they have progressed through the lifecycle.
 
-A Lifecycle is defined by **phases**. Each phase can have one or more environments. And each environment can be defined as an automatic deployment environment or a manual deployment environment. Each phase can have a set number of environments that must be released to before the next phase is available for deployment.
+Lifecycles are defined by phases. A lifecycle can have one or many phases.
 
-A Lifecycle can have a default retention policy defined and each phase inherits this policy or can also have it's own policy defined.
+- Phases occur in order. One phase must have a complete successful deployment before the next phase will be deployed to.
+- Phases have one or more environments.
+- Environments in a phase can be defined as automatic deployment environments or manual deployment environments.
+- Phases can have a set number of environments that must be released to, before the next phase is available for deployment.
+
+A Lifecycle can have a default retention policy defined and each phase inherits this policy or can also have its own policy defined.
 
 ## Managing Lifecycles
 
-Lifecycle management can be found under **Library** and then **Lifecycles**.
+Lifecycles are managed by navigating to **{Library,Lifecyles}**.
 
 ### Create a New Lifecycle
 
 1. From the Lifecycle page, click on the **ADD LIFECYCLE** button.
 2. Give the Lifecycle a name.
 3. Add a description.
-4. Define the Retention Policy. The retention policy defines how long releases are kept for, and how long extracted packages and files are kept on tentacles. The default for both is to keep all.
+4. Define the Retention Policy. The retention policy defines how long releases are kept for, and how long extracted packages and files are kept on tentacles. The default for both is to keep all. Learn more about [Retention Policies](/docs/administration/retention-policies/index.md).
 
-![](lifecycle-create-new.png "width=500")
+Each phase will inherit the Lifecycle retention policy unless its own is defined.
 
-To start with you define a Name, description and default retention policy for the whole Lifecycle. Each phase will inherit the Lifecycle retention policy unless it's own is defined.
-
-Once these initial details are defined you can add your first phase.
-
-## Lifecycle Phases
-
-Phases define the deployment pipeline. A phase must have a complete successful deployment before further phases can be deployed to.
+## Define the Phases
 
 To add a phase click the **+ Add Phase** button.
 
