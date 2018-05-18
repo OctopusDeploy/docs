@@ -39,7 +39,7 @@ But how does it work? For a release we determine what phase it is currently in. 
 
 If you have an Octopus Server retention policy for a project that has a final phase of keep all releases, once the release enters that phase it will never be deleted. But if you have a release that has not yet deployed to any environments in the final phase, and is set to only keep the last 3 releases, then the release will be deleted when it becomes the 4th release of the project that has not yet been deployed to any final phase environment. (Unless it is still on the dashboard!).
 
-## I think I got it, how do I set my retention policies? {#RetentionPolicies-IthinkIgotit,howdoIsetmyretentionpolicies?}
+## Set Retention Policies {#RetentionPolicies-IthinkIgotit,howdoIsetmyretentionpolicies?}
 
 Under {{Library,Lifecycles}} you select the Lifecycle you want to define or edit your retention policy for:
 
