@@ -8,7 +8,7 @@ Projects let you manage multiple software projects from the **Octopus Web Portal
 
 Projects can consist of multiple steps and deliverable components, or they might only have a single step.
 
-It can be difficult to decide whether you need a single project or multiple projects. Here are somethings to consider:
+When deciding whether you need a single project or multiple projects. Here are somethings to consider:
 
 - If the packages are delivered by different teams, or have different release schedules and deadlines, use separate projects.
 - If the packages are always deployed at the same time, and there is good communication between the teams developing them (or they are the same team), use a single project.
@@ -19,7 +19,7 @@ There are other options, for instance, with the [Deploy Release Step](/docs/depl
 
 Projects are managed from the **Projects** area of the **Web Portal**. From here you can see and manage all of your projects and [project groups](/docs/deployment-process/projects/index.md#project-groups).
 
-The first time you navigate to the **Projects** area you have the option to either [ADD PROJECT](/docs/deployment-process/projects/index.md#add-a-project) or [ADD GROUP](/docs/deployment-process/projects/index.md#add-a-project-group).
+The first time you navigate to the **Projects** area, you have the option to either [ADD PROJECT](/docs/deployment-process/projects/index.md#add-a-project) or [ADD GROUP](/docs/deployment-process/projects/index.md#add-a-project-group).
 
 ## Add a Project
 
@@ -51,19 +51,23 @@ If you are likely to have a lot of projects, in addition to giving them meaningf
 
 Project groups are a way of organizing your projects.
 
-When you create a project group, we recommend using a meaningful name and adding a description.
+Note, the *Default Project* group contains all of the projects that have not been added to another group.
 
-Note, the *All Projects* group contains all of the projects that have not been added to another group.
+## Add a Project Group
+
+1. From the Projects tab, click **ADD GROUP**.
+1. Give the group a meaningful name and description.
+1. Click *SAVE*.
+
+When the group is first created, and doesn't have any projects associated with it, you will need to click **SHOW EMPTY GROUPS** on the projects page to see the group.
 
 ## Add Projects to a Group
 
 After you have created a project group there are a number of ways you can add projects to the group:
 
-- Click **ADD PROJECT** from the group's section of the **Projects** page.
+- Navigate to the **Projects** page from the main navigation, find the group you want to add the project to, and click **ADD PROJECT**.
 - Edit an existing project by navigating to the project, selecting **Settings** and editing the **Project Group**.
 - Specify the **Project Group** under **Advanced Settings** when you create a new project.
-
-Any projects and project groups you create will be accessible from the projects page. If a project group does not have any projects associated with it, click *SHOW EMPTY GROUPS* to reveal the group.
 
 ### Edit or Delete Project Groups
 
