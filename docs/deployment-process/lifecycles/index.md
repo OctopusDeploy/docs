@@ -19,62 +19,43 @@ Lifecycles are defined by phases. A lifecycle can have one or many phases.
 
 ## Managing Lifecycles
 
-Lifecycles are managed by navigating to **{Library,Lifecyles}**.
+Lifecycles are managed by navigating to **{{Library,Lifecyles}}**.
 
-### Create a New Lifecycle
+## Create a New Lifecycle
 
 1. From the Lifecycle page, click on the **ADD LIFECYCLE** button.
-1. Give the Lifecycle a name and add a description.
-1. Define the Retention Policy.
+2. Give the Lifecycle a name and add a description.
+3. Define the Retention Policy.
 
-Retention policy defines how long releases are kept for, and how long extracted packages and files are kept on tentacles. The default for both is to keep all. Each phase will inherit the Lifecycle retention policy unless its own is defined.
+Retention policies define how long releases are kept for, and how long extracted packages and files are kept on Tentacles. The default for both is to keep all. Learn more about [Retention Policies](/docs/administration/retention-policies/index.md).
 
-Learn more about [Retention Policies](/docs/administration/retention-policies/index.md).
+4. Click **ADD PHASE**, to explicitly define the phases of the lifecycle.
+5. Give the phase a name.
+6. Click **ADD ENVIRONMENT** to define which environments can be deployed to during this phase of the lifecycle. Add multiple environments at this point, if this phase deploys to multiple environments.
+7. Select the environment.
+8. By default, users must manually queue the deployment to the environment, if you would like the deployment to occur automatically as soon as the release enters the phase, select *Deploy automatically...*.
 
-## Define the Phases
+If you have a project setup with [Automatic Release Creation](/docs/deployment-process/releases/automatic-release-creation.md) and set your first phase and environment to automatically deploy, pushing a package to the internal library will trigger both a release, and a deployment to that environment.
 
-To add a phase click the **+ Add Phase** button.
+9. Set the *Required to progress* option. This determines how many environments must be deployed to before the next phase can be activated. The options are:
 
-![](lifecycle-add-phase.png "width=500")
+- All must complete.
+- A minimum of x must complete. If choose this option, and, for example, have 5 environments in the phase and choose **2**, then 2 of the 5 environments must be deployed to before the next phase can be activated.
+- Optional. This lets you skip a phase when it is reached in the Lifecycle. This allows you to release to environments in the next phase without being required to deploy to _any_ in the optional phase. The standard Lifecycle progression and Automatic Deployment rules apply that determine when an optional phase is deployable. Optional phases may be useful for scenarios such as the provision of a `Testing` phase that can optionally be deployed to, but isn't crucial to progressing on to `Production`.
 
-Once you have named the phase, you can add environments.
+![Optional Phase](optional-phase.png)
 
-![](lifecycle-phase-add-environment.png "width=500")
+10. Set the retention policy for the for the phase.
 
-You can define if this environment is automatically deployed to when the release enters the phase, or it is a manual deployment. Automatic deployment will send a release to the environment as soon as the phase becomes available for deployment. Automatic deployment environments are denoted by a lightning bolt icon next to the environment (see below).
+Each phase of the lifecycle will inherit the Lifecycle retention policy unless its own is defined.
 
-:::hint
-**Automatic Release Creation**
-If you have a project setup with [Automatic Release Creation](/docs/deployment-process/releases/automatic-release-creation.md) and set your first phase and environment to automatically deploy, pushing a package to the internal library will trigger both a release, and a deployment to that environment. A hands off deployment triggered by a build server push!
-:::
-
-Once you have more than one environment defined in a phase you can gate the phase.
-
-![](lifecycle-gated-phase.png "width=500")
-
-There is a setting for the phase called "Required to progress". This allows you to state how many environments within a phase must be deployed to before the next phase can be activated. If you have 5 environments and set this value to 2, only two environments must be deployed to before the next phase can be actively deployed to. If any environments within the next phase have automatic deployments set, they will trigger.
-
-To configure this, click the **Change** button and select the option you would like to use.
-
-![](lifecycle-gated-phase-progression.png "width=500")
-
-Click **OK** to save your changes
-
-![](lifecycle-gated-phase-only-one.png "width=500")
+11. Add as many additional phases as you need.
+12. Click **SAVE**.
 
 Once all of your phases are defined your Lifecycle has a 'tree view'.
 
 ![](lifecycle-tree-view.png "width=500")
 
-It shows the flow of the deployment in a visual way.
-
-### Optional Phases {#Lifecycles-OptionalPhases}
-
-Introduced in `3.12.8`, Optional Phases allow you to configure a phase to be optionally skipped when it is reached in the Lifecycle. This allows you to release to environments in the next phase without being required to deploy to _any_ in the optional phase. The standard Lifecycle progression and Automatic Deployment rules apply that determine when an optional phase is deployable.
-
-This feature may be useful for scenarios such as the provision of a `Testing` phase that can optionally be deployed to, but isn't crucial to progressing on to `Production`. A previous work around for this feature would involve adding the `Testing` environment to the previous `Dev` phase with a specific minimum deployed environment count set, however this may result in the project being deployed to `Testing` _instead of_ the required `Dev` before progression.
-
-![Optional Phase](optional-phase.png)
 
 ### No Progression
 
