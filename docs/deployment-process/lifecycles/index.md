@@ -17,8 +17,6 @@ Lifecycles are defined by phases. A lifecycle can have one or many phases.
 - Environments in a phase can be defined as automatic deployment environments or manual deployment environments.
 - Phases can have a set number of environments that must be released to, before the next phase is available for deployment.
 
-A Lifecycle can have a default retention policy defined and each phase inherits this policy or can also have its own policy defined.
-
 ## Managing Lifecycles
 
 Lifecycles are managed by navigating to **{Library,Lifecyles}**.
@@ -26,11 +24,12 @@ Lifecycles are managed by navigating to **{Library,Lifecyles}**.
 ### Create a New Lifecycle
 
 1. From the Lifecycle page, click on the **ADD LIFECYCLE** button.
-2. Give the Lifecycle a name.
-3. Add a description.
-4. Define the Retention Policy. The retention policy defines how long releases are kept for, and how long extracted packages and files are kept on tentacles. The default for both is to keep all. Learn more about [Retention Policies](/docs/administration/retention-policies/index.md).
+1. Give the Lifecycle a name and add a description.
+1. Define the Retention Policy.
 
-Each phase will inherit the Lifecycle retention policy unless its own is defined.
+Retention policy defines how long releases are kept for, and how long extracted packages and files are kept on tentacles. The default for both is to keep all. Each phase will inherit the Lifecycle retention policy unless its own is defined.
+
+Learn more about [Retention Policies](/docs/administration/retention-policies/index.md).
 
 ## Define the Phases
 
