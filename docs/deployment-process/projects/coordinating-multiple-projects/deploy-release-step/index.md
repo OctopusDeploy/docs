@@ -3,25 +3,25 @@ title: Deploy Release Step
 description: The Deploy Release Step allows you to trigger the deployment of a Release of a Project from another Project
 ---
 
-Introduced in Octopus `2018.2.1`, the _Deploy Release_ step allows you to trigger the deployment of a release of a project from another project.  This is useful when you are [coordinating multiple Projects](index.md).
+Introduced in Octopus `2018.2.1`, the _Deploy Release_ step lets you have a project trigger the deployment of a release of another project. This is useful when you are [coordinating multiple projects](/docs/deployment-process/projects/coordinating-multiple-projects/index.md).
 
 ![Deploy Release Step Card](deploy-release-card.png "width=500")
 
-When you add a _Deploy Release_ step to your deployment process, you are then able to select the project which will be deployed.
+When you add a _Deploy Release_ step to your deployment process, you can then select the project which will be deployed.
 
 ![Deploy Release Select Project](deploy-release-step-select-project.png "width=500")
 
 You can add many _Deploy Release_ steps to your process, if you wish to deploy releases of many projects.
 
-When creating a release of a project containing _Deploy Release_ steps you are able to select the release version of each project, similar to the way versions of packages are selected.  
+When creating a release of a project containing _Deploy Release_ steps you can select the release version of each project, similar to the way versions of packages are selected.  
 
 ## Conditional Deployment
 
 A _Deploy Release_ step can be configured to:
 
-- Deploy Always (default)
-- If the selected release is not the current release in the environment
-- If the selected release has a higher version than the current release in the environment
+- Deploy Always (default).
+- Deploy if the selected release is not the current release in the environment.
+- Deploy if the selected release has a higher version than the current release in the environment.
 
 ## Variables
 
@@ -69,11 +69,11 @@ This variable will be available in subsequent steps of the _Project Voltron_ pro
 
 The Lifecycles of project's being deployed by a _Deploy Release_ step must be compatible with the coordinating project.
 
-For example, if you have two projects, `Project A` and `Project B` which are referenced by _Deploy Release_ steps in another project `Project Alphabet`. When deploying `Project Alphabet` to the `Test` environment, the release versions chosen for `Project A` and `Project B` must be eligible to be deployed to the `Test` environment according to the lifecycles of those projects.
+For example, if you have two projects, `Project A` and `Project B` which are referenced by _Deploy Release_ steps in another project `Project Alphabet`. When deploying `Project Alphabet` to the `Test` environment, the release versions chosen for `Project A` and `Project B` must also be eligible to be deployed to the `Test` environment according to the lifecycles of those projects.
 
 ## Multi-Tenant Deployments
 
-When it is a [tenanted](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/index.md) project being deployed by _Deploy Release_ step, then the parent project should also be created as tenanted.
+When a [tenanted](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/index.md) project is being deployed by _Deploy Release_ step, then the parent project should also be created as tenanted.
 
 When triggering a tenanted deployment of the parent project, the tenant will be used to trigger the child deployment.
 
