@@ -48,7 +48,7 @@ If you want to be able to deploy to any environment at any time, then simply cre
 
 ![Optional Phase](optional-phase.png)
 
-10. Set the retention policy or the phase if you don't want it to inherit the retention policy defined for the Lifecycle.
+10. Each phase of the Lifecycle can have its own retention policy defined. Set the retention policy for the phase if you don't want it to inherit the retention policy defined for the entire Lifecycle.
 11. Add as many additional phases as you need.
 12. Click **SAVE**.
 
