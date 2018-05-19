@@ -33,6 +33,13 @@ Before you can define your deployment process, you must create a project.
 1. Select the lifecycle from the dropdown menu. (Learn more about [Lifecycles](/docs/deployment-process/lifecycles/index.md)).
 1. Click **Save** and you will be taken to the newly created project's overview page.
 
+
+## Project Overview
+
+The project overview page is where you access settings for the project and define the release process. After you've deployed a few releases, the overview page will give you a visual summary of the project's releases and which environments they've been deployed to.
+
+![Project Overview](project-overview.png)
+
 ## Project Settings
 
 You can access the project settings menu from the project's overview page. From here it's possible to edit details about the project, such as the name, description, and the project group, add a logo, and control different aspects of the project's release behavior.
@@ -45,7 +52,6 @@ If you are likely to have a lot of projects, in addition to giving them meaningf
 2. Click the **Logo** section of the settings page.
 3. Click the file selector and select a file to upload.
 4. Click **open** to upload your logo image, and click **Save**.
-
 
 ## Project Group
 
