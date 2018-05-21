@@ -72,7 +72,7 @@ Octopus Deploy is designed to work with teams following agile software developme
 
 The deployment process that Octopus executes is like a recipe for deploying your software. You define the recipe by adding steps and variables to a project. Octopus Deploy provides a range of steps that can be included in your deployment processes, you can add steps from the community step library, and even define your own steps. Each step contains a specific action (or set of actions) that is executed as part of the deployment process each time your software is deployed. After the initial setup, your deployment process shouldn't change between deployments even though the software being deployed will change as part of the development process.
 
-Learn more about [deploying applications](/docs/deploying-applications/index.md).
+Learn more about the [deployment process](/docs/deployment-process/index.md) and [deploying applications](/docs/deploying-applications/index.md).
 
 ### Variables
 
