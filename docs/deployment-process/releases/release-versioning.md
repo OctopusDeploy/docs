@@ -12,25 +12,25 @@ Under Project settings there's a section for Release Versioning where you can se
 <div>
     <p>You can use variables from the project (un-scoped or scoped only to a channel). In addition, some special variables are provided - example:
     </p>
-    `1.2.#{"{"}Octopus.Version.NextPatch{"}"}-pre`
+    <pre>1.2.#{"{"}Octopus.Version.NextPatch{"}"}-pre</pre>
     <p>These special variables take the form:</p>
-    `Octopus.Version.(Last|Next)(Major|Minor|Patch|Build|Revision|Suffix)`
+    <pre>Octopus.Version.(Last|Next)(Major|Minor|Patch|Build|Revision|Suffix)</pre>
     <p>If you are using channels, channel-specific special variables are
         also available: </p>
-    `Octopus.Version.Channel.(Last|Next)(Major|Minor|Patch|Build|Revision|Suffix)`
+    <pre>Octopus.Version.Channel.(Last|Next)(Major|Minor|Patch|Build|Revision|Suffix)</pre>
     <p>Version components from other channels in the project can be
         referenced using the channel name as the index:</p>
-    `Octopus.Version.Channel[ChannelName].(Last|Next)(Major|Minor|Patch|Build|Revision|Suffix)`
+    <pre>Octopus.Version.Channel[ChannelName].(Last|Next)(Major|Minor|Patch|Build|Revision|Suffix)</pre>
     <p>The channel name can also be used (generally as part of the
         suffix):</p>
-    `Octopus.Release.Channel.Name`
+    <pre>Octopus.Release.Channel.Name</pre>
     <p>The version can also include Octopus <em>semantic version mask</em> characters
-        `i` and `c` referring to the <strong>i</strong>ncremented
+        i and c referring to the <strong>i</strong>ncremented
         and <strong>c</strong>urrent values of the version, respectively. For example:
     </p>
     <pre>2.1.c.i</pre>
     <p>Finally, date fields can be also be used, for example: </p>
     <pre>#{"{"}Octopus.Date.Year}.#{"{"}Octopus.Date.Month{"}"}.#{"{"}Octopus.Date.Day{"}"}</pre>
     <p>These take the form:</p>
-    `Octopus.Date.(Day|Month|Year|DayOfYear)`<br/>`Octopus.Time.(Hour|Minute|Second)`
+    <pre>Octopus.Date.(Day|Month|Year|DayOfYear)<br/>Octopus.Time.(Hour|Minute|Second)</pre>
 </div>
