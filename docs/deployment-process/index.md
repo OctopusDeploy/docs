@@ -54,7 +54,7 @@ Steps are the actions your deployment process will execute each time your softwa
 
 Deployment processes can have one or many steps, steps can run in sequence or parallel, in addition to a variety of deployment steps, you can include manual intervention steps to get sign off before deployment, include email notification steps to keep everybody informed about your process, or even skip steps under different circumstances.
 
-Learn more about [steps](/docs/deployment-process/steps/index.md)
+Learn more about [steps](/docs/deployment-process/steps/index.md).
 
 ## Configuration Files
 
