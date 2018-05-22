@@ -3,23 +3,18 @@ title: Steps
 description: Adding steps to define your project's deployment process.
 position: 3
 ---
-Steps are the actions your deployment process will execute each time your software is deployed. 
+Steps are the actions your deployment process will execute each time you create a release of your software to be deployed.
 
-Octopus strives to make it quick and easy to define your project's deployment process.  Selecting the **ADD STEP** button displays a list of built-in step templates, custom step templates, and community contributed step templates.
+Octopus includes built-in step templates that are powerful and flexible enough to handle the most common deployment scenarios. In addition to the built-in step templates, there are also [Community Step Templates](/docs/deployment-process/steps/community-step-templates.md) that have contributed by the community. In addition to the built-in step templates and the community step templates, you can also use the built-in step templates as the base to create [custom steps templates](/docs/deployment-process/steps/custom-step-templates.md) to use across your projects.
 
-Built-in steps are powerful and flexible enough to handle the most common deployment scenarios.  
 
-![](built-in-steps.png "width=500")
 
-Custom step templates enable you to encapsulate common steps/scenarios within your team or company.
 
-Learn more about [Custom Step Templates](/docs/deployment-process/steps/custom-step-templates.md).
 
 Octopus community library integration makes it easy to find steps templates that work with the frameworks and technologies you use without the need for custom scripting.
 
 ![](community-steps.png "width=500")
 
-Learn more about [Community Step Templates](/docs/deployment-process/steps/community-step-templates.md).
 
 Learn more about [Updating Step Templates](/docs/deployment-process/steps/updating-step-templates.md) and [Exporting Step Templates](/docs/deployment-process/steps/exporting-step-templates.md)
 
@@ -34,7 +29,7 @@ Be careful when changing names! Octopus commonly uses names as a convenient iden
 
 ## Adding an installed step {#Addingsteps-Addinganinstalledstep}
 
-The add step page displays the built-in steps first which includes common steps to deploy IIS web sites, windows services, run scripts and more.  The built-in steps have been develop by the Octopus team to handle the most common deployment scenarios and it also.  This section also includes any custom step templates added in the library.  Hover over a step and click add step to go configure the step.
+The add step page displays the built-in steps first which includes common steps to deploy IIS web sites, windows services, run scripts and more.  The built-in steps have been develop by the Octopus team to handle the most common deployment scenarios.  This section also includes any custom step templates added in the library.  Hover over a step and click add step to go configure the step.
 
 ![](add-builtin-step.png "width=300")
 
