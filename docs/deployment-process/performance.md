@@ -1,7 +1,7 @@
 ---
 title: Performance
 description: Octopus is all about reliable and repeatable deployments, but that doesn't mean it has to be slow. This page will help you tune your deployments for the best performance in your scenario.
-position: 20
+position: 120
 ---
 
 Over the years we have built Octopus to enable reliable and repeatable deployments, but that doesn't necessarily mean it has to be slow. In fact, Octopus can scale with you as you grow. Octopus is a complex system with a core component allowing you to run your own custom scripts. We work hard to ensure all the parts we control work quickly and efficiently leaving as many resources as possible for running your deployments. That being said, there are many things you can do to ensure your Octopus deployments execute efficiently.
@@ -74,7 +74,7 @@ A deployment process with a single giant step might be the most efficient approa
 There is typically a happy balance you can strike for each of your projects. The most common problem related to performance is having too many steps, where "too many" depends on your specific situation, but we typically consider an average project to use 10-20 steps, and we have many customers deploying projects with 50-80 steps. If your projects have hundreds of steps, perhaps you should consider modeling your deployments differently?
 
 - If your project could be broken down into logical components which ship on their own cadence, do it! Make each component its own project.
-- If your project could be broken down into logical components which ship at the same time, you can do that too! Consider breaking your deployment into multiple logical projects and [coordinate their deployments](/docs/deployment-process/coordinating-multiple-projects/index.md).
+- If your project could be broken down into logical components which ship at the same time, you can do that too! Consider breaking your deployment into multiple logical projects and [coordinate their deployments](/docs/deployment-process/projects/coordinating-multiple-projects/index.md).
 - If your project cannot be broken down logically, consider combining some of your steps together into a single step. For example, you may be able to run your [custom scripts](/docs/deploying-applications/custom-scripts/index.md) as a pre- or post- activity.
 
 ### Consider the size of your packages {#package-size}
@@ -83,8 +83,8 @@ Size really does matter when it comes to your packages:
 
 - Larger packages require more network bandwidth to transfer to your deployment targets.
 - Larger packages take more resources to unpack on your deployment targets.
-- When using [delta compression for package transfers](/docs/deployment-process/deploying-packages/delta-compression-for-package-transfers.md), larger packages require more CPU and disk IOPS on the Octopus Server to calculate deltas - this is a tradeoff you can determine through testing.
-- Larger packages usually result in larger file systems on your deployment targets, making any steps which scan files much slower. For example, [substituting variables in files](/docs/deployment-process/configuration-files/substitute-variables-in-files.md) can be configured to scan every file extracted from your package.
+- When using [delta compression for package transfers](/docs/deployment-process/steps/deploying-packages/delta-compression-for-package-transfers.md), larger packages require more CPU and disk IOPS on the Octopus Server to calculate deltas - this is a tradeoff you can determine through testing.
+- Larger packages usually result in larger file systems on your deployment targets, making any steps which scan files much slower. For example, [substituting variables in files](/docs/deployment-process/steps/configuration-files/substitute-variables-in-files.md) can be configured to scan every file extracted from your package.
 
 Consider whether one large package is better in your scenario, or perhaps you could split your application into multiple smaller packages, one for each deployable component.
 
@@ -98,10 +98,10 @@ Octopus provides two primary methods for transferring your packages to your depl
 Each option provides different performance benefits, depending on your specific scenario:
 
 - If network bandwidth is the limiting factor, consider:
-  - pushing the package from the Octopus Server to your targets using [delta compression for package transfers](/docs/deployment-process/deploying-packages/delta-compression-for-package-transfers.md); or
+  - pushing the package from the Octopus Server to your targets using [delta compression for package transfers](/docs/deployment-process/steps/deploying-packages/delta-compression-for-package-transfers.md); or
   - using custom package feed in the same network as your deployment targets and download the packages directly on the agent.
 - If network bandwidth is not a limiting factor consider downloading the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
-- If Octopus Server CPU and disk IOPS is a limiting factor, avoid using [delta compression for package transfers](/docs/deployment-process/deploying-packages/delta-compression-for-package-transfers.md). Instead, consider downloading the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
+- If Octopus Server CPU and disk IOPS is a limiting factor, avoid using [delta compression for package transfers](/docs/deployment-process/steps/deploying-packages/delta-compression-for-package-transfers.md). Instead, consider downloading the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
 
 ### Consider retention policies for your package feeds {#package-retention}
 

@@ -9,7 +9,7 @@ This sections describes how to use Octopus to manage deployments of your applica
 
 Consider the following scenario:
 
-> NameBadge make HR software for large corporate customers. They provide the software as a SaaS offering to their customers, and host the web site and associated services for them. Due to how the application is architected, for each customer, they deploy:
+> NameBadge makes HR software for large corporate customers. They provide the software as a SaaS offering to their customers, and host the web site and associated services for them. Due to how the application is architected, for each customer, they deploy:
 >
 > - A different SQL database
 > - A copy of an ASP.NET website

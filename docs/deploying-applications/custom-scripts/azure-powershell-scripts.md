@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell scripts
+title: Azure PowerShell Scripts
 description: Azure PowerShell scripts allow you to manage your Azure subscription using the Azure PowerShell SDK for the Resource Management (RM) or Service Management (SM) API as part of your deployment process.
 position: 1
 ---
@@ -20,12 +20,12 @@ Refer to [this guide](/docs/infrastructure/azure/creating-an-azure-account/inde
 
 ## Example {#AzurePowerShellscripts-Example}
 
-This example uses the Service Management API to create a new Staging slot as part of the [blue/green deployment sample for Azure Web Apps](/docs/deploying-applications/deploying-to-azure/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps.md).
+This example uses the Service Management API to create a new Staging slot as part of the [blue/green deployment sample for Azure Web Apps](/docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps.md).
 
 ```powershell
 #Remove the staging slot if it exists
 Remove-AzureWebsite -Name #{WebSite} -Slot Staging -Force
- 
+
 #Create the staging slot
 New-AzureWebsite -Name #{WebSite} -Slot Staging
 ```

@@ -1,7 +1,7 @@
 ---
 title: Offline Package Drop
 description: Offline Package Drop deployment targets allow you to deploy your applications in the most restricted security environments where Tentacles cannot be used.
-position: 8
+position: 70
 ---
 
 Octopus and Tentacle make deploying simple and secure, but what about situations where you just cannot use Tentacle in Listening nor Polling mode? Perhaps a security policy, compliance control or network topology excludes using Tentacle? This is why we designed the Offline Package Drop as a Deployment Target. You can treat the Offline Package Drop just like any other target, but instead of the application being deployed Octopus will bundle up all of the files needed to perform the deployment on the *actual* target server.

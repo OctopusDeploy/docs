@@ -1,15 +1,14 @@
 ---
 title: SSH Targets
 description: Deploying software to Linux and Unix deployment targets.
-position: 2
-version: "[3.0,)"
+position: 40
 ---
 
 For Linux and Unix systems, you can configure Octopus Deploy to communicate with your deployment targets through SSH.
 
 ## Topology {#SSHTargets-Topology}
 
-In the standard-model the Octopus server talks to the Tentacle (ignoring the distinction between between [Polling](/docs/infrastructure/windows-targets/polling-tentacles/index.md) and [Listening](/docs/infrastructure/windows-targets/listening-tentacles/index.md)) who in turn delegates the actual deployment work to [Calamari](/docs/api-and-integration/calamari.md), which contains all the information regarding conventions and deployments. Calamari then executes the scripts and the Tentacle passes back to the Server the task progress, logs and artifacts.
+In the standard-model the Octopus server talks to the Tentacle (ignoring the distinction between between [Polling](/docs/infrastructure/windows-targets/tentacle-communication.md#polling-tentacles) and [Listening](/docs/infrastructure/windows-targets/tentacle-communication.md#listening-tentacles-recommended)) who in turn delegates the actual deployment work to [Calamari](/docs/api-and-integration/calamari.md), which contains all the information regarding conventions and deployments. Calamari then executes the scripts and the Tentacle passes back to the Server the task progress, logs and artifacts.
 
 ![](/docs/images/3048063/3277601.png)
 
@@ -47,7 +46,7 @@ export PATH=/Library/Frameworks/Mono.framework/Versions/Current/bin/:${PATH}
 
 ### .NET
 
-!partial <calamari>
+Calamari runs on .NET. For unix-like operating-systems, Calamari can either run on the [Mono framework](mono-calamari.md) or as a [self-contained .NET Core distributable](self-contained-calamari.md).
 
 ## Footprint {#SSHTargets-Footprint}
 

@@ -1,1 +1,0 @@
-Begin by clicking 'Add deployment target' from the {{Infrastructure,Deployment Targets}} page.

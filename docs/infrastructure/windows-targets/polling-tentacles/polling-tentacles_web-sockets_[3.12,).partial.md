@@ -1,1 +1,0 @@
-If no other ports are available, Octopus can be [configured to listen](polling-tentacles-web-sockets.md) for Polling Tentacles on a shared HTTPS port using WebSockets.

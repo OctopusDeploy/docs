@@ -52,6 +52,7 @@ When a manual step is completed, details of the interruption are saved as variab
 | Variable name | Contains | Example value |
 | --- | --- | --- |
 | `Octopus.Action[Step Name].Output.Manual.Notes` | The contents of the *Notes* field from the interruption form | *Checked with Rick, got the all-clear; Michelle is out at a meeting.* |
+| `Octopus.Action[Step Name].Output.Manual.Approved` | Indicates if the step was approved | *True* 
 | `Octopus.Action[Step Name].Output.Manual.ResponsibleUser.Id` | The user ID of the user who submitted the interruption form | *users-237* |
 | `Octopus.Action[Step Name].Output.Manual.ResponsibleUser.Username` | The username of the user who submitted the interruption form | *jjones* |
 | `Octopus.Action[Step Name].Output.Manual.ResponsibleUser.DisplayName` | The display name of the user who submitted the interruption form | *Jamie Jones* |

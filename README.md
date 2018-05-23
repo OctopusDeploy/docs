@@ -2,9 +2,8 @@ This repository contains the documentation for [Octopus Deploy](https:/octopus.c
 
 To contribute to documentation, read the following guide.
 
-
 # Conventions
-## Lower case  and `-` delimited
+## Lowercase  and `-` Delimited
 
 All content files (`.md`, `.png`, `.jpg` etc) and directories must be lower case.
 All links pointing to them must be lower case.
@@ -22,7 +21,6 @@ For example:
 title: Getting started
 description: From 0 to deployed, this guide walks you through getting started with Octopus.
 position: 0
-version: "[3.0,4.0)"
 ---
 ```
 
@@ -37,50 +35,14 @@ Read [how to write a good description](https://moz.com/learn/seo/meta-descriptio
 ### Position
 Optional. Used for the position in the menu.
 
-### Version
-Optional. The versions that this file applies to. This meatadata supports ranges, same syntax as [nuget](https://docs.microsoft.com/en-us/nuget/create-packages/dependency-versions#version-ranges).
-
 ## Menu
 
 The menu is auto generated based on the git repo folder structure and title and position metadata.
 
-## Version dropdown
-
-The list of versions displayed on the dropdown are loaded from [versions.json](versions.json).
-
-### Include pre-release documentation
-Support to publish pre-release versions of documentation.
-This is useful when we are planning a new release or we are releasing betas or RCs.
-
-To use this functionality all you need to do is add the pre-release version to the versions.json file versions array, and leave the default the same version, the example above adds 3.13 pre-release:
-```json
-{
-   "versions": [
-     "3.6",
-     "3.7",
-     "3.8",
-     "3.9",
-     "3.10",
-     "3.11",
-     "3.12",
-     "3.13"
-   ],
-   "default": "3.12"
-}
-```
-
-Once this is done, the version selector on the website by default still displays the latest, but the new pre-release is now listed above:
-
-![image](https://cloud.githubusercontent.com/assets/122651/24811318/ee3d95b8-1c08-11e7-8f5a-1868b7302f29.png)
-
-And when selected a banner tells the user that they are seeing a "preview" of the documentation:
-
-![image](https://cloud.githubusercontent.com/assets/122651/24811350/1417c25e-1c09-11e7-867c-ca4fbafdbcef.png)
-
 ## URLs
 
 The directory structure where a `.md` exists is used to derive the URL for that document.
-So a file existing at `/docs/myfolder/mypage.md` will have a URL of `https://octopus.com/docs/myfolder/mypage`.
+So a file that is located at `/docs/myfolder/mypage.md` will have a URL of `https://octopus.com/docs/myfolder/mypage`.
 
 ### Index Pages
 
@@ -92,7 +54,7 @@ So a file existing at `/docs/myfolder/index.md` will have a URL of `https://octo
 Links to other documentation pages should be relative and contain the `.md` extension.
 The `.md` allows links to work inside the GitHub web UI. The `.md` will be trimmed when they are finally rendered.
 
-## "In this section" area {#in-this-section}
+## "In This Section" Area {#in-this-section}
 
 Index pages (`index.md`) automatically have a "In this section" section added to them (bottom of the content), which lists all child pages in the folder.
 If the page does not need this section, you can opt out by adding the following metadata to the yaml:
@@ -100,7 +62,7 @@ If the page does not need this section, you can opt out by adding the following 
 hideInThisSection: true
 ```
 
-The rendering of "In this section" section [contains a header](_shared/in-this-section.md), if you need to omit this header (but still want it to contain the list of child pages):
+The rendering of "In This Section" section [contains a header](_shared/in-this-section.md), if you need to omit this header (but still want it to contain the list of child pages):
 ```yaml
 hideInThisSectionHeader: true
 ```
@@ -110,9 +72,13 @@ hideInThisSectionHeader: true
 The site is rendered using [markdig](https://github.com/lunet-io/markdig), Markdig supports [GitHub Flavored Markdown](https://help.github.com/articles/github-flavored-markdown) as well as some extra syntax.
 
 ### Lists
-Lists can be created using a few different styles, please be aware that `Roman` and `Letters` won't render properly in github (this is a markdig extension).
+Lists can be created using a few different styles, please be aware that `Roman` and `Letters` won't render properly in GitHub (this is a markdig extension).
 
-To ensure the list items are correctly formmatted it is recommended to not number the items, instead let the markdown renderer do that job automatically, so for a numeric list use one `1`s for a letter list use one `a.`s and for a roman list use only `i`s.
+To ensure the list items are correctly formatted it is recommended not to number the items, instead let the markdown renderer do that job automatically, so for a numeric list use one `1`s for a letter list use one `a.`s and for a roman list use only `i`s.
+
+#### Nested Lists
+
+You can nest lists, by adding four spaces before the nested list items.
 
 #### Bullets
 Example:
@@ -196,13 +162,17 @@ Snippets are highlighted by Highlight.js
 | f#           | `fsharp`       |
 | text         | text           |
 
-**Always use fenced code blocks with a language.** If no language is defined then highlightjs will guess the language and it regularly gets it wrong. Example:
+**Always use fenced code blocks with a language.** If no language is defined then highlightjs will guess the language and it regularly gets it wrong.
 
 ### Alerts
 
-Sometimes it is necessary to draw attention to items you want to call out in a document.
-This is achieved through bootstrap alerts https://getbootstrap.com/components/#alerts
-There are several keys each of which map to a different colored alert
+Sometimes it's necessary to draw attention to items you want to call out in a document.
+
+When used sparingly, alerts can effectively draw the user's attention to important information. When used excessively, alerts can have the opposite effect and train users to ignore the alerts. Before adding an alert, consider if it is the best approach or if the user might benefit from the information being presented as part of the main body of text.
+
+Alerts are added through bootstrap alerts https://getbootstrap.com/components/#alerts.
+
+There are several keys, each of which map to a different colored alert:
 
 | Key       | Color  |
 | --------- | ------ |
@@ -211,12 +181,12 @@ There are several keys each of which map to a different colored alert
 | `warning` | yellow |
 | `problem` | red    |
 
-Keys can be used in the following manner
+Use the following syntax to add keys:
 
 ```md
 :::hint
 **Guess what**
-The number is 45.
+The answer is 42.
 :::
 ```
 
@@ -224,7 +194,7 @@ will be rendered as
 ```html
 <div class="alert alert-info">
 <p><strong>Guess what</strong></br>
-The number is 45.</p>
+The answer is 42.</p>
 </div>
 ```
 
@@ -241,48 +211,36 @@ Example:
 To enable Docker in your Octopus Server instance, toggle the feature on via {{Configuration,Features,Docker}}.
 ```
 
-## ToC
+## Table of Contents
 Table of contents can be added to any page anywhere by adding `!toc` to the markdown. The table of contents lists all headers (H1, H2 etc) in the current document (see [In This Section](#in-this-section) for child page links on index pages).
 
 ## Headings
 
-The first (and all top level) headers in a `.md` page should be a `h2` (i.e. `##`) with sub-headings under it being `h3`, `h4`, etc.
+The first (and all top level) headers in a `.md` page should be a `h2` (i.e., `##`) with sub-headings under it being `h3`, `h4`, etc.
 DO NOT skip headers, eg. h1 > h2 > h4, not valid!
 
 You must also separate the '##' and the heading with a space.  If you don't the heading will render correctly in the Preview in GitHub, and in many other tools, but will not render correctly on the docs site.
-
-## Folder Version
-You can version the content of a whole folder by versioning the `index.md` for the folder.
-Example:
-If we want to hide the whole docker doco for versions prior to v3.4, we can add `version: [3.4,)` to the `docs/guides/docker/index.md` metadata.
-This will exclude docker content from all versions prior to v3.4.
 
 ## Includes
 Sometimes you need to duplicate content in multiple pages, this is where includes are handy.
 Markdown includes are pulled into the document prior to passing the content through the markdown conversion.
 
-### Defining an include
+### Defining and Using Includes
 
-Add a file anywhere in the docs repository that is suffixed with `.include.md`. For example, the file might be named `theKey.include.md`.
-
-### Using an include
-
-Add the following to the markdown: `!include <key>`
+Add a file anywhere in the docs repository that is suffixed with `.include.md`. For example, the file might be named `theKey.include.md`. To include the content in `theKey.include.md` in another file, add the following to the markdown: `!include <key>`.
 
 ## Partials
 Partials are version specific files that contain markdown.
 Markdown partials are pulled into the document prior to includes, so this means you can add includes to partials.
-They  are only rendered in the target page when the version filter matches the convention for a give file.
+They are only rendered in the target page when the version filter matches the convention for a give file.
 
 Partial Convention: filePrefix_key_version.partial.md
 
-### Defining a partial
+### Defining and Using Partial
 
 Add a file in the same folder as the page where you will use the partial to the docs repository that is named `fileName_key_version.partial.md`. For example, the file might be named `getting-started_theKey_2.0.partial.md`.
 
-### Using a partial
-
-Add the following to the markdown: `!partial <key>` (including the `<>`s)
+To include the content in the partial, add the following to the markdown: `!partial <key>` (including the `<>`s)
 
 ## Anchors
 
@@ -304,20 +262,26 @@ Which means elsewhere in the page you can link to it with this:
     [Goto My Heading](#My-Heading)
     [Goto a different page](/docs/getting-started.md#My-Heading)
 
+If you create anchors in the markdown, do not use special characters in the anchor text as they will cause the link to be truncated.
 
 ## Images
 
-You have a few options:
+Images can be incredibly helpful for your audience, but the downside of images is how quickly they can become inaccurate.
 
-1. Put your image in the same folder as the markdown file;
-2. For shared images, put your image in the [images folder](docs/images);
-3. For internet images, just reference it remembering to use the `https://` scheme;
+Before adding a screenshot of the Octopus UI or another UI that users will interact with, consider the following:
 
-Images can be added using the following markdown syntax
+1. How likely is it the UI will change and the old screenshot will confuse readers?
+1. Have you provided text that describes the steps users need to take (for accessibility reasons you shouldn't rely on screenshots to relay information), is the text clear enough that the screenshot isn't necessary?
+
+Put images in the same folder as the markdown file that references it.
+
+If you're including images from the internet, reference using the `https://` scheme.
+
+Images can be added using the following markdown syntax:
 
     ![Alt text](img.jpg "Optional title width=500")
 
-With the minimal syntax being
+With the minimal syntax being;
 
     ![Alt text](img.jpg)
 
@@ -325,61 +289,84 @@ With the minimal syntax being
 
 Keep reading for a detailed explanation of the options available when working with images.
 
-### Image paths
-Paths to internal images need to:
+### Image Sizing
 
-- be relative or absolute
-- all lower case
-- can include `.` and `-`
-- can also have version range, see [image versioning](#image-versioning)
+Image size can be controlled by adding the text `width=x` to the end of the title.
 
-Example `/docs/images/naked-scripting/transferpackage-transfer.png`
+For example:
 
-### Image versioning
-Images can be versioned. To version an image you need to include the default image and the versioned images.
-The convention is `imagename_version.ext`
+    ![Alt text](img.jpg "Optional-title width=x")
 
-Here is an example:
-Let's say we want to display a different versions of `myimage.png` for v1.0 and v2.0 and we are currently on version 3.0.
-All we need to do is create the new image and name it with a version range  `myimages_[1.0,3.0).png`.
-So in the end you have 2 images, `myimage.png` and `myimages_[1.0,3.0).png`.
+With the minimal syntax being:
 
-**All versioned images need to be in the same folder as the default image.**
+    ![](img.jpg "width=x")
 
-
-### Image sizing
-
-Image size can be controlled by adding the text `width=x` to the end of the title
-
-For example
-
-    ![Alt text](/path/to/img.jpg "Optional title width=x")
-
-With the minimal syntax being
-
-    ![](/path/to/img.jpg "width=x")
-
-This will result in the image being re-sized with the following parameters
+This will result in the image being re-sized with the following parameters:
 
     width="x" height="auto"
 
 It will also wrap the image in a clickable lightbox so the full image can be accessed.
 
 ## Redirects
-When a file is deleted, renamed or versioned you need to consider adding a redirect for that file.
+When a file is deleted or renamed you need to consider adding a redirect for that file.
 Redirects are added to [redirects.txt](redirects.txt).
 This file looks something like:
 ```
 from-file-path -> to-file-path                 #DO NOT DELETE THIS LINE
-docs/page1.md -> docs/page3.md
+docs/page1.md -> docs/page2.md
 ```
-In the above example, `/docs/page1` is redirected to `/docs/page2`
+In the above example, `/docs/page1` is redirected to `/docs/page2`.
 
-Once a redirect is added, the source file needs to be deleted from the repo, or in the case of docs, if the file is versioned, the version range needs to exclude the versions that want to be redirected, if all versions are to be redirected then the file needs to be deleted.
+Once a redirect is added, the source file needs to be deleted from the repo.
 
-The destination is validated and needs to exist.
+The destination is validated and must exist.
 
-If a file is deleted or the version range no longer includes that file, a redirect need to exist for it, otherwise the sync fails.
+If a file is deleted, a redirect must be added for it, otherwise publishing fails.
+
+## Version Dropdown
+
+The version dropdown menu let's user choose between [legacy versions](https://legacydocs.octopus.com) of the documentation, the latest (default) version, and pre-release versions.
+
+### Include Pre-release Documentation
+
+The list of versions displayed on the dropdown are loaded from [versions.json](versions.json).
+
+Support to publish pre-release versions of documentation.
+This is useful when we are planning a new release or we are releasing betas or RCs.
+
+To use this functionality all you need to do is add the pre-release version to the versions.json file versions array, and leave the default the same version, the example above adds 2018.4 pre-release:
+```json
+{
+   "versions": [
+     "2018.3",
+     "2018.4"
+   ],
+   "default": "2018.3",
+   "legacy": [
+    {
+      "version": "2018.2",
+      "firstReleased": "8 Feb 2018"
+     },
+     {
+      "version": "2018.1",
+      "firstReleased": "24 Jan 2018"
+     },
+     {
+      "version": "4.1",
+      "firstReleased": "5 Dec 2017"
+     }
+   ]
+ }
+```
+
+The version selector on the website displays the latest version by default, but the new pre-release is now listed above:
+
+![](/docs/images/version-selector.png)
+
+And when selected, a banner tells the user that they are seeing a "preview" of the documentation:
+
+![](/docs/images/preview.png)
+
 
 ## Useful Characters
 
@@ -388,4 +375,3 @@ Just go to http://htmlarrows.com/symbols/
 ## More Information
 
 * [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
-

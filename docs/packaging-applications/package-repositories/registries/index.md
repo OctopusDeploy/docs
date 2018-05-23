@@ -23,7 +23,7 @@ The Docker Registries you configure need to be accessed by both the Octopus Serv
 The Octopus Server will contact your registry to obtain information on available images while designing and maintaining your projects. During deployment the `docker pull` command will be executed on the Deployment Targets themselves and they will pull the Images directly from the Docker Registry.
 
 ## Docker Registry API Version Discovery {#DockerRegistriesasFeeds-VersionDiscovery}
-When you add your Docker Registry as a feed in Octopus Deploy, Octopus will attempt to detect and connect using the appropriate version based on specifications outlined in the relevant Docker API documentation. If your registry does not support the API correctly, it is possible that the connection will not be able to take place. We advise you to click _Save and Test_ once you have entered the registry detils to allow the version detection to take place and confirm that your credentials are correct. 
+When you add your Docker Registry as a feed in Octopus Deploy, Octopus will attempt to detect and connect using the appropriate version based on specifications outlined in the relevant Docker API documentation. If your registry does not support the API correctly, it is possible that the connection will not be able to take place. We advise you to click _Save and Test_ once you have entered the registry detils to allow the version detection to take place and confirm that your credentials are correct.
 
 According to the Docker API documentaiton, the [version 1](https://docs.docker.com/v1.6/reference/api/registry_api/) API should have a `/_ping` endpoint which will respond with a `X-Docker-Registry-Version` HTTP header in the response.
 Similarly, the [version 2](https://docs.docker.com/registry/spec/api/) API expects a `Docker-Distribution-API-Version` HTTP header with a value of `registry/2.0`. Both of these endpoints are expected to be located at an absolute path of either `/v1` or `/v2` from the host.
@@ -74,6 +74,6 @@ Although a search feature is available in the v1 registry API, as of the time of
 :::
 
 ## Troubleshooting Registry Connections ##
-If your Octopus Deploy instance is having problems trying to connect with your Docker Registry when runing the `Save and Test` operation, it may failing due to reasons outside the control of Octopus Deploy. 
+If your Octopus Deploy instance is having problems trying to connect with your Docker Registry when runing the `Save and Test` operation, it may failing due to reasons outside the control of Octopus Deploy.
 
 Try to connect to your registry directly through the browser from the same machine that Octopus is hosted on. Use the feed url you provided and esure that either `/v1` or `/v2` is appended to the end of the path depending on what version of the Docker Registry API you are running. If the connection is valid then you should recieve a `200` response, possibly recieving a user auth challenge (see API details above under [Docker Registry API version discovery](#DockerRegistriesasFeeds-VersionDiscovery)). If this does not occur then you may be having issues with your registry or network which you may need to fix before using through Octopus Deploy.

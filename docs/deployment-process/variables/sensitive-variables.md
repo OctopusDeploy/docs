@@ -1,12 +1,12 @@
 ---
-title: Sensitive variables
+title: Sensitive Variables
 description: Sensitive variables allow you to define secret values used in your applications that are secured stored in Octopus.
 position: 4
 ---
 
 Most applications require some kind of configuration values that are considered as sensitive information that should be kept secret, but used as clear-text during deployment. Think of something like a password or API Key to an external resource. Octopus provides support for this scenario with Sensitive Variables.
 
-## Configuring sensitive variables {#Sensitivevariables-Configuringsensitivevariables}
+## Configuring Sensitive Variables {#Sensitivevariables-Configuringsensitivevariables}
 
 Variables such as passwords or API keys can be marked as being **sensitive**. Just like non-sensitive variables they can [reference other variables](docs/deployment-process/variables/binding-syntax.md#Bindingsyntax-Referencingvariablesinstepdefinitions) but be careful with any part of your sensitive variable that could [unintentionally be interpreted](docs/deployment-process/variables/sensitive-variables.md#Sensitivevariables-Avoidingcommonmistakes-SubstituionSyntax) as an attempted substitution.
 
@@ -18,7 +18,7 @@ In Octopus version 3.11.0 we added an editor to the variables value section. Sen
 
 ![Variable editor](variable-editor.jpg "width=500")
 
-## How Octopus handles your sensitive variables {#Sensitivevariables-HowOctopushandlesyoursensitivevariables}
+## How Octopus Handles Your Sensitive Variables {#Sensitivevariables-HowOctopushandlesyoursensitivevariables}
 
 :::hint
 Learn more about [security and encryption](/docs/administration/security/data-encryption.md) in Octopus Deploy.
@@ -34,7 +34,7 @@ When dealing with sensitive variables, Octopus will encrypt these values using 
 If you need to retrieve these values for other purposes, consider using a password manager or key vault. The support we provide in Octopus is to securely store values that will be used during deployment, and cannot be retrieved for any other purposes. There are plenty available, and some are free, like [KeePass](http://keepass.info/).
 :::
 
-## Avoiding common mistakes {#Sensitivevariables-Avoidingcommonmistakes}
+## Avoiding Common Mistakes {#Sensitivevariables-Avoidingcommonmistakes}
 
 Here are some common pitfalls to avoid:
 

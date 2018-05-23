@@ -1,5 +1,5 @@
 ---
-title: Push a NuGet package that already exists
+title: Push a NuGet Package That Already Exists
 description: How to push a NuGet package that already exists.
 position: 18
 ---
@@ -16,6 +16,6 @@ Sometimes the package version number may not always change. This can happen if y
 
 `http://MyOctopusServer/nuget/packages?replace=true`
 
-This will force the Octopus server to replace the existing NuGet package with the new version you have pushed. It works exactly the same as the checkbox on the NuGet package upload page:
+This will force the Octopus server to replace the existing NuGet package with the new version you have pushed. It works exactly the same as the checkbox on the package upload pane:
 
-![](/docs/images/3049103/3278483.png "width=500")
+![](existing-package.png "width=500")

@@ -1,5 +1,5 @@
 ---
-title: System variables
+title: System Variables
 description: System variables are variables provided by Octopus that can be used in your deployments.
 position: 5
 ---
@@ -91,7 +91,9 @@ Action-level variables are available during execution of an action. Indexer noti
 |**`Octopus.Action.Package.IgnoreConfigTransformationErrors`** <br/>If true, any errors in configuration transformations will be treated as informational rather than errors that will fail the deployment** ***(Boolean)* | *False*|
 |**`Octopus.Action.Package.IgnoreVariableReplacementErrors`** <br/>If true, any errors in variable replacement will be treated as a warning rather than an error that will fail the deployment. (*Boolean*) | *False*|
 |**`Octopus.Action.Package.InstallationDirectoryPath`** <br/>The directory where the package was installed. It is not available prior to package extraction. | *C:\InetPub\WWWRoot\OctoFx*|
-!partial <packageVariables>
+|**`Octopus.Action.Package.FeedId`** <br/>The ID of the feed from which the package being deployed was pulled | *feeds-123*|
+|**`Octopus.Action.Package.PackageId`** <br/>The ID of the package being deployed | *OctoFx.RateService*|
+|**`Octopus.Action.Package.PackageVersion`** <br/>The version of the package being deployed | *1.2.3*|
 |**`Octopus.Action.Package.SkipIfAlreadyInstalled`** <br/>If true, and the version of the package being deployed is already present on the machine, its re-deployment will be skipped (use with caution) *(Boolean)* | *False*|
 |**`Octopus.Action.Script.ScriptBody`** <br/>The script being run in a script step | *Write-Host 'Hello!'*|
 |**`Octopus.Action.Script.Syntax`** <br/>The syntax of the script being run in a script step | *PowerShell*|
@@ -190,7 +192,7 @@ Server-level variables describe the Octopus server on which the deployment is ru
 | -------------------  | ---------------------------------------- |
 | **`Octopus.Web.BaseUrl`** <br/>The default URL at which the server can be accessed. Note that this is based off the server's ListenPrefixes and works in simple configuration scenarios. If you have a load balancer or reverse proxy this value will likely not be suitable for use in referring to the server from a client perspective, e.g. in email templates etc. | *[https://my-octopus](https://my-octopus)* |
 
-## Tracking deployment status {#Systemvariables-DeploymentStatusTrackingdeploymentstatus}
+## Tracking Deployment Status {#Systemvariables-DeploymentStatusTrackingdeploymentstatus}
 
 During deployment, Octopus provides variables describing the status of each step.
 
@@ -222,7 +224,7 @@ Octopus.Deployment.ErrorDetail
 Octopus.Deployment.Error and Octopus.Deployment.ErrorDetail will only display the exit code and Octopus stack trace for the error. As we cannot parse the deployment log, we can only extract the exit/error codes. It cannot show detailed information on what caused the error. For full information on what happened when the deployment fails, you will need to reference the logs.
 :::
 
-## User-modifiable settings {#Systemvariables-User-modifiablesettings}
+## User-modifiable Settings {#Systemvariables-User-modifiablesettings}
 
 The following variables can be defined as variables in your project to modify the way Octopus behaves.
 

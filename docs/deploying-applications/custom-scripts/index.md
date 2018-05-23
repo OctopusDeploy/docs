@@ -4,7 +4,7 @@ description: Custom scripts allows you to script anything you want using PowerSh
 position: 29
 ---
 
-As a convention-oriented deployment tool, Octopus can perform a number of actions automatically, such as [managing configuration files](/docs/deployment-process/configuration-files/index.md), creating [IIS websites and application pools](/docs/deploying-applications/iis-websites-and-application-pools.md), and installing [Windows Services](/docs/deploying-applications/windows-services.md). Sometimes however you’ll need to do more than the built-in conventions support – and that’s where custom scripts come in.
+As a convention-oriented deployment tool, Octopus can perform a number of actions automatically, such as [managing configuration files](/docs/deployment-process/steps/configuration-files/index.md), creating [IIS websites and application pools](/docs/deploying-applications/iis-websites-and-application-pools.md), and installing [Windows Services](/docs/deploying-applications/windows-services.md). Sometimes however you’ll need to do more than the built-in conventions support – and that’s where custom scripts come in.
 
 !toc
 
@@ -27,7 +27,7 @@ In your package, you can add any of the following script files in any of the scr
 - `PostDeploy.<ext>`
 - `DeployFailed.<ext>`
 
-After extracting your package, Calamari will detect these scripts and invoke them. Which file you use depends on when you need your custom activity to run – see the section on [what order are conventions run in](/docs/deployment-process/deploying-packages/package-deployment-feature-ordering.md) for details. Your scripts can do anything your scripting language supports, as well as setting [output variables](/docs/deployment-process/variables/output-variables.md) and [collecting artifacts](/docs/deployment-process/artifacts.md). These scripts must be located in the root of your package.
+After extracting your package, Calamari will detect these scripts and invoke them. Which file you use depends on when you need your custom activity to run – see the section on [what order are conventions run in](/docs/deployment-process/steps/deploying-packages/package-deployment-feature-ordering.md) for details. Your scripts can do anything your scripting language supports, as well as setting [output variables](/docs/deployment-process/variables/output-variables.md) and [collecting artifacts](/docs/deployment-process/artifacts.md). These scripts must be located in the root of your package.
 
 As mentioned above, you can create a file named `DeployFailed.<ext>`, which will be invoked if the package deployment fails. Our blog post about this feature [describes how DeployFailed.<ext> works](https://octopus.com/blog/deployfailed).
 
@@ -38,7 +38,7 @@ As of 4.1.10, you can prevent the running of scripts in packages by adding the `
 Of course, Bash scripts will only be supported on Linux / OSX Targets and PowerShell and Script CS will only run on Windows. So ensure you've selected the correct language for your deployment target
 :::
 
-:::success
+
 Make sure that the scripts are included in your package. If you are using OctoPack for an ASP.NET web application, you'll need to make sure the file is marked as **Build Action =** **Content**.
 
 ![](/docs/images/3048092/3277766.png "width=500")
@@ -48,25 +48,23 @@ If you are using OctoPack to package a Windows Service or console application, s
 ![](/docs/images/3048092/3277765.png "width=500")
 
 Read more about [using OctoPack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md).
-:::
 
-## Scripts in package steps {#Customscripts-Scriptsinpackagestepsscripts-configured-in-steps}
 
-Rather than embed scripts in packages, you can also define scripts within the package step definition in Octopus. This is a feature that can be enabled on package steps:
+## Scripts in Package Steps {#Customscripts-Scriptsinpackagestepsscripts-configured-in-steps}
 
-![](/docs/images/3048092/3277758.png "width=500")
+Rather than embed scripts in packages, you can also define scripts within the package step definition in Octopus. This is a feature that can be enabled on package steps by clicking **CONFIGURE FEATURES** and selecting **custom deploy scripts**.
 
-When enabled, you can define your PreDeploy/Deploy/PostDeploy scripts within the Octopus user interface:
+![Enabling custom deployment scripts](deployment-scripts.png)
 
-![](/docs/images/3048092/5865605.png "width=500")
+When enabled, you will see **Configuration Scripts** under the features section of the process definition.
 
-## Standalone scripts {#Customscripts-Standalonescripts}
+## Standalone Scripts {#Customscripts-Standalonescripts}
 
 Octopus also allows you to add standalone script steps to your deployment process. You can use standalone scripts to execute scripts on the Octopus Server or on [deployment targets](/docs/infrastructure/index.md), where the script can be defined inline or as part of a package. Standalone scripts are so useful we've dedicated an entire page to them: [Standalone scripts](/docs/deploying-applications/custom-scripts/standalone-scripts.md).
 
 ![](/docs/images/5671696/5865914.png "width=170")
 
-## Azure PowerShell scripts {#Customscripts-AzurePowerShellscripts}
+## Azure PowerShell Scripts {#Customscripts-AzurePowerShellscripts}
 
 You can manage your Azure subscription using custom PowerShell scripts and the Azure Resource Management (RM) or Service Management (SM) API - [more information](/docs/deploying-applications/custom-scripts/azure-powershell-scripts.md).
 
@@ -74,7 +72,9 @@ You can manage your Azure subscription using custom PowerShell scripts and the A
 
 For information about adding a step to the deployment process, see the [add step](/docs/deployment-process/steps/index.md) section.
 
-!partial <service-fabric-powershell>
+## Service Fabric PowerShell Scripts {#Customscripts-ServiceFabricPowerShellScripts}
+
+You can manage your Service Fabric clusters using custom Service Fabric SDK PowerShell scripts - [more information](/docs/deploying-applications/custom-scripts/service-fabric-powershell-scripts.md).
 
 ## Variables {#Customscripts-Variables}
 
@@ -129,7 +129,7 @@ let connectionString = Octopus.findVariableOrDefault "Default Value" "MyApp.Conn
 To see the F# API available to your F# scripts, take a look at our [F# signature file](https://github.com/OctopusDeploy/Calamari/blob/develop/source/Calamari/Integration/Scripting/FSharp/Bootstrap.fsi).
 :::
 
-### Variables in PowerShell scripts {#Customscripts-VariablesinPowerShellscripts}
+### Variables in PowerShell Scripts {#Customscripts-VariablesinPowerShellscripts}
 
 In PowerShell we have pre-defined some script-scoped variables for you as a convenience. Consider the same example as before, a variable named "MyApp.ConnectionString" will be available as both:
 
@@ -143,7 +143,7 @@ In the first form the variable name appears just as they appear in the Octopus w
 We [fixed an issue](https://github.com/OctopusDeploy/Issues/issues/2329) which was causing a collision with variables called `$key`. You can either rename your variable or update to Octopus 3.3.10 or newer.
 :::
 
-## Passing parameters to scripts {#Customscripts-Passingparameterstoscripts}
+## Passing Parameters to Scripts {#Customscripts-Passingparameterstoscripts}
 
 :::hint
 Script parameters are available in Octopus 3.3.21 or newer. You can use script parameters for file-based scripts that are sourced from a package.
@@ -183,7 +183,7 @@ You can define your parameters in the **Script Parameters** field using the fo
 Don't forget to correctly delimit your parameters correctly for the scripting engine. In the example above we have surrounded the parameter value in double-quotes to handle cases where the Environment Name has spaces: `"#{Octopus.Environment.Name}"`
 :::
 
-### Passing parameters to PowerShell scripts {#Customscripts-PassingparameterstoPowerShellscripts}
+### Passing Parameters to PowerShell Scripts {#Customscripts-PassingparameterstoPowerShellscripts}
 
 You can pass parameters to PowerShell scripts as if you were calling the script yourself from PowerShell, using positional or named parameters.
 
@@ -206,7 +206,7 @@ Param (
 Write-Host "$Environment storage path: $StoragePath"
 ```
 
-### Passing parameters to C# scripts {#Customscripts-PassingparameterstoC#scripts}
+### Passing Parameters to C# Scripts {#Customscripts-PassingparameterstoC#scripts}
 
 You can pass parameters to C# scripts [as described here for the ScriptCS engine](https://github.com/scriptcs/scriptcs/wiki/Pass-arguments-to-scripts). ScriptCS only supports positional parameters.
 
@@ -224,7 +224,7 @@ var storagePath = Env.ScriptArgs[1]
 Console.WriteLine("{0} storage path: {1}", environment, storagePath);
 ```
 
-### Passing parameters to Bash scripts {#Customscripts-PassingparameterstoBashscripts}
+### Passing Parameters to Bash Scripts {#Customscripts-PassingparameterstoBashscripts}
 
 You can pass parameters to Bash scripts [as described in Bash manual.](https://www.gnu.org/software/bash/manual/bash.html#Positional-Parameters)
 
@@ -242,7 +242,7 @@ storagePath="$2"
 echo "$environment storage path: $storagePath"
 ```
 
-### Passing parameters to F# scripts {#Customscripts-PassingparameterstoF#scripts}
+### Passing Parameters to F# Scripts {#Customscripts-PassingparameterstoF#scripts}
 
 You can pass parameters to FSharp scripts [as described in MSDN.](https://msdn.microsoft.com/en-us/visualfsharpdocs/conceptual/fsharp-interactive-%5Bfsi.exe%5D-reference#differences-between-the-interactive-scripting-and-compiled-environments)
 
@@ -328,13 +328,13 @@ To return to the default log level, write the following message:
 ##octopus[stdout-default]
 ```
 
-## Error handling {#Customscripts-Errorhandling}
+## Error Handling {#Customscripts-Errorhandling}
 
 Calamari examines the exit code of the script engine to determine whether the script failed. If the exit code is zero, Calamari assumes the script ran successfully. If the exit code is non-zero, then Calamari assumes the script failed.
 
 Syntax errors and unhandled exceptions will result in a non-zero exit code from the script engine, which will fail the deployment
 
-### Error handling in PowerShell scripts {#Customscripts-ErrorhandlinginPowerShellscripts}
+### Error Handling in PowerShell Scripts {#Customscripts-ErrorhandlinginPowerShellscripts}
 
 For PowerShell scripts Calamari also sets the `$ErrorActionPreference` to **Stop** before invoking your script. This means that if a command fails, the rest of the script won't be executed. For example:
 
@@ -374,9 +374,28 @@ if ($LastExitCode -ne 0) {
 }
 ```
 
-!partial <fail-step>
+### Failing a Script With a Message
 
-## Output variables {#Customscripts-Outputvariables}
+The fail step function will stop your script execution and return a non-zero error code. An optional message can be supplied. If supplied, the message replaces
+the `The remote script failed with exit code <code>` text in the deployment process overview page.
+
+```powershell PowerShell
+Fail-Step "A friendly message"
+```
+
+```c# C#
+Octopus.FailStep("A friendly message");
+```
+
+```bash Bash
+fail_step "A friendly message"
+```
+
+```fsharp F#
+Octopus.failStep "A friendly message"
+```
+
+## Output Variables {#Customscripts-Outputvariables}
 
 Your scripts can emit variables that are available in subsequent deployment steps. This means you can factor your deployment into smaller, more well-defined steps that leverage the result of prior steps. It is an extremely powerful feature and you should refer to the documentation on [output variables](/docs/deployment-process/variables/output-variables.md) for more information.
 
@@ -401,7 +420,7 @@ set_octopusvariable "AppInstanceName" "MyAppInstance"
 Octopus.setVariable "AppInstanceName" "MyAppInstance"
 ```
 
-### Using the variable in another step
+### Using the Variable in Another Step
 ```powershell PowerShell
 $appInstanceName = $OctopusParameters["Octopus.Action[Determine App Instance Name].Output.AppInstanceName"]
 ```
@@ -431,7 +450,7 @@ The following service message can be written directly (substituting the properti
 ##octopus[setVariable name='<Base64Encoded-VariableName>' value='<Base64Encoded-VariableValue>']
 ```
 
-## Collecting artifacts {#Customscripts-Collectingartifacts}
+## Collecting Artifacts {#Customscripts-Collectingartifacts}
 
 Does your deployment produce a log file, configuration files, binaries, or test results you want to publish and keep as part of your deployment? Your scripts can instruct the Octopus server to collect files as deployment artifacts. Refer to the documentation on [artifacts](/docs/deployment-process/artifacts.md) for more information.
 
@@ -459,7 +478,7 @@ The following service message can be written directly (substituting the properti
 ##octopus[createArtifact path='<Base64Encoded-FullPath>' name='<Base64Encoded-FileName>' length='<Base64Encoded-FileLength>']
 ```
 
-## Security and permissions {#Customscripts-Securityandpermissions}
+## Security and Permissions {#Customscripts-Securityandpermissions}
 
 Keep in mind that scripts are executed in the context of the account that the Tentacle Windows Service (which invokes Calamari) or SSH session runs as.
 
@@ -472,7 +491,7 @@ By default Tentacle runs as **Local System**, which has extensive local privileg
 When Calamari invokes PowerShell.exe, it uses the **unrestricted** execution policy for the session. You can see how PowerShell scripts are executed in more detail by [looking at the open-source Calamari project](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari/Integration/Scripting/WindowsPowerShell).
 :::
 
-## Testing scripts {#Customscripts-Testingscripts}
+## Testing Scripts {#Customscripts-Testingscripts}
 
 You may find that your script runs differently under Calamari than it does when run from PowerShell directly.
 
@@ -502,15 +521,15 @@ Where [<options>] is any of:
                              before executing it.
 ```
 
-## Working directories {#Customscripts-Workingdirectories}
+## Working Directories {#Customscripts-Workingdirectories}
 
 Octopus Scripts are executed by Calamari, the command-line tool invoked by the Octopus Server or Tentacle during a deployment, within a the context of a working directory.  This location is C:\Octopus\Work\ by default.  If you're executing a script contained within a package, the package contents will be uncompressed and copied to this directory but the working directory is the directory containing the script within it.
 
-## Preventing the PowerShell profile from running
+## Preventing the PowerShell Profile From Running
 The execution of the Tentacle service account's PowerShell profile script can sometimes cause a long delay each time a script is run. Starting in version 3.3.21, to prevent it being run,
 add a variable named `Octopus.Action.PowerShell.ExecuteWithoutProfile` with a value of `true` to your project.
 
-## Scripts that block deployments {#Customscripts-Scriptsthatblockdeployments}
+## Scripts that Block Deployments {#Customscripts-Scriptsthatblockdeployments}
 
 Sometimes a script launches a service or application that runs continuously. In this case the script does not complete until the application is terminated.  When the script is run in an Octopus deployment, the deployment will continue executing until the script exits.  In most cases this is undesirable. In order to avoid this behavior the service or application should be launched in a separate process or session, allowing the deployment to continue executing immediately. For example:
 

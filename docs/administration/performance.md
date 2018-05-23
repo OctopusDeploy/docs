@@ -1,6 +1,6 @@
 ---
 title: Performance
-description: Octopus is all about reliable and repeatable deployments, but that doesn't mean it has to be slow. This page will help you tune your Octopus installation for the best performance in your scenario. 
+description: Octopus is all about reliable and repeatable deployments, but that doesn't mean it has to be slow. This page will help you tune your Octopus installation for the best performance in your scenario.
 position: 10
 ---
 
@@ -51,7 +51,7 @@ Octopus Servers do quite a lot of work during deployments, mostly around package
 
 - Downloading packages from the package source (network-bound)
 - Verifying package hashes (CPU-bound)
-- Calculating deltas between packages for [delta compression](/docs/deployment-process/deploying-packages/delta-compression-for-package-transfers.md) (I/O-bound and CPU-bound)
+- Calculating deltas between packages for [delta compression](/docs/deployment-process/steps/deploying-packages/delta-compression-for-package-transfers.md) (I/O-bound and CPU-bound)
 - Uploading packages to deployment targets (network-bound)
 - Monitoring deployment targets for job status, and collecting logs
 
@@ -100,16 +100,16 @@ Follow these tips to tune and maintain the performance of your Octopus:
     - You can configure how many tasks from the task queue will run at the same time on any given Octopus Server node by going to {{Configuration>Nodes}}. The default task cap is `5` (safe-by-default). You can increase this cap to push your Octopus to work harder.
     - Learn about [tuning your deployment processes for performance](/docs/deployment-process/performance.md).
 1. Consider how you transfer your packages: {#package-transfer}
-    - If network bandwidth is the limiting factor, consider using [delta compression for package transfers](/docs/deployment-process/deploying-packages/delta-compression-for-package-transfers.md).
+    - If network bandwidth is the limiting factor, consider using [delta compression for package transfers](/docs/deployment-process/steps/deploying-packages/delta-compression-for-package-transfers.md).
     - If network bandwidth is not a limiting factor, consider using a custom package feed close to your deployment targets, and download the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
-    - If Octopus Server CPU and disk IOPS is a limiting factor, avoid using [delta compression for package transfers](/docs/deployment-process/deploying-packages/delta-compression-for-package-transfers.md). Instead, consider downloading the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
+    - If Octopus Server CPU and disk IOPS is a limiting factor, avoid using [delta compression for package transfers](/docs/deployment-process/steps/deploying-packages/delta-compression-for-package-transfers.md). Instead, consider downloading the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
 1. Consider the size of your packages:
     - Larger packages require more network bandwidth to transfer to your deployment targets.
-    - When using [delta compression for package transfers](/docs/deployment-process/deploying-packages/delta-compression-for-package-transfers.md), larger packages require more CPU and disk IOPS on the Octopus Server to calculate deltas - this is a tradeoff you can determine through testing.
+    - When using [delta compression for package transfers](/docs/deployment-process/steps/deploying-packages/delta-compression-for-package-transfers.md), larger packages require more CPU and disk IOPS on the Octopus Server to calculate deltas - this is a tradeoff you can determine through testing.
 1. Consider the size of your Task Logs: {#tip-task-logs}
     - Larger task logs put the entire Octopus pipeline under more pressure.
     - We recommend printing messages required to understand progress and deployment failures. The rest of the information should be streamed to a file, then published as a deployment [artifact](/docs/deployment-process/artifacts.md).
-1. Prefer [Listening Tentacles](/docs/infrastructure/windows-targets/listening-tentacles/index.md) or [SSH](/docs/infrastructure/ssh-targets/index.md) instead of [Polling Tentacles](/docs/infrastructure/windows-targets/polling-tentacles/index.md) wherever possible:
+1. Prefer [Listening Tentacles](/docs/infrastructure/windows-targets/tentacle-communication.md#listening-tentacles-recommended) or [SSH](/docs/infrastructure/ssh-targets/index.md) instead of [Polling Tentacles](/docs/infrastructure/windows-targets/tentacle-communication.md#polling-tentacles) wherever possible:
     - Listening Tentacles and SSH place the Octopus Server under less load.
     - We try to make Polling Tentacles as efficient as possible, but by their very nature, they can place the Octopus Server under high load just handling the incoming connections.
 1. Reduce the frequency and complexity of automated health checks using [machine policies](/docs/infrastructure/machine-policies.md).

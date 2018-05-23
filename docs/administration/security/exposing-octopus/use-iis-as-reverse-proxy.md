@@ -9,7 +9,7 @@ There are scenarios in which you may be required to run Octopus Deploy behind a 
 This example assumes:
 
 - IIS will terminate your SSL connections.
-- [Polling Tentacles](/docs/infrastructure/windows-targets/polling-tentacles/index.md) are not required.
+- [Polling Tentacles](/docs/infrastructure/windows-targets/tentacle-communication.md#polling-tentacles) are not required.
 
 Our starting configuration:
 
@@ -137,4 +137,3 @@ Invoke-WebRequest https://servername | select -expand Headers
 ```
 
 You should see your `x-octopus-servedby` header listed in the returned headers.
-

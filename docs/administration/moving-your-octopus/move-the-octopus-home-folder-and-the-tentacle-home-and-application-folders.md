@@ -21,7 +21,21 @@ N.B. The delete-instance command will not actually delete any files, just the Re
 
 A PowerShell script showing the steps is set out below. You need to change the variables to match your Octopus installation, and you may wish to run each step separately to deal with any issues like locked files.
 
-!partial <serverscript>
+```powershell
+$oldHome = "C:\Octopus"
+$newHome = "C:\YourNewHomeDir"
+$octopus = "C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe"
+$newConfig = $newHome + "\OctopusServer.config"
+& "$octopus" service --stop
+mv $oldHome $newHome
+
+& "$octopus" delete-instance --instance=OctopusServer
+& "$octopus" create-instance --instance=OctopusServer --config=$newConfig
+
+& "$octopus" configure --home="$newHome"
+
+& "$octopus" service --start
+```
 
 ## Move the Tentacle Home and Application folders {#MovetheOctopusHomefolderandtheTentacleHomeandApplicationfolders-MovetheTentacleHomeandApplicationfolders}
 

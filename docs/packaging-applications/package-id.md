@@ -4,7 +4,13 @@ description: Choose an ID for your package
 position: 2
 ---
 
-The combination of package ID and [version number](versioning.md) uniquely identify a package.
+The combination of package ID and [version number](/docs/packaging-applications/versioning.md) uniquely identify a package.
+
+From our [example package](/docs/packaging-applications/index.md#example-package):
+
+> `hello-world.1.0.0.zip`
+
+**hello-world** is the package ID, **1.0.0** is the version number, and **zip** is the format.
 
 Package identifiers in Octopus follow similar rules to [NuGet](https://docs.microsoft.com/en-us/nuget/create-packages/creating-a-package#choosing-a-unique-package-identifier-and-setting-the-version-number).
 
@@ -22,7 +28,7 @@ Additionally, avoid using numbers in your package ID. This is because the packag
 
 For instance:
 
-> `Sample.Web.2.3.tar.gz`
+> `hello-world.1.0.0.zip`
 
 Including numbers in the package ID will result in the version being incorrectly parsed.
 

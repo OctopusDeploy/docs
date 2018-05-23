@@ -1,7 +1,7 @@
 ---
 title: Custom Step Templates
 description: How to create reusable steps
-position: 0
+position: 2
 ---
 
 Custom step templates can be based on a built-in or an installed community step template. These step templates can be reused in projects and managed in the step template library.
@@ -57,11 +57,9 @@ You'll also see a handy counter next to the Usage tab so you can see at a glance
 
 ![Step templates usage](step-templates-usage.png "width=500")
 
-### Custom logo {#StepTemplates-Customlogo}
+### Custom Logo {#StepTemplates-Customlogo}
 
 Custom step templates inherit their logo from the template that was used to create them. This means that most of them will share the same logo. Fortunately this can be easily changed and each custom template can have its own unique logo. To do that navigate to the Settings tab and upload a custom logo from there.
-
-![Step template custom log](step-templates-custom-logo.png "width=500")
 
 ### Linking custom step templates to community step templates {#StepTemplates-Linkingcustomsteptemplatestocommunitysteptemplates}
 
@@ -75,7 +73,7 @@ Name, all Parameters and Script Body property have to match for the linking proc
 
 ### Running script based custom step templates {#StepTemplates-Runningscriptbasedcustomsteptemplates}
 
-Octopus 3.7 introduced the ability to run script based custom step templates on a group of machines. This can be very handy to execute script based step templates to test them before starting to use them in your projects as well as performing regular admin or operations functions. This should be familiar to people who have used the script console (link) in the past.
+Octopus 3.7 introduced the ability to run script based custom step templates on a group of machines. This can be very handy to execute script based step templates to test them before starting to use them in your projects as well as performing regular admin or operations functions. This should be familiar to people who have used the [script console](https://octopus.com/docs/administration/script-console) in the past.
 
 :::hint
 It's important to note that you can only run script based custom step templates. It's not currently possible to execute step templates based off other step types.
@@ -84,12 +82,19 @@ It's important to note that you can only run script based custom step templates.
 To run a script based step template, perform the following.
 
 1. Navigate to {{Library,Step templates}} area and click the **Run** button next to the script based custom step template or alternately, select a script template and click the **Run** button from the template editor page
+
    ![Run step template](step-templates-run.png "width=500")
+
 2. Select a group of targets to run the step on. This can be done by target name or by environments and roles.
+
    ![Select run targets](step-templates-run-targets.png "width=500")
+
 3. Enter any required parameters.
+
    ![Enter parameter values](step-templates-run-parameters.png "width=500")
+
 4. Click the **Run now** button. This will execute the step as a new task and provide the full script. 
+
    ![Task summary](step-templates-run-task-summary.png "width=500")
    ![Task log](step-templates-run-task-log.png "width=500")
    ![Task parameters](step-templates-run-task-parameters.png "width=500")

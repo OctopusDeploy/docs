@@ -1,1 +1,0 @@
-Select the variable set to include and click the **Save** button.

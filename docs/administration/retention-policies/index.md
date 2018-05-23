@@ -18,15 +18,20 @@ There are three different types of retention policies that run. Those on the Oct
 
 The Octopus Server settings delete **releases** from the database. This is a data deletion. It also cleans up any **artifacts**, **deployments, tasks, events** and **logs** attached to the release. Releases that are still on the overall dashboard are never deleted. It is assumed to be the working release and may still be promoted (even if their dates fall well outside the retention policy). No packages from the internal NuGet repository will be deleted as part of this policy, but they may be deleted by a corresponding repository retention policy.
 
-### Tentacle files
-
-The Tentacle settings delete **packages**, and expanded **files and folders** from packages on the Tentacle machine that is being deployed to. Note that if you use the [Custom Installation Directory ](/docs/deployment-process/steps/custom-installation-directory.md)feature, we will never delete from that directory during retention policies. This can be purged during deployment in the project step settings. But it is assumed this will have a working release in it.
+The Tentacle settings delete **packages**, and expanded **files and folders** from packages on the Tentacle machine that is being deployed to. Note that if you use the [Custom Installation Directory ](/docs/deployment-process/steps/configuration-files/custom-installation-directory.md)feature, we will never delete from that directory during retention policies. This can be purged during deployment in the project step settings. But it is assumed this will have a working release in it.
 
 ### Built-in repository
 
+
 The in-built repository will delete any **packages** that are not attached to any release. If you happen to have higher versions of packages that have not been released, we will keep them assuming a release will be created. If you delete releases using the Octopus Server retention policy then any packages that were associated with those releases will then be deleted with that task.
 
-A list of packages IDs that a project has deployed is kept and then used to determine retention for projects that [dynamically select packages using variables](/docs/deployment-process/deploying-packages/dynamically-selecting-packages.md). A package will be kept if it appears in that list and the package's version matches any of the package versions referenced by the project's releases.
+A list of packages IDs that a project has deployed is kept and then used to determine retention for projects that [dynamically select packages using variables](/docs/deployment-process/steps/deploying-packages/dynamically-selecting-packages.md). A package will be kept if it appears in that list and the package's version matches any of the package versions referenced by the project's releases.
+
+:::hint
+**Projects that use variables in Package IDs**
+You can [configure Octopus to select packages dynamically using variables](/docs/deployment-process/steps/deploying-packages/dynamically-selecting-packages.md), which makes things more complicated for retention policies. [Read this page to learn more](http://help.octopusdeploy.com/discussions/problems/43995).
+:::
+
 
 ## When the retention policies are applied {#RetentionPolicies-Whentheretentionpoliciesareapplied}
 
@@ -42,7 +47,7 @@ But how does it work? For a release we determine what phase it is currently in. 
 
 If you have an Octopus Server retention policy for a project that has a final phase of keep all releases, once the release enters that phase it will never be deleted. But if you have a release that has not yet deployed to any environments in the final phase, and is set to only keep the last 3 releases, then the release will be deleted when it becomes the 4th release of the project that has not yet been deployed to any final phase environment. (Unless it is still on the dashboard!).
 
-## I think I got it, how do I set my retention policies? {#RetentionPolicies-IthinkIgotit,howdoIsetmyretentionpolicies?}
+## Set Retention Policies {#RetentionPolicies-IthinkIgotit,howdoIsetmyretentionpolicies?}
 
 Under {{Library,Lifecycles}} you select the Lifecycle you want to define or edit your retention policy for:
 

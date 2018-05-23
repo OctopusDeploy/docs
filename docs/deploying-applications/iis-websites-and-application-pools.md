@@ -1,7 +1,6 @@
 ---
 title: IIS Websites and Application Pools
 description: Octopus has built-in support for configuring IIS Web Sites, Applications and Virtual Directories.
-position: 25
 ---
 
 Configuring IIS is an essential part of deploying any ASP.NET web application. Octopus has built-in support for configuring IIS Web Sites, Applications and Virtual Directories.
@@ -38,7 +37,7 @@ Understanding the difference between Sites, Applications and Virtual Directories
 | **Application Pool name** | Name of the Application Pool in IIS to create (or reconfigure, if the application pool already exists) | `MyAppPool`                              |                                          |
 | **.NET CLR version**      | The version of the .NET Common Language Runtime this Application Pool will use. | <ul> <li> `v2.0` </li> <li> `v4.0` </li> </ul> | Choose v2.0 for applications built against .NET 2.0, 3.0 or 3.5.  <br> Choose v4.0 for .NET 4.0 or 4.5. |
 | **Identity**              | Which account the Application Pool will run under. | <ul> <li>`Application Pool Identity`</li> <li>`Local Service`</li> <li>`Local System`</li> <li> `Network Service` </li> <li> `Custom user (you specify the username/password)` </li> </ul> |                                          |
-!partial <startmode>
+| **Start mode**            | Specifies whether the IIS Web Site and/or Application Pool are started after a successful release | <ul> <li>`IIS Application Pool and IIS Web Site`</li> <li>`IIS Application Pool Only`</li> <li>`Do not start either`</li> </ul> |                                          |
 | **Bindings**              | Specify any number of HTTP/HTTPS bindings that should be added to the IIS Web Site |                                          |                                          |
 | **Authentication modes**  | Choose which authentication mode(s) IIS should enable | <ul> <li> `Anonymous` </li> <li> `Basic` </li> <li> `Windows` </li> </ul> | You can select more than one authentication mode |
 
@@ -90,19 +89,19 @@ The Virtual Path and Physical Path do not need to match which is one of the true
 
 ## How Octopus Deploys your Web Site {#IISWebsitesandApplicationPools-HowOctopusDeploysyourWebSite}
 
-Out of the box, Octopus will do the right thing to deploy your Web Site using IIS, and the conventions we have chosen will eliminate a lot of problems with file locks, leaving stale files behind, and causing multiple Application Pool restarts. By default Octopus will follow the conventions described in [Deploying packages](/docs/deployment-process/deploying-packages/index.md) and apply the different features you select in the order described in [Package deployment feature ordering](/docs/deployment-process/deploying-packages/package-deployment-feature-ordering.md).
+Out of the box, Octopus will do the right thing to deploy your Web Site using IIS, and the conventions we have chosen will eliminate a lot of problems with file locks, leaving stale files behind, and causing multiple Application Pool restarts. By default Octopus will follow the conventions described in [Deploying packages](/docs/deployment-process/steps/deploying-packages/index.md) and apply the different features you select in the order described in [Package deployment feature ordering](/docs/deployment-process/steps/deploying-packages/package-deployment-feature-ordering.md).
 
 :::success
-Avoid using the [Custom Installation Directory](/docs/deployment-process/steps/custom-installation-directory.md) feature unless you are absolutely required to put your packaged files into a specific physical location on disk.
+Avoid using the [Custom Installation Directory](/docs/deployment-process/steps/configuration-files/custom-installation-directory.md) feature unless you are absolutely required to put your packaged files into a specific physical location on disk.
 :::
 
 As an approximation including the IIS integration:
 
-1. Acquire the package as optimally as possible (local package cache and [delta compression](/docs/deployment-process/deploying-packages/delta-compression-for-package-transfers.md))
+1. Acquire the package as optimally as possible (local package cache and [delta compression](/docs/deployment-process/steps/deploying-packages/delta-compression-for-package-transfers.md))
 2. Create a new folder for the deployment (which avoids many common problems like file locks, leaving stale files behind, and multiple Application Pool restarts)
 3. Example: `C:\Octopus\Applications\[Tenant name]\[Environment name]\[Package name]\[Package version]\` where `C:\Octopus\Applications` is the Tentacle application directory you configured when installing Tentacle)
 4. Extract the package into the newly created folder
-5. Execute each of your [custom scripts](/docs/deploying-applications/custom-scripts/index.md) and the [deployment features](/docs/deploying-applications/index.md) you've configured will be executed to perform the deployment [following this order by convention](/docs/deployment-process/deploying-packages/package-deployment-feature-ordering.md).
+5. Execute each of your [custom scripts](/docs/deploying-applications/custom-scripts/index.md) and the [deployment features](/docs/deploying-applications/index.md) you've configured will be executed to perform the deployment [following this order by convention](/docs/deployment-process/steps/deploying-packages/package-deployment-feature-ordering.md).
 6. As part of this process the IIS Web Site, Web Application or Virtual Directory will be configured in a single transaction with IIS, including updating the Physical Path to point to this folder
 7. [Output variables](/docs/deployment-process/variables/output-variables.md) and deployment [artifacts](/docs/deployment-process/artifacts.md) from this step are sent back to the Octopus Server
 

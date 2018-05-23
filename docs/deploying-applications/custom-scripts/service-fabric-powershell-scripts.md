@@ -1,5 +1,5 @@
 ---
-title: Service Fabric PowerShell scripts
+title: Service Fabric PowerShell Scripts
 description: Service Fabric PowerShell scripts allow you to manage your Service Fabric clusters using the Service Fabric SDK as part of your deployment process.
 position: 1
 version: "[3.13,)"
@@ -26,7 +26,7 @@ Please see the [Microsoft Service Fabric SDK documentation](https://docs.microso
 This example uses the Service Fabric SDK to query the health of an application, from the cluster that we've connected to.
 
 ```powershell
-# Hey, we can query things about our cluster because this PowerShell session 
+# Hey, we can query things about our cluster because this PowerShell session
 # is connected to our SF cluster and we have context!
 
 # Determine the health of an application on our cluster.
@@ -45,4 +45,4 @@ Calamari uses the [Connect-ServiceFabricCluster cmdlet](https://docs.microsoft.c
 
 If you receive an error such as: _"Unable to load DLL 'FabricCommon.dll': The specified module could not be found."_ and you have already installed the Service Fabric SDK on your server, the Octopus service may need to be restarted _after_ this SDK has been installed. Please see the [Service Fabric SDK](https://g.octopushq.com/ServiceFabricSdkDownload) documentation for more information.
 
-If you are using a secure Service Fabric cluster and receive errors such as _"An error occurred during this operation.  Please check the trace logs for more details."_, this is an error from Azure and may indicate that the Octopus Server was unable to connect to the Service Fabric cluster because of security reasons. If you are using [Client Certificates](/docs/deploying-applications/deploying-to-service-fabric/connecting-securely-with-client-certificates/index.md) for example, please ensure the client certificate is correctly installed on your Octopus Server in the `LocalMachine` (unless you have specifically overridden this store location).
+If you are using a secure Service Fabric cluster and receive errors such as _"An error occurred during this operation.  Please check the trace logs for more details."_, this is an error from Azure and may indicate that the Octopus Server was unable to connect to the Service Fabric cluster because of security reasons. If you are using [Client Certificates](/docs/deploying-applications/azure-deployments/deploying-to-service-fabric/connecting-securely-with-client-certificates/index.md) for example, please ensure the client certificate is correctly installed on your Octopus Server in the `LocalMachine` (unless you have specifically overridden this store location).
