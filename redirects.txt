@@ -464,3 +464,5 @@ docs/deployment-process/deploying-packages/stage-package-uploads.md -> docs/depl
 docs/deployment-process/coordinating-multiple-projects/project-coordination-code-samples.md -> docs/deployment-process/projects/coordinating-multiple-projects/project-coordination-code-samples.md
 docs/deployment-process/steps/run-steps-in-parallel.md -> docs/deployment-process/steps/conditions/run-steps-in-parallel.md
 docs/deployment-process/steps/custom-installation-directory.md -> docs/deployment-process/configuration-files/custom-installation-directory.md
+docs/deployment-process/steps/configuration-files/index.md -> docs/deployment-process/configuration-files/index.md
+docs/deployment-process/steps/configuration-files/custom-installation-directory.md -> docs/deployment-process/configuration-files/custom-installation-directory.md 
