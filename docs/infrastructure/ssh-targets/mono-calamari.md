@@ -33,11 +33,11 @@ We currently execute automated tests against the following platforms:
 
 ### Configuration Transformations only available in Mono >= 4.2.3  
 
-The [Configuration Transforms](/docs/deployment-process/steps/configuration-files/index.md#Configuration-variables) feature will only work on Mono 4.2.3 and above.
+The [Configuration Transforms](/docs/deployment-process/configuration-files/index.md#Configuration-variables) feature will only work on Mono 4.2.3 and above.
 
 This was due to a [bug with XML Transformations](https://bugzilla.xamarin.com/show_bug.cgi?id=19426).
 
-Note that [Substitute Variables in Files](/docs/deployment-process/steps/configuration-files/substitute-variables-in-files.md) can still be used without issue on earlier Mono versions.
+Note that [Substitute Variables in Files](/docs/deployment-process/configuration-files/substitute-variables-in-files.md) can still be used without issue on earlier Mono versions.
 
 ### Package Repository SSL Certificates
 
