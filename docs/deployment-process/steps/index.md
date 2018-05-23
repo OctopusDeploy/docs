@@ -3,9 +3,23 @@ title: Steps
 description: Adding steps to define your project's deployment process.
 position: 3
 ---
-Steps are the actions your deployment process will execute each time you create a release of your software to be deployed.
+Steps contain the actions your deployment process will execute each time you create a release of your software to be deployed. Steps can contain multiple actions and deployment processes can include multiple steps. Steps are executed in sequence by default but they can be configure to [run in parallel](/docs/deployment-process/steps/conditions/run-steps-parallel.md).
 
-Octopus includes built-in step templates that are powerful and flexible enough to handle the most common deployment scenarios. In addition to the built-in step templates, there are also [Community Step Templates](/docs/deployment-process/steps/community-step-templates.md) that have contributed by the community. In addition to the built-in step templates and the community step templates, you can also use the built-in step templates as the base to create [custom steps templates](/docs/deployment-process/steps/custom-step-templates.md) to use across your projects.
+Octopus includes built-in step templates that are powerful and flexible enough to handle the most common deployment scenarios. In addition to the built-in step templates, there are also [Community Step Templates](/docs/deployment-process/steps/community-step-templates.md) that have been contributed by the community. In addition to the built-in step templates and the community step templates, you can also use the built-in step templates as the base to create [custom steps templates](/docs/deployment-process/steps/custom-step-templates.md) to use across your projects.
+
+## Adding Steps to Your Deployment Processes
+
+1. Navigate to your [project's](/docs/deployment-process/projects/index.md) overview page by selecting **Projects** and clicking on the project you are working with.
+2. Click the **DEFINE YOUR DEPLOYMENT PROCESS** button, and click **ADD STEP**.
+3. Choose the step template you need.
+
+At this point, you have the choice of choosing from the built-in **Installed Step Templates**, or from the [Community Contributed Step Templates](/docs/deployment-process/steps/community-step-templates.md). The built-in steps have been developed by the Octopus team to handle the most common deployment scenarios. If the built-in steps don't provide what you need, check the [community steps templates](/docs/deployment-process/steps/community-step-templates.md) or consider creating your own [custom step templates](/docs/deployment-process/steps/custom-step-templates.md).
+
+4. Give the step a name.
+
+
+
+
 
 
 
@@ -27,48 +41,15 @@ All steps have a name, which is used to identify the step.
 Be careful when changing names! Octopus commonly uses names as a convenient identity or handle to things, and the steps and actions in a deployment process are special in that way. For example you can use [output variables](/docs/deployment-process/variables/output-variables.md) to chain steps together, and you use the name as the indexer for the output variable. For example: `#{Octopus.Action[StepA].Output.TestResult}`
 :::
 
-## Adding an installed step {#Addingsteps-Addinganinstalledstep}
 
-The add step page displays the built-in steps first which includes common steps to deploy IIS web sites, windows services, run scripts and more.  The built-in steps have been develop by the Octopus team to handle the most common deployment scenarios.  This section also includes any custom step templates added in the library.  Hover over a step and click add step to go configure the step.
 
-![](add-builtin-step.png "width=300")
 
-## Adding a community contributed step templates {#Addingsteps-Addingacommunitycontributedsteptemplates}
 
-The add step page also displays community contributed step templates available to install and add.  You can search for a specific template or you can browse through the categories.  Installing a community step template is easy.  Hover over a step and select Install and add step.  This will display a pop-up dialog where you can confirm to install and add the step.  This will take you to the configuration page for the step template.
 
-![](install-community-step.png "width=300")
-
-![](install-community-step-popup.png "width=500")
-
-If you select view details, this will take you to the community step details page which shows you the complete details of the step include the source code.  You can install the step or go back to the list of steps.
-
-![](install-community-step-details.png "width=500")
-
-## Adding an updated version of a community step template {#Addingsteps-Addinganupdatedversionofacommunitysteptemplate}
-
-Sometimes updates are available for step templates.  In this case, you will notice the step template has an option to update the step.  If you select update, this will take you to the community step details with the option to update the latest version of the step template.  Community step templates can also be updated in the library as needed.
-
-![](update-community-step.png)
-
-![](update-community-step-details.png "width=500")
 
 :::success
 If a step you want isn't built-in you should check out the community contributed [step templates](/docs/deployment-process/steps/index.md). If you still don't find it, don't forget: *Octopus can do anything, as long as you can script the instructions*. Maybe you could contribute your scripts back to the community?
 :::
-
-## Execution Order
-
-The steps that you add to your deployment process will, by default, execute in sequence.
-
-![](5865849.png "width=300")
-If a step is configured to execute across multiple deployment targets, it will execute across all of those deployment targets in parallel, unless you specify a window size. Specifying a window size limits the number of deployment targets steps will execute against in parallel.
-
-![](5865850.png "width=300")
-
-Steps can include multiple actions.
-
-![](5865848.png "width=500")
 
 ## Example: A simple deployment process {#DeploymentProcesses-Example:Asimpledeploymentprocess}
 
