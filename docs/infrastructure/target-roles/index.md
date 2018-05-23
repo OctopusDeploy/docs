@@ -1,6 +1,6 @@
 ---
 title: Target Roles
-description: Target roles allow you to “tag” machines with a specific keyword which can be used in your deployments.
+description: Target roles allow you to “tag” deployment targets (physical servers or cloud services) with a specific keyword which can be used in your deployments.
 position: 80
 ---
 

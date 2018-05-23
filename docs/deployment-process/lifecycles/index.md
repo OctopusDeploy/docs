@@ -17,6 +17,8 @@ Lifecycles are defined by phases. A lifecycle can have one or many phases.
 - Environments in a phase can be defined as automatic deployment environments or manual deployment environments.
 - Phases can have a set number of environments that must be released to, before the next phase is available for deployment.
 
+You can specify multiple Lifecycles to control which projects are deployed to which environments.
+
 ## Managing Lifecycles
 
 Lifecycles are managed by navigating to **{{Library,Lifecyles}}**.
@@ -31,26 +33,27 @@ Retention policies define how long releases are kept for, and how long extracted
 
 4. Click **ADD PHASE**, to explicitly define the phases of the lifecycle.
 5. Give the phase a name.
-6. Click **ADD ENVIRONMENT** to define which environments can be deployed to during this phase of the lifecycle. Add multiple environments at this point, if this phase deploys to multiple environments.
-7. Select the environment.
-8. By default, users must manually queue the deployment to the environment, if you would like the deployment to occur automatically as soon as the release enters the phase, select *Deploy automatically...*.
+6. Click **ADD ENVIRONMENT** to define which environments can be deployed to during this phase of the lifecycle.
+
+At this point, you can add one or multiple environments, or leave the default **Any Environments** option selected. Note, if you choose to use **Any Environments**, this phase of the Lifecycle will deploy to all the environments that haven't been explicitly added to the Lifecycle in previous phases. Any future environments you define will also be deployed to as part of this phase of the Lifecycle.
+
+7. By default, users must manually queue the deployment to the environment, if you would like the deployment to occur automatically as soon as the release enters the phase, select *Deploy automatically...*.
 
 If you have a project setup with [Automatic Release Creation](/docs/deployment-process/releases/automatic-release-creation.md) and set your first phase and environment to automatically deploy, pushing a package to the internal library will trigger both a release, and a deployment to that environment.
 
-9. Set the *Required to progress* option. This determines how many environments must be deployed to before the next phase can be activated. The options are:
+8. Set the *Required to progress* option. This determines how many environments must be deployed to before the next phase can be activated. The options are:
 
-  - All must complete.
-
-If you want to be able to deploy to any environment at any time, then simply create a single phase which has `Phase Progression` set to `All must complete` and includes all your environments.
-
-  - A minimum of x must complete. If choose this option, and, for example, have 5 environments in the phase and choose **2**, then 2 of the 5 environments must be deployed to before the next phase can be activated.
-  - Optional. This lets you skip a phase when it is reached in the Lifecycle. This allows you to release to environments in the next phase without being required to deploy to _any_ in the optional phase. The standard Lifecycle progression and Automatic Deployment rules apply that determine when an optional phase is deployable. Optional phases may be useful for scenarios such as the provision of a `Testing` phase that can optionally be deployed to, but isn't crucial to progressing on to `Production`.
+- **All must complete**.
+- **A minimum of x must complete**. If choose this option, and, for example, have 5 environments in the phase and choose **2**, then 2 of the 5 environments must be deployed to before the next phase can be activated.
+- **Optional**. This lets you skip a phase when it is reached in the Lifecycle. This allows you to release to environments in the next phase without being required to deploy to _any_ in the optional phase. The standard Lifecycle progression and Automatic Deployment rules apply that determine when an optional phase is deployable. Optional phases may be useful for scenarios such as the provision of a `Testing` phase that can optionally be deployed to, but isn't crucial to progressing on to `Production`.
 
 ![Optional Phase](optional-phase.png)
 
-10. Each phase of the Lifecycle can have its own retention policy defined. Set the retention policy for the phase if you don't want it to inherit the retention policy defined for the entire Lifecycle.
-11. Add as many additional phases as you need.
-12. Click **SAVE**.
+If you want to be able to deploy to any environment at any time, then simply create a single phase which has `Phase Progression` set to `All must complete` and includes all your environments.
+
+9. Each phase of the Lifecycle can have its own retention policy defined. Set the retention policy for the phase if you don't want it to inherit the retention policy defined for the entire Lifecycle.
+10. Add as many additional phases as you need.
+11. Click **SAVE**.
 
 After you have defined your lifecycles, they become available to your projects. Projects can be deployed to any environment in their lifecycle.
 
