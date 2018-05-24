@@ -24,4 +24,4 @@ Once this option is on, PowerShell scripts automatically support long file names
 - Windows limits the each component of the path to 255 characters
 - Due to how we store and transfer packages, PackageIds are limited to 100 characters and Package Id and Version combined to 216 characters
 - The package extraction path (`<TentacleApplicationDirectory>\<PackageId>\<Version>`) must be less than 256 characters long
-- The path to any script file being run by the deployment must be less than 256 characters long
+- The path to the directory of any script file being run by the deployment must be less than 256 characters long
