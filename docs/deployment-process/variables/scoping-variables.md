@@ -55,3 +55,22 @@ Variable scoping also works like CSS rules; a value scoped twice is more specifi
 If two variables are scoped equally, Octopus will choose project-defined variables ahead of library-defined ones. If this still does not resolve the conflict the result is non-deterministic and you should not depend on a specific value being used. Instead, you should take care when scoping variables so that they are unlikely to conflict.
 
 Scope specificity can quickly become very complicated. Read our blog post for a [better understanding of why scope specificity works the way it does](http://octopusdeploy.com/blog/variable-specificity-and-complexity).
+
+## Using Variables with Target Roles
+
+Variables can also be scoped to specific [target roles](docs/infrastructure/target-roles/index.md). This means that the variable will take the specified value only when it is used on a deployment step that runs on a deployment target with the specified role. This feature can be really handy when you want to use the same variable name multiple times and have their values changed depending on the target they are running on.
+
+Let’s say you have the following targets with their respective roles:
+
+| Target   | Role       |
+| ---------- | ---------- |
+| Target 1 | app-server |
+| Target 2 | web-server |
+
+You want to deploy the same package on each server but the deployment path will be different between servers. In this case you can set the same variable (we’ll call it *DeployPath*) with a different value for each target role:
+
+![](deploy-path-variable.png)
+
+Then, on your deployment step, you can set the **[Custom Install Directory](/docs/deployment-process/configuration-files/custom-installation-directory.md)** to `#{DeployPath}`.
+
+![](custom-install-path.png)
