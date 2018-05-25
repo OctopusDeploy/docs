@@ -465,3 +465,4 @@ docs/deployment-process/steps/run-steps-in-parallel.md -> docs/deployment-proces
 docs/deployment-process/steps/custom-installation-directory.md -> docs/deployment-process/configuration-files/custom-installation-directory.md
 docs/deployment-process/steps/configuration-files/custom-installation-directory.md -> docs/deployment-process/configuration-files/custom-installation-directory.md 
 docs/deployment-process/steps/deploying-packages/index.md -> docs/deployment-process/deploying-packages/index.md
+docs/deployment-process/steps/using-target-roles-in-deployment-steps.md -> docs/deployment-process/steps/index.md
