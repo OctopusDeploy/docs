@@ -13,14 +13,23 @@ Octopus includes built-in step templates that are powerful and flexible enough t
 2. Click the **DEFINE YOUR DEPLOYMENT PROCESS** button, and click **ADD STEP**.
 3. Choose the step template you need.
 
-At this point, you have the choice of choosing from the built-in **Installed Step Templates**, or from the [Community Contributed Step Templates](/docs/deployment-process/steps/community-step-templates.md). The built-in steps have been developed by the Octopus team to handle the most common deployment scenarios. If the built-in steps don't provide what you need, check the [community steps templates](/docs/deployment-process/steps/community-step-templates.md) or consider creating your own [custom step templates](/docs/deployment-process/steps/custom-step-templates.md).
+At this point, you have the choice of choosing from the built-in **Installed Step Templates** or the [Community Contributed Step Templates](/docs/deployment-process/steps/community-step-templates.md). The built-in steps have been developed by the Octopus team to handle the most common deployment scenarios. If the built-in steps don't provide what you need, check the [community steps templates](/docs/deployment-process/steps/community-step-templates.md) or consider creating your own [custom step templates](/docs/deployment-process/steps/custom-step-templates.md).
 
-4. Give the step a name.
+If you're looking for example deployments, see the [Deploying Applications examples](/docs/deploying-applications/index.md).
+
+4. Give the step a short memorable name.
+5. The **Execution Plan** tells the step where to run. Depending on the type of step you are configuring the options will vary:
+
+- Octopus Server.
+- Octopus server on behalf of target Roles.
+- Deployment targets.
 
 
 
+<!--
+Configure a rolling deployment link
 
-
+ -->
 
 
 
