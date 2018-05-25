@@ -83,7 +83,7 @@ Size really does matter when it comes to your packages:
 
 - Larger packages require more network bandwidth to transfer to your deployment targets.
 - Larger packages take more resources to unpack on your deployment targets.
-- When using [delta compression for package transfers](/docs/deployment-process/steps/deploying-packages/delta-compression-for-package-transfers.md), larger packages require more CPU and disk IOPS on the Octopus Server to calculate deltas - this is a tradeoff you can determine through testing.
+- When using [delta compression for package transfers](/docs/deploying-applications/deploying-packages/delta-compression-for-package-transfers.md), larger packages require more CPU and disk IOPS on the Octopus Server to calculate deltas - this is a tradeoff you can determine through testing.
 - Larger packages usually result in larger file systems on your deployment targets, making any steps which scan files much slower. For example, [substituting variables in files](/docs/deployment-process/configuration-files/substitute-variables-in-files.md) can be configured to scan every file extracted from your package.
 
 Consider whether one large package is better in your scenario, or perhaps you could split your application into multiple smaller packages, one for each deployable component.
@@ -98,10 +98,10 @@ Octopus provides two primary methods for transferring your packages to your depl
 Each option provides different performance benefits, depending on your specific scenario:
 
 - If network bandwidth is the limiting factor, consider:
-  - pushing the package from the Octopus Server to your targets using [delta compression for package transfers](/docs/deployment-process/steps/deploying-packages/delta-compression-for-package-transfers.md); or
+  - pushing the package from the Octopus Server to your targets using [delta compression for package transfers](/docs/deploying-applications/deploying-packages/delta-compression-for-package-transfers.md); or
   - using custom package feed in the same network as your deployment targets and download the packages directly on the agent.
 - If network bandwidth is not a limiting factor consider downloading the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
-- If Octopus Server CPU and disk IOPS is a limiting factor, avoid using [delta compression for package transfers](/docs/deployment-process/steps/deploying-packages/delta-compression-for-package-transfers.md). Instead, consider downloading the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
+- If Octopus Server CPU and disk IOPS is a limiting factor, avoid using [delta compression for package transfers](/docs/deploying-applications/deploying-packages/delta-compression-for-package-transfers.md). Instead, consider downloading the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
 
 ### Consider retention policies for your package feeds {#package-retention}
 
