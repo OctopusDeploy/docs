@@ -44,7 +44,7 @@ By default, the entire package will be uploaded to the S3 bucket untouched with 
 
 ![Package options](package-options.png "width=500")
 
-:::hint
+:::warning
 Please note, we do not support file substitutions within the package if the entire package is going to be uploaded to the s3 bucket.
 :::
 
@@ -61,7 +61,7 @@ A new file selection can be added by clicking on the `Add Another File Selection
 A file selection can be removed by expanding the appropriate selection and clicking on the `Remove File Selection` button.
 ![Remove file selection](remove-file-selection.png "width=500")
 
-:::hint
+:::warning
 File selections aren't formally removed or added until the step has been saved.
 :::
 
