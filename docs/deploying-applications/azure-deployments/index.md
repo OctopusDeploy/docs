@@ -1,6 +1,7 @@
 ---
 title: Azure Deployments
 description: Octopus Deploy can help you perform repeatable and controlled deployments of your applications into Azure.
+position: 40
 ---
 
 Octopus Deploy can help you perform repeatable and controlled deployments of your applications into Azure.
@@ -18,4 +19,3 @@ Out of the box, Octopus provides built-in steps to deploy to the following Azure
 **Where do Azure Steps execute?**
 All Azure Steps are executed on the `Octopus Server` instead of being ran on `Tentacles` . If you would like the ability to delegate Azure deployments to a Tentacle, there is a [UserVoice suggestion where you can vote and have your say on this kind of feature](https://octopusdeploy.uservoice.com/forums/170787-general/suggestions/6316906-support-run-on-any-tentacle-model-for-deployment).
 :::
-

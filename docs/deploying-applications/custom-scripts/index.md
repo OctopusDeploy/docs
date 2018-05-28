@@ -1,7 +1,7 @@
 ---
 title: Custom Scripts
 description: Custom scripts allows you to script anything you want using PowerShell, ScriptCS, F# or Bash.
-position: 29
+position: 10
 ---
 
 As a convention-oriented deployment tool, Octopus can perform a number of actions automatically, such as [managing configuration files](/docs/deployment-process/configuration-files/index.md), creating [IIS websites and application pools](/docs/deploying-applications/iis-websites-and-application-pools.md), and installing [Windows Services](/docs/deploying-applications/windows-services.md). Sometimes however you’ll need to do more than the built-in conventions support – and that’s where custom scripts come in.
