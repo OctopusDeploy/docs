@@ -28,43 +28,31 @@ If you're looking for example deployments, see the [Deploying Applications examp
 
 Learn more about [rolling deployments](/docs/deployment-patterns/).
 
-7. The next section of the step is where you specify the actions for the step to take, if you are running a script or deploying a package this is where you provide the details. This section will vary depending on the type of step you're configuring. For example deployments, see the [Deploying Applications examples](/docs/deploying-applications/index.md).
+7. The next section of the step is where you specify the actions for the step to take, if you are running a script or deploying a package this is where you provide the details. This section will vary depending on the type of step you're configuring. For example deployments, see the [Deploying Applications examples](/docs/deploying-applications/index.md). If you're deploying packages you'll likely need to set your [configuration variables](/docs/deployment-process/configuration-files/index.md).
 
-8. After providing the actions the steps takes, you can set the conditions
+8. After providing the actions the steps takes, you can set the conditions for the step. You can set the following conditions:
 
+- Only run the step when deploying to specific environments.
+- Only run the step when deploying a release through a specific channel.
+- Set the step to run depending on the status of the previous step.
+- Set when package acquisition should occur.
+- Specifying whether or not the step is required.
 
+Learn more about [conditions](/docs/deployment-process/steps/conditions/index.md).
 
+9. Save the step.
+10. Add additional steps.
 
+With your deployment configured you're ready to create a [release](/docs/deployment-process/releases/index.md).
 
-
-
-Octopus community library integration makes it easy to find steps templates that work with the frameworks and technologies you use without the need for custom scripting.
-
-![](community-steps.png "width=500")
-
-
-Learn more about [Updating Step Templates](/docs/deployment-process/steps/updating-step-templates.md) and [Exporting Step Templates](/docs/deployment-process/steps/exporting-step-templates.md)
-
-
-
-
-
-
-
-
-
-:::success
-If a step you want isn't built-in you should check out the community contributed [step templates](/docs/deployment-process/steps/index.md). If you still don't find it, don't forget: *Octopus can do anything, as long as you can script the instructions*. Maybe you could contribute your scripts back to the community?
-:::
-
-## Example: A simple deployment process {#DeploymentProcesses-Example:Asimpledeploymentprocess}
+## Example: A simple Deployment Process
 
 In the example shown below there are three steps that will be executed from top to bottom. The first is a [manual intervention](/docs/deployment-process/steps/manual-intervention-and-approvals.md) which executes on the Octopus Server pausing the deployment until someone intervenes and allow the deployment to continue. This step will only execute when targeting the Production [environment](/docs/infrastructure/environments/index.md). The remaining steps both [deploy a package](/docs/deploying-applications/deploying-packages/index.md) and execute [custom scripts](/docs/deploying-applications/custom-scripts/index.md) on all of the [deployment targets](/docs/infrastructure/index.md) with the [role](/docs/infrastructure/target-roles/index.md) **web-server**.
 
-![](simple-process.png "width=500")
+![A simple deployment process](simple-process.png)
 
-## Example: A rolling deployment {#DeploymentProcesses-Example:Arollingdeployment} {#rolling-deployments}
+## Example: A Rolling Deployment Process
 
-Let's consider a more complex example like the one shown below. In this example we have configured Octopus to deploy a web application across one or more servers in a web farm behind a load balancer. This process has a single **step** and three **actions** which form a [rolling deployment](/docs/deployment-patterns/rolling-deployments.md).
+Let's consider a more complex example like the one shown below. In this example we have configured Octopus to deploy a web application across one or more servers in a web farm behind a load balancer. This process has a single step and three actions which form a [rolling deployment](/docs/deployment-patterns/rolling-deployments.md).
 
-![](rolling-process.png "width=500")
+![A Rolling Deployment](rolling-process.png)
