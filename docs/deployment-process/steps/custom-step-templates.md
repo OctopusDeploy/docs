@@ -100,3 +100,12 @@ To run a script based step template, perform the following.
    ![Task parameters](step-templates-run-task-parameters.png "width=500")
 
 To re-run the script against different deployment targets or modify the input parameters, simply click the **Modify and re-run** button.
+
+## Common Step Properties {#Deployingapplications-Commonstepproperties}
+
+All steps have a name, which is used to identify the step.
+
+:::success
+**What&#39;s in a Name?**
+Be careful when changing names! Octopus commonly uses names as a convenient identity or handle to things, and the steps and actions in a deployment process are special in that way. For example you can use [output variables](/docs/deployment-process/variables/output-variables.md) to chain steps together, and you use the name as the indexer for the output variable. For example: `#{Octopus.Action[StepA].Output.TestResult}`
+:::
