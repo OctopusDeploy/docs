@@ -155,9 +155,6 @@ docs/deploying-applications/docker-containers/registries/docker-hub.md -> docs/p
 docs/deploying-applications/guided-failures.md -> docs/deployment-process/releases/guided-failures.md
 docs/deploying-applications/deployment-process/guided-failures.md -> docs/deployment-process/releases/guided-failures.md
 docs/deployment-process/steps/deploying-packages/index.md -> docs/deploying-applications/deploying-packages/index.md
-docs/deployment-process/steps/deploying-packages/dynamically-selecting-packages.md -> docs/deploying-applications/deploying-packages/dynamically-selecting-packages.md
-docs/deployment-process/steps/deploying-packages/transfer-package.md -> docs/deploying-applications/deploying-packages/transfer-package.md
-docs/deployment-process/steps/deploying-packages/troubleshoot-missing-packages.md -> docs/deploying-applications/deploying-packages/troubleshoot-missing-packages.md
 docs/deploying-applications/performance.md -> docs/deployment-process/performance.md
 docs/deploying-applications/configuration-files/index.md -> docs/deployment-process/configuration-files/index.md
 docs/deploying-applications/configuration-files/advanced-configuration-transforms-examples.md -> docs/deployment-process/configuration-files/advanced-configuration-transforms-examples.md
@@ -244,10 +241,7 @@ docs/deploying-applications/deployment-process/steps/custom-step-templates.md ->
 docs/deploying-applications/deployment-process/steps/exporting-step-templates.md -> docs/deployment-process/steps/exporting-step-templates.md
 docs/deploying-applications/deployment-process/steps/updating-step-templates.md -> docs/deployment-process/steps/updating-step-templates.md
 docs/deploying-applications/deployment-process/releases/guided-failures.md -> docs/deployment-process/releases/guided-failures.md
-docs/deployment-process/steps/deploying-packages/index.md -> docs/deploying-applications/deployment-process/deploying-packages/index.md
 docs/deployment-process/steps/deploying-packages/dynamically-selecting-packages.md -> docs/deploying-applications/deployment-process/deploying-packages/dynamically-selecting-packages.md
-docs/deployment-process/steps/deploying-packages/transfer-package.md -> docs/deploying-applications/deployment-process/deploying-packages/transfer-package.md
-docs/deployment-process/steps/deploying-packages/troubleshoot-missing-packages.md -> docs/deploying-applications/deployment-process/deploying-packages/troubleshoot-missing-packages.md
 docs/deploying-applications/deployment-process/performance.md -> docs/deployment-process/performance.md
 docs/deploying-applications/deployment-process/configuration-files/index.md -> docs/deployment-process/configuration-files/index.md
 docs/deploying-applications/deployment-process/configuration-files/advanced-configuration-transforms-examples.md -> docs/deployment-process/configuration-files/advanced-configuration-transforms-examples.md
@@ -304,7 +298,6 @@ docs/how-to/record-a-performance-trace.md -> docs/support/record-a-performance-t
 docs/how-to/troubleshoot-polling-tentacles.md -> docs/infrastructure/windows-targets/troubleshooting-tentacles.md
 docs/how-to/troubleshoot-listening-tentacles.md -> docs/infrastructure/windows-targets/troubleshooting-tentacles.md
 docs/how-to/deploy-to-a-specific-subset-of-targets.md -> docs/deployment-process/releases/deploy-to-a-specific-subset-of-targets.md
-docs/deployment-process/steps/deploying-packages/stage-package-uploads.md -> docs/how-to/stage-package-uploads.md
 docs/how-to/expose-the-octopus-web-portal-over-https.md -> docs/administration/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md
 docs/how-to/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md -> docs/deployment-process/configuration-files/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md
 docs/how-to/move-the-octopus-home-folder-and-the-tentacle-home-and-application-folders.md -> docs/administration/moving-your-octopus/move-the-octopus-home-folder-and-the-tentacle-home-and-application-folders.md
@@ -347,7 +340,6 @@ docs/reference/octopus-ha/index.md -> docs/administration/high-availability/inde
 docs/reference/octopus-ha/load-balancers/index.md -> docs/administration/high-availability/index.md
 docs/reference/octopus-server-configuration-file.md -> docs/administration/server-configuration-and-file-storage/index.md
 docs/reference/debugging-powershell-scripts.md -> docs/deploying-applications/custom-scripts/debugging-powershell-scripts.md
-docs/deployment-process/steps/deploying-packages/package-deployment-feature-ordering.md -> docs/reference/package-deployment-feature-ordering.md
 docs/reference/process-dumps.md -> docs/support/process-dumps.md
 docs/reference/csrf-and-octopus-deploy.md -> docs/administration/security/cve/csrf-and-octopus-deploy.md
 docs/administration/csrf-and-octopus-deploy.md -> docs/administration/security/cve/csrf-and-octopus-deploy.md
@@ -385,10 +377,7 @@ docs/reference/service-fabric/packaging.md -> docs/deploying-applications/azure-
 docs/reference/service-fabric/version-automation-with-service-fabric-application-packages/index.md -> docs/deploying-applications/azure-deployments/service-fabric/version-automation-with-service-fabric-application-packages/index.md
 docs/reference/index.md -> docs/getting-started.md
 docs/administration/octopus-server-configuration-file.md -> docs/administration/server-configuration-and-file-storage/index.md
-docs/deployment-process/steps/deploying-packages/delta-compression-for-package-transfers.md -> docs/deployment-process/delta-compression-for-package-transfers.md
 docs/deployment-process/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md -> docs/deployment-process/configuration-files/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md
-docs/deployment-process/steps/deploying-packages/package-deployment-feature-ordering.md -> docs/deployment-process/package-deployment-feature-ordering.md
-docs/deployment-process/steps/deploying-packages/stage-package-uploads.md -> docs/deployment-process/stage-package-uploads.md
 docs/deployment-process/substitute-variables-in-files.md -> docs/deployment-process/configuration-files/substitute-variables-in-files.md
 docs/deployment-process/variable-substitution-syntax.md -> docs/deployment-process/variables/variable-substitution-syntax.md
 docs/deployment-process/steps/automatic-release-creation.md -> docs/deployment-process/releases/automatic-release-creation.md
@@ -448,7 +437,6 @@ docs/packaging-applications/creating-packages/versioning -> docs/packaging-appli
 docs/deployment-process/coordinating-multiple-projects/index.md -> docs/deployment-process/projects/coordinating-multiple-projects/index.md
 docs/deployment-process/steps/configuration-files/index.md -> docs/deployment-process/configuration-files/index.md
 docs/deployment-process/steps/configuration-files/advanced-configuration-transforms-examples.md -> docs/deployment-process/configuration-files/advanced-configuration-transforms-examples.md
-docs/deployment-process/steps/deploying-packages/dynamically-selecting-packages.md -> docs/deployment-process/deploying-packages/dynamically-selecting-packages.md
 docs/deployment-process/steps/deploying-packages/transfer-package.md -> docs/deployment-process/deploying-packages/transfer-package.md
 docs/deployment-process/steps/deploying-packages/troubleshoot-missing-packages.md -> docs/deployment-process/deploying-packages/troubleshoot-missing-packages.md
 docs/deployment-process/manually-fail-a-running-or-cancelling-task.md -> docs/deployment-process/releases/manually-fail-a-running-or-cancelling-task.md
@@ -465,4 +453,5 @@ docs/deployment-process/steps/run-steps-in-parallel.md -> docs/deployment-proces
 docs/deployment-process/steps/custom-installation-directory.md -> docs/deployment-process/configuration-files/custom-installation-directory.md
 docs/deployment-process/steps/configuration-files/custom-installation-directory.md -> docs/deployment-process/configuration-files/custom-installation-directory.md 
 docs/deployment-process/steps/deploying-packages/index.md -> docs/deployment-process/deploying-packages/index.md
+docs/deployment-process/steps/using-target-roles-in-deployment-steps.md -> docs/deployment-process/steps/index.md
 docs/deployment-process/steps/using-target-roles-in-deployment-steps.md -> docs/deployment-process/steps/index.md
