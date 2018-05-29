@@ -21,3 +21,11 @@ Learn more about [creating packages](docs/packaging-applications/creating-packag
 | JAR WAR EAR RAR | .jar, .war, .ear, .rar  |  [Built-In repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) (and [Maven Feeds](/docs/packaging-applications/package-repositories/maven-feeds.md) from 4.1) |  Learn about [Maven Feeds](/docs/packaging-applications/package-repositories/maven-feeds.md). |
 
 Learn about [package IDs](/docs/packaging-applications/package-id.md), [versioning](/docs/packaging-applications/versioning.md), [creating packages](/docs/packaging-applications/creating-packages/index.md), and [package repositories](/docs/packaging-applications/package-repositories/index.md).
+
+:::warning
+**Pre-Release packages and Multipart file extensions**
+
+If you are using a file format with a multi-part file extension (e.g. `.tar.gz`) along with a pre-release naming convention (`MyApp.1.0.0-beta.tar.gz`) the `.tar` forms part of pre-release tag and not part of the file extension. This results in an error message of `Unsupported file extension .gz`. 
+
+This applies only to `Run on Server` steps only as deployments executed on a Tentacle go through a different code path.
+:::
