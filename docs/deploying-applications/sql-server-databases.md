@@ -28,7 +28,7 @@ Deploying an IIS Web Application or a Windows Service is very straight-forward. 
 
 For high-availability groups, there is an active node and a passive node.  In this case, installing a tentacle on each node will not work.  Octopus Deploy will see multiple tentacles and attempt to deploy to both nodes.
 
-SQL PaaS, such as AWS RDS or Azure's SQL as a Service, will not allow the installation of tentacles on SQL Server.  
+SQL PaaS, such as [AWS RDS](https://aws.amazon.com/rds/) or [Azure's SQL](https://azure.microsoft.com/en-us/services/sql-database/), will not allow the installation of tentacles on SQL Server.  
 
 All the tools mentioned above connect to SQL Server using port 1433 and run one or more scripts.  They do not need to be installed directly on SQL Server.  Nor do they need to be run directly on SQL Server.  They will work as long as they run on any machine with a direct connection and port 1433 open.
 
