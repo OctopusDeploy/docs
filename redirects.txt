@@ -510,7 +510,7 @@ docs/deploying-applications/custom-scripts/standalone-scripts.md -> docs/deploym
 docs/deploying-applications/deploying-asp.net-core-web-applications/index.md -> docs/deployment-examples/deploying-asp.net-core-web-applications/index.md
 docs/deploying-applications/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md -> docs/deployment-examples/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md
 docs/deploying-applications/deploying-packages/index.md -> docs/deployment-examples/deploying-packages/index.md
-docs/deploying-applications/deploying-packages/delta-compression-for-package-transfer.md -> docs/deployment-examples/deploying-packages/delta-compression-for-package-transfer.md
+docs/deploying-applications/deploying-packages/delta-compression-for-package-transfers.md -> docs/deployment-examples/deploying-packages/delta-compression-for-package-transfers.md
 docs/deploying-applications/deploying-packages/dynamically-selecting-packages.md -> docs/deployment-examples/deploying-packages/dynamically-selecting-packages.md
 docs/deploying-applications/deploying-packages/package-deployment-feature-ordering.md -> docs/deployment-examples/deploying-packages/package-deployment-feature-ordering.md
 docs/deploying-applications/deploying-packages/stage-package-uploads.md -> docs/deployment-examples/deploying-packages/stage-package-uploads.md
