@@ -25,7 +25,7 @@ Learn about [package IDs](/docs/packaging-applications/package-id.md), [versioni
 :::warning
 **Pre-Release packages and Multipart file extensions**
 
-If you are using a file format with a multi-part file extension (e.g. `.tar.gz`) along with a pre-release naming convention (`MyApp.1.0.0-beta.tar.gz`) the `.tar` forms part of pre-release tag and not part of the file extension. This results in an error message of `Unsupported file extension .gz`. 
+If you're planning to use a multi-part file extension (e.g. `.tar.gz`) with a pre-release naming convention (`MyApp.1.0.0-beta.tar.gz`) and use the *Run on Server* steps option, this will result in an error message of `Unsupported file extension .gz`. This is because the `.tar` forms part of pre-release tag and not part of the file extension.
 
-This applies only to `Run on Server` steps only as deployments executed on a Tentacle go through a different code path.
+The error only occurs on *Run on Server* steps and deployments execute on as expected on Tentacles.
 :::
