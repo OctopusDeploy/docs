@@ -508,7 +508,7 @@ docs/deploying-applications/custom-scripts/script-modules.md -> docs/deployment-
 docs/deploying-applications/custom-scripts/service-fabric-powershell-scripts.md -> docs/deployment-examples/custom-scripts/service-fabric-powershell-scripts.md
 docs/deploying-applications/custom-scripts/standalone-scripts.md -> docs/deployment-examples/custom-scripts/standalone-scripts.md
 docs/deploying-applications/deploying-asp.net-core-web-applications/index.md -> docs/deployment-examples/deploying-asp.net-core-web-applications/index.md
-docs/deploying-applications/deploying-asp.net-core-web-applications/json-configuration-variables-features.md -> docs/deployment-examples/deploying-asp.net-core-web-applications/json-configuration-variables-features.md
+docs/deploying-applications/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md -> docs/deployment-examples/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md
 docs/deploying-applications/deploying-packages/index.md -> docs/deployment-examples/deploying-packages/index.md
 docs/deploying-applications/deploying-packages/delta-compression-for-package-transfer.md -> docs/deployment-examples/deploying-packages/delta-compression-for-package-transfer.md
 docs/deploying-applications/deploying-packages/dynamically-selecting-packages.md -> docs/deployment-examples/deploying-packages/dynamically-selecting-packages.md
