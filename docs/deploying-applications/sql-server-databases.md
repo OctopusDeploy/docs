@@ -1,48 +1,91 @@
 ---
 title: SQL Server Databases
-description: Options for deploying to SQL Server databases including a model-driven approach and a change-script-driven approach.
+description: Octopus integrates with numerous tools to handle automated database deployments.
 position: 30
 ---
 
-There are a variety of ways that SQL Server databases can be managed in Octopus Deploy. This section will provide a broad outline of the different approaches, and then drill into one possible solution to use as an example.
-
-:::hint
-**Tentacle Installation Location**
-For SQL deployments, the SQL server does not require a locally installed Tentacle. You can use any Tentacle installed on any server, so long as it has access to SQL to run the functions you require.
-:::
+There are a variety of ways for Octopus Deploy to deploy to SQL Server.  There are many third-party tools, both free and commercial, Octopus Deploy integrates with.  This section will provide a broad outline of approaches, tooling, and recommended configuration.
 
 ## Approaches to database change management {#SQLServerdatabases-Approachestodatabasechangemanagement}
 
-There are two main approaches to managing database definitions and applying differences when deploying:
+There are two main approaches to deploying databases.
+  
+1. A model-driven approach, where you define the desired state of your database.  During deployment, a tool will compare the desired state with the target database.  Using that comparison it will generate a delta script.
 
-1. A **model-driven** approach, where you define the desired state of your database in terms of tables and columns. During deployment, a tool compares the model with the actual target database, and then figures out what changes (column additions, table drops, etc.) need to be made to bring the target database in line with the model.
-2. A **change-script-driven** approach, where the scripts to migrate from one version of the schema to the next are kept in source control, and are only ever run once.
+[Redgate's DLM Automation Suite](https://www.red-gate.com/products/dlm/dlm-automation/index), [Microsoft's DacPac](https://docs.microsoft.com/en-us/sql/relational-databases/data-tier-applications/data-tier-applications?view=sql-server-2017), and [Microsoft's Entity Framework Migrations](https://msdn.microsoft.com/en-us/library/jj591621(v=vs.113).aspx) use the model-driven approach.
 
-The model driven approach makes for a great development experience - we can quickly compare our desired model database with a target database, and bring it into line, without needing to write or maintain any scripts. However, this model can begin to fall down - the tool might mistake a column rename as a column drop and add, for example, losing vital data.
+2. A change-driven approach, where schema changes are manually written and only run once.  The target database keeps track of which scripts already ran.
 
-When it comes to production deployments, however, there's nothing more reliable than keeping track of exactly the scripts you intend to run, and running them, without trying to compare state and guess. And in fact many model-driven tools are used that way, leading to a hybrid approach of model driven database development, and then change-script driven production deployments.
+[Redgate's ReadyRoll](https://www.red-gate.com/products/sql-development/readyroll/index), [DbUp](https://dbup.readthedocs.io/en/latest/), and [RoundhousE](http://projectroundhouse.org/) use the change-driven approach.
 
-## How change scripts work {#SQLServerdatabases-Howchangescriptswork}
+There are pros and cons to either approach as well as the tools themselves.  It is important for your team to research the tools and determine the best one for you.
 
-The database change script concept has been around for a long time. The core principles are:
+## Tentacle Installation Recommendations {#SQLServerdatabases-Tentacles}
 
-- When you need to make a change to the database, write it in a script
-- Make sure the script does what you intend - if you rename the LastName column to Surname, make sure the script doesn't do something silly such as dropping the LastName column and add the Surname column without moving any of the data
-- Name the file sequentially - scripts will always be run in order
-- A given script will only ever be run against a target database once (i.e., once the script to rename LastName to Surname has been run, it won't be run again, because it would fail
-- Never change a script once it has been run (or the changes won't be run against the databases it has already been run against)
-- Run the same set of scripts in every environment that you deploy to
+Deploying an IIS Web Application or a Windows Service is very straight-forward.  Install the tentacle on the server to be deployed to.  SQL Server is different.  Production SQL Servers are typically clusters or high-availability groups.  They comprise more than one node hidden behind a VIP or virtual IP Address. 
 
-The benefits of this are:
+![](common-database-with-vip.png "width=500")
 
-- When deploying to an old environment, you just run the scripts that haven't been run yet
-- When setting up a new environment, you simply run all the change scripts
-- When developers need to set up their local workstation, or you need to stand up a database for automated integration testing, guess what - you just run the change scripts
-- You can write integration tests that actually test that your change scripts work
-- Since you've run the same scripts in all of your pre-production environment, you can have more confidence that they will work in production (more confidence than if this is the first time the script has ever been run, or if you are supposed to make production schema changes by hand)
-- Databases are much less likely to have differences in their schema
+For high-availability groups, there is an active node and a passive node.  In this case, installing a tentacle on each node will not work.  Octopus Deploy will see multiple tentacles and attempt to deploy to both nodes.
 
-There are many ways of using the change script approach. Entity Framework has migration libraries that can help to do some of this. Some tools have special C# DSL's that let you specify what changes to make between schema versions. Personally, we prefer the simple approach: create T-SQL files, name them sequentially, and use a tool like the open source [DbUp](http://dbup.github.io/) to run them (it turns out that T-SQL is a pretty awesome DSL for dealing with SQL Server databases!)
+SQL PaaS, such as AWS RDS or Azure's SQL as a Service, will not allow the installation of tentacles on SQL Server.  
+
+All the tools mentioned above connect to SQL Server using port 1433 and run one or more scripts.  They do not need to be installed directly on SQL Server.  Nor do they need to be run directly on SQL Server.  They will work as long as they run on any machine with a direct connection and port 1433 open.
+
+Also, windows authentication is the often the preferred way to authenticate.  A recommended security practice is the principle of least privilege.  The account used by the website to connect to SQL Server should have little permissions.  Whereas, the account used to make schema changes needs elevated permissions.
+
+Most of the tooling from above requires it to be installed somewhere.  It is important the same version is used across all environments.  This prevents any uncertainty during deployments.  
+
+Finally, it is good security practice to have a different account with schema change permissions per environment.  An account used to change a test environment should not be able to change production.  
+
+With all that in mind, a "jump box" is where tentacles should be installed.  The jump box sits between Octopus Deploy and the SQL Server VIP.  The tentacle is running as a [service account](/docs/infrastructure/windows-targets/running-tentacle-under-a-specific-user-account) with the necessary permissions to make schema changes.  The tooling chosen for database deployments is installed on the jump box.
+
+![](database-with-jump-box.png "width=500") 
+
+In the event of multiple domains, a jumpbox would be needed per domain.  This might be seen where there is a domain in a local infrastructure and another domain in a cloud provider such as Azure.  As long as port 10933 is open (for a listening tentacle) or port 443 (for a polling tentacle) Octopus will be able to communicate to the jumpbox.
+
+![](database-jump-box-multiple-domains.png "width=500")
+
+It is possible to install many tentacles on a single server.  Please [read here](/docs/administration/managing-multiple-instances) for more information.  
+
+![](database-jump-box-multiple-tentacles.png "width=500")
+
+## Database Deployment Permissions {#SQLServerdatabases-Permissions}
+
+The level of permissions required to automate database deployments is tricky.  There is a fine line between functionality and security.  There is no single magic bullet.  It will be up to you and your security team to discuss.  With that said, below are some considerations around permissions and a couple of recommendations.
+
+### Deployment Permission Considerations {#SQLServerdatabases-DeploymentPermissions}
+
+The account used to make schema changes requires elevated permissions.  Because of that, create a special account to handle database deployments.  Do not use the same account used by an IIS Web Application.
+
+The level of elevated permissions is up to you.   The more restrictions placed on the deployment account means more manual steps.  Deployments will fail due to missing or restricted permissions.  Octopus will provide the error message to fix the issue.  It will need a manual intervention.  It is up to you to decide which is best. 
+
+First, decide what the deployment account should have the ability to do at the server level.  From there, research which server roles can are applicable.  For example, the account can create databases and users.  Use the securityadmin and dbcreator server roles.  Should the account only be able to create databases? Use dbcreator role. 
+
+Next, decide what permissions the deployment account can have at the database level.  The easiest is db_owner.  It is possible to get very granular with permissions at the database level.  Research, decide and test.
+
+### Application Account Permissions {#SQLServerdatabases-ApplicationAccountPermissions}
+
+Applications should run under their own accounts with the least amount of rights.  Each environment for each application should have their own account.  
+
+Having separate accounts for each environment can make automated database deployments very tricky.  Which account should be stored in source control  All of them or none of them?  None of them.  Assign permissions to roles.  Attach the correct user for the environment to that role.
+
+### Fully Automated Database Deployments Permission Recommendation {#SQLServerdatabases-FullAutomationPermissions}
+
+Following DevOps principles, everything that can be automated should be automated.  This includes databases, from creation to user management, to schema changes.  Octopus Deploy plus the third-party tool of your choice can handle that. The deployment account should have these roles assigned:
+
+- Server Roles: dbcreator and securityadmin
+- Database Role: db_datareader, db_datawriter, db_accessadmin, db_securityadmin, db_ddladmin, db_backupoperator
+
+Be sure to assign the deployment account those database roles in the model database.  That is the system database used by SQL Server as a base when a new database is created.  This means the deployment account will be assigned to those roles going forward.
+  
+### Manual User Creation With Everything Else Automated {#SQLServerdatabases-ManualUserPermissions}
+
+If granting that level of access is not workable or allowed we would recommend the following.  It can do anything but create users and grant them permissions.
+
+- Server Roles: dbcreator 
+- Database Role: db_datareader, db_datawriter, db_ddladmin, db_backupoperator
+The downside to this setup is you will be unable to create new schemas.  That is granted by db_accessadmin and db_securityadmin.
 
 ## Third party tools {#SQLServerdatabases-Thirdpartytools}
 
