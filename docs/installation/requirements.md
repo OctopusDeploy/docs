@@ -8,7 +8,7 @@ To successfully install the Octopus Deploy server you need:
 ## .NET Framework:
 
 Octopus 3.4 onward requires [.NET Framework 4.5.1](https://www.microsoft.com/en-au/download/details.aspx?id=40773) or newer.
-Octopus Server 2018.5.0 and onwards requires [.NET Framework 4.5.2](https://www.microsoft.com/en-au/download/details.aspx?id=42642) or newer and [Powershell 5.0](https://www.microsoft.com/en-us/download/details.aspx?id=50395) or newer 
+Octopus Server 2018.5.0 and onwards requires [.NET Framework 4.5.2](https://www.microsoft.com/en-au/download/details.aspx?id=42642) or newer and [Powershell 5.0](https://www.microsoft.com/en-us/download/details.aspx?id=50395) or newer.
 
 ## Windows Server:
 
