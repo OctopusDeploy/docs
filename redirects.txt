@@ -524,7 +524,7 @@ docs/deploying-applications/java-applications/deploying-java-applications.md -> 
 docs/deploying-applications/java-applications/error-messages.md -> docs/deployment-examples/java-applications/error-messages.md
 docs/deploying-applications/node-on-nix-deployments/index.md -> docs/deployment-examples/node-on-nix-deployments/index.md
 docs/deploying-applications/node-on-nix-deployments/configure-octopus-deploy-project.md -> docs/deployment-examples/node-on-nix-deployments/configure-octopus-deploy-project.md
-docs/deploying-applications/node-on-nix-deployments/configure-target-machine.md -> docs/deployment-examples/node-on-nix-deployments/configure-target-machine.md
+docs/deploying-applications/node-on-nix-deployments/configuring-target-machine.md -> docs/deployment-examples/node-on-nix-deployments/configuring-target-machine.md
 docs/deploying-applications/node-on-nix-deployments/create-&-push-node.js-project.md -> docs/deployment-examples/node-on-nix-deployments/create-&-push-node.js-project.md
 docs/deploying-applications/terraform-deployments/index.md -> docs/deployment-examples/terraform-deployments/index.md
 docs/deploying-applications/terraform-deployments/apply-terraform/index.md -> docs/deployment-examples/terraform-deployments/apply-terraform/index.md
