@@ -15,7 +15,7 @@ Octopus includes built-in step templates that have been developed by the Octopus
 
 At this point, you have the choice of choosing from the built-in **Installed Step Templates** or the [Community Contributed Step Templates](/docs/deployment-process/steps/community-step-templates.md).
 
-If you're looking for example deployments, see the [Deploying Applications examples](/docs/deploying-applications/index.md).
+If you're looking for example deployments, see the [Deploying Applications examples](/docs/deployment-examples/index.md).
 
 4. Give the step a short memorable name.
 5. The **Execution Plan** tells the step where to run. Depending on the type of step you are configuring the options will vary:
@@ -28,7 +28,7 @@ If you're looking for example deployments, see the [Deploying Applications examp
 
 Learn more about [rolling deployments](/docs/deployment-patterns/rolling-deployments.md).
 
-7. The next section of the step is where you specify the actions for the step to take, if you are running a script or deploying a package this is where you provide the details. This section will vary depending on the type of step you're configuring. For example deployments, see the [Deploying Applications examples](/docs/deploying-applications/index.md). If you're deploying packages you'll likely need to set your [configuration variables](/docs/deployment-process/configuration-files/index.md).
+7. The next section of the step is where you specify the actions for the step to take, if you are running a script or deploying a package this is where you provide the details. This section will vary depending on the type of step you're configuring. For example deployments, see the [Deploying Applications examples](/docs/deployment-examples/index.md). If you're deploying packages you'll likely need to set your [configuration variables](/docs/deployment-process/configuration-files/index.md).
 8. After providing the actions the steps takes, you can set the conditions for the step. You can set the following conditions:
 
 - Only run the step when deploying to specific environments.
@@ -46,7 +46,7 @@ With your deployment configured you're ready to create a [release](/docs/deploym
 
 ## Example: A Simple Deployment Process
 
-In the example shown below there are three steps that will be executed from top to bottom. The first is a [manual intervention](/docs/deployment-process/steps/manual-intervention-and-approvals.md) which executes on the Octopus Server pausing the deployment until someone intervenes and allow the deployment to continue. This step will only execute when targeting the Production [environment](/docs/infrastructure/environments/index.md). The remaining steps both [deploy a package](/docs/deploying-applications/deploying-packages/index.md) and execute [custom scripts](/docs/deploying-applications/custom-scripts/index.md) on all of the [deployment targets](/docs/infrastructure/index.md) with the [role](/docs/infrastructure/target-roles/index.md) **web-server**.
+In the example shown below there are three steps that will be executed from top to bottom. The first is a [manual intervention](/docs/deployment-process/steps/manual-intervention-and-approvals.md) which executes on the Octopus Server pausing the deployment until someone intervenes and allow the deployment to continue. This step will only execute when targeting the Production [environment](/docs/infrastructure/environments/index.md). The remaining steps both [deploy a package](/docs/deployment-examples/deploying-packages/index.md) and execute [custom scripts](/docs/deployment-examples/custom-scripts/index.md) on all of the [deployment targets](/docs/infrastructure/index.md) with the [role](/docs/infrastructure/target-roles/index.md) **web-server**.
 
 ![A simple deployment process](simple-process.png)
 

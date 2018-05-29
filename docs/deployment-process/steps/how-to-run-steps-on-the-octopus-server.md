@@ -8,7 +8,7 @@ Sometimes you will want to run a script on your Octopus Server itself. Perhaps y
 
 ## Running custom scripts on your Octopus Server
 
-A default installation of Octopus Server comes with a built-in worker allowing you to [run custom scripts](/docs/deploying-applications/custom-scripts/index.md) on the Octopus Server. You can configure your worker to run under a different user account, disable the built-in worker altogether, or delegate to an external worker.
+A default installation of Octopus Server comes with a built-in worker allowing you to [run custom scripts](/docs/deployment-examples/custom-scripts/index.md) on the Octopus Server. You can configure your worker to run under a different user account, disable the built-in worker altogether, or delegate to an external worker.
 
 Learn more about [workers](/docs/administration/workers/index.md).
 

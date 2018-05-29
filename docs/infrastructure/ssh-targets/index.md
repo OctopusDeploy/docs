@@ -88,7 +88,7 @@ Leveraging Calamari means that the deployment can obtain the package via the sam
 **Non-NuGet Package Types**
 Since version 3.3, Octopus Deploy has [support for tar packages](/docs/packaging-applications/supported-packages.md).
 
-See our [Node.js sample](/docs/deploying-applications/node-on-nix-deployments/index.md) for an example of deploying to a Linux target
+See our [Node.js sample](/docs/deployment-examples/node-on-nix-deployments/index.md) for an example of deploying to a Linux target
 :::
 
 **Features**
@@ -146,6 +146,6 @@ Although there is no Tentacle involved with SSH endpoints there are still some u
 
 ![](/docs/images/3048063/3277600.png "width=500")
 
-The introduction of [Raw Scripting](/docs/deploying-applications/custom-scripts/raw-scripting.md) provides the ability to run scripts on SSH endpoints without any additional Octopus dependencies. To facilitate these targets, [machine policies](/docs/infrastructure/machine-policies.md) allow you to configure health checks to test only for SSH connectivity to your machine to be considered healthy.
+The introduction of [Raw Scripting](/docs/deployment-examples/custom-scripts/raw-scripting.md) provides the ability to run scripts on SSH endpoints without any additional Octopus dependencies. To facilitate these targets, [machine policies](/docs/infrastructure/machine-policies.md) allow you to configure health checks to test only for SSH connectivity to your machine to be considered healthy.
 
 Note that due to the Tentacle being effectively a “virtual Tentacle” running on the server itself, if the endpoint is healthy it will indicate in the health logs that the running version is the same as the server version.
