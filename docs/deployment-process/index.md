@@ -21,7 +21,7 @@ If you need a refresher on **Environments**, **Deployment Targets**, or how to c
 4. Click **ADD STEP**, and then select the **Run a Script** step.
 5. Give the step a name, for instance, *Say Hello*.
 6. For the execution plan, leave the selection at the default *Deployment targets* and select the target role *server*.
-7. For the script section, expand the **Script content** section by clicking on it. Paste the PowerShell script into the text box and click **Save**:
+7. For the script section, expand the **Script content** section by clicking on it. Paste the following PowerShell script into the text box and click **Save**:
 
 ​```
 Write-Host "Hello, World!"
@@ -44,7 +44,7 @@ Learn more about managing [projects](/docs/deployment-process/projects/index.md)
 
 ## Lifecycles
 
-Lifecycles control how your software is promoted through your environments and which projects are associated with which environments. With lifecycles, you can specify automatic deployment to environments, for instance, deploy to *test* as soon as a release is created, and prevent deployments advancing to other environments out of order, for instance, don't deploy to *production* if the release hasn't been deployed to *staging*.
+Lifecycles control how your software is promoted through your environments and which projects are associated with which environments.
 
 Learn more about [Lifecycles](/docs/deployment-process/lifecycles/index.md).
 
@@ -54,7 +54,7 @@ Steps are the actions your deployment process will execute each time your softwa
 
 Deployment processes can have one or many steps, steps can run in sequence or parallel, in addition to a variety of deployment steps, you can include manual intervention steps to get sign off before deployment, include email notification steps to keep everybody informed about your process, or even skip steps under different circumstances.
 
-Learn more about [steps](/docs/deployment-process/steps/index.md)
+Learn more about [steps](/docs/deployment-process/steps/index.md).
 
 ## Configuration Files
 

@@ -42,7 +42,7 @@ See [Creating Resources by script](/docs/infrastructure/dynamic-infrastructure/i
 
 ## Deploying to Cloud Service targets
 
-See our [documentation about this topic](/docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-cloud-service/index.md)
+See our [documentation about this topic](/docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-cloud-service/index.md)
 
 ## Troubleshooting
 

@@ -11,9 +11,9 @@ Some variables might be dynamic - for example, a value that needs to be calculat
 Offline drops do not support passing output variables from a deployment package step to another step as part of the same deployment script.
 :::
 
-Output variables can be set anywhere that Octopus runs scripts - for example, the [Script Console](/docs/administration/script-console.md), or [package scripts and script steps](/docs/deploying-applications/custom-scripts/index.md) in a deployment. *See below for examples of setting output variables in each of the different scripting languages supported by Octopus.*
+Output variables can be set anywhere that Octopus runs scripts - for example, the [Script Console](/docs/administration/script-console.md), or [package scripts and script steps](/docs/deployment-examples/custom-scripts/index.md) in a deployment. *See below for examples of setting output variables in each of the different scripting languages supported by Octopus.*
 
-For example, you might have a standalone [PowerShell script step](/docs/deploying-applications/custom-scripts/index.md) called **StepA** that does something like this:
+For example, you might have a standalone [PowerShell script step](/docs/deployment-examples/custom-scripts/index.md) called **StepA** that does something like this:
 
 ```powershell PowerShell
 Set-OctopusVariable -name "TestResult" -value "Passed"

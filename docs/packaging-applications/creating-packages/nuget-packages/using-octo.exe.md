@@ -133,4 +133,4 @@ Advanced options:
 
 If you are using .NET Core for class libraries, we recommend using [dotnet pack from Microsoft](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-pack).
 
-If you are using .NET Core for web applications, we recommend publishing to a folder and then using [Octo.exe pack](/docs/packaging-applications/creating-packages/nuget-packages/using-octo.exe.md), as described in the "Publishing and Packing the Website" section of the [Deploying ASP.NET Core Web Applications documentation](/docs/deploying-applications/deploying-asp.net-core-web-applications/index.md#DeployingASP.NETCoreWebApplications-PublishingandPackingtheWebsite).
+If you are using .NET Core for web applications, we recommend publishing to a folder and then using [Octo.exe pack](/docs/packaging-applications/creating-packages/nuget-packages/using-octo.exe.md), as described in the "Publishing and Packing the Website" section of the [Deploying ASP.NET Core Web Applications documentation](/docs/deployment-examples/deploying-asp.net-core-web-applications/index.md#DeployingASP.NETCoreWebApplications-PublishingandPackingtheWebsite).

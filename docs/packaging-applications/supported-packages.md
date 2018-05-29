@@ -17,7 +17,15 @@ Learn more about [creating packages](docs/packaging-applications/creating-packag
 | Tar + Gzip   | *.tgz, .tar.gz, .tar.Z | [Built-In repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) only |                                          |
 | Tar + Bzip2  | *.tar.bz, .tar.bz2, .tbz* | [Built-In repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) only |                                          |
 | Zip          | *.zip*                     | [Built-In repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) only | Standard zip file as created through most common zip programs. |
-| Docker Image |                            | [Docker Registries](/docs/packaging-applications/package-repositories/registries/index.md) | Learn about [Docker](/docs/deploying-applications/docker-containers/index.md) and Octopus Deploy. |
+| Docker Image |                            | [Docker Registries](/docs/packaging-applications/package-repositories/registries/index.md) | Learn about [Docker](/docs/deployment-examples/docker-containers/index.md) and Octopus Deploy. |
 | JAR WAR EAR RAR | .jar, .war, .ear, .rar  |  [Built-In repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) (and [Maven Feeds](/docs/packaging-applications/package-repositories/maven-feeds.md) from 4.1) |  Learn about [Maven Feeds](/docs/packaging-applications/package-repositories/maven-feeds.md). |
 
 Learn about [package IDs](/docs/packaging-applications/package-id.md), [versioning](/docs/packaging-applications/versioning.md), [creating packages](/docs/packaging-applications/creating-packages/index.md), and [package repositories](/docs/packaging-applications/package-repositories/index.md).
+
+:::warning
+**Pre-Release packages and Multipart file extensions**
+
+If you're planning to use a multi-part file extension (e.g. `.tar.gz`) with a pre-release naming convention (`MyApp.1.0.0-beta.tar.gz`) and use the *Run on Server* steps option, this will result in an error message of `Unsupported file extension .gz`. This is because the `.tar` forms part of pre-release tag and not part of the file extension.
+
+The error only occurs on *Run on Server* steps and deployments execute on as expected on Tentacles.
+:::

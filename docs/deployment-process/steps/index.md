@@ -3,86 +3,55 @@ title: Steps
 description: Adding steps to define your project's deployment process.
 position: 3
 ---
-Steps are the actions your deployment process will execute each time your software is deployed. 
+Steps contain the actions your deployment process will execute each time you create a release of your software to be deployed. Steps can contain multiple actions and deployment processes can include multiple steps. Steps are executed in sequence by default but they can be configure to [run in parallel](/docs/deployment-process/steps/conditions/run-steps-in-parallel.md).
 
-Octopus strives to make it quick and easy to define your project's deployment process.  Selecting the **ADD STEP** button displays a list of built-in step templates, custom step templates, and community contributed step templates.
+Octopus includes built-in step templates that have been developed by the Octopus team to handle the most common deployment scenarios. In addition to the built-in step templates, there are also [Community Step Templates](/docs/deployment-process/steps/community-step-templates.md) that have been contributed by the community. You can also use the built-in step templates as the base to create [custom steps templates](/docs/deployment-process/steps/custom-step-templates.md) to use across your projects.
 
-Built-in steps are powerful and flexible enough to handle the most common deployment scenarios.  
+## Adding Steps to Your Deployment Processes
 
-![](built-in-steps.png "width=500")
+1. Navigate to your [project's](/docs/deployment-process/projects/index.md) overview page by selecting **Projects** and clicking on the project you are working with.
+2. Click the **DEFINE YOUR DEPLOYMENT PROCESS** button, and click **ADD STEP**.
+3. Choose the step template you need.
 
-Custom step templates enable you to encapsulate common steps/scenarios within your team or company.
+At this point, you have the choice of choosing from the built-in **Installed Step Templates** or the [Community Contributed Step Templates](/docs/deployment-process/steps/community-step-templates.md).
 
-Learn more about [Custom Step Templates](/docs/deployment-process/steps/custom-step-templates.md).
+If you're looking for example deployments, see the [Deploying Applications examples](/docs/deployment-examples/index.md).
 
-Octopus community library integration makes it easy to find steps templates that work with the frameworks and technologies you use without the need for custom scripting.
+4. Give the step a short memorable name.
+5. The **Execution Plan** tells the step where to run. Depending on the type of step you are configuring the options will vary:
 
-![](community-steps.png "width=500")
+- Octopus Server. (Learn about [Running steps on the Octopus Server](/docs/deployment-process/steps/how-to-run-steps-on-the-octopus-server.md).)
+- Octopus Server on behalf of target roles.
+- Deployment targets.
 
-Learn more about [Community Step Templates](/docs/deployment-process/steps/community-step-templates.md).
+6. If you are deploying to deployment targets or running the step on the server on behalf of deployment targets, you can deployment to all targets in parallel (default) or configure a rolling deployment. To configure a rolling deployment click *configure a rolling deployment* and specify the window size for the deployment. The window size controls how many deployment targets will be deployed to in parallel.
 
-Learn more about [Updating Step Templates](/docs/deployment-process/steps/updating-step-templates.md) and [Exporting Step Templates](/docs/deployment-process/steps/exporting-step-templates.md)
+Learn more about [rolling deployments](/docs/deployment-patterns/rolling-deployments.md).
 
-## Common Step Properties {#Deployingapplications-Commonstepproperties}
+7. The next section of the step is where you specify the actions for the step to take, if you are running a script or deploying a package this is where you provide the details. This section will vary depending on the type of step you're configuring. For example deployments, see the [Deploying Applications examples](/docs/deployment-examples/index.md). If you're deploying packages you'll likely need to set your [configuration variables](/docs/deployment-process/configuration-files/index.md).
+8. After providing the actions the steps takes, you can set the conditions for the step. You can set the following conditions:
 
-All steps have a name, which is used to identify the step.
+- Only run the step when deploying to specific environments.
+- Only run the step when deploying a release through a specific channel.
+- Set the step to run depending on the status of the previous step.
+- Set when package acquisition should occur.
+- Specifying whether or not the step is required.
 
-:::success
-**What&#39;s in a Name?**
-Be careful when changing names! Octopus commonly uses names as a convenient identity or handle to things, and the steps and actions in a deployment process are special in that way. For example you can use [output variables](/docs/deployment-process/variables/output-variables.md) to chain steps together, and you use the name as the indexer for the output variable. For example: `#{Octopus.Action[StepA].Output.TestResult}`
-:::
+Learn more about [conditions](/docs/deployment-process/steps/conditions/index.md).
 
-## Adding an installed step {#Addingsteps-Addinganinstalledstep}
+9. Save the step.
+10. Add additional steps.
 
-The add step page displays the built-in steps first which includes common steps to deploy IIS web sites, windows services, run scripts and more.  The built-in steps have been develop by the Octopus team to handle the most common deployment scenarios and it also.  This section also includes any custom step templates added in the library.  Hover over a step and click add step to go configure the step.
+With your deployment configured you're ready to create a [release](/docs/deployment-process/releases/index.md).
 
-![](add-builtin-step.png "width=300")
+## Example: A Simple Deployment Process
 
-## Adding a community contributed step templates {#Addingsteps-Addingacommunitycontributedsteptemplates}
+In the example shown below there are three steps that will be executed from top to bottom. The first is a [manual intervention](/docs/deployment-process/steps/manual-intervention-and-approvals.md) which executes on the Octopus Server pausing the deployment until someone intervenes and allow the deployment to continue. This step will only execute when targeting the Production [environment](/docs/infrastructure/environments/index.md). The remaining steps both [deploy a package](/docs/deployment-examples/deploying-packages/index.md) and execute [custom scripts](/docs/deployment-examples/custom-scripts/index.md) on all of the [deployment targets](/docs/infrastructure/index.md) with the [role](/docs/infrastructure/target-roles/index.md) **web-server**.
 
-The add step page also displays community contributed step templates available to install and add.  You can search for a specific template or you can browse through the categories.  Installing a community step template is easy.  Hover over a step and select Install and add step.  This will display a pop-up dialog where you can confirm to install and add the step.  This will take you to the configuration page for the step template.
+![A simple deployment process](simple-process.png)
 
-![](install-community-step.png "width=300")
+## Example: A Rolling Deployment Process
 
-![](install-community-step-popup.png "width=500")
+Let's consider a more complex example like the one shown below. In this example we have configured Octopus to deploy a web application across one or more servers in a web farm behind a load balancer. This process has a single step and three actions which form a [rolling deployment](/docs/deployment-patterns/rolling-deployments.md).
 
-If you select view details, this will take you to the community step details page which shows you the complete details of the step include the source code.  You can install the step or go back to the list of steps.
-
-![](install-community-step-details.png "width=500")
-
-## Adding an updated version of a community step template {#Addingsteps-Addinganupdatedversionofacommunitysteptemplate}
-
-Sometimes updates are available for step templates.  In this case, you will notice the step template has an option to update the step.  If you select update, this will take you to the community step details with the option to update the latest version of the step template.  Community step templates can also be updated in the library as needed.
-
-![](update-community-step.png)
-
-![](update-community-step-details.png "width=500")
-
-:::success
-If a step you want isn't built-in you should check out the community contributed [step templates](/docs/deployment-process/steps/index.md). If you still don't find it, don't forget: *Octopus can do anything, as long as you can script the instructions*. Maybe you could contribute your scripts back to the community?
-:::
-
-## Execution Order
-
-The steps that you add to your deployment process will, by default, execute in sequence.
-
-![](5865849.png "width=300")
-If a step is configured to execute across multiple deployment targets, it will execute across all of those deployment targets in parallel, unless you specify a window size. Specifying a window size limits the number of deployment targets steps will execute against in parallel.
-
-![](5865850.png "width=300")
-
-Steps can include multiple actions.
-
-![](5865848.png "width=500")
-
-## Example: A simple deployment process {#DeploymentProcesses-Example:Asimpledeploymentprocess}
-
-In the example shown below there are three steps that will be executed from top to bottom. The first is a [manual intervention](/docs/deployment-process/steps/manual-intervention-and-approvals.md) which executes on the Octopus Server pausing the deployment until someone intervenes and allow the deployment to continue. This step will only execute when targeting the Production [environment](/docs/infrastructure/environments/index.md). The remaining steps both [deploy a package](/docs/deployment-process/steps/deploying-packages/index.md) and execute [custom scripts](/docs/deploying-applications/custom-scripts/index.md) on all of the [deployment targets](/docs/infrastructure/index.md) with the [role](/docs/infrastructure/target-roles/index.md) **web-server**.
-
-![](simple-process.png "width=500")
-
-## Example: A rolling deployment {#DeploymentProcesses-Example:Arollingdeployment} {#rolling-deployments}
-
-Let's consider a more complex example like the one shown below. In this example we have configured Octopus to deploy a web application across one or more servers in a web farm behind a load balancer. This process has a single **step** and three **actions** which form a [rolling deployment](/docs/deployment-patterns/rolling-deployments.md).
-
-![](rolling-process.png "width=500")
+![A Rolling Deployment](rolling-process.png)
