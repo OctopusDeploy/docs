@@ -9,7 +9,7 @@ Artifacts in Octopus provide a convenient way to collect files from remote machi
 - Collecting log files from other programs
 - Copying configuration files so you can inspect to see if the right values were replaced
 
-Artifacts can be collected from anywhere that Octopus runs scripts - for example, the [Script Console](/docs/administration/script-console.md), or [package scripts and script steps](/docs/deploying-applications/custom-scripts/index.md) in a deployment.
+Artifacts can be collected from anywhere that Octopus runs scripts - for example, the [Script Console](/docs/administration/script-console.md), or [package scripts and script steps](/docs/deployment-examples/custom-scripts/index.md) in a deployment.
 
 :::hint
 **Artifact Access**

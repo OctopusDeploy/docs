@@ -99,7 +99,7 @@ There are three ways you can do this, two of which involve using [Octopus Varia
 There are pros and cons to each of these methods. For the first two it can break your configuration files locally. But if you make use of environment transforms (see below) you can avoid this. See the [Substitute Variables in Files](/docs/deployment-process/configuration-files/substitute-variables-in-files.md) documentation for an example of using Octopus Variables in your config files.
 
 :::success
-Using the Substitute Variables in Files feature will change the order that variables are replaced. Using Configuration Transformations and Configuration Variables, does the transformation and then replaces variables. Defining files within the substitution will have all of their variables replaced first prior to the transformation. But this will only happen for any configuration or transformation files that are explicitly listed in the Substitute files list. Read about the order of [package step feature ordering here](/docs/deploying-applications/deploying-packages/package-deployment-feature-ordering.md).
+Using the Substitute Variables in Files feature will change the order that variables are replaced. Using Configuration Transformations and Configuration Variables, does the transformation and then replaces variables. Defining files within the substitution will have all of their variables replaced first prior to the transformation. But this will only happen for any configuration or transformation files that are explicitly listed in the Substitute files list. Read about the order of [package step feature ordering here](/docs/deployment-examples/deploying-packages/package-deployment-feature-ordering.md).
 :::
 
 ## Configuration Transforms {#Configurationfiles-ConfigurationTransformationConfigurationtransforms}
@@ -252,7 +252,7 @@ To suppress these errors and report them as informational only, use the `Octopus
 
 ## PowerShell {#Configurationfiles-PowerShell}
 
-If these conventions aren’t enough to configure your application, you can always [use PowerShell to perform custom configuration tasks](/docs/deploying-applications/custom-scripts/index.md). Variables will be passed to your PowerShell script, and PowerShell has [rich XML API's](https://www.codeproject.com/Articles/61900/PowerShell-and-XML).
+If these conventions aren’t enough to configure your application, you can always [use PowerShell to perform custom configuration tasks](/docs/deployment-examples/custom-scripts/index.md). Variables will be passed to your PowerShell script, and PowerShell has [rich XML API's](https://www.codeproject.com/Articles/61900/PowerShell-and-XML).
 
 ## Troubleshooting {#Configurationfiles-Troubleshooting}
 

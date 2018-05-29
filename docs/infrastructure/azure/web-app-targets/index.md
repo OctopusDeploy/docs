@@ -40,7 +40,7 @@ See [Managing Resources by script](/docs/infrastructure/dynamic-infrastructure/i
 
 ## Deploying to Web App targets
 
-See our [documentation about this topic](/docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md)
+See our [documentation about this topic](/docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md)
 
 ## Troubleshooting
 
