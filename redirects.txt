@@ -519,9 +519,9 @@ docs/deploying-applications/deploying-packages/troubleshoot-missing-packages.md 
 docs/deploying-applications/docker-containers/index.md -> docs/deployment-examples/docker-containers/index.md
 docs/deploying-applications/docker-containers/accessing-container-details.md -> docs/deployment-examples/docker-containers/accessing-container-details.md
 docs/deploying-applications/docker-containers/docker-run-with-networking.md -> docs/deployment-examples/docker-containers/docker-run-with-networking.md
-docs/deploying-applications/java-application/index.md -> docs/deployment-examples/java-application/index.md
-docs/deploying-applications/java-application/deploying-java-applications.md -> docs/deployment-examples/java-application/deploying-java-applications.md
-docs/deploying-applications/java-application/error-messages.md -> docs/deployment-examples/java-application/error-messages.md
+docs/deploying-applications/java-applications/index.md -> docs/deployment-examples/java-applications/index.md
+docs/deploying-applications/java-applications/deploying-java-applications.md -> docs/deployment-examples/java-applications/deploying-java-applications.md
+docs/deploying-applications/java-applications/error-messages.md -> docs/deployment-examples/java-applications/error-messages.md
 docs/deploying-applications/node-on-nix-deployments/index.md -> docs/deployment-examples/node-on-nix-deployments/index.md
 docs/deploying-applications/node-on-nix-deployments/configure-octopus-deploy-project.md -> docs/deployment-examples/node-on-nix-deployments/configure-octopus-deploy-project.md
 docs/deploying-applications/node-on-nix-deployments/configure-target-machine.md -> docs/deployment-examples/node-on-nix-deployments/configure-target-machine.md
