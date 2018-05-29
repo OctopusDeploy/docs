@@ -38,7 +38,7 @@ Most of the tooling from above requires it to be installed somewhere.  It is imp
 
 Finally, it is good security practice to have a different account with schema change permissions per environment.  An account used to change a test environment should not be able to change production.  
 
-With all that in mind, a "jump box" is where tentacles should be installed.  The jump box sits between Octopus Deploy and the SQL Server VIP.  The tentacle is running as a [service account](/docs/infrastructure/windows-targets/running-tentacle-under-a-specific-user-account) with the necessary permissions to make schema changes.  The tooling chosen for database deployments is installed on the jump box.
+With all that in mind, a "jump box" is where tentacles should be installed.  The jump box sits between Octopus Deploy and the SQL Server VIP.  The tentacle is running as a [service account](/docs/infrastructure/windows-targets/running-tentacle-under-a-specific-user-account.md) with the necessary permissions to make schema changes.  The tooling chosen for database deployments is installed on the jump box.
 
 ![](database-with-jump-box.png "width=500") 
 
@@ -46,7 +46,7 @@ In the event of multiple domains, a jumpbox would be needed per domain.  This mi
 
 ![](database-jump-box-multiple-domains.png "width=500")
 
-It is possible to install many tentacles on a single server.  Please [read here](/docs/administration/managing-multiple-instances) for more information.  
+It is possible to install many tentacles on a single server.  Please [read here](/docs/administration/managing-multiple-instances.md) for more information.  
 
 ![](database-jump-box-multiple-tentacles.png "width=500")
 
