@@ -469,7 +469,7 @@ docs/deploying-applications/azure-deployments/varying-azure-subscription-by-envi
 docs/deploying-applications/azure-deployments/ase/index.md -> docs/deployment-examples/azure-deployments/ase/index.md
 docs/deploying-applications/azure-deployments/cloud-services/index.md -> docs/deployment-examples/azure-deployments/cloud-services/index.md
 docs/deploying-applications/azure-deployments/cloud-services/cloud-service-concepts.md -> docs/deployment-examples/azure-deployments/cloud-services/cloud-service-concepts.md
-docs/deploying-applications/azure-deployments/cloud-services/getting-started-with-azure-cloud-servics.md -> docs/deployment-examples/azure-deployments/cloud-services/getting-started-with-azure-cloud-services.md
+docs/deploying-applications/azure-deployments/cloud-services/getting-started-with-azure-cloud-services.md -> docs/deployment-examples/azure-deployments/cloud-services/getting-started-with-azure-cloud-services.md
 docs/deploying-applications/azure-deployments/cloud-services/vip-swap.md -> docs/deployment-examples/azure-deployments/cloud-services/vip-swap.md
 docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-cloud-service/index.md -> docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-cloud-service/index.md
 docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md -> docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md
