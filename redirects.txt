@@ -496,7 +496,7 @@ docs/deploying-applications/certificates/import-certificate-step.md -> docs/depl
 docs/deploying-applications/certificates/java-keystore-export.md -> docs/deployment-examples/certificates/java-keystore-export.md
 docs/deploying-applications/certificates/replace-certificate.md -> docs/deployment-examples/certificates/replace-certificate.md
 docs/deploying-applications/certificates/tomcat-certificate-import.md -> docs/deployment-examples/certificates/tomcat-certificate-import.md
-docs/deploying-applications/certificates/wildcat-certificate-import.md -> docs/deployment-examples/certificates/wildcat-certificate-import.md
+docs/deploying-applications/certificates/wildfly-certificate-import.md -> docs/deployment-examples/certificates/wildfly-certificate-import.md
 docs/deploying-applications/custom-scripts/index.md -> docs/deployment-examples/custom-scripts/index.md
 docs/deploying-applications/custom-scripts/aws-cli-scripts.md -> docs/deployment-examples/custom-scripts/aws-cli-scripts.md
 docs/deploying-applications/custom-scripts/azure-powershell-scripts.md -> docs/deployment-examples/custom-scripts/azure-powershell-scripts.md
