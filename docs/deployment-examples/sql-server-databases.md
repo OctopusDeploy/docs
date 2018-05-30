@@ -22,27 +22,27 @@ There are pros and cons to either approach as well as the tools themselves.  It 
 
 ## Tentacle Installation Recommendations {#SQLServerdatabases-Tentacles}
 
-Deploying an IIS Web Application or a Windows Service is very straight-forward.  Install the tentacle on the server to be deployed to.  SQL Server is different.  Production SQL Servers are typically clusters or high-availability groups.  They comprise more than one node hidden behind a VIP or virtual IP Address. 
+Deploying an IIS Web Application or a Windows Service is very straight-forward.  Install the Tentacle on the server to be deployed to.  SQL Server is different.  Production SQL Servers are typically clusters or high-availability groups.  They comprise more than one node hidden behind a VIP or virtual IP Address. 
 
 ![](common-database-with-vip.png "width=500")
 
-For high-availability groups, there is an active node and a passive node.  In this case, installing a tentacle on each node will not work.  Octopus Deploy will see multiple tentacles and attempt to deploy to both nodes.
+For high-availability groups, there is an active node and a passive node.  In this case, installing a Tentacle on each node will not work.  Octopus Deploy will see multiple Tentacles and attempt to deploy to both nodes.
 
-SQL PaaS, such as [AWS RDS](https://aws.amazon.com/rds/) or [Azure's SQL](https://azure.microsoft.com/en-us/services/sql-database/), will not allow the installation of tentacles on SQL Server.  
+SQL PaaS, such as [AWS RDS](https://aws.amazon.com/rds/) or [Azure's SQL](https://azure.microsoft.com/en-us/services/sql-database/), will not allow the installation of Tentacles on SQL Server.  
 
 All the tools mentioned above connect to SQL Server using port 1433 and run one or more scripts.  They do not need to be installed directly on SQL Server.  Nor do they need to be run directly on SQL Server.  They will work as long as they run on any machine with a direct connection and port 1433 open.
 
-Also, windows authentication is the often the preferred way to authenticate.  A recommended security practice is the principle of least privilege.  The account used by the website to connect to SQL Server should have little permissions.  Whereas, the account used to make schema changes needs elevated permissions.
+Also, windows authentication is the often the preferred way to authenticate.  A recommended security practice is the principle of least privilege.  The account used by the website to connect to SQL Server should have restricted permissions.  For example, the website uses stored procedures, the account would only have permissions to execute those stored procedures.  Whereas, the account used for deployments needs elevated permissions.  This is because that account needs to make schema changes.
 
 Most of the tooling from above requires it to be installed somewhere.  It is important the same version is used across all environments.  This prevents any uncertainty during deployments.  
 
-Finally, it is good security practice to have a different account with schema change permissions per environment.  An account used to change a test environment should not be able to change production.  
+Finally, it is good security practice to have a different deployment account per environment.  That deployment account only has permissions make schema changes in their environment.  An account used to change a test environment should not be able to change production.  
 
-With all that in mind, a "jump box" is where tentacles should be installed.  The jump box sits between Octopus Deploy and the SQL Server VIP.  The tentacle is running as a [service account](/docs/infrastructure/windows-targets/running-tentacle-under-a-specific-user-account.md) with the necessary permissions to make schema changes.  The tooling chosen for database deployments is installed on the jump box.
+With all that in mind, a "jump box" is where Tentacles should be installed.  The jump box sits between Octopus Deploy and the SQL Server VIP.  The Tentacle is running as a [service account](/docs/infrastructure/windows-targets/running-tentacle-under-a-specific-user-account.md) with the necessary permissions to make schema changes.  The tooling chosen for database deployments is installed on the jump box.
 
 ![](database-with-jump-box.png "width=500") 
 
-In the event of multiple domains, a jumpbox would be needed per domain.  This might be seen where there is a domain in a local infrastructure and another domain in a cloud provider such as Azure.  As long as port 10933 is open (for a listening tentacle) or port 443 (for a polling tentacle) Octopus will be able to communicate to the jumpbox.
+In the event of multiple domains, a jump box would be needed per domain.  This might be seen where there is a domain in a local infrastructure and another domain in a cloud provider such as Azure.  As long as port 10933 is open (for a listening Tentacle) or port 443 (for a polling Tentacle) Octopus will be able to communicate to the jumpbox.
 
 ![](database-jump-box-multiple-domains.png "width=500")
 
@@ -60,7 +60,7 @@ The account used to make schema changes requires elevated permissions.  Because 
 
 The level of elevated permissions is up to you.   The more restrictions placed on the deployment account means more manual steps.  Deployments will fail due to missing or restricted permissions.  Octopus will provide the error message to fix the issue.  It will need a manual intervention.  It is up to you to decide which is best. 
 
-First, decide what the deployment account should have the ability to do at the server level.  From there, research which server roles can are applicable.  For example, the account can create databases and users.  Use the securityadmin and dbcreator server roles.  Should the account only be able to create databases? Use dbcreator role. 
+First, decide what the deployment account should have the ability to do at the server level.  From there, research which server roles are applicable.  For example, the account can create databases and users.  Use the securityadmin and dbcreator server roles.  Should the account only be able to create databases? Use dbcreator role. 
 
 Next, decide what permissions the deployment account can have at the database level.  The easiest is db_owner.  It is possible to get very granular with permissions at the database level.  Research, decide and test.
 
