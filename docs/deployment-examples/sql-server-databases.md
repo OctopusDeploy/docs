@@ -36,7 +36,7 @@ Also, windows authentication is the often the preferred way to authenticate.  A 
 
 Most of the tooling from above requires it to be installed somewhere.  It is important the same version is used across all environments.  This prevents any uncertainty during deployments.  
 
-Finally, it is good security practice to have a different deployment account per environment.  That deployment account only has permissions make schema changes in their environment.  An account used to change a test environment should not be able to change production.  
+Finally, it is good security practice to have a different deployment account per environment.  That deployment account only has permissions to make schema changes in their environment.  An account used to change a test environment should not be able to change production.  
 
 With all that in mind, a "jump box" is where Tentacles should be installed.  The jump box sits between Octopus Deploy and the SQL Server VIP.  The Tentacle is running as a [service account](/docs/infrastructure/windows-targets/running-tentacle-under-a-specific-user-account.md) with the necessary permissions to make schema changes.  The tooling chosen for database deployments is installed on the jump box.
 
