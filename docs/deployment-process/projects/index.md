@@ -33,6 +33,7 @@ Before you can define your deployment process, you must create a project.
 1. Select the lifecycle from the dropdown menu. (Learn more about [Lifecycles](/docs/deployment-process/lifecycles/index.md)).
 1. Click **Save** and you will be taken to the newly created project's overview page.
 
+Now that you've created a project, you can configure your [Lifecycles](/docs/deployment-process/lifecycles/index.md) or start adding [steps](/docs/deployment-process/steps/index.md) to your project.
 
 ## Project Overview
 
