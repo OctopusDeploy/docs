@@ -109,3 +109,15 @@ All steps have a name, which is used to identify the step.
 **What&#39;s in a Name?**
 Be careful when changing names! Octopus commonly uses names as a convenient identity or handle to things, and the steps and actions in a deployment process are special in that way. For example you can use [output variables](/docs/deployment-process/variables/output-variables.md) to chain steps together, and you use the name as the indexer for the output variable. For example: `#{Octopus.Action[StepA].Output.TestResult}`
 :::
+
+## Export Your Custom Step Template
+
+If you want to transport, backup, or share your custom step templates with the community, you can export a template by finding your template in {{Library,Step templates}}, and clicking the **Export** link.
+
+![Export step templates](step-templates-export.png "width=500")
+
+Now you can take that exported template document and commit it to source control, or share it on the [Community Library](https://library.octopusdeploy.com/).
+
+:::success
+Take a look at the [contributing guide](https://github.com/OctopusDeploy/Library/blob/master/CONTRIBUTING.md) for the Community Library and submit your step template as a [pull request](https://github.com/OctopusDeploy/Library/pulls).
+:::
