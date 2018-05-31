@@ -4,13 +4,16 @@ description: How to take advantage of step templates contributed by the Octopus 
 position: 1
 ---
 
-Community step templates are publicly available step templates that are contributed and updated by the community. There is a growing number (over 200 at the time of writing this) of templates that can help you automate your deployment without writing any scripts yourself. The community step templates are third party code which is licensed under [the Apache 2.0 license](https://github.com/OctopusDeploy/Library/blob/master/LICENSE.txt).
+Community step templates are publicly available step templates that are contributed and updated by the community. These are incredibly useful. If you can't find a built-in step template that includes the actions you need, check the community step template. There is a large number and variety of step templates (and it's growing all the time) that can help you automate your deployment without writing any scripts yourself. The community step templates are third party code which is licensed under [the Apache 2.0 license](https://github.com/OctopusDeploy/Library/blob/master/LICENSE.txt).
 
-Octopus community step templates integration is enabled by default but this can be changed in the **Features** tab in the **Configuration** area. For more information, see [Octopus community step templates integration](/docs/administration/octopus-community-step-templates-integration.md).
+Octopus community step templates integration was introduced in Octopus 3.7 and is enabled by default.
 
-:::success
-The [Community Library](http://library.octopus.com/) is an open source [repository](https://github.com/octopusdeploy/library/) of community contributed step templates automating a diverse set of actions.  If you still don't find what you are looking for, don't forget: Octopus can do anything, as long as you can script the instructions. Maybe you could [contribute](https://github.com/OctopusDeploy/Library/blob/master/.github/CONTRIBUTING.md) your scripts back to the community?
-:::
+## Enable/Disable Community Step Templates Integration
+
+1. Navigate to {{Configuration,Features}}.
+2. Expand the **Octopus Community Step Template** section by clicking on it.
+3. Toggle the select to either **Enabled** or **Disabled**, and click **SAVE**.
+
 
 ## Adding a community contributed step templates {#Addingsteps-Addingacommunitycontributedsteptemplates}
 
@@ -26,8 +29,9 @@ If you select view details, this will take you to the community step details pag
 
 ## The Community Library {#StepTemplates-TheCommunityLibrary}
 
+<!-- remove
 Is there something Octopus doesn't support out-of-the-box? Take a look at the [Community Library](https://library.octopus.com/) which is full of step templates that have been contributed and are maintained by the Octopus community.
-
+-->
 :::hint
 Octopus 3.7 introduced integration with the Community Library and community contributed step templates are now synchronized with the Octopus server. This change makes it a quick and easy process to install and add community step templates. The import and export process is still available for older versions of Octopus.
 :::
