@@ -12,7 +12,9 @@ Octopus community step templates integration was introduced in Octopus 3.7 and i
 
 1. Navigate to **{{Configuration,Features}}**.
 2. Expand the **Octopus Community Step Template** section by clicking on it.
-3. Toggle the select to either **Enabled** or **Disabled**, and click **SAVE**.
+3. Toggle the selection to either **Enabled** or **Disabled**, and click **SAVE**.
+
+
 
 
 ## Adding a community contributed step templates {#Addingsteps-Addingacommunitycontributedsteptemplates}
@@ -26,25 +28,6 @@ The add step page also displays community contributed step templates available t
 If you select view details, this will take you to the community step details page which shows you the complete details of the step include the source code.  You can install the step or go back to the list of steps.
 
 ![](install-community-step-details.png "width=500")
-
-## The Community Library {#StepTemplates-TheCommunityLibrary}
-
-<!-- remove
-Is there something Octopus doesn't support out-of-the-box? Take a look at the [Community Library](https://library.octopus.com/) which is full of step templates that have been contributed and are maintained by the Octopus community.
--->
-:::hint
-Octopus 3.7 introduced integration with the Community Library and community contributed step templates are now synchronized with the Octopus server. This change makes it a quick and easy process to install and add community step templates. The import and export process is still available for older versions of Octopus.
-:::
-
-![Community library](step-templates-community-library.png "width=500")
-
-Installing a community step template into Octopus is quick and easy.
-
-- [Install and add a community step template directly from your project's deployment process](/docs/deployment-process/steps/index.md#Addingsteps-Addingacommunitycontributedsteptemplates)
-- [Install a step template from the **Step templates** tab within the **Library** area](/docs/deployment-process/steps/community-step-templates.md#StepTemplates-InstallingasteptemplatefromtheCommunityLibrary)
-- [Manually import a step template from the **Step templates** tab within the **Library** area](/docs/deployment-process/steps/community-step-templates.md#StepTemplates-ImportingasteptemplatefromtheCommunityLibrary)
-
-It's also possible to create your own step templates.
 
 ## Installing a step template from the Community Library {#StepTemplates-InstallingasteptemplatefromtheCommunityLibrary}
 
