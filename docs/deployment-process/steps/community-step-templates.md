@@ -10,7 +10,7 @@ Octopus community step templates integration was introduced in Octopus 3.7 and i
 
 ## Enable/Disable Community Step Templates Integration
 
-1. Navigate to {{Configuration,Features}}.
+1. Navigate to **{{Configuration,Features}}**.
 2. Expand the **Octopus Community Step Template** section by clicking on it.
 3. Toggle the select to either **Enabled** or **Disabled**, and click **SAVE**.
 
