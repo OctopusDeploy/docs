@@ -11,7 +11,7 @@ Octopus includes built-in step templates that have been developed by the Octopus
 
 1. Navigate to your [project's](/docs/deployment-process/projects/index.md) overview page by selecting **Projects** and clicking on the project you are working with.
 2. Click the **DEFINE YOUR DEPLOYMENT PROCESS** button, and click **ADD STEP**.
-3. Choose the step template you need.
+3. Find the step template you need, hover over the step and click **ADD**.
 
 At this point, you have the choice of choosing from the built-in **Installed Step Templates** or the [Community Contributed Step Templates](/docs/deployment-process/steps/community-step-templates.md).
 
