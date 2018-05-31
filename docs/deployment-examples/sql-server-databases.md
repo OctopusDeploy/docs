@@ -4,7 +4,7 @@ description: Octopus integrates with numerous tools to handle automated database
 position: 30
 ---
 
-There are a variety of ways for Octopus Deploy to deploy to SQL Server.  There are many third-party tools, both free and commercial, Octopus Deploy integrates with.  This section will provide a broad outline of approaches, tooling, and recommended configuration.
+There are a variety of ways for Octopus Deploy to deploy to SQL Server.  Octopus Deploy integrates with many third-party tools, both free and commerical.  This section will provide a broad outline of approaches, tooling, and recommended configuration.
 
 ## Approaches to database change management {#SQLServerdatabases-Approachestodatabasechangemanagement}
 
@@ -32,7 +32,7 @@ SQL PaaS, such as [AWS RDS](https://aws.amazon.com/rds/) or [Azure's SQL](https:
 
 All the tools mentioned above connect to SQL Server using port 1433 and run one or more scripts.  They do not need to be installed directly on SQL Server.  Nor do they need to be run directly on SQL Server.  They will work as long as they run on any machine with a direct connection and port 1433 open.
 
-Also, windows authentication is the often the preferred way to authenticate.  A recommended security practice is the principle of least privilege.  The account used by the website to connect to SQL Server should have restricted permissions.  For example, the website uses stored procedures, the account would only have permissions to execute those stored procedures.  Whereas, the account used for deployments needs elevated permissions.  This is because that account needs to make schema changes.
+Also, Windows authentication is the often the preferred way to authenticate.  A recommended security practice is the principle of least privilege.  The account used by the website to connect to SQL Server should have restricted permissions.  For example, the website uses stored procedures, the account would only have permissions to execute those stored procedures.  Whereas, the account used for deployments needs elevated permissions.  This is because that account needs to make schema changes.
 
 Most of the tooling from above requires it to be installed somewhere.  It is important the same version is used across all environments.  This prevents any uncertainty during deployments.  
 
@@ -58,7 +58,7 @@ The level of permissions required to automate database deployments is tricky.  T
 
 The account used to make schema changes requires elevated permissions.  Because of that, create a special account to handle database deployments.  Do not use the same account used by an IIS Web Application.
 
-The level of elevated permissions is up to you.   The more restrictions placed on the deployment account means more manual steps.  Deployments will fail due to missing or restricted permissions.  Octopus will provide the error message to fix the issue.  It will need a manual intervention.  It is up to you to decide which is best. 
+The level of elevated permissions is up to you.   More restrictions placed on the deployment account means more manual steps.  Deployments will fail due to missing or restricted permissions.  Octopus will provide the error message to fix the issue.  It will need a manual intervention.  It is up to you to decide which is best. 
 
 First, decide what the deployment account should have the ability to do at the server level.  From there, research which server roles are applicable.  For example, the account can create databases and users.  Use the securityadmin and dbcreator server roles.  Should the account only be able to create databases? Use dbcreator role. 
 
@@ -68,11 +68,11 @@ Next, decide what permissions the deployment account can have at the database le
 
 Applications should run under their own accounts with the least amount of rights.  Each environment for each application should have their own account.  
 
-Having separate accounts for each environment can make automated database deployments very tricky.  Which account should be stored in source control  All of them or none of them?  None of them.  Assign permissions to roles.  Attach the correct user for the environment to that role.
+Having separate accounts for each environment can make automated database deployments very tricky.  Which account should be stored in source control?  All of them or none of them?  None of them.  Assign permissions to roles.  Attach the correct user for the environment to that role.
 
 ### Fully Automated Database Deployments Permission Recommendation {#SQLServerdatabases-FullAutomationPermissions}
 
-Following DevOps principles, everything that can be automated should be automated.  This includes databases, from creation to user management, to schema changes.  Octopus Deploy plus the third-party tool of your choice can handle that. The deployment account should have these roles assigned:
+Following DevOps principles, everything that can be automated should be automated.  This includes creating databases, user management, schema changes and data changes.  Octopus Deploy plus the third-party tool of your choice can handle that. The deployment account should have these roles assigned:
 
 - Server Roles: dbcreator and securityadmin
 - Database Role: db_datareader, db_datawriter, db_accessadmin, db_securityadmin, db_ddladmin, db_backupoperator
