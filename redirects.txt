@@ -531,3 +531,4 @@ docs/deploying-applications/terraform-deployments/apply-terraform/index.md -> do
 docs/deploying-applications/terraform-deployments/destroy-terraform/index.md -> docs/deployment-examples/terraform-deployments/destroy-terraform/index.md
 docs/deploying-applications/terraform-deployments/plan-terraform/index.md -> docs/deployment-examples/terraform-deployments/plan-terraform/index.md
 docs/deployment-process/steps/exporting-step-templates.md -> docs/deployment-process/steps/custom-step-templates.md
+docs/administration/octopus-community-step-templates-integration.md -> docs/deployment-process/steps/community-step-templates.md
