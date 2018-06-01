@@ -18,52 +18,38 @@ Octopus Community step templates integration was introduced in Octopus 3.7 and i
 
 ## Adding Community Step Templates
 
-Unlike the built-in steps included in Octopus, you need to install community step templates. There are three ways you can do this:
+Unlike the built-in steps included in Octopus, you need to install Community Step Templates. There are three ways you can do this:
 
 1. As you define your deployment processes.
 2. From the **Library** area of the Octopus Web Portal.
 3. By importing them from the [Community Library](http://library.octopus.com/).
 
-### Add a Community Step Template as you Define the Deployment Process
+## Add a Community Step Template as you Define the Deployment Process
 
 1. Navigate to your [project's](/docs/deployment-process/projects/index.md) overview page by selecting **Projects** and clicking on the project you are working with.
 2. Click the **DEFINE YOUR DEPLOYMENT PROCESS** button, and click **ADD STEP**.
 3. Scroll past the built-in step templates, and find the Community Step Template you want either by choosing from the available technologies or clicking **SHOW ALL**.
-4. Before you install the template you can click **VIEW DETAILS** to review the parameters of the step and view the source code.
-5. To install the step template, hover over the step template's card and click **INSTALL AND ADD**.
+4. Before you install the template you can click **VIEW DETAILS** to view the parameters of the step and the source code.
+5. To install the step template, hover over the step template's card and click **INSTALL AND ADD** and **SAVE**.
 
 After the step template has been installed it will be available alongside the built-in step templates.
 
-### Add a Community Step Template in the Octopus Library
+## Add a Community Step Template in the Octopus Library
+
+1. In the Octopus Web Portal, navigate to **{{Library, Step Templates}}**.
+2. Click **BROWSE LIBRARY**.
+3. Find the Community Step Template you want either by choosing from the available technologies or clicking **SHOW ALL**.
+4. Before you install the template you can click **VIEW DETAILS** to view the parameters of the step and the source code.
+5. To install the step template, hover over the step template's card and click **INSTALL** and **SAVE**.
+
+After the step template has been installed it will be available alongside the built-in step templates.
 
 
-![](install-community-step-details.png "width=500")
 
-## Installing a step template from the Community Library
 
-To install a step template from the Community Library, perform the following.
+## Import a Community Step Template From the Community Library
 
-1. Navigate to {{Library, Step templates}} area and select **Install** from the community step templates section
-
-![Install community step template](step-templates-install.png "width=500")
-
-2. Search for a specific step template or browse the categories to find the template you want to use
-
-![Search for community step template](step-templates-search-community.png "width=500")
-
-3. Select **Install** or view the details of the step
-
-![Install community step template](step-templates-install-community-template.png "width=500")
-
-4. To confirm, select **install**
-
-![Confirm installation](step-templates-confirm-installation.png "width=500")
-
-5. Now you can add this new kind of step to your deployment process
-
-![Step template installed](step-templates-community-template-installed.png "width=500")
-
-## Importing a step template from the Community Library {#StepTemplates-ImportingasteptemplatefromtheCommunityLibrary}
+## Importing a step template from the Community Library
 
 If the Community Library feature has been disabled, you can still use community step templates by manually importing the JSON from the [Community Library](http://library.octopus.com/) into the step template library within Octopus.
 
