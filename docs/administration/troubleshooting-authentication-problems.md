@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting authentication problems
+title: Troubleshooting Authentication Problems
 description: A guide for troubleshooting authentication problems in Octopus Deploy.
 position: 6
 ---

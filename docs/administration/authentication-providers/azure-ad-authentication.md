@@ -1,5 +1,5 @@
 ---
-title: Azure AD authentication
+title: Azure AD Authentication
 description: Octopus Deploy can use Azure AD authentication to identify users.
 position: 1
 ---
@@ -37,10 +37,10 @@ In order to configure the your instance of Octopus Deploy as an App, you will ne
 
    ![New App registration](new-app-registration.png "width=500")
 
-4. Choose a **Name** like *Octopus Deploy*, specify **Application Type** of *Web app/API*, and enter a value for **Sign-On URL** like *https://octopus.example.com* Then click **Create**. 
+4. Choose a **Name** like *Octopus Deploy*, specify **Application Type** of *Web app/API*, and enter a value for **Sign-On URL** like *https://octopus.example.com* Then click **Create**.
  - The value you specify for Name will appear at the top of the Azure authentication page when the users are entering their credentials.
  - The value you specify for Sign-On URL should be a public URL to your own Octopus Server.
- 
+
    ![Filling the App registration form](new-app-registration-form.png "width=500")
 
 #### Configuring trusted Reply URLs {#AzureADauthentication-ConfiguringtrustedReplyURLs}
@@ -100,7 +100,7 @@ Make sure you replace the `NEWGUID`s with a generated guid (unique per entry).
 Once you have completed editing the manifest, select the **Save** option.
 
   ![Saving an App registration manifest](save-app-registration-manifest.png "width=500")
-  
+
 
 :::hint
 The **value** property is the most important one. This value becomes the external Role ID you will use later on when [adding this role to a Team](/docs/administration/managing-users-and-teams/index.md) in Octopus Deploy.
@@ -124,7 +124,7 @@ Once the App Role(s) have been defined, users/groups from Azure AD may be mapped
 3. Select the users which you would like to assign roles to. Next, under **Select Role** specify one of the AppRoles that you added to the App registration manifest.
 
   ![Editing App registration users role](edit-app-registration-users-role.png "width=500")
-  
+
 4. To save your changes, select the **Assign** button.
 
 :::hint
@@ -173,14 +173,14 @@ Alternatively these settings can be defined through the user interface by select
 
 If you followed the optional steps for modifying the App registration's manifest to include new roles, you can assign them to **Teams** in the Octopus Portal.
 
-1. Open the Octopus Portal and select {{Configuration,Teams}} 
+1. Open the Octopus Portal and select {{Configuration,Teams}}
 
 2. Either Create a new **Team** or select an existing one.
 
 3. Under the **Members** section, select the option **Add External Group/Role**
  ![Adding Octopus Teams from External Providers](add-octopus-teams-external.png "width=500")
- 
-4. Enter the details from your App registration's manifest. In this example we need to supply `octopusTesters` as the **Group/Role ID** and `Octopus Testers` as the **Display Name** 
+
+4. Enter the details from your App registration's manifest. In this example we need to supply `octopusTesters` as the **Group/Role ID** and `Octopus Testers` as the **Display Name**
  ![Add Octopus Teams Dialog](add-octopus-teams-external-dialog.png "width=500")
 
 5. Save your changes by clicking the **Save** button.

@@ -1,5 +1,5 @@
 ---
-title: Backup v2.6 database
+title: Backup v2.6 Database
 description: Information on how to backup an Octopus 2.6 database.
 ---
 
@@ -22,11 +22,11 @@ Making a copy of your master key is easy:
 1. Open the **Octopus Manager** from the start menu/start screen
 
    ![](/docs/images/backup-2.6/3277161.png "width=500")
-   
+
 2. Click **Copy master key to clipboard...**
 
    ![](/docs/images/backup-2.6/3277158.png "width=500")
-   
+
 3. Paste the master key into a text editor or a secure enterprise password manager, and save it
 
 ## Backup now

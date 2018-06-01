@@ -1,6 +1,6 @@
 ---
-title: Minimize the data-migration time 
-description: Tips to minimize the time taken to migrate your data from Octopus 2.6 to 3.x 
+title: Minimize the Data-migration Time 
+description: Tips to minimize the time taken to migrate your data from Octopus 2.6 to 3.x
 position: 5
 ---
 
@@ -8,7 +8,7 @@ Migrating data from a 2.6 backup file into an Octopus 3.x instance can take a si
 
 We strongly recommend taking the following actions to minimize the migration duration.  
 
-## Remove unnecessary data from your 2.6 instance 
+## Remove unnecessary data from your 2.6 instance
 
 Our strongest recommendation is to use [retention-policies](/docs/administration/retention-policies/index.md) in your 2.6 instance to remove unnecessary data.
 
@@ -25,12 +25,12 @@ The original complete backup can always be retained if it is required for audit 
 
 The migrator is a memory-hungry process.  Allocate the machine which will execute the migrator process as much memory as possible.  The more memory is available, the faster the process will run.
 
-As a rule-of-thumb: 
+As a rule-of-thumb:
 
-- If your .octobak file is >500MB, allow at least 16GB of RAM 
+- If your .octobak file is >500MB, allow at least 16GB of RAM
 - If your .octobak file is >1GB, allow at least 32GB of RAM
 
-This RAM is only required for the migration, and can be deallocated once it is complete. 
+This RAM is only required for the migration, and can be deallocated once it is complete.
 
 ## No Logs
 

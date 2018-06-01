@@ -1,5 +1,5 @@
 ---
-title: Okta authentication
+title: Okta Authentication
 description: Octopus Deploy can use Okta authentication to identify users.
 position: 6
 version: 3.16

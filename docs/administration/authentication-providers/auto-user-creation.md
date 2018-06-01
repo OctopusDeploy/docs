@@ -1,5 +1,5 @@
 ---
-title: Automatic user creation
+title: Automatic User Creation
 description: User can be automatically created using some providers.
 position: 7
 version: 3.17

@@ -1,5 +1,5 @@
 ---
-title: Upgrade with a new 3.0 server instance
+title: Upgrade With a New 3.0 Server Instance
 description: Information on how to upgrade from Octopus 2.6 to a new Octopus 3.0 instance.
 position: 2
 ---

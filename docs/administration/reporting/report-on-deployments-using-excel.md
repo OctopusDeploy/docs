@@ -1,5 +1,5 @@
 ---
-title: Report on deployments using Excel
+title: Report on Deployments Using Excel
 description: How to report on deployments using Excel.
 position: 11
 ---

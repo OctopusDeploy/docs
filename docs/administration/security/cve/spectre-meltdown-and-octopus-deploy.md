@@ -1,5 +1,5 @@
 ---
-title: Spectre (speculative execution side-channel vulnerabilities), meltdown, and Octopus Deploy
+title: Spectre (speculative execution side-channel vulnerabilities), Meltdown, and Octopus Deploy
 description: How the Spectre (speculative execution side-channel vulnerabilities) and meltdown vulnerabilities impact Octopus Deploy
 position: 1
 ---

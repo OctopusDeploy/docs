@@ -1,5 +1,5 @@
 ---
-title: Let's Encrypt integration
+title: Let's Encrypt Integration
 description: Octopus can integrate with Let's Encrypt to setup and automatically renew the Octopus Portal SSL certificate.
 position: 2300
 # version: "[3.15,)"

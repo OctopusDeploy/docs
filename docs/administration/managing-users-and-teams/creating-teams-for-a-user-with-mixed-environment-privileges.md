@@ -1,5 +1,5 @@
 ---
-title: Creating teams for a user with mixed environment privileges
+title: Creating Teams for a User With Mixed Environment Privileges
 description: This guide describes how to create a teams for a user with mixed environment privileges.
 position: 10
 ---

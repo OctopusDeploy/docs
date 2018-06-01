@@ -1,5 +1,5 @@
 ---
-title: Managing users and teams
+title: Managing Users and Teams
 description: Octopus users can be organized in to teams and given various permissions via roles based security.  Teams can be further restricted to specific projects, environments and more.
 position: 300
 ---
@@ -69,7 +69,7 @@ The following table illustrates the combination of possible permissions when spe
 
 ## Roles {#Managingusersandteams-Roles}
 
-Team members can be assigned the following roles: 
+Team members can be assigned the following roles:
 
 - **Project viewer**:
   Project viewers have read-only access to a project. They can see the project in their dashboard, view releases and deployments.
@@ -77,7 +77,7 @@ Team members can be assigned the following roles:
   Project viewer, plus: editing and viewing variables and deployment steps.
 - **Project lead**: 
   Project contributor, plus: create releases (but not deploy them).
-- **Project deployer**: 
+- **Project deployer**:
   Project contributor, plus: deploying releases (but not creating releases).
 - **Environment viewer**:
   View environments and their machines, but not edit them.

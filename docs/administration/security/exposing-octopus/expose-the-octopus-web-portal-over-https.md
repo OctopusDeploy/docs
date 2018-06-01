@@ -1,5 +1,5 @@
 ---
-title: Expose the Octopus web portal over HTTPS
+title: Expose the Octopus Web Portal Over HTTPS
 description: How to expose the Octopus web portal securely over HTTPS.
 position: 6
 ---

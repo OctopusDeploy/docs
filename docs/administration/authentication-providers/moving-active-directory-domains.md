@@ -1,6 +1,6 @@
 ---
-title: Moving your Octopus Server to another Active Directory domain
-description: the steps and considerations to move your Octopus Server from one Active Directory domain to another. 
+title: Moving your Octopus Server to Another Active Directory Domain
+description: the steps and considerations to move your Octopus Server from one Active Directory domain to another.
 position: 5
 ---
 
@@ -20,7 +20,7 @@ If needed, you can update the account the Octopus Server windows service is runn
 
 Assuming your users' email address, SAMAccountName or UPN do not change, then they should now be able to login normally.
 
-## Notes: 
+## Notes:
 
 * If you move your users to the new domain as well, this should still work assuming that the user's email address, SAM or UPN do not change.  If they do, then you'll need to update your instance to migrate your users/teams over.
 

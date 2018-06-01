@@ -1,5 +1,5 @@
 ---
-title: Moving the Octopus Server database
+title: Moving the Octopus Server Database
 description: Walkthrough outlining how you can move an Octopus database from one server to another.
 position: 200
 ---

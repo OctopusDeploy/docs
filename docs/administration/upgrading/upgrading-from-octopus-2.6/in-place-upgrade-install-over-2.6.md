@@ -1,5 +1,5 @@
 ---
-title: In place upgrade (install over 2.6)
+title: In Place Upgrade (install over 2.6)
 description: Information on how to do an inplace upgrade to Octopus 3.x from Octopus 2.6.
 position: 0
 ---
@@ -99,4 +99,4 @@ If one or more health checks do not succeed after a few attempts, see the Troubl
 
 We leave some files used by Octopus 2.6 in place so you can roll back if necessary. After the upgrade is complete these files will never be used again and can be safely deleted.
 
-You can follow the instructions on this [page](/docs/administration/server-configuration-and-file-storage\index.md#ServerconfigurationandFilestorage-CleanUp) to clean up files left over from your Octopus 2.6 to 3.x upgrade. 
+You can follow the instructions on this [page](/docs/administration/server-configuration-and-file-storage\index.md#ServerconfigurationandFilestorage-CleanUp) to clean up files left over from your Octopus 2.6 to 3.x upgrade.

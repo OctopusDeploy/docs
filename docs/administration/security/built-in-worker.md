@@ -1,5 +1,5 @@
 ---
-title: Built-in worker
+title: Built-in Worker
 description: The built-in worker is enabled by default in your Octopus Server. This is very convenient when getting started with Octopus, but comes with several security implications.
 position: 1
 ---

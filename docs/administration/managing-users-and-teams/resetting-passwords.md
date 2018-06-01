@@ -1,5 +1,5 @@
 ---
-title: Resetting passwords
+title: Resetting Passwords
 description: The Octopus web portal makes it easy to change or reset your password.
 position: 1
 ---

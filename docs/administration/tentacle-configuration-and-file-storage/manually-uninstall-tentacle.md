@@ -1,5 +1,5 @@
 ---
-title: Manually uninstall Tentacle
+title: Manually Uninstall Tentacle
 description: Information on how to manually uninstall the Octopus Tentacle.
 ---
 

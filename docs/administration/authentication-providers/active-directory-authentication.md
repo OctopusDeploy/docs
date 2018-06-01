@@ -1,5 +1,5 @@
 ---
-title: Active Directory authentication
+title: Active Directory Authentication
 description: Octopus Deploy can use Windows credentials to identify users.
 position: 0
 ---

@@ -1,5 +1,5 @@
 ---
-title: Maintenance mode
+title: Maintenance Mode
 description: You can put Octopus Server into maintenance mode so you can safely perform server maintenance or other administrative activities.
 position: 1
 ---

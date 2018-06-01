@@ -1,5 +1,5 @@
 ---
-title: Retention policy Tentacle cleanup and troubleshooting
+title: Retention Policy Tentacle Cleanup and Troubleshooting
 description: Reviewing and troubleshooting why some files aren't cleaned up by Octopus retention policies.
 ---
 

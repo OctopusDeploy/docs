@@ -1,5 +1,5 @@
 ---
-title: Outbound requests
+title: Outbound Requests
 description: Traffic details of network requests made by Octopus and Tentacle, and what information is included when Octopus checks for updates.
 position: 1
 ---

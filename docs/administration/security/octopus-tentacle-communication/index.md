@@ -1,5 +1,5 @@
 ---
-title: Octopus - Tentacle communication
+title: Octopus - Tentacle Communication
 description: Octopus Server and Tentacle communications details.
 position: 1
 ---

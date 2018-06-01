@@ -1,5 +1,5 @@
 ---
-title: Migrating data from Octopus 2.6 to 3.x
+title: Migrating Data from Octopus 2.6 to 3.x
 description: Information on how to migrate your data to Octopus 3.x from Octopus 2.6.
 position: 3
 ---
@@ -69,7 +69,7 @@ Where`[<options>]`is any of:
     --dry-run			[Optional] Do not commit changes, just print what would have happened
     --maxage			[Optional] Ignore historical data older than x days
     --nologs			[Optional] Only import data, but do not convert and import the raw server log entries
-    --onlylogs			[Optional] No data imported, only import the raw server log entries for existing migrated data. 
+    --onlylogs			[Optional] No data imported, only import the raw server log entries for existing migrated data.
     --nooverwrite		[Optional] The data that exists in the 3.x database will be treated as truth and not overwritten 					by the backup file, only new data will be inserted
 ```
 
