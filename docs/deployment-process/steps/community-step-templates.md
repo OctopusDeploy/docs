@@ -14,6 +14,8 @@ Octopus Community step templates integration was introduced in Octopus 3.7 and i
 2. Expand the **Octopus Community Step Template** section by clicking on it.
 3. Toggle the selection to either **Enabled** or **Disabled**, and click **SAVE**.
 
+The Octopus server uses a sync task to connect to [http://library.octopus.com/](http://library.octopus.com/) over http (port 80). If you don't see any Community Step Templates after enabling the feature, verify outbound traffic is enabled on port 80.
+
 ## Community Step Template Synchronization
 
 The Community Step Templates are synchronized with the Octopus server. The synchronization process is executed as a standard Octopus task and you can view its execution details from the **Tasks** area. The Octopus server synchronizes with the Octopus Library on startup and then every 24 hours over the Internet thus it requires Internet access. If there are any updates or changes, the sync process retrieves all the step templates and stores the relevant community step templates in the Octopus database. Step templates are persisted locally, but they cannot be used in a deployment process until they are explicitly installed.
@@ -59,19 +61,6 @@ If the Community Step Template feature has been disabled, you can still use comm
 
 After the step template has been installed it will be available alongside the built-in step templates.
 
-## Adding an updated version of a community step template {#Addingsteps-Addinganupdatedversionofacommunitysteptemplate}
+## Adding an Updated Version of a Community Step Template
 
-Sometimes updates are available for step templates.  In this case, you will notice the step template has an option to update the step.  If you select update, this will take you to the community step details with the option to update the latest version of the step template.  Community step templates can also be updated in the library as needed.
-
-![](update-community-step.png)
-
-![](update-community-step-details.png "width=500")
-
-## Troubleshooting {#Octopuscommunitysteptemplatesintegration-Troubleshooting}
-
-If the Octopus community step templates feature toggle is enabled but you don't see any community steps, navigate to the **Features** tab in the **Configuration** area.  Click on the last sync period (i.e. 5 minutes ago or 10 hours ago) to view the most recent sync task and review it's log.  If there are any errors, compare them with the list below.
-
-*The Octopus server failed to connect to our community library.*
-
-- This means the Octopus server sync task could not connect to the Octopus Library over the internet.  It attempts to connect to [http://library.octopus.com/](http://library.octopus.com/) over http (port 80) therefore the appropriate ports need to be open.
-- If problems persist, it's recommended that you review your firewall and network configuration.  Verify outbound traffic is enabled on port 80.
+Sometimes updates are available for step templates.  In this case, you will notice the step template has an option to update the step.  If you select update, you will be taken to the community step details with the option to update the latest version of the step template.  Community step templates can also be updated from the library as needed.
