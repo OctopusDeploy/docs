@@ -38,7 +38,7 @@ Unlike the built-in steps included in Octopus, you need to install Community Ste
 
 After the step template has been installed it will be available alongside the built-in step templates.
 
-## Add a Community Step Template in the Octopus Library
+## Add a Community Step Template from the Octopus Library
 
 1. In the Octopus Web Portal, navigate to **{{Library, Step Templates}}**.
 2. Click **BROWSE LIBRARY**.
@@ -50,21 +50,14 @@ After the step template has been installed it will be available alongside the bu
 
 ## Import a Community Step Template From the Community Library
 
-If the Community Library feature has been disabled, you can still use community step templates by manually importing the JSON from the [Community Library](http://library.octopus.com/) into the step template library within Octopus.
+If the Community Step Template feature has been disabled, you can still use community step templates by manually importing the JSON file (which contains all of the information required by Octopus) from the [Community Library](http://library.octopus.com/) into the step template library in Octopus.
 
-1. Navigate to the [Community Library](http://library.octopus.com/) website, find the template you want to use and click on the **Copy to clipboard** button. *Step Templates are transported as a JSON document containing all of the information required by Octopus.*
+1. Navigate to the [Community Library](http://library.octopus.com/) website.
+2. Find the template you want to use, review the details, and click the **Copy to clipboard** button.
+3. Navigate to **{{Library,Step Templates}}** in the Octopus web portal and select **Import** from the custom step templates section.
+4. Paste in the JSON document for the Step Template into the import window and click **SAVE**.
 
-![Import from community library](step-templates-import-from-community-library.png "width=500")
-
-2. Navigate to {{Library,Step templates}} area within the Octopus web portal and select **Import** from the custom step templates section.
-3. Paste in the JSON document for the Step Template and click the **Import** button.
-
-![Content](step-templates-import-content.png "width=500")
-
-4. Now you can add this new kind of step to your deployment process.
-
-![Import confirmation](step-templates--step-template-import-confirmed.png "width=500")
-
+After the step template has been installed it will be available alongside the built-in step templates.
 
 ## Adding an updated version of a community step template {#Addingsteps-Addinganupdatedversionofacommunitysteptemplate}
 
