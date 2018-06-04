@@ -52,6 +52,6 @@ The configuration values provided via this interface actually serve 2 purposes. 
 
 ## Publicly Accessible URL {#ServerConfiguration-PubliclyAccessibleURL}
 
-This Server Configuration screen also allows administrators to edit the "publicly accessible URL" for your Octopus Server. This value is used by email notifications in [Subscriptions](/docs/administration/subscriptions.md) and should be set to the publicly-available URL of your Octopus Server if you wish to include a link to your Octopus Server in your subscription emails. E.g. **https://your-octopus-server.com:8080/**
+This Server Configuration screen also allows administrators to edit the "publicly accessible URL" for your Octopus Server. This value is used by email notifications in [Subscriptions](/docs/administrationsubsciptions/index.md) and should be set to the publicly-available URL of your Octopus Server if you wish to include a link to your Octopus Server in your subscription emails. E.g. **https://your-octopus-server.com:8080/**
 
 The subscriptions engine will use this value to include a link to your Octopus Server's audit page by appending the audit screen route to the end of this URL.

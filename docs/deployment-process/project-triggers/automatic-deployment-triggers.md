@@ -136,7 +136,7 @@ To unblock automatic deployments you can either:
 2. Configure an [Auto Deploy Override](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/index.md) to override the default behavior and force a deployment of the selected release
 
 :::success
-You can be notified when this situation occurs, or use web hooks to code your own recovery actions - see [Subscriptions](/docs/administration/subscriptions.md) for more details.
+You can be notified when this situation occurs, or use web hooks to code your own recovery actions - see [Subscriptions](/docs/administrationsubsciptions/index.md) for more details.
 :::
 
 ### Can Automatic Deployments Become Blocked?
@@ -179,7 +179,7 @@ Yes. If Octopus is calculating the wrong release for a particular situation you 
 
 ### Can I be Notified of Automatic Deployment Events (like blockages or failures)?
 
-Yes you can! By configuring [Subscriptions](/docs/administration/subscriptions.md) you can be notified by email or use web hooks to create your own notification channels. You can even use web hooks to code your own recovery behavior based on your specific situation.
+Yes you can! By configuring [Subscriptions](/docs/administrationsubsciptions/index.md) you can be notified by email or use web hooks to create your own notification channels. You can even use web hooks to code your own recovery behavior based on your specific situation.
 
 ### Can I Include Disabled Machines in my Automated Deployments?
 
