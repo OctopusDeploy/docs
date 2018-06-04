@@ -306,7 +306,7 @@ docs/administration/providing-database-performance-metrics.md -> docs/support/pr
 docs/how-to/report-on-deployments-using-excel.md -> docs/administration/reporting/report-on-deployments-using-excel.md
 docs/how-to/use-iis-as-reverse-proxy.md -> docs/administration/security/exposing-octopus/use-iis-as-reverse-proxy.md
 docs/administration/use-iis-as-reverse-proxy.md -> docs/administration/security/exposing-octopus/use-iis-as-reverse-proxy.md
-docs/how-to/specifying-a-custom-container-to-use-for-ad-authentication.md -> docs/administration/specifying-a-custom-container-to-use-for-ad-authentication.md
+docs/how-to/specifying-a-custom-container-to-use-for-ad-authentication.md -> docs/administration/authentication/specifying-a-custom-container-to-use-for-ad-authentication.md
 docs/how-to/enable-web-request-logging.md -> docs/administration/enable-web-request-logging.md
 docs/how-to/how-to-run-steps-on-the-octopus-server.md -> docs/deployment-process/steps/how-to-run-steps-on-the-octopus-server.md
 docs/how-to/how-to-use-custom-certificates-with-octopus-server-and-tentacle.md -> docs/administration/security/octopus-tentacle-communication/how-to-use-custom-certificates-with-octopus-server-and-tentacle.md

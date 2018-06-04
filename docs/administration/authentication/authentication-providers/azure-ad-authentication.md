@@ -232,12 +232,12 @@ Sometimes the contents of the security token sent back by Azure AD aren't exactl
 1. Open the Developer Tools of your browser and enable Network logging making sure the network logging is preserved across requests.
 2. In Chrome Dev Tools this is called "Preserve Log".
 
-   ![Preserve Logs](../../images/5670656/5866122.png)
+   ![Preserve Logs](/docs/images/5670656/5866122.png)
 
 3. Attempt to sign into Octopus using Azure AD and find the HTTP POST coming back to your Octopus instance from Azure AD on a route like `/api/users/authenticatedToken/azureAD`. You should see an `id_token` field in the HTTP POST body.
 4. Grab the contents of the `id_token` field and paste that into [https://jwt.io/](https://jwt.io/) which will decode the token for you.
 
-   ![Id Token](../../images/5670656/5866123.png "width=500")
+   ![Id Token](/docs/images/5670656/5866123.png "width=500")
 
 5. Don't worry if jwt.io complains about the token signature, it doesn't support RS256 which is used by Azure AD.
 6. Octopus uses most of the data to validate the token, but primarily uses the `sub`, `email` and `name` claims. If these claims are not present you will likely see unexpected behavior.
