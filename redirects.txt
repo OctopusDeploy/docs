@@ -22,7 +22,7 @@ docs/api-and-integration/visual-studio-team-services-vsts -> docs/api-and-integr
 docs/api-and-integration/team-foundation-server-tfs -> docs/api-and-integration/tfs-vsts/index.md
 docs/guides/use-the-team-foundation-build-custom-task/extension-compatibility -> docs/api-and-integration/tfs-vsts/using-octopus-extension/extension-compatibility.md
 docs/guides/use-the-team-foundation-build-custom-task/manually-install-the-build-task -> docs/api-and-integration/tfs-vsts/using-octopus-extension/manually-install-the-build-task.md
-docs/administration/subscription_events.md -> docs/administration/subscription-events.md
+docs/administration/subscription_events.md -> docs/administration/subscriptions/index.md
 docs/installation/installing-tentacles/running-tentacle-under-a-specific-user-account-for-use-in-powershell.md -> docs/infrastructure/windows-targets/running-tentacle-under-a-specific-user-account.md
 docs/reference/download-permalinks.md -> docs/installation/index.md
 docs/key-concepts/environments/index.md -> docs/infrastructure/environments/index.md
