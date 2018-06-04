@@ -2,11 +2,8 @@
 title: Subscriptions
 description: Subscriptions allow you to subscribe to events that are happening within Octopus, so you can be notified when events have occurred and react accordingly.
 position: 1600
-version: "[3.5,)"
 ---
-
 Subscriptions are available in **Octopus Deploy 3.5** and later
-
 
 Subscriptions allow you to subscribe to events that are happening within Octopus, so you can be notified when events have occurred and react accordingly. Both **email** and **webhook** notifications are currently supported.
 
@@ -25,7 +22,7 @@ Email notifications can be setup to send an email periodically to the users of o
 
 Emails may also include a link to your Octopus Audit screen, filtered to match the events delivered in the email. To include this link, you need to have set the publicly-accessible URL of your Octopus instance (see the {{Configuration,Nodes,Configuration Settings}} menu or the [Server Configuration](/docs/administration/server-configuration/index.md) documentation for more details).
 
-### Example
+## Example
 
 Let's say you have some critical projects and you want your administrators to receive an email if something is wrong with these deployments. You can setup an email subscription to notify your teams when these critical events have occurred.
 
@@ -46,7 +43,7 @@ In this example, we have also configured the timezone dropdown so all dates show
 
 We can then hit _Save_ and this subscription will show up in our subscriptions list screen.
 
-### Role permissions
+## Role Permissions
 
 Each email will be customized based on the user's roles, so they will only be emailed with events that they have permission to see. See the "Event Visibility and Permissions" section below for more details.
 
@@ -90,7 +87,7 @@ The `Payload` includes:
 \** This property is available since version `3.12.5`
 
 :::hint
-**Consuming events**
+**Consuming Events**
 While we make every effort to ensure events are only ever sent *once* to a given email or webhook subscription, we can offer no guarantees and advise that you design your comsuming API with this in mind.
 :::
 
@@ -103,12 +100,104 @@ Because certain teams may be restricted to only see certain events, subscription
 
 Logs for subscriptions can be found in the `Configuration` menu under `Diagnostics` (see the `Subscription logs` tab). You can then click the `Verbose` flag to view all related information to help with troubleshooting.
 
-### Email notification troubleshooting
+## Email notification troubleshooting
 
 If you are setting up email subscriptions for the first time and would like a good test SMTP server (before you involve your real SMTP servers), we have found [mailtrap.io](https://mailtrap.io/) to be extremely helpful. This can help you to see what the actual emails will look like once you involve your real SMTP servers.
 
-### Webhook notification troubleshooting
+## Webhook notification troubleshooting
 
 If you are setting up webhook subscriptions for the first time and would like a simple test server where you can see the payloads that Octopus will actually send, we have found [request bin](https://requestb.in/) to be extremely helpful.
 
 For example, to test whether the subscription webhooks are sending correctly from Octopus, you could setup a temporary request bin, and use that URL in your subscription to confirm whether the payload is sending successfully from Octopus. This will also show you a real-time payload of what your API can expect to receive from an Octopus webhook subscription.
+
+## Subscription Events
+
+The following is a list of all options for subscriptions including Event Groups, Events, and Document Types
+
+|EVENT GROUPS|
+|---|
+|Auto-deploy events|
+|Auto-Deploy critical-events|
+|Deployment events|
+|Deployment critical-events|
+|Machine events|
+|Machine critical-events|
+|Machine becomes available for deployment|
+|Machine is no longer available for deployment|
+|Certificate expiry events|
+|Document events|
+
+|EVENTS|
+|---|
+|Auto-deploy trigger blocked|
+|Auto-deploy trigger succeeded|
+|Certificate expired|
+|Certificate expiry 10-day warning|
+|Certificate expiry 20-day warning|
+|Certificate private-key exported|
+|Certificate replaced|
+|Comment|
+|Deployment failed|
+|Deployment queued|
+|Deployment resumed|
+|Deployment started|
+|Deployment succeeded|
+|Document created|
+|Document deleted|
+|Document modified|
+|Export complete|
+|Guided failure interruption raised|
+|Import complete|
+|Machine cleanup failed|
+|Machine created|
+|Machine deleted|
+|Machine deployment-related property modified|
+|Machine disabled|
+|Machine enabled|
+|Machine found healthy|
+|Machine found to be unavailable|
+|Machine found to be unhealthy|
+|Machine found to have warnings|
+|Machine health changed|
+|Manual intervention interruption raised|
+|Task canceled|
+
+|DOCUMENT TYPES|
+|---|
+|Account|
+|Action Template|
+|Action Template Version|
+|Api Key|
+|Artifact|
+|Certificate|
+|Channel|
+|Community Action Template|
+|Dashboard Configuration|
+|Dashboard Item|
+|Deployment|
+|Deployment Environment|
+|Deployment History|
+|Deployment Process|
+|Event|
+|Extension Configuration|
+|Feed|
+|Interruption|
+|Invitation|
+|Library Variable Set|
+|Lifecycle|
+|Machine|
+|Machine Policy|
+|Project|
+|Project Group|
+|Project Trigger|
+|Proxy|
+|Release|
+|Server Task|
+|Subscription|
+|Tag Set|
+|Team|
+|Tenant|
+|Tenant Variable|
+|User|
+|User Role|
+|Variable Set|
