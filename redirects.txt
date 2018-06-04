@@ -535,7 +535,7 @@ docs/administration/octopus-community-step-templates-integration.md -> docs/depl
 docs/administration/subscription-events.md -> docs/administration/subscriptions/index.md
 docs/administration/troubleshooting-authentication-problems.md -> docs/administration/authentication/troubleshooting-authentication-problems.mddocs/administration/specifying-a-custom-container-to-use-for-ad-authetication.md -> docs/administration/authentication/specifying-a-custom-container-to-use-for-ad-authentication.md
 docs/administration/authentication-providers/index.md -> docs/administration/authentication/authentication-providers/index.md
-docs/administration/authentication-providers/active-directory-authentication.md -> docs/administration/authentication/authentication-providers/active-directory-authentication.md
+docs/administration/authentication-providers/active-directory-authentication.md -> docs/administration/authentication/authentication-providers/active-directory-authentication.md
 docs/administration/authentication-providers/auto-user-creation -> docs/administration/authentication/authentication-providers/auto-user-creation.md
 docs/administration/authentication-providers/azure-ad-authentication.md -> docs/administration/authentication/authentication-providers/azure-ad-authentication.md
 docs/administration/authentication-providers/googleapps-authentication.md -> docs/administration/authentication/authentication-providers/googleapps-authentication.md
