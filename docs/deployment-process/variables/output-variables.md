@@ -55,6 +55,27 @@ testResult = $(get_octopusvariable "Octopus.Action[StepA].Output.TestResult")
 let testResult = Octopus.findVariable "Octopus.Action[StepA].Output.TestResult"
 ```
 
+## Sensitive Output Variables
+
+Output variables can be created as sensitive (since Octopus 2018.5.2).
+
+```powershell PowerShell
+Set-OctopusVariable -name "Password" -value "correct horse battery staple" -sensitive
+```
+
+```c# C#
+Octopus.SetVariable("Password", "correct horse battery staple", true);
+```
+
+```bash Bash
+set_octopusvariable "Password" "correct horse battery staple" -sensitive
+```
+
+```fsharp F#
+Octopus.setSensitiveVariable "Password" "correct horse battery staple"
+```
+
+
 ## System Output Variables {#Outputvariables-Systemoutputvariables}
 
 After a step runs, Octopus captures the output variables, and keeps them for use in subsequent steps. In addition to variables that you create yourself using `Set-OctopusVariable`, Octopus also makes a number of built-in variables available. Here are some examples of commonly used built-in output variables:
