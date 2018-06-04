@@ -30,7 +30,7 @@ You need to download the latest version of the [Octopus Installer](/docs/install
 8. On the **Database** page, click the dropdown arrow in the **Server Name** field to detect the SQL Server Database.
 9. Enter a name for the database, and click OK to create the database.
 
-  Be careful **not** to use the name of an existing database as the setup process will install Octopus into that pre-existing database. Learn more about the [Octopus Database](/docs/administration/octopus-database.md).
+  Be careful **not** to use the name of an existing database as the setup process will install Octopus into that pre-existing database. Learn more about the [Octopus Database](/docs/administration/octopus-database/index.md).
 
 10. Accept the default port and directory or enter your own.
 11. If you’re using *username and passwords stored in Octopus* authentication mode, enter the username and password that will be used for the Octopus administrator. If you are using active directory, enter the active directory user details.
