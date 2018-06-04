@@ -348,7 +348,7 @@ docs/reference/server-extensibility/installing-a-custom-server-extension.md -> d
 docs/reference/server-extensibility/building-an-authentication-provider/index.md -> docs/api-and-integration/server-extensibility/building-an-authentication-provider/index.md
 docs/reference/server-extensibility/building-an-authentication-provider/building-a-forms-based-authentication-provider.md -> docs/api-and-integration/server-extensibility/building-an-authentication-provider/building-a-forms-based-authentication-provider.md
 docs/reference/server-extensibility/building-an-authentication-provider/building-an-external-authentication-provider.md -> docs/api-and-integration/server-extensibility/building-an-authentication-provider/building-an-external-authentication-provider.md
-docs/reference/troubleshooting-authentication-problems.md -> docs/administration/troubleshooting-authentication-problems.md
+docs/reference/troubleshooting-authentication-problems.md -> docs/administration/authentication/troubleshooting-authentication-problems.md
 docs/installation/expose-the-octopus-web-portal-over-https.md -> docs/administration/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md
 docs/administration/process-dumps.md -> docs/support/process-dumps.md
 docs/administration/docker/docker-run-with-networking.md -> docs/deployment-examples/docker-containers/docker-run-with-networking.md
@@ -533,3 +533,12 @@ docs/deploying-applications/terraform-deployments/plan-terraform/index.md -> doc
 docs/deployment-process/steps/exporting-step-templates.md -> docs/deployment-process/steps/custom-step-templates.md
 docs/administration/octopus-community-step-templates-integration.md -> docs/deployment-process/steps/community-step-templates.md
 docs/administration/subscription-events.md -> docs/administration/subscriptions/index.md
+docs/administration/troubleshooting-authentication-problems.md -> docs/administration/authentication/troubleshooting-authentication-problems.mddocs/administration/specifying-a-custom-container-to-use-for-ad-authetication.md -> docs/administration/authentication/specifying-a-custom-container-to-use-for-ad-authetication.md
+docs/administration/authentication-providers/index.md -> docs/administration/authentication/authentication-providers/index.md
+docs/administration/authentication-providers/active-directory-authentication.md -> docs/administration/authentication/authentication-providers/active-directory-authentication.md
+docs/administration/authentication-providers/auto-user-creation -> docs/administration/authentication/authentication-providers/auto-user-creation.md
+docs/administration/authentication-providers/azure-ad-authentication.md -> docs/administration/authentication/authentication-providers/azure-ad-authentication.md
+docs/administration/authentication-providers/googleapps-authentication.md -> docs/administration/authentication/authentication-providers/googleapps-authentication.md
+docs/administration/authentication-providers/guest-login.md -> docs/administration/authentication/authentication-providers/guest-login.md
+docs/administration/authentication-providers/moving-active-directory-domains.md -> docs/administration/authentication/authentication-providers/moving-active-directory-domains.md
+docs/administration/authentication-providers/troubleshooting-active-directory-integration.md -> docs/administration/authentication/authentication-providers/troubleshooting-active-directory-integration.md

@@ -16,7 +16,7 @@ This information is provided as a guide to help teams troubleshoot Octopus authe
 - Read-Only Domain Controllers are not supported
 - Run as a different user not working
 
-Octopus integrates with Active Directory to authenticate users as well as authorize what actions they can perform.  Our [Active Directory authentication](/docs/administration/authentication-providers/active-directory-authentication.md) page provides more information on how to set up Octopus to work with Active Directory as well as some details on how it's technically implemented.  Essentially, Octopus interacts with active directory in two ways:
+Octopus integrates with Active Directory to authenticate users as well as authorize what actions they can perform.  Our [Active Directory authentication](/docs/administration/authentication/authentication-providers/active-directory-authentication.md) page provides more information on how to set up Octopus to work with Active Directory as well as some details on how it's technically implemented.  Essentially, Octopus interacts with active directory in two ways:
 
 1. First, we authenticate a users's credentials are valid by invoking the Windows API `LogonUser()` function.
 2. If that is successful, Octopus will then query Active Directory for information about the user.  In this second interaction, we retrieve the groups a user is a member of and use that to determine what teams they belong to etc.
@@ -76,7 +76,7 @@ Notes:
 If specifing a container.
 - Ensure you replace the active directory container string ``CN=Users, DC=acme, DC=local`` with the appropriate value for your network. If you're not sure of this value, we suggest talking to your network team (active directory expert) or trying different values and testing it with the script. For additional help on building/finding your container string, this StackOverflow answer is excellent. [http://serverfault.com/a/130556](http://serverfault.com/a/130556)
 
-See the following documentation page for further information on configuring Octopus to use a [specific Active Directory contianer](/docs/administration/specifying-a-custom-container-to-use-for-ad-authentication.md).
+See the following documentation page for further information on configuring Octopus to use a [specific Active Directory contianer](/docs/administration/authentication/specifying-a-custom-container-to-use-for-ad-authentication.md).
 
 Similarly, the following script duplicates the logic we use to search for groups (when you're trying to find one to add to a Team).
 

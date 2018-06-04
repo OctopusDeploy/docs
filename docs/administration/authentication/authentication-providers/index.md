@@ -4,7 +4,7 @@ description: Authentication options for Octopus Deploy including our internal pr
 position: 19
 ---
 
-In versions of Octopus Deploy up to and including v3.4, two authentication providers are supported.  The first is an internal provider (UsernamePassword), where Octopus itself handles identity management.  The second is Active Directory (Domain), where identity management is the responsibility of Active Directory.
+In versions of Octopus Deploy up to and including v3.4, two authentication providers are supported. The first is an internal provider (UsernamePassword), where Octopus itself handles identity management.  The second is Active Directory (Domain), where identity management is the responsibility of Active Directory.
 
 ## Configuring Authentication Providers {#AuthenticationProviders-ConfiguringAuthenticationProviders}
 
@@ -43,7 +43,7 @@ This scenario would work equally with Azure AD or GoogleApps in place of Active 
 
 Starting from version 3.17, there is also the ability to specify the details for multiple logins for each user. For example, you could specify that a user can log is as a specific UPN/SamAccountName from Active Directory or that they could login using a specific account/email address using GoogleApps. Whichever option is actually used to login, Octopus will identify them as the same user.
 
-## Usernames, email addresses, UPNs and External Ids {#AuthenticationProviders-Usernames,emailaddresses,UPNsandExternalIds}
+## Usernames, Email Addresses, UPNs, and External Ids {#AuthenticationProviders-Usernames,emailaddresses,UPNsandExternalIds}
 
 As of v3.5, when users log in to Octopus Deploy, the server will consider more than just their username to determine if they are already a known user.  It will also check their email address and external provider Id.  The external provider Id is the value provided by the external identity managers, e.g. Active Directory, Azure AD or GoogleApps.
 

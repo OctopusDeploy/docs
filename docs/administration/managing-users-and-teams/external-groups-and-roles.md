@@ -36,4 +36,4 @@ This button appears if you have an external authentication provider enabled (e.g
 
 ![](add-external-role.png)
 
-The Role Id corresponds to the role id from the external provider (learn more about [roles for Azure AD](/docs/administration/authentication-providers/azure-ad-authentication.md)), Display Name is purely for display in the Team page.
+The Role Id corresponds to the role id from the external provider (learn more about [roles for Azure AD](/docs/administration/authentication/authentication-providers/azure-ad-authentication.md)), Display Name is purely for display in the Team page.
