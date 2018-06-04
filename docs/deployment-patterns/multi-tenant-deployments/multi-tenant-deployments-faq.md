@@ -69,7 +69,7 @@ No. Each tenanted deployment is independent. There is no built-in way to perform
 - I want to send an email once release `1.2.6` has been successfully deployed to all of my tenants in production
 - I want to upgrade a batch of tenants, and if one fails, I want them all to roll-back to the last known good version
 
-You can achieve these behaviors using a custom script/application which leverages the [Octopus REST API](/docs/api-and-integration/api/index.md) and taking advantage of [Subscriptions](/docs/administrationsubsciptions/index.md). This way you can use the information provided by Octopus to perform a complex deployment orchestration with any custom logic that suits your scenario perfectly. For example, you could write a script/application which starts a batch of tenanted deployments using a specific tag, then monitor the progress of those deployments, and finally take any action based on the results.
+You can achieve these behaviors using a custom script/application which leverages the [Octopus REST API](/docs/api-and-integration/api/index.md) and taking advantage of [Subscriptions](/docs/administration/subscriptions/index.md). This way you can use the information provided by Octopus to perform a complex deployment orchestration with any custom logic that suits your scenario perfectly. For example, you could write a script/application which starts a batch of tenanted deployments using a specific tag, then monitor the progress of those deployments, and finally take any action based on the results.
 
 ## Can I have a combination of tenanted and untenanted projects? {#Multi-tenantdeploymentsFAQ-CanIhaveacombinationoftenantedanduntenantedprojects?}
 
