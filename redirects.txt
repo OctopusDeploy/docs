@@ -542,3 +542,5 @@ docs/administration/authentication-providers/googleapps-authentication.md -> doc
 docs/administration/authentication-providers/guest-login.md -> docs/administration/authentication/authentication-providers/guest-login.md
 docs/administration/authentication-providers/moving-active-directory-domains.md -> docs/administration/authentication/authentication-providers/moving-active-directory-domains.md
 docs/administration/authentication-providers/troubleshooting-active-directory-integration.md -> docs/administration/authentication/authentication-providers/troubleshooting-active-directory-integration.md
+docs/administration/authentication-providers/okta-authentication.md - docs/administration/authentication/authentication-providers/okta-authentication.md
+docs/administration/specifying-a-custom-container-to-use-for-ad-authentication.md -> docs/administration/authentication/specifying-a-custom-container-to-use-for-ad-authentication.md
