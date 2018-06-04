@@ -34,7 +34,7 @@ Now have the NuGet package we want to deploy, the account we are going to use fo
 
 In the project's process add a new Deploy an Azure Cloud Service step.
 
-![Cloud Service step template](..//docs/images/5671696/5865904.png "width=170")
+![Cloud Service step template](../../../images/5671696/5865904.png "width=170")
 
 Select the NuGet package that you are going to deploy and the Azure account to use for the deployment. The settings for this step should look something like this:
 
