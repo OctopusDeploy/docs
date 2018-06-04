@@ -1,7 +1,7 @@
 ---
 title: Authentication Providers
 description: Authentication options for Octopus Deploy including our internal provider, Active Directory, Azure AD, and GoogleApps.
-position: 19
+position: 1
 ---
 
 In versions of Octopus Deploy up to and including v3.4, two authentication providers are supported. The first is an internal provider (UsernamePassword), where Octopus itself handles identity management.  The second is Active Directory (Domain), where identity management is the responsibility of Active Directory.
