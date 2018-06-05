@@ -53,7 +53,7 @@ Below is a sample DeploymentJournal.xml that we will use in this example.
 
 It keeps a record for every package and package extraction for each project and the relevant locations.
 
-## Defining your retention policy for your Tentacles {#RetentionpolicyTentaclecleanupandtroubleshooting-DefiningyourretentionpolicyforyourTentacles}
+## Defining Your Retention Policy for Your Tentacles {#RetentionpolicyTentaclecleanupandtroubleshooting-DefiningyourretentionpolicyforyourTentacles}
 
 Defining retention policies is done within Lifecycles. Each phase can have a different setting. So if you want to keep more files on production machines you can.
 
@@ -63,7 +63,7 @@ You can read more about [Lifecycles ](/docs/deployment-process/lifecycles/index.
 
 In this example the default for the Lifecycle is Keep 3.
 
-## Retention policies with Channels
+## Retention Policies With Channels
 {#RetentionpolicyTentaclecleanupandtroubleshooting-Retentionpolicywithchannels}
 
 [Channels](/docs/deployment-process/channels.md) can be used in Octopus to handle many different deployment scenarios. In some cases you may have a hotfix channel in which deployments, as they are promoted through their environments, should be considered as overriding deployments from the default channel for the given enviroment. Alternatively you may be using channels to deploy feature branches which involve having several concurrent releases active at any one time across different channels for the same environment. When using the feature branch type scenario, you will likely want retention policies to recognize that since both channels should be accessable at the same time, the retention policy rules should apply to each independently. This behavior can be enabled for each project via the `Discrete Channel Releases` flag at under `Deployment Target settings` on the {{Project,Process}} page which is provided from version `3.12.2`.
@@ -71,7 +71,7 @@ In this example the default for the Lifecycle is Keep 3.
 ![Discrete Channel Release](/docs/images/discrete-channel-release.png "width=500")
 
 
-## When the retention policy is run {#RetentionpolicyTentaclecleanupandtroubleshooting-Whentheretentionpolicyisrun}
+## When the Retention Policy is Run {#RetentionpolicyTentaclecleanupandtroubleshooting-Whentheretentionpolicyisrun}
 
 For a Tentacle the retention policy is run at the end of a deployment, for that project only. So for this example the deployment looks for the project (project-1) and finds all releases within the deployment journal. It finds 4 in total (current is never counted) leaving 3, knowing it just deployed one, it deletes one copy of each package.
 
@@ -96,7 +96,7 @@ See below the messages you will have in your raw deployment logs at the end of a
 
 ```
 
-## Package and extraction directories {#RetentionpolicyTentaclecleanupandtroubleshooting-Packageandextractiondirectories}
+## Package and Extraction Directories {#RetentionpolicyTentaclecleanupandtroubleshooting-Packageandextractiondirectories}
 
 You can find your packages under C:\Octopus\<machine name>\files
 
@@ -120,7 +120,7 @@ This occurs when you have the same package in two different steps inside a singl
 
 ## Troubleshooting {#RetentionpolicyTentaclecleanupandtroubleshooting-Troubleshooting}
 
-If you upgraded from 2.x to 3.0 the deployment journal location moved. Your choices are to clean up any old deployments manually, merge your deployment journals to the new location or run this [Powershell Script](https://gist.github.com/vanessalove/dbc656b01df40939dcf8) on your Tentacles.
+If you upgraded from 2.x to 3.0 the deployment journal location moved. Your choices are to clean up any old deployments manually, merge your deployment journals to the new location or run this [PowerShell Script](https://gist.github.com/vanessalove/dbc656b01df40939dcf8) on your Tentacles.
 
 If you deleted your deployment journal for any reason, if there are packages and package extraction directories not in the current deployment journal, you will have to delete them manually.
 
