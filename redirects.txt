@@ -317,7 +317,7 @@ docs/how-to/run-multiple-processes-on-a-tentacle-simultaneously.md -> docs/admin
 docs/how-to/reference-files-within-a-package.md -> docs/deployment-examples/custom-scripts/reference-files-within-a-package.md
 docs/how-to/long-paths.md -> docs/deployment-examples/custom-scripts/long-paths.md
 docs/how-to/send-a-secret-to-octopus.md -> docs/support/send-a-secret-to-octopus.md
-docs/how-to/export-and-import-tentacle-certificates-without-a-profile.md -> docs/administration/export-and-import-tentacle-certificates-without-a-profile.md
+docs/how-to/export-and-import-tentacle-certificates-without-a-profile.md -> docs/infrastructure/windows-targets/automating-tentacle-installation.md
 docs/how-to/index.md -> docs/getting-started.md
 docs/reference/credits.md -> docs/credits.md
 docs/reference/variable-substitution-syntax.md -> docs/deployment-process/variables/variable-substitution-syntax.md
@@ -545,3 +545,4 @@ docs/administration/authentication-providers/troubleshooting-active-directory-in
 docs/administration/authentication-providers/okta-authentication.md -> docs/administration/authentication/authentication-providers/okta-authentication.md
 docs/administration/specifying-a-custom-container-to-use-for-ad-authentication.md -> docs/administration/authentication/specifying-a-custom-container-to-use-for-ad-authentication.md
 docs/administration/run-tentacle-under-a-specific-user.md -> docs/infrastructure/windows-targets/running-tentacle-under-a-specific-user-account.md
+docs/administration/export-and-import-tentacle-certificates-without-a-profile.md -> docs/infrastructure/windows-targets/automating-tentacle-installation.md
