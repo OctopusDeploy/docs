@@ -20,7 +20,7 @@ See the section on [managing environments](/docs/infrastructure/environments/ind
 
 ## What happens {#Guidedfailures-Whathappens}
 
-If something goes wrong during the deployment, Octopus will interrupt the deployment, and request guidance for how to handle the failure. This uses the same [user experience that is used for manual steps](/docs/deployment-process/steps/manual-intervention-and-approvals.md) (internally, requests for failure guidance, and manual steps, use the same implementation: we call them Interruptions in the [REST API](/docs/api-and-integration/api/index.md)).
+If something goes wrong during the deployment, Octopus will interrupt the deployment, and request guidance for how to handle the failure. This uses the same [user experience that is used for manual steps](/docs/deployment-examples/manual-intervention-and-approvals.md) (internally, requests for failure guidance, and manual steps, use the same implementation: we call them Interruptions in the [REST API](/docs/api-and-integration/api/index.md)).
 
 ![](/docs/images/3048076/3277631.png "width=500")
 

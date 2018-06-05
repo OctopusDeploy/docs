@@ -104,7 +104,7 @@ The current recommendation is to not have any steps in the project that you do n
 
 ### What Happens with Manual Interventions and Guided Failures?
 
-[Manual Intervention](/docs/deployment-process/steps/manual-intervention-and-approvals.md) steps and [Guided Failures](/docs/deployment-process/releases/guided-failures.md) will work just like they do in a manual deployment. At face value this may seem like it's not very automatic, and that's true. In the case where you use a Manual Intervention for smoke testing a new web server before it enters the load balanced pool you may want the step to pause until you've smoke tested. In the case where you use Manual Intervention for approving the deployment of a Release you may not want it to pause. We made the decision to pause for Manual Intervention steps and Guided Failures so that automatic deployments mimic manual deployments, like we described earlier.
+[Manual Intervention](/docs/deployment-examples/manual-intervention-and-approvals.md) steps and [Guided Failures](/docs/deployment-process/releases/guided-failures.md) will work just like they do in a manual deployment. At face value this may seem like it's not very automatic, and that's true. In the case where you use a Manual Intervention for smoke testing a new web server before it enters the load balanced pool you may want the step to pause until you've smoke tested. In the case where you use Manual Intervention for approving the deployment of a Release you may not want it to pause. We made the decision to pause for Manual Intervention steps and Guided Failures so that automatic deployments mimic manual deployments, like we described earlier.
 
 We generally recommend avoiding the use of Manual Intervention steps unless absolutely necessary. If you need Manual Intervention steps to pause for manual deployments, but skip for automatic deployments, you can use a workaround: add the Manual Intervention step to a [Rolling Deployment](/docs/deployment-patterns/rolling-deployments.md) step which is targeted at a role that will never be part of an automatic deployment.
 
@@ -143,7 +143,7 @@ You can be notified when this situation occurs, or use web hooks to code your ow
 
 Yes. See the previous answer for more context.
 
-### Can Multiple Deployment Targets be Included in an Automatic Deployment? 
+### Can Multiple Deployment Targets be Included in an Automatic Deployment?
 
 Yes. If, for example, multiple identical deployment targets all become available within the same 30 second polling window, they will all be included in the same automatic deployment. This could happen if you scale your web farm up by four nodes, and all four nodes finish provisioning within the same time window.
 

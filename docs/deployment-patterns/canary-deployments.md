@@ -36,7 +36,7 @@ First, you would deploy using just the canary servers, then after testing, you c
 The alternative approach is to build canary deployments into your deployment process.
 
 1. Deploy the package to the canary server (one or more deployment targets may be assigned to the *canary* role)
-2. Have a [manual intervention](/docs/deployment-process/steps/manual-intervention-and-approvals.md) step to wait until we are satisfied
+2. Have a [manual intervention](/docs/deployment-examples/manual-intervention-and-approvals.md) step to wait until we are satisfied
 3. Deploy the package to the remaining deployment targets (the *web-server* role)
 
 Note that the first two steps have been configured to only run for production deployments - in our pre-production environments, we can just deploy to all targets immediately. If we were performing fully automated tests, we could use a [PowerShell script step](/docs/deployment-examples/custom-scripts/index.md) to invoke them rather than the manual intervention step.

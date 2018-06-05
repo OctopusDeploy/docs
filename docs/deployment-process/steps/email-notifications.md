@@ -8,7 +8,7 @@ Deployments can have a strong impact on others whose work depends on the system 
 
 - Notify stakeholders when a new version of an app has been deployed to production
 - Let testers know when a new version is available in UAT
-- Use email in conjuction with [manual approvals](/docs/deployment-process/steps/manual-intervention-and-approvals.md) to make sure everyone is ready for a new deployment
+- Use email in conjuction with [manual approvals](/docs/deployment-examples/manual-intervention-and-approvals.md) to make sure everyone is ready for a new deployment
 
 To support this, Octopus provides **Email Steps** in a project's deployment process.
 
@@ -107,7 +107,7 @@ The outcome of each step can be included using a template like the one below (Oc
 <ol>
 #{each step in Octopus.Step}
   #{if step.Status.Code}
-    <li>#{step | HtmlEscape} &mdash; <strong>#{step.Status.Code}</strong> 
+    <li>#{step | HtmlEscape} &mdash; <strong>#{step.Status.Code}</strong>
     #{if step.Status.Error}
       <pre>#{step.Status.Error | HtmlEscape}</pre>
       <pre>#{step.Status.ErrorDetail | HtmlEscape}</pre>
