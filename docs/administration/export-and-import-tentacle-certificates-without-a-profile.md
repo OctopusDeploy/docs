@@ -8,7 +8,7 @@ When the Tentacle agent is configured, the default behavior is to generate a new
 
 A simple workaround is to generate a certificate on one machine (such as your workstation), export it to a file, and then import that certificate when provisioning Tentacles.
 
-## Generating and exporting a certificate {#ExportandimportTentaclecertificateswithoutaprofile-Generatingandexportingacertificate}
+## Generating and Exporting a Certificate {#ExportandimportTentaclecertificateswithoutaprofile-Generatingandexportingacertificate}
 
 First, [install the Tentacle agent](/docs/infrastructure/windows-targets/index.md) on a computer, and run the following command:
 
@@ -18,7 +18,7 @@ tentacle.exe new-certificate -e MyFile.txt
 
 The output file will now contain a base-64 encoded version of a PKCS#12 export of the X.509 certificate and corresponding private key. This file is now ready to be used in your setup scripts.
 
-## Importing a certificate {#ExportandimportTentaclecertificateswithoutaprofile-Importingacertificate}
+## Importing a Certificate {#ExportandimportTentaclecertificateswithoutaprofile-Importingacertificate}
 
 When [automatically provisioning your Tentacle](/docs/infrastructure/windows-targets/automating-tentacle-installation.md), the commands typically look something like this:
 
