@@ -312,7 +312,7 @@ docs/how-to/how-to-run-steps-on-the-octopus-server.md -> docs/deployment-process
 docs/how-to/how-to-use-custom-certificates-with-octopus-server-and-tentacle.md -> docs/administration/security/octopus-tentacle-communication/how-to-use-custom-certificates-with-octopus-server-and-tentacle.md
 docs/administration/how-to-use-custom-certificates-with-octopus-server-and-tentacle.md -> docs/administration/security/octopus-tentacle-communication/how-to-use-custom-certificates-with-octopus-server-and-tentacle.md
 docs/how-to/sensitive-properties-api-changes-in-release-3.3.md -> docs/api-and-integration/api/sensitive-properties-api-changes-in-release-3.3.md
-docs/how-to/run-tentacle-under-a-specific-user.md -> docs/administration/run-tentacle-under-a-specific-user.md
+docs/how-to/run-tentacle-under-a-specific-user.md -> infrastructure/windows-targets/running-tentacle-under-a-specific-user-account.md
 docs/how-to/run-multiple-processes-on-a-tentacle-simultaneously.md -> docs/administration/run-multiple-processes-on-a-tentacle-simultaneously.md
 docs/how-to/reference-files-within-a-package.md -> docs/deployment-examples/custom-scripts/reference-files-within-a-package.md
 docs/how-to/long-paths.md -> docs/deployment-examples/custom-scripts/long-paths.md
