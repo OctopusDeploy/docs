@@ -142,7 +142,43 @@ If you don't know the thumbprint for the above PowerShell scripts, it can be obt
 Tentacle.exe show-thumbprint --instance "Tentacle" --nologo
 ```
 
-## Desired State Configuration {#AutomatingTentacleinstallation-DSCDesiredStateConfiguration}
+## Export and Import Tentacle Certificates Without a Profile
+
+When the Tentacle agent is configured, the default behavior is to generate a new X.509 certificate. When automating the provisioning of Tentacles on a machine, however, you may run into problems when trying to generate a certificate when running as a user without a profile loaded.
+
+A simple workaround is to generate a certificate on one machine (such as your workstation), export it to a file, and then import that certificate when provisioning Tentacles.
+
+## Generating and Exporting a Certificate
+
+Install the Tentacle agent on a computer, and run the following command:
+
+```powershell
+tentacle.exe new-certificate -e MyFile.txt
+```
+
+The output file will now contain a base-64 encoded version of a PKCS#12 export of the X.509 certificate and corresponding private key. This file is now ready to be used in your setup scripts.
+
+## Importing a Certificate
+
+When automatically provisioning your Tentacle, the commands typically look something like this:
+
+```powershell
+Tentacle.exe create-instance --instance "Tentacle" --config "C:\Octopus\Tentacle\Tentacle.config" --console
+Tentacle.exe new-certificate --instance "Tentacle" --console
+Tentacle.exe configure --instance "Tentacle" --home "C:\Octopus" --console
+...
+```
+
+Instead, replace the `new-certificate` command with `import-certificate`. For example:
+
+```powershell
+Tentacle.exe create-instance --instance "Tentacle" --config "C:\Octopus\Tentacle\Tentacle.config" --console
+Tentacle.exe import-certificate --instance "Tentacle" -f MyFile.txt --console
+Tentacle.exe configure --instance "Tentacle" --home "C:\Octopus" --console
+...
+```
+
+## Desired State Configuration 
 
 Tentacles can also be installed via [Desired State Configuration](https://msdn.microsoft.com/en-us/powershell/dsc/overview) (DSC). Using the module from the [OctopusDSC GitHub repository](https://www.powershellgallery.com/packages/OctopusDSC), you can add, remove, start and stop Tentacles in either polling or listening mode.
 
