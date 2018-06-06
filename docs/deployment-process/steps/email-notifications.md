@@ -4,66 +4,53 @@ description: Email notification steps allow you to notify team members and stake
 position: 12
 ---
 
-Deployments can have a strong impact on others whose work depends on the system being deployed. Great communication is an important part of a great deployment strategy, and email steps are a key way that Octopus can help you keep everyone in the loop. You may wish to:
+Deployments can have a strong impact on the people whose work depends on the system being deployed. Great communication is an important part of a great deployment strategy, and email steps are a key way that Octopus can help you keep everyone in the loop. You may want to:
 
-- Notify stakeholders when a new version of an app has been deployed to production
-- Let testers know when a new version is available in UAT
-- Use email in conjuction with [manual approvals](/docs/deployment-examples/manual-intervention-and-approvals.md) to make sure everyone is ready for a new deployment
+- Notify stakeholders when a new version of an app has been deployed to production.
+- Let testers know when a new version is available in UAT.
+- Use email in conjunction with [manual interventions approvals](/docs/deployment-examples/manual-intervention-and-approvals.md) to make sure everyone is ready for a new deployment.
 
-To support this, Octopus provides **Email Steps** in a project's deployment process.
+Before you can add email steps to your deployment processes, you need to add your SMTP  configuration.
 
-!toc
+## SMTP Configuration
 
-## SMTP configuration
+To add you SMTP configuration navigate to **{{Configuration,SMTP}}** and enter your server's details.
 
-You'll need to enter SMTP server settings in {{Configuration,SMTP}} before Octopus will be able to send any email.
+## Add an Email Step
 
-![SMTP Configuration](email-notifications-smtp-configuration.png "width=500")
+Email steps are added to deployment processes in the same way as other steps.
 
-## Adding an email step {#Emailnotifications-Addinganemailstep}
+1. Navigate to your [project's](/docs/deployment-process/projects/index.md) overview page by selecting **Projects** and clicking on the project you are working with.
+2. Click **PROCESS** and **ADD STEP** to add a step to an existing process. Alternatively, if this is a new deployment process, click the **DEFINE YOUR DEPLOYMENT PROCESS** button, and click **ADD STEP**.
+3. Find the **Send Email** step, hover over the step, and click **ADD**.
+4. Give the step a short memorable name.
+5. The step will run on the Octopus Server.
+6. Choose the recipients of the email. You have several options:
 
-Email can be chosen as the step type when you click **Add Step** in your project's **Process** tab. For information about adding a step to the deployment process, see the [add step](/docs/deployment-process/steps/index.md) section.
+  - Enter a comma-separated list of email addresses.
+  - Bind to a [variable](/docs/deployment-process/variables/index.md) which defines a list of email addresses (this is really useful for tailoring your recipient list per-environment).
+  - Choose one or more teams to include members of those teams in the recipient list.
+  - Use a combination of all of these options.
 
-![Email Step Icon](/docs/images/5671696/5865915.png "width=170")
+Octopus will build the resulting recipient list during the deployment, remove duplicate emails addresses, and send the email to each recipient.
 
-When adding an email step, you can choose the subject of the email, its body, and the recipients to send it to.
+7. Provide a subject line for the emails.
+8. Add the body of the email. The email can be sent in plain text or HTML, and you can use Octopus [variable syntax](/docs/deployment-process/variables/variable-substitution-syntax.md) to include information about the deployment in the email. See the [Email Template Examples](/docs/deployment-process/steps/email-notifcations.md#email-template-examples) below.
+9. You can set conditions to determine when the step should run. For instance:
 
-![Email Step Example](email-notifications.png "width=500")
+  - Send the email only for successful deployments to certain environments.
+  - Send a specific email for failed deployments.
+  - Send an email based on the value of a variable expression which works really well with [output variables](/docs/deployment-process/variables/output-variables.md).
 
-## Choosing recipients
+10. Save the step.
 
-You have several options for choosing the recipients of your email:
-
-1. Enter a comma-separated list of email addresses
-2. Bind to a variable which defines a list of email addresses (this is really useful for tailoring your recipient list per-environment)
-3. Choose one or more teams to include members of those teams in the recipient list
-4. Use a combination of all of these options
-
-Octopus will build the resulting recipient list during the deployment, deduplicate the list of email addresses, and send the email to each recipient.
-
-![Email Recipients](email-notifications-recipients.png "width=500")
-
-## Choosing when to send the email notification
-
-You can choose when to send the email notification using the same conditions as for any other step in Octopus.
-
-- Send the email only for successful deployments to certain environments
-- Send a specific email for failed deployments
-- Send an email based on the value of a variable expression which works really well with [output variables](/docs/deployment-process/variables/output-variables.md)
-
-![Email Step Conditions](email-notifications-conditions.png "width=500")
-
-## Email content {#Emailnotifications-Exampleemailtemplates}
+## Email Template Examples
 
 You can set the email subject and author the email body as plain text or HTML content. You can even use the Octopus [variable syntax](/docs/deployment-process/variables/variable-substitution-syntax.md) to include information about the deployment in the email.
 
-:::hint
-The binding helper to the right of each form field can be used to view the available variables.
-:::
+### Deployment summary template
 
-The template below collects basic information about the deployment, including the package versions included in each step.
-
-**Deployment summary template**
+This template  collects basic information about the deployment, including the package versions included in each step.
 
 ```xml
 <h1>Deployment of #{Octopus.Project.Name} #{Octopus.Release.Number} to #{Octopus.Environment.Name}</h1>
@@ -96,9 +83,9 @@ The output of the template will be an HTML email like:
 
 ![](email-output.png "width=500")
 
-### Including step status {#Emailnotifications-Includingstepstatus}
+### Including Step Status
 
-The outcome of each step can be included using a template like the one below (Octopus 2.5+):
+The outcome of each step can be included using a template like the one below:
 
 **Step status summary template**
 
