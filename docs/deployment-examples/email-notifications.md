@@ -1,7 +1,7 @@
 ---
 title: Email Notifications
 description: Email notification steps allow you to notify team members and stakeholders of deployment activities.
-position: 12
+position: 13
 ---
 
 Deployments can have a strong impact on the people whose work depends on the system being deployed. Great communication is an important part of a great deployment strategy, and email steps are a key way that Octopus can help you keep everyone in the loop. You may want to:
@@ -35,7 +35,7 @@ Email steps are added to deployment processes in the same way as other steps.
 Octopus will build the resulting recipient list during the deployment, remove duplicate emails addresses, and send the email to each recipient.
 
 7. Provide a subject line for the emails.
-8. Add the body of the email. The email can be sent in plain text or HTML, and you can use Octopus [variable syntax](/docs/deployment-process/variables/variable-substitution-syntax.md) to include information about the deployment in the email. See the [Email Template Examples](/docs/deployment-process/steps/email-notifications.md#email-template-examples) below.
+8. Add the body of the email. The email can be sent in plain text or HTML, and you can use Octopus [variable syntax](/docs/deployment-process/variables/variable-substitution-syntax.md) to include information about the deployment in the email. See the [Email Template Examples](/docs/deployment-examples/email-notifications.md#email-template-examples) below.
 9. You can set conditions to determine when the step should run. For instance:
 
   - Send the email only for successful deployments to certain environments.
