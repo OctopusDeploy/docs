@@ -248,7 +248,7 @@ docs/deploying-applications/deployment-process/artifacts.md -> docs/deployment-p
 docs/deploying-applications/deployment-process/steps/automatic-release-creation.md -> docs/deployment-process/releases/automatic-release-creation.md
 docs/deploying-applications/deployment-process/releases/blocking-deployments.md -> docs/deployment-process/releases/blocking-deployments.md
 docs/deploying-applications/deployment-process/deploying-virtual-hard-drives.md -> docs/deployment-examples/deploying-virtual-hard-drives.md
-docs/deploying-applications/deployment-process/steps/email-notifications.md -> docs/deployment-exxamples/email-notifications.md
+docs/deploying-applications/deployment-process/steps/email-notifications.md -> docs/deployment-examples/email-notifications.md
 docs/deploying-applications/deployment-process/steps/manual-intervention-and-approvals.md -> docs/deployment-examples/manual-intervention-and-approvals.md
 docs/deploying-applications/deployment-process/steps/run-steps-in-parallel.md -> docs/deployment-process/steps/conditions/run-steps-in-parallel.md
 docs/deploying-applications/deployment-process/releases/scheduled-deployments.md -> docs/deployment-process/releases/scheduled-deployments.md
