@@ -1,5 +1,5 @@
 ---
-title: Manual Intervention and Approvals
+title: Including Manual Intervention and Approvals
 description: Manual intervention and approvals allow a human to review, approve, or sign off on deployments.
 position: 11
 ---

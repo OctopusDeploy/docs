@@ -1,5 +1,5 @@
 ---
-title: Email Notifications
+title: Including Email Notifications
 description: Email notification steps allow you to notify team members and stakeholders of deployment activities.
 position: 13
 ---
