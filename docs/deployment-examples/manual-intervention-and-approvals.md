@@ -13,18 +13,25 @@ While fully automated deployment is a great goal, there are times when a human n
 
 The **Manual intervention step** is a step that can be added to deployment processes to pause the deployment to wait for a member of a specified team to either allow the deployment to proceed or to be aborted.
 
-## Add a Manual Step
+## Add a Manual Intervention Step
 
-Manual steps are added to deployment processes in the same way as other steps.
+Manual intervention steps are added to deployment processes in the same way as other steps.
 
 1. Navigate to your [project's](/docs/deployment-process/projects/index.md) overview page by selecting **Projects** and clicking on the project you are working with.
-2. Click the **DEFINE YOUR DEPLOYMENT PROCESS** button, and click **ADD STEP**.
-3. Find the manual intervention step, hover over the step and click **ADD**.
+2. Click **PROCESS** and **ADD STEP** to add a step to an existing process. Alternatively, if this is a new deployment process, click the **DEFINE YOUR DEPLOYMENT PROCESS** button, and click **ADD STEP**.
+3. Find the **Manual Intervention Required** step, hover over the step, and click **ADD**.
 4. Give the step a short memorable name.
 5. The step will run on the Octopus Server.
 6. Provide instructions for the user to follow, for instance, *Ensure traders are aware of the deployment.*
 7. Select which teams are responsible for the step. Note, if you don't specify a team, anybody with permission to deploy the project can perform the manual intervention. Specifying a team, makes the step a required step that cannot be skipped.
-8. Specify any [conditions](/docs/deployment-process/steps/conditions/index.md), and save the step.
+9. You can set conditions to determine when the step should run. For instance:
+
+  - Only run the manual intervention for specific environments.
+  - Run the manual intervention based on the status (success or failure) of the previous step.
+  - Wait for the previous step to complete.
+  - Run based on the value of a variable expression.
+
+10. Save the step.
 
 ## Assigning Manual Interventions
 
