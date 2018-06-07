@@ -4,7 +4,7 @@ description: Adding conditions to steps to define your project's deployment proc
 position: 10
 ---
 
-After you've defined the actions you want your steps to take, you can set conditions for greater control over the step's execution. You can set conditions to:
+After you've specified the details of the step, you can set conditions for greater control over the step's execution. You can set conditions to:
 
 - Run the step on specific environments or skip specific environments.
 - Specify which channels the step should run on.
