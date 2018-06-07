@@ -533,7 +533,8 @@ docs/deploying-applications/terraform-deployments/plan-terraform/index.md -> doc
 docs/deployment-process/steps/exporting-step-templates.md -> docs/deployment-process/steps/custom-step-templates.md
 docs/administration/octopus-community-step-templates-integration.md -> docs/deployment-process/steps/community-step-templates.md
 docs/administration/subscription-events.md -> docs/administration/subscriptions/index.md
-docs/administration/troubleshooting-authentication-problems.md -> docs/administration/authentication/troubleshooting-authentication-problems.mddocs/administration/specifying-a-custom-container-to-use-for-ad-authetication.md -> docs/administration/authentication/specifying-a-custom-container-to-use-for-ad-authentication.md
+docs/administration/troubleshooting-authentication-problems.md -> docs/administration/authentication/troubleshooting-authentication-problems.md
+docs/administration/specifying-a-custom-container-to-use-for-ad-authetication.md -> docs/administration/authentication/specifying-a-custom-container-to-use-for-ad-authentication.md
 docs/administration/authentication-providers/index.md -> docs/administration/authentication/authentication-providers/index.md
 docs/administration/authentication-providers/active-directory-authentication.md -> docs/administration/authentication/authentication-providers/active-directory-authentication.md
 docs/administration/authentication-providers/auto-user-creation -> docs/administration/authentication/authentication-providers/auto-user-creation.md
@@ -545,6 +546,6 @@ docs/administration/authentication-providers/troubleshooting-active-directory-in
 docs/administration/authentication-providers/okta-authentication.md -> docs/administration/authentication/authentication-providers/okta-authentication.md
 docs/administration/specifying-a-custom-container-to-use-for-ad-authentication.md -> docs/administration/authentication/specifying-a-custom-container-to-use-for-ad-authentication.md
 docs/administration/run-tentacle-under-a-specific-user.md -> docs/infrastructure/windows-targets/running-tentacle-under-a-specific-user-account.md
-docs/administration/export-and-import-tentacle-certificates-without-a-profile.md -> docs/infrastructure/windows-targets/automating-tentacle-installation.md
+docs/administration/export-and-import-tentacle-certificates-without-a-profile.md -> docs/infrastructure/windows-targets/automating-tentacle-installation.md#export-and-import-tentacle-certificates-without-a-profile
 docs/deployment-process/steps/manual-intervention-and-approvals.md -> docs/deployment-examples/manual-intervention-and-approvals.md
 docs/deployment-process/steps/email-notifications.md -> docs/deployment-examples/email-notifications.md
