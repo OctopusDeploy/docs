@@ -16,22 +16,28 @@ The built-in worker is automatically disabled when an external worker is configu
 
 ## Setting up the external worker
 
-To enable the external worker, you will need to set up a Tentacle, either on the same machine as the Octopus Server, or a different machine (recommended). You can use an existing Tentacle that is used as a deployment target. We recommend that the Tentacle is on the same local network as the server to speed up package transfers.
+These instructions are for **Octopus 2018.6.x**, the instructions for other versions differ.
 
-Once you have done that, and have its address and thumbprint, run the following command, remembering to replace the thumbprint below with the thumbprint from your Tentacle:
+:::hint
+There is currently no User Interface support for the external worker and there is a limit of one worker
+:::
+
+To enable the external worker, you will need to set up a Tentacle (version 3.22.0 or later), either on the same machine as the Octopus Server, or a different machine (recommended). You can use an existing Tentacle that is used as a deployment target. We recommend that the Tentacle is on the same local network as the server to speed up package transfers.
+
+Once you have done that, run the following command from the tentacle program directory for a listening tentacle:
 
 ```
-Octopus.Server external-worker --address=https://example.com:10933 --thumbprint C7524763110D271520C15B6A50296200DA6DDCAA
+.\Tentacle.exe register-worker --instance MyInstance --server "https://example.com/" --comms-style TentaclePassive --apikey "API-CS0SW5SQJNLUBQCUBPK8LZY3KYO" --workerpool "Default Worker Pool"
 ```
 
-The external worker will be enabled after you restart the Octopus Server, and the built-in worker will be disabled.
+Use `TentacleActive` instead of `TentaclePassive` to register a polling worker.
 
 ## Reverting to the built-in worker
 
-If you want to revert to the built-in worker, run the following command:
+If you want to revert to the built-in worker, run the following command from the tentacle program directory:
 
 ```
-Octopus.Server external-worker --reset
+.\Tentacle.exe deregister-worker --instance MyInstance --server "https://example.com/" --apikey "API-CS0SW5SQJNLUBQCUBPK8LZY3KYO"
 ```
 
 ## Recommendations for the external worker
@@ -47,12 +53,5 @@ Finally, we recommend the Octopus Server and external worker are in the same loc
 The external worker currently has the following limitations:
 
 - There can only be one.
-- It does not participate in Health Checks unless it is also a deployment target.
 - Packages are always transferred from the server to the worker, download on target is not supported.
 - The worker will run steps from different projects simultaneously (keeping the behavior of the built-in worker), which could allow one project to access the working folder of another project.
-
-## External workers in the future
-
-Future versions of Octopus Server will expand on the [worker concept](https://github.com/OctopusDeploy/Specs/blob/master/Workers/index.md), allowing you to create worker pools with multiple workers. Steps then can be configured to run on those pools.
-
-When that feature is released, these command-line options for the external worker will be removed. If an external worker is configured when you upgrade Octopus Server to a version supporting worker pools, the external worker will be automatically added to the default worker pool.
