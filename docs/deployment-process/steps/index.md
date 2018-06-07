@@ -3,7 +3,7 @@ title: Steps
 description: Adding steps to define your project's deployment process.
 position: 3
 ---
-Steps contain the actions your deployment process will execute each time you create a release of your software to be deployed. Steps can contain multiple actions and deployment processes can include multiple steps. Steps are executed in sequence by default but they can be configure to [run in parallel](/docs/deployment-process/steps/conditions/run-steps-in-parallel.md).
+Steps contain the actions your deployment process will execute each time you create a release of your software to be deployed. Steps can contain multiple actions and deployment processes can include multiple steps. Steps are executed in sequence by default or you can configure [conditions](/docs/deployment-process/conditions/index.md) to control where and when steps run.
 
 Octopus includes built-in step templates that have been developed by the Octopus team to handle the most common deployment scenarios. In addition to the built-in step templates, there are also [Community Step Templates](/docs/deployment-process/steps/community-step-templates.md) that have been contributed by the community. You can also use the built-in step templates as the base to create [custom steps templates](/docs/deployment-process/steps/custom-step-templates.md) to use across your projects.
 
@@ -37,7 +37,7 @@ Learn more about [rolling deployments](/docs/deployment-patterns/rolling-deploym
 - Set when package acquisition should occur.
 - Specifying whether or not the step is required.
 
-Learn more about [conditions](/docs/deployment-process/steps/conditions/index.md).
+Learn more about [conditions](/docs/deployment-process/conditions/index.md).
 
 9. Save the step.
 10. Add additional steps.
