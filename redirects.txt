@@ -169,8 +169,8 @@ docs/deploying-applications/email-notifications.md -> docs/deployment-examples/e
 docs/deploying-applications/deployment-process/email-notifications.md -> docs/deployment-examples/email-notifications.md
 docs/deploying-applications/manual-intervention-and-approvals.md -> docs/deployment-examples/manual-intervention-and-approvals.md
 docs/deploying-applications/deployment-process/manual-intervention-and-approvals.md -> docs/deployment-examples/manual-intervention-and-approvals.md
-docs/deploying-applications/run-steps-in-parallel.md -> docs/deployment-process/steps/conditions/run-steps-in-parallel.md
-docs/deploying-applications/deployment-process/run-steps-in-parallel.md -> docs/deployment-process/steps/conditions/run-steps-in-parallel.md
+docs/deploying-applications/run-steps-in-parallel.md -> docs/deployment-process/conditions/index.md
+docs/deploying-applications/deployment-process/run-steps-in-parallel.md -> docs/deployment-process/conditions/index.md
 docs/deploying-applications/scheduled-deployments.md -> docs/deployment-process/releases/scheduled-deployments.md
 docs/deploying-applications/deployment-process/scheduled-deployments.md -> docs/deployment-process/releases/scheduled-deployments.md
 docs/deploying-applications/substitute-variables-in-files.md -> docs/deployment-process/configuration-files/substitute-variables-in-files.md
@@ -250,10 +250,10 @@ docs/deploying-applications/deployment-process/releases/blocking-deployments.md 
 docs/deploying-applications/deployment-process/deploying-virtual-hard-drives.md -> docs/deployment-examples/deploying-virtual-hard-drives.md
 docs/deploying-applications/deployment-process/steps/email-notifications.md -> docs/deployment-examples/email-notifications.md
 docs/deploying-applications/deployment-process/steps/manual-intervention-and-approvals.md -> docs/deployment-examples/manual-intervention-and-approvals.md
-docs/deploying-applications/deployment-process/steps/run-steps-in-parallel.md -> docs/deployment-process/steps/conditions/run-steps-in-parallel.md
+docs/deploying-applications/deployment-process/steps/run-steps-in-parallel.md -> docs/deployment-process/conditions/index.md
 docs/deploying-applications/deployment-process/releases/scheduled-deployments.md -> docs/deployment-process/releases/scheduled-deployments.md
 docs/deploying-applications/deployment-process/substitute-variables-in-files.md -> docs/deployment-process/configuration-files/substitute-variables-in-files.md
-docs/deploying-applications/deployment-process/steps/conditions.md -> docs/deployment-process/steps/conditions/index.md
+docs/deploying-applications/deployment-process/steps/conditions.md -> docs/deployment-process/conditions/index.md
 docs/deployment-process/projects/reporting.md -> docs/administration/reporting/index.md
 docs/infrastructure/lifecycles/index.md -> docs/deployment-process/lifecycles/index.md
 docs/patterns/index.md -> docs/deployment-patterns/index.md
@@ -446,7 +446,7 @@ docs/deployment-process/steps/deploying-packages/delta-compression-for-package-t
 docs/deployment-process/steps/deploying-packages/package-deployment-feature-ordering.md -> docs/deployment-examples/deploying-packages/package-deployment-feature-ordering.md
 docs/deployment-process/steps/deploying-packages/stage-package-uploads.md -> docs/deployment-examples/deploying-packages/stage-package-uploads.md
 docs/deployment-process/coordinating-multiple-projects/project-coordination-code-samples.md -> docs/deployment-process/projects/coordinating-multiple-projects/project-coordination-code-samples.md
-docs/deployment-process/steps/run-steps-in-parallel.md -> docs/deployment-process/steps/conditions/run-steps-in-parallel.md
+docs/deployment-process/steps/run-steps-in-parallel.md -> docs/deployment-process/conditions/index.md
 docs/deployment-process/steps/custom-installation-directory.md -> docs/deployment-process/configuration-files/custom-installation-directory.md
 docs/deployment-process/steps/configuration-files/custom-installation-directory.md -> docs/deployment-process/configuration-files/custom-installation-directory.md
 docs/deployment-process/steps/deploying-packages/index.md -> docs/deployment-examples/deploying-packages/index.md
@@ -549,3 +549,5 @@ docs/administration/run-tentacle-under-a-specific-user.md -> docs/infrastructure
 docs/administration/export-and-import-tentacle-certificates-without-a-profile.md -> docs/infrastructure/windows-targets/automating-tentacle-installation.md
 docs/deployment-process/steps/manual-intervention-and-approvals.md -> docs/deployment-examples/manual-intervention-and-approvals.md
 docs/deployment-process/steps/email-notifications.md -> docs/deployment-examples/email-notifications.md
+docs/deployment-process/steps/conditions/index.md -> docs/deployment-process/conditions/index.md
+docs/deployment-process/steps/conditions/run-steps-in-parallel.md -> docs/deployment-process/conditions/index.md
