@@ -6,7 +6,10 @@ Both developers and operations will be reading your articles to learn Octopus De
 Your goal is to create useful documentation that helps the reader on their journey. Our guidelines
 help with that. Our style guide contains four recommendations:
 
-!toc
+- [Use a Conversational Tone](#use-a-conversational-tone)
+- [Write in Second Person](#write-in-2nd-person)
+- [Use Active Voice](#use-active-voice)
+- [Target a 5th Grade Reading Level](#target-a-fifth-grade-reading-level)
 
 You will see examples of each of these as you read this style guide. We've written this guide
 following our guidelines to provide examples for you to follow as you build documentation
