@@ -1,4 +1,4 @@
-This repository contains the documentation for [Octopus Deploy](https:/octopus.com/docs).
+This repository contains the documentation for [Octopus Deploy](https://octopus.com/docs).
 
 To contribute to documentation, read the following guide.
 
