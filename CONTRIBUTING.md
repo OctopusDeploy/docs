@@ -8,11 +8,13 @@ Before we can accept your contribution, you need you to sign the [Contribution L
 
 ## In This Document
 
-- [Contribute a Quick Fix](#submit-a-quick-fix)
+- [Contribute a Quick Fix](#contribute-a-quick-fix)
 - [Contribute More Complex Changes](#contribute-more-complex-changes)
 - [Conventions](#conventions)
-- [Voice and Style](#voice-and-style)
-- [Structure](#structure)
+  - [Voice and Style](#voice-and-style)
+  - [Structure](#structure)
+- [Working with Files and Folders]()
+
 - [Markdown](#markdown)
 
 ## Contribute a Quick Fix
@@ -43,13 +45,14 @@ Not everybody who reads the Octopus Deploy documentation is a native English spe
 - Use an informal tone and simple, declarative language.
 - Define technical terms the reader might not be familiar with.
 - Use simple sentence structures to avoid overloading the reader with too much information all at once.
-- Try to anticipate why somebody would read the documentation and the types of problems they are trying to solve. Instead of describing features, explain what users can do with them.
+- Use US English spelling.
+- Try to anticipate why somebody would read the documentation and the types of problems they are trying to solve. Instead of describing features, explain what users can do with them and how they do it.
 - Avoid overly formal language or an academic style.
 - Avoid slang, colloquialisms, and other terms the reader might not be familiar with.
 
 ### Structure
 
-When creating new documentation structure it as follows:
+When creating new documentation, you should structure it as follows:
 
 1. Introduction.
 
@@ -61,6 +64,9 @@ When creating new documentation structure it as follows:
 
   Walk the user through the process with easy to follow step by step instructions. Try to focus on the most common use cases and provide a direct path the user can follow to achieve the goal of the procedure.
 
+  > 1. Select Projects from the main navigation, and click ADD PROJECT.
+  > 2. Give the project a name that's meaningful to you, and anybody else who'll work on the project.
+
 3. Reference.
 
   If there are lists of parameters or additional options available, provide the details in a list or table for easy access after the procedural content. If there are common troubleshooting steps users might need to perform, list them here.
@@ -69,9 +75,13 @@ When creating new documentation structure it as follows:
 
   Provide links to related documentation to help the reader continue their journey.
 
+## Working with Files and Folders
+
+The folder structure in the GitHub docs repository, determines the structure of [www.octopus.com/doc](https://www.octopus.com).
+
+
+
 ## Markdown
-
-
 
 
 ## Redirects
