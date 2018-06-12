@@ -1,6 +1,8 @@
 This repository contains the documentation for [Octopus Deploy](https://octopus.com/docs).
 
-To contribute to documentation, read the following guide.
+Contributions to help improve this documentation are welcome, see the [contributing guide](CONTRIBUTING.md).
+
+
 
 # Conventions
 ## Lowercase  and `-` Delimited
@@ -8,7 +10,6 @@ To contribute to documentation, read the following guide.
 All content files (`.md`, `.png`, `.jpg` etc) and directories must be lower case.
 All links pointing to them must be lower case.
 Use a dash (`-`) to delimit filenames (e.g. `specify-endpoint-name.md`).
-
 
 ## Headers
 
