@@ -44,10 +44,10 @@ If you have a project setup with [Automatic Release Creation](/docs/deployment-p
 :::hint
 **Tenants and automatic-environments**
 
-1. If tenanted deployments are allowed for the project, we will attempt to enqueue a new deployment for each tenant connected to the automatic-environment(s), taking the following into consideration
-  1a. Filter the tenants by any Tenant filter defined on the Channel for the Release being considered for deployment
-  1b. Further filter the tenants by those who are allowed according to promotion rules (e.g. deploy to UAT before Production for this tenant)
-2. If untenanted deployments are allowed, attempt enqueue the untenanted deployment to the automatic-environment(s)
+1. If tenanted deployments are allowed, attempt to enqueue a new deployment for each tenant connected to the automatic-environment(s), taking the following into consideration:
+  1a. Filter the tenants by any Tenant filter defined on the Channel for the Release being considered for deployment.
+  1b. Further filter the tenants based on promotion rules (e.g. deploy to UAT before Production for this tenant)
+2. If untenanted deployments are allowed, attempt to enqueue the untenanted deployment to the automatic-environment(s).
 
 :::
 
