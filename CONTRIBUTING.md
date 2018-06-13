@@ -106,21 +106,21 @@ Filenames must be in lowercase and delimited with a dash `-`. For instance, `bac
 
 ### Headers
 
-Each document has a header. It is enclosed by `---` and is defined in a [YAML](https://en.wikipedia.org/wiki/YAML) document format.
-If you need to review your document in GitHub, the UI will [correctly render YAML](https://github.com/blog/1647-viewing-yaml-metadata-in-your-documents). The header is where you define the title of the page and provide a description of the page. For example:
+Each document has a header. The header is enclosed by `---` and is defined using the [YAML](https://en.wikipedia.org/wiki/YAML) document format.
+If you need to review your document in GitHub, the UI will [render YAML](https://github.com/blog/1647-viewing-yaml-metadata-in-your-documents). The header is where you define the title of the page and provide a description of the page. For example:
 
 ```md
 ---
 title: Getting Started
-description: A Conceptual Overview of Octopus Deploy.
+description: A conceptual overview of Octopus Deploy.
 position: 0
 ---
 ```
 
 #### Title (required)
-Used for the web page title tag `<head><title>`, displayed in the page content.
+Used for the web page title tag `<head><title>`, and displayed in the page content.
 
-Please use Title Case for titles. If you're not sure what makes title case, there are a few converters online, for instance: http://titlecaseconverter.com/.
+Please use Title Case for titles. If you're not sure about title case, there are a few converters online, for instance: http://titlecaseconverter.com/.
 
 #### Description (required)
 
@@ -134,13 +134,13 @@ Used to set the position of the document in the menu.
 
 #### hideInThisSection (optional)
 
-Index pages (`index.md`) automatically have an "In This Section" section added below the content of the page, which lists all child pages in the folder. If the page does not need this section, you can stop it from being displayed, by adding the following metadata to the YAML:
+Index pages `index.md` automatically have an "In This Section" section added below the content of the page that lists all child pages in the folder. If the page does not need this section, you can stop it from being displayed by adding the following metadata to the YAML header:
 
 ```yaml
 hideInThisSection: true
 ```
 
-The "In This Section" section [contains a header](_shared/in-this-section.md), if you don't want the header to be displayed, but still want the list of child pages to show up, you can omit the header by adding the following metadata to the YAML:
+The "In This Section" section [contains a header](_shared/in-this-section.md), if you don't want the header to be displayed, but you still want the list of child pages to show up, you can omit the header by adding the following metadata to the YAML:
 
 ```yaml
 hideInThisSectionHeader: true
@@ -151,6 +151,8 @@ hideInThisSectionHeader: true
 Sometimes you need to the same content in multiple pages, using includes lets you write the content once, and include it in more than one place. Markdown includes are pulled into the document prior to passing the content through the markdown conversion.
 
 To create an include, add a file anywhere in the docs repository that is suffixed with `.include.md`. For example, the file might be named `theKey.include.md`. To include the content in `theKey.include.md` in another file, add the following to the markdown `!include <key>` in that file.
+
+Don't include a YAML header with includes.
 
 ### Redirects
 
@@ -179,6 +181,8 @@ The first (and all top level) headers in a `.md` page should be a `h2` (i.e., `#
 DO NOT skip heading levels, i.e., h1 > h2 > h4 is not valid!
 
 You must also separate the `##` and the text of the heading with a space. Without the space, the heading will not render correctly on the Octopus docs site (though it will render correctly in the GitHub preview).
+
+Note, the first header is the title provided in the YAML header.
 
 ### Images
 
@@ -237,17 +241,17 @@ Which means elsewhere in the page you can link to it with this:
     [Goto My Heading](#My-Heading)
     [Goto a different page](/docs/getting-started.md#My-Heading)
 
-If you create anchors in the markdown, do not use special characters in the anchor text as they will cause the link to be truncated.
+You do not need to create anchors in the markdown, they will be generated automatically, but if you add them manually, do not use special characters in the anchor text as they will cause the link to be truncated.
 
 ### Code Samples
 
-Use GitHub-style fenced code blocks. Example:
+Use GitHub-style fenced code blocks. For example:
 
     ​```powershell
     Write-Host "Hello"
     ​```
 
-If your example uses multiple languages or files, you can combine them together and add tab headings - they will be rendered as tabs:
+If your example uses multiple languages or files, you can combine them together and add tab headings. They will be rendered as tabs:
 
     ​```powershell PowerShell
     Write-Host "Hello"
@@ -312,56 +316,56 @@ The answer is 42.</p>
 ### Lists
 Lists can be created using a few different styles, please be aware that `Roman` and `Letters` won't render properly in GitHub (this is a markdig extension).
 
-To ensure the list items are correctly formatted it is recommended not to number the items, instead let the markdown renderer do that job automatically, so for a numeric list use one `1`s for a letter list use one `a.`s and for a roman list use only `i`s.
+You don't have to provide sequential number for list items, that is `1, 2, 3...`, you can just use `1, 1, 1...` unless you insert a break in the list to include some other text. If you include a break in the text, it is recommended that you number your list items correctly, so that the numbers don't reset after the break.
 
 #### Nested Lists
 
 You can nest lists, by adding four spaces before the nested list items.
 
 #### Bullets
-Example:
+
 ```md
 - Item 1
 - Item 2
 ```
 
-Rendered as:
+Which is rendered as:
 
 - Item 1
 - Item 2
 
 #### Numbered
-Example:
+
 ```md
 1. Item 1
 1. Item 2
 ```
 
-Rendered as:
+Which is Rendered as:
 
 1. Item 1
 2. Item 2
 
 #### Roman
-Example:
+
 ```md
 i. Item 1
 i. Item 2
 ```
 
-Rendered as:
+Which is rendered as:
 
 i. Item 1  
 ii. Item 2
 
 #### Letters
-Example:
+
 ```md
 a. Item 1
 a. Item 2
 ```
 
-Rendered as:
+Which is rendered as:
 
 a. Item 1  
 b. Item 2
@@ -411,6 +415,7 @@ And when selected, a banner tells the user that they are seeing a "preview" of t
 ![](/docs/images/preview.png)
 
 ### Partials
+
 Partials are version specific files that contain markdown.
 Markdown partials are pulled into the document prior to includes, so this means you can add includes to partials.
 They are only rendered in the target page when the version filter matches the convention for a give file.
