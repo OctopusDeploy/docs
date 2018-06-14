@@ -210,4 +210,4 @@ Write-Host ("Migration complete, #GreatSuccess")
 
 ## Troubleshooting
 
-We do our best to log information and warnings to your task logs during a migration. An API migration follows the same path as a manual migration using [Migrator.exe command line tools](/docs/api-and-integration/octopus.migrator.exe-command-line/index.md) behind the scenes, so if you are having difficulty running migrations, be sure to check your [task logs](/docs/how-to/get-the-raw-output-from-a-task/index.md) for information that might help.
+We do our best to log information and warnings to your task logs during a migration. An API migration follows the same path as a manual migration using [Migrator.exe command line tools](/docs/api-and-integration/octopus.migrator.exe-command-line/index.md) behind the scenes, so if you are having difficulty running migrations, be sure to check your [task logs](/docs/support/get-the-raw-output-from-a-task.md) for information that might help.
