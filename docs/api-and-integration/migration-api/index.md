@@ -71,9 +71,141 @@ Import API parameters:
 | FailureCallbackUri=VALUE | [Optional] A webhook URL you can add if you wish to be notified on failure of the migration task (your Octopus Server will call this URL using a GET request) |
 | TaskId | [Response only] This will be populated with the TaskId that gets queued for this migration |
 
-### Curl example
-```powershell
-curl -X POST https://demo.octopus.com/api/packages/raw -H "X-Octopus-ApiKey: API-YOURAPIKEY" -F "data=@Demo.1.0.0.zip"
+## Examples
+
+### Raw request
+
+You could trigger a request however you prefer, using curl or Fiddler...
+
+#### Partial Export
+
+```text
+Request Method: POST
+Request URL: https://YOUR_SOURCE_OCTOPUS_SERVER/api/migrations/partialexport
+Request Headers:
+- Content-Type: application/json
+- X-Octopus-ApiKey: API-YOUR_SOURCE_API_KEY
+Request Body:
+{
+    "PackageId": "MyAwesomeOctopusMigration",
+    "PackageVersion": "1.0.0",
+    "Password": "Demo1234",
+    "Projects": ["Rick Project", "Morty Project"],
+    "EncryptPackage": true,
+    "IncludeTaskLogs": true,
+	"DestinationApiKey": "API-YOUR_DESTINATION_API_KEY",
+	"DestinationPackageFeed": "https://YOUR_DESTINATION_OCTOPUS_SERVER"
+}
 ```
+
+#### Import
+
+```
+Request Method: POST
+Request URL: https://YOUR_DESTINATION_OCTOPUS_SERVER/api/migrations/import
+Request Headers:
+- Content-Type: application/json
+- X-Octopus-ApiKey: API-YOUR_DESTINATION_OCTOPUS_SERVER
+Request Body:
+{
+    "PackageId": "MyAwesomeOctopusMigration",
+    "PackageVersion": "1.0.0",
+    "Password": "Demo1234",
+    "IsDryRun": "true", // Only set this to false when you've reviewed the dry run and are happy to proceed with the migration for realz.
+    "IsEncryptedPackage": true,
+}
+
 ### Octopus.Clients example
 
+The [Octopus.Clients library](/docs/api-and-integration/octopus.client/index.md) can also help you run a migration.
+
+An example of what something like that might look like, end-to-end:
+
+```
+Add-Type -Path 'C:\Development\OctopusClients\source\Octopus.Client\bin\Debug\net45\Octopus.Client.dll'
+
+$sourceApikey = 'API-YOUR_SOURCE_API_KEY'
+$sourceOctopusURI = 'http://YOUR_SOURCE_OCTOPUS_SERVER'
+$sourceEndpoint = New-Object Octopus.Client.OctopusServerEndpoint $sourceOctopusURI,$sourceApikey
+$sourceRepository = New-Object Octopus.Client.OctopusRepository $sourceEndpoint
+
+$migrationExportResource = new-object Octopus.Client.Model.Migrations.MigrationPartialExportResource
+$migrationExportResource.PackageId = 'MyAwesomeOctopusMigration'
+$migrationExportResource.PackageVersion = '1.0.0'
+$migrationExportResource.Password = 'Demo1234'
+$migrationExportResource.Projects = @('Rick Project', 'Morty Project')
+$migrationExportResource.IgnoreCertificates = $false
+$migrationExportResource.IgnoreMachines = $false
+$migrationExportResource.IgnoreDeployments = $false
+$migrationExportResource.IgnoreTenants = $false
+$migrationExportResource.IncludeTaskLogs = $true
+$migrationExportResource.EncryptPackage = $true
+$migrationExportResource.DestinationPackageFeed = 'http://YOUR_DESTINATION_API_KEY';
+$migrationExportResource.DestinationApiKey = 'API-YOUR_DESTINATION_API_KEY'
+
+$migrationExportResource = $sourceRepository.Migrations.PartialExport($migrationExportResource)
+
+Write-Host("Export task queued: $($migrationExportResource.TaskId)")
+$migrationExportTask = $sourceRepository.Tasks.Get($migrationExportResource.TaskId);
+if ($migrationExportTask -eq $null) {
+    Write-Host ("Export failed. You'll need to investigate.")
+    Exit
+}
+
+# Now we can poll this migration task to know when our export is complete #ScriptingFTW
+Write-Host("Export task: $($migrationExportTask.Id)")
+while($migrationExportTask -and ($migrationExportTask.State -eq 'Queued' -or $migrationExportTask.State -eq 'Executing' -or $migrationExportTask.State -eq 'Cancelling')){
+    Write-Host("Export task status: $($migrationExportTask.State). Re-checking in 5 seconds...")
+    start-sleep -s 5
+    $migrationExportTask = $sourceRepository.Tasks.Get($migrationExportTask.Id);
+}
+Write-Host("Export task completed: $($migrationExportTask.State)")
+
+if ($migrationExportTask.State -ne 'Success' -or $migrationExportTask.HasWarningsOrErrors -eq $true) {
+    Write-Host ("Export failed or has warnings/errors. You'll need to investigate.")
+    Exit
+}
+
+# From here, we can proceed with an import on our destination server.
+$destinationApikey = 'API-YOUR_DESTINATION_API_KEY'
+$destinationOctopusURI = 'http://YOUR_DESTINATION_OCTOPUS_SERVER'
+$destinationEndpoint = New-Object Octopus.Client.OctopusServerEndpoint $destinationOctopusURI,$destinationApikey
+$destinationRepository = New-Object Octopus.Client.OctopusRepository $destinationEndpoint
+
+$migrationImportResource = new-object Octopus.Client.Model.Migrations.MigrationImportResource
+$migrationImportResource.PackageId = 'MyAwesomeOctopusMigration'
+$migrationImportResource.PackageVersion = '1.0.0'
+$migrationImportResource.Password = 'Demo1234'
+$migrationImportResource.IsDryRun = $true # Only set this to false when you've reviewed the dry run and are happy to proceed with the migration for realz.
+$migrationImportResource.IsEncryptedPackage = $true
+$migrationImportResource.DeletePackageOnCompletion = $true # May as well clean up after ourselves.
+
+$migrationImportResource = $destinationRepository.Migrations.Import($migrationImportResource)
+
+Write-Host("Import task queued: $($migrationExportResource.TaskId)")
+$migrationImportTask = $destinationRepository.Tasks.Get($migrationImportResource.TaskId);
+if ($migrationImportTask -eq $null) {
+    Write-Host ("Import failed. You'll need to investigate.")
+    Exit
+}
+
+# Now we can poll this migration task to know when our import is complete.
+Write-Host("Import task: $($migrationImportTask.Id)")
+while($migrationImportTask -and ($migrationImportTask.State -eq 'Queued' -or $migrationImportTask.State -eq 'Executing' -or $migrationImportTask.State -eq 'Cancelling')){
+    Write-Host("Import task status: $($migrationImportTask.State). Re-checking in 5 seconds...")
+    start-sleep -s 5
+    $migrationImportTask = $destinationRepository.Tasks.Get($migrationImportTask.Id);
+}
+Write-Host("Import task completed: $($migrationImportTask.State)")
+
+if ($migrationImportTask.State -ne 'Success' -or $migrationImportTask.HasWarningsOrErrors -eq $true) {
+    Write-Host ("Import failed or has warnings/errors. You'll need to investigate.")
+    Exit
+}
+
+Write-Host ("Migration complete, #GreatSuccess")
+```
+
+## Troubleshooting
+
+We do our best to log information and warnings to your task logs during a migration. An API migration follows the same path as a manual migration using [Migrator.exe command line tools](/docs/api-and-integration/octopus.migrator.exe-command-line/index.md) behind the scenes, so if you are having difficulty running migrations, be sure to check your [task logs](/docs/how-to/get-the-raw-output-from-a-task/index.md) for information that might help.
