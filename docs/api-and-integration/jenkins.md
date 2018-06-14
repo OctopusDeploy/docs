@@ -1,7 +1,7 @@
 ---
 title: Jenkins
 description: Jenkins can work together with Octopus Deploy to create releases and execute deployments.
-position: 5
+position: 50
 ---
 
 [Jenkins](http://jenkins-ci.org/) is an extendable, open-source continuous integration server. You can use Jenkins to compile and test your code, and then have it trigger deployments in Octopus Deploy. This page will guide you through making these tools work together.

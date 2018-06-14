@@ -1,7 +1,7 @@
 ---
 title: Calamari
 description: Calamari is the command-line tool invoked by Tentacle during a deployment. It knows how to extract and install NuGet packages, run the Deploy.ps1 etc. conventions, modify configuration files, and all the other things that happen during an deployment.
-position: 10
+position: 100
 ---
 
 Prior to Octopus Deploy 3.0, Tentacles were responsible for performing deployment steps.  Tentacles were *smart*.They knew how to transform configuration files, modify IIS, and much, much more.

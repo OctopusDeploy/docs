@@ -1,7 +1,7 @@
 ---
 title: Octo.exe Command Line
 description: Octo.exe is the Octopus command line tool that builds on top of the Octopus REST API.
-position: 6
+position: 60
 ---
 
 **Octo.exe** is a command line tool that builds on top of the [Octopus Deploy REST API](/docs/api-and-integration/api/index.md).
