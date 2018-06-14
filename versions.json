@@ -1,84 +1,84 @@
 {
-   "versions": [
-     "2018.6"
-   ],
-   "default": "2018.6",
-   "legacy": [
-      {
-        "version": "2018.5",
-        "firstReleased": "4 June 2018"
-      },
-     {
-       "version": "2018.4",
-       "firstReleased": "16 Apr 2018"
-     },
-     {
-       "version": "2018.3",
-       "firstReleased": "8 Mar 2018"
-      },
+  "versions": [
+    "2018.6"
+  ],
+  "default": "2018.6",
+  "legacy": [
+    {
+      "version": "2018.5",
+      "firstReleased": "4 June 2018"
+    },
+    {
+      "version": "2018.4",
+      "firstReleased": "16 Apr 2018"
+    },
+    {
+      "version": "2018.3",
+      "firstReleased": "8 Mar 2018"
+    },
     {
       "version": "2018.2",
       "firstReleased": "8 Feb 2018"
-     },
-     {
+    },
+    {
       "version": "2018.1",
       "firstReleased": "24 Jan 2018"
-     },
-     {
+    },
+    {
       "version": "4.1",
       "firstReleased": "5 Dec 2017"
-     },
-     {
+    },
+    {
       "version": "4.0",
       "firstReleased": "14 Nov 2017"
-     },
-     {
+    },
+    {
       "version": "3.17",
       "firstReleased": "11 Sept 2017"
-     },
-     {
+    },
+    {
       "version": "3.16",
       "firstReleased": "2 Aug 2017"
-     },
-     {
+    },
+    {
       "version": "3.15",
       "firstReleased": "4 Jul 2017"
-     },
-     {
+    },
+    {
       "version": "3.14",
       "firstReleased": "12 Jun 2017"
-     },
-     {
+    },
+    {
       "version": "3.13",
       "firstReleased": "3 May 2017"
-     },
-     {
+    },
+    {
       "version": "3.12",
       "firstReleased": "4 Apr 2017"
-     },
-     {
+    },
+    {
       "version": "3.11",
       "firstReleased": "22 Feb 2017"
-     },
-     {
+    },
+    {
       "version": "3.10",
       "firstReleased": "15 Feb 2017"
-     },
-     {
+    },
+    {
       "version": "3.9",
       "firstReleased": "14 Feb 2017"
-     },
-     {
+    },
+    {
       "version": "3.8",
       "firstReleased": "18 Jan 2017"
-     },
-     {
+    },
+    {
       "version": "3.7",
       "firstReleased": "6 Dec 2016"
-     },
-     {
+    },
+    {
       "version": "3.6",
       "firstReleased": "1 Dec 2016"
-     }
-   ]
+    }
+  ]
 }
