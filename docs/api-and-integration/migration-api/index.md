@@ -11,22 +11,23 @@ The API currently includes support for both the [partial-export](/docs/api-and-i
 
 ## How it works
 
-When you trigger a migration via the API, your Octopus Server will queue up a migration task that you can view from your `Tasks` screen. During execution of this task, your Octopus Server will be put into [maintenance mode](/docs/administration/upgrading/maintenance-mode) to try and minimise any data mutations during the migration. When the task is completed, it will be taken out of maintenance mode.
+When you trigger a migration via the API, your Octopus Server will queue up a migration task that you can view from your `Tasks` screen. During execution of this task, your Octopus Server will be put into [maintenance mode](/docs/administration/upgrading/maintenance-mode.md) to try and minimise any data mutations during the migration. When the task is completed, it will be taken out of maintenance mode.
 
 :::warning
 We advise that you only use the migration API under the same conditions that you'd typically do a manual migration. I.e. During a maintenance period when you know that **1)** you're not going to interrupt your daily deployment operations and **2)** you'll minimise the chance of data mutations during the migration itself.
 :::
 
-The typical process for migration data between a source and destination server is as follows:
+The typical process for migratiing projects between a source and destination server is as follows:
 
 - Create an API key for your source server (where you're exporting from).
 - Create an API key for your destination server (where you're importing to).
 - Get a list of project names that you wish to export from your source server.
-- Call the `partial-export` migration API against your source server, telling it the destination server URL, API key and password for your migration package _(You'll receive a 200 response from the API telling you the TaskId that has been queued to do the actual work)_.
-- Your source server's task queue will execute the `partial-export` command using `Migrator.exe`, package up the contents of your export and send to your destination server's package feed.
-- Manually watch your source server's migration task to know when this operation is complete ... _Or if you're really keen, you could write a script that queries the task API and to know when the migration task is complete ;)_.
+- Call the `partial-export` migration API against your source server, telling it the destination server URL, API key, password for your migration package and the list of project names you want to export _(You'll receive a 200 response from the API telling you the TaskId that has been queued to do the actual work)_.
+- _At this point, your source server's task queue will then execute the `partial-export` command using `Migrator.exe`, package up the contents of your export and push it to your destination server's package feed._
+- Watch your source server's migration task in the Octopus UI to know when this operation is complete ... _Or if you're really keen, you could write a script that queries the task API and to know when the migration task is complete (as seen in the [Octopus.Clients example](#octopus.clients-example) below)_.
 - Call the `import` migration API against your destination server, telling it the package and password to import from _(You'll receive a 200 response from the API telling you the TaskId that has been queued to do the actual work)_.
-- Your destination server's task queue will execute an `import` command using `Migrator.exe`.
+- Your destination server's task queue will then execute an `import` command using `Migrator.exe`.
+- _At this point, your destination server's task queue will then execute the `import` command using `Migrator.exe`._
 
 ## Partial Export API
 
@@ -36,46 +37,46 @@ Partial Export API parameters:
 
 | Parameter                      | Description |
 |--------------------------------|-------------|
-| Password=VALUE | Password to encrypt any sensitive values |
-| Projects=VALUE | Project to filter export for |
-| PackageId=VALUE | [Optional] Package Name/ID for your export (defaults to `Octopus.Space.Migration` if not provided) |
-| PackageVersion=VALUE | [Optional] Semver package version for your export (default to `1.0.0-{RandomStringGenerator.Generate(8)` if not provided) |
+| Password=VALUE | Password to encrypt both the migration package and any sensitive values (This is the shared key between partial-export and import migrations) |
+| Projects=VALUE | Projects to include in the migration |
+| PackageId=VALUE | [Optional] Package Name/ID for your export _(Defaults to `Octopus.Space.Migration` if not provided)_ |
+| PackageVersion=VALUE | [Optional] Semver package version for your export _(Defaults to `1.0.0-{RandomStringGenerator.Generate(8)}` if not provided)_ |
 | IgnoreCertificates | [Optional] Excludes certificates from partial export |
 | IgnoreMachines | [Optional] Excludes machines from partial export |
 | IgnoreDeployments | [Optional] Excludes deployments from partial export |
 | IgnoreTenants | [Optional] Excludes tenants from partial export |
 | IncludeTaskLogs | [Optional] Include the task log folder as part of the export |
-| EncryptPackage | [Optional] Encrypt the contents of your migration package (uses the `Password` as a shared key so this can be decrypted by your destination server) |
-| DestinationApiKey=VALUE | [Optional] The API key of your destination server (where will you likely be importing this exported package) |
-| DestinationPackageFeed=VALUE | [Optional] The desintation Octopus Server base URL (E.g. https://myOctopusServer.com) |
-| SuccessCallbackUri=VALUE | [Optional] A webhook URL you can add if you wish to be notified on successful completion of the migration task (your Octopus Server will call this URL using a GET request, appending the `packageId` and `packageVersion` to the URL) |
-| FailureCallbackUri=VALUE | [Optional] A webhook URL you can add if you wish to be notified on failure of the migration task (your Octopus Server will call this URL using a GET request) |
+| EncryptPackage | [Optional] Encrypt the contents of your migration package _(Uses the `Password` as a shared key so this can be decrypted by your destination server)_ |
+| DestinationApiKey=VALUE | [Optional] The API key of your destination server _(Where you'll be importing this exported package)_ |
+| DestinationPackageFeed=VALUE | [Optional] The desintation Octopus Server base URL _(E.g. https://myOctopusServer.com)_ |
+| SuccessCallbackUri=VALUE | [Optional] A webhook URL you can add if you wish to be notified on successful completion of the migration task _(Your Octopus Server will call this URL using a GET request, appending the `packageId` and `packageVersion` to the URL as querystring parameters)_ |
+| FailureCallbackUri=VALUE | [Optional] A webhook URL you can add if you wish to be notified on failure of the migration task _(Your Octopus Server will call this URL using a GET request)_ |
 | TaskId | [Response only] This will be populated with the TaskId that gets queued for this migration |
 
 ## Import API
 
-The import API allows you to import a migration package (in your built-in package feed) to your current Octopus Server.
+The import API allows you to import a migration package from your Octopus Server's built-in package feed (which is where packages are pushed to using the partial-export API).
 
 Import API parameters:
 
 | Parameter                      | Description |
 |--------------------------------|-------------|
-| Password=VALUE | Password that was used during the export migration (this is the shared key between partial-export and import migrations) |
+| Password=VALUE | Password that was used during the export migration _(This is the shared key between partial-export and import migrations)_ |
 | PackageId=VALUE | Package Name/ID that we are importing |
 | PackageVersion=VALUE | Semver package version that we are importing |
-| IsEncryptedPackage | [Optional] Tells the import migration whether the package was encrypted (E.g. if you set `EncryptPackage` on export, you need to set this to `True`) |
-| IsDryRun | [Optional] Do not commit changes, just print what would have happened. This allows you to test an import without actually committing the transaction |
+| IsEncryptedPackage | [Optional] Tells us whether the package was encrypted _(E.g. if you set `EncryptPackage` on export, you need to set this to `True`)_ |
+| IsDryRun | [Optional] Do not commit changes, just print what would have happened _(This allows you to test an import without actually committing the transaction)_ |
 | OverwriteExisting | [Optional] If a document with the same name already exists, it will be skipped by default |
 | DeletePackageOnCompletion | [Optional] Removes the migration package that you're importing from on successful completion of the import |
-| SuccessCallbackUri=VALUE | [Optional] A webhook URL you can add if you wish to be notified on successful completion of the migration task (your Octopus Server will call this URL using a GET request, appending the `packageId` and `packageVersion` to the URL) |
-| FailureCallbackUri=VALUE | [Optional] A webhook URL you can add if you wish to be notified on failure of the migration task (your Octopus Server will call this URL using a GET request) |
+| SuccessCallbackUri=VALUE | [Optional] A webhook URL you can add if you wish to be notified on successful completion of the migration task _(Your Octopus Server will call this URL using a GET request, appending the `packageId` and `packageVersion` to the URL)_ |
+| FailureCallbackUri=VALUE | [Optional] A webhook URL you can add if you wish to be notified on failure of the migration task _(Your Octopus Server will call this URL using a GET request)_ |
 | TaskId | [Response only] This will be populated with the TaskId that gets queued for this migration |
 
 ## Examples
 
 ### Raw request
 
-You could trigger a request however you prefer, using curl or Fiddler...
+You could trigger a request however you prefer, using curl, Fiddler or your tool of choice...
 
 #### Partial Export
 
@@ -120,10 +121,10 @@ Request Body:
 
 The [Octopus.Clients library](/docs/api-and-integration/octopus.client/index.md) can also help you run a migration.
 
-An example of what something like that might look like, end-to-end:
+Here's an example showing you what something like that might look like, performing a `partial-export` from a _source server_ and sending it to a _destination server_, then automatically running the associated `import` on said _destination server_:
 
 ```
-Add-Type -Path 'C:\Development\OctopusClients\source\Octopus.Client\bin\Debug\net45\Octopus.Client.dll'
+Add-Type -Path 'YOUR_LOCAL_PATH\Octopus.Client.dll'
 
 $sourceApikey = 'API-YOUR_SOURCE_API_KEY'
 $sourceOctopusURI = 'http://YOUR_SOURCE_OCTOPUS_SERVER'
