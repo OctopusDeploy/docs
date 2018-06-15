@@ -7,31 +7,34 @@ version: "2018.6.0"
 
 Octopus includes a migration API that provides the ability to back-up and restore parts of an Octopus Deploy instance remotely (available from version `2018.6.0`).
 
-The API currently includes support for both the [partial-export](/docs/api-and-integration/octopus.migrator.exe-command-line/partial-export.md) and [import](/docs/api-and-integration/octopus.migrator.exe-command-line/migrator-import.md) commands. The API uses the same [Migrator.exe command line tool](/docs/api-and-integration/octopus.migrator.exe-command-line/index.md) that you'd typically use if you were migrating data manually, but gives you some additional parameters to orchestrate the process between remote servers.
+The API currently includes support for both the [partial-export](/docs/api-and-integration/octopus.migrator.exe-command-line/partial-export.md) and [import](/docs/api-and-integration/octopus.migrator.exe-command-line/migrator-import.md) commands. The API uses the same [Migrator.exe command line tool](/docs/api-and-integration/octopus.migrator.exe-command-line/index.md) that you'd typically use to migrate data manually, but the API gives you some additional parameters to orchestrate the process between remote servers.
 
-## How it works
+## How it Works
 
-When you trigger a migration via the API, your Octopus Server will queue up a migration task that you can view from your `Tasks` screen. During execution of this task, your Octopus Server will be put into [maintenance mode](/docs/administration/upgrading/maintenance-mode.md) to try and minimize any data mutations during the migration. When the task is completed, it will be taken out of maintenance mode.
+When you trigger a migration via the API, your Octopus Server will queue up a migration task that you can view from your **Tasks** screen. During execution of this task, your Octopus Server will go into [maintenance mode](/docs/administration/upgrading/maintenance-mode.md) to try and minimize any data mutations during the migration. When the task is completed, it will be taken out of maintenance mode.
 
 :::warning
-We advise that you only use the migration API under the same conditions that you'd typically do a manual migration. I.e. During a maintenance period when you know that **1)** you're not going to interrupt your daily deployment operations and **2)** you'll minimize the chance of data mutations during the migration itself.
+We advise that you only use the migration API under the same conditions that you'd typically do a manual migration, i.e., during a maintenance period when you know that:
+
+ 1. You're not going to interrupt your daily deployment operations.
+ 1. You'll minimize the chance of data mutations during the migration itself.
 :::
 
-The typical process for migratiing projects between a source and destination server is as follows:
+The typical process for migrating projects between a source and destination server is as follows:
 
-- Create an API key for your source server (where you're exporting from).
-- Create an API key for your destination server (where you're importing to).
-- Get a list of project names that you wish to export from your source server.
-- Call the `partial-export` migration API against your source server, telling it the destination server URL, API key, password for your migration package and the list of project names you want to export _(You'll receive a 200 response from the API telling you the TaskId that has been queued to do the actual work)_.
-- _At this point, your source server's task queue will then execute the `partial-export` command using `Migrator.exe`, package up the contents of your export and push it to your destination server's package feed._
-- Watch your source server's migration task in the Octopus UI to know when this operation is complete ... _Or if you're really keen, you could write a script that queries the task API and to know when the migration task is complete (as seen in the [Octopus.Clients example](#octopus.clients-example) below)_.
-- Call the `import` migration API against your destination server, telling it the package and password to import from _(You'll receive a 200 response from the API telling you the TaskId that has been queued to do the actual work)_.
-- Your destination server's task queue will then execute an `import` command using `Migrator.exe`.
-- _At this point, your destination server's task queue will then execute the `import` command using `Migrator.exe`._
+1. Create an API key for your source server (the server you're exporting from).
+1. Create an API key for your destination server (the server you're importing to).
+1. Get a list of project names that you wish to export from your source server.
+1. Call the `partial-export` migration API against your source server, telling it the destination server URL, API key, password for your migration package, and the list of project names you want to export _(You'll receive a 200 response from the API telling you the TaskId that has been queued to do the actual work)_.
+1. At this point, your source server's task queue will then execute the `partial-export` command using `Migrator.exe`, package up the contents of your export and push it to your destination server's package feed.
+1. Watch your source server's migration task in the Octopus UI to know when this operation is complete ... _Or if you're really keen, you could write a script that queries the task API and it will let you know when the migration task is complete (as seen in the [Octopus.Clients example](#octopus.clients-example) below)_.
+1. Call the `import` migration API against your destination server, telling it the package and password to import from _(You'll receive a 200 response from the API telling you the TaskId that has been queued to do the actual work)_.
+1. Your destination server's task queue will then execute an `import` command using `Migrator.exe`.
+1. _At this point, your destination server's task queue will then execute the `import` command using `Migrator.exe`._
 
 ## Partial Export API
 
-Using the partial-export API, we can export one or more of our projects and choose to send the package to a destination Octopus Server's package feed.
+Using the partial-export API, we can export one or more of our projects and choose to send the package to the destination Octopus Server's package feed.
 
 Partial Export API parameters:
 
@@ -48,14 +51,14 @@ Partial Export API parameters:
 | IncludeTaskLogs | [Optional] Include the task log folder as part of the export |
 | EncryptPackage | [Optional] Encrypt the contents of your migration package _(Uses the `Password` as a shared key so this can be decrypted by your destination server)_ |
 | DestinationApiKey=VALUE | [Optional] The API key of your destination server _(Where you'll be importing this exported package)_ |
-| DestinationPackageFeed=VALUE | [Optional] The desintation Octopus Server base URL _(E.g. https://myOctopusServer.com)_ |
+| DestinationPackageFeed=VALUE | [Optional] The destination Octopus Server base URL _(E.g. https://myOctopusServer.com)_ |
 | SuccessCallbackUri=VALUE | [Optional] A webhook URL you can add if you wish to be notified on successful completion of the migration task _(Your Octopus Server will call this URL using a GET request, appending the `packageId` and `packageVersion` to the URL as querystring parameters)_ |
 | FailureCallbackUri=VALUE | [Optional] A webhook URL you can add if you wish to be notified on failure of the migration task _(Your Octopus Server will call this URL using a GET request)_ |
 | TaskId | [Response only] This will be populated with the TaskId that gets queued for this migration |
 
 ## Import API
 
-The import API allows you to import a migration package from your Octopus Server's built-in package feed (which is where packages are pushed to using the partial-export API).
+The import API lets you import a migration package from your Octopus Server's built-in package feed (which is where packages are pushed to when using the partial-export API).
 
 Import API parameters:
 
@@ -74,9 +77,9 @@ Import API parameters:
 
 ## Examples
 
-### Raw request
+### Raw Request
 
-You could trigger a request however you prefer, using curl, Fiddler or your tool of choice...
+You can trigger a request however you prefer, using curl, Fiddler, or your tool of choice...
 
 #### Partial Export
 
@@ -117,11 +120,11 @@ Request Body:
 }
 ```
 
-### Octopus.Clients example
+### Octopus.Clients Example
 
 The [Octopus.Clients library](/docs/api-and-integration/octopus.client.md) can also help you run a migration.
 
-Here's an example showing you what something like that might look like, performing a `partial-export` from a _source server_ and sending it to a _destination server_, then automatically running the associated `import` on said _destination server_:
+Here's an example showing you how that might look, performing a `partial-export` from a _source server_ and sending it to a _destination server_, then automatically running the associated `import` on the _destination server_:
 
 ```
 Add-Type -Path 'YOUR_LOCAL_PATH\Octopus.Client.dll'
