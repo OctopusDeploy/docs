@@ -4,22 +4,23 @@ description: How to create reusable steps
 position: 2
 ---
 
+Sometimes there isn't a built-in step template or a [community step template](/docs/deployment-process/steps/community-step-templates.md) available that does what you need. Or perhaps several of your projects have similar or identical steps. You can create your own custom step templates to reuse across your projects. You can also share them with the community.
+
 Custom step templates can be based on a built-in or installed community step templates. These custom step templates can be reused in projects and managed in the step template library.
 
 ## Creating Custom Step Templates
 
-Sometimes there isn't a step template for your situation available in the [Community Library](https://library.octopusdeploy.com/). Or perhaps several of your projects have similar or identical steps. You can create your own custom step templates to share with the community, or to reuse across your projects.
-
 To create your own step template, perform the following.
 
-1. Navigate to the {{Library,Step templates}} area and click the **Add** button  
-   ![Step templates library](step-templates-library.png "width=500")
+1. Navigate to the {{Library,Step templates}} area and click **Add**.
 2. Select a built-in step to base your custom step template on.  
-   ![Select built in step](step-templates-select-builtin.png "width=500")
-3. Populate the step template.   
-   ![Step template settings](step-templates-settings.png "width=500")
+3. Populate the step template. 
 
-There are three parts to any step template: step details, additional parameters, and settings.
+There are three parts to any step template:
+
+1. Step details.
+2. Additional parameters.
+3. Settings.
 
 ## Step
 
@@ -59,13 +60,9 @@ Custom step templates inherit their logo from the template that was used to crea
 
 ## Linking Custom Step Templates to Community Step Templates
 
-Once a day Octopus retrieves the latest step templates from the [Community Library](https://library.octopus.com/). At the end of that process it also tries to link them to the existing custom templates which might have been imported manually in the past. Once the link is established the custom template can receive updates directly from the [Community Library](https://library.octopus.com/). In Octopus 3.7.0 the link is created only when the custom template and the community template are identical. We decided to be strict to make sure we don't cause trouble by linking wrong templates together. Then we learned that the Import process in Octopus doesn't preserve the Version property which means none of the existing custom templates will be linked. In Octopus 3.7.2 we made this process a bit less strict and now the Version property doesn't have to match. We believe that if all other properties (except Version) match then we still are safe to link templates.
+Once a day Octopus retrieves the latest step templates from the [Community Library](https://library.octopus.com/). At the end of that process it also tries to link the community step templates to the any existing custom templates that have been imported manually in the past. Once the link is established the custom template can receive updates directly from the [Community Library](https://library.octopus.com/). If all the properties **except the version property** match the custom step template and the community step template will be linked.
 
 If the linking process isn't linking a template that you believe should be linked then more than likely you don't have the very latest version of the template. The easiest way to fix this problem is to manually update the template with the data from the [Community Library](https://library.octopus.com/).
-
-:::hint
-Name, all Parameters and Script Body property have to match for the linking process to consider two templates identical.
-:::
 
 ## Running Script Based Custom Step Templates
 
@@ -115,5 +112,5 @@ If you want to transport, backup, or share your custom step templates with the c
 Now you can take that exported template document and commit it to source control, or share it on the [Community Library](https://library.octopusdeploy.com/).
 
 :::success
-Take a look at the [contributing guide](https://github.com/OctopusDeploy/Library/blob/master/CONTRIBUTING.md) for the Community Library and submit your step template as a [pull request](https://github.com/OctopusDeploy/Library/pulls).
+Take a look at the [contributing guide](https://github.com/OctopusDeploy/Library/blob/master/.github/CONTRIBUTING.md) for the Community Library and submit your step template as a [pull request](https://github.com/OctopusDeploy/Library/pulls).
 :::

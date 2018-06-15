@@ -15,10 +15,10 @@ Octopus.Migrator import [<options>]
 
 Where `[<options>]` is any of:
 
-**Create release options**
+**Import options**
 
 ```text
-Partial export:
+Import:
       --instance=VALUE       [Optional] Name of the instance to use
       --directory=VALUE      Directory for imported files
       --password=VALUE       Password to decrypt any sensitive values
