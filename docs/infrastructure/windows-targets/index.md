@@ -39,7 +39,9 @@ Tentacles can be configured in Listening mode (recommended) or Polling mode. Lea
 
 ## Configure a Listening Tentacle (recommended)
 
-To complete the installation we need to configure communication between the Octopus Server and the Tentacle. This is done on both the server where you installed Tentacle and the central Octopus Deploy server. We'll start with the Octopus Server and come back to the Tentacle.
+To complete the installation we need to configure communication between the Octopus Server and the Tentacle. Listening Tentacles are recommended, but you can learn about the difference between Listening Tentacles and Polling Tentacles on the [Tentacle communication](/docs/infrastructure/windows-targets/tentacle-communication.md) page.
+
+You install a Listening Tentacle on both the server where you installed Tentacle and the central Octopus Deploy server. We'll start with the Octopus Server and come back to the Tentacle.
 
 1. In the **Octopus Web Portal**, navigate to the **Infrastructure** tab, select **Deployment Targets** and click **ADD DEPLOYMENT TARGET**.
 1. Select **Listening Tentacle**.
@@ -67,6 +69,8 @@ To allow your Octopus Deploy server to connect to the Tentacle, you'll need to a
 Don't forget to allow access in any intermediary firewalls between the Octopus server and your Tentacle (not just the Windows Firewall). For example, if your Tentacle server is hosted in Amazon EC2, you'll also need to modify the AWS security group firewall to tell EC2 to allow the traffic. Similarly if your Tentacle server is hosted in Microsoft Azure you'll also need to add an Endpoint to tell Azure to allow the traffic.
 
 ## Configure a Polling Tentacle
+
+Listening Tentacles are recommended, but you can learn about the difference between Listening Tentacles and Polling Tentacles on the [Tentacle communication](/docs/infrastructure/windows-targets/tentacle-communication.md) page.
 
 1. Select **Polling Tentacle** and click **next**.
 1. If you are using a proxy see [Proxy Support](/docs/infrastructure/windows-targets/proxy-support.md), or click **next**.
