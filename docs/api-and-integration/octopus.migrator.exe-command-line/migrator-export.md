@@ -13,10 +13,10 @@ Octopus.Migrator export [<options>]
 
 Where `[<options>]` is any of:
 
-**Create release options**
+**Export options**
 
 ```text
-Partial export:
+Export:
       --instance=VALUE       [Optional] Name of the instance to use
       --directory=VALUE      Directory for exported files
       --password=VALUE       Password to encrypt any sensitive values
