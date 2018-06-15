@@ -320,7 +320,7 @@ You don't have to provide sequential number for list items, that is `1, 2, 3...`
 
 #### Nested Lists
 
-You can nest lists, by adding four spaces before the nested list items.
+You can nest lists, by adding two spaces before the nested list items.
 
 #### Bullets
 
