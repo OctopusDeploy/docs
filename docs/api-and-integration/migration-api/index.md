@@ -11,10 +11,10 @@ The API currently includes support for both the [partial-export](/docs/api-and-i
 
 ## How it works
 
-When you trigger a migration via the API, your Octopus Server will queue up a migration task that you can view from your `Tasks` screen. During execution of this task, your Octopus Server will be put into [maintenance mode](/docs/administration/upgrading/maintenance-mode.md) to try and minimise any data mutations during the migration. When the task is completed, it will be taken out of maintenance mode.
+When you trigger a migration via the API, your Octopus Server will queue up a migration task that you can view from your `Tasks` screen. During execution of this task, your Octopus Server will be put into [maintenance mode](/docs/administration/upgrading/maintenance-mode.md) to try and minimize any data mutations during the migration. When the task is completed, it will be taken out of maintenance mode.
 
 :::warning
-We advise that you only use the migration API under the same conditions that you'd typically do a manual migration. I.e. During a maintenance period when you know that **1)** you're not going to interrupt your daily deployment operations and **2)** you'll minimise the chance of data mutations during the migration itself.
+We advise that you only use the migration API under the same conditions that you'd typically do a manual migration. I.e. During a maintenance period when you know that **1)** you're not going to interrupt your daily deployment operations and **2)** you'll minimize the chance of data mutations during the migration itself.
 :::
 
 The typical process for migratiing projects between a source and destination server is as follows:
@@ -119,7 +119,7 @@ Request Body:
 
 ### Octopus.Clients example
 
-The [Octopus.Clients library](/docs/api-and-integration/octopus.client/index.md) can also help you run a migration.
+The [Octopus.Clients library](/docs/api-and-integration/octopus.client.md) can also help you run a migration.
 
 Here's an example showing you what something like that might look like, performing a `partial-export` from a _source server_ and sending it to a _destination server_, then automatically running the associated `import` on said _destination server_:
 
