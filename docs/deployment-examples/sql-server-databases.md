@@ -70,22 +70,66 @@ Applications should run under their own accounts with the least amount of rights
 
 Having separate accounts for each environment can make automated database deployments very tricky.  Which account should be stored in source control?  All of them or none of them?  None of them.  Assign permissions to roles.  Attach the correct user for the environment to that role.
 
+Microsoft has provided a handy chart to see what permissions are available to what role.  
+
+![](permissions-of-database-roles.png)
+
 ### Fully Automated Database Deployments Permission Recommendation {#SQLServerdatabases-FullAutomationPermissions}
 
 Following DevOps principles, everything that can be automated should be automated.  This includes creating databases, user management, schema changes and data changes.  Octopus Deploy plus the third-party tool of your choice can handle that. The deployment account should have these roles assigned:
 
-- Server Roles: dbcreator and securityadmin
-- Database Role: db_datareader, db_datawriter, db_accessadmin, db_securityadmin, db_ddladmin, db_backupoperator
+- Server Permissions
+ - dbcreator -> ability to create new databases
+ - securityadmin -> ability to create new users and grant them permissions (you will need a check in place to ensure it doesn't grant random people sysadmin roles)
+- Database Permissions
+ - db_ddladmin -> can run any Data Definition Language (DDL) command in a database.
+ - db_datareader -> can read all the data from all user tables
+ - db_datawriter -> can add, delete, or change data from all user tables
+ - db_backupoperator -> can backup the database
+ - db_securityadmin -> modify role membership and manage permissions
+ - db_accessadmin -> can add or remove access to the database for logins
+ - Can View Any Definition
 
 Be sure to assign the deployment account those database roles in the model database.  That is the system database used by SQL Server as a base when a new database is created.  This means the deployment account will be assigned to those roles going forward.
-  
-### Manual User Creation With Everything Else Automated {#SQLServerdatabases-ManualUserPermissions}
 
-If granting that level of access is not workable or allowed we would recommend the following.  It can do anything but create users and grant them permissions.
+### Fully Automated Database Deployments Permission Recommendation {#SQLServerdatabases-ManualUsers}
 
-- Server Roles: dbcreator 
-- Database Role: db_datareader, db_datawriter, db_ddladmin, db_backupoperator
-The downside to this setup is you will be unable to create new schemas.  That is granted by db_accessadmin and db_securityadmin.
+Security Admins should be treated the same as System Admins, as they can grant permissions at the server level.  For security purposes, it is common to see that role restricted.  In that case, below are the recommended permissions.  It can do everything except create a new SQL Login.
+
+- Server Permissions
+ - dbcreator -> ability to create new databases
+- Database Permissions
+ - db_ddladmin -> can run any Data Definition Language (DDL) command in a database.
+ - db_datareader -> can read all the data from all user tables
+ - db_datawriter -> can add, delete, or change data from all user tables
+ - db_backupoperator -> can backup the database
+ - db_securityadmin -> modify role membership and manage permissions
+ - db_accessadmin -> can add or remove access to the database for logins
+ - Can View Any Definition
+ 
+### No Database Creation or User Creation Everything Else Automated {#SQLServerdatabases-ManualDbCreationAndUsers}
+
+If granting that level of access is not workable or allowed we would recommend the following.  It requires SQL Users to be manually created and the database to already exist.  The process can add existing users to databases as well as deploy everything.
+
+- Database Permissions
+ - db_ddladmin -> can run any Data Definition Language (DDL) command in a database.
+ - db_datareader -> can read all the data from all user tables
+ - db_datawriter -> can add, delete, or change data from all user tables
+ - db_backupoperator -> can backup the database
+ - db_securityadmin -> modify role membership and manage permissions
+ - db_accessadmin -> can add or remove access to the database for logins
+ - Can View Any Definition
+
+### Manual User Creation Both Server and Database {#SQLServerdatabases-ManualUserPermissions}
+
+Here is the most restrictive permissions for automating database deployments.  No new database users can be created.  No new schemas can be created.  Users cannot be added to roles.  Table and stored procedure changes can be made.
+
+- Database Permissions
+ - db_ddladmin -> can run any Data Definition Language (DDL) command in a database.
+ - db_datareader -> can read all the data from all user tables
+ - db_datawriter -> can add, delete, or change data from all user tables
+ - db_backupoperator -> can backup the database
+ - Can View Any Definition
 
 ## Third party tools {#SQLServerdatabases-Thirdpartytools}
 
