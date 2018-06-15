@@ -20,9 +20,9 @@ If you're looking for example deployments, see the [Deploying Applications examp
 4. Give the step a short memorable name.
 5. The **Execution Plan** tells the step where to run. Depending on the type of step you are configuring the options will vary:
 
-- Octopus Server. (Learn about [Running steps on the Octopus Server](/docs/deployment-process/steps/how-to-run-steps-on-the-octopus-server.md).)
-- Octopus Server on behalf of target roles.
-- Deployment targets.
+  - Octopus Server. (Learn about [Running steps on the Octopus Server](/docs/deployment-process/steps/how-to-run-steps-on-the-octopus-server.md).)
+  - Octopus Server on behalf of target roles.
+  - Deployment targets.
 
 6. If you are deploying to deployment targets or running the step on the server on behalf of deployment targets, you can deployment to all targets in parallel (default) or configure a rolling deployment. To configure a rolling deployment click *configure a rolling deployment* and specify the window size for the deployment. The window size controls how many deployment targets will be deployed to in parallel.
 
