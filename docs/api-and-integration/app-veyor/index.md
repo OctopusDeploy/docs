@@ -1,7 +1,7 @@
 ---
 title: AppVeyor Integration
 description: Octopus Deploy can be seamlessly integrated with your AppVeyor build chain.
-position: 12
+position: 120
 ---
 
 [AppVeyor](https://ci.appveyor.com) is a cloud-based continuous integration system that integrates natively with your source control and allows CI configuration files to live alongside your projects. This page will guide you through leveraging AppVeyor's build chain with Octopus Deploy's deployment capabilities.
@@ -10,7 +10,7 @@ position: 12
 Create a new AppVeyor project and use the Git repository `https://github.com/OctopusSamples/RandomQuotes-aspmvc4` as the source.
 
 ### Build Phase
-Go to the Build page and add `nuget restore` to the `Before build script` command line input since AppVeyor will not perform this operation by default. 
+Go to the Build page and add `nuget restore` to the `Before build script` command line input since AppVeyor will not perform this operation by default.
 
 Under `Automatic Packaging` select `Package Web Applications for Octopus Deployment`. By ticking this box AppVeyor will run `octo.exe pack` after MSBuild has finished its `publish` command. _Keep in mind that since AppVeyor is doing a publish, some of the files that would usually be included by the [`OctoPack`](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md) MSBuild target might not be included by default (this includes the various `web.*.config` files). To ensure these files are included in the package make sure they are configured to `Copy to Output Directory` is Visual Studio.
 
