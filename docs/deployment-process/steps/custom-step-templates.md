@@ -58,6 +58,18 @@ You'll also see a handy counter next to the Usage tab so you can see at a glance
 
 Custom step templates inherit their logo from the template that was used to create them. This means that most of them will share the same logo. Fortunately this can be easily changed and each custom template can have its own unique logo. To do that navigate to the Settings tab and upload a custom logo from there.
 
+## Export Your Custom Step Template
+
+If you want to transport, backup, or share your custom step templates with the community, you can export a template by finding your template in {{Library,Step templates}}, and clicking the **Export** link.
+
+![Export step templates](step-templates-export.png "width=500")
+
+Now you can take that exported template document and commit it to source control, or share it on the [Community Library](https://library.octopusdeploy.com/).
+
+:::success
+Take a look at the [contributing guide](https://github.com/OctopusDeploy/Library/blob/master/.github/CONTRIBUTING.md) for the Community Library and submit your step template as a [pull request](https://github.com/OctopusDeploy/Library/pulls).
+:::
+
 ## Linking Custom Step Templates to Community Step Templates
 
 Once a day Octopus retrieves the latest step templates from the [Community Library](https://library.octopus.com/). At the end of that process it also tries to link the community step templates to the any existing custom templates that have been imported manually in the past. Once the link is established the custom template can receive updates directly from the [Community Library](https://library.octopus.com/). If all the properties **except the version property** match the custom step template and the community step template will be linked.
@@ -101,16 +113,4 @@ All steps have a name, which is used to identify the step.
 :::success
 **What&#39;s in a Name?**
 Be careful when changing names! Octopus commonly uses names as a convenient identity or handle to things, and the steps and actions in a deployment process are special in that way. For example you can use [output variables](/docs/deployment-process/variables/output-variables.md) to chain steps together, and you use the name as the indexer for the output variable. For example: `#{Octopus.Action[StepA].Output.TestResult}`
-:::
-
-## Export Your Custom Step Template
-
-If you want to transport, backup, or share your custom step templates with the community, you can export a template by finding your template in {{Library,Step templates}}, and clicking the **Export** link.
-
-![Export step templates](step-templates-export.png "width=500")
-
-Now you can take that exported template document and commit it to source control, or share it on the [Community Library](https://library.octopusdeploy.com/).
-
-:::success
-Take a look at the [contributing guide](https://github.com/OctopusDeploy/Library/blob/master/.github/CONTRIBUTING.md) for the Community Library and submit your step template as a [pull request](https://github.com/OctopusDeploy/Library/pulls).
 :::
