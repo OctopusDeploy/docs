@@ -46,10 +46,14 @@ An example of a Service Fabric cluster's DNS name is: `democtopus-sf1-secure.aus
 
 ## Step 2: Generate the client certificate
 
+:::warning
+Azure have recently updated their **Key vaults > Certificates** UI to allow generating self-signed certificates. If you're deploying to Azure and wish to generate a self-signed certificate for testing, please use their portal functions or cmdlets.
+:::
+
 Using PowerShell, you can easily generate a self-signed certificate for testing purposes.
 
 In this case, Octopus Server (the client) will be connecting to Service Fabric (the server) during a deployment. Therefore this client certificate will need to reside on your Octopus Server machine. If you do not install this certificate manually, Octopus will attempt to install it automatically as part of your [Server Fabric target's](/docs/infrastructure/azure/service-fabric-cluster-targets/index.md) health check.
-                                                                                                                             
+
 :::hint
 In this PowerShell, we print the value of the certificate's thumbprint. Be sure to remember this thumbprint value, as you will need to store it in your Azure Key Vault used by Service Fabric:
 :::
