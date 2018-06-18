@@ -6,7 +6,7 @@ position: 0
 
 Welcome!
 
-This section provides an overview of Octopus Deploy by explaining how Octopus Deploy fits into your application delivery pipeline. It provides an overview of the major concepts in Octopus and links to the relevant documentation, which explore the concepts further to guide you through implementing them with your own Octopus.
+This section provides an overview of Octopus Deploy by explaining how Octopus Deploy fits into your application delivery pipeline. It provides an overview of the major concepts in Octopus and links to the relevant documentation, which explore the concepts further and guide you through implementing them with your own [self-hosted Octopus](/docs/getting-started.md#self-hosted-octopus) or [Octopus Cloud](/docs/getting-started.md#octopus-cloud).
 
 ## Octopus in Your Delivery Process
 
@@ -36,17 +36,27 @@ We designed Octopus Deploy for teams that follow agile delivery practices. A typ
 
 As an Octopus user, you define the process for deploying the software. You specify the environments the applications are deployed to and who on your team can deploy to which environments; for instance, you might want testers to deploy to test environments, but not to production. Taking this approach means that even if different members of the team trigger deployments, the deployment process remains consistent.
 
-The rest of this guide goes into more detail about working with  Octopus Deploy and links to the relevant sections of the documentation for more information.
+The rest of this guide goes into more detail about working with Octopus Deploy and links to the relevant sections of the documentation for more information.
 
-## Install Octopus Deploy
+## Octopus Deploy
 
-Installing [Octopus Deploy](/docs/installation/index.md) sets up the central [Octopus Deploy Server](/docs/installation/index.md), which provides the [Octopus REST API](/docs/api-and-integration/api/index.md) and the **Octopus Web Portal** which you will use you manage your deployments.
+Octopus Deploy is available as both a [self-hosted](/docs/getting-started.md#self-hosted-octopus) offering or as a hosted offering called [Octopus Cloud](/docs/getting-started.md#octopus-cloud).
+
+## Self-Hosted Octopus
+
+Installing self-hosted [Octopus Deploy](/docs/installation/index.md) sets up the central [Octopus Deploy Server](/docs/installation/index.md), which provides the **Octopus Web Portal** and the [Octopus REST API](/docs/api-and-integration/api/index.md).
 
 The [installation documentation](/docs/installation/index.md) provides instructions for installing and configuring your Octopus Deploy server.
 
-### Access the Octopus Web Portal
+## Octopus Cloud
 
-Once Octopus is installed you can access the **Octopus Web Portal**. This is where you'll manage your infrastructure, projects, access the built-in repository, and deploy your applications from.
+**Octopus Cloud** is the hosted version of Octopus Deploy. We designed Octopus Cloud and self-hosted Octopus to provide the same functionality. There are some minor differences in [responsibilities](/docs/administration/security#responsibility) in that we're responsible for  taking backups, upgrading the service, maintaining and monitoring the underlying systems.
+
+You can sign up for Octopus Cloud at [www.octopus.com/accounts/register](www.octopus.com/accounts/register).
+
+### The Octopus Web Portal
+
+Whether you're using self-hosted or Octopus Cloud, he Octopus Web Portal is where you'll manage your infrastructure, projects, access the built-in repository, grant your team access to projects, and deploy your applications from.
 
 ![Octopus Dashboard](octopus-dashboard.png "width=500")
 
