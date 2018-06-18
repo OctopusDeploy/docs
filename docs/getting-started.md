@@ -50,9 +50,9 @@ The [installation documentation](/docs/installation/index.md) provides instructi
 
 ## Octopus Cloud
 
-**Octopus Cloud** is the hosted version of Octopus Deploy. We designed Octopus Cloud and self-hosted Octopus to provide the same functionality. There are some minor differences in [responsibilities](/docs/administration/security#responsibility) in that we're responsible for  taking backups, upgrading the service, maintaining and monitoring the underlying systems.
+**Octopus Cloud** is the hosted version of Octopus Deploy. We designed Octopus Cloud and self-hosted Octopus to provide the same functionality. There are some minor differences in [responsibilities](/docs/administration/security/index.md#responsibility) in that we're responsible for  taking backups, upgrading the service, maintaining and monitoring the underlying systems.
 
-You can sign up for Octopus Cloud at [www.octopus.com/accounts/register](www.octopus.com/accounts/register).
+You can sign up for Octopus Cloud at [www.octopus.com/accounts/register](https://www.octopus.com/accounts/register).
 
 ### The Octopus Web Portal
 
