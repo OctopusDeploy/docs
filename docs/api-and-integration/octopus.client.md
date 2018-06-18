@@ -1,7 +1,7 @@
 ---
 title: Octopus.Client
 description: Octopus.Client is an open source .NET library that makes it easy to write C# programs that interact with the Octopus Deploy REST API.
-position: 7
+position: 70
 ---
 
 Octopus.Client is an [open source](https://github.com/OctopusDeploy/OctopusClients) .NET library that makes it easy to write C# programs that manipulate the [Octopus Deploy REST API](/docs/api-and-integration/api/index.md).
@@ -27,7 +27,7 @@ Install-Package Octopus.Client
 The easiest way to use the client is via the `OctopusRepository` helper:
 
 ```c#
-var server = "http://myoctopusserver/";   
+var server = "http://myoctopusserver/";
 var apiKey = "API-XXXXXXXX";             // Get this from your 'profile' page in the Octopus web portal
 var endpoint = new OctopusServerEndpoint(server, apiKey);
 var repository = new OctopusRepository(endpoint);
@@ -44,7 +44,7 @@ repository.Users.SignIn(new LoginCommand { Username = "me", Password = "secret" 
 The easiest way to use the client is via the `OctopusAsyncClient`:
 
 ```c#
-var server = "http://myoctopusserver/";   
+var server = "http://myoctopusserver/";
 var apiKey = "API-XXXXXXXX";             // Get this from your 'profile' page in the Octopus web portal
 var endpoint = new OctopusServerEndpoint(server, apiKey);
 using (var client = await OctopusAsyncClient.Create(endpoint))

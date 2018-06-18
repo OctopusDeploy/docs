@@ -1,7 +1,7 @@
 ---
 title: Team Foundation Server (TFS) & Visual Studio Team Services (VSTS)
 description: Octopus Deploy integrates with TFS and VSTS to provide for a full automated build and deployment pipeline.
-position: 2
+position: 20
 ---
 
 Octopus Deploy integrates with Team Foundation Server and VSTS to provide for a full automated build and deployment pipeline. This section provides information about how to  integrate Octopus Deploy and the various verions of Microsoft's build server.
