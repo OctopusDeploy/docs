@@ -86,7 +86,7 @@ It's important to note that you can only run script based custom step templates.
 
 To run a script based step template, perform the following.
 
-1. Navigate to {{Library,Step templates}} area and click the **Run** button next to the script based custom step template or alternately, select a script template and click the **Run** button from the template editor page
+1. Navigate to {{Library,Step templates}} area and click the **Run** button next to the script based custom step template or alternately, select a script template and click the **Run** button from the template editor page.
 
    ![Run step template](step-templates-run.png "width=500")
 
