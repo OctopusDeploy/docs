@@ -1,7 +1,7 @@
 ---
 title: Custom Installation Directory
 description: The Custom Installation Directory feature allows you to have your package deployed to a specific location on the server.
-position: 1
+position: 10
 ---
 
 For [Package steps](/docs/deployment-examples/deploying-packages/index.md) & [IIS Steps](/docs/deployment-examples/iis-websites-and-application-pools.md), the Custom Installation Directory feature allows you to have your package deployed to a specific location on the server. This feature helps when you are using something like a Content Management System (CMS) or some other coordinating application which requires files to reside in a certain physical location.

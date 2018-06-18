@@ -126,7 +126,7 @@ let connectionString = Octopus.findVariableOrDefault "Default Value" "MyApp.Conn
 ```
 
 :::success
-To see the F# API available to your F# scripts, take a look at our [F# signature file](https://github.com/OctopusDeploy/Calamari/blob/develop/source/Calamari/Integration/Scripting/FSharp/Bootstrap.fsi).
+To see the F# API available to your F# scripts, take a look at our [F# signature file](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari.Shared/Integration/Scripting/FSharp/Bootstrap.fsi).
 :::
 
 ### Variables in PowerShell Scripts {#Customscripts-VariablesinPowerShellscripts}
