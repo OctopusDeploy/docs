@@ -24,7 +24,7 @@ An example web.config transformation that removes the `<compilation debug="true
 The team at [AppHarbor](https://appharbor.com/) created a useful tool to [help test configuration file transformations](https://webconfigtransformationtester.apphb.com/).
 :::
 
-### Naming Configuration Transform Files {#Configurationfiles-Namingconfigurationtransformfiles}
+## Naming Configuration Transform Files {#Configurationfiles-Namingconfigurationtransformfiles}
 
 This feature will run your configuration transforms based on looking for transform files named with the following conventions. The configuration transformation files can either be named `*.Release.config`, or `*.<Environment>.config` and will be executed in this order:
 
