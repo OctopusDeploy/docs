@@ -1,7 +1,7 @@
 ---
 title: Advanced Configuration Transforms Examples
 description: Configuration transforms examples to help configure advanced scenarios.
-position: 40
+position: 55
 ---
 
 Configuration transforms can sometimes be complicated to setup. As a general rule, its best to have both configuration file and transform file in the same directory, however, this is not always achievable.
