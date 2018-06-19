@@ -56,7 +56,7 @@ You can sign up for Octopus Cloud at [www.octopus.com/accounts/register](https:/
 
 ### The Octopus Web Portal
 
-Whether you're using self-hosted or Octopus Cloud, he Octopus Web Portal is where you'll manage your infrastructure, projects, access the built-in repository, grant your team access to projects, and deploy your applications from.
+Whether you're using self-hosted or Octopus Cloud, the Octopus Web Portal is where you'll manage your infrastructure, projects, access the built-in repository, grant your team access to projects, and deploy your applications from.
 
 ![Octopus Dashboard](octopus-dashboard.png "width=500")
 
