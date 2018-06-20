@@ -1,7 +1,7 @@
 ---
 title: Octopus - Tentacle Communication
 description: Octopus Server and Tentacle communications details.
-position: 1
+position: 40
 ---
 
 This page describes how the [Octopus Deploy server](/docs/installation/index.md) and the [Tentacle deployment agents](/docs/infrastructure/windows-targets/index.md) communicate in a secure way.
