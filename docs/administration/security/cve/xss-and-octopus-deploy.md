@@ -21,7 +21,7 @@ The responsibility for protecting against XSS attacks is shared between us as th
 
 ### What is Octopus Deploy responsible for?
 
-We take responsibility to provide commercially reasonable protection against XSS attacks. If you [find and report](https://octopus.com/security/disclosure) a specific XSS vulnerability, we will follow our practice of responsible disclosure.
+We take responsibility to provide commercially reasonable protection against XSS attacks. If you [find and report](https://octopus.com/security/disclosure) a specific XSS vulnerability, we will follow our practice of [responsible disclosure](https://octopus.com/security/disclosure).
 
 ### What is the customer responsible for?
 
@@ -64,7 +64,7 @@ Some places in Octopus Deploy allow a user to add rich content, like description
 
 When you sign in to the Octopus Deploy web user interface, the server will send back an encrypted cookie called `OctopusIdentificationToken` in the response header with the `HttpOnly=true` cookie flag set. Even if an attacker could successfully execute a malicious script, the browser will prevent that script from accessing the session cookie.
 
-In the worst case where an attacker could steal the sesion cookie, Octopus Deploy actively prevents against [Cross-Site Request Forgery](csrf-and-octopus-deploy.md).
+In the worst case where an attacker could steal the session cookie, Octopus Deploy actively prevents against [Cross-Site Request Forgery](csrf-and-octopus-deploy.md).
 
 ### A strict Content Security Policy (CSP) is configured
 
