@@ -1,7 +1,7 @@
 ---
 title: Configuration Transforms
 description: Using configuration transformations.
-position: 60
+position: 55
 ---
 
 If this feature is enabled, Tentacle will also look for any files that follow the Microsoft [web.config transformation process](https://msdn.microsoft.com/en-us/library/dd465326.aspx) – **even files that are not web.config files!** *Keep reading for examples.*
@@ -157,3 +157,5 @@ If these conventions aren’t enough to configure your application, you can alwa
 ## Troubleshooting {#Configurationfiles-Troubleshooting}
 
 If you're new to configuration transformation, first check the package(s) part of the deployment are structured and contain what you expect. Following on from that review the deployment logs and output of the package(s) on your deployment targets to get investigate any unexpected behavior. You can try using the `Octopus.Action.Package.TreatConfigTransformationWarningsAsErrors` variable defined in the [System Variables](/docs/deployment-process/variables/system-variables.md) section of the documentation while you set it up the first time.
+
+For advanced examples see: [Advanced Configuration Transform Examples](/docs/deployment-process/configuration-features/advanced-configuration-transforms-examples.md)

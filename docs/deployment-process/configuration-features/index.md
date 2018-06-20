@@ -2,6 +2,7 @@
 title: Configuration Features
 description: Configuring applications to work in specific environments is an essential part of deploying applications with Octopus Deploy and this can include updating database connection strings and app settings.
 position: 9
+hideInThisSection: true
 ---
 
 One of the essential steps in deploying software is configuring it to work with specific environments. This might mean pointing your application to the right database connection string, tweaking settings to run in production, or specifying a custom installation directory.
