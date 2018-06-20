@@ -13,7 +13,7 @@ You enable configuration features, as you define your deployment process. Compat
 
 You can configure the following features:
 
-1. [Custom Installation Directory](/docs/deployment-process/configuration-features/custom-installation-directory.md)
+- [Custom Installation Directory](/docs/deployment-process/configuration-features/custom-installation-directory.md)
 - IIS Web Site and Application Pool
 - Windows Service
 - Custom Deployment Scripts
