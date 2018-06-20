@@ -25,7 +25,7 @@ Package your Service Fabric application. See our guide to [Packaging a Service F
 
 ## Step 3: Create the Service Fabric application deployment step
 
-Add a new Service Fabric application deployment step to your project. For information about adding a step to the deployment process, see the [add step](/docs/deployment-process/steps/index.md) section.  
+Add a new Service Fabric application deployment step to your project. For information about adding a step to the deployment process, see the [add step](/docs/deployment-process/steps/index.md) section. 
 
 ## Step 4: Configure the connection to your Service Fabric application
 
@@ -59,9 +59,9 @@ Any of the settings above can be switched to use a variable binding expression. 
 The following features are available when deploying a package to a Service Fabric application:
 
 - [Custom Scripts](/docs/deployment-examples/custom-scripts/index.md)
-- [Configuration Variables](/docs/deployment-process/configuration-features/index.md)
-- [Configuration Transforms](/docs/deployment-process/configuration-features/index.md)
-- [JSON configuration variables](/docs/deployment-examples/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md)
+- [Configuration Variables](/docs/deployment-process/configuration-features/configuration-variables.md)
+- [Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms.md)
+- [JSON configuration variables](/docs/deployment-process/configuration-features/json-configuration-variables-feature.md)
 - [Substitute variables in files](/docs/deployment-process/variables/variable-substitution-syntax.md)
 
 :::hint
@@ -76,9 +76,9 @@ Deployment to a Service Fabric cluster proceeds as follows (more details provide
 2. Extract the package on the Octopus server to a temporary location
 4. Any configured or packaged `PreDeploy` scripts are executed
 6. [Substitute variables in files](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) (if configured)
-7. [XML configuration transformations](/docs/deployment-process/configuration-features/index.md) (if configured) are performed
-8. [XML configuration variables](/docs/deployment-process/configuration-features/index.md) (if configured) are replaced
-8. [JSON configuration variables](/docs/deployment-examples/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md) (if configured) are replaced
+7. [XML configuration transformations](/docs/deployment-process/configuration-features/configuration-transforms.md) (if configured) are performed
+8. [XML configuration variables](/docs/deployment-process/configuration-features/configuration-variables.md) (if configured) are replaced
+8. [JSON configuration variables](/docs/deployment-process/configuration-features/json-configuration-variables-feature.md) (if configured) are replaced
 9. Any configured or package `Deploy` scripts are executed
 10. Generic variable substitution is carried out across all `*.config` and `*.xml` files in the extracted package
 11. Execute the Service Fabric application deployment script (see 'Customizing the deployment process' section below)

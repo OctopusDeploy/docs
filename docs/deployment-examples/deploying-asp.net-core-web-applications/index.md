@@ -69,4 +69,4 @@ ASP.NET Core introduces a new JSON-based configuration file format. Octopus 3.3 
 
 ![JSON variable subsitute](5275656.png "width=500")
 
-For more information, see the section on the [JSON Configuration Variables Feature](/docs/deployment-examples/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md).
+For more information, see the section on the [JSON Configuration Variables Feature](/docs/deployment-process/configuration-features/json-configuration-variables-feature.md).
