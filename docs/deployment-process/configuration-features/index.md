@@ -13,15 +13,15 @@ You enable configuration features, as you define your deployment process. Compat
 You can configure the following features:
 
 1. [Custom Installation Directory](/docs/deployment-process/configuration-features/custom-installation-directory.md)
-1. IIS Web Site and Application Pool
-1. Windows Service
-1. Custom Deployment Scripts
-1. JSON Configuration Variables
-1. [Configuration Variables](/docs/deployment-process/configuration-features/configuration-variables.md)
-1. [Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms.md)
-1. [Substitute Variables in Files](/docs/deployment-process/configuration-features/substitute-variables-in-files.md)
-1. IIS6+ Home Directory
-1. Red Gate Database Deployment
+- IIS Web Site and Application Pool
+- Windows Service
+- Custom Deployment Scripts
+- JSON Configuration Variables
+- [Configuration Variables](/docs/deployment-process/configuration-features/configuration-variables.md)
+- [Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms.md)
+- [Substitute Variables in Files](/docs/deployment-process/configuration-features/substitute-variables-in-files.md)
+- IIS6+ Home Directory
+- Red Gate Database Deployment
 
 :::hint
 Note, only steps the features can be used with will have the features listed as options.
