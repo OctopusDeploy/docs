@@ -557,4 +557,4 @@ docs/deployment-process/configuration-files/configuration-transforms.md -> docs/
 docs/deployment-process/configuration-files/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md -> docs/deployment-examples/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md
 docs/deployment-process/configuration-files/configuration-variables.md -> docs/deployment-process/configuration-features/configuration-variables.md
 docs/deployment-process/configuration-files/custom-install-directory.md -> docs/deployment-process/configuration-features/custom-installation-directory.md
-docs/deployment-process/configuration-files/subsitute-variables-in-files.md -> docs/deployment-process/configuration-features/subsitute-variables-in-files.md
+docs/deployment-process/configuration-files/substitute-variables-in-files.md -> docs/deployment-process/configuration-features/substitute-variables-in-files.md
