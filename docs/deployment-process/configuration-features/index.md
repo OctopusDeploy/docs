@@ -17,7 +17,7 @@ You can configure the following features:
 1. Windows Service
 1. Custom Deployment Scripts
 1. JSON Configuration Variables
-1. [Configuration Variables](deployment-process/configuration-features/configuration-variables.md)
+1. [Configuration Variables](/docs/deployment-process/configuration-features/configuration-variables.md)
 1. [Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms.md)
 1. [Substitute Variables in Files](/docs/deployment-process/configuration-features/substitute-variables-in-files.md)
 1. IIS6+ Home Directory
