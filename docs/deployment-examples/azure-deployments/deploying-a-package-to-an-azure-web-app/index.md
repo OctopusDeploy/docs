@@ -45,8 +45,8 @@ Any of the settings above can be switched to use a variable binding expression. 
 The following features are available when deploying a package to an Azure Web App.
 
 - [Custom Scripts](/docs/deployment-examples/custom-scripts/index.md)
-- [Configuration Variables](/docs/deployment-process/configuration-files/index.md)
-- [Configuration Transforms](/docs/deployment-process/configuration-files/index.md)
+- [Configuration Variables](/docs/deployment-process/configuration-features/index.md)
+- [Configuration Transforms](/docs/deployment-process/configuration-features/index.md)
 - [JSON configuration variables](/docs/deployment-examples/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md)
 - [Substitute variables in files](/docs/deployment-process/variables/variable-substitution-syntax.md)
 
@@ -70,9 +70,9 @@ When the `Deploy an Azure Web App` step gets executed, the below actions will ha
 1. Download the package from the [package repository](/docs/packaging-applications/package-repositories/index.md)
 2. Extract the package on the Octopus server to a temporary location
 3. Any configured or packaged `PreDeploy` scripts are executed
-4. [Substitute variables in files ](/docs/deployment-process/configuration-files/substitute-variables-in-files.md)(if configured)
-5. [XML configuration transformations](/docs/deployment-process/configuration-files/index.md) (if configured) are performed
-6. [XML configuration variables](/docs/deployment-process/configuration-files/index.md) (if configured) are replaced
+4. [Substitute variables in files ](/docs/deployment-process/configuration-features/substitute-variables-in-files.md)(if configured)
+5. [XML configuration transformations](/docs/deployment-process/configuration-features/index.md) (if configured) are performed
+6. [XML configuration variables](/docs/deployment-process/configuration-features/index.md) (if configured) are replaced
 7. Any configured or packaged `Deploy` scripts are executed
 8. Push your package content to the Web App in Azure.
 9. Any configured or packaged `PostDeploy` scripts are executed

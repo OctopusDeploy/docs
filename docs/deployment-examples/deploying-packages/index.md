@@ -51,6 +51,6 @@ You can enable or disable features by clicking **Configure features**.
 
 For more details on some of the features, see the topics below.
 
-- [Configuration files](/docs/deployment-process/configuration-files/index.md)
+- [Configuration files](/docs/deployment-process/configuration-features/index.md)
 - [Windows Services](/docs/deployment-examples/windows-services.md)
 - [IIS Websites and Application Pools](/docs/deployment-examples/iis-websites-and-application-pools.md)

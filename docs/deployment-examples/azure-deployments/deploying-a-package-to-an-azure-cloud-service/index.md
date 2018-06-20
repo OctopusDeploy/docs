@@ -46,8 +46,8 @@ Any of the settings above can be switched to use a variable binding expression. 
 The following features are available when deploying a package to an Azure Cloud Service:
 
 - [Custom Scripts](/docs/deployment-examples/custom-scripts/index.md)
-- [Configuration Variables](/docs/deployment-process/configuration-files/index.md)
-- [Configuration Transforms](/docs/deployment-process/configuration-files/index.md)
+- [Configuration Variables](/docs/deployment-process/configuration-features/index.md)
+- [Configuration Transforms](/docs/deployment-process/configuration-features/index.md)
 - [JSON configuration variables](/docs/deployment-examples/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md)
 - [Substitute variables in files](/docs/deployment-process/variables/variable-substitution-syntax.md)
 
@@ -82,9 +82,9 @@ Deployment to an Azure Cloud Service proceeds as follows (more details provided 
 3. Extract the Cloud Service package (`.cspkg`) to a temporary location
 4. Any configured or packaged `PreDeploy` scripts are executed
 5. Variable substitutions in Cloud Service configuration file (`.cscfg`)
-6. [Substitute variables in files](/docs/deployment-process/configuration-files/substitute-variables-in-files.md) (if configured)
-7. [XML configuration transformations](/docs/deployment-process/configuration-files/index.md) (if configured) are performed
-8. [XML configuration variables](/docs/deployment-process/configuration-files/index.md) (if configured) are replaced
+6. [Substitute variables in files](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) (if configured)
+7. [XML configuration transformations](/docs/deployment-process/configuration-features/index.md) (if configured) are performed
+8. [XML configuration variables](/docs/deployment-process/configuration-features/index.md) (if configured) are replaced
 9. Any configured or package `Deploy` scripts are executed
 10. Re-package the Cloud Service Package
 11. Upload the Cloud Service Package to Azure Storage
