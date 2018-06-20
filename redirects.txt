@@ -558,4 +558,4 @@ docs/deployment-process/configuration-files/configure-environment-specific-confi
 docs/deployment-process/configuration-files/configuration-variables.md -> docs/deployment-process/configuration-features/configuration-variables.md
 docs/deployment-process/configuration-files/custom-installation-directory.md -> docs/deployment-process/configuration-features/custom-installation-directory.md
 docs/deployment-process/configuration-files/substitute-variables-in-files.md -> docs/deployment-process/configuration-features/substitute-variables-in-files.md
-docs/deployment-process/configuration-files/confiuration-variables.md -> docs/deployment-process/configuration-files/configuration-variables
+docs/deployment-process/configuration-files/confiuration-variables.md -> docs/deployment-process/configuration-features/configuration-variables.md
