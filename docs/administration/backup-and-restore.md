@@ -1,7 +1,7 @@
 ---
 title: Backup and Restore
 description: Information on where Octopus data is stored and how to backup and restore an Octopus instance.
-position: 100
+position: 110
 ---
 
 A successful disaster recovery plan for Octopus Deploy requires the ability to restore both:

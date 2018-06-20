@@ -1,7 +1,7 @@
 ---
 title: Auditing
 description: Octopus Deploy captures audit information whenever significant events happen in the system.
-position: 0
+position: 30
 ---
 
 For team members to collaborate in the deployment of software, there needs to be trust and accountability. Octopus Deploy captures audit information whenever significant events happen in the system.

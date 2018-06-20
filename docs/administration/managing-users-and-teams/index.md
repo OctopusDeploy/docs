@@ -1,7 +1,7 @@
 ---
 title: Managing Users and Teams
 description: Octopus users can be organized in to teams and given various permissions via roles based security.  Teams can be further restricted to specific projects, environments and more.
-position: 300
+position: 130
 ---
 
 Octopus Deploy provides the most value when it is used by your whole team. Developers and testers might be allowed to deploy specific projects to pre-production environments, but not production environments. Stakeholders might be permitted to view certain projects, but not modify or deploy them. To support these scenarios, Octopus supports a permissions system based around the concept of **Teams**.

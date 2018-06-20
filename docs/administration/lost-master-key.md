@@ -1,7 +1,7 @@
 ---
 title: Recovering After Losing Your Octopus Server and its Master Key
 description: Sometimes the worst possible thing happens. The machine hosting Octopus Server dies irrecoverably, and you realize you didn't backup your master key! This guide will help you get back up and running.
-position: 0
+position: 40
 ---
 
 Sometimes the worst possible thing happens. The machine hosting Octopus Server dies irrecoverably, and you've discovered you don't have your master key! Whilst you cannot recover the data encrypted with your missing master key, this guide will help you get back up and running again.

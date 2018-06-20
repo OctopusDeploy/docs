@@ -1,7 +1,7 @@
 ---
 title: Managing Multiple Instances
 description: Octopus and Tentacle Manager both have the ability to manage multiple instances.
-position: 200
+position: 120
 ---
 
 In normal usage, there is one Octopus Deploy server, and one instance of the Tentacle agent running on each of the machines that you plan to deploy to, or deployment targets configured for Azure or SSH endpoints. But sometimes it's necessary to run multiple copies of Octopus and Tentacle on the same machine, perhaps with different configuration, or running under different user accounts. To support this, Octopus and Tentacle have the notion of "Instances".

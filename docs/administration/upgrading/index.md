@@ -1,7 +1,7 @@
 ---
 title: Upgrading
 description: Everything you need to know about upgrade Octopus to a newer version.
-position: 1
+position: 50
 ---
 
 We release new versions of Octopus Deploy often, so we try to make the process of upgrading Octopus easy. This page outlines the process of upgrading between Octopus versions. This page describes some of the general concepts around upgrading Octopus, and we provide guides for the more complicated upgrades.

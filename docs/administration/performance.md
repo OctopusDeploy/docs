@@ -1,7 +1,7 @@
 ---
 title: Performance
 description: Octopus is all about reliable and repeatable deployments, but that doesn't mean it has to be slow. This page will help you tune your Octopus installation for the best performance in your scenario.
-position: 10
+position: 60
 ---
 
 Over the years we have built Octopus to enable reliable and repeatable deployments, but that doesn't necessarily mean it has to be slow. In fact, Octopus can scale with you as you grow. Some Octopus customers are reliably deploying hundreds of projects to many thousands of deployment targets from a single [Octopus High Availability](/docs/administration/high-availability/index.md) cluster.

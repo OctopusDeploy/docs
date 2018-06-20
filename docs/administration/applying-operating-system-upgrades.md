@@ -1,7 +1,7 @@
 ---
 title: Applying Operating System Upgrades
 description: This is the procedure you should follow when applying patches to the Operating System where Octopus Server is hosted.
-position: 0
+position: 20
 ---
 
 You should schedule regular maintenance of the Operating System hosting your Octopus Server to maintain the integrity, performance, and security of your deployments.
