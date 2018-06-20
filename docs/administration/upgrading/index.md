@@ -1,5 +1,5 @@
 ---
-title: Upgrading
+title: Upgrading Octopus
 description: Everything you need to know about upgrade Octopus to a newer version.
 position: 50
 ---
