@@ -34,9 +34,9 @@ The *Exclude from purge* list must be a newline-seperated list of file or direct
 > appsettings.config
 >
 > Config
-
+>
 > Config\\*.config
-
+>
 > **\\*.config
 
 ## How the Packages are Deployed
