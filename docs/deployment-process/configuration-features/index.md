@@ -14,9 +14,9 @@ You enable configuration features, as you define the [steps](/docs/deployment-pr
 1. If the step you are defining has configuration features available, there is a **CONFIGURE FEATURES** link. Click this link.
 1. Select the features you would like to enable by clicking the relevant checkboxes in the list and click **OK**.
 
-The features you have enabled will now be available in the **Features** section of the step you are defining.
-
 ![Configuration Transforms screenshot](configuration-transforms.png)
+
+The features you have enabled will now be available in the **Features** section of the step you are defining.
 
 :::hint
 Only steps the features can be used with, will have the features listed as options.
