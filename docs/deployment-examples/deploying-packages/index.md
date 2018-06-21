@@ -4,16 +4,16 @@ description: Package steps allow you to deploy your applications and services th
 position: 0
 ---
 
-When defining your [deployment process](/docs/deployment-examples/index.md), the most common step type will be a package step. This step type allows you to deploy an [application that you have packaged](/docs/packaging-applications/index.md) onto one or more deployment targets.
+When defining your [deployment process](/docs/deployment-examples/index.md), the most common step type will be a package step. This step deploys your [packaged application](/docs/packaging-applications/index.md) onto one or more deployment targets.
 
 The process of deploying a package looks approximately like this:
 
-1. Acquire the package as optimally as possible (local package cache and [delta compression](/docs/deployment-examples/deploying-packages/delta-compression-for-package-transfers.md))
-1. Create a new folder for the deployment (which avoids many common problems like file locks and leaving stale files behind)
-    - Example: `C:\Octopus\Applications\[Tenant name]\[Environment name]\[Package name]\[Package version]\` where `C:\Octopus\Applications` is the Tentacle application directory you configured when installing Tentacle)
-1. Extract the package into the newly created folder
-1. Execute each of your [custom scripts](/docs/deployment-examples/custom-scripts/index.md) and the [deployment features](/docs/deployment-examples/index.md) you've configured will be executed to perform the deployment [following this order by convention](/docs/deployment-examples/deploying-packages/package-deployment-feature-ordering.md).
-1. [Output variables](/docs/deployment-process/variables/output-variables.md) and deployment [artifacts](/docs/deployment-process/artifacts.md) from this step are sent back to the Octopus Server
+1. Acquire the package as optimally as possible (local package cache and [delta compression](/docs/deployment-examples/deploying-packages/delta-compression-for-package-transfers.md)).
+1. Create a new folder for the deployment (which avoids many common problems like file locks and leaving stale files behind).
+    - Example: `C:\Octopus\Applications\[Tenant name]\[Environment name]\[Package name]\[Package version]\` where `C:\Octopus\Applications` is the Tentacle application directory you configured when installing Tentacle).
+1. Extract the package into the newly created folder.
+1. Execute each of your [custom scripts](/docs/deployment-examples/custom-scripts/index.md) and the [deployment features](/docs/deployment-examples/index.md) you've configured will be executed to perform the deployment [following this order by. convention](/docs/deployment-examples/deploying-packages/package-deployment-feature-ordering.md).
+1. [Output variables](/docs/deployment-process/variables/output-variables.md) and deployment [artifacts](/docs/deployment-process/artifacts.md) from this step are sent back to the Octopus Server.
 
 :::hint
 **Package deployment feature ordering**
