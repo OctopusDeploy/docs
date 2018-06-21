@@ -5,7 +5,7 @@ position: 4
 version: "[3.0,)"
 ---
 
-[Calamari](/docs/api-and-integration/calamari.md) can execute on the [Mono framework](http://www.mono-project.com/), allowing Octopus to deploy via SSH to *nix operating systems.
+[Calamari](/docs/api-and-integration/calamari.md) can execute on the [Mono framework](http://www.mono-project.com/), allowing Octopus to deploy via SSH to \*nix operating systems.
 
 Version 3.10 or greater of Mono is required however we recommended a minum of version `4.8.0`.
 
@@ -38,7 +38,7 @@ Although previous versions of mono should work in most deployment scenarios, any
 
 ### Configuration Transformations only available in Mono >= 4.2.3  
 
-The [Configuration Transforms](/docs/deployment-process/configuration-features/configuration-variables/index.md) feature will only work on Mono 4.2.3 and above.
+The [Configuration Transforms](/docs/deployment-process/configuration-features/configuration-variables.md) feature will only work on Mono 4.2.3 and above.
 
 This was due to a [bug with XML Transformations](https://bugzilla.xamarin.com/show_bug.cgi?id=19426).
 
