@@ -26,10 +26,11 @@ The team at [AppHarbor](https://appharbor.com/) created a useful tool to [hel
 
 ## Naming Configuration Transform Files {#Configurationfiles-Namingconfigurationtransformfiles}
 
-This feature will run your configuration transforms based on looking for transform files named with the following conventions. The configuration transformation files can either be named `*.Release.config`, or `*.<Environment>.config` and will be executed in this order:
+This feature will run your configuration transforms based on looking for transform files named with the following conventions. The configuration transformation files can either be named `*.Release.config`, `*.<Environment>.config`, or `*.<Tenant>.config` and will be executed in this order:
 
 1. `*.Release.config`
 2. `*.<Environment>.config`
+3. `*.<Tenant>.config`
 
 For an **ASP.NET Web Application**, suppose you have the following files in your package:
 
