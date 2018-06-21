@@ -26,6 +26,8 @@ Defining a variable with the directory path, means you can scope different value
  | CustomInstallDirectory | \path\to\test\directory\ | Test |
  | CustomInstallDirectory | \path\to\production\directory\ | production |
 
+ Read more about [variables](/docs/deployment-process/variables/index.md).
+
 5. If you would like to remove existing files from the custom installation directory before your deployed files are copied to it, check the **Purge** checkbox.
 6. If there are files you would like to exclude from the purge, add the files and directories you want to keep to the *Exclude from purge* list. This feature was introduced in `Octopus 3.13.8`.
 
