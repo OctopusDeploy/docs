@@ -32,9 +32,12 @@ Defining a variable with the directory path, means you can scope different value
 The *Exclude from purge* list must be a newline-seperated list of file or directory names, relative to the installation directory. To exclude an entire directory specify it by name without a wildcard. Extended wildcard syntax is supported. for instance:
 
 appsettings.config
+
 Config
-Config\*.config
-/*/*\*.config
+
+Config\\*.config
+
+**\*.config
 
 ## How the Packages are Deployed
 
