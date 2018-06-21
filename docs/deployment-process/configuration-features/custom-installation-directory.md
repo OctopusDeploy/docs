@@ -1,40 +1,42 @@
 ---
 title: Custom Installation Directory
-description: The Custom Installation Directory feature allows you to have your package deployed to a specific location on the server.
+description: The Custom Installation Directory feature deploys your package to a specific location on the server.
 position: 10
 ---
+You can specify a custom installation directory for [package](/docs/deployment-examples/deploying-packages/index.md) and [IIS](/docs/deployment-examples/iis-websites-and-application-pools.md) steps. The custom installation directory feature deploys your package to a specific location on the target server. This feature helps when you are using a Content Management System (CMS) or another coordinating application that requires your files to be in specific locations.
 
-For [Package steps](/docs/deployment-examples/deploying-packages/index.md) & [IIS Steps](/docs/deployment-examples/iis-websites-and-application-pools.md), the Custom Installation Directory feature allows you to have your package deployed to a specific location on the server. This feature helps when you are using something like a Content Management System (CMS) or some other coordinating application which requires files to reside in a certain physical location.
+Only use the *custom installation directory* feature when you really need it.
 
-:::success
-Only use the Custom Installation Directory feature when it is truly required. Out of the box, Octopus will usually do the right thing when deploying your package. You can read more about [how packages are deployed by convention](/docs/deployment-examples/deploying-packages/index.md), and the [order of each step in the process](/docs/deployment-examples/deploying-packages/package-deployment-feature-ordering.md). The standard convention eliminates problems caused by file locks and stale files being left in the deployment folder. It also provides smoother deployments and less downtime for Windows Services and Web Applications.
-:::
+The standard convention for deploying packages eliminates problems caused by file locks and stale files being left in the deployment folder. It also provides smoother deployments and less downtime for Windows Services and Web Applications, so before you configure a custom installation directory, review the [package deployment convention](/docs/deployment-examples/deploying-packages/index.md) and [package deployment feature ordering](/docs/deployment-examples/deploying-packages/package-deployment-feature-ordering.md) to be certain that you need to configure a custom installation directory.
 
-In your *Package Deploy* or *IIS* steps, look for the **Configure Features** link at the bottom
+## Add a Custom Installation Directory
 
-![](/docs/images/3048085/5865882.jpg "width=500")
+1. From your *Package Deploy* or *IIS* [step](/docs/deployment-process/steps/index.md), click the **Configure Features** link.
+2. Check the **Custom Installation Directory** checkbox and click **Ok**.
 
-Then select the feature **Custom Installation Directory**
+When you return to your deployment process, you will see the **Custom Install Directory** option had been added to the **Features** section.
 
-![](/docs/images/3048085/3277679.png)
+3. Expand the **Custom Install Directory**.
+4. You can enter the directory as the path to the directory, or you can insert a [variable](/docs/deployment-process/variables/index.md) if you have defined the path as a variable.
 
-You can either specify the full path of the folder, or make use of a variable like shown below.
+Defining a variable with the directory path, means you can scope different values to different environments. For instance:
 
-![](/docs/images/3048085/3277678.png)
+ | Variable Name    | Value     | Scope    |
+ | ----------------------- | --------------- | -------- |
+ | CustomInstallDirectory | \path\to\test\directory\ | Test |
+ | CustomInstallDirectory | \path\to\production\directory\ | production |
 
-The use of a variable means that you can scope different values to different environments.
+5. If you would like to remove existing files from the custom installation directory before your deployed files are copied to it, check the **Purge** checkbox.
+6. If there are files you would like to exclude from the purge, add the files and directories you want to keep to the *Exclude from purge* list. This feature was introduced in `Octopus 3.13.8`.
 
-![](/docs/images/3048085/3277677.png)
+The *Exclude from purge* list must be a newline-seperated list of file or directory names, relative to the installation directory. To exclude an entire directory specify it by name without a wildcard. Extended wildcard syntax is supported. for instance:
 
-The purge option will remove all files from the custom installation directory before your deployed files are copied to it.
+appsettings.config
+Config
+Config\*.config
+/*/*\*.config
 
-Octopus 3.13.8 introduced an enhancement to the *purge* option, which allows you to keep some files when purging the directory. Add the files and directories you want to keep to the *Exclude from purge* list.
-
-![exclude files and folders during purge](purging_exclusion_rules.png)
-
-:::hint
-Extended Wildcard syntax is supported in the same way as in [configuration transforms](/docs/deployment-process/configuration-features/configuration-transforms.md#relative-path).
-:::
+## How the Packages are Deployed
 
 Our Packages are extracted into a new directory each time (along the lines of C:\Octopus\Applications\\[Environment name\]\\[Package name\]\\[Package version\]\) , and this is no different for Custom Installation Directory.
 
