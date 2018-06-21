@@ -88,7 +88,7 @@ Transform.config => Target.config
 
 The above transform definition will apply **Transform.config** to **Target.config** when the files are in the same directory.
 
-### Relative Path {#Configurationfiles-Relativepath}
+### Relative Path
 
 **Relative path config transform**
 
