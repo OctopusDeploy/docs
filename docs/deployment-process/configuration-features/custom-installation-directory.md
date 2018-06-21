@@ -37,7 +37,7 @@ Config
 
 Config\\*.config
 
-**\*.config
+**\\*.config
 
 ## How the Packages are Deployed
 
