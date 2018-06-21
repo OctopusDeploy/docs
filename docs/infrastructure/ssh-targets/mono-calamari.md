@@ -34,7 +34,7 @@ We currently execute automated tests against the following platforms:
 ### TLSv1.2 Support available in Mono >= 4.8.0
 [TLSv1.2 support](http://www.mono-project.com/docs/about-mono/releases/4.8.0/#tls-12-support) was only included from Mono version `4.8.0`. Due to the weak cryptographic nature of older encryption algorithms, many websites are no longer providing support for TLSv1 TLSv1.1 and as such clients must ensure that they are able to use TLSv1.2 in order to communicate.
 
-Although previous versions of mono should work in most deployment scenarios, any deployments that involve the target accessing endpoints that require TLSv1.2 (for example downloading from [Maven](/docs/packaging-applications/package-repositories/maven-feeds) or [GitHub](/docs/packaging-applications/package-repositories/github-feeds) feeds) may fail.
+Although previous versions of mono should work in most deployment scenarios, any deployments that involve the target accessing endpoints that require TLSv1.2 (for example downloading from [Maven](/docs/packaging-applications/package-repositories/maven-feeds/index.md) or [GitHub](/docs/packaging-applications/package-repositories/github-feeds/index.md) feeds) may fail.
 
 ### Configuration Transformations only available in Mono >= 4.2.3  
 
