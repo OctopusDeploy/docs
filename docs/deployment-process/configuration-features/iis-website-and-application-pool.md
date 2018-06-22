@@ -6,4 +6,4 @@ position: 20
 
 !include <iis-feature>
 
-For an example deployment, see the [IIS Website and Application configuration in action](/docs/deployment-examples/iis-website-and-application-pools.md/#IISWebsitesandApplicationPools-IISconfigurationinaction).
+For an example deployment, see the [IIS Website and Application configuration in action](/docs/deployment-examples/iis-websites-and-application-pools.md/#IISWebsitesandApplicationPools-IISconfigurationinaction).
