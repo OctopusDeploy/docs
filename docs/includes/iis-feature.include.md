@@ -2,7 +2,7 @@ Configuring IIS is an essential part of deploying any ASP.NET web application. 
 
 To deploy to IIS, add a *Deploy to IIS* step. For information about adding a step to the [deployment process](/docs/deployment-process/index.md), see the [step](/docs/deployment-process/steps/index.md) section.
 
-![](iis-step.png "width=170")
+![IIS Step](/docs/includes/iis-step.png "width=170")
 
 ## Select a Package {#IISWebsitesandApplicationPools-SelectaPackage}
 
@@ -22,7 +22,7 @@ Understanding the difference between Sites, Applications and Virtual Directories
 
 ### Deploy IIS Web Site {#IISWebsitesandApplicationPools-DeployIISWebSiteweb-site}
 
-![](deploy-iis-web-site.png "width=500")
+![Deploy an IIS web site](/docs/includes/deploy-iis-web-site.png "width=500")
 
 
 | Field                     | Meaning                                  | Examples                                 | Notes                                    |
@@ -45,7 +45,7 @@ The IIS Virtual Directory step requires a parent Web Site to exist in IIS before
 2. Create any number of Web Applications and Virtual Directories as children of the parent Web Site
   :::
 
-![](deploy-iis-virtual-directory.png "width=500")
+![Deploy IIS Virtual Directory](/docs/includes/deploy-iis-virtual-directory.png "width=500")
 
 | Field                    | Meaning                                  | Examples                                 | Notes                                    |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
@@ -67,7 +67,7 @@ The IIS Web Application step requires a parent Web Site to exist in IIS before i
 
 :::
 
-![](deploy-iis-web-application.png "width=500")
+![Deploy IIS Web Application](/docs/includes/deploy-iis-web-application.png "width=500")
 
 :::success
 The Virtual Path and Physical Path do not need to match which is one of the true benefits of IIS. You can create a virtual mapping from a URL to a completely unrelated physical path on disk. See [below](/docs/deployment-examples/iis-websites-and-application-pools.md) for more details.
