@@ -56,11 +56,11 @@ Deployment processes can have one or many steps, steps can run in sequence or pa
 
 Learn more about [steps](/docs/deployment-process/steps/index.md).
 
-## Configuration Files
+## Configuration Features
 
 When you deploy your software, it needs to be configured for the specific environments it will be deployed to. Configuration files let you define custom installation directories, database connections, and other settings that make it possible to deploy your software.
 
-Learn more about [configuration files](/docs/deployment-process/configuration-features/index.md).
+Learn more about [configuration features](/docs/deployment-process/configuration-features/index.md).
 
 ## Variables
 
