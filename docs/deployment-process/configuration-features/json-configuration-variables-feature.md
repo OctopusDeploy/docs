@@ -1,7 +1,7 @@
 ---
 title: JSON Configuration Variables Feature
 description: The JSON Configuration Variables feature updates your JSON configuration files with the values from matching Octopus variables.
-position: 35
+position: 50
 ---
 
 The **JSON configuration variables** feature updates your JSON configuration files with the values from matching Octopus variables. In many ways this feature works similarly to the [Substitute Variables in Files](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) feature, but uses a special matching syntax so you can update configuration nested in JSON object and array literals.

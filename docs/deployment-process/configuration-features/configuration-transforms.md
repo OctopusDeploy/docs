@@ -1,7 +1,7 @@
 ---
 title: Configuration Transforms
 description: Using configuration transformations.
-position: 55
+position: 70
 ---
 
 If this feature is enabled, Tentacle will also look for any files that follow the Microsoft [web.config transformation process](https://msdn.microsoft.com/en-us/library/dd465326.aspx) – **even files that are not web.config files!** *Keep reading for examples.*
