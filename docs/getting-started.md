@@ -6,7 +6,7 @@ position: 0
 
 Welcome!
 
-This section provides an overview of Octopus Deploy by explaining how Octopus Deploy fits into your application delivery pipeline. It provides an overview of the major concepts in Octopus and links to the relevant documentation, which explore the concepts further and guide you through implementing them with your own [self-hosted Octopus](/docs/getting-started.md#self-hosted-octopus) or [Octopus Cloud](/docs/getting-started.md#octopus-cloud).
+This section provides an overview of Octopus Deploy by explaining how Octopus Deploy fits into your application delivery pipeline. It provides an overview of the major concepts in Octopus and links to the relevant documentation, which explore the concepts further and guide you through implementing them with your own [self-hosted](/docs/getting-started.md#self-hosted-octopus) or [cloud-hosted](/docs/getting-started.md#octopus-cloud) Octopus server.
 
 ## Octopus in Your Delivery Process
 
@@ -40,7 +40,7 @@ The rest of this guide goes into more detail about working with Octopus Deploy a
 
 ## Octopus Deploy
 
-Octopus Deploy is available as both a [self-hosted](/docs/getting-started.md#self-hosted-octopus) offering or as a hosted offering called [Octopus Cloud](/docs/getting-started.md#octopus-cloud).
+Octopus Deploy is available as a [self-hosted](/docs/getting-started.md#self-hosted-octopus) or [cloud-hosted](/docs/getting-started.md#octopus-cloud) server.
 
 ## Self-Hosted Octopus
 
@@ -50,13 +50,13 @@ The [installation documentation](/docs/installation/index.md) provides instructi
 
 ## Octopus Cloud
 
-**Octopus Cloud** is the hosted version of Octopus Deploy. We designed Octopus Cloud and self-hosted Octopus to provide the same functionality. There are some minor differences in [responsibilities](/docs/administration/security/index.md#responsibility) in that we're responsible for  taking backups, upgrading the service, maintaining and monitoring the underlying systems.
+**Octopus Cloud** is the hosted version of Octopus Deploy. We designed Octopus Cloud and self-hosted Octopus to provide the same functionality. There are some minor differences in [responsibilities](/docs/administration/security/index.md#responsibility) in that we're responsible for taking backups, upgrading the service, maintaining and monitoring the underlying systems.
 
-You can sign up for Octopus Cloud at [www.octopus.com/accounts/register](https://www.octopus.com/accounts/register).
+You can sign up for Octopus Cloud at [octopus.com/account/register](https://octopus.com/account/register) or check out the [Octopus Cloud FAQ](https://octopus.com/blog/octopus-cloud-faq) blog post.
 
 ### The Octopus Web Portal
 
-Whether you're using self-hosted or Octopus Cloud, the Octopus Web Portal is where you'll manage your infrastructure, projects, access the built-in repository, grant your team access to projects, and deploy your applications from.
+The Octopus Web Portal is where you'll manage your infrastructure, projects, access the built-in repository, grant your team access to projects, and create your automated deployments.
 
 ![Octopus Dashboard](octopus-dashboard.png "width=500")
 
