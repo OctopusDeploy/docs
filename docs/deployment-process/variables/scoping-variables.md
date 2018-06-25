@@ -77,5 +77,5 @@ Then, on your deployment step, you can set the **[Custom Install Directory](/doc
 
 ## Variables and permissions
 
-When applying permissions on variables via scopes, the only options that are checked against permissions are Environments, Machines and Tenants.
+When applying permissions on variables via scopes, the only options that are checked against permissions are Environments, Targets and Tenants.
 
