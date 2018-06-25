@@ -16,8 +16,9 @@ The standard convention for deploying packages eliminates problems caused by fil
 
 When you return to your deployment process, you will see the **Custom Install Directory** option had been added to the **Features** section.
 
-3. Expand the **Custom Install Directory**.
-4. You can enter the directory as the path to the directory, or you can insert a [variable](/docs/deployment-process/variables/index.md) if you have defined the path as a variable.
+3. Add the [step](/docs/deployment-process/steps/index.md) details.
+4. Expand the **Custom Install Directory**.
+5. You can enter the directory as the path to the directory, or you can insert a [variable](/docs/deployment-process/variables/index.md) if you have defined the path as a variable.
 
 Defining a variable with the directory path, means you can scope different values to different environments. For instance:
 
@@ -28,8 +29,8 @@ Defining a variable with the directory path, means you can scope different value
 
  Read more about [variables](/docs/deployment-process/variables/index.md).
 
-5. If you would like to remove existing files from the custom installation directory before your deployed files are copied to it, check the **Purge** checkbox.
-6. If there are files you would like to exclude from the purge, add the files and directories you want to keep to the *Exclude from purge* list. This feature was introduced in `Octopus 3.13.8`.
+6. If you would like to remove existing files from the custom installation directory before your deployed files are copied to it, check the **Purge** checkbox.
+7. If there are files you would like to exclude from the purge, add the files and directories you want to keep to the *Exclude from purge* list. This feature was introduced in `Octopus 3.13.8`.
 
 The *Exclude from purge* list must be a newline-seperated list of file or directory names, relative to the installation directory. To exclude an entire directory specify it by name without a wildcard. Extended wildcard syntax is supported. for instance:
 
@@ -40,6 +41,10 @@ The *Exclude from purge* list must be a newline-seperated list of file or direct
 > Config\\*.config
 >
 > **\\*.config
+
+8. Add any [conditions](/docs/deployment-process/conditions/index.md) you need to specify for the step, and then click **SAVE**.
+
+
 
 ## How the Packages are Deployed
 
