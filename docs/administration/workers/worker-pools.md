@@ -61,7 +61,7 @@ Cloud targets can set their own default pool.  If a step is targeted at a cloud 
 
 ## Workers Q&A
 
-*I've added a worker to the default pool, won't that machine get overworked?*
+*I've added only a single worker to the default pool, won't that machine get overworked?*
 
 Your server has a task cap governing how many deployment tasks can run in parallel.  Variable `Octopus.Action.MaxParallelism` then governs the amount of parallelism Octopus allows within a deployment task.  The amount of work the built-in worker could be asked to do at once is governed by these two numbers.  With external workers, it's the same, so a single external worker is only being asked to do the same amount of work the built-in was doing.  However, workers does give you the capability to spread that work over a number of machines, and to scale up how much work is being done.
 
