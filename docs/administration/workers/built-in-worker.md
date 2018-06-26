@@ -1,7 +1,7 @@
 ---
 title: Built-in Worker
 description: Octopus Server comes with a built-in worker which enables you to conveniently run parts of your deployment process on the Octopus Server without the need to install a Tentacle or other deployment target. This page describes how to configure the built-in worker for a variety of scenarios.
-position: 1
+position: 2
 ---
 
 Octopus Server comes with a built-in worker which enables you to conveniently run parts of your deployment process on the Octopus Server without the need to install a Tentacle or other deployment target. This is very convenient when you are getting started with Octopus Deploy, but it does come with several security implications.
@@ -12,13 +12,7 @@ This page describes how to configure the built-in worker for a variety of scenar
 
 ## Built-in worker
 
-Prior to **Octopus 3.0** you required a Tentacle somewhere to do work as part of a deployment. If you wanted to deploy a web site to Azure, you would need to configure a Tentacle as a deployment target and use it as a jump box, when all you needed to do was push your package to Azure and call some APIs. That Tentacle wasn't really a deployment target at all.
-
-In **Octopus 3.0** we added the concept of a **worker** into Octopus Server. Now you could install Octopus Server and deploy a web site to Azure in minutes all without any Tentacles involved.
-
-In **Octopus 3.3** we added a feature which lets you [run deployment steps on the Octopus Server](/docs/deployment-process/steps/how-to-run-steps-on-the-octopus-server.md) which again removed a lot of friction for scenarios other than deploying to Azure.
-
-However, this convenience comes at a cost: **security**.
+When the built-in worker is executed, the Octopus server spawns a new process for Calamari.  This conviently allows a default Octopus set up to to enable features like running script steps on the server and Azure deployments.  However, this convenience comes at a cost: **security**.
 
 ## Default configuration
 
@@ -28,13 +22,13 @@ When you first install Octopus Server the built-in worker is configured to run u
 
 ## Running tasks on the Octopus Server as a different user
 
-In **Octopus 2018.1** you can configure the built-in worker to execute tasks as a different user account. This user account can be a down-level account with very restricted privileges.
+You can configure the built-in worker to execute tasks as a different user account. This user account can be a down-level account with very restricted privileges.
 
 ```plaintext
 Octopus.Server.exe builtin-worker --username=OctopusWorker --password=XXXXXXXXXX
 ```
 
-All tasks which execute on the Octopus Server will run as that user account. The only gotcha is that the user account running the Octopus Server must be a member of the `BUILTIN\Administrators` group to launch new processes as the built-in worker user and impersonate the built-in worker user.
+All tasks which execute using the built-in worker will run as that user account. The only gotcha is that the user account running the Octopus Server must be a member of the `BUILTIN\Administrators` group to launch new processes as the built-in worker user and impersonate the built-in worker user.
 
 This same command-line tool can automatically configure the correct user accounts on the local machine, and wire it all up for you.
 
@@ -67,6 +61,16 @@ NOTE: This test succeeded when starting from the user account 'MACHINE-123\admin
 
 These changes require a restart of the Octopus Server.
 ```
+
+## Switching off the the built-in worker
+
+The built-in worker can be switched off.  If it is switched off, then the Octopus server does not invoke Calamari locally.  This will mean deployments containing steps that would have run on the built-in worker (Azure, AWS, Terraform, scripts steps targeted at the server) will fail unless an [external worker](external-workers.md) is provisioned.
+
+Turn the built-in worker off/on from the {{Configuration > Features}} page.
+
+The built-in worker will also not be used if any workers are added to the [default worker pool](worker-pools.md), but, unless it is switched off, Octopus will revert to using the built-in worker if all workers are later removed from the default pool.
+
+Note that [some steps](index.md#Where-steps-run) run inside the Octopus server process (not using Calamari) and don't need a worker.
 
 ## Troubleshooting
 
