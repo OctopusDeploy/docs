@@ -32,15 +32,13 @@ There are two kinds of workers you can use in Octopus:
 
 ## Built-in worker
 
-The **built-in worker** is executed on the same machine as the Octopus server.  When the built-in worker is needed to execute a step, the Octopus Server spawns a new process and runs the step using Calamari.  The spawned process is either under the server's security context (default) or under a [context configured for the built-in worker](/docs/administration/workers/built-in-worker.md#Running-tasks-on-the-Octopus-Server-as-a-different-user)
+The **built-in worker** is executed on the same machine as the Octopus server.  When the built-in worker is needed to execute a step, the Octopus Server spawns a new process and runs the step using Calamari.  The spawned process is either under the server's security context (default) or under a [context configured for the built-in worker](/docs/administration/workers/built-in-worker.md#Running-tasks-on-the-Octopus-Server-as-a-different-user).
 
 Learn about the security implications and how to configure the [built-in worker](built-in-worker.md).
 
-Learn about how Octopus picks a worker to execute a step and how to configure [worker pools](worker-pools.md).
-
 ## External workers
 
-An external worker is a tentacle or SSH machine.  An external worker allows delegating work to a machine other than the Octopus server.  This can make the server more secure and allow scaling.  When Octopus executes a step on an external worker, it's the external worker that executes Calamari and no user-provided script executes on the Octopus Server itself.
+An **external worker** is a tentacle or SSH machine.  An external worker allows delegating work to a machine other than the Octopus server.  This can make the server more secure and allow scaling.  When Octopus executes a step on an external worker, it's the external worker that executes Calamari and no user-provided script executes on the Octopus Server itself.
 
 Learn about [external workers](external-workers.md).
 
@@ -54,4 +52,4 @@ The choices of built-in worker, built-in worker running in a separate account, a
 
 ## Migrating to workers
 
-Octopus workers also provides a smooth path to move off the built-in worker, and thus off running scripts on the Octopus server, an onto external workers, without updating any deployment processes.  Learn about how to [use the default worker pool to move steps off the Octopus server](worker-pools.md#Using-the-default-pool-to-stop-running-scripts-on-the-server
+Octopus workers also provides a smooth path to move off the built-in worker, and thus off running scripts on the Octopus server, and onto external workers, without updating any deployment processes.  Learn about how to [use the default worker pool to move steps off the Octopus server](worker-pools.md#Using-the-default-pool-to-stop-running-scripts-on-the-server)

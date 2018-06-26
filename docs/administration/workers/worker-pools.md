@@ -24,7 +24,7 @@ For a step that requires a worker, Octopus selects
 Given the determination of a pool, Octopus then selects
 
 - the built-in worker, if the step resolves to the default pool and there are no workers in the default pool, or
-- any healthy worker from the pool.
+- a healthy worker from the pool, otherwise.
 
 Octopus makes no other guarantees about what worker is picked from a pool.
 
@@ -46,7 +46,7 @@ You can add as many worker pools as you need.
 
 ## Configuring a step to use a worker pool
 
-If there are worker pools configured any step that requires a worker can be targeted at any pool.  It's possible to use multiple pools in the one deployment process, for example, if you configured one pool of workers for script steps and another for Azure deployments.  Once there are worker pools configured the **Octopus Web Portal** will ensure a pool is set for any step that requires a worker.
+If there are worker pools configured, any step that requires a worker can be targeted at any pool.  It's possible to use multiple pools in the one deployment process, for example, if you configured one pool of workers for script steps and another for Azure deployments.  Once there are worker pools configured, the **Octopus Web Portal** will ensure a pool is set for any step that requires a worker.
 
 :::hint
 **What's shown in the UI?**
