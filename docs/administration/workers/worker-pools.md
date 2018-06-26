@@ -58,3 +58,22 @@ The **Octopus Web Portal** is worker pool aware.  If you haven't configured pool
 ## Configuring a cloud target to have a default worker pool
 
 Cloud targets can set their own default pool.  If a step is targeted at a cloud target and the worker pool for the step is the default pool, the cloud target's default pool is used.  This allows setting up workers that are co-located with cloud targets.  Another option is locking down cloud targets so the only machines that can deploy are co-located polling workers.
+
+## Workers Q&A
+
+*I've added a worker to the default pool, won't that machine get overworked?*
+
+Your server has a task cap governing how many deployment tasks can run in parallel.  Variable `Octopus.Action.MaxParallelism` then governs the amount of parallelism Octopus allows within a deployment task.  The amount of work the built-in worker could be asked to do at once is governed by these two numbers.  With external workers, it's the same, so a single external worker is only being asked to do the same amount of work the built-in was doing.  However, workers does give you the capability to spread that work over a number of machines, and to scale up how much work is being done.
+
+*If the workers in the default pool aren't healthy will the built-in worker run?*
+
+No, the built-in worker can only run if there are no workers in the default pool.
+
+*Can I leave the default pool empty, so some scripts do run on the server, but also provision other pools?*
+
+Yes, the existence of other pools doesn't affect the behaviour of the default pool.
+
+*How can I cordon off my worker pools so each team only has access to certain pools?*
+
+At the moment all worker pools are global, so you can provision pools for various teams or projects, but there's no way to enforce the division.  We'll soon be releasing our Spaces feature that will allow worker pools to be restricted to spaces.
+
