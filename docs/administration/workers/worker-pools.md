@@ -77,3 +77,6 @@ Yes, the existence of other pools doesn't affect the behaviour of the default po
 
 At the moment all worker pools are global, so you can provision pools for various teams or projects, but there's no way to enforce the division.  We'll soon be releasing our Spaces feature that will allow worker pools to be restricted to spaces.
 
+*Got some examples to help me work out how I might set this up?*
+
+Yep ... link to blog post
