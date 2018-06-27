@@ -77,6 +77,10 @@ Yes, the existence of other pools doesn't affect the behaviour of the default po
 
 At the moment all worker pools are global, so you can provision pools for various teams or projects, but there's no way to enforce the division.  We'll soon be releasing our Spaces feature that will allow worker pools to be restricted to spaces.
 
+*I see "leases" being taken out on particular workers in the logs, can I get an exclusive lease for my deployment and clean off the worker once I'm done?*
+
+Not yet.  At the moment, the only time an exclusive lease is taken out is if a tentacle upgrade runs on a worker.  We are thinking about features that allow exclusive access for deployments.
+
 *Got some examples to help me work out how I might set this up?*
 
 Yep ... link to blog post
