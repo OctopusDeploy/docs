@@ -15,7 +15,7 @@ We provide built-in first-class support for application package deployments in S
 
 :::hint
 **Where do Service Fabric Steps execute?**
-All Service Fabric Steps are executed on the Octopus Server, so no Targets/Tentacles are needed for them.
+All Service Fabric Steps are executed on the Octopus Server, however, you will need a [Service Fabric Deployment Target](/docs/infrastructure/azure/service-fabric-cluster-targets/index.md) configured for each Service Fabric cluster you deploy to.
 :::
 
 ### Service Fabric Applications
