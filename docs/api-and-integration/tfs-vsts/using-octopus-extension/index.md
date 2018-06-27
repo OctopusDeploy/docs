@@ -6,6 +6,7 @@ position: 1
 
 The new structure of Team Foundation Build gives us a great opportunity to integrate better with your build and release processes from Visual Studio Team Services (VSTS) (formerly VSO) and on-premises Team Foundation Server (TFS) servers. We've created a [public extension](https://marketplace.visualstudio.com/items/octopusdeploy.octopus-deploy-build-release-tasks) you can install into your VSTS instance or TFS 2017 server.  This extension makes the following tasks available to your Build and Release processes:
 
+- Octo Installer task
 - Packaging your application
 - Pushing your package to Octopus
 - Creating a Release in Octopus
@@ -24,7 +25,7 @@ We've open-sourced the [OctoTFS repository in GitHub](https://github.com/Octopu
 
 If you're using **Visual Studio Team Services (VSTS) or on-premises Team Foundation Server (TFS) 2017 (or newer)** you can simply [install the extension from the marketplace](https://marketplace.visualstudio.com/items/octopusdeploy.octopus-deploy-build-release-tasks) and follow the instructions below.
 
-If you're using an earlier version of TFS, see the [Extension Compatibility documentation](extension-compatibility.md) for details on where to get a compatible extension. 
+If you're using an earlier version of TFS, see the [Extension Compatibility documentation](extension-compatibility.md) for details on where to get a compatible extension.
 
 After installing the extension, follow the below steps to get it running for your build.
 
@@ -51,6 +52,10 @@ Enter a valid [Octopus API Key](/docs/api-and-integration/api/how-to-create-an-a
 
 After you've saved the connection, it should be available from the Octopus Deploy Build Tasks.
 
+:::hint
+if you plan to use the octopus widgets and require these widgets to function for users other than project collaborators such as stakeholders, then those users must be explicitly allowed to use the service endpoint. This can be achieved by adding those users to the service endpoint `Users` group.
+:::
+
 ### Permissions required by the API key
 
 The API key you choose needs to have sufficient permissions to perform all the tasks specified by your builds.
@@ -67,6 +72,14 @@ If there are scope restrictions (e.g. by Project or Environment) against the acc
 - ProcessView (for channel dropdowns)
 - DeploymentView (for the dashboard widget)
 - TaskView (for the dashboard widget)
+
+## Demands and the Octo Installer task
+
+The VSTS extension tasks require Octo to be available on the path when executing on a build agent and must have the .net core 2.0.0 runtime or newer installed. This may not always be possible such as with the VSTS hosted agents. We therefore recommend adding the Octo Installer task to the start of your build definitions to automatically satisfy this requirement.
+
+:::hint
+Version 2.x.x of the extension included a bundled version of the Octo tools and did not require the agent to be setup with Octo in the path and did not support running on Linux or Mac build agents.
+:::
 
 ## Package your Application and Push to Octopus {#PackageyourApplicationandPushtoOctopus}
 
@@ -91,6 +104,11 @@ In the new Team Foundation build process, the arguments below should be in the 
 ```powershell
 /p:RunOctoPack=true /p:OctoPackPublishPackageToHttp=http://path.to.octopus/nuget/packages /p:OctoPackPublishApiKey=API-ABCDEFGHIJLKMNOP
 ```
+
+:::warning
+**Octopack and .NET Core**
+Octopack is not support for .NET Core and we suggest using the VSTS extensions instead.
+:::
 
 ![](/docs/images/3048587/3278377.png "width=500")
 
