@@ -7,14 +7,14 @@ version: "[3.13,)"
 
 Octopus Deploy can help you perform repeatable and controlled deployments of your applications into Service Fabric clusters.
 
-## What kind of applications can I deploy to Service Fabric?
+## What Kind of Applications Can I Deploy to Service Fabric?
 
 The short answer is: anything and everything! As long as you can script the deployment, Octopus can automate your deployments into a Service Fabric cluster.
 
 We provide built-in first-class support for application package deployments in Service Fabric. For everything else, we provide a special step for running PowerShell scripts against Service Fabric.
 
 :::hint
-**Where do Service Fabric Steps execute?**
+**Where do Service Fabric Steps Execute?**
 All Service Fabric Steps are executed on the Octopus Server, however, you will need a [Service Fabric Deployment Target](/docs/infrastructure/azure/service-fabric-cluster-targets/index.md) configured for each Service Fabric cluster you deploy to.
 :::
 
