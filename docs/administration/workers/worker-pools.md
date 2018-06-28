@@ -71,7 +71,7 @@ No, the built-in worker can only run if there are no workers in the default pool
 
 *Can I leave the default pool empty, so some scripts do run on the server, but also provision other pools?*
 
-Yes, the existence of other pools doesn't affect the behaviour of the default pool.
+Yes, the existence of other pools doesn't affect the behavior of the default pool.
 
 *How can I cordon off my worker pools so each team only has access to certain pools?*
 
