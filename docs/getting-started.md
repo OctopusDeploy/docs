@@ -46,13 +46,13 @@ Octopus Deploy is available as a [self-hosted](/docs/getting-started.md#self-hos
 
 Installing self-hosted [Octopus Deploy](/docs/installation/index.md) sets up the central [Octopus Deploy Server](/docs/installation/index.md), which provides the **Octopus Web Portal** and the [Octopus REST API](/docs/api-and-integration/api/index.md).
 
-The [installation documentation](/docs/installation/index.md) provides instructions for installing and configuring your Octopus Deploy server.
+The [installation documentation](/docs/installation/index.md) provides instructions for downloading, installing, and configuring your Octopus Deploy server.
 
 ## Octopus Cloud
 
 **Octopus Cloud** is the hosted version of Octopus Deploy. We designed Octopus Cloud and self-hosted Octopus to provide the same functionality. There are some minor differences in [responsibilities](/docs/administration/security/index.md#responsibility) in that we're responsible for taking backups, upgrading the service, maintaining and monitoring the underlying systems.
 
-You can sign up for Octopus Cloud at [octopus.com/account/register](https://octopus.com/account/register) or check out the [Octopus Cloud FAQ](https://octopus.com/blog/octopus-cloud-faq) blog post.
+You can sign up for Octopus Cloud at [octopus.com/account/register](https://octopus.com/account/register) or check out the [Octopus Cloud FAQ](https://octopus.com/blog/octopus-cloud-faq) blog post or the [pricing](https://octopus.com/cloud) page.
 
 ### The Octopus Web Portal
 
