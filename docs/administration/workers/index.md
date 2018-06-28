@@ -4,7 +4,7 @@ description: Worker setup and configuration.
 position: 1400
 ---
 
-Your deployment process will normally need to deal with packages and execute scripts. Quite often, those packages will be pushed across to a Tentacle or SSH deployment target, and your scripts will execute on those machines. However, many deployments don't need a Tentacle or SSH target - like deployments to cloud services or similar. In thess cases, it would be annoying if you had to set up a Tentacle or SSH target just to push a package to an API, or run a script when you don't care where that script runs.
+Your deployment process will normally need to deal with packages and execute scripts. Quite often, those packages will be pushed across to a Tentacle or SSH deployment target, and your scripts will execute on those machines. However, many deployments don't need a Tentacle or SSH target - like deployments to cloud services. In these cases, it would be annoying if you had to set up a Tentacle or SSH target just to push a package to an API or run a script when you don't care where that script runs.
 
 In Octopus, a worker is used to run steps in a deployment processes that do not run on a deployment target.
 
@@ -16,7 +16,7 @@ The following step types and configurations run on a worker:
 - Any steps that run on a Cloud Region, an Azure Target, or any target that isn’t a Tentacle, SSH Target, or Offline Drop.
 - All AWS, Terraform and Azure steps.
 
-The following steps always run inside the Octopus Server process (and do not run user-supplied code)
+The following steps always run inside the Octopus Server process (and do not run user-supplied code):
 
 - Health Check
 - Email
@@ -46,10 +46,10 @@ Learn about how Octopus picks a worker to execute a step and how to configure [w
 
 ## Ignoring workers
 
-Octopus works out-of-the-box without setting up workers.  You can run all deployment processes, run script steps on the built-in worker, deploy to Azure and run AWS and Terraform steps, without further setup.  The built-in worker is available in a default Octopus set up, and Octopus workers is designed so that, if you aren't using external workers, none of your deployment processes need to be worker aware.
+Octopus works out-of-the-box without setting up workers.  You can run all deployment processes, run script steps on the built-in worker, deploy to Azure and run AWS and Terraform steps, without further setup.  The built-in worker is available in a default Octopus set up, and Octopus workers are designed so that, if you aren't using external workers, none of your deployment processes need to be worker aware.
 
 The choices of built-in worker, built-in worker running in a separate account, and external workers enable to you harden your Octopus server and scale your deployments.
 
 ## Migrating to workers
 
-Octopus workers also provides a smooth path to move off the built-in worker, and thus off running scripts on the Octopus server, and onto external workers, without updating any deployment processes.  Learn about how to [use the default worker pool to move steps off the Octopus server](worker-pools.md#Using-the-default-pool-to-stop-running-scripts-on-the-server)
+Octopus workers also provides a smooth path to move off the built-in worker, and thus off running scripts on the Octopus server, and onto external workers, without updating any deployment processes.  Learn about how to [use the default worker pool to move steps off the Octopus server](worker-pools.md#Using-the-default-pool-to-stop-running-scripts-on-the-server).

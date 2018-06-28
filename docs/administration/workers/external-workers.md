@@ -1,18 +1,18 @@
 ---
 title: External Workers
-description: External workers are machines that Octopus can use to delegate steps to in a deployment.  You can disable the built-in worker and delegate work to external workers instead. Using external workers makes your Octopus Server more secure, and allows you to decide where your workers do their work, and the context in which they perform their work.
+description: External workers are machines that Octopus can use to delegate steps to during a deployment.  You can disable the built-in worker and delegate work to external workers instead. Using external workers makes your Octopus Server more secure, and allows you to decide where your workers do their work, and the context in which they perform their work.
 position: 3
 ---
 
-An **external worker** is either a tentacle or SSH machine that has been registered with the Octopus server as a worker.  The setup of a worker is the same as setting up deployment target as a [listening tentacle](/docs/infrastructure/windows-targets/index.md), [polling tentacle](/docs/infrastructure/windows-targets/polling-tentacles-web-sockets.md) or [SSH machine](/docs/infrastructure/ssh-targets/index.md), except that instead of being added to an environment, a worker is added to a worker pool.
+An **external worker** is either a tentacle or SSH machine that has been registered with the Octopus server as a worker.  The setup of a worker is the same as setting up a deployment target as a [listening tentacle](/docs/infrastructure/windows-targets/index.md), [polling tentacle](/docs/infrastructure/windows-targets/polling-tentacles-web-sockets.md), or [SSH machine](/docs/infrastructure/ssh-targets/index.md), except that instead of being added to an environment, a worker is added to a worker pool.
 
-Workers have machine policies, are health checked and run Calamari, just like deployment targets.
+Workers have machine policies, are health checked, and run Calamari, just like deployment targets.
 
 !toc
 
 ## Registering an external worker
 
-Once the tentacle or SSH machine has been configured, workers can be added using the UI, the [Octopus Deploy REST API](/docs/api-and-integration/api/index.md), the [Octopus.Clients library](/docs/api-and-integration/octopus.client.md) or using the tentacle executable.  Only a user with the `ConfigureServer` permission can add or edit workers.
+Once the tentacle or SSH machine has been configured, workers can be added using the UI, the [Octopus Deploy REST API](/docs/api-and-integration/api/index.md), the [Octopus.Clients library](/docs/api-and-integration/octopus.client.md) or with the tentacle executable.  Only a user with the `ConfigureServer` permission can add or edit workers.
 
 To regisger a worker in the **Octopus Web Portal**, navigate to the **Infrastructure** tab, select **Workers** and click **ADD WORKER**.
 
@@ -31,13 +31,13 @@ The tentacle executable can also be used to deregister workers, for example:
 
 ## Recommendations for external workers
 
-We highly recomend setting up external workers on a different machine to the Octopus Server.
+We highly recommend setting up external workers on a different machine to the Octopus Server.
 
 We also recommend running external workers as a different user account to the Octopus Server.
 
 It can be advantageous to have Workers on the same local network as the server to reduce package transfer times.
 
-Default pools attached to cloud targets allow colocation of workers and targets, this can help making workers specific to your targets as well as for security.
+Default pools attached to cloud targets allow colocation of workers and targets, this can help make workers specific to your targets as well as for security.
 
 ## Multiple projects run simultaneously on workers
 
