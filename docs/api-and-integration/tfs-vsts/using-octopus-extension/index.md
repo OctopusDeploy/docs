@@ -107,7 +107,7 @@ In the new Team Foundation build process, the arguments below should be in the 
 
 :::warning
 **Octopack and .NET Core**
-Octopack is not support for .NET Core and we suggest using the VSTS extensions instead.
+Octopack is not supported for .NET Core and we suggest using the VSTS extensions instead.
 :::
 
 ![](/docs/images/3048587/3278377.png "width=500")
