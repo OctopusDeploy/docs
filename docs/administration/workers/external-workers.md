@@ -4,7 +4,7 @@ description: External workers are machines that Octopus can use to delegate step
 position: 3
 ---
 
-An **external worker** is either a tentacle or SSH machine that has been registered with the Octopus server as a worker.  The setup of a worker is the same as setting up a deployment target as a [listening tentacle](/docs/infrastructure/windows-targets/index.md), [polling tentacle](/docs/infrastructure/windows-targets/polling-tentacles-web-sockets.md), or [SSH machine](/docs/infrastructure/ssh-targets/index.md), except that instead of being added to an environment, a worker is added to a worker pool.
+An **external worker** is either a [tentacle](/docs/infrastructure/windows-targets/index.md) or an [SSH machine](/docs/infrastructure/ssh-targets/index.md) that has been registered with the Octopus server as a worker.  The setup of a worker is the same as setting up a deployment target as a [Windows tentacle target](/docs/infrastructure/windows-targets/index.md) or an [SSH target](/docs/infrastructure/ssh-targets/index.md), except that instead of being added to an environment, a worker is added to a worker pool.
 
 Workers have machine policies, are health checked, and run Calamari, just like deployment targets.
 
@@ -14,7 +14,7 @@ Workers have machine policies, are health checked, and run Calamari, just like d
 
 Once the tentacle or SSH machine has been configured, workers can be added using the UI, the [Octopus Deploy REST API](/docs/api-and-integration/api/index.md), the [Octopus.Clients library](/docs/api-and-integration/octopus.client.md) or with the tentacle executable.  Only a user with the `ConfigureServer` permission can add or edit workers.
 
-To regisger a worker in the **Octopus Web Portal**, navigate to the **Infrastructure** tab, select **Workers** and click **ADD WORKER**.
+To register a worker in the **Octopus Web Portal**, navigate to the **Infrastructure** tab, select **Workers** and click **ADD WORKER**.
 
 Tentacle workers can also register with the server using the tentacle executable (version 3.22.0 or later), for example:
 
@@ -35,9 +35,9 @@ We highly recommend setting up external workers on a different machine to the Oc
 
 We also recommend running external workers as a different user account to the Octopus Server.
 
-It can be advantageous to have Workers on the same local network as the server to reduce package transfer times.
+It can be advantageous to have workers on the same local network as the server to reduce package transfer times.
 
-Default pools attached to cloud targets allow colocation of workers and targets, this can help make workers specific to your targets as well as for security.
+Default pools attached to cloud targets allow co-location of workers and targets, this can help make workers specific to your targets as well as for security.
 
 ## Multiple Projects Run Simultaneously on Workers
 

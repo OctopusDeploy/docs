@@ -14,24 +14,24 @@ When a [step that requires a worker](/docs/administration/workers/index.md#Where
 
 ## How the Worker Pool for a Step is Determined
 
-For a step that requires a worker, Octopus selects
+For a step that requires a worker, Octopus selects:
 
-- the default pool, if no pool is selected (or the step targets the Octopus Server), or
-- the specified pool, otherwise.
+- The default pool, if no pool is selected (or the step targets the Octopus Server).
+- The specified pool.
 
 ## How the Worker is Selected From a Pool
 
-Given the determination of a pool, Octopus then selects
+When the pool has been selected, Octopus selects a worker from the pool:
 
-- the built-in worker, if the step resolves to the default pool and there are no workers in the default pool, or
-- a healthy worker from the pool, otherwise.
+- A healthy worker from the selected pool.
+- The built-in worker, if the step resolves to the default pool, but there no workers in the default pool. Note, if there are unhealthy workers in the pool, the built-in worker will **not** run. It will only if there are no workers in the pool.
 
-Octopus makes no other guarantees about what worker is picked from a pool.
+Octopus makes no other guarantees about which worker is picked from a pool.
 
-The step will fail for lack of a worker if
+The step will fail for lack of a worker if:
 
-- the step resolves to the built-in worker but it has been disabled,
-- there are no healthy workers in the pool, or
+- The step resolves to the built-in worker but it has been disabled.
+- There are no healthy workers in the pool.
 - Octopus selects a healthy worker from the pool, but during the deployment process can't contact the worker.
 
 ## Using the Default Pool to Stop Running Scripts on the Server
@@ -49,10 +49,9 @@ You can add as many worker pools as you need.
 If there are worker pools configured, any step that requires a worker can be targeted at any pool.  It's possible to use multiple pools in the one deployment process, for example, if you configured one pool of workers for script steps and another for Azure deployments.  Once there are worker pools configured, the **Octopus Web Portal** will ensure a pool is set for any step that requires a worker.
 
 :::hint
-**What's shown in the UI?**
+**What's Shown in the UI?**
 The **Octopus Web Portal** is worker pool aware.  If you haven't configured pools or workers, the only option for steps that require a worker is the built-in worker, so the UI will only display the option to run a step on the `Octopus Server`.  In this case, Azure, AWS and Terraform steps will assume the default and display no choice.  If you have configured extra workers or pools, script, Azure, AWS and Terraform steps will allow the selection of a worker pool.
 :::
-
 
 
 ## Configuring a Cloud Target to Have a Default Worker Pool
@@ -83,4 +82,4 @@ Not yet.  At the moment, the only time an exclusive lease is taken out is if a t
 
 *Got some examples to help me work out how I might set this up?*
 
-Yep ... link to blog post
+Coming soon.
