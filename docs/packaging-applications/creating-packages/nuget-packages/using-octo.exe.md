@@ -66,7 +66,7 @@ octo pack ./dist --id="SomeApplication" --version="1.0.0"
 ```
 ## Usage {#UsingOcto.exe-Usage}
 
-The Octo.exe pack command provides a number of other useful parameters that can be used to customize the way your package gets created such as including release notes.
+The Octo.exe pack command provides a number of other useful parameters that can be used to customize the way your package gets created, such as including release notes.
 
 You can get help with the pack command parameters by executing the pack command with `--help` switch
 ```powershell
