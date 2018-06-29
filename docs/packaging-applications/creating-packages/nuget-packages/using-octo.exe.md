@@ -59,7 +59,7 @@ octo pack ./dist --id="OctoWeb" --version="1.0.0-alpha0001"
 ```
 
 ## Packaging Your Application From a Folder {#UsingOcto.exe-Packagingyourapplicationfromafolder}
-If you have a build process which places all build outputs into a final destination folder (such as gulp, grunt or webpack),  you can package it using octo as well. For example, let's assume you have defined an npm script which runs your build and places all associated content into the `dist` folder:
+If you have a build process which places all build outputs into a final destination folder (such as gulp, grunt or webpack), you can package it using octo as well. For example, let's assume you have defined an npm script which runs your build and places all associated content into the `dist` folder:
 ```powershell
 npm run build
 octo pack ./dist --id="SomeApplication" --version="1.0.0"
