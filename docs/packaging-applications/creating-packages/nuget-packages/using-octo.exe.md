@@ -30,7 +30,7 @@ octo pack --id="MyPackage" --version="1.0.0" --basePath="folder/to/pack" --outFo
 ```
 
 ## Packaging a .NET Core application
-The process for packaging a .NET core applications is pretty straighforward and can usually be achieved by publishing the application and then using `octo pack` on the resultant output folder for example:
+The process for packaging a .NET core applications is pretty straightforward and can usually be achieved by publishing the application and then using `octo pack` on the resultant output folder for example:
 
 ```powershell
 dotnet publish ./OctoWeb.csproj --output ./dist
