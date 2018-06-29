@@ -10,17 +10,17 @@ This page describes how to configure the built-in worker for a variety of scenar
 
 !toc
 
-## Built-in worker
+## Built-in Worker
 
 When the built-in worker is executed, the Octopus server spawns a new process for Calamari.  This conveniently allows a default Octopus set up to enable features like running script steps on the server and Azure deployments.  However, this convenience comes at a cost: **security**.
 
-## Default configuration
+## Default Configuration
 
 By default Octopus Server runs as the highly privileged `Local System` account on Windows. We typically recommend running Octopus Server as a different account, either a User or Managed Service Account (MSA), so you can grant specific privileges to that account.
 
 When you first install Octopus Server the built-in worker is configured to run using the same user account as the Octopus Server itself. This means your deployment process can do the same things the Octopus Server can do.
 
-## Running tasks on the Octopus Server as a different user
+## Running Tasks on the Octopus Server as a Different User
 
 You can configure the built-in worker to execute tasks as a different user account. This user account can be a down-level account with very restricted privileges.
 
@@ -62,15 +62,15 @@ NOTE: This test succeeded when starting from the user account 'MACHINE-123\admin
 These changes require a restart of the Octopus Server.
 ```
 
-## Switching off the the built-in worker
+## Switching Off the Built-in Worker
 
-The built-in worker can be switched off.  If it is switched off, then the Octopus server does not invoke Calamari locally.  This will mean deployments containing steps that would have run on the built-in worker (Azure, AWS, Terraform, scripts steps targeted at the server) will fail unless an [external worker](external-workers.md) is provisioned.
+The built-in worker can be switched off.  If it is switched off, then the Octopus server does not invoke Calamari locally.  This will mean deployments containing steps that would have run on the built-in worker (Azure, AWS, Terraform, scripts steps targeted at the server) will fail unless an [external worker](/docs/administration/workers/external-workers.md) is provisioned.
 
-Toggle the built-in worker on or off from the {{Configuration > Features}} page.
+Toggle the built-in worker on or off from the **{{Configuration > Features}}** page.
 
-The built-in worker will also not be used if any workers are added to the [default worker pool](worker-pools.md), but, unless it is switched off, Octopus will revert to using the built-in worker if all workers are later removed from the default pool.
+The built-in worker will also not be used if any workers are added to the [default worker pool](/docs/administration/workers/worker-pools.md), but, unless it is switched off, Octopus will revert to using the built-in worker if all workers are later removed from the default pool.
 
-Note that [some steps](index.md#Where-steps-run) run inside the Octopus server process (not using Calamari), don't need a worker and are not affected by this setting.
+Note that [some steps](/docs/administration/workers/index.md#Where-steps-run) run inside the Octopus server process (not using Calamari), don't need a worker and are not affected by this setting.
 
 ## Troubleshooting
 
