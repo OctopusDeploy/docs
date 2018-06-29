@@ -10,7 +10,7 @@ Workers have machine policies, are health checked, and run Calamari, just like d
 
 !toc
 
-## Registering an external worker
+## Registering an External Worker
 
 Once the tentacle or SSH machine has been configured, workers can be added using the UI, the [Octopus Deploy REST API](/docs/api-and-integration/api/index.md), the [Octopus.Clients library](/docs/api-and-integration/octopus.client.md) or with the tentacle executable.  Only a user with the `ConfigureServer` permission can add or edit workers.
 
@@ -29,7 +29,7 @@ The tentacle executable can also be used to deregister workers, for example:
 .\Tentacle.exe deregister-worker --instance MyInstance --server "https://example.com/" --apikey "API-CS0SW5SQJNLUBQCUBPK8LZY3KYO"
 ```
 
-## Recommendations for external workers
+## Recommendations for External Workers
 
 We highly recommend setting up external workers on a different machine to the Octopus Server.
 
@@ -39,6 +39,6 @@ It can be advantageous to have Workers on the same local network as the server t
 
 Default pools attached to cloud targets allow colocation of workers and targets, this can help make workers specific to your targets as well as for security.
 
-## Multiple projects run simultaneously on workers
+## Multiple Projects Run Simultaneously on Workers
 
 The built-in worker can run many steps simultaneously.  For example, the task cap determines how many deployments can run simultaneously and those deployments could run many steps concurrently on the built-in worker.  External workers are the same.  External workers will run steps from different projects simultaneously.  This means external workers keep the behavior of the built-in worker, including that a step doesn't have exclusive access to the worker, which could allow one project to access the working folder of another project.
