@@ -52,7 +52,7 @@ octo pack ./dist --id="SomeLibrary" --version="1.0.0"
 ```
 
 ## Packaging a .NET Framework Web application
-There are usually some extra steps required to get the resulting application built and deployable. Full framework web applications are a good example of this where simply building the application will simply just not give you the desired output. We still recommend [Octopack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md) for these cases however you may be able to achieve this using msbuild parameters such as:
+There are usually some extra steps required to get the resulting application built and deployable. Full framework web applications are a good example of this, where simply building the application will not give you the desired output. We still recommend [Octopack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md) for these cases. However, you may be able to achieve this using msbuild parameters such as:
 ```
 msbuild ./OctoWeb.csproj /p:DeployDefaultTarget=WebPublish /p:DeployOnBuild=true /p:WebPublishMethod=FileSystem /p:SkipInvalidConfigurations=true /p:publishUrl=dist
 octo pack ./dist --id="OctoWeb" --version="1.0.0-alpha0001"
