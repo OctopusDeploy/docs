@@ -4,7 +4,7 @@ description: Worker setup and configuration.
 position: 1400
 ---
 
-Your deployment process will normally need to deal with packages and execute scripts. Quite often, those packages will be pushed across to a [Tentacle](/docs/infrastructure/windows-targets/index.md) or [SSH deployment target](/docs/infrastructure/ssh-targets/index.md), and your scripts will execute on those machines. However, many deployments don't need a Tentacle or SSH target - like deployments to cloud services. In these cases, it would be annoying if you had to set up a Tentacle or SSH target just to push a package to an API or run a script when you don't care where that script runs.
+Your deployment process will normally need to deal with packages and execute scripts. Quite often, those packages will be pushed across to a [Tentacle](/docs/infrastructure/windows-targets/index.md) or [SSH deployment target](/docs/infrastructure/ssh-targets/index.md), and your scripts will execute on those machines. However, many deployments don't need a Tentacle or SSH target, like deployments to cloud services. In these cases, it would be annoying if you had to set up a Tentacle or SSH target just to push a package to an API or run a script when you don't care where that script runs.
 
 In Octopus, a worker is used to run [steps](/docs/deployment-process/steps/index.md) in a [deployment process](/docs/deployment-process/index.md) that do not run on a [deployment target](/docs/infrastructure/index.md).
 
@@ -13,8 +13,8 @@ In Octopus, a worker is used to run [steps](/docs/deployment-process/steps/index
 The following step types and configurations run on a worker:
 
 - Any step that runs a script (usually user supplied) or has a package that has an execution plan of `Octopus Server`, `Octopus Server on behalf of roles`, `Worker Pool` or `Worker Pool on behalf of roles`.
-- Any steps that run on a Cloud Region, an Azure Target, or any target that isn’t a Tentacle, SSH Target, or Offline Drop.
-- All AWS, Terraform and Azure steps.
+- Any steps that run on a Cloud Region, an Azure Target, or any target that isn’t a Tentacle, an SSH Target, or an Offline Drop.
+- All AWS, Terraform, and Azure steps.
 
 The following steps always run inside the Octopus Server process (and do not run user-supplied code):
 

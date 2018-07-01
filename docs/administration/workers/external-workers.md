@@ -37,7 +37,7 @@ We also recommend running external workers as a different user account to the Oc
 
 It can be advantageous to have workers on the same local network as the server to reduce package transfer times.
 
-Default pools attached to cloud targets allow co-location of workers and targets, this can help make workers specific to your targets as well as for security.
+Default pools attached to cloud targets allow co-location of workers and targets, this can help make workers specific to your targets as well as making the Octopus Server more secure by using external workers.
 
 ## Multiple Projects Run Simultaneously on Workers
 
