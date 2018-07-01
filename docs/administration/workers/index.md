@@ -4,7 +4,7 @@ description: Worker setup and configuration.
 position: 1400
 ---
 
-Your deployment process will normally need to deal with packages and execute scripts. Quite often, those packages will be pushed across to a [Tentacle](/docs/infrastructure/windows-targets/index.md) or [SSH deployment target](/docs/infrastructure/ssh-targets/index.md), and your scripts will execute on those machines. However, many deployments don't need a Tentacle or SSH target, like deployments to cloud services. In these cases, it would be annoying if you had to set up a Tentacle or SSH target just to push a package to an API or run a script when you don't care where that script runs.
+Your deployment process will normally need to deal with packages and execute scripts. Quite often, those packages will be pushed across to a [Tentacle](/docs/infrastructure/windows-targets/index.md) or an [SSH deployment target](/docs/infrastructure/ssh-targets/index.md), and your scripts will execute on those machines. However, many deployments don't need a Tentacle or SSH target, like deployments to cloud services. In these cases, it would be annoying if you had to set up a Tentacle or SSH target just to push a package to an API or run a script when you don't care where that script runs.
 
 In Octopus, a worker is used to run [steps](/docs/deployment-process/steps/index.md) in a [deployment process](/docs/deployment-process/index.md) that do not run on a [deployment target](/docs/infrastructure/index.md).
 
@@ -40,7 +40,7 @@ Learn about the security implications and how to configure the [built-in worker]
 
 An **external worker** is a tentacle or SSH machine.  An external worker allows delegating work to a machine other than the Octopus server.  This can make the server more secure and allow scaling.  When Octopus executes a step on an external worker, it's the external worker that executes Calamari and no user-provided script executes on the Octopus Server itself.
 
-Learn about [external workers](/docs/administration/workers/external-workers.md).
+Learn about [external workers](/docs/infrastructure/workers/index.md).
 
 Learn about how Octopus picks a worker to execute a step and how to configure [worker pools](/docs/administration/workers/worker-pools.md).
 
