@@ -18,6 +18,7 @@ We advise that you only use the migration API under the same conditions that you
 
  1. You're not going to interrupt your daily deployment operations.
  1. You'll minimize the chance of data mutations during the migration itself.
+ 1. The versions of your source and destination servers are the same (don't try and export/import between different versions of Octopus).
 :::
 
 The typical process for migrating projects between a source and destination server is as follows:
