@@ -20,7 +20,7 @@ If you're looking for example deployments, see the [Deploying Applications examp
 4. Give the step a short memorable name.
 5. The **Execution Plan** tells the step where to run. Depending on the type of step you are configuring the options will vary:
 
-  - [Worker Pool](/docs/administration/workers/worker-pool/index.md)
+  - [Worker Pool](/docs/administration/workers/worker-pool.md)
   - Worker Pool on behalf of roles
   - Deployment targets
 
