@@ -4,7 +4,11 @@ position: 0
 description: How to install the central Octopus Deploy server.
 ---
 
-This section walks you through installing the self-hosted central Octopus Deploy server.
+This section walks you through installing the **self-hosted** central Octopus Deploy server.
+
+:::hint
+If you're interested in the **cloud-hosted** Octopus server, you can [launch your own cloud instance now](https://octopus.com/account/register).
+:::
 
 Once installed, the Octopus Deploy server:
 
