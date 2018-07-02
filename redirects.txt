@@ -561,3 +561,4 @@ docs/deployment-process/configuration-files/substitute-variables-in-files.md -> 
 docs/deployment-process/configuration-files/confiuration-variables.md -> docs/deployment-process/configuration-features/configuration-variables.md
 docs/deployment-examples/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md -> docs/deployment-process/configuration-features/json-configuration-variables-feature.md
 docs/administration/workers/external-workers.md -> docs/infrastructure/workers/index.md
+docs/deployment-process/steps/how-to-run-steps-on-the-octopus-server.md -> docs/deployment-examples/deploying-packages/deploy-packages-to-your-octopus-server.md
