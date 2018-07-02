@@ -64,7 +64,7 @@ These changes require a restart of the Octopus Server.
 
 ## Switching Off the Built-in Worker
 
-The built-in worker can be switched off.  If it is switched off, then the Octopus server does not invoke Calamari locally.  This will mean deployments containing steps that would have run on the built-in worker (Azure, AWS, Terraform, scripts steps targeted at the server) will fail unless an [external worker](/docs/administration/workers/external-workers.md) is provisioned.
+The built-in worker can be switched off.  If it is switched off, then the Octopus server does not invoke Calamari locally.  This will mean deployments containing steps that would have run on the built-in worker (Azure, AWS, Terraform, scripts steps targeted at the server) will fail unless an [external worker](/docs/infrastructure/workers/index.md) is provisioned.
 
 Toggle the built-in worker on or off from the **{{Configuration > Features}}** page.
 

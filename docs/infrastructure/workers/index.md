@@ -1,8 +1,14 @@
 ---
-title: External Workers
+title: Workers
 description: External workers are machines that Octopus can use to delegate steps to during a deployment.  You can disable the built-in worker and delegate work to external workers instead. Using external workers makes your Octopus Server more secure, and allows you to decide where your workers do their work, and the context in which they perform their work.
 position: 3
 ---
+
+The Octopus Server has an built-in worker that can deploy packages, execute scripts, and perform tasks that don't need to be performed on a deployment target. This can be useful when you are working with an API, a cloud service, or it doesn't matter where a script runs. The built-in worker is configured by default.
+
+Learn more about the [built-in worker](/docs/administration/workers/built-in-worker.md).
+
+## External Workers
 
 An **external worker** is either a [tentacle](/docs/infrastructure/windows-targets/index.md) or an [SSH machine](/docs/infrastructure/ssh-targets/index.md) that has been registered with the Octopus server as a worker.  The setup of a worker is the same as setting up a deployment target as a [Windows tentacle target](/docs/infrastructure/windows-targets/index.md) or an [SSH target](/docs/infrastructure/ssh-targets/index.md), except that instead of being added to an environment, a worker is added to a worker pool.
 
@@ -37,7 +43,7 @@ We also recommend running external workers as a different user account to the Oc
 
 It can be advantageous to have workers on the same local network as the server to reduce package transfer times.
 
-Default pools attached to cloud targets allow co-location of workers and targets, this can help make workers specific to your targets as well as for security.
+Default pools attached to cloud targets allow co-location of workers and targets, this can help make workers specific to your targets as well as making the Octopus Server more secure by using external workers.
 
 ## Multiple Projects Run Simultaneously on Workers
 
