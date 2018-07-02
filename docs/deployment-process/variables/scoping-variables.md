@@ -71,6 +71,11 @@ You want to deploy the same package on each server but the deployment path will 
 
 ![](deploy-path-variable.png)
 
-Then, on your deployment step, you can set the **[Custom Install Directory](/docs/deployment-process/configuration-files/custom-installation-directory.md)** to `#{DeployPath}`.
+Then, on your deployment step, you can set the **[Custom Install Directory](/docs/deployment-process/configuration-features/custom-installation-directory.md)** to `#{DeployPath}`.
 
 ![](custom-install-path.png)
+
+## Variables and permissions
+
+When applying permissions on variables via scopes, the only options that are checked against permissions are Environments, Targets and Tenants.
+

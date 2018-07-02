@@ -1,7 +1,7 @@
 ---
 title: Data Encryption
 description: This section describes how Octopus Deploy encrypts sensitive data at rest.
-position: 1
+position: 50
 ---
 
 This section focuses on securing data in the [Octopus database](/docs/administration/octopus-database/index.md), [backup files](/docs/administration/backup-and-restore.md), and other settings in the registry and on disk. For information on how Octopus secures data between Octopus and Tentacles, see [Octopus - Tentacle communication](/docs/administration/security/octopus-tentacle-communication/index.md).

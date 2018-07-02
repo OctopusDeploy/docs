@@ -1,7 +1,7 @@
 ---
 title: Octopus - Tentacle Communication
 description: Octopus Server and Tentacle communications details.
-position: 1
+position: 40
 ---
 
 This page describes how the [Octopus Deploy server](/docs/installation/index.md) and the [Tentacle deployment agents](/docs/infrastructure/windows-targets/index.md) communicate in a secure way.
@@ -65,7 +65,7 @@ TLS 1.2 requires .NET 4.5 which was introduced as a requirement in Octopus 3.1. 
 
 ## Troubleshooting Tentacle communication problems {#Octopus-Tentaclecommunication-TroubleshootingTentaclecommunicationproblems}
 
-We have built comprehensive troubleshooting guides for both [Listening Tentacles](/docs/infrastructure/windows-targets/troubleshooting-tentacles.md) and [Polling Tentacles](/docs/infrastructure/windows-targets/troubleshooting-tentacles.md).
+We have built comprehensive troubleshooting guides for both [Listening and Polling Tentacles](/docs/infrastructure/windows-targets/troubleshooting-tentacles.md).
 
 If you are seeing error messages like below, try [Troubleshooting Schannel and TLS](troubleshooting-schannel-and-tls.md):
 

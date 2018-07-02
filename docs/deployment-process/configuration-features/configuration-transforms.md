@@ -1,112 +1,12 @@
 ---
-title: Configuration Files
-description: Configuring applications to work in specific environments is an essential part of deploying applications with Octopus Deploy and this can include updating database connection strings and app settings.
-position: 9
+title: Configuration Transforms
+description: Using configuration transformations.
+position: 70
 ---
 
-One of the essential steps in deploying software is configuring it to work in a specific environment. This might mean pointing your application to the right database connection string, or tweaking settings to run in production.
-
-## Configuration Variables {#Configurationfiles-ConfigurationVariablesConfigurationvariables}
-
-This feature can be enabled for package deploy steps.
-
-![Configuration variables screenshot](configuration-variables.png)
-
-If a [variable](/docs/deployment-process/variables/index.md) is defined in the Octopus web portal, and an **appSettings, applicationSettings** or **connectionStrings** element exists for it in any of your **.config** files, Tentacle will automatically replace the value after extracting your package.
-
-For example, suppose you have this configuration file:
-
-```xml
-<configuration>
-  <appSettings>
-    <add key="AWSAccessKey" value="testkey"/>
-    <add key="AWSSecretKey" value="testsecret"/>
-  </appSettings>
-  <connectionStrings>
-    <add name="DBConnectionString" connectionString="Server=(local)\SQLExpress;Database=OnlineStore;Integrated Security=SSPI" />
-  </connectionStrings>
-  <applicationSettings>
-    <AppSettings.Properties.Settings>
-      <setting name="WelcomeMessage" serializeAs="String">
-        <value>Hello</value>
-      </setting>
-    </AppSettings.Properties.Settings>
-  </applicationSettings>
-</configuration>
-```
-
-The variables **AWSAccessKey**, **AWSSecretKey**, and **DBConnectionString** can be access in the project menu under variables.
-
-After deploying to an environment named "**Production**", Octopus will have updated the file to:
-
-```xml
-<configuration>
-  <appSettings>
-    <add key="AWSAccessKey" value="ABCDEFGHIJKLMNOP"/>
-    <add key="AWSSecretKey" value="MfOWQdSJWi8JDYc/6YmoaHafz8jByBl9aksCoSLB"/>
-  </appSettings>
-
-  <connectionStrings>
-    <add name="DBConnectionString" connectionString="Server=PRDSQL02;Database=OnlineStore;Integrated Security=SSPI" />
-  </connectionStrings>
-</configuration>
-```
-
-:::warning
-Variables marked sensitive (`AWSSecretKey` in this example) will be decrypted and written in clear-text to the configuration files just like normal variables.
-:::
-
-The same concept applies to strongly-typed **applicationSettings** using the [Application Settings Architecture](https://msdn.microsoft.com/en-us/library/8eyb2ct1.aspx) built in to .NET. An equivalent example would be:
-
-```xml
-<configuration>
-  <applicationSettings>
-    <MyApplication.Properties.Settings>
-      <setting name="AWSAccessKey" serializeAs="String">
-        <value>ABCDEFGHIJKLMNOP</value>
-      </setting>
-      <setting name="AWSSecretKey" serializeAs="String">
-        <value>MfOWQdSJWi8JDYc</value>
-      </setting>
-      <setting name="DBConnectionString" serializeAs="String">
-        <value>Server=PRDSQL02;Database=OnlineStore;Integrated Security=SSPI</value>
-      </setting>
-    </MyApplication.Properties.Settings>
-  </applicationSettings>
-</configuration>
-```
-
-:::success
-Values are matched based on the **key** attribute for **appSettings**, and the **name** element for **applicationSettings** and **connectionStrings**.
-:::
-
-## Replacing Variables Outside appSettings, applicationSettings and connectionStrings {#Configurationfiles-VariablesInFilesReplacingvariablesoutsideappSettings,applicationSettingsandconnectionStrings}
-
-There may be other variables you would like Octopus to replace in your configuration files that are outside both the appSettings and connectionStrings areas.
-
-There are three ways you can do this, two of which involve using [Octopus Variables](/docs/deployment-process/variables/index.md).
-
-1. Insert `#{OctopusVariables}` where you would like the replacement to happen and use the [Substitute Variables in Files](/docs/deployment-process/configuration-files/substitute-variables-in-files.md) feature in the package step (see below for sample)
-2. Insert `#{OctopusVariables}` where you would like the replacement to happen and then use the [Regular Expression Find and Replace](https://library.octopusdeploy.com/step-templates/0bef8c07-5739-4030-8c04-287ceeb51153/actiontemplate-file-system-regular-expression-find-and-replace-(updated)) library template (this means you can replace any Octopus Variable in any file outside of the package step, the only distinction to the first option)
-3. Write and use a PowerShell script to find and replace variables inside of your configuration files
-
-```powershell
-    <authentication mode="Forms">
-      <forms loginUrl="#{LoginURL}" timeout="2880" />
-    </authentication>
-```
-
-There are pros and cons to each of these methods. For the first two it can break your configuration files locally. But if you make use of environment transforms (see below) you can avoid this. See the [Substitute Variables in Files](/docs/deployment-process/configuration-files/substitute-variables-in-files.md) documentation for an example of using Octopus Variables in your config files.
-
-:::success
-Using the Substitute Variables in Files feature will change the order that variables are replaced. Using Configuration Transformations and Configuration Variables, does the transformation and then replaces variables. Defining files within the substitution will have all of their variables replaced first prior to the transformation. But this will only happen for any configuration or transformation files that are explicitly listed in the Substitute files list. Read about the order of [package step feature ordering here](/docs/deployment-examples/deploying-packages/package-deployment-feature-ordering.md).
-:::
-
-## Configuration Transforms {#Configurationfiles-ConfigurationTransformationConfigurationtransforms}
+If this feature is enabled, Tentacle will also look for any files that follow the Microsoft [web.config transformation process](https://msdn.microsoft.com/en-us/library/dd465326.aspx) – **even files that are not web.config files!** *Keep reading for examples.*
 
 ![Configuration Transforms screenshot](configuration-transforms.png)
-
-If this feature is enabled, Tentacle will also look for any files that follow the Microsoft [web.config transformation process](https://msdn.microsoft.com/en-us/library/dd465326.aspx) – **even files that are not web.config files!** *Keep reading for examples.*
 
 An example web.config transformation that removes the `<compilation debug="true">` attribute is below:
 
@@ -124,12 +24,13 @@ An example web.config transformation that removes the `<compilation debug="true
 The team at [AppHarbor](https://appharbor.com/) created a useful tool to [help test configuration file transformations](https://webconfigtransformationtester.apphb.com/).
 :::
 
-### Naming Configuration Transform Files {#Configurationfiles-Namingconfigurationtransformfiles}
+## Naming Configuration Transform Files {#Configurationfiles-Namingconfigurationtransformfiles}
 
-This feature will run your configuration transforms based on looking for transform files named with the following conventions. The configuration transformation files can either be named `*.Release.config`, or `*.<Environment>.config` and will be executed in this order:
+This feature will run your configuration transforms based on looking for transform files named with the following conventions. The configuration transformation files can either be named `*.Release.config`, `*.<Environment>.config`, or `*.<Tenant>.config` and will be executed in this order:
 
 1. `*.Release.config`
 2. `*.<Environment>.config`
+3. `*.<Tenant>.config`
 
 For an **ASP.NET Web Application**, suppose you have the following files in your package:
 
@@ -187,7 +88,7 @@ Transform.config => Target.config
 
 The above transform definition will apply **Transform.config** to **Target.config** when the files are in the same directory.
 
-### Relative Path {#Configurationfiles-Relativepath}
+### Relative Path
 
 **Relative path config transform**
 
@@ -257,3 +158,5 @@ If these conventions aren’t enough to configure your application, you can alwa
 ## Troubleshooting {#Configurationfiles-Troubleshooting}
 
 If you're new to configuration transformation, first check the package(s) part of the deployment are structured and contain what you expect. Following on from that review the deployment logs and output of the package(s) on your deployment targets to get investigate any unexpected behavior. You can try using the `Octopus.Action.Package.TreatConfigTransformationWarningsAsErrors` variable defined in the [System Variables](/docs/deployment-process/variables/system-variables.md) section of the documentation while you set it up the first time.
+
+For advanced examples see: [Advanced Configuration Transform Examples](/docs/deployment-process/configuration-features/advanced-configuration-transforms-examples.md)

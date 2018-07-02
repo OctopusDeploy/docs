@@ -4,7 +4,7 @@ description: Custom scripts allows you to script anything you want using PowerSh
 position: 10
 ---
 
-As a convention-oriented deployment tool, Octopus can perform a number of actions automatically, such as [managing configuration files](/docs/deployment-process/configuration-files/index.md), creating [IIS websites and application pools](/docs/deployment-examples/iis-websites-and-application-pools.md), and installing [Windows Services](/docs/deployment-examples/windows-services.md). Sometimes however you’ll need to do more than the built-in conventions support – and that’s where custom scripts come in.
+As a convention-oriented deployment tool, Octopus can perform a number of actions automatically, such as [managing configuration features](/docs/deployment-process/configuration-features/index.md), creating [IIS websites and application pools](/docs/deployment-examples/iis-websites-and-application-pools.md), and installing [Windows Services](/docs/deployment-examples/windows-services.md). Sometimes however you’ll need to do more than the built-in conventions support – and that’s where custom scripts come in.
 
 !toc
 
@@ -126,7 +126,7 @@ let connectionString = Octopus.findVariableOrDefault "Default Value" "MyApp.Conn
 ```
 
 :::success
-To see the F# API available to your F# scripts, take a look at our [F# signature file](https://github.com/OctopusDeploy/Calamari/blob/develop/source/Calamari/Integration/Scripting/FSharp/Bootstrap.fsi).
+To see the F# API available to your F# scripts, take a look at our [F# signature file](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari.Shared/Integration/Scripting/FSharp/Bootstrap.fsi).
 :::
 
 ### Variables in PowerShell Scripts {#Customscripts-VariablesinPowerShellscripts}
