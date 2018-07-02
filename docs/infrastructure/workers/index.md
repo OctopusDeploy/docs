@@ -4,6 +4,10 @@ description: External workers are machines that Octopus can use to delegate step
 position: 3
 ---
 
+The Octopus Server has an built-in worker that can deploy packages, execute scripts, and perform tasks that don't need to be performed on a deployment target. This can be useful when you are working with a cloud service or it doesn't matter where a script runs. The built-in worker is configured by default. Learn more about the [built-in worker](/docs/administration/workers/built-in-worker.md).
+
+## External Workers
+
 An **external worker** is either a [tentacle](/docs/infrastructure/windows-targets/index.md) or an [SSH machine](/docs/infrastructure/ssh-targets/index.md) that has been registered with the Octopus server as a worker.  The setup of a worker is the same as setting up a deployment target as a [Windows tentacle target](/docs/infrastructure/windows-targets/index.md) or an [SSH target](/docs/infrastructure/ssh-targets/index.md), except that instead of being added to an environment, a worker is added to a worker pool.
 
 Workers have machine policies, are health checked, and run Calamari, just like deployment targets.
