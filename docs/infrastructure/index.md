@@ -19,4 +19,4 @@ Deployment targets are added to environments in different ways, depending on th
 
 ## Workers
 
-Octopus comes with a [built-in worker](/docs/administration/workers/) that can run scripts and perform tasks that don't run on deployment targets. You can configure [external workers](/docs/infrastructure/workers.md) and pools of workers to move these tasks off the Octopus Server for better performance and increased security.
+Octopus comes with a [built-in worker](/docs/administration/workers/built-in-workers.md) that can run scripts and perform tasks that don't run on deployment targets. You can configure [external workers](/docs/infrastructure/workers/index.md) and pools of workers to move these tasks off the Octopus Server for better performance and increased security.
