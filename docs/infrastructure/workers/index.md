@@ -4,7 +4,9 @@ description: External workers are machines that Octopus can use to delegate step
 position: 3
 ---
 
-The Octopus Server has an built-in worker that can deploy packages, execute scripts, and perform tasks that don't need to be performed on a deployment target. This can be useful when you are working with a cloud service or it doesn't matter where a script runs. The built-in worker is configured by default. Learn more about the [built-in worker](/docs/administration/workers/built-in-worker.md).
+The Octopus Server has an built-in worker that can deploy packages, execute scripts, and perform tasks that don't need to be performed on a deployment target. This can be useful when you are working with an API, a cloud service, or it doesn't matter where a script runs. The built-in worker is configured by default.
+
+Learn more about the [built-in worker](/docs/administration/workers/built-in-worker.md).
 
 ## External Workers
 
