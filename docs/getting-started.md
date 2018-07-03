@@ -14,7 +14,7 @@ Octopus Deploy is an automated deployment server that makes it easy to automate 
 
 ### The Delivery Pipeline
 
-We designed Octopus Deploy for teams that follow agile delivery practices. A typical workflow would be:
+We designed Octopus Deploy for teams that follow agile delivery practices. A typical workflow could be:
 
 1. **Commit Code to Your Existing Source Control System.**
 
@@ -34,7 +34,7 @@ We designed Octopus Deploy for teams that follow agile delivery practices. A typ
 
 ### Consistent Releases
 
-As an Octopus user, you define the process for deploying the software. You specify the environments the applications are deployed to and who on your team can deploy to which environments; for instance, you might want testers to deploy to test environments, but not to production. Taking this approach means that even if different members of the team trigger deployments, the deployment process remains consistent.
+As an Octopus user, you define the process for deploying your software. You specify the environments the applications are deployed to and who on your team can deploy to which environments; for instance, you might want testers to deploy to test environments, but not to production. Taking this approach means that even if different members of the team trigger deployments, the deployment process remains consistent.
 
 The rest of this guide goes into more detail about working with Octopus Deploy and links to the relevant sections of the documentation for more information.
 
@@ -44,9 +44,9 @@ Octopus Deploy is available as a [self-hosted](/docs/getting-started.md#self-hos
 
 ## Self-Hosted Octopus
 
-Installing self-hosted [Octopus Deploy](/docs/installation/index.md) sets up the central [Octopus Deploy Server](/docs/installation/index.md), which provides the **Octopus Web Portal** and the [Octopus REST API](/docs/api-and-integration/api/index.md).
+Installing self-hosted [Octopus Deploy](/docs/installation/index.md) sets up the [Octopus Deploy Server](/docs/installation/index.md), which provides the **Octopus Web Portal** and the [Octopus REST API](/docs/api-and-integration/api/index.md).
 
-The [installation documentation](/docs/installation/index.md) provides instructions for downloading, installing, and configuring your Octopus Deploy server.
+The [installation documentation](/docs/installation/index.md) provides instructions for downloading, installing, and configuring your Octopus Deploy Server.
 
 ## Octopus Cloud
 
@@ -72,7 +72,7 @@ Learn more about managing your [infrastructure](/docs/infrastructure/index.md).
 
 ## Packaging Applications
 
-Before you can deploy software with Octopus Deploy, you need to bundle all the files needed for the software to run into a supported package. The package must be versioned and stored in a repository. Octopus Deploy includes a built-in repository. We recommend configuring your existing tool chain to push packages automatically to the built-in repository; however, you can push packages manually to the repository if you choose to.
+Before you can deploy software with Octopus Deploy, you need to bundle all the files required for the software to run into a supported package. The package must be versioned and stored in a repository. Octopus Deploy includes a built-in repository. We recommend configuring your existing tool chain to push packages automatically to the built-in repository; however, you can push packages manually to the repository if you choose to.
 
 Learn more about [packaging your applications](/docs/packaging-applications/index.md) or how to automate your existing tool chain to push packages to your Octopus Deploy server with our [API and Integrations](/docs/api-and-integration/index.md).
 
@@ -126,4 +126,6 @@ Over time your software may become so successful that you on-sell it to some ext
 
 Learn more about tenants in our [Multi-tenant Deployments Guide](/docs/deployment-patterns/multi-tenant-deployments/index.md).
 
-If you'd like to take a closer look at working instance of Octopus Deploy, you can visit our [Demo Site](https://demo.octopus.com).
+## Example deployments
+
+If you'd like to see some example deployments check out the [Deployment Examples section](/docs/deployment-examples/index.md).
