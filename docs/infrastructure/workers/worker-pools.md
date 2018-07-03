@@ -4,7 +4,7 @@ description: Worker pools are used to group workers and allow targeting steps at
 position: 1
 ---
 
-Worker pools are used to group workers and allow targeting steps at the pool of workers best equipped to execute the step.  There is always a default worker pool.  The default pool can't be deleted, but you can swap which pool is the default.  Think of worker pools as collections of homogenous workers.  For your default pool it might be enough that the workers are tentacles running PowerShell 5, but you might have two teams working with different version of an SDK and so provision worker pools with workers running the appropriate SDK for each team.
+Worker pools are used to group workers and allow targeting steps at the pool of workers best equipped to execute the step.  There is always a default worker pool.  The default pool can't be deleted, but you can swap which pool is the default.  Think of worker pools as collections of homogenous workers.  For your default pool it might be enough that the workers are Tentacles running PowerShell 5, but you might have two teams working with different version of an SDK and so provision worker pools with workers running the appropriate SDK for each team.
 
 Worker pools are global resources and can't be scoped, for example, to environments.  All users can see what pools are available and if there are workers in the pools.  Only a user with the `ConfigureServer` permission can see the worker machines or edit workers or pools.
 
@@ -78,7 +78,7 @@ At the moment all worker pools are global, so you can provision pools for variou
 
 *I see "leases" being taken out on particular workers in the deployment logs, can I get an exclusive lease for my deployment and clean off the worker once I'm done?*
 
-Not yet.  At the moment, the only time an exclusive lease is taken out is if a tentacle upgrade runs on a worker.  We are thinking about features that allow exclusive access for deployments.
+Not yet.  At the moment, the only time an exclusive lease is taken out is if a Tentacle upgrade runs on a worker.  We are thinking about features that allow exclusive access for deployments.
 
 *Got some examples to help me work out how I might set this up?*
 

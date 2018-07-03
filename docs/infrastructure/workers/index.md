@@ -10,7 +10,7 @@ Learn more about the [built-in worker](/docs/administration/workers/built-in-wor
 
 ## External Workers
 
-An **external worker** is either a [tentacle](/docs/infrastructure/windows-targets/index.md) or an [SSH machine](/docs/infrastructure/ssh-targets/index.md) that has been registered with the Octopus server as a worker.  The setup of a worker is the same as setting up a deployment target as a [Windows tentacle target](/docs/infrastructure/windows-targets/index.md) or an [SSH target](/docs/infrastructure/ssh-targets/index.md), except that instead of being added to an environment, a worker is added to a worker pool.
+An **external worker** is either a [Tentacle](/docs/infrastructure/windows-targets/index.md) or an [SSH machine](/docs/infrastructure/ssh-targets/index.md) that has been registered with the Octopus server as a worker.  The setup of a worker is the same as setting up a deployment target as a [Windows Tentacle target](/docs/infrastructure/windows-targets/index.md) or an [SSH target](/docs/infrastructure/ssh-targets/index.md), except that instead of being added to an environment, a worker is added to a worker pool.
 
 Workers have machine policies, are health checked, and run Calamari, just like deployment targets.
 
@@ -18,19 +18,19 @@ Workers have machine policies, are health checked, and run Calamari, just like d
 
 ## Registering an External Worker
 
-Once the tentacle or SSH machine has been configured, workers can be added using the UI, the [Octopus Deploy REST API](/docs/api-and-integration/api/index.md), the [Octopus.Clients library](/docs/api-and-integration/octopus.client.md) or with the tentacle executable.  Only a user with the `ConfigureServer` permission can add or edit workers.
+Once the Tentacle or SSH machine has been configured, workers can be added using the UI, the [Octopus Deploy REST API](/docs/api-and-integration/api/index.md), the [Octopus.Clients library](/docs/api-and-integration/octopus.client.md) or with the tentacle executable.  Only a user with the `ConfigureServer` permission can add or edit workers.
 
 To register a worker in the **Octopus Web Portal**, navigate to the **Infrastructure** tab, select **Workers** and click **ADD WORKER**.
 
-Tentacle workers can also register with the server using the tentacle executable (version 3.22.0 or later), for example:
+Tentacle workers can also register with the server using the Tentacle executable (version 3.22.0 or later), for example:
 
 ```
 .\Tentacle.exe register-worker --instance MyInstance --server "https://example.com/" --comms-style TentaclePassive --apikey "API-CS0SW5SQJNLUBQCUBPK8LZY3KYO" --workerpool "Default Worker Pool"
 ```
 
-Use `TentacleActive` instead of `TentaclePassive` to register a polling tentacle worker.
+Use `TentacleActive` instead of `TentaclePassive` to register a polling Tentacle worker.
 
-The tentacle executable can also be used to deregister workers, for example:
+The Tentacle executable can also be used to deregister workers, for example:
 ```
 .\Tentacle.exe deregister-worker --instance MyInstance --server "https://example.com/" --apikey "API-CS0SW5SQJNLUBQCUBPK8LZY3KYO"
 ```
