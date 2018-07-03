@@ -7,7 +7,7 @@ description: How to install the central Octopus Deploy server.
 This section walks you through installing the **self-hosted** central Octopus Deploy server.
 
 :::hint
-If you're interested in the **cloud-hosted** Octopus server, you can [launch your own cloud instance now](https://octopus.com/account/register).
+If you're interested in the **cloud-hosted** Octopus Server, you can [launch your own cloud instance now](https://octopus.com/account/register).
 :::
 
 Once installed, the Octopus Deploy server:
@@ -71,4 +71,4 @@ If you've had any problems with the installation, review the [troubleshooting pa
 
 Now that you've installed the Octopus Deploy server, it's time to configure the [Infrastructure](/docs/infrastructure/index.md) you are deploying to.
 
-If you need to upgrade your Octopus server, refer to the [upgrade guide](/docs/administration/upgrading/index.md).
+If you need to upgrade your Octopus Server, refer to the [upgrade guide](/docs/administration/upgrading/index.md).

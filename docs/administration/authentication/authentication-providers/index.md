@@ -66,6 +66,6 @@ Also, when using the Active Directory provider, this function will only be activ
 
 ## OAuth 2.0, OpenID Connect and Octopus
 
-Octopus server has 2 methods for identifying users. The first is session cookies, which are returned to the browser after a successful a login and then used in all communications with the server.  The second is API Keys, which are a shared secret that identify the user.
+Octopus Server has 2 methods for identifying users. The first is session cookies, which are returned to the browser after a successful a login and then used in all communications with the server.  The second is API Keys, which are a shared secret that identify the user.
 
 These mechanisms were not modified with the introduction of the OpenID Connect based authentication providers. Octopus uses the external identity provider only to initially verify the user's identity, and then returns a session cookie to the browser, which means OAuth token expiry and revocation are not currently supported.

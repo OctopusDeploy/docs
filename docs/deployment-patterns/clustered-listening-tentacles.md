@@ -135,7 +135,7 @@ Type the display name in Octopus Deploy and give your new target a role.
 
 *![](/docs/images/clustered-listening-tentacles/server-identifytarget.jpg)*
 
-In a few minutes your new Tentacle cluster will appear as healthy in the Octopus server.
+In a few minutes your new Tentacle cluster will appear as healthy in the Octopus Server.
 
 *![](/docs/images/clustered-listening-tentacles/server-targethealthy.jpg)*
 

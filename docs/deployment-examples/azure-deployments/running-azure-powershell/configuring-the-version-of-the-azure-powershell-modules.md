@@ -11,7 +11,7 @@ A version of Azure PowerShell is bundled with Octopus Deploy.  To determine the
 Get-Module -ListAvailable -Name Azure*
 ```
 
-If you wish to use a different version, you can install the Azure PowerShell modules on your Octopus server, and configure Octopus to use the installed version.  The procedure to configure this differs depending on which version of Octopus Deploy you are using:
+If you wish to use a different version, you can install the Azure PowerShell modules on your Octopus Server, and configure Octopus to use the installed version.  The procedure to configure this differs depending on which version of Octopus Deploy you are using:
 
 ## Octopus 3.3 (or newer) {#ConfiguringtheversionoftheAzurePowerShellmodules-Octopus3.3(ornewer)}
 

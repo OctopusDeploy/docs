@@ -5,7 +5,7 @@ description: Using the Octopus.Migrator.exe command line tool to import data fro
 
 This command imports data from an Octopus 3.0+ export directory.
 
-The export must have been made from an Octopus server running the same release version as the intended import server.
+The export must have been made from an Octopus Server running the same release version as the intended import server.
 
 Usage:
 

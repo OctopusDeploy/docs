@@ -14,7 +14,7 @@ Internal ASEs are where the wheels usually come off for deploying from Octopus. 
 
 Given that you can't access the app, or its management endpoint (Kudu), from the Internet you can't deploy to it from Octopus without some network setup. To help explain what's required let's look at what happens when you deploy to a web app in Azure from Octopus.
 
-1. Octopus server creates a deployment task.
+1. Octopus Server creates a deployment task.
 2. Task scheduler picks up the task and hands the work over to Calamari.
 3. Calamari picks up all the information about the deployment and connects to Azure.
 4. Calamari locates the resource group that's being deployed to (there's a reason we do it this way, see [below](#resource_groups)).
@@ -27,7 +27,7 @@ For an external ASE that Uri will be publicly accessible (e.g. https://yourapp.s
 
 For an internal ASE the Uri will not be publicly accessible, it will be something like https://yourapp.scm.yourdomain  This is where the deployments will fail, they will be able to see all of the other Urls required but when they get to step 6 Octopus won't be able to resolve the address for the Uri.
 
-To fix that you need 2 things to happen. First, the network the Octopus server is on has to be connected to the ASE's VNet, e.g. using ExpressRoute or a VPN. Second, the Octopus server needs to be able to resolve `yourapp.scm.yourdomain` to the Internal Load Balancer IP address of your Azure ILB (found in the **IP addresses** for the ASE in the Azure portal), e.g. through DNS configuration.
+To fix that you need 2 things to happen. First, the network the Octopus Server is on has to be connected to the ASE's VNet, e.g. using ExpressRoute or a VPN. Second, the Octopus Server needs to be able to resolve `yourapp.scm.yourdomain` to the Internal Load Balancer IP address of your Azure ILB (found in the **IP addresses** for the ASE in the Azure portal), e.g. through DNS configuration.
 
 Exactly how to do those 2 things will depend on your organization, what infrastructure you might already have in place and is beyond the scope of this guide.
 

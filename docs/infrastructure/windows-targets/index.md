@@ -66,7 +66,7 @@ To allow your Octopus Deploy server to connect to the Tentacle, you'll need to a
 
 **Intermediary Firewalls**
 
-Don't forget to allow access in any intermediary firewalls between the Octopus server and your Tentacle (not just the Windows Firewall). For example, if your Tentacle server is hosted in Amazon EC2, you'll also need to modify the AWS security group firewall to tell EC2 to allow the traffic. Similarly if your Tentacle server is hosted in Microsoft Azure you'll also need to add an Endpoint to tell Azure to allow the traffic.
+Don't forget to allow access in any intermediary firewalls between the Octopus Server and your Tentacle (not just the Windows Firewall). For example, if your Tentacle server is hosted in Amazon EC2, you'll also need to modify the AWS security group firewall to tell EC2 to allow the traffic. Similarly if your Tentacle server is hosted in Microsoft Azure you'll also need to add an Endpoint to tell Azure to allow the traffic.
 
 ## Configure a Polling Tentacle
 
@@ -74,7 +74,7 @@ Listening Tentacles are recommended, but you can learn about the difference betw
 
 1. Select **Polling Tentacle** and click **next**.
 1. If you are using a proxy see [Proxy Support](/docs/infrastructure/windows-targets/proxy-support.md), or click **next**.
-1. Add the Octopus credentials the Tentacle will use to connect to the Octopus server:
+1. Add the Octopus credentials the Tentacle will use to connect to the Octopus Server:
     a. The Octopus URL: the DNS or IP address.
     b. Select the authentication mode and enter the details:
         i. The username and password you use to log into Octopus, or:
@@ -91,9 +91,9 @@ If the Tentacle isn't connecting, try the steps on the [troubleshooting page](/d
 
 ### Update your Octopus Server Firewall
 
-To allow Tentacle to connect to your Octopus Deploy server, you'll need to allow access to port **10943** on the Octopus server (or the port you selected during the installation wizard - port 10943 is just the default). You will also need to allow Tentacle to access the Octopus HTTP web portal (typically port **80** or **443** - these bindings are selected when you [install the Octopus Deploy server](/docs/installation/index.md)).
+To allow Tentacle to connect to your Octopus Deploy server, you'll need to allow access to port **10943** on the Octopus Server (or the port you selected during the installation wizard - port 10943 is just the default). You will also need to allow Tentacle to access the Octopus HTTP web portal (typically port **80** or **443** - these bindings are selected when you [install the Octopus Deploy server](/docs/installation/index.md)).
 
-If your network rules only allow port **80** and **443** to the Octopus server, you can change the server bindings to either HTTP or HTTPS and
+If your network rules only allow port **80** and **443** to the Octopus Server, you can change the server bindings to either HTTP or HTTPS and
 use the remaining port for polling Tentacle connections. The listening port can be [changed from the command line](/docs/administration/server-configuration-and-file-storage/index.md).
 Even if you do use port **80** for Polling Tentacles, the communication is still secure.
 
@@ -103,7 +103,7 @@ this is on purpose, and it means you can use different firewall conditions to al
 Using polling mode, you won't typically need to make any firewall changes on the Tentacle machine.
 
 **Intermediary Firewalls**
-Don't forget to allow access not just in Windows Firewall, but also any intermediary firewalls between the Tentacle and your Octopus server. For example, if your Octopus server is hosted in Amazon EC2, you'll also need to modify the AWS security group firewall to tell EC2 to allow the traffic. Similarly if your Octopus server is hosted in Microsoft Azure you'll also need to add an Endpoint to tell Azure to allow the traffic.
+Don't forget to allow access not just in Windows Firewall, but also any intermediary firewalls between the Tentacle and your Octopus Server. For example, if your Octopus Server is hosted in Amazon EC2, you'll also need to modify the AWS security group firewall to tell EC2 to allow the traffic. Similarly if your Octopus Server is hosted in Microsoft Azure you'll also need to add an Endpoint to tell Azure to allow the traffic.
 
 ## Health Check and Upgrade Calamari
 

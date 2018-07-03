@@ -24,7 +24,7 @@ The easiest way to sign in when using Active Directory is to click the *Sign in 
 
 ![](ad-integrated.png)
 
-This will instruct the Octopus server to issue a browser challenge. If you are signed in on Windows, your Windows credentials will be automatically used to sign you in.
+This will instruct the Octopus Server to issue a browser challenge. If you are signed in on Windows, your Windows credentials will be automatically used to sign you in.
 
 By default, Octopus issues an NTLM challenge to the browser, but you can configure Octopus to use other authentication schemes using the command line:
 
@@ -51,9 +51,9 @@ Octopus also lets users sign in by entering their Active Directory credentials m
 
 :::hint
 **How it works**
-Using this option, the credentials are posted back to the Octopus server, and Octopus validates them against Active Directory by invoking the Windows API `LogonUser()` function. If that is successful, Octopus will then query Active Directory for information about the user.
+Using this option, the credentials are posted back to the Octopus Server, and Octopus validates them against Active Directory by invoking the Windows API `LogonUser()` function. If that is successful, Octopus will then query Active Directory for information about the user.
 
-Keep in mind that if your Octopus server isn't [configured to use HTTPS](/docs/administration/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md), these are posted in plain text (just like signing in to any other website).
+Keep in mind that if your Octopus Server isn't [configured to use HTTPS](/docs/administration/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md), these are posted in plain text (just like signing in to any other website).
 :::
 
 If the Octopus Deploy server and its users are on the **same domain**, it is sufficient to provide a simple username in this field, for example *paul**.*User Principal Names, of the form *user@domain.com* are also accepted in this scenario.
@@ -137,7 +137,7 @@ The following diagram illustrates a typical configuration when there is a 2 way 
 
 ![Two-way trust](domains-twoway.png)
 
-In this configuration the Octopus server is executing as a service account from the same domain that the machine is a member of. When logging in, users from DomainA can use their AD username or UPN whereas users from DomainB must use *DOMAIN\user* username format. This is required so that the API calls Octopus makes can locate the domain controller for the correct domain (DomainB in this example).
+In this configuration the Octopus Server is executing as a service account from the same domain that the machine is a member of. When logging in, users from DomainA can use their AD username or UPN whereas users from DomainB must use *DOMAIN\user* username format. This is required so that the API calls Octopus makes can locate the domain controller for the correct domain (DomainB in this example).
 
 Another common scenario is to have a 1 way trust between the domains. This configuration is illustrated in the following diagram
 

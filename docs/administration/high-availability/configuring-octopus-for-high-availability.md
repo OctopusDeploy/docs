@@ -47,7 +47,7 @@ Octopus stores a number of files that are not suitable to store in the database.
 - [Artifacts](/docs/deployment-process/artifacts.md) collected during a deployment. Teams using Octopus sometimes use this feature to collect large log files and other files from machines during a deployment.
 - Task logs, which are text files that store all of the log output from deployments and other tasks.
 
-As with the database, from the Octopus perspective, you'll simply tell the Octopus servers where to store them as a file path within your operating system. Octopus doesn't really care what technology you use to present the shared storage, it could be a mapped network drive, or a UNC path to a file share. Each of these three types of data can be stored in a different place.
+As with the database, from the Octopus perspective, you'll simply tell the Octopus Servers where to store them as a file path within your operating system. Octopus doesn't really care what technology you use to present the shared storage, it could be a mapped network drive, or a UNC path to a file share. Each of these three types of data can be stored in a different place.
 
 Whichever way you provide the shared storage, a few considerations to keep in mind:
 
@@ -57,7 +57,7 @@ Whichever way you provide the shared storage, a few considerations to keep in mi
 
 #### Shared storage on-premises
 
-The simplest way to provide shared storage, assuming the Octopus server nodes are part of the same Active Directory domain, is by creating a file share that each of the Octopus Server nodes can access. Of course, this assumes that the underlying directory is reliable, such as in a RAID array.
+The simplest way to provide shared storage, assuming the Octopus Server nodes are part of the same Active Directory domain, is by creating a file share that each of the Octopus Server nodes can access. Of course, this assumes that the underlying directory is reliable, such as in a RAID array.
 
 A better alternative is [Microsoft DFS](https://en.wikipedia.org/wiki/Distributed_File_System_(Microsoft)), or a SAN.
 
@@ -73,7 +73,7 @@ If your Octopus Server is running in Amazon AWS you will need to configure your 
 
 ### Octopus Server nodes {#ConfiguringOctopusforHighAvailability-OctopusServernodes}
 
-With the shared storage and database provisioned, you can now set up each of the Octopus server nodes. An Octopus: HA configuration requires at least two nodes, and has been tested with up to four nodes.
+With the shared storage and database provisioned, you can now set up each of the Octopus Server nodes. An Octopus: HA configuration requires at least two nodes, and has been tested with up to four nodes.
 
 :::hint
 **Not a Windows cluster**
@@ -102,7 +102,7 @@ Follow the rest of the setup guide, and install the first node.
 
 ![](wizard-installation.png "width=500")
 
-Once the Octopus server has been configured, from Octopus Manager, copy the master key - you will need this to set up the additional nodes.
+Once the Octopus Server has been configured, from Octopus Manager, copy the master key - you will need this to set up the additional nodes.
 
 ![](master-key.png "width=500")
 
@@ -138,7 +138,7 @@ Complete the setup wizard. You'll now have a second node in the cluster!
 
 ### Load Balancer {#ConfiguringOctopusforHighAvailability-LoadBalancer}
 
-When you configured the first Octopus server node, as well as each of the subsequent nodes, you would have configured the HTTP endpoint that the Octopus web interface is available on. The final step is to configure a load balancer, so that user traffic is directed between each of the Octopus server nodes.
+When you configured the first Octopus Server node, as well as each of the subsequent nodes, you would have configured the HTTP endpoint that the Octopus web interface is available on. The final step is to configure a load balancer, so that user traffic is directed between each of the Octopus Server nodes.
 
 Octopus can work with any load balancer technology, including hardware and software load balancers.
 
@@ -153,12 +153,12 @@ You may already have an existing Octopus Deploy server, that you wish to make hi
 1. Provision the shared storage folder
 2. Move the SQL Server database, if necessary
 3. Use the `Octopus.Server.exe path` commands above to tell Octopus to use the shared storage folder
-4. Move the existing task logs, packages and artifacts from the existing Octopus server node into the shared storage folders
+4. Move the existing task logs, packages and artifacts from the existing Octopus Server node into the shared storage folders
 5. Add the additional nodes and load balancer as required
 
 ## Configuring High Availability Polling Tentacles {#ConfiguringOctopusforHighAvailability-ConfiguringHighAvailabilityPollingTentacles}
 
-Listening Tentacles require no special configuration for High Availability.  Polling Tentacles, however, poll a server at regular intervals to check if there are any tasks waiting for the Tentacle to perform. In a High Availability scenario Polling Tentacles must poll all of the Octopus Servers in your configuration. You could poll a load balancer but there is a risk, depending on your load balancer configuration, that the Tentacle will not poll all servers in a timely manner.  You could also configure the Tentacle to poll each server by registering it with one of your Octopus Servers and then adding each Octopus Server to the Tentacle.config file. There are two options to add Octopus servers, via the command line or via editing the Tentacle.config file directly:
+Listening Tentacles require no special configuration for High Availability.  Polling Tentacles, however, poll a server at regular intervals to check if there are any tasks waiting for the Tentacle to perform. In a High Availability scenario Polling Tentacles must poll all of the Octopus Servers in your configuration. You could poll a load balancer but there is a risk, depending on your load balancer configuration, that the Tentacle will not poll all servers in a timely manner.  You could also configure the Tentacle to poll each server by registering it with one of your Octopus Servers and then adding each Octopus Server to the Tentacle.config file. There are two options to add Octopus Servers, via the command line or via editing the Tentacle.config file directly:
 
 **Tentacle.config**
 
@@ -170,7 +170,7 @@ C:\Program Files\Octopus Deploy\Tentacle>Tentacle poll-server --server=http://my
 
 For more information on this command please refer to the [Tentacle Poll Server options document](/docs/api-and-integration/tentacle.exe-command-line/poll-server.md)
 
-Alternatively you can edit Tentacle.config directly to add each Octopus server (this is interpreted as a JSON array of servers). This method is not recommended as the Octopus service for each server will need to be restarted to accept incoming connections via this method.
+Alternatively you can edit Tentacle.config directly to add each Octopus Server (this is interpreted as a JSON array of servers). This method is not recommended as the Octopus service for each server will need to be restarted to accept incoming connections via this method.
 
 ```xml
 <set key="Tentacle.Communication.TrustedOctopusServers">

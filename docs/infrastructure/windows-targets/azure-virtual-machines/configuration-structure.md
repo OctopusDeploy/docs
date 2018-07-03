@@ -37,14 +37,14 @@ The schema for the public configuration file is:
 
 ```
 
-* `OctopusServerUrl`: (string) The url to the Octopus server portal.
+* `OctopusServerUrl`: (string) The url to the Octopus Server portal.
 * `Environments`: (array of string) The environments to which the Tentacle should be added.
 * `Roles`: (array of string) The roles to assign to the Tentacle.
 * `CommunicationMode`: (string) Whether the Tentacle should wait for connections from the server (`Listen`) or should poll the server (`Poll`).
 * `Tenants`: (array of string) The tenants to assign to the Tentacle.
 * `TenantTags`: (array of strings) The tenant tags in [canonical name format](/docs/deployment-patterns/multi-tenant-deployments/tenant-tags.md#referencing-tenant-tags-tenanttags-referencingtenanttags) to assign to the Tentacle.
 * `MachinePolicy`: (string) The name of a machine policy to apply to the Tentacle.
-* `Port`: The port on which to listen for connections from the server (in `Listen` mode), or the port on which to connect to the Octopus server (`Poll` mode).
+* `Port`: The port on which to listen for connections from the server (in `Listen` mode), or the port on which to connect to the Octopus Server (`Poll` mode).
 * `PublicHostNameConfiguration`: If in listening mode, how the server should contact the Tentacle. Can be one of the following:
   * `PublicIP` - looks up the public IP address using <https://api.ipify.org>.
   * `FQDN` - concatenates the local hostname with the (active directory) domain name. Useful for domain joined computers.
@@ -67,6 +67,6 @@ The schema for the private configuration file is:
 }
 ```
 
-* `ApiKey`: (string) The Api Key to use to connect to the Octopus server.
+* `ApiKey`: (string) The Api Key to use to connect to the Octopus Server.
 
 The private configuration will be encrypted by Azure, and is only decryptable on the Azure VM using a special certificate installed by the Azure VM Agent.

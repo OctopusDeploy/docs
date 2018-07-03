@@ -76,7 +76,7 @@ This template  collects basic information about the deployment, including the pa
 ```
 
 :::hint
-To use the template in your projects, replace `nuget.org` with the DNS name of your NuGet server, and `my-octopus` with the DNS name of your Octopus server. Make sure you select *Body is HTML* on the email step configuration page.
+To use the template in your projects, replace `nuget.org` with the DNS name of your NuGet server, and `my-octopus` with the DNS name of your Octopus Server. Make sure you select *Body is HTML* on the email step configuration page.
 :::
 
 The output of the template will be an HTML email like:

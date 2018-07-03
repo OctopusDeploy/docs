@@ -90,4 +90,4 @@ There is no way to recover this data. You will need to go through and re-enter a
 You may have done this earlier in the process. If not, now is a great time to securely back up your master key and Octopus Server certificate!
 
 ### Test your backup
-Now is a great time to test your backup process worked and ensure you can restore quickly next time when a serious issue occurs. A backup isn't real unless you verify you can restore from it. Take your fresh Octopus backup and recently secured master key and attempt to restore your Octopus server somewhere else to validate it will work when you need it to.
+Now is a great time to test your backup process worked and ensure you can restore quickly next time when a serious issue occurs. A backup isn't real unless you verify you can restore from it. Take your fresh Octopus backup and recently secured master key and attempt to restore your Octopus Server somewhere else to validate it will work when you need it to.

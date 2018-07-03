@@ -33,7 +33,7 @@ If using this mechanism, you also need to flag the generated archive with AppVey
 ![AppVeyor Npm Build](appveyor_artifact.png)
 
 ### Push To Octopus
-With the build page configured, go to `Deployment` and select the new `Octopus Deploy` `Deployment Provider`. This provider will perform all the appropriate calls to push the package to the Octopus Server. Ensure that the provided Octopus `Server URL` addresses can be reached by the AppVeyor servers. If not using the on-premise offering of AppVeyor, this means the _Octopus server must be accessible over the Internet_.
+With the build page configured, go to `Deployment` and select the new `Octopus Deploy` `Deployment Provider`. This provider will perform all the appropriate calls to push the package to the Octopus Server. Ensure that the provided Octopus `Server URL` addresses can be reached by the AppVeyor servers. If not using the on-premise offering of AppVeyor, this means the _Octopus Server must be accessible over the Internet_.
 
 ![AppVeyor Deploy](appveyor_deploy.png)
 

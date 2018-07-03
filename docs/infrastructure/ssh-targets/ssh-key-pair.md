@@ -14,7 +14,7 @@ Provide the username that you wish Octopus Deploy to connect as, along with the 
 
 ## Creating a SSH Key Pair  {#SSHKeyPair-CreatingaSSHKeyPaircreate-key-pair}
 
-Setting up a key for use during authentication is a very simple process and can be done on either the target or Octopus server.
+Setting up a key for use during authentication is a very simple process and can be done on either the target or Octopus Server.
 
 ### Linux {#SSHKeyPair-Linux}
 
@@ -24,7 +24,7 @@ Run the following command to generate the key pair
 ssh-keygen
 ```
 
-It will then prompt you for the location (the default `~/.ssh/id_rsa` is fine) and for a passphrase. The result will be two files, `id_rsa` (the private key) and `id_rsa.pub` (the public key).  The public key will be store on this server while the private key will be copied into the Octopus server.
+It will then prompt you for the location (the default `~/.ssh/id_rsa` is fine) and for a passphrase. The result will be two files, `id_rsa` (the private key) and `id_rsa.pub` (the public key).  The public key will be store on this server while the private key will be copied into the Octopus Server.
 
 To allow the linux machine to accept this newly generated key for authentication, the public key needs to be listed in a file used by the ssh process.
 

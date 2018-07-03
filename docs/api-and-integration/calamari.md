@@ -38,7 +38,7 @@ Each deployment, if it is not already present, the latest version of the Calamar
 - a Tentacle
 - via SSH to a Linux machine
 - a network-drive for Offline-Package-Drop targets
-- or locally on the Octopus server for deploying to Azure targets
+- or locally on the Octopus Server for deploying to Azure targets
 
 Deployments now proceed as follows:
 

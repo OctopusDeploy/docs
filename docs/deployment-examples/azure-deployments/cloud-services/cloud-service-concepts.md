@@ -90,7 +90,7 @@ Any of the fields above can be switched to use a custom expression by clicking t
 Deployment to an Azure Cloud Service target proceeds as follows (more details provided below):
 
 1. Download the NuGet package from the NuGet server
-2. Extract the NuGet package on the Octopus server to a temporary location
+2. Extract the NuGet package on the Octopus Server to a temporary location
 3. Extract the Cloud Service package (`.cspkg`) to a temporary location
 4. Any configured or packaged `PreDeploy` scripts are executed
 5. Variable substitutions in Cloud Service configuration file (`.cscfg`)

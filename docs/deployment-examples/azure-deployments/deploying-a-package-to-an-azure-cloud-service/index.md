@@ -78,7 +78,7 @@ if ($Deployment -ne $null -AND $Deployment.DeploymentId  -ne $null) {
 Deployment to an Azure Cloud Service proceeds as follows (more details provided below):
 
 1. Download the package from the [package repository](/docs/packaging-applications/package-repositories/index.md)
-2. Extract the package on the Octopus server to a temporary location
+2. Extract the package on the Octopus Server to a temporary location
 3. Extract the Cloud Service package (`.cspkg`) to a temporary location
 4. Any configured or packaged `PreDeploy` scripts are executed
 5. Variable substitutions in Cloud Service configuration file (`.cscfg`)

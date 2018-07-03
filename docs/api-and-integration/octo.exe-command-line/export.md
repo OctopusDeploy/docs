@@ -29,7 +29,7 @@ Common options:
       --helpOutputFormat=VALUE
                              [Optional] Output format for help, only valid 
                              option is json
-      --server=VALUE         The base URL for your Octopus server - e.g., 
+      --server=VALUE         The base URL for your Octopus Server - e.g., 
                              http://your-octopus/
       --apiKey=VALUE         [Optional] Your API key. Get this from the user 
                              profile page. Your must provide an apiKey or 
@@ -43,7 +43,7 @@ Common options:
       --configFile=VALUE     [Optional] Text file of default values, with one 
                              'key = value' per line.
       --debug                [Optional] Enable debug logging
-      --ignoreSslErrors      [Optional] Set this flag if your Octopus server 
+      --ignoreSslErrors      [Optional] Set this flag if your Octopus Server 
                              uses HTTPS but the certificate is not trusted on 
                              this machine. Any certificate errors will be 
                              ignored. WARNING: this option may create a 
@@ -89,7 +89,7 @@ octo export --server=http://octopusdeploy/api --apiKey=ABCDEF123456 --type=proje
 ```powershell
 Octopus Deploy Command Line Tool, version 1.0.0.0
 
-Handshaking with Octopus server: http://localhost/Octopus
+Handshaking with Octopus Server: http://localhost/Octopus
 Handshake successful. Octopus version: 2.4.4.43; API version: 3.0.0
 Finding exporter 'project'
 Beginning the export
@@ -188,7 +188,7 @@ octo export --server=http://octopusdeploy/api --apiKey=ABCDEF123456 --type=relea
 ```powershell
 Octopus Deploy Command Line Tool, version 1.0.0.0
 
-Handshaking with Octopus server: http://localhost/Octopus
+Handshaking with Octopus Server: http://localhost/Octopus
 Handshake successful. Octopus version: 2.4.4.43; API version: 3.0.0
 Finding exporter 'release'
 Beginning the export

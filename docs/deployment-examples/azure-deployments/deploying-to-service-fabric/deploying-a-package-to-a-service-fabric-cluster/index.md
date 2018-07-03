@@ -74,7 +74,7 @@ Please note these features run on the Octopus Server prior to deploying the Serv
 Deployment to a Service Fabric cluster proceeds as follows (more details provided below):
 
 1. Download the package from the [package repository](/docs/packaging-applications/package-repositories/index.md).
-1. Extract the package on the Octopus server to a temporary location.
+1. Extract the package on the Octopus Server to a temporary location.
 1. Any configured or packaged `PreDeploy` scripts are executed.
 1. [Substitute variables in files](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) (if configured).
 1. [XML configuration transformations](/docs/deployment-process/configuration-features/configuration-transforms.md) (if configured) are performed.
