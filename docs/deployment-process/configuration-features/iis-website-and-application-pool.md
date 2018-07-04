@@ -5,5 +5,3 @@ position: 20
 ---
 
 !include <iis-feature>
-
-For an example deployment, see [IIS Website and Application configuration in action](/docs/deployment-examples/iis-websites-and-application-pools.md/#IISWebsitesandApplicationPools-IISconfigurationinaction).

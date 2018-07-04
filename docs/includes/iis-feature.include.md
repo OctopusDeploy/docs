@@ -1,29 +1,19 @@
-Configuring IIS is an essential part of deploying any ASP.NET web application. Octopus has built-in support for configuring IIS Web Sites, Applications, and Virtual Directories.
+Configuring IIS is an essential part of deploying any ASP.NET web application. Octopus has built-in support for configuring IIS Web Sites, Applications, and Virtual Directories. To deploy to IIS,
 
-To deploy to IIS, add a *Deploy to IIS* step. For information about adding a step to the [deployment process](/docs/deployment-process/index.md), see the [step](/docs/deployment-process/steps/index.md) section.
+1. From your project's overview page, click **DEFINE YOUR DEPLOYMENT PROCESS**.
+1. Click **ADD STEP**, and then select the **Deploy to IIS** step.
+1. Give the step a name.
+1. Select the package feed and enter the package ID of the package to be deployed.
+1. Choose the IIS deployment type:
+  - [Web Site](/docs/deployment-examples/iis-websites-and-application-pools.md#IISWebsitesandApplicationPools-DeployIISWebSiteweb-site)
+  - [Virtual Directory](/docs/deployment-examples/iis-websites-and-application-pools.md#IISWebsitesandApplicationPools-DeployIISVirtualDirectoryvirtual-directory)
+  - [Web Application](/docs/deployment-examples/iis-websites-and-application-pools.md#IISWebsitesandApplicationPools-DeployIISWebApplicationweb-application)
 
-![IIS Step](/docs/includes/iis-step.png "width=170")
-
-## Select a Package {#IISWebsitesandApplicationPools-SelectaPackage}
-
-Use the *Package Feed* and *Package ID* fields to select the [package](/docs/packaging-applications/index.md) containing the web site content.
-
-## Deployment Type {#IISWebsitesandApplicationPools-DeploymentType}
-
-There are three options for how the Web Site is deployed:
-
-- [Web Site](/docs/deployment-examples/iis-websites-and-application-pools.md#IISWebsitesandApplicationPools-DeployIISWebSiteweb-site)
-- [Virtual Directory](/docs/deployment-examples/iis-websites-and-application-pools.md#IISWebsitesandApplicationPools-DeployIISVirtualDirectoryvirtual-directory)
-- [Web Application](/docs/deployment-examples/iis-websites-and-application-pools.md#IISWebsitesandApplicationPools-DeployIISWebApplicationweb-application)
-
-:::success
-Understanding the difference between Sites, Applications and Virtual Directories is important to understand how to use the IIS Websites and Application Pools features in Octopus. Learn more about [Sites, Applications and Virtual Directories in IIS](https://www.iis.net/learn/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis).
-:::
+  Understanding the difference between Sites, Applications, and Virtual Directories is important to understand how to use the IIS Websites and Application Pools features in Octopus. Learn more about [Sites, Applications, and Virtual Directories in IIS](https://www.iis.net/learn/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis).
 
 ### Deploy IIS Web Site {#IISWebsitesandApplicationPools-DeployIISWebSiteweb-site}
 
-![Deploy an IIS web site](/docs/includes/deploy-iis-web-site.png "width=500")
-
+You need to fill out the following fields for an IIS Web Site deployment:
 
 | Field                     | Meaning                                  | Examples                                 | Notes                                    |
 | ------------------------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
@@ -45,6 +35,8 @@ The IIS Virtual Directory step requires a parent Web Site to exist in IIS before
 2. Create any number of Web Applications and Virtual Directories as children of the parent Web Site
   :::
 
+You need to fill out the following fields for an IIS Virtual Directory deployment:
+
 ![Deploy IIS Virtual Directory](/docs/includes/deploy-iis-virtual-directory.png "width=500")
 
 | Field                    | Meaning                                  | Examples                                 | Notes                                    |
@@ -64,10 +56,9 @@ The IIS Web Application step requires a parent Web Site to exist in IIS before i
 
 1. Make sure the parent Web Site exists in IIS and is configured correctly
 2. Create any number of Web Applications and Virtual Directories as children of the parent Web Site
-
 :::
 
-![Deploy IIS Web Application](/docs/includes/deploy-iis-web-application.png "width=500")
+You need to fill out the following fields for an IIS Web Application deployment:
 
 :::success
 The Virtual Path and Physical Path do not need to match which is one of the true benefits of IIS. You can create a virtual mapping from a URL to a completely unrelated physical path on disk. See [below](/docs/deployment-examples/iis-websites-and-application-pools.md) for more details.
@@ -90,15 +81,15 @@ Out of the box, Octopus will do the right thing to deploy your Web Site using II
 Avoid using the [Custom Installation Directory](/docs/deployment-process/configuration-features/custom-installation-directory.md) feature unless you are absolutely required to put your packaged files into a specific physical location on disk.
 :::
 
-As an approximation including the IIS integration:
+Octopus performs the following steps:
 
-1. Acquire the package as optimally as possible (local package cache and [delta compression](/docs/deployment-examples/deploying-packages/delta-compression-for-package-transfers.md))
-2. Create a new folder for the deployment (which avoids many common problems like file locks, leaving stale files behind, and multiple Application Pool restarts)
-3. Example: `C:\Octopus\Applications\[Tenant name]\[Environment name]\[Package name]\[Package version]\` where `C:\Octopus\Applications` is the Tentacle application directory you configured when installing Tentacle)
-4. Extract the package into the newly created folder
-5. Execute each of your [custom scripts](/docs/deployment-examples/custom-scripts/index.md) and the [deployment features](/docs/deployment-examples/index.md) you've configured will be executed to perform the deployment [following this order by convention](/docs/deployment-examples/deploying-packages/package-deployment-feature-ordering.md).
-6. As part of this process the IIS Web Site, Web Application or Virtual Directory will be configured in a single transaction with IIS, including updating the Physical Path to point to this folder
-7. [Output variables](/docs/deployment-process/variables/output-variables.md) and deployment [artifacts](/docs/deployment-process/artifacts.md) from this step are sent back to the Octopus Server
+1. Acquire the package as optimally as possible (local package cache and [delta compression](/docs/deployment-examples/deploying-packages/delta-compression-for-package-transfers.md)).
+2. Create a new folder for the deployment (which avoids many common problems like file locks, leaving stale files behind, and multiple Application Pool restarts).
+3. Example: `C:\Octopus\Applications\[Tenant name]\[Environment name]\[Package name]\[Package version]\` where `C:\Octopus\Applications` is the Tentacle application directory you configured when installing Tentacle).
+4. Extract the package into the newly created folder.
+5. Execute each of your [custom scripts](/docs/deployment-examples/custom-scripts/index.md) and the [deployment features](/docs/deployment-examples/configuration-features/index.md) you've configured will be executed to perform the deployment [following this order by convention](/docs/deployment-examples/deploying-packages/package-deployment-feature-ordering.md).
+6. As part of this process the IIS Web Site, Web Application, or Virtual Directory will be configured in a single transaction with IIS, including updating the Physical Path to point to this folder.
+7. [Output variables](/docs/deployment-process/variables/output-variables.md) and deployment [artifacts](/docs/deployment-process/artifacts.md) from this step are sent back to the Octopus Server.
 
 :::success
 You can see exactly how Octopus integrates with IIS in the [open-source Calamari library](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari/Scripts/Octopus.Features.IISWebSite_BeforePostDeploy.ps1).
