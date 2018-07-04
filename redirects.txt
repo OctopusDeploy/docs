@@ -560,3 +560,4 @@ docs/deployment-process/configuration-files/custom-installation-directory.md -> 
 docs/deployment-process/configuration-files/substitute-variables-in-files.md -> docs/deployment-process/configuration-features/substitute-variables-in-files.md
 docs/deployment-process/configuration-files/confiuration-variables.md -> docs/deployment-process/configuration-features/configuration-variables.md
 docs/deployment-examples/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md -> docs/deployment-process/configuration-features/json-configuration-variables-feature.md
+docs/key-concepts/machine-roles -> docs/infrastructure/target-roles/index.md
