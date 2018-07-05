@@ -28,7 +28,7 @@ You can configure the following features:
 
 - [Custom Installation Directory](/docs/deployment-process/configuration-features/custom-installation-directory.md)
 - [IIS Web Site and Application Pool](/docs/deployment-process/configuration-features/iis-website-and-application-pool.md)
-- [Windows Service](/docs/deployment-examples/windows-services.md)
+- [Windows Service](/docs/deployment-process/configuration-features/windows-services.md)
 - [Custom Deployment Scripts](/docs/deployment-examples/custom-scripts/index.md)
 - [JSON Configuration Variables](/docs/deployment-process/configuration-features/json-configuration-variables-feature.md)
 - [Configuration Variables](/docs/deployment-process/configuration-features/configuration-variables.md)
