@@ -563,3 +563,4 @@ docs/deployment-examples/deploying-asp.net-core-web-applications/json-configurat
 docs/administration/workers/external-workers.md -> docs/infrastructure/workers/index.md
 docs/deployment-process/steps/how-to-run-steps-on-the-octopus-server.md -> docs/deployment-examples/deploying-packages/deploy-packages-to-your-octopus-server.md
 docs/administration/workers/worker-pools.md -> docs/infrastructure/workers/worker-pools.md
+docs/key-concepts/machine-roles -> docs/infrastructure/target-roles/index.md
