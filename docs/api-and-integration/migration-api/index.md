@@ -130,15 +130,22 @@ Here's an example showing you how that might look, performing a `partial-export`
 ```
 Add-Type -Path 'YOUR_LOCAL_PATH\Octopus.Client.dll'
 
-$sourceApikey = 'API-YOUR_SOURCE_API_KEY'
-$sourceOctopusURI = 'http://YOUR_SOURCE_OCTOPUS_SERVER'
+$sourceOctopusURI = 'https://SOURCE_OCTOPUS_SERVER'
+$sourceApikey = 'API-SOURCE_API_KEY'
+$destinationOctopusURI = 'https://DESTINATION_OCTOPUS_SERVER'
+$destinationApikey = 'API-DESTINATION_API_KEY'
+$migrationPackageId = 'MyAwesomeOctopusMigration'
+$migrationPackageVersion = '1.0.0'
+$migrationPassword = 'Demo1234'
+$isDryRun = $true # Only set this to false when you've reviewed the dry run and are happy to proceed with the migration for realz.
+
 $sourceEndpoint = New-Object Octopus.Client.OctopusServerEndpoint $sourceOctopusURI,$sourceApikey
 $sourceRepository = New-Object Octopus.Client.OctopusRepository $sourceEndpoint
 
 $migrationExportResource = new-object Octopus.Client.Model.Migrations.MigrationPartialExportResource
-$migrationExportResource.PackageId = 'MyAwesomeOctopusMigration'
-$migrationExportResource.PackageVersion = '1.0.0'
-$migrationExportResource.Password = 'Demo1234'
+$migrationExportResource.PackageId = $migrationPackageId
+$migrationExportResource.PackageVersion = $migrationPackageVersion
+$migrationExportResource.Password = $migrationPassword
 $migrationExportResource.Projects = @('Rick Project', 'Morty Project')
 $migrationExportResource.IgnoreCertificates = $false
 $migrationExportResource.IgnoreMachines = $false
@@ -146,8 +153,8 @@ $migrationExportResource.IgnoreDeployments = $false
 $migrationExportResource.IgnoreTenants = $false
 $migrationExportResource.IncludeTaskLogs = $true
 $migrationExportResource.EncryptPackage = $true
-$migrationExportResource.DestinationPackageFeed = 'http://YOUR_DESTINATION_API_KEY';
-$migrationExportResource.DestinationApiKey = 'API-YOUR_DESTINATION_API_KEY'
+$migrationExportResource.DestinationPackageFeed = $destinationOctopusURI
+$migrationExportResource.DestinationApiKey = $destinationApikey
 
 $migrationExportResource = $sourceRepository.Migrations.PartialExport($migrationExportResource)
 
@@ -173,16 +180,14 @@ if ($migrationExportTask.State -ne 'Success' -or $migrationExportTask.HasWarning
 }
 
 # From here, we can proceed with an import on our destination server.
-$destinationApikey = 'API-YOUR_DESTINATION_API_KEY'
-$destinationOctopusURI = 'http://YOUR_DESTINATION_OCTOPUS_SERVER'
 $destinationEndpoint = New-Object Octopus.Client.OctopusServerEndpoint $destinationOctopusURI,$destinationApikey
 $destinationRepository = New-Object Octopus.Client.OctopusRepository $destinationEndpoint
 
 $migrationImportResource = new-object Octopus.Client.Model.Migrations.MigrationImportResource
-$migrationImportResource.PackageId = 'MyAwesomeOctopusMigration'
-$migrationImportResource.PackageVersion = '1.0.0'
-$migrationImportResource.Password = 'Demo1234'
-$migrationImportResource.IsDryRun = $true # Only set this to false when you've reviewed the dry run and are happy to proceed with the migration for realz.
+$migrationImportResource.PackageId = $migrationPackageId
+$migrationImportResource.PackageVersion = $migrationPackageVersion
+$migrationImportResource.Password = $migrationPassword
+$migrationImportResource.IsDryRun = $isDryRun
 $migrationImportResource.IsEncryptedPackage = $true
 $migrationImportResource.DeletePackageOnCompletion = $true # May as well clean up after ourselves.
 
