@@ -6,7 +6,7 @@ position: 0
 
 Welcome!
 
-This section provides an overview of Octopus Deploy by explaining how Octopus Deploy fits into your application delivery pipeline. It provides an overview of the major concepts in Octopus and links to the relevant documentation, which explore the concepts further to guide you through implementing them with your own Octopus.
+This section provides an overview of Octopus Deploy by explaining how Octopus Deploy fits into your application delivery pipeline. It provides an overview of the major concepts in Octopus and links to the relevant documentation, which explore the concepts further and guide you through implementing them with your own [self-hosted](/docs/getting-started.md#self-hosted-octopus) or [cloud-hosted](/docs/getting-started.md#octopus-cloud) Octopus Server.
 
 ## Octopus in Your Delivery Process
 
@@ -14,7 +14,7 @@ Octopus Deploy is an automated deployment server that makes it easy to automate 
 
 ### The Delivery Pipeline
 
-We designed Octopus Deploy for teams that follow agile delivery practices. A typical workflow would be:
+We designed Octopus Deploy for teams that follow agile delivery practices. A typical workflow could be:
 
 1. **Commit Code to Your Existing Source Control System.**
 
@@ -34,19 +34,29 @@ We designed Octopus Deploy for teams that follow agile delivery practices. A typ
 
 ### Consistent Releases
 
-As an Octopus user, you define the process for deploying the software. You specify the environments the applications are deployed to and who on your team can deploy to which environments; for instance, you might want testers to deploy to test environments, but not to production. Taking this approach means that even if different members of the team trigger deployments, the deployment process remains consistent.
+As an Octopus user, you define the process for deploying your software. You specify the environments the applications are deployed to and who on your team can deploy to which environments; for instance, you might want testers to deploy to test environments, but not to production. Taking this approach means that even if different members of the team trigger deployments, the deployment process remains consistent.
 
-The rest of this guide goes into more detail about working with  Octopus Deploy and links to the relevant sections of the documentation for more information.
+The rest of this guide goes into more detail about working with Octopus Deploy and links to the relevant sections of the documentation for more information.
 
-## Install Octopus Deploy
+## Octopus Deploy
 
-Installing [Octopus Deploy](/docs/installation/index.md) sets up the central [Octopus Deploy Server](/docs/installation/index.md), which provides the [Octopus REST API](/docs/api-and-integration/api/index.md) and the **Octopus Web Portal** which you will use you manage your deployments.
+Octopus Deploy is available as a [self-hosted](/docs/getting-started.md#self-hosted-octopus) or [cloud-hosted](/docs/getting-started.md#octopus-cloud) server.
 
-The [installation documentation](/docs/installation/index.md) provides instructions for installing and configuring your Octopus Deploy server.
+## Self-Hosted Octopus
 
-### Access the Octopus Web Portal
+Installing self-hosted [Octopus Deploy](/docs/installation/index.md) sets up the [Octopus Deploy Server](/docs/installation/index.md), which provides the **Octopus Web Portal** and the [Octopus REST API](/docs/api-and-integration/api/index.md).
 
-Once Octopus is installed you can access the **Octopus Web Portal**. This is where you'll manage your infrastructure, projects, access the built-in repository, and deploy your applications from.
+The [installation documentation](/docs/installation/index.md) provides instructions for downloading, installing, and configuring your Octopus Deploy Server.
+
+## Octopus Cloud
+
+**Octopus Cloud** is the hosted version of Octopus Deploy. We designed Octopus Cloud and self-hosted Octopus to provide the same functionality. There are some minor differences in [responsibilities](/docs/administration/security/index.md#responsibility) in that we're responsible for taking backups, upgrading the service, maintaining and monitoring the underlying systems.
+
+You can sign up for Octopus Cloud at [octopus.com/account/register](https://octopus.com/account/register) or check out the [Octopus Cloud FAQ](https://octopus.com/blog/octopus-cloud-faq) blog post or the [pricing](https://octopus.com/cloud) page.
+
+### The Octopus Web Portal
+
+The Octopus Web Portal is where you'll manage your infrastructure, projects, access the built-in repository, grant your team access to projects, and create your automated deployments.
 
 ![Octopus Dashboard](octopus-dashboard.png "width=500")
 
@@ -62,7 +72,7 @@ Learn more about managing your [infrastructure](/docs/infrastructure/index.md).
 
 ## Packaging Applications
 
-Before you can deploy software with Octopus Deploy, you need to bundle all the files needed for the software to run into a supported package. The package must be versioned and stored in a repository. Octopus Deploy includes a built-in repository. We recommend configuring your existing tool chain to push packages automatically to the built-in repository; however, you can push packages manually to the repository if you choose to.
+Before you can deploy software with Octopus Deploy, you need to bundle all the files required for the software to run into a supported package. The package must be versioned and stored in a repository. Octopus Deploy includes a built-in repository. We recommend configuring your existing tool chain to push packages automatically to the built-in repository; however, you can push packages manually to the repository if you choose to.
 
 Learn more about [packaging your applications](/docs/packaging-applications/index.md) or how to automate your existing tool chain to push packages to your Octopus Deploy server with our [API and Integrations](/docs/api-and-integration/index.md).
 
@@ -116,4 +126,6 @@ Over time your software may become so successful that you on-sell it to some ext
 
 Learn more about tenants in our [Multi-tenant Deployments Guide](/docs/deployment-patterns/multi-tenant-deployments/index.md).
 
-If you'd like to take a closer look at working instance of Octopus Deploy, you can visit our [Demo Site](https://demo.octopus.com).
+## Example deployments
+
+If you'd like to see some example deployments check out the [Deployment Examples section](/docs/deployment-examples/index.md).

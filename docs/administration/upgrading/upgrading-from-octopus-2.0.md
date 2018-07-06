@@ -15,7 +15,7 @@ Upgrading Octopus 2.0 involves two major steps.
 
 Additional information on troubleshooting upgrades is below.
 
-## Upgrading the Octopus server {#UpgradingfromOctopus2.0-UpgradingtheOctopusserver}
+## Upgrading the Octopus Server {#UpgradingfromOctopus2.0-UpgradingtheOctopusserver}
 
 To upgrade the Octopus Deploy server, you will need to follow these steps:
 
@@ -34,7 +34,7 @@ When the installer finishes, Octopus Manager will appear. Make sure the Octopus 
 
 ## Upgrading Tentacles {#UpgradingfromOctopus2.0-UpgradingTentacles}
 
-After upgrading the Octopus server, browse to the **Environments** tab in the Octopus web portal. You may need to press the "Check health" button to refresh the status of your Tentacles. If any of the Tentacle agents need to be updated, a message will appear:
+After upgrading the Octopus Server, browse to the **Environments** tab in the Octopus web portal. You may need to press the "Check health" button to refresh the status of your Tentacles. If any of the Tentacle agents need to be updated, a message will appear:
 
 ![](/docs/images/3048129/3277990.png "width=500")
 

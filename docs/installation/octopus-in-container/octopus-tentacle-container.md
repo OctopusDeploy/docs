@@ -43,7 +43,7 @@ Read Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#set
 |**TargetName**|Optional Target name, defaults to container generated host name|
 |**ServerPort**|The port on the Octopus Server that the Tentacle will poll for work. Implies a polling Tentacle|
 |**ListeningPort**|The port that the Octopus Server will connect back to the Tentacle with. Defaults to `10933`. Implies a listening Tentacle|
-|**PublicHostNameConfiguration**|How the url that the Octopus server will use to communicate with the Tentacle is determined. Can be `PublicIp`, `FQDN`, `ComputerName` or `Custom`. Defaults to `PublicIp`|
+|**PublicHostNameConfiguration**|How the url that the Octopus Server will use to communicate with the Tentacle is determined. Can be `PublicIp`, `FQDN`, `ComputerName` or `Custom`. Defaults to `PublicIp`|
 |**CustomPublicHostName**|If PublicHostNameConfiguration is set to `Custom`, the host name that the Octopus Server should use to communicate with the Tentacle|
 
 #### Exposed Container Ports

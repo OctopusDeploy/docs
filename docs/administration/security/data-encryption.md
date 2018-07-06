@@ -6,7 +6,7 @@ position: 50
 
 This section focuses on securing data in the [Octopus database](/docs/administration/octopus-database/index.md), [backup files](/docs/administration/backup-and-restore.md), and other settings in the registry and on disk. For information on how Octopus secures data between Octopus and Tentacles, see [Octopus - Tentacle communication](/docs/administration/security/octopus-tentacle-communication/index.md).
 
-When an Octopus server is installed, we generate a special key used for encryption, called the **master key**. The master key is then encrypted asymmetrically, using [DPAPI](http://msdn.microsoft.com/en-us/library/ms995355.aspx), and stored in the Octopus configuration file.
+When an Octopus Server is installed, we generate a special key used for encryption, called the **master key**. The master key is then encrypted asymmetrically, using [DPAPI](http://msdn.microsoft.com/en-us/library/ms995355.aspx), and stored in the Octopus configuration file.
 
 The master key is then used along with [AES-128](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) to encrypt certain sensitive data in the Octopus database, including:
 
@@ -18,7 +18,7 @@ The practical impact of this is:
 
 - While most data in the database is plain text, sensitive data like the examples below are encrypted.
 - The "master key" used to encrypt and decrypt this data is itself encrypted by Windows, using a private key known only by Windows.
-- If an attacker has access to your Octopus database backup file, but they aren't on the Octopus server and don't know the master key, they won't be able to decrypt the database or other settings.
+- If an attacker has access to your Octopus database backup file, but they aren't on the Octopus Server and don't know the master key, they won't be able to decrypt the database or other settings.
 
 :::problem
 **Warning**

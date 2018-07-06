@@ -25,7 +25,7 @@ Where [<options>] is any of:
       --trust=VALUE          The thumbprint of the Octopus Server to trust
       --remove-trust=VALUE   The thumbprint of the Octopus Server to remove
                                from the trusted list
-      --reset-trust          Removes all trusted Octopus servers
+      --reset-trust          Removes all trusted Octopus Servers
 
 Or one of the common options:
       --console              Don't attempt to run as a service, even if the

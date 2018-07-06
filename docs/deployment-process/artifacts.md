@@ -4,7 +4,7 @@ description: Artifacts in Octopus provide a convenient way to collect files from
 position: 60
 ---
 
-Artifacts in Octopus provide a convenient way to collect files from remote machines, and copy them to the Octopus server, where they can then be viewed from the web interface. Examples of where artifacts may be useful are:
+Artifacts in Octopus provide a convenient way to collect files from remote machines, and copy them to the Octopus Server, where they can then be viewed from the web interface. Examples of where artifacts may be useful are:
 
 - Collecting log files from other programs
 - Copying configuration files so you can inspect to see if the right values were replaced

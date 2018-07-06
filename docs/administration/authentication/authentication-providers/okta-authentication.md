@@ -40,7 +40,7 @@ After signing up to Okta you will receive your own url to access the Okta portal
 
    ![](/docs/images/okta-authentication/okta-new-app-integration.png "width=400")
 
-4. Enter an **Application Name** like Octopus Deploy and for the **Login redirect URIs** enter `https://octopus.example.com/api/users/authenticatedToken/Okta` replacing `https://octopus.example.com` with the public url of your Octopus server, and click the **Save** button.
+4. Enter an **Application Name** like Octopus Deploy and for the **Login redirect URIs** enter `https://octopus.example.com/api/users/authenticatedToken/Okta` replacing `https://octopus.example.com` with the public url of your Octopus Server, and click the **Save** button.
 
    ![](/docs/images/okta-authentication/okta-create-openid-integration.png "width=500")
 
@@ -65,7 +65,7 @@ Octopus now integrates with [Let's Encrypt](/docs/administration/security/exposi
 
 There are two values you will need from the Okta configuration to complete the Octopus configuration: the **Client ID** and **Issuer**. (The Client ID is also referred to as Audience.)
 
-Select the **Sign On** tab and scroll down to the **OpenID Connect ID Token** section. Take note of the **Issuer** and **Audience** as you will need both these values to configure your Octopus server.
+Select the **Sign On** tab and scroll down to the **OpenID Connect ID Token** section. Take note of the **Issuer** and **Audience** as you will need both these values to configure your Octopus Server.
 
 ![](/docs/images/okta-authentication/okta-openid-token.png "width=500")
 

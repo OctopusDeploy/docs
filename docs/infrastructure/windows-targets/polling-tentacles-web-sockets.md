@@ -1,6 +1,6 @@
 ---
 title: Polling Tentacles over WebSockets
-description: Octopus Polling Tentacles open a connection to the Octopus server over WebSockets to ask what to do.
+description: Octopus Polling Tentacles open a connection to the Octopus Server over WebSockets to ask what to do.
 position: 62
 ---
 

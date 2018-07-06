@@ -19,7 +19,7 @@ The data allows you to report on questions like:
 - How many deployments were successful? How many failed?
 - How long do deployments take on average?
 
-To help you get started, we provide a sample Excel spreadsheet that you can connect to your own Octopus server.
+To help you get started, we provide a sample Excel spreadsheet that you can connect to your own Octopus Server.
 
 ![](/docs/images/3048643/3278354.png "width=500")
 
@@ -65,7 +65,7 @@ The best way to consume reporting data from Octopus is using the XML feed. The f
 
 Where:
 
-- `<OCTOPUS-SERVER>` is the hostname of your Octopus server
+- `<OCTOPUS-SERVER>` is the hostname of your Octopus Server
 - `<API-KEY>` is one of [your API keys](/docs/api-and-integration/api/how-to-create-an-api-key.md)
 
 For example:

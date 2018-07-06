@@ -73,8 +73,8 @@ The `Payload` includes:
 
 | Property                     | Hint | Description |
 | ---------------------------- | ---- | ----------- |
-| ServerUri                    | \* |  The Octopus server that generated this webhook |
-| ServerAuditUri               | \* | The URL to the Octopus server's audit screen where this event may be found in more detail |
+| ServerUri                    | \* |  The Octopus Server that generated this webhook |
+| ServerAuditUri               | \* | The URL to the Octopus Server's audit screen where this event may be found in more detail |
 | Subscription                 | | The subscription object that triggered this webhook (including all filtering criteria so you can see exactly why you are receiving this webhook) |
 | Event                        | | The event object that this webhook is responding to |
 | BatchProcessingDate          | | The processing date for the current batch. For 'Single' payload types, the events will be sent in batches. The batch date is included here for your reference |

@@ -19,7 +19,7 @@ If you would like to use an external repository, the following external reposito
 
 Your package repository will typically be:
 
-- The Octopus server's built-in repository
+- The Octopus Server's built-in repository
 - A [remote feed](http://docs.nuget.org/docs/creating-packages/hosting-your-own-nuget-feeds#Creating_Remote_Feeds "Remote NuGet feeds") exposed over HTTP.
 - A [local feed](http://docs.nuget.org/docs/creating-packages/hosting-your-own-nuget-feeds#Creating_Local_Feeds "Local NuGet package repositories") exposed as a File Share or local directory.
 - A [maven feed](/docs/packaging-applications/package-repositories/maven-feeds.md).
@@ -72,11 +72,11 @@ This configuration will make it easier to find the right packages for the right 
 
 ## Using the Built-in Repository {#Packagerepositories-Usingthebuilt-inrepository}
 
-Your Octopus server comes with a built-in repository which is the best choice for deployment packages. It offers **better performance** for your deployments and the most **robust [retention policy](/docs/administration/retention-policies/index.md) support** for deployment packages.
+Your Octopus Server comes with a built-in repository which is the best choice for deployment packages. It offers **better performance** for your deployments and the most **robust [retention policy](/docs/administration/retention-policies/index.md) support** for deployment packages.
 
 :::hint
 **Built-in Feed Can Only Be Consumed by Octopus**
-It is important to understand that the Octopus server provides a write-only repository; intended for hosting deployment packages only. Packages that are pushed to the Octopus server can't be consumed by other NuGet clients like Visual Studio. If you need a NuGet feed for sharing libraries between your development projects, a separate NuGet repository is required.
+It is important to understand that the Octopus Server provides a write-only repository; intended for hosting deployment packages only. Packages that are pushed to the Octopus Server can't be consumed by other NuGet clients like Visual Studio. If you need a NuGet feed for sharing libraries between your development projects, a separate NuGet repository is required.
 :::
 
 ### Pushing Packages to the Built-in Repository {#Packagerepositories-Pushingpackagestothebuilt-inrepository}
@@ -107,7 +107,7 @@ If you are using [automatic release creation](/docs/deployment-process/releases/
 
 ### Moving the Location of the Built-in Repository {#Packagerepositories-Movingthelocationofthebuilt-inrepository}
 
-See [moving Octopus server folders](/docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md#MovingOctopusServerfolders-OctopusHome)
+See [moving Octopus Server folders](/docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md#MovingOctopusServerfolders-OctopusHome)
 
 ## Using External Repositories {#Packagerepositories-Usingexternalrepositories}
 
@@ -137,7 +137,7 @@ On the test page, you can check whether the feed is working by searching for pac
 ![](/docs/images/3048094/3277772.png "width=500")
 
 ## Planning Package Repository Placement {#Packagerepositories-Placement}
-By default, when you deploy a package to a Tentacle, the package will be pushed from the Octopus Server to the Tentacle. You can override this by setting the [Action System Variable](https://octopus.com/docs/deployment-process/variables/system-variables#Systemvariables-Action) `Octopus.Action.Package.DownloadOnTentacle`, which is a `boolean` data type. When set to `False`, the default behavior is applied and when set to `True` the package will be downloaded by the Tentacle, rather than pushed by the Octopus server.
+By default, when you deploy a package to a Tentacle, the package will be pushed from the Octopus Server to the Tentacle. You can override this by setting the [Action System Variable](https://octopus.com/docs/deployment-process/variables/system-variables#Systemvariables-Action) `Octopus.Action.Package.DownloadOnTentacle`, which is a `boolean` data type. When set to `False`, the default behavior is applied and when set to `True` the package will be downloaded by the Tentacle, rather than pushed by the Octopus Server.
 
 To reduce network latency, it is ideal to place your package repository in close proximity to the Octopus Server while `Octopus.Action.Package.DownloadOnTentacle` is set to the default value of `False`. Alternatively if you have explicitly set the Tentacles to download packages by the Tentacle to `True`, you would likely want to place your package repository in close proximity to your Tentacles.
 
@@ -152,7 +152,7 @@ The built-in NuGet server in Octopus stores metadata in SQL Server, and doesn't 
 - For network file shares, keep in mind that Octopus and Tentacle run under system accounts by default, which may not have access to the file share
 - NuGet.Server only allows 30MB packages [by default](http://help.octopusdeploy.com/discussions/problems/184-30mb-default-maximum-nuget-package-size)
 
-A good first step for diagnosing NuGet feed issues is to ensure that the NuGet command line executable can access the same feed from the Octopus server or target machine if the `Each Tentacle will download the package directly from the remote server` option is selected. The following steps can be used to troubleshoot NuGet feeds.
+A good first step for diagnosing NuGet feed issues is to ensure that the NuGet command line executable can access the same feed from the Octopus Server or target machine if the `Each Tentacle will download the package directly from the remote server` option is selected. The following steps can be used to troubleshoot NuGet feeds.
 
 Run the command:
 

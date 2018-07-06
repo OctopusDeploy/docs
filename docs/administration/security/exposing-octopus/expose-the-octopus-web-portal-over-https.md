@@ -65,7 +65,7 @@ If you are bringing your own SSL certificate, or want to configure a complex set
 
     Since HTTPS requires an SSL certificate, you can either choose to generate a new, self-signed (untrusted) certificate, or to select an existing certificate. Self-signed certificates are useful for testing or to achieve encryption without trust, but for production use we recommend using a trusted SSL certificate.
 
-1. Follow the rest of the Wizard steps to add the binding and reconfigure the Octopus server.
+1. Follow the rest of the Wizard steps to add the binding and reconfigure the Octopus Server.
 
 ## Forcing HTTPS {#ForcingHTTPS}
 
@@ -82,7 +82,7 @@ A common scenario when hosting the Octopus Server is to redirect all requests in
 
 HTTP Strict Transport Security is an HTTP header that can be used to tell the web browser that it should only ever communicate with the website using HTTPS, even if the user tries to use HTTP. This allows you to lessen the risk of a Man-in-the-Middle (MITM) attack or a HTTP downgrade attack. However, it is not a panacea - it still requires a successful connection on first use (ie, it does not resolve the Trust-On-First-Use (TOFU) issue).
 
-Octopus 3.13 and above can send this header, but due to the potential pitfalls, it is opt-in. To switch it on, run the following commands on your Octopus server:
+Octopus 3.13 and above can send this header, but due to the potential pitfalls, it is opt-in. To switch it on, run the following commands on your Octopus Server:
 
 ```text
 PS \> Octopus.Server.exe configure --hstsEnabled=true --hstsMaxAge=31556926

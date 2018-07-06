@@ -1,7 +1,7 @@
 ---
-title: IIS Websites and Application Pools
+title: Windows Services
 description: Octopus has built-in support for configuring IIS Web Sites, Applications and Virtual Directories.
-position: 20
+position: 25
 ---
 
-!include <iis-feature>
+!include <windows-services>

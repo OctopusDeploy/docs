@@ -36,7 +36,7 @@ Learn more about [how to create an API key](/docs/api-and-integration/api/how-to
 The output will appear as follows:
 
 ```powershell
-Handshaking with Octopus server: https://demo.octopusdeploy.com
+Handshaking with Octopus Server: https://demo.octopusdeploy.com
 Handshake successful. Octopus version: 2.5.9.554; API version: 3.0.0
 Listing projects
 Listing project groups
