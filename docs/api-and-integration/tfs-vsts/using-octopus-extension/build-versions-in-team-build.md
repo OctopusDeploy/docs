@@ -48,7 +48,7 @@ Other extensions such as [gitversion](https://github.com/GitTools/GitVersion) ca
 
 ## Packaging in Team Build
 
-There are two standard ways to package your build output in Team Build. The first is to use [OctoPack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md), and the second is to use the build tasks in the [Octopus marketplace extension]().
+There are two standard ways to package your build output in Team Build. The first is to use [OctoPack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md), and the second is to use the build tasks in the [Octopus marketplace extension](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks).
 
 You can mix and match these two methods. For example, you might prefer to use OctoPack and the `/p:RunOctoPack` MS Build argument, but then use the Push and Create Release tasks from the extension.
 
