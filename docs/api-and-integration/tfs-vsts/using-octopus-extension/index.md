@@ -53,7 +53,7 @@ Enter a valid [Octopus API Key](/docs/api-and-integration/api/how-to-create-an-a
 After you've saved the connection, it should be available from the Octopus Deploy Build Tasks.
 
 :::hint
-if you plan to use the octopus widgets and require these widgets to function for users other than project collaborators such as stakeholders, then those users must be explicitly allowed to use the service endpoint. This can be achieved by adding those users to the service endpoint `Users` group.
+if you plan to use the Octopus widgets and want them to function for users other than project collaborators, such as stakeholders, then those users must be explicitly allowed to use the service endpoint. This can be achieved by adding those users to the service endpoint `Users` group.
 :::
 
 ### Permissions required by the API key
