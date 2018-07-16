@@ -26,7 +26,7 @@ A deployment will be initiated which adds the extension to your virtual machine.
 
 The settings for the extension are:
 
-`Octopus Server URL`: URL to your Octopus Deploy server. You'll need your own Octopus Server (possibly also running on Azure), and you should [consider using HTTPS](/docs/administration/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md). The extension will use the [Octopus REST API](/docs/api-and-integration/api/index.md) against this URL to register the machine.
+`Octopus Server URL`: URL to your Octopus Deploy Server. You'll need your own Octopus Server (possibly also running on Azure), and you should [consider using HTTPS](/docs/administration/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md). The extension will use the [Octopus REST API](/docs/api-and-integration/api/index.md) against this URL to register the machine.
 
 `API Key`: [Your API key](/docs/api-and-integration/api/how-to-create-an-api-key.md). This key will only be used when registering the machine with the Octopus Server; it isn't used for [subsequent communication](/docs/administration/security/octopus-tentacle-communication/index.md).
 
@@ -44,7 +44,7 @@ The settings for the extension are:
 
 After entering the extension settings, click **OK**, and the extension will be installed.
 
-After a few minutes, the machine should appear in the environments tab of your Octopus Deploy server. If it doesn't, please read the [Diagnosing issues](/docs/infrastructure/windows-targets/azure-virtual-machines/diagnosing-issues.md) section.
+After a few minutes, the machine should appear in the environments tab of your Octopus Deploy Server. If it doesn't, please read the [Diagnosing issues](/docs/infrastructure/windows-targets/azure-virtual-machines/diagnosing-issues.md) section.
 
 :::hint
 If you need the ability to customize more of the installation, the [CLI](via-the-azure-cli.md), [PowerShell](via-powershell.md) and [ARM Template](via-an-arm-template.md) methods expose more options than the Azure Portal. For even more customization, you might want to consider using the [Azure Desired State Configuration (DSC) extension](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-extensions-dsc-overview) in conjunction with the [OctopusDSC](https://www.powershellgallery.com/packages/OctopusDSC) resource.

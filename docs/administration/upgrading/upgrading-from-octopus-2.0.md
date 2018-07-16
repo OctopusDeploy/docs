@@ -17,7 +17,7 @@ Additional information on troubleshooting upgrades is below.
 
 ## Upgrading the Octopus Server {#UpgradingfromOctopus2.0-UpgradingtheOctopusserver}
 
-To upgrade the Octopus Deploy server, you will need to follow these steps:
+To upgrade the Octopus Deploy Server, you will need to follow these steps:
 
 1. Ensure you have a recent [database backup](/docs/administration/backup-and-restore.md) that you can restore in case anything goes wrong
 2. Download the latest [Octopus Deploy MSI installer](http://octopusdeploy.com/downloads)

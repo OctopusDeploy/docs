@@ -49,7 +49,7 @@ To have OctoPack create a NuGet package from your build, set the **RunOctoPack**
 msbuild MySolution.sln /t:Build /p:RunOctoPack=true
 ```
 
-After the build completes, in the output directory you will find a NuGet package. This package is ready to be deployed using your [Octopus Deploy server](/docs/installation/index.md).
+After the build completes, in the output directory you will find a NuGet package. This package is ready to be deployed using your [Octopus Deploy Server](/docs/installation/index.md).
 
 ## Adding a NuSpec {#UsingOctoPack-AddingaNuSpec}
 

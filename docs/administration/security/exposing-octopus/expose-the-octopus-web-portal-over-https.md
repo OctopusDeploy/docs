@@ -4,7 +4,7 @@ description: How to expose the Octopus web portal securely over HTTPS.
 position: 6
 ---
 
-The Octopus web portal is the main interface that your team will use to interact with the Octopus Deploy server. During installation, you'll choose a port number for the server to listen on, and it uses HTTP by default. However, Octopus can also be configured to run on HTTPS. You can force all traffic to use HTTPS and even enable HSTS if desired. Octopus supports different types of SSL certificates, with built-in support for [Let's Encrypt](/docs/administration/security/exposing-octopus/lets-encrypt-integration.md) to make HTTPS as simple as possible.
+The Octopus web portal is the main interface that your team will use to interact with the Octopus Deploy Server. During installation, you'll choose a port number for the server to listen on, and it uses HTTP by default. However, Octopus can also be configured to run on HTTPS. You can force all traffic to use HTTPS and even enable HSTS if desired. Octopus supports different types of SSL certificates, with built-in support for [Let's Encrypt](/docs/administration/security/exposing-octopus/lets-encrypt-integration.md) to make HTTPS as simple as possible.
 
 !toc
 
@@ -51,7 +51,7 @@ If you are testing Octopus, and don't want to use an existing certificate nor Le
 
 If you are bringing your own SSL certificate, or want to configure a complex set of HTTP/HTTPS bindings, the easiest way to do this is using the Octopus Server Manager.
 
-1. Open the **Octopus Manager** application on the Octopus Deploy server. You'll find this in the start menu.
+1. Open the **Octopus Manager** application on the Octopus Deploy Server. You'll find this in the start menu.
 
     ![](/docs/images/3048148/3278103.png)
 

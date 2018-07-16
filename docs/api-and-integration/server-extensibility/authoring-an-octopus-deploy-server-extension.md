@@ -1,15 +1,15 @@
 ---
-title: Authoring an Octopus Deploy server extension
-description: Technical details of how to author an Octopus Deploy server extension.
+title: Authoring an Octopus Deploy Server extension
+description: Technical details of how to author an Octopus Deploy Server extension.
 ---
 
 ## Octopus.Server.Extensibility {#AuthoringanOctopusDeployserverextension-Octopus.Server.Extensibility}
 
-This is the key NuGet package you will need in order to build an Octopus Deploy server extension.
+This is the key NuGet package you will need in order to build an Octopus Deploy Server extension.
 
 ### Octopus.Server.Extensibility.Extensions {#AuthoringanOctopusDeployserverextension-Octopus.Server.Extensibility.Extensions}
 
-This namespace contains the interfaces and structures an extension can implement, which the Octopus Deploy server will go looking for.
+This namespace contains the interfaces and structures an extension can implement, which the Octopus Deploy Server will go looking for.
 
 The key interface to be aware of is **IOctopusExtension**, as this forms the entry point for your extension and without it the server cannot load your extension.  An example of its usage is as follows:
 
@@ -103,7 +103,7 @@ Now that your extension has configuration, how do you set the configuration valu
 
 #### Services Provided by the Host {#AuthoringanOctopusDeployserverextension-ServicesProvidedbytheHost}
 
-This section contains the interfaces and structures related to 'services' that the extensions can consume from the Octopus Deploy server itself.  In this section, we'll detail a couple of interfaces you're most likely to need. To use them install the relevant NuGet package and take a dependency in your extension constructor.
+This section contains the interfaces and structures related to 'services' that the extensions can consume from the Octopus Deploy Server itself.  In this section, we'll detail a couple of interfaces you're most likely to need. To use them install the relevant NuGet package and take a dependency in your extension constructor.
 
 #### ILog from [Octopus.Diagnostics](https://www.nuget.org/packages/Octopus.Diagnostics/) {#AuthoringanOctopusDeployserverextension-ILogfromOctopus.Diagnostics}
 
@@ -123,4 +123,4 @@ At the moment you can only extend [Authentication](https://github.com/OctopusDep
 
 ## 'Installing' a custom extension {#AuthoringanOctopusDeployserverextension-&#39;Installing&#39;acustomextension}
 
-Once you've compiled the dll, [installing it is as simple as putting it in the right folder](/docs/api-and-integration/server-extensibility/installing-a-custom-server-extension.md) and restarting the Octopus Deploy server.
+Once you've compiled the dll, [installing it is as simple as putting it in the right folder](/docs/api-and-integration/server-extensibility/installing-a-custom-server-extension.md) and restarting the Octopus Deploy Server.

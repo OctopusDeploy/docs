@@ -3,7 +3,7 @@ title: Building an External authentication provider
 description: The step involved in building an External Authentication Provider.
 ---
 
-When authenticating using an external Identity Provider (IP), it is that provider's responsibility to provide the UI for interacting with the user in order to authenticate them.  The Octopus Deploy server extension's responsibility is to provide a UI and API required to initiate the interaction with the IP, handle the token it returns, and route the user back to the Octopus Deploy UI.
+When authenticating using an external Identity Provider (IP), it is that provider's responsibility to provide the UI for interacting with the user in order to authenticate them.  The Octopus Deploy Server extension's responsibility is to provide a UI and API required to initiate the interaction with the IP, handle the token it returns, and route the user back to the Octopus Deploy UI.
 
 Exactly how that is achieved depends on the IP, and the Octopus Deploy [OpenIDConnectAuthenticationProvider](https://github.com/OctopusDeploy/OpenIDConnectAuthenticationProviders) provides a good reference point.
 

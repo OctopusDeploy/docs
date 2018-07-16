@@ -1,10 +1,10 @@
 ---
 title: Export
-description: Using the Octo.exe command line tool to export items from one Octopus Deploy server to import into another.
+description: Using the Octo.exe command line tool to export items from one Octopus Deploy Server to import into another.
 position: 5
 ---
 
-This command allows you to export items from one Octopus Deploy server and import them into another Octopus Deploy server.
+This command allows you to export items from one Octopus Deploy Server and import them into another Octopus Deploy Server.
 
 We currently support exporting/importing:
 
@@ -108,12 +108,12 @@ Export file C:\tmp\OctoFX_Rate_Service.json successfully created.
 ```json
 {
   // This contains the basic settings for the project you have exported.
-  // If the project already exists on your other Octopus Deploy server, then it will be updated with the new settings from the exported project.
+  // If the project already exists on your other Octopus Deploy Server, then it will be updated with the new settings from the exported project.
   "Project": {
     ...
   },
  
-  // This is used as a reference when importing to ensure that the same project group exists on your other Octopus Deploy server. 
+  // This is used as a reference when importing to ensure that the same project group exists on your other Octopus Deploy Server. 
   // If it doesn't already exist, you will need to create it.
   "ProjectGroup": {
     ...
@@ -127,7 +127,7 @@ Export file C:\tmp\OctoFX_Rate_Service.json successfully created.
   },
  
   // This is used as a reference when importing to ensure that the same NuGet feed exists on your 
-  // target Octopus Deploy server. 
+  // target Octopus Deploy Server. 
   "NuGetFeeds": [
     ...
   ],
@@ -141,7 +141,7 @@ Export file C:\tmp\OctoFX_Rate_Service.json successfully created.
  
   // This contains any library variable sets that are used by the project.
   // These are included as a reference when importing to ensure that the same 
-  // Library Variable Set exists on your other Octopus Deploy server.
+  // Library Variable Set exists on your other Octopus Deploy Server.
   "LibraryVariableSets": [
     ...
   ],
