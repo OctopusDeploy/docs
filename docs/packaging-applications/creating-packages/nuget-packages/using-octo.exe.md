@@ -7,7 +7,7 @@ description: Packaging applications using the octo.exe command line tool for use
 
 If you don't want to (or can't) add [OctoPack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md) to your Visual Studio project, or you have a project that doesn't use Visual Studio then packaging your applications into a NuGet package would involve using NuGet.exe, together with a manifest file (.nuspec file), to create your packages.
 
-There is, however, another way that you can create a NuGet package from just a folder of files and subdirectories. **Octo.exe** is our API command line tool that allows you to interact with your Octopus Deploy server using different **commands**, but, it also has a, not so known command, the **pack** command. The [Octo.exe Command Line](/docs/api-and-integration/octo.exe-command-line/index.md) page will show you how to get the API command line tool installed and ready to use.
+There is, however, another way that you can create a NuGet package from just a folder of files and subdirectories. **Octo.exe** is our API command line tool that allows you to interact with your Octopus Deploy Server using different **commands**, but, it also has a, not so known command, the **pack** command. The [Octo.exe Command Line](/docs/api-and-integration/octo.exe-command-line/index.md) page will show you how to get the API command line tool installed and ready to use.
 
 The **pack** command turns any folder into a NuGet or Zip package - plain and simple!
 

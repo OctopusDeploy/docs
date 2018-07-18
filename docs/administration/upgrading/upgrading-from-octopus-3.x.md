@@ -173,7 +173,7 @@ See the [Release Notes](https://octopus.com/downloads/compare?from=3.3.27&amp;to
 
 Some server configuration values are moved from the config file into the database in 3.5+.
 
-If you are upgrading to a 3.5+ version please backup your server config file prior to upgrading. If you need to downgrade then replace the config with the original file after the downgrade and restart Octopus Deploy server.
+If you are upgrading to a 3.5+ version please backup your server config file prior to upgrading. If you need to downgrade then replace the config with the original file after the downgrade and restart Octopus Deploy Server.
 
 ## How to downgrade to a previously installed instance of Octopus Server {#Howtodowngradetoapreviousinstalledinstanceofoctopusserver}
 

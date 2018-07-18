@@ -4,13 +4,13 @@ description: Octopus Server and Tentacle communications details.
 position: 40
 ---
 
-This page describes how the [Octopus Deploy server](/docs/installation/index.md) and the [Tentacle deployment agents](/docs/infrastructure/windows-targets/index.md) communicate in a secure way.
+This page describes how the [Octopus Deploy Server](/docs/installation/index.md) and the [Tentacle deployment agents](/docs/infrastructure/windows-targets/index.md) communicate in a secure way.
 
 ## Background {#Octopus-Tentaclecommunication-Background}
 
 Some deployment technologies are designed for the LAN and have no security at all. Some require machines to be on the same Active Directory domain. Others require you to set up usernames and passwords, and to store them in configuration files.
 
-When designing Octopus, we wanted to make it easy to have secure deployments out of the box, without expecting machines to be on the same domain and without sharing passwords. Octopus needed to work in scenarios where the Octopus Deploy server is running in your local LAN, close to your developers, while your production servers are running in the cloud or at a remote data center.
+When designing Octopus, we wanted to make it easy to have secure deployments out of the box, without expecting machines to be on the same domain and without sharing passwords. Octopus needed to work in scenarios where the Octopus Deploy Server is running in your local LAN, close to your developers, while your production servers are running in the cloud or at a remote data center.
 
 We achieve this security using [public-key cryptography](http://en.wikipedia.org/wiki/Public-key_cryptography "Wikipedia article on Public-key cryptography").
 

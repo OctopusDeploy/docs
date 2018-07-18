@@ -1,12 +1,12 @@
 ---
 title: Import
-description: Using the Octo.exe command line tool to import items exported from another Octopus Deploy server.
+description: Using the Octo.exe command line tool to import items exported from another Octopus Deploy Server.
 position: 6
 ---
 
-This command allows you to import items from one Octopus Deploy server into another Octopus Deploy server.
+This command allows you to import items from one Octopus Deploy Server into another Octopus Deploy Server.
 
-**Note:** Both the source and destination Octopus Deploy servers should be running the same version.
+**Note:** Both the source and destination Octopus Deploy Servers should be running the same version.
 
 We currently support importing:
 
@@ -69,7 +69,7 @@ Common options:
 
 :::hint
 **Prerequisites**
-Before importing a project you have to ensure that the following exists on the Octopus Deploy server you are importing to:
+Before importing a project you have to ensure that the following exists on the Octopus Deploy Server you are importing to:
 
 - The Project Group used by the Project
 - The Environments used in the Project
@@ -152,7 +152,7 @@ Successfully imported project 'OctoFX Rate Service'
 
 :::hint
 **Prerequisites**
-Before importing a release, or range of releases, you have to ensure that the project exists on the Octopus Deploy server you are importing to
+Before importing a release, or range of releases, you have to ensure that the project exists on the Octopus Deploy Server you are importing to
 :::
 
 The following options are required when importing a release, or a range of releases.

@@ -37,7 +37,7 @@ Some audit events will also include details, which you can see by clicking the *
 
 ![](/docs/images/3048138/3278049.png "width=500")
 
-This feature makes it extremely easy to see who made what changes on the Octopus Deploy server.
+This feature makes it extremely easy to see who made what changes on the Octopus Deploy Server.
 
 ## Security concerns
 

@@ -148,7 +148,7 @@ If you don't have a hardware load balancer available, an easy option is the [App
 
 ## Migrating a Single Server to a High Availability setup {#ConfiguringOctopusforHighAvailability-MigratingaSingleServertoaHighAvailabilitysetup}
 
-You may already have an existing Octopus Deploy server, that you wish to make highly available. The process for doing this is the same as the process above, except your existing server will be the "first node" in the cluster.
+You may already have an existing Octopus Deploy Server, that you wish to make highly available. The process for doing this is the same as the process above, except your existing server will be the "first node" in the cluster.
 
 1. Provision the shared storage folder
 2. Move the SQL Server database, if necessary
