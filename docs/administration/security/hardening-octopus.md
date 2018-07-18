@@ -60,7 +60,7 @@ We highly recommend configuring external workers running on a different host to 
 
 Learn about the [built-in worker](/docs/administration/workers/built-in-worker.md).
 
-Learn about [external workers](/docs/administration/workers/external-workers.md).
+Learn about [external workers](/docs/infrastructure/workers/index.md).
 
 ### Configure how Octopus Server communicates with deployment targets
 
@@ -140,7 +140,7 @@ Add-MpPreference -ExclusionPath "C:\Octopus\Work\*"
 These steps only apply if you are running either the built-in worker or an external worker on the same host operating system as the Octopus Server itself. You should prevent custom scripts executed by these workers from doing harm to your Octopus Server.
 
 :::hint
-Consider using an [external worker](/docs/administration/workers/external-workers.md) and moving this workload to a different server. This is the very best way to prevent any potential for harm to your Octopus Server, and you won't need to rely on the rest of these steps to prevent harm to your Octopus Server.
+Consider using an [external worker](/docs/infrastructure/workers/index.md) and moving this workload to a different server. This is the very best way to prevent any potential for harm to your Octopus Server, and you won't need to rely on the rest of these steps to prevent harm to your Octopus Server.
 :::
 
 #### Run as a different user

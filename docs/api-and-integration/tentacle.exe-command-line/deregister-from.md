@@ -1,9 +1,9 @@
 ---
 title: Deregister from
-description: Using the Tentacle.exe command line executable to deregister a machine from an Octopus Server.
+description: Using the Tentacle.exe command line executable to deregister a deployment target from an Octopus Server.
 ---
 
-Deregisters this machine from an Octopus Server
+Deregisters this deployment target from an Octopus Server
 
 **Deregister from options**
 
