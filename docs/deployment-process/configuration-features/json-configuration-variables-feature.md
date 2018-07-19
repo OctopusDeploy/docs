@@ -4,7 +4,7 @@ description: The JSON Configuration Variables feature updates your JSON config
 position: 50
 ---
 
-The JSON Configuration Variables feature is one of the [configuration features](/docs/deployment-process/configuration-features/index.md) you can enable as you define your [deployment process](/docs/deployment-process/index.md).
+The JSON Configuration Variables feature is one of the [configuration features](/docs/deployment-process/configuration-features/index.md) you can enable as you define the [steps](/docs/deployment-process/steps/index.md) in your [deployment process](/docs/deployment-process/index.md).
 
 The JSON Configuration Variables feature updates your JSON configuration files with the values from matching Octopus variables. In many ways this feature works similarly to the [Substitute Variables in Files](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) feature, but uses a special matching syntax so you can update configuration nested in JSON object and array literals.
 

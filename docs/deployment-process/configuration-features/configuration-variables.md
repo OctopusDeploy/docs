@@ -4,7 +4,7 @@ description: Configuring applications to work in specific environments is an ess
 position: 60
 ---
 
-The Configuration Variables feature is one of the [configuration features](/docs/deployment-process/configuration-features/index.md) you can enable as you define your [deployment process](/docs/deployment-process/index.md).
+The Configuration Variables feature is one of the [configuration features](/docs/deployment-process/configuration-features/index.md) you can enable as you define the [steps](/docs/deployment-process/steps/index.md) in your [deployment process](/docs/deployment-process/index.md).
 
 This feature can be enabled for package deploy steps.
 

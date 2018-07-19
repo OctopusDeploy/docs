@@ -4,7 +4,7 @@ description: Using configuration transformations.
 position: 70
 ---
 
-The Configuration Transforms feature is one of the [configuration features](/docs/deployment-process/configuration-features/index.md) you can enable as you define your [deployment process](/docs/deployment-process/index.md).
+The Configuration Transforms feature is one of the [configuration features](/docs/deployment-process/configuration-features/index.md) you can enable as you define the [steps](/docs/deployment-process/steps/index.md) in your [deployment process](/docs/deployment-process/index.md).
 
 If this feature is enabled, Tentacle will also look for any files that follow the Microsoft [web.config transformation process](https://msdn.microsoft.com/en-us/library/dd465326.aspx) – **even files that are not web.config files!** *Keep reading for examples.*
 
