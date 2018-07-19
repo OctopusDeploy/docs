@@ -1,5 +1,5 @@
 ---
-title: Pushing packages
+title: Pushing Packages
 description: Using the Octo.exe command line tool to push packages to Octopus.
 position: 10
 ---
