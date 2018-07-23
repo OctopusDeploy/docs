@@ -1,6 +1,6 @@
 ## SQL Server Database
 
-The following versions of SQL Server Database are supported and automatically tested against every release of Octopus Deploy server:
+The following versions of SQL Server Database are supported and automatically tested against every release of Octopus Deploy Server:
 
 - SQL Server 2008
 - SQL Server 2008 R2

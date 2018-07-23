@@ -18,9 +18,9 @@ Octopus Community step templates integration was introduced in Octopus 3.7 and i
 
 ## Community Step Template Synchronization
 
-The Community Step Templates are synchronized with the Octopus server. The synchronization process is executed as a standard Octopus task and you can view its execution details from the **Tasks** area. The Octopus server synchronizes with the [Octopus Library](http://library.octopus.com/) on startup and then every 24 hours over the Internet thus it requires Internet access. If there are any updates or changes, the sync process retrieves all the step templates and stores the relevant community step templates in the Octopus database. Step templates are persisted locally, but they cannot be used in a deployment process until they are explicitly installed.
+The Community Step Templates are synchronized with the Octopus Server. The synchronization process is executed as a standard Octopus task and you can view its execution details from the **Tasks** area. The Octopus Server synchronizes with the [Octopus Library](http://library.octopus.com/) on startup and then every 24 hours over the Internet thus it requires Internet access. If there are any updates or changes, the sync process retrieves all the step templates and stores the relevant community step templates in the Octopus database. Step templates are persisted locally, but they cannot be used in a deployment process until they are explicitly installed.
 
-The Octopus server uses a sync task to connect to [http://library.octopus.com/](http://library.octopus.com/) over http (port 80). If you don't see any Community Step Templates after enabling the feature, verify outbound traffic is enabled on port 80.
+The Octopus Server uses a sync task to connect to [http://library.octopus.com/](http://library.octopus.com/) over http (port 80). If you don't see any Community Step Templates after enabling the feature, verify outbound traffic is enabled on port 80.
 
 NOTE: The relevant permissions to install and manage step templates are ActionTemplateCreate, ActionTemplateEdit, ActionTemplateView and ActionTemplateDelete.
 

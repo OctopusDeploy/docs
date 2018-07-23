@@ -1,8 +1,10 @@
 ---
 title: Configuration Variables
 description: Configuring applications to work in specific environments is an essential part of deploying applications with Octopus Deploy and this can include updating database connection strings and app settings.
-position: 40
+position: 60
 ---
+
+The Configuration Variables feature is one of the [configuration features](/docs/deployment-process/configuration-features/index.md) you can enable as you define the [steps](/docs/deployment-process/steps/index.md) in your [deployment process](/docs/deployment-process/index.md).
 
 This feature can be enabled for package deploy steps.
 

@@ -39,7 +39,7 @@ Learn about [Tentacle configuration and file storage](/docs/administration/tenta
 
 These steps will remove all traces of Octopus Tentacle from your computer:
 
-1. Before uninstalling the MSI, use the Octopus Tentacle Manager to delete the Tentacke instance from the computer.
+1. Before uninstalling the MSI, use the Octopus Tentacle Manager to delete the Tentacle instance from the computer.
     * This will stop and uninstall the Tentacle windows service.
 2. Now uninstall the MSI.
     * This will remove the application files.

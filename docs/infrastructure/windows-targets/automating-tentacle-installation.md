@@ -58,7 +58,7 @@ When configuring your Tentacle you can configure advanced options, like [proxies
 
 ## Example: Listening Tentacle {#AutomatingTentacleinstallation-Example:ListeningTentacle}
 
-The following example configures a [listening Tentacle](/docs/infrastructure/windows-targets/tentacle-communication.md#listening-tentacles-recommended), and registers it with an Octopus Deploy server:
+The following example configures a [listening Tentacle](/docs/infrastructure/windows-targets/tentacle-communication.md#listening-tentacles-recommended), and registers it with an Octopus Deploy Server:
 
 **Using Tentacle.exe to create Listening Tentacle instance**
 
@@ -109,7 +109,7 @@ Want to register your Tentacles another way? Take a look at the examples in our 
 
 ## Example: Polling Tentacle {#AutomatingTentacleinstallation-Example:PollingTentacle}
 
-The following example configures a [polling Tentacle](/docs/infrastructure/windows-targets/tentacle-communication.md#polling-tentacles), and registers it with an Octopus Deploy server:
+The following example configures a [polling Tentacle](/docs/infrastructure/windows-targets/tentacle-communication.md#polling-tentacles), and registers it with an Octopus Deploy Server:
 
 **Polling Tentacle**
 
@@ -182,7 +182,7 @@ Tentacle.exe configure --instance "Tentacle" --home "C:\Octopus" --console
 
 Tentacles can also be installed via [Desired State Configuration](https://msdn.microsoft.com/en-us/powershell/dsc/overview) (DSC). Using the module from the [OctopusDSC GitHub repository](https://www.powershellgallery.com/packages/OctopusDSC), you can add, remove, start and stop Tentacles in either polling or listening mode.
 
-The following PowerShell script will install a Tentacle listening on port `10933` against the Octopus server at `https://YOUR_OCTOPUS`, add it to the `Development` environment and assign the `web-server` and `app-server` roles:
+The following PowerShell script will install a Tentacle listening on port `10933` against the Octopus Server at `https://YOUR_OCTOPUS`, add it to the `Development` environment and assign the `web-server` and `app-server` roles:
 
 **DSC Configuration**
 

@@ -41,6 +41,16 @@ At this point, you can add one or multiple environments, or leave the default **
 
 If you have a project setup with [Automatic Release Creation](/docs/deployment-process/releases/automatic-release-creation.md) and set your first phase and environment to automatically deploy, pushing a package to the internal library will trigger both a release, and a deployment to that environment.
 
+:::hint
+**Tenants and automatic-environments**
+
+1. If tenanted deployments are allowed, attempt to enqueue a new deployment for each tenant connected to the automatic-environment(s), taking the following into consideration:
+  1a. Filter the tenants by any Tenant filter defined on the Channel for the Release being considered for deployment.
+  1b. Further filter the tenants based on promotion rules (e.g. deploy to UAT before Production for this tenant)
+2. If untenanted deployments are allowed, attempt to enqueue the untenanted deployment to the automatic-environment(s).
+
+:::
+
 8. Set the *Required to progress* option. This determines how many environments must be deployed to before the next phase can be activated. The options are:
 
 - **All must complete**.

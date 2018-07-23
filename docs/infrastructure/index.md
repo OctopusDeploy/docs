@@ -16,3 +16,7 @@ Deployment targets are added to environments in different ways, depending on th
 - [SSH targets](/docs/infrastructure/ssh-targets/index.md)
 - [AWS targets](/docs/infrastructure/aws/index.md)
 - [Azure targets](/docs/infrastructure/azure/index.md)
+
+## Workers
+
+Octopus comes with a [built-in worker](/docs/administration/workers/built-in-worker.md) that can run scripts and perform tasks that don't run on deployment targets. You can configure [external workers](/docs/infrastructure/workers/index.md) and pools of workers to move these tasks off the Octopus Server for better performance and increased security.

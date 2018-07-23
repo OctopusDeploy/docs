@@ -1,14 +1,13 @@
 ---
 title: Substitute Variables in Files
 description: Package steps have a feature that allows you to replace variables in any file.
-position: 20
+position: 80
 ---
+The Substitute Variables in Files feature is one of the [configuration features](/docs/deployment-process/configuration-features/index.md) you can enable as you define the [steps](/docs/deployment-process/steps/index.md) in your [deployment process](/docs/deployment-process/index.md).
 
 Package steps have a feature that allows you to replace [Octopus Variables](/docs/deployment-process/variables/index.md) in any file. This comes in handy when you want to replace variables in configuration files outside of **appSettings**, **applicationSettings**, and **connectionStrings**, but also for other configuration that is related to scoping and deployments.
 
-Turning on the feature can be done inside the NuGet package step under 'Configure Features'.
-
-![](/docs/images/3048758/3278400.png "width=500")
+Turning on the feature can be done from the NuGet package step. Click **Configure Features**, and check *Substitute variables in files*.
 
 Once you have the feature selected as part of your step, you can define all of the files you would like variables replaced in. This can be any file that is part of the package.
 

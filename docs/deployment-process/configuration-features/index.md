@@ -14,7 +14,7 @@ You enable configuration features, as you define the [steps](/docs/deployment-pr
 1. If the step you are defining has configuration features available, there is a **CONFIGURE FEATURES** link. Click this link.
 1. Select the features you would like to enable by clicking the relevant checkboxes in the list and click **OK**.
 
-![Configuration Transforms screenshot](configuration-transforms.png)
+![Configuration features screenshot](configuration-features.png)
 
 The features you have enabled will now be available in the **Features** section of the step you are defining.
 
@@ -27,8 +27,8 @@ Steps that are not compatible with any of the configuration features, will not s
 You can configure the following features:
 
 - [Custom Installation Directory](/docs/deployment-process/configuration-features/custom-installation-directory.md)
-- [IIS Web Site and Application Pool](/docs/deployment-examples/iis-websites-and-application-pools.md)
-- [Windows Service](/docs/deployment-examples/windows-services.md)
+- [IIS Web Site and Application Pool](/docs/deployment-process/configuration-features/iis-website-and-application-pool.md)
+- [Windows Service](/docs/deployment-process/configuration-features/windows-services.md)
 - [Custom Deployment Scripts](/docs/deployment-examples/custom-scripts/index.md)
 - [JSON Configuration Variables](/docs/deployment-process/configuration-features/json-configuration-variables-feature.md)
 - [Configuration Variables](/docs/deployment-process/configuration-features/configuration-variables.md)

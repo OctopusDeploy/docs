@@ -3,7 +3,7 @@ title: Backup v2.6 Database
 description: Information on how to backup an Octopus 2.6 database.
 ---
 
-All of the data and settings managed by Octopus - the projects, environments, deployments and so on - are stored in an embedded database hosted by the Octopus Deploy server. Out of the box, Octopus automatically creates backups of this database and any other files necessary to restore the Octopus instance every four hours. The backup files are copied to a local directory: you can easily change this to use a file share or other path that is backed up externally.
+All of the data and settings managed by Octopus - the projects, environments, deployments and so on - are stored in an embedded database hosted by the Octopus Deploy Server. Out of the box, Octopus automatically creates backups of this database and any other files necessary to restore the Octopus instance every four hours. The backup files are copied to a local directory: you can easily change this to use a file share or other path that is backed up externally.
 
 You can view and change the backup settings by browsing to the *Configuration* tab in the Octopus web portal, and then clicking the *Backup* tab.
 

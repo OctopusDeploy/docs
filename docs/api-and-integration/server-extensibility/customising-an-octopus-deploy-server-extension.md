@@ -1,5 +1,5 @@
 ---
-title: Customizing an Octopus Deploy server extension
+title: Customizing an Octopus Deploy Server extension
 description: Octopus Deploy built-in server extensions are available on GitHub and can be forked and customized.
 ---
 
@@ -22,4 +22,4 @@ Included in the project repositories are the [Cake](http://cakebuild.net/) build
 
 ## Installing a custom extension {#CustomisinganOctopusDeployserverextension-&#39;Installing&#39;acustomextension}
 
-Once you've compiled the dll, [installing it is as simple as putting it in the right folder](/docs/api-and-integration/server-extensibility/installing-a-custom-server-extension.md) and restarting the Octopus Deploy server.
+Once you've compiled the dll, [installing it is as simple as putting it in the right folder](/docs/api-and-integration/server-extensibility/installing-a-custom-server-extension.md) and restarting the Octopus Deploy Server.

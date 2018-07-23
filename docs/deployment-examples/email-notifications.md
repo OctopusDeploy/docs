@@ -33,9 +33,9 @@ Email steps are added to deployment processes in the same way as other steps.
   - Use a combination of all of these options.
 
 Octopus will build the resulting recipient list during the deployment, remove duplicate emails addresses, and send the email to each recipient.
-
-7. Provide a subject line for the emails.
-8. Add the body of the email. The email can be sent in plain text or HTML, and you can use Octopus [variable syntax](/docs/deployment-process/variables/variable-substitution-syntax.md) to include information about the deployment in the email. See the [Email Template Examples](/docs/deployment-examples/email-notifications.md#email-template-examples) below.
+docs
+7. Provide a subject line for the emails. The subject can contain Octopus [basic variable syntax](/docs/deployment-process/variables/variable-substitution-syntax.md#basic-syntax-variablesubstitutionsyntax-basicsyntax).
+8. Add the body of the email. The email can be sent in plain text or HTML, and you can use Octopus [extended variable syntax](/docs/deployment-process/variables/variable-substitution-syntax.md#extended-syntax-variablesubstitutionsyntax-extendedsyntax) to include information about the deployment in the email. See the [Email Template Examples](/docs/deployment-examples/email-notifications.md#email-template-examples) below.
 9. You can set conditions to determine when the step should run. For instance:
 
   - Send the email only for successful deployments to certain environments.
@@ -76,7 +76,7 @@ This template  collects basic information about the deployment, including the pa
 ```
 
 :::hint
-To use the template in your projects, replace `nuget.org` with the DNS name of your NuGet server, and `my-octopus` with the DNS name of your Octopus server. Make sure you select *Body is HTML* on the email step configuration page.
+To use the template in your projects, replace `nuget.org` with the DNS name of your NuGet server, and `my-octopus` with the DNS name of your Octopus Server. Make sure you select *Body is HTML* on the email step configuration page.
 :::
 
 The output of the template will be an HTML email like:

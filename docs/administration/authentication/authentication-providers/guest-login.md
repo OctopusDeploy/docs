@@ -4,7 +4,7 @@ description: Octopus Deploy supports a guest login if enabled.
 position: 4
 ---
 
-Sometimes you may wish to allow users to access your Octopus server, without requiring them to create an account. Octopus provides the ability to configure a special guest login for your Octopus Deploy server.
+Sometimes you may wish to allow users to access your Octopus Server, without requiring them to create an account. Octopus provides the ability to configure a special guest login for your Octopus Deploy Server.
 
 When guest login is enabled, the sign in page for the Octopus web portal will present users with a choice to either sign in as a guest, or to sign in with their standard account:
 

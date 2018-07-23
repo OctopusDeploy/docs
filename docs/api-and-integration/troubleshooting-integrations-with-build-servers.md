@@ -53,7 +53,7 @@ As shown in the above screenshots, the exact `Octo.exe` command that was execute
 [15:00:43][Octopus Deploy] Octopus Deploy Command Line Tool, version 3.3.8+Branch.master.Sha.f8a34fc6097785d7d382ddfaa9a7f009f29bc5fb
 [15:00:43][Octopus Deploy]
 [15:00:43][Octopus Deploy] Build environment is NoneOrUnknown
-[15:00:43][Octopus Deploy] Handshaking with Octopus server: https://demo.octopusdeploy.com
+[15:00:43][Octopus Deploy] Handshaking with Octopus Server: https://demo.octopusdeploy.com
 [15:00:44][Octopus Deploy] Handshake successful. Octopus version: 3.15.8; API version: 3.0.0
 ```
 *In this case we are using `Octo.exe` version `3.3.8` against an Octopus Server version `3.15.8`*

@@ -4,7 +4,7 @@ description: How to troubleshoot problems with Octopus Tentacles.
 position: 63
 ---
 
-All of the 'classic' problems of TCP networking: firewalls, proxies, timeouts, DNS issues, and so-on can affect Octopus Tentacles. This guide will help to track down these issues when either a machine cannot be "Discovered" (Listening Tentacles) or "Registered" (Polling Tentacles) with the Octopus server, or a previously working machine fails a health-check with errors from the networking stack.
+All of the 'classic' problems of TCP networking: firewalls, proxies, timeouts, DNS issues, and so-on can affect Octopus Tentacles. This guide will help to track down these issues when either a machine cannot be "Discovered" (Listening Tentacles) or "Registered" (Polling Tentacles) with the Octopus Server, or a previously working machine fails a health-check with errors from the networking stack.
 
 ## Restart the Octopus and Tentacle Services
 
@@ -32,7 +32,7 @@ Before continuing, it's worth briefly revisiting the concept of **Listening Tent
 
 ### Listening Tentacles
 
-When an Octopus Tentacle is configured in [Listening mode](/docs/infrastructure/windows-targets/tentacle-communication.md#listening-tentacles-recommended)), it will open the specified port (by default TCP port **10933**) and listen for inbound connections from the trusted Octopus server.
+When an Octopus Tentacle is configured in [Listening mode](/docs/infrastructure/windows-targets/tentacle-communication.md#listening-tentacles-recommended)), it will open the specified port (by default TCP port **10933**) and listen for inbound connections from the trusted Octopus Server.
 
 ![](/docs/images/3048143/5865873.png)
 
@@ -82,7 +82,7 @@ If any of the communications settings are incorrect, choose *Delete this Tentacl
 ### Polling Tentacles
 
 1. Ensure that the Tentacle is in *Polling* mode.
-Below the thumbprint, you should see the text *This Tentacle polls the Octopus server...*.
+Below the thumbprint, you should see the text *This Tentacle polls the Octopus Server...*.
 2. Check the port that the Tentacle polls the Octopus Server on.
 3. Check that the **Octopus Server** thumbprint shown in light gray in the Tentacle manager matches the one shown in the {{Configuration,Thumbprints}} screen in the Octopus Web Portal.
 
@@ -128,7 +128,7 @@ Remember to check both the built-in Windows Firewall, and any other firewalls (i
 
 ### Checking a Polling Tentacle
 
-*On the Octopus server machine*, open a web browser and navigate to [https://localhost:10943](https://localhost:10943) (or your chosen Tentacle communications port if it isn't the default). Make sure an**HTTPS** URL is used.
+*On the Octopus Server machine*, open a web browser and navigate to [https://localhost:10943](https://localhost:10943) (or your chosen Tentacle communications port if it isn't the default). Make sure an**HTTPS** URL is used.
 
 The page shown should look like the one below.
 
@@ -228,7 +228,7 @@ To do this open {{Control Panel,Internet Options,Advanced}}, and uncheck the *
 
 ### Check Octopus.Server.exe Load Time (Polling Tentacle)
 
-To test this for a polling Tentacle, on the Octopus server, run:
+To test this for a polling Tentacle, on the Octopus Server, run:
 
 ```powershell
 Octopus.Server.exe help

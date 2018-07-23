@@ -8,7 +8,7 @@ For Linux and Unix systems, you can configure Octopus Deploy to communicate with
 
 ## Topology {#SSHTargets-Topology}
 
-In the standard-model the Octopus server talks to the Tentacle (ignoring the distinction between between [Polling](/docs/infrastructure/windows-targets/tentacle-communication.md#polling-tentacles) and [Listening](/docs/infrastructure/windows-targets/tentacle-communication.md#listening-tentacles-recommended)) who in turn delegates the actual deployment work to [Calamari](/docs/api-and-integration/calamari.md), which contains all the information regarding conventions and deployments. Calamari then executes the scripts and the Tentacle passes back to the Server the task progress, logs and artifacts.
+In the standard-model the Octopus Server talks to the Tentacle (ignoring the distinction between between [Polling](/docs/infrastructure/windows-targets/tentacle-communication.md#polling-tentacles) and [Listening](/docs/infrastructure/windows-targets/tentacle-communication.md#listening-tentacles-recommended)) who in turn delegates the actual deployment work to [Calamari](/docs/api-and-integration/calamari.md), which contains all the information regarding conventions and deployments. Calamari then executes the scripts and the Tentacle passes back to the Server the task progress, logs and artifacts.
 
 ![](/docs/images/3048063/3277601.png)
 
@@ -55,7 +55,7 @@ Getting just the right naming pattern is a tricky balance. In an effort to keep 
 The root directory for all Octopus work is `$HOME/.octopus` and all packages are deployed to a relative location similar to that done by a normal Tentacle at `$HOME/.octopus/Applications/#{instance}/#{environment}/#{package}/#{version}`.
 Calamari is also copied across by the deployment if a new version is detected and extracted to `$HOME/.octopus/#{instance}/Calamari/#{version}`.
 
-By making all paths relative to the user's home directory, you can then theoretically use the same physical machine with multiple user accounts acting as separate targets. The Octopus server can then treat each machine\user as a separate SSH endpoint which will update Calamari and deploy independently of each other.
+By making all paths relative to the user's home directory, you can then theoretically use the same physical machine with multiple user accounts acting as separate targets. The Octopus Server can then treat each machine\user as a separate SSH endpoint which will update Calamari and deploy independently of each other.
 
 :::success
 **Bash Startup Files**

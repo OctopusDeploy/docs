@@ -7,15 +7,15 @@ position: 900
 Octopus Manager comes with an Import/Export wizard which supports a number of scenarios:
 
 - Exporting data from one server, and importing it into another server
-- Splitting data from one Octopus server into two or more
-- Merging data from multiple Octopus servers into one
+- Splitting data from one Octopus Server into two or more
+- Merging data from multiple Octopus Servers into one
 
 *To migrate data from older versions of Octopus see [Upgrading from Octopus 2.6](/docs/administration/upgrading/upgrading-from-octopus-2.6/index.md)*
 
-In all scenarios, both the source Octopus server and the destination Octopus server must be running the same version.
+In all scenarios, both the source Octopus Server and the destination Octopus Server must be running the same version.
 
 :::hint
-The Import/Export wizards are designed for moving configuration data between Octopus servers, or for creating snapshots which can be committed to source control or used for auditing purposes. It's not designed as a general disaster recovery or backup tool; for that, see the section on [backing up your Octopus server](/docs/administration/backup-and-restore.md).
+The Import/Export wizards are designed for moving configuration data between Octopus Servers, or for creating snapshots which can be committed to source control or used for auditing purposes. It's not designed as a general disaster recovery or backup tool; for that, see the section on [backing up your Octopus Server](/docs/administration/backup-and-restore.md).
 :::
 
 ## Exporting {#Datamigration-ExportingExporting}
@@ -31,9 +31,9 @@ The wizard exports most Octopus data as JSON files to a directory that you choos
 With this export, you can:
 
 - **Commit it to a Git repository or other source control tool**We've tried to make the JSON as friendly and predictable as possible so that if you commit multiple exports, the only differences that will appear are actual changes that have been made, and comparing the changes will be obvious.
-- **Transfer it to a new Octopus server**You can delete files you don't want to import (e.g., if you're transferring one project, just delete everything except the files for that project) and then import it using the Import wizard.
+- **Transfer it to a new Octopus Server**You can delete files you don't want to import (e.g., if you're transferring one project, just delete everything except the files for that project) and then import it using the Import wizard.
 
-While the JSON files contain ID's, when importing, we actually use the names to determine if something already exists. This means you can export from multiple Octopus servers, combine them together, and then import to a single Octopus server.
+While the JSON files contain ID's, when importing, we actually use the names to determine if something already exists. This means you can export from multiple Octopus Servers, combine them together, and then import to a single Octopus Server.
 
 If you use sensitive variables, these will be encrypted in the JSON using a password (note that sensitive variables are normally stored in SQL encrypted with your master key; the exporter will decrypt them, then encrypt them with this new password).
 

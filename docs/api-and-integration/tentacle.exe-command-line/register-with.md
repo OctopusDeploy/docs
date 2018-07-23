@@ -1,9 +1,9 @@
 ---
 title: Register With
-description: Using the Tentacle.exe command line executable to register this machine with an Octopus Server.
+description: Using the Tentacle.exe command line executable to register this machine as a deployment target with an Octopus Server.
 ---
 
-Registers this machine with an Octopus server
+Registers this machine as a deployment target with an Octopus Server
 
 **Register with options**
 
@@ -12,7 +12,7 @@ Usage: Tentacle register-with [<options>]
 
 Where [<options>] is any of:
       --instance=VALUE       Name of the instance to use
-      --server=VALUE         The Octopus server - e.g., 'http://octopus'
+      --server=VALUE         The Octopus Server - e.g., 'http://octopus'
       --apiKey=VALUE         Your API key; you can get this from the Octopus
                                web portal
   -u, --username=VALUE       If not using API keys, your username
@@ -41,7 +41,7 @@ Where [<options>] is any of:
                                is TentaclePassive
       --server-comms-port=VALUE
                              When using active communication, the comms port
-                               on the Octopus server; the default is 10943
+                               on the Octopus Server; the default is 10943
 
 Or one of the common options:
       --console              Don't attempt to run as a service, even if the

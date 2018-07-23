@@ -30,7 +30,7 @@ Octopus writes to a new log file each day, and keeps up to 7 files. Older logs a
 
 ## Configuring web request logging {#Enablewebrequestlogging-Configuringwebrequestlogging}
 
-Web request logging can be enabled or disabled from the command line, using **Octopus.Server.exe**. A restart of the Octopus server is required for the setting to take effect.
+Web request logging can be enabled or disabled from the command line, using **Octopus.Server.exe**. A restart of the Octopus Server is required for the setting to take effect.
 
 ```bash
 Octopus.Server.exe configure --requestLoggingEnabled=true

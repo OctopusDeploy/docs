@@ -68,11 +68,11 @@ Switch-AzureWebsiteSlot -Name #{WebSite} -Slot1 Staging -Slot2 Production -Force
 When the `Deploy an Azure Web App` step gets executed, the below actions will happen (in order):
 
 1. Download the package from the [package repository](/docs/packaging-applications/package-repositories/index.md)
-2. Extract the package on the Octopus server to a temporary location
+2. Extract the package on the Octopus Server to a temporary location
 3. Any configured or packaged `PreDeploy` scripts are executed
 4. [Substitute variables in files ](/docs/deployment-process/configuration-features/substitute-variables-in-files.md)(if configured)
-5. [XML configuration transformations](/docs/deployment-process/configuration-features/index.md) (if configured) are performed
-6. [XML configuration variables](/docs/deployment-process/configuration-features/index.md) (if configured) are replaced
+5. [XML configuration transformations](/docs/deployment-process/configuration-features/configuration-transforms.md) (if configured) are performed
+6. [XML configuration variables](/docs/deployment-process/configuration-features/configuration-variables.md) (if configured) are replaced
 7. Any configured or packaged `Deploy` scripts are executed
 8. Push your package content to the Web App in Azure.
 9. Any configured or packaged `PostDeploy` scripts are executed
