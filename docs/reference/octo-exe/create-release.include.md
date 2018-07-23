@@ -1,28 +1,38 @@
----
-title: Promoting Releases
-description: Using the Octo.exe command line tool to promote releases between environments.
-position: 8
----
-
-[Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to promote a release from one environment to another.
-
-```bash
-octo promote-release [<options>]
-```
-
-Where `[<options>]` is any of:
-
-**Promote release options**
-
-```text
-Release Promotion:
+Release creation:
 
       --project=VALUE        Name of the project
-      --from=VALUE           Name of the environment to get the current
-                             deployment from, e.g., Staging
-      --to, --deployto=VALUE Environment to deploy to, e.g., Production
-      --updateVariables      Overwrite the variable snapshot for the release
-                             by re-importing the variables from the project
+      --defaultpackageversion, --packageversion=VALUE
+                             Default version number of all packages to use
+                             for this release. Override per-package using --
+                             package.
+      --version, --releaseNumber=VALUE
+                             [Optional] Release number to use for the new
+                             release.
+      --channel=VALUE        [Optional] Channel to use for the new release.
+                             Omit this argument to automatically select the
+                             best channel.
+      --package=StepNameOrPackageId
+                             [Optional] Version number to use for a step or
+                             package in the release. Format: --
+                             package=StepNameOrPackageId:Version
+      --packagesFolder=VALUE [Optional] A folder containing NuGet packages
+                             from which we should get versions.
+      --releasenotes=VALUE   [Optional] Release Notes for the new release.
+                             Styling with Markdown is supported.
+      --releasenotesfile=VALUE
+                             [Optional] Path to a file that contains Release
+                             Notes for the new release. Supports Markdown
+                             files.
+      --ignoreexisting       [Optional, Flag] Don't create this release if
+                             there is already one with the same version
+                             number.
+      --ignorechannelrules   [Optional, Flag] Create the release ignoring any
+                             version rules specified by the channel.
+      --packageprerelease=VALUE
+                             [Optional] Pre-release for latest version of all
+                             packages to use for this release.
+      --whatif               [Optional, Flag] Perform a dry run but don't
+                             actually create/deploy release.
 
 Deployment:
 
@@ -78,6 +88,8 @@ Deployment:
                              tag; specify this argument multiple times to
                              build a query/filter with multiple tags, just
                              like you can in the user interface.
+      --deployto=VALUE       [Optional] Environment to automatically deploy
+                             to, e.g., Production
 
 Common options:
 
@@ -121,17 +133,3 @@ Common options:
       --logLevel=VALUE       [Optional] The log level. Valid options are
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
-```
-
-## Basic example {#Promotingreleases-Basicexample}
-
-The following command will promote the latest release of the*Web* projectdeployed to *Development*to the environment *Staging.*
-
-```bash
-Octo promote-release --project Web --from Development --to Staging -progress --server http://MyOctopusServerURL.com --apikey MyAPIKey
-```
-
-:::success
-**Tip**
-Learn more about [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md), and [creating API keys](/docs/api-and-integration/api/how-to-create-an-api-key.md).
-:::

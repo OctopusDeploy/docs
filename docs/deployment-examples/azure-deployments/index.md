@@ -17,5 +17,5 @@ Out of the box, Octopus provides built-in steps to deploy to the following Azure
 
 :::hint
 **Where do Azure Steps execute?**
-All Azure Steps are executed on the `Octopus Server` instead of being ran on `Tentacles`. If you would like the ability to delegate Azure deployments to a Tentacle, there is a [UserVoice suggestion where you can vote and have your say on this kind of feature](https://octopusdeploy.uservoice.com/forums/170787-general/suggestions/6316906-support-run-on-any-tentacle-model-for-deployment).
+All steps that target an Azure deployment target (including script steps) execute on a worker.  By default, that will be the built-in worker in the Octopus Server. Learn about [workers](/docs/administration/workers/index.md) and the different configuration options.
 :::
