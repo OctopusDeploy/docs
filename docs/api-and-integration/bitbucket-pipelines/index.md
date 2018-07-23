@@ -40,7 +40,7 @@ When you enable BitBucket Pipelines for your repository, BitBucket stores all th
 
 ### Example of Packing and Pushing
 
-To show the basics working, here's an example pipeline step using the Octo.exe docker container which pack's the current state of your repository into a zip file and then pushes that package to Octopus Deploy.
+To show the basics working, here's an example pipeline step using the Octo.exe docker container which packs the current state of your repository into a zip file and then pushes that package to Octopus Deploy.
 
 ```yml
 pipelines:
@@ -53,10 +53,6 @@ pipelines:
           - octo pack --id $BITBUCKET_REPO_SLUG --version $VERSION --outFolder ./out --format zip
           - octo push --package ./out/$BITBUCKET_REPO_SLUG.$VERSION.zip  --server $OCTOPUS_SERVER --apiKey $OCTOPUS_APIKEY
 ```
-
-### Example of Building for .NET Core
-
-TODO: markse
 
 ## Further Information
 For more in-depth information about using BitBucket Pipelines, we would recommend checking out their [feature documentation](https://bitbucket.org/product/features/pipelines).
