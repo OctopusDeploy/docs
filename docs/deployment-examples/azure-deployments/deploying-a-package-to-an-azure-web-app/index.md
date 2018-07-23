@@ -29,6 +29,7 @@ See the [packaging application docs](/docs/packaging-applications/index.md)
 
 | Setting                     | Default     | Description                              |
 | --------------------------- | ----------- | ---------------------------------------- |
+| **Deployment Slot**         |             | The target slot to deploy the application to. Requires a **Standard** or **Premium** App Service Plan. |
 | **Physical Path**           |             | The physical path relative to site root on the web app host. e.g. 'foo' will deploy to 'site\wwwroot\foo'. Leave blank to deploy to root. |
 | **Remove additional files** | *False*     | When *True* instructs Web Deploy to delete files from the destination that aren't in the source package |
 | **Preserve App\_Data**      | *False*     | When *True* instructs Web Deploy to skip Delete operations in the **App\_Data** directory |

@@ -137,6 +137,7 @@ Action-level variables are available during execution of an action. Indexer noti
 | Name and Description | Example |
 | -------------------- | ------------------------|
 |**`Octopus.Action.Azure.WebAppName`** <br/>The name of the Web App being targeted by this deployment | *my-web-app*|
+|**`Octopus.Action.Azure.WebAppSlotName`** <br/>The name of the Web App slot being targeted by this deployment | *staging* |
 |**`Octopus.Action.Azure.WebSpaceName`** <br/>The name of the Web Space being targeted by this deployment | *SoutheastAsiaWebSpace1*|
 |**`Octopus.Action.Azure.RemoveAdditionalFiles`** <br/>When *True* instructs Web Deploy to delete files from the destination that aren't in the source package | *True*|
 |**`Octopus.Action.Azure.PreserveAppData`** <br/>When *True* instructs Web Deploy to skip Delete operations in the **App\_Data** directory | *True*|
