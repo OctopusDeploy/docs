@@ -4,7 +4,7 @@ description: A Conceptual Overview of Octopus Deploy.
 position: 0
 ---
 
-Welcome!
+Welcome! Test [link](/docs/getting-started.md#broken-anchor).
 
 This section provides an overview of Octopus Deploy and explains how Octopus Deploy fits into your application delivery pipeline. It provides an overview of the major concepts in Octopus and links to the relevant documentation, which explore the concepts further and guide you through implementing them with your own [self-hosted](/docs/getting-started.md#self-hosted-octopus) or [cloud-hosted](/docs/getting-started.md#octopus-cloud) Octopus Server.
 
