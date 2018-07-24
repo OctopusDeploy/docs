@@ -27,7 +27,7 @@ We take responsibility to provide commercially reasonable protection against XSS
 
 The customer is responsible for granting access people you trust, and ensuring the security of your own network and operating systems.
 
-The Octopus Deploy works on your behalf to actively prevent XSS attacks. XSS is a browser-based vulnerability, and as such the browser used to access Octopus Deploy can also help in the prevention of XSS attacks. To this end Octopus Server 4.0 (and newer) is designed to work with modern browsers only.
+XSS is a browser-based vulnerability. The Octopus Server and its browser application work on your behalf to actively prevent XSS attacks, and the browser itself can also help in the prevention of XSS attacks. To this end Octopus Server 4.0 (and newer) has increased its minimum supported browser requirements to further improve the security of your Octopus installation.
 
 Learn about [supported web browsers](/docs/installation/requirements.md#supported-browsers).
 
