@@ -381,3 +381,130 @@ See https://github.com/kubernetes/kubernetes/issues/62099 for more details.
 :::
 
 #### Liveness Probe
+
+The [Liveness probe resource](http://g.octopushq.com/KubernetesProbes) configures a health check that is executed against the Container resource to verify that it is still functional.
+
+The `Failure threshold` defines how many times the probe can fail after the pod has been started. After this many failures, the pod is marked Unready. The default value is 3.
+
+The `Timeout` defines the number of seconds to wait for a probe response. The default value is 1 second.
+
+The `Initial delay` defines the number of seconds to wait before the probe is initiated.
+
+The `Period` defines how frequently in seconds the probe is executed. The default value is 10.
+
+The `Liveness probe type` defines the type of probe that is used to conduct the health check. Kubernetes supports three types of probes:
+
+* `Command`, which will execute a command inside the container. If the command returns `0`, it is considered to be healthy.
+* `Http`, which will execute a HTTP GET operation against a URL. If the request returns a status code between 200 and 399 inclusive it is considered healthy.
+* `TCP Socket`, which will attempt to establish a connection against a TCP socket. If the connection can be established, it is considered healthy.
+
+#### Command
+
+The command probe type has one field, `Health check commands`, that accepts a line break separated list of arguments. For example, if you want to run the command `/opt/healthcheck myservice "an argument with a space"`, you would enter the following text into the `Health check commands` field:
+```
+/opt/healthcheck
+myservice
+an argument with a space
+```
+
+#### Http
+
+The Http probe type has five fields.
+
+The `Host` field defines the host to connect to. If not defined, this value will default to the IP address of the Pod resource.
+
+The `Path` field defines the URL path that the HTTP GET request will be sent to.
+
+The `Scheme` field defines the scheme of the URL that is requested. If not defined, this value defines to `http`.
+
+The `Port` field defines the port that is requested. This value can be a number, like `80`, or a [IANA](https://g.octopushq.com/IANA) port name.
+
+Additional HTTP headers can be defined by clicking the `Add HTTP Header` button. The `Name` is the HTTP header name, and the `Value` is the header value.
+
+#### TCP Socket
+
+The TCP Socket probe type has two fields.
+
+The `Host` field defines the host to connect to. If not defined, this value will default to the IP address of the Pod resource.
+
+The `Port` field defines the port that is requested. This value can be a number, like `80`, or a [IANA](https://g.octopushq.com/IANA) port name.
+
+#### Readiness probe
+
+The [Readiness probe resource](http://g.octopushq.com/KubernetesProbes) configures a health check that is executed against the Container resource to verify that it has started correctly. Readiness probes are not supported by Init Container resources.
+
+:::hint
+If defined, the readiness probe must succeed for a [Blue/Green](#bluegreen-deployment-strategy) deployment to complete successfully. If the readiness probe fails, the Blue/Green deployment will halt at [phase 3](#phase-3).
+:::
+
+The `Success threshold` defines many consecutive times the probe must succeed for the container to be considered live after a failure. The default value is 1.
+
+The `Failure threshold` defines how many times the probe can fail after the pod has been started. After this many failures, the pod is restarted. The default value is 3.
+
+The `Timeout` defines the number of seconds to wait for a probe response. The default value is 1 second.
+
+The `Initial delay` defines the number of seconds to wait before the probe is initiated.
+
+The `Period` defines how frequently in seconds the probe is executed. The default value is 10.
+
+The `Liveness probe type` defines the type of probe that is used to conduct the health check. Kubernetes supports three types of probes:
+
+* `Command`, which will execute a command inside the container. If the command returns `0`, it is considered to be healthy.
+* `Http`, which will execute a HTTP GET operation against a URL. If the request returns a status code between 200 and 399 inclusive it is considered healthy.
+* `TCP Socket`, which will attempt to establish a connection against a TCP socket. If the connection can be established, it is considered healthy.
+
+#### Command
+
+The command probe type has one field, `Health check commands`, that accepts a line break separated list of arguments. For example, if you want to run the command `/opt/healthcheck myservice "an argument with a space"`, you would enter the following text into the `Health check commands` field:
+```
+/opt/healthcheck
+myservice
+an argument with a space
+```
+
+#### Http
+
+The Http probe type has five fields.
+
+The `Host` field defines the host to connect to. If not defined, this value will default to the IP address of the Pod resource.
+
+The `Path` field defines the URL path that the HTTP GET request will be sent to.
+
+The `Scheme` field defines the scheme of the URL that is requested. If not defined, this value defines to `http`.
+
+The `Port` field defines the port that is requested. This value can be a number, like `80`, or a [IANA](https://g.octopushq.com/IANA) port name.
+
+Additional HTTP headers can be defined by clicking the `Add HTTP Header` button. The `Name` is the HTTP header name, and the `Value` is the header value.
+
+#### TCP Socket
+
+The TCP Socket probe type has two fields.
+
+The `Host` field defines the host to connect to. If not defined, this value will default to the IP address of the Pod resource.
+
+The `Port` field defines the port that is requested. This value can be a number, like `80`, or a [IANA](https://g.octopushq.com/IANA) port name.
+
+#### Command
+
+The [command and arguments](https://g.octopushq.com/KubernetesCommand) that are executed when a Container resource is launched can be defined or overridden in the `Command` section.
+
+This section has two fields: `Command` and `Command arguments`. Each plays a slightly differnt role.
+
+Docker images can contain an [ENTRYPOINT](https://g.octopushq.com/DockerEntrypoint), a [CMD](https://g.octopushq.com/DockerCmd), or both.
+
+When both are defined, the CMD value is passed to the ENTRYPOINT. So if CMD is set to `["hello", "world"]` and ENTRYPOINT is set to `["print"]`, the resulting command would be `print hello world`.
+
+If the `Command` field is specified, it will override the value of the Docker image `ENTRYPOINT`. So if the `Command` was set to `echo`, the resulting command would be `echo hello world`.
+
+If the `Command arguments` field is specified, it will override the Docker image `CMD`. So if the `Command arguments` was set to `hello Octopus` then the resulting command would be `print hello Octopus`.
+
+Each of these fields accepts multiple arguments separated by line breaks. For example, if you want to run the command `/opt/myapp myservice "an argument with a space"`, you would enter the following text into the `Command` field:
+```
+/opt/myapp
+```
+
+And the following into the `Command arguments` field:
+```
+myservice
+an argument with a space
+```
