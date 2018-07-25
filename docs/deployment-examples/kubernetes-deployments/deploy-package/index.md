@@ -253,7 +253,7 @@ The `Persistent Volume Claim Name` field would be set to `mysql-pv-claim`.
 
 Kubernetes supports a huge range of volume resources, and only a small number are exposed directly the step user interface. Other volume resources can be defined as raw YAML.
 
-The YAML entered must only include the details of the specific volume resource, and not include fields like `name`. For example, consider this example YAML provided by the Kubernetes documentation for the AWS EBS volume resource type.
+The YAML entered must only include the details of the specific volume resource, and not include fields like `name`. For example, consider this example YAML provided by the Kubernetes documentation for the [AWS EBS volume resource](http://g.octopushq.com/KubernetesAwsEbsVolume) type.
 
 ```yaml
 apiVersion: v1
@@ -281,3 +281,65 @@ awsElasticBlockStore:
   volumeID: <volume-id>
   fsType: ext4
 ```
+
+### Containers
+
+The `Containers` section is where the Container resources are defined. This is where the bulk of the configuration for the Deployment resource is found.
+
+The configuration options for a Container resource are broken down into a number of sections.
+
+#### Image Details
+
+Each Container resource must reference a container image from a [Docker feed](https://octopus.com/docs/packaging-applications/package-repositories/registries).
+
+The container image must have a name that consists of lower case alphanumeric characters or '-', and must start and end with an alphanumeric character.
+
+The image is then selected from one of those available from the Docker feed.
+
+If the Docker feed requires authentication, Octopus will automatically generated the [required Secret resource](http://g.octopushq.com/KubernetesPrivateRegistry) as part of the deployment.
+
+#### Ports
+
+Each Container resource can expose multiple ports.
+
+The port `Name` is optional. If it is specified, Service resources can refer to the port by its name.
+
+The `Port` number is required, and must be a number between 1 and 65535.
+
+The `Protocol` is optional, and will default to `TCP`.
+
+#### Container Type
+
+To support configuring and initializing Pod resources, Kubernetes has the concept of an [Init Container resource](http://g.octopushq.com/KubernetesInitContainer). Init Container resources are run before App Container resources, and are often used to run setup scripts.
+
+For example, an Init Container resource may be used to set the permissions on a PersistentVolumeClaim volume resource before the App Container resource is launched. This is especially useful when you do not manage the App Container resource image, and therefor can't include such initializtion directly into the image.
+
+Selecting the `Init container` checkbox configures the Container resource as an Init Container resource.
+
+#### Resources
+
+Each Container resource can request a minimum allocation of CPU and memory resources, and set a maximum resource limit.
+
+The resource requests must be available in the Kubernetes cluster, or else the Deployment resource will not succeed.
+
+The resource limits allow a Container resource to use additional resources in a burst.
+
+The `CPU Request` field defines the minimum CPU resources that the Container resource requires. The value is measured in [CPU units](http://g.octopushq.com/KubernetesCpuUnits). One CPU, in Kubernetes, is equivalent to:
+
+* 1 AWS vCPU
+* 1 GCP Core
+* 1 Azure vCore
+* 1 Hyperthread on a bare-metal Intel processor with Hyperthreading
+
+Fractional values are allowed. A Container that requests `0.5` cpu is guaranteed half as much CPU as a Container that requests `1` cpu. You can use the suffix m to mean milli. For example `100m` cpu, and `0.1` cpu are all the same. Precision finer than `1m` is not allowed.
+
+The `CPU Limit` field defines the maximum amount of CPU resources that the Container resource can use.
+
+The `Memory Request` field defines the minimum amount of memory that the Container resource requires. The memory resource is [measured in bytes](http://g.octopushq.com/KubernetesMemoryResourceUnits). You can express memory as a plain integer or a fixed-point integer with one of these suffixes: E, P, T, G, M, K, Ei, Pi, Ti, Gi, Mi, Ki. For example, the following represent approximately the same value:
+
+* 128974848
+* 129e6
+* 129M
+* 123Mi
+
+The `Memory Limit` field defines the maximum amount of memory that can be consumed by the Container resource.
