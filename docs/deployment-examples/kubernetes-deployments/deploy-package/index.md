@@ -343,3 +343,41 @@ The `Memory Request` field defines the minimum amount of memory that the Contain
 * 123Mi
 
 The `Memory Limit` field defines the maximum amount of memory that can be consumed by the Container resource.
+
+#### Environment Variables
+
+Environment variables can be set three ways.
+
+The first way is plain name/value pairs. These are defined by clicking the `Add Environment Variable` button. The `Name` is the environment variable name, and the `Value` is the environment variable value.
+
+The second way is to expose a ConfigMap resource value as an environment variable. These are defined by clicking the `Add ConifgMap Environment Variable` button. The `Name` is the environment variable name. The `ConfigMap Name` is the name of the of ConfigMap resource. The `Key` is the ConfigMap resource key whose value is to be set as the environment variable value.
+
+The third way is to expose a Secret resource value as an environment variable. These are defined by clicking the `Add Secret Environment Variable` button. The `Name` is the environment variable name. The `Secret Name` is the name of the Secret resource. The `Key` is the Secret resource key whose value is to be set as the environment variable value.
+
+#### Volume Mounts
+
+In the [Volumes](#volumes) section we defines the Volume resources that were exposed to the Container resource. It is here in the `Volume Mounts` container section that we then map those Volume resources to the Container resource.
+
+Each Volume Mount requires a unique `Name`.
+
+The `Mount Path` is the path in the Container resource file system where the Volume resource will be mounted e.g. `/data` or `/etc/myapp/config`
+
+The `Sub Path` field is optional, and can be used to mount a sub directory exposed by the Volume resource. This is useful when a single Volume resource is shared between multiple Container resources, because it allows each Container resource to mount a subdirectory specific to itself. For example, and Volume resource may expose a directory structure like:
+
+```
+ - webserver
+   - content
+ - database
+```
+
+A Container resource hosting a webserver would specify the `Sub Path` to be `webserver/content`, while a Container resource hosting a database would specify the `Sub Path` of `database`.
+
+The `Read Only` field defines if the Volume resource is mounted in read only mode.
+
+:::hint
+Some Volume resources like ConfigMap and Secret are always mounted in read only mode, regardless of the setting in the `Read Only` field.
+
+See https://github.com/kubernetes/kubernetes/issues/62099 for more details.
+:::
+
+#### Liveness Probe
