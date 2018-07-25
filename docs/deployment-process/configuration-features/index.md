@@ -5,7 +5,7 @@ position: 9
 hideInThisSection: true
 ---
 
-One of the essential steps in deploying software is configuring it to work with specific environments. This might mean pointing your application to the right database connection string, tweaking settings to run in production, or specifying a custom installation directory. Many of the steps that you define as part of your deployment process can have additional configuration features enabled.
+One of the essential steps in deploying software is configuring it to work with specific [environments](/docs/infrastructure/environments/index.md). This might mean pointing your application to the right database connection string, tweaking settings to run in production, or specifying a custom installation directory. Many of the [steps](/docs/deployment-process/steps/index.md) that you define as part of your [deployment process](/docs/deployment-process/index.md) can have additional configuration features enabled.
 
 ## Enable Configuration Features
 
