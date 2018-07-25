@@ -6,11 +6,11 @@ position: 10
 
 The Custom Installation Directory feature is one of the [configuration features](/docs/deployment-process/configuration-features/index.md) you can enable as you define the [steps](/docs/deployment-process/steps/index.md) in your [deployment process](/docs/deployment-process/index.md).
 
-You can specify a custom installation directory for [package](/docs/deployment-examples/deploying-packages/index.md) and [IIS](/docs/deployment-examples/iis-websites-and-application-pools.md) steps. The custom installation directory feature deploys your package to a specific location on the target server. This feature helps when you are using a Content Management System (CMS) or another coordinating application that requires your files to be in specific locations.
+You can specify a custom installation directory for [package](/docs/deployment-examples/deploying-packages/index.md) and [IIS](/docs/deployment-examples/iis-websites-and-application-pools.md) steps. The custom installation directory feature deploys your package to a specific location on the target server. This feature helps when you are using an application that requires your files to be in specific locations, such as a Content Management System (CMS).
 
 Only use the *custom installation directory* feature when you really need it.
 
-The standard convention for deploying packages eliminates problems caused by file locks and stale files being left in the deployment folder. It also provides smoother deployments and less downtime for Windows Services and Web Applications, so before you configure a custom installation directory, review the [package deployment convention](/docs/deployment-examples/deploying-packages/index.md) and [package deployment feature ordering](/docs/deployment-examples/deploying-packages/package-deployment-feature-ordering.md) to be certain that you need to configure a custom installation directory.
+The standard convention for deploying packages eliminates problems caused by file locks and stale files being left in the deployment folder. It also provides smoother deployments and less downtime for Windows Services and Web Applications, so before you configure a custom installation directory, review the [package deployment convention](/docs/deployment-examples/deploying-packages/index.md) and [package deployment feature ordering](/docs/deployment-examples/deploying-packages/package-deployment-feature-ordering.md) to be certain that you really need to configure a custom installation directory.
 
 ## Add a Custom Installation Directory
 
@@ -19,9 +19,7 @@ The standard convention for deploying packages eliminates problems caused by fil
 
 ![Custom Installation Directory option](custom-installation-directory.png)
 
-When you return to your deployment process, you will see the **Custom Install Directory** option had been added to the **Features** section.
-
-![Custom Installation Directory feature](custom-installation-directory-feature.png)
+When you return to your deployment process, you will see the **Custom Install Directory** option had been added to the **Features** section of the deployment process.
 
 3. Add the [step](/docs/deployment-process/steps/index.md) details.
   - Enter a name for the step.
