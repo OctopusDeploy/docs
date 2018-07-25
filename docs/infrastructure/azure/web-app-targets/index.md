@@ -28,7 +28,7 @@ To create an Azure Web App target within Octopus:
 ![](create-azure-web-app-target.png "width=500")
 
 :::info
-If you using a **Standard** or **Premium** Azure Service Plan, you can also select a specific slot as your target.
+If you are using a **Standard** or **Premium** Azure Service Plan, you can also select a specific slot as your target.
 The _Azure Web App Slot_ field will allow you to select one of the slots available on the Web App. If there are no slots, this will be empty.
 
 You can also leave the slot selection blank and specify the slot, by name, on the step too. The slot selected on the deployment target will take precedence over a slot defined on the step.
