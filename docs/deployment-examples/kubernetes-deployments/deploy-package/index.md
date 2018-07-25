@@ -137,7 +137,7 @@ All Volume resources must have a unique name defined in the `Name` field.
 
 #### ConifgMap
 
-The ConfigMap Volume resource exposes the data saved in a [ConfigMap resource](http://g.octopushq.com/KubernetesConfigMap) as files in a container.
+The [ConfigMap Volume resource](http://g.octopushq.com/KubernetesConfigMapVolume) exposes the data saved in a [ConfigMap resource](http://g.octopushq.com/KubernetesConfigMap) as files in a container.
 
 The `ConfigMap name` field defines the name of the ConfigMap resource that is to be exposed.
 
@@ -164,7 +164,7 @@ If this Volume resource is mounted by a container under the directory `/data`, t
 
 #### Secret
 
-The Secret Volume resource exposes the data saving in a [Secret resource](http://g.octopushq.com/KubernetesSecretResource) as files in a container.
+The [Secret Volume resource](http://g.octopushq.com/KubernetesSecretVolume) exposes the data saving in a [Secret resource](http://g.octopushq.com/KubernetesSecretResource) as files in a container.
 
 The `Secret name` field defines the name of the Secret resource that is to be exposed.
 
@@ -188,3 +188,96 @@ To mount this Secret as a volume, the `Secret name` would be set to `mysecret`.
 To expose the `username` key as a file called `username.txt`, an item would be added with the `Key` of `username` and a `Path` of `username.txt`.
 
 If this Volume resource is mounted by a container under the directory `/data`, the file `/data/username.txt` would have the contents of `admin`.
+
+#### Empty Dir
+
+The [Empty Dir Volume resource](http://g.octopushq.com/KubernetesEmptyDirVolume) is used to create volume that is initially empty. The volume can be shared between containers. Some uses for an Empty Dir Volume resource are:
+
+* scratch space, such as for a disk-based merge sort
+* checkpointing a long computation for recovery from crashes
+* holding files that a content-manager Container fetches while a webserver Container serves the data
+
+By default, Empty Dir Volumes resources are stored on whatever medium is backing the node. Setting the `Medium` field to `Memory` will create the volume in a tmpfs, or RAM-backed filesystem.
+
+#### Host Path
+
+The [Host Path Volume resource](http://g.octopushq.com/KubernetesHostPathVolume) mounts a file or directory from the host node’s filesystem into your Pod. This is not something that most Pods will need, but it offers a powerful escape hatch for some applications.
+
+For example, some uses for a Host Path Volume resource are:
+
+* running a Container that needs access to Docker internals; use a hostPath of /var/lib/docker
+* running cAdvisor in a Container; use a hostPath of /sys
+* allowing a Pod to specify whether a given hostPath should exist prior to the Pod running, whether it should be created, and what it should exist as
+
+The `Path` field is required, and is set to the file or directory on the node's host filesystem that is to be exposed to the container.
+
+The `Type` field is optional, and has the supported values:
+
+|Value | 	Behavior |
+|-|-|
+| | Empty string (default) is for backward compatibility, which means that no checks will be performed before mounting the hostPath volume.|
+|DirectoryOrCreate| 	If nothing exists at the given path, an empty directory will be created there as needed with permission set to 0755, having the same group and ownership with Kubelet.|
+|Directory |	A directory must exist at the given path|
+|FileOrCreate |	If nothing exists at the given path, an empty file will be created there as needed with permission set to 0644, having the same group and ownership with Kubelet.|
+|File |	A file must exist at the given path|
+|Socket| 	A UNIX socket must exist at the given path|
+|CharDevice| 	A character device must exist at the given path|
+|BlockDevice| 	A block device must exist at the given path|
+
+#### Persistent Volume Claim
+
+The [Persistent Volume Claim volume resource](http://g.octopushq.com/KubernetesPersistentVolumeClaimVolume) is used to mount a PersistentVolume into a Pod. [PersistentVolume resources](http://g.octopushq.com/KubernetesPersistentVolumes) are a way for users to "claim" durable storage (such as a GCE PersistentDisk or an iSCSI volume) without knowing the details of the particular cloud environment.
+
+The `Persistent Volume Claim Name` field must be set to the name of the PersistentVolumeClaim resource to be used.
+
+For example, consider a PersistentVolumeClaim resource created with the following YAML.
+
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pv-claim
+  labels:
+    app: wordpress
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
+```
+
+The `Persistent Volume Claim Name` field would be set to `mysql-pv-claim`.
+
+#### Raw YAML
+
+Kubernetes supports a huge range of volume resources, and only a small number are exposed directly the step user interface. Other volume resources can be defined as raw YAML.
+
+The YAML entered must only include the details of the specific volume resource, and not include fields like `name`. For example, consider this example YAML provided by the Kubernetes documentation for the AWS EBS volume resource type.
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-ebs
+spec:
+  containers:
+  - image: k8s.gcr.io/test-webserver
+    name: test-container
+    volumeMounts:
+    - mountPath: /test-ebs
+      name: test-volume
+  volumes:
+  - name: test-volume
+    awsElasticBlockStore:
+      volumeID: <volume-id>
+      fsType: ext4
+```
+
+The YAML from this example that can be included in the `Raw YAML` field is everything under `awsElasticBlockStore`, meaning the YAML entered into the field is this:
+
+```yaml
+awsElasticBlockStore:
+  volumeID: <volume-id>
+  fsType: ext4
+```
