@@ -45,7 +45,7 @@ The desired number of Pod resources is set in the `Replicas` field. This is the 
 
 An optional value that defines the maximum time in seconds for a deployment to make progress before it is considered to be failed. If this value is not specified, it will default to `600` seconds (or 10 minutes).
 
-This value affects Blue/Green deployments, which will point the service to the new deployment only once the new deployments has succeeded.
+This value affects [Blue/Green deployments](#bluegreen-deployment-strategy), which will point the service to the new deployment only once the new deployments has succeeded.
 
 ### Add Label
 
@@ -53,14 +53,17 @@ Labels are custom key/value pairs that are assigned to Kubernetes resources. The
 
 The labels are optional, as Octopus will automatically add the tags required to manage the Kubernetes resources created as part of this step.
 
-### Deployment style
+### Deployment strategy
 
 Kubernetes exposes two native deployment strategies.
 
+### Recreate deployment strategy
 The first native deployment strategy is the [Recreate](http://g.octopushq.com/KubernetesRecreateStrategy) deployment. This strategy will kill all existing Pod resources before new Pod resources are created. This means that one Pod resource version is exposed at any time, but can result in downtime before the new Pod resources are fully deployed.
 
+### Rolling update deployment strategy
 The second native deployment strategy is the [Rolling Update](http://g.octopushq.com/KubernetesRollingStrategy) deployment. This strategy will incrementally replace old Pod resources with new ones. This means that two Pod resource versions can be deployed and accessible at the same time, but can be performed in a way that results in no downtime.
 
+### Blue/Green deployment strategy
 The third deployment strategy, Blue/Green, is not native to Kubernetes. It is a deployment strategy that is achieved by the `Deploy Kubernetes containers` step by virtue of the step creating both the Deployment resource and the Service resource.
 
 
