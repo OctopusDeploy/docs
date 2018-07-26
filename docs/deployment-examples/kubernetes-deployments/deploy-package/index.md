@@ -577,11 +577,11 @@ If the Service resource is a NodePort or LoadBalancer, then there is an addition
 
 ### Ingress
 
-The `Ingress` feature is used to create an Ingress resource. Ingress resources provide a way to direct HTTP traffic to Service resources.
+The `Ingress` feature is used to create an Ingress resource. Ingress resources provide a way to direct HTTP traffic to Service resources based on the requested host and path.
 
 Each Ingress resource must have a unique name, defined in the `Ingress name` field.
 
-Ingress resources configure traffic based on the host that the request was sent to. New hosts can be added by clicking the `Add Host Rule` button.
+Ingress resources configure routes based on the host that the request was sent to. New hosts can be added by clicking the `Add Host Rule` button.
 
 The `Host` field defines the host where the request was sent to. This field is optional, and if left blank will match all hosts.
 
