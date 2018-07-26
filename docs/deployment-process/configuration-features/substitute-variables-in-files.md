@@ -3,11 +3,11 @@ title: Substitute Variables in Files
 description: Package steps have a feature that allows you to replace variables in any file.
 position: 80
 ---
-The Substitute Variables in Files feature is one of the [configuration features](/docs/deployment-process/configuration-features/index.md) you can enable as you define the [steps](/docs/deployment-process/steps/index.md) in your [deployment process](/docs/deployment-process/index.md).
+The Substitute Variables in Files feature is one of the [configuration features](/docs/deployment-process/configuration-features/index.md) you can enable as you define the [steps](/docs/deployment-process/steps/index.md) in your [deployment process](/docs/deployment-process/index.md). This feature is available in package steps, and it allows you to replace [Octopus Variables](/docs/deployment-process/variables/index.md) in any file.
 
-If you want to replace the configuration variables **appSettings**, **applicationSettings**, and **connectionStrings** see [configuration variables](/docs/deployment-process/configuration-features/configuration-variables.md).
-
-Package steps have a feature that allows you to replace [Octopus Variables](/docs/deployment-process/variables/index.md) in any file. This comes in handy when you want to replace variables in configuration files that are not **appSettings**, **applicationSettings**, and **connectionStrings**.
+:::note
+If you want to replace the configuration variables **appSettings**, **applicationSettings**, and **connectionStrings** see [configuration variables](/docs/deployment-process/configuration-features/configuration-variables.md) instead.
+:::
 
 ## How to Substitute Variables in a File
 
