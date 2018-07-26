@@ -591,6 +591,8 @@ Ingress resources only provide configuration. A Ingress Controller resource uses
 
 There are many Ingress Controller resources available. [Nginx](https://g.octopushq.com/NginxIngressController) is a popular option, and is used by the [Azure AKS service](https://g.octopushq.com/KubernetesCommand). Google Cloud provides its [own Ingress Controller resource](https://g.octopushq.com/GoogleCloudIngressController). A [third party Ingress Controller resource](https://g.octopushq.com/AwsIngressController) is available for AWS making use of the ALB service.
 
+![Ingress](ingress.svg)
+
 Each of these different implementations is configured through the Ingress resource annotations. Annotations are key value pairs, and the values assigned to them depend on the Ingress resource that is being configured. The list below links to the documentation that describes the supported annotations.
 
 * [Nginx](https://g.octopushq.com/NginxIngressControllerAnnotations)
