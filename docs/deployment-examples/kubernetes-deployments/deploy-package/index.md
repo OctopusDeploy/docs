@@ -591,7 +591,17 @@ Ingress resources only provide configuration. A Ingress Controller resource uses
 
 There are many Ingress Controller resources available. [Nginx](https://g.octopushq.com/NginxIngressController) is a popular option, and is used by the [Azure AKS service](https://g.octopushq.com/KubernetesCommand). Google Cloud provides its [own Ingress Controller resource](https://g.octopushq.com/GoogleCloudIngressController). A [third party Ingress Controller resource](https://g.octopushq.com/AwsIngressController) is available for AWS making use of the ALB service.
 
+The diagram below shows a typical configuration with a Ingress and Ingress Controller resources.
+
 ![Ingress](ingress.svg)
+
+:::hint
+There is no standard behavior to the creation of load balancers when configuring Ingress Controller resources.
+
+For example, the Google Cloud Ingress Controller will create a new Load Balancer for every Ingress resource. The [documentation](https://g.octopushq.com/GoogleCloudIngressFanOut) suggests to create a single Ingress resource to achieve a fanout pattern that shares a single load balancer.
+
+On the other hand, the [Nginx Ingress Controller resource installation procedure](https://g.octopushq.com/NginxIngressControllerDocs) creates a single LoadBalancer Service resource that is shared by default.
+:::
 
 Each of these different implementations is configured through the Ingress resource annotations. Annotations are key value pairs, and the values assigned to them depend on the Ingress resource that is being configured. The list below links to the documentation that describes the supported annotations.
 
