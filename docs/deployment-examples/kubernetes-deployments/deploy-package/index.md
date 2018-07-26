@@ -23,7 +23,7 @@ The first section is the `Deployment`. This section is used to build of the [Dep
 
 The second [feature](https://octopus.com/docs/deployment-process/configuration-features) is the `Service`. This feature is used to build a [Service resource](http://g.octopushq.com/KubernetesServiceResource).
 
-The third [feature](https://octopus.com/docs/deployment-process/configuration-features) is the `Ingress`. This feature is used to be a [Ingress resource](http://g.octopushq.com/KubernetesIngressResource).
+The third [feature](https://octopus.com/docs/deployment-process/configuration-features) is the `Ingress`. This feature is used to build a [Ingress resource](http://g.octopushq.com/KubernetesIngressResource).
 
 ![Deploy Container Resources](deploy-container.svg)
 
@@ -80,7 +80,9 @@ The Blue/Green deployment strategy involves four phases.
 
 The first phase is the state of the existing Deployment and Service resources.
 
-If a previous Octopus deployment was performed, there will be both a Deployment and a Service resource in Kubernetes. These resources will have tags like `Octopus.Step.Id` and `Octopus.Deployment.Id` that identify the Octopus step and specific deployment that created the resources (these tags are added automatically by Octopus). This Deployment resource is considered to be the green half of the blue/green deployment.
+If a previous Octopus deployment was performed, there will be both a Deployment and a Service resource created in Kubernetes. These resources have tags like `Octopus.Step.Id` and `Octopus.Deployment.Id` that identify the Octopus step and specific deployment that created the resources (these tags are added automatically by Octopus).
+
+This existing Deployment resource is considered to be the green half of the blue/green deployment.
 
 ![Phase 1](phase1.svg)
 
@@ -98,19 +100,19 @@ At the end of Phase 2 there are three resources in Kubernetes: the green Deploym
 
 The third phase involves waiting for the blue Deployment resource to be ready.
 
-Octopus executes the command `rollout status "deployment/blue-deployment-name`, which will wait until the newly created blue Deployment resource is ready. For a Deployment resource to be considered ready, it must have been successfully created, and any Container resource [Readiness Probes](http://g.octopushq.com/KubernetesProbes) must have successfully complete.
+Octopus executes the command `kubectl rollout status "deployment/blue-deployment-name"`, which will wait until the newly created blue Deployment resource is ready. For a Deployment resource to be considered ready, it must have been successfully created, and any Container resource [Readiness Probes](http://g.octopushq.com/KubernetesProbes) must have successfully completed.
 
 :::hint
-The [progression deadline](#progression-deadline) can be used to limit how long Kubernetes will wait for a Deployment to be successful.
+The [progression deadline](#progression-deadline) field can be used to limit how long Kubernetes will wait for a Deployment to be successful.
 :::
 
-If the Deployment resource was successfully created, we move to phase 4. If the Deployment resource was not successfully created, the deployment process stops with an error.
+If the Deployment resource was successfully created, we move to phase 4. If the Deployment resource was not successfully created, the deployment process stops with an error, and leaves the service pointing to the green Deployment resource.
 
 ![Phase 3](phase3.svg)
 
 #### Phase 4
 
-If the Deployment resource was successfully created, Octopus will execute the final phase which involves pointing the Service resource to the blue Deployment resource, and cleaning up any old green Deployment resources.
+If the Deployment resource was successfully created, Octopus will execute the final phase which involves pointing the Service resource to the blue Deployment resource, and deleting up any old Deployment resources.
 
 At the beginning of Phase 4 there are three resources in Kubernetes: the green Deployment resource, the Blue deployment resource (now completely deployed and ready to accept traffic), and the Service resource which is still pointing at the green Deployment resource.
 
@@ -131,8 +133,8 @@ This means failed deployments can be retried, and once successful all previous D
 The choice of which deployment strategy to use is influenced by three major factors:
 
 1. Does the deployment require no downtime?
-2. Can multiple versions of the Deployment resource coexist, even if different versions can not receive external traffic? This may not be possible if for example the act of deploying a new Deployment resource results in incompatible database upgrades.
-3. Can multiple versions of the Deployment resource accept traffic at the same time? This may not be possible if for example APIs have changed in ways that are not backwards compatible.
+2. Can multiple versions of the Deployment resource coexist, even if different versions can not receive external traffic? This may not be possible if the act of deploying a new Deployment resource results in incompatible database upgrades.
+3. Can multiple versions of the Deployment resource accept traffic at the same time? This may not be possible if APIs have changed in ways that are not backwards compatible.
 
 
 | Strategy   | No Downtime  | Multiple Deployed Versions  | Multiple Accessible Versions |
@@ -143,7 +145,7 @@ The choice of which deployment strategy to use is influenced by three major fact
 
 ### Volumes
 
-[Volume resources](http://g.octopushq.com/KubernetesVolumes) allow external data to be accessed by a Container resource. Volume resources are defined in the `Volumes` section, and later referenced by the container configuration.
+[Volume resources](http://g.octopushq.com/KubernetesVolumes) allow external data to be accessed by a Container resource via its file system. Volume resources are defined in the `Volumes` section, and later referenced by the container configuration.
 
 Kubernetes provides a wide range of Volume resource types. The common, cloud agnostic Volume resource types can be configured directly by Octopus. Other Volume resource types are configured as raw YAML.
 
@@ -174,13 +176,13 @@ data:
 
 To mount this ConfigMap as a volume, the `ConfigMap name` would be set to `special-config`.
 
-To expose the `special.level` key as a file called `my-special-level.txt`, an item would be added with the `Key` of `special.level` and a `Path` of `my-special-level.txt`.
+To expose the `special.level` key as a file called `my-special-level.txt`, an item is added with the `Key` of `special.level` and a `Path` of `my-special-level.txt`.
 
 If this Volume resource is mounted by a container under the directory `/data`, the file `/data/my-special-level.txt` would have the contents of `very`.
 
 #### Secret
 
-The [Secret Volume resource](http://g.octopushq.com/KubernetesSecretVolume) exposes the data saving in a [Secret resource](http://g.octopushq.com/KubernetesSecretResource) as files in a container.
+The [Secret Volume resource](http://g.octopushq.com/KubernetesSecretVolume) exposes the data saved in a [Secret resource](http://g.octopushq.com/KubernetesSecretResource) as files in a container.
 
 The `Secret name` field defines the name of the Secret resource that is to be exposed.
 
@@ -201,7 +203,7 @@ data:
 
 To mount this Secret as a volume, the `Secret name` would be set to `mysecret`.
 
-To expose the `username` key as a file called `username.txt`, an item would be added with the `Key` of `username` and a `Path` of `username.txt`.
+To expose the `username` key as a file called `username.txt`, an item is added with the `Key` of `username` and a `Path` of `username.txt`.
 
 If this Volume resource is mounted by a container under the directory `/data`, the file `/data/username.txt` would have the contents of `admin`.
 
@@ -290,7 +292,7 @@ spec:
       fsType: ext4
 ```
 
-The YAML from this example that can be included in the `Raw YAML` field is everything under `awsElasticBlockStore`, meaning the YAML entered into the field is this:
+The YAML from this example that can be included in the `Raw YAML` field is the `awsElasticBlockStore` key, meaning the YAML entered into the field is this:
 
 ```yaml
 awsElasticBlockStore:
@@ -328,7 +330,7 @@ The `Protocol` is optional, and will default to `TCP`.
 
 To support configuring and initializing Pod resources, Kubernetes has the concept of an [Init Container resource](http://g.octopushq.com/KubernetesInitContainer). Init Container resources are run before App Container resources, and are often used to run setup scripts.
 
-For example, an Init Container resource may be used to set the permissions on a PersistentVolumeClaim volume resource before the App Container resource is launched. This is especially useful when you do not manage the App Container resource image, and therefor can't include such initializtion directly into the image.
+For example, an Init Container resource may be used to set the permissions on a directory exposed by a PersistentVolumeClaim volume resource before the App Container resource is launched. This is especially useful when you do not manage the App Container resource image, and therefor can't include such initializtion directly into the image.
 
 Selecting the `Init container` checkbox configures the Container resource as an Init Container resource.
 
@@ -336,9 +338,9 @@ Selecting the `Init container` checkbox configures the Container resource as an 
 
 Each Container resource can request a minimum allocation of CPU and memory resources, and set a maximum resource limit.
 
-The resource requests must be available in the Kubernetes cluster, or else the Deployment resource will not succeed.
+The requested resources must be available in the Kubernetes cluster, or else the Deployment resource will not succeed.
 
-The resource limits allow a Container resource to use additional resources in a burst.
+The resource limits allow a Container resource to burst up to the defined limits.
 
 The `CPU Request` field defines the minimum CPU resources that the Container resource requires. The value is measured in [CPU units](http://g.octopushq.com/KubernetesCpuUnits). One CPU, in Kubernetes, is equivalent to:
 
@@ -347,7 +349,7 @@ The `CPU Request` field defines the minimum CPU resources that the Container res
 * 1 Azure vCore
 * 1 Hyperthread on a bare-metal Intel processor with Hyperthreading
 
-Fractional values are allowed. A Container that requests `0.5` cpu is guaranteed half as much CPU as a Container that requests `1` cpu. You can use the suffix m to mean milli. For example `100m` cpu, and `0.1` cpu are all the same. Precision finer than `1m` is not allowed.
+Fractional values are allowed. A Container that requests `0.5` cpu is guaranteed half as much CPU as a Container that requests `1` cpu. You can use the suffix `m` to mean milli. For example `100m` cpu, and `0.1` cpu are all the same. Precision finer than `1m` is not allowed.
 
 The `CPU Limit` field defines the maximum amount of CPU resources that the Container resource can use.
 
@@ -372,13 +374,13 @@ The third way is to expose a Secret resource value as an environment variable. T
 
 #### Volume Mounts
 
-In the [Volumes](#volumes) section we defines the Volume resources that were exposed to the Container resource. It is here in the `Volume Mounts` container section that we then map those Volume resources to the Container resource.
+In the [Volumes](#volumes) section we defined the Volume resources that were exposed to the Container resource. It is here in the `Volume Mounts` container section that we map those Volume resources to the Container resource.
 
 Each Volume Mount requires a unique `Name`.
 
-The `Mount Path` is the path in the Container resource file system where the Volume resource will be mounted e.g. `/data` or `/etc/myapp/config`
+The `Mount Path` is the path in the Container resource file system where the Volume resource will be mounted e.g. `/data` or `/etc/myapp/config`.
 
-The `Sub Path` field is optional, and can be used to mount a sub directory exposed by the Volume resource. This is useful when a single Volume resource is shared between multiple Container resources, because it allows each Container resource to mount a subdirectory specific to itself. For example, and Volume resource may expose a directory structure like:
+The `Sub Path` field is optional, and can be used to mount a sub directory exposed by the Volume resource. This is useful when a single Volume resource is shared between multiple Container resources, because it allows each Container resource to mount only the subdirectory it requires. For example, and Volume resource may expose a directory structure like:
 
 ```
  - webserver
@@ -398,13 +400,13 @@ See https://github.com/kubernetes/kubernetes/issues/62099 for more details.
 
 #### Liveness Probe
 
-The [Liveness probe resource](http://g.octopushq.com/KubernetesProbes) configures a health check that is executed against the Container resource to verify that it is still functional.
+The [Liveness probe resource](http://g.octopushq.com/KubernetesProbes) configures a health check that is executed against the Container resource to verify that it is currently operational.
 
-The `Failure threshold` defines how many times the probe can fail after the pod has been started. After this many failures, the pod is marked Unready. The default value is 3.
+The `Failure threshold` defines how many times the probe can fail after the pod has been started. After this many failures, the pod is restarted. The default value is 3.
 
-The `Timeout` defines the number of seconds to wait for a probe response. The default value is 1 second.
+The `Timeout` defines the number of seconds after which the probe times out. The default value is 1 second.
 
-The `Initial delay` defines the number of seconds to wait before the probe is initiated.
+The `Initial delay` defines the number of seconds to wait after the container has started before the probe is initiated.
 
 The `Period` defines how frequently in seconds the probe is executed. The default value is 10.
 
@@ -453,13 +455,13 @@ The [Readiness probe resource](http://g.octopushq.com/KubernetesProbes) configur
 If defined, the readiness probe must succeed for a [Blue/Green](#bluegreen-deployment-strategy) deployment to complete successfully. If the readiness probe fails, the Blue/Green deployment will halt at [phase 3](#phase-3).
 :::
 
-The `Success threshold` defines many consecutive times the probe must succeed for the container to be considered live after a failure. The default value is 1.
+The `Success threshold` defines many consecutive times the probe must succeed for the container to be considered successful after a failure. The default value is 1.
 
-The `Failure threshold` defines how many times the probe can fail after the pod has been started. After this many failures, the pod is restarted. The default value is 3.
+The `Failure threshold` defines how many times the probe can fail after the pod has been started. After this many failures, the pod is marked Unready. The default value is 3.
 
 The `Timeout` defines the number of seconds to wait for a probe response. The default value is 1 second.
 
-The `Initial delay` defines the number of seconds to wait before the probe is initiated.
+The `Initial delay` defines the number of seconds to wait after the container has started before the probe is initiated.
 
 The `Period` defines how frequently in seconds the probe is executed. The default value is 10.
 
@@ -504,9 +506,9 @@ The `Port` field defines the port that is requested. This value can be a number,
 
 The [command and arguments](https://g.octopushq.com/KubernetesCommand) that are executed when a Container resource is launched can be defined or overridden in the `Command` section.
 
-This section has two fields: `Command` and `Command arguments`. Each plays a slightly differnt role.
+This section has two fields: `Command` and `Command arguments`. Each plays a slightly different role relating to how Docker images define the command that is used to launch the container.
 
-Docker images can contain an [ENTRYPOINT](https://g.octopushq.com/DockerEntrypoint), a [CMD](https://g.octopushq.com/DockerCmd), or both.
+Docker images can define an [ENTRYPOINT](https://g.octopushq.com/DockerEntrypoint), a [CMD](https://g.octopushq.com/DockerCmd), or both.
 
 When both are defined, the CMD value is passed to the ENTRYPOINT. So if CMD is set to `["hello", "world"]` and ENTRYPOINT is set to `["print"]`, the resulting command would be `print hello world`.
 
