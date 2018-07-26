@@ -529,7 +529,7 @@ an argument with a space
 
 ### Service
 
-The `Service` feature creates a Service resource that directs traffic to the Pod resources configured by the `Deployment` section. Although the Deployment and Service resources are separate objects in Kubernetes, they are treated as a single deployment by the `Deploy Kubernetes Container` step, resulting in the Service resource always directing traffic to the associated Pod resources created by the associated Deployment resource.
+The `Service` feature creates a Service resource that directs traffic to the Pod resources configured by the `Deployment` section. Although the Deployment and Service resources are separate objects in Kubernetes, they are treated as a single deployment by the `Deploy Kubernetes Container` step, resulting in the Service resource always directing traffic to the Pod resources created by the associated Deployment resource.
 
 #### Service name
 Each Service resource requires a unique name, defined in the `Name` field. The names must consist of lower case alphanumeric characters or '-', and must start and end with an alphanumeric character.
@@ -541,7 +541,7 @@ A Service resource can be one of three different types:
 * Node Port
 * Load Balancer
 
-A Cluster IP Service resource provides a private IP address that applications deployed within the Kubernetes cluster can use to access other applications.
+A Cluster IP Service resource provides a private IP address that applications deployed within the Kubernetes cluster can use to access other Pod resources.
 
 ![Cluster IP](cluster-ip.svg)
 
@@ -561,7 +561,7 @@ The `Cluster IP Address` field can be used to optionally assign a fixed internal
 
 #### Ports
 
-Each port exposed by the Service resource has four fields: Name, Port, Target Port and Protocol.
+Each port exposed by the Service resource has four common fields: Name, Port, Target Port and Protocol.
 
 The `Name` field assigns an optional name to the port. This name can be used by Ingress resource objects.
 
@@ -571,7 +571,7 @@ The `Target Port` field defines the name or number of the port exposed by a cont
 
 The `Protocol` field defines the protocol exposed by the port. It can be `TCP` or `UDP`.
 
-If the Service resource is a NodePort or LoadBalancer, then there is an additional `Node Port` field that defines the port exposed on the nodes that direct traffic to the Service resource.
+If the Service resource is a NodePort or LoadBalancer, then there is an additional optional `Node Port` field that defines the port exposed on the nodes that direct traffic to the Service resource. If not defined, a port number will be automatically assigned.
 
 ![Service ports](ports.svg)
 
