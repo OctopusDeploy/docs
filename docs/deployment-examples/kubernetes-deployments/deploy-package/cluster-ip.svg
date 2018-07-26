@@ -86,9 +86,9 @@
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" points="-117.764,-290 -107.764,-295 -110.264,-290 -107.764,-285 "/>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" points="-100,60 -100,-60 -165,-60 -165,-170.264 "/>
-    <polygon style="fill: #333333" points="-165,-177.764 -160,-167.764 -165,-170.264 -170,-167.764 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" points="-165,-177.764 -160,-167.764 -165,-170.264 -170,-167.764 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" points="-100,60 -100,-60 -210,-60 -210,-170.264 "/>
+    <polygon style="fill: #333333" points="-210,-177.764 -205,-167.764 -210,-170.264 -215,-167.764 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" points="-210,-177.764 -205,-167.764 -210,-170.264 -215,-167.764 "/>
   </g>
   <g>
     <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" points="50,60 50,-290 110.264,-290 "/>

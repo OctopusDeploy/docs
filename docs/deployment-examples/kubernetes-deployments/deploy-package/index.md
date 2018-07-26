@@ -571,6 +571,6 @@ The `Protocol` field defines the protocol exposed by the port. It can be `TCP` o
 
 If the Service resource is a NodePort or LoadBalancer, then there is an additional `Node Port` field that defines the port exposed on the nodes that direct traffic to the Service resource.
 
-![Service ports](service-ports.jpg)
+![Service ports](ports.svg)
 
 ### Ingress
