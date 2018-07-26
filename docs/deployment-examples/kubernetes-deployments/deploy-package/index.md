@@ -526,3 +526,29 @@ an argument with a space
 ```
 
 ### Service
+
+The `Service` feature creates a Service resource that directs traffic to the Pod resources configured by the `Deployment` section. Although the Deployment and Service resources are separate objects in Kubernetes, they are treated as a single deployment by the `Deploy Kubernetes Container` step, resulting in the Service resource always directing traffic to the associated Pod resources created by the associated Deployment resource.
+
+#### Service name
+Each Service resource requires a unique name, defined in the `Name` field. The names must consist of lower case alphanumeric characters or '-', and must start and end with an alphanumeric character.
+
+#### Service type
+
+A Service resource can be one of three different types:
+* Cluster IP
+* Node Port
+* Load Balancer
+
+A Cluster IP Service resource provides a private IP address that applications deployed within the Kubernetes cluster can use to access other applications. This is a good choice when exposing Pod resources that are not public, and only provide services to other Pod resources.
+
+![Cluster IP](cluster-ip.jpg)
+
+A Node Port Service resource provides the same internal IP address that a Cluster IP Service resource does. In addition, it creates a port on each Kubernetes node that directs traffic to the Service resource. This makes the service accessible from any node, and if the nodes have public IP addresses then the Node Port Service resource is also publically accessible.
+
+![Node Port](node-port.jpg)
+
+A LoadBalancer Service resource provides the same Cluster IP and Node Ports that the other two service resources provide. In addition, it will create a cloud load balancer that directs traffic to the node ports.
+
+The particular load balancer that is created depends on the environment in which the LoadBalancer Service resource is created. In AWS, an ELB or ALB can be created. Azure or Google Cloud will create their respective load balancers.
+
+![Loadbalancer](loadbalancer.jpg)
