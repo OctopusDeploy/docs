@@ -13,7 +13,7 @@ Package steps have a feature that allows you to replace [Octopus Variables](/do
 
 The following example shows you how to use the Substitute Variables in Files feature to provide a different login form to the different environments you're deploying to, in this example **Test** and **Production**.
 
-1. Create the login variable in Octopus. From the [project](/doc/deployment-process/projects/index.md) overview page, click **Variables**.
+1. Create the login variable in Octopus. From the [project](/docs/deployment-process/projects/index.md) overview page, click **Variables**.
   - Enter a the name for the variable, for instance, *LoginURL*.
   - Enter the value for the variable, for instance, *https://test.example.com/login*.
   - Scope the variable to the environment, for instance, *Test*.
