@@ -46,7 +46,7 @@ When you return to your deployment process, you will see the **Substitute Variab
   - Select the targets where the step should run.
   - Select the [package feed](/docs/packaging-applications/package-repositories/index.md) where the [package](/docs/packaging-applications/index.md) will be available.
   - Enter the [package ID](/docs/packaging-applications/package-id.md) for the package to be deployed.
-8. In the **Target Files** text area, enter the files, as a newline separated list, that you want to perform the variable substitution on.
+8. In the **Target Files** text area, enter the files, as a newline separated list, that you want to perform the variable substitution on. In our example, that includes any file that references the LoginURL variable.
 
 Each file needs to be defined on a new line in the text area. You need to state the full path of the file, relative to the installation directory. So, if you need to replace variables on a file called *app.config* that is inside of a *config* folder on the root of your package, you need to put *config\app.config* in the **Target files** field.
 
