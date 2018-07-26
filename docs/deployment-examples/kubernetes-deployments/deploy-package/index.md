@@ -25,7 +25,7 @@ The second [feature](https://octopus.com/docs/deployment-process/configuration-f
 
 The third [feature](https://octopus.com/docs/deployment-process/configuration-features) is the `Ingress`. This feature is used to be a [Ingress resource](http://g.octopushq.com/KubernetesIngressResource).
 
-![Deploy Container Resources](deploy-container.jpg)
+![Deploy Container Resources](deploy-container.svg)
 
 :::hint
 Kubernetes terminology overlaps with a number of general concepts in Octopus. For example, Kubernetes has the notion of a Deployment, which is distinct from the act of performing a deployment in Octopus.
@@ -82,7 +82,7 @@ The first phase is the state of the existing Deployment and Service resources.
 
 If a previous Octopus deployment was performed, there will be both a Deployment and a Service resource in Kubernetes. These resources will have tags like `Octopus.Step.Id` and `Octopus.Deployment.Id` that identify the Octopus step and specific deployment that created the resources (these tags are added automatically by Octopus). This Deployment resource is considered to be the green half of the blue/green deployment.
 
-![Phase 1](phase1.jpg)
+![Phase 1](phase1.svg)
 
 #### Phase 2
 
@@ -92,7 +92,7 @@ Because the names of distinct resources must be unique in Kubernetes, Octopus wi
 
 At the end of Phase 2 there are three resources in Kubernetes: the green Deployment resource, the Blue deployment resource, and the Service resource which is still pointing at the green Deployment resource.
 
-![Phase 2](phase2.jpg)
+![Phase 2](phase2.svg)
 
 #### Phase 3
 
@@ -106,7 +106,7 @@ The [progression deadline](#progression-deadline) can be used to limit how long 
 
 If the Deployment resource was successfully created, we move to phase 4. If the Deployment resource was not successfully created, the deployment process stops with an error.
 
-![Phase 3](phase3.jpg)
+![Phase 3](phase3.svg)
 
 #### Phase 4
 
@@ -124,7 +124,7 @@ If the deployment fails at phase 3, the Kubernetes cluster can be left with mult
 This means failed deployments can be retried, and once successful all previous Deployment resources will be cleaned up.
 :::
 
-![Phase 4](phase4.jpg)
+![Phase 4](phase4.svg)
 
 #### Deployment strategy summary
 
