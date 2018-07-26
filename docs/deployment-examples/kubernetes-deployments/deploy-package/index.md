@@ -545,13 +545,13 @@ A Cluster IP Service resource provides a private IP address that applications de
 
 A Node Port Service resource provides the same internal IP address that a Cluster IP Service resource does. In addition, it creates a port on each Kubernetes node that directs traffic to the Service resource. This makes the service accessible from any node, and if the nodes have public IP addresses then the Node Port Service resource is also publicly accessible.
 
-![Node Port](node-port.jpg)
+![Node Port](node-port.svg)
 
 A LoadBalancer Service resource provides the same Cluster IP and Node Ports that the other two service resources provide. In addition, it will create a cloud load balancer that directs traffic to the node ports.
 
 The particular load balancer that is created depends on the environment in which the LoadBalancer Service resource is created. In AWS, an ELB or ALB can be created. Azure or Google Cloud will create their respective load balancers.
 
-![Loadbalancer](loadbalancer.jpg)
+![Loadbalancer](loadbalancer.svg)
 
 #### Cluster IP Address
 
