@@ -539,11 +539,11 @@ A Service resource can be one of three different types:
 * Node Port
 * Load Balancer
 
-A Cluster IP Service resource provides a private IP address that applications deployed within the Kubernetes cluster can use to access other applications. This is a good choice when exposing Pod resources that are not public, and only provide services to other Pod resources.
+A Cluster IP Service resource provides a private IP address that applications deployed within the Kubernetes cluster can use to access other applications.
 
 ![Cluster IP](cluster-ip.jpg)
 
-A Node Port Service resource provides the same internal IP address that a Cluster IP Service resource does. In addition, it creates a port on each Kubernetes node that directs traffic to the Service resource. This makes the service accessible from any node, and if the nodes have public IP addresses then the Node Port Service resource is also publically accessible.
+A Node Port Service resource provides the same internal IP address that a Cluster IP Service resource does. In addition, it creates a port on each Kubernetes node that directs traffic to the Service resource. This makes the service accessible from any node, and if the nodes have public IP addresses then the Node Port Service resource is also publicly accessible.
 
 ![Node Port](node-port.jpg)
 
@@ -552,3 +552,21 @@ A LoadBalancer Service resource provides the same Cluster IP and Node Ports that
 The particular load balancer that is created depends on the environment in which the LoadBalancer Service resource is created. In AWS, an ELB or ALB can be created. Azure or Google Cloud will create their respective load balancers.
 
 ![Loadbalancer](loadbalancer.jpg)
+
+#### Cluster IP Address
+
+The `Cluster IP Address` field can be used to optionally assign a fixed internal IP address to the Service resource.
+
+#### Ports
+
+Each port exposed by the Service resource has four fields: Name, Port, Target Port and Protocol.
+
+The `Name` field assigns an optional name to the port. This name can be used by Ingress resource objects.
+
+The `Port` field defines the internal port on the Service resource that internal applications can use.
+
+The `Target Port` field defines the name or number of the port exposed by a container.
+
+The `Protocol` field defines the protocol exposed by the port. It can be `TCP` or `UDP`.
+
+If the Service resource is a NodePort or LoadBalancer, then there is an additional `Node Port` field that defines the port exposed on the nodes that direct traffic to the Service resource.
