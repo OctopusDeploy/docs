@@ -11,7 +11,7 @@ If you want to replace the configuration variables **appSettings**, **applicatio
 
 ## How to Substitute Variables in a File
 
-The following example shows you how to use the Substitute Variables in Files feature to provide a different login form to the different environments you're deploying to, in this example **Test** and **Production**.
+The following example shows you how to use the Substitute Variables in Files feature to provide a different login form to the different environments you're deploying to, in this example we're deploying to a **Test** and **Production** environment.
 
 1. Create the login variable in Octopus. From the [project](/docs/deployment-process/projects/index.md) overview page, click **Variables**.
   - Enter a the name for the variable, for instance, *LoginURL*.
