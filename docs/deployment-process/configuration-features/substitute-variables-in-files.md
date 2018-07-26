@@ -5,27 +5,26 @@ position: 80
 ---
 The Substitute Variables in Files feature is one of the [configuration features](/docs/deployment-process/configuration-features/index.md) you can enable as you define the [steps](/docs/deployment-process/steps/index.md) in your [deployment process](/docs/deployment-process/index.md).
 
-Package steps have a feature that allows you to replace [Octopus Variables](/docs/deployment-process/variables/index.md) in any file. This comes in handy when you want to replace variables in configuration files outside of **appSettings**, **applicationSettings**, and **connectionStrings**, but also for other configuration that is related to scoping and deployments.
+If you want to replace the configuration variables **appSettings**, **applicationSettings**, and **connectionStrings** see [configuration variables](/docs/deployment-process/configuration-features/configuration-variables.md).
 
-Turning on the feature can be done from the NuGet package step. Click **Configure Features**, and check *Substitute variables in files*.
+Package steps have a feature that allows you to replace [Octopus Variables](/docs/deployment-process/variables/index.md) in any file. This comes in handy when you want to replace variables in configuration files that are not **appSettings**, **applicationSettings**, and **connectionStrings**.
 
-Once you have the feature selected as part of your step, you can define all of the files you would like variables replaced in. This can be any file that is part of the package.
+## How to Substitute Variables in a File
 
-Each file needs to be defined on a new line in the textarea. You need to state the full path of the file, relative to the installation directory. So, if you need to replace variables on a file called *app.config* that is inside of a *config*folder on the root of your package, you need to put *config\app.config*on the **Target files** field.
+The following example shows you how to use the Substitute Variables in Files feature to provide a different login form to the different environments you're deploying to, in this example **Test** and **Production**.
 
-![](/docs/images/3048758/3278401.png "width=500")
+1. Create the login variable in Octopus. From the [project](/doc/deployment-process/projects/index.md) overview page, click **Variables**.
+  - Enter a the name for the variable, for instance, *LoginURL*.
+  - Enter the value for the variable, for instance, *https://test.example.com/login*.
+  - Scope the variable to the environment, for instance, *Test*.
+  - Repeat the process for the production environment, to give you a different value for the loginURL variable for each environment and click **SAVE**. In this example, you would have variables similar to the following:
 
-You can also use Octopus embedded template syntax to conditionally list files that only need replacement on specific environments.
+| Variable Name    | Value     | Scope    |
+| ----------------------- | --------------- | -------- |
+| LoginURL | https://test.example.com/login | Test |
+| LoginURL | https://example.com/login | Production |
 
-The default option for Output file encoding (Detect from template) will use the Byte Order Mark (BOM) of the file to determine the encoding.
-
-:::warning
-If you include a configuration file that you are also doing a transformation and variable swap on, the variable change will run under the 'substitute variables in files' before the transformation as defined in the [package deployment feature ordering](/docs/deployment-examples/deploying-packages/package-deployment-feature-ordering.md) process.
-:::
-
-## Some Examples {#SubstituteVariablesinFiles-SomeExamples}
-
-You might have a different URL for a login form based on environment. This is inside your config file but outside of appSettings or ConnectionStrings. You can use a variable instead as shown below.
+2. Include the loginURL variable in the app you're deploying. For instance:
 
 ```powershell
     <authentication mode="Forms">
@@ -33,7 +32,47 @@ You might have a different URL for a login form based on environment. This is in
     </authentication>
 ```
 
-Another case that has come up, is a header that has a different image or text in a shared layout file depending on environment that it is deployed to. Well you can define the file and put a variable in place where you want the change to be.
+3. Define the deployment process, by clicking **Process** from the project overview page, then selecting, **ADD STEP**.
+4. Select the **Deploy a Package** step.
+5. From the [Step](/docs/deployment-process/steps/index.md) Template page, click the **Configure Features** link.
+6. Check the **Substitute Variables in Files** checkbox and click **Ok**.
+
+![Substitute Variables in Files feature](substitute-variables.png)
+
+When you return to your deployment process, you will see the **Substitute Variables in Files** option has been added to the **Features** section of the deployment process.
+
+7. Add the [step](/docs/deployment-process/steps/index.md) details.
+  - Enter a name for the step.
+  - Select the targets where the step should run.
+  - Select the [package feed](/docs/packaging-applications/package-repositories/index.md) where the [package](/docs/packaging-applications/index.md) will be available.
+  - Enter the [package ID](/docs/packaging-applications/package-id.md) for the package to be deployed.
+8. In the **Target Files** text area, enter the files, as a newline separated list, that you want to perform the variable substitution on.
+
+Each file needs to be defined on a new line in the text area. You need to state the full path of the file, relative to the installation directory. So, if you need to replace variables on a file called *app.config* that is inside of a *config* folder on the root of your package, you need to put *config\app.config* in the **Target files** field.
+
+You can also use Octopus embedded template syntax to conditionally list files that only need replacement on specific environments.
+
+9. If you want to specify the encoding for the transformed file, enter the encoding in the **Output file encoding** field.
+
+The default option for Output file encoding (Detect from template) will use the Byte Order Mark (BOM) of the file to determine the encoding.
+
+10. Add any [conditions](/docs/deployment-process/conditions/index.md) you need to specify for the step, and then click **SAVE**.
+
+Now, when the application is deployed to your **test** and **production** environments,  will include the login URL you defined for the specific environment.
+
+From here you can use the project overview menu to continue defining your process, or click **CREATE RELEASE** to create a [release](/docs/deployment-process/releases/index.md) and deploy your application.
+
+:::warning
+If you include a configuration file that you are also doing a [transformation](/docs/deployment-process/configuration-features/configuration-transforms.md) and [variable](/docs/deployment-process/configuration-features/configuration-variables.md) swap on, the variable change will run under the 'substitute variables in files' before the transformation as defined in the [package deployment feature ordering](/docs/deployment-examples/deploying-packages/package-deployment-feature-ordering.md) process.
+:::
+
+:::warning
+By default **warnings** will be treated as **errors** when replacing variables in files using this feature. To override this behavior, set the variable **Octopus.Action.Package.IgnoreVariableReplacementErrors** to **True** in your project. By doing this, warnings will be treated as such and the deployment wont be marked as failed.
+:::
+
+## Another Example {#SubstituteVariablesinFiles-SomeExamples}
+
+If you want to include a header that has a different image or text in a shared layout file depending on environment that it is deployed to. You can define the file and put a variable in place where you want the change to be. In this example, we've used the **SiteReference** variable:
 
 ```powershell
           <div class="navbar-header">
@@ -46,7 +85,3 @@ Another case that has come up, is a header that has a different image or text in
             <a class="navbar-brand" href="#">OctoFX #{SiteReference}</a>
           </div>
 ```
-
-:::warning
-Since 3.0, by default **warnings** will be treated as **errors** when replacing variables in files using this feature. To override this behavior, set the variable **Octopus.Action.Package.IgnoreVariableReplacementErrors** to **True** in your project. By doing this, warnings will be treated as such and the deployment wont be marked as failed.
-:::
