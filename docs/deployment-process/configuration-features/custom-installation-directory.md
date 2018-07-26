@@ -19,12 +19,12 @@ The standard convention for deploying packages eliminates problems caused by fil
 
 ![Custom Installation Directory option](custom-installation-directory.png)
 
-When you return to your deployment process, you will see the **Custom Install Directory** option had been added to the **Features** section of the deployment process.
+When you return to your deployment process, you will see the **Custom Install Directory** option has been added to the **Features** section of the deployment process.
 
 3. Add the [step](/docs/deployment-process/steps/index.md) details.
   - Enter a name for the step.
   - Select the targets where the step should run.
-  - Select the [package feed](/docs/packaging-applications/package-repositories/index.md) where the package will be available.
+  - Select the [package feed](/docs/packaging-applications/package-repositories/index.md) where the [package](/docs/packaging-applications/index.md) will be available.
   - Enter the [package ID](/docs/packaging-applications/package-id.md) for the package to be deployed.
 4. Enter the path for the **custom installation directory**, or you can insert a [variable](/docs/deployment-process/variables/index.md) if you have defined the path as a variable.
 
@@ -33,7 +33,7 @@ Defining a [variable](/docs/deployment-process/variables/index.md) with the dire
  | Variable Name    | Value     | Scope    |
  | ----------------------- | --------------- | -------- |
  | CustomInstallDirectory | \path\to\test\directory\ | Test |
- | CustomInstallDirectory | \path\to\production\directory\ | production |
+ | CustomInstallDirectory | \path\to\production\directory\ | Production |
 
  Read more about [variables](/docs/deployment-process/variables/index.md).
 
