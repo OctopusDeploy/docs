@@ -541,7 +541,7 @@ A Service resource can be one of three different types:
 
 A Cluster IP Service resource provides a private IP address that applications deployed within the Kubernetes cluster can use to access other applications.
 
-![Cluster IP](cluster-ip.jpg)
+![Cluster IP](cluster-ip.svg)
 
 A Node Port Service resource provides the same internal IP address that a Cluster IP Service resource does. In addition, it creates a port on each Kubernetes node that directs traffic to the Service resource. This makes the service accessible from any node, and if the nodes have public IP addresses then the Node Port Service resource is also publicly accessible.
 
@@ -572,3 +572,5 @@ The `Protocol` field defines the protocol exposed by the port. It can be `TCP` o
 If the Service resource is a NodePort or LoadBalancer, then there is an additional `Node Port` field that defines the port exposed on the nodes that direct traffic to the Service resource.
 
 ![Service ports](service-ports.jpg)
+
+### Ingress
