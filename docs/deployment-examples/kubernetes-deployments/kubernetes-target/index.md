@@ -86,7 +86,8 @@ param (
 	Set-Content -Path private.key
 C:\OpenSSL-Win32\bin\openssl pkcs12 `
   -passout pass: `
-  -export -out certificateandkey.pfx `
+  -export `
+  -out certificateandkey.pfx `
   -in certificate.crt `
   -inkey private.key
 ```
