@@ -3,10 +3,12 @@ title: Substitute Variables in Files
 description: Package steps have a feature that allows you to replace variables in any file.
 position: 80
 ---
-The Substitute Variables in Files feature is one of the [configuration features](/docs/deployment-process/configuration-features/index.md) you can enable as you define the [steps](/docs/deployment-process/steps/index.md) in your [deployment process](/docs/deployment-process/index.md). This feature is available in package steps, and it allows you to replace [Octopus Variables](/docs/deployment-process/variables/index.md) in any file.
+The Substitute Variables in Files feature is one of the [configuration features](/docs/deployment-process/configuration-features/index.md) you can enable as you define the [steps](/docs/deployment-process/steps/index.md) in your [deployment process](/docs/deployment-process/index.md). This feature is available in package steps, and it allows you to inject [Octopus Variables](/docs/deployment-process/variables/index.md) into **any file**.
+
+Octopus will parse the files you select for [variable binding expressions](/docs/deployment-process/variables/variable-substitution-syntax.md), replacing each expression with its result.
 
 :::hint
-If you want to replace the configuration variables **appSettings**, **applicationSettings**, and **connectionStrings** see [configuration variables](/docs/deployment-process/configuration-features/configuration-variables.md) instead.
+You can perform very complex transformations in any kind of file using this feature. We also have features tailored to [XML configuration files](/docs/deployment-process/configuration-features/configuration-variables.md) and [JSON configuration files](/docs/deployment-process/configuration-features/json-configuration-variables-feature.md).
 :::
 
 ## How to Substitute Variables in a File
@@ -26,7 +28,7 @@ The following example shows you how to use the Substitute Variables in Files fea
 
 2. Include the loginURL variable in the app you're deploying. For instance:
 
-```powershell
+```xml
     <authentication mode="Forms">
       <forms loginUrl="#{LoginURL}" timeout="2880" />
     </authentication>
