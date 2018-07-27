@@ -3,10 +3,12 @@ title: Substitute Variables in Files
 description: Package steps have a feature that allows you to replace variables in any file.
 position: 80
 ---
-The Substitute Variables in Files feature is one of the [configuration features](/docs/deployment-process/configuration-features/index.md) you can enable as you define the [steps](/docs/deployment-process/steps/index.md) in your [deployment process](/docs/deployment-process/index.md). This feature is available in package steps, and it allows you to replace [Octopus Variables](/docs/deployment-process/variables/index.md) in any file.
+The Substitute Variables in Files feature is one of the [configuration features](/docs/deployment-process/configuration-features/index.md) you can enable as you define the [steps](/docs/deployment-process/steps/index.md) in your [deployment process](/docs/deployment-process/index.md). This feature is available in package steps, and it allows you to inject [Octopus Variables](/docs/deployment-process/variables/index.md) into **any file**.
+
+Octopus will parse the files you select for [variable binding expressions](/docs/deployment-process/variables/variable-substitution-syntax.md), replacing each expression with its result.
 
 :::hint
-If you want to replace the configuration variables **appSettings**, **applicationSettings**, and **connectionStrings** see [configuration variables](/docs/deployment-process/configuration-features/configuration-variables.md) instead.
+You can perform very complex transformations in any kind of file using this feature. We also have features tailored to [XML configuration files](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) and [JSON configuration files](/docs/deployment-process/configuration-features/json-configuration-variables-feature.md).
 :::
 
 ## How to Substitute Variables in a File
@@ -26,7 +28,7 @@ The following example shows you how to use the Substitute Variables in Files fea
 
 2. Include the loginURL variable in the app you're deploying. For instance:
 
-```powershell
+```xml
     <authentication mode="Forms">
       <forms loginUrl="#{LoginURL}" timeout="2880" />
     </authentication>
@@ -63,7 +65,7 @@ Now, when the application is deployed to your **test** and **production** enviro
 From here you can use the project overview menu to continue defining your process, or click **CREATE RELEASE** to create a [release](/docs/deployment-process/releases/index.md) and deploy your application.
 
 :::warning
-If you include a configuration file that you are also doing a [transformation](/docs/deployment-process/configuration-features/configuration-transforms.md) and [variable](/docs/deployment-process/configuration-features/configuration-variables.md) swap on, the variable change will run under the 'substitute variables in files' before the transformation as defined in the [package deployment feature ordering](/docs/deployment-examples/deploying-packages/package-deployment-feature-ordering.md) process.
+If you include a configuration file that you are also doing a [transformation](/docs/deployment-process/configuration-features/configuration-transforms.md) and [variable](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) swap on, the variable change will run under the 'substitute variables in files' before the transformation as defined in the [package deployment feature ordering](/docs/deployment-examples/deploying-packages/package-deployment-feature-ordering.md) process.
 :::
 
 :::warning
