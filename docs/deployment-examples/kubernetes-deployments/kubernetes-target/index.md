@@ -92,6 +92,20 @@ C:\OpenSSL-Win32\bin\openssl pkcs12 `
   -inkey private.key
 ```
 
+This is a bash script to do the same thing.
+
+```bash
+#!/bin/bash
+echo $1 | base64 --decode > certificate.crt
+echo $2 | base64 --decode > private.key
+openssl pkcs12 \
+  -passout pass: \
+  -export \
+  -out certificateandkey.pfx \
+  -in certificate.crt \
+  -inkey private.key
+```
+
 This file can then be uploaded to the [Octopus certificate management area](http://g.octopushq.com/CertificatesDocumentation), after which it will be made available to the Kubernetes target.
 
 ### AWS Accounts
