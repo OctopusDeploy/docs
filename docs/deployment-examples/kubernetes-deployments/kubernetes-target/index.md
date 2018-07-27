@@ -5,15 +5,15 @@ description: Kubernetes Targets
 
 This featured was introduced as a prerelease in Octopus 2018.8.
 
-Kubernetes targets as used by the Kubernetes steps to define the context in which deployments and scripts are run.
+Kubernetes targets are used by the Kubernetes steps to define the context in which deployments and scripts are run.
 
-Conceptually a Kubernetes target represent a permission boundary. Kubernetes [permissions](KubernetesRBAC) and [quotas](http://g.octopushq.com/KubernetesQuotas) are defined against a namespace, and both the account and namespace are captured as a Kubernetes target.
+Conceptually a Kubernetes target represent a permission boundary. Kubernetes [permissions](http://g.octopushq.com/KubernetesRBAC) and [quotas](http://g.octopushq.com/KubernetesQuotas) are defined against a namespace, and both the account and namespace are captured as a Kubernetes target.
 
-When a single Kubernetes cluster is shared across environments, resources deployed to the cluster will often be separated by environment and by application, team or service. In this situation the recommended approach is to create a namespace for each application and environment (e.g. `myapplication-development` and `my-application-production`).
+When a single Kubernetes cluster is shared across environments, resources deployed to the cluster will often be separated by environment and by application, team or service. In this situation the recommended approach is to create a namespace for each application and environment (e.g. `myapplication-development` and `my-application-production`), and create a Kubernetes service account that has permissions to just that namespace.
 
 Where each environment has its own Kubernetes cluster, namespaces can be assigned to each application, team or service (e.g. `myapplication`).
 
-In both scenarios, a target is then created for each Kubernetes cluster and namespace. The `Target Role` tag is then set to the application name (e.g. `myapplication`), and the `Environments` are set to the matching environment.
+In both scenarios, a target is then created for each Kubernetes cluster and namespace. The `Target Role` tag is set to the application name (e.g. `myapplication`), and the `Environments` are set to the matching environment.
 
 When a Kubernetes target is used, the namespace it references is created automatically if it does not already exist.
 
@@ -95,13 +95,13 @@ This file can then be uploaded to the [Octopus certificate management area](http
 
 ### AWS Accounts
 
-To use an AWS account to connect to an [EKS]((http://g.octopushq.com/AWSEKS) cluster, recent versions of the `kubectl` and `heptio-authenticator-aws` binaries need to be available. The [EKS documentation](http://g.octopushq.com/AWSEKSKubectl) provides download links for both these executables.
+To use an AWS account to connect to an [EKS](http://g.octopushq.com/AWSEKS) cluster, recent versions of the `kubectl` and `heptio-authenticator-aws` binaries need to be available where the step is being run. The [EKS documentation](http://g.octopushq.com/AWSEKSKubectl) provides download links for both these executables.
 
 When an AWS account is selected, two additional fields are displayed in the target configuration: `AWS EKS cluster name` and `AWS region`.
 
 ## Kubernetes Details
 
-Each Kubernetes target requires the cluster URL. In the example YAML about, this is saved in the `server` field.
+Each Kubernetes target requires the cluster URL. In the example YAML about, this is defined in the `server` field.
 
 Kubernetes clusters are quite often protected with self signed certificates. In the YAML example above the certificate is saved as a base 64 encoded string in the `certificate-authority-data` field.
 
