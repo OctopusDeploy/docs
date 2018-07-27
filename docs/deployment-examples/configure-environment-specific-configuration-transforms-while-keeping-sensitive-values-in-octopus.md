@@ -1,7 +1,7 @@
 ---
 title: Configure Environment-specific configuration transforms while keeping sensitive values in Octopus
 description: How to configure environment-specific configuration transforms while keeping sensitive values in Octopus.
-position: 50
+position: 140
 ---
 
 Octopus Deploy has great support for transforming configuration files based on the environment or machine you're deploying to.

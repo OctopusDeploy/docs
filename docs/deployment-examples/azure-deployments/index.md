@@ -1,7 +1,7 @@
 ---
 title: Azure Deployments
 description: Octopus Deploy can help you perform repeatable and controlled deployments of your applications into Azure.
-position: 40
+position: 20
 ---
 
 Octopus Deploy can help you perform repeatable and controlled deployments of your applications into Azure.

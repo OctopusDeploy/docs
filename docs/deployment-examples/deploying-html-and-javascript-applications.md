@@ -1,7 +1,7 @@
 ---
 title: Deploying HTML and JavaScript Applications
 description: This guide provides a simple example of deploying and configuring a simple javascript application built using AngularJS.
-position: 51
+position: 160
 ---
 
 We are commonly asked how to deploy and configure HTML/JS or Single Page Applications (SPA) running in a browser, or JavaScript applications running in NodeJS. This guide provides a simple example of deploying and configuring a simple JavaScript application using AngularJS.
