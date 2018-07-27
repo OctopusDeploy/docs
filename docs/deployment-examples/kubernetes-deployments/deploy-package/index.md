@@ -22,9 +22,9 @@ This step has three important sections that make up the combined objects that ar
 
 The first section is the `Deployment`. This section is used to build of the [Deployment resource](http://g.octopushq.com/KubernetesDeploymentResource).
 
-The second [feature](https://octopus.com/docs/deployment-process/configuration-features) is the `Service`. This feature is used to build a [Service resource](http://g.octopushq.com/KubernetesServiceResource).
+The second feature is the `Service`. This feature is used to build a [Service resource](http://g.octopushq.com/KubernetesServiceResource).
 
-The third [feature](https://octopus.com/docs/deployment-process/configuration-features) is the `Ingress`. This feature is used to build a [Ingress resource](http://g.octopushq.com/KubernetesIngressResource).
+The third feature is the `Ingress`. This feature is used to build a [Ingress resource](http://g.octopushq.com/KubernetesIngressResource).
 
 ![Deploy Container Resources](deploy-container.svg)
 
