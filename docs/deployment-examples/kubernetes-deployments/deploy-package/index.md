@@ -1,12 +1,13 @@
 ---
 title: Deploy to a Kubernetes cluster
 description: Deploy to a Kubernetes cluster.
+position: 10
 ---
 
-This featured was introduced as a prerelease in Octopus 2018.8.
+This featured was introduced as a prerelease in Octopus `2018.8`.
 
 :::warning
-Kubernetes steps in Octopus are an alpha level quality, and have been made available for testing and feedback. They must not be used for production deployments, or enabled on production Octopus instances. The information provided here is subject to change at any point, and existing Kubernetes steps will most likely need to be deleted and recreated with Octopus upgrades.
+Kubernetes steps in Octopus are of alpha level quality, and have been made available for testing and feedback purposes only. They must not be used for production deployments, or enabled on production Octopus instances. The information provided here is subject to change at any point, and existing Kubernetes steps will most likely need to be deleted and recreated with Octopus upgrades.
 :::
 
 Octopus supports the deployment of Kubernetes resources through the `Deploy Kubernetes containers` step. This step exposes a UI that builds up a [Kubernetes Deployment resource](http://g.octopushq.com/KubernetesDeploymentResource), a [Service resource](http://g.octopushq.com/KubernetesServiceResource), and an [Ingress resource](http://g.octopushq.com/KuberntesIngressResource). The combination of these resources represents an opinionated view about what makes up a typical Kubernetes deployment.
