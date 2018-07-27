@@ -1,13 +1,13 @@
 ---
-title: Deploy to a Kubernetes cluster
+title: Deploy to a Kubernetes Cluster
 description: Deploy to a Kubernetes cluster.
 position: 10
 ---
 
-This featured was introduced as a prerelease in Octopus `2018.8`.
+This featured was introduced as a pre-release in Octopus `2018.8`.
 
 :::warning
-Kubernetes steps in Octopus are of alpha level quality, and have been made available for testing and feedback purposes only. They must not be used for production deployments, or enabled on production Octopus instances. The information provided here is subject to change at any point, and existing Kubernetes steps will most likely need to be deleted and recreated with Octopus upgrades.
+Kubernetes steps in Octopus are of alpha level quality and have been made available for testing and feedback purposes only. They **must not** be used for production deployments, or enabled on production Octopus instances. The information provided here is subject to change at any point, and existing Kubernetes steps will most likely need to be deleted and recreated with Octopus upgrades.
 :::
 
 Octopus supports the deployment of Kubernetes resources through the `Deploy Kubernetes containers` step. This step exposes a UI that builds up a [Kubernetes Deployment resource](http://g.octopushq.com/KubernetesDeploymentResource), a [Service resource](http://g.octopushq.com/KubernetesServiceResource), and an [Ingress resource](http://g.octopushq.com/KuberntesIngressResource). The combination of these resources represents an opinionated view about what makes up a typical Kubernetes deployment.
@@ -38,11 +38,11 @@ To distinguish between Kubernetes and Octopus terminology, we will reference to 
 
 A Deployment resource provides a declarative interface for a [Pod resource](http://g.octopushq.com/KubernetesPodResource) and a [ReplicaSet resource](http://g.octopushq.com/KubernetesReplicaSetResource).
 
-A Pod resource in turn configures one or more [Containers resources](http://g.octopushq.com/KubernetesContainer). Container resources reference a Docker container image, and provide all the additional configuration required for Kubernetes to deploy, run, expose, monitor and secure the Docker container.
+A Pod resource in turn configures one or more [Containers resources](http://g.octopushq.com/KubernetesContainer). Container resources reference a Docker container image and provide all the additional configuration required for Kubernetes to deploy, run, expose, monitor, and secure the Docker container.
 
 A ReplicaSet resource monitors the Pod resources to ensure that the required number of instances are running.
 
-### Deployment name
+### Deployment Name
 
 Each Deployment resource requires a unique `Deployment Name`. Kubernetes resources are identified by their names, so the name must be unique in the target [namespace](http://g.octopushq.com/KubernetesNamespace).
 
@@ -50,29 +50,29 @@ Each Deployment resource requires a unique `Deployment Name`. Kubernetes resourc
 
 The desired number of Pod resources is set in the `Replicas` field. This is the number of replicas maintained by the ReplicaSet resource. This field is optional, and will default to a value of `1`.
 
-### Progression deadline
+### Progression Deadline
 
 An optional value that defines the maximum time in seconds for a deployment to make progress before it is considered to be failed. If this value is not specified, it will default to `600` seconds (or 10 minutes).
 
-This value affects [Blue/Green deployments](#bluegreen-deployment-strategy), which will point the service to the new deployment only once the new deployments has succeeded.
+This value affects [Blue/Green deployments](#bluegreen-deployment-strategy), which will point the service to the new deployment only once the new deployment has succeeded.
 
 ### Add Label
 
-Labels are custom key/value pairs that are assigned to Kubernetes resources. The labels defined in the `Deployment` section are applied to the Deployment, Pod, Service and Ingress resources.
+Labels are custom key/value pairs that are assigned to Kubernetes resources. The labels defined in the `Deployment` section are applied to the Deployment, Pod, Service, and Ingress resources.
 
 The labels are optional, as Octopus will automatically add the tags required to manage the Kubernetes resources created as part of this step.
 
-### Deployment strategy
+### Deployment Strategy
 
 Kubernetes exposes two native deployment strategies.
 
-### Recreate deployment strategy
-The first native deployment strategy is the [Recreate](http://g.octopushq.com/KubernetesRecreateStrategy) deployment. This strategy will kill all existing Pod resources before new Pod resources are created. This means that one Pod resource version is exposed at any time, but can result in downtime before the new Pod resources are fully deployed.
+### Recreate Deployment Strategy
+The first native deployment strategy is the [Recreate](http://g.octopushq.com/KubernetesRecreateStrategy) deployment. This strategy will kill all existing Pod resources before new Pod resources are created. This means that only one Pod resource version is exposed at any time, but can result in downtime before the new Pod resources are fully deployed.
 
-### Rolling update deployment strategy
-The second native deployment strategy is the [Rolling Update](http://g.octopushq.com/KubernetesRollingStrategy) deployment. This strategy will incrementally replace old Pod resources with new ones. This means that two Pod resource versions can be deployed and accessible at the same time, but can be performed in a way that results in no downtime.
+### Rolling Update Deployment Strategy
+The second native deployment strategy is the [Rolling Update](http://g.octopushq.com/KubernetesRollingStrategy) deployment. This strategy will incrementally replace old Pod resources with new ones. This means that two Pod resource versions can be deployed and accessible at the same time but can be performed in a way that results in no downtime.
 
-### Blue/Green deployment strategy
+### Blue/Green Deployment Strategy
 The third deployment strategy, Blue/Green, is not a native concept in Kubernetes. It is a deployment strategy that is achieved by the `Deploy Kubernetes containers` step because it creates and coordinates both the Deployment resource and the Service resources.
 
 The Blue/Green deployment strategy involves four phases.
@@ -93,7 +93,7 @@ The second phase involves creating the new Deployment resource. This new resourc
 
 Because the names of distinct resources must be unique in Kubernetes, Octopus will append the Octopus deployment ID to the Deployment resource name. So if the Deployment resource name was defined as `my-application` in the step, the resulting Deployment resource name would look something like `my-application-deployment-1232`.
 
-At the end of Phase 2 there are three resources in Kubernetes: the green Deployment resource, the Blue deployment resource, and the Service resource which is still pointing at the green Deployment resource.
+At the end of Phase 2 there are three resources in Kubernetes: the green Deployment resource, the Blue Deployment resource, and the Service resource which is still pointing at the green Deployment resource.
 
 ![Phase 2](phase2.svg)
 
@@ -104,7 +104,7 @@ The third phase involves waiting for the blue Deployment resource to be ready.
 Octopus executes the command `kubectl rollout status "deployment/blue-deployment-name"`, which will wait until the newly created blue Deployment resource is ready. For a Deployment resource to be considered ready, it must have been successfully created, and any Container resource [Readiness Probes](http://g.octopushq.com/KubernetesProbes) must have successfully completed.
 
 :::hint
-The [progression deadline](#progression-deadline) field can be used to limit how long Kubernetes will wait for a Deployment to be successful.
+The [progression deadline](#progression-deadline) field can be used to limit how long Kubernetes will wait for a deployment to be successful.
 :::
 
 If the Deployment resource was successfully created, we move to phase 4. If the Deployment resource was not successfully created, the deployment process stops with an error, and leaves the service pointing to the green Deployment resource.
@@ -113,29 +113,29 @@ If the Deployment resource was successfully created, we move to phase 4. If the 
 
 #### Phase 4
 
-If the Deployment resource was successfully created, Octopus will execute the final phase which involves pointing the Service resource to the blue Deployment resource, and deleting up any old Deployment resources.
+If the Deployment resource was successfully created, Octopus will execute the final phase which involves pointing the Service resource to the blue Deployment resource, and deleting any old Deployment resources.
 
-At the beginning of Phase 4 there are three resources in Kubernetes: the green Deployment resource, the Blue deployment resource (now completely deployed and ready to accept traffic), and the Service resource which is still pointing at the green Deployment resource.
+At the beginning of Phase 4 there are three resources in Kubernetes: the green Deployment resource, the blue Deployment resource (now completely deployed and ready to accept traffic), and the Service resource which is still pointing at the green Deployment resource.
 
-Octopus now updates the Service resource to direct traffic to the Blue deployment resource.
+Octopus now updates the Service resource to direct traffic to the blue Deployment resource.
 
-Once the Service resource is updated, any old Deployment resources are deleted. Old Deployment resources are defined as any Deployment resource with a `Octopus.Step.Id` label that matches the Octopus step that was just deployed, and a `Octopus.Deployment.Id` label that does not match the ID of the deployment that was just completed.
+Once the Service resource is updated, any old Deployment resources are deleted. Old Deployment resources are defined as any Deployment resource with an `Octopus.Step.Id` label that matches the Octopus step that was just deployed and a `Octopus.Deployment.Id` label that does not match the ID of the deployment that was just completed.
 
 :::hint
-If the deployment fails at phase 3, the Kubernetes cluster can be left with multiple Deployment resources in a failed state. Because Deployment resources with a `Octopus.Deployment.Id` label that does not match the current deployment are deleted in phase 4, a successful deployment will remove all previously created Deployment resource objects.
+If the deployment fails at phase 3, the Kubernetes cluster can be left with multiple Deployment resources in a failed state. Because Deployment resources with an `Octopus.Deployment.Id` label that does not match the current deployment are deleted in phase 4, a successful deployment will remove all previously created Deployment resource objects.
 
-This means failed deployments can be retried, and once successful all previous Deployment resources will be cleaned up.
+This means failed deployments can be retried, and once successful, all previous Deployment resources will be cleaned up.
 :::
 
 ![Phase 4](phase4.svg)
 
-#### Deployment strategy summary
+#### Deployment Strategy Summary
 
 The choice of which deployment strategy to use is influenced by three major factors:
 
 1. Does the deployment require no downtime?
 2. Can multiple versions of the Deployment resource coexist, even if different versions can not receive external traffic? This may not be possible if the act of deploying a new Deployment resource results in incompatible database upgrades.
-3. Can multiple versions of the Deployment resource accept traffic at the same time? This may not be possible if APIs have changed in ways that are not backwards compatible.
+3. Can multiple versions of the Deployment resource accept traffic at the same time? This may not be possible if APIs have changed in ways that are not backward compatible.
 
 
 | Strategy   | No Downtime  | Multiple Deployed Versions  | Multiple Accessible Versions |
@@ -150,7 +150,7 @@ The choice of which deployment strategy to use is influenced by three major fact
 
 Kubernetes provides a wide range of Volume resource types. The common, cloud agnostic Volume resource types can be configured directly by Octopus. Other Volume resource types are configured as raw YAML.
 
-#### Common values
+#### Common Values
 
 All Volume resources must have a unique name defined in the `Name` field.
 
@@ -212,9 +212,9 @@ If this Volume resource is mounted by a container under the directory `/data`, t
 
 The [Empty Dir Volume resource](http://g.octopushq.com/KubernetesEmptyDirVolume) is used to create volume that is initially empty. The volume can be shared between containers. Some uses for an Empty Dir Volume resource are:
 
-* scratch space, such as for a disk-based merge sort
-* checkpointing a long computation for recovery from crashes
-* holding files that a content-manager Container fetches while a webserver Container serves the data
+* Scratch space, such as for a disk-based merge sort.
+* Checkpointing a long computation for recovery from crashes.
+* Holding files that a content-manager Container fetches while a webserver Container serves the data.
 
 By default, Empty Dir Volumes resources are stored on whatever medium is backing the node. Setting the `Medium` field to `Memory` will create the volume in a tmpfs, or RAM-backed filesystem.
 
@@ -448,7 +448,7 @@ The `Host` field defines the host to connect to. If not defined, this value will
 
 The `Port` field defines the port that is requested. This value can be a number, like `80`, or a [IANA](https://g.octopushq.com/IANA) port name.
 
-#### Readiness probe
+#### Readiness Probe
 
 The [Readiness probe resource](http://g.octopushq.com/KubernetesProbes) configures a health check that is executed against the Container resource to verify that it has started correctly. Readiness probes are not supported by Init Container resources.
 
@@ -532,10 +532,10 @@ an argument with a space
 
 The `Service` feature creates a Service resource that directs traffic to the Pod resources configured by the `Deployment` section. Although the Deployment and Service resources are separate objects in Kubernetes, they are treated as a single deployment by the `Deploy Kubernetes Container` step, resulting in the Service resource always directing traffic to the Pod resources created by the associated Deployment resource.
 
-#### Service name
+#### Service Name
 Each Service resource requires a unique name, defined in the `Name` field. The names must consist of lower case alphanumeric characters or '-', and must start and end with an alphanumeric character.
 
-#### Service type
+#### Service Type
 
 A Service resource can be one of three different types:
 * Cluster IP
