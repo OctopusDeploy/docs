@@ -15,6 +15,8 @@ Where each environment has its own Kubernetes cluster, namespaces can be assigne
 
 In both scenarios, a target is then created for each Kubernetes cluster and namespace. The `Target Role` tag is then set to the application name (e.g. `myapplication`), and the `Environments` are set to the matching environment.
 
+When a Kubernetes target is used, the namespace it references is created automatically if it does not already exist.
+
 ## Accounts
 
 Kubernetes targets support multiple [account types](http://g.octopushq.com/KubernetesAuthentication):
@@ -24,7 +26,7 @@ Kubernetes targets support multiple [account types](http://g.octopushq.com/Kuber
 * Certificates
 * AWS Accounts
 
-The YAML file below shows a sample kubectl config file with examples of these types of autentication.
+The YAML file below shows a sample kubectl config file with examples of these types of authentication.
 
 ```yaml
 apiVersion: v1
