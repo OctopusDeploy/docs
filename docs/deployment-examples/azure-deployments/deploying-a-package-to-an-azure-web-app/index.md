@@ -46,7 +46,7 @@ Any of the settings above can be switched to use a variable binding expression. 
 The following features are available when deploying a package to an Azure Web App.
 
 - [Custom Scripts](/docs/deployment-examples/custom-scripts/index.md)
-- [Configuration Variables](/docs/deployment-process/configuration-features/configuration-variables.md)
+- [Configuration Variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md)
 - [Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms.md)
 - [JSON configuration variables](/docs/deployment-process/configuration-features/json-configuration-variables-feature.md)
 - [Substitute variables in files](/docs/deployment-process/variables/variable-substitution-syntax.md)
@@ -73,7 +73,7 @@ When the `Deploy an Azure Web App` step gets executed, the below actions will ha
 3. Any configured or packaged `PreDeploy` scripts are executed
 4. [Substitute variables in files ](/docs/deployment-process/configuration-features/substitute-variables-in-files.md)(if configured)
 5. [XML configuration transformations](/docs/deployment-process/configuration-features/configuration-transforms.md) (if configured) are performed
-6. [XML configuration variables](/docs/deployment-process/configuration-features/configuration-variables.md) (if configured) are replaced
+6. [XML configuration variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) (if configured) are replaced
 7. Any configured or packaged `Deploy` scripts are executed
 8. Push your package content to the Web App in Azure.
 9. Any configured or packaged `PostDeploy` scripts are executed

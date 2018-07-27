@@ -8,7 +8,7 @@ The Substitute Variables in Files feature is one of the [configuration features]
 Octopus will parse the files you select for [variable binding expressions](/docs/deployment-process/variables/variable-substitution-syntax.md), replacing each expression with its result.
 
 :::hint
-You can perform very complex transformations in any kind of file using this feature. We also have features tailored to [XML configuration files](/docs/deployment-process/configuration-features/configuration-variables.md) and [JSON configuration files](/docs/deployment-process/configuration-features/json-configuration-variables-feature.md).
+You can perform very complex transformations in any kind of file using this feature. We also have features tailored to [XML configuration files](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) and [JSON configuration files](/docs/deployment-process/configuration-features/json-configuration-variables-feature.md).
 :::
 
 ## How to Substitute Variables in a File
@@ -65,7 +65,7 @@ Now, when the application is deployed to your **test** and **production** enviro
 From here you can use the project overview menu to continue defining your process, or click **CREATE RELEASE** to create a [release](/docs/deployment-process/releases/index.md) and deploy your application.
 
 :::warning
-If you include a configuration file that you are also doing a [transformation](/docs/deployment-process/configuration-features/configuration-transforms.md) and [variable](/docs/deployment-process/configuration-features/configuration-variables.md) swap on, the variable change will run under the 'substitute variables in files' before the transformation as defined in the [package deployment feature ordering](/docs/deployment-examples/deploying-packages/package-deployment-feature-ordering.md) process.
+If you include a configuration file that you are also doing a [transformation](/docs/deployment-process/configuration-features/configuration-transforms.md) and [variable](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) swap on, the variable change will run under the 'substitute variables in files' before the transformation as defined in the [package deployment feature ordering](/docs/deployment-examples/deploying-packages/package-deployment-feature-ordering.md) process.
 :::
 
 :::warning
