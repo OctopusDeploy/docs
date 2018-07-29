@@ -30,7 +30,7 @@ The third [feature](https://octopus.com/docs/deployment-process/configuration-fe
 :::hint
 Kubernetes terminology overlaps with a number of general concepts in Octopus. For example, Kubernetes has the notion of a Deployment, which is distinct from the act of performing a deployment in Octopus.
 
-To distinguish between Kubernetes and Octopus terminology, we will reference to Kubernetes "resources" e.g. a Deployment resource or Pod resource.
+To distinguish between Kubernetes and Octopus terminology, we will reference Kubernetes "resources" e.g. a Deployment resource or Pod resource.
 :::
 
 ### Deployment

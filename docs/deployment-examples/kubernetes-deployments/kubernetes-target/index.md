@@ -17,6 +17,12 @@ In both scenarios, a target is then created for each Kubernetes cluster and name
 
 When a Kubernetes target is used, the namespace it references is created automatically if it does not already exist.
 
+## Kubectl
+
+Kubernetes targets use the `kubectl` executable to communicate with the Kubernetes cluster. This executable must be available on the path on the target where the step is run. When using workers, this means the `kubectl` executable must be in the path on the worker that is executing the step. Otherwise the `kubectl` executable must be in the path on the Octopus server itself.
+
+When using an AWS EKS Kubernetes cluster with IAM integration, the `heptio-authenticator-aws` executable must also be on the path.
+
 ## Accounts
 
 Kubernetes targets support multiple [account types](http://g.octopushq.com/KubernetesAuthentication):
