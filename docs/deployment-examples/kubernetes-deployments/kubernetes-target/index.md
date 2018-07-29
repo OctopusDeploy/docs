@@ -1,6 +1,7 @@
 ---
 title: Kubernetes Targets
 description: Kubernetes Targets
+position: 20
 ---
 
 This featured was introduced as a prerelease in Octopus 2018.8.
@@ -64,7 +65,7 @@ users:
     token: 1234567890abcdefghijkl    
 ```
 
-### Username and password
+### Username and Password
 
 In the example YAML above, the user name is found in the `username` field, and the password is found in the `password` field. These values can be added as an Octopus `Usernames/Passwords` account.
 
