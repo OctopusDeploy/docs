@@ -4,13 +4,13 @@ description: Kubernetes Targets
 position: 20
 ---
 
-This featured was introduced as a prerelease in Octopus 2018.8.
+This featured was introduced as a prerelease in `Octopus 2018.8`.
 
 Kubernetes targets are used by the Kubernetes steps to define the context in which deployments and scripts are run.
 
-Conceptually a Kubernetes target represent a permission boundary. Kubernetes [permissions](http://g.octopushq.com/KubernetesRBAC) and [quotas](http://g.octopushq.com/KubernetesQuotas) are defined against a namespace, and both the account and namespace are captured as a Kubernetes target.
+Conceptually, a Kubernetes target represent a permission boundary. Kubernetes [permissions](http://g.octopushq.com/KubernetesRBAC) and [quotas](http://g.octopushq.com/KubernetesQuotas) are defined against a namespace, and both the account and namespace are captured as a Kubernetes target.
 
-When a single Kubernetes cluster is shared across environments, resources deployed to the cluster will often be separated by environment and by application, team or service. In this situation the recommended approach is to create a namespace for each application and environment (e.g. `myapplication-development` and `my-application-production`), and create a Kubernetes service account that has permissions to just that namespace.
+When a single Kubernetes cluster is shared across environments, resources deployed to the cluster will often be separated by environment and by application, team, or service. In this situation, the recommended approach is to create a namespace for each application and environment (e.g., `myapplication-development` and `my-application-production`), and create a Kubernetes service account that has permissions to just that namespace.
 
 Where each environment has its own Kubernetes cluster, namespaces can be assigned to each application, team or service (e.g. `myapplication`).
 
@@ -33,7 +33,7 @@ Kubernetes targets support multiple [account types](http://g.octopushq.com/Kuber
 * Certificates
 * AWS Accounts
 
-The YAML file below shows a sample kubectl config file with examples of these types of authentication.
+The YAML file below shows a sample kubectl config file with examples of these types of authentication:
 
 ```yaml
 apiVersion: v1
@@ -77,7 +77,7 @@ In the example YAML above, the token is defined in the `token` field. This value
 
 When authenticating with certificates, both the certificate and private key must be provided. In the example YAML above, the `client-certificate-data` field is a base 64 encoded certificate, and the `client-key-data` field is a base 64 encoded private key (both have been truncated for readability in this example).
 
-The certificate and private key can be combined and saved in a single pfx file. The Powershell script below accepts the base 64 encoded certificate and private key, and uses the [Windows OpenSSL binary from Shining Light Productions](http://g.octopushq.com/OpenSSLWindows) to save them in a single pfx file.
+The certificate and private key can be combined and saved in a single pfx file. The PowerShell script below accepts the base 64 encoded certificate and private key and uses the [Windows OpenSSL binary from Shining Light Productions](http://g.octopushq.com/OpenSSLWindows) to save them in a single pfx file.
 
 ```Powershell
 param (
@@ -113,7 +113,7 @@ openssl pkcs12 \
   -inkey private.key
 ```
 
-This file can then be uploaded to the [Octopus certificate management area](http://g.octopushq.com/CertificatesDocumentation), after which it will be made available to the Kubernetes target.
+This file can then be uploaded to the [Octopus certificate management area](http://g.octopushq.com/CertificatesDocumentation), after which, it will be made available to the Kubernetes target.
 
 ### AWS Accounts
 

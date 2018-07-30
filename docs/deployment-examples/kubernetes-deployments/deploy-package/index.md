@@ -54,7 +54,7 @@ The desired number of Pod resources is set in the `Replicas` field. This is the 
 
 An optional value that defines the maximum time in seconds for a deployment to make progress before it is considered to be failed. If this value is not specified, it will default to `600` seconds (or 10 minutes).
 
-This value affects [Blue/Green deployments](#bluegreen-deployment-strategy), which will point the service to the new deployment only once the new deployment has succeeded.
+This value affects [Blue/Green deployments](#bluegreen-deployment-strategy), which will point the service to the new deployment only after the new deployment has succeeded.
 
 ### Add Label
 
@@ -67,7 +67,7 @@ The labels are optional, as Octopus will automatically add the tags required to 
 Kubernetes exposes two native deployment strategies.
 
 ### Recreate Deployment Strategy
-The first native deployment strategy is the [Recreate](http://g.octopushq.com/KubernetesRecreateStrategy) deployment. This strategy will kill all existing Pod resources before new Pod resources are created. This means that only one Pod resource version is exposed at any time, but can result in downtime before the new Pod resources are fully deployed.
+The first native deployment strategy is the [Recreate](http://g.octopushq.com/KubernetesRecreateStrategy) deployment. This strategy will kill all existing Pod resources before new Pod resources are created. This means that only one Pod resource version is exposed at any time. This can result in downtime before the new Pod resources are fully deployed.
 
 ### Rolling Update Deployment Strategy
 The second native deployment strategy is the [Rolling Update](http://g.octopushq.com/KubernetesRollingStrategy) deployment. This strategy will incrementally replace old Pod resources with new ones. This means that two Pod resource versions can be deployed and accessible at the same time but can be performed in a way that results in no downtime.
@@ -101,13 +101,13 @@ At the end of Phase 2 there are three resources in Kubernetes: the green Deploym
 
 The third phase involves waiting for the blue Deployment resource to be ready.
 
-Octopus executes the command `kubectl rollout status "deployment/blue-deployment-name"`, which will wait until the newly created blue Deployment resource is ready. For a Deployment resource to be considered ready, it must have been successfully created, and any Container resource [Readiness Probes](http://g.octopushq.com/KubernetesProbes) must have successfully completed.
+Octopus executes the command `kubectl rollout status "deployment/blue-deployment-name"`, which will wait until the newly created blue Deployment resource is ready. For a Deployment resource to be considered ready, it must have been successfully created, and any Container resource [readiness probes](http://g.octopushq.com/KubernetesProbes) must have successfully completed.
 
 :::hint
 The [progression deadline](#progression-deadline) field can be used to limit how long Kubernetes will wait for a deployment to be successful.
 :::
 
-If the Deployment resource was successfully created, we move to phase 4. If the Deployment resource was not successfully created, the deployment process stops with an error, and leaves the service pointing to the green Deployment resource.
+If the Deployment resource was successfully created, we move to phase 4. If the Deployment resource was not successfully created, the deployment process stops with an error and leaves the service pointing to the green Deployment resource.
 
 ![Phase 3](phase3.svg)
 
@@ -224,13 +224,13 @@ The [Host Path Volume resource](http://g.octopushq.com/KubernetesHostPathVolume)
 
 For example, some uses for a Host Path Volume resource are:
 
-* running a Container that needs access to Docker internals; use a hostPath of /var/lib/docker
-* running cAdvisor in a Container; use a hostPath of /sys
-* allowing a Pod to specify whether a given hostPath should exist prior to the Pod running, whether it should be created, and what it should exist as
+* Running a Container that needs access to Docker internals; use a hostPath of `/var/lib/docker`.
+* Running cAdvisor in a Container; use a hostPath of `/sys`.
+* Allowing a Pod to specify whether a given hostPath should exist prior to the Pod running, whether it should be created, and what it should exist as.
 
-The `Path` field is required, and is set to the file or directory on the node's host filesystem that is to be exposed to the container.
+The `Path` field is required and is set to the file or directory on the node's host filesystem that is to be exposed to the container.
 
-The `Type` field is optional, and has the supported values:
+The `Type` field is optional and has the supported values:
 
 |Value | 	Behavior |
 |-|-|
@@ -249,7 +249,7 @@ The [Persistent Volume Claim volume resource](http://g.octopushq.com/KubernetesP
 
 The `Persistent Volume Claim Name` field must be set to the name of the PersistentVolumeClaim resource to be used.
 
-For example, consider a PersistentVolumeClaim resource created with the following YAML.
+For example, consider a PersistentVolumeClaim resource created with the following YAML:
 
 ```yaml
 apiVersion: v1
@@ -272,7 +272,7 @@ The `Persistent Volume Claim Name` field would be set to `mysql-pv-claim`.
 
 Kubernetes supports a huge range of volume resources, and only a small number are exposed directly the step user interface. Other volume resources can be defined as raw YAML.
 
-The YAML entered must only include the details of the specific volume resource, and not include fields like `name`. For example, consider this example YAML provided by the Kubernetes documentation for the [AWS EBS volume resource](http://g.octopushq.com/KubernetesAwsEbsVolume) type.
+The YAML entered must only include the details of the specific volume resource, and not include fields like `name`. For example, consider this example YAML provided by the Kubernetes documentation for the [AWS EBS volume resource](http://g.octopushq.com/KubernetesAwsEbsVolume) type:
 
 ```yaml
 apiVersion: v1
@@ -323,21 +323,21 @@ Each Container resource can expose multiple ports.
 
 The port `Name` is optional. If it is specified, Service resources can refer to the port by its name.
 
-The `Port` number is required, and must be a number between 1 and 65535.
+The `Port` number is required and must be a number between 1 and 65535.
 
-The `Protocol` is optional, and will default to `TCP`.
+The `Protocol` is optional and will default to `TCP`.
 
 #### Container Type
 
-To support configuring and initializing Pod resources, Kubernetes has the concept of an [Init Container resource](http://g.octopushq.com/KubernetesInitContainer). Init Container resources are run before App Container resources, and are often used to run setup scripts.
+To support configuring and initializing Pod resources, Kubernetes has the concept of an [Init Container resource](http://g.octopushq.com/KubernetesInitContainer). Init Container resources are run before App Container resources and are often used to run setup scripts.
 
-For example, an Init Container resource may be used to set the permissions on a directory exposed by a PersistentVolumeClaim volume resource before the App Container resource is launched. This is especially useful when you do not manage the App Container resource image, and therefor can't include such initializtion directly into the image.
+For example, an Init Container resource may be used to set the permissions on a directory exposed by a PersistentVolumeClaim volume resource before the App Container resource is launched. This is especially useful when you do not manage the App Container resource image, and therefor can't include such initialization directly into the image.
 
 Selecting the `Init container` checkbox configures the Container resource as an Init Container resource.
 
 #### Resources
 
-Each Container resource can request a minimum allocation of CPU and memory resources, and set a maximum resource limit.
+Each Container resource can request a minimum allocation of CPU and memory resources and set a maximum resource limit.
 
 The requested resources must be available in the Kubernetes cluster, or else the Deployment resource will not succeed.
 
@@ -367,11 +367,9 @@ The `Memory Limit` field defines the maximum amount of memory that can be consum
 
 Environment variables can be set three ways.
 
-The first way is plain name/value pairs. These are defined by clicking the `Add Environment Variable` button. The `Name` is the environment variable name, and the `Value` is the environment variable value.
-
-The second way is to expose a ConfigMap resource value as an environment variable. These are defined by clicking the `Add ConifgMap Environment Variable` button. The `Name` is the environment variable name. The `ConfigMap Name` is the name of the of ConfigMap resource. The `Key` is the ConfigMap resource key whose value is to be set as the environment variable value.
-
-The third way is to expose a Secret resource value as an environment variable. These are defined by clicking the `Add Secret Environment Variable` button. The `Name` is the environment variable name. The `Secret Name` is the name of the Secret resource. The `Key` is the Secret resource key whose value is to be set as the environment variable value.
+1. Plain name/value pairs. These are defined by clicking the `Add Environment Variable` button. The `Name` is the environment variable name, and the `Value` is the environment variable value.
+2. Expose a ConfigMap resource value as an environment variable. These are defined by clicking the `Add ConifgMap Environment Variable` button. The `Name` is the environment variable name. The `ConfigMap Name` is the name of the ConfigMap resource. The `Key` is the ConfigMap resource key whose value is to be set as the environment variable value.
+3. Expose a Secret resource value as an environment variable. These are defined by clicking the `Add Secret Environment Variable` button. The `Name` is the environment variable name. The `Secret Name` is the name of the Secret resource. The `Key` is the Secret resource key whose value is to be set as the environment variable value.
 
 #### Volume Mounts
 
@@ -381,7 +379,7 @@ Each Volume Mount requires a unique `Name`.
 
 The `Mount Path` is the path in the Container resource file system where the Volume resource will be mounted e.g. `/data` or `/etc/myapp/config`.
 
-The `Sub Path` field is optional, and can be used to mount a sub directory exposed by the Volume resource. This is useful when a single Volume resource is shared between multiple Container resources, because it allows each Container resource to mount only the subdirectory it requires. For example, and Volume resource may expose a directory structure like:
+The `Sub Path` field is optional, and can be used to mount a sub directory exposed by the Volume resource. This is useful when a single Volume resource is shared between multiple Container resources, because it allows each Container resource to mount only the subdirectory it requires. For example, Volume resource may expose a directory structure like:
 
 ```
  - webserver
@@ -419,7 +417,7 @@ The `Liveness probe type` defines the type of probe that is used to conduct the 
 
 #### Command
 
-The command probe type has one field, `Health check commands`, that accepts a line break separated list of arguments. For example, if you want to run the command `/opt/healthcheck myservice "an argument with a space"`, you would enter the following text into the `Health check commands` field:
+The command probe type has one field, `Health check commands` that accepts a line break separated list of arguments. For example, if you want to run the command `/opt/healthcheck myservice "an argument with a space"`, you would enter the following text into the `Health check commands` field:
 ```
 /opt/healthcheck
 myservice
@@ -489,7 +487,7 @@ The `Host` field defines the host to connect to. If not defined, this value will
 
 The `Path` field defines the URL path that the HTTP GET request will be sent to.
 
-The `Scheme` field defines the scheme of the URL that is requested. If not defined, this value defines to `http`.
+The `Scheme` field defines the scheme of the URL that is requested. If not defined, this value defaults to `http`.
 
 The `Port` field defines the port that is requested. This value can be a number, like `80`, or a [IANA](https://g.octopushq.com/IANA) port name.
 
@@ -584,13 +582,13 @@ Each Ingress resource must have a unique name, defined in the `Ingress name` fie
 
 Ingress resources configure routes based on the host that the request was sent to. New hosts can be added by clicking the `Add Host Rule` button.
 
-The `Host` field defines the host where the request was sent to. This field is optional, and if left blank will match all hosts.
+The `Host` field defines the host where the request was sent to. This field is optional and if left blank will match all hosts.
 
 The `Add Path` button adds a new mapping between a request path and the Service resource port. The `Path` field is the path of the request to match. It must start with a `/`. The `Service Port` field is the port from the associated Service resource that the traffic will be sent to.
 
-Ingress resources only provide configuration. A Ingress Controller resource uses the Ingress configuration to directs network traffic within the Kubernetes cluster.
+Ingress resources only provide configuration. A Ingress Controller resource uses the Ingress configuration to direct network traffic within the Kubernetes cluster.
 
-There are many Ingress Controller resources available. [Nginx](https://g.octopushq.com/NginxIngressController) is a popular option, and is used by the [Azure AKS service](https://g.octopushq.com/AzureIngressController). Google Cloud provides its [own Ingress Controller resource](https://g.octopushq.com/GoogleCloudIngressController). A [third party Ingress Controller resource](https://g.octopushq.com/AwsIngressController) is available for AWS making use of the ALB service.
+There are many Ingress Controller resources available. [Nginx](https://g.octopushq.com/NginxIngressController) is a popular option, that is used by the [Azure AKS service](https://g.octopushq.com/AzureIngressController). Google Cloud provides its [own Ingress Controller resource](https://g.octopushq.com/GoogleCloudIngressController). A [third party Ingress Controller resource](https://g.octopushq.com/AwsIngressController) is available for AWS making use of the ALB service.
 
 The diagram below shows a typical configuration with Ingress and Ingress Controller resources.
 
