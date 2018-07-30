@@ -578,13 +578,19 @@ If the Service resource is a NodePort or LoadBalancer, then there is an addition
 
 The `Ingress` feature is used to create an Ingress resource. Ingress resources provide a way to direct HTTP traffic to Service resources based on the requested host and path.
 
+### Ingress Name
+
 Each Ingress resource must have a unique name, defined in the `Ingress name` field.
+
+### Ingress Host Rules
 
 Ingress resources configure routes based on the host that the request was sent to. New hosts can be added by clicking the `Add Host Rule` button.
 
 The `Host` field defines the host where the request was sent to. This field is optional and if left blank will match all hosts.
 
 The `Add Path` button adds a new mapping between a request path and the Service resource port. The `Path` field is the path of the request to match. It must start with a `/`. The `Service Port` field is the port from the associated Service resource that the traffic will be sent to.
+
+### Ingress Annotations
 
 Ingress resources only provide configuration. A Ingress Controller resource uses the Ingress configuration to direct network traffic within the Kubernetes cluster.
 

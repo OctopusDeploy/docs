@@ -47,4 +47,16 @@ The `Protocol` field defines the protocol exposed by the port. It can be `TCP` o
 
 If the Service resource is a NodePort or LoadBalancer, then there is an additional optional `Node Port` field that defines the port exposed on the nodes that direct traffic to the Service resource. If not defined, a port number will be automatically assigned.
 
-![Service ports](ports.svg)
+![Service ports](../ports.svg)
+
+### Service Labels
+
+[Labels](http://g.octopushq.com/KubernetesLabels) are optional name/value pairs that are assigned to the Service resource.
+
+### Service Selector Labels
+
+[Selector Labels](http://g.octopushq.com/KubernetesLabels) define the optional labels that must exist on the Pod resources in order for this Service resource to send traffic to them.
+
+:::hint
+There are some advanced use cases where creating a Service resource without selectors is useful. Refer to the [Kubernetes documentation](http://g.octopushq.com/KubernetesServicesWithoutSelectors) for more information.
+:::
