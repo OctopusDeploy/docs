@@ -578,11 +578,11 @@ If the Service resource is a NodePort or LoadBalancer, then there is an addition
 
 The `Ingress` feature is used to create an Ingress resource. Ingress resources provide a way to direct HTTP traffic to Service resources based on the requested host and path.
 
-### Ingress Name
+#### Ingress Name
 
 Each Ingress resource must have a unique name, defined in the `Ingress name` field.
 
-### Ingress Host Rules
+#### Ingress Host Rules
 
 Ingress resources configure routes based on the host that the request was sent to. New hosts can be added by clicking the `Add Host Rule` button.
 
@@ -590,7 +590,7 @@ The `Host` field defines the host where the request was sent to. This field is o
 
 The `Add Path` button adds a new mapping between a request path and the Service resource port. The `Path` field is the path of the request to match. It must start with a `/`. The `Service Port` field is the port from the associated Service resource that the traffic will be sent to.
 
-### Ingress Annotations
+#### Ingress Annotations
 
 Ingress resources only provide configuration. A Ingress Controller resource uses the Ingress configuration to direct network traffic within the Kubernetes cluster.
 
@@ -603,7 +603,7 @@ The diagram below shows a typical configuration with Ingress and Ingress Control
 :::hint
 There is no standard behavior to the creation of load balancers when configuring Ingress Controller resources.
 
-For example, the Google Cloud Ingress Controller will create a new load balancer for every Ingress resource. The [documentation](https://g.octopushq.com/GoogleCloudIngressFanOut) suggests to create a single Ingress resource to achieve a fanout pattern that shares a single load balancer.
+For example, the Google Cloud Ingress Controller will create a new load balancer for every Ingress resource. The [documentation](https://g.octopushq.com/GoogleCloudIngressFanOut) suggests to create a single Ingress resource to achieve a fanout pattern that shares a single load balancer. This can be achieved using the [Deploy Kubernetes ingress resource](../deploy-ingress/index.md) step.
 
 On the other hand, the [Nginx Ingress Controller resource installation procedure](https://g.octopushq.com/NginxIngressControllerDocs) creates a single LoadBalancer Service resource that is shared by default.
 :::
