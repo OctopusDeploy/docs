@@ -75,7 +75,8 @@ If there are scope restrictions (e.g. by Project or Environment) against the acc
 
 ## Demands and the Octo Installer task
 
-The VSTS extension tasks require Octo to be available on the path when executing on a build agent and must have the .net core 2.0.0 runtime or newer installed. This may not always be possible such as with the VSTS hosted agents. We therefore recommend adding the Octo Installer task to the start of your build definitions to automatically satisfy this requirement.
+The VSTS extension tasks require Octo to be available on the path when executing on a build agent and must have the .net core 2.0.0 runtime or newer installed. This may not always be possible such as with the VSTS hosted agents. In order to
+make this work all Octopus tasks will automatically attempt to download and use the latest version of Octo tools unless available on the build agent as specified above. If you would like to avoid any additional downloads or use a specific Octo version then you can do so by adding the Octo Installer task to the start of your build definition.
 
 :::hint
 Version 2.x.x of the extension included a bundled version of the Octo tools and did not require the agent to be setup with Octo in the path and did not support running on Linux or Mac build agents.
