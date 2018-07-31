@@ -15,7 +15,13 @@ Ingress resources configure routes based on the host that the request was sent t
 
 The `Host` field defines the host where the request was sent to. This field is optional and if left blank will match all hosts.
 
-The `Add Path` button adds a new mapping between a request path and the Service resource port. The `Path` field is the path of the request to match. It must start with a `/`. The `Service Port` field is the port from the associated Service resource that the traffic will be sent to.
+The `Add Path` button adds a new mapping between a request path and the Service resource port.
+
+The `Path` field is the path of the request to match. It must start with a `/`.
+
+The `Service Port` field is the port from the associated Service resource that the traffic will be sent to.
+
+The `Service Name` field is the name of the associated service to direct the traffic to.
 
 #### Ingress Annotations
 
