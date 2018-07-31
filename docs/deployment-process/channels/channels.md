@@ -4,17 +4,44 @@ description: Channels allow you to dynamically change the deployment logic and l
 position: 40
 ---
 
+Channels is a feature in Octopus that gives you control over how different versions of your software are [released](/docs/deployment-process/releases/index.md) across your [environments](/docs/infrastructure/environments/index.md), without the need to clone [projects](/docs/deployment-process/projects/index.md) or duplicate work across multiple projects.
+
+Promoting your software across your different environments is a standard part of the [deployment process](/docs/deployment-process/index.md) in Octopus, and you don't need channels to achieve it. Channels is designed to give you more control and options when you need more than a single release strategy for a project. For instance, Channels let you use different  [lifecycles](/docs/deployment-process/lifecycle/index.md) to control which versions of your software go to which environments and can be useful in the following scenarios:
+
+- New versions of the software are released automatically to dev environments, promoted to test environments, and finally released to production environments.
+- Different customers are on different versions of your software and you want to provide patches to each version, for instance, version 1 and version 2.
+- Feature branches are deployed to test environments but not production.
+- Experimental branches are released to development environments but never released to test or production.
+- Early access versions of the software are released to members of your early access program.
+- Hot-fixes are deployed straight to production.
+- You need to update you deployment process without interrupting production releases.
+
+
+
 :::success
-The [Channels Walkthrough](https://octopus.com/blog/channels-walkthrough) covers all of these topics as well as how to implement the most common scenarios that will benefit from Channels.
+The [Channels Walkthrough](https://octopus.com/blog/channels-walkthrough) blog post, covers of these topics as well as how to implement the most common scenarios that will benefit from Channels.
 :::
+
+
+
+Create a lifecycle
+create a channel
+Add a version rule
+scope steps for the ....
+Create the release
+... select the channel
+
+Default channel...
+
+
 
 Channels in Octopus Deploy will help you if you want to:
 
-- [Manage multiple active versions of the same project](https://octopus.com/blog/channels-walkthrough#supporting-multiple-versions). For example, maintaining patch/hotfix releases for v1 whilst starting work on v2.
+[Manage multiple active versions of the same project](https://octopus.com/blog/channels-walkthrough#supporting-multiple-versions). For example, maintaining patch/hotfix releases for v1 whilst starting work on v2.
 - [Change your deployment process without creating a barrier for production releases](https://octopus.com/blog/channels-walkthrough#supporting-multiple-versions). For example, adding a new step to your process, or modifying an existing step.
-- [Deploy a hot-fix directly to Production](https://octopus.com/blog/channels-walkthrough#hotfix-deployments) where you would normal promote each release through a series of Environments.
-- [Provide your customers with access to early builds of your project](https://octopus.com/blog/channels-walkthrough#early-access-programs).
-- [Automatically deploy feature-branch builds to a test environment](https://octopus.com/blog/channels-walkthrough#feature-branch-deployments), sometimes called a Phoenix environment. For example, as soon as a developer commits code to a feature branch, you want that version of the project to be deployed into a sandbox test environment.
+[Deploy a hot-fix directly to Production](https://octopus.com/blog/channels-walkthrough#hotfix-deployments) where you would normal promote each release through a series of Environments.
+[Provide your customers with access to early builds of your project](https://octopus.com/blog/channels-walkthrough#early-access-programs).
+[Automatically deploy feature-branch builds to a test environment](https://octopus.com/blog/channels-walkthrough#feature-branch-deployments), sometimes called a Phoenix environment. For example, as soon as a developer commits code to a feature branch, you want that version of the project to be deployed into a sandbox test environment.
 - [You use a branching strategy in your source code repository](/docs/deployment-patterns/branching.md). For example, you might be using [GitFlow](http://nvie.com/posts/a-successful-git-branching-model/) or another source code branching strategy.
 
 Each Release you create in Octopus Deploy is placed into a Channel, and Releases in each Channel can be treated differently. For each Channel you can define:
