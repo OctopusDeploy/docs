@@ -88,6 +88,6 @@ When defining versions ranges against artifacts sourced from a Maven feed (when 
 
 ## Troubleshooting Maven Feeds
 
-1. Can you download the POM file directly from the Maven repository from the Octopus server? For example, the Google Guava POM file for version 24.0-jre is https://repo.maven.apache.org/maven2/com/google/guava/guava/24.0-jre/guava-24.0-jre.pom. If you can not, then there is likely to be an issue with the URL or your network settings.
+1. Can you download the POM file directly from the Maven repository from the Octopus Server? For example, the Google Guava POM file for version 24.0-jre is https://repo.maven.apache.org/maven2/com/google/guava/guava/24.0-jre/guava-24.0-jre.pom. If you can not, then there is likely to be an issue with the URL or your network settings.
 2. The Maven URL to be configured in Octopus includes the path up to the to the start of the group id. For Guava, the group id is `com.google.guava`. This maps to the `com/google/guava` component of the URL. So the Maven URL to be configured in Octopus is https://repo.maven.apache.org/maven2/, because this is the part of the URL that does not include the group id.
 3. Maven artifacts must be referenced in the `group:artifact` format. For Guava, the group is `com.google.guava` and the artifact is `guava`. So this would be referenced in Octopus as `com.google.guava:guava`.

@@ -9,15 +9,15 @@ Octopus uses self-signed certificates to securely communicate between Tentacles 
 For more information on self-signed certificates, see the [blog post](https://octopusdeploy.com/blog/why-self-signed-certificates) on the topic.
 
 :::warning
-**Updating an existing Octopus server or Tentacle**
-It's important to consider the impact of updating an existing Octopus server or Tentacle as changes are required to ensure each component trusts the other. Read the information below carefully.
+**Updating an existing Octopus Server or Tentacle**
+It's important to consider the impact of updating an existing Octopus Server or Tentacle as changes are required to ensure each component trusts the other. Read the information below carefully.
 :::
 
 ## Configuring Octopus Server to use custom certificates {#HowtousecustomcertificateswithOctopusServerandTentacle-ConfiguringOctopusServertousecustomcertificates}
 
 This assumes you have already installed Octopus on the target server.
 
-1. Stop the OctopusDeploy service on the target Octopus server you wish to update.
+1. Stop the OctopusDeploy service on the target Octopus Server you wish to update.
 2. Optionally export the current certificate as a backup, by executing the following statement at a command line on the same server.
 
 ```Batchfile

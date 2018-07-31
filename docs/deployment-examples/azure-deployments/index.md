@@ -1,14 +1,14 @@
 ---
 title: Azure Deployments
 description: Octopus Deploy can help you perform repeatable and controlled deployments of your applications into Azure.
-position: 40
+position: 20
 ---
 
 Octopus Deploy can help you perform repeatable and controlled deployments of your applications into Azure.
 
 Out of the box, Octopus provides built-in steps to deploy to the following Azure products:
 
-- [Azure Web applications](/docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md) and [web jobs](also works for [Azure Functions](https://octopus.com/blog/azure-functions))
+- [Azure Web applications](/docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md) and [web jobs](/docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-web-app/deploying-web-jobs.md) (also works for [Azure Functions](https://octopus.com/blog/azure-functions))
 - [Resource Group Templates](/docs/deployment-examples/azure-deployments/resource-groups/index.md).
 - [Azure Cloud Services](/docs/deployment-examples/azure-deployments/cloud-services/index.md).
 - [Service Fabric](/docs/deployment-examples/azure-deployments/deploying-to-service-fabric/index.md).
@@ -17,5 +17,5 @@ Out of the box, Octopus provides built-in steps to deploy to the following Azure
 
 :::hint
 **Where do Azure Steps execute?**
-All Azure Steps are executed on the `Octopus Server` instead of being ran on `Tentacles` . If you would like the ability to delegate Azure deployments to a Tentacle, there is a [UserVoice suggestion where you can vote and have your say on this kind of feature](https://octopusdeploy.uservoice.com/forums/170787-general/suggestions/6316906-support-run-on-any-tentacle-model-for-deployment).
+All steps that target an Azure deployment target (including script steps) execute on a worker.  By default, that will be the built-in worker in the Octopus Server. Learn about [workers](/docs/administration/workers/index.md) and the different configuration options.
 :::

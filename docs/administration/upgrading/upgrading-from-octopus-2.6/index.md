@@ -30,13 +30,13 @@ We recommend choosing from two different approaches for upgrading from Octopus 2
 
 ### Approach 1: Install the new version of Octopus on a new server, and migrate to it (recommended) {#UpgradingfromOctopus2.6-Approach1:Install3.xonanewserver,andmigratetoit(recommended)}
 
-If you are able to provision a new Octopus server, this is the safest option. That way, if something goes wrong in the upgrade, it will be easy to discard the new server and start the process again. And when it works, you can decommission the old Octopus server.
+If you are able to provision a new Octopus Server, this is the safest option. That way, if something goes wrong in the upgrade, it will be easy to discard the new server and start the process again. And when it works, you can decommission the old Octopus Server.
 
 Read the full guide: [Upgrade with a new Server instance](/docs/administration/upgrading/upgrading-from-octopus-2.6/upgrade-with-a-new-3.0-server-instance.md)
 
 ### Approach 2: In-place (over the top) upgrade of an existing server {#UpgradingfromOctopus2.6-Approach2:In-place(overthetop)upgradeofanexistingserver}
 
-It is possible to install newer versions of Octopus over the top of a 2.6 instance. You'll upgrade the Tentacles, then upgrade the Octopus server.
+It is possible to install newer versions of Octopus over the top of a 2.6 instance. You'll upgrade the Tentacles, then upgrade the Octopus Server.
 
 Read the full guide: [In place (over the top) upgrade](/docs/administration/upgrading/upgrading-from-octopus-2.6/in-place-upgrade-install-over-2.6.md)
 
@@ -46,7 +46,7 @@ We have significantly change the communications protocol used by Tentacle. This 
 
 ### Small number of Tentacles
 
-> "I have an Octopus server and a handful of Tentacles. I don't mind manually running the new Tentacle MSI's on each of my Tentacle machines."
+> "I have an Octopus Server and a handful of Tentacles. I don't mind manually running the new Tentacle MSI's on each of my Tentacle machines."
 
 If you only have a small number of Tentacles, it's easiest to just download the new Octopus and Tentacle MSI's and install them manually.
 

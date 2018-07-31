@@ -20,15 +20,15 @@ If you're looking for example deployments, see the [Deploying Applications examp
 4. Give the step a short memorable name.
 5. The **Execution Plan** tells the step where to run. Depending on the type of step you are configuring the options will vary:
 
-  - Octopus Server. (Learn about [Running steps on the Octopus Server](/docs/deployment-process/steps/how-to-run-steps-on-the-octopus-server.md).)
-  - Octopus Server on behalf of target roles.
-  - Deployment targets.
+  - [Worker Pool](/docs/infrastructure/workers/worker-pools.md)
+  - Worker Pool on behalf of roles
+  - Deployment targets
 
-6. If you are deploying to deployment targets or running the step on the server on behalf of deployment targets, you can deployment to all targets in parallel (default) or configure a rolling deployment. To configure a rolling deployment click *configure a rolling deployment* and specify the window size for the deployment. The window size controls how many deployment targets will be deployed to in parallel.
+6. If you are deploying to deployment targets or running the step on the server on behalf of deployment targets, you can deploy to all targets in parallel (default) or configure a rolling deployment. To configure a rolling deployment click *configure a rolling deployment* and specify the window size for the deployment. The window size controls how many deployment targets will be deployed to in parallel.
 
 Learn more about [rolling deployments](/docs/deployment-patterns/rolling-deployments.md).
 
-7. The next section of the step is where you specify the actions for the step to take, if you are running a script or deploying a package this is where you provide the details. This section will vary depending on the type of step you're configuring. For example deployments, see the [Deploying Applications examples](/docs/deployment-examples/index.md). If you're deploying packages you'll likely need to set your [configuration variables](/docs/deployment-process/configuration-features/index.md).
+7. The next section of the step is where you specify the actions for the step to take, if you are running a script or deploying a package this is where you provide the details. This section will vary depending on the type of step you're configuring. For example deployments, see the [Deploying Applications examples](/docs/deployment-examples/index.md). If you're deploying packages you'll likely need to set your [configuration variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md).
 8. After providing the actions the steps takes, you can set the conditions for the step. You can set the following conditions:
 
 - Only run the step when deploying to specific environments.

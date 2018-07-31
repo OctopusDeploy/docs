@@ -1,7 +1,7 @@
 ---
 title: SQL Server Databases
 description: Octopus integrates with numerous tools to handle automated database deployments.
-position: 30
+position: 60
 ---
 
 There are a variety of ways for Octopus Deploy to deploy to SQL Server.  Octopus Deploy integrates with many third-party tools, both free and commerical.  This section will provide a broad outline of approaches, tooling, and recommended configuration.
@@ -9,7 +9,7 @@ There are a variety of ways for Octopus Deploy to deploy to SQL Server.  Octopus
 ## Approaches to database change management {#SQLServerdatabases-Approachestodatabasechangemanagement}
 
 There are two main approaches to deploying databases.
-  
+
 1. A model-driven approach, where you define the desired state of your database.  During deployment, a tool will compare the desired state with the target database.  Using that comparison it will generate a delta script.
 
 [Redgate's DLM Automation Suite](https://www.red-gate.com/products/dlm/dlm-automation/index), [Microsoft's DacPac](https://docs.microsoft.com/en-us/sql/relational-databases/data-tier-applications/data-tier-applications?view=sql-server-2017), and [Microsoft's Entity Framework Migrations](https://msdn.microsoft.com/en-us/library/jj591621(v=vs.113).aspx) use the model-driven approach.
@@ -22,7 +22,7 @@ There are pros and cons to either approach as well as the tools themselves.  It 
 
 ## Tentacle Installation Recommendations {#SQLServerdatabases-Tentacles}
 
-Deploying an IIS Web Application or a Windows Service is very straight-forward.  Install the Tentacle on the server to be deployed to.  SQL Server is different.  Production SQL Servers are typically clusters or high-availability groups.  They comprise more than one node hidden behind a VIP or virtual IP Address. 
+Deploying an IIS Web Application or a Windows Service is very straight-forward.  Install the Tentacle on the server to be deployed to.  SQL Server is different.  Production SQL Servers are typically clusters or high-availability groups.  They comprise more than one node hidden behind a VIP or virtual IP Address.
 
 ![](common-database-with-vip.png "width=500")
 
@@ -40,13 +40,13 @@ Finally, it is good security practice to have a different deployment account per
 
 With all that in mind, a "jump box" is where Tentacles should be installed.  The jump box sits between Octopus Deploy and the SQL Server VIP.  The Tentacle is running as a [service account](/docs/infrastructure/windows-targets/running-tentacle-under-a-specific-user-account.md) with the necessary permissions to make schema changes.  The tooling chosen for database deployments is installed on the jump box.
 
-![](database-with-jump-box.png "width=500") 
+![](database-with-jump-box.png "width=500")
 
 In the event of multiple domains, a jump box would be needed per domain.  This might be seen where there is a domain in a local infrastructure and another domain in a cloud provider such as Azure.  As long as port 10933 is open (for a listening Tentacle) or port 443 (for a polling Tentacle) Octopus will be able to communicate to the jumpbox.
 
 ![](database-jump-box-multiple-domains.png "width=500")
 
-It is possible to install many tentacles on a single server.  Please [read here](/docs/administration/managing-multiple-instances.md) for more information.  
+It is possible to install many Tentacles on a single server.  Please [read here](/docs/administration/managing-multiple-instances.md) for more information.  
 
 ![](database-jump-box-multiple-tentacles.png "width=500")
 
@@ -64,7 +64,7 @@ Having separate accounts for each environment can make automated database deploy
 
 The account used to make schema changes requires elevated permissions.  Because of that, create a special account to handle database deployments.  Do not use the same account used by an IIS Web Application.
 
-The level of elevated permissions is up to you.   More restrictions placed on the deployment account means more manual steps.  Deployments will fail due to missing or restricted permissions.  Octopus will provide the error message to fix the issue.  It will need a manual intervention to resolve the issue.  It is up to you to decide which is best. 
+The level of elevated permissions is up to you.   More restrictions placed on the deployment account means more manual steps.  Deployments will fail due to missing or restricted permissions.  Octopus will provide the error message to fix the issue.  It will need a manual intervention to resolve the issue.  It is up to you to decide which is best.
 
 First, decide what the deployment account should have the ability to do at the server level.  From there, research which server roles are applicable.  Microsoft has provided a chart of the server roles and their specific permissions.
 
@@ -108,7 +108,7 @@ Security Admins should be treated the same as System Admins, as they can grant p
     - db_securityadmin -> modify role membership and manage permissions
     - db_accessadmin -> can add or remove access to the database for logins
     - Can View Any Definition
- 
+
 ### No Database Creation or User Creation Everything Else Automated Permission Recommendation {#SQLServerdatabases-ManualDbCreationAndUsers}
 
 If granting that level of access is not workable or allowed we would recommend the following.  It requires SQL Users to be manually created and the database to already exist.  The process can add existing users to databases as well as deploy everything.

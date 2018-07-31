@@ -1,9 +1,9 @@
 ---
 title: Import Certificates
-description:  Replace the certificate that Octopus server uses to authenticate itself with its Tentacles
+description:  Replace the certificate that Octopus Server uses to authenticate itself with its Tentacles
 ---
 
-Use the import certificate command to replace the certificate that Octopus server uses to authenticate itself with its Tentacles.
+Use the import certificate command to replace the certificate that Octopus Server uses to authenticate itself with its Tentacles.
 
 **Import certificate options**
 

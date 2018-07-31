@@ -4,7 +4,7 @@ description: Octopus Deploy and Bamboo can work together to make automated, cont
 position: 30
 ---
 
-The Octopus Deploy add-on for Bamboo allows packages to be uploaded to an Octopus Deploy server, as well as creating, deploying and promoting releases to your Octopus Deploy [environments](docs/infrastructure/environments/index.md). The add-on does this by running the [Octopus Deploy Command Line tool](/docs/api-and-integration/octo.exe-command-line/index.md).
+The Octopus Deploy add-on for Bamboo allows packages to be uploaded to an Octopus Deploy Server, as well as creating, deploying and promoting releases to your Octopus Deploy [environments](docs/infrastructure/environments/index.md). The add-on does this by running the [Octopus Deploy Command Line tool](/docs/api-and-integration/octo.exe-command-line/index.md).
 
 ## Getting Started
 
@@ -180,11 +180,11 @@ All of the Octopus Deploy tasks share a number of common configuration fields.
 
 #### Octopus URL
 
-The `Octopus URL` field defines the URL of the Octopus Deploy server that the package will be pushed to. This URL must include the scheme `http:\\` or `https:\\`, and also include the port if it is not the default of `80` or `443`.
+The `Octopus URL` field defines the URL of the Octopus Deploy Server that the package will be pushed to. This URL must include the scheme `http:\\` or `https:\\`, and also include the port if it is not the default of `80` or `443`.
 
 #### API key
 
-The `API key` field defines the API key that is used to authenticate with the Octopus Deploy server. See [How to create an API key](/docs/api-and-integration/api/how-to-create-an-api-key.md) for more information.
+The `API key` field defines the API key that is used to authenticate with the Octopus Deploy Server. See [How to create an API key](/docs/api-and-integration/api/how-to-create-an-api-key.md) for more information.
 
 #### Octopus CLI
 The `Octopus CLI` field references a [Bamboo capability](https://confluence.atlassian.com/bamboo/capability-289277445.html) that defines the path to the Octopus Deploy Command Line tool.
@@ -254,7 +254,7 @@ The Bamboo build logs show how the command line tool is run. Look for log messag
 running command line: \n/opt/octocli/Octo push --server http://localhost --apiKey API-....................QGWUHKO --replace-existing --debug --package /opt/atlassian-bamboo-6.0.0/xml-data/build-dir/BPT-TBD-JOB1/myapplication.0.0.5.tar.gz
 ```
 
-This is the command that was run to perform the actual interaction with the Octopus Deploy server, with the exception of the
+This is the command that was run to perform the actual interaction with the Octopus Deploy Server, with the exception of the
 redacted API key. You can take this command and run it manually to help diagnose any issues.
 
 ### Bamboo Variables

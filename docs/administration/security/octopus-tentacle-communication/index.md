@@ -4,13 +4,13 @@ description: Octopus Server and Tentacle communications details.
 position: 40
 ---
 
-This page describes how the [Octopus Deploy server](/docs/installation/index.md) and the [Tentacle deployment agents](/docs/infrastructure/windows-targets/index.md) communicate in a secure way.
+This page describes how the [Octopus Deploy Server](/docs/installation/index.md) and the [Tentacle deployment agents](/docs/infrastructure/windows-targets/index.md) communicate in a secure way.
 
 ## Background {#Octopus-Tentaclecommunication-Background}
 
 Some deployment technologies are designed for the LAN and have no security at all. Some require machines to be on the same Active Directory domain. Others require you to set up usernames and passwords, and to store them in configuration files.
 
-When designing Octopus, we wanted to make it easy to have secure deployments out of the box, without expecting machines to be on the same domain and without sharing passwords. Octopus needed to work in scenarios where the Octopus Deploy server is running in your local LAN, close to your developers, while your production servers are running in the cloud or at a remote data center.
+When designing Octopus, we wanted to make it easy to have secure deployments out of the box, without expecting machines to be on the same domain and without sharing passwords. Octopus needed to work in scenarios where the Octopus Deploy Server is running in your local LAN, close to your developers, while your production servers are running in the cloud or at a remote data center.
 
 We achieve this security using [public-key cryptography](http://en.wikipedia.org/wiki/Public-key_cryptography "Wikipedia article on Public-key cryptography").
 
@@ -18,9 +18,9 @@ We achieve this security using [public-key cryptography](http://en.wikipedia.or
 
 Regardless of whether Tentacle is in [listening mode](/docs/infrastructure/windows-targets/tentacle-communication.md#listening-tentacles-recommended) or [polling mode](/docs/infrastructure/windows-targets/tentacle-communication.md#polling-tentacles), all communication between the Tentacle and Octopus is performed over HTTPS. Octopus and Tentacle both have a public/private key pair that they use to establish the HTTPS connection and verify the identity of the other party.
 
-When Tentacle is configured, you give it the thumbprint (which uniquely identifies the public key) of the Octopus server. Likewise, you tell Octopus the thumbprint of the Tentacle. This establishes a trust relationship between the two machines:
+When Tentacle is configured, you give it the thumbprint (which uniquely identifies the public key) of the Octopus Server. Likewise, you tell Octopus the thumbprint of the Tentacle. This establishes a trust relationship between the two machines:
 
-1. Your Octopus server will only issue commands to the Tentacles that it trusts
+1. Your Octopus Server will only issue commands to the Tentacles that it trusts
 2. Your Tentacles only accept commands from an Octopus they trust
 
 The only way another system can impersonate either party is by getting hold of the private key, which are kept safe and never leave the Octopus/Tentacle server (unless you export them from the certificate store). This makes it much more secure than exchanging passwords.  Since this is all based on public-key cryptography, it creates a highly secure way for the two machines to communicate without exchanging passwords, and works much like an SSH connection in the UNIX world.
@@ -65,7 +65,7 @@ TLS 1.2 requires .NET 4.5 which was introduced as a requirement in Octopus 3.1. 
 
 ## Troubleshooting Tentacle communication problems {#Octopus-Tentaclecommunication-TroubleshootingTentaclecommunicationproblems}
 
-We have built comprehensive troubleshooting guides for both [Listening Tentacles](/docs/infrastructure/windows-targets/troubleshooting-tentacles.md) and [Polling Tentacles](/docs/infrastructure/windows-targets/troubleshooting-tentacles.md).
+We have built comprehensive troubleshooting guides for both [Listening and Polling Tentacles](/docs/infrastructure/windows-targets/troubleshooting-tentacles.md).
 
 If you are seeing error messages like below, try [Troubleshooting Schannel and TLS](troubleshooting-schannel-and-tls.md):
 

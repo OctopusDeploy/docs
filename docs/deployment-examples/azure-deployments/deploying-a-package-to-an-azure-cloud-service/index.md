@@ -46,7 +46,7 @@ Any of the settings above can be switched to use a variable binding expression. 
 The following features are available when deploying a package to an Azure Cloud Service:
 
 - [Custom Scripts](/docs/deployment-examples/custom-scripts/index.md)
-- [Configuration Variables](/docs/deployment-process/configuration-features/configuration-variables.md)
+- [Configuration Variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md)
 - [Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms.md)
 - [JSON configuration variables](/docs/deployment-process/configuration-features/json-configuration-variables-feature.md)
 - [Substitute variables in files](/docs/deployment-process/variables/variable-substitution-syntax.md)
@@ -78,13 +78,13 @@ if ($Deployment -ne $null -AND $Deployment.DeploymentId  -ne $null) {
 Deployment to an Azure Cloud Service proceeds as follows (more details provided below):
 
 1. Download the package from the [package repository](/docs/packaging-applications/package-repositories/index.md)
-2. Extract the package on the Octopus server to a temporary location
+2. Extract the package on the Octopus Server to a temporary location
 3. Extract the Cloud Service package (`.cspkg`) to a temporary location
 4. Any configured or packaged `PreDeploy` scripts are executed
 5. Variable substitutions in Cloud Service configuration file (`.cscfg`)
 6. [Substitute variables in files](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) (if configured)
-7. [XML configuration transformations](/docs/deployment-process/configuration-features/index.md) (if configured) are performed
-8. [XML configuration variables](/docs/deployment-process/configuration-features/index.md) (if configured) are replaced
+7. [XML configuration transformations](/docs/deployment-process/configuration-features/configuration-transforms.md) (if configured) are performed
+8. [XML configuration variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) (if configured) are replaced
 9. Any configured or package `Deploy` scripts are executed
 10. Re-package the Cloud Service Package
 11. Upload the Cloud Service Package to Azure Storage

@@ -67,7 +67,7 @@ To push a package using `NuGet.exe` you'll need a the URL for the Octopus NuGe
 If you're using a continuous integration server like TeamCity to produce packages you can use their built-in NuGet Push step. Supply the Octopus NuGet feed URL shown above and an [Octopus API key](/docs/api-and-integration/api/how-to-create-an-api-key.md) when prompted for the feed details.
 :::
 
-If a package with the same version exists and you want to force the Octopus server to replace it, you can modify the URL to include a `?replace=true` parameter (as outlined in our [Push a NuGet package that already exists](https://octopus.com/docs/packaging-applications/creating-packages/nuget-packages/push-a-nuget-package-that-already-exists) page). The full URL would look then like this:
+If a package with the same version exists and you want to force the Octopus Server to replace it, you can modify the URL to include a `?replace=true` parameter (as outlined in our [Push a NuGet package that already exists](https://octopus.com/docs/packaging-applications/creating-packages/nuget-packages/push-a-nuget-package-that-already-exists) page). The full URL would look then like this:
 
 `http://MyOctopusServer/nuget/packages?replace=true`
 

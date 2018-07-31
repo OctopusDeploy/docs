@@ -39,7 +39,7 @@ Where`[<options>]`is any of:
       --trust=VALUE          The thumbprint of the Octopus Server to trust
       --remove-trust=VALUE   The thumbprint of the Octopus Server to remove
                                from the trusted list
-      --reset-trust          Removes all trusted Octopus servers
+      --reset-trust          Removes all trusted Octopus Servers
  
 Or one of the common options:
 
@@ -51,7 +51,7 @@ Or one of the common options:
 
 ## File storage {#Tentacleconfigurationandfilestorage-Filestorage}
 
-The Octopus server stores files in the following folders by default:
+The Octopus Server stores files in the following folders by default:
 
 - `C:\Octopus\Tentacle\<Instance>`
     - This is the Tentacle Home Directory where `<Instance>` is an optional instance name in case you have multiple instances of Tentacle on the same computer.

@@ -158,7 +158,7 @@ Or one of the options supported/provided by the server extensions.
 
 ## Server folders {#ServerconfigurationandFilestorage-Serverfolders}
 
-If you need to move other folders than the Octopus Home folder, you can do that using the command-line as described below. Also see [moving Octopus server folders](/docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md#MovingOctopusServerfolders-OctopusHome)
+If you need to move other folders than the Octopus Home folder, you can do that using the command-line as described below. Also see [moving Octopus Server folders](/docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md#MovingOctopusServerfolders-OctopusHome)
 
 **Usage**
 
@@ -186,28 +186,28 @@ Or one of the common options:
 
 ## File storage {#ServerconfigurationandFilestorage-FileStorageFilestorage}
 
-The Octopus server stores files in the following folders by default:
+The Octopus Server stores files in the following folders by default:
 
 - `C:\Octopus`
-    - This is where the Octopus server config file and deployment journal is stored.
+    - This is where the Octopus Server config file and deployment journal is stored.
     - See this [page](/docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md#MovingOctopusServerfolders-OctopusHome) on how to move the Octopus home folder
 - `C:\Octopus\Artifacts`
     - This is where artifacts created by deployments are stored.
-    - See this [page](/docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md#MovingOctopusServerfolders-Artifacts) on how to move the Octopus server artifacts folder
+    - See this [page](/docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md#MovingOctopusServerfolders-Artifacts) on how to move the Octopus Server artifacts folder
 - `C:\Octopus\Logs`
-    - This is where the Octopus server log file is stored.
+    - This is where the Octopus Server log file is stored.
 - `C:\Octopus\OctopusServer\PackageCache`
     - This is where the signature and delta files used for package acquisitions are stored.
 - `C:\Octopus\Packages`
-    - This is where the packages pushed to the Octopus server built-in package repository are stored.
-    - See this [page](/docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md#MovingOctopusServerfolders-NuGetRepository) on how to move the Octopus server built-in package folder
+    - This is where the packages pushed to the Octopus Server built-in package repository are stored.
+    - See this [page](/docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md#MovingOctopusServerfolders-NuGetRepository) on how to move the Octopus Server built-in package folder
 - `C:\Octopus\TaskLogs`
     - This is where all logs from deployments and other server tasks are stored.
-    - See this [page](/docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md#MovingOctopusServerfolders-TaskLogs) on how to move the Octopus server task logs folder
+    - See this [page](/docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md#MovingOctopusServerfolders-TaskLogs) on how to move the Octopus Server task logs folder
 
 ## Clean up post-2.6 migration {#ServerconfigurationandFilestorage-CleanUpCleanuppost-2.6migration}
 
-In 2.6 Octopus server stored files in the following folders by default:
+In 2.6 Octopus Server stored files in the following folders by default:
 
 - `C:\Octopus`
 - `C:\Octopus\Backup`

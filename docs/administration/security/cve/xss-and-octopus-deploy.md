@@ -25,7 +25,11 @@ We take responsibility to provide commercially reasonable protection against XSS
 
 ### What is the customer responsible for?
 
-The customer is responsible for granting access people you trust, and ensuring those users use a **modern web browser**. Since XSS is a browser-based vulnerability, some of the XSS prevention measures employed by Octopus Deploy rely on modern web browser features.
+As the customer, you are responsible for granting access to people you trust, and ensuring the security of your own network and operating systems.
+
+XSS is a browser-based vulnerability. The Octopus Server and its browser application work on your behalf to actively prevent XSS attacks, and the browser itself can also help in the prevention of XSS attacks. To this end Octopus Server 4.0 (and newer) has increased its minimum supported browser requirements to further improve the security of your Octopus installation.
+
+Learn about [supported web browsers](/docs/installation/requirements.md#supported-browsers).
 
 ## How Octopus Deploy prevents XSS attacks {#prevention}
 

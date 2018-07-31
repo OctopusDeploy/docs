@@ -17,13 +17,13 @@ position: 90
 - **`create-instance`**:  Registers a new instance of the Octopus service.
 - **`database`**:  Create or drop the Octopus database.
 - **`delete-instance`**:  Deletes an instance of the Octopus service.
-- **`export-certificate`**:  Exports the certificate that Octopus server can use to authenticate itself with its Tentacles.
+- **`export-certificate`**:  Exports the certificate that Octopus Server can use to authenticate itself with its Tentacles.
 - **`external-worker`**:  Configure the external worker used to run deployment actions and scripts on the Octopus Server. Available in `2018.2.0` and later.
 - **`help`**:  Prints this help text.
-- **`import-certificate`**:  Replace the certificate that Octopus server uses to authenticate itself with its Tentacles.
+- **`import-certificate`**:  Replace the certificate that Octopus Server uses to authenticate itself with its Tentacles.
 - **`license`**:  Import a license key.
 - **`list-instances`**:  Lists all installed Octopus instances.
-- **`new-certificate`**:  Creates a new certificate that Octopus server can use to authenticate itself with its Tentacles.
+- **`new-certificate`**:  Creates a new certificate that Octopus Server can use to authenticate itself with its Tentacles.
 - **`path`**:  Set the file paths that Octopus will use for storage.
 - **`proxy`**:  Configure the HTTP proxy used by Octopus.
 - **`regenerate-certificate`**:  Regenerate one or more of the certificates that Octopus uses.

@@ -74,7 +74,7 @@ It is very important you get this value correct. An incorrect value will result 
 2. Multiple Polling Tentacle instances on the same machine pointing to a single Octopus Server:
   - Just point to the new server's polling address `https://newserver:newport` like `https://octopus3.mycompany.com:10934` and Hydra will automatically update all Tentacles to point to the new server's address
 3. Multiple Polling Tentacle instances on the same machine pointing to different Octopus Servers **a very rare case**:
-  - Use this syntax to tell Hydra the mapping from your old Octopus server to your new Octopus server: `https://oldserver:oldport=>https://newserver:newport,https://oldserver2:oldport2/=>https://newserver2:newport2` where each pair is separated by commas. This will match the first case and replace it => with the second case.
+  - Use this syntax to tell Hydra the mapping from your old Octopus Server to your new Octopus Server: `https://oldserver:oldport=>https://newserver:newport,https://oldserver2:oldport2/=>https://newserver2:newport2` where each pair is separated by commas. This will match the first case and replace it => with the second case.
   
 Click the ![](/docs/images/3048132/3278017.png) help button for more detailed instructions.
 

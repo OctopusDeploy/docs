@@ -1,12 +1,12 @@
 ---
 title: Import
-description: Using the Octo.exe command line tool to import items exported from another Octopus Deploy server.
+description: Using the Octo.exe command line tool to import items exported from another Octopus Deploy Server.
 position: 6
 ---
 
-This command allows you to import items from one Octopus Deploy server into another Octopus Deploy server.
+This command allows you to import items from one Octopus Deploy Server into another Octopus Deploy Server.
 
-**Note:** Both the source and destination Octopus Deploy servers should be running the same version.
+**Note:** Both the source and destination Octopus Deploy Servers should be running the same version.
 
 We currently support importing:
 
@@ -29,7 +29,7 @@ Common options:
       --helpOutputFormat=VALUE
                              [Optional] Output format for help, only valid 
                              option is json
-      --server=VALUE         The base URL for your Octopus server - e.g., 
+      --server=VALUE         The base URL for your Octopus Server - e.g., 
                              http://your-octopus/
       --apiKey=VALUE         [Optional] Your API key. Get this from the user 
                              profile page. Your must provide an apiKey or 
@@ -43,7 +43,7 @@ Common options:
       --configFile=VALUE     [Optional] Text file of default values, with one 
                              'key = value' per line.
       --debug                [Optional] Enable debug logging
-      --ignoreSslErrors      [Optional] Set this flag if your Octopus server 
+      --ignoreSslErrors      [Optional] Set this flag if your Octopus Server 
                              uses HTTPS but the certificate is not trusted on 
                              this machine. Any certificate errors will be 
                              ignored. WARNING: this option may create a 
@@ -69,7 +69,7 @@ Common options:
 
 :::hint
 **Prerequisites**
-Before importing a project you have to ensure that the following exists on the Octopus Deploy server you are importing to:
+Before importing a project you have to ensure that the following exists on the Octopus Deploy Server you are importing to:
 
 - The Project Group used by the Project
 - The Environments used in the Project
@@ -101,7 +101,7 @@ During the import, Octo.exe will validate that any dependencies, such as feeds a
 ```powershell
 Octopus Deploy Command Line Tool, version 1.0.0.0
 
-Handshaking with Octopus server: http://localhost/octopuslive/
+Handshaking with Octopus Server: http://localhost/octopuslive/
 Handshake successful. Octopus version: 2.4.4.43; API version: 3.0.0
 Finding importer 'project'
 Beginning the import
@@ -119,7 +119,7 @@ Exit code: -1
 ```powershell
 Octopus Deploy Command Line Tool, version 1.0.0.0
 
-Handshaking with Octopus server: http://localhost/octopuslive/
+Handshaking with Octopus Server: http://localhost/octopuslive/
 Handshake successful. Octopus version: 2.4.4.43; API version: 3.0.0
 Finding importer 'project'
 Beginning the import
@@ -152,7 +152,7 @@ Successfully imported project 'OctoFX Rate Service'
 
 :::hint
 **Prerequisites**
-Before importing a release, or range of releases, you have to ensure that the project exists on the Octopus Deploy server you are importing to
+Before importing a release, or range of releases, you have to ensure that the project exists on the Octopus Deploy Server you are importing to
 :::
 
 The following options are required when importing a release, or a range of releases.
@@ -176,7 +176,7 @@ octo import --server=http://octopusdeploy/api --apiKey=ABCDEF123456 --type=relea
 ```powershell
 Octopus Deploy Command Line Tool, version 1.0.0.0
 
-Handshaking with Octopus server: http://localhost/octopuslive/
+Handshaking with Octopus Server: http://localhost/octopuslive/
 Handshake successful. Octopus version: 2.4.4.43; API version: 3.0.0
 Finding importer 'release'
 Beginning the import

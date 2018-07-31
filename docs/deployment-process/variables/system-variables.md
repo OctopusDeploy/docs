@@ -86,7 +86,7 @@ Action-level variables are available during execution of an action. Indexer noti
 |**`Octopus.Action.Number`** <br/>The sequence number of the action in the deployment process *(Number)* | *5*|
 |**`Octopus.Action.Package.CustomInstallationDirectory`** <br/>If set, a specific directory to which the package will be copied after extraction | *C:\InetPub\WWWRoot\OctoFx*|
 |**`Octopus.Action.Package.CustomInstallationDirectoryShouldBePurgedBeforeDeployment`** <br/>If true, the all files in the `Octopus.Action.Package.CustomInstallationDirectory` will be deleted before deployment *(Boolean)* | *False*|
-|**`Octopus.Action.Package.DownloadOnTentacle`** <br/>If true, the package will be downloaded by the Tentacle, rather than pushed by the Octopus server*(Boolean)* | *False*|
+|**`Octopus.Action.Package.DownloadOnTentacle`** <br/>If true, the package will be downloaded by the Tentacle, rather than pushed by the Octopus Server*(Boolean)* | *False*|
 |**`Octopus.Action.Package.TreatConfigTransformationWarningsAsErrors`** <br/>If true, any warnings in configuration transformations will be treated as errors and will fail the deployment** ***(Boolean)* | *True*|
 |**`Octopus.Action.Package.IgnoreConfigTransformationErrors`** <br/>If true, any errors in configuration transformations will be treated as informational rather than errors that will fail the deployment** ***(Boolean)* | *False*|
 |**`Octopus.Action.Package.IgnoreVariableReplacementErrors`** <br/>If true, any errors in variable replacement will be treated as a warning rather than an error that will fail the deployment. (*Boolean*) | *False*|
@@ -137,6 +137,7 @@ Action-level variables are available during execution of an action. Indexer noti
 | Name and Description | Example |
 | -------------------- | ------------------------|
 |**`Octopus.Action.Azure.WebAppName`** <br/>The name of the Web App being targeted by this deployment | *my-web-app*|
+|**`Octopus.Action.Azure.WebAppSlotName`** <br/>The name of the Web App slot being targeted by this deployment | *staging* |
 |**`Octopus.Action.Azure.WebSpaceName`** <br/>The name of the Web Space being targeted by this deployment | *SoutheastAsiaWebSpace1*|
 |**`Octopus.Action.Azure.RemoveAdditionalFiles`** <br/>When *True* instructs Web Deploy to delete files from the destination that aren't in the source package | *True*|
 |**`Octopus.Action.Azure.PreserveAppData`** <br/>When *True* instructs Web Deploy to skip Delete operations in the **App\_Data** directory | *True*|
@@ -186,7 +187,7 @@ Agent-level variables describe the deployment agent or Tentacle on which the dep
 
 ## Server {#Systemvariables-Server}
 
-Server-level variables describe the Octopus server on which the deployment is running.
+Server-level variables describe the Octopus Server on which the deployment is running.
 
 | Name and Description | Example                                  |
 | -------------------  | ---------------------------------------- |

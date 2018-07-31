@@ -29,6 +29,7 @@ See the [packaging application docs](/docs/packaging-applications/index.md)
 
 | Setting                     | Default     | Description                              |
 | --------------------------- | ----------- | ---------------------------------------- |
+| **Deployment Slot**         |             | The target slot to deploy the application to. Requires a **Standard** or **Premium** App Service Plan. |
 | **Physical Path**           |             | The physical path relative to site root on the web app host. e.g. 'foo' will deploy to 'site\wwwroot\foo'. Leave blank to deploy to root. |
 | **Remove additional files** | *False*     | When *True* instructs Web Deploy to delete files from the destination that aren't in the source package |
 | **Preserve App\_Data**      | *False*     | When *True* instructs Web Deploy to skip Delete operations in the **App\_Data** directory |
@@ -45,8 +46,8 @@ Any of the settings above can be switched to use a variable binding expression. 
 The following features are available when deploying a package to an Azure Web App.
 
 - [Custom Scripts](/docs/deployment-examples/custom-scripts/index.md)
-- [Configuration Variables](/docs/deployment-process/configuration-features/index.md)
-- [Configuration Transforms](/docs/deployment-process/configuration-features/index.md)
+- [Configuration Variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md)
+- [Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms.md)
 - [JSON configuration variables](/docs/deployment-process/configuration-features/json-configuration-variables-feature.md)
 - [Substitute variables in files](/docs/deployment-process/variables/variable-substitution-syntax.md)
 
@@ -68,11 +69,11 @@ Switch-AzureWebsiteSlot -Name #{WebSite} -Slot1 Staging -Slot2 Production -Force
 When the `Deploy an Azure Web App` step gets executed, the below actions will happen (in order):
 
 1. Download the package from the [package repository](/docs/packaging-applications/package-repositories/index.md)
-2. Extract the package on the Octopus server to a temporary location
+2. Extract the package on the Octopus Server to a temporary location
 3. Any configured or packaged `PreDeploy` scripts are executed
 4. [Substitute variables in files ](/docs/deployment-process/configuration-features/substitute-variables-in-files.md)(if configured)
-5. [XML configuration transformations](/docs/deployment-process/configuration-features/index.md) (if configured) are performed
-6. [XML configuration variables](/docs/deployment-process/configuration-features/index.md) (if configured) are replaced
+5. [XML configuration transformations](/docs/deployment-process/configuration-features/configuration-transforms.md) (if configured) are performed
+6. [XML configuration variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) (if configured) are replaced
 7. Any configured or packaged `Deploy` scripts are executed
 8. Push your package content to the Web App in Azure.
 9. Any configured or packaged `PostDeploy` scripts are executed

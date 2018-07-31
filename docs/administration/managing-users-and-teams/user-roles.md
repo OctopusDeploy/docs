@@ -15,7 +15,7 @@ Octopus comes with a set of built-in User Roles that are designed to work for mo
 | -------------------- | ---------------------------------------- |
 | Environment Manager  | Environment managers can view and edit environments and their machines. |
 | Environment Viewer   | Environment viewers can view environments and their machines, but not edit them. |
-| Package Publisher    | Permits packages to be pushed to the Octopus server's built-in NuGet feed. |
+| Package Publisher    | Permits packages to be pushed to the Octopus Server's built-in NuGet feed. |
 | Project Viewer       | Project viewers have read-only access to a project. They can see a project in their dashboard, view releases and deployments. Restrict this role by project to limit it to a subset of projects, and restrict it by environment to limit which environments they can view deployments to. |
 | Project Contributor  | All project viewer permissions, plus: editing and viewing variables, editing the deployment steps. Project contributors can't create or deploy releases. |
 | Project Initiator    | All project viewer permissions, plus: create new projects. |

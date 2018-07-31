@@ -11,6 +11,7 @@ Command: **_New-OctopusAzureWebAppTarget_**
 | ------------------------- | --------------------------------------------- |
 | `-name`                   | name for the Octopus deployment target        |
 | `-azureWebApp`            | Name of the Azure Web App                     |
+| `-azureWebAppSlot`        | Name of the Azure Web App Slot                |
 | `-azureResourceGroupName` | Name of the Azure Resource Group              |
 | `-octopusAccountIdOrName` | Name or Id of the Account Resource in Octopus |
 | `-octopusRoles`           | Comma separated list of Roles to assign       |

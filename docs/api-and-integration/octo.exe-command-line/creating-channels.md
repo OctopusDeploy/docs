@@ -1,10 +1,10 @@
 ---
-title: Creating channels
+title: Creating Channels
 description: Using the Octo.exe command line tool to create channels.
 position: 11
 ---
 
-[Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to create channels on your Octopus instance.
+[Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to create [channels](/docs/deployment-process/channels.md) on your Octopus instance.
 
 ```bash
 octo create-channel [<options>]
@@ -41,7 +41,7 @@ Common options:
                              option is json
       --outputFormat=VALUE   [Optional] Output format, only valid option is
                              json
-      --server=VALUE         The base URL for your Octopus server - e.g.,
+      --server=VALUE         The base URL for your Octopus Server - e.g.,
                              http://your-octopus/
       --apiKey=VALUE         [Optional] Your API key. Get this from the user
                              profile page. Your must provide an apiKey or
@@ -55,7 +55,7 @@ Common options:
       --configFile=VALUE     [Optional] Text file of default values, with one
                              'key = value' per line.
       --debug                [Optional] Enable debug logging
-      --ignoreSslErrors      [Optional] Set this flag if your Octopus server
+      --ignoreSslErrors      [Optional] Set this flag if your Octopus Server
                              uses HTTPS but the certificate is not trusted on
                              this machine. Any certificate errors will be
                              ignored. WARNING: this option may create a

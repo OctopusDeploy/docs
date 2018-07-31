@@ -1,6 +1,6 @@
 ---
 title: Automating Octopus Installation
-description: Information on how to install and configure an Octopus server in a fully automated way from the command line.
+description: Information on how to install and configure an Octopus Server in a fully automated way from the command line.
 position: 7
 ---
 
@@ -59,7 +59,7 @@ To run the script start an admin shell prompt and execute the script, this shoul
 
 Octopus can also be installed via [Desired State Configuration](https://msdn.microsoft.com/en-us/powershell/dsc/overview) (DSC). Using the module from the [OctopusDSC GitHub repository](https://www.powershellgallery.com/packages/OctopusDSC).
 
-The following PowerShell script will install an Octopus server listening on port `80`. Make sure the OctopusDSC module is on your `$env:PSModulePath`:
+The following PowerShell script will install an Octopus Server listening on port `80`. Make sure the OctopusDSC module is on your `$env:PSModulePath`:
 
 ```powershell
 Configuration SampleConfig
