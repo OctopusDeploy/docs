@@ -18,6 +18,65 @@ In both scenarios, a target is then created for each Kubernetes cluster and name
 
 When a Kubernetes target is used, the namespace it references is created automatically if it does not already exist.
 
+## Creating Service Accounts
+
+The recommended approach to configuring a Kubernetes target is to have a service account for each application and namespace.
+
+In the example below, a service account called `jenkins-development` is created to represent the deployment of an application called `jenkins` to an environment called `development`. This service account has permissions to perform all operations (i.e. `get`, `list`, `watch`, `create`, `update`, `patch`, `delete`) on the resources created by the `Deploy kubernetes containers` step (i.e. `deployments`, `replicasets`, `pods`, `services`, `ingress`).
+
+```yaml
+---
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: jenkins-development
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: jenkins-deployer
+  namespace: jenkins-development
+---
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  namespace: jenkins-development
+  name: jenkins-deployer-role
+rules:
+- apiGroups: ["", "extensions", "apps"]
+  resources: ["deployments", "replicasets", "pods", "services", "ingress"]
+  verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: jenkins-deployer-binding
+  namespace: jenkins-development
+subjects:
+- kind: User
+  name: jenkins-deployer
+  apiGroup: ""
+roleRef:
+  kind: Role
+  name: jenkins-deployer-role
+  apiGroup: ""
+```
+
+Creating this service account automatically results in a token being generated. The PowerShell snippet below returns the token.
+
+```PowerShell
+$data = kubectl get secret $(kubectl get serviceaccount jenkins-deployer -o jsonpath="{.secrets[0].name}"  --namespace=jenkins-development) -o jsonpath="{.data.token}"  --namespace=jenkins-development
+[System.Text.Encoding]::ASCII.GetString([System.Convert]::FromBase64String($data))
+```
+
+This bash snippet also returns the token value.
+
+```bash
+kubectl get secret $(kubectl get serviceaccount jenkins-deployer -o jsonpath="{.secrets[0].name}" --namespace=jenkins-development) -o jsonpath="{.data.token}" --namespace=jenkins-development | base64 --decode
+```
+
+The token can then be saved as a Token Octopus account, and assigned to the Kubernetes target.
+
 ## Kubectl
 
 Kubernetes targets use the `kubectl` executable to communicate with the Kubernetes cluster. This executable must be available on the path on the target where the step is run. When using workers, this means the `kubectl` executable must be in the path on the worker that is executing the step. Otherwise the `kubectl` executable must be in the path on the Octopus server itself.
