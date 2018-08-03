@@ -3,6 +3,8 @@ title: Deploy an ingress resource
 description: Deploy an ingress resource to a Kubernetes cluster.
 ---
 
+This featured was introduced as a pre-release in Octopus `2018.8`.
+
 [Ingress resources](http://g.octopushq.com/KubernetesIngressResource) provide a way to direct HTTP traffic to Service resources based on the requested host and path.
 
 #### Ingress Name

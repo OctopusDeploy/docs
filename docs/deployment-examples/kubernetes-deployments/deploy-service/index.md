@@ -3,6 +3,8 @@ title: Deploy a service resource
 description: Deploy a service resource to a Kubernetes cluster.
 ---
 
+This featured was introduced as a pre-release in Octopus `2018.8`.
+
 [Service resources](http://g.octopushq.com/KubernetesServiceResource), expose Pod resources either internally within Kubernetes cluster, or externally to public clients. The `Deploy Kubernetes service resource` steps can be used to configure and deploy a Service resource.
 
 #### Service Name
