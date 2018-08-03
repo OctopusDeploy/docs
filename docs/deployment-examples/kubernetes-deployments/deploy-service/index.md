@@ -8,10 +8,10 @@ This featured was introduced as a pre-release in Octopus `2018.8`.
 
 [Service resources](http://g.octopushq.com/KubernetesServiceResource), expose Pod resources either internally within Kubernetes cluster, or externally to public clients. The `Deploy Kubernetes service resource` steps can be used to configure and deploy a Service resource.
 
-#### Service Name
+## Service Name
 Each Service resource requires a unique name, defined in the `Name` field. The names must consist of lower case alphanumeric characters or '-', and must start and end with an alphanumeric character.
 
-#### Service Type
+## Service Type
 
 A Service resource can be one of three different types:
 * Cluster IP
@@ -32,11 +32,11 @@ The particular load balancer that is created depends on the environment in which
 
 ![Loadbalancer](../loadbalancer.svg)
 
-#### Cluster IP Address
+## Cluster IP Address
 
 The `Cluster IP Address` field can be used to optionally assign a fixed internal IP address to the Service resource.
 
-#### Ports
+## Ports
 
 Each port exposed by the Service resource has four common fields: Name, Port, Target Port and Protocol.
 

@@ -8,11 +8,11 @@ This featured was introduced as a pre-release in Octopus `2018.8`.
 
 [Ingress resources](http://g.octopushq.com/KubernetesIngressResource) provide a way to direct HTTP traffic to Service resources based on the requested host and path.
 
-#### Ingress Name
+## Ingress Name
 
 Each Ingress resource must have a unique name, defined in the `Ingress name` field.
 
-#### Ingress Host Rules
+## Ingress Host Rules
 
 Ingress resources configure routes based on the host that the request was sent to. New hosts can be added by clicking the `Add Host Rule` button.
 
@@ -26,7 +26,7 @@ The `Service Port` field is the port from the associated Service resource that t
 
 The `Service Name` field is the name of the associated service to direct the traffic to.
 
-#### Ingress Annotations
+## Ingress Annotations
 
 Ingress resources only provide configuration. A Ingress Controller resource uses the Ingress configuration to direct network traffic within the Kubernetes cluster.
 
@@ -60,10 +60,10 @@ The `Value` field defines the annotation value.
 Annotation values are always considered to be strings. See this [GitHub issue](https://g.octopushq.com/KubernetesAnnotationStringsIssue) for more information.
 :::
 
-#### Service Name
+## Service Name
 
 The `Service Name` defines the name of the Service resource that this Ingress will send traffic to.
 
-#### Ingress Labels
+## Ingress Labels
 
 [Labels](http://g.octopushq.com/KubernetesLabels) are optional name/value pairs that are assigned to the Service resource.
