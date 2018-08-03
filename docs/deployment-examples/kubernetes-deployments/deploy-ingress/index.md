@@ -1,7 +1,7 @@
 ---
 title: Deploy an ingress resource
 description: Deploy an ingress resource to a Kubernetes cluster.
-version: "[2018.8,)"
+version: 2018.8
 ---
 
 This featured was introduced as a pre-release in Octopus `2018.8`.

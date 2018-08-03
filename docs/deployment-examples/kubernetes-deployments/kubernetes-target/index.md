@@ -2,10 +2,10 @@
 title: Kubernetes Targets
 description: Kubernetes Targets
 position: 20
-version: "[2018.8,)"
+version: 2018.8
 ---
 
-This featured was introduced as a prerelease in `Octopus 2018.8`.
+This featured was introduced as a prerelease in Octopus `2018.8`.
 
 Kubernetes targets are used by the Kubernetes steps to define the context in which deployments and scripts are run.
 
