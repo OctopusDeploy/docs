@@ -186,7 +186,7 @@ While the value only output (which would appear in the logs as a message similar
 Using the previous example output variable called `test` you can access the output using Powershell as follows:
 
 ```
-$value = $OctopusParameters["Octopus.Action[Apply Template].Output.TerraformValueOutputs[test]]"] | ConvertFrom-Json
+$value = $OctopusParameters["Octopus.Action[Apply Template].Output.TerraformValueOutputs[test]"] | ConvertFrom-Json
 
 // OR
 

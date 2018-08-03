@@ -96,7 +96,7 @@ Deployment to an Azure Cloud Service target proceeds as follows (more details pr
 5. Variable substitutions in Cloud Service configuration file (`.cscfg`)
 6. Substitute variables in files (if configured)
 7. [XML configuration transformations](/docs/deployment-process/configuration-features/configuration-transforms.md) (if configured) are performed
-8. [XML configuration variables](/docs/deployment-process/configuration-features/configuration-variables.md) (if configured) are replaced
+8. [XML configuration variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) (if configured) are replaced
 9. Any configured or package `Deploy` scripts are executed
 10. Re-package the Cloud Service Package
 11. Upload the Cloud Service Package to Azure Storage

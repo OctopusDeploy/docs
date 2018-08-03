@@ -19,7 +19,11 @@ Deployment Slots are only available to Azure Web Apps running in Standard or P
 
 Here we will give an example of how to setup a Blue-Green deployment for an Azure Web App using Deployment Slots.
 
-### Step 1: Create Staging Slot {#UsingDeploymentSlotswithAzureWebApps-Step1:CreateStagingSlot}
+### Step 1: Create an Azure Web App deployment target
+
+Follow the steps for [Azure Web App targets](/docs/infrastructure/azure/web-app-targets/index.md).
+
+### Step 2: Create Staging Slot {#UsingDeploymentSlotswithAzureWebApps-Step1:CreateStagingSlot}
 
 Create a [Run an Azure PowerShell Script](/docs/deployment-examples/azure-deployments/running-azure-powershell/index.md) step.
 
@@ -55,35 +59,29 @@ So your step should look like:
 
 ![](azure-remove-staging-slot-script.png "width=500")
 
-### Step 2: Deploy your Package {#UsingDeploymentSlotswithAzureWebApps-Step2:DeployyourPackage}
+### Step 3: Deploy your Package {#UsingDeploymentSlotswithAzureWebApps-Step2:DeployyourPackage}
 
 The next step is to deploy your package to the Staging slot.  We do this by creating a [Deploy an Azure Web App](/docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md) step.
 
 ![](deploy-azure-web-app-step.png "width=500")
 
-:::hint
-Slots in Azure are themselves real Web Apps with their own hostnames.  They are named with the format:
-
-```
-WebsiteName(SlotName) 
-```
-:::
-
-If your Staging Slot already exists, you can see it in the select-list of available sites for your account.
-
 ![](azure-web-app-selector-with-slot.png "width=500")
 
-To use a variable for the WebSite name, click the "Bind" ![Bind](bind.png "width=10 Bind") button, and enter
+You can enter the name of deployment slot in the **Deployment Slot** field, or to use a variable for the Slot name, click the "Bind" ![Bind](bind.png "width=10 Bind") button, and enter
 
 ```
-#{WebsiteName}(Staging)
+#{WebAppSlotName}
 ```
 
 As shown below:
 
-![](azure-web-app-selector-with-name-binding.png "width=500")
+![](azure-web-app-slot-binding.png "width=500")
 
-### Step 3: Swap the Staging and Production Slots {#UsingDeploymentSlotswithAzureWebApps-Step3:SwaptheStagingandProductionSlots}
+:::info
+You can choose to specify the slot directly on the deployment target, or directly on the step (if you wish to deploy to multiple different slots on the same Web App Service, for example), however, the slot on the target will take priority. 
+:::
+
+### Step 4: Swap the Staging and Production Slots {#UsingDeploymentSlotswithAzureWebApps-Step3:SwaptheStagingandProductionSlots}
 
 The final step is to create another Azure PowerShell step to swap the Staging and Production slots.
 

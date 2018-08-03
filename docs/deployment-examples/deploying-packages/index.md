@@ -1,7 +1,7 @@
 ---
 title: Deploying Packages
 description: Package steps allow you to deploy your applications and services that you have packaged and configured with Octopus.
-position: 0
+position: 30
 ---
 
 When defining your [deployment process](/docs/deployment-examples/index.md), the most common step type will be a package step. This step deploys your [packaged application](/docs/packaging-applications/index.md) onto one or more deployment targets.

@@ -28,9 +28,8 @@ Before you can define your deployment process, you must create a project.
 1. Select **Projects** from the main navigation, and click **ADD PROJECT**.
 1. Give the project a name that's meaningful to you, and anybody else who'll work on the project.
 1. Add a description for the project.
-1. If you want to specify the [project group](/docs/deployment-process/projects/index.md#project-group) or [lifecycle](/docs/deployment-process/lifecycles/index.md), click **Advanced Settings**.
-1. Select the Project group from the dropdown menu. (Learn more about [project groups](/docs/deployment-process/projects/index.md#project-group)).
-1. Select the lifecycle from the dropdown menu. (Learn more about [Lifecycles](/docs/deployment-process/lifecycles/index.md)).
+1. If you want to change the [Project group](/docs/deployment-process/projects/index.md#project-group) select the project group from the dropdown menu.
+1. If you want to change the [Lifecycle](/docs/deployment-process/lifecycles/index.md) select the lifecycle from the dropdown menu.
 1. Click **Save** and you will be taken to the newly created project's overview page.
 
 Now that you've created a project, you can configure your [Lifecycles](/docs/deployment-process/lifecycles/index.md) or start adding [steps](/docs/deployment-process/steps/index.md) to your project.
