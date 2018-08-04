@@ -66,7 +66,9 @@ roleRef:
 Creating this service account automatically results in a token being generated. The PowerShell snippet below returns the token.
 
 ```PowerShell
-$data = kubectl get secret $(kubectl get serviceaccount jenkins-deployer -o jsonpath="{.secrets[0].name}"  --namespace=jenkins-development) -o jsonpath="{.data.token}"  --namespace=jenkins-development
+$user="jenkins-deployer"
+$namespace="jenkins-development"
+$data = kubectl get secret $(kubectl get serviceaccount $user -o jsonpath="{.secrets[0].name}" --namespace=$namespace) -o jsonpath="{.data.token}" --namespace=$namespace
 [System.Text.Encoding]::ASCII.GetString([System.Convert]::FromBase64String($data))
 ```
 
