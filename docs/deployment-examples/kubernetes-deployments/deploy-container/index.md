@@ -132,26 +132,27 @@ This means failed deployments can be retried, and once successful, all previous 
 
 #### Deployment Strategy Summary
 
-The choice of which deployment strategy to use is influenced by three major factors:
+The choice of which deployment strategy to use is influenced by a number of factors:
 
 1. Does the deployment require no downtime?
 2. Can multiple versions of the Deployment resource coexist, even if different versions can not receive external traffic? This may not be possible if the act of deploying a new Deployment resource results in incompatible database upgrades.
 3. Can multiple versions of the Deployment resource accept traffic at the same time? This may not be possible if APIs have changed in ways that are not backward compatible.
+4. Do the containers resources reference other resources that can not be shared? Container resources may reference resources like volume claims that can not be mounted in multiple containers.
 
 
-| Strategy   | No Downtime  | Multiple Deployed Versions  | Multiple Accessible Versions |
-|-|-|-|-|
-| Recreate   |   |   |  |
-| Rolling Update   | *  | *  | * |
-| Blue/Green   | *  | *  |   |
+| Strategy   | No Downtime  | Multiple Deployed Versions  | Multiple Accessible Versions | Require Shared Resources |
+|-|-|-|-| - |
+| Recreate   |   |   |  | |
+| Rolling Update   | *  | *  | * | * |
+| Blue/Green   | *  | *  |   | * |
 
 ### Volumes
 
 [Volume resources](http://g.octopushq.com/KubernetesVolumes) allow external data to be accessed by a Container resource via its file system. Volume resources are defined in the `Volumes` section, and later referenced by the container configuration.
 
-The volumes can reference externally storage, such as disks hosted by a cloud provider, network shares, or ConfigMap and Secret resources that are created outside of the step.
+The volumes can reference externally managed storage, such as disks hosted by a cloud provider, network shares, or ConfigMap and Secret resources that are created outside of the step.
 
-The volumes can also reference ConfigMap and Secret resources created by the step. When created by the step, new ConfigMap and Secret resources are always created in Kubernetes with each deployment and their unqiue names are automatically referenced by the Deployment resource. This ensures that deployments see the data in their associated ConfigMap or Secret resource, and new deployments don't leave old deployments in an undefined state by overwriting their data. Once a deployment has successfully completed, old Secret and ConfigMap resources created by the step will be removed.
+The volumes can also reference ConfigMap and Secret resources created by the step. When created by the step, new ConfigMap and Secret resources are always created as new resources in Kubernetes with each deployment and their unique names are automatically referenced by the Deployment resource. This ensures that deployments see the data in their associated ConfigMap or Secret resource, and new deployments don't leave old deployments in an undefined state by overwriting their data. Once a deployment has successfully completed, old Secret and ConfigMap resources created by the step will be removed.
 
 Kubernetes provides a wide range of Volume resource types. The common, cloud agnostic Volume resource types can be configured directly by Octopus. Other Volume resource types are configured as raw YAML.
 
@@ -536,7 +537,9 @@ an argument with a space
 The `Service` feature creates a Service resource that directs traffic to the Pod resources configured by the `Deployment` section. Although the Deployment and Service resources are separate objects in Kubernetes, they are treated as a single deployment by the `Deploy Kubernetes Container` step, resulting in the Service resource always directing traffic to the Pod resources created by the associated Deployment resource.
 
 #### Service Name
-Each Service resource requires a unique name, defined in the `Name` field. The names must consist of lower case alphanumeric characters or '-', and must start and end with an alphanumeric character.
+Each Service resource requires a unique name, defined in the `Name` field.
+
+The Service resource name is not affected by the deployment strategy.
 
 #### Service Type
 
@@ -589,6 +592,8 @@ The `Ingress` feature is used to create an Ingress resource. Ingress resources p
 #### Ingress Name
 
 Each Ingress resource must have a unique name, defined in the `Ingress name` field.
+
+The name of the ingress resource is not affected by the deployment strategy.
 
 #### Ingress Host Rules
 
