@@ -30,7 +30,7 @@ docs/key-concepts/environments/machine-policies.md -> docs/infrastructure/machin
 docs/key-concepts/projects/index.md -> docs/deployment-process/projects/index.md
 docs/key-concepts/projects/deployment-processes.md -> docs/deployment-process/index.md
 docs/key-concepts/projects/releases.md -> docs/deployment-process/releases/index.md
-docs/key-concepts/projects/channels.md -> docs/deployment-process/channels.md
+docs/key-concepts/projects/channels.md -> docs/deployment-process/channels/index.md
 docs/key-concepts/projects/project-triggers.md -> docs/deployment-process/project-triggers/index.md
 docs/key-concepts/projects/reporting.md -> docs/administration/reporting/index.md
 docs/key-concepts/project-groups.md -> docs/deployment-process/projects/index.md
@@ -126,7 +126,7 @@ docs/guides/azure-deployments/running-azure-powershell/configuring-the-version-o
 docs/guides/azure-deployments/web-apps/index.md -> docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md
 docs/guides/azure-deployments/web-apps/getting-started-with-azure-web-apps.md -> docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md
 docs/guides/azure-deployments/web-apps/web-app-concepts.md -> docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md
-docs/deploying-applications/projects/channels.md -> docs/deployment-process/channels.md
+docs/deploying-applications/projects/channels.md -> docs/deployment-process/channels/index.md
 docs/deploying-applications/projects/project-groups.md -> docs/deployment-process/projects/index.md
 docs/deploying-applications/projects/project-triggers.md -> docs/deployment-process/project-triggers/index.md
 docs/deploying-applications/projects/reporting.md -> docs/administration/reporting/index.md
@@ -178,7 +178,7 @@ docs/deploying-applications/substitute-variables-in-files.md -> docs/deployment-
 docs/deploying-applications/coordinating-multiple-projects/index.md -> docs/deployment-process/projects/coordinating-multiple-projects/index.md
 docs/deploying-applications/coordinating-multiple-projects/project-coordination-code-samples.md -> docs/deployment-process/projects/coordinating-multiple-projects/project-coordination-code-samples.md
 docs/deploying-applications/deployment-process/projects/project-triggers.md -> docs/deployment-process/project-triggers/index.md
-docs/deploying-applications/deployment-process/projects/channels.md -> docs/deployment-process/channels.md
+docs/deploying-applications/deployment-process/projects/channels.md -> docs/deployment-process/channels/index.md
 docs/deploying-applications/deployment-process/automatic-deployment-triggers.md -> docs/deployment-process/project-triggers/index.md
 docs/deploying-applications/deployment-process/projects/releases.md -> docs/deployment-process/releases/index.md
 docs/guides/octopus-ha/index.md -> docs/administration/high-availability/index.md
@@ -220,7 +220,7 @@ docs/guides/service-fabric/version-automation-with-service-fabric-application-pa
 docs/guides/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md -> docs/deployment-patterns/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md
 docs/deploying-applications/deployment-process/index.md -> docs/deployment-process/index.md
 docs/deploying-applications/deployment-process/releases/index.md -> docs/deployment-process/releases/index.md
-docs/deploying-applications/deployment-process/channels.md -> docs/deployment-process/channels.md
+docs/deploying-applications/deployment-process/channels.md -> docs/deployment-process/channels/index.md
 docs/deploying-applications/deployment-process/projects/reporting.md -> docs/administration/reporting/index.md
 docs/deploying-applications/deployment-process/projects/lifecycles/index.md -> docs/deployment-process/lifecycles/index.md
 docs/deploying-applications/deployment-process/coordinating-multiple-projects/index.md -> docs/deployment-process/projects/coordinating-multiple-projects/index.md

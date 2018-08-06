@@ -29,7 +29,7 @@ By default, steps will run on all environments specified in the lifecycle for th
 
 ## Channels
 
-If you have created one or more [channels](/docs/deployment-process/channels.md), you can specify whether a step runs only when deploying a release through specific channels (e.g., a Script step that only runs for deployments through certain channels to configure extra telemetry).
+If you have created one or more [channels](/docs/deployment-process/channels/index.md), you can specify whether a step runs only when deploying a release through specific channels (e.g., a Script step that only runs for deployments through certain channels to configure extra telemetry).
 
 ## Run Condition
 

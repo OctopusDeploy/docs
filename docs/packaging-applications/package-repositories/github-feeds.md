@@ -49,7 +49,7 @@ If Octopus can link a particular version (which in the context of GitHub feeds r
 
  ![GitHub Script Source](GitHub-ScriptSource.png)
 
- 4. When you create a new release Octopus will query the GitHub api to determine the list of tags which can be parsed as Semver2 versions. As with standard package feeds the latest version will be selected by default and any [channel version rules](/docs/deployment-process/channels.md#Channels-versionrules) will be applied.
+ 4. When you create a new release Octopus will query the GitHub api to determine the list of tags which can be parsed as Semver2 versions. As with standard package feeds the latest version will be selected by default and any [channel version rules](/docs/deployment-process/channels/index.md#Channels-versionrules) will be applied.
 
 5. When the release is deployed and the [package acquisition](/docs/deployment-examples/deploying-packages/stage-package-uploads.md) process begins, Octopus will pull down a copy of the repository based on the commit linked to the tag selected as the package version. This artifact is then treated as a zip and is deployed using the standard package deployment rules that applied previously.
 
