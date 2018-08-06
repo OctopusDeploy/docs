@@ -65,10 +65,12 @@ The `Value` field defines the annotation value.
 Annotation values are always considered to be strings. See this [GitHub issue](https://g.octopushq.com/KubernetesAnnotationStringsIssue) for more information.
 :::
 
-## Service Name
-
 The `Service Name` defines the name of the Service resource that this Ingress will send traffic to.
+
+## Default Rule
+
+When there are no matching ingress rules, traffic can be sent to the service configured as the default rule. The `Port` field defines the service port that traffic will be sent to, and the `Service name` defines the name of the Service resource to send traffic to.
 
 ## Ingress Labels
 
-[Labels](http://g.octopushq.com/KubernetesLabels) are optional name/value pairs that are assigned to the Service resource.
+[Labels](http://g.octopushq.com/KubernetesLabels) are optional name/value pairs that are assigned to the Ingress resource.
