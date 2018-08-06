@@ -120,7 +120,7 @@ At the beginning of Phase 4 there are three resources in Kubernetes: the green D
 
 Octopus now updates the Service resource to direct traffic to the blue Deployment resource.
 
-Once the Service resource is updated, any old Deployment resources are deleted. Old Deployment resources are defined as any Deployment resource with an `Octopus.Step.Id` label that matches the Octopus step that was just deployed and a `Octopus.Deployment.Id` label that does not match the ID of the deployment that was just completed.
+Once the Service resource is updated, any old Deployment resources are deleted. Old Deployment resources are defined as any Deployment resource with an `Octopus.Step.Id` label that matches the Octopus step that was just deployed, a `Octopus.Environment.Id` that matches the environment that was just deployed, and a `Octopus.Deployment.Id` label that does not match the ID of the deployment that was just completed.
 
 :::hint
 If the deployment fails at phase 3, the Kubernetes cluster can be left with multiple Deployment resources in a failed state. Because Deployment resources with an `Octopus.Deployment.Id` label that does not match the current deployment are deleted in phase 4, a successful deployment will remove all previously created Deployment resource objects.
