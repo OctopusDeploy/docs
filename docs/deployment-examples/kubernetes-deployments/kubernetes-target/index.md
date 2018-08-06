@@ -45,7 +45,7 @@ metadata:
   name: jenkins-deployer-role
 rules:
 - apiGroups: ["", "extensions", "apps"]
-  resources: ["deployments", "replicasets", "pods", "services", "ingress"]
+  resources: ["deployments", "replicasets", "pods", "services", "ingress", "secret", "configmap"]
   verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
 ---
 kind: RoleBinding
