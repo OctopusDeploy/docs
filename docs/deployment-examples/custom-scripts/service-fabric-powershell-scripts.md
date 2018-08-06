@@ -19,7 +19,7 @@ After the above SDK has been installed, you will need to restart your Octopus se
 
 This step allows you to run Service Fabric SDK PowerShell cmdlets against your cluster. Once a connection has been established to your Service Fabric cluster, these cmdlets can be used to query or control various aspects of your cluster/applications.
 
-Please see the [Microsoft Service Fabric SDK documentation](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/servicefabric) for available cmdlets.
+Please see the [Microsoft Service Fabric SDK documentation](https://docs.microsoft.com/powershell/module/servicefabric/) for available cmdlets.
 
 ## Example
 
