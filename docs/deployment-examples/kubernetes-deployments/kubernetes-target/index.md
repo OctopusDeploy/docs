@@ -85,6 +85,10 @@ Kubernetes targets use the `kubectl` executable to communicate with the Kubernet
 
 When using an AWS EKS Kubernetes cluster with IAM integration, the `heptio-authenticator-aws` executable must also be on the path.
 
+## Heml
+
+WHen a Kubernetes target is used with a Helm step, the `helm` executable must be on the target where the step is run.
+
 ## Accounts
 
 Kubernetes targets support multiple [account types](http://g.octopushq.com/KubernetesAuthentication):
