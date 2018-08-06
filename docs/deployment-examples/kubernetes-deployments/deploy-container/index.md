@@ -45,6 +45,8 @@ A ReplicaSet resource monitors the Pod resources to ensure that the required num
 
 Each Deployment resource requires a unique `Deployment Name`. Kubernetes resources are identified by their names, so the name must be unique in the target [namespace](http://g.octopushq.com/KubernetesNamespace).
 
+When using the blue/green deployment strategy, the name entered in this field will be used as the base for the Deployment resource name. The Octopus deployment ID will then be appended to the name to ensure the blue and green Deployment resources have unique names.
+
 ### Replicas
 
 The desired number of Pod resources is set in the `Replicas` field. This is the number of replicas maintained by the ReplicaSet resource. This field is optional, and will default to a value of `1`.
@@ -57,7 +59,7 @@ This value affects [Blue/Green deployments](#bluegreen-deployment-strategy), whi
 
 ### Add Label
 
-Labels are custom key/value pairs that are assigned to Kubernetes resources. The labels defined in the `Deployment` section are applied to the Deployment, Pod, Service, and Ingress resources.
+Labels are custom key/value pairs that are assigned to Kubernetes resources. The labels defined in the `Deployment` section are applied to the Deployment, Pod, Service, Ingress, ConfigMap and Secret resources.
 
 The labels are optional, as Octopus will automatically add the tags required to manage the Kubernetes resources created as part of this step.
 
@@ -146,6 +148,10 @@ The choice of which deployment strategy to use is influenced by three major fact
 ### Volumes
 
 [Volume resources](http://g.octopushq.com/KubernetesVolumes) allow external data to be accessed by a Container resource via its file system. Volume resources are defined in the `Volumes` section, and later referenced by the container configuration.
+
+The volumes can reference externally storage, such as disks hosted by a cloud provider, network shares, or ConfigMap and Secret resources that are created outside of the step.
+
+The volumes can also reference ConfigMap and Secret resources created by the step. When created by the step, new ConfigMap and Secret resources are always created in Kubernetes with each deployment and their unqiue names are automatically referenced by the Deployment resource. This ensures that deployments see the data in their associated ConfigMap or Secret resource, and new deployments don't leave old deployments in an undefined state by overwriting their data. Once a deployment has successfully completed, old Secret and ConfigMap resources created by the step will be removed.
 
 Kubernetes provides a wide range of Volume resource types. The common, cloud agnostic Volume resource types can be configured directly by Octopus. Other Volume resource types are configured as raw YAML.
 
