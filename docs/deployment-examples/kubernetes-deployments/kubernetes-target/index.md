@@ -2,7 +2,6 @@
 title: Kubernetes Targets
 description: Kubernetes Targets
 position: 20
-version: 2018.8
 ---
 
 This featured was introduced as a prerelease in Octopus `2018.8`.

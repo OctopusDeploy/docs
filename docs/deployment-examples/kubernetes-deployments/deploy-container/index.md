@@ -2,7 +2,6 @@
 title: Deploy to a Kubernetes Cluster
 description: Deploy to a Kubernetes cluster.
 position: 10
-version: 2018.8
 ---
 This featured was introduced as a pre-release in Octopus `2018.8`.
 
