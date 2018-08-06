@@ -22,7 +22,7 @@ When a Kubernetes target is used, the namespace it references is created automat
 
 The recommended approach to configuring a Kubernetes target is to have a service account for each application and namespace.
 
-In the example below, a service account called `jenkins-development` is created to represent the deployment of an application called `jenkins` to an environment called `development`. This service account has permissions to perform all operations (i.e. `get`, `list`, `watch`, `create`, `update`, `patch`, `delete`) on the resources created by the `Deploy kubernetes containers` step (i.e. `deployments`, `replicasets`, `pods`, `services`, `ingress`).
+In the example below, a service account called `jenkins-development` is created to represent the deployment of an application called `jenkins` to an environment called `development`. This service account has permissions to perform all operations (i.e. `get`, `list`, `watch`, `create`, `update`, `patch`, `delete`) on the resources created by the `Deploy kubernetes containers` step (i.e. `deployments`, `replicasets`, `pods`, `services`, `ingresses`, `secrets`, `configmaps`).
 
 ```yaml
 ---
@@ -85,9 +85,9 @@ Kubernetes targets use the `kubectl` executable to communicate with the Kubernet
 
 When using an AWS EKS Kubernetes cluster with IAM integration, the `heptio-authenticator-aws` executable must also be on the path.
 
-## Heml
+## Helm
 
-WHen a Kubernetes target is used with a Helm step, the `helm` executable must be on the target where the step is run.
+When a Kubernetes target is used with a Helm step, the `helm` executable must be on the target where the step is run.
 
 ## Accounts
 
