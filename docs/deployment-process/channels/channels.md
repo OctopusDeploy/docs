@@ -27,6 +27,10 @@ When you are implementing a deployment process that uses channels you can scope 
 
 You can also define versioning rules per channel to ensure that only versions which meet specific criteria are deployed to specific channels.
 
+:::success
+The [Channels Walkthrough](https://octopus.com/blog/channels-walkthrough) blog post and accompanying video, goes  through the process of implementing some of the channel strategies mentioned above.
+:::
+
 ## Managing Channels
 
 Every [project](/docs/deployment-process/projects/index.md) has a default channel.
@@ -41,104 +45,21 @@ Channels are managed from the Project overview page by selecting the specific pr
 4. If you want to make this the default Channel for the project, click the **Default Channel** checkbox.
 5. Design the [version rules](#Channels-versionrules) that will be used to enforce which versions of your packages are deployed to this channel.
 
-
 ## Design the Version Rules {#Channels-versionrules}
-
-:::hint
-**SemVer works best**
-Version Rules will work best when you follow [Semantic Versioning (SemVer 2.0.0)](http://semver.org) for your versioning strategy.
-:::
-
-1. From the **New Channel** screen, click **ADD VERSION RULE**.
-2. Select the package step(s) the version rule will be applied to.
-3. Enter the version range in the **Version Range** field. You can use either [Nuget](https://g.octopushq.com/NuGetVersioning) or [Maven](https://g.octopushq.com/MavenVersioning) versioning syntax to specify the range of versions to include.
-4. Enter any pre-release tags you want to include.
-5. Click **DESIGN RULE**.
-
-The **Design Version Rule** window will show a list of the packages that will deployed as part of the deploy package step selected earlier. The versions of the packages that will deployed in this channel with the version rules you've designed will be highlighted in green, and the versions of the packages that will not be deployed with be shown in red. You can continue to edit the version rules in this window.
-
-![](/docs/images/3048999/5865686.png "width=500")
-
-6. Click **SAVE**.
-
-
-
-
-
-
-:::success
-The [Channels Walkthrough](https://octopus.com/blog/channels-walkthrough) blog post and accompanying video, goes implementing some of these channel Strategies.
-:::
-
-
-
-Create a lifecycle
-create a channel
-Add a version rule
-scope steps for the ....
-Create the release
-... select the channel
-
-Default channel...
-
-<!-- source content -->
-
-Channels in Octopus Deploy will help you if you want to:
-
-[Manage multiple active versions of the same project](https://octopus.com/blog/channels-walkthrough#supporting-multiple-versions). For example, maintaining patch/hotfix releases for v1 whilst starting work on v2.
--[Change your deployment process without creating a barrier for production releases](https://octopus.com/blog/channels-walkthrough#supporting-multiple-versions). For example, adding a new step to your process, or modifying an existing step.
-[Deploy a hot-fix directly to Production](https://octopus.com/blog/channels-walkthrough#hotfix-deployments) where you would normal promote each release through a series of Environments.
-[Provide your customers with access to early builds of your project](https://octopus.com/blog/channels-walkthrough#early-access-programs).
-[Automatically deploy feature-branch builds to a test environment](https://octopus.com/blog/channels-walkthrough#feature-branch-deployments), sometimes called a Phoenix environment. For example, as soon as a developer commits code to a feature branch, you want that version of the project to be deployed into a sandbox test environment.
--[You use a branching strategy in your source code repository](/docs/deployment-patterns/branching.md). For example, you might be using [GitFlow](http://nvie.com/posts/a-successful-git-branching-model/) or another source code branching strategy.
-
-Each Release you create in Octopus Deploy is placed into a Channel, and Releases in each Channel can be treated differently. For each Channel you can define:
-
-- Which [Lifecycle](/docs/deployment-process/lifecycles/index.md) to use for promoting Releases: for example, feature releases may be promoted through the testing environments, while hot-fix releases may go directly to production.
-- Which [Deployment Process](/docs/deployment-examples/index.md) to use when deploying Releases: for example, steps can be enabled for specific channels.
-- Which [Variables](/docs/deployment-process/variables/index.md) to use: Variables can be scoped to channels.
-- Which tenants should be included when deploying Releases: for example, you can ensure only Releases from certain Channels are deployed to certain Tenants.
-
-Channels can also help you to create consistent Releases by specifying Version Rules that apply to each Package.
-
-## Managing Channels {#Channels-ManagingChannels}
-
-Channels are managed per project.  Select the **Channels** menu item from the Project overview page.
-
-Click **Create Channel** to create a new Channel.
-
-The Channel must have a unique name per project.
-
-You can associate a Lifecycle with the Channel, or it may inherit the default from the Project.
-
-### Defining Version Rules {#Channels-versionrules}
 
 Version rules assist in selecting the correct versions of packages for the Channel.  They are only used when creating a release, either manually or via [Automatic Release Creation](/docs/deployment-process/releases/automatic-release-creation.md).
 
 :::hint
-**SemVer works best**
 Version Rules will work best when you follow [Semantic Versioning (SemVer 2.0.0)](http://semver.org) for your versioning strategy.
 :::
 
-To add version rules to a Channel, click **Add version rule** on the Channel page.
+1. From the **New Channel** screen, click **ADD VERSION RULE**.
+2. Select the package step(s) (and as such the packages) the version rule will be applied to.
+3. Enter the version range in the **Version Range** field. You can use either [Nuget](https://g.octopushq.com/NuGetVersioning) or [Maven](https://g.octopushq.com/MavenVersioning) versioning syntax to specify the range of versions to include.
 
-![](/docs/images/3048999/3278458.png "width=500")
-
-#### Steps {#Channels-Steps}
-
-The steps selected for a specific rule define which packages will be filtered on the *Create Release* page based on the following provided range and tag information. Note that either a version range or pre-release tag regex must be provided for a valid version rule.
-
-#### Version Range {#Channels-VersionRange}
-
-A provided version range based on the [NuGet versioning syntax](http://g.octopushq.com/NuGetVersioning) can be applied to the release creation package selection.
-
-:::success
 You can use the full semantic version as part of your version range specification. For example: `[2.0.0-alpha.1,2.0.0)` will match all 2.0.0 pre-releases (where the pre-release component is `>= alpha.1`), and will exclude the 2.0.0 release.
 
-![](/docs/images/3048999/5865686.png "width=500")
-:::
-
-#### Tags {#Channels-tags}
+4. Enter any pre-release tags you want to include.
 
 Following the standard 2.0.0 [semver syntax](http://semver.org/), a pre-release tag is the alpha numeric text that can appear after the standard *major.minor.patch* pattern immediately following a hyphen. Providing a regex pattern for this field allows the channel to filter packages based on their tag in a very flexible manner. Some examples are.
 
@@ -149,6 +70,14 @@ Following the standard 2.0.0 [semver syntax](http://semver.org/), a pre-release
 | beta.\* | matches pre-releases like beta and beta0003 | Deploy pre-releases using a Lifecycle that goes directly to a pre-release Environment |
 | ^(?!beta).+ | matches pre-releases that don't start with beta | Consider anything other than 'beta' to be a feature branch package so you can provision short-term infrastructure and deploy to it |
 | bugfix- | matches any with '*bugfix-*' prefix (e.g. *bugfix-syscrash)* | Bypass Dev & UAT environments when urgent bug fixes are made to the mainline branch and to be released straight from Staging to Production |
+
+5. Click **DESIGN RULE**.
+
+The **Design Version Rule** window will show a list of the packages that will deployed as part of the deploy package step selected earlier. The versions of the packages that will deployed in this channel with the version rules you've designed will be highlighted in green, and the versions of the packages that will not be deployed with be shown in red. You can continue to edit the version rules in this window.
+
+![](/docs/images/3048999/5865686.png "width=500")
+
+6. Click **SAVE**.
 
 ## Using Channels {#Channels-UsingChannels}
 
