@@ -4,9 +4,11 @@ description: Using the octo.exe command line tool to create ZIP packages is fast
 position: 2
 ---
 
-In **Octo.exe version 3.3.8** we have expanded the functionality of the `pack` command to allow creating **zip** packages in addition to **NuGet** packages.
+In **Octo version 3.3.8** we have expanded the functionality of the `pack` command to allow creating **zip** packages in addition to **NuGet** packages. All examples on this page assumes
+that you have installed octo as a global tool using dotnet core which makes octo available as a command via the dotnet cli. This is our preferred method for installing and working with Octo. You can
+refer to [Octo Command Line Documentation](/docs/api-and-integration/octo.exe-command-line/index.md) for other methods to install Octo.
 
-This page describes how to use `octo.exe` to create **zip** packages. You could use any zip program or library, but **octo.exe pack** will:
+This page describes how to use `Octo` to create **zip** packages. You could use any zip program or library, but **octo pack** will:
 
 - help you get the filename format correct.
 - ensure file timestamps are retained when extracting which helps with some forms of content delivery networks (CDN) and caching.
@@ -19,16 +21,16 @@ To create a zip package of the application, open a command prompt and change dir
 C:\>cd Code\OctoWeb\OctoWeb\OctoWeb\bin
 ```
 
-When creating the zip package, we will call octo.exe with the pack command and give it a package Id and specify the format of package we want to use by adding the `--format` option
+When creating the zip package, we will call octo with the pack command and give it a package Id and specify the format of package we want to use by adding the `--format` option
 
 ```powershell
-C:\Code\OctoWeb\OctoWeb\OctoWeb\bin>octo.exe pack --id=OctoWeb --format=zip
+C:\Code\OctoWeb\OctoWeb\OctoWeb\bin>dotnet octo pack --id=OctoWeb --format=zip
 ```
 
-By default octo.exe will pack all the files that are in the current directory, and give it a timestamp based version number.
+By default octo will pack all the files that are in the current directory, and give it a timestamp based version number.
 
 ```powershell
-C:\Code\OctoWeb\OctoWeb\OctoWeb\bin> octo.exe pack --id=OctoWeb --format=zip
+C:\Code\OctoWeb\OctoWeb\OctoWeb\bin> dotnet octo pack --id=OctoWeb --format=zip
 Octopus Deploy Command Line Tool, version 3.3.8+Branch.master.Sha.f8a34fc6097785d7d382ddfaa9a7f009f29bc5fb
 
 Packing OctoWeb version 2016.3.9.123003...
@@ -44,10 +46,10 @@ Mode                LastWriteTime     Length Name
 
 ```
 
-If you want to provide your own version, you can pass the --version parameter in the call to Octo.exe
+If you want to provide your own version, you can pass the --version parameter in the call to Octo
 
 ```powershell
-C:\Code\OctoWeb\OctoWeb\OctoWeb\bin> octo.exe pack --id=OctoWeb --version=1.0.0.0 --format=zip
+C:\Code\OctoWeb\OctoWeb\OctoWeb\bin> dotnet octo pack --id=OctoWeb --version=1.0.0.0 --format=zip
 Octopus Deploy Command Line Tool, version 3.3.8+Branch.master.Sha.f8a34fc6097785d7d382ddfaa9a7f009f29bc5fb
 
 Packing OctoWeb version 1.0.0.0...
@@ -66,18 +68,18 @@ Open the created zip package and you should see the package contains all the sam
 
 ## Usage {#CreatingZIPpackages-Usage}
 
-The Octo.exe pack command provides a number of other useful parameters that can be used to customize the way your package gets created, such as output folder, files to include and release notes.
+The Octo pack command provides a number of other useful parameters that can be used to customize the way your package gets created, such as output folder, files to include and release notes.
 
 To get help with what parameters allow you to do what, display the usage help for the pack command
 
 ```powershell
-C:\>Octo.exe help pack
+C:\> dotnet octo help pack
 ```
 
 Which will explain how to use the command and the different parameters that can be passed to the command
 
 ```powershell
-C:\> Octo.exe help pack
+C:\> dotnet octo help pack
 Octopus Deploy Command Line Tool, version 3.3.8+Branch.master.Sha.f8a34fc6097785d7d382ddfaa9a7f009f29bc5fb
 
 Usage: Octo pack [<options>]

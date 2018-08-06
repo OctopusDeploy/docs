@@ -41,11 +41,12 @@ docs/key-concepts/tenants/tenant-tags -> docs/deployment-patterns/multi-tenant-d
 docs/reference/tenant-tags -> docs/deployment-patterns/multi-tenant-deployments/tenant-tags.md
 docs/packaging-applications/nuget-packages/index.md -> docs/packaging-applications/creating-packages/nuget-packages/index.md
 docs/packaging-applications/nuget-packages/manually.md -> docs/packaging-applications/creating-packages/nuget-packages/manually.md
-docs/packaging-applications/nuget-packages/using-nuget.exe.md -> docs/packaging-applications/creating-packages/nuget-packages/using-nuget.exe.md
+docs/packaging-applications/nuget-packages/using-nuget.exe.md -> docs/packaging-applications/creating-packages/nuget-packages/index.md
 docs/packaging-applications/nuget-packages/using-octo.exe.md -> docs/packaging-applications/creating-packages/nuget-packages/using-octo.exe.md
 docs/packaging-applications/nuget-packages/using-octopack/index.md -> docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md
 docs/packaging-applications/nuget-packages/using-octopack/octopack-to-include-buildevent-files.md -> docs/packaging-applications/creating-packages/nuget-packages/using-octopack/octopack-to-include-buildevent-files.md
 docs/packaging-applications/creating-zip-packages.md -> docs/packaging-applications/creating-packages/creating-zip-packages.md
+docs/packaging-applications/creating-packages/nuget-packages/using-nuget.exe.md -> docs/packaging-applications/creating-packages/nuget-packages/index.md
 docs/installation/installing-octopus/index.md -> docs/installation/index.md
 docs/installation/installing-octopus/automating-installation.md -> docs/installation/automating-installation.md
 docs/installation/installing-octopus/permissions-required-for-the-octopus-windows-service.md -> docs/installation/permissions-required-for-the-octopus-windows-service.md

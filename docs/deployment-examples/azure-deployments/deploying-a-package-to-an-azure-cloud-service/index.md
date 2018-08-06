@@ -9,7 +9,7 @@ Octopus Deploy supports deployment of [Azure Cloud Services](http://azure.micros
 
 ## Step 1: Packaging {#DeployingapackagetoanAzureCloudService-Step1:Packaging}
 
-An Azure cloud service package is normally compiled into a `.cspkg` file. This file will need to be [re-packed into a supported package](/docs/packaging-applications/index.md) for Octopus to consume. The easiest way to do this currently is to either create a simple zip file or use the [NuGet.exe command line tool](/docs/packaging-applications/creating-packages/nuget-packages/using-nuget.exe.md). For example, the resulting NuGet package will look like this:
+An Azure cloud service package is normally compiled into a `.cspkg` file. This file will need to be [re-packed into a supported package](/docs/packaging-applications/index.md) for Octopus to consume. The easiest way to do this currently is to either create a simple zip file or use the [NuGet.exe command line tool](https://docs.microsoft.com/en-us/nuget/tools/nuget-exe-cli-reference). For example, the resulting NuGet package will look like this:
 
 ![](/docs/images/3048662/3278363.png "width=500")
 
@@ -66,7 +66,7 @@ if ($Deployment -ne $null -AND $Deployment.DeploymentId  -ne $null) {
   Write-Host ("Current Status of staging slot for {0}" -f $ServiceName)
   $Deployment
   $MoveStatus = Move-AzureDeployment -ServiceName $ServiceName
-  Write-Host ("Vip swap of {0} status: {1}" -f $ServiceName, $MoveStatus.OperationStatus)     
+  Write-Host ("Vip swap of {0} status: {1}" -f $ServiceName, $MoveStatus.OperationStatus)
 } else {
   Write-Host ("There is no deployment in staging slot of {0} to swap." -f $ServiceName)
 }
