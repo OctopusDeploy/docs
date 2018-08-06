@@ -20,10 +20,10 @@ Channels is designed to give you more control and options when you need more tha
 
 When you are implementing a deployment process that uses channels you can scope the following to specific channels:
 
-- Lifecycles
-- Steps
-- Variables
-- Tenants
+- [Lifecycles](/docs/deployment-process/lifecycles/index.md)
+- [Steps](/docs/deployment-process/steps/index.md)
+- [Variables](/docs/deployment-process/variables/index.md)
+- [Tenants](/docs/deployment-patterns/multi-tenant-deployments/index.md)
 
 You can also define versioning rules per channel to ensure that only versions which meet specific criteria are deployed to specific channels.
 
@@ -36,11 +36,30 @@ Channels are managed from the Project overview page by selecting the specific pr
 ## Create a New Channel
 
 1. From the Channels page, click on the **ADD CHANNEL** button.
-2. Give the Channel a name and add a description. The name must be unique within the project.
+2. Give the Channel a name and add a description. The channel name must be unique within the project.
 3. Select the [Lifecycle](/docs/deployment-process/lifecycle/index.md) the channel will use, or allow the channel to inherit the default lifecycle for the project. See the [Lifecycle docs](/docs/deployment-process/lifecycle/index.md) for information about creating new lifecycles.
 4. If you want to make this the default Channel for the project, click the **Default Channel** checkbox.
-5. Design the [version rules](#version-rules) that will be used to enforce which versions of you packages are deployed to this channel.
+5. Design the [version rules](#Channels-versionrules) that will be used to enforce which versions of your packages are deployed to this channel.
 
+
+## Design the Version Rules {#Channels-versionrules}
+
+:::hint
+**SemVer works best**
+Version Rules will work best when you follow [Semantic Versioning (SemVer 2.0.0)](http://semver.org) for your versioning strategy.
+:::
+
+1. From the **New Channel** screen, click **ADD VERSION RULE**.
+2. Select the package step(s) the version rule will be applied to.
+3. Enter the version range in the **Version Range** field. You can use either [Nuget](https://g.octopushq.com/NuGetVersioning) or [Maven](https://g.octopushq.com/MavenVersioning) versioning syntax to specify the range of versions to include.
+4. Enter any pre-release tags you want to include.
+5. Click **DESIGN RULE**.
+
+The **Design Version Rule** window will show a list of the packages that will deployed as part of the deploy package step selected earlier. The versions of the packages that will deployed in this channel with the version rules you've designed will be highlighted in green, and the versions of the packages that will not be deployed with be shown in red. You can continue to edit the version rules in this window.
+
+![](/docs/images/3048999/5865686.png "width=500")
+
+6. Click **SAVE**.
 
 
 
