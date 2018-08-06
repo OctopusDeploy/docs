@@ -54,7 +54,7 @@ metadata:
   name: jenkins-deployer-binding
   namespace: jenkins-development
 subjects:
-- kind: User
+- kind: ServiceAccount
   name: jenkins-deployer
   apiGroup: ""
 roleRef:
