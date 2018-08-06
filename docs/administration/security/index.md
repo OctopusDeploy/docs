@@ -8,6 +8,8 @@ We pride ourselves on making Octopus Deploy a secure product. The security and i
 
 This section provides information about the responsibility we take to provide a secure software product, and considerations for you as the host and administrator of your Octopus Deploy installation.
 
+Every year Octopus undergoes a security review conducted by a third-party company. The latest report can be downloaded: [security-review.pdf](link to follow)
+
 !toc
 
 ## Responsibility
