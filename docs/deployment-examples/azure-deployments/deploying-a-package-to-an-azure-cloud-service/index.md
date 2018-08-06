@@ -9,7 +9,7 @@ Octopus Deploy supports deployment of [Azure Cloud Services](http://azure.micros
 
 ## Step 1: Packaging {#DeployingapackagetoanAzureCloudService-Step1:Packaging}
 
-An Azure cloud service package is normally compiled into a `.cspkg` file. This file will need to be [re-packed into a supported package](/docs/packaging-applications/index.md) for Octopus to consume. The easiest way to do this currently is to either create a simple zip file or use the [NuGet.exe command line tool](/docs/packaging-applications/creating-packages/nuget-packages/using-nuget.exe.md). For example, the resulting NuGet package will look like this:
+An Azure cloud service package is normally compiled into a `.cspkg` file. This file will need to be [re-packed into a supported package](/docs/packaging-applications/index.md) for Octopus to consume. The easiest way to do this currently is to either create a simple zip file or use the [NuGet.exe command line tool](https://docs.microsoft.com/en-us/nuget/tools/nuget-exe-cli-reference). For example, the resulting NuGet package will look like this:
 
 ![](/docs/images/3048662/3278363.png "width=500")
 
@@ -46,7 +46,7 @@ Any of the settings above can be switched to use a variable binding expression. 
 The following features are available when deploying a package to an Azure Cloud Service:
 
 - [Custom Scripts](/docs/deployment-examples/custom-scripts/index.md)
-- [Configuration Variables](/docs/deployment-process/configuration-features/configuration-variables.md)
+- [Configuration Variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md)
 - [Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms.md)
 - [JSON configuration variables](/docs/deployment-process/configuration-features/json-configuration-variables-feature.md)
 - [Substitute variables in files](/docs/deployment-process/variables/variable-substitution-syntax.md)
@@ -66,7 +66,7 @@ if ($Deployment -ne $null -AND $Deployment.DeploymentId  -ne $null) {
   Write-Host ("Current Status of staging slot for {0}" -f $ServiceName)
   $Deployment
   $MoveStatus = Move-AzureDeployment -ServiceName $ServiceName
-  Write-Host ("Vip swap of {0} status: {1}" -f $ServiceName, $MoveStatus.OperationStatus)     
+  Write-Host ("Vip swap of {0} status: {1}" -f $ServiceName, $MoveStatus.OperationStatus)
 } else {
   Write-Host ("There is no deployment in staging slot of {0} to swap." -f $ServiceName)
 }
@@ -84,7 +84,7 @@ Deployment to an Azure Cloud Service proceeds as follows (more details provided 
 5. Variable substitutions in Cloud Service configuration file (`.cscfg`)
 6. [Substitute variables in files](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) (if configured)
 7. [XML configuration transformations](/docs/deployment-process/configuration-features/configuration-transforms.md) (if configured) are performed
-8. [XML configuration variables](/docs/deployment-process/configuration-features/configuration-variables.md) (if configured) are replaced
+8. [XML configuration variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) (if configured) are replaced
 9. Any configured or package `Deploy` scripts are executed
 10. Re-package the Cloud Service Package
 11. Upload the Cloud Service Package to Azure Storage

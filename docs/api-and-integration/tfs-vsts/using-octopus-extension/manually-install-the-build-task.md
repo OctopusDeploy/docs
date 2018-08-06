@@ -48,8 +48,14 @@ Login to your Visual Studio or TFS account using the TFX-CLI tool
 ```
 
 ![](/docs/images/3048587/3278375.png "width=500")
+Navigate to the cloned folder which is the root of the extension at which point you can install dependencies and build the extension and all associated tasks
 
-Use the TFX-CLI tool to upload the Octopus Create Release task. You will need to point at the `source\VSTSExtensions\OctopusBuildTasks\CreateOctopusRelease` folder in the cloned repository.
+```
+npm install
+npm run build
+```
+
+Use the TFX-CLI tool to upload the Octopus Create Release task. You will need to point at the `dist\tasks\CreateOctopusRelease` folder in the cloned repository.
 
 ```powershell
  tfx build tasks upload <path-to-task>

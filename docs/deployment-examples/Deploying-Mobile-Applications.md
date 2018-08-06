@@ -1,7 +1,7 @@
 ---
 title: Deploying Mobile Applications
 description: Useful information on deploying mobile applications to iOS/Android using Octopus Deploy.
-position: 27
+position: 180
 ---
 
 We often get asked how you can use Octopus to deploy your iOS/Android applications. While we do not currently have `Out Of Box` support for iOS/Android apps, we can provide some pointers and recommendations that we have heard from our customers. Generally, its recommended to deploy iOS/Android apps to Apple/Google for review and deploy any supporting web services/databases/infrastructure at the same time. This co-ordination is the key value of using Octopus to version your releases and deploy your mobile app.
@@ -15,7 +15,7 @@ On our community library, we have a step template [HockeyApp - Upload Mobile App
 This template will let you push your app to the HockeyApp service and define the required HockeyApp parameters.
 
 
-## Using fastlane to deploy your apps for testing/distribution 
+## Using fastlane to deploy your apps for testing/distribution
 
 The next option we can suggest looking into is Fastlane. This solution involves packaging and pushing your mobile apps to Octopus and then using fastlane to submit/deploy them to Apple/Google. You can read more about this at https://fastlane.tools/
 

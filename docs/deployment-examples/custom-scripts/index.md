@@ -165,7 +165,7 @@ You can parameterize this script making it easier to test outside of Octopus:
 **PowerShell script using parameters**
 
 ```powershell
-Params (
+param (
 	[Parameter(Mandatory=$True)]
 	[string]$Environment
 )

@@ -6,7 +6,7 @@ position: 18
 
 This feature was added in **Octopus 3.2.4**.
 
-When pushing to the [built-in Octopus package repository](/docs/packaging-applications/package-repositories/index.md) using [OctoPack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md) or [NuGet.exe](/docs/packaging-applications/creating-packages/nuget-packages/using-nuget.exe.md), the default URL looks like this:
+When pushing to the [built-in Octopus package repository](/docs/packaging-applications/package-repositories/index.md) using [OctoPack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md) or [NuGet.exe](https://docs.microsoft.com/en-us/nuget/tools/nuget-exe-cli-reference), the default URL looks like this:
 
 `http://MyOctopusServer/nuget/packages`
 

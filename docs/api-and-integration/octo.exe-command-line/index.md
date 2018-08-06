@@ -6,7 +6,11 @@ position: 60
 
 **Octo.exe** is a command line tool that builds on top of the [Octopus Deploy REST API](/docs/api-and-integration/api/index.md).
 
-The latest version of Octo.exe can always be downloaded from the [Octopus downloads page](https://octopus.com/downloads) or [installed via Chocolatey](https://chocolatey.org/packages/OctopusTools).
+We provide a number of ways to get Octo onto your machine:
+
+- Using .Net Core CLI as a [global tool](/docs/api-and-integration/octo.exe-command-line/install-global-tool.md) (recommended)
+- Download from [Octopus downloads page](https://octopus.com/downloads)
+- Using [Chocolatey](https://chocolatey.org/packages/OctopusTools)
 
 ## Commands {#Octo.exeCommandLine-Commands}
 

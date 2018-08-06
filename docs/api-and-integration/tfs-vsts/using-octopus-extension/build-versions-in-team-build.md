@@ -42,11 +42,20 @@ If you have a build for a separate branch, it's a good idea to add the version t
 The only downside of this numbering format is the `$(BuildID)` variable _always_ increases, and does so at the Project Collection level. That means it doesn't reset when you increment your major and minor versions, and if you have multiple builds in your Collection, numbers will be skipped.
 :::
 
+:::hint
+Other extensions such as [gitversion](https://github.com/GitTools/GitVersion) can also be used to easily get semver compliant build numbers.
+:::
+
 ## Packaging in Team Build
 
-There are two standard ways to package your build output in Team Build. The first is to use [OctoPack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md), and the second is to use the build tasks in the [Octopus marketplace extension]().
+There are two standard ways to package your build output in Team Build. The first is to use [OctoPack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md), and the second is to use the build tasks in the [Octopus marketplace extension](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks).
 
 You can mix and match these two methods. For example, you might prefer to use OctoPack and the `/p:RunOctoPack` MS Build argument, but then use the Push and Create Release tasks from the extension.
+
+:::warning
+**Octpack and .NET Core**
+Octopack is not compatibile with .NET core and we suggest using the extension instead.
+:::
 
 ## Versioning when using OctoPack
 

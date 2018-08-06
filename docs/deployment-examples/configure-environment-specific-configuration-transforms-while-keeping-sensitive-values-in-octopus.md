@@ -1,7 +1,7 @@
 ---
 title: Configure Environment-specific configuration transforms while keeping sensitive values in Octopus
 description: How to configure environment-specific configuration transforms while keeping sensitive values in Octopus.
-position: 50
+position: 140
 ---
 
 Octopus Deploy has great support for transforming configuration files based on the environment or machine you're deploying to.
@@ -10,7 +10,7 @@ As an example scenario, let's assume we have a web application that's being depl
 
 There are three Octopus features that are commonly used to help provide an environment-specific configuration to your deployed application.
 
-1. Use the [Configuration Variables](/docs/deployment-process/configuration-features/configuration-variables.md) feature to automatically replace `appSettings`, `applicationSettings`, and `connectionStrings` values in your `.config` files with ones from your variables list.
+1. Use the [Configuration Variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) feature to automatically replace `appSettings`, `applicationSettings`, and `connectionStrings` values in your `.config` files with ones from your variables list.
 The limitation of this technique is you're restricted to these two configuration sections. If you have settings in other parts of your configuration file, this technique won't work.
 2. Use the [Substitute Variables](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) in Files feature to replace any values specified by the `#{variable}` syntax in any text-based file.
 The limitation of this technique is the Octopus variable syntax needs to already be in the file. If you're relying on that config file for your development, this can be difficult to manage.

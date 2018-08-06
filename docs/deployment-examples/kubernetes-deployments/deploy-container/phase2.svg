@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="41cm" height="37cm" viewBox="-402 118 803 723" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="-400" y="120" width="800" height="720"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="-400" y="120" width="800" height="720"/>
+    <text font-size="12.8" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="0" y="483.9">
+      <tspan x="0" y="483.9"></tspan>
+    </text>
+  </g>
+  <text font-size="12.8" style="fill: #333333;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="-210" y="324">
+    <tspan x="-210" y="324"></tspan>
+  </text>
+  <text font-size="12.8" style="fill: #333333;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="-210" y="324">
+    <tspan x="-210" y="324"></tspan>
+  </text>
+  <text font-size="12.8" style="fill: #333333;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="-380" y="160">
+    <tspan x="-380" y="160">Kubernetes Cluster</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #333333;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="-200" y="570">
+    <tspan x="-200" y="570"></tspan>
+  </text>
+  <text font-size="12.8" style="fill: #333333;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="0" y="240">
+    <tspan x="0" y="240"></tspan>
+  </text>
+  <g>
+    <rect style="fill: #f3f3f3" x="-100" y="200" width="200" height="80"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="-100" y="200" width="200" height="80"/>
+    <text font-size="12.8" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="0" y="243.9">
+      <tspan x="0" y="243.9">Service</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #53b953" x="-380" y="320" width="360" height="460"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="-380" y="320" width="360" height="460"/>
+    <text font-size="12.8" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-200" y="553.9">
+      <tspan x="-200" y="553.9"></tspan>
+    </text>
+  </g>
+  <text font-size="12.8" style="fill: #333333;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="-360" y="360">
+    <tspan x="-360" y="360">Green Deployment</tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffffff" x="-340" y="400" width="280" height="340"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="-340" y="400" width="280" height="340"/>
+    <text font-size="12.8" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-200" y="573.9">
+      <tspan x="-200" y="573.9"></tspan>
+    </text>
+  </g>
+  <text font-size="12.8" style="fill: #333333;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="-320" y="440">
+    <tspan x="-320" y="440">ReplicaSet</tspan>
+  </text>
+  <g>
+    <rect style="fill: #f3f3f3" x="-300" y="480" width="204.566" height="220"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="-300" y="480" width="204.566" height="220"/>
+    <text font-size="12.8" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-197.717" y="593.9">
+      <tspan x="-197.717" y="593.9"></tspan>
+    </text>
+  </g>
+  <text font-size="12.8" style="fill: #333333;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="-280" y="520">
+    <tspan x="-280" y="520">Pod</tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffffff" x="-280" y="540" width="160" height="60"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="-280" y="540" width="160" height="60"/>
+    <text font-size="12.8" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-200" y="573.9">
+      <tspan x="-200" y="573.9">Container</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="-280" y="620" width="160" height="60"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="-280" y="620" width="160" height="60"/>
+    <text font-size="12.8" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-200" y="653.9">
+      <tspan x="-200" y="653.9">Container</tspan>
+    </text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" points="0,280 0,590 -85.6976,590 "/>
+    <polygon style="fill: #333333" points="-93.1976,590 -83.1976,585 -85.6976,590 -83.1976,595 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" points="-93.1976,590 -83.1976,585 -85.6976,590 -83.1976,595 "/>
+  </g>
+  <g>
+    <rect style="fill: #0a67b1" x="20" y="320" width="360" height="460"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="20" y="320" width="360" height="460"/>
+    <text font-size="12.8" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="200" y="553.9">
+      <tspan x="200" y="553.9"></tspan>
+    </text>
+  </g>
+  <text font-size="12.8" style="fill: #333333;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="40" y="360">
+    <tspan x="40" y="360">Blue Deployment</tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffffff" x="60" y="400" width="280" height="340"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="60" y="400" width="280" height="340"/>
+    <text font-size="12.8" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="200" y="573.9">
+      <tspan x="200" y="573.9"></tspan>
+    </text>
+  </g>
+  <text font-size="12.8" style="fill: #333333;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="80" y="440">
+    <tspan x="80" y="440">ReplicaSet</tspan>
+  </text>
+  <g>
+    <rect style="fill: #f3f3f3" x="100" y="480" width="204.566" height="220"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="100" y="480" width="204.566" height="220"/>
+    <text font-size="12.8" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="202.283" y="593.9">
+      <tspan x="202.283" y="593.9"></tspan>
+    </text>
+  </g>
+  <text font-size="12.8" style="fill: #333333;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="120" y="520">
+    <tspan x="120" y="520">Pod (Starting)</tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffffff" x="120" y="540" width="160" height="60"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="120" y="540" width="160" height="60"/>
+    <text font-size="12.8" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="200" y="573.9">
+      <tspan x="200" y="573.9">Container</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="120" y="620" width="160" height="60"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="120" y="620" width="160" height="60"/>
+    <text font-size="12.8" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="200" y="653.9">
+      <tspan x="200" y="653.9">Container</tspan>
+    </text>
+  </g>
+  <text font-size="12.7998" style="fill: #333333;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="140" y="520">
+    <tspan x="140" y="520"></tspan>
+  </text>
+</svg>

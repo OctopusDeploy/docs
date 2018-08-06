@@ -5,7 +5,7 @@ position: 9
 hideInThisSection: true
 ---
 
-One of the essential steps in deploying software is configuring it to work with specific environments. This might mean pointing your application to the right database connection string, tweaking settings to run in production, or specifying a custom installation directory. Many of the steps that you define as part of your deployment process can have additional configuration features enabled.
+One of the essential steps in deploying software is configuring it to work with specific [environments](/docs/infrastructure/environments/index.md). This might mean pointing your application to the right database connection string, tweaking settings to run in production, or specifying a custom installation directory. Many of the [steps](/docs/deployment-process/steps/index.md) that you define as part of your [deployment process](/docs/deployment-process/index.md) can have additional configuration features enabled.
 
 ## Enable Configuration Features
 
@@ -14,7 +14,7 @@ You enable configuration features, as you define the [steps](/docs/deployment-pr
 1. If the step you are defining has configuration features available, there is a **CONFIGURE FEATURES** link. Click this link.
 1. Select the features you would like to enable by clicking the relevant checkboxes in the list and click **OK**.
 
-![Configuration Transforms screenshot](configuration-transforms.png)
+![Configuration features screenshot](configuration-features.png)
 
 The features you have enabled will now be available in the **Features** section of the step you are defining.
 
@@ -31,7 +31,7 @@ You can configure the following features:
 - [Windows Service](/docs/deployment-process/configuration-features/windows-services.md)
 - [Custom Deployment Scripts](/docs/deployment-examples/custom-scripts/index.md)
 - [JSON Configuration Variables](/docs/deployment-process/configuration-features/json-configuration-variables-feature.md)
-- [Configuration Variables](/docs/deployment-process/configuration-features/configuration-variables.md)
+- [Configuration Variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md)
 - [Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms.md)
 - [Substitute Variables in Files](/docs/deployment-process/configuration-features/substitute-variables-in-files.md)
 - IIS6+ Home Directory

@@ -5,87 +5,79 @@ description: Packaging applications using the octo.exe command line tool for use
 
 !toc
 
-If you don't want to (or can't) add [OctoPack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md) to your Visual Studio project, or you have a project that doesn't use Visual Studio then packaging your applications into a NuGet package would involve using NuGet.exe, together with a manifest file (.nuspec file), to create your packages.
+Octo is the preferred method when packaging .NET Core applications or applications which generally don't use Visual Studio. Octo can also be used with full .NET framework applications if you require more flexibility than what [OctoPack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md) provides. There are other ways to create packages which do not involve our tooling such as using NuGet.exe together with a manifest file (.nuspec file).
 
-There is, however, another way that you can create a NuGet package from just a folder of files and subdirectories. **Octo.exe** is our API command line tool that allows you to interact with your Octopus Deploy Server using different **commands**, but, it also has a, not so known command, the **pack** command. The [Octo.exe Command Line](/docs/api-and-integration/octo.exe-command-line/index.md) page will show you how to get the API command line tool installed and ready to use.
+ **Octo** is our API command line tool that allows you to interact with your Octopus Deploy server using different **commands**, one of which is the **pack** command which can turn any ordinary folder into a NuGet or Zip package - plain and simple. The [Octo Command Line](/docs/api-and-integration/octo.exe-command-line/index.md) page will show you how to get the API command line tool installed and ready to use. All examples on this page however, assume that you are using the portable version of
+ octo installed as a global tool which makes it available through the dotnet cli.
 
-The **pack** command turns any folder into a NuGet or Zip package - plain and simple!
+In **Octo version 3.3.8** we have expanded the functionality of the `pack` command to allow creating **zip** packages in addition to **NuGet** packages. [Learn more](/docs/packaging-applications/creating-packages/creating-zip-packages.md).
+
+## Octo Basic Usage
+At a minimum `octo pack` requires an id to be provided:
+
+```powershell
+dotnet octo pack --id="MyPackage"
+```
+The above command will generate a package in the current working directory and provide a timestamp based
+version number such as `2018.6.26.190140.nupkg`.
+
+If you want to provide your own version, you can pass the --version parameter in the call to Octo
+```powershell
+dotnet octo pack --id="MyPackage" --version="1.0.0"
+```
+You can also change the output directory and folder which will be packed with the `--outFolder` and `--basePath` parameters respectively.
+```powershell
+dotnet octo pack --id="MyPackage" --version="1.0.0" --basePath="folder/to/pack" --outFolder="destination/folder/path"
+```
+
+## Packaging a .NET Core application
+The process for packaging a .NET core applications is pretty straightforward and can usually be achieved by publishing the application and then using `octo pack` on the resultant output folder for example:
+
+```powershell
+dotnet publish ./OctoWeb.csproj --output ./dist
+dotnet octo pack ./dist --id="OctoWeb" --version="1.0.0"
+```
+:::hint
+**Dotnet Core Publish vs Octopack**
+dotnet publish performs a lot of the heavy lifting that Octopack used to provide and therefore removes much of the need for it in .NET Core.
+:::
+
+Please refer to [Microsoft's publish and packing](/docs/deployment-examples/deploying-asp.net-core-web-applications/index.md#DeployoingASP.NETCoreWebApplications-PublishingandPackingtheWebsite) documentation for more information.
+
+## Packaging a .NET Core Library
+If you are using .NET Core for class libraries, we recommend using [dotnet pack from Microsoft](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-pack).
+
+```powershell
+dotnet pack ./SomeLibrary.csproj --output ./dist
+dotnet octo pack ./dist --id="SomeLibrary" --version="1.0.0"
+```
+
+## Packaging a .NET Framework Web application
+There are usually some extra steps required to get the resulting application built and deployable. Full framework web applications are a good example of this, where simply building the application will not give you the desired output. We still recommend [Octopack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md) for these cases. However, you may be able to achieve this using msbuild parameters such as:
+```
+msbuild ./OctoWeb.csproj /p:DeployDefaultTarget=WebPublish /p:DeployOnBuild=true /p:WebPublishMethod=FileSystem /p:SkipInvalidConfigurations=true /p:publishUrl=dist
+dotnet octo pack ./dist --id="OctoWeb" --version="1.0.0-alpha0001"
+```
 
 ## Packaging Your Application From a Folder {#UsingOcto.exe-Packagingyourapplicationfromafolder}
-
-In **Octo.exe version 3.3.8** we have expanded the functionality of the `pack` command to allow creating **zip** packages in addition to **NuGet** packages. [Learn more](/docs/packaging-applications/creating-packages/creating-zip-packages.md).
-
-For the purposes of this page, I have created an ASP.NET web site called OctoWeb, and when built the output folder contains all the files required to run my web site.
-
-![](/docs/images/3048097/3277798.png "width=500")
-
-To create a NuGet package of the application, open a command prompt and change directory to where the application is located.
-
+If you have a build process which places all build outputs into a final destination folder (such as gulp, grunt or webpack), you can package it using octo as well. For example, let's assume you have defined an npm script which runs your build and places all associated content into the `dist` folder:
 ```powershell
-C:\>cd Code\OctoWeb\OctoWeb\OctoWeb\bin
+npm run build
+dotnet octo pack ./dist --id="SomeApplication" --version="1.0.0"
 ```
-
-When creating the NuGet package, we will call octo.exe with the pack command and give it a package Id
-
-```powershell
-C:\Code\OctoWeb\OctoWeb\OctoWeb\bin>octo.exe pack --id=OctoWeb
-```
-
-By default octo.exe will pack all the files that are in the current directory, and give it a timestamp based version number.
-
-```powershell
-C:\Code\OctoWeb\OctoWeb\OctoWeb\bin> octo.exe pack --id=OctoWeb
-Octopus Deploy Command Line Tool, version 3.3.8+Branch.master.Sha.f8a34fc6097785d7d382ddfaa9a7f009f29bc5fb
-
-Packing OctoWeb version 2016.3.9.123003...
-Saving OctoWeb.2016.3.9.123003.nupkg to C:\Code\OctoWeb\OctoWeb\OctoWeb\bin...
-Done.
-C:\Code\OctoWeb\OctoWeb\OctoWeb\bin> dir *.nupkg
-
-    Directory: C:\Code\OctoWeb\OctoWeb\OctoWeb\bin
-
-Mode                LastWriteTime     Length Name
-----                -------------     ------ ----
--a---         9/03/2016  12:30 PM   43628908 OctoWeb.2016.3.9.123003.nupkg
-
-```
-
-If you want to provide your own version, you can pass the --version parameter in the call to Octo.exe
-
-```powershell
-C:\Code\OctoWeb\OctoWeb\OctoWeb\bin> octo.exe pack --id=OctoWeb --version=1.0.0.0
-Octopus Deploy Command Line Tool, version 3.3.8+Branch.master.Sha.f8a34fc6097785d7d382ddfaa9a7f009f29bc5fb
-
-Packing OctoWeb version 1.0.0.0...
-Saving OctoWeb.1.0.0.0.nupkg to C:\Code\OctoWeb\OctoWeb\OctoWeb\bin...
-Done.
-C:\Code\OctoWeb\OctoWeb\OctoWeb\bin> dir *.nupkg
-
-    Directory: C:\Code\OctoWeb\OctoWeb\OctoWeb\bin
-
-Mode                LastWriteTime     Length Name
-----                -------------     ------ ----
--a---         9/03/2016  12:30 PM   43628908 OctoWeb.1.0.0.0.nupkg
-```
-
-Open the created NuGet package in NuGet Package Explorer and you should see the package contains all the same files as the output folder of your build
-
-![](/docs/images/3048097/3277797.png "width=500")
-
 ## Usage {#UsingOcto.exe-Usage}
 
-The Octo.exe pack command provides a number of other useful parameters that can be used to customize the way your package gets created, such as output folder, files to include and release notes.
+The Octo.exe pack command provides a number of other useful parameters that can be used to customize the way your package gets created, such as including release notes.
 
-To get help with what parameters allow you to do what, display the usage help for the pack command
-
+You can get help with the pack command parameters by executing the pack command with `--help` switch
 ```powershell
-C:\> Octo.exe help pack
+C:\> dotnet octo pack --help
 ```
 
-Which will explain how to use the command and the different parameters that can be passed to the command
+The output will explain how to use the command and the different parameters that can be passed to the command
 
 ```powershell
-C:\> Octo.exe help pack
+C:\> dotnet octo help pack
 Octopus Deploy Command Line Tool, version 3.3.8+Branch.master.Sha.f8a34fc6097785d7d382ddfaa9a7f009f29bc5fb
 
 Usage: Octo pack [<options>]
@@ -129,8 +121,3 @@ Advanced options:
       --overwrite            [Optional] Allow an existing package file of the
                              same ID/version to be overwritten
 ```
-## Using .NET Core?
-
-If you are using .NET Core for class libraries, we recommend using [dotnet pack from Microsoft](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-pack).
-
-If you are using .NET Core for web applications, we recommend publishing to a folder and then using [Octo.exe pack](/docs/packaging-applications/creating-packages/nuget-packages/using-octo.exe.md), as described in the "Publishing and Packing the Website" section of the [Deploying ASP.NET Core Web Applications documentation](/docs/deployment-examples/deploying-asp.net-core-web-applications/index.md#DeployingASP.NETCoreWebApplications-PublishingandPackingtheWebsite).

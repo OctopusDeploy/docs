@@ -1,7 +1,7 @@
 ---
 title: Including Email Notifications
 description: Email notification steps allow you to notify team members and stakeholders of deployment activities.
-position: 13
+position: 150
 ---
 
 Deployments can have a strong impact on the people whose work depends on the system being deployed. Great communication is an important part of a great deployment strategy, and email steps are a key way that Octopus can help you keep everyone in the loop. You may want to:
