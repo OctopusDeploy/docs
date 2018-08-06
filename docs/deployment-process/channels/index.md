@@ -8,7 +8,7 @@ Channels is a feature in Octopus that gives you control over how different versi
 
 Promoting your software across your different environments is a standard part of the [deployment process](/docs/deployment-process/index.md) in Octopus, and you don't need channels to achieve it. Every project has a default channel that is used when you create releases.
 
-Channels is designed to give you more control and options when you need more than a single release strategy for a project. For instance, Channels let you use different  [lifecycles](/docs/deployment-process/lifecycle/index.md) to control which versions of your software go to which environments and can be useful in the following scenarios:
+Channels is designed to give you more control and options when you need more than a single release strategy for a project. For instance, Channels let you use different  [lifecycles](/docs/deployment-process/lifecycles/index.md) to control which versions of your software go to which environments and can be useful in the following scenarios:
 
 - New versions of the software are released automatically to dev environments, promoted to test environments, and finally released to production environments.
 - Different customers are on different versions of your software and you want to provide patches to each version, for instance, `version 1` and `version 2`.
@@ -41,7 +41,7 @@ Channels are managed from the Project overview page by selecting the specific pr
 
 1. From the Channels page, click on the **ADD CHANNEL** button.
 2. Give the Channel a name and add a description. The channel name must be unique within the project.
-3. Select the [Lifecycle](/docs/deployment-process/lifecycle/index.md) the channel will use, or allow the channel to inherit the default lifecycle for the project. See the [Lifecycle docs](/docs/deployment-process/lifecycle/index.md) for information about creating new lifecycles.
+3. Select the [Lifecycle](/docs/deployment-process/lifecycles/index.md) the channel will use, or allow the channel to inherit the default lifecycle for the project. See the [Lifecycle docs](/docs/deployment-process/lifecycles/index.md) for information about creating new lifecycles.
 4. If you want to make this the default Channel for the project, click the **Default Channel** checkbox.
 5. Design the [version rules](#Channels-versionrules) that will be used to enforce which versions of your packages are deployed to this channel.
 
@@ -119,7 +119,7 @@ When you are creating a Release, you can select a Channel.
 
 Selecting the Channel will cause the Release to use the Lifecycle associated with the Channel (or the Project default, if the Channel does not have a Lifecycle).  It will also cause the Deployment Process and Variables to be modified as specified above.
 
-The package list allows you to select the version of each package involved in the deployment.  The *latest* column displays the latest packages that match the version rules defined for the Channel (see [version rules](/docs/deployment-process/channels.md) for more information).
+The package list allows you to select the version of each package involved in the deployment.  The *latest* column displays the latest packages that match the version rules defined for the Channel (see [version rules](#Channels-versionrules) for more information).
 
 ### Using Build Server Extensions or Octo.exe {#Channels-UsingBuildServerExtensionsorOcto.exe}
 
