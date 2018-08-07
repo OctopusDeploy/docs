@@ -45,6 +45,8 @@ A ReplicaSet resource monitors the Pod resources to ensure that the required num
 
 Each Deployment resource requires a unique `Deployment Name`. Kubernetes resources are identified by their names, so the name must be unique in the target [namespace](http://g.octopushq.com/KubernetesNamespace).
 
+When using the blue/green deployment strategy, the name entered in this field will be used as the base for the Deployment resource name. The Octopus deployment ID will then be appended to the name to ensure the blue and green Deployment resources have unique names.
+
 ### Replicas
 
 The desired number of Pod resources is set in the `Replicas` field. This is the number of replicas maintained by the ReplicaSet resource. This field is optional, and will default to a value of `1`.
@@ -57,13 +59,13 @@ This value affects [Blue/Green deployments](#bluegreen-deployment-strategy), whi
 
 ### Add Label
 
-Labels are custom key/value pairs that are assigned to Kubernetes resources. The labels defined in the `Deployment` section are applied to the Deployment, Pod, Service, and Ingress resources.
+Labels are custom key/value pairs that are assigned to Kubernetes resources. The labels defined in the `Deployment` section are applied to the Deployment, Pod, Service, Ingress, ConfigMap and Secret resources.
 
 The labels are optional, as Octopus will automatically add the tags required to manage the Kubernetes resources created as part of this step.
 
 ### Deployment Strategy
 
-Kubernetes exposes two native deployment strategies.
+Kubernetes exposes two native deployment strategies: [Recreate](http://g.octopushq.com/KubernetesRecreateStrategy) and [Rolling Update](http://g.octopushq.com/KubernetesRollingStrategy). When deploying containers with this step, Octopus supports a third deployment strategy called blue/green.
 
 ### Recreate Deployment Strategy
 The first native deployment strategy is the [Recreate](http://g.octopushq.com/KubernetesRecreateStrategy) deployment. This strategy will kill all existing Pod resources before new Pod resources are created. This means that only one Pod resource version is exposed at any time. This can result in downtime before the new Pod resources are fully deployed.
@@ -118,7 +120,7 @@ At the beginning of Phase 4 there are three resources in Kubernetes: the green D
 
 Octopus now updates the Service resource to direct traffic to the blue Deployment resource.
 
-Once the Service resource is updated, any old Deployment resources are deleted. Old Deployment resources are defined as any Deployment resource with an `Octopus.Step.Id` label that matches the Octopus step that was just deployed and a `Octopus.Deployment.Id` label that does not match the ID of the deployment that was just completed.
+Once the Service resource is updated, any old Deployment resources are deleted. Old Deployment resources are defined as any Deployment resource with an `Octopus.Step.Id` label that matches the Octopus step that was just deployed, a `Octopus.Environment.Id` that matches the environment that was just deployed, and a `Octopus.Deployment.Id` label that does not match the ID of the deployment that was just completed.
 
 :::hint
 If the deployment fails at phase 3, the Kubernetes cluster can be left with multiple Deployment resources in a failed state. Because Deployment resources with an `Octopus.Deployment.Id` label that does not match the current deployment are deleted in phase 4, a successful deployment will remove all previously created Deployment resource objects.
@@ -130,22 +132,27 @@ This means failed deployments can be retried, and once successful, all previous 
 
 #### Deployment Strategy Summary
 
-The choice of which deployment strategy to use is influenced by three major factors:
+The choice of which deployment strategy to use is influenced by a number of factors:
 
 1. Does the deployment require no downtime?
 2. Can multiple versions of the Deployment resource coexist, even if different versions can not receive external traffic? This may not be possible if the act of deploying a new Deployment resource results in incompatible database upgrades.
 3. Can multiple versions of the Deployment resource accept traffic at the same time? This may not be possible if APIs have changed in ways that are not backward compatible.
+4. Do the containers resources reference other resources that can not be shared? Container resources may reference resources like volume claims that can not be mounted in multiple containers.
 
 
-| Strategy   | No Downtime  | Multiple Deployed Versions  | Multiple Accessible Versions |
-|-|-|-|-|
-| Recreate   |   |   |  |
-| Rolling Update   | *  | *  | * |
-| Blue/Green   | *  | *  |   |
+| Strategy   | No Downtime  | Multiple Deployed Versions  | Multiple Accessible Versions | Require Shared Resources |
+|-|-|-|-| - |
+| Recreate   |   |   |  | |
+| Rolling Update   | *  | *  | * | * |
+| Blue/Green   | *  | *  |   | * |
 
 ### Volumes
 
 [Volume resources](http://g.octopushq.com/KubernetesVolumes) allow external data to be accessed by a Container resource via its file system. Volume resources are defined in the `Volumes` section, and later referenced by the container configuration.
+
+The volumes can reference externally managed storage, such as disks hosted by a cloud provider, network shares, or ConfigMap and Secret resources that are created outside of the step.
+
+The volumes can also reference ConfigMap and Secret resources created by the step. When created by the step, new ConfigMap and Secret resources are always created as new resources in Kubernetes with each deployment and their unique names are automatically referenced by the Deployment resource. This ensures that deployments see the data in their associated ConfigMap or Secret resource, and new deployments don't leave old deployments in an undefined state by overwriting their data. Once a deployment has successfully completed, old Secret and ConfigMap resources created by the step will be removed.
 
 Kubernetes provides a wide range of Volume resource types. The common, cloud agnostic Volume resource types can be configured directly by Octopus. Other Volume resource types are configured as raw YAML.
 
@@ -530,7 +537,9 @@ an argument with a space
 The `Service` feature creates a Service resource that directs traffic to the Pod resources configured by the `Deployment` section. Although the Deployment and Service resources are separate objects in Kubernetes, they are treated as a single deployment by the `Deploy Kubernetes Container` step, resulting in the Service resource always directing traffic to the Pod resources created by the associated Deployment resource.
 
 #### Service Name
-Each Service resource requires a unique name, defined in the `Name` field. The names must consist of lower case alphanumeric characters or '-', and must start and end with an alphanumeric character.
+Each Service resource requires a unique name, defined in the `Name` field.
+
+The Service resource name is not affected by the deployment strategy.
 
 #### Service Type
 
@@ -539,15 +548,18 @@ A Service resource can be one of three different types:
 * Node Port
 * Load Balancer
 
+#### Cluster IP
 A Cluster IP Service resource provides a private IP address that applications deployed within the Kubernetes cluster can use to access other Pod resources.
 
 ![Cluster IP](../cluster-ip.svg)
 
+#### Node Port
 A Node Port Service resource provides the same internal IP address that a Cluster IP Service resource does. In addition, it creates a port on each Kubernetes node that directs traffic to the Service resource. This makes the service accessible from any node, and if the nodes have public IP addresses then the Node Port Service resource is also publicly accessible.
 
 ![Node Port](../node-port.svg)
 
-A LoadBalancer Service resource provides the same Cluster IP and Node Ports that the other two service resources provide. In addition, it will create a cloud load balancer that directs traffic to the node ports.
+#### Load Balancer
+A Load Balancer Service resource provides the same Cluster IP and Node Ports that the other two service resources provide. In addition, it will create a cloud load balancer that directs traffic to the node ports.
 
 The particular load balancer that is created depends on the environment in which the LoadBalancer Service resource is created. In AWS, an ELB or ALB can be created. Azure or Google Cloud will create their respective load balancers.
 
@@ -580,6 +592,8 @@ The `Ingress` feature is used to create an Ingress resource. Ingress resources p
 #### Ingress Name
 
 Each Ingress resource must have a unique name, defined in the `Ingress name` field.
+
+The name of the ingress resource is not affected by the deployment strategy.
 
 #### Ingress Host Rules
 

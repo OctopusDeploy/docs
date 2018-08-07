@@ -5,7 +5,13 @@ description: Deploy an ingress resource to a Kubernetes cluster.
 
 This featured was introduced as a pre-release in Octopus `2018.8`.
 
+:::warning
+Kubernetes steps in Octopus are of alpha level quality and have been made available for testing and feedback purposes only. They **must not** be used for production deployments, or enabled on production Octopus instances. The information provided here is subject to change at any point, and existing Kubernetes steps will most likely need to be deleted and recreated with Octopus upgrades.
+:::
+
 [Ingress resources](http://g.octopushq.com/KubernetesIngressResource) provide a way to direct HTTP traffic to Service resources based on the requested host and path.
+
+![Deploy Ingress Step](deploy-ingress-step.png)
 
 ## Ingress Name
 
@@ -59,10 +65,12 @@ The `Value` field defines the annotation value.
 Annotation values are always considered to be strings. See this [GitHub issue](https://g.octopushq.com/KubernetesAnnotationStringsIssue) for more information.
 :::
 
-## Service Name
-
 The `Service Name` defines the name of the Service resource that this Ingress will send traffic to.
+
+## Default Rule
+
+When there are no matching ingress rules, traffic can be sent to the service configured as the default rule. The `Port` field defines the service port that traffic will be sent to, and the `Service name` defines the name of the Service resource to send traffic to.
 
 ## Ingress Labels
 
-[Labels](http://g.octopushq.com/KubernetesLabels) are optional name/value pairs that are assigned to the Service resource.
+[Labels](http://g.octopushq.com/KubernetesLabels) are optional name/value pairs that are assigned to the Ingress resource.
