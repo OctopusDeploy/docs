@@ -229,6 +229,26 @@ This can happen if accessing AWS via a proxy, and the response from AWS indicate
 
 An incorrect AWS region can result in this error. Ensure that the region matches one from the [AWS documentation](https://g.octopushq.com/AWSRegions).
 
+### AWS-CLOUDFORMATION-ERROR-0015
+
+The AWS account used to perform the operation does not have the required permissions to describe the Change Set.
+
+To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deployment-examples/aws-deployments/permissions/index.md) contains an overview of the permissions required by the AWS steps.
+
+### AWS-CLOUDFORMATION-ERROR-0016
+
+An unrecognised exception was thrown while describing the CloudFormation change set.
+
+### AWS-CLOUDFORMATION-ERROR-0017
+
+The AWS account used to perform the operation does not have the required permissions to create the Change Set.
+
+To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deployment-examples/aws-deployments/permissions/index.md) contains an overview of the permissions required by the AWS steps.
+
+### AWS-CLOUDFORMATION-ERROR-0018
+
+An unrecognised exception was thrown while creating the CloudFormation change set.
+
 ### AWS-LOGIN-ERROR-0001
 
 Failed to access the metadata URI, or failed to parse the response. We are unable to generate keys from the metadata endpoint.
