@@ -237,7 +237,7 @@ To resolve the error, ensure that the user has the appropriate permissions in AW
 
 ### AWS-CLOUDFORMATION-ERROR-0016
 
-An unrecognised exception was thrown while describing the CloudFormation change set.
+An unrecognized exception was thrown while describing the CloudFormation change set.
 
 ### AWS-CLOUDFORMATION-ERROR-0017
 
@@ -247,7 +247,7 @@ To resolve the error, ensure that the user has the appropriate permissions in AW
 
 ### AWS-CLOUDFORMATION-ERROR-0018
 
-An unrecognised exception was thrown while creating the CloudFormation change set.
+An unrecognized exception was thrown while creating the CloudFormation change set.
 
 ### AWS-LOGIN-ERROR-0001
 
