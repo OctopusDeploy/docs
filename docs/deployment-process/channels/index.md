@@ -6,7 +6,7 @@ position: 40
 
 Channels is a feature in Octopus that gives you control over how different versions of your software are [released](/docs/deployment-process/releases/index.md) across your [environments](/docs/infrastructure/environments/index.md), without the need to clone [projects](/docs/deployment-process/projects/index.md) or duplicate work across multiple projects.
 
-Promoting your software across your different environments is a standard part of the [deployment process](/docs/deployment-process/index.md) in Octopus, and you don't need channels to achieve it. Every project has a default channel that is used when you create releases, but if you don't need multiple channels, the default channel can be left in its default state.
+Promoting your software across your different environments is a standard part of the [deployment process](/docs/deployment-process/index.md) in Octopus, and you don't need Channels to achieve it. Every project has a default channel that is used when you create releases, but if you don't need multiple Channels, the default channel can be left in its default state.
 
 The Channels feature has been designed to give you more control and options when you need more than a single release strategy for a project. For instance, Channels let you use different  [lifecycles](/docs/deployment-process/lifecycles/index.md) to control which versions of your software go to which environments and can be useful in the following scenarios:
 
@@ -18,14 +18,14 @@ The Channels feature has been designed to give you more control and options when
 - Hot-fixes are deployed straight to production.
 - You need to update you deployment process without interrupting production releases.
 
-When you are implementing a deployment process that uses channels you can scope the following to specific channels:
+When you are implementing a deployment process that uses Channels you can scope the following to specific Channels:
 
 - [Lifecycles](/docs/deployment-process/lifecycles/index.md)
 - [Steps](/docs/deployment-process/steps/index.md)
 - [Variables](/docs/deployment-process/variables/index.md)
 - [Tenants](/docs/deployment-patterns/multi-tenant-deployments/index.md)
 
-You can also define versioning rules per channel to ensure that only versions which meet specific criteria are deployed to specific channels.
+You can also define versioning rules per channel to ensure that only versions which meet specific criteria are deployed to specific Channels.
 
 :::success
 The [Channels Walkthrough](https://octopus.com/blog/channels-walkthrough) blog post and accompanying video, goes  through the process of implementing some of the channel strategies mentioned above.
@@ -72,7 +72,7 @@ Following the standard 2.0.0 [semver syntax](http://semver.org/), a pre-release
 | bugfix- | matches any with '*bugfix-*' prefix (e.g. *bugfix-syscrash)* | Bypass Dev & UAT environments when urgent bug fixes are made to the mainline branch and to be released straight from Staging to Production |
 
 :::hint
-If adding a pre-release tag to channels, you will also need to add the tag `^$` to your `default` channel
+If adding a pre-release tag to Channels, you will also need to add the tag `^$` to your `default` channel
 :::
 
 5. Click **DESIGN RULE**.
@@ -105,7 +105,7 @@ For instance, you might decide you'd like to notify your early access users by e
 
 ### Variables {#Channels-Variables}
 
-Variables may be scoped to specific Channels.
+As you release software to different Channels, it's likely that some of the variables in those Channels will need to be different. [Variables](/docs/deployment-process/variables/index.md) can be scoped to specific Channels.
 
 ![](/docs/images/3048999/3278460.png "width=500")
 
