@@ -71,6 +71,10 @@ Following the standard 2.0.0 [semver syntax](http://semver.org/), a pre-release
 | ^(?!beta).+ | matches pre-releases that don't start with beta | Consider anything other than 'beta' to be a feature branch package so you can provision short-term infrastructure and deploy to it |
 | bugfix- | matches any with '*bugfix-*' prefix (e.g. *bugfix-syscrash)* | Bypass Dev & UAT environments when urgent bug fixes are made to the mainline branch and to be released straight from Staging to Production |
 
+:::hint
+If adding a pre-release tag to channels, you will also need to add the tag `^$` to your `default` channel
+:::
+
 5. Click **DESIGN RULE**.
 
 The **Design Version Rule** window will show a list of the packages that will deployed as part of the deploy package step selected earlier. The versions of the packages that will deployed in this channel with the version rules you've designed will be highlighted in green, and the versions of the packages that will not be deployed with be shown in red. You can continue to edit the version rules in this window.
@@ -140,7 +144,3 @@ Any releases created automatically will use the configured channel.  Additional
 For example, if version 3.1.0 of a package Acme.Web is pushed to the Octopus internal NuGet repository, and the Channel selected for Automatic Release Creation has a Version Rule as pictured below, then no release will be created.
 
 ![](/docs/images/3048999/3278461.png "width=500")
-
-:::hint
-If adding a pre-release tag to channels, you will also need to add the tag `^$` to your `default` channel
-:::
