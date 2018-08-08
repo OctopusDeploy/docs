@@ -6,9 +6,9 @@ position: 40
 
 Channels is a feature in Octopus that gives you control over how different versions of your software are [released](/docs/deployment-process/releases/index.md) across your [environments](/docs/infrastructure/environments/index.md), without the need to clone [projects](/docs/deployment-process/projects/index.md) or duplicate work across multiple projects.
 
-Promoting your software across your different environments is a standard part of the [deployment process](/docs/deployment-process/index.md) in Octopus, and you don't need channels to achieve it. Every project has a default channel that is used when you create releases.
+Promoting your software across your different environments is a standard part of the [deployment process](/docs/deployment-process/index.md) in Octopus, and you don't need channels to achieve it. Every project has a default channel that is used when you create releases, but if you don't need multiple channels, the default channel can be left in its default state.
 
-Channels is designed to give you more control and options when you need more than a single release strategy for a project. For instance, Channels let you use different  [lifecycles](/docs/deployment-process/lifecycles/index.md) to control which versions of your software go to which environments and can be useful in the following scenarios:
+The Channels feature has been designed to give you more control and options when you need more than a single release strategy for a project. For instance, Channels let you use different  [lifecycles](/docs/deployment-process/lifecycles/index.md) to control which versions of your software go to which environments and can be useful in the following scenarios:
 
 - New versions of the software are released automatically to dev environments, promoted to test environments, and finally released to production environments.
 - Different customers are on different versions of your software and you want to provide patches to each version, for instance, `version 1` and `version 2`.
@@ -85,13 +85,17 @@ Once a project has more than one Channel, there a number of places they may be u
 
 ### Controlling Deployment Lifecycle {#Channels-ControllingDeploymentLifecycle}
 
-Each Channel defines which Lifecycle to use when promoting Releases between Environments. You can choose a Lifecycle for each Channel, or use the default Lifecycle defined by the Project.
+Each Channel defines which [Lifecycle](/docs/deployment-process/lifecycles/index.md) to use when promoting Releases between Environments. You can choose a Lifecycle for each Channel, or use the default Lifecycle defined by the Project.
+
+For instance, when you ship pre-release software to your early access users, you can use an early access (or beta) channel which uses a Lifecycle that deploys the software to an environment your early access users have access to.
 
 ![](/docs/images/3048999/5865685.png "width=500")
 
 ### Modifying Deployment Process {#Channels-ModifyingDeploymentProcess}
 
 Deployment Steps can be restricted to only run on specific Channels.
+
+For instance, you might decide you'd like to notify your early access users by email when an update version of the software is available. This can be achieved by adding an email step to your deployment process and scoping the step to the early access channel. That way the step will only run when a release is deployed to the early access channel and your early access users will only receive emails about relevant releases.
 
 ![](/docs/images/3048999/3278459.png "width=500")
 
