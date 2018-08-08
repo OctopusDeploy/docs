@@ -62,6 +62,8 @@ Projects can be cloned.
 3. Give the new project you are cloning from the original project a name.
 4. Review the settings for the new project and when you are satisfied, click **SAVE**.
 
+After you've cloned a project, you see details about where your project was cloned from and which projects were cloned from your project, by navigating to the project's overview page and selecting **Settings** and looking at the **Cloning History** section.
+
 ## Project Group
 
 Project groups are a way of organizing your projects.
