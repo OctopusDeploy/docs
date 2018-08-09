@@ -9,7 +9,7 @@ You can view and change the backup settings by browsing to the *Configuration*
 
 ![](/docs/images/backup-2.6/3277492.png "width=500")
 
-## Encrypted backups
+## Encrypted Backups
 
 The Octopus database is encrypted, and so are the backups. The backups are encrypted using your Octopus Server "master key", a randomly generated string. This master key will be needed if you ever plan to restore the database to a new server.
 
@@ -29,7 +29,7 @@ Making a copy of your master key is easy:
 
 3. Paste the master key into a text editor or a secure enterprise password manager, and save it
 
-## Backup now
+## Backup Now
 
 You can take a backup of your Octopus database immediately, simply by clicking the green **Backup now** button.
 

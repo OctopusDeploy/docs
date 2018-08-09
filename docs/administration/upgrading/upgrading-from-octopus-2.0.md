@@ -67,7 +67,7 @@ You can uninstall the old version of the Octopus Deploy MSI installer and instal
 
 After you have uninstalled the old version of Octopus, you can install the new version.
 
-### If you are still getting this error {#UpgradingfromOctopus2.0-Ifyouarestillgettingthiserror}
+### If You Are Still Getting This Error {#UpgradingfromOctopus2.0-Ifyouarestillgettingthiserror}
 
 After uninstalling the old version of Octopus and restarting, if you still receive this error, please navigate to the following registry keys:
 

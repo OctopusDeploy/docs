@@ -10,7 +10,7 @@ We release new versions of Octopus Deploy often, so we try to make the process o
 Octopus 2018 has been released! Go [download it now](https://octopus.com/downloads).
 :::
 
-## Before you begin
+## Before You Begin
 
 Before you start your upgrade, you should take time to:
 
@@ -18,14 +18,14 @@ Before you start your upgrade, you should take time to:
 - Learn about [maintenance mode](/docs/administration/upgrading/maintenance-mode.md)
 - [Plan your upgrade](#upgrade-path)
 
-## Upgrade path {#upgrade-path}
+## Upgrade Path {#upgrade-path}
 
 There are lots of improvements and changes between major versions of Octopus. Please take the time to plan your upgrade path carefully.
 
 :::warning
 **Upgrade bug discovered**
 
-If you are upgrading to a version of Octopus Server between 2018.4.0 and 2018.5.4 from a version earlier than Octopus Server 3.4 you will need to upgrade in a few steps due to [this upgrade bug](https://github.com/OctopusDeploy/Issues/issues/4509):
+If you are upgrading to a version of Octopus Server between `2018.4.0` and `2018.5.4` from a version earlier than Octopus Server `3.4` you will need to upgrade in a few steps due to [this upgrade bug](https://github.com/OctopusDeploy/Issues/issues/4509):
 
 - Upgrade to `3.4.15`
 - Upgrade to `3.17.14`
@@ -42,7 +42,7 @@ If you are upgrading to a version of Octopus Server between 2018.4.0 and 2018.5.
   - If you are running a version of Octopus prior to `1.6`, you will need to upgrade to `1.6` and then upgrade to `2.x`.
   - Hint: You can upgrade from Octopus `1.6` to any version of Octopus `2.x`. We recommend upgrading from Octopus `1.6` to the latest version of Octopus `2.6` directly. This is the quickest path to continue upgrading to the latest version of Octopus.
 
-## How we version Octopus Deploy {#Upgrading-HowweversionOctopusDeploy}
+## How We Version Octopus Deploy {#Upgrading-HowweversionOctopusDeploy}
 
 We use our version numbering scheme to help you understand the type of changes we have introduced between two versions of Octopus Deploy:
 

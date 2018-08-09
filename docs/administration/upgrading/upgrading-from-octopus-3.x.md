@@ -17,7 +17,7 @@ When an update is available, a bullhorn icon will appear in the top status bar w
 You can find the differences between your current version and the newest version using our [Compare versions](https://octopus.com/downloads/compare) page. Please note that this will also list the release notes for major and minor version changes which may include **breaking changes** or **dependencies** that you may need to also update. It is important to know what might be affected by your upgrade.
 :::
 
-## Scheduling maintenance
+## Scheduling Maintenance
 
 Upgrading Octopus Server is normally quite fast, however you should allow yourself time to perform a good [backup and restore process](/docs/administration/backup-and-restore.md).
 
@@ -67,7 +67,7 @@ You should generally follow the same instructions as above but upgrade one node 
 It is important to upgrade all nodes in your cluster during the same maintenance window, especially if the database schema is changed. The database schema will be upgraded when you upgrade the first node. Any nodes running the old version can fail due to a database schema mismatch.
 :::
 
-### Upgrading Octopus HA nodes
+### Upgrading Octopus HA Nodes
 
 Follow these steps to upgrade each node in your cluster:
 
@@ -122,7 +122,7 @@ Alternatively you can upgrade Tentacles one Environment at a time.
 In most cases we will maintain backwards compatibility between versions of Octopus Server and Tentacle. In these cases the Environments page will **recommend** updating your Tentacles while still allowing deployments to continue as normal. In the rare occasion we need to break compatibility you will be **required** to upgrade any incompatible Tentacles before you can Deploy to those machines again from the upgraded Octopus Server.
 :::
 
-## Upgrading to Octopus 3.1 or greater {#UpgradingfromOctopus3.x-UpgradingTo31UpgradingtoOctopus3.1orgreater}
+## Upgrading to Octopus 3.1 or Greater {#UpgradingfromOctopus3.x-UpgradingTo31UpgradingtoOctopus3.1orgreater}
 
 Summary: Tentacle was upgraded from .NET 4.0 to .NET 4.5 to enable TLS 1.2.
 
@@ -161,7 +161,7 @@ No, from Octopus 3.1 onward we are dropping official support for Octopus Server 
 Read more about the [Octopus - Tentacle communication](/docs/administration/security/octopus-tentacle-communication/index.md) protocol and [Troubleshooting Schannel and TLS](/docs/administration/security/octopus-tentacle-communication/troubleshooting-schannel-and-tls.md).
 :::
 
-## Upgrading to Octopus 3.4 or greater {#UpgradingfromOctopus3.x-UpgradingtoOctopus3.4orgreater}
+## Upgrading to Octopus 3.4 or Greater {#UpgradingfromOctopus3.x-UpgradingtoOctopus3.4orgreater}
 
 See the [Release Notes](https://octopus.com/downloads/compare?from=3.3.27&amp;to=3.4.0) for breaking changes and more information.
 
@@ -169,13 +169,13 @@ See the [Release Notes](https://octopus.com/downloads/compare?from=3.3.27&amp;to
 
 **Want to use SemVer 2 for packages or releases?** You will need to upgrade OctoPack and/or octo.exe to 3.4 or newer.
 
-## Upgrading to Octopus 3.5 or greater {#UpgradingfromOctopus3.x-UpgradingtoOctopus3.5orgreater}
+## Upgrading to Octopus 3.5 or Greater {#UpgradingfromOctopus3.x-UpgradingtoOctopus3.5orgreater}
 
 Some server configuration values are moved from the config file into the database in 3.5+.
 
 If you are upgrading to a 3.5+ version please backup your server config file prior to upgrading. If you need to downgrade then replace the config with the original file after the downgrade and restart Octopus Deploy Server.
 
-## How to downgrade to a previously installed instance of Octopus Server {#Howtodowngradetoapreviousinstalledinstanceofoctopusserver}
+## How to Downgrade to a Previously Installed Instance of Octopus Server {#Howtodowngradetoapreviousinstalledinstanceofoctopusserver}
 
 If for any reason you need to downgrade to a previous version of Octopus Server, follow the steps below:
 

@@ -30,7 +30,7 @@ You can also refer to the Windows Event Log as well as Scheduled Tasks for more 
 
 This section describes some common upgrade issues and ways to resolve them.
 
-### Tentacle does not upgrade properly {#Troubleshooting-Tentacledoesnotupgradeproperly}
+### Tentacle Does Not Upgrade Properly {#Troubleshooting-Tentacledoesnotupgradeproperly}
 
 #### Symptoms #1 {#Troubleshooting-Symptoms#1}
 
@@ -94,7 +94,7 @@ If the upgrade itself failed, this can be due to a previous installation of a 2.
 
 In this case, you will have to **log onto your Tentacle machine as the user who first installed the 2.0 version of the Tentacle**. You can then either run `Hydra.exe` directly, or manually uninstall the previous Tentacle and install the 3.x Tentacle.
 
-### I've lost all my NuGet packages {#Troubleshooting-I&#39;velostallmyNuGetpackages}
+### I've Lost All My NuGet Packages {#Troubleshooting-I&#39;velostallmyNuGetpackages}
 
 #### Symptoms {#Troubleshooting-Symptoms}
 
@@ -102,6 +102,6 @@ After migration, none of the NuGet packages that were present in the internal fe
 
 #### Solution {#Troubleshooting-Solution}
 
-Nuget packages are not included in the Raven database backup, so will not be automatically moved to your new server and to the correct location.
+NuGet packages are not included in the Raven database backup, so will not be automatically moved to your new server and to the correct location.
 
 To move your NuGet packages, follow the [instructions in the Upgrade documentation](/docs/administration/upgrading/upgrading-from-octopus-2.6/upgrade-with-a-new-3.0-server-instance.md#Upgradewithanew3.0serverinstance-3.Migrateyourdatafrom2.6to3.x). After moving the files and restarting the service, your packages should be reindexed and available.

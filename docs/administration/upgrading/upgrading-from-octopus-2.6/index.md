@@ -4,11 +4,11 @@ description: Information on how to upgrade from Octopus 2.6 to newer versions.
 position: 2
 ---
 
-Normally, upgrading Octopus is quite easy - just install the new version over the top. We made some really big changes to our data storage and Tentacle communication protocols in Octopus: upgrading from Octopus 2.6 is a bit more complicated.
+Normally, upgrading Octopus is quite easy - just install the new version over the top. We made some really big changes to our data storage and Tentacle communication protocols in Octopus: upgrading from Octopus `2.6` is a bit more complicated.
 
 Upgrading to newer versions of Octopus is only possible from Octopus 2.6.x; if you're running a previous version of Octopus:
 
-1. Upgrade to Octopus 2.6.5, then
+1. Upgrade to Octopus `2.6.5`, then
 1. Upgrade to the latest version of Octopus.
 
 :::success
@@ -16,7 +16,7 @@ Upgrading to newer versions of Octopus is only possible from Octopus 2.6.x; if y
 When upgrading to newer versions of Octopus please use the latest version available. We have been constantly improving the data migration process whilst adding new features and fixing bugs.
 :::
 
-## Planning your upgrade
+## Planning Your Upgrade
 
 There are two main parts to the upgrade:
 
@@ -40,11 +40,11 @@ It is possible to install newer versions of Octopus over the top of a 2.6 insta
 
 Read the full guide: [In place (over the top) upgrade](/docs/administration/upgrading/upgrading-from-octopus-2.6/in-place-upgrade-install-over-2.6.md)
 
-## Upgrading your existing Tentacles {#tentacles}
+## Upgrading Your Existing Tentacles {#tentacles}
 
 We have significantly change the communications protocol used by Tentacle. This means your 2.6 Tentacles won't be able to communicate to your new Octopus Server. Likewise, new Tentacles won't be able to communicate with your old Octopus Server. Once you upgrade, going back can be difficult. Please take time to plan your upgrade carefully using this guide.
 
-### Small number of Tentacles
+### Small Number of Tentacles
 
 > "I have an Octopus Server and a handful of Tentacles. I don't mind manually running the new Tentacle MSI's on each of my Tentacle machines."
 

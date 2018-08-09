@@ -8,11 +8,11 @@ Sometimes the worst possible thing happens. The machine hosting Octopus Server d
 
 If you are reading this page: [PLEASE BACK UP YOUR MASTER KEY!](/docs/api-and-integration/octopus.server.exe-command-line/show-master-key.md)
 
-## Recover the master key
+## Recover the Master Key
 
 The fastest and easiest way to get up and running is to recover the master key. The only way to recover the master key is to get the dead machine up and running again. The master key is stored in the Octopus Server configuration file and encrypted using the machine's encryption key. Simply having a copy of the config file is not enough. The master key can only be decrypted by the machine where the config file came from.
 
-## What is lost
+## What is Lost
 
 Octopus [encrypts important and sensitive data](/docs/administration/security/data-encryption.md) using a master key. This includes:
 
@@ -21,15 +21,15 @@ Octopus [encrypts important and sensitive data](/docs/administration/security/da
 - Sensitive values in your deployment processes, like the password for a custom IIS App Pool user account
 - Sensitive values in your deployment targets, like the password for creating [Offline Drops](/docs/infrastructure/offline-package-drop.md)
 
-## Recovering with a new master key
+## Recovering With a New Master Key
 
 Please get in contact with our [support team](https://octopus.com/support) so we can be available to help get you up and going.
 
-### Step 1 - Back up before you start
+### Step 1 - Back up Before You Start
 
 Make sure to [back up everything](/docs/administration/backup-and-restore.md) before you start this process. At least this will help you start the process again from a known position.
 
-### Step 2 - Install Octopus Server on a new machine
+### Step 2 - Install Octopus Server on a New Machine
 
 Provision a new machine and install Octopus Server on it just like you would normally **except** you won't be able to point it at your existing database because you don't have the master key. We are going to get your new Octopus Server up and running on a new database, and then trick it into pointing at your new database.
 
@@ -60,7 +60,7 @@ These commands will:
 
 **Please back up your new Octopus Server certificate and master key!**
 
-### Step 3 - Restore trust with your Tentacles
+### Step 3 - Restore Trust With Your Tentacles
 
 You will need to sign in to all the machines running Tentacle and run a command to make it trust the new Octopus Server certificate.
 
@@ -81,13 +81,13 @@ These commands will:
 
 After this you should perform a health check on your Infrastructure and fix any problems that come up.
 
-### Step 4 - Re-enter all the sensitive values
+### Step 4 - Re-enter All the Sensitive Values
 
 There is no way to recover this data. You will need to go through and re-enter any sensitive values.
 
-### Step 5 - Back up your Octopus Server certificate and master key
+### Step 5 - Back up Your Octopus Server Certificate and Master Key
 
 You may have done this earlier in the process. If not, now is a great time to securely back up your master key and Octopus Server certificate!
 
-### Test your backup
+### Test Your Backup
 Now is a great time to test your backup process worked and ensure you can restore quickly next time when a serious issue occurs. A backup isn't real unless you verify you can restore from it. Take your fresh Octopus backup and recently secured master key and attempt to restore your Octopus Server somewhere else to validate it will work when you need it to.

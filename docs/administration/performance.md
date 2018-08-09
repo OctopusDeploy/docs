@@ -14,7 +14,7 @@ This page is intended to help Octopus System Administrators tune and maintain th
 Want to tune your deployments for optimum performance? Read our [detailed guide on optimizing your deployments](/docs/deployment-process/performance.md).
 :::
 
-## Minimum requirements
+## Minimum Requirements
 
 There is no "one size fits all" approach to sizing your Octopus Server. If you are just starting out with Octopus Server you should begin with the [minimum requirements](/docs/installation/index.md) then monitor the performance of your server. Once your server is up and running you should consider [maintenance](#maintenance) and [scaling](#scaling) as you see fit.
 
@@ -28,7 +28,7 @@ We are continually working to make Octopus perform better, and we will always re
 
 As an example, many customers have reported speed improvements of 50-90% for their deployments after upgrading from an early version of Octopus 3.x to the latest version.
 
-### Retention policies
+### Retention Policies
 
 Octopus are generally hygienic creatures, cleaning up after themselves, and your Octopus is no different. Configuration documents, like [projects](/docs/deployment-process/projects/index.md) and [environments](/docs/infrastructure/environments/index.md), are stored until you delete them, unlike historical documents like [releases](/docs/deployment-process/releases/index.md). These will be cleaned up according to the [retention policies](/docs/administration/retention-policies/index.md) you configure.
 
@@ -66,7 +66,7 @@ We are planning a third option for scaling your Octopus Server:
 
 - sharding across multiple Octopus Servers using [Spaces](https://octopus.com/blog/octopuses) - planned for Octopus 4.x
 
-### Task cap
+### Task Cap
 
 An ideal situation would be an Octopus Server that's performing as many parallel deployments as it can, while staying just under these limits. We tried several techniques to automatically throttle Octopus Server, but in practice this kind of approach proved to be unreliable.
 
@@ -146,7 +146,7 @@ The best place to start troubleshooting your Octopus Server is to inspect the [O
 Analyzing Octopus Server log files for performance problems is much easier in a tool like [Seq](https://getseq.net). We've built a [helpful tool](https://github.com/OctopusDeploy/SeqFlatFileImport) for importing Octopus Server and Task Logs directly into Seq for analysis.
 :::
 
-### Getting help from us {#support}
+### Getting Help From Us {#support}
 
 If none of these troubleshooting steps work, please get in contact with our [support team](https://octopus.com/support) and send along the following details (feel free to ignore points if they don't apply):
 

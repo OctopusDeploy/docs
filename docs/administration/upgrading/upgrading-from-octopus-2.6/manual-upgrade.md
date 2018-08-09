@@ -4,19 +4,19 @@ description: Information on how to manually upgrade to Octopus 3.x from Octopus 
 position: 1
 ---
 
-You can upgrade between Octopus 2.6 and 3.x by downloading the latest [MSI's for both Octopus and Tentacle](https://octopusdeploy.com/download), and installing them manually. If you're working with a large number of Tentacles, see the section on [upgrading larger installations](/docs/administration/upgrading/upgrading-from-octopus-2.6/index.md).
+You can upgrade between Octopus `2.6` and `3.x` by downloading the latest [MSI's for both Octopus and Tentacle](https://octopusdeploy.com/download), and installing them manually. If you're working with a large number of Tentacles, see the section on [upgrading larger installations](/docs/administration/upgrading/upgrading-from-octopus-2.6/index.md).
 
 ## Summary {#Manualupgrade-Summary}
 
-1. Backup your Octopus 2.6 database and master key
-2. Install Octopus 3.x on your Octopus Server
-3. Migrate your data from 2.6 to 3.x
-4. Install Tentacle 3.x on your deployment targets
- 1. For Octopus 3.0.1: Reinstall the Tentacle Service
-5. Verify the connectivity between the 3.x Octopus Server and the 3.x Tentacles
-6. **[Optional]** Clean up your Octopus Home folder, follow the instructions on this [page](/docs/administration/server-configuration-and-file-storage\index.md#ServerconfigurationandFilestorage-CleanUp)
+1. Backup your Octopus `2.6` database and master key.
+2. Install Octopus `3.x` on your Octopus Server.
+3. Migrate your data from `2.6` to `3.x`.
+4. Install Tentacle `3.x` on your deployment targets.
+ 1. For Octopus `3.0.1`: Reinstall the Tentacle Service.
+5. Verify the connectivity between the `3.x` Octopus Server and the `3.x` Tentacles.
+6. **[Optional]** Clean up your Octopus Home folder, follow the instructions on this [page](/docs/administration/server-configuration-and-file-storage\index.md#ServerconfigurationandFilestorage-CleanUp).
 
-## Step by step {#Manualupgrade-Stepbystep}
+## Step by Step {#Manualupgrade-Stepbystep}
 
 To perform an in-place upgrade, follow these steps:
 
@@ -24,11 +24,11 @@ To perform an in-place upgrade, follow these steps:
 There is a current issue where it is not importing your license key. Please back this up first from {{Configuration,License}}.
 :::
 
-### 1. Back up your Octopus 2.6 database and master key {#Manualupgrade-1.BackupyourOctopus2.6databaseandmasterkey}
+### 1. Back up Your Octopus 2.6 Database and Master Key {#Manualupgrade-1.BackupyourOctopus2.6databaseandmasterkey}
 
 See the [Backup and restore](/docs/administration/upgrading/upgrading-from-octopus-2.6/backup-2.6.md)[ page for instructions on backing up your database.](/docs/administration/upgrading/upgrading-from-octopus-2.6/backup-2.6.md)
 
-### 2. Install Octopus 3.x on your Octopus Server {#Manualupgrade-2.InstallOctopus3.xonyourOctopusServer}
+### 2. Install Octopus 3.x On Your Octopus Server {#Manualupgrade-2.InstallOctopus3.xonyourOctopusServer}
 
 :::success
 **Upgrade to the latest version**
@@ -49,7 +49,7 @@ Click Next, and then Install to install the Octopus 3.x server over the 2.6 inst
 
 ![](/docs/images/3048132/3278006.png "width=500")
 
-### 3. Restore the Octopus 2.6 database using the migration tool {#Manualupgrade-3.RestoretheOctopus2.6databaseusingthemigrationtool}
+### 3. Restore the Octopus 2.6 Database Using the Migration Tool {#Manualupgrade-3.RestoretheOctopus2.6databaseusingthemigrationtool}
 
 After upgrading, the Octopus Manager will prompt to import your Octopus 2.6 database. Click the "Import data..." button and follow the prompts to import your 2.6 data.
 
@@ -68,7 +68,7 @@ To see the command syntax click the **Show script** link in the wizard
 **Using the built-in Octopus NuGet repository?**
 If you use the built-in [Octopus NuGet repository](/docs/packaging-applications/package-repositories/index.md) you will need to move the files from your 2.6 server to your 3.x server. They are not part of the backup.
 In a standard 2.6 install the files can be found under `C:\Octopus\OctopusServer\Repository\Packages`
-You will need to transfer them to the new server to `C:\Octopus\Packages`Once the files have been copied, you will need to restart the Octopus Server service to re-index the files - The index runs in the background, so if you have a lot of packages it could take a while (5-20 mins) to show in the UI or be usable for deployments.
+You will need to transfer them to the new server to `C:\Octopus\Packages` Once the files have been copied, you will need to restart the Octopus Server service to re-index the files - The index runs in the background, so if you have a lot of packages it could take a while (5-20 mins) to show in the UI or be usable for deployments.
 :::
 
 ### 4. Install the Tentacle 3.x MSI {#Manualupgrade-4.InstalltheTentacle3.xMSI}
@@ -90,9 +90,9 @@ Click the Reinstall button to ensure the Tentacle windows service is pointing to
 Reinstall will uninstall and reinstall the Tentacle windows service. If you're running Tentacle under a non-default set of credentials or you have configured non-default recovery options you will need to reinstate that configuration after the Reinstall is complete.
 :::
 
-### 5. Verify connectivity between the 3.x server and 3.x Tentacles {#Manualupgrade-5.Verifyconnectivitybetweenthe3.xserverand3.xTentacles}
+### 5. Verify Connectivity Between the 3.x Server and 3.x Tentacles {#Manualupgrade-5.Verifyconnectivitybetweenthe3.xserverand3.xTentacles}
 
-Log in to your new Octopus 3.x server and run health checks on all of your environments. If the upgrade completed successfully, they should succeed.
+Log in to your new Octopus `3.x` server and run health checks on all of your environments. If the upgrade completed successfully, they should succeed.
 
 ![](/docs/images/3048132/3278009.png "width=500")
 

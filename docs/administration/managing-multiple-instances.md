@@ -6,7 +6,7 @@ position: 120
 
 In normal usage, there is one Octopus Deploy Server, and one instance of the Tentacle agent running on each of the machines that you plan to deploy to, or deployment targets configured for Azure or SSH endpoints. But sometimes it's necessary to run multiple copies of Octopus and Tentacle on the same machine, perhaps with different configuration, or running under different user accounts. To support this, Octopus and Tentacle have the notion of "Instances".
 
-## Creating and managing instances {#Managingmultipleinstances-Creatingandmanaginginstances}
+## Creating and Managing Instances {#Managingmultipleinstances-Creatingandmanaginginstances}
 
 Octopus and Tentacle Manager both have the ability to manage multiple instances. You can launch Octopus Manager or Tentacle Manager via the Windows start screen. Then you can use the instance selector drop down to create or manage instances:
 
@@ -26,7 +26,7 @@ Each configured instance has its own configuration files, home directory and Win
 
 ![](/docs/images/3048137/3278043.png "width=500")
 
-## Command line {#Managingmultipleinstances-Commandline}
+## Command Line {#Managingmultipleinstances-Commandline}
 
 All wizards that you follow in the Octopus or Tentacle Manager provide the ability to export a command-line script of the actions taken. This can be done with the **Show Script** option at the end of every wizard:
 
@@ -46,7 +46,7 @@ Tentacle.exe service --stop --start --instance "Tentacle"
 
 You can export a script from the wizard to see what the command-line equivalent would look like, and then change the instance name as appropriate.
 
-## Considerations for Octopus Server instances {#Managingmultipleinstances-ConsiderationsforOctopusServerinstances}
+## Considerations for Octopus Server Instances {#Managingmultipleinstances-ConsiderationsforOctopusServerinstances}
 
 Different instances of Octopus Server:
 
@@ -66,17 +66,17 @@ There are a few things to keep in mind when running multiple Octopus Server inst
 - Each instance has its own SQL Server database, with a different **Master Encryption Key**; make sure [the key for each instance is recorded somewhere safe](/docs/administration/security/data-encryption.md).
   :::
 
-## Considerations for Tentacle instances {#Managingmultipleinstances-ConsiderationsforTentacleinstances}
+## Considerations for Tentacle Instances {#Managingmultipleinstances-ConsiderationsforTentacleinstances}
 
 Different instances of Tentacle need to listen on different TCP ports, and should install applications to a different base directory.
 
-### Upgrading multiple instances
+### Upgrading Multiple Instances
 Upgrades of Tentacles deployed on the same machine are all done at the same time, in other words, if you have multiple Tentacles running on the same machine, when the upgrade is run, all Tentacles will be upgraded.  
 The automatic Tentacle upgrade from Octopus feature does support upgrading multiple instances on the same machine.  
 If Tentacles are running under different accounts, please ensure the [upgrade account](/docs/infrastructure/machine-policies.md#MachinePolicies-TentacleUpdateAccount) has enough rights to upgrade all Tentacles.
 
 
-## Deleting instances {#Managingmultipleinstances-Deletinginstances}
+## Deleting Instances {#Managingmultipleinstances-Deletinginstances}
 
 If you no longer need an instance, you can delete it from the Octopus or Tentacle Manager.
 

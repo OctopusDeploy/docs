@@ -18,7 +18,7 @@ When upgrading from Octopus 2.6 to 3.x you can migrate your data. There are some
 Please see our [tips for minimizing the migration duration](minimize-migration-time.md).
 :::
 
-## Importing your 2.6 Backup into 3.x {#MigratingdatafromOctopus2.6to3.x-Importingyour2.6Backupinto3.x}
+## Importing Your 2.6 Backup Into 3.x {#MigratingdatafromOctopus2.6to3.x-Importingyour2.6Backupinto3.x}
 
 To import your 2.6 Raven data into a 3.x installation (generally this is run after a side-by-side upgrade) you need to select import from the Octopus Manager.
 
@@ -40,13 +40,13 @@ If you need to use any of the options below to manage the data being imported yo
 
 ![](/docs/images/3048787/3964996.png "width=500")
 
-### Migrating the built-in Octopus NuGet package repository {#MigratingdatafromOctopus2.6to3.x-PackageRepositoryMigratingthebuilt-inOctopusNuGetpackagerepository}
+### Migrating the Built-in Octopus NuGet Package Repository {#MigratingdatafromOctopus2.6to3.x-PackageRepositoryMigratingthebuilt-inOctopusNuGetpackagerepository}
 
 If you use the built-in [Octopus NuGet repository](/docs/packaging-applications/package-repositories/index.md) you will need to move the files from your 2.6 server to your 3.x server. The package files are not included as part of the backup.
 In a standard 2.6 install the files can be found under `C:\Octopus\OctopusServer\Repository\Packages`
-You will need to transfer them to the new server to `C:\Octopus\Packages`Once the files have been copied, you will need to restart the Octopus Server service to re-index the files - The index runs in the background, so if you have a lot of packages it could take a while (5-20 mins) to show in the UI or be usable for deployments.
+You will need to transfer them to the new server to `C:\Octopus\Packages` Once the files have been copied, you will need to restart the Octopus Server service to re-index the files - The index runs in the background, so if you have a lot of packages it could take a while (5-20 mins) to show in the UI or be usable for deployments.
 
-### Migrating historical data {#MigratingdatafromOctopus2.6to3.x-MaxAgeMigratinghistoricaldata}
+### Migrating Historical Data {#MigratingdatafromOctopus2.6to3.x-MaxAgeMigratinghistoricaldata}
 
 By default we migrate everything from your backup including all historical data. You can use the `maxage=` argument when executing the migrator to limit the number of days to keep. For example: `maxage=90` will keep 90 days of historical data ignoring anything older.
 
@@ -60,7 +60,7 @@ Octopus.Migrator.exe migrate [<options>]
 
 Where`[<options>]`is any of:
 
-**configure options**
+**configure Options**
 
 ```powershell
     --instance			Name of the instance to use

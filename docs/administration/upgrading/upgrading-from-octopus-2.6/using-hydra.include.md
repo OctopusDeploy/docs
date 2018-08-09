@@ -10,7 +10,7 @@ We strongly recommend testing Hydra against a small subset of "canary" machines 
 3. Once you are confident the Tentacle upgrade works as expected, you can use Hydra to upgrade all of the remaining machines.
 :::
 
-#### How does Hydra work?
+#### How Does Hydra Work?
 
 Hydra consists of two parts:
 
@@ -29,7 +29,7 @@ The scheduled task does the following:
 
 With just one Tentacle service this should be a very quick process, but we cannot estimate how long it may take with many Tentacle services running on the one machine.
 
-#### Common problems using Hydra
+#### Common Problems Using Hydra
 
 The scheduled task is set to run as `SYSTEM` to ensure the MSI installation will succeed. If your Tentacles are running with restricted permissions, they may not be able to create this scheduled task. **The only option is to upgrade your Tentacles manually.**
 
@@ -38,7 +38,7 @@ Hydra performs a Reinstall of each Tentacle. As part of the reinstall, the Servi
 ```powershell
 Tentacle.exe service --instance "Tentacle" --reconfigure --username=DOMAIN\ACCOUNT --password=accountpassword --start --console
 ```
-#### Let's upgrade these Tentacles!
+#### Let's Upgrade These Tentacles!
 
 To use Hydra, follow these steps:
 
@@ -60,10 +60,10 @@ These steps should be executed from your Octopus 2.6 server to your 2.6 Tentacle
  1. Ensure you choose or create a [Lifecycle](/docs/deployment-process/lifecycles/index.md)that allows you to deploy to all Tentacles.
  2. Ensure you set the Update Octopus Tentacle step to run for all appropriate Tentacles.
  3. Set the `Server Mapping` field:
- 
+
    - If you only use listenting Tentacles you can leave the `Server Mapping` field blank.
    - If you are using any polling Tentacles, add the new Octopus 3.x server address (including the polling TCP port) in the Server Mapping field. See below for examples.
- 
+
 :::hint
 **Server Mapping for Polling Tentacles**
 
@@ -75,7 +75,7 @@ It is very important you get this value correct. An incorrect value will result 
   - Just point to the new server's polling address `https://newserver:newport` like `https://octopus3.mycompany.com:10934` and Hydra will automatically update all Tentacles to point to the new server's address
 3. Multiple Polling Tentacle instances on the same machine pointing to different Octopus Servers **a very rare case**:
   - Use this syntax to tell Hydra the mapping from your old Octopus Server to your new Octopus Server: `https://oldserver:oldport=>https://newserver:newport,https://oldserver2:oldport2/=>https://newserver2:newport2` where each pair is separated by commas. This will match the first case and replace it => with the second case.
-  
+
 Click the ![](/docs/images/3048132/3278017.png) help button for more detailed instructions.
 
 ![](/docs/images/3048132/3278014.png "width=500")
