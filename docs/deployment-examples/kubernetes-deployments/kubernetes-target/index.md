@@ -50,6 +50,9 @@ rules:
 - apiGroups: ["", "extensions", "apps"]
   resources: ["deployments", "replicasets", "pods", "services", "ingresses", "secrets", "configmaps"]
   verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+- apiGroups: [""]
+  resources: ["namespaces"]
+  verbs: ["get"]     
 ---
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
