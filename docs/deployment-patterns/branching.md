@@ -50,7 +50,7 @@ So long as one release branch never overlaps another, from an Octopus point of v
 
 :::hint
 **Development note**
-Channels can help with this strategy as discussed in the [Channels Walkthrough: Supporting multiple versions](https://octopus.com/blog/channels-walkthrough#supporting-multiple-versions). If your project has 5 packages, when you go to the Release creation page, it might show all 3.x versions of the packages when you want to make a 2.x version, since it sorts by version numbers. The [original UserVoice suggestion for this feature](https://octopusdeploy.uservoice.com/forums/170787-general/suggestions/3480536-branch-support-for-deploying-older-app-versions) was simply to make this page a little more user friendly.
+[Channels](/docs/deployment-process/channels/index.md) can help with this strategy as discussed in the [Channels Walkthrough: Supporting multiple versions](https://octopus.com/blog/channels-walkthrough#supporting-multiple-versions). If your project has 5 packages, when you go to the Release creation page, it might show all 3.x versions of the packages when you want to make a 2.x version, since it sorts by version numbers. The [original UserVoice suggestion for this feature](https://octopusdeploy.uservoice.com/forums/170787-general/suggestions/3480536-branch-support-for-deploying-older-app-versions) was simply to make this page a little more user friendly.
 :::
 
 Multiple release branches may be supported over a period of time. For example, you may have customers who are using your 2.x versions of your software in production, and early adopters testing your 3.x versions while you work to make it stable. You'll need to fix bugs in the 2.x version as well as the 3.x version, and deploy them both.

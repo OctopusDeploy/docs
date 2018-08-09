@@ -76,9 +76,9 @@ The Deploy Latest Release action allows you to re-deploy a release or promote a 
 * **Source Environment**: The latest successful deployment in this environment will be used to deploy to the destination environment
 * **Destination Environment**: The release selected from the source environment will be deployed to this environment
 
-If you are using channels you may also select the channel to use when deploying the release. The latest successful deployment for the specified channel and source environment will be deployed to the same channel and destination environment. If no channel is specified, the latest successful release from any channel and source environment will be selected for deployment.
+If you are using [channels](/docs/deployment-process/channels/index.md) you may also select the channel to use when deploying the release. The latest successful deployment for the specified channel and source environment will be deployed to the same channel and destination environment. If no channel is specified, the latest successful release from any channel and source environment will be selected for deployment.
 
-If you are using tenants you can select the tenants that will receive a deployment. For each tenant, the latest successful release in the source environment will be deployed to the destination environment. When a tenant is not connected to the source environment, the latest successful release that has been deployed to the source environment and meets the lifecycle requirements for promotion to the destination environment will be deployed.
+If you are using [tenants](/docs/deployment-patterns/multi-tenant-deployments/index.md) you can select the tenants that will receive a deployment. For each tenant, the latest successful release in the source environment will be deployed to the destination environment. When a tenant is not connected to the source environment, the latest successful release that has been deployed to the source environment and meets the lifecycle requirements for promotion to the destination environment will be deployed.
 
 :::success
 If the same environment is selected for both source and destination the latest successful deployment will be re-deployed to that environment. If different environments are selected, the latest successful release in the source environment will be promoted to the destination environment.
@@ -88,4 +88,3 @@ If the same environment is selected for both source and destination the latest s
 The Deploy New Release action will create a new release and deploy it to the selected destination environment. If you are using channels and tenants you can also select which channel the release will be created in, and which tenants will receive the deployment.
 
 The newly created release will select the latest package versions that match the channel rules that the release is created in.
-

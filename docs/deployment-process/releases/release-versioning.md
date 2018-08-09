@@ -6,7 +6,6 @@ position: 125
 
 Under Project settings there's a section for Release Versioning where you can select how the next release number is generated when creating a release.
 
-
 ![release_versioning](release-versioning.png "width=500")
 
 <div>

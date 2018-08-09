@@ -15,11 +15,11 @@ After you've specified the details of the step, you can set conditions for great
 
 ![Conditions](conditions.png)
 
-Some of these options will only appear if they're available. For instance, the channels option is only visible if you have created one or more channels.
+Some of these options will only appear if they're available. For instance, the [channels](/docs/deployment-process/channels/index.md) option is only visible if you have created one or more channels.
 
 ## Environments
 
-You can choose which environments steps apply to:
+You can choose which [environments](/docs/infrastructure/environments/index.md) steps apply to:
 
 - Run for all applicable [Lifecycle](/docs/deployment-process/lifecycles/index.md) environments (default).
 - Run only for specific environments.
