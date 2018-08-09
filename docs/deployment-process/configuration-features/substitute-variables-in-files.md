@@ -72,7 +72,9 @@ If you include a configuration file that you are also doing a [transformation](/
 By default **warnings** will be treated as **errors** when replacing variables in files using this feature. To override this behavior, set the variable **Octopus.Action.Package.IgnoreVariableReplacementErrors** to **True** in your project. By doing this, warnings will be treated as such and the deployment wont be marked as failed.
 :::
 
-## Another Example {#SubstituteVariablesinFiles-SomeExamples}
+## Examples {#SubstituteVariablesinFiles-SomeExamples}
+
+### Swapping Design Elements
 
 If you want to include a header that has a different image or text in a shared layout file depending on environment that it is deployed to. You can define the file and put a variable in place where you want the change to be. In this example, we've used the **SiteReference** variable:
 
@@ -86,4 +88,14 @@ If you want to include a header that has a different image or text in a shared l
             </button>
             <a class="navbar-brand" href="#">OctoFX #{SiteReference}</a>
           </div>
+```
+
+### Spring Boot Application Properties
+
+Another common scenario is updating a Spring Boot `application.properties` file to set the web server port. In this example, we’ve used the **WebServerPort** variable:
+
+```java
+server.port=#{WebServerPort}
+app.version=@project.version@
+environment.name=PROD
 ```
