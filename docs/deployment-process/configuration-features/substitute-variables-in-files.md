@@ -99,3 +99,7 @@ server.port=#{WebServerPort}
 app.version=@project.version@
 environment.name=PROD
 ```
+
+:::hint
+The Spring expression language also uses the `#{}` syntax so you need to double encode any non-Octopus variables. i.e. `##{MyVariable}`
+:::
