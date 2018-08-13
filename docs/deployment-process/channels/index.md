@@ -6,7 +6,7 @@ position: 40
 
 Channels in Octopus give you control over how different versions of your software are [released](/docs/deployment-process/releases/index.md) across your [environments](/docs/infrastructure/environments/index.md), without the need to [clone projects](/docs/deployment-process/projects/index.md#clone-a-project) or duplicate work across multiple [projects](/docs/deployment-process/projects/index.md).
 
-Promoting your software across your different environments is a standard part of the [deployment process](/docs/deployment-process/index.md) in Octopus, and you don't need Channels to achieve it. Every project has a default channel that is used when you create releases, but if you don't need multiple channels, the default channel can be left in its default state.
+Promoting your software across your different environments is a standard part of the [deployment process](/docs/deployment-process/index.md) in Octopus, and you don't need Channels to achieve it. Every project has a default channel that is used when you create [releases](/docs/deployment-process/releases/index.md), but if you don't need multiple channels, the default channel can be left in its default state.
 
 The Channels feature has been designed to give you more control and options when you need more than a single release strategy for a project. For instance, Channels let you use different  [lifecycles](/docs/deployment-process/lifecycles/index.md) to control which versions of your software go to which environments and can be useful in the following scenarios:
 
