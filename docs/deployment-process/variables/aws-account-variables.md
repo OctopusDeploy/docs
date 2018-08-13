@@ -5,7 +5,7 @@ position: 8
 version: "[2018.2,)"
 ---
 
-[AWS accounts](/docs/infrastructure/aws/index/md) are included in a project through a project variable of the type `Amazon Web Services Account`. Before you create an `AWS Account Variable`, you need to [create an AWS Account](/docs/infrastructure/aws/index.md) in Octopus.
+[AWS accounts](/docs/infrastructure/aws/index.md) are included in a project through a project variable of the type `Amazon Web Services Account`. Before you create an `AWS Account Variable`, you need to [create an AWS Account](/docs/infrastructure/aws/index.md) in Octopus.
 
 ![AWS Account Variable](aws-account-variable.png "width=500")
 
