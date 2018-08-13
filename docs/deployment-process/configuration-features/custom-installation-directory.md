@@ -52,6 +52,6 @@ The *Exclude from purge* list must be a newline-seperated list of file or direct
 
 7. Add any [conditions](/docs/deployment-process/conditions/index.md) you need to specify for the step, and then click **SAVE**.
 
-This will save and display the step you've just created. From here you can use the project overview menu to continue defining your process, or click **CREATE RELEASE** to create a [release](/docs/deployment-process/releases/index.md) and deploy your application.
+This will save and display the step you've just created. From here you can use the project overview menu to continue defining your [deployment process](/docs/deployment-process/index.md), or click **CREATE RELEASE** to create a [release](/docs/deployment-process/releases/index.md) and deploy your application.
 
 Packages deployed to a custom installation directory are deployed in the same way as other package deploy steps. Read about [how packages are deployed](/docs/deployment-examples/deploying-packages/index.md#how-packages-are-deployed) for more information.
