@@ -146,7 +146,7 @@ We [fixed an issue](https://github.com/OctopusDeploy/Issues/issues/2329) which w
 ## Passing Parameters to Scripts {#Customscripts-Passingparameterstoscripts}
 
 :::hint
-Script parameters are available in Octopus 3.3.21 or newer. You can use script parameters for file-based scripts that are sourced from a package.
+Script parameters are available in Octopus `3.3.21` or newer. You can use script parameters for file-based scripts that are sourced from a package.
 :::
 
 Octopus can pass parameters to your custom script files for any of the supported scripting languages. This means you can use existing scripts, or write and test your own parameterized scripts that have no knowledge of Octopus, passing Octopus Variables directly to your scripts as parameters. The Octopus scripting API is still available within the context of your script, meaning you can use a mixture of parameters and other Octopus variables and functions.
@@ -310,7 +310,7 @@ Try these out for yourself using the [Script Console](/docs/administration/scri
 Highlight messages will be show in bold and blue in the task log. They will also appear under the step heading on the Task Summary tab. You can use the highlight level to call out important information such as which upgrade scripts were run, or the exact time a web server go added back into the load balancer pool.
 
 ### Wait Log Level ###
-Wait log messages will be show in a different color in the log. Their primary use is to show when the deployment is waiting for something to occur (eg aquire a lock). We intend to use this message in the future to show a visual representation of your deployment progress. You can log your own wait messages, to indicate the deployment is paused in preperation for this. A wait is considered over when another log message of a different level is written.
+Wait log messages will be show in a different color in the log. Their primary use is to show when the deployment is waiting for something to occur (eg acquire a lock). We intend to use this message in the future to show a visual representation of your deployment progress. You can log your own wait messages, to indicate the deployment is paused in preparation for this. A wait is considered over when another log message of a different level is written.
 
 ### Service Message ###
 The following service messages can be written directly to standard output which will be parsed by the server and the subsequent log lines will be treated with the relevant log level.

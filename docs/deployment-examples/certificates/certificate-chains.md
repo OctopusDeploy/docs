@@ -1,8 +1,7 @@
 ---
 title: Certificate Chains
-description: Manage certificate files containing a chain of certificates 
+description: Manage certificate files containing a chain of certificates
 position: 6 
-version: "3.12"
 ---
 
 Uploaded PFX or PEM files may contain a certificate-chain. i.e. A certificate with a private-key, plus one or more authority certificates.
@@ -24,15 +23,14 @@ This is because importing to the Root store for a specific user results in a sec
 
 ## Downloading Certificate Chains
 
-When downloading a certificate containing a chain, the behavior depends on the format being downloaded. 
+When downloading a certificate containing a chain, the behavior depends on the format being downloaded.
 
 - `Original`: The downloaded file will be exactly what was originally uploaded.
-- `PFX`: The entire chain will be included in the exported file. 
-- `DER`: Only the subject certificate will be included.  DER files never contain chains. 
+- `PFX`: The entire chain will be included in the exported file.
+- `DER`: Only the subject certificate will be included.  DER files never contain chains.
 - `PEM`: Download-dialog provides options to include
    - Primary Certificate
    - Primary and Chain Certificates
-   - Chain Certificates Only 
+   - Chain Certificates Only
 
 ![Download Chain in PEM format dialog](download-pem-chain.png "width=500")
-

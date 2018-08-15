@@ -61,7 +61,7 @@ You can use the full semantic version as part of your version range specificatio
 
 4. Enter any pre-release tags you want to include.
 
-Following the standard 2.0.0 [semver syntax](http://semver.org/), a pre-release tag is the alpha numeric text that can appear after the standard *major.minor.patch* pattern immediately following a hyphen. Providing a regex pattern for this field allows the channel to filter packages based on their tag in a very flexible manner. Some examples are.
+Following the standard 2.0.0 [SemVer syntax](http://semver.org/), a pre-release tag is the alpha numeric text that can appear after the standard *major.minor.patch* pattern immediately following a hyphen. Providing a regex pattern for this field allows the channel to filter packages based on their tag in a very flexible manner. Some examples are.
 
 | **Pattern** | **Description** | **Example use-case** |
 | --- | --- | --- |

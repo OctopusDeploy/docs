@@ -9,7 +9,7 @@ Server Extensibility was new to Octopus Deploy in version 3.5, and is still bein
 
 There are two key types of Authentication Providers, those that use Forms (Basic) authentication and those that are external to Octopus Deploy.  The main distinction between the two is whether the Octopus Deploy UI is responsible for collecting and username and password or whether control is passed to an external site to handle that and return a token representing the authenticated user (e.g. OpenID Connect providers).
 
-## Understanding paths {#BuildinganAuthenticationProvider-Understandingpaths}
+## Understanding Paths {#BuildinganAuthenticationProvider-Understandingpaths}
 
 When building extensions there are a couple of concepts that are important to know about.  Path resolution is one of those things.
 

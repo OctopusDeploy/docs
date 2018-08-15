@@ -7,7 +7,7 @@ All Forms based providers share the Username/Password/Remember Me UI shipping wi
 
 - Host an API endpoint that 
     * expects a Http POST of a LoginCommand object
-    * returns a Json representation of an IUser and a cookie, as returned by a call to IAuthCookieCreator.CreateAuthCookie
+    * returns a JSON representation of an IUser and a cookie, as returned by a call to IAuthCookieCreator.CreateAuthCookie
 - Implement the IAuthenticationProvider interface and have 
     * GetAuthenticationProviderElement return an element with
         * a Name

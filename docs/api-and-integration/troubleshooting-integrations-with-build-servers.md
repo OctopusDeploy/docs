@@ -12,9 +12,9 @@ If you are reading this doc, odds are you already tried to run an Octopus-relate
 
 !toc
 
-## Troubleshooting build steps created by the Octopus Deploy team{#Octopus-Steps}
+## Troubleshooting Build Steps Created by the Octopus Deploy Team {#Octopus-Steps}
 
-### What happens when an Octopus step is executed during the build process {#Octopus-Steps-What-happens-behind}
+### What Happens When an Octopus Step is Executed During the Build Process {#Octopus-Steps-What-happens-behind}
 
 The Octopus Deploy team supports many of the most popular integration plugins/extensions our there, like the ones for [VSTS/TFS](\docs\api-and-integration\tfs-vsts\index.md), [Teamcity](\docs\api-and-integration\teamcity.md) and [Bamboo](\docs\api-and-integration\bamboo.md). All the steps provided by these extensions/plugins are nothing but wrappers of `Octo.exe` that provide a UI with fields whose values will be passed to this command line tool during the build.
 
@@ -37,13 +37,13 @@ The same holds true for this **Package Application** step in VSTS and its log ou
 
 The bottom line is that every step will in the end call an `Octo.exe` command. For the full list of commands [check our documentation](\docs\api-and-integration\octo.exe-command-line\index.md).
 
-### Troubleshooting the error {#Octopus-Steps-Troubleshooting-the-error}
+### Troubleshooting the Error {#Octopus-Steps-Troubleshooting-the-error}
 
 As shown in the above screenshots, the exact `Octo.exe` command that was executed (and failed) will be printed in the logs. So the best way to troubleshoot that error would be to copy the full command, and try to run it yourself by [downloading Octo.exe to your local machine](https://octopus.com/downloads). A few tips and gotchas for this:
 
 - If you are not familiar with `Octo.exe`, then [read our documentation about it](\docs\api-and-integration\octo.exe-command-line\index.md). Understanding how the command you are troubleshooting works will be critical for your success.
 
-- Your build server will most likely execute the `Octo.exe` command from a build agent machine, which won't be identical to your workstation (mostly network-wise). Keep this in mind when troubleshooting your `Octo.exe`command, and if possible always try to run it from the same machine that your build server is using as build agent.
+- Your build server will most likely execute the `Octo.exe` command from a build agent machine, which won't be identical to your workstation (mostly network-wise). Keep this in mind when troubleshooting your `Octo.exe` command, and if possible always try to run it from the same machine that your build server is using as build agent.
 
 - Each version of our extension/plugin will ship with the latest version of `Octo.exe` at the moment it was created. Perhaps the version of `Octo.exe` used by your current extension version is not the latest, in which case the recommended thing to do would be to upgrade your extension to the latest version available. You can tell which version of `Octo.exe` you are using from the initial line that gets printed by the command:
 
@@ -58,9 +58,9 @@ As shown in the above screenshots, the exact `Octo.exe` command that was execute
 ```
 *In this case we are using `Octo.exe` version `3.3.8` against an Octopus Server version `3.15.8`*
 
-- If the version of `Octo.exe` that your build server is using is out of date, and you downloaded that same version and you were able to reproduce the error, try downloading the latest version available of `Octo.exe` and see if you can still reproduce it. You can [download every single version of octo.exe from Nuget](https://www.nuget.org/packages/OctopusTools/). It's possible that the bug was already fixed and we only need to ship a new version of the plugin/extension with the fixed `octo.exe`. If that's the case, then [log an issue in our forum](https://help.octopus.com) so we can take care of it.
+- If the version of `Octo.exe` that your build server is using is out of date, and you downloaded that same version and you were able to reproduce the error, try downloading the latest version available of `Octo.exe` and see if you can still reproduce it. You can [download every single version of octo.exe from NuGet](https://www.nuget.org/packages/OctopusTools/). It's possible that the bug was already fixed and we only need to ship a new version of the plugin/extension with the fixed `octo.exe`. If that's the case, then [log an issue in our forum](https://help.octopus.com) so we can take care of it.
 
-### Last resource - Ask for help {#Octopus-Steps-Ask-for-help}
+### Last Resource - Ask For Help {#Octopus-Steps-Ask-for-help}
 
 The Octopus support team will always be there to give you a hand. But do know that the first thing we'll ask you is if you read this guide and followed all the steps on it! If you did and you still couldn't find the error, then [log a ticket in our forum](https://help.octopus.com) and include:
 
@@ -76,8 +76,8 @@ Make sure to set the ticket as **private** before attaching any kind of log, as 
 :::
 
 
-## Troubleshooting build steps created by non-octopus-team-members {#Custom-Steps}
+## Troubleshooting Build Steps Created by Non-Octopus-team-members {#Custom-Steps}
 
 If you are using a custom step/plugin/extension to hook up your Build server with Octopus, then all we can recommend you is to know your `Octo.exe` game very well.
 
-If you are using a build server technology [that's not in our supported list](\docs\api-and-integration\index.md), then we encourage you to go to our [Uservoice page](https://octopusdeploy.uservoice.com/) and log a feature request asking us to support it. If enough users vote for it, It'll show up in our radar and we might be able to do something about it.
+If you are using a build server technology [that's not in our supported list](\docs\api-and-integration\index.md), then we encourage you to go to our [UserVoice page](https://octopusdeploy.uservoice.com/) and log a feature request asking us to support it. If enough users vote for it, It'll show up in our radar and we might be able to do something about it.

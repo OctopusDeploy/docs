@@ -13,7 +13,7 @@ Out of the box, Octopus provides built-in steps to deploy to the following Azure
 - [Azure Cloud Services](/docs/deployment-examples/azure-deployments/cloud-services/index.md).
 - [Service Fabric](/docs/deployment-examples/azure-deployments/deploying-to-service-fabric/index.md).
 - [Executing PowerShell scripts using the Azure cmdlets](/docs/deployment-examples/custom-scripts/azure-powershell-scripts.md). Follow our guide on [running Azure PowerShell scripts](/docs/deployment-examples/azure-deployments/running-azure-powershell/index.md).
-- The one you are looking for is not here? Leave us a feature request in [Uservoice](https://octopusdeploy.uservoice.com/)!
+- The one you are looking for is not here? Leave us a feature request in [UserVoice](https://octopusdeploy.uservoice.com/)!
 
 :::hint
 **Where do Azure Steps execute?**

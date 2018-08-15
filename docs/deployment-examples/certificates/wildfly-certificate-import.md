@@ -1,7 +1,6 @@
 ---
 title: Importing Certificates into WildFly and JBoss EAP
 description: Configure WildFly or JBoss EAP with a certificate managed by Octopus.
-version: "4.1"
 ---
 
 With the `Configure certificate for WildFly or EAP` step, certificates managed by Octopus can be configured as part of a WildFly of Red Hat JBoss EAP domain or standalone instance to allow HTTPS traffic to be served.

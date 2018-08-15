@@ -32,7 +32,7 @@ There are a number of typical steps that are required to push a package to Octop
 We'll assume that there is already a Bamboo build plan in place that successfully builds an application.
 
 ### 2. Create the Package
-With the application built, we need to add it to an archive that complies with the Octopus Deploy [versioning requirements](/docs/packaging-applications/versioning.md). In this example we will stick to a simple `AppName.Major.Minor.Patch` semver format.
+With the application built, we need to add it to an archive that complies with the Octopus Deploy [versioning requirements](/docs/packaging-applications/versioning.md). In this example we will stick to a simple `AppName.Major.Minor.Patch` SemVer format.
 
 Creating the package is done with the `Octopus Deploy: Pack Packages` task. In addition to the [common configuration fields](#commonConfiguration), this task requires the name of the package, the type of package to create, the version number of the package, the base folder containing the files to be packaged, paths to be included in the package, and enabling any existing package files to be overwritten.
 
@@ -45,15 +45,15 @@ If you are building .NET applications on an instance of Bamboo hosted on Windows
 #### Package ID
 The `Package ID` field defines the name or ID of the package to be created. In this example we will use the ID `myapplication`.
 
-#### Version number
+#### Version Number
 
 The `Version number` fields defines the version of the package to create. This field is optional, but it is highly recommended that the version be generated from the Bamboo build number. We will set the version to `0.0.${bamboo.buildNumber}`.
 
-#### Package format
+#### Package Format
 
 The `Package format` options allow you to build either a ZIP or a NUGET file. ZIP is the recommended format.
 
-#### Package base folder
+#### Package Base Folder
 
 The `Package base folder` option defines the base folder that contains the files that are to be packed up.
 
@@ -63,7 +63,7 @@ For a Java application built by Gradle, the files will typically be found under 
 
 For a .NET application the files will typically be found under a folder like `${bamboo.build.working.directory}/myapplication/bin/Release/netcoreapp1.1`.
 
-#### Package include paths
+#### Package Include Paths
 
 The `Package include paths` field lists the files that are to be packed into the package.
 
@@ -71,7 +71,7 @@ For a Java web application you would typically pack the WAR file, which can be i
 
 For .NET applications you would typically be packing all application files like executables, config files and DLLs so leave this blank unless you wish to specify a specific set of files.
 
-#### Overwrite existing package
+#### Overwrite Existing Package
 
 Selecting the `Overwrite existing package` option means that any existing local packages will be overwritten. It is useful to select this option because it means that packages can be repacked without error if the Bamboo build plan is rerun.
 
@@ -83,15 +83,15 @@ Pushing the package to Octopus Deploy is done with the `Octopus Deploy: Push Pac
 
 This step runs the [push command](/docs/api-and-integration/octo.exe-command-line/pushing-packages.md) on the command line tool.
 
-#### Package paths
+#### Package Paths
 
-The `Package paths` field defines the [Ant paths](https://ant.apache.org/manual/dirtasks.html) that are used to match packages to be pushed to Octopus Deploy. The Ant path `**/*${bamboo.buildNumber}.zip` mathes the zip file created with during the previous step.
+The `Package paths` field defines the [Ant paths](https://ant.apache.org/manual/dirtasks.html) that are used to match packages to be pushed to Octopus Deploy. The Ant path `**/*${bamboo.buildNumber}.zip` matches the zip file created with during the previous step.
 
 :::hint
 Note that it is recommended that the package paths defined here are specific to the build. While the Ant path `**/*.zip` does match the package, it also match any old packages that might have been created in previous builds and not cleaned up. This means these less specific paths can result in old packages being uploaded, which is usually not the desired result.
 :::
 
-#### Force overwrite existing packages
+#### Force Overwrite Existing Packages
 
 The `Force overwrite existing packages` option can be selected to allow existing packages to be overwritten.
 
@@ -109,7 +109,7 @@ This steps runs the [create-release command](/docs/api-and-integration/octo.exe-
 
 The `Project` field defines the name of the [Octopus Deploy project](/docs/deployment-process/projects/index.md) that the release will be created for.
 
-#### Release number
+#### Release Number
 
 The `Release Number` field defines the version number for the release.
 
@@ -123,7 +123,7 @@ It is recommended that this field be left blank, because the `Ignore existing re
 and if the environment already exists and the `Ignore existing releases` option is enabled no deployments will take place. We'll use a dedicated
 step to handle deployments.
 
-#### Ignore existing releases
+#### Ignore Existing Releases
 
 The `Ignore existing releases` option can be selected to skip the create release step if the release version already exists.
 
@@ -145,13 +145,13 @@ The `Project` field defines the name of the [Octopus Deploy project](/docs/deplo
 
 The `Environment(s)` field defines the [Octopus Deploy environments](/docs/infrastructure/environments/index.md) that the release is to be deployed to.
 
-#### Release number
+#### Release Number
 
 The `Release Number` field defines the release version number to deploy. This should match the release number from the create release step i.e. `0.0.${bamboo.buildNumber}`.
 
 ![Deploy Release](/docs/images/3048176/deploy-release.png)
 
-### (Optional, and not recommended) Promote a Release
+### (Optional, and Not Recommended) Promote a Release
 
 Releases can be promoted to new environments with the `Octopus Deploy: Promote Release` task. In addition to the [common configuration fields](#commonConfiguration), this task requires the Octopus Deploy project to deploy, the environment to promote from, and the environment to promote to.
 
@@ -165,11 +165,11 @@ Because the promotion from one environment to another is not tied to any particu
 
 The `Project` field defines the name of the [Octopus Deploy project](/docs/deployment-process/projects/index.md) that the deployment will be done for.
 
-#### Promote from
+#### Promote From
 
 This `Promote from` field defines the environment whose release will be promoted to the `Promote to` environment.
 
-#### Promote to
+#### Promote To
 
 This `Promote to` field defines the environment whose release will be promoted from the `Promote from` environment.
 
@@ -193,11 +193,11 @@ Click the `Add new executable` link to specify the location of the command line 
 
 ![Add new executable](/docs/images/3048176/executable.png)
 
-#### Enable debug logging
+#### Enable Debug Logging
 
 The `Enable debug logging` option is used to enable detailed logging from the command line tool.
 
-#### Additional command line arguments
+#### Additional Command Line Arguments
 
 The `Additional command line arguments` field is used to specify additional arguments to pass to the command line tool.
 You can find more information on the arguments accepted by the command line tool at the
@@ -214,7 +214,7 @@ The recommended task sequence for a deployment project in Bamboo is this:
 1. A `Octopus Deploy: Create Release` task in the Bamboo deployment plan with a `Release number` linked to the Bamboo build number, the `Ignore existing releases` option selected, and no `Environments(s)` set to deploy to.
 2. A `Octopus Deploy: Deploy Release` task in the Bamboo deployment plan with a `Release number` linked to the Bamboo build number.
 
-These steps will allow packages to be pushed and repushed, and new releases to be created, deployed and rolled back to previous releases.
+These steps will allow packages to be pushed and re-pushed, and new releases to be created, deployed and rolled back to previous releases.
 
 ## Troubleshooting
 

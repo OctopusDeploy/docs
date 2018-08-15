@@ -5,7 +5,7 @@ position: 13
 version: 3.12
 ---
 
-This guide provides details on how to debug PowerShell scripts while they are being deployed by Octopus Deploy to remote machines. This guide demonstrates connecting via IP address to an untrusted machine on a public network. Some steps may be ommitted when connecting to machines on the same subnet or domain.
+This guide provides details on how to debug PowerShell scripts while they are being deployed by Octopus Deploy to remote machines. This guide demonstrates connecting via IP address to an untrusted machine on a public network. Some steps may be omitted when connecting to machines on the same subnet or domain.
 
 ## Configuring PowerShell Remoting
 PowerShell remoting must be enabled on the remote machine and configured for SSL and the trust established between the remote machine and the debugging machine.
