@@ -6,6 +6,8 @@ position: 80
 
 **Short description:** Octopus executes your scripts as provided using the language and runtime best suited to the script in the host operating environment. PowerShell is the only common scripting language which supports script integrity verification, but your scripts are [executed using -ExecutionPolicy Unrestricted](https://github.com/OctopusDeploy/Calamari/blob/b23ea09bd17a49fd2b0c9bae588ef1012db4f8c2/source/Calamari.Shared/Integration/Scripting/WindowsPowerShell/PowerShellBootstrapper.cs#L71). Octopus provides a lot of value to your users by modifying scripts dynamically on their behalf, and we believe a restrictive PowerShell Execution Policy on its own not a foolproof security solution.
 
+**Short solution:** set your PowerShell Execution Policy for general user accounts to one of the more restrictive options, but allow the Octopus user account to use the `Unrestricted` security policy.
+
 ## Scripting in Octopus
 
 Octopus supports a wide variety of scripting languages and runtimes. The content of these scripts can come from a wide variety of sources, including:
@@ -55,7 +57,9 @@ At this point we do not see the genuine value proposition in supporting a featur
 
 ## Recommendations
 
-If script integrity is a real problem for you and would preclude you from using Octopus, please [get in touch with us](https://octopus.com/support). We would be very happy to help find an acceptable solution for your specific situation.
+Set your PowerShell Execution Policy for general user accounts to one of the more restrictive options, but allow the Octopus user account to use the `Unrestricted` security policy.
+
+If this approach doesn't feel like it will work, and script integrity is a real problem for you please [get in touch with us](https://octopus.com/support). We would be very happy to help find an acceptable solution for your specific situation.
 
 In case you want to read further and consider other options for securing your Octopus installation:
 
