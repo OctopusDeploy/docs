@@ -4,13 +4,7 @@ description: Script integrity is an interesting topic, especially in security se
 position: 1
 ---
 
-**Short description:** Octopus executes your scripts as provided using the language and runtime best suited to the script in the host operating environment. PowerShell is the only common scripting language which supports script integrity verification, but your scripts are [executed using -ExecutionPolicy Unrestricted](https://github.com/OctopusDeploy/Calamari/blob/b23ea09bd17a49fd2b0c9bae588ef1012db4f8c2/source/Calamari.Shared/Integration/Scripting/WindowsPowerShell/PowerShellBootstrapper.cs#L71). Octopus provides a lot of value to your users by modifying scripts dynamically on their behalf, and we believe a restrictive PowerShell Execution Policy on its own is not a foolproof security solution.
-
-**Short solution:** set your PowerShell Execution Policy for general user accounts to one of the more restrictive options, but allow the Octopus user account to use the `Unrestricted` security policy.
-
-## Scripting in Octopus
-
-Octopus supports a wide variety of scripting languages and runtimes. The content of these scripts can come from a wide variety of sources, including:
+Octopus supports a wide variety of scripting languages and runtimes. Octopus executes your scripts as provided using the language and runtime best suited to the script in the host operating environment. The content of these scripts can come from a wide variety of sources, including:
 
 - Built-in steps provided by Octopus
 - [Step templates contributed by the community and curated by Octopus](/docs/deployment-process/steps/community-step-templates.md)
@@ -26,8 +20,8 @@ Once this is done Octopus will inject your script into a "bootstrapper" enabling
 
 Octopus does not actively enforce script integrity.
 
-- PowerShell is the only scripting runtime which supports script verification.
-- PowerShell Execution Policies alone are not a foolproof security solution: PowerShell will happily execute a script with malicious content as long as it meets the requirements of the Execution Policy.
+- PowerShell is the only common scripting language which supports script integrity verification, but your scripts are [executed using -ExecutionPolicy Unrestricted](https://github.com/OctopusDeploy/Calamari/blob/b23ea09bd17a49fd2b0c9bae588ef1012db4f8c2/source/Calamari.Shared/Integration/Scripting/WindowsPowerShell/PowerShellBootstrapper.cs#L71).
+- PowerShell Execution Policies alone are not a foolproof security solution, and can be thwarted quite simply: PowerShell will happily execute a script with malicious content as long as it meets the requirements of the Execution Policy.
 - Octopus provides a lot of value to you by modifying your scripts on your behalf, which invalidates the signature of the original script.
 - Octopus could dynamically re-sign the resulting script after modification, but this introduces extra complexity and additional security concerns for very little gain: the signed script has a very short life span.
 
