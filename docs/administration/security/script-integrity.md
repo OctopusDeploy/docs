@@ -1,10 +1,10 @@
 ---
 title: Script integrity in Octopus Deploy
-description: Sometimes we are asked about verifying script integrity in Octopus Deploy. Some customers have decided to prevent execution of unsigned PowerShell scripts. This page describes our stance on this topic.
+description: Script integrity is an interesting topic, especially in security sensitive situations. This page describes how scripting works in Octopus Deploy, PowerShell Execution Policies, and why we don't enforce script integrity checking.
 position: 80
 ---
 
-**Short description:** Octopus executes your scripts as provided using the language and runtime best suited to the script in the host operating environment. PowerShell scripts are executed using [-ExecutionPolicy Unrestricted](https://github.com/OctopusDeploy/Calamari/blob/b23ea09bd17a49fd2b0c9bae588ef1012db4f8c2/source/Calamari.Shared/Integration/Scripting/WindowsPowerShell/PowerShellBootstrapper.cs#L71) because Octopus provides a lot of value to your users by modifying scripts dynamically on their behalf.
+**Short description:** Octopus executes your scripts as provided using the language and runtime best suited to the script in the host operating environment. PowerShell is the only common scripting language which supports script integrity verification, but your scripts are [executed using -ExecutionPolicy Unrestricted](https://github.com/OctopusDeploy/Calamari/blob/b23ea09bd17a49fd2b0c9bae588ef1012db4f8c2/source/Calamari.Shared/Integration/Scripting/WindowsPowerShell/PowerShellBootstrapper.cs#L71). Octopus provides a lot of value to your users by modifying scripts dynamically on their behalf, and we believe a restrictive PowerShell Execution Policy on its own not a foolproof security solution.
 
 ## Scripting in Octopus
 
@@ -25,9 +25,9 @@ Once this is done Octopus will inject your script into a "bootstrapper" enabling
 Octopus does not actively enforce script integrity.
 
 - PowerShell is the only scripting runtime which supports script verification.
-- PowerShell Execution Policies are not a foolproof solution: PowerShell will happily execute a script with malicious content as long as it meets the requirements of the Execution Policy.
+- PowerShell Execution Policies alone are not a foolproof security solution: PowerShell will happily execute a script with malicious content as long as it meets the requirements of the Execution Policy.
 - Octopus provides a lot of value to you by modifying your scripts on your behalf, which invalidates the signature of the original script.
-- Octopus could dynamically re-sign the resulting script after modification, but this introduces extra complexity for very little gain since the signed script has a very short life span.
+- Octopus could dynamically re-sign the resulting script after modification, but this introduces extra complexity and additional security concerns for very little gain: the signed script has a very short life span.
 
 ### More on PowerShell Execution Policies and Octopus
 
@@ -37,8 +37,8 @@ The short answer is: you cannot.
 
 Requiring PowerShell scripts to be signed means:
 
-1. Your server needs to trust the X.509 Certificate used to sign the script
-2. The script cannot be modified after signing
+1. Your server needs to trust the code-signing certificate used to sign the script.
+2. The script can only be executed if it remains unchanged after it was signed.
 
 When it comes to a trusted certificate chain this is a solvable problem. Think back to the different sources your scripts can come from:
 
@@ -46,7 +46,12 @@ When it comes to a trusted certificate chain this is a solvable problem. Think b
 - We could sign any scripts we curate into the community library in a similar way.
 - You could force your team to sign any custom scripts they author using your own trusted code-signing certificate.
 
-The real problem is that by signing these scripts, they cannot be modified in any way. This eliminates a lot of the value Octopus can provide by tailoring your scripts according to your needs.
+Let's consider the next step: to provide value Octopus will modify the original script which invalidates the original signature... but what if Octopus could dynamically re-sign the modified script with a trusted certificate. We could make this work, but it does introduce additional complexity and security concerns:
+
+1. You could provide Octopus with the public and private key pair for a code-signing certificate which is trusted by your servers.
+2. Octopus would push that code-signing certificate onto the server where the script will be modified and executed, which introduces a security concern: anyone with access to that server could sign a script containing malicious content.
+
+At this point we do not see the genuine value proposition in supporting a feature like this.
 
 ## Recommendations
 
