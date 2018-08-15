@@ -18,7 +18,7 @@ To use Okta authentication with Octopus you will need to:
 
 The first steps are to configure Okta to trust your instance of Octopus Deploy by configuring an App in your Okta account.
 
-### Set up an App {#Oktaauthentication-SetupanApp}
+### Set Up an App {#Oktaauthentication-SetupanApp}
 
 You must first have an account at [Okta](https://www.okta.com/). You can sign up for a free [developer account](https://developer.okta.com/signup/).
 
@@ -69,7 +69,7 @@ Select the **Sign On** tab and scroll down to the **OpenID Connect ID Token** se
 
 ![](/docs/images/okta-authentication/okta-openid-token.png "width=500")
 
-If you want groups from Okta to flow through to Octopus, you'll need to change the _Groups claim_ fields as follows
+If you want groups from Okta to flow through to Octopus, you'll need to change the _Groups claim_ fields as follows:
 
 ![Okta Groups claim](okta-groups-claimtype.png)
 
@@ -115,7 +115,7 @@ In versions prior to 2018.3.5 the Role Claim Type and Scope had different defaul
 
 :::
 
-### Octopus user accounts are still required {#Oktaauthentication-Octopususeraccountsarestillrequired}
+### Octopus User Accounts Are Still Required {#Oktaauthentication-Octopususeraccountsarestillrequired}
 
 Octopus still requires a [user account](/docs/administration/managing-users-and-teams/index.md) so you can assign those people to Octopus teams and subsequently grant permissions to Octopus resources. Octopus will automatically create a [user account](/docs/administration/managing-users-and-teams/index.md) based on the profile information returned in the security token, which includes an **Identifier**, **Name**, and **Email Address**.
 
@@ -129,7 +129,7 @@ When the security token is returned from the external identity provider, Octopus
 If you already have Octopus user accounts and you want to enable external authentication, simply make sure the Email Address matches in both Octopus and the external identity provider. This means your existing users will be able to sign in using an external identity provider and still belong to the same teams in Octopus.
 :::
 
-### Getting permissions
+### Getting Permissions
 
 !include <admin-user>
 
@@ -141,7 +141,7 @@ You can also check Okta logs by clicking the **View Logs** link on the Okta admi
 
 ![](/docs/images/okta-authentication/okta-view-logs.png "width=500")
 
-### Double and Triple check your configuration {#Oktaauthentication-DoubleandTriplecheckyourconfiguration}
+### Double and Triple Check Your Configuration {#Oktaauthentication-DoubleandTriplecheckyourconfiguration}
 
 Unfortunately security-related configuration is sensitive to everything. Make sure:
 
@@ -149,11 +149,11 @@ Unfortunately security-related configuration is sensitive to everything. Make su
 - remember things are case-sensitive
 - remember to remove or add slash characters - they matter too!
 
-### Check OpenID Connect metadata is working {#Oktaauthentication-CheckOpenIDConnectmetadataisworking}
+### Check OpenID Connect Metadata is Working {#Oktaauthentication-CheckOpenIDConnectmetadataisworking}
 
 You can see the OpenID Connect metadata by going to the Issuer address in your browser adding `/.well-known/openid-configuration` to the end. In our example this would have been something like `https://dev-xxxxxx.oktapreview.com/.well-known/openid-configuration`
 
-### Inspect the contents of the security token {#Oktaauthentication-Inspectthecontentsofthesecuritytoken}
+### Inspect the Contents of the Security Token {#Oktaauthentication-Inspectthecontentsofthesecuritytoken}
 
 Perhaps the contents of the security token sent back by Okta aren't exactly the way Octopus expected, especially certain claims which may be missing or named differently. This will usually result in the Okta user incorrectly mapping to a different Octopus User than expected. The best way to diagnose this is to inspect the JSON Web Token (JWT) which is sent from Okta to Octopus via your browser. To inspect the contents of your security token:
 

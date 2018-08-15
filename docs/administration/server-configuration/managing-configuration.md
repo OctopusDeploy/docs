@@ -19,7 +19,7 @@ In the Octopus Deploy web portal, you can access configuration by navigating to 
 
 ## Octopus.Client
 
-Using [Octopus.Client](/docs/api-and-integration/octopus.client.md), each of the configuration types can be managed programmatically, reading from and writing back to the Octopus Deploy database. 
+Using [Octopus.Client](/docs/api-and-integration/octopus.client.md), each of the configuration types can be managed programmatically, reading from and writing back to the Octopus Deploy database.
 
 The class definitions for each of the configurations is available by referencing the relevant `Octopus.Client.Extensibility.*` library, which are available via NuGet:
 
@@ -62,7 +62,7 @@ webportalConfig.Security.HttpStrictTransportSecurityEnabled = true;
 webportalConfig = repository.Configuration.Modify(webportalConfig);
 ```
 
-### Powershell
+### PowerShell
 
 ```powershell
 add-type -path 'C:\PathTo\Octopus.Client.dll'

@@ -40,7 +40,7 @@ Octopus relies on Active Directory users being configured with enough informatio
 
 These values can be used by Octopus to uniquely identify which Octopus User Account should be associated with each Active Directory User.
 
-## Verifying configuration values {#TroubleshootingActiveDirectoryintegration-Verifyingconfigurationvalues}
+## Verifying Configuration Values {#TroubleshootingActiveDirectoryintegration-Verifyingconfigurationvalues}
 
 Most errors we've seen are due to a lack of permissions or various active directory configuration issues.  Additionally, the errors are generally found when trying to retrieve a user's groups.  The following are some examples.
 
@@ -73,7 +73,7 @@ Notes:
 - Ensure you replace the domain user name ``ExampleUser`` with a sample Octopus username who would normally log into the system.
 - It's recommended that you run this script as the same user you're running the Octopus service under and on the same server so it reproduces the problem accurately.
 
-If specifing a container.
+If specifying a container.
 - Ensure you replace the active directory container string ``CN=Users, DC=acme, DC=local`` with the appropriate value for your network. If you're not sure of this value, we suggest talking to your network team (active directory expert) or trying different values and testing it with the script. For additional help on building/finding your container string, this StackOverflow answer is excellent. [http://serverfault.com/a/130556](http://serverfault.com/a/130556)
 
 See the following documentation page for further information on configuring Octopus to use a [specific Active Directory contianer](/docs/administration/authentication/specifying-a-custom-container-to-use-for-ad-authentication.md).
@@ -139,13 +139,13 @@ The diagnostic logs can be viewed in the Event Viewer.
 Remember to reset the registry values once you're finished troubleshooting.
 :::
 
-## Read-Only Domain Controllers are not supported {#TroubleshootingActiveDirectoryintegration-Read-OnlyDomainControllersarenotsupported}
+## Read-Only Domain Controllers Are Not Supported {#TroubleshootingActiveDirectoryintegration-Read-OnlyDomainControllersarenotsupported}
 
 Read-only Domain Controllers are not currently supported by Octopus. The .NET API we're using ignores read-only DCs.
 
 If there are any development teams willing to investigate RODCs further, our [AD/Directory Services authentication provider](https://github.com/OctopusDeploy/DirectoryServicesAuthenticationProvider) is open source (if you are using Octopus 3.5+), so please feel free to checkout the current implementation if you wish to "roll your own" AD provider that includes support for RODCs and share with the Octopus community. ​:smiley:​
 
-## Run as a different user not working {#TroubleshootingActiveDirectoryintegration-Runasadifferentusernotworking}
+## Run as a Different User Not Working {#TroubleshootingActiveDirectoryintegration-Runasadifferentusernotworking}
 
 If you are signed into your Windows AD account and wish to sign in as a different AD user to Octopus, you need to do so via forms-based authentication and login with a fully qualified domain username (*eg. domain\user*). You **cannot** right-click and launch your browser as a different AD user.
 
@@ -157,7 +157,7 @@ Octopus.Server.exe configure --allowFormsAuthenticationForDomainUsers=true
 Octopus.Server.exe service --start
 ```
 
-## Domain Groups not loading across multiple domains
+## Domain Groups Not Loading Across Multiple Domains
 
 In scenarios where you have to cross domain boundaries, issues can easily arise due to service account permissions.  One such issue can occur when you have users who are members of groups from multiple domains.  In this scenario, you may find that Octopus can only determine the groups in the same domain as the user itself and as such the user won't be treated as though they are in all of the correct teams.
 

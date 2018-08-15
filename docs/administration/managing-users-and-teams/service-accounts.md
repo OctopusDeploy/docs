@@ -1,6 +1,6 @@
 ---
 title: Service Accounts
-description: Creating Service Accounts to provide individual services with the least privileges required for the tasks they will perform. 
+description: Creating Service Accounts to provide individual services with the least privileges required for the tasks they will perform.
 position: 2
 ---
 
@@ -20,7 +20,7 @@ It is best to create **Service accounts** for this purpose to provide each servi
 Service accounts authenticate with the Octopus API using their [Octopus API Key](/docs/api-and-integration/api/how-to-create-an-api-key.md).
 :::
 
-## Creating a service account {#ServiceAccounts-Creatingaserviceaccount}
+## Creating a Service Account {#ServiceAccounts-Creatingaserviceaccount}
 
 Creating a new Service account is very similar to creating a new User account:
 

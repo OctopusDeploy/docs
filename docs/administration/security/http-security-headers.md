@@ -24,7 +24,7 @@ First available: `2.6.5`
 
 The `Cache-Control` header configures how responses are cached both by intermediate proxies and by the user's browser.
 
-The Octopus portal does not send the `Cache-Control` header on the application (`/app`) endpoint as there is no sensitive data contained in, nor transferred through this mechanmism. However, all API requests (the `/api` endpoint) do send the header with a value of `no-cache, no-store`, requesting that the response is never stored or written to disk.
+The Octopus portal does not send the `Cache-Control` header on the application (`/app`) endpoint as there is no sensitive data contained in, nor transferred through this mechanism. However, all API requests (the `/api` endpoint) do send the header with a value of `no-cache, no-store`, requesting that the response is never stored or written to disk.
 
 The dashboard has in-memory only caching (to increase performance), which can be disabled in {{Configuration,Features,Browser Caching}}. The header itself is not configurable on either `/app` or `/api` endpoints.
 

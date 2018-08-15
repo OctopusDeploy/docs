@@ -6,11 +6,11 @@ position: 2300
 
 In some environment the Windows Services for Octopus Deploy Server and Tentacle may not reliably start when the server is rebooted.  This typically occurs during a restart after Windows Updates have been installed.
 
-## Why does it happen? {#ServiceWatchdog-Whydoesithappen?}
+## Why Does it Happen? {#ServiceWatchdog-Whydoesithappen?}
 
 The exact cause of this issue has not yet been determined, however investigation indicates that it may be related to a delay caused by slow initialization of the .NET CLR during these restarts.
 
-## What can you do about it? {#ServiceWatchdog-Whatcanyoudoaboutit?}
+## What Can You Do About It? {#ServiceWatchdog-Whatcanyoudoaboutit?}
 
 As of Octopus Deploy 3.7.17 there is a **watchdog** command that can be used on the command line to configure a Windows Scheduled Task that ensures the services are running.  The command is used as follows.
 
@@ -55,7 +55,7 @@ If you have scheduled the watchdog to monitor all instances on a server but you 
 - Edit the watchdog to only check the other instances
 :::
 
-### 
+###
 Recreating the Watchdog {#ServiceWatchdog-RecreatingtheWatchdog}
 
 As mentioned above, running create again can be used to change the instances and interval for the watchdog, but all other settings will remain unchanged.  If you do want to reset all of the other settings you can easily combine the delete and create, for example
@@ -86,7 +86,7 @@ Octopus.Server.exe watchdog --create --instances OctopusServer --interval 10
 ```
 :::
 
-## Installation locations {#ServiceWatchdog-Installationlocations}
+## Installation Locations {#ServiceWatchdog-Installationlocations}
 
 Please note that the task created by the watchdog references the Octopus Server/Tentacle executable from the location is was in when the watchdog command was executed.
 

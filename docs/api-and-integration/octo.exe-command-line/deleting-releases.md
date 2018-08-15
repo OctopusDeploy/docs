@@ -79,7 +79,7 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-## Basic example {#Deletingreleases-Basicexample}
+## Basic Example {#Deletingreleases-Basicexample}
 
 The following command will delete all the releases from the project **Web** between versions **0.0.8** to **0.0.12**.
 

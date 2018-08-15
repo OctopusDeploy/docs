@@ -123,7 +123,7 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-## Basic example {#Promotingreleases-Basicexample}
+## Basic Example {#Promotingreleases-Basicexample}
 
 The following command will promote the latest release of the*Web* projectdeployed to *Development*to the environment *Staging.*
 

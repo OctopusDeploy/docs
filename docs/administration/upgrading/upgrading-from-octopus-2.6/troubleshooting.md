@@ -7,7 +7,7 @@ position: 4
 If your upgrade from 2.6 to 3.x doesn't go smoothly, this page will help you find a solution. If this page doesn't help, contact support.
 
 :::hint
-Always ensure you have tried to upgrade with the latest version of the Hydra Nuget package.
+Always ensure you have tried to upgrade with the latest version of the Hydra NuGet package.
 :::
 
 ## Rolling Back {#Troubleshooting-RollingBack}

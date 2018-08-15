@@ -12,7 +12,7 @@ Have you heard about [Octopus Cloud](https://octopus.com/cloud)? We take care of
 
 !toc
 
-## Before you begin
+## Before You Begin
 
 Octopus Deploy is a complex system with many security features baked in and tuned by default. Take some time to understand what we've built in to the product, and what you are ultimately taking responsibility for when self-hosting Octopus Deploy.
 
@@ -22,17 +22,17 @@ Reading this guide carefully before you begin will help you prepare all the secu
 
 Depending on your scenario you may want to relax or ignore these recommendations.
 
-### Familiarize yourself with Octopus Server
+### Familiarize Yourself With Octopus Server
 
 If you consider networking, the host operating system, Microsoft SQL Server, and Octopus Server: it is very likely Octopus Server is the new kid on the block. You should consider downloading a free trial of Octopus Server and setting it up on your local machine so you are familiar with how it works. This will eliminate some potential surprises as you progress through the security hardening.
 
 Learn about [getting started with Octopus Deploy](/docs/getting-started.md).
 
-### Choose your order for hardening
+### Choose Your Order For Hardening
 
 Depending on your familiarity with Octopus Server, or SQL Server, or networking, or your host operating system, you should consider the order in which you perform the hardening. For example, if you are unfamiliar with Octopus Server, perhaps you should start there, getting your server up and running and working as you'd expect, then move on to the host operating system, the SQL Server, and finally your networking.
 
-## Harden your Octopus Server
+## Harden Your Octopus Server
 
 1. Upgrade to the latest version
 1. Securely expose your Octopus Server to your users, infrastructure, and external services
@@ -41,18 +41,18 @@ Depending on your familiarity with Octopus Server, or SQL Server, or networking,
 1. Configure your workers
 1. Configure the way Octopus Server communicates with deployment targets
 
-### Upgrade to the latest version
+### Upgrade to the Latest Version
 
 Generally speaking, the latest available version of Octopus Server will be the most secure. You should consider a strategy for keeping Octopus Server updated. We follow a [responsible disclosure policy](index.md#disclosure-policy) so it is possible for you to be aware of any known issues which affect the security and integrity of your Octopus Server.
 
-### Securely expose your Octopus Server
+### Securely Expose Your Octopus Server
 
 For Octopus Server to be useful you need to expose its HTTP API to your users, and perhaps your infrastructure and some external services. There are many different approaches to solving this problem, but at its core you will want to:
 
 1. Use HTTPS over SSL. Learn about [safely exposing your Octopus Server](/docs/administration/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md).
 1. Configure the built in HTTP security features as appropriate for your scenario. Learn about [HTTP security headers](/docs/administration/security/http-security-headers.md).
 
-### Configure your workers {#configuring-workers}
+### Configure Your Workers {#configuring-workers}
 
 Workers offer a convenient way to run scripts and certain deployment steps. Learn about [workers](/docs/administration/workers/index.md).
 
@@ -62,7 +62,7 @@ Learn about the [built-in worker](/docs/administration/workers/built-in-worker.m
 
 Learn about [external workers](/docs/infrastructure/workers/index.md).
 
-### Configure how Octopus Server communicates with deployment targets
+### Configure How Octopus Server Communicates With Deployment Targets
 
 Octopus Server always uses a secure and tamper-proof communications transport for communicating with deployment targets:
 
@@ -74,7 +74,7 @@ The decisions you need to make are:
 1. Which kind of deployment targets do you want to allow? Listening Tentacles? Polling Tentacles? SSH? This will have an impact on how you configure your network. See [harden your network](#harden-your-network).
 1. Do you want to use a proxy server? Learn about [proxy support in Octopus Deploy](/docs/infrastructure/windows-targets/proxy-support.md).
 
-## Harden your host operating system
+## Harden Your Host Operating System
 
 These steps apply to the host operating system for your Octopus Server. You may want to consider similar hardening for your [deployment targets](/docs/infrastructure/index.md) and any [workers](/docs/administration/workers/index.md).
 
@@ -87,7 +87,7 @@ These steps apply to the host operating system for your Octopus Server. You may 
     a. Prevent creating scheduled tasks
 1. Configure your operating system firewall - see [harden your network](#harden-your-network)
 
-### Rename local administrator accounts
+### Rename Local Administrator Accounts
 
 It might seem really simple, but by renaming your `Administrator` account to anything else makes it that much harder for attackers to use this attack vector in to your Octopus Server.
 
@@ -106,7 +106,7 @@ if($user) {
 }
 ```
 
-### Configure malware protection
+### Configure Malware Protection
 
 Depending on your host operating system, and your requirements for malware protection, you may want to install and configure a specific application. At the very least, Windows Defender is a very good starting place on modern Windows operating systems.
 
@@ -135,7 +135,7 @@ Add-MpPreference -ExclusionPath "C:\Octopus\Work"
 Add-MpPreference -ExclusionPath "C:\Octopus\Work\*"
 ```
 
-### Prevent user-provided scripts from doing harm
+### Prevent User-provided Scripts From Doing Harm
 
 These steps only apply if you are running either the built-in worker or an external worker on the same host operating system as the Octopus Server itself. You should prevent custom scripts executed by these workers from doing harm to your Octopus Server.
 
@@ -143,7 +143,7 @@ These steps only apply if you are running either the built-in worker or an exter
 Consider using an [external worker](/docs/infrastructure/workers/index.md) and moving this workload to a different server. This is the very best way to prevent any potential for harm to your Octopus Server, and you won't need to rely on the rest of these steps to prevent harm to your Octopus Server.
 :::
 
-#### Run as a different user
+#### Run as a Different User
 
 Applies to: `Built-in worker` and `External worker` running on the Octopus Server
 
@@ -151,7 +151,7 @@ The first step is to make the worker run under a different security context to t
 
 See [configuring workers](#configuring-workers).
 
-#### Prevent unwanted file access
+#### Prevent Unwanted File Access
 
 Applies to: `Built-in worker` and `External worker` running on the Octopus Server
 
@@ -176,7 +176,7 @@ $acl.SetAccessRule(New-Object System.Security.AccessControl.FileSystemAccessRule
 Set-Acl -Path $workDirectory -AclObject $acl
 ```
 
-### Prevent unwanted execution
+### Prevent Unwanted Execution
 
 Applies to: `Built-in worker` and `External worker` running on the Octopus Server
 
@@ -196,7 +196,7 @@ foreach ($executable in $executables) {
 }
 ```
 
-### Prevent creating scheduled tasks or chron jobs
+### Prevent Creating Scheduled Tasks or Chron Jobs
 
 Applies to: `Built-in worker` and `External worker` running on the Octopus Server
 
@@ -214,7 +214,7 @@ Write-Output "Prevent users from creating scheduled tasks..."
 & "$env:SystemRoot\System32\icacls.exe" "$env:SystemRoot\System32\Tasks\" "/grant:r" "*S-1-5-11:(CI)(Rc)"
 ```
 
-## Harden your SQL Server
+## Harden Your SQL Server
 
 You don't need to do very much here specific to Octopus Server.
 
@@ -223,7 +223,7 @@ You don't need to do very much here specific to Octopus Server.
 
 Learn about managing your [Octopus SQL database](/docs/installation/sql-server-database.md).
 
-## Harden your network {#harden-your-network}
+## Harden Your Network {#harden-your-network}
 
 Your Octopus Server is very similar to any other secure web server: to do anything useful you need to allow certain network traffic in/out. Depending on your scenario you will need to apply these rules at several levels including:
 
@@ -232,7 +232,7 @@ Your Octopus Server is very similar to any other secure web server: to do anythi
 
 The TCP ports listed below are defaults, and can be changed if required - refer to the relevant documentation if you need to change from these default ports.
 
-### Inbound rules
+### Inbound Rules
 
 |Name|Type|Source|Target|Allow/Deny|Description|
 |---|---|---|---|---|---|
@@ -243,7 +243,7 @@ The TCP ports listed below are defaults, and can be changed if required - refer 
 |RDP|`TCP 3389`|Remote Desktop Users|Octopus Server|ALLOW|Allows your system administrators to perform maintenance tasks on your Octopus Server.|
 |All inbound|`ALL`|Anywhere|Octopus Server|DENY|Prevent any other unwanted inbound traffic.|
 
-### Outbound rules
+### Outbound Rules
 
 |Name|Type|Source|Target|Allow/Deny|Description|
 |---|---|---|---|---|---|
@@ -254,6 +254,6 @@ The TCP ports listed below are defaults, and can be changed if required - refer 
 |WinRM-HTTP|`TCP 5985`|Octopus Server|Anywhere|DENY|Prevents attackers from using the Octopus Server as a beachhead into your network via unsecured WinRM.|
 |All outbound|`ALL`|Octopus Server|Anywhere|???|Depends on how fine-grained control you want over what your Octopus Server can do. It also depends on where your workers are, and where you are deploying to. Allowing all outbound traffic is a good place to start, then perform network analysis to decide on your next step.|
 
-## Getting help
+## Getting Help
 
 We are more than happy to help if you are having trouble with self-hosting Octopus Deploy, or are concerned about the security or integrity of your Octopus installation. Don't hesitate to [get in touch](https://octopus.com/support)!

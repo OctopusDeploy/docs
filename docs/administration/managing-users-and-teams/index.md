@@ -12,7 +12,7 @@ You can manage teams from the **Teams** tab under **Configuration** in the Octop
 
 ![](teams.png "width=500")
 
-## User and Service accounts {#Managingusersandteams-UserandServiceaccounts}
+## User and Service Accounts {#Managingusersandteams-UserandServiceaccounts}
 
 **User accounts** are allowed to use both the Octopus web portal and the Octopus API, and can authenticate with a username and password, [Active Directory credentials](/docs/administration/authentication/authentication-providers/active-directory-authentication.md), or an [Octopus API key](/docs/api-and-integration/api/how-to-create-an-api-key.md).
 
@@ -22,7 +22,7 @@ You can manage teams from the **Teams** tab under **Configuration** in the Octop
 You should create a different User account for each person that will use Octopus Deploy. You should create a different [Service account](/docs/administration/managing-users-and-teams/service-accounts.md) for each service that will integrate with Octopus Deploy.
 :::
 
-## Inviting users {#Managingusersandteams-Invitingusers}
+## Inviting Users {#Managingusersandteams-Invitingusers}
 
 To streamline the process of adding multiple users you can use the **User invites** feature to generate one or more unique registration codes bound to one or more existing teams. These links can then be issued to users so that they can register their own details and be given automatic permissions for the team(s) the codes are bound to.
 
@@ -35,10 +35,10 @@ Prior to version 4.0 this feature was accessed via the **Invite users** button o
 In the example above, we are generating codes for the **Octopus Administrators** team, so anyone who uses one of the codes will automatically join that team when they have completed registration.
 
 :::warning
-Invite codes are only valid for 48-hours aftering being generated, so make sure you issue them quickly before the expire.
+Invite codes are only valid for 48-hours after being generated, so make sure you issue them quickly before the expire.
 :::
 
-## Creating teams {#Managingusersandteams-Creatingteams}
+## Creating Teams {#Managingusersandteams-Creatingteams}
 
 Creating teams lets you assign the same roles to groups of users. Users can be added to or removed from multiple teams, making it easier to manage permissions for specific users and teams. You can create new teams by using the **Add Team** button.
 
@@ -48,9 +48,9 @@ We limit which projects and environments these permissions apply to by adding sp
 
 ![](teams-create-new.png "width=500")
 
-### Restricting project and project group access
+### Restricting Project and Project Group Access
 
-When specifying both `Project Groups`and `Projects`  filters please be aware that both these filters complement each other. To better illustrate these filters in action let's consider the following project structure:
+When specifying both `Project Groups` and `Projects`  filters please be aware that both these filters complement each other. To better illustrate these filters in action let's consider the following project structure:
 
 | Project Groups | Projects                     |
 | -------------- | ---------------------------- |
@@ -92,7 +92,7 @@ The roles assigned by a team can be scoped by project or environment.
 You can learn more about in our [User Roles documentation](/docs/administration/managing-users-and-teams/user-roles.md)
 :::
 
-## System teams {#Managingusersandteams-Systemteams}
+## System Teams {#Managingusersandteams-Systemteams}
 
 Octopus Deploy comes with several built-in teams.
 
