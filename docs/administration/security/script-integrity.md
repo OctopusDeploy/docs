@@ -1,7 +1,7 @@
 ---
 title: Script integrity in Octopus Deploy
-description: Script integrity is an interesting topic, especially in security sensitive situations. This page describes how scripting works in Octopus Deploy, PowerShell Execution Policies, and why we don't enforce script integrity checking.
-position: 80
+description: Script integrity is an interesting topic, especially in security sensitive situations. This page describes how scripting works in Octopus Deploy, interaction with PowerShell Execution Policies, and how to make Octopus work in restrictive environments.
+position: 1
 ---
 
 **Short description:** Octopus executes your scripts as provided using the language and runtime best suited to the script in the host operating environment. PowerShell is the only common scripting language which supports script integrity verification, but your scripts are [executed using -ExecutionPolicy Unrestricted](https://github.com/OctopusDeploy/Calamari/blob/b23ea09bd17a49fd2b0c9bae588ef1012db4f8c2/source/Calamari.Shared/Integration/Scripting/WindowsPowerShell/PowerShellBootstrapper.cs#L71). Octopus provides a lot of value to your users by modifying scripts dynamically on their behalf, and we believe a restrictive PowerShell Execution Policy on its own not a foolproof security solution.
