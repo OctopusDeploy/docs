@@ -1,5 +1,5 @@
 ---
-title: New certificate
+title: New Certificate
 description: Using the Tentacle.exe command line executable to create and install a new certificate for this Tentacle.
 ---
 
@@ -30,4 +30,3 @@ Or one of the common options:
       --noconsolelogging     Don't log messages to the stdout - errors are
                                still logged to stderr
 ```
-

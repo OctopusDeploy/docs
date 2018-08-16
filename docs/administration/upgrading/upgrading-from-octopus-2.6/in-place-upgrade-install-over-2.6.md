@@ -1,6 +1,6 @@
 ---
-title: In Place Upgrade (install over 2.6)
-description: Information on how to do an inplace upgrade to Octopus 3.x from Octopus 2.6.
+title: In Place Upgrade (Install Over 2.6)
+description: Information on how to do an in-place upgrade to Octopus 3.x from Octopus 2.6.
 position: 0
 ---
 

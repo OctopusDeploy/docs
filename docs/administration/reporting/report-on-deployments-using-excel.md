@@ -19,7 +19,7 @@ At a high-level, the steps are:
 
 ![](/docs/images/3048153/3278122.png "width=500")
 
-## Export all deployments to an XML file {#ReportondeploymentsusingExcel-ExportalldeploymentstoanXMLfile}
+## Export All Deployments to an XML File {#ReportondeploymentsusingExcel-ExportalldeploymentstoanXMLfile}
 
 Before we can report on the data using Excel, we need to export it in a format that Excel can import. The easiest way to do this is using an XML file.
 
@@ -73,7 +73,7 @@ The command will produce an XML file with contents similar to the following:
 
 This file is now ready to be imported into Excel.
 
-## Import the XML file in Excel {#ReportondeploymentsusingExcel-ImporttheXMLfileinExcel}
+## Import the XML File in Excel {#ReportondeploymentsusingExcel-ImporttheXMLfileinExcel}
 
 Now that we have an XML file containing our deployments, we can import it into Microsoft Excel. In this example we are using Excel 2013.
 
@@ -87,7 +87,7 @@ Now that we have an XML file containing our deployments, we can import it into M
 
    ![](/docs/images/3048153/3278131.png "width=500")
 
-## Report on the data using a pivot table {#ReportondeploymentsusingExcel-Reportonthedatausingapivottable}
+## Report on the Data Using a Pivot Table {#ReportondeploymentsusingExcel-Reportonthedatausingapivottable}
 
 It's easy to turn the table of deployments into a pivot table for reporting.
 

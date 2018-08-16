@@ -10,7 +10,7 @@ Occasionally it may be necessary to change the location at which Tentacle stores
 Make sure you have a **current backup** of your Tentacle Home Directory before proceeding.
 :::
 
-## Tentacle configuration {#Tentacleconfigurationandfilestorage-Tentacleconfiguration}
+## Tentacle Configuration {#Tentacleconfigurationandfilestorage-Tentacleconfiguration}
 
 If you need to re-configure your Tentacle instance, you can do that using the command-line as described below.
 
@@ -49,7 +49,7 @@ Or one of the common options:
       --noconsolelogging     Don't log to the console
 ```
 
-## File storage {#Tentacleconfigurationandfilestorage-Filestorage}
+## File Storage {#Tentacleconfigurationandfilestorage-Filestorage}
 
 The Octopus Server stores files in the following folders by default:
 
@@ -65,7 +65,7 @@ The Octopus Server stores files in the following folders by default:
 - `<Tentacle Home>\Work`
     - This is the temporary working directory used when Tentacle and Calamari execute deployments on your behalf.
 
-## Clean up post-2.6 migration {#Tentacleconfigurationandfilestorage-Cleanuppost-2.6migration}
+## Clean Up Post-2.6 Migration {#Tentacleconfigurationandfilestorage-Cleanuppost-2.6migration}
 
 In 2.6 Tentacle stored files in the following folders by default:
 

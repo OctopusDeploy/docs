@@ -14,7 +14,7 @@ Delta compression is used by default when a package is downloaded from an extern
 
 A typical scenario in Octopus Deploy is frequent deployments of small changes to packages. For example, you might push some code updates but all of your libraries are unchanged. In the past Octopus Deploy would upload the entire package to each machine, regardless of how little had changed. With the introduction of delta compression, only the changes to your package will be uploaded to each machine.
 
-## A package deployment in Octopus Deploy now looks something like this {#Deltacompressionforpackagetransfers-ApackagedeploymentinOctopusDeploynowlookssomethinglikethis}
+## A Package Deployment in Octopus Deploy Now Looks Something Like This {#Deltacompressionforpackagetransfers-ApackagedeploymentinOctopusDeploynowlookssomethinglikethis}
 
 1. Find nearest previous versions of the package on the machine by calling [Calamari](https://octopus.com/blog/calamari)
 2. If a previous version of a package is found and the same package (matching PackageId, Version and file hash) exist on the Octopus Server
@@ -28,7 +28,7 @@ A typical scenario in Octopus Deploy is frequent deployments of small changes to
 If the final size of the delta file is within 80% of the new package, we upload the full package instead of uploading and applying the delta file as this will save on server resources as applying the delta file can be quite resource heavy with big delta files.
 :::
 
-## What if something goes wrong? {#Deltacompressionforpackagetransfers-Whatifsomethinggoeswrong?ifanyofthebelowoccurswewilluploadthefullpackage}
+## What if Something Goes Wrong? {#Deltacompressionforpackagetransfers-Whatifsomethinggoeswrong?ifanyofthebelowoccurswewilluploadthefullpackage}
 
 If any of the below occurs the full package will be uploaded:
 
@@ -37,7 +37,7 @@ If any of the below occurs the full package will be uploaded:
 3. Applying the delta fails
 4. The package details (size and file hash) don't match after applying the delta
 
-## Running a deployment that generates a delta file {#Deltacompressionforpackagetransfers-Runningadeploymentthatgeneratesadeltafile}
+## Running a Deployment That Generates a Delta File {#Deltacompressionforpackagetransfers-Runningadeploymentthatgeneratesadeltafile}
 
 When running a deployment that creates and applies a delta file, you will see the following in the logs under the `Acquire packages` section
 
@@ -48,7 +48,7 @@ When running a deployment that creates and applies a delta file, you will see th
 As can be seen in the screenshot above, the logging of the progress of applying the delta doesn't look like it's successfully completed as it's reporting only 20% and 0%(!!). Don't worry though, this is due to a problem with how our delta compression library (Octodiff) reports progress (we will be fixing this logging issue) and it's actually applying the full delta.
 :::
 
-## Optimizing delta compression {#OptimizingDeltaCompression}
+## Optimizing Delta Compression {#OptimizingDeltaCompression}
 
 The best way to guarantee the best size reduction is to use the tools provided by Octopus Deploy when creating your packages. All of our packaging tools are automatically tested to ensure the package contents are bundled in a delta-compression-friendly format.
 
@@ -58,7 +58,7 @@ If you want to use your own tools, that is fine! Just be sure to test the perfor
 The most common mistake causing delta compression to yield minimal size reduction is when artificial differences are injected into the package file. One example is when timestamps are changed each time the package is built. The tools provided by Octopus Deploy are designed to yield high size reductions based on the actual content of your packaged files.
 :::
 
-## Turning delta compression off {#Deltacompressionforpackagetransfers-TurningCompressionoff}
+## Turning Delta Compression Off {#Deltacompressionforpackagetransfers-TurningCompressionoff}
 
 To turn this feature off, set the value of **Octopus.Acquire.DeltaCompressionEnabled** to **False**
 

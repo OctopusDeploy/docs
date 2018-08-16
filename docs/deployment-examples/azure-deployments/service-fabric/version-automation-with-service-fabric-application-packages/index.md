@@ -1,15 +1,14 @@
 ---
 title: Version Automation with Service Fabric application packages
 description: Octopus Deploy can help you automate versioning of your Service Fabric application packages.
-version: "[3.13,)"
 ---
 
 In this section, we will discuss some ways Octopus Deploy can help with versioning your Service Fabric applications. Versioning in Service Fabric is a complex topic and the ideas discussed here are suggestions and possible options, not hard and fast rules.
 
-## Application and Service versions
+## Application and Service Versions
 A Service Fabric application is not a single physical "thing". It is the combination of one or more services. Each service has its own individual version, based on its code and configuration versions. The combination of service versions then make up the overall application version.
 
-### Code and Config versioning
+### Code and Config Versioning
 As mentioned above, each service that makes up an application can be versioned independently. One strategy for managing these versions is to have the developers manually update them in the solution's manifest files. This is how the [Visual Studio based deployment model](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-upgrade-tutorial) works, and is the default behavior you will get from Octopus Deploy if no other action is taken.
 
 When using an automated build system as part of a Continuous Delivery pipeline, it is common to stamp all of the binaries in the build as a set, with the same version number. Mature build tools will have a mechanism for easily managing the version number and assigning it to the assemblies during the build.
@@ -41,17 +40,17 @@ The first step to setting this up is to update the service's manifest with speci
 Using this approach, the service's overall version is always a combination of its code and config version. Next, we use a similar approach to build the application's overall version, based on the services' code version and config versions:
 
 ```xml
-<ApplicationManifest 
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    ApplicationTypeName="DemoFabricApplicationType" 
+<ApplicationManifest
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    ApplicationTypeName="DemoFabricApplicationType"
     ApplicationTypeVersion="DemoApp_#{Service_CodeVersion}_MyStatelessService_#{MyStatelessService_ConfigVersion}"
     xmlns="http://schemas.microsoft.com/2011/01/fabric">
     <Parameters>
         <Parameter Name="MyStatelessService_InstanceCount" DefaultValue="-1" />
     </Parameters>
     <ServiceManifestImport>
-        <ServiceManifestRef 
+        <ServiceManifestRef
             ServiceManifestName="MyStatelessServicePkg"
             ServiceManifestVersion="Code_#{Service_CodeVersion}_Config_#{MyStatelessService_ConfigVersion}" />
         <ConfigOverrides />

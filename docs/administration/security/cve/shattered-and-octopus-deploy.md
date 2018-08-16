@@ -14,7 +14,7 @@ The risk seems to focus on areas where certificates are used for digital signatu
 
 Either way, SHA1 has been on the way out for some time, and certificate authorities stopped issuing SHA1 certificates quite some time ago. This is just another nail in the coffin for SHA1.
 
-## Octopus and Tentacle prior to 3.14 use SHA1 by default
+## Octopus and Tentacle Prior to 3.14 Use SHA1 by Default
 
 When you install Octopus and the Tentacle agent, they both generate X.509 certificates that are used to encrypt the connection between them (via TLS). When we generated these self-signed certificates in versions before 3.14, **we used SHA1**. This is the default setting of the [certificate generation function](https://msdn.microsoft.com/en-us/library/windows/desktop/aa376039(v=vs.85).aspx) that we call in the Windows API, and not something we ever thought to change.
 
@@ -24,15 +24,15 @@ When you install Octopus and the Tentacle agent, they both generate X.509 certif
 
 **Already have Octopus up and running and you are concerned about the SHA1 certificates**, you can upgrade to Octopus and Tentacle 3.14 or newer, and use the command-line interface to generate new SHA256 certificates, then tell Octopus and Tentacle to use/trust those instead. For details, check our documentation page on [how to use custom certificates with Octopus and Tentacle](/docs/administration/security/octopus-tentacle-communication/how-to-use-custom-certificates-with-octopus-server-and-tentacle.md).
 
-## Other things you should check
+## Other Things You Should Check
 
 You'll want to check whether SHA1 is being used in other places. Common examples for Octopus users might include:
 
-- The certificate used for the Octopus web frontend if you use HTTPS. Normally this is something people provide themselves. 
+- The certificate used for the Octopus web frontend if you use HTTPS. Normally this is something people provide themselves.
 - Certificates used for authenticating with third party services, like Azure management certificates
 - Certificates used to provide HTTPS for web sites that you deploy
 
-## Detecting SHA1 certificates with PowerShell
+## Detecting SHA1 Certificates With PowerShell
 
 Given an `X509Certificate2` object, here's a PowerShell function that checks whether it uses SHA1:
 
@@ -41,14 +41,14 @@ function Test-CertificateIsSha1{
     [cmdletbinding()]
     param(  
     [Parameter(
-        Position=0, 
-        Mandatory=$true, 
+        Position=0,
+        Mandatory=$true,
         ValueFromPipeline=$true)
     ]
     [System.Security.Cryptography.X509Certificates.X509Certificate2[]]$Certificate
-    ) 
+    )
 
-    process 
+    process
     {
        foreach($cert in $Certificate)
        {
@@ -70,7 +70,7 @@ function Get-RemoteSSLCertificate {
         [System.Uri[]]
         $URI
     )
-    process 
+    process
     {
        foreach ($u in $URI)
        {
@@ -120,20 +120,20 @@ foreach ($site in Get-ChildItem IIS:\Sites)
 {
     foreach ($binding in $site.bindings.Collection)
     {
-        if ($binding.protocol -eq "https") 
+        if ($binding.protocol -eq "https")
         {
             $hash = $binding.CertificateHash
             $store = $binding.certificateStoreName
 
             $certs = Get-ChildItem "Cert:\LocalMachine\$store\$hash"
 
-            foreach ($cert in $certs) 
+            foreach ($cert in $certs)
             {
-                if (Test-CertificateIsSha1 -Certificate $cert) 
+                if (Test-CertificateIsSha1 -Certificate $cert)
                 {
                     Write-Warning "Site: $site.Name uses SHA1"
                 }
-            } 
+            }
         }
     }
 }

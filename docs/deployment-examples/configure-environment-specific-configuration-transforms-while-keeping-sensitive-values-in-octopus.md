@@ -15,7 +15,7 @@ The limitation of this technique is you're restricted to these two configuration
 2. Use the [Substitute Variables](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) in Files feature to replace any values specified by the `#{variable}` syntax in any text-based file.
 The limitation of this technique is the Octopus variable syntax needs to already be in the file. If you're relying on that config file for your development, this can be difficult to manage.
 3. Use the [Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms.md) feature to transform your XML configuration files for each environment or machine either based on conventions or explicitly.
-The problem with this method is twofold. First, the transform files need to be in the nuget package, which probably means they'll be in source control. If there are sensitive values, that means the developers will have access to them. In addition, you can't easily tell what transformations are taking place from within Octopus.
+The problem with this method is twofold. First, the transform files need to be in the NuGet package, which probably means they'll be in source control. If there are sensitive values, that means the developers will have access to them. In addition, you can't easily tell what transformations are taking place from within Octopus.
 Second, for a large number of environments or machines, you'll need to manage a large number of transform files.
 
 To solve these limitations, you can combine the techniques.

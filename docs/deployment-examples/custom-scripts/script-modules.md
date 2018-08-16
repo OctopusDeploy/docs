@@ -1,10 +1,10 @@
 ---
 title: Script Modules
-description: Script modules allow users to create Powershell functions or Cmdlets that could later on be used in deployment processes across multiple projects.
+description: Script modules allow users to create PowerShell functions or Cmdlets that could later on be used in deployment processes across multiple projects.
 position: 700
 ---
 
-Script modules allow users to create *Powershell functions* or *Cmdlets* that could later on be used in deployment processes across multiple projects. You can think of them as regular Powershell Modules that will get loaded at deploy time.
+Script modules allow users to create *PowerShell functions* or *Cmdlets* that could later on be used in deployment processes across multiple projects. You can think of them as regular PowerShell Modules that will get loaded at deploy time.
 
 ## Creating a Script Module {#ScriptModules-CreatingaScriptmodule}
 
@@ -33,9 +33,9 @@ Once this is done, click on **Save**.
 
 ### Gotcha
 
-The script modules get loaded once for every step on your deployment process. If you process has 4 steps (i.e Stop IIS, Backup ,Deploy, Start IIS) the entire module will get loaded once at the start of each step. Because of this we encourage users to avoid putting code outside functions on your Script Modules. This way the code will only get executed when the function is properly called from a Powershell Script step.
+The script modules get loaded once for every step on your deployment process. If you process has 4 steps (i.e Stop IIS, Backup ,Deploy, Start IIS) the entire module will get loaded once at the start of each step. Because of this we encourage users to avoid putting code outside functions on your Script Modules. This way the code will only get executed when the function is properly called from a PowerShell Script step.
 
-In the example Script Module below, the first line which attempts to stop the service "ImportantService" will run for every Powershell-Script-based step on your deployment . The first time it might succeed (stopping the service), but the subsequent tries will most likely make the overall deployment fail.
+In the example Script Module below, the first line which attempts to stop the service "ImportantService" will run for every PowerShell-Script-based step on your deployment . The first time it might succeed (stopping the service), but the subsequent tries will most likely make the overall deployment fail.
 
 ```powershell
 Stop-Service -Name ImportantService
@@ -62,7 +62,7 @@ You should now be able to see your module loaded on your Deployment Process
 
 ![](script-modules-deployment-included.png "width=500")
 
-2.  Add a **[Standalone Powershell Script step](/docs/deployment-examples/custom-scripts/index.md)** and call the *Say-Hello* function from it.
+2.  Add a **[Standalone PowerShell Script step](/docs/deployment-examples/custom-scripts/index.md)** and call the *Say-Hello* function from it.
 
 ```powershell
 Say-Hello -name George

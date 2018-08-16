@@ -10,7 +10,7 @@ Octopus Deploy supports automated deployment of [Azure Web Apps](http://azure.m
 
 The Azure Web Apps you build, and how you might want to deploy them, are becoming increasingly complex as the Azure team provide more features to the platform. The best place to stay abreast of changes, and how they might affect your deployments is the [Azure Web App Documentation](https://azure.microsoft.com/en-us/documentation/services/app-service/web/), the [many and varied ways you can deploy Web Apps (including Octopus Deploy)](https://azure.microsoft.com/en-us/documentation/articles/web-sites-deploy/). There is also the hidden gem of the [Project Kudu GitHub repository](https://github.com/projectkudu/kudu/wiki) where you will find many of the hard to find facts about Web Jobs (like the `settings.job` file, configuring a Continuous Web Job as a Singleton, configuring the Schedule for Scheduled Jobs, how shadow copying enables in-place deployments, and how to shut down gracefully).
 
-### Web Apps are deployed using Web Deploy {#DeployingapackagetoanAzureWebApp-WebAppsaredeployedusingWebDeploy}
+### Web Apps Are Deployed Using Web Deploy {#DeployingapackagetoanAzureWebApp-WebAppsaredeployedusingWebDeploy}
 
 Deploying an Azure Web App with Octopus Deploy behaves very similarly to the Visual Studio publish wizard and uses **Web Deploy** to synchronize the files in your package to the Azure Web App. Similarly to Visual Studio you can change how Octopus Deploy invokes Web Deploy using the following options in your deployment steps which enable the most common deployment scenarios. All of these options are discussed below where we describe how to configure the Azure Web App step.
 
@@ -41,7 +41,7 @@ See the [packaging application docs](/docs/packaging-applications/index.md)
 Any of the settings above can be switched to use a variable binding expression. A common example is when you use a naming convention for your different web apps, like **MyApp\_Production** and **MyApp\_Test** - you can use environment-scoped variables to automatically configure this step depending on the environment you are targeting.
 :::
 
-### Deployment features available to Azure Web App steps {#DeployingapackagetoanAzureWebApp-DeploymentfeaturesavailabletoAzureWebAppsteps}
+### Deployment Features Available to Azure Web App Steps {#DeployingapackagetoanAzureWebApp-DeploymentfeaturesavailabletoAzureWebAppsteps}
 
 The following features are available when deploying a package to an Azure Web App.
 
@@ -56,7 +56,7 @@ Please note these features actually run on the Octopus Server prior to executing
 :::
 
 :::hint
-For your convenience the PowerShell session for your [custom scripts](/docs/deployment-examples/custom-scripts/index.md) will have the Azure PowerShell module loaded, and the subscription from the account associated with the target will be selected. This means you don't have to worry about loading the Azure PowerShell module nor authenticate with Azure yourself. See the [Azure Powershell documentation](/docs/deployment-examples/azure-deployments/running-azure-powershell/index.md) for more information. You can write very straightforward scripts like the example below which is from our [guide on using deployment slots with Azure Web Apps](/docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps.md):
+For your convenience the PowerShell session for your [custom scripts](/docs/deployment-examples/custom-scripts/index.md) will have the Azure PowerShell module loaded, and the subscription from the account associated with the target will be selected. This means you don't have to worry about loading the Azure PowerShell module nor authenticate with Azure yourself. See the [Azure PowerShell documentation](/docs/deployment-examples/azure-deployments/running-azure-powershell/index.md) for more information. You can write very straightforward scripts like the example below which is from our [guide on using deployment slots with Azure Web Apps](/docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps.md):
 
 ```powershell
 #Swap the staging slot into production
@@ -64,7 +64,7 @@ Switch-AzureWebsiteSlot -Name #{WebSite} -Slot1 Staging -Slot2 Production -Force
 ```
 :::
 
-### What happens when the step is executed? {#DeployingapackagetoanAzureWebApp-ExecutingTheStep}
+### What Happens When the Step is Executed? {#DeployingapackagetoanAzureWebApp-ExecutingTheStep}
 
 When the `Deploy an Azure Web App` step gets executed, the below actions will happen (in order):
 
@@ -78,10 +78,10 @@ When the `Deploy an Azure Web App` step gets executed, the below actions will ha
 8. Push your package content to the Web App in Azure.
 9. Any configured or packaged `PostDeploy` scripts are executed
 
-## Simple and advanced deployment scenarios{#DeployingapackagetoanAzureWebApp-Simpleandadvanceddeploymentscenarios}
+## Simple and Advanced Deployment Scenarios {#DeployingapackagetoanAzureWebApp-Simpleandadvanceddeploymentscenarios}
 
 
-## Deploying to multiple geographic regions {#DeployingapackagetoanAzureWebApp-Deployingtomultiplegeographicregions}
+## Deploying to Multiple Geographic Regions {#DeployingapackagetoanAzureWebApp-Deployingtomultiplegeographicregions}
 
 When your application is deployed to more than one geographic region, you are likely to need per-region configuration settings. You can achieve this result in many different ways, but the two most popular methods we have seen are:
 

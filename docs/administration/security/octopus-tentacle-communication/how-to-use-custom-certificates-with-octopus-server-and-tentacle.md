@@ -1,5 +1,5 @@
 ---
-title: How to use custom certificates with Octopus Server and Tentacle
+title: How to Use Custom Certificates With Octopus Server and Tentacle
 description: How to use custom certificates with Octopus Server and Tentacle.
 position: 1
 ---
@@ -13,7 +13,7 @@ For more information on self-signed certificates, see the [blog post](https://oc
 It's important to consider the impact of updating an existing Octopus Server or Tentacle as changes are required to ensure each component trusts the other. Read the information below carefully.
 :::
 
-## Configuring Octopus Server to use custom certificates {#HowtousecustomcertificateswithOctopusServerandTentacle-ConfiguringOctopusServertousecustomcertificates}
+## Configuring Octopus Server to Use Custom Certificates {#HowtousecustomcertificateswithOctopusServerandTentacle-ConfiguringOctopusServertousecustomcertificates}
 
 This assumes you have already installed Octopus on the target server.
 
@@ -70,7 +70,7 @@ Then import the new certificate (see step 2 above).
 Tentacle.exe configure --trust NewOctopusServerCertificateThumbprint --console
 ```
 
-## Configuring Tentacle to use custom certificates {#HowtousecustomcertificateswithOctopusServerandTentacle-ConfiguringTentacletousecustomcertificates}
+## Configuring Tentacle to Use Custom Certificates {#HowtousecustomcertificateswithOctopusServerandTentacle-ConfiguringTentacletousecustomcertificates}
 
 This assumes you have already installed a Tentacle on the target server.
 

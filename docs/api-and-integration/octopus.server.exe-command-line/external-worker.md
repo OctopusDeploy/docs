@@ -1,5 +1,5 @@
 ---
-title: Octopus Server commands - External Worker
+title: Octopus Server Commands - External Worker
 description: Configure the external worker used to run deployment actions and scripts on the Octopus Server
 ---
 

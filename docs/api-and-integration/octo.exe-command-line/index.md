@@ -39,7 +39,7 @@ Octo.exe supports the following commands:
 - **`pack`**: [Learn More](/docs/packaging-applications/creating-packages/nuget-packages/using-octo.exe.md) Creates a NUPKG from files on disk, without needing a .nuspec
 - **`push`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/pushing-packages.md): Pushes a package to the Octopus built-in repository
 
-## General usage {#Octo.exeCommandLine-Generalusage}
+## General Usage {#Octo.exeCommandLine-Generalusage}
 
 All commands take the form of:
 

@@ -125,7 +125,7 @@ Tentacle.exe service --instance "Tentacle" --install --start --console
 ```
 
 :::warning
-If you are running this from a Powershell remote session, make sure to add `--console` at the end of each command to force Tentacle.exe not to run as a service.
+If you are running this from a PowerShell remote session, make sure to add `--console` at the end of each command to force Tentacle.exe not to run as a service.
 :::
 
 :::success
@@ -178,7 +178,7 @@ Tentacle.exe configure --instance "Tentacle" --home "C:\Octopus" --console
 ...
 ```
 
-## Desired State Configuration 
+## Desired State Configuration
 
 Tentacles can also be installed via [Desired State Configuration](https://msdn.microsoft.com/en-us/powershell/dsc/overview) (DSC). Using the module from the [OctopusDSC GitHub repository](https://www.powershellgallery.com/packages/OctopusDSC), you can add, remove, start and stop Tentacles in either polling or listening mode.
 

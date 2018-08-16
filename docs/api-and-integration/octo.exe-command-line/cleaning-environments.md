@@ -90,7 +90,7 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-## Basic example {#Cleaningenvironments-Basicexample}
+## Basic Example {#Cleaningenvironments-Basicexample}
 
 The following command will clean any *offline* machines from the *production* environment.
 

@@ -21,12 +21,12 @@ Integration with TeamCity involves two major parts:
 
 2. Optionally, when a build completes, having TeamCity make requests to your Octopus Server to:
    - Create releases
-   
+
    - Trigger deployments and/or
-   
+
    - Promote releases when a build completes
 
-## Installing the plugin {#TeamCity-InstallPluginInstallingtheplugin}
+## Installing the Plugin {#TeamCity-InstallPluginInstallingtheplugin}
 
 To make integrating with TeamCity easy, a [plugin is available](https://octopus.com/downloads) from our download page. The plugin is distributed as a ZIP file. To install:
 
@@ -37,7 +37,7 @@ To make integrating with TeamCity easy, a [plugin is available](https://octopus
 
 The [TeamCity Data Directory](https://confluence.jetbrains.com/display/TCD10/TeamCity+Data+Directory) can be found on the **Administration | Global Settings** page for a running TeamCity server instance.
 
-## Creating Octopus-compatible NuGet packages using TeamCity {#TeamCity-CreateNuGetPackageCreatingOctopus-compatibleNuGetpackagesusingTeamCity}
+## Creating Octopus-compatible NuGet Packages Using TeamCity {#TeamCity-CreateNuGetPackageCreatingOctopus-compatibleNuGetpackagesusingTeamCity}
 
 Octopus requires that you package your applications into NuGet packages, whether or not you are using TeamCity. There are many ways to create [Octopus-compatible NuGet packages](/docs/packaging-applications/index.md), but the easiest way is with [OctoPack](https://github.com/OctopusDeploy/OctoPack).
 
@@ -99,7 +99,7 @@ NuGet packages created from your build **won't appear in the TeamCity NuGet feed
 The solution is to configure a secondary build configuration, and use a snapshot dependency and build trigger in TeamCity to run the deployment build configuration after the first build configuration completes. The video below demonstrates how to do this.
 :::
 
-## Creating and pushing packages from TeamCity to Octopus {#TeamCity-CreateAndPushPackageToOctopusCreatingandpushingpackagesfromTeamCitytoOctopus}
+## Creating and Pushing Packages From TeamCity to Octopus {#TeamCity-CreateAndPushPackageToOctopusCreatingandpushingpackagesfromTeamCitytoOctopus}
 
 :::hint
 In version 4.38.0 of the TeamCity Plugin we have added a new build runner that can be used to package your applications as either a NuGet or Zip formatted package.
@@ -113,7 +113,7 @@ In version 3.3.1 of the TeamCity Plugin we have added a new build runner that ca
 
 ![Octopus Push](/docs/images/3048176/5275665.png "width=500")
 
-## Triggering deployments from TeamCity {#TeamCity-TriggerDeploymentsTriggeringdeploymentsfromTeamCity}
+## Triggering Deployments From TeamCity {#TeamCity-TriggerDeploymentsTriggeringdeploymentsfromTeamCity}
 
 The Octopus TeamCity plugin comes with these custom build runners:
 

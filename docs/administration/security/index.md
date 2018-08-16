@@ -40,13 +40,13 @@ If you are hosting the Octopus Server yourself, you take responsibility for the 
 
 ## Built in to Octopus Deploy
 
-### Data encryption
+### Data Encryption
 
 Octopus Deploy encrypts any data which we deem to be sensitive. You can also instruct Octopus Deploy to encrypt sensitive variables which can be used as part of your deployments.
 
 Learn about [data encryption](/docs/administration/security/data-encryption.md) and [sensitive variables](/docs/deployment-process/variables/sensitive-variables.md).
 
-### Secure communication
+### Secure Communication
 
 Your Octopus Server communicates with the machines you configure as targets for your deployments using transport encryption and tamper proofing techniques.
 
@@ -58,27 +58,27 @@ Arguably one of the most appreciated features in Octopus Deploy is our support f
 
 Learn about [auditing](/docs/administration/auditing.md).
 
-### Prevention of common vulnerabilities and exploits
+### Prevention of Common Vulnerabilities and Exploits
 
 To make Octopus Deploy useful to your organization it needs a high level of access to your servers and infrastructure. We take great care to understand common vulnerabilities and exploits which could affect your Octopus Deploy installation, and ensure our software prevents anyone from leveraging these.
 
-### FIPS compliance
+### FIPS Compliance
 
 We take every reasonable effort to make Octopus Server, Tentacle, Calamari, and any other tools we provide FIPS 140 compliant. If something is not FIPS 140 compliant we will take every reasonable effort to fix the problem, or otherwise degrade the feature gracefully.
 
 Learn about [FIPS and Octopus Deploy](fips-and-octopus-deploy.md).
 
-## Provided by the host
+## Provided By the Host
 
 The following sections describe the responsibilities taken by whomever is hosing your Octopus Server. If you are using Octopus Cloud, that's us. If you are self-hosting, this is you.
 
-### Safely exposing your Octopus Deploy installation
+### Safely Exposing Your Octopus Deploy Installation
 
 In many scenarios you will want to expose parts of your Octopus Deploy installation to external networks. You should take care to understand the security implications of exposing your Octopus Deploy installation, and how to configure it correctly to prevent unwanted guests from accessing or interfering in your deployments.
 
 Learn about [safely exposing Octopus Deploy](/docs/administration/security/exposing-octopus/index.md).
 
-### Safely executing scripts on the Octopus Server
+### Safely Executing Scripts on the Octopus Server
 
 To make Octopus as useful as possible after installation, you can perform many kinds of deployments without setting up other infrastructure. We achieve this using a concept called a worker, and in a default installation, this is called the built-in worker. Depending on your scenario, this can have a big impact on the security and integrity of your Octopus Server.
 
@@ -88,7 +88,7 @@ Learn about [configuring workers](/docs/administration/workers/index.md).
 
 The following sections describe the security controls you can put in place when managing your Octopus Server regardless of where it is hosted.
 
-### Identity and access control
+### Identity and Access Control
 
 Before a person can access your Octopus Deploy installation, they must validate their identity. We provide built-in support for the most commonly used authentication providers including Active Directory (NTLM and Kerberos), Google Apps, and Microsoft Azure Active Directory. Octopus Deploy works natively with Open ID Connect (OIDC) so you can connect to other identity providers. If you don't want to use an external identity providers, you can let Octopus Deploy securely manage your usernames and passwords for you.
 
@@ -98,19 +98,19 @@ Once a person has verified their identity, you can control which activities thes
 
 Learn about [managing users and teams](/docs/administration/managing-users-and-teams/index.md).
 
-### HTTP security headers
+### HTTP Security Headers
 
 You can configure the Octopus Server to send certain standard HTTP security headers with each HTTP response. The Octopus Server will be secure by default, however you can enable certain advanced HTTP security headers, like HSTS if you desire.
 
 Learn about [HTTP security headers](http-security-headers.md).
 
-## PCI/DSS compliance
+## PCI/DSS Compliance
 
 We have a lot of customers running Octopus Deploy in their PCI compliant environments. We don't claim to be experts in PCI compliance, especially since every situation is slightly different. What we can do is offer some recommendations primarily focused on your use of Octopus Deploy and different models you can achieve with it.
 
 Learn about [PCI/DSS compliance and Octopus Deploy](pci-compliance-and-octopus-deploy.md).
 
-## Outbound requests
+## Outbound Requests
 
 Some components in Octopus Deploy will make outbound requests from time to time. Generally these requests are required to perform your deployments, some of them are for things like certificate revocation checks, and some are designed to help us build a better product for you.
 
@@ -120,13 +120,13 @@ Learn about the [outbound requests](outbound-requests.md) made by Octopus Deploy
 
 Learn about our [privacy policy](https://octopus.com/privacy). We are currently preparing for the General Data Protection Regulation (GDPR) to be ready ahead of the 25 May 2018 enforcement date.
 
-## Security disclosure policy {#disclosure-policy}
+## Security Disclosure Policy {#disclosure-policy}
 
 No software is ever bug free, and as such, there will occasionally be security issues. Once we have fixed a verified security vulnerability we follow a practice of [responsible disclosure](https://en.wikipedia.org/wiki/Responsible_disclosure). You can view the entire list of disclosed security vulnerabilities in the [MITRE CVE database](https://www.cvedetails.com/vulnerability-list/vendor_id-16785/product_id-39115/Octopus-Octopus-Deploy.html).
 
 Learn about our [security disclosure policy](https://octopus.com/security/disclosure).
 
-## Contact us
+## Contact Us
 
 If you have a concern regarding security with Octopus Deploy, or would like to report a security vulnerability, please send an email to [security@octopus.com](mailto:security@octopus.com).
 

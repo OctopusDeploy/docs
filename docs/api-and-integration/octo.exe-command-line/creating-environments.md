@@ -65,7 +65,7 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-## Basic example {#Creatingenvironments-Basicexample}
+## Basic Example {#Creatingenvironments-Basicexample}
 
 The following command will create an environment called *UAT*
 

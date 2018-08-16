@@ -26,7 +26,7 @@ Once Octopus is in Maintenance Mode:
 
 ## What About High Availability
 
-When you are using [Octopus High Availability](/docs/administration/high-availability/index.md) clusters, you will typically want to limit downtime to a minimum. You should enable Maintenace Mode when it is appropriate for the activity you need to perform.
+When you are using [Octopus High Availability](/docs/administration/high-availability/index.md) clusters, you will typically want to limit downtime to a minimum. You should enable Maintenance Mode when it is appropriate for the activity you need to perform.
 
 - [Applying operating system patches](/docs/administration/applying-operating-system-upgrades.md) can be an online operation.
 - [Upgrading Octopus Server](/docs/administration/upgrading/index.md) is an online operation for patches, but you should schedule a small maintenance window for major and minor upgrades.

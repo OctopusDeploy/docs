@@ -76,4 +76,4 @@ Then the password might be given away when Octopus prints:
 Or watch the things you gave your life to, *******en
 ```
 
-The obvious solution is: don't use passwords that are likely to be occur in normal logging/language, and avoid writing the values of your secure variables to logs anyway.
+The obvious solution is: don't use passwords that are likely to occur in normal logging/language, and avoid writing the values of your secure variables to logs anyway.

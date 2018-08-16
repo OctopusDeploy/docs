@@ -28,13 +28,13 @@ We recommend choosing from two different approaches for upgrading from Octopus 2
 - Create a new Octopus Server and migrate to it. We recommend this approach.
 - Install over the top of your existing Octopus Server.
 
-### Approach 1: Install the new version of Octopus on a new server, and migrate to it (recommended) {#UpgradingfromOctopus2.6-Approach1:Install3.xonanewserver,andmigratetoit(recommended)}
+### Approach 1: Install the New Version of Octopus on a New Server, and Migrate To It (recommended) {#UpgradingfromOctopus2.6-Approach1:Install3.xonanewserver,andmigratetoit(recommended)}
 
 If you are able to provision a new Octopus Server, this is the safest option. That way, if something goes wrong in the upgrade, it will be easy to discard the new server and start the process again. And when it works, you can decommission the old Octopus Server.
 
 Read the full guide: [Upgrade with a new Server instance](/docs/administration/upgrading/upgrading-from-octopus-2.6/upgrade-with-a-new-3.0-server-instance.md)
 
-### Approach 2: In-place (over the top) upgrade of an existing server {#UpgradingfromOctopus2.6-Approach2:In-place(overthetop)upgradeofanexistingserver}
+### Approach 2: In-place (Over the Top) Upgrade of an Existing Server {#UpgradingfromOctopus2.6-Approach2:In-place(overthetop)upgradeofanexistingserver}
 
 It is possible to install newer versions of Octopus over the top of a 2.6 instance. You'll upgrade the Tentacles, then upgrade the Octopus Server.
 

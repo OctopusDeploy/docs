@@ -1,6 +1,6 @@
 ---
-title: Docker run with networking
-description: This guide demonstates the basic functionality provided by the Octopus Docker steps.
+title: Docker Run With Networking
+description: This guide demonstrates the basic functionality provided by the Octopus Docker steps.
 ---
 
 To demonstrate some of the basic functionality provided by the new Docker steps, we will walk through the process of starting two containers that can communicate with each other through their own isolated network. The first container will simply start and run a non exiting process, while the second container will ping the first to demonstrate connectivity. As part of this we will set up an external feed to DockerHub and include a cleanup task to remove existing containers. We will use a **Linux** machine which has the latest version of Docker installed and has network access to retrieve images from Docker Hub.
@@ -10,7 +10,7 @@ To demonstrate some of the basic functionality provided by the new Docker steps,
 While Docker Containers on Windows Server (not Docker for Windows through Docker Toolbox) are now generally available, this feature appears to still have some issues with key areas such as networking. This is an area that the Docker and Windows team are actively improving. While deploying a Windows Container to a Tentacle target on Windows should work, you may experience issues trying to use custom networks or volumes. We would suggest using Linux targets via SSH for the time being until this feature stabilizes.
 :::
 
-## Configuring a Docker host {#Dockerrunwithnetworking-ConfiguringaDockerhost}
+## Configuring a Docker Host {#Dockerrunwithnetworking-ConfiguringaDockerhost}
 
 If you already have a working Linux machine with Docker Engine installed you can use that once you have configured it as an [SSH Target](/docs/infrastructure/ssh-targets/index.md) in Octopus.
 
@@ -19,7 +19,7 @@ If not, you will need to configure a host for our sample application. We recomme
 1. Install Ubuntu
 2. Configure your Ubuntu machine as an [SSH Target](/docs/infrastructure/ssh-targets/index.md) in Octopus - [this guide may be helpful](/docs/deployment-examples/node-on-nix-deployments/configuring-target-machine.md)
     * Make sure this Deployment Target has a [Machine Role](/docs/infrastructure/target-roles/index.md) like **docker-test**. We will configure the Docker steps to target this role.
- 
+
 ![](/docs/images/5670973/5865822.png "width=500")
 
 3. Configure Docker Engine on your Ubuntu machine - [https://docs.docker.com/engine/installation/linux/ubuntulinux/](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
@@ -27,7 +27,7 @@ If not, you will need to configure a host for our sample application. We recomme
 
 You should now be ready to deploy Docker containers to your Ubuntu machine using Octopus Deploy!
 
-## Configuring a DockerHub feed {#Dockerrunwithnetworking-ConfiguringaDockerHubfeed}
+## Configuring a DockerHub Feed {#Dockerrunwithnetworking-ConfiguringaDockerHubfeed}
 
 Next we are going to create a connection to the official Docker Hub registry so we can use those images for this demonstration.
 
@@ -116,7 +116,7 @@ We would love to hear about your thoughts and feedback on these options!
 ![](/docs/images/5670973/5865798.png "width=500")
 4. Save this step
 
-### Step 4: Configure the PingCount variable {#Dockerrunwithnetworking-Step4:ConfigurethePingCountvariable}
+### Step 4: Configure the PingCount Variable {#Dockerrunwithnetworking-Step4:ConfigurethePingCountvariable}
 
 Now we need to create a single Project Variable used by the second container to control how many pings to perform before exiting.
 
@@ -154,9 +154,9 @@ To see the full results of the inspect command try echoing out the variable just
 
 ![](/docs/images/5670973/5865800.png "width=700")
 
-## Creating a Release of our Docker Project {#Dockerrunwithnetworking-CreatingaReleaseofourDockerProject}
+## Creating a Release of Our Docker Project {#Dockerrunwithnetworking-CreatingaReleaseofourDockerProject}
 
-From this point forward the deployment will follow the same process that you should be comfortable with: Good old Octopus Releases.
+From this point forward, the deployment will follow the same process that you should be comfortable with: Good old Octopus Releases.
 
 Go ahead and create a release of your Docker Project.
 
@@ -169,7 +169,7 @@ When creating a release, the Octopus Server will query the Docker registry to re
 Note that "latest" in Octopus is the "highest" [Semantic Version](http://semver.org/) and not the image tagged with "latest".
 :::
 
-## Deploying a Release of our Docker Project {#Dockerrunwithnetworking-DeployingaReleaseofourDockerProject}
+## Deploying a Release of Our Docker Project {#Dockerrunwithnetworking-DeployingaReleaseofourDockerProject}
 
 Looking at the results of a deployment you will see some logging indicating the work being performed.
 

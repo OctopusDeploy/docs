@@ -12,7 +12,7 @@ Using a CSRF attack a malicious actor could potentially simulate requests to the
 
 - [Cross-Site Request Forgery according to OWASP](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF))
 
-## Does Octopus Deploy prevent CSRF attacks?
+## Does Octopus Deploy Prevent CSRF Attacks?
 
 Yes. The Octopus HTTP API is protected from CSRF attacks out of the box by requiring an anti-forgery token using a combination of the [Synchronizer Token Pattern](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet#Synchronizer_.28CSRF.29_Tokens) and the [Encrypted Token Pattern](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet#Encrypted_Token_Pattern). If you are using any tools provided by Octopus Deploy, including the Web Portal, and Client SDK, this is all done for you automatically and transparently.
 
@@ -51,7 +51,7 @@ If you see this kind of error message when using the Octopus Web Portal in your 
 1. After signing in, you should see two cookies from the Octopus Server - the authentication cookie and the anti-forgery cookie. See the next section on [troubleshooting cookie problems](#cookies).
 1. If this doesn't work please get [ask us for help](#support) - see below
 
-#### Troubleshooting problems with cookies {#cookies}
+#### Troubleshooting Problems With Cookies {#cookies}
 
 Octopus requires two cookies when using a web browser: the authentication cookie and the anti-forgery cookie. Check in your browser and make sure both cookies are available. Either one of these cookies can be missing for quite a number of reasons:
 
@@ -65,7 +65,7 @@ Octopus requires two cookies when using a web browser: the authentication cookie
 
 If you use raw HTTP to access Octopus Deploy we recommend using an [API Key](/docs/api-and-integration/api/how-to-create-an-api-key.md) to authenticate your requests. Learn about the [Octopus REST API](/docs/api-and-integration/api/index.md) and [authenticating with the Octopus REST API](https://github.com/OctopusDeploy/OctopusDeploy-Api/wiki/Authentication).
 
-### Getting help from us {#support}
+### Getting Help From Us {#support}
 
 If none of these troubleshooting steps work, please get in contact with our [support team](https://octopus.com/support) and send along the following details (feel free to ignore points if they don't apply):
   a. Which browser and version are you using? (Help > About in your browser is the best place to get this information)

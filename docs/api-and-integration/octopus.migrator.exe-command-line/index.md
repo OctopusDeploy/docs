@@ -17,7 +17,7 @@ Octopus.Migrator.exe supports the following commands:
 - **`export`**: Exports all configuration data to a directory. [Learn more](/docs/api-and-integration/octopus.migrator.exe-command-line/migrator-export.md)
 - **`partial-export`**: Exports configuration data to a directory filtered by a single project. [Learn more](/docs/api-and-integration/octopus.migrator.exe-command-line/partial-export.md)
 
-## General usage {#Octopus.Migrator.exeCommandLine-Generalusage}
+## General Usage {#Octopus.Migrator.exeCommandLine-Generalusage}
 
 All commands take the form of:
 

@@ -42,7 +42,7 @@ You can also leave the slot selection blank and specify the slot, by name, on th
 
 ### Creating Web App Targets by scripts
 
-Azure Web App targets can also be created via a Powershell Cmdlet within a Deployment Process, this can be especially handy if you are also creating the Azure Web App via a script.
+Azure Web App targets can also be created via a PowerShell Cmdlet within a Deployment Process, this can be especially handy if you are also creating the Azure Web App via a script.
 
 See [Managing Resources by script](/docs/infrastructure/dynamic-infrastructure/index.md) for more information on creating Azure Web Apps via a script.
 

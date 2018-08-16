@@ -35,7 +35,7 @@ position: 90
 - **`version`**:  Show the Octopus Server version information.
 - **`watchdog`**:  Configure a scheduled task to monitor the Octopus service(s).
 
-## General usage {#Octopus.Server.exeCommandLine-Generalusage}
+## General Usage {#Octopus.Server.exeCommandLine-Generalusage}
 
 All commands take the form of:
 
