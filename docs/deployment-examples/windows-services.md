@@ -78,7 +78,7 @@ Start-Service $OctopusParameters["Octopus.Action.WindowsService.ServiceName"]
 new System.ServiceProcess.ServiceController(Octopus.Parameters["Octopus.Action.WindowsService.ServiceName"]).Start();
 ```
 
-## Setting advanced configuration options {#WindowsServices-Settingadvancedconfigurationoptions}
+## Setting Advanced Configuration Options {#WindowsServices-Settingadvancedconfigurationoptions}
 
 Windows Services support some advanced settings not exposed by this feature. You can customize your Windows Service by including a `PostDeploy.ps1` [custom script](/docs/deployment-examples/custom-scripts/index.md).
 
@@ -100,7 +100,7 @@ This script will run after the Windows Service has been created (or reconfigured
 This Microsoft TechNet [article](https://technet.microsoft.com/en-us/library/cc754599.aspx) is a great reference on the sc.exe utility including the failure action above.
 :::
 
-## Deploying Services built with Topshelf {#WindowsServices-DeployingServicesbuiltwithTopshelf}
+## Deploying Services Built With Topshelf {#WindowsServices-DeployingServicesbuiltwithTopshelf}
 
 [Topshelf](http://topshelf-project.com/) is a library to build and work with Windows Services easily by allowing your code to run (and be debugged) inside a Console Application, but giving you the option to install and run as a Windows Service.
 

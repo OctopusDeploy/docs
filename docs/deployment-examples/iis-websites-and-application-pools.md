@@ -58,8 +58,8 @@ The Virtual Path and Physical Path do not need to match which is one of the true
 :::success
 The IIS Web Application step requires a parent Web Site to exist in IIS before it runs. You can create a chain of steps like this:
 
-1. Make sure the parent Web Site exists in IIS and is configured correctly
-2. Create any number of Web Applications and Virtual Directories as children of the parent Web Site
+1. Make sure the parent Web Site exists in IIS and is configured correctly.
+2. Create any number of Web Applications and Virtual Directories as children of the parent Web Site.
 :::
 
 You need to fill out the following fields for an IIS Web Application deployment:
@@ -99,13 +99,13 @@ Octopus performs the following steps:
 You can see exactly how Octopus integrates with IIS in the [open-source Calamari library](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari/Scripts/Octopus.Features.IISWebSite_BeforePostDeploy.ps1).
 :::
 
-## IIS configuration in action {#IISWebsitesandApplicationPools-IISconfigurationinaction}
+## IIS Configuration in Action {#IISWebsitesandApplicationPools-IISconfigurationinaction}
 
 This five minute video demonstrates how Octopus can be used to deploy an ASP.NET MVC web application to remote IIS servers.
 
 <iframe src="//fast.wistia.net/embed/iframe/7wfdk4vtge" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="360" style="margin: 30px"></iframe>
 
-## How to take your website offline during deployment
+## How to Take Your Website Offline During Deployment
 
 A IIS Website can be taken offline by placing a `app_offline.htm` file into the root directory of the website. The contents of
 that file will be shown to anyone accessing the site. This is useful if you do not want to users to access the site while

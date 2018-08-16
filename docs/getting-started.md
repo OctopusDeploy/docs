@@ -10,7 +10,7 @@ This section provides an overview of Octopus Deploy and explains how Octopus Dep
 
 ## Octopus in Your Delivery Process
 
-Octopus Deploy is an automated deployment server that makes it easy to automate the deployment of ASP.NET web applications, Java applications, database updates, NodeJS application, and custom scripts into development, test, and production environments.
+Octopus Deploy is an automated deployment server that makes it easy to automate the deployment of ASP.NET web applications, Java applications, database updates, Node.js application, and custom scripts into development, test, and production environments.
 
 ### The Delivery Pipeline
 
