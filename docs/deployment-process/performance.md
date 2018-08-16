@@ -29,6 +29,7 @@ By the time your deployment starts, the Octopus HTTP API and database are no lon
 - How many deployment targets acquire packages in parallel
 - How many deployment targets you deploy to in parallel
 - Whether your steps run serially (one-after-the-other) or in parallel (at the same time)
+- How much of the work in the deployment steps is done on the Octpus server
 - The number and size of your variables
 - Other processes on the deployment target interfering with your deployment
 
@@ -140,5 +141,9 @@ This default behavior makes a lot of sense for smaller installations, but it is 
 Steps and actions in your deployment process can be configured to start after the previous step has succeeded (the default) or you can configure them to start at the same time (run in parallel).
 
 Similarly to [parallel targets](#parallel-targets), running too many steps in parallel can cause your Octopus Server to become the bottleneck and make your deployments take longer overall.
+
+### Consider how much deployment work the Octopus server is doing {#server-work}
+
+Some steps, like Azure deployments and AWS steps, [run on a worker](docs/administration/workers.md#where-steps-run).  By default, thats the [built-in worker](/docs/administration/workers#built-in-worker) in the Octopus server.  That means the step invokes a (or many) Calamari processes on the server machine to do the deployment work.  That workload can be shifted off the server and onto [workers](/docs/infrastructure/workers.md).  See this [blog post](https://octopus.com/blog/workers-performance) for a way to begin looking at workers for performance.
 
 **More tips coming soon!**
