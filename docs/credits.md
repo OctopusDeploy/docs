@@ -33,7 +33,7 @@ Octopus Deploy 3.0 is made possible thanks to the following great third-party pr
 | grunt-open                               | Jarrod Overson                           | [https://github.com/onehealth/grunt-open](https://github.com/onehealth/grunt-open) |
 | JetBrains TeamCity,  ReSharper and WebStorm | JetBrains                                | [http://www.jetbrains.com/](http://www.jetbrains.com/) |
 | jQuery and jQuery UI                     | jQuery Foundation and contributors       | [http://jquery.com/](http://jquery.com/) |
-| Json.NET                                 | James Newton-King                        | [http://james.newtonking.com/json](http://james.newtonking.com/json) |
+| JSON.NET                                 | James Newton-King                        | [http://james.newtonking.com/json](http://james.newtonking.com/json) |
 | JSON2.js                                 | json.org                                 | [http://www.JSON.org/js.html](http://www.JSON.org/js.html) |
 | markItUp!                                | Jay Salvat                               | [http://markitup.jaysalvat.com/](http://markitup.jaysalvat.com/) |
 | Microsoft Windows, Visual Studio and .NET | Microsoft                                | [http://www.microsoft.com/net](http://www.microsoft.com/net) |

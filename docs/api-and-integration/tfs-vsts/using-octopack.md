@@ -1,12 +1,12 @@
 ---
-title: Using Octopack and Octo.exe with XAML-based builds in TFS
+title: Using Octopack and Octo.exe with XAML-based Builds in TFS
 description: Using Octopack
 position: 1
 ---
 
 !toc
 
-## Packaging applications when building with Team Build (XAML-based builds) {#Packaging}
+## Packaging Applications When Building With Team Build (XAML-based Builds) {#Packaging}
 
 When Team Build builds your solution, you will need to package your applications ready to be deployed. This can be done by [installing OctoPack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md) on the projects that you plan to deploy.
 
@@ -44,18 +44,18 @@ To find your Octopus NuGet repository URL, see the [Package repositories](/docs/
 To create an API key, see the [How to create an API key](/docs/api-and-integration/api/how-to-create-an-api-key.md) section.
 :::
 
-## Deploying automatically after a build {#Deployingautomaticallyafterabuild}
+## Deploying Automatically After a Build {#Deployingautomaticallyafterabuild}
 
-### Using Octo.exe (recommended) {#Deployingautomaticallyafterabuild-Using-OctoExe}
+### Using Octo.exe (Recommended) {#Deployingautomaticallyafterabuild-Using-OctoExe}
 
 `Octo.exe` is a command line tool built on top of our REST API. Its fairly easy to hook up into almost any process from a simple script. In the case of old XAML-based builds, we recommend user to include a call to `Octo.exe` in the *post-deploy script* of their build definition, so it gets called after MSBuild ran and Octopack created the package and pushed it to the repository.
 
 `Octo.exe` has [plenty of commands](\docs\api-and-integration\octo.exe-command-line\index.md), but the ones you should look into for the post-deploy script are:
 
-- [Create-Release](\docs\api-and-integration\octo.exe-command-line\creating-releases.md) to create a release in Octopus. 
+- [Create-Release](\docs\api-and-integration\octo.exe-command-line\creating-releases.md) to create a release in Octopus.
 - [Deploy-Release](\docs\api-and-integration\octo.exe-command-line\deploying-releases.md) to deploy the previously created release.
 
-### Using Lifecycles and automatic deployments {#Deployingautomaticallyafterabuild-Using-AutomaticDeployments}
+### Using Lifecycles and Automatic Deployments {#Deployingautomaticallyafterabuild-Using-AutomaticDeployments}
 
 Version 2.6 of Octopus Deploy introduced [Lifecycles ](/docs/deployment-process/lifecycles/index.md)and [Automatic Release Creation](/docs/deployment-process/releases/automatic-release-creation.md). You can use these two features to automatically deploy to one or more environments when a new package is pushed to the built-in NuGet repository.
 

@@ -61,7 +61,7 @@ These steps should be executed from your Octopus 2.6 server to your 2.6 Tentacle
  2. Ensure you set the Update Octopus Tentacle step to run for all appropriate Tentacles.
  3. Set the `Server Mapping` field:
 
-   - If you only use listenting Tentacles you can leave the `Server Mapping` field blank.
+   - If you only use listening Tentacles you can leave the `Server Mapping` field blank.
    - If you are using any polling Tentacles, add the new Octopus 3.x server address (including the polling TCP port) in the Server Mapping field. See below for examples.
 
 :::hint

@@ -9,7 +9,7 @@ The vast majority of Azure users and subscriptions operate in the AzureCloud env
 
 The defaults for all of the settings related to the environment are blank, which denotes the use of the AzureCloud environment.
 
-The first thing you are going to need when overriding the values is to know what the endpoints are for your target environment.  You can get these using the following PowerShell command (Note: you have to have the Azure powershell modules loaded)
+The first thing you are going to need when overriding the values is to know what the endpoints are for your target environment.  You can get these using the following PowerShell command (Note: you have to have the Azure PowerShell modules loaded)
 
 ```powershell
 Get-AzureEnvironment

@@ -1,5 +1,5 @@
 ---
-title: Script integrity in Octopus Deploy
+title: Script Integrity in Octopus Deploy
 description: Script integrity is an interesting topic, especially in security sensitive situations. This page describes how scripting works in Octopus Deploy, interaction with PowerShell Execution Policies, and how to make Octopus work in restrictive environments.
 position: 1
 ---
@@ -16,7 +16,7 @@ Octopus lets you tailor these scripts to your needs at runtime using features li
 
 Once this is done Octopus will inject your script into a "bootstrapper" enabling friction free interaction with important Octopus features like [variables](/docs/deployment-process/variables/index.md), [output variables](/docs/deployment-process/variables/output-variables.md), and [artifacts](/docs/deployment-process/artifacts.md).
 
-## Script integrity in Octopus
+## Script Integrity in Octopus
 
 Octopus does not actively enforce script integrity.
 

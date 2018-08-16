@@ -1,5 +1,5 @@
 ---
-title: Deleting auto deploy overrides
+title: Deleting Auto Deploy Overrides
 description: Using the Octo.exe command line tool to delete automatic deployment release overrides.
 ---
 
@@ -15,38 +15,38 @@ Where `[<options>]` is any of:
 
 ```text
 Delete auto deploy release override:                                        
-                                                                            
+
       --project=VALUE        Name of the project                            
-      --environment=VALUE    Name of an environment the override will apply 
+      --environment=VALUE    Name of an environment the override will apply
                              to. Specify this argument multiple times to add
                              multiple environments.                         
       --tenant=VALUE         [Optional] Name of a tenant the override will  
-                             apply to. Specify this argument multiple times 
+                             apply to. Specify this argument multiple times
                              to add multiple tenants or use `*` wildcard for
                              all tenants.                                   
       --tenanttag=VALUE      [Optional] A tenant tag used to match tenants  
                              that the override will apply to. Specify this  
-                             argument multiple times to add multiple tenant 
+                             argument multiple times to add multiple tenant
                              tags                                           
-                                                                            
+
 Common options:                                                             
-                                                                            
+
       --help                 [Optional] Print help for a command            
       --helpOutputFormat=VALUE                                              
                              [Optional] Output format for help, only valid  
                              option is json                                 
-      --outputFormat=VALUE   [Optional] Output format, only valid option is 
+      --outputFormat=VALUE   [Optional] Output format, only valid option is
                              json                                           
       --server=VALUE         The base URL for your Octopus Server - e.g.,   
                              http://your-octopus/                           
       --apiKey=VALUE         [Optional] Your API key. Get this from the user
                              profile page. Your must provide an apiKey or   
-                             username and password. If the guest account is 
+                             username and password. If the guest account is
                              enabled, a key of API-GUEST can be used.       
-      --user=VALUE           [Optional] Username to use when authenticating 
+      --user=VALUE           [Optional] Username to use when authenticating
                              with the server. Your must provide an apiKey or
                              username and password.                         
-      --pass=VALUE           [Optional] Password to use when authenticating 
+      --pass=VALUE           [Optional] Password to use when authenticating
                              with the server.                               
       --configFile=VALUE     [Optional] Text file of default values, with on
                              'key = value' per line.                        
@@ -64,7 +64,7 @@ Common options:
       --proxy=VALUE          [Optional] The URI of the proxy to use, eg     
                              http://example.com:8080.                       
       --proxyUser=VALUE      [Optional] The username for the proxy.         
-      --proxyPass=VALUE      [Optional] The password for the proxy. If both 
+      --proxyPass=VALUE      [Optional] The password for the proxy. If both
                              the username and password are omitted and      
                              proxyAddress is specified, the default         
                              credentials are used.                          
@@ -73,7 +73,7 @@ Common options:
                              fatal. Defaults to 'debug'.                    
 ```
 
-## Basic example {#Deletingautodeployoverrides-Basicexample}
+## Basic Example {#Deletingautodeployoverrides-Basicexample}
 
 The following will delete an automatic deployment release override for the project *HelloWorld* to the environment *Development*:
 
@@ -81,7 +81,7 @@ The following will delete an automatic deployment release override for the proje
 Octo delete-autodeployoverride --project HelloWorld --environment Development --server http://octopus/ --apikey API-ABCDEF123456
 ```
 
-## Tenanted example (by name) {#Deletingautodeployoverrides-Tenantedexample(byname)}
+## Tenanted Example (By Name) {#Deletingautodeployoverrides-Tenantedexample(byname)}
 
 The following will delete an automatic deployment release override for the project *HelloWorld* to the environment *Development* for the tenant *Acme*:
 
@@ -89,7 +89,7 @@ The following will delete an automatic deployment release override for the proje
 Octo delete-autodeployoverride --project HelloWorld --environment Development --tenant Acme --server http://octopus/ --apikey API-ABCDEF123456
 ```
 
-## Tenanted example (by tags) {#Deletingautodeployoverrides-Tenantedexample(bytags)}
+## Tenanted Example (By Tags) {#Deletingautodeployoverrides-Tenantedexample(bytags)}
 
 The following will delete an automatic deployment release override for the project *HelloWorld* to the environment *Development* for all tenants with the *Hosting/Cloud* tag:
 

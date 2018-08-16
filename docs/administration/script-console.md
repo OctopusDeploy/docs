@@ -32,11 +32,11 @@ The **Script Body** tab can be used to see the contents of the script, and you c
 
 ![](/docs/images/3048122/3277921.png "width=500")
 
-## Collecting artifacts {#ScriptConsole-Collectingartifacts}
+## Collecting Artifacts {#ScriptConsole-Collectingartifacts}
 
 Sometimes you might like to collect files from each of the machines as part of your script. To do this, see the section on [artifacts](/docs/deployment-process/artifacts.md).
 
-## Audit records {#ScriptConsole-Auditrecords}
+## Audit Records {#ScriptConsole-Auditrecords}
 
 Besides making it easy to run a script on many servers, the other advantage of using the Script Console is auditing. Ad-hoc scripts run via the Script Console will appear in the [Audit](/docs/administration/auditing.md) tab in the Configuration area.
 

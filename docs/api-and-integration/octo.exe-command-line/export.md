@@ -14,58 +14,58 @@ We currently support exporting/importing:
 Usage:
 
 ```text
-Export: 
+Export:
 
       --type=VALUE           The type to export
       --filePath=VALUE       The full path and name of the export file
       --project=VALUE        [Optional] Name of the project
       --name=VALUE           [Optional] Name of the item to export
-      --releaseVersion=VALUE [Optional] The version number, or range of 
+      --releaseVersion=VALUE [Optional] The version number, or range of
                              version numbers to export
 
-Common options: 
+Common options:
 
       --help                 [Optional] Print help for a command
       --helpOutputFormat=VALUE
-                             [Optional] Output format for help, only valid 
+                             [Optional] Output format for help, only valid
                              option is json
-      --server=VALUE         The base URL for your Octopus Server - e.g., 
+      --server=VALUE         The base URL for your Octopus Server - e.g.,
                              http://your-octopus/
-      --apiKey=VALUE         [Optional] Your API key. Get this from the user 
-                             profile page. Your must provide an apiKey or 
-                             username and password. If the guest account is 
+      --apiKey=VALUE         [Optional] Your API key. Get this from the user
+                             profile page. Your must provide an apiKey or
+                             username and password. If the guest account is
                              enabled, a key of API-GUEST can be used.
-      --user=VALUE           [Optional] Username to use when authenticating 
-                             with the server. Your must provide an apiKey or 
+      --user=VALUE           [Optional] Username to use when authenticating
+                             with the server. Your must provide an apiKey or
                              username and password.
-      --pass=VALUE           [Optional] Password to use when authenticating 
+      --pass=VALUE           [Optional] Password to use when authenticating
                              with the server.
-      --configFile=VALUE     [Optional] Text file of default values, with one 
+      --configFile=VALUE     [Optional] Text file of default values, with one
                              'key = value' per line.
       --debug                [Optional] Enable debug logging
-      --ignoreSslErrors      [Optional] Set this flag if your Octopus Server 
-                             uses HTTPS but the certificate is not trusted on 
-                             this machine. Any certificate errors will be 
-                             ignored. WARNING: this option may create a 
+      --ignoreSslErrors      [Optional] Set this flag if your Octopus Server
+                             uses HTTPS but the certificate is not trusted on
+                             this machine. Any certificate errors will be
+                             ignored. WARNING: this option may create a
                              security vulnerability.
       --enableServiceMessages
-                             [Optional] Enable TeamCity or Team Foundation 
+                             [Optional] Enable TeamCity or Team Foundation
                              Build service messages when logging.
-      --timeout=VALUE        [Optional] Timeout in seconds for network 
+      --timeout=VALUE        [Optional] Timeout in seconds for network
                              operations. Default is 600.
-      --proxy=VALUE          [Optional] The URI of the proxy to use, eg 
+      --proxy=VALUE          [Optional] The URI of the proxy to use, eg
                              http://example.com:8080.
       --proxyUser=VALUE      [Optional] The username for the proxy.
-      --proxyPass=VALUE      [Optional] The password for the proxy. If both 
-                             the username and password are omitted and 
-                             proxyAddress is specified, the default 
-                             credentials are used. 
-      --logLevel=VALUE       [Optional] The log level. Valid options are 
-                             verbose, debug, information, warning, error and 
+      --proxyPass=VALUE      [Optional] The password for the proxy. If both
+                             the username and password are omitted and
+                             proxyAddress is specified, the default
+                             credentials are used.
+      --logLevel=VALUE       [Optional] The log level. Valid options are
+                             verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
 
-## Exporting a project {#Export-Exportingaproject}
+## Exporting a Project {#Export-Exportingaproject}
 
 The following options are required when exporting a project.
 
@@ -113,7 +113,7 @@ Export file C:\tmp\OctoFX_Rate_Service.json successfully created.
     ...
   },
  
-  // This is used as a reference when importing to ensure that the same project group exists on your other Octopus Deploy Server. 
+  // This is used as a reference when importing to ensure that the same project group exists on your other Octopus Deploy Server.
   // If it doesn't already exist, you will need to create it.
   "ProjectGroup": {
     ...
@@ -127,7 +127,7 @@ Export file C:\tmp\OctoFX_Rate_Service.json successfully created.
   },
  
   // This is used as a reference when importing to ensure that the same NuGet feed exists on your 
-  // target Octopus Deploy Server. 
+  // target Octopus Deploy Server.
   "NuGetFeeds": [
     ...
   ],
@@ -158,7 +158,7 @@ Export file C:\tmp\OctoFX_Rate_Service.json successfully created.
 When the project variables contain values marked 'sensitive', their values will not be exported. The variable will be created with an empty value, and you can then modify the variables manually, typing in the new sensitive values once you have imported the project. If the variable already exists on a re-import and has a value, the value will be kept.
 :::
 
-## Exporting a release, or range of releases {#Export-Exportingarelease,orrangeofreleases}
+## Exporting a Release, or Range of Releases {#Export-Exportingarelease,orrangeofreleases}
 
 The following options are required when exporting releases.
 

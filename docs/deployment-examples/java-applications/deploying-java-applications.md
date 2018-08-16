@@ -33,9 +33,9 @@ public class PressAnyKey {
 }
 ```
 
-## Deploying the application {#DeployingJavaapplications-Deployingtheapplication}
+## Deploying the Application {#DeployingJavaapplications-Deployingtheapplication}
 
-### Step 1: Upload the application to the built-in repository {#DeployingJavaapplications-Step1:Uploadtheapplicationtothebuilt-inrepository}
+### Step 1: Upload the Application to the Built-in Repository {#DeployingJavaapplications-Step1:Uploadtheapplicationtothebuilt-inrepository}
 
 In order to deploy the application with Octopus Deploy it must be compiled and packaged. This would usually be done by your build server but for the sake of this demonstration let's do it manually.
 
@@ -47,7 +47,7 @@ javac PressAnyKey.java
 2. Zip PressAnyKey.class into the archive `PressAnyKey.1.0.0.zip` (you can download a sample: [PressAnyKey.1.0.0.zip](https://download.octopusdeploy.com/demo/PressAnyKey.1.0.0.zip))
 3. Upload `PressAnyKey.1.0.0.zip` to the Octopus Deploy built-in feed ({{Library,Packages}} or [follow the instructions here](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md)).
 
-### Step 2: Create the project and deployment process {#DeployingJavaapplications-Step2:Createtheprojectanddeploymentprocess}
+### Step 2: Create the Project and Deployment Process {#DeployingJavaapplications-Step2:Createtheprojectanddeploymentprocess}
 
 1. Create a new project called "Press Any Key"
 2. Add a "Deploy a package" step to the deployment process

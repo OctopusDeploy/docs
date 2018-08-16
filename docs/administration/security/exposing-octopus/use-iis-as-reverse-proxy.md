@@ -42,25 +42,25 @@ Set-Location ($env:ProgramFiles + "\Microsoft\Web Platform Installer")
 
 ## Configure SSL on Default Web Site
 
-1. Open the IIS Management Console (`inetmgr.exe`)
+1. Open the IIS Management Console (`inetmgr.exe`).
 
-1. Navigate to the Default Web Site
+1. Navigate to the Default Web Site.
 
-1. In the action pane, click on "Bindings"
+1. In the action pane, click on "Bindings".
 
-1. Click "Add"
+1. Click "Add".
 
-1. Select "https"
+1. Select "https".
 
-1. A dropdown box will appear with your installed certificates displayed
+1. A dropdown box will appear with your installed certificates displayed.
 
-1. Select your installed certificate. If you don't see your certificate listed, refer back to [this MSDN Article](https://msdn.microsoft.com/en-us/library/ff720335.aspx)
+1. Select your installed certificate. If you don't see your certificate listed, refer back to [this MSDN Article](https://msdn.microsoft.com/en-us/library/ff720335.aspx).
 
-1. Optional: Fill in your correct IP address and/or hostname, and click "OK"
+1. Optional: Fill in your correct IP address and/or hostname, and click "OK".
 
-1. Optional: Remove the HTTP (non-SSL) binding - this is a recommended security practice
+1. Optional: Remove the HTTP (non-SSL) binding - this is a recommended security practice.
 
-## Verify SSL is correctly configured
+## Verify SSL is Correctly Configured
 
 In a web browser, navigate to <https://servername> (note the 's').
 
@@ -92,7 +92,7 @@ In the "Add Reverse Proxy Rules" dialog, specify the URL of your backend Octopus
 
 Select "Enable SSL offloading".
 
-Cick OK.
+Click OK.
 
 ![Configuring a Reverse Proxy Rule](/docs/images/reverse-proxy/rprules.png)
 

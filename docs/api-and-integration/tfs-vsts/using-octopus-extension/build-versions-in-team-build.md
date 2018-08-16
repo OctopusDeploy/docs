@@ -1,5 +1,5 @@
 ---
-title: Build versions and Packaging in Team Build
+title: Build Versions and Packaging in Team Build
 description: A guide to build version numbers in Team Foundation Server (TFS) or Visual Studio Team Services (VSTS), and how they work with packages for Octopus.
 ---
 
@@ -9,17 +9,17 @@ This guide shows you how best to version your builds and packages in TFS and VST
 
 !toc
 
-## Build numbers in Team Build
+## Build Numbers in Team Build
 
-In Team Build (the build system in TFS and VSTS), build numbers may be in a format that doesn't represent a valid Semver number.
+In Team Build (the build system in TFS and VSTS), build numbers may be in a format that doesn't represent a valid SemVer number.
 
 For example, Microsoft's [Build Number format documentation](https://www.visualstudio.com/en-gb/docs/build/define/general#build-number-format) gives an example: `$(TeamProject)_$(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)` will result in a version number like `Fabrikam_CIBuild_master_20090805.2`.
 
-While this is a valid Team Build build number, it can cause issues when trying to pack the build output into a Nuget package or zip file for Octopus.
+While this is a valid Team Build build number, it can cause issues when trying to pack the build output into a NuGet package or zip file for Octopus.
 
-## Semver
+## SemVer
 
-Packages used by Octopus must conform to [Semver 1.0 or 2.0](/docs/packaging-applications/versioning.md) depending on the version of Octopus you're using.
+Packages used by Octopus must conform to [SemVer 1.0 or 2.0](/docs/packaging-applications/versioning.md) depending on the version of Octopus you're using.
 
 The link above explains versioning in detail, but in its simplest form it means two things:
 
@@ -28,9 +28,9 @@ The link above explains versioning in detail, but in its simplest form it means 
 
 As you can see, a package version of `Fabrikam_CIBuild_master_20090805.2` won't be valid will cause issues!
 
-### Setting a Semver-compliant build number
+### Setting a SemVer-compliant Build Number
 
-The recommendations below generally rely on the build number itself being Semver-compliant. To do this, you can change the build number format.
+The recommendations below generally rely on the build number itself being SemVer compliant. To do this, you can change the build number format.
 
 Our recommended build number format is: `x.y.$(BuildID)` where `x` and `y` are integers. You can change them when you want to bump a version. This format will produce a three-part version number like `1.2.350`.
 
@@ -43,7 +43,7 @@ The only downside of this numbering format is the `$(BuildID)` variable _always_
 :::
 
 :::hint
-Other extensions such as [gitversion](https://github.com/GitTools/GitVersion) can also be used to easily get semver compliant build numbers.
+Other extensions such as [gitversion](https://github.com/GitTools/GitVersion) can also be used to easily get SemVer compliant build numbers.
 :::
 
 ## Packaging in Team Build
@@ -76,7 +76,7 @@ One problem remains - particularly for web projects. If you only change content 
 
 To solve all these issues, we recommend using the `/p:OctoPackPackageVersion` argument when using OctoPack. This lets you specify the version directly, and you can use build variables to specify the version number.
 
-1. Set the build definition build number format (described [above](#setting-a-semver-compliant-build-number)) to a valid Semver version.
+1. Set the build definition build number format (described [above](#setting-a-semver-compliant-build-number)) to a valid SemVer version.
 2. Add the appropriate `/p:OctoPackPackageVersion` MSBuild argument:
     - In the new build engine (VSTS and from TFS 2015 onwards): `/p:OctoPackPackageVersion=$(Build.BuildNumber)`
     - In the older XAML-based builds: `/p:OctoPackPackageVersion=$(TF_BUILD_BUILDNUMBER)`. You may also need to do some [extra work](http://stackoverflow.com/questions/40120013/how-to-get-msbuild-build-number-in-name-of-nuget-package-using-octopack) for certain build definitions.
@@ -112,7 +112,7 @@ First, it's very easy to match the build to the package because they'll have the
 
 ### Specifying the files to pack and push
 
-One of the frequent causes of issues when using the Octopus build tasks is properly specifying the folders to pack and the nuget package to push. Especially if you're using the hosted build server, it can be hard to figure out where everything ends up when the build is running.
+One of the frequent causes of issues when using the Octopus build tasks is properly specifying the folders to pack and the NuGet package to push. Especially if you're using the hosted build server, it can be hard to figure out where everything ends up when the build is running.
 
 Rather than guessing, it can be helpful to specify these folders specifically. Again, there are some useful build variables you can make use of.
 

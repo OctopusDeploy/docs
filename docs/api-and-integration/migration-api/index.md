@@ -44,7 +44,7 @@ Partial Export API parameters:
 | Password=VALUE | Password to encrypt both the migration package and any sensitive values (This is the shared key between partial-export and import migrations) |
 | Projects=VALUE | Projects to include in the migration |
 | PackageId=VALUE | [Optional] Package Name/ID for your export _(Defaults to `Octopus.Space.Migration` if not provided)_ |
-| PackageVersion=VALUE | [Optional] Semver package version for your export _(Defaults to `1.0.0-{RandomStringGenerator.Generate(8)}` if not provided)_ |
+| PackageVersion=VALUE | [Optional] SemVer package version for your export _(Defaults to `1.0.0-{RandomStringGenerator.Generate(8)}` if not provided)_ |
 | IgnoreCertificates | [Optional] Excludes certificates from partial export |
 | IgnoreMachines | [Optional] Excludes machines from partial export |
 | IgnoreDeployments | [Optional] Excludes deployments from partial export |
@@ -67,7 +67,7 @@ Import API parameters:
 |--------------------------------|-------------|
 | Password=VALUE | Password that was used during the export migration _(This is the shared key between partial-export and import migrations)_ |
 | PackageId=VALUE | Package Name/ID that we are importing |
-| PackageVersion=VALUE | Semver package version that we are importing |
+| PackageVersion=VALUE | SemVer package version that we are importing |
 | IsEncryptedPackage | [Optional] Tells us whether the package was encrypted _(E.g. if you set `EncryptPackage` on export, you need to set this to `True`)_ |
 | IsDryRun | [Optional] Do not commit changes, just print what would have happened _(This allows you to test an import without actually committing the transaction)_ |
 | OverwriteExisting | [Optional] If a document with the same name already exists, it will be skipped by default |

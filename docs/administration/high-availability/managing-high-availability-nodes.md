@@ -42,7 +42,7 @@ Node A goes offline
 Node C elects itself *leader*
 ```
 
-## Last seen {#ManagingHighAvailabilityNodes-Lastseen}
+## Last Seen {#ManagingHighAvailabilityNodes-Lastseen}
 
 Octopus Server nodes will check-in at regular intervals.  If an Octopus Server node goes offline a warning will be displayed and the time that it went offline can be determined by looking at the **last seen** field.
 
@@ -52,7 +52,7 @@ Octopus Server nodes will check-in at regular intervals.  If an Octopus Server 
 
 Each Octopus Server node will execute tasks as they are queued. The **tasks** field displays the number of tasks currently running on that node. Following the active tasks link will display more information about all of the tasks for that node.
 
-## Task cap {#ManagingHighAvailabilityNodes-Taskcap}
+## Task Cap {#ManagingHighAvailabilityNodes-Taskcap}
 
 Each Octopus Server node can execute a maximum number of tasks in parallel.  This is to prevent death by multi-tasking. The **task cap** allows you to configure the maximum number of tasks for each node.  If more tasks are created than the total available task cap, the tasks will queue for up to a day until an Octopus Server node is available to execute the task.
 
@@ -67,7 +67,7 @@ The drain toggle can be used to prevent an Octopus Server node from executing an
 - a follower will not become leader
 - the Octopus Server ping url will not return 200 OK
 
-## Load balancing {#ManagingHighAvailabilityNodes-Loadbalancing}
+## Load Balancing {#ManagingHighAvailabilityNodes-Loadbalancing}
 
 To distribute HTTP load among Octopus Server nodes with a single point of access it is recommend to use an HTTP load balancer. We typically recommend using a round-robin (or similar) approach for sharing traffic between the nodes in your cluster.
 
@@ -85,7 +85,7 @@ Making a standard `HTTP GET` request to this URL on your Octopus Server nodes wi
 The Octopus Server node configuration is also returned as JSON in the HTTP response body.
 :::
 
-## Example procedure: installing Windows Updates {#ManagingHighAvailabilityNodes-Exampleprocedure:installingWindowsUpdates}
+## Example Procedure: Installing Windows Updates {#ManagingHighAvailabilityNodes-Exampleprocedure:installingWindowsUpdates}
 
 One of the great benefits of High Availability is the ability to perform maintenance on one node, while allowing other nodes to continue to perform deployments or server users.
 

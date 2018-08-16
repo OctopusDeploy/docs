@@ -36,7 +36,7 @@ Try {
 }
 ```
 
-The function *CheckDriveCapacity* informs you about how much space is available on your Tentacle's local hard disk and will write a warning if the free disk space is less than this threshold. You can add additional Powershell to this script to customize your health checks as you wish, modify or remove the disk space checking altogether. It's entirely up to you! Just remember, you can copy and paste the original script above *back* into your machine policy if you run into any problems and wish to get back to the default behavior.
+The function *CheckDriveCapacity* informs you about how much space is available on your Tentacle's local hard disk and will write a warning if the free disk space is less than this threshold. You can add additional PowerShell to this script to customize your health checks as you wish, modify or remove the disk space checking altogether. It's entirely up to you! Just remember, you can copy and paste the original script above *back* into your machine policy if you run into any problems and wish to get back to the default behavior.
 
 The health status of a deployment target can be set by custom health check scripts.  Deployment targets can have four health statuses:
 

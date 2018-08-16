@@ -71,7 +71,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 
 Gradle builds can define the filename through the `war.archiveName` property.
 
-The following code is a snippet of a `build.gradle` file that defines the name of the WAR file in a Semver compatible format.
+The following code is a snippet of a `build.gradle` file that defines the name of the WAR file in a SemVer compatible format.
 
 ```
 apply plugin: 'java'

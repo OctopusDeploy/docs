@@ -12,11 +12,11 @@ The Octopus web portal is the main interface that your team will use to interact
 
 Octopus can use any valid SSL certificate, whether it is from a Certificate Authority, managed by Let's Encrypt, or even a self-signed certificate. The easiest way to get started with HTTPS is to use [Let's Encrypt](/docs/administration/security/exposing-octopus/lets-encrypt-integration.md) which is trusted and free to use forever in production systems.
 
-### Use Let's Encrypt to manage your SSL certificate
+### Use Let's Encrypt to Manage Your SSL Certificate
 
 Let's Encrypt is the best way to get started with HTTPS in Octopus. It is a trusted and free service, which automatically renews your SSL certificate so you don't need to worry about expiry. We have built a wizard to do all the hard work so you can get up and running with HTTPS in a couple of minutes. [Get started with Let's Encrypt](/docs/administration/security/exposing-octopus/lets-encrypt-integration.md).
 
-### Bring your own SSL certificate {#ExposetheOctopuswebportaloverHTTPS-ImportingyourSSLcertificate}
+### Bring Your Own SSL Certificate {#ExposetheOctopuswebportaloverHTTPS-ImportingyourSSLcertificate}
 
 You can use your own SSL certificate which could be signed by any trusted Certificate Authority. If the certificate you intend to use doesn't exist in the Windows certificate store already, you'll need to import it from a PFX file containing both the public certificate and private key. The following steps will show you how to import your certificate:
 
@@ -39,7 +39,7 @@ You can use your own SSL certificate which could be signed by any trusted Certif
 
     ![](/docs/images/3048148/3278454.png "width=500")
 
-### Let Octopus generate a self-signed certificate
+### Let Octopus Generate a Self-signed Certificate
 
 If you are testing Octopus, and don't want to use an existing certificate nor Let's Encrypt, Octopus can generate a self-signed certificate for you. This certificate will not be trusted by your web browser, but it will let you test Octopus over a secure HTTPS connection.
 
@@ -47,7 +47,7 @@ If you are testing Octopus, and don't want to use an existing certificate nor Le
 1. Select that self-signed certificate for your HTTPS binding.
 1. You will need to ignore any messages in your browser about being an untrusted SSL certificate and continue to the site.
 
-## Changing your web portal bindings manually {#ExposetheOctopuswebportaloverHTTPS-Changingyourwebportalbindings}
+## Changing Your Web Portal Bindings Manually {#ExposetheOctopuswebportaloverHTTPS-Changingyourwebportalbindings}
 
 If you are bringing your own SSL certificate, or want to configure a complex set of HTTP/HTTPS bindings, the easiest way to do this is using the Octopus Server Manager.
 
