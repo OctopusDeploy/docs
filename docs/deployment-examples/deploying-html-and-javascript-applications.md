@@ -85,7 +85,7 @@ Now we need to create the project and configure it ready to deploy our JavaScrip
 
 ![](/docs/images/5672397/5866210.png "width=500")
 
-### Step 3: Deploy {#DeployingHTMLandJavaScriptApplications-Step3:Deploy!}
+### Step 3: Deploy {#DeployingHTMLandJavaScriptApplications-Step3:Deploy}
 
 Now when we create a release for this project and deploy it we can see that Octopus has found the `MyApp.html` file and substituted the variable values into our expressions.
 

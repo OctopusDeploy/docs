@@ -5,7 +5,7 @@ position: 1
 ---
 
 :::hint
-Azure Active Directory (AAD) authentication is available in Octopus Deploy 3.5 and later
+Azure Active Directory (AAD) authentication is available in **Octopus 3.5** and later
 :::
 
 To use Azure Active Directory (AAD) authentication with Octopus you will need to get a few pieces lined up just right:
@@ -207,7 +207,7 @@ If you already have Octopus user accounts and you want to enable external authen
 
 Now you're using an external identity provider it is easy to increase your security. You could consider configuring [Multi-Factor Authentication](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication) - after all Octopus Deploy has access to your production environments!
 
-You should also consider disabling any authentication providers you aren't using, like Username and Password authentication which can now be disabled since Octopus Deploy 3.5.
+You should also consider disabling any authentication providers you aren't using, like Username and Password authentication which can now be disabled since **Octopus 3.5**.
 
 ## Troubleshooting {#AzureADauthentication-Troubleshooting}
 
@@ -242,7 +242,7 @@ Sometimes the contents of the security token sent back by Azure AD aren't exactl
 5. Don't worry if jwt.io complains about the token signature, it doesn't support RS256 which is used by Azure AD.
 6. Octopus uses most of the data to validate the token, but primarily uses the `sub`, `email` and `name` claims. If these claims are not present you will likely see unexpected behavior.
 
-### Get in Touch With Our Support Team {#AzureADauthentication-Getintouchwithoursupportteam}
+### Contact Octopus Support {#AzureADauthentication-Getintouchwithoursupportteam}
 
 If you aren't able to resolve the authentication problems yourself using these troubleshooting tips, please reach out to our [support team](https://octopus.com/support) with:
 

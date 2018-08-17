@@ -4,16 +4,16 @@ description: Automatic Release Creation allows you to automatically create a new
 position: 15
 ---
 
-In Octopus Deploy 2.6 a feature was added called Automatic Release Creation primarily to support older versions of Team Foundation Server (TFS).
+In **Octopus 2.6** a feature was added called Automatic Release Creation primarily to support older versions of Team Foundation Server (TFS).
 
-If you are using Octopus 3.4 or higher, please note that Automatic Release Creation moved into the Project Triggers sidebar, but still functions in exactly the same way (it's just accessed from a different menu in your project).
+If you are using **Octopus 3.4** or higher, please note that Automatic Release Creation moved into the Project Triggers sidebar, but still functions in exactly the same way (it's just accessed from a different menu in your project).
 
 :::success
 **Consider using a build server extension**
 We have extensions/plugins available for the most popular build servers. These extensions will help you [create packages](/docs/packaging-applications/index.md), [push those packages to the built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md), create releases and deploy them to your environments:
 
-- [TeamCity](/docs/api-and-integration/teamcity.md)
-- [Visual Studio Team Services (VSTS) (formerly VSO) and TFS 2015](/ /docs/api-and-integration/tfs-vsts/using-octopus-extension/index.md)
+- [TeamCity](/docs/api-and-integration/teamcity.md).
+- [Visual Studio Team Services (VSTS) (formerly VSO) and TFS 2015](/ /docs/api-and-integration/tfs-vsts/using-octopus-extension/index.md).
   :::
 
 :::success
@@ -25,7 +25,7 @@ Take a look at the [end-to-end guide for TFS](/docs/api-and-integration/tfs-vsts
 External package repositories **cannot be used to automatically create releases**, only the [built-in package repository](/docs/packaging-applications/package-repositories/index.md) is supported.
 :::
 
-## Getting started {#AutomaticReleaseCreation-Gettingstarted}
+## Getting Started {#AutomaticReleaseCreation-Gettingstarted}
 
 If you use the[ built-in Octopus package repository](/docs/packaging-applications/package-repositories/index.md), you can now select a package, that when uploaded it will automatically create a release.
 
@@ -60,7 +60,7 @@ The release number that is created is guided by the Release Versioning settings 
 - Choose the channel that will be used most commonly for automatically creating releases, and create releases manually for the other channels
 - Try creating some releases manually for the selected channel to make sure it works as expected
 
-## Automatically creating pre-releases {#AutomaticReleaseCreation-Automaticallycreatingpre-releases}
+## Automatically Creating Pre-releases {#AutomaticReleaseCreation-Automaticallycreatingpre-releases}
 
 When you push a package to your trigger step, Octopus will look for the latest available package for all other steps **excluding pre-release packages by default** - see [this thread](http://help.octopusdeploy.com/discussions/problems/35401) for background.
 
@@ -70,23 +70,23 @@ One way to work around this behavior is to create a Channel with the appropriate
 
 When you are using automatic release creation there are many reasons why a release may not be created successfully. Take some time to consider the following troubleshooting steps:
 
-1. **Inspect the server logs** for warnings in {{Configuration,Diagnostics}} - Octopus will log the reason why automatic release creation failed as errors or warnings
+1. **Inspect the server logs** for warnings in {{Configuration,Diagnostics}} - Octopus will log the reason why automatic release creation failed as errors or warnings.
 
-2. Ensure you are pushing the package to the **built-in package repository** - external package repositories are not supported for automatic release creation
+2. Ensure you are pushing the package to the **built-in package repository** - external package repositories are not supported for automatic release creation.
 
-3. Ensure you have **enabled automatic release creation** for the project based on the **correct package**  
+3. Ensure you have **enabled automatic release creation** for the project based on the **correct package**.
 
-4. When using Channels ensure you have **enabled automatic release creation for the desired Channel**  
+4. When using Channels ensure you have **enabled automatic release creation for the desired Channel**.
 
-5. Ensure you are pushing a **new version** of the package - Octopus will not create a release where the package has already been used for creating a release
+5. Ensure you are pushing a **new version** of the package - Octopus will not create a release where the package has already been used for creating a release.
 
-6. Ensure you are pushing a package that Octopus will consider as the **latest available package** - see the conversation about [automatically creating pre-releases](/docs/deployment-process/releases/automatic-release-creation.md) above
+6. Ensure you are pushing a package that Octopus will consider as the **latest available package** - see the conversation about [automatically creating pre-releases](/docs/deployment-process/releases/automatic-release-creation.md) above.
 
-7. Ensure the release creation package step **DOES NOT use variables for the PackageId** - Octopus will only create a release where the package is constant
+7. Ensure the release creation package step **DOES NOT use variables for the PackageId** - Octopus will only create a release where the package is constant.
 
-8. When a release has **multiple packages**, ensure you configure automatic release creation to use the **last package that is pushed to the built-in repository** - otherwise some of the packages required for the release will be missing
+8. When a release has **multiple packages**, ensure you configure automatic release creation to use the **last package that is pushed to the built-in repository** - otherwise some of the packages required for the release will be missing.
 
-9. When using Channels the package **must satisfy the version rules** for the Channel being used for automatic release creation - try creating some releases manually
+9. When using Channels the package **must satisfy the version rules** for the Channel being used for automatic release creation - try creating some releases manually.
 
 10. Are you pushing **pre-release** packages? See the section above on [automatically creating pre-releases](/docs/deployment-process/releases/automatic-release-creation.md).
 

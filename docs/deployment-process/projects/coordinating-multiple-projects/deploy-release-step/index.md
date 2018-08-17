@@ -52,7 +52,7 @@ Where:
 *Deploy Release Step Name:* The name of the _Deploy Release_ step in the parent process.    
 *Child Step Name:* The name of the step in the child deployment process which set the output variable.   
 *VariableName:* The original name of the output variable. e.g. for `Set-OctopusVariable -Name "Foo" -Value "Bar"` this would be `Foo`.   
-*Machine Name:* The machine the child process was targetting when the output variable was set.   
+*Machine Name:* The machine the child process was targeting when the output variable was set.   
 
 :::hint
 For example, you have a project _Project Voltron_ which contains a _Deploy Release_ step named _Deploy Red Lion_ which triggers a deployment of another project _Project Red Lion_.  

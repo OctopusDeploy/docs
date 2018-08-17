@@ -1,5 +1,5 @@
 ---
-title: Multi-tenant deployments FAQ
+title: Multi-tenant Deployments FAQ
 description: Questions we are asked most often related to multi-tenant deployments.
 position: 1
 ---
@@ -10,7 +10,7 @@ This page contains some of the questions we are asked most often related to mult
 
 ## Why can't I see the tenant area in the main menu, or anything about tenants for that matter? {#Multi-tenantdeploymentsFAQ-WhycantIseethetenantareainthemainmenu,oranythingabouttenantsforthatmatter?}
 
-Multi-tenant deployments were shipped as part of Octopus 3.4, perhaps you need to upgrade your Octopus Server? Also, before creating your first tenant, you can find tenants in {{Addons,Tenants}}. For more information refer to [creating your first tenant](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-tenant.md).
+Multi-tenant deployments were shipped as part of `Octopus 3.4`, perhaps you need to upgrade your Octopus Server? Also, before creating your first tenant, you can find tenants in the **Tenants** menu option. For more information refer to [creating your first tenant](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-tenant.md).
 
 ## Is there anything special about multi-tenant projects or environments? {#Multi-tenantdeploymentsFAQ-Isthereanythingspecialaboutmulti-tenantprojectsorenvironments?}
 

@@ -89,7 +89,7 @@ NODE_ENV="#{Octopus.Environment.Name}" pm2 start server.js --name="#{Octopus.Pro
 While this code is obviously not the ideal solution, it does demonstrate how you might leverage pm2 to start and stop new versions of your project as it is deployed. Check their documentation on best practices for more advanced topics like restarting after server reboot, clustering and monitoring.
 :::
 
-## Deploy {#ConfigureOctopusDeployProject-Deploy!}
+## Deploy {#ConfigureOctopusDeployProject-Deploy}
 
 - Create a new release and deploy it to the **prod** environment.
 

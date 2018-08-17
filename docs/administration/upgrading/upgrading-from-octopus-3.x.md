@@ -4,7 +4,7 @@ description: Information on how to upgrade from Octopus 3.x to a newer version.
 position: 2
 ---
 
-The following guide provides an overview of how the various components of Octopus Deploy 3.x can be updated to the latest release.
+The following guide provides an overview of how the various components of **Octopus 3.x** can be updated to the latest release.
 
 ## Update Available Notification {#UpgradingfromOctopus3.x-UpdateAvailableNotification}
 

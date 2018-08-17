@@ -42,13 +42,13 @@ Click on the **Upgrade machines** button to have Octopus send the new Tentacle
 
 ## Troubleshooting {#UpgradingfromOctopus2.0-Troubleshooting}
 
-When Octopus 2.0 was first released, the MSI was set as a "per user" install. This means that if Joe installed Octopus, Mary would not see the start menu entries.
+When **Octopus 2.0** was first released, the MSI was set as a "per user" install. This means that if Joe installed Octopus, Mary would not see the start menu entries.
 
-For Octopus 2.1, we fixed the MSI and made it a "per machine" installation. However, this created one problem: when you install a new version of Octopus, we normally uninstall the old version. But a "per machine" installation cannot automatically uninstall a "per user" MSI.
+For **Octopus 2.1**, we fixed the MSI and made it a "per machine" installation. However, this created one problem: when you install a new version of Octopus, we normally uninstall the old version. But a "per machine" installation cannot automatically uninstall a "per user" MSI.
 
-Instead, we added a check in 2.1.3 that checks if a per-user installation already exists, and if so, blocks installation. The error message reads:
+Instead, we added a check in **Octopus 2.1.3** that checks if a per-user installation already exists, and if so, blocks installation. The error message reads:
 
-> A previous version of Octopus Deploy 2.0 is currently installed. This version cannot be automatically upgraded. You will need to uninstall this version before upgrading. Please view this page for details: [http://g.octopushq.com/UninstallFirst](http://g.octopushq.com/UninstallFirst)
+> A previous version of **Octopus 2.0** is currently installed. This version cannot be automatically upgraded. You will need to uninstall this version before upgrading. Please view this page for details: [http://g.octopushq.com/UninstallFirst](http://g.octopushq.com/UninstallFirst)
 
 ![](/docs/images/3048131/3278002.png "width=500")
 

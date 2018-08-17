@@ -4,7 +4,7 @@ description:  Configure your infrastructure so Octopus can deploy infrastructure
 position: 60
 ---
 
-AWS support was introduced to Octopus in version `2018.2`.
+AWS support was introduced in **Octopus 2018.2**.
 
 To deploy infrastructure to AWS, you can define an AWS account in Octopus.
 

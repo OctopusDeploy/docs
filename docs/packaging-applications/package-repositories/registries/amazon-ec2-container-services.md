@@ -6,7 +6,7 @@ position: 2
 
 ## Amazon - EC2 Container Service
 
-AWS provides a v2 Docker Image registry and is available through their [EC2 Container Service](https://aws.amazon.com/ecs/) offering. From Octopus Deploy version `2018.8.0`, support for EC2 Container registries is provided as a special feed type itself.
+AWS provides a v2 Docker Image registry and is available through their [EC2 Container Service](https://aws.amazon.com/ecs/) offering. From **Octopus 2018.8.0**, support for EC2 Container registries is provided as a special feed type itself.
 
 ### Setting up an AWS Elastic Container Registry
 From the AWS Services dashboard go to `EC2 Container Service`.

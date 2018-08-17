@@ -55,10 +55,10 @@ At the time of writing, Octopus Deploy actively follows these XSS prevention rul
 
 The Octopus Deploy web user interface is built using modern web frameworks, where the default behavior is to sanitize data before it is added to the DOM.
 
-- Octopus Deploy 2.0 to 3.17 is built using [AngularJS](https://angularjs.org/) which employs [strict contextual escaping by default](https://docs.angularjs.org/api/ng/service/$sce).
-- Octopus Deploy 4.0+ is built using [React](https://reactjs.org/) which employs a similar technique.
+- **Octopus 2.0** to **Octopus 3.17** is built using [AngularJS](https://angularjs.org/) which employs [strict contextual escaping by default](https://docs.angularjs.org/api/ng/service/$sce).
+- **Octopus 4.0**+ is built using [React](https://reactjs.org/) which employs a similar technique.
 
-This doesn't make our web user interface perfect, but it is easier for our developers be safe-by-defult. If we really want to render unsanitized content to the browser DOM, we have to explicitly opt-out of the safe-by-default behavior, and mitigate the security risks via other means.
+This doesn't make our web user interface perfect, but it is easier for our developers be safe-by-default. If we really want to render unsanitized content to the browser DOM, we have to explicitly opt-out of the safe-by-default behavior, and mitigate the security risks via other means.
 
 ### Markdown is Preferred Over HTML
 

@@ -12,7 +12,7 @@ Octopus allows you to group similar tags together into tag sets. This enables yo
 Have you read [our guide](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/index.md) on multi-tenant deployments yet? There is a section dedicated to [working with groups of tenants using tags](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md).
 :::
 
-## What can you do with tenant tags? {#TenantTags-Whatcanyoudowithtenanttags?}
+## What Can You do with Tenant Tags? {#TenantTags-Whatcanyoudowithtenanttags?}
 
 ![](tag-sets.png "width=500")
 
@@ -28,14 +28,14 @@ With tenant tags you can:
 - Design a multi-tenant upgrade process - read more in our [guide](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md)
 - Control which releases can be deployed to tenants using [channels](/docs/deployment-process/channels/index.md) - read more in our [guide](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md)
 
-## Managing tenant tags {#TenantTags-Managingtenanttags}
+## Managing Tenant Tags {#TenantTags-Managingtenanttags}
 
 Go to {{Library,Tenant tag sets}} to create, modify and reorder tag sets and tags.
 
 ![](tenant-importance.png "width=500")
 
 
-### Design your tag sets carefully
+### Design Your Tag Sets Carefully
 We suggest taking some time to design your tag sets based on how you will apply them to your projects and environments. Our recommendation is to make sure each of your **tag sets are orthogonal**, like different axes on a chart. This kind of design is important because of [how tags are combined in tag filters](#TenantTags-Tag-basedfilters).
 
 Example tag set design (based on the sample provided in our guide):
@@ -46,14 +46,14 @@ Example tag set design (based on the sample provided in our guide):
 
 This kind of tag set design will make it easier for each different class of Octopus user to understand which tags apply to their area, and the impact it will have on your tenanted deployments.
 
-### Ordering tag sets and tags
+### Ordering Tag Sets and Tags
 Order is important for tag sets, and tags within those tag sets. Octopus will sort tag sets and tags based on the order you define in the library. This allows you to tailor the Octopus user interface to your own situation.
 
 This example of configuring a tenanted deployment target shows how the tenant filter field order is defined based on the order of the tag sets and tags in the library.
 
 ![](/docs/images/5670003/5865645.png "width=500")
 
-## Tag-based filters {#TenantTags-Tag-basedfilters}
+## Tag-based Filters {#TenantTags-Tag-basedfilters}
 
 Once you have defined some tag sets and tags you can start leveraging those tags to tailor your environments and deployments.
 
@@ -81,7 +81,7 @@ When paired with a well-structured tag design, this logic will enable you to tai
 - A filter with tags across different tag sets will become more reductive since they are combined using **`AND`**
   :::
 
-## Referencing tenant tags {#TenantTags-Referencingtenanttags}
+## Referencing Tenant Tags {#TenantTags-Referencingtenanttags}
 
 If you want to use tenant tags to automate Octopus Deploy you should use the **Canonical Name** for the Tag which looks like this: `Tag Set Name/Tag Name`
 

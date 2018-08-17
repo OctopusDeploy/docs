@@ -36,7 +36,7 @@ In this scenario, the customer would install different instances of Octopus in b
 Your Octopus Deploy license includes the ability to install and configure up to three (3) separate instances of Octopus Server to support scenarios like this one.
 :::
 
-## Tentacle can be installed but communication must go via a proxy {#IsolatedOctopusDeployservers-Tentaclecanbeinstalledbutcommunicationmustgoviaaproxy}
+## Tentacle Can Be Installed But Communication Must Go Via a Proxy {#IsolatedOctopusDeployservers-Tentaclecanbeinstalledbutcommunicationmustgoviaaproxy}
 
 > An agency manages lots of small applications on behalf of their customers, and wants to use Octopus to manage deployments. Quite often the production environment is managed by the customer and even after being convinced to allow the Tentacle agent to be installed on their servers, they want communication to be controlled by a proxy server.
 

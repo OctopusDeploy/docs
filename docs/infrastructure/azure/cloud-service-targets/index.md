@@ -1,5 +1,5 @@
 ---
-title: Azure Cloud Service targets
+title: Azure Cloud Service Targets
 description: Azure Cloud Service deployment targets allow you to reference existing classic Cloud Services in your Azure subscription, that you can then reference by role during deployments.
 position: 100
 version: "[2018.5,)"
@@ -13,7 +13,7 @@ Azure has [announced](https://blogs.msdn.microsoft.com/appserviceteam/2018/03/12
 
 ## Requirements
 
-- This new target type was introduced in `2018.5`, so you'll need to be running at least that version of the Octopus Server. You can read more about all the new PaaS targets [in our blog](https://octopusdeploy.com/blog/paas-targets).
+- This new target type was introduced in **Octopus 2018.5**, so you'll need to be running at least that version of the Octopus Server. You can read more about all the new PaaS targets [in our blog](https://octopusdeploy.com/blog/paas-targets).
 
 - You will firstly need an [Azure Management Certificate account](/docs/infrastructure/azure/creating-an-azure-account/creating-an-azure-management-certificate-account.md) that references your Azure subscription.
 
@@ -34,13 +34,13 @@ To create an Azure Cloud Service target within Octopus:
 - After clicking _Save_, your deployment target will be added and go through a health check to ensure Octopus can connect to it.
 - If all goes well, you should see your newly created target in your `Deployment Targets` list, with a status of _Healthy_
 
-### Creating Cloud Service Targets by scripts
+### Creating Cloud Service Targets by Scripts
 
 Azure Cloud Service targets can also be created via a PowerShell Cmdlet within a Deployment Process, this can be especially handy if you are also creating the Azure Cloud Service via a script.
 
 See [Creating Resources by script](/docs/infrastructure/dynamic-infrastructure/index.md) for more information on creating Azure Cloud Services via a script.
 
-## Deploying to Cloud Service targets
+## Deploying to Cloud Service Targets
 
 See our [documentation about this topic](/docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-cloud-service/index.md)
 

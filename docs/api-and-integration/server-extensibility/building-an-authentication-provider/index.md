@@ -3,7 +3,7 @@ title: Building an Authentication Provider
 description: Technical details of how to build an Octopus Deploy Authentication Provider.
 ---
 
-Server Extensibility was new to Octopus Deploy in version 3.5, and is still being actively evolved as we learn more about how it's being used and what customer want to extend.  The documentation in this section covers the implementation as of v2.0.\* of the Extensibility packages.
+Server Extensibility was new to **Octopus 3.5**, and is still being actively evolved as we learn more about how it's being used and what customer want to extend.  The documentation in this section covers the implementation as of v2.0.\* of the Extensibility packages.
 
 ## Forms vs External {#BuildinganAuthenticationProvider-FormsvsExternal}
 

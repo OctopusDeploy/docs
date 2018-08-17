@@ -75,7 +75,6 @@ Then, on your deployment step, you can set the **[Custom Install Directory](/doc
 
 ![](custom-install-path.png)
 
-## Variables and permissions
+## Variables and Permissions
 
 When applying permissions on variables via scopes, the only options that are checked against permissions are Environments, Targets and Tenants.
-

@@ -25,7 +25,7 @@ If not, you will need to configure a host for our sample application. We recomme
 3. Configure Docker Engine on your Ubuntu machine - [https://docs.docker.com/engine/installation/linux/ubuntulinux/](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
 4. Configure a Docker Group and grant Octopus the ability to command the Docker Daemon - [https://docs.docker.com/engine/installation/linux/ubuntulinux/#/create-a-docker-group](https://docs.docker.com/engine/installation/linux/ubuntulinux/#/create-a-docker-group)
 
-You should now be ready to deploy Docker containers to your Ubuntu machine using Octopus Deploy!
+You should now be ready to deploy Docker containers to your Ubuntu machine using Octopus Deploy.
 
 ## Configuring a DockerHub Feed {#Dockerrunwithnetworking-ConfiguringaDockerHubfeed}
 

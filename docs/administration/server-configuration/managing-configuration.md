@@ -8,7 +8,7 @@ version: 4.0
 Octopus Deploy is made up of a number of different configuration sets and managing them can be performed through a few different channels.
 
 :::hint
-In Octopus Deploy version 4.0, we added the ability to manage most of the available configuration, without needing to be directly on the server.
+In **Octopus 4.0**, we added the ability to manage most of the available configuration, without needing to be directly on the server.
 :::
 
 ## Web Portal

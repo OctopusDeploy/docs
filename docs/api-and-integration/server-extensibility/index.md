@@ -4,6 +4,6 @@ description: This guide covers everything you need to know for building and cust
 position: 70
 ---
 
-Server extensibility is available in **Octopus Deploy 3.5** and later
+Server extensibility is available in **Octopus 3.5** and later
 
 This section contains guides for building and customizing Octopus Deploy Server extensions.
