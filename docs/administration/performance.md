@@ -65,7 +65,7 @@ We offer three options for scaling your Octopus Server:
 
 We are planning a fourth option for scaling your Octopus Server:
 
-- dividing up your Octopus environment using [Spaces](https://octopus.com/blog/octopus-spaces-blog-series-kick-off) - planned for Octopus 2018.9.0
+- dividing up your Octopus environment using [Spaces](https://octopus.com/blog/octopus-spaces-blog-series-kick-off) - currently planned for release in Octopus 2018.11.0.
 
 ### Task Cap
 
