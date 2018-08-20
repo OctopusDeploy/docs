@@ -3,7 +3,7 @@ title: Deploy Release Step
 description: The Deploy Release Step allows you to trigger the deployment of a Release of a Project from another Project
 ---
 
-Introduced in Octopus `2018.2.1`, the _Deploy Release_ step lets you have a project trigger the deployment of a release of another project. This is useful when you are [coordinating multiple projects](/docs/deployment-process/projects/coordinating-multiple-projects/index.md).
+Introduced in **Octopus 2018.2.1**, the _Deploy Release_ step lets you have a project trigger the deployment of a release of another project. This is useful when you are [coordinating multiple projects](/docs/deployment-process/projects/coordinating-multiple-projects/index.md).
 
 ![Deploy Release Step Card](deploy-release-card.png "width=500")
 

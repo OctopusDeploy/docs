@@ -12,7 +12,7 @@ When guest login is enabled, the sign in page for the Octopus web portal will pr
 
 ## Enable Guest User Via UI {#Guestlogin-Enableguestlogin}
 
-In Octopus 4.0 we added the ability to enable your guest account via the UI. The option can be found under Configuration -> Settings -> Guest Login. From there you can select the `Is Enabled` button the active the the Guest account.
+In **Octopus 4.0** we added the ability to enable your guest account via the UI. The option can be found under Configuration -> Settings -> Guest Login. From there you can select the **Is Enabled** button the active the the Guest account.
 
 ![](enableguests1.jpg "width=500")
 ![](enableguests2.jpg "width=500")
@@ -37,7 +37,7 @@ For example, you could assign the guest user to your **Octopus Administrators** 
 :::
 
 :::warning
-Please note, if you do add the guest user to your **Octopus Administrators** team, they will be able to view **all** settings and configuration. This includes viewing the license key, viewing the private keys for any uploaded certificates and potentially other information you dont want readable. Depending on your use case, you may want to create a custom role instead.
+Please note, if you do add the guest user to your **Octopus Administrators** team, they will be able to view **all** settings and configuration. This includes viewing the license key, viewing the private keys for any uploaded certificates and potentially other information you don't want readable. Depending on your use case, you may want to create a custom role instead.
 :::
 
 ## Configuring Guest Login {#Guestlogin-Configuringguestlogin}

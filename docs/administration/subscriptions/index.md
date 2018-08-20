@@ -3,7 +3,7 @@ title: Subscriptions
 description: Subscriptions allow you to subscribe to events that are happening within Octopus, so you can be notified when events have occurred and react accordingly.
 position: 1600
 ---
-Subscriptions are available in **Octopus 3.5** and later
+Subscriptions are available in **Octopus 3.5** and later.
 
 Subscriptions allow you to subscribe to events that are happening within Octopus, so you can be notified when events have occurred and react accordingly. Both **email** and **webhook** notifications are currently supported.
 
@@ -112,7 +112,7 @@ For example, to test whether the subscription webhooks are sending correctly fro
 
 ## Subscription Events
 
-The following is a list of all options for subscriptions including Event Groups, Events, and Document Types
+The following is a list of all options for subscriptions including Event Groups, Events, and Document Types:
 
 |EVENT GROUPS|
 |---|

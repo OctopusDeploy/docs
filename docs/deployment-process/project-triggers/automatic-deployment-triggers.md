@@ -35,7 +35,7 @@ There are quite a few complexities to the decision making process for automatic 
 
 ### Which Events Can Trigger an Automatic Deployment?
 
-For Octopus 3.6 and above, you can select any machine-related event to cause an automatic deployment. We have also provided a convenient event-grouping mechanism to select a pre-defined group of events:
+For **Octopus 3.6** and above, you can select any machine-related event to cause an automatic deployment. We have also provided a convenient event-grouping mechanism to select a pre-defined group of events:
 
 ![](create-trigger.png "width=500")
 
@@ -51,7 +51,7 @@ The following table outlines each event group and their included events:
 For the majority of cases where you want to auto-deploy your project as new deployment targets become available, we advise you use only the **Machine becomes available for deployment** event group.
 :::
 
-For Octopus 3.4 and 3.5, there are two types of events that can trigger an automatic deployment:
+For **Octopus 3.4** and **Octopus 3.5**, there are two types of events that can trigger an automatic deployment:
 
 ![](/docs/images/5671191/5865883.png "width=500")
 
@@ -182,7 +182,7 @@ Yes you can! By configuring [Subscriptions](/docs/administration/subscriptions/
 
 ### Can I Include Disabled Machines in my Automated Deployments?
 
-Starting in Octopus 3.6, you can! Because we allow selection of any machine event, you can select 'MachineDisabled' as a trigger event. This may be useful if you wish to disable a machine in Octopus and have a deployment process that removes disabled machines from your load balancer. It also means that you need to be careful when selecting your trigger event types, because if you create a project trigger with 'MachineDisabled' selected and did not mean to, anytime a machine becomes disabled it will re-deploy your project to this disabled machine.
+Starting in **Octopus 3.6**, you can! Because we allow selection of any machine event, you can select 'MachineDisabled' as a trigger event. This may be useful if you wish to disable a machine in Octopus and have a deployment process that removes disabled machines from your load balancer. It also means that you need to be careful when selecting your trigger event types, because if you create a project trigger with 'MachineDisabled' selected and did not mean to, anytime a machine becomes disabled it will re-deploy your project to this disabled machine.
 
 ## Troubleshooting Automatic Deployments
 

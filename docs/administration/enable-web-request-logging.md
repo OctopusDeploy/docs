@@ -51,9 +51,9 @@ Different tools have different uses - WebLogExpert and AWStats can be used to bu
 
 For exploratory analysis of the logs to look for performance issues or trends, the simplest way to consume the log files is with the free [Log Parser Studio](https://gallery.technet.microsoft.com/office/Log-Parser-Studio-cd458765) from Microsoft. It builds on top of the command-line LogParser tool, and lets you perform SQL-like queries over the log data.
 
-1. Download and extract [Log Parser Studio](https://gallery.technet.microsoft.com/office/Log-Parser-Studio-cd458765)
-2. Run **LPS.exe** to open the UI
-3. Click the button to configure the logs folder to look at
+1. Download and extract [Log Parser Studio](https://gallery.technet.microsoft.com/office/Log-Parser-Studio-cd458765).
+2. Run **LPS.exe** to open the UI.
+3. Click the button to configure the logs folder to look at.
 
 ![](/docs/images/3048520/3278330.png "width=500")
 

@@ -4,13 +4,13 @@ description: Tips to minimize the time taken to migrate your data from Octopus 2
 position: 5
 ---
 
-Migrating data from a 2.6 backup file into an Octopus 3.x instance can take a significant time to run (hours or even days in some cases).  
+Migrating data from an **Octopus 2.6** backup file into an **Octopus 3.x** instance can take a significant time to run (hours or even days in some cases).  
 
 We strongly recommend taking the following actions to minimize the migration duration.  
 
 ## Remove Unnecessary Data From Your 2.6 Instance
 
-Our strongest recommendation is to use [retention-policies](/docs/administration/retention-policies/index.md) in your 2.6 instance to remove unnecessary data.
+Our strongest recommendation is to use [retention-policies](/docs/administration/retention-policies/index.md) in your **Octopus 2.6** instance to remove unnecessary data.
 
 The goal is for the document count in the 2.6 RavenDB to be as low as possible.
 You can find the document count by viewing the RavenDB studio through the Octopus Manager. The document count is in the footer of the RavenDB studio.

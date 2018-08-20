@@ -52,7 +52,7 @@ let testResult = Octopus.findVariable "Octopus.Action[StepA].Output.TestResult"
 
 ## Sensitive Output Variables
 
-Output variables can be created as sensitive (since Octopus 2018.5.2).
+Output variables can be created as sensitive (since **Octopus 2018.5.2**).
 
 ```powershell PowerShell
 Set-OctopusVariable -name "Password" -value "correct horse battery staple" -sensitive

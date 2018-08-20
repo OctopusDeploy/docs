@@ -3,7 +3,7 @@ title: Terraform Deployments
 description: Terraform Deployments
 position: 120
 ---
-Terraform support was introduced in `Octopus 2018.3`.
+Terraform support was introduced in **Octopus 2018.3**.
 
 Octopus Deploy provides first-class support for deploying Terraform templates.
 

@@ -10,7 +10,7 @@ Azure Service Fabric Cluster deployment targets allow you to reference existing 
 ## Requirements
 
 :::hint
-This new target type was introduced in `2018.5`. You can read more about all the new PaaS targets [in our blog](https://octopusdeploy.com/blog/paas-targets).
+This new target type was introduced in **Octopus 2018.5**. You can read more about all the new PaaS targets [in our blog](https://octopusdeploy.com/blog/paas-targets).
 :::
 
 :::hint

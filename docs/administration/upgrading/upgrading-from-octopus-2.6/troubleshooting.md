@@ -4,7 +4,7 @@ description: Solutions to common problems when upgrading to Octopus 3.x from Oct
 position: 4
 ---
 
-If your upgrade from 2.6 to 3.x doesn't go smoothly, this page will help you find a solution. If this page doesn't help, contact support.
+If your upgrade from **Octopus 2.6** to **Octopus 3.x** doesn't go smoothly, this page will help you find a solution. If this page doesn't help, contact support.
 
 :::hint
 Always ensure you have tried to upgrade with the latest version of the Hydra NuGet package.
@@ -12,9 +12,9 @@ Always ensure you have tried to upgrade with the latest version of the Hydra NuG
 
 ## Rolling Back {#Troubleshooting-RollingBack}
 
-The 2.6 to 3.x upgrade is lossless, meaning you shouldn't lose any data as a result of installing the new MSI. Your Raven database and configuration settings are not deleted.
+The **Octopus 2.6** to **Octopus 3.x** upgrade is lossless, meaning you shouldn't lose any data as a result of installing the new MSI. Your Raven database and configuration settings are not deleted.
 
-If your number one priority is to get up and running again, you can simply run the Octopus 2.6 MSI again, and the previous version will install over the top of 3.x, allowing you to diagnose the issue at your leisure.
+If your number one priority is to get up and running again, you can simply run the **Octopus 2.6** MSI again, and the previous version will install over the top of 3.x, allowing you to diagnose the issue at your leisure.
 
 ## Hydra Log Files {#Troubleshooting-HydraLogFiles}
 
@@ -34,7 +34,7 @@ This section describes some common upgrade issues and ways to resolve them.
 
 #### Symptoms #1 {#Troubleshooting-Symptoms#1}
 
-The Octopus 3.x server cannot communicate with one or more Tentacles.
+The **Octopus 3.x** server cannot communicate with one or more Tentacles.
 
 You may see an error similar to the following in the Server logs:
 
@@ -79,7 +79,7 @@ The easiest way to fix this is to RDP into the Tentacle machine and click the Re
 
 #### Symptoms #2 {#Troubleshooting-Symptoms#2}
 
-The Octopus 3.x Server cannot communicate with the Tentacle. When investigated, the Windows Service for the Tentacle is pointing at a 2.6 instance of the Octopus Tentacle.
+The **Octopus 3.x** Server cannot communicate with the Tentacle. When investigated, the Windows Service for the Tentacle is pointing at a 2.6 instance of the Octopus Tentacle.
 
 #### Solution #2 {#Troubleshooting-Solution#2}
 

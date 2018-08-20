@@ -4,14 +4,14 @@ description: Octopus Reporting makes it easy to produce reports over your deploy
 position: 1000
 ---
 
-Octopus 3.1 adds a reporting feature that makes it easy to produce reports over your deployment history, using your preferred reporting tools.
+**Octopus 3.1** adds a reporting feature that makes it easy to produce reports over your deployment history, using your preferred reporting tools.
 
 Currently Octopus doesn't display this reporting data in the user interface anywhere, but we do expose raw data that you can query or consume in your favorite reporting tools. Hopefully, you'll be able to import this data, combine it with data from other sources, and slice and dice it in ways that make the most sense to you.
 
 Raw data is provided in two ways:
 
-- An an XML feed, which can be consumed by tools like Microsoft Excel or PowerBI (preferred), or programmatically
-- As a table in the Octopus SQL database
+- An an XML feed, which can be consumed by tools like Microsoft Excel or PowerBI (preferred), or programmatically.
+- As a table in the Octopus SQL database.
 
 The data allows you to report on questions like:
 
@@ -92,15 +92,15 @@ at Octopus.Server.Web.OctopusNancyHost.Process(HttpListenerContext ctx) in Y:\wo
 
 This is due to that the revocation information for the certificate is not retrievable, to get around it, do the following
 
-1. Click "New Source..."
-2. "Data Feed"
-3. Fill in your URL in the "Link or File:" field
-4. Click "Browse...".
+1. Click **New Source...**.
+2. **Data Feed**.
+3. Fill in your URL in the **Link or File:** field.
+4. Click **Browse...**.
 5. This should give you a Security Alert "Revocation information for the security certificate for this site is not available. Do you want to proceed?"
-6. Click "Yes"
-7. Cancel the File Open dialog
-8. Cancel the Data Connection Wizard
-9. Paste the URL in the File Name field
+6. Click **Yes**.
+7. Cancel the File Open dialog.
+8. Cancel the Data Connection Wizard.
+9. Paste the URL in the File Name field.
 :::
 
 ## Direct Table Access {#Reporting-Directtableaccess}
@@ -111,9 +111,9 @@ If your reporting tool of choice can't consume the XML feed, you can query the S
 
 A few notes about accessing the table directly:
 
-- We may add additional columns in the future
+- We may add additional columns in the future.
 - We'll try not to change existing columns, but just in case, you may wish to set up your own View in SQL server to provide an abstraction layer.
-- Since you're accessing the data directly, be aware that Octopus team permissions won't apply
+- Since you're accessing the data directly, be aware that Octopus team permissions won't apply.
 - Don't join with any other tables - these are much more likely to change in future, so you're on your own if you do!
 
 The table is completely denormalized, and should have any information that you might need to report on.
@@ -126,8 +126,8 @@ Since the data is denormalized, changing the name of a project or environment, o
 
 Also note that the data:
 
-- Isn't deleted by retention policies, so you can report on historical deployments even if retention policies clean them up
-- Isn't deleted when a project/environment is deleted
+- Isn't deleted by retention policies, so you can report on historical deployments even if retention policies clean them up.
+- Isn't deleted when a project/environment is deleted.
 
 ## What About Information On Concurrent Users, Web Front-end Performance, etc.? {#Reporting-Whataboutinformationonconcurrentusers,webfront-endperformance,etc.?}
 

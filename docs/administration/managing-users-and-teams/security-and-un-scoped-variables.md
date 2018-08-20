@@ -10,11 +10,11 @@ Sometimes, a team will be granted contributor access to a project, but be restri
 
 Octopus uses variables to control almost every aspect of the deployment process. This provides a great deal of flexibility - for example, variables can control:
 
-- The packages that are deployed
-- Which deployment conventions are applied
-- Which script files will be run
-- The content of custom scripts
-- The location of deployed apps, and other paths on the target machines
+- The packages that are deployed.
+- Which deployment conventions are applied.
+- Which script files will be run.
+- The content of custom scripts.
+- The location of deployed apps, and other paths on the target machines.
 
 The default permissions applied to unscoped variable editing are restrictive because, although the release details screen shows the values of included variables, it can be hard for a user performing a deployment to verify that the variable contents applied to the environment are appropriate.
 

@@ -30,7 +30,7 @@ By using this pattern you can:
 
 ## Rolling Solution {#Multi-regiondeploymentpattern-RollingSolution}
 
-In Octopus 3.4 we introduced [Cloud Regions](/docs/infrastructure/cloud-regions.md) which enable you to configure [Rolling deployments](/docs/deployment-patterns/rolling-deployments.md) across your regions or data centers. In this case you can scope variables to the Cloud Regions and deploy to all regions at once, but you cannot control the order in which the rolling deployment executes.
+In **Octopus 3.4** we introduced [Cloud Regions](/docs/infrastructure/cloud-regions.md) which enable you to configure [Rolling deployments](/docs/deployment-patterns/rolling-deployments.md) across your regions or data centers. In this case you can scope variables to the Cloud Regions and deploy to all regions at once, but you cannot control the order in which the rolling deployment executes.
 
 ![](/docs/images/5670886/5865782.png "width=500")
 

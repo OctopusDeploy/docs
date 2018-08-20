@@ -60,7 +60,7 @@ Octopus.Server.exe service --start
 
 ## Password Complexity {#Resettingpasswords-PasswordComplexity}
 
-Passwords must satisfy password complexity rules.  A password must be at least 8 characters long and satisfy 3 or more of the criteria:
+Passwords must satisfy password complexity rules.  A password must be at least 8 characters long and satisfy three or more of the criteria:
 
 - length of at least 12 characters
 - length of at least 16 characters

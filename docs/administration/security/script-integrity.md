@@ -6,11 +6,11 @@ position: 1
 
 Octopus supports a wide variety of scripting languages and runtimes. Octopus executes your scripts as provided using the language and runtime best suited to the script in the host operating environment. The content of these scripts can come from a wide variety of sources, including:
 
-- Built-in steps provided by Octopus
-- [Step templates contributed by the community and curated by Octopus](/docs/deployment-process/steps/community-step-templates.md)
-- Your own [custom scripts](/docs/deployment-examples/custom-scripts/index.md)
-- Your own [custom script modules](/docs/deployment-examples/custom-scripts/script-modules.md)
-- Your own [custom step templates](/docs/deployment-process/steps/custom-step-templates.md)
+- Built-in steps provided by Octopus.
+- [Step templates contributed by the community and curated by Octopus](/docs/deployment-process/steps/community-step-templates.md).
+- Your own [custom scripts](/docs/deployment-examples/custom-scripts/index.md).
+- Your own [custom script modules](/docs/deployment-examples/custom-scripts/script-modules.md).
+- Your own [custom step templates](/docs/deployment-process/steps/custom-step-templates.md).
 
 Octopus lets you tailor these scripts to your needs at runtime using features like [dynamically substituting variables into your script files](/docs/deployment-process/configuration-features/substitute-variables-in-files.md).
 

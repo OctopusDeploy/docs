@@ -2,10 +2,9 @@
 title: Let's Encrypt Integration
 description: Octopus can integrate with Let's Encrypt to setup and automatically renew the Octopus Portal SSL certificate.
 position: 2300
-# version: "[3.15,)"
 ---
 
-Octopus 3.16 or newer can integrate with [Let's Encrypt](https://g.octopushq.com/LetsEncryptOrg) to setup and manage the SSL certificate for the Octopus Portal. When the certificate nears its expiration date, Octopus will automatically renew the certificate with no intervention required.
+**Octopus 3.16** or newer can integrate with [Let's Encrypt](https://g.octopushq.com/LetsEncryptOrg) to setup and manage the SSL certificate for the Octopus Portal. When the certificate nears its expiration date, Octopus will automatically renew the certificate with no intervention required.
 
 Let's Encrypt integration can be found under {{Configuration,Let's Encrypt}}.
 

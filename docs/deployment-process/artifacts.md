@@ -55,7 +55,7 @@ Octopus.CreateArtifact(@"C:\Windows\System32\drivers\etc\hosts", System.Environm
 
 :::hint
 **error CS1501: No overload for method &#39;CreateArtifact&#39; takes 2 arguments.**
-The `fileName` optional parameter was [added](https://github.com/OctopusDeploy/Calamari/commit/2d5a5d27c9a0dc0c623e5e955a370c2b012fbdd4) in Calamari 3.1.24 which shipped as part of Octopus 3.2.12
+The `fileName` optional parameter was [added](https://github.com/OctopusDeploy/Calamari/commit/2d5a5d27c9a0dc0c623e5e955a370c2b012fbdd4) in Calamari 3.1.24 which shipped as part of **Octopus 3.2.12**
 :::
 
 ### Bash {#Artifacts-Bash}

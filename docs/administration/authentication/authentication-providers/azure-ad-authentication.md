@@ -10,7 +10,7 @@ Azure Active Directory (AAD) authentication is available in **Octopus 3.5** and 
 
 To use Azure Active Directory (AAD) authentication with Octopus you will need to get a few pieces lined up just right:
 
-1. Configure AAD to trust your Octopus Deploy instance (by setting it up as an App in AAD)
+1. Configure AAD to trust your Octopus Deploy instance (by setting it up as an App in AAD).
 2. Optionally map AAD Users into Roles so you the users can be automatically connected to Octopus Teams.
 3. Configure your Octopus Deploy instance to trust and use AAD as an Identity Provider.
 
@@ -52,7 +52,7 @@ To ensure your new App registration appears in the list, you will need to set th
    ![Finding the App registration](find-app-registration.png "width=500")
 
 2. Select **Settings** and choose **Reply URLs**. Under the Reply URLs section, enter the public URL to your Octopus Server with `/api/users/authenticatedToken/AzureAD` attached to the end.
-In our example this would be `https://octopus.example.com/api/users/authenticatedToken/AzureAD`
+In our example this would be `https://octopus.example.com/api/users/authenticatedToken/AzureAD`.
 
    ![Setting the App registration ReplyURL](set-app-registration-replyurl.png "width=500")
 
@@ -173,14 +173,14 @@ Alternatively these settings can be defined through the user interface by select
 
 If you followed the optional steps for modifying the App registration's manifest to include new roles, you can assign them to **Teams** in the Octopus Portal.
 
-1. Open the Octopus Portal and select {{Configuration,Teams}}
+1. Open the Octopus Portal and select {{Configuration,Teams}}.
 
 2. Either Create a new **Team** or select an existing one.
 
-3. Under the **Members** section, select the option **Add External Group/Role**
+3. Under the **Members** section, select the option **Add External Group/Role**.
  ![Adding Octopus Teams from External Providers](add-octopus-teams-external.png "width=500")
 
-4. Enter the details from your App registration's manifest. In this example we need to supply `octopusTesters` as the **Group/Role ID** and `Octopus Testers` as the **Display Name**
+4. Enter the details from your App registration's manifest. In this example we need to supply `octopusTesters` as the **Group/Role ID** and `Octopus Testers` as the **Display Name**.
  ![Add Octopus Teams Dialog](add-octopus-teams-external-dialog.png "width=500")
 
 5. Save your changes by clicking the **Save** button.
@@ -217,13 +217,13 @@ We do our best to log warnings to your Octopus Server log whenever possible. If
 
 Unfortunately security-related configuration is sensitive to everything. Make sure:
 
-- you don't have any typos or copy-paste errors
-- remember things are case-sensitive
+- you don't have any typos or copy-paste errors.
+- remember things are case-sensitive.
 - remember to remove or add slash characters as we've instructed - they matter too!
 
 ### Check OpenID Connect Metadata is Working {#AzureADauthentication-CheckOpenIDConnectmetadataisworking}
 
-You can see the OpenID Connect metadata by going to the Issuer address in your browser adding`/.well-known/openid-configuration` to the end. In our example this would have been something like `https://login.microsoftonline.com/b91ebf6a-84be-4c6f-97f3-32a1d0a11c8a/.well-known/openid-configuration`
+You can see the OpenID Connect metadata by going to the Issuer address in your browser adding`/.well-known/openid-configuration` to the end. In our example this would have been something like `https://login.microsoftonline.com/b91ebf6a-84be-4c6f-97f3-32a1d0a11c8a/.well-known/openid-configuration`.
 
 ### Inspect the Contents of the Security Token {#AzureADauthentication-Inspectthecontentsofthesecuritytoken}
 
@@ -234,13 +234,13 @@ Sometimes the contents of the security token sent back by Azure AD aren't exactl
 
    ![Preserve Logs](/docs/images/5670656/5866122.png)
 
-3. Attempt to sign into Octopus using Azure AD and find the HTTP POST coming back to your Octopus instance from Azure AD on a route like `/api/users/authenticatedToken/azureAD`. You should see an `id_token` field in the HTTP POST body.
-4. Grab the contents of the `id_token` field and paste that into [https://jwt.io/](https://jwt.io/) which will decode the token for you.
+3. Attempt to sign into Octopus using Azure AD and find the HTTP POST coming back to your Octopus instance from Azure AD on a route like `/api/users/authenticatedToken/azureAD`. You should see an **id_token** field in the HTTP POST body.
+4. Grab the contents of the **id_token** field and paste that into [https://jwt.io/](https://jwt.io/) which will decode the token for you.
 
    ![Id Token](/docs/images/5670656/5866123.png "width=500")
 
 5. Don't worry if jwt.io complains about the token signature, it doesn't support RS256 which is used by Azure AD.
-6. Octopus uses most of the data to validate the token, but primarily uses the `sub`, `email` and `name` claims. If these claims are not present you will likely see unexpected behavior.
+6. Octopus uses most of the data to validate the token, but primarily uses the **sub**, **email** and **name** claims. If these claims are not present you will likely see unexpected behavior.
 
 ### Contact Octopus Support {#AzureADauthentication-Getintouchwithoursupportteam}
 

@@ -6,7 +6,7 @@ version: 3.16
 ---
 
 :::hint
-Authentication using [Okta](https://www.okta.com/), a cloud-based identity management service, is available in Octopus Deploy 3.16 and later.
+Authentication using [Okta](https://www.okta.com/), a cloud-based identity management service, is available in **Octopus 3.16** and later.
 :::
 
 To use Okta authentication with Octopus you will need to:
@@ -111,7 +111,7 @@ Alternatively these settings can be defined through the user interface by select
 
 :::info
 
-In versions prior to 2018.3.5 the Role Claim Type and Scope had different defaults and these values will need to be updated. For new installations of 2018.3.5 and greater these values should default to the above values.
+In versions prior to **Octopus 2018.3.5** the Role Claim Type and Scope had different defaults and these values will need to be updated. For new installations of **Octopus 2018.3.5** and greater these values should default to the above values.
 
 :::
 
@@ -145,9 +145,9 @@ You can also check Okta logs by clicking the **View Logs** link on the Okta admi
 
 Unfortunately security-related configuration is sensitive to everything. Make sure:
 
-- you don't have any typos or copy-paste errors
-- remember things are case-sensitive
-- remember to remove or add slash characters - they matter too!
+- You don't have any typos or copy-paste errors.
+- Remember things are case-sensitive.
+- Remember to remove or add slash characters - they matter too!
 
 ### Check OpenID Connect Metadata is Working {#Oktaauthentication-CheckOpenIDConnectmetadataisworking}
 

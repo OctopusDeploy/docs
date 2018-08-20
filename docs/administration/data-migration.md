@@ -6,9 +6,9 @@ position: 900
 
 Octopus Manager comes with an Import/Export wizard which supports a number of scenarios:
 
-- Exporting data from one server, and importing it into another server
-- Splitting data from one Octopus Server into two or more
-- Merging data from multiple Octopus Servers into one
+- Exporting data from one server, and importing it into another server.
+- Splitting data from one Octopus Server into two or more.
+- Merging data from multiple Octopus Servers into one.
 
 *To migrate data from older versions of Octopus see [Upgrading from Octopus 2.6](/docs/administration/upgrading/upgrading-from-octopus-2.6/index.md)*
 
@@ -51,8 +51,8 @@ The importer tool can either take an exported directory and the password used to
 
 You'll get a chance to preview the changes first, and you can tell the tool to either:
 
-- Overwrite documents if they already exist in the destination (e.g., if a project with the same name already exists, overwrite it)
-- Skip documents if they already exist in the destination (e.g., if a project with the same name already exists, do nothing)
+- Overwrite documents if they already exist in the destination (e.g., if a project with the same name already exists, overwrite it).
+- Skip documents if they already exist in the destination (e.g., if a project with the same name already exists, do nothing).
 
 The importer wraps all data changes in a SQL transaction; if any problems are discovered during the import, the transaction will be rolled back and nothing will be imported.
 

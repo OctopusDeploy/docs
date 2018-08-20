@@ -8,7 +8,7 @@ Octopus Server comes with a built-in worker which enables you to conveniently ru
 
 ## Default Configuration
 
-By default Octopus Server runs as the highly privileged `Local System` account on Windows. We typically recommend running Octopus Server as a different account, either a User or Managed Service Account (MSA), so you can grant specific privileges to that account.
+By default Octopus Server runs as the highly privileged **Local System** account on Windows. We typically recommend running Octopus Server as a different account, either a User or Managed Service Account (MSA), so you can grant specific privileges to that account.
 
 When you first install Octopus Server the built-in worker is configured to run using the **same user account as the Octopus Server itself**. This means your deployment process can do the same things the Octopus Server can do.
 

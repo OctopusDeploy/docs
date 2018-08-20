@@ -12,16 +12,16 @@ For team members to collaborate in the deployment of software, there needs to be
 
 Below is a short list of just some of the things that Octopus captures:
 
-- Changes to [deployment processes](/docs/deployment-examples/index.md) and [variables](/docs/deployment-process/variables/index.md)
-- Create/modify/delete events for [projects](/docs/deployment-process/projects/index.md), [environments](/docs/infrastructure/environments/index.md), [deployment targets](/docs/infrastructure/index.md), releases, and so on
-- Environment changes, such as adding new deployment targets or modifying the environment a deployment target belongs to
-- Queuing and canceling of deployments and other tasks
+- Changes to [deployment processes](/docs/deployment-examples/index.md) and [variables](/docs/deployment-process/variables/index.md).
+- Create/modify/delete events for [projects](/docs/deployment-process/projects/index.md), [environments](/docs/infrastructure/environments/index.md), [deployment targets](/docs/infrastructure/index.md), releases, and so on.
+- Environment changes, such as adding new deployment targets or modifying the environment a deployment target belongs to.
+- Queuing and canceling of deployments and other tasks.
 
 Some  general points worth noting:
 
-- Octopus **does** capture the details of every mutating action (create/edit/delete) including who initiated the action
-- Octopus **does not** capture login and logout events for specific user accounts
-- Octopus **does not** capture when data is read, however certain sensitive actions like downloading a certificate with its private key is captured
+- Octopus **does** capture the details of every mutating action (create/edit/delete) including who initiated the action.
+- Octopus **does not** capture login and logout events for specific user accounts.
+- Octopus **does not** capture when data is read, however certain sensitive actions like downloading a certificate with its private key is captured.
 
 If you are concerned that Octopus does not capture a specific action of interest to you, please contact our [support team](https://octopus.com/support).
 
@@ -45,7 +45,7 @@ We take great care to ensure the security and integrity of your audit logs, to m
 
 ### Viewing Audit Logs
 
-In Octopus 3.4 we introduced a new permission called **AuditView** which allows someone to view the audit logs without needing other permissions. In earlier versions of Octopus you would require the **AdministerSystem** permission. Learn about [managing users and teams](/docs/administration/managing-users-and-teams/index.md).
+In **Octopus 3.4** we introduced a new permission called **AuditView** which allows someone to view the audit logs without needing other permissions. In earlier versions of Octopus you would require the **AdministerSystem** permission. Learn about [managing users and teams](/docs/administration/managing-users-and-teams/index.md).
 
 ### Modifying and Deleting Audit Logs is Prevented
 

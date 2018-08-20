@@ -6,8 +6,8 @@ position: 110
 
 A successful disaster recovery plan for Octopus Deploy requires the ability to restore both:
 
-1. The Octopus [SQL Server database](/docs/administration/octopus-database/index.md)
-2. The Octopus [data stored on the file system](/docs/administration/server-configuration-and-file-storage/index.md)
+1. The Octopus [SQL Server database](/docs/administration/octopus-database/index.md).
+2. The Octopus [data stored on the file system](/docs/administration/server-configuration-and-file-storage/index.md).
 
 :::problem
 **Without your master key, backups are useless**
@@ -27,8 +27,8 @@ Most of the data and settings managed by Octopus - the projects, environments, d
 
 You should configure a SQL Database maintenance plan using a [recovery model](https://msdn.microsoft.com/en-us/library/ms189275.aspx) which suits your needs:
 
-1. If you happy with daily/weekly restore points you could consider the `SIMPLE` recovery model
-2. If you want point-in-time recovery you should consider the `FULL` recovery model
+1. If you happy with daily/weekly restore points you could consider the `SIMPLE` recovery model.
+2. If you want point-in-time recovery you should consider the `FULL` recovery model.
 
 Learn more about [restore and recovery of SQL Server Databases](https://msdn.microsoft.com/en-us/library/ms191253.aspx).
 

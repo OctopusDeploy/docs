@@ -27,7 +27,7 @@ We take responsibility to provide commercially reasonable protection against XSS
 
 As the customer, you are responsible for granting access to people you trust, and ensuring the security of your own network and operating systems.
 
-XSS is a browser-based vulnerability. The Octopus Server and its browser application work on your behalf to actively prevent XSS attacks, and the browser itself can also help in the prevention of XSS attacks. To this end Octopus Server 4.0 (and newer) has increased its minimum supported browser requirements to further improve the security of your Octopus installation.
+XSS is a browser-based vulnerability. The Octopus Server and its browser application work on your behalf to actively prevent XSS attacks, and the browser itself can also help in the prevention of XSS attacks. To this end, **Octopus 4.0** (and newer) has increased its minimum supported browser requirements to further improve the security of your Octopus installation.
 
 Learn about [supported web browsers](/docs/installation/requirements.md#supported-browsers).
 
@@ -37,19 +37,19 @@ The only perfect way to prevent every possible XSS attack would be if Octopus De
 
 At the time of writing, Octopus Deploy actively follows these XSS prevention rules from the [OWASP XSS (Cross Site Scripting) Prevention Cheat Sheet](https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet):
 
-- RULE #0 - Never Insert Untrusted Data Except in Allowed Locations
-- RULE #1 - HTML Escape Before Inserting Untrusted Data into HTML Element Content
-- RULE #2 - Attribute Escape Before Inserting Untrusted Data into HTML Common Attributes
-- RULE #3 - JavaScript Escape Before Inserting Untrusted Data into JavaScript Data Values
-  - RULE #3.1 - HTML escape JSON values in an HTML context and read the data with JSON.parse
-- RULE #4 - CSS Escape And Strictly Validate Before Inserting Untrusted Data into HTML Style Property Values
-- RULE #5 - URL Escape Before Inserting Untrusted Data into HTML URL Parameter Values
-- RULE #6 - Sanitize HTML Markup with a Library Designed for the Job
-- RULE #7 - Prevent DOM-based XSS
-- Bonus Rule #1: Use `HTTPOnly` cookie flag
-- Bonus Rule #2: Implement Content Security Policy
-- Bonus Rule #3: Use an Auto-Escaping Template System
-- Bonus Rule #4: Use the X-XSS-Protection Response Header
+- RULE #0 - Never Insert Untrusted Data Except in Allowed Locations.
+- RULE #1 - HTML Escape Before Inserting Untrusted Data into HTML Element Content.
+- RULE #2 - Attribute Escape Before Inserting Untrusted Data into HTML Common Attributes.
+- RULE #3 - JavaScript Escape Before Inserting Untrusted Data into JavaScript Data Values.
+  - RULE #3.1 - HTML escape JSON values in an HTML context and read the data with JSON.parse.
+- RULE #4 - CSS Escape And Strictly Validate Before Inserting Untrusted Data into HTML Style Property Values.
+- RULE #5 - URL Escape Before Inserting Untrusted Data into HTML URL Parameter Values.
+- RULE #6 - Sanitize HTML Markup with a Library Designed for the Job.
+- RULE #7 - Prevent DOM-based XSS.
+- Bonus Rule #1: Use `HTTPOnly` cookie flag.
+- Bonus Rule #2: Implement Content Security Policy.
+- Bonus Rule #3: Use an Auto-Escaping Template System.
+- Bonus Rule #4: Use the X-XSS-Protection Response Header.
 
 ### Content is Sanitized by Default
 

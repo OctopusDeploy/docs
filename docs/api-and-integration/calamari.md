@@ -77,4 +77,4 @@ var conventions = new List<IConvention>
 };
 ```
 
-Calamari is published under the Apache license, and we'll continue to work on it in the open.  One of the benefits of this architecture is that you can [fork the project](https://github.com/OctopusDeploy/Calamari), make your own changes, and then tell your Octopus 3.0 server to use your own Calamari package.
+Calamari is published under the Apache license, and we'll continue to work on it in the open.  One of the benefits of this architecture is that you can [fork the project](https://github.com/OctopusDeploy/Calamari), make your own changes, and then tell your **Octopus 3.0** server to use your own Calamari package.

@@ -8,9 +8,9 @@ Octopus is designed to make deployment a repeatable process, avoiding the human 
 
 When managing a large environment of machines, however, it is occasionally necessary to perform one-off management tasks.
 
-- Run-away processes need to be terminated
-- Machines need to be rebooted
-- Information needs to be collected
+- Run-away processes need to be terminated.
+- Machines need to be rebooted.
+- Information needs to be collected.
 
 For these situations, the Octopus **Script Console** can be used.
 

@@ -10,7 +10,7 @@ This command allows you to create a release, and optionally deploy it to one or 
 
 :::success
 **Using Channels?**
-If you are using [Channels](/docs/deployment-process/channels/index.md) (introduced in Octopus 3.2) this command will automatically select the most appropriate channel for your release, unless you provide a specific channel using `--channel=VALUE`.
+If you are using [Channels](/docs/deployment-process/channels/index.md) (introduced in **Octopus 3.2**) this command will automatically select the most appropriate channel for your release, unless you provide a specific channel using `--channel=VALUE`.
 :::
 
 Usage:

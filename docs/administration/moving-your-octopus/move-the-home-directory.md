@@ -94,10 +94,10 @@ mv $oldNuGetRepository $newNuGetRepository
 The restart of the service will re-index the directory. If it is missing files, they will then go missing from the internal repository and again from your releases. So be sure that all files are moved.
 
 The above script will take the server offline for the duration of the move. If there are a large number of packages, this can be quite some time, and taking the server offline for the duration may not be possible. To prevent the server re-indexing all the packages however, the packages should not be removed from expected folder while the server is running. Therefore an alternative approach is to:
-1. Copy the folder while the server is running
-1. Stop the server
-1. Use a file mirroring tool like `robocopy` to ensure the new folder reflects the added and removed files while the copy was running
-1. Update the path in Octopus config
+1. Copy the folder while the server is running.
+1. Stop the server.
+1. Use a file mirroring tool like `robocopy` to ensure the new folder reflects the added and removed files while the copy was running.
+1. Update the path in Octopus config.
 1. Start the server.
 
 

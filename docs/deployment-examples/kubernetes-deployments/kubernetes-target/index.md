@@ -4,7 +4,7 @@ description: Kubernetes Targets
 position: 20
 ---
 
-This featured was introduced as a prerelease in `Octopus 2018.8`.
+This featured was introduced as a prerelease in **Octopus 2018.8**.
 
 :::warning
 Kubernetes steps in Octopus are of alpha level quality and have been made available for testing and feedback purposes only. They **must not** be used for production deployments, or enabled on production Octopus instances. The information provided here is subject to change at any point, and existing Kubernetes steps will most likely need to be deleted and recreated with Octopus upgrades.

@@ -75,9 +75,9 @@ We do our best to log warnings to your Octopus Server log whenever possible. If
 
 Unfortunately security-related configuration is sensitive to everything. Make sure:
 
-- you don't have any typos or copy-paste errors
-- remember things are case-sensitive
-- remember to remove or add slash characters as we've instructed - they matter too!
+- You don't have any typos or copy-paste errors.
+- Remember things are case-sensitive.
+- Remember to remove or add slash characters as we've instructed - they matter too!
 
 ### Check OpenID Connect Metadata is Working {#GoogleAppsauthentication-CheckOpenIDConnectmetadataisworking}
 

@@ -10,7 +10,7 @@ As a convention-oriented deployment tool, Octopus can perform a number of action
 
 :::hint
 **Supported script types**
-Octopus Deploy supports PowerShell scripts (`.ps1`), C# scripts (`.csx`) using [ScriptCS](https://github.com/scriptcs/scriptcs), Bash scripts (`.sh`), and in Octopus 3.4 we introduced support for F# scripts (`.fsx`).
+Octopus Deploy supports PowerShell scripts (`.ps1`), C# scripts (`.csx`) using [ScriptCS](https://github.com/scriptcs/scriptcs), Bash scripts (`.sh`), and in **Octopus 3.4** we introduced support for F# scripts (`.fsx`).
 :::
 
 :::hint
@@ -140,7 +140,7 @@ In the first form the variable name appears just as they appear in the Octopus w
 
 :::hint
 **$key variable**
-We [fixed an issue](https://github.com/OctopusDeploy/Issues/issues/2329) which was causing a collision with variables called `$key`. You can either rename your variable or update to Octopus 3.3.10 or newer.
+We [fixed an issue](https://github.com/OctopusDeploy/Issues/issues/2329) which was causing a collision with variables called `$key`. You can either rename your variable or update to **Octopus 3.3.10** or newer.
 :::
 
 ## Passing Parameters to Scripts {#Customscripts-Passingparameterstoscripts}

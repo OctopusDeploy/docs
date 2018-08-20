@@ -5,7 +5,7 @@ position: 28
 ---
 In Server 2016 and Windows 10, Microsoft has added an option to remove the character limit for file paths.
 
-As of Octopus `2018.5.3` and Tentacle `3.21.0`, most operations support long file names once enabled in Windows, including package extraction and retention.
+As of **Octopus 2018.5.3** and **Tentacle 3.21.0**, most operations support long file names once enabled in Windows, including package extraction and retention.
 
 ## Enabling
 

@@ -3,7 +3,7 @@ title: Destroy Existing Terraform Resources
 description: Destroy existing terraform resources.
 ---
 
-Terraform support was introduced in `Octopus 2018.3`.
+Terraform support was introduced in **Octopus 2018.3**.
 
 Existing Terraform resources can be destroyed through the `Destroy Terraform resources` step. This step destroys the resources created using a Terraform template, optionally using AWS credentials managed by Octopus.
 

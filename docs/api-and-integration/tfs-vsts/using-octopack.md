@@ -73,7 +73,7 @@ By adding these features to the steps above, you can set up complete end-to-end 
 This 6 minute video walks through the above steps to create an end-to-end continuous deployment process for Team Foundation Server.
 
 :::Info
-While the video was recorded using Octopus `2.6`, it is still valid for Octopus 3.X.
+While the video was recorded using **Octopus 2.6**, it is still valid for **Octopus 3.X**.
 :::
 
 <iframe src="//fast.wistia.net/embed/iframe/jmnuxifuyo" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="360" style="margin: 30px"></iframe>

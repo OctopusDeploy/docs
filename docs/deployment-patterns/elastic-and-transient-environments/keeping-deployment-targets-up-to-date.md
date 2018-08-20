@@ -18,8 +18,8 @@ Triggers are per-project settings that execute an action in response to an event
 ![](/docs/images/5669262/5865570.png "width=500")
 
 3. Add events to the trigger.
-  - For Octopus 3.6 and above, select the event group *"Machine becomes available for deployment"*.
-  - For Octopus 3.4 and 3.5, select both available events so that it will fire when a *new deployment target becomes available* (eg. when a new deployment target is provisioned and added to Octopus) or when an *existing deployment target changes state* (eg. from unavailable to available, joins an environment, changes roles, etc.).
+  - For **Octopus 3.6** and above, select the event group *"Machine becomes available for deployment"*.
+  - For **Octopus 3.4** and **Octopus 3.5**, select both available events so that it will fire when a *new deployment target becomes available* (eg. when a new deployment target is provisioned and added to Octopus) or when an *existing deployment target changes state* (eg. from unavailable to available, joins an environment, changes roles, etc.).
 
 4. Select the environments (**Test A**) that this trigger applies to.
 

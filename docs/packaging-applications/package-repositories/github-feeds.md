@@ -12,7 +12,7 @@ When searching for a package, either through the package selector on a deploymen
 * `"nodejs/node"`: Searches for repositories with **"nodejs"** owner that contain **"node"**.
 
 ## Auth
-As of `2018.3.0` only the following authentication methods are supported.
+As of **Octopus 2018.3.0** only the following authentication methods are supported.
 * Anonymous: Under this configuration the username and password fields can be left blank. There are lower request throttle limits when using anonymous authentication so it is generally not recommended.
 * Username/Password
 * OAuth2 Token: [Personal access tokens](https://github.com/blog/1509-personal-api-tokens) can be used instead of your password.

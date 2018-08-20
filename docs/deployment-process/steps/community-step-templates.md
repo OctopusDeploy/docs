@@ -8,7 +8,7 @@ Community step templates are publicly available step templates that have been co
 
 If you can't find a built-in step template that includes the actions you need, you should check the community step template. There is a large number and variety of step templates (and it's growing all the time) that can help you automate your deployments without writing any scripts yourself.
 
-Octopus Community step templates integration was introduced in Octopus 3.7 and is enabled by default, but it can be disabled.
+Octopus Community step templates integration was introduced in **Octopus 3.7** and is enabled by default, but it can be disabled.
 
 ## Enable/Disable Community Step Templates Integration
 

@@ -49,7 +49,7 @@ The capabilities of the extended syntax are:
 
 ### Index Replacement {#VariableSubstitutionSyntax-IndexReplacement}
 
-Variable substitution inside an index was added in Octopus 3.3.23.  This makes it easy to dynamically retrieve variables within arrays/dictionaries.
+Variable substitution inside an index was added in **Octopus 3.3.23**.  This makes it easy to dynamically retrieve variables within arrays/dictionaries.
 
 Given the variables:
 
@@ -106,7 +106,7 @@ You could achieve a similar result, with a different default/fallback behavior, 
 The `if` and `unless` statements consider a value to be *falsy* if it is undefined, empty, `False` or `0`. All other values are considered to be *truthy*.
 
 ### Complex Syntax
-Additional conditional statements are supported in Octopus 3.5 and onwards, including == and !=.
+Additional conditional statements are supported in **Octopus 3.5** and onwards, including == and !=.
 
 Using complex syntax you can have expressions like `#{if Octopus.Environment.Name == "Production"}...#{/if}` and `#{if Octopus.Environment.Name != "Production"}...#{/if}`
 
@@ -265,7 +265,7 @@ Server=#{if DatabaseServer}#{DatabaseServer}#{/if};
 
 ### JSON Parsing {#VariableSubstitutionSyntax-JSONParsingjson}
 
-Octostache 2.x (bundled with Octopus 3.5) includes an update to support parsing JSON formatted variables natively, and using their contained properties for variable substitution.
+Octostache 2.x (bundled with **Octopus 3.5**) includes an update to support parsing JSON formatted variables natively, and using their contained properties for variable substitution.
 
 Given the variable:
 
