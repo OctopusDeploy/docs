@@ -21,7 +21,7 @@ On this page:
 
 We've open-sourced the [OctoTFS repository in GitHub](https://github.com/OctopusDeploy/OctoTFS) if you'd like to contribute.
 
-## Installing the extension
+## Installing the Extension
 
 If you're using **Visual Studio Team Services (VSTS) or on-premises Team Foundation Server (TFS) 2017 (or newer)** you can simply [install the extension from the marketplace](https://marketplace.visualstudio.com/items/octopusdeploy.octopus-deploy-build-release-tasks) and follow the instructions below.
 
@@ -34,7 +34,7 @@ After installing the extension, follow the below steps to get it running for you
 If you want to make changes to the build task that might not be appropriate for everyone, you can download and manually install the build task yourself. See [Manually install the Build Task (not recommended)](manually-install-the-build-task.md) for details.
 :::
 
-## Use your own version of Octo
+## Use Your Own Version of Octo
 
 You can bring your own version of Octo and avoid the use of installer tasks or accessing the internet by [registering Octo as a capability](/docs/api-and-integration/tfs-vsts/using-octopus-extension/install-octo-capability.md).
 
@@ -60,7 +60,7 @@ After you've saved the connection, it should be available from the Octopus Deplo
 if you plan to use the Octopus widgets and want them to function for users other than project collaborators, such as stakeholders, then those users must be explicitly allowed to use the service endpoint. This can be achieved by adding those users to the service endpoint `Users` group.
 :::
 
-### Permissions required by the API key
+### Permissions Required by the API Key
 
 The API key you choose needs to have sufficient permissions to perform all the tasks specified by your builds.
 
@@ -77,7 +77,7 @@ If there are scope restrictions (e.g. by Project or Environment) against the acc
 - DeploymentView (for the dashboard widget)
 - TaskView (for the dashboard widget)
 
-## Demands and the Octo Installer task
+## Demands and the Octo Installer Task
 
 The VSTS extension tasks require Octo to be available on the path when executing on a build agent and must have the .net core 2.0.0 runtime or newer installed. This may not always be possible such as with the VSTS hosted agents. In order to
 make this work all Octopus tasks will automatically attempt to download and use the latest version of Octo tools unless [available on the build agent](/docs/api-and-integration/tfs-vsts/using-octopus-extension/install-octo-capability.md) as specified above. If you would like to avoid any additional downloads or use a specific Octo version then you can do so by adding the Octo Installer task to the start of your build definition. No attempt will be made to download Octo if the capability is detected on your build agent.
@@ -128,7 +128,7 @@ To add a step to your Build process, edit your Build Definition and click **Add 
 To add a step to your Release process, edit your Release Definition, select the Environment, and click **Add tasks**.
 :::
 
-### Add a Package Application step {#UsetheTeamFoundationBuildCustomTask-AddStepstoyourBuildorReleaseProcess-packageUsingExtension}
+### Add a Package Application Step {#UsetheTeamFoundationBuildCustomTask-AddStepstoyourBuildorReleaseProcess-packageUsingExtension}
 
 :::hint
 **If not using OctoPack**
@@ -142,7 +142,7 @@ Add a step to your Build or Release process, choose **Package**, click **Add** n
 ![](/docs/images/3048587/configure-package-step.jpg "width=500")
 
 :::success
-**Package versioning**
+**Package Versioning**
 In the above image, the package version is defined as $(Build.BuildNumber).
 It's a common (and handy) practice to do this, and set the Build Number to be a format that corresponds to a valid NuGet version number.
 
