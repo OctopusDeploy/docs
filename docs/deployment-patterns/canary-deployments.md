@@ -16,9 +16,9 @@ As an example, imagine an environment that has four web servers. Rather than sim
 
 The basic steps of a canary deployment are:
 
-1. Deploy to one or more canary servers
-2. Test, or wait until satisfied
-3. Deploy to the remaining servers
+1. Deploy to one or more canary servers.
+2. Test, or wait until satisfied.
+3. Deploy to the remaining servers.
 
 The test phase of the canary deployment can work in many ways. You could run some automated tests, perform manual testing yourself, or even leave the server live and wait to see if problems are encountered by end users. In fact, all three of these approaches might be used. Depending on how you plan to test, you might decide to remove the canary server from the production load balancer and return it only when rolling out the change to the rest of the servers.
 
@@ -35,9 +35,9 @@ First, you would deploy using just the canary servers, then after testing, you c
 
 The alternative approach is to build canary deployments into your deployment process.
 
-1. Deploy the package to the canary server (one or more deployment targets may be assigned to the *canary* role)
-2. Have a [manual intervention](/docs/deployment-examples/manual-intervention-and-approvals.md) step to wait until we are satisfied
-3. Deploy the package to the remaining deployment targets (the *web-server* role)
+1. Deploy the package to the canary server (one or more deployment targets may be assigned to the *canary* role).
+2. Have a [manual intervention](/docs/deployment-examples/manual-intervention-and-approvals.md) step to wait until we are satisfied.
+3. Deploy the package to the remaining deployment targets (the *web-server* role).
 
 Note that the first two steps have been configured to only run for production deployments - in our pre-production environments, we can just deploy to all targets immediately. If we were performing fully automated tests, we could use a [PowerShell script step](/docs/deployment-examples/custom-scripts/index.md) to invoke them rather than the manual intervention step.
 

@@ -18,8 +18,8 @@ Here are a few reasons why you may want to completely remove Tentacle from your 
 3. You are having communication problems with this Tentacle and want to try completely uninstalling and reconfiguring the Tentacle as part of the troubleshooting process. This can happen if your Tentacle installation was corrupted somehow.
 
 :::success
-**Just upgraded from Octopus Deploy 2.6 and want to clean up?**
-If you have just completed an in-place upgrade from Octopus Server 2.6 to 3.x there will be several folders and files left over that aren't used by newer versions of Tentacle. We didn't remove these files in case you needed to roll back. Learn about [cleaning up after upgrading from Octopus 2.6](/docs/administration/tentacle-configuration-and-file-storage/index.md).
+**Just upgraded from Octopus 2.6 and want to clean up?**
+If you have just completed an in-place upgrade from **Octopus 2.6** to **Octopus 3.x** there will be several folders and files left over that aren't used by newer versions of Tentacle. We didn't remove these files in case you needed to roll back. Learn about [cleaning up after upgrading from Octopus 2.6](/docs/administration/tentacle-configuration-and-file-storage/index.md).
 :::
 
 ## What Does the Tentacle MSI Actually Do? {#ManuallyuninstallTentacle-WhatdoestheTentacleMSIactuallydo?}

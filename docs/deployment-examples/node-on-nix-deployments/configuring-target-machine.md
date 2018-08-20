@@ -13,7 +13,7 @@ Deploying projects over [SSH](/docs/infrastructure/ssh-targets/index.md) has som
 ## Install Mono {#ConfiguringTargetMachine-InstallMono}
 
 :::hint
-**Authoritative Documention**
+**Authoritative Documentation**
 The best and most up-to-date guide to installing mono will continue to be on the [mono website](http://www.mono-project.com/docs/getting-started/install/linux/). More detailed instructions can be found on their website which may change in future versions so check their documentation out for more info.
 :::
 
@@ -53,13 +53,13 @@ sudo restart ssh
 
 ## Install Application Dependencies {#ConfiguringTargetMachine-InstallApplicationDependencies}
 
-In this step we will install [NodeJS](https://nodejs.org), [npm](https://www.npmjs.com/) and [pm2](https://github.com/Unitech/pm2) which are required for hosting the sample application.
+In this step we will install [Node.js](https://nodejs.org), [npm](https://www.npmjs.com/) and [pm2](https://github.com/Unitech/pm2) which are required for hosting the sample application.
 
 :::success
 Your application may have different requirements, and this is the point where you would install all of those dependencies.
 :::
 
-Firstly install NodeJS, and then create a symlink as /usr/bin/node so that it can be invoked with the command "node".
+Firstly install Node.js, and then create a symlink as /usr/bin/node so that it can be invoked with the command "node".
 
 ```bash
 sudo apt-get install nodejs

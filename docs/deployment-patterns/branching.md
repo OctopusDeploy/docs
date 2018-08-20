@@ -57,7 +57,7 @@ Multiple release branches may be supported over a period of time. For example, y
 
 ![](/docs/images/3048919/3278440.png)
 
-To prevent [retention policies](/docs/administration/retention-policies/index.md) for one channel from impacting deployments for another channel, version `3.12.2` introduces the `Discrete Channel Releases` flag at under `Deployment Target settings` on the {{Project,Process}} page. Enabling this feature will also ensure that your project overview dashboard correctly shows which releases are current for each environment _in each channel_. Without this set, the default behavior is for releases across channels to supersede each other (for example, in a hotfix scenario where the `3.2.2-bugfix` is expected to override the `3.2.2` release, allowng `3.2.2` to be considered for retention policy cleanup).
+To prevent [retention policies](/docs/administration/retention-policies/index.md) for one channel from impacting deployments for another channel, version `3.12.2` introduces the `Discrete Channel Releases` flag at under `Deployment Target settings` on the {{Project,Process}} page. Enabling this feature will also ensure that your project overview dashboard correctly shows which releases are current for each environment _in each channel_. Without this set, the default behavior is for releases across channels to supersede each other (for example, in a hotfix scenario where the `3.2.2-bugfix` is expected to override the `3.2.2` release, allowing `3.2.2` to be considered for retention policy cleanup).
 
  ![Discrete Channel Release](/docs/images/discrete-channel-release.png "width=500")
 
@@ -72,7 +72,7 @@ If you plan to create many releases from both branches, or your deployment proce
 In this example, packages that start with 2.x go to the "Stable" channel, while packages that start with 3.x go to the "Early Adopter" channel.
 
 :::hint
-**Tip: Channels aren&#39;t branches**
+**Tip: Channels aren't branches**
 When designing channels in Octopus, don't think about channels as another name for branches:
 
 - **Branches** can be short lived and tend to get merged, and model the way code changes in the system.
@@ -135,9 +135,9 @@ Normally in Octopus, a single release for a project is deployed to a single envi
 
 For example:
 
-- The Stable channel is deployed to the same web servers as the Early Adopter channel, but each goes to a different IIS website
-- The Stable channel and Early Adopter channels go to different web servers
-- Each feature branch goes to its own virtual directory
+- The Stable channel is deployed to the same web servers as the Early Adopter channel, but each goes to a different IIS website.
+- The Stable channel and Early Adopter channels go to different web servers.
+- Each feature branch goes to its own virtual directory.
 
 Your dashboard in Octopus should reflect this reality by displaying each channel individually:
 
@@ -148,7 +148,7 @@ Your dashboard in Octopus should reflect this reality by displaying each channel
 In [the RFC post](https://octopusdeploy.com/blog/rfc-branching), we never mentioned this, but it's something we've since discussed a few times and always assumed it would be part of release channels. That said, I'm considering whether we should ship channels without this feature. The Project Overview could still show different channels easily (since each release belongs to a channel), but the global dashboard might not be able to. We can see if there's a big demand for this feature.
 :::
 
-### My branches are very different, and I need my deployment process to work differently between them {#Branching-Mybranchesareverydifferent,andIneedmydeploymentprocesstoworkdifferentlybetweenthem}
+### My Branches Are Very Different, and I Need My Deployment Process to Work Differently Between Them {#Branching-Mybranchesareverydifferent,andIneedmydeploymentprocesstoworkdifferentlybetweenthem}
 
 :::hint
 **Development note**
@@ -167,7 +167,7 @@ Likewise, it has variables that only apply on Early Adopter:
 
 For more advanced uses, you may need to clone your project.
 
-### We sometimes need to make hotfixes that are deployed straight to staging/production {#Branching-Wesometimesneedtomakehotfixesthataredeployedstraighttostaging/production}
+### We Sometimes Need to Make Hotfixes That Are Deployed Straight to Staging/Production {#Branching-Wesometimesneedtomakehotfixesthataredeployedstraighttostaging/production}
 
 :::hint
 **Development note**
@@ -190,11 +190,11 @@ While stable releases still follow the usual testing lifecycle:
 
 ![](/docs/images/3048919/3278477.png "width=500")
 
-### We need to deploy different components depending on whether it's a "full" release or a "partial" release {#Branching-Weneedtodeploydifferentcomponentsdependingonwhetherit&#39;sa&quot;full&quot;releaseora&quot;partial&quot;release}
+### We Need to Deploy Different Components Depending on Whether It's a "Full" Release or a "Partial" Release {#Branching-Weneedtodeploydifferentcomponentsdependingonwhetherit&#39;sa&quot;full&quot;releaseora&quot;partial&quot;release}
 
 :::hint
 **Development note**
-This scenario often comes up: we have a microservice architecture with 50 different packages. Sometimes we deploy a few components, sometimes we deploy them all, sometimes just one.
+This scenario often comes up: we have a micro-service architecture with 50 different packages. Sometimes we deploy a few components, sometimes we deploy them all, sometimes just one.
 
 The only way to support that currently is with cloning, or skipping steps each deployment which is very tedious.
 :::

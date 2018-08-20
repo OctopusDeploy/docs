@@ -2,10 +2,9 @@
 title: Automatic Deployment Triggers
 description: Automatic deployment triggers allow you to define unattended behavior for your project that will cause an automatic deployment of a release into an environment.
 position: 1
-version: 3.4
 ---
 
-Automatic Deployment Triggers were introduced in **Octopus Deploy 3.4**.
+Automatic Deployment Triggers were introduced in **Octopus 3.4**.
 
 Automatic Deployment Triggers (also known as auto-deploy) allow you to define an unattended behavior for your [Projects](/docs/deployment-process/projects/index.md) that will cause an automatic deployment of a release into an [Environment](/docs/infrastructure/environments/index.md).
 
@@ -161,9 +160,9 @@ One workaround for this is to create a Project in Octopus with the job of orches
 
 In this case you could:
 
-1. Create a Project that orchestrates the deployment of multiple projects
-2. Each step in the deployment process of this project could call the Octopus API to deploy the next project in the dependency chain, waiting for a successful deployment before continuing to the next project
-3. Optionally create an automatic deployment trigger in the orchestrating project to start the whole process
+1. Create a Project that orchestrates the deployment of multiple projects.
+2. Each step in the deployment process of this project could call the Octopus API to deploy the next project in the dependency chain, waiting for a successful deployment before continuing to the next project.
+3. Optionally create an automatic deployment trigger in the orchestrating project to start the whole process.
 
 :::success
 The [Chain Deployment](https://library.octopusdeploy.com/step-template/actiontemplate-chain-deployment) step template might be a perfect fit for you in this situation, or you may want to customize this step template for more advanced scenarios.
@@ -177,7 +176,7 @@ Yes! You can configure an [Auto Deploy Override](/docs/api-and-integration/octo
 
 Yes. If Octopus is calculating the wrong release for a particular situation you can configure an [Auto Deploy Overrides](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/index.md) to force automatic deployments to use a specific release for a specific environment/tenant.
 
-### Can I be Notified of Automatic Deployment Events (like blockages or failures)?
+### Can I be Notified of Automatic Deployment Events (Like Blockages or Failures)?
 
 Yes you can! By configuring [Subscriptions](/docs/administration/subscriptions/index.md) you can be notified by email or use web hooks to create your own notification channels. You can even use web hooks to code your own recovery behavior based on your specific situation.
 

@@ -6,7 +6,7 @@ position: 0
 
 This page describes each step involved in creating your first tenant.
 
-1. Go to {{Addons,Tenants}} and click the **Add tenant** button
+1. Go to **Tenants** and click the **Add tenant** button
 
    ![](images/add-new-tenant.png "width=500")
 

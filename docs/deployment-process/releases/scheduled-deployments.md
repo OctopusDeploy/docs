@@ -4,9 +4,9 @@ description: Deployments can be scheduled to run at specific times in the future
 position: 14
 ---
 
-Deployments now have the option to be scheduled in advance with the Scheduled Deployments feature available with Octopus Server 2.5.
+Deployments now have the option to be scheduled in advance with the Scheduled Deployments feature available with **Octopus 2.5**.
 
-## Setting a Deployment to run Later {#ScheduledDeployments-SettingaDeploymenttorunLater}
+## Setting a Deployment to Run Later {#ScheduledDeployments-SettingaDeploymenttorunLater}
 
 When creating a deployment for a release, you have the option to run the deployment now or later. When choosing later you then can set a date and a time to schedule when the release will run.
 

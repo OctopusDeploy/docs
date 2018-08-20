@@ -62,7 +62,7 @@ repository.Deployments.Paginate(projects, environments,
  );
 ```
 
-## Promoting a group of projects {#ProjectCoordinationCodeSamples-Promotingagroupofprojects}
+## Promoting a Group of Projects {#ProjectCoordinationCodeSamples-Promotingagroupofprojects}
 
 This example finds all the releases that are in UAT but not Production. It then queues them for deployment to Production and waits for them to complete.
 
@@ -93,7 +93,7 @@ if(completed.Any(c => c.State != TaskState.Success))
 	throw new Exception("One or more projects did not complete successfully");
 ```
 
-## Queuing a project to run later {#ProjectCoordinationCodeSamples-Queuingaprojecttorunlater}
+## Queuing a Project to Run Later {#ProjectCoordinationCodeSamples-Queuingaprojecttorunlater}
 
 This example re-queues the currently executing project at 3am the next day.
 
@@ -113,7 +113,7 @@ repository.Deployments.Create(
 Console.WriteLine($"Queued for {tomorrow3amServerTime}");
 ```
 
-## Failing a deployment if another deployment is running {#ProjectCoordinationCodeSamples-Failingadeploymentifanotherdeploymentisrunning}
+## Failing a Deployment if Another Deployment is Running {#ProjectCoordinationCodeSamples-Failingadeploymentifanotherdeploymentisrunning}
 
 This example uses the dynamic dashboard API to check whether a different project is currently deploying to the same environment. Note that Octopus [restricts](/docs/administration/run-multiple-processes-on-a-tentacle-simultaneously.md) what can run at the same time already.
 
@@ -125,7 +125,7 @@ if (dash.Items.Any(i => i.State == TaskState.Queued || i.State == TaskState.Exec
 	throw new Exception($"{otherProject.Name} is currently queued or executing");
 ```
 
-## Failing a deployment if a dependency is not deployed {#ProjectCoordinationCodeSamples-Failingadeploymentifadependencyisnotdeployed}
+## Failing a Deployment if a Dependency is Not Deployed {#ProjectCoordinationCodeSamples-Failingadeploymentifadependencyisnotdeployed}
 
 This example retrieves the last release to the same environment of a different project and fails if it is not the expected release version.
 
@@ -139,7 +139,7 @@ if (last == null || last.ReleaseVersion != requiredVersion)
 	throw new Exception($"This project requires version {requiredVersion} of {otherProject.Name} to be deployed to the same environment");
 ```
 
-## Triggering and waiting for another project {#ProjectCoordinationCodeSamples-Triggeringandwaitingforanotherproject}
+## Triggering and Waiting for Another Project {#ProjectCoordinationCodeSamples-Triggeringandwaitingforanotherproject}
 
 This example finds the latest release for a different project and deploys it if it is not currently deployed to the environment.
 

@@ -21,7 +21,7 @@ The [Service Fabric SDK](https://g.octopushq.com/ServiceFabricSdkDownload) must 
 After the above SDK has been installed, you will need to restart your Octopus service before the changes will take effect.
 :::
 
-You will need to create a Service Fabric cluster (either in Azure, on-prem or in other clouds). Octopus needs an existing Service Fabric cluster to connect to in order to reference it as a deployment target.
+You will need to create a Service Fabric cluster (either in Azure, on-premises or in other clouds). Octopus needs an existing Service Fabric cluster to connect to in order to reference it as a deployment target.
 
 To learn more about App Services, the Azure team provide [useful documentation on Service Fabric](https://azure.microsoft.com/en-au/services/service-fabric/) that can help you get started.
 

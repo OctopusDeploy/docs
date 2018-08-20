@@ -4,7 +4,7 @@ description: Elastic and transient environments are a group of features that fac
 position: 6
 ---
 
-The features in this section were introduced in **Octopus 3.4**.
+The features in this section were introduced in `Octopus 3.4`.
 
 Elastic and transient environments is a group of features to facilitate deploying to machines that are intermittently available for deployment.
 
@@ -20,6 +20,6 @@ OctoFX is being deployed to trading desks in offices around the world.  Occasio
 
 ## Elastic and Transient Environment Features {#ElasticandTransientEnvironments-ElasticandTransientEnvironmentfeatures}
 
-- Automatically keep deployment targets up to date with the latest releases
-- Automatically reflect infrastructure changes in your environments
-- Deploy to environments where deployment target status may change during the deployment
+- Automatically keep deployment targets up to date with the latest releases.
+- Automatically reflect infrastructure changes in your environments.
+- Deploy to environments where deployment target status may change during the deployment.

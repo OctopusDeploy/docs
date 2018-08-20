@@ -14,15 +14,15 @@ This feature is designed to work natively with [.NET Core JSON configuration fil
 Our ASP.NET Core web application [deployment guide](/docs/deployment-examples/deploying-asp.net-core-web-applications/index.md) provides further information on how this feature fits into an Octopus project's deployment process.
 :::
 
-## Configuring the JSON configuration variables feature {#JSONConfigurationVariablesFeature-ConfiguringtheJSONconfigurationvariablesfeature}
+## Configuring the JSON Configuration Variables Feature {#JSONConfigurationVariablesFeature-ConfiguringtheJSONconfigurationvariablesfeature}
 
-### Step 1: Enable the feature {#JSONConfigurationVariablesFeature-Step1:Enablethefeature}
+### Step 1: Enable the Feature {#JSONConfigurationVariablesFeature-Step1:Enablethefeature}
 
 To configure a package step to replace matching app settings in your JSON configuration files ensure the **JSON configuration variables** feature is enabled.
 
 ![Feature Configuration](5275655.png "width=500")
 
-### Step 2: Configure which files to update {#JSONConfigurationVariablesFeature-Step2:Configurewhichfilestoupdate}
+### Step 2: Configure Which Files to Update {#JSONConfigurationVariablesFeature-Step2:Configurewhichfilestoupdate}
 
 Next, specify the relative paths within the package to your JSON configuration files.
 
@@ -37,15 +37,15 @@ approot\packages\ASPNET.Core.Sample\1.0.0\root\appSettings.json
 
 Note that you can even use the [Variable Substitution Syntax](/docs/deployment-process/variables/variable-substitution-syntax.md) patterns in this file selection input box itself to do things like reference environment specific files, or conditionally include them based on scoped variables.
 
-![JSON variable subsitute](5275656.png "width=500")
+![JSON variable substitute](5275656.png "width=500")
 
 Any matching variables in the JSON file will have their values replaced with the variables you have configured in Octopus.
 
-## How your JSON configuration settings are updated by Octopus {#JSONConfigurationVariablesFeature-HowyourJSONconfigurationsettingsareupdatedbyOctopus}
+## How Your JSON Configuration Settings Are Updated by Octopus {#JSONConfigurationVariablesFeature-HowyourJSONconfigurationsettingsareupdatedbyOctopus}
 
 When this feature is enabled, Octopus will find the target files and replace any matching configuration settings with the value of matching Octopus variables.
 
-### Simple variables {#JSONConfigurationVariablesFeature-Simplevariables}
+### Simple Variables {#JSONConfigurationVariablesFeature-Simplevariables}
 
 Given this example of a target config file:
 
@@ -71,7 +71,7 @@ If you have the Octopus Variables `weatherApiUrl` and `weatherApiKey` set to th
 }
 ```
 
-### Hierarchical variables {#JSONConfigurationVariablesFeature-Hierarchicalvariables}
+### Hierarchical Variables {#JSONConfigurationVariablesFeature-Hierarchicalvariables}
 
 It is common (and encouraged) to use hierarchical variables in JSON configuration files.  This is supported in Octopus Deploy variables by using a nested path syntax delimited by *colon* characters.
 
@@ -90,7 +90,7 @@ For example, to update the value of `weatherApi.url` and `weatherApi.key` in th
 
 You can also replace an entire object. For the example above you could set Octopus Variable `weatherApi` to a value of `{"weatherApi":{"url":"test.weather.com","key":"TEST7654321"}}`
 
-### Array variables {#JSONConfigurationVariablesFeature-Arrayvariables}
+### Array Variables {#JSONConfigurationVariablesFeature-Arrayvariables}
 
 Octopus Deploy can also replace a value in a JSON array by using the zero-based index of the array in the variable name.
 

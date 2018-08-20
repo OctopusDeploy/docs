@@ -4,11 +4,11 @@ description: Information on how to upgrade from Octopus 2.6 to newer versions.
 position: 2
 ---
 
-Normally, upgrading Octopus is quite easy - just install the new version over the top. We made some really big changes to our data storage and Tentacle communication protocols in Octopus: upgrading from Octopus `2.6` is a bit more complicated.
+Normally, upgrading Octopus is quite easy - just install the new version over the top. We made some really big changes to our data storage and Tentacle communication protocols in Octopus: upgrading from **Octopus 2.6** is a bit more complicated.
 
 Upgrading to newer versions of Octopus is only possible from Octopus 2.6.x; if you're running a previous version of Octopus:
 
-1. Upgrade to Octopus `2.6.5`, then
+1. Upgrade to **Octopus 2.6.5**, then
 1. Upgrade to the latest version of Octopus.
 
 :::success

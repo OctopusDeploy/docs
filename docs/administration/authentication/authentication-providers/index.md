@@ -31,7 +31,7 @@ You will need to enable at least one of the authentication providers in order to
 
 When editing Teams while the Active Directory provider is enabled, an option is available to search for **Active Directory Groups** and add them as External Security Groups.  Anyone who is in those groups will then be considered part of the Team in Octopus Deploy.
 
-Octopus Deploy 3.5 introduces similar functionality for assigning OpenID Connect based Roles to a Team.  When either of the OpenID Connect based providers are enabled, an option to **Add External Role** is available on the Team edit page.  The Role ID is the Role that will be matched against the user's claims token to determine whether they should be considered part of that Team.
+**Octopus 3.5** introduces similar functionality for assigning OpenID Connect based Roles to a Team.  When either of the OpenID Connect based providers are enabled, an option to **Add External Role** is available on the Team edit page.  The Role ID is the Role that will be matched against the user's claims token to determine whether they should be considered part of that Team.
 
 ## Users and Authentication Providers {#AuthenticationProviders-usersandauthprovidersUsersandAuthenticationProviders}
 

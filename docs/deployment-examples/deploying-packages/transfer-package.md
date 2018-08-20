@@ -4,7 +4,7 @@ description: Transfer Package step allows you to simply transfer a package to yo
 ---
 
 :::hint
-Transfer a package was introduced in Octopus Deploy 3.7.12
+Transfer a package was introduced in **Octopus 3.7.12**.
 :::
 
 ## Transferring a Package To Your Target Without Extraction {#TransferPackage-Transferringapackagetoyourtargetwithoutextraction}

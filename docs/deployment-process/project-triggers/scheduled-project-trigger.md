@@ -5,7 +5,7 @@ position: 2
 version: 2018.4
 ---
 
-Scheduled Deployment Triggers were introduced in **Octopus Deploy 2018.4**.
+Scheduled Deployment Triggers were introduced in **Octopus 2018.4**.
 
 Scheduled Deployment Triggers allow you to define an unattended behavior for your [Projects](/docs/deployment-process/projects/index.md) that will cause an automatic deployment of a release based on a defined recurring schedule.
 
@@ -33,7 +33,7 @@ Example:
 ![](/docs/images/scheduled-project-triggers/scheduled-project-triggers-days-per-week-schedule.png "width=500")
 
 ### Days Per Month
-The Days Per Month schedule allows you to configure a trigger that will run on a specific date of the month or specific day of week of every month
+The Days Per Month schedule allows you to configure a trigger that will run on a specific date of the month or specific day of week of every month.
 
 Example:
 
@@ -50,7 +50,7 @@ Example:
 
 `0 0 06 * * Mon-Fri`
 
-Runs at 06:00 AM, Monday through Friday
+Runs at 06:00 AM, Monday through Friday.
 
 ![](/docs/images/scheduled-project-triggers/scheduled-project-triggers-cron-expression.png "width=500")
 
@@ -73,8 +73,8 @@ The CRON expression must consist of all 6 fields, there is an optional 7th field
 ### Deploy Latest Release
 
 The Deploy Latest Release action allows you to re-deploy a release or promote a release between environments.
-* **Source Environment**: The latest successful deployment in this environment will be used to deploy to the destination environment
-* **Destination Environment**: The release selected from the source environment will be deployed to this environment
+* **Source Environment**: The latest successful deployment in this environment will be used to deploy to the destination environment.
+* **Destination Environment**: The release selected from the source environment will be deployed to this environment.
 
 If you are using [channels](/docs/deployment-process/channels/index.md) you may also select the channel to use when deploying the release. The latest successful deployment for the specified channel and source environment will be deployed to the same channel and destination environment. If no channel is specified, the latest successful release from any channel and source environment will be selected for deployment.
 

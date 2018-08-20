@@ -11,14 +11,14 @@ Octopus Deploy can use Windows credentials to identify users. This option is cho
 When you go through the Octopus setup wizard, or run the commands below to switch to AD authentication mode, make sure you are signed in to Windows as a domain user. If you are signed in as a local user account on the machine (a non-domain user) you won't be able to query Active Directory, so setup will fail.
 :::
 
-## Active Directory sign in options {#ActiveDirectoryauthentication-ActiveDirectorysigninoptions}
+## Active Directory Sign in Options {#ActiveDirectoryauthentication-ActiveDirectorysigninoptions}
 
 If you are using Active Directory Authentication with Octopus, there are two ways to sign in.
 
 1. Integrated authentication
 2. Forms-based
 
-## Integrated authentication {#ActiveDirectoryauthentication-Integratedauthentication}
+## Integrated Authentication {#ActiveDirectoryauthentication-Integratedauthentication}
 
 The easiest way to sign in when using Active Directory is to click the *Sign in with a domain account* link.
 
@@ -43,7 +43,7 @@ Octopus is built on top of HTTP.sys, the same kernel driver that IIS is built on
 When the link is clicked, it redirects to a page which is configured to tell HTTP.sys to issue the browser challenge. The browser and HTTP.sys negotiate the authentication just like an IIS website would. The user principal is then passed to Octopus. Octopus will then query Active Directory for other information about the user.
 :::
 
-## Forms-based authentication with Active Directory {#ActiveDirectoryauthentication-Forms-basedauthenticationwithActiveDirectory}
+## Forms-based Authentication With Active Directory {#ActiveDirectoryauthentication-Forms-basedauthenticationwithActiveDirectory}
 
 Octopus also lets users sign in by entering their Active Directory credentials manually using the HTML form. This is useful if users sometimes need to authenticate with a different account than the one they are signed in to Windows as, or if network configuration prevents integrated authentication from working correctly.
 
@@ -78,7 +78,7 @@ This will result in integrated sign in being the only option:
 
 ![](ad-integrated-only.png)
 
-## Switching between username/password and Active Directory authentication {#ActiveDirectoryauthentication-Switchingbetweenusername/passwordandActiveDirectoryauthentication}
+## Switching Between Username/Password and Active Directory Authentication {#ActiveDirectoryauthentication-Switchingbetweenusername/passwordandActiveDirectoryauthentication}
 
 It is possible to reconfigure an existing Octopus Deploy Server to use a different authentication mode.
 
@@ -91,7 +91,7 @@ When switching from username/password to Active Directory, after running the bel
 In 3.5 the User records are handled differently, [learn more](/docs/administration/authentication/authentication-providers/index.md#AuthenticationProviders-usersandauthprovidersUsersandAuthenticationProviders).
 :::
 
-### To select Active Directory authentication {#ActiveDirectoryauthentication-ToselectActiveDirectoryauthentication}
+### To select Active Directory Authentication {#ActiveDirectoryauthentication-ToselectActiveDirectoryauthentication}
 
 To switch from username/password authentication to Active Directory authentication, use the following script from an administrative command prompt on the Octopus Server:
 
@@ -105,7 +105,7 @@ Octopus.Server.exe admin --username=YOURUSERNAME
 
 The text `YOURUSERNAME` should be your Active Directory account name, in either **user@domain** or **domain\user** format (see [Authentication Providers](/docs/administration/authentication/authentication-providers/index.md)).
 
-### To select username/password authentication {#ActiveDirectoryauthentication-Toselectusername/passwordauthentication}
+### To Select Username/Password Authentication {#ActiveDirectoryauthentication-Toselectusername/passwordauthentication}
 
 To switch from Active Directory authentication to username/password authentication, use the following script from an administrative command prompt on the Octopus Server:
 
@@ -117,9 +117,9 @@ Octopus.Server.exe configure --usernamePasswordIsEnabled=true
 Octopus.Server.exe admin --username=YOURUSERNAME
 ```
 
-### To specify a custom container {#ActiveDirectoryauthentication-Tospecifyacustomcontainer}
+### To Specify a Custom Container {#ActiveDirectoryauthentication-Tospecifyacustomcontainer}
 
-In Octopus Deploy version 2.5.11 and newer you can specify a custom container to use for AD Authentication. This feature addresses the issue of authenticating with Active Directory where the Users container is not in default location and permissions prevent queries as a result. Specifying the container will result in the container being used as the root of the context. The container is the distinguished name of a container object. All queries are performed under this root which can be useful in a more restricted environment. This may be the solution if you see a "The specified directory service attribute or value does not exist" error when using Active Directory authentication.
+In **Octopus 2.5.11** and newer you can specify a custom container to use for AD Authentication. This feature addresses the issue of authenticating with Active Directory where the Users container is not in default location and permissions prevent queries as a result. Specifying the container will result in the container being used as the root of the context. The container is the distinguished name of a container object. All queries are performed under this root which can be useful in a more restricted environment. This may be the solution if you see a "The specified directory service attribute or value does not exist" error when using Active Directory authentication.
 
 **Setting a custom container**
 

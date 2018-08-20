@@ -1,6 +1,6 @@
 ---
 title: Configure Octopus Deploy Project
-description: This guide describes how to configure your Octopus project to deploy a NodeJS application to a Linux deployment target.
+description: This guide describes how to configure your Octopus project to deploy a Node.js application to a Linux deployment target.
 position: 2
 ---
 
@@ -55,7 +55,7 @@ The next step is to create a project that will extract the package.
 
 :::success
 **Loading environment specific variables**
-Although the XML and config transform features that are enabled by default in the deployment steps won't help us with our Nodejs project, we can leverage the variable substitution feature to update our project with environment specific variables. A simple configuration loading mechanism has been set up in the sample project that will load the appropriate configuration file from the *config* folder based on the environment variable set in the *NODE\_ENV* environment variable. This is a common variable used in these kinds of projects allow you to pass into code the current environment and allow it to handle different environment requirements. In this case it will load a *config/config.<EnvironmentName>.js* file, similar to how the *\*.<EnvironmentName>.config* works in the XML transform feature.
+Although the XML and config transform features that are enabled by default in the deployment steps won't help us with our Node.js project, we can leverage the variable substitution feature to update our project with environment specific variables. A simple configuration loading mechanism has been set up in the sample project that will load the appropriate configuration file from the *config* folder based on the environment variable set in the *NODE\_ENV* environment variable. This is a common variable used in these kinds of projects allow you to pass into code the current environment and allow it to handle different environment requirements. In this case it will load a *config/config.<EnvironmentName>.js* file, similar to how the *\*.<EnvironmentName>.config* works in the XML transform feature.
 :::
 
 To further test out the variables feature we will add our own custom variable from Octopus Deploy to be replaced in the config.
@@ -63,7 +63,7 @@ To further test out the variables feature we will add our own custom variable fr
 - Navigate to the *Variables* tab and add a new variable named **projectVariable** with some text to appear underneath the title bar on the web page, but leave the variable un-scoped.
 - Click *Save* once you are done.
 
-### Starting & Managing the Process {#ConfigureOctopusDeployProject-Starting&amp;ManagingtheProcess}
+### Starting and Managing the Process {#ConfigureOctopusDeployProject-Starting&amp;ManagingtheProcess}
 
 To get the Node.js process started up you can manually call *npm start* as you did during development however this has its drawbacks when trying to run the process in the background of your deployment environments. Each time you deploy a new version of the package you would then have to stop the old version and start the newly deployed one. Without running the process through some intermediary process manager you would need to search for and kill the previous one from the process list, based on something like parsing its path to determine the correct one. This is obviously fraught with dangers. A better approach is to install and use one of the many process managers that are our there such as [pm2](http://pm2.keymetrics.io/), [StrongLoop](http://strong-pm.io/) or [forever](https://github.com/foreverjs/forever) which ensure that the process stays alive and provides other features such monitoring resource usage and clustering. For the purposes of this simple example we will use pm2 to demonstrate how the web process might be hosted.
 
@@ -81,7 +81,7 @@ rc=$?; if [[ $rc -eq 0 ]]; then
     pm2 stop "#{Octopus.Project.Name}"
     pm2 delete "#{Octopus.Project.Name}"
 fi
-echo Starting New Proces
+echo Starting New Process
 NODE_ENV="#{Octopus.Environment.Name}" pm2 start server.js --name="#{Octopus.Project.Name}"
 ```
 
@@ -89,7 +89,7 @@ NODE_ENV="#{Octopus.Environment.Name}" pm2 start server.js --name="#{Octopus.Pro
 While this code is obviously not the ideal solution, it does demonstrate how you might leverage pm2 to start and stop new versions of your project as it is deployed. Check their documentation on best practices for more advanced topics like restarting after server reboot, clustering and monitoring.
 :::
 
-## Deploy! {#ConfigureOctopusDeployProject-Deploy!}
+## Deploy {#ConfigureOctopusDeployProject-Deploy}
 
 - Create a new release and deploy it to the **prod** environment.
 

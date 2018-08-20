@@ -28,10 +28,10 @@ Then go to the **Storage** tab in the **Configuration** area, and make sure that
 
 ## Install Octopus 2.0 {#UpgradingfromOctopus1.6-InstallOctopus2.0}
 
-Next, install Octopus Deploy 2.0, either on the same server as your current Octopus 1.6 server, or on a new server (ideal). Octopus 2.0 uses different paths, ports and service names to 1.0 so there should not be any conflicts between them.
+Next, install **Octopus 2.0**, either on the same server as your current **Octopus 1.6** server, or on a new server (ideal). **Octopus 2.0** uses different paths, ports and service names to 1.0 so there should not be any conflicts between them.
 
 :::hint
-View our [guide to installing an Octopus Deploy 2.0 server](/docs/installation/index.md), which includes a video walkthrough.
+View our [guide to installing an **Octopus 2.0**](/docs/installation/index.md), which includes a video walkthrough.
 :::
 
 ## Importing {#UpgradingfromOctopus1.6-Importing}

@@ -12,7 +12,7 @@ The exact cause of this issue has not yet been determined, however investigation
 
 ## What Can You Do About It? {#ServiceWatchdog-Whatcanyoudoaboutit?}
 
-As of Octopus Deploy 3.7.17 there is a **watchdog** command that can be used on the command line to configure a Windows Scheduled Task that ensures the services are running.  The command is used as follows.
+As of **Octopus 3.7.17** there is a **watchdog** command that can be used on the command line to configure a Windows Scheduled Task that ensures the services are running.  The command is used as follows.
 
 ### Configuring the Watchdog {#ServiceWatchdog-ConfiguringtheWatchdog}
 

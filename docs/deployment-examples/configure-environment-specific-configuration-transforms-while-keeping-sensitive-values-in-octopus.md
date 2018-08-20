@@ -1,5 +1,5 @@
 ---
-title: Configure Environment-specific configuration transforms while keeping sensitive values in Octopus
+title: Configure Environment-specific Configuration Transforms While Keeping Sensitive Values in Octopus
 description: How to configure environment-specific configuration transforms while keeping sensitive values in Octopus.
 position: 140
 ---

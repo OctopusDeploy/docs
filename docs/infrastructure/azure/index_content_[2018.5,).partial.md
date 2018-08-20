@@ -1,9 +1,9 @@
 Octopus Deploy provides first-class support for deploying to different PaaS products in the Azure Cloud by using [Azure Targets](#azure-targets). To deploy software to Azure, remember that you must first add your Azure subscription to Octopus Deploy by [creating an Azure account](/docs/infrastructure/azure/creating-an-azure-account/index.md). Once that's done, follow the below links depending on the Azure Target you want to deploy to.
 
-## Azure targets
+## Azure Targets
 
 :::hint
-These new target types were introduced in `2018.5`. You can read more about all the new PaaS targets [in our blog](https://octopusdeploy.com/blog/paas-targets).
+These new target types were introduced in **Octopus 2018.5**. You can read more about all the new PaaS targets [in our blog](https://octopusdeploy.com/blog/paas-targets).
 :::
 
 Octopus' Azure targets provide a reference to actual targets in your Azure infrastructure, allowing you to target several PaaS products by role during a deployment. Azure targets are setup the same way as regular deployment targets and go through health checks, so you can know the status of your Azure infrastructure targets and spot any problems early.

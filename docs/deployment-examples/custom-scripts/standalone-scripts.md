@@ -15,7 +15,7 @@ You can use all of the features we provide for [custom scripts](/docs/deployment
 ## Choosing Where the Script Will Run {#Standalonescripts-Choosingwherethescriptwillrun}
 
 :::hint
-The ability to run scripts on the Octopus Server shipped in Octopus Deploy 3.3
+The ability to run scripts on the Octopus Server shipped in **Octopus 3.3**.
 :::
 
 When adding a script you choose where the script will run, and in which context the script will run.

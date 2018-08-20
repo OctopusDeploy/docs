@@ -19,12 +19,12 @@ You can use [Environments](/docs/infrastructure/environments/index.md) to repr
 By using this pattern you can:
 
 1. Use [Lifecycles](/docs/deployment-process/lifecycles/index.md) to define a strict process for promotion of releases between your regions. *Lifecycles can be used to design both simple and complex promotion processes.*
-  * For example, you may want to test releases in Australia before rolling them out to the USA, and then to Europe
-  * In another example, you may want to test releases in Australia before rolling them out simultaneously to all other regions
-2. Scope region-specific variables to the region-specific Environments
-3. Quickly see which releases are deployed to which regions on the main dashboard
-4. Quickly promote releases through your regions using the Project Overview
-5. Use [Scheduled Deployments](/docs/deployment-process/releases/scheduled-deployments.md) to plan deployments for times of low usage
+  * For example, you may want to test releases in Australia before rolling them out to the USA, and then to Europe.
+  * In another example, you may want to test releases in Australia before rolling them out simultaneously to all other regions.
+2. Scope region-specific variables to the region-specific Environments.
+3. Quickly see which releases are deployed to which regions on the main dashboard.
+4. Quickly promote releases through your regions using the Project Overview.
+5. Use [Scheduled Deployments](/docs/deployment-process/releases/scheduled-deployments.md) to plan deployments for times of low usage.
 
 **This is a really good solution if you want to enforce a particular order of deployments through your regions.**
 
@@ -36,8 +36,8 @@ In Octopus 3.4 we introduced [Cloud Regions](/docs/infrastructure/cloud-regions
 
 By using this pattern you can:
 
-1. Scope region-specific variables to the Cloud Region targets
-2. Conveniently deploy to all regions at the same time
+1. Scope region-specific variables to the Cloud Region targets.
+2. Conveniently deploy to all regions at the same time.
 
 **If you don't really mind which order you regions are deployed, or you always upgrade all regions at the same time, Cloud Regions are probably the right fit for you.**
 
@@ -45,27 +45,27 @@ By using this pattern you can:
 
 Alternatively you could create [Tenants](/docs/deployment-patterns/multi-tenant-deployments/index.md) to represent each region or data center. By doing so you can:
 
-1. Use [Variable Templates](/docs/deployment-process/variables/variable-templates.md) to prompt you for the variables required for each region (like the storage account details for that region) and when you introduce a new region Octopus will prompt you for the missing variables
+1. Use [Variable Templates](/docs/deployment-process/variables/variable-templates.md) to prompt you for the variables required for each region (like the storage account details for that region) and when you introduce a new region Octopus will prompt you for the missing variables:
 
 ![](/docs/images/5670886/5865790.png "width=500")
 
-2. Provide logos for your regions to make them easier to distinguish
+2. Provide logos for your regions to make them easier to distinguish:
 
 ![](/docs/images/5670886/5865788.png "width=500")
 
-3. Quickly see the progress of deploying the latest release to your entire production environment on the main dashboard
+3. Quickly see the progress of deploying the latest release to your entire production environment on the main dashboard:
 
 ![](/docs/images/5670886/5865785.png "width=500")
 
-4. Quickly see which releases have been deployed to which regions using the Dashboard and Project Overview
+4. Quickly see which releases have been deployed to which regions using the Dashboard and Project Overview:
 
 ![](/docs/images/5670886/5865786.png "width=500")
 
-5. Quickly promote releases to your production regions, in a particular sequence, or simultaneously
+5. Quickly promote releases to your production regions, in a particular sequence, or simultaneously:
 
 ![](/docs/images/5670886/5865789.png "width=500")
 
-6. Use [Scheduled Deployments](/docs/deployment-process/releases/scheduled-deployments.md) to plan deployments for times of low usage
+6. Use [Scheduled Deployments](/docs/deployment-process/releases/scheduled-deployments.md) to plan deployments for times of low usage:
 
 ![](/docs/images/5670886/5865787.png "width=500")
 

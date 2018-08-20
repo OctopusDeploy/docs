@@ -8,7 +8,7 @@ In an ideal world, every deployment would be successful. Sadly, things sometimes
 
 **Guided failure mode** tells Octopus that if something goes wrong during the deployment, instead of failing immediately, Octopus should ask for a human to intervene.
 
-## Enabling guided failure mode {#Guidedfailures-Enablingguidedfailuremode}
+## Enabling Guided Failure Mode {#Guidedfailures-Enablingguidedfailuremode}
 
 Guided failure mode is off by default. You can enable it when deploying a release:
 
@@ -18,7 +18,7 @@ Guided failure mode is off by default. You can enable it when deploying a releas
 See the section on [managing environments](/docs/infrastructure/environments/index.md) to enable guided failure mode by default for all deployments to a specific environment.
 :::
 
-## What happens {#Guidedfailures-Whathappens}
+## What Happens {#Guidedfailures-Whathappens}
 
 If something goes wrong during the deployment, Octopus will interrupt the deployment, and request guidance for how to handle the failure. This uses the same [user experience that is used for manual steps](/docs/deployment-examples/manual-intervention-and-approvals.md) (internally, requests for failure guidance, and manual steps, use the same implementation: we call them Interruptions in the [REST API](/docs/api-and-integration/api/index.md)).
 
