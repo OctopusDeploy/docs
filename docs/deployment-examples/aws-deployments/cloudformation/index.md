@@ -142,6 +142,11 @@ User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: clou
 To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deployment-examples/aws-deployments/permissions/index.md) contains an overview of the permissions required by the AWS steps.
 
 ### AWS-CLOUDFORMATION-ERROR-0003
+
+:::hint
+Please be aware that this error will also show if the **Variable Account** cannot be resolved to an AWS Account, in this case please check the variable scopes. You can use the {{Variables,Preview}} for the project to test the variable values for a given deployment scenario are being included or not.
+:::
+
 The AWS account used to perform the operation does not have the required permissions to describe the stack.
 
 This is logged as a warning as Octopus will make some assumptions about the state of the stack and attempt to continue on:
