@@ -34,6 +34,10 @@ After installing the extension, follow the below steps to get it running for you
 If you want to make changes to the build task that might not be appropriate for everyone, you can download and manually install the build task yourself. See [Manually install the Build Task (not recommended)](manually-install-the-build-task.md) for details.
 :::
 
+## Use your own version of Octo
+
+You can bring your own version of Octo and avoid the use of installer tasks or accessing the internet by [registering Octo as a capability]((/docs/api-and-integration/tfs-vsts/install-octo-capability.md).
+
 ## Add a Connection to Octopus Deploy
 
 Hover over the **Manage Project** cog in the top right corner of the project screen in Visual Studio Team Services, and click the **Services** link.
@@ -76,7 +80,7 @@ If there are scope restrictions (e.g. by Project or Environment) against the acc
 ## Demands and the Octo Installer task
 
 The VSTS extension tasks require Octo to be available on the path when executing on a build agent and must have the .net core 2.0.0 runtime or newer installed. This may not always be possible such as with the VSTS hosted agents. In order to
-make this work all Octopus tasks will automatically attempt to download and use the latest version of Octo tools unless available on the build agent as specified above. If you would like to avoid any additional downloads or use a specific Octo version then you can do so by adding the Octo Installer task to the start of your build definition.
+make this work all Octopus tasks will automatically attempt to download and use the latest version of Octo tools unless [available on the build agent](/docs/api-and-integration/tfs-vsts/install-octo-capability.md) as specified above. If you would like to avoid any additional downloads or use a specific Octo version then you can do so by adding the Octo Installer task to the start of your build definition. No attempt will be made to download Octo if the capability is detected on your build agent.
 
 :::hint
 Version 2.x.x of the extension included a bundled version of the Octo tools and did not require the agent to be setup with Octo in the path and did not support running on Linux or Mac build agents.
