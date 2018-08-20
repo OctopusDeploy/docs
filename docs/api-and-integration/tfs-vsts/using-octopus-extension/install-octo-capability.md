@@ -1,5 +1,5 @@
 ---
-title: Installing Octo as a capability
+title: Installing Octo as a Capability
 description: This guide covers how to add Octo as a capability to your TFS/VSTS custom build agents.
 ---
 
@@ -12,7 +12,7 @@ Installing Octo as a global tool will require an additional shell execution scri
 provide a way to execute `Octo` directly.
 :::
 
-## Agent capability scanning
+## Agent Capability Scanning
 
 Usually VSTS agents scan for associated capabilities, but won't pick anything up from the PATH automatically. In order for a capability to be detected, you must also add an environment variable named `Octo` with the associated
 version.
@@ -29,7 +29,7 @@ Once Octo is in the path and the above system variable is specified, VSTS will d
 You must restart the build agent service if making these changes while it is currently running.
 :::
 
-## Specify the capability manually
+## Specify the Capability Manually
 
 If you know that a build agent has `Octo` available on the path then you can also specify the capability manually using the VSTS/TFS web interface. Although this may be rather simple, the capability would have to be specified for
 each agent individually which can be quite cumbersome.
