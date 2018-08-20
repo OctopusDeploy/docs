@@ -18,3 +18,5 @@ How is it configured?
 What else do we need to include?
 
 What other docs need to be updated?
+
+Add a section to the Getting Started page calling out the capabilities
