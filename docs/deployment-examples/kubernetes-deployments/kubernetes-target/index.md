@@ -101,7 +101,6 @@ Kubernetes targets support multiple [account types](http://g.octopushq.com/Kuber
 * Username and password
 * Token
 * Certificates
-* AWS Accounts
 
 The YAML file below shows a sample kubectl config file with examples of these types of authentication:
 
