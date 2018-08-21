@@ -12,17 +12,14 @@ Triggers are per-project settings that execute an action in response to an event
 
 ## Creating an Automatic Deployment Trigger {#Keepingdeploymenttargetsuptodate-Creatinganautomaticdeploymenttrigger}
 
-1. Navigate to the project *Triggers* page
-
-2. Create a new trigger by selecting **Create trigger**
+1. Navigate to the project *Triggers* page.
+2. Create a new trigger by selecting **Create trigger**:
 
 ![](/docs/images/5669262/5865570.png "width=500")
 
-3. Add events to the trigger
-
- 1. For Octopus 3.6 and above, select the event group *"Machine becomes available for deployment"*.
-
- 2. For Octopus 3.4 and 3.5, select both available events so that it will fire when a *new deployment target becomes available* (eg. when a new deployment target is provisioned and added to Octopus) or when an *existing deployment target changes state* (eg. from unavailable to available, joins an environment, changes roles, etc.).
+3. Add events to the trigger.
+  - For **Octopus 3.6** and above, select the event group *"Machine becomes available for deployment"*.
+  - For **Octopus 3.4** and **Octopus 3.5**, select both available events so that it will fire when a *new deployment target becomes available* (eg. when a new deployment target is provisioned and added to Octopus) or when an *existing deployment target changes state* (eg. from unavailable to available, joins an environment, changes roles, etc.).
 
 4. Select the environments (**Test A**) that this trigger applies to.
 
@@ -80,9 +77,9 @@ $repository.Projects.Modify($project)
 
 Automatic deployment overrides are cleared when a deployment is performed to the same project/environment/tenant combination as the override.  For example: if an override is set for version 1.2 of HelloWorld to the Test environment and version 1.3 of HelloWorld is deployed to the Test environment, the 1.2 override will be deleted. Release overrides will be cleared as soon as they have automated an actual deployment.
 
-## Troubleshooting automatic deployments {#Keepingdeploymenttargetsuptodate-TroubleshootingTroubleshootingautomaticdeployments}
+## Troubleshooting Automatic Deployments {#Keepingdeploymenttargetsuptodate-TroubleshootingTroubleshootingautomaticdeployments}
 
-Octopus will attempt to automatically deploy the current releases for the environments that are appropriate for a machine. The current release is the one that was most recently *successfully* deployed as shown on the project dashboard. If a release is deployed and it fails, the previous successful release will continue to be automatically deployed. Octopus will not attempt automatic deployments for a project/environment/tentant while a release is being deployed to that project/environment/tenant. Once the deployment finishes, Octopus will deploy to any machines that require the deployment.
+Octopus will attempt to automatically deploy the current releases for the environments that are appropriate for a machine. The current release is the one that was most recently *successfully* deployed as shown on the project dashboard. If a release is deployed and it fails, the previous successful release will continue to be automatically deployed. Octopus will not attempt automatic deployments for a project/environment/tenant while a release is being deployed to that project/environment/tenant. Once the deployment finishes, Octopus will deploy to any machines that require the deployment.
 
 Troubleshoot automatic deployment by viewing the auto deploy logs from the diagnostics page in the configuration section or viewing the [Audit log](/docs/administration/auditing.md).
 

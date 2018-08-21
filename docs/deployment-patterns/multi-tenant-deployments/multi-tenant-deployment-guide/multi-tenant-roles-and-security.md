@@ -4,7 +4,7 @@ description: Common approaches to structuring roles and teams to secure a multi-
 position: 8
 ---
 
-Previous step: [Designing a multi-tenant upgrade process](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md)
+Previous step: [Designing a multi-tenant upgrade process](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md).
 
 This page describes several common approaches to structuring roles and teams to secure a multi-tenant Octopus instance. Using the permissions system in Octopus you can configure internal team members with different roles who interact with tenants in different ways. You can also configure Octopus to provide access for your external customers. This page explores several of those roles for both internal and external parties.
 
@@ -32,7 +32,7 @@ This role is loosely based on the built-in **Project deployer** role but removin
 It is usually a good idea to build smaller roles that can be composed together into a team to provide easier management of your team permissions. In this example we are creating a single role to grant all of the required permissions to keep the example simple. In this case you could create a **Tenant project viewer** role and a **Tenant project deployer** role and combine them together into a single team.
 :::
 
-1. In {{Configuration,Teams,Roles}} click **Add custom role** and call it **Tenant project deployer**
+1. In {{Configuration,Teams,Roles}} click **Add custom role** and call it **Tenant project deployer**.
 2. Set the description to **Tenant project deployers can deploy releases on behalf of tenants**
 3. Choose the following permissions:
    1. AccountView
@@ -66,13 +66,13 @@ It is usually a good idea to build smaller roles that can be composed together i
 
 Now we will create a team for all the Account Managers and add the role we created in the last step.
 
-1. In {{Configuration,Teams}} click Add team and call it **Account Managers**
-2. Click the **Add role** button and add the **Tenant project deployer role**
-3. Click the **Add member** button and add any user accounts that will form part of this team
+1. In {{Configuration,Teams}} click Add team and call it **Account Managers**.
+2. Click the **Add role** button and add the **Tenant project deployer role**.
+3. Click the **Add member** button and add any user accounts that will form part of this team.
 
 ![](account-managers.png "width=500")
 
-### Step 3: Test!
+### Step 3: Test
 
 Now it's time to test the results of our configuration.
 
@@ -97,19 +97,19 @@ Bob is a member of IT infrastructure team and he manages all the virtual servers
 Similarly to the previous example we will create a custom role with minimum permissions, in this case for viewing tenant details. Later on we will create a team that combines multiple roles together to achieve the desired effect.
 
 1. Create a role called **Tenant viewer** with the following permissions:
-2. TenantView
+  - TenantView
 
 ### Step 2: Configure the Tenant Environment Managers Team
 
 In this example we will create a new team and combine multiple roles together to achieve the desired result.
 
-1. Create a new team called Tenant Environment Managers
-2. Add the Tenant viewer and Environment manager roles to the team
+1. Create a new team called Tenant Environment Managers.
+2. Add the Tenant viewer and Environment manager roles to the team:
    ![](tenant-environment-managers.png "width=500")
-3. Add any specific tenant/environment scoping that makes sense
-4. Add any specific members to the team that make sense
+3. Add any specific tenant/environment scoping that makes sense.
+4. Add any specific members to the team that make sense.
 
-### Step 3: Test!
+### Step 3: Test
 
 Similarly to the previous example assign a user account, sign in, and test out the resulting behavior. You should notice you can configure new or existing deployment targets including tenant configuration as we described in [Designing a multi-tenant hosting model](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md).
 
@@ -130,12 +130,12 @@ You may want to provide the capabilities of Octopus Deploy to your customers wit
 Firstly we need to create a team with scope limited to the single tenant.
 
 1. Create a new team called **Self-Service: <TenantName>** like **Self-Service: Beverley Sanchez** in our example.
-2. Add any roles you desire, in our example we're providing the tenant with the **Tenant project deployer** role
-3. Scope the team to a single tenant
+2. Add any roles you desire, in our example we're providing the tenant with the **Tenant project deployer** role.
+3. Scope the team to a single tenant:
 
 ![](self-service.png "width=500")
 
-### Step 2: Test!
+### Step 2: Test
 
 Just like the previous examples, create a user account and test Octopus behaves as you'd expect based on the permissions you've granted to the team. You may want to consider limiting scope to a subset of environments or projects depending on your scenario.
 

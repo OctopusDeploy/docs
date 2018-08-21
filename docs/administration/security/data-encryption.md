@@ -10,9 +10,9 @@ When an Octopus Server is installed, we generate a special key used for encrypti
 
 The master key is then used along with [AES-128](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) to encrypt certain sensitive data in the Octopus database, including:
 
-- [Sensitive variables](/docs/deployment-process/variables/sensitive-variables.md)
-- Private keys used for [Octopus/Tentacle](/docs/administration/security/octopus-tentacle-communication/index.md) communication, and for authenticating with [Azure](/docs/infrastructure/azure/index.md) and [SSH endpoints](/docs/infrastructure/ssh-targets/configuring-ssh-connection.md)
-- Credentials used to authenticate with [SSH](/docs/infrastructure/ssh-targets/username-and-password.md) (for username/password auth) and [external NuGet feeds](/docs/packaging-applications/package-repositories/index.md)
+- [Sensitive variables](/docs/deployment-process/variables/sensitive-variables.md).
+- Private keys used for [Octopus/Tentacle](/docs/administration/security/octopus-tentacle-communication/index.md) communication, and for authenticating with [Azure](/docs/infrastructure/azure/index.md) and [SSH endpoints](/docs/infrastructure/ssh-targets/configuring-ssh-connection.md).
+- Credentials used to authenticate with [SSH](/docs/infrastructure/ssh-targets/username-and-password.md) (for username/password auth) and [external NuGet feeds](/docs/packaging-applications/package-repositories/index.md).
 
 The practical impact of this is:
 
@@ -29,7 +29,7 @@ Without keeping a record of your master key, you won't be able to make use of yo
 
 When Octopus is installed, it generates a random string which will be used as the master key. You will need to know your master key if you ever hope to restore an Octopus backup on another server.
 
-### Getting the key from the Octopus Manager {#Securityandencryption-GettingthekeyfromtheOctopusManager}
+### Getting the Key From the Octopus Manager {#Securityandencryption-GettingthekeyfromtheOctopusManager}
 
 1. Open the **Octopus Manager** from the start menu/start screen.
 2. Click **View master key**.
@@ -38,7 +38,7 @@ When Octopus is installed, it generates a random string which will be used as th
 
 3. Click **Save** to save the master key to a text file or **Copy to clipboard** and then paste the master key into a text editor or a secure enterprise password manager, and save it.
 
-### Getting the Key from Powershell {#Securityandencryption-GettingtheKeyfromPowershell}
+### Getting the Key From PowerShell {#Securityandencryption-GettingtheKeyfromPowershell}
 
 Depending on the version of Octopus Server you are using you may need to use a slightly different parsing:
 

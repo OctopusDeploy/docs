@@ -32,7 +32,7 @@ SSH targets can specify which version of Calamari they should use, depending on 
 - [Self-contained Calamari built against .NET Core](self-contained-calamari.md)
 
 :::hint
-Self-contained Calamari support was added in Octopus 3.16.
+Self-contained Calamari support was added in **Octopus 3.16**.
 Prior to this, Mono was required on SSH targets
 :::
 

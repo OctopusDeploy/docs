@@ -5,9 +5,9 @@ description: Creating an Azure Service Principal Account in Octopus Deploy.
 
 :::hint
 **Azure Service Principal Accounts Work with the Azure Resource Management (ARM) API only**
-**Azure Service Principal Accounts Are Only Available from Octopus Deploy Version 3.3 Onwards**
+**Azure Service Principal Accounts Are Only Available from Octopus 3.3 Onwards**
 
-Prior to Octopus Deploy 3.3, [Azure Management Certificate Accounts](/docs/infrastructure/azure/index.md) (previously known simply as "Azure Subscription Accounts") were the only type of Azure Account available.
+Prior to **Octopus 3.3**, [Azure Management Certificate Accounts](/docs/infrastructure/azure/index.md) (previously known simply as "Azure Subscription Accounts") were the only type of Azure Account available.
 
 [Azure Management Certificate Accounts](/docs/infrastructure/azure/creating-an-azure-account/creating-an-azure-management-certificate-account.md) are only able to interact with the legacy Azure interface known as the "Azure Service Management API", which is used when Octopus deploys [Cloud Services](/docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-cloud-service/index.md) and [Azure Web Apps](/docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md).
 
@@ -16,8 +16,8 @@ To interact with Azure Resource Manager (ARM), like when Octopus deploys a [Reso
 
 There are two steps to enable your Octopus Server to manage your Azure subscription via a Service Principal:
 
-1. Create an Azure Active Directory registered application (or application registration) and service principal (via the Azure Portal or PowerShell)
-2. Allow Octopus to authenticate with Azure using a Service Principal
+1. Create an Azure Active Directory registered application (or application registration) and service principal (via the Azure Portal or PowerShell).
+2. Allow Octopus to authenticate with Azure using a Service Principal.
 
 ## Step 1: Create an Azure Active Directory Application and Service Principal
 
@@ -25,7 +25,7 @@ The first step is to create an Azure Active Directory (AAD) application and serv
 
 ### Option 1: Use the Azure Portal
 
-The first option to create an Azure Active Directory registered appliation is to use the Azure Portal. Azure Accounts in Octopus require four values which are used to authenticate with Azure and interact with it securely.
+The first option to create an Azure Active Directory registered application is to use the Azure Portal. Azure Accounts in Octopus require four values which are used to authenticate with Azure and interact with it securely.
 
 * Azure Subscription ID
 * Azure AD Tenant ID
@@ -158,7 +158,7 @@ Next you might want to get even more granular and constrain the service principa
 
 The reason behind this is to do with the way Octopus queries for the web app resources in Azure. In order to be able to handle scenarios where [ASEs](/docs/deployment-examples/azure-deployments/ase/index.md#resource_groups) are being used, Octopus first queries the resource groups and then queries for the web apps within each resource group. When the service principal is assigned `Contributor` on a resource group it seems to implicitly get `Reader` on the subscription, but this doesn't seem to be the case when `Contributor` is assigned directly to a web app and you have to assign `Reader` explicitly.
 
-## Step 2: Allow Octopus to Authenticate with Azure using a Service Principal
+## Step 2: Allow Octopus to Authenticate with Azure Using a Service Principal
 
 Navigate to {{Infrastructure,Accounts}} and click *Add account* in the *Azure Subscriptions* section.
 

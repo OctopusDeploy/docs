@@ -7,12 +7,12 @@ position: 120
 Some resources can be created within Octopus from the same scripts that you use to create them on Azure. By adding some additional commands Web Apps you create on Azure can also be created within Octopus as deployment targets.
 
 :::success
-As of the `2018.5` release, only Azure Service Principal Accounts, Azure Web Apps, Azure Service Fabric and Azure Cloud Services targets are supported.
+As of the **Octopus 2018.5** release, only Azure Service Principal Accounts, Azure Web Apps, Azure Service Fabric and Azure Cloud Services targets are supported.
 :::
 
 ## Available Commands and Syntax
 
-Each of the resource commands is available as a Powershell function anywhere that a step allows you to run a Powershell script.
+Each of the resource commands is available as a PowerShell function anywhere that a step allows you to run a PowerShell script.
 
 ### Accounts
 
@@ -46,7 +46,7 @@ These commands are not available in the **Script Console**
 
 ### Creating an Azure Web App
 
-Let's say you need to deploy an application to a different Azure Resource Group each time you deploy, one per developer or tester for example. The Resource Group, Application Service Plan, and Web App can all be created through an Azure Powershell script step, and then the Octopus Target can be created in the same step.
+Let's say you need to deploy an application to a different Azure Resource Group each time you deploy, one per developer or tester for example. The Resource Group, Application Service Plan, and Web App can all be created through an Azure PowerShell script step, and then the Octopus Target can be created in the same step.
 
 ```powershell
 # Octopus variables
@@ -70,7 +70,7 @@ New-OctopusAzureWebAppTarget -Name $uniqueName -AzureWebApp $uniqueName -AzureRe
 
 Building on the Web App example, you may wish to spin up an application and then tear it down at the end of the day. By combining [Recurring Deployments](https://octopus.com/blog/recurring-deployments) and a tear-down script, you can keep your cloud hosting costs down.
 
-Using as little as two lines of Powershell you can remove all the resources from Azure and Octopus:
+Using as little as two lines of PowerShell you can remove all the resources from Azure and Octopus:
 ```
 Remove-AzureRmResourceGroup -Name "AzureWebAppResourceGroup" -Force
 Remove-OctopusTarget -targetIdOrName "AzureWebApp"
@@ -78,7 +78,7 @@ Remove-OctopusTarget -targetIdOrName "AzureWebApp"
 
 ### Deploying an ARM template
 
-You can also use the above Powershell Cmdlets when deploying Azure resources using an ARM template.
+You can also use the above PowerShell Cmdlets when deploying Azure resources using an ARM template.
 
 Firstly, turn on **Custom deployment scripts** under _Configure Features_ on your _Deploy an Azure Resource Group_ step.
 

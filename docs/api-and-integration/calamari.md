@@ -4,7 +4,7 @@ description: Calamari is the command-line tool invoked by Tentacle during a depl
 position: 100
 ---
 
-Prior to Octopus Deploy 3.0, Tentacles were responsible for performing deployment steps.  Tentacles were *smart*.They knew how to transform configuration files, modify IIS, and much, much more.
+Prior to **Octopus 3.0**, Tentacles were responsible for performing deployment steps.  Tentacles were *smart*.They knew how to transform configuration files, modify IIS, and much, much more.
 
 ![](/docs/images/3048177/3278198.png)
 
@@ -77,4 +77,4 @@ var conventions = new List<IConvention>
 };
 ```
 
-Calamari is published under the Apache license, and we'll continue to work on it in the open.  One of the benefits of this architecture is that you can [fork the project](https://github.com/OctopusDeploy/Calamari), make your own changes, and then tell your Octopus 3.0 server to use your own Calamari package.
+Calamari is published under the Apache license, and we'll continue to work on it in the open.  One of the benefits of this architecture is that you can [fork the project](https://github.com/OctopusDeploy/Calamari), make your own changes, and then tell your **Octopus 3.0** server to use your own Calamari package.

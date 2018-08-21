@@ -2,10 +2,9 @@
 title: Automatic Deployment Triggers
 description: Automatic deployment triggers allow you to define unattended behavior for your project that will cause an automatic deployment of a release into an environment.
 position: 1
-version: 3.4
 ---
 
-Automatic Deployment Triggers were introduced in **Octopus Deploy 3.4**.
+Automatic Deployment Triggers were introduced in **Octopus 3.4**.
 
 Automatic Deployment Triggers (also known as auto-deploy) allow you to define an unattended behavior for your [Projects](/docs/deployment-process/projects/index.md) that will cause an automatic deployment of a release into an [Environment](/docs/infrastructure/environments/index.md).
 
@@ -36,7 +35,7 @@ There are quite a few complexities to the decision making process for automatic 
 
 ### Which Events Can Trigger an Automatic Deployment?
 
-For Octopus 3.6 and above, you can select any machine-related event to cause an automatic deployment. We have also provided a convenient event-grouping mechanism to select a pre-defined group of events:
+For **Octopus 3.6** and above, you can select any machine-related event to cause an automatic deployment. We have also provided a convenient event-grouping mechanism to select a pre-defined group of events:
 
 ![](create-trigger.png "width=500")
 
@@ -52,7 +51,7 @@ The following table outlines each event group and their included events:
 For the majority of cases where you want to auto-deploy your project as new deployment targets become available, we advise you use only the **Machine becomes available for deployment** event group.
 :::
 
-For Octopus 3.4 and 3.5, there are two types of events that can trigger an automatic deployment:
+For **Octopus 3.4** and **Octopus 3.5**, there are two types of events that can trigger an automatic deployment:
 
 ![](/docs/images/5671191/5865883.png "width=500")
 
@@ -161,9 +160,9 @@ One workaround for this is to create a Project in Octopus with the job of orches
 
 In this case you could:
 
-1. Create a Project that orchestrates the deployment of multiple projects
-2. Each step in the deployment process of this project could call the Octopus API to deploy the next project in the dependency chain, waiting for a successful deployment before continuing to the next project
-3. Optionally create an automatic deployment trigger in the orchestrating project to start the whole process
+1. Create a Project that orchestrates the deployment of multiple projects.
+2. Each step in the deployment process of this project could call the Octopus API to deploy the next project in the dependency chain, waiting for a successful deployment before continuing to the next project.
+3. Optionally create an automatic deployment trigger in the orchestrating project to start the whole process.
 
 :::success
 The [Chain Deployment](https://library.octopusdeploy.com/step-template/actiontemplate-chain-deployment) step template might be a perfect fit for you in this situation, or you may want to customize this step template for more advanced scenarios.
@@ -177,13 +176,13 @@ Yes! You can configure an [Auto Deploy Override](/docs/api-and-integration/octo
 
 Yes. If Octopus is calculating the wrong release for a particular situation you can configure an [Auto Deploy Overrides](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/index.md) to force automatic deployments to use a specific release for a specific environment/tenant.
 
-### Can I be Notified of Automatic Deployment Events (like blockages or failures)?
+### Can I be Notified of Automatic Deployment Events (Like Blockages or Failures)?
 
 Yes you can! By configuring [Subscriptions](/docs/administration/subscriptions/index.md) you can be notified by email or use web hooks to create your own notification channels. You can even use web hooks to code your own recovery behavior based on your specific situation.
 
 ### Can I Include Disabled Machines in my Automated Deployments?
 
-Starting in Octopus 3.6, you can! Because we allow selection of any machine event, you can select 'MachineDisabled' as a trigger event. This may be useful if you wish to disable a machine in Octopus and have a deployment process that removes disabled machines from your load balancer. It also means that you need to be careful when selecting your trigger event types, because if you create a project trigger with 'MachineDisabled' selected and did not mean to, anytime a machine becomes disabled it will re-deploy your project to this disabled machine.
+Starting in **Octopus 3.6**, you can! Because we allow selection of any machine event, you can select 'MachineDisabled' as a trigger event. This may be useful if you wish to disable a machine in Octopus and have a deployment process that removes disabled machines from your load balancer. It also means that you need to be careful when selecting your trigger event types, because if you create a project trigger with 'MachineDisabled' selected and did not mean to, anytime a machine becomes disabled it will re-deploy your project to this disabled machine.
 
 ## Troubleshooting Automatic Deployments
 

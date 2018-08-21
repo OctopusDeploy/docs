@@ -1,5 +1,5 @@
 ---
-title: Cloud Service concepts
+title: Cloud Service Concepts
 description: Core concepts involved in deploying Azure Cloud services with Octopus Deploy.
 position: 2
 ---
@@ -52,7 +52,7 @@ Add a new "Deploy an Azure Cloud Service" step to your project. For information
 
 ![Cloud Service step template](../../../images/5671696/5865904.png "width=170")
 
-#### **Account** {#CloudServiceConcepts-Account}
+#### Account {#CloudServiceConcepts-Account}
 
 Select the [account](#CloudServiceConcepts-CloudServiceAccounts) that Octopus will use to deploy the Cloud Service.
 

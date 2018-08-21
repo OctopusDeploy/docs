@@ -2,7 +2,7 @@
 title: Certificates
 description: Manage and deploy X.509 certificates with Octopus Deploy
 description: Manage X.509 certificates with Octopus Deploy
-position: 70 
+position: 70
 ---
 
 X.509 certificates are a key component of many deployment processes. Octopus Deploy provides the ability to securely store and manage your certificates, and easily use them in your Octopus Projects.  
@@ -44,7 +44,7 @@ Certificates can be imported to Windows Certificate Stores as part of a deployme
 
 ![](import-certificate-step-select.png "width=500")
 
-## Use certificates for HTTPS bindings when deploying IIS Websites   
+## Use Certificates for HTTPS Bindings When Deploying IIS Websites   
 
 When configuring HTTPS bindings for [IIS Websites](/docs/deployment-examples/iis-websites-and-application-pools.md), a certificate can be configured either by:
 - entering the thumbprint directly (this assumes the certificate has already been installed on the machine)

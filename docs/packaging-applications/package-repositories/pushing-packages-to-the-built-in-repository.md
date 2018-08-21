@@ -5,7 +5,7 @@ description: Pushing packages to the Octopus Built-In repository can be done in 
 
 :::success
 **Supported Packages**
-The Octopus built-in repository has always supported NuGet packages, and since Octopus 3.3 it can [support many different types of packages](/docs/packaging-applications/supported-packages.md).
+The Octopus built-in repository has always supported NuGet packages, and since **Octopus 3.3** it can [support many different types of packages](/docs/packaging-applications/supported-packages.md).
 :::
 
 We offer several ways to add/upload/push packages to the built-in feed:
@@ -32,8 +32,8 @@ We generally recommend using a continuous integration/build server like [TeamCit
 :::hint
 For pushing packages using the methods described below you'll need:
 
-1. The URL to your Octopus Server
-2. An [Octopus API key](/docs/api-and-integration/api/how-to-create-an-api-key.md) with the required permissions (see [security considerations](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md))
+1. The URL to your Octopus Server.
+2. An [Octopus API key](/docs/api-and-integration/api/how-to-create-an-api-key.md) with the required permissions (see [security considerations](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md)).
 :::
 
 ## Using Your Build Server {#PushingpackagestotheBuilt-Inrepository-Usingyourbuildserver}

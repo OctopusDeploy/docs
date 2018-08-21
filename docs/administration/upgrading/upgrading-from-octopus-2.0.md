@@ -1,17 +1,17 @@
 ---
-title: Upgrading from Octopus 2.0
+title: Upgrading From Octopus 2.0
 description: Information on how to upgrade from Octopus 2.0 to a more modern version.
 position: 3
 ---
 
 :::problem
-You will not be able to upgrade directly from Octopus 2.x to the latest version of Octopus. If you are running a version of Octopus prior to 2.6, use this guide to upgrade from 2.x to 2.6, then follow the [guide to upgrade from 2.6 to the latest version of Octopus](/docs/administration/upgrading/upgrading-from-octopus-2.6/index.md).
+You will not be able to upgrade directly from **Octopus 2.x** to the latest version of Octopus. If you are running a version prior to **Octopus 2.6**, use this guide to upgrade from **Octopus 2.x** to **Octopus 2.6**, then follow the [guide to upgrade from 2.6 to the latest version of Octopus](/docs/administration/upgrading/upgrading-from-octopus-2.6/index.md).
 :::
 
-Upgrading Octopus 2.0 involves two major steps.
+Upgrading **Octopus 2.0** involves two major steps.
 
-- Upgrading the Octopus Server
-- Upgrading Tentacles
+- Upgrading the Octopus Server.
+- Upgrading Tentacles.
 
 Additional information on troubleshooting upgrades is below.
 
@@ -19,9 +19,9 @@ Additional information on troubleshooting upgrades is below.
 
 To upgrade the Octopus Deploy Server, you will need to follow these steps:
 
-1. Ensure you have a recent [database backup](/docs/administration/backup-and-restore.md) that you can restore in case anything goes wrong
-2. Download the latest [Octopus Deploy MSI installer](http://octopusdeploy.com/downloads)
-3. Run the installer and follow the prompts
+1. Ensure you have a recent [database backup](/docs/administration/backup-and-restore.md) that you can restore in case anything goes wrong.
+2. Download the latest [Octopus Deploy MSI installer](http://octopusdeploy.com/downloads).
+3. Run the installer and follow the prompts.
 
 :::problem
 **Changing installation paths**
@@ -42,13 +42,13 @@ Click on the **Upgrade machines** button to have Octopus send the new Tentacle
 
 ## Troubleshooting {#UpgradingfromOctopus2.0-Troubleshooting}
 
-When Octopus 2.0 was first released, the MSI was set as a "per user" install. This means that if Joe installed Octopus, Mary would not see the start menu entries.
+When **Octopus 2.0** was first released, the MSI was set as a "per user" install. This means that if Joe installed Octopus, Mary would not see the start menu entries.
 
-For Octopus 2.1, we fixed the MSI and made it a "per machine" installation. However, this created one problem: when you install a new version of Octopus, we normally uninstall the old version. But a "per machine" installation cannot automatically uninstall a "per user" MSI.
+For **Octopus 2.1**, we fixed the MSI and made it a "per machine" installation. However, this created one problem: when you install a new version of Octopus, we normally uninstall the old version. But a "per machine" installation cannot automatically uninstall a "per user" MSI.
 
-Instead, we added a check in 2.1.3 that checks if a per-user installation already exists, and if so, blocks installation. The error message reads:
+Instead, we added a check in **Octopus 2.1.3** that checks if a per-user installation already exists, and if so, blocks installation. The error message reads:
 
-> A previous version of Octopus Deploy 2.0 is currently installed. This version cannot be automatically upgraded. You will need to uninstall this version before upgrading. Please view this page for details: [http://g.octopushq.com/UninstallFirst](http://g.octopushq.com/UninstallFirst)
+> A previous version of **Octopus 2.0** is currently installed. This version cannot be automatically upgraded. You will need to uninstall this version before upgrading. Please view this page for details: [http://g.octopushq.com/UninstallFirst](http://g.octopushq.com/UninstallFirst)
 
 ![](/docs/images/3048131/3278002.png "width=500")
 
@@ -67,7 +67,7 @@ You can uninstall the old version of the Octopus Deploy MSI installer and instal
 
 After you have uninstalled the old version of Octopus, you can install the new version.
 
-### If you are still getting this error {#UpgradingfromOctopus2.0-Ifyouarestillgettingthiserror}
+### If You Are Still Getting This Error {#UpgradingfromOctopus2.0-Ifyouarestillgettingthiserror}
 
 After uninstalling the old version of Octopus and restarting, if you still receive this error, please navigate to the following registry keys:
 

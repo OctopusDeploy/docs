@@ -73,6 +73,6 @@ This can also be set to keep a set number, or keep for a set number of days:
 ![](/docs/images/3048140/3278059.png "width=500")
 
 :::success
-**Exernal Feeds**
+**External Feeds**
 Octopus does not apply any retention policies to external feeds. However the packages that are currently in-use can be retrieved from the API ([example](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/Octopus.Client/LINQPad/GetInUsePackages.linq)) and those results then used to remove packages from those feeds.
 :::

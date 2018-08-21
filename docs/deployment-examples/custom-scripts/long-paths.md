@@ -3,9 +3,9 @@ title: Long Paths
 description: How to enable long path support in Windows Server 2016 and Windows 10.
 position: 28
 ---
-In Server 2016 and Windows 10, Microsoft has added an option to remove the character limit for file paths. 
+In Server 2016 and Windows 10, Microsoft has added an option to remove the character limit for file paths.
 
-As of Octopus `2018.5.3` and Tentacle `3.21.0`, most operations support long file names once enabled in Windows, including package extraction and retention.
+As of **Octopus 2018.5.3** and **Tentacle 3.21.0**, most operations support long file names once enabled in Windows, including package extraction and retention.
 
 ## Enabling
 
@@ -16,7 +16,7 @@ On the target machine:
     - On the latest versions of Windows: {{Local Computer Policy,Computer Configuration,Administrative Templates,System,Filesystem}} and set the `Enable Win32 long paths` setting to `Enabled`
     - On Server 2016 and Windows 10 without the latest updates: {{Local Computer Policy,Computer Configuration,Administrative Templates,System,Filesystem,NTFS}} and set the `Enable NTFS long paths` setting to `Enabled`
 
-Once this option is on, PowerShell scripts automatically support long file names. 
+Once this option is on, PowerShell scripts automatically support long file names.
 
 ## Limitations
 

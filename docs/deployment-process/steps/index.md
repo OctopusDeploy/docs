@@ -32,7 +32,7 @@ Learn more about [rolling deployments](/docs/deployment-patterns/rolling-deploym
 8. After providing the actions the steps takes, you can set the conditions for the step. You can set the following conditions:
 
 - Only run the step when deploying to specific environments.
-- Only run the step when deploying a release through a specific channel.
+- Only run the step when deploying a release through a specific [channel](/docs/deployment-process/channels/index.md).
 - Set the step to run depending on the status of the previous step.
 - Set when package acquisition should occur.
 - Specifying whether or not the step is required.

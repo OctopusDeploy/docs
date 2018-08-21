@@ -381,7 +381,7 @@ The list of versions displayed on the dropdown are loaded from [versions.json](v
 Support to publish pre-release versions of documentation.
 This is useful when we are planning a new release or we are releasing betas or RCs.
 
-To use this functionality all you need to do is add the pre-release version to the versions.json file versions array, and leave the default the same version, the example above adds 2018.4 pre-release:
+To use this functionality all you need to do is add the pre-release version to the versions.json file versions array, and leave the default the same version, the example below adds 2018.4 pre-release:
 ```json
 {
    "versions": [

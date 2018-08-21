@@ -3,7 +3,7 @@ title: Subscriptions
 description: Subscriptions allow you to subscribe to events that are happening within Octopus, so you can be notified when events have occurred and react accordingly.
 position: 1600
 ---
-Subscriptions are available in **Octopus Deploy 3.5** and later
+Subscriptions are available in **Octopus 3.5** and later.
 
 Subscriptions allow you to subscribe to events that are happening within Octopus, so you can be notified when events have occurred and react accordingly. Both **email** and **webhook** notifications are currently supported.
 
@@ -100,11 +100,11 @@ Because certain teams may be restricted to only see certain events, subscription
 
 Logs for subscriptions can be found in the `Configuration` menu under `Diagnostics` (see the `Subscription logs` tab). You can then click the `Verbose` flag to view all related information to help with troubleshooting.
 
-## Email notification troubleshooting
+## Email Notification Troubleshooting
 
 If you are setting up email subscriptions for the first time and would like a good test SMTP server (before you involve your real SMTP servers), we have found [mailtrap.io](https://mailtrap.io/) to be extremely helpful. This can help you to see what the actual emails will look like once you involve your real SMTP servers.
 
-## Webhook notification troubleshooting
+## Webhook Notification Troubleshooting
 
 If you are setting up webhook subscriptions for the first time and would like a simple test server where you can see the payloads that Octopus will actually send, we have found [request bin](https://requestb.in/) to be extremely helpful.
 
@@ -112,7 +112,7 @@ For example, to test whether the subscription webhooks are sending correctly fro
 
 ## Subscription Events
 
-The following is a list of all options for subscriptions including Event Groups, Events, and Document Types
+The following is a list of all options for subscriptions including Event Groups, Events, and Document Types:
 
 |EVENT GROUPS|
 |---|

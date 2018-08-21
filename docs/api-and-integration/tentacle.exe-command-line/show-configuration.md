@@ -4,7 +4,7 @@ description:  Outputs the Tentacle configuration
 version: "[3.17,)"
 ---
 
-Use the show configuration command to output the Tentacle configuration. The configuration is output as json. If you pass credentials to the relevant Octopus Server, it will return server side configuration (roles, environments, machine policy and display name) as well.
+Use the show configuration command to output the Tentacle configuration. The configuration is output as JSON. If you pass credentials to the relevant Octopus Server, it will return server side configuration (roles, environments, machine policy and display name) as well.
 
 **Show configuration options**
 

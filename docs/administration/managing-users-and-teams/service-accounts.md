@@ -1,14 +1,14 @@
 ---
 title: Service Accounts
-description: Creating Service Accounts to provide individual services with the least privileges required for the tasks they will perform. 
+description: Creating Service Accounts to provide individual services with the least privileges required for the tasks they will perform.
 position: 2
 ---
 
 When using Octopus Deploy it is common to have other automated services control certain aspects of your deployments. Some examples:
 
-- you might configure your [build server](/docs/api-and-integration/index.md) to push deployment packages to the built-in package feed, create releases, and deploy them to your test environment after each successful build
-- you might be deploying to an [elastic environment](https://octopus.com/blog/rfc-cloud-and-infrastructure-automation-support) and want to add/remove deployment targets dynamically via the [Octopus API](/docs/api-and-integration/api/index.md)
-- you might have your own dashboard solution and want to get data directly from the [Octopus API](/docs/api-and-integration/api/index.md)
+- You might configure your [build server](/docs/api-and-integration/index.md) to push deployment packages to the built-in package feed, create releases, and deploy them to your test environment after each successful build.
+- You might be deploying to an [elastic environment](https://octopus.com/blog/rfc-cloud-and-infrastructure-automation-support) and want to add/remove deployment targets dynamically via the [Octopus API](/docs/api-and-integration/api/index.md).
+- You might have your own dashboard solution and want to get data directly from the [Octopus API](/docs/api-and-integration/api/index.md).
 
 It is best to create **Service accounts** for this purpose to provide each service with the least privileges required for the tasks each service will perform.
 
@@ -20,14 +20,14 @@ It is best to create **Service accounts** for this purpose to provide each servi
 Service accounts authenticate with the Octopus API using their [Octopus API Key](/docs/api-and-integration/api/how-to-create-an-api-key.md).
 :::
 
-## Creating a service account {#ServiceAccounts-Creatingaserviceaccount}
+## Creating a Service Account {#ServiceAccounts-Creatingaserviceaccount}
 
 Creating a new Service account is very similar to creating a new User account:
 
-1. Go to {{Configuration,Users}} and click **Create user**
-2. Check **The user is a service account** to indicate this will be a Service account
-3. Enter a unique **Username** and **Display name** so you can distinguish this Service account
-4. Save the user to create the Service account
+1. Go to {{Configuration,Users}} and click **Create user**.
+2. Check **The user is a service account** to indicate this will be a Service account.
+3. Enter a unique **Username** and **Display name** so you can distinguish this Service account.
+4. Save the user to create the Service account.
 
 ![Create service account](create-service-acount.png "width=500")
 
@@ -41,6 +41,6 @@ Once you have created an [Octopus API key](/docs/api-and-integration/api/how-to-
 
 ## Logins
 
-As of v3.17, if you are using Active Directory there is also the option of using an Active Directory account's group membership to determine the service account's Team membership. To use this option all you need to do is add the Active Directory account as an external login entry for the service account.
+As of **Octopus 3.17**, if you are using Active Directory there is also the option of using an Active Directory account's group membership to determine the service account's Team membership. To use this option all you need to do is add the Active Directory account as an external login entry for the service account.
 
 ![Add Active Directory login](add-adlogin.png "width=500")

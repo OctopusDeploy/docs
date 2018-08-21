@@ -33,9 +33,9 @@ A custom User Role can be created with any combination of permissions. To creat
 
    ![](roles-link.png "width=500")
 
-2. Click **Add custom role**
+2. Click **Add custom role**.
 
-3. Select the set of permissions you'd like this new User Role to contain, and give the role a name and description
+3. Select the set of permissions you'd like this new User Role to contain, and give the role a name and description.
 
    ![](select-permissions.png "width=500")
 
@@ -49,7 +49,7 @@ If for some reason a user has more/fewer permissions than they should, you can u
 
 To test the permissions go to {{Configuration,Test Permissions}} and select a user from the dropdown.
 
-The results will show
+The results will show:
 
 - The teams of which the user is a member of.
 - A chart detailing each role and on which Environment/Project this permission can be executed. The chart can be exported to a CSV file by clicking the Export button. Once the file is downloaded it can viewed in browser using [Online CSV Editor and Viewer](http://www.convertcsv.com/csv-viewer-editor.htm).

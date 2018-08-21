@@ -13,7 +13,7 @@ Variables such as passwords or API keys can be marked as being **sensitive**. J
 ![](/docs/images/3048089/3277722.png "width=500")
 
 :::hint
-In Octopus version 3.11.0 we added an editor to the variables value section. Sensitive variables are now defined inside this section by selecting to enter a variable value, then selecting `Show editor`, see the below screenshot.
+In **Octopus 3.11.0** we added an editor to the variables value section. Sensitive variables are now defined inside this section by selecting to enter a variable value, then selecting `Show editor`, see the below screenshot.
 :::
 
 ![Variable editor](variable-editor.jpg "width=500")
@@ -76,4 +76,4 @@ Then the password might be given away when Octopus prints:
 Or watch the things you gave your life to, *******en
 ```
 
-The obvious solution is: don't use passwords that are likely to be occur in normal logging/language, and avoid writing the values of your secure variables to logs anyway.
+The obvious solution is: don't use passwords that are likely to occur in normal logging/language, and avoid writing the values of your secure variables to logs anyway.

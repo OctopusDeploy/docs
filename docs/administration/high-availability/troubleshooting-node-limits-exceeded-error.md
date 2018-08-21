@@ -13,7 +13,7 @@ You can still login to your Octopus instance. You are only restricted from creat
 
 This may unintentionally occur if you have copied or moved your Octopus folders on your servers and you have multiple instances pointing to the same Octopus database.
 
-### Instructions to remove unwanted nodes {#TroubleshootingNodeLimitsExceededError-Instructionstoremoveunwantednodes}
+### Instructions to Remove Unwanted Nodes {#TroubleshootingNodeLimitsExceededError-Instructionstoremoveunwantednodes}
 
 If you go to your nodes screen {{Configuration,Nodes}}, you can delete the node(s) that are no longer applicable using the Delete option in the node's overflow menu.
 

@@ -61,7 +61,7 @@ By carefully designing our variables to be constructed using some conventions, w
 - Step 5: Include the library variable sets into the project
 - Step 6: Fill out the variable values for our tenants
 - Step 7: Validate the variable values for the project
-- Step 8: Deploy!
+- Step 8: Deploy
 - Step 9: Review
 
 ### Step 1: Create Project Variables
@@ -157,7 +157,7 @@ Go to the {{Variables,All Variables}} tab of the **Mojo** project and you can i
 
 ![](/docs/images/5669247/5865620.png "width=500")
 
-### Step 8: Deploy!
+### Step 8: Deploy
 
 Go to the **Mojo** project, create a new release, and deploy it to the **MT Production** environment for **Beverley Sanchez** and you should see all of the variables flowing through properly now.
 

@@ -1,6 +1,6 @@
 ---
-title: Create & Push Node.js Project
-description: This guide describes how to package and publish a NodeJS application to Octopus from your development workstation.
+title: Create and Push a Node.js Project
+description: This guide describes how to package and publish a Node.js application to Octopus from your development workstation.
 position: 1
 ---
 
@@ -23,9 +23,9 @@ npm -v
 ```
 :::
 
-## Download & Run the template {#Create&amp;PushNode.jsProject-Download&amp;Runthetemplate}
+## Download and Run the Template {#Create&amp;PushNode.jsProject-Download&amp;Runthetemplate}
 
-Download the sample project from the public GitHub repo and checkout the gulp branch
+Download the sample project from the public GitHub repo and checkout the gulp branch:
 
 ```bash
 git clone https://github.com/OctopusDeploy/octofxjs.git
@@ -34,14 +34,14 @@ git checkout gulp
 npm install
 ```
 
-Build and start the process to ensure the site runs correctly
+Build and start the process to ensure the site runs correctly:
 
 ```bash
 npm run build
 npm start
 ```
 
-Navigating to **http://localhost:8081** you should see a page with words that appear to be missing. These will be populated in the config files during the deployment to the appropriate environment.
+Navigating to http://localhost:8081 you should see a page with words that appear to be missing. These will be populated in the config files during the deployment to the appropriate environment.
 
 ![](/docs/images/3049551/3278578.png "width=500")
 
@@ -49,7 +49,7 @@ Navigating to **http://localhost:8081** you should see a page with words that ap
 
 Using the task runner of your choice, pick one of the following steps that you are most comfortable with.
 
-### Option 1 - Gulp publish task {#Create&amp;PushNode.jsProject-Option1-Gulppublishtask}
+### Option 1 - Gulp Publish Task {#Create&amp;PushNode.jsProject-Option1-Gulppublishtask}
 
 Ensuring that you have checked out the **gulp** branch with the initial build tasks already configured, install the **gulp-octojs** package that will do all the packaging and pushing work for you. We will also include the external **[gulp-bump](https://github.com/stevelacy/gulp-bump)** library to increase the patch version number before each publish. That way the server will retain previous builds and we can easily manage and deploy each version in Octopus Deploy independently.
 
@@ -96,7 +96,7 @@ To make life easier add the gulp publish script to your **package.json** scripts
 
 You can then execute the publish command directly through npm without having to worry about if the task runner or arguments change.
 
-### Option 2 - Grunt publish task {#Create&amp;PushNode.jsProject-Option2-Gruntpublishtask}
+### Option 2 - Grunt Publish Task {#Create&amp;PushNode.jsProject-Option2-Gruntpublishtask}
 
 Ensuring that you have checked out the **grunt** branch with the initial build tasks already configured, install the **grunt-octojs** package that will do all the packaging and pushing work for you. We will also include the external [grunt-bump](https://github.com/vojtajina/grunt-bump) library to increase the patch version number before each publish. That way the server will retain previous builds and we can easily manage and deploy each version in Octopus Deploy independently. We will also include the [grunt-contrib-clean](https://github.com/gruntjs/grunt-contrib-clean) library to clean the build output directory to avoid pushing the same packages on each publish
 

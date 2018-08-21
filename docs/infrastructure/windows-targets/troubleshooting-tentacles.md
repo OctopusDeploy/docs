@@ -159,14 +159,14 @@ If the Tentacle welcome page is shown, good news - your network is fine.
 **Watch out for proxy servers or SSL offloading...**
 Octopus and Tentacle use TCP to communicate, with special handling to enable web browsers to connect for diagnostic purposes. Full HTTP is not supported, so network services like **SSL offloading** are not supported, and **proxies** are not supported in earlier versions of Octopus Deploy. Make sure there's a direct connection between the Octopus Server and Tentacle, without an HTTP proxy or a network appliance performing SSL offloading in between.
 
-**NOTE**: Octopus Deploy 3.4 introduced [advanced support for HTTP proxies](/docs/infrastructure/windows-targets/proxy-support.md).
+**NOTE**: **Octopus 3.4** introduced [advanced support for HTTP proxies](/docs/infrastructure/windows-targets/proxy-support.md).
 :::
 
 ## Tentacle Ping
 
 We have built a small utility for testing the communications protocol between two servers called [Tentacle Ping](https://github.com/OctopusDeploy/TentaclePing). This tool helps isolate the source of communication problems without needing a full Octopus configuration. It is built as a simple client and server component that emulates the communications protocol used by Octopus Server and Tentacle.
 
-In Octopus 3.0 you will need **TentaclePing** and **TentaclePong**, you cannot test directly to Octopus Server nor Tentacle:
+In **Octopus 3.0** you will need **TentaclePing** and **TentaclePong**, you cannot test directly to Octopus Server nor Tentacle:
 
 ### Listening Tentacles
 

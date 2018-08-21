@@ -2,7 +2,6 @@
 title: Immutable Infrastructure
 description: This guide covers deploying to immutable infrastructure where a new version of the infrastructure is provisioned and the old infrastructure is terminated.
 position: 4
-version: 3.4
 ---
 
 This guide assumes familiarity with Octopus Deploy.  If you don't already know how to set up projects, install Tentacles and configure basic deployment processes it may be helpful to review the [Getting Started pages](/docs/getting-started.md) before beginning this guide. Familiarity with the concepts in [Elastic and Transient Environments](/docs/deployment-patterns/elastic-and-transient-environments/index.md) would be an added bonus.
@@ -21,7 +20,7 @@ The Tentacles provisioned in this guide belong the to **Immutable Infrastructure
 
 For this demonstration, let's create a project called **Hello World** that will run a script echoing "Hello World" to each of our Tentacles.  In practice, this would be the project that deploys your application to the Tentacles.
 
-1. Create a project called **Hello World**
+1. Create a project called **Hello World**.
 2. Add a script step that outputs "Hello World" on each Tentacle:
 
 ## Infrastructure Project {#ImmutableInfrastructure-Infrastructureproject}
@@ -54,10 +53,10 @@ Imagine a developer makes a change to Hello World and would like to deploy it. A
 Cleaning up old Tentacles can be accomplished through the use of machine policies. The **Immutable Infrastructure** machine policy that we created earlier can be edited so that it performs health checks more frequently, doesn't mind if machines are unavailable during that health check and automatically removes unavailable machines after a period of time.  This is perfect for ensuring the Tentacles that we terminate are automatically cleaned up in a timely manner.
 
 1. Edit the Immutable Infrastructure machine policy.
-2. Change "Time between checks" to 2 minutes
-3. Select "Unavailable machines will not cause health checks to fail"
-4. Select "Automatically delete unavailable machines"
-5. Change "Time unavailable" to 5 minutes
+2. Change "Time between checks" to 2 minutes.
+3. Select "Unavailable machines will not cause health checks to fail".
+4. Select "Automatically delete unavailable machines".
+5. Change "Time unavailable" to 5 minutes.
 
 ![](/docs/images/5670238/5865677.png "width=500")
 
@@ -65,8 +64,8 @@ Cleaning up old Tentacles can be accomplished through the use of machine policie
 
 The **Hello World** project can be configured to automatically deploy when a new deployment target becomes available.  Once this has been configured, any Tentacles created when **Hello World Infrastructure** is deployed will automatically receive the current successful deployment of the **Hello World** project.
 
-1. Create a new trigger for the Hello World project
-2. Select the event "New deployment target becomes available"
+1. Create a new trigger for the Hello World project.
+2. Select the event "New deployment target becomes available".
 
    ![](/docs/images/5670238/5865666.png "width=500")
 
@@ -80,7 +79,7 @@ We are almost there! Next we need to bump the version of **Hello World** and aut
 
 Octopus will automatically deploy the current successful deployment for a project. That means if you deploy release 1.0.0 and then create release 1.0.1, the version 1.0.0 will continue to be deployed until 1.0.1 has been manually deployed.  This is not ideal for immutable infrastructure, because we do not want to deploy 1.0.1 to our old infrastructure, so we have no way to indicate to Octopus that it should start deploying release 1.0.1.  Enter auto deploy overrides. By creating both a new release and an auto deploy override when our infrastructure is provisioned, we can indicate to Octopus that the new release should be deployed to the new infrastructure.
 
-1. Create an auto deploy override using Octo.exe
+1. Create an auto deploy override using Octo.exe:
 
 ```powershell
 Octo.exe create-autodeployoverride --project "Hello World" --environment $environment --version $version --server $octopusURI --apiKey $apiKey

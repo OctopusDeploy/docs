@@ -77,7 +77,7 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-## Basic example {#Creatingchannels-Basicexample}
+## Basic Example {#Creatingchannels-Basicexample}
 
 The following command will create a channel in *MyProject* called *Experimental* using the *Test Only* lifecycle instead
 

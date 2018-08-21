@@ -3,7 +3,7 @@ title: Deploy an AWS CloudFormation Template
 description: Deploy an AWS CloudFormation Template.
 ---
 
-This feature was introduce to Octopus in version `2018.2`.
+This feature was introduce to **Octopus 2018.2**.
 
 Octopus supports the deployment of AWS CloudFormation templates through the `Deploy an AWS CloudFormation Template` step. This step executes a CloudFormation template using AWS credentials managed by Octopus, and captures the CloudFormation outputs as Octopus output variables.
 
@@ -142,6 +142,11 @@ User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: clou
 To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deployment-examples/aws-deployments/permissions/index.md) contains an overview of the permissions required by the AWS steps.
 
 ### AWS-CLOUDFORMATION-ERROR-0003
+
+:::hint
+Please be aware that this error will also show if the **Variable Account** cannot be resolved to an AWS Account, in this case please check the variable scopes. You can use the {{Variables,Preview}} for the project to test the variable values for a given deployment scenario are being included or not.
+:::
+
 The AWS account used to perform the operation does not have the required permissions to describe the stack.
 
 This is logged as a warning as Octopus will make some assumptions about the state of the stack and attempt to continue on:
@@ -233,7 +238,7 @@ An incorrect AWS region can result in this error. Ensure that the region matches
 
 Failed to access the metadata URI, or failed to parse the response. We are unable to generate keys from the metadata endpoint.
 
-This can happen if the role that was assigned to the instance does not trust the instance it was assigned to. This can be verified by accesssing the URL [http://169.254.169.254/latest/meta-data/iam/security-credentials/ROLENAME](http://169.254.169.254/latest/meta-data/iam/security-credentials/ROLENAME) (replace `ROLENAME` with the name of the role assigned to the instance) from the Octopus Server. If the response looks like:
+This can happen if the role that was assigned to the instance does not trust the instance it was assigned to. This can be verified by accessing the URL [http://169.254.169.254/latest/meta-data/iam/security-credentials/ROLENAME](http://169.254.169.254/latest/meta-data/iam/security-credentials/ROLENAME) (replace `ROLENAME` with the name of the role assigned to the instance) from the Octopus Server. If the response looks like:
 
 ```json
 {

@@ -63,7 +63,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## Configuration {#DeployingASP.NETCoreWebApplications-Configuration}
 
-ASP.NET Core introduces a new JSON-based configuration file format. Octopus 3.3 introduced a new convention which can be used to update these JSON configuration files with Octopus variables
+ASP.NET Core introduces a new JSON-based configuration file format. **Octopus 3.3** introduced a new convention which can be used to update these JSON configuration files with Octopus variables
 
 ![Feature Configuration](5275655.png "width=500")
 

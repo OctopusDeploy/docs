@@ -52,7 +52,7 @@ let testResult = Octopus.findVariable "Octopus.Action[StepA].Output.TestResult"
 
 ## Sensitive Output Variables
 
-Output variables can be created as sensitive (since Octopus 2018.5.2).
+Output variables can be created as sensitive (since **Octopus 2018.5.2**).
 
 ```powershell PowerShell
 Set-OctopusVariable -name "Password" -value "correct horse battery staple" -sensitive
@@ -160,12 +160,12 @@ set_octopusvariable "TestResult" "Passed"
 ### F# {#Outputvariables-F#}
 
 :::success
-F# support is available in Octopus Deploy 3.4 (or newer).
+F# support was introduced in **Octopus 3.4**.
 :::
 
 [FSharp Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/enhancement-fsharpscripts/source/Calamari/Integration/Scripting/FSharp)
 
-From a F# script, you can use the`setVariable : name:string -> value:string -> unit` function to collect artifacts. The function takes two parameters with the same purpose as the PowerShell CmdLet.
+From a F# script, you can use the `setVariable : name:string -> value:string -> unit` function to collect artifacts. The function takes two parameters with the same purpose as the PowerShell CmdLet.
 
 **F#**
 

@@ -15,7 +15,7 @@ You can use all of the features we provide for [custom scripts](/docs/deployment
 ## Choosing Where the Script Will Run {#Standalonescripts-Choosingwherethescriptwillrun}
 
 :::hint
-The ability to run scripts on the Octopus Server shipped in Octopus Deploy 3.3
+The ability to run scripts on the Octopus Server shipped in **Octopus 3.3**.
 :::
 
 When adding a script you choose where the script will run, and in which context the script will run.
@@ -37,7 +37,7 @@ Bash scripts are not able to be run on the Octopus Server, even if Bash is insta
 ## Choosing Where to Source the Script {#Standalonescripts-Choosingwheretosourcethescript}
 
 :::hint
-The ability to source your script from a package shipped in Octopus 3.3
+The ability to source your script from a package shipped in **Octopus 3.3**
 :::
 
 You may also select the source of the script, either:
@@ -59,7 +59,7 @@ When sourcing a script from a file inside a package you cannot choose to run the
 ## Passing Parameters to Scripts {#Standalonescripts-Passingparameterstoscripts}
 
 :::hint
-The ability to pass parameters to scripts was added in Octopus 3.4
+The ability to pass parameters to scripts was added in **Octopus 3.4**.
 :::
 
 When you call external scripts (sourced from a file inside a package) you can pass parameters to your script. This means you can write "vanilla" scripts that are unaware of Octopus, and test them in your local development environment. Read about [passing parameters to scripts](/docs/deployment-examples/custom-scripts/index.md#Customscripts-Passingparameterstoscripts).

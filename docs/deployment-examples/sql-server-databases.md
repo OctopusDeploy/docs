@@ -4,9 +4,9 @@ description: Octopus integrates with numerous tools to handle automated database
 position: 60
 ---
 
-There are a variety of ways for Octopus Deploy to deploy to SQL Server.  Octopus Deploy integrates with many third-party tools, both free and commerical.  This section will provide a broad outline of approaches, tooling, and recommended configuration.
+There are a variety of ways for Octopus Deploy to deploy to SQL Server.  Octopus Deploy integrates with many third-party tools, both free and commercial.  This section will provide a broad outline of approaches, tooling, and recommended configuration.
 
-## Approaches to database change management {#SQLServerdatabases-Approachestodatabasechangemanagement}
+## Approaches to Database Change Management {#SQLServerdatabases-Approachestodatabasechangemanagement}
 
 There are two main approaches to deploying databases.
 
@@ -42,7 +42,7 @@ With all that in mind, a "jump box" is where Tentacles should be installed.  The
 
 ![](database-with-jump-box.png "width=500")
 
-In the event of multiple domains, a jump box would be needed per domain.  This might be seen where there is a domain in a local infrastructure and another domain in a cloud provider such as Azure.  As long as port 10933 is open (for a listening Tentacle) or port 443 (for a polling Tentacle) Octopus will be able to communicate to the jumpbox.
+In the event of multiple domains, a jump box would be needed per domain.  This might be seen where there is a domain in a local infrastructure and another domain in a cloud provider such as Azure.  As long as port 10933 is open (for a listening Tentacle) or port 443 (for a polling Tentacle) Octopus will be able to communicate to the jump box.
 
 ![](database-jump-box-multiple-domains.png "width=500")
 
@@ -133,7 +133,7 @@ Here is the most restrictive permissions for automating database deployments.  N
     - db_backupoperator -> can backup the database
     - Can View Any Definition
 
-## Third party tools {#SQLServerdatabases-Thirdpartytools}
+## Third Party Tools {#SQLServerdatabases-Thirdpartytools}
 
 ### Redgate SQL Release {#SQLServerdatabases-RedgateSQLRelease}
 

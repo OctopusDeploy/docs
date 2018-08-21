@@ -8,7 +8,7 @@ version: 4.0
 Octopus Deploy is made up of a number of different configuration sets and managing them can be performed through a few different channels.
 
 :::hint
-In Octopus Deploy version 4.0, we added the ability to manage most of the available configuration, without needing to be directly on the server.
+In **Octopus 4.0**, we added the ability to manage most of the available configuration, without needing to be directly on the server.
 :::
 
 ## Web Portal
@@ -19,7 +19,7 @@ In the Octopus Deploy web portal, you can access configuration by navigating to 
 
 ## Octopus.Client
 
-Using [Octopus.Client](/docs/api-and-integration/octopus.client.md), each of the configuration types can be managed programmatically, reading from and writing back to the Octopus Deploy database. 
+Using [Octopus.Client](/docs/api-and-integration/octopus.client.md), each of the configuration types can be managed programmatically, reading from and writing back to the Octopus Deploy database.
 
 The class definitions for each of the configurations is available by referencing the relevant `Octopus.Client.Extensibility.*` library, which are available via NuGet:
 
@@ -50,7 +50,7 @@ guestConfig.IsEnabled = true;
 guestConfig = repository.Configuration.Modify(guestConfig);
 ```
 
-For the Web Portal and Authentication configurations, you need the [Octopus.Client](https://www.nuget.org/packages/Octopus.Client/) NuGet package
+For the Web Portal and Authentication configurations, you need the [Octopus.Client](https://www.nuget.org/packages/Octopus.Client/) NuGet package:
 
 ```cs
 var server = "http://myoctopusserver/";   
@@ -62,7 +62,7 @@ webportalConfig.Security.HttpStrictTransportSecurityEnabled = true;
 webportalConfig = repository.Configuration.Modify(webportalConfig);
 ```
 
-### Powershell
+### PowerShell
 
 ```powershell
 add-type -path 'C:\PathTo\Octopus.Client.dll'

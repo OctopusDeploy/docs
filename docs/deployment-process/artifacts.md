@@ -20,7 +20,7 @@ After the script runs the files will be uploaded to Octopus Server and made avai
 
 ![](artifacts-access.png "width=500")
 
-## Collecting artifacts using scripts {#Artifacts-Collectingartifactsusingscripts}
+## Collecting Artifacts Using Scripts {#Artifacts-Collectingartifactsusingscripts}
 
 You can collect artifacts using any of the scripting languages supported by Octopus. In each case we make special functions available to your scripts by bootstrapping them with a template defined in the [open-source Calamari project](https://github.com/OctopusDeploy/Calamari).
 
@@ -55,14 +55,14 @@ Octopus.CreateArtifact(@"C:\Windows\System32\drivers\etc\hosts", System.Environm
 
 :::hint
 **error CS1501: No overload for method &#39;CreateArtifact&#39; takes 2 arguments.**
-The `fileName` optional parameter was [added](https://github.com/OctopusDeploy/Calamari/commit/2d5a5d27c9a0dc0c623e5e955a370c2b012fbdd4) in Calamari 3.1.24 which shipped as part of Octopus 3.2.12
+The `fileName` optional parameter was [added](https://github.com/OctopusDeploy/Calamari/commit/2d5a5d27c9a0dc0c623e5e955a370c2b012fbdd4) in Calamari 3.1.24 which shipped as part of **Octopus 3.2.12**
 :::
 
 ### Bash {#Artifacts-Bash}
 
 [Bash Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari/Integration/Scripting/Bash)
 
-In a Bash script you can use the `new_octopusartifact`function to collect artifacts. This function takes two positional parameters with the same purpose as the PowerShell CmdLet.
+In a Bash script you can use the `new_octopusartifact` function to collect artifacts. This function takes two positional parameters with the same purpose as the PowerShell CmdLet.
 
 **Bash**
 
@@ -73,7 +73,7 @@ new_octopusartifact /etc/hosts $(hostname)-hosts.txt
 ### F# {#Artifacts-F#}
 
 :::success
-F# support is available in Octopus Deploy 3.4 (or newer).
+F# support introduced in **Octopus 3.4**.
 :::
 
 [FSharp Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/enhancement-fsharpscripts/source/Calamari/Integration/Scripting/FSharp)

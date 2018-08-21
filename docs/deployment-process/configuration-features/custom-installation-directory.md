@@ -38,7 +38,7 @@ Defining a [variable](/docs/deployment-process/variables/index.md) with the dire
  Read more about [variables](/docs/deployment-process/variables/index.md).
 
 5. If you would like to remove existing files from the custom installation directory before your deployed files are copied to it, check the **Purge** checkbox.
-6. If there are files you would like to exclude from the purge, add the files and directories you want to keep to the *Exclude from purge* list. This feature was introduced in `Octopus 3.13.8`.
+6. If there are files you would like to exclude from the purge, add the files and directories you want to keep to the *Exclude from purge* list. This feature was introduced in **Octopus 3.13.8**.
 
 The *Exclude from purge* list must be a newline-seperated list of file or directory names, relative to the installation directory. To exclude an entire directory specify it by name without a wildcard. Extended wildcard syntax is supported. For instance:
 
@@ -52,6 +52,6 @@ The *Exclude from purge* list must be a newline-seperated list of file or direct
 
 7. Add any [conditions](/docs/deployment-process/conditions/index.md) you need to specify for the step, and then click **SAVE**.
 
-This will save and display the step you've just created. From here you can use the project overview menu to continue defining your process, or click **CREATE RELEASE** to create a [release](/docs/deployment-process/releases/index.md) and deploy your application.
+This will save and display the step you've just created. From here you can use the project overview menu to continue defining your [deployment process](/docs/deployment-process/index.md), or click **CREATE RELEASE** to create a [release](/docs/deployment-process/releases/index.md) and deploy your application.
 
 Packages deployed to a custom installation directory are deployed in the same way as other package deploy steps. Read about [how packages are deployed](/docs/deployment-examples/deploying-packages/index.md#how-packages-are-deployed) for more information.

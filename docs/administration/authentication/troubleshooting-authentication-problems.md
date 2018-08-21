@@ -6,7 +6,7 @@ position: 600
 
 We take every reasonable effort to make Octopus Deploy secure by enabling you to use the best [authentication provider](/docs/administration/authentication/authentication-providers/index.md) for your organization. This guide will help you troubleshoot any problems you may encounter when signing in to the Octopus Deploy portal.
 
-## Octopus authentication cookie
+## Octopus Authentication Cookie
 
 Once you have proven your identity to Octopus Server using one of the supported [authentication providers](/docs/administration/authentication/authentication-providers/index.md), the Octopus Server will issue a cookie so your web browser can make secure requests on your behalf. The following messages may indicate a problem with your browser, or your network, and the Octopus authentication cookie:
 
@@ -19,7 +19,7 @@ This can happen for quite a number of reasons:
 1. You are using Chrome and have not configured your Octopus Server to use HTTPS. Chrome has started to consider web sites served over `http://` as unsafe and will refuse to accept cookies from those unsafe sites. [Configure your Octopus Server to use HTTPS](/docs/administration/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md) instead of HTTP. [Learn more about Chrome and the move toward a more secure web](https://security.googleblog.com/2016/09/moving-towards-more-secure-web.html).
 1. You are hosting Octopus Server on the same domain as other applications. One of the other applications may be issuing a malformed cookie causing the Octopus authentication cookies to be misinterpreted. Move Octopus Server to a different domain to isolate it from the other applications, or stop the other applications from issuing malformed cookies. See [this GitHub Issue](https://github.com/OctopusDeploy/Issues/issues/2343) for more details.
 
-## Octopus anti-forgery token
+## Octopus Anti-forgery Token
 
 Octopus Server prevents Cross-Site Request Forgery (CSRF) using an anti-forgery token, which requires support for cookies. The following messages may indicate a problem with your browser, or your network, and the Octopus anti-forgery cookie:
 
@@ -31,7 +31,7 @@ See our [detailed troubleshooting guide](/docs/administration/security/cve/csrf-
 
 If you are using Active Directory please refer to our [detailed troubleshooting guide](/docs/administration/authentication/authentication-providers/troubleshooting-active-directory-integration.md).
 
-## External authentication providers
+## External Authentication Providers
 
 If you are using one of the other external authentication providers you may see a message like these:
 
@@ -44,7 +44,7 @@ This can happen for quite a number of reasons:
 1. The time is incorrect on your computer, or your external authentication provider. This can cause your authentication cookies to expire and become unusable. Correct the time and configure your computers to automatically synchronize their time from a time server.
 1. You are using Chrome and have not configured your external authentication provider to use HTTPS. Chrome has started to consider web sites served over `http://` as unsafe and will refuse to accept cookies from those unsafe sites. Configure your external authentication provider to use HTTPS instead of HTTP. [Learn more about Chrome and the move toward a more secure web](https://security.googleblog.com/2016/09/moving-towards-more-secure-web.html).
 
-### Getting help from us {#support}
+### Getting Help From Us {#support}
 
 If none of these troubleshooting steps work, please get in contact with our [support team](https://octopus.com/support) and send along the following details (feel free to ignore points if they don't apply):
   a. Which browser and version are you using? (Help > About in your browser is the best place to get this information)

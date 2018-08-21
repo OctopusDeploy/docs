@@ -4,7 +4,7 @@ description: Octopus.Migrator.exe is an Octopus command line tool that provides 
 position: 120
 ---
 
-**Octopus.Migrator.exe** is a command line tool that provides the ability to back-up and restore parts of an Octopus Deploy instance as well as migrate data from 2.6 builds.
+**Octopus.Migrator.exe** is a command line tool that provides the ability to back-up and restore parts of an Octopus Deploy instance as well as migrate data from **Octopus 2.6** builds.
 
 The latest version is available in the Octopus Deploy installation directory from version 3.0 onward, usually located in *C:\Program Files\Octopus Deploy*.
 
@@ -12,12 +12,12 @@ The latest version is available in the Octopus Deploy installation directory fro
 
 Octopus.Migrator.exe supports the following commands:
 
-- **`migrate`**: Imports data from an Octopus 2.6 backup
-- **`import`**: Imports data from an Octopus 3.0+ export directory. [Learn more](/docs/api-and-integration/octopus.migrator.exe-command-line/migrator-import.md)
+- **`migrate`**: Imports data from an **Octopus 2.6** backup
+- **`import`**: Imports data from an **Octopus 3.0**+ export directory. [Learn more](/docs/api-and-integration/octopus.migrator.exe-command-line/migrator-import.md)
 - **`export`**: Exports all configuration data to a directory. [Learn more](/docs/api-and-integration/octopus.migrator.exe-command-line/migrator-export.md)
 - **`partial-export`**: Exports configuration data to a directory filtered by a single project. [Learn more](/docs/api-and-integration/octopus.migrator.exe-command-line/partial-export.md)
 
-## General usage {#Octopus.Migrator.exeCommandLine-Generalusage}
+## General Usage {#Octopus.Migrator.exeCommandLine-Generalusage}
 
 All commands take the form of:
 

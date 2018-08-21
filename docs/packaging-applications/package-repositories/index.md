@@ -34,7 +34,7 @@ Octopus can consume packages from multiple feeds at once if necessary.
 
 :::warning
 **NuGet v3 Feed Support**
-Support for NuGet v3 external feeds was introduced in Octopus Deploy 3.4.
+Support for NuGet v3 external feeds was introduced in **Octopus 3.4**.
 
 Earlier releases of Octopus Deploy only support external NuGet v2 feeds:
 
@@ -115,11 +115,11 @@ If you wish to use an external repository, you must use NuGet packages, a [Maven
 
 :::warning
 **NuGet v3 Feed Support**
-Support for NuGet v3 external feeds was introduced in Octopus Deploy 3.4.
+Support for NuGet v3 external feeds was introduced in **Octopus 3.4**.
 
 Earlier releases of Octopus Deploy only support external NuGet v2 feeds:
 
-- If you are using a MyGet external feed, please use the [v2 API URL](http://docs.myget.org/docs/reference/feed-endpoints) or upgrade to Octopus 3.4 (or later)
+- If you are using a MyGet external feed, please use the [v2 API URL](http://docs.myget.org/docs/reference/feed-endpoints) or upgrade to **Octopus 3.4** (or later)
 :::
 
 If you're using an external NuGet feed, you can register it with Octopus and use them as part of your deployments. Go to {{Library,External feeds}}.

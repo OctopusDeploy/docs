@@ -10,7 +10,7 @@ Because the Octopus Deploy application itself is built entirely on the API, C# p
 
 The NuGet package contains both a .NET Framework build as well as a .NET Standard build. The .NET Framework build targets 4.5 or later and contains both the synchronous and asynchronous API. The .NET Standard build is compatible with a [variety of runtimes](https://docs.microsoft.com/en-us/dotnet/articles/standard/library), including .NET Core 1.0 and only contains the asynchronous API.
 
-## Getting started {#Octopus.Client-Gettingstarted}
+## Getting Started {#Octopus.Client-Gettingstarted}
 
 :::hint
 The complete details for the API itself - where to find it, how to authenticate, the available resources and so-on - are available at [the API documentation site](http://g.octopushq.com/ApiDocs).
@@ -58,7 +58,7 @@ If you don't want to provide an API key for authentication, you can leave it out
 await client.Repository.Users.SignIn(new LoginCommand { Username = "me", Password = "secret" });
 ```
 
-### Powershell {#Octopus.Client-Powershell}
+### PowerShell {#Octopus.Client-Powershell}
 
 ```powershell
 Add-Type -Path 'C:\PathTo\Octopus.Client.dll'
@@ -71,7 +71,7 @@ $repository = New-Object Octopus.Client.OctopusRepository($endpoint)
 Also see the [OctoPosh ](https://github.com/Dalmirog/OctoPosh)project, which provides PowerShell commandlet wrappers around Octopus.Client
 :::
 
-## Working with resources {#Octopus.Client-Workingwithresources}
+## Working With Resources {#Octopus.Client-Workingwithresources}
 
 Resources can be loaded and saved with code like the following:
 
@@ -89,7 +89,7 @@ await repository.Machines.Modify(machine);
 
 The repository methods all make direct HTTP requests, there's no "session" abstraction or transaction support.
 
-## Working directly with the client {#Octopus.Client-Workingdirectlywiththeclient}
+## Working Directly With the Client {#Octopus.Client-Workingdirectlywiththeclient}
 
 For some operations not available through repositories it will be necessary to use the `IOctopusClient` type:
 
@@ -115,7 +115,7 @@ var me = await client.Get<UserResource>(client.RootDocument.Links["CurrentUser"]
 
 *(This example is superfluous as `repository.Users.GetCurrent()` wraps this common operation.)*
 
-## Loading in an Octopus step {#Octopus.Client-Loadinginanoctopusstep}
+## Loading in an Octopus Step {#Octopus.Client-Loadinginanoctopusstep}
 
 You can use Octopus.Client from inside Octopus (for example in a script step, a package install script, or the script console) by loading it from the server or Tentacle application directory. The credentials would still need to be supplied to establish the connection. For example:
 
@@ -138,6 +138,6 @@ using Octopus.Client.Model;
 The variable `Octopus.Tentacle.Agent.ProgramDirectoryPath` was added in server version 3.7.12, which can be used to obtain the directory that contains the Octopus.Client assembly. For prior versions of the server, the variable `Octopus.Tentacle.Agent.ProgramDirectoryPath` can be used, but that will not work for steps that run on the Octopus Server or cloud regions.
 :::
 
-## Documentation and samples {#Octopus.Client-Documentationandsamples}
+## Documentation and Samples {#Octopus.Client-Documentationandsamples}
 
 [Documentation](https://github.com/OctopusDeploy/OctopusDeploy-Api/wiki) and [samples](https://github.com/OctopusDeploy/OctopusDeploy-Api) for the Octopus Deploy REST API are available on the **[Octopus REST API GitHub site](https://github.com/OctopusDeploy/OctopusDeploy-Api)**, along with [Octopus.Client samples](https://github.com/OctopusDeploy/OctopusDeploy-Api/tree/master/Octopus.Client).

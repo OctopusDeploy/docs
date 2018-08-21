@@ -19,7 +19,7 @@ The key issue in this scenario is that the same components need to be deployed m
 
 ## Introducing multi-tenant deployments in Octopus {#Multi-tenantdeployments-Introducingmulti-tenantdeploymentsinOctopus}
 
-Starting with Octopus 3.4 you can manage tenants as a first-class citizen enabling you to:
+Starting with **Octopus 3.4** you can manage tenants as a first-class citizen enabling you to:
 
 1. Deploy multiple instances of your project into the same [Environment](/docs/infrastructure/environments/index.md);
    a. tenant-per-customer
@@ -103,4 +103,4 @@ We have worked hard to design multi-tenant deployments in Octopus Deploy to work
 
 1. Read through the [multi-tenant deployment guide](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/index.md)
 2. Investigate if there are any current [limitations or problems](https://github.com/OctopusDeploy/Issues/issues?q=is%3Aopen+is%3Aissue+label%3Afeature%2Ftenants) which will impact your specific scenario.
-3. Get in touch with our [support team](https://octopus.com/support) who can help you understand if multi-tenant deployments are right for you, and how to best model your deployments using Octopus Deploy!
+3. Get in touch with our [support team](https://octopus.com/support) who can help you understand if multi-tenant deployments are right for you, and how to best model your deployments using Octopus Deploy.

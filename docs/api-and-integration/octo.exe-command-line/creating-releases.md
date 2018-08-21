@@ -10,7 +10,7 @@ This command allows you to create a release, and optionally deploy it to one or 
 
 :::success
 **Using Channels?**
-If you are using Channels (introduced in Octopus 3.2) this command will automatically select the most appropriate channel for your release, unless you provide a specific channel using `--channel=VALUE`.
+If you are using [Channels](/docs/deployment-process/channels/index.md) (introduced in **Octopus 3.2**) this command will automatically select the most appropriate channel for your release, unless you provide a specific channel using `--channel=VALUE`.
 :::
 
 Usage:
@@ -27,7 +27,7 @@ Where `[<options>]` is any of:
 !include <create-release>
 ```
 
-## Basic examples {#Creatingreleases-Basicexamples}
+## Basic Examples {#Creatingreleases-Basicexamples}
 
 This will create a new release of the *HelloWorld* project using the latest available NuGet packages for each step in the project. The version number of the release will be the highest NuGet package version. You can override this using:
 
@@ -41,7 +41,7 @@ This will create a release with a specified release number (note that this is no
 octo create-release --project HelloWorld --version 1.0.3 --server http://octopus/ --apiKey API-ABCDEF123456
 ```
 
-## Specifying the package version {#Creatingreleases-Specifyingthepackageversion}
+## Specifying the Package Version {#Creatingreleases-Specifyingthepackageversion}
 
 For each step that has a package, the version is determined in the following order:
 
@@ -81,7 +81,7 @@ This will create a release for a project with multiple packages, by taking the v
 octo create-release --project HelloWorld --version 1.0.3 --packagesFolder packages --server http://octopus/ --apiKey API-ABCDEF123456
 ```
 
-## Deploying a release after creating it {#Creatingreleases-Deployingareleaseaftercreatingit}
+## Deploying a Release After Creating It {#Creatingreleases-Deployingareleaseaftercreatingit}
 
 To create a release *and* deploy it to an environment named *Production*:
 
@@ -89,6 +89,6 @@ To create a release *and* deploy it to an environment named *Production*:
 octo create-release --project HelloWorld --deployto Production --server http://octopus/ --apiKey API-ABCDEF123456 --progress
 ```
 
-## Release notes supported syntax
+## Release Notes Supported Syntax
 We use [showdownjs](https://github.com/showdownjs/showdown) to render release notes on the dashboard.
 Showdownjs supports the common markdown syntax as well as a rich set of extras such as tables and task lists. For the full list see https://github.com/showdownjs/showdown/wiki/Showdown's-Markdown-syntax.

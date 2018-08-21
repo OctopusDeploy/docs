@@ -16,7 +16,7 @@ Octopus [variables](/docs/deployment-process/variables/index.md) support substit
 | `DatabaseServer`   | `TDB001`                    | Test       |
 | `ConnectionString` | `Server=#{DatabaseServer};` |            |
 
-The syntax `#{VarName}` will insert the value of the `VarName` variable in-place. For example the `ConnectionString`variable will have the value `Server=PDB001;` when evaluated in the *Production* environment. The use of one or more variables in the declaration of another is called a *binding.*
+The syntax `#{VarName}` will insert the value of the `VarName` variable in-place. For example the `ConnectionString` variable will have the value `Server=PDB001;` when evaluated in the *Production* environment. The use of one or more variables in the declaration of another is called a *binding.*
 
 In regular variable declarations, binding to a non-existent value will yield an empty string, so evaluating `ConnectionString` in the *Dev* environment will yield `Server=;` because no `DatabaseServer` is defined in that environment.
 
@@ -49,7 +49,7 @@ The capabilities of the extended syntax are:
 
 ### Index Replacement {#VariableSubstitutionSyntax-IndexReplacement}
 
-Variable substitution inside an index was added in Octopus 3.3.23.  This makes it easy to dynamically retrieve variables within arrays/dictionaries.
+Variable substitution inside an index was added in **Octopus 3.3.23**.  This makes it easy to dynamically retrieve variables within arrays/dictionaries.
 
 Given the variables:
 
@@ -101,12 +101,12 @@ You could achieve a similar result, with a different default/fallback behavior, 
 <compilation #{unless DebugDisabled}debug="true"#{/unless}>
 ```
 
-#### *Truthy* and *Falsy* values {#VariableSubstitutionSyntax-TruthyandFalsyvalues}
+#### *Truthy* and *Falsy* Values {#VariableSubstitutionSyntax-TruthyandFalsyvalues}
 
 The `if` and `unless` statements consider a value to be *falsy* if it is undefined, empty, `False` or `0`. All other values are considered to be *truthy*.
 
 ### Complex Syntax
-Additional conditional statements are supported in Octopus 3.5 and onwards, including == and !=.
+Additional conditional statements are supported in **Octopus 3.5** and onwards, including == and !=.
 
 Using complex syntax you can have expressions like `#{if Octopus.Environment.Name == "Production"}...#{/if}` and `#{if Octopus.Environment.Name != "Production"}...#{/if}`
 
@@ -125,7 +125,7 @@ Some examples would be,
 
 The `each` statement supports repetition over a set of variables, or over the individual values in a variable separated with commas.
 
-#### Iterating over sets of values {#VariableSubstitutionSyntax-Iteratingoversetsofvalues}
+#### Iterating Over Sets of Values {#VariableSubstitutionSyntax-Iteratingoversetsofvalues}
 
 More complex sets of related values are handled using multiple variables:
 
@@ -153,7 +153,7 @@ Listening on:
  - Endpont B at http://b.example.com is Slave
 ```
 
-#### Iterating over comma-separated values {#VariableSubstitutionSyntax-Iteratingovercomma-separatedvalues}
+#### Iterating Over Comma-separated Values {#VariableSubstitutionSyntax-Iteratingovercomma-separatedvalues}
 
 Give the variable:
 
@@ -219,7 +219,7 @@ That is, the ampersand has been encoded correctly for use in an HTML document.
 The filters provided by Octopus are for use with trusted input; don't rely on them to santize data from potentially malicious sources.
 :::
 
-#### Provided filters {#VariableSubstitutionSyntax-Providedfilters}
+#### Provided Filters {#VariableSubstitutionSyntax-Providedfilters}
 
 Octopus provides the following filters:
 
@@ -243,7 +243,7 @@ The *NowDate* and *NowDateUtc* filters take no variable input but can take an a
 |                   | `#{ | NowDateUtc zz}`              | `+00` |
 | dd-MM-yyyy        | `#{ | NowDate #{MyFormat}}`        | `03-Nov-2016` |
 
-The *Format* filter available from Octopus Deploy version 3.5 allows for converting of input based on an additionally provided argument that is passed to the *`.ToString()`* method.
+The *Format* filter introduced in **Octopus 3.5** allows for converting of input based on an additionally provided argument that is passed to the *`.ToString()`* method.
 
 | MyVar Value           | Example Input                     | Output     |
 | --------------------- | --------------------------------- | ---------- |
@@ -252,10 +252,10 @@ The *Format* filter available from Octopus Deploy version 3.5 allows for conver
 |                       | `#{ | NowDate | Format Date MMM}` | Nov        |
 
 :::hint
-Filters were introduced in Octopus Deploy version 3.5
+Filters were introduced in **Octopus 3.5**.
 :::
 
-### Differences from regular variable bindings {#VariableSubstitutionSyntax-Differencesfromregularvariablebindings}
+### Differences From Regular Variable Bindings {#VariableSubstitutionSyntax-Differencesfromregularvariablebindings}
 
 Because of the flexibility provided by the extended syntax, variables that are not defined will result in the source text, e.g. `#{UndefinedVar}` being echoed rather than an empty string, so that evaluation problems are easier to spot and debug. The `if` construct can be used to selectively bind to a variable only when it is defined, e.g. to obtain identical "empty" variable functionality as shown in the first example:
 
@@ -265,7 +265,7 @@ Server=#{if DatabaseServer}#{DatabaseServer}#{/if};
 
 ### JSON Parsing {#VariableSubstitutionSyntax-JSONParsingjson}
 
-Octostache 2.x (bundled with Octopus 3.5) includes an update to support parsing JSON formatted variables natively, and using their contained properties for variable substitution.
+Octostache 2.x (bundled with **Octopus 3.5**) includes an update to support parsing JSON formatted variables natively, and using their contained properties for variable substitution.
 
 Given the variable:
 
@@ -299,7 +299,7 @@ There are a few things to note here.
 - Arrays can be accessed using standard numerical index notation
 - Variables can map to a sub-section of the JSON variable.
 
-#### Repetition over JSON {#VariableSubstitutionSyntax-RepetitionoverJSON}
+#### Repetition Over JSON {#VariableSubstitutionSyntax-RepetitionoverJSON}
 
 Give the variables:
 

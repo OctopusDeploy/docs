@@ -1,15 +1,14 @@
 ---
-title: Replace a Certificate 
-description: Replace a certificate managed by Octopus Deploy 
+title: Replace a Certificate
+description: Replace a certificate managed by Octopus Deploy
 position: 4 
-version: "3.11"
 ---
 
-The Replace Certificate feature is designed for the scenario where a new certificate has been obtained via a renewal process. 
+The Replace Certificate feature is designed for the scenario where a new certificate has been obtained via a renewal process.
 
 The new certificate will assume the ID of the previous certificate, meaning all referencing variables will now refer to the new certificate.
 
-The previous certificate will be [archived](archiving-and-deleting-certificates.md). 
+The previous certificate will be [archived](archiving-and-deleting-certificates.md).
 
 To replace a certificate, navigate to the certificate details page and click 'Replace'.
 

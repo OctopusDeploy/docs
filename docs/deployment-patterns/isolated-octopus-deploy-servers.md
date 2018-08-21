@@ -17,7 +17,7 @@ On this page, we discuss two different scenarios, and the features and options t
 
 > Chris's Consulting are developing an application for a government client. They're using Octopus internally to manage pre-production deployments (dev, UAT, and so-on). However, the client have advised that they won't allow the consultancy to install the Tentacle agent on their production servers, nor the Octopus Server. They'd prefer the consultancy to provide them with a something they can run from a USB stick.
 
-In Octopus 3.0, you can configure an [Offline Package Drop deployment target](/docs/infrastructure/offline-package-drop.md). This allows you to "deploy" to a location on the filesystem and take that deployment offline to be used elsewhere. The dropped package contains everything you need to deploy to a location offsite.
+In **Octopus 3.0**, you can configure an [Offline Package Drop deployment target](/docs/infrastructure/offline-package-drop.md). This allows you to "deploy" to a location on the filesystem and take that deployment offline to be used elsewhere. The dropped package contains everything you need to deploy to a location offsite.
 
 ## Tentacle Can be Installed (Isolated Octopus Servers) {#IsolatedOctopusDeployservers-Tentaclecanbeinstalled(isolatedOctopusservers)}
 
@@ -36,7 +36,7 @@ In this scenario, the customer would install different instances of Octopus in b
 Your Octopus Deploy license includes the ability to install and configure up to three (3) separate instances of Octopus Server to support scenarios like this one.
 :::
 
-## Tentacle can be installed but communication must go via a proxy {#IsolatedOctopusDeployservers-Tentaclecanbeinstalledbutcommunicationmustgoviaaproxy}
+## Tentacle Can Be Installed But Communication Must Go Via a Proxy {#IsolatedOctopusDeployservers-Tentaclecanbeinstalledbutcommunicationmustgoviaaproxy}
 
 > An agency manages lots of small applications on behalf of their customers, and wants to use Octopus to manage deployments. Quite often the production environment is managed by the customer and even after being convinced to allow the Tentacle agent to be installed on their servers, they want communication to be controlled by a proxy server.
 

@@ -1,5 +1,5 @@
 ---
-title: Deploying a package to an Azure Cloud Service
+title: Deploying a Package to an Azure Cloud Service
 description: Octopus Deploy can help you perform repeatable and controlled deployments to Azure Cloud Services.
 ---
 
@@ -17,13 +17,13 @@ An Azure cloud service package is normally compiled into a `.cspkg` file. This
 
 If you haven't already, create an [Azure Management Certificate Account](/docs/infrastructure/azure/creating-an-azure-account/creating-an-azure-management-certificate-account.md) to grant Octopus Deploy access to your Azure Subscription.
 
-## Step 3: Create the Azure Cloud Service deployment step {#DeployingapackagetoanAzureCloudService-Step3:CreatetheAzureCloudServicedeploymentstep}
+## Step 3: Create the Azure Cloud Service Deployment Step {#DeployingapackagetoanAzureCloudService-Step3:CreatetheAzureCloudServicedeploymentstep}
 
 Add a new Azure Cloud Service Deployment Step to your project. For information about adding a step to the deployment process, see the [add step](/docs/deployment-process/steps/index.md) section. 
 
 ![](/docs/images/5671696/5865904.png "width=170")
 
-## Step 4: Configure your Azure Cloud Service step {#DeployingapackagetoanAzureCloudService-Step4:ConfigureyourAzureCloudServicestep}
+## Step 4: Configure your Azure Cloud Service Step {#DeployingapackagetoanAzureCloudService-Step4:ConfigureyourAzureCloudServicestep}
 
 Once an Account is selected, the list of Cloud Services and Storage Accounts available to the Azure subscription associated with the chosen Account will be populated for you to choose from.
 
@@ -41,7 +41,7 @@ Once an Account is selected, the list of Cloud Services and Storage Accounts ava
 Any of the settings above can be switched to use a variable binding expression. A common example is when you use a naming convention for your different cloud services, like **MyCloudService\_Production** and **MyCloudService\_Test** - you can use environment-scoped variables to automatically configure this step depending on the environment you are targeting.
 :::
 
-### Deployment features available to Azure Cloud Service steps {#DeployingapackagetoanAzureCloudService-DeploymentfeaturesavailabletoAzureCloudServicesteps}
+### Deployment Features Available to Azure Cloud Service Steps {#DeployingapackagetoanAzureCloudService-DeploymentfeaturesavailabletoAzureCloudServicesteps}
 
 The following features are available when deploying a package to an Azure Cloud Service:
 
@@ -56,7 +56,7 @@ Please note these features actually run on the Octopus Server prior to deploying
 :::
 
 :::hint
-For your convenience the PowerShell session for your [custom scripts](/docs/deployment-examples/custom-scripts/index.md) will have the Azure PowerShell module loaded, and the subscription from the account associated with the target will be selected. This means you don't have to worry about loading the Azure PowerShell module nor authenticate with Azure yourself. See the [Azure Powershell documentation](/docs/deployment-examples/azure-deployments/running-azure-powershell/index.md) for more information. You can write very straightforward scripts like the example below:
+For your convenience the PowerShell session for your [custom scripts](/docs/deployment-examples/custom-scripts/index.md) will have the Azure PowerShell module loaded, and the subscription from the account associated with the target will be selected. This means you don't have to worry about loading the Azure PowerShell module nor authenticate with Azure yourself. See the [Azure PowerShell documentation](/docs/deployment-examples/azure-deployments/running-azure-powershell/index.md) for more information. You can write very straightforward scripts like the example below:
 
 ```powershell
 #Swap the staging slot into production
@@ -73,7 +73,7 @@ if ($Deployment -ne $null -AND $Deployment.DeploymentId  -ne $null) {
 ```
 :::
 
-## Deployment process {#DeployingapackagetoanAzureCloudService-Deploymentprocess}
+## Deployment Process {#DeployingapackagetoanAzureCloudService-Deploymentprocess}
 
 Deployment to an Azure Cloud Service proceeds as follows (more details provided below):
 
@@ -99,7 +99,7 @@ To extract the Cloud Service Package, it is first converted to the CTP format (a
 
 Setting the `Octopus.Action.Azure.LogExtractedCspkg` variable to `true` will cause the layout of the extracted package to be written into the Task Log. This may assist with finding the path to a particular file.
 
-### Variable substitutions in Cloud Service configuration file {#DeployingapackagetoanAzureCloudService-VariablesubstitutionsinCloudServiceconfigurationfile}
+### Variable Substitutions in Cloud Service Configuration File {#DeployingapackagetoanAzureCloudService-VariablesubstitutionsinCloudServiceconfigurationfile}
 
 Octopus will attempt to modify your `.cscfg` file. For example, take the following configuration:
 
@@ -124,15 +124,15 @@ Octopus will attempt to modify your `.cscfg` file. For example, take the follo
 
 If a variable named `HelloMessage` is defined in your Octopus project variables, Octopus will automatically update it in the configuration file. You can also name the variable `Humpty.Worker/HelloMessage` to scope the setting to a specific web/worker role.
 
-### Customizing the deployment process {#DeployingapackagetoanAzureCloudService-Customizingthedeploymentprocess}
+### Customizing the Deployment Process {#DeployingapackagetoanAzureCloudService-Customizingthedeploymentprocess}
 
 The deployment is performed using a PowerShell script called `DeployToAzure.ps1`. If a file with this name exists within your NuGet package, Octopus will invoke it. Otherwise, Octopus will use a bundled version of the script as a default. You can **[view the bundled script here](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari.Azure/Scripts/DeployAzureCloudService.ps1)**, and use it as a basis for creating your own custom deployment script.
 
-## Deploying to multiple geographic regions {#DeployingapackagetoanAzureCloudService-Deployingtomultiplegeographicregions}
+## Deploying to Multiple Geographic Regions {#DeployingapackagetoanAzureCloudService-Deployingtomultiplegeographicregions}
 
 When your application is deployed to more than one geographic region, you are likely to need per-region configuration settings. You can achieve this result in many different ways, but the two most popular methods we have seen are:
 
-1. [Cloud Regions](/docs/infrastructure/cloud-regions.md): introduced in Octopus 3.4 to enable [rolling deployments](/docs/deployment-patterns/rolling-deployments.md) across multiple geographic regions
+1. [Cloud Regions](/docs/infrastructure/cloud-regions.md): introduced in **Octopus 3.4** to enable [rolling deployments](/docs/deployment-patterns/rolling-deployments.md) across multiple geographic regions
 2. Environment-per-region: by creating an environment per region you can leverage [lifecycles](/docs/deployment-process/lifecycles/index.md) to create a strict release promotion process
 
 Both methods allow you to modify your deployment process and variables per-region, but have slightly different release promotion paths. Choose the one that suits you best.

@@ -33,7 +33,7 @@ You need to download the latest version of the [Octopus Installer](/docs/install
   Learn more about the [permissions required for the Octopus Windows Service](/docs/installation/permissions-required-for-the-octopus-windows-service.md), using a [Managed Service Account](/docs/installation/managed-service-account.md), or [configuring authentication providers](/docs/administration/authentication/authentication-providers/index.md).
 
 8. On the **Database** page, click the dropdown arrow in the **Server Name** field to detect the SQL Server Database.
-9. Enter a name for the database, and click OK to create the database.
+9. Enter a name for the database, and click **OK** to **create the database**.
 
   Be careful **not** to use the name of an existing database as the setup process will install Octopus into that pre-existing database. Learn more about the [Octopus Database](/docs/administration/octopus-database/index.md).
 

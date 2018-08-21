@@ -31,4 +31,4 @@ How you create your packages depends on which package type you wish to create. O
 - Working with VSTS: use our [extension](/docs/api-and-integration/tfs-vsts/using-octopus-extension/index.md) and/or `octo.exe pack`.
 - If you just want to package up a folder as-is: use `octo.exe pack` or just zip it up!
 
-As long as you can create one of our [supported packages](/docs/packaging-applications/supported-packages.md), you can deploy your application with Octopus Deploy!
+As long as you can create one of our [supported packages](/docs/packaging-applications/supported-packages.md), you can deploy your application with Octopus Deploy.

@@ -18,7 +18,7 @@ To edit the variable, select the **project**, then click **Variables**. Click th
 
 When defining a prompted variable, you can provide a friendly name and description, and specify if the value is required. A required variable must be supplied when the deployment is created and must not be empty or white space.
 
-You can identify prompted variables by looking for then icon next to the value:
+You can identify prompted variables by looking for the icon next to the value:
 
 ![](prompted-variable-icon.png)
 
