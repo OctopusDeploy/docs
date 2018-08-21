@@ -23,7 +23,7 @@ Packages used by Octopus must conform to [SemVer 1.0 or 2.0](/docs/packaging-app
 
 The link above explains versioning in detail, but in its simplest form it means two things:
 
-1. Numbered versions in 3 or 4 segments that can be interpreted as `major.minor.patch`, with an optional "prerelease tag" afterwards in the form `-tag`
+1. Numbered versions in 3 or 4 segments that can be interpreted as `major.minor.patch`, with an optional "prerelease tag" afterwards in the form `-tag`.
 2. Versions can be sorted predictably. For example, `1.2.3` is newer than `1.2.0`.
 
 As you can see, a package version of `Fabrikam_CIBuild_master_20090805.2` won't be valid will cause issues!
@@ -57,7 +57,7 @@ You can mix and match these two methods. For example, you might prefer to use Oc
 Octopack is not compatibile with .NET core and we suggest using the extension instead.
 :::
 
-## Versioning when using OctoPack
+## Versioning When Using OctoPack
 
 Unless told otherwise, OctoPack will attempt to set the package version itself. You can see exactly how it tries to find a version [on this documentation page](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md#UsingOctoPack-Versionnumbers).
 
@@ -72,7 +72,7 @@ Setting the `AssemblyVersion` number to `x.y.*` will [fix the two most common pr
 
 One problem remains - particularly for web projects. If you only change content files, triggering a new build _won't update the version number_ because Team Build realizes no compilable code has changed. OctoPack won't get a new version number!
 
-### OctoPack recommendation
+### OctoPack Recommendation
 
 To solve all these issues, we recommend using the `/p:OctoPackPackageVersion` argument when using OctoPack. This lets you specify the version directly, and you can use build variables to specify the version number.
 
@@ -85,7 +85,7 @@ To solve all these issues, we recommend using the `/p:OctoPackPackageVersion` ar
 You can use the [additional MSBuild arguments for OctoPack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md#UsingOctoPack-Publishing) to give yourself more control over the packaging process.
 :::
 
-## Versioning when using the Octopus Build Tasks
+## Versioning When Using the Octopus Build Tasks
 
 If you're using the new [Octopus Deploy extension from the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks), you'll have access to a new **Package Application** build task.
 
@@ -95,11 +95,11 @@ This task does not provide you with a default version number - this is something
 
 Build and Release variables can be found in [the Microsoft Documentation](https://www.visualstudio.com/en-us/docs/build/define/variables), but the more useful ones include:
 
-- `$(Build.BuildNumber)` - This is the full build number (see [above](#setting-a-semver-compliant-build-number) for setting an appropriate format)
+- `$(Build.BuildNumber)` - This is the full build number (see [above](#setting-a-semver-compliant-build-number) for setting an appropriate format).
 - `$(Build.BuildID)` - This is a unique, incrementing ID at the Project collection level. Every new build will give you a new number.
 - `$(Build.SourceBranchName)` - this is the last path segment in the name of the branch. For example, a branch of `refs/heads/master` will return `master`.
 
-### Build task recommendation
+### Build Task Recommendation
 
 There are two options we recommend for specifying a version number to the Package Application task.
 
@@ -110,14 +110,14 @@ We recommend the second option for a few reasons.
 
 First, it's very easy to match the build to the package because they'll have the same number, and secondly, if you have multiple pack steps, you only need to change a single version number.
 
-### Specifying the files to pack and push
+### Specifying the Files to Pack and Push
 
 One of the frequent causes of issues when using the Octopus build tasks is properly specifying the folders to pack and the NuGet package to push. Especially if you're using the hosted build server, it can be hard to figure out where everything ends up when the build is running.
 
 Rather than guessing, it can be helpful to specify these folders specifically. Again, there are some useful build variables you can make use of.
 
 - `$(Build.SourcesDirectory)` - the location of your source before it gets built.
-- `$(Build.ArtifactStagingDirectory)` - A staging location for artifacts - useful for output files you want to use later (e.g. Nuget files)
+- `$(Build.ArtifactStagingDirectory)` - A staging location for artifacts - useful for output files you want to use later (e.g. Nuget files).
 
 1. Use the `/p:outdir=` MSBuild argument in your compile step to specify where the compiled code should end up.
 2. In the **Package Application** step, put the location from step 1 into the **Source Path** field.

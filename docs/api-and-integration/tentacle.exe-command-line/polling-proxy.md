@@ -1,5 +1,5 @@
 ---
-title: Polling proxy
+title: Polling Proxy
 description: Using the Tentacle.exe command line executable to configure the HTTP proxy used by polling Tentacles to reach the Octopus Server.
 ---
 

@@ -26,7 +26,7 @@ position: 110
 - **`show-thumbprint`**: Show the thumbprint of this Tentacle's certificate
 - **`list-instances`**: list all installed Tentacle instances (3.12+)
 
-## General usage {#Tentacle.exeCommandLine-Generalusage}
+## General Usage {#Tentacle.exeCommandLine-Generalusage}
 
 All commands take the form of:
 

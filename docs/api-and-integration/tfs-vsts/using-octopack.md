@@ -63,10 +63,10 @@ First, turn on Automatic Release Creation to create a new release when your pack
 
 By adding these features to the steps above, you can set up complete end-to-end continuous integration:
 
-1. OctoPack will create new NuGet packages for your projects
-2. OctoPack will push those packages to the built-in NuGet repository
-3. Automatic Release Creation will create a new Release
-4. Your Lifecycle will trigger a deployment when the release is created
+1. OctoPack will create new NuGet packages for your projects.
+2. OctoPack will push those packages to the built-in NuGet repository.
+3. Automatic Release Creation will create a new Release.
+4. Your Lifecycle will trigger a deployment when the release is created.
 
 ## Video Walkthrough {#VideoWalkthrough}
 

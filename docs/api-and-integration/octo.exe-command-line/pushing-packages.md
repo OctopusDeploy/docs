@@ -4,7 +4,7 @@ description: Using the Octo.exe command line tool to push packages to Octopus.
 position: 10
 ---
 
-In **Octo.exe version 3.3.8** we have added a command to push packages to Octopus directly from Octo.exe. The push command can push any of the supported packages types listed on this [page](/docs/packaging-applications/supported-packages.md).
+In **Octo.exe 3.3.8** we have added a command to push packages to Octopus directly from Octo.exe. The push command can push any of the supported packages types listed on this [page](/docs/packaging-applications/supported-packages.md).
 
 ## Basic Example {#Pushingpackages-Basicexample}
 
