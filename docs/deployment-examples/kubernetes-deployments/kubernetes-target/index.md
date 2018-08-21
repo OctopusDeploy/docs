@@ -90,8 +90,6 @@ The token can then be saved as a Token Octopus account, and assigned to the Kube
 
 Kubernetes targets use the `kubectl` executable to communicate with the Kubernetes cluster. This executable must be available on the path on the target where the step is run. When using workers, this means the `kubectl` executable must be in the path on the worker that is executing the step. Otherwise the `kubectl` executable must be in the path on the Octopus server itself.
 
-When using an AWS EKS Kubernetes cluster with IAM integration, the `heptio-authenticator-aws` executable must also be on the path.
-
 ## Helm
 
 When a Kubernetes target is used with a Helm step, the `helm` executable must be on the target where the step is run.
@@ -186,12 +184,6 @@ openssl pkcs12 \
 ```
 
 This file can then be uploaded to the [Octopus certificate management area](http://g.octopushq.com/CertificatesDocumentation), after which, it will be made available to the Kubernetes target.
-
-### AWS Accounts
-
-To use an AWS account to connect to an [EKS](http://g.octopushq.com/AWSEKS) cluster, recent versions of the `kubectl` and `heptio-authenticator-aws` binaries need to be available where the step is being run. The [EKS documentation](http://g.octopushq.com/AWSEKSKubectl) provides download links for both these executables.
-
-When an AWS account is selected, two additional fields are displayed in the target configuration: `AWS EKS cluster name` and `AWS region`.
 
 ## Kubernetes Details
 
