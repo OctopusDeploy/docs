@@ -31,10 +31,10 @@
     </text>
   </g>
   <g>
-    <rect style="fill: #0a67b1" x="20" y="320" width="360" height="460"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="20" y="320" width="360" height="460"/>
-    <text font-size="12.8" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="200" y="553.9">
-      <tspan x="200" y="553.9"></tspan>
+    <rect style="fill: #0a67b1" x="20" y="320" width="360" height="700"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="20" y="320" width="360" height="700"/>
+    <text font-size="12.8" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="200" y="673.9">
+      <tspan x="200" y="673.9"></tspan>
     </text>
   </g>
   <text font-size="12.8" style="fill: #333333;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="40" y="360">
