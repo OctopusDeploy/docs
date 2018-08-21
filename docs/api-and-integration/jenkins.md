@@ -17,10 +17,10 @@ Build job
 
 During our Jenkins job, we will:
 
-1. Compile the code, run unit tests, and so on - typical CI tasks
-2. Have OctoPack create NuGet packages
-3. Publish these NuGet packages to the Octopus Deploy Server
-4. Create a release in Octopus, ready to be deployed
+1. Compile the code, run unit tests, and so on - typical CI tasks.
+2. Have OctoPack create NuGet packages.
+3. Publish these NuGet packages to the Octopus Deploy Server.
+4. Create a release in Octopus, ready to be deployed.
 
 Jenkins uses the MSBuild plugin to compile Visual Studio solutions. [Once OctoPack has been installed](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md) on your C#/VB projects, you can configure Jenkin's MSBuild task to pass the appropriate parameters to MSBuild to have OctoPack run:
 

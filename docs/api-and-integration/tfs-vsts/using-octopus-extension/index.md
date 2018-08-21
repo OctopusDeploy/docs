@@ -6,12 +6,12 @@ position: 1
 
 The new structure of Team Foundation Build gives us a great opportunity to integrate better with your build and release processes from Visual Studio Team Services (VSTS) (formerly VSO) and on-premises Team Foundation Server (TFS) servers. We've created a [public extension](https://marketplace.visualstudio.com/items/octopusdeploy.octopus-deploy-build-release-tasks) you can install into your VSTS instance or TFS 2017 server.  This extension makes the following tasks available to your Build and Release processes:
 
-- Octo Installer task
-- Packaging your application
-- Pushing your package to Octopus
-- Creating a Release in Octopus
-- Deploying a Release to an Environment in Octopus
-- Promoting a Release from one Environment to the next
+- Octo Installer task.
+- Packaging your application.
+- Pushing your package to Octopus.
+- Creating a Release in Octopus.
+- Deploying a Release to an Environment in Octopus.
+- Promoting a Release from one Environment to the next.
 
 You can also view the status of a project in an environment using the Dashboard Widget.
 
@@ -66,14 +66,14 @@ The API key you choose needs to have sufficient permissions to perform all the t
 
 For the tasks themselves, these are relatively easy to determine (for example, creating a Release for Project A will require release creation permissions for that project).
 
-For the VSTS UI elements provided by the extension, the API key must also have the below permissions. If one or more are missing, you should still be able to use the extension, however the UI may encounter failures and require you to type values rather than select them from dropdowns. The dashboard widget will not work at all without its required permissions.
+For the VSTS UI elements provided by the extension, the API key must also have the below permissions. If one or more are missing, you should still be able to use the extension, however the UI may encounter failures and require you to type values rather than select them from drop-downs. The dashboard widget will not work at all without its required permissions.
 
 If there are scope restrictions (e.g. by Project or Environment) against the account, the UI should still work, but results will be similarly restricted.
 
-- ProjectView (for project dropdowns)
-- EnvironmentView (for environment dropdowns)
-- TenantView (for tenant dropdowns)
-- ProcessView (for channel dropdowns)
+- ProjectView (for project drop-downs)
+- EnvironmentView (for environment drop-downs)
+- TenantView (for tenant drop-downs)
+- ProcessView (for channel drop-downs)
 - DeploymentView (for the dashboard widget)
 - TaskView (for the dashboard widget)
 
@@ -86,7 +86,7 @@ make this work, all Octopus tasks will automatically attempt to download and use
 Version 2.x.x of the extension included a bundled version of the Octo tools and did not require the agent to be setup with Octo in the path and did not support running on Linux or Mac build agents.
 :::
 
-## Package your Application and Push to Octopus {#PackageyourApplicationandPushtoOctopus}
+## Package Your Application and Push to Octopus {#PackageyourApplicationandPushtoOctopus}
 
 To integrate with Octopus Deploy, an application must be packaged into either a NuGet or Zip package, and pushed to Octopus Deploy (or any NuGet repository).
 
@@ -117,7 +117,7 @@ Octopack is not supported for .NET Core and we suggest using the VSTS extensions
 
 ![](/docs/images/3048587/3278377.png "width=500")
 
-## Add Steps to your Build or Release Process {#UsetheTeamFoundationBuildCustomTask-AddStepstoyourBuildorReleaseProcess}
+## Add Steps to Your Build or Release Process {#UsetheTeamFoundationBuildCustomTask-AddStepstoyourBuildorReleaseProcess}
 
 :::hint
 **Build or Release steps**
