@@ -13,7 +13,7 @@ In this section we will create a simple project and environment in preparation t
 Already have a project you'd like to try out with your tenant? That's fine, just be aware you may need to consider your project's lifecycle progression in order to deploy to your tenant depending on which environment(s) you connect your tenant to.
 :::
 
-## Step 1: Build Your Environment and Project 
+## Step 1: Build Your Environment and Project
 
 In this step you will build your entire environment and project structure ready for multi-tenant deployments.
 
@@ -21,9 +21,9 @@ In this step you will build your entire environment and project structure ready 
 Multi-tenant deployments is an advanced deployment concept, so we expect you to be familiar with Octopus concepts like [projects](/docs/deployment-process/projects/index.md), [environments](/docs/infrastructure/environments/index.md), [lifecycles](/docs/deployment-process/lifecycles/index.md), [variables](/docs/deployment-process/variables/index.md) and [deploying applications](/docs/deployment-examples/index.md).
 :::
 
-1. Create a new [environment](/docs/infrastructure/environments/index.md) called **MT Production** to represent your production environment for this guide. *We will create other environments later on.*
+1. Create a new [environment](/docs/infrastructure/environments/index.md) called **MT Production** to represent your production environment for this guide. We will create other environments later on.
 2. Add a new cloud region deployment target called **MT Web Server** with the role **MT-web-server**.
-   *Note: We are using a cloud region to simulate a real deployment target as a convenience - you could equivalently use any other deployment target you already have available.*
+   Note: We are using a cloud region to simulate a real deployment target as a convenience - you could equivalently use any other deployment target you already have available.
 3. Create a new [lifecycle](/docs/deployment-process/lifecycles/index.md) called **MT Lifecycle** adding a single phase called **MT Production** deploying manually into the **MT Production** environment we created earlier.
 4. Create a new [project group](/docs/deployment-process/projects/index.md) called **MT Sample** so we can keep our sample project separate from the rest.
 5. Create a new [project](/docs/deployment-process/projects/index.md) called **Mojo** (or any other name of your choice).

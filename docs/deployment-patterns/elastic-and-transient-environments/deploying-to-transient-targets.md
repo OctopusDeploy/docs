@@ -6,9 +6,9 @@ position: 0
 
 Transient deployment targets are targets that are intermittently available for a deployment.  They frequently join and leave the network causing their deployment availability to become unpredictable. They might be:
 
-- auto-scale instances that are provisioned and terminated,
-- laptops that are taken home at night,
-- client servers that go down for maintenance.
+- Auto-scale instances that are provisioned and terminated.
+- Laptops that are taken home at night.
+- Client servers that go down for maintenance.
 
 A typical Octopus deployment requires that all deployment targets are available when the deployment starts and will remain available while the deployment is in progress.  Elastic Environments provides mechanisms for deploying to targets that may become unavailable while a deployment is in progress. You can also run a health check during a deployment and, based on those results, opt to add or remove machines from the deployment.
 
@@ -53,8 +53,8 @@ In this example, OctoFX will deploy to **RateServer** and then run a Health Chec
 
 6. Deploy OctoFX to an environment that has some deployment targets in the **TradingWebServer** role that are disabled.  While the deployment is in progress (but before the Health Check step), enable the disabled targets and disable the enabled targets. When the Health Check step runs:
 
- - any enabled targets that were disabled at the start of the deployment will be included in the deployment.
- - any disabled targets that were enabled at the start of the deployment will be excluded from the deployment.
+ - Any enabled targets that were disabled at the start of the deployment will be included in the deployment.
+ - Any disabled targets that were enabled at the start of the deployment will be excluded from the deployment.
 
 In this case, the machine **SWeb01** has been found and included in the rest of the deployment:
 

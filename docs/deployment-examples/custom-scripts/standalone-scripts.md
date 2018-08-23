@@ -42,8 +42,8 @@ The ability to source your script from a package shipped in **Octopus 3.3**
 
 You may also select the source of the script, either:
 
-- an ad-hoc or inline script, saved as part of the step itself, or
-- a script file inside a package (shown below)
+- An ad-hoc or inline script, saved as part of the step itself, or:
+- A script file inside a package (shown below).
 
 ![](5865637.png "width=500")
 

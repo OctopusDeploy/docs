@@ -8,7 +8,7 @@ Octopus can automatically remove unwanted machines from environments based on th
 
 ## Machine Policies {#Cleaningupenvironments-Machinepolicies}
 
-Machine policies are machine related settings that can be applied per-machine. They can be accessed at {{Infrastructure,Machine policies}}
+Machine policies are machine related settings that can be applied per-machine. They can be accessed at {{Infrastructure,Machine policies}}.
 
 In this example we will create a machine policy to automatically delete machines when they become unavailable.
 

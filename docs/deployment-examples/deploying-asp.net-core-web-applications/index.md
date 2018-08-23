@@ -10,7 +10,7 @@ ASP.NET Core is the future of ASP.NET, and it contains many changes to how appli
 
 ## Publishing and Packing the Website {#DeployingASP.NETCoreWebApplications-PublishingandPackingtheWebsite}
 
-Once you have a project up and running (see the [getting started guide](https://docs.asp.net/en/latest/getting-started.html)), it need to be published and packed
+Once you have a project up and running (see the [getting started guide](https://docs.asp.net/en/latest/getting-started.html)), it need to be published and packed:
 
 ```powershell
 # Publish the application to a folder
@@ -34,10 +34,10 @@ OctoPack is not compatible with ASP.NET Core applications. Please see [the OctoP
 ASP.NET Core applications can either run as a command line program with Kestrel, or under IIS ([which also uses Kestrel - check out the book for details](https://leanpub.com/aspnetdeployment)).
 
 :::hint
-See the [ASP.NET Core IIS documentation](https://docs.asp.net/en/latest/publishing/iis.html#install-the-http-platform-handler) for instructions on setting up IIS for ASP.NET Core
+See the [ASP.NET Core IIS documentation](https://docs.asp.net/en/latest/publishing/iis.html#install-the-http-platform-handler) for instructions on setting up IIS for ASP.NET Core.
 :::
 
-When running under IIS, ensure the .NET CLR Version is set to `No Managed Code`
+When running under IIS, ensure the .NET CLR Version is set to `No Managed Code`.
 
 ## Antiforgery Cookie {#DeployingASP.NETCoreWebApplications-AntiforgeryCookie}
 
@@ -63,7 +63,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## Configuration {#DeployingASP.NETCoreWebApplications-Configuration}
 
-ASP.NET Core introduces a new JSON-based configuration file format. **Octopus 3.3** introduced a new convention which can be used to update these JSON configuration files with Octopus variables
+ASP.NET Core introduces a new JSON-based configuration file format. **Octopus 3.3** introduced a new convention which can be used to update these JSON configuration files with Octopus variables:
 
 ![Feature Configuration](5275655.png "width=500")
 

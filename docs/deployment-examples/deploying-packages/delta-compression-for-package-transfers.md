@@ -16,12 +16,12 @@ A typical scenario in Octopus Deploy is frequent deployments of small changes to
 
 ## A Package Deployment in Octopus Deploy Now Looks Something Like This {#Deltacompressionforpackagetransfers-ApackagedeploymentinOctopusDeploynowlookssomethinglikethis}
 
-1. Find nearest previous versions of the package on the machine by calling [Calamari](https://octopus.com/blog/calamari)
-2. If a previous version of a package is found and the same package (matching PackageId, Version and file hash) exist on the Octopus Server
-3. Create a signature file for the nearest package found
-4. Build the delta between the previous package (using the above signature file) and the new package
-5. Upload delta file to Tentacle and call Calamari to apply the delta file to the package found in the previous step
-6. If no previous version of the package was found, we upload the full package instead
+1. Find nearest previous versions of the package on the machine by calling [Calamari](https://octopus.com/blog/calamari).
+2. If a previous version of a package is found and the same package (matching PackageId, Version and file hash) exist on the Octopus Server.
+3. Create a signature file for the nearest package found.
+4. Build the delta between the previous package (using the above signature file) and the new package.
+5. Upload delta file to Tentacle and call Calamari to apply the delta file to the package found in the previous step.
+6. If no previous version of the package was found, we upload the full package instead.
 
 :::info
 **Delta file size**
@@ -32,10 +32,10 @@ If the final size of the delta file is within 80% of the new package, we upload 
 
 If any of the below occurs the full package will be uploaded:
 
-1. The signature file fails to create
-2. The delta file fails to create
-3. Applying the delta fails
-4. The package details (size and file hash) don't match after applying the delta
+1. The signature file fails to create.
+2. The delta file fails to create.
+3. Applying the delta fails.
+4. The package details (size and file hash) don't match after applying the delta.
 
 ## Running a Deployment That Generates a Delta File {#Deltacompressionforpackagetransfers-Runningadeploymentthatgeneratesadeltafile}
 
@@ -60,7 +60,7 @@ The most common mistake causing delta compression to yield minimal size reductio
 
 ## Turning Delta Compression Off {#Deltacompressionforpackagetransfers-TurningCompressionoff}
 
-To turn this feature off, set the value of **Octopus.Acquire.DeltaCompressionEnabled** to **False**
+To turn this feature off, set the value of **Octopus.Acquire.DeltaCompressionEnabled** to **False**:
 
 ![](/docs/images/3048083/5275657.jpg "width=500")
 

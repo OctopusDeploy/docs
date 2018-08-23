@@ -2,7 +2,6 @@
 title: Continuous Integration for Service Fabric
 description: Learn how Octopus Deploy fits into a Continuous Deployment pipeline for you Service Fabric applications.
 position: 2
-version: "[3.13,)"
 ---
 
 In this section you'll learn about how to configure your Continuous Deployment pipeline to deploy Service Fabric applications using Octopus Deploy.
@@ -22,10 +21,10 @@ To package and deploy Service Fabric applications through Octopus Deploy, we com
 ## Deployment
 Service Fabric application deployments follow the same conceptual process as other deployments in Octopus Deploy. The process is summarized as:
 
-- Obtain the NuGet/Zip package version from the Octopus Deploy feed
-- Unpack the package to a work folder
-- Perform variable substitution on the files in the work folder (both .xml and .config files are supported)
-- Invoke a PowerShell script that uses cmdlets to perform the deployment
+- Obtain the NuGet/Zip package version from the Octopus Deploy feed.
+- Unpack the package to a work folder.
+- Perform variable substitution on the files in the work folder (both .xml and .config files are supported).
+- Invoke a PowerShell script that uses cmdlets to perform the deployment.
 
 For a more detailed look at the deployment process see [Deploying a package to a Azure Service Fabric cluster](/docs/deployment-examples/azure-deployments/deploying-to-service-fabric/deploying-a-package-to-a-service-fabric-cluster/index.md#deployment-process)
 

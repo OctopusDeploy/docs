@@ -101,11 +101,11 @@ Right-Click **Roles** and select **Configure Roles** then highlight **Generic Se
 
 *![](/docs/images/clustered-listening-tentacles/cluster-newrolewizard-servicetype.jpg)*
 
-Find and highlight the **OctopusDeploy Tentacle** service in the list of available services, then click **Next**
+Find and highlight the **OctopusDeploy Tentacle** service in the list of available services, then click **Next**.
 
 *![](/docs/images/clustered-listening-tentacles/cluster-newrolewizard-selectservice.jpg)*
 
-Under **Client Access Point** choose an appropriate NetBIOS name and IP address for this clustered role. Note down this IP address/DNS hostname, you will need it to add the Tentacle Cluster to your Octopus Server
+Under **Client Access Point** choose an appropriate NetBIOS name and IP address for this clustered role. Note down this IP address/DNS hostname, you will need it to add the Tentacle Cluster to your Octopus Server.
 
 *![](/docs/images/clustered-listening-tentacles/cluster-newrolewizard-clientaccess.jpg)*
 

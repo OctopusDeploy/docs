@@ -25,7 +25,7 @@ Quite often you want to provide a tenant-specific "test" environment where upgra
 Let's make sure all of the environments exist and configure our lifecycle. If you have been working through this guide you will already have the **MT Normal Lifecycle** with the **MT Production** environment.
 
 1. Make sure the **MT Dev**, **MT Test**, **MT Staging** and **MT Production** environments have been configured.
-2. Configure the **MT Normal Lifeycle** to promote releases to each of these environment in the order shown.
+2. Configure the **MT Normal Lifecycle** to promote releases to each of these environment in the order shown.
 
 ![](/docs/images/5669342/5865746.png)
 

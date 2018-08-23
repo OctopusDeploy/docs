@@ -4,7 +4,7 @@ If you haven't already, create an [Azure Account](/docs/infrastructure/azure/c
 
 If instead you want to **dynamically** create you account during your deployment, check our [documentation on how to do so](/docs/infrastructure/dynamic-infrastructure/index.md)
 
-## Step 3: Configure your Azure Web App step. {#DeployingapackagetoanAzureWebApp-Step4:ConfigureyourAzureWebAppstep}
+## Step 3: Configure your Azure Web App Step. {#DeployingapackagetoanAzureWebApp-Step4:ConfigureyourAzureWebAppstep}
 
 :::hint
 The below instructions are valid Octopus Servers running version **Octopus 2018.5** and above. If you are running an older version, please select it from the **Version** green button at the top right of this page to enable the docs that suit your Octopus version.

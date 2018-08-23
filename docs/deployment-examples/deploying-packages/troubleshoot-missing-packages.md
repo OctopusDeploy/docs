@@ -5,12 +5,12 @@ description: Further information for missing packages error messages that can oc
 
 When deploying your project you may see a message like one of the following examples:
 
-- The package could not be located in the built-in repository
-- The package could not be downloaded from the external feed
-- Unable to download package
-- Failed to download package
+- The package could not be located in the built-in repository.
+- The package could not be downloaded from the external feed.
+- Unable to download package.
+- Failed to download package.
 - The package could not be downloaded from NuGet.
-- Could not find package in feed
+- Could not find package in feed.
 
 This troubleshooting guide will help you understand what is going wrong and how to avoid this problem in future deployments.
 

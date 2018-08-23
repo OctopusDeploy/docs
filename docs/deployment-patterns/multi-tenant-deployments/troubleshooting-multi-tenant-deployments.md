@@ -17,4 +17,4 @@ This page will help you diagnose and solve issues with multi-tenant deployments.
 2. Check the tenant is connected to the project and the environment you are targeting for that deployment.
 3. Take a look at the [lifecycle](/docs/deployment-process/lifecycles/index.md) this release is being promoted through (can be different for each release) and make sure you have met the prerequisites for deploying to this environment? Perhaps you need to promote the release through some earlier environments first?
 4. If your tenant is connected to multiple environments for this project, the [lifecycle](/docs/deployment-process/lifecycles/index.md) for this release will force you to promote the release through each of the tenant's environments in the lifecycle in order. Perhaps you need to deploy the release into an earlier environment for the tenant before promoting to this environment?  
-    a. For example: Deploy to the tenant's Test environment before promoting to the tenant's Production environment.
+  - For example: Deploy to the tenant's Test environment before promoting to the tenant's Production environment.
