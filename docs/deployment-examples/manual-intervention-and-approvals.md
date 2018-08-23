@@ -25,12 +25,10 @@ Manual intervention steps are added to deployment processes in the same way as o
 6. Provide instructions for the user to follow, for instance, *Ensure traders are aware of the deployment.*
 7. Select which teams are responsible for the step. Note, if you don't specify a team, anybody with permission to deploy the project can perform the manual intervention. Specifying a team, makes the step a required step that cannot be skipped.
 9. You can set conditions to determine when the step should run. For instance:
-
   - Only run the manual intervention for specific environments.
   - Run the manual intervention based on the status (success or failure) of the previous step.
   - Wait for the previous step to complete.
   - Run based on the value of a variable expression.
-
 10. Save the step.
 
 ## Assigning Manual Interventions

@@ -39,7 +39,7 @@ public class PressAnyKey {
 
 In order to deploy the application with Octopus Deploy it must be compiled and packaged. This would usually be done by your build server but for the sake of this demonstration let's do it manually.
 
-1. Compile the application
+1. Compile the application:
 
 ```powershell
 javac PressAnyKey.java
@@ -49,10 +49,10 @@ javac PressAnyKey.java
 
 ### Step 2: Create the Project and Deployment Process {#DeployingJavaapplications-Step2:Createtheprojectanddeploymentprocess}
 
-1. Create a new project called "Press Any Key"
-2. Add a "Deploy a package" step to the deployment process
-3. Configure the step to deploy the package `PressAnyKey.1.0.0.zip`
-4. Configure the step to run a [post-deployment script](/docs/deployment-examples/custom-scripts/index.md) to start the application
+1. Create a new project called **Press Any Key**.
+2. Add a **Deploy a package** step to the deployment process.
+3. Configure the step to deploy the package `PressAnyKey.1.0.0.zip`.
+4. Configure the step to run a [post-deployment script](/docs/deployment-examples/custom-scripts/index.md) to start the application.
 
 **PowerShell**
 
@@ -74,7 +74,7 @@ The application must be launched in a new process or session so that control ret
 
 ### Step 3: Deploy {#DeployingJavaapplications-Step3:Deploy}
 
-Create a release and deploy!
+Create a release and deploy.
 
 The application will be running on the target machine:
 

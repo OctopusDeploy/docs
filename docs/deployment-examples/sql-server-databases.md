@@ -113,25 +113,25 @@ Security Admins should be treated the same as System Admins, as they can grant p
 
 If granting that level of access is not workable or allowed we would recommend the following.  It requires SQL Users to be manually created and the database to already exist.  The process can add existing users to databases as well as deploy everything.
 
-- Database Permissions
+- Database Permissions:
     - db_ddladmin -> can run any Data Definition Language (DDL) command in a database.
-    - db_datareader -> can read all the data from all user tables
-    - db_datawriter -> can add, delete, or change data from all user tables
-    - db_backupoperator -> can backup the database
-    - db_securityadmin -> modify role membership and manage permissions
-    - db_accessadmin -> can add or remove access to the database for logins
-    - Can View Any Definition
+    - db_datareader -> can read all the data from all user tables.
+    - db_datawriter -> can add, delete, or change data from all user tables.
+    - db_backupoperator -> can backup the database.
+    - db_securityadmin -> modify role membership and manage permissions.
+    - db_accessadmin -> can add or remove access to the database for logins.
+    - Can View Any Definition.
 
 ### Manual User Creation Both Server and Database Permission Recommendation {#SQLServerdatabases-ManualUserPermissions}
 
 Here is the most restrictive permissions for automating database deployments.  No new database users can be created.  No new schemas can be created.  Users cannot be added to roles.  Table and stored procedure changes can be made.
 
-- Database Permissions
+- Database Permissions:
     - db_ddladmin -> can run any Data Definition Language (DDL) command in a database.
-    - db_datareader -> can read all the data from all user tables
-    - db_datawriter -> can add, delete, or change data from all user tables
-    - db_backupoperator -> can backup the database
-    - Can View Any Definition
+    - db_datareader -> can read all the data from all user tables.
+    - db_datawriter -> can add, delete, or change data from all user tables.
+    - db_backupoperator -> can backup the database.
+    - Can View Any Definition.
 
 ## Third Party Tools {#SQLServerdatabases-Thirdpartytools}
 

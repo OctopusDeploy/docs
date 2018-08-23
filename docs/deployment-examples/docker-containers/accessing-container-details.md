@@ -12,13 +12,13 @@ To allow access to this information Octopus invokes this command right after cre
 **Inspection timing and relevance**
 Keep in mind when using the results of Octopus Deploy's automatic inspection that this is **invoked just after the resource is created**. This means that
 
-1. If your container immediately exits then some information such as the IP address used may be out of date
+1. If your container immediately exits then some information such as the IP address used may be out of date.
 2. If your container state changes *after* this point in time, such as a new network or volume is attached, then the information may be out of date.
 :::
 
 :::success
 **Advanced JSON parsing in variables**
-With the [changes to Octostache introduced in **Octopus 3.5**](https://octofront.com/content/blog/octostache-json-formatting), a variable that is a JSON object can now be [parsed natively](/docs/deployment-process/variables/variable-substitution-syntax.md) and sub properties within the document can now be used for general variable substitution. This makes accessing information about your container from subsequent steps trivial.
+With the [changes to Octostache introduced in Octopus 3.5](https://octofront.com/content/blog/octostache-json-formatting), a variable that is a JSON object can now be [parsed natively](/docs/deployment-process/variables/variable-substitution-syntax.md) and sub properties within the document can now be used for general variable substitution. This makes accessing information about your container from subsequent steps trivial.
 :::
 
 ## Common Examples {#AccessingContainerDetails-Commonexamples}

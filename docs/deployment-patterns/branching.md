@@ -117,9 +117,9 @@ A final branching strategy that we see is to use a branch per environment that g
 
 We do not like or recommend this strategy, as it violates the principle of [Build your Binaries Once](http://octopusdeploy.com/blog/build-your-binaries-once).
 
-- The code that will eventually run in production may not match 100% the code run during testing
-- It's easy for a merge to go wrong and result in different code than you expected running in production
-- Packages have to be rebuilt, and different dependencies might be used
+- The code that will eventually run in production may not match 100% the code run during testing.
+- It's easy for a merge to go wrong and result in different code than you expected running in production.
+- Packages have to be rebuilt, and different dependencies might be used.
 
 You can make this work in Octopus, by creating a package for each environment and pushing them to environment-specific [feeds](/docs/packaging-applications/package-repositories/index.md), and then binding the NuGet feed selector in your package steps to an environment-scoped variable:
 

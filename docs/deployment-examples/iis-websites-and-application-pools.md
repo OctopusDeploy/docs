@@ -37,8 +37,8 @@ You need to fill out the following fields for an IIS Web Site deployment:
 :::success
 The IIS Virtual Directory step requires a parent Web Site to exist in IIS before it runs. You can create a chain of steps like this:
 
-1. Make sure the parent Web Site exists in IIS and is configured correctly
-2. Create any number of Web Applications and Virtual Directories as children of the parent Web Site
+1. Make sure the parent Web Site exists in IIS and is configured correctly.
+2. Create any number of Web Applications and Virtual Directories as children of the parent Web Site.
   :::
 
 You need to fill out the following fields for an IIS Virtual Directory deployment:
@@ -77,7 +77,7 @@ The Virtual Path and Physical Path do not need to match which is one of the true
 | **.NET CLR version**      | The version of the .NET Common Language Runtime this Application Pool will use. | `v2.0`, `v4.0`                           | Choose v2.0 for applications built against .NET 2.0, 3.0 or 3.5. Choose v4.0 for .NET 4.0 or 4.5. |
 | **Identity**              | Which account the Application Pool will run under. | `Application Pool Identity`, `Local Service`, `Local System`, `Network Service`, `Custom user (you specify the username/password)` |                                          |
 
-## How Octopus Deploys your Web Site {#IISWebsitesandApplicationPools-HowOctopusDeploysyourWebSite}
+## How Octopus Deploys Your Web Site {#IISWebsitesandApplicationPools-HowOctopusDeploysyourWebSite}
 
 Out of the box, Octopus will do the right thing to deploy your Web Site using IIS, and the conventions we have chosen will eliminate a lot of problems with file locks, leaving stale files behind, and causing multiple Application Pool restarts. By default Octopus will follow the conventions described in [Deploying packages](/docs/deployment-examples/deploying-packages/index.md) and apply the different features you select in the order described in [Package deployment feature ordering](/docs/deployment-examples/deploying-packages/package-deployment-feature-ordering.md).
 
@@ -107,9 +107,7 @@ This five minute video demonstrates how Octopus can be used to deploy an ASP.NET
 
 ## How to Take Your Website Offline During Deployment
 
-A IIS Website can be taken offline by placing a `app_offline.htm` file into the root directory of the website. The contents of
-that file will be shown to anyone accessing the site. This is useful if you do not want to users to access the site while
-the deployment is being performed. It recycles the App Pool, releasing any file locks the site may have.
+A IIS Website can be taken offline by placing a `app_offline.htm` file into the root directory of the website. The contents of that file will be shown to anyone accessing the site. This is useful if you do not want to users to access the site while the deployment is being performed. It recycles the App Pool, releasing any file locks the site may have.
 
 This can be done by including an `app_online.htm` file in your website and then renaming it to `app_offline.htm` at the
 start of the deployment. This can be done via a script or the `IIS - Change App Offline` step in the

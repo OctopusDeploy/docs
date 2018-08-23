@@ -32,7 +32,7 @@ Octopus is built to make it easy to deploy .NET applications, and contains a num
 ## How Packages are Deployed
 
 1. Acquire the package as optimally as possible (local package cache and [delta compression](/docs/deployment-examples/deploying-packages/delta-compression-for-package-transfers.md)).
-1. Create a new folder for the deployment (which avoids many common problems like file locks and leaving stale files behind).
+1. Create a new folder for the deployment (which avoids many common problems like file locks and leaving stale files behind):
     - Example: `C:\Octopus\Applications\[Tenant name]\[Environment name]\[Package name]\[Package version]\` where `C:\Octopus\Applications` is the Tentacle application directory you configured when installing Tentacle).
 1. Extract the package into the newly created folder.
 1. Execute each of your [custom scripts](/docs/deployment-examples/custom-scripts/index.md) and the [deployment features](/docs/deployment-examples/index.md) you've configured will be executed to perform the deployment [following this order by convention](/docs/deployment-examples/deploying-packages/package-deployment-feature-ordering.md).

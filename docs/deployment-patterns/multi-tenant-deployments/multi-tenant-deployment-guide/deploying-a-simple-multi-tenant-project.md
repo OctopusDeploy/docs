@@ -44,7 +44,7 @@ Now your tenant is connected to the **Mojo** project you can start deploying re
 
 1. Navigate to the **Mojo** project and create a new release, which by default will be called **0.0.1**.
 2. Click the **Deploy to MT Production** button so we can start the deployment process.
-3. Select the **Deploy to one or more tenants** radio button option. *This indicates you want to perform a "tenanted deployment" instead of an "untenanted deployment" - we will discuss this option a little later.*
+3. Select the **Deploy to one or more tenants** radio button option. This indicates you want to perform a **tenanted deployment** instead of an **untenanted deployment** - we will discuss this option a little later.
 4. Select your tenant by finding them in the tenant selector and click **Deploy now**.
 
 ![](deploying-a-simple-multi-tenant-project-5865649.png "width=300")

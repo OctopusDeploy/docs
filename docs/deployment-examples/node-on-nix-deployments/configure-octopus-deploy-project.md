@@ -20,7 +20,7 @@ The name of the environment is important because we will use it as a variable in
 For the purpose of this guide we will only use the one deployment environment but there are several other pages in the documentation which explain the benefits of leveraging [environments](/docs/infrastructure/environments/index.md) and [lifecycles](/docs/deployment-process/lifecycles/index.md) to create advanced deployment processes.
 :::
 
-## Configure Account & Target {#ConfigureOctopusDeployProject-ConfigureAccount&amp;Target}
+## Configure Account and Target {#ConfigureOctopusDeployProject-ConfigureAccount&amp;Target}
 
 To connect over SSH the first thing you will need to do is add the credentials for your machine. If you followed the previous  "[Configuring Target Machine](/docs/deployment-examples/node-on-nix-deployments/configuring-target-machine.md)" step this should consist of a username and password pair.
 
@@ -39,7 +39,7 @@ Further details are provided throughout the rest of this documentation about [SS
 The next step is to create a project that will extract the package.
 
 - Navigate to the Projects page via {{Projects,All}} and then click the *Add Project* button.
-- Give the new project an appropriate name and once saved, go to the project's *Process*page and click {{Add Step,Deploy a Package}}.
+- Give the new project an appropriate name and once saved, go to the project's *Process* page and click {{Add Step,Deploy a Package}}.
     * Ensure that the target role matches that which was assigned to the machine in the previous step and select *octofxjs* as the Package ID. This Package ID is derived from the first section of the package that was previously uploaded (see *Package Metadata* section of the [Supported Packages](/docs/packaging-applications/supported-packages.md) documentation for mode details).
 
 ![](/docs/images/3049555/3278590.png "width=500")
@@ -47,9 +47,9 @@ The next step is to create a project that will extract the package.
 ### Variable Substitution {#ConfigureOctopusDeployProject-VariableSubstitution}
 
 - Click the *Configure features* link at the bottom of the step.
-- Disable the two configuration steps that are already selected
+- Disable the two configuration steps that are already selected.
 - Enable the *Substitute variables in files* feature.
-- Enter `config/config.#{Octopus.Environment.Name}.js` as the substitution target file
+- Enter `config/config.#{Octopus.Environment.Name}.js` as the substitution target file.
 
 ![](/docs/images/3049555/3278589.png "width=500")
 
