@@ -10,10 +10,10 @@ The guide demonstrates how to perform a VIP swap when deploying to Azure Cloud S
 **VIP swaps enable Blue/Green Deployments**
 VIP swap is a great way for you to implement [Blue-green deployments](/docs/deployment-patterns/blue-green-deployments/index.md) using Azure Cloud Services and Octopus Deploy. The typical process is to:
 
-1. Deploy a fully configured application into the "staging" slot in Azure
-2. Run manual/automated tests on your "staging" slot
+1. Deploy a fully configured application into the "staging" slot in Azure.
+2. Run manual/automated tests on your "staging" slot.
 3. Perform a VIP swap, which simply swaps the "staging" and "production" slots over, resulting in your newly deployed application moving into the "production" slot and beginning to accept requests, and your previous production instance being moved down into the "staging" slot, at which point you can:
-    * Delete the "staging" slot to free up resources/costs
+    * Delete the "staging" slot to free up resources/costs.
     * Keep the previous version in "staging" in case you want to roll back - which is as easy as performing another VIP swap.
 :::
 

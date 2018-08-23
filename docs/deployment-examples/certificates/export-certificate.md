@@ -1,7 +1,7 @@
 ---
 title: Export a Certificate
 description: Export a certificate managed by Octopus as a selected file-format
-position: 5 
+position: 5
 ---
 
 Certificates can be downloaded via the Octopus Portal.  The certificate may be exported in any of the [supported file-formats](/docs/deployment-examples/certificates/file-formats.md), or exactly as it was originally uploaded.

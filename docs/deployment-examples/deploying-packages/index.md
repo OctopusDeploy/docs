@@ -8,7 +8,7 @@ When defining your [deployment process](/docs/deployment-examples/index.md), the
 
 ## Adding a Package Step
 
-When adding a step to your deployment process, choose the **Deploy a Package** option. For more information, see the [add step](/docs/deployment-process/steps/index.md) section.
+When adding a step to your deployment process, choose the **Deploy a Package** option. For more information, see the [add step](/docs/deployment-process/steps/index.md) section:
 
 ![](/docs/images/5671696/5865908.png "width=170")
 

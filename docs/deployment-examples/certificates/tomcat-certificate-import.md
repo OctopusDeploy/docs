@@ -76,15 +76,15 @@ There must always be a default certificate. If the certificate being deployed is
 
 A number of optional settings around how the certificate is created are defined in the `Tomcat Certificate Options` section. These options differ depending on the SSL implementation that was selected.
 
-The JSSE SSL implementations of BIO, NIO and NIO2 rely on a Java keystore file. The APR implementation uses a certificate file and a PEM private key file.
+The JSSE SSL implementations of BIO, NIO and NIO2 rely on a Java KeyStore file. The APR implementation uses a certificate file and a PEM private key file.
 
-#### Java Keystore Options
+#### Java KeyStore Options
 
-When no `Private key password` is defined, the Java keystore will have the default password of `changeit`. This is the default password specified by Tomcat. If a password is defined then that password will be used to secure the Java keystore and included in the Tomcat configuration.
+When no `Private key password` is defined, the Java KeyStore will have the default password of `changeit`. This is the default password specified by Tomcat. If a password is defined then that password will be used to secure the Java KeyStore and included in the Tomcat configuration.
 
-The `Keystore filename` field can be used to define the location of the keystore created as part of the step. If left blank, the keystore file will be created with a unique filename in the `CATALINA_BASE/conf` directory, and the filename will be based on the certificate subject. If specified, a keystore will be created at the specified location, overwriting any existing file. Any value entered for the filename must be an absolute path.
+The `KeyStore filename` field can be used to define the location of the KeyStore created as part of the step. If left blank, the KeyStore file will be created with a unique filename in the `CATALINA_BASE/conf` directory, and the filename will be based on the certificate subject. If specified, a KeyStore will be created at the specified location, overwriting any existing file. Any value entered for the filename must be an absolute path.
 
-The `Keystore alias` field defines the alias under which the certificate will be saved. If not defined, it will default to the alias of `octopus`.
+The `KeyStore alias` field defines the alias under which the certificate will be saved. If not defined, it will default to the alias of `octopus`.
 
 #### Certificate and PEM File Options
 

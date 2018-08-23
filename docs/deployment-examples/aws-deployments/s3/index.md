@@ -94,7 +94,7 @@ The canned ACL must be specified when uploading files as it dictates the permiss
 The storage class for files specify the performance access requirements for a file.
 Please see the [AWS documentation](https://g.octopushq.com/AwsS3StorageClasses) for more information regarding Storage classes.
 
-### Upload behavior
+### Upload Behavior
 Uploads are skipped if the content hash is the same as an existing object in the target bucket. This is done to avoid unnecessary uploads and may require special care to be taken when using custom bucket
 keys.
 

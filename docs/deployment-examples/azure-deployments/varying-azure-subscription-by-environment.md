@@ -11,7 +11,7 @@ You may want to use a different Azure subscription depending on which environmen
 
    ![Account Id](varying-account-id.png "width=500")
    ​    
-   The Account ID is the value after the last `/` in the Url.
+   The Account ID is the value after the last `/` in the URL.
 
 2. Create a variable in your project and set the Account ID or Account Name as its value. Make sure to scope this variable to the Environment/Role/Target where you'll be using it.
 

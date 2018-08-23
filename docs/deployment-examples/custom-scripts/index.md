@@ -146,7 +146,7 @@ We [fixed an issue](https://github.com/OctopusDeploy/Issues/issues/2329) which w
 ## Passing Parameters to Scripts {#Customscripts-Passingparameterstoscripts}
 
 :::hint
-Script parameters are available in Octopus `3.3.21` or newer. You can use script parameters for file-based scripts that are sourced from a package.
+Script parameters are available in **Octopus 3.3.21** or newer. You can use script parameters for file-based scripts that are sourced from a package.
 :::
 
 Octopus can pass parameters to your custom script files for any of the supported scripting languages. This means you can use existing scripts, or write and test your own parameterized scripts that have no knowledge of Octopus, passing Octopus Variables directly to your scripts as parameters. The Octopus scripting API is still available within the context of your script, meaning you can use a mixture of parameters and other Octopus variables and functions.

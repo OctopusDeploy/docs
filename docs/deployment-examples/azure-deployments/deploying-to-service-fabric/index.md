@@ -23,7 +23,7 @@ Octopus Deploy provides first-class support for [deploying Service Fabric applic
 
 ### Service Fabric PowerShell Scripts
 
-Octopus Deploy provides a convenient step for [executing PowerShell scripts using the Service Fabric SDK cmdlets](/docs/deployment-examples/custom-scripts/service-fabric-powershell-scripts.md)
+Octopus Deploy provides a convenient step for [executing PowerShell scripts using the Service Fabric SDK cmdlets](/docs/deployment-examples/custom-scripts/service-fabric-powershell-scripts.md).
 
 ### Security Modes
 
