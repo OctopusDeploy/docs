@@ -4,19 +4,13 @@ description: Channels allow you to dynamically change the deployment logic and l
 position: 40
 ---
 
-Channels in Octopus give you control over how different versions of your software are [released](/docs/deployment-process/releases/index.md) across your [environments](/docs/infrastructure/environments/index.md), without the need to [clone projects](/docs/deployment-process/projects/index.md#clone-a-project) or duplicate work across multiple [projects](/docs/deployment-process/projects/index.md).
+As you deploy your software, you can assign [releases](/docs/deployment-process/releases/index.md) of projects to specific channels. This is useful when you want releases of a project to be treated differently depending on the criteria you've set. Without channels, you could find yourself duplicating projects in order to implement multiple release strategies, and then trying to manage multiple duplicated projects. Channels let's you keep one project, with multiple release strategies.
 
-Promoting your software across your different environments is a standard part of the [deployment process](/docs/deployment-process/index.md) in Octopus, and you don't need Channels to achieve it. Every project has a default channel that is used when you create [releases](/docs/deployment-process/releases/index.md), but if you don't need multiple channels, the default channel can be left in its default state.
+Channels can be useful in the following scenarios:
 
-The Channels feature has been designed to give you more control and options when you need more than a single release strategy for a project. For instance, Channels let you use different  [lifecycles](/docs/deployment-process/lifecycles/index.md) to control which versions of your software go to which environments and can be useful in the following scenarios:
-
-- New versions of the software are released automatically to dev environments, promoted to test environments, and finally released to production environments.
-- Different customers are on different versions of your software and you want to provide patches to each version, for instance, `version 1` and `version 2`.
-- Feature branches are deployed to test environments but not production.
-- Experimental branches are released to development environments but never released to test or production.
+- Feature branches (or experimental branches) are deployed to test environments but not production.
 - Early access versions of the software are released to members of your early access program.
-- Hot-fixes are deployed straight to production.
-- You need to update you deployment process without interrupting production releases.
+- Hot-fixes are deployed straight to production and then deployed through the rest of your infrastructure after the fix has been released.
 
 When you are implementing a deployment process that uses channels you can scope the following to specific channels:
 
