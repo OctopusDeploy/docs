@@ -292,11 +292,11 @@ From: $15.00
 Sizes: [{size: "small", price: 15.00}, {size: "large", price: 20.00}]
 ```
 
-There are a few things to note here.
+There are a few things to note here:
 
 - The *Name* property is extracted from the JSON using either dot-notation or indexing.
-- Providing an explicit project variable overrides one obtained by walking through the JSON
-- Arrays can be accessed using standard numerical index notation
+- Providing an explicit project variable overrides one obtained by walking through the JSON.
+- Arrays can be accessed using standard numerical index notation.
 - Variables can map to a sub-section of the JSON variable.
 
 #### Repetition Over JSON {#VariableSubstitutionSyntax-RepetitionoverJSON}

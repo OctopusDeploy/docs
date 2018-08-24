@@ -1,5 +1,5 @@
 ---
-title: Send a secret to Octopus
+title: Send a Secret to Octopus
 description: How to send sensitive information to Octopus support.
 position: 16
 ---
@@ -16,7 +16,7 @@ EWF2hlbGxvQG9jdG9wdXNkZXBsb3kuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDD532q7w
 hLKKIlJgb5g5dcwIDAQABo4H6MIH3MB0GA1UdDgQWBBRYd4/ytF84FZVaSVHfhPb0Z/EYZzCBxwYDVR0jBIG/MIG8gBRYd4/ytF84FZVaSVHfhPb0Z/EYZ6GBmKSBlTCBkjELMAkGA1UEBhMCQVUxDDAKBgNVBAgTA1FMRDERMA8GA1UEBxMIQnJpc2JhbmUxITAfBgNVBAoTGE9jdG9wdXMgRGVwbG95IFB0
 eS4gTHRkLjEXMBUGA1UEAxMOT2N0b3B1cyBEZXBsb3kxJjAkBgkqhkiG9w0BCQEWF2hlbGxvQG9jdG9wdXNkZXBsb3kuY29tggkArnIUeafGtjEwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOBgQAcEMAykQaazLd2ZewE7d+0PeIWv/YlZMIDeg5LF1/UtKMMCaaspN7rNA1lUPfjK/ofWh43s4R0J
 tjlbuEtZr+HKmOGzr+wbMCRIggbu2j3GEcC5i7zeoa85olokubwO1QDVZVaELWyXnDZl1UoJ9VyGsV5pEAE571XS9oTUyUssQ=="
- 
+
 function Encrypt-ForOctopusEyesOnly($secretMessage) {
     $certBytes = [System.Convert]::FromBase64String($octopusPublicKey)
     $x = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @(,$certBytes)
@@ -26,7 +26,7 @@ function Encrypt-ForOctopusEyesOnly($secretMessage) {
     $encryptedText = [System.Convert]::ToBase64String($encryptedBytes)
     return $encryptedText
 }
- 
+
 $encryptedSecret = Encrypt-ForOctopusEyesOnly $yourSecret
 Write-Host $encryptedSecret
 ```

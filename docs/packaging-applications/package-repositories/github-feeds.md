@@ -14,7 +14,7 @@ When searching for a package, either through the package selector on a deploymen
 ## Auth
 As of **Octopus 2018.3.0** only the following authentication methods are supported.
 * Anonymous: Under this configuration the username and password fields can be left blank. There are lower request throttle limits when using anonymous authentication so it is generally not recommended.
-* Username/Password
+* Username/Password.
 * OAuth2 Token: [Personal access tokens](https://github.com/blog/1509-personal-api-tokens) can be used instead of your password.
 
 If you’re attempting to configure access for your organization, and you would prefer not to use the auth token from a particular user, you can create what GitHub refers to as a [Machine User](https://developer.github.com/v3/guides/managing-deploy-keys/#machine-users). This is effectively a GitHub account configured exclusively for automation.
@@ -24,14 +24,14 @@ Create a GitHub package feed through {{Library,External feeds}}. You can add as 
 
 In most cases the `FeedUri` that you will need to provide is the standard public GitHub endpoint `https://api.github.com`. You would only need to provide a different url if you have self hosted GitHub Enterprise (in which case you would provide `https://my-github-repo.com/api/v3`) or if you access GitHub via a proxy.
 
-For authorization, it is recommended that you create a [Personal access tokens](https://github.com/blog/1509-personal-api-tokens) for your account and use this token as the password. Tokens can be created for your GitHub account by logging in to GitHub and navigating to  {{Settings,Developer Settings,Personal access tokens}} and click `Generate new token`.
+For authorization, it is recommended that you create a [Personal access tokens](https://github.com/blog/1509-personal-api-tokens) for your account and use this token as the password. Tokens can be created for your GitHub account by logging in to GitHub and navigating to  {{Settings,Developer Settings,Personal access tokens}} and click **Generate new token**.
 ![GitHub Personal Access Token](GitHub-PersonalAccessToken1.png)
 ![GitHub Personal Access Token](GitHub-PersonalAccessToken2.png)
-Give the token a meaningful name and enable the `repo` scope if you want to be able to access private repositories from Octopus Deploy.
+Give the token a meaningful name and enable the **repo** scope if you want to be able to access private repositories from Octopus Deploy.
 
 Copy the token that is generated and use this value as the password for the GitHub feed in Octopus Deploy.
 
-## Using GitHub as a package feed
+## Using GitHub as a Package Feed
 1. Add your GitHub feed as described above.
 2. In the console of your git repository which has a GitHub remote link, create a tag with a SemVer 2.0 compliant version and push this tag to GitHub.
 
@@ -53,5 +53,5 @@ If Octopus can link a particular version (which in the context of GitHub feeds r
 
 5. When the release is deployed and the [package acquisition](/docs/deployment-examples/deploying-packages/stage-package-uploads.md) process begins, Octopus will pull down a copy of the repository based on the commit linked to the tag selected as the package version. This artifact is then treated as a zip and is deployed using the standard package deployment rules that applied previously.
 
-## Deployments without a build
-This new GitHub feed support is a perfect addition to support your CI processes where a build process to create a package would be unnecessary. It could be a repository that contains just a bunch of scripts or cloud provisioning templates that you want Octopus to execute but that you would prefer to be in source control and where a build process makes no sense. Perhaps you have a simple nodejs project that you just want to deploy directly from your source control without the ceremony of a build and package step. In this case you may want to invoke `npm install` in a [post-deploy script](/docs/deployment-examples/custom-scripts/index.md#Customscripts-ScriptsinPackagesscripts-in-packages).
+## Deployments Without a Build
+This new GitHub feed support is a perfect addition to support your CI processes where a build process to create a package would be unnecessary. It could be a repository that contains just a bunch of scripts or cloud provisioning templates that you want Octopus to execute but that you would prefer to be in source control and where a build process makes no sense. Perhaps you have a simple Node.js project that you just want to deploy directly from your source control without the ceremony of a build and package step. In this case you may want to invoke `npm install` in a [post-deploy script](/docs/deployment-examples/custom-scripts/index.md#Customscripts-ScriptsinPackagesscripts-in-packages).

@@ -80,9 +80,9 @@ Consider again our example of an auto-scaling farm of servers - when the pool sc
 
 Based on the example of adding nodes to a pool of web servers, when a deployment target with the **TradingWebServer** role is added to the **Production** environment in Octopus, the deployment process will:
 
-- Include any "unscoped" steps (unscoped steps are run regardless of the target environment)
-- Include any steps targeting the **TradingWebServer** role
-- Include any steps scoped to the **Production** environment
+- Include any "unscoped" steps (unscoped steps are run regardless of the target environment).
+- Include any steps targeting the **TradingWebServer** role.
+- Include any steps scoped to the **Production** environment.
 - Exclude any steps that were skipped as part of the currently successful deployment (if they were skipped in the original deployment they should be skipped in the automatic deployments) - *see the following sections for more details*.
 
 This should mimic the deployment process that was already run for all of the deployment target's counterparts.
@@ -120,8 +120,8 @@ Those steps will be skipped in automatic deployments as well. This decision is b
 **Resetting skipped steps**
 We generally recommend running full deployments, and only skipping steps and/or choosing specific deployment targets when absolutely necessary. If you need to run a deployment choosing to skip some steps, there are two ways you can reset the skipped steps:
 
-1. Re-running the entire deployment of the same Release again (we generally recommend designing your steps so they can be re-run without negative side-effects)
-2. Configuring an [Auto Deploy Override](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/index.md) for the same Release to the same Environment/Tenant (this will result in a new deployment being generated without the manually skipped steps)
+1. Re-running the entire deployment of the same Release again (we generally recommend designing your steps so they can be re-run without negative side-effects).
+2. Configuring an [Auto Deploy Override](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/index.md) for the same Release to the same Environment/Tenant (this will result in a new deployment being generated without the manually skipped steps).
 
 In most cases configuring the Auto Deploy Override will work best.
 
@@ -131,8 +131,8 @@ If a deployment of a release to an environment fails for any reason (including c
 
 To unblock automatic deployments you can either:
 
-1. Perform a successful manual deployment so the current deployment on the dashboard is successful
-2. Configure an [Auto Deploy Override](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/index.md) to override the default behavior and force a deployment of the selected release
+1. Perform a successful manual deployment so the current deployment on the dashboard is successful.
+2. Configure an [Auto Deploy Override](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/index.md) to override the default behavior and force a deployment of the selected release.
 
 :::success
 You can be notified when this situation occurs, or use web hooks to code your own recovery actions - see [Subscriptions](/docs/administration/subscriptions/index.md) for more details.

@@ -14,7 +14,7 @@ Deployments can only be scheduled up to 14 days in advance. Simply choose a date
 
 ![](/docs/images/3048078/5866224.png "width=500")
 
-As of Octopus Server version 3.7.13 you may select a time after which the deployment will time out (prior to 3.7.13 this was always 30 minutes after the scheduled start date).  If the Octopus Server can not process the scheduled deployment between the scheduled start time and the expiry time it will cancel the deployment and mark it as timed out.
+As of **Octopus 3.7.13** you may select a time after which the deployment will time out (prior to **Octopus 3.7.13** this was always 30 minutes after the scheduled start date).  If the Octopus Server can not process the scheduled deployment between the scheduled start time and the expiry time it will cancel the deployment and mark it as timed out.
 
 The deployment then becomes queued to run at the time that has been selected.
 

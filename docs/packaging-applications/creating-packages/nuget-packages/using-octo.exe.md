@@ -10,7 +10,7 @@ Octo is the preferred method when packaging .NET Core applications or applicatio
  **Octo** is our API command line tool that allows you to interact with your Octopus Deploy server using different **commands**, one of which is the **pack** command which can turn any ordinary folder into a NuGet or Zip package - plain and simple. The [Octo Command Line](/docs/api-and-integration/octo.exe-command-line/index.md) page will show you how to get the API command line tool installed and ready to use. All examples on this page however, assume that you are using the portable version of
  octo installed as a global tool which makes it available through the dotnet cli.
 
-In **Octo version 3.3.8** we have expanded the functionality of the `pack` command to allow creating **zip** packages in addition to **NuGet** packages. [Learn more](/docs/packaging-applications/creating-packages/creating-zip-packages.md).
+In **Octo 3.3.8** we have expanded the functionality of the `pack` command to allow creating **zip** packages in addition to **NuGet** packages. [Learn more](/docs/packaging-applications/creating-packages/creating-zip-packages.md).
 
 ## Octo Basic Usage
 At a minimum `octo pack` requires an id to be provided:
@@ -74,7 +74,7 @@ You can get help with the pack command parameters by executing the pack command 
 C:\> dotnet octo pack --help
 ```
 
-The output will explain how to use the command and the different parameters that can be passed to the command
+The output will explain how to use the command and the different parameters that can be passed to the command:
 
 ```powershell
 C:\> dotnet octo help pack

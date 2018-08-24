@@ -43,7 +43,7 @@ Suppose you have this `web.config` or `MyApp.exe.config` file in your package wh
 </configuration>
 ```
 
-1. Create the variables in Octopus. From the [project](/docs/deployment-process/projects/index.md) overview page, click **Variables**.
+1. Create the variables in Octopus. From the [project](/docs/deployment-process/projects/index.md) overview page, click **Variables**:
   - Enter a the name for the variable, for instance, `AWSAccessKey`. **This name must match the key in your configuration file.**
   - Enter the value for the variable, for instance, `ABCDEFG`.
   - Scope the variable to the environment, for instance, `Test`.

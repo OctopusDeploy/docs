@@ -15,7 +15,7 @@ You can perform very complex transformations in any kind of file using this feat
 
 The following example shows you how to use the Substitute Variables in Files feature to provide a different login form to the different environments you're deploying to, in this example we're deploying to a **Test** and **Production** environment.
 
-1. Create the login variable in Octopus. From the [project](/docs/deployment-process/projects/index.md) overview page, click **Variables**.
+1. Create the login variable in Octopus. From the: [project](/docs/deployment-process/projects/index.md) overview page, click **Variables**.
   - Enter a the name for the variable, for instance, *LoginURL*.
   - Enter the value for the variable, for instance, *https://test.example.com/login*.
   - Scope the variable to the environment, for instance, *Test*.
@@ -43,7 +43,7 @@ The following example shows you how to use the Substitute Variables in Files fea
 
 When you return to your deployment process, you will see the **Substitute Variables in Files** option has been added to the **Features** section of the deployment process.
 
-7. Add the [step](/docs/deployment-process/steps/index.md) details.
+7. Add the [step](/docs/deployment-process/steps/index.md) details:
   - Enter a name for the step.
   - Select the targets where the step should run.
   - Select the [package feed](/docs/packaging-applications/package-repositories/index.md) where the [package](/docs/packaging-applications/index.md) will be available.
@@ -101,5 +101,5 @@ environment.name=PROD
 ```
 
 :::hint
-The Spring expression language also uses the `#{}` syntax so you need to double encode any non-Octopus variables. i.e. `##{MyVariable}`
+The Spring expression language also uses the `#{}` syntax so you need to double encode any non-Octopus variables. i.e. `##{MyVariable}`.
 :::

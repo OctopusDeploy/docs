@@ -1,12 +1,12 @@
 ---
-title: Get the raw output from a deployment process
+title: Get the Raw Output From a Deployment Process
 description: How to get the raw output from a deployment process to help the Octopus team resolve deployment related issues.
 position: 1
 ---
 
 When you contact Octopus Deploy support with a deployment related issue, we'll sometimes ask you to send the full deployment process, so that we can understand what went wrong. This page explains how to capture this information.
 
-## Step-by-step guide
+## Step-by-step Guide
 
 1. Navigate to the deployment process screen.  
 

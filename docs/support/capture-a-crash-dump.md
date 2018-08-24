@@ -1,5 +1,5 @@
 ---
-title: Capture a crash dump
+title: Capture a Crash Dump
 description: How to capture a crash dump to help the Octopus team diagnose problems when something unexpected happens.
 position: 13
 ---

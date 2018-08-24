@@ -26,21 +26,21 @@ A deployment will be initiated which adds the extension to your virtual machine.
 
 The settings for the extension are:
 
-`Octopus Server URL`: URL to your Octopus Deploy Server. You'll need your own Octopus Server (possibly also running on Azure), and you should [consider using HTTPS](/docs/administration/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md). The extension will use the [Octopus REST API](/docs/api-and-integration/api/index.md) against this URL to register the machine.
+**Octopus Server URL**: URL to your Octopus Deploy Server. You'll need your own Octopus Server (possibly also running on Azure), and you should [consider using HTTPS](/docs/administration/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md). The extension will use the [Octopus REST API](/docs/api-and-integration/api/index.md) against this URL to register the machine.
 
-`API Key`: [Your API key](/docs/api-and-integration/api/how-to-create-an-api-key.md). This key will only be used when registering the machine with the Octopus Server; it isn't used for [subsequent communication](/docs/administration/security/octopus-tentacle-communication/index.md).
+**API Key**: [Your API key](/docs/api-and-integration/api/how-to-create-an-api-key.md). This key will only be used when registering the machine with the Octopus Server; it isn't used for [subsequent communication](/docs/administration/security/octopus-tentacle-communication/index.md).
 
-`Environments`: The name of the [environment](/docs/infrastructure/environments/index.md) to add the machine to. You can specify more than one by using commas; for example: `UAT1,UAT2`
+**Environments**: The name of the [environment](/docs/infrastructure/environments/index.md) to add the machine to. You can specify more than one by using commas; for example: `UAT1,UAT2`.
 
-`Roles`: The roles to give to the machine. Again, separate them using commas for more than one, for example: `web-server,app-server`
+**Roles**: The roles to give to the machine. Again, separate them using commas for more than one, for example: `web-server,app-server`.
 
-`Communication Mode`: How the Tentacle will communicate with the server - it will either use `Polling` to reach out to the server, or `Listening` to wait for connections from the server.
+**Communication Mode**: How the Tentacle will communicate with the server - it will either use **Polling** to reach out to the server, or **Listening** to wait for connections from the server.
 
-`Port`: The port on which the server should contact the Tentacle (if Tentacle is set to Listen), or the port on which the Tentacle should contact the server (if in Polling mode). in Polling mode, the default value is 10943. In Listening mode, the The default value is 10933.
+**Port**: The port on which the server should contact the Tentacle (if Tentacle is set to Listen), or the port on which the Tentacle should contact the server (if in Polling mode). in Polling mode, the default value is 10943. In Listening mode, the The default value is 10933.
 
-`Public Hostname Configuration`: When in `Listening` mode, you can specify how the Server should address the Tentacle. You can specify `Public IP` to use the public IP address (as returned from <https://api.ipify.org>), `FQDN` to use the fully qualified domain name (useful for Active Directory networks), `ComputerName` to use the local hostname, or `Custom` to specify your own value.
+**Public Hostname Configuration**: When in **Listening** mode, you can specify how the Server should address the Tentacle. You can specify **Public IP** to use the public IP address (as returned from <https://api.ipify.org>), **FQDN** to use the fully qualified domain name (useful for Active Directory networks), **ComputerName** to use the local hostname, or **Custom** to specify your own value.
 
-`Custom Public Hostname`: When in `Listening` mode, and the `Public Hostname Configuration` is set to `Custom`, you can supply the dns name/ip address the Server should use.
+**Custom Public Hostname**: When in **Listening** mode, and the **Public Hostname Configuration** is set to **Custom**, you can supply the dns name/ip address the Server should use.
 
 After entering the extension settings, click **OK**, and the extension will be installed.
 

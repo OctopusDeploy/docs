@@ -63,11 +63,11 @@ When using artifacts from a Maven feed, the [Maven versioning scheme](https://oc
 
 The following qualifiers in the version are used to indicate that it is a pre-release version:
 
-* `alpha` (or the `a` shorthand) e.g. `1.0.0-alpha1` or `1.0.0-a1`
-* `beta` (or the `b` shorthand) e.g. `1.0.0-beta1` or `1.0.0-b1`
-* `milestone` (or the `m` shorthand) e.g. `1.0.0-milestone1` or `1.0.0-m1`
-* `rc` or `cr` e.g. `1.0.0-rc1` or `1.0.0-cr1`
-* `SHAPSHOT` e.g. `1.0.0-SNAPSHOT`
+* `alpha` (or the `a` shorthand) e.g. `1.0.0-alpha1` or `1.0.0-a1`.
+* `beta` (or the `b` shorthand) e.g. `1.0.0-beta1` or `1.0.0-b1`.
+* `milestone` (or the `m` shorthand) e.g. `1.0.0-milestone1` or `1.0.0-m1`.
+* `rc` or `cr` e.g. `1.0.0-rc1` or `1.0.0-cr1`.
+* `SHAPSHOT` e.g. `1.0.0-SNAPSHOT`.
 
 ## Version Ranges with Maven Feeds
 

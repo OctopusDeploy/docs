@@ -4,15 +4,15 @@ description: Using the octo.exe command line tool to create ZIP packages is fast
 position: 2
 ---
 
-In **Octo version 3.3.8** we have expanded the functionality of the `pack` command to allow creating **zip** packages in addition to **NuGet** packages. All examples on this page assumes
+In **Octo 3.3.8** we have expanded the functionality of the `pack` command to allow creating **zip** packages in addition to **NuGet** packages. All examples on this page assumes
 that you have installed octo as a global tool using dotnet core which makes octo available as a command via the dotnet cli. This is our preferred method for installing and working with Octo. You can
 refer to [Octo Command Line Documentation](/docs/api-and-integration/octo.exe-command-line/index.md) for other methods to install Octo.
 
 This page describes how to use `Octo` to create **zip** packages. You could use any zip program or library, but **octo pack** will:
 
-- help you get the filename format correct.
-- ensure file timestamps are retained when extracting which helps with some forms of content delivery networks (CDN) and caching.
-- ensure [delta compression for package transfers](/docs/deployment-examples/deploying-packages/delta-compression-for-package-transfers.md) works as expected.
+- Help you get the filename format correct.
+- Ensure file timestamps are retained when extracting which helps with some forms of content delivery networks (CDN) and caching.
+- Ensure [delta compression for package transfers](/docs/deployment-examples/deploying-packages/delta-compression-for-package-transfers.md) works as expected.
 - Avoid [known issues](/docs/packaging-applications/creating-packages/creating-zip-packages.md) with other compression libraries.
 
 To create a zip package of the application, open a command prompt and change directory to where the application is located.
@@ -21,7 +21,7 @@ To create a zip package of the application, open a command prompt and change dir
 C:\>cd Code\OctoWeb\OctoWeb\OctoWeb\bin
 ```
 
-When creating the zip package, we will call octo with the pack command and give it a package Id and specify the format of package we want to use by adding the `--format` option
+When creating the zip package, we will call octo with the pack command and give it a package Id and specify the format of package we want to use by adding the `--format` option:
 
 ```powershell
 C:\Code\OctoWeb\OctoWeb\OctoWeb\bin>dotnet octo pack --id=OctoWeb --format=zip
@@ -46,7 +46,7 @@ Mode                LastWriteTime     Length Name
 
 ```
 
-If you want to provide your own version, you can pass the --version parameter in the call to Octo
+If you want to provide your own version, you can pass the --version parameter in the call to Octo:
 
 ```powershell
 C:\Code\OctoWeb\OctoWeb\OctoWeb\bin> dotnet octo pack --id=OctoWeb --version=1.0.0.0 --format=zip
@@ -64,7 +64,7 @@ Mode                LastWriteTime     Length Name
 -a---         9/03/2016  12:31 PM   43624075 OctoWeb.1.0.0.0.zip
 ```
 
-Open the created zip package and you should see the package contains all the same files as the output folder of your build
+Open the created zip package and you should see the package contains all the same files as the output folder of your build.
 
 ## Usage {#CreatingZIPpackages-Usage}
 
@@ -76,7 +76,7 @@ To get help with what parameters allow you to do what, display the usage help fo
 C:\> dotnet octo help pack
 ```
 
-Which will explain how to use the command and the different parameters that can be passed to the command
+Which will explain how to use the command and the different parameters that can be passed to the command:
 
 ```powershell
 C:\> dotnet octo help pack
