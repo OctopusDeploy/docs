@@ -5,9 +5,9 @@ position: 8
 version: "[2018.5,)"
 ---
 
-[Azure accounts](/docs/infrastructure/azure/creating-an-azure-account) can be referenced in a project through a project variable of the type `Azure Account`.
+[Azure accounts](/docs/infrastructure/azure/creating-an-azure-account/index.md) can be referenced in a project through a project variable of the type `Azure Account`.
 
-The [Azure PowerShell](/docs/deployment-examples/azure-deployments/running-azure-powershell) step will allow you to bind the account to an **Azure Account** variable, using the [binding syntax](/docs/deployment-process/variables/binding-syntax#Bindingsyntax-Referencingvariablesinstepdefinitions). By using an variable for the account, you can have different accounts used across different environments or regions using [scoping](/docs/deployment-process/variables/binding-syntax#Bindingsyntax-Referencingvariablesinstepdefinitions). 
+The [Azure PowerShell](/docs/deployment-examples/azure-deployments/running-azure-powershell/index.md) step will allow you to bind the account to an **Azure Account** variable, using the [binding syntax](/docs/deployment-process/variables/binding-syntax.md#Bindingsyntax-Referencingvariablesinstepdefinitions). By using an variable for the account, you can have different accounts used across different environments or regions using [scoping](/docs/deployment-process/variables/binding-syntax.md#Bindingsyntax-Referencingvariablesinstepdefinitions). 
 
 ![AWS Account Variable](azure-account-variable.png "width=500")
 
