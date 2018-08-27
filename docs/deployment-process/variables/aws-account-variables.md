@@ -1,6 +1,6 @@
 ---
 title: AWS Account Variables
-description: Create and AWS Account to use it in AWS-related deployment steps
+description: Create an AWS Account to use it in AWS-related deployment steps
 position: 8
 version: "[2018.2,)"
 ---
@@ -14,3 +14,29 @@ The `Add Variable` window is then displayed and lists all the AWS accounts.
 Select the account that was created in the previous step to assign it to the variable.
 
 ![AWS Account Variable Selection](aws-account-variable-selection.png "width=500")
+
+
+## AWS Account Variable Properties
+
+The AWS Account Variable also exposes the following properties that you can reference in a PowerShell script:
+
+| Name and Description | Example |
+| -------------------- | ------------------------|
+| **`AccessKey`** <br/> The Access Key for the AWS Account| | 
+| **`SecretKey`** <br/> The Secret Key for the AWS Account| |
+
+### Accessing the properties in a script
+
+Each of the above properties can be referenced in PowerShell. 
+
+```powershell
+# For an account with a variable name of 'aws account'
+
+# Using $OctopusParameters
+Write-Host 'AwsAccount.Id=' $OctopusParameters["aws account"]
+Write-Host 'AwsAccount.AccessKey=' $OctopusParameters["aws account.AccessKey"]
+
+# Directly as a variable
+Write-Host 'AzureAccount.Id=' $awsaccount
+Write-Host 'AzureAccount.Client=' $awsccountAccessKey
+```
