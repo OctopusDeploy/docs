@@ -17,7 +17,7 @@ Select the account that was created in the previous step to assign it to the var
 
 ![Azure Account Variable Selection](azure-account-variable-selection.png "width=500")
 
-## Azure Variable Properties
+## Azure Account Variable Properties
 
 The Azure Account Variable also exposes the following properties that you can reference in a PowerShell script:
 
@@ -25,23 +25,23 @@ The Azure Account Variable also exposes the following properties that you can re
 
 | Name and Description | Example |
 | -------------------- | ------------------------|
-| SubscriptionNumber <br/> The Azure Subscription Id | cd21dc34-73dc-4c7d-bd86-041284e0bc45 |
-| Client <br/> The Azure Application Id | 57dfa713-f4c1-4b15-b21d-d14ff7941f7c |
-| Password <br/> | correct horse battery staple |
-| TenantId <br/> The Azure Active Directory Tenant Id | 2a681dca-3230-4e01-abcb-b1fd225c0982 | 
-| AzureEnvironment <br/> The Azure environment | AzureCloud, AzureGermanCloud, AzureChinaCloud, AzureUSGovernment |
-| ResourceManagementEndpointBaseUri <br/> Only set if explicitly set in the Account settings | https://management.microsoftazure.de/  |
-| ActiveDirectoryEndpointBaseUri <br/> Only set if explicitly set in the Account settings | https://login.microsoftonline.de/ |
+| **`SubscriptionNumber`** <br/> The Azure Subscription Id | cd21dc34-73dc-4c7d-bd86-041284e0bc45 |
+| **`Client`** <br/> The Azure Application Id | 57dfa713-f4c1-4b15-b21d-d14ff7941f7c |
+| **`Password`** <br/> | correct horse battery staple |
+| **`TenantId`** <br/> The Azure Active Directory Tenant Id | 2a681dca-3230-4e01-abcb-b1fd225c0982 | 
+| **`AzureEnvironment`** <br/> The Azure environment | AzureCloud, AzureGermanCloud, AzureChinaCloud, AzureUSGovernment |
+| **`ResourceManagementEndpointBaseUri`** <br/> Only set if explicitly set in the Account settings | https://management.microsoftazure.de/  |
+| **`ActiveDirectoryEndpointBaseUri`** <br/> Only set if explicitly set in the Account settings | https://login.microsoftonline.de/ |
 
 ### Management Certificate
 
 | Name and Description | Example|
 | -------------------- | ------------------------|
-| SubscriptionNumber <br/> The Azure Subscription Id | cd21dc34-73dc-4c7d-bd86-041284e0bc45 |
-| CertificateThumbprint <br/> The thumbprint of the certificate | |
-| ServiceManagementEndpointBaseUri <br/> | https://management.core.cloudapi.de |
-| ServiceManagementEndpointSuffix <br/> | core.cloudapi.de  | 
-| AzureEnvironment <br/> The Azure environment | AzureCloud, AzureGermanCloud, AzureChinaCloud, AzureUSGovernment |
+| **`SubscriptionNumber`** <br/> The Azure Subscription Id | cd21dc34-73dc-4c7d-bd86-041284e0bc45 |
+| **`CertificateThumbprint`** <br/> The thumbprint of the certificate | |
+| **`ServiceManagementEndpointBaseUri`** <br/> | https://management.core.cloudapi.de |
+| **`ServiceManagementEndpointSuffix`** <br/> | core.cloudapi.de  | 
+| **`AzureEnvironment`** <br/> The Azure environment | AzureCloud, AzureGermanCloud, AzureChinaCloud, AzureUSGovernment |
 
 ### Accessing the properties in a script
 
