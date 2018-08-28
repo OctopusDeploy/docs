@@ -88,12 +88,17 @@ You can see the OpenID Connect metadata by going to [https://accounts.google.co
 Perhaps the contents of the security token sent back by GoogleApps aren't exactly the way Octopus expected, especially certain claims which may be missing or named differently. This will usually result in the GoogleApps user incorrectly mapping to a different Octopus User than expected. The best way to diagnose this is to inspect the JSON Web Token (JWT) which is sent from GoogleApps to Octopus via your browser. To inspect the contents of your security token:
 
 1. Open the Developer Tools of your browser and enable Network logging making sure the network logging is preserved across requests.
-2. In Chrome Dev Tools this is called "Preserve Log".  
-   ![](/docs/images/5670656/5866122.png)
+2. In Chrome Dev Tools this is called "Preserve Log":
+
+![Preserve Log Checkbox](/docs/images/5670656/5866122.png)
+
 3. Attempt to sign into Octopus using GoogleApps and find the HTTP POST coming back to your Octopus instance from GoogleApps on a route like `/api/users/authenticatedToken/GoogleApps`. You should see an `id_token` field in the HTTP POST body. 
-   ![](/docs/images/5670664/5866125.png "width=500")
+
+![ID Token](/docs/images/5670664/5866125.png "width=500")
+
 4. Grab the contents of the `id_token` field and paste that into [https://jwt.io/](https://jwt.io/) which will decode the token for you.  
-   ![](/docs/images/5670656/5866123.png "width=500")
+
+![jwt.io](/docs/images/5670656/5866123.png "width=500")
 
 5. Don't worry if jwt.io complains about the token signature, it doesn't support RS256 which is used by GoogleApps.
 6. Octopus uses most of the data to validate the token, but primarily uses the `sub`, `email` and `name` claims. If these claims are not present you will likely see unexpected behavior.
