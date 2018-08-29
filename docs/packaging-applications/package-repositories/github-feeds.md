@@ -19,7 +19,7 @@ As of **Octopus 2018.3.0** only the following authentication methods are support
 
 If you’re attempting to configure access for your organization, and you would prefer not to use the auth token from a particular user, you can create what GitHub refers to as a [Machine User](https://developer.github.com/v3/guides/managing-deploy-keys/#machine-users). This is effectively a GitHub account configured exclusively for automation.
 
-## Adding an GitHub Feed
+## Adding a GitHub Feed
 Create a GitHub package feed through {{Library,External feeds}}. You can add as many GitHub feeds as you need. Each can have different credentials if required.
 
 In most cases the `FeedUri` that you will need to provide is the standard public GitHub endpoint `https://api.github.com`. You would only need to provide a different url if you have self hosted GitHub Enterprise (in which case you would provide `https://my-github-repo.com/api/v3`) or if you access GitHub via a proxy.
@@ -43,7 +43,7 @@ git push --tags
 2. Optionally add release notes to the tagged commit from within GitHub.
 (Note additional resources currently do not get included in the Octopus deployment). The pre-release state of a release is also tied to the pre-release component of the tag name.
 ![GitHub Release Notes](GitHub-ReleaseNotes.png)
-If Octopus can link a particular version (which in the context of GitHub feeds refers to a tag) to a release, then the release notes will be exposed through the Octopus Deploy portal. At this point in time the `This is a pre-release` checkbox on the GitHub Release will ignored in favor of the pre-release state indicated in the version itself. Additionally artifacts are not currently retrieved as part of an Octopus deployment, however this may become available in the future.
+If Octopus can link a particular version (which in the context of GitHub feeds refers to a tag) to a release, then the release notes will be exposed through the Octopus Deploy portal. At this point in time the `This is a pre-release` checkbox on the GitHub Release will be ignored in favor of the pre-release state indicated in the version itself. Additionally, artifacts are not currently retrieved as part of an Octopus deployment, however this may become available in the future.
 
 3. _(Note: Any steps that currently support zips and NuGet packages can also use GitHub as the feed source, but for the purpose of this example we will run a script)_  From within Octopus Deploy, create a project with a [`Run a Script`](/docs/deployment-examples/custom-scripts/standalone-scripts.md#Standalonescripts-Choosingwheretosourcethescript) step. Under `Script Source` check the `Script file inside a package` option. Select the GitHub feed source as the package feed and enter the full name of the repository where the required files are located. In the case of https://github.com/OctopusDeploy/Calamari this would be represented as `OctopusDeploy/Calamari`. Under `Script File` provide the path to the script that you want to run along with any parameters that you want to pass in.
 
