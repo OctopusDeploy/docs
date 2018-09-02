@@ -71,3 +71,7 @@ You can then use these variables in your scripts or other step types. For exampl
 ```
 Write-Host "$($OctopusParameters["AWS Account.AccessKey"])"
 ```
+
+## Known AWS connection issue
+
+If you are experiencing SSL / TLS connection errors when connecting to AWS from your Octopus Server, you may be missing the **Amazon Root CA** on your Windows Server. The certificates can be downloaded from the [Amazon Trust Repository](https://www.amazontrust.com/repository/).
