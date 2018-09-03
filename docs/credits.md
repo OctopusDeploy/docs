@@ -19,7 +19,7 @@ Octopus Deploy 3.0 is made possible thanks to the following great third-party pr
 | Axialis Icons                            | Axialis                                  | [http://axialis.com/](http://axialis.com/) |
 | Bootstrap                                | Twitter Inc.                             | [http://getbootstrap.com/](http://getbootstrap.com/) |
 | Bootstrap Date Range Picker              | Dan Grossman and contributors            | [https://github.com/dangrossman/bootstrap-daterangepicker](https://github.com/dangrossman/bootstrap-daterangepicker) |
-| Bootstrap Switch                         | Mattia Larentis, Peter Stein, Emanuele Marchi | [http://www.larentis.eu/switch/](http://www.larentis.eu/switch/) |
+| Bootstrap Switch                         | Mattia Larentis, Peter Stein, Emanuele Marchi | [https://github.com/Bttstrp/bootstrap-switch](https://github.com/Bttstrp/bootstrap-switch) |
 | Bower                                    | Twitter Inc.                             | [http://bower.io/](http://bower.io/)     |
 | CsvHelper                                | Josh Close                               | [https://joshclose.github.io/CsvHelper/](https://joshclose.github.io/CsvHelper/) |
 | D3.js                                    | Mike Bostock and contributors            | [http://d3js.org](http://d3js.org)/      |
