@@ -5,7 +5,7 @@ description: Manually packaging applications for use in your deployments.
 
 The simplest way to create a NuGet package is to create it manually, using the NuGet Package Explorer. This isn't how we recommend creating your packages most of the time (read more about [Octo](/docs/packaging-applications/creating-packages/nuget-packages/using-octo.exe.md)), but it's a good way to get started, or when deploying one-off utilities.
 
-NuGet Package Explorer is an open source desktop application that makes it easy to view and create NuGet packages. You can download it from [NuGet Package Explorer GitHUb repository](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer).
+NuGet Package Explorer is an open source desktop application that makes it easy to view and create NuGet packages. You can download it from [NuGet Package Explorer GitHub repository](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer).
 
 This six minute video (with captions) will guide you through the entire process of creating a package manually using NuGet Package Explorer, and then deploying that package to a remote IIS web site.
 

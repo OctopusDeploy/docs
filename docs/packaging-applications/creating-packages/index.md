@@ -16,8 +16,8 @@ While a Windows Service application might look like this:
 
 Note that in both examples:
 
-- Only binaries and files needed at runtime are included - C# source code files, for example, are not in the package
-- The binaries aren't just for the current application - they also include any other assemblies needed for the application to run
+- Only binaries and files needed at runtime are included - C# source code files, for example, are not in the package.
+- The binaries aren't just for the current application - they also include any other assemblies needed for the application to run.
 
 ## Create Your Packages
 

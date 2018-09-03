@@ -22,7 +22,7 @@ If you are using Active Directory Authentication with Octopus, there are two way
 
 The easiest way to sign in when using Active Directory is to click the *Sign in with a domain account* link.
 
-![](ad-integrated.png)
+![Login Screen](ad-integrated.png)
 
 This will instruct the Octopus Server to issue a browser challenge. If you are signed in on Windows, your Windows credentials will be automatically used to sign you in.
 
@@ -47,7 +47,7 @@ When the link is clicked, it redirects to a page which is configured to tell HTT
 
 Octopus also lets users sign in by entering their Active Directory credentials manually using the HTML form. This is useful if users sometimes need to authenticate with a different account than the one they are signed in to Windows as, or if network configuration prevents integrated authentication from working correctly.
 
-![](ad-forms.png)
+![Login Screen](ad-forms.png)
 
 :::hint
 **How it works**
@@ -76,7 +76,7 @@ Octopus.Server.exe configure --allowFormsAuthenticationForDomainUsers=false
 
 This will result in integrated sign in being the only option:
 
-![](ad-integrated-only.png)
+![Integrated Sign In Only](ad-integrated-only.png)
 
 ## Switching Between Username/Password and Active Directory Authentication {#ActiveDirectoryauthentication-Switchingbetweenusername/passwordandActiveDirectoryauthentication}
 
@@ -135,13 +135,13 @@ Using Trusted Domains is supported by Octopus Deploy.  Users from the domain th
 
 The following diagram illustrates a typical configuration when there is a two way trust between the domains.
 
-![Two-way trust](domains-twoway.png)
+![Two-way Trust](domains-twoway.png)
 
 In this configuration the Octopus Server is executing as a service account from the same domain that the machine is a member of. When logging in, users from DomainA can use their AD username or UPN whereas users from DomainB must use *DOMAIN\user* username format. This is required so that the API calls Octopus makes can locate the domain controller for the correct domain (DomainB in this example).
 
 Another common scenario is to have a one way trust between the domains. This configuration is illustrated in the following diagram
 
-![One-way trust](domains-oneway.png)
+![One-way Trust](domains-oneway.png)
 
 In this example, DomainA trusts DomainB. Given that both domains trust users from DomainB, the Octopus service should be configured to run as an account from DomainB. If the service was configured to run as an account from DomainA then users from DomainB wouldn't be able to log in and Octopus wouldn't be able to query group information from DomainB.
 

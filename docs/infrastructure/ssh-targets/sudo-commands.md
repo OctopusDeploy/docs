@@ -10,11 +10,11 @@ By its very nature, the scripts run by the Octopus Deploy run in the background 
 
 > sudo echo "I HAVE THE POWER"
 
-will result in the script failing with `exit code 1` and the message to stderr
+will result in the script failing with `exit code 1` and the message to stderr:
 
 > sudo: no tty present and no askpass program specified
 
-in Ubuntu, and
+in Ubuntu, and:
 
 > sudo: sorry you must have a tty to run sudo
 
@@ -58,7 +58,7 @@ to
 
 > Defaults: !requiretty
 
-Alternatively you can make this configuration more precice by targeting specific users or groups as outlined at [How to disable requiretty for a single command in sudoers](http://unix.stackexchange.com/questions/79960/how-to-disable-requiretty-for-a-single-command-in-sudoers).
+Alternatively you can make this configuration more precise by targeting specific users or groups as outlined at [How to disable requiretty for a single command in sudoers](http://unix.stackexchange.com/questions/79960/how-to-disable-requiretty-for-a-single-command-in-sudoers).
 (By default the Ubuntu does not contain this configuration and this modification should not be required)
 
 :::problem

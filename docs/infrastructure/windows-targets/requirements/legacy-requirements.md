@@ -4,12 +4,12 @@ description: Software and hardware requirements for installing legacy versions o
 position: 20
 ---
 
-These are the installation requirements for Tentacles prior to Tentacle version 3.1.
+These are the installation requirements for Tentacles prior to **Tentacle 3.1**.
 
 ## Windows Server
 
-- Windows Server 2003 SP2 (**Not supported for Tentacle 3.1 and up due to .NET 4.5 dependency**)
-- Windows Server 2008 (**SP1 not supported for Tentacle 3.1 and up due to .NET 4.5 dependency**)
+- Windows Server 2003 SP2 (**Not supported for Tentacle 3.1 and up due to .NET 4.5 dependency**).
+- Windows Server 2008 (**SP1 not supported for Tentacle 3.1 and up due to .NET 4.5 dependency**).
 
 ## .NET Framework
 

@@ -24,11 +24,11 @@ We generally expect deployments with Octopus to work with practically any dist
 
 To use this feature there are the following requirements:
 
-- It must be accessible using SSH and SFTP (See [creating a SSH Key Pair](ssh-key-pair.md#Creating-a-SSH-Key-Pair))
-- The `$HOME` environment variable must be available
+- It must be accessible using SSH and SFTP (See [creating a SSH Key Pair](ssh-key-pair.md#Creating-a-SSH-Key-Pair)).
+- The `$HOME` environment variable must be available.
 - `bash` 3+ is available at `/bin/bash`. (It does not need to be the user’s default shell.)
-- `tar` is available - for unpacking calamari
-- `base64` is available - for encoding/decoding variables
+- `tar` is available - for unpacking calamari.
+- `base64` is available - for encoding/decoding variables.
 - `grep` is available - Everyone needs grep!
 
 The health check that takes places once you configure the target should check for these requirements and let you know if any dependencies are missing.
@@ -111,7 +111,7 @@ echo "Going to Sleep..."
 screen -d -m sleep 20
 echo "I'm Awake!"
 ```
-will write out the two echo lines in sucession while the sleep command continues to run in the background. This will mean that the deployment can complete while the sleep process is still running.
+will write out the two echo lines in succession while the sleep command continues to run in the background. This will mean that the deployment can complete while the sleep process is still running.
 
 **Variables**
 

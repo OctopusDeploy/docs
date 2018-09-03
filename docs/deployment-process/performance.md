@@ -18,20 +18,20 @@ Want to tune your Octopus Server for optimum performance? Read our [detailed gui
 
 By the time your deployment starts, the Octopus HTTP API and database are no longer the bottleneck. The key concerns are now:
 
-- The throughput and reliability of the connection from Octopus Server to your deployment targets
-- The speed and reliability of your deployment targets themselves
-- The load your deployment targets are under while the deployment is taking place
-- The number of steps in your deployment process
-- The size and number of packages you are deploying
-- How your packages are acquired/transferred to your deployment targets
-- How many packages you keep in your package feed and how you configure retention policies
-- The amount and size of log messages you write during deployment
-- How many deployment targets acquire packages in parallel
-- How many deployment targets you deploy to in parallel
-- Whether your steps run serially (one-after-the-other) or in parallel (at the same time)
-- How much of the work in the deployment steps is done on the Octpus server
-- The number and size of your variables
-- Other processes on the deployment target interfering with your deployment
+- The throughput and reliability of the connection from Octopus Server to your deployment targets.
+- The speed and reliability of your deployment targets themselves.
+- The load your deployment targets are under while the deployment is taking place.
+- The number of steps in your deployment process.
+- The size and number of packages you are deploying.
+- How your packages are acquired/transferred to your deployment targets.
+- How many packages you keep in your package feed and how you configure retention policies.
+- The amount and size of log messages you write during deployment.
+- How many deployment targets acquire packages in parallel.
+- How many deployment targets you deploy to in parallel.
+- Whether your steps run serially (one-after-the-other) or in parallel (at the same time).
+- How much of the work in the deployment steps is done on the Octopus server.
+- The number and size of your variables.
+- Other processes on the deployment target interfering with your deployment.
 
 ## Tips
 
@@ -145,4 +145,3 @@ Similarly to [parallel targets](#parallel-targets), running too many steps in pa
 ### Consider how much deployment work the Octopus server is doing {#server-work}
 
 Some steps, like Azure deployments and AWS steps, [run on a worker](docs/administration/workers/index.md#where-steps-run).  By default, thats the [built-in worker](/docs/administration/workers/index.md#built-in-worker) in the Octopus server.  That means the step invokes a (or many) Calamari processes on the server machine to do the deployment work.  That workload can be shifted off the server and onto [workers](/docs/infrastructure/workers/index.md).  See this [blog post](https://octopus.com/blog/workers-performance) for a way to begin looking at workers for performance.
-

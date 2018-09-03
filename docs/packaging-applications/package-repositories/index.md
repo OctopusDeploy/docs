@@ -19,11 +19,11 @@ If you would like to use an external repository, the following external reposito
 
 Your package repository will typically be:
 
-- The Octopus Server's built-in repository
+- The Octopus Server's built-in repository.
 - A [remote feed](http://docs.nuget.org/docs/creating-packages/hosting-your-own-nuget-feeds#Creating_Remote_Feeds "Remote NuGet feeds") exposed over HTTP.
 - A [local feed](http://docs.nuget.org/docs/creating-packages/hosting-your-own-nuget-feeds#Creating_Local_Feeds "Local NuGet package repositories") exposed as a File Share or local directory.
 - A [maven feed](/docs/packaging-applications/package-repositories/maven-feeds.md).
-- A [JetBrains TeamCity](http://blogs.jetbrains.com/dotnet/2011/08/native-nuget-support-in-teamcity/ "JetBrains TeamCity") server (version 7 and above)
+- A [JetBrains TeamCity](http://blogs.jetbrains.com/dotnet/2011/08/native-nuget-support-in-teamcity/ "JetBrains TeamCity") server (version 7 and above).
 - A [MyGet](http://www.myget.org/ "MyGet") server.
 - A [VSTS or TFS Package Management](https://www.visualstudio.com/en-us/docs/package/overview) feed (see note below).
 
@@ -38,7 +38,7 @@ Support for NuGet v3 external feeds was introduced in **Octopus 3.4**.
 
 Earlier releases of Octopus Deploy only support external NuGet v2 feeds:
 
-- If you are using a MyGet external feed, please use the [v2 API URL](http://docs.myget.org/docs/reference/feed-endpoints) or upgrade to Octopus 3.4 (or later)
+- If you are using a MyGet external feed, please use the [v2 API URL](http://docs.myget.org/docs/reference/feed-endpoints) or upgrade to Octopus 3.4 (or later).
 :::
 
 :::warning
@@ -81,7 +81,7 @@ It is important to understand that the Octopus Server provides a write-only repo
 
 ### Pushing Packages to the Built-in Repository {#Packagerepositories-Pushingpackagestothebuilt-inrepository}
 
-We offer several ways to add packages to the built-in repository, so many that we built a new page: [pushing packages to the built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md). Alternatively you can go to {{Library,Packages}} which describes some of the most convenient ways to push packages to the built-in repository.  Simply click the `Show examples` link to see options to upload packages.
+We offer several ways to add packages to the built-in repository, so many that we built a new page: [pushing packages to the built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md). Alternatively you can go to {{Library,Packages}} which describes some of the most convenient ways to push packages to the built-in repository.  Simply click the **Show examples** link to see options to upload packages.
 
 ![](/docs/images/3048094/3277775.png "width=500")
 
@@ -149,8 +149,8 @@ The built-in NuGet server in Octopus stores metadata in SQL Server, and doesn't 
 
 ## Troubleshooting {#Packagerepositories-Troubleshooting}
 
-- For network file shares, keep in mind that Octopus and Tentacle run under system accounts by default, which may not have access to the file share
-- NuGet.Server only allows 30MB packages [by default](http://help.octopusdeploy.com/discussions/problems/184-30mb-default-maximum-nuget-package-size)
+- For network file shares, keep in mind that Octopus and Tentacle run under system accounts by default, which may not have access to the file share.
+- NuGet.Server only allows 30MB packages [by default](http://help.octopusdeploy.com/discussions/problems/184-30mb-default-maximum-nuget-package-size).
 
 A good first step for diagnosing NuGet feed issues is to ensure that the NuGet command line executable can access the same feed from the Octopus Server or target machine if the `Each Tentacle will download the package directly from the remote server` option is selected. The following steps can be used to troubleshoot NuGet feeds.
 
@@ -173,6 +173,6 @@ Unable to load the service index for source http://example.com/MyFeed/nuget/v3/i
 along with additional details that can look like:
 
 * Response status code does not indicate success: 404 (Not Found).
-* An error occurred while sending the request. The remote name could not be resolved: 'hostname'
+* An error occurred while sending the request. The remote name could not be resolved: 'hostname'.
 
 These errors give you an indication as to why NuGet could not access the requested server.

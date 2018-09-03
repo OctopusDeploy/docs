@@ -20,7 +20,7 @@ Octopus Server can be hosted on any modern Windows Server. We automatically test
 - Windows Server 2012 R2
 - Windows Server 2016
 
-Octopus Server will run on `Windows Server Core` and `Windows Server version 1709` etc. However, the easiest installation path is to use "Windows Server with a GUI" and run our installation wizard. If you want to use one of the new GUI-less servers, you will need to add some missing Windows Features and configure Octopus Server yourself.
+Octopus Server will run on **Windows Server Core** and **Windows Server version 1709** etc. However, the easiest installation path is to use "Windows Server with a GUI" and run our installation wizard. If you want to use one of the new GUI-less servers, you will need to add some missing Windows Features and configure Octopus Server yourself.
 
 Learn about [automating installation](/docs/installation/automating-installation.md).
 
@@ -43,8 +43,8 @@ We try to keep the .NET Framework requirements for Octopus Server as stable as p
 
 The Octopus Server comes with a built-in web portal user interface and we try to keep this as stable as possible:
 
-- **Octopus 3.0** - **Octopus 3.17** supports all modern browsers, and Internet Explorer 9+
-- **Octopus  4.0** and onwards supports all modern browsers, and Internet Explorer 11+ (available on Windows 7 and newer, and Windows Server 2008R2 SP1 and newer)
+- **Octopus 3.0** - **Octopus 3.17** supports all modern browsers, and Internet Explorer 9+.
+- **Octopus  4.0** and onwards supports all modern browsers, and Internet Explorer 11+ (available on Windows 7 and newer, and Windows Server 2008R2 SP1 and newer).
 
 ## Hardware Requirements
 

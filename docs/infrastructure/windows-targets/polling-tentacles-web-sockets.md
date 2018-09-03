@@ -22,9 +22,7 @@ The following prerequisites must be met to use this feature:
 The first step is to select a URL listen prefix. HTTP.sys handles the initial TLS handshake and then routes the request based on the HTTP headers. This means that the request can be routed based on IP, hostname and path. See the
 [UrlPrefix documentation](https://msdn.microsoft.com/en-us/library/windows/desktop/aa364698(v=vs.85).aspx) for the syntax and how routes are matched.
 
-In most cases, we recommend using `+` as the host name and a unique string for path. This will ensure that address
-takes the highest precedence. For example, to listen on port 443: `https://+:443/OctopusComms`. The path should not be
-used by the other applications listening on the port.
+In most cases, we recommend using `+` as the host name and a unique string for path. This will ensure that address takes the highest precedence. For example, to listen on port 443: `https://+:443/OctopusComms`. The path should not be used by the other applications listening on the port.
 
 An SSL certificate must be configured for the chosen address and port (the path is ignored). If an existing application (eg the Octopus Web UI) is already using that address and port, no extra configuration is required. If not see [Certificate section below](#certificate).
 
@@ -42,8 +40,7 @@ To confirm that the server is successfully configured, open the listen address i
 
 If you get a connection refused or reset error, check the address and port and ensure a certificate is [configured](#certificate) for that address.
 
-If you get the other application that is listening on that port, ensure that your listen address has a [higher precedence](https://msdn.microsoft.com/en-us/library/windows/desktop/aa364698(v=vs.85).aspx) and that
-the server sucessfully bound to that address in the [server log file](/docs/support/log-files.md).
+If you get the other application that is listening on that port, ensure that your listen address has a [higher precedence](https://msdn.microsoft.com/en-us/library/windows/desktop/aa364698(v=vs.85).aspx) and that the server successfully bound to that address in the [server log file](/docs/support/log-files.md).
 
 If you encounter a certificate warning, ignore it and continue. This warning is due to the certificate not having a valid chain of trust back to a trusted certificate authority. Octopus [trusts certificates directly](https://octopus.com/blog/why-self-signed-certificates).
 
@@ -70,7 +67,7 @@ To change an existing Tentacle to poll using WebSockets, run the following comma
 .\Tentacle.exe service --instance MyInstance --start
 ```
 
-### High Availablity
+### High Availability
 When issuing the `poll-server` command to add additional nodes to poll, omit the `--server-comms-port` parameter and specify the `--server-web-socket <address>` parameter. For example:
 
 ```powershell
@@ -105,4 +102,4 @@ netsh http add sslcert ipport=0.0.0.0:443 certhash=966857B08601B9ACA9A9F10E7D469
 For more details instructions, see Microsoft's [certificate HowTo](https://msdn.microsoft.com/en-us/library/ms733791(v=vs.110).aspx).
 
 ### Thumbprint
-Unlike other Tentacle configurations, the Tentacle must be configured to trust the thumbprint of the SSL certificate and not the thumprint Octopus uses for other methods of Tentacle communication. This is due to HTTP.sys performing the certificate exchange (not the Octopus Server) and then delegating the connection. Both the Tentacle and server still verify the certificate thumbprint match the trusted thumbprint.
+Unlike other Tentacle configurations, the Tentacle must be configured to trust the thumbprint of the SSL certificate and not the thumbprint Octopus uses for other methods of Tentacle communication. This is due to HTTP.sys performing the certificate exchange (not the Octopus Server) and then delegating the connection. Both the Tentacle and server still verify the certificate thumbprint match the trusted thumbprint.

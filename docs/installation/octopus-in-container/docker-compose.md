@@ -138,7 +138,7 @@ networks:
       name: nat
 ```
 
-with the `TENTACLE_VERSION` environment variable added to the previous `.env` file
+With the `TENTACLE_VERSION` environment variable added to the previous `.env` file:
 
 ```
 SA_PASSWORD=P@ssw0rd!

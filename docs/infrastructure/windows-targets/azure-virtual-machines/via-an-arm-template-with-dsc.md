@@ -8,7 +8,7 @@ While the [Azure VM Extension](index.md) is the recommended approach to installi
 
 The following example shows how to install a Tentacle during VM provisioning.
 
-1. Download the latest release of the OctopusDSC from the [OctopusDSC repo](https://github.com/OctopusDeploy/OctopusDSC/releases) and extract it into a new folder
+1. Download the latest release of the OctopusDSC from the [OctopusDSC repo](https://github.com/OctopusDeploy/OctopusDSC/releases) and extract it into a new folder.
 2. Create a configuration file (eg `OctopusTentacle.ps1`) next to the `OctopusDSC` folder:
 
 ```powershell

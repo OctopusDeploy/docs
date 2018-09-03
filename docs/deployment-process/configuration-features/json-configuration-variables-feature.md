@@ -109,4 +109,4 @@ For example, the variable `foo:bar:1` with a value `qux` will update the value
 }
 ```
 
-You can also replace an entire array. For the example above you could set Octopus Variable `foo:bar` to a value of ` ["baz","qux"]`
+You can also replace an entire array. For the example above you could set Octopus Variable `foo:bar` to a value of ` ["baz","qux"]`.

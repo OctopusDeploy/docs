@@ -8,19 +8,19 @@ NuGet packages are basically ZIP files with extra metadata describing the conten
 
 NuGet is a good choice for packaging your applications, for the following reasons:
 
-1. NuGet packages have rich metadata, such as versioning, release notes, and author information
-2. Many tools exist to make creating and publishing NuGet packages easy
-3. NuGet packages can be consumed via a feed, so other applications can easily query the available packages
-4. Developer familiarity
+1. NuGet packages have rich metadata, such as versioning, release notes, and author information.
+2. Many tools exist to make creating and publishing NuGet packages easy.
+3. NuGet packages can be consumed via a feed, so other applications can easily query the available packages.
+4. Developer familiarity.
 
 ## Creating NuGet Packages {#NuGetpackages-CreatingNuGetpackages}
 
 You can create NuGet packages in a number of ways:
 
-- [Manually using a GUI](/docs/packaging-applications/creating-packages/nuget-packages/manually.md)
-- Automatically [using NuGet.exe](https://docs.microsoft.com/en-us/nuget/tools/nuget-exe-cli-reference)
-- Automatically [using Octo.exe](/docs/packaging-applications/creating-packages/nuget-packages/using-octo.exe.md)
-- Automatically [using OctoPack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md)
+- [Manually using a GUI](/docs/packaging-applications/creating-packages/nuget-packages/manually.md).
+- Automatically [using NuGet.exe](https://docs.microsoft.com/en-us/nuget/tools/nuget-exe-cli-reference).
+- Automatically [using Octo.exe](/docs/packaging-applications/creating-packages/nuget-packages/using-octo.exe.md).
+- Automatically [using OctoPack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md).
 
 :::success
 **Tip: Structure the Package as You Want It Extracted on Disk**

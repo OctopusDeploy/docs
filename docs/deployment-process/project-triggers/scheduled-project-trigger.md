@@ -2,7 +2,6 @@
 title: Scheduled Project Triggers
 description: Automatic deployment triggers allow you to define unattended behavior for your project that will cause an automatic deployment of a release into an environment.
 position: 2
-version: 2018.4
 ---
 
 Scheduled Deployment Triggers were introduced in **Octopus 2018.4**.
@@ -12,7 +11,6 @@ Scheduled Deployment Triggers allow you to define an unattended behavior for you
 ## Schedule
 
 Scheduled deployment triggers provide a way to configure your projects to create, deploy, and promote releases on a defined schedule.
-You can define a schedule in the following ways:
 
 ### Daily Schedule
 

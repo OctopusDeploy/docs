@@ -16,19 +16,18 @@ You must provide both the username and password which will be used during the in
 
 Depending on your target machine's distro it might not have password authentication enabled by default.
 
-To allow the Octopus Server to connect using the provided credentials you the will need to modify the sshd\_config file on the target machine with your favorite text editor
+To allow the Octopus Server to connect using the provided credentials you the will need to modify the sshd\_config file on the target machine with your favorite text editor:
 
 ```powershell
 vim /etc/ssh/sshd_config
 ```
-
-find the line that refers to "PasswordAuthentication" and change it to
+Find the line that refers to "PasswordAuthentication" and change it to:
 
 ```powershell
 PasswordAuthentication yes
 ```
 
-once this has been done restart your ssh service under root privileges using
+Once this has been done restart your ssh service under root privileges using:
 
 ```powershell
 service ssh restart
