@@ -5,8 +5,8 @@
   "default": "2018.8",
   "legacy": [
     {
-      "version": "2018.8",
-      "firstReleased": "3 September 2018"
+      "version": "2018.7",
+      "firstReleased": "18 July 2018"
     },
     {
       "version": "2018.6",
