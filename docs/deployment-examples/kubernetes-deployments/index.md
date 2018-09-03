@@ -16,4 +16,4 @@ To make use of the Kubernetes steps, the Octopus server or workers that will run
 
 To use the Kubernetes steps, you must enable the feature in the `Configuration > Features` section.
 
-![](kubernetes-feature.png)
+![](kubernetes-feature.png "width=500")
