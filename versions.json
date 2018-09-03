@@ -1,8 +1,8 @@
 {
   "versions": [
-    "2018.7"
+    "2018.8"
   ],
-  "default": "2018.7",
+  "default": "2018.8",
   "legacy": [
     {
       "version": "2018.6",
