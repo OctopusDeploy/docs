@@ -48,9 +48,9 @@ docs
 
 You can set the email subject and author the email body as plain text or HTML content. You can even use the Octopus [variable syntax](/docs/deployment-process/variables/variable-substitution-syntax.md) to include information about the deployment in the email.
 
-### Deployment summary template
+### Deployment Summary Template
 
-This template  collects basic information about the deployment, including the package versions included in each step.
+This template collects basic information about the deployment, including the package versions included in each step.
 
 ```xml
 <h1>Deployment of #{Octopus.Project.Name} #{Octopus.Release.Number} to #{Octopus.Environment.Name}</h1>

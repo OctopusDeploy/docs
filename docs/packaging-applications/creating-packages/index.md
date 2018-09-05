@@ -16,8 +16,8 @@ While a Windows Service application might look like this:
 
 Note that in both examples:
 
-- Only binaries and files needed at runtime are included - C# source code files, for example, are not in the package
-- The binaries aren't just for the current application - they also include any other assemblies needed for the application to run
+- Only binaries and files needed at runtime are included - C# source code files, for example, are not in the package.
+- The binaries aren't just for the current application - they also include any other assemblies needed for the application to run.
 
 ## Create Your Packages
 
@@ -31,4 +31,4 @@ How you create your packages depends on which package type you wish to create. O
 - Working with VSTS: use our [extension](/docs/api-and-integration/tfs-vsts/using-octopus-extension/index.md) and/or `octo.exe pack`.
 - If you just want to package up a folder as-is: use `octo.exe pack` or just zip it up!
 
-As long as you can create one of our [supported packages](/docs/packaging-applications/supported-packages.md), you can deploy your application with Octopus Deploy!
+As long as you can create one of our [supported packages](/docs/packaging-applications/supported-packages.md), you can deploy your application with Octopus Deploy.

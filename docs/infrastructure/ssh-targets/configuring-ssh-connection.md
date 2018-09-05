@@ -28,12 +28,12 @@ Just as with other targets, SSH Endpoints can be linked to environments and role
 
 SSH targets can specify which version of Calamari they should use, depending on whether Mono is installed on the target server:
 
-- [Calamari built against the full .NET framework, which requires Mono to be installed on the target server](mono-calamari.md)
-- [Self-contained Calamari built against .NET Core](self-contained-calamari.md)
+- [Calamari built against the full .NET framework, which requires Mono to be installed on the target server](mono-calamari.md).
+- [Self-contained Calamari built against .NET Core](self-contained-calamari.md).
 
 :::hint
-Self-contained Calamari support was added in Octopus 3.16.
-Prior to this, Mono was required on SSH targets
+Self-contained Calamari support was added in **Octopus 3.16**.
+Prior to this, Mono was required on SSH targets.
 :::
 
 ### Fingerprint
@@ -51,7 +51,7 @@ ssh-keygen -E md5 -lf /etc/ssh/ssh_host_rsa_key.pub | cut -d' ' -f2 | awk '{ pri
 Remember to ensure that your target machine is accessible over the selected SSH port. This is usually port 22.
 :::
 
-When you complete the machine details and hit `Save`, Octopus will perform an initial health check. These health checks are done periodically or on demand and ensure that the endpoint is reachable and is appropriately configured, ready for performing a deployment task.
+When you complete the machine details and hit **Save**, Octopus will perform an initial health check. These health checks are done periodically or on demand and ensure that the endpoint is reachable and is appropriately configured, ready for performing a deployment task.
 
 In the case of SSH endpoints this involves checking for the presence of Mono and Calamari, as well as providing details about available space and the user account used for connectivity. As SSH endpoints do not involve any actual Tentacle, the running version that is displayed will always indicate the version of the Octopus Server instance itself.
 

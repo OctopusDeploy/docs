@@ -58,8 +58,8 @@ Deployment-level variables are drawn from the project and release being deployed
 |**`Octopus.Task.Argument[_name_]`** <br/>Argument values provided when creating the task | *deployments-123*|
 |**`Octopus.Task.Id`** <br/>The ID of the task | *servertasks-123*|
 |**`Octopus.Task.Name`** <br/>The name of the task | *Deploy release 1.2.3 to Production*|
-|**`Octopus.Task.QueueTime`** <br/>The date and time the task should be queued for execution. ***Introduced in Octopus Deploy version 3.17.3*** | *Tuesday 10th September 1:30 PM* |
-|**`Octopus.Task.QueueTimeExpiry`** <br/>The date and time before which the task must start. ***Introduced in Octopus Deploy version 3.17.3*** | *Tuesday 10th September 2:30 PM* |
+|**`Octopus.Task.QueueTime`** <br/>The date and time the task should be queued for execution. ***Introduced in Octopus 3.17.3*** | *Tuesday 10th September 1:30 PM* |
+|**`Octopus.Task.QueueTimeExpiry`** <br/>The date and time before which the task must start. ***Introduced in Octopus 3.17.3*** | *Tuesday 10th September 2:30 PM* |
 |**`Octopus.Tentacle.CurrentDeployment.PackageFilePath`** <br/>The path to the package file being deployed | *C:\Octopus\Tentacle\Packages\OctoFx.1.2.3.nupkg*|
 |**`Octopus.Tentacle.CurrentDeployment.TargetedRoles`** <br/>The intersection of the roles targeted by the step, and those applied to the machine | *web-server*|
 |**`Octopus.Tentacle.PreviousInstallation.CustomInstallationDirectory`** <br/>The directory into which the previous version of the package was deployed | *C:\InetPub\WWWRoot\OctoFx*|
@@ -129,7 +129,7 @@ Action-level variables are available during execution of an action. Indexer noti
 |**`Octopus.Action.Azure.SwapIfPossible`** <br/>If true, the action will attempt to perform a VIP swap instead of deploying directly into the targeted Slot | *True*|
 |**`Octopus.Action.Azure.UploadedPackageUri`** <br/>The Storage URI of the \*.cspkg file that will be deployed to the Cloud Service | https://my-storage-account/container/my-cloudservice.web.cspkg|
 |**`Octopus.Action.Azure.UseCurrentInstanceCount`** <br/>If true, the action will maintain the number of Instances in the Cloud Service rather than reverting to what is defined in the \*.cspkg file | *True*|
-|**`Octopus.Action.Azure.DeploymentLabel`** <br/>If set, the custom deployment label will be used for the Azure cloud service deployment. ***Introduced in Calamari version 3.4.1 which was released with Octopus Deploy version 3.4.4.*** | my custom label for build 3.x.x|
+|**`Octopus.Action.Azure.DeploymentLabel`** <br/>If set, the custom deployment label will be used for the Azure cloud service deployment. ***Introduced in Calamari version 3.4.1 which was released with Octopus 3.4.4.*** | my custom label for build 3.x.x|
 
 
 ## Azure Web Apps {#Systemvariables-AzureWebApps}
@@ -156,8 +156,8 @@ Output variables are collected during execution of a step and made available to 
 |**`Octopus.Action[_name_].Output.Manual.ResponsibleUser.EmailAddress`** <br/>The email address of the user who completed the manual step | *[alice@example.com](mailto:alice@example.com)*|
 |**`Octopus.Action[_name_].Output.Manual.ResponsibleUser.Id`** <br/>The ID of the user who completed the manual step | *users-123*|
 |**`Octopus.Action[_name_].Output.Manual.ResponsibleUser.Username`** <br/>The username of the user who completed the manual step | *alice*|
-|**`Octopus.Action[_name_].Output.OctopusAzureCloudServiceDeploymentID`** <br/> The ID of the completed Azure Cloud Service deployment. ***Introduced in Calamari version 3.7.81 which was released with Octopus Deploy version 3.14.15.***| *c9f52da2b00a4313b3b64bb2ad0f409f* |
-|**`Octopus.Action[_name_].Output.OctopusAzureCloudServiceDeploymentUrl`** <br/>The Url of the completed Azure Cloud Service deployment. ***Introduced in Calamari version 3.7.81 which was released with Octopus Deploy version 3.14.15.***| *http://c9f52da2b00a4313b3b64bb2ad0f409f.cloudapp.net/* |
+|**`Octopus.Action[_name_].Output.OctopusAzureCloudServiceDeploymentID`** <br/> The ID of the completed Azure Cloud Service deployment. ***Introduced in Calamari version 3.7.81 which was released with Octopus 3.14.15.***| *c9f52da2b00a4313b3b64bb2ad0f409f* |
+|**`Octopus.Action[_name_].Output.OctopusAzureCloudServiceDeploymentUrl`** <br/>The Url of the completed Azure Cloud Service deployment. ***Introduced in Calamari version 3.7.81 which was released with Octopus 3.14.15.***| *http://c9f52da2b00a4313b3b64bb2ad0f409f.cloudapp.net/* |
 
 ## Step {#Systemvariables-Step}
 
@@ -236,11 +236,11 @@ The following variables can be defined as variables in your project to modify th
 |**`OctopusPrintVariables`** <br/>Set to "True" to tell Tentacle to print the value of all variables passed to it. We recommend only using this setting for non-production environments. | True|
 |**`OctopusPrintEvaluatedVariables`** <br/>Set to "True" to tell Tentacle to print the value of all variables passed to it after evaluating them. We recommend only using this setting for non-production environments. | True|
 |**`OctopusTreatWarningsAsErrors`** <br/>Set to "True" to have warnings from XML configuration transforms or PowerShell scripts treated as if they were errors, failing the deployment. | True|
-|**`OctopusSkipFreeDiskSpaceCheck`** <br/>Set to "True" to skip the check for available free disk space when deploying packages. ***Introduced in Calamari version 3.1.30 which was released with Octopus Deploy version 3.2.18.*** | True|
-|**`OctopusFreeDiskSpaceOverrideInMegaBytes`** <br/>The amount (in megabytes) of available free disk space we should check for (overriding the default 500MB), failing the deployment if not enough free disk space is available. ***Introduced in Calamari version 3.1.30 which was released with Octopus Deploy version 3.2.18.*** | 100|
-|**`Octopus.Action.PowerShell.CustomPowerShellVersion`** <br/>If specified, your PowerShell scripts will be invoked using `PowerShell.exe -version {Version}` where {Version} is the value you specified. Accepted values are *2.0*, *3.0*, *4.0, 5.0* ***Introduced in Calamari version 3.3.13 which was released with Octopus Deploy version 3.3.13.*** | 2.0|
+|**`OctopusSkipFreeDiskSpaceCheck`** <br/>Set to "True" to skip the check for available free disk space when deploying packages. ***Introduced in Calamari version 3.1.30 which was released with Octopus 3.2.18.*** | True|
+|**`OctopusFreeDiskSpaceOverrideInMegaBytes`** <br/>The amount (in megabytes) of available free disk space we should check for (overriding the default 500MB), failing the deployment if not enough free disk space is available. ***Introduced in Calamari version 3.1.30 which was released with Octopus 3.2.18.*** | 100|
+|**`Octopus.Action.PowerShell.CustomPowerShellVersion`** <br/>If specified, your PowerShell scripts will be invoked using `PowerShell.exe -version {Version}` where {Version} is the value you specified. Accepted values are *2.0*, *3.0*, *4.0, 5.0* ***Introduced in Calamari version 3.3.13 which was released with Octopus 3.3.13.*** | 2.0|
 |**`OctopusDeleteScriptsOnCleanup`** <br/>For packaged scripts, set to "False" to keep the PreDeploy/Deploy/PostDeploy scripts in the target directory (i.e. don't cleanup). | False|
-|**`Octopus.Action.Script.SuppressEnvironmentLogging`** <br/>To suppress/disable the environment logging that occurs from script (eg. PowerShell or Bash Script Environment Variables logging). This only suppresses script logging and does not suppress the Octopus or Calamari environment logging. ***Introduced in Calamari version 3.6.5 which was released with Octopus Deploy version 3.6.0.*** | True|
+|**`Octopus.Action.Script.SuppressEnvironmentLogging`** <br/>To suppress/disable the environment logging that occurs from script (eg. PowerShell or Bash Script Environment Variables logging). This only suppresses script logging and does not suppress the Octopus or Calamari environment logging. ***Introduced in Calamari version 3.6.5 which was released with Octopus 3.6.0.*** | True|
 |**`Octopus.Action.PowerShell.ExecuteWithoutProfile`** <br/>Set to `true` to not run the Tentacle service account's PowerShell profile script when running PowerShell script steps (available in version 3.3.21+) | True|
 |**`OctopusSuppressDuplicateVariableWarning`** <br/>Set to `true` to have the duplicate variable message logged as verbose instead of warning. ***Do this if you are aware of the duplication and that it isn't causing any issues in your deployment***  (available in version 3.17.0+) | True|
 |**`Octopus.Action.Package.RunScripts`**  <br/>Set to `false` to prevent scripts inside packages from executing. ***Do this if you are aware of the duplication and that it isn't causing any issues in your deployment***  (available in version 4.1.10+) | True|

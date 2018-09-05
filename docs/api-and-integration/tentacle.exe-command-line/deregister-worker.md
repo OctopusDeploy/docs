@@ -1,5 +1,5 @@
 ---
-title: Deregister from
+title: Deregister From
 description: Using the Tentacle.exe command line executable to deregister a Worker from an Octopus Server.
 ---
 
@@ -25,4 +25,3 @@ Or one of the common options:
 
       --help                 Show detailed help for this command
 ```
-

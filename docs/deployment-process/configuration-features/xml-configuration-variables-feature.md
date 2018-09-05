@@ -18,7 +18,7 @@ You can perform simple convention-based replacements in XML configuration files 
 If you are looking for something more flexible, we have the [Substitute Variables in Files feature](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) enabling you to perform complex transformations on any kind of file.
 :::
 
-## How to use this feature
+## How to Use this feature
 
 The following example shows you how to use the this feature to provide your application with different configuration settings for each different environment you're deploying to. In this example we're deploying to a **Test** and **Production** environment.
 
@@ -43,7 +43,7 @@ Suppose you have this `web.config` or `MyApp.exe.config` file in your package wh
 </configuration>
 ```
 
-1. Create the variables in Octopus. From the [project](/docs/deployment-process/projects/index.md) overview page, click **Variables**.
+1. Create the variables in Octopus. From the [project](/docs/deployment-process/projects/index.md) overview page, click **Variables**:
   - Enter a the name for the variable, for instance, `AWSAccessKey`. **This name must match the key in your configuration file.**
   - Enter the value for the variable, for instance, `ABCDEFG`.
   - Scope the variable to the environment, for instance, `Test`.
@@ -89,7 +89,7 @@ Variables marked sensitive (`AWSSecretKey` in this example) are encrypted in th
 </configuration>
 ```
 
-5. Deploy your project to the `Production` environment, and Octopus will update th econfiguration file to:
+5. Deploy your project to the `Production` environment, and Octopus will update the configuration file to:
 
 ```xml
 <configuration>

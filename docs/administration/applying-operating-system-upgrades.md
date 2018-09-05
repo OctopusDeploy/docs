@@ -16,16 +16,16 @@ You should not restore a backup of the Octopus SQL Database.
 
 ## Single Octopus Server
 
-1. Schedule a maintenance window with the teams using Octopus
-1. Go to {{Configuration > Maintenance}} and enable [Maintenance Mode](/docs/administration/upgrading/maintenance-mode.md)
-1. Wait for any remaining Octopus Tasks to complete by watching the {{Configuration > Nodes}} page
-1. Stop the Octopus Server windows service
+1. Schedule a maintenance window with the teams using Octopus.
+1. Go to {{Configuration > Maintenance}} and enable [Maintenance Mode](/docs/administration/upgrading/maintenance-mode.md).
+1. Wait for any remaining Octopus Tasks to complete by watching the {{Configuration > Nodes}} page.
+1. Stop the Octopus Server windows service.
 
     - At this point you are ready to perform your Operating System maintenance. You should take whatever precautions you deem necessary in order to recover the system in case of failure. That could be a VM snapshot, full disk image backup, or just the automatic Restore Point created by Windows.
 
-1. Apply patches and reboot as required
-1. Start the Octopus Server windows service
-1. Exit [Maintenance Mode](/docs/administration/upgrading/maintenance-mode.md)
+1. Apply patches and reboot as required.
+1. Start the Octopus Server windows service.
+1. Exit [Maintenance Mode](/docs/administration/upgrading/maintenance-mode.md).
 
 ## Octopus High Availability
 
@@ -33,12 +33,12 @@ If you are using an [Octopus High Availability](/docs/administration/high-availa
 
 For each node in your cluster:
 
-1. Go to {{Configuration > Nodes}} and put the node into drain mode
-1. Wait for any remaining Octopus Tasks on that node to complete
-1. Stop the Octopus Server windows service on that node
+1. Go to {{Configuration > Nodes}} and put the node into drain mode.
+1. Wait for any remaining Octopus Tasks on that node to complete.
+1. Stop the Octopus Server windows service on that node.
 
     - At this point you are ready to perform your Operating System maintenance. You should take whatever precautions you deem necessary in order to recover the system in case of failure. That could be a VM snapshot, full disk image backup, or just the automatic Restore Point created by Windows.
 
-1. Apply patches and reboot as required
-1. Start the Octopus Server windows service on that node
-1. Exit drain mode for that node so it will start accepting Octopus Tasks again
+1. Apply patches and reboot as required.
+1. Start the Octopus Server windows service on that node.
+1. Exit drain mode for that node so it will start accepting Octopus Tasks again.

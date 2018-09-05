@@ -2,10 +2,9 @@
 title: Debugging PowerShell Scripts on Remote Machines
 description: This guide provides details on debugging PowerShell scripts with Octopus Deploy.
 position: 13
-version: 3.12
 ---
 
-This guide provides details on how to debug PowerShell scripts while they are being deployed by Octopus Deploy to remote machines. This guide demonstrates connecting via IP address to an untrusted machine on a public network. Some steps may be ommitted when connecting to machines on the same subnet or domain.
+This guide provides details on how to debug PowerShell scripts while they are being deployed by Octopus Deploy to remote machines. This guide demonstrates connecting via IP address to an untrusted machine on a public network. Some steps may be omitted when connecting to machines on the same subnet or domain.
 
 ## Configuring PowerShell Remoting
 PowerShell remoting must be enabled on the remote machine and configured for SSL and the trust established between the remote machine and the debugging machine.
@@ -52,7 +51,7 @@ PowerShell debugging is enabled by adding the project variable `Octopus.Action.P
 Now, create a release and deploy it.  The deployment will pause while waiting for a PowerShell debugger to attach.
 
 ## Starting the PowerShell Debug Session
-The deployment in Octopus outputs the information required to start debugging the PowerShell script. If we has name resolution configured we could connect to the machine using the name indicated by Octopus, but in this instance we will use the machine's IP address. First we must start a session with the remote computer.  Open PowerShell ISE and run the following:
+The deployment in Octopus outputs the information required to start debugging the PowerShell script. If we have name resolution configured we could connect to the machine using the name indicated by Octopus, but in this instance we will use the machine's IP address. First we must start a session with the remote computer.  Open PowerShell ISE and run the following:
 
 ```powershell
 $ipAddress = "55.555.55.555" # The IP address of the remote machine

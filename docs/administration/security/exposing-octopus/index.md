@@ -8,7 +8,7 @@ Your entire Octopus installation and all of the targets you deploy to could be c
 
 !toc
 
-## Security and encryption
+## Security and Encryption
 
 We take security very seriously at Octopus Deploy and have gone to great lengths to protect your privacy and security.
 
@@ -18,7 +18,7 @@ Learn more about [how Octopus communicates with Tentacle](/docs/administration/s
 
 We undertake routine penetration testing and security audits. These reports are available on request by contacting our [support team](https://octopus.com/support).
 
-## Where to host your Octopus Server
+## Where to Host Your Octopus Server
 
 The Octopus Server is the central component of your Octopus installation. It hosts the Octopus HTTP API and the web portal, and is the central communication hub for deploying your applications. It needs direct access to your [SQL Server Database](/docs/administration/octopus-database/index.md) and a file store, which can be on a local disk, or a network file share.
 
@@ -26,13 +26,13 @@ You should host your Octopus Server in the best location based on your scenario.
 
 You can choose to expose your Octopus Server to the public internet, or you can constrain access to your corporate network.
 
-## Inbound requests
+## Inbound Requests
 
 The Octopus Server hosts an HTTP API and web portal which you can configure to use standard TCP ports (80/443) or non-standard ports. Your Octopus Server can also be configured to accept inbound requests from Polling Tentacles over a custom TCP port, or using WebSockets.
 
 The only inbound requests to your Octopus Server should be ones authorized by you. It could be your users, or Polling Tentacles, or services you've configured to leverage the Octopus API.
 
-### Octopus HTTP API and web portal
+### Octopus HTTP API and Web Portal
 
 If you do not want to expose your Octopus Server to the public internet, but want to provide remote access to users or other services, we recommend using a VPN. This will allow your remote workers to access your Octopus Server without exposing it to the public internet directly.
 
@@ -53,13 +53,13 @@ We generally recommend using Listening Tentacles and SSH wherever practical.
 
 If you are not using Polling Tentacles you can keep that port closed on your firewall.
 
-## Outbound requests
+## Outbound Requests
 
 The Octopus Server generally makes outbound requests according to your specific deployment scenarios, like sending instructions to a Listening Tentacle or SSH endpoint, or reaching out to an external web service. You should consider the security implications related to your Octopus Server and outbound requests to design a set of network restrictions which balance security and usability.
 
 Learn more about [outbound requests](/docs/administration/security/outbound-requests.md).
 
-### Proxy servers
+### Proxy Servers
 
 You can configure Octopus Server to make any outbound HTTP requests, and even Tentacle or SSH connections, via a proxy server offering you a greater level of control over outbound requests from the Octopus Server.
 

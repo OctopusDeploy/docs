@@ -15,7 +15,7 @@ You can perform very complex transformations in any kind of file using this feat
 
 The following example shows you how to use the Substitute Variables in Files feature to provide a different login form to the different environments you're deploying to, in this example we're deploying to a **Test** and **Production** environment.
 
-1. Create the login variable in Octopus. From the [project](/docs/deployment-process/projects/index.md) overview page, click **Variables**.
+1. Create the login variable in Octopus. From the: [project](/docs/deployment-process/projects/index.md) overview page, click **Variables**.
   - Enter a the name for the variable, for instance, *LoginURL*.
   - Enter the value for the variable, for instance, *https://test.example.com/login*.
   - Scope the variable to the environment, for instance, *Test*.
@@ -43,7 +43,7 @@ The following example shows you how to use the Substitute Variables in Files fea
 
 When you return to your deployment process, you will see the **Substitute Variables in Files** option has been added to the **Features** section of the deployment process.
 
-7. Add the [step](/docs/deployment-process/steps/index.md) details.
+7. Add the [step](/docs/deployment-process/steps/index.md) details:
   - Enter a name for the step.
   - Select the targets where the step should run.
   - Select the [package feed](/docs/packaging-applications/package-repositories/index.md) where the [package](/docs/packaging-applications/index.md) will be available.
@@ -72,7 +72,9 @@ If you include a configuration file that you are also doing a [transformation](/
 By default **warnings** will be treated as **errors** when replacing variables in files using this feature. To override this behavior, set the variable **Octopus.Action.Package.IgnoreVariableReplacementErrors** to **True** in your project. By doing this, warnings will be treated as such and the deployment wont be marked as failed.
 :::
 
-## Another Example {#SubstituteVariablesinFiles-SomeExamples}
+## Examples {#SubstituteVariablesinFiles-SomeExamples}
+
+### Swapping Design Elements
 
 If you want to include a header that has a different image or text in a shared layout file depending on environment that it is deployed to. You can define the file and put a variable in place where you want the change to be. In this example, we've used the **SiteReference** variable:
 
@@ -87,3 +89,17 @@ If you want to include a header that has a different image or text in a shared l
             <a class="navbar-brand" href="#">OctoFX #{SiteReference}</a>
           </div>
 ```
+
+### Spring Boot Application Properties
+
+Another common scenario is updating a Spring Boot `application.properties` file to set the web server port. In this example, we’ve used the **WebServerPort** variable:
+
+```java
+server.port=#{WebServerPort}
+app.version=@project.version@
+environment.name=PROD
+```
+
+:::hint
+The Spring expression language also uses the `#{}` syntax so you need to double encode any non-Octopus variables. i.e. `##{MyVariable}`.
+:::

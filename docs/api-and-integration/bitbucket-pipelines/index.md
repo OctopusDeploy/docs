@@ -12,10 +12,10 @@ Octopus Deploy can be integrated with BitBucket Pipelines using our up-to-date [
 
 When using Octopus Deploy with BitBucket, BitBucket Pipelines will be responsible for:
 
-- Checking for changes in source control
-- Compiling the code
-- Running unit tests
-- Creating NuGet packages for deployment
+- Checking for changes in source control.
+- Compiling the code.
+- Running unit tests.
+- Creating NuGet packages for deployment.
 
 Octopus Deploy will be used to take those NuGet packages and to push them to development, test and production environments.
 

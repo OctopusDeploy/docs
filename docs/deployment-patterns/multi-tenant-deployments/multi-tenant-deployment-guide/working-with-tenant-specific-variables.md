@@ -61,7 +61,7 @@ By carefully designing our variables to be constructed using some conventions, w
 - Step 5: Include the library variable sets into the project
 - Step 6: Fill out the variable values for our tenants
 - Step 7: Validate the variable values for the project
-- Step 8: Deploy!
+- Step 8: Deploy
 - Step 9: Review
 
 ### Step 1: Create Project Variables
@@ -100,11 +100,11 @@ The result should look like the screenshot below:
 
 ![](/docs/images/5669247/5865609.png "width=500")
 
-### Step 3: Create the "Environment variables" Library Variable Set
+### Step 3: Create the "Environment Variables" Library Variable Set
 
 In the previous step we created some variable templates that use the `Environment.Alias` variable. We will create a simple [library variable set](/docs/deployment-process/variables/library-variable-sets.md) to provide URL-friendly versions of the target environment's name which we can use in our other variables for defining environment-specific database and domain names.
 
-1. Go to {{Library,Variable sets}} and add a new variable set called **Environment variables**
+1. Go to {{Library,Variable sets}} and add a new variable set called **Environment variables**.
 2. Create the variables shown below:
 
 | Variable            | Value        | Scope           |
@@ -122,7 +122,7 @@ The result should look like the screenshot below:
 
 In previous steps we also created some variable templates that depend on a variable called Tenant.Alias. In this case we want the tenant to provide a URL-friendly version of the tenant's name, and we will create a library variable template. By using a variable template from a library variable set the tenant will only be prompted once for this value.
 
-1. Go to {{Library,Variable sets}} and add a new variable set called **Standard tenant details**
+1. Go to {{Library,Variable sets}} and add a new variable set called **Standard tenant details**.
 2. Go to the *Variable templates* tab and create the templates shown below:
 
 | Name                  | Label         | Default value | Help text                                | Control type         |
@@ -138,7 +138,7 @@ The result should look like the screenshot below:
 
 Now we have created the library variable sets we need to include them in the **Mojo** project so they take effect.
 
-1. Go to the {{Variables,Library Variable Sets}} tab of the **Mojo** project
+1. Go to the {{Variables,Library Variable Sets}} tab of the **Mojo** project.
 2. Click *Include variable sets from the Library* and select the newly created **Environment variables** and **Standard tenant details** variable sets into the project, clicking *Apply* then *Save*.
 
 ### Step 6: Fill Out the Variable Values for Our Tenants
@@ -157,7 +157,7 @@ Go to the {{Variables,All Variables}} tab of the **Mojo** project and you can i
 
 ![](/docs/images/5669247/5865620.png "width=500")
 
-### Step 8: Deploy!
+### Step 8: Deploy
 
 Go to the **Mojo** project, create a new release, and deploy it to the **MT Production** environment for **Beverley Sanchez** and you should see all of the variables flowing through properly now.
 
@@ -167,10 +167,10 @@ Go to the **Mojo** project, create a new release, and deploy it to the **MT Pro
 
 Now that we've configured the variables in this way, let's take a look at the results:
 
-- The configuration that changes per-project is defined in the project
-- The configuration that changes per-tenant is set on the tenant
-- You can use the convention-based default value for **Tenant.Domain.Name** as defined by the project or you can override it completely by setting a custom value in the tenant
-- You can add a new template to the project and know which tenants need that value defined before performing a deployment
+- The configuration that changes per-project is defined in the project.
+- The configuration that changes per-tenant is set on the tenant.
+- You can use the convention-based default value for **Tenant.Domain.Name** as defined by the project or you can override it completely by setting a custom value in the tenant.
+- You can add a new template to the project and know which tenants need that value defined before performing a deployment.
 
 ## Next Steps
 

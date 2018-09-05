@@ -1,14 +1,13 @@
 ---
 title: Importing Certificates into WildFly and JBoss EAP
 description: Configure WildFly or JBoss EAP with a certificate managed by Octopus.
-version: "4.1"
 ---
 
 With the `Configure certificate for WildFly or EAP` step, certificates managed by Octopus can be configured as part of a WildFly of Red Hat JBoss EAP domain or standalone instance to allow HTTPS traffic to be served.
 
 ## Prerequisites
 
-If a new keystore is to be created as part of the deployment, the certificate being deployed must be referenced by a variable. [Add a Certificate to Octopus](add-certificate.md) provides instructions on how to add a new certificate to the Octopus library, and [Certificate Variables](/docs/deployment-process/variables/certificate-variables.md) provides instructions on how to define a certificate variable.
+If a new KeyStore is to be created as part of the deployment, the certificate being deployed must be referenced by a variable. [Add a Certificate to Octopus](add-certificate.md) provides instructions on how to add a new certificate to the Octopus library, and [Certificate Variables](/docs/deployment-process/variables/certificate-variables.md) provides instructions on how to define a certificate variable.
 
 ## Common Connection Settings
 
@@ -30,73 +29,73 @@ Selecting `Standalone` from the `Standalone or domain Server` field in the `Serv
 Selecting the wrong server type will result in an error at deploy time.
 :::
 
-When configuring a certificate with a standalone instance, you have the choice of configuring an existing Java keystore, or creating a new keystore from a certificate managed by Octopus. The options available in the `Server Type Details` section will change depending on how the certificate is deployed.
+When configuring a certificate with a standalone instance, you have the choice of configuring an existing Java KeyStore, or creating a new KeyStore from a certificate managed by Octopus. The options available in the `Server Type Details` section will change depending on how the certificate is deployed.
 
-### Creating a New Java Keystore
+### Creating a New Java KeyStore
 
-By selecting the `Create a new keystore` option, Octopus will create a new Java keystore file that will then be configured in the application server.
+By selecting the `Create a new KeyStore` option, Octopus will create a new Java KeyStore file that will then be configured in the application server.
 
-The `Select certificate variable` field is used to define the variable that references the certificate to be deployed as a Java keystore.
+The `Select certificate variable` field is used to define the variable that references the certificate to be deployed as a Java KeyStore.
 
-The location of the new keystore file can be optionally defined in the `Keystore filename` field. Any path specified in this field must be an absolute path, and any existing file at that location will be overwritten. If left blank, a keystore will created with a unique filename based on the certificate subject in the application server `standalone/configuration` directory.
+The location of the new KeyStore file can be optionally defined in the `KeyStore filename` field. Any path specified in this field must be an absolute path, and any existing file at that location will be overwritten. If left blank, a KeyStore will created with a unique filename based on the certificate subject in the application server `standalone/configuration` directory.
 
-The `Private key password` field defines a custom password for the new keystore file. If this field is left blank, the keystore will be configured with the default password of `changeit`.
+The `Private key password` field defines a custom password for the new KeyStore file. If this field is left blank, the KeyStore will be configured with the default password of `changeit`.
 
-The `Keystore alias` field defines a custom alias under which the certificate and private key are stored. If left blank, the default alias of `Octopus` will be used.
+The `KeyStore alias` field defines a custom alias under which the certificate and private key are stored. If left blank, the default alias of `Octopus` will be used.
 
-### Referencing an Existing Keystore
+### Referencing an Existing KeyStore
 
-When `Reference an existing keystore` is selected, a number of fields are required to define the location and properties of the existing keystore that is being referenced.
+When `Reference an existing KeyStore` is selected, a number of fields are required to define the location and properties of the existing KeyStore that is being referenced.
 
-#### Defining the Keystore File Name
+#### Defining the KeyStore File Name
 
-The value of the `Keystore filename` field can either be the absolute path to the keystore (in which case the `Relative base path` option has to be set to `none`), or it can be a path relative to one of the locations defined in the `Relative base path` field.
+The value of the `KeyStore filename` field can either be the absolute path to the KeyStore (in which case the `Relative base path` option has to be set to `none`), or it can be a path relative to one of the locations defined in the `Relative base path` field.
 
-For example, if you wish the to reference an existing keystore file at `/opt/my.store`, set the `Keystore filename` field to `/opt/my.store` and the `Relative base path` option to `none`. If you want to reference a keystore file in the `standalone/configuration` directory with a filename of `my.store`, set the `Keystore filename` field to `my.store` and set the `Relative base path` field to `jboss.server.config.dir`.
+For example, if you wish the to reference an existing KeyStore file at `/opt/my.store`, set the `KeyStore filename` field to `/opt/my.store` and the `Relative base path` option to `none`. If you want to reference a KeyStore file in the `standalone/configuration` directory with a filename of `my.store`, set the `KeyStore filename` field to `my.store` and set the `Relative base path` field to `jboss.server.config.dir`.
 
-#### Setting the Keystore Password and Alias
+#### Setting the KeyStore Password and Alias
 
-The `Private key password` field defines a custom password for the existing keystore file. If this field is left blank, the keystore is assumed to have the default password of `changeit`.
+The `Private key password` field defines a custom password for the existing KeyStore file. If this field is left blank, the KeyStore is assumed to have the default password of `changeit`.
 
-The `Keystore alias` field defines a custom alias under which the certificate and private key are stored. If left blank, the keystore is assumed to have the default alias of  `Octopus`.
+The `KeyStore alias` field defines a custom alias under which the certificate and private key are stored. If left blank, the KeyStore is assumed to have the default alias of  `Octopus`.
 
 ## Deploying a Certificate to a Domain
 
-Domains can be used to distribute the configuration required to access a keystore, but can not be used to distribute the keystore files themselves. Since each slave in the domain needs to have access to the keystore file, configuring certificates is therefor a two step process:
+Domains can be used to distribute the configuration required to access a KeyStore, but can not be used to distribute the KeyStore files themselves. Since each slave in the domain needs to have access to the KeyStore file, configuring certificates is therefor a two step process:
 
-1. Deploying a keystore file to all slave instances.
-2. Configuring the profiles managed by the domain controller to reference the keystore files.
+1. Deploying a KeyStore file to all slave instances.
+2. Configuring the profiles managed by the domain controller to reference the KeyStore files.
 
-### Deploying Keystore Files
+### Deploying KeyStore Files
 
-The `Deploy a keystore to the filesystem` step can be used to take a certificate managed by Octopus and save it as a Java keystore on the target machine.
+The `Deploy a KeyStore to the filesystem` step can be used to take a certificate managed by Octopus and save it as a Java KeyStore on the target machine.
 
 The `Select certificate variable` field is used to define the variable that references the certificate to be deployed.
 
-The location of the new keystore file must be defined in the `Keystore filename` field. This must be an absolute path, and any existing file at that location will be overwritten.
+The location of the new KeyStore file must be defined in the `KeyStore filename` field. This must be an absolute path, and any existing file at that location will be overwritten.
 
-The `Private key password` field defines a custom password for the new keystore file. If this field is left blank, the keystore will be configured with the default password of `changeit`.
+The `Private key password` field defines a custom password for the new KeyStore file. If this field is left blank, the KeyStore will be configured with the default password of `changeit`.
 
-The `Keystore alias` field defines a custom alias under which the certificate and private key are stored. If left blank, the default alias of `Octopus` will be used.
+The `KeyStore alias` field defines a custom alias under which the certificate and private key are stored. If left blank, the default alias of `Octopus` will be used.
 
 
 :::hint
-It is highly recommended that the keystore file be saved in the `domain/configuration` directory. This allows the keystore file to be referenced using a relative path against the base path identified by `jboss.domain.config.dir`.
+It is highly recommended that the KeyStore file be saved in the `domain/configuration` directory. This allows the KeyStore file to be referenced using a relative path against the base path identified by `jboss.domain.config.dir`.
 :::
 
 ### Configuring the Domain
 
-Once all the domain slaves have a local copy of the keystore file deployed to them, the domain profiles can be configured to reference these files.
+Once all the domain slaves have a local copy of the KeyStore file deployed to them, the domain profiles can be configured to reference these files.
 
 Selecting `Domain` from the `Standalone or domain server` field in the `Server Type Details` section indicates that the certificate is to be configured as part of a WildFly or JBoss EAP domain.
 
-The `Domain profiles` field defines a comma separated list of profiles that will be updated to reference the existing keystore file. Typical profiles names include `default`, `ha`, `full` and `full-ha`.
+The `Domain profiles` field defines a comma separated list of profiles that will be updated to reference the existing KeyStore file. Typical profiles names include `default`, `ha`, `full` and `full-ha`.
 
-The `Keystore filename` is either the absolute path to the existing keystore file (in which case the `Relative base path` field has to be set to `none`), or is a relative path using the value of the `Relative base path` field as the base.
+The `KeyStore filename` is either the absolute path to the existing KeyStore file (in which case the `Relative base path` field has to be set to `none`), or is a relative path using the value of the `Relative base path` field as the base.
 
-The `Private key password` field defines the optional password used to access the existing keystore file. If this field is left blank, the keystore is assumed to have the default password of `changeit`.
+The `Private key password` field defines the optional password used to access the existing KeyStore file. If this field is left blank, the KeyStore is assumed to have the default password of `changeit`.
 
-The `Keystore alias` field defines the optional alias under which the certificate and private key are stored. If left blank, the keystore is assumed to have a default alias of  `Octopus`.
+The `KeyStore alias` field defines the optional alias under which the certificate and private key are stored. If left blank, the KeyStore is assumed to have a default alias of  `Octopus`.
 
 ## Advanced Options
 
@@ -104,7 +103,7 @@ The `Keystore alias` field defines the optional alias under which the certificat
 If you are unsure what these advanced values refer to, it is best to leave them blank and assume the default values.
 :::
 
-The `Advanced Options` section is the same whether deploying to a domain or standalone instance. The fields in this section can be used to override the default values used when configuring a keystore in WildFly or JBoss EAP.
+The `Advanced Options` section is the same whether deploying to a domain or standalone instance. The fields in this section can be used to override the default values used when configuring a KeyStore in WildFly or JBoss EAP.
 
 The `HTTPS socket binding name` can be used to override the default socket binding that will be used to expose access to HTTPS. The default value is `https`.
 
@@ -136,7 +135,7 @@ Elytron is the new security subsystem introduced with WildFly 11 and JBoss EAP 7
 
 The `Elytron key store name` defines the name of the Elytron Key Store in application servers that support the `Elytron` subsystem.  If left blank, this value defaults to `OctopusHttpsKS`.
 
-![Elyton Key Store](elytron-keystore.png "width=500")
+![Elyton Key Store](elytron-KeyStore.png "width=500")
 
 The `Elytron key manager name` defines the name of the Elytron Key Manager in application servers that support the `Elytron` subsystem.  If left blank, this value defaults to `OctopusHttpsKM`.
 

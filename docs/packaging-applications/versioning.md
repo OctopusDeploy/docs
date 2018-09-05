@@ -4,7 +4,7 @@ description: Considerations when selecting a versioning scheme for your applicat
 position: 3
 ---
 
-The [Package ID](/docs/packaging-applications/package-id.md) and version number uniquely identify your packages, so it's important to choose the right versioning scheme, but it can be a tricky balance between pragmatism and strictness. This page should help you understand how Octopus Deploy handles versions in [packages](/docs/packaging-applications/supported-packages.md), [releases](/docs/deployment-process/releases/index.md), and [channels](/docs/deployment-process/channels.md), and subsequently design a versioning scheme that suits your needs.
+The [Package ID](/docs/packaging-applications/package-id.md) and version number uniquely identify your packages, so it's important to choose the right versioning scheme, but it can be a tricky balance between pragmatism and strictness. This page should help you understand how Octopus Deploy handles versions in [packages](/docs/packaging-applications/supported-packages.md), [releases](/docs/deployment-process/releases/index.md), and [channels](/docs/deployment-process/channels/index.md), and subsequently design a versioning scheme that suits your needs.
 
 ## Choosing a Versioning Scheme {#VersioninginOctopusDeploy-Choosingaversioningscheme}
 
@@ -15,7 +15,7 @@ Consider the following factors when deciding on the versioning scheme you'll use
 1. Can you trace a version back to the commit/check-in the application/package was built from? *For example: We stamp the SHA hash of the git commit into the metadata component of the Semantic Version for Octopus Deploy which makes it easier to find and fix bugs. We also tag the commit with the version of Octopus Deploy it produced so you can quickly determine which commit produced a particular version of Octopus Deploy.*
 2. Can your users easily report a version to the development team that supports #1?
 3. Will your version numbers be confusing, or will they help people understand the changes that have been made to the software? *For example: bumping a major version component (first part) means there are potentially breaking changes, but bumping a patch (3rd part) should be safe to upgrade, and safe to rollback if something goes wrong.*
-4. Does your tool chain support the versioning scheme? *For example: Octopus Deploy supports Semantic Versioning, which enables enhanced features like [Channels](/docs/deployment-process/channels.md).*
+4. Does your tool chain support the versioning scheme? *For example: Octopus Deploy supports Semantic Versioning, which enables enhanced features like [Channels](/docs/deployment-process/channels/index.md).*
 
 ### Strictness Versus Pragmatism {#VersioninginOctopusDeploy-Strictnessversuspragmatism}
 
@@ -23,7 +23,7 @@ Octopus supports a "pragmatic" implementation of SemVer, including support for 4
 
 Strictly speaking about SemVer 2.0, a version like `1.5.2-rc.1` is considered a "pre-release" and `1.5.2` would be considered a "full release".  In practice, these concepts carry weight when you are talking about hierarchies of application dependencies like classical NuGet packages or NPM dependencies. This kind of strict semantic versioning enables dependency management tooling to interpret what kind of changes each package version represents. For example, they can automatically protect your software, by preventing accidental upgrades to pre-release versions, or versions that might introduce breaking changes.
 
-When it comes to application versioning however, we suggest the "pre-release tag" (the bit after the `-`) can be used for whatever you want. For example: you could build version `1.5.2-rc` of your application, and configure a [Channel](/docs/deployment-process/channels.md) to promote packages like `*-rc` to Staging and eventually Production.
+When it comes to application versioning however, we suggest the "pre-release tag" (the bit after the `-`) can be used for whatever you want. For example: you could build version `1.5.2-rc` of your application, and configure a [Channel](/docs/deployment-process/channels/index.md) to promote packages like `*-rc` to Staging and eventually Production.
 
 ## How Octopus Deploy Treats Versions {#VersioninginOctopusDeploy-HowOctopusDeploytreatsversions}
 
@@ -44,14 +44,14 @@ These are the decisions we made on handling versions:
         i. `3.0.0-beta.10 > 3.0.0-beta.9`  
         i. `1.4.008 < 1.4.9`  
 
-3. **Creating packages (using Octopus tooling like [OctoPack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md) and [octo.exe](/docs/packaging-applications/creating-packages/nuget-packages/using-octo.exe.md)):** [WYSIWYG](https://en.wikipedia.org/wiki/WYSIWYG) provided the version you've specified is a valid SemanticVersion (as described earlier). For example, if you build a package using `octo.exe pack --id=MyPackage --version=2016.01.02` the output file will be `MyPackage.2016.01.02.nupkg`.  
-4. **Interacting with package feeds/repositories (many and varied, including our own):** We just ask the feed for a package with the version string we stored in the release, and accept what the feed tells us.
+3. Creating packages (using Octopus tooling like [OctoPack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md) and [octo.exe](/docs/packaging-applications/creating-packages/nuget-packages/using-octo.exe.md)): [WYSIWYG](https://en.wikipedia.org/wiki/WYSIWYG) provided the version you've specified is a valid SemanticVersion (as described earlier). For example, if you build a package using `octo.exe pack --id=MyPackage --version=2016.01.02` the output file will be `MyPackage.2016.01.02.nupkg`.  
+4. Interacting with package feeds/repositories (many and varied, including our own): We just ask the feed for a package with the version string we stored in the release, and accept what the feed tells us.
 
 ## How Octopus Deploy Treats Maven Versions
 
 When working with artifacts from a [Maven feed](/docs/packaging-applications/package-repositories/maven-feeds.md), Octopus respects the [Maven versioning scheme](https://octopus.com/blog/maven-versioning-explained). This versioning scheme is implemented as a copy of the [ComparableVersion](https://github.com/apache/maven/blob/master/maven-artifact/src/main/java/org/apache/maven/artifact/versioning/ComparableVersion.java) class from the Maven library itself.
 
-## When to Use Semver and When to Use Maven Versions
+## When to Use SemVer and When to Use Maven Versions
 
 SemVer is still recommended (or required) when versioning any artifact to be deployed to the built-in library or an external NuGet feed.
 
@@ -68,7 +68,7 @@ The expected package convention is therefore:
 
 > `<id>.<version>.<extension>`
 
-So for example the package name for version *2.3* of you project *Sample.Web*, archived with tar & gzip should be named
+So for example the package name for version *2.3* of you project *Sample.Web*, archived with tar & gzip should be named:
 
 > `Sample.Web.2.3.tar.gz`
 

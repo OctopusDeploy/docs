@@ -10,10 +10,10 @@ To allow you to define different values for variables depending on where you are
 
 Variables can be scoped by:
 
-- Environments (most common)
-- Specific machines
-- Specific machine roles
-- Specific deployment steps
+- Environments (most common).
+- Specific machines.
+- Specific machine roles.
+- Specific deployment steps.
 
 For example, suppose these variables exist:
 
@@ -38,17 +38,17 @@ Imagine you have one variable scoped to an environment (Production), and another
 
 Since variables can be scoped in many different ways, there needs to be a predictable, deterministic order in which they are resolved. The list below is the priority in which variable scopes take precedence - the top items are considered higher priority than the bottom ones:
 
-- The current step/action (most specific)
-- The current machine
-- Roles applied to the current machine and targeted by the current step
-- Roles applied to the current machine
-- The target tenant (if tenant-features are enabled)
-- The target tenant-tag (if tenant-features are enabled)
-- The target environment
-- The target channel (if channels are enabled)
-- No scope (least specific)
+- The current step/action (most specific).
+- The current machine.
+- Roles applied to the current machine and targeted by the current step.
+- Roles applied to the current machine.
+- The target tenant (if tenant-features are enabled).
+- The target tenant-tag (if tenant-features are enabled).
+- The target environment.
+- The target channel (if channels are enabled).
+- No scope (least specific).
 
-For example, imagine a `LogLevel` variable with a value scoped to an environment is considered by Octopus to be "less specific" than a value scoped to a machine role. So when two possible values for a variable exist, Octopus will choose the "more specific" scope value over the less specific one.
+For example, imagine a **LogLevel** variable with a value scoped to an environment is considered by Octopus to be "less specific" than a value scoped to a machine role. So when two possible values for a variable exist, Octopus will choose the "more specific" scope value over the less specific one.
 
 Variable scoping also works like CSS rules; a value scoped twice is more specific than a value scoped once. For example, a variable scoped to an environment and a role is more specific than a variable scoped to just a role.
 
@@ -75,7 +75,6 @@ Then, on your deployment step, you can set the **[Custom Install Directory](/doc
 
 ![](custom-install-path.png)
 
-## Variables and permissions
+## Variables and Permissions
 
 When applying permissions on variables via scopes, the only options that are checked against permissions are Environments, Targets and Tenants.
-

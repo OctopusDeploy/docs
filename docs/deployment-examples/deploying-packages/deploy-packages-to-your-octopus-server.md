@@ -9,7 +9,7 @@ Tentacle lets you run tasks in a flexible way. You can configure your Tentacle 
 
 An analogy is to think about the way build agents in TeamCity or TFS work. You can't make the TeamCity server or TFS server arbitrarily run scripts during the build. But you can install the build agent service on the same server as your TeamCity/TFS server, and it has the same effect, but with more flexibility.
 
-## Install Tentacle on the Octopus Server{#install-tentacle}
+## Install Tentacle on the Octopus Server {#install-tentacle}
 
 1. Follow the steps to download and [install Tentacles](/docs/infrastructure/windows-targets/index.md) on the Octopus Server.
 2. Configure the Tentacle in [listening mode](docs/infrastructure/windows-targets/index.md#configure-a-listening-tentacle-recommended).

@@ -14,7 +14,7 @@ This page is intended to help Octopus System Administrators tune and maintain th
 Want to tune your deployments for optimum performance? Read our [detailed guide on optimizing your deployments](/docs/deployment-process/performance.md).
 :::
 
-## Minimum requirements
+## Minimum Requirements
 
 There is no "one size fits all" approach to sizing your Octopus Server. If you are just starting out with Octopus Server you should begin with the [minimum requirements](/docs/installation/index.md) then monitor the performance of your server. Once your server is up and running you should consider [maintenance](#maintenance) and [scaling](#scaling) as you see fit.
 
@@ -26,9 +26,9 @@ Routine maintenance can help your Octopus keep running at optimum performance an
 
 We are continually working to make Octopus perform better, and we will always recommend [upgrading to the latest version](/docs/administration/upgrading/index.md) whenever asked about performance. We generally tag [performance-related issues in our GitHub repository](https://github.com/OctopusDeploy/Issues/issues?q=label%3Afeature%2Fperformance) so you can see which performance improvements have been added in each version of Octopus.
 
-As an example, many customers have reported speed improvements of 50-90% for their deployments after upgrading from an early version of Octopus 3.x to the latest version.
+As an example, many customers have reported speed improvements of 50-90% for their deployments after upgrading from an early version of **Octopus 3.x** to the latest version.
 
-### Retention policies
+### Retention Policies
 
 Octopus are generally hygienic creatures, cleaning up after themselves, and your Octopus is no different. Configuration documents, like [projects](/docs/deployment-process/projects/index.md) and [environments](/docs/infrastructure/environments/index.md), are stored until you delete them, unlike historical documents like [releases](/docs/deployment-process/releases/index.md). These will be cleaned up according to the [retention policies](/docs/administration/retention-policies/index.md) you configure.
 
@@ -49,32 +49,36 @@ You may not need to keep the entire history of releases - we record the entire h
 
 Octopus Servers do quite a lot of work during deployments, mostly around package acquisition:
 
-- Downloading packages from the package source (network-bound)
-- Verifying package hashes (CPU-bound)
-- Calculating deltas between packages for [delta compression](/docs/deployment-examples/deploying-packages/delta-compression-for-package-transfers.md) (I/O-bound and CPU-bound)
-- Uploading packages to deployment targets (network-bound)
-- Monitoring deployment targets for job status, and collecting logs
+- Downloading packages from the package source (network-bound).
+- Verifying package hashes (CPU-bound).
+- Calculating deltas between packages for [delta compression](/docs/deployment-examples/deploying-packages/delta-compression-for-package-transfers.md) (I/O-bound and CPU-bound).
+- Uploading packages to deployment targets (network-bound).
+- Monitoring deployment targets for job status, and collecting logs.
 
 At some point your server hardware is going to limit how many of these things a single Octopus Server can do concurrently. If a server over commits itself and hits these limits, timeouts (network or SQL connections) will begin to occur, and deployments can begin to fail. Above all else, your deployments should be repeatable and reliable.
 
-We offer two options for scaling your Octopus Server:
+We offer three options for scaling your Octopus Server:
 
-- scale up by controlling the **task cap** and providing more server resources as required
-- scale out using [Octopus High Availability](/docs/administration/high-availability/index.md)
+- scale up by controlling the **task cap** and providing more server resources as required.
+- scale out using [Octopus High Availability](/docs/administration/high-availability/index.md).
+- scale out using [Workers](/docs/administration/workers/index.md).
 
-We are planning a third option for scaling your Octopus Server:
+We are planning a fourth option for scaling your Octopus Server:
 
-- sharding across multiple Octopus Servers using [Spaces](https://octopus.com/blog/octopuses) - planned for Octopus 4.x
+- dividing up your Octopus environment using [Spaces](https://octopus.com/blog/octopus-spaces-blog-series-kick-off) - currently planned for release in **Octopus 2018.11.0**.
 
-### Task cap
+### Task Cap
 
 An ideal situation would be an Octopus Server that's performing as many parallel deployments as it can, while staying just under these limits. We tried several techniques to automatically throttle Octopus Server, but in practice this kind of approach proved to be unreliable.
 
 Instead, we decided to put this control into your hands, allowing you to control how many tasks each Octopus Server node will execute concurrently. This way, you can measure server metrics for **your own deployments**, and then increase/decrease the task cap appropriately. Administrators can change the task cap in {{Configuration>Nodes}}.
 
+See this [blog post](https://octopus.com/blog/running-task-cap-and-high-availability) for more details on why we chose this approach.
+
 The default task cap is set to `5` out of the box. Based on our load testing, this offered the best balance of throughput and stability for most scenarios.
 
-See this [blog post](https://octopus.com/blog/running-task-cap-and-high-availability) for more details on why we chose this approach.
+The task cap also interacts with offloading deployment work to Workers.  If you have more workers available, you might be able to increase your deployment performance and [different task cap or step parallelism](/docs/infrastructure/workers/index.md#multiple-projects-run-simultaneously-on-workers) might be right with the extra ability to scale.
+
 
 ### Octopus High Availability
 
@@ -95,7 +99,8 @@ Follow these tips to tune and maintain the performance of your Octopus:
     - Quite often negative performance symptoms are caused by outdated statistics or other common SQL Server maintenance problems.
 1. If you have saturated your current servers you may want to consider scaling up, by increasing the resources available to the Octopus and SQL Servers, or scaling out:
     - Consider [Octopus High Availability](/docs/administration/high-availability/index.md) if you are reaching saturation on your current infrastructure, or want to improve the up-time of your Octopus Server, especially across [Operating System patches](/docs/administration/applying-operating-system-upgrades.md). Octopus High Availability is designed to scale linearly as you add nodes to your cluster.
-    - Consider sharding your teams/projects across "spaces" using the upcoming [Octopus Data Center Manager](https://octopus.com/blog/odcm-rfc) especially if your teams/projects are loosely coupled to each other.
+    - Consider using [Workers](/docs/administration/workers/index.md) and worker pools if deployment load is affecting your server.  See this [blog post](https://octopus.com/blog/workers-performance) for a way to begin looking at workers for performance.
+    - Consider sharing your teams/projects across "spaces" using the upcoming [Octopus Data Center Manager](https://octopus.com/blog/odcm-rfc) especially if your teams/projects are loosely coupled to each other.
 1. Try not to do too much work in parallel, especially without thorough testing. Performing lots of deployment tasks in parallel can be a false economy more often than not:
     - You can configure how many tasks from the task queue will run at the same time on any given Octopus Server node by going to {{Configuration>Nodes}}. The default task cap is `5` (safe-by-default). You can increase this cap to push your Octopus to work harder.
     - Learn about [tuning your deployment processes for performance](/docs/deployment-process/performance.md).
@@ -122,7 +127,7 @@ The best place to start troubleshooting your Octopus Server is to inspect the [O
 1. `Request took 5123ms: GET {correlation-id}`: If HTTP requests are taking a long time to be fulfilled, you'll see a message like this. The timer is started when the request is first received, ending when the response is sent.
     - Look for trends as to which requests are taking a really long time.
     - Look to see if the performance problem occurs, and goes away, on a regular basis. This can indicate another process hogging resources periodically.
-1. The dashboard or project overview are taking a really long time to load: this is usually caused by long retention policies. Consider tightening up your retention policies to keep less releases. It can also be caused by the sheer number of projects you are using to model your deployments. Consider sharding your teams/projects across "spaces" using the upcoming [Octopus Data Center Manager](https://octopus.com/blog/odcm-rfc) especially if your teams/projects are loosely coupled to each other.
+1. The dashboard or project overview are taking a really long time to load: this is usually caused by long retention policies. Consider tightening up your retention policies to keep less releases. It can also be caused by the sheer number of projects you are using to model your deployments. Consider sharing your teams/projects across "spaces" using the upcoming [Octopus Data Center Manager](https://octopus.com/blog/odcm-rfc) especially if your teams/projects are loosely coupled to each other.
 1. `{Insert/Delete/Update/Reader} took 8123ms in transaction '{transaction-name}'`: If a particular database operation takes a long time you'll see a message like this. The timer is started when the operation starts, ending when the operation is completed (including any retries for transient failure recovery).
     - If you are seeing these operations take a long time it indicates your SQL Server is struggling under load, or your network connection from Octopus to SQL Server is saturated.
     - Check the maintenance plan for your SQL Server. See [tips above](#sql-maintenance).
@@ -146,7 +151,7 @@ The best place to start troubleshooting your Octopus Server is to inspect the [O
 Analyzing Octopus Server log files for performance problems is much easier in a tool like [Seq](https://getseq.net). We've built a [helpful tool](https://github.com/OctopusDeploy/SeqFlatFileImport) for importing Octopus Server and Task Logs directly into Seq for analysis.
 :::
 
-### Getting help from us {#support}
+### Getting Help From Us {#support}
 
 If none of these troubleshooting steps work, please get in contact with our [support team](https://octopus.com/support) and send along the following details (feel free to ignore points if they don't apply):
 

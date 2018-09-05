@@ -5,9 +5,9 @@ description: Creating an Azure Service Principal Account in Octopus Deploy.
 
 :::hint
 **Azure Service Principal Accounts Work with the Azure Resource Management (ARM) API only**
-**Azure Service Principal Accounts Are Only Available from Octopus Deploy Version 3.3 Onwards**
+**Azure Service Principal Accounts Are Only Available from Octopus 3.3 Onwards**
 
-Prior to Octopus Deploy 3.3, [Azure Management Certificate Accounts](/docs/infrastructure/azure/index.md) (previously known simply as "Azure Subscription Accounts") were the only type of Azure Account available.
+Prior to **Octopus 3.3**, [Azure Management Certificate Accounts](/docs/infrastructure/azure/index.md) (previously known simply as "Azure Subscription Accounts") were the only type of Azure Account available.
 
 [Azure Management Certificate Accounts](/docs/infrastructure/azure/creating-an-azure-account/creating-an-azure-management-certificate-account.md) are only able to interact with the legacy Azure interface known as the "Azure Service Management API", which is used when Octopus deploys [Cloud Services](/docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-cloud-service/index.md) and [Azure Web Apps](/docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md).
 
@@ -16,8 +16,8 @@ To interact with Azure Resource Manager (ARM), like when Octopus deploys a [Reso
 
 There are two steps to enable your Octopus Server to manage your Azure subscription via a Service Principal:
 
-1. Create an Azure Active Directory registered application (or application registration) and service principal (via the Azure Portal or PowerShell)
-2. Allow Octopus to authenticate with Azure using a Service Principal
+1. Create an Azure Active Directory registered application (or application registration) and service principal (via the Azure Portal or PowerShell).
+2. Allow Octopus to authenticate with Azure using a Service Principal.
 
 ## Step 1: Create an Azure Active Directory Application and Service Principal
 
@@ -25,12 +25,12 @@ The first step is to create an Azure Active Directory (AAD) application and serv
 
 ### Option 1: Use the Azure Portal
 
-The first option to create an Azure Active Directory registered appliation is to use the Azure Portal. Azure Accounts in Octopus require four values which are used to authenticate with Azure and interact with it securely.
+The first option to create an Azure Active Directory registered application is to use the Azure Portal. Azure Accounts in Octopus require four values which are used to authenticate with Azure and interact with it securely.
 
-* Azure Subscription ID
-* Azure AD Tenant ID
-* Azure AD Registered Application ID
-* Azure AD Registered Application Password/Key
+* Azure Subscription ID.
+* Azure AD Tenant ID.
+* Azure AD Registered Application ID.
+* Azure AD Registered Application Password/Key.
 
 The first three values are GUIDs, and the final one is a password.
 
@@ -38,19 +38,19 @@ The first three values are GUIDs, and the final one is a password.
 
 ### Azure Subscription ID
 
-Finding your Azure Subscription ID is very easy. Navigate to the Azure Portal `Subscriptions` service and pick the appropriate Subscription ID.
+Finding your Azure Subscription ID is very easy. Navigate to the Azure Portal **Subscriptions** service and pick the appropriate Subscription ID.
 
 ![Azure subscriptions](azure-subscriptions.png "width=500")
 
 ### Azure AD Tenant ID
 
-Finding your Azure AD Tenant ID is also very easy. Navigate to the `Azure Active Directory` service and select the Properties blade. The Directory is your AAD Tenant ID. NOTE: This value is a GUID.
+Finding your Azure AD Tenant ID is also very easy. Navigate to the **Azure Active Directory** service and select the Properties blade. The Directory is your AAD Tenant ID. NOTE: This value is a GUID.
 
 ![Azure Active Directory properties](azure-ad-properties.png "width=500")
 
 ### Azure AD Registered Application ID and AAD Registered Application Password/Key
 
-If you have created an AAD registered application, then it's relatively straight forward to note the Application ID and Password/Key. Navigate to to the `Azure Active Directory` service and select the 'App registrations' blade. Make sure to click the 'View all applications' button if you don't see anything there. If you have already created a 'registered app' for integration, select the app and note its Application ID.
+If you have created an AAD registered application, then it's relatively straight forward to note the Application ID and Password/Key. Navigate to to the **Azure Active Directory** service and select the 'App registrations' blade. Make sure to click the 'View all applications' button if you don't see anything there. If you have already created a 'registered app' for integration, select the app and note its Application ID.
 
 ![AAD registered applications](azure-ad-registered-apps.png "width=500")
 
@@ -122,11 +122,11 @@ The values required for the script above are:
 
 ## Permissions
 
-The final step is to ensure your registered app has permission to work with your Azure resources. Navigate to the `Resource Groups` service and select the resource group(s) that you want the registered app to access.
+The final step is to ensure your registered app has permission to work with your Azure resources. Navigate to the **Resource Groups** service and select the resource group(s) that you want the registered app to access.
 
 ![Resource Group permission](resource-group-perms01.png "width=500")
 
-Next, select the 'Access Control (IAM)' blade and if your app isn't listed, click the 'Add' button. Select the appropriate role (`Contributor` is a common option) and search for your new application name. Select it from the search results and then click the 'Save' button.  
+Next, select the 'Access Control (IAM)' blade and if your app isn't listed, click the 'Add' button. Select the appropriate role (**Contributor** is a common option) and search for your new application name. Select it from the search results and then click the 'Save' button.  
 
 ![Resource Group permission](resource-group-perms02.png "width=500")
 
@@ -150,15 +150,15 @@ Using option 1, the Azure portal will allow you to select the expiry time when c
 
 ## Note on Least Privilege
 
-In the PowerShell and Permissions example above the service principal is assigned the `Contributor` role on the subscription. This isn't always the best idea, you might want to apply a principle of least privilege to the access the service principal has. If that is the case then there are a couple of things worth noting.
+In the PowerShell and Permissions example above the service principal is assigned the **Contributor** role on the subscription. This isn't always the best idea, you might want to apply a principle of least privilege to the access the service principal has. If that is the case then there are a couple of things worth noting.
 
-Firstly, you might want to constrain the service principal to a single resource group, in which case you just need to assign it the `Contributor` role on the resource group.
+Firstly, you might want to constrain the service principal to a single resource group, in which case you just need to assign it the **Contributor** role on the resource group.
 
 Next you might want to get even more granular and constrain the service principal to a single resource, e.g. a Web App. **In this case you have to assign the `Contributor` role on the Web App and also explicitly assign the `Reader` role on the subscription itself**.
 
-The reason behind this is to do with the way Octopus queries for the web app resources in Azure. In order to be able to handle scenarios where [ASEs](/docs/deployment-examples/azure-deployments/ase/index.md#resource_groups) are being used, Octopus first queries the resource groups and then queries for the web apps within each resource group. When the service principal is assigned `Contributor` on a resource group it seems to implicitly get `Reader` on the subscription, but this doesn't seem to be the case when `Contributor` is assigned directly to a web app and you have to assign `Reader` explicitly.
+The reason behind this is to do with the way Octopus queries for the web app resources in Azure. In order to be able to handle scenarios where [ASEs](/docs/deployment-examples/azure-deployments/ase/index.md#resource_groups) are being used, Octopus first queries the resource groups and then queries for the web apps within each resource group. When the service principal is assigned **Contributor** on a resource group it seems to implicitly get **Reader** on the subscription, but this doesn't seem to be the case when **Contributor** is assigned directly to a web app and you have to assign **Reader** explicitly.
 
-## Step 2: Allow Octopus to Authenticate with Azure using a Service Principal
+## Step 2: Allow Octopus to Authenticate with Azure Using a Service Principal
 
 Navigate to {{Infrastructure,Accounts}} and click *Add account* in the *Azure Subscriptions* section.
 

@@ -5,7 +5,7 @@ position: 121
 version: "2018.6.0"
 ---
 
-Octopus includes a migration API that provides the ability to back-up and restore parts of an Octopus Deploy instance remotely (available from version `2018.6.0`).
+Octopus includes a migration API that provides the ability to back-up and restore parts of an Octopus Deploy instance remotely (available from version **Octopus 2018.6.0**).
 
 The API currently includes support for both the [partial-export](/docs/api-and-integration/octopus.migrator.exe-command-line/partial-export.md) and [import](/docs/api-and-integration/octopus.migrator.exe-command-line/migrator-import.md) commands. The API uses the same [Migrator.exe command line tool](/docs/api-and-integration/octopus.migrator.exe-command-line/index.md) that you'd typically use to migrate data manually, but the API gives you some additional parameters to orchestrate the process between remote servers.
 
@@ -44,7 +44,7 @@ Partial Export API parameters:
 | Password=VALUE | Password to encrypt both the migration package and any sensitive values (This is the shared key between partial-export and import migrations) |
 | Projects=VALUE | Projects to include in the migration |
 | PackageId=VALUE | [Optional] Package Name/ID for your export _(Defaults to `Octopus.Space.Migration` if not provided)_ |
-| PackageVersion=VALUE | [Optional] Semver package version for your export _(Defaults to `1.0.0-{RandomStringGenerator.Generate(8)}` if not provided)_ |
+| PackageVersion=VALUE | [Optional] SemVer package version for your export _(Defaults to `1.0.0-{RandomStringGenerator.Generate(8)}` if not provided)_ |
 | IgnoreCertificates | [Optional] Excludes certificates from partial export |
 | IgnoreMachines | [Optional] Excludes machines from partial export |
 | IgnoreDeployments | [Optional] Excludes deployments from partial export |
@@ -67,7 +67,7 @@ Import API parameters:
 |--------------------------------|-------------|
 | Password=VALUE | Password that was used during the export migration _(This is the shared key between partial-export and import migrations)_ |
 | PackageId=VALUE | Package Name/ID that we are importing |
-| PackageVersion=VALUE | Semver package version that we are importing |
+| PackageVersion=VALUE | SemVer package version that we are importing |
 | IsEncryptedPackage | [Optional] Tells us whether the package was encrypted _(E.g. if you set `EncryptPackage` on export, you need to set this to `True`)_ |
 | IsDryRun | [Optional] Do not commit changes, just print what would have happened _(This allows you to test an import without actually committing the transaction)_ |
 | OverwriteExisting | [Optional] If a document with the same name already exists, it will be skipped by default |

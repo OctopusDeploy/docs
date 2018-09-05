@@ -23,7 +23,7 @@ Under `Automatic Packaging` select `Package Web Applications for Octopus Deploym
 | OCTOPUS_PACKAGE_NUGET | Overrides the package type. (default nupkg) |
 | OCTOPUS_PACKAGE_ADVANCED | [Additional arguments](/docs/packaging-applications/creating-packages/nuget-packages/using-octo.exe.md) to pass to `octo.exe pack` |
 
-#### Non-MSbuild projects
+#### Non-MSbuild Projects
 AppVeyor have included `octo.exe` into the base Windows build VM and is available via the command line. If running a project _not_ using msbuild you can manually invoke the octo.exe pack command directly during the build phase.
 
 ![AppVeyor Npm Build](appveyor_build_npm.png)
@@ -43,7 +43,7 @@ When you define an "Octopus package" in AppVeyor through the `Package Web Applic
 Unless overridden, the AppVeyor project name will be used in place of the Octopus project name when creating a release.
 
 ## Build Configuration in Code
-AppVeyor provides another mechanism for providing the above configuration information and this is via an [appveyor.yml](https://www.appveyor.com/docs/appveyor-yml/) file contained in the repository source code. For the above configuration the yaml file is as simple as
+AppVeyor provides another mechanism for providing the above configuration information and this is via an [appveyor.yml](https://www.appveyor.com/docs/appveyor-yml/) file contained in the repository source code. For the above configuration the YAML file is as simple as
 
 ```yml
 version: 1.0.{build}
@@ -64,7 +64,7 @@ deploy:
   deploy_wait: false
 ```
 
-Storing the configuration with the source code is a great way to version the build process however it is work noting that when AppVeyor detects a `appveyor.yml` file in the source code, any configuration in the portal will be ignored. Although you can continue to update the configuration via the portal, this will have no effect unless you remove the yaml file or configure the project to explicitly ignore it.
+Storing the configuration with the source code is a great way to version the build process however it is work noting that when AppVeyor detects a `appveyor.yml` file in the source code, any configuration in the portal will be ignored. Although you can continue to update the configuration via the portal, this will have no effect unless you remove the YAML file or configure the project to explicitly ignore it.
 
-## Further information
+## Further Information
 For more in-depth information about using AppVeyor, we would recommend checking out their [docs](https://www.appveyor.com/docs/).

@@ -4,9 +4,9 @@ description: Deployments can be scheduled to run at specific times in the future
 position: 14
 ---
 
-Deployments now have the option to be scheduled in advance with the Scheduled Deployments feature available with Octopus Server 2.5.
+Deployments now have the option to be scheduled in advance with the Scheduled Deployments feature available with **Octopus 2.5**.
 
-## Setting a Deployment to run Later {#ScheduledDeployments-SettingaDeploymenttorunLater}
+## Setting a Deployment to Run Later {#ScheduledDeployments-SettingaDeploymenttorunLater}
 
 When creating a deployment for a release, you have the option to run the deployment now or later. When choosing later you then can set a date and a time to schedule when the release will run.
 
@@ -14,7 +14,7 @@ Deployments can only be scheduled up to 14 days in advance. Simply choose a date
 
 ![](/docs/images/3048078/5866224.png "width=500")
 
-As of Octopus Server version 3.7.13 you may select a time after which the deployment will time out (prior to 3.7.13 this was always 30 minutes after the scheduled start date).  If the Octopus Server can not process the scheduled deployment between the scheduled start time and the expiry time it will cancel the deployment and mark it as timed out.
+As of **Octopus 3.7.13** you may select a time after which the deployment will time out (prior to **Octopus 3.7.13** this was always 30 minutes after the scheduled start date).  If the Octopus Server can not process the scheduled deployment between the scheduled start time and the expiry time it will cancel the deployment and mark it as timed out.
 
 The deployment then becomes queued to run at the time that has been selected.
 

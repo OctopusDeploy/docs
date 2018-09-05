@@ -53,6 +53,17 @@ If you are likely to have a lot of projects, in addition to giving them meaningf
 3. Click the file selector and select a file to upload.
 4. Click **open** to upload your logo image, and click **Save**.
 
+## Clone a Project
+
+Projects can be cloned.
+
+1. From the project's overview page, select **settings**.
+2. Click the overflow menu, and select **Clone**.
+3. Give the new project you are cloning from the original project a name.
+4. Review the settings for the new project and when you are satisfied, click **SAVE**.
+
+After you've cloned a project, you can see details about where your project was cloned from and which projects have been cloned from your project, by navigating to the project's overview page and selecting **Settings** and looking at the **Cloning History** section.
+
 ## Project Group
 
 Project groups are a way of organizing your projects.

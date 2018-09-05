@@ -3,7 +3,7 @@ title: AWS Permissions Required by Octopus
 description: Details of the AWS permissions required by the CloudFormation steps in Octopus.
 ---
 
-This feature was introduced in Octopus version `2018.2`.
+This feature was introduced in **Octopus 2018.2**.
 
 The CloudFormation steps in Octopus require a number of basic permissions to be assigned to the AWS account that is used to run the steps. These permissions are used to watch the progress of stacks as they are created, updated and destroyed, query the output properties, determine the presence or absence of stacks, and to provide additional information about failures.
 

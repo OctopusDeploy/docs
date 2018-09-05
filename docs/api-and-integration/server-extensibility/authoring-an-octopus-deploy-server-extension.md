@@ -1,5 +1,5 @@
 ---
-title: Authoring an Octopus Deploy Server extension
+title: Authoring an Octopus Deploy Server Extension
 description: Technical details of how to author an Octopus Deploy Server extension.
 ---
 
@@ -50,9 +50,9 @@ Many extensions will want to store configuration related to their own specific f
 
 Things to note here are:
 
-- the configuration object is a POCO stored as serialized Json in the database, so properties that are enums (as above) or POCOs themselves are supported.
-- the configuration object itself must implement IId, to provide the Id for the Json data.  This is typically a constant unique to your extension.
-- the mapping class must be registered as an **IConfigurationDocumentMapper** in Autofac when the extension is loaded.
+- The configuration object is a POCO stored as serialized JSON in the database, so properties that are enums (as above) or POCOs themselves are supported.
+- The configuration object itself must implement IId, to provide the Id for the JSON data.  This is typically a constant unique to your extension.
+- The mapping class must be registered as an **IConfigurationDocumentMapper** in Autofac when the extension is loaded.
 
 #### Configuration Stores and the Configure Command {#AuthoringanOctopusDeployserverextension-ConfigurationStoresandtheConfigureCommand}
 
@@ -103,9 +103,9 @@ Now that your extension has configuration, how do you set the configuration valu
 
 #### Services Provided by the Host {#AuthoringanOctopusDeployserverextension-ServicesProvidedbytheHost}
 
-This section contains the interfaces and structures related to 'services' that the extensions can consume from the Octopus Deploy Server itself.  In this section, we'll detail a couple of interfaces you're most likely to need. To use them install the relevant NuGet package and take a dependency in your extension constructor.
+This section contains the interfaces and structures related to 'services' that the extensions can consume from the Octopus Deploy Server itself. In this section, we'll detail a couple of interfaces you're most likely to need. To use them install the relevant NuGet package and take a dependency in your extension constructor.
 
-#### ILog from [Octopus.Diagnostics](https://www.nuget.org/packages/Octopus.Diagnostics/) {#AuthoringanOctopusDeployserverextension-ILogfromOctopus.Diagnostics}
+#### ILog From [Octopus.Diagnostics](https://www.nuget.org/packages/Octopus.Diagnostics/) {#AuthoringanOctopusDeployserverextension-ILogfromOctopus.Diagnostics}
 
 This interface provides access to the server's logging infrastructure, so your extension can log Info, Warnings, Errors etc.
 
@@ -113,14 +113,14 @@ This interface provides access to the server's logging infrastructure, so your e
 
 This interface provides access to the server.config XML file, should your extension need to read/write configuration values there.
 
-## Building the extension {#AuthoringanOctopusDeployserverextension-Buildingtheextension}
+## Building the Extension {#AuthoringanOctopusDeployserverextension-Buildingtheextension}
 
 An extension is simply a .NET dll, so you can build it in any way that you would normally build your .NET code.
 
-## Extension points {#AuthoringanOctopusDeployserverextension-Extensionpoints}
+## Extension Points {#AuthoringanOctopusDeployserverextension-Extensionpoints}
 
 At the moment you can only extend [Authentication](https://github.com/OctopusDeploy/AuthenticationExtensibility) but we plan to expose more of Octopus internals in the future so stay tuned and check this page every now then for updates.
 
-## 'Installing' a custom extension {#AuthoringanOctopusDeployserverextension-&#39;Installing&#39;acustomextension}
+## 'Installing' a Custom Extension {#AuthoringanOctopusDeployserverextension-&#39;Installing&#39;acustomextension}
 
 Once you've compiled the dll, [installing it is as simple as putting it in the right folder](/docs/api-and-integration/server-extensibility/installing-a-custom-server-extension.md) and restarting the Octopus Deploy Server.

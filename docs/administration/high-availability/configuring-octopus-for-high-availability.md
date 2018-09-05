@@ -1,6 +1,6 @@
 ---
 title: Configuring Octopus for High Availability
-description: Information on configuring Octopus High Availablity including database and shared storage set up.
+description: Information on configuring Octopus High Availability including database and shared storage set up.
 ---
 
 This section will walk through the different options and considerations for setting up Octopus: HA.
@@ -55,23 +55,23 @@ Whichever way you provide the shared storage, a few considerations to keep in mi
 - The service account that Octopus runs as needs **full control** over the directory
 - Drives are mapped per-user, so you should map the drive using the same service account that Octopus is running under
 
-#### Shared storage on-premises
+#### Shared Storage On-premises
 
 The simplest way to provide shared storage, assuming the Octopus Server nodes are part of the same Active Directory domain, is by creating a file share that each of the Octopus Server nodes can access. Of course, this assumes that the underlying directory is reliable, such as in a RAID array.
 
 A better alternative is [Microsoft DFS](https://en.wikipedia.org/wiki/Distributed_File_System_(Microsoft)), or a SAN.
 
-#### Shared storage in Microsoft Azure
+#### Shared Storage in Microsoft Azure
 
 If your Octopus Server is running in Microsoft Azure, you can use [Azure File Storage](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-introduction) - it just presents a file share over SMB 3.0.
 
 Once you have [created your File Share](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-create-file-share)you can [mount the drive](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-windows) for use by Octopus. Remember, drives are mounted per user. Make sure to map a persistent network drive for the user account the Octopus Server is running under.
 
-#### Shared storage in Amazon AWS
+#### Shared Storage in Amazon AWS
 
 If your Octopus Server is running in Amazon AWS you will need to configure your own file share using something like [Microsoft DFS](https://en.wikipedia.org/wiki/Distributed_File_System_(Microsoft)). Unfortunately [Amazon Elastic File System (EFS)](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEFS.html) is not supported on Windows, and [Amazon Elastic Block Store (EBS) volumes](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html) can only be mounted on a single instance.
 
-### Octopus Server nodes {#ConfiguringOctopusforHighAvailability-OctopusServernodes}
+### Octopus Server Nodes {#ConfiguringOctopusforHighAvailability-OctopusServernodes}
 
 With the shared storage and database provisioned, you can now set up each of the Octopus Server nodes. An Octopus: HA configuration requires at least two nodes, and has been tested with up to four nodes.
 
@@ -80,7 +80,7 @@ With the shared storage and database provisioned, you can now set up each of the
 While multiple Octopus Server nodes form a logical "cluster" of servers, Octopus nodes do not require Windows Server Failover Clustering. They should be standalone servers.
 :::
 
-#### Configuring the first node {#ConfiguringOctopusforHighAvailability-Configuringthefirstnode}
+#### Configuring the First Node {#ConfiguringOctopusforHighAvailability-Configuringthefirstnode}
 
 On the first Octopus Server node, [download the Octopus Server MSI](https://octopus.com/downloads), and walk through the setup wizard. Use the Getting Started wizard to configure the first Octopus node:
 
@@ -120,7 +120,7 @@ Octopus.Server.exe path --nugetRepository \\Octoshared\OctopusData\Packages
 
 This configuration is stored in the database, so you only have to perform this once - other nodes will read it from the database.
 
-#### Configuring the second and additional nodes {#ConfiguringOctopusforHighAvailability-Configuringthesecondandadditionalnodes}
+#### Configuring the Second and Additional Nodes {#ConfiguringOctopusforHighAvailability-Configuringthesecondandadditionalnodes}
 
 Once the first node has been created and started, you can add the additional nodes. Again, install the Octopus Server MSI, but instead of using the Getting Started wizard, use the link to add this server as a node for the cluster:
 
@@ -146,15 +146,15 @@ If you don't have a hardware load balancer available, an easy option is the [App
 
 ![](create-server-farm.png "width=500")
 
-## Migrating a Single Server to a High Availability setup {#ConfiguringOctopusforHighAvailability-MigratingaSingleServertoaHighAvailabilitysetup}
+## Migrating a Single Server to a High Availability Setup {#ConfiguringOctopusforHighAvailability-MigratingaSingleServertoaHighAvailabilitysetup}
 
 You may already have an existing Octopus Deploy Server, that you wish to make highly available. The process for doing this is the same as the process above, except your existing server will be the "first node" in the cluster.
 
-1. Provision the shared storage folder
-2. Move the SQL Server database, if necessary
-3. Use the `Octopus.Server.exe path` commands above to tell Octopus to use the shared storage folder
-4. Move the existing task logs, packages and artifacts from the existing Octopus Server node into the shared storage folders
-5. Add the additional nodes and load balancer as required
+1. Provision the shared storage folder.
+2. Move the SQL Server database, if necessary.
+3. Use the `Octopus.Server.exe path` commands above to tell Octopus to use the shared storage folder.
+4. Move the existing task logs, packages and artifacts from the existing Octopus Server node into the shared storage folders.
+5. Add the additional nodes and load balancer as required.
 
 ## Configuring High Availability Polling Tentacles {#ConfiguringOctopusforHighAvailability-ConfiguringHighAvailabilityPollingTentacles}
 
@@ -186,7 +186,7 @@ Notice there is an address entry for each Octopus Server in the High Availabilit
 
 ## Troubleshooting
 
-### Octopus Server starts and stops again
+### Octopus Server Starts and Stops Again
 
 Something has gone wrong and the Octopus Server has crashed. Look at the Octopus Server log to see what has gone wrong.
 
@@ -206,23 +206,23 @@ Access to the path 'Z:\Octopus\TaskLogs' is denied
 
 This usually means the user account running the Octopus Server does not have the correct permissions to the file share. Make sure this user account has full control over each of the folders. You may need to share permissions, and check the ACLs on the actual folders.
 
-### Task logs are empty for certain deployments {#missing-task-logs}
+### Task Logs Are Empty For Certain Deployments {#missing-task-logs}
 
 Sometimes you go to a deployment and there are no steps displayed, and detailed logs are not available for the deployment. Sometimes refreshing your browser fixes it and the logs come back. The cause for this is when you have not configured [shared storage](#ConfiguringOctopusforHighAvailability-SharedStorage) correctly. The most common situation is when you have configured each node to use a folder on a local disk instead of a shared network location.
 
 To fix this problem you should:
 
-1. Plan some downtime for your Octopus HA cluster
-2. Create shared storage as [described here](#ConfiguringOctopusforHighAvailability-SharedStorage)
-3. Put your Octopus HA cluster into [Maintenance Mode](/docs/administration/upgrading/maintenance-mode.md) after draining tasks from each node
-3. Reconfigure your Octopus HA cluster to use the shared storage
-4. Copy all of the files into the shared storage location - there shouldn't be any filename collisions since each node will generally run independent tasks
-5. Bring yoour Octopus HA cluster back online
+1. Plan some downtime for your Octopus HA cluster.
+2. Create shared storage as [described here](#ConfiguringOctopusforHighAvailability-SharedStorage).
+3. Put your Octopus HA cluster into [Maintenance Mode](/docs/administration/upgrading/maintenance-mode.md) after draining tasks from each node.
+3. Reconfigure your Octopus HA cluster to use the shared storage.
+4. Copy all of the files into the shared storage location - there shouldn't be any filename collisions since each node will generally run independent tasks.
+5. Bring your Octopus HA cluster back online.
 
-### Deployment artifacts are not available for certain deployments
+### Deployment Artifacts Are Not Available For Certain Deployments
 
 This has the same root cause as missing task logs - [see above](#missing-task-logs).
 
-### Packages in the built-in repository are not available for some deployments
+### Packages in the Built-in Repository Are Not Available For Some Deployments
 
 This has the same root cause as missing task logs - [see above](#missing-task-logs).

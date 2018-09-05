@@ -4,7 +4,7 @@ description: Kubernetes Targets
 position: 20
 ---
 
-This featured was introduced as a prerelease in Octopus `2018.8`.
+This featured was introduced as a prerelease in **Octopus 2018.8**.
 
 :::warning
 Kubernetes steps in Octopus are of alpha level quality and have been made available for testing and feedback purposes only. They **must not** be used for production deployments, or enabled on production Octopus instances. The information provided here is subject to change at any point, and existing Kubernetes steps will most likely need to be deleted and recreated with Octopus upgrades.
@@ -50,6 +50,9 @@ rules:
 - apiGroups: ["", "extensions", "apps"]
   resources: ["deployments", "replicasets", "pods", "services", "ingresses", "secrets", "configmaps"]
   verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+- apiGroups: [""]
+  resources: ["namespaces"]
+  verbs: ["get"]     
 ---
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
@@ -87,8 +90,6 @@ The token can then be saved as a Token Octopus account, and assigned to the Kube
 
 Kubernetes targets use the `kubectl` executable to communicate with the Kubernetes cluster. This executable must be available on the path on the target where the step is run. When using workers, this means the `kubectl` executable must be in the path on the worker that is executing the step. Otherwise the `kubectl` executable must be in the path on the Octopus server itself.
 
-When using an AWS EKS Kubernetes cluster with IAM integration, the `heptio-authenticator-aws` executable must also be on the path.
-
 ## Helm
 
 When a Kubernetes target is used with a Helm step, the `helm` executable must be on the target where the step is run.
@@ -100,7 +101,6 @@ Kubernetes targets support multiple [account types](http://g.octopushq.com/Kuber
 * Username and password
 * Token
 * Certificates
-* AWS Accounts
 
 The YAML file below shows a sample kubectl config file with examples of these types of authentication:
 
@@ -183,12 +183,6 @@ openssl pkcs12 \
 ```
 
 This file can then be uploaded to the [Octopus certificate management area](http://g.octopushq.com/CertificatesDocumentation), after which, it will be made available to the Kubernetes target.
-
-### AWS Accounts
-
-To use an AWS account to connect to an [EKS](http://g.octopushq.com/AWSEKS) cluster, recent versions of the `kubectl` and `heptio-authenticator-aws` binaries need to be available where the step is being run. The [EKS documentation](http://g.octopushq.com/AWSEKSKubectl) provides download links for both these executables.
-
-When an AWS account is selected, two additional fields are displayed in the target configuration: `AWS EKS cluster name` and `AWS region`.
 
 ## Kubernetes Details
 

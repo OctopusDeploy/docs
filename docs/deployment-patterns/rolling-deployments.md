@@ -49,8 +49,8 @@ Octopus has numerous steps that support rolling deployments depending on your in
 - Send an Email step
 - Manual intervention required step
 - Run an Azure PowerShell Script step
-- Deploy an Azure Resource Group step
-- Run a Service Fabric SDK PowerShell Script step 
+- Deploy an Azure Resource Manager template step
+- Run a Service Fabric SDK PowerShell Script step
 
 ![](rolling-deployments-package-type.png "width=500")
 
@@ -66,7 +66,7 @@ You can edit the parent step to change the roles that the steps run on or the wi
 
 With this configuration, we run the entire website deployment step - taking the machine out of the load balancer, deploying the site, and returning it to the load balancer - on each machine in sequence as part of a rolling deployment step.
 
-## Rolling Deployments with Child Steps in Action {#Rollingdeployments-Rollingdeploymentswithchildstepsinaction}
+## Rolling Deployments With Child Steps in Action {#Rollingdeployments-Rollingdeploymentswithchildstepsinaction}
 
 This five minute video (with captions) will guide you through setting up a rolling deployment with child steps.rolling-deployments
 

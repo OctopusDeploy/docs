@@ -52,7 +52,7 @@ let testResult = Octopus.findVariable "Octopus.Action[StepA].Output.TestResult"
 
 ## Sensitive Output Variables
 
-Output variables can be created as sensitive (since Octopus 2018.5.2).
+Output variables can be created as sensitive (since **Octopus 2018.5.2**).
 
 ```powershell PowerShell
 Set-OctopusVariable -name "Password" -value "correct horse battery staple" -sensitive
@@ -103,9 +103,9 @@ In this scenario, the following output variables would be captured:
 
 Note that for each output variable/machine combination:
 
-- A variable is created with the machine name contained in the variable name: this allows you to reference output variables from set by one machine from another machine
-- A variable is created that is [scoped](/docs/deployment-process/variables/scoping-variables.md) to the machine. This way Web01 will always get the value Web01 set, and Web02 will get the value Web02 set
-- A variable is created with no scope, and no differentiator in the name. When referencing this value, the result will be indeterministic, but it allows scripts to use the value without knowing which machine set it
+- A variable is created with the machine name contained in the variable name: this allows you to reference output variables from set by one machine from another machine.
+- A variable is created that is [scoped](/docs/deployment-process/variables/scoping-variables.md) to the machine. This way Web01 will always get the value Web01 set, and Web02 will get the value Web02 set.
+- A variable is created with no scope, and no differentiator in the name. When referencing this value, the result will be indeterministic, but it allows scripts to use the value without knowing which machine set it.
 
 For some practical examples of using output variables, and how scoping rules are applied, see the following blog posts:
 
@@ -122,8 +122,8 @@ You can set output variables using any of the scripting languages supported by O
 
 From a PowerShell script, you can use the PowerShell CmdLet `Set-OctopusVariable` to set the name and value of an output variable. The CmdLet takes two parameters:
 
-- `[string]$name` - the name you want to give the output variable following the same naming conventions used for input [variables](/docs/deployment-process/variables/index.md)
-- `[string]$value` - the value you want to give the output variable
+- `[string]$name` - the name you want to give the output variable following the same naming conventions used for input [variables](/docs/deployment-process/variables/index.md).
+- `[string]$value` - the value you want to give the output variable.
 
 For example:
 
@@ -160,12 +160,12 @@ set_octopusvariable "TestResult" "Passed"
 ### F# {#Outputvariables-F#}
 
 :::success
-F# support is available in Octopus Deploy 3.4 (or newer).
+F# support was introduced in **Octopus 3.4**.
 :::
 
 [FSharp Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/enhancement-fsharpscripts/source/Calamari/Integration/Scripting/FSharp)
 
-From a F# script, you can use the`setVariable : name:string -> value:string -> unit` function to collect artifacts. The function takes two parameters with the same purpose as the PowerShell CmdLet.
+From a F# script, you can use the `setVariable : name:string -> value:string -> unit` function to collect artifacts. The function takes two parameters with the same purpose as the PowerShell CmdLet.
 
 **F#**
 

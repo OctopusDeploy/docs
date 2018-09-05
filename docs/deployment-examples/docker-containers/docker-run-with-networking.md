@@ -1,6 +1,6 @@
 ---
-title: Docker run with networking
-description: This guide demonstates the basic functionality provided by the Octopus Docker steps.
+title: Docker Run With Networking
+description: This guide demonstrates the basic functionality provided by the Octopus Docker steps.
 ---
 
 To demonstrate some of the basic functionality provided by the new Docker steps, we will walk through the process of starting two containers that can communicate with each other through their own isolated network. The first container will simply start and run a non exiting process, while the second container will ping the first to demonstrate connectivity. As part of this we will set up an external feed to DockerHub and include a cleanup task to remove existing containers. We will use a **Linux** machine which has the latest version of Docker installed and has network access to retrieve images from Docker Hub.
@@ -10,32 +10,32 @@ To demonstrate some of the basic functionality provided by the new Docker steps,
 While Docker Containers on Windows Server (not Docker for Windows through Docker Toolbox) are now generally available, this feature appears to still have some issues with key areas such as networking. This is an area that the Docker and Windows team are actively improving. While deploying a Windows Container to a Tentacle target on Windows should work, you may experience issues trying to use custom networks or volumes. We would suggest using Linux targets via SSH for the time being until this feature stabilizes.
 :::
 
-## Configuring a Docker host {#Dockerrunwithnetworking-ConfiguringaDockerhost}
+## Configuring a Docker Host {#Dockerrunwithnetworking-ConfiguringaDockerhost}
 
 If you already have a working Linux machine with Docker Engine installed you can use that once you have configured it as an [SSH Target](/docs/infrastructure/ssh-targets/index.md) in Octopus.
 
 If not, you will need to configure a host for our sample application. We recommend using **Ubuntu Trusty 14.04 LTS** or **Ubuntu Xenial 16.04 LTS** for this sample.
 
-1. Install Ubuntu
-2. Configure your Ubuntu machine as an [SSH Target](/docs/infrastructure/ssh-targets/index.md) in Octopus - [this guide may be helpful](/docs/deployment-examples/node-on-nix-deployments/configuring-target-machine.md)
+1. Install Ubuntu.
+2. Configure your Ubuntu machine as an [SSH Target](/docs/infrastructure/ssh-targets/index.md) in Octopus - [this guide may be helpful](/docs/deployment-examples/node-on-nix-deployments/configuring-target-machine.md).
     * Make sure this Deployment Target has a [Machine Role](/docs/infrastructure/target-roles/index.md) like **docker-test**. We will configure the Docker steps to target this role.
- 
+
 ![](/docs/images/5670973/5865822.png "width=500")
 
-3. Configure Docker Engine on your Ubuntu machine - [https://docs.docker.com/engine/installation/linux/ubuntulinux/](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
-4. Configure a Docker Group and grant Octopus the ability to command the Docker Daemon - [https://docs.docker.com/engine/installation/linux/ubuntulinux/#/create-a-docker-group](https://docs.docker.com/engine/installation/linux/ubuntulinux/#/create-a-docker-group)
+3. Configure Docker Engine on your Ubuntu machine - [https://docs.docker.com/engine/installation/linux/ubuntulinux/](https://docs.docker.com/engine/installation/linux/ubuntulinux/).
+4. Configure a Docker Group and grant Octopus the ability to command the Docker Daemon - [https://docs.docker.com/engine/installation/linux/ubuntulinux/#/create-a-docker-group](https://docs.docker.com/engine/installation/linux/ubuntulinux/#/create-a-docker-group).
 
-You should now be ready to deploy Docker containers to your Ubuntu machine using Octopus Deploy!
+You should now be ready to deploy Docker containers to your Ubuntu machine using Octopus Deploy.
 
-## Configuring a DockerHub feed {#Dockerrunwithnetworking-ConfiguringaDockerHubfeed}
+## Configuring a DockerHub Feed {#Dockerrunwithnetworking-ConfiguringaDockerHubfeed}
 
 Next we are going to create a connection to the official Docker Hub registry so we can use those images for this demonstration.
 
-1. Go to {{Configuration,Features}} and enable the **Docker** feature (if you haven't already done so)
+1. Go to {{Configuration,Features}} and enable the **Docker** feature (if you haven't already done so).
 ![](/docs/images/5670973/5865818.png "width=500")
 2. Go to {{Library,External feeds,Add Feed}}.
-3. Notice the presence of the new *Feed Type* drop down and select **Docker Container Registry**
-4. *S*et the *Name* to something meaningful like **DockerHub**
+3. Notice the presence of the new *Feed Type* drop down and select **Docker Container Registry**.
+4. *S*et the *Name* to something meaningful like **DockerHub**.
 5. Set the *URL* to the Docker Hub API url of **[https://index.docker.io](https://index.docker.io/v1)**.
 6. Since the registry is accessible from both the Octopus Server and the SSH endpoint using the same URL, we can leave the *RegistryPath* field blank.
 7. Similarly since we will only be using **public official images** from Docker Hub we don't need to provide any credentials.
@@ -51,10 +51,10 @@ Next we are going to create a connection to the official Docker Hub registry so 
 
 In a newly created project, click {{Add Step,Create a Docker network}}. This step manages parameters that will be passed to the `docker network create` command.
 
-1. Ensure the step is set to run on the **docker-server** role (targeting the Docker host we created earlier)
-2. Set the *Name* to **Custom Network**. *This name will be referenced later on in subsequent steps that will link the containers to the created network.*
-3. Leave the *Driver* as the default **Bridge** type. *This network type allows containers on the same network to immediately communicate with each other, while keeping them isolated from external networks.*
-4. Set the *Subnet* to `172.28.6.0/24`. *You can optionally provide IP ranges that will define the Subnet, IP Range, and Gateway used by the network. In this case we have opted to just set up the subnet using the [CIDR format ](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)**`172.28.6.0/24` meaning that connected containers will be assigned IP addresses in the range `172.28.6.0-172.28.6.255`**.
+1. Ensure the step is set to run on the **docker-server** role (targeting the Docker host we created earlier).
+2. Set the *Name* to **Custom Network**. This name will be referenced later on in subsequent steps that will link the containers to the created network.
+3. Leave the *Driver* as the default **Bridge** type. This network type allows containers on the same network to immediately communicate with each other, while keeping them isolated from external networks.
+4. Set the *Subnet* to `172.28.6.0/24`. You can optionally provide IP ranges that will define the Subnet, IP Range, and Gateway used by the network. In this case we have opted to just set up the subnet using the [CIDR format ](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)`172.28.6.0/24` meaning that connected containers will be assigned IP addresses in the range `172.28.6.0-172.28.6.255`.
 ![](/docs/images/5670973/5865821.png "width=500")
 
 :::hint
@@ -70,19 +70,19 @@ For detailed information about Docker networking and additional arguments you ca
 
 From the project process page, add a new step via {{Add Step,Run a Docker Container}}. This step helps you configure the parameters that will be passed to the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command.
 
-1. Set the *Name* to **First Server**
-2. Ensure the step is set to run on the **docker-server** role (targeting the Docker host and Network we created earlier)
-3. For the *Package Feed* the **DockerHub** feed. *You may notice the only options are Docker feeds, like the one we created earlier. This is because only Docker feeds will be shown for Docker-specific steps.*
-4. Set the *Package ID* as **busybox**. *Note the package auto-complete should search for and return all public images from Docker Hub with the word "busybox". Since we want to use the official image, select the one that is not preceded by a registry prefix. busybox is a tiny linux distro that, at just over 1 MB, will serve as a sufficient image for this feature demonstration.*
+1. Set the *Name* to **First Server**.
+2. Ensure the step is set to run on the **docker-server** role (targeting the Docker host and Network we created earlier).
+3. For the *Package Feed* the **DockerHub** feed. You may notice the only options are Docker feeds, like the one we created earlier. This is because only Docker feeds will be shown for Docker-specific steps.
+4. Set the *Package ID* as **busybox**. Note, the package auto-complete should search for and return all public images from Docker Hub with the word "busybox". Since we want to use the official image, select the one that is not preceded by a registry prefix. busybox is a tiny linux distro that, at just over 1 MB, will serve as a sufficient image for this feature demonstration.
 ![](/docs/images/5670973/5865801.png "width=200")
-5. Under the *Networking* section, select the *Network Type*as **Custom Network** and provide the name as **`#{Octopus.Action[Custom Network].Output.Docker.Inspect.Name}`**.
+5. Under the *Networking* section, select the *Network Type* as *Custom Network* and provide the name as `#{Octopus.Action[Custom Network].Output.Docker.Inspect.Name}`.
 
 :::success
 **Using output variables from Docker Inspect**
 Once Octopus creates the network in the previous step, it invokes the [docker network inspect](https://docs.docker.com/engine/reference/commandline/network_inspect/) command and stores the JSON output in an [output variable](/docs/deployment-process/variables/output-variables.md). This data contains all the information about the network and we will use the network name to signify to the container that it should connect to that network. All the values of the inspect command can be accessed with standard [variable substitution syntax](/docs/deployment-process/variables/variable-substitution-syntax.md).
 :::
-6. Set *Network Alias* to **FirstServer**. *This will make it easier to identify this specific container from another container in the network.*
-7. Skip down to the *Additional Arguments* section, and set the *Command* to be `/bin/sh -c "ping localhost"`. *This arbitrary script instructs the linux instance to ping itself forever, keeping the container alive for this demonstration.*
+6. Set *Network Alias* to **FirstServer**. This will make it easier to identify this specific container from another container in the network.
+7. Skip down to the *Additional Arguments* section, and set the *Command* to be `/bin/sh -c "ping localhost"`. This arbitrary script instructs the linux instance to ping itself forever, keeping the container alive for this demonstration.
 
 :::hint
 **Container entry point**
@@ -97,12 +97,12 @@ The command itself is arbitrary, what is important is that we start a process th
 Now we will create a second container, exactly the same as the first using busybox, but this container will connect to the first container to demonstrate how containers can communicate in a docker network.
 
 1. Create a new Run Docker Container step (very much like the first one, but notice some subtle differences):
-    * Set the *Name* to **Second Server**
-    * Set the R*oles* to**docker-server**
-    * Set the *Package feed* to **DockerHub**
-    * Set the *Package ID* to **busybox**
-    * Set the *Network Type* to **Custom Network**using the name **`#{Octopus.Action[Custom Network].Output.Docker.Inspect.Name}`**
-2. Skip down to the *Variables* section and under *Explicit Variable Mapping*, add a variable named **PING\_COUNT** to a value of **#{PingCount}**. *This will demonstrate the mechanism for getting variables from Octopus into the container at run time via environment variables.*
+    * Set the *Name* to **Second Server**.
+    * Set the R*oles* to**docker-server**.
+    * Set the *Package feed* to **DockerHub**.
+    * Set the *Package ID* to **busybox**.
+    * Set the *Network Type* to **Custom Network** using the name `#{Octopus.Action[Custom Network].Output.Docker.Inspect.Name}`.
+2. Skip down to the *Variables* section and under *Explicit Variable Mapping*, add a variable named **PING\_COUNT** to a value of **#{PingCount}**. This will demonstrate the mechanism for getting variables from Octopus into the container at run time via environment variables.
 
 :::problem
 **Getting Octopus variables into your container**
@@ -112,15 +112,15 @@ Some other options include passing through all variables to the container throug
 
 We would love to hear about your thoughts and feedback on these options!
 :::
-3. This time set the *Command* parameter to **`/bin/sh -c "ping -c \$PING_COUNT FirstServer | grep PING; sleep 5s"`**. *As with Container A, this will start the container with the ping process however in this case it will only ping a limited number of times before exiting with the first line showing the IP address of the server being called.  A 5 second sleep is also appended for demonstration purposes so that we can extract the container information before it exits.*
+3. This time set the *Command* parameter to **`/bin/sh -c "ping -c \$PING_COUNT FirstServer | grep PING; sleep 5s"`**. As with Container A, this will start the container with the ping process however in this case it will only ping a limited number of times before exiting with the first line showing the IP address of the server being called.  A 5 second sleep is also appended for demonstration purposes so that we can extract the container information before it exits.
 ![](/docs/images/5670973/5865798.png "width=500")
-4. Save this step
+4. Save this step.
 
-### Step 4: Configure the PingCount variable {#Dockerrunwithnetworking-Step4:ConfigurethePingCountvariable}
+### Step 4: Configure the PingCount Variable {#Dockerrunwithnetworking-Step4:ConfigurethePingCountvariable}
 
 Now we need to create a single Project Variable used by the second container to control how many pings to perform before exiting.
 
-1. Create a project variable named **PingCount** and give it a value of **2** so that two pings take place before the container exits.
+1. Create a project variable named **PingCount** and give it a value of *2* so that two pings take place before the container exits.
 ![](/docs/images/5670973/5865823.png "width=500")
 
 ### Step 5: Docker Stop {#Dockerrunwithnetworking-Step5:DockerStop}
@@ -133,10 +133,10 @@ Although we could deploy a project as many times as we want with a Docker run st
 
 As one final step we will write out to the logs the IP addresses of the containers that were created, as well as show the ping results of the second container from the Docker logs.
 
-1. Create a new script step
-2. Set the *Name* to **Get Log**
-3. Set the *Roles* to **docker-server**
-4. Set the *Type* to **Bash**
+1. Create a new script step.
+2. Set the *Name* to **Get Log**.
+3. Set the *Roles* to **docker-server**.
+4. Set the *Type* to **Bash**.
 5. Provide the following code which uses a mixture of advanced Octopus variable parsing, and directly calling the `docker logs` command:
 
 ```bash
@@ -154,9 +154,9 @@ To see the full results of the inspect command try echoing out the variable just
 
 ![](/docs/images/5670973/5865800.png "width=700")
 
-## Creating a Release of our Docker Project {#Dockerrunwithnetworking-CreatingaReleaseofourDockerProject}
+## Creating a Release of Our Docker Project {#Dockerrunwithnetworking-CreatingaReleaseofourDockerProject}
 
-From this point forward the deployment will follow the same process that you should be comfortable with: Good old Octopus Releases.
+From this point forward, the deployment will follow the same process that you should be comfortable with: Good old Octopus Releases.
 
 Go ahead and create a release of your Docker Project.
 
@@ -169,7 +169,7 @@ When creating a release, the Octopus Server will query the Docker registry to re
 Note that "latest" in Octopus is the "highest" [Semantic Version](http://semver.org/) and not the image tagged with "latest".
 :::
 
-## Deploying a Release of our Docker Project {#Dockerrunwithnetworking-DeployingaReleaseofourDockerProject}
+## Deploying a Release of Our Docker Project {#Dockerrunwithnetworking-DeployingaReleaseofourDockerProject}
 
 Looking at the results of a deployment you will see some logging indicating the work being performed.
 

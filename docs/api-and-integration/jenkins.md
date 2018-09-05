@@ -17,10 +17,10 @@ Build job
 
 During our Jenkins job, we will:
 
-1. Compile the code, run unit tests, and so on - typical CI tasks
-2. Have OctoPack create NuGet packages
-3. Publish these NuGet packages to the Octopus Deploy Server
-4. Create a release in Octopus, ready to be deployed
+1. Compile the code, run unit tests, and so on - typical CI tasks.
+2. Have OctoPack create NuGet packages.
+3. Publish these NuGet packages to the Octopus Deploy Server.
+4. Create a release in Octopus, ready to be deployed.
 
 Jenkins uses the MSBuild plugin to compile Visual Studio solutions. [Once OctoPack has been installed](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md) on your C#/VB projects, you can configure Jenkin's MSBuild task to pass the appropriate parameters to MSBuild to have OctoPack run:
 
@@ -55,7 +55,7 @@ Learn about [how to create an API key](/docs/api-and-integration/api/how-to-crea
 
 After running this job, and assuming OctoPack is correctly installed, your code should compile, and packages should be published to the Octopus Deploy Server. You can go to {{Library,Packages}} in Octopus to check that the packages have been published.
 
-## Creating a release {#Jenkins-Creatingarelease}
+## Creating a Release {#Jenkins-Creatingarelease}
 
 Jenkins is compiling our code and publishing packages to Octopus Deploy. If we wish, we can also have Jenkins automatically create (and optionally, deploy) a release in Octopus.
 
@@ -86,7 +86,7 @@ Learn more about [Octo.exe](/docs/api-and-integration/octo.exe-command-line/inde
 
 With this job runs, Jenkins will now not only build and publish packages, but it should also create a release in Octopus Deploy.
 
-## Deploying releases {#Jenkins-Deployingreleases}
+## Deploying Releases {#Jenkins-Deployingreleases}
 
 You might like to configure Jenkins to not only create a release, but deploy it to a test environment. This can easily be done by adding some extra parameters to the `create-release` command:
 

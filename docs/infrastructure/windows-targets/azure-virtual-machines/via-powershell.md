@@ -1,6 +1,6 @@
 ---
 title: Installing the Tentacle VM Extension via PowerShell
-description: How to install the Tentacle VM Extension using the Powershell
+description: How to install the Tentacle VM Extension using the PowerShell
 position: 3
 ---
 

@@ -6,11 +6,11 @@ position: 110
 
 Machine policies are groups of settings that can be applied to Tentacle and SSH endpoints to modify their behavior. They can be used to:
 
-- Customize the interval between health checks
-- Run custom health check scripts
-- Ignore machines that are unavailable during health checks
-- Configure how Calamari and Tentacle are updated
-- Automatically delete machines
+- Customize the interval between health checks.
+- Run custom health check scripts.
+- Ignore machines that are unavailable during health checks.
+- Configure how Calamari and Tentacle are updated.
+- Automatically delete machines.
 
 ![](/docs/images/5669423/5865583.png "width=500")
 
@@ -36,7 +36,7 @@ Try {
 }
 ```
 
-The function *CheckDriveCapacity* informs you about how much space is available on your Tentacle's local hard disk and will write a warning if the free disk space is less than this threshold. You can add additional Powershell to this script to customize your health checks as you wish, modify or remove the disk space checking altogether. It's entirely up to you! Just remember, you can copy and paste the original script above *back* into your machine policy if you run into any problems and wish to get back to the default behavior.
+The function *CheckDriveCapacity* informs you about how much space is available on your Tentacle's local hard disk and will write a warning if the free disk space is less than this threshold. You can add additional PowerShell to this script to customize your health checks as you wish, modify or remove the disk space checking altogether. It's entirely up to you! Just remember, you can copy and paste the original script above *back* into your machine policy if you run into any problems and wish to get back to the default behavior.
 
 The health status of a deployment target can be set by custom health check scripts.  Deployment targets can have four health statuses:
 
@@ -95,8 +95,8 @@ Brand new Tentacle and SSH endpoints require the installation of Calamari to per
 
 By default, Calamari will be installed or updated when a machine is involved in a deployment.  The other two options will update Calamari:
 
-- the first time a machine is added to Octopus and then subsequently when it is involved in a deployment
-- any time Octopus detects Calamari is out of date (after health checks for example)
+- the first time a machine is added to Octopus and then subsequently when it is involved in a deployment.
+- any time Octopus detects Calamari is out of date (after health checks for example).
 
 Tentacle can be toggled to manually or automatically update Tentacle.  If **Automatically update Tentacle** is selected, Octopus will start a task to update Tentacles whenever Octopus detects that there is a pending Tentacle upgrade (after health checks for example). Conversely, Octopus will not automatically start a task to update Tentacle but will prompt to begin a Tentacle update on the environments screen.
 

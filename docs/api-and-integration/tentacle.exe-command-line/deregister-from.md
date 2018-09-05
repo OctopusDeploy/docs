@@ -1,5 +1,5 @@
 ---
-title: Deregister from
+title: Deregister From
 description: Using the Tentacle.exe command line executable to deregister a deployment target from an Octopus Server.
 ---
 
@@ -25,4 +25,3 @@ Or one of the common options:
       --nologo               Don't print title or version information
       --noconsolelogging     Don't log to the console
 ```
-

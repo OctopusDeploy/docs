@@ -6,12 +6,12 @@ position: 1
 
 The new structure of Team Foundation Build gives us a great opportunity to integrate better with your build and release processes from Visual Studio Team Services (VSTS) (formerly VSO) and on-premises Team Foundation Server (TFS) servers. We've created a [public extension](https://marketplace.visualstudio.com/items/octopusdeploy.octopus-deploy-build-release-tasks) you can install into your VSTS instance or TFS 2017 server.  This extension makes the following tasks available to your Build and Release processes:
 
-- Octo Installer task
-- Packaging your application
-- Pushing your package to Octopus
-- Creating a Release in Octopus
-- Deploying a Release to an Environment in Octopus
-- Promoting a Release from one Environment to the next
+- Octo Installer task.
+- Packaging your application.
+- Pushing your package to Octopus.
+- Creating a Release in Octopus.
+- Deploying a Release to an Environment in Octopus.
+- Promoting a Release from one Environment to the next.
 
 You can also view the status of a project in an environment using the Dashboard Widget.
 
@@ -21,7 +21,7 @@ On this page:
 
 We've open-sourced the [OctoTFS repository in GitHub](https://github.com/OctopusDeploy/OctoTFS) if you'd like to contribute.
 
-## Installing the extension
+## Installing the Extension
 
 If you're using **Visual Studio Team Services (VSTS) or on-premises Team Foundation Server (TFS) 2017 (or newer)** you can simply [install the extension from the marketplace](https://marketplace.visualstudio.com/items/octopusdeploy.octopus-deploy-build-release-tasks) and follow the instructions below.
 
@@ -33,6 +33,10 @@ After installing the extension, follow the below steps to get it running for you
 **Manually installing the extension (not recommended)**
 If you want to make changes to the build task that might not be appropriate for everyone, you can download and manually install the build task yourself. See [Manually install the Build Task (not recommended)](manually-install-the-build-task.md) for details.
 :::
+
+## Use Your Own Version of Octo
+
+You can bring your own version of Octo and avoid the use of installer tasks or accessing the internet by [registering Octo as a capability](/docs/api-and-integration/tfs-vsts/using-octopus-extension/install-octo-capability.md).
 
 ## Add a Connection to Octopus Deploy
 
@@ -56,33 +60,33 @@ After you've saved the connection, it should be available from the Octopus Deplo
 if you plan to use the Octopus widgets and want them to function for users other than project collaborators, such as stakeholders, then those users must be explicitly allowed to use the service endpoint. This can be achieved by adding those users to the service endpoint `Users` group.
 :::
 
-### Permissions required by the API key
+### Permissions Required by the API Key
 
 The API key you choose needs to have sufficient permissions to perform all the tasks specified by your builds.
 
 For the tasks themselves, these are relatively easy to determine (for example, creating a Release for Project A will require release creation permissions for that project).
 
-For the VSTS UI elements provided by the extension, the API key must also have the below permissions. If one or more are missing, you should still be able to use the extension, however the UI may encounter failures and require you to type values rather than select them from dropdowns. The dashboard widget will not work at all without its required permissions.
+For the VSTS UI elements provided by the extension, the API key must also have the below permissions. If one or more are missing, you should still be able to use the extension, however the UI may encounter failures and require you to type values rather than select them from drop-downs. The dashboard widget will not work at all without its required permissions.
 
 If there are scope restrictions (e.g. by Project or Environment) against the account, the UI should still work, but results will be similarly restricted.
 
-- ProjectView (for project dropdowns)
-- EnvironmentView (for environment dropdowns)
-- TenantView (for tenant dropdowns)
-- ProcessView (for channel dropdowns)
+- ProjectView (for project drop-downs)
+- EnvironmentView (for environment drop-downs)
+- TenantView (for tenant drop-downs)
+- ProcessView (for channel drop-downs)
 - DeploymentView (for the dashboard widget)
 - TaskView (for the dashboard widget)
 
-## Demands and the Octo Installer task
+## Demands and the Octo Installer Task
 
 The VSTS extension tasks require Octo to be available on the path when executing on a build agent and must have the .net core 2.0.0 runtime or newer installed. This may not always be possible such as with the VSTS hosted agents. In order to
-make this work all Octopus tasks will automatically attempt to download and use the latest version of Octo tools unless available on the build agent as specified above. If you would like to avoid any additional downloads or use a specific Octo version then you can do so by adding the Octo Installer task to the start of your build definition.
+make this work, all Octopus tasks will automatically attempt to download and use the latest version of Octo tools unless they're [available on the build agent](/docs/api-and-integration/tfs-vsts/using-octopus-extension/install-octo-capability.md) as specified above. If you would like to avoid any additional downloads or to use a specific Octo version then you can by adding the Octo Installer task to the start of your build definition. No attempt will be made to download Octo if the capability is detected on your build agent.
 
 :::hint
 Version 2.x.x of the extension included a bundled version of the Octo tools and did not require the agent to be setup with Octo in the path and did not support running on Linux or Mac build agents.
 :::
 
-## Package your Application and Push to Octopus {#PackageyourApplicationandPushtoOctopus}
+## Package Your Application and Push to Octopus {#PackageyourApplicationandPushtoOctopus}
 
 To integrate with Octopus Deploy, an application must be packaged into either a NuGet or Zip package, and pushed to Octopus Deploy (or any NuGet repository).
 
@@ -113,7 +117,7 @@ Octopack is not supported for .NET Core and we suggest using the VSTS extensions
 
 ![](/docs/images/3048587/3278377.png "width=500")
 
-## Add Steps to your Build or Release Process {#UsetheTeamFoundationBuildCustomTask-AddStepstoyourBuildorReleaseProcess}
+## Add Steps to Your Build or Release Process {#UsetheTeamFoundationBuildCustomTask-AddStepstoyourBuildorReleaseProcess}
 
 :::hint
 **Build or Release steps**
@@ -124,7 +128,7 @@ To add a step to your Build process, edit your Build Definition and click **Add 
 To add a step to your Release process, edit your Release Definition, select the Environment, and click **Add tasks**.
 :::
 
-### Add a Package Application step {#UsetheTeamFoundationBuildCustomTask-AddStepstoyourBuildorReleaseProcess-packageUsingExtension}
+### Add a Package Application Step {#UsetheTeamFoundationBuildCustomTask-AddStepstoyourBuildorReleaseProcess-packageUsingExtension}
 
 :::hint
 **If not using OctoPack**
@@ -138,7 +142,7 @@ Add a step to your Build or Release process, choose **Package**, click **Add** n
 ![](/docs/images/3048587/configure-package-step.jpg "width=500")
 
 :::success
-**Package versioning**
+**Package Versioning**
 In the above image, the package version is defined as $(Build.BuildNumber).
 It's a common (and handy) practice to do this, and set the Build Number to be a format that corresponds to a valid NuGet version number.
 

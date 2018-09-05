@@ -5,18 +5,18 @@ description: Further information for missing packages error messages that can oc
 
 When deploying your project you may see a message like one of the following examples:
 
-- The package could not be located in the built-in repository
-- The package could not be downloaded from the external feed
-- Unable to download package
-- Failed to download package
+- The package could not be located in the built-in repository.
+- The package could not be downloaded from the external feed.
+- Unable to download package.
+- Failed to download package.
 - The package could not be downloaded from NuGet.
-- Could not find package in feed
+- Could not find package in feed.
 
 This troubleshooting guide will help you understand what is going wrong and how to avoid this problem in future deployments.
 
 If this is part of an automated deployment, make sure all packages are pushed to the external feed before starting the deployment. If the packages are pushed, perhaps the external feed hasn't finished updating its index and you need to give the external feed more time to update its index before starting the deployment. If you are getting a package verification error, try switching to a Windows File Share package repository to see if that helps.
 
-## Using the built-in repository {#Troubleshootmissingpackages-Usingthebuilt-inrepository}
+## Using the Built-in Repository {#Troubleshootmissingpackages-Usingthebuilt-inrepository}
 
 If you are using the built-in repository, you may see a message like "The package could not be located in the built-in repository". These steps should help you diagnose the root cause of the problem and fix it:
 
@@ -34,7 +34,7 @@ Try manually deploying the same release again (in other words retry the exact sa
 The built-in repository is a simple abstraction around the file system on your Octopus Server, with an index stored in the Octopus SQL Database. When you [push a package to the Octopus built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md), it will be immediately added to the index and available for use in deployments: there is no delay. Octopus will also periodically scan the packages folder to make sure the index stored in the Octopus SQL Database is synchronized with the packages stored on the file system. If you manually add a package to the file system directly, there will be a delay until the package is added to the index.
 :::
 
-## Using an external feed {#Troubleshootmissingpackages-Usinganexternalfeed}
+## Using an External Feed {#Troubleshootmissingpackages-Usinganexternalfeed}
 
 If you are using an external feed you may see a message explaining the package cannot be found or that it cannot be downloaded during the deployment. These steps should help you diagnose the root cause of the problem and fix it:
 
@@ -48,6 +48,6 @@ If you are using an external feed you may see a message explaining the package c
     - Try to improve the indexing performance of your external feed by cleaning up old packages. Most external feeds provide automatic retention policies to help keep your feeds clean.
     - Make sure all packages required by the project are pushed to the external feed before starting the deployment of that project.
 
-### Configurable retries for external feeds {#ConfigurableRetriesForExternalFeeds}
+### Configurable Retries For External Feeds {#ConfigurableRetriesForExternalFeeds}
 
 You can configure how tolerant Octopus will be when attempting to source a package from an external feed, by specifying how many times to attempt the download and how long to leave between attempts. This can be configured when you define the external feed.

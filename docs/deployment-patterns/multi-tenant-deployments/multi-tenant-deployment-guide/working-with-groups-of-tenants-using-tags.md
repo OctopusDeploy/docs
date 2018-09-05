@@ -33,20 +33,20 @@ In Octopus, tenant tags help you to classify your tenants using custom tags that
 
 Let's walk through an example of classifying our tenants by some measure of importance which will help us group our tenants, and find them more easily.
 
-- Step 1: Create a tag set and tags
-- Step 2: Tag your existing tenant
-- Step 3: Tailor the deployment process for VIP tenants
-- Step 4: Deploy the project to your VIP tenant
-- Step 5: Create and tag some more tenants to see the results
+- Step 1: Create a tag set and tags.
+- Step 2: Tag your existing tenant.
+- Step 3: Tailor the deployment process for VIP tenants.
+- Step 4: Deploy the project to your VIP tenant.
+- Step 5: Create and tag some more tenants to see the results.
 
 ### Step 1: Create a Tag Set and Tags
 
 Let's create a tag set called **Tenant importance** with some tags that represent different reasons why we might treat one tenant differently to others.
 
-1. Go to {{Library,Tenant Tag Sets}}
+1. Go to {{Library,Tenant Tag Sets}}.
 2. Create a tag set called **Tenant importance** with the description:
-   *Allows you to have different customers that we should pay more or less attention to*
-3. Now add some tags to your tag set using these examples as a guide
+   *Allows you to have different customers that we should pay more or less attention to*.
+3. Now add some tags to your tag set using these examples as a guide.
 
 | Name     | Description                            | Color      |
 | -------- | -------------------------------------- | ---------- |
@@ -74,7 +74,7 @@ When you navigate to the tenant's overview page, you'll see the tags you've appl
 
 Let's modify the deployment process so we provide our VIP tenants with a custom email announcing a new deployment.
 
-1. Go to your Project
+1. Go to your Project.
 2. Add a step, to run the PowerShell script shown below, called **Notify VIP Contact** targeting the **Octopus Server**:
 
 **Script: Notify VIP Contact**

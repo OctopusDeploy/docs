@@ -1,10 +1,10 @@
 ---
 title: Clustered Listening Tentacles
-description: Configuring the Octopus Tentacle in an active/passive cluster. 
+description: Configuring the Octopus Tentacle in an active/passive cluster.
 position: 0
 ---
 
-You can configure a pair of Octopus Tentacles in an active/passive failover cluster on shared storage with the **Failover Cluster Manager**. You may need to do this if you're running an application in a failover cluster and would like to use Octopus Deploy to deploy your application to it irrespective of the fail-over state. In this scenario your Octopus Deploy Server will always be communicating with the Octopus Tentacle that is installed on the active node within the failover cluster. This approach has been tested on Windows Server 2016. 
+You can configure a pair of Octopus Tentacles in an active/passive failover cluster on shared storage with the **Failover Cluster Manager**. You may need to do this if you're running an application in a failover cluster and would like to use Octopus Deploy to deploy your application to it irrespective of the fail-over state. In this scenario your Octopus Deploy Server will always be communicating with the Octopus Tentacle that is installed on the active node within the failover cluster. This approach has been tested on Windows Server 2016.
 
 :::warning
 **Shared storage Considerations**
@@ -25,7 +25,7 @@ This guide assumes you already have the following setup:
 
 :::warning
 **Installing Tentacles with shared storage**
-This guide implements shared storage using an iSCSI target with Multipath IO confgured on the Tentacle servers, in this scenario it is best to avoid accessing the same iSCSI volume from two different hosts at the same time as doing so may result in corrupt data on the iSCSI volume.
+This guide implements shared storage using an iSCSI target with Multipath IO configured on the Tentacle servers, in this scenario it is best to avoid accessing the same iSCSI volume from two different hosts at the same time as doing so may result in corrupt data on the iSCSI volume.
 :::
 
 On the first node, check that the shared drive is mounted and note down the drive letter.
@@ -48,7 +48,7 @@ In the script, we:
  - Configured the Tentacle to trust the Octopus Server holding a certificate which matches the specified certificate thumbprint.
  - Ensured the Windows Firewall has a rule configured to allow incoming connections on TCP Port `10933`, allowing the Octopus Server to talk to our new Tentacle.
 
-Using the Tentacle Manager stop the Octopus Tentacle service which was just installed on the first node and take the shared disk offline in Windows Disk Management. 
+Using the Tentacle Manager stop the Octopus Tentacle service which was just installed on the first node and take the shared disk offline in Windows Disk Management.
 
 Now go to the second Tentacle server in the active/passive cluster and bring the same disk online, repeating the steps which were just performed on the first node to install the Octopus Tentacle service. Please keep the Octopus Tentacle service started and ensure that the shared storage is still mounted this time so that the .pfx file can be exported out of Octopus Tentacle.
 
@@ -60,7 +60,7 @@ cd "C:\Program Files\Octopus Deploy\Tentacle\"
 Tentacle.exe new-certificate --export-pfx="<SHARED STORAGE DRIVE LETTER>:\TentacleClusterPrivateKey.pfx" --pfx-password="Yourpfxpassword"
 ```
 
-## Import the new Octopus Tentacle PFX File {#ClusteringTentacles-Importpfx}
+## Import the New Octopus Tentacle PFX File {#ClusteringTentacles-Importpfx}
 
 Now import the new pfx file into the server from which it was just generated.
 ```batchfile
@@ -68,11 +68,11 @@ Tentacle.exe import-certificate --instance="Tentacle" --from-file="<SHARED STORA
 Tentacle.exe service --instance="Tentacle" --stop --start
 ```
 
-Now on the second node, stop the Tentacle service and bring the shared storage offline the same way you have done before. This time go back to the first node in the cluster, bringing the shared storage drive back online and start the Tentacle service. Then, import the pfx file into the first node to ensure both nodes in the cluster hold the same private key. 
+Now on the second node, stop the Tentacle service and bring the shared storage offline the same way you have done before. This time go back to the first node in the cluster, bringing the shared storage drive back online and start the Tentacle service. Then, import the pfx file into the first node to ensure both nodes in the cluster hold the same private key.
 
 Once both Tentacles are installed and configured ensure that neither node has the Octopus Tentacle started and that the shared storage is brought offline.
 
-## Configure A new Clustered Service {#ClusteringTentacles-NewCluster}
+## Configure A New Clustered Service {#ClusteringTentacles-NewCluster}
 
 Ensure each node that will be participating in the Tentacle Cluster is joined to the Active Directory Domain and has the **Failover Clustering** feature installed in Windows. For more information on installing the Failover Clustering feature in Windows please see the  [Microsoft Failover Clustering documentation](https://blogs.msdn.microsoft.com/clustering/2012/04/06/installing-the-failover-cluster-feature-and-tools-in-windows-server-2012/ "installing the failover cluster service feature and toold in windows server 2012").
 
@@ -84,7 +84,7 @@ On the **Validation Warning** page, select `Yes, When I click Next, run configur
 
 When the **Validate a Configuration Wizard** appears, select `Run all Tests` and select **Next**.
 
-After all validation processes successfully, you will be returned to the **Create Cluster Wizard** where the **Access Point for Administering the Cluster** page appears. At this point, choose an IP Address that is on the same Network as both Tentacles and a hostname that is 15 characters or less. 
+After all validation processes successfully, you will be returned to the **Create Cluster Wizard** where the **Access Point for Administering the Cluster** page appears. At this point, choose an IP Address that is on the same Network as both Tentacles and a hostname that is 15 characters or less.
 
 *![](/docs/images/clustered-listening-tentacles/configure-clusterhostname.jpg)*
 
@@ -101,11 +101,11 @@ Right-Click **Roles** and select **Configure Roles** then highlight **Generic Se
 
 *![](/docs/images/clustered-listening-tentacles/cluster-newrolewizard-servicetype.jpg)*
 
-Find and highlight the **OctopusDeploy Tentacle** service in the list of available services, then click **Next**
+Find and highlight the **OctopusDeploy Tentacle** service in the list of available services, then click **Next**.
 
 *![](/docs/images/clustered-listening-tentacles/cluster-newrolewizard-selectservice.jpg)*
 
-Under **Client Access Point** choose an apropriate NetBIOS name and IP address for this clustered role. Note down this IP address/DNS hostname, you will need it to add the Tentacle Cluster to your Octopus Server
+Under **Client Access Point** choose an appropriate NetBIOS name and IP address for this clustered role. Note down this IP address/DNS hostname, you will need it to add the Tentacle Cluster to your Octopus Server.
 
 *![](/docs/images/clustered-listening-tentacles/cluster-newrolewizard-clientaccess.jpg)*
 

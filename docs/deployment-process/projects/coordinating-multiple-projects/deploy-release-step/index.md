@@ -3,7 +3,7 @@ title: Deploy Release Step
 description: The Deploy Release Step allows you to trigger the deployment of a Release of a Project from another Project
 ---
 
-Introduced in Octopus `2018.2.1`, the _Deploy Release_ step lets you have a project trigger the deployment of a release of another project. This is useful when you are [coordinating multiple projects](/docs/deployment-process/projects/coordinating-multiple-projects/index.md).
+Introduced in **Octopus 2018.2.1**, the _Deploy Release_ step lets you have a project trigger the deployment of a release of another project. This is useful when you are [coordinating multiple projects](/docs/deployment-process/projects/coordinating-multiple-projects/index.md).
 
 ![Deploy Release Step Card](deploy-release-card.png "width=500")
 
@@ -52,7 +52,7 @@ Where:
 *Deploy Release Step Name:* The name of the _Deploy Release_ step in the parent process.    
 *Child Step Name:* The name of the step in the child deployment process which set the output variable.   
 *VariableName:* The original name of the output variable. e.g. for `Set-OctopusVariable -Name "Foo" -Value "Bar"` this would be `Foo`.   
-*Machine Name:* The machine the child process was targetting when the output variable was set.   
+*Machine Name:* The machine the child process was targeting when the output variable was set.   
 
 :::hint
 For example, you have a project _Project Voltron_ which contains a _Deploy Release_ step named _Deploy Red Lion_ which triggers a deployment of another project _Project Red Lion_.  

@@ -8,7 +8,7 @@ position: 3
 
 :::success
 **Using Channels?**
-If you are using channels (introduced in Octopus 3.2) you can filter this command so it only deletes releases for a particular channel.
+If you are using [channels](/docs/deployment-process/channels/index.md) (introduced in **Octopus 3.2**) you can filter this command so it only deletes releases for a particular channel.
 :::
 
 ```bash
@@ -79,7 +79,7 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-## Basic example {#Deletingreleases-Basicexample}
+## Basic Example {#Deletingreleases-Basicexample}
 
 The following command will delete all the releases from the project **Web** between versions **0.0.8** to **0.0.12**.
 

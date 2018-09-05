@@ -17,11 +17,13 @@ Lifecycles are defined by phases. A lifecycle can have one or many phases.
 - Environments in a phase can be defined as automatic deployment environments or manual deployment environments.
 - Phases can have a set number of environments that must be released to, before the next phase is available for deployment.
 
-You can specify multiple Lifecycles to control which projects are deployed to which environments.
+You can specify multiple Lifecycles to control which projects are deployed to which environments. Lifecycles are a key component of [channels](/docs/deployment-process/channels/index.md) which give you even great control over how your software is deployed. Channels let you use multiple Lifecycles for a project and then automatically deploy to specific channels, using the defined lifecycle, based on the version of the software being deployed.
 
 ## Managing Lifecycles
 
-Lifecycles are managed by navigating to **{{Library,Lifecyles}}**.
+Every [project](/docs/deployment-process/projects/index.md) has a default lifecycle.
+
+Lifecycles are managed from the library page by navigating to {{Library,Lifecyles}}.
 
 ## Create a New Lifecycle
 

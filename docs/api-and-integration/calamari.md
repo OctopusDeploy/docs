@@ -4,7 +4,7 @@ description: Calamari is the command-line tool invoked by Tentacle during a depl
 position: 100
 ---
 
-Prior to Octopus Deploy 3.0, Tentacles were responsible for performing deployment steps.  Tentacles were *smart*.They knew how to transform configuration files, modify IIS, and much, much more.
+Prior to **Octopus 3.0**, Tentacles were responsible for performing deployment steps.  Tentacles were *smart*.They knew how to transform configuration files, modify IIS, and much, much more.
 
 ![](/docs/images/3048177/3278198.png)
 
@@ -24,28 +24,28 @@ Calamari deploy-package --package MyPackage.nupkg --variables Variables.json
 
 Calamari has commands to support:
 
-- Deploying NuGet packages
-- Running scripts (PowerShell, ScriptCS, Bash, F#)
-- Deploying packages to Azure targets (Cloud Services, WebApps)
-- Various other deployment related activities
+- Deploying NuGet packages.
+- Running scripts (PowerShell, ScriptCS, Bash, F#).
+- Deploying packages to Azure targets (Cloud Services, WebApps).
+- Various other deployment related activities.
 
 It is our deployment Swiss Army knife.
 
 ![](/docs/images/3048177/3278197.png "width=300")
 
-Each deployment, if it is not already present, the latest version of the Calamari executable is pushed to wherever it needs to be.  This may be to
+Each deployment, if it is not already present, the latest version of the Calamari executable is pushed to wherever it needs to be.  This may be to:
 
-- a Tentacle
-- via SSH to a Linux machine
-- a network-drive for Offline-Package-Drop targets
-- or locally on the Octopus Server for deploying to Azure targets
+- A Tentacle.
+- Via SSH to a Linux machine.
+- A network-drive for Offline-Package-Drop targets.
+- Or locally on the Octopus Server for deploying to Azure targets.
 
 Deployments now proceed as follows:
 
-1. Octopus acquires packages and generates variables files
-2. The packages and variables are pushed to the the target, along with the latest version of Calamari (if it is not already present)
-3. The deployment target invokes Calamari to perform each deployment step
-4. Calamari performs the deployment step
+1. Octopus acquires packages and generates variables files.
+2. The packages and variables are pushed to the the target, along with the latest version of Calamari (if it is not already present).
+3. The deployment target invokes Calamari to perform each deployment step.
+4. Calamari performs the deployment step.
 
 Now that Calamari is open-source, it might help answer any questions you had around what happens during a deployment.  For example, did you ever wonder what order conventions run in when deploying a package?
 
@@ -77,4 +77,4 @@ var conventions = new List<IConvention>
 };
 ```
 
-Calamari is published under the Apache license, and we'll continue to work on it in the open.  One of the benefits of this architecture is that you can [fork the project](https://github.com/OctopusDeploy/Calamari), make your own changes, and then tell your Octopus 3.0 server to use your own Calamari package.
+Calamari is published under the Apache license, and we'll continue to work on it in the open.  One of the benefits of this architecture is that you can [fork the project](https://github.com/OctopusDeploy/Calamari), make your own changes, and then tell your **Octopus 3.0** server to use your own Calamari package.

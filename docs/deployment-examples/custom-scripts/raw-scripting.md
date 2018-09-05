@@ -6,7 +6,7 @@ position: 2
 
 ## Design Intentions {#RawScripting-DesignIntentions}
 
-Some Octopus users deploying to SSH Endpoints have had problems installing the Mono prerequisite that provides the runtime for Octopus Deploy's .NET orchestration tool [Calamari](/docs/api-and-integration/calamari.md). Although there is some momentum to package Calamari in a self-contained, cross-platform way with .NET Core, there exists a need now to be able to execute scripts directly on the server without all the added cost and complexity of uploading the latest Calamari. An experiential feature has been provided in Octopus 3.9, accessible via a project variable which will simply open a connection to the remote server and execute a deployment scrip within that session.
+Some Octopus users deploying to SSH Endpoints have had problems installing the Mono prerequisite that provides the runtime for Octopus Deploy's .NET orchestration tool [Calamari](/docs/api-and-integration/calamari.md). Although there is some momentum to package Calamari in a self-contained, cross-platform way with .NET Core, there exists a need now to be able to execute scripts directly on the server without all the added cost and complexity of uploading the latest Calamari. An experiential feature has been provided in **Octopus 3.9**, accessible via a project variable which will simply open a connection to the remote server and execute a deployment script within that session.
 
 :::hint
 **Feature Tradeoffs**

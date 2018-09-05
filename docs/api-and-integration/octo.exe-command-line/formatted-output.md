@@ -4,7 +4,7 @@ description: Formatting output from Octo.exe
 position: 30
 ---
 
-Introduced in Octo.exe version 4.30.0, most commands support printing the result in JSON format. 
+Introduced in Octo.exe version 4.30.0, most commands support printing the result in JSON format.
 
 :::warning
 [Dump Deployment](dump-deployments.md), [Export](export.md) and [Import](import.md) do not support JSON output.
@@ -31,10 +31,10 @@ This command will output the list of projects in parsable JSON format:
 ]
 ```
 
-You can also work with the JSON output in Powershell
+You can also work with the JSON output in PowerShell
 ```powershell
 $json = (./octo list-releases --server http://your-octopus-server/ --apikey API-ABCDEF123456 --project=OctoLifecycle --outputformat=json) | ConvertFrom-Json
-$json | select -expand Releases | where {[datetime]$_.Assembled -gt ((Get-Date).AddMonths(-1))} 
+$json | select -expand Releases | where {[datetime]$_.Assembled -gt ((Get-Date).AddMonths(-1))}
 ```
 
 This script will write out a list of releases for the last month:
@@ -51,4 +51,3 @@ Version Assembled                     PackageVersions ReleaseNotes
 0.0.10  2017-12-18T09:26:22.671+10:00 Deploy 0.0.1    
 0.0.9   2017-12-18T09:25:02.342+10:00 Deploy 0.0.1    
 ```
-

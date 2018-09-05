@@ -1,6 +1,6 @@
 ---
 title: Credits
-description: Octopus Deploy 3.0 is made possible thanks to the many great third-party products.
+description: Octopus 3.0 is made possible thanks to the many great third-party products.
 position: 100
 ---
 
@@ -19,7 +19,7 @@ Octopus Deploy 3.0 is made possible thanks to the following great third-party pr
 | Axialis Icons                            | Axialis                                  | [http://axialis.com/](http://axialis.com/) |
 | Bootstrap                                | Twitter Inc.                             | [http://getbootstrap.com/](http://getbootstrap.com/) |
 | Bootstrap Date Range Picker              | Dan Grossman and contributors            | [https://github.com/dangrossman/bootstrap-daterangepicker](https://github.com/dangrossman/bootstrap-daterangepicker) |
-| Bootstrap Switch                         | Mattia Larentis, Peter Stein, Emanuele Marchi | [http://www.larentis.eu/switch/](http://www.larentis.eu/switch/) |
+| Bootstrap Switch                         | Mattia Larentis, Peter Stein, Emanuele Marchi | [https://github.com/Bttstrp/bootstrap-switch](https://github.com/Bttstrp/bootstrap-switch) |
 | Bower                                    | Twitter Inc.                             | [http://bower.io/](http://bower.io/)     |
 | CsvHelper                                | Josh Close                               | [https://joshclose.github.io/CsvHelper/](https://joshclose.github.io/CsvHelper/) |
 | D3.js                                    | Mike Bostock and contributors            | [http://d3js.org](http://d3js.org)/      |
@@ -33,7 +33,7 @@ Octopus Deploy 3.0 is made possible thanks to the following great third-party pr
 | grunt-open                               | Jarrod Overson                           | [https://github.com/onehealth/grunt-open](https://github.com/onehealth/grunt-open) |
 | JetBrains TeamCity,  ReSharper and WebStorm | JetBrains                                | [http://www.jetbrains.com/](http://www.jetbrains.com/) |
 | jQuery and jQuery UI                     | jQuery Foundation and contributors       | [http://jquery.com/](http://jquery.com/) |
-| Json.NET                                 | James Newton-King                        | [http://james.newtonking.com/json](http://james.newtonking.com/json) |
+| JSON.NET                                 | James Newton-King                        | [http://james.newtonking.com/json](http://james.newtonking.com/json) |
 | JSON2.js                                 | json.org                                 | [http://www.JSON.org/js.html](http://www.JSON.org/js.html) |
 | markItUp!                                | Jay Salvat                               | [http://markitup.jaysalvat.com/](http://markitup.jaysalvat.com/) |
 | Microsoft Windows, Visual Studio and .NET | Microsoft                                | [http://www.microsoft.com/net](http://www.microsoft.com/net) |

@@ -12,15 +12,15 @@ The Octopus web portal is the main interface that your team will use to interact
 
 Octopus can use any valid SSL certificate, whether it is from a Certificate Authority, managed by Let's Encrypt, or even a self-signed certificate. The easiest way to get started with HTTPS is to use [Let's Encrypt](/docs/administration/security/exposing-octopus/lets-encrypt-integration.md) which is trusted and free to use forever in production systems.
 
-### Use Let's Encrypt to manage your SSL certificate
+### Use Let's Encrypt to Manage Your SSL Certificate
 
 Let's Encrypt is the best way to get started with HTTPS in Octopus. It is a trusted and free service, which automatically renews your SSL certificate so you don't need to worry about expiry. We have built a wizard to do all the hard work so you can get up and running with HTTPS in a couple of minutes. [Get started with Let's Encrypt](/docs/administration/security/exposing-octopus/lets-encrypt-integration.md).
 
-### Bring your own SSL certificate {#ExposetheOctopuswebportaloverHTTPS-ImportingyourSSLcertificate}
+### Bring Your Own SSL Certificate {#ExposetheOctopuswebportaloverHTTPS-ImportingyourSSLcertificate}
 
 You can use your own SSL certificate which could be signed by any trusted Certificate Authority. If the certificate you intend to use doesn't exist in the Windows certificate store already, you'll need to import it from a PFX file containing both the public certificate and private key. The following steps will show you how to import your certificate:
 
-1. Launch an empty Microsoft Management Console shell by running **mmc.exe** from the start menu, command line or Win+R run dialog
+1. Launch an empty Microsoft Management Console shell by running **mmc.exe** from the start menu, command line or Win+R run dialog.
 
 1. From the File menu, click Add/Remove Snap-in...
 1. Add the Certificates snap-in, and when prompted, choose the Computer account scope:
@@ -39,7 +39,7 @@ You can use your own SSL certificate which could be signed by any trusted Certif
 
     ![](/docs/images/3048148/3278454.png "width=500")
 
-### Let Octopus generate a self-signed certificate
+### Let Octopus Generate a Self-signed Certificate
 
 If you are testing Octopus, and don't want to use an existing certificate nor Let's Encrypt, Octopus can generate a self-signed certificate for you. This certificate will not be trusted by your web browser, but it will let you test Octopus over a secure HTTPS connection.
 
@@ -47,7 +47,7 @@ If you are testing Octopus, and don't want to use an existing certificate nor Le
 1. Select that self-signed certificate for your HTTPS binding.
 1. You will need to ignore any messages in your browser about being an untrusted SSL certificate and continue to the site.
 
-## Changing your web portal bindings manually {#ExposetheOctopuswebportaloverHTTPS-Changingyourwebportalbindings}
+## Changing Your Web Portal Bindings Manually {#ExposetheOctopuswebportaloverHTTPS-Changingyourwebportalbindings}
 
 If you are bringing your own SSL certificate, or want to configure a complex set of HTTP/HTTPS bindings, the easiest way to do this is using the Octopus Server Manager.
 
@@ -71,10 +71,10 @@ If you are bringing your own SSL certificate, or want to configure a complex set
 
 A common scenario when hosting the Octopus Server is to redirect all requests initiated over HTTP to HTTPS. With this configuration you can navigate to the Octopus Server using either the `http://` or `https://` scheme, but have Octopus automatically redirect all `http://` requests to use the equivalent `https://` route.
 
-1. Configure binding(s) for `http://` - this allows browsers to initiate their request over HTTP so Octopus can then redirect to HTTPS
-1. Configure SSL binding(s) for `https://` using the correct SSL certificate
-1. Test you can use Octopus with either `http://` or `https://` schemes without being redirected (the scheme stays the same) - this proves both endpoint bindings are working as expected
-1. Configure Octopus to `Redirect HTTP requests to HTTPS` - you can do this using the Octopus Server Manager application where you configure the bindings as soon as you have configured an HTTPS binding
+1. Configure binding(s) for `http://` - this allows browsers to initiate their request over HTTP so Octopus can then redirect to HTTPS.
+1. Configure SSL binding(s) for `https://` using the correct SSL certificate.
+1. Test you can use Octopus with either `http://` or `https://` schemes without being redirected (the scheme stays the same) - this proves both endpoint bindings are working as expected.
+1. Configure Octopus to `Redirect HTTP requests to HTTPS` - you can do this using the Octopus Server Manager application where you configure the bindings as soon as you have configured an HTTPS binding.
 
     ![](expose-the-octopus-web-portal-over-https-force-https.png "width=500")
 
@@ -82,7 +82,7 @@ A common scenario when hosting the Octopus Server is to redirect all requests in
 
 HTTP Strict Transport Security is an HTTP header that can be used to tell the web browser that it should only ever communicate with the website using HTTPS, even if the user tries to use HTTP. This allows you to lessen the risk of a Man-in-the-Middle (MITM) attack or a HTTP downgrade attack. However, it is not a panacea - it still requires a successful connection on first use (ie, it does not resolve the Trust-On-First-Use (TOFU) issue).
 
-Octopus 3.13 and above can send this header, but due to the potential pitfalls, it is opt-in. To switch it on, run the following commands on your Octopus Server:
+**Octopus 3.13** and above can send this header, but due to the potential pitfalls, it is opt-in. To switch it on, run the following commands on your Octopus Server:
 
 ```text
 PS \> Octopus.Server.exe configure --hstsEnabled=true --hstsMaxAge=31556926

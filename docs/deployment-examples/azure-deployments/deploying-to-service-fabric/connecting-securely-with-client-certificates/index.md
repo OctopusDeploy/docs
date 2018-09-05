@@ -2,7 +2,6 @@
 title: Connecting Securely with Client Certificates
 description: Octopus Deploy can help you connect securely to Service Fabric clusters using Client Certificate authentication.
 position: 1
-version: "[3.13,)"
 ---
 
 As part of Service Fabric step templates, Octopus allows you to securely connect to a secure cluster by using client certificates.
@@ -36,7 +35,7 @@ These PowerShell variables correspond to the following Octopus variables:
 
 It is these values and variables that we will be discussing below.
 
-## Step 1: Get the DNS name of your Service Fabric cluster
+## Step 1: Get the DNS Name of Your Service Fabric Cluster
 
 The following steps will need the DNS name of your Service Fabric cluster.
 
@@ -44,7 +43,7 @@ The DNS name for Azure Service Fabric clusters can be found as the "Client conne
 
 An example of a Service Fabric cluster's DNS name is: `democtopus-sf1-secure.australiasoutheast.cloudapp.azure.com`
 
-## Step 2: Generate the client certificate
+## Step 2: Generate the Client Certificate
 
 :::warning
 Azure have recently updated their **Key vaults > Certificates** UI to allow generating self-signed certificates. If you're deploying to Azure and wish to generate a self-signed certificate for testing, please use their portal functions or cmdlets.
@@ -84,17 +83,17 @@ To override certificate settings used when connecting to Service Fabric, the fol
 
 You do not need to override these variables by default. However, they _are_ available if you require more flexibility over the default client certificate connection parameters.
 
-## Step 3: Install the client certificate
+## Step 3: Install the Client Certificate
 
 Now that you have a client certificate and thumbprint, the following steps can be completed:
 
-1. Install the certificate on your Octopus Server (the server that will be deploying to your Service Fabric cluster)
-2. Upload the certificate to your Azure Key Vault (the vault that Service Fabric is configured to communicate with)
-3. Add the thumbprint as a "Client certificate" to your Service Fabric security settings (Authentication type = **Admin client**, Authorization method = **Certificate thumbprint**)
+1. Install the certificate on your Octopus Server (the server that will be deploying to your Service Fabric cluster).
+2. Upload the certificate to your Azure Key Vault (the vault that Service Fabric is configured to communicate with).
+3. Add the thumbprint as a "Client certificate" to your Service Fabric security settings (Authentication type = **Admin client**, Authorization method = **Certificate thumbprint**).
 
 The client certificate should now be setup for your Octopus Server machine to communicate with your Service Fabric cluster.
 
-## Step 4: Configure and run a deployment step
+## Step 4: Configure and Run a Deployment Step
 
 In Octopus, Service Fabric deployment steps that use "Client Certificate" as the security mode will need you to enter the Server Certificate thumbprint and select the Client Certificate variable.
 

@@ -12,7 +12,7 @@ At the moment, the Octopus Server itself must be hosted on a Microsoft Windows o
 
 ### Windows Server
 
-Octopus Server can be hosted on any modern Windows Server. We automatically test Octopus Server on the following versions of Windows Server: 
+Octopus Server can be hosted on any modern Windows Server. We automatically test Octopus Server on the following versions of Windows Server:
 
 - Windows Server 2008 SP2
 - Windows Server 2008 R2
@@ -20,7 +20,7 @@ Octopus Server can be hosted on any modern Windows Server. We automatically test
 - Windows Server 2012 R2
 - Windows Server 2016
 
-Octopus Server will run on `Windows Server Core` and `Windows Server version 1709` etc. However, the easiest installation path is to use "Windows Server with a GUI" and run our installation wizard. If you want to use one of the new GUI-less servers, you will need to add some missing Windows Features and configure Octopus Server yourself.
+Octopus Server will run on **Windows Server Core** and **Windows Server version 1709** etc. However, the easiest installation path is to use "Windows Server with a GUI" and run our installation wizard. If you want to use one of the new GUI-less servers, you will need to add some missing Windows Features and configure Octopus Server yourself.
 
 Learn about [automating installation](/docs/installation/automating-installation.md).
 
@@ -36,15 +36,15 @@ Octopus works with a wide range of versions and editions of SQL Server, from a l
 
 We try to keep the .NET Framework requirements for Octopus Server as stable as possible:
 
-- Octopus Server `3.4` - `2018.4.0` requires [.NET Framework 4.5.1](https://www.microsoft.com/en-au/download/details.aspx?id=40773) or newer.
-- Octopus Server `2018.5.0` and onwards requires [.NET Framework 4.5.2](https://www.microsoft.com/en-au/download/details.aspx?id=42642) or newer and [WMF/PowerShell 5.0](https://www.microsoft.com/en-us/download/details.aspx?id=50395) or newer.
+- **Octopus 3.4** - **Octopus 2018.4.0** requires [.NET Framework 4.5.1](https://www.microsoft.com/en-au/download/details.aspx?id=40773) or newer.
+- **Octopus 2018.5.0** and onwards requires [.NET Framework 4.5.2](https://www.microsoft.com/en-au/download/details.aspx?id=42642) or newer and [WMF/PowerShell 5.0](https://www.microsoft.com/en-us/download/details.aspx?id=50395) or newer.
 
 ## Supported Browsers {#supported-browsers}
 
 The Octopus Server comes with a built-in web portal user interface and we try to keep this as stable as possible:
 
-- Octopus Server `3.0` - `3.17` supports all modern browsers, and Internet Explorer 9+
-- Octopus Server `4.0` and onwards supports all modern browsers, and Internet Explorer 11+ (available on Windows 7 and newer, and Windows Server 2008R2 SP1 and newer)
+- **Octopus 3.0** - **Octopus 3.17** supports all modern browsers, and Internet Explorer 9+.
+- **Octopus  4.0** and onwards supports all modern browsers, and Internet Explorer 11+ (available on Windows 7 and newer, and Windows Server 2008R2 SP1 and newer).
 
 ## Hardware Requirements
 

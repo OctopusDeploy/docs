@@ -3,7 +3,7 @@ title: Apply a Terraform Template
 description: Apply a Terraform Template.
 ---
 
-Terraform support was introduced to Octopus in version `2018.3`.
+Terraform support was introduced in **Octopus 2018.3**.
 
 Octopus supports the deployment of Terraform templates through the `Apply a Terraform template` step. This step executes a Terraform template, optionally using AWS credentials managed by Octopus, and captures the Terraform output variables as Octopus output variables.
 
@@ -31,7 +31,7 @@ Using AWS credentials managed by Octopus is optional. These credentials can be s
 
 ## Create an AWS Account
 
-The instructions at [Creating an AWS Account](/docs/infrastructure/aws/creating-an-aws-account/index.md) detail the procedure for creating an account in Octopus.
+The instructions at [Creating an AWS Account](/docs/infrastructure/aws/index.md##create-an-aws-account) detail the procedure for creating an account in Octopus.
 
 ### Create a AWS Account Project Variable
 
@@ -183,7 +183,7 @@ While the value only output (which would appear in the logs as a message similar
 
 ## Accessing Terraform Output Variables
 
-Using the previous example output variable called `test` you can access the output using Powershell as follows:
+Using the previous example output variable called `test` you can access the output using PowerShell as follows:
 
 ```
 $value = $OctopusParameters["Octopus.Action[Apply Template].Output.TerraformValueOutputs[test]"] | ConvertFrom-Json

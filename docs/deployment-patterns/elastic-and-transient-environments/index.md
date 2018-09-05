@@ -20,6 +20,6 @@ OctoFX is being deployed to trading desks in offices around the world.  Occasio
 
 ## Elastic and Transient Environment Features {#ElasticandTransientEnvironments-ElasticandTransientEnvironmentfeatures}
 
-- Automatically keep deployment targets up to date with the latest releases
-- Automatically reflect infrastructure changes in your environments
-- Deploy to environments where deployment target status may change during the deployment
+- Automatically keep deployment targets up to date with the latest releases.
+- Automatically reflect infrastructure changes in your environments.
+- Deploy to environments where deployment target status may change during the deployment.

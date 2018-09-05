@@ -1,5 +1,5 @@
 ---
-title: Manually install the Build Task (not recommended)
+title: Manually Install the Build Task (Not Recommended)
 description: This guide covers how to manually install the Octopus Release build task into Microsoft TFS.
 ---
 

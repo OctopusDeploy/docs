@@ -4,7 +4,7 @@ description: The Octopus Server show configuration command is used to export Oc
 position: 1700
 ---
 
-Show configuration is available in **Octopus 3.5** and later
+Show configuration is available in **Octopus 3.5** and later.
 
 The `show-configuration` command is used to 'export' Octopus Deploy's current configuration.  The intended audience for this command are those using configuration management tools such as Chef, Puppet or Desired State Configuration (DSC).
 
@@ -17,14 +17,14 @@ The command supports the following options:
 | Option           | Description                              |
 | ---------------- | ---------------------------------------- |
 | file             | Exports the server configuration to a file. If not specified, output goes to the console. |
-| format           | The format of the export (XML, json, json-hierarchical). Defaults to XML. |
-| noconsolelogging | If specified, all output to the console other than the configuration is suppressed. This is important when using the json formats and converting to an object. |
+| format           | The format of the export (XML, JSON, JSON-hierarchical). Defaults to XML. |
+| noconsolelogging | If specified, all output to the console other than the configuration is suppressed. This is important when using the JSON formats and converting to an object. |
 
 ## Format {#ShowConfiguration-Format}
 
-The format option defaults to XML, but also supports two json formats.
+The format option defaults to XML, but also supports two JSON formats.
 
-The first format, json, outputs a 'flat' structure that is keyed in the same way the XML file is.  An example of the output is:
+The first format, JSON, outputs a 'flat' structure that is keyed in the same way the XML file is.  An example of the output is:
 
 ```json
 {
@@ -35,7 +35,7 @@ The first format, json, outputs a 'flat' structure that is keyed in the same way
 }
 ```
 
-The second format, json-hierarchical, outputs a hierarchical object structure based on the setting keys. An example of the output is:
+The second format, JSON-hierarchical, outputs a hierarchical object structure based on the setting keys. An example of the output is:
 
 ```json
 {

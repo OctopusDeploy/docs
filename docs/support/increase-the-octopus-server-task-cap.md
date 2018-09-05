@@ -5,7 +5,7 @@ description: How to change the maximum number of tasks the Octopus Server can ru
 
 Octopus limits the number of tasks it can run in parallel to a default of five tasks. If you find yourself needing to change this limit, you can do so with the following steps.
 
-Under `Configuration` -> `Nodes` Select your Octopus Node.
+Under **Configuration** -> **Nodes** Select your Octopus Node.
 
 1. Select the ... overflow menu.
 2. Select Change Task Cap:

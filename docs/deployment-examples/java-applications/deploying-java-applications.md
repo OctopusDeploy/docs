@@ -33,13 +33,13 @@ public class PressAnyKey {
 }
 ```
 
-## Deploying the application {#DeployingJavaapplications-Deployingtheapplication}
+## Deploying the Application {#DeployingJavaapplications-Deployingtheapplication}
 
-### Step 1: Upload the application to the built-in repository {#DeployingJavaapplications-Step1:Uploadtheapplicationtothebuilt-inrepository}
+### Step 1: Upload the Application to the Built-in Repository {#DeployingJavaapplications-Step1:Uploadtheapplicationtothebuilt-inrepository}
 
 In order to deploy the application with Octopus Deploy it must be compiled and packaged. This would usually be done by your build server but for the sake of this demonstration let's do it manually.
 
-1. Compile the application
+1. Compile the application:
 
 ```powershell
 javac PressAnyKey.java
@@ -47,12 +47,12 @@ javac PressAnyKey.java
 2. Zip PressAnyKey.class into the archive `PressAnyKey.1.0.0.zip` (you can download a sample: [PressAnyKey.1.0.0.zip](https://download.octopusdeploy.com/demo/PressAnyKey.1.0.0.zip))
 3. Upload `PressAnyKey.1.0.0.zip` to the Octopus Deploy built-in feed ({{Library,Packages}} or [follow the instructions here](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md)).
 
-### Step 2: Create the project and deployment process {#DeployingJavaapplications-Step2:Createtheprojectanddeploymentprocess}
+### Step 2: Create the Project and Deployment Process {#DeployingJavaapplications-Step2:Createtheprojectanddeploymentprocess}
 
-1. Create a new project called "Press Any Key"
-2. Add a "Deploy a package" step to the deployment process
-3. Configure the step to deploy the package `PressAnyKey.1.0.0.zip`
-4. Configure the step to run a [post-deployment script](/docs/deployment-examples/custom-scripts/index.md) to start the application
+1. Create a new project called **Press Any Key**.
+2. Add a **Deploy a package** step to the deployment process.
+3. Configure the step to deploy the package `PressAnyKey.1.0.0.zip`.
+4. Configure the step to run a [post-deployment script](/docs/deployment-examples/custom-scripts/index.md) to start the application.
 
 **PowerShell**
 
@@ -74,7 +74,7 @@ The application must be launched in a new process or session so that control ret
 
 ### Step 3: Deploy {#DeployingJavaapplications-Step3:Deploy}
 
-Create a release and deploy!
+Create a release and deploy.
 
 The application will be running on the target machine:
 

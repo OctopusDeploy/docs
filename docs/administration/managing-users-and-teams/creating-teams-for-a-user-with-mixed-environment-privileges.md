@@ -10,11 +10,11 @@ Given that a set of roles can be combined in a team and tied to a specific envir
 
 ## Creating the "*Dev Deployers*" Team {#Creatingteamsforauserwithmixedenvironmentprivileges-Creatingthe&quot;DevDeployers&quot;Team}
 
-Start by clicking the **Teams** tab under **Configuration** in the Octopus Deploy web portal.  Then click the `Add team'.
+Start by clicking the **Teams** tab under **Configuration** in the Octopus Deploy web portal.  Then click the **Add team**.
 
 ![](/docs/images/guides-user-role-and-teams-configuration/add-team.png "width=500")
 
-Give the team an appropriate name like "*Dev Deployers*" and add the **Project deployer** role. This role provides all the permissions of the **Project contributor** role, but also allows the user to deploy a release. In our case because we will limit the users to the development environment, we will allow them to also create releases and to do so they will need the **Project lead** role. Again this role provides all the permissions of the **Project contributor** role but without the deployment permissions that come with the **Project deployer** role.
+Give the team an appropriate name like *Dev Deployers* and add the **Project deployer** role. This role provides all the permissions of the **Project contributor** role, but also allows the user to deploy a release. In our case because we will limit the users to the development environment, we will allow them to also create releases and to do so they will need the **Project lead** role. Again this role provides all the permissions of the **Project contributor** role but without the deployment permissions that come with the **Project deployer** role.
 
 ![](/docs/images/guides-user-role-and-teams-configuration/dev-deployers.png "width=500")
 
@@ -26,7 +26,7 @@ With the permission rules configured add the users that you want them to apply t
 
 When you are happy with these changes hit **Save** to make them effective.
 
-## Creating The "*Prod Deployment Viewers*" Team {#Creatingteamsforauserwithmixedenvironmentprivileges-CreatingThe&quot;ProdDeploymentViewers&quot;Team}
+## Creating the "*Prod Deployment Viewers*" Team {#Creatingteamsforauserwithmixedenvironmentprivileges-CreatingThe&quot;ProdDeploymentViewers&quot;Team}
 
 The previous rule was all well and good, but what about if we now want to allow the developer to see what has been deployed to production while still preventing them from pushing releases out to that stage. We can't go and modify the *Dev Deployers* team because that contains rules scoped to specific environments. Instead we will create a new team that is scoped to production, but only contains view permissions.
 

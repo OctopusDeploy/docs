@@ -1,10 +1,10 @@
 ---
-title: Providing database performance metrics
+title: Providing Database Performance Metrics
 description: How to provide database performance metrics to help the Octopus team resolve issues.
 position: 26
 ---
 
-## Out of the box database performance in Octopus Deploy {#Providingdatabaseperformancemetrics-OutoftheboxdatabaseperformanceinOctopusDeploy}
+## Out of the Box Database Performance in Octopus Deploy {#Providingdatabaseperformancemetrics-OutoftheboxdatabaseperformanceinOctopusDeploy}
 
 Every user has different usage patterns of Octopus Deploy with different numbers of projects, targets, releases and packages. As a result no one database indexing strategy will provide a best fit for all installations. Users who are deploying to thousands of targets for a single project each day, will have different database performance metrics to those who have just a few Tentacles, but hundreds of projects which constantly need dashboard updates. For this reason we have been restrained in the use of indexes to a base schema and only added those that look like they will provide benefit *on average* to most users. It is entirely likely that the database usage that is seen by us during development and testing is not necessarily going to be exactly the same that you experience with your installation and for that reason you may notice a less than optimal performance profile.
 
@@ -24,7 +24,7 @@ If you want to add your own indexes we would recommend running the System Integr
 Azure SQL Databases are a great way to set-up your Octopus database to be managed in the cloud. One feature that this product can provide is [automatic index management](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-advisor-portal). While this is a great way to set-up your databases and forget about them, allowing Azure to decide and act on potential performance benefits, this means that indexes will be potentially created without you being aware of them. As noted above you will need to be aware what custom indexes exist and remove them before performing an update to the Octopus Deploy Server to ensure that any new schema changes can be applied smoothly.
 :::
 
-## What you can do to help {#Providingdatabaseperformancemetrics-Whatyoucandotohelp}
+## What You Can Do to Help {#Providingdatabaseperformancemetrics-Whatyoucandotohelp}
 
 ### Missing Indexes {#Providingdatabaseperformancemetrics-MissingIndexes}
 
@@ -48,27 +48,27 @@ ORDER BY index_advantage DESC;
 
 [SQL Server Profiler](https://msdn.microsoft.com/en-us/library/ms181091) is a tool that allows you to watch and record the requests that are being sent to your database, along with metrics on what it took to run that query. By reviewing all the requests being sent to the server over a given period of time, it is easier to determine if the database is acting slow, or if the Octopus Server is issuing too many, sub-optimal requests (or both!). The following steps outline one way of recording the relevant information, however there are various resources all over the web that will provide [deeper tutorials](https://www.simple-talk.com/sql/performance/how-to-identify-slow-running-queries-with-sql-profiler/) about SQL Server Profiler.
 
-1. Launch SQL Server Profiler and create a new trace. ({{File,New Trace}})
-2. Select the database that your Octopus Deploy database instance is located and provide login credentials. (See [here ](https://msdn.microsoft.com/en-us/library/ms187611.aspx)for details about the minimum required credentials)
-3. Give the trace an appropriate name like `Octopus Deploy - Loading Project 2016-11-12`
+1. Launch SQL Server Profiler and create a new trace. ({{File,New Trace}}).
+2. Select the database that your Octopus Deploy database instance is located and provide login credentials. (See [here ](https://msdn.microsoft.com/en-us/library/ms187611.aspx)for details about the minimum required credentials).
+3. Give the trace an appropriate name like `Octopus Deploy - Loading Project 2016-11-12`.
 4. Click the `Events Selection` tab to provide filters that will be applied to the stream of data.
-5. Disable `Audit Login` and `Audit Logout`
-6. Click `Column Filters` and set the ApplicationName filter to Like="Octopus %" to filter requests just sent from the Octopus Server
+5. Disable `Audit Login` and `Audit Logout`.
+6. Click `Column Filters` and set the ApplicationName filter to Like="Octopus %" to filter requests just sent from the Octopus Server.
 
    ![](/docs/images/5671493/5865852.png "width=500")
-   
-7. Click Run. You will then probably see lots of entries starting to show up. This is because the server is always busy making calls to the database, checking if any new tasks needs to be run or updating the status of existing machines and tasks. Ideally we want this trace to cover just the queries that were invoked while the you perform the operation that appears to cause the server to slow down. Click the `Clear Trace Window` icon to remove the existing entries.![](/docs/images/5671493/5865853.png "width=300")
+
+7. Click Run. You will then probably see lots of entries starting to show up. This is because the server is always busy making calls to the database, checking if any new tasks needs to be run or updating the status of existing machines and tasks. Ideally we want this trace to cover just the queries that were invoked while the you perform the operation that appears to cause the server to slow down. Click the `Clear Trace Window` icon to remove the existing entries.![](/docs/images/5671493/5865853.png "width=300").
 8. Go back to the Octopus Deploy portal and perform the task that resulted in slow performance.
 9. Back in SQL Server Profiler, click the red `Stop` button to prevent any more logs from being added. We want this snapshot to represent as close as possible the operations that were being performed at that point in time.
 10. Save the results into a *.trc* trace file and send through with your ticket detailing what steps you ran in the portal.
 
 While this trace may not always provide conclusive proof as to the primary culprit of your performance problems, it may provide some indication as to where improvements can be made to optimize the request profile.
 
-If you are seeing error messages with a specific query in your server logs or through octo.exe command line failures, for example
+If you are seeing error messages with a specific query in your server logs or through octo.exe command line failures, for example:
 
-> INSERT INTO dbo.[Event] WITH (TABLOCKX) (RelatedDocumentIds, ProjectId, EnvironmentId, TenantId, Category, UserId, Username, Occurred, Message, Id, Json) values (@RelatedDocumentIds, @ProjectId, @EnvironmentId, @TenantId, @Category, @UserId, @Username, @Occurred, @Message, @Id, @Json) 
+> INSERT INTO dbo.[Event] WITH (TABLOCKX) (RelatedDocumentIds, ProjectId, EnvironmentId, TenantId, Category, UserId, Username, Occurred, Message, Id, Json) values (@RelatedDocumentIds, @ProjectId, @EnvironmentId, @TenantId, @Category, @UserId, @Username, @Occurred, @Message, @Id, @Json)
 >
-> Server exception: 
+> Server exception:
 >
 > System.Exception: Error while executing SQL command: Timeout expired. The timeout period elapsed prior to completion of the operation or the server is not responding.
 
@@ -84,7 +84,7 @@ then it may be more useful to focus in on that specific query and get the execut
 
 ### Logging  Queries {#Providingdatabaseperformancemetrics-LoggingQueries}
 
-Slow running queries are automatically logged to the [Server Logs](/docs/support/log-files.md) with an Info trace level. These lines will look something like
+Slow running queries are automatically logged to the [Server Logs](/docs/support/log-files.md) with an Info trace level. These lines will look something like:
 
 > ```
 > 2016-11-17 00:31:39.8557    285  INFO  Reader took 309ms (1ms until the first record): SELECT * FROM dbo.[Project] ORDER BY Id
@@ -102,7 +102,6 @@ By updating your server logging to verbose, further information will be recorded
 
 Providing these logs in your support ticket that correlate to the times that you noticed the performance problems will further help us to diagnose what could be improved.
 
-## Improvements going forward {#Providingdatabaseperformancemetrics-Improvementsgoingforward}
+## Improvements Going Forward {#Providingdatabaseperformancemetrics-Improvementsgoingforward}
 
 Providing as much information as possible regarding what actions you are performing to the server, along with the subsequent requests that the server is making, will best help us to further improve the performance of Octopus for all users. While we can't guarantee that we will be able to squeeze improvements out of every situation, every bit helps. We do also have an outstanding [GitHub ticket #2673](https://github.com/OctopusDeploy/Issues/issues/2673) that may help us avoid the upgrade problems described above that occur when custom indexes exist. Once this is in place we will be more likely to recommend custom schema changes that suit your particular needs.
-

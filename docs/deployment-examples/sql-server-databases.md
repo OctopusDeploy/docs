@@ -4,9 +4,9 @@ description: Octopus integrates with numerous tools to handle automated database
 position: 60
 ---
 
-There are a variety of ways for Octopus Deploy to deploy to SQL Server.  Octopus Deploy integrates with many third-party tools, both free and commerical.  This section will provide a broad outline of approaches, tooling, and recommended configuration.
+There are a variety of ways for Octopus Deploy to deploy to SQL Server.  Octopus Deploy integrates with many third-party tools, both free and commercial.  This section will provide a broad outline of approaches, tooling, and recommended configuration.
 
-## Approaches to database change management {#SQLServerdatabases-Approachestodatabasechangemanagement}
+## Approaches to Database Change Management {#SQLServerdatabases-Approachestodatabasechangemanagement}
 
 There are two main approaches to deploying databases.
 
@@ -42,7 +42,7 @@ With all that in mind, a "jump box" is where Tentacles should be installed.  The
 
 ![](database-with-jump-box.png "width=500")
 
-In the event of multiple domains, a jump box would be needed per domain.  This might be seen where there is a domain in a local infrastructure and another domain in a cloud provider such as Azure.  As long as port 10933 is open (for a listening Tentacle) or port 443 (for a polling Tentacle) Octopus will be able to communicate to the jumpbox.
+In the event of multiple domains, a jump box would be needed per domain.  This might be seen where there is a domain in a local infrastructure and another domain in a cloud provider such as Azure.  As long as port 10933 is open (for a listening Tentacle) or port 443 (for a polling Tentacle) Octopus will be able to communicate to the jump box.
 
 ![](database-jump-box-multiple-domains.png "width=500")
 
@@ -113,27 +113,27 @@ Security Admins should be treated the same as System Admins, as they can grant p
 
 If granting that level of access is not workable or allowed we would recommend the following.  It requires SQL Users to be manually created and the database to already exist.  The process can add existing users to databases as well as deploy everything.
 
-- Database Permissions
+- Database Permissions:
     - db_ddladmin -> can run any Data Definition Language (DDL) command in a database.
-    - db_datareader -> can read all the data from all user tables
-    - db_datawriter -> can add, delete, or change data from all user tables
-    - db_backupoperator -> can backup the database
-    - db_securityadmin -> modify role membership and manage permissions
-    - db_accessadmin -> can add or remove access to the database for logins
-    - Can View Any Definition
+    - db_datareader -> can read all the data from all user tables.
+    - db_datawriter -> can add, delete, or change data from all user tables.
+    - db_backupoperator -> can backup the database.
+    - db_securityadmin -> modify role membership and manage permissions.
+    - db_accessadmin -> can add or remove access to the database for logins.
+    - Can View Any Definition.
 
 ### Manual User Creation Both Server and Database Permission Recommendation {#SQLServerdatabases-ManualUserPermissions}
 
 Here is the most restrictive permissions for automating database deployments.  No new database users can be created.  No new schemas can be created.  Users cannot be added to roles.  Table and stored procedure changes can be made.
 
-- Database Permissions
+- Database Permissions:
     - db_ddladmin -> can run any Data Definition Language (DDL) command in a database.
-    - db_datareader -> can read all the data from all user tables
-    - db_datawriter -> can add, delete, or change data from all user tables
-    - db_backupoperator -> can backup the database
-    - Can View Any Definition
+    - db_datareader -> can read all the data from all user tables.
+    - db_datawriter -> can add, delete, or change data from all user tables.
+    - db_backupoperator -> can backup the database.
+    - Can View Any Definition.
 
-## Third party tools {#SQLServerdatabases-Thirdpartytools}
+## Third Party Tools {#SQLServerdatabases-Thirdpartytools}
 
 ### Redgate SQL Release {#SQLServerdatabases-RedgateSQLRelease}
 

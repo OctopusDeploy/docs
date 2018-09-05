@@ -12,7 +12,7 @@ Depending on which authentication providers you have enabled, the following butt
 
 ![](members-buttons.png "width=694")
 
-## Add Active Directory group {#ExternalGroupsandRoles-AddActiveDirectorygroup}
+## Add Active Directory Group {#ExternalGroupsandRoles-AddActiveDirectorygroup}
 
 This button appears if you have the Active Directory authentication provider enabled, and when activated you will see the following dialog
 
