@@ -5,15 +5,16 @@ position: 15
 ---
 <!-- Starter text only -->
 
-Spaces let you partition your Octopus Server so that different teams access the projects, environments, and infrastructure they work with from different areas of the Octopus Server. Using Spaces keeps the projects and environments completely separate, which if you have multiple projects and teams within Octopus can make it easier to manage, but also gives you an element of separation between the different spaces you configure.
+Spaces let you partition your Octopus Server so that different teams access the projects, environments, and infrastructure they work with from spaces they are members of.
+Using Spaces keeps the projects and environments completely separate, which if you have multiple projects and teams within Octopus can make it easier to manage, but also gives you an element of separation between the different spaces you configure. There is a hard barrier between spaces, which means that something that has been configured in one space is not accessible from any other space.
 
-By default, every Octopus Server since **Octopus 2018.10** comes with a default space, however, if you are not planning to use multiple Spaces, this default Space exists in the background and you do not to configure it or manage it. For organizations not uses Spaces the default space can be safely ignored. <!-- more to it, need details -->
+By default, every Octopus Server since **Octopus 2018.11** comes with a default space, however, if you are not planning to use multiple Spaces, this default Space exists in the background and you do not to configure it or manage it. For organizations not uses Spaces the default space can be safely ignored. <!-- more to it, need details -->
 
 <!-- Limitations: Three Spaces per server? Migration. Sharing across spaces... -->
 
 ## Managing Spaces
 
-Spaces are managed from ...
+Spaces are managed by navigating to {{Configuration,Spaces}}.
 
 ### Create a Space
 
