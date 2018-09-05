@@ -31,8 +31,16 @@ When dealing with sensitive variables, Octopus will encrypt these values using 
 
 :::success
 **Use a password manager or key vault**
-If you need to retrieve these values for other purposes, consider using a password manager or key vault. The support we provide in Octopus is to securely store values that will be used during deployment, and cannot be retrieved for any other purposes. There are plenty available, and some are free, like [KeePass](http://keepass.info/).
+If you need to retrieve these values for other purposes, consider using a password manager or key vault. The support we provide in Octopus is to securely store values that will be used during deployment, and cannot be retrieved for any other purposes. There are plenty available, and some are free, like [KeePass](http://keepass.info/), or [HashiCorp Vault](https://www.vaultproject.io/).
 :::
+
+## Choosing which variables should be sensitive
+
+Any value you want can be treated as a secret by Octopus. It is up to you to choose the most appropriate balance of secrecy and usability. As a rule of thumb, any individual value which should be encrypted, or masked in logs, should be made sensitive in Octopus.
+
+The most straightforward example is a password or key: make it sensitive and it will be encrypted into the database and masked in the Octopus task logs.
+
+Another common example is building a compound value using the [variable substitution syntax](docs/deployment-process/variables/variable-substitution-syntax.md), like a database connection string. Imagine a variable called `DB.ConnectionString` with the value `Server=#{DB.Server};Database=#{DB.Database};User=#{DB.Username};Password#{DB.Password};`. In this case you should at least make the `DB.Password` variable sensitive so it will be encrypted in the database and masked from any Octopus task log messages like this `Server=db01.mycompany.com;Database=mydatabase;User=myuser;Password=*****`. You could also make `DB.Username` or any of the other components of this template sensitive.
 
 ## Avoiding Common Mistakes {#Sensitivevariables-Avoidingcommonmistakes}
 
@@ -42,9 +50,11 @@ Here are some common pitfalls to avoid:
 - **Avoid short values:** only sensitive variables with length **greater than 3** characters will be masked. This is done to prevent false positives causing excessive obfuscation of the logs. Consider 8-30 characters depending on the requirements of your deployment.
 - **Avoid common language**: see the example below of "broke", use a password generator with high entropy [like this one](http://passwordsgenerator.net/).
 - **Avoid sequences that are interpreted by your scripting language of choice**: For example, certain escape sequences like `$^` will be misinterpreted by PowerShell potentially logging out your sensitive variable in clear-text.
+- **Sensitivity is not transitive/infectious**: For example, imagine you have a sensitive variable called `DB.Password` and another variable called `DB.ConnectionString` with the value `Server=#{DB.Server};...;Password=#{DB.Password}`; the `DB.ConnectionString` does not become sensitive just because `DB.Password` is sensitive. However, if you happen to write the database connection string to the task log, the password component will be masked like this `Server=db01.mycompany.com;...;Password=*****` which is probably the desired outcome.
+- **Avoid mixing binding expressions and sensitivity**: For example, if you have a variable called `Service.Credential` with the value `Password=#{Service.Password}` and make that variable sensitive, Octopus treats the **literal** value `Password=#{Service.Password}` as sensitive instead of treating the **evaluated** value as sensitive, which might be different to what you would expect. Instead, you should make the variable called `Service.Password` sensitive so the password itself will be encrypted in the database, and subsequently masked in any logs like this `Password=*****`.
 - **Avoid sequences that are part of the variable substitution syntax** {#Sensitivevariables-Avoidingcommonmistakes-SubstituionSyntax}: For example, the sequence `##{` will be replaced by `#{` by logic that's part of [referencing variables](docs/deployment-process/variables/binding-syntax.md#Bindingsyntax-Referencingvariablesinstepdefinitions) so you would need to escape it by modifying it to be `###{` which will result in `##{`, see also [variable substitution syntax](docs/deployment-process/variables/variable-substitution-syntax.md).
 
-- **Octopus is not a 2-way key vault**: use a password manager or key vault like [KeePass](http://keepass.info/).
+- **Octopus is not a 2-way key vault**: use a password manager or key vault like [KeePass](http://keepass.info/) or [HashiCorp Vault](https://www.vaultproject.io/).
 
 ## Logging {#Sensitivevariables-LoggingLogging}
 
