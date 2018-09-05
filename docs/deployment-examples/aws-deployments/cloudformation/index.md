@@ -102,7 +102,7 @@ See the [variable substitution](https://octopus.com/docs/deployment-process/vari
 
 #### Accessing CloudFormation Outputs
 
-As mentioned in the [Template Section](/docs/deployment-examples/aws-deployments/cloudformation/index.md#Template Section) when the `wait for completion` checkbox has been checked any [outputs](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) defined in your CloudFormation template will be made available as [Octopus output-variables](/docs/deployment-process/variables/output-variables.md) automatically. For example, an output `Foo` would be available as:
+As mentioned in the Template Section when the `wait for completion` checkbox has been checked any [outputs](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) defined in your CloudFormation template will be made available as [Octopus output-variables](/docs/deployment-process/variables/output-variables.md) automatically. For example, an output `Foo` would be available as:
 
 ```powershell
 Octopus.Action[CloudFormationTemplateStepName].Output.AwsOutputs[Foo]
