@@ -29,3 +29,7 @@ As of `3.17`, Octopus now includes the default Swagger UI for displaying the API
 ![](/docs/images/3048161/3278406.png)
 
 You can view the API through the Octopus Demo server at [demo.octopus.com/swaggerui/index.html](https://demo.octopus.com/swaggerui/index.html).
+
+## API and Spaces
+
+Spaces was introduced in **Octopus 2018.11**. If you are using spaces, you need to include the `SpaceID` in your API calls. If you do not include the `SpaceID`, your API calls will automatically use the default space.
