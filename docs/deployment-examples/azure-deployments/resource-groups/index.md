@@ -17,7 +17,7 @@ Octopus Deploy supports deploying Azure Resource Manager (ARM) templates via the
 Before creating the step, you must have created an [Azure Service Principal Account](/docs/infrastructure/azure/creating-an-azure-account/creating-an-azure-service-principal-account.md)
 :::
 
-![](/arm-step.png "width=170")
+![](arm-step.png "width=170")
 
 ## Creating the Resource Group Step {#DeployusinganAzureResourceGroupTemplate-CreatingtheResourceGroupStep}
 
