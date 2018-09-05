@@ -1,6 +1,6 @@
 ---
-title: Deploy Using an Azure Resource Group Template
-description: Deploy using an Azure Resource Group Templates.
+title: Deploy Using an Azure Resource Manager (ARM) Template
+description: Deploy using an Azure Resource Manager (ARM) templates.
 ---
 
 Azure Resource Manager support was introduced in **Octopus 3.3**.
@@ -11,13 +11,13 @@ From [Authoring Azure Resource Manager Templates](https://azure.microsoft.com/en
 
 > Azure applications typically require a combination of resources (such as a database server, database, or website) to meet the desired goals. Rather than deploying and managing each resource separately, you can create an Azure Resource Manager template that deploys and provisions all of the resources for your application in a single, coordinated operation.
 
-Octopus Deploy supports deploying Azure Resource Group Templates via the *Deploy an Azure Resource Group* step type. For information about adding a step to the deployment process, see the [add step](/docs/deployment-process/steps/index.md) section.
+Octopus Deploy supports deploying Azure Resource Manager (ARM) templates via the *Deploy an Azure Resource Manager template* step type. For information about adding a step to the deployment process, see the [add step](/docs/deployment-process/steps/index.md) section.
 
 :::hint
 Before creating the step, you must have created an [Azure Service Principal Account](/docs/infrastructure/azure/creating-an-azure-account/creating-an-azure-service-principal-account.md)
 :::
 
-![](/docs/images/5671696/5865905.png "width=170")
+![](/arm-step.png "width=170")
 
 ## Creating the Resource Group Step {#DeployusinganAzureResourceGroupTemplate-CreatingtheResourceGroupStep}
 
