@@ -20,7 +20,7 @@ The ability to run scripts on the Octopus Server shipped in **Octopus 3.3**.
 
 When adding a script you choose where the script will run, and in which context the script will run.
 
-![](5275659.png "width=500")
+![](execution-location.png "width=500")
 
 Choosing the right combination of **Target** and **Roles** enables some really interesting scenarios. See below for some common examples:
 
