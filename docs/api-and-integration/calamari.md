@@ -4,7 +4,7 @@ description: Calamari is the command-line tool invoked by Tentacle during a depl
 position: 100
 ---
 
-Prior to **Octopus 3.0**, Tentacles were responsible for performing deployment steps.  Tentacles were *smart*.They knew how to transform configuration files, modify IIS, and much, much more.
+Prior to **Octopus 3.0**, Tentacles were responsible for performing deployment steps. Tentacles were *smart*. They knew how to transform configuration files, modify IIS, and much, much more.
 
 ![](/docs/images/3048177/3278198.png)
 
