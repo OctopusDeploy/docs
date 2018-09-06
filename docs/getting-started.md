@@ -125,3 +125,7 @@ Each time you have a new candidate build that is ready to test, you'll create a 
 Over time your software may become so successful that you on-sell it to some external customers, and due to the way the software is architected, you need to deploy a copy of the software once per customer. You could achieve this in Octopus by creating an environment-per-customer, or even a project-per-customer, but this leads to duplication and unnecessary complexity. In Octopus 3.4 we introduced the concept of tenants that you can manage alongside your existing projects and environments.
 
 Learn more about tenants in our [Multi-tenant Deployments Guide](/docs/deployment-patterns/multi-tenant-deployments/index.md).
+
+## Spaces
+
+If you're a large organization with lots of teams working in Octopus, you can use the [Spaces](/docs/administration/spaces/index.md) feature to limit your teams to only seeing the projects they're working on.
