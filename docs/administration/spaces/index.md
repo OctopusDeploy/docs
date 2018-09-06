@@ -12,22 +12,32 @@ By default, every instance of Octopus Server since **Octopus 2018.11** comes wit
 
 Spaces are managed by navigating to {{Configuration,Spaces}}.
 
+### The Space Owner
+
+Each Space has a Space Owner. The Space Owner is the Admin for that Space and is responsible for adding team members to the Space and assigning permissions to the members of the space.
+
+<!-- need details  -->
+
 ### Create a Space
 
 New spaces are added from the configuration section of the portal.
 
-1. To create a new space navigate to {{Configuration,Spaces}} and select **ADD SPACE**.
-2. Give the space a name.
-3. Give the space an owner. This can be individual users or teams. Either can be selected from the drop-down menu.
-4. Provide a description for the space.
-5. Optionally upload a logo for the space. The logo will be used in the top left corner of the portal to help users who have access to more than one space, quickly see which space they are currently in.
+1. To create a new Space navigate to {{Configuration,Spaces}} and select **ADD SPACE**.
+2. Give the Space a name.
+3. Give the Space an owner. This can be individual users or teams. Either can be selected from the drop-down menu.
+4. Provide a description for the Space.
+5. Optionally upload a logo for the Space. The logo will be used in the top left corner of the portal to help users who have access to more than one space, quickly see which space they are currently in.
 6. Click **SAVE**.
 
 ### Delete a Space
 
 Once a space has been deleted it cannot be restored. To delete the resources available to a space, you must...
 
-### Rename a Space
+<!-- need details -->
+
+### Modify  a Space
+
+To rename a Space, or change the description or logo, navigate to {{Configuration,Spaces}} and select the Space you want to modify. Make your changes and Click **SAVE**.
 
 ## Switch Between Spaces
 
