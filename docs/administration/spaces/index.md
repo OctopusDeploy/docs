@@ -42,3 +42,21 @@ To rename a Space, or change the description or logo, navigate to {{Configuratio
 ## Switch Between Spaces
 
 When log into the Octopus Web Portal, the first item on the navigation menu is the Spaces menu. The first time you click this menu, you can create a Space. If you are a member of multiple spaces, you can switch between Spaces from this menu.
+
+## System Scoped or Space Scoped
+
+There is a hard barrier between Spaces, so, for instance, a deployment target configured for SpaceA isn't available to projects in SpaceB. However, there are some things that aren't scoped to a Spaces, but are system wide. Some things can be scoped to both Spaces and the system.
+
+| Resource               | Space-Scoped                       | System-Scoped      |
+| ------------------ | --------------------------- | ---------- |
+| Environments | Spaces |  |
+| Lifecycles   | Spaces  |  |
+| Projects | Spaces |  |
+| Variable Sets | Spaces |  |
+| Deployment Targets | Spaces |  |
+| Tenants | Spaces |  |
+| Octopus Server Nodes |  | System  |
+| Authentication |  | System |
+| Users |  | System |
+| License |  | System |
+| Events | Spaces | System |
