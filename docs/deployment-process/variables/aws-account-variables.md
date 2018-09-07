@@ -11,7 +11,7 @@ version: "[2018.2,)"
 
 The **Add Variable** window is then displayed and lists all the AWS accounts.
 
-Select the account that was created in the previous step to assign it to the variable:
+Select the AWS account you want to access from the project to assign it to the variable:
 
 ![AWS Account Variable Selection](aws-account-variable-selection.png "width=500")
 
