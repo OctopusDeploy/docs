@@ -34,7 +34,7 @@ Clicking the **SAVE AND TEST** button will verify that the credentials are valid
 
 ## AWS Account Variables
 
-You can access your AWS account through from **AWS Account Variable**. Learn more about [AWS Account Variables](/docs/deployment-process/variables/aws-account-variables.md)
+You can access your AWS account from within projects through a variable of type **AWS Account Variable**. Learn more about [AWS Account Variables](/docs/deployment-process/variables/aws-account-variables.md)
 
 ## Using AWS Service Roles for an EC2 Instances
 
