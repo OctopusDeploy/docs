@@ -34,7 +34,7 @@ When dealing with sensitive variables, Octopus will encrypt these values using 
 If you need to retrieve these values for other purposes, consider using a password manager or key vault. The support we provide in Octopus is to securely store values that will be used during deployment, and cannot be retrieved for any other purposes. There are plenty available, and some are free, like [KeePass](http://keepass.info/), or [HashiCorp Vault](https://www.vaultproject.io/).
 :::
 
-## Choosing which variables should be sensitive
+## Choosing Which Variables Should Be Sensitive
 
 Any value you want can be treated as a secret by Octopus. It is up to you to choose the most appropriate balance of secrecy and usability. As a rule of thumb, any individual value which should be encrypted, or masked in logs, should be made sensitive in Octopus.
 
