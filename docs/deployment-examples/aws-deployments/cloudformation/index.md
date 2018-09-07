@@ -102,7 +102,7 @@ See the [variable substitution](https://octopus.com/docs/deployment-process/vari
 
 #### Accessing CloudFormation Outputs
 
-As mentioned in the Template Section when the `wait for completion` checkbox has been checked any [outputs](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) defined in your CloudFormation template will be made available as [Octopus output-variables](/docs/deployment-process/variables/output-variables.md) automatically. For example, an output `Foo` would be available as:
+As mentioned in the Template Section, when the `wait for completion` checkbox has been checked, any [outputs](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) defined in your CloudFormation template will be made available as [Octopus output-variables](/docs/deployment-process/variables/output-variables.md) automatically. For example, an output `Foo` would be available as:
 
 ```powershell
 Octopus.Action[CloudFormationTemplateStepName].Output.AwsOutputs[Foo]
@@ -110,11 +110,11 @@ Octopus.Action[CloudFormationTemplateStepName].Output.AwsOutputs[Foo]
 
 ### Output Variables
 
-In addition to any outputs defined in your CloudFormation template we alo provide the following output variables which can be used in subsequent steps.
+In addition to any outputs defined in your CloudFormation template, we also provide the following output variables which can be used in subsequent steps.
 
-* Octopus.Action[StepName].Output.AwsOutputs[StackId] - The stack ARN as used by the step
-* Octopus.Action[StepName].Output.AwsOutputs[ChangesetId] - The change set ARN which was generated when change sets have been enabled
-* Octopus.Action[StepName].Output.AwsOutputs[Changes]  - The changes that were applied or are to be applied when deferring execution
+* Octopus.Action[StepName].Output.AwsOutputs[StackId] - The stack ARN as used by the step.
+* Octopus.Action[StepName].Output.AwsOutputs[ChangesetId] - The change set ARN which was generated when change sets have been enabled.
+* Octopus.Action[StepName].Output.AwsOutputs[Changes]  - The changes that were applied or are to be applied when deferring execution.
 
 
 ### Change Sets and CloudFormation Transforms
@@ -124,17 +124,16 @@ In order to use [change sets](https://docs.aws.amazon.com/AWSCloudFormation/late
 ![Change Set Feature](aws-changeset-feature.png "width=500")
 
 :::hint
-The Change Sets feature was introduced as part of version 2018.8 therefore Octopus did not support CloudFormation transforms prior to this.
+The Change Sets feature was introduced as part of **Octopus 2018.8**, and Octopus did not support CloudFormation transforms in prior versions.
 :::
 
 #### Change Set Name
 
-All change sets have to be unique for a given stack and Octopus will generate a unique name such as `octo-5ab48bcfd8ec447bbc8328f97231b729` unless specified otherwise. If you wish to change the names used you can uncheck the option to automatically
-generate change set names which will give you the option to specify the name, which can be bound to an output variable from a prior step.
+All change sets have to be unique for a given stack, and Octopus will generate a unique name such as `octo-5ab48bcfd8ec447bbc8328f97231b729` unless specified otherwise. If you wish to change the names used you can uncheck the option to automatically generate change set names which will give you the option to specify the name. These can be bound to an output variable from a prior step.
 
 #### Deferring Execution and Preview Changes
 
-There are times that you may wish to preview changes before applying them. This is enabled by checking the `Defer Change Set Execution` checkbox, which tells Octopus to create the change set, but not apply it. A [manual intervention step](/docs/deployment-examples/manual-intervention-and-approvals.md) can then be used in conjunction with the `AwsOutputs[Changes]` output variable from a `Deploy an AWS CloudFormation template` step to view the changes. Similarly the
+There are times when you may wish to preview changes before applying them. This is enabled by checking the `Defer Change Set Execution` checkbox, which tells Octopus to create the change set, but not apply it. A [manual intervention step](/docs/deployment-examples/manual-intervention-and-approvals.md) can then be used in conjunction with the `AwsOutputs[Changes]` output variable from a `Deploy an AWS CloudFormation template` step to view the changes. Similarly the
 `Apply an AWS CloudFormation Change Set` step can make use of the `AwsOutputs[StackId]` and `AwsOutputs[ChangeSetId]` output variables to apply the change set.
 
 ## CloudFormation Deployment Workflow
