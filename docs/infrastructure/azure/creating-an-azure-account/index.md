@@ -19,3 +19,7 @@ The divide in authentication-methods in Octopus reflects the divide within Azure
 - If you wish to Service Management mode, then you will need to create a [Management Certificate account](/docs/infrastructure/azure/creating-an-azure-account/creating-an-azure-management-certificate-account.md).
 
 ![add account](add-new-azure-account-detail.png "width=500")
+
+## Azure Account Variables
+
+You can access your Azure account from within projects through a variable of type **Azure Account**. Learn more about [Azure Account Variables](/docs/deployment-process/variables/azure-account-variables.md). Learn more about [Azure Deployments](/docs/deployment-examples/azure-deployments/index.md).
