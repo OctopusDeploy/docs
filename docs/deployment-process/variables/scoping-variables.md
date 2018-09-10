@@ -3,8 +3,7 @@ title: Scoping Variables
 description: Scoping variables allows you to specify different values for a variable depending on where you are deploying them.
 position: 0
 ---
-
-To allow you to define different values for variables depending on where you are deploying, variables can be **scoped**.
+As you work with [variables](/docs/deployment-process/variables/index.md) in Octopus, you'll need to scope you variables depending on where you are deploying.
 
 ![](/docs/images/3048305/3278293.png "width=500")
 

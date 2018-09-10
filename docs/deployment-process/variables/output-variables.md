@@ -4,7 +4,7 @@ description: Output variables allow you to set dynamic variables in one step tha
 position: 6
 ---
 
-Some variables might be dynamic - for example, a value that needs to be calculated, or a value that is the output of running a command. For these scenarios, Octopus supports **output variables**.
+As you work with [variables](/docs/deployment-process/variables/index.md) in Octopus, there will be times when you want to use dynamic variables, for example, the value of a variable is the result of a calculation, or the output from running a command. For these scenarios, Octopus supports **output variables**.
 
 Output variables can be set anywhere that Octopus runs scripts - for example, the [Script Console](/docs/administration/script-console.md), or [package scripts and script steps](/docs/deployment-examples/custom-scripts/index.md) in a deployment. *See below for examples of setting output variables in each of the different scripting languages supported by Octopus.*
 

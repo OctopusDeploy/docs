@@ -5,7 +5,7 @@ position: 8
 version: "[3.11,)"
 ---
 
-In the variable-editor, selecting *Certificate* as the variable type allows you to create a variable with a certificate managed by Octopus as the value.
+In the variable-editor, selecting *Certificate* as the [variable](/docs/deployment-process/variables/index.md) type allows you to create a variable with a certificate managed by Octopus as the value.
 
 ![](/docs/images/certificates/certificate-variable-select.png "width=500")
 

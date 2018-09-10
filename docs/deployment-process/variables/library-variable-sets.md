@@ -4,7 +4,7 @@ description: Library variable sets allow you to define and share common variable
 position: 2
 ---
 
-Library variable sets make it possible to **share variables between projects.** You can create them from the **Variable Sets** tab in the **Library** area, by clicking **Add new variable set**.
+Octopus [variables](/docs/deployment-process/variables/index.md) can be added to library variables sets, which makes it possible to share variables between projects. You can create them by navigating to {{Library,Variable Sets}} and clicking **Add new variable set**.
 
 ![](/docs/images/3048089/3277721.png "width=500")
 
