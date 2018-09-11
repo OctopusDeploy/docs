@@ -28,7 +28,7 @@ In this example, we'll create a Hello World project that runs a script to say he
 3. From the Project Overview page, click **Variables** to access the variable editor.
 4. Create your variables. For this example, we'll enter the name *Greeting* for each of the variables we create, for the first variable we'll add the value *Hello, Production*, scoped to the production environment. For the second variable we'll add the value *Hello, Testing*, scoped to the testing environment. After you've created the variables, click **Save**.
 
-![Adding Variables](adding-variables.jpg)
+![Adding Variables](adding-variables.png)
 
 5. Now we need to define our project. From the Project Overview page, click **DEFINE YOUR DEPLOYMENT PROCESS**, on the next page click **ADD STEP**.
 6. This is a script project so select the **Run a Script** step template.
@@ -43,7 +43,7 @@ Write-Host
 
 11. Select the variable *Greeting* from the insert variable tool next to the script editor, and click **SAVE**
 
-![Script with Variable](script-variable.jpg)
+![Script with Variable](script-variable.png)
 
 12. From the Project Overview Page, Click **Create Release**, enter a *Version number* or accept the default, and enter any release notes you'd like to include. Click **SAVE**.
 
