@@ -53,9 +53,14 @@ The script step will run with the string *Hello, Production*, on the deployment 
 
 ## Variable Snapshot
 
-When you create releases, a snapshot is taken of the project variables. You can review the variables in the **Variable Snapshot** section of the release page by clicking **SHOW SNAPSHOT**. This lets you see the variables as they existed at the time of the release.
+When you create releases, a snapshot is taken of the project variables. You can review the variables in the **Variable Snapshot** section of the release page by clicking **SHOW SNAPSHOT**. This lets you see the variables as they existed when the release was created.
 
-If the release is yet to be deployed, and the variables have changed, you can click **UPDATE VARIABLES** to update the variables for the release.
+You can update the variables by clicking **UPDATE VARIABLES**. This can be useful when:
+
+* The release has not been deployed yet, but the variables have changed since the release was created.
+* The release needs to be **redeployed** and the variables have changed since the release was created.
+* The release failed to deploy due to a problem with the variables and you need to update the variables and redeploy the release.
+
 
 ## Variables in Octopus
 
