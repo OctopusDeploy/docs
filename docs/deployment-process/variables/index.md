@@ -5,9 +5,7 @@ position: 20
 hideInThisSection: true
 ---
 
-Octopus lets you define variables with values that change based on the scope you've assigned to the variables and the scope of your deployments.
-
-As you promote your application through test, UAT, staging, and production, there are going to be differences in database connection strings, application settings, web service URLs, and many other parameters. Using variables means you don't need to hardcode any of these values. You define your variables and the values you provide will be used at deployment time, allowing you to create applications and deployment scripts that are agnostic of the target environment.
+Octopus lets you define variables with values that change based on the [scope](/docs/deployment-process/variables/scoping-variables.md) you've assigned to the variables and the scope of your deployments. As you define your [deployment processes](/docs/deployment-process/index.md) there will be [steps](/docs/deployment-process/steps/index.md) in your [projects](/docs/deployment-process/projects/index.md) that need different database connection strings, application settings, web service URLs, or many other parameters. Using variables means you don't need to hardcode any of these values. You define your variables and the values you provide will be used at deployment time, allowing you to create applications and deployment scripts that are agnostic of the target environment.
 
 
 For instance, you might need to define [custom installation directories](/docs/deployment-process/configuration-features/custom-installation-directory.md) for the testing environment and the production environment. In this instance, you would have something like:
