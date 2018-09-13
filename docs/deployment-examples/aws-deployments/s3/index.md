@@ -29,8 +29,7 @@ If you select `Yes` to `Execute using the AWS service role for an EC2 instance`,
 
 ### Package Section
 
-Under the `Package Section`, define how the target package and the associated file uploads should behave for
-the step. The entire package can be uploaded or individual file(s) from the package can be specified for upload.
+Under the `Package Section`, define how the target package and the associated file uploads should behave for the step. The entire package can be uploaded or individual file(s) from the package can be specified for upload.
 
  ![S3 target options](upload-s3-target-options.png "width=500")
 
@@ -65,11 +64,30 @@ A file selection can be removed by expanding the appropriate selection and click
 File selections aren't formally removed or added until the step has been saved.
 :::
 
+##### Bucket Key Prefix
+
+A prefix delimited with forward slash `/` characters is seen in S3 as folders.
+Here are a few examples to help you get those files in the right folder structure:
+
+| Package Files            | S3 Destination    | Prefix            |
+| ------------------------ | ----------------- | ----------------- |
+| \*\*/\*                  | /Content/External | Content/External/ |
+| Images/\*\*/\*           | /Content/Images   | Content/Images/   |
+| Resource/\*\*/Special/\*\*/\* | /Files/\*\*/Special | Files/ |
 
 #### Single File Selection
 The single file selection lets you upload a single file to an S3 bucket which must exist within the package. If the file is not found an associated error will be raised. This selection also allows for the bucket key to be explicit.
 
 ![Single file selection](single-file-selection.png "width=500")
+
+##### Bucket Keys
+A custom key delimited with forward slash `/` characters is seen in S3 as folders.
+Here are a few examples to help you get those files in the right structure:
+
+| Package File | S3 Destination             | Custom Key                  |
+| ------------ | -------------------------- | --------------------------- |
+| Logo.gif     | /Images/Logos/Logo.gif     | `Images/Logos/Logo.gif`     |
+| xyz.gif      | /Images/Animals/Girafe.gif | `Images/Animals/Girafe.gif` |
 
 :::hint
 The bucket key used for a single file selection will uniquely identify the file within the bucket and will be used verbatim. That is, if you wish for the file to have an extension you should provide it as part of the bucket key as it is effectively renaming the file as part of the upload.
