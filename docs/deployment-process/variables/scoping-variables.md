@@ -3,14 +3,11 @@ title: Scoping Variables
 description: Scoping variables allows you to specify different values for a variable depending on where you are deploying them.
 position: 0
 ---
-As you work with [variables](/docs/deployment-process/variables/index.md) in Octopus, you'll need to scope you variables depending on where you are deploying.
 
-![](/docs/images/3048305/3278293.png "width=500")
-
-Variables can be scoped by:
+The [variables](/docs/deployment-process/variables/index.md) that you define your projects in Octopus can be scoped in the following ways:
 
 - Environments (most common).
-- Specific machines.
+- Specific deployment targets.
 - Specific machine roles.
 - Specific deployment steps.
 
@@ -23,13 +20,13 @@ For example, suppose these variables exist:
 | DBConnectionString | Server=SQL-UAT1;Database=... | UAT |
 | DBConnectionString | Server=SQL-PROD;Database=... | Production |
 
-During deployment, Octopus will try to select the most specifically scoped variable that applies. For example, when deploying to Production, the *LogLevel* property would be *Warn*. But to any other environment, it would fall back to the less-specific variable and have a value of *Info* instead.
+During deployment, Octopus will try to select the most specifically scoped variable that applies. For example, when deploying to Production, the *LogLevel* property would be *Warn*, but to any other environment, it would fall back to the less-specific variable and have a value of *Info* instead.
 
 ## Assigning Scopes {#Scopingvariables-Assigningscopes}
 
-You can set the scope of a variable by selecting the Scope cell, and choosing the scope values:
+You can set the scope of a variable when you are creating or editing your variables, either from the **variable** section of the project, or in the **Variable Sets** section of the Library.
 
-![](/docs/images/3048305/3278294.png "width=500")
+![Assigning Scope to Variables](scoping-variables.png)
 
 ## Scope Specificity {#Scopingvariables-Scopespecificity}
 
