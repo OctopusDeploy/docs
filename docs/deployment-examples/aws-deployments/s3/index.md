@@ -71,9 +71,9 @@ Here are a few examples to help you get those files in the right folder structur
 
 | Package Files            | S3 Destination    | Prefix            |
 | ------------------------ | ----------------- | ----------------- |
-| \*\*/\*                  | /Content/External | Content/External/ |
-| Images/\*\*/\*           | /Content/Images   | Content/Images/   |
-| Resource/\*\*/Special/\*\*/\* | /Files/\*\*/Special | Files/ |
+| \*\*/\*                  | /Content/External | `Content/External/` |
+| Images/\*\*/\*           | /Content/Images   | `Content/Images/`   |
+| Resource/\*\*/Special/\*\*/\* | /Files/\*\*/Special | `Files/` |
 
 #### Single File Selection
 The single file selection lets you upload a single file to an S3 bucket which must exist within the package. If the file is not found an associated error will be raised. This selection also allows for the bucket key to be explicit.
