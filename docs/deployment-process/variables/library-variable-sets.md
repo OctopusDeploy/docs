@@ -22,7 +22,7 @@ This can be useful if you have the same variables that are used across multiple 
 3. Click **INCLUDE LIBRARY VARIABLE SETS**.
 4. Search for the Library Variable Set you'd like to include, click the checkbox and **SAVE**.
 
-## Viewing the Library Variable SET
+## Viewing the Library Variable Set
 
 If you want to review the Library Variable Set you've created, from the Project Overview page you can navigate to {{Variables,Library Sets}}.
 
