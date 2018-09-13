@@ -4,22 +4,26 @@ description: Library variable sets allow you to define and share common variable
 position: 2
 ---
 
-Octopus [variables](/docs/deployment-process/variables/index.md) can be added to library variables sets, which makes it possible to share variables between projects. You can create them by navigating to {{Library,Variable Sets}} and clicking **Add new variable set**.
+Octopus [variables](/docs/deployment-process/variables/index.md) can be added to library variables sets, which makes it possible to share variables between [projects](/docs/deployment-process/projects/index.md).
 
-![](/docs/images/3048089/3277721.png "width=500")
+This can be useful if you have the same variables that are used across multiple projects. Instead of defining the variables for each project, you can define a set of variables in the Library Variable Set and then access them from every project that needs them.
 
-Just like defining project variables, library variables can be scoped to environments, machines or roles.
+## Creating a Library Variable Set
 
-![](/docs/images/3048089/3277720.png "width=500")
+1. Navigate to {{Library,Variable Sets}} and click **ADD NEW VARIABLE SET**.
+2. Give the variable set a name, a description, and click **SAVE**.
+3. Define the variables. As with project variables, library variables can be [scoped](/docs/deployment-process/variables/scoping-variables.md) to environment, deployment target, or target roles.
+4. Save the variable set by clicking **SAVE**.
 
-Once library variable sets have been defined, they can be referenced from a project by viewing the project variables, selecting **Library Sets** and clicking **Include library variable sets**.
+## Adding the Library Variable Set to a Project
 
-![](/docs/images/3048089/3277719.png "width=500")
+1. Navigate to your project by selecting the **Project** from the navigation menu and then clicking your project.
+2. Click {{Variables,Library Sets}}.
+3. Click **INCLUDE LIBRARY VARIABLE SETS**.
+4. Search for the Library Variable Set you'd like to include, click the checkbox and **SAVE**.
 
-Select the variable set to include and click the **Save** button.
+## Viewing the Library Variable SET
 
-![](/docs/images/3048089/3277718.png "width=500")
+If you want to review the Library Variable Set you've created, from the Project Overview page you can navigate to {{Variables,Library Sets}}.
 
-The **Project Variables** page, while under **Library Sets** will show the shared variable set that has been included.
-
-![](/docs/images/3048089/3277717.png "width=500")
+If you want to review the Project variables and the Library Variable Set, from the Project Overview you can navigate to {{Variables,All}}.
