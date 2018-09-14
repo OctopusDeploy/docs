@@ -73,4 +73,4 @@ Variables are an important and useful concept in Octopus, so this section descri
 | **[Sensitive variables](/docs/deployment-process/variables/sensitive-variables.md)** | Octopus can securely store sensitive values, like passwords and API keys |
 | **[System variables](/docs/deployment-process/variables/system-variables.md)** | Many built-in variables are available within Octopus, such as the current environment name |
 | **[Output variables](/docs/deployment-process/variables/output-variables.md)** | Output variables let you programmatically set variables during a deployment, and then use those values in subsequent steps |
-| **[Variable templates](/docs/deployment-process/variables/variable-templates.md)** | Variable template let you define variables that are required by your project, but where the values are provided by something else, like a tenant |
+| **[Variable templates](/docs/deployment-process/variables/variable-templates.md)** | Variable template are used with projects that are deployed to Multi-tenants and let you define which variables are required by tenants for your projects to be successfully deployed. |
