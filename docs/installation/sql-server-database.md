@@ -10,11 +10,11 @@ Octopus Deploy stores projects, environments, and deployment history in a Micros
 
 ## Using SQL Server Express {#SQLServerDatabaseRequirements-UsingSQLServerExpress}
 
-The easiest and cheapest way to get started is with [SQL Server Express](http://downloadsqlserverexpress.com/) and install the Octopus Deploy Server and SQL Server Express side-by-side on your machine/server. This is a great way to test Octopus for a proof of concept. Depending on your needs, you might decide to use SQL Server Express, or upgrade to another supported edition.
+The easiest and cheapest way to get started is with [SQL Server Express](http://downloadsqlserverexpress.com/) and install the Octopus Deploy Server and SQL Server Express side-by-side on your server. This is a great way to test Octopus for a proof of concept. Depending on your needs, you might decide to use SQL Server Express, or upgrade to another supported edition.
 
 ## Creating the Database
 
-The Octopus installation wizard can create the database for you (our preferred method), during the [installation](/docs/installation/index.md); however, you can also point Octopus to an existing database. Octopus works with both local and remote database servers, but it is worth considering the [performance implications](/docs/administration/performance.md) before making a decision.
+The Octopus [installation](/docs/installation/index.md) wizard can create the database for you (our preferred method), during the installation; however, you can also point Octopus to an existing database. Octopus works with both local and remote database servers, but it is worth considering the [performance implications](/docs/administration/performance.md) before making a decision.
 
 If you are using a hosted database service you will need to [create your own database](#create-your-own) and provide Octopus with the connection details.
 
