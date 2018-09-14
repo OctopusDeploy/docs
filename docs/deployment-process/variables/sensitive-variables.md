@@ -1,7 +1,7 @@
 ---
 title: Sensitive Variables
 description: Sensitive variables allow you to define secret values used in your applications that are secured stored in Octopus.
-position: 4
+position: 40
 ---
 
 As you work with [variables](/docs/deployment-process/variables/index.md) in Octopus, there will be times when you work with applications that require configuration values that are considered sensitive information. These should be kept secret, but used as clear-text during deployment. Think of something like a password or API Key to an external resource. Octopus provides support for this scenario with Sensitive Variables.

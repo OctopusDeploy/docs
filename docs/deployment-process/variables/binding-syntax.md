@@ -1,7 +1,7 @@
 ---
 title: Binding Syntax
 description: Octopus supports a special binding syntax that can be used to refer to variables.
-position: 1
+position: 10
 ---
 
 As you work with [variables](/docs/deployment-process/variables/index.md) in Octopus, you can using Octopus's special binding syntax to refer to variables. It uses the form:

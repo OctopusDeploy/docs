@@ -1,7 +1,7 @@
 ---
 title: AWS Account Variables
 description: Create an AWS Account to use it in AWS-related deployment steps
-position: 8
+position: 80
 version: "[2018.2,)"
 ---
 
