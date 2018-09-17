@@ -58,12 +58,6 @@ You can update the variables by clicking **UPDATE VARIABLES**. This can be usefu
 * The release needs to be **redeployed** and the variables have changed since the release was created.
 * The release failed to deploy due to a problem with the variables and you need to update the variables and redeploy the release.
 
-## Scoping Variables
-
-The variables you create can be scoped to
-
-
-
 ## Variables in Octopus
 
 Variables are an important and useful concept in Octopus, so this section describes different ways in which variables can be used.
