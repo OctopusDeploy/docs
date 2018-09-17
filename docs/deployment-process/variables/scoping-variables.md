@@ -4,7 +4,7 @@ description: Scoping variables allows you to specify different values for a vari
 position: 0
 ---
 
-The [variables](/docs/deployment-process/variables/index.md) that you define your projects in Octopus can be scoped in the following ways:
+The [variables](/docs/deployment-process/variables/index.md) that you define for your projects in Octopus can be scoped in the following ways:
 
 - Environments (most common).
 - Specific deployment targets.
@@ -34,15 +34,15 @@ Imagine you have one variable scoped to an environment (Production), and another
 
 Since variables can be scoped in many different ways, there needs to be a predictable, deterministic order in which they are resolved. The list below is the priority in which variable scopes take precedence - the top items are considered higher priority than the bottom ones:
 
-- The current step/action (most specific).
-- The current machine.
-- Roles applied to the current machine and targeted by the current step.
-- Roles applied to the current machine.
-- The target tenant (if tenant-features are enabled).
-- The target tenant-tag (if tenant-features are enabled).
-- The target environment.
-- The target channel (if channels are enabled).
-- No scope (least specific).
+1. The current step/action (most specific).
+1. The current machine.
+1. Roles applied to the current machine and targeted by the current step.
+1. Roles applied to the current machine.
+1. The target tenant (if tenant-features are enabled).
+1. The target tenant-tag (if tenant-features are enabled).
+1. The target environment.
+1. The target channel (if channels are enabled).
+1. No scope (least specific).
 
 For example, imagine a **LogLevel** variable with a value scoped to an environment is considered by Octopus to be "less specific" than a value scoped to a machine role. So when two possible values for a variable exist, Octopus will choose the "more specific" scope value over the less specific one.
 
