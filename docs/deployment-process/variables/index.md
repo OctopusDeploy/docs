@@ -23,7 +23,7 @@ In this example, we'll create a Hello World project that runs a script to say he
 1. Navigate to **Projects** and click **ADD PROJECT**.
 2. Give the project a name, for instance, *Hello, World*, and click **SAVE**.
 3. From the Project Overview page, click **Variables** to access the variable editor.
-4. Create your variables. For this example, we'll enter the name *Greeting* for each of the variables we create, for the first variable we'll add the value *Hello, Production*, [scoped](/docs/deployment-process/variables/scoped-variables.md) to the production environment. For the second variable we'll add the value *Hello, Testing*, [scoped](/docs/deployment-process/variables/scoped-variables.md) to the testing environment. After you've created the variables, click **Save**.
+4. Create your variables. For this example, we'll enter the name *Greeting* for each of the variables we create, for the first variable we'll add the value *Hello, Production*, [scoped](/docs/deployment-process/variables/scoping-variables.md) to the production environment. For the second variable we'll add the value *Hello, Testing*, [scoped](/docs/deployment-process/variables/scoping-variables.md) to the testing environment. After you've created the variables, click **Save**.
 
 ![Adding Variables](adding-variables.png)
 
