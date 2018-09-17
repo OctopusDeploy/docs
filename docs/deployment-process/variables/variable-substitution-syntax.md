@@ -4,7 +4,7 @@ description: Variable substitutions are a flexible way to adjust configuration b
 position: 65
 ---
 
-Variable substitutions are a flexible way to adjust configuration based on your [variables](/docs/deployment-process/variables/index.md) and the context of your deployment. You can often tame the number and complexity of your variables by breaking them down into simple variables and combining them together using expressions.
+Variable substitutions are a flexible way to adjust configuration based on your [variables](/docs/deployment-process/variables/index.md) and the context of your [deployment](/docs/deployment-process/index.md). You can often tame the number and complexity of your variables by breaking them down into simple variables and combining them together using expressions.
 
 ## Basic Syntax {#VariableSubstitutionSyntax-BasicSyntax}
 
@@ -16,11 +16,11 @@ Octopus [variables](/docs/deployment-process/variables/index.md) support substit
 | `DatabaseServer`   | `TDB001`                    | Test       |
 | `ConnectionString` | `Server=#{DatabaseServer};` |            |
 
-The syntax `#{VarName}` will insert the value of the `VarName` variable in-place. For example the `ConnectionString` variable will have the value `Server=PDB001;` when evaluated in the *Production* environment. The use of one or more variables in the declaration of another is called a *binding.*
+The syntax `#{VarName}` will insert the value of the `VarName` variable in-place. For example the `ConnectionString` variable will have the value `Server=PDB001;` when evaluated in the *Production* environment, and  the value `Server=TDB001;` when evaluated in the *Test* environment. The use of one or more variables in the declaration of another is called a *binding.*
 
 In regular variable declarations, binding to a non-existent value will yield an empty string, so evaluating `ConnectionString` in the *Dev* environment will yield `Server=;` because no `DatabaseServer` is defined in that environment.
 
-If the file undergoing variable replacement includes a string that *shouldn't* be getting replaced, for example **#{NotToBeReplace}**, you should include an extra hash (#) character to force the replacement to ignore the substitution and remove the extra #.
+If the file undergoing variable replacement includes a string that *shouldn't* be replaced, for example **#{NotToBeReplace}**, you should include an extra hash (#) character to force the replacement to ignore the substitution and remove the extra #.
 
 | Expression            | Value                |
 | --------------------- | -------------------- |
@@ -106,7 +106,7 @@ You could achieve a similar result, with a different default/fallback behavior, 
 The `if` and `unless` statements consider a value to be *falsy* if it is undefined, empty, `False` or `0`. All other values are considered to be *truthy*.
 
 ### Complex Syntax
-Additional conditional statements are supported in **Octopus 3.5** and onwards, including == and !=.
+Additional conditional statements are supported in **Octopus 3.5** and onwards, including `==` and `!=`.
 
 Using complex syntax you can have expressions like `#{if Octopus.Environment.Name == "Production"}...#{/if}` and `#{if Octopus.Environment.Name != "Production"}...#{/if}`
 

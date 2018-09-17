@@ -5,16 +5,9 @@ position: 20
 hideInThisSection: true
 ---
 
-Octopus lets you define variables with values that change based on the [scope](/docs/deployment-process/variables/scoping-variables.md) you've assigned to the variables and the scope of your deployments. As you define your [deployment processes](/docs/deployment-process/index.md) there will be [steps](/docs/deployment-process/steps/index.md) in your [projects](/docs/deployment-process/projects/index.md) that need different database connection strings, application settings, web service URLs, or many other parameters. Using variables means you don't need to hardcode any of these values. You define your variables and the values you provide will be used at deployment time, allowing you to create applications and deployment scripts that are agnostic of the target environment.
+Octopus lets you define variables with values that change based on the [scope](/docs/deployment-process/variables/scoping-variables.md) you've assigned to the variables and the scope of your deployments. For instance, as you define your [deployment processes](/docs/deployment-process/index.md) there will be [steps](/docs/deployment-process/steps/index.md) in your [projects](/docs/deployment-process/projects/index.md) that need different database connection strings (or any number of other parameters, i.e., application settings, web service URLs, etc) depending on the environment you're deploying to. Using variables lets you define a variable with one connection string scoped to the test environment, and another connection string scoped to the production environment.
 
-For instance, you might need to define [custom installation directories](/docs/deployment-process/configuration-features/custom-installation-directory.md) for the testing environment and the production environment. In this instance, you would have something like:
-
-| Variable Name    | Value     | Scope    |
-| ----------------------- | --------------- | -------- |
-| CustomInstallDirectory | \path\to\test\directory\ | Test |
-| CustomInstallDirectory | \path\to\production\directory\ | Production |
-
-Then when the software is deployed to the Test environment, Octopus will use the value provided for the **CustomerInstallDirectory** scoped to the **Test** Environment, and when the software is deployed to the Production environment, Octopus will use the value provided for the **CustomInstallDirectory** scoped to the **Production** Environment.
+Using variables means you don't need to hardcode any of these values. You define your variables and the values you provide will be used at deployment time, allowing you to create applications and deployment scripts that are agnostic of the target environment.
 
 ## Creating Hello World Variables
 

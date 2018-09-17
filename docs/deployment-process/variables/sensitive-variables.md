@@ -8,13 +8,17 @@ As you work with [variables](/docs/deployment-process/variables/index.md) in Oct
 
 ## Configuring Sensitive Variables {#Sensitivevariables-Configuringsensitivevariables}
 
-Variables such as passwords or API keys can be marked as being **sensitive**. Just like non-sensitive variables they can [reference other variables](docs/deployment-process/variables/binding-syntax.md#Bindingsyntax-Referencingvariablesinstepdefinitions) but be careful with any part of your sensitive variable that could [unintentionally be interpreted](docs/deployment-process/variables/sensitive-variables.md#Sensitivevariables-Avoidingcommonmistakes-SubstituionSyntax) as an attempted substitution.
+Variables such as passwords or API keys can be marked as being **sensitive**. Just like non-sensitive variables they can [reference other variables](docs/deployment-process/variables/binding-syntax.md#Bindingsyntax-Referencingvariablesinstepdefinitions) but be careful with any part of your sensitive variable that could [unintentionally be interpreted](docs/deployment-process/variables/sensitive-variables.md#Sensitivevariables-Avoidingcommonmistakes-SubstituionSyntax) as an attempted substitution. See also, other [common mistakes](#avoiding-common-mistakes).
 
 ![](/docs/images/3048089/3277722.png "width=500")
 
-:::hint
-In **Octopus 3.11.0** we added an editor to the variables value section. Sensitive variables are now defined inside this section by selecting to enter a variable value, then selecting `Show editor`, see the below screenshot.
-:::
+## Defining Sensitive Variables
+
+To make a variable a **sensitive variable**, you need to enter the variable editor when you are creating or editing the variable. On any of the variable fields, click **OPEN EDITOR**:
+
+![Open Variable Editor](open-editor.png)
+
+For variable type, select **Sensitive**.
 
 ![Variable editor](variable-editor.jpg "width=500")
 
@@ -24,7 +28,7 @@ In **Octopus 3.11.0** we added an editor to the variables value section. Sensiti
 Learn more about [security and encryption](/docs/administration/security/data-encryption.md) in Octopus Deploy.
 :::
 
-When dealing with sensitive variables, Octopus will encrypt these values using **AES128 encryption** any time they are in transmission, or "at rest" like when they are stored in the Octopus database or staged on a deployment target as part of a deployment. You can use these sensitive values in your deployment process just like normal [variables](/docs/deployment-process/variables/index.md), with two notable exceptions:
+When dealing with sensitive variables, Octopus encrypts these values using **AES128 encryption** any time they are in transmission, or "at rest" like when they are stored in the Octopus database or staged on a deployment target as part of a deployment. You can use these sensitive values in your deployment process just like normal [variables](/docs/deployment-process/variables/index.md), with two notable exceptions:
 
 - Once the variable is saved, Octopus will **never allow you to retrieve the value** via the [REST API](/docs/api-and-integration/api/index.md) or the Octopus web portal; and
 - Whenever possible, Octopus will **mask these sensitive values in logs**.
@@ -38,7 +42,7 @@ If you need to retrieve these values for other purposes, consider using a passwo
 
 Any value you want can be treated as a secret by Octopus. It is up to you to choose the most appropriate balance of secrecy and usability. As a rule of thumb, any individual value which should be encrypted, or masked in logs, should be made sensitive in Octopus.
 
-The most straightforward example is a password or key: make it sensitive and it will be encrypted into the database and masked in the Octopus task logs.
+The most straightforward example is a password or key. Make the password or key sensitive and it will be encrypted into the database and masked in the Octopus task logs.
 
 Another common example is building a compound value using the [variable substitution syntax](docs/deployment-process/variables/variable-substitution-syntax.md), like a database connection string. Imagine a variable called `DB.ConnectionString` with the value `Server=#{DB.Server};Database=#{DB.Database};User=#{DB.Username};Password#{DB.Password};`. In this case you should at least make the `DB.Password` variable sensitive so it will be encrypted in the database and masked from any Octopus task log messages like this `Server=db01.mycompany.com;Database=mydatabase;User=myuser;Password=*****`. You could also make `DB.Username` or any of the other components of this template sensitive.
 
@@ -86,4 +90,4 @@ Then the password might be given away when Octopus prints:
 Or watch the things you gave your life to, *******en
 ```
 
-The obvious solution is: don't use passwords that are likely to occur in normal logging/language, and avoid writing the values of your secure variables to logs anyway.
+The obvious solution is, don't use passwords that are likely to occur in normal logging/language, and avoid writing the values of your secure variables to logs anyway.

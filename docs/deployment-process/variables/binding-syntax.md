@@ -8,7 +8,7 @@ As you work with [variables](/docs/deployment-process/variables/index.md) in Oct
 
 `#{Name}`
 
-To reference a variable named `Name` from within the value of another variable.
+To reference a variable named `Name` from within the value of another variable. See [output variables](/docs/deployment-process/variables/output-variables.md) for a working example.
 
 The binding syntax used by Octopus also supports many other constructs, such as loops, conditionals, and filters. You can [learn more in the variable substitution syntax](/docs/deployment-process/variables/variable-substitution-syntax.md) section.
 

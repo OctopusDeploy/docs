@@ -4,7 +4,7 @@ description: Library variable sets allow you to define and share common variable
 position: 20
 ---
 
-Octopus [variables](/docs/deployment-process/variables/index.md) can be added to library variables sets, which makes it possible to share variables between [projects](/docs/deployment-process/projects/index.md).
+Octopus [variables](/docs/deployment-process/variables/index.md) can be added to library variables sets, which make it possible to define variables for use with multiple [projects](/docs/deployment-process/projects/index.md).
 
 This can be useful if you have the same variables that are used across multiple projects. Instead of defining the variables for each project, you can define a set of variables in the Library Variable Set and then access them from every project that needs them.
 
