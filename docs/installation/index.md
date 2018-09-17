@@ -7,7 +7,7 @@ description: How to install the central Octopus Deploy Server.
 This section walks you through installing the **self-hosted** Octopus Deploy Server.
 
 :::hint
-If you're interested in the **cloud-hosted** Octopus Server, you can [launch your own cloud instance now](https://octopus.com/account/register).
+If you're interested in the **cloud-hosted** Octopus Server, you can [register for an account](https://octopus.com/account/register).
 :::
 
 Once installed, the Octopus Deploy Server:
@@ -24,15 +24,15 @@ You need to download the latest version of the [Octopus Installer](/docs/install
 
 1. Start the Octopus Installer and follow the onscreen prompts.
 2. Accept the **License Agreement**, and either accept the default **Destination Folder** or choose a different location.
-3. Click Install, and give the app permission to **make changes to your device**.
-4. Click finish to exit the installation wizard and launch the **Getting started wizard** to configure your Octopus Deploy Server.
+3. Click **Install**, and give the app permission to **make changes to your device**.
+4. Click **Finish** to exit the installation wizard and launch the **Getting started wizard** to configure your Octopus Deploy Server.
 5. Click **Get Started** and either enter your details to start a free trial of Octopus or enter your **license key**.
 6. Accept the default **Home Directory** or enter a location of your choice.
 7. Decide whether to use a **Local System Account** or a **Custom Domain Account**.
 
   Learn more about the [permissions required for the Octopus Windows Service](/docs/installation/permissions-required-for-the-octopus-windows-service.md), using a [Managed Service Account](/docs/installation/managed-service-account.md), or [configuring authentication providers](/docs/administration/authentication/authentication-providers/index.md).
 
-8. On the **Database** page, click the dropdown arrow in the **Server Name** field to detect the SQL Server Database.
+8. On the **Database** page, click the dropdown arrow in the **Server Name** field to detect the SQL Server Database. Octopus will create the database for you which is recommended process; however, you can also [create your own database](/docs/installation/sql-server-database.md#creating-the-database).
 9. Enter a name for the database, and click **OK** to **create the database**.
 
   Be careful **not** to use the name of an existing database as the setup process will install Octopus into that pre-existing database. Learn more about the [Octopus Database](/docs/administration/octopus-database/index.md).

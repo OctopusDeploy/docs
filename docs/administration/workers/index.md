@@ -18,7 +18,6 @@ The following step types and configurations run on a worker:
 
 The following steps always run inside the Octopus Server process (and do not run user-supplied code):
 
-- Health Check
 - Email
 - Manual Intervention
 - Import Certificate

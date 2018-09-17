@@ -1,6 +1,6 @@
 ---
 title: Managing Resources Using Scripts
-description: Octopus resources can be created using service messages allowing resources that you currently can script in Azure to be modeled in Octopus.
+description: Octopus resources can be created using service messages allowing resources that you currently can script in Azure to be modeled in Octopus (dynamic infrastructure).
 position: 120
 ---
 

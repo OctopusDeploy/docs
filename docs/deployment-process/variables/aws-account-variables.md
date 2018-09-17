@@ -1,17 +1,17 @@
 ---
 title: AWS Account Variables
 description: Create an AWS Account to use it in AWS-related deployment steps
-position: 8
+position: 80
 version: "[2018.2,)"
 ---
 
-[AWS accounts](/docs/infrastructure/aws/index.md) are included in a project through a project variable of the type **Amazon Web Services Account**. Before you create an **AWS Account Variable**, you need to [create an AWS Account](/docs/infrastructure/aws/index.md) in Octopus:
+[AWS accounts](/docs/infrastructure/aws/index.md) are included in a project through a project [variable](/docs/deployment-process/variables/index.md) of the type **Amazon Web Services Account**. Before you create an **AWS Account Variable**, you need to [create an AWS Account](/docs/infrastructure/aws/index.md) in Octopus:
 
 ![AWS Account Variable](aws-account-variable.png "width=500")
 
 The **Add Variable** window is then displayed and lists all the AWS accounts.
 
-Select the account that was created in the previous step to assign it to the variable:
+Select the AWS account you want to access from the project to assign it to the variable:
 
 ![AWS Account Variable Selection](aws-account-variable-selection.png "width=500")
 

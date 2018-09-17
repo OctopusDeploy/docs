@@ -14,3 +14,6 @@ If you wish to use a different version, you can install the Azure PowerShell CLI
 To do this, create a [variable](/docs/deployment-process/variables/index.md) named **OctopusUseBundledAzureCLI** and set its value to **False**.
 
 With this value set, Octopus Deploy will not load the bundled Azure PowerShell CLI.
+
+
+If you need to disable the Azure CLI altogether due to errors or the added time to login to the CLI, use **OctopusDisableAzureCLI** and set its value to **True**.
