@@ -69,7 +69,32 @@ roleRef:
   apiGroup: ""
 ```
 
-Creating this service account automatically results in a token being generated. The PowerShell snippet below returns the token.
+In cases where it is necessary to have an administrative service account created (for example, when using AWS EKS because the initial admin account is tied to an IAM role), the following YAML can be used.
+
+```
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: octopus-administrator
+  namespace: default
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: octopus-administrator-binding
+  namespace: default
+subjects:
+- kind: ServiceAccount
+  name: octopus-administrator
+  namespace: default
+  apiGroup: ""
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+name: cluster-admin
+```
+
+Creating service accounts automatically results in a token being generated. The PowerShell snippet below returns the token for the `jenkins-deployer` account.
 
 ```PowerShell
 $user="jenkins-deployer"
