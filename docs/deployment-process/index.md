@@ -72,7 +72,7 @@ Learn more about [variables](/docs/deployment-process/variables/index.md).
 
 You can specify run conditions on the steps that you define to give you greater control over the deployment process.
 
-Learn more about [conditions](/docs/deployment-process/conditions.md).
+Learn more about [conditions](/docs/deployment-process/conditions/index.md).
 
 ## Releases and Deploying
 
