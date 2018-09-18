@@ -10,37 +10,30 @@ Scheduled Deployment Triggers allow you to define an unattended behavior for you
 
 ## Schedule
 
-Scheduled deployment triggers provide a way to configure your projects to create, deploy, and promote releases on a defined schedule.
+Scheduled deployment triggers provide a way to configure your projects to create, deploy, and promote releases on a defined schedule. This can useful in different scenarios, for instance:
 
-### Daily Schedule
-
-The Daily Schedule is run every day of the week. It can be configured to run once per day, every x hours, or every x minutes.
-Examples of when this option would be useful is if you wanted to:
 * Run a deployment to clean up your test environments once a day at 9:00pm.
 * Run a deployment to health check your services every hour.
-
-![](/docs/images/scheduled-project-triggers/scheduled-project-triggers-daily-schedule.png "width=500")
-
-### Days Per Week
-The Days Per Week schedule works the same way as the daily schedule, however, you can also choose the days of the week you want the schedule to run on.
-
-Example:
-
 * Run a deployment to provision a new test environment at 6:00am, Monday - Friday.
-
-![](/docs/images/scheduled-project-triggers/scheduled-project-triggers-days-per-week-schedule.png "width=500")
-
-### Days Per Month
-The Days Per Month schedule allows you to configure a trigger that will run on a specific date of the month or specific day of week of every month.
-
-Example:
-
 * Run a deployment to promote the latest build from staging to production on the 1st day of the month.
 * Run a deployment to perform maintenance on the last Saturday of the month.
 
-![](/docs/images/scheduled-project-triggers/scheduled-project-triggers-days-per-month-schedule.png "width=500")
+## Add a Scheduled Trigger
 
-### CRON Expression
+1. From the Project's Overview page, select **Triggers**, then {{ADD TRIGGER,Scheduled trigger}}.
+2. Give the trigger a name.
+3. Set the Trigger schedule. The options give you control over how frequently the trigger will run and at what time. You can specify the time the trigger should run and a daily scheduled, specific days of the week, or days of the month. You can also use a [CRON expression](#cron-expression) to configure when the trigger will run.
+4. Select the action the Trigger should take when executed.
+  - **Deploy Latest Release** re-deploys a release or promote a release between environments. You need to specify the **Source Environment** and the **Destination Environment**. The latest successful release in the source environment will be deployed to the destination environment.
+  - **Deploy New Release** deploys a new release which will deployed to the environment you specify in the **Destination Environment**.
+
+If you are using [channels](/docs/deployment-process/channels/index.md) you may also select the channel to use when deploying the release. The latest successful deployment for the specified channel and source environment will be deployed to the same channel and destination environment. If no channel is specified, the latest successful release from any channel and source environment will be selected for deployment.
+
+If you are using [tenants](/docs/deployment-patterns/multi-tenant-deployments/index.md) you can select the tenants that will receive a deployment. For each tenant, the latest successful release in the source environment will be deployed to the destination environment. When a tenant is not connected to the source environment, the latest successful release that has been deployed to the source environment and meets the lifecycle requirements for promotion to the destination environment will be deployed.
+
+5. Save the Trigger.
+
+### Using CRON Expression {#cron-expression}
 
 CRON expressions allow you to configure a trigger that will run according to the specific CRON expression.
 
@@ -65,24 +58,3 @@ The CRON expression must consist of all 6 fields, there is an optional 7th field
 | Month         | 1-12 or JAN-DEC      | * , - /                     | Y        |
 | Day of week   | 0-6 or SUN-SAT       | * , - / ? L #               | Y        |
 | Year          | 0001–9999            | * , - /                     | N        |
-
-## Action
-
-### Deploy Latest Release
-
-The Deploy Latest Release action allows you to re-deploy a release or promote a release between environments.
-* **Source Environment**: The latest successful deployment in this environment will be used to deploy to the destination environment.
-* **Destination Environment**: The release selected from the source environment will be deployed to this environment.
-
-If you are using [channels](/docs/deployment-process/channels/index.md) you may also select the channel to use when deploying the release. The latest successful deployment for the specified channel and source environment will be deployed to the same channel and destination environment. If no channel is specified, the latest successful release from any channel and source environment will be selected for deployment.
-
-If you are using [tenants](/docs/deployment-patterns/multi-tenant-deployments/index.md) you can select the tenants that will receive a deployment. For each tenant, the latest successful release in the source environment will be deployed to the destination environment. When a tenant is not connected to the source environment, the latest successful release that has been deployed to the source environment and meets the lifecycle requirements for promotion to the destination environment will be deployed.
-
-:::success
-If the same environment is selected for both source and destination the latest successful deployment will be re-deployed to that environment. If different environments are selected, the latest successful release in the source environment will be promoted to the destination environment.
-:::
-
-### Deploy New Release
-The Deploy New Release action will create a new release and deploy it to the selected destination environment. If you are using channels and tenants you can also select which channel the release will be created in, and which tenants will receive the deployment.
-
-The newly created release will select the latest package versions that match the channel rules that the release is created in.
