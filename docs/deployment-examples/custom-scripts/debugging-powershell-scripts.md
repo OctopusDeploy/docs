@@ -1,75 +1,46 @@
 ---
-title: Debugging PowerShell Scripts on Remote Machines
-description: This guide provides details on debugging PowerShell scripts with Octopus Deploy.
-position: 13
+title: Debugging PowerShell Scripts
+description: How to debug PowerShell scripts running as part of your deployment process.
+position: 3
+version: 3.12
 ---
 
-This guide provides details on how to debug PowerShell scripts while they are being deployed by Octopus Deploy to remote machines. This guide demonstrates connecting via IP address to an untrusted machine on a public network. Some steps may be omitted when connecting to machines on the same subnet or domain.
+When writing Step Templates or Scripts, it is sometimes useful to be able to debug through a script to track down hard to diagnose issues.
 
-## Configuring PowerShell Remoting
-PowerShell remoting must be enabled on the remote machine and configured for SSL and the trust established between the remote machine and the debugging machine.
+In PowerShell version 5.0 and above, Octopus supports script debugging to enable you to step through the script as it is being run by the Tentacle, to set breakpoints, view the call stack, the values of variable and more.
 
-To enable PowerShell remoting on the remote machine:
+To enable debugging, add a variable to your project with the name `Octopus.Action.PowerShell.DebugMode`, with one of the following values:
 
-```powershell
-Enable-PSRemoting -SkipNetworkProfileCheck -Force
-```
+* `BreakBeforeLaunchingUserScript` or `True` - breaks just before executing the Step Template/Script Step/Custom deployment script.
+* `None` or `False` - disables debugging.
 
-To establish trust between the debugging machine and the remote machine let's configure remoting over SSL.  The remote machine requires a certificate, an HTTPS listener and a firewall rule to allow incoming requests on port 5986:
+For more advanced usage, you can also use the following values:
 
-```powershell
-$dnsName = "55.555.55.555" # The IP address you are using to connect to the machine
+* `BreakAtStartOfBootstrapScript` - breaks into the debugger at the very start of the bootstrap script.
+* `BreakBeforeSettingVariables` - breaks into the debugger just before setting up all the variables.
+* `BreakBeforeImportingScriptModules` - breaks just before importing Script Modules. Useful for debugging issues with Script Modules.
 
-$certificate = New-SelfSignedCertificate -CertstoreLocation Cert:\LocalMachine\My -DnsName "$dnsName"
-New-Item -Path WSMan:\LocalHost\Listener -Transport HTTPS -Address * -CertificateThumbPrint $certificate.Thumbprint –Force
-New-NetFirewallRule -DisplayName "Windows Remote Management (HTTPS-In)" -Name "Windows Remote Management (HTTPS-In)" -Profile Any -LocalPort 5986 -Protocol TCP
-```
+Once the variable is set, create and deploy your release as normal.
 
-We also need to export the certificate so that it can be trusted by the debugging machine:
+When the Tentacle executes the script, it will print out instructions on how to attach the debugger, eg:
 
-```powershell
-Export-Certificate -Cert $certificate -FilePath "C:\remoting-certificate.cer"
-```
-
-In order to connect to the remote machine, the debugging machine must add the certificate to its Trusted Root Certification Authorities. Copy the exported certificate (`remoting-certificate.cer`) from the remote machine to the machine that will be doing the debugging. Import the certificate into Trusted Root Certification Authorities:
-
-```powershell
-Import-Certificate -Filepath "C:\remoting-certificate.cer" -CertStoreLocation "Cert:\LocalMachine\Root"
-```
-
-## Setting up Octopus for PowerShell Debugging
-Create a project with a "Run a Script" step that contains some PowerShell.  For example:
-
-```powershell
-$sampleDebugValue = 45
-
-Write-Host "$sampleDebugValue"
-```
-
-PowerShell debugging is enabled by adding the project variable `Octopus.Action.PowerShell.DebugMode` and setting the value to `true`. See [the PowerShell debugging documentation](/docs/deployment-examples/custom-scripts/debugging-powershell-scripts.md) for all of the possible settings.
-
-Now, create a release and deploy it.  The deployment will pause while waiting for a PowerShell debugger to attach.
-
-## Starting the PowerShell Debug Session
-The deployment in Octopus outputs the information required to start debugging the PowerShell script. If we have name resolution configured we could connect to the machine using the name indicated by Octopus, but in this instance we will use the machine's IP address. First we must start a session with the remote computer.  Open PowerShell ISE and run the following:
-
-```powershell
-$ipAddress = "55.555.55.555" # The IP address of the remote machine
-
-$credentials = Get-Credential
-
-Enter-PSSession -ComputerName $ipAddress -UseSSL -Credential $credentials
-```
-
-Once the session is established we can connect to the PowerShell process and start debugging.  The information provided in the Octopus deployment log can be used here:
-
-```powershell
-Enter-PSHostProcess -Id 3720
+```text
+...
+The Powershell execution engine is waiting for a PowerShell script debugger to attach.
+Use the following commands to begin debugging this script:
+Enter-PSSession -ComputerName Server01 -Credential <credentials>
+Enter-PSHostProcess -Id 2284
 Debug-Runspace -Id 2
 ```
 
-PowerShell ISE will open a window showing the script currently executing on the remote machine.  You can step through the script using `F10` to step over and `F11` to step in.
+If you have PowerShell remoting enabled, you can connect and debug remotely from either the command line or PowerShell ISE.
 
-![Debugging remote PowerShell scripts](debugging-powershell-scripts-debug.png)
+If you are on the server which is running the script, you can omit the `Enter-PSSession` line.
 
-When you are finished debugging, run to the end of the script and the deployment will be complete.
+From PowerShell ISE, execute the specified commands at the `PS >` prompt. ISE will load the script, attach the debugger and allow you to step through the code.
+
+Once you've finished debugging, you can either allow the script to run to the end, or you can choose `Stop Debugging` from the `Debug` menu.
+
+:::hint
+If you receive an error message `The background process reported an error with the following message: "The named pipe target process has ended".`, you can safely ignore this - it is just reporting that the PowerShell process you were debugging has ended.
+:::
