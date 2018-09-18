@@ -4,6 +4,8 @@ description: Releases allow you to capture everything required to deploy a proje
 position: 50
 ---
 
+Once you've defined your [deployment process](/docs/deployment-process/index.md) and you're ready to share you software, you can deploy a release.
+
 ## Releases and Deployments
 
 There are two important concepts involved in deploying your Octopus projects:  **releases** and **deployments**.  Recall that a project is like a recipe that describes the steps (instructions) and variables (ingredients) required to deploy your apps and services.  
