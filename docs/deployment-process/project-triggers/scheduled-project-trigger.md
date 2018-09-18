@@ -43,8 +43,6 @@ Example:
 
 Runs at 06:00 AM, Monday through Friday.
 
-![](/docs/images/scheduled-project-triggers/scheduled-project-triggers-cron-expression.png "width=500")
-
 :::success
 The CRON expression must consist of all 6 fields, there is an optional 7th field for "Year".
 :::
