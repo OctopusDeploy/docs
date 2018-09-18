@@ -10,10 +10,10 @@ Automatic Deployment Triggers (also known as auto-deploy) allow you to define an
 
 Automatic Deployment Triggers can help you:
 
-- [Elastically scale a farm of servers](/docs/deployment-patterns/elastic-and-transient-environments/index.md)
-- [Automatically keep your deployment targets up to date](/docs/deployment-patterns/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md) without needing to perform manual deployments
-- [Deploy to transient deployment targets](/docs/deployment-patterns/elastic-and-transient-environments/deploying-to-transient-targets.md) (targets that are disconnected from time to time)
-- [Implement immutable infrastructure environments](/docs/deployment-patterns/elastic-and-transient-environments/immutable-infrastructure.md) (sometimes called "Phoenix Environments")
+- [Elastically scale a farm of servers](/docs/deployment-patterns/elastic-and-transient-environments/index.md).
+- [Automatically keep your deployment targets up to date](/docs/deployment-patterns/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md) without needing to perform manual deployments.
+- [Deploy to transient deployment targets](/docs/deployment-patterns/elastic-and-transient-environments/deploying-to-transient-targets.md) (targets that are disconnected from time to time).
+- [Implement immutable infrastructure environments](/docs/deployment-patterns/elastic-and-transient-environments/immutable-infrastructure.md) (sometimes called "Phoenix Environments").
 
 On the surface Automatic Deployments appear to be simple, however they can grow complex very quickly and we recommend reading our [Elastic and Transient Environments](/docs/deployment-patterns/elastic-and-transient-environments/index.md) guide before getting started with your own implementation.
 
@@ -30,6 +30,14 @@ A scheduled task runs in Octopus every 30 seconds looking for new events to dete
 When the trigger fires and queues a deployment it will run the steps appropriate for the deployment target(s) that caused the trigger to fire.
 
 There are quite a few complexities to the decision making process for automatic deployments, most of which are discussed in the following sections.
+
+## Add a Deployment Target Trigger
+
+1. From the Project's Overview page, select **Triggers**, then {{ADD TRIGGER,Deployment target trigger}}.
+2. Give the trigger a name.
+3. Select the event filter to apply, see the [Frequently Asked Questions](#frequently-asked-questions) for specific scenarios.
+4. Specify whether or not to re-deploy to deployment targets even if they are already up-to date with the current deployment.
+5. Save the trigger.
 
 ## Frequently Asked Questions
 
