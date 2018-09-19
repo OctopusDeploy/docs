@@ -67,7 +67,5 @@ Variables are an important and useful concept in Octopus, so this section descri
 | **[Variable templates](/docs/deployment-process/variables/variable-templates.md)** | Variable template are used with projects that are deployed to Multi-tenants and let you define which variables are required by tenants for your projects to be successfully deployed. |
 | **[Certificate variables](docs/deployment-process/variables/certificate-variables.md)** | Octopus supports a certificate variable type that lets you create a variable with a certificate managed by Octopus as the value. |
 | **[Variable Substitution Syntax](docs/deployment-process/variables/variable-substitution-syntax.md)** | Variable substitutions are a flexible way to adjust configuration based on your variables and the context of your deployment. |
-| **[AWS Account Variables](docs/deployment-process/variables/certificate-variables.md)** |
-AWS accounts are included in a project through a project variable of the type Amazon Web Services Account. |
-| **[Azure Account Variables](docs/deployment-process/variables/certificate-variables.md)** |
-Azure accounts can be referenced in a project through a project variable of the type Azure Account. |
+| **[AWS Account Variables](docs/deployment-process/variables/certificate-variables.md)** | AWS accounts are included in a project through a project variable of the type Amazon Web Services Account. |
+| **[Azure Account Variables](docs/deployment-process/variables/certificate-variables.md)** | Azure accounts can be referenced in a project through a project variable of the type Azure Account. |
