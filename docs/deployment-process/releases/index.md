@@ -8,7 +8,9 @@ Once you've defined your [deployment process](/docs/deployment-process/index.md)
 
 ## Releases and Deployments
 
-There are two important concepts involved in deploying your Octopus projects:  **releases** and **deployments**.  Recall that a project is like a recipe that describes the steps (instructions) and variables (ingredients) required to deploy your apps and services.  
+It is important to understand the difference between **Releases** and **Deployments**.
+
+Recall that a project is like a recipe that describes the steps (instructions) and variables (ingredients) required to deploy your apps and services.  
 
 - A _release_ captures all the project and package details so it be deployed over and over in a safe and repeatable way.  
 - A _deployment_ is the execution of the steps to deploy a release to an environment.  
