@@ -6,7 +6,7 @@ position: 9
 
 When deployments encounter errors, they can fail automatically, or they can use **guided failure** mode. When guided failure mode is enabled, if something goes wrong during a deployment, Octopus will prompt a user to intervene.
 
-### Enable Guided Failure Mode for an Environment
+## Enable Guided Failure Mode for an Environment
 
 Guided failure mode can be enabled per environment. When enabled for an environment, if a deployment encounters an error, Octopus will prompt a user to intervene.
 
