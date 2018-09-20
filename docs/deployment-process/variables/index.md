@@ -41,16 +41,6 @@ Depending on the conditions in the [Lifecycle](/docs/deployment-process/lifecycl
 
 The script step will run with the string *Hello, Production*, on the deployment target in the Production environment, and with the string *Hello, Test*, on the deployment target in the Test environment. You can view the output after the deployment has completed by clicking on the large Green Tick icons in the task column, and then clicking through the results for the deployment.
 
-## Variable Snapshot
-
-When you create releases, a snapshot is taken of the project variables. You can review the variables in the **Variable Snapshot** section of the release page by clicking **SHOW SNAPSHOT**. This lets you see the variables as they existed when the release was created.
-
-You can update the variables by clicking **UPDATE VARIABLES**. This can be useful when:
-
-* The release has not been deployed yet, but the variables have changed since the release was created.
-* The release needs to be **redeployed** and the variables have changed since the release was created.
-* The release failed to deploy due to a problem with the variables and you need to update the variables and redeploy the release.
-
 ## Variables in Octopus
 
 Variables are an important and useful concept in Octopus, so this section describes different ways in which variables can be used.

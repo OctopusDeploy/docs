@@ -4,7 +4,7 @@ description: Guided failures allow problematic deployments to be reviewed and ma
 position: 9
 ---
 
-When deployments encounter errors, they can fail automatically, or they can use **guided failure** mode. When guided failure mode is enabled, if something goes wrong during a deployment, Octopus will prompt a user to intervene.
+When deployments encounter errors, they will typically fail. However, the **guided failure** mode provides an option to prompt a user to intervene when a deployment encounters an error so that the deployment can continue. With guided failure mode enabled, the user can fail the process, and retry or ignore any steps that failed the first time.
 
 ## Enable Guided Failure Mode for an Environment
 
@@ -19,7 +19,7 @@ Note, you can still override this setting for individual deployments.
 
 ## Enabling Guided Failure Mode for a Project {#Guidedfailures-Enablingguidedfailuremode}
 
-By default, projects inherit their guided failure mode settings from the environments they are deploying to. This allows you to use guided failure mode for some environments but not others within the same project. For instance, if the test environment has guided failure mode disabled, but the production environment has guided failure mode enabled, errors encountered during deployment to the test environment will result in a failed deployment, whereas errors encountered during deployment to the production environment will prompt a user for input before failing.
+By default, projects inherit their guided failure mode settings from the environments they are deploying to. This allows you to use guided failure mode for some environments but not others within the same project. For instance, if the test environment has guided failure mode disabled, but the production environment has guided failure mode enabled, errors encountered during deployment to the test environment will result in a failed deployment, whereas errors encountered during deployment to the production environment will prompt a user for instructions before failing.
 
 To override the guided failure settings of the environments being deployed to and set a project level guide failure mode setting:
 
@@ -27,7 +27,7 @@ To override the guided failure settings of the environments being deployed to an
 1. Expand the **Default failure mode** section.
 1. select the mode you want to use. Click **SAVE**.
 
-## What Happens {#Guidedfailures-Whathappens}
+## Responding to a Guide Failure {#Guidedfailures-Whathappens}
 
 If something goes wrong during the deployment, Octopus will interrupt the deployment, and request guidance for how to handle the failure.
 
