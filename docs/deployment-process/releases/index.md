@@ -64,7 +64,7 @@ octo deploy-release --deployAt="2014-07-12 17:54:00 +11:00" --project=HelloWorld
 
 ### Modify the Guided Failure Mode
 
-Guide failure mode asks for users to intervene when a deployment encounters an error. Learn more about [Guided Failures](/docs/deployment-process/guided-failures.md).
+Guide failure mode asks for users to intervene when a deployment encounters an error. Learn more about [Guided Failures](/docs/deployment-process/releases/guided-failures.md).
 
 1. Select the release you want to deploy.
 1. Click **DEPLOY TO...** or **DEPLOY TO (Environment)**.

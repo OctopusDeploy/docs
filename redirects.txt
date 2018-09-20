@@ -568,3 +568,4 @@ docs/key-concepts/machine-roles -> docs/infrastructure/target-roles/index.md
 docs/deployment-process/configuration-features/advanced-configuration-transforms-examples.md -> docs/deployment-process/configuration-features/configuration-transforms.md
 docs/deployment-process/configuration-features/configuration-variables.md -> docs/deployment-process/configuration-features/xml-configuration-variables-feature.md
 docs/infrastructure/aws/creating-an-aws-account/index.md -> docs/infrastructure/aws/index.md
+docs/deployment-process/releases/scheduled-deployments.md -> docs/deployment-process/releases/index.md 
