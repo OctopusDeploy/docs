@@ -28,26 +28,27 @@ You can fully automate your build and deployment pipeline, so that the releases 
 
 ## Releases
 
-By navigating to the Project's Overview page and selecting **Releases**, you can see all the releases that have been created for the project. If you want to deploy a release or [schedule a deployment](#schedule-a-deployment), click on the release.
+By navigating to the Project's Overview page and selecting **Releases**, you can see all the releases that have been created for the project. If you want to deploy a release or [schedule a deployment](#scheduling-a-deployment), click on the release.
 
 ## Deploying Releases
 
 If the [Lifecycle](/docs/deployment-process/lifecycles/index.md) associated with the project is configured to deploy automatically to its first environment, the release will start to be deployed as soon as the release is created.
 
-If the release is not deployed automatically, you can click **DEPLOY TO Environment** where *Environment* is the first environment in the project's lifecycle. Alternatively, you can click **Deploy to...** to select a specific environment to deploy to.
+If the release is not deployed automatically, you can click **DEPLOY TO (Environment)** where *Environment* is the first environment in the project's lifecycle. Alternatively, you can click **Deploy to...** to select a specific environment to deploy to.
 
 ### Scheduling a Deployment
 
 1. Select the release you want to schedule for deployment.
 1. Click **DEPLOY TO...** or **DEPLOY TO (Environment)**.
+1. If you selected **DEPLOY TO...**, select the environment to be deployed to.
 1. Expand the **WHEN** section and select **later**.
 1. Specify the time and date you would like the deployment to run. Note, deployments can only be scheduled for 30 days in advance.
 1. Specify a timeout period. If the deployment does not start within the specified timeout period, the deployment will not run.
 1. Click **SAVE**.
 
-Deployments schedule for the future can be viewed under the Project Overview page, the Dashboard, and the **Tasks** section of the web portal.
+Deployments scheduled for the future can be viewed under the Project Overview page, on the **Dashboard**, and the **Tasks** section of the web portal.
 
-#### Scheduling Deployments and Octo.exe Command Line
+#### Scheduling Deployments With Octo.exe
 
 For everyone using the [command line tool Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md), you can use the following option:
 
@@ -59,8 +60,9 @@ octo deploy-release --deployAt="2014-07-12 17:54:00 +11:00" --project=HelloWorld
 
 1. Select the release you want to deploy.
 1. Click **DEPLOY TO...** or **DEPLOY TO (Environment)**.
-1. If deploying to a specific environment, select the environment to be deployed to.
+1. If you selected **DEPLOY TO...**, select the environment to be deployed to.
 1. Expand the **Excluded steps** section and use the checkbox to select steps to excluded from the deployment.
+1. Click **SAVE**.
 
 ### Modify the Guided Failure Mode
 
@@ -68,7 +70,7 @@ Guide failure mode asks for users to intervene when a deployment encounters an e
 
 1. Select the release you want to deploy.
 1. Click **DEPLOY TO...** or **DEPLOY TO (Environment)**.
-1. If deploying to a specific environment, select the environment to be deployed to.
+1. If you selected **DEPLOY TO...**, select the environment to be deployed to.
 1. Expand the **Failure mode** section, and select the mode you want to use.
 1. Click **SAVE**.
 
@@ -81,3 +83,5 @@ You can update the variables by clicking **UPDATE VARIABLES**. This can be usefu
 * The release has not been deployed yet, but the variables have changed since the release was created.
 * The release needs to be **redeployed** and the variables have changed since the release was created.
 * The release failed to deploy due to a problem with the variables and you need to update the variables and redeploy the release.
+
+After you've updated the variables, the release will use the updated variables when it is deployed.

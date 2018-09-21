@@ -21,9 +21,9 @@ Note, you can still override this setting for individual deployments.
 
 By default, projects inherit their guided failure mode settings from the environments they are deploying to. This allows you to use guided failure mode for some environments but not others within the same project. For instance, if the test environment has guided failure mode disabled, but the production environment has guided failure mode enabled, errors encountered during deployment to the test environment will result in a failed deployment, whereas errors encountered during deployment to the production environment will prompt a user for instructions before failing.
 
-To override the guided failure settings of the environments being deployed to and set a project level guide failure mode setting:
+To override the guided failure settings of the environments being deployed to and set a project level guided failure mode:
 
-1. Navigate to the project's overview page, and select **setting**.
+1. Navigate to the project's overview page, and select **Settings**.
 1. Expand the **Default failure mode** section.
 1. select the mode you want to use. Click **SAVE**.
 

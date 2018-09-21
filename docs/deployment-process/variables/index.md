@@ -5,9 +5,9 @@ position: 20
 hideInThisSection: true
 ---
 
-Octopus lets you define variables with values that change based on the [scope](/docs/deployment-process/variables/scoping-variables.md) you've assigned to the variables and the scope of your deployments. For instance, as you define your [deployment processes](/docs/deployment-process/index.md) there will be [steps](/docs/deployment-process/steps/index.md) in your [projects](/docs/deployment-process/projects/index.md) that need different database connection strings (or any number of other parameters, i.e., application settings, web service URLs, etc) depending on the environment you're deploying to. Using variables lets you define a variable with one connection string scoped to the test environment, and another connection string scoped to the production environment.
+Octopus lets you define variables with values that change based on the [scope](/docs/deployment-process/variables/scoping-variables.md) you've assigned to the variables and the scope of your deployments. For instance, as you define your [deployment processes](/docs/deployment-process/index.md) there will be [steps](/docs/deployment-process/steps/index.md) in your [projects](/docs/deployment-process/projects/index.md) that need different database connection strings (or any number of other parameters, i.e., application settings, web service URLs, etc) depending on the environment you're deploying to. Using variables lets you define a variable with one connection string scoped, for instance, to the test environment, and another connection string scoped to the production environment.
 
-Using variables means you don't need to hardcode any of these values. You define your variables and the values you provide will be used at deployment time, allowing you to create applications and deployment scripts that are agnostic of the target environment.
+Using variables means you don't need to hardcode any of these values. You define your variables and the values you provide will be used at deployment time, allowing you to create applications and deployments that are agnostic of the target environment.
 
 ## Creating Hello World Variables
 
@@ -24,14 +24,14 @@ In this example, we'll create a Hello World project that runs a script to say he
 6. This is a script project so select the **Run a Script** step template.
 7. Give the step a name, for instance, *Hello world script*.
 8. In the execution plan section, select **Deployment targets**.
-9. Select the [targets roles ](/docs/infrastructure/target-roles/index.md) the step will run on.
-10. In the **Script Content**, enter the following PowerShell script into the script editor:
+9. Select the [target roles ](/docs/infrastructure/target-roles/index.md) the step will run on.
+10. In the **Script Content** section, enter the following PowerShell script into the script editor:
 
 ​```
 Write-Host
 ​```
 
-11. Select the variable *Greeting* from the insert variable tool next to the script editor, and click **SAVE**
+11. Select the variable *Greeting* from the insert variable tool (![insert variable tool](insert-tool.png)) next to the script editor, and click **SAVE**
 
 ![Script with Variable](script-variable.png)
 
