@@ -31,7 +31,7 @@ In this example, we'll create a Hello World project that runs a script to say he
 Write-Host
 ​```
 
-11. Select the variable *Greeting* from the insert variable tool (![insert variable tool](insert-variable.png)) next to the script editor, and click **SAVE**
+11. Select the variable *Greeting* from the insert variable tool (**#{}**) next to the script editor, and click **SAVE**
 
 ![Script with Variable](script-variable.png)
 
