@@ -295,7 +295,7 @@ docs/how-to/manually-fail-a-running-or-cancelling-task.md -> docs/deployment-pro
 docs/how-to/record-a-performance-trace.md -> docs/support/record-a-performance-trace.md
 docs/how-to/troubleshoot-polling-tentacles.md -> docs/infrastructure/windows-targets/troubleshooting-tentacles.md
 docs/how-to/troubleshoot-listening-tentacles.md -> docs/infrastructure/windows-targets/troubleshooting-tentacles.md
-docs/how-to/deploy-to-a-specific-subset-of-targets.md -> docs/deployment-process/releases/deploy-to-a-specific-subset-of-targets.md
+docs/how-to/deploy-to-a-specific-subset-of-targets.md -> docs/deployment-process/releases/index.md
 docs/how-to/expose-the-octopus-web-portal-over-https.md -> docs/administration/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md
 docs/how-to/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md -> docs/deployment-examples/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md
 docs/how-to/move-the-octopus-home-folder-and-the-tentacle-home-and-application-folders.md -> docs/administration/moving-your-octopus/move-the-octopus-home-folder-and-the-tentacle-home-and-application-folders.md
