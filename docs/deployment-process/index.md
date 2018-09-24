@@ -74,7 +74,7 @@ You can specify run conditions on the steps that you define to give you greater 
 
 Learn more about [conditions](/docs/deployment-process/conditions/index.md).
 
-## Releases and Deploying
+## Deploying Releases
 
 In Octopus you create releases to be deployed. Projects have multiple releases and releases can be deployed multiple times to across different infrastructure.
 
