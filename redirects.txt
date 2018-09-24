@@ -438,7 +438,7 @@ docs/deployment-process/steps/configuration-files/advanced-configuration-transfo
 docs/deployment-process/steps/deploying-packages/transfer-package.md -> docs/deployment-examples/deploying-packages/transfer-package.md
 docs/deployment-process/steps/deploying-packages/troubleshoot-missing-packages.md -> docs/deployment-examples/deploying-packages/troubleshoot-missing-packages.md
 docs/deployment-process/manually-fail-a-running-or-cancelling-task.md -> docs/deployment-process/releases/manually-fail-a-running-or-cancelling-task.md
-docs/deployment-process/deploy-to-a-specific-subset-of-targets.md -> docs/deployment-process/releases/deploy-to-a-specific-subset-of-targets.md
+docs/deployment-process/deploy-to-a-specific-subset-of-targets.md -> docs/deployment-process/releases/index.md
 docs/deployment-process/how-to-run-steps-on-the-octopus-server.md -> docs/deployment-examples/deploying-packages/deploy-packages-to-your-octopus-server.md
 docs/deployment-process/coordinating-multiple-projects/deploy-release-step/index.md -> docs/deployment-process/projects/coordinating-multiple-projects/deploy-release-step/index.md
 docs/deployment-process/steps/configuration-files/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md -> docs/deployment-examples/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md
