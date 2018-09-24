@@ -41,7 +41,7 @@ Channels are managed from the Project overview page by selecting the specific pr
 
 ## Design the Version Rules {#Channels-versionrules}
 
-Version rules assist in selecting the correct versions of packages for the Channel.  They are only used when creating a release, either manually or via [Automatic Release Creation](/docs/deployment-process/releases/automatic-release-creation.md).
+Version rules assist in selecting the correct versions of packages for the Channel.  They are only used when creating a release, either manually or via [Automatic Release Creation](/docs/deployment-process/project-triggers/automatic-release-creation.md).
 
 :::hint
 Version Rules will work best when you follow [Semantic Versioning (SemVer 2.0.0)](http://semver.org) for your versioning strategy.
@@ -129,7 +129,7 @@ When using one of the [build server extensions](/docs/api-and-integration/index
 
 ### Automatic Release Creation {#Channels-AutomaticReleaseCreation}
 
-When enabling [Automatic Release Creation](/docs/deployment-process/releases/automatic-release-creation.md) for your project, you are required to select a Channel (if the project has more than one).
+When enabling [Automatic Release Creation](/docs/deployment-process/project-triggers/automatic-release-creation.md) for your project, you are required to select a Channel (if the project has more than one).
 
 ![](/docs/images/3048999/3278462.png "width=500")
 

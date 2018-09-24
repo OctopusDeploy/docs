@@ -4,10 +4,6 @@ description: Automatic Release Creation allows you to automatically create a new
 position: 15
 ---
 
-In **Octopus 2.6** a feature was added called Automatic Release Creation primarily to support older versions of Team Foundation Server (TFS).
-
-If you are using **Octopus 3.4** or higher, please note that Automatic Release Creation moved into the Project Triggers sidebar, but still functions in exactly the same way (it's just accessed from a different menu in your project).
-
 :::success
 **Consider using a build server extension**
 We have extensions/plugins available for the most popular build servers. These extensions will help you [create packages](/docs/packaging-applications/index.md), [push those packages to the built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md), create releases and deploy them to your environments:
@@ -80,7 +76,7 @@ When you are using automatic release creation there are many reasons why a relea
 
 5. Ensure you are pushing a **new version** of the package - Octopus will not create a release where the package has already been used for creating a release.
 
-6. Ensure you are pushing a package that Octopus will consider as the **latest available package** - see the conversation about [automatically creating pre-releases](/docs/deployment-process/releases/automatic-release-creation.md) above.
+6. Ensure you are pushing a package that Octopus will consider as the **latest available package** - see the conversation about [automatically creating pre-releases](/docs/deployment-process/project-triggers/automatic-release-creation.md) above.
 
 7. Ensure the release creation package step **DOES NOT use variables for the PackageId** - Octopus will only create a release where the package is constant.
 
@@ -88,7 +84,7 @@ When you are using automatic release creation there are many reasons why a relea
 
 9. When using Channels the package **must satisfy the version rules** for the Channel being used for automatic release creation - try creating some releases manually.
 
-10. Are you pushing **pre-release** packages? See the section above on [automatically creating pre-releases](/docs/deployment-process/releases/automatic-release-creation.md).
+10. Are you pushing **pre-release** packages? See the section above on [automatically creating pre-releases](/docs/deployment-process/project-triggers/automatic-release-creation.md).
 
 11. Ensure the account pushing the package has the required permissions for **each** of the **Projects** and **Environments** that will be involved in creating (and potentially deploying) the release. Consider which of the following permissions may be required depending on your circumstances:  
 

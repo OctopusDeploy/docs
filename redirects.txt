@@ -162,8 +162,8 @@ docs/deploying-applications/custom-installation-directory.md -> docs/deployment-
 docs/deploying-applications/deployment-process/custom-installation-directory.md -> docs/deployment-process/configuration-features/custom-installation-directory.md
 docs/deploying-applications/artifacts.md -> docs/deployment-process/artifacts.md
 docs/deploying-applications/automatic-deployment-triggers.md -> docs/deployment-process/project-triggers/index.md
-docs/deploying-applications/automatic-release-creation.md -> docs/deployment-process/releases/automatic-release-creation.md
-docs/deploying-applications/deployment-process/automatic-release-creation.md -> docs/deployment-process/releases/automatic-release-creation.md
+docs/deploying-applications/automatic-release-creation.md -> docs/deployment-process/project-triggers/automatic-release-creation.md
+docs/deploying-applications/deployment-process/automatic-release-creation.md -> docs/deployment-process/project-triggers/automatic-release-creation.md
 docs/deploying-applications/blocking-deployments.md -> docs/deployment-process/releases/blocking-deployments.md
 docs/deploying-applications/deployment-process/blocking-deployments.md -> docs/deployment-process/releases/blocking-deployments.md
 docs/deploying-applications/email-notifications.md -> docs/deployment-examples/email-notifications.md
@@ -246,7 +246,7 @@ docs/deploying-applications/deployment-process/configuration-files/index.md -> d
 docs/deploying-applications/deployment-process/configuration-files/advanced-configuration-transforms-examples.md -> docs/deployment-process/configuration-features/configuration-transforms.md
 docs/deploying-applications/deployment-process/steps/custom-installation-directory.md -> docs/deployment-process/configuration-features/custom-installation-directory.md
 docs/deploying-applications/deployment-process/artifacts.md -> docs/deployment-process/artifacts.md
-docs/deploying-applications/deployment-process/steps/automatic-release-creation.md -> docs/deployment-process/releases/automatic-release-creation.md
+docs/deploying-applications/deployment-process/steps/automatic-release-creation.md -> docs/deployment-process/project-triggers/automatic-release-creation.md
 docs/deploying-applications/deployment-process/releases/blocking-deployments.md -> docs/deployment-process/releases/blocking-deployments.md
 docs/deploying-applications/deployment-process/deploying-virtual-hard-drives.md -> docs/deployment-examples/deploying-virtual-hard-drives.md
 docs/deploying-applications/deployment-process/steps/email-notifications.md -> docs/deployment-examples/email-notifications.md
@@ -378,7 +378,7 @@ docs/administration/octopus-server-configuration-file.md -> docs/administration/
 docs/deployment-process/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md -> docs/deployment-examples/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md
 docs/deployment-process/substitute-variables-in-files.md -> docs/deployment-process/configuration-features/substitute-variables-in-files.md
 docs/deployment-process/variable-substitution-syntax.md -> docs/deployment-process/variables/variable-substitution-syntax.md
-docs/deployment-process/steps/automatic-release-creation.md -> docs/deployment-process/releases/automatic-release-creation.md
+docs/deployment-process/steps/automatic-release-creation.md -> docs/deployment-process/project-triggers/automatic-release-creation.md
 docs/installation/sql-server-database-requirements.md -> docs/installation/sql-server-database.md
 docs/administration/security/hardening-octopus-server.md -> docs/administration/security/hardening-octopus.md
 docs/packaging-applications/creating-packages/versioning-in-octopus-deploy.md -> docs/packaging-applications/versioning.md
@@ -570,3 +570,4 @@ docs/deployment-process/configuration-features/configuration-variables.md -> doc
 docs/infrastructure/aws/creating-an-aws-account/index.md -> docs/infrastructure/aws/index.md
 docs/deployment-process/releases/scheduled-deployments.md -> docs/deployment-process/releases/index.md
 docs/deployment-process/releases/deploy-to-a-specific-subset-of-targets.md -> docs/deployment-process/releases/index.md
+docs/deployment-process/releases/automatic-release-creation.md -> docs/deployment-process/project-triggers/automatic-release-creation.md

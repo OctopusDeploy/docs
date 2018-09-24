@@ -41,7 +41,7 @@ At this point, you can add one or multiple environments, or leave the default **
 
 7. By default, users must manually queue the deployment to the environment, if you would like the deployment to occur automatically as soon as the release enters the phase, select *Deploy automatically...*.
 
-If you have a project setup with [Automatic Release Creation](/docs/deployment-process/releases/automatic-release-creation.md) and set your first phase and environment to automatically deploy, pushing a package to the internal library will trigger both a release, and a deployment to that environment.
+If you have a project setup with [Automatic Release Creation](/docs/deployment-process/project-triggers/automatic-release-creation.md) and set your first phase and environment to automatically deploy, pushing a package to the internal library will trigger both a release, and a deployment to that environment.
 
 :::hint
 **Tenants and automatic-environments**
