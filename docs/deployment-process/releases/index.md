@@ -35,9 +35,9 @@ By navigating to the Project's Overview page and selecting **Releases**, you can
 
 ## Deploying Releases
 
-If the [Lifecycle](/docs/deployment-process/lifecycles/index.md) associated with the project is configured to deploy automatically to its first environment, the release will start to be deployed as soon as the release is created.
+After creating the release, if the [Lifecycle](/docs/deployment-process/lifecycles/index.md) associated with the project is configured to deploy automatically to its first environment, the release will start to be deployed as soon as the release is created.
 
-If the release is not deployed automatically, you can click **DEPLOY TO (Environment)** where *Environment* is the first environment in the project's lifecycle. Alternatively, you can click **Deploy to...** to select a specific environment to deploy to.
+If the release is not deployed automatically, you can click **DEPLOY TO (Environment)** where *(Environment)* is the first environment in the project's lifecycle. Alternatively, you can click **Deploy to...** to select a specific environment to deploy to.
 
 ### Scheduling a Deployment
 
@@ -76,6 +76,17 @@ Guide failure mode asks for users to intervene when a deployment encounters an e
 1. If you selected **DEPLOY TO...**, select the environment to be deployed to.
 1. Expand the **Failure mode** section, and select the mode you want to use.
 1. Click **SAVE**.
+
+### Deploy to a Specific Subset of Deployment Target
+
+You can deploy releases to a specific subset of deployment targets.
+
+1. Select the release you want to deploy.
+1. Click **DEPLOY TO (Environment)**.
+1. Expand the **Preview and customize** section.
+1. Expand the **Deployment Targets** section.
+1. Select whether you would like to include or exclude specific deployment targets. The default is to include all applicable deployment targets.
+1. Select the deployment targets to include or exclude, and click **DEPLOY**.
 
 ### Variable Snapshot
 
