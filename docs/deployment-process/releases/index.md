@@ -12,16 +12,19 @@ It is important to understand the difference between **Releases** and **Deployme
 
 As you defined your deployment process, you specified the steps that must be taken, the packages and services to deploy, the scripts to run, and the variables to be used that are required to deploy your software.
 
-When you create a **release**, you are capturing the deployment process and all the associated assets (packages, scripts, variables, etc) as they existed at that time. The release is given a version number, and you can deploy that release as many times as you need to. You can even deploy that specific release as it existed at the time the release was create, even if parts of the deployment process have changed (those changes will be included in future releases).
+When you create a **release**, you are capturing the deployment process and all the associated assets (packages, scripts, variables, etc) as they existed at that time. The release is given a version number, and you can deploy that release as many times as you need to. You can even deploy that specific release as it existed at the time the release was created, even if parts of the deployment process have changed (those changes will be included in future releases).
 
-When you **Deploy** a release, you are executing the deployment process and all the associated details, as they existed when the release was created.
+When you **Deploy** a release, you are executing the deployment process with all the associated details, as they existed when the release was created.
 
 You can **Deploy** a **Release** as many times as you want to.
 
 ## Creating a Release
 
 1. With you deployment process defined, you can create a release on the Project's Overview page, by clicking **CREATE RELEASE**.
-1. Depending on the type of steps you configured in the deployment process, there will be additional options available, for instance, if you're using a step to deploy a package, you  can specify which version of the package to use in the release.
+
+![Create Release](create-release.png)
+
+1. Depending on the type of steps you configured in the deployment process, there could be additional options available, for instance, if you're using a step to deploy a package, there will be a package section where you can specify which version of the package to use in the release.
 1. Give the release a version number, add any release notes you'd like to include, and click **SAVE**.
 
 You can fully automate your build and deployment pipeline, so that the releases are generally created automatically.  For more information on this topic, see our [API and Integration](/docs/api-and-integration/index.md) documentation.
