@@ -39,7 +39,7 @@ With the build page configured, go to `Deployment` and select the new `Octopus D
 
 When you define an "Octopus package" in AppVeyor through the `Package Web Applications for Octopus Deployment` flag or `Artifacts` page, then AppVeyor will automatically select that package to push to your Octopus Server. Set the `Artifact(s)` field on the `Deployment` page if you have manually created an archive.
 
- If your Octopus Deploy project doesn't make use of [automatic release creation](/docs/deployment-process/project-releases/automatic-release-creation.md) or automatic lifecycle progression you can optionally trigger these actions from within the AppVeyor configuration providing the appropriate values in the inputs provided.
+ If your Octopus Deploy project doesn't make use of [automatic release creation](/docs/deployment-process/project-triggers/automatic-release-creation.md) or automatic lifecycle progression you can optionally trigger these actions from within the AppVeyor configuration providing the appropriate values in the inputs provided.
 Unless overridden, the AppVeyor project name will be used in place of the Octopus project name when creating a release.
 
 ## Build Configuration in Code
