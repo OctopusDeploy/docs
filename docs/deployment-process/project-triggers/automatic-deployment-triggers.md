@@ -16,15 +16,42 @@ Automatic Deployment Triggers can help you:
 On the surface Automatic Deployments appear to be simple, however they can grow complex very quickly and we recommend reading our [Elastic and Transient Environments](/docs/deployment-patterns/elastic-and-transient-environments/index.md) guide before getting started with your own implementation.
 
 
-## How it Works
+## Defining Automatic Deployment Triggers
 
-All [Project Triggers](/docs/deployment-process/project-triggers/automatic-deployment-triggers.md) in Octopus work on an event-sourcing basis. Automatic deployment triggers look for events like when deployment targets are added to an environment, or they are enabled, or given a new role, or deployments of a project are completed successfully.
+Automatic deployments can be triggered by any machine-related event. A scheduled task runs in Octopus every 30 seconds looking for new events to determine whether any automatic deployment triggers need to fire. Each trigger is inspected to see if the recent stream of events should cause the trigger to fire, and if so, the appropriate deployments will be queued and run for the deployment target(s) that caused the trigger to fire.
 
-A scheduled task runs in Octopus every 30 seconds looking for new events to determine whether any automatic deployment triggers need to fire. Each trigger is inspected to see if the recent stream of events should cause the trigger to fire, and if so, the appropriate deployments will be queued.
+Events have been placed into the following pre-defined groups:
 
-When the trigger fires and queues a deployment it will run the steps appropriate for the deployment target(s) that caused the trigger to fire.
+| Event Group | Included Events |
+| ----------- | --------------- |
+| **Machine events** | Machine cleanup failed, Machine created, Machine deployment-related property modified, Machine disabled, Machine enabled, Machine found healthy, Machine found to be unavailable, Machine found to be unhealthy, Machine found to have warnings |
+| **Machine critical-events** | Machine cleanup failed, Machine found to be unavailable |
+| **Machine becomes available for deployment** | Machine enabled, Machine found healthy, Machine found to have warnings |
+| **Machine is no longer available for deployment** | Machine disabled, Machine found to be unavailable, Machine found to be unhealthy |
+| **Machine health changed** | Machine found healthy, Machine found to be unavailable, Machine found to be unhealthy, Machine found to have warnings |
 
-There are quite a few complexities to the decision making process for automatic deployments, most of which are discussed in the following sections.
+:::success
+For the majority of cases where you want to auto-deploy your project as new deployment targets become available, we advise you use only the **Machine becomes available for deployment** event group.
+:::
+
+As you define your automatic deployment triggers, you can select the pre-defined **event groups** or individual **events**:
+
+- Machine cleanup failed
+- Machine created
+- Machine deployment-related property modified
+- Machine disabled
+- Machine enabled
+- Machine found healthy
+- Machine found to be unavailable
+- Machine found to be unhealthy
+- Machine found to have warnings
+
+You can restrict automatic deployments further by specifying the following:
+
+- The Environment(s) the trigger applies to.
+- The Target Roles the trigger applies to.
+- The Environment and Target Roles the trigger applies to.
+
 
 ## Add a Deployment Target Trigger
 
@@ -36,29 +63,6 @@ There are quite a few complexities to the decision making process for automatic 
 
 ## Frequently Asked Questions
 
-### Which Events Can Trigger an Automatic Deployment?
-
-Any machine-related event can be selected to cause an automatic deployment. We have also provided a convenient event-grouping mechanism to select a pre-defined group of events:
-
-![](create-trigger.png "width=500")
-
-The following table outlines each event group and their included events:
-
-| Event Group | Included Events |
-| ----------- | --------------- |
-| **Machine critical-events** | Machine cleanup failed, Machine found to be unavailable |
-| **Machine becomes available for deployment** | Machine enabled, Machine found healthy, Machine found to have warnings |
-| **Machine is no longer available for deployment** | Machine disabled, Machine found to be unavailable, Machine found to be unhealthy |
-
-:::success
-For the majority of cases where you want to auto-deploy your project as new deployment targets become available, we advise you use only the **Machine becomes available for deployment** event group.
-:::
-
-### Can I Configure Automatic Deployments for a Specific Role or Environment?
-
-Yes! You can apply a filter to the events to restrict which deployment targets will actually cause the trigger to fire, and consequently, which deployment targets will be automatically deployed to. Consider the example of an auto-scaling web farm shown below where we only want to trigger automatic deployments for **TradingWebServers** in the **Production** environment.
-
-![](/docs/images/5671191/5865833.png "width=500")
 
 ### Which Release Will be Deployed Automatically?
 
