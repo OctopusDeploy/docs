@@ -21,7 +21,7 @@ Since the [`helm upgrade`](https://docs.helm.sh/helm/#helm-upgrade) command prov
 
 ![Upgrade Options](/upgrade-options.png)
 
-##### Kubernetes Release
+#### Kubernetes Release
 The Kubernetes release is what uniquely identifies the released chart in the cluster. When redeploying new versions of the chart, this name is what is used to uniquely identify the resources that are related to that Octopus deployment. Helm requires that this name consist of only lowercase alpha numeric and dash (-) characters.
 
 :::note
@@ -30,10 +30,10 @@ Do to the design of Helm, the release names must be [unique across the entire cl
 
 Because of the unique naming requirements of the release name, the default value provided includes both the project and environment name to ensure that successive Octopus releases to not conflict with one another.
 
-##### Reset Values
+#### Reset Values
 By default Helm will carry forward any existing configuration between deployments if not explicitly overridden. To ensure that the Octopus provided configuration acts as the source of truth, the `--reset-values` argument is set on the invoked command however this can be disabled id desired.
 
-##### Helm Client Tool
+#### Helm Client Tool
 Helm performs some strict version checks when performing any commands against the cluster and requires that the client have the same minor version as the tiller service (the helm component running in your cluster) in your Kubernetes cluster. 
 
 :::note
@@ -49,7 +49,7 @@ Since it is quite common to have different versions of Helm across your deployme
 The configuration for the various Kubernetes resources required in a Helm Chart can be provided by making use of [Chart Templates](https://docs.helm.sh/chart_template_guide/). In each of the following options, the values file are passed into the `helm upgrade` command with the `-f` argument. The template values are applied in the order that they are displayed (i.e. with values provided the `Explicit key values` option taking a higher precedence than the same value obtained via the `Raw values YAML` option).
 
 - **Explicit Key Values:** This option provides the ability to quickly provide key/value pairs of template configuration.
-- **Raw values YAML:**  Standard Octopus [variable substitution syntax](docs/deployment-process/variables/variable-substitution-syntax) can be used so long as the final contents are a valid YAML file.
+- **Raw values YAML:**  Standard Octopus [variable substitution syntax](/docs/deployment-process/variables/variable-substitution-syntax.md) can be used so long as the final contents are a valid YAML file.
 - **Files in Chart Package:** If there are any other values files contained within the selected chart (by default, `./values.yaml` in the root of the package is picked up by helm), they can be referenced with this option. Octopus Variable replacement will be performed on the file before being used.
 - **Files in Additional Packages:** When using publicly available Helm Charts as the package source for this step, you may want to source your custom values files from outside Octopus, for example through files committed to a [GitHub feed](/docs/packaging-applications/package-repositories/github-feeds.md). Files obtained through this option will have Octopus Variable replacement performed  before being used.
 
