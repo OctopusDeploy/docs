@@ -4,9 +4,7 @@ description: Automatic deployment triggers allow you to define unattended behavi
 position: 1
 ---
 
-Automatic Deployment Triggers were introduced in **Octopus 3.4**.
-
-Automatic Deployment Triggers (also known as auto-deploy) allow you to define an unattended behavior for your [Projects](/docs/deployment-process/projects/index.md) that will cause an automatic deployment of a release into an [Environment](/docs/infrastructure/environments/index.md).
+Automatic Deployment Triggers (also known as auto-deploy) let you to define an unattended behavior for your [Projects](/docs/deployment-process/projects/index.md) that will cause an automatic deployment of a release into an [Environment](/docs/infrastructure/environments/index.md). This means, you can configure new deployment targets to be just like their counterparts.
 
 Automatic Deployment Triggers can help you:
 
@@ -17,9 +15,6 @@ Automatic Deployment Triggers can help you:
 
 On the surface Automatic Deployments appear to be simple, however they can grow complex very quickly and we recommend reading our [Elastic and Transient Environments](/docs/deployment-patterns/elastic-and-transient-environments/index.md) guide before getting started with your own implementation.
 
-:::success
-The fundamental design of Automatic Deployments revolves around "configuring new deployment targets to be just like their counterparts".
-:::
 
 ## How it Works
 
@@ -43,7 +38,7 @@ There are quite a few complexities to the decision making process for automatic 
 
 ### Which Events Can Trigger an Automatic Deployment?
 
-For **Octopus 3.6** and above, you can select any machine-related event to cause an automatic deployment. We have also provided a convenient event-grouping mechanism to select a pre-defined group of events:
+Any machine-related event can be selected to cause an automatic deployment. We have also provided a convenient event-grouping mechanism to select a pre-defined group of events:
 
 ![](create-trigger.png "width=500")
 
@@ -58,15 +53,6 @@ The following table outlines each event group and their included events:
 :::success
 For the majority of cases where you want to auto-deploy your project as new deployment targets become available, we advise you use only the **Machine becomes available for deployment** event group.
 :::
-
-For **Octopus 3.4** and **Octopus 3.5**, there are two types of events that can trigger an automatic deployment:
-
-![](/docs/images/5671191/5865883.png "width=500")
-
-| Event | Description | Examples |
-| ----- | ----------- | ---------|
-| **New deployment target becomes available** | Occurs when a deployment target is added to Octopus for the first time | |
-| **Existing deployment target changes state** | Occurs when a deployment target has a *positive* state change (it doesn't really make sense to deploy to a freshly disabled deployment target) | <ul> <li>Health status changes from Unhealthy to Healthy</li> <li>A new environment/role/tenant is added to the deployment target</li> <li>The deployment target is enabled</li> </ul> |
 
 ### Can I Configure Automatic Deployments for a Specific Role or Environment?
 
