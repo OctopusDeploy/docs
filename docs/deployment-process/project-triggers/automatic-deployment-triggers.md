@@ -68,15 +68,13 @@ With the trigger save, Octopus will run a scheduled task every 30 seconds lookin
 
 Automatic deployment triggers let you configure unattended deployment behavior that configures new deployment targets to be just like their counterparts.
 
-When an automatic deployment trigger fires, the following rules are applied.
+When an automatic deployment trigger fires, the following rules are applied:
 
 - By default, Octopus will re-run the *currently successful* deployment for the project/environment/tenant combination. You can override this behavior by configuring an [Auto Deploy Override](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/index.md). Note, if multiple identical deployment targets all become available within the same 30 second polling window, they will all be included in the same automatic deployment. This could happen if you scale your web farm up by four nodes, and all four nodes finish provisioning within the same time window. However, this kind of behavior should not be expected or relied on (one or more of the targets might fall outside the 30 second window).
-- The steps that were run for the *currently successful* deployment will be run for the deployment targets that triggered the deployment. This includes [manual intervention](/docs/deployment-examples/manual-intervention-and-approvals.md) and [Guided Failures](/docs/deployment-process/releases/guided-failures.md) steps. Note, if you skip steps in a manual deployment, they will be skipped in the subsequent automatic deployment. If you need to run a deployment and skip some steps, there are two ways you can reset the skipped steps:
+- The steps that were run for the *currently successful* deployment will be run for the deployment targets that triggered the deployment. This includes [manual intervention](/docs/deployment-examples/manual-intervention-and-approvals.md) and [Guided Failure](/docs/deployment-process/releases/guided-failures.md) steps. Note, if you skip steps in a manual deployment, they will be skipped in the subsequent automatic deployment. If you need to run a deployment and skip some steps, there are two ways you can reset the skipped steps:
   1. Re-running the entire deployment of the same Release again (we generally recommend designing your steps so they can be re-run without negative side-effects).
   2. Configuring an [Auto Deploy Override](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/index.md) for the same Release to the same Environment/Tenant (this will result in a new deployment being generated without the manually skipped steps).
-- If a deployment of a release to an environment fails for any reason (including canceling a deployment), subsequent automatic deployments will be blocked for that release/environment. This is because further automatic deployments are also likely to fail. To unblock automatic deployments you can either:
-  1. Perform a successful manual deployment so the current deployment on the dashboard is successful.
-  2. Configure an [Auto Deploy Override](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/index.md) to override the default behavior and force a deployment of the selected release.
+- If a deployment of a release fails, Octopus will continue deploying the last successful deployment. This ensures auto-deployments will continue, even if a release has been updated and failed.
 
 ## The Order of Automatic Deployments
 
