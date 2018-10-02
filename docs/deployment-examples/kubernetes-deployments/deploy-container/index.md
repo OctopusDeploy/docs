@@ -532,6 +532,22 @@ myservice
 an argument with a space
 ```
 
+#### Security Context
+
+The `Security context` section defines the [container resource security context options](https://g.octopushq.com/KubernetesContainerSecurityContext).
+
+The `Allow privilege escalation` section controls whether a process can gain more privileges than its parent process.
+
+The `Privileged` section runs the container in privileged mode. Processes in privileged containers are essentially equivalent to root on the host.
+
+The `Read only root file system` section determines whether this container has a read-only root filesystem.
+
+The `Run as non-root` section indicates that the container must run as a non-root user.
+
+The `Run as user` section defines the UID to run the entrypoint of the container process.
+
+The `Run as group` section defines the GID to run the entrypoint of the container process.
+
 ### Service
 
 The `Service` feature creates a Service resource that directs traffic to the Pod resources configured by the `Deployment` section. Although the Deployment and Service resources are separate objects in Kubernetes, they are treated as a single deployment by the `Deploy Kubernetes Container` step, resulting in the Service resource always directing traffic to the Pod resources created by the associated Deployment resource.
