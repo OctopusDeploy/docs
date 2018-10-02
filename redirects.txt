@@ -549,7 +549,6 @@ docs/administration/specifying-a-custom-container-to-use-for-ad-authentication.m
 docs/administration/run-tentacle-under-a-specific-user.md -> docs/infrastructure/windows-targets/running-tentacle-under-a-specific-user-account.md
 docs/administration/export-and-import-tentacle-certificates-without-a-profile.md -> docs/infrastructure/windows-targets/automating-tentacle-installation.md
 docs/deployment-process/steps/manual-intervention-and-approvals.md -> docs/deployment-examples/manual-intervention-and-approvals.md
-docs/deployment-process/steps/email-notifications.md -> docs/deployment-process/steps/email-notifications.md
 docs/deployment-process/steps/conditions/index.md -> docs/deployment-process/conditions/index.md
 docs/deployment-process/steps/conditions/run-steps-in-parallel.md -> docs/deployment-process/conditions/index.md
 docs/deployment-process/configuration-files/index.md -> docs/deployment-process/configuration-features/index.md
