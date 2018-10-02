@@ -536,7 +536,7 @@ an argument with a space
 
 The `Security context` section defines the [container resource security context options](https://g.octopushq.com/KubernetesContainerSecurityContext).
 
-The `Allow privilege escalation` section controls whether a process can gain more privileges than its parent process.
+The `Allow privilege escalation` section controls whether a process can gain more privileges than its parent process. Note that this field is implied when the `Privileged` option is enabled.
 
 The `Privileged` section runs the container in privileged mode. Processes in privileged containers are essentially equivalent to root on the host.
 
