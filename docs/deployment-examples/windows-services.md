@@ -1,5 +1,5 @@
 ---
-title: Windows Services
+title: Windows Service Deployments
 description: Octopus can install, reconfigure, and start Windows Services during deployment, usually without requiring any custom scripts.
 position: 90
 ---

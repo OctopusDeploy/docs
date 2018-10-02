@@ -109,7 +109,7 @@ docs/guides/node-on-nix-deployments/configure-octopus-deploy-project.md -> docs/
 docs/guides/node-on-nix-deployments/configuring-target-machine.md -> docs/deployment-examples/node-on-nix-deployments/configuring-target-machine.md
 docs/guides/node-on-nix-deployments/create-&-push-node.js-project.md -> docs/deployment-examples/node-on-nix-deployments/create-&-push-node.js-project.md
 docs/guides/node-on-nix-deployments/index.md -> docs/deployment-examples/node-on-nix-deployments/index.md
-docs/guides/deploying-asp.net-core-web-applications/index.md -> docs/deployment-examples/deploying-asp.net-core-web-applications/index.md
+docs/guides/deploying-asp.net-core-web-applications/index.md -> docs/deployment-examples/asp.net-core-web-application-deployments/index.md
 docs/guides/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md -> docs/deployment-process/configuration-features/json-configuration-variables-feature.md
 docs/guides/coordinating-multiple-projects/index.md -> docs/deployment-process/projects/coordinating-multiple-projects/index.md
 docs/guides/coordinating-multiple-projects/project-coordination-code-samples.md -> docs/deployment-process/projects/coordinating-multiple-projects/project-coordination-code-samples.md
@@ -508,7 +508,7 @@ docs/deploying-applications/custom-scripts/reference-files-within-a-package.md -
 docs/deploying-applications/custom-scripts/script-modules.md -> docs/deployment-examples/custom-scripts/script-modules.md
 docs/deploying-applications/custom-scripts/service-fabric-powershell-scripts.md -> docs/deployment-examples/custom-scripts/service-fabric-powershell-scripts.md
 docs/deploying-applications/custom-scripts/standalone-scripts.md -> docs/deployment-examples/custom-scripts/standalone-scripts.md
-docs/deploying-applications/deploying-asp.net-core-web-applications/index.md -> docs/deployment-examples/deploying-asp.net-core-web-applications/index.md
+docs/deploying-applications/deploying-asp.net-core-web-applications/index.md -> docs/deployment-examples/asp.net-core-web-application-deployments/index.md
 docs/deploying-applications/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md -> docs/deployment-process/configuration-features/json-configuration-variables-feature.md
 docs/deploying-applications/deploying-packages/index.md -> docs/deployment-examples/deploying-packages/index.md
 docs/deploying-applications/deploying-packages/delta-compression-for-package-transfers.md -> docs/deployment-examples/deploying-packages/delta-compression-for-package-transfers.md
@@ -571,3 +571,4 @@ docs/deployment-process/releases/scheduled-deployments.md -> docs/deployment-pro
 docs/deployment-process/releases/deploy-to-a-specific-subset-of-targets.md -> docs/deployment-process/releases/index.md
 docs/deployment-process/releases/automatic-release-creation.md -> docs/deployment-process/project-triggers/automatic-release-creation.md
 docs/deployment-examples/email-notifications.md -> docs/deployment-process/steps/email-notifications.md
+docs/deployment-examples/deploying-asp.net-core-web-applications/index.md -> docs/deployment-examples/asp.net-core-web-application-deployments/index.md

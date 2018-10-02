@@ -42,7 +42,7 @@ dotnet octo pack ./dist --id="OctoWeb" --version="1.0.0"
 dotnet publish performs a lot of the heavy lifting that Octopack used to provide and therefore removes much of the need for it in .NET Core.
 :::
 
-Please refer to [Microsoft's publish and packing](/docs/deployment-examples/deploying-asp.net-core-web-applications/index.md#DeployoingASP.NETCoreWebApplications-PublishingandPackingtheWebsite) documentation for more information.
+Please refer to [Microsoft's publish and packing](/docs/deployment-examples/asp.net-core-web-application-deployments/index.md#DeployoingASP.NETCoreWebApplications-PublishingandPackingtheWebsite) documentation for more information.
 
 ## Packaging a .NET Core Library
 If you are using .NET Core for class libraries, we recommend using [dotnet pack from Microsoft](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-pack).
