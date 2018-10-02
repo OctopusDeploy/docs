@@ -38,7 +38,7 @@ By default Helm will carry forward any existing configuration between deployment
 #### Helm Client Tool
 Helm performs some strict version checks when performing any commands against the cluster and requires that the client have the same minor version as the tiller service (the helm component running in your cluster) in your Kubernetes cluster.
 
-:::note
+:::success
 Like the other Kubernetes steps, the Octopus Server or workers will run the Helm commands directly during execution and need to have the `helm` executable installed.
 :::
 
