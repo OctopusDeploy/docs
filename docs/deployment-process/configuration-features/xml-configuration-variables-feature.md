@@ -124,6 +124,6 @@ There may be other variables you would like Octopus to replace in your configura
     </authentication>
 ```
 
-Learn how to do this [with a fully worked example](/docs/deployment-examples/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md) which describes how Octopus can take care of your deployment environments, without impacting how you configure your application for your local development environment.
+Learn how to do this [with a fully worked example](/docs/deployment-process/variables/environment-specific-configuration-transforms-with-sensitive-values-in-octopus.md) which describes how Octopus can take care of your deployment environments, without impacting how you configure your application for your local development environment.
 
 This example uses the [XML Configuration Transforms feature](/docs/deployment-process/configuration-features/configuration-transforms.md) and [Substitute Variables in Files feature](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) together.
