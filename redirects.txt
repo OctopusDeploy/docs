@@ -579,6 +579,6 @@ docs/deployment-examples/deploying-packages/delta-compression-for-package-transf
 docs/deployment-examples/deploying-packages/deploy-packages-to-your-octopus-server.md -> docs/deployment-examples/package-deployments/deploy-packages-to-your-octopus-server.md
 docs/deployment-examples/deploying-packages/dynamically-selecting-packages.md -> docs/deployment-examples/package-deployments/dynamically-selecting-packages.md
 docs/deployment-examples/deploying-packages/package-deployment-feature-ordering.md -> docs/deployment-examples/package-deployments/package-deployment-feature-ordering.md
-docs/deployment-examples/deploying-packages/stage-package-uploads.md -> docs/deployment-examples/oackage-deployments/stage-package-uploads.md
+docs/deployment-examples/deploying-packages/stage-package-uploads.md -> docs/deployment-examples/package-deployments/stage-package-uploads.md
 docs/deployment-examples/deploying-packages/transfer-package.md -> docs/deployment-examples/package-deployments/transfer-package.md
 docs/deployment-examples/deploying-packages/troubleshoot-missing-packages.md -> docs/deployment-examples/package-deployments/troubleshoot-missing-packages.md
