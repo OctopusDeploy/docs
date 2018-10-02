@@ -168,8 +168,8 @@ docs/deploying-applications/blocking-deployments.md -> docs/deployment-process/r
 docs/deploying-applications/deployment-process/blocking-deployments.md -> docs/deployment-process/releases/blocking-deployments.md
 docs/deploying-applications/email-notifications.md -> docs/deployment-process/steps/email-notifications.md
 docs/deploying-applications/deployment-process/email-notifications.md -> docs/deployment-process/steps/email-notifications.md
-docs/deploying-applications/manual-intervention-and-approvals.md -> docs/deployment-examples/manual-intervention-and-approvals.md
-docs/deploying-applications/deployment-process/manual-intervention-and-approvals.md -> docs/deployment-examples/manual-intervention-and-approvals.md
+docs/deploying-applications/manual-intervention-and-approvals.md -> docs/deployment-process/steps/manual-intervention-and-approvals.md
+docs/deploying-applications/deployment-process/manual-intervention-and-approvals.md -> docs/deployment-process/steps/manual-intervention-and-approvals.md
 docs/deploying-applications/run-steps-in-parallel.md -> docs/deployment-process/conditions/index.md
 docs/deploying-applications/deployment-process/run-steps-in-parallel.md -> docs/deployment-process/conditions/index.md
 docs/deploying-applications/scheduled-deployments.md -> docs/deployment-process/releases/index.md
@@ -250,7 +250,7 @@ docs/deploying-applications/deployment-process/steps/automatic-release-creation.
 docs/deploying-applications/deployment-process/releases/blocking-deployments.md -> docs/deployment-process/releases/blocking-deployments.md
 docs/deploying-applications/deployment-process/deploying-virtual-hard-drives.md -> docs/deployment-examples/deploying-virtual-hard-drives.md
 docs/deploying-applications/deployment-process/steps/email-notifications.md -> docs/deployment-process/steps/email-notifications.md
-docs/deploying-applications/deployment-process/steps/manual-intervention-and-approvals.md -> docs/deployment-examples/manual-intervention-and-approvals.md
+docs/deploying-applications/deployment-process/steps/manual-intervention-and-approvals.md -> docs/deployment-process/steps/manual-intervention-and-approvals.md
 docs/deploying-applications/deployment-process/steps/run-steps-in-parallel.md -> docs/deployment-process/conditions/index.md
 docs/deploying-applications/deployment-process/releases/scheduled-deployments.md -> docs/deployment-process/releases/index.md
 docs/deploying-applications/deployment-process/substitute-variables-in-files.md -> docs/deployment-process/configuration-features/substitute-variables-in-files.md
@@ -548,7 +548,7 @@ docs/administration/authentication-providers/okta-authentication.md -> docs/admi
 docs/administration/specifying-a-custom-container-to-use-for-ad-authentication.md -> docs/administration/authentication/specifying-a-custom-container-to-use-for-ad-authentication.md
 docs/administration/run-tentacle-under-a-specific-user.md -> docs/infrastructure/windows-targets/running-tentacle-under-a-specific-user-account.md
 docs/administration/export-and-import-tentacle-certificates-without-a-profile.md -> docs/infrastructure/windows-targets/automating-tentacle-installation.md
-docs/deployment-process/steps/manual-intervention-and-approvals.md -> docs/deployment-examples/manual-intervention-and-approvals.md
+docs/deployment-examples/manual-intervention-and-approvals.md -> docs/deployment-process/steps/manual-intervention-and-approvals.md
 docs/deployment-process/steps/conditions/index.md -> docs/deployment-process/conditions/index.md
 docs/deployment-process/steps/conditions/run-steps-in-parallel.md -> docs/deployment-process/conditions/index.md
 docs/deployment-process/configuration-files/index.md -> docs/deployment-process/configuration-features/index.md

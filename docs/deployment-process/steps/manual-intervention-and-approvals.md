@@ -1,7 +1,7 @@
 ---
-title: Including Manual Intervention and Approvals
+title: Manual Intervention and Approval Step
 description: Manual intervention and approvals allow a human to review, approve, or sign off on deployments.
-position: 170
+position: 20
 ---
 
 While fully automated deployment is a great goal, there are times when a human needs to be involved in the deployment process. For instance:
