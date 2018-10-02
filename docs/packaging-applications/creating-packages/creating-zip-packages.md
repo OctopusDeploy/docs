@@ -12,7 +12,7 @@ This page describes how to use `Octo` to create **zip** packages. You could use 
 
 - Help you get the filename format correct.
 - Ensure file timestamps are retained when extracting which helps with some forms of content delivery networks (CDN) and caching.
-- Ensure [delta compression for package transfers](/docs/deployment-examples/deploying-packages/delta-compression-for-package-transfers.md) works as expected.
+- Ensure [delta compression for package transfers](/docs/deployment-examples/package-deployments/delta-compression-for-package-transfers.md) works as expected.
 - Avoid [known issues](/docs/packaging-applications/creating-packages/creating-zip-packages.md) with other compression libraries.
 
 To create a zip package of the application, open a command prompt and change directory to where the application is located.

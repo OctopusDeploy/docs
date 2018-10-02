@@ -1,7 +1,7 @@
 ---
 title: SQL Server Database Deployments
 description: Octopus integrates with numerous tools to handle automated database deployments.
-position: 60
+position: 140
 ---
 
 There are a variety of ways for Octopus Deploy to deploy to SQL Server.  Octopus Deploy integrates with many third-party tools, both free and commercial.  This section will provide a broad outline of approaches, tooling, and recommended configuration.

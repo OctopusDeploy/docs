@@ -1,7 +1,7 @@
 ---
 title: Node on *Nix Deployments
 description: This guide covers how to package and deploy a Node.js application to a Linux deployment target over a SSH connection.
-position: 100
+position: 120
 ---
 
 As Octopus Deploy expands its capabilities beyond the standard Microsoft world, its easier than ever to deploy non .Net projects to non Windows platforms. From **Octopus 3.3** onwards you are able to package up your projects using [other formats in addition to the current NuGet style](/docs/packaging-applications/supported-packages.md).

@@ -1,7 +1,7 @@
 ---
 title: Mobile Applications Deployments
 description: Useful information on deploying mobile applications to iOS/Android using Octopus Deploy.
-position: 180
+position: 110
 ---
 
 We often get asked how you can use Octopus to deploy your iOS/Android applications. While we do not currently have out-of-box support for iOS/Android apps, we can provide some pointers and recommendations that we have heard from our customers. Generally, its recommended to deploy iOS/Android apps to Apple/Google for review and deploy any supporting web services/databases/infrastructure at the same time. This co-ordination is the key value of using Octopus to version your releases and deploy your mobile app.

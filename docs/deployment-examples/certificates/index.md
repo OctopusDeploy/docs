@@ -2,7 +2,7 @@
 title: Certificates
 description: Manage and deploy X.509 certificates with Octopus Deploy
 description: Manage X.509 certificates with Octopus Deploy
-position: 70
+position: 40
 ---
 
 X.509 certificates are a key component of many deployment processes. Octopus Deploy provides the ability to securely store and manage your certificates, and easily use them in your Octopus Projects.  

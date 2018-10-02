@@ -1,7 +1,7 @@
 ---
 title: Java Applications Deployments
 description: Deploy to WildFly, Red Hat JBoss EAP and Tomcat using Octopus Deploy
-position: 130
+position: 90
 ---
 
 Octopus Deploy comes with a number of steps that allow you to deploy and modify the state of Java applications for popular Java application servers.
