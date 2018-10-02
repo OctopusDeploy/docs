@@ -101,7 +101,7 @@ docs/guides/azure-deployments/creating-an-azure-management-certificate-account.m
 docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-service-principal-account.md -> docs/infrastructure/azure/creating-an-azure-account/creating-an-azure-service-principal-account.md
 docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-management-certificate-account.md -> docs/infrastructure/azure/creating-an-azure-account/creating-an-azure-management-certificate-account.md
 docs/api-and-integration/bamboo/bamboo-plugin.md -> docs/api-and-integration/bamboo.md
-docs/guides/deploying-html-and-javascript-applications.md -> docs/deployment-examples/deploying-html-and-javascript-applications.md
+docs/guides/deploying-html-and-javascript-applications.md -> docs/deployment-examples/html-and-javascript-application-deployments.md
 docs/guides/deploying-java-applications.md -> docs/deployment-examples/java-applications/index.md
 docs/deploying-applications/deploying-java-applications.md -> docs/deployment-examples/java-applications/index.md
 docs/deploying-applications/deploy-java-applications.md -> docs/deployment-examples/java-applications/deploying-java-applications.md
@@ -248,7 +248,7 @@ docs/deploying-applications/deployment-process/steps/custom-installation-directo
 docs/deploying-applications/deployment-process/artifacts.md -> docs/deployment-process/artifacts.md
 docs/deploying-applications/deployment-process/steps/automatic-release-creation.md -> docs/deployment-process/project-triggers/automatic-release-creation.md
 docs/deploying-applications/deployment-process/releases/blocking-deployments.md -> docs/deployment-process/releases/blocking-deployments.md
-docs/deploying-applications/deployment-process/deploying-virtual-hard-drives.md -> docs/deployment-examples/deploying-virtual-hard-drives.md
+docs/deploying-applications/deployment-process/deploying-virtual-hard-drives.md -> docs/deployment-examples//virtual-hard-drive-deployments.md
 docs/deploying-applications/deployment-process/steps/email-notifications.md -> docs/deployment-process/steps/email-notifications.md
 docs/deploying-applications/deployment-process/steps/manual-intervention-and-approvals.md -> docs/deployment-process/steps/manual-intervention-and-approvals.md
 docs/deploying-applications/deployment-process/steps/run-steps-in-parallel.md -> docs/deployment-process/conditions/index.md
@@ -287,7 +287,7 @@ docs/how-to/record-a-memory-trace.md -> docs/support/record-a-memory-trace.md
 docs/how-to/record-a-problem-with-your-browser.md -> docs/support/record-a-problem-with-your-browser.md
 docs/how-to/debug-problems-with-octopus-variables.md -> docs/support/debug-problems-with-octopus-variables.md
 docs/how-to/capture-a-crash-dump.md -> docs/support/capture-a-crash-dump.md
-docs/deployment-process/deploying-virtual-hard-drives.md -> docs/deployment-examples/deploying-virtual-hard-drives.md
+docs/deployment-process/deploying-virtual-hard-drives.md -> docs/deployment-examples/virtual-hard-drive-deployments.md
 docs/api-and-integration/octopus-rest-api.md -> docs/api-and-integration/api/index.md
 docs/how-to/how-to-create-an-api-key.md -> docs/api-and-integration/api/how-to-create-an-api-key.md
 docs/how-to/push-a-nuget-package-that-already-exists.md -> docs/packaging-applications/creating-packages/nuget-packages/push-a-nuget-package-that-already-exists.md
@@ -453,9 +453,9 @@ docs/deployment-process/steps/configuration-files/custom-installation-directory.
 docs/deployment-process/steps/deploying-packages/index.md -> docs/deployment-examples/package-deployments/index.md
 docs/deployment-process/steps/using-target-roles-in-deployment-steps -> docs/deployment-process/steps/index.md
 docs/deploying-applications/index.md -> docs/deployment-examples/index.md
-docs/deploying-applications/deploying-html-and-javascript-applications.md -> docs/deployment-examples/deploying-html-and-javascript-applications.md
+docs/deploying-applications/deploying-html-and-javascript-applications.md -> docs/deployment-examples/html-and-javascript-application-deployments.md
 docs/deploying-applications/deploying-mobile-applications.md -> docs/deployment-examples/mobile-application-deployments.md
-docs/deploying-applications/deploying-virtual-hard-drives.md -> docs/deployment-examples/deploying-virtual-hard-drives.md
+docs/deploying-applications/deploying-virtual-hard-drives.md -> docs/deployment-examples/virtual-hard-drive-deployments.md
 docs/deploying-applications/iis-websites-and-application-pools.md -> docs/deployment-examples/iis-websites-and-application-pools.md
 docs/deploying-applications/sql-server-databases.md -> docs/deployment-examples/sql-server-databases.md
 docs/deploying-applications/windows-services.md -> docs/deployment-examples/windows-services.md
@@ -582,3 +582,5 @@ docs/deployment-examples/deploying-packages/package-deployment-feature-ordering.
 docs/deployment-examples/deploying-packages/stage-package-uploads.md -> docs/deployment-examples/package-deployments/stage-package-uploads.md
 docs/deployment-examples/deploying-packages/transfer-package.md -> docs/deployment-examples/package-deployments/transfer-package.md
 docs/deployment-examples/deploying-packages/troubleshoot-missing-packages.md -> docs/deployment-examples/package-deployments/troubleshoot-missing-packages.md
+docs/deployment-examples/deploying-html-and-javascript-applications.md -> docs/deployment-examples/html-and-javascript-application-deployments.md
+docs/deployment-examples/deploying-virtual-hard-drives.md -> docs/deployment-examples/virtual-hard-drive-deployments.md
