@@ -577,7 +577,7 @@ docs/deployment-examples/configure-environment-specific-configuration-transforms
 docs/deployment-examples/deploying-packages/index.md -> docs/deployment-examples/package-deployments/index.md
 docs/deployment-examples/deploying-packages/delta-compression-for-package-transfers.md -> docs/deployment-examples/package-deployments/delta-compression-for-package-transfers.md
 docs/deployment-examples/deploying-packages/deploy-packages-to-your-octopus-server.md -> docs/deployment-examples/package-deployments/deploy-packages-to-your-octopus-server.md
-docs/deployment-examples/deploying-packages/dynamic-selecting-packages.md -> docs/deployment-examples/package-deployments/dynamic-selecting-packages.md
+docs/deployment-examples/deploying-packages/dynamically-selecting-packages.md -> docs/deployment-examples/package-deployments/dynamically-selecting-packages.md
 docs/deployment-examples/deploying-packages/package-deployment-feature-ordering.md -> docs/deployment-examples/package-deployments/package-deployment-feature-ordering.md
 docs/deployment-examples/deploying-packages/stage-package-uploads.md -> docs/deployment-examples/oackage-deployments/stage-package-uploads.md
 docs/deployment-examples/deploying-packages/transfer-package.md -> docs/deployment-examples/package-deployments/transfer-package.md
