@@ -454,7 +454,7 @@ docs/deployment-process/steps/deploying-packages/index.md -> docs/deployment-exa
 docs/deployment-process/steps/using-target-roles-in-deployment-steps -> docs/deployment-process/steps/index.md
 docs/deploying-applications/index.md -> docs/deployment-examples/index.md
 docs/deploying-applications/deploying-html-and-javascript-applications.md -> docs/deployment-examples/deploying-html-and-javascript-applications.md
-docs/deploying-applications/deploying-mobile-applications.md -> docs/deployment-examples/deploying-mobile-applications.md
+docs/deploying-applications/deploying-mobile-applications.md -> docs/deployment-examples/mobile-application-deployments.md
 docs/deploying-applications/deploying-virtual-hard-drives.md -> docs/deployment-examples/deploying-virtual-hard-drives.md
 docs/deploying-applications/iis-websites-and-application-pools.md -> docs/deployment-examples/iis-websites-and-application-pools.md
 docs/deploying-applications/sql-server-databases.md -> docs/deployment-examples/sql-server-databases.md
@@ -572,3 +572,4 @@ docs/deployment-process/releases/deploy-to-a-specific-subset-of-targets.md -> do
 docs/deployment-process/releases/automatic-release-creation.md -> docs/deployment-process/project-triggers/automatic-release-creation.md
 docs/deployment-examples/email-notifications.md -> docs/deployment-process/steps/email-notifications.md
 docs/deployment-examples/deploying-asp.net-core-web-applications/index.md -> docs/deployment-examples/asp.net-core-web-application-deployments/index.md
+docs/deployment-examples/deploying-mobile-applications.md -> docs/deployment-examples/mobile-application-deployments.md
