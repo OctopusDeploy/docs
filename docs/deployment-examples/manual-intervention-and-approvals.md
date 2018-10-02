@@ -47,7 +47,7 @@ When aborting a deployment, it's a good idea to write a reason into the **Notes*
 
 ## Output Variables
 
-When a manual step is completed, details of the interruption are saved as variables that can be used in other steps including [email](/docs/deployment-examples/email-notifications.md) templates.
+When a manual step is completed, details of the interruption are saved as variables that can be used in other steps including [email](/docs/deployment-process/steps/email-notifications.md) templates.
 
 *Step Name* below refers to the name given to the manual step, for example *Ensure traders are aware of the deployment*.
 
