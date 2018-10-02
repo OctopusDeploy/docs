@@ -1,5 +1,5 @@
 ---
-title: Deploying Mobile Applications
+title: Mobile Applications Deployments
 description: Useful information on deploying mobile applications to iOS/Android using Octopus Deploy.
 position: 180
 ---
