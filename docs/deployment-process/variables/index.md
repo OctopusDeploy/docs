@@ -13,7 +13,7 @@ Using variables means you don't need to hardcode any of these values. You define
 
 In this example, we'll add a variable to a Hello World project that runs a script to say hello. The project uses a variable to vary the message it displays based on the environment the script is deployed to.
 
-1. To add a variable to your [project](/docs/deploymentprocess/project/index.md), navigate to the Project's Overview page, and click **Variables** to access the variable editor.
+1. To add a variable to your [project](/docs/deployment-process/projects/index.md), navigate to the Project's Overview page, and click **Variables** to access the variable editor.
 1. Give the variable a name, for instance, *Greeting*.
 1. Enter the first value for the variable, for instance, *Hello, Test*, in the value field.
 1. Define the scope for the value, for instance, by selecting the *Test* environment.
