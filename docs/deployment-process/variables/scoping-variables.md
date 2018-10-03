@@ -7,24 +7,24 @@ position: 0
 The [variables](/docs/deployment-process/variables/index.md) that you define for your projects in Octopus can be scoped in the following ways:
 
 - Environments (most common).
-- Specific deployment targets.
-- Specific machine roles.
-- Specific deployment steps.
+- Deployment targets.
+- Target roles.
+- Deployment steps.
+- Channels.
+- Tenants.
 
-For example, suppose these variables exist:
+Scoping the values of your variables lets you determine which values will be used in which situations. For example, suppose this variable exists:
 
 | Name | Value | Environment scope |
 | --- | --- | --- |
 | LogLevel | Info |  |
 | LogLevel | Warn | Production, Staging |
-| DBConnectionString | Server=SQL-UAT1;Database=... | UAT |
-| DBConnectionString | Server=SQL-PROD;Database=... | Production |
 
-During deployment, Octopus will try to select the most specifically scoped variable that applies. For example, when deploying to Production, the *LogLevel* property would be *Warn*, but to any other environment, it would fall back to the less-specific variable and have a value of *Info* instead.
+During deployment, Octopus will try to select the most specifically scoped variable that applies. For example, when deploying to Production and staging, the *LogLevel* property would be *Warn*, but to any other environment, it would fall back to the less-specific variable and have a value of *Info* instead.
 
 ## Assigning Scopes {#Scopingvariables-Assigningscopes}
 
-You can set the scope of a variable when you are creating or editing your variables, either from the **variable** section of the project, or in the **Variable Sets** section of the Library.
+You can set the scope of a variable values when you are creating or editing your variables, either from the **variable** section of the project, or in the **Variable Sets** section of the Library; however, when you assign scope to variables that are part of a library **variable set**, the variables cannot be scoped to deployment steps or channels.
 
 ![Assigning Scope to Variables](scoping-variables.png)
 

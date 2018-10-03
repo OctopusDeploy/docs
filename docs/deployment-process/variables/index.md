@@ -42,11 +42,11 @@ Variables are an important and useful concept in Octopus, so this section descri
 
 |                                          |                                          |
 | ---------------------------------------- | ---------------------------------------- |
-| **[Scoping variables](/docs/deployment-process/variables/scoping-variables.md)** | Variables can be scoped to different environments, deployment targets, target roles, and deployment steps which allows you to provide different values for the variables for each scope. |
+| **[Scoping variables](/docs/deployment-process/variables/scoping-variables.md)** | Variables can be scoped to different environments, deployment targets, target roles, deployment steps, channels, and tenants which allows you to provide different values for the variables for each scope. |
 | **[Binding syntax](/docs/deployment-process/variables/binding-syntax.md)** | Octopus's binding syntax lets you reference variables throughout Octopus. You can also reference variables from other variables. |
 | **[Library variable sets](/docs/deployment-process/variables/library-variable-sets.md)** | Library variable sets let you re-use common variables between projects rather than creating them for every project that needs them. |
-| **[Prompted variables](/docs/deployment-process/variables/prompted-variables.md)** | Sometimes the value of a variable changes for each deployment. You can prompt a user for a variable value when scheduling a deployment. |
-| **[Sensitive variables](/docs/deployment-process/variables/sensitive-variables.md)** | Octopus can securely store sensitive values, like passwords and API keys. |
+| **[Prompted variables](/docs/deployment-process/variables/prompted-variables.md)** | Sometimes the value of a variable changes for each deployment. You can prompt a user for a variable value when scheduling deployments. |
+| **[Sensitive variables](/docs/deployment-process/variables/sensitive-variables.md)** | Octopus can securely store sensitive values, for instance, passwords and API keys. |
 | **[System variables](/docs/deployment-process/variables/system-variables.md)** | Many built-in variables are available within Octopus, such as the current environment name. |
 | **[Output variables](/docs/deployment-process/variables/output-variables.md)** | Output variables let you programmatically set variables during a deployment, and then use those values in subsequent steps. |
 | **[Variable templates](/docs/deployment-process/variables/variable-templates.md)** | Variable template are used with projects that are deployed to Multi-tenants and let you define which variables are required by tenants for your projects to be successfully deployed. |
