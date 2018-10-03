@@ -49,6 +49,10 @@ As of **Octopus 3.5**, when users log in to Octopus Deploy, the server will cons
 
 In **Octopus 3.17** the details for the logins listed against users is checked first. If the user cannot be immediately identified then the above fallbacks to email address and username will be checked. If the user is located this way then the login details they just used will be automatically added to the user record, to optimize subsequent logins.
 
+One of the key drivers for this behavior is a scenario that would catch customers out with Active Directory. If users had their details changed, which could happen for a number of reasons, Octopus would get confused because it only matched on UPN. If the admins changed that Octopus would see the person as a different user and create a new user record, which would often break team membership settings and hours of manual data clean up would be required. For Active Directory Octopus now considers UPN, samAccountName and Email as identifiers for a user and will match on any one of them. So as long as the admins don't go changing all three of those at once it'll still be able to work out who it already knows.
+
+There is a catch here that is worth noting. Octopus assumes these values are unique across users, even if they can change, and relies on this uniqueness to align users. If you have an AD setup where people have multiple accounts for different activities and the accounts share an email address Octopus will see them as one user. To prevent issues you have to either have an email address in AD for only one of the accounts or have unique email addresses specified for each account.
+
 ## Auto Login {#AuthenticationProviders-AutoLogin}
 
 Some of the authentication providers rely on forms style authentication, where the user provides a username and password directly on a form in the Octopus Deploy web application.  Other providers rely on a redirection to an external URL to authenticate the user.  This latter group of providers will, by default, present a link to the user to trigger the redirect to the external URL.
