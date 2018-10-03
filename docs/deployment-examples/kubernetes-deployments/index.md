@@ -1,5 +1,5 @@
 ---
-title: Kubernetes Deployments
+title: Kubernetes
 description: Octopus Deploy provides support for deploying Kubernetes resources.
 position: 100
 ---

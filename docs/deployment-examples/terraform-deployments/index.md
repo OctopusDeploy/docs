@@ -1,5 +1,5 @@
 ---
-title: Terraform Deployments
+title: Terraform
 description: Terraform Deployments
 position: 150
 ---

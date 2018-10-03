@@ -1,5 +1,5 @@
 ---
-title: Java Applications Deployments
+title: Java Applications
 description: Deploy to WildFly, Red Hat JBoss EAP and Tomcat using Octopus Deploy
 position: 90
 ---

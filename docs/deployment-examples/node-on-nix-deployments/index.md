@@ -1,5 +1,5 @@
 ---
-title: Node on *Nix Deployments
+title: Node on *Nix
 description: This guide covers how to package and deploy a Node.js application to a Linux deployment target over a SSH connection.
 position: 120
 ---

@@ -1,5 +1,5 @@
 ---
-title: AWS Deployments
+title: AWS
 description: Octopus Deploy provides first-class support for deploying AWS CloudFormation templates.
 position: 20
 ---

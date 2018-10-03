@@ -1,5 +1,5 @@
 ---
-title: SQL Server Database Deployments
+title: SQL Server Databases
 description: Octopus integrates with numerous tools to handle automated database deployments.
 position: 140
 ---

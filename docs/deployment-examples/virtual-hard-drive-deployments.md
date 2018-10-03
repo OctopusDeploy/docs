@@ -1,5 +1,5 @@
 ---
-title: Virtual Hard Drives Deployments
+title: Virtual Hard Drives
 description: VHD steps allow you to deploy a virtual hard drive and optionally attach it to a Hyper-V virtual machine.
 position: 160
 ---

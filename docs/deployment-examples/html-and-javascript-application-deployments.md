@@ -1,5 +1,5 @@
 ---
-title: HTML and JavaScript Application Deployments
+title: HTML and JavaScript Applications
 description: This guide provides a simple example of deploying and configuring a simple javascript application built using AngularJS.
 position: 70
 ---
