@@ -11,35 +11,30 @@ Using variables means you don't need to hardcode any of these values. You define
 
 ## Creating Hello World Variables
 
-In this example, we'll create a Hello World project that runs a script to say hello. The project will uses variables to vary the message it displays based on the environment the script is deployed to.
+In this example, we'll add a variable to a Hello World project that runs a script to say hello. The project uses a variable to vary the message it displays based on the environment the script is deployed to.
 
-1. Navigate to **Projects** and click **ADD PROJECT**.
-2. Give the project a name, for instance, *Hello, World*, and click **SAVE**.
-3. From the Project Overview page, click **Variables** to access the variable editor.
-4. Create your variables. For this example, we'll enter the name *Greeting* for each of the variables we create, for the first variable we'll add the value *Hello, Production*, [scoped](/docs/deployment-process/variables/scoping-variables.md) to the production environment. For the second variable we'll add the value *Hello, Testing*, [scoped](/docs/deployment-process/variables/scoping-variables.md) to the testing environment. After you've created the variables, click **Save**.
+1. To add a variable to your [project](/docs/deploymentprocess/project/index.md), navigate to the Project's Overview page, and click **Variables** to access the variable editor.
+1. Give the variable a name, for instance, *Greeting*.
+1. Enter the first value for the variable, for instance, *Hello, Test*, in the value field.
+1. Define the scope for the value, for instance, by selecting the *Test* environment.
+1. Click **ADD ANOTHER VALUE** and enter the second value for the variable, for instance, *Hello, Production*.
+1. Define the scope for this value, for instance, by selecting the *Production* environment.
 
-![Adding Variables](adding-variables.png)
+![Adding a Variable](adding-a-variable.png)
 
-5. Now we need to define our project. From the Project Overview page, click **DEFINE YOUR DEPLOYMENT PROCESS**, on the next page click **ADD STEP**.
-6. This is a script project so select the **Run a Script** step template.
-7. Give the step a name, for instance, *Hello world script*.
-8. In the execution plan section, select **Deployment targets**.
-9. Select the [target roles ](/docs/infrastructure/target-roles/index.md) the step will run on.
-10. In the **Script Content** section, enter the following PowerShell script into the script editor:
+1. Save the variable by clicking **SAVE**.
+1. In this example, we'll reference this variable from a **Run a Script** step.
+1. Define your step and in the **Script Content** section, enter the following PowerShell script into the script editor:
 
 ​```
 Write-Host
 ​```
 
-11. Select the variable *Greeting* from the insert variable tool (**#{}**) next to the script editor, and click **SAVE**
+1. Select the variable *Greeting* from the insert variable tool (**#{}**) next to the script editor, and click **SAVE**
 
 ![Script with Variable](script-variable.png)
 
-12. From the Project Overview Page, Click **Create Release**, enter a *Version number* or accept the default, and enter any release notes you'd like to include. Click **SAVE**.
-
-Depending on the conditions in the [Lifecycle](/docs/deployment-process/lifecycles/index.md), the release will be deployed automatically or you will need to manually deploy the release.
-
-The script step will run with the string *Hello, Production*, on the deployment target in the Production environment, and with the string *Hello, Test*, on the deployment target in the Test environment. You can view the output after the deployment has completed by clicking on the large Green Tick icons in the task column, and then clicking through the results for the deployment.
+When a release of the project is deployed, the script step will run with the string *Hello, Test* on the Test environment, and with the string *Hello, Production*, on the Production environment.
 
 ## Variables in Octopus
 
