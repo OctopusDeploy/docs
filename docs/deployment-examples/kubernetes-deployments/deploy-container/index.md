@@ -548,6 +548,68 @@ The `Run as user` section defines the UID to run the entrypoint of the container
 
 The `Run as group` section defines the GID to run the entrypoint of the container process.
 
+### Custom resources YAML
+
+When deploying a Kubernetes Deployment resource, it can be useful to have other Kubernetes resources tied to the Deployment resource lifecycle.
+
+For example, the UI exposes the ability to create a ConfigMap resource that is tightly coupled to the Deployment resource. A new ConfigMap resource is created with each deployment, and old ConfigMap resources are cleaned up after a successful deployment.
+
+There are other resources that benefit from being part of this lifecycle. For example, a NetworkPolicy resource may be created with each deployment selecting the Pod resources that were part of the deployment. Or you may have custom resource definitions that are specific to your own local Kubernetes cluster.
+
+The `Custom resource YAML` section allows additional Kubernetes resources to participate in the lifecycle of the Deployment resource. It works like this:
+
+1. You define the YAML of one or more Kubernetes resources in the code editor. The editor accepts multiple YAML documents separated by a triple dash e.g.
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: test-network-policy
+spec:
+  podSelector:
+    matchLabels:
+      Octopus.Kubernetes.DeploymentName: "#{Octopus.Action.KubernetesContainers.ComputedDeploymentName}"
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - ipBlock:
+        cidr: 172.17.0.0/16
+        except:
+        - 172.17.1.0/24
+    - namespaceSelector:
+        matchLabels:
+          project: myproject
+    - podSelector:
+        matchLabels:
+          role: frontend
+    ports:
+    - protocol: TCP
+      port: 6379
+  egress:
+  - to:
+    - ipBlock:
+        cidr: 10.0.0.0/24
+    ports:
+    - protocol: TCP
+      port: 5978
+---
+apiVersion: v1
+data:
+  allowed: '"true"'
+  enemies: aliens
+  lives: "3"
+kind: ConfigMap
+metadata:
+  name: game-config-env-file
+```
+
+2. During the deployment, each resource will be updated to ensure that it has a unique name, and includes the common labels that are applied to all other resources created as part of the step. For example, the name of NetworkPolicy resource will be changed from the value entered into the YAML of `test-network-policy` something like  `test-network-policy-deployment-1234`. The NetworkPolicy resource will also have labels like `Octopus.Deployment.Id`, `Octopus.Deployment.Tenant.Id`, `Octopus.Environment.Id`, `Octopus.Kubernetes.DeploymentName` and `Octopus.Step.Id` applied. These labels allow Octopus to track the resource across deployments.
+3. Once the deployment has succeeded, any old resources of the kinds that were defined in the `Custom resource YAML` field will be found and deleted. For example, any `NetworkPolicy` or `ConfigMap` resources in the target namespace created by a previous deployment will be deleted.
+
+By creating each custom resource with a unique name and common labels, Octopus will ensure that a new resource is created with each deployment, and old resources are cleaned up. This means that the custom resources are tightly coupled to a Deployment resource, and can be treated as a single deployment.
+
 ### Service
 
 The `Service` feature creates a Service resource that directs traffic to the Pod resources configured by the `Deployment` section. Although the Deployment and Service resources are separate objects in Kubernetes, they are treated as a single deployment by the `Deploy Kubernetes Container` step, resulting in the Service resource always directing traffic to the Pod resources created by the associated Deployment resource.
