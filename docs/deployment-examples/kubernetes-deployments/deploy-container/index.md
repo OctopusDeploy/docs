@@ -552,7 +552,9 @@ The `Run as group` section defines the GID to run the entrypoint of the containe
 
 When deploying a Kubernetes Deployment resource, it can be useful to have other Kubernetes resources tied to the Deployment resource lifecycle.
 
-For example, the UI exposes the ability to create a ConfigMap resource that is tightly coupled to the Deployment resource. A new ConfigMap resource is created with each deployment, and old ConfigMap resources are cleaned up after a successful deployment.
+The `Deploy Kubernetes containers` step already deploys ConfigMap and Secret resources in a tightly coupled fashion with their associated Deployment resource. Doing so means the containers in a Deployment resource can reliably reference a ConfigMap or Secret resource during an update, and will not be left in an inconsistent state where a new ConfigMap or Secret resource is referenced by an old Container resource.
+
+Once a Deployment resource is fully deployed and healthy, these old ConfigMap and Secret resources are cleaned up automatically.
 
 There are other resources that benefit from being part of this lifecycle. For example, a NetworkPolicy resource may be created with each deployment selecting the Pod resources that were part of the deployment. Or you may have custom resource definitions that are specific to your own local Kubernetes cluster.
 
@@ -605,7 +607,7 @@ metadata:
   name: game-config-env-file
 ```
 
-2. During the deployment, each resource will be updated to ensure that it has a unique name, and includes the common labels that are applied to all other resources created as part of the step. For example, the name of NetworkPolicy resource will be changed from the value entered into the YAML of `test-network-policy` something like  `test-network-policy-deployment-1234`. The NetworkPolicy resource will also have labels like `Octopus.Deployment.Id`, `Octopus.Deployment.Tenant.Id`, `Octopus.Environment.Id`, `Octopus.Kubernetes.DeploymentName` and `Octopus.Step.Id` applied. These labels allow Octopus to track the resource across deployments.
+2. During the deployment, each resource will be modified to ensure that it has a unique name, and includes the common labels that are applied to all other resources created as part of the step. For example, the name of NetworkPolicy resource will be changed from the value entered into the YAML of `test-network-policy` something like  `test-network-policy-deployment-1234`. The NetworkPolicy resource will also have labels like `Octopus.Deployment.Id`, `Octopus.Deployment.Tenant.Id`, `Octopus.Environment.Id`, `Octopus.Kubernetes.DeploymentName` and `Octopus.Step.Id` applied. These labels allow Octopus to track the resource across deployments.
 3. Once the deployment has succeeded, any old resources of the kinds that were defined in the `Custom resource YAML` field will be found and deleted. For example, any `NetworkPolicy` or `ConfigMap` resources in the target namespace created by a previous deployment will be deleted.
 
 By creating each custom resource with a unique name and common labels, Octopus will ensure that a new resource is created with each deployment, and old resources are cleaned up. This means that the custom resources are tightly coupled to a Deployment resource, and can be treated as a single deployment.
