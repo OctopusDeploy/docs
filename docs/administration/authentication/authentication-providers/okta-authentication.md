@@ -55,7 +55,7 @@ We highly recommend using SSL, but we know its not always possible. You can use 
 Octopus now integrates with [Let's Encrypt](/docs/administration/security/exposing-octopus/lets-encrypt-integration.md) making it easier to setup SSL on your Octopus Server.
 :::
 
-5. You should see the **General Settings** for the app you have just created. For the **Allowed grant types** ensure that both **Implicit (Hybrid)** and **Allow ID Token with implicit grant type** are checked. Click the **Save** button to continue.
+5. Under the **General Settings** for the app you have just created, ensure that **Implicit (Hybrid)** and **Allow ID Token with implicit grant type** are both checked, under the **Allowed grant types**. Click the **Save** button to continue.
 
    ![](okta-authentication/okta-general-settings.png "width=500")
 
