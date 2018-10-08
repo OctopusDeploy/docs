@@ -59,7 +59,7 @@ Octopus now integrates with [Let's Encrypt](/docs/administration/security/exposi
 
    ![](okta-authentication/okta-general-settings.png "width=500")
 
-   If you want to allow users to log in directly from Okta, you should change the **Login initiated by** to _Either Okta or App_. You should also configure it to _Redirect to app to initiate login_ and set the **Initiate login URI** to _https://octopus.example.com**/#/users/sign-in**_.
+   If you want to allow users to log in directly from Okta, you should change the **Login initiated by** to _Either Okta or App_. You should also configure it to _Redirect to app to initiate login_ and set the **Initiate login URI** to `https://octopus.example.com/#/users/sign-in`.
 
    ![](okta-authentication\okta-initiatelogin.png)
 
