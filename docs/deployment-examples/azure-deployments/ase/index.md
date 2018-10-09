@@ -39,4 +39,4 @@ Usually when you create a web app in Azure its name must be unique. This isn't t
 
 This is the reason why you see a resource group and a web app name when using binding on the Octopus Web App step, we need the resource group to differentiate web apps with the same name. When you aren't using binding the drop down list is doing this too behind the scenes.
 
-This is also why using a [principal of least privilege on a Service Principal](/docs/infrastructure/azure/creating-an-azure-account/creating-an-azure-service-principal-account.md#note_on_lease_privilege) is a little complicated.
+This is also why using a [principal of least privilege on a Service Principal](/docs/infrastructure/azure/index.md#note_on_lease_privilege) is a little complicated.

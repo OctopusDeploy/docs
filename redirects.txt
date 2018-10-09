@@ -97,9 +97,9 @@ docs/deployment-targets/azure-cloud-service-target.md -> docs/infrastructure/azu
 docs/infrastructure/azure-cloud-service-target.md -> docs/infrastructure/azure/index.md
 docs/infrastructure/environments/accounts/azure-account.md -> docs/infrastructure/azure/index.md
 docs/guides/azure-deployments/creating-an-azure-account/index.md -> docs/infrastructure/azure/creating-an-azure-account/index.md
-docs/guides/azure-deployments/creating-an-azure-management-certificate-account.md -> docs/infrastructure/azure/creating-an-azure-account/creating-an-azure-management-certificate-account.md
-docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-service-principal-account.md -> docs/infrastructure/azure/creating-an-azure-account/creating-an-azure-service-principal-account.md
-docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-management-certificate-account.md -> docs/infrastructure/azure/creating-an-azure-account/creating-an-azure-management-certificate-account.md
+docs/guides/azure-deployments/creating-an-azure-management-certificate-account.md -> docs/infrastructure/azure/index.md
+docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-service-principal-account.md -> docs/infrastructure/azure/index.md
+docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-management-certificate-account.md -> docs/infrastructure/azure/index.md
 docs/api-and-integration/bamboo/bamboo-plugin.md -> docs/api-and-integration/bamboo.md
 docs/guides/deploying-html-and-javascript-applications.md -> docs/deployment-examples/html-and-javascript-application-deployments.md
 docs/guides/deploying-java-applications.md -> docs/deployment-examples/java-applications/index.md
@@ -584,3 +584,5 @@ docs/deployment-examples/deploying-packages/transfer-package.md -> docs/deployme
 docs/deployment-examples/deploying-packages/troubleshoot-missing-packages.md -> docs/deployment-examples/package-deployments/troubleshoot-missing-packages.md
 docs/deployment-examples/deploying-html-and-javascript-applications.md -> docs/deployment-examples/html-and-javascript-application-deployments.md
 docs/deployment-examples/deploying-virtual-hard-drives.md -> docs/deployment-examples/virtual-hard-drive-deployments.md
+docs/infrastructure/azure/creating-an-azure-account/creating-an-azure-service-principal-account.md -> docs/infrastructure/azure/index.md
+docs/infrastructure/azure/creating-an-azure-account/creating-an-azure-management-certificate-account.md -> docs/infrastructure/azure/index.md
