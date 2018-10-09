@@ -586,3 +586,4 @@ docs/deployment-examples/deploying-html-and-javascript-applications.md -> docs/d
 docs/deployment-examples/deploying-virtual-hard-drives.md -> docs/deployment-examples/virtual-hard-drive-deployments.md
 docs/infrastructure/azure/creating-an-azure-account/creating-an-azure-service-principal-account.md -> docs/infrastructure/azure/index.md
 docs/infrastructure/azure/creating-an-azure-account/creating-an-azure-management-certificate-account.md -> docs/infrastructure/azure/index.md
+docs/infrastructure/azure/creating-an-azure-account/index.md -> docs/infrastructure/azure/index.md
