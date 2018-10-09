@@ -3,7 +3,7 @@ docs/guides/azure-deployments/cloud-services/cloud-service-concepts/cloud-servic
 docs/guides/azure-deployments/resource-groups/deploy-using-an-azure-resource-group-template.md -> docs/deployment-examples/azure-deployments/resource-groups/index.md
 docs/deploying-applications/azure-deployments/web-apps/web-app-concepts.md -> docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md
 docs/guides/azure-deployments/web-apps/web-app-concepts/web-app-deployment-step/index.md -> docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md
-docs/guides/azure-deployments/web-apps/web-app-concepts/web-app-accounts.md -> docs/infrastructure/azure/creating-an-azure-account/index.md
+docs/guides/azure-deployments/web-apps/web-app-concepts/web-app-accounts.md -> docs/infrastructure/azure/index.md
 docs/guides/multi-tenant-deployments/other-scenarios-for-multi-tenant-deployments.md -> docs/deployment-patterns/multi-tenant-deployments/index.md
 docs/guides/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4/migrating-to-octopus-3.4.md -> docs/deployment-patterns/multi-tenant-deployments/index.md
 docs/deploying-applications/docker-containers/docker-compose.md -> docs/deployment-examples/docker-containers/index.md
@@ -96,7 +96,7 @@ docs/deployment-targets/azure-cloud-service-targets.md -> docs/infrastructure/az
 docs/deployment-targets/azure-cloud-service-target.md -> docs/infrastructure/azure/index.md
 docs/infrastructure/azure-cloud-service-target.md -> docs/infrastructure/azure/index.md
 docs/infrastructure/environments/accounts/azure-account.md -> docs/infrastructure/azure/index.md
-docs/guides/azure-deployments/creating-an-azure-account/index.md -> docs/infrastructure/azure/creating-an-azure-account/index.md
+docs/guides/azure-deployments/creating-an-azure-account/index.md -> docs/infrastructure/azure/index.md
 docs/guides/azure-deployments/creating-an-azure-management-certificate-account.md -> docs/infrastructure/azure/index.md
 docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-service-principal-account.md -> docs/infrastructure/azure/index.md
 docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-management-certificate-account.md -> docs/infrastructure/azure/index.md
