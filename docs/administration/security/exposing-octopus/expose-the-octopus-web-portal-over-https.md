@@ -67,6 +67,22 @@ If you are bringing your own SSL certificate, or want to configure a complex set
 
 1. Follow the rest of the Wizard steps to add the binding and reconfigure the Octopus Server.
 
+### Updating the SSL Certificate of an Existing Web Portal Binding
+
+The approach for updating an existing binding requires that we take a slightly different approach.
+
+1. Open the **Change bindings...** screen, as in [Changing Your Web Portal Bindings Manually](#ExposetheOctopuswebportaloverHTTPS-Changingyourwebportalbindings) steps 1 & 2.
+
+1. Select the binding that you are interested in updating the SSL Certificate for and click **Add...** to open the details. Note these details and click **OK** to return to the binding list.
+
+1. Click **Remove** and then **Add...** to recreate the binding, using the details from the previous step. When selecting the SSL Certificate, select the desired certificate. Click **OK** to return to the bindings list.
+
+    ![](/docs/images/3048148/3278454.png "width=500")
+
+    > At this point, the bindings have not changed yet, as we haven't yet applied this change to the server.
+
+1. To apply this change to the server, follow the rest of the Wizard steps to add the binding and reconfigure the Octopus Server. Once the **Apply** button is clicked, a script is generated to update the Web Portal Binding with your new SSL certificate. You can review this script, prior to running it, by clicking on the **Show script** link.
+
 ## Forcing HTTPS {#ForcingHTTPS}
 
 A common scenario when hosting the Octopus Server is to redirect all requests initiated over HTTP to HTTPS. With this configuration you can navigate to the Octopus Server using either the `http://` or `https://` scheme, but have Octopus automatically redirect all `http://` requests to use the equivalent `https://` route.
