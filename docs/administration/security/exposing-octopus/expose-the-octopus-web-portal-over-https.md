@@ -67,7 +67,7 @@ If you are bringing your own SSL certificate, or want to configure a complex set
 
 1. Follow the rest of the Wizard steps to add the binding and reconfigure the Octopus Server.
 
-### Updating the SSL Certificate of an Existing Web Portal Binding
+## Updating the SSL Certificate of an Existing Web Portal Binding {#ExposetheOctopuswebportaloverHTTPS-UpdatingAnSSLCertificate}
 
 The approach for updating an existing binding requires that we take a slightly different approach.
 
