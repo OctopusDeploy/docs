@@ -6,6 +6,13 @@ position: 50
 
 Octopus Deploy provides first-class support for deploying to different PaaS products in the Azure Cloud by using [Azure Targets](#azure-targets). Before you can deploy software to Azure, you need to add your Azure subscription to Octopus Deploy.
 
+- [Add an Azure Account](#adding-azure-subscription)
+- [Create an Azure Service Principal Account](#azure-service-principal)
+- [Creating an Azure Management Certificate Account](#azure-management-certificate)
+- [Azure Account Variables](#azure-account-variables)
+- [Azure Targets](#azure-targets)
+
+
 ## Add an Azure Account {#adding-azure-subscription}
 
 An Azure Account in Octopus Deploy contains the details of your Azure subscription.  It is used to authenticate with Azure when deploying or executing scripts.
@@ -243,11 +250,11 @@ Click **Save and Test** and if the test succeeds, you should be able to configur
 When you click the Save and Test button, Octopus will attempt to use the account credentials to access the Azure Service Management (ASM) API and list the Hosted Services in that subscription. You may need to whitelist the appropriate IP Addresses for the Azure Data Center you are targeting. See [deploying to Azure via a Firewall](/docs/deployment-examples/azure-deployments/index.md) for more details.
 :::
 
-## Azure Account Variables
+## Azure Account Variables {#azure-account-variables}
 
 You can access your Azure account from within projects through a variable of type **Azure Account**. Learn more about [Azure Account Variables](/docs/deployment-process/variables/azure-account-variables.md). Learn more about [Azure Deployments](/docs/deployment-examples/azure-deployments/index.md).
 
-## Azure Targets
+## Azure Targets {#azure-targets}
 
 :::hint
 These new target types were introduced in **Octopus 2018.5**. You can read more about all the new PaaS targets [in our blog](https://octopusdeploy.com/blog/paas-targets).
