@@ -3,7 +3,7 @@ title: Running Azure PowerShell
 description: Octopus supports executing PowerShell against Azure and will automatically import the Azure PowerShell modules.
 ---
 
-When executing PowerShell against Azure, Octopus Deploy will automatically import the [Azure PowerShell modules](https://docs.microsoft.com/powershell/azure/overview) and [Azure PowerShell CLI](https://docs.microsoft.com/cli/azure/), and finally will also authenticate with Azure using the configured [Azure Account](/docs/infrastructure/azure/creating-an-azure-account/index.md).
+When executing PowerShell against Azure, Octopus Deploy will automatically import the [Azure PowerShell modules](https://docs.microsoft.com/powershell/azure/overview) and [Azure PowerShell CLI](https://docs.microsoft.com/cli/azure/), and finally will also authenticate with Azure using the configured [Azure Account](/docs/infrastructure/azure/index.md).
 
 This applies to:
 
@@ -16,7 +16,7 @@ Azure supports two authentication methods, each of which provides access to a di
 - To use the Azure Service Management (ASM) API, use an [Azure Management Certificate Account](/docs/infrastructure/azure/index.md#azure-management-certificate).
 - To use the Azure Resource Management (ARM) API, use an [Azure Service Principal Account](/docs/infrastructure/azure/index.md#azure-service-principal). (The ARM PowerShell cmdlets are prefixed with `AzureRM`, like `Get-AzureRMWebApp`).
 
-Learn more about [configuring the right Azure Account](/docs/infrastructure/azure/creating-an-azure-account/index.md).
+Learn more about [configuring the right Azure Account](/docs/infrastructure/azure/index.md).
 
 ## Run an Azure PowerShell Script Step {#RunningAzurePowerShell-RunanAzurePowerShellScriptStep}
 

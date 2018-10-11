@@ -14,9 +14,9 @@ You can manage your environments and deployment targets from the **Infrastructur
 
 You need to set up accounts for certain deployment targets before you can use them:
 
-- [Azure Subscriptions](/docs/azure/creating-an-azure-account/index.md)
+- [Azure Subscriptions](/docs/infrastructure/azure/index.md)
 - [Amazon Web Services Accounts](/docs/infrastructure/aws/index.md)
-- [SSH Key Pairs](/docs/infrastructure/ssh-targets/ssh-key-pairs.md)
+- [SSH Key Pairs](/docs/infrastructure/ssh-targets/ssh-key-pair.md)
 - [Username/Passwords](/docs/infrastructure/ssh-targets/username-and-password.md)
 - Tokens
 
@@ -28,8 +28,8 @@ Deployment targets are added to environments in different ways, depending on th
 - [SSH Connection](/docs/infrastructure/ssh-targets/index.md)
 - [Offline Package Drop](/docs/infrastructure/offline-package-drop.md)
 - [Azure Web App](/docs/infrastructure/azure/web-app-targets/index.md)
-- [Azure Cloud Service](/docs/infrastructure/azure/cloud-service-targets.md)
-- [Azure Service Fabric Cluster](/docs/infrastructure/service-fabric-cluster-targets/index/md)
+- [Azure Cloud Service](/docs/infrastructure/azure/cloud-service-targets/index.md)
+- [Azure Service Fabric Cluster](/docs/infrastructure/azure/service-fabric-cluster-targets/index.md)
 - Kubernetes (Currently in beta)
 - [Cloud Regions](/docs/infrastructure/cloud-regions.md)
 

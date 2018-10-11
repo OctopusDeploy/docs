@@ -10,7 +10,7 @@ ASP.NET Core is the future of ASP.NET, and it contains many changes to how appli
 
 ## Publishing and Packing the Website {#DeployingASP.NETCoreWebApplications-PublishingandPackingtheWebsite}
 
-Once you have a project up and running (see the [getting started guide](https://docs.asp.net/en/latest/getting-started.html)), it need to be published and packed:
+Once you have a project up and running (see the [getting started guide](https://docs.asp.net/en/latest/getting-started.html)), it needs to be published and packed:
 
 ```powershell
 # Publish the application to a folder
@@ -41,7 +41,7 @@ When running under IIS, ensure the .NET CLR Version is set to `No Managed Code`
 
 ## Antiforgery Cookie {#DeployingASP.NETCoreWebApplications-AntiforgeryCookie}
 
-The `.AspNetCore.Antiforgery` cookie created by ASP.NET Core uses the application path to generate it's hash. By default Octopus will deploy to a new path every time, which causes a new cookie to be set every deploy. This results in many unneeded cookies in the browser. See this [blog post](http://blog.novanet.no/a-pile-of-anti-forgery-cookies/) for more details. To change this behavior, set the Antiforgery token in your `startup.cs` like this:
+The `.AspNetCore.Antiforgery` cookie created by ASP.NET Core uses the application path to generate its hash. By default Octopus will deploy to a new path every time, which causes a new cookie to be set every deploy. This results in many unneeded cookies in the browser. See this [blog post](http://blog.novanet.no/a-pile-of-anti-forgery-cookies/) for more details. To change this behavior, set the Antiforgery token in your `startup.cs` like this:
 
 ```
 public void ConfigureServices(IServiceCollection services)
