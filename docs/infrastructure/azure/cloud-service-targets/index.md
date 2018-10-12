@@ -2,7 +2,6 @@
 title: Azure Cloud Service Targets
 description: Azure Cloud Service deployment targets allow you to reference existing classic Cloud Services in your Azure subscription, that you can then reference by role during deployments.
 position: 100
-version: "[2018.5,)"
 ---
 
 Azure Cloud Service deployment targets allow you to reference existing classic Cloud Services in your Azure subscription, that you can then reference by role during deployments.

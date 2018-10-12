@@ -1,8 +1,7 @@
 ---
 title: Azure Web App Targets
 description: Azure Web App deployment targets allow you to reference existing Web Apps in your Azure subscription, that you can then reference by role during deployments.
-position: 100
-version: "[2018.5,)"
+position: 20
 ---
 
 Azure Web App deployment targets allow you to reference existing Web Apps in your Azure subscription, that you can then reference by role during deployments.

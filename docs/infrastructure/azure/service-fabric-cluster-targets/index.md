@@ -1,37 +1,32 @@
 ---
 title: Azure Service Fabric Cluster Targets
 description: Azure Service Fabric Cluster deployment targets allow you to reference existing Service Fabric Cluster apps that are available in your Azure subscription, that you can then reference by role during deployments.
-position: 100
-version: "[2018.5,)"
+position: 10
 ---
 
-Azure Service Fabric Cluster deployment targets allow you to reference existing Service Fabric Cluster apps that are available in your Azure subscription, that you can then reference by role during deployments.
+Azure Service Fabric Cluster targets were introduced in **Octopus 2018.5**.
+
+Azure Service Fabric Cluster deployment targets let you to reference existing Service Fabric Cluster apps that are available in your Azure subscription, that you can then reference by role during deployments.
 
 ## Requirements
 
-:::hint
-This new target type was introduced in **Octopus 2018.5**. You can read more about all the new PaaS targets [in our blog](https://octopusdeploy.com/blog/paas-targets).
-:::
+1. The **Service Fabric SDK** must be installed on the Octopus Server. For details, see [Service Fabric SDK](https://g.octopushq.com/ServiceFabricSdkDownload). If this SDK is missing, the step will fail with an error: _"Could not find the Azure Service Fabric SDK on this server."_
 
-:::hint
-The [Service Fabric SDK](https://g.octopushq.com/ServiceFabricSdkDownload) must be installed on the Octopus Server. If this SDK is missing, the step will fail with an error: _"Could not find the Azure Service Fabric SDK on this server."_.
+2. The **PowerShell script execution** may also need to be enabled. For details see [Enable PowerShell script execution](https://g.octopushq.com/ServiceFabricEnableScriptExection).
 
-**PowerShell script execution** may also need to be enabled. See the _"Enable PowerShell script execution"_ section from the above link for more details.
+After the above SDK has been installed, you will need to restart your Octopus Server for the changes to take effect.
 
-After the above SDK has been installed, you will need to restart your Octopus service before the changes will take effect.
-:::
+You need to create a Service Fabric cluster (either in Azure, on-premises, or in other clouds). Octopus needs an existing Service Fabric cluster to connect to in order to reference it as a deployment target.
 
-You will need to create a Service Fabric cluster (either in Azure, on-premises or in other clouds). Octopus needs an existing Service Fabric cluster to connect to in order to reference it as a deployment target.
-
-To learn more about App Services, the Azure team provide [useful documentation on Service Fabric](https://azure.microsoft.com/en-au/services/service-fabric/) that can help you get started.
+To learn about building Azure Service Fabric apps see the [Service Fabric documentation](https://azure.microsoft.com/en-au/services/service-fabric/).
 
 ## Creating Service Fabric Cluster Targets
 
-Once you have a Service Fabric Cluster application setup within your Azure subscription, you are then ready to map that to an Octopus deployment target.
+Once you have a Service Fabric Cluster application setup within your Azure subscription, you are  ready to map that to an Octopus deployment target.
 
 To create an Azure Service Fabric Cluster target within Octopus:
 
-- Go to **Infrastructure** > **Deployment Targets** > **Add Deployment Target**.
+- Navigate to {{Infrastructure,Deployment Targets,Add Deployment Target}}.
 - Select **Azure Service Fabric Cluster** from the list of available targets and click _Next_.
 - Fill out the necessary fields, being sure to provide a unique role that clearly identifies your Azure Service Fabric Cluster target.
 
