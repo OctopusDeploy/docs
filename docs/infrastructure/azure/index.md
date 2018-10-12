@@ -40,7 +40,7 @@ You can read about the differences in [this document](https://azure.microsoft.c
 
 ## Creating an Azure Service Principal Account {#azure-service-principal}
 
-Azure Service Principal accounts are for use with the Azure Resource Management (ARM) API only. Configuring your Octopus Server to authenticate with the service principal you create in Azure Active Directory will let you configure finely grained authorization for your Octopus Server.
+Azure Service Principal accounts are for use with the **Azure Resource Management (ARM) API** only. Configuring your Octopus Server to authenticate with the service principal you create in Azure Active Directory will let you configure finely grained authorization for your Octopus Server.
 
 To enable your Octopus Server to manage your Azure subscription via a Service Principal account as part of adding an [Azure subscription](#adding-azure-subscription) you need to:
 
@@ -209,21 +209,13 @@ Click **Save and test** to confirm the account can interact with Azure.
 
 ## Creating an Azure Management Certificate Account {#azure-management-certificate}
 
-:::hint
-**Azure Management Certificate Accounts Work with the Azure Service Management API only**
+Azure Management Certificate Accounts work with the **Azure Service Management API** only, which is used to when Octopus deploys [Cloud Services](/docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-cloud-service/index.md) and [Azure Web Apps](/docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md).
 
-Azure Management Certificate Accounts are only able to interact with the legacy Azure interface known as the "Azure Service Management API", which is used when Octopus deploys [Cloud Services](/docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-cloud-service/index.md) and [Azure Web Apps](/docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md).
-
-To interact with Azure Resource Manager (ARM), like when Octopus deploys a [Resource Group Template](/docs/deployment-examples/azure-deployments/resource-groups/index.md), you must use an [Azure Service Principal Account](/docs/infrastructure/azure/index.md#azure-service-principal).
-:::
-
-To create an Azure Management Certificate Account as part of adding an [Azure subscription](#adding-azure-subscription), select Management Certificate as the Authentication Method.
-
-![Add management certificate](add-new-cert-account.png "width=500")
+To create an Azure Management Certificate account as part of adding an [Azure subscription](#adding-azure-subscription), select Management Certificate as the Authentication Method.
 
 ### Step 1: Management Certificate {#CreatinganAzureManagementCertificateAccount-Step2:ManagementCertificate}
 
-When using *Management Certificate* as the *Authentication Method*, Octopus Deploy authenticates with Azure using an X.509 certificate.  You can either upload an existing certificate (`.pfx`), or leave the field blank and Octopus Deploy will generate a certificate. Keep in mind that since Octopus Deploy securely stores the certificate internally, there is no need to upload a password protected `.pfx` file. If you would like to use one that is password protected, you will need to first remove the password. This can be done with the following commands.
+When using **Management Certificate**, Octopus authenticates with Azure using an X.509 certificate.  You can either upload an existing certificate (`.pfx`), or leave the field blank and Octopus will generate a certificate. Keep in mind that since Octopus securely stores the certificate internally, there is no need to upload a password protected `.pfx` file. If you would like to use one that is password protected, you will need to first remove the password. This can be done with the following commands.
 
 **Remove .pfx password**
 
@@ -233,28 +225,21 @@ openssl pkcs12 -export -in temp.pem -passout pass -out PasswordFreeAzureCert.pfx
 del temp.pem
 ```
 
-If you allow Octopus Deploy to generate your certificate, you will need to upload the certificate to the Azure Management Portal.  After clicking 'Save', the Account settings page provides instructions for downloading the certificate public-key from Octopus Deploy, and uploading it into the Azure Management Portal.
-
-![Upload certificate to Azure](azure-cert-upload.png "width=500")
+If Octopus generates your certificate, you need to upload the certificate to the Azure Management Portal.  After clicking **Save**, the Account settings page provides instructions for downloading the certificate public-key from Octopus and uploading it into the Azure Management Portal.
 
 Uploaded certificates can be viewed on the 'Management Certificates' tab of the 'Settings' page in the Azure Portal.
 
-![Download management certificate](azure-cert-account-download.png "width=500")
-
-The certificate will be named `Octopus Deploy -``{Your Account Name}.`
+The certificate will be named **Octopus Deploy -``{Your Account Name}**.
 
 ### Step 2: Save and Test {#CreatinganAzureManagementCertificateAccount-Step3:SaveandTest}
 
-Click **Save and Test** and if the test succeeds, you should be able to configure Octopus to deploy anything to Azure via the Azure Service Management (ASM) API.
+Click **Save and Test**, and Octopus will attempt to use the account credentials to access the Azure Service Management (ASM) API and list the Hosted Services in that subscription. You may need to whitelist the appropriate IP Addresses for the Azure Data Center you are targeting. See [deploying to Azure via a Firewall](/docs/deployment-examples/azure-deployments/index.md) for more details.
 
-:::hint
-**What is Actually Tested?**
-When you click the Save and Test button, Octopus will attempt to use the account credentials to access the Azure Service Management (ASM) API and list the Hosted Services in that subscription. You may need to whitelist the appropriate IP Addresses for the Azure Data Center you are targeting. See [deploying to Azure via a Firewall](/docs/deployment-examples/azure-deployments/index.md) for more details.
-:::
+You can now configure Octopus to deploy to Azure via the Azure Service Management (ASM) API.
 
 ## Azure Account Variables {#azure-account-variables}
 
-You can access your Azure account from within projects through a variable of type **Azure Account**. Learn more about [Azure Account Variables](/docs/deployment-process/variables/azure-account-variables.md). Learn more about [Azure Deployments](/docs/deployment-examples/azure-deployments/index.md).
+You can access your Azure account from within projects through a variable of type **Azure Account**. Learn more about [Azure Account Variables](/docs/deployment-process/variables/azure-account-variables.md) and [Azure Deployments](/docs/deployment-examples/azure-deployments/index.md).
 
 ## Azure Targets {#azure-targets}
 
