@@ -243,11 +243,11 @@ You can access your Azure account from within projects through a variable of typ
 
 ## Azure Targets {#azure-targets}
 
-:::hint
-These new target types were introduced in **Octopus 2018.5**. You can read more about all the new PaaS targets [in our blog](https://octopusdeploy.com/blog/paas-targets).
-:::
+The Azure target types were added in **Octopus 2018.5**.
 
-Octopus' Azure targets provide a reference to actual targets in your Azure infrastructure, allowing you to target several PaaS products by role during a deployment. Azure targets are setup the same way as regular deployment targets and go through health checks, so you can know the status of your Azure infrastructure targets and spot any problems early.
+Octopus models your platform-as-a-service endpoints as deployment targets. Read more PaaS targets [blog: PaaS Deployment Targets](https://octopusdeploy.com/blog/paas-targets).
+
+Octopus's Azure targets provide a reference to actual targets in your Azure infrastructure, allowing you to target several PaaS products by role during a deployment. Azure targets are added the same way as regular deployment targets and go through health checks, so you know the status of your Azure infrastructure targets and can spot any problems.
 
 The currently supported Azure targets are:
 
