@@ -44,7 +44,7 @@ You can delete spaces when you are the **Space Owner**. Deleting a space cannot 
 
 ## Disable the Default Space {#disable-the-default-space}
 
-You can disable the default space. <!-- do we need content explaining any ramifications? -->
+You can disable the default space. <!-- content explaining the ramifications goes here -->
 
 1. Navigate to {{Configuration,Spaces}} and select the default space.
 1. Expand the **Task Queue Status** section and select the Stop task queue checkbox, and click **SAVE**.
@@ -58,7 +58,7 @@ When you log into the Octopus Web Portal, the first item on the navigation menu 
 
 ## System Scoped or Space Scoped {#system-scope-space-scoped}
 
-There is a hard barrier between Spaces, so, for instance, a deployment target configured for SpaceA isn't available to projects in SpaceB. However, there are some things that aren't scoped to a Spaces, but are system wide.
+There is a hard barrier between Spaces, so, for instance, a deployment target configured for SpaceA isn't available to projects in SpaceB. However, there are some things that aren't scoped to a Spaces, but are system wide. <!-- content explaining why things are scoped the way they are goes here -->
 
 The following table shows what is space-scoped, system-scoped, or scoped to both.
 
