@@ -26,7 +26,7 @@ The general steps for this kind of deployment would be:
 
 1. Use a [custom script](/docs/deployment-examples/custom-scripts/index.md) step to calculate a new port number so we can configure a binding you can use to warm up the new instance of your application. See this [blog post](https://octopus.com/blog/changing-website-port-on-each-deployment) for more details.
   * The new port number should end up in a variable like `#{Octopus.Action[Calculate port number].Output.Port}`.
-2. Use the [IIS Websites and Application Pools](/docs/deployment-examples/iis-websites-and-application-pools.md) step to deploy a new instance of your web application into a new Web Site and Application Pool
+2. Use the [IIS Websites and Application Pools](/docs/deployment-examples/iis-websites-and-application-pools.md) step to deploy a new instance of your web application into a new Web Site and Application Pool.
   * Use an expression like `MyApp-#{Octopus.Release.CurrentForEnvironment.Number}` for the Web Site Name and Application Pool Name.
   * Configure a binding to `http://localhost:#{Octopus.Action[Calculate port number].Output.Port}`.
 3. Make sure your new instance is warmed up and completely ready to process requests.

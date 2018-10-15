@@ -3,7 +3,7 @@ title: Deploy to a Kubernetes Cluster
 description: Deploy to a Kubernetes cluster.
 position: 10
 ---
-This featured was introduced as a pre-release in Octopus `2018.8`.
+This featured was introduced as a pre-release in **Octopus 2018.8**.
 
 :::warning
 Kubernetes steps in Octopus are of alpha level quality and have been made available for testing and feedback purposes only. They **must not** be used for production deployments, or enabled on production Octopus instances. The information provided here is subject to change at any point, and existing Kubernetes steps will most likely need to be deleted and recreated with Octopus upgrades.
@@ -120,7 +120,7 @@ At the beginning of Phase 4 there are three resources in Kubernetes: the green D
 
 Octopus now updates the Service resource to direct traffic to the blue Deployment resource.
 
-Once the Service resource is updated, any old Deployment resources are deleted. Old Deployment resources are defined as any Deployment resource with an `Octopus.Step.Id` label that matches the Octopus step that was just deployed, a `Octopus.Environment.Id` that matches the environment that was just deployed, and a `Octopus.Deployment.Id` label that does not match the ID of the deployment that was just completed.
+Once the Service resource is updated, any old Deployment, ConfigMap and Secret resources are deleted. Old resources are defined as any Deployment resource with an `Octopus.Step.Id`, `Octopus.Environment.Id` and `Octopus.Deployment.Tenant.Id` label that matches the Octopus step that was just deployed, and a `Octopus.Deployment.Id` label that does not match the ID of the deployment that was just completed.
 
 :::hint
 If the deployment fails at phase 3, the Kubernetes cluster can be left with multiple Deployment resources in a failed state. Because Deployment resources with an `Octopus.Deployment.Id` label that does not match the current deployment are deleted in phase 4, a successful deployment will remove all previously created Deployment resource objects.
@@ -531,6 +531,86 @@ And the following into the `Command arguments` field:
 myservice
 an argument with a space
 ```
+
+#### Security Context
+
+The `Security context` section defines the [container resource security context options](https://g.octopushq.com/KubernetesContainerSecurityContext).
+
+The `Allow privilege escalation` section controls whether a process can gain more privileges than its parent process. Note that this field is implied when the `Privileged` option is enabled.
+
+The `Privileged` section runs the container in privileged mode. Processes in privileged containers are essentially equivalent to root on the host.
+
+The `Read only root file system` section determines whether this container has a read-only root filesystem.
+
+The `Run as non-root` section indicates that the container must run as a non-root user.
+
+The `Run as user` section defines the UID to run the entrypoint of the container process.
+
+The `Run as group` section defines the GID to run the entrypoint of the container process.
+
+### Custom resources YAML
+
+When deploying a Kubernetes Deployment resource, it can be useful to have other Kubernetes resources tied to the Deployment resource lifecycle.
+
+The `Deploy Kubernetes containers` step already deploys ConfigMap and Secret resources in a tightly coupled fashion with their associated Deployment resource. Doing so means the containers in a Deployment resource can reliably reference a ConfigMap or Secret resource during an update, and will not be left in an inconsistent state where a new ConfigMap or Secret resource is referenced by an old Container resource.
+
+Once a Deployment resource is fully deployed and healthy, these old ConfigMap and Secret resources are cleaned up automatically.
+
+There are other resources that benefit from being part of this lifecycle. For example, a NetworkPolicy resource may be created with each deployment selecting the Pod resources that were part of the deployment. Or you may have custom resource definitions that are specific to your own local Kubernetes cluster.
+
+The `Custom resource YAML` section allows additional Kubernetes resources to participate in the lifecycle of the Deployment resource. It works like this:
+
+1. You define the YAML of one or more Kubernetes resources in the code editor. The editor accepts multiple YAML documents separated by a triple dash e.g.
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: test-network-policy
+spec:
+  podSelector:
+    matchLabels:
+      Octopus.Kubernetes.DeploymentName: "#{Octopus.Action.KubernetesContainers.ComputedDeploymentName}"
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - ipBlock:
+        cidr: 172.17.0.0/16
+        except:
+        - 172.17.1.0/24
+    - namespaceSelector:
+        matchLabels:
+          project: myproject
+    - podSelector:
+        matchLabels:
+          role: frontend
+    ports:
+    - protocol: TCP
+      port: 6379
+  egress:
+  - to:
+    - ipBlock:
+        cidr: 10.0.0.0/24
+    ports:
+    - protocol: TCP
+      port: 5978
+---
+apiVersion: v1
+data:
+  allowed: '"true"'
+  enemies: aliens
+  lives: "3"
+kind: ConfigMap
+metadata:
+  name: game-config-env-file
+```
+
+2. During the deployment, each resource will be modified to ensure that it has a unique name, and includes the common labels that are applied to all other resources created as part of the step. For example, the name of NetworkPolicy resource will be changed from the value entered into the YAML of `test-network-policy` something like  `test-network-policy-deployment-1234`. The NetworkPolicy resource will also have labels like `Octopus.Deployment.Id`, `Octopus.Deployment.Tenant.Id`, `Octopus.Environment.Id`, `Octopus.Kubernetes.DeploymentName` and `Octopus.Step.Id` applied. These labels allow Octopus to track the resource across deployments.
+3. Once the deployment has succeeded, any old resources of the kinds that were defined in the `Custom resource YAML` field will be found and deleted. For example, any `NetworkPolicy` or `ConfigMap` resources in the target namespace created by a previous deployment will be deleted.
+
+By creating each custom resource with a unique name and common labels, Octopus will ensure that a new resource is created with each deployment, and old resources are cleaned up. This means that the custom resources are tightly coupled to a Deployment resource, and can be treated as a single deployment.
 
 ### Service
 

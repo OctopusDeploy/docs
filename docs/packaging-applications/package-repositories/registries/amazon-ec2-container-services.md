@@ -29,9 +29,9 @@ Further links for getting your AWS registry set up are available in their [onlin
 Save and test your registry to ensure that the connection is authorized successfully.
 
 ### Previous version of Octopus Deploy
-The first class AWS ECR feed type was provided in `2018.8.0` to handle the ephemeral authorization credentials provided by AWS that [only last 12 hours](http://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html). If you are using an earlier version of Octopus Deploy, you will need to use a standard Docker Feed type.
+The first class AWS ECR feed type was provided in **Octopus 2018.8.0** to handle the ephemeral authorization credentials provided by AWS that [only last 12 hours](http://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html). If you are using an earlier version of Octopus Deploy, you will need to use a standard Docker Feed type.
 
-After configuring your registry in AWS as outlined above you will need to obtain the Docker Feed credentials by manually invoking a command via the aws cli. Details for setting this up can be found in the [aws installation guides](http://docs.aws.amazon.com/cli/latest/userguide/installing.html). With the cli installed, run (with the appropriate region)
+After configuring your registry in AWS as outlined above you will need to obtain the Docker Feed credentials by manually invoking a command via the AWS cli. Details for setting this up can be found in the [AWS installation guides](http://docs.aws.amazon.com/cli/latest/userguide/installing.html). With the cli installed, run (with the appropriate region)
 ```
 aws ecr get-login --region ap-southeast-1
 ```

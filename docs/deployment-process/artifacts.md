@@ -6,8 +6,8 @@ position: 60
 
 Artifacts in Octopus provide a convenient way to collect files from remote machines, and copy them to the Octopus Server, where they can then be viewed from the web interface. Examples of where artifacts may be useful are:
 
-- Collecting log files from other programs
-- Copying configuration files so you can inspect to see if the right values were replaced
+- Collecting log files from other programs.
+- Copying configuration files so you can inspect to see if the right values were replaced.
 
 Artifacts can be collected from anywhere that Octopus runs scripts - for example, the [Script Console](/docs/administration/script-console.md), or [package scripts and script steps](/docs/deployment-examples/custom-scripts/index.md) in a deployment.
 
@@ -30,8 +30,8 @@ You can collect artifacts using any of the scripting languages supported by Octo
 
 From a PowerShell script, you can use the PowerShell CmdLet `New-OctopusArtifact` to collect artifacts. The CmdLet takes two parameters:
 
-- `[string]$path` - the local path to the file that will be made an artifact
-- `[string]$name` - an optional friendly name to give the artifact, usually to distinguish it if collecting multiple artifacts with the same name from different machines. Defaults to the file name in `$path`
+- `[string]$path` - the local path to the file that will be made an artifact.
+- `[string]$name` - an optional friendly name to give the artifact, usually to distinguish it if collecting multiple artifacts with the same name from different machines. Defaults to the file name in `$path`.
 
 For example:
 
@@ -55,7 +55,7 @@ Octopus.CreateArtifact(@"C:\Windows\System32\drivers\etc\hosts", System.Environm
 
 :::hint
 **error CS1501: No overload for method &#39;CreateArtifact&#39; takes 2 arguments.**
-The `fileName` optional parameter was [added](https://github.com/OctopusDeploy/Calamari/commit/2d5a5d27c9a0dc0c623e5e955a370c2b012fbdd4) in Calamari 3.1.24 which shipped as part of Octopus 3.2.12
+The `fileName` optional parameter was [added](https://github.com/OctopusDeploy/Calamari/commit/2d5a5d27c9a0dc0c623e5e955a370c2b012fbdd4) in Calamari 3.1.24 which shipped as part of **Octopus 3.2.12**
 :::
 
 ### Bash {#Artifacts-Bash}

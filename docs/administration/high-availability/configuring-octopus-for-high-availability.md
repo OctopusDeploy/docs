@@ -150,11 +150,11 @@ If you don't have a hardware load balancer available, an easy option is the [App
 
 You may already have an existing Octopus Deploy Server, that you wish to make highly available. The process for doing this is the same as the process above, except your existing server will be the "first node" in the cluster.
 
-1. Provision the shared storage folder
-2. Move the SQL Server database, if necessary
-3. Use the `Octopus.Server.exe path` commands above to tell Octopus to use the shared storage folder
-4. Move the existing task logs, packages and artifacts from the existing Octopus Server node into the shared storage folders
-5. Add the additional nodes and load balancer as required
+1. Provision the shared storage folder.
+2. Move the SQL Server database, if necessary.
+3. Use the `Octopus.Server.exe path` commands above to tell Octopus to use the shared storage folder.
+4. Move the existing task logs, packages and artifacts from the existing Octopus Server node into the shared storage folders.
+5. Add the additional nodes and load balancer as required.
 
 ## Configuring High Availability Polling Tentacles {#ConfiguringOctopusforHighAvailability-ConfiguringHighAvailabilityPollingTentacles}
 
@@ -212,12 +212,12 @@ Sometimes you go to a deployment and there are no steps displayed, and detailed 
 
 To fix this problem you should:
 
-1. Plan some downtime for your Octopus HA cluster
-2. Create shared storage as [described here](#ConfiguringOctopusforHighAvailability-SharedStorage)
-3. Put your Octopus HA cluster into [Maintenance Mode](/docs/administration/upgrading/maintenance-mode.md) after draining tasks from each node
-3. Reconfigure your Octopus HA cluster to use the shared storage
-4. Copy all of the files into the shared storage location - there shouldn't be any filename collisions since each node will generally run independent tasks
-5. Bring your Octopus HA cluster back online
+1. Plan some downtime for your Octopus HA cluster.
+2. Create shared storage as [described here](#ConfiguringOctopusforHighAvailability-SharedStorage).
+3. Put your Octopus HA cluster into [Maintenance Mode](/docs/administration/upgrading/maintenance-mode.md) after draining tasks from each node.
+3. Reconfigure your Octopus HA cluster to use the shared storage.
+4. Copy all of the files into the shared storage location - there shouldn't be any filename collisions since each node will generally run independent tasks.
+5. Bring your Octopus HA cluster back online.
 
 ### Deployment Artifacts Are Not Available For Certain Deployments
 

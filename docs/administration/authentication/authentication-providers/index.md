@@ -4,11 +4,11 @@ description: Authentication options for Octopus Deploy including our internal pr
 position: 1
 ---
 
-In versions of Octopus Deploy up to and including v3.4, two authentication providers are supported. The first is an internal provider (UsernamePassword), where Octopus itself handles identity management.  The second is Active Directory (Domain), where identity management is the responsibility of Active Directory.
+In versions of Octopus Deploy up to and including **Octopus 3.4**, two authentication providers are supported. The first is an internal provider (UsernamePassword), where Octopus itself handles identity management.  The second is Active Directory (Domain), where identity management is the responsibility of Active Directory.
 
 ## Configuring Authentication Providers {#AuthenticationProviders-ConfiguringAuthenticationProviders}
 
-Starting from v3.5, Octopus Deploy also supports two OpenID Connect based providers, Azure AD and GoogleApps, out-of-the-box.  Also starting in v3.5 is support for using multiple authentication providers simultaneously, e.g. you could choose to have UsernamePassword and Azure AD enabled at the same time.  To support this, there are some new command-line options for the configure command.  Examples are as follows:
+Starting from **Octopus 3.5**, Octopus Deploy also supports two OpenID Connect based providers, Azure AD and GoogleApps, out-of-the-box.  Also starting in **Octopus 3.5** is support for using multiple authentication providers simultaneously, e.g. you could choose to have UsernamePassword and Azure AD enabled at the same time.  To support this, there are some new command-line options for the configure command.  Examples are as follows:
 
 ```powershell
 Octopus.Server.exe configure --usernamePasswordIsEnabled=true
@@ -41,19 +41,23 @@ Let's consider that we have UsernamePassword enabled and we create some users, a
 
 This scenario would work equally with Azure AD or GoogleApps in place of Active Directory.
 
-Starting from version 3.17, there is also the ability to specify the details for multiple logins for each user. For example, you could specify that a user can log is as a specific UPN/SamAccountName from Active Directory or that they could login using a specific account/email address using GoogleApps. Whichever option is actually used to login, Octopus will identify them as the same user.
+Starting from **Octopus 3.17**, there is also the ability to specify the details for multiple logins for each user. For example, you could specify that a user can log is as a specific UPN/SamAccountName from Active Directory or that they could login using a specific account/email address using GoogleApps. Whichever option is actually used to login, Octopus will identify them as the same user.
 
 ## Usernames, Email Addresses, UPNs, and External Ids {#AuthenticationProviders-Usernames,emailaddresses,UPNsandExternalIds}
 
-As of v3.5, when users log in to Octopus Deploy, the server will consider more than just their username to determine if they are already a known user.  It will also check their email address and external provider Id.  The external provider Id is the value provided by the external identity managers, e.g. Active Directory, Azure AD or GoogleApps.
+As of **Octopus 3.5**, when users log in to Octopus Deploy, the server will consider more than just their username to determine if they are already a known user.  It will also check their email address and external provider Id.  The external provider Id is the value provided by the external identity managers, e.g. Active Directory, Azure AD or GoogleApps.
 
-In v3.17 the details for the logins listed against users is checked first. If the user cannot be immediately identified then the above fallbacks to email address and username will be checked. If the user is located this way then the login details they just used will be automatically added to the user record, to optimize subsequent logins.
+In **Octopus 3.17** the details for the logins listed against users is checked first. If the user cannot be immediately identified then the above fallbacks to email address and username will be checked. If the user is located this way then the login details they just used will be automatically added to the user record, to optimize subsequent logins.
+
+One of the key drivers for this behavior is a scenario that would catch customers out with Active Directory. If users had their details changed, which could happen for a number of reasons, Octopus would get confused because it only matched on UPN. If the admins changed that Octopus would see the person as a different user and create a new user record, which would often break team membership settings and hours of manual data clean up would be required. For Active Directory Octopus now considers UPN, samAccountName and Email as identifiers for a user and will match on any one of them. So as long as the admins don't go changing all three of those at once it'll still be able to work out who it already knows.
+
+There is a catch here that is worth noting. Octopus assumes these values are unique across users, even if they can change, and relies on this uniqueness to align users. If you have an AD setup where people have multiple accounts for different activities and the accounts share an email address Octopus will see them as one user. To prevent issues you have to either have an email address in AD for only one of the accounts or have unique email addresses specified for each account.
 
 ## Auto Login {#AuthenticationProviders-AutoLogin}
 
 Some of the authentication providers rely on forms style authentication, where the user provides a username and password directly on a form in the Octopus Deploy web application.  Other providers rely on a redirection to an external URL to authenticate the user.  This latter group of providers will, by default, present a link to the user to trigger the redirect to the external URL.
 
-Starting in v3.5, you can also configure Octopus Deploy to automatically redirect to the external URL so the user doesn't have to explicitly click on the link.  This behavior is **not enabled by default**. To enable it, run the following:
+Starting in **Octopus 3.5**, you can also configure Octopus Deploy to automatically redirect to the external URL so the user doesn't have to explicitly click on the link.  This behavior is **not enabled by default**. To enable it, run the following:
 
 ```powershell
 Octopus.Server.exe configure --autoLoginEnabled=true
@@ -64,8 +68,8 @@ Note that even when enabled, **this functionality is only active when there is 
 
 Also, when using the Active Directory provider, this function will only be active when **allowFormsAuthenticationForDomainUsers** is set to **false**.
 
-## OAuth 2.0, OpenID Connect and Octopus
+## OAuth 2.0, OpenID Connect, and Octopus
 
-Octopus Server has 2 methods for identifying users. The first is session cookies, which are returned to the browser after a successful a login and then used in all communications with the server.  The second is API Keys, which are a shared secret that identify the user.
+Octopus Server has two methods for identifying users. The first is session cookies, which are returned to the browser after a successful a login and then used in all communications with the server.  The second is API Keys, which are a shared secret that identify the user.
 
 These mechanisms were not modified with the introduction of the OpenID Connect based authentication providers. Octopus uses the external identity provider only to initially verify the user's identity, and then returns a session cookie to the browser, which means OAuth token expiry and revocation are not currently supported.

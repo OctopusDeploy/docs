@@ -1,7 +1,7 @@
 ---
 title: Custom Scripts
 description: Custom scripts allows you to script anything you want using PowerShell, ScriptCS, F# or Bash.
-position: 10
+position: 50
 ---
 
 As a convention-oriented deployment tool, Octopus can perform a number of actions automatically, such as [managing configuration features](/docs/deployment-process/configuration-features/index.md), creating [IIS websites and application pools](/docs/deployment-examples/iis-websites-and-application-pools.md), and installing [Windows Services](/docs/deployment-examples/windows-services.md). Sometimes however you’ll need to do more than the built-in conventions support – and that’s where custom scripts come in.
@@ -10,7 +10,7 @@ As a convention-oriented deployment tool, Octopus can perform a number of action
 
 :::hint
 **Supported script types**
-Octopus Deploy supports PowerShell scripts (`.ps1`), C# scripts (`.csx`) using [ScriptCS](https://github.com/scriptcs/scriptcs), Bash scripts (`.sh`), and in Octopus 3.4 we introduced support for F# scripts (`.fsx`).
+Octopus Deploy supports PowerShell scripts (`.ps1`), C# scripts (`.csx`) using [ScriptCS](https://github.com/scriptcs/scriptcs), Bash scripts (`.sh`), and in **Octopus 3.4** we introduced support for F# scripts (`.fsx`).
 :::
 
 :::hint
@@ -27,7 +27,7 @@ In your package, you can add any of the following script files in any of the scr
 - `PostDeploy.<ext>`
 - `DeployFailed.<ext>`
 
-After extracting your package, Calamari will detect these scripts and invoke them. Which file you use depends on when you need your custom activity to run – see the section on [what order are conventions run in](/docs/deployment-examples/deploying-packages/package-deployment-feature-ordering.md) for details. Your scripts can do anything your scripting language supports, as well as setting [output variables](/docs/deployment-process/variables/output-variables.md) and [collecting artifacts](/docs/deployment-process/artifacts.md). These scripts must be located in the root of your package.
+After extracting your package, Calamari will detect these scripts and invoke them. Which file you use depends on when you need your custom activity to run – see the section on [what order are conventions run in](/docs/deployment-examples/package-deployments/package-deployment-feature-ordering.md) for details. Your scripts can do anything your scripting language supports, as well as setting [output variables](/docs/deployment-process/variables/output-variables.md) and [collecting artifacts](/docs/deployment-process/artifacts.md). These scripts must be located in the root of your package.
 
 As mentioned above, you can create a file named `DeployFailed.<ext>`, which will be invoked if the package deployment fails. Our blog post about this feature [describes how DeployFailed.<ext> works](https://octopus.com/blog/deployfailed).
 
@@ -140,13 +140,13 @@ In the first form the variable name appears just as they appear in the Octopus w
 
 :::hint
 **$key variable**
-We [fixed an issue](https://github.com/OctopusDeploy/Issues/issues/2329) which was causing a collision with variables called `$key`. You can either rename your variable or update to Octopus 3.3.10 or newer.
+We [fixed an issue](https://github.com/OctopusDeploy/Issues/issues/2329) which was causing a collision with variables called `$key`. You can either rename your variable or update to **Octopus 3.3.10** or newer.
 :::
 
 ## Passing Parameters to Scripts {#Customscripts-Passingparameterstoscripts}
 
 :::hint
-Script parameters are available in Octopus `3.3.21` or newer. You can use script parameters for file-based scripts that are sourced from a package.
+Script parameters are available in **Octopus 3.3.21** or newer. You can use script parameters for file-based scripts that are sourced from a package.
 :::
 
 Octopus can pass parameters to your custom script files for any of the supported scripting languages. This means you can use existing scripts, or write and test your own parameterized scripts that have no knowledge of Octopus, passing Octopus Variables directly to your scripts as parameters. The Octopus scripting API is still available within the context of your script, meaning you can use a mixture of parameters and other Octopus variables and functions.

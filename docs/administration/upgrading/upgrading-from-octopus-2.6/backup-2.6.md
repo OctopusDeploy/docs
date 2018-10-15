@@ -19,15 +19,15 @@ When Octopus is installed, it generates a random string which will be used as th
 
 Making a copy of your master key is easy:
 
-1. Open the **Octopus Manager** from the start menu/start screen
+1. Open the **Octopus Manager** from the start menu/start screen:
 
    ![](/docs/images/backup-2.6/3277161.png "width=500")
 
-2. Click **Copy master key to clipboard...**
+2. Click **Copy master key to clipboard...**:
 
    ![](/docs/images/backup-2.6/3277158.png "width=500")
 
-3. Paste the master key into a text editor or a secure enterprise password manager, and save it
+3. Paste the master key into a text editor or a secure enterprise password manager, and save it:
 
 ## Backup Now
 

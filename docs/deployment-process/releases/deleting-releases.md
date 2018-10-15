@@ -6,7 +6,7 @@ position: 18
 
 Sometimes you may want to delete releases of your project. Maybe they're defective and you don't want them possibly deployed, or you just want to clean up old releases. This page outlines the methods to permanently delete these releases in Octopus.
 
-## Deleting releases
+## Deleting Releases
 
 Deleting individual releases can be done by entering the release page and selecting the `Edit` option in the overflow menu.
 

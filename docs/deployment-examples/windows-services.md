@@ -1,7 +1,7 @@
 ---
 title: Windows Services
 description: Octopus can install, reconfigure, and start Windows Services during deployment, usually without requiring any custom scripts.
-position: 90
+position: 170
 ---
 
 Octopus Deploy includes first class support for Windows Service deployments. Octopus can install, reconfigure, and start Windows Services during deployment, usually without requiring any custom scripts.
@@ -40,7 +40,7 @@ This three minute video (with captions) demonstrates how to deploy a C# Windows 
 
 ## How Does Octopus Actually Deploy my Windows Service? {#WindowsServices-HowdoesOctopusactuallydeploymyWindowsService?}
 
-Out of the box, Octopus will do the right thing to deploy your Windows Service, and the conventions we have chosen will eliminate a lot of problems with file locks, and leaving stale files behind. By default Octopus will follow the conventions described in [Deploying packages](/docs/deployment-examples/deploying-packages/index.md) and apply the different features you select in the order described in [Package deployment feature ordering](/docs/deployment-examples/deploying-packages/package-deployment-feature-ordering.md).
+Out of the box, Octopus will do the right thing to deploy your Windows Service, and the conventions we have chosen will eliminate a lot of problems with file locks, and leaving stale files behind. By default Octopus will follow the conventions described in [Deploying packages](/docs/deployment-examples/package-deployments/index.md) and apply the different features you select in the order described in [Package deployment feature ordering](/docs/deployment-examples/package-deployments/package-deployment-feature-ordering.md).
 
 :::success
 Avoid using the [Custom Installation Directory](/docs/deployment-process/configuration-features/custom-installation-directory.md) feature unless you are absolutely required to put your packaged files into a specific physical location on disk.
@@ -48,15 +48,15 @@ Avoid using the [Custom Installation Directory](/docs/deployment-process/configu
 
 As an approximation including the Windows Service manager integration:
 
-1. Acquire the package as optimally as possible (local package cache and [delta compression](/docs/deployment-examples/deploying-packages/delta-compression-for-package-transfers.md))
+1. Acquire the package as optimally as possible (local package cache and [delta compression](/docs/deployment-examples/package-deployments/delta-compression-for-package-transfers.md)).
 2. Stop your Windows Service is already running. Ensure that the user account running the Octopus Tentacle has the appropriate permissions to start\stop the Windows Service or this step may fail.
-3. Create a new folder for the deployment (which avoids many common problems like file locks, and leaving stale files behind)
-4. Example: `C:\Octopus\Applications\[Tenant name]\[Environment name]\[Package name]\[Package version]\` where `C:\Octopus\Applications` is the Tentacle application directory you configured when installing Tentacle)
-5. Extract the package into the newly created folder
-6. Execute each of your [custom scripts](/docs/deployment-examples/custom-scripts/index.md) and the [deployment features](/docs/deployment-examples/index.md) you've configured will be executed to perform the deployment [following this order by convention](/docs/deployment-examples/deploying-packages/package-deployment-feature-ordering.md).
-7. As part of this process Windows Service will be created, or reconfigured if it already exists, including updating the **binPath** to point to this folder and your executable entry point
-8. If the `Start mode` is `Automatic` or `Automatic (delayed)`, your Windows Service will be started
-9. [Output variables](/docs/deployment-process/variables/output-variables.md) and deployment [artifacts](/docs/deployment-process/artifacts.md) from this step are sent back to the Octopus Server
+3. Create a new folder for the deployment (which avoids many common problems like file locks, and leaving stale files behind).
+4. Example: `C:\Octopus\Applications\[Tenant name]\[Environment name]\[Package name]\[Package version]\` where `C:\Octopus\Applications` is the Tentacle application directory you configured when installing Tentacle).
+5. Extract the package into the newly created folder.
+6. Execute each of your [custom scripts](/docs/deployment-examples/custom-scripts/index.md) and the [deployment features](/docs/deployment-examples/index.md) you've configured will be executed to perform the deployment [following this order by convention](/docs/deployment-examples/package-deployments/package-deployment-feature-ordering.md)..
+7. As part of this process Windows Service will be created, or reconfigured if it already exists, including updating the **binPath** to point to this folder and your executable entry point.
+8. If the `Start mode` is `Automatic` or `Automatic (delayed)`, your Windows Service will be started.
+9. [Output variables](/docs/deployment-process/variables/output-variables.md) and deployment [artifacts](/docs/deployment-process/artifacts.md) from this step are sent back to the Octopus Server.
 
 :::success
 You can see exactly how Octopus deploys your Windows Service by looking at the scripts in our open-source [open-source Calamari](https://github.com/OctopusDeploy/Calamari) project which actually performs the deployment:
@@ -64,7 +64,7 @@ You can see exactly how Octopus deploys your Windows Service by looking at the s
 - [Octopus.Features.WindowsService\_AfterPreDeploy.ps1](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari/Scripts/Octopus.Features.WindowsService_AfterPreDeploy.ps1)
 - [Octopus.Features.WindowsService\_BeforePostDeploy.ps1](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari/Scripts/Octopus.Features.WindowsService_BeforePostDeploy.ps1)
 
-You can inject your own logic into this process using [custom scripts](/docs/deployment-examples/custom-scripts/index.md) and understanding where your scripts will execute in the context of [package deployment feature ordering](/docs/deployment-examples/deploying-packages/package-deployment-feature-ordering.md).
+You can inject your own logic into this process using [custom scripts](/docs/deployment-examples/custom-scripts/index.md) and understanding where your scripts will execute in the context of [package deployment feature ordering](/docs/deployment-examples/package-deployments/package-deployment-feature-ordering.md).
 :::
 
 If your step's `Start mode` is not set to `Automatic` or `Automatic (delayed)`, Octopus will not start your service. You can choose to start the service by adding a `PostDeploy` script, for example:
@@ -141,7 +141,7 @@ Test-Privilege -Identity #{ServiceAccountName} -Privilege SeServiceLogonRight
 Test-Privilege -Identity #{ServiceAccountName} -Privilege SeBatchLogonRight
 # Returns False
 
-Grant-Privilege -Identiy #{BatchAccountName} -Privilege SeBatchLogonRight
+Grant-Privilege -Identity #{BatchAccountName} -Privilege SeBatchLogonRight
 # May not return anything
 
 Test-Privilege -Identity #{ServiceAccountName} -Privilege SeBatchLogonRight
@@ -157,9 +157,9 @@ Test-Privilege -Identity #{ServiceAccountName} -Privilege SeBatchLogonRight
 
 To configure the Windows Service to use a Managed Service Account:
 
-1. Set the **Service account** to **Custom user...**
-2. Enter the domain name and username, **making sure to append a $ to the username** as shown below
-3. Bind the **Custom account password** to an **empty value** to ensure no password is set for this account - after all, we want the password managed by the server, not us!
+1. Set the **Service account** to **Custom user...**.
+2. Enter the domain name and username, **making sure to append a $ to the username** as shown below.
+3. Bind the **Custom account password** to an **empty value** to ensure no password is set for this account - after all, we want the password managed by the server, not us.
 
 ![](/docs/images/3048082/5865840.png "width=500")
 

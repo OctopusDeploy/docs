@@ -34,12 +34,12 @@ Depending on your familiarity with Octopus Server, or SQL Server, or networking,
 
 ## Harden Your Octopus Server
 
-1. Upgrade to the latest version
+1. Upgrade to the latest version.
 1. Securely expose your Octopus Server to your users, infrastructure, and external services
-    a. Use HTTPS over SSL
-    b. Configure HTTP security
-1. Configure your workers
-1. Configure the way Octopus Server communicates with deployment targets
+    a. Use HTTPS over SSL.
+    b. Configure HTTP security.
+1. Configure your workers.
+1. Configure the way Octopus Server communicates with deployment targets.
 
 ### Upgrade to the Latest Version
 
@@ -78,14 +78,14 @@ The decisions you need to make are:
 
 These steps apply to the host operating system for your Octopus Server. You may want to consider similar hardening for your [deployment targets](/docs/infrastructure/index.md) and any [workers](/docs/administration/workers/index.md).
 
-1. Rename local administrator account
-1. Configure malware protection
-1. Prevent user-provided scripts from doing harm
-    a. Run workers under a different security context
-    a. Prevent unwanted file access
-    a. Prevent unwanted file execution
-    a. Prevent creating scheduled tasks
-1. Configure your operating system firewall - see [harden your network](#harden-your-network)
+1. Rename local administrator account.
+1. Configure malware protection.
+1. Prevent user-provided scripts from doing harm.
+    a. Run workers under a different security context.
+    a. Prevent unwanted file access.
+    a. Prevent unwanted file execution.
+    a. Prevent creating scheduled tasks.
+1. Configure your operating system firewall - see [harden your network](#harden-your-network).
 
 ### Rename Local Administrator Accounts
 
@@ -248,7 +248,7 @@ The TCP ports listed below are defaults, and can be changed if required - refer 
 |Name|Type|Source|Target|Allow/Deny|Description|
 |---|---|---|---|---|---|
 |Listening Tentacle|`TCP 10933`|Octopus Server|Listening Tentacles|ALLOW|Required when using [Listening Tentacles](/docs/infrastructure/windows-targets/tentacle-communication.md#listening-tentacles-recommended) as deployment targets or external workers.|
-|MS SQL|`TCP 1443`|Octopus Server|SQL Server|ALLOW|Allows Octopus Server to connect to its SQL Server database.|
+|MS SQL|`TCP 1433`|Octopus Server|SQL Server|ALLOW|Allows Octopus Server to connect to its SQL Server database.|
 |SMB|`TCP 445`|Octopus Server|Anywhere|DENY|Prevents attackers from spreading malware via known SMB vulnerabilities.|
 |RDP|`TCP 3389`|Octopus Server|Anywhere|DENY|Prevents attackers from using the Octopus Server as a beachhead into your network via RDP.|
 |WinRM-HTTP|`TCP 5985`|Octopus Server|Anywhere|DENY|Prevents attackers from using the Octopus Server as a beachhead into your network via unsecured WinRM.|

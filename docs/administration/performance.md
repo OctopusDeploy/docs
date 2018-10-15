@@ -26,7 +26,7 @@ Routine maintenance can help your Octopus keep running at optimum performance an
 
 We are continually working to make Octopus perform better, and we will always recommend [upgrading to the latest version](/docs/administration/upgrading/index.md) whenever asked about performance. We generally tag [performance-related issues in our GitHub repository](https://github.com/OctopusDeploy/Issues/issues?q=label%3Afeature%2Fperformance) so you can see which performance improvements have been added in each version of Octopus.
 
-As an example, many customers have reported speed improvements of 50-90% for their deployments after upgrading from an early version of Octopus 3.x to the latest version.
+As an example, many customers have reported speed improvements of 50-90% for their deployments after upgrading from an early version of **Octopus 3.x** to the latest version.
 
 ### Retention Policies
 
@@ -49,23 +49,23 @@ You may not need to keep the entire history of releases - we record the entire h
 
 Octopus Servers do quite a lot of work during deployments, mostly around package acquisition:
 
-- Downloading packages from the package source (network-bound)
-- Verifying package hashes (CPU-bound)
-- Calculating deltas between packages for [delta compression](/docs/deployment-examples/deploying-packages/delta-compression-for-package-transfers.md) (I/O-bound and CPU-bound)
-- Uploading packages to deployment targets (network-bound)
-- Monitoring deployment targets for job status, and collecting logs
+- Downloading packages from the package source (network-bound).
+- Verifying package hashes (CPU-bound).
+- Calculating deltas between packages for [delta compression](/docs/deployment-examples/package-deployments/delta-compression-for-package-transfers.md) (I/O-bound and CPU-bound).
+- Uploading packages to deployment targets (network-bound).
+- Monitoring deployment targets for job status, and collecting logs.
 
 At some point your server hardware is going to limit how many of these things a single Octopus Server can do concurrently. If a server over commits itself and hits these limits, timeouts (network or SQL connections) will begin to occur, and deployments can begin to fail. Above all else, your deployments should be repeatable and reliable.
 
 We offer three options for scaling your Octopus Server:
 
-- scale up by controlling the **task cap** and providing more server resources as required
-- scale out using [Octopus High Availability](/docs/administration/high-availability/index.md)
-- scale out using [Workers](/docs/administration/workers/index.md)
+- scale up by controlling the **task cap** and providing more server resources as required.
+- scale out using [Octopus High Availability](/docs/administration/high-availability/index.md).
+- scale out using [Workers](/docs/administration/workers/index.md).
 
 We are planning a fourth option for scaling your Octopus Server:
 
-- dividing up your Octopus environment using [Spaces](https://octopus.com/blog/octopus-spaces-blog-series-kick-off) - currently planned for release in Octopus 2018.11.0.
+- dividing up your Octopus environment using [Spaces](https://octopus.com/blog/octopus-spaces-blog-series-kick-off) - currently planned for release in **Octopus 2018.11.0**.
 
 ### Task Cap
 
@@ -105,12 +105,12 @@ Follow these tips to tune and maintain the performance of your Octopus:
     - You can configure how many tasks from the task queue will run at the same time on any given Octopus Server node by going to {{Configuration>Nodes}}. The default task cap is `5` (safe-by-default). You can increase this cap to push your Octopus to work harder.
     - Learn about [tuning your deployment processes for performance](/docs/deployment-process/performance.md).
 1. Consider how you transfer your packages: {#package-transfer}
-    - If network bandwidth is the limiting factor, consider using [delta compression for package transfers](/docs/deployment-examples/deploying-packages/delta-compression-for-package-transfers.md).
+    - If network bandwidth is the limiting factor, consider using [delta compression for package transfers](/docs/deployment-examples/package-deployments/delta-compression-for-package-transfers.md).
     - If network bandwidth is not a limiting factor, consider using a custom package feed close to your deployment targets, and download the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
-    - If Octopus Server CPU and disk IOPS is a limiting factor, avoid using [delta compression for package transfers](/docs/deployment-examples/deploying-packages/delta-compression-for-package-transfers.md). Instead, consider downloading the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
+    - If Octopus Server CPU and disk IOPS is a limiting factor, avoid using [delta compression for package transfers](/docs/deployment-examples/package-deployments/delta-compression-for-package-transfers.md). Instead, consider downloading the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
 1. Consider the size of your packages:
     - Larger packages require more network bandwidth to transfer to your deployment targets.
-    - When using [delta compression for package transfers](/docs/deployment-examples/deploying-packages/delta-compression-for-package-transfers.md), larger packages require more CPU and disk IOPS on the Octopus Server to calculate deltas - this is a tradeoff you can determine through testing.
+    - When using [delta compression for package transfers](/docs/deployment-examples/package-deployments/delta-compression-for-package-transfers.md), larger packages require more CPU and disk IOPS on the Octopus Server to calculate deltas - this is a tradeoff you can determine through testing.
 1. Consider the size of your Task Logs: {#tip-task-logs}
     - Larger task logs put the entire Octopus pipeline under more pressure.
     - We recommend printing messages required to understand progress and deployment failures. The rest of the information should be streamed to a file, then published as a deployment [artifact](/docs/deployment-process/artifacts.md).

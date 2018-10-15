@@ -5,7 +5,7 @@ position: 11
 ---
 
 :::hint
-**Reporting in Octopus 3.1+**
+**Reporting in Octopus 3.1**+.
 Also take a look at the [Reporting features we shipped as part of Octopus 3.1](/docs/administration/reporting/index.md) which provides reporting optimized views of the live deployment data, no longer requiring an XML export.
 :::
 
@@ -13,9 +13,9 @@ Ever wonder how many deployments you did this month? In this page, we'll help y
 
 At a high-level, the steps are:
 
-1. Export all deployments to an XML file
-2. Import the XML file in Excel
-3. Report on the data using a pivot table
+1. Export all deployments to an XML file.
+2. Import the XML file in Excel.
+3. Report on the data using a pivot table.
 
 ![](/docs/images/3048153/3278122.png "width=500")
 
@@ -77,7 +77,7 @@ This file is now ready to be imported into Excel.
 
 Now that we have an XML file containing our deployments, we can import it into Microsoft Excel. In this example we are using Excel 2013.
 
-1. Open Microsoft Excel, and create a new, blank workbook
+1. Open Microsoft Excel, and create a new, blank workbook.
 2. On the **Data** ribbon tab, click **From Other Sources**, then choose **From XML Data Import**. 
 
    ![](/docs/images/3048153/3278132.png "width=500")
@@ -134,6 +134,6 @@ Finally, don't forget to add pretty graphs!
 **Limitations**
 There are two major limits to this approach to be aware of:
 
-1. As you have seen, only a small amount of data is available for use for reporting
-2. If you use [retention policies](/docs/administration/retention-policies/index.md), releases and deployments that have been deleted by the retention policy will also not be available for reporting
+1. As you have seen, only a small amount of data is available for use for reporting.
+2. If you use [retention policies](/docs/administration/retention-policies/index.md), releases and deployments that have been deleted by the retention policy will also not be available for reporting.
 :::

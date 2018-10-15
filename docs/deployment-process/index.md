@@ -50,7 +50,7 @@ Learn more about [Lifecycles](/docs/deployment-process/lifecycles/index.md).
 
 ## Deployment Steps
 
-Steps are the actions your deployment process will execute each time your software is deployed.
+Steps contain the actions your deployment process will execute each time your software is deployed.
 
 Deployment processes can have one or many steps, steps can run in sequence or parallel, in addition to a variety of deployment steps, you can include manual intervention steps to get sign off before deployment, email notification steps to keep everybody informed about your process, or even skip steps under different circumstances.
 
@@ -68,7 +68,13 @@ Octopus supports variables to make it easier to define application settings for 
 
 Learn more about [variables](/docs/deployment-process/variables/index.md).
 
-## Releases and Deploying
+## Conditions
+
+You can specify run conditions on the steps that you define to give you greater control over the deployment process.
+
+Learn more about [conditions](/docs/deployment-process/conditions/index.md).
+
+## Deploying Releases
 
 In Octopus you create releases to be deployed. Projects have multiple releases and releases can be deployed multiple times to across different infrastructure.
 

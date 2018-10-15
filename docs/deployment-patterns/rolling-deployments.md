@@ -49,7 +49,7 @@ Octopus has numerous steps that support rolling deployments depending on your in
 - Send an Email step
 - Manual intervention required step
 - Run an Azure PowerShell Script step
-- Deploy an Azure Resource Group step
+- Deploy an Azure Resource Manager template step
 - Run a Service Fabric SDK PowerShell Script step
 
 ![](rolling-deployments-package-type.png "width=500")

@@ -18,7 +18,7 @@ Upload your NuGet package to the Octopus [built-in package repository](/docs/pac
 
 ## Create an Account {#GettingstartedwithAzureCloudServices-Createanaccount}
 
-To set up a new Azure Management Certificate account, follow the directions in [Creating an Azure Management Certificate  Account](/docs/infrastructure/azure/creating-an-azure-account/creating-an-azure-management-certificate-account.md).
+To set up a new Azure Management Certificate account, follow the directions in [Creating an Azure Management Certificate  Account](/docs/infrastructure/azure/index.md#azure-management-certificate).
 
 ## Create an Environment {#GettingstartedwithAzureCloudServices-Createanenvironment}
 
@@ -32,7 +32,7 @@ Now have the NuGet package we want to deploy, the account we are going to use fo
 
 ![Create project](create-project.png "width=500")
 
-In the project's process add a new Deploy an Azure Cloud Service step.
+In the project's process add a new Deploy an Azure Cloud Service step:
 
 ![Cloud Service step template](../../../images/5671696/5865904.png "width=170")
 

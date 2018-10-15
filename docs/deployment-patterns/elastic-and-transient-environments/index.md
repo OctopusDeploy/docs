@@ -4,7 +4,7 @@ description: Elastic and transient environments are a group of features that fac
 position: 6
 ---
 
-The features in this section were introduced in `Octopus 3.4`.
+The features in this section were introduced in **Octopus 3.4**.
 
 Elastic and transient environments is a group of features to facilitate deploying to machines that are intermittently available for deployment.
 

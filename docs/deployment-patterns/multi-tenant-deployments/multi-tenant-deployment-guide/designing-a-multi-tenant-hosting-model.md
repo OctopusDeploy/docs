@@ -12,15 +12,15 @@ This page describes how to design and implement both **dedicated** and **shared*
 **Tenanted and untenanted deployments**
 In this section we will focus on tenanted deployments, but untenanted deployments deserve some explanation with regards to hosting. Untenanted deployments provide a way for you to start introducing tenants into your existing Octopus configuration. An untenanted deployment is just like good old Octopus - a deployment to an environment **without** a tenant. Octopus decides which deployment targets to include in a deployment like this:
 
-- **Tenanted deployments** will use **matching tenanted deployment targets**
-- **Untenanted deployments** will only use **untenanted deployment targets**
+- **Tenanted deployments** will use **matching tenanted deployment targets**.
+- **Untenanted deployments** will only use **untenanted deployment targets**.
 
 We talk more about tenanted and untenanted deployments in [Deploying a simple multi-tenant project](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md).
 :::
 
 :::warning
 **Mixing tenanted and untenanted deployments on the same machine**
-In Octopus 3.4 you cannot mix tenanted and untenanted deployments on the same machine(s). This was a design decision we made based on feedback and testing during the Octopus 3.4 beta program - to be safe by default. We are planning to implement some features to enable mixing and matching both tenanted and untenanted deployments on the same machine, and you can get involved by following this [GitHub Issue](https://github.com/OctopusDeploy/Issues/issues/2722).
+In **Octopus 3.4** you cannot mix tenanted and untenanted deployments on the same machine(s). This was a design decision we made based on feedback and testing during the **Octopus 3.4** beta program - to be safe by default. We are planning to implement some features to enable mixing and matching both tenanted and untenanted deployments on the same machine, and you can get involved by following this [GitHub Issue](https://github.com/OctopusDeploy/Issues/issues/2722).
 
 In the meantime you can work around this by creating a single dummy tenant for your untenanted project as described in that GitHub Issue.
 :::
@@ -29,8 +29,8 @@ In the meantime you can work around this by creating a single dummy tenant for y
 
 The hosting model you want to achieve will vary depending on your application, your customers and your sales model. Instead of trying to cover every scenario, we will cover some of the most common scenarios:
 
-- **Dedicated hosting**: where you create new dedicated servers for each customer
-- **Shared hosting**: where you create farms or pools of servers to host all of your customers achieving higher density
+- **Dedicated hosting**: where you create new dedicated servers for each customer.
+- **Shared hosting**: where you create farms or pools of servers to host all of your customers achieving higher density.
 
 ## How Octopus Deploy Chooses Deployment Targets for a Tenanted Deployment
 
@@ -86,8 +86,8 @@ These deployment targets will now be included in deployments for any tenants mat
 
 Now let's select some tenants that should be hosted on **Shared-Farm-1**:
 
-1. Create some new tenants (or find existing ones) and tag them with **Hosting/Shared-Farm-1**
-   **![](/docs/images/5669555/5865744.png "width=500")**
+1. Create some new tenants (or find existing ones) and tag them with **Hosting/Shared-Farm-1**:
+   ![](/docs/images/5669555/5865744.png "width=500")
 
 ### Step 4: Deploy
 

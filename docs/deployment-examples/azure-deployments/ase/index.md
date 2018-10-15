@@ -21,11 +21,11 @@ Given that you can't access the app, or its management endpoint (Kudu), from the
 5. Calamari locates the web app within the resource group and requests its publish profile from Azure.
 6. Calamari then hands over to the [DeploymentManager](https://msdn.microsoft.com/en-us/library/microsoft.web.deployment.deploymentmanager(v=vs.90).aspx).[SyncTo](https://msdn.microsoft.com/en-us/library/dd543271(v=vs.90).aspx) method to actually do the deployment.
 
-Contained in the publish profile is the Uri of the deployment endpoint (Kudu) for the web app. This is the critical piece here.
+Contained in the publish profile is the URI of the deployment endpoint (Kudu) for the web app. This is the critical piece here.
 
-For an external ASE that Uri will be publicly accessible (e.g. https://yourapp.scm.aseName.p.azurewebsites.net).
+For an external ASE that URI will be publicly accessible (e.g. https://yourapp.scm.aseName.p.azurewebsites.net).
 
-For an internal ASE the Uri will not be publicly accessible, it will be something like https://yourapp.scm.yourdomain  This is where the deployments will fail, they will be able to see all of the other Urls required but when they get to step 6 Octopus won't be able to resolve the address for the Uri.
+For an internal ASE the URI will not be publicly accessible, it will be something like https://yourapp.scm.yourdomain  This is where the deployments will fail, they will be able to see all of the other Urls required but when they get to step 6 Octopus won't be able to resolve the address for the URI.
 
 To fix that you need 2 things to happen. First, the network the Octopus Server is on has to be connected to the ASE's VNet, e.g. using ExpressRoute or a VPN. Second, the Octopus Server needs to be able to resolve `yourapp.scm.yourdomain` to the Internal Load Balancer IP address of your Azure ILB (found in the **IP addresses** for the ASE in the Azure portal), e.g. through DNS configuration.
 
@@ -39,4 +39,4 @@ Usually when you create a web app in Azure its name must be unique. This isn't t
 
 This is the reason why you see a resource group and a web app name when using binding on the Octopus Web App step, we need the resource group to differentiate web apps with the same name. When you aren't using binding the drop down list is doing this too behind the scenes.
 
-This is also why using a [principal of least privilege on a Service Principal](/docs/infrastructure/azure/creating-an-azure-account/creating-an-azure-service-principal-account.md#note_on_lease_privilege) is a little complicated.
+This is also why using a [principal of least privilege on a Service Principal](/docs/infrastructure/azure/index.md#note_on_lease_privilege) is a little complicated.

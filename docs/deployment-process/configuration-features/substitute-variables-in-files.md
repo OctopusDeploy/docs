@@ -15,7 +15,7 @@ You can perform very complex transformations in any kind of file using this feat
 
 The following example shows you how to use the Substitute Variables in Files feature to provide a different login form to the different environments you're deploying to, in this example we're deploying to a **Test** and **Production** environment.
 
-1. Create the login variable in Octopus. From the [project](/docs/deployment-process/projects/index.md) overview page, click **Variables**.
+1. Create the login variable in Octopus. From the: [project](/docs/deployment-process/projects/index.md) overview page, click **Variables**.
   - Enter a the name for the variable, for instance, *LoginURL*.
   - Enter the value for the variable, for instance, *https://test.example.com/login*.
   - Scope the variable to the environment, for instance, *Test*.
@@ -43,7 +43,7 @@ The following example shows you how to use the Substitute Variables in Files fea
 
 When you return to your deployment process, you will see the **Substitute Variables in Files** option has been added to the **Features** section of the deployment process.
 
-7. Add the [step](/docs/deployment-process/steps/index.md) details.
+7. Add the [step](/docs/deployment-process/steps/index.md) details:
   - Enter a name for the step.
   - Select the targets where the step should run.
   - Select the [package feed](/docs/packaging-applications/package-repositories/index.md) where the [package](/docs/packaging-applications/index.md) will be available.
@@ -65,7 +65,7 @@ Now, when the application is deployed to your **test** and **production** enviro
 From here you can use the project overview menu to continue defining your process, or click **CREATE RELEASE** to create a [release](/docs/deployment-process/releases/index.md) and deploy your application.
 
 :::warning
-If you include a configuration file that you are also doing a [transformation](/docs/deployment-process/configuration-features/configuration-transforms.md) and [variable](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) swap on, the variable change will run under the 'substitute variables in files' before the transformation as defined in the [package deployment feature ordering](/docs/deployment-examples/deploying-packages/package-deployment-feature-ordering.md) process.
+If you include a configuration file that you are also doing a [transformation](/docs/deployment-process/configuration-features/configuration-transforms.md) and [variable](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) swap on, the variable change will run under the 'substitute variables in files' before the transformation as defined in the [package deployment feature ordering](/docs/deployment-examples/package-deployments/package-deployment-feature-ordering.md) process.
 :::
 
 :::warning
@@ -101,5 +101,5 @@ environment.name=PROD
 ```
 
 :::hint
-The Spring expression language also uses the `#{}` syntax so you need to double encode any non-Octopus variables. i.e. `##{MyVariable}`
+The Spring expression language also uses the `#{}` syntax so you need to double encode any non-Octopus variables. i.e. `##{MyVariable}`.
 :::

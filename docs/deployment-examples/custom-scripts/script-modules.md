@@ -8,11 +8,11 @@ Script modules allow users to create *PowerShell functions* or *Cmdlets* that c
 
 ## Creating a Script Module {#ScriptModules-CreatingaScriptmodule}
 
-1.  Click on {{Library,Script Modules,Add Script Module}}
+1.  Click on {{Library,Script Modules,Add Script Module}}:
 
 ![](script-modules-add.png "width=500")
 
-2.  Name your new Script Module and click on **Save**
+2.  Name your new Script Module and click on **Save**:
 
 ![](script-modules-new.png "width=500")
 
@@ -93,5 +93,5 @@ To create a new `Script module` requires the `LibraryVariableSetCreate` permissi
 
 To view an existing `Script module` requires the `LibraryVariableSetView`, `VariableView` and `VariableViewUnscoped` permissions.
 
-To edit an existing `Script module` requires the `LibraryVariableSetEdit`permission.
+To edit an existing `Script module` requires the `LibraryVariableSetEdit` permission.
 :::

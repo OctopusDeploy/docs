@@ -19,9 +19,9 @@ In pre-deploy scripts:
 In post-deploy scripts:
 
 - `$OctopusParameters['Octopus.Action.Package.CustomInstallationDirectory']`will be the path to where the contents of the package has been copied to.
-- `$OctopusParameters['Octopus.Action.Output.Package.InstallationDirectoryPath']`will be the same as the above
-- `$OctopusParameters['OctopusOriginalPackageDirectoryPath']` will be where the contents of the package has been extracted
-- The working directory for the Tentacle is the final destination for the contents of the package, either `$OctopusParameters['Octopus.Action.Output.Package.InstallationDirectoryPath']`, or if it's been specified `$OctopusParameters['Octopus.Action.Package.CustomInstallationDirectory']`
+- `$OctopusParameters['Octopus.Action.Output.Package.InstallationDirectoryPath']`will be the same as the above.
+- `$OctopusParameters['OctopusOriginalPackageDirectoryPath']` will be where the contents of the package has been extracted.
+- The working directory for the Tentacle is the final destination for the contents of the package, either `$OctopusParameters['Octopus.Action.Output.Package.InstallationDirectoryPath']`, or if it's been specified `$OctopusParameters['Octopus.Action.Package.CustomInstallationDirectory']`.
 
 So if you want to reference `file.txt` in `subfolder` within the package, you could do the following:
 

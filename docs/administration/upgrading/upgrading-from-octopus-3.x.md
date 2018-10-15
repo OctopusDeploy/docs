@@ -31,7 +31,7 @@ You should also consider how long the actual upgrade may take:
 
 Upgrading the Octopus Deploy Server is easy, you will just need to follow these steps:
 
-1. Schedule a maintenance window: Octopus Server will be unavailable during the upgrade (unless you are [upgrading Octopus HA](#upgrading-octopus-ha))
+1. Schedule a maintenance window: Octopus Server will be unavailable during the upgrade (unless you are [upgrading Octopus HA](#upgrading-octopus-ha)).
 1. Switch your server to [Maintenance Mode](/docs/administration/upgrading/maintenance-mode.md) and wait until all current tasks and deployments have completed. This ensures that no further changes will be made that may potentially become lost if the upgrade fails and you need to rollback.
 
     ![](/docs/images/3048440/5865775.png "width=500")
@@ -56,7 +56,7 @@ Once you have downloaded the required version of the Octopus Server MSI no furth
 
 :::success
 **No need to upgrade the Tentacle**
-Given that the deployment code is now embedded within Calamari, and this gets pushed out automatically as needed by the Octopus Deploy Server, you no longer need be concerned about ensuring the version number between Tentacle and Server remain in lockstep. Builds of the Server and the Tentacle are no longer in sync as of Octopus Deploy 3.14, and Octopus Server v3.x is compatible with all Tentacle 3.x versions. We hope splitting the Tentacle helps relieve some of the hassle and friction involved with upgrading Octopus and provides better communication about changes to Tentacle.
+Given that the deployment code is now embedded within Calamari, and this gets pushed out automatically as needed by the Octopus Deploy Server, you no longer need be concerned about ensuring the version number between Tentacle and Server remain in lockstep. Builds of the Server and the Tentacle are no longer in sync as of **Octopus 3.14**, and **Octopus 3.x** is compatible with all **Tentacle 3.x** versions. We hope splitting the Tentacle helps relieve some of the hassle and friction involved with upgrading Octopus and provides better communication about changes to Tentacle.
 :::
 
 ## Upgrading Octopus HA {#upgrading-octopus-ha}
@@ -71,14 +71,14 @@ It is important to upgrade all nodes in your cluster during the same maintenance
 
 Follow these steps to upgrade each node in your cluster:
 
-1. Go to the {{Configuration>Nodes}} page
-1. Set Drain to `ON` for the node you want to upgrade
+1. Go to the {{Configuration>Nodes}} page.
+1. Set Drain to `ON` for the node you want to upgrade.
 
     ![](/docs/images/3048440/5865778.png "width=500")
 
-1. Wait until all the running tasks complete
-1. Upgrade the Octopus Server instance on the node
-1. Set Drain to `OFF` so the node starts processing tasks again
+1. Wait until all the running tasks complete.
+1. Upgrade the Octopus Server instance on the node.
+1. Set Drain to `OFF` so the node starts processing tasks again.
 
 ## Upgrading Calamari {#UpgradingfromOctopus3.x-UpgradingCalamariUpgradingCalamari}
 
@@ -102,14 +102,14 @@ The environments page will make machines without latest Calamari yellow, and sho
 
 **Upgrading Octopus Tentacles**
 
-The role of Tentacles has changed in Octopus 3.x. Tentacles in 3.x are only responsible for the secure communication protocol, and then calling Calamari to actually perform deployments. This means Tentacle only needs to change when we change some part of the secure communication protocol (hopefully very infrequently).
+The role of Tentacles has changed in **Octopus 3.x**. Tentacles in 3.x are only responsible for the secure communication protocol, and then calling Calamari to actually perform deployments. This means Tentacle only needs to change when we change some part of the secure communication protocol (hopefully very infrequently).
 
 :::hint
 **Why have there been so many different versions of Tentacle 3.x?**
 In early versions of 3.x we have been rebuilding Tentacle in lock-step with Octopus Server due to shared dependencies in their project structure even though there have not been any changes to Tentacle itself. We hope to unlock these in the near future.
 :::
 
-Octopus 3.1 supports automatically updating Tentacles via the Environments page. You can upgrade all Tentacles which will systematically work through all Machines in all Environments in batches until all Tentacles are upgraded.
+**Octopus 3.1** supports automatically updating Tentacles via the Environments page. You can upgrade all Tentacles which will systematically work through all Machines in all Environments in batches until all Tentacles are upgraded.
 
 ![](/docs/images/3048440/3278436.png "width=500")
 
@@ -130,31 +130,31 @@ Summary: Tentacle was upgraded from .NET 4.0 to .NET 4.5 to enable TLS 1.2.
 **You can upgrade to Octopus Server 3.1 without upgrading any Tentacles and get all of the new 3.1 deployment features because Calamari will continue to work on both Tentacle 3.0 and 3.1.**
 :::
 
-This is the first version of Octopus 3.x where there has been a Tentacle upgrade and it has caused some confusion. This section aims to answer some of the most commonly asked questions about upgrading to Octopus 3.1 and the impact on Tentacles.
+This is the first version of **Octopus 3.x** where there has been a Tentacle upgrade and it has caused some confusion. This section aims to answer some of the most commonly asked questions about upgrading to Octopus 3.1 and the impact on Tentacles.
 
 **Am I required to upgrade to Tentacle 3.1?**
-No, you aren't required to upgrade to Tentacle 3.1. Tentacle 3.0 will still work and benefit from the latest version of Calamari and all of the deployment features we shipped in Octopus 3.1.
+No, you aren't required to upgrade to Tentacle 3.1. Tentacle 3.0 will still work and benefit from the latest version of Calamari and all of the deployment features we shipped in **Octopus 3.1**.
 
 **What changed with Tentacle 3.1?**
 The Octopus-Tentacle communication protocol in 3.1 can use TLS 1.2 which requires .NET 4.5 to be installed on the server.
 
 **When should I upgrade to Tentacle 3.1?**
-We recommend upgrading to Tentacle 3.1 as soon as you are able. Upgrading Tentacles in Octopus 3.1 is automated and can be done through the Environments page. The main benefit you'll get is the Octopus-Tentacle communication protocol can use TLS 1.2.
+We recommend upgrading to Tentacle 3.1 as soon as you are able. Upgrading Tentacles in **Octopus 3.1** is automated and can be done through the Environments page. The main benefit you'll get is the Octopus-Tentacle communication protocol can use TLS 1.2.
 
 **What would stop me from upgrading to Tentacle 3.1?**
 [Your server needs to support .NET 4.5](https://msdn.microsoft.com/en-us/library/8z6watww%28v=vs.110%29.aspx). Tentacle 3.1 requires .NET 4.5 to be installed on the server, which is what enables TLS 1.2 support, and .NET 4.5 is supported on Windows Server 2008 SP2 or newer. This means Windows Server 2003 and Windows Server 2008 SP1 are not supported for Octopus Server or Tentacle 3.1.
 
 **How can I make Octopus/Tentacle use TLS 1.2 instead of TLS 1.0?**
-Octopus Server and Tentacle to 3.1 will use TLS 1.2 by default. Tentacle 3.0 will still work with Octopus Server 3.1, but the communication protocol will fall back to the lowest-common denominator of TLS 1.0.
+Octopus Server and Tentacle to 3.1 will use TLS 1.2 by default. **Tentacle 3.0** will still work with **Octopus 3.1**, but the communication protocol will fall back to the lowest-common denominator of TLS 1.0.
 
 **Can I have a mixture of Tentacle 3.0 and 3.1? I'm not ready to upgrade some of my application servers.**
-Yes, you can have a mixture of Tentacle 3.0 and 3.1 working happily with Octopus Server 3.1. We have committed to maintaining compatibility with the communication protocol.
+Yes, you can have a mixture of **Tentacle 3.0** and **3.1** working happily with **Octopus 3.1**. We have committed to maintaining compatibility with the communication protocol.
 
 **If I keep running Tentacle 3.0 does that mean I won't get any of the new Octopus 3.1 deployment features?**
-The deployment features are handled by Calamari and Octopus Server makes sure all Tentacles have the latest Calamari. This means servers hosting Tentacle 3.0 or 3.1 will get all of the new deployment features we shipped with Octopus 3.1 by means of the latest Calamari.
+The deployment features are handled by Calamari and Octopus Server makes sure all Tentacles have the latest Calamari. This means servers hosting **Tentacle 3.0** or **3.1** will get all of the new deployment features we shipped with **Octopus 3.1** by means of the latest Calamari.
 
 **Will you continue to support Windows Server 2003 or Windows Server 2008 SP1?**
-No, from Octopus 3.1 onward we are dropping official support for Octopus Server and Tentacle hosted on Windows Server 2003 or Windows Server 2008 SP1.
+No, from **Octopus 3.1** onward we are dropping official support for Octopus Server and Tentacle hosted on Windows Server 2003 or Windows Server 2008 SP1.
 
 :::hint
 **Tentacle communications protocol**
@@ -165,7 +165,7 @@ Read more about the [Octopus - Tentacle communication](/docs/administration/secu
 
 See the [Release Notes](https://octopus.com/downloads/compare?from=3.3.27&amp;to=3.4.0) for breaking changes and more information.
 
-**Using TeamCity NuGet feeds?** You will need to upgrade your TeamCity server to v9.0 or newer and [enable the NuGet v2 API](https://teamcity-support.jetbrains.com/hc/en-us/community/posts/206817105-How-to-enable-NuGet-feed-v2). Octopus 3.4+ no longer supports the custom NuGet v1 feeds from TeamCity 7.x-8.x. We recommend upgrading to the latest TeamCity version available due to continual improvements in their NuGet feed - or switch to using the [Octopus built-in repository](/docs/packaging-applications/package-repositories/index.md).
+**Using TeamCity NuGet feeds?** You will need to upgrade your TeamCity server to v9.0 or newer and [enable the NuGet v2 API](https://teamcity-support.jetbrains.com/hc/en-us/community/posts/206817105-How-to-enable-NuGet-feed-v2). **Octopus 3.4**+ no longer supports the custom NuGet v1 feeds from TeamCity 7.x-8.x. We recommend upgrading to the latest TeamCity version available due to continual improvements in their NuGet feed - or switch to using the [Octopus built-in repository](/docs/packaging-applications/package-repositories/index.md).
 
 **Want to use SemVer 2 for packages or releases?** You will need to upgrade OctoPack and/or octo.exe to 3.4 or newer.
 

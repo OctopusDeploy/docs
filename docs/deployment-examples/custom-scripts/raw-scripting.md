@@ -6,7 +6,7 @@ position: 2
 
 ## Design Intentions {#RawScripting-DesignIntentions}
 
-Some Octopus users deploying to SSH Endpoints have had problems installing the Mono prerequisite that provides the runtime for Octopus Deploy's .NET orchestration tool [Calamari](/docs/api-and-integration/calamari.md). Although there is some momentum to package Calamari in a self-contained, cross-platform way with .NET Core, there exists a need now to be able to execute scripts directly on the server without all the added cost and complexity of uploading the latest Calamari. An experiential feature has been provided in Octopus 3.9, accessible via a project variable which will simply open a connection to the remote server and execute a deployment script within that session.
+Some Octopus users deploying to SSH Endpoints have had problems installing the Mono prerequisite that provides the runtime for Octopus Deploy's .NET orchestration tool [Calamari](/docs/api-and-integration/calamari.md). Although there is some momentum to package Calamari in a self-contained, cross-platform way with .NET Core, there exists a need now to be able to execute scripts directly on the server without all the added cost and complexity of uploading the latest Calamari. An experiential feature has been provided in **Octopus 3.9**, accessible via a project variable which will simply open a connection to the remote server and execute a deployment script within that session.
 
 :::hint
 **Feature Tradeoffs**
@@ -25,7 +25,7 @@ Raw scripting is great for use cases where you are unable to install and run Mon
 
 While raw scripting does not require a Transfer a Package step, the below scenario walks though a basic scenario of using a raw script in conjunction with the Transfer a Package step to extract a package on a SSH endpoint where Mono is unable to be installed.
 
-1. Add a [Transfer A Package](/docs/deployment-examples/deploying-packages/transfer-package.md) step.
+1. Add a [Transfer A Package](/docs/deployment-examples/package-deployments/transfer-package.md) step.
 2. In the **Transfer Path** field enter the location the package will be moved to as part of the deployment, for instance, `~/temp/uploads`.  Note that this directory will be created if it does not already exist. Give the step the name *Transfer AcmeWeb* and Include the relevant role for your SSH target.
 3. Add a [Run A Script](/docs/deployment-examples/custom-scripts/standalone-scripts.md) step and explicitly clear and extract the package to your desired location. In the below example we know that the target shell will be bash so we can use output values from the previous *Transfer AcmeWeb* step to locate the package and extract it to a directory at *~/temp/somewhere*. Note that although we have selected the *Bash* script type for this step, this is purely for helpful syntax highlighting since whatever script is provided will be executed through the open connection regardless of selected type.
 
@@ -33,7 +33,7 @@ While raw scripting does not require a Transfer a Package step, the below scenar
    rm -fr ~/temp/somewhere
    unzip -d ~/temp/somewhere "#{Octopus.Action[Transfer AcmeWeb].Output.Package.FilePath}"
    ```
-4. On the Variables tab set the variable `OctopusUseRawScript` to the value `True` which instructs Octopus to perform package transfers and script execution without the aid of Calamari. This means that package transfer will not be able to use [delta compression](/docs/deployment-examples/deploying-packages/delta-compression-for-package-transfers.md) during the package acquisition phase and it will actually be _moved_ from the upload location when the transfer step runs. This is because no target-side logs are kept for this transfer and hence [retention policy](/docs/administration/retention-policies/index.md) will be unable to clean old packages.
+4. On the Variables tab set the variable `OctopusUseRawScript` to the value `True` which instructs Octopus to perform package transfers and script execution without the aid of Calamari. This means that package transfer will not be able to use [delta compression](/docs/deployment-examples/package-deployments/delta-compression-for-package-transfers.md) during the package acquisition phase and it will actually be _moved_ from the upload location when the transfer step runs. This is because no target-side logs are kept for this transfer and hence [retention policy](/docs/administration/retention-policies/index.md) will be unable to clean old packages.
 
 5. Create a release and deploy the project. You should notice that unlike a typical deployment, there are no calls to upload or run Calamari and the whole thing runs a bit faster due to the reduced overhead. If you check your *~/.octopus* directory on the remote endpoint, you should also notice that there are no Calamari dependencies that have had to be uploaded for this deployment.  
 

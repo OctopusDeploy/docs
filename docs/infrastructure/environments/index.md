@@ -11,6 +11,8 @@ Organizing your deployment targets into environments lets you define your deploy
 
 Add new environments to Octopus Deploy by navigating to **{{Infrastructure,Environments}}** in the **Octopus Web Portal** and click **ADD ENVIRONMENT**:
 
+![Add Environment Screen](add-environment.png)
+
 Give your new environments meaningful names, like **Development**, **Test**, or **Production**.
 
 You can add as many environments as you need.
@@ -19,7 +21,7 @@ You can add as many environments as you need.
 
 If you're working with a large number of environments and deployment targets, the infrastructure tab makes it easy to sort, filter, and view your environments.
 
-![](environments.png "width=500")
+![Environments Screen](environments.png)
 
 ## Sorting Your Environments
 
@@ -51,9 +53,16 @@ To edit individual environments, click the overflow menu for that environment. F
 
 ## Guided Failures
 
-[Guided failure mode](/docs/deployment-process/releases/guided-failures.md) can be enabled on an environment by default. This is useful for critical environments that are usually deployed to manually (for example, staging and production-like environments), though you might want to disable this feature for environments which are deployed to automatically such as smoke testing environments.
+[Guided failure mode](/docs/deployment-process/releases/guided-failures.md), when enabled for an environment, will prompt a user for intervention if a deployment fails in that environment. Guided failure can be enabled on an environment by default. This is useful for critical environments that are usually deployed to manually (for example, staging and production-like environments), though you might not want to enable this feature for environments which are deployed to automatically such as smoke testing environments.
 
-To enable guided failure mode by default for individual environments, click the overflow menu for the environment, select *Default Guided Failure Mode* and click the checkbox. Note, you can still override this setting for individual deployments. For more information, see the section on [Guided Failures](/docs/deployment-process/releases/guided-failures.md).
+### Enable Guided Failure for the Environment
+
+1. Navigate to {{Infrastructure,Environments}}.
+1. Click the overflow menu for the specific environment you want to enable guided failure on and select *Edit*.
+1. Expand the **Default Guided Failure Mode** section and tick the checkbox to enable the feature.
+1. Click **SAVE**.
+
+Note, you can still override this setting for individual deployments. For more information, see the section on [Guided Failures](/docs/deployment-process/releases/guided-failures.md).
 
 ## Environment Permissions
 

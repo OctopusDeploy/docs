@@ -16,9 +16,9 @@ To get the most out of this guide you will need to understand how to [manage use
 
 Toby is a member of the sales team and manages the relationships for several of your largest customers. In his role Toby:
 
-- is the main point of contact for specific tenants
-- manages the details/variables of specific tenants and keeps them up to date
-- works with customers to deploy releases to their environments on their behalf
+- Is the main point of contact for specific tenants.
+- Manages the details/variables of specific tenants and keeps them up to date.
+- Works with customers to deploy releases to their environments on their behalf.
 
 ### Step 1: Configure the Tenant Project Deployer Role
 

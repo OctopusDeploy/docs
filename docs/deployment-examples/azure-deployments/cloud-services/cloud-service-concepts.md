@@ -40,7 +40,7 @@ In order to make the NuGet package accessible to Octopus it needs to be uploaded
 
 ## Cloud Service Accounts {#CloudServiceConcepts-CloudServiceAccounts}
 
-To set up a new Azure Management Certificate account, follow the directions in [Creating an Azure Management Certificate  Account](/docs/infrastructure/azure/creating-an-azure-account/creating-an-azure-management-certificate-account.md).
+To set up a new Azure Management Certificate account, follow the directions in [Creating an Azure Management Certificate  Account](/docs/infrastructure/azure/index.md#azure-management-certificate).
 
 ## Cloud Service Deployment Step {#CloudServiceConcepts-CloudServiceDeploymentStep}
 
@@ -68,8 +68,8 @@ You can choose to deploy to either the Staging or Production slots.
 
 The Cloud Service target may be configured to either:
 
-- Always deploy
-- Swap staging to production if possible
+- Always deploy.
+- Swap staging to production if possible.
 
 If 'Always deploy' is select, the package will always be deployed to the selected Slot.
 
@@ -89,19 +89,19 @@ Any of the fields above can be switched to use a custom expression by clicking t
 
 Deployment to an Azure Cloud Service target proceeds as follows (more details provided below):
 
-1. Download the NuGet package from the NuGet server
-2. Extract the NuGet package on the Octopus Server to a temporary location
-3. Extract the Cloud Service package (`.cspkg`) to a temporary location
-4. Any configured or packaged `PreDeploy` scripts are executed
-5. Variable substitutions in Cloud Service configuration file (`.cscfg`)
-6. Substitute variables in files (if configured)
-7. [XML configuration transformations](/docs/deployment-process/configuration-features/configuration-transforms.md) (if configured) are performed
-8. [XML configuration variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) (if configured) are replaced
-9. Any configured or package `Deploy` scripts are executed
-10. Re-package the Cloud Service Package
-11. Upload the Cloud Service Package to Azure Storage
-12. Deploy the Cloud Service Package (see 'Customizing the deployment process' section below)
-13. Any configured or packaged `PostDeploy` scripts are executed
+1. Download the NuGet package from the NuGet server.
+2. Extract the NuGet package on the Octopus Server to a temporary location.
+3. Extract the Cloud Service package (`.cspkg`) to a temporary location.
+4. Any configured or packaged `PreDeploy` scripts are executed.
+5. Variable substitutions in Cloud Service configuration file (`.cscfg`).
+6. Substitute variables in files (if configured).
+7. [XML configuration transformations](/docs/deployment-process/configuration-features/configuration-transforms.md) (if configured) are performed.
+8. [XML configuration variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) (if configured) are replaced.
+9. Any configured or package `Deploy` scripts are executed.
+10. Re-package the Cloud Service Package.
+11. Upload the Cloud Service Package to Azure Storage.
+12. Deploy the Cloud Service Package (see 'Customizing the deployment process' section below).
+13. Any configured or packaged `PostDeploy` scripts are executed.
 
 #### Extract the Cloud Service Package {#CloudServiceConcepts-ExtracttheCloudServicePackage}
 

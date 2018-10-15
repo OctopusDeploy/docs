@@ -18,20 +18,20 @@ Want to tune your Octopus Server for optimum performance? Read our [detailed gui
 
 By the time your deployment starts, the Octopus HTTP API and database are no longer the bottleneck. The key concerns are now:
 
-- The throughput and reliability of the connection from Octopus Server to your deployment targets
-- The speed and reliability of your deployment targets themselves
-- The load your deployment targets are under while the deployment is taking place
-- The number of steps in your deployment process
-- The size and number of packages you are deploying
-- How your packages are acquired/transferred to your deployment targets
-- How many packages you keep in your package feed and how you configure retention policies
-- The amount and size of log messages you write during deployment
-- How many deployment targets acquire packages in parallel
-- How many deployment targets you deploy to in parallel
-- Whether your steps run serially (one-after-the-other) or in parallel (at the same time)
-- How much of the work in the deployment steps is done on the Octpus server
-- The number and size of your variables
-- Other processes on the deployment target interfering with your deployment
+- The throughput and reliability of the connection from Octopus Server to your deployment targets.
+- The speed and reliability of your deployment targets themselves.
+- The load your deployment targets are under while the deployment is taking place.
+- The number of steps in your deployment process.
+- The size and number of packages you are deploying.
+- How your packages are acquired/transferred to your deployment targets.
+- How many packages you keep in your package feed and how you configure retention policies.
+- The amount and size of log messages you write during deployment.
+- How many deployment targets acquire packages in parallel.
+- How many deployment targets you deploy to in parallel.
+- Whether your steps run serially (one-after-the-other) or in parallel (at the same time).
+- How much of the work in the deployment steps is done on the Octopus server.
+- The number and size of your variables.
+- Other processes on the deployment target interfering with your deployment.
 
 ## Tips
 
@@ -84,7 +84,7 @@ Size really does matter when it comes to your packages:
 
 - Larger packages require more network bandwidth to transfer to your deployment targets.
 - Larger packages take more resources to unpack on your deployment targets.
-- When using [delta compression for package transfers](/docs/deployment-examples/deploying-packages/delta-compression-for-package-transfers.md), larger packages require more CPU and disk IOPS on the Octopus Server to calculate deltas - this is a tradeoff you can determine through testing.
+- When using [delta compression for package transfers](/docs/deployment-examples/package-deployments/delta-compression-for-package-transfers.md), larger packages require more CPU and disk IOPS on the Octopus Server to calculate deltas - this is a tradeoff you can determine through testing.
 - Larger packages usually result in larger file systems on your deployment targets, making any steps which scan files much slower. For example, [substituting variables in files](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) can be configured to scan every file extracted from your package.
 
 Consider whether one large package is better in your scenario, or perhaps you could split your application into multiple smaller packages, one for each deployable component.
@@ -99,10 +99,10 @@ Octopus provides two primary methods for transferring your packages to your depl
 Each option provides different performance benefits, depending on your specific scenario:
 
 - If network bandwidth is the limiting factor, consider:
-  - pushing the package from the Octopus Server to your targets using [delta compression for package transfers](/docs/deployment-examples/deploying-packages/delta-compression-for-package-transfers.md); or
+  - pushing the package from the Octopus Server to your targets using [delta compression for package transfers](/docs/deployment-examples/package-deployments/delta-compression-for-package-transfers.md); or
   - using custom package feed in the same network as your deployment targets and download the packages directly on the agent.
 - If network bandwidth is not a limiting factor consider downloading the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
-- If Octopus Server CPU and disk IOPS is a limiting factor, avoid using [delta compression for package transfers](/docs/deployment-examples/deploying-packages/delta-compression-for-package-transfers.md). Instead, consider downloading the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
+- If Octopus Server CPU and disk IOPS is a limiting factor, avoid using [delta compression for package transfers](/docs/deployment-examples/package-deployments/delta-compression-for-package-transfers.md). Instead, consider downloading the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
 
 ### Consider Retention Policies For Your Package Feeds {#package-retention}
 
@@ -145,4 +145,3 @@ Similarly to [parallel targets](#parallel-targets), running too many steps in pa
 ### Consider how much deployment work the Octopus server is doing {#server-work}
 
 Some steps, like Azure deployments and AWS steps, [run on a worker](docs/administration/workers/index.md#where-steps-run).  By default, thats the [built-in worker](/docs/administration/workers/index.md#built-in-worker) in the Octopus server.  That means the step invokes a (or many) Calamari processes on the server machine to do the deployment work.  That workload can be shifted off the server and onto [workers](/docs/infrastructure/workers/index.md).  See this [blog post](https://octopus.com/blog/workers-performance) for a way to begin looking at workers for performance.
-

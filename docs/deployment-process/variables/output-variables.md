@@ -1,10 +1,10 @@
 ---
 title: Output Variables
 description: Output variables allow you to set dynamic variables in one step that can be used in subsequent steps.
-position: 6
+position: 15
 ---
 
-Some variables might be dynamic - for example, a value that needs to be calculated, or a value that is the output of running a command. For these scenarios, Octopus supports **output variables**.
+As you work with [variables](/docs/deployment-process/variables/index.md) in Octopus, there will be times when you want to use dynamic variables, for example, the value of a variable is the result of a calculation, or the output from running a command. For these scenarios, Octopus supports **output variables**.
 
 Output variables can be set anywhere that Octopus runs scripts - for example, the [Script Console](/docs/administration/script-console.md), or [package scripts and script steps](/docs/deployment-examples/custom-scripts/index.md) in a deployment. *See below for examples of setting output variables in each of the different scripting languages supported by Octopus.*
 
@@ -52,7 +52,7 @@ let testResult = Octopus.findVariable "Octopus.Action[StepA].Output.TestResult"
 
 ## Sensitive Output Variables
 
-Output variables can be created as sensitive (since Octopus 2018.5.2).
+Output variables can be created as sensitive (since **Octopus 2018.5.2**).
 
 ```powershell PowerShell
 Set-OctopusVariable -name "Password" -value "correct horse battery staple" -sensitive
@@ -84,11 +84,11 @@ After a step runs, Octopus captures the output variables, and keeps them for use
   - `Octopus.Action[StepName].Output.Manual.ResponsibleUser.DisplayName`
   - `Octopus.Action[StepName].Output.Manual.ResponsibleUser.EmailAddress`
 
-## Output From Multiple Machines {#Outputvariables-Outputfrommultiplemachines}
+## Output From Multiple Deployment Targets {#Outputvariables-Outputfrommultiplemachines}
 
-Output variables become more complex when multiple machines are involved, but they can still be used.
+Output variables become more complex when multiple deployment targets are involved, but they can still be used.
 
-Imagine that an output variable was set by a script which ran on two machines (Web01 and Web02) in parallel, and that both set it to a different value. Which value should be used in subsequent steps?
+Imagine that an output variable was set by a script which ran on two deployment targets (Web01 and Web02) in parallel, and that both set it to a different value. Which value should be used in subsequent steps?
 
 In this scenario, the following output variables would be captured:
 
@@ -96,16 +96,16 @@ In this scenario, the following output variables would be captured:
 | ---------------------------------------- | -------- | -------------- |
 | `Octopus.Action[StepA].Output[Web01].TestResult` | `Passed` |                |
 | `Octopus.Action[StepA].Output[Web02].TestResult` | `Failed` |                |
-| `Octopus.Action[StepA].Output.TestResult` | `Passed` | Machine: Web01 |
-| `Octopus.Action[StepA].Output.TestResult` | `Failed` | Machine: Web02 |
+| `Octopus.Action[StepA].Output.TestResult` | `Passed` | Deployment Target: Web01 |
+| `Octopus.Action[StepA].Output.TestResult` | `Failed` | Deployment Target: Web02 |
 | `Octopus.Action[StepA].Output.TestResult` | `Passed` |                |
 | `Octopus.Action[StepA].Output.TestResult` | `Failed` |                |
 
-Note that for each output variable/machine combination:
+Note that for each output variable/deployment target combination:
 
-- A variable is created with the machine name contained in the variable name: this allows you to reference output variables from set by one machine from another machine
-- A variable is created that is [scoped](/docs/deployment-process/variables/scoping-variables.md) to the machine. This way Web01 will always get the value Web01 set, and Web02 will get the value Web02 set
-- A variable is created with no scope, and no differentiator in the name. When referencing this value, the result will be indeterministic, but it allows scripts to use the value without knowing which machine set it
+- A variable is created with the deployment target name contained in the variable name: this allows you to reference output variables from set by one deployment target from another deployment target.
+- A variable is created that is [scoped](/docs/deployment-process/variables/scoping-variables.md) to the deployment target. This way Web01 will always get the value Web01 set, and Web02 will get the value Web02 set.
+- A variable is created with no scope, and no differentiator in the name. When referencing this value, the result will be indeterministic, but it allows scripts to use the value without knowing which deployment target set it.
 
 For some practical examples of using output variables, and how scoping rules are applied, see the following blog posts:
 
@@ -122,8 +122,8 @@ You can set output variables using any of the scripting languages supported by O
 
 From a PowerShell script, you can use the PowerShell CmdLet `Set-OctopusVariable` to set the name and value of an output variable. The CmdLet takes two parameters:
 
-- `[string]$name` - the name you want to give the output variable following the same naming conventions used for input [variables](/docs/deployment-process/variables/index.md)
-- `[string]$value` - the value you want to give the output variable
+- `[string]$name` - the name you want to give the output variable following the same naming conventions used for input [variables](/docs/deployment-process/variables/index.md).
+- `[string]$value` - the value you want to give the output variable.
 
 For example:
 

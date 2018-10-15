@@ -4,7 +4,7 @@ description: The Octopus Server show configuration command is used to export Oc
 position: 1700
 ---
 
-Show configuration is available in **Octopus 3.5** and later
+Show configuration is available in **Octopus 3.5** and later.
 
 The `show-configuration` command is used to 'export' Octopus Deploy's current configuration.  The intended audience for this command are those using configuration management tools such as Chef, Puppet or Desired State Configuration (DSC).
 

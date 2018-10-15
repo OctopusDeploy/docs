@@ -10,7 +10,7 @@ This command allows you to create a release, and optionally deploy it to one or 
 
 :::success
 **Using Channels?**
-If you are using [Channels](/docs/deployment-process/channels/index.md) (introduced in Octopus 3.2) this command will automatically select the most appropriate channel for your release, unless you provide a specific channel using `--channel=VALUE`.
+If you are using [Channels](/docs/deployment-process/channels/index.md) (introduced in **Octopus 3.2**) this command will automatically select the most appropriate channel for your release, unless you provide a specific channel using `--channel=VALUE`.
 :::
 
 Usage:
@@ -45,9 +45,9 @@ octo create-release --project HelloWorld --version 1.0.3 --server http://octopus
 
 For each step that has a package, the version is determined in the following order:
 
- 1. The step name matches a `--package` parameter or a file filename found by `--packagesFolder`
- 1. The package id matches a `--package` parameter or a file found by `--packagesFolder`
- 1. The value from the ` --defaultpackageversion` or `--packageversion` parameter
+ 1. The step name matches a `--package` parameter or a file filename found by `--packagesFolder`.
+ 1. The package id matches a `--package` parameter or a file found by `--packagesFolder`.
+ 1. The value from the ` --defaultpackageversion` or `--packageversion` parameter.
 
  If there are duplicate names/ids resulting from the `--package` and `--packagesFolder` parameters, the last one specified is used.
 
@@ -71,7 +71,16 @@ If you want to use a specific version of a package for `StepA`, and the latest v
 octo create-release --project HelloWorld --version 1.0.3 --package StepA:1.0.1 --server http://octopus/ --apiKey API-ABCDEF123456
 ```
 
-This example will use `1.0.3` for `StepA`, and the latest version available at the moment for `StepB`.
+The example above will use `1.0.3` for `StepA`, and the latest version available at the moment for `StepB`.
+
+For steps which have multiple packages (e.g. _Run a Script_ steps can [reference multiple packages](/docs/deployment-examples/custom-scripts/standalone-scripts.md#referencing-packages
+)), the format `StepName:PackageName:Version` can also be used:  
+
+```bash
+octo create-release --project HelloWorld --version 1.0.3 --package StepA:Acme.Web:1.0.0 --package StepA:Acme.Data:2.0.0 --server http://octopus/ --apiKey API-ABCDEF123456
+```
+
+In the example above, `StepA` will use `1.0.0` for `Acme.Web` and `2.0.0` for `Acme.Data`. 
 
 ### Option --packagesFolder
 

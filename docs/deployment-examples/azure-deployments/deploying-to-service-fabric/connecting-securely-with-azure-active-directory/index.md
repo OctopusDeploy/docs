@@ -2,7 +2,6 @@
 title: Connecting Securely with Azure Active Directory
 description: Octopus Deploy can help you connect securely to Service Fabric clusters using Azure Active Directory authentication.
 position: 2
-version: "[3.13,)"
 ---
 
 As part of Service Fabric step templates, Octopus allows you to securely connect to a secure cluster by using Azure Active Directory (AAD).
@@ -56,16 +55,16 @@ Now that we have configured our Service Fabric cluster to use AAD, we can assign
 
 In the Azure Active Directory:
 
-- Create a user that you will use for deploying to your Service Fabric cluster
-- Login to the Azure Portal with this user (so you get past any temporary password shenanigans)
+- Create a user that you will use for deploying to your Service Fabric cluster.
+- Login to the Azure Portal with this user (so you get past any temporary password shenanigans).
 
 Once we know this user is valid and can login, we can proceed again to your Azure Active Directory in the Azure Portal:
 
-- Go to "App registrations"
-- Select your cluster application that you setup earlier
-- Click on the link for "Managed Application In Local Directory"
-- Click "Users and groups"
-- Proceed to add your deployment user to your application, with the role of Admin
+- Go to **App registrations**.
+- Select your cluster application that you setup earlier.
+- Click on the link for **Managed Application In Local Directory**.
+- Click **Users and groups**.
+- Proceed to add your deployment user to your application, with the role of Admin.
 
 Make note of this user's username (_not_ their display name) and password. The format of an AAD username is typically something like this: `my-user@my-azure-directory.onmicrosoft.com`
 

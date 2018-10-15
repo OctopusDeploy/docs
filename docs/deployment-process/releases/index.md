@@ -1,37 +1,101 @@
 ---
-title: Releases
+title: Deploying Releases
 description: Releases allow you to capture everything required to deploy a project in a repeatable and reliable manner.
 position: 50
 ---
 
+Once you've defined your [deployment process](/docs/deployment-process/index.md) and you're ready to deploy you software, you can deploy a release.
+
 ## Releases and Deployments
 
-There are two important concepts involved in deploying your Octopus projects:  **releases** and **deployments**.  Recall that a project is like a recipe that describes the steps (instructions) and variables (ingredients) required to deploy your apps and services.  
+It is important to understand the difference between **Releases** and **Deployments**.
 
-- A _release_ captures all the project and package details so it be deployed over and over in a safe and repeatable way.  
-- A _deployment_ is the execution of the steps to deploy a release to an environment.  
+As you defined your deployment process, you specified the steps that must be taken, the packages and services to deploy, the scripts to run, and the variables to be used that are required to deploy your software.
 
-An individual _release_ can be _deployed_ numerous times to different environments.  
+When you create a **release**, you are capturing the deployment process and all the associated assets (packages, scripts, variables, etc) as they existed at that time. The release is given a version number, and you can deploy that release as many times as you need to. You can even deploy that specific release as it existed at the time the release was created, even if parts of the deployment process have changed (those changes will be included in future releases).
 
-For example, suppose you have a financial services web app called OctoFX and you're ready to deploy and test a new update, it would look something like the following.  
+When you **Deploy** a release, you are executing the deployment process with all the associated details, as they existed when the release was created.
 
-![OctoFX deployment process](octofx-deployment-process.png "width=500")
+You can **Deploy** a **Release** as many times as you want to.
 
-The OctoFX deployment process includes a package step which installs the web application on Windows servers running IIS.  The deployment process also includes steps to add and remove the machine from a load balancer in a rolling deployment.
+## Creating a Release
 
-![Creating a release](octofx-create-release.png "width=500")
+1. With you deployment process defined, you can create a release on the Project's Overview page, by clicking **CREATE RELEASE**.
 
-![Deploying a release to an environment](octofx-deploy-release.png "width=500")
+![Create Release](create-release.png)
 
-You can create a new release by selecting the _Create release_ button on the project details page.  This allows you to specify the version for the release, which packages are required and optional release notes.  Once you save this new release, you can simply select deploy and then promote it through the environments for this project.
+1. Depending on the type of steps you configured in the deployment process, there could be additional options available, for instance, if you're using a step to deploy a package, there will be a package section where you can specify which version of the package to use in the release.
+1. Give the release a version number, add any release notes you'd like to include, and click **SAVE**.
 
-NOTE: If you had a fully automated build and deployment pipeline, the releases are generally created automatically.  For more information on this topic, see our [API and Integration](/docs/api-and-integration/index.md) documentation.
+You can fully automate your build and deployment pipeline, so that the releases are generally created automatically.  For more information on this topic, see our [API and Integration](/docs/api-and-integration/index.md) documentation.
 
-## Snapshots
+## Releases
 
-Octopus releases should be considered read-only.  When you create a new release, Octopus takes a snapshot (i.e. a complete copy) of your project's deployment process, variables, and package details (package IDs and versions) so that release can deployed over and over.  This enables you to modify your deployment process for newer versions of your app (i.e. 1.1, 1.2, 2.0 etc) without affecting the reliability of your existing releases.  This is a large part of the safety and reliability of your Octopus deployments.
+By navigating to the Project's Overview page and selecting **Releases**, you can see all the releases that have been created for the project. If you want to deploy a release or [schedule a deployment](#scheduling-a-deployment), click on the release.
 
-### Updating Release Variables
-There is one common ‘gotcha’ involving creating releases and snapshots.  If you modify your deployment process and try to redeploy it, you’ll find the latest changes aren’t included.  This is because the release snapshot details are captured when you create a release.
-That said, you can modify the variables of a release, but be aware, you cannot reverse this operation.  
-![Edit release  variables](update-variables.png "width=500")
+## Deploying Releases
+
+After creating the release, if the [Lifecycle](/docs/deployment-process/lifecycles/index.md) associated with the project is configured to deploy automatically to its first environment, the release will start to be deployed as soon as the release is created.
+
+If the release is not deployed automatically, you can click **DEPLOY TO (Environment)** where *(Environment)* is the first environment in the project's lifecycle. Alternatively, you can click **Deploy to...** to select a specific environment to deploy to.
+
+### Scheduling a Deployment
+
+1. Select the release you want to schedule for deployment.
+1. Click **DEPLOY TO...** or **DEPLOY TO (Environment)**.
+1. If you selected **DEPLOY TO...**, select the environment to be deployed to.
+1. Expand the **WHEN** section and select **later**.
+1. Specify the time and date you would like the deployment to run. Note, deployments can only be scheduled for 30 days in advance.
+1. Specify a timeout period. If the deployment does not start within the specified timeout period, the deployment will not run.
+1. Click **SAVE**.
+
+Deployments scheduled for the future can be viewed under the Project Overview page, on the **Dashboard**, and the **Tasks** section of the web portal.
+
+#### Scheduling Deployments With Octo.exe
+
+For everyone using the [command line tool Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md), you can use the following option:
+
+```powershell
+octo deploy-release --deployAt="2014-07-12 17:54:00 +11:00" --project=HelloWorld --releaseNumber=1.0.0 --deployto=Production --server=http://octopus/api --apiKey=ABCDEF123456
+```
+
+### Excluding Steps from Releases
+
+1. Select the release you want to deploy.
+1. Click **DEPLOY TO...** or **DEPLOY TO (Environment)**.
+1. If you selected **DEPLOY TO...**, select the environment to be deployed to.
+1. Expand the **Excluded steps** section and use the checkbox to select steps to excluded from the deployment.
+1. Click **SAVE**.
+
+### Modify the Guided Failure Mode
+
+Guide failure mode asks for users to intervene when a deployment encounters an error. Learn more about [Guided Failures](/docs/deployment-process/releases/guided-failures.md).
+
+1. Select the release you want to deploy.
+1. Click **DEPLOY TO...** or **DEPLOY TO (Environment)**.
+1. If you selected **DEPLOY TO...**, select the environment to be deployed to.
+1. Expand the **Failure mode** section, and select the mode you want to use.
+1. Click **SAVE**.
+
+### Deploy to a Specific Subset of Deployment Target
+
+You can deploy releases to a specific subset of deployment targets.
+
+1. Select the release you want to deploy.
+1. Click **DEPLOY TO (Environment)**.
+1. Expand the **Preview and customize** section.
+1. Expand the **Deployment Targets** section.
+1. Select whether you would like to include or exclude specific deployment targets. The default is to include all applicable deployment targets.
+1. Select the deployment targets to include or exclude, and click **DEPLOY**.
+
+### Variable Snapshot
+
+For each release you create, a snapshot is taken of the project variables. You can review the variables in the **Variable Snapshot** section of the release page by clicking **SHOW SNAPSHOT**. This lets you see the variables as they existed when the release was created.
+
+You can update the variables by clicking **UPDATE VARIABLES**. This can be useful when:
+
+* The release has not been deployed yet, but the variables have changed since the release was created.
+* The release needs to be **redeployed** and the variables have changed since the release was created.
+* The release failed to deploy due to a problem with the variables and you need to update the variables and redeploy the release.
+
+After you've updated the variables, the release will use the updated variables when it is deployed.

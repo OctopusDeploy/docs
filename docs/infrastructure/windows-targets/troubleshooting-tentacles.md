@@ -71,7 +71,7 @@ There are three pieces of information to verify and they are slightly different,
 ### Listening Tentacle
 
 1. Ensure that the Tentacle is in *Listening* mode.
-Below the thumbprint, you should see the text *This Tentacles listens for connections on port 10933.*
+Below the thumbprint, you should see the text *This Tentacles listens for connections on port 10933*.
 2. Check the port that the Tentacle listens on.
 3. Check that the **Octopus Server** thumbprint shown in light gray in the Tentacle manager matches the one shown in the {{Configuration,Thumbprints}} screen in the Octopus Web Portal.
 
@@ -118,8 +118,8 @@ Next, repeat the process of connecting to the Tentacle with a web browser, but d
 
 When forming the URL to check:
 
-- First try using the Tentacle's DNS hostname, e.g. [https://my-tentacle:10933](https://my-tentacle:10933)
-- If this fails, try using the Tentacle's IP address instead, e.g. [https://1.2.3.4:10933](https://1.2.3.4:10933) - success using the IP address but not the DNS hostname will indicate a DNS issue
+- First try using the Tentacle's DNS hostname, e.g. [https://my-tentacle:10933](https://my-tentacle:10933).
+- If this fails, try using the Tentacle's IP address instead, e.g. [https://1.2.3.4:10933](https://1.2.3.4:10933) - success using the IP address but not the DNS hostname will indicate a DNS issue.
 
 **If you can't connect...**
 Failing to connect at this step means that you have a network issue preventing traffic between the Octopus Server and Tentacles. Check that the Tentacle port is open in any firewalls, and that other services on the network are working. There's not usually much that Octopus Deploy Support can suggest for these issues as networks are complex and highly varied. Having the network administrator from your organization help diagnose the issue is the best first step. If that draws a blank, please get in touch.
@@ -145,8 +145,8 @@ Next, repeat the process of connecting to the Octopus Server with a web browser,
 
 When forming the URL to check:
 
-- First try using the Octopus Server's DNS hostname, e.g. [https://my-octopus:10943](https://my-octopus:10943)
-- If this fails, try using the Octopus Server's IP address instead, e.g. [https://1.2.3.4:10943](https://1.2.3.4:10943) - success using the IP address but not the DNS hostname will indicate a DNS issue
+- First try using the Octopus Server's DNS hostname, e.g. [https://my-octopus:10943](https://my-octopus:10943).
+- If this fails, try using the Octopus Server's IP address instead, e.g. [https://1.2.3.4:10943](https://1.2.3.4:10943) - success using the IP address but not the DNS hostname will indicate a DNS issue.
 
 **If you can't connect...**
 Failing to connect at this step means that you have a network issue preventing traffic between the Tentacles and Octopus Server. Check that the Octopus Server polling port is open in any firewalls, and that other services on the network are working. There's not usually much that Octopus Deploy Support can suggest for these issues as networks are complex and highly varied. Having the network administrator from your organization help diagnose the issue is the best first step. If that draws a blank, please get in touch.
@@ -166,19 +166,19 @@ Octopus and Tentacle use TCP to communicate, with special handling to enable web
 
 We have built a small utility for testing the communications protocol between two servers called [Tentacle Ping](https://github.com/OctopusDeploy/TentaclePing). This tool helps isolate the source of communication problems without needing a full Octopus configuration. It is built as a simple client and server component that emulates the communications protocol used by Octopus Server and Tentacle.
 
-In Octopus 3.0 you will need **TentaclePing** and **TentaclePong**, you cannot test directly to Octopus Server nor Tentacle:
+In **Octopus 3.0** you will need **TentaclePing** and **TentaclePong**, you cannot test directly to Octopus Server nor Tentacle:
 
 ### Listening Tentacles
 
-- Run **TentaclePing** on your Octopus Server machine (which is the client in this relationship)
-- Run **TentaclePong** on your Tentacle machine (which is the server in this relationship)
+- Run **TentaclePing** on your Octopus Server machine (which is the client in this relationship).
+- Run **TentaclePong** on your Tentacle machine (which is the server in this relationship).
 
 Use the output to help diagnose what is going wrong.
 
 ### Polling Tentacles
 
-- Run **TentaclePing** on your Tentacle machine (which is the client in this relationship)
-- Run **TentaclePong** on your Octopus Server machine (which is the server in this relationship)
+- Run **TentaclePing** on your Tentacle machine (which is the client in this relationship).
+- Run **TentaclePong** on your Octopus Server machine (which is the server in this relationship).
 
 Use the output to help diagnose what is going wrong.
 
@@ -224,7 +224,7 @@ If the command help is not displayed immediately (< 1s) you may need to consider
 
 To do this open {{Control Panel,Internet Options,Advanced}}, and uncheck the *Check for publisher's certificate revocation* option as shown below.
 
-![](/docs/images/3048143/3278077.png)
+![](/docs/images/3048143/3278077.png)
 
 ### Check Octopus.Server.exe Load Time (Polling Tentacle)
 

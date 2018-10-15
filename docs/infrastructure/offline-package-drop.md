@@ -100,7 +100,7 @@ Usually the reason you need to use Offline Package Drop is for some kind of secu
 
 To Deploy the Offline Package Drop simply copy the entire folder for that release to the target server and execute the batch file. This will actually execute the deployment on the target server just like Tentacle would.
 
-:::warning
+:::hint
 **Output Variables**
-Offline drops do not support passing output variables from a deployment package step to another step as part of the same deployment script.
+Octopus 2018.3.8 introduced support for output variables for offline drops.
 :::

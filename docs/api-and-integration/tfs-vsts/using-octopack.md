@@ -57,23 +57,23 @@ To create an API key, see the [How to create an API key](/docs/api-and-integrati
 
 ### Using Lifecycles and Automatic Deployments {#Deployingautomaticallyafterabuild-Using-AutomaticDeployments}
 
-**Octopus 2.6** introduced [Lifecycles ](/docs/deployment-process/lifecycles/index.md)and [Automatic Release Creation](/docs/deployment-process/releases/automatic-release-creation.md). You can use these two features to automatically deploy to one or more environments when a new package is pushed to the built-in NuGet repository.
+**Octopus 2.6** introduced [Lifecycles ](/docs/deployment-process/lifecycles/index.md)and [Automatic Release Creation](/docs/deployment-process/project-triggers/automatic-release-creation.md). You can use these two features to automatically deploy to one or more environments when a new package is pushed to the built-in NuGet repository.
 
 First, turn on Automatic Release Creation to create a new release when your package is pushed. Then, using the project Lifecycle configure one or more environments in your first phase to deploy automatically when a new release is available.
 
 By adding these features to the steps above, you can set up complete end-to-end continuous integration:
 
-1. OctoPack will create new NuGet packages for your projects
-2. OctoPack will push those packages to the built-in NuGet repository
-3. Automatic Release Creation will create a new Release
-4. Your Lifecycle will trigger a deployment when the release is created
+1. OctoPack will create new NuGet packages for your projects.
+2. OctoPack will push those packages to the built-in NuGet repository.
+3. Automatic Release Creation will create a new Release.
+4. Your Lifecycle will trigger a deployment when the release is created.
 
 ## Video Walkthrough {#VideoWalkthrough}
 
 This 6 minute video walks through the above steps to create an end-to-end continuous deployment process for Team Foundation Server.
 
 :::Info
-While the video was recorded using Octopus `2.6`, it is still valid for Octopus 3.X.
+While the video was recorded using **Octopus 2.6**, it is still valid for **Octopus 3.X**.
 :::
 
 <iframe src="//fast.wistia.net/embed/iframe/jmnuxifuyo" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="360" style="margin: 30px"></iframe>

@@ -29,8 +29,8 @@ When you install Octopus and the Tentacle agent, they both generate X.509 certif
 You'll want to check whether SHA1 is being used in other places. Common examples for Octopus users might include:
 
 - The certificate used for the Octopus web frontend if you use HTTPS. Normally this is something people provide themselves.
-- Certificates used for authenticating with third party services, like Azure management certificates
-- Certificates used to provide HTTPS for web sites that you deploy
+- Certificates used for authenticating with third party services, like Azure management certificates.
+- Certificates used to provide HTTPS for web sites that you deploy.
 
 ## Detecting SHA1 Certificates With PowerShell
 

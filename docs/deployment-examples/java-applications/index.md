@@ -1,7 +1,7 @@
 ---
 title: Java Applications
 description: Deploy to WildFly, Red Hat JBoss EAP and Tomcat using Octopus Deploy
-position: 130
+position: 90
 ---
 
 Octopus Deploy comes with a number of steps that allow you to deploy and modify the state of Java applications for popular Java application servers.
@@ -12,15 +12,9 @@ In addition, Java packages like `jar`, `war`, `ear` and `rar` files can be manag
 
 The following application servers are supported by Octopus Deploy:
 
-* Tomcat 7
-* Tomcat 8
-* Tomcat 9
-* Red Hat JBoss EAP 6
-* Red Hat JBoss EAP 7
-* WildFly 10
-* WildFly 11
-* WildFly 12
-* WildFly 13
+* Tomcat 7 and above
+* Red Hat JBoss EAP 6 and above
+* WildFly 10 and above
 
 :::hint
 The `Deploy Java Archive` step deploys a Java package to a location on the target machine's filesystem. This means that any Java application server that can deploy applications with a file copy can make use of Octopus Deploy.
@@ -289,12 +283,12 @@ The `Deploy Java Archive` step is used to copy a Java archive to the target mach
 The following steps can be used to deploy an application via a file copy to an application server.
 
 * Select the `Package feed` and `Package ID` that references the Java application to be deployed.
-* Unselect the `Explode` option. This means we will be copying a repacked package instead of the extracted contents of the original prackage.
+* Unselect the `Explode` option. This means we will be copying a repacked package instead of the extracted contents of the original package.
 * Select the `Custom Deploy Directory` option.
 * Set the `Deploy Directory` field to the location within the application server where deployments are located. For WildFly or JBoss EAP, this will be a directory like `$JBOSS_HOME/standalone/deployments`, and for Tomcat it will be `$CATALINA_HOME/webapps`.
 * Set the `Deployed Package File Name` field to a filename that reflects the desired context path.
   *  For WildFly or JBoss EAP, the filename will be used for the context. For example, setting `Package file name` to `myapplication.war` will result in the application being deployed under the `/myapplication` context. See [Defining Context Paths](#context_path) for more information.
-  * For Tomcat the filename takes the form `context#subcontext##version.war`. For example, setting `Package file name` to `myapplication#v1##10.war` will result in the application being deployed under the context `myapplication/v1` with a Tomcat version of `10`. The version and subcontext are optional, so you could set `Package file name` to `myapplication.war`, in which case Tomcat would deploy the application under the `/mayapplication` context with no version information.
+  * For Tomcat the filename takes the form `context#subcontext##version.war`. For example, setting `Package file name` to `myapplication#v1##10.war` will result in the application being deployed under the context `myapplication/v1` with a Tomcat version of `10`. The version and sub-context are optional, so you could set `Package file name` to `myapplication.war`, in which case Tomcat would deploy the application under the `/mayapplication` context with no version information.
 * Unselect the `Purge` option because we don't want to uninstall any existing applications in the deployment directories.
 
 ## Deploy Java Archive Step Details

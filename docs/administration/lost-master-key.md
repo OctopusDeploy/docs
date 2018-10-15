@@ -16,10 +16,10 @@ The fastest and easiest way to get up and running is to recover the master key. 
 
 Octopus [encrypts important and sensitive data](/docs/administration/security/data-encryption.md) using a master key. This includes:
 
-- The Octopus Server X.509 certificate which is used for [Octopus to Tentacle communication](/docs/administration/security/octopus-tentacle-communication/index.md) - this means your Tentacles won't trust your Octopus Server any more
-- Sensitive variable values, wherever you have defined them
-- Sensitive values in your deployment processes, like the password for a custom IIS App Pool user account
-- Sensitive values in your deployment targets, like the password for creating [Offline Drops](/docs/infrastructure/offline-package-drop.md)
+- The Octopus Server X.509 certificate which is used for [Octopus to Tentacle communication](/docs/administration/security/octopus-tentacle-communication/index.md) - this means your Tentacles won't trust your Octopus Server any more.
+- Sensitive variable values, wherever you have defined them.
+- Sensitive values in your deployment processes, like the password for a custom IIS App Pool user account.
+- Sensitive values in your deployment targets, like the password for creating [Offline Drops](/docs/infrastructure/offline-package-drop.md).
 
 ## Recovering With a New Master Key
 
@@ -33,9 +33,9 @@ Make sure to [back up everything](/docs/administration/backup-and-restore.md) be
 
 Provision a new machine and install Octopus Server on it just like you would normally **except** you won't be able to point it at your existing database because you don't have the master key. We are going to get your new Octopus Server up and running on a new database, and then trick it into pointing at your new database.
 
-1. Install Octopus Server (the `lost-master-key` command was introduced in Octopus Server `2018.3.6`):
+1. Install Octopus Server (the `lost-master-key` command was introduced in **Octopus 2018.3.6**):
 
-    - If you were using Octopus Server `2018.3.6` or newer, please download and reinstall the exact same version.
+    - If you were using **Octopus 2018.3.6** or newer, please download and reinstall the exact same version.
     - If you were using an older version of Octopus Server, please download and install the latest available version.
 
 1. Either point it at a blank database you've created for this purpose, or let Octopus create a database for itself. **We will delete this afterwards.**
@@ -61,10 +61,10 @@ Tentacle.exe service --start
 
 These commands will:
 
-- Stop the Tentacle agent
-- Clear all trusts so the Tentacle won't trust the old server certificate
-- Configures the Tentacle to trust the new Octopus Server certificate
-- Starts the Tentacle agent again
+- Stop the Tentacle agent.
+- Clear all trusts so the Tentacle won't trust the old server certificate.
+- Configures the Tentacle to trust the new Octopus Server certificate.
+- Starts the Tentacle agent again.
 
 After this you should perform a health check on your Infrastructure and fix any problems that come up.
 

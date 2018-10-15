@@ -1,10 +1,10 @@
 ---
 title: Variable Substitution Syntax
 description: Variable substitutions are a flexible way to adjust configuration based on your variables and the context of your deployment.
-position: 25
+position: 65
 ---
 
-Variable substitutions are a flexible way to adjust configuration based on your variables and the context of your deployment. You can often tame the number and complexity of your variables by breaking them down into simple variables and combining them together using expressions.
+Variable substitutions are a flexible way to adjust configuration based on your [variables](/docs/deployment-process/variables/index.md) and the context of your [deployment](/docs/deployment-process/index.md). You can often tame the number and complexity of your variables by breaking them down into simple variables and combining them together using expressions.
 
 ## Basic Syntax {#VariableSubstitutionSyntax-BasicSyntax}
 
@@ -16,11 +16,11 @@ Octopus [variables](/docs/deployment-process/variables/index.md) support substit
 | `DatabaseServer`   | `TDB001`                    | Test       |
 | `ConnectionString` | `Server=#{DatabaseServer};` |            |
 
-The syntax `#{VarName}` will insert the value of the `VarName` variable in-place. For example the `ConnectionString` variable will have the value `Server=PDB001;` when evaluated in the *Production* environment. The use of one or more variables in the declaration of another is called a *binding.*
+The syntax `#{VarName}` will insert the value of the `VarName` variable in-place. For example the `ConnectionString` variable will have the value `Server=PDB001;` when evaluated in the *Production* environment, and  the value `Server=TDB001;` when evaluated in the *Test* environment. The use of one or more variables in the declaration of another is called a *binding.*
 
 In regular variable declarations, binding to a non-existent value will yield an empty string, so evaluating `ConnectionString` in the *Dev* environment will yield `Server=;` because no `DatabaseServer` is defined in that environment.
 
-If the file undergoing variable replacement includes a string that *shouldn't* be getting replaced, for example **#{NotToBeReplace}**, you should include an extra hash (#) character to force the replacement to ignore the substitution and remove the extra #.
+If the file undergoing variable replacement includes a string that *shouldn't* be replaced, for example **#{NotToBeReplace}**, you should include an extra hash (#) character to force the replacement to ignore the substitution and remove the extra #.
 
 | Expression            | Value                |
 | --------------------- | -------------------- |
@@ -49,7 +49,7 @@ The capabilities of the extended syntax are:
 
 ### Index Replacement {#VariableSubstitutionSyntax-IndexReplacement}
 
-Variable substitution inside an index was added in Octopus 3.3.23.  This makes it easy to dynamically retrieve variables within arrays/dictionaries.
+Variable substitution inside an index was added in **Octopus 3.3.23**.  This makes it easy to dynamically retrieve variables within arrays/dictionaries.
 
 Given the variables:
 
@@ -106,7 +106,7 @@ You could achieve a similar result, with a different default/fallback behavior, 
 The `if` and `unless` statements consider a value to be *falsy* if it is undefined, empty, `False` or `0`. All other values are considered to be *truthy*.
 
 ### Complex Syntax
-Additional conditional statements are supported in Octopus 3.5 and onwards, including == and !=.
+Additional conditional statements are supported in **Octopus 3.5** and onwards, including `==` and `!=`.
 
 Using complex syntax you can have expressions like `#{if Octopus.Environment.Name == "Production"}...#{/if}` and `#{if Octopus.Environment.Name != "Production"}...#{/if}`
 
@@ -251,6 +251,18 @@ The *Format* filter introduced in **Octopus 3.5** allows for converting of inpu
 | `2030/05/22 09:05:00` | `#{ MyVar | Format yyyy}`         | 2030       |
 |                       | `#{ | NowDate | Format Date MMM}` | Nov        |
 
+The *Replace* filter introduced in **Octopus 2018.8.4** performs a regular expression replace function on the variable. The regular expression should be provided in the [.NET Framework format](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference). Double quotes need to be used around any expressions that contain whitespace or special characters. Expressions containing double quotes can not be expressed inline, but can be done via nested variables. If both the search and replace expressions are variables, ensure there is no space between the expressions.
+
+| MyVar Value   | Example Input                           | Output                  |
+| ------------- | --------------------------------------- | ----------------------- |
+| `abc`         | `#{ MyVar | Replace b}`                 | `ac`                    |
+| `abc`         | `#{ MyVar | Replace b X}`               | `aXc`                   |
+| `a b c`       | `#{ MyVar | Replace "a b" X}`           | `X c`                   |
+| `ab12c3`      | `#{ MyVar | Replace "[0-9]+" X}`        | `abXcX`                 |
+| `abc`         | `#{ MyVar | Replace "(.)b(.)" "$2X$1" }`| `cXa`                   |
+| `abc`         | `#{ MyVar | Replace #{match}#{replace}}`| `a_c` when `match=b`,`replace=_` |
+| `abc`         | `#{ MyVar | Replace #{match} _}`        | `a_c` when `match=b`    |
+
 :::hint
 Filters were introduced in **Octopus 3.5**.
 :::
@@ -265,7 +277,7 @@ Server=#{if DatabaseServer}#{DatabaseServer}#{/if};
 
 ### JSON Parsing {#VariableSubstitutionSyntax-JSONParsingjson}
 
-Octostache 2.x (bundled with Octopus 3.5) includes an update to support parsing JSON formatted variables natively, and using their contained properties for variable substitution.
+Octostache 2.x (bundled with **Octopus 3.5**) includes an update to support parsing JSON formatted variables natively, and using their contained properties for variable substitution.
 
 Given the variable:
 
@@ -292,11 +304,11 @@ From: $15.00
 Sizes: [{size: "small", price: 15.00}, {size: "large", price: 20.00}]
 ```
 
-There are a few things to note here.
+There are a few things to note here:
 
 - The *Name* property is extracted from the JSON using either dot-notation or indexing.
-- Providing an explicit project variable overrides one obtained by walking through the JSON
-- Arrays can be accessed using standard numerical index notation
+- Providing an explicit project variable overrides one obtained by walking through the JSON.
+- Arrays can be accessed using standard numerical index notation.
 - Variables can map to a sub-section of the JSON variable.
 
 #### Repetition Over JSON {#VariableSubstitutionSyntax-RepetitionoverJSON}

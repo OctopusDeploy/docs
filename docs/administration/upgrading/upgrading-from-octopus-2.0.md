@@ -5,13 +5,13 @@ position: 3
 ---
 
 :::problem
-You will not be able to upgrade directly from Octopus 2.x to the latest version of Octopus. If you are running a version of Octopus prior to 2.6, use this guide to upgrade from 2.x to 2.6, then follow the [guide to upgrade from 2.6 to the latest version of Octopus](/docs/administration/upgrading/upgrading-from-octopus-2.6/index.md).
+You will not be able to upgrade directly from **Octopus 2.x** to the latest version of Octopus. If you are running a version prior to **Octopus 2.6**, use this guide to upgrade from **Octopus 2.x** to **Octopus 2.6**, then follow the [guide to upgrade from 2.6 to the latest version of Octopus](/docs/administration/upgrading/upgrading-from-octopus-2.6/index.md).
 :::
 
-Upgrading Octopus 2.0 involves two major steps.
+Upgrading **Octopus 2.0** involves two major steps.
 
-- Upgrading the Octopus Server
-- Upgrading Tentacles
+- Upgrading the Octopus Server.
+- Upgrading Tentacles.
 
 Additional information on troubleshooting upgrades is below.
 
@@ -19,9 +19,9 @@ Additional information on troubleshooting upgrades is below.
 
 To upgrade the Octopus Deploy Server, you will need to follow these steps:
 
-1. Ensure you have a recent [database backup](/docs/administration/backup-and-restore.md) that you can restore in case anything goes wrong
-2. Download the latest [Octopus Deploy MSI installer](http://octopusdeploy.com/downloads)
-3. Run the installer and follow the prompts
+1. Ensure you have a recent [database backup](/docs/administration/backup-and-restore.md) that you can restore in case anything goes wrong.
+2. Download the latest [Octopus Deploy MSI installer](http://octopusdeploy.com/downloads).
+3. Run the installer and follow the prompts.
 
 :::problem
 **Changing installation paths**

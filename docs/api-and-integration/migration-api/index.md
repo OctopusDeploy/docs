@@ -5,7 +5,7 @@ position: 121
 version: "2018.6.0"
 ---
 
-Octopus includes a migration API that provides the ability to back-up and restore parts of an Octopus Deploy instance remotely (available from version `2018.6.0`).
+Octopus includes a migration API that provides the ability to back-up and restore parts of an Octopus Deploy instance remotely (available from version **Octopus 2018.6.0**).
 
 The API currently includes support for both the [partial-export](/docs/api-and-integration/octopus.migrator.exe-command-line/partial-export.md) and [import](/docs/api-and-integration/octopus.migrator.exe-command-line/migrator-import.md) commands. The API uses the same [Migrator.exe command line tool](/docs/api-and-integration/octopus.migrator.exe-command-line/index.md) that you'd typically use to migrate data manually, but the API gives you some additional parameters to orchestrate the process between remote servers.
 

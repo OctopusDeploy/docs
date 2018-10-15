@@ -4,7 +4,7 @@ description: Choose an ID for your package
 position: 2
 ---
 
-The combination of package ID and [version number](/docs/packaging-applications/versioning.md) uniquely identify a package.
+The combination of **package ID** and [version number](/docs/packaging-applications/versioning.md) uniquely identify a package.
 
 From our [example package](/docs/packaging-applications/index.md#example-package):
 
@@ -20,7 +20,7 @@ They must conform to the following specification:
 
 - Segments contain only alphanumeric characters.
 
-- Must be unique within your Octopus Deploy instance.
+- Package IDs must be unique within your Octopus Deploy instance.
 
 Additionally, avoid using numbers in your package ID. This is because the package ID and version number will be combined like so:
 
@@ -47,4 +47,4 @@ The following examples are also valid:
 - acme-billing.web
 - Acme_Billing.Web
 
-Learn about [versioning your apllications and software in Octopus Deploy](/docs/packaging-applications/versioning.md).
+Learn about [versioning your applications and software in Octopus Deploy](/docs/packaging-applications/versioning.md).

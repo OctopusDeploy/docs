@@ -15,7 +15,7 @@ An Azure cloud service package is normally compiled into a `.cspkg` file. This
 
 ## Step 2: Create an Azure Account {#DeployingapackagetoanAzureCloudService-Step2:CreateanAzureAccount}
 
-If you haven't already, create an [Azure Management Certificate Account](/docs/infrastructure/azure/creating-an-azure-account/creating-an-azure-management-certificate-account.md) to grant Octopus Deploy access to your Azure Subscription.
+If you haven't already, create an [Azure Management Certificate Account](/docs/infrastructure/azure/index.md) to grant Octopus Deploy access to your Azure Subscription.
 
 ## Step 3: Create the Azure Cloud Service Deployment Step {#DeployingapackagetoanAzureCloudService-Step3:CreatetheAzureCloudServicedeploymentstep}
 
@@ -77,19 +77,19 @@ if ($Deployment -ne $null -AND $Deployment.DeploymentId  -ne $null) {
 
 Deployment to an Azure Cloud Service proceeds as follows (more details provided below):
 
-1. Download the package from the [package repository](/docs/packaging-applications/package-repositories/index.md)
-2. Extract the package on the Octopus Server to a temporary location
-3. Extract the Cloud Service package (`.cspkg`) to a temporary location
-4. Any configured or packaged `PreDeploy` scripts are executed
-5. Variable substitutions in Cloud Service configuration file (`.cscfg`)
-6. [Substitute variables in files](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) (if configured)
-7. [XML configuration transformations](/docs/deployment-process/configuration-features/configuration-transforms.md) (if configured) are performed
-8. [XML configuration variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) (if configured) are replaced
-9. Any configured or package `Deploy` scripts are executed
-10. Re-package the Cloud Service Package
-11. Upload the Cloud Service Package to Azure Storage
-12. Deploy the Cloud Service Package (see 'Customizing the deployment process' section below)
-13. Any configured or packaged `PostDeploy` scripts are executed
+1. Download the package from the [package repository](/docs/packaging-applications/package-repositories/index.md).
+2. Extract the package on the Octopus Server to a temporary location.
+3. Extract the Cloud Service package (`.cspkg`) to a temporary location.
+4. Any configured or packaged `PreDeploy` scripts are executed.
+5. Variable substitutions in Cloud Service configuration file (`.cscfg`).
+6. [Substitute variables in files](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) (if configured).
+7. [XML configuration transformations](/docs/deployment-process/configuration-features/configuration-transforms.md) (if configured) are performed.
+8. [XML configuration variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) (if configured) are replaced.
+9. Any configured or package `Deploy` scripts are executed.
+10. Re-package the Cloud Service Package.
+11. Upload the Cloud Service Package to Azure Storage.
+12. Deploy the Cloud Service Package (see 'Customizing the deployment process' section below).
+13. Any configured or packaged `PostDeploy` scripts are executed.
 
 ### Extract the Cloud Service Package {#DeployingapackagetoanAzureCloudService-ExtracttheCloudServicePackage}
 
@@ -132,7 +132,7 @@ The deployment is performed using a PowerShell script called `DeployToAzure.ps1
 
 When your application is deployed to more than one geographic region, you are likely to need per-region configuration settings. You can achieve this result in many different ways, but the two most popular methods we have seen are:
 
-1. [Cloud Regions](/docs/infrastructure/cloud-regions.md): introduced in Octopus 3.4 to enable [rolling deployments](/docs/deployment-patterns/rolling-deployments.md) across multiple geographic regions
-2. Environment-per-region: by creating an environment per region you can leverage [lifecycles](/docs/deployment-process/lifecycles/index.md) to create a strict release promotion process
+1. [Cloud Regions](/docs/infrastructure/cloud-regions.md): introduced in **Octopus 3.4** to enable [rolling deployments](/docs/deployment-patterns/rolling-deployments.md) across multiple geographic regions.
+2. Environment-per-region: by creating an environment per region you can leverage [lifecycles](/docs/deployment-process/lifecycles/index.md) to create a strict release promotion process.
 
 Both methods allow you to modify your deployment process and variables per-region, but have slightly different release promotion paths. Choose the one that suits you best.

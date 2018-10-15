@@ -2,7 +2,6 @@
 title: Azure Cloud Service Targets
 description: Azure Cloud Service deployment targets allow you to reference existing classic Cloud Services in your Azure subscription, that you can then reference by role during deployments.
 position: 100
-version: "[2018.5,)"
 ---
 
 Azure Cloud Service deployment targets allow you to reference existing classic Cloud Services in your Azure subscription, that you can then reference by role during deployments.
@@ -15,7 +14,7 @@ Azure has [announced](https://blogs.msdn.microsoft.com/appserviceteam/2018/03/12
 
 - This new target type was introduced in **Octopus 2018.5**, so you'll need to be running at least that version of the Octopus Server. You can read more about all the new PaaS targets [in our blog](https://octopusdeploy.com/blog/paas-targets).
 
-- You will firstly need an [Azure Management Certificate account](/docs/infrastructure/azure/creating-an-azure-account/creating-an-azure-management-certificate-account.md) that references your Azure subscription.
+- You will firstly need an [Azure Management Certificate account](/docs/infrastructure/azure/index.md#azure-management-certificate) that references your Azure subscription.
 
 - Once your Azure account is setup, you will then need an existing Azure Cloud Service (classic) setup within your Azure subscription. To learn more about App Services, the Azure team provide [useful documentation on App Services](https://docs.microsoft.com/en-us/azure/cloud-services/) that can help you get started. If you are dynamically creating the cloud services during your deployment, check our section about [creating Cloud Service targets by scripts using service messages](#creating-cloud-service-targets-by-scripts).
 
@@ -25,14 +24,14 @@ Once you have a Cloud Service setup within your Azure subscription, you are then
 
 To create an Azure Cloud Service target within Octopus:
 
-- Go to `Infrastructure` > `Deployment Targets` > `Add Deployment Target`
-- Select `Azure Cloud Service` from the list of available targets and click _Next_
-- Fill out the necessary fields, being sure to provide a unique role that clearly identifies your Azure Cloud Service target
+- Go to **Infrastructure** > **Deployment Targets** > **Add Deployment Target**.
+- Select **Azure Cloud Service** from the list of available targets and click _Next_.
+- Fill out the necessary fields, being sure to provide a unique role that clearly identifies your Azure Cloud Service target.
 
 ![](create-azure-cloud-service-target.png "width=500")
 
 - After clicking _Save_, your deployment target will be added and go through a health check to ensure Octopus can connect to it.
-- If all goes well, you should see your newly created target in your `Deployment Targets` list, with a status of _Healthy_
+- If all goes well, you should see your newly created target in your **Deployment Targets** list, with a status of _Healthy_.
 
 ### Creating Cloud Service Targets by Scripts
 

@@ -140,7 +140,7 @@ If the `<files>` section exists, OctoPack by default won't attempt to automatica
 :::
 
 :::success
-See the [NuSpec documentation](http://docs.nuget.org/docs/reference/nuspec-reference) for more examples on how the `<files>` secion of the `.nuspec` file is interpreted by `nuget.exe`.
+See the [NuSpec documentation](http://docs.nuget.org/docs/reference/nuspec-reference) for more examples on how the `<files>` section of the `.nuspec` file is interpreted by `nuget.exe`.
 :::
 
 ## Version Numbers {#UsingOctoPack-Versionnumbers}
@@ -148,15 +148,15 @@ See the [NuSpec documentation](http://docs.nuget.org/docs/reference/nuspec-refe
 NuGet packages have version numbers. When you use OctoPack, the NuGet package version number will come from (in order of priority):
 
 1. The command line, if you pass `/p:OctoPackPackageVersion=<version>` as an MSBuild parameter when building your project.
-2. If the assembly contains a `GitVersionInformation` type, the field `GitVersionInformation.NuGetVersion` is used
-3. If you pass `/p:OctoPackUseProductVersion=true` as an MSBuild parameter, `[assembly: AssemblyInformationalVersion]` (AKA Assembly's product version) is used
-4. If you pass `/p:OctoPackUseFileVersion=true` as an MSBuild parameter, `[assembly: AssemblyFileVersion]` (AKA Assembly's file version) is used
-5. If the `[assembly: AssemblyInformationalVersion]` value is not valid, the `[assembly: AssemblyFileVersion]` is used
-6. If the `[assembly: AssemblyFileVersion]` is the same as the `[assembly: AssemblyInformationalVersion]` (AKA ProductVersion), then we'll use the `[assembly: AssemblyVersion]` attribute in your `AssemblyInfo.cs` file
+2. If the assembly contains a `GitVersionInformation` type, the field `GitVersionInformation.NuGetVersion` is used.
+3. If you pass `/p:OctoPackUseProductVersion=true` as an MSBuild parameter, `[assembly: AssemblyInformationalVersion]` (AKA Assembly's product version) is used.
+4. If you pass `/p:OctoPackUseFileVersion=true` as an MSBuild parameter, `[assembly: AssemblyFileVersion]` (AKA Assembly's file version) is used.
+5. If the `[assembly: AssemblyInformationalVersion]` value is not valid, the `[assembly: AssemblyFileVersion]` is used.
+6. If the `[assembly: AssemblyFileVersion]` is the same as the `[assembly: AssemblyInformationalVersion]` (AKA ProductVersion), then we'll use the `[assembly: AssemblyVersion]` attribute in your `AssemblyInfo.cs` file.
 7. Otherwise we take the `[assembly: AssemblyInformationalVersion]`.
 
 :::success
-During the build messages are output at the `Normal` msbuild logging level which may help diagnose version retrieval problems
+During the build messages are output at the `Normal` msbuild logging level which may help diagnose version retrieval problems.
 :::
 
 ### Version Numbers are Preserved as-is
@@ -167,7 +167,7 @@ OctoPack `3.4.0` to `3.4.2` used the official build of NuGet 3 to varying degree
 
 NuGet 3 started removing leading zeros and the fourth digit if it is zero. These are affectionately known as "NuGet zero quirks" and can be surprising when working with tooling outside the NuGet ecosystem. We have made a choice to preserve the version as-is when working with Octopus tooling to create packages of any kind. Learn more about [versioning in Octopus Deploy](http://docs.octopusdeploy.com/display/OD/Versioning+in+Octopus+Deploy).
 
-To make this work for NuGet packages we have forked NuGet
+To make this work for NuGet packages we have forked NuGet.
 
 The fork of NuGet 3 available here: https://github.com/OctopusDeploy/NuGet.Client
 The packages are available here: https://octopus.myget.org/feed/octopus-dependencies/package/nuget/NuGet.CommandLine
@@ -216,11 +216,11 @@ msbuild MySolution.sln /t:Build /p:RunOctoPack=true "/p:OctoPackNuGetProperties=
 
 To publish your package to a NuGet feed, you can optionally use some extra MSBuild properties:
 
-- `/p:OctoPackPublishPackageToFileShare=C:\MyPackages` - copies the package to the path given
-- `/p:OctoPackPublishPackageToHttp=http://my-nuget-server/api/v2/package` - pushes the package to the NuGet server
-- `/p:OctoPackPublishApiKey=ABCDEFGMYAPIKEY` - API key to use when publishing
-- `/p:OctoPackAppendProjectToFeed=true` - Append the project name onto the feed so you can nest packages under folders on publish
-- `/p:OctoPackAppendToPackageId=foo` - Append the extra name to the package ID (e.g. for feature branch packages). MyApp.Foo.1.2.3.nupkg
+- `/p:OctoPackPublishPackageToFileShare=C:\MyPackages` - copies the package to the path given.
+- `/p:OctoPackPublishPackageToHttp=http://my-nuget-server/api/v2/package` - pushes the package to the NuGet server.
+- `/p:OctoPackPublishApiKey=ABCDEFGMYAPIKEY` - API key to use when publishing.
+- `/p:OctoPackAppendProjectToFeed=true` - Append the project name onto the feed so you can nest packages under folders on publish.
+- `/p:OctoPackAppendToPackageId=foo` - Append the extra name to the package ID (e.g. for feature branch packages). MyApp.Foo.1.2.3.nupkg.
 
 :::success
 **Want to Use the Octopus Built-in Repository?**
@@ -228,8 +228,8 @@ Octopus provides a [built-in package repository](/docs/packaging-applications/pa
 
 To push your packages to the Octopus built-in repository use the following settings:
 
-- `/p:OctoPackPublishPackageToHttp=http://your.octopusserver.com/nuget/packages` - this is the URL to your Octopus Server noting the `/nuget/packages` path
-- `/p:OctoPackPublishApiKey=API-ABCDEFGMYAPIKEY` - the [Octopus API key](/docs/api-and-integration/api/how-to-create-an-api-key.md) you you want to use for pushing packages noting [these security considerations](/docs/packaging-applications/package-repositories/index.md)
+- `/p:OctoPackPublishPackageToHttp=http://your.octopusserver.com/nuget/packages` - this is the URL to your Octopus Server noting the `/nuget/packages` path.
+- `/p:OctoPackPublishApiKey=API-ABCDEFGMYAPIKEY` - the [Octopus API key](/docs/api-and-integration/api/how-to-create-an-api-key.md) you you want to use for pushing packages noting [these security considerations](/docs/packaging-applications/package-repositories/index.md).
 
 Read more about [pushing packages to the Octopus built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md).
 :::
@@ -342,7 +342,7 @@ Done building target "OctoPack" in project "MyApplication.Web.csproj".
 ```
 
  * If you cannot see any OctoPack-related log messages, perhaps OctoPack isn't installed into your project(s) correctly?
-   * Try completely uninstalling OctoPack and installing it again
+   * Try completely uninstalling OctoPack and installing it again.
    * Check inside your `.csproj` or `.vbproj` file for an include statement like the following example:
 
 ```powershell
@@ -350,7 +350,7 @@ Done building target "OctoPack" in project "MyApplication.Web.csproj".
 ```
  * If OctoPack is running but your files are not being packed correctly, see if the file is mentioned in the build log.
    * Files that are copied to the build output directory will be included in the package. Take a look at the contents of your build output directory and compare that with the messages in the build log.
-   * For web applications, files that are configured with the Visual Studio property **Build Action: Content** will be included in the package
+   * For web applications, files that are configured with the Visual Studio property **Build Action: Content** will be included in the package.
    * If you have specified the `<files>` element in a custom `.nuspec` file, perhaps you need to add the `/p:OctoPackEnforceAddingFiles=true` MSBuild argument as discussed above?
    * If you have specified the `<files>` element in a custom `.nuspec` file, perhaps you need to experiment with some different combinations of include and exclude?
 
@@ -360,4 +360,4 @@ OctoPack does not support .NET Core projects.
 
 If you are using .NET Core for class libraries, we recommend using [dotnet pack from Microsoft](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-pack).
 
-If you are using .NET Core for web applications, we recommend publishing to a folder and then using [Octo.exe pack](/docs/packaging-applications/creating-packages/nuget-packages/using-octo.exe.md), as described in the "Publishing and Packing the Website" section of the [Deploying ASP.NET Core Web Applications documentation](/docs/deployment-examples/deploying-asp.net-core-web-applications/index.md#DeployingASP.NETCoreWebApplications-PublishingandPackingtheWebsite).
+If you are using .NET Core for web applications, we recommend publishing to a folder and then using [Octo.exe pack](/docs/packaging-applications/creating-packages/nuget-packages/using-octo.exe.md), as described in the "Publishing and Packing the Website" section of the [Deploying ASP.NET Core Web Applications documentation](/docs/deployment-examples/asp.net-core-web-application-deployments/index.md#DeployingASP.NETCoreWebApplications-PublishingandPackingtheWebsite).

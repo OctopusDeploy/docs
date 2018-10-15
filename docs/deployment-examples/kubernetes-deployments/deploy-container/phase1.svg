@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
-<svg width="41cm" height="48cm" viewBox="-402 98 803 943" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="41cm" height="53cm" viewBox="-402 98 803 1043" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <g>
-    <rect style="fill: #ffffff" x="-400" y="100" width="800" height="940"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="-400" y="100" width="800" height="940"/>
-    <text font-size="12.8" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="0" y="573.9">
-      <tspan x="0" y="573.9"></tspan>
+    <rect style="fill: #ffffff" x="-400" y="100" width="800" height="1040"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="-400" y="100" width="800" height="1040"/>
+    <text font-size="12.8" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="0" y="623.9">
+      <tspan x="0" y="623.9"></tspan>
     </text>
   </g>
   <text font-size="12.8" style="fill: #333333;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="-210" y="324">
@@ -31,10 +31,10 @@
     </text>
   </g>
   <g>
-    <rect style="fill: #53b953" x="-380" y="320" width="360" height="460"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="-380" y="320" width="360" height="460"/>
-    <text font-size="12.8" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-200" y="553.9">
-      <tspan x="-200" y="553.9"></tspan>
+    <rect style="fill: #53b953" x="-380" y="320" width="360" height="800"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="-380" y="320" width="360" height="800"/>
+    <text font-size="12.8" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-200" y="723.9">
+      <tspan x="-200" y="723.9"></tspan>
     </text>
   </g>
   <text font-size="12.8" style="fill: #333333;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="-360" y="360">
@@ -91,6 +91,13 @@
     <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="-300" y="920" width="200" height="80"/>
     <text font-size="12.8" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-200" y="963.9">
       <tspan x="-200" y="963.9">Secret</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #f3f3f3" x="-300" y="1020" width="200" height="80"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="-300" y="1020" width="200" height="80"/>
+    <text font-size="12.8" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-200" y="1063.9">
+      <tspan x="-200" y="1063.9">Other Custom Resources</tspan>
     </text>
   </g>
 </svg>

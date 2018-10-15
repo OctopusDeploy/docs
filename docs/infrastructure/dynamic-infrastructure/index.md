@@ -1,13 +1,13 @@
 ---
-title: Managing Resources using scripts
-description: Octopus resources can be created using service messages allowing resources that you currently can script in Azure to be modeled in Octopus.
+title: Managing Resources Using Scripts
+description: Octopus resources can be created using service messages allowing resources that you currently can script in Azure to be modeled in Octopus (dynamic infrastructure).
 position: 120
 ---
 
 Some resources can be created within Octopus from the same scripts that you use to create them on Azure. By adding some additional commands Web Apps you create on Azure can also be created within Octopus as deployment targets.
 
 :::success
-As of the `2018.5` release, only Azure Service Principal Accounts, Azure Web Apps, Azure Service Fabric and Azure Cloud Services targets are supported.
+As of the **Octopus 2018.5** release, only Azure Service Principal Accounts, Azure Web Apps, Azure Service Fabric and Azure Cloud Services targets are supported.
 :::
 
 ## Available Commands and Syntax
@@ -38,7 +38,7 @@ All of the commands will result in an Account or Deployment Target, which will a
 This cannot be overridden through the commands.
 
 :::warning
-These commands are not available in the **Script Console**
+These commands are not available in the **Script Console**.
 :::
 
 
@@ -66,7 +66,7 @@ New-AzureRmWebApp -Name $uniqueName -Location "WestUS" -AppServicePlan $uniqueNa
 New-OctopusAzureWebAppTarget -Name $uniqueName -AzureWebApp $uniqueName -AzureResourceGroupName $uniqueName -OctopusAccountIdOrName "my-octopus-azure-serviceprincipal-account" -OctopusRoles "acme-web"
 ```
 
-### Tearing down a test environment
+### Tearing Down a Test Environment
 
 Building on the Web App example, you may wish to spin up an application and then tear it down at the end of the day. By combining [Recurring Deployments](https://octopus.com/blog/recurring-deployments) and a tear-down script, you can keep your cloud hosting costs down.
 
@@ -76,7 +76,7 @@ Remove-AzureRmResourceGroup -Name "AzureWebAppResourceGroup" -Force
 Remove-OctopusTarget -targetIdOrName "AzureWebApp"
 ```
 
-### Deploying an ARM template
+### Deploying an ARM Template
 
 You can also use the above PowerShell Cmdlets when deploying Azure resources using an ARM template.
 

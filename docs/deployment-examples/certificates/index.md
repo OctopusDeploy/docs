@@ -2,7 +2,7 @@
 title: Certificates
 description: Manage and deploy X.509 certificates with Octopus Deploy
 description: Manage X.509 certificates with Octopus Deploy
-position: 70
+position: 40
 ---
 
 X.509 certificates are a key component of many deployment processes. Octopus Deploy provides the ability to securely store and manage your certificates, and easily use them in your Octopus Projects.  
@@ -24,9 +24,9 @@ X.509 certificates are a key component of many deployment processes. Octopus Dep
 
 There is a "Certificate expiry events" event-group, and three events:  
 
-- Certificate expiry 20-day warning  
-- Certificate expiry 10-day warning  
-- Certificate expired
+- Certificate expiry 20-day warning.
+- Certificate expiry 10-day warning.
+- Certificate expired.
 
 :::info
 Certificate-expiry events are _not_ raised for [archived](archiving-and-deleting-certificates.md) certificates.
@@ -40,15 +40,15 @@ The background task which raises the certificate-expiry events runs:
 
 ## Import Certificates into the Windows Certificate Store  
 
-Certificates can be imported to Windows Certificate Stores as part of a deployment process using the [Import Certificate Deployment Step](/docs/deployment-examples/certificates/import-certificate-step.md)
+Certificates can be imported to Windows Certificate Stores as part of a deployment process using the [Import Certificate Deployment Step](/docs/deployment-examples/certificates/import-certificate-step.md).
 
 ![](import-certificate-step-select.png "width=500")
 
 ## Use Certificates for HTTPS Bindings When Deploying IIS Websites   
 
 When configuring HTTPS bindings for [IIS Websites](/docs/deployment-examples/iis-websites-and-application-pools.md), a certificate can be configured either by:
-- entering the thumbprint directly (this assumes the certificate has already been installed on the machine)
-- selecting a certificate-typed variable (this will automatically install the certificate)
+- entering the thumbprint directly (this assumes the certificate has already been installed on the machine).
+- selecting a certificate-typed variable (this will automatically install the certificate).
 
 ![](https-binding-certificate.png "width=500")
 

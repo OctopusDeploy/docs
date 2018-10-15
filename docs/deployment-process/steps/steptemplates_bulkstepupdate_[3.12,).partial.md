@@ -1,6 +1,6 @@
 If you have a lot of projects using a step template, updating them one by one can be time consuming.  Fortunately,  there is a way to update all of them at once. To do that, navigate to {{Library,Step templates, Name of the Step Template, Usage}}.
 
-Once you are there you should see a list of steps that are using the step template. The steps that are not on the latest version will have `Update` action next to them. Steps can be updated individually or all at once by using `Update all` action.
+Once you are there you should see a list of steps that are using the step template. The steps that are not on the latest version will have **Update** action next to them. Steps can be updated individually or all at once by using **Update all** action.
 
 ![Step Template Usage](step-templates-usage.png "width=500")
 
@@ -10,7 +10,7 @@ In most cases the steps will be updated automatically but there will be cases wh
 
 #### Merge Conflicts Caused by New Step Template Parameters
 
-One of the cases when we will need your assistance is when If you add a new parameter without a default value. There is a reason why a new parameter is added and if we updated steps without having a default value we can break your deployments. This is why we ask you to provide default values that are missing or to confirm that you are ok to use `empty` values as default values.
+One of the cases when we will need your assistance is when If you add a new parameter without a default value. There is a reason why a new parameter is added and if we updated steps without having a default value we can break your deployments. This is why we ask you to provide default values that are missing or to confirm that you are ok to use **empty** values as default values.
 
 ![Steps that need default values](step-templates-update-all-defaults.png "width=500")
 

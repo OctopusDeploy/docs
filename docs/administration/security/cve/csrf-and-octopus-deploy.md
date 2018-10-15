@@ -44,12 +44,12 @@ Octopus also logs a warning like this to your Octopus Server logs:
 
 If you see this kind of error message when using the Octopus Web Portal in your browser, please try the following steps:
 
-1. Refresh the Octopus Web Portal in your browser (to make sure you have the latest JavaScript)
-1. Sign out of the Octopus Web Portal
-1. Sign back in to the Octopus Web Portal
-1. If this doesn't work, please try clearing the cookies from your browser and trying again
+1. Refresh the Octopus Web Portal in your browser (to make sure you have the latest JavaScript).
+1. Sign out of the Octopus Web Portal.
+1. Sign back in to the Octopus Web Portal.
+1. If this doesn't work, please try clearing the cookies from your browser and trying again.
 1. After signing in, you should see two cookies from the Octopus Server - the authentication cookie and the anti-forgery cookie. See the next section on [troubleshooting cookie problems](#cookies).
-1. If this doesn't work please get [ask us for help](#support) - see below
+1. If this doesn't work please get [ask us for help](#support) - see below.
 
 #### Troubleshooting Problems With Cookies {#cookies}
 
@@ -61,14 +61,14 @@ Octopus requires two cookies when using a web browser: the authentication cookie
 1. You have a network device between your browser and your Octopus Server which is stripping cookies it doesn't trust, or is modifying cookies and setting `HttpOnly=true`. The anti-forgery cookie is configured as `HttpOnly=false` because the Octopus JavaScript client requires access to the cookie. Some firewalls or proxies can be configured to strip or modify cookies like this in the HTTP response headers. You should configure your network device to allow this cookie through to the browser without being removed nor modified.
 1. You are hosting Octopus Server on the same domain as other applications. One of the other applications may be issuing a malformed cookie causing the Octopus authentication cookies to be misinterpreted. Move Octopus Server to a different domain to isolate it from the other applications, or stop the other applications from issuing malformed cookies. See [this GitHub Issue](https://github.com/OctopusDeploy/Issues/issues/2343) for more details.
 
-### Using the Octopus REST API with raw HTTP
+### Using the Octopus REST API with Raw HTTP
 
 If you use raw HTTP to access Octopus Deploy we recommend using an [API Key](/docs/api-and-integration/api/how-to-create-an-api-key.md) to authenticate your requests. Learn about the [Octopus REST API](/docs/api-and-integration/api/index.md) and [authenticating with the Octopus REST API](https://github.com/OctopusDeploy/OctopusDeploy-Api/wiki/Authentication).
 
-### Getting Help From Us {#support}
+### Contact Octopus Support {#support}
 
 If none of these troubleshooting steps work, please get in contact with our [support team](https://octopus.com/support) and send along the following details (feel free to ignore points if they don't apply):
-  a. Which browser and version are you using? (Help > About in your browser is the best place to get this information)
+  a. Which browser and version are you using? (Help > About in your browser is the best place to get this information).
   b. Does the same thing happen with other browsers, like Internet Explorer, Google Chrome, Firefox?
   c. Does the same thing happen for other people/users?
   d. Does the same thing happen when you access Octopus Deploy over another network, like from home or over your cellular network?

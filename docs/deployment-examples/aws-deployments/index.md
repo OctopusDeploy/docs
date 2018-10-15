@@ -1,7 +1,7 @@
 ---
-title: AWS Deployments
+title: AWS
 description: Octopus Deploy provides first-class support for deploying AWS CloudFormation templates.
-position: 110
+position: 20
 ---
 
 Octopus Deploy provides first-class support for deploying AWS CloudFormation templates and uploading files to s3 buckets.

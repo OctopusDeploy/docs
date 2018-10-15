@@ -11,7 +11,7 @@ The JSON Configuration Variables feature updates your JSON configuration files
 :::hint
 This feature is designed to work natively with [.NET Core JSON configuration files](http://docs.asp.net/en/latest/fundamentals/configuration.html) but works equally as well with any JSON files.
 
-Our ASP.NET Core web application [deployment guide](/docs/deployment-examples/deploying-asp.net-core-web-applications/index.md) provides further information on how this feature fits into an Octopus project's deployment process.
+Our ASP.NET Core web application [deployment guide](/docs/deployment-examples/asp.net-core-web-application-deployments/index.md) provides further information on how this feature fits into an Octopus project's deployment process.
 :::
 
 ## Configuring the JSON Configuration Variables Feature {#JSONConfigurationVariablesFeature-ConfiguringtheJSONconfigurationvariablesfeature}
@@ -109,4 +109,4 @@ For example, the variable `foo:bar:1` with a value `qux` will update the value
 }
 ```
 
-You can also replace an entire array. For the example above you could set Octopus Variable `foo:bar` to a value of ` ["baz","qux"]`
+You can also replace an entire array. For the example above you could set Octopus Variable `foo:bar` to a value of ` ["baz","qux"]`.

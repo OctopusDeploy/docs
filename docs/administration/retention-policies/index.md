@@ -26,7 +26,7 @@ The Tentacle settings delete **packages**, and expanded **files and folders** f
 
 The in-built repository will delete any **packages** that are not attached to any release. If you happen to have higher versions of packages that have not been released, we will keep them assuming a release will be created. If you delete releases using the Octopus Server retention policy then any packages that were associated with those releases will then be deleted with that task.
 
-A list of packages IDs that a project has deployed is kept and then used to determine retention for projects that [dynamically select packages using variables](/docs/deployment-examples/deploying-packages/dynamically-selecting-packages.md). A package will be kept if it appears in that list and the package's version matches any of the package versions referenced by the project's releases.
+A list of packages IDs that a project has deployed is kept and then used to determine retention for projects that [dynamically select packages using variables](/docs/deployment-examples/package-deployments/dynamically-selecting-packages.md). A package will be kept if it appears in that list and the package's version matches any of the package versions referenced by the project's releases.
 
 ## When the Retention Policies are Applied {#RetentionPolicies-Whentheretentionpoliciesareapplied}
 
@@ -73,6 +73,6 @@ This can also be set to keep a set number, or keep for a set number of days:
 ![](/docs/images/3048140/3278059.png "width=500")
 
 :::success
-**Exernal Feeds**
+**External Feeds**
 Octopus does not apply any retention policies to external feeds. However the packages that are currently in-use can be retrieved from the API ([example](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/Octopus.Client/LINQPad/GetInUsePackages.linq)) and those results then used to remove packages from those feeds.
 :::

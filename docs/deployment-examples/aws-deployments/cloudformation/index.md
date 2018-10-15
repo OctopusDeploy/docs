@@ -3,7 +3,7 @@ title: Deploy an AWS CloudFormation Template
 description: Deploy an AWS CloudFormation Template.
 ---
 
-This feature was introduce to Octopus in version `2018.2`.
+This feature was introduce to **Octopus 2018.2**.
 
 Octopus supports the deployment of AWS CloudFormation templates through the `Deploy an AWS CloudFormation Template` step. This step executes a CloudFormation template using AWS credentials managed by Octopus, and captures the CloudFormation outputs as Octopus output variables.
 
@@ -100,6 +100,42 @@ Then the values from the project variables `KeyName` and `InstanceType` would be
 
 See the [variable substitution](https://octopus.com/docs/deployment-process/variables/variable-substitution-syntax) documentation for more information.
 
+#### Accessing CloudFormation Outputs
+
+As mentioned in the Template Section, when the `wait for completion` checkbox has been checked, any [outputs](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) defined in your CloudFormation template will be made available as [Octopus output-variables](/docs/deployment-process/variables/output-variables.md) automatically. For example, an output `Foo` would be available as:
+
+```powershell
+Octopus.Action[CloudFormationTemplateStepName].Output.AwsOutputs[Foo]
+```
+
+### Output Variables
+
+In addition to any outputs defined in your CloudFormation template, we also provide the following output variables which can be used in subsequent steps.
+
+* Octopus.Action[StepName].Output.AwsOutputs[StackId] - The stack ARN as used by the step.
+* Octopus.Action[StepName].Output.AwsOutputs[ChangesetId] - The change set ARN which was generated when change sets have been enabled.
+* Octopus.Action[StepName].Output.AwsOutputs[Changes]  - The changes that were applied or are to be applied when deferring execution.
+
+
+### Change Sets and CloudFormation Transforms
+
+In order to use [change sets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html) you must first [enable](docs/deployment-process/configuration-features/index.md) the change set feature on your `Deploy an AWS CloudFormation template` step.
+
+![Change Set Feature](aws-changeset-feature.png "width=500")
+
+:::hint
+The Change Sets feature was introduced as part of **Octopus 2018.8**, and Octopus did not support CloudFormation transforms in prior versions.
+:::
+
+#### Change Set Name
+
+All change sets have to be unique for a given stack, and Octopus will generate a unique name such as `octo-5ab48bcfd8ec447bbc8328f97231b729` unless specified otherwise. If you wish to change the names used you can uncheck the option to automatically generate change set names which will give you the option to specify the name. These can be bound to an output variable from a prior step.
+
+#### Deferring Execution and Preview Changes
+
+There are times when you may wish to preview changes before applying them. This is enabled by checking the `Defer Change Set Execution` checkbox, which tells Octopus to create the change set, but not apply it. A [manual intervention step](/docs/deployment-process/steps/manual-intervention-and-approvals.md) can then be used in conjunction with the `AwsOutputs[Changes]` output variable from a `Deploy an AWS CloudFormation template` step to view the changes. Similarly the
+`Apply an AWS CloudFormation Change Set` step can make use of the `AwsOutputs[StackId]` and `AwsOutputs[ChangeSetId]` output variables to apply the change set.
+
 ## CloudFormation Deployment Workflow
 
 The AWS CLI makes a clear distinction between creating and updating CloudFormation stacks. When using the CLI directly, it is up to you to know if the stack exists, and what state the stack is in, in order to know whether to create or update the stack.
@@ -142,6 +178,11 @@ User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: clou
 To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deployment-examples/aws-deployments/permissions/index.md) contains an overview of the permissions required by the AWS steps.
 
 ### AWS-CLOUDFORMATION-ERROR-0003
+
+:::hint
+Please be aware that this error will also show if the **Variable Account** cannot be resolved to an AWS Account, in this case please check the variable scopes. You can use the {{Variables,Preview}} for the project to test the variable values for a given deployment scenario are being included or not.
+:::
+
 The AWS account used to perform the operation does not have the required permissions to describe the stack.
 
 This is logged as a warning as Octopus will make some assumptions about the state of the stack and attempt to continue on:
@@ -228,6 +269,26 @@ An exception was thrown while contacting the AWS API.
 This can happen if accessing AWS via a proxy, and the response from AWS indicated an error. The response body is printed to the logs in these cases.
 
 An incorrect AWS region can result in this error. Ensure that the region matches one from the [AWS documentation](https://g.octopushq.com/AWSRegions).
+
+### AWS-CLOUDFORMATION-ERROR-0015
+
+The AWS account used to perform the operation does not have the required permissions to describe the Change Set.
+
+To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deployment-examples/aws-deployments/permissions/index.md) contains an overview of the permissions required by the AWS steps.
+
+### AWS-CLOUDFORMATION-ERROR-0016
+
+An unrecognized exception was thrown while describing the CloudFormation change set.
+
+### AWS-CLOUDFORMATION-ERROR-0017
+
+The AWS account used to perform the operation does not have the required permissions to create the Change Set.
+
+To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deployment-examples/aws-deployments/permissions/index.md) contains an overview of the permissions required by the AWS steps.
+
+### AWS-CLOUDFORMATION-ERROR-0018
+
+An unrecognized exception was thrown while creating the CloudFormation change set.
 
 ### AWS-LOGIN-ERROR-0001
 

@@ -1,7 +1,6 @@
 ---
 title: Packaging a Service Fabric application
 description: Learn how to package a Service Fabric application so it can be deployed from Octopus.
-version: "[3.13,)"
 ---
 
 The Service Fabric SDK contains PowerShell cmdlets for deploying an application from a given folder on disk. The Service Fabric application projects provide targets that can be accessed via MSBuild, or used directly from Visual Studio, to package the content of that folder. The scripts provided in these projects can also be used to deploy the resulting package, but require access to the original source code tree to access the PublishProfiles and ApplicationParameters.
@@ -33,7 +32,7 @@ xcopy /I MyFabricApplication\ApplicationParameters\*.xml MyFabricApplication\pkg
 
 ### Custom Build Targets
 
-Alternatively you could create a custom MSBuild targets file that does the file copying for you. One advantage of this option is that it also executes if you use "right-click > Package" in Visual Studio. To do this, create a custom targets file containing the following
+Alternatively you could create a custom MSBuild targets file that does the file copying for you. One advantage of this option is that it also executes if you use "right-click > Package" in Visual Studio. To do this, create a custom targets file containing the following:
 
 ```xml
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">

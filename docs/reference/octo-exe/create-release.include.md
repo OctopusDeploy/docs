@@ -11,10 +11,12 @@ Release creation:
       --channel=VALUE        [Optional] Channel to use for the new release.
                              Omit this argument to automatically select the
                              best channel.
-      --package=StepNameOrPackageId
-                             [Optional] Version number to use for a step or
-                             package in the release. Format: --
-                             package=StepNameOrPackageId:Version
+      --package=VALUE        [Optional] Version number to use for a package
+                             in the release. Format: StepName:Version or
+                             PackageID:Version or
+                             StepName:PackageName:Version. StepName,
+                             PackageID, and PackageName can be replaced with
+                             an asterisk.
       --packagesFolder=VALUE [Optional] A folder containing NuGet packages
                              from which we should get versions.
       --releasenotes=VALUE   [Optional] Release Notes for the new release.

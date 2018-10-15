@@ -8,7 +8,7 @@ Octopus uses `Schannel` for secure communications and will attempt to use the 
 1. Firstly TLS 1.1 and TLS 1.2 are [disabled by default on Windows Server 2003 and Windows Server 2008](https://blogs.msdn.microsoft.com/kaushal/2011/10/02/support-for-ssltls-protocols-on-windows/) and need to be manually enabled.
 2. Server administrators are generally being encouraged by Microsoft to prefer TLS 1.1 or 1.2 over TLS 1.0.
 3. Similarly certain ciphers and hashes are commonly being disabled.
-4. Recent Windows patches (like [KB3140245](https://support.microsoft.com/en-au/kb/3140245) and [KB3174644](https://support.microsoft.com/en-us/kb/3174644)) enable server administrators to modify the default behavior of Schannel using group policy or registry changes
+4. Recent Windows patches (like [KB3140245](https://support.microsoft.com/en-au/kb/3140245) and [KB3174644](https://support.microsoft.com/en-us/kb/3174644)) enable server administrators to modify the default behavior of Schannel using group policy or registry changes.
 
 A mismatch in the enabled protocols, ciphers, hashes or key exchanges on either end can break Tentacle communications.
 
@@ -43,7 +43,7 @@ You can use a tool like [IISCrypto](https://www.nartac.com/Products/IISCrypto)�
 
 Some customers have decided to roll back the Windows patches mentioned above and have reported success getting Tentacle communication working again. We would recommend upgrading Octopus and Tentacle to make use of TLS 1.2 by default in preference to rolling back any patches.
 
-### Solution: Increase the RSA Key Length of your Octopus Server or Tentacle certificate {#TroubleshootingSchannelandTLS-Solution:IncreaseRdaKeyLength}
+### Solution: Increase the RSA Key Length of Your Octopus Server or Tentacle Certificate {#TroubleshootingSchannelandTLS-Solution:IncreaseRdaKeyLength}
 
 Some customers have reported that after tightening the use of TLS to exclusively enable TLS 1.2, Tentacles become unable to communicate with Octopus Server and they see the error `A call to SSPI failed, see inner exception`. 
 

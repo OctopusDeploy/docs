@@ -1,10 +1,10 @@
 ---
-title: Deploying Docker Containers
+title: Docker Containers
 description: Octopus allows you to treat Docker images as immutable build artifacts that are moved through each stage of deployment by running them as containers with deploy-time specific configuration.
-position: 80
+position: 60
 ---
 
-`Octopus 3.5` introduced steps to perform the the first basic docker steps that are available with the installation of the docker engine
+**Octopus 3.5** introduced steps to perform the the first basic docker steps that are available with the installation of the docker engine
 
 Following on from the original [Octopus-Docker blog post](https://octopus.com/blog/docker-windows-octopus) and subsequent [RFC](https://octopus.com/blog/rfc-docker-integration), Octopus Deploy is taking the approach to treat Docker images as immutable build artifacts that are moved through each stage of deployment by running them as containers with deploy-time specific configuration. We feel this best follows the container mentality and avoids trying to re-invent container build and orchestration tools that already exist. We feel however, that Octopus Deploy still plays a crucial part in this process to allow your container deployments to integrate into your full deployment pipeline, through a staged environment lifecycle and alongside other non-container phases. Maintaining centralized auditing, configuration and orchestration of the whole deployment process from start to finish is not a problem solved by containers, and this is where our focus and expertise at Octopus Deploy lies.
 

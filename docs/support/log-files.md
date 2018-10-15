@@ -1,5 +1,5 @@
 ---
-title: Log files
+title: Log Files
 description: Octopus Server and Tentacle log file locations and details.
 position: 1
 ---
@@ -11,15 +11,15 @@ Octopus Deploy Server and Tentacles write diagnostic log messages to their local
 The most recent warnings and errors can be view on the {{Configuration,Diagnostics}} page
 :::
 
-## Finding the log files {#Logfiles-Findingthelogfiles}
+## Finding the Log Files {#Logfiles-Findingthelogfiles}
 
 When Octopus applications are installed, a "home directory" is chosen - this is usually `C:\Octopus`.
 
-Octopus stores its logs in the `Logs`subdirectory. Three sets of log files may be present: `OctopusServer.txt`, `OctopusTentacle.txt`. Older versions of these files will be stored with numeric suffixes in their names, e.g. the most recent archived server log file will be in `OctopusServer.0.txt`.
+Octopus stores its logs in the `Logs` subdirectory. Three sets of log files may be present: `OctopusServer.txt`, `OctopusTentacle.txt`. Older versions of these files will be stored with numeric suffixes in their names, e.g. the most recent archived server log file will be in `OctopusServer.0.txt`.
 
 When requesting support, send as much log information as possible - the repetitive nature of the files means they usually zip down well.
 
-## Changing log levels {#Logfiles-Changingloglevels}
+## Changing Log Levels {#Logfiles-Changingloglevels}
 
 Occasionally it may be necessary to change the logging level of an Octopus application.
 

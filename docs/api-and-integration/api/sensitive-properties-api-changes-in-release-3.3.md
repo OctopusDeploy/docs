@@ -6,7 +6,7 @@ position: 200
 
 :::warning
 **Breaking Changes**
-In Release 3.3 of Octopus Deploy we made a breaking-change to the API with regards to sensitive-properties on deployment steps and templates.
+In **Octopus 3.3** we made a breaking-change to the API with regards to sensitive-properties on deployment steps and templates.
 :::
 
 ## Affected Endpoints {#SensitivePropertiesAPIChangesinRelease3.3-AffectedEndpoints}
@@ -22,7 +22,7 @@ The *SensitiveProperties* JSON property was removed from deployment-steps and ac
 
 The *Properties* JSON property is now a collection containing a mixture of plain strings (representing non-sensitive properties) and sensitive-value objects (representing sensitive-properties).
 
-For example, a deployment step with one sensitive and one non-sensitive property in version < 3.3 would have resembled:
+For example, a deployment step with one sensitive and one non-sensitive property in versions prior to **Octopus 3.3** would have resembled:
 
 **Legacy deployment-process JSON**
 
@@ -69,7 +69,7 @@ For example, a deployment step with one sensitive and one non-sensitive property
 
 Note the Properties and SensitiveProperties collections on lines 19 and 22, and the fact that the values of sensitive-properties were always returned as null (line 23).
 
-In >= 3.3, this same resource would be represented as:
+In **Octopus 3.3** and greater, this same resource would be represented as:
 
 **New deployment-process JSON**
 

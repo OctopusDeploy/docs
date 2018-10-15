@@ -8,32 +8,29 @@ position: 0
 
 When using Octopus Deploy with TeamCity, TeamCity will usually be responsible for:
 
-- Checking for changes in source control
-- Compiling the code
-- Running unit tests
-- Creating NuGet packages for deployment
+- Checking for changes in source control.
+- Compiling the code.
+- Running unit tests.
+- Creating NuGet packages for deployment.
 
 While Octopus Deploy will be used to take those NuGet packages and to push them to development, test and production environments.
 
 Integration with TeamCity involves two major parts:
 
 1. Creating the NuGet packages from your applications.
-
-2. Optionally, when a build completes, having TeamCity make requests to your Octopus Server to:
+2. Optionally, when a build completes, having TeamCity make requests to your Octopus Server to:
    - Create releases
-
    - Trigger deployments and/or
-
    - Promote releases when a build completes
 
 ## Installing the Plugin {#TeamCity-InstallPluginInstallingtheplugin}
 
 To make integrating with TeamCity easy, a [plugin is available](https://octopus.com/downloads) from our download page. The plugin is distributed as a ZIP file. To install:
 
-1. Download the [TeamCity Plugin ZIP file](https://octopus.com/downloads)
-2. Shut down your TeamCity server
-3. Copy the ZIP file with the plugin to `<TeamCity Data Directory>/plugins`
-4. Start TeamCity server: the plugin files will be unpacked and processed automatically
+1. Download the [TeamCity Plugin ZIP file](https://octopus.com/downloads).
+2. Shut down your TeamCity server.
+3. Copy the ZIP file with the plugin to `<TeamCity Data Directory>/plugins`.
+4. Start TeamCity server: the plugin files will be unpacked and processed automatically.
 
 The [TeamCity Data Directory](https://confluence.jetbrains.com/display/TCD10/TeamCity+Data+Directory) can be found on the **Administration | Global Settings** page for a running TeamCity server instance.
 
@@ -117,14 +114,14 @@ In version 3.3.1 of the TeamCity Plugin we have added a new build runner that ca
 
 The Octopus TeamCity plugin comes with these custom build runners:
 
-1. **Octopus Deploy: Pack (TeamCity plugin 4.38.0 or newer)** Create a NuGet or Zip formatted package
+1. **Octopus Deploy: Pack (TeamCity plugin 4.38.0 or newer)** Create a NuGet or Zip formatted package.
 2. **Octopus Deploy: Push Packages (Octopus 3.3 and TeamCity plugin 3.3.1 or newer)** Push packages to the Octopus Deploy [built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md), optionally using the TeamCity zip feature to create packages on-the-fly.
 3. **Octopus Deploy: Create Release**
-  Creates a new release in Octopus Deploy, and optionally deploys it to an environment
+  Creates a new release in Octopus Deploy, and optionally deploys it to an environment.
 4. **Octopus Deploy: Deploy Release**
-  Deploys an *existing* release to a new environment
+  Deploys an *existing* release to a new environment.
 5. **Octopus Deploy: Promote Release**
-  Promotes an *existing*release from one environment to another.
+  Promotes an *existing* release from one environment to another.
 
 The plugin is simply a wrapper for [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md), the Octopus command line tool for creating and deploying releases.
 
@@ -134,7 +131,7 @@ The video below is from a webinar hosted by JetBrains in which we demonstrated t
 
 <iframe width="640" height="360" src="//www.youtube.com/embed/JWGLEEm9Qhg" frameborder="0" allowfullscreen></iframe>
 
-## Using the plugin with Linux build agents {#TeamCity-LinuxAgentsUsingthepluginwithLinuxbuildagents}
+## Using the Plugin With Linux Build Agents {#TeamCity-LinuxAgentsUsingthepluginwithLinuxbuildagents}
 
 Traditionally the Octopus TeamCity plugin required a Windows build agent to work. As of version 4.2.1 will run on Linux build agents if they meet either **one** of the following requirements:
 

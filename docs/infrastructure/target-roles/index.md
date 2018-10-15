@@ -48,7 +48,7 @@ Roles are created and saved in the database as soon as you assign them to a depl
 
 Decide on the naming convention you will use before creating your first target role as it's not possible to change the case after the role has been created, for instance, all lowercase to camel case.
 
-1) Register a deployment target or click on an already registered deployment target and go to **Settings.**
+1) Register a deployment target or click on an already registered deployment target and go to **Settings**.
 
 2) In the **Target Roles** field, enter the target role you'd like to use (no spaces).
 

@@ -5,19 +5,19 @@ description: Pushing packages to the Octopus Built-In repository can be done in 
 
 :::success
 **Supported Packages**
-The Octopus built-in repository has always supported NuGet packages, and since Octopus 3.3 it can [support many different types of packages](/docs/packaging-applications/supported-packages.md).
+The Octopus built-in repository has always supported NuGet packages, and since **Octopus 3.3** it can [support many different types of packages](/docs/packaging-applications/supported-packages.md).
 :::
 
 We offer several ways to add/upload/push packages to the built-in feed:
 
-- Using the Octopus web portal
-- Using your build server
-- Using Octo.exe
-- Using the Octopus API (HTTP POST)
-- Using NuGet.exe push
-- Using npm.exe, grunt or gulp
-- Using curl
-- Security considerations
+- Using the Octopus web portal.
+- Using your build server.
+- Using Octo.exe.
+- Using the Octopus API (HTTP POST).
+- Using NuGet.exe push.
+- Using npm.exe, grunt or gulp.
+- Using curl.
+- Security considerations.
 
 ## Using the Octopus Web Portal {#PushingpackagestotheBuilt-Inrepository-UsingtheOctopuswebportal}
 
@@ -32,8 +32,8 @@ We generally recommend using a continuous integration/build server like [TeamCit
 :::hint
 For pushing packages using the methods described below you'll need:
 
-1. The URL to your Octopus Server
-2. An [Octopus API key](/docs/api-and-integration/api/how-to-create-an-api-key.md) with the required permissions (see [security considerations](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md))
+1. The URL to your Octopus Server.
+2. An [Octopus API key](/docs/api-and-integration/api/how-to-create-an-api-key.md) with the required permissions (see [security considerations](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md)).
 :::
 
 ## Using Your Build Server {#PushingpackagestotheBuilt-Inrepository-Usingyourbuildserver}
@@ -59,7 +59,7 @@ You can upload a package via the [Octopus Deploy API](/docs/api-and-integration
 
 ## Using NuGet.exe Push {#PushingpackagestotheBuilt-Inrepository-UsingNuGet.exepush}
 
-To push a package using `NuGet.exe` you'll need a the URL for the Octopus NuGet feed to use with your build server or `NuGet.exe`. To find this, open the {{Library,Packages}} tab of the Octopus web portal.  Simply click the `Show examples` link to see options to upload packages. The screen shows an example command-line that can be used to push packages to the feed using [NuGet.exe](http://docs.nuget.org/docs/start-here/installing-nuget). You'll need to supply the NuGet package file (`.nupkg`) and an [Octopus API key](/docs/api-and-integration/api/how-to-create-an-api-key.md).
+To push a package using `NuGet.exe` you'll need a the URL for the Octopus NuGet feed to use with your build server or `NuGet.exe`. To find this, open the {{Library,Packages}} tab of the Octopus web portal.  Simply click the **Show examples** link to see options to upload packages. The screen shows an example command-line that can be used to push packages to the feed using [NuGet.exe](http://docs.nuget.org/docs/start-here/installing-nuget). You'll need to supply the NuGet package file (`.nupkg`) and an [Octopus API key](/docs/api-and-integration/api/how-to-create-an-api-key.md).
 
 ![](/docs/images/3048094/3277775.png "width=500")
 
@@ -77,7 +77,7 @@ You can upload packages using npm.exe or using our grunt or gulp tasks. Take a l
 
 ## Using Curl {#PushingpackagestotheBuilt-Inrepository-Usingcurl}
 
-You can upload packages using `curl`. Like all of the other examples you will need your Octopus Server URL and an API Key. This will perform a POST uploading the file contents as multi-part form data.
+You can upload packages using **curl**. Like all of the other examples you will need your Octopus Server URL and an API Key. This will perform a POST uploading the file contents as multi-part form data.
 
 ```powershell
 curl -X POST https://demo.octopus.com/api/packages/raw -H "X-Octopus-ApiKey: API-YOURAPIKEY" -F "data=@Demo.1.0.0.zip"
@@ -100,5 +100,5 @@ Instead of using your own API key, consider using a [Service Account](/docs/admi
 
 :::hint
 **Using Automatic Release Creation?**
-If you are using [automatic release creation](/docs/deployment-process/releases/automatic-release-creation.md) you will also require the permissions to create a release for all of the relevant projects in the required environments. To diagnose issues with pushing packages used for automatic release creation follow the troubleshooting guide on the [automatic release creation](/docs/deployment-process/releases/automatic-release-creation.md) page.
+If you are using [automatic release creation](/docs/deployment-process/project-triggers/automatic-release-creation.md) you will also require the permissions to create a release for all of the relevant projects in the required environments. To diagnose issues with pushing packages used for automatic release creation follow the troubleshooting guide on the [automatic release creation](/docs/deployment-process/project-triggers/automatic-release-creation.md) page.
 :::

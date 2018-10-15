@@ -1,12 +1,12 @@
 ---
-title: Get the raw output from a task
+title: Get the Raw Output From a Task
 description: How to get the raw output from a task to help the Octopus team resolve deployment related issues.
 position: 0
 ---
 
 When you contact Octopus Deploy support with a deployment-related issue, we'll sometimes ask you to send the full task log, so that we can understand what went wrong. This page explains how to capture the full task log.
 
-## Step-by-step guide {#Gettherawoutputfromatask-Step-by-stepguide}
+## Step-by-step Guide {#Gettherawoutputfromatask-Step-by-stepguide}
 
 The steps to send a full task log are:
 

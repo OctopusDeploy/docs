@@ -25,7 +25,7 @@ See the [packaging application docs](/docs/packaging-applications/index.md)
 
 !partial <configurestep>
 
-4. On the `Deployment` section you can configure any of the below settings which are related to *how* your files are going to be pushed to Azure.
+4. On the **Deployment** section you can configure any of the below settings which are related to *how* your files are going to be pushed to Azure.
 
 | Setting                     | Default     | Description                              |
 | --------------------------- | ----------- | ---------------------------------------- |
@@ -68,15 +68,15 @@ Switch-AzureWebsiteSlot -Name #{WebSite} -Slot1 Staging -Slot2 Production -Force
 
 When the `Deploy an Azure Web App` step gets executed, the below actions will happen (in order):
 
-1. Download the package from the [package repository](/docs/packaging-applications/package-repositories/index.md)
-2. Extract the package on the Octopus Server to a temporary location
-3. Any configured or packaged `PreDeploy` scripts are executed
-4. [Substitute variables in files ](/docs/deployment-process/configuration-features/substitute-variables-in-files.md)(if configured)
-5. [XML configuration transformations](/docs/deployment-process/configuration-features/configuration-transforms.md) (if configured) are performed
-6. [XML configuration variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) (if configured) are replaced
-7. Any configured or packaged `Deploy` scripts are executed
+1. Download the package from the [package repository](/docs/packaging-applications/package-repositories/index.md).
+2. Extract the package on the Octopus Server to a temporary location.
+3. Any configured or packaged `PreDeploy` scripts are executed.
+4. [Substitute variables in files ](/docs/deployment-process/configuration-features/substitute-variables-in-files.md)(if configured).
+5. [XML configuration transformations](/docs/deployment-process/configuration-features/configuration-transforms.md) (if configured) are performed.
+6. [XML configuration variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) (if configured) are replaced.
+7. Any configured or packaged `Deploy` scripts are executed.
 8. Push your package content to the Web App in Azure.
-9. Any configured or packaged `PostDeploy` scripts are executed
+9. Any configured or packaged `PostDeploy` scripts are executed.
 
 ## Simple and Advanced Deployment Scenarios {#DeployingapackagetoanAzureWebApp-Simpleandadvanceddeploymentscenarios}
 
@@ -85,7 +85,7 @@ When the `Deploy an Azure Web App` step gets executed, the below actions will ha
 
 When your application is deployed to more than one geographic region, you are likely to need per-region configuration settings. You can achieve this result in many different ways, but the two most popular methods we have seen are:
 
-1. [Cloud Regions](/docs/infrastructure/cloud-regions.md): introduced in Octopus 3.4 to enable [rolling deployments](/docs/deployment-patterns/rolling-deployments.md) across multiple geographic regions
-2. Environment-per-region: by creating an environment per region you can leverage [lifecycles](/docs/deployment-process/lifecycles/index.md) to create a strict release promotion process
+1. [Cloud Regions](/docs/infrastructure/cloud-regions.md): introduced in **Octopus 3.4** to enable [rolling deployments](/docs/deployment-patterns/rolling-deployments.md) across multiple geographic regions.
+2. Environment-per-region: by creating an environment per region you can leverage [lifecycles](/docs/deployment-process/lifecycles/index.md) to create a strict release promotion process.
 
 The example we've discussed here is the most common scenario for deploying Azure Web Apps: a single package that contains an ASP.NET Web Application and some Web Jobs in the same release cadence. It is possible to implement more complex deployment scenarios where the ASP.NET Web Application and each Web Job follow independent release cadences. In this case you would build multiple packages using the folder structure expected by the Azure Web App hosting framework discussed earlier. Once you've done that you can simply reuse the same Azure Web App Deployment Target to deploy each package when they are released.

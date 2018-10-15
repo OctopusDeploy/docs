@@ -40,7 +40,7 @@ It's possible to move off running steps on the built-in worker, and thus off the
 
 ## Add New Worker Pools
 
-Add new worker pools to Octopus by navigating to **{{Infrastructure,Worker Pools}}** in the **Octopus Web Portal** and click **ADD WORKER POOL**.  Only a user with the `ConfigureServer` permission can add or edit worker pools.
+Add new worker pools to Octopus by navigating to {{Infrastructure,Worker Pools}} in the **Octopus Web Portal** and click **ADD WORKER POOL**.  Only a user with the `ConfigureServer` permission can add or edit worker pools.
 
 You can add as many worker pools as you need.
 
