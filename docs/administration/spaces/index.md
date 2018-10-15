@@ -4,9 +4,11 @@ description: Spaces setup and configuration.
 position: 15
 ---
 
-Spaces let you partition your Octopus Server so that different teams access the projects, environments, and infrastructure they work with from the Spaces they are members of. Using Spaces keeps the different projects and infrastructure your teams use completely separate, which means something configured in SpaceA, is not available to projects in SpaceB. This is intended to make it easier for large organizations with multiple teams using Octopus. Without Spaces, each member of every team can see every project, environment, deployment target and every other asset in Octopus. Using Spaces, let's them focus on the projects they're working on.
+Spaces let you partition your Octopus Server so that different teams access the projects, environments, and infrastructure they work with from the Spaces they are members of.
 
-By default, every instance of Octopus Server since **Octopus 2018.11** comes with a default space, however, if you are not planning to use multiple Spaces, this default Space exists in the background and you do not to configure it or manage it. For organizations not uses Spaces the default space can be safely ignored.
+Using Spaces keeps the different projects and infrastructure your teams use completely separate, which means something configured in **SpaceA**, is not available to projects in **SpaceB**. This makes it easier for large organizations with multiple teams using Octopus because each team member will only see the projects, environments, and infrastructure that is available in their space.
+
+By default, every instance of Octopus Server since **Octopus 2018.11** comes with a default space, however, if you are not planning to use multiple Spaces, this default Space exists in the background and you do not to configure it or manage it. For organizations not using Spaces the default space can be safely ignored.
 
 ## Managing Spaces
 
@@ -16,36 +18,51 @@ Spaces are managed by navigating to {{Configuration,Spaces}}.
 
 Each Space has a Space Owner. The Space Owner is the Admin for that Space and is responsible for adding team members to the Space and assigning permissions to the members of the space.
 
-<!-- need details  -->
-
 ### Create a Space
 
 New spaces are added from the configuration section of the portal.
 
 1. To create a new Space navigate to {{Configuration,Spaces}} and select **ADD SPACE**.
 2. Give the Space a name.
-3. Give the Space an owner. This can be individual users or teams. Either can be selected from the drop-down menu.
+3. Give the Space an owner. This can be individual users or teams. Either can be selected from the drop-down menu. Click **SAVE**.
 4. Provide a description for the Space.
-5. Optionally upload a logo for the Space. The logo will be used in the top left corner of the portal to help users who have access to more than one space, quickly see which space they are currently in.
+5. Optionally, upload a logo for the Space.
 6. Click **SAVE**.
-
-### Delete a Space
-
-Once a space has been deleted it cannot be restored. To delete the resources available to a space, you must...
-
-<!-- need details -->
 
 ### Modify  a Space
 
-To rename a Space, or change the description or logo, navigate to {{Configuration,Spaces}} and select the Space you want to modify. Make your changes and Click **SAVE**.
+You can modify a space by navigating to {{Configuration,Spaces}} and selecting the space you want to modify. Expand the field you would like to change and click **SAVE** to save your changes.
 
-## Switch Between Spaces
+### Delete a Space
 
-When log into the Octopus Web Portal, the first item on the navigation menu is the Spaces menu. The first time you click this menu, you can create a Space. If you are a member of multiple spaces, you can switch between Spaces from this menu.
+You can delete spaces when you are the **Space Owner**. Deleting a space cannot be undone, and the space and all of its contents, including projects, environments, releases, and deployment history will be deleted.
 
-## System Scoped or Space Scoped
+1. Navigate to {{Configuration,Spaces}} and selecT the space you want to delete.
+1. Expand the **Task Queue Status** section and select the Stop task queue checkbox, and click **SAVE**.
+1. Click the overflow button and select **Delete**.
+1. Enter the name of the space and click **DELETE**.
 
-There is a hard barrier between Spaces, so, for instance, a deployment target configured for SpaceA isn't available to projects in SpaceB. However, there are some things that aren't scoped to a Spaces, but are system wide. Some things can be scoped to both Spaces and the system.
+## Disable the Default Space {#disable-the-default-space}
+
+You can disable the default space. <!-- do we need content explaining any ramifications? -->
+
+1. Navigate to {{Configuration,Spaces}} and select the default space.
+1. Expand the **Task Queue Status** section and select the Stop task queue checkbox, and click **SAVE**.
+1. Click the overflow button and select **Disable the default space**.
+1. Enter the name of the space and click **YES I'M SURE**.
+
+
+## Switching Between Spaces
+
+When you log into the Octopus Web Portal, the first item on the navigation menu is the Spaces menu. Click this icon to access the spaces you are a member of and to select the space you need.
+
+## System Scoped or Space Scoped {#system-scope-space-scoped}
+
+There is a hard barrier between Spaces, so, for instance, a deployment target configured for SpaceA isn't available to projects in SpaceB. However, there are some things that aren't scoped to a Spaces, but are system wide.
+
+The following table shows what is space-scoped, system-scoped, or scoped to both.
+
+Some things can be scoped to both Spaces and the system.
 
 | Resource               | Space-Scoped                       | System-Scoped      |
 | ------------------ | --------------------------- | ---------- |
