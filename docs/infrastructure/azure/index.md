@@ -6,10 +6,10 @@ position: 50
 
 Octopus Deploy provides first-class support for deploying to different PaaS products in the Azure Cloud. By adding your Azure subscription to Octopus, you can use your Azure Subscription from within Octopus to deploy to Azure Cloud Service targets, Azure Service Fabric targets, and Azure Web App targets.
 
-Before you can deploy software to Azure, you need to add your Azure subscription to Octopus Deploy. Read the following sections for instructions.
+Before you can deploy software to Azure, you need to add your Azure subscription to Octopus Deploy. Read the following sections to learn more about using Azure with Octopus.
 
 - [Add an Azure Account](#adding-azure-subscription)
-- [Create an Azure Service Principal Account](#azure-service-principal)
+- [Creating an Azure Service Principal Account](#azure-service-principal)
 - [Creating an Azure Management Certificate Account](#azure-management-certificate)
 - [Azure Account Variables](#azure-account-variables)
 - [Azure Targets](#azure-targets)
@@ -41,8 +41,6 @@ You can read about the differences in [this document](https://azure.microsoft.c
 ## Creating an Azure Service Principal Account {#azure-service-principal}
 
 Azure Service Principal accounts are for use with the **Azure Resource Management (ARM) API** only. Configuring your Octopus Server to authenticate with the service principal you create in Azure Active Directory will let you configure finely grained authorization for your Octopus Server.
-
-To enable your Octopus Server to manage your Azure subscription via a Service Principal account as part of adding an [Azure subscription](#adding-azure-subscription) you need to:
 
 1. Create an Azure Active Directory registered application (or application registration) and service principal (via the [Azure Portal](#create-service-principal-account-in-azure) or with [PowerShell](#create-service-principal-account-with-powershell)).
 2. Allow Octopus to authenticate with Azure using a Service Principal.
@@ -150,7 +148,7 @@ The reason behind this has to do with the way Octopus queries for the web app re
 
 ## Finalize the Service Principal Account in Octopus {#finalize-service-principal-account}
 
-Back in the Octopus Web Portal enter the following values:
+Back in the Octopus Web Portal, finish [adding your Azure Account](#adding-azure-subscription) by entering the following values:
 
 - Application ID
 - Tenant ID
