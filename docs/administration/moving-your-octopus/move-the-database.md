@@ -32,4 +32,4 @@ If you want to move your Octopus database from Azure SQL to AWS RDS, replace ste
 2. Download the `.bacpac` backup from Azure
 3. Import the `.bacpac` backup to a local SQL Server
 4. Create a standard SQL backup (`.bak`)
-5. [Import the `.bak` backup into your AWS RDS database](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.Procedural.Importing.html)
+5. [Import the SQL backup into your AWS RDS database](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.Procedural.Importing.html)
