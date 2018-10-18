@@ -1,17 +1,17 @@
 ---
 title: Build Versions and Packaging in Team Build
-description: A guide to build version numbers in Team Foundation Server (TFS) or Visual Studio Team Services (VSTS), and how they work with packages for Octopus.
+description: A guide to build version numbers in Team Foundation Server (TFS) or Azure DevOps, and how they work with packages for Octopus.
 ---
 
-Correctly versioning the packages you deploy with Octopus Deploy is important so the right version gets deployed at the right time. With Team Foundation Server (TFS) and Visual Studio Team Services (VSTS), specifying a package version isn't always straightforward.
+Correctly versioning the packages you deploy with Octopus Deploy is important so the right version gets deployed at the right time. With Team Foundation Server (TFS) and Azure DevOps, specifying a package version isn't always straightforward.
 
-This guide shows you how best to version your builds and packages in TFS and VSTS, whether you're using [OctoPack](#versioning-when-using-octopack), or the [Octopus Extension in the Visual Studio Marketplace](#versioning-when-using-the-octopus-build-tasks).
+This guide shows you how best to version your builds and packages in TFS and Azure DevOps, whether you're using [OctoPack](#versioning-when-using-octopack), or the [Octopus Extension in the Visual Studio Marketplace](#versioning-when-using-the-octopus-build-tasks).
 
 !toc
 
 ## Build Numbers in Team Build
 
-In Team Build (the build system in TFS and VSTS), build numbers may be in a format that doesn't represent a valid SemVer number.
+In Team Build (the build system in TFS and Azure DevOps), build numbers may be in a format that doesn't represent a valid SemVer number.
 
 For example, Microsoft's [Build Number format documentation](https://www.visualstudio.com/en-gb/docs/build/define/general#build-number-format) gives an example: `$(TeamProject)_$(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)` will result in a version number like `Fabrikam_CIBuild_master_20090805.2`.
 
@@ -78,7 +78,7 @@ To solve all these issues, we recommend using the `/p:OctoPackPackageVersion` ar
 
 1. Set the build definition build number format (described [above](#setting-a-semver-compliant-build-number)) to a valid SemVer version.
 2. Add the appropriate `/p:OctoPackPackageVersion` MSBuild argument:
-    - In the new build engine (VSTS and from TFS 2015 onwards): `/p:OctoPackPackageVersion=$(Build.BuildNumber)`
+    - In the new build engine (Azure DevOps and from TFS 2015 onwards): `/p:OctoPackPackageVersion=$(Build.BuildNumber)`
     - In the older XAML-based builds: `/p:OctoPackPackageVersion=$(TF_BUILD_BUILDNUMBER)`. You may also need to do some [extra work](http://stackoverflow.com/questions/40120013/how-to-get-msbuild-build-number-in-name-of-nuget-package-using-octopack) for certain build definitions.
 
 :::hint

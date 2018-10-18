@@ -1,6 +1,6 @@
 ---
-title: VSTS and TFS Extension Version Compatibility
-description: This guide explains the Octopus extension versions that are compatible with different versions of VSTS and TFS
+title: Azure DevOps and TFS Extension Version Compatibility
+description: This guide explains the Octopus extension versions that are compatible with different versions of Azure DevOps and TFS
 ---
 
 !toc
@@ -9,17 +9,17 @@ description: This guide explains the Octopus extension versions that are compati
 
 There are three distinct versions (or version ranges) you need to worry about with respect to the Octopus Extension:
 
-- [**Version 1.2.x**](https://s3-eu-west-1.amazonaws.com/octopus-downloads/tfs-2015-extension/octopusdeploy.octopus-deploy-build-release-tasks-1.2.28.vsix) - now obsolete, but still usable for older versions of TFS and VSTS
+- [**Version 1.2.x**](https://s3-eu-west-1.amazonaws.com/octopus-downloads/tfs-2015-extension/octopusdeploy.octopus-deploy-build-release-tasks-1.2.28.vsix) - now obsolete, but still usable for older versions of TFS and Azure DevOps
 - [**Version 2.0.39**](https://s3-eu-west-1.amazonaws.com/octopus-downloads/tfs-2015-extension/octopusdeploy.octopus-deploy-build-release-tasks-2.0.39.vsix) - a specific "version 2" build for TFS 2015 Update 2, TFS 2015 Update 3, TFS 2015 Update 4, and TFS 2017 RTM
-- [**Version 2.0.x**](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) - the current, most recent version of the extension, for VSTS and TFS 2017 Update 1 and above
+- [**Version 2.0.x**](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) - the current, most recent version of the extension, for Azure DevOps and TFS 2017 Update 1 and above
 
 ## Extension Compatibility with Team Foundation Server
 
-The following table shows compatibility between versions of VSTS, TFS, and the Octopus extension
+The following table shows compatibility between versions of Azure DevOps, TFS, and the Octopus extension
 
-| VSTS/TFS Version / Extension Version | 1.2.x | 2.0.39 | 2.0.x |
+| Azure DevOps/TFS Version / Extension Version | 1.2.x | 2.0.39 | 2.0.x |
 | ------------------------------------ |:-----:|:------:|:-----:|
-| VSTS                                 | <i class="fa fa-check"></i> | <i class="fa fa-times"></i> | <i class="fa fa-check"></i> |
+| Azure DevOps\                        | <i class="fa fa-check"></i> | <i class="fa fa-times"></i> | <i class="fa fa-check"></i> |
 | TFS 2017 Update 1                    | <i class="fa fa-check"></i> | <i class="fa fa-asterisk"></i> | <i class="fa fa-check"></i> |
 | TFS 2017 RTM                         | <i class="fa fa-check"></i> | <i class="fa fa-check"></i> | <i class="fa fa-times"></i> |
 | TFS 2015 Updates 2,3,4               | <i class="fa fa-check"></i> | <i class="fa fa-check"></i> | <i class="fa fa-times"></i> |
@@ -32,11 +32,11 @@ You may have success manually installing the task by following [these instructio
 
 ## Upgrading Extensions
 
-The ease of upgrades depends very much on the version of TFS (or VSTS) being used, and the extension versions involved.
+The ease of upgrades depends very much on the version of TFS (or Azure DevOps) being used, and the extension versions involved.
 
-### Extension Upgrades in VSTS and TFS 2017 Update 1 (and above)
+### Extension Upgrades in Azure DevOps and TFS 2017 Update 1 (and above)
 
-In VSTS, extension versions within the same major version (e.g. 2.0.62 to 2.0.63) are applied automatically. These should never be breaking changes. The same applies in TFS 2017.1, the only difference being the need to upload the new extension to TFS manually.
+In Azure DevOps, extension versions within the same major version (e.g. 2.0.62 to 2.0.63) are applied automatically. These should never be breaking changes. The same applies in TFS 2017.1, the only difference being the need to upload the new extension to TFS manually.
 
 Extension updates that increment major version numbers (e.g. 1.2.28 to 2.0.63) will result in both versions being available. Your administrator will be prompted to update the extension before it's available to users.
 

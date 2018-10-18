@@ -6,43 +6,25 @@ position: 50
 
 Octopus Deploy provides first-class support for deploying to different PaaS products in the Azure Cloud. By adding your Azure subscription to Octopus, you can use your Azure Subscription from within Octopus to deploy to Azure Cloud Service targets, Azure Service Fabric targets, and Azure Web App targets.
 
-Before you can deploy software to Azure, you need to add your Azure subscription to Octopus Deploy. Read the following sections for instructions.
+Before you can deploy software to Azure, you need to add your Azure subscription to Octopus Deploy. Read the following sections to learn more about using Azure with Octopus.
 
-- [Add an Azure Account](#adding-azure-subscription)
-- [Create an Azure Service Principal Account](#azure-service-principal)
+- [Creating an Azure Service Principal Account](#azure-service-principal)
 - [Creating an Azure Management Certificate Account](#azure-management-certificate)
 - [Azure Account Variables](#azure-account-variables)
 - [Azure Targets](#azure-targets)
 
+## Azure Account Authentication Method {#CreatinganAzureAccount-AuthenticationMethod}
 
-## Add an Azure Account {#adding-azure-subscription}
-
-An Azure Account in Octopus Deploy contains the details of your Azure subscription.  It is used to authenticate with Azure when deploying or executing scripts.
-
-1. Navigate to {{Infrastructure,Account}}.
-1. Select {{ADD ACCOUNT,Azure Subscriptions}}.
-1. Give the account the name you want it to be known by in Octopus.
-1. Give the account a description.
-1. Add your Azure Subscription ID. This is found in the Azure portal under **Subscriptions**.
-
-### Authentication Method {#CreatinganAzureAccount-AuthenticationMethod}
-
-There are two ways to authenticate with Azure in Octopus. These represent the different interfaces in Azure, and the interface you need will dictate which authentication method you use.
+When you add an Azure account to Octopus, there are two ways to authenticate with Azure in Octopus. These represent the different interfaces in Azure, and the interface you need will dictate which authentication method you use.
 
 - [Service Principal](#azure-service-principal) (default) is used with resource manager mode (ARM).
 - [Management Certificate](#azure-management-certificate) is used with service management mode (ASM)
 
 You can read about the differences in [this document](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/).
 
-6. Select the authentication method you need.
-  - [Service Principal](#azure-service-principal) (default)
-  - [Management Certificate](#azure-management-certificate)
-
 ## Creating an Azure Service Principal Account {#azure-service-principal}
 
 Azure Service Principal accounts are for use with the **Azure Resource Management (ARM) API** only. Configuring your Octopus Server to authenticate with the service principal you create in Azure Active Directory will let you configure finely grained authorization for your Octopus Server.
-
-To enable your Octopus Server to manage your Azure subscription via a Service Principal account as part of adding an [Azure subscription](#adding-azure-subscription) you need to:
 
 1. Create an Azure Active Directory registered application (or application registration) and service principal (via the [Azure Portal](#create-service-principal-account-in-azure) or with [PowerShell](#create-service-principal-account-with-powershell)).
 2. Allow Octopus to authenticate with Azure using a Service Principal.
@@ -123,7 +105,7 @@ You can specify the expiry date by adding the *-EndDate* parameter to the *New-A
 -EndDate (new-object System.DateTime 2018, 12, 31)
 ```
 
-Now, you can [finalize the Service Principal Account in octopus](#finalize-service-principal-account).
+Now, you can [add the Service Principal Account in Octopus](#add-service-principal-account).
 
 ## Resource Permissions {#resource-permissions}
 
@@ -132,7 +114,7 @@ The final step is to ensure your registered app has permission to work with your
 1. In the Azure Portal navigate to **Resource groups** and select the resource group(s) that you want the registered app to access.
 1. Next, select the **Access Control (IAM)** option and if your app isn't listed, click **Add**. Select the appropriate role (**Contributor** is a common option) and search for your new application name. Select it from the search results and then click **Save**.
 
-Now, you can [finalize the Service Principal Account in octopus](#finalize-service-principal-account).
+Now, you can [add the Service Principal Account in Octopus](#add-service-principal-account).
 
 :::hint
 Note on roles: Your Service Principal will need to be assigned the *Contributor* role in order to deploy.
@@ -148,13 +130,20 @@ Next, if you might want to get even more granular you can constrain the service 
 
 The reason behind this has to do with the way Octopus queries for the web app resources in Azure. In order to handle scenarios where [ASEs](/docs/deployment-examples/azure-deployments/ase/index.md#resource_groups) are being used, Octopus first queries the resource groups and then queries for the web apps within each resource group. When the service principal is assigned **Contributor** on a resource group it seems to implicitly get **Reader** on the subscription, but this doesn't seem to be the case when **Contributor** is assigned directly to a web app, so you have to assign **Reader** explicitly.
 
-## Finalize the Service Principal Account in Octopus {#finalize-service-principal-account}
+## Add the Service Principal Account in Octopus {#add-service-principal-account}
 
-Back in the Octopus Web Portal enter the following values:
+Now that you have the following values, you can add your account to Octopus:
 
 - Application ID
 - Tenant ID
 - Application Password/Key
+
+1. Navigate to {{Infrastructure,Account}}.
+1. Select {{ADD ACCOUNT,Azure Subscriptions}}.
+1. Give the account the name you want it to be known by in Octopus.
+1. Give the account a description.
+1. Add your Azure Subscription ID. This is found in the Azure portal under **Subscriptions**.
+1. Add the **Application ID**, the **Tenant ID**, and the **Application Password/Keyword**.
 
 Click **SAVE AND TEST** to confirm the account can interact with Azure. Octopus will then attempt to use the account credentials to access the Azure Resource Management (ARM) API and list the Resource Groups in that subscription. You may need to whitelist the IP Addresses for the Azure Data Center you are targeting. See [deploying to Azure via a Firewall](/docs/deployment-examples/azure-deployments/index.md) for more details.
 

@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting Integrations Between Build Servers and Octopus
-description: General guide to troubleshoot integrations between build servers such as TeamCity or VSTS with Octopus Deploy
+description: General guide to troubleshoot integrations between build servers such as TeamCity or Azure DevOps with Octopus Deploy
 position: 140
 ---
 
@@ -16,7 +16,7 @@ If you are reading this doc, odds are you already tried to run an Octopus-relate
 
 ### What Happens When an Octopus Step is Executed During the Build Process {#Octopus-Steps-What-happens-behind}
 
-The Octopus Deploy team supports many of the most popular integration plugins/extensions our there, like the ones for [VSTS/TFS](\docs\api-and-integration\tfs-vsts\index.md), [Teamcity](\docs\api-and-integration\teamcity.md) and [Bamboo](\docs\api-and-integration\bamboo.md). All the steps provided by these extensions/plugins are nothing but wrappers of `Octo.exe` that provide a UI with fields whose values will be passed to this command line tool during the build.
+The Octopus Deploy team supports many of the most popular integration plugins/extensions our there, like the ones for [Azure DevOps/TFS](\docs\api-and-integration\tfs-azure-devops\index.md), [Teamcity](\docs\api-and-integration\teamcity.md) and [Bamboo](\docs\api-and-integration\bamboo.md). All the steps provided by these extensions/plugins are nothing but wrappers of `Octo.exe` that provide a UI with fields whose values will be passed to this command line tool during the build.
 
 Lets take for example this TeamCity **Octopus Deploy: Create Release** step:
 
@@ -28,7 +28,7 @@ Each of the values marked on the fields above can be seen in the `Octo.exe` call
 
 *This is a screenshot of a TeamCity log fragment edited for visual purposes. You can check the real log output in our [Shared TeamCity server](http://teamcity.octopusdeploy.com/viewLog.html?buildId=440630&buildTypeId=OctoFX_OctoFX&tab=buildLog&state=1021%2C1023#_state=1021,1023&focus=1024) by logging in as a guest. You might have to click on that link once to login, and then a second time to go to the highlighted line in the log*
 
-The same holds true for this **Package Application** step in VSTS and its log output:
+The same holds true for this **Package Application** step in Azure DevOps and its log output:
 
 ![](\docs\images\5672460\5672464.png)
 
