@@ -251,7 +251,7 @@ New-OctopusKubernetesTarget `
     -name "The name of the target" `
     -clusterUrl "https://k8scluster" `
     -octopusRoles "The target role" `
-    -octopusClientCertificateIdOrName "The name of an account" `
+    -octopusClientCertificateIdOrName "The name of a certificate" `
     -namespace "kubernetes-namespace" `
     -updateIfExisting `
     -skipTlsVerification True
