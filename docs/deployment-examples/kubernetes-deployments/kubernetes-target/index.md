@@ -226,3 +226,61 @@ MIIEyDCCArCgAwIBAgIRAOBNYnhYDBamTvQn...
 ```
 
 Save this text to a file called `ca.pem`, and upload it to the [Octopus certificate management area](http://g.octopushq.com/CertificatesDocumentation). The certificate can then be selected in the `cluster certificate authority` field.
+
+## Dynamic Targets
+
+Kubernetes targets can be created dynamiclly at deploy time with the Powershell function `New-OctopusKubernetesTarget`.
+
+The following example creates a target using a username/password or token account.
+
+```
+New-OctopusKubernetesTarget `
+    -name "The name of the target" `
+    -clusterUrl "https://k8scluster" `
+    -octopusRoles "The target role" `
+    -octopusAccountIdOrName "The name of an account" `
+    -namespace "kubernetes-namespace" `
+    -updateIfExisting `
+    -skipTlsVerification True
+```
+
+When creating a target with a client certificate, the name of the certificate is required.
+
+```
+New-OctopusKubernetesTarget `
+    -name "The name of the target" `
+    -clusterUrl "https://k8scluster" `
+    -octopusRoles "The target role" `
+    -octopusClientCertificateIdOrName "The name of an account" `
+    -namespace "kubernetes-namespace" `
+    -updateIfExisting `
+    -skipTlsVerification True
+```
+
+When creating a target using an Azure account, the cluster URL and certificates are not required. The Azure resource group and AKS name are required.
+
+```
+New-OctopusKubernetesTarget `
+    -name "The name of the target" `
+    -octopusRoles "The target role" `
+    -octopusAccountIdOrName "The name of an azure account" `
+    -clusterResourceGroup "AzureResourceGroupName" `
+    -clusterName "AzureAKSClusterName" `
+    -namespace "kubernetes-namespace" `
+    -updateIfExisting `
+    -skipTlsVerification True
+```
+
+When creating a target using an AWS account, the EKS cluster name is required.
+
+```
+New-OctopusKubernetesTarget `
+    -name "The name of the target" `
+    -octopusRoles "The target role" `
+    -clusterUrl "https://k8scluster" `
+    -octopusAccountIdOrName "The name of an azure account" `
+    -clusterName "AwsEKSClusterName" `
+    -namespace "kubernetes-namespace" `
+    -updateIfExisting `
+    -skipTlsVerification True
+```
