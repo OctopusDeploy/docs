@@ -278,7 +278,7 @@ New-OctopusKubernetesTarget `
     -name "The name of the target" `
     -octopusRoles "The target role" `
     -clusterUrl "https://k8scluster" `
-    -octopusAccountIdOrName "The name of an azure account" `
+    -octopusAccountIdOrName "The name of an aws account" `
     -clusterName "AwsEKSClusterName" `
     -namespace "kubernetes-namespace" `
     -updateIfExisting `
