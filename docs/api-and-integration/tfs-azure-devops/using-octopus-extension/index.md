@@ -1,10 +1,10 @@
 ---
 title: Using the Octopus Extension
-description: Octopus Deploy and Visual Studio Team Services (VSTS) can work together to make automated, continuous delivery easy.
+description: Octopus Deploy and Azure DevOps can work together to make automated, continuous delivery easy.
 position: 1
 ---
 
-The new structure of Team Foundation Build gives us a great opportunity to integrate better with your build and release processes from Visual Studio Team Services (VSTS) (formerly VSO) and on-premises Team Foundation Server (TFS) servers. We've created a [public extension](https://marketplace.visualstudio.com/items/octopusdeploy.octopus-deploy-build-release-tasks) you can install into your VSTS instance or TFS 2017 server.  This extension makes the following tasks available to your Build and Release processes:
+The new structure of Team Foundation Build gives us a great opportunity to integrate better with your build and release processes from Azure DevOps (formerly VSO) and on-premises Team Foundation Server (TFS) servers. We've created a [public extension](https://marketplace.visualstudio.com/items/octopusdeploy.octopus-deploy-build-release-tasks) you can install into your Azure DevOps instance or TFS 2017 server.  This extension makes the following tasks available to your Build and Release processes:
 
 - Octo Installer task.
 - Packaging your application.
@@ -23,7 +23,7 @@ We've open-sourced the [OctoTFS repository in GitHub](https://github.com/Octopu
 
 ## Installing the Extension
 
-If you're using **Visual Studio Team Services (VSTS) or on-premises Team Foundation Server (TFS) 2017 (or newer)** you can simply [install the extension from the marketplace](https://marketplace.visualstudio.com/items/octopusdeploy.octopus-deploy-build-release-tasks) and follow the instructions below.
+If you're using **Azure DevOps or on-premises Team Foundation Server (TFS) 2017 (or newer)** you can simply [install the extension from the marketplace](https://marketplace.visualstudio.com/items/octopusdeploy.octopus-deploy-build-release-tasks) and follow the instructions below.
 
 If you're using an earlier version of TFS, see the [Extension Compatibility documentation](extension-compatibility.md) for details on where to get a compatible extension.
 
@@ -36,7 +36,7 @@ If you want to make changes to the build task that might not be appropriate for 
 
 ## Use Your Own Version of Octo
 
-You can bring your own version of Octo and avoid the use of installer tasks or accessing the internet by [registering Octo as a capability](/docs/api-and-integration/tfs-vsts/using-octopus-extension/install-octo-capability.md).
+You can bring your own version of Octo and avoid the use of installer tasks or accessing the internet by [registering Octo as a capability](/docs/api-and-integration/tfs-azure-devops/using-octopus-extension/install-octo-capability.md).
 
 ## Add a Connection to Octopus Deploy
 
@@ -66,7 +66,7 @@ The API key you choose needs to have sufficient permissions to perform all the t
 
 For the tasks themselves, these are relatively easy to determine (for example, creating a Release for Project A will require release creation permissions for that project).
 
-For the VSTS UI elements provided by the extension, the API key must also have the below permissions. If one or more are missing, you should still be able to use the extension, however the UI may encounter failures and require you to type values rather than select them from drop-downs. The dashboard widget will not work at all without its required permissions.
+For the Azure DevOps UI elements provided by the extension, the API key must also have the below permissions. If one or more are missing, you should still be able to use the extension, however the UI may encounter failures and require you to type values rather than select them from drop-downs. The dashboard widget will not work at all without its required permissions.
 
 If there are scope restrictions (e.g. by Project or Environment) against the account, the UI should still work, but results will be similarly restricted.
 
@@ -79,8 +79,8 @@ If there are scope restrictions (e.g. by Project or Environment) against the acc
 
 ## Demands and the Octo Installer Task
 
-The VSTS extension tasks require Octo to be available on the path when executing on a build agent and must have the .net core 2.0.0 runtime or newer installed. This may not always be possible such as with the VSTS hosted agents. In order to
-make this work, all Octopus tasks will automatically attempt to download and use the latest version of Octo tools unless they're [available on the build agent](/docs/api-and-integration/tfs-vsts/using-octopus-extension/install-octo-capability.md) as specified above. If you would like to avoid any additional downloads or to use a specific Octo version then you can by adding the Octo Installer task to the start of your build definition. No attempt will be made to download Octo if the capability is detected on your build agent.
+The Azure DevOps extension tasks require Octo to be available on the path when executing on a build agent and must have the .net core 2.0.0 runtime or newer installed. This may not always be possible such as with the Azure DevOps hosted agents. In order to
+make this work, all Octopus tasks will automatically attempt to download and use the latest version of Octo tools unless they're [available on the build agent](/docs/api-and-integration/tfs-azure-devops/using-octopus-extension/install-octo-capability.md) as specified above. If you would like to avoid any additional downloads or to use a specific Octo version then you can by adding the Octo Installer task to the start of your build definition. No attempt will be made to download Octo if the capability is detected on your build agent.
 
 :::hint
 Version 2.x.x of the extension included a bundled version of the Octo tools and did not require the agent to be setup with Octo in the path and did not support running on Linux or Mac build agents.
@@ -112,7 +112,7 @@ In the new Team Foundation build process, the arguments below should be in the 
 
 :::warning
 **Octopack and .NET Core**
-Octopack is not supported for .NET Core and we suggest using the VSTS extensions instead.
+Octopack is not supported for .NET Core and we suggest using the Azure DevOps extensions instead.
 :::
 
 ![](/docs/images/3048587/3278377.png "width=500")
@@ -205,7 +205,7 @@ See the [Extension Marketplace page](https://marketplace.visualstudio.com/items
 
 ## Using the Dashboard Widget
 
-On your VSTS dashboard, click the `+` icon to add a new widget, then search for "Octopus Deploy". Add the **Octopus Deploy Status** widget.
+On your Azure DevOps dashboard, click the `+` icon to add a new widget, then search for "Octopus Deploy". Add the **Octopus Deploy Status** widget.
 
 Hover over the widget and click the wrench icon to configure the widget.
 
