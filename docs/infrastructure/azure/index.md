@@ -4,7 +4,7 @@ description: Configure your infrastructure so Octopus can deploy software to you
 position: 50
 ---
 
-Octopus Deploy provides first-class support for deploying to different PaaS products in the Azure Cloud. By adding your Azure subscription to Octopus, you can use your Azure Subscription from within Octopus to deploy to Azure Cloud Service targets, Azure Service Fabric targets, and Azure Web App targets.
+You can deploy software to the Azure cloud by adding you Azure subscription to Octopus. With an active Azure subscription, you can use Octopus to deploy to Azure Cloud Service targets, Azure Service Fabric targets, and Azure Web App targets.
 
 Before you can deploy software to Azure, you need to add your Azure subscription to Octopus Deploy. Read the following sections to learn more about using Azure with Octopus.
 
