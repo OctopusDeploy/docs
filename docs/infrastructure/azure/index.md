@@ -8,6 +8,7 @@ You can deploy software to the Azure cloud by adding you Azure subscription to O
 
 Before you can deploy software to Azure, you need to add your Azure subscription to Octopus Deploy. Read the following sections to learn more about using Azure with Octopus.
 
+- [Azure Account Authentication Method](#CreatinganAzureAccount-AuthenticationMethod)
 - [Creating an Azure Service Principal Account](#azure-service-principal)
 - [Creating an Azure Management Certificate Account](#azure-management-certificate)
 - [Azure Account Variables](#azure-account-variables)
@@ -29,7 +30,9 @@ Azure Service Principal accounts are for use with the **Azure Resource Managemen
 1. Create an Azure Active Directory registered application (or application registration) and service principal (via the [Azure Portal](#create-service-principal-account-in-azure) or with [PowerShell](#create-service-principal-account-with-powershell)).
 2. Allow Octopus to authenticate with Azure using a Service Principal.
 
-### Create an Azure Active Directory Application and Service Principal With the Azure Portal {#create-service-principal-account-in-azure}
+### Create an Azure Service Principal With the Azure Portal {#create-service-principal-account-in-azure}
+
+This step shows you how to create a Service Principal with the Azure Portal, if you would rather use PowerShell to create the Service Principal, see [Create an Azure Service Principal With PowerShell](#create-service-principal-account-with-powershell).
 
 1. In the Azure Portal, navigate to {{Azure Active Directory,Properties}} and copy the value from the **Directory ID** field, this is your **Tenant ID**.
 1. Next you need your **Application ID**.
@@ -45,9 +48,9 @@ You now have the following:
 
 Next, you need to configure your [resource permissions](#resource-permissions).
 
-### Create an Azure Active Directory Application and Service Principal With PowerShell {#create-service-principal-account-with-powershell}
+### Create an Service Principal With PowerShell {#create-service-principal-account-with-powershell}
 
-You can use the PowerShell script below to create the Service Principal.
+This step shows you how to create a Service Principal with the PowerShell script below, if you would rather use the Azure Portal to create the Service Principal, see [Create an Azure Service Principal With the Azure Portal](#create-service-principal-account-in-azure).
 
 :::hint
 This script requires [Azure PowerShell](https://azure.microsoft.com/en-us/documentation/articles/powershell-install-configure/) 1.0 or greater.
