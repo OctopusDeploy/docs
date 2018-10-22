@@ -165,7 +165,7 @@ During the build messages are output at the `Normal` msbuild logging level which
 OctoPack `3.4.0` to `3.4.2` used the official build of NuGet 3 to varying degrees and therefore do not preserve version numbers as described per below.
 :::
 
-NuGet 3 started removing leading zeros and the fourth digit if it is zero. These are affectionately known as "NuGet zero quirks" and can be surprising when working with tooling outside the NuGet ecosystem. We have made a choice to preserve the version as-is when working with Octopus tooling to create packages of any kind. Learn more about [versioning in Octopus Deploy](http://docs.octopusdeploy.com/display/OD/Versioning+in+Octopus+Deploy).
+NuGet 3 started removing leading zeros and the fourth digit if it is zero. These are affectionately known as "NuGet zero quirks" and can be surprising when working with tooling outside the NuGet ecosystem. We have made a choice to preserve the version as-is when working with Octopus tooling to create packages of any kind. Learn more about [versioning in Octopus Deploy](/docs/packing-applications/versioning.md).
 
 To make this work for NuGet packages we have forked NuGet.
 
