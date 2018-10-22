@@ -150,7 +150,7 @@ The result will be:
 ```powershell
 Listening on:
  - Endpoint A at http://a.example.com is Master
- - Endpont B at http://b.example.com is Slave
+ - Endpoint B at http://b.example.com is Slave
 ```
 
 #### Iterating Over Comma-separated Values {#VariableSubstitutionSyntax-Iteratingovercomma-separatedvalues}
