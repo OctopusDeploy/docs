@@ -69,25 +69,23 @@ To push packages to Octopus during the OctoPack phase, enter the NuGet endpoint 
 ## Consuming the TeamCity NuGet feed in Octopus {#TeamCity-ConsumeNuGetFeedInOctopusConsumingtheTeamCityNuGetfeedinOctopus}
 
 :::warning
-**Compatibility**
-**Octopus 2.x-3.3.x** will work with **TeamCity 7.0 or newer**.
-
 **Octopus 3.4+** requires **TeamCity 9.0+** due to compatibility problems with the older NuGet v1 feed implemented by earlier versions of TeamCity. Refer to [this thread](http://help.octopus.com/discussions/problems/47581-teamcity-nuget-feed#comment_40952268) and this [GitHub Issue](https://github.com/OctopusDeploy/Issues/issues/2656) for more details.
 :::
 
-TeamCity 7 and up can act as a NuGet repository. You can enable this by going to the *Administration*&#10140;*NuGet Settings* page, and enabling the inbuilt NuGet server. Any build artifacts ending with `.nupkg` will automatically be served as NuGet packages, which Octopus can consume.
+TeamCity 7 and up can act as a NuGet repository. You can enable this by navigating to {{Administration,NuGet Settings}} and enabling the inbuilt NuGet server. Any build artifacts ending with `.nupkg` will automatically be served as NuGet packages, which Octopus can consume.
 
-To connect Octopus to your TeamCity server, add the TeamCity authenticated feed URL to your NuGet settings in Octopus on the **External Feeds** tab under the **Library** page.
+### Connect Octopus to Your TeamCity server
 
-![](/docs/images/3048176/3278184.png "width=500")
+1. In the Octopus Web Portal navigate to {{Library,External Feeds}}.
+1. Click **ADD FEED**.
+1. Leave the feed type as **NuGet Feed**.
+1. Enter a name for the feed.
+1. Enter the authenticated feed URL.
+1. Click **SAVE**.
 
 Once added, the TeamCity feed will appear in the NuGet feed list:
 
-![](/docs/images/3048176/3278183.png "width=500")
-
 You can use the *Test* link to make sure that the NuGet package is available, before creating your Octopus project:
-
-![](/docs/images/3048176/3278182.png "width=500")
 
 :::success
 **Tip: delayed package publishing**
