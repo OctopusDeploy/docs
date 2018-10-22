@@ -34,7 +34,7 @@ If necessary you can further restrict access using IPSec or VPNs.
 The X.509 certificates used by Octopus and Tentacle are generated on installation and use 2048-bit private keys. There is an insightful discussion of [why Octopus uses self-signed certificates](https://octopus.com/blog/why-self-signed-certificates) by default.
 
 :::hint
-Instead of having Tentacle generate its own certificate, you can [import a Tentacle certificate](https://octopus.com/docs/infrastructure/windows-targets/automating-tentacle-installation#export-and-import-tentacle-certificates-without-a-profile) which is helpful when [automating Tentacle installation](/docs/infrastructure/windows-targets/automating-tentacle-installation.md).
+Instead of having Tentacle generate its own certificate, you can [import a Tentacle certificate](/docs/infrastructure/windows-targets/automating-tentacle-installation#export-and-import-tentacle-certificates-without-a-profile) which is helpful when [automating Tentacle installation](/docs/infrastructure/windows-targets/automating-tentacle-installation.md).
 :::
 
 ### Scenario: Listening Tentacles {#Octopus-Tentaclecommunication-Scenario:ListeningTentacles}
