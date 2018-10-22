@@ -47,4 +47,4 @@ Some customers have decided to roll back the Windows patches mentioned above and
 
 Some customers have reported that after tightening the use of TLS to exclusively enable TLS 1.2, Tentacles become unable to communicate with Octopus Server and they see the error `A call to SSPI failed, see inner exception`.
 
-This could occur if the RSA Key length is small (512 bit) and we have received reports that regenerating the TLS Certificate using [new-certificate](/docs/api-and-integration/tentacle.exe-command-line/new-certificate,md) fixes the issue.
+This could occur if the RSA Key length is small (512 bit) and we have received reports that regenerating the TLS Certificate using [new-certificate](/docs/api-and-integration/tentacle.exe-command-line/new-certificate.md) fixes the issue.
