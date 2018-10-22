@@ -93,7 +93,7 @@ In this case you could:
 3. Optionally create an automatic deployment trigger in the orchestrating project to start the whole process.
 
 :::success
-The [Chain Deployment](https://library.octopusdeploy.com/step-template/actiontemplate-chain-deployment) step template might be a perfect fit for you in this situation, or you may want to customize this step template for more advanced scenarios.
+The [Chain Deployment](https://library.octopus.com/step-template/actiontemplate-chain-deployment) step template might be a perfect fit for you in this situation, or you may want to customize this step template for more advanced scenarios.
 :::
 
 ### Specifying a Specific Release to be Deployed

@@ -4,7 +4,7 @@ description: Information on how to manually upgrade to Octopus 3.x from Octopus 
 position: 1
 ---
 
-You can upgrade between **Octopus 2.6** and **Octopus 3.x** by downloading the latest [MSI's for both Octopus and Tentacle](https://octopusdeploy.com/download), and installing them manually. If you're working with a large number of Tentacles, see the section on [upgrading larger installations](/docs/administration/upgrading/upgrading-from-octopus-2.6/index.md).
+You can upgrade between **Octopus 2.6** and **Octopus 3.x** by downloading the latest [MSI's for both Octopus and Tentacle](https://octopus.com/download), and installing them manually. If you're working with a large number of Tentacles, see the section on [upgrading larger installations](/docs/administration/upgrading/upgrading-from-octopus-2.6/index.md).
 
 ## Summary {#Manualupgrade-Summary}
 

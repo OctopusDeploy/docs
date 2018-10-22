@@ -34,7 +34,7 @@ The Octopus working directory is a location where some supporting files (e.g. th
 
 ## Building the Offline Package {#OfflinePackageDrop-BuildingtheOfflinePackage}
 
-When Octopus deploys to an Offline Package Drop target it doesn't actually execute the deployment, but will create a folder structure complete with Packages, Scripts, Variable files, Calamari and a batch file to execute the deployment on the actual target server. This example is from the `OctoFX.TradingWebsite` example on [https://demo.octopusdeploy.com](https://demo.octopusdeploy.com).
+When Octopus deploys to an Offline Package Drop target it doesn't actually execute the deployment, but will create a folder structure complete with Packages, Scripts, Variable files, Calamari and a batch file to execute the deployment on the actual target server. This example is from the `OctoFX.TradingWebsite` example on [https://demo.octopus.com](https://demo.octopus.com).
 
 **Example Offline Package Drop using the OctoFX Trading Website**
 

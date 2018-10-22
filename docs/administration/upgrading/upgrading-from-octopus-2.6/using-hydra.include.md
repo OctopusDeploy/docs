@@ -51,7 +51,7 @@ These steps should be executed from your **Octopus 2.6** server to your 2.6 Tent
 
 ![](/docs/images/3048135/3278019.png "width=500")
 
-3. Import the [Hydra step template](http://library.octopusdeploy.com/step-templates/d4fb1945-f0a8-4de4-9045-8441e14057fa/actiontemplate-hydra-update-octopus-tentacle) from the Community Library.
+3. Import the [Hydra step template](http://library.octopus.com/step-templates/d4fb1945-f0a8-4de4-9045-8441e14057fa/actiontemplate-hydra-update-octopus-tentacle) from the Community Library.
 
 ![](/docs/images/3048135/3278018.png "width=500")
 

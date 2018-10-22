@@ -50,7 +50,7 @@ Variable scoping also works like CSS rules; a value scoped twice is more specifi
 
 If two variables are scoped equally, Octopus will choose project-defined variables ahead of library-defined ones. If this still does not resolve the conflict the result is non-deterministic and you should not depend on a specific value being used. Instead, you should take care when scoping variables so that they are unlikely to conflict.
 
-Scope specificity can quickly become very complicated. Read our blog post for a [better understanding of why scope specificity works the way it does](http://octopusdeploy.com/blog/variable-specificity-and-complexity).
+Scope specificity can quickly become very complicated. Read our blog post for a [better understanding of why scope specificity works the way it does](http://octopus.com/blog/variable-specificity-and-complexity).
 
 ## Using Variables with Target Roles
 

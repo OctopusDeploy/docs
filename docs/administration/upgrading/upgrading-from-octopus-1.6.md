@@ -13,7 +13,7 @@ A **lot** changed between **Octopus 1.6** and **Octopus 2.0**; so much that we h
 ## Preparing {#UpgradingfromOctopus1.6-Preparing}
 
 :::problem
-If your **Octopus 1.x** installation is at an earlier version than **Octopus 1.6**, please [upgrade it to Octopus 1.6](https://octopusdeploy.com/downloads/previous) before proceeding.
+If your **Octopus 1.x** installation is at an earlier version than **Octopus 1.6**, please [upgrade it to Octopus 1.6](https://octopus.com/downloads/previous) before proceeding.
 :::
 
 Below is the dashboard from an **Octopus 1.6** server that will be used as an example for this walkthrough.
@@ -89,7 +89,7 @@ function Upgrade-Tentacle ($rel, $loc, $hm, $sthumb, $sxsPort)
   Write-Output "Beginning Tentacle installation"
   Write-Output "Downloading Octopus Tentacle MSI..."
   $downloader = new-object System.Net.WebClient
-  $downloader.DownloadFile("http://download.octopusdeploy.com/octopus/Octopus.Tentacle.$rel.msi", [System.IO.Path]::GetFullPath(".\Tentacle.msi"))
+  $downloader.DownloadFile("http://download.octopus.com/octopus/Octopus.Tentacle.$rel.msi", [System.IO.Path]::GetFullPath(".\Tentacle.msi"))
 
   Write-Output "Installing MSI"
   $msiExitCode = (Start-Process -FilePath "msiexec.exe" -ArgumentList "/i Tentacle.msi /quiet" -Wait -Passthru).ExitCode

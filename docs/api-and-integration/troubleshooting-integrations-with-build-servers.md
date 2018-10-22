@@ -26,7 +26,7 @@ Each of the values marked on the fields above can be seen in the `Octo.exe` call
 
 ![](\docs\images\5672460\5672463.png)
 
-*This is a screenshot of a TeamCity log fragment edited for visual purposes. You can check the real log output in our [Shared TeamCity server](http://teamcity.octopusdeploy.com/viewLog.html?buildId=440630&buildTypeId=OctoFX_OctoFX&tab=buildLog&state=1021%2C1023#_state=1021,1023&focus=1024) by logging in as a guest. You might have to click on that link once to login, and then a second time to go to the highlighted line in the log*
+*This is a screenshot of a TeamCity log fragment edited for visual purposes. You can check the real log output in our [Shared TeamCity server](http://teamcity.octopus.com/viewLog.html?buildId=440630&buildTypeId=OctoFX_OctoFX&tab=buildLog&state=1021%2C1023#_state=1021,1023&focus=1024) by logging in as a guest. You might have to click on that link once to login, and then a second time to go to the highlighted line in the log*
 
 The same holds true for this **Package Application** step in Azure DevOps and its log output:
 
@@ -48,12 +48,12 @@ As shown in the above screenshots, the exact `Octo.exe` command that was execute
 - Each version of our extension/plugin will ship with the latest version of `Octo.exe` at the moment it was created. Perhaps the version of `Octo.exe` used by your current extension version is not the latest, in which case the recommended thing to do would be to upgrade your extension to the latest version available. You can tell which version of `Octo.exe` you are using from the initial line that gets printed by the command:
 
 ```
-[15:00:43][Octopus Deploy] Running command:   octo.exe create-release --server https://demo.octopusdeploy.com --apikey SECRET --project OctoFX --enableservicemessages --version 3.3.379 --deployto Dev --progress --packageversion 3.3.379 --releasenotes Release created automatically via TeamCity
+[15:00:43][Octopus Deploy] Running command:   octo.exe create-release --server https://demo.octopus.com --apikey SECRET --project OctoFX --enableservicemessages --version 3.3.379 --deployto Dev --progress --packageversion 3.3.379 --releasenotes Release created automatically via TeamCity
 [15:00:43][Octopus Deploy] Creating Octopus Deploy release
 [15:00:43][Octopus Deploy] Octopus Deploy Command Line Tool, version 3.3.8+Branch.master.Sha.f8a34fc6097785d7d382ddfaa9a7f009f29bc5fb
 [15:00:43][Octopus Deploy]
 [15:00:43][Octopus Deploy] Build environment is NoneOrUnknown
-[15:00:43][Octopus Deploy] Handshaking with Octopus Server: https://demo.octopusdeploy.com
+[15:00:43][Octopus Deploy] Handshaking with Octopus Server: https://demo.octopus.com
 [15:00:44][Octopus Deploy] Handshake successful. Octopus version: 3.15.8; API version: 3.0.0
 ```
 *In this case we are using `Octo.exe` version `3.3.8` against an Octopus Server version `3.15.8`*
