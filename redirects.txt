@@ -597,3 +597,4 @@ docs/api-and-integration/tfs-vsts/using-octopus-extension/manually-install-the-b
 docs/packaging-applications/package-repositories/registries/index.md -> docs/packaging-applications/package-repositories/docker-registries/index.md
 docs/packaging-applications/package-repositories/registries/amazon-ec2-container-services.md -> docs/packaging-applications/package-repositories/docker-registries/amazon-ec2-container-services.md
 docs/packaging-applications/package-repositories/registries/azure-container-services.md -> docs/packaging-applications/package-repositories/docker-registries/azure-container-services.md
+docs/packaging-applications/package-repositories/registries/docker-hub.md -> docs/packaging-applications/package-repositories/docker-registries/docker-hub.md
