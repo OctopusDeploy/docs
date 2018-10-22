@@ -31,4 +31,4 @@ While the Docker functionality undergoes development, the Docker steps and feed 
 
 As they are currently considered to be in an alpha-stage of development, the docker steps and behavior may change in future releases. Once the docker feature has been finalized for general use, it is expected that it will be enabled by default and the feature toggle removed.
 
-Learn about [Docker Registries as Feeds](/docs/packaging-applications/package-repositories/registries/index.md) and [Accessing Container Details](/docs/deployment-examples/docker-containers/accessing-container-details.md).
+Learn about [Docker Registries as Feeds](/docs/packaging-applications/package-repositories/docker-registries/index.md) and [Accessing Container Details](/docs/deployment-examples/docker-containers/accessing-container-details.md).

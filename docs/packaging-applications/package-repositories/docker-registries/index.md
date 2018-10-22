@@ -14,7 +14,7 @@ See an example deployment using Docker Registries in our guide: [Docker run with
 
 In Octopus Deploy, Docker Registries are treated very similarly to [Package Repositories](/docs/packaging-applications/package-repositories/index.md), and Images are treated very similarly to Packages.
 
-Octopus Deploy supports the Docker Registry [Version 1](https://docs.docker.com/v1.6/reference/api/registry_api/) and [Version 2](https://docs.docker.com/registry/spec/api/) API specifications as outlined in the Docker reference files. You can access Docker Registries with or without using credentials, depending on registry configuration. You can use one of the hosted public registries, like [Docker Hub](https://hub.docker.com/), or you can host your own [Private Registry](/docs/packaging-applications/package-repositories/registries/index.md).
+Octopus Deploy supports the Docker Registry [Version 1](https://docs.docker.com/v1.6/reference/api/registry_api/) and [Version 2](https://docs.docker.com/registry/spec/api/) API specifications as outlined in the Docker reference files. You can access Docker Registries with or without using credentials, depending on registry configuration. You can use one of the hosted public registries, like [Docker Hub](https://hub.docker.com/), or you can host your own [Private Registry](/docs/packaging-applications/package-repositories/docker-registries/index.md).
 
 ### How Octopus Server and Deployment Targets Integrate with Docker Registries {#DockerRegistriesasFeeds-HowOctopusServerandDeploymentTargetsintegratewithDockerRegistries}
 
@@ -62,9 +62,9 @@ This image supports custom storage locations, certificates for HTTPS and authent
 There are many other options for private registries such as self hosting through [Docker Trusted Registry](https://docs.docker.com/docker-trusted-registry/) or [Artifactory](https://www.jfrog.com/artifactory/), or using a cloud provider like [Azure](https://azure.microsoft.com/en-au/services/container-registry/), [AWS](https://aws.amazon.com/ecr/) or [Quay](https://quay.io/).
 
 We have provided further details on setting up a Octopus Feed to the following Docker Registries:
-- [Docker Hub](/docs/packaging-applications/package-repositories/registries/docker-hub.md)
-- [Azure Container Services](/docs/packaging-applications/package-repositories/registries/azure-container-services.md) (currently in preview)
-- [Amazon EC2 Container Services](/docs/packaging-applications/package-repositories/registries/amazon-ec2-container-services.md)
+- [Docker Hub](/docs/packaging-applications/package-repositories/docker-registries/docker-hub.md)
+- [Azure Container Services](/docs/packaging-applications/package-repositories/docker-registries/azure-container-services.md) (currently in preview)
+- [Amazon EC2 Container Services](/docs/packaging-applications/package-repositories/docker-registries/amazon-ec2-container-services.md)
 
 Note that as of the current version of ProGet (version 4.6.7 (Build 2)), their Docker Registry Feed does not expose the full Docker API and is missing the [_catalog endpoint](https://docs.docker.com/registry/spec/api/#/listing-repositories) which is required to list the available packages for release selection. It has been indicated that this may change in a future release.
 

@@ -13,7 +13,7 @@ The Octopus built-in repository [supports several different types of packages](/
 If you would like to use an external repository, the following external repositories are supported:
 
  - [NuGet feeds](https://docs.nuget.org/create/hosting-your-own-nuget-feeds) (either HTTP or file-system based feeds).
- - [Docker feeds](/docs/packaging-applications/package-repositories/registries/index.md).
+ - [Docker feeds](/docs/packaging-applications/package-repositories/docker-registries/index.md).
  - [Maven feeds](/docs/packaging-applications/package-repositories/maven-feeds.md).
  - [GitHub feeds](/docs/packaging-applications/package-repositories/github-feeds.md).
 
@@ -111,7 +111,7 @@ See [moving Octopus Server folders](/docs/administration/server-configuration-an
 
 ## Using External Repositories {#Packagerepositories-Usingexternalrepositories}
 
-If you wish to use an external repository, you must use NuGet packages, a [Maven feed](/docs/packaging-applications/package-repositories/maven-feeds.md), [GitHub](/docs/packaging-applications/package-repositories/github-feeds.md) or [Docker registries as feeds](/docs/packaging-applications/package-repositories/registries/index.md).
+If you wish to use an external repository, you must use NuGet packages, a [Maven feed](/docs/packaging-applications/package-repositories/maven-feeds.md), [GitHub](/docs/packaging-applications/package-repositories/github-feeds.md) or [Docker registries as feeds](/docs/packaging-applications/package-repositories/docker-registries/index.md).
 
 :::warning
 **NuGet v3 Feed Support**

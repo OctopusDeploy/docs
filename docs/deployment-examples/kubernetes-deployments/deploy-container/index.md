@@ -315,7 +315,7 @@ The configuration options for a Container resource are broken down into a number
 
 #### Image Details
 
-Each Container resource must reference a container image from a [Docker feed](/docs/packaging-applications/package-repositories/registries/index.md).
+Each Container resource must reference a container image from a [Docker feed](/docs/packaging-applications/package-repositories/docker-registries/index.md).
 
 The container image must have a name that consists of lower case alphanumeric characters or '-', and must start and end with an alphanumeric character.
 

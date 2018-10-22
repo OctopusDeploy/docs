@@ -594,3 +594,6 @@ docs/api-and-integration/tfs-vsts/using-octopus-extension/build-versions-in-team
 docs/api-and-integration/tfs-vsts/using-octopus-extension/extension-compatibility.md -> docs/api-and-integration/tfs-azure-devops/using-octopus-extension/extension-compatibility.md
 docs/api-and-integration/tfs-vsts/using-octopus-extension/install-octo-capability.md -> docs/api-and-integration/tfs-azure-devops/using-octopus-extension/install-octo-capability.md
 docs/api-and-integration/tfs-vsts/using-octopus-extension/manually-install-the-build-task.md -> docs/api-and-integration/tfs-azure-devops/using-octopus-extension/manually-install-the-build-task.md
+docs/packaging-applications/package-repositories/registries/index.md -> docs/packaging-applications/package-repositories/docker-registries/index.md
+docs/packaging-applications/package-repositories/registries/amazon-ec2-container-services.md -> docs/packaging-applications/package-repositories/docker-registries/amazon-ec2-container-services.md
+docs/packaging-applications/package-repositories/registries/azure-container-services.md -> docs/packaging-applications/package-repositories/docker-registries/azure-container-services.md
