@@ -141,6 +141,16 @@ The choice of which deployment strategy to use is influenced by a number of fact
 | Rolling Update   | *  | *  | * | * |
 | Blue/Green   | *  | *  |   | * |
 
+#### Wait for deployment to succeed
+
+When using the Recreate or Rolling update deployment strategy, you have the option to wait for the deployment to succeed or not before the step completes.
+
+A completed deployment means all liveness checks passed, the rollout succeeded and all Pod resources have been updated.
+
+:::success
+The Blue/Green deployment strategy always waits for the rollout to succeed, as this is the point at which the Service resource is modified to point to the new Deployment resource.
+:::
+
 ### Volumes
 
 [Volume resources](http://g.octopushq.com/KubernetesVolumes) allow external data to be accessed by a Container resource via its file system. Volume resources are defined in the `Volumes` section, and later referenced by the container configuration.
