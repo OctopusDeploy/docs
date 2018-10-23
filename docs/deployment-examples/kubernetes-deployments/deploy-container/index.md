@@ -660,7 +660,7 @@ spec:
 In particular `metadata.annotations` field has been populated with the pod annotations.
 
 ```yaml
-metadata: 
+metadata:
   annotations:
     deploymentannotation: "annotationvalue"
 ```
@@ -728,6 +728,10 @@ metadata:
 3. Once the deployment has succeeded, any old resources of the kinds that were defined in the `Custom resource YAML` field will be found and deleted. For example, any `NetworkPolicy` or `ConfigMap` resources in the target namespace created by a previous deployment will be deleted.
 
 By creating each custom resource with a unique name and common labels, Octopus will ensure that a new resource is created with each deployment, and old resources are cleaned up. This means that the custom resources are tightly coupled to a Deployment resource, and can be treated as a single deployment.
+
+:::success
+To deploy resources that are not bound to the lifecycle of the Deployment resource, use an additional step such as the `Run a kubectl CLI Script` step.
+:::
 
 ### Service
 
