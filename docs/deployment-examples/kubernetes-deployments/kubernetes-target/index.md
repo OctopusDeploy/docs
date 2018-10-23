@@ -85,7 +85,7 @@ subjects:
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-name: cluster-admin
+  name: cluster-admin
 ```
 
 Creating service accounts automatically results in a token being generated. The PowerShell snippet below returns the token for the `jenkins-deployer` account.
