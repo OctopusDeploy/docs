@@ -527,9 +527,9 @@ myservice
 an argument with a space
 ```
 
-#### Security Context
+#### Pod Security Context
 
-The `Security context` section defines the [container resource security context options](https://g.octopushq.com/KubernetesContainerSecurityContext).
+The `Pod Security context` section defines the [container resource security context options](https://g.octopushq.com/KubernetesContainerSecurityContext).
 
 The `Allow privilege escalation` section controls whether a process can gain more privileges than its parent process. Note that this field is implied when the `Privileged` option is enabled.
 
@@ -542,6 +542,128 @@ The `Run as non-root` section indicates that the container must run as a non-roo
 The `Run as user` section defines the UID to run the entrypoint of the container process.
 
 The `Run as group` section defines the GID to run the entrypoint of the container process.
+
+#### Pod Annotations
+
+The `Pod Annotations` section defines the annotations that are added to the Deployment resource `spec.template.metadata` field. These annotations in turn are then applied to the Pod resource created by the Deployment resource.
+
+For example, consider the `Pod Annotations` defined in the screenshot below.
+
+![](pod-annotations.png "width=500")
+
+This will result in a Deployment resource YAML file something like this following.
+
+```yaml
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: httpd
+  labels:
+    Octopus.Deployment.Id: deployments-10341
+    Octopus.Step.Id: fead0da8-fd8a-4a03-9b70-5160cd378a8a
+    Octopus.Environment.Id: environments-1
+    Octopus.Deployment.Tenant.Id: untenanted
+    Octopus.Kubernetes.DeploymentName: httpd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      Octopus.Kubernetes.DeploymentName: httpd
+  template:
+    metadata:
+      labels:
+        Octopus.Deployment.Id: deployments-10341
+        Octopus.Step.Id: fead0da8-fd8a-4a03-9b70-5160cd378a8a
+        Octopus.Environment.Id: environments-1
+        Octopus.Deployment.Tenant.Id: untenanted
+        Octopus.Kubernetes.DeploymentName: httpd
+      annotations:
+        podannotation: "annotationvalue"
+    spec:
+      containers:
+      - name: httpd
+        image: index.docker.io/httpd:2.4.35
+        ports:
+        - name: web
+          containerPort: 80
+        securityContext: {}
+      imagePullSecrets:
+      - name: octopus-feedcred-feeds-dockerhub-with-creds
+  strategy:
+    type: Recreate
+```
+
+In particular `spec.template.metadata.annotations` field has been populated with the pod annotations.
+
+```yaml
+spec:
+  template:
+    metadata:
+      annotations:
+        podannotation: "annotationvalue"
+```
+
+When this Deployment resource is deployed to a Kubernetes cluster, it will create a Pod resource with that annotation defined. In the screenshot below you can see the YAML representation of the Pod resource created by the Deployment resource has the same annotations.
+
+![](pod-annotation-deployed.png "width=500")
+
+#### Deployment Annotations
+
+The `Deployment Annotations` section defines the annotations that are added to the Deployment resource.
+
+For example, consider the `Pod Annotations` defined in the screenshot below.
+
+![](deployment-annotation.png "width=500")
+
+This will result in a Deployment resource YAML file something like this following.
+
+```yaml
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: httpd
+  labels:
+    Octopus.Deployment.Id: deployments-10342
+    Octopus.Step.Id: fead0da8-fd8a-4a03-9b70-5160cd378a8a
+    Octopus.Environment.Id: environments-1
+    Octopus.Deployment.Tenant.Id: untenanted
+    Octopus.Kubernetes.DeploymentName: httpd
+  annotations:
+    deploymentannotation: "annotationvalue"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      Octopus.Kubernetes.DeploymentName: httpd
+  template:
+    metadata:
+      labels:
+        Octopus.Deployment.Id: deployments-10342
+        Octopus.Step.Id: fead0da8-fd8a-4a03-9b70-5160cd378a8a
+        Octopus.Environment.Id: environments-1
+        Octopus.Deployment.Tenant.Id: untenanted
+        Octopus.Kubernetes.DeploymentName: httpd
+    spec:
+      containers:
+      - name: httpd
+        image: index.docker.io/httpd:2.4.35
+        ports:
+        - name: web
+          containerPort: 80
+        securityContext: {}
+      imagePullSecrets:
+      - name: octopus-feedcred-feeds-dockerhub-with-creds
+  strategy:
+    type: Recreate
+```
+
+In particular `metadata.annotations` field has been populated with the pod annotations.
+
+```yaml
+metadata: 
+  annotations:
+    deploymentannotation: "annotationvalue"
+```
 
 ### Custom resources YAML
 
