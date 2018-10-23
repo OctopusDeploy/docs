@@ -23,5 +23,5 @@ You can create API keys by performing the following steps:
 
 :::warning
 **Write Your Key Down**
-Once you generate an API key, it cannot be retrieved from the Octopus web portal again - we store only a one-way hash of the API key. If you want to use the API key again, you need to store it in a secure place such as a password manager. Read about [why we hash API keys](https://octopusdeploy.com/blog/hashing-api-keys).
+Once you generate an API key, it cannot be retrieved from the Octopus web portal again - we store only a one-way hash of the API key. If you want to use the API key again, you need to store it in a secure place such as a password manager. Read about [why we hash API keys](https://octopus.com/blog/hashing-api-keys).
 :::

@@ -4,11 +4,9 @@ description: Configure your infrastructure so Octopus Deploy can deploy software
 position: 2
 ---
 
-## Deployment Targets
+With Octopus Deploy you can deploy software to Windows servers, Linux servers, Microsoft Azure, AWS, an offline package drop, cloud regions, or Kubernetes. These machines and services are your *deployment targets*, and because software is typically deployed to more than one machine (or deployment target) Octopus organizes your deployment targets into groups called [environments](/docs/infrastructure/environments/index.md). Typical environments are **Development**, **Test**, and **Production**, you can also assign [target roles](/docs/infrastructure/target-roles/index.md) to your deployment targets to further refine which deployment targets your software is deployment to. You can use [workers](/docs/infrastructure/workers/index.md) to perform tasks that don't need to be performed on a deployment target or on the Octopus Server.
 
-With Octopus Deploy you can deploy software to Windows servers, Linux servers, Microsoft Azure, AWS, an offline package drop, or cloud regions, or Kubernetes. These machines and services are your *deployment targets*, and because software is typically deployed to more than one machine (or deployment target) Octopus organizes your deployment targets into groups called [environments](/docs/infrastructure/environments/index.md). Typical environments are **Development**, **Test**, and **Production**.
-
-You can manage your environments and deployment targets from the **Infrastructure** tab of the **Octopus Web Portal**.
+You can manage your environments, deployment targets, and workers from the **Infrastructure** tab of the **Octopus Web Portal**.
 
 ## Adding Accounts
 
@@ -24,7 +22,7 @@ You need to set up accounts for certain deployment targets before you can use th
 
 Deployment targets are added to environments in different ways, depending on the type of target and how they will communicate with the Octopus Deploy Server.
 
-- Listening and Polling [Tentacles](/docs/infrastructure/windows-targets/index.md)
+- [Listening and Polling Windows Tentacles](/docs/infrastructure/windows-targets/index.md)
 - [SSH Connection](/docs/infrastructure/ssh-targets/index.md)
 - [Offline Package Drop](/docs/infrastructure/offline-package-drop.md)
 - [Azure Web App](/docs/infrastructure/azure/web-app-targets/index.md)

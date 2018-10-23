@@ -11,7 +11,7 @@ This page describes any outbound network requests made by Octopus and Tentacle, 
 For security reasons, we minimize the number of outbound requests made by the Tentacle deployment agent. The only outbound requests you should see are for:
 
 - [Certificate revocation list checking](http://en.wikipedia.org/wiki/Revocation_list), which is a security feature of the .NET framework.
-- [Automatic root certificate updates](http://help.octopusdeploy.com/discussions/problems/30827), again triggered by the .NET framework.
+- [Automatic root certificate updates](http://help.octopus.com/discussions/problems/30827), again triggered by the .NET framework.
 - NuGet package downloads (only when using the **Tentacle downloads directly from NuGet** option).
 - Connections back to the Octopus Server (only when Tentacle is configured in [polling mode](/docs/infrastructure/windows-targets/tentacle-communication.md#polling-tentacles)).
 

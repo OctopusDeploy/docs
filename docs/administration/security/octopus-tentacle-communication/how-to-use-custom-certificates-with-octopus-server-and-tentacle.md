@@ -6,7 +6,7 @@ position: 1
 
 Octopus uses self-signed certificates to securely communicate between Tentacles and the server. However, if you have a requirement to use your own certificates, you can use the import-certificate command to import your own certificate.  Octopus Server has supported the import-certificate command as of **Octopus 3.2.9** and Tentacle has always supported it.  The import command supports importing certificates in the Personal Information Exchange (PFX) files with an optional password.  Octopus requires PFX files contain the certificate private key.
 
-For more information on self-signed certificates, see the [blog post](https://octopusdeploy.com/blog/why-self-signed-certificates) on the topic.
+For more information on self-signed certificates, see the [blog post](https://octopus.com/blog/why-self-signed-certificates) on the topic.
 
 :::warning
 **Updating an existing Octopus Server or Tentacle**

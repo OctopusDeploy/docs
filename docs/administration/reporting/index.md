@@ -27,7 +27,7 @@ To help you get started, we provide a sample Excel spreadsheet that you can conn
 
 The fastest way to get started is to use our Excel spreadsheet template. The spreadsheet uses Pivot Tables and Pivot Charts to summarize the data. You can use it as a starting point, and then modify or adapt it to suit your needs.
 
-First, **[download the template](/docs/attachments/octopusreport.xlsx)** and open it in Excel. The template fetches data from our public [Demo Octopus Server](https://demo.octopusdeploy.com).
+First, **[download the template](/docs/attachments/octopusreport.xlsx)** and open it in Excel. The template fetches data from our public [Demo Octopus Server](https://demo.octopus.com).
 
 :::hint
 Please make sure you [unblock the file](https://www.google.com.au/search?q=windows%20unblock%20file) after downloading it, otherwise you may get a misleading error message like: `The file is corrupt and cannot be opened`
@@ -70,7 +70,7 @@ Where:
 
 For example:
 
-`https://demo.octopusdeploy.com/api/reporting/deployments/xml?apikey=API-GUEST`*(that one really works!)*  
+`https://demo.octopus.com/api/reporting/deployments/xml?apikey=API-GUEST`*(that one really works!)*  
 `https://myoctopus/api/reporting/deployments/xml?apikey=API-1234567891234567891234567`
 
 The XML feed can be consumed programmatically, or via Excel or [Microsoft PowerBI](https://powerbi.microsoft.com/).

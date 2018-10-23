@@ -9,7 +9,7 @@ We often get asked how you can use Octopus to deploy your iOS/Android applicatio
 
 ## Using HockeyApp to Deploy Your Apps for Testing/Distribution.
 
-On our community library, we have a step template [HockeyApp - Upload Mobile App](https://library.octopusdeploy.com/step-templates/5667710e-60b8-4067-bfa5-87196faafdda/actiontemplate-hockeyapp-upload-mobile-app), which is designed to help you automate your deployment to HockeyApp.
+On our community library, we have a step template [HockeyApp - Upload Mobile App](https://library.octopus.com/step-templates/5667710e-60b8-4067-bfa5-87196faafdda/actiontemplate-hockeyapp-upload-mobile-app), which is designed to help you automate your deployment to HockeyApp.
 >This script uploads a new version of an existing app package to the HockeyApp services.
 
 This template will let you push your app to the HockeyApp service and define the required HockeyApp parameters.

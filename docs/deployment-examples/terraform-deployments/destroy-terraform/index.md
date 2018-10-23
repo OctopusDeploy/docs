@@ -137,7 +137,7 @@ Then the value from the project variable `AMI` would be substituted for the mark
 
 When applying an inline template, the variable fields can also include replacement markers. For example, if a map variable for a HCL template was defined as `{"key" = "value", #{MapValues}}` and the Octopus project had a variable called `MapValues` defined as `"key2" = "value2"`, then the final variable would resolve to `{"key" = "value", "key2" = "value2"}`.
 
-See the [variable substitution](https://octopus.com/docs/deployment-process/variables/variable-substitution-syntax) documentation for more information.
+See the [variable substitution](/docs/deployment-process/variables/variable-substitution-syntax.md) documentation for more information.
 
 #### Additional Variable Files
 

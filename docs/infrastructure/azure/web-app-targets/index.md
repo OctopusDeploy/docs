@@ -8,7 +8,7 @@ Azure Web App deployment targets allow you to reference existing Web Apps in you
 
 ## Requirements
 
-- This new target type was introduced in **Octopus 2018.5**, so you'll need to be running at least that version of the Octopus Server. You can read more about all the new PaaS targets [in our blog](https://octopusdeploy.com/blog/paas-targets).
+- This new target type was introduced in **Octopus 2018.5**, so you'll need to be running at least that version of the Octopus Server. You can read more about all the new PaaS targets [in our blog](https://octopus.com/blog/paas-targets).
 
 - You will firstly need an [Azure Service Principal account](/docs/infrastructure/azure/index.md##azure-service-principal) that references your Azure subscription.
 

@@ -8,7 +8,7 @@ position: 121
 
 [Bitbucket Pipelines](https://bitbucket.org/product/features/pipelines) is Atlassian's cloud-based continuous integration server, built using pre-configured docker containers.
 
-Octopus Deploy can be integrated with BitBucket Pipelines using our up-to-date [Octo.exe docker container image](https://hub.docker.com/r/octopusdeploy/octo/) of our [Octo.exe](https://octopus.com/docs/api-and-integration/octo.exe-command-line) command line tool.
+Octopus Deploy can be integrated with BitBucket Pipelines using our up-to-date [Octo.exe docker container image](https://hub.docker.com/r/octopusdeploy/octo/) of our [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) command line tool.
 
 When using Octopus Deploy with BitBucket, BitBucket Pipelines will be responsible for:
 

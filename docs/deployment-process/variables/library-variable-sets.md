@@ -27,3 +27,29 @@ This can be useful if you have the same variables that are used across multiple 
 If you want to review the Library Variable Set you've created, from the Project Overview page you can navigate to {{Variables,Library Sets}}.
 
 If you want to review the Project variables and the Library Variable Set, from the Project Overview you can navigate to {{Variables,All}}.
+
+## Rename a Library Variable Set
+
+1. Navigate to {{Library,Variable Sets}}.
+2. Select the variable set.
+3. Click settings, and expand the **Name** section.
+4. Enter the new name and click **SAVE**.
+
+## View the Variable Audit Trail
+
+Viewing the audit trail for a Variable Set will show you what changes have been made to the variable, when the changes were made, and which user made the changes.  
+
+1. Navigate to {{Library,Variable Sets}}.
+2. Select the variable set. Click the overflow menu and select **Audit Trail**.
+3. Click **SHOW DETAILS** on an event to see what changed
+
+To filter the audit trail by **date**, click the date range. Select a predefined date range or enter a custom date range.
+
+You can use the following advanced filters to refine the result of the audit trail:
+
+- Event groups.
+- Event categories.
+- Document types.
+- Users.
+- Projects.
+- Environments.

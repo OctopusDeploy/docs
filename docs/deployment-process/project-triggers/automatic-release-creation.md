@@ -58,7 +58,7 @@ The release number that is created is guided by the Release Versioning settings 
 
 ## Automatically Creating Pre-releases {#AutomaticReleaseCreation-Automaticallycreatingpre-releases}
 
-When you push a package to your trigger step, Octopus will look for the latest available package for all other steps **excluding pre-release packages by default** - see [this thread](http://help.octopusdeploy.com/discussions/problems/35401) for background.
+When you push a package to your trigger step, Octopus will look for the latest available package for all other steps **excluding pre-release packages by default** - see [this thread](http://help.octopus.com/discussions/problems/35401) for background.
 
 One way to work around this behavior is to create a Channel with the appropriate version rules so that "latest available package" will be the pre-release packages you expected. The best way to test this is to practice creating releases manually for that channel - the "latest available package" will work the same way for manual and automatically created releases.
 

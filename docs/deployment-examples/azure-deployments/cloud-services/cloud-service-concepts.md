@@ -30,7 +30,7 @@ Octo.exe will generate a NuGet package containing the .cspkg and .cscfg files:
 
 ![NuGet Package Explorer](nuget-package-explorer.png "width=500")
 
-Here is a sample Cloud Service NuGet package: [HelloCloud.1.0.0.nupkg](https://download.octopusdeploy.com/demo/HelloCloud.1.0.0.nupkg)
+Here is a sample Cloud Service NuGet package: [HelloCloud.1.0.0.nupkg](https://download.octopus.com/demo/HelloCloud.1.0.0.nupkg)
 
 ### Upload to a NuGet Feed {#CloudServiceConcepts-UploadtoaNuGetfeed}
 
