@@ -3,7 +3,7 @@ title: Deploy a Helm Chart
 description: Deploy a Helm Chart to a Kubernetes cluster.
 ---
 
-Support for deploying Helm charts, was introduced as a pre-release in **Octopus 2018.8**. Helm Charts are like a package manager for Kubernetes applications, allowing users to reuse and share complex resource configurations.
+Support for deploying Helm charts, was introduced in **Octopus 2018.9**. Helm Charts are like a package manager for Kubernetes applications, allowing users to reuse and share complex resource configurations.
 
 ## Helm Feed
 A Helm Feed in Octopus refers to a [Helm Chart repository](https://github.com/helm/helm/blob/master/docs/chart_repository.md). This repository is effectively just a HTTP server that houses an `index.yaml` which describes the charts available on that server. Octopus uses this index file to determine the available "packages" (Charts) and versions. A chart is a tarball that looks like `alpine-0.1.2.tgz` which for this example Octopus will interpret as having PackageID `alpine` and version `0.1.2`. There are various ways you can host a chart repository, from using the out-of-the-box [helm serve](https://github.com/helm/helm/blob/master/docs/helm/helm_serve.md) command, third party tools like [ChartMuseum](https://github.com/chartmuseum/chartmuseum) or [Artifactory](https://www.jfrog.com/confluence/display/RTF/Helm+Chart+Repositories), or even hosting your own [static web server](https://github.com/helm/helm/blob/master/docs/chart_repository.md#hosting-chart-repositories).

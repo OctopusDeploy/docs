@@ -4,12 +4,6 @@ description: Kubernetes Targets
 position: 20
 ---
 
-This featured was introduced as a prerelease in **Octopus 2018.8**.
-
-:::warning
-Kubernetes steps in Octopus are of alpha level quality and have been made available for testing and feedback purposes only. They **must not** be used for production deployments, or enabled on production Octopus instances. The information provided here is subject to change at any point, and existing Kubernetes steps will most likely need to be deleted and recreated with Octopus upgrades.
-:::
-
 Kubernetes targets are used by the Kubernetes steps to define the context in which deployments and scripts are run.
 
 Conceptually, a Kubernetes target represent a permission boundary. Kubernetes [permissions](http://g.octopushq.com/KubernetesRBAC) and [quotas](http://g.octopushq.com/KubernetesQuotas) are defined against a namespace, and both the account and namespace are captured as a Kubernetes target.
