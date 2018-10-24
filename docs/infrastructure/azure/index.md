@@ -244,8 +244,8 @@ Octopus's Azure targets provide a reference to actual targets in your Azure infr
 
 The currently supported Azure targets are:
 
-- [Azure Web Apps](/web-app-targets/index.md) (also works for Azure Functions).
 - [Azure Service Fabric Clusters](/service-fabric-cluster-targets/index.md).
+- [Azure Web Apps](/web-app-targets/index.md) (also works for Azure Functions).
 - [Azure Cloud Services](/cloud-service-targets/index.md).
 
 :::warning

@@ -1,5 +1,5 @@
 from-file-path -> to-file-path   #DO NOT DELETE THIS LINE
-docs/guides/azure-deployments/cloud-services/cloud-service-concepts/cloud-service-deployment-step.md -> docs/deployment-examples/azure-deployments/cloud-services/cloud-service-concepts.md
+docs/guides/azure-deployments/cloud-services/cloud-service-concepts/cloud-service-deployment-step.md -> docs/deployment-examples/azure-deployments/cloud-services/index.md
 docs/guides/azure-deployments/resource-groups/deploy-using-an-azure-resource-group-template.md -> docs/deployment-examples/azure-deployments/resource-groups/index.md
 docs/deploying-applications/azure-deployments/web-apps/web-app-concepts.md -> docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md
 docs/guides/azure-deployments/web-apps/web-app-concepts/web-app-deployment-step/index.md -> docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md
@@ -117,7 +117,7 @@ docs/guides/azure-deployments/index.md -> docs/deployment-examples/azure-deploym
 docs/guides/azure-deployments/azure-environments.md -> docs/deployment-examples/azure-deployments/azure-environments.md
 docs/guides/azure-deployments/varying-azure-subscription-by-environment.md -> docs/deployment-examples/azure-deployments/varying-azure-subscription-by-environment.md
 docs/guides/azure-deployments/cloud-services/index.md -> docs/deployment-examples/azure-deployments/cloud-services/index.md
-docs/guides/azure-deployments/cloud-services/cloud-service-concepts.md -> docs/deployment-examples/azure-deployments/cloud-services/cloud-service-concepts.md
+docs/guides/azure-deployments/cloud-services/cloud-service-concepts.md -> docs/deployment-examples/azure-deployments/cloud-services/index.md
 docs/guides/azure-deployments/cloud-services/getting-started-with-azure-cloud-services.md -> docs/deployment-examples/azure-deployments/cloud-services/getting-started-with-azure-cloud-services.md
 docs/guides/azure-deployments/cloud-services/vip-swap.md -> docs/deployment-examples/azure-deployments/cloud-services/vip-swap.md
 docs/guides/azure-deployments/resource-groups/index.md -> docs/deployment-examples/azure-deployments/resource-groups/index.md
@@ -469,7 +469,7 @@ docs/deploying-applications/azure-deployments/azure-environments.md -> docs/depl
 docs/deploying-applications/azure-deployments/varying-azure-subscription-by-environment.md -> docs/deployment-examples/azure-deployments/varying-azure-subscription-by-environment.md
 docs/deploying-applications/azure-deployments/ase/index.md -> docs/deployment-examples/azure-deployments/ase/index.md
 docs/deploying-applications/azure-deployments/cloud-services/index.md -> docs/deployment-examples/azure-deployments/cloud-services/index.md
-docs/deploying-applications/azure-deployments/cloud-services/cloud-service-concepts.md -> docs/deployment-examples/azure-deployments/cloud-services/cloud-service-concepts.md
+docs/deploying-applications/azure-deployments/cloud-services/cloud-service-concepts.md -> docs/deployment-examples/azure-deployments/cloud-services/index.md
 docs/deploying-applications/azure-deployments/cloud-services/getting-started-with-azure-cloud-services.md -> docs/deployment-examples/azure-deployments/cloud-services/getting-started-with-azure-cloud-services.md
 docs/deploying-applications/azure-deployments/cloud-services/vip-swap.md -> docs/deployment-examples/azure-deployments/cloud-services/vip-swap.md
 docs/deploying-applications/azure-deployments/deploying-a-package-to-an-azure-cloud-service/index.md -> docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-cloud-service/index.md
@@ -598,3 +598,4 @@ docs/packaging-applications/package-repositories/registries/index.md -> docs/pac
 docs/packaging-applications/package-repositories/registries/amazon-ec2-container-services.md -> docs/packaging-applications/package-repositories/docker-registries/amazon-ec2-container-services.md
 docs/packaging-applications/package-repositories/registries/azure-container-services.md -> docs/packaging-applications/package-repositories/docker-registries/azure-container-services.md
 docs/packaging-applications/package-repositories/registries/docker-hub.md -> docs/packaging-applications/package-repositories/docker-registries/docker-hub.md
+docs/deployment-examples/azure/deployments/cloud-services/cloud-service-concepts.md -> docs/deployment-examples/azure/deployments/cloud-services/index.md
