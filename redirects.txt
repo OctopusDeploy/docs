@@ -598,4 +598,4 @@ docs/packaging-applications/package-repositories/registries/index.md -> docs/pac
 docs/packaging-applications/package-repositories/registries/amazon-ec2-container-services.md -> docs/packaging-applications/package-repositories/docker-registries/amazon-ec2-container-services.md
 docs/packaging-applications/package-repositories/registries/azure-container-services.md -> docs/packaging-applications/package-repositories/docker-registries/azure-container-services.md
 docs/packaging-applications/package-repositories/registries/docker-hub.md -> docs/packaging-applications/package-repositories/docker-registries/docker-hub.md
-docs/deployment-examples/azure/deployments/cloud-services/cloud-service-concepts.md -> docs/deployment-examples/azure/deployments/cloud-services/index.md
+docs/deployment-examples/azure/deployments/cloud-services/cloud-service-concepts.md -> docs/deployment-examples/azure-deployments/cloud-services/index.md
