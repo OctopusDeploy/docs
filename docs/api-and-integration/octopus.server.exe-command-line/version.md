@@ -1,14 +1,14 @@
 ---
-title: List Instances
-description: Lists all installed Octopus instances
+title: version
+description: Show the Octopus Server version information
 ---
 
-Use the list instance command to show all currently installed Octopus instances.
+Show the Octopus Server version information
 
-**List Instances options**
+**version options**
 
 ```text
-Usage: octopus.server list-instances [<options>]
+Usage: octopus.server version [<options>]
 
 Where [<options>] is any of:
 
