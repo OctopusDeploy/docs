@@ -11,11 +11,16 @@ Use the show configuration command to output the server configuration.
 Usage: Octopus.Server show-configuration [<options>]
 
 Where [<options>] is any of:
-      --file=VALUE           Exports the server configuration to a file.
-                               If not specified output goes to the console
-      --format=VALUE         The format of the export (XML, json, json-hierarchical)
-                               default is XML
+
+      --instance=VALUE       Name of the instance to use
+      --file=VALUE           Exports the server configuration to a file. If
+                               not specified output goes to the console
+      --format=VALUE         The format of the output (XML,json,json-
+                               hierarchical); defaults to XML
 
 Or one of the common options:
+
       --help                 Show detailed help for this command
+
+
 ```
