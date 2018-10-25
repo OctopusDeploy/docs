@@ -56,25 +56,25 @@ When Octopus deploys to an Offline Package Drop target it doesn't actually execu
 
 When using _Artifact_ for the destination, the zip file will be named
 
-```no format
+```powershell
 {{Project Name}}.{{Environment Name}}.{{Offline Drop Target Name}}.{{Release Number}}.zip
 ```
 
 or if it is a tenanted deployment then
 
-```no format
+```powershell
 {{Project Name}}.{{Environment Name}}.{{Tenant Name}}.{{Offline Drop Target Name}}.{{Release Number}}.zip
 ```
 
 For example
 
-```no format
+```powershell
 OctoFX.Production.PWebOffline01.3.3.10827.zip
 ```
 
 The directory structure inside the zip file will resemble:
 
-```no format
+```powershell
  |   My Offline Drop Target.OctoFX.Deployments-2.cmd
  |   My Offline Drop Target.OctoFX.Deployments-2.ps1
  |   
@@ -99,7 +99,7 @@ The directory structure inside the zip file will resemble:
 
 An example of the directory structure which will be created when deploying to an Offline Package Drop target configured with a Drop Folder destination is shown below. In this example, the Drop Folder was configured as `\\my-share\octopus-drops`. 
 
-```no format
+```powershell
 \\my-share
     \---octopus-drops
         \---Development
@@ -128,19 +128,19 @@ An example of the directory structure which will be created when deploying to an
 
 The Offline Package Drop will be built and copied into a folder named by this convention:
 
-```no format
+```powershell
     {{YourConfiguredDropFolderPath}}\{{Environment}}\{{ProjectName}}\{{Release}}
 ```
 
 For example:
 
-```no format
+```powershell
     \\my-share\octopus-drops\Production\Acme.Web\0.1
 ```
 
 The batch file to execute the deployment will be named with this convention:
 
-```no format
+```powershell
     {{MachineName}}.{{ProjectName}}.{{DeploymentId}}.cmd
 ```
 
