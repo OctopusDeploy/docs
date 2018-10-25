@@ -227,7 +227,7 @@ Octopus provides the following filters:
 | ------------ | ---------------------------------------- | -------------------- | -------------------------- |
 | `HtmlEscape` | Escapes entities for use in HTML content | 1 < 2                | 1 \&lt; 2                   |
 | `JsonEscape` | Escapes data for use in JSON strings     | He said "Hello!"     | He said \\"Hello!\\"         |
-| `Markdown`   | Converts Markdown to HTML                | This \_rocks\_       | <p>This <em>rocks</em></p> |
+| `Markdown`   | Converts Markdown to HTML                | This \_rocks\_       | \<p>This \<em>rocks\</em>\</p> |
 | `ToBase64`   | Converts values to Base64 (using UTF encoding)   | Bar          | QmF6                       |
 | `ToLower`    | Forces values to lowercase               | Automated Deployment | automated deployment       |
 | `ToUpper`    | Forces values to uppercase               | Automated Deployment | AUTOMATED DEPLOYMENT       |
