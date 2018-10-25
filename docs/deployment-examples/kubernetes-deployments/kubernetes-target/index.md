@@ -201,7 +201,18 @@ openssl pkcs12 \
   -inkey private.key
 ```
 
-This file can then be uploaded to the [Octopus certificate management area](http://g.octopushq.com/CertificatesDocumentation), after which, it will be made available to the Kubernetes target.
+This file can then be uploaded to the , after which, it will be made available to the Kubernetes target.
+
+### Cloud Accounts
+
+In addition to the generic account types, the Kubernetes target also supports the Azure and AWS accounts.
+
+If using the AWS account type, the Octopus server or worker will need to have the `aws-iam-authenticator.exe` executable available on the path. See the
+[AWS documentation](http://g.octopushq.com/AWSEKSKubectl) for download links.
+
+:::warning
+Cloud account types are not supported on SSH workers. If you attempt to use a cloud account with an SSH worker, you will receive an error like `Calamari.exe: cannot execute binary file `. The workaround is to use a Windows worker for Kubernetes targets with cloud accounts.
+:::
 
 ## Kubernetes Details
 
