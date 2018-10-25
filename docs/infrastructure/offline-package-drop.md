@@ -26,7 +26,7 @@ The bundle can be zipped and attached as an [Octopus Artifact](/docs/deployment-
 Octopus Cloud instances will almost certainly want to use _Artifact_ as the destination.
 :::
 
-### Drop Folder {#OfflinePackageDrop-Dropfolderpath}
+#### Drop Folder {#OfflinePackageDrop-Dropfolderpath}
 
 The bundle can alternatively be configured to be written directly to a file-system path.
 
