@@ -11,10 +11,14 @@ Use the export certificate command to backup the certificate that Octopus Server
 Usage: Octopus.Server export-certificate [<options>]
 
 Where [<options>] is any of:
+
       --instance=VALUE       Name of the instance to use
       --export-pfx=VALUE     The filename to which to export the certificate
       --pfx-password=VALUE   The password to use for the exported pfx file
 
 Or one of the common options:
+
       --help                 Show detailed help for this command
+
+
 ```

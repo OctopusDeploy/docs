@@ -11,8 +11,13 @@ Use the `checkservices` command to checks the Octopus instances that are running
 Usage: Octopus.Server checkservices [<options>]
 
 Where [<options>] is any of:
-      --instances=VALUE      List of instances to check
+
+      --instances=VALUE      Comma-separated list of instances to check, or *
+                               to check all instances
 
 Or one of the common options:
+
       --help                 Show detailed help for this command
+
+
 ```

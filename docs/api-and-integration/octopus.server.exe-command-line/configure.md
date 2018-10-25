@@ -18,9 +18,11 @@ Where [<options>] is any of:
                                environment
       --cachePackages=VALUE  Days to cache packages for. Default: 20
       --maxConcurrentTasks=VALUE
-                             Maximum number of concurrent tasks that the
+                             Deprecated: may be removed in a future release
+                               (currently has no effect; set Task Cap instead).
+                                Maximum number of concurrent tasks that the
                                Octopus Server can execute. Default is 0 (no
-                               limit)
+                               limit).
       --upgradeCheck=VALUE   Whether checking for upgrades is allowed (true
                                or false)
       --upgradeCheckWithStatistics=VALUE
@@ -48,6 +50,10 @@ Where [<options>] is any of:
                              A custom folder for getting packages (like
                                Calamari) that are normally bundled with Octopus
                                Server
+      --upgradeNotification=VALUE
+                             Modifies the visibility of the notification when
+                               upgrades are available. Valid values are
+                               AlwaysShow, ShowOnlyMajorMinor and NeverShow.
       --webCorsWhitelist=VALUE
                              Comma-separated whitelist of domains that are
                                allowed to retrieve data (empty turns CORS off,
@@ -71,19 +77,29 @@ Where [<options>] is any of:
                                for redirection
       --autoLoginEnabled=VALUE
                              Enable/disable automatic user login.
+      --selfServiceLoginEditingEnabled=VALUE
+                             Enable/disable whether users can edit their own
+                               logins.
       --azureADIsEnabled=VALUE
                              Set the azureAD IsEnabled, used for
                                authentication.
-      --azureADIssuer=VALUE  Set the azureAD Issuer, used for authentication.
+      --azureADIssuer=VALUE  Follow our documentation to find the Issuer for
+                               azureAD.
       --azureADClientId=VALUE
-                             Set the azureAD ClientId.
-      --azureADScope=VALUE   Set the azureAD Scope.
+                             Follow our documentation to find the Client ID
+                               for azureAD.
+      --azureADScope=VALUE   Only change this if you need to change the
+                               OpenID Connect scope requested by Octopus for
+                               azureAD.
       --azureADNameClaimType=VALUE
-                             Set the azureAD NameClaimType.
+                             Only change this if you want to use a different
+                               security token claim for the name from azureAD.
       --azureADAllowAutoUserCreation=VALUE
-                             Set azureAD AllowAutoUserCreation.
+                             Tell Octopus to automatically create a user
+                               account when a person signs in with azureAD.
       --azureADRoleClaimType=VALUE
-                             Set the RoleClaimType.
+                             Tell Octopus how to find the roles in the
+                               security token from Azure Active Directory.
       --activeDirectoryIsEnabled=VALUE
                              Set whether active directory is enabled.
       --activeDirectoryContainer=VALUE
@@ -102,36 +118,49 @@ Where [<options>] is any of:
                              When Domain authentication is used, specifies
                                whether to support security groups from AD.
       --activeDirectoryAllowAutoUserCreation=VALUE
-                             Whether unknown users will be automatically created upon
-                               successful login.
+                             Whether unknown users will be automatically
+                               created upon successful login.
       --googleAppsIsEnabled=VALUE
                              Set the googleApps IsEnabled, used for
                                authentication.
       --googleAppsIssuer=VALUE
-                             Set the googleApps Issuer, used for
-                               authentication.
+                             Follow our documentation to find the Issuer for
+                               googleApps.
       --googleAppsClientId=VALUE
-                             Set the googleApps ClientId.
+                             Follow our documentation to find the Client ID
+                               for googleApps.
       --googleAppsScope=VALUE
-                             Set the googleApps Scope.
+                             Only change this if you need to change the
+                               OpenID Connect scope requested by Octopus for
+                               googleApps.
       --googleAppsNameClaimType=VALUE
-                             Set the googleApps NameClaimType.
+                             Only change this if you want to use a different
+                               security token claim for the name from
+                               googleApps.
       --googleAppsAllowAutoUserCreation=VALUE
-                             Set googleApps AllowAutoUserCreation.
+                             Tell Octopus to automatically create a user
+                               account when a person signs in with googleApps.
       --googleAppsHostedDomain=VALUE
-                             Set the googleApps HostedDomain.
+                             Tell Octopus which Google Apps domain to trust.
       --guestloginenabled=VALUE
                              Whether guest login should be enabled
       --oktaIsEnabled=VALUE  Set the okta IsEnabled, used for authentication.
-      --oktaIssuer=VALUE     Set the okta Issuer, used for authentication.
-      --oktaClientId=VALUE   Set the okta ClientId.
-      --oktaScope=VALUE      Set the okta Scope.
+      --oktaIssuer=VALUE     Follow our documentation to find the Issuer for
+                               okta.
+      --oktaClientId=VALUE   Follow our documentation to find the Client ID
+                               for okta.
+      --oktaScope=VALUE      Only change this if you need to change the
+                               OpenID Connect scope requested by Octopus for
+                               okta.
       --oktaNameClaimType=VALUE
-                             Set the okta NameClaimType.
+                             Only change this if you want to use a different
+                               security token claim for the name from okta.
       --oktaAllowAutoUserCreation=VALUE
-                             Set okta AllowAutoUserCreation.
+                             Tell Octopus to automatically create a user
+                               account when a person signs in with okta.
       --oktaRoleClaimType=VALUE
-                             Set the RoleClaimType.
+                             Tell Octopus how to find the roles in the
+                               security token from Okta.
       --usernamePasswordIsEnabled=VALUE
                              Set whether Octopus username/password
                                authentication is enabled.
@@ -139,4 +168,6 @@ Where [<options>] is any of:
 Or one of the common options:
 
       --help                 Show detailed help for this command
+
+
 ```

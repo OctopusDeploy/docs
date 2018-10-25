@@ -11,6 +11,7 @@ Use the new certificate command to create a new certificate that Octopus Server 
 Usage: Octopus.Server new-certificate [<options>]
 
 Where [<options>] is any of:
+
       --instance=VALUE       Name of the instance to use
       --replace              Replaces the existing certificate that Octopus
                                server uses to authenticate itself with its
@@ -20,5 +21,8 @@ Where [<options>] is any of:
       --pfx-password=VALUE   The password to use for the exported pfx file
 
 Or one of the common options:
+
       --help                 Show detailed help for this command
+
+
 ```
