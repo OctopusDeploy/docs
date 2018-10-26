@@ -8,11 +8,16 @@ Use the show master key command to print the server's Master Encryption Key, so 
 **Show master key options**
 
 ```text
-Usage: Octopus.Server show-master-key [<options>]
+Usage: octopus.server show-master-key [<options>]
 
 Where [<options>] is any of:
+
       --instance=VALUE       Name of the instance to use
+      --format=VALUE         The format of the output (text,json). Defaults
+                               to text.
 
 Or one of the common options:
+
       --help                 Show detailed help for this command
 ```
+
