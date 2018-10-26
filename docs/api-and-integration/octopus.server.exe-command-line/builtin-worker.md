@@ -8,7 +8,7 @@ Use the builtin-worker command to configure the user context that the [built-in 
 **builtin-worker options**
 
 ```text
-Usage: Octopus.Server builtin-worker [<options>]
+Usage: octopus.server builtin-worker [<options>]
 
 Where [<options>] is any of:
 
@@ -39,4 +39,6 @@ Where [<options>] is any of:
 Or one of the common options:
 
       --help                 Show detailed help for this command
+
+
 ```
