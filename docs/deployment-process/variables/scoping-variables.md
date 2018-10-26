@@ -28,6 +28,25 @@ You can set the scope of a variable values when you are creating or editing your
 
 ![Assigning Scope to Variables](scoping-variables.png)
 
+## Using Multiple Scopes
+
+You can scope the values of your variables in multiple ways. For instance, you might scope a value to both the **Dev** and **Test** Environments, and to a step within your process.
+
+When the process runs, Octopus will used the scoped values for the **Dev** OR **Test** environments, AND the steps the value was scoped to.
+
+| Variable | Value | Scope |
+| -------- | ----- | ----- |
+| DBString | Scoped | Environment: Dev, Test; Steps: Step 1 |
+| DBString | unscoped |  |
+
+With the above *DBString* variable, you the scoped and unscoped values would be implemented as follows:
+
+| | Step 1 | Step 2|
+| Dev Environment | Scoped | Unscoped |
+| Test Environment | Scoped | Unscoped |
+| Stage Environment |  Unscoped | Unscoped |
+
+
 ## Scope Specificity {#Scopingvariables-Scopespecificity}
 
 Imagine you have one variable scoped to an environment (Production), and another scoped to a machine within the environment. Which value should Octopus choose?
@@ -51,6 +70,7 @@ Variable scoping also works like CSS rules; a value scoped twice is more specifi
 If two variables are scoped equally, Octopus will choose project-defined variables ahead of library-defined ones. If this still does not resolve the conflict the result is non-deterministic and you should not depend on a specific value being used. Instead, you should take care when scoping variables so that they are unlikely to conflict.
 
 Scope specificity can quickly become very complicated. Read our blog post for a [better understanding of why scope specificity works the way it does](http://octopus.com/blog/variable-specificity-and-complexity).
+
 
 ## Using Variables with Target Roles
 
