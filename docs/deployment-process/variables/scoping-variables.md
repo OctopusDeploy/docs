@@ -32,16 +32,17 @@ You can set the scope of a variable values when you are creating or editing your
 
 You can scope the values of your variables in multiple ways. For instance, you might scope a value to both the **Dev** and **Test** Environments, and to a step within your process.
 
-When the process runs, Octopus will used the scoped values for the **Dev** OR **Test** environments, AND the steps the value was scoped to.
+When the process runs, Octopus will used the scoped value for the **Dev** OR **Test** environments, AND the steps the value was scoped to.
 
 | Variable | Value | Scope |
 | -------- | ----- | ----- |
 | DBString | Scoped | Environment: Dev, Test; Steps: Step 1 |
 | DBString | unscoped |  |
 
-With the above *DBString* variable, you the scoped and unscoped values would be implemented as follows:
+With the above *DBString* variable, the scoped and unscoped values would be implemented as follows:
 
 | | Step 1 | Step 2|
+| ---- | ---- | ---- |
 | Dev Environment | Scoped | Unscoped |
 | Test Environment | Scoped | Unscoped |
 | Stage Environment |  Unscoped | Unscoped |
