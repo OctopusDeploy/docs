@@ -28,7 +28,7 @@ Deployment targets are added to environments in different ways, depending on th
 - [Azure Web App](/docs/infrastructure/azure/web-app-targets/index.md)
 - [Azure Cloud Service](/docs/infrastructure/azure/cloud-service-targets/index.md)
 - [Azure Service Fabric Cluster](/docs/infrastructure/azure/service-fabric-cluster-targets/index.md)
-- Kubernetes (Currently in beta)
+- Kubernetes
 - [Cloud Regions](/docs/infrastructure/cloud-regions.md)
 
 ## Workers
