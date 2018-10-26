@@ -8,7 +8,7 @@ Registers this machine as a Worker with an Octopus Server
 **Register with options**
 
 ```text
-Usage: Tentacle register-worker [<options>]
+Usage: tentacle register-worker [<options>]
 
 Where [<options>] is any of:
 
@@ -53,4 +53,6 @@ Where [<options>] is any of:
 Or one of the common options:
 
       --help                 Show detailed help for this command
+
+
 ```
