@@ -36,10 +36,10 @@ When the process runs, Octopus will used the scoped value for the **Dev** OR **T
 
 | Variable | Value | Scope |
 | -------- | ----- | ----- |
-| DBString | Scoped | Environment: Dev, Test; Steps: Step 1 |
-| DBString | unscoped |  |
+| MyVariable | Scoped | Environment: Dev, Test; Steps: Step 1 |
+| MyVariable | unscoped |  |
 
-With the above *DBString* variable, the scoped and unscoped values would be implemented as follows:
+With the above *MyVariable* variable, the scoped and unscoped values would be implemented as follows:
 
 | | Step 1 | Step 2|
 | ---- | ---- | ---- |
