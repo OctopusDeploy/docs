@@ -8,16 +8,22 @@ Show the thumbprint of the Tentacle's certificate
 **New certificate options**
 
 ```text
-Usage: Tentacle show-thumbprint [<options>]
+Usage: tentacle show-thumbprint [<options>]
 
 Where [<options>] is any of:
+
       --instance=VALUE       Name of the instance to use
   -e, --export-file=VALUE    Exports the Tentacle thumbprint to a file
-      --thumbprint-only      Only print out the thumbprint, with no additional text
- 
+      --thumbprint-only      DEPRECATED: Only print out the thumbprint, with
+                               no additional text. This switch has been
+                               deprecated and will be removed in Octopus 4.0
+                               since it is no longer needed.
+      --format=VALUE         The format of the output (text,json). Defaults
+                               to text.
+
 Or one of the common options:
-      --console              Don't attempt to run as a service, even if the
-                               user is non-interactive
-      --nologo               Don't print title or version information
-      --noconsolelogging     Don't log to the console
+
+      --help                 Show detailed help for this command
+
+
 ```

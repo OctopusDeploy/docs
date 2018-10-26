@@ -8,9 +8,10 @@ Replace the certificate that Tentacle uses to authenticate itself
 **Import certificate options**
 
 ```text
-Usage: Tentacle import-certificate [<options>]
+Usage: tentacle import-certificate [<options>]
 
 Where [<options>] is any of:
+
       --instance=VALUE       Name of the instance to use
   -r, --from-registry        Import the Octopus Tentacle 1.x certificate from
                                the Windows registry
@@ -22,8 +23,8 @@ Where [<options>] is any of:
                                password
 
 Or one of the common options:
-      --console              Don't attempt to run as a service, even if the
-                               user is non-interactive
-      --nologo               Don't print title or version information
-      --noconsolelogging     Don't log to the console
+
+      --help                 Show detailed help for this command
+
+
 ```
