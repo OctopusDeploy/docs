@@ -4,7 +4,7 @@ description: Cmdlet for creating a Kubernetes target
 position: 40
 ---
 
-## Azure Cloud Service
+## Kubernetes
 Command: **_New-OctopusKubernetesTarget_**
 
 | Parameter                     | Value                                                                                   |
