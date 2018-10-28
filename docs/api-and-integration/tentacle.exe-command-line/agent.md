@@ -1,18 +1,19 @@
 ---
-title: Run
-description:  Starts the Octopus Server in debug mode.
+title: agent
+description: Starts the Tentacle Agent in debug mode
 ---
 
-Use this to see detailed output of Octopus running to help diagnose any issues you may be having.
+Starts the Tentacle Agent in debug mode
 
-**Run options**
+**agent options**
 
 ```text
-Usage: octopus.server run [<options>]
+Usage: tentacle agent [<options>]
 
 Where [<options>] is any of:
 
       --instance=VALUE       Name of the instance to use
+      --wait=VALUE           Delay (ms) before starting
       --console              Don't attempt to run as a service, even if the
                                user is non-interactive
 

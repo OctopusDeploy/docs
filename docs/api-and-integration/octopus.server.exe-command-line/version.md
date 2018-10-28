@@ -1,15 +1,14 @@
 ---
-title: List Instances
-description: Using the Tentacle.exe command line executable to query Tentacle settings.
-version: "[3.12,)"
+title: version
+description: Show the Octopus Server version information
 ---
 
-Lists all installed Octopus instances
+Show the Octopus Server version information
 
-**List instances options**
+**version options**
 
 ```text
-Usage: tentacle list-instances [<options>]
+Usage: octopus.server version [<options>]
 
 Where [<options>] is any of:
 

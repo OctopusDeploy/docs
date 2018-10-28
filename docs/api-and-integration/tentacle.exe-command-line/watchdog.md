@@ -1,14 +1,14 @@
 ---
-title: Watchdog
-description:  Configure a scheduled task to monitor the Octopus service(s).
+title: watchdog
+description: Configure a scheduled task to monitor the Tentacle service(s)
 ---
 
-Use the watchdog command to configure a scheduled task to monitor the Octopus service(s).
+Configure a scheduled task to monitor the Tentacle service(s)
 
-**Watchdog options**
+**watchdog options**
 
 ```text
-Usage: octopus.server watchdog [<options>]
+Usage: tentacle watchdog [<options>]
 
 Where [<options>] is any of:
 

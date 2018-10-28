@@ -8,15 +8,17 @@ Registers a new instance of the Tentacle service
 **Create instance options**
 
 ```text
-Usage: Tentacle create-instance [<options>]
+Usage: tentacle create-instance [<options>]
 
 Where [<options>] is any of:
+
       --instance=VALUE       Name of the instance to create
       --config=VALUE         Path to configuration file to create
+      --home=VALUE           [Optional] Path to the home directory - defaults
+                               to the same directory as the config file
 
 Or one of the common options:
-      --console              Don't attempt to run as a service, even if the
-                               user is non-interactive
-      --nologo               Don't print title or version information
-      --noconsolelogging     Don't log to the console
+
+      --help                 Show detailed help for this command
 ```
+

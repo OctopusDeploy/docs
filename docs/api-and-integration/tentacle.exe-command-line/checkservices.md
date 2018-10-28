@@ -1,14 +1,14 @@
 ---
-title: Check Services
-description:  Checks the Octopus instances are running
+title: checkservices
+description: Checks the Tentacle instances are running
 ---
 
-Use the `checkservices` command to checks the Octopus instances that are running
+Checks the Tentacle instances are running
 
-**Check Services options**
+**checkservices options**
 
 ```text
-Usage: octopus.server checkservices [<options>]
+Usage: tentacle checkservices [<options>]
 
 Where [<options>] is any of:
 

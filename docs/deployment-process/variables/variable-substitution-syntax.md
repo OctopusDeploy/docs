@@ -37,7 +37,7 @@ Octopus supports an extended variable substitution syntax with capabilities simi
 The capabilities of the extended syntax are:
 
 - Index Replacement
-- Conditionals - `if` and `unless`
+- Conditionals - `if`, `if-else` and `unless`
 - Repetition - `each`
 - Filters - `HtmlEscape`, `Markdown` etc.
 - Differences from regular variable bindings
@@ -103,12 +103,20 @@ You could achieve a similar result, with a different default/fallback behavior, 
 
 #### *Truthy* and *Falsy* Values {#VariableSubstitutionSyntax-TruthyandFalsyvalues}
 
-The `if` and `unless` statements consider a value to be *falsy* if it is undefined, empty, `False` or `0`. All other values are considered to be *truthy*.
+The `if`, `if-else` and `unless` statements consider a value to be *falsy* if it is undefined, empty, `False` or `0`. All other values are considered to be *truthy*.
 
 ### Complex Syntax
 Additional conditional statements are supported in **Octopus 3.5** and onwards, including `==` and `!=`.
 
-Using complex syntax you can have expressions like `#{if Octopus.Environment.Name == "Production"}...#{/if}` and `#{if Octopus.Environment.Name != "Production"}...#{/if}`
+Using complex syntax you can have expressions like `#{if Octopus.Environment.Name == "Production"}...#{/if}` and `#{if Octopus.Environment.Name != "Production"}...#{/if}, or
+
+```
+#{if ATruthyVariable}
+  Pick me if true
+#{else}
+  Pick me if false
+#{/if}
+```
 
 ### Run Conditions
 Conditions can be used to control whether a given step in a deployment process actually runs.  In this scenario the conditional statement should return true/false, depending on your requirements.
