@@ -236,4 +236,4 @@ Save this text to a file called `ca.pem`, and upload it to the [Octopus certific
 
 Kubernetes targets can be created dynamically at deploy time with the Powershell function `New-OctopusKubernetesTarget`.
 
-See [ Create Kubernetes Target Command](/docs/infrastructure/dynamic-targets/kubernetes-target.md) for more information.
+See [ Create Kubernetes Target Command](/docs/infrastructure/dynamic-infrastructure/kubernetes-target.md) for more information.
