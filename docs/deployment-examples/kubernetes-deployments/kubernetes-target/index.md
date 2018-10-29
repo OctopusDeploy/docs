@@ -6,7 +6,7 @@ position: 20
 
 Kubernetes targets are used by the Kubernetes steps to define the context in which deployments and scripts are run.
 
-Targets can be created by {{Infrastructure>Deployment Targets>Add Deployment Target}}. Then select the Kubernetes Target Type from the list.
+Targets can be created by clicking {{Infrastructure>Deployment Targets>Add Deployment Target}}. Then select the Kubernetes Target Type from the list.
 
 Conceptually, a Kubernetes target represent a permission boundary. Kubernetes [permissions](http://g.octopushq.com/KubernetesRBAC) and [quotas](http://g.octopushq.com/KubernetesQuotas) are defined against a namespace, and both the account and namespace are captured as a Kubernetes target.
 
