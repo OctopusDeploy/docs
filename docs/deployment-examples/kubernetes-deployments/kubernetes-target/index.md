@@ -67,7 +67,7 @@ roleRef:
 
 In cases where it is necessary to have an administrative service account created (for example, when using AWS EKS because the initial admin account is tied to an IAM role), the following YAML can be used.
 
-```
+```YAML
 apiVersion: v1
 kind: ServiceAccount
 metadata:
