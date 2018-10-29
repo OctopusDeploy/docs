@@ -7,7 +7,7 @@ position: 120
 Some resources can be created within Octopus from the same scripts that you use to create them on Azure. By adding some additional commands Web Apps you create on Azure can also be created within Octopus as deployment targets.
 
 :::success
-As of the **Octopus 2018.5** release, only Azure Service Principal Accounts, Azure Web Apps, Azure Service Fabric and Azure Cloud Services targets are supported.
+As of the **Octopus 2018.9** release, only Azure Service Principal Accounts, Azure Web Apps, Azure Service Fabric, Azure Cloud Services and Kubernetes targets are supported.
 :::
 
 ## Available Commands and Syntax
