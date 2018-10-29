@@ -6,6 +6,8 @@ position: 20
 
 Kubernetes targets are used by the Kubernetes steps to define the context in which deployments and scripts are run.
 
+Targets can be created by {{Infrastructure>Deployment Targets>Add Deployment Target}}. Then select the Kubernetes Target Type from the list.
+
 Conceptually, a Kubernetes target represent a permission boundary. Kubernetes [permissions](http://g.octopushq.com/KubernetesRBAC) and [quotas](http://g.octopushq.com/KubernetesQuotas) are defined against a namespace, and both the account and namespace are captured as a Kubernetes target.
 
 When a single Kubernetes cluster is shared across environments, resources deployed to the cluster will often be separated by environment and by application, team, or service. In this situation, the recommended approach is to create a namespace for each application and environment (e.g., `myapplication-development` and `my-application-production`), and create a Kubernetes service account that has permissions to just that namespace.
