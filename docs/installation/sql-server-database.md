@@ -20,7 +20,7 @@ If you are using a hosted database service you will need to [create your own dat
 
 ## Create Your Own Database {#create-your-own}
 
-Please note the following if you need to create the database yourself:
+If you don't want Octopus to automatically create the database for you as part of the installation process, please note the following:
 
 1. The database must not be shared with any other application.
 1. The default schema must be **dbo**.
