@@ -48,7 +48,7 @@ You can push one or more packages using Octo.exe, the command-line tool for Octo
 C:\> Octo.exe push --package MyApp.Website.1.1.0.zip --package MyApp.Database.1.1.0.zip --replace-existing --server http://my.octopus.url --apiKey API-XXXXXXXXXXXXXXXX
 ```
 
-For more information refer to [Pushing packages with Octo.exe](/docs/api-and-integration/octo.exe-command-line/pushing-packages.md).
+For more information refer to [Pushing packages with Octo.exe](/docs/api-and-integration/octo.exe-command-line/push-package.md).
 
 ## Using the Octopus API (HTTP POST) {#PushingpackagestotheBuilt-Inrepository-UsingtheOctopusAPI(HTTPPOST)}
 

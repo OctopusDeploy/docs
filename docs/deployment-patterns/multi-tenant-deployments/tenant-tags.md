@@ -96,6 +96,6 @@ Consider an example deploying a release to the tenants tagged with the **Early 
 
 Some places you can use tags are:
 
-- When deploying releases of your projects using one of the [build server integrations](/docs/api-and-integration/index.md) or [octo.exe](/docs/api-and-integration/octo.exe-command-line/deploying-releases.md) - [read more in our guide](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md).
+- When deploying releases of your projects using one of the [build server integrations](/docs/api-and-integration/index.md) or [octo.exe](/docs/api-and-integration/octo.exe-command-line/deploy-release.md) - [read more in our guide](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md).
 - Scoping a deployment target to one or more tenants when registering a new Tentacle - [read more in our guide](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md).
 - When automating Octopus via the [Octopus REST API](/docs/api-and-integration/api/index.md).

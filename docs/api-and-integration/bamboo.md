@@ -81,7 +81,7 @@ Selecting the `Overwrite existing package` option means that any existing local 
 
 Pushing the package to Octopus Deploy is done with the `Octopus Deploy: Push Packages` task. In addition to the [common configuration fields](#commonConfiguration), this task requires the paths to the packages to be pushed and forcing package uploads.
 
-This step runs the [push command](/docs/api-and-integration/octo.exe-command-line/pushing-packages.md) on the command line tool.
+This step runs the [push command](/docs/api-and-integration/octo.exe-command-line/push-package.md) on the command line tool.
 
 #### Package Paths
 
@@ -103,7 +103,7 @@ Tick this option, as it allows a build to be rebuilt and the new package to be p
 
 Creating a release is done with the `Octopus Deploy: Create Release` task. In addition to the [common configuration fields](#commonConfiguration), this task requires the Octopus Deploy project to create the release for and the version number of the release.
 
-This steps runs the [create-release command](/docs/api-and-integration/octo.exe-command-line/creating-releases.md) on the command line tool.
+This steps runs the [create-release command](/docs/api-and-integration/octo.exe-command-line/create-release.md) on the command line tool.
 
 #### Project
 
@@ -135,7 +135,7 @@ Tick this option, as it allows builds to be rebuilt. Otherwise rebuilds will att
 
 Releases can be deployed with the `Octopus Deploy: Deploy Release` task. In addition to the [common configuration fields](#commonConfiguration), this task requires the Octopus Deploy project to deploy, the environments to deploy to, and the release number to deploy.
 
-This steps runs the [deploy-release command](/docs/api-and-integration/octo.exe-command-line/deploying-releases.md) on the command line tool.
+This steps runs the [deploy-release command](/docs/api-and-integration/octo.exe-command-line/deploy-release.md) on the command line tool.
 
 #### Project
 
@@ -155,7 +155,7 @@ The `Release Number` field defines the release version number to deploy. This sh
 
 Releases can be promoted to new environments with the `Octopus Deploy: Promote Release` task. In addition to the [common configuration fields](#commonConfiguration), this task requires the Octopus Deploy project to deploy, the environment to promote from, and the environment to promote to.
 
-This steps runs the [promote-release command](/docs/api-and-integration/octo.exe-command-line/promoting-releases.md) on the command line tool.
+This steps runs the [promote-release command](/docs/api-and-integration/octo.exe-command-line/promote-release.md) on the command line tool.
 
 :::warning
 Because the promotion from one environment to another is not tied to any particular release number, adding this task to a Bamboo build plan means every time the plan is run (or more importantly rerun), releases will be promoted between environments. This is almost certainly not the desired result, and so it is not recommended that promotions be done as part of a Bamboo build plan.

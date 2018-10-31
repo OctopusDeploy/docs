@@ -52,7 +52,7 @@ The release number that is created is guided by the Release Versioning settings 
 
 [Channels](/docs/deployment-process/channels/index.md) were introduced in **Octopus 3.2**, and at this point you must select the Channel that will be used for any automatically created releases. This means that **only one channel for each project can have an automatic release creation trigger enabled at any one time.** This can be painful, and here are some points you can consider:
 
-- Use one of the [build-server extensions](/docs/api-and-integration/index.md), or [octo.exe](/docs/api-and-integration/octo.exe-command-line/creating-releases.md) to create releases instead of using ARC - this will automatically determine the best channel based on the release being created
+- Use one of the [build-server extensions](/docs/api-and-integration/index.md), or [octo.exe](/docs/api-and-integration/octo.exe-command-line/create-release.md) to create releases instead of using ARC - this will automatically determine the best channel based on the release being created
 - Choose the channel that will be used most commonly for automatically creating releases, and create releases manually for the other channels.
 - Try creating some releases manually for the selected channel to make sure it works as expected.
 
