@@ -84,7 +84,7 @@ The new path will apply to existing packages in the repository, so it is importa
 
 ```powershell
 $oldNuGetRepository = "C:\Octopus\Packages"
-$newNuGetRepository = "C:\YourNewHomeDir\Packages"
+$newNuGetRepository = "C:\YourNewHomeDir\"
 $octopus = "C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe"
 
 & "$octopus" service --stop
@@ -110,7 +110,7 @@ A PowerShell script showing the steps is set out below. You need to change the v
 
 ```powershell
 $oldArtifacts = "C:\Octopus\Artifacts"
-$newArtifacts = "C:\YourNewHomeDir\Artifacts"
+$newArtifacts = "C:\YourNewHomeDir\"
 $octopus = "C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe"
 
 & "$octopus" service --stop
@@ -126,7 +126,7 @@ A PowerShell script showing the steps is set out below. You need to change the v
 
 ```powershell
 $oldTaskLogs = "C:\Octopus\TaskLogs"
-$newTaskLogs = "C:\YourNewHomeDir\TaskLogs"
+$newTaskLogs = "C:\YourNewHomeDir\"
 $octopus = "C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe"
 
 & "$octopus" service --stop
