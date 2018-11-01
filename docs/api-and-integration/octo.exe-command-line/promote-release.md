@@ -127,6 +127,7 @@ Common options:
 ```
 
 
+
 ## Basic Example {#Promotingreleases-Basicexample}
 
 The following command will promote the latest release of the*Web* projectdeployed to *Development*to the environment *Staging.*
