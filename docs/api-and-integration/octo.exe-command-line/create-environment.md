@@ -8,13 +8,9 @@ position: 0
 
 ```bash
 octo create-environment [<options>]
-```
 
 Where `[<options>]` is any of:
 
-**create-environment options**
-
-```text
 Environment creation:
 
       --name=VALUE           The name of the environment

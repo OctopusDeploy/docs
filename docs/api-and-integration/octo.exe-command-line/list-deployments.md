@@ -7,13 +7,9 @@ position: 13
 
 ```bash
 octo list-deployments [<options>]
-```
 
 Where `[<options>]` is any of:
 
-**List Deployments options**
-
-```text
 Listing: 
 
       --project=VALUE        [Optional] Name of a project to filter by. Can 

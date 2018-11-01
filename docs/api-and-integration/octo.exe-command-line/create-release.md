@@ -17,13 +17,9 @@ Usage:
 
 ```bash
 octo create-release [<options>]
-```
 
 Where `[<options>]` is any of:
 
-**Create release options**
-
-```text
 Release creation:
 
       --project=VALUE        Name of the project

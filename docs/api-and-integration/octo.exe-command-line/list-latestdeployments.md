@@ -7,13 +7,9 @@ position: 14
 
 ```bash
 octo list-latestdeployments [<options>]
-```
 
 Where `[<options>]` is any of:
 
-**List Latest Deployments options**
-
-```text
 Listing: 
 
       --project=VALUE        Name of a project to filter by. Can be specified 

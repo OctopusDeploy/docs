@@ -8,13 +8,9 @@ position: 4
 
 ```bash
 octo deploy-release [<options>]
-```
 
 Where `[<options>]` is any of:
 
-**Deploy release options**
-
-```text
 Deployment:
 
       --progress             [Optional] Show progress of the deployment

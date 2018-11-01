@@ -8,13 +8,9 @@ position: 1
 
 ```bash
 octo create-project [<options>]
-```
 
 Where `[<options>]` is any of:
 
-**create-project options**
-
-```text
 Project creation:
 
       --name=VALUE           The name of the project
