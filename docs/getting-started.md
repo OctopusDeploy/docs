@@ -6,33 +6,9 @@ position: 0
 
 Welcome!
 
-This section provides an overview of Octopus Deploy and explains how Octopus Deploy fits into your application delivery pipeline. It provides an overview of the major concepts in Octopus and links to the relevant documentation, which explore the concepts further and guide you through implementing them with your own [self-hosted](/docs/getting-started.md#self-hosted-octopus) or [cloud-hosted](/docs/getting-started.md#octopus-cloud) Octopus Server.
+This section provides an overview of Octopus Deploy concepts and links to the relevant documentation, which explore the concepts further and guide you through implementing them with your own [self-hosted](/docs/getting-started.md#self-hosted-octopus) or [cloud-hosted](/docs/getting-started.md#octopus-cloud) Octopus Server.
 
-## Octopus in Your Delivery Process
-
-Octopus Deploy is an automated deployment server that makes it easy to automate software deployment across your organization.
-
-### The Delivery Pipeline
-
-We designed Octopus Deploy for teams that follow agile delivery practices. A typical workflow could be:
-
-1. **Commit Code to Your Existing Source Control System.**
-
-   You might be using Git, Team Foundation Server, Subversion, or Mercurial. The choice is yours.
-
-1. **Your CI/Build Server Compiles the Code and Runs Unit Tests.**
-
-   You might be using TeamCity, Jenkins, Bamboo, Team Foundation Server, or CruiseControl.NET. Again, the choice is yours.
-
-1. **Package Your Application.**
-
-   When the build is ready, your CI/build server takes all the files your software needs to run and bundles them up ready for deployment.
-
-1. **Octopus Deploy Deploys Your Software to Your Infrastructure.**
-
-   Octopus deploys your software to the infrastructure you've configured, whether this is on-premises servers or cloud services. Because you likely want to deploy your software into a testing environment before deploying into production, Octopus promotes releases of your software through your environments, for instance, to dev, testing, staging, and production, and because each environment has slightly different configurations, Octopus manages those for you too.
-
-### Consistent Releases
+## Consistent Releases
 
 As an Octopus user, you define the process for deploying your software. You specify the environments the applications are deployed to and who on your team can deploy to which environments. For instance, you might want QA to deploy to test environments, but not to production. Taking this approach means that even if different members of the team trigger deployments, the deployment process remains consistent. Once releases have been created, they can be deployed as many times as you need.
 
@@ -125,3 +101,23 @@ Learn more about [deploying releases](/docs/deployment-process/releases/index.md
 Over time your software may become so successful that you on-sell it to some external customers, and due to the way the software is architected, you need to deploy slightly different versions of the software configured for each customer. For instance, you might deploy version 1.0.1 to Customer A with the software configured to display customer A's logo on their landing page, and version 1.1.0 to Customer B configured to display their logo on their landing page. The multi-tenant feature in Octopus Deploy helps you manage deploying different versions of the same software to multiple customers.
 
 Learn more about tenants in our [Multi-tenant Deployments Guide](/docs/deployment-patterns/multi-tenant-deployments/index.md).
+
+## The Delivery Pipeline
+
+We designed Octopus Deploy for teams that follow agile delivery practices. A typical workflow could be:
+
+1. **Commit Code to Your Existing Source Control System.**
+
+   You might be using Git, Team Foundation Server, Subversion, or Mercurial. The choice is yours.
+
+1. **Your CI/Build Server Compiles the Code and Runs Unit Tests.**
+
+   You might be using TeamCity, Jenkins, Bamboo, Team Foundation Server, or CruiseControl.NET. Again, the choice is yours.
+
+1. **Package Your Application.**
+
+   When the build is ready, your CI/build server takes all the files your software needs to run and bundles them up ready for deployment.
+
+1. **Octopus Deploy Deploys Your Software to Your Infrastructure.**
+
+   Octopus deploys your software to the infrastructure you've configured, whether this is on-premises servers or cloud services. Because you likely want to deploy your software into a testing environment before deploying into production, Octopus promotes releases of your software through your environments, for instance, to dev, testing, staging, and production, and because each environment has slightly different configurations, Octopus manages those for you too.
