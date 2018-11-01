@@ -8,13 +8,9 @@ position: 12
 
 ```bash
 octo create-autodeployoverride [<options>]
-```
 
 Where `[<options>]` is any of:
 
-**create-autodeployoverride options**
-
-```text
 Auto deploy release override:
 
       --project=VALUE        Name of the project

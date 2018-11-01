@@ -7,13 +7,9 @@ description: Using the Octo.exe command line tool to delete automatic deployment
 
 ```bash
 octo delete-autodeployoverride [<options>]
-```
 
 Where `[<options>]` is any of:
 
-**delete-autodeployoverride options**
-
-```text
 Delete auto deploy release override:                                        
 
       --project=VALUE        Name of the project                            
