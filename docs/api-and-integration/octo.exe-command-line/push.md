@@ -1,33 +1,26 @@
 ---
-title: Creating Channels
-description: Using the Octo.exe command line tool to create channels.
-position: 11
+title: push
+description: Pushes a package (.nupkg, .zip, .tar.gz, etc.) package to the built-in NuGet repository in an Octopus Server.
 ---
 
-[Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to create [channels](/docs/deployment-process/channels/index.md) on your Octopus instance.
+Pushes a package (.nupkg, .zip, .tar.gz, etc.) package to the built-in NuGet repository in an Octopus Server.
+
+**push options**
 
 ```text
-Usage: octo create-channel [<options>]
+Usage: octo push [<options>]
 
 Where [<options>] is any of:
 
-Create:
+Package pushing:
 
-      --project=VALUE        The name of the project in which to create the
-                             channel
-      --channel=VALUE        The name of the channel to create
-      --description=VALUE    [Optional] A description of the channel
-      --lifecycle=VALUE      [Optional] if specified, the name of the
-                             lifecycle to use for promoting releases through
-                             this channel, otherwise this channel will
-                             inherit the project lifecycle
-      --make-default-channel [Optional, Flag] if specified, set the new
-                             channel to be the default channel replacing any
-                             existing default channel
-      --update-existing      [Optional, Flag] if specified, updates the
-                             matching channel if it already exists, otherwise
-                             this command will fail if a matching channel
-                             already exists
+      --package=VALUE        Package file to push. Specify multiple packages
+                             by specifying this argument multiple times:
+                             --package package1 --package package2
+      --replace-existing     If the package already exists in the repository,
+                             the default behavior is to reject the new
+                             package being pushed. You can pass this flag to
+                             overwrite the existing package.
 
 Common options:
 
@@ -80,16 +73,3 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-
-## Basic Example {#Creatingchannels-Basicexample}
-
-The following command will create a channel in *MyProject* called *Experimental* using the *Test Only* lifecycle instead
-
-```bash
-Octo create-channel --project MyProject --name Experimental --lifecycle "Test Only" --server http://MyOctopusServerURL.com --apikey MyAPIKey
-```
-
-:::success
-**Tip**
-Learn more about [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md), and [creating API keys](/docs/api-and-integration/api/how-to-create-an-api-key.md).
-:::

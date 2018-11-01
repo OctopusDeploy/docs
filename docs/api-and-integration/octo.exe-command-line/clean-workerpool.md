@@ -1,33 +1,31 @@
 ---
-title: Creating Channels
-description: Using the Octo.exe command line tool to create channels.
-position: 11
+title: clean-workerpool
+description: Cleans all Offline Workers from a WorkerPool
 ---
 
-[Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to create [channels](/docs/deployment-process/channels/index.md) on your Octopus instance.
+Cleans all Offline Workers from a WorkerPool
+
+**clean-workerpool options**
 
 ```text
-Usage: octo create-channel [<options>]
+Usage: octo clean-workerpool [<options>]
 
 Where [<options>] is any of:
 
-Create:
+WorkerPool Cleanup:
 
-      --project=VALUE        The name of the project in which to create the
-                             channel
-      --channel=VALUE        The name of the channel to create
-      --description=VALUE    [Optional] A description of the channel
-      --lifecycle=VALUE      [Optional] if specified, the name of the
-                             lifecycle to use for promoting releases through
-                             this channel, otherwise this channel will
-                             inherit the project lifecycle
-      --make-default-channel [Optional, Flag] if specified, set the new
-                             channel to be the default channel replacing any
-                             existing default channel
-      --update-existing      [Optional, Flag] if specified, updates the
-                             matching channel if it already exists, otherwise
-                             this command will fail if a matching channel
-                             already exists
+      --workerpool=VALUE     Name of a worker pool to clean up.
+      --health-status=VALUE  Health status of Workers to clean up (Healthy,
+                             Unavailable, Unknown, HasWarnings, Unhealthy).
+                             Can be specified many times.
+      --disabled=VALUE       [Optional] Disabled status filter of Worker to
+                             clean up.
+      --calamari-outdated=VALUE
+                             [Optional] State of Calamari to clean up. By
+                             default ignores Calamari state.
+      --tentacle-outdated=VALUE
+                             [Optional] State of Tentacle version to clean u-
+                             p. By default ignores Tentacle state
 
 Common options:
 
@@ -80,16 +78,3 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-
-## Basic Example {#Creatingchannels-Basicexample}
-
-The following command will create a channel in *MyProject* called *Experimental* using the *Test Only* lifecycle instead
-
-```bash
-Octo create-channel --project MyProject --name Experimental --lifecycle "Test Only" --server http://MyOctopusServerURL.com --apikey MyAPIKey
-```
-
-:::success
-**Tip**
-Learn more about [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md), and [creating API keys](/docs/api-and-integration/api/how-to-create-an-api-key.md).
-:::

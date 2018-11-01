@@ -6,10 +6,10 @@ position: 4
 
 [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to deploy releases that have [already been created](/docs/api-and-integration/octo.exe-command-line/create-release.md).
 
-```bash
-octo deploy-release [<options>]
+```text
+Usage: octo deploy-release [<options>]
 
-Where `[<options>]` is any of:
+Where [<options>] is any of:
 
 Deployment:
 
@@ -66,7 +66,9 @@ Deployment:
                              build a query/filter with multiple tags, just
                              like you can in the user interface.
       --project=VALUE        Name of the project
-      --deployto=VALUE       Environment to deploy to, e.g., Production; specify this argument multiple times to deploy to multiple environments
+      --deployto=VALUE       Environment to deploy to, e.g., Production;
+                             specify this argument multiple times to deploy
+                             to multiple environments
       --releaseNumber, --version=VALUE
                              Version number of the release to deploy. Or
                              specify --version=latest for the latest release.
@@ -83,17 +85,24 @@ Common options:
                              option is json
       --outputFormat=VALUE   [Optional] Output format, only valid option is
                              json
-      --server=VALUE         The base URL for your Octopus Server - e.g.,
-                             http://your-octopus/
+      --server=VALUE         [Optional] The base URL for your Octopus Server -
+                              e.g., http://your-octopus/. This URL can also
+                             be set in the OCTOPUS_CLI_SERVER environment
+                             variable.
       --apiKey=VALUE         [Optional] Your API key. Get this from the user
                              profile page. Your must provide an apiKey or
                              username and password. If the guest account is
-                             enabled, a key of API-GUEST can be used.
+                             enabled, a key of API-GUEST can be used. This
+                             key can also be set in the OCTOPUS_CLI_API_KEY
+                             environment variable.
       --user=VALUE           [Optional] Username to use when authenticating
                              with the server. Your must provide an apiKey or
-                             username and password.
+                             username and password. This Username can also be
+                             set in the OCTOPUS_CLI_USERNAME environment
+                             variable.
       --pass=VALUE           [Optional] Password to use when authenticating
-                             with the server.
+                             with the server. This Password can also be set
+                             in the OCTOPUS_CLI_PASSWORD environment variable.
       --configFile=VALUE     [Optional] Text file of default values, with one
                              'key = value' per line.
       --debug                [Optional] Enable debug logging
@@ -118,6 +127,7 @@ Common options:
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
+
 
 ## Basic Examples {#Deployingreleases-Basicexamples}
 

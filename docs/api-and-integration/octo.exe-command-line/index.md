@@ -12,32 +12,37 @@ We provide a number of ways to get Octo onto your machine:
 - Download from [Octopus downloads page](https://octopus.com/downloads)
 - Using [Chocolatey](https://chocolatey.org/packages/OctopusTools)
 
-## Commands {#Octo.exeCommandLine-Commands}
+## Commands {#octo.exeCommandLine-Commands}
 
-Octo.exe supports the following commands:
+`octo.exe` supports the following commands:
 
-- **`create-release`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/create-release.md)
-- **`deploy-release`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/deploy-release.md)
-- **`promote-release`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/promote-release.md)
-- **`create-project`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/create-project.md)
-- **`create-environment`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/create-environment.md)
-- **`create-channel`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/create-channel.md)
-- **`create-autodeployoverride`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/create-autodeployoverride.md)
-- **`clean-environment`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/clean-environment.md)
-- **`export`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/export.md)
-- **`import`**:  [Learn more](/docs/api-and-integration/octo.exe-command-line/import.md)
-- **`list-machines`**: Lists the machines in one or more environments matching one or more statuses
-- **`list-projects`**: Lists all projects on the server
-- **`list-latestdeployments`**: Lists the latest deployments of a project
-- **`list-releases`**: Lists all releases by project
-- **`list-deployments`**: List a number of deployments by project, environment or by tenant [Learn more](/docs/api-and-integration/octo.exe-command-line/list-deployments.md)
-- **`list-environments`**: Lists all environments
-- **`list-tenants`**: Lists all tenants
-- **`delete-releases`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/delete-release.md)
-- **`delete-autodeployoverride`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/delete-autodeployoverride.md)
-- **`dump-deployments`**: Writes deployments to an XML file that can be imported in Excel [Learn more](/docs/api-and-integration/octo.exe-command-line/dump-deployments.md)
-- **`pack`**: [Learn More](/docs/packaging-applications/creating-packages/nuget-packages/using-octo.exe.md) Creates a NUPKG from files on disk, without needing a .nuspec
-- **`push`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/push-package.md): Pushes a package to the Octopus built-in repository
+- **[clean-environment](/docs\api-and-integration\octo.exe-command-line/clean-environment.md)**:  Cleans all Offline Machines from an Environment.
+- **[clean-workerpool](/docs\api-and-integration\octo.exe-command-line/clean-workerpool.md)**:  Cleans all Offline Workers from a WorkerPool.
+- **[create-autodeployoverride](/docs\api-and-integration\octo.exe-command-line/create-autodeployoverride.md)**:  Override the release that auto deploy will use.
+- **[create-channel](/docs\api-and-integration\octo.exe-command-line/create-channel.md)**:  Creates a channel for a project.
+- **[create-environment](/docs\api-and-integration\octo.exe-command-line/create-environment.md)**:  Creates a deployment environment.
+- **[create-project](/docs\api-and-integration\octo.exe-command-line/create-project.md)**:  Creates a project.
+- **[create-release](/docs\api-and-integration\octo.exe-command-line/create-release.md)**:  Creates (and, optionally, deploys) a release.
+- **[create-workerpool](/docs\api-and-integration\octo.exe-command-line/create-workerpool.md)**:  Creates a pool for workers.
+- **[delete-autodeployoverride](/docs\api-and-integration\octo.exe-command-line/delete-autodeployoverride.md)**:  Delete auto deploy release overrides.
+- **[delete-releases](/docs\api-and-integration\octo.exe-command-line/delete-releases.md)**:  Deletes a range of releases.
+- **[deploy-release](/docs\api-and-integration\octo.exe-command-line/deploy-release.md)**:  Deploys a release.
+- **[dump-deployments](/docs\api-and-integration\octo.exe-command-line/dump-deployments.md)**:  Writes deployments to an XML file that can be imported in Excel.
+- **[export](/docs\api-and-integration\octo.exe-command-line/export.md)**:  Exports an object to a JSON file.
+- **[import](/docs\api-and-integration\octo.exe-command-line/import.md)**:  Imports an Octopus object from an export file.
+- **[list-deployments](/docs\api-and-integration\octo.exe-command-line/list-deployments.md)**:  List a number of deployments by project, environment or by tenant.
+- **[list-environments](/docs\api-and-integration\octo.exe-command-line/list-environments.md)**:  List environments.
+- **[list-latestdeployments](/docs\api-and-integration\octo.exe-command-line/list-latestdeployments.md)**:  List the releases last-deployed in each environment.
+- **[list-machines](/docs\api-and-integration\octo.exe-command-line/list-machines.md)**:  Lists all machines.
+- **[list-projects](/docs\api-and-integration\octo.exe-command-line/list-projects.md)**:  Lists all projects.
+- **[list-releases](/docs\api-and-integration\octo.exe-command-line/list-releases.md)**:  List releases by project.
+- **[list-tenants](/docs\api-and-integration\octo.exe-command-line/list-tenants.md)**:  List tenants.
+- **[list-workerpools](/docs\api-and-integration\octo.exe-command-line/list-workerpools.md)**:  List worker pools.
+- **[list-workers](/docs\api-and-integration\octo.exe-command-line/list-workers.md)**:  Lists all workers.
+- **[pack](/docs\api-and-integration\octo.exe-command-line/pack.md)**:  Creates a package (.nupkg or .zip) from files on disk, without needing a .nuspec or .csproj.
+- **[promote-release](/docs\api-and-integration\octo.exe-command-line/promote-release.md)**:  Promotes a release.
+- **[push](/docs\api-and-integration\octo.exe-command-line/push.md)**:  Pushes a package (.nupkg, .zip, .tar.gz, etc.) package to the built-in NuGet repository in an Octopus Server.
+- **[version](/docs\api-and-integration\octo.exe-command-line/version.md)**:  Output Octo command line tool version.
 
 ## General Usage {#Octo.exeCommandLine-Generalusage}
 
