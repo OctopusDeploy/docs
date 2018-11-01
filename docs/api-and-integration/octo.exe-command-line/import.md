@@ -16,6 +16,10 @@ We currently support importing:
 [Usage:](/docs/api-and-integration/octo.exe-command-line/import.md)
 
 ```text
+Usage: octo import [<options>]
+
+Where [<options>] is any of:
+
 Import:
 
       --type=VALUE           The Octopus object type to import
@@ -29,17 +33,24 @@ Common options:
       --helpOutputFormat=VALUE
                              [Optional] Output format for help, only valid
                              option is json
-      --server=VALUE         The base URL for your Octopus Server - e.g.,
-                             http://your-octopus/
+      --server=VALUE         [Optional] The base URL for your Octopus Server -
+                              e.g., http://your-octopus/. This URL can also
+                             be set in the OCTOPUS_CLI_SERVER environment
+                             variable.
       --apiKey=VALUE         [Optional] Your API key. Get this from the user
                              profile page. Your must provide an apiKey or
                              username and password. If the guest account is
-                             enabled, a key of API-GUEST can be used.
+                             enabled, a key of API-GUEST can be used. This
+                             key can also be set in the OCTOPUS_CLI_API_KEY
+                             environment variable.
       --user=VALUE           [Optional] Username to use when authenticating
                              with the server. Your must provide an apiKey or
-                             username and password.
+                             username and password. This Username can also be
+                             set in the OCTOPUS_CLI_USERNAME environment
+                             variable.
       --pass=VALUE           [Optional] Password to use when authenticating
-                             with the server.
+                             with the server. This Password can also be set
+                             in the OCTOPUS_CLI_PASSWORD environment variable.
       --configFile=VALUE     [Optional] Text file of default values, with one
                              'key = value' per line.
       --debug                [Optional] Enable debug logging
@@ -64,6 +75,7 @@ Common options:
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
+
 
 ## Import a Project {#Import-Importaproject}
 
