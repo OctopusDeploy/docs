@@ -7,13 +7,9 @@ position: 11
 
 ```bash
 octo list-machines [<options>]
-```
 
 Where `[<options>]` is any of:
 
-**List Machines options**
-
-```text
 Listing: 
 
       --environment=VALUE    Name of an environment to filter by. Can be 

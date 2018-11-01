@@ -7,13 +7,9 @@ position: 15
 
 ```bash
 octo list-releases [<options>]
-```
 
 Where `[<options>]` is any of:
 
-**List releases options**
-
-```text
 Listing: 
 
       --project=VALUE        Name of a project to filter by. Can be specified 

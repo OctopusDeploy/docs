@@ -8,13 +8,9 @@ position: 8
 
 ```bash
 octo promote-release [<options>]
-```
 
 Where `[<options>]` is any of:
 
-**Promote release options**
-
-```text
 Release Promotion:
 
       --project=VALUE        Name of the project

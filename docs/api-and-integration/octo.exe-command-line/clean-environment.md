@@ -21,13 +21,9 @@ We added first-class support for automatically [cleaning up environments](/docs/
 
 ```bash
 octo clean-environment [<options>]
-```
 
 Where `[<options>]` is any of:
 
-**clean-environment options**
-
-```text
 Cleanup:
       --environment=VALUE    Name of an environment to clean up.
       --status=VALUE         Status of Machines clean up (Online, Offline,

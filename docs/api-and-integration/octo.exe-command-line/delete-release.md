@@ -13,13 +13,9 @@ If you are using [channels](/docs/deployment-process/channels/index.md) (introdu
 
 ```bash
 octo delete-releases [<options>]
-```
 
 Where `[<options>]` is any of:
 
-**delete-releases options**
-
-```text
 Deletion:
 
       --project=VALUE        Name of the project

@@ -7,13 +7,9 @@ position: 12
 
 ```bash
 octo dump-deployments [<options>]
-```
 
 Where `[<options>]` is any of:
 
-**Dump Deployments options**
-
-```text
 Dumper: 
 
       --filePath=VALUE       The full path and name of the export file

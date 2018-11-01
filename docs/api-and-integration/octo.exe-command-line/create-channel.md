@@ -8,13 +8,9 @@ position: 11
 
 ```bash
 octo create-channel [<options>]
-```
 
 Where `[<options>]` is any of:
 
-**create-environment options**
-
-```text
 Create:
 
       --project=VALUE        The name of the project in which to create the
