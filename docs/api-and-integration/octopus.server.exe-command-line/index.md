@@ -2,6 +2,7 @@
 title: Octopus.Server.exe Command Line
 description: Octopus.Server.exe is the executable that runs the Octopus instance, it can also be called from the command line.
 position: 90
+hideInThisSection: true
 ---
 
 **Octopus.Server.exe** is the executable that runs the Octopus Server instance. It includes many helpful commands that allow you to manage the instance, including; authentication, configuration, diagnostics and running the service.
