@@ -13,7 +13,7 @@ Usage: tentacle deregister-from [<options>]
 Where [<options>] is any of:
 
       --instance=VALUE       Name of the instance to use
-      --server=VALUE         The Octopus server - e.g., 'http://octopus'
+      --server=VALUE         The Octopus Server - e.g., 'http://octopus'
       --apiKey=VALUE         Your API key; you can get this from the Octopus
                                web portal
   -u, --username=VALUE       If not using API keys, your username
