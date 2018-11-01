@@ -14,7 +14,7 @@ Where [<options>] is any of:
 
       --instance=VALUE       Name of the instance to use
       --replace              Replaces the existing certificate that Octopus
-                               server uses to authenticate itself with its
+                               Server uses to authenticate itself with its
                                Tentacles
       --export-pfx=VALUE     Exports the new certificate to the specified
                                file; for use with the import-certificate command
