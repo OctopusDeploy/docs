@@ -76,7 +76,6 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-
 ## Basic Example {#Deletingautodeployoverrides-Basicexample}
 
 The following will delete an automatic deployment release override for the project *HelloWorld* to the environment *Development*:

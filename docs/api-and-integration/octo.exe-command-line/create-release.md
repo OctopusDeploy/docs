@@ -166,7 +166,6 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-
 ## Basic Examples {#Creatingreleases-Basicexamples}
 
 This will create a new release of the *HelloWorld* project using the latest available NuGet packages for each step in the project. The version number of the release will be the highest NuGet package version. You can override this using:

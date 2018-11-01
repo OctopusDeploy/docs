@@ -79,7 +79,6 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-
 ## Basic Example {#Creatingautodeployoverrides-Basicexample}
 
 The following will create an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment *Development*:

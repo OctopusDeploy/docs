@@ -73,7 +73,6 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-
 ## Basic Example {#Creatingprojects-Basicexample}
 
 The following command will create a project called *MyWebApp* into the project group *MyProjectGroup*

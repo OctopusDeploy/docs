@@ -76,7 +76,6 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-
 ## Exporting a Project {#Export-Exportingaproject}
 
 The following options are required when exporting a project.
