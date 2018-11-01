@@ -599,3 +599,14 @@ docs/packaging-applications/package-repositories/registries/amazon-ec2-container
 docs/packaging-applications/package-repositories/registries/azure-container-services.md -> docs/packaging-applications/package-repositories/docker-registries/azure-container-services.md
 docs/packaging-applications/package-repositories/registries/docker-hub.md -> docs/packaging-applications/package-repositories/docker-registries/docker-hub.md
 docs/deployment-examples/azure-deployments/cloud-services/cloud-service-concepts.md -> docs/deployment-examples/azure-deployments/cloud-services/index.md
+docs/api-and-integration/octo.exe-command-line/cleaning-environments.md -> docs/api-and-integration/octo.exe-command-line/clean-environment.md
+docs/api-and-integration/octo.exe-command-line/creating-channels.md -> docs/api-and-integration/octo.exe-command-line/create-channel.md
+docs/api-and-integration/octo.exe-command-line/creating-environments.md -> docs/api-and-integration/octo.exe-command-line/create-environment.md
+docs/api-and-integration/octo.exe-command-line/creating-projects.md -> docs/api-and-integration/octo.exe-command-line/create-project.md
+docs/api-and-integration/octo.exe-command-line/creating-releases.md -> docs/api-and-integration/octo.exe-command-line/create-release.md
+docs/api-and-integration/octo.exe-command-line/deleting-releases.md -> docs/api-and-integration/octo.exe-command-line/delete-release.md
+docs/api-and-integration/octo.exe-command-line/deploying-releases.md -> docs/api-and-integration/octo.exe-command-line/dump-deployments.md
+docs/api-and-integration/octo.exe-command-line/promoting-releases.md -> docs/api-and-integration/octo.exe-command-line/promote-release.md
+docs/api-and-integration/octo.exe-command-line/pushing-packages.md -> docs/api-and-integration/octo.exe-command-line/push-package.md
+docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/index.md -> docs/api-and-integration/octo.exe-command-line/create-autodeployoverride.md
+docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/deleting-auto-deploy-overrides.md -> docs/api-and-integration/octo.exe-command-line/delete-autodeployoverride.md

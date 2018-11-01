@@ -125,7 +125,7 @@ The package list allows you to select the version of each package involved in th
 
 ### Using Build Server Extensions or Octo.exe {#Channels-UsingBuildServerExtensionsorOcto.exe}
 
-When using one of the [build server extensions](/docs/api-and-integration/index.md) or [octo.exe](/docs/api-and-integration/octo.exe-command-line/creating-releases.md) to create releases, you can either let Octopus automatically choose the correct Channel for your Release (this is the default behavior), or choose a specific Channel yourself.
+When using one of the [build server extensions](/docs/api-and-integration/index.md) or [octo.exe](/docs/api-and-integration/octo.exe-command-line/create-release.md) to create releases, you can either let Octopus automatically choose the correct Channel for your Release (this is the default behavior), or choose a specific Channel yourself.
 
 ### Automatic Release Creation {#Channels-AutomaticReleaseCreation}
 

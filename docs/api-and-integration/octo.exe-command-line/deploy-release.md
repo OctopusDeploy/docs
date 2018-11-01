@@ -4,7 +4,7 @@ description: Using the Octo.exe command line tool to deploy releases.
 position: 4
 ---
 
-[Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to deploy releases that have [already been created](/docs/api-and-integration/octo.exe-command-line/creating-releases.md).
+[Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to deploy releases that have [already been created](/docs/api-and-integration/octo.exe-command-line/create-release.md).
 
 ```bash
 octo deploy-release [<options>]

@@ -16,14 +16,14 @@ We provide a number of ways to get Octo onto your machine:
 
 Octo.exe supports the following commands:
 
-- **`create-release`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/creating-releases.md)
-- **`deploy-release`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/deploying-releases.md)
-- **`promote-release`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/promoting-releases.md)
-- **`create-project`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/creating-projects.md)
-- **`create-environment`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/creating-environments.md)
-- **`create-channel`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/creating-channels.md)
-- **`create-autodeployoverride`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/index.md)
-- **`clean-environment`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/cleaning-environments.md)
+- **`create-release`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/create-release.md)
+- **`deploy-release`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/deploy-release.md)
+- **`promote-release`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/promote-release.md)
+- **`create-project`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/create-project.md)
+- **`create-environment`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/create-environment.md)
+- **`create-channel`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/create-channel.md)
+- **`create-autodeployoverride`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/create-autodeployoverride.md)
+- **`clean-environment`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/clean-environment.md)
 - **`export`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/export.md)
 - **`import`**:  [Learn more](/docs/api-and-integration/octo.exe-command-line/import.md)
 - **`list-machines`**: Lists the machines in one or more environments matching one or more statuses
@@ -33,11 +33,11 @@ Octo.exe supports the following commands:
 - **`list-deployments`**: List a number of deployments by project, environment or by tenant [Learn more](/docs/api-and-integration/octo.exe-command-line/list-deployments.md)
 - **`list-environments`**: Lists all environments
 - **`list-tenants`**: Lists all tenants
-- **`delete-releases`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/deleting-releases.md)
-- **`delete-autodeployoverride`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/deleting-auto-deploy-overrides.md)
+- **`delete-releases`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/delete-release.md)
+- **`delete-autodeployoverride`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/delete-autodeployoverride.md)
 - **`dump-deployments`**: Writes deployments to an XML file that can be imported in Excel [Learn more](/docs/api-and-integration/octo.exe-command-line/dump-deployments.md)
 - **`pack`**: [Learn More](/docs/packaging-applications/creating-packages/nuget-packages/using-octo.exe.md) Creates a NUPKG from files on disk, without needing a .nuspec
-- **`push`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/pushing-packages.md): Pushes a package to the Octopus built-in repository
+- **`push`**: [Learn more](/docs/api-and-integration/octo.exe-command-line/push-package.md): Pushes a package to the Octopus built-in repository
 
 ## General Usage {#Octo.exeCommandLine-Generalusage}
 

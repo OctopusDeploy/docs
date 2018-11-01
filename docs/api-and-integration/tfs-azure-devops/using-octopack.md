@@ -52,8 +52,8 @@ To create an API key, see the [How to create an API key](/docs/api-and-integrati
 
 `Octo.exe` has [plenty of commands](\docs\api-and-integration\octo.exe-command-line\index.md), but the ones you should look into for the post-deploy script are:
 
-- [Create-Release](\docs\api-and-integration\octo.exe-command-line\creating-releases.md) to create a release in Octopus.
-- [Deploy-Release](\docs\api-and-integration\octo.exe-command-line\deploying-releases.md) to deploy the previously created release.
+- [Create-Release](\docs\api-and-integration\octo.exe-command-line\create-release.md) to create a release in Octopus.
+- [Deploy-Release](\docs\api-and-integration\octo.exe-command-line\deploy-release.md) to deploy the previously created release.
 
 ### Using Lifecycles and Automatic Deployments {#Deployingautomaticallyafterabuild-Using-AutomaticDeployments}
 
