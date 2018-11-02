@@ -61,7 +61,7 @@ Octopus now integrates with [Let's Encrypt](/docs/administration/security/exposi
 
    If you want to allow users to log in directly from Okta then change the **Login initiated by** to _Either Okta or App_, set **Login flow** to _Redirect to app to initiate login_, and set the **Initiate login URI** to `https://octopus.example.com/#/users/sign-in`.
 
-   ![](okta-authentication\okta-initiatelogin.png)
+   ![](okta-authentication/okta-initiatelogin.png)
 
 ### OpenID Connect Settings {#Oktaauthentication-OpenIDConnectSettings}
 
