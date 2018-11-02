@@ -37,11 +37,13 @@ In this example, we'll add a variable to a Hello World project that runs a scrip
 Write-Host
 ​```
 
-1. Select the variable *Greeting* from the insert variable tool (**#\{\}**) next to the script editor, and click **SAVE**
+1. Select the variable *Greeting* from the insert variable tool (**#\{\}**) next to the script editor, and click **SAVE**.
 
 ![Script with Variable](script-variable.png)
 
-When a release of the project is deployed, the script step will run with the string *Hello, Test* on the Test environment, and with the string *Hello, Production*, on the Production environment.
+When a release of the project is deployed, the script step will run with the string *Hello, Test* on the Test environment, and with the string *Hello, Production*, on the Production environment
+
+!include <using-variables-in-scripts>
 
 ## Variables in Octopus
 
