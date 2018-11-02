@@ -31,6 +31,8 @@ Every [project](/docs/deployment-process/projects/index.md) has a default channe
 
 Channels are managed from the Project overview page by selecting the specific project you are working with and clicking **Channels**.
 
+As you add more channels, you'll notice that they are arranged in alphabetical order on the channels page.
+
 ## Create a New Channel
 
 1. From the Channels page, click on the **ADD CHANNEL** button.
