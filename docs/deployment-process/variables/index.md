@@ -11,11 +11,6 @@ In this example, you can define a variable with one value (the database connecti
 
 Using variables means you don't need to hardcode any of these values. You define your variables and the values you provide will be used at deployment time, allowing you to create applications and deployments that are agnostic of the target environment.
 
-:::warning
-**All variables are strings**
-Note that in scripts **all Octopus variables are strings** even if they look like numbers or other data types. You will need to cast to the appropriate type before using the value if you need something other than a string.
-:::
-
 ## Creating Hello World Variables
 
 In this example, we'll add a variable to a Hello World project that runs a script to say hello. The project uses a variable to vary the message it displays based on the environment the script is deployed to.
