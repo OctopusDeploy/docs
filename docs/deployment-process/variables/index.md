@@ -37,7 +37,7 @@ In this example, we'll add a variable to a Hello World project that runs a scrip
 Write-Host
 ​```
 
-1. Select the variable *Greeting* from the insert variable tool (**#{}**) next to the script editor, and click **SAVE**
+1. Select the variable *Greeting* from the insert variable tool (**#\{\}**) next to the script editor, and click **SAVE**
 
 ![Script with Variable](script-variable.png)
 
