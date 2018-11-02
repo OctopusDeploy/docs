@@ -150,7 +150,9 @@ hideInThisSectionHeader: true
 
 Sometimes you need to the same content in multiple pages, using includes lets you write the content once, and include it in more than one place. Markdown includes are pulled into the document prior to passing the content through the markdown conversion.
 
-To create an include, add a file anywhere in the docs repository that is suffixed with `.include.md`. For example, the file might be named `theKey.include.md`. To include the content in `theKey.include.md` in another file, add the following to the markdown `!include <key>` in that file.
+To create an include, add a file anywhere in the docs repository that is suffixed with `.include.md`. For example, the file might be named `theKey.include.md`. To include the content in `theKey.include.md` in another file, add the following to the markdown in the file you would like to include the content in:
+
+`!include <theKey>`
 
 Don't include a YAML header with includes.
 
