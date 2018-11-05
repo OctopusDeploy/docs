@@ -396,8 +396,7 @@ The default version that is displayed on the docs site is the most recent LTS re
 
 The version switcher lets users choose between the different versions of the documentation.
 
-![Version Selector](/docs/images/version-selector.png)
-
+ ![Version Selector](/docs/images/version-selector.png)
 
 #### Include the Version
 
@@ -431,11 +430,11 @@ To add a new version to the version switcher all you need to do is add the versi
 
 The version selector on the website displays the latest LTS release by default, but the fast lane release is now listed above:
 
-![Version Selector](/docs/images/version-selector.png)
+ ![Version Selector](/docs/images/version-selector.png)
 
 And when selected, a banner tells the user that they are seeing a "preview" of the documentation:
 
-![Documentation Preview banner](/docs/images/preview.png)
+ ![Documentation Preview banner](/docs/images/preview.png)
 
 #### Version Specific Docs
 
