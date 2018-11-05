@@ -306,7 +306,7 @@ By default Tentacle runs as **Local System**, which has extensive local privileg
 
 :::warning
 **PowerShell ExecutionPolicy: Unrestricted**
-When Calamari invokes PowerShell.exe, it uses the **unrestricted** execution policy for the session. You can see how PowerShell scripts are executed in more detail by [looking at the open-source Calamari project](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari/Integration/Scripting/WindowsPowerShell).
+When Calamari invokes PowerShell.exe, it uses the **unrestricted** execution policy for the session. You can see how PowerShell scripts are executed in more detail by [looking at the open-source Calamari project](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari.Shared/Integration/Scripting/WindowsPowerShell).
 :::
 
 ## Testing Scripts {#Customscripts-Testingscripts}
