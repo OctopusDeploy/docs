@@ -26,7 +26,7 @@ You can collect artifacts using any of the scripting languages supported by Octo
 
 ### PowerShell {#Artifacts-PowerShell}
 
-[PowerShell Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari/Integration/Scripting/WindowsPowerShell)
+[PowerShell Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari.Shared/Integration/Scripting/WindowsPowerShell)
 
 From a PowerShell script, you can use the PowerShell CmdLet `New-OctopusArtifact` to collect artifacts. The CmdLet takes two parameters:
 
