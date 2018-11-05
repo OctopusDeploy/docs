@@ -388,11 +388,9 @@ In Q4 2018 Octopus will introduce Long-Term Support releases. LTS releases are r
 
 #### Which Versions are available?
 
-- **Legacy Documentation**: Versions of the legacy docs go all the way back to version **3.6** and are available in a persistent archive at [www.legacydocs.octopus.com](https://legacydocs.octopus.com).
-- **LTS**: both currently supported versions of the LTS releases are available on the main docs site.
+- **Legacy Documentation**: Copies of the legacy docs go all the way back to version **3.6** and are available in a persistent archive at [www.legacydocs.octopus.com](https://legacydocs.octopus.com).
+- **LTS**: Both currently supported versions of the LTS releases are available on the main docs site.
 - **Current Fast Lane Release**: If the most recent release is a fast lane release, it is also available on the main docs site from the version selector. Once this version is no longer the most recent version it is added as to the legacy documentation site.
-
-The default version that is displayed on the docs site is the most recent LTS release, even if there is a more recent fast lane release, the fast lane release will be accessible by the version switcher.
 
 The version switcher lets users choose between the different versions of the documentation.
 
@@ -438,9 +436,9 @@ And when selected, a banner tells the user that they are seeing a "preview" of t
 
 #### Version Specific Docs
 
-As we release new features we need to specify which version of the software the feature appears in. This ensure users can access documentation for the version of Octopus they are using.
+As we make changes to the way the product works or add new features we need to specify which version of the software the changes appears in. This ensure users can access documentation for the version of Octopus they are using.
 
-If the documentation is for a completely new feature, you can add a version to the YAML header at the beginning of the doc. For instance:
+If the documentation is for a completely new feature, you can add a version to the YAML header at the beginning of the document that explains the feature. For instance:
 
 ```md
 ---
@@ -457,11 +455,11 @@ With the version information added to the header, the documentation for New Awes
 
 Partials are version specific files that contain markdown that is included inside other markdown documents. Version specific partials are useful when a feature changes between releases, and you need to display one version of the documentation to users viewing older versions of the docs, and a different version of the same page (or part of the same page) to users viewing a newer version of the doc.
 
-Partials use the same version ranges as [nuget](https://docs.microsoft.com/en-us/nuget/reference/package-versioning#version-ranges-and-wildcards).
+Partials use the same version syntax as [nuget](https://docs.microsoft.com/en-us/nuget/reference/package-versioning#version-ranges-and-wildcards).
 
 The convention for defining partials is: filePrefix_key_version.partial.md
 
-For instance, if the way a feature is configured in version 2019.2, you can add the markdown with the instructions to configure the feature the old way to a partial with the following filename:
+For instance, if the way a feature is configured changes in version 2019.2, you can add the markdown with the instructions to configure the feature the old way to a partial with the following filename:
 
 `index_configure_(,2019.2).partial.md`
 
@@ -469,9 +467,9 @@ You can then add the markdown with the instructions for the new version to a par
 
 `index_configure_(2019.2,).partial.md`
 
-Both of these assume you adding the partials to the index file.
+Both of these assume you're adding the partials to the index file.
 
-You also need to the document where you are using the partial, for instance:
+You also need to add the partial to the document where you want it to appear, for instance:
 
 `!partial <configure>`
 
