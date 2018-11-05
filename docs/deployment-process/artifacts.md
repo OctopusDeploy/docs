@@ -43,7 +43,7 @@ New-OctopusArtifact -Path "C:\Windows\System32\drivers\etc\hosts" -Name "$([Syst
 
 ### C# {#Artifacts-C#}
 
-[ScriptCS Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari/Integration/Scripting/ScriptCS)
+[ScriptCS Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari.Shared/Integration/Scripting/ScriptCS)
 
 From a C# script, you can use the `public static void CreateArtifact(string path, string fileName = null)` method to collect artifacts. The method takes two parameters with the same purpose as the PowerShell CmdLet.
 
@@ -60,7 +60,7 @@ The `fileName` optional parameter was [added](https://github.com/OctopusDeploy/C
 
 ### Bash {#Artifacts-Bash}
 
-[Bash Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari/Integration/Scripting/Bash)
+[Bash Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari.Shared/Integration/Scripting/Bash)
 
 In a Bash script you can use the `new_octopusartifact` function to collect artifacts. This function takes two positional parameters with the same purpose as the PowerShell CmdLet.
 

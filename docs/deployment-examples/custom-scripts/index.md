@@ -15,7 +15,7 @@ Octopus Deploy supports PowerShell scripts (`.ps1`), C# scripts (`.csx`) using [
 
 :::hint
 **How your scripts are bootstrapped by Calamari**
-Each of your scripts will be bootstrapped by the [open-source Calamari project](https://github.com/OctopusDeploy/Calamari) to provide access to variables and helper functions. You can see how your scripts are bootstrapped in the [Calamari source code](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari/Integration/Scripting).
+Each of your scripts will be bootstrapped by the [open-source Calamari project](https://github.com/OctopusDeploy/Calamari) to provide access to variables and helper functions. You can see how your scripts are bootstrapped in the [Calamari source code](https://github.com/OctopusDeploy/Calamari.Shared/tree/master/source/Calamari/Integration/Scripting).
 :::
 
 ## Scripts in Packages {#Customscripts-ScriptsinPackagesscripts-in-packages}
