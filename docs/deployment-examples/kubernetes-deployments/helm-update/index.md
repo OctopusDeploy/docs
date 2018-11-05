@@ -56,4 +56,5 @@ The configuration for the Kubernetes resources required in a Helm Chart can be p
 - **Files in Additional Packages:** When using publicly available Helm Charts as the package source for this step, you may want to source your custom values files from outside Octopus, for example, through files committed to a [GitHub feed](/docs/packaging-applications/package-repositories/github-feeds.md). Files obtained through this option will have Octopus Variable replacement performed before being used.
 
 ## Known Limitations
-Helm provides [provenance](https://github.com/helm/helm/blob/master/docs/provenance.md) tools that assist in verifying the integrity and origin of a package.
+Helm provides [provenance](https://github.com/helm/helm/blob/master/docs/provenance.md) tools that assist in verifying the integrity and origin of a package. Octopus does not _currently automatically_ perform validation checks during a deployment using these tools however this may change in the future.
+Although the helm client tool can be overridden for use during the step execution as noted above, the acquisition process currently requires a version of the helm client locally to retrieve the chart. The version of helm available does not need to match the version of the tiller service.
