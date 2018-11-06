@@ -29,7 +29,7 @@ Before we can accept your contribution, you need you to sign the [Contribution L
   - [Code Samples](#code-samples)
   - [Alerts](#alerts)
   - [Lists](#lists)
-  - [Working with Long-Term Support Releases and Fast Ring Releases](working-with-long-term-support-releases-and-Fast-Ring-Releases)
+  - [Working with Long-Term Support Releases and Fast Ring Releases](#working-with-long-term-support-releases-and-fast-ring-releases)
 
 ## Contribute a Quick Fix
 
