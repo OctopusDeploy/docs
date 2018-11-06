@@ -38,6 +38,7 @@ Get-ChildItem . -Recurse -Include *.xml | New-OctopusArtifact
 # Note: to collect this artifact would require the Tentacle process to be elevated as a high privileged user account
 New-OctopusArtifact -Path "C:\Windows\System32\drivers\etc\hosts" -Name "$([System.Environment]::MachineName)-hosts.txt"
 ```
+
 ```c# C#
 // Collect a custom log file from the current working directory using the file name as the name of the artifact
 Octopus.CreateArtifact("output.log");
@@ -46,6 +47,7 @@ Octopus.CreateArtifact("output.log");
 // Note: to collect this artifact would require the Tentacle process to be elevated as a high privileged user account
 Octopus.CreateArtifact(@"C:\Windows\System32\drivers\etc\hosts", System.Environment.MachineName + "-hosts.txt");
 ```
+
 ```bash Bash
 # Collect a custom log file from the current working directory using the file name as the name of the artifact
 new_octopusartifact output.log
@@ -54,6 +56,7 @@ new_octopusartifact output.log
 # Note: to collect this artifact would require the SSH user account to be elevated as a high privileged user account
 new_octopusartifact /etc/hosts $(hostname)-hosts.txt
 ```
+
 ```fsharp F#
 // Collect a custom log file from the current working directory using the file name as the name of the artifact
 Octopus.createArtifact "output.log"
