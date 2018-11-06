@@ -25,10 +25,4 @@ The Octopus concepts of feeds, packages and versions can be mapped to the Docker
 
 ![](/docs/images/5670982/5865808.png)
 
-### Enabling Docker Features
-While the Docker functionality undergoes development, the Docker steps and feed types will be disabled in the portal by default. To enable Docker in your Octopus Server instance, toggle the feature on via {{Configuration,Features,Docker}}.
-![](/docs/images/5670982/5865815.png "width=500")
-
-As they are currently considered to be in an alpha-stage of development, the docker steps and behavior may change in future releases. Once the docker feature has been finalized for general use, it is expected that it will be enabled by default and the feature toggle removed.
-
 Learn about [Docker Registries as Feeds](/docs/packaging-applications/package-repositories/docker-registries/index.md) and [Accessing Container Details](/docs/deployment-examples/docker-containers/accessing-container-details.md).
