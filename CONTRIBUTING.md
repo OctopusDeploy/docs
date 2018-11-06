@@ -400,7 +400,7 @@ The version switcher lets users choose between the different versions of the doc
 
 The list of versions displayed on the dropdown are loaded from [versions.json](versions.json).
 
-To add a new version to the version switcher all you need to do is add the version to the versions.json file versions array, and leave the default the same version, the example below adds version 2018.4.
+To add a new version to the version switcher all you need to do is add the version to the versions.json file versions array, and leave the default as it is, the example below adds version 2018.4. To add an LTS version append -LTS to the version, for instance, `2018.10-LTS`.
 
 ```json
 {
@@ -426,7 +426,7 @@ To add a new version to the version switcher all you need to do is add the versi
  }
 ```
 
-The version selector on the website displays the latest LTS release by default, but the fast lane release is now listed above:
+The version selector on the website will display the versions added to the versions array:
 
  ![Version Selector](/docs/images/version-selector.png)
 
