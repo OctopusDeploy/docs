@@ -39,6 +39,10 @@ If you don't want to provide an API key for authentication, you can leave it out
 repository.Users.SignIn(new LoginCommand { Username = "me", Password = "secret" });
 ```
 
+:::hint
+Octopus.Client relies on `HttpClient` to do all the network calls. So if you're using it from `netcoreapp` then the Synchronous API is not available, you have to use the Asynchonous API detailed below.
+:::
+
 ### Asynchronous API (Octopus.Client 4.0+) {#Octopus.Client-AsynchronousAPI(Octopus.Client4.0+)}
 
 The easiest way to use the client is via the `OctopusAsyncClient`:
