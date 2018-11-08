@@ -43,6 +43,12 @@ NuGet packages:
                              [Optional] A file containing release notes for
                              this version of the package
 
+Zip packages:
+
+      --compressionlevel=VALUE
+                             [Optional] Set compression level of package:
+                             none, fast, optimal (default).
+
 Advanced options:
 
       --include=VALUE        [Optional, Multiple] Add a file pattern to

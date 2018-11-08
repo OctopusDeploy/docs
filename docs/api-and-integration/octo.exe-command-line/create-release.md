@@ -82,8 +82,13 @@ Deployment:
                              (True or False. If not specified, will use
                              default setting from environment)
       --specificmachines=VALUE
-                             [Optional] A comma-separated list of machines
+                             [Optional] A comma-separated list of machine
                              names to target in the deployed environment. If
+                             not specified all machines in the environment
+                             will be considered.
+      --excludemachines=VALUE
+                             [Optional] A comma-separated list of machine
+                             names to exclude in the deployed environment. If
                              not specified all machines in the environment
                              will be considered.
       --force                [Optional] If a project is configured to skip
