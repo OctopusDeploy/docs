@@ -63,7 +63,7 @@ There are many other options for private registries such as self hosting through
 
 We have provided further details on setting up a Octopus Feed to the following Docker Registries:
 - [Docker Hub](/docs/packaging-applications/package-repositories/docker-registries/docker-hub.md)
-- [Azure Container Services](/docs/packaging-applications/package-repositories/docker-registries/azure-container-services.md) (currently in preview)
+- [Azure Container Services](/docs/packaging-applications/package-repositories/docker-registries/azure-container-services.md)
 - [Amazon EC2 Container Services](/docs/packaging-applications/package-repositories/docker-registries/amazon-ec2-container-services.md)
 
 Note that as of the current version of ProGet (version 4.6.7 (Build 2)), their Docker Registry Feed does not expose the full Docker API and is missing the [_catalog endpoint](https://docs.docker.com/registry/spec/api/#/listing-repositories) which is required to list the available packages for release selection. It has been indicated that this may change in a future release.
