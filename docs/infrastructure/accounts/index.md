@@ -1,6 +1,6 @@
 ---
 title: Accounts
-description:
+description: How to set up accounts in Octopus
 position: 120
 hideInThisSection: True
 ---
