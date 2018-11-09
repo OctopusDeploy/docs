@@ -623,7 +623,7 @@ docs/infrastructure/dynamic-infrastructure/azure-web-app-target.md -> docs/infra
 docs/infrastructure/dynamic-infrastructure/kubernetes-target.md -> docs/infrastructure/deployment-targets/dynamic-infrastructure/kubernetes-target.md
 docs/infrastructure/dynamic-infrastructure/remove-target.md -> docs/infrastructure/deployment-targets/dynamic-infrastructure/remove-target.md
 docs/infrastructure/ssh-targets/index.md -> docs/infrastructure/deployment-targets/ssh-targets/index.md
-docs/infrastructure/ssh-targets/configure-ssh-connection.md -> docs/infrastructure/deployment-targets/ssh-targets/configure-ssh-connection.md
+docs/infrastructure/ssh-targets/configuring-ssh-connection.md -> docs/infrastructure/deployment-targets/ssh-targets/configuring-ssh-connection.md
 docs/infrastructure/ssh-targets/mono-calamari.md -> docs/infrastructure/deployment-targets/ssh-targets/mono-calamari.md
 docs/infrastructure/ssh-targets/self-contained-calamari.md -> docs/infrastructure/deployment-targets/ssh-targets/self-contained-calamari.md
 docs/infrastructure/ssh-targets/ssh-key-pair.md -> docs/infrastructure/deployment-targets/ssh-targets/ssh-key-pair.md
