@@ -631,7 +631,7 @@ docs/infrastructure/ssh-targets/sudo-commands.md -> docs/infrastructure/deployme
 docs/infrastructure/ssh-targets/username-and-password.md -> docs/infrastructure/deployment-targets/ssh-targets/username-and-password.md
 docs/infrastructure/target-roles/index.md -> docs/infrastructure/deployment-targets/target-roles/index.md
 docs/infrastructure/windows-targets/azure-virtual-machines/configuration-structure.md -> docs/infrastructure/deployment-targets/windows-targets/azure-virtual-machines/configuration-structure.md
-docs/infrastructure/windows-targets/azure-virtual-machines/diagonising-issues.md -> docs/infrastructure/deployment-targets/windows-targets/azure-virtual-machines/diagonising-issues.md
+docs/infrastructure/windows-targets/azure-virtual-machines/diagnosing-issues.md -> docs/infrastructure/deployment-targets/windows-targets/azure-virtual-machines/diagnosing-issues.md
 docs/infrastructure/windows-targets/azure-virtual-machines/index.md -> docs/infrastructure/deployment-targets/windows-targets/azure-virtual-machines/index.md
 docs/infrastructure/windows-targets/azure-virtual-machines/via-an-arm-template-with-dsc.md -> docs/infrastructure/deployment-targets/windows-targets/azure-virtual-machines/via-an-arm-template-with-dsc.md
 docs/infrastructure/windows-targets/azure-virtual-machines/via-an-arm-template.md -> docs/infrastructure/deployment-targets/windows-targets/azure-virtual-machines/via-an-arm-template.md
