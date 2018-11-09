@@ -2,7 +2,7 @@
 title: Accounts
 description:
 position: 120
-HideInThisSection: True
+hideInThisSection: True
 ---
 
 You need to set up accounts for certain deployment targets before you can use them:

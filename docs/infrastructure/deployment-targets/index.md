@@ -2,7 +2,7 @@
 title: Deployment Targets
 description:
 position: 1
-HideInThisSection: True
+hideInThisSection: True
 ---
 
 Deployment targets are the servers and services you deploy your software to. You can manage your deployment targets by navigating to {{Infrastructure,Deployment Targets}}.
