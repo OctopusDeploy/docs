@@ -1,6 +1,6 @@
 ## Step 2: Create an Azure Account {#DeployingapackagetoanAzureWebApp-Step2:CreateanAzureAccount}
 
-If you haven't already, create an [Azure Account](/docs/infrastructure/azure/index.md) to grant Octopus Deploy access to your Azure Subscription.
+If you haven't already, create an [Azure Account](/docs/infrastructure/deployment-targets/azure/index.md) to grant Octopus Deploy access to your Azure Subscription.
 
 ## Step 3: Configure your Azure Web App Step. {#DeployingapackagetoanAzureWebApp-Step4:ConfigureyourAzureWebAppstep}
 
@@ -14,6 +14,6 @@ If you haven't already, create an [Azure Account](/docs/infrastructure/azure/i
 
 For both the `Azure Account` and the `Web App` you can use [variable binding](/docs/deployment-process/variables/binding-syntax.md) to set their values.
 
-If you choose to run this step on behalf of target roles (maybe you are deploying to multiple geographic regions), you will need to ensure a Deployment Target exists when deploying your Azure Web App. For this, we introduced [Cloud Regions](/docs/infrastructure/cloud-regions.md). If you select a role and no Deployment Targets exist at the time of deploying, Octopus will log warnings in your deployment's task log.
+If you choose to run this step on behalf of target roles (maybe you are deploying to multiple geographic regions), you will need to ensure a Deployment Target exists when deploying your Azure Web App. For this, we introduced [Cloud Regions](/docs/infrastructure/deployment-targets/cloud-regions.md). If you select a role and no Deployment Targets exist at the time of deploying, Octopus will log warnings in your deployment's task log.
 
 ![](deploying-an-azure-web-app.png "width=500")

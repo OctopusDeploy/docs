@@ -30,7 +30,7 @@ By using this pattern you can:
 
 ## Rolling Solution {#Multi-regiondeploymentpattern-RollingSolution}
 
-In **Octopus 3.4** we introduced [Cloud Regions](/docs/infrastructure/cloud-regions.md) which enable you to configure [Rolling deployments](/docs/deployment-patterns/rolling-deployments.md) across your regions or data centers. In this case you can scope variables to the Cloud Regions and deploy to all regions at once, but you cannot control the order in which the rolling deployment executes.
+In **Octopus 3.4** we introduced [Cloud Regions](/docs/infrastructure/deployment-targets/cloud-regions.md) which enable you to configure [Rolling deployments](/docs/deployment-patterns/rolling-deployments.md) across your regions or data centers. In this case you can scope variables to the Cloud Regions and deploy to all regions at once, but you cannot control the order in which the rolling deployment executes.
 
 ![](/docs/images/5670886/5865782.png "width=500")
 
@@ -75,4 +75,4 @@ You do give up the advantage of enforcing the order in which you deploy your app
 
 ## Conclusion {#Multi-regiondeploymentpattern-Conclusion}
 
-[Environments](/docs/infrastructure/environments/index.md), [Tenants](/docs/deployment-patterns/multi-tenant-deployments/index.md) and [Cloud Regions](/docs/infrastructure/cloud-regions.md) can be used to model multi-region deployments in Octopus, but each different choice is optimized to a particular style of situation. Choose the one that suits your needs best!
+[Environments](/docs/infrastructure/environments/index.md), [Tenants](/docs/deployment-patterns/multi-tenant-deployments/index.md) and [Cloud Regions](/docs/infrastructure/deployment-targets/cloud-regions.md) can be used to model multi-region deployments in Octopus, but each different choice is optimized to a particular style of situation. Choose the one that suits your needs best!

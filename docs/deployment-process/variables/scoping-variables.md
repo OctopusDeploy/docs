@@ -75,7 +75,7 @@ Scope specificity can quickly become very complicated. Read our blog post for a 
 
 ## Using Variables with Target Roles
 
-Variables can also be scoped to specific [target roles](docs/infrastructure/target-roles/index.md). This means that the variable will take the specified value only when it is used on a deployment step that runs on a deployment target with the specified role. This feature can be really handy when you want to use the same variable name multiple times and have their values changed depending on the target they are running on.
+Variables can also be scoped to specific [target roles](docs/infrastructure/deployment-targets/target-roles/index.md). This means that the variable will take the specified value only when it is used on a deployment step that runs on a deployment target with the specified role. This feature can be really handy when you want to use the same variable name multiple times and have their values changed depending on the target they are running on.
 
 Let’s say you have the following targets with their respective roles:
 

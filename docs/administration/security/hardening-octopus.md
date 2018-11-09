@@ -67,12 +67,12 @@ Learn about [external workers](/docs/infrastructure/workers/index.md).
 Octopus Server always uses a secure and tamper-proof communications transport for communicating with deployment targets:
 
 - Learn about [Octopus Server to Tentacle communication](/docs/administration/security/octopus-tentacle-communication/index.md).
-- Learn about [Octopus Server to SSH communication](/docs/infrastructure/ssh-targets/index.md).
+- Learn about [Octopus Server to SSH communication](/docs/infrastructure/deployment-targets/ssh-targets/index.md).
 
 The decisions you need to make are:
 
 1. Which kind of deployment targets do you want to allow? Listening Tentacles? Polling Tentacles? SSH? This will have an impact on how you configure your network. See [harden your network](#harden-your-network).
-1. Do you want to use a proxy server? Learn about [proxy support in Octopus Deploy](/docs/infrastructure/windows-targets/proxy-support.md).
+1. Do you want to use a proxy server? Learn about [proxy support in Octopus Deploy](/docs/infrastructure/deployment-targets/windows-targets/proxy-support.md).
 
 ## Harden Your Host Operating System
 
@@ -237,8 +237,8 @@ The TCP ports listed below are defaults, and can be changed if required - refer 
 |Name|Type|Source|Target|Allow/Deny|Description|
 |---|---|---|---|---|---|
 |HTTP|`TCP 80`|Users|Octopus Server|ALLOW|We recommend only using HTTPS over SSL, however it can be convenient to allow HTTP for the initial connection which is then forced to HTTPS over SSL.|
-|HTTPS|`TCP 443`|Users, Polling Tentacles, external services|Octopus Server|ALLOW|Required for HTTPS over SSL. Also required if using [Polling Tentacles](/docs/infrastructure/windows-targets/tentacle-communication.md#polling-tentacles) over [Web Sockets](/docs/infrastructure/windows-targets/polling-tentacles-web-sockets.md).|
-|Polling Tentacle|`TCP 10943`|Polling Tentacles|Octopus Server|ALLOW|Required when using [Polling Tentacles](/docs/infrastructure/windows-targets/tentacle-communication.md#polling-tentacles) via TCP as deployment targets or external workers.|
+|HTTPS|`TCP 443`|Users, Polling Tentacles, external services|Octopus Server|ALLOW|Required for HTTPS over SSL. Also required if using [Polling Tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles) over [Web Sockets](/docs/infrastructure/deployment-targets/windows-targets/polling-tentacles-web-sockets.md).|
+|Polling Tentacle|`TCP 10943`|Polling Tentacles|Octopus Server|ALLOW|Required when using [Polling Tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles) via TCP as deployment targets or external workers.|
 |SSH|`TCP 22`|Octopus Server|SSH deployment targets|ALLOW|Allows Octopus Server to securely connect to any SSH deployment targets.|
 |RDP|`TCP 3389`|Remote Desktop Users|Octopus Server|ALLOW|Allows your system administrators to perform maintenance tasks on your Octopus Server.|
 |All inbound|`ALL`|Anywhere|Octopus Server|DENY|Prevent any other unwanted inbound traffic.|
@@ -247,7 +247,7 @@ The TCP ports listed below are defaults, and can be changed if required - refer 
 
 |Name|Type|Source|Target|Allow/Deny|Description|
 |---|---|---|---|---|---|
-|Listening Tentacle|`TCP 10933`|Octopus Server|Listening Tentacles|ALLOW|Required when using [Listening Tentacles](/docs/infrastructure/windows-targets/tentacle-communication.md#listening-tentacles-recommended) as deployment targets or external workers.|
+|Listening Tentacle|`TCP 10933`|Octopus Server|Listening Tentacles|ALLOW|Required when using [Listening Tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommended) as deployment targets or external workers.|
 |MS SQL|`TCP 1433`|Octopus Server|SQL Server|ALLOW|Allows Octopus Server to connect to its SQL Server database.|
 |SMB|`TCP 445`|Octopus Server|Anywhere|DENY|Prevents attackers from spreading malware via known SMB vulnerabilities.|
 |RDP|`TCP 3389`|Octopus Server|Anywhere|DENY|Prevents attackers from using the Octopus Server as a beachhead into your network via RDP.|

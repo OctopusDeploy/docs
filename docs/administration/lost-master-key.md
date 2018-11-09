@@ -19,7 +19,7 @@ Octopus [encrypts important and sensitive data](/docs/administration/security/da
 - The Octopus Server X.509 certificate which is used for [Octopus to Tentacle communication](/docs/administration/security/octopus-tentacle-communication/index.md) - this means your Tentacles won't trust your Octopus Server any more.
 - Sensitive variable values, wherever you have defined them.
 - Sensitive values in your deployment processes, like the password for a custom IIS App Pool user account.
-- Sensitive values in your deployment targets, like the password for creating [Offline Drops](/docs/infrastructure/offline-package-drop.md).
+- Sensitive values in your deployment targets, like the password for creating [Offline Drops](/docs/infrastructure/deploymnent-targets/offline-package-drop.md).
 
 ## Recovering With a New Master Key
 

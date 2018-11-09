@@ -16,7 +16,7 @@ Each of the resource commands is available as a PowerShell function anywhere tha
 
 ### Accounts
 
-[Azure Service Principal Account](/docs/infrastructure/dynamic-infrastructure/azure-accounts.md)
+[Azure Service Principal Account](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-accounts.md)
 
 ### Targets
 
@@ -24,13 +24,13 @@ Each of the resource commands is available as a PowerShell function anywhere tha
 Before you can create dynamic targets in an Environment, the environment needs to be configured to allow it. See [Dynamic Targets in an Environment](/docs/infrastructure/environments/index.md#dynamic-targets-in-an-environment) for more information.
 :::
 
-[Azure Web App](/docs/infrastructure/dynamic-infrastructure/azure-web-app-target.md)
+[Azure Web App](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-web-app-target.md)
 
-[Azure Service Fabric](/docs/infrastructure/dynamic-infrastructure/azure-service-fabric-target.md)
+[Azure Service Fabric](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-service-fabric-target.md)
 
-[Azure Cloud Service](/docs/infrastructure/dynamic-infrastructure/azure-cloud-service-target.md)
+[Azure Cloud Service](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-cloud-service-target.md)
 
-[Remove Target](/docs/infrastructure/dynamic-infrastructure/remove-target.md)
+[Remove Target](/docs/infrastructure/deployment-targets/dynamic-infrastructure/remove-target.md)
 
 ### Restrictions
 

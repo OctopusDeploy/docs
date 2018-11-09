@@ -5,7 +5,7 @@ position: 80
 version: "[2018.2,)"
 ---
 
-[AWS accounts](/docs/infrastructure/aws/index.md) are included in a project through a project [variable](/docs/deployment-process/variables/index.md) of the type **Amazon Web Services Account**. Before you create an **AWS Account Variable**, you need to [create an AWS Account](/docs/infrastructure/aws/index.md) in Octopus:
+[AWS accounts](/docs/infrastructure/accounts/aws/index.md) are included in a project through a project [variable](/docs/deployment-process/variables/index.md) of the type **Amazon Web Services Account**. Before you create an **AWS Account Variable**, you need to [create an AWS Account](/docs/infrastructure/accounts/aws/index.md) in Octopus:
 
 ![AWS Account Variable](aws-account-variable.png "width=500")
 
@@ -43,4 +43,4 @@ Write-Host 'AzureAccount.Client=' $awsccountAccessKey
 
 ## Add an AWS Account to Octopus
 
-For instructions to set up an AWS account in Octopus, see [AWS Accounts](/docs/infrastructure/aws/index.md).
+For instructions to set up an AWS account in Octopus, see [AWS Accounts](/docs/infrastructure/accounts/aws/index.md).

@@ -14,7 +14,7 @@ Azure has [announced](https://blogs.msdn.microsoft.com/appserviceteam/2018/03/12
 
 - This new target type was introduced in **Octopus 2018.5**, so you'll need to be running at least that version of the Octopus Server. You can read more about all the new PaaS targets [in our blog](https://octopus.com/blog/paas-targets).
 
-- You will firstly need an [Azure Management Certificate account](/docs/infrastructure/azure/index.md#azure-management-certificate) that references your Azure subscription.
+- You will firstly need an [Azure Management Certificate account](/docs/infrastructure/deployment-targets/azure/index.md#azure-management-certificate) that references your Azure subscription.
 
 - Once your Azure account is setup, you will then need an existing Azure Cloud Service (classic) setup within your Azure subscription. To learn more about App Services, the Azure team provide [useful documentation on App Services](https://docs.microsoft.com/en-us/azure/cloud-services/) that can help you get started. If you are dynamically creating the cloud services during your deployment, check our section about [creating Cloud Service targets by scripts using service messages](#creating-cloud-service-targets-by-scripts).
 
@@ -37,7 +37,7 @@ To create an Azure Cloud Service target within Octopus:
 
 Azure Cloud Service targets can also be created via a PowerShell Cmdlet within a Deployment Process, this can be especially handy if you are also creating the Azure Cloud Service via a script.
 
-See [Creating Resources by script](/docs/infrastructure/dynamic-infrastructure/index.md) for more information on creating Azure Cloud Services via a script.
+See [Creating Resources by script](/docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md) for more information on creating Azure Cloud Services via a script.
 
 ## Deploying to Cloud Service Targets
 

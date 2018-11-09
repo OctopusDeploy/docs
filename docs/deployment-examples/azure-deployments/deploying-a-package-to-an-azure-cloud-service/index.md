@@ -15,7 +15,7 @@ An Azure cloud service package is normally compiled into a `.cspkg` file. This
 
 ## Step 2: Create an Azure Account {#DeployingapackagetoanAzureCloudService-Step2:CreateanAzureAccount}
 
-If you haven't already, create an [Azure Management Certificate Account](/docs/infrastructure/azure/index.md) to grant Octopus Deploy access to your Azure Subscription.
+If you haven't already, create an [Azure Management Certificate Account](/docs/infrastructure/deployment-targets/azure/index.md) to grant Octopus Deploy access to your Azure Subscription.
 
 ## Step 3: Create the Azure Cloud Service Deployment Step {#DeployingapackagetoanAzureCloudService-Step3:CreatetheAzureCloudServicedeploymentstep}
 
@@ -29,7 +29,7 @@ Once an Account is selected, the list of Cloud Services and Storage Accounts ava
 
 | Setting         | Default | Description                              |
 | --------------- | ------- | ---------------------------------------- |
-| Account         |         | The [Azure Account](/docs/infrastructure/azure/index.md) you want to  target when deploying this cloud service. Select one from the list, or use a [variable binding](/docs/deployment-process/variables/binding-syntax.md) to select an account by its name or ID. |
+| Account         |         | The [Azure Account](/docs/infrastructure/deployment-targets/azure/index.md) you want to  target when deploying this cloud service. Select one from the list, or use a [variable binding](/docs/deployment-process/variables/binding-syntax.md) to select an account by its name or ID. |
 | Cloud Service   |         | The actual cloud service you want to target. Select one from the list, or use a [variable binding](/docs/deployment-process/variables/binding-syntax.md) to define the name of the cloud service. |
 | Storage Account |         | The Azure Storage Account where the Cloud Service Package (`*.cspkg`) file will be pushed in order to be deployed. |
 | Slot            |         | You can choose to deploy to either the Staging or Production slot. |
@@ -132,7 +132,7 @@ The deployment is performed using a PowerShell script called `DeployToAzure.ps1
 
 When your application is deployed to more than one geographic region, you are likely to need per-region configuration settings. You can achieve this result in many different ways, but the two most popular methods we have seen are:
 
-1. [Cloud Regions](/docs/infrastructure/cloud-regions.md): introduced in **Octopus 3.4** to enable [rolling deployments](/docs/deployment-patterns/rolling-deployments.md) across multiple geographic regions.
+1. [Cloud Regions](/docs/infrastructure/deployment-targets/cloud-regions.md): introduced in **Octopus 3.4** to enable [rolling deployments](/docs/deployment-patterns/rolling-deployments.md) across multiple geographic regions.
 2. Environment-per-region: by creating an environment per region you can leverage [lifecycles](/docs/deployment-process/lifecycles/index.md) to create a strict release promotion process.
 
 Both methods allow you to modify your deployment process and variables per-region, but have slightly different release promotion paths. Choose the one that suits you best.

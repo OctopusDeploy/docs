@@ -4,9 +4,9 @@ description: Octopus Polling Tentacles open a connection to the Octopus Server o
 position: 62
 ---
 
-[(TCP) Polling Tentacles](docs/infrastructure/windows-targets/tentacle-communication.md#polling-tentacles) can be setup to operate over HTTPS (Secure WebSockets) instead of raw TCP sockets. The advantage is that the port can be shared with another website (e.g. IIS or Octopus itself). The downside is the setup is a little more complicated and network communications are slightly slower.
+[(TCP) Polling Tentacles](docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles) can be setup to operate over HTTPS (Secure WebSockets) instead of raw TCP sockets. The advantage is that the port can be shared with another website (e.g. IIS or Octopus itself). The downside is the setup is a little more complicated and network communications are slightly slower.
 
-If there is an available port, we recommend using [TCP Polling Tentacles](docs/infrastructure/windows-targets/tentacle-communication.md#polling-tentacles). If only port 443 and 80 are available, it is possible to run Octopus Web UI just on 443 (HTTPS) and a TCP Polling Tentacle on port 80. Even though it is using port 80, which is by convention HTTP, the Tentacle communications will still use TLS and be secure.
+If there is an available port, we recommend using [TCP Polling Tentacles](docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles). If only port 443 and 80 are available, it is possible to run Octopus Web UI just on 443 (HTTPS) and a TCP Polling Tentacle on port 80. Even though it is using port 80, which is by convention HTTP, the Tentacle communications will still use TLS and be secure.
 
 ## Server Setup
 

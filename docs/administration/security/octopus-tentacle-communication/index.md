@@ -4,7 +4,7 @@ description: Octopus Server and Tentacle communications details.
 position: 40
 ---
 
-This page describes how the [Octopus Deploy Server](/docs/installation/index.md) and the [Tentacle deployment agents](/docs/infrastructure/windows-targets/index.md) communicate in a secure way.
+This page describes how the [Octopus Deploy Server](/docs/installation/index.md) and the [Tentacle deployment agents](/docs/infrastructure/deployment-targets/windows-targets/index.md) communicate in a secure way.
 
 ## Background {#Octopus-Tentaclecommunication-Background}
 
@@ -16,7 +16,7 @@ We achieve this security using [public-key cryptography](http://en.wikipedia.or
 
 ## Octopus/Tentacle Trust Relationship {#Octopus-Tentaclecommunication-Octopus/Tentacletrustrelationship}
 
-Regardless of whether Tentacle is in [listening mode](/docs/infrastructure/windows-targets/tentacle-communication.md#listening-tentacles-recommended) or [polling mode](/docs/infrastructure/windows-targets/tentacle-communication.md#polling-tentacles), all communication between the Tentacle and Octopus is performed over HTTPS. Octopus and Tentacle both have a public/private key pair that they use to establish the HTTPS connection and verify the identity of the other party.
+Regardless of whether Tentacle is in [listening mode](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommended) or [polling mode](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles), all communication between the Tentacle and Octopus is performed over HTTPS. Octopus and Tentacle both have a public/private key pair that they use to establish the HTTPS connection and verify the identity of the other party.
 
 When Tentacle is configured, you give it the thumbprint (which uniquely identifies the public key) of the Octopus Server. Likewise, you tell Octopus the thumbprint of the Tentacle. This establishes a trust relationship between the two machines:
 
@@ -34,7 +34,7 @@ If necessary you can further restrict access using IPSec or VPNs.
 The X.509 certificates used by Octopus and Tentacle are generated on installation and use 2048-bit private keys. There is an insightful discussion of [why Octopus uses self-signed certificates](https://octopus.com/blog/why-self-signed-certificates) by default.
 
 :::hint
-Instead of having Tentacle generate its own certificate, you can [import a Tentacle certificate](/docs/infrastructure/windows-targets/automating-tentacle-installation.md#export-and-import-tentacle-certificates-without-a-profile) which is helpful when [automating Tentacle installation](/docs/infrastructure/windows-targets/automating-tentacle-installation.md).
+Instead of having Tentacle generate its own certificate, you can [import a Tentacle certificate](/docs/infrastructure/deployment-targets/windows-targets/automating-tentacle-installation.md#export-and-import-tentacle-certificates-without-a-profile) which is helpful when [automating Tentacle installation](/docs/infrastructure/deployment-targets/windows-targets/automating-tentacle-installation.md).
 :::
 
 ### Scenario: Listening Tentacles {#Octopus-Tentaclecommunication-Scenario:ListeningTentacles}
@@ -65,7 +65,7 @@ TLS 1.2 requires .NET 4.5 which was introduced as a requirement in **Octopus 3.1
 
 ## Troubleshooting Tentacle Communication Problems {#Octopus-Tentaclecommunication-TroubleshootingTentaclecommunicationproblems}
 
-We have built comprehensive troubleshooting guides for both [Listening and Polling Tentacles](/docs/infrastructure/windows-targets/troubleshooting-tentacles.md).
+We have built comprehensive troubleshooting guides for both [Listening and Polling Tentacles](/docs/infrastructure/deployment-targets/windows-targets/troubleshooting-tentacles.md).
 
 If you are seeing error messages like below, try [Troubleshooting Schannel and TLS](troubleshooting-schannel-and-tls.md):
 

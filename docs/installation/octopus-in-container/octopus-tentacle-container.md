@@ -6,7 +6,7 @@ position: 2
 
 ## Octopus Tentacle
 
-Running a Tentacle inside a container may be preferable in some environments where installing one directly on the host is not an option. The currently available Octopus Tentacle Docker container can be run in either [polling](/docs/infrastructure/windows-targets/tentacle-communication.md#polling-tentacles) or [listening](/docs/infrastructure/windows-targets/tentacle-communication.md#listening-tentacles-recommend) mode.
+Running a Tentacle inside a container may be preferable in some environments where installing one directly on the host is not an option. The currently available Octopus Tentacle Docker container can be run in either [polling](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles) or [listening](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommend) mode.
 
 :::info
  Keep in mind that because the Tentacle will be running _inside a container_, script execution wont be happening on the host itself and so Octopus Tentacles inside a container may not be appropriate for many deployment tasks.

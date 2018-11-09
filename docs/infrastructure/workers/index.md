@@ -10,7 +10,7 @@ Learn more about the [built-in worker](/docs/administration/workers/built-in-wor
 
 ## External Workers
 
-An **external worker** is either a [Tentacle](/docs/infrastructure/windows-targets/index.md) or an [SSH machine](/docs/infrastructure/ssh-targets/index.md) that has been registered with the Octopus server as a worker.  The setup of a worker is the same as setting up a deployment target as a [Windows Tentacle target](/docs/infrastructure/windows-targets/index.md) or an [SSH target](/docs/infrastructure/ssh-targets/index.md), except that instead of being added to an environment, a worker is added to a worker pool.
+An **external worker** is either a [Tentacle](/docs/infrastructure/deployment-targets/windows-targets/index.md) or an [SSH machine](/docs/infrastructure/deployment-targets/ssh-targets/index.md) that has been registered with the Octopus server as a worker.  The setup of a worker is the same as setting up a deployment target as a [Windows Tentacle target](/docs/infrastructure/deployment-targets/windows-targets/index.md) or an [SSH target](/docs/infrastructure/deployment-targets/ssh-targets/index.md), except that instead of being added to an environment, a worker is added to a worker pool.
 
 Workers have machine policies, are health checked, and run Calamari, just like deployment targets.
 

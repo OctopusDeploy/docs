@@ -249,4 +249,4 @@ When a Kubernetes target is used with a Helm step, the `helm` executable must be
 
 Kubernetes targets can be created dynamically at deploy time with the Powershell function `New-OctopusKubernetesTarget`.
 
-See [ Create Kubernetes Target Command](/docs/infrastructure/dynamic-infrastructure/kubernetes-target.md) for more information.
+See [ Create Kubernetes Target Command](/docs/infrastructure/deployment-targets/dynamic-infrastructure/kubernetes-target.md) for more information.

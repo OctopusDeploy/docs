@@ -11,8 +11,8 @@ An analogy is to think about the way build agents in TeamCity or TFS work. You c
 
 ## Install Tentacle on the Octopus Server {#install-tentacle}
 
-1. Follow the steps to download and [install Tentacles](/docs/infrastructure/windows-targets/index.md) on the Octopus Server.
-2. Configure the Tentacle in [listening mode](docs/infrastructure/windows-targets/index.md#configure-a-listening-tentacle-recommended).
+1. Follow the steps to download and [install Tentacles](/docs/infrastructure/deployment-targets/windows-targets/index.md) on the Octopus Server.
+2. Configure the Tentacle in [listening mode](docs/infrastructure/deployment-targets/windows-targets/index.md#configure-a-listening-tentacle-recommended).
 3. Register the Tentacle so that it appears in your [Environments](/docs/infrastructure/environments/index.md) tab.
 4. Assign the machine to all of your applicable environments, and give it a role like `octopus-server`.
 5. When configuring your step, you can now choose the `octopus-server` role as your target role.

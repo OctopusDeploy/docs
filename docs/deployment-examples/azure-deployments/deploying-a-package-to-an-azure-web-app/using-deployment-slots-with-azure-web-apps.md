@@ -21,7 +21,7 @@ Here we will give an example of how to setup a Blue-Green deployment for an Azur
 
 ### Step 1: Create an Azure Web App Deployment Target
 
-Follow the steps for [Azure Web App targets](/docs/infrastructure/azure/web-app-targets/index.md).
+Follow the steps for [Azure Web App targets](/docs/infrastructure/deployment-targets/azure/web-app-targets/index.md).
 
 ### Step 2: Create Staging Slot {#UsingDeploymentSlotswithAzureWebApps-Step1:CreateStagingSlot}
 

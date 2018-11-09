@@ -24,7 +24,7 @@ Package your Service Fabric application. See our guide to [Packaging a Service F
 
 ## Step 3: Create a Service Fabric Deployment Target
 
-You will need to create a [Service Fabric Deployment Target](/docs/infrastructure/azure/service-fabric-cluster-targets/index.md) for each cluster you are deploying to.
+You will need to create a [Service Fabric Deployment Target](/docs/infrastructure/deployment-targets/azure/service-fabric-cluster-targets/index.md) for each cluster you are deploying to.
 
 ## Step 4: Create the Service Fabric Application Deployment Step
 
@@ -100,7 +100,7 @@ If you choose to override the deployment script, remember that your `DeployToSer
 
 ## Deploying to Multiple Geographic Regions
 
-When your application is deployed to more than one geographic region, you are likely to need per-region configuration settings. You can achieve this by creating a [Service Fabric Deployment Target](/docs/infrastructure/azure/service-fabric-cluster-targets/index.md) per-region and assigning them to the same role and an appropriate environment.
+When your application is deployed to more than one geographic region, you are likely to need per-region configuration settings. You can achieve this by creating a [Service Fabric Deployment Target](/docs/infrastructure/deployment-targets/azure/service-fabric-cluster-targets/index.md) per-region and assigning them to the same role and an appropriate environment.
 
 Your process can be modified by using [variables scoped](/docs/deployment-process/variables/scoping-variables.md) by environment or deployment target.
 

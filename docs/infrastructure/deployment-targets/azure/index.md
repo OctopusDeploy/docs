@@ -1,11 +1,11 @@
 ---
 title: Azure
 description: Configure your infrastructure so Octopus can deploy software to your Windows servers, Linux servers, or Cloud Regions.
-position: 50
+position: 30
 hideInThisSection: true
 ---
 
-You can deploy software to the Azure cloud by adding your Azure subscription to Octopus. With an active Azure subscription, you can use Octopus to deploy to [Azure Cloud Service](/docs/infrastructure/azure/cloud-service-targets/index.md) targets, [Azure Service Fabric](/docs/infrastructure/azure/service-fabric-cluster-targets/index.md) targets, and [Azure Web App](/docs/infrastructure/azure/web-app-targets/index.md) targets.
+You can deploy software to the Azure cloud by adding your Azure subscription to Octopus. With an active Azure subscription, you can use Octopus to deploy to [Azure Cloud Service](/docs/infrastructure/deployment-targets/azure/cloud-service-targets/index.md) targets, [Azure Service Fabric](/docs/infrastructure/deployment-targets/azure/service-fabric-cluster-targets/index.md) targets, and [Azure Web App](/docs/infrastructure/deployment-targets/azure/web-app-targets/index.md) targets.
 
 Before you can deploy software to Azure, you need to add your Azure subscription to Octopus Deploy. Read the following sections to learn more about using Azure with Octopus.
 

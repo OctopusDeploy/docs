@@ -14,13 +14,17 @@ Machine policies are groups of settings that can be applied to Tentacle and SSH 
 
 ![](/docs/images/5669423/5865583.png "width=500")
 
-## Health Check Interval {#MachinePolicies-Healthcheckinterval}
+## Health Checks
 
-Octopus periodically runs health checks on deployment targets to ensure that they are available for deployment.  Setting "Time between checks" configures how frequently automatic health checks run.
+Octopus periodically runs health checks on deployment targets to ensure that they are available for deployment.  
+
+### Health Check Interval {#MachinePolicies-Healthcheckinterval}
+
+You can set the "Time between checks" to control how frequently automatic health checks run.
 
 ![](/docs/images/5669423/5865585.png "width=500")
 
-## Custom Health Check Scripts {#MachinePolicies-Customhealthcheckscripts}
+### Custom Health Check Scripts {#MachinePolicies-Customhealthcheckscripts}
 
 Machine policies allow the configuration of custom health check scripts for Tentacle and SSH targets. While we do not expose the full underlying script that runs during health checks, we give you an entry point to inject your own custom scripts. For example, here is the default custom health check script for Tentacles that checks disk space:
 
@@ -59,7 +63,7 @@ Write-Error "This is an error"
 Fail-HealthCheck "This is an error"
 ```
 
-SSH targets do not include a disk space check by default like Tentacle targets do. As such, there is no default Bash script listed in your machine policy for SSH targets by default. However, you may write your own, or choose to add additional Bash script to run against your SSH targets during health checks. Again, it's entirely up to you. Unless you select the `Only perform connection test` option, there are some [system prerequisites](/docs/infrastructure/ssh-targets/index.md#SSHTargets-Requirements) that are included as part of the standard health check.
+SSH targets do not include a disk space check by default like Tentacle targets do. As such, there is no default Bash script listed in your machine policy for SSH targets by default. However, you may write your own, or choose to add additional Bash script to run against your SSH targets during health checks. Again, it's entirely up to you. Unless you select the `Only perform connection test` option, there are some [system prerequisites](/docs/infrastructure/deployment-targets/ssh-targets/index.md#SSHTargets-Requirements) that are included as part of the standard health check.
 
 SSH deployment targets can use *echo\_warning*, *echo\_error* and *fail\_healthcheck* to convey a *healthy with warnings* or *unhealthy* status:
 
@@ -101,7 +105,7 @@ By default, Calamari will be installed or updated when a machine is involved in 
 Tentacle can be toggled to manually or automatically update Tentacle.  If **Automatically update Tentacle** is selected, Octopus will start a task to update Tentacles whenever Octopus detects that there is a pending Tentacle upgrade (after health checks for example). Conversely, Octopus will not automatically start a task to update Tentacle but will prompt to begin a Tentacle update on the environments screen.
 
 ### Tentacle Update Account {#MachinePolicies-TentacleUpdateAccount}
-You can select a username/password account to perform automatic Tentacle updates.  When no account is selected, the account that the Tentacle service is running as will attempt to perform Tentacle updates. Sometimes that account does not have enough permission to perform Tentacle updates. Create a [username/password account](/docs/infrastructure/ssh-targets/username-and-password.md) for a user with enough permissions to install software on your machines (Administrator works great!) and select it from the drop down.
+You can select a username/password account to perform automatic Tentacle updates.  When no account is selected, the account that the Tentacle service is running as will attempt to perform Tentacle updates. Sometimes that account does not have enough permission to perform Tentacle updates. Create a [username/password account](/docs/infrastructure/deployment-targets/ssh-targets/username-and-password.md) for a user with enough permissions to install software on your machines (Administrator works great!) and select it from the drop down.
 
 **Note:** This option can not be used when Tentacle is running as Local System.
 

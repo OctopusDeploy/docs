@@ -10,7 +10,7 @@ Azure Web App deployment targets allow you to reference existing Web Apps in you
 
 ## Requirements
 
-- You need an [Azure Service Principal account](/docs/infrastructure/azure/index.md##azure-service-principal) that references your Azure subscription.
+- You need an [Azure Service Principal account](/docs/infrastructure/deployment-targets/azure/index.md##azure-service-principal) that references your Azure subscription.
 
 - Once your Azure account is setup, you need an existing Azure Web App / App Service setup within your Azure subscription. To learn more about App Services, see the [Azure App Services documentation](https://docs.microsoft.com/en-us/azure/app-service/) that can help you get started. If you are dynamically creating the web app during your deployment, check our section about [creating Web App targets by scripts using service messages](#creating-web-app-targets-by-scripts).
 
@@ -43,7 +43,7 @@ You can also leave the slot selection blank and specify the slot, by name, on th
 
 Azure Web App targets can also be created via a PowerShell Cmdlet within a Deployment Process, this can be especially handy if you are also creating the Azure Web App via a script.
 
-See [Managing Resources by script](/docs/infrastructure/dynamic-infrastructure/index.md) for more information on creating Azure Web Apps via a script.
+See [Managing Resources by script](/docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md) for more information on creating Azure Web Apps via a script.
 
 ## Troubleshooting
 

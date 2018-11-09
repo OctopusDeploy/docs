@@ -1,7 +1,7 @@
 ---
 title: Windows Targets
 description: Everything you need to know about installing and configuring Octopus Tentacles on Windows targets for use with your deployments.
-position: 30
+position: 10
 ---
 When you deploy software to Windows Servers, you need to install Tentacle, a lightweight agent service, on all of those Window Servers.
 
@@ -13,8 +13,8 @@ Once installed, Tentacles:
 
 Before you install Tentacle, review the software and hardware requirements for:
 
-- [The latest version of Tentacle](/docs/infrastructure/windows-targets/requirements/index.md).
-- [Versions prior to Tentacle 3.1](/docs/infrastructure/windows-targets/requirements/legacy-requirements.md).
+- [The latest version of Tentacle](/docs/infrastructure/deployment-targets/windows-targets/requirements/index.md).
+- [Versions prior to Tentacle 3.1](/docs/infrastructure/deployment-targets/windows-targets/requirements/legacy-requirements.md).
 
 ## Download the Tentacle Installer
 
@@ -22,7 +22,7 @@ The latest Octopus Tentacle MSI can always be downloaded from the [Octopus Deplo
 
 ## Install Tentacle Manager
 
-Tentacle Manager is the Windows application that configures your Tentacle. Once installed, you can access it from your start menu/start screen. Tentacle Manager can configure Tentacles to use a [proxy](/docs/infrastructure/windows-targets/proxy-support.md), delete the Tentacle, and show diagnostic information about the Tentacle.
+Tentacle Manager is the Windows application that configures your Tentacle. Once installed, you can access it from your start menu/start screen. Tentacle Manager can configure Tentacles to use a [proxy](/docs/infrastructure/deployment-targets/windows-targets/proxy-support.md), delete the Tentacle, and show diagnostic information about the Tentacle.
 
 1. Start the Tentacle installer and follow the onscreen prompts.
 2. Accept the license agreement, and either accept the default installation location or choose a different location.
@@ -31,15 +31,15 @@ Tentacle Manager is the Windows application that configures your Tentacle. Once 
 5. Click **Get Started** and **Next**.
 6. Accept the default *configuration and log* directory and *application* directory or choose different locations.
 
-Tentacles can be configured in Listening mode (recommended) or Polling mode. Learn more about [Tentacle communication](/docs/infrastructure/windows-targets/tentacle-communication.md).
+Tentacles can be configured in Listening mode (recommended) or Polling mode. Learn more about [Tentacle communication](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md).
 
 7. Choose the communication style for the Tentacle:
-  - [Listening Tentacle (recommended)](/docs/infrastructure/windows-targets/index.md#configure-a-listening-tentacle-recommended).
-  - [Polling Tentacle](/docs/infrastructure/windows-targets/index.md#configure-a-polling-tentacle).
+  - [Listening Tentacle (recommended)](/docs/infrastructure/deployment-targets/windows-targets/index.md#configure-a-listening-tentacle-recommended).
+  - [Polling Tentacle](/docs/infrastructure/deployment-targets/windows-targets/index.md#configure-a-polling-tentacle).
 
 ## Configure a Listening Tentacle (recommended)
 
-To complete the installation we need to configure communication between the Octopus Server and the Tentacle. Listening Tentacles are recommended, but you can learn about the difference between Listening Tentacles and Polling Tentacles on the [Tentacle communication](/docs/infrastructure/windows-targets/tentacle-communication.md) page.
+To complete the installation we need to configure communication between the Octopus Server and the Tentacle. Listening Tentacles are recommended, but you can learn about the difference between Listening Tentacles and Polling Tentacles on the [Tentacle communication](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md) page.
 
 You install a Listening Tentacle on both the server where you installed Tentacle and the central Octopus Deploy Server. We'll start with the Octopus Server and come back to the Tentacle.
 
@@ -53,12 +53,12 @@ You install a Listening Tentacle on both the server where you installed Tentacle
 1. Back in the **Octopus Web Portal**, enter the DNS or IP address of the machine the Tentacle is installed on, i.e., `example.com` or `10.0.1.23`, and click **NEXT**.
 1. Add a display name for the deployment target (the server where you just installed the listening Tentacle).
 1. Select which environment the deployment target will be assigned to.
-1. Choose or create at least one target role for the deployment target. Learn about [target roles](/docs/infrastructure/target-roles/index.md).
+1. Choose or create at least one target role for the deployment target. Learn about [target roles](/docs/infrastructure/deployment-targets/target-roles/index.md).
 1. Click save.
 
-Your deployment target is configured, next you need to preform a [health check and update Calamari](/docs/infrastructure/windows-targets/index.md#health-check-and-upgrade-calamari).
+Your deployment target is configured, next you need to preform a [health check and update Calamari](/docs/infrastructure/deployment-targets/windows-targets/index.md#health-check-and-upgrade-calamari).
 
-If the Tentacle isn't connecting, try the steps on the [troubleshooting page](/docs/infrastructure/windows-targets/troubleshooting-tentacles.md).
+If the Tentacle isn't connecting, try the steps on the [troubleshooting page](/docs/infrastructure/deployment-targets/windows-targets/troubleshooting-tentacles.md).
 
 ### Update your Tentacle Firewall
 
@@ -70,10 +70,10 @@ Don't forget to allow access in any intermediary firewalls between the Octopus S
 
 ## Configure a Polling Tentacle
 
-Listening Tentacles are recommended, but you can learn about the difference between Listening Tentacles and Polling Tentacles on the [Tentacle communication](/docs/infrastructure/windows-targets/tentacle-communication.md) page.
+Listening Tentacles are recommended, but you can learn about the difference between Listening Tentacles and Polling Tentacles on the [Tentacle communication](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md) page.
 
 1. Select **Polling Tentacle** and click **next**.
-1. If you are using a proxy see [Proxy Support](/docs/infrastructure/windows-targets/proxy-support.md), or click **next**.
+1. If you are using a proxy see [Proxy Support](/docs/infrastructure/deployment-targets/windows-targets/proxy-support.md), or click **next**.
 1. Add the Octopus credentials the Tentacle will use to connect to the Octopus Server:
     a. The Octopus URL: the DNS or IP address.
     b. Select the authentication mode and enter the details:
@@ -81,13 +81,13 @@ Listening Tentacles are recommended, but you can learn about the difference betw
         i. Your Octopus API key, see [How to create an API key](/docs/api-and-integration/api/how-to-create-an-api-key.md).
 1. Click **Verify credentials**, and then next.
 1. Give the machine a meaningful name and select which environment to add to the machine to.
-1. Choose or create at least one target role for the deployment target. Learn about [target roles](/docs/infrastructure/target-roles/index.md).
+1. Choose or create at least one target role for the deployment target. Learn about [target roles](/docs/infrastructure/deployment-targets/target-roles/index.md).
 1. Leave **Tenants** and **Tenant tags** blank unless you are already using Octopus to deploy applications to multiple end users. If you are using Octopus for multiple tenants, enter the **Tenants** and **Tenant Tags**. Learn more about [Multi-tenant Deployments](/docs/deployment-patterns/multi-tenant-deployments/index.md).
 1. Click **Install**, and when the script has finished, click **Finish**.
 
-Your deployment target is configured, next you need to preform a  [health check and update Calamari](/docs/infrastructure/windows-targets/index.md#health-check-and-upgrade-calamari).
+Your deployment target is configured, next you need to preform a  [health check and update Calamari](/docs/infrastructure/deployment-targets/windows-targets/index.md#health-check-and-upgrade-calamari).
 
-If the Tentacle isn't connecting, try the steps on the [troubleshooting page](/docs/infrastructure/windows-targets/troubleshooting-tentacles.md).
+If the Tentacle isn't connecting, try the steps on the [troubleshooting page](/docs/infrastructure/deployment-targets/windows-targets/troubleshooting-tentacles.md).
 
 ### Update your Octopus Server Firewall
 
