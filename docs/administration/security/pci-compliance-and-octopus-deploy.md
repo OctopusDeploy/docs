@@ -26,7 +26,7 @@ PCI Compliance is primarily concerned with implementing "controls" or "practices
 - You can use any kind of transparent networking security techniques like IPSec tunnels or VPN between your network zones.
 - If you are using our Tentacle agent, you can decide whether you want to allow network traffic inbound to your PCI zone from your Octopus Server, or outbound from your PCI zone to your Octopus Server. Learn about [Tentacle communication modes](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md).
 - You can insert an HTTP proxy server between Octopus Server and any Tentacles or SSH endpoints. This is helpful when you want to have DMZs in your network with controlled entry/exit points. Learn about [proxy support](/docs/infrastructure/deployment-targets/windows-targets/proxy-support.md).
-- If you really cannot use Tentacle or SSH, you can use Offline Package Drops for fully disconnected deployment automation. Learn about the [Offline Package Drop](/docs/infrastructure/deploymnent-targets/offline-package-drop.md) deployment target.
+- If you really cannot use Tentacle or SSH, you can use Offline Package Drops for fully disconnected deployment automation. Learn about the [Offline Package Drop](/docs/infrastructure/deployment-targets/offline-package-drop.md) deployment target.
 - If you require isolated instance of Octopus Server our licensing model is quite flexible. Each license of Octopus Deploy grants you the right to install and configure up to three (3) separate instances of Octopus Server. Learn about managing [Isolated Octopus Deploy Servers](/docs/deployment-patterns/isolated-octopus-deploy-servers.md).
 
 ### Promoting Releases Across Security Zones
