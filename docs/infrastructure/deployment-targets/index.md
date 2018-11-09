@@ -13,14 +13,14 @@ From here you can add new deployment targets, disable or delete deployment targe
 
 Deployment targets are added in different ways, depending on the type of target and how they will communicate with the Octopus Deploy Server. For instructions, see:
 
-- [Listening and Polling Windows Tentacles](/docs/deployment-targets/infrastructure/windows-targets/index.md)
-- [SSH Connection](/docs/deployment-targets/infrastructure/ssh-targets/index.md)
-- [Azure Web App](/docs/deployment-targets/infrastructure/azure/web-app-targets/index.md)
-- [Azure Cloud Service](/docs/deployment-targets/infrastructure/azure/cloud-service-targets/index.md)
-- [Azure Service Fabric Cluster](/docs/deployment-targets/infrastructure/azure/service-fabric-cluster-targets/index.md)
+- [Listening and Polling Windows Tentacles](/docs/infrastructure/deployment-targets/windows-targets/index.md)
+- [SSH Connection](/docs/infrastructure/deployment-targets/ssh-targets/index.md)
+- [Azure Web App](/docs/infrastructure/deployment-targets/azure/web-app-targets/index.md)
+- [Azure Cloud Service](/docs/infrastructure/deployment-targets/azure/cloud-service-targets/index.md)
+- [Azure Service Fabric Cluster](/docs/infrastructure/deployment-targets/azure/service-fabric-cluster-targets/index.md)
 - Kubernetes Clusters
-- [Offline Package Drop](/docs/deployment-targets/infrastructure/offline-package-drop.md)
-- [Cloud Regions](/docs/deployment-targets/infrastructure/cloud-regions.md)
+- [Offline Package Drop](/docs/infrastructure/deployment-targets/offline-package-drop.md)
+- [Cloud Regions](/docs/infrastructure/deployment-targets/cloud-regions.md)
 
 ## Target Roles
 
