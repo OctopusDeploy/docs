@@ -338,6 +338,16 @@ The `Port` number is required and must be a number between 1 and 65535.
 
 The `Protocol` is optional and will default to `TCP`.
 
+#### Image Pull Policy
+
+The image pull policy and the tag of the image affect when the kubelet attempts to pull the specified image.
+* `If Not Present`: the image is pulled only if it is not already present locally.
+* `Always`: the image is pulled every time the pod is started.
+* `Default` and either the image tag is `latest` or it is omitted: Always is applied.
+* `Default` and the image tag is present but not `latest`: If Not Present is applied.
+* `Never`: the image is assumed to exist locally. No attempt is made to pull the image.
+
+
 #### Container Type
 
 To support configuring and initializing Pod resources, Kubernetes has the concept of an [Init Container resource](http://g.octopushq.com/KubernetesInitContainer). Init Container resources are run before App Container resources and are often used to run setup scripts.
