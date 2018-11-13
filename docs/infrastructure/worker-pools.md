@@ -1,7 +1,7 @@
 ---
 title: Worker Pools
 description: Worker pools are used to group workers and allow targeting steps at the pool of workers best equipped to execute the step.  This page describes how to configure worker pools for a variety of scenarios.
-position: 1
+position: 70
 ---
 
 Worker pools are used to group workers and allow targeting steps at the pool of workers best equipped to execute the step.  There is always a default worker pool.  The default pool can't be deleted, but you can swap which pool is the default.  Think of worker pools as collections of homogenous workers.  For your default pool it might be enough that the workers are Tentacles running PowerShell 5, but you might have two teams working with different version of an SDK and so provision worker pools with workers running the appropriate SDK for each team.
