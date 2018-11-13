@@ -26,6 +26,6 @@ Deployment targets are added in different ways, depending on the type of target
 
 The deployment targets that you add must have at least one target role assigned to them. Learn about [target roles](/docs/infrastructure/Deployment-targets/target-roles/index.md)
 
-## Dynamic infrastructure
+## Dynamic Infrastructure
 
 You can use scripts to create Azure Service Principal Accounts, Azure Web Apps, Azure Service Fabric, Azure Cloud Services and Kubernetes targets. Learn more about [Managing resources with scripts](/docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md).
