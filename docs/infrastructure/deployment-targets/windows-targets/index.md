@@ -20,31 +20,16 @@ Before you install Tentacle, review the software and hardware requirements for:
 
 The latest Octopus Tentacle MSI can always be downloaded from the [Octopus Deploy downloads page](https://octopus.com/downloads).
 
-## Install Tentacle Manager
+## Communication Mode
 
-Tentacle Manager is the Windows application that configures your Tentacle. Once installed, you can access it from your start menu/start screen. Tentacle Manager can configure Tentacles to use a [proxy](/docs/infrastructure/deployment-targets/windows-targets/proxy-support.md), delete the Tentacle, and show diagnostic information about the Tentacle.
-
-1. Start the Tentacle installer and follow the onscreen prompts.
-2. Accept the license agreement, and either accept the default installation location or choose a different location.
-3. Click install, and give the app permission to **make changes to your device**.
-4. Click finish to exit the installation wizard and launch the setup wizard to configure your Tentacle.
-5. Click **Get Started** and **Next**.
-6. Accept the default *configuration and log* directory and *application* directory or choose different locations.
-
-Tentacles can be configured in Listening mode (recommended) or Polling mode. Learn more about [Tentacle communication](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md).
-
-7. Choose the communication style for the Tentacle:
-  - [Listening Tentacle (recommended)](/docs/infrastructure/deployment-targets/windows-targets/index.md#configure-a-listening-tentacle-recommended).
-  - [Polling Tentacle](/docs/infrastructure/deployment-targets/windows-targets/index.md#configure-a-polling-tentacle).
+Tentacles can be configured to communicate in Listening Mode or Polling Mode. Listening mode is the recommended communication style. Learn about the differences between the two modes on the [Tentacle communication](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md) page.
 
 ## Configure a Listening Tentacle (recommended)
 
-To complete the installation we need to configure communication between the Octopus Server and the Tentacle. Listening Tentacles are recommended, but you can learn about the difference between Listening Tentacles and Polling Tentacles on the [Tentacle communication](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md) page.
-
-You install a Listening Tentacle on both the server where you installed Tentacle and the central Octopus Deploy Server. We'll start with the Octopus Server and come back to the Tentacle.
-
+!include <install-tentacle-manager>
+7. Select **Listening Tentacle** and click **Next**.
 1. In the **Octopus Web Portal**, navigate to the **Infrastructure** tab, select **Deployment Targets** and click **ADD DEPLOYMENT TARGET**.
-1. Select **Listening Tentacle**.
+1. Click **WINDOWS** and select **Listening Tentacle**.
 1. Copy the **Thumbprint** (the long alphanumerical string).
 1. Back on the Tentacle server, select **Listening Tentacle** and click **Next**.
 1. Accept the default listening port **10933** or provide your own.
@@ -72,6 +57,7 @@ Don't forget to allow access in any intermediary firewalls between the Octopus S
 
 Listening Tentacles are recommended, but you can learn about the difference between Listening Tentacles and Polling Tentacles on the [Tentacle communication](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md) page.
 
+!include <install-tentacle-manager>
 1. Select **Polling Tentacle** and click **next**.
 1. If you are using a proxy see [Proxy Support](/docs/infrastructure/deployment-targets/windows-targets/proxy-support.md), or click **next**.
 1. Add the Octopus credentials the Tentacle will use to connect to the Octopus Server:
@@ -112,8 +98,12 @@ The Octopus Server performs regular health checks to ensure Tentacles are connec
 1. From the Infrastructure tab, select deployment targets.
 2. Click the overflow menu and select **Check Health**. If you've installed multiple Tentacles, it will check all of your Tentacles (if you'd rather check only one Tentacle, select that Tentacle from the Deployment Targets section, click **Connectivity** and then **Check health**).
 
-The first time you complete a health check on a Tentacle, you will see the Tentacle has health warnings and needs to install calamari.
-Calamari is an [open-source](https://github.com/OctopusDeploy/Calamari), console-application.  It supports many commands, which are responsible for performing deployment-steps. Learn more about [calamari](/docs/api-and-integration/calamari.md). Octopus will automatically push the latest version of Calamari with your first deployment, but you can do the following to install Calamari:
+The first time you complete a health check on a Tentacle, you will see the Tentacle has health warnings and needs to install Calamari.
+Calamari is an [open-source](https://github.com/OctopusDeploy/Calamari), console-application.  It supports many commands, which are responsible for performing deployment steps.
+
+Learn more about [calamari](/docs/api-and-integration/calamari.md).
+
+Octopus will automatically push the latest version of Calamari with your first deployment, but you can do the following to install Calamari:
 
 1. From the Infrastructure tab, select deployment targets.
 2. Click the overflow menu and select **Upgrade Calamari on Deployment Targets**.
