@@ -40,12 +40,12 @@ Various options are available to deploy your Service Fabric application.
 
 | Setting                                                | Default     | Description                              |
 | ------------------------------------------------------ | ----------- | ---------------------------------------- |
-| Publish profile file                                   |             | Path to the file containing the publish profile |
-| Deploy only                                            |             | Indicates that the Service Fabric application should not be created or upgraded after registering the application type |
-| Unregister unused application versions after upgrade   |             | Indicates whether to unregister any unused application versions that exist after an upgrade is finished |
-| Override upgrade behavior                              |             | Indicates the behavior used to override the upgrade settings specified by the publish profile. Options are _None_, _ForceUpgrade_, _VetoUpgrade_ |
-| Overwrite behavior                                     |             | Overwrite Behavior if an application exists in the cluster with the same name. Available options are _Never_, _Always_, _SameAppTypeAndVersion_. This setting is not applicable when upgrading an application |
-| Skip package validation                                |             | Switch signaling whether the package should be validated or not before deployment |
+| Publish profile file                                   | PublishProfiles\Cloud.xml | Path to the file containing the publish profile |
+| Deploy only                                            | Disabled | Indicates that the Service Fabric application should not be created or upgraded after registering the application type |
+| Unregister unused application versions after upgrade   | Disabled | Indicates whether to unregister any unused application versions that exist after an upgrade is finished |
+| Override upgrade behavior                              |     None        | Indicates the behavior used to override the upgrade settings specified by the publish profile. Options are _None_, _ForceUpgrade_, _VetoUpgrade_. To force an upgrade regardless of the publish profile setting set this option to _ForceUpgrade_. To use the setting defined in publish profile set this setting to _None_. |
+| Overwrite behavior                                     | SameAppTypeAndVersion | Overwrite Behavior if an application exists in the cluster with the same name. Available options are _Never_, _Always_, _SameAppTypeAndVersion_. This setting is not applicable when upgrading an application |
+| Skip package validation                                | Disabled | Switch signaling whether the package should be validated or not before deployment |
 | Copy package timeout (seconds)                         | SDK Default | Timeout in seconds for copying application package to image store |
 | Register Application Type Timeout (seconds)            | SDK Default | Timeout in seconds for registering application type. Requires Service Fabric SDK version 6.2+ |
 
