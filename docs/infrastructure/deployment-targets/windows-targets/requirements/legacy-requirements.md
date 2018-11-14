@@ -6,6 +6,8 @@ position: 20
 
 These are the installation requirements for Tentacles prior to **Tentacle 3.1**.
 
+If you're using **Tentacle 3.1** or later, refer to these [installation requirements](/docs/infrastructure/deployment-targets/windows-targets/requirements/index.md).
+
 ## Windows Server
 
 - Windows Server 2003 SP2 (**Not supported for Tentacle 3.1 and up due to .NET 4.5 dependency**).

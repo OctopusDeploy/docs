@@ -7,11 +7,11 @@ hideInThisSection: True
 
 Deployment targets are the servers and services you deploy your software to. You can manage your deployment targets by navigating to {{Infrastructure,Deployment Targets}}.
 
-From here you can add new deployment targets, disable or delete deployment targets, check on the status of your targets, and run [health checks](/docs/infrastructure/machine-policies.md#health-checks) on them.
+From here you can add new deployment targets, disable or delete deployment targets, check on the status of your targets, and run [health checks](/docs/infrastructure/machine-policies.md#health-checks).
 
 ## Adding Deployment Targets
 
-Deployment targets are added in different ways, depending on the type of target and how they will communicate with the Octopus Deploy Server. For instructions, see:
+Deployment targets are added in different ways, depending on the type of target you are adding and how the target will communicate with the Octopus Deploy Server. For instructions, see:
 
 - [Listening and Polling Windows Tentacles](/docs/infrastructure/deployment-targets/windows-targets/index.md)
 - [SSH Connection](/docs/infrastructure/deployment-targets/ssh-targets/index.md)
@@ -24,7 +24,9 @@ Deployment targets are added in different ways, depending on the type of target
 
 ## Target Roles
 
-The deployment targets that you add must have at least one target role assigned to them. Learn about [target roles](/docs/infrastructure/Deployment-targets/target-roles/index.md)
+The deployment targets that you add must have at least one target role assigned to them.
+
+Learn about [target roles](/docs/infrastructure/Deployment-targets/target-roles/index.md)
 
 ## Dynamic Infrastructure
 

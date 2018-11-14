@@ -5,17 +5,17 @@ position: 2
 hideInThisSection: True
 ---
 
-With Octopus Deploy you can deploy software to Windows servers, Linux servers, Microsoft Azure, AWS, an offline package drop, cloud regions, or Kubernetes. These are known as your deployment targets. You deployment targets are organized into environments so you can promote your software, for instance, from **Development** to **Testing** and finally into **Production**.
+With Octopus Deploy, you can deploy software to Windows servers, Linux servers, Microsoft Azure, an offline package drop, cloud regions, or Kubernetes. These are known as your deployment targets. You deployment targets are organized into environments so you can promote your software, for instance, from **Development** to **Testing** and finally into **Production**.
 
 ## Overview
 
-From the **Overview** section of the **Infrastructure** tab of the Octopus Web Portal, you can quickly see your existing [Environments](#environments), [Deployment Targets](#deployment-targets), and [Worker Pools](#workers), check on the status of your deployment targets and access targets by [Target Role](/docs/infrastructure/deployment-targets/target-roles/index.md).
+From the **Overview** section of the **Infrastructure** tab of the Octopus Web Portal, you can quickly see your existing [environments](#environments), [deployment targets](#deployment-targets), and [worker pools](#workers), check on the status of your deployment targets and access targets by [target role](/docs/infrastructure/deployment-targets/target-roles/index.md).
 
 ## Environments
 
 Octopus organizes your deployment targets into groups called [environments](/docs/infrastructure/environments/index.md) so you can promote your software through the different stages of its lifecycle, for instance, from **Development** to **Test** and finally to **Production**.
 
-Learn how to add and manage your [Environments](/docs/infrastructure/environments/index.md).
+Learn how to add and manage your [environments](/docs/infrastructure/environments/index.md).
 
 ## Deployment Targets
 
@@ -23,9 +23,9 @@ The machines and services that you deploy your software to are your **deployment
 
 ## Worker Pools
 
-Worker pools are groups of machines (workers) that can be used to perform tasks that don't need to be executed on the Octopus Server or on Deployment Targets, for instance, if you are deploying a package to an API or running a script.
+Worker pools are groups of machines (workers) that can be used to perform tasks that don't need to be executed on the Octopus Server or on deployment targets, for instance, if you are deploying a package to an API or running a script.
 
-Learn more about adding and managing [Worker Pools](/docs/infrastructure/worker-pools.md)
+Learn more about adding and managing [worker pools](/docs/infrastructure/worker-pools.md)
 
 ## Workers
 
@@ -33,14 +33,20 @@ Learn more about adding and managing [Worker Pools](/docs/infrastructure/worker-
 
 Learn about [Workers](/docs/infrastructure/workers/index.md).
 
+## Accounts
+
+In addition to the deployment targets listed above, you add an [AWS account](/docs/infrastructure/accounts/aws/index.md) to Octopus and deploy to Amazon Web Services. You can also add account details for other services you use with Octopus.
+
+Learn more about [accounts](/docs/infrastructure/accounts/index.md)
+
 ## Managing Your Infrastructure
 
 Select the **Infrastructure** tab to manage your:
 
 * [Environments](/docs/infrastructure/environments/index.md)
-* [Deployment Targets](/docs/infrastructure/deployment-targets/index.md)
-* [Worker Pools](/docs/infrastructure/worker-pools.md)
+* [Deployment targets](/docs/infrastructure/deployment-targets/index.md)
+* [Worker pools](/docs/infrastructure/worker-pools.md)
 * [Workers](/docs/infrastructure/workers/index.md)
-* [Machine Policies](/docs/infrastructure/machine-policies.md)
+* [Machine policies](/docs/infrastructure/machine-policies.md)
 * [Proxies](/docs/infrastructure/deployment-targets/windows-targets/proxy-support.md)
 * [Accounts](/docs/infrastructure/accounts/index.md)

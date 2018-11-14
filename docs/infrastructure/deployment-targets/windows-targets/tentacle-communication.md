@@ -8,7 +8,7 @@ Octopus and Tentacles can be configured to communicate in two different ways dep
 
 ## Listening Tentacles (recommended)
 
-In **listening** mode, Tentacles *listen* on a TCP port (port **10933** by default). When a package needs to be deployed, Octopus connects to the Tentacle service on that port.
+In **listening** mode, Tentacles *listen* on a TCP port (**10933** by default). When a package needs to be deployed, Octopus connects to the Tentacle service on that port.
 
 In listening mode Tentacle is the TCP server, and Octopus is the TCP client.
 
@@ -20,7 +20,7 @@ To install and configure Tentacles, see the [Windows Targets (Tentacles) documen
 
 ## Polling Tentacles
 
-In **polling** mode, Tentacle will poll the Octopus Server periodically to check if there are any tasks for it to perform. Polling mode is the opposite to **listening mode**.
+In **polling** mode, Tentacle will poll the Octopus Server periodically to check if there are any tasks for it to perform. Polling mode is the opposite of **listening mode**.
 
 In polling mode, Octopus is the TCP server, and Tentacle is the TCP client.
 

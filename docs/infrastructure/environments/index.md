@@ -24,12 +24,12 @@ If you're working with a large number of environments and deployment targets, th
 
 ### Sorting Your Environments
 
-Click the overflow menu on the environments sections to reveal the **reorder** menu and access a drag and drop pane to sort your environments
+Click the overflow menu on the environments sections to reveal the **reorder** menu and access a drag and drop pane to sort your environments.
 
 The order that environments are shown in the environments tab also affects:
 
 - The order that they are shown in the Dashboard.
-- The order that they are listed in when choosing which environment to deploy a release to.
+- The order that they are listed when choosing which environment to deploy a release to.
 
 It's a good idea to put your least production-like environments first, and the most production-like environments last.
 
@@ -48,7 +48,7 @@ This will let you search by:
 
 ### Editing Your Environments
 
-To edit individual environments, click the overflow menu for that environment. From here, it is possible to edit the environment, description, change the [guided failure mode](#guided-failure-mode), enable or disable [dynamic infrastructure](). or delete the environment.
+To edit individual environments, click the overflow menu for that environment. From here, it is possible to edit the environment, description, change the [guided failure mode](#guided-failure-mode), enable or disable [dynamic infrastructure](#dynamic-infrastructure), or delete the environment.
 
 ## Guided Failure Mode
 
@@ -59,8 +59,8 @@ To edit individual environments, click the overflow menu for that environment. F
 Guided failure mode can be set when a new environment is created, or it can be enabled or disabled for existing environments.
 
 1. Navigate to {{Infrastructure,Environments}}.
-1. Click the overflow menu for the environment you want to enable or disable guided failure mode on and select *Edit*.
-1. Expand the **Default Guided Failure Mode** section and tick or untick the checkbox to enable or disable the guided failure mode.
+1. Click the overflow menu for the environment you want to enable or disable guided failure mode on and select **Edit**.
+1. Expand the **Default Guided Failure Mode** section and tick or untick the checkbox to enable or disable guided failure mode.
 1. Click **SAVE**.
 
 Note, you can still override this setting for individual deployments. For more information, see the section on [Guided Failures](/docs/deployment-process/releases/guided-failures.md).
@@ -74,7 +74,7 @@ When enabled, environments can create some deployment targets within Octopus Dep
 Dynamic infrastructure can be enabled when a new environment is created, or it can be enabled or disabled for existing environments.
 
 1. Navigate to {{Infrastructure,Environments}}.
-1. Click the overflow menu for the environment you want to enable or disable dynamic infrastructure on and select *Edit*.
+1. Click the overflow menu for the environment you want to enable or disable dynamic infrastructure on and select **Edit**.
 1. Expand the **Dynamic infrastructure** section and tick or untick the checkbox to enable or disable managing dynamic infrastructure.
 1. Click **SAVE**.
 
