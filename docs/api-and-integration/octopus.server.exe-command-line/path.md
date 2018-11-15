@@ -13,6 +13,11 @@ Usage: octopus.server path [<options>]
 Where [<options>] is any of:
 
       --instance=VALUE       Name of the instance to use
+      --cacheDirectory=VALUE Directory to use for temporary files and cachin-
+                               g, e.g. downloaded packages. This data in this
+                               directory can be removed when the Octopus server
+                               is not running. This directory should not be
+                               shared between nodes.
       --nugetRepository=VALUE
                              Set the package path for the built-in package
                                repository
