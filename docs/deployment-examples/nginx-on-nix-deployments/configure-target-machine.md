@@ -128,25 +128,9 @@ sudo restart ssh
 
 ### Enable 'sudo' access without password {#ConfigureTargetMachine-EnableSudoAccessWithoutPassword}
 
-By default `sudo` requires the user to enter their password, but this obviously won't work in a non-interactive session such as that of a running deployment. To successfully use the new *NGINX* feature in Octopus Deploy we need `sudo` access without password prompt for few commands:
-- `cp`,
-- `mv`,
-- `rm`,
-- `systemctl` and
-- `nginx`
+By default `sudo` requires the user to enter their password, but this obviously won't work in a non-interactive session such as that of a running deployment. To successfully use the new *NGINX* feature in Octopus Deploy we need `sudo` access without password prompt for few commands `cp`, `mv`, `rm`, `systemctl` and `nginx`.
 
-So, we need to configure this for our user that we will be using for the purposes of deployment.
-
-Run the following command to edit the sudoers file for your user:
-```bash
-sudo visudo -f /etc/sudoers.d/octopus
-```
-
-:::hint
-**Always** use `visudo` when changing a *sudoers* files as it will validate that the configuration is correct, if you were to use an editor to edit this file and you get the configuration wrong `sudo` will no longer function and you have to boot your server into recovery mode to fix the configuration.
-:::
-
-To enable `sudo` without password prompt for the required commands, copy the following lines into your file and then save the file.
+So, we need to configure this for our user that we will be using for the purposes of deployment. See [Sudo commands](/docs/infrastructure/deployment-targets/ssh-targets/sudo-commands.md) for more details on how to disable password prompt for all commands. To enable `sudo` without password prompt for only the required commands for NGINX, add the following lines into your file and then save the file:
 
 ```bash
 Cmdn_Alias REQUIRED_NGINX_COMMANDS = /bin/cp, /bin/mv, /bin/rm, /bin/systemctl, /usr/sbin/nginx
