@@ -653,3 +653,4 @@ docs/infrastructure/cloud-regions.md -> docs/infrastructure/deployment-targets/c
 docs/infrastructure/offline-package-drop.md -> docs/infrastructure/deployment-targets/offline-package-drop.md
 docs/infrastructure/workers/worker-pools.md -> docs/infrastructure/worker-pools.md
 docs/infrastructure/deployment-targets/ssh-targets/ssh-key-pair.md -> docs/infrastructure/accounts/ssh-key-pair.md
+docs/infrastructure/deployment-targets/ssh-targets/username-and-password.md -> docs/infrastructure/accounts/username-and-password.md
