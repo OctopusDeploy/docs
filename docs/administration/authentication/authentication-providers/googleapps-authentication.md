@@ -20,10 +20,11 @@ Once you have an account, log in to [https://console.developers.google.com](htt
 
 1. Create a project for Octopus (this might take a minute or so) and then within that project
 2. Select {{API Manager,Credentials menu}}.
-3. Set the **OAuth consent screen** information. In the **Product Logo URL** box, paste in `https://octopus.com/images/company/Logo-Blue_140px_rgb.png` to display the Octopus Deploy logo next to this app, so it's easy to identify.
-4. Select the Credentials tab and Create a new **OAuth client ID** for a **Web app**.
-5. Enter a **Name** for identification, e.g. Octopus.  This is the name that will appear when the user is asked to allow access to their details.
-6. Add `https://octopus.example.com/api/users/authenticatedToken/GoogleApps` (replacing `https://octopus.example.com` with the url of your Octopus Server) to the **Authorized Redirect URIs**.
+3. Set the **OAuth consent screen** information. In the **Application Logo** box, upload a logo to make it easy to identify the application. You can download the Octopus logo [here](https://octopus.com/images/company/Logo-Blue_140px_rgb.png).
+4. Add the Top Level Domain of your Octopus instance. If you are setting Google Apps up for **Hosted Octopus** this will be `octopus.app` or `octopus.com`.
+5. Select the Credentials tab and Create a new **OAuth client ID** for a **Web app**.
+6. Enter a **Name** for identification, e.g. Octopus.  This is the name that will appear when the user is asked to allow access to their details.
+7. Add `https://octopus.example.com/api/users/authenticatedToken/GoogleApps` (replacing `https://octopus.example.com` with the url of your Octopus Server) to the **Authorized Redirect URIs**.
 
 :::hint
 **Reply URLs are case-sensitive**
@@ -45,7 +46,7 @@ Once you have those values, run the following from a command prompt in the folde
 Octopus.Server.exe configure --googleAppsIsEnabled=true --googleAppsClientId=ClientID --googleAppsHostedDomain=yourdomain.com
 ```
 
-Alternatively these settings can be defined through the user interface by selecting {{Configuration,Settings,GoogleApps}} and populating the fields `HostedDomain`, `ClientId` and `IsEnabled`.
+Alternatively these settings can be defined through the user interface by selecting {{Configuration,Settings,GoogleApps}} and populating the fields `Hosted Domain`, `Client Id` and `Is Enabled`.
 
 ![Settings](googleapps-settings.png)
 
