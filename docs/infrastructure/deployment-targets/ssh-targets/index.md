@@ -24,7 +24,7 @@ We generally expect deployments with Octopus to work with practically any dist
 
 To use this feature there are the following requirements:
 
-- It must be accessible using SSH and SFTP (See [creating a SSH Key Pair](ssh-key-pair.md#Creating-a-SSH-Key-Pair)).
+- It must be accessible using SSH and SFTP (See [creating a SSH Key Pair](/docs/infrastructure/accounts/ssh-key-pair.md#Creating-a-SSH-Key-Pair)).
 - The `$HOME` environment variable must be available.
 - `bash` 3+ is available at `/bin/bash`. (It does not need to be the user’s default shell.)
 - `tar` is available - for unpacking calamari.
