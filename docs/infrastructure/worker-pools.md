@@ -14,7 +14,7 @@ Worker pools are groups of workers (or servers) that can be used to execute task
 - Performing database schema migrations
 - Configuring load balancers.
 
-Learn more about managing individual [workers](/docs/infrastructure/workers/index.md)
+Learn more about managing individual [workers](/docs/infrastructure/workers/index.md).
 
 ![Workers diagram](workers-diagram-img.png)
 

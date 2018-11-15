@@ -64,10 +64,10 @@ docs/deployment-targets/environments/machine-policies.md -> docs/infrastructure/
 docs/deployment-targets/environments/accounts/index.md -> docs/infrastructure/index.md
 docs/infrastructure/environments/accounts/index.md -> docs/infrastructure/index.md
 docs/deployment-targets/environments/accounts/azure-account.md -> docs/infrastructure/deployment-targets/azure/index.md
-docs/deployment-targets/environments/accounts/ssh-key-pair.md -> docs/infrastructure/deployment-targets/ssh-targets/ssh-key-pair.md
-docs/infrastructure/environments/accounts/ssh-key-pair.md -> docs/infrastructure/deployment-targets/ssh-targets/ssh-key-pair.md
-docs/deployment-targets/environments/accounts/username-and-password.md -> docs/infrastructure/deployment-targets/ssh-targets/username-and-password.md
-docs/infrastructure/environments/accounts/username-and-password.md -> docs/infrastructure/deployment-targets/ssh-targets/username-and-password.md
+docs/deployment-targets/environments/accounts/ssh-key-pair.md -> docs/infrastructure/accounts/ssh-key-pair.md
+docs/infrastructure/environments/accounts/ssh-key-pair.md -> docs/infrastructure/accounts/ssh-key-pair.md
+docs/deployment-targets/environments/accounts/username-and-password.md -> docs/infrastructure/accounts/username-and-password.md
+docs/infrastructure/environments/accounts/username-and-password.md -> docs/infrastructure/accounts/username-and-password.md
 docs/deployment-targets/machine-roles/index.md -> docs/infrastructure/deployment-targets/target-roles/index.md
 docs/deployment-targets/ssh-targets/index.md -> docs/infrastructure/deployment-targets/ssh-targets/index.md
 docs/deployment-targets/ssh-targets/configuring-ssh-connection.md -> docs/infrastructure/deployment-targets/ssh-targets/configuring-ssh-connection.md
@@ -626,9 +626,9 @@ docs/infrastructure/ssh-targets/index.md -> docs/infrastructure/deployment-targe
 docs/infrastructure/ssh-targets/configuring-ssh-connection.md -> docs/infrastructure/deployment-targets/ssh-targets/configuring-ssh-connection.md
 docs/infrastructure/ssh-targets/mono-calamari.md -> docs/infrastructure/deployment-targets/ssh-targets/mono-calamari.md
 docs/infrastructure/ssh-targets/self-contained-calamari.md -> docs/infrastructure/deployment-targets/ssh-targets/self-contained-calamari.md
-docs/infrastructure/ssh-targets/ssh-key-pair.md -> docs/infrastructure/deployment-targets/ssh-targets/ssh-key-pair.md
+docs/infrastructure/ssh-targets/ssh-key-pair.md -> docs/infrastructure/accounts/ssh-key-pair.md
 docs/infrastructure/ssh-targets/sudo-commands.md -> docs/infrastructure/deployment-targets/ssh-targets/sudo-commands.md
-docs/infrastructure/ssh-targets/username-and-password.md -> docs/infrastructure/deployment-targets/ssh-targets/username-and-password.md
+docs/infrastructure/ssh-targets/username-and-password.md -> docs/infrastructure/accounts/username-and-password.md
 docs/infrastructure/target-roles/index.md -> docs/infrastructure/deployment-targets/target-roles/index.md
 docs/infrastructure/windows-targets/azure-virtual-machines/configuration-structure.md -> docs/infrastructure/deployment-targets/windows-targets/azure-virtual-machines/configuration-structure.md
 docs/infrastructure/windows-targets/azure-virtual-machines/diagnosing-issues.md -> docs/infrastructure/deployment-targets/windows-targets/azure-virtual-machines/diagnosing-issues.md
@@ -652,3 +652,4 @@ docs/infrastructure/windows-targets/troubleshooting-tentacles.md -> docs/infrast
 docs/infrastructure/cloud-regions.md -> docs/infrastructure/deployment-targets/cloud-regions.md
 docs/infrastructure/offline-package-drop.md -> docs/infrastructure/deployment-targets/offline-package-drop.md
 docs/infrastructure/workers/worker-pools.md -> docs/infrastructure/worker-pools.md
+docs/infrastructure/deployment-targets/ssh-targets/ssh-key-pair.md -> docs/infrastructure/accounts/ssh-key-pair.md

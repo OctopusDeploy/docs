@@ -12,7 +12,7 @@ The master key is then used along with [AES-128](http://en.wikipedia.org/wiki/Ad
 
 - [Sensitive variables](/docs/deployment-process/variables/sensitive-variables.md).
 - Private keys used for [Octopus/Tentacle](/docs/administration/security/octopus-tentacle-communication/index.md) communication, and for authenticating with [Azure](/docs/infrastructure/deployment-targets/azure/index.md) and [SSH endpoints](/docs/infrastructure/deployment-targets/ssh-targets/configuring-ssh-connection.md).
-- Credentials used to authenticate with [SSH](/docs/infrastructure/deployment-targets/ssh-targets/username-and-password.md) (for username/password auth) and [external NuGet feeds](/docs/packaging-applications/package-repositories/index.md).
+- Credentials used to authenticate with [SSH](/docs/infrastructure/accounts/ssh-key-pair.md) (for username/password auth) and [external NuGet feeds](/docs/packaging-applications/package-repositories/index.md).
 
 The practical impact of this is:
 
