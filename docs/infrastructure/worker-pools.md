@@ -4,27 +4,43 @@ description: Worker pools are used to group workers and allow targeting steps at
 position: 70
 ---
 
-Worker pools are used to group workers and allow targeting steps at the pool of workers best equipped to execute the step.  There is always a default worker pool.  The default pool can't be deleted, but you can swap which pool is the default.  Think of worker pools as collections of homogenous workers.  For your default pool it might be enough that the workers are Tentacles running PowerShell 5, but you might have two teams working with different version of an SDK and so provision worker pools with workers running the appropriate SDK for each team.
+Worker pools are groups of workers (or servers) that can be used to execute tasks that don't need to run on the Octopus server or the deployment targets you're deploying software to. Workers are useful for the following steps:
 
-Worker pools are global resources and can't be scoped, for example, to environments.  All users can see what pools are available and if there are workers in the pools.  Only a user with the `ConfigureServer` permission can see the worker machines or edit workers or pools.
+- Publishing to Azure websites.
+- Deploying AWS CloudFormation templates.
+- Deploying to AWS Elastic Beanstalk.
+- Uploading files to Amazon S3.
+- Backing up databases.
+- Performing database schema migrations
+- Configuring load balancers.
 
-When a [step that requires a worker](/docs/administration/workers/index.md#Where-steps-run) is executed, Octopus first determines what worker pool the step should use, and then selects a worker from that pool to execute the step.
+Learn more about managing individual [workers](/docs/infrastructure/workers/index.md)
 
-!toc
+![Workers diagram](workers-diagram-img.png)
 
-## How the Worker Pool for a Step is Determined
+There is always a default worker pool, and the default pool can't be deleted, but you can swap which pool is the default. Worker pools are global resources which can't be scoped.  All users can see what pools are available and if there are workers in the pools. Only a user with the `ConfigureServer` permission can see the worker machines or edit workers or pools.
+
+Using multiple workers pools allows you to configure the workers in your  pools for the tasks they will be assigned. For instance, depending on your teams needs you might configure worker pools in the following ways:
+
+- Pools for scripts that expect different operating systems (Linux vs. Windows).
+- Pools for scripts that rely on different versions of cloud CLI tools: Azure CLI, AWS CLI, Terraform CLI, Kubernetes CLI (kubectl) etc.
+- Pools in special subnets or access to protected servers, such as for database deployments or in DMZs
+
+For your default pool it might be enough that the workers are Tentacles running PowerShell 5, but you might have two teams working with different version of an SDK and so provision worker pools with workers running the appropriate SDK for each team.
+
+## Using Workers
+
+When a step that requires a worker is executed, Octopus first determines what worker pool the step should use, and then selects a worker from that pool to execute the step.
 
 For a step that requires a worker, Octopus selects:
 
 - The default pool, if no pool is selected (or the step targets the Octopus Server).
 - The specified pool.
 
-## How the Worker is Selected From a Pool
-
 When the pool has been selected, Octopus selects a worker from the pool:
 
 - A healthy worker from the selected pool.
-- The built-in worker, if the step resolves to the default pool, but there no workers in the default pool. Note, if there are unhealthy workers in the pool, the built-in worker will **not** run. It will only if there are no workers in the pool.
+- The built-in worker, if the step resolves to the default pool, but there are no workers in the default pool. Note, if there are unhealthy workers in the pool, the built-in worker will **not** run. It will only run if there are no workers in the pool.
 
 Octopus makes no other guarantees about which worker is picked from a pool.
 
@@ -34,13 +50,18 @@ The step will fail for lack of a worker if:
 - There are no healthy workers in the pool.
 - Octopus selects a healthy worker from the pool, but during the deployment process can't contact the worker.
 
-## Using the Default Pool to Stop Running Scripts on the Server
+## Using the Default Pool for Scripts
 
-It's possible to move off running steps on the built-in worker, and thus off the Octopus server, without updating any deployment processes.  Simply adding workers to the default pool will disable the built-in worker and direct any steps that require a worker to the added workers.
+When you add workers to the default worker pool the built-in worker will be disabled. This means any deployment processes that previously used the built-in worker on the Octopus server, will automatically move from using the built-in worker to workers in the worker pool.
 
 ## Add New Worker Pools
 
-Add new worker pools to Octopus by navigating to {{Infrastructure,Worker Pools}} in the **Octopus Web Portal** and click **ADD WORKER POOL**.  Only a user with the `ConfigureServer` permission can add or edit worker pools.
+Only users with the `ConfigureServer` permission can add or edit worker pools.
+
+1. Navigate to {{Infrastructure,Worker Pools}} in the **Octopus Web Portal** and click **ADD WORKER POOL**.  
+1. Give the worker pool a meaningful name.
+1. If this pool should be the default worker pool expand the **Default Worker Pool** section and the default checkbox.
+1. Give the worker pool a description.
 
 You can add as many worker pools as you need.
 
@@ -52,7 +73,6 @@ If there are worker pools configured, any step that requires a worker can be tar
 **What's Shown in the UI?**
 The **Octopus Web Portal** is worker pool aware.  If you haven't configured pools or workers, the only option for steps that require a worker is the built-in worker, so the UI will only display the option to run a step on the `Octopus Server`.  In this case, Azure, AWS and Terraform steps will assume the default and display no choice.  If you have configured extra workers or pools, script, Azure, AWS and Terraform steps will allow the selection of a worker pool.
 :::
-
 
 ## Configuring a Cloud Target to Have a Default Worker Pool
 
@@ -79,7 +99,3 @@ At the moment all worker pools are global, so you can provision pools for variou
 *I see "leases" being taken out on particular workers in the deployment logs, can I get an exclusive lease for my deployment and clean off the worker once I'm done?*
 
 Not yet.  At the moment, the only time an exclusive lease is taken out is if a Tentacle upgrade runs on a worker.  We are thinking about features that allow exclusive access for deployments.
-
-*Got some examples to help me work out how I might set this up?*
-
-Coming soon.
