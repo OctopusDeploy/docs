@@ -35,8 +35,7 @@ The latest Octopus Tentacle MSI can always be downloaded from the [Octopus Deplo
 1. Back in the **Octopus Web Portal**, enter the DNS or IP address of the machine the Tentacle is installed on, i.e., `example.com` or `10.0.1.23`, and click **NEXT**.
 1. Add a display name for the deployment target (the server where you just installed the listening Tentacle).
 1. Select which environment the deployment target will be assigned to.
-1. Choose or create at least one target role for the deployment target. Learn about [target roles](/docs/infrastructure/deployment-targets/target-roles/index.md).
-1. Click save.
+1. Choose or create at least one target role for the deployment target and click **Save**. Learn about [target roles](/docs/infrastructure/deployment-targets/target-roles/index.md).
 
 Your deployment target is configured, next you need to preform a [health check and update Calamari](/docs/infrastructure/deployment-targets/windows-targets/index.md#health-check-and-upgrade-calamari).
 
