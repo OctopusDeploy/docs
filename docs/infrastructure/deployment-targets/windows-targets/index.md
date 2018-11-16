@@ -3,31 +3,31 @@ title: Windows Targets
 description: Everything you need to know about installing and configuring Octopus Tentacles on Windows targets for use with your deployments.
 position: 10
 ---
-When you deploy software to Windows Servers, you need to install Tentacle, a lightweight agent service, on all of those Window Servers.
+When you deploy software to Windows servers, you need to install Tentacle, a lightweight agent service, on all of those Window servers.
 
 Once installed, Tentacles:
 
-- Run as a Windows Service called **OctopusDeploy Tentacle**.
+- Run as a Windows service called **OctopusDeploy Tentacle**.
 - Wait for tasks from Octopus (deploy a package, run a script, etc).
-- Report the progress and results back to the Octopus Server.
+- Report the progress and results back to the Octopus server.
 
 Before you install Tentacle, review the software and hardware requirements for:
 
 - [The latest version of Tentacle](/docs/infrastructure/deployment-targets/windows-targets/requirements/index.md).
 - [Versions prior to Tentacle 3.1](/docs/infrastructure/deployment-targets/windows-targets/requirements/legacy-requirements.md).
 
+## Communication Mode
+
+Tentacles can be configured to communicate in Listening mode or Polling mode. Listening mode is the recommended communication style. Learn about the differences between the two modes on the [Tentacle communication](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md) page.
+
 ## Download the Tentacle Installer
 
 The latest Octopus Tentacle MSI can always be downloaded from the [Octopus Deploy downloads page](https://octopus.com/downloads).
 
-## Communication Mode
-
-Tentacles can be configured to communicate in Listening Mode or Polling Mode. Listening mode is the recommended communication style. Learn about the differences between the two modes on the [Tentacle communication](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md) page.
-
 ## Configure a Listening Tentacle (recommended)
 
 !include <install-tentacle-manager>
-7. Select **Listening Tentacle** and click **Next**.
+1. Select **Listening Tentacle** and click **Next**.
 1. In the **Octopus Web Portal**, navigate to the **Infrastructure** tab, select **Deployment Targets** and click **ADD DEPLOYMENT TARGET**.
 1. Click **WINDOWS** and select **Listening Tentacle**.
 1. Copy the **Thumbprint** (the long alphanumerical string).
