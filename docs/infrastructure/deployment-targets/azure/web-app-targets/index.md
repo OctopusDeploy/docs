@@ -10,7 +10,7 @@ Azure Web App deployment targets allow you to reference existing Web Apps in you
 
 ## Requirements
 
-- You need an [Azure Service Principal account](/docs/infrastructure/account/azure/index.md##azure-service-principal) that references your Azure subscription.
+- You need an [Azure Service Principal account](/docs/infrastructure/accounts/azure/index.md##azure-service-principal) that references your Azure subscription.
 
 - Once your Azure account is setup, you need an existing Azure Web App / App Service setup within your Azure subscription. To learn more about App Services, see the [Azure App Services documentation](https://docs.microsoft.com/en-us/azure/app-service/) that can help you get started. If you are dynamically creating the web app during your deployment, check our section about [creating Web App targets by scripts using service messages](#creating-web-app-targets-by-scripts).
 
