@@ -1,7 +1,7 @@
 ---
 title: Username and Password
 description: Username and Password Accounts allow you securely authenticate with SSH targets.
-position: 2
+position: 40
 ---
 
 A Username/Password Account is one mechanism that can be used to authenticate to [SSH Targets](/docs/infrastructure/deployment-targets/ssh-targets/index.md).

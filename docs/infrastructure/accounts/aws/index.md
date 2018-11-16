@@ -1,7 +1,7 @@
 ---
 title: AWS
 description:  Configure your infrastructure so Octopus can deploy infrastructure to AWS and run scripts against the AWS CLI.
-position: 60
+position: 20
 ---
 
 AWS support was introduced in **Octopus 2018.2**.
