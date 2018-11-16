@@ -27,13 +27,10 @@ The latest Octopus Tentacle MSI can always be downloaded from the [Octopus Deplo
 ## Configure a Listening Tentacle (recommended)
 
 !include <install-tentacle-manager>
-1. Select **Listening Tentacle** and click **Next**.
-1. In the **Octopus Web Portal**, navigate to the **Infrastructure** tab, select **Deployment Targets** and click **ADD DEPLOYMENT TARGET**.
-1. Click **WINDOWS** and select **Listening Tentacle**.
+1. On the communication style screen, select **Listening Tentacle** and click **Next**.
+1. In the **Octopus Web Portal**, navigate to the **Infrastructure** tab, select **Deployment Targets** and click **ADD DEPLOYMENT TARGET**, **WINDOWS**, and select **Listening Tentacle**.
 1. Copy the **Thumbprint** (the long alphanumerical string).
-1. Back on the Tentacle server, select **Listening Tentacle** and click **Next**.
-1. Accept the default listening port **10933** or provide your own.
-1. Paste the **Thumbprint** into the **Octopus Thumbprint** field and click **next**.
+1. Back on the Tentacle server, accept the default listening port **10933** and paste the **Thumbprint** into the **Octopus Thumbprint** field and click **Next**.
 1. Click **INSTALL**, and after the installation has finished click **Finish**.
 1. Back in the **Octopus Web Portal**, enter the DNS or IP address of the machine the Tentacle is installed on, i.e., `example.com` or `10.0.1.23`, and click **NEXT**.
 1. Add a display name for the deployment target (the server where you just installed the listening Tentacle).
@@ -55,10 +52,10 @@ Don't forget to allow access in any intermediary firewalls between the Octopus S
 
 ## Configure a Polling Tentacle
 
-Listening Tentacles are recommended, but you can learn about the difference between Listening Tentacles and Polling Tentacles on the [Tentacle communication](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md) page.
+Listening Tentacles are recommended, but there might be situations where you need to congiure a Polling Tentacle. You can learn about the difference between Listening Tentacles and Polling Tentacles on the [Tentacle communication](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md) page.
 
 !include <install-tentacle-manager>
-1. Select **Polling Tentacle** and click **next**.
+1. On the communication style screen, select **Polling Tentacle** and click **Next**.
 1. If you are using a proxy see [Proxy Support](/docs/infrastructure/deployment-targets/windows-targets/proxy-support.md), or click **next**.
 1. Add the Octopus credentials the Tentacle will use to connect to the Octopus Server:
     a. The Octopus URL: the DNS or IP address.
