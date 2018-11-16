@@ -14,7 +14,7 @@ This applies to:
 Azure supports two authentication methods, each of which provides access to a different set of Azure APIs:
 
 - To use the Azure Service Management (ASM) API, use an [Azure Management Certificate Account](/docs/infrastructure/deployment-targets/azure/index.md#azure-management-certificate).
-- To use the Azure Resource Management (ARM) API, use an [Azure Service Principal Account](/docs/infrastructure/deployment-targets/azure/index.md#azure-service-principal). (The ARM PowerShell cmdlets are prefixed with `AzureRM`, like `Get-AzureRMWebApp`).
+- To use the Azure Resource Management (ARM) API, use an [Azure Service Principal Account](/docs/infrastructure/accounts/azure/index.md#azure-service-principal). (The ARM PowerShell cmdlets are prefixed with `AzureRM`, like `Get-AzureRMWebApp`).
 
 Learn more about [configuring the right Azure Account](/docs/infrastructure/deployment-targets/azure/index.md).
 
