@@ -53,7 +53,7 @@ You can choose between:
 
 ### Register a Worker as a Polling Tentacle
 
-To register a worker in polling mode, you need to [configure a Polling Tentacle](/docs/infrastructure/deployment-targets/windows-targets/index.md#configure-a-polling-tentacle).
+It is not currently possible to configure a worker as a Polling Tentacle with the Tentacle Manager, please [Registering Workers with the Tentacle Executable](#registering-workers-with-the-tentacle-executable).
 
 ### Register a Worker with an SSH Connection
 
