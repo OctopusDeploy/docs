@@ -51,6 +51,8 @@ You can choose between:
 !include <configure-listening>
 1. Select which worker pool the deployment target will be assigned to and click **SAVE**.
 
+After you have saved the new worker, you can navigate to the worker pool you assigned the worker to, to view its status.
+
 ### Register a Worker as a Polling Tentacle
 
 It is not currently possible to configure a worker as a Polling Tentacle with the Tentacle Manager, please [Registering Workers with the Tentacle Executable](#registering-workers-with-the-tentacle-executable).
