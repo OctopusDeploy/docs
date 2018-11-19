@@ -1,7 +1,7 @@
 ---
 title: Worker Pools
 description: Worker pools are used to group workers and allow targeting steps at the pool of workers best equipped to execute the step.  This page describes how to configure worker pools for a variety of scenarios.
-position: 70
+position: 40
 ---
 
 Worker pools are groups of workers (or servers) that can be used to execute tasks that don't need to run on the Octopus server or the deployment targets you're deploying software to. Workers are useful for the following steps:

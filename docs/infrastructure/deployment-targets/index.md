@@ -1,7 +1,7 @@
 ---
 title: Deployment Targets
 description: How to configure deployment targets in Octopus
-position: 10
+position: 20
 hideInThisSection: True
 ---
 

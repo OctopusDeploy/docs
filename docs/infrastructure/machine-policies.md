@@ -1,7 +1,7 @@
 ---
 title: Machine Policies
 description: Machine Policies allow you to customize the behavior of Tentacle and SSH endpoints like health check settings, machine connectivity, updates and more.
-position: 110
+position: 50
 ---
 
 Machine policies are groups of settings that can be applied to Tentacle and SSH endpoints to modify their behavior. They can be used to:

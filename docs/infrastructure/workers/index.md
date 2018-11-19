@@ -1,7 +1,7 @@
 ---
 title: Workers
-description: External workers are machines that Octopus can use to delegate steps to during a deployment.  You can disable the built-in worker and delegate work to external workers instead. Using external workers makes your Octopus Server more secure, and allows you to decide where your workers do their work, and the context in which they perform their work.
-position: 80
+description: External workers are machines that can execute steps that don't need to be performed on the Octopus server or deployment targets.
+position: 30
 ---
 
 The Octopus Server has an built-in worker that can deploy packages, execute scripts, and perform tasks that don't need to be performed on a deployment target. This can be useful when you are working with an API, a cloud service, or it doesn't matter where a script runs. The built-in worker is configured by default.
