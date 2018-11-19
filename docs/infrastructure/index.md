@@ -14,8 +14,8 @@ You can manage your infrastructure, by navigating to the **Infrastructure** tab 
 * [Overview](#overview)
 * [Deployment targets](#deployment-targets)
 * [Environments](#environments)
-* [Worker pools](#worker-pools)
 * [Workers](#workers)
+* [Worker pools](#worker-pools)
 * [Machine policies](#machine-policies)
 * [Proxies](#proxies)
 * [Accounts](#accounts)
@@ -36,13 +36,13 @@ Learn how to add and manage your [environments](/docs/infrastructure/environment
 
 ## Workers
 
-[Workers](/docs/infrastructure/workers/index.md) are machines that are used to execute tasks that don't need to be performed on the Octopus server or deployment targets, for instance, if you are deploying a package to an API or running a script. You can register multiple workers and assign them to worker pools.
+[Workers](/docs/infrastructure/workers/index.md) are machines that are used to execute tasks that don't need to be performed on the Octopus server or specific deployment targets, for instance, if you are deploying a package to an API or running a script. You can register multiple workers and assign them to worker pools.
 
 Learn about [Workers](/docs/infrastructure/workers/index.md).
 
 ## Worker Pools
 
-Worker pools are groups of workers that can be used to perform tasks that don't need to be executed on the Octopus Server or on deployment targets
+Worker pools are groups of workers that can be used to perform tasks that don't need to be executed on the Octopus server or on deployment targets
 
 Learn more about adding and managing [worker pools](/docs/infrastructure/worker-pools.md)
 
@@ -60,6 +60,6 @@ Learn about Octopus's [proxy support](/docs/infrastructure/deployment-targets/wi
 
 ## Accounts
 
-In addition to the deployment targets listed above, you add an [AWS account](/docs/infrastructure/accounts/aws/index.md) to Octopus and deploy to Amazon Web Services. You can also add account details for other services you use with Octopus.
+In addition to the deployment targets listed above, you add an [AWS account](/docs/infrastructure/accounts/aws/index.md) to Octopus and deploy to Amazon Web Services. You can also add account details for you Azure subscriptions, SSH targets, and authentication tokens to use with remote hosts.
 
-Learn more about [accounts](/docs/infrastructure/accounts/index.md)
+Learn more about [accounts](/docs/infrastructure/accounts/index.md).
