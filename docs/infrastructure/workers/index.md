@@ -30,8 +30,6 @@ An **external worker** is either a [Tentacle](/docs/infrastructure/deployment-ta
 
 Workers have machine policies, are health checked, and run Calamari, just like deployment targets.
 
-!toc
-
 ## Registering an External Worker
 
 Once the Tentacle or SSH machine has been configured, workers can be added using the Web Portal, the [Octopus Deploy REST API](/docs/api-and-integration/api/index.md), the [Octopus.Clients library](/docs/api-and-integration/octopus.client.md) or with the tentacle executable.  Only a user with the `ConfigureServer` permission can add or edit workers.
@@ -47,17 +45,17 @@ You can choose between:
 - [Register a Worker in Polling Mode](#register-a-worker-in-polling-mode).
 - [Register a Worker with an SSH Connection](#register-a-worker-with-an-ssh-connection).
 
-#### Register a Worker in Listening Mode
+### Register a Worker in Listening Mode
 
 !include <install-tentacle-manager>
 !include <configure-listening>
 1. Select which worker pool the deployment target will be assigned to and click **SAVE**.
 
-#### Register a Worker in Polling Mode
+### Register a Worker in Polling Mode
 
 To register a worker in polling mode, you need to [configure a Polling Tentacle](/docs/infrastructure/deployment-targets/windows-targets/index.md#configure-a-polling-tentacle).
 
-#### Register a Worker with an SSH Connection
+### Register a Worker with an SSH Connection
 
 To register a worker with an SSH Connection, see the instructions for [configuring an SSH connection](/docs/infrastructure/deployment-targets/ssh-targets/configuring-ssh-connection.md).
 
