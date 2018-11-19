@@ -23,7 +23,7 @@ When defining your build definition, you can expand the **Advanced** properties 
 There are plenty of other properties that you can pass here. For example, you can tell OctoPack to publish the resulting packages to a file share or another NuGet repository. See the "Publishing a new package to Octopus" section below, or [Learn more in the section on OctoPack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md).
 :::
 
-Publishing a new package to Octopus
+### Publishing a new package to Octopus
 
 In most cases, you'll want to push your newly-created package to the built-in Octopus Deploy NuGet repository. To do this, you can use two additional MSBuild arguments to tell OctoPack to publish the package(s).
 
