@@ -32,7 +32,7 @@ Workers have machine policies, are health checked, and run Calamari, just like d
 
 ## Registering an External Worker
 
-Once the Tentacle or SSH machine has been configured, workers can be added using the Web Portal, the [Octopus Deploy REST API](/docs/api-and-integration/api/index.md), the [Octopus.Clients library](/docs/api-and-integration/octopus.client.md) or with the tentacle executable.  Only a user with the `ConfigureServer` permission can add or edit workers.
+Once the Tentacle or SSH machine has been configured, workers can be added using the [Web Portal](#registering-workers-in-the-web-portal), the [Octopus Deploy REST API](/docs/api-and-integration/api/index.md), the [Octopus.Clients library](/docs/api-and-integration/octopus.client.md) or with the tentacle executable.  Only a user with the `ConfigureServer` permission can add or edit workers.
 
 ### Registering Workers in the Web Portal
 
@@ -41,17 +41,17 @@ Once the Tentacle or SSH machine has been configured, workers can be added using
 
 You can choose between:
 
-- [Register a Worker in Listening Mode](#register-a-worker-in-listening-mode).
-- [Register a Worker in Polling Mode](#register-a-worker-in-polling-mode).
+- [Register a Worker as a Listening Mode](#register-a-worker-as-a-listening-tentacle).
+- [Register a Worker as a Polling Mode](#register-a-worker-as-a-polling-tentacle).
 - [Register a Worker with an SSH Connection](#register-a-worker-with-an-ssh-connection).
 
-### Register a Worker in Listening Mode
+### Register a Worker as a Listening Tentacle
 
 !include <install-tentacle-manager>
 !include <configure-listening>
 1. Select which worker pool the deployment target will be assigned to and click **SAVE**.
 
-### Register a Worker in Polling Mode
+### Register a Worker as a Polling Tentacle
 
 To register a worker in polling mode, you need to [configure a Polling Tentacle](/docs/infrastructure/deployment-targets/windows-targets/index.md#configure-a-polling-tentacle).
 
