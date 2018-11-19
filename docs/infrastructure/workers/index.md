@@ -55,7 +55,7 @@ You can choose between:
 
 #### Register a Worker in Polling Mode
 
-To register a worker in polling mode, you need to [configure a Polling Tentacle](/docs/infrastructure/deployment-targets/windows-targets/index,md#configure-a-polling-tentacle).
+To register a worker in polling mode, you need to [configure a Polling Tentacle](/docs/infrastructure/deployment-targets/windows-targets/index.md#configure-a-polling-tentacle).
 
 #### Register a Worker with an SSH Connection
 
