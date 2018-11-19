@@ -55,11 +55,11 @@ You can choose between:
 
 #### Register a Worker in Polling Mode
 
-To register a worker in polling mode, you need to [configure a Polling Tentacle](/docs/infrastructure/deployment-targets/windows-targets#configure-a-polling-tentacle).
+To register a worker in polling mode, you need to [configure a Polling Tentacle](/docs/infrastructure/deployment-targets/windows-targets/index,md#configure-a-polling-tentacle).
 
 #### Register a Worker with an SSH Connection
 
-To register a worker with an SSH Connection, see the instructions for [configuring an SSH connection](/docs/infrastructure/deployment-targets/ssh-targets/configuring-ssh-connection).
+To register a worker with an SSH Connection, see the instructions for [configuring an SSH connection](/docs/infrastructure/deployment-targets/ssh-targets/configuring-ssh-connection.md).
 
 ### Registering Workers with the Tentacle Executable
 
