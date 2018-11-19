@@ -4,7 +4,23 @@ description: External workers are machines that can execute steps that don't nee
 position: 30
 ---
 
-The Octopus Server has an built-in worker that can deploy packages, execute scripts, and perform tasks that don't need to be performed on a deployment target. This can be useful when you are working with an API, a cloud service, or it doesn't matter where a script runs. The built-in worker is configured by default.
+Workers are machines that can execute tasks that don't need to be run on the Octopus server or individual deployment targets.
+
+Workers are useful for the following steps:
+
+- Publishing to Azure websites.
+- Deploying AWS CloudFormation templates.
+- Deploying to AWS Elastic Beanstalk.
+- Uploading files to Amazon S3.
+- Backing up databases.
+- Performing database schema migrations
+- Configuring load balancers.
+
+![Workers diagram](workers-diagram-img.png)
+
+## Built-in Worker
+
+The Octopus server has an built-in worker that can deploy packages, execute scripts, and perform tasks that don't need to be performed on a deployment target. The built-in worker is configured by default, however, the built-in worker can be disabled by navigating to **Configuration** and selecting **Disable** fo the **Run steps on the Octopus Server** option.
 
 Learn more about the [built-in worker](/docs/administration/workers/built-in-worker.md).
 
@@ -18,9 +34,34 @@ Workers have machine policies, are health checked, and run Calamari, just like d
 
 ## Registering an External Worker
 
-Once the Tentacle or SSH machine has been configured, workers can be added using the UI, the [Octopus Deploy REST API](/docs/api-and-integration/api/index.md), the [Octopus.Clients library](/docs/api-and-integration/octopus.client.md) or with the tentacle executable.  Only a user with the `ConfigureServer` permission can add or edit workers.
+Once the Tentacle or SSH machine has been configured, workers can be added using the Web Portal, the [Octopus Deploy REST API](/docs/api-and-integration/api/index.md), the [Octopus.Clients library](/docs/api-and-integration/octopus.client.md) or with the tentacle executable.  Only a user with the `ConfigureServer` permission can add or edit workers.
 
-To register a worker in the **Octopus Web Portal**, navigate to the **Infrastructure** tab, select **Workers** and click **ADD WORKER**.
+### Registering Workers in the Web Portal
+
+1. Navigate to {{Infrastructure,Workers}} and click **ADD WORKER**.
+1. Select **WINDOWS** or **SSH CONNECTION** and click the card for the type of worker you want to configure.
+
+You can choose between:
+
+- [Register a Worker in Listening Mode](#register-a-worker-in-listening-mode).
+- [Register a Worker in Polling Mode](#register-a-worker-in-polling-mode).
+- [Register a Worker with an SSH Connection](#register-a-worker-with-an-ssh-connection).
+
+#### Register a Worker in Listening Mode
+
+!include <install-tentacle-manager>
+!include <configure-listening>
+1. Select which worker pool the deployment target will be assigned to and click **SAVE**.
+
+#### Register a Worker in Polling Mode
+
+To register a worker in polling mode, you need to [configure a Polling Tentacle](/docs/infrastructure/deployment-targets/windows-targets#configure-a-polling-tentacle).
+
+#### Register a Worker with an SSH Connection
+
+To register a worker with an SSH Connection, see the instructions for [configuring an SSH connection](/docs/infrastructure/deployment-targets/ssh-targets/configuring-ssh-connection).
+
+### Registering Workers with the Tentacle Executable
 
 Tentacle workers can also register with the server using the Tentacle executable (version 3.22.0 or later), for example:
 

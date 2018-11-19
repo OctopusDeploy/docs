@@ -4,19 +4,9 @@ description: Worker pools are used to group workers and allow targeting steps at
 position: 40
 ---
 
-Worker pools are groups of workers (or servers) that can be used to execute tasks that don't need to run on the Octopus server or the deployment targets you're deploying software to. Workers are useful for the following steps:
+Worker pools are groups of [workers](/docs/infrastructure/workers/index.md), when a task is assigned to a worker, the task will be executed by one of the workers in the worker pools you've configured.
 
-- Publishing to Azure websites.
-- Deploying AWS CloudFormation templates.
-- Deploying to AWS Elastic Beanstalk.
-- Uploading files to Amazon S3.
-- Backing up databases.
-- Performing database schema migrations
-- Configuring load balancers.
-
-Learn more about managing individual [workers](/docs/infrastructure/workers/index.md).
-
-![Workers diagram](workers-diagram-img.png)
+## Default Worker Pool
 
 There is always a default worker pool, and the default pool can't be deleted, but you can swap which pool is the default. Worker pools are global resources which can't be scoped.  All users can see what pools are available and if there are workers in the pools. Only a user with the `ConfigureServer` permission can see the worker machines or edit workers or pools.
 
