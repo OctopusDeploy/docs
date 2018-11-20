@@ -16,7 +16,7 @@ Workers are useful for the following steps:
 - Performing database schema migrations
 - Configuring load balancers.
 
-![Workers diagram](workers-diagram-img.png)
+![Workers diagram](workers-diagram-img.png "width=1000")
 
 ## Built-in Worker
 
