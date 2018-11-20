@@ -24,7 +24,9 @@ Deployment targets are added in different ways, depending on the type of target
 
 ## Health Checks
 
+Octopus periodically runs health checks on deployment targets and workers to ensure that they are available.
 
+Learn about [health checks](/docs/infrastructure/deployment-targets/health-checks.md).
 
 ## Target Roles
 
