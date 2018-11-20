@@ -1,7 +1,7 @@
 ---
 title: Health Check
 position: 95
-decription: Octopus periodically runs health checks on deployment targets and workers to ensure they are available.
+description: Octopus periodically runs health checks on deployment targets and workers to ensure they are available.
 ---
 !include <health-check>
 
