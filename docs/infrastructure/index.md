@@ -9,7 +9,7 @@ With Octopus Deploy, you can deploy software to Windows servers, Linux servers, 
 
 ## Managing Your Infrastructure
 
-You can manage your infrastructure, by navigating to the **Infrastructure** tab in the Octopus Web Portal. From there you can access the following options:
+You can manage your infrastructure by navigating to the **Infrastructure** tab in the Octopus Web Portal. From there you can access the following options:
 
 * [Overview](#overview)
 * [Deployment targets](#deployment-targets)
@@ -22,7 +22,7 @@ You can manage your infrastructure, by navigating to the **Infrastructure** tab 
 
 ## Overview
 
-From the **Overview** section of the **Infrastructure** tab of the Octopus Web Portal, you can quickly see your existing [environments](#environments), [deployment targets](#deployment-targets), and [worker pools](#workers), check on the status of your deployment targets and access targets by [target role](/docs/infrastructure/deployment-targets/target-roles/index.md).
+From the **Overview** section of the **Infrastructure** tab of the Octopus Web Portal, you can quickly see your existing [environments](#environments), [deployment targets](#deployment-targets), [worker pools](#worker-pools), and [workers](#workers), check on the status of your deployment targets and workers, and access targets by [target role](/docs/infrastructure/deployment-targets/target-roles/index.md).
 
 ## Deployment Targets
 
