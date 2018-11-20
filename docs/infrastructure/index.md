@@ -22,11 +22,13 @@ You can manage your infrastructure by navigating to the **Infrastructure** tab i
 
 ## Overview
 
-From the **Overview** section of the **Infrastructure** tab of the Octopus Web Portal, you can quickly see your existing [environments](#environments), [deployment targets](#deployment-targets), [worker pools](#worker-pools), and [workers](#workers), check on the status of your deployment targets and workers, and access targets by [target role](/docs/infrastructure/deployment-targets/target-roles/index.md).
+From the **Overview** section of the **Infrastructure** tab of the Octopus Web Portal, you can quickly see your existing [environments](#environments), [deployment targets](#deployment-targets), [worker pools](#worker-pools), and [workers](#workers), check on the [status](/docs/infrastructure/deployment-targets/health-checks.md) of your deployment targets and workers, and access targets by [target role](/docs/infrastructure/deployment-targets/target-roles/index.md).
 
 ## Deployment Targets
 
 The machines and services that you deploy your software to are your **deployment targets**. Learn about adding and configuring the different types of [deployment targets](/docs/infrastructure/deployment-targets/index.md), the [target roles](/docs/infrastructure/deployment-targets/target-roles/index.md) that are assigned to the deployment targets, and using [dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md).
+
+Learn more about [deployment targets](/docs/infrastructure/deployment-targets/index.md).
 
 ## Environments
 
@@ -38,13 +40,13 @@ Learn how to add and manage your [environments](/docs/infrastructure/environment
 
 [Workers](/docs/infrastructure/workers/index.md) are machines that are used to execute tasks that don't need to be performed on the Octopus server or specific deployment targets, for instance, if you are deploying a package to an API or running a script. You can register multiple workers and assign them to worker pools.
 
-Learn about [Workers](/docs/infrastructure/workers/index.md).
+Learn about [workers](/docs/infrastructure/workers/index.md).
 
 ## Worker Pools
 
-Worker pools are groups of workers that can be used to perform tasks that don't need to be executed on the Octopus server or on deployment targets
+Worker pools are the groups you assign your workers to. You can assign multiple workers to your worker pools, adding more as they're required.
 
-Learn more about adding and managing [worker pools](/docs/infrastructure/worker-pools.md)
+Learn more about adding and managing [worker pools](/docs/infrastructure/worker-pools.md).
 
 ## Machine Policies
 

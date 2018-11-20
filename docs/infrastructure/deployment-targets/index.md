@@ -11,7 +11,7 @@ From here you can add new deployment targets, disable or delete deployment targe
 
 ## Adding Deployment Targets
 
-Deployment targets are added in different ways, depending on the type of target you are adding and how the target will communicate with the Octopus Deploy Server. For instructions, see:
+Deployment targets are added in different ways, depending on the type of target you are adding and how the target will communicate with the Octopus Deploy server. For instructions, see:
 
 - [Listening and Polling Windows Tentacles](/docs/infrastructure/deployment-targets/windows-targets/index.md)
 - [SSH Connection](/docs/infrastructure/deployment-targets/ssh-targets/index.md)
@@ -36,4 +36,6 @@ Learn about [target roles](/docs/infrastructure/Deployment-targets/target-roles/
 
 ## Dynamic Infrastructure
 
-You can use scripts to create Azure Service Principal Accounts, Azure Web Apps, Azure Service Fabric, Azure Cloud Services and Kubernetes targets. Learn more about [Managing resources with scripts](/docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md).
+You can use scripts to create Azure Service Principal Accounts, Azure Web Apps, Azure Service Fabric, Azure Cloud Services and Kubernetes targets.
+
+Learn about [Managing resources with scripts](/docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md).

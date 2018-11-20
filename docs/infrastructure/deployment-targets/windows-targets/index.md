@@ -1,9 +1,9 @@
 ---
 title: Windows Targets
-description: Everything you need to know about installing and configuring Octopus Tentacles on Windows targets for use with your deployments.
+description: How to install Octopus Tentacles on Windows targets as either listening or polling Tentacles.
 position: 10
 ---
-When you deploy software to Windows servers, you need to install Tentacle, a lightweight agent service, on all of those Window servers.
+When you deploy software to Windows servers, you need to install Tentacle, a lightweight agent service, on yours Window servers so they can communicate with the Octopus server.
 
 Once installed, Tentacles:
 
@@ -18,7 +18,7 @@ Before you install Tentacle, review the software and hardware requirements for:
 
 ## Communication Mode
 
-Tentacles can be configured to communicate in Listening mode or Polling mode. Listening mode is the recommended communication style. Learn about the differences between the two modes on the [Tentacle communication](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md) page.
+Tentacles can be configured to communicate in Listening mode or Polling mode. Listening mode is the recommended communication style. Learn about the differences between the two modes and when you might choose to use polling instead of listening on the [Tentacle communication](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md) page.
 
 ## Download the Tentacle Installer
 
@@ -67,20 +67,21 @@ this is on purpose, and it means you can use different firewall conditions to al
 
 Using polling mode, you won't typically need to make any firewall changes on the Tentacle machine.
 
-**Intermediary Firewalls**
-Don't forget to allow access not just in Windows Firewall, but also any intermediary firewalls between the Tentacle and your Octopus Server. For example, if your Octopus Server is hosted in Amazon EC2, you'll also need to modify the AWS security group firewall to tell EC2 to allow the traffic. Similarly if your Octopus Server is hosted in Microsoft Azure you'll also need to add an Endpoint to tell Azure to allow the traffic.
+### Intermediary Firewalls
+
+Don't forget to allow access not just in Windows Firewall, but also any intermediary firewalls between the Tentacle and your Octopus server. For example, if your Octopus server is hosted in Amazon EC2, you'll also need to modify the AWS security group firewall to tell EC2 to allow the traffic. Similarly if your Octopus server is hosted in Microsoft Azure you'll also need to add an Endpoint to tell Azure to allow the traffic.
 
 ## Health Check and Upgrade Calamari
 
-The Octopus Server performs regular health checks to ensure Tentacles are connected and running the latest version of Calamari. After installing and configuring a new Tentacle, you need to run a health check and can upgrade the version of Calamari.
+The Octopus server performs regular health checks to ensure Tentacles are connected and running the latest version of Calamari. After installing and configuring a new Tentacle, you need to run a health check and can upgrade the version of Calamari.
 
-1. From the Infrastructure tab, select deployment targets.
+1. From the Infrastructure tab, select **deployment targets**.
 2. Click the overflow menu and select **Check Health**. If you've installed multiple Tentacles, it will check all of your Tentacles (if you'd rather check only one Tentacle, select that Tentacle from the Deployment Targets section, click **Connectivity** and then **Check health**).
 
 The first time you complete a health check on a Tentacle, you will see the Tentacle has health warnings and needs to install Calamari.
 Calamari is an [open-source](https://github.com/OctopusDeploy/Calamari), console-application.  It supports many commands, which are responsible for performing deployment steps.
 
-Learn more about [calamari](/docs/api-and-integration/calamari.md).
+Learn more about [Calamari](/docs/api-and-integration/calamari.md).
 
 Octopus will automatically push the latest version of Calamari with your first deployment, but you can do the following to install Calamari:
 
