@@ -4,7 +4,7 @@ description: This guide describes how to package and publish an ASP.NET Core pro
 position: 1
 ---
 
-The sample project for this guide is the [Angular project template with ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/client-side/spa/angular?view=aspnetcore-2.1) application. Which has an ASP.NET Core project to act as an API backend and an Angular CLI project to act as a UI. The base project has been modified slightly to host the Angular CLI project outside of the ASP.NET Core project to enable us to configure NGINX both as a reverse proxy to the ASP.NET Core project while also serving the Angular CLI project as static content from the file system.
+The sample project for this guide is the [Angular project template with ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/client-side/spa/angular?view=aspnetcore-2.1) application. The template consists of an ASP.NET Core project to act as an API backend and an Angular CLI project to act as a UI. The base project has been modified slightly to host the Angular CLI project outside of the ASP.NET Core project to enable us to configure NGINX both as a reverse proxy to the ASP.NET Core project while also serving the Angular CLI project as static content from the file system.
 
 ## Upload the Package to the Built-in Repository {#Create&PushASP.NETCoreProject-Uploadthepackagetothebuilt-inrepository}
 
