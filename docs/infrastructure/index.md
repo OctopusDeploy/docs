@@ -62,6 +62,12 @@ Learn about Octopus's [proxy support](/docs/infrastructure/deployment-targets/wi
 
 ## Accounts
 
-In addition to the deployment targets listed above, you add an [AWS account](/docs/infrastructure/accounts/aws/index.md) to Octopus and deploy to Amazon Web Services. You can also add account details for you Azure subscriptions, SSH targets, and authentication tokens to use with remote hosts.
+In addition to the deployment targets listed above, you add  the following account types.
+
+- [Azure](/docs/infrastructure/accounts/azure/index.md)
+- [AWS](/docs/infrastructure/accounts/aws/index.md)
+- [SSH Key pairs](/docs/infrastructure/accounts/ssh-key-pair.md)
+- [Username/Password](/docs/infrastructure/accounts/username-and-password.md)
+- [Tokens](/docs/infrastructure/accounts/tokens.md)
 
 Learn more about [accounts](/docs/infrastructure/accounts/index.md).
