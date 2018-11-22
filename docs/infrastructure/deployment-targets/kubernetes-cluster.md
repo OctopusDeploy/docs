@@ -16,13 +16,13 @@ Conceptually, a Kubernetes target represent a permission boundary and an endpoin
 1. Select at least one [target role](/docs/infrastructure/deployment-targets/target-roles/index.md) for the target.
 1. Select the authentication method for Kubernetes:
   - [Username and Password](/docs/infrastructure/accounts/username-and-password.md)
-  - [Token](/docs/infrastructure/accounts/token.md)
-  - [Azure Service Principal](/docs/infrastructure/accounts/azure/index#azure-service-principal)
+  - [Token](/docs/infrastructure/accounts/tokens.md)
+  - [Azure Service Principal](/docs/infrastructure/accounts/azure/index.md#azure-service-principal)
   - [AWS Account](/docs/infrastructure/accounts/aws/index.md)
-  - [Client Certificate](/docs/deployment-examples/kubernetes-deployments/kubernetes-target#certificates)
+  - [Client Certificate](/docs/deployment-examples/kubernetes-deployments/kubernetes-target/index.md#certificates)
 1. Enter the Kubernetes cluster URL.
-1. Optionally, select the certificate authority if you've added one. If you need to add a certificate see [Kubernetes Certificate](/docs/deployment-examples/kubernetes-deployments/kubernetes-target/index#kubernetes-certificate). If you are not providing a certificate, tick the **Slip TLS verification**.
-1. Enter the Kubernetes Namespace. For more information see, [Kubernetes Namespace](/docs/deployment-examples/kubernetes-deployments/kubernetes-target#kubernetes-namespaces).
+1. Optionally, select the certificate authority if you've added one. If you need to add a certificate see [Kubernetes Certificate](/docs/deployment-examples/kubernetes-deployments/kubernetes-target/index.md#kubernetes-certificate). If you are not providing a certificate, tick the **Slip TLS verification**.
+1. Enter the Kubernetes Namespace. For more information see, [Kubernetes Namespace](/docs/deployment-examples/kubernetes-deployments/kubernetes-target/index.md#kubernetes-namespaces).
 1. Select a default worker pool for the target.
 1. Click **SAVE**.
 
