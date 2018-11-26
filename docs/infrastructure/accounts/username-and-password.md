@@ -6,6 +6,9 @@ position: 40
 
 A Username/Password account can be used to connect [SSH Targets](/docs/infrastructure/deployment-targets/ssh-targets/index.md) and services like Google Cloud Platform if you are using the [Kubernetes](/docs/deployment-examples/kubernetes-deployments/index.md) functionality in Octopus.
 
+<!-- re-order this. Users need to enable this before it will work. -->
+
+
 ## Create a Username and Password Account {#UsernameandPassword-Creatingtheaccount}
 
 1. Navigate to {{infrastructure,Accounts}} and click **ADD ACCOUNT**.
