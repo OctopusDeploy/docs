@@ -10,7 +10,7 @@ You can assign a static IP address to your Octopus cloud instance. This lets you
 - Whitelist the static IP address of the Octopus server in your network configuration.
 - Allow connections to Linux or Unix SSH targets from the static IP address only.
 
-### Activate your Static IP address
+## Activate your Static IP address
 
 1. [Log in to your Octopus Account](https://account.octopus.com/instances).
 2. Select **Change Billing** and pick a plan with the option to purchase a static IP address.
