@@ -79,7 +79,7 @@ Action-level variables are available during execution of an action. Indexer noti
 | -------------------- | ------- |
 |**`Octopus.Action.Id`** <br/>The ID of the action | *85287bef-fe6c-4eb7-beef-74f5e5a6b5b0*|
 |**`Octopus.Action.IsSkipped`** <br/>Whether or not the action has been skipped in the current deployment *(Boolean)* | *True*|
-|**`Octopus.Action.Manual.Instructions`** <br/>The instructions provided for a manual step | *Don't break anything :)*|
+|**`Octopus.Action.Manual.Instructions`** <br/>The instructions provided for a manual step | *Don't break anything* |
 |**`Octopus.Action.Manual.ResponsibleTeamIds`** <br/>The teams responsible for completing a manual step*(List)* | *teams-123,teams-124*|
 |**`Octopus.Action.MaxParallelism`** <br/>The maximum number of deployment targets on which the action will concurrently execute, and the maximum number of steps which will run in parallel. This value can be set in a project variable to change the default for the project. Additionally you can scope a value to specific actions to control concurrency across your deployment targets. This is the same variable which is set when configuring a [rolling deployment](/docs/deployment-patterns/rolling-deployments.md). *(Number - Default: 10)* | *5*|
 |**`Octopus.Action.Name`** <br/>The name of the action | *Website*|
@@ -139,7 +139,6 @@ Action-level variables are available during execution of an action. Indexer noti
 |**`Octopus.Action.Azure.WebAppName`** <br/>The name of the Web App being targeted by this deployment | *my-web-app*|
 |**`Octopus.Action.Azure.DeploymentSlot`** <br/>The name of the Web App slot being targeted by this deployment | *staging* |
 |**`Octopus.Action.Azure.ResourceGroupName`** <br/>The name of the resource group being targeted by this deployment | myresourcegroup |
-|**`Octopus.Action.Azure.WebSpaceName`** <br/>The name of the Web Space being targeted by this deployment | *SoutheastAsiaWebSpace1*|
 |**`Octopus.Action.Azure.RemoveAdditionalFiles`** <br/>When *True* instructs Web Deploy to delete files from the destination that aren't in the source package | *True*|
 |**`Octopus.Action.Azure.PreserveAppData`** <br/>When *True* instructs Web Deploy to skip Delete operations in the **App\_Data** directory | *True*|
 |**`Octopus.Action.Azure.AppOffline`** <br/>When *True* instructs Web Deploy to safely bring down the app domain by adding a blank **app\_offline.html** file in the site root | *True*|
