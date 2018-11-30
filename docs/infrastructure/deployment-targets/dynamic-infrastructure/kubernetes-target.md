@@ -7,19 +7,19 @@ position: 40
 ## Kubernetes
 Command: **_New-OctopusKubernetesTarget_**
 
-| Parameter                     | Value                                                                                   |
-| ------------------------------| --------------------------------------------------------------------------------------- |
-| `-name`  |  Name for the Octopus deployment target.  |
-| `-clusterUrl`   | The Kubernetes cluster URL. This must be a complete URL such as `https://mycluster.org`.  |
-| `-octopusServerCertificateIdOrName`   |  The name of the Octopus certificate to use as the cluster CA.  |
-| `-octopusRoles`    | Comma separated list of Roles to assign.   |
-| `-octopusAccountIdOrName`   |  The name of the Octopus account used for authentication with the cluster. This or the `-octopusClientCertificateIdOrName` option must be defined. |
-|  `-octopusClientCertificateIdOrName`   |  The name of the Octopus certificate used for authentication with the cluster. This or the `-octopusAccountIdOrName` option must be defined. |
-| `-clusterResourceGroup`   | When using an Azure account, this defines the name of the resource group that holds the AKS cluster.  |
-|  `-clusterName`    | When using a AWS or Azure account, this defines the name of the EKS or AKS cluster.  |
-| `-namespace`   | The default kubectl namespace.  |
-| `-updateIfExisting`    | Will update an existing Kubernetes target with the same name, create if it doesn't exist.  |
-| `-skipTlsVerification`   | The server's certificate will not be checked for validity. This will make your HTTPS connections insecure.  |
+| Parameter                            | Value                                                                                   |
+| -------------------------------------| --------------------------------------------------------------------------------------- |
+| `-name`                              |  Name for the Octopus deployment target.  |
+| `-clusterUrl`                        | The Kubernetes cluster URL. This must be a complete URL such as `https://mycluster.org`.  |
+| `-octopusServerCertificateIdOrName`  |  The name of the Octopus certificate to use as the cluster CA.  |
+| `-octopusRoles`                      | Comma separated list of Roles to assign.   |
+| `-octopusAccountIdOrName`            |  The name of the Octopus account used for authentication with the cluster. This or the `-octopusClientCertificateIdOrName` option must be defined. |
+|  `-octopusClientCertificateIdOrName` |  The name of the Octopus certificate used for authentication with the cluster. This or the `-octopusAccountIdOrName` option must be defined. |
+| `-clusterResourceGroup`              | When using an Azure account, this defines the name of the resource group that holds the AKS cluster.  |
+|  `-clusterName`                      | When using a AWS or Azure account, this defines the name of the EKS or AKS cluster.  |
+| `-namespace`                         | The default kubectl namespace.  |
+| `-updateIfExisting`                  | Will update an existing Kubernetes target with the same name, create if it doesn't exist.  |
+| `-skipTlsVerification`               | The server's certificate will not be checked for validity. This will make your HTTPS connections insecure.  |
 
 ### Examples
 

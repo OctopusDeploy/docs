@@ -65,7 +65,7 @@ In the example YAML above, the user name is found in the `username` field, and t
 
 In the example YAML above, the token is defined in the `token` field. This value can be added as an Octopus `Tokens` account.
 
-### Certificates
+### Certificates {#kubernetes-certificate}
 
 When authenticating with certificates, both the certificate and private key must be provided. In the example YAML above, the `client-certificate-data` field is a base 64 encoded certificate, and the `client-key-data` field is a base 64 encoded private key (both have been truncated for readability in this example).
 
@@ -122,7 +122,11 @@ Cloud account types are not supported on SSH workers. If you attempt to use a cl
 
 ## Kubernetes Details Section
 
+### Kubernetes Cluster URL
+
 Each Kubernetes target requires the cluster URL, which is defined in the `Kubernetes cluster URL` field. In the example YAML about, this is defined in the `server` field.
+
+### Certificate
 
 Kubernetes clusters are quite often protected with self signed certificates. In the YAML example above the certificate is saved as a base 64 encoded string in the `certificate-authority-data` field.
 

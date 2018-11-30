@@ -14,9 +14,9 @@ Machine policies are groups of settings that can be applied to Tentacle and SSH 
 
 ![](/docs/images/5669423/5865583.png "width=500")
 
-## Health Checks
+## Health Check
 
-Octopus periodically runs health checks on deployment targets to ensure that they are available for deployment.  
+!include <health-check>
 
 ### Health Check Interval {#MachinePolicies-Healthcheckinterval}
 
@@ -42,14 +42,7 @@ Try {
 
 The function *CheckDriveCapacity* informs you about how much space is available on your Tentacle's local hard disk and will write a warning if the free disk space is less than this threshold. You can add additional PowerShell to this script to customize your health checks as you wish, modify or remove the disk space checking altogether. It's entirely up to you! Just remember, you can copy and paste the original script above *back* into your machine policy if you run into any problems and wish to get back to the default behavior.
 
-The health status of a deployment target can be set by custom health check scripts.  Deployment targets can have four health statuses:
-
-- Healthy
-- Healthy with Warnings
-- Unhealthy
-- Unavailable
-
-A *healthy* deployment target completes a health check without any errors or warnings.  A deployment target that is *healthy with warnings* completes a health check but encounters a non-critical failure during the health check.  An *unhealthy* deployment target completes a health check but encounters a critical failure while running the health check script.  An *unavailable* deployment target is not contactable by Octopus during a health check.
+## Setting the Status
 
 A health check script can set the status of a target by returning a non-zero exit code or by writing a service message during the health check. Tentacle deployment targets can use *Write-Warning*, *Write-Error* and *Fail-HealthCheck* to convey a healthy with warnings or unhealthy status:
 

@@ -30,6 +30,8 @@ Before you can create dynamic targets in an Environment, the environment needs t
 
 [Azure Cloud Service](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-cloud-service-target.md)
 
+[Kubernetes Cluster](/docs/infrastructure/deployment-targets/dynamic-infrastructure/kubernetes-target.md)
+
 [Remove Target](/docs/infrastructure/deployment-targets/dynamic-infrastructure/remove-target.md)
 
 ### Restrictions

@@ -1,18 +1,25 @@
 ---
-title: Username and Password
-description: Username and Password Accounts allow you securely authenticate with SSH targets.
+title: Username/Password
+description: Username and Password Accounts allow you securely authenticate with different services.
 position: 40
 ---
 
+A Username/Password account can be used to connect [SSH Targets](/docs/infrastructure/deployment-targets/ssh-targets/index.md) and services like Google Cloud Platform if you are using the [Kubernetes](/docs/deployment-examples/kubernetes-deployments/index.md) functionality in Octopus.
+
+## Create a Username and Password Account {#UsernameandPassword-Creatingtheaccount}
+
+1. Navigate to {{infrastructure,Accounts}} and click **ADD ACCOUNT**.
+1. Select **Username/Password** from the dropdown menu.
+1. Give the account a name, for instance, **SSH backup server** or **Google**.
+1. Add a description.
+1. Add the username and password you use to authenticate against the remote host.
+1. If you want to restrict which environments can use the account, select the environments that are allowed to use the account. If you select no environments, all environments will be allowed to use the account.
+
+## SSH Username and Password
+
 A Username/Password Account is one mechanism that can be used to authenticate to [SSH Targets](/docs/infrastructure/deployment-targets/ssh-targets/index.md).
 
-## Creating the Account {#UsernameandPassword-Creatingtheaccount}
-
-You must provide both the username and password which will be used during the initial authentication phase of the SSH connection.
-
-![](username-and-password-create.png "width=500")
-
-## Enabling Username & Password Authentication {#UsernameandPassword-EnablingUsername&amp;PasswordAuthentication}
+### Enabling Username & Password Authentication {#UsernameandPassword-EnablingUsername&amp;PasswordAuthentication}
 
 Depending on your target machine's distro it might not have password authentication enabled by default.
 
