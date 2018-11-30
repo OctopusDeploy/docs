@@ -58,7 +58,7 @@ Defining retention policies is done within Lifecycles. Each phase can have a dif
 
 ![](/docs/images/3048641/3278386.png "width=500")
 
-You can read more about [Lifecycles ](/docs/deployment-process/lifecycles/index.md)and [Retention Policies](/docs/administration/retention-policies/index.md) on their own detailed pages.
+You can read more about [Lifecycles](/docs/deployment-process/lifecycles/index.md) and [Retention Policies](/docs/administration/retention-policies/index.md) on their own detailed pages.
 
 In this example the default for the Lifecycle is to Keep 3 releases on both Octopus Server and Tentacle.
 
@@ -67,7 +67,7 @@ In this example the default for the Lifecycle is to Keep 3 releases on both Octo
 
 [Channels](/docs/deployment-process/channels/index.md) can be used in Octopus to handle many different deployment scenarios. In some cases you may have a hotfix channel in which deployments, as they are promoted through their environments, should be considered as overriding deployments from the default channel for the given environment. Alternatively you may be using channels to deploy feature branches which involve having several concurrent releases active at any one time across different channels for the same environment. When using the feature branch type scenario, you will likely want retention policies to recognize that since both channels should be accessible at the same time, the retention policy rules should apply to each independently. This behavior can be enabled for each project via the `Discrete Channel Releases` flag at under `Deployment Target settings` on the {{Project,Process}} page which is provided from version `3.12.2`.
 
-![Discrete Channel Release](/docs/images/discrete-channel-release_[4.0,).png "width=500")
+![Discrete Channel Release](discrete-channel-release.png "width=500")
 
 
 ## When the Retention Policy is Run {#RetentionpolicyTentaclecleanupandtroubleshooting-Whentheretentionpolicyisrun}
