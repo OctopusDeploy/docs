@@ -69,7 +69,7 @@ Note, you can still override this setting for individual deployments. For more i
 
 When enabled, environments can create some deployment targets within Octopus Deploy. For details, see [dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md).
 
-### Enable to Disable Dynamic Infrastructure
+### Enable or Disable Dynamic Infrastructure
 
 Dynamic infrastructure can be enabled when a new environment is created, or it can be enabled or disabled for existing environments.
 
