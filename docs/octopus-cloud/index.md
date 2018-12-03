@@ -45,7 +45,7 @@ When the instance is ready, you will see it (and any other instances you have ac
 
 You can access your Octopus Cloud instance at the URL you defined during the registration process. Where <YourURL> is the part of the URL you provided:
 
-https:///<YourURL/>.octopus.app/app#/users/sign-in
+https://\<YourURL\>.octopus.app/app#/users/sign-in
 
 ## Reset the User Password
 
