@@ -16,11 +16,11 @@ To allow the Octopus server to connect using the provided credentials you the wi
 1. Find the line that contains: `PasswordAuthentication` and change it to: `PasswordAuthentication yes`.
 1. Restart the SSH service under root privileges: `service ssh restart`.
 
-If you still experience problems it may help to try connect directly to the target machine using these credentials though a client like putty to help eliminate any networking related problems with your Octopus configuration.
+If you experience problems connecting, it may help to try connect directly to the target machine using these credentials though a client like putty. This will help eliminate any network related problems with your Octopus configuration.
 
 :::warning
 **Different Distributions use Different Conventions**
-While the above instructions should work on common platforms like Ubuntu or RedHat, you may need to double check the details for specific instructions relating to ssh authentication on target operating system. There are many different \*Nix based distributions some of which have their own unique way of doing things. For this reason we cannot guarantee that these SSH instructions will work in every case.
+While the above instructions should work on common platforms like Ubuntu or Red Hat, you may need to double check the details for specific instructions relating to SSH authentication on target operating system. There are many different \*Nix based distributions, and some of these have their own unique way of doing things. For this reason we cannot guarantee that these SSH instructions will work in every case.
 :::
 
 ## Create a Username and Password Account {#UsernameandPassword-Creatingtheaccount}
@@ -30,4 +30,5 @@ While the above instructions should work on common platforms like Ubuntu or RedH
 1. Give the account a name, for instance, **SSH backup server** or **Google**.
 1. Add a description.
 1. Add the username and password you use to authenticate against the remote host.
-1. If you want to restrict which environments can use the account, select the environments that are allowed to use the account. If you select no environments, all environments will be allowed to use the account.
+1. If you want to restrict which environments can use the account, select those environments. If you select no environments, all environments will be allowed to use the account.
+1. Click **SAVE**.
