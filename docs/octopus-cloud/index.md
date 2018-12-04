@@ -50,7 +50,7 @@ If you forget your username or password for the instance, you can request a **ne
 1. Select your cloud instance.
 1. Click the **new user invite** link.
 
-If you are trying to add new users to your Octopus Cloud instance, that is done in the instanc e itself. Learn more about [managing users and teams](/docs/administration/managing-users-and-teams/index.md).
+If you are trying to add new users to your Octopus Cloud instance, that is done in the instance itself. Learn more about [managing users and teams](/docs/administration/managing-users-and-teams/index.md).
 
 ## Set the Outage Window
 
@@ -63,6 +63,6 @@ In order to keep your instance of Octopus Cloud updated and running the latest v
 
 ## Log in to Your Octopus Cloud Instance
 
-You can access your Octopus Cloud instance at the URL you defined during the registration process. Where \<YourURL\> is the part of the URL you provided:
+You can access your Octopus Cloud instance at the URL you defined during the registration process. Where \<yoururl\> is the part of the URL you provided:
 
-https://\<YourURL\>.octopus.app/app#/users/sign-in
+https://\<yoururl\>.octopus.app/app#/users/sign-in

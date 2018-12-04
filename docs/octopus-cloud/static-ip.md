@@ -15,6 +15,6 @@ You can assign a static IP address to your Octopus Cloud instance. This lets you
 1. [Log in to your Octopus Account](https://account.octopus.com/instances).
 2. Select **Change Billing** and pick a plan with the option to purchase a static IP address.
 
-Please allow a few minutes for the changes to be applied. There will be a short outage while the static IP address is provisioned. After this has been completed, you can find your IP address by performing a DNS lookup on the host name of your Octopus Cloud instance, where \<YourURL\> is the part of the URL you provided:
+Please allow a few minutes for the changes to be applied. There will be a short outage while the static IP address is provisioned. After this has been completed, you can find your IP address by performing a DNS lookup on the host name of your Octopus Cloud instance, where \<yoururl\> is the part of the URL you provided:
 
-https://\<YourURL\>.octopus.app
+https://\<yoururl\>.octopus.app
