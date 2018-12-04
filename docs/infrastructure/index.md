@@ -1,7 +1,7 @@
 ---
 title: Infrastructure
 description: Configure your infrastructure so Octopus Deploy can deploy software to your Windows servers, Linux servers, Microsoft Azure, AWS, an offline package drop, or Cloud Regions.
-position: 2
+position: 30
 hideInThisSection: True
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Account Variables
-description: Create an AWS Account to use it in Azure deployment steps
+description: Create an Azure Account variable to use it in Azure deployment steps
 position: 80
 version: "[2018.5,)"
 ---

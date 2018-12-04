@@ -14,7 +14,7 @@ As an Octopus user, you define the process for deploying your software. You spec
 
 ## Octopus Deploy Server
 
-You can install your own [self-hosted](/docs/getting-started.md#self-hosted-octopus) instance of the Octopus Deploy Server or use the [cloud-hosted](/docs/getting-started.md#octopus-cloud) server.
+You can install your own [self-hosted](/docs/getting-started.md#self-hosted-octopus) instance of the Octopus Deploy Server or use [Octopus Cloud](/docs/getting-started.md#octopus-cloud).
 
 ## Self-Hosted Octopus
 
@@ -26,7 +26,7 @@ The [installation documentation](/docs/installation/index.md) provides instructi
 
 **Octopus Cloud** is the hosted version of Octopus Deploy. We designed Octopus Cloud and self-hosted Octopus to provide the same functionality; however, there are some minor differences, for instance, with Octopus Cloud, we're [responsible](/docs/administration/security/index.md#responsibility) for taking backups, upgrading the service, and maintaining and monitoring the underlying systems.
 
-You can sign up for Octopus Cloud at [octopus.com/account/register](https://octopus.com/account/register), check out the [Octopus Cloud FAQ](https://octopus.com/blog/octopus-cloud-faq) blog post or the [pricing page](https://octopus.com/cloud).
+Learn more about [Octopus Cloud](/docs/octopus-cloud/index.md).
 
 ## The Octopus Web Portal
 

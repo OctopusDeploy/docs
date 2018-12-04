@@ -1,6 +1,6 @@
 ---
 title: Installation
-position: 0
+position: 10
 description: How to install the central Octopus Deploy Server.
 ---
 
