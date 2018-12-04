@@ -1,6 +1,6 @@
 ---
 title: Octopus Cloud
-position: 10
+position: 20
 description: How to work with Octopus Cloud.
 ---
 **Octopus Cloud** is the hosted version of Octopus Deploy. It has been publicly available since February 2018.
