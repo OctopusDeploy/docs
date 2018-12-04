@@ -1,5 +1,5 @@
 ---
-title: Static IP
+title: Static IP Address
 position: 20
 description: How to activate a static IP address with Octopus Cloud.
 ---
