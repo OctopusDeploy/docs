@@ -4,9 +4,9 @@ position: 10
 description: How to work with your data in Octopus Cloud.
 ---
 
-We make backups of instance databases and store these securely, so we have multiple restore points in the unlikely event of a disaster.
+We make backups of instance databases and store these securely so that we have multiple restore points in the unlikely event of a disaster.
 
-We evaluate our backup and recovery strategy frequently, to improve resiliency and recovery as we need to.
+We evaluate our backup and recovery strategy frequently to improve resiliency and recovery as we need to.
 
 ## Importing Data
 
