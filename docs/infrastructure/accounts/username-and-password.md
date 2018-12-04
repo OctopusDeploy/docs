@@ -8,7 +8,7 @@ A Username/Password account can be used to connect [SSH Targets](/docs/infrastru
 
 ## Enabling Username & Password Authentication on Linux {#UsernameandPassword-EnablingUsername&amp;PasswordAuthentication}
 
-Depending on your target machine's distribution you may need to enable password authentication.
+Depending on your SSH target machine's distribution you may need to enable password authentication.
 
 To allow the Octopus server to connect using the provided credentials you the will need to modify the sshd\_config file on the target machine:
 
