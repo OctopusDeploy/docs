@@ -6,6 +6,8 @@ position: 30
 
 A SSH Key Pair Account is one of the more secure authentication methods available for connections to [SSH Targets](/docs/infrastructure/deployment-targets/ssh-targets/index.md).
 
+<!-- reorder this so it flows step by step as the user would complete it -->
+
 ## Creating the Account {#SSHKeyPair-Creatingtheaccount}
 
 Provide the username that you wish Octopus Deploy to connect as, along with the generated private key that is linked to the public key stored on the server being targeted. The server will confirm that this private key matches its public key at the start of each SSH connection. The "Passphrase" is an optional field that will need to be provided if the private key has been encrypted. If you are storing this key on disk it is recommended, but not mandatory, that your key be encrypted.
@@ -14,7 +16,7 @@ Provide the username that you wish Octopus Deploy to connect as, along with the 
 
 ## Creating a SSH Key Pair  {#SSHKeyPair-CreatingaSSHKeyPaircreate-key-pair}
 
-Setting up a key for use during authentication is a very simple process and can be done on either the target or Octopus Server.
+Setting up a key for use during authentication is a very simple process and can be done on either the [Linux target](#SSHKeyPair-Linux) or the [Octopus Server](#SSHKeyPair-Windows).
 
 ### Linux {#SSHKeyPair-Linux}
 
