@@ -66,3 +66,18 @@ In order to keep your instance of Octopus Cloud updated and running the latest v
 You can access your Octopus Cloud instance at the URL you defined during the registration process. Where \<yoururl\> is the part of the URL you provided:
 
 https://\<yoururl\>.octopus.app/app#/users/sign-in
+
+## Octopus Cloud Version
+
+We keep your instance of Octopus Cloud up to date and running the latest version of Octopus Deploy. To check which version your instance is running, log into the web portal, and click the dropdown menu that appears next to your name in the top right corner. The version is displayed at the top of the display.
+
+## Change Your Password
+
+To change your password for the Octopus instance:
+
+1. Log in to your Octopus Cloud instance.
+1. Click the dropdown menu next to your username in the top right corner.
+1. Click profile.
+1. Click the **Change Password** link.
+1. Enter your new password.
+1. Confirm the new password, and click **SAVE**.
