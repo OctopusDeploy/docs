@@ -22,7 +22,7 @@ You now have two files:
 - id_rsa (the private key)
 - id_rsa.pub (the public key)
 
-The public key will be stored on this server and the private key will be copied to the Octopus Server.
+The public key will be stored on this (the Linux) server and the private key will be copied to the Octopus Server.
 
 5. Copy the public key to the `authorized_keys` file that is used during authentication:
 
@@ -36,6 +36,10 @@ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 chmod 600 ~/.ssh/authorized_keys
 ```
 
+7. Copy the private key to the machine your Octopus Server is installed on.
+
+Proceed to [creating the the SSH Key Pair account](#SSHKeyPair-Creatingtheaccount).
+
 If you need more information about generating an SSH key pair, see the [useful links section](#SSHKeyPair-UsefulLinks).
 
 ### Generating a Key Pair on Windows {#SSHKeyPair-Windows}
@@ -48,11 +52,23 @@ Provide your passphrase if desired and export the private key to the accepted fo
 
 If you need more information about generating an SSH key pair, see the [useful links section](#SSHKeyPair-UsefulLinks).
 
-## Creating the Account {#SSHKeyPair-Creatingtheaccount}
+## Creating the SSH Key Pair Account {#SSHKeyPair-Creatingtheaccount}
 
-Provide the username that you wish Octopus Deploy to connect as, along with the generated private key that is linked to the public key stored on the server being targeted. The server will confirm that this private key matches its public key at the start of each SSH connection. The "Passphrase" is an optional field that will need to be provided if the private key has been encrypted. If you are storing this key on disk it is recommended, but not mandatory, that your key be encrypted.
+1. Navigate to {{infrastructure,Accounts}} and click **ADD ACCOUNT**.
+1. Select **SSH Key Pair** from the dropdown menu.
+1. Give the account a name so you can easily identify it when you need to use the account.
+1. Add a description.
+1. Enter username you will use to access the remote host.
+1. Upload the private key to the Octopus server.
+1. Enter the passphrase for the private key if you created one.
+1. If you want to restrict which environments can use the account, select only the environments that are allowed to account. If you select no environments, all environments will be allowed to use the account.
+1. Click **SAVE**.
 
-![](ssh-create-account.png "width=500")
+The account is now ready to be used when you configure your SSH deployment target.
+
+The server will confirm that this private key matches its public key at the start of each SSH connection.
+
+If you are storing the private key on disk it is recommended, but not mandatory, that you encrypt the key.
 
 ## Useful Links {#SSHKeyPair-UsefulLinks}
 
