@@ -30,7 +30,7 @@ The public key will be stored on this server and the private key will be copied 
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 ```
 
-6. Modify the permissions of the `authorized_keys`:
+6. Modify the permissions of the `authorized_keys` file:
 
 ```bash
 chmod 600 ~/.ssh/authorized_keys
