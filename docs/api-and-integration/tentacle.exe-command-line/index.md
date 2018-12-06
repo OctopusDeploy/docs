@@ -31,6 +31,7 @@ hideInThisSection: true
 - **[service](/docs\api-and-integration\tentacle.exe-command-line/service.md)**:  Start, stop, install and configure the Tentacle service.
 - **[show-configuration](/docs\api-and-integration\tentacle.exe-command-line/show-configuration.md)**:  Outputs the Tentacle configuration.
 - **[show-thumbprint](/docs\api-and-integration\tentacle.exe-command-line/show-thumbprint.md)**:  Show the thumbprint of this Tentacle's certificate.
+- **[update-trust](/docs\api-and-integration\tentacle.exe-command-line/update-trust.md)**:  Replaces the trusted Octopus Server thumbprint of any matching polling or listening registrations with a new thumbprint to trust.
 - **[version](/docs\api-and-integration\tentacle.exe-command-line/version.md)**:  Show the Tentacle version information.
 - **[watchdog](/docs\api-and-integration\tentacle.exe-command-line/watchdog.md)**:  Configure a scheduled task to monitor the Tentacle service(s).
 
