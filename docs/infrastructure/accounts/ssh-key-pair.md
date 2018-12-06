@@ -4,43 +4,49 @@ description: SSH Key Pair Accounts allow you to securely authenticate with SSH t
 position: 30
 ---
 
-A SSH Key Pair Account is one of the more secure authentication methods available for connections to [SSH Targets](/docs/infrastructure/deployment-targets/ssh-targets/index.md).
+A SSH Key Pair account is one of the more secure authentication methods available for connections to [SSH Targets](/docs/infrastructure/deployment-targets/ssh-targets/index.md).
 
 ## Creating an SSH Key Pair  {#SSHKeyPair-CreatingaSSHKeyPaircreate-key-pair}
 
-Before you can configure the SSH Key Pair account in Octopus, you need to generate public and private keys. This is a very simple process and can be done on either the [Linux target](#SSHKeyPair-Linux) or the [Octopus Server](#SSHKeyPair-Windows).
+Before you can configure the SSH Key Pair account in Octopus, you need to generate public and private keys. This can be done on either the [Linux target](#SSHKeyPair-Linux) or the [Octopus Server](#SSHKeyPair-Windows).
 
-Also see the [useful links section](#SSHKeyPair-UsefulLinks) for more guidance.
+### Generating a Key Pair on Linux {#SSHKeyPair-Linux}
 
-### Linux {#SSHKeyPair-Linux}
+1. Run the following command on your Linux server: `ssh-keygen`
+1. Accept the default location: `~/.ssh/id_rsa`
+1. Enter a passphrase (or press enter for no passphrase).
+1. If you entered a passphrase, re-enter the passphrase.
 
-Run the following command to generate the key pair:
+You now have two files:
 
-```bash
-ssh-keygen
-```
+- id_rsa (the private key)
+- id_rsa.pub (the public key)
 
-It will then prompt you for the location (the default `~/.ssh/id_rsa` is fine) and for a passphrase. The result will be two files, `id_rsa` (the private key) and `id_rsa.pub` (the public key).  The public key will be store on this server while the private key will be copied into the Octopus Server.
+The public key will be stored on this server and the private key will be copied to the Octopus Server.
 
-To allow the linux machine to accept this newly generated key for authentication, the public key needs to be listed in a file used by the ssh process.
+5. Copy the public key to the `authorized_keys` file that is used during authentication:
 
 ```bash
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 ```
 
-In some circumstances the permissions on the authorized\_keys file may end up incorrect.  Make sure that your ~/.ssh/authorized\_keys file has the proper permissions using the following.
+6. Modify the permissions of the `authorized_keys`:
 
 ```bash
 chmod 600 ~/.ssh/authorized_keys
 ```
 
-### Windows {#SSHKeyPair-Windows}
+If you need more information about generating an SSH key pair, see the [useful links section](#SSHKeyPair-UsefulLinks).
+
+### Generating a Key Pair on Windows {#SSHKeyPair-Windows}
 
 The easiest way to generate valid keys on windows is to use a tool like[ PuTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). Start by clicking "Generate" and wait for the tool to finish creating the random key pair.
 
 ![](ssh-key-create-putty.png "width=400")
 
 Provide your passphrase if desired and export the private key to the accepted format by going to {{Conversions,Export OpenSSH Key}}.  Clicking "Save private key" will actually produce a file that, while it can be used by this tool again, is not compatible with the standard SSH process. To get the public key over to the server you can either click "Save public key", copy the file across to the server and add the key to `~/.ssh/authorized_keys` as outlined above, or just cut+paste the content from the textbox directly into the remote file.
+
+If you need more information about generating an SSH key pair, see the [useful links section](#SSHKeyPair-UsefulLinks).
 
 ## Creating the Account {#SSHKeyPair-Creatingtheaccount}
 
