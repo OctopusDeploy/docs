@@ -1,7 +1,7 @@
 ---
 title: Credits
 description: Octopus is made possible thanks to the many great third-party products.
-position: 100
+position: 200
 ---
 
 Octopus Deploy is made possible thanks to the following great third-party products.
