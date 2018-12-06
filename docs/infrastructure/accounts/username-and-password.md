@@ -30,5 +30,5 @@ While the above instructions should work on common platforms like Ubuntu or Red 
 1. Give the account a name, for instance, **SSH backup server** or **Google**.
 1. Add a description.
 1. Add the username and password you use to authenticate against the remote host.
-1. If you want to restrict which environments can use the account, select only the environments that are allowed to account. If you select no environments, all environments will be allowed to use the account.
+1. If you want to restrict which environments can use the account, select only the environments that are allowed to account. If you don't select any environments, all environments will be allowed to use the account.
 1. Click **SAVE**.
