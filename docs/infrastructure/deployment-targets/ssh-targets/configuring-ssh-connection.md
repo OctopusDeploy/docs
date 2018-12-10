@@ -6,59 +6,46 @@ position: 3
 
 When you deploy software to Linux servers, you need configure an SSH connection for the Octopus server and Linux targets to communicate.
 
+## Create an SSH Account
 
-<!-- configure the account first. SSH or Username and Password. I'll run through both. -->
-Before you configure the SSH Connection deployment target, you need to create an account with either an [SSH Key Pair](/docs/infrastructure/accounts/ssh-key-pair.md) or a [Username and Password](/docs/infrastructure/accounts/username-and-password.md) that has access to the remote host.
+The connection you configure will use an account with either an [SSH Key Pair]((/docs/infrastructure/accounts/ssh-key-pair.md) or a [Username and Password](/docs/infrastructure/accounts/username-and-password.md) that has access to the remote host. See [accounts](/docs/infrastructure/accounts/index.md) for instructions to configure the account.
 
-Setting up a SSH target is a simple process and in many ways requires less steps than standard targets due its lack of need for a separate Tentacle installation.
+## Add an SSH Connection
 
-Begin by clicking **Add deployment target** from the {{Infrastructure,Deployment Targets}} page.
+1. In the **Octopus Web Portal**, navigate to the **Infrastructure** tab, select **Deployment Targets** and click **{{ADD DEPLOYMENT TARGET,SSH CONNECTION}}**.
+2. Click **ADD** on the SSH Connection card.
+3. Enter the DNS or IP address of the deployment target, i.e., `example.com` or `10.0.1.23`.
+4. Enter the port (port 22 by default) and click **NEXT**.
 
-![](add-deployment-target.png)
+Make sure the target server is accessible by the port you specify.
 
-Don't worry too much about which environment you do this through as you will be able to specify the correct environment later in the machine configuration page.
+The Octopus server will attempt to perform the required protocol handshakes and obtain the remote endpoint's public key fingerprint automatically rather than have you enter it manually. This fingerprint is stored and verified by the server on all subsequent connections.
 
-## Discovery {#ConfiguringSSHConnection-Discovery}
+If this discovery process is not successful, you will need to click **ENTER DETAILS MANUALLY**.
 
-Select SSH Connection from the list of available targets. Notice that you then are prompted to enter the host name and port (defaulted to SSH standard 22) for discovery. This allows you to let Octopus attempt to perform the required protocol handshakes and obtain the remote endpoint's public key fingerprint automatically rather than have you enter it manually. This fingerprint is stored and verified by the server on all subsequent connections. If the endpoint is not yet available continue by entering the details manually.
+5. Give the target a name.
+6. Select which environment the deployment target will be assigned to.
+7. Choose or create at least one target role for the deployment target and click **Save**. Learn about [target roles](/docs/infrastructure/deployment-targets/target-roles/index.md).
+8. Select the [account](/docs/infrastructure/accounts/index.md) that will be used for the Octopus server and the SSH target to communicate.
+9. If entering the details manually, enter the **Host**, **Port** and the host's [fingerprint](#fingerprint).
 
-![](ssh-connection.png "width=500")
-
-## Configuration {#ConfiguringSSHConnection-Configuration}
-
-Just as with other targets, SSH Endpoints can be linked to environments and roles. Unlike conventional Tentacles however, the deployment target must be configured with a specific account that will allow the server to connect over the SSH protocol. We currently support [Key Pair](/docs/infrastructure/accounts/ssh-key-pair.md) or [Username and Password](/docs/infrastructure/accounts/ssh-key-pair.md) as valid authentication methods which can be set up via the accounts area.
-
-![](ssh-connection-configuration.png "width=500")
-
-### .NET
-
-SSH targets can specify which version of Calamari they should use, depending on whether Mono is installed on the target server:
-
-- [Calamari built against the full .NET framework, which requires Mono to be installed on the target server](mono-calamari.md).
-- [Self-contained Calamari built against .NET Core](self-contained-calamari.md).
-
-:::hint
-Self-contained Calamari support was added in **Octopus 3.16**.
-Prior to this, Mono was required on SSH targets.
-:::
-
-### Fingerprint
-
-If you didn't run the discovery process or the fingerprint on the target has changed for some reason, you can retrieve the correct fingerprint in a couple of ways. The first is to just let the health check take place. If the fingerprint returned during the handshake is different to whats been stored in the database, the new fingerprint will show up in the logs (Remember if you aren't expecting a change and you start getting this error it might mean you have been compromised!). The other way to get the fingerprint is directly off the machine itself. Running the following command will print out the fingerprint of the default key configured in your sshd\_config file.
-
-**Finding the Fingerprint**
+You can retrieve the fingerprint of the default key configured in your sshd\_config file from the target server with the following command:
 
 ```bash
 ssh-keygen -E md5 -lf /etc/ssh/ssh_host_rsa_key.pub | cut -d' ' -f2 | awk '{ print $1}' | cut -d':' -f2-
 ```
 
-:::success
-**Don't Forget to Open Your Port!**
-Remember to ensure that your target machine is accessible over the selected SSH port. This is usually port 22.
-:::
+10. Specify whether Mono is installed on the SSH target or not to determine which version of [Calamari](/docs/api-and-integration/calamari.md) will be installed.
+  - If Mono is installed a version of [Calamari built against the full .NET framework](/docs/infrastructure/deployment-targets/ssh-targets/mono-calamari.md) will be installed.
+  - If Mono is not installed a [self-contained version of Calamari](/docs/infrastructure/deployment-targets/ssh-targets/self-contained-calamari.md) built against .NET Core will be installed on the target.
+11. Click **Save**.
 
-When you complete the machine details and hit **Save**, Octopus will perform an initial health check. These health checks are done periodically or on demand and ensure that the endpoint is reachable and is appropriately configured, ready for performing a deployment task.
+## Health Check
 
-In the case of SSH endpoints this involves checking for the presence of Mono and Calamari, as well as providing details about available space and the user account used for connectivity. As SSH endpoints do not involve any actual Tentacle, the running version that is displayed will always indicate the version of the Octopus Server instance itself.
+Once the target is configured, Octopus will perform an initial health check. Health checks are done periodically or on demand and ensure that the endpoint is reachable and is appropriately configured, ready to perform deployment tasks.
 
-With the health check complete, you can continue to set up a deployment or run script tasks just like any other endpoint!
+The health check involves checking for Mono and Calamari, as well as providing details about available space and the user account used for connectivity. As SSH endpoints do not use Tentacles, the running version that is displayed is the version of the Octopus Server instance itself.
+
+If the fingerprint changes after initial configuration, the next health check will update the finger print. If the fingerprint returned during the handshake is different to the value stored in the database, the new fingerprint will show up in the logs.
+
+If you aren't expecting a change and you see this error it could mean you have been compromised!
