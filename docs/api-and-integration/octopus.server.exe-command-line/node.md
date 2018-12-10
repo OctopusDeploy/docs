@@ -17,6 +17,13 @@ Where [<options>] is any of:
                                a time
       --drain=VALUE          Set to true to prevent the node from executing
                                more tasks
+      --wait=VALUE           Seconds to wait for node to drain tasks. This
+                               argument can only be passed if the `--drain`
+                               parameter is set to `true`. Defaults to 0.
+      --cancel-tasks         Cancels remaining tasks still running at the end
+                               of the drain wait period. This argument can only
+                               be passed if the `--drain` parameter is set to
+                               `true`.
 
 Or one of the common options:
 
