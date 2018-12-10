@@ -18,10 +18,6 @@ Before you configure the SSH Connection deployment target, you need to create an
 1. Enter the port
 
 
-to install , a lightweight agent service, on yours Window servers so they can communicate with the Octopus server.
-
-
-
 Setting up a SSH target is a simple process and in many ways requires less steps than standard targets due its lack of need for a separate Tentacle installation.
 
 Begin by clicking **Add deployment target** from the {{Infrastructure,Deployment Targets}} page.
