@@ -3,7 +3,7 @@ title: Windows Targets
 description: How to install Octopus Tentacles on Windows targets as either listening or polling Tentacles.
 position: 10
 ---
-When you deploy software to Windows servers, you need to install Tentacle, a lightweight agent service, on your Window servers so they can communicate with the Octopus server.
+When you deploy software to Windows servers, you need to install Tentacle, a lightweight agent service, on your Windows servers so they can communicate with the Octopus server.
 
 Once installed, Tentacles:
 
