@@ -10,14 +10,6 @@ When you deploy software to Linux servers, you need configure an SSH connection 
 <!-- configure the account first. SSH or Username and Password. I'll run through both. -->
 Before you configure the SSH Connection deployment target, you need to create an account with either an [SSH Key Pair](/docs/infrastructure/accounts/ssh-key-pair.md) or a [Username and Password](/docs/infrastructure/accounts/username-and-password.md) that has access to the remote host.
 
-
-
-1. In the **Octopus Web Portal**, navigate to the **Infrastructure** tab, select **Deployment Targets** and click **{{ADD DEPLOYMENT TARGET,SSH CONNECTION}}**.
-1. Click **ADD** on the SSH Connection card.
-1. Enter the DNS or IP address of the deployment target, i.e., `example.com` or `10.0.1.23`, and click **NEXT**.
-1. Enter the port
-
-
 Setting up a SSH target is a simple process and in many ways requires less steps than standard targets due its lack of need for a separate Tentacle installation.
 
 Begin by clicking **Add deployment target** from the {{Infrastructure,Deployment Targets}} page.
