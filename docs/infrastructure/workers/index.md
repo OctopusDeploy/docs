@@ -59,7 +59,7 @@ It is not currently possible to configure a worker as a Polling Tentacle with th
 
 ### Register a Worker with an SSH Connection
 
-To register a worker with an SSH Connection, see the instructions for [configuring an SSH connection](/docs/infrastructure/deployment-targets/ssh-targets/configuring-ssh-connection.md).
+To register a worker with an SSH Connection, see the instructions for configuring [SSH deployment targets](/docs/infrastructure/deployment-targets/ssh-targets/index.md).
 
 ### Registering Workers with the Tentacle Executable
 

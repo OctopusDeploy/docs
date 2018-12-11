@@ -4,77 +4,54 @@ description: Deploying software to Linux and Unix deployment targets.
 position: 20
 ---
 
-For Linux and Unix systems, you can configure Octopus Deploy to communicate with your deployment targets through SSH.
+For Linux and Unix systems, you can configure Octopus Deploy to communicate with your deployment targets through SSH. [Calamari](/docs/infrastructure/deployment-targets/ssh-targets/Calamari-on-ssh-targets.md) is installed on the SSH deployment targets which contains all the information regarding conventions and deployments. The Octopus server communicates with the target through SSH and executes bash scripts to invoke Calamari. Calamari executes the scripts and the deployment target passes the task progress, logs, and artifacts back to the Octopus server.
 
-## Topology {#SSHTargets-Topology}
+Before you configure an SSH deployment target, review the [requirements](/docs/infrastructure/deployment-targets/ssh-targets/requirements.md) and ensure your systems have the required packages installed.
 
-In the standard-model the Octopus Server talks to the Tentacle (ignoring the distinction between between [Polling](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles) and [Listening](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommended)) who in turn delegates the actual deployment work to [Calamari](/docs/api-and-integration/calamari.md), which contains all the information regarding conventions and deployments. Calamari then executes the scripts and the Tentacle passes back to the Server the task progress, logs and artifacts.
+## Create an SSH Account
 
-![](/docs/images/3048063/3277601.png)
+The SSH connection you configure will use an account with either an [SSH Key Pair]((/docs/infrastructure/accounts/ssh-key-pair.md) or a [Username and Password](/docs/infrastructure/accounts/username-and-password.md) that has access to the remote host. See [accounts](/docs/infrastructure/accounts/index.md) for instructions to configure the account.
 
-The Octopus Server will communicate with the target server via SSH and execute bash scripts to invoke Calamari, in much the same way that would be done by a Tentacle.
+## Add an SSH Connection
 
-![](/docs/images/3048063/3277602.png)
+1. In the **Octopus Web Portal**, navigate to the **Infrastructure** tab, select **Deployment Targets** and click **{{ADD DEPLOYMENT TARGET,SSH CONNECTION}}**.
+2. Click **ADD** on the SSH Connection card.
+3. Enter the DNS or IP address of the deployment target, i.e., `example.com` or `10.0.1.23`.
+4. Enter the port (port 22 by default) and click **NEXT**.
 
-The great thing about this approach is that by using effectively the same Calamari code base, it should continue to have almost complete feature parity!
+Make sure the target server is accessible by the port you specify.
 
-## Requirements {#SSHTargets-Requirements}
+The Octopus server will attempt to perform the required protocol handshakes and obtain the remote endpoint's public key fingerprint automatically rather than have you enter it manually. This fingerprint is stored and verified by the server on all subsequent connections.
 
-We generally expect deployments with Octopus to work with practically any distribution so long as a few key prerequisites are met. Of course, if you notice it failing on some other popular distribution then please drop us a line.
+If this discovery process is not successful, you will need to click **ENTER DETAILS MANUALLY**.
 
-To use this feature there are the following requirements:
+5. Give the target a name.
+6. Select which environment the deployment target will be assigned to.
+7. Choose or create at least one target role for the deployment target and click **Save**. Learn about [target roles](/docs/infrastructure/deployment-targets/target-roles/index.md).
+8. Select the [account](/docs/infrastructure/accounts/index.md) that will be used for the Octopus server and the SSH target to communicate.
+9. If entering the details manually, enter the **Host**, **Port** and the host's [fingerprint](#fingerprint).
 
-- It must be accessible using SSH and SFTP (See [creating a SSH Key Pair](/docs/infrastructure/accounts/ssh-key-pair.md#Creating-a-SSH-Key-Pair)).
-- The `$HOME` environment variable must be available.
-- `bash` 3+ is available at `/bin/bash`. (It does not need to be the user’s default shell.)
-- `tar` is available - for unpacking calamari.
-- `base64` is available - for encoding/decoding variables.
-- `grep` is available - Everyone needs grep!
+You can retrieve the fingerprint of the default key configured in your sshd\_config file from the target server with the following command:
 
-The health check that takes places once you configure the target should check for these requirements and let you know if any dependencies are missing.
-
-:::warning
-You may see the error message `"Required command 'mono' is not available".` when connecting to a Mac OSX instance via SSH, despite the fact that mono is installed and can be executed from a local shell. This is because the environment exposed to a SSH session can differ from the environment used by a local shell.
-
-To fix this, create a file called `.bashrc` in the home folder of the user that is connecting to the Mac OSX instance. If the remote user is called `octopus`, then this file will be located at `/Users/octopus/.bashrc`.
-
-Then modify the path environment variable inside the `.bashrc` file to include the location of the mono executable e.g.
+```bash
+ssh-keygen -E md5 -lf /etc/ssh/ssh_host_rsa_key.pub | cut -d' ' -f2 | awk '{ print $1}' | cut -d':' -f2-
 ```
-export PATH=/Library/Frameworks/Mono.framework/Versions/Current/bin/:${PATH}
-```
-:::
 
-### .NET
+10. Specify whether Mono is installed on the SSH target or not to determine which version of [Calamari](/docs/api-and-integration/calamari.md) will be installed.
+  - If Mono is installed a version of [Calamari built against the full .NET framework](/docs/infrastructure/deployment-targets/ssh-targets/calamari-on-ssh-targets.md#mono-calamari) will be installed.
+  - If Mono is not installed a [self-contained version of Calamari](/docs/infrastructure/deployment-targets/ssh-targets/calamari-on-ssh-targets.md#self-contained-calamari) built against .NET Core will be installed on the target.
+11. Click **Save**.
 
-Calamari runs on .NET. For unix-like operating-systems, Calamari can either run on the [Mono framework](/docs/infrastructure/deployment-targets/ssh-targets/calamari-on-ssh-targets.md#mono-calamari) or as a [self-contained .NET Core distributable](/docs/infrastructure/deployment-targets/ssh-targets/calamari-on-ssh-targets.md#self-contained-calamari).
+## Health Check
 
-## Footprint {#SSHTargets-Footprint}
+Once the target is configured, Octopus will perform an initial health check. Health checks are done periodically or on demand and ensure the endpoint is reachable, configured correctly and the required dependencies are are available (e.g. tar, see [requirements](/docs/infrastructure/deployment-targets/ssh-targets/requirements.md)), and ready to perform deployment tasks.
 
-Getting just the right naming pattern is a tricky balance. In an effort to keep some similarity with the Windows based Tentacle, we have gone with the following approach:
+If Calamari is not present or is out-of-date, a warning will be displayed, however, Calamari will be updated when it is next required by a task.
 
-The root directory for all Octopus work is `$HOME/.octopus` and all packages are deployed to a relative location similar to that done by a normal Tentacle at `$HOME/.octopus/Applications/#{instance}/#{environment}/#{package}/#{version}`.
-Calamari is also copied across by the deployment if a new version is detected and extracted to `$HOME/.octopus/#{instance}/Calamari/#{version}`.
+If the SSH target is healthy, the version that is displayed is the version of the Octopus server instance.
 
-By making all paths relative to the user's home directory, you can then theoretically use the same physical machine with multiple user accounts acting as separate targets. The Octopus Server can then treat each machine\user as a separate SSH endpoint which will update Calamari and deploy independently of each other.
+If the fingerprint changes after initial configuration, the next health check will update the finger print. If the fingerprint returned during the handshake is different to the value stored in the database, the new fingerprint will show up in the logs. If you aren't expecting a change and you see this error it could mean you have been compromised!
 
-:::success
-**Bash Startup Files**
-When connecting to a target over SSH, Octopus Deploy connects then executes the script via the `/bin/bash` command to ensure it is running with a bash shell (and not the default terminal shell for that user). Any login scripts that you wish to run should therefore be put into the `.bashrc`script file since this is invoked for non-login shells.
-
-For example, with targets on a Mac the default $PATH variable may be missing `/usr/sbin`. This can be added in the `.bashrc` script with the line
-
-> PATH=$PATH:/usr/sbin
-
-See the Bash Reference Manual, section [6.2 Bash Startup Files](http://www.gnu.org/software/bash/manual/bashref.html#Bash-Startup-Files) for more information about startup scripts.
-:::
-
-
-## Health Checks {#SSHTargets-HealthChecks}
-
-Although there is no Tentacle involved with SSH endpoints there are still some useful metrics that are used to determine its health in regards to its ability to perform deployments. For a standard SSH target, it is the absence of any dependencies (e.g. tar) that deems the endpoint unhealthy (in addition to the typical checks of inability to even connect using the provided credentials) while an absence or out-of-date version of Calamari is considered only a warning as this will be updated when its required by a task.
-
-![](/docs/images/3048063/3277600.png "width=500")
+## Running Scripts on SSH Endpoints
 
 The introduction of [Raw Scripting](/docs/deployment-examples/custom-scripts/raw-scripting.md) provides the ability to run scripts on SSH endpoints without any additional Octopus dependencies. To facilitate these targets, [machine policies](/docs/infrastructure/machine-policies.md) allow you to configure health checks to test only for SSH connectivity to your machine to be considered healthy.
-
-Note that due to the Tentacle being effectively a “virtual Tentacle” running on the server itself, if the endpoint is healthy it will indicate in the health logs that the running version is the same as the server version.

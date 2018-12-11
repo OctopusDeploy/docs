@@ -37,7 +37,7 @@ We currently execute automated tests against the following platforms:
 - Ubuntu 14.04 LTS + Mono 4.0.5
 - Ubuntu 16.04 LTS + Mono 4.6.1
 
-## Limitations
+## Calamari on Mono Limitations
 
 ### TLSv1.2 Support available in Mono >= 4.8.0
 [TLSv1.2 support](http://www.mono-project.com/docs/about-mono/releases/4.8.0/#tls-12-support) was only included from Mono version `4.8.0`. Due to the weak cryptographic nature of older encryption algorithms, many websites are no longer providing support for TLSv1 TLSv1.1 and as such clients must ensure that they are able to use TLSv1.2 in order to communicate.
@@ -77,7 +77,7 @@ A list of the distros supported by .NET Core 2.0 can be found on the [.NET Core 
 
 [.NET Core has some dependencies](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md) which must be installed on the target server.
 
-## Limitations {#self-contained-calamari-limitations}
+## Self-contained Calamari Limitations {#self-contained-calamari-limitations}
 
 ### ScriptCS and F# Scripts
 
