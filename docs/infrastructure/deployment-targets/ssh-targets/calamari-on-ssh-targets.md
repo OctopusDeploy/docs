@@ -8,8 +8,8 @@ Calamari is the command-line tool that is invoked to perform the deployment step
 
 There are two versions of Calamari that can be installed on SSH deployment targets:
 
-- If Mono is installed a version of [Calamari built against the full .NET framework](#mono-calamari) will be installed.
-- If Mono is not installed a [self-contained version of Calamari](#self-contained-calamari) built against .NET Core will be installed on the target.
+- [Calamari on Mono](#mono-calamari) built against the full .NET framework.
+- [Self-contained version of Calamari](#self-contained-calamari) built against .NET Core.
 
 ## Calamari on Mono {#mono-calamari}
 
