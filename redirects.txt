@@ -71,7 +71,7 @@ docs/infrastructure/environments/accounts/username-and-password.md -> docs/infra
 docs/deployment-targets/machine-roles/index.md -> docs/infrastructure/deployment-targets/target-roles/index.md
 docs/deployment-targets/ssh-targets/index.md -> docs/infrastructure/deployment-targets/ssh-targets/index.md
 docs/deployment-targets/ssh-targets/configuring-ssh-connection.md -> docs/infrastructure/deployment-targets/ssh-targets/configuring-ssh-connection.md
-docs/deployment-targets/ssh-targets/mono-calamari.md -> docs/infrastructure/deployment-targets/ssh-targets/calamari-on-ssh-tagets.md
+docs/deployment-targets/ssh-targets/mono-calamari.md -> docs/infrastructure/deployment-targets/ssh-targets/calamari-on-ssh-targets.md
 docs/deployment-targets/ssh-targets/self-contained-calamari.md -> docs/infrastructure/deployment-targets/ssh-targets/calamari-on-ssh-targets.md
 docs/deployment-targets/ssh-targets/sudo-commands.md -> docs/infrastructure/deployment-targets/ssh-targets/sudo-commands.md
 docs/deployment-targets/windows-targets/index.md -> docs/infrastructure/deployment-targets/windows-targets/index.md
