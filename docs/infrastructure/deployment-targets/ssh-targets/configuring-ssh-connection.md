@@ -36,8 +36,8 @@ ssh-keygen -E md5 -lf /etc/ssh/ssh_host_rsa_key.pub | cut -d' ' -f2 | awk '{ pri
 ```
 
 10. Specify whether Mono is installed on the SSH target or not to determine which version of [Calamari](/docs/api-and-integration/calamari.md) will be installed.
-  - If Mono is installed a version of [Calamari built against the full .NET framework](/docs/infrastructure/deployment-targets/ssh-targets/mono-calamari.md) will be installed.
-  - If Mono is not installed a [self-contained version of Calamari](/docs/infrastructure/deployment-targets/ssh-targets/self-contained-calamari.md) built against .NET Core will be installed on the target.
+  - If Mono is installed a version of [Calamari built against the full .NET framework](/docs/infrastructure/deployment-targets/ssh-targets/calamari-on-ssh-targets.md#mono-calamari) will be installed.
+  - If Mono is not installed a [self-contained version of Calamari](/docs/infrastructure/deployment-targets/ssh-targets/calamari-on-ssh-targets.md#self-contained-calamari) built against .NET Core will be installed on the target.
 11. Click **Save**.
 
 ## Health Check
