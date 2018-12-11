@@ -1,7 +1,7 @@
 ---
 title: Calamari on SSH Targets
 description: Calamari on *nix systems
-position: 4
+position: 10
 ---
 
 Calamari is the command-line tool that is invoked to perform the deployment steps on the deployment target.

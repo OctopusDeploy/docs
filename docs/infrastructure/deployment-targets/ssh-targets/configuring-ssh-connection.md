@@ -1,7 +1,7 @@
 ---
 title: Configuring SSH Connections
 description: Configuring an SSH target for use in your deployments.
-position: 3
+position: 0
 ---
 
 When you deploy software to Linux servers, you need configure an SSH connection for the Octopus server and Linux targets to communicate.
