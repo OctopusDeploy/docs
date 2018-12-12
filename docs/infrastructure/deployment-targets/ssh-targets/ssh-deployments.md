@@ -4,7 +4,7 @@ description: Deploying software to Linux and Unix deployment targets.
 position: 30
 ---
 
-As we are just using Calamari directly, essentially the same steps are taken as a standard Tentacle Agents whenever a deployment takes place with a few key differences due to the missing Tentacle layer.
+As we are using Calamari directly, essentially the same steps are taken as a standard Tentacle Agents whenever a deployment takes place with a few key differences due to the missing Tentacle layer.
 
 ## Transport
 
@@ -12,18 +12,17 @@ The package and any supporting deployment files are uploaded via SFTP.
 
 ## Calamari
 
-Before any processing is begun we do an initial check to ensure the available Calamari executable on the endpoint is up to date with the server. If not we push up the latest Calamari package and then recommence the task. The Calamari package is sent as a `.tar.gz` so it can be extracted with minimal dependencies. This obviously means the server needs to be able to un-tar that package however this should be available by default in most distros.
+Before any processing is begun we do an initial check to ensure the available Calamari executable on the endpoint is up to date with the server. If not, we push up the latest Calamari package and then recommence the task. The Calamari package is sent as a `.tar.gz` so it can be extracted with minimal dependencies. This obviously means the server needs to be able to un-tar that package however this should be available by default in most distros.
 
 ## Package Acquisition
 
 Leveraging Calamari means that the deployment can obtain the package via the same methods as a normal Tentacle; either pushed from the server or directly from a NuGet repository. There is therefore no bottleneck in acquisition if there are multiple SSH endpoints all trying to retrieve the same package independently.
 
-:::success
-**Non-NuGet Package Types**
+### Non-NuGet Package Types
+
 Since **Octopus 3.3** has [support for tar packages](/docs/packaging-applications/supported-packages.md).
 
 See our [Node.js sample](/docs/deployment-examples/node-on-nix-deployments/index.md) for an example of deploying to a Linux target
-:::
 
 ## Features
 

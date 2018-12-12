@@ -33,7 +33,7 @@ Once you have created a proxy, Listening Tentacles can be set to use that proxy 
 
 ### SSH Targets {#ProxySupport-SSHTargets}
 
-Configuring a proxy for a SSH Target works in essentially the same way as with a Listening Tentacle as described above. Simply configure up the proxy details via {{Infrastructure,Proxies}} and then select the appropriate proxy in the SSH Target details screen.
+Configuring a proxy for an SSH target works in essentially the same way as with a Listening Tentacle as described above. Simply configure up the proxy details via {{Infrastructure,Proxies}} and then select the appropriate proxy in the SSH Target details screen.
 
 ### Polling Tentacles {#ProxySupport-PollingTentacles}
 

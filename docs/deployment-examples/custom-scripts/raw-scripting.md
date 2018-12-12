@@ -23,7 +23,7 @@ Raw scripting is great for use cases where you are unable to install and run Mon
 
 ## Deploying To SSH Endpoint Without Calamari (i.e. no Mono prerequisite) {#RawScripting-DeployingToSSHEndpointWithoutCalamari(i.e.noMonoprerequisite)}
 
-While raw scripting does not require a Transfer a Package step, the below scenario walks though a basic scenario of using a raw script in conjunction with the Transfer a Package step to extract a package on a SSH endpoint where Mono is unable to be installed.
+While raw scripting does not require a Transfer a Package step, the below scenario walks though a basic scenario of using a raw script in conjunction with the Transfer a Package step to extract a package on an SSH endpoint where Mono is unable to be installed.
 
 1. Add a [Transfer A Package](/docs/deployment-examples/package-deployments/transfer-package.md) step.
 2. In the **Transfer Path** field enter the location the package will be moved to as part of the deployment, for instance, `~/temp/uploads`.  Note that this directory will be created if it does not already exist. Give the step the name *Transfer AcmeWeb* and Include the relevant role for your SSH target.
@@ -39,7 +39,7 @@ While raw scripting does not require a Transfer a Package step, the below scenar
 
 :::hint
 **Raw Target Health Checks** {#RawScripting-HealthChecks}
-Given that the point of raw scripting is to avoid having to install Mono and Calamari, you may need to create a custom [Machine Policy](/docs/infrastructure/machine-policies.md) and select the `Only perform connection test` option under the section `Health check for SSH endpoints`. Targets configured with this policy will be considered healthy so long as a SSH connection can be established.
+Given that the point of raw scripting is to avoid having to install Mono and Calamari, you may need to create a custom [Machine Policy](/docs/infrastructure/machine-policies.md) and select the `Only perform connection test` option under the section `Health check for SSH endpoints`. Targets configured with this policy will be considered healthy so long as an SSH connection can be established.
 
 ![](/docs/images/machine-policies/ssh-healthchecks.png "width=300")
 

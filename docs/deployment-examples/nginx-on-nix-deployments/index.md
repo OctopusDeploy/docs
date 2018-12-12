@@ -8,7 +8,7 @@ In our continuing journey to expand Octopus Deploys capabilities beyond the Micr
 
 In this guide we will go through:
 - Packaging up an ASP.NET Core Web API backend with a static HTML and JavaScript front-end
-- Deploying to a Linux based target over a SSH connection
+- Deploying to a Linux based target over an SSH connection
 - Configuring an NGINX web server to serve traffic to both applications
 
 Any part of this guide can be attempted on its own in conjunction with other projects or target types, however this aims to provide an end-to-end example of one particular set up. Please note that these pages are not intended as an "ultimate guide to Linux" and are only an introductory guide to show how you can quickly get started today with a simple deployment scenario.

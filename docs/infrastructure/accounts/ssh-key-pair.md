@@ -4,7 +4,7 @@ description: SSH Key Pair Accounts allow you to securely authenticate with SSH t
 position: 30
 ---
 
-A SSH Key Pair account is one of the more secure authentication methods available for connections to [SSH Targets](/docs/infrastructure/deployment-targets/ssh-targets/index.md).
+An SSH Key Pair account is one of the more secure authentication methods available for connections to [SSH Targets](/docs/infrastructure/deployment-targets/ssh-targets/index.md).
 
 ## Creating an SSH Key Pair  {#SSHKeyPair-CreatingaSSHKeyPaircreate-key-pair}
 
@@ -58,7 +58,7 @@ If you need more information about generating an SSH key pair, see the [useful l
 1. Select **SSH Key Pair** from the dropdown menu.
 1. Give the account a name so you can easily identify it when you need to use the account.
 1. Add a description.
-1. Enter username you will use to access the remote host.
+1. Enter the username you will use to access the remote host.
 1. Upload the private key to the Octopus server.
 1. Enter the passphrase for the private key if you created one.
 1. If you want to restrict which environments can use the account, select only the environments that are allowed to account. If you don't select any environments, all environments will be allowed to use the account.
