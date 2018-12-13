@@ -9,14 +9,41 @@ Machine policies are groups of settings that can be applied to Tentacle and SSH 
 - Customize the interval between health checks.
 - Run custom health check scripts.
 - Ignore machines that are unavailable during health checks.
-- Configure how Calamari and Tentacle are updated.
+- Configure how Calamari and Tentacles, and SSH Targets are updated.
 - Automatically delete machines.
 
-![](/docs/images/5669423/5865583.png "width=500")
+You can access the machine policies by navigating to {{Infrastructure,Machine policies}}.
 
 ## Health Check
 
-!include <health-check>
+Octopus periodically runs health checks on deployment targets and workers to ensure that they are available and running the latest version of Calamari.  
+
+## Health Status
+
+The health status of a deployment target can be set by custom health check scripts. Deployment targets can have four health statuses:
+
+- Healthy
+- Healthy with Warnings
+- Unhealthy
+- Unavailable
+
+A *healthy* deployment target completes a health check without any errors or warnings.  A deployment target that is *healthy with warnings* completes a health check but encounters a non-critical failure during the health check.  An *unhealthy* deployment target completes a health check but encounters a critical failure while running the health check script.  An *unavailable* deployment target is not contactable by Octopus during a health check.
+
+## Initial Health Check
+
+After installing and configuring a new Tentacle, you need to run a health check and can upgrade the version of Calamari.
+
+1. From the **Infrastructure** tab, select **deployment targets**.
+2. Click the overflow menu and select **Check Health**. If you've installed multiple Tentacles, it will check all of your Tentacles (if you'd rather check only one Tentacle, select that Tentacle from the Deployment Targets section, click **Connectivity** and then **Check health**).
+
+The first time you complete a health check on a Tentacle or SSH Target, you will see health warnings and that Calamari needs to be installed.
+
+Learn more about [Calamari](/docs/api-and-integration/calamari.md).
+
+Octopus will automatically push the latest version of Calamari with your first deployment, but you can do the following to install Calamari:
+
+1. From the Infrastructure tab, select deployment targets.
+2. Click the overflow menu and select **Upgrade Calamari on Deployment Targets**.
 
 ### Health Check Interval {#MachinePolicies-Healthcheckinterval}
 

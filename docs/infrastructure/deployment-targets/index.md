@@ -5,9 +5,9 @@ position: 20
 hideInThisSection: True
 ---
 
-Deployment targets are the servers and services you deploy your software to. You can manage your deployment targets by navigating to {{Infrastructure,Deployment Targets}}.
+Deployment targets are the servers and services you deploy your software to. You can manage your deployment targets by navigating to {{Infrastructure,Deployment Targets}} in the Octopus Web Portal.
 
-From here you can add new deployment targets, disable or delete deployment targets, check on the status of your targets, and run health checks.
+From The Deployment Targets tab you can add new deployment targets, disable or delete deployment targets, check on the status of your targets, and run health checks.
 
 ## Adding Deployment Targets
 
@@ -21,12 +21,6 @@ Deployment targets are added in different ways, depending on the type of target
 - [Kubernetes Cluster](/docs/infrastructure/deployment-targets/kubernetes-cluster.md)
 - [Offline Package Drop](/docs/infrastructure/deployment-targets/offline-package-drop.md)
 - [Cloud Regions](/docs/infrastructure/deployment-targets/cloud-regions.md)
-
-## Health Checks
-
-Octopus periodically runs health checks on deployment targets and workers to ensure that they are available.
-
-Learn about [health checks](/docs/infrastructure/deployment-targets/health-checks.md).
 
 ## Target Roles
 

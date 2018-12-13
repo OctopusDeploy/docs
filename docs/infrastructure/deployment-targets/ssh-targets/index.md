@@ -10,7 +10,7 @@ Before you configure an SSH deployment target, review the [requirements](/docs/i
 
 ## Create an SSH Account
 
-The SSH connection you configure will use an account with either an [SSH Key Pair]((/docs/infrastructure/accounts/ssh-key-pair.md) or a [Username and Password](/docs/infrastructure/accounts/username-and-password.md) that has access to the remote host.
+The SSH connection you configure will use an account with either an [SSH Key Pair](/docs/infrastructure/accounts/ssh-key-pair.md) or a [Username and Password](/docs/infrastructure/accounts/username-and-password.md) that has access to the remote host.
 
 See [accounts](/docs/infrastructure/accounts/index.md) for instructions to configure the account.
 
@@ -55,6 +55,8 @@ If Calamari is not present or is out-of-date, a warning will be displayed, howev
 If the SSH target is healthy, the version that is displayed is the version of the Octopus server instance.
 
 If the fingerprint changes after initial configuration, the next health check will update the fingerprint. If the fingerprint returned during the handshake is different to the value stored in the database, the new fingerprint will show up in the logs. If you aren't expecting a change and you see this error it could mean you have been compromised!
+
+Learn more about health checks and [machine policies](/docs/infrastructure/machine-policies.md)
 
 ## Running Scripts on SSH Endpoints
 

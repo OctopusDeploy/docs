@@ -658,3 +658,4 @@ docs/deployment-examples/custom-scripts/long-paths.md -> docs/installation/troub
 docs/infrastructure/deployment-targets/ssh-targets/mono-calamari.md -> docs/infrastructure/deployment-targets/ssh-targets/calamari-on-ssh-targets.md
 docs/infrastructure/deployment-targets/ssh-targets/self-contained-calamari.md -> docs/infrastructure/deployment-targets/ssh-targets/calamari-on-ssh-targets.md
 docs/infrastructure/deployment-targets/ssh-targets/configuring-ssh-connection.md -> docs/infrastructure/deployment-targets/ssh-targets/index.md
+docs/infrastructure/deployment-targets/health-checks.md -> docs/infrastructure/machine-policies.md

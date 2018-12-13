@@ -4,7 +4,7 @@ description: Octopus supports proxy servers to ensure Octopus Server and Tentacl
 position: 60
 ---
 
-Octopus has support for proxies in two use cases. You can specify a proxy server for Octopus to use when communicating with a Tentacle, you can also specify a proxy server when a Tentacle and the Octopus Server make web requests to other servers.
+Octopus has support for proxies in two use cases. You can specify a proxy server for Octopus to use when communicating with a Tentacle or SSH Target, you can also specify a proxy server when a Tentacle and the Octopus Server make web requests to other servers.
 
 Proxy support for Tentacle and SSH communications was added in **Octopus 3.4**.
 
@@ -17,7 +17,7 @@ Octopus supports the use of HTTP proxies with support for SSL. There is no suppo
 
 ## Configuring a Tentacle Communications Proxy {#ProxySupport-ConfiguringaTentacleCommunicationsProxy}
 
-Tentacles can communicate with the Octopus Server via a proxy server. This can be really useful when you want to set up a secure network topology, where all traffic into a secure zone must traverse through an intermediary, like a proxy server. A similar example is where you could introduce a remote desktop gateway (RD Gateway) to provide controlled remote access to your application servers.
+Tentacles can communicate with the Octopus Server via a proxy server. This can be really useful when you want to set up a secure network topology, where all traffic into a secure zone must pass through an intermediary, like a proxy server. A similar example is where you could introduce a remote desktop gateway (RD Gateway) to provide controlled remote access to your application servers.
 
 The process for configuring a proxy for Tentacle communication differs for Listening and Polling Tentacles:
 
@@ -42,7 +42,7 @@ The proxy for a Polling Tentacle is configured with the Octopus Tentacle Manager
 ![](/docs/images/5669147/5865531.png "width=500")
 
 :::hint
-Please note that if you select "Use the proxy server configured in Internet Explorer" as your desired proxy configuration, when the installer check is completed it will use the proxy configured for the user running the installer. When the Tentacle service runs, it will use the proxy configured for the user running the Tentacle service, which were not checked and may not work or be configured correctly. It may be clearer to use the custom proxy option to explicitly set the proxy details.
+Please note, if you select "Use the proxy server configured in Internet Explorer" as your desired proxy configuration, when the installer check is completed it will use the proxy configured for the user running the installer. When the Tentacle service runs, it will use the proxy configured for the user running the Tentacle service, which were not checked and may not work or be configured correctly. It may be clearer to use the custom proxy option to explicitly set the proxy details.
 :::
 
 ## Configuring a Web Request Proxy {#ProxySupport-WebRequestConfiguringaWebRequestProxy}

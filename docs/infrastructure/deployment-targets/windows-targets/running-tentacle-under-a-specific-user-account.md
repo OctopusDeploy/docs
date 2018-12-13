@@ -22,4 +22,4 @@ Making the user a local administrator will be the easiest path to full functiona
 | Full control | The `Octopus Tentacle` Windows Service   | Tentacle must be able to upgrade and restart itself for remote administration. | SC.EXE           |
 | Listen       | Port **10933**                           | Tentacle accepts commands from Octopus on this port. | NETSH.EXE        |
 
-Additional permissions will be necessary depending on the kinds of deployments Tentacle will perform (e.g. IIS configuration and so-on).
+Additional permissions will be necessary depending on the kind of deployments Tentacle will perform (e.g. IIS configuration and so-on).

@@ -22,7 +22,7 @@ You can manage your infrastructure by navigating to the **Infrastructure** tab i
 
 ## Overview
 
-From the **Overview** section of the **Infrastructure** tab of the Octopus Web Portal, you can quickly see your existing [environments](#environments), [deployment targets](#deployment-targets), [worker pools](#worker-pools), and [workers](#workers), check on the [status](/docs/infrastructure/deployment-targets/health-checks.md) of your deployment targets and workers, and access targets by [target role](/docs/infrastructure/deployment-targets/target-roles/index.md).
+From the **Overview** section of the **Infrastructure** tab, you can quickly see your existing [environments](#environments), [deployment targets](#deployment-targets), [worker pools](#worker-pools), and [workers](#workers). You can check on the [status](/docs/infrastructure/machine.md#health-check) of your deployment targets and workers, and access targets by [target role](/docs/infrastructure/deployment-targets/target-roles/index.md).
 
 ## Deployment Targets
 
@@ -62,7 +62,7 @@ Learn about Octopus's [proxy support](/docs/infrastructure/deployment-targets/wi
 
 ## Accounts
 
-In addition to the deployment targets listed above, you add  the following account types.
+In addition to the deployment targets listed above, you add the following account types to be used in your deployments.
 
 - [Azure](/docs/infrastructure/accounts/azure/index.md)
 - [AWS](/docs/infrastructure/accounts/aws/index.md)

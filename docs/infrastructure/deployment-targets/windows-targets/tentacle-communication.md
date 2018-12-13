@@ -8,27 +8,29 @@ Octopus and Tentacles can be configured to communicate in two different ways dep
 
 ## Listening Tentacles (recommended)
 
-In **listening** mode, Tentacles *listen* on a TCP port (**10933** by default). When a package needs to be deployed, Octopus connects to the Tentacle service on that port.
+In **Listening** mode, Tentacles *listen* on a TCP port (**10933** by default). When a package needs to be deployed, Octopus connects to the Tentacle service on that port.
 
-In listening mode Tentacle is the TCP server, and Octopus is the TCP client.
+In Listening mode Tentacle is the TCP server, and Octopus is the TCP client.
 
-![octopus to Listening Tentacle communication](listening-tentacle.png)
+![Octopus to Listening Tentacle communication](listening-tentacle.png)
 
-When choosing a communication mode, we recommend listening mode when possible. Listening mode uses the least resources (listening on a TCP port is cheaper than actively trying to connect to one). It also gives you the most control (you can use rules in your firewall to limit which IP addresses can connect to the port). [Octopus and Tentacle use SSL when communicating](/docs/administration/security/octopus-tentacle-communication/index.md), and Tentacle will outright reject connections that aren't from an Octopus Server that it trusts, identified by an X.509 certificate public key that you provide during setup.
+When choosing a communication mode, we recommend Listening mode when possible.
+
+Listening mode uses the least resources (listening on a TCP port is cheaper than actively trying to connect to one). It also gives you the most control (you can use rules in your firewall to limit which IP addresses can connect to the port). [Octopus and Tentacle use SSL when communicating](/docs/administration/security/octopus-tentacle-communication/index.md), and Tentacle will outright reject connections that aren't from an Octopus server that it trusts, identified by an X.509 certificate public key that you provide during setup.
 
 To install and configure Tentacles, see the [Windows Targets (Tentacles) documentation](/docs/infrastructure/deployment-targets/windows-targets/index.md).
 
 ## Polling Tentacles
 
-In **polling** mode, Tentacle will poll the Octopus Server periodically to check if there are any tasks for it to perform. Polling mode is the opposite of **listening mode**.
+In **Polling** mode, Tentacle will poll the Octopus server periodically to check if there are any tasks for it to perform. Polling mode is the opposite of **Listening mode**.
 
-In polling mode, Octopus is the TCP server, and Tentacle is the TCP client.
+In Polling mode, Octopus is the TCP server, and Tentacle is the TCP client.
 
 ![Polling Tentacle to Octopus communication](polling-tentacle.png)
 
-The advantage to polling mode is that you don't need to make any firewall changes on the Tentacle side; you only need to allow access to a port on the Octopus Server. The disadvantage is that it also uses more resources on the Tentacle side, since Tentacle needs to poll periodically even if there aren't any jobs for it to perform.
+The advantage to Polling mode is that you don't need to make any firewall changes on the Tentacle side; you only need to allow access to a port on the Octopus server. The disadvantage is that it also uses more resources on the Tentacle side, since Tentacle needs to poll periodically even if there aren't any jobs for it to perform.
 
-Polling mode is good for scenarios that involve Tentacle being behind NAT or a dynamic IP address. A good example might be servers at branch offices or a chain of retail stores, where the IP address of each server running Tentacle may change.
+Polling mode is good for scenarios that involve Tentacles being behind NAT or a dynamic IP address. A good example might be servers at branch offices or a chain of retail stores, where the IP address of each server running Tentacle changes.
 
 To install and configure Tentacles, see the [Windows Targets (Tentacles) documentation](/docs/infrastructure/deployment-targets/windows-targets/index.md).
 
