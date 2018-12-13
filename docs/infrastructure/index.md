@@ -22,7 +22,7 @@ You can manage your infrastructure by navigating to the **Infrastructure** tab i
 
 ## Overview
 
-From the **Overview** section of the **Infrastructure** tab, you can quickly see your existing [environments](#environments), [deployment targets](#deployment-targets), [worker pools](#worker-pools), and [workers](#workers). You can check on the [status](/docs/infrastructure/machine.md#health-check) of your deployment targets and workers, and access targets by [target role](/docs/infrastructure/deployment-targets/target-roles/index.md).
+From the **Overview** section of the **Infrastructure** tab, you can quickly see your existing [environments](#environments), [deployment targets](#deployment-targets), [worker pools](#worker-pools), and [workers](#workers). You can check on the [status](/docs/infrastructure/machine-policies.md#health-check) of your deployment targets and workers, and access targets by [target role](/docs/infrastructure/deployment-targets/target-roles/index.md).
 
 ## Deployment Targets
 
