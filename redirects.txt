@@ -111,7 +111,7 @@ docs/guides/node-on-nix-deployments/configuring-target-machine.md -> docs/deploy
 docs/deployment-examples/node-on-nix-deployments/configuring-target-machine.md -> docs/deployment-examples/node-on-linux-deployments/configuring-target-machine.md
 docs/guides/node-on-nix-deployments/create-&-push-node.js-project.md -> docs/deployment-examples/node-on-linux-deployments/create-&-push-node.js-project.md
 docs/deployment-examples/node-on-nix-deployments/create-&-push-node.js-project.md -> docs/deployment-examples/node-on-linux-deployments/create-&-push-node.js-project.md
-docs/guides/node-on-nix-deployments/index.md -> docs/deployment-examples/node-on-nix-deployments/index.md
+docs/guides/node-on-nix-deployments/index.md -> docs/deployment-examples/node-on-linux-deployments/index.md
 docs/deployment-examples/node-on-nix-deployments/index.md -> docs/deployment-examples/node-on-linux-deployments/index.md
 docs/guides/deploying-asp.net-core-web-applications/index.md -> docs/deployment-examples/asp.net-core-web-application-deployments/index.md
 docs/guides/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md -> docs/deployment-process/configuration-features/json-configuration-variables-feature.md
