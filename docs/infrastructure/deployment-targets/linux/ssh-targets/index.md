@@ -3,7 +3,7 @@ title: SSH Targets
 description: Deploying software to Linux deployment targets.
 ---
 
-For Linux systems you can configure Octopus to communicate with your deployment target through SSH. The Octopus server will then connect to the SSH deployment target and execute bash scripts to invoke [Calamari](/docs/infrastructure/deployment-targets/linux/ssh-targets/Calamari-on-ssh-targets.md), which is installed on the SSH target and in turn performs the deployment steps and passes the task progress, logs, and artifacts back to the Octopus server.
+For Linux systems you can configure Octopus to communicate with your deployment target through SSH. The Octopus server will then connect to the SSH deployment target and execute bash scripts to invoke [Calamari](/docs/infrastructure/deployment-targets/linux/ssh-targets/requirements.md#dotnet), which is installed on the SSH target and in turn performs the deployment steps and passes the task progress, logs, and artifacts back to the Octopus server.
 
 Before you configure an SSH deployment target, review the [requirements](/docs/infrastructure/deployment-targets/linux/ssh-targets/requirements.md) and ensure your SSH deployment targets have the required packages installed.
 

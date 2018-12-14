@@ -26,7 +26,7 @@ Learn more about the [built-in worker](/docs/administration/workers/built-in-wor
 
 ## External Workers
 
-An **external worker** is either a [Tentacle](/docs/infrastructure/deployment-targets/windows-targets/index.md) or an [SSH machine](/docs/infrastructure/deployment-targets/ssh-targets/index.md) that has been registered with the Octopus server as a worker.  The setup of a worker is the same as setting up a deployment target as a [Windows Tentacle target](/docs/infrastructure/deployment-targets/windows-targets/index.md) or an [SSH target](/docs/infrastructure/deployment-targets/ssh-targets/index.md), except that instead of being added to an environment, a worker is added to a worker pool.
+An **external worker** is either a [Tentacle](/docs/infrastructure/deployment-targets/windows-targets/index.md) or an [SSH machine](/docs/infrastructure/deployment-targets/linux/ssh-targets/index.md) that has been registered with the Octopus server as a worker.  The setup of a worker is the same as setting up a deployment target as a [Windows Tentacle target](/docs/infrastructure/deployment-targets/windows-targets/index.md) or an [SSH target](/docs/infrastructure/deployment-targets/linux/ssh-targets/index.md), except that instead of being added to an environment, a worker is added to a worker pool.
 
 Workers have machine policies, are health checked, and run Calamari, just like deployment targets.
 
@@ -59,7 +59,7 @@ It is not currently possible to configure a worker as a Polling Tentacle with th
 
 ### Register a Worker with an SSH Connection
 
-To register a worker with an SSH Connection, see the instructions for configuring [SSH deployment targets](/docs/infrastructure/deployment-targets/ssh-targets/index.md).
+To register a worker with an SSH Connection, see the instructions for configuring [SSH deployment targets](/docs/infrastructure/deployment-targets/linux/ssh-targets/index.md).
 
 ### Registering Workers with the Tentacle Executable
 
