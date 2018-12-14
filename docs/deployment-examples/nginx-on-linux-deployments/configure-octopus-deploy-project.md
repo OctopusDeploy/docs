@@ -27,7 +27,7 @@ To connect over SSH the first thing you will need to do is add the credentials f
 - Continue to fill out the rest of the details, selecting the account that you created above.
 
 :::success
-Further details are provided throughout the rest of this documentation about [SSH Targets](/docs/infrastructure/deployment-targets/ssh-targets/index.md).
+Further details are provided throughout the rest of this documentation about [SSH Targets](/docs/infrastructure/deployment-targets/linux/ssh-targets/index.md).
 :::
 
 ## Create Deployment Project

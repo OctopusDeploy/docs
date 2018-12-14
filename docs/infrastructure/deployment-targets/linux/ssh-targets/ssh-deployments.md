@@ -6,7 +6,7 @@ position: 30
 
 Below are some details of how deployments are performed to SSH targets.
 
-Also see the [Node.js sample](/docs/deployment-examples/node-on-nix-deployments/index.md) for an example of deploying to a Linux target
+Also see the [Node.js sample](/docs/deployment-examples/node-on-linux-deployments/index.md) for an example of deploying to a Linux target
 
 ## File Footprint {#SSHTargets-Footprint}
 

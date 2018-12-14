@@ -83,7 +83,7 @@ Write-Error "This is an error"
 Fail-HealthCheck "This is an error"
 ```
 
-SSH targets do not include a disk space check by default like Tentacle targets do. As such, there is no default Bash script listed in your machine policy for SSH targets by default. However, you may write your own, or choose to add additional Bash script to run against your SSH targets during health checks. Again, it's entirely up to you. Unless you select the `Only perform connection test` option, there are some [system prerequisites](/docs/infrastructure/deployment-targets/ssh-targets/requirements.md) that are included as part of the standard health check.
+SSH targets do not include a disk space check by default like Tentacle targets do. As such, there is no default Bash script listed in your machine policy for SSH targets by default. However, you may write your own, or choose to add additional Bash script to run against your SSH targets during health checks. Again, it's entirely up to you. Unless you select the `Only perform connection test` option, there are some [system prerequisites](/docs/infrastructure/deployment-targets/linux/ssh-targets/requirements.md) that are included as part of the standard health check.
 
 SSH deployment targets can use *echo\_warning*, *echo\_error* and *fail\_healthcheck* to convey a *healthy with warnings* or *unhealthy* status:
 

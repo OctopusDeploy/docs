@@ -3,9 +3,9 @@ title: SSH Targets
 description: Deploying software to Linux deployment targets.
 ---
 
-For Linux systems you can configure Octopus to communicate with your deployment target through SSH. The Octopus server will then connect to the SSH deployment target and execute bash scripts to invoke [Calamari](/docs/infrastructure/deployment-targets/ssh-targets/Calamari-on-ssh-targets.md), which is installed on the SSH target and in turn performs the deployment steps and passes the task progress, logs, and artifacts back to the Octopus server.
+For Linux systems you can configure Octopus to communicate with your deployment target through SSH. The Octopus server will then connect to the SSH deployment target and execute bash scripts to invoke [Calamari](/docs/infrastructure/deployment-targets/linux/ssh-targets/Calamari-on-ssh-targets.md), which is installed on the SSH target and in turn performs the deployment steps and passes the task progress, logs, and artifacts back to the Octopus server.
 
-Before you configure an SSH deployment target, review the [requirements](/docs/infrastructure/deployment-targets/ssh-targets/requirements.md) and ensure your SSH deployment targets have the required packages installed.
+Before you configure an SSH deployment target, review the [requirements](/docs/infrastructure/deployment-targets/linux/ssh-targets/requirements.md) and ensure your SSH deployment targets have the required packages installed.
 
 ## Create an SSH Account
 
@@ -47,7 +47,7 @@ ssh-keygen -E md5 -lf /etc/ssh/ssh_host_rsa_key.pub | cut -d' ' -f2 | awk '{ pri
 
 ## Health Check
 
-Once the target is configured, Octopus will perform an initial health check. Health checks are done periodically or on demand and ensure the endpoint is reachable, configured correctly and the required dependencies are are available (e.g. tar, for more details see [requirements](/docs/infrastructure/deployment-targets/ssh-targets/requirements.md)), and ready to perform deployment tasks.
+Once the target is configured, Octopus will perform an initial health check. Health checks are done periodically or on demand and ensure the endpoint is reachable, configured correctly and the required dependencies are are available (e.g. tar, for more details see [requirements](/docs/infrastructure/deployment-targets/linux/ssh-targets/requirements.md)), and ready to perform deployment tasks.
 
 If Calamari is not present or is out-of-date, a warning will be displayed, however, Calamari will be updated when it is next required by a task.
 

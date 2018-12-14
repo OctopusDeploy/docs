@@ -14,7 +14,7 @@ From The Deployment Targets tab you can add new deployment targets, disable or d
 Deployment targets are added in different ways, depending on the type of target you are adding and how the target will communicate with the Octopus Deploy server. For instructions, see:
 
 - [Listening and Polling Windows Tentacles](/docs/infrastructure/deployment-targets/windows-targets/index.md)
-- [SSH Connection](/docs/infrastructure/deployment-targets/ssh-targets/index.md)
+- [Linux SSH Connection](/docs/infrastructure/deployment-targets/linux/ssh-targets/index.md)
 - [Azure Web App](/docs/infrastructure/deployment-targets/azure/web-app-targets/index.md)
 - [Azure Cloud Service](/docs/infrastructure/deployment-targets/azure/cloud-service-targets/index.md)
 - [Azure Service Fabric Cluster](/docs/infrastructure/deployment-targets/azure/service-fabric-cluster-targets/index.md)
