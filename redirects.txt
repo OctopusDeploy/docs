@@ -659,3 +659,8 @@ docs/infrastructure/deployment-targets/ssh-targets/mono-calamari.md -> docs/infr
 docs/infrastructure/deployment-targets/ssh-targets/self-contained-calamari.md -> docs/infrastructure/deployment-targets/ssh-targets/calamari-on-ssh-targets.md
 docs/infrastructure/deployment-targets/ssh-targets/configuring-ssh-connection.md -> docs/infrastructure/deployment-targets/ssh-targets/index.md
 docs/infrastructure/deployment-targets/health-checks.md -> docs/infrastructure/machine-policies.md
+docs/infrastructure/deployment-targets/ssh-targets/index.md -> docs/infrastructure/deployment-targets/linux/ssh-targets/index.md
+docs/infrastructure/deployment-targets/ssh-targets/requirements.md -> docs/infrastructure/deployment-targets/linux/ssh-targets/requirements.md
+docs/infrastructure/deployment-targets/ssh-targets/sudo-commands.md -> docs/infrastructure/deployment-targets/linux/ssh-targets/sudo-commands.md
+docs/infrastructure/deployment-targets/ssh-targets/calamari-on-ssh-targets.md -> docs/infrastructure/deployment-targets/linux/ssh-targets/requirements.md
+docs/infrastructure/deployment-targets/ssh-targets/ssh-deployments.md -> docs/infrastructure/deployment-targets/linux/ssh-targets/ssh-deployments.md
