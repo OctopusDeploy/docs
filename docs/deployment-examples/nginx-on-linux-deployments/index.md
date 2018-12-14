@@ -1,6 +1,6 @@
 ---
 title: NGINX Web Server deployments
-description: This guide covers everything you need to configure NGINX on *NIX for your web applications
+description: This guide covers everything you need to configure NGINX on Linux for your web applications
 position: 110
 ---
 

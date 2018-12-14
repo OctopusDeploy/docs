@@ -20,7 +20,7 @@ If you experience problems connecting, it may help to try connect directly to th
 
 :::warning
 **Different Distributions use Different Conventions**
-While the above instructions should work on common platforms like Ubuntu or Red Hat, you may need to double check the details for specific instructions relating to SSH authentication on target operating system. There are many different \*Nix based distributions, and some of these have their own unique way of doing things. For this reason we cannot guarantee that these SSH instructions will work in every case.
+While the above instructions should work on common platforms like Ubuntu or Red Hat, you may need to double check the details for specific instructions relating to SSH authentication on target operating system. There are many different Linux based distributions, and some of these have their own unique way of doing things. For this reason we cannot guarantee that these SSH instructions will work in every case.
 :::
 
 ## Create a Username and Password Account {#UsernameandPassword-Creatingtheaccount}
