@@ -1,6 +1,6 @@
 ---
 title: Calamari on SSH Targets
-description: Calamari on *nix systems
+description: Calamari on Linux systems
 position: 10
 ---
 
@@ -13,7 +13,7 @@ There are two versions of Calamari that can be installed on SSH deployment targe
 
 ## Calamari on Mono {#mono-calamari}
 
-[Calamari](/docs/api-and-integration/calamari.md) can execute on the [Mono framework](http://www.mono-project.com/), allowing Octopus to deploy via SSH to \*nix operating systems.
+[Calamari](/docs/api-and-integration/calamari.md) can execute on the [Mono framework](http://www.mono-project.com/), allowing Octopus to deploy via SSH to Linux operating systems.
 
 Version **3.10** or greater of Mono is required; however, we recommended a minimum of version **4.8.0**.
 

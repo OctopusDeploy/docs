@@ -4,7 +4,7 @@ description: This guide describes how to configure your Octopus project to deplo
 position: 2
 ---
 
-Assuming you are starting with a clean install of Octopus Deploy, the following steps will configure the server to deploy your [octofxjs](/docs/deployment-examples/node-on-nix-deployments/create-&-push-node.js-project.md) Node.js project to a Linux machine.
+Assuming you are starting with a clean install of Octopus Deploy, the following steps will configure the server to deploy your [octofxjs](/docs/deployment-examples/node-on-linux-deployments/create-&-push-node.js-project.md) Node.js project to a Linux machine.
 
 ## Configure Environment {#ConfigureOctopusDeployProject-ConfigureEnvironment}
 
@@ -22,7 +22,7 @@ For the purpose of this guide we will only use the one deployment environment bu
 
 ## Configure Account and Target {#ConfigureOctopusDeployProject-ConfigureAccount&amp;Target}
 
-To connect over SSH the first thing you will need to do is add the credentials for your machine. If you followed the previous  "[Configuring Target Machine](/docs/deployment-examples/node-on-nix-deployments/configuring-target-machine.md)" step this should consist of a username and password pair.
+To connect over SSH the first thing you will need to do is add the credentials for your machine. If you followed the previous  "[Configuring Target Machine](/docs/deployment-examples/node-on-linux-deployments/configuring-target-machine.md)" step this should consist of a username and password pair.
 
 - Navigate to {{Environments,Accounts,Usernames/Passwords,Add Account}} and add these credentials.
 - In the **prod** environment click *Add deployment target* and select *SSH Connection*.
