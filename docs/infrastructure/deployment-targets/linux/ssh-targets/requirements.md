@@ -32,17 +32,17 @@ See the Bash Reference Manual, section [6.2 Bash Startup Files](http://www.gnu.
 - [Self-contained Calamari](#self-contained-calamari) built against .NET Core.
 - [Calamari on Mono](#mono-calamari) built against the full .NET framework.
 
-### Self-contained Calamari {#self-contained-calamari}
+## Self-contained Calamari {#self-contained-calamari}
 
 When using the self-contained option, neither .NET Core nor Mono need to be installed on the target server (there are still some [pre-requisite dependencies](#dependencies)).
 
 Self-contained Calamari is built as a [.NET Core self-contained distributable](https://docs.microsoft.com/en-us/dotnet/core/deploying/#self-contained-deployments-scd).
 
-#### Self-Contained .NET Core Dependencies
+### Self-Contained .NET Core Dependencies
 
 [.NET Core has some dependencies](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md) which must be installed on the target server.
 
-#### Self-contained Calamari Limitations {#self-contained-calamari-limitations}
+### Self-contained Calamari Limitations {#self-contained-calamari-limitations}
 
 ScriptCS and F# scripts can not execute when using a self-contained Calamari build.
 
