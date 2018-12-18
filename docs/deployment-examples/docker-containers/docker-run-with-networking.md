@@ -12,12 +12,12 @@ While Docker Containers on Windows Server (not Docker for Windows through Docker
 
 ## Configuring a Docker Host {#Dockerrunwithnetworking-ConfiguringaDockerhost}
 
-If you already have a working Linux machine with Docker Engine installed you can use that once you have configured it as an [SSH Target](/docs/infrastructure/deployment-targets/ssh-targets/index.md) in Octopus.
+If you already have a working Linux machine with Docker Engine installed you can use that once you have configured it as an [SSH Target](/docs/infrastructure/deployment-targets/linux/index.md) in Octopus.
 
 If not, you will need to configure a host for our sample application. We recommend using **Ubuntu Trusty 14.04 LTS** or **Ubuntu Xenial 16.04 LTS** for this sample.
 
 1. Install Ubuntu.
-2. Configure your Ubuntu machine as an [SSH Target](/docs/infrastructure/deployment-targets/ssh-targets/index.md) in Octopus - [this guide may be helpful](/docs/deployment-examples/node-on-linux-deployments/configuring-target-machine.md).
+2. Configure your Ubuntu machine as an [SSH Target](/docs/infrastructure/deployment-targets/linux/index.md) in Octopus - [this guide may be helpful](/docs/deployment-examples/node-on-linux-deployments/configuring-target-machine.md).
     * Make sure this Deployment Target has a [Machine Role](/docs/infrastructure/deployment-targets/target-roles/index.md) like **docker-test**. We will configure the Docker steps to target this role.
 
 ![](/docs/images/5670973/5865822.png "width=500")

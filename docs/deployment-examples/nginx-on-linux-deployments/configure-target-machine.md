@@ -8,7 +8,7 @@ position: 0
 This guide can be used with an AWS AMI instance of Ubuntu 14.04 LTS or an Azure VM running Ubuntu 14.04 LTS. If you want to use a different base instance there may be some slightly different steps you need to take during the configuration.
 :::
 
-Deploying projects over [SSH](/docs/infrastructure/deployment-targets/ssh-targets/index.md) has some slightly different requirements to a standard Tentacle. Although you don't need to install and run a Tentacle service, there is some configuration that is required to allow Calamari to run on non Windows systems.
+Deploying projects over [SSH](/docs/infrastructure/deployment-targets/linux/index.md) has some slightly different requirements to a standard Tentacle. Although you don't need to install and run a Tentacle service, there is some configuration that is required to allow Calamari to run on non Windows systems.
 
 ## Install .NET Core {#ConfigureTargetMachine-InstallDotNetCore}
 
@@ -130,7 +130,7 @@ sudo restart ssh
 
 By default `sudo` requires the user to enter their password, but this won't work in a non-interactive session such as that of a running deployment. To successfully use the new *NGINX* feature in Octopus Deploy we need `sudo` access without password prompt for few commands `cp`, `mv`, `rm`, and `nginx` and for this guide we will also need to add `systemctl` to the list of required commands.
 
-So, we need to configure this for our user that we will be using for the purposes of deployment. See [Sudo commands](/docs/infrastructure/deployment-targets/ssh-targets/sudo-commands.md) for more details on how to disable password prompt for all commands. To enable `sudo` without password prompt for only the required commands for NGINX, add the following lines into your file and then save the file:
+So, we need to configure this for our user that we will be using for the purposes of deployment. See [Sudo commands](/docs/infrastructure/deployment-targets/linux/sudo-commands.md) for more details on how to disable password prompt for all commands. To enable `sudo` without password prompt for only the required commands for NGINX, add the following lines into your file and then save the file:
 
 ```bash
 Cmdn_Alias REQUIRED_NGINX_COMMANDS = /bin/cp, /bin/mv, /bin/rm, /bin/systemctl, /usr/sbin/nginx

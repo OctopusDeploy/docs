@@ -1,12 +1,37 @@
 ---
-title: SSH Targets
-description: Deploying software to Linux and Unix deployment targets.
+title: Linux Targets
+description: Configuring Linux servers as deployment targets in Octopus.
 position: 20
 ---
 
-For Linux and Unix systems you can configure Octopus to communicate with your deployment target through SSH. The Octopus server will then connect to the SSH deployment target and execute bash scripts to invoke [Calamari](/docs/infrastructure/deployment-targets/ssh-targets/Calamari-on-ssh-targets.md), which is installed on the SSH target and in turn performs the deployment steps and passes the task progress, logs, and artifacts back to the Octopus server.
+Linux servers can be configured as [Deployment Targets](/docs/infrastructure/deployment-targets/index.md) in Octopus.   
 
-Before you configure an SSH deployment target, review the [requirements](/docs/infrastructure/deployment-targets/ssh-targets/requirements.md) and ensure your SSH deployment targets have the required packages installed.
+The Octopus Server communicates with Linux targets via SSH, and therefore Linux servers are modeled as SSH Targets.  
+
+There is no agent required to be pre-installed on Linux servers, unlike [Windows servers](/docs/infrastructure/deployment-targets/windows-targets/index.md) which require the Tentacle agent to be installed.
+
+## Supported Distributions
+
+Any Linux server which meets the [requirements](/docs/infrastructure/deployment-targets/linux/requirements.md) will be able to be configured as a deployment target.
+
+The following platforms are explicitly supported (we run automated tests against them):
+
+- Ubuntu 16.04 LTS
+- Ubuntu 14.04 LTS
+- Ubuntu 12.04 LTS
+- Redhat 7.2
+- Centos 7.5
+- Amazon Linux 2
+- Debian 8.7
+- Fedora 23
+- MacOS 10.12.5
+- openSUSE 42.3
+- SUSE LES 12 SP2
+- FreeBSD 11.2
+
+## Configuring SSH Targets
+
+Before you configure an SSH deployment target, review the [requirements](/docs/infrastructure/deployment-targets/linux/requirements.md) and ensure your SSH deployment targets have the required packages installed.
 
 ## Create an SSH Account
 
@@ -48,7 +73,7 @@ ssh-keygen -E md5 -lf /etc/ssh/ssh_host_rsa_key.pub | cut -d' ' -f2 | awk '{ pri
 
 ## Health Check
 
-Once the target is configured, Octopus will perform an initial health check. Health checks are done periodically or on demand and ensure the endpoint is reachable, configured correctly and the required dependencies are are available (e.g. tar, for more details see [requirements](/docs/infrastructure/deployment-targets/ssh-targets/requirements.md)), and ready to perform deployment tasks.
+Once the target is configured, Octopus will perform an initial health check. Health checks are done periodically or on demand and ensure the endpoint is reachable, configured correctly and the required dependencies are are available (e.g. tar, for more details see [requirements](/docs/infrastructure/deployment-targets/linux/requirements.md)), and ready to perform deployment tasks.
 
 If Calamari is not present or is out-of-date, a warning will be displayed, however, Calamari will be updated when it is next required by a task.
 

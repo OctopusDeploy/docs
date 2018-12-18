@@ -4,7 +4,17 @@ description: Deploying software to Linux and Unix deployment targets.
 position: 30
 ---
 
-As we are using Calamari directly, essentially the same steps are taken as a standard Tentacle Agents whenever a deployment takes place with a few key differences due to the missing Tentacle layer.
+Below are some details of how deployments are performed to SSH targets.
+
+Also see the [Node.js sample](/docs/deployment-examples/node-on-linux-deployments/index.md) for an example of deploying to a Linux target
+
+## File Footprint {#SSHTargets-Footprint}
+
+- The root directory for all Octopus work is `$HOME/.octopus`
+- All packages are deployed to a relative location at `$HOME/.octopus/Applications/#{instance}/#{environment}/#{package}/#{version}`.
+- When Calamari is copied across by a deployment it is extracted to `$HOME/.octopus/#{instance}/Calamari/#{version}`.
+
+By making all paths relative to the user's home directory, you can then theoretically use the same physical machine with multiple user accounts acting as separate targets. The Octopus server can then treat each machine\user as a separate SSH endpoint which will update Calamari and deploy independently of each other.
 
 ## Transport
 
@@ -16,13 +26,7 @@ Before any processing is begun we do an initial check to ensure the available Ca
 
 ## Package Acquisition
 
-Leveraging Calamari means that the deployment can obtain the package via the same methods as a normal Tentacle; either pushed from the server or directly from a NuGet repository. There is therefore no bottleneck in acquisition if there are multiple SSH endpoints all trying to retrieve the same package independently.
-
-### Non-NuGet Package Types
-
-Since **Octopus 3.3** has [support for tar packages](/docs/packaging-applications/supported-packages.md).
-
-See our [Node.js sample](/docs/deployment-examples/node-on-linux-deployments/index.md) for an example of deploying to a Linux target
+Leveraging Calamari means that the deployment can obtain the package via the same methods as a target running the Tentacle agent; either pushed from the server or directly from a NuGet repository. There is therefore no bottleneck in acquisition if there are multiple SSH endpoints all trying to retrieve the same package independently.
 
 ## Features
 
