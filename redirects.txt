@@ -676,3 +676,4 @@ docs/infrastructure/deployment-targets/linux/ssh-targets/requirements.md -> docs
 docs/infrastructure/deployment-targets/linux/ssh-targets/sudo-commands.md -> docs/infrastructure/deployment-targets/linux/sudo-commands.md
 docs/infrastructure/deployment-targets/linux/ssh-targets/calamari-on-ssh-targets.md -> docs/infrastructure/deployment-targets/linux/requirements.md
 docs/infrastructure/deployment-targets/linux/ssh-targets/ssh-deployments.md -> docs/infrastructure/deployment-targets/linux/ssh-deployments.md
+docs/infrastructure/deployment-targets/linux/ssh-targets/index.md -> docs/infrastructure/deployment-targets/linux/index.md
