@@ -1,7 +1,7 @@
 ---
 title: SSH Target Requirements
 description: Requirements for using SSH deployment targets with Octopus.
-position: 5
+position: 10
 ---
 
 SSH deployment targets must meet the following requirements:
@@ -27,7 +27,7 @@ See the Bash Reference Manual, section [6.2 Bash Startup Files](http://www.gnu.
 
 ## .NET {#dotnet}
 
-[Calamari](/docs/api-and-integration/calamari.md) is the command-line tool that is invoked to perform the deployment steps on the deployment target. Calamari runs on .NET.  SSH targets can be configured to use either: 
+[Calamari](/docs/api-and-integration/calamari.md) is the command-line tool that is invoked to perform the deployment steps on the deployment target. Calamari runs on .NET.  SSH targets can be configured to use either:
 
 - [Self-contained Calamari](#self-contained-calamari) built against .NET Core.
 - [Calamari on Mono](#mono-calamari) built against the full .NET framework.
