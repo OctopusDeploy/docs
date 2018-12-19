@@ -67,7 +67,11 @@ Octopus now integrates with [Let's Encrypt](/docs/administration/security/exposi
 
 There are two values you will need from the Okta configuration to complete the Octopus configuration: the **Client ID** and **Issuer**. (The Client ID is also referred to as Audience.)
 
-Select the **Sign On** tab and scroll down to the **OpenID Connect ID Token** section. Take note of the **Issuer** and **Audience** as you will need both these values to configure your Octopus Server.
+First, use Okta's _Classic UI_ by selecting it in the upper right hand menu
+
+![Okta Classic UI](okta-authentication/okta-classic-ui.png)
+
+Now select the **Sign On** tab and scroll down to the **OpenID Connect ID Token** section. Take note of the **Issuer** and **Audience** as you will need both these values to configure your Octopus Server.
 
 ![](okta-authentication/okta-openid-token.png "width=500")
 
