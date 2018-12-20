@@ -75,11 +75,26 @@ Now select the **Sign On** tab and scroll down to the **OpenID Connect ID Token*
 
 ![](okta-authentication/okta-openid-token.png "width=500")
 
-If you want groups from Okta to flow through to Octopus, you'll need to change the _Groups claim_ fields as follows:
+#### Okta group integration {#Oktaauthentication-OpenIDConnectSettings-OktaGroups}
+
+If you want Okta groups to flow through to Octopus, you'll need to change the _Groups claim_ fields as follows:
 
 ![Okta Groups claim](okta-authentication/okta-groups-claimtype.png)
 
 Note that the Regex is ```.*```, the period is important!
+
+#### Active Directory integration {#Oktaauthentication-OpenIDConnectSettings-ADGroups}
+
+If you want to configure Okta to present your active directory groups, use a similar approach to [Okta group integration](#Oktaauthentication-OpenIDConnectSettings-OktaGroups), however we recommend that you use a _Groups claim type_ of **Expression** instead of **Filter**.
+
+For example, if you have all of your Octopus groups prefixed with `Octopus.` (e.g. `Octopus.Admins`, `Octopus.Deployers`, etc.) then you could use the following expression to pass along the correct AD groups:
+
+```
+Groups.startsWith("active_directory", "Octopus.", 10)
+```
+This expression will search `active_directory` for any groups that start with the name `Octopus.` and only return the first 10 results.
+
+> A complete guide to Okta's group expressions are available [here](https://developer.okta.com/docs/how-to/creating-token-with-groups-claim#create-groups-claims-with-a-dynamic-whitelist)
 
 ### Assign App {#Oktaauthentication-AssignApp}
 
