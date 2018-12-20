@@ -1,11 +1,11 @@
 ---
-title: Upgrading From Octopus 2.0
-description: Information on how to upgrade from Octopus 2.0 to a more modern version.
+title: Upgrading From Octopus 2.x to 2.6.5
+description: Information on how to upgrade from Octopus 2.x to 2.6.5.
 position: 3
 ---
 
-:::problem
-You will not be able to upgrade directly from **Octopus 2.x** to the latest version of Octopus. If you are running a version prior to **Octopus 2.6**, use this guide to upgrade from **Octopus 2.x** to **Octopus 2.6**, then follow the [guide to upgrade from 2.6 to the latest version of Octopus](/docs/administration/upgrading/upgrading-from-octopus-2.6/index.md).
+:::success
+Please read our guide for [upgrading older versions of Octopus](index.md) before continuing.
 :::
 
 Upgrading **Octopus 2.0** involves two major steps.

@@ -1,6 +1,6 @@
 ---
-title: Migrating Data from Octopus 2.6 to 3.x
-description: Information on how to migrate your data to Octopus 3.x from Octopus 2.6.
+title: Migrating Data from Octopus 2.6.5 to 2018.10 LTS
+description: Information on how to migrate your data from Octopus 2.6.5 to 2018.10 LTS.
 position: 3
 ---
 

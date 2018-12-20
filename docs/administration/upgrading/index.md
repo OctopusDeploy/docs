@@ -1,14 +1,20 @@
 ---
 title: Upgrading Octopus
-description: Everything you need to know about upgrade Octopus to a newer version.
-position: 50
+description: Everything you need to know about upgrading Octopus to a newer version.
+position: 1
 ---
 
-We release new versions of Octopus Deploy often, so we try to make the process of upgrading Octopus easy. This page outlines the process of upgrading between Octopus versions. This page describes some of the general concepts around upgrading Octopus, and we provide guides for the more complicated upgrades.
+This guide is for customers managing their self-hosted installation of Octopus. If you are using Octopus Cloud we take care of everything for you, and you will have early access to all the latest features.
 
-:::success
-**Octopus 2018** has been released! Go [download it now](https://octopus.com/downloads).
-:::
+We highly recommend using releases with long-term support (LTS) for your self-hosted installation of Octopus. We ship a new release with LTS every 3 months, where each release comes with 6 months of support. Learn about our [long-term support program](long-term-support.md).
+
+Everything you need can be [downloaded from our web site](https://octopus.com/downloads).
+
+## What would you like to do?
+
+- Upgrade a modern version of Octopus to a newer version (3.x onwards)
+- Upgrade an older version of Octopus (1.x to 2.6.5) to a modern version (3.x onwards)
+
 
 ## Before You Begin
 
@@ -17,26 +23,6 @@ Before you start your upgrade, you should take time to:
 - Test your [backup and restore process](/docs/administration/backup-and-restore.md).
 - Learn about [maintenance mode](/docs/administration/upgrading/maintenance-mode.md).
 - [Plan your upgrade](#upgrade-path).
-
-## Upgrade Path {#upgrade-path}
-
-There are lots of improvements and changes between major versions of Octopus. Please take the time to plan your upgrade path carefully.
-
-:::warning
-**Broken upgrade paths**
-
-See [this issue](https://github.com/OctopusDeploy/Issues/issues/4979) for broken upgrade paths that require special attention.
-:::
-
-- [Upgrading from Octopus 3.x](/docs/administration/upgrading/upgrading-from-octopus-3.x.md) is generally easy.
-  - Upgrading from **Octopus 3.x** to **Octopus 4.x** or **Octopus 2018.x**.
-  Follow the same process as you would normally to upgrade your **Octopus 3.x** installation.
-- [Upgrading from Octopus 2.6 to a newer version of Octopus](/docs/administration/upgrading/upgrading-from-octopus-2.6/index.md).
-  - If you are running a version of Octopus prior to **Octopus 2.6**, you will need to upgrade to **Octopus 2.6** and then upgrade to the latest version of Octopus.  
-- [Upgrading from Octopus 2.x](/docs/administration/upgrading/upgrading-from-octopus-2.0.md).
-- [Upgrading from Octopus 1.6 to 2.x](/docs/administration/upgrading/upgrading-from-octopus-1.6.md).
-  - If you are running a version of Octopus prior to **Octopus 1.6**, you will need to upgrade to **Octopus 1.6** and then upgrade to **Octopus 2.x**.
-  - Hint: You can upgrade from **Octopus 1.6** to any version of **Octopus 2.x**. We recommend upgrading from **Octopus 1.6** to the latest version of **Octopus 2.6** directly. This is the quickest path to continue upgrading to the latest version of Octopus.
 
 ## How We Version Octopus Deploy {#Upgrading-HowweversionOctopusDeploy}
 
