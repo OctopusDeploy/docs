@@ -16,7 +16,7 @@ In all scenarios, both the source Octopus Server and the destination Octopus Ser
 
 The data migration tools are not suitable for every imaginable scenario. In these cases there are better tools for the job:
 
-1. To migrate data from older versions of Octopus see [Upgrading from Octopus 2.6](/docs/administration/upgrading/upgrading-from-octopus-2.6/index.md).
+1. To migrate data from older versions of Octopus see [Upgrading from Octopus 2.6](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/index.md).
 1. For general disaster recovery lean about [backup and restore for your Octopus Server](/docs/administration/backup-and-restore.md).
 1. To move your Octopus database to another database server see [moving your database](/docs/administration/moving-your-octopus/move-the-database.md).
 1. To move your Octopus Server and database to another server see [moving your Octopus Server and database](/docs/administration/moving-your-octopus/move-the-database-and-server.md).
