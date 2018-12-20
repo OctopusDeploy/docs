@@ -11,7 +11,7 @@ The following guide provides an overview of how the various components of **Octo
 Before you start your upgrade, you should take time to:
 
 - Test your [backup and restore process](/docs/administration/backup-and-restore.md).
-- Learn about [maintenance mode](/docs/administration/upgrading/maintenance-mode.md).
+- Learn about [maintenance mode](/docs/administration/maintenance-mode.md).
 - [Plan your upgrade](#upgrade-path).
 
 ## How We Version Octopus Deploy {#Upgrading-HowweversionOctopusDeploy}
@@ -82,7 +82,7 @@ You should also consider how long the actual upgrade may take:
 Upgrading the Octopus Deploy Server is easy, you will just need to follow these steps:
 
 1. Schedule a maintenance window: Octopus Server will be unavailable during the upgrade (unless you are [upgrading Octopus HA](#upgrading-octopus-ha)).
-1. Switch your server to [Maintenance Mode](/docs/administration/upgrading/maintenance-mode.md) and wait until all current tasks and deployments have completed. This ensures that no further changes will be made that may potentially become lost if the upgrade fails and you need to rollback.
+1. Switch your server to [Maintenance Mode](/docs/administration/maintenance-mode.md) and wait until all current tasks and deployments have completed. This ensures that no further changes will be made that may potentially become lost if the upgrade fails and you need to rollback.
 
     ![](/docs/images/3048440/5865775.png "width=500")
 
@@ -98,7 +98,7 @@ Once you have downloaded the required version of the Octopus Server MSI no furth
 :::
 
 1. Run the installer and follow the prompts.
-1. Turn [Maintenance Mode](/docs/administration/upgrading/maintenance-mode.md) `OFF`.
+1. Turn [Maintenance Mode](/docs/administration/maintenance-mode.md) `OFF`.
 
     ![](/docs/images/3048440/5865776.png "width=500")
 
@@ -229,7 +229,7 @@ If you are upgrading to a 3.5+ version please backup your server config file pri
 
 If for any reason you need to downgrade to a previous version of Octopus Server, follow the steps below:
 
-1. Turn [Maintenance Mode](/docs/administration/upgrading/maintenance-mode.md) `ON`.
+1. Turn [Maintenance Mode](/docs/administration/maintenance-mode.md) `ON`.
 
 :::warning
 Wait until all current tasks and deployments have completed.
@@ -257,7 +257,7 @@ Any data that has been created from between when the backup was taken to when it
 There is no need to uninstall the newer version you were trying to upgrade to.
 :::
 
-6. Turn [Maintenance Mode](/docs/administration/upgrading/maintenance-mode.md) `OFF`.
+6. Turn [Maintenance Mode](/docs/administration/maintenance-mode.md) `OFF`.
 
 ## Troubleshooting {#UpgradingfromOctopus3.x-Troubleshooting}
 
