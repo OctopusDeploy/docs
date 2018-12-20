@@ -104,4 +104,4 @@ After migration, none of the NuGet packages that were present in the internal fe
 
 NuGet packages are not included in the Raven database backup, so will not be automatically moved to your new server and to the correct location.
 
-To move your NuGet packages, follow the [instructions in the Upgrade documentation](/docs/administration/upgrading/upgrading-from-octopus-2.6/upgrade-with-a-new-3.0-server-instance.md#Upgradewithanew3.0serverinstance-3.Migrateyourdatafrom2.6to3.x). After moving the files and restarting the service, your packages should be reindexed and available.
+To move your NuGet packages, follow the [instructions in the Upgrade documentation](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/upgrade-with-a-new-server-instance.md#Upgradewithanew3.0serverinstance-3.Migrateyourdatafrom2.6to3.x). After moving the files and restarting the service, your packages should be reindexed and available.

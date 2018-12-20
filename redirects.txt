@@ -680,7 +680,7 @@ docs/administration/upgrading/upgrading-from-octopus-1.6.md->docs/administration
 docs/administration/upgrading/upgrading-from-octopus-2.0.md->docs/administration/upgrading/legacy/upgrading-from-octopus-2.x-2.6.5.md
 docs/administration/upgrading/upgrading-from-octopus-2.6/index.md->docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/index.md
 docs/administration/upgrading/upgrading-from-octopus-2.6/backup-2.6.md->docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/backup-2.6.md
-docs/administration/upgrading/upgrading-from-octopus-2.6/in-place-upgrade-install-over-2.6.md->docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/in-place-upgrade-install-over-2.6.md
+docs/administration/upgrading/upgrading-from-octopus-2.6/in-place-upgrade-install-over-2.6.md->docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/in-place-upgrade-install-over-2.6.5.md
 docs/administration/upgrading/upgrading-from-octopus-2.6/manual-upgrade.md->docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/manual-upgrade.md
 docs/administration/upgrading/upgrading-from-octopus-2.6/migrating-data-from-octopus-2.6-to-3.x.md->docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/migrating-data-from-octopus-2.6.5-2018.10lts.md
 docs/administration/upgrading/upgrading-from-octopus-2.6/minimize-migration-time.md->docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/minimize-migration-time.md

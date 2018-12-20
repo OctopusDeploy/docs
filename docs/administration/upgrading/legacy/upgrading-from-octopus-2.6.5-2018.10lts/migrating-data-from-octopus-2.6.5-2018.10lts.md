@@ -10,8 +10,8 @@ When upgrading from **Octopus 2.6** to **Octopus 3.x** you can migrate your data
     * Re-running the data migration will overwrite matching data. See [Importing](/docs/administration/data-migration.md) in the Data Migration page for more details on how data is imported.
     * Data is matched on name. Names are unique in Octopus. This is to allow multiple backups to be run from multiple Octopus Server instances to combine into one **Octopus 3.x** instance.
     So you can run multiple backup files into an **Octopus 3.x** instance but if it matches names it will use the currently running backup as the source of truth.
-- The built-in Octopus NuGet package repository is not migrated automatically - see [below](/docs/administration/upgrading/upgrading-from-octopus-2.6/migrating-data-from-octopus-2.6-to-3.x.md) for more details.
-- You can optionally limit the days of historical data to migrate - see [below](/docs/administration/upgrading/upgrading-from-octopus-2.6/migrating-data-from-octopus-2.6-to-3.x.md) for more details.
+- The built-in Octopus NuGet package repository is not migrated automatically - see [below](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/migrating-data-from-octopus-2.6.5-2018.10lts.md) for more details.
+- You can optionally limit the days of historical data to migrate - see [below](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/migrating-data-from-octopus-2.6.5-2018.10lts.md) for more details.
 
 :::hint
 ** The migrator can take a long time **

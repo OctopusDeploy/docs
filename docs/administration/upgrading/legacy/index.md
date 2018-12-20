@@ -24,7 +24,7 @@ We track any unresolved upgrade problems which require special attention using [
 ## Detailed Upgrade Guides {#upgrade-guides}
 
 - Upgrade from `1.x` to `1.6` by [downloading and running the installer](https://octopus.com/downloads/1.6.3.1723).
-- Upgrade from `1.6` to `2.6.5` using [this detailed guide](upgrading-from-octopus-1.6.md).
-- Upgrade from `2.x` to `2.6.5` using [this detailed guide](upgrading-from-octopus-2.0.md).
-- Upgrade from `2.6.5` to `2018.10 LTS` using [this detailed guide](/docs/administration/upgrading/upgrading-from-octopus-2.6/index.md).
-- Upgrade any modern version of Octopus using [this detailed guide](/docs/administration/upgrading/upgrading-from-octopus-3.x.md).
+- Upgrade from `1.6` to `2.6.5` using [this detailed guide](upgrading-from-octopus-1.6-2.6.5.md).
+- Upgrade from `2.x` to `2.6.5` using [this detailed guide](upgrading-from-octopus-2.x-2.6.5.md).
+- Upgrade from `2.6.5` to `2018.10 LTS` using [this detailed guide](upgrading-from-octopus-2.6.5-2018.10lts/index.md).
+- Upgrade any modern version of Octopus using [this detailed guide](/docs/administration/upgrading/guide/index.md).
