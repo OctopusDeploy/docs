@@ -24,4 +24,6 @@ Assuming your users' email address, SAMAccountName or UPN do not change, then th
 
 * If you move your users to the new domain as well, this should still work assuming that the user's email address, SAM or UPN do not change.  If they do, then you'll need to update your instance to migrate your users/teams over.
 
+* Take care when moving Octopus to a new domain if you have mapped [external groups and roles](docs/administration/managing-users-and-teams/external-groups-and-roles.md) to Teams in Octopus. Octopus won't recognize the Active Directory security groups that your users are members of in the new domain if the security group's SID is different, even if you are moving to an Active Directory domain where the group names are the same. This is because Octopus looks at doesn't store the Active Directory security group names instead, it stores their SIDs. 
+
 * If you need to edit your groups, this can get complicated.  Read our page on [external groups and roles](docs/administration/managing-users-and-teams/external-groups-and-roles.md) for more information.
