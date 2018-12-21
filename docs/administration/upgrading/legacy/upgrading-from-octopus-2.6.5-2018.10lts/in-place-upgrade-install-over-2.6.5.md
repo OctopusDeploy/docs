@@ -22,7 +22,7 @@ There is a current issue where it is not importing your license key. Please back
 
 ### 1. Back up Your Octopus 2.6 Database and Master Key {#Inplaceupgrade(installover2.6)-1.BackupyourOctopus2.6databaseandmasterkey}
 
-See the [Backup and restore](/docs/administration/upgrading/upgrading-from-octopus-2.6/backup-2.6.md)[ page for instructions on backing up your database.](/docs/administration/upgrading/upgrading-from-octopus-2.6/backup-2.6.md)
+See the [Backup and restore](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/backup-2.6.md)[ page for instructions on backing up your database.](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/backup-2.6.md)
 
 ### 2. Use Hydra to Automatically Upgrade Your Tentacles {#Inplaceupgrade(installover2.6)-2.UseHydratoautomaticallyupgradeyourTentacles}
 
@@ -71,7 +71,7 @@ After upgrading, the Octopus Manager will prompt to import your **Octopus 2.6** 
 
 ![](/docs/images/3048132/3278005.png "width=500")
 
-See the [Migrating data from Octopus 2.6 to 3.x](/docs/administration/upgrading/upgrading-from-octopus-2.6/migrating-data-from-octopus-2.6-to-3.x.md) page for more detailed instructions on importing your **Octopus 2.6** database backup into **Octopus 3.x**.
+See the [Migrating data from Octopus 2.6 to 3.x](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/migrating-data-from-octopus-2.6.5-2018.10lts.md) page for more detailed instructions on importing your **Octopus 2.6** database backup into **Octopus 3.x**.
 
 :::hint
 **Migration taking a long time?**

@@ -1,12 +1,12 @@
 ---
-title: Upgrade With a New 3.0 Server Instance
-description: Information on how to upgrade from Octopus 2.6 to a new Octopus 3.0 instance.
+title: Upgrade With a New Server Instance
+description: Information on how to upgrade from Octopus 2.6.5 to a new Octopus instance.
 position: 2
 ---
 
 This is the recommended way of performing an upgrade for larger installations. It gives you the opportunity to verify that your Tentacles have been successfully upgraded, and allows you to more easily roll back if you have any issues.
 
-Be sure to read the [Upgrading from Octopus 2.6](/docs/administration/upgrading/upgrading-from-octopus-2.6/index.md) documentation page. You must have a working **Octopus 2.6** installation for the data migration.
+Be sure to read the [Upgrading from Octopus 2.6](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/index.md) documentation page. You must have a working **Octopus 2.6** installation for the data migration.
 
 ## Summary {#Upgradewithanew3.0serverinstance-Summary}
 
@@ -18,7 +18,7 @@ To upgrade with a new **Octopus 3.x** server, follow these steps:
 
 ### 1. Back Up Your Octopus 2.6 Database and Master Key {#Upgradewithanew3.0serverinstance-1.BackupyourOctopus2.6databaseandmasterkey}
 
-See the [Backup and restore](/docs/administration/upgrading/upgrading-from-octopus-2.6/backup-2.6.md) page for instructions on backing up your database.
+See the [Backup and restore](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/backup-2.6.md) page for instructions on backing up your database.
 
 ### 2. Install Octopus 3.x On a New Virtual or Physical Server {#Upgradewithanew3.0serverinstance-2.InstallOctopus3.xonanewvirtualorphysicalserver}
 
@@ -31,7 +31,7 @@ See the [Installing Octopus 3.x](/docs/installation/index.md) page for instruc
 
 ### 3. Migrate Your Data From 2.6 to 3.x {#Upgradewithanew3.0serverinstance-3.Migrateyourdatafrom2.6to3.x}
 
-See the [Migrating data from Octopus 2.6 to 3.x](/docs/administration/upgrading/upgrading-from-octopus-2.6/migrating-data-from-octopus-2.6-to-3.x.md) page for instructions on importing your **Octopus 2.6** database backup into **Octopus 3.x**.
+See the [Migrating data from Octopus 2.6 to 3.x](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/migrating-data-from-octopus-2.6.5-2018.10lts.md) page for instructions on importing your **Octopus 2.6** database backup into **Octopus 3.x**.
 
 :::hint
 **Migration taking a long time?**
