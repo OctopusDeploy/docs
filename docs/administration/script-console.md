@@ -28,7 +28,7 @@ When you run the script, you'll be taken to the task output page which shows the
 
 ![](/docs/images/3048122/3277922.png "width=500")
 
-The **Script Body** tab can be used to see the contents of the script, and you can use the green **Modify and re-run** button to change or run the script again.
+The **Script Body** tab can be used to see the contents of the script, and you can use the **Modify and re-run** button in the overflow menu to change or run the script again.
 
 ![](/docs/images/3048122/3277921.png "width=500")
 
