@@ -80,16 +80,17 @@ The following table shows what is space-scoped, system-scoped, or scoped to both
 
 Some things can be scoped to both Spaces and the system.
 
-| Resource               | Space-Scoped                       | System-Scoped      |
-| ------------------ | --------------------------- | ---------- |
-| Environments | Spaces |  |
-| Lifecycles   | Spaces  |  |
-| Projects | Spaces |  |
-| Variable Sets | Spaces |  |
-| Deployment Targets | Spaces |  |
-| Tenants | Spaces |  |
-| Octopus Server Nodes |  | System  |
-| Authentication |  | System |
-| Users |  | System |
-| License |  | System |
-| Events | Spaces | System |
+| Resource              | Space-Scoped                | System-Scoped |
+| --------------------- | --------------------------- | ------------- |
+| Environments          | &#x2714;                    |               |
+| Lifecycles            | &#x2714;                    |               |
+| Projects              | &#x2714;                    |               |
+| Variable Sets         | &#x2714;                    |               |
+| Deployment Targets    | &#x2714;                    |               |
+| Tenants               | &#x2714;                    |               |
+| Octopus Server Nodes  |                             | &#x2714;      |
+| Authentication        |                             | &#x2714;      |
+| Users                 |                             | &#x2714;      |
+| License               |                             | &#x2714;      |
+| Events                | &#x2714;                    | &#x2714;      |
+| Teams                 | &#x2714;                    | &#x2714;      |
