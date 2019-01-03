@@ -14,6 +14,10 @@ By default, every instance of Octopus Server since **Octopus 2018.11** comes wit
 
 Spaces are managed by navigating to {{Configuration,Spaces}}.
 
+An Octopus Administrator, or a team member with sufficient permission, is able to create, remove or modify spaces from this screen. It is also possible to nominate a default space, or [disable the default space entirely](#disable-the-default-space). Each space has a logo, which is also shown in the [space switcher](#switching-between-spaces) to make it easy to identify which space is currently focused upon by the UI. There is also a search filter to quickly find the spaces that you are interested in managing, this searches over the name and description fields of each space.
+
+![Spaces configuration page](spaces-configuration.png)
+
 ### The Space Owner
 
 Each Space has a Space Owner. The Space Owner is the Admin for that Space and is responsible for adding team members to the Space and assigning permissions to the members of the space.
