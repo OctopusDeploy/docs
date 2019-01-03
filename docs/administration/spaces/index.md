@@ -4,7 +4,7 @@ description: Spaces setup and configuration.
 position: 15
 ---
 
-Spaces let you partition your Octopus Server so that different teams can only access the projects, environments, and infrastructure they work with from the Spaces they are members of. 
+Spaces let you partition your Octopus Server so that different teams can only access the projects, environments, and infrastructure they work with from the Spaces they are members of.
 
 Using spaces keeps the different projects and infrastructure your teams use completely separate, which means something configured in **SpaceA**, is not available to projects in **SpaceB**. This makes it easier for large organizations with multiple teams using Octopus because each team member will only see the projects, environments, and infrastructure that is available in their space.
 
@@ -24,7 +24,7 @@ Each space has a **Space Manager**. The space manager is the Administrator for t
 
 When creating a new space, you are required to nominate a team member (or a team) to the role of space manager. This space manager is then responsible for [managing teams and permissions](/docs/managing-users-and-teams) within that space.
 
-The user who creates a space doesn't necessarily need to be the space manager of the space. This enables a 'hands off' administrative approach suited to larger organizations or those who which to which to seperate the duties of Octopus Server Administration, from the duties of Team Administration.
+The user who creates a space doesn't necessarily need to be the space manager of the space. This enables a 'hands off' administrative approach suited to larger organizations or those who which to which to separate the duties of Octopus Server Administration, from the duties of Team Administration.
 
 Behind the scenes, a **Space Managers** team is created, and any users that are nominated to be a space manager, are put in that team. This team cannot be created or deleted, and serves no other purpose than applying the correct space manager permissions. 
 
