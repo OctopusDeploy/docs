@@ -18,9 +18,15 @@ An Octopus Administrator, or a team member with sufficient permission, is able t
 
 ![Spaces configuration page](spaces-configuration.png)
 
-### The Space Owner
+### The Space Manager
 
-Each Space has a Space Owner. The Space Owner is the Admin for that Space and is responsible for adding team members to the Space and assigning permissions to the members of the space.
+Each space has a **Space Manager**. The space manager is the Administrator for that Space and is responsible for managing users and teams to the space and assigning permissions to them.
+
+When creating a new space, you are required to nominate a team member (or a team) to the role of space manager. This space manager is then responsible for [managing teams and permissions](/docs/managing-users-and-teams) within that space.
+
+The user who creates a space doesn't necessarily need to be the space manager of the space. This enables a 'hands off' administrative approach suited to larger organizations or those who which to which to seperate the duties of Octopus Server Administration, from the duties of Team Administration.
+
+Behind the scenes, a **Space Managers** team is created, and any users that are nominated to be a space manager, are put in that team. This team cannot be created or deleted, and serves no other purpose than applying the correct space manager permissions. 
 
 ### Create a Space
 
@@ -28,7 +34,7 @@ New spaces are added from the configuration section of the portal.
 
 1. To create a new Space navigate to {{Configuration,Spaces}} and select **ADD SPACE**.
 2. Give the Space a name.
-3. Give the Space an owner. This can be individual users or teams. Either can be selected from the drop-down menu. Click **SAVE**.
+3. Give the Space a manager. This can be individual users or teams. Either can be selected from the drop-down menu. Click **SAVE**.
 4. Provide a description for the Space.
 5. Optionally, upload a logo for the Space.
 6. Click **SAVE**.
@@ -39,7 +45,7 @@ You can modify a space by navigating to {{Configuration,Spaces}} and selecting t
 
 ### Delete a Space
 
-You can delete spaces when you are the **Space Owner**. Deleting a space cannot be undone, and the space and all of its contents, including projects, environments, releases, and deployment history will be deleted.
+You can delete spaces when you are the **Space manager**. Deleting a space cannot be undone, and the space and all of its contents, including projects, environments, releases, and deployment history will be deleted.
 
 1. Navigate to {{Configuration,Spaces}} and selecT the space you want to delete.
 1. Expand the **Task Queue Status** section and select the Stop task queue checkbox, and click **SAVE**.
