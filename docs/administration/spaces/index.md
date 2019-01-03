@@ -53,7 +53,7 @@ Here you can rename a space, give it a new logo, modify the space managers, or e
 
 You can delete spaces when you are the **Space manager**. Deleting a space cannot be undone, and the space and all of its contents, including projects, environments, releases, and deployment history will be deleted.
 
-1. Navigate to {{Configuration,Spaces}} and selecT the space you want to delete.
+1. Navigate to {{Configuration,Spaces}} and select the space you want to delete.
 1. Expand the **Task Queue Status** section and select the Stop task queue checkbox, and click **SAVE**.
 1. Click the overflow button and select **Delete**.
 1. Enter the name of the space and click **DELETE**.
@@ -68,7 +68,7 @@ You can disable the default space. <!-- content explaining the ramifications goe
 1. Enter the name of the space and click **YES I'M SURE**.
 
 
-## Switching Between Spaces
+## Switching Between Spaces {#switching-between-spaces}
 
 When you log into the Octopus Web Portal, the first item on the navigation menu is the Spaces menu. Click this icon to access the spaces you are a member of and to select the space you need.
 
