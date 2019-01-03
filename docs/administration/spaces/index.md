@@ -14,7 +14,7 @@ By default, every instance of Octopus Server since **Octopus 2018.11** comes wit
 
 Spaces are managed by navigating to {{Configuration,Spaces}}.
 
-An Octopus Administrator, or a team member with sufficient permission, is able to create, remove or modify spaces from this screen. It is also possible to nominate a default space, or [disable the default space entirely](#disable-the-default-space). Each space has a logo, which is also shown in the [space switcher](#switching-between-spaces) to make it easy to identify which space is currently focused upon by the UI. There is also a search filter to quickly find the spaces that you are interested in managing, this searches over the name and description fields of each space.
+An Octopus Administrator, or a team member with sufficient permission, is able to create, remove or modify spaces from this screen. It is also possible to [nominate a default space](#change-the-default-space), or [disable the default space entirely](#disable-the-default-space). Each space has a logo, which is also shown in the [space switcher](#switching-between-spaces) to make it easy to identify which space is currently focused upon by the UI. There is also a search filter to quickly find the spaces that you are interested in managing, this searches over the name and description fields of each space.
 
 ![Spaces configuration page](spaces-configuration.png)
 
@@ -28,7 +28,7 @@ The user who creates a space doesn't necessarily need to be the space manager of
 
 Behind the scenes, a **Space Managers** team is created, and any users that are nominated to be a space manager, are put in that team. This team cannot be created or deleted, and serves no other purpose than applying the correct space manager permissions. 
 
-### Create a Space
+### Create a Space {#create-a-space}
 
 New spaces are added from the configuration section of the portal.
 
@@ -58,14 +58,38 @@ You can delete spaces when you are the **Space manager**. Deleting a space canno
 1. Click the overflow button and select **Delete**.
 1. Enter the name of the space and click **DELETE**.
 
+## Change the Default Space {#change-the-default-space}
+
+The **Default space** is provided to existing installations as a mechanism to ensure that the instance operates in much the same way as it did prior to upgrading to a 'spaces enabled' build. Enabled by default, it's primary function is to provide an initial space for any existing artifacts, including our built in data at installation time, and effectively hides the existence of spaces until you are ready to start using them.
+
+It is possible to change the default space:
+
+> Note: that the following carries some minor downtime for any automation that relies on the default space being available
+ 
+1. Navigate to {{Configuration,Spaces}} and [disable the default space](#disable-the-default-space)
+2. Return to {{Configuration,Spaces}} and select the space that you wish to nominate as the default space
+3. Click the overflow button and select **Enable the default space**.
+
 ## Disable the Default Space {#disable-the-default-space}
 
-You can disable the default space. <!-- content explaining the ramifications goes here -->
+For organizations that are new to Octopus, especially those that make heavy use of spaces, a default space is not necessarily required and therefore we have made it possible to remove the default space entirely. However, this comes with some considerations that should be weighed carefully against the needs of your organization.
+
+In addition to providing a home for existing resources, the default space allows any existing API calls that do not explicitly set a `Space Identifier` in the route, to be routed to the default space. For example, in the case where the default space ID is `Spaces-1` then the route `/api/projects/my-project` is equivalent to `/api/Spaces-1/projects/my-project`.
+
+> With a default space enabled, any REST API calls that do not specify a space in the URL will be assumed to be directed to the default space. **By turning off the default space, this will no longer be the case. If you have a lot of bespoke automation relying on raw REST API calls, you will need to make changes to ensure these scripts explicitly specify the Space ID in the route. Otherwise they will break with the default space turned off.**
+
+This means that by disabling the default space - **you are opting into a non-backwards compatible scenario**, so be prepared! Things to check include:
+
+   - Scripts you've written that directly call the API
+   - Integrations with Octopus Server are updated to their latest versions (like TFS, ADO & Team City plugins)
+   - Community library templates that use the API are updated (you can [refer to this PR](https://github.com/OctopusDeploy/Library/pull/750) as a guide)
+
+To disable the default space:
 
 1. Navigate to {{Configuration,Spaces}} and select the default space.
-1. Expand the **Task Queue Status** section and select the Stop task queue checkbox, and click **SAVE**.
-1. Click the overflow button and select **Disable the default space**.
-1. Enter the name of the space and click **YES I'M SURE**.
+2. Expand the **Task Queue Status** section and select the Stop task queue checkbox, and click **SAVE**.
+3. Click the overflow button and select **Disable the default space**.
+4. Enter the name of the space and click **YES I'M SURE**.
 
 
 ## Switching Between Spaces {#switching-between-spaces}
@@ -74,11 +98,9 @@ When you log into the Octopus Web Portal, the first item on the navigation menu 
 
 ## System Scoped or Space Scoped {#system-scope-space-scoped}
 
-There is a hard barrier between Spaces, so, for instance, a deployment target configured for SpaceA isn't available to projects in SpaceB. However, there are some things that aren't scoped to a Spaces, but are system wide. <!-- content explaining why things are scoped the way they are goes here -->
+There is a hard barrier between Spaces, so, for instance, a deployment target configured for SpaceA isn't available to projects in SpaceB. However, there are some things that aren't scoped to a space, but are available system wide. <!-- content explaining why things are scoped the way they are goes here -->
 
 The following table shows what is space-scoped, system-scoped, or scoped to both.
-
-Some things can be scoped to both Spaces and the system.
 
 | Resource              | Space-Scoped                | System-Scoped |
 | --------------------- | --------------------------- | ------------- |
@@ -94,3 +116,9 @@ Some things can be scoped to both Spaces and the system.
 | License               |                             | &#x2714;      |
 | Events                | &#x2714;                    | &#x2714;      |
 | Teams                 | &#x2714;                    | &#x2714;      |
+
+## Automation changes to be aware of {#automation-changes}
+
+As always, using our [client libraries]() offer the best chance of a successful upgrade for your existing automation, and our latest release of Octopus Client has all the changes required to inter-operate with any version of Octopus, as do most of our plugins for other build systems. However, due to the depth and breadth of the changes required to make spaces a reality, we weren't able to maintain backwards compatibility for the REST API in all cases.
+
+Please refer to [the release notes](<!-- todo -->) for a complete list of breaking changes.
