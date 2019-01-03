@@ -39,9 +39,15 @@ New spaces are added from the configuration section of the portal.
 5. Optionally, upload a logo for the Space.
 6. Click **SAVE**.
 
-### Modify  a Space
+![Add new space](add-new-space.png)
+
+### Modify a Space
 
 You can modify a space by navigating to {{Configuration,Spaces}} and selecting the space you want to modify. Expand the field you would like to change and click **SAVE** to save your changes.
+
+Here you can rename a space, give it a new logo, modify the space managers, or even stop the spaces task queue from processing.
+
+![Modify a space](modify-space.png)
 
 ### Delete a Space
 
