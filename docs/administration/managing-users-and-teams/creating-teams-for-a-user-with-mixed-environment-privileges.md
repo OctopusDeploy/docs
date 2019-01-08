@@ -33,14 +33,13 @@ for this team in any scope.
 
 ## Adding additional roles for a subset of environments
 Since our goal is to give members of the Developers team the ability to create & deploy releases _in the Development and 
-Staging environments only_, we can click **Include user role** again, this time adding the **Project deployer** role. 
-This role provides all the permissions of the **Project viewer** role as well as allowing a team member to deploy a release. 
+Staging environments only_, we can click **Include user role** again, this time adding the **Project lead** role. 
+This role provides all the permissions of the **Project viewer** role as well as allowing a team member to create & deploy a release. 
 This time, we will click on **Define Scope** and choose the environments that we would like to scope the role to, before 
 hitting the **Apply** button.
 ![](define-scope-for-user-role.png)
 
-We can repeat this process for the **Project lead** role to also give this team release creation permissions in the Development 
-and Staging environments, too. The resulting team configuration screen should now display all of the different roles and their scopes so that you can review them. 
+We can repeat this process as many times as is necessary to configure the team to your needs. The resulting team configuration screen should now display all of the different roles and their scopes so that you can review them. 
 
 ![](add-team-with-scoped-roles.png "width=500")
 
