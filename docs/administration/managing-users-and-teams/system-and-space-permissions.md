@@ -29,7 +29,7 @@ As an example, a team of users with **ProjectView** permission in the **Finance 
 ### Can permissions apply at both levels?
 In some special cases, some resources are also designated as having 'mixed' scope. A good example here are **Teams**. In order to support the two administrative use cases mentioned earlier, it is conceivable that some teams would be required to operate across all spaces, whereas other teams would not.
 
-As such, when creating a Team, the team can be marked as 'Accessible in all spaces' (e.g a System level team) or 'Accessible in **Finance Dept.** space only' where **Finance Dept.** is the name of the currently selected space. 
+As such, when creating a Team, the team can be marked as 'Accessible in all spaces' (i.e a System level team) or 'Accessible in **Finance Dept.** space only' where **Finance Dept.** is the name of the currently selected space (i.e. a Space level team). 
 
 ## What does this mean for configuring User Roles & Teams?
 When we create or edit User Roles, we can choose a mixture of system and space level permission. Since not all scenarios are compatible when mixing system or space level concerns, some rules exist when applying user roles to team.
