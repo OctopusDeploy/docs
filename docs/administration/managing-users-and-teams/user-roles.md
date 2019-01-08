@@ -45,7 +45,7 @@ A custom User Role can be created with any combination of permissions. To creat
 
    ![](select-permissions.png "width=500")
 
-Once the custom role is saved, the new role will be available to be assigned to teams on Octopus. [Some rules apply](./system-and-space-permissions#SystemAndSpacePermissions-RulesOfTheRoad), depending on the mix of system or space level permission you chose.
+Once the custom role is saved, the new role will be available to be assigned to teams in Octopus. [Some rules apply](./system-and-space-permissions#SystemAndSpacePermissions-RulesOfTheRoad), depending on the mix of system or space level permissions you chose.
 
 When applying roles to a team, you are able to optionally specify a scope for each role applied. This enables some complex scenarios, like allowing a team [different levels of permissions](./creating-teams-for-a-user-with-mixed-environment-privileges) based on the environment they are accessing.   
 
