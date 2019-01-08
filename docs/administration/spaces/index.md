@@ -60,7 +60,7 @@ You can delete spaces when you are the **Space manager**. Deleting a space canno
 
 ## Change the Default Space {#change-the-default-space}
 
-The **Default space** is provided to existing installations as a mechanism to ensure that the instance operates in much the same way as it did prior to upgrading to a 'spaces enabled' build. Enabled by default, it's primary function is to provide an initial space for any existing artifacts, including our built in data at installation time, and effectively hides the existence of spaces until you are ready to start using them.
+The **Default space** is provided to existing installations as a mechanism to ensure that the instance operates in much the same way as it did prior to upgrading to a version of Octopus that supports Spaces. Enabled by default, it's primary function is to provide an initial space for any existing resources, and effectively hides the existence of spaces until you are ready to start using them.
 
 It is possible to change the default space:
 
