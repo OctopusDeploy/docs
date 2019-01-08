@@ -122,3 +122,16 @@ The following table shows what is space-scoped, system-scoped, or scoped to both
 As always, using our [client libraries]() offer the best chance of a successful upgrade for your existing automation, and our latest release of Octopus Client has all the changes required to inter-operate with any version of Octopus, as do most of our plugins for other build systems. However, due to the depth and breadth of the changes required to make spaces a reality, we weren't able to maintain backwards compatibility for the REST API in all cases.
 
 Please refer to [the release notes](<!-- todo -->) for a complete list of breaking changes.
+
+## When should I use Spaces?
+Spaces is extremely useful for organizations that have any number of the following characteristics:
+- Many groups of engineers across many projects
+- Requires separation of duties
+- Completely autonomous teams of engineers, each responsible for their entire process
+- Large number of projects or environments have created a cluttered dashboard and you just want to tidy them up
+
+### When shouldn't I use Spaces?
+
+While spaces is an exciting feature, it isn't going to fix every problem, or be useful in every workplace. For example, 
+if you need to share resources that would normally be space scoped, to the whole system, then you might want to stick with the
+default space only for now. 
