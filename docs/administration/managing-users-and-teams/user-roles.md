@@ -24,7 +24,7 @@ Octopus comes with a set of built-in User Roles that are designed to work for mo
 | Project Lead         | All project contributor permissions, plus: creating releases, but not deploying them. |
 | Space Manager        | Space managers can do everything within the context of the space they own. |
 | System Administrator | System administrators can do everything at the system level.  |
-| System manager       | System managers can do everything at the system level. |
+| System manager       | System managers can do everything at the system level except certain system-level functions reserved for system administrators. |
 | Tenant manager       | Tenant managers can edit tenants and their tags |
 
 > For more information regarding the 'system or space level', please see [system and space permissions](./system-and-space-permissions)  
