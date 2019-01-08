@@ -20,7 +20,7 @@ An Octopus Administrator, or a team member with sufficient permission, is able t
 
 ### The Space Manager
 
-Each space has a **Space Manager**. The space manager is the Administrator for that Space and is responsible for managing users and teams to the space and assigning permissions to them.
+Each space has a **Space Manager**. The space manager is the Administrator for that Space and is responsible for managing users and teams within the space and assigning permissions to them.
 
 When creating a new space, you are required to nominate a team member (or a team) to the role of space manager. This space manager is then responsible for [managing teams and permissions](/docs/managing-users-and-teams) within that space.
 
