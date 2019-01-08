@@ -30,13 +30,21 @@ Yes, in some special cases, permissions can apply at both levels. A good example
 As such, when creating a Team, the team can be marked as 'Accessible in all spaces' (i.e a System level team) or 'Accessible in **Finance Dept.** space only' where **Finance Dept.** is the name of the currently selected space (i.e. a Space level team). 
 
 ## What does this mean for configuring User Roles & Teams?
-When we create or edit User Roles, we can choose a combination of system and space level permission. Since not all scenarios are compatible when mixing system or space level concerns, some rules exist when applying user roles to team.
+When we create or edit User Roles, we can choose a combination of system and space level permissions. Since not all scenarios are compatible when mixing system or space level concerns, some rules exist when applying user roles to team.
  
 ### Rules of the road {#SystemAndSpacePermissions-RulesOfTheRoad}
-When you're including a user role in a team, that role will apply at either the space or system level. 
-- If the role only contains system level permissions, then the role will be automatically applied at the system level.
-    - Roles that exclusively contain system level permissions, can only be used for 'system only' teams.
-- If the role contains *any* space permissions, then the role will be applied at the space level. Any of the system level permissions from that role are implicitly assigned at the system level. There are two potential outcomes for the space assignment:
-    1) If the team you are editing is a space team, then the role is assigned to the space that team belongs to
-    2) If the team is a system team, then the user is prompted to pick the space that is assigned to.
+When you're including a user role in a team, that role will apply at either the space or system level. This is due to the roles constituent permissions needing to be applied at different levels.
+
+#### Roles with system level permissions only
+If the role only contains system level permissions, then the role will be automatically applied at the system level. In addition, roles of this nature can only be used for 'system only' teams. Applying a set of system permissions to a 'space team' is not permitted. 
+
+#### Roles with a combination of system and space level permissions
+However, a user role can be created with a combination of both system and space level permissions. When adding a role, if that role contains *any* space permissions, then the role will be applied at the space level. 
+
+There are two potential outcomes for this space assignment:
+1) If the team you are editing is a space team, then the role is assigned to the space that team belongs to
+2) If the team is a system team, then the user is prompted to pick the space that is assigned to.
+
+Any of the system level permissions from that role are then implicitly assigned at the system level. 
+
  
