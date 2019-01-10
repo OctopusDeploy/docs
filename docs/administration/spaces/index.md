@@ -67,8 +67,7 @@ anything you create will be added into the Default Space.
 
 If you don't want to think about spaces, just leave everything in the Default space! 
 
-### Change the Default Space {#change-the-default-space}
-
+### Change or disable the Default Space {#change-the-default-space}
 It is possible to change the default space:
 
 > Note: that the following carries some minor downtime for any automation that relies on the default space being available
@@ -76,8 +75,6 @@ It is possible to change the default space:
 1. Navigate to {{Configuration,Spaces}} and [disable the default space](#disable-the-default-space)
 2. Return to {{Configuration,Spaces}} and select the space that you wish to nominate as the default space
 3. Click the overflow button and select **Enable the default space**.
-
-### Disable the Default Space {#disable-the-default-space}
 
 For organizations that are new to Octopus, especially those that make heavy use of spaces, a default space is not necessarily required and therefore we have made it possible to remove the default space entirely. However, this comes with some considerations that should be weighed carefully against the needs of your organization.
 
