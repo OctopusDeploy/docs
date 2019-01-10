@@ -121,7 +121,7 @@ The following table shows what is space-scoped, system-scoped, or scoped to both
 | License               |                             | &#x2714;      |
 | Events                | &#x2714;                    | &#x2714;      |
 | Teams                 | &#x2714;                    | &#x2714;      |
-| Tasks                 |                             | &#x2714;      |
+| Tasks                 | &#x2714;                    | &#x2714;      |
 
 ## Automation changes to be aware of {#automation-changes}
 
