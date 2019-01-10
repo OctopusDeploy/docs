@@ -58,9 +58,16 @@ You can delete spaces when you are the **Space manager**. Deleting a space canno
 1. Click the overflow button and select **Delete**.
 1. Enter the name of the space and click **DELETE**.
 
-## Change the Default Space {#change-the-default-space}
+## Default Space 
 
 The **Default space** is provided to existing installations as a mechanism to ensure that the instance operates in much the same way as it did prior to upgrading to a version of Octopus that supports Spaces. Enabled by default, it's primary function is to provide an initial space for any existing resources, and effectively hides the existence of spaces until you are ready to start using them.
+
+We create the default space when you install or upgrade your Octopus Deploy server. In the case of an upgrade, we put all of the space scoped resources (like Projects, Environment, etc) into this space. For new installations,
+anything you create will be added into the Default Space.
+
+If you don't want to think about spaces, just leave everything in the Default space! 
+
+### Change the Default Space {#change-the-default-space}
 
 It is possible to change the default space:
 
@@ -70,7 +77,7 @@ It is possible to change the default space:
 2. Return to {{Configuration,Spaces}} and select the space that you wish to nominate as the default space
 3. Click the overflow button and select **Enable the default space**.
 
-## Disable the Default Space {#disable-the-default-space}
+### Disable the Default Space {#disable-the-default-space}
 
 For organizations that are new to Octopus, especially those that make heavy use of spaces, a default space is not necessarily required and therefore we have made it possible to remove the default space entirely. However, this comes with some considerations that should be weighed carefully against the needs of your organization.
 
