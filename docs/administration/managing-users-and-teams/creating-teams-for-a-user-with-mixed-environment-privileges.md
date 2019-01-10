@@ -6,10 +6,6 @@ position: 10
 
 A common scenario some users may face, is the desire to provide full access to one environment, but only read access to the next stage. For example the developers might be able to fully manage deployments to the development and staging environments, but only view the production deployments. Let's build this out with a team and some user roles. 
 
-In versions prior to **2018.11**, this scenario would have required two different teams. One with the full deployment access but scoped to dev and staging, and another with just read roles scoped to production.
-
-This approach worked because it was simple, but it doesn't scale very well, because you need to duplicate the team members across the multiple teams. For this reason we have introduced the concept of Scoping to User Roles, so that you can apply different scopes to a single user role, and therefore only use a single team.
-
 ## Creating the "*Developers*" Team {#Creatingteamsforauserwithmixedenvironmentprivileges-Creatingthe&quot;Developers&quot;Team}
 
 Start by clicking the **Teams** tab under **Configuration** in the Octopus Deploy web portal.  Then click the **Add team**.
