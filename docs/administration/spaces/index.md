@@ -84,10 +84,11 @@ In addition to providing a home for existing resources, the default space allows
 
 This means that by disabling the default space - **you are opting into a non-backwards compatible scenario**, so be prepared! Things to check include:
 
+   - Your versions of Tentacle on target environments will need to be upgraded otherwise they will not connect. 
    - Scripts you've written that directly call the API
    - Integrations with Octopus Server are updated to their latest versions (like TFS, ADO & Team City plugins)
    - Community library templates that use the API are updated (you can [refer to this PR](https://github.com/OctopusDeploy/Library/pull/750) as a guide)
-
+   
 To disable the default space:
 
 1. Navigate to {{Configuration,Spaces}} and select the default space.
