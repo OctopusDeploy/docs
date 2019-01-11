@@ -171,7 +171,7 @@ The open source tool [DbUp](http://dbup.github.io/), built by members of the Oct
 
 ### Visual Studio Database Projects {#SQLServerdatabases-VisualStudioDatabaseProjects}
 
-Raffaele Garofalo has a blog post detailing [how to deploy Visual Studio Database Projects with Octopus](http://http://blog.raffaeu.com/archive/2013/10/17/deploy-database-project-using-octopus/).
+Raffaele Garofalo has a blog post detailing [how to deploy Visual Studio Database Projects with Octopus](http://blog.raffaeu.com/archive/2013/10/17/deploy-database-project-using-octopus/).
 
 ### Entity Framework Migrations {#SQLServerdatabases-EntityFrameworkMigrations}
 
