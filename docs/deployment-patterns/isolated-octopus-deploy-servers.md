@@ -17,7 +17,7 @@ On this page, we discuss two different scenarios, and the features and options t
 
 > Chris's Consulting are developing an application for a government client. They're using Octopus internally to manage pre-production deployments (dev, UAT, and so-on). However, the client have advised that they won't allow the consultancy to install the Tentacle agent on their production servers, nor the Octopus Server. They'd prefer the consultancy to provide them with a something they can run from a USB stick.
 
-In **Octopus 3.0**, you can configure an [Offline Package Drop deployment target](/docs/infrastructure/deployment-targets/offline-package-drop.md). This allows you to "deploy" to a location on the filesystem and take that deployment offline to be used elsewhere. The dropped package contains everything you need to deploy to a location offsite.
+You can configure an [Offline Package Drop deployment target](/docs/infrastructure/deployment-targets/offline-package-drop.md). This allows you to "deploy" to a location on the filesystem and take that deployment offline to be used elsewhere. The dropped package contains everything you need to deploy to a location offsite.
 
 ## Tentacle Can be Installed (Isolated Octopus Servers) {#IsolatedOctopusDeployservers-Tentaclecanbeinstalled(isolatedOctopusservers)}
 
