@@ -4,7 +4,7 @@ description: Worker setup and configuration.
 position: 1400
 ---
 
-Your deployment process will normally need to deal with packages and execute scripts. Quite often, those packages will be pushed across to a [Tentacle](/docs/infrastructure/windows-targets/index.md) or an [SSH deployment target](/docs/infrastructure/ssh-targets/index.md), and your scripts will execute on those machines. However, many deployments don't need a Tentacle or SSH target, like deployments to cloud services. In these cases, it would be annoying if you had to set up a Tentacle or SSH target just to push a package to an API or run a script when you don't care where that script runs.
+Your deployment process will normally need to deal with packages and execute scripts. Quite often, those packages will be pushed across to a [Tentacle](/docs/infrastructure/deployment-targets/windows-targets/index.md) or an [SSH deployment target](/docs/infrastructure/deployment-targets/linux/index.md), and your scripts will execute on those machines. However, many deployments don't need a Tentacle or SSH target, like deployments to cloud services. In these cases, it would be annoying if you had to set up a Tentacle or SSH target just to push a package to an API or run a script when you don't care where that script runs.
 
 In Octopus, a worker is used to run [steps](/docs/deployment-process/steps/index.md) in a [deployment process](/docs/deployment-process/index.md) that do not run on a [deployment target](/docs/infrastructure/index.md).
 
@@ -41,7 +41,7 @@ An **external worker** is a Tentacle or SSH machine.  An external worker allows 
 
 Learn about [external workers](/docs/infrastructure/workers/index.md).
 
-Learn about how Octopus picks a worker to execute a step and how to configure [worker pools](/docs/infrastructure/workers/worker-pools.md).
+Learn about how Octopus picks a worker to execute a step and how to configure [worker pools](/docs/infrastructure/worker-pools.md).
 
 ## Ignoring Workers
 
@@ -51,4 +51,4 @@ The choices of built-in worker, built-in worker running in a separate account, a
 
 ## Migrating to Workers
 
-Octopus workers also provides a smooth path to move off the built-in worker, and thus off running scripts on the Octopus server, and onto external workers, without updating any deployment processes.  Learn about how to [use the default worker pool to move steps off the Octopus server](/docs/infrastructure/workers/worker-pools.md#Using-the-default-pool-to-stop-running-scripts-on-the-server).
+Octopus workers also provides a smooth path to move off the built-in worker, and thus off running scripts on the Octopus server, and onto external workers, without updating any deployment processes.  Learn about how to [use the default worker pool to move steps off the Octopus server](/docs/infrastructure/worker-pools.md#Using-the-default-pool-to-stop-running-scripts-on-the-server).

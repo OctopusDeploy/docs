@@ -47,7 +47,7 @@ However, you may want to provide access for your users, or external services whi
 
 The Octopus Server communicates with the machines involved in your deployments via Tentacle or SSH, or via some other protocol depending on your specific scenario. In most cases these are outbound requests, originating from the Octopus Server. The one exception to this are Polling Tentacles, where the Tentacle initiates a request to the Octopus Server. If you are using Polling Tentacles, you will need to open your firewall to allow Polling Tentacles to access your Octopus Server via the TCP port you've configured (default is port 10943), or via WebSockets using the HTTPS binding you have configured.
 
-Learn about [Polling Tentacles](/docs/infrastructure/windows-targets/tentacle-communication.md#polling-tentacles) and [proxy server support for Polling Tentacles](/docs/infrastructure/windows-targets/proxy-support.md).
+Learn about [Polling Tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles) and [proxy server support for Polling Tentacles](/docs/infrastructure/deployment-targets/windows-targets/proxy-support.md).
 
 We generally recommend using Listening Tentacles and SSH wherever practical.
 
@@ -63,4 +63,4 @@ Learn more about [outbound requests](/docs/administration/security/outbound-requ
 
 You can configure Octopus Server to make any outbound HTTP requests, and even Tentacle or SSH connections, via a proxy server offering you a greater level of control over outbound requests from the Octopus Server.
 
-Learn about [proxy server support](/docs/infrastructure/windows-targets/proxy-support.md).
+Learn about [proxy server support](/docs/infrastructure/deployment-targets/windows-targets/proxy-support.md).

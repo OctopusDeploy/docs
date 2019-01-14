@@ -1,7 +1,7 @@
 ---
 title: Machine Policies
 description: Machine Policies allow you to customize the behavior of Tentacle and SSH endpoints like health check settings, machine connectivity, updates and more.
-position: 110
+position: 50
 ---
 
 Machine policies are groups of settings that can be applied to Tentacle and SSH endpoints to modify their behavior. They can be used to:
@@ -9,18 +9,49 @@ Machine policies are groups of settings that can be applied to Tentacle and SSH 
 - Customize the interval between health checks.
 - Run custom health check scripts.
 - Ignore machines that are unavailable during health checks.
-- Configure how Calamari and Tentacle are updated.
+- Configure how Calamari and Tentacles, and SSH Targets are updated.
 - Automatically delete machines.
 
-![](/docs/images/5669423/5865583.png "width=500")
+You can access the machine policies by navigating to {{Infrastructure,Machine policies}}.
 
-## Health Check Interval {#MachinePolicies-Healthcheckinterval}
+## Health Check
 
-Octopus periodically runs health checks on deployment targets to ensure that they are available for deployment.  Setting "Time between checks" configures how frequently automatic health checks run.
+Octopus periodically runs health checks on deployment targets and workers to ensure that they are available and running the latest version of Calamari.  
+
+## Health Status
+
+The health status of a deployment target can be set by custom health check scripts. Deployment targets can have four health statuses:
+
+- Healthy
+- Healthy with Warnings
+- Unhealthy
+- Unavailable
+
+A *healthy* deployment target completes a health check without any errors or warnings.  A deployment target that is *healthy with warnings* completes a health check but encounters a non-critical failure during the health check.  An *unhealthy* deployment target completes a health check but encounters a critical failure while running the health check script.  An *unavailable* deployment target is not contactable by Octopus during a health check.
+
+## Initial Health Check
+
+After installing and configuring a new Tentacle, you need to run a health check and can upgrade the version of Calamari.
+
+1. From the **Infrastructure** tab, select **deployment targets**.
+2. Click the overflow menu and select **Check Health**. If you've installed multiple Tentacles, it will check all of your Tentacles (if you'd rather check only one Tentacle, select that Tentacle from the Deployment Targets section, click **Connectivity** and then **Check health**).
+
+The first time you complete a health check on a Tentacle or SSH Target, you will see health warnings and that Calamari needs to be installed.
+
+Learn more about [Calamari](/docs/api-and-integration/calamari.md).
+
+Octopus will automatically push the latest version of Calamari with your first deployment, but you can do the following to install Calamari:
+
+1. From the Infrastructure tab, select deployment targets.
+2. Click the overflow menu and select **Upgrade Calamari on Deployment Targets**.
+
+### Health Check Interval {#MachinePolicies-Healthcheckinterval}
+
+You can set the "Time between checks" to control how frequently automatic health checks run.
 
 ![](/docs/images/5669423/5865585.png "width=500")
 
-## Custom Health Check Scripts {#MachinePolicies-Customhealthcheckscripts}
+### Custom Health Check Scripts {#MachinePolicies-Customhealthcheckscripts}
 
 Machine policies allow the configuration of custom health check scripts for Tentacle and SSH targets. While we do not expose the full underlying script that runs during health checks, we give you an entry point to inject your own custom scripts. For example, here is the default custom health check script for Tentacles that checks disk space:
 
@@ -38,14 +69,7 @@ Try {
 
 The function *CheckDriveCapacity* informs you about how much space is available on your Tentacle's local hard disk and will write a warning if the free disk space is less than this threshold. You can add additional PowerShell to this script to customize your health checks as you wish, modify or remove the disk space checking altogether. It's entirely up to you! Just remember, you can copy and paste the original script above *back* into your machine policy if you run into any problems and wish to get back to the default behavior.
 
-The health status of a deployment target can be set by custom health check scripts.  Deployment targets can have four health statuses:
-
-- Healthy
-- Healthy with Warnings
-- Unhealthy
-- Unavailable
-
-A *healthy* deployment target completes a health check without any errors or warnings.  A deployment target that is *healthy with warnings* completes a health check but encounters a non-critical failure during the health check.  An *unhealthy* deployment target completes a health check but encounters a critical failure while running the health check script.  An *unavailable* deployment target is not contactable by Octopus during a health check.
+## Setting the Status
 
 A health check script can set the status of a target by returning a non-zero exit code or by writing a service message during the health check. Tentacle deployment targets can use *Write-Warning*, *Write-Error* and *Fail-HealthCheck* to convey a healthy with warnings or unhealthy status:
 
@@ -59,7 +83,7 @@ Write-Error "This is an error"
 Fail-HealthCheck "This is an error"
 ```
 
-SSH targets do not include a disk space check by default like Tentacle targets do. As such, there is no default Bash script listed in your machine policy for SSH targets by default. However, you may write your own, or choose to add additional Bash script to run against your SSH targets during health checks. Again, it's entirely up to you. Unless you select the `Only perform connection test` option, there are some [system prerequisites](/docs/infrastructure/ssh-targets/index.md#SSHTargets-Requirements) that are included as part of the standard health check.
+SSH targets do not include a disk space check by default like Tentacle targets do. As such, there is no default Bash script listed in your machine policy for SSH targets by default. However, you may write your own, or choose to add additional Bash script to run against your SSH targets during health checks. Again, it's entirely up to you. Unless you select the `Only perform connection test` option, there are some [system prerequisites](/docs/infrastructure/deployment-targets/linux/requirements.md) that are included as part of the standard health check.
 
 SSH deployment targets can use *echo\_warning*, *echo\_error* and *fail\_healthcheck* to convey a *healthy with warnings* or *unhealthy* status:
 
@@ -101,7 +125,7 @@ By default, Calamari will be installed or updated when a machine is involved in 
 Tentacle can be toggled to manually or automatically update Tentacle.  If **Automatically update Tentacle** is selected, Octopus will start a task to update Tentacles whenever Octopus detects that there is a pending Tentacle upgrade (after health checks for example). Conversely, Octopus will not automatically start a task to update Tentacle but will prompt to begin a Tentacle update on the environments screen.
 
 ### Tentacle Update Account {#MachinePolicies-TentacleUpdateAccount}
-You can select a username/password account to perform automatic Tentacle updates.  When no account is selected, the account that the Tentacle service is running as will attempt to perform Tentacle updates. Sometimes that account does not have enough permission to perform Tentacle updates. Create a [username/password account](/docs/infrastructure/ssh-targets/username-and-password.md) for a user with enough permissions to install software on your machines (Administrator works great!) and select it from the drop down.
+You can select a username/password account to perform automatic Tentacle updates.  When no account is selected, the account that the Tentacle service is running as will attempt to perform Tentacle updates. Sometimes that account does not have enough permission to perform Tentacle updates. Create a [username/password account](/docs/infrastructure/accounts/ssh-key-pair.md) for a user with enough permissions to install software on your machines (Administrator works great!) and select it from the drop down.
 
 **Note:** This option can not be used when Tentacle is running as Local System.
 

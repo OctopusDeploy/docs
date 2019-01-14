@@ -14,13 +14,13 @@ The easiest and cheapest way to get started is with [SQL Server Express](http://
 
 ## Creating the Database
 
-The Octopus [installation](/docs/installation/index.md) wizard can create the database for you (our preferred method), during the installation; however, you can also point Octopus to an existing database. Octopus works with both local and remote database servers, but it is worth considering the [performance implications](/docs/administration/performance.md) before making a decision.
+The Octopus [installation](/docs/installation/index.md) wizard can create the database for you (our recommended method), during the installation; however, you can also point Octopus to an existing database. Octopus works with both local and remote database servers, but it is worth considering the [performance implications](/docs/administration/performance.md) before making a decision.
 
 If you are using a hosted database service you will need to [create your own database](#create-your-own) and provide Octopus with the connection details.
 
 ## Create Your Own Database {#create-your-own}
 
-Please note the following if you need to create the database yourself:
+If you don't want Octopus to automatically create the database for you as part of the installation process, please note the following:
 
 1. The database must not be shared with any other application.
 1. The default schema must be **dbo**.

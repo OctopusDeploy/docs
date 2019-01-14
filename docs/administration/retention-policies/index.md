@@ -7,7 +7,7 @@ position: 500
 As you deploy more often and to different environments, files and releases can build up. This is what retention policies are for. They allow you to define what is kept in terms of releases, packages and files.  
 
 :::hint
-We talk about Tentacles in this page, but the same process and logic applies to [SSH Targets](/docs/infrastructure/ssh-targets/index.md) also.
+We talk about Tentacles in this page, but the same process and logic applies to [SSH Targets](/docs/infrastructure/deployment-targets/linux/index.md) also.
 :::
 
 ## What is Deleted {#RetentionPolicies-Whatisdeleted}

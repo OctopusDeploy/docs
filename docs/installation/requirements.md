@@ -19,8 +19,9 @@ Octopus Server can be hosted on any modern Windows Server. We automatically test
 - Windows Server 2012
 - Windows Server 2012 R2
 - Windows Server 2016
+- Windows Server 2019
 
-Octopus Server will run on **Windows Server Core** and **Windows Server version 1709** etc. However, the easiest installation path is to use "Windows Server with a GUI" and run our installation wizard. If you want to use one of the new GUI-less servers, you will need to add some missing Windows Features and configure Octopus Server yourself.
+Octopus Server will run on the newer versions of Windows Server without GUI's, however the easiest installation path is to use "Windows Server with a GUI" and run our installation wizard. If you want to use one of the new GUI-less servers, you will need to add some missing Windows Features and configure Octopus Server yourself.
 
 Learn about [automating installation](/docs/installation/automating-installation.md).
 

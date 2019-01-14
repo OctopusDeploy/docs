@@ -1,22 +1,25 @@
 ---
 title: Data Migration
-description: Octopus Manager comes with an import/export wizard to support moving data between Octopus instances.
+description: Octopus Manager comes with an import/export wizard to support moving projects between Octopus instances.
 position: 900
 ---
 
 Octopus Manager comes with an Import/Export wizard which supports a number of scenarios:
 
-- Exporting data from one server, and importing it into another server.
-- Splitting data from one Octopus Server into two or more.
-- Merging data from multiple Octopus Servers into one.
-
-*To migrate data from older versions of Octopus see [Upgrading from Octopus 2.6](/docs/administration/upgrading/upgrading-from-octopus-2.6/index.md)*
+- Exporting projects and their dependencies from one server, and importing them into another server.
+- Splitting an Octopus Server by exporting projects into different Octopus Servers 
+- Merging projects from multiple Octopus Servers into one.
 
 In all scenarios, both the source Octopus Server and the destination Octopus Server must be running the same version.
 
-:::hint
-The Import/Export wizards are designed for moving configuration data between Octopus Servers, or for creating snapshots which can be committed to source control or used for auditing purposes. It's not designed as a general disaster recovery or backup tool; for that, see the section on [backing up your Octopus Server](/docs/administration/backup-and-restore.md).
-:::
+## Unsuitable scenarios
+
+The data migration tools are not suitable for every imaginable scenario. In these cases there are better tools for the job:
+
+1. To migrate data from older versions of Octopus see [Upgrading from Octopus 2.6](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/index.md).
+1. For general disaster recovery lean about [backup and restore for your Octopus Server](/docs/administration/backup-and-restore.md).
+1. To move your Octopus database to another database server see [moving your database](/docs/administration/moving-your-octopus/move-the-database.md).
+1. To move your Octopus Server and database to another server see [moving your Octopus Server and database](/docs/administration/moving-your-octopus/move-the-database-and-server.md).
 
 ## Exporting {#Datamigration-ExportingExporting}
 

@@ -37,7 +37,7 @@ Octopus supports an extended variable substitution syntax with capabilities simi
 The capabilities of the extended syntax are:
 
 - Index Replacement
-- Conditionals - `if` and `unless`
+- Conditionals - `if`, `if-else` and `unless`
 - Repetition - `each`
 - Filters - `HtmlEscape`, `Markdown` etc.
 - Differences from regular variable bindings
@@ -103,12 +103,20 @@ You could achieve a similar result, with a different default/fallback behavior, 
 
 #### *Truthy* and *Falsy* Values {#VariableSubstitutionSyntax-TruthyandFalsyvalues}
 
-The `if` and `unless` statements consider a value to be *falsy* if it is undefined, empty, `False` or `0`. All other values are considered to be *truthy*.
+The `if`, `if-else` and `unless` statements consider a value to be *falsy* if it is undefined, empty, `False` or `0`. All other values are considered to be *truthy*.
 
 ### Complex Syntax
 Additional conditional statements are supported in **Octopus 3.5** and onwards, including `==` and `!=`.
 
-Using complex syntax you can have expressions like `#{if Octopus.Environment.Name == "Production"}...#{/if}` and `#{if Octopus.Environment.Name != "Production"}...#{/if}`
+Using complex syntax you can have expressions like `#{if Octopus.Environment.Name == "Production"}...#{/if}` and `#{if Octopus.Environment.Name != "Production"}...#{/if}, or
+
+```
+#{if ATruthyVariable}
+  Pick me if true
+#{else}
+  Pick me if false
+#{/if}
+```
 
 ### Run Conditions
 Conditions can be used to control whether a given step in a deployment process actually runs.  In this scenario the conditional statement should return true/false, depending on your requirements.
@@ -150,7 +158,7 @@ The result will be:
 ```powershell
 Listening on:
  - Endpoint A at http://a.example.com is Master
- - Endpont B at http://b.example.com is Slave
+ - Endpoint B at http://b.example.com is Slave
 ```
 
 #### Iterating Over Comma-separated Values {#VariableSubstitutionSyntax-Iteratingovercomma-separatedvalues}
@@ -216,7 +224,7 @@ The result will be:
 That is, the ampersand has been encoded correctly for use in an HTML document.
 
 :::problem
-The filters provided by Octopus are for use with trusted input; don't rely on them to santize data from potentially malicious sources.
+The filters provided by Octopus are for use with trusted input; don't rely on them to sanitize data from potentially malicious sources.
 :::
 
 #### Provided Filters {#VariableSubstitutionSyntax-Providedfilters}
@@ -225,13 +233,13 @@ Octopus provides the following filters:
 
 | Name         | Purpose                                  | Example Input        | Example Output             |
 | ------------ | ---------------------------------------- | -------------------- | -------------------------- |
-| `HtmlEscape` | Escapes entities for use in HTML content | 1 < 2                | 1 &lt; 2                   |
-| `JsonEscape` | Escapes data for use in JSON strings     | He said "Hello!"     | He said \"Hello!\"         |
-| `Markdown`   | Converts Markdown to HTML                | This \_rocks\_       | <p>This <em>rocks</em></p> |
+| `HtmlEscape` | Escapes entities for use in HTML content | 1 < 2                | 1 \&lt; 2                   |
+| `JsonEscape` | Escapes data for use in JSON strings     | He said "Hello!"     | He said \\"Hello!\\"         |
+| `Markdown`   | Converts Markdown to HTML                | This \_rocks\_       | \<p>This \<em>rocks\</em>\</p> |
 | `ToBase64`   | Converts values to Base64 (using UTF encoding)   | Bar          | QmF6                       |
 | `ToLower`    | Forces values to lowercase               | Automated Deployment | automated deployment       |
 | `ToUpper`    | Forces values to uppercase               | Automated Deployment | AUTOMATED DEPLOYMENT       |
-| `XmlEscape`  | Escapes entities for use in XML content  | 1 < 2                | 1 &lt; 2                   |
+| `XmlEscape`  | Escapes entities for use in XML content  | 1 < 2                | 1 \&lt; 2                   |
 
 The *NowDate* and *NowDateUtc* filters take no variable input but can take an additional optional right-hand-side argument the define the string format (Defaults to ISO-8601 [Round-trip format](https://msdn.microsoft.com/en-us/library/az4se3k1#Roundtrip)).
 

@@ -34,7 +34,7 @@ Under the `Package Section`, define how the target package and the associated fi
  ![S3 target options](upload-s3-target-options.png "width=500")
 
 :::hint
-The [Github feed](https://octopus.com/docs/packaging-applications/package-repositories/github-feeds) works well with the upload to S3 step when no build process is involved and content needs to be pushed to S3 and versioned separately.
+The [Github feed](/docs/packaging-applications/package-repositories/github-feeds.md) works well with the upload to S3 step when no build process is involved and content needs to be pushed to S3 and versioned separately.
 :::
 
 ### Entire Package

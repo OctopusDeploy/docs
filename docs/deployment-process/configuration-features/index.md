@@ -35,4 +35,5 @@ You can configure the following features:
 - [Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms.md)
 - [Substitute Variables in Files](/docs/deployment-process/configuration-features/substitute-variables-in-files.md)
 - IIS6+ Home Directory
+- [NGINX Web Server](/docs/deployment-process/configuration-features/nginx-web-server.md)
 - Red Gate Database Deployment

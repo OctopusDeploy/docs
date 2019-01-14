@@ -9,11 +9,11 @@ position: 15
 We have extensions/plugins available for the most popular build servers. These extensions will help you [create packages](/docs/packaging-applications/index.md), [push those packages to the built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md), create releases and deploy them to your environments:
 
 - [TeamCity](/docs/api-and-integration/teamcity.md).
-- [Visual Studio Team Services (VSTS) (formerly VSO) and TFS 2015](/ /docs/api-and-integration/tfs-vsts/using-octopus-extension/index.md).
+- [Azure DevOps (formerly VSO) and TFS 2015](/docs/api-and-integration/tfs-azure-devops/using-octopus-extension/index.md).
   :::
 
 :::success
-Take a look at the [end-to-end guide for TFS](/docs/api-and-integration/tfs-vsts/index.md) which covers building and packaging your application, creating releases and deploying to your environments.
+Take a look at the [end-to-end guide for TFS](/docs/api-and-integration/tfs-azure-devops/index.md) which covers building and packaging your application, creating releases and deploying to your environments.
 :::
 
 :::hint
@@ -52,13 +52,13 @@ The release number that is created is guided by the Release Versioning settings 
 
 [Channels](/docs/deployment-process/channels/index.md) were introduced in **Octopus 3.2**, and at this point you must select the Channel that will be used for any automatically created releases. This means that **only one channel for each project can have an automatic release creation trigger enabled at any one time.** This can be painful, and here are some points you can consider:
 
-- Use one of the [build-server extensions](/docs/api-and-integration/index.md), or [octo.exe](/docs/api-and-integration/octo.exe-command-line/creating-releases.md) to create releases instead of using ARC - this will automatically determine the best channel based on the release being created
+- Use one of the [build-server extensions](/docs/api-and-integration/index.md), or [octo.exe](/docs/api-and-integration/octo.exe-command-line/create-release.md) to create releases instead of using ARC - this will automatically determine the best channel based on the release being created
 - Choose the channel that will be used most commonly for automatically creating releases, and create releases manually for the other channels.
 - Try creating some releases manually for the selected channel to make sure it works as expected.
 
 ## Automatically Creating Pre-releases {#AutomaticReleaseCreation-Automaticallycreatingpre-releases}
 
-When you push a package to your trigger step, Octopus will look for the latest available package for all other steps **excluding pre-release packages by default** - see [this thread](http://help.octopusdeploy.com/discussions/problems/35401) for background.
+When you push a package to your trigger step, Octopus will look for the latest available package for all other steps **excluding pre-release packages by default** - see [this thread](http://help.octopus.com/discussions/problems/35401) for background.
 
 One way to work around this behavior is to create a Channel with the appropriate version rules so that "latest available package" will be the pre-release packages you expected. The best way to test this is to practice creating releases manually for that channel - the "latest available package" will work the same way for manual and automatically created releases.
 

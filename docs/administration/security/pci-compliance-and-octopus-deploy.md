@@ -23,8 +23,10 @@ PCI Compliance is primarily concerned with implementing "controls" or "practices
 - You can implement strict, fine-grained, environment-aware security permissions. Learn about [managing users and teams](/docs/administration/managing-users-and-teams/index.md).
 - Every activity is carefully audited. Learn more about [auditing](/docs/administration/auditing.md).
 - You can control how long you retain data and packages. Learn about [Retention Policies](/docs/administration/retention-policies/index.md).
-- You can insert an HTTP proxy server between Octopus Server and any Tentacles or SSH endpoints. This is helpful when you want to have DMZs in your network with controlled entry/exit points. Learn about [proxy support](/docs/infrastructure/windows-targets/proxy-support.md).
-- If you really cannot use Tentacle or SSH, you can use Offline Package Drops for fully disconnected deployment automation. Learn about the [Offline Package Drop](/docs/infrastructure/offline-package-drop.md) deployment target.
+- You can use any kind of transparent networking security techniques like IPSec tunnels or VPN between your network zones.
+- If you are using our Tentacle agent, you can decide whether you want to allow network traffic inbound to your PCI zone from your Octopus Server, or outbound from your PCI zone to your Octopus Server. Learn about [Tentacle communication modes](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md).
+- You can insert an HTTP proxy server between Octopus Server and any Tentacles or SSH endpoints. This is helpful when you want to have DMZs in your network with controlled entry/exit points. Learn about [proxy support](/docs/infrastructure/deployment-targets/windows-targets/proxy-support.md).
+- If you really cannot use Tentacle or SSH, you can use Offline Package Drops for fully disconnected deployment automation. Learn about the [Offline Package Drop](/docs/infrastructure/deployment-targets/offline-package-drop.md) deployment target.
 - If you require isolated instance of Octopus Server our licensing model is quite flexible. Each license of Octopus Deploy grants you the right to install and configure up to three (3) separate instances of Octopus Server. Learn about managing [Isolated Octopus Deploy Servers](/docs/deployment-patterns/isolated-octopus-deploy-servers.md).
 
 ### Promoting Releases Across Security Zones
@@ -41,3 +43,13 @@ Take a look at our Request for Comments (RFC) on a new set of features we're cal
 :::success
 We conduct independent security analysis and penetration testing for Octopus Deploy. Contact our support team for a copy of the most recent report.
 :::
+
+### Network Security Considerations
+
+Octopus supports a wide range of networking features to help fit into your PCI compliant network design.
+
+- You can use a VPN between your network security zones. A VPN is a transparent network tunnel between two zones, and you can happily use our Tentacle or SSH connections through a VPN tunnel in the same way you can use them on a local network.
+- You can use a networking proxy for Tentacle or SSH communication, where the proxy controls and monitors access from your Octopus Server to your workers and deployment targets. [Learn about proxy support](/docs/infrastructure/deployment-targets/windows-targets/proxy-support.md)
+- If you are using our Tentacle agent, you can configure it in listening mode (`Octopus Server -> Tentacle`) or polling mode (`Tentacle -> Octopus Server`) which changes the direction traffic flows through your firewalls. [Learn about Tentacle communication modes](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md).
+
+Your security and networking team should be able to help you make these decisions based on how you have decided to design your network for PCI compliance.

@@ -100,7 +100,7 @@ Follow these tips to tune and maintain the performance of your Octopus:
 1. If you have saturated your current servers you may want to consider scaling up, by increasing the resources available to the Octopus and SQL Servers, or scaling out:
     - Consider [Octopus High Availability](/docs/administration/high-availability/index.md) if you are reaching saturation on your current infrastructure, or want to improve the up-time of your Octopus Server, especially across [Operating System patches](/docs/administration/applying-operating-system-upgrades.md). Octopus High Availability is designed to scale linearly as you add nodes to your cluster.
     - Consider using [Workers](/docs/administration/workers/index.md) and worker pools if deployment load is affecting your server.  See this [blog post](https://octopus.com/blog/workers-performance) for a way to begin looking at workers for performance.
-    - Consider sharing your teams/projects across "spaces" using the upcoming [Octopus Data Center Manager](https://octopus.com/blog/odcm-rfc) especially if your teams/projects are loosely coupled to each other.
+    - Consider separating your teams/projects into "spaces" using the upcoming [Spaces](https://octopus.com/spaces) feature.
 1. Try not to do too much work in parallel, especially without thorough testing. Performing lots of deployment tasks in parallel can be a false economy more often than not:
     - You can configure how many tasks from the task queue will run at the same time on any given Octopus Server node by going to {{Configuration>Nodes}}. The default task cap is `5` (safe-by-default). You can increase this cap to push your Octopus to work harder.
     - Learn about [tuning your deployment processes for performance](/docs/deployment-process/performance.md).
@@ -114,7 +114,7 @@ Follow these tips to tune and maintain the performance of your Octopus:
 1. Consider the size of your Task Logs: {#tip-task-logs}
     - Larger task logs put the entire Octopus pipeline under more pressure.
     - We recommend printing messages required to understand progress and deployment failures. The rest of the information should be streamed to a file, then published as a deployment [artifact](/docs/deployment-process/artifacts.md).
-1. Prefer [Listening Tentacles](/docs/infrastructure/windows-targets/tentacle-communication.md#listening-tentacles-recommended) or [SSH](/docs/infrastructure/ssh-targets/index.md) instead of [Polling Tentacles](/docs/infrastructure/windows-targets/tentacle-communication.md#polling-tentacles) wherever possible:
+1. Prefer [Listening Tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommended) or [SSH](/docs/infrastructure/deployment-targets/linux/index.md) instead of [Polling Tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles) wherever possible:
     - Listening Tentacles and SSH place the Octopus Server under less load.
     - We try to make Polling Tentacles as efficient as possible, but by their very nature, they can place the Octopus Server under high load just handling the incoming connections.
 1. Reduce the frequency and complexity of automated health checks using [machine policies](/docs/infrastructure/machine-policies.md).
@@ -127,7 +127,7 @@ The best place to start troubleshooting your Octopus Server is to inspect the [O
 1. `Request took 5123ms: GET {correlation-id}`: If HTTP requests are taking a long time to be fulfilled, you'll see a message like this. The timer is started when the request is first received, ending when the response is sent.
     - Look for trends as to which requests are taking a really long time.
     - Look to see if the performance problem occurs, and goes away, on a regular basis. This can indicate another process hogging resources periodically.
-1. The dashboard or project overview are taking a really long time to load: this is usually caused by long retention policies. Consider tightening up your retention policies to keep less releases. It can also be caused by the sheer number of projects you are using to model your deployments. Consider sharing your teams/projects across "spaces" using the upcoming [Octopus Data Center Manager](https://octopus.com/blog/odcm-rfc) especially if your teams/projects are loosely coupled to each other.
+1. The dashboard or project overview are taking a really long time to load: this is usually caused by long retention policies. Consider tightening up your retention policies to keep less releases. It can also be caused by the sheer number of projects you are using to model your deployments.
 1. `{Insert/Delete/Update/Reader} took 8123ms in transaction '{transaction-name}'`: If a particular database operation takes a long time you'll see a message like this. The timer is started when the operation starts, ending when the operation is completed (including any retries for transient failure recovery).
     - If you are seeing these operations take a long time it indicates your SQL Server is struggling under load, or your network connection from Octopus to SQL Server is saturated.
     - Check the maintenance plan for your SQL Server. See [tips above](#sql-maintenance).

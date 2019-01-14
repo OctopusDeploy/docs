@@ -13,6 +13,7 @@ Octopus comes with a set of built-in User Roles that are designed to work for mo
 
 | User Role            | Description                              |
 | -------------------- | ---------------------------------------- |
+| Certificate Manager  | Certificate managers can edit certificates and export private-keys |
 | Environment Manager  | Environment managers can view and edit environments and their machines. |
 | Environment Viewer   | Environment viewers can view environments and their machines, but not edit them. |
 | Package Publisher    | Permits packages to be pushed to the Octopus Server's built-in NuGet feed. |
@@ -22,6 +23,7 @@ Octopus comes with a set of built-in User Roles that are designed to work for mo
 | Project Deployer     | All project contributor permissions, plus: deploying releases, but not creating them. |
 | Project Lead         | All project contributor permissions, plus: creating releases, but not deploying them. |
 | System Administrator | System administrators can do everything. |
+| System Manager       | System managers can do everything except certain system-level functions reserved for system administrators. |
 
 The built-in User Roles can be modified to contain more or less roles to suit specific needs. But instead of modifying the built-in ones, we recommend that you leave them as an example and instead create your own User Roles.
 

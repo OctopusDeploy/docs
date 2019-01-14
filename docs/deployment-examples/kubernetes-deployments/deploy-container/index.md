@@ -3,11 +3,6 @@ title: Deploy to a Kubernetes Cluster
 description: Deploy to a Kubernetes cluster.
 position: 10
 ---
-This featured was introduced as a pre-release in **Octopus 2018.8**.
-
-:::warning
-Kubernetes steps in Octopus are of alpha level quality and have been made available for testing and feedback purposes only. They **must not** be used for production deployments, or enabled on production Octopus instances. The information provided here is subject to change at any point, and existing Kubernetes steps will most likely need to be deleted and recreated with Octopus upgrades.
-:::
 
 Octopus supports the deployment of Kubernetes resources through the `Deploy Kubernetes containers` step. This step exposes a UI that builds up a [Kubernetes Deployment resource](http://g.octopushq.com/KubernetesDeploymentResource), a [Service resource](http://g.octopushq.com/KubernetesServiceResource), and an [Ingress resource](http://g.octopushq.com/KuberntesIngressResource). The combination of these resources represents an opinionated view about what makes up a typical Kubernetes deployment.
 
@@ -145,6 +140,16 @@ The choice of which deployment strategy to use is influenced by a number of fact
 | Recreate   |   |   |  | |
 | Rolling Update   | *  | *  | * | * |
 | Blue/Green   | *  | *  |   | * |
+
+#### Wait for deployment to succeed
+
+When using the Recreate or Rolling update deployment strategy, you have the option to wait for the deployment to succeed or not before the step completes.
+
+A completed deployment means all liveness checks passed, the rollout succeeded and all Pod resources have been updated.
+
+:::success
+The Blue/Green deployment strategy always waits for the rollout to succeed, as this is the point at which the Service resource is modified to point to the new Deployment resource.
+:::
 
 ### Volumes
 
@@ -315,7 +320,7 @@ The configuration options for a Container resource are broken down into a number
 
 #### Image Details
 
-Each Container resource must reference a container image from a [Docker feed](https://octopus.com/docs/packaging-applications/package-repositories/registries).
+Each Container resource must reference a container image from a [Docker feed](/docs/packaging-applications/package-repositories/docker-registries/index.md).
 
 The container image must have a name that consists of lower case alphanumeric characters or '-', and must start and end with an alphanumeric character.
 
@@ -332,6 +337,16 @@ The port `Name` is optional. If it is specified, Service resources can refer to 
 The `Port` number is required and must be a number between 1 and 65535.
 
 The `Protocol` is optional and will default to `TCP`.
+
+#### Image Pull Policy
+
+The image pull policy and the tag of the image affect when the kubelet attempts to pull the specified image.
+* `If Not Present`: the image is pulled only if it is not already present locally.
+* `Always`: the image is pulled every time the pod is started.
+* `Default` and either the image tag is `latest` or it is omitted: Always is applied.
+* `Default` and the image tag is present but not `latest`: If Not Present is applied.
+* `Never`: the image is assumed to exist locally. No attempt is made to pull the image.
+
 
 #### Container Type
 
@@ -532,9 +547,9 @@ myservice
 an argument with a space
 ```
 
-#### Security Context
+#### Pod Security Context
 
-The `Security context` section defines the [container resource security context options](https://g.octopushq.com/KubernetesContainerSecurityContext).
+The `Pod Security context` section defines the [container resource security context options](https://g.octopushq.com/KubernetesContainerSecurityContext).
 
 The `Allow privilege escalation` section controls whether a process can gain more privileges than its parent process. Note that this field is implied when the `Privileged` option is enabled.
 
@@ -547,6 +562,128 @@ The `Run as non-root` section indicates that the container must run as a non-roo
 The `Run as user` section defines the UID to run the entrypoint of the container process.
 
 The `Run as group` section defines the GID to run the entrypoint of the container process.
+
+#### Pod Annotations
+
+The `Pod Annotations` section defines the annotations that are added to the Deployment resource `spec.template.metadata` field. These annotations in turn are then applied to the Pod resource created by the Deployment resource.
+
+For example, consider the `Pod Annotations` defined in the screenshot below.
+
+![](pod-annotations.png "width=500")
+
+This will result in a Deployment resource YAML file something like this following.
+
+```yaml
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: httpd
+  labels:
+    Octopus.Deployment.Id: deployments-10341
+    Octopus.Step.Id: fead0da8-fd8a-4a03-9b70-5160cd378a8a
+    Octopus.Environment.Id: environments-1
+    Octopus.Deployment.Tenant.Id: untenanted
+    Octopus.Kubernetes.DeploymentName: httpd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      Octopus.Kubernetes.DeploymentName: httpd
+  template:
+    metadata:
+      labels:
+        Octopus.Deployment.Id: deployments-10341
+        Octopus.Step.Id: fead0da8-fd8a-4a03-9b70-5160cd378a8a
+        Octopus.Environment.Id: environments-1
+        Octopus.Deployment.Tenant.Id: untenanted
+        Octopus.Kubernetes.DeploymentName: httpd
+      annotations:
+        podannotation: "annotationvalue"
+    spec:
+      containers:
+      - name: httpd
+        image: index.docker.io/httpd:2.4.35
+        ports:
+        - name: web
+          containerPort: 80
+        securityContext: {}
+      imagePullSecrets:
+      - name: octopus-feedcred-feeds-dockerhub-with-creds
+  strategy:
+    type: Recreate
+```
+
+In particular `spec.template.metadata.annotations` field has been populated with the pod annotations.
+
+```yaml
+spec:
+  template:
+    metadata:
+      annotations:
+        podannotation: "annotationvalue"
+```
+
+When this Deployment resource is deployed to a Kubernetes cluster, it will create a Pod resource with that annotation defined. In the screenshot below you can see the YAML representation of the Pod resource created by the Deployment resource has the same annotations.
+
+![](pod-annotation-deployed.png "width=500")
+
+#### Deployment Annotations
+
+The `Deployment Annotations` section defines the annotations that are added to the Deployment resource.
+
+For example, consider the `Pod Annotations` defined in the screenshot below.
+
+![](deployment-annotation.png "width=500")
+
+This will result in a Deployment resource YAML file something like this following.
+
+```yaml
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: httpd
+  labels:
+    Octopus.Deployment.Id: deployments-10342
+    Octopus.Step.Id: fead0da8-fd8a-4a03-9b70-5160cd378a8a
+    Octopus.Environment.Id: environments-1
+    Octopus.Deployment.Tenant.Id: untenanted
+    Octopus.Kubernetes.DeploymentName: httpd
+  annotations:
+    deploymentannotation: "annotationvalue"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      Octopus.Kubernetes.DeploymentName: httpd
+  template:
+    metadata:
+      labels:
+        Octopus.Deployment.Id: deployments-10342
+        Octopus.Step.Id: fead0da8-fd8a-4a03-9b70-5160cd378a8a
+        Octopus.Environment.Id: environments-1
+        Octopus.Deployment.Tenant.Id: untenanted
+        Octopus.Kubernetes.DeploymentName: httpd
+    spec:
+      containers:
+      - name: httpd
+        image: index.docker.io/httpd:2.4.35
+        ports:
+        - name: web
+          containerPort: 80
+        securityContext: {}
+      imagePullSecrets:
+      - name: octopus-feedcred-feeds-dockerhub-with-creds
+  strategy:
+    type: Recreate
+```
+
+In particular `metadata.annotations` field has been populated with the pod annotations.
+
+```yaml
+metadata:
+  annotations:
+    deploymentannotation: "annotationvalue"
+```
 
 ### Custom resources YAML
 
@@ -611,6 +748,10 @@ metadata:
 3. Once the deployment has succeeded, any old resources of the kinds that were defined in the `Custom resource YAML` field will be found and deleted. For example, any `NetworkPolicy` or `ConfigMap` resources in the target namespace created by a previous deployment will be deleted.
 
 By creating each custom resource with a unique name and common labels, Octopus will ensure that a new resource is created with each deployment, and old resources are cleaned up. This means that the custom resources are tightly coupled to a Deployment resource, and can be treated as a single deployment.
+
+:::success
+To deploy resources that are not bound to the lifecycle of the Deployment resource, use an additional step such as the `Run a kubectl CLI Script` step.
+:::
 
 ### Service
 
@@ -716,3 +857,25 @@ The `Value` field defines the annotation value.
 :::hint
 Annotation values are always considered to be strings. See this [GitHub issue](https://g.octopushq.com/KubernetesAnnotationStringsIssue) for more information.
 :::
+
+### ConfigMap and Secret
+
+It is often convenient to have settings saved in ConfigMap and Secret resources that are tightly coupled to the Deployment resource. Ensuring each version of a Deployment resource has its own ConfigMap or Secret resource means that deployments are not left in an inconsistent state as new Deployments resources are rolled out alongside existing Deployment resources, which is the case for both the Rolling Update and Blue/Green deployment strategies.
+
+The ConfigMap and Secret features are used to create ConfigMap and Secret resources that are created with the associated Deployment resource, and cleaned up once a Deployment resource has been replaced.
+
+Like the Custom Resource feature, the ConfigMap and Secret features achieve this by creating resources with unique names for each deployment. The resources have a set of labels applied that allows Octopus to manage them during a deployment.
+
+#### Custom ConfigMap and Secret names
+
+By default, the ConfigMap and Secret resources created by this step have unique names generated by appending the ID of the deployment. For example, a ConfigMap may be defined in the step with the name of `my-app-settings`, and it will be created in the Kubernetes cluster with the name of `my-app-setting-deployment-1234`, where `deployment-1234` is the ID of the Octopus deployment as a lower case string.
+
+The templates used to generate these names can be defined with the following variables:
+* `Octopus.Action.KubernetesContainers.ConfigMapNameTemplate`
+* `Octopus.Action.KubernetesContainers.SecretNameTemplate`
+
+The values assigned to these variables will then be used to generate the names of the ConfigMap and Secret resources created by the step. By default, these are the templates that are used to generate the unique names:
+* `#{Octopus.Action.KubernetesContainers.ConfigMapName}-#{Octopus.Deployment.Id | ToLower}`
+* `#{Octopus.Action.KubernetesContainers.SecretName}-#{Octopus.Deployment.Id | ToLower}`
+
+For example, to change the name assigned to the ConfigMap resource to include the time of deployment instead of the deployment ID, you can set the `Octopus.Action.KubernetesContainers.ConfigMapNameTemplate` variable to `#{Octopus.Action.KubernetesContainers.ConfigMapName}-#{ | NowDate "HH-mm-ss-dd-MMM-yyyy" | ToLower}`

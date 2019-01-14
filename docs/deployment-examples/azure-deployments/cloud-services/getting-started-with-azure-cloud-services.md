@@ -10,7 +10,7 @@ In order to complete this guide you will need to have an Azure account and creat
 
 ## Create a Package {#GettingstartedwithAzureCloudServices-Createapackage}
 
-You will need a NuGet package containing the Azure Cloud Service application you want to deploy.  The NuGet package contains the .cspkg and .cscfg files that are published from Visual Studio. Here is one we prepared earlier that you can use for this guide: [HelloCloud.1.0.0.nupkg](https://download.octopusdeploy.com/demo/HelloCloud.1.0.0.nupkg)
+You will need a NuGet package containing the Azure Cloud Service application you want to deploy.  The NuGet package contains the .cspkg and .cscfg files that are published from Visual Studio. Here is one we prepared earlier that you can use for this guide: [HelloCloud.1.0.0.nupkg](https://download.octopus.com/demo/HelloCloud.1.0.0.nupkg)
 
 Upload your NuGet package to the Octopus [built-in package repository](/docs/packaging-applications/package-repositories/index.md):
 
@@ -18,7 +18,7 @@ Upload your NuGet package to the Octopus [built-in package repository](/docs/pac
 
 ## Create an Account {#GettingstartedwithAzureCloudServices-Createanaccount}
 
-To set up a new Azure Management Certificate account, follow the directions in [Creating an Azure Management Certificate  Account](/docs/infrastructure/azure/index.md#azure-management-certificate).
+To set up a new Azure Management Certificate account, follow the directions in [Creating an Azure Management Certificate  Account](/docs/infrastructure/accounts/azure/index.md#azure-management-certificate).
 
 ## Create an Environment {#GettingstartedwithAzureCloudServices-Createanenvironment}
 

@@ -36,7 +36,7 @@ The hosting model you want to achieve will vary depending on your application, y
 
 When you deploy a project, you can deploy to one environment and a selection of tenants. Octopus creates one deployment for each environment/tenant combination, and calculates which deployment targets to include in each deployment using logic like this:
 
-1. Find deployment targets in the target environment with the [roles](/docs/infrastructure/target-roles/index.md) required by the deployment process.
+1. Find deployment targets in the target environment with the [roles](/docs/infrastructure/deployment-targets/target-roles/index.md) required by the deployment process.
 2. Filter those deployment targets, selecting only those matching the tenant.
 
 Each deployment will then proceed independently with the resulting set of deployment targets. We are going to leverage this behavior to implement dedicated and shared hosting in our sample.

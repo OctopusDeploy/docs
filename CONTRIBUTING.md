@@ -18,6 +18,7 @@ Before we can accept your contribution, you need you to sign the [Contribution L
   - [Filenames](#filenames)
   - [Headers](#headers)
   - [Using and Defining Includes](#using-and-defining-includes)
+  - [Reusing Content in Multiple Docs](#reusing-content-in-multiple-docs)
   - [Redirects](#redirects)
 - [Working With the Content](#working-with-the-content)
   - [Table of Contents](#table-of-contents)
@@ -28,8 +29,7 @@ Before we can accept your contribution, you need you to sign the [Contribution L
   - [Code Samples](#code-samples)
   - [Alerts](#alerts)
   - [Lists](#lists)
-  - [Versions](#versions)
-  - [Partials](#partials)
+  - [Working with Long-Term Support Releases and Fast Ring Releases](#working-with-long-term-support-releases-and-fast-ring-releases)
 
 ## Contribute a Quick Fix
 
@@ -150,9 +150,21 @@ hideInThisSectionHeader: true
 
 Sometimes you need to the same content in multiple pages, using includes lets you write the content once, and include it in more than one place. Markdown includes are pulled into the document prior to passing the content through the markdown conversion.
 
-To create an include, add a file anywhere in the docs repository that is suffixed with `.include.md`. For example, the file might be named `theKey.include.md`. To include the content in `theKey.include.md` in another file, add the following to the markdown `!include <key>` in that file.
+To create an include, add a file anywhere in the docs repository that is suffixed with `.include.md`. For example, the file might be named `theKey.include.md`. To include the content in `theKey.include.md` in another file, add the following to the markdown in the file you would like to include the content in:
+
+`!include <theKey>`
 
 Don't include a YAML header with includes.
+
+### Reusing Content in Multiple Docs
+
+Sometimes the content that you create is needed in multiple docs. For instance, perhaps your document touches elements on both configuration features and variables and could be included with the docs about variables, the docs about configuration features, and in the deployment example docs. If you added the content to all three areas of the documentation, you would then need to keep all three copies up to date if anything changes.
+
+With includes you can create the content once, and then include it in all the docs that need that content. This makes it easier for users to find relevant content where they need it. See [Using and Defining Includes](#using-and-defining-includes) for details on creating the includes content. Once the content has been created, it should be saved to the `docs/shared-content/` folder.
+
+#### Considerations for Creating Reusable Content
+
+Remember when you reuse content in this manner readers will come to it from different contexts. For this reason it's important to make sure the content fits with each context it will be used with. Some things that can help are to ensure the content works as a standalone piece, for instance, **How to Configure X**, give the section a title and include an introduction so readers understand what this section will cover even though they might be approaching it from different contexts. Lastly, review the content in each context yourself to ensure it fits in each instance.
 
 ### Redirects
 
@@ -370,18 +382,26 @@ Which is rendered as:
 a. Item 1  
 b. Item 2
 
-### Versions
+### Working with Long-Term Support Releases and Fast Ring Releases
 
-The version dropdown menu let's user choose between [legacy versions](https://legacydocs.octopus.com) of the documentation, the latest (default) version, and any pre-release versions.
+In Q4 2018 Octopus will introduce Long-Term Support releases. LTS releases are released on a three month cadence and are supported for six months. This means there will be two current LTS releases at any point in time. The documentation for the latest LTS release is the version of the docs that is displayed on the docs site by default. In addition to the LTS releases, we also have the fast ring releases (two) between each LTS release.
 
-### Include Pre-release Documentation
+#### Which Versions are available?
+
+- **Legacy Documentation**: Copies of the legacy docs go all the way back to version **3.6** and are available in a persistent archive at [www.legacydocs.octopus.com](https://legacydocs.octopus.com).
+- **LTS**: Both currently supported versions of the LTS releases are available on the main docs site.
+- **Current Fast Lane Release**: If the most recent release is a fast lane release, it is also available on the main docs site from the version selector. Once this version is no longer the most recent version it is added as to the legacy documentation site.
+
+The version switcher lets users choose between the different versions of the documentation.
+
+ ![Version Selector](/docs/images/version-selector.png)
+
+#### Include the Version
 
 The list of versions displayed on the dropdown are loaded from [versions.json](versions.json).
 
-Support to publish pre-release versions of documentation.
-This is useful when we are planning a new release or we are releasing betas or RCs.
+To add a new version to the version switcher all you need to do is add the version to the versions.json file versions array, and leave the default as it is, the example below adds version 2018.4. To add an LTS version append -LTS to the version, for instance, `2018.10-LTS`.
 
-To use this functionality all you need to do is add the pre-release version to the versions.json file versions array, and leave the default the same version, the example below adds 2018.4 pre-release:
 ```json
 {
    "versions": [
@@ -406,27 +426,57 @@ To use this functionality all you need to do is add the pre-release version to t
  }
 ```
 
-The version selector on the website displays the latest version by default, but the new pre-release is now listed above:
+The version selector on the website will display the versions added to the versions array:
 
-![Version Selector](/docs/images/version-selector.png)
+ ![Version Selector](/docs/images/version-selector.png)
 
 And when selected, a banner tells the user that they are seeing a "preview" of the documentation:
 
-![Documentation Preview banner](/docs/images/preview.png)
+ ![Documentation Preview banner](/docs/images/preview.png)
 
-### Partials
+#### Version Specific Docs
 
-Partials are version specific files that contain markdown.
+As we make changes to the way the product works or add new features we need to specify which version of the software the changes appears in. This ensure users can access documentation for the version of Octopus they are using.
+
+If the documentation is for a completely new feature, you can add a version to the YAML header at the beginning of the document that explains the feature. For instance:
+
+```md
+---
+title: New Awesome Feature
+description: Documentation for a feature that will blow your mind.
+position: 10
+version: 2018.11
+---
+```
+
+With the version information added to the header, the documentation for New Awesome Feature will appear in the docs for version 2018.11 and above.
+
+#### Version Specific Partials
+
+Partials are version specific files that contain markdown that is included inside other markdown documents. Version specific partials are useful when a feature changes between releases, and you need to display one version of the documentation to users viewing older versions of the docs, and a different version of the same page (or part of the same page) to users viewing a newer version of the doc.
+
+Partials use the same version syntax as [nuget](https://docs.microsoft.com/en-us/nuget/reference/package-versioning#version-ranges-and-wildcards).
+
+The convention for defining partials is: filePrefix_key_version.partial.md
+
+For instance, if the way a feature is configured changes in version 2019.2, you can add the markdown with the instructions to configure the feature the old way to a partial with the following filename:
+
+`index_configure_(,2019.2).partial.md`
+
+You can then add the markdown with the instructions for the new version to a partial with the following filename:
+
+`index_configure_(2019.2,).partial.md`
+
+Both of these assume you're adding the partials to the index file.
+
+You also need to add the partial to the document where you want it to appear, for instance:
+
+`!partial <configure>`
+
 Markdown partials are pulled into the document prior to includes, so this means you can add includes to partials.
 They are only rendered in the target page when the version filter matches the convention for a give file.
 
-Partial Convention: filePrefix_key_version.partial.md
-
-### Defining and Using Partials
-
-Add a file in the same folder as the page where you will use the partial to the docs repository that is named `fileName_key_version.partial.md`. For example, the file might be named `getting-started_theKey_2.0.partial.md`.
-
-To include the content in the partial, add the following to the markdown: `!partial <key>` (including the `<>`s)
+Partials must be added to the same folder as the page that will use the partial.
 
 ## Useful Characters
 

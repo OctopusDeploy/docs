@@ -38,7 +38,7 @@ Most of the tooling from above requires it to be installed somewhere.  It is imp
 
 Finally, it is good security practice to have a different deployment account per environment.  That deployment account only has permissions to make schema changes in their environment.  An account used to change a test environment should not be able to change production.  
 
-With all that in mind, a "jump box" is where Tentacles should be installed.  The jump box sits between Octopus Deploy and the SQL Server VIP.  The Tentacle is running as a [service account](/docs/infrastructure/windows-targets/running-tentacle-under-a-specific-user-account.md) with the necessary permissions to make schema changes.  The tooling chosen for database deployments is installed on the jump box.
+With all that in mind, a "jump box" is where Tentacles should be installed.  The jump box sits between Octopus Deploy and the SQL Server VIP.  The Tentacle is running as a [service account](/docs/infrastructure/deployment-targets/windows-targets/running-tentacle-under-a-specific-user-account.md) with the necessary permissions to make schema changes.  The tooling chosen for database deployments is installed on the jump box.
 
 ![](database-with-jump-box.png "width=500")
 
@@ -171,7 +171,7 @@ The open source tool [DbUp](http://dbup.github.io/), built by members of the Oct
 
 ### Visual Studio Database Projects {#SQLServerdatabases-VisualStudioDatabaseProjects}
 
-Raffaele Garofalo has a blog post detailing [how to deploy Visual Studio Database Projects with Octopus](http://blog.raffaeu.com/archive/2013/10/17/deploy-database-project-using-octopus.aspx).
+Raffaele Garofalo has a blog post detailing [how to deploy Visual Studio Database Projects with Octopus](http://blog.raffaeu.com/archive/2013/10/17/deploy-database-project-using-octopus/).
 
 ### Entity Framework Migrations {#SQLServerdatabases-EntityFrameworkMigrations}
 

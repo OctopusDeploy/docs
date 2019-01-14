@@ -8,12 +8,17 @@ Use the show thumbprint command to show the squid and thumbprint of the server i
 **Show thumbprint options**
 
 ```text
-Usage: Octopus.Server show-thumbprint [<options>]
+Usage: octopus.server show-thumbprint [<options>]
 
 Where [<options>] is any of:
-  -e, --export-file=VALUE      Exports the Tentacle thumbprint to a file
-      --thumbprint-only=VALUE  Only print out the thumbprint, with no additional text
+
+      --instance=VALUE       Name of the instance to use
+  -e, --export-file=VALUE    Exports the Tentacle thumbprint to a file
+      --format=VALUE         The format of the output (text,json). Defaults
+                               to text.
 
 Or one of the common options:
+
       --help                 Show detailed help for this command
 ```
+

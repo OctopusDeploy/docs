@@ -3,12 +3,6 @@ title: Deploy a Service Resource
 description: Deploy a service resource to a Kubernetes cluster.
 ---
 
-This featured was introduced as a pre-release in **Octopus 2018.8**.
-
-:::warning
-Kubernetes steps in Octopus are of alpha level quality and have been made available for testing and feedback purposes only. They **must not** be used for production deployments, or enabled on production Octopus instances. The information provided here is subject to change at any point, and existing Kubernetes steps will most likely need to be deleted and recreated with Octopus upgrades.
-:::
-
 [Service resources](http://g.octopushq.com/KubernetesServiceResource), expose Pod resources either internally within Kubernetes cluster, or externally to public clients. The `Deploy Kubernetes service resource` steps can be used to configure and deploy a Service resource.
 
 ![Deploy Service Step](deploy-service-step.png)

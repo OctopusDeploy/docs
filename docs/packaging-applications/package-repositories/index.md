@@ -1,6 +1,6 @@
 ---
 title: Package Repositories
-description: Octopus need to retrieve applications from a package repository; options include the built-in repository, local and remote NuGet feeds, Maven, JetBrains TeamCity, MyGet and VSTS or TFS Package Management.
+description: Octopus need to retrieve applications from a package repository; options include the built-in repository, local and remote NuGet feeds, Maven, JetBrains TeamCity, MyGet and Azure DevOps or TFS Package Management.
 position: 5
 ---
 
@@ -13,7 +13,7 @@ The Octopus built-in repository [supports several different types of packages](/
 If you would like to use an external repository, the following external repositories are supported:
 
  - [NuGet feeds](https://docs.nuget.org/create/hosting-your-own-nuget-feeds) (either HTTP or file-system based feeds).
- - [Docker feeds](/docs/packaging-applications/package-repositories/registries/index.md).
+ - [Docker feeds](/docs/packaging-applications/package-repositories/docker-registries/index.md).
  - [Maven feeds](/docs/packaging-applications/package-repositories/maven-feeds.md).
  - [GitHub feeds](/docs/packaging-applications/package-repositories/github-feeds.md).
 
@@ -25,7 +25,7 @@ Your package repository will typically be:
 - A [maven feed](/docs/packaging-applications/package-repositories/maven-feeds.md).
 - A [JetBrains TeamCity](http://blogs.jetbrains.com/dotnet/2011/08/native-nuget-support-in-teamcity/ "JetBrains TeamCity") server (version 7 and above).
 - A [MyGet](http://www.myget.org/ "MyGet") server.
-- A [VSTS or TFS Package Management](https://www.visualstudio.com/en-us/docs/package/overview) feed (see note below).
+- A [Azure DevOps or TFS Package Management](https://www.visualstudio.com/en-us/docs/package/overview) feed (see note below).
 
 :::success
 **Mix and Match Feeds**
@@ -42,8 +42,8 @@ Earlier releases of Octopus Deploy only support external NuGet v2 feeds:
 :::
 
 :::warning
-**VSTS Package Feeds**
-If you are using VSTS Package Management, Octopus can consume either the v2 or v3 NuGet feeds.
+**Azure DevOps Package Feeds**
+If you are using Azure DevOps Package Management, Octopus can consume either the v2 or v3 NuGet feeds.
 
 - To connect to the v3 URL, you must use [a Personal Access Token](https://www.visualstudio.com/en-us/docs/integrate/get-started/auth/overview) in the password field. The username field is not checked, so you can put anything in here as long as it is not blank. Ensure that the PAT has (at least) the *Packaging (read)* scope.
 - To connect to the v2 URL, you can use either [alternate credentials or a Personal Access Token](https://www.visualstudio.com/en-us/docs/integrate/get-started/auth/overview) in the password field.
@@ -64,7 +64,7 @@ The Octopus built-in repository is generally the best choice for deployment pack
 
 Our recommendation is to use different repositories for different purposes, and each repository provides different benefits. A typical example is where you produce your own application library packages in addition to your own deployment packages:
 
-- For application library packages consider using the repository provided by your build server, a [file-share](http://docs.nuget.org/docs/creating-packages/hosting-your-own-nuget-feeds#Creating_Local_Feeds), or something like [MyGet](http://www.myget.org/ "MyGet") or [VSTS Package Management](https://www.visualstudio.com/en-us/docs/package/overview).
+- For application library packages consider using the repository provided by your build server, a [file-share](http://docs.nuget.org/docs/creating-packages/hosting-your-own-nuget-feeds#Creating_Local_Feeds), or something like [MyGet](http://www.myget.org/ "MyGet") or [Azure DevOps Package Management](https://www.visualstudio.com/en-us/docs/package/overview).
 - For deployment packages consider using the Octopus built-in repository (see below).
 - For deployment scripts that you want to store in your source control and where a build process might be unnecessary, the [GitHub](/docs/packaging-applications/package-repositories/github-feeds.md) feed type may be appropriate.
 
@@ -111,7 +111,7 @@ See [moving Octopus Server folders](/docs/administration/server-configuration-an
 
 ## Using External Repositories {#Packagerepositories-Usingexternalrepositories}
 
-If you wish to use an external repository, you must use NuGet packages, a [Maven feed](/docs/packaging-applications/package-repositories/maven-feeds.md), [GitHub](/docs/packaging-applications/package-repositories/github-feeds.md) or [Docker registries as feeds](/docs/packaging-applications/package-repositories/registries/index.md).
+If you wish to use an external repository, you must use NuGet packages, a [Maven feed](/docs/packaging-applications/package-repositories/maven-feeds.md), [GitHub](/docs/packaging-applications/package-repositories/github-feeds.md) or [Docker registries as feeds](/docs/packaging-applications/package-repositories/docker-registries/index.md).
 
 :::warning
 **NuGet v3 Feed Support**
@@ -137,7 +137,7 @@ On the test page, you can check whether the feed is working by searching for pac
 ![](/docs/images/3048094/3277772.png "width=500")
 
 ## Planning Package Repository Placement {#Packagerepositories-Placement}
-By default, when you deploy a package to a Tentacle, the package will be pushed from the Octopus Server to the Tentacle. You can override this by setting the [Action System Variable](https://octopus.com/docs/deployment-process/variables/system-variables#Systemvariables-Action) `Octopus.Action.Package.DownloadOnTentacle`, which is a `boolean` data type. When set to `False`, the default behavior is applied and when set to `True` the package will be downloaded by the Tentacle, rather than pushed by the Octopus Server.
+By default, when you deploy a package to a Tentacle, the package will be pushed from the Octopus Server to the Tentacle. You can override this by setting the [Action System Variable](/docs/deployment-process/variables/system-variables.md#Systemvariables-Action) `Octopus.Action.Package.DownloadOnTentacle`, which is a `boolean` data type. When set to `False`, the default behavior is applied and when set to `True` the package will be downloaded by the Tentacle, rather than pushed by the Octopus Server.
 
 To reduce network latency, it is ideal to place your package repository in close proximity to the Octopus Server while `Octopus.Action.Package.DownloadOnTentacle` is set to the default value of `False`. Alternatively if you have explicitly set the Tentacles to download packages by the Tentacle to `True`, you would likely want to place your package repository in close proximity to your Tentacles.
 
@@ -150,7 +150,7 @@ The built-in NuGet server in Octopus stores metadata in SQL Server, and doesn't 
 ## Troubleshooting {#Packagerepositories-Troubleshooting}
 
 - For network file shares, keep in mind that Octopus and Tentacle run under system accounts by default, which may not have access to the file share.
-- NuGet.Server only allows 30MB packages [by default](http://help.octopusdeploy.com/discussions/problems/184-30mb-default-maximum-nuget-package-size).
+- NuGet.Server only allows 30MB packages [by default](http://help.octopus.com/discussions/problems/184-30mb-default-maximum-nuget-package-size).
 
 A good first step for diagnosing NuGet feed issues is to ensure that the NuGet command line executable can access the same feed from the Octopus Server or target machine if the `Each Tentacle will download the package directly from the remote server` option is selected. The following steps can be used to troubleshoot NuGet feeds.
 

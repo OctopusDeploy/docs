@@ -6,39 +6,15 @@ position: 0
 
 Welcome!
 
-This section provides an overview of Octopus Deploy and explains how Octopus Deploy fits into your application delivery pipeline. It provides an overview of the major concepts in Octopus and links to the relevant documentation, which explore the concepts further and guide you through implementing them with your own [self-hosted](/docs/getting-started.md#self-hosted-octopus) or [cloud-hosted](/docs/getting-started.md#octopus-cloud) Octopus Server.
+This section provides an overview of Octopus Deploy concepts and links to the relevant documentation, which explore the concepts further and guide you through implementing them with your own [self-hosted](/docs/getting-started.md#self-hosted-octopus) or [cloud-hosted](/docs/getting-started.md#octopus-cloud) Octopus Server.
 
-## Octopus in Your Delivery Process
-
-Octopus Deploy is an automated deployment server that makes it easy to automate software deployment across your organization.
-
-### The Delivery Pipeline
-
-We designed Octopus Deploy for teams that follow agile delivery practices. A typical workflow could be:
-
-1. **Commit Code to Your Existing Source Control System.**
-
-   You might be using Git, Team Foundation Server, Subversion, or Mercurial. The choice is yours.
-
-1. **Your CI/Build Server Compiles the Code and Runs Unit Tests.**
-
-   You might be using TeamCity, Jenkins, Bamboo, Team Foundation Server, or CruiseControl.NET. Again, the choice is yours.
-
-1. **Package Your Application.**
-
-   When the build is ready, your CI/build server takes all the files your software needs to run and bundles them up ready for deployment.
-
-1. **Octopus Deploy Deploys Your Software to Your Infrastructure.**
-
-   Octopus deploys your software to the infrastructure you've configured, whether this is on-premises servers or cloud services. Because you likely want to deploy your software into a testing environment before deploying into production, Octopus promotes releases of your software through your environments, for instance, to dev, testing, staging, and production, and because each environment has slightly different configurations, Octopus manages those for you too.
-
-### Consistent Releases
+## Consistent Releases
 
 As an Octopus user, you define the process for deploying your software. You specify the environments the applications are deployed to and who on your team can deploy to which environments. For instance, you might want QA to deploy to test environments, but not to production. Taking this approach means that even if different members of the team trigger deployments, the deployment process remains consistent. Once releases have been created, they can be deployed as many times as you need.
 
 ## Octopus Deploy Server
 
-You can install your own [self-hosted](/docs/getting-started.md#self-hosted-octopus) instance of the Octopus Deploy Server or use the [cloud-hosted](/docs/getting-started.md#octopus-cloud) server.
+You can install your own [self-hosted](/docs/getting-started.md#self-hosted-octopus) instance of the Octopus Deploy Server or use [Octopus Cloud](/docs/getting-started.md#octopus-cloud).
 
 ## Self-Hosted Octopus
 
@@ -50,7 +26,7 @@ The [installation documentation](/docs/installation/index.md) provides instructi
 
 **Octopus Cloud** is the hosted version of Octopus Deploy. We designed Octopus Cloud and self-hosted Octopus to provide the same functionality; however, there are some minor differences, for instance, with Octopus Cloud, we're [responsible](/docs/administration/security/index.md#responsibility) for taking backups, upgrading the service, and maintaining and monitoring the underlying systems.
 
-You can sign up for Octopus Cloud at [octopus.com/account/register](https://octopus.com/account/register), check out the [Octopus Cloud FAQ](https://octopus.com/blog/octopus-cloud-faq) blog post or the [pricing page](https://octopus.com/cloud).
+Learn more about [Octopus Cloud](/docs/octopus-cloud/index.md).
 
 ## The Octopus Web Portal
 

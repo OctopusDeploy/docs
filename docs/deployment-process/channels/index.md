@@ -31,6 +31,8 @@ Every [project](/docs/deployment-process/projects/index.md) has a default channe
 
 Channels are managed from the Project overview page by selecting the specific project you are working with and clicking **Channels**.
 
+As you add more channels, you'll notice that they are arranged in alphabetical order on the channels page.
+
 ## Create a New Channel
 
 1. From the Channels page, click on the **ADD CHANNEL** button.
@@ -125,7 +127,7 @@ The package list allows you to select the version of each package involved in th
 
 ### Using Build Server Extensions or Octo.exe {#Channels-UsingBuildServerExtensionsorOcto.exe}
 
-When using one of the [build server extensions](/docs/api-and-integration/index.md) or [octo.exe](/docs/api-and-integration/octo.exe-command-line/creating-releases.md) to create releases, you can either let Octopus automatically choose the correct Channel for your Release (this is the default behavior), or choose a specific Channel yourself.
+When using one of the [build server extensions](/docs/api-and-integration/index.md) or [octo.exe](/docs/api-and-integration/octo.exe-command-line/create-release.md) to create releases, you can either let Octopus automatically choose the correct Channel for your Release (this is the default behavior), or choose a specific Channel yourself.
 
 ### Automatic Release Creation {#Channels-AutomaticReleaseCreation}
 

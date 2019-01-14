@@ -8,7 +8,7 @@ Use the show configuration command to output the Tentacle configuration. The con
 **Show configuration options**
 
 ```text
-Usage: Tentacle show-configuration [<options>]
+Usage: tentacle show-configuration [<options>]
 
 Where [<options>] is any of:
 
@@ -25,3 +25,4 @@ Or one of the common options:
 
       --help                 Show detailed help for this command
 ```
+

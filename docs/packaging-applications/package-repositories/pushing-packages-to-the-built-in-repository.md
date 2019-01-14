@@ -26,7 +26,7 @@ You can manually upload a package file from your local machine via the Octopus w
 ![](/docs/images/3048094/3277775.png "width=500")
 
 :::success
-We generally recommend using a continuous integration/build server like [TeamCity](/docs/api-and-integration/teamcity.md), [Jenkins](/docs/api-and-integration/jenkins.md), [Bamboo](/docs/api-and-integration/bamboo.md) or [Team Foundation Server (TFS)](/docs/api-and-integration/tfs-vsts/index.md) to build, test, package and automatically push your release packages into the Octopus Deploy built-in repository. See below for examples on doing this.
+We generally recommend using a continuous integration/build server like [TeamCity](/docs/api-and-integration/teamcity.md), [Jenkins](/docs/api-and-integration/jenkins.md), [Bamboo](/docs/api-and-integration/bamboo.md) or [Team Foundation Server (TFS)](/docs/api-and-integration/tfs-azure-devops/index.md) to build, test, package and automatically push your release packages into the Octopus Deploy built-in repository. See below for examples on doing this.
 :::
 
 :::hint
@@ -48,7 +48,7 @@ You can push one or more packages using Octo.exe, the command-line tool for Octo
 C:\> Octo.exe push --package MyApp.Website.1.1.0.zip --package MyApp.Database.1.1.0.zip --replace-existing --server http://my.octopus.url --apiKey API-XXXXXXXXXXXXXXXX
 ```
 
-For more information refer to [Pushing packages with Octo.exe](/docs/api-and-integration/octo.exe-command-line/pushing-packages.md).
+For more information refer to [Pushing packages with Octo.exe](/docs/api-and-integration/octo.exe-command-line/push-package.md).
 
 ## Using the Octopus API (HTTP POST) {#PushingpackagestotheBuilt-Inrepository-UsingtheOctopusAPI(HTTPPOST)}
 
@@ -67,13 +67,13 @@ To push a package using `NuGet.exe` you'll need a the URL for the Octopus NuGe
 If you're using a continuous integration server like TeamCity to produce packages you can use their built-in NuGet Push step. Supply the Octopus NuGet feed URL shown above and an [Octopus API key](/docs/api-and-integration/api/how-to-create-an-api-key.md) when prompted for the feed details.
 :::
 
-If a package with the same version exists and you want to force the Octopus Server to replace it, you can modify the URL to include a `?replace=true` parameter (as outlined in our [Push a NuGet package that already exists](https://octopus.com/docs/packaging-applications/creating-packages/nuget-packages/push-a-nuget-package-that-already-exists) page). The full URL would look then like this:
+If a package with the same version exists and you want to force the Octopus Server to replace it, you can modify the URL to include a `?replace=true` parameter (as outlined in our [Push a NuGet package that already exists](/docs/packaging-applications/creating-packages/nuget-packages/push-a-nuget-package-that-already-exists.md) page). The full URL would look then like this:
 
 `http://MyOctopusServer/nuget/packages?replace=true`
 
 ## Using npm.exe, Grunt or Gulp {#PushingpackagestotheBuilt-Inrepository-Usingnpm.exe,gruntorgulp}
 
-You can upload packages using npm.exe or using our grunt or gulp tasks. Take a look at our [guide for packaging and deploying Node.js applications using Octopus Deploy](/docs/deployment-examples/node-on-nix-deployments/index.md).
+You can upload packages using npm.exe or using our grunt or gulp tasks. Take a look at our [guide for packaging and deploying Node.js applications using Octopus Deploy](/docs/deployment-examples/node-on-linux-deployments/index.md).
 
 ## Using Curl {#PushingpackagestotheBuilt-Inrepository-Usingcurl}
 

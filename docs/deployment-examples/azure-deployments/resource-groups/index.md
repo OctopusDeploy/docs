@@ -14,7 +14,7 @@ From [Authoring Azure Resource Manager Templates](https://azure.microsoft.com/en
 Octopus Deploy supports deploying Azure Resource Manager (ARM) templates via the *Deploy an Azure Resource Manager template* step type. For information about adding a step to the deployment process, see the [add step](/docs/deployment-process/steps/index.md) section.
 
 :::hint
-Before creating the step, you must have created an [Azure Service Principal Account](/docs/infrastructure/azure/index.md#azure-service-principal)
+Before creating the step, you must have created an [Azure Service Principal Account](/docs/infrastructure/accounts/azure/index.md#azure-service-principal)
 :::
 
 ![](arm-step.png "width=170")
@@ -153,5 +153,5 @@ Azure Resource Manager supports the concept of [linking templates](https://docs.
 **Linked templates must be publicly accessible via URI**
 Please be aware that the URI you configure for the linked templates and parameters files must be publicly accessible by the Azure Resource Manager. For example: [https://www.contoso.com/AzureTemplates/newStorageAccount.json.](https://www.contoso.com/AzureTemplates/newStorageAccount.json.)
 
-Learn more about [linked templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-linked-templates) and refer to [this discussion](http://help.octopusdeploy.com/discussions/questions/7652-azure-resource-management-templates) for more details.
+Learn more about [linked templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-linked-templates) and refer to [this discussion](http://help.octopus.com/discussions/questions/7652-azure-resource-management-templates) for more details.
 :::

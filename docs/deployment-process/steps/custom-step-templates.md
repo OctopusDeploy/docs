@@ -64,7 +64,7 @@ If you want to transport, backup, or share your custom step templates with the c
 
 ![Export step templates](step-templates-export.png "width=500")
 
-Now you can take that exported template document and commit it to source control, or share it on the [Community Library](https://library.octopusdeploy.com/).
+Now you can take that exported template document and commit it to source control, or share it on the [Community Library](https://library.octopus.com/).
 
 :::success
 Take a look at the [contributing guide](https://github.com/OctopusDeploy/Library/blob/master/.github/CONTRIBUTING.md) for the Community Library and submit your step template as a [pull request](https://github.com/OctopusDeploy/Library/pulls).
@@ -78,7 +78,7 @@ If the linking process isn't linking a template that you believe should be linke
 
 ## Running Script Based Custom Step Templates
 
-**Octopus 3.7** introduced the ability to run script based custom step templates on a group of machines. This can be very handy to execute script based step templates to test them before starting to use them in your projects as well as performing regular admin or operations functions. This should be familiar to people who have used the [script console](https://octopus.com/docs/administration/script-console) in the past.
+**Octopus 3.7** introduced the ability to run script based custom step templates on a group of machines. This can be very handy to execute script based step templates to test them before starting to use them in your projects as well as performing regular admin or operations functions. This should be familiar to people who have used the [script console](/docs/administration/script-console.md) in the past.
 
 :::hint
 It's important to note that you can only run script based custom step templates. It's not currently possible to execute step templates based on other step types.

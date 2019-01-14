@@ -53,7 +53,7 @@ For **other applications**, like Console or Windows Service applications, suppos
 When deploying to an environment named "**Test**", Octopus will execute the transforms in this order: `YourService.exe.Release.config`, followed by `YourService.exe.Test.config`.
 
 :::success
-You can see how this is actually done by our [open source Calamari project](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari/Deployment/Conventions/ConfigurationTransformsConvention.cs).
+You can see how this is actually done by our [open source Calamari project](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari.Shared/Deployment/Conventions/ConfigurationTransformsConvention.cs).
 :::
 
 :::hint

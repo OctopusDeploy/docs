@@ -18,10 +18,11 @@ Deployment Slots are only available to Azure Web Apps running in Standard or P
 ## Walk-Through {#UsingDeploymentSlotswithAzureWebApps-Walk-Through}
 
 Here we will give an example of how to setup a Blue-Green deployment for an Azure Web App using Deployment Slots.
+The scripts below assume you have a variable named 'WebSite' that contains the name of your Azure Web Site and 'ResourceGroup' that contains the Azure Resource Group Name.
 
 ### Step 1: Create an Azure Web App Deployment Target
 
-Follow the steps for [Azure Web App targets](/docs/infrastructure/azure/web-app-targets/index.md).
+Follow the steps for [Azure Web App targets](/docs/infrastructure/deployment-targets/azure/web-app-targets/index.md).
 
 ### Step 2: Create Staging Slot {#UsingDeploymentSlotswithAzureWebApps-Step1:CreateStagingSlot}
 
@@ -29,7 +30,7 @@ Create a [Run an Azure PowerShell Script](/docs/deployment-examples/azure-deploy
 
 ![](azure-powershell-script-step.png "width=500")
 
-Assuming you have a variable named 'WebSite' that contains the name of your Azure Web Site, your script should be:
+Your script should be:
 
 **Azure Service Management**
 
@@ -45,14 +46,14 @@ New-AzureWebsite -Name #{WebSite} -Slot Staging
 
 ```powershell
 #Remove the staging slot if it exists
-Remove-AzureRMWebAppSlot -Name #{WebSite} -Slot Staging -ResourceGroupName MyResourceGroup -Force -ErrorAction Continue
+Remove-AzureRMWebAppSlot -Name #{WebSite} -Slot Staging -ResourceGroupName #{ResourceGroup} -Force -ErrorAction Continue
 
 #Create the staging slot
-New-AzureRMWebAppSlot -Name #{WebSite} -Slot Staging -ResourceGroupName MyResourceGroup
+New-AzureRMWebAppSlot -Name #{WebSite} -Slot Staging -ResourceGroupName #{ResourceGroup}
 ```
 
 :::hint
-The reason for the first line, which removes the Staging Slot, is to ensure we are deploying to a clean slot.  This can significantly reduce the time taken for deployments with a large number of files.
+The reason for the first line, which removes the Staging Slot, is to ensure we are deploying to a clean slot. This can significantly reduce the time taken for deployments with a large number of files.
 :::
 
 So your step should look like:
@@ -67,7 +68,7 @@ The next step is to deploy your package to the Staging slot.  We do this by cre
 
 ![](azure-web-app-selector-with-slot.png "width=500")
 
-You can enter the name of deployment slot in the **Deployment Slot** field, or to use a variable for the Slot name, click the "Bind" ![Bind](bind.png "width=10 Bind") button, and enter
+You can enter the name of deployment slot in the **Deployment Slot** field, or to use a variable for the Slot name, click the "Bind" button, and enter
 
 ```
 #{WebAppSlotName}

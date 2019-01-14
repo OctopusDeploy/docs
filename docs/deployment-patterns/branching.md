@@ -59,7 +59,7 @@ Multiple release branches may be supported over a period of time. For example, y
 
 To prevent [retention policies](/docs/administration/retention-policies/index.md) for one channel from impacting deployments for another channel, version `3.12.2` introduces the `Discrete Channel Releases` flag at under `Deployment Target settings` on the {{Project,Process}} page. Enabling this feature will also ensure that your project overview dashboard correctly shows which releases are current for each environment _in each channel_. Without this set, the default behavior is for releases across channels to supersede each other (for example, in a hotfix scenario where the `3.2.2-bugfix` is expected to override the `3.2.2` release, allowing `3.2.2` to be considered for retention policy cleanup).
 
- ![Discrete Channel Release](/docs/images/discrete-channel-release.png "width=500")
+ ![Discrete Channel Release](discrete-channel-release.png "width=500")
 
 Modeling this in Octopus is a little more complicated than the scenarios above, but still easy to achieve. If the only thing that changes between branches is the NuGet package version numbers, and you create releases infrequently, then you can simply choose the correct package versions when creating a release via the release creation page:
 
@@ -96,7 +96,7 @@ Feature branches are usually short lived, and allow developers to work on a new 
 
 ![](/docs/images/3048919/3278442.png)
 
-If feature branches do need to be deployed, then you can create NuGet packages from them, and then release them with Octopus as per normal. To keep feature branch packages separate from release-ready packages, [we recommend using SemVer tags](https://docs.nuget.org/create/versioning#really-brief-introduction-to-semver) in the NuGet package version. You should be able to [configure your build server to generate version numbers based on the feature branch](https://octopusdeploy.com/blog/teamcity-version-numbers-based-on-branches).
+If feature branches do need to be deployed, then you can create NuGet packages from them, and then release them with Octopus as per normal. To keep feature branch packages separate from release-ready packages, [we recommend using SemVer tags](https://docs.nuget.org/create/versioning#really-brief-introduction-to-semver) in the NuGet package version. You should be able to [configure your build server to generate version numbers based on the feature branch](https://octopus.com/blog/teamcity-version-numbers-based-on-branches).
 
 ![](/docs/images/3048919/3278443.png)
 
@@ -115,7 +115,7 @@ A final branching strategy that we see is to use a branch per environment that g
 
 ![](/docs/images/3048919/3278444.png)
 
-We do not like or recommend this strategy, as it violates the principle of [Build your Binaries Once](http://octopusdeploy.com/blog/build-your-binaries-once).
+We do not like or recommend this strategy, as it violates the principle of [Build your Binaries Once](http://octopus.com/blog/build-your-binaries-once).
 
 - The code that will eventually run in production may not match 100% the code run during testing.
 - It's easy for a merge to go wrong and result in different code than you expected running in production.
@@ -145,7 +145,7 @@ Your dashboard in Octopus should reflect this reality by displaying each channel
 
 :::hint
 **Development note**
-In [the RFC post](https://octopusdeploy.com/blog/rfc-branching), we never mentioned this, but it's something we've since discussed a few times and always assumed it would be part of release channels. That said, I'm considering whether we should ship channels without this feature. The Project Overview could still show different channels easily (since each release belongs to a channel), but the global dashboard might not be able to. We can see if there's a big demand for this feature.
+In [the RFC post](https://octopus.com/blog/rfc-branching), we never mentioned this, but it's something we've since discussed a few times and always assumed it would be part of release channels. That said, I'm considering whether we should ship channels without this feature. The Project Overview could still show different channels easily (since each release belongs to a channel), but the global dashboard might not be able to. We can see if there's a big demand for this feature.
 :::
 
 ### My Branches Are Very Different, and I Need My Deployment Process to Work Differently Between Them {#Branching-Mybranchesareverydifferent,andIneedmydeploymentprocesstoworkdifferentlybetweenthem}
