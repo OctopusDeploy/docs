@@ -130,7 +130,7 @@ There is no tooling to help you resolve conflicts in a more granular way. The da
 
 We use the ID's so we can map references between documents into the correct references for the target server. We actually use the names to determine if something already exists. This means you can export from multiple Octopus Servers, combine them together, and then import to a single Octopus Server.
 
-## Is there a command-line interface? {#Datamigration-Commandline}
+### Is there a command-line interface? {#Datamigration-Commandline}
 
 Yes! Most of the features are only available via command-line so it is the most common way to perform data migration. Use `Octopus.Migrator.exe help` to see the full list of commands available. To see an example of the command syntax, you can use the Wizard in the Octopus Server Manager and click the **Show script** link.
 
