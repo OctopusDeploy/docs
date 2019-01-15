@@ -46,7 +46,7 @@ In the event of multiple domains, a jump box would be needed per domain.  This m
 
 ![](database-jump-box-multiple-domains.png "width=500")
 
-It is possible to install many Tentacles on a single server.  Please [read here](/docs/administration/managing-multiple-instances.md) for more information.  
+It is possible to install many Tentacles on a single server.  Please [read here](/docs/administration/managing-infrastructure/managing-multiple-instances.md) for more information.  
 
 ![](database-jump-box-multiple-tentacles.png "width=500")
 

@@ -25,7 +25,7 @@ In all scenarios, both the source and target Octopus Servers must be running the
 The data migration tools are not suitable for every imaginable scenario. In these cases there are better tools for the job:
 
 1. To migrate data from older versions of Octopus see [upgrading old versions of Octopus](/docs/administration/upgrading/legacy/index.md).
-1. For general disaster recovery learn about [backup and restore for your Octopus Server](/docs/administration/backup-and-restore.md).
+1. For general disaster recovery learn about [backup and restore for your Octopus Server](/docs/administration/data/backup-and-restore.md).
 1. To move your Octopus database to another database server see [moving your database](/docs/administration/moving-your-octopus/move-the-database.md).
 1. To move your Octopus Server and database to another server see [moving your Octopus Server and database](/docs/administration/moving-your-octopus/move-the-database-and-server.md).
 1. To move your entire Octopus Server from a self-hosted installation to Octopus Cloud, contact our [support team](https://octopus.com/support) for help.
@@ -48,7 +48,7 @@ The data migration tools are not suitable for every imaginable scenario. In thes
 ### Exporting {#Datamigration-ExportingExporting}
 
 :::hint
-It's a good idea to make sure your Octopus Server isn't changing data while exporting. Learn about making your Octopus Server read-only using [maintenance mode](/docs/administration/maintenance-mode.md).
+It's a good idea to make sure your Octopus Server isn't changing data while exporting. Learn about making your Octopus Server read-only using [maintenance mode](/docs/administration/managing-infrastructure/maintenance-mode.md).
 :::
 
 You can export data using the Export Wizard built into the Octopus Server Manager, or using the command-line interface `Octopus.Migrator.exe`. You can export your entire Octopus Server configuration, or certain projects and their dependencies. The wizard is a good way to get started, but the full feature set is only available using the command-line interface.
@@ -62,7 +62,7 @@ We have tried to make the exported file structure predictable and easy to naviga
 ### Importing {#Datamigration-ImportingImporting}
 
 :::hint
-It's a good idea to [perform a backup](/docs/administration/backup-and-restore.md) before attempting an import.
+It's a good idea to [perform a backup](/docs/administration/data/backup-and-restore.md) before attempting an import.
 :::
 
 You can import data using the Import Wizard built into the Octopus Server Manager, or using the command-line interface `Octopus.Migrator.exe import`. Similarly to exporting data, the wizard is a good way to get started, but the full feature set is only available using the command-line interface.

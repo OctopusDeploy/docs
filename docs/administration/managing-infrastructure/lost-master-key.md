@@ -27,7 +27,7 @@ If you are confident with Octopus you can follow these steps to get back up and 
 
 ### Step 1 - Back up Before You Start
 
-Make sure to [back up everything](/docs/administration/backup-and-restore.md) before you start this process. At least this will help you start the process again from a known position.
+Make sure to [back up everything](/docs/administration/data/backup-and-restore.md) before you start this process. At least this will help you start the process again from a known position.
 
 ### Step 2 - Install Octopus Server on a New Machine
 

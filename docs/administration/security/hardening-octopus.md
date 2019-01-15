@@ -54,11 +54,11 @@ For Octopus Server to be useful you need to expose its HTTP API to your users, a
 
 ### Configure Your Workers {#configuring-workers}
 
-Workers offer a convenient way to run scripts and certain deployment steps. Learn about [workers](/docs/administration/workers/index.md).
+Workers offer a convenient way to run scripts and certain deployment steps. Learn about [workers](/docs/administration/managing-infrastructure/workers/index.md).
 
 We highly recommend configuring external workers running on a different host to your Octopus Server. This is the easiest and more secure approach to prevent user-provided scripts from doing harm to your Octopus Server.
 
-Learn about the [built-in worker](/docs/administration/workers/built-in-worker.md).
+Learn about the [built-in worker](/docs/administration/managing-infrastructure/workers/built-in-worker.md).
 
 Learn about [external workers](/docs/infrastructure/workers/index.md).
 
@@ -76,7 +76,7 @@ The decisions you need to make are:
 
 ## Harden Your Host Operating System
 
-These steps apply to the host operating system for your Octopus Server. You may want to consider similar hardening for your [deployment targets](/docs/infrastructure/index.md) and any [workers](/docs/administration/workers/index.md).
+These steps apply to the host operating system for your Octopus Server. You may want to consider similar hardening for your [deployment targets](/docs/infrastructure/index.md) and any [workers](/docs/administration/managing-infrastructure/workers/index.md).
 
 1. Rename local administrator account.
 1. Configure malware protection.

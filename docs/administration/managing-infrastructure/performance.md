@@ -32,13 +32,13 @@ As an example, many customers have reported speed improvements of 50-90% for the
 
 Octopus are generally hygienic creatures, cleaning up after themselves, and your Octopus is no different. Configuration documents, like [projects](/docs/deployment-process/projects/index.md) and [environments](/docs/infrastructure/environments/index.md), are stored until you delete them, unlike historical documents like [releases](/docs/deployment-process/releases/index.md). These will be cleaned up according to the [retention policies](/docs/administration/retention-policies/index.md) you configure.
 
-_The one exception to this is the `Events` table which records an [audit trail](/docs/administration/auditing.md) of every significant event in your Octopus._
+_The one exception to this is the `Events` table which records an [audit trail](/docs/administration/managing-users-and-teams/auditing.md) of every significant event in your Octopus._
 
 A tighter retention policy means your Octopus Server will run faster across the board.
 
 :::hint
 **We need to keep everything for auditing purposes**
-You may not need to keep the entire history of releases - we record the entire history of your Octopus Server for [auditing](/docs/administration/auditing.md) purposes. This means you can safely use a short-lived [retention policy](/docs/administration/retention-policies/index.md) to have a fast-running Octopus Server, all the while knowing your audit history is safely kept intact. The retention policy simply cleans up the "potential to deploy a release" - it does not erase the fact a release was created, nor the deployments of that release, from history.
+You may not need to keep the entire history of releases - we record the entire history of your Octopus Server for [auditing](/docs/administration/managing-users-and-teams/auditing.md) purposes. This means you can safely use a short-lived [retention policy](/docs/administration/retention-policies/index.md) to have a fast-running Octopus Server, all the while knowing your audit history is safely kept intact. The retention policy simply cleans up the "potential to deploy a release" - it does not erase the fact a release was created, nor the deployments of that release, from history.
 :::
 
 ### SQL Server Maintenance {#sql-maintenance}
@@ -61,7 +61,7 @@ We offer three options for scaling your Octopus Server:
 
 - scale up by controlling the **task cap** and providing more server resources as required.
 - scale out using [Octopus High Availability](/docs/administration/high-availability/index.md).
-- scale out using [Workers](/docs/administration/workers/index.md).
+- scale out using [Workers](/docs/administration/managing-infrastructure/workers/index.md).
 
 We are planning a fourth option for scaling your Octopus Server:
 
@@ -99,7 +99,7 @@ Follow these tips to tune and maintain the performance of your Octopus:
     - Quite often negative performance symptoms are caused by outdated statistics or other common SQL Server maintenance problems.
 1. If you have saturated your current servers you may want to consider scaling up, by increasing the resources available to the Octopus and SQL Servers, or scaling out:
     - Consider [Octopus High Availability](/docs/administration/high-availability/index.md) if you are reaching saturation on your current infrastructure, or want to improve the up-time of your Octopus Server, especially across [Operating System patches](/docs/administration/applying-operating-system-upgrades.md). Octopus High Availability is designed to scale linearly as you add nodes to your cluster.
-    - Consider using [Workers](/docs/administration/workers/index.md) and worker pools if deployment load is affecting your server.  See this [blog post](https://octopus.com/blog/workers-performance) for a way to begin looking at workers for performance.
+    - Consider using [Workers](/docs/administration/managing-infrastructure/workers/index.md) and worker pools if deployment load is affecting your server.  See this [blog post](https://octopus.com/blog/workers-performance) for a way to begin looking at workers for performance.
     - Consider separating your teams/projects into "spaces" using the upcoming [Spaces](https://octopus.com/spaces) feature.
 1. Try not to do too much work in parallel, especially without thorough testing. Performing lots of deployment tasks in parallel can be a false economy more often than not:
     - You can configure how many tasks from the task queue will run at the same time on any given Octopus Server node by going to {{Configuration>Nodes}}. The default task cap is `5` (safe-by-default). You can increase this cap to push your Octopus to work harder.

@@ -80,7 +80,7 @@ This acts like a window, where Octopus will roll through your parallel steps, an
 
 ### Steps in Parallel on the Same Deployment Target
 
-For safety reasons, by default, Octopus runs only one step at the same time on a single deployment target. If you want to run multiple steps on a deployment target in parallel, [you'll need to enable that behavior](/docs/administration/run-multiple-processes-on-a-tentacle-simultaneously.md).
+For safety reasons, by default, Octopus runs only one step at the same time on a single deployment target. If you want to run multiple steps on a deployment target in parallel, [you'll need to enable that behavior](/docs/administration/managing-infrastructure/run-multiple-processes-on-a-tentacle-simultaneously.md).
 
 ### Steps Which Depend on Each Other
 
