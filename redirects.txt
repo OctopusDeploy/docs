@@ -714,3 +714,4 @@ docs/administration/workers/index.md -> docs/administration/managing-infrastruct
 docs/administration/workers/built-in-worker.md -> docs/administration/managing-infrastructure/workers/built-in-worker.md
 docs/administration/service-watchdog.md -> docs/administration/managing-infrastructure/service-watchdog.md
 docs/administration/diagnostics.md -> docs/administration/managing-infrastructure/diagnostics.md
+docs/administration/octopus-dsc/index.md -> docs/administration/managing-infrastructure/octopus-dsc/index.md
