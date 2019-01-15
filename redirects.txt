@@ -687,7 +687,7 @@ docs/administration/upgrading/upgrading-from-octopus-2.6/minimize-migration-time
 docs/administration/upgrading/upgrading-from-octopus-2.6/troubleshooting.md -> docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/troubleshooting.md
 docs/administration/upgrading/upgrading-from-octopus-2.6/upgrade-with-a-new-3.0-server-instance.md -> docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/upgrade-with-a-new-server-instance.md
 docs/administration/upgrading/upgrading-from-octopus-3.x.md -> docs/administration/upgrading/guide/index.md
-docs/administration/upgrading/maintenance-mode.md -> docs/administration/maintenance-mode.md
+docs/administration/upgrading/maintenance-mode.md -> docs/administration/managing-infrastructure/maintenance-mode.md
 docs/administration/auditing.md -> docs/administration/managing-users-and-teams/auditing.md
 docs/administration/server-configuration/index.md -> docs/administration/configuration/server-configuration/index.md
 docs/administration/server-configuration/managing-configuration.md -> docs/administration/configuration/server-configuration/managing-configuration.md
