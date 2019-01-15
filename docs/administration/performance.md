@@ -32,13 +32,13 @@ As an example, many customers have reported speed improvements of 50-90% for the
 
 Octopus are generally hygienic creatures, cleaning up after themselves, and your Octopus is no different. Configuration documents, like [projects](/docs/deployment-process/projects/index.md) and [environments](/docs/infrastructure/environments/index.md), are stored until you delete them, unlike historical documents like [releases](/docs/deployment-process/releases/index.md). These will be cleaned up according to the [retention policies](/docs/administration/retention-policies/index.md) you configure.
 
-_The one exception to this is the `Events` table which records an [audit trail](/docs/administration/auditing.md) of every significant event in your Octopus._
+_The one exception to this is the `Events` table which records an [audit trail](/docs/administration/managing-users-and-teams/auditing.md) of every significant event in your Octopus._
 
 A tighter retention policy means your Octopus Server will run faster across the board.
 
 :::hint
 **We need to keep everything for auditing purposes**
-You may not need to keep the entire history of releases - we record the entire history of your Octopus Server for [auditing](/docs/administration/auditing.md) purposes. This means you can safely use a short-lived [retention policy](/docs/administration/retention-policies/index.md) to have a fast-running Octopus Server, all the while knowing your audit history is safely kept intact. The retention policy simply cleans up the "potential to deploy a release" - it does not erase the fact a release was created, nor the deployments of that release, from history.
+You may not need to keep the entire history of releases - we record the entire history of your Octopus Server for [auditing](/docs/administration/managing-users-and-teams/auditing.md) purposes. This means you can safely use a short-lived [retention policy](/docs/administration/retention-policies/index.md) to have a fast-running Octopus Server, all the while knowing your audit history is safely kept intact. The retention policy simply cleans up the "potential to deploy a release" - it does not erase the fact a release was created, nor the deployments of that release, from history.
 :::
 
 ### SQL Server Maintenance {#sql-maintenance}

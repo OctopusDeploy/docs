@@ -56,7 +56,7 @@ Learn about [secure communication](/docs/administration/security/octopus-tentacl
 
 Arguably one of the most appreciated features in Octopus Deploy is our support for detailed auditing of important activity.
 
-Learn about [auditing](/docs/administration/auditing.md).
+Learn about [auditing](/docs/administration/managing-users-and-teams/auditing.md).
 
 ### Prevention of Common Vulnerabilities and Exploits
 

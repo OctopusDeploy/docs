@@ -10,7 +10,7 @@ docs/deploying-applications/docker-containers/docker-compose.md -> docs/deployme
 docs/guides/elastic-and-transient-environments/deploying-to-transient-targets-copy.md -> docs/deployment-patterns/elastic-and-transient-environments/deploying-to-transient-targets.md
 docs/administration/high-availability/removing-high-availability-nodes.md -> docs/administration/high-availability/managing-high-availability-nodes.md
 docs/administration/upgrading/migrating-from-redgate-deployment-manager-to-octopus-deploy.md -> docs/administration/upgrading/index.md
-docs/administration/how-to-move-the-octopus-server-to-another-server-or-vm.md -> docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md
+docs/administration/how-to-move-the-octopus-server-to-another-server-or-vm.md -> docs/administration/configuration/server-configuration-and-file-storage/moving-octopus-server-folders.md
 docs/deploying-applications/custom-scripts/naked-scripting.md -> docs/deployment-examples/custom-scripts/raw-scripting.md
 docs/guides/azure-deployments/cloud-services/cloud-service-concepts/cloud-service-accounts.md -> docs/deployment-examples/azure-deployments/cloud-services/getting-started-with-azure-cloud-services.md
 docs/deploying-applications/docker-containers/docker-registries-as-feeds.md -> docs/packaging-applications/package-repositories/docker-registries/index.md
@@ -22,7 +22,7 @@ docs/api-and-integration/visual-studio-team-services-vsts -> docs/api-and-integr
 docs/api-and-integration/team-foundation-server-tfs -> docs/api-and-integration/tfs-azure-devops/index.md
 docs/guides/use-the-team-foundation-build-custom-task/extension-compatibility -> docs/api-and-integration/tfs-azure-devops/using-octopus-extension/extension-compatibility.md
 docs/guides/use-the-team-foundation-build-custom-task/manually-install-the-build-task -> docs/api-and-integration/tfs-azure-devops/using-octopus-extension/manually-install-the-build-task.md
-docs/administration/subscription_events.md -> docs/administration/subscriptions/index.md
+docs/administration/subscription_events.md -> docs/administration/configuration/subscriptions/index.md
 docs/installation/installing-tentacles/running-tentacle-under-a-specific-user-account-for-use-in-powershell.md -> docs/infrastructure/deployment-targets/windows-targets/running-tentacle-under-a-specific-user-account.md
 docs/reference/download-permalinks.md -> docs/installation/index.md
 docs/key-concepts/environments/index.md -> docs/infrastructure/environments/index.md
@@ -339,7 +339,7 @@ docs/administration/outbound-requests.md -> docs/administration/security/outboun
 docs/reference/octopus-ha/load-balancers/configuring-netscaler.md -> docs/administration/high-availability/configuring-netscaler.md
 docs/reference/octopus-ha/index.md -> docs/administration/high-availability/index.md
 docs/reference/octopus-ha/load-balancers/index.md -> docs/administration/high-availability/index.md
-docs/reference/octopus-server-configuration-file.md -> docs/administration/server-configuration-and-file-storage/index.md
+docs/reference/octopus-server-configuration-file.md -> docs/administration/configuration/server-configuration-and-file-storage/index.md
 docs/reference/debugging-powershell-scripts.md -> docs/deployment-examples/custom-scripts/debugging-powershell-scripts.md
 docs/reference/process-dumps.md -> docs/support/process-dumps.md
 docs/reference/csrf-and-octopus-deploy.md -> docs/administration/security/cve/csrf-and-octopus-deploy.md
@@ -376,7 +376,7 @@ docs/reference/service-fabric/index.md -> docs/deployment-examples/azure-deploym
 docs/reference/service-fabric/packaging.md -> docs/deployment-examples/azure-deployments/service-fabric/packaging.md
 docs/reference/service-fabric/version-automation-with-service-fabric-application-packages/index.md -> docs/deployment-examples/azure-deployments/service-fabric/version-automation-with-service-fabric-application-packages/index.md
 docs/reference/index.md -> docs/getting-started.md
-docs/administration/octopus-server-configuration-file.md -> docs/administration/server-configuration-and-file-storage/index.md
+docs/administration/octopus-server-configuration-file.md -> docs/administration/configuration/server-configuration-and-file-storage/index.md
 docs/deployment-process/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md -> docs/deployment-process/variables/environment-specific-configuration-transforms-with-sensitive-values-in-octopus.md
 docs/deployment-process/substitute-variables-in-files.md -> docs/deployment-process/configuration-features/substitute-variables-in-files.md
 docs/deployment-process/variable-substitution-syntax.md -> docs/deployment-process/variables/variable-substitution-syntax.md
@@ -536,7 +536,7 @@ docs/deploying-applications/terraform-deployments/destroy-terraform/index.md -> 
 docs/deploying-applications/terraform-deployments/plan-terraform/index.md -> docs/deployment-examples/terraform-deployments/plan-terraform/index.md
 docs/deployment-process/steps/exporting-step-templates.md -> docs/deployment-process/steps/custom-step-templates.md
 docs/administration/octopus-community-step-templates-integration.md -> docs/deployment-process/steps/community-step-templates.md
-docs/administration/subscription-events.md -> docs/administration/subscriptions/index.md
+docs/administration/subscription-events.md -> docs/administration/configuration/subscriptions/index.md
 docs/administration/troubleshooting-authentication-problems.md -> docs/administration/authentication/troubleshooting-authentication-problems.md
 docs/administration/specifying-a-custom-container-to-use-for-ad-authetication.md -> docs/administration/authentication/specifying-a-custom-container-to-use-for-ad-authentication.md
 docs/administration/authentication-providers/index.md -> docs/administration/authentication/authentication-providers/index.md
@@ -676,15 +676,25 @@ docs/infrastructure/deployment-targets/linux/ssh-targets/sudo-commands.md -> doc
 docs/infrastructure/deployment-targets/linux/ssh-targets/calamari-on-ssh-targets.md -> docs/infrastructure/deployment-targets/linux/requirements.md
 docs/infrastructure/deployment-targets/linux/ssh-targets/ssh-deployments.md -> docs/infrastructure/deployment-targets/linux/ssh-deployments.md
 docs/infrastructure/deployment-targets/linux/ssh-targets/index.md -> docs/infrastructure/deployment-targets/linux/index.md
-docs/administration/upgrading/upgrading-from-octopus-1.6.md->docs/administration/upgrading/legacy/upgrading-from-octopus-1.6-2.6.5.md
-docs/administration/upgrading/upgrading-from-octopus-2.0.md->docs/administration/upgrading/legacy/upgrading-from-octopus-2.x-2.6.5.md
-docs/administration/upgrading/upgrading-from-octopus-2.6/index.md->docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/index.md
-docs/administration/upgrading/upgrading-from-octopus-2.6/backup-2.6.md->docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/backup-2.6.md
-docs/administration/upgrading/upgrading-from-octopus-2.6/in-place-upgrade-install-over-2.6.md->docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/in-place-upgrade-install-over-2.6.5.md
-docs/administration/upgrading/upgrading-from-octopus-2.6/manual-upgrade.md->docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/manual-upgrade.md
-docs/administration/upgrading/upgrading-from-octopus-2.6/migrating-data-from-octopus-2.6-to-3.x.md->docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/migrating-data-from-octopus-2.6.5-2018.10lts.md
-docs/administration/upgrading/upgrading-from-octopus-2.6/minimize-migration-time.md->docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/minimize-migration-time.md
-docs/administration/upgrading/upgrading-from-octopus-2.6/troubleshooting.md->docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/troubleshooting.md
-docs/administration/upgrading/upgrading-from-octopus-2.6/upgrade-with-a-new-3.0-server-instance.md->docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/upgrade-with-a-new-server-instance.md
-docs/administration/upgrading/upgrading-from-octopus-3.x.md->docs/administration/upgrading/guide/index.md
-docs/administration/upgrading/maintenance-mode.md->docs/administration/maintenance-mode.md
+docs/administration/upgrading/upgrading-from-octopus-1.6.md -> docs/administration/upgrading/legacy/upgrading-from-octopus-1.6-2.6.5.md
+docs/administration/upgrading/upgrading-from-octopus-2.0.md -> docs/administration/upgrading/legacy/upgrading-from-octopus-2.x-2.6.5.md
+docs/administration/upgrading/upgrading-from-octopus-2.6/index.md -> docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/index.md
+docs/administration/upgrading/upgrading-from-octopus-2.6/backup-2.6.md -> docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/backup-2.6.md
+docs/administration/upgrading/upgrading-from-octopus-2.6/in-place-upgrade-install-over-2.6.md -> docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/in-place-upgrade-install-over-2.6.5.md
+docs/administration/upgrading/upgrading-from-octopus-2.6/manual-upgrade.md -> docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/manual-upgrade.md
+docs/administration/upgrading/upgrading-from-octopus-2.6/migrating-data-from-octopus-2.6-to-3.x.md -> docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/migrating-data-from-octopus-2.6.5-2018.10lts.md
+docs/administration/upgrading/upgrading-from-octopus-2.6/minimize-migration-time.md -> docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/minimize-migration-time.md
+docs/administration/upgrading/upgrading-from-octopus-2.6/troubleshooting.md -> docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/troubleshooting.md
+docs/administration/upgrading/upgrading-from-octopus-2.6/upgrade-with-a-new-3.0-server-instance.md -> docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/upgrade-with-a-new-server-instance.md
+docs/administration/upgrading/upgrading-from-octopus-3.x.md -> docs/administration/upgrading/guide/index.md
+docs/administration/upgrading/maintenance-mode.md -> docs/administration/maintenance-mode.md
+docs/administration/auditing.md -> docs/administration/managing-users-and-teams/auditing.md
+docs/administration/server-configuration/index.md -> docs/administration/configuration/server-configuration/index.md
+docs/administration/server-configuration/managing-configuration.md -> docs/administration/configuration/server-configuration/managing-configuration.md
+docs/administration/server-configuration-and-file-storage/index.md -> docs/administration/configuration/server-configuration-and-file-storage/index.md
+docs/administration/server-configuration-and-file-storage/manually-uninstall-octopus-server.md -> docs/administration/configuration/server-configuration-and-file-storage/manually-uninstall-octopus-server.md
+docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md -> docs/administration/configuration/server-configuration-and-file-storage/moving-octopus-server-folders.md
+administration/subscriptions/index.md -> administration/configuration/subscriptions/index.md
+administration/tentacle-configuration-and-file-storage/index.md -> administration/configuration/tentacle-configuration-and-file-storage/index.md
+administration/tentacle-configuration-and-file-storage/manually-uninstall-tentacle.md -> administration/configuration/tentacle-configuration-and-file-storage/manually-uninstall-tentacle.md
+administration/show-configuration.md -> administration/configuration/show-configuration.md

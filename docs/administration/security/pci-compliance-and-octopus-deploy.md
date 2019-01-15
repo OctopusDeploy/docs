@@ -21,7 +21,7 @@ PCI Compliance is primarily concerned with implementing "controls" or "practices
 - In Octopus Deploy, everything is scripted which leaves less room for human error or uncontrolled activities.
 - Octopus Deploy supports authentication with Active Directory and other external identity providers which can be used to enforce multi-factor authentication. Learn about [authentication providers](/docs/administration/authentication/authentication-providers/index.md).
 - You can implement strict, fine-grained, environment-aware security permissions. Learn about [managing users and teams](/docs/administration/managing-users-and-teams/index.md).
-- Every activity is carefully audited. Learn more about [auditing](/docs/administration/auditing.md).
+- Every activity is carefully audited. Learn more about [auditing](/docs/administration/managing-users-and-teams/auditing.md).
 - You can control how long you retain data and packages. Learn about [Retention Policies](/docs/administration/retention-policies/index.md).
 - You can use any kind of transparent networking security techniques like IPSec tunnels or VPN between your network zones.
 - If you are using our Tentacle agent, you can decide whether you want to allow network traffic inbound to your PCI zone from your Octopus Server, or outbound from your PCI zone to your Octopus Server. Learn about [Tentacle communication modes](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md).

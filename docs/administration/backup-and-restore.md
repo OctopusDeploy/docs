@@ -7,7 +7,7 @@ position: 110
 A successful disaster recovery plan for Octopus Deploy requires the ability to restore both:
 
 1. The Octopus [SQL Server database](/docs/administration/octopus-database/index.md).
-2. The Octopus [data stored on the file system](/docs/administration/server-configuration-and-file-storage/index.md).
+2. The Octopus [data stored on the file system](/docs/administration/configuration/server-configuration-and-file-storage/index.md).
 
 :::problem
 **Without your master key, backups are useless**
@@ -36,11 +36,11 @@ Learn more about [restore and recovery of SQL Server Databases](https://msdn.mic
 
 In addition to the SQL Server database, some Octopus data is stored on the file system. This includes task logs that are generated whenever a job is run by the server, artifacts that have been collected during a deployment and packages stored in the [Octopus built-in repository](/docs/packaging-applications/package-repositories/index.md). These files are stored in the Octopus home directory that is configured when Octopus Server is installed (`C:\Octopus` by default). It is a good idea to **do regular backups of your Octopus home directory**.
 
-Learn about [Octopus file storage](/docs/administration/server-configuration-and-file-storage/index.md).
+Learn about [Octopus file storage](/docs/administration/configuration/server-configuration-and-file-storage/index.md).
 
 ## Encrypted Data {#Backupandrestore-Encrypteddata}
 
-Certain sensitive information in the [Octopus database is encrypted](/docs/administration/security/data-encryption.md). This information is encrypted using your Octopus Server "master key", a randomly generated string. This master key will be needed if you ever plan to restore the database to a new server. You will be prompted for this key during the setup process when connecting to an existing database. If you have already setup the server you can [change the master key](/docs/administration/server-configuration-and-file-storage/index.md) so that it will work with the restored database.
+Certain sensitive information in the [Octopus database is encrypted](/docs/administration/security/data-encryption.md). This information is encrypted using your Octopus Server "master key", a randomly generated string. This master key will be needed if you ever plan to restore the database to a new server. You will be prompted for this key during the setup process when connecting to an existing database. If you have already setup the server you can [change the master key](/docs/administration/configuration/server-configuration-and-file-storage/index.md) so that it will work with the restored database.
 
 :::problem
 **It's worth repeating! Without your master key, backups are useless**

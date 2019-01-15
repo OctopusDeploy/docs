@@ -23,7 +23,7 @@ Octopus integrates with Active Directory to authenticate users as well as author
 
 :::hint
 **Teams are not Distribution Groups**
-Whilst you might have a team that you would think maps to a Distribution Group, this does not mean that [subscriptions](/docs/administration/subscriptions/index.md) will send emails to the DG email address configured in Active Directory. Teams in Octopus are more synonymous with Security Groups and are used to determine accessibility. To send subscription emails to a Distribution Group email address will require setting up a user with that email address, and assigning them to the appropriate Octopus team.
+Whilst you might have a team that you would think maps to a Distribution Group, this does not mean that [subscriptions](/docs/administration/configuration/subscriptions/index.md) will send emails to the DG email address configured in Active Directory. Teams in Octopus are more synonymous with Security Groups and are used to determine accessibility. To send subscription emails to a Distribution Group email address will require setting up a user with that email address, and assigning them to the appropriate Octopus team.
 :::
 
 ## Configuring Active Directory users {#TroubleshootingActiveDirectoryintegration-ConfiguringActiveDirectoryusers}

@@ -107,7 +107,7 @@ If you are using [automatic release creation](/docs/deployment-process/project-t
 
 ### Moving the Location of the Built-in Repository {#Packagerepositories-Movingthelocationofthebuilt-inrepository}
 
-See [moving Octopus Server folders](/docs/administration/server-configuration-and-file-storage/moving-octopus-server-folders.md#MovingOctopusServerfolders-OctopusHome)
+See [moving Octopus Server folders](/docs/administration/configuration/server-configuration-and-file-storage/moving-octopus-server-folders.md#MovingOctopusServerfolders-OctopusHome)
 
 ## Using External Repositories {#Packagerepositories-Usingexternalrepositories}
 
