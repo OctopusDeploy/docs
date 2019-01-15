@@ -116,7 +116,7 @@ In addition to the generic account types, the Kubernetes target also supports th
 If using the AWS account type, the Octopus server or worker will need to have the `aws-iam-authenticator.exe` executable available on the path. See the
 [AWS documentation](http://g.octopushq.com/AWSEKSKubectl) for download links.
 
-:::note
+:::hint
 The Azure Service Principal is only used with AKS clusters. To log into ACS or ACS-Engine clusters, standard Kubernetes credentials like certificates or service account tokens must be used.
 :::
 
