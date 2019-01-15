@@ -83,23 +83,16 @@ Where [<options>] is any of:
       --azureADIsEnabled=VALUE
                              Set the azureAD IsEnabled, used for
                                authentication.
-      --azureADIssuer=VALUE  Follow our documentation to find the Issuer for
-                               azureAD.
+      --azureADIssuer=VALUE  Set the azureAD Issuer, used for authentication.
       --azureADClientId=VALUE
-                             Follow our documentation to find the Client ID
-                               for azureAD.
-      --azureADScope=VALUE   Only change this if you need to change the
-                               OpenID Connect scope requested by Octopus for
-                               azureAD.
+                             Set the azureAD ClientId.
+      --azureADScope=VALUE   Set the azureAD Scope.
       --azureADNameClaimType=VALUE
-                             Only change this if you want to use a different
-                               security token claim for the name from azureAD.
+                             Set the azureAD NameClaimType.
       --azureADAllowAutoUserCreation=VALUE
-                             Tell Octopus to automatically create a user
-                               account when a person signs in with azureAD.
+                             Set azureAD AllowAutoUserCreation.
       --azureADRoleClaimType=VALUE
-                             Tell Octopus how to find the roles in the
-                               security token from Azure Active Directory.
+                             Set the RoleClaimType.
       --activeDirectoryIsEnabled=VALUE
                              Set whether active directory is enabled.
       --activeDirectoryContainer=VALUE
@@ -124,43 +117,30 @@ Where [<options>] is any of:
                              Set the googleApps IsEnabled, used for
                                authentication.
       --googleAppsIssuer=VALUE
-                             Follow our documentation to find the Issuer for
-                               googleApps.
+                             Set the googleApps Issuer, used for
+                               authentication.
       --googleAppsClientId=VALUE
-                             Follow our documentation to find the Client ID
-                               for googleApps.
+                             Set the googleApps ClientId.
       --googleAppsScope=VALUE
-                             Only change this if you need to change the
-                               OpenID Connect scope requested by Octopus for
-                               googleApps.
+                             Set the googleApps Scope.
       --googleAppsNameClaimType=VALUE
-                             Only change this if you want to use a different
-                               security token claim for the name from
-                               googleApps.
+                             Set the googleApps NameClaimType.
       --googleAppsAllowAutoUserCreation=VALUE
-                             Tell Octopus to automatically create a user
-                               account when a person signs in with googleApps.
+                             Set googleApps AllowAutoUserCreation.
       --googleAppsHostedDomain=VALUE
-                             Tell Octopus which Google Apps domain to trust.
+                             Set the googleApps HostedDomain.
       --guestloginenabled=VALUE
                              Whether guest login should be enabled
       --oktaIsEnabled=VALUE  Set the okta IsEnabled, used for authentication.
-      --oktaIssuer=VALUE     Follow our documentation to find the Issuer for
-                               okta.
-      --oktaClientId=VALUE   Follow our documentation to find the Client ID
-                               for okta.
-      --oktaScope=VALUE      Only change this if you need to change the
-                               OpenID Connect scope requested by Octopus for
-                               okta.
+      --oktaIssuer=VALUE     Set the okta Issuer, used for authentication.
+      --oktaClientId=VALUE   Set the okta ClientId.
+      --oktaScope=VALUE      Set the okta Scope.
       --oktaNameClaimType=VALUE
-                             Only change this if you want to use a different
-                               security token claim for the name from okta.
+                             Set the okta NameClaimType.
       --oktaAllowAutoUserCreation=VALUE
-                             Tell Octopus to automatically create a user
-                               account when a person signs in with okta.
+                             Set okta AllowAutoUserCreation.
       --oktaRoleClaimType=VALUE
-                             Tell Octopus how to find the roles in the
-                               security token from Okta.
+                             Set the RoleClaimType.
       --usernamePasswordIsEnabled=VALUE
                              Set whether Octopus username/password
                                authentication is enabled.

@@ -20,11 +20,10 @@ Where [<options>] is any of:
       --install              Install the Windows Service
       --username=VALUE       Username to run the service under
                                (DOMAIN\Username format). Only used when --
-                               install or --reconfigure are used.
+                               install is used.
       --uninstall            Uninstall the Windows Service
       --password=VALUE       Password for the username specified with --
-                               username. Only used when --install or --
-                               reconfigure are used.
+                               username. Only used when --install is used.
       --dependOn=VALUE
 
 Or one of the common options:

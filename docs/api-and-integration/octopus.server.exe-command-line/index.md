@@ -18,13 +18,13 @@ hideInThisSection: true
 - **[create-instance](/docs\api-and-integration\octopus.server.exe-command-line/create-instance.md)**:  Registers a new instance of the Octopus service.
 - **[database](/docs\api-and-integration\octopus.server.exe-command-line/database.md)**:  Create or drop the Octopus database.
 - **[delete-instance](/docs\api-and-integration\octopus.server.exe-command-line/delete-instance.md)**:  Deletes an instance of the Octopus service.
-- **[export-certificate](/docs\api-and-integration\octopus.server.exe-command-line/export-certificate.md)**:  Exports the certificate that Octopus Server can use to authenticate itself with its Tentacles.
-- **[import-certificate](/docs\api-and-integration\octopus.server.exe-command-line/import-certificate.md)**:  Replace the certificate that Octopus Server uses to authenticate itself with its Tentacles.
+- **[export-certificate](/docs\api-and-integration\octopus.server.exe-command-line/export-certificate.md)**:  Exports the certificate that Octopus server can use to authenticate itself with its Tentacles.
+- **[import-certificate](/docs\api-and-integration\octopus.server.exe-command-line/import-certificate.md)**:  Replace the certificate that Octopus server uses to authenticate itself with its Tentacles.
 - **[license](/docs\api-and-integration\octopus.server.exe-command-line/license.md)**:  Import a license key.
 - **[list-instances](/docs\api-and-integration\octopus.server.exe-command-line/list-instances.md)**:  Lists all installed Octopus instances.
 - **[lost-master-key](/docs\api-and-integration\octopus.server.exe-command-line/lost-master-key.md)**:  Get your Octopus Server working again after losing your master key.
 - **[metrics](/docs\api-and-integration\octopus.server.exe-command-line/metrics.md)**:  Configure metrics logging.
-- **[new-certificate](/docs\api-and-integration\octopus.server.exe-command-line/new-certificate.md)**:  Creates a new certificate that Octopus Server can use to authenticate itself with its Tentacles.
+- **[new-certificate](/docs\api-and-integration\octopus.server.exe-command-line/new-certificate.md)**:  Creates a new certificate that Octopus server can use to authenticate itself with its Tentacles.
 - **[node](/docs\api-and-integration\octopus.server.exe-command-line/node.md)**:  Configure settings related to this Octopus Server node.
 - **[path](/docs\api-and-integration\octopus.server.exe-command-line/path.md)**:  Set the file paths that Octopus will use for storage.
 - **[proxy](/docs\api-and-integration\octopus.server.exe-command-line/proxy.md)**:  Configure the HTTP proxy used by Octopus.

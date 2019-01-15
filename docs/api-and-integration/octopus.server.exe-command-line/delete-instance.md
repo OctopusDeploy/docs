@@ -12,7 +12,7 @@ Usage: octopus.server delete-instance [<options>]
 
 Where [<options>] is any of:
 
-      --instance=VALUE       Name of the instance to use
+      --instance=VALUE       Name of the instance to delete
 
 Or one of the common options:
 
