@@ -35,7 +35,7 @@ Node B joins the High Availability cluster and becomes *follower*
 
 Node C joins the High Availability cluster and becomes *follower*
 
-Node B is placed in [Maintenance Mode](/docs/administration/maintenance-mode.md) so cannot become *leader*
+Node B is placed in [Maintenance Mode](/docs/administration/managing-infrastructure/maintenance-mode.md) so cannot become *leader*
 
 Node A goes offline
 

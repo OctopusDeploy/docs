@@ -5,7 +5,7 @@ description: How to deploy packages to your Octopus server.
 
 If you want to deploy a package on your Octopus Server, you should [install a Tentacle on your Octopus Server](#install-tentacle) and treat it just like any other deployment target.
 
-Tentacle lets you run tasks in a flexible way. You can configure your Tentacle service to run under a different user account, for example. In fact, you could have one [Tentacle instance](/docs/administration/managing-multiple-instances.md) for your pre-production steps, and another for production steps, running under different user, all on the same machine.
+Tentacle lets you run tasks in a flexible way. You can configure your Tentacle service to run under a different user account, for example. In fact, you could have one [Tentacle instance](/docs/administration/managing-infrastructure/managing-multiple-instances.md) for your pre-production steps, and another for production steps, running under different user, all on the same machine.
 
 An analogy is to think about the way build agents in TeamCity or TFS work. You can't make the TeamCity server or TFS server arbitrarily run scripts during the build. But you can install the build agent service on the same server as your TeamCity/TFS server, and it has the same effect, but with more flexibility.
 

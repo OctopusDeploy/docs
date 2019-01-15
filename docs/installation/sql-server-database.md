@@ -14,7 +14,7 @@ The easiest and cheapest way to get started is with [SQL Server Express](http://
 
 ## Creating the Database
 
-The Octopus [installation](/docs/installation/index.md) wizard can create the database for you (our recommended method), during the installation; however, you can also point Octopus to an existing database. Octopus works with both local and remote database servers, but it is worth considering the [performance implications](/docs/administration/performance.md) before making a decision.
+The Octopus [installation](/docs/installation/index.md) wizard can create the database for you (our recommended method), during the installation; however, you can also point Octopus to an existing database. Octopus works with both local and remote database servers, but it is worth considering the [performance implications](/docs/administration/managing-infrastructure/performance.md) before making a decision.
 
 If you are using a hosted database service you will need to [create your own database](#create-your-own) and provide Octopus with the connection details.
 
@@ -32,7 +32,7 @@ If you don't want Octopus to automatically create the database for you as part o
 
 ## Changing the Database Collation
 
-Learn more about [changing the database collation](/docs/administration/octopus-database/changing-the-collation-of-the-octopus-database.md) after the initial Octopus installation.
+Learn more about [changing the database collation](/docs/administration/data/octopus-database/changing-the-collation-of-the-octopus-database.md) after the initial Octopus installation.
 
 ## Using SQL Server AlwaysOn
 
@@ -48,4 +48,4 @@ Server=tcp:AGListener,1433;Database=Octopus;IntegratedSecurity=SSPI;MultiSubnetF
 
 ## Database Administration and Maintenance
 
-For more information about maintaining your Octopus database, please read our [database administrators guide](/docs/administration/octopus-database/index.md).
+For more information about maintaining your Octopus database, please read our [database administrators guide](/docs/administration/data/octopus-database/index.md).

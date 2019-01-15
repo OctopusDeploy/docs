@@ -7,7 +7,7 @@ position: 200
 This page outlines our recommended steps to move your SQL database to another server, without moving your Octopus Server. The following is our advised approach to moving your Octopus database while retaining all of your data.
 
 ## Step-by-step Process {#Movethedatabase-StepByStep}
-1. Place your Octopus instance into [Maintenance Mode](/docs/administration/maintenance-mode.md) and stop the service when all deployments have completed. You can stop the service via the Octopus Manager, or via the command line using the following command.
+1. Place your Octopus instance into [Maintenance Mode](/docs/administration/managing-infrastructure/maintenance-mode.md) and stop the service when all deployments have completed. You can stop the service via the Octopus Manager, or via the command line using the following command.
 `Octopus.Server.exe service --stop`
 2. Ensure you have saved a copy of your [master key](/docs/administration/security/data-encryption.md#Securityandencryption-YourMasterKey).
 3. Take a backup of your Octopus database.

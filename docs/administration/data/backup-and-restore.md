@@ -6,7 +6,7 @@ position: 110
 
 A successful disaster recovery plan for Octopus Deploy requires the ability to restore both:
 
-1. The Octopus [SQL Server database](/docs/administration/octopus-database/index.md).
+1. The Octopus [SQL Server database](/docs/administration/data/octopus-database/index.md).
 2. The Octopus [data stored on the file system](/docs/administration/configuration/server-configuration-and-file-storage/index.md).
 
 :::problem
@@ -21,7 +21,7 @@ We highly recommend practicing your disaster recovery process to make sure it is
 
 ## Octopus SQL Database
 
-Most of the data and settings managed by Octopus - the projects, environments, deployments and so on - are stored in a [SQL Server database](/docs/administration/octopus-database/index.md). You are responsible for maintaining your own backups of the SQL Server database. Refer to [SQL Server documentation](https://msdn.microsoft.com/en-AU/library/ms187510.aspx) for more information on backing up SQL Server.
+Most of the data and settings managed by Octopus - the projects, environments, deployments and so on - are stored in a [SQL Server database](/docs/administration/data/octopus-database/index.md). You are responsible for maintaining your own backups of the SQL Server database. Refer to [SQL Server documentation](https://msdn.microsoft.com/en-AU/library/ms187510.aspx) for more information on backing up SQL Server.
 
 ### Which SQL Database Recovery Model Should I Choose?
 

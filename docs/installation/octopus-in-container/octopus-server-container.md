@@ -100,4 +100,4 @@ docker run --interactive --detach `
  octopusdeploy/octopusdeploy:2018.4.0
 ```
 
-While you don't strictly _need_ to mount the internal directory locations, it will mean that the newly upgraded server will still have access to all the same packages, logs, and artifacts as before. The standard backup and restore procedures for the [data stored on the filesystem](/docs/administration/backup-and-restore.md#octopus-file-storage) and the connected [SQL Server](/docs/administration/octopus-database/index.md) still apply as per normal Octopus installations.
+While you don't strictly _need_ to mount the internal directory locations, it will mean that the newly upgraded server will still have access to all the same packages, logs, and artifacts as before. The standard backup and restore procedures for the [data stored on the filesystem](/docs/administration/data/backup-and-restore.md#octopus-file-storage) and the connected [SQL Server](/docs/administration/data/octopus-database/index.md) still apply as per normal Octopus installations.
