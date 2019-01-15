@@ -116,6 +116,10 @@ In addition to the generic account types, the Kubernetes target also supports th
 If using the AWS account type, the Octopus server or worker will need to have the `aws-iam-authenticator.exe` executable available on the path. See the
 [AWS documentation](http://g.octopushq.com/AWSEKSKubectl) for download links.
 
+:::note
+The Azure Service Principal is only used with AKS clusters. To log into ACS or ACS-Engine clusters, standard Kubernetes credentials like certificates or service account tokens must be used.
+:::
+
 :::warning
 Cloud account types are not supported on SSH workers. If you attempt to use a cloud account with an SSH worker, you will receive an error like `Calamari.exe: cannot execute binary file `. The workaround is to use a Windows worker for Kubernetes targets with cloud accounts.
 :::
