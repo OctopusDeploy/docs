@@ -26,7 +26,7 @@ When running the Octopus Deploy service as a Local System account, Windows Authe
 
 ## Moving from Azure SQL to AWS RDS
 
-If you want to move your Octopus database from Azure SQL to AWS RDS, replace steps 3 and 4 in the [step-by-step process](docs/administration/moving-your-octopus/move-the-database.md#Movethedatabase-StepByStep) with the steps below:
+If you want to move your Octopus database from Azure SQL to AWS RDS, replace steps 3 and 4 in the [step-by-step process](docs/administration/managing-infrastructure/moving-your-octopus/move-the-database.md#Movethedatabase-StepByStep) with the steps below:
 
 1. Take a backup of your Azure SQL database (`.bacpac`)
 2. Download the `.bacpac` backup from Azure

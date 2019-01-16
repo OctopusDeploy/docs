@@ -15,7 +15,7 @@ docs/deploying-applications/custom-scripts/naked-scripting.md -> docs/deployment
 docs/guides/azure-deployments/cloud-services/cloud-service-concepts/cloud-service-accounts.md -> docs/deployment-examples/azure-deployments/cloud-services/getting-started-with-azure-cloud-services.md
 docs/deploying-applications/docker-containers/docker-registries-as-feeds.md -> docs/packaging-applications/package-repositories/docker-registries/index.md
 docs/administration/retention-policies/retention-policies-and-channels.md -> docs/administration/retention-policies/index.md
-docs/administration/moving-your-octopus/replicating-your-octopus-instance-in-a-test-environment.md -> docs/administration/moving-your-octopus/index.md
+docs/administration/moving-your-octopus/replicating-your-octopus-instance-in-a-test-environment.md -> docs/administration/managing-infrastructure/moving-your-octopus/index.md
 docs/guides/use-the-team-foundation-build-custom-task/build-versions-in-team-build.md -> docs/api-and-integration/tfs-azure-devops/index.md
 docs/guides/use-the-team-foundation-build-custom-task -> docs/api-and-integration/tfs-azure-devops/index.md
 docs/api-and-integration/visual-studio-team-services-vsts -> docs/api-and-integration/tfs-azure-devops/index.md
@@ -301,7 +301,7 @@ docs/how-to/troubleshoot-listening-tentacles.md -> docs/infrastructure/deploymen
 docs/how-to/deploy-to-a-specific-subset-of-targets.md -> docs/deployment-process/releases/index.md
 docs/how-to/expose-the-octopus-web-portal-over-https.md -> docs/administration/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md
 docs/how-to/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md -> docs/deployment-process/variables/environment-specific-configuration-transforms-with-sensitive-values-in-octopus.md
-docs/how-to/move-the-octopus-home-folder-and-the-tentacle-home-and-application-folders.md -> docs/administration/moving-your-octopus/move-the-octopus-home-folder-and-the-tentacle-home-and-application-folders.md
+docs/how-to/move-the-octopus-home-folder-and-the-tentacle-home-and-application-folders.md -> docs/administration/managing-infrastructure/moving-your-octopus/move-the-octopus-home-folder-and-the-tentacle-home-and-application-folders.md
 docs/how-to/get-a-database-backup-and-encrypt-the-master-key.md -> docs/support/get-a-database-backup-and-encrypt-the-master-key.md
 docs/administration/get-a-database-backup-and-encrypt-the-master-key.md -> docs/support/get-a-database-backup-and-encrypt-the-master-key.md
 docs/how-to/how-to-turn-on-variable-logging-and-export-the-task-log.md -> docs/support/how-to-turn-on-variable-logging-and-export-the-task-log.md
@@ -715,3 +715,10 @@ docs/administration/workers/built-in-worker.md -> docs/administration/managing-i
 docs/administration/service-watchdog.md -> docs/administration/managing-infrastructure/service-watchdog.md
 docs/administration/diagnostics.md -> docs/administration/managing-infrastructure/diagnostics.md
 docs/administration/octopus-dsc/index.md -> docs/administration/managing-infrastructure/octopus-dsc/index.md
+docs/administration/moving-your-octopus/index.md -> docs/administration/managing-infrastructure/moving-your-octopus/index.md
+docs/administration/moving-your-octopus/move-the-database-and-server.md -> docs/administration/managing-infrastructure/moving-your-octopus/move-the-database-and-server.md
+docs/administration/moving-your-octopus/move-the-database.md -> docs/administration/managing-infrastructure/moving-your-octopus/move-the-database.md
+docs/administration/moving-your-octopus/move-the-home-directory.md -> docs/administration/managing-infrastructure/moving-your-octopus/move-the-home-directory.md
+docs/administration/moving-your-octopus/move-the-octopus-home-folder-and-the-tentacle-home-and-application-folders.md -> docs/administration/managing-infrastructure/moving-your-octopus/move-the-octopus-home-folder-and-the-tentacle-home-and-application-folders.md
+docs/administration/moving-your-octopus/move-the-server.md -> docs/administration/managing-infrastructure/moving-your-octopus/move-the-server.md
+docs/administration/applying-operating-system-upgrades.md -> docs/administration/managing-infrastructure/applying-operating-system-upgrades.md

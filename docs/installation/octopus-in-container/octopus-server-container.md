@@ -69,7 +69,7 @@ Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/
 
 ### Upgrading
 
-When the volumes are externally mounted to the host filesystem, upgrades between Octopus versions are much easier. We can picture the upgrade process with a container as being similar to [moving a standard Octopus Server](/docs/administration/moving-your-octopus/move-the-database-and-server.md) since containers, being immutable, don't themselves get updated.
+When the volumes are externally mounted to the host filesystem, upgrades between Octopus versions are much easier. We can picture the upgrade process with a container as being similar to [moving a standard Octopus Server](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-database-and-server.md) since containers, being immutable, don't themselves get updated.
 
 Similar to moving an instance, to perform the container upgrade you will need the master key that was used to set up the original database. The master key for an Octopus Server in a container can be found by consulting its logs. When the initial container startup takes place, the same [show-master-key](/docs/api-and-integration/octopus.server.exe-command-line/show-master-key.md) command is invoked that you could do with a standard installation.
 
