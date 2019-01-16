@@ -1,6 +1,6 @@
 ---
 title: Credits
-description: Octopus is made possible thanks to the many great third-party products.
+description: Octopus is made possible thanks to many great third-party products.
 position: 200
 ---
 
