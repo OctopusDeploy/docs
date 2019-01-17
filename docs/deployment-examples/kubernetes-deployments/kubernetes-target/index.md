@@ -109,20 +109,41 @@ This file can then be uploaded to the [Octopus certificate management area](http
 
 The Certificates Library can be access via {{Library>Certificates}}.
 
-### Cloud Accounts
 
-In addition to the generic account types, the Kubernetes target also supports the Azure and AWS accounts.
+### AWS Accounts
 
+When using an EKS cluster, [AWS accounts](/docs/infrastructure/accounts/aws/index.md) allow IAM accounts and roles to be used.
+
+:::warning
+AWS accounts are not currently supported on SSH workers. If you attempt to use an AWS account with an SSH worker, you will receive an error like `Calamari.exe: cannot execute binary file `. The workaround is to use a Windows worker for Kubernetes targets with AWS accounts.
+:::
+
+The interaction between AWS IAM and Kubernetes Role Based Access Control (RBAC) can be tricky. You will certainly want to read the [AWS documentation](https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html).  A few frequently encountered snares are listed below:   
+
+:::hint
 If using the AWS account type, the Octopus server or worker will need to have the `aws-iam-authenticator.exe` executable available on the path. See the
 [AWS documentation](http://g.octopushq.com/AWSEKSKubectl) for download links.
+:::
+
+:::hint
+The error `You must be logged into the server (the server has asked for the client to provide credentials)` generally indicates the AWS account does not have permissions in the Kubernetes cluster. 
+
+When you create an Amazon EKS cluster, the IAM entity user or role that creates the cluster is automatically granted `system:master` permissions in the cluster's RBAC configuration. To grant additional AWS users or roles the ability to interact with your cluster, you must edit the `aws-auth` ConfigMap within Kubernetes. See the [Managing Users or IAM Roles for your Cluster](https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html). 
+:::
+
+
+### Azure Service Principal accounts
+
+When using an AKS cluster, [Azure Service Principal accounts](/docs/infrastructure/accounts/azure/index.md) allow Azure Active Directory accounts to be used. 
+
+:::warning
+Azure accounts are not currently supported on SSH workers. If you attempt to use an Azure account with an SSH worker, you will receive an error like `Calamari.exe: cannot execute binary file `. The workaround is to use a Windows worker for Kubernetes targets with Azure accounts.
+:::
 
 :::hint
 The Azure Service Principal is only used with AKS clusters. To log into ACS or ACS-Engine clusters, standard Kubernetes credentials like certificates or service account tokens must be used.
 :::
 
-:::warning
-Cloud account types are not supported on SSH workers. If you attempt to use a cloud account with an SSH worker, you will receive an error like `Calamari.exe: cannot execute binary file `. The workaround is to use a Windows worker for Kubernetes targets with cloud accounts.
-:::
 
 ## Kubernetes Details Section
 
