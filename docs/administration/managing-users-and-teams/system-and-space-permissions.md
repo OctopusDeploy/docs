@@ -4,7 +4,7 @@ description: An explanation of the two levels that permissions can apply at, the
 version: 2019.1
 ---
 
-Octopus Deploy supports partitioning your server up into [Spaces](/docs/administration/spaces/indexx.md) which enables teams to stay focused on only the projects and content that matter to those teams. As a result, permission scoping needs to respect boundaries that support both the administration of the whole server, as well as support the administration of an individual space.
+Octopus Deploy supports partitioning your server up into [Spaces](/docs/administration/spaces/index.md) which enables teams to stay focused on only the projects and content that matter to those teams. As a result, permission scoping needs to respect boundaries that support both the administration of the whole server, as well as support the administration of an individual space.
 
 This introduces some complexity that can be useful to understand when things don't work quite the way you expect. Reading this page should give you a general understanding of how permissions work in these two contexts.
 
