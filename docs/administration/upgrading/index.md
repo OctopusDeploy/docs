@@ -1,7 +1,7 @@
 ---
 title: Upgrading Octopus
 description: Everything you need to know about upgrading Octopus to a newer version.
-position: 1
+position: 70
 ---
 
 This guide is for customers managing their self-hosted installation of Octopus. If you are using Octopus Cloud we take care of everything for you, and you will have early access to all the latest features.
