@@ -102,7 +102,10 @@ Over time your software may become so successful that you on-sell it to some ext
 
 Learn more about tenants in our [Multi-tenant Deployments Guide](/docs/deployment-patterns/multi-tenant-deployments/index.md).
 
-!partial <spaces>
+## Spaces
+
+If you're a large organization with lots of teams working in Octopus, from **2019.1** you can use the [Spaces](/docs/administration/spaces/index.md) feature to limit your teams to only seeing the projects they're working on.
+
 
 ## The Delivery Pipeline
 
