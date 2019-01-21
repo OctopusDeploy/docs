@@ -14,7 +14,7 @@ You can upgrade between **Octopus 2.6** and **Octopus 3.x** by downloading the l
 4. Install **Tentacle 3.x** on your deployment targets.
  1. For **Octopus 3.0.1**: Reinstall the Tentacle Service.
 5. Verify the connectivity between the **Octopus 3.x** Server and the 3.x Tentacles.
-6. **[Optional]** Clean up your Octopus Home folder, follow the instructions on this [page](/docs/administration/server-configuration-and-file-storage\index.md#ServerconfigurationandFilestorage-CleanUp).
+6. **[Optional]** Clean up your Octopus Home folder, follow the instructions on this [page](/docs/administration/configuration/server-configuration-and-file-storage\index.md#ServerconfigurationandFilestorage-CleanUp).
 
 ## Step by Step {#Manualupgrade-Stepbystep}
 

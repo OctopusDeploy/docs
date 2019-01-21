@@ -10,5 +10,5 @@ The **Deploy an AWS CloudFormation Template** step can be used to create or upda
 
 :::hint
 **Where do AWS Steps execute?**
-All AWS steps execute on a worker.  By default, that will be the built-in worker in the Octopus Server. Learn about [workers](/docs/administration/workers/index.md) and the different configuration options.
+All AWS steps execute on a worker.  By default, that will be the built-in worker in the Octopus Server. Learn about [workers](/docs/administration/managing-infrastructure/workers/index.md) and the different configuration options.
 :::

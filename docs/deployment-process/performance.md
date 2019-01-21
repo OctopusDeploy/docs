@@ -9,7 +9,7 @@ Over the years we have built Octopus to enable reliable and repeatable deploymen
 This page is intended to help you tune and maintain your deployment processes and troubleshoot problems as they occur.
 
 :::hint
-Want to tune your Octopus Server for optimum performance? Read our [detailed guide on optimizing your server](/docs/administration/performance.md).
+Want to tune your Octopus Server for optimum performance? Read our [detailed guide on optimizing your server](/docs/administration/managing-infrastructure/performance.md).
 :::
 
 !toc
@@ -144,4 +144,4 @@ Similarly to [parallel targets](#parallel-targets), running too many steps in pa
 
 ### Consider how much deployment work the Octopus server is doing {#server-work}
 
-Some steps, like Azure deployments and AWS steps, [run on a worker](docs/administration/workers/index.md#where-steps-run).  By default, thats the [built-in worker](/docs/administration/workers/index.md#built-in-worker) in the Octopus server.  That means the step invokes a (or many) Calamari processes on the server machine to do the deployment work.  That workload can be shifted off the server and onto [workers](/docs/infrastructure/workers/index.md).  See this [blog post](https://octopus.com/blog/workers-performance) for a way to begin looking at workers for performance.
+Some steps, like Azure deployments and AWS steps, [run on a worker](docs/administration/managing-infrastructure/workers/index.md#where-steps-run).  By default, thats the [built-in worker](/docs/administration/managing-infrastructure/workers/index.md#built-in-worker) in the Octopus server.  That means the step invokes a (or many) Calamari processes on the server machine to do the deployment work.  That workload can be shifted off the server and onto [workers](/docs/infrastructure/workers/index.md).  See this [blog post](https://octopus.com/blog/workers-performance) for a way to begin looking at workers for performance.

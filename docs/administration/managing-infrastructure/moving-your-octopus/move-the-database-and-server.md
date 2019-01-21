@@ -19,7 +19,7 @@ You may need to move your Octopus installation of Server and database. The follo
 
 Below are instructions on how to move your Octopus Server and SQL Database.
 
-1. Place your Octopus instance into [Maintenance Mode](/docs/administration/maintenance-mode.md) and stop the service when all deployments have completed. You can stop the service via the Octopus Manager, or via the command line using the following command.
+1. Place your Octopus instance into [Maintenance Mode](/docs/administration/managing-infrastructure/maintenance-mode.md) and stop the service when all deployments have completed. You can stop the service via the Octopus Manager, or via the command line using the following command.
 `Octopus.Server.exe service --stop`
 2. Ensure you have saved a copy of your [master key](/docs/administration/security/data-encryption.md#Securityandencryption-YourMasterKey).
 3. Take a backup of your Octopus database.
@@ -33,7 +33,7 @@ Below are instructions on how to move your Octopus Server and SQL Database.
       - This folder only needs to be moved if using the built-in package repository. External feed details are stored in the database, and they will connect automatically.
 
 :::warning
-The database stores the locations for these directories. After you connect to the database, your settings will be the same as they were in your original server. You can change the locations for these directories, but we recommend first moving the directories to there original location and then pointing to the new location. This process is outlined in the [moving the home directory](/docs/administration/moving-your-octopus/move-the-home-directory.md) page.
+The database stores the locations for these directories. After you connect to the database, your settings will be the same as they were in your original server. You can change the locations for these directories, but we recommend first moving the directories to there original location and then pointing to the new location. This process is outlined in the [moving the home directory](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-home-directory.md) page.
 :::
 
 8. Finally, if you have automatic package indexing enabled restart your new Octopus instance to index the packages. You can restart either in your Octopus Manager, or via the command line with the below command. If package indexing is disabled please trigger a manual update via the Sync Now button on your Library > Packages page.

@@ -10,8 +10,8 @@ The following guide provides an overview of how the various components of **Octo
 
 Before you start your upgrade, you should take time to:
 
-- Test your [backup and restore process](/docs/administration/backup-and-restore.md).
-- Learn about [maintenance mode](/docs/administration/maintenance-mode.md).
+- Test your [backup and restore process](/docs/administration/data/backup-and-restore.md).
+- Learn about [maintenance mode](/docs/administration/managing-infrastructure/maintenance-mode.md).
 - [Plan your upgrade](#upgrade-path).
 
 ## How We Version Octopus Deploy {#Upgrading-HowweversionOctopusDeploy}
@@ -52,7 +52,7 @@ The process for successfully downgrading depends on the upgrade you have perform
   - For example: **Octopus 2018.1.2** to **Octopus 2018.1.4** (same Major.Minor but different Patch). If you need to downgrade for any reason you can reinstall **Octopus 2018.1.2** straight over the top, and get back to normal operation.
   - On that note, you can move freely between any patch in the same Minor release. For example, **Octopus 3.4.2** or **Octopus 3.4.10** or **Octopus 3.4.12**.
 - **Minor upgrade** = If you perform a Minor upgrade and run into any problems, you will need to restore a recent SQL Database backup and reinstall the version of Octopus Deploy that was installed prior to the upgrade.
-  - For example: **Octopus 2018.1.4** to **Octopus 2018.2.1** would be a Minor upgrade. Make sure to test a [backup and restore](/docs/administration/backup-and-restore.md) before upgrading. If you need to downgrade for any reason, you should restore the backup, and then reinstall **Octopus 2018.1.4**.
+  - For example: **Octopus 2018.1.4** to **Octopus 2018.2.1** would be a Minor upgrade. Make sure to test a [backup and restore](/docs/administration/data/backup-and-restore.md) before upgrading. If you need to downgrade for any reason, you should restore the backup, and then reinstall **Octopus 2018.1.4**.
 - **Major upgrade** = We will provide a detailed upgrade guide for any Major upgrades.
   - For example: **Octopus 3.6.5** to **Octopus 2018.1.4** would be a Major upgrade. You should take care when performing a major upgrade and follow our upgrade guide carefully.
 
@@ -69,7 +69,7 @@ You can find the differences between your current version and the newest version
 
 ## Scheduling Maintenance
 
-Upgrading Octopus Server is normally quite fast, however you should allow yourself time to perform a good [backup and restore process](/docs/administration/backup-and-restore.md).
+Upgrading Octopus Server is normally quite fast, however you should allow yourself time to perform a good [backup and restore process](/docs/administration/data/backup-and-restore.md).
 
 You should also consider how long the actual upgrade may take:
 
@@ -82,11 +82,11 @@ You should also consider how long the actual upgrade may take:
 Upgrading the Octopus Deploy Server is easy, you will just need to follow these steps:
 
 1. Schedule a maintenance window: Octopus Server will be unavailable during the upgrade (unless you are [upgrading Octopus HA](#upgrading-octopus-ha)).
-1. Switch your server to [Maintenance Mode](/docs/administration/maintenance-mode.md) and wait until all current tasks and deployments have completed. This ensures that no further changes will be made that may potentially become lost if the upgrade fails and you need to rollback.
+1. Switch your server to [Maintenance Mode](/docs/administration/managing-infrastructure/maintenance-mode.md) and wait until all current tasks and deployments have completed. This ensures that no further changes will be made that may potentially become lost if the upgrade fails and you need to rollback.
 
     ![](/docs/images/3048440/5865775.png "width=500")
 
-1. [Backup your database and master key](/docs/administration/backup-and-restore.md) so that it can be restored in case anything goes wrong.
+1. [Backup your database and master key](/docs/administration/data/backup-and-restore.md) so that it can be restored in case anything goes wrong.
 
     ![](/docs/images/3048440/5865780.png "width=500")
 
@@ -98,7 +98,7 @@ Once you have downloaded the required version of the Octopus Server MSI no furth
 :::
 
 1. Run the installer and follow the prompts.
-1. Turn [Maintenance Mode](/docs/administration/maintenance-mode.md) `OFF`.
+1. Turn [Maintenance Mode](/docs/administration/managing-infrastructure/maintenance-mode.md) `OFF`.
 
     ![](/docs/images/3048440/5865776.png "width=500")
 
@@ -229,7 +229,7 @@ If you are upgrading to a 3.5+ version please backup your server config file pri
 
 If for any reason you need to downgrade to a previous version of Octopus Server, follow the steps below:
 
-1. Turn [Maintenance Mode](/docs/administration/maintenance-mode.md) `ON`.
+1. Turn [Maintenance Mode](/docs/administration/managing-infrastructure/maintenance-mode.md) `ON`.
 
 :::warning
 Wait until all current tasks and deployments have completed.
@@ -257,7 +257,7 @@ Any data that has been created from between when the backup was taken to when it
 There is no need to uninstall the newer version you were trying to upgrade to.
 :::
 
-6. Turn [Maintenance Mode](/docs/administration/maintenance-mode.md) `OFF`.
+6. Turn [Maintenance Mode](/docs/administration/managing-infrastructure/maintenance-mode.md) `OFF`.
 
 ## Troubleshooting {#UpgradingfromOctopus3.x-Troubleshooting}
 

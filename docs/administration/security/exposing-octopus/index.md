@@ -20,7 +20,7 @@ We undertake routine penetration testing and security audits. These reports are 
 
 ## Where to Host Your Octopus Server
 
-The Octopus Server is the central component of your Octopus installation. It hosts the Octopus HTTP API and the web portal, and is the central communication hub for deploying your applications. It needs direct access to your [SQL Server Database](/docs/administration/octopus-database/index.md) and a file store, which can be on a local disk, or a network file share.
+The Octopus Server is the central component of your Octopus installation. It hosts the Octopus HTTP API and the web portal, and is the central communication hub for deploying your applications. It needs direct access to your [SQL Server Database](/docs/administration/data/octopus-database/index.md) and a file store, which can be on a local disk, or a network file share.
 
 You should host your Octopus Server in the best location based on your scenario. As a general rule of thumb, you should host your Octopus Server where it has the best access to the machines where you deploy your applications, and to the users who design and perform deployments.
 

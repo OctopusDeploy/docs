@@ -59,4 +59,4 @@ In case you want to read further and consider other options for securing your Oc
 
 - Octopus provides a robust and detailed security model allowing you to control who has access to certain projects, environments, tenants, and ultimately which people can author the scripts which are executed by Octopus on your behalf. Learn about [managing users and teams](/docs/administration/managing-users-and-teams/index.md).
 - Most Octopus customers use source control systems to track changes to all their scripts, using a trusted chain of authority to embed those scripts into the packages which are used by Octopus.
-- Octopus provides detailed auditing enabling post-emptive analysis of a person's activity including custom scripts authored as part of your deployment process. Learn about [auditing](/docs/administration/auditing.md).
+- Octopus provides detailed auditing enabling post-emptive analysis of a person's activity including custom scripts authored as part of your deployment process. Learn about [auditing](/docs/administration/managing-users-and-teams/auditing.md).

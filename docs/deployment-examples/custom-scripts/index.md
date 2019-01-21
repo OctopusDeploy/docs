@@ -122,7 +122,7 @@ writeWarning "Warning"
 eprintfn "This will be logged as Error"
 ```
 
-Try these out for yourself using the [Script Console](/docs/administration/script-console.md)!
+Try these out for yourself using the [Script Console](/docs/administration/managing-infrastructure/script-console.md)!
 
 ### Highlight Log Level ###
 Highlight messages will be show in bold and blue in the task log. They will also appear under the step heading on the Task Summary tab. You can use the highlight level to call out important information such as which upgrade scripts were run, or the exact time a web server go added back into the load balancer pool.
@@ -313,7 +313,7 @@ When Calamari invokes PowerShell.exe, it uses the **unrestricted** execution pol
 
 You may find that your script runs differently under Calamari than it does when run from PowerShell directly.
 
-The easiest way to test your scripts under Calamari is to use the [Script Console](/docs/administration/script-console.md). Alternatively you can invoke `Calamari.exe run-script` via the command line to test a script.
+The easiest way to test your scripts under Calamari is to use the [Script Console](/docs/administration/managing-infrastructure/script-console.md). Alternatively you can invoke `Calamari.exe run-script` via the command line to test a script.
 
 **Calamari run-script command**
 

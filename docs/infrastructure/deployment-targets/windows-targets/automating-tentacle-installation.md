@@ -40,7 +40,7 @@ msiexec INSTALLLOCATION=C:\YourDirectory /i Octopus.Tentacle.<version>.msi /quie
 ```
 
 :::problem
-While you can set a custom INSTALLLOCATION for the Tentacle, please be aware that upgrades initiated by Octopus Server will install the upgraded Tentacle in the default location. This may have an impact if you are using the [Service Watchdog](/docs/administration/service-watchdog.md).
+While you can set a custom INSTALLLOCATION for the Tentacle, please be aware that upgrades initiated by Octopus Server will install the upgraded Tentacle in the default location. This may have an impact if you are using the [Service Watchdog](/docs/administration/managing-infrastructure/service-watchdog.md).
 :::
 
 ## Configuration {#AutomatingTentacleinstallation-Configuration}

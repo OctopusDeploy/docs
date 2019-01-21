@@ -16,7 +16,7 @@ You are responsible for the routine maintenance of your Octopus database. Perfor
 
 ### Database Backups {#Octopusdatabase-DatabaseBackups}{#backups}
 
-You are responsible for taking database backups and testing your disaster recovery plans. Refer to [Backup and restore](/docs/administration/backup-and-restore.md) for more information about backing up Octopus Deploy and recovering from failure.
+You are responsible for taking database backups and testing your disaster recovery plans. Refer to [Backup and restore](/docs/administration/data/backup-and-restore.md) for more information about backing up Octopus Deploy and recovering from failure.
 
 ## Schema {#schema}
 

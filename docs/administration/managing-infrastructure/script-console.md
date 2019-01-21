@@ -38,6 +38,6 @@ Sometimes you might like to collect files from each of the machines as part of y
 
 ## Audit Records {#ScriptConsole-Auditrecords}
 
-Besides making it easy to run a script on many servers, the other advantage of using the Script Console is auditing. Ad-hoc scripts run via the Script Console will appear in the [Audit](/docs/administration/auditing.md) tab in the Configuration area.
+Besides making it easy to run a script on many servers, the other advantage of using the Script Console is auditing. Ad-hoc scripts run via the Script Console will appear in the [Audit](/docs/administration/managing-users-and-teams/auditing.md) tab in the Configuration area.
 
 ![](/docs/images/3048122/3277919.png "width=500")

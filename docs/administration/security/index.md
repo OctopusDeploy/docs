@@ -56,7 +56,7 @@ Learn about [secure communication](/docs/administration/security/octopus-tentacl
 
 Arguably one of the most appreciated features in Octopus Deploy is our support for detailed auditing of important activity.
 
-Learn about [auditing](/docs/administration/auditing.md).
+Learn about [auditing](/docs/administration/managing-users-and-teams/auditing.md).
 
 ### Prevention of Common Vulnerabilities and Exploits
 
@@ -82,7 +82,7 @@ Learn about [safely exposing Octopus Deploy](/docs/administration/security/expos
 
 To make Octopus as useful as possible after installation, you can perform many kinds of deployments without setting up other infrastructure. We achieve this using a concept called a worker, and in a default installation, this is called the built-in worker. Depending on your scenario, this can have a big impact on the security and integrity of your Octopus Server.
 
-Learn about [configuring workers](/docs/administration/workers/index.md).
+Learn about [configuring workers](/docs/administration/managing-infrastructure/workers/index.md).
 
 ## Provided by your Octopus Administrators
 

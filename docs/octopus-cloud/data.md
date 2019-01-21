@@ -10,7 +10,7 @@ We evaluate our backup and recovery strategy frequently to improve resiliency an
 
 ## Importing Data
 
-To import any projects you will need to set them up from scratch, or import them using the [Migration API](/docs/api-and-integration/migration-api/index.md).
+To import any projects you will need to set them up from scratch, or import them using the [Migration API](/docs/api-and-integration/migration-api/index.md). There are futures plans to provide a migration tool for moving to from an existing on-premise instance into the cloud.
 
 ## Exporting Your Data
 

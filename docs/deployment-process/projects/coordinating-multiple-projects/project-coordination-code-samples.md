@@ -115,7 +115,7 @@ Console.WriteLine($"Queued for {tomorrow3amServerTime}");
 
 ## Failing a Deployment if Another Deployment is Running {#ProjectCoordinationCodeSamples-Failingadeploymentifanotherdeploymentisrunning}
 
-This example uses the dynamic dashboard API to check whether a different project is currently deploying to the same environment. Note that Octopus [restricts](/docs/administration/run-multiple-processes-on-a-tentacle-simultaneously.md) what can run at the same time already.
+This example uses the dynamic dashboard API to check whether a different project is currently deploying to the same environment. Note that Octopus [restricts](/docs/administration/managing-infrastructure/run-multiple-processes-on-a-tentacle-simultaneously.md) what can run at the same time already.
 
 ```csharp
 var otherProject = repository.Projects.FindByName("Other Project");

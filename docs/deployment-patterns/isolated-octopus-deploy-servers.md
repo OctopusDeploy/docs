@@ -17,7 +17,7 @@ On this page, we discuss two different scenarios, and the features and options t
 
 > Chris's Consulting are developing an application for a government client. They're using Octopus internally to manage pre-production deployments (dev, UAT, and so-on). However, the client have advised that they won't allow the consultancy to install the Tentacle agent on their production servers, nor the Octopus Server. They'd prefer the consultancy to provide them with a something they can run from a USB stick.
 
-In **Octopus 3.0**, you can configure an [Offline Package Drop deployment target](/docs/infrastructure/deployment-targets/offline-package-drop.md). This allows you to "deploy" to a location on the filesystem and take that deployment offline to be used elsewhere. The dropped package contains everything you need to deploy to a location offsite.
+You can configure an [Offline Package Drop deployment target](/docs/infrastructure/deployment-targets/offline-package-drop.md). This allows you to "deploy" to a location on the filesystem and take that deployment offline to be used elsewhere. The dropped package contains everything you need to deploy to a location offsite.
 
 ## Tentacle Can be Installed (Isolated Octopus Servers) {#IsolatedOctopusDeployservers-Tentaclecanbeinstalled(isolatedOctopusservers)}
 
@@ -25,7 +25,7 @@ In **Octopus 3.0**, you can configure an [Offline Package Drop deployment target
 
 In this scenario, the customer would install different instances of Octopus in both environments. To keep settings in sync and to automate between environments, they can use a combination of strategies:
 
-- They could use the new [data migration tool](/docs/administration/data-migration.md) to export the internal Octopus Deploy configuration to a folder. The resulting folder tree could be imported into the production Octopus instance. This will result in a duplicate configuration in the production environment.
+- They could use the new [data migration tool](/docs/administration/data/data-migration.md) to export the internal Octopus Deploy configuration to a folder. The resulting folder tree could be imported into the production Octopus instance. This will result in a duplicate configuration in the production environment.
 - The migration tool could be reused periodically to keep both servers in sync. Because the resulting export is simply a collection of JSON files in folders, a source control system like Git could be used for this purpose. Any imports subsequent to the initial import would result in a merge of any changes.
 - They can manually keep some additional settings in sync, such as common Nuget feeds.
 - Packages can be moved between environments using [NuGet.exe](http://docs.nuget.org/docs/reference/command-line-reference) to push packages to both Octopus Servers. For example, the CI server could publish packages to both the pre-production and production Octopus Server after a build, or they could manually use Nuget to push them when ready to promote.
