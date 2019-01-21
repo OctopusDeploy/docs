@@ -134,6 +134,11 @@ $sourceOctopusURI = 'https://SOURCE_OCTOPUS_SERVER'
 $sourceApikey = 'API-SOURCE_API_KEY'
 $destinationOctopusURI = 'https://DESTINATION_OCTOPUS_SERVER'
 $destinationApikey = 'API-DESTINATION_API_KEY'
+
+$destinationPackageFeedSpaceId = 'Spaces-1'
+$sourceSpaceId = 'Spaces-1'
+$destinationSpaceId = 'Spaces-1'
+
 $migrationPackageId = 'MyAwesomeOctopusMigration'
 $migrationPackageVersion = '1.0.0'
 $migrationPassword = 'Demo1234'
@@ -155,6 +160,10 @@ $migrationExportResource.IncludeTaskLogs = $true
 $migrationExportResource.EncryptPackage = $true
 $migrationExportResource.DestinationPackageFeed = $destinationOctopusURI
 $migrationExportResource.DestinationApiKey = $destinationApikey
+
+$migrationExportResource.SpaceId = $sourceSpaceId
+$migrationExportResource.DestinationPackageFeedSpaceId = $destinationPackageFeedSpaceId
+
 
 $migrationExportResource = $sourceRepository.Migrations.PartialExport($migrationExportResource)
 
@@ -189,6 +198,7 @@ $migrationImportResource.PackageVersion = $migrationPackageVersion
 $migrationImportResource.Password = $migrationPassword
 $migrationImportResource.IsDryRun = $isDryRun
 $migrationImportResource.IsEncryptedPackage = $true
+$migrationImportResource.SpaceId = $destinationSpaceId
 $migrationImportResource.DeletePackageOnCompletion = $true # May as well clean up after ourselves.
 
 $migrationImportResource = $destinationRepository.Migrations.Import($migrationImportResource)
