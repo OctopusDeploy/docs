@@ -32,4 +32,4 @@ You can view the API through the Octopus Demo server at [demo.octopus.com/swagge
 
 ## API and Spaces
 
-Spaces was introduced in **Octopus 2018.11**. If you are using spaces, you need to include the `SpaceID` in your API calls. If you do not include the `SpaceID`, your API calls will automatically use the default space.
+Spaces was introduced in **Octopus 2019.1**. If you are using spaces, you need to include the `SpaceID` in your API calls. If you do not include the `SpaceID`, your API calls will automatically use the default space.

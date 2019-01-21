@@ -1,6 +1,7 @@
 ---
 title: System and Space Permissions
 description: An explanation of the two levels that permissions can apply at, the Space and the System.
+version: 2019.1
 ---
 
 Octopus Deploy supports partitioning your server up into [Spaces](/docs/administration/spaces/indexx.md) which enables teams to stay focused on only the projects and content that matter to those teams. As a result, permission scoping needs to respect boundaries that support both the administration of the whole server, as well as support the administration of an individual space.

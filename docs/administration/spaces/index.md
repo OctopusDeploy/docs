@@ -2,6 +2,7 @@
 title: Spaces
 description: Spaces setup and configuration.
 position: 15
+version: 2019.1
 ---
 
 Spaces let you partition your Octopus server so that different teams can only access the projects, environments, and infrastructure they work with from the spaces they are members of.
