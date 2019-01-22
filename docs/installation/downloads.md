@@ -11,15 +11,15 @@ If you are writing a script or utility to automatically download the latest vers
 
 The Octopus Deploy server can be downloaded from the [slow lane](#slow-lane), which comes long-term support, or the [fast lane](#fast-lane) which is released more frequently and includes the latest features. Read more about long-term support, fast and slow lanes in this [blog post](https://octopus.com/blog/octopus-release-2018.10-lts).
 
-### Long-term Support {#slow-lane}
+### Long-term Support (Slow lane) {#slow-lane}
 
-- [Octopus Server x64 (LTS)](https://octopus.com/downloads/slowlane/WindowsX64/OctopusServer)
-- [Octopus Server 32-bit/x86 (LTS)](https://octopus.com/downloads/slowlane/WindowsX86/OctopusServer)
+- [Octopus Server x64](https://octopus.com/downloads/slowlane/WindowsX64/OctopusServer)
+- [Octopus Server 32-bit/x86](https://octopus.com/downloads/slowlane/WindowsX86/OctopusServer)
 
 ### Fast Lane {#fast-lane}
 
-- [Octopus Server x64 (Fast lane)](https://octopus.com/downloads/fastlane/WindowsX64/OctopusServer)
-- [Octopus Server 32-bit/x86 (Fast lane)](https://octopus.com/downloads/fastlane/WindowsX86/OctopusServer)
+- [Octopus Server x64](https://octopus.com/downloads/fastlane/WindowsX64/OctopusServer)
+- [Octopus Server 32-bit/x86](https://octopus.com/downloads/fastlane/WindowsX86/OctopusServer)
 
 ### Tentacle
 
