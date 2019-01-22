@@ -55,4 +55,6 @@ There is no "one size fits all" approach for Octopus Server. The best approach i
 - Recommended starting point for smaller deployments (less than 30 deployment targets for example): 2GB RAM, dual-core CPU, 10GB free disk space.
 - Recommended starting point for larger deployments: 4GB RAM, dual-core, 20GB free disk space.
 
-Learn more about [Octopus Server performance](/docs/administration/managing-infrastructure/performance.md).
+## Next
+
+Learn about the [SQL Server database](/docs/installation/sql-server-database.md), download the [Octopus MSI](/docs/installation/downloads.md), or learn more about [Octopus Server performance](/docs/administration/managing-infrastructure/performance.md).
