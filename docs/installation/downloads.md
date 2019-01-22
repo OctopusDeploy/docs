@@ -9,8 +9,10 @@ The latest Octopus Deploy MSI can always be [downloaded from the Octopus Deploy 
 
 If you are writing a script or utility to automatically download the latest version of one of our products, you can use the following permanent links:
 
- - [Octopus Server x64 (LTS)](https://octopus.com/downloads/latest/WindowsX64/OctopusServer)
- - [Octopus Server 32-bit/x86 (LTS)](https://octopus.com/downloads/latest/WindowsX86/OctopusServer)
+- [Octopus Server x64 (LTS)](https://octopus.com/downloads/slowlane/WindowsX64/OctopusServer)
+- [Octopus Server 32-bit/x86 (LTS)](https://octopus.com/downloads/slowlane/WindowsX86/OctopusServer)
+- [Octopus Server x64 (Fastlane)](https://octopus.com/downloads/fastlane/WindowsX64/OctopusServer)
+- [Octopus Server 32-bit/x86 (Fastlane)](https://octopus.com/downloads/fastlane/WindowsX86/OctopusServer)
  - [Octopus Tentacle x64](https://octopus.com/downloads/latest/WindowsX64/OctopusTentacle)
  - [Octopus Tentacle 32-bit/x86](https://octopus.com/downloads/latest/WindowsX86/OctopusTentacle)
  - [Command-Line Tools](https://octopus.com/downloads/latest/CommandLineTools)
