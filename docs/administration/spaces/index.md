@@ -133,7 +133,7 @@ The following table shows what is space-scoped, system-scoped, or scoped to both
 
 As always, using our client libraries offer the best chance of a successful upgrade for your existing automation, and our latest release of Octopus Client has all the changes required to inter-operate with any version of Octopus, as do most of our plugins for other build systems. However, due to the depth and breadth of the changes required to make spaces a reality, we weren't able to maintain backwards compatibility for the REST API in all cases.
 
-Please refer to [the release notes](<!-- todo -->) for a complete list of breaking changes.
+Please refer to release notes<!--[the release notes](Link)--> for a complete list of breaking changes.
 
 ## When should I use Spaces?
 
