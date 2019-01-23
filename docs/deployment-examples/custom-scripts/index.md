@@ -217,7 +217,9 @@ Octopus.failStep "A friendly message"
 
 Your scripts can emit variables that are available in subsequent deployment steps. This means you can factor your deployment into smaller, more well-defined steps that leverage the result of prior steps. It is an extremely powerful feature and you should refer to the documentation on [output variables](/docs/deployment-process/variables/output-variables.md) for more information.
 
-This example is from the sample project in the [Channels Walkthrough](https://octopus.com/blog/channels-walkthrough#prerequisites) which is also available on our [demo server](https://demo.octopus.com/app#/projects/channels-sample). Step 1 calculates a name by convention, which is used by subsequent steps.
+This example is from the sample project in the [Channels Walkthrough](https://octopus.com/blog/channels-walkthrough#prerequisites).
+
+Step 1 calculates a name by convention, which is used by subsequent steps.
 
 ![](/docs/images/3048092/5865520.png "width=500")
 

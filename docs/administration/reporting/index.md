@@ -70,7 +70,7 @@ Where:
 
 For example:
 
-`https://demo.octopus.com/api/reporting/deployments/xml?apikey=API-GUEST`*(that one really works!)*  
+`https://demo.octopus.com/api/reporting/deployments/xml?apikey=API-GUEST`
 `https://myoctopus/api/reporting/deployments/xml?apikey=API-1234567891234567891234567`
 
 The XML feed can be consumed programmatically, or via Excel or [Microsoft PowerBI](https://powerbi.microsoft.com/).
