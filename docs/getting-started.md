@@ -102,6 +102,8 @@ Over time your software may become so successful that you on-sell it to some ext
 
 Learn more about tenants in our [Multi-tenant Deployments Guide](/docs/deployment-patterns/multi-tenant-deployments/index.md).
 
+!partial <spaces>
+
 ## The Delivery Pipeline
 
 We designed Octopus Deploy for teams that follow agile delivery practices. A typical workflow could be:
