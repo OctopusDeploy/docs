@@ -9,7 +9,7 @@ Over the years we have built Octopus to enable reliable and repeatable deploymen
 This page is intended to help you tune and maintain your deployment processes and troubleshoot problems as they occur.
 
 :::hint
-Want to tune your Octopus Server for optimum performance? Read our [detailed guide on optimizing your server](/docs/administration/managing-infrastructure/performance.md).
+Want to tune your Octopus Server for optimum performance? Read our [detailed guide on optimizing your server](/docs/administration/managing-infrastructure/performance/index.md).
 :::
 
 !toc
