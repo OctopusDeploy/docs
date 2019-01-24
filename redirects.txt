@@ -730,3 +730,4 @@ docs/administration/configuration/subscriptions/index.md -> docs/administration/
 docs/administration/configuration/tentacle-configuration-and-file-storage/index.md -> docs/administration/managing-infrastructure/tentacle-configuration-and-file-storage/index.md
 docs/administration/configuration/tentacle-configuration-and-file-storage/manually-uninstall-tentacle.md -> docs/administration/managing-infrastructure/tentacle-configuration-and-file-storage/manually-uninstall-tentacle.md
 docs/administration/configuration/show-configuration.md -> docs/administration/managing-infrastructure/show-configuration.md
+docs/administration/configuration/index.md -> docs/administration/managing-infrastructure/index.md
