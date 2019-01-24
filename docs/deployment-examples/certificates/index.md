@@ -20,7 +20,7 @@ X.509 certificates are a key component of many deployment processes. Octopus Dep
 
 ## Configure Subscriptions for Expiry Notifications
 
-[Octopus Subscriptions](/docs/administration/configuration/subscriptions/index.md) can be used to configure notifications when certificates are close to expiry or have expired.
+[Octopus Subscriptions](/docs/administration/managing-infrastructure/subscriptions/index.md) can be used to configure notifications when certificates are close to expiry or have expired.
 
 There is a "Certificate expiry events" event-group, and three events:  
 

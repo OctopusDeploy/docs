@@ -102,7 +102,7 @@ If you need to specify a specific release, either because the release hasn't bee
 
 ## Automatic Deployment Subscription Notifications
 
-If you want to be notified of automatic deployments events, like blockages or failures, you can configure [Subscriptions](/docs/administration/configuration/subscriptions/index.md) to notify you by email or use web hooks to create your own notification channels. You can even use web hooks to code your own recovery behavior based on your specific situation.
+If you want to be notified of automatic deployments events, like blockages or failures, you can configure [Subscriptions](/docs/administration/managing-infrastructure/subscriptions/index.md) to notify you by email or use web hooks to create your own notification channels. You can even use web hooks to code your own recovery behavior based on your specific situation.
 
 ## Troubleshooting Automatic Deployments
 

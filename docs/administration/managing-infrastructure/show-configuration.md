@@ -66,4 +66,4 @@ if ($config.Octopus.WebPortal.AutoLoginEnabled -eq $FALSE) {
 
 ## Extensions {#ShowConfiguration-Extensions}
 
-Some of the values displayed by this command come from the core part of Octopus Server and some come from [server extensions](/docs/api-and-integration/server-extensibility/index.md).  Learn about how extensions can [contribute values to the show-configuration](/docs/administration/configuration/server-configuration/index.md) output.
+Some of the values displayed by this command come from the core part of Octopus Server and some come from [server extensions](/docs/api-and-integration/server-extensibility/index.md).  Learn about how extensions can [contribute values to the show-configuration](/docs/administration/managing-infrastructure/server-configuration/index.md) output.
