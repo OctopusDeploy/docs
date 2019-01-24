@@ -122,6 +122,15 @@ writeWarning "Warning"
 eprintfn "This will be logged as Error"
 ```
 
+```python Python3
+print("This will be logged as Information")
+printverbose("Verbose!")
+printhighlight("This is a highlight")
+printwait("Deployment is waiting on something")
+printwarning("Warning")
+print("This will be logged as an error", file=sys.stderr)
+```
+
 Try these out for yourself using the [Script Console](/docs/administration/managing-infrastructure/script-console.md)!
 
 ### Highlight Log Level ###
@@ -240,6 +249,10 @@ set_octopusvariable "AppInstanceName" "MyAppInstance"
 Octopus.setVariable "AppInstanceName" "MyAppInstance"
 ```
 
+```python Python3
+set_octopusvariable("AppInstanceName", "MyAppInstance")
+```
+
 ### Using the Variable in Another Step
 ```powershell PowerShell
 $appInstanceName = $OctopusParameters["Octopus.Action[Determine App Instance Name].Output.AppInstanceName"]
@@ -262,6 +275,10 @@ let appInstanceName2 = Octopus.findVariableOrDefault "Value if not found" "Octop
 
 //return an Option type
 let appInstanceName3 = Octopus.tryFindVariable "Octopus.Action[Determine App Instance Name].Output.AppInstanceName"
+```
+
+```python Python3
+appInstanceName = get_octopusvariable("Octopus.Action[Determine App Instance Name].Output.AppInstanceName")
 ```
 
 ### Service Message ###
@@ -288,6 +305,11 @@ new_octopusartifact /etc/hosts $(hostname)-hosts.txt
 
 ```fsharp F#
 createArtifact @"C:\Windows\System32\drivers\etc\hosts" (Some (System.Environment.MachineName + "-hosts.txt"))
+```
+
+```python Python3
+import os
+createartifact("C:\Windows\System32\drivers\etc\hosts", "{}-hosts.txt".format(os.environ["COMPUTERNAME"]))
 ```
 
 ![](/docs/images/3048092/5865519.png "width=500")

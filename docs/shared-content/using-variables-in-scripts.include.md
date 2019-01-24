@@ -47,6 +47,11 @@ let connectionString = Octopus.findVariable "MyApp.ConnectionString"
 let connectionString = Octopus.findVariableOrDefault "Default Value" "MyApp.ConnectionString"
 ```
 
+```python Python3
+connectionString = get_octopusvariable("MyApp.ConnectionString")
+print(connectionString)
+```
+
 :::success
 To see the F# API available to your F# scripts, take a look at our [F# signature file](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari.Shared/Integration/Scripting/FSharp/Bootstrap.fsi).
 :::
@@ -180,4 +185,12 @@ You can pass parameters to FSharp scripts [as described in MSDN.](https://msdn.
 let environment = fsi.CommandLineArgs.[1]
 let storagePath = fsi.CommandLineArgs.[2]
 printfn "$s storage path: $s" environment storagePath
+```
+
+**Usage in Python3 script**
+
+```python
+environment=sys.argv[1]
+storagePath=sys.argv[2]
+print("Parameters {} {}".format(environment, storagePath))
 ```
