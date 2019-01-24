@@ -23,7 +23,7 @@ Octopus comes with a set of built-in User Roles that are designed to work for mo
 | System manager       | System managers can do everything at the system level except certain system-level functions reserved for system administrators. |
 | Tenant manager       | Tenant managers can edit tenants and their tags |
 
-> For more information regarding the 'system or space level', please see [system and space permissions](./system-and-space-permissions)  
+> For more information regarding the 'system or space level', please see [system and space permissions](/docs/administration/managing-user-and-teams/system-and-space-permissions.md)  
 
 The built-in User Roles can be modified to contain more or less roles to suit specific needs. But instead of modifying the built-in ones, we recommend that you leave them as an example and instead create your own User Roles.
 
@@ -41,9 +41,9 @@ A custom User Role can be created with any combination of permissions. To creat
 
    ![](select-permissions.png "width=500")
 
-Once the custom role is saved, the new role will be available to be assigned to teams in Octopus. [Some rules apply](./system-and-space-permissions#SystemAndSpacePermissions-RulesOfTheRoad), depending on the mix of system or space level permissions you chose.
+Once the custom role is saved, the new role will be available to be assigned to teams in Octopus. [Some rules apply](/docs/administration/managing-user-and-teams/system-and-space-permissions.md#SystemAndSpacePermissions-RulesOfTheRoad), depending on the mix of system or space level permissions you chose.
 
-When applying roles to a team, you are able to optionally specify a scope for each role applied. This enables some complex scenarios, like granting a team [different levels of access](./creating-teams-for-a-user-with-mixed-environment-privileges) based on the environment they are authorized for.   
+When applying roles to a team, you are able to optionally specify a scope for each role applied. This enables some complex scenarios, like granting a team [different levels of access](/docs/administration/managing-user-and-teams/creating-teams-for-a-user-with-mixed-environment-privileges) based on the environment they are authorized for.   
 
 ![](define-scope-for-user-role.png "width=500")
 
