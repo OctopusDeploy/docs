@@ -465,7 +465,7 @@ For instance, if the way a feature is configured changes in version 2019.2, you 
 
 You can then add the markdown with the instructions for the new version to a partial with the following filename:
 
-`index_configure_(2019.2,).partial.md`
+`index_configure_2019.2.partial.md`
 
 Both of these assume you're adding the partials to the index file.
 
