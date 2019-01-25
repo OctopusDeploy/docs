@@ -732,4 +732,4 @@ docs/administration/configuration/tentacle-configuration-and-file-storage/manual
 docs/administration/configuration/show-configuration.md -> docs/administration/managing-infrastructure/show-configuration.md
 docs/administration/configuration/index.md -> docs/administration/managing-infrastructure/index.md
 docs/administration/managing-infrastructure/enable-web-request-logging.md -> docs/administration/managing-infrastructure/performance/enable-web-request-logging.md
-docs/administration/managing-infrastructure/workers/built-in-worker.md -> docs/infrastructure/workers/built-in-worker.md
+docs/administration/managing-infrastructure/workers/built-in-workers.md -> docs/infrastructure/workers/built-in-workers.md
