@@ -58,7 +58,7 @@ Workers offer a convenient way to run scripts and certain deployment steps. Lear
 
 We highly recommend configuring external workers running on a different host to your Octopus Server. This is the easiest and more secure approach to prevent user-provided scripts from doing harm to your Octopus Server.
 
-Learn about the [built-in worker](/docs/administration/managing-infrastructure/workers/built-in-worker.md).
+Learn about the [built-in worker](/docs/infrastructure/workers/built-in-worker.md).
 
 Learn about [external workers](/docs/infrastructure/workers/index.md).
 
