@@ -22,4 +22,4 @@ The table below outlines the backward compatibility between Octopus Server and r
 > - Tentacle: 3.0 ➜ 3.25 
 > - TeamCity Plugin: 3.3 ➜ latest
 > 
-> However, **2019.1** also carries some breaking changes to the API so care must be taken when upgrading from a prior version that existing integrations are not effected. There is a comprehensive rundown of these changes available in our [downloads section](https://octopus.com/downloads/compare?from=2018.10.1&to=2019.1.0).
+> However, **2019.1** also carries some breaking changes to the API so care must be taken when upgrading from a prior version that existing integrations are not effected. There is a comprehensive rundown of these changes available in our [downloads section](https://octopus.com/downloads/compare?from=2018.12.1&to=2019.1.0).
