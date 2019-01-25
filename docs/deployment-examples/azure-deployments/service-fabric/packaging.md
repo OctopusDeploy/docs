@@ -84,11 +84,11 @@ VERSION and OUTPUT are parameters provided by your build tool of choice, the exa
 Once you have finished packaging, the package structure should look similar to the following, including an `ApplicationManifest.xml` file at the root, `ApplicationParameters` and `PublishProfiles` folders, plus folders for your services:
 
 ```
-/ApplicationParamaters/
+/ApplicationParameters/
 /PublishProfiles/
 /YourService1/
 /YourService2/
 /ApplicationManifest.xml
 ```
 
-This structure includes the standard package output from Visual Studio (from a _Right-click > Publish_) plus the `ApplicationParamaters` and `PublishProfiles` folders taken from the Service Fabric project.
+This structure includes the standard package output from Visual Studio (from a _Right-click > Publish_) plus the `ApplicationParameters` and `PublishProfiles` folders taken from the Service Fabric project.

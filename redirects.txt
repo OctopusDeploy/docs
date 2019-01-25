@@ -311,7 +311,7 @@ docs/how-to/report-on-deployments-using-excel.md -> docs/administration/reportin
 docs/how-to/use-iis-as-reverse-proxy.md -> docs/administration/security/exposing-octopus/use-iis-as-reverse-proxy.md
 docs/administration/use-iis-as-reverse-proxy.md -> docs/administration/security/exposing-octopus/use-iis-as-reverse-proxy.md
 docs/how-to/specifying-a-custom-container-to-use-for-ad-authentication.md -> docs/administration/authentication/specifying-a-custom-container-to-use-for-ad-authentication.md
-docs/how-to/enable-web-request-logging.md -> docs/administration/managing-infrastructure/enable-web-request-logging.md
+docs/how-to/enable-web-request-logging.md -> docs/administration/managing-infrastructure/performance/enable-web-request-logging.md
 docs/how-to/how-to-run-steps-on-the-octopus-server.md -> docs/deployment-examples/package-deployments/deploy-packages-to-your-octopus-server.md
 docs/how-to/how-to-use-custom-certificates-with-octopus-server-and-tentacle.md -> docs/administration/security/octopus-tentacle-communication/how-to-use-custom-certificates-with-octopus-server-and-tentacle.md
 docs/administration/how-to-use-custom-certificates-with-octopus-server-and-tentacle.md -> docs/administration/security/octopus-tentacle-communication/how-to-use-custom-certificates-with-octopus-server-and-tentacle.md
@@ -704,7 +704,7 @@ docs/administration/octopus-database/changing-the-collation-of-the-octopus-datab
 docs/administration/data-migration.md -> docs/administration/data/data-migration.md
 docs/administration/maintenance-mode.md -> docs/administration/managing-infrastructure/maintenance-mode.md
 docs/administration/lost-master-key.md -> docs/administration/managing-infrastructure/lost-master-key.md
-docs/administration/performance.md -> docs/administration/managing-infrastructure/performance.md
+docs/administration/performance.md -> docs/administration/managing-infrastructure/performance/index.md
 docs/administration/run-multiple-processes-on-a-tentacle-simultaneously.md -> docs/administration/managing-infrastructure/run-multiple-processes-on-a-tentacle-simultaneously.md
 docs/administration/enable-web-request-logging.md -> docs/administration/managing-infrastructure/performance/enable-web-request-logging.md
 docs/administration/managing-multiple-instances.md -> docs/administration/managing-infrastructure/managing-multiple-instances.md
