@@ -31,9 +31,9 @@ There are two kinds of workers you can use in Octopus:
 
 ## Built-in Worker
 
-The **built-in worker** is executed on the same machine as the Octopus server.  When the built-in worker is needed to execute a step, the Octopus Server spawns a new process and runs the step using Calamari.  The spawned process is either under the server's security context (default) or under a [context configured for the built-in worker](/docs/infrastructure/workers/built-in-worker.md#Running-tasks-on-the-Octopus-Server-as-a-different-user).
+The **built-in worker** is executed on the same machine as the Octopus server.  When the built-in worker is needed to execute a step, the Octopus Server spawns a new process and runs the step using Calamari.  The spawned process is either under the server's security context (default) or under a [context configured for the built-in worker](/docs/administration/managing-infrastructure/workers/built-in-worker.md#Running-tasks-on-the-Octopus-Server-as-a-different-user).
 
-Learn about the security implications and how to configure the [built-in worker](/docs/infrastructure/workers/built-in-worker.md).
+Learn about the security implications and how to configure the [built-in worker](/docs/administration/managing-infrastructure/workers/built-in-worker.md).
 
 ## External Workers
 

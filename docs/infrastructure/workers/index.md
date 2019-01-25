@@ -22,7 +22,7 @@ Workers are useful for the following steps:
 
 The Octopus server has an built-in worker that can deploy packages, execute scripts, and perform tasks that don't need to be performed on a deployment target. The built-in worker is configured by default, however, the built-in worker can be disabled by navigating to **Configuration** and selecting **Disable** fo the **Run steps on the Octopus Server** option.
 
-Learn more about the [built-in worker](/docs/infrastructure/workers/built-in-worker.md).
+Learn more about the [built-in worker](/docs/administration/managing-infrastructure/workers/built-in-worker.md).
 
 ## External Workers
 
