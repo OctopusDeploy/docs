@@ -47,7 +47,7 @@ The choices of built-in worker, built-in worker running in a separate account, a
 
 ## Migrating to Workers
 
-Octopus workers also provides a smooth path to move off the built-in worker, and thus off running scripts on the Octopus server, and onto external workers, without updating any deployment processes.  Learn about how to [use the default worker pool to move steps off the Octopus server](/docs/infrastructure/worker-pools.md#Using-the-default-pool-to-stop-running-scripts-on-the-server).
+Octopus workers also provides a smooth path to move off the built-in worker, and thus off running scripts on the Octopus server, and onto external workers, without updating any deployment processes.  Learn about how to [use the default worker pool to move steps off the Octopus server](/docs/infrastructure/workers/worker-pools.md#Using-the-default-pool-to-stop-running-scripts-on-the-server).
 
 
 ## Built-in Worker {#built-in-worker}

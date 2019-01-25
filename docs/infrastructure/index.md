@@ -46,7 +46,7 @@ Learn about [workers](/docs/infrastructure/workers/index.md).
 
 Worker pools are the groups you assign your workers to. You can assign multiple workers to your worker pools, adding more as they're required.
 
-Learn more about adding and managing [worker pools](/docs/infrastructure/worker-pools.md).
+Learn more about adding and managing [worker pools](/docs/infrastructure/workers/worker-pools.md).
 
 ## Machine Policies
 

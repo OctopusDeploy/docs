@@ -565,7 +565,7 @@ docs/deployment-process/configuration-files/confiuration-variables.md -> docs/de
 docs/deployment-examples/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md -> docs/deployment-process/configuration-features/json-configuration-variables-feature.md
 docs/administration/workers/external-workers.md -> docs/infrastructure/workers/index.md
 docs/deployment-process/steps/how-to-run-steps-on-the-octopus-server.md -> docs/deployment-examples/package-deployments/deploy-packages-to-your-octopus-server.md
-docs/administration/workers/worker-pools.md -> docs/infrastructure/worker-pools.md
+docs/administration/worker-pools.md -> docs/infrastructure/workers/worker-pools.md
 docs/key-concepts/machine-roles -> docs/infrastructure/deployment-targets/target-roles/index.md
 docs/deployment-process/configuration-features/advanced-configuration-transforms-examples.md -> docs/deployment-process/configuration-features/configuration-transforms.md
 docs/deployment-process/configuration-features/configuration-variables.md -> docs/deployment-process/configuration-features/xml-configuration-variables-feature.md
@@ -654,7 +654,7 @@ docs/infrastructure/windows-targets/tentacle-permissions.md -> docs/infrastructu
 docs/infrastructure/windows-targets/troubleshooting-tentacles.md -> docs/infrastructure/deployment-targets/windows-targets/troubleshooting-tentacles.md
 docs/infrastructure/cloud-regions.md -> docs/infrastructure/deployment-targets/cloud-regions.md
 docs/infrastructure/offline-package-drop.md -> docs/infrastructure/deployment-targets/offline-package-drop.md
-docs/infrastructure/workers/worker-pools.md -> docs/infrastructure/worker-pools.md
+docs/infrastructure/worker-pools.md -> docs/infrastructure/workers/worker-pools.md
 docs/infrastructure/deployment-targets/ssh-targets/ssh-key-pair.md -> docs/infrastructure/accounts/ssh-key-pair.md
 docs/infrastructure/deployment-targets/ssh-targets/username-and-password.md -> docs/infrastructure/accounts/username-and-password.md
 docs/deployment-examples/custom-scripts/long-paths.md -> docs/installation/troubleshooting.md
@@ -734,3 +734,4 @@ docs/administration/configuration/index.md -> docs/administration/managing-infra
 docs/administration/managing-infrastructure/enable-web-request-logging.md -> docs/administration/managing-infrastructure/performance/enable-web-request-logging.md
 docs/administration/managing-infrastructure/workers/built-in-worker.md -> docs/infrastructure/workers/built-in-worker.md
 docs/administration/managing-infrastructure/workers/index.md -> docs/infrastructure/workers/index.md
+docs/infrastructure/worker-pools.md -> docs/infrastructure/workers/worker-pools.md
