@@ -222,6 +222,11 @@ fail_step "A friendly message"
 Octopus.failStep "A friendly message"
 ```
 
+```python Python3
+failstep("A friendly message")
+```
+
+
 ## Output Variables {#Customscripts-Outputvariables}
 
 Your scripts can emit variables that are available in subsequent deployment steps. This means you can factor your deployment into smaller, more well-defined steps that leverage the result of prior steps. It is an extremely powerful feature and you should refer to the documentation on [output variables](/docs/deployment-process/variables/output-variables.md) for more information.
