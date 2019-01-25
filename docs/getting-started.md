@@ -104,7 +104,7 @@ Learn more about tenants in our [Multi-tenant Deployments Guide](/docs/deploymen
 
 ## Spaces
 
-If you're a large organization with lots of teams working in Octopus, from **2019.1** you can use the **Spaces** feature to provide each of your teams with a space for the projects, environments, and infrastructure they work with, while keeping other team's assets separate in their own spaces.
+If you're a large organization with lots of teams working in Octopus, from **2019.1** you can use the [Spaces](/docs/administration/spaces/index.md) feature to provide each of your teams with a space for the projects, environments, and infrastructure they work with, while keeping other team's assets separate in their own spaces.
 
 :::
 Spaces was is not included in the current long-term support version (**Octopus 2018.1-LTS**); however, Spaces will be included in future LTS versions of Octopus Deploy.
