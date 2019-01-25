@@ -704,7 +704,7 @@ docs/administration/octopus-database/changing-the-collation-of-the-octopus-datab
 docs/administration/data-migration.md -> docs/administration/data/data-migration.md
 docs/administration/maintenance-mode.md -> docs/administration/managing-infrastructure/maintenance-mode.md
 docs/administration/lost-master-key.md -> docs/administration/managing-infrastructure/lost-master-key.md
-docs/administration/performance.md -> docs/administration/managing-infrastructure/performance.md
+docs/administration/performance.md -> docs/administration/managing-infrastructure/performance/index.md
 docs/administration/run-multiple-processes-on-a-tentacle-simultaneously.md -> docs/administration/managing-infrastructure/run-multiple-processes-on-a-tentacle-simultaneously.md
 docs/administration/enable-web-request-logging.md -> docs/administration/managing-infrastructure/performance/enable-web-request-logging.md
 docs/administration/managing-multiple-instances.md -> docs/administration/managing-infrastructure/managing-multiple-instances.md
