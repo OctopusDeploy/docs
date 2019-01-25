@@ -15,7 +15,7 @@ The table below outlines the backward compatibility between Octopus Server and r
 | 2018.2 ➜ 2018.12 | 4.30.7 ➜ latest        | 3.5 ➜ latest    | 3.0 ➜ latest | 3.3 ➜ latest    |
 | 2019.1* ➜ latest | 5.0.0 ➜ latest         | 3.5 ➜ latest    | 4.0 ➜ latest | coming soon      |
 
-### &ast; Partial forwards compatibility
+## &ast; Partial forwards compatibility
 
 Older versions of some libraries and plugins _may_ work with **2019.1** and higher _only if_ the [default space](https://g.octopushq.com/default-space) is enabled and such integrations are only used against that space. To make use of other spaces, please upgrade.
 
