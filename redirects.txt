@@ -709,7 +709,7 @@ docs/administration/run-multiple-processes-on-a-tentacle-simultaneously.md -> do
 docs/administration/enable-web-request-logging.md -> docs/administration/managing-infrastructure/performance/enable-web-request-logging.md
 docs/administration/managing-multiple-instances.md -> docs/administration/managing-infrastructure/managing-multiple-instances.md
 docs/administration/script-console.md -> docs/administration/managing-infrastructure/script-console.md
-docs/administration/workers/index.md -> docs/administration/managing-infrastructure/workers/index.md
+docs/administration/workers/index.md -> docs/infrastructure/workers/index.md
 docs/administration/workers/built-in-worker.md -> docs/infrastructure/workers/built-in-worker.md
 docs/administration/service-watchdog.md -> docs/administration/managing-infrastructure/service-watchdog.md
 docs/administration/diagnostics.md -> docs/administration/managing-infrastructure/diagnostics.md
@@ -733,3 +733,4 @@ docs/administration/configuration/show-configuration.md -> docs/administration/m
 docs/administration/configuration/index.md -> docs/administration/managing-infrastructure/index.md
 docs/administration/managing-infrastructure/enable-web-request-logging.md -> docs/administration/managing-infrastructure/performance/enable-web-request-logging.md
 docs/administration/managing-infrastructure/workers/built-in-worker.md -> docs/infrastructure/workers/built-in-worker.md
+docs/administration/managing-infrastructure/workers/index.md -> docs/infrastructure/workers/index.md
