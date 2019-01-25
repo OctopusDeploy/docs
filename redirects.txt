@@ -734,4 +734,3 @@ docs/administration/configuration/index.md -> docs/administration/managing-infra
 docs/administration/managing-infrastructure/enable-web-request-logging.md -> docs/administration/managing-infrastructure/performance/enable-web-request-logging.md
 docs/administration/managing-infrastructure/workers/built-in-worker.md -> docs/infrastructure/workers/built-in-worker.md
 docs/administration/managing-infrastructure/workers/index.md -> docs/infrastructure/workers/index.md
-docs/infrastructure/worker-pools.md -> docs/infrastructure/workers/worker-pools.md
