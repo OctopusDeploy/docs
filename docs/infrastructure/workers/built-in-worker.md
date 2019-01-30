@@ -70,7 +70,7 @@ Toggle the built-in worker on or off from the **{{Configuration > Features}}** p
 
 The built-in worker can also be removed by navigating to {{Infrastructure,Workers}} and deleting or disabelling it, but, unless it is switched off, Octopus will revert to using the built-in worker if it is ever re-added.
 
-Note that [some steps](/docs/administration/managing-infrastructure/workers/index.md#Where-steps-run) run inside the Octopus server process (not using Calamari), don't need a worker and are not affected by this setting.
+Note that [some steps](/docs/infrastructure/workers/index.md#Where-steps-run) run inside the Octopus server process (not using Calamari), don't need a worker and are not affected by this setting.
 
 ## Troubleshooting
 

@@ -16,4 +16,4 @@ When you first install Octopus Server the built-in worker is configured to run u
 
 We highly recommend running the built-in worker in a different, lower privileged, security context. Alternatively you can disable the built-in worker and delegate that work to an external worker perhaps on another server or in an entirely different network zone.
 
-Learn about [workers](/docs/administration/managing-infrastructure/workers/index.md) and the different options you have for securing them.
+Learn about [workers](/docs/infrastructure/workers/index.md) and the different options you have for securing them.

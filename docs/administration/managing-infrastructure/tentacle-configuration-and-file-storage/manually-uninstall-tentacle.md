@@ -19,7 +19,7 @@ Here are a few reasons why you may want to completely remove Tentacle from your 
 
 :::success
 **Just upgraded from Octopus 2.6 and want to clean up?**
-If you have just completed an in-place upgrade from **Octopus 2.6** to **Octopus 3.x** there will be several folders and files left over that aren't used by newer versions of Tentacle. We didn't remove these files in case you needed to roll back. Learn about [cleaning up after upgrading from Octopus 2.6](/docs/administration/configuration/tentacle-configuration-and-file-storage/index.md).
+If you have just completed an in-place upgrade from **Octopus 2.6** to **Octopus 3.x** there will be several folders and files left over that aren't used by newer versions of Tentacle. We didn't remove these files in case you needed to roll back. Learn about [cleaning up after upgrading from Octopus 2.6](/docs/administration/managing-infrastructure/tentacle-configuration-and-file-storage/index.md).
 :::
 
 ## What Does the Tentacle MSI Actually Do? {#ManuallyuninstallTentacle-WhatdoestheTentacleMSIactuallydo?}
@@ -32,7 +32,7 @@ Since Tentacle is usually installed on the server hosting your deployed applicat
 
 :::hint
 **What are all these files anyhow?**
-Learn about [Tentacle configuration and file storage](/docs/administration/configuration/tentacle-configuration-and-file-storage/index.md).
+Learn about [Tentacle configuration and file storage](/docs/administration/managing-infrastructure/tentacle-configuration-and-file-storage/index.md).
 :::
 
 ### Manually Removing All Traces of Tentacle {#ManuallyuninstallTentacle-ManuallyremovingalltracesofTentacle}
@@ -60,5 +60,5 @@ This will also remove your deployed applications if you have not configured Tent
 Follow the same steps described above, but instead of deleting the entire Octopus Home folder, you should leave the Application folder alone. Everything else can be removed without causing any disruption.
 
 :::success
-You can configure Octopus to use a different root folder for deploying your applications. This is a good idea so you can clearly see which folders are only related to Tentacle, and which folders contain your deployed applications. Learn about [Tentacle configuration and file storage](/docs/administration/configuration/tentacle-configuration-and-file-storage/index.md) and [how to move the Tentacle Home and Application folders](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-octopus-home-folder-and-the-tentacle-home-and-application-folders.md).
+You can configure Octopus to use a different root folder for deploying your applications. This is a good idea so you can clearly see which folders are only related to Tentacle, and which folders contain your deployed applications. Learn about [Tentacle configuration and file storage](/docs/administration/managing-infrastructure/tentacle-configuration-and-file-storage/index.md) and [how to move the Tentacle Home and Application folders](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-octopus-home-folder-and-the-tentacle-home-and-application-folders.md).
 :::
