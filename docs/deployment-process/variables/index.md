@@ -58,3 +58,4 @@ Variables are an important and useful concept in Octopus, so this section descri
 | **[Variable Substitution Syntax](docs/deployment-process/variables/variable-substitution-syntax.md)** | Variable substitutions are a flexible way to adjust configuration based on your variables and the context of your deployment. |
 | **[AWS Account Variables](docs/deployment-process/variables/certificate-variables.md)** | AWS accounts are included in a project through a project variable of the type Amazon Web Services Account. |
 | **[Azure Account Variables](docs/deployment-process/variables/certificate-variables.md)** | Azure accounts can be referenced in a project through a project variable of the type Azure Account. |
+| **[Workerpool Variables](docs/deployment-process/variables/workerpool-variables.md)** | Steps in projects can depend on Workerpool variables rather than picking a pool directly. |
