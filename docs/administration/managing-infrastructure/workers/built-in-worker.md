@@ -12,7 +12,7 @@ This page describes how to configure the built-in worker for a variety of scenar
 
 ## Built-in Worker
 
-When the built-in worker is executed, the Octopus server spawns a new process for Calamari.  This conveniently allows a default Octopus set up to enable features like running script steps on the server and Azure deployments.  However, this convenience comes at a cost: **security**.
+When the built-in worker is executed, the Octopus server spawns a new process for Calamari.  This conveniently allows a default Octopus set up to enable features like running script steps on the server and Azure deployments.  However, this convenience comes at the cost of **security** and **performance**.
 
 ## Default Configuration
 
@@ -68,7 +68,7 @@ The built-in worker can be switched off.  If it is switched off, then the Octopu
 
 Toggle the built-in worker on or off from the **{{Configuration > Features}}** page.
 
-The built-in worker will also not be used if any workers are added to the [default worker pool](/docs/infrastructure/worker-pools.md), but, unless it is switched off, Octopus will revert to using the built-in worker if all workers are later removed from the default pool.
+The built-in worker can also be removed by navigating to {{Infrastructure,Workers}} and deleting or disabelling it, but, unless it is switched off, Octopus will revert to using the built-in worker if it is ever re-added.
 
 Note that [some steps](/docs/administration/managing-infrastructure/workers/index.md#Where-steps-run) run inside the Octopus server process (not using Calamari), don't need a worker and are not affected by this setting.
 

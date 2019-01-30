@@ -20,13 +20,15 @@ Workers are useful for the following steps:
 
 ## Built-in Worker
 
-The Octopus server has an built-in worker that can deploy packages, execute scripts, and perform tasks that don't need to be performed on a deployment target. The built-in worker is configured by default, however, the built-in worker can be disabled by navigating to **Configuration** and selecting **Disable** fo the **Run steps on the Octopus Server** option.
+The Octopus server has a built-in worker that can deploy packages, execute scripts, and perform tasks that don't need to be performed on a deployment target. The built-in worker is configured by default, however, the built-in worker can be disabled by navigating to **Configuration** and selecting **Disable** fo the **Run steps on the Octopus Server** option.
 
 Learn more about the [built-in worker](/docs/administration/managing-infrastructure/workers/built-in-worker.md).
 
 ## External Workers
 
-An **external worker** is either a [Tentacle](/docs/infrastructure/deployment-targets/windows-targets/index.md) or an [SSH machine](/docs/infrastructure/deployment-targets/linux/index.md) that has been registered with the Octopus server as a worker.  The setup of a worker is the same as setting up a deployment target as a [Windows Tentacle target](/docs/infrastructure/deployment-targets/windows-targets/index.md) or an [SSH target](/docs/infrastructure/deployment-targets/linux/index.md), except that instead of being added to an environment, a worker is added to a worker pool.
+An **external worker** is either a [Tentacle](/docs/infrastructure/deployment-targets/windows-targets/index.md) or an [SSH machine](/docs/infrastructure/deployment-targets/linux/index.md) that has been registered with the Octopus server as a worker.  The setup of a worker is the same as setting up a deployment target as a [Windows Tentacle target](/docs/infrastructure/deployment-targets/windows-targets/index.md) or an [SSH target](/docs/infrastructure/deployment-targets/linux/index.md), except that a worker is added to a worker pool.
+
+Workers can be restricted to particular environments and can only do work for deployments to those environments.  A worker that has no environment restrictions can be a worker in any environment.
 
 Workers have machine policies, are health checked, and run Calamari, just like deployment targets.
 
@@ -85,6 +87,8 @@ We also recommend running external workers as a different user account to the Oc
 It can be advantageous to have workers on the same local network as the server to reduce package transfer times.
 
 Default pools attached to cloud targets allow co-location of workers and targets, this can help make workers specific to your targets as well as making the Octopus Server more secure by using external workers.
+
+Restricting workers to particular environments means you can be sure, for example, that your production workers (that might have access to production infrastructure) aren't being used in your development environment.
 
 ## Multiple Projects Run Simultaneously on Workers
 

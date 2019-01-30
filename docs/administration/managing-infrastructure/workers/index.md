@@ -14,7 +14,8 @@ The following step types and configurations run on a worker:
 
 - Any step that runs a script (usually user supplied) or has a package that has an execution plan of `Octopus Server`, `Octopus Server on behalf of roles`, `Worker Pool` or `Worker Pool on behalf of roles`.
 - Any steps that run on a Cloud Region, an Azure Target, or any target that isn’t a Tentacle, an SSH Target, or an Offline Drop.
-- All AWS, Terraform, and Azure steps.
+- All AWS, Terraform, Azure steps and Kubernetes steps.
+- Health checks for AWS, Azure and Kubernetes targets.
 
 The following steps always run inside the Octopus Server process (and do not run user-supplied code):
 
@@ -51,4 +52,4 @@ The choices of built-in worker, built-in worker running in a separate account, a
 
 ## Migrating to Workers
 
-Octopus workers also provides a smooth path to move off the built-in worker, and thus off running scripts on the Octopus server, and onto external workers, without updating any deployment processes.  Learn about how to [use the default worker pool to move steps off the Octopus server](/docs/infrastructure/worker-pools.md#Using-the-default-pool-to-stop-running-scripts-on-the-server).
+Octopus workers also provides a smooth path to move off the built-in worker, and thus off running scripts on the Octopus server, and onto external workers, without updating any deployment processes.  Learn about how to [use the default worker pool to move steps off the Octopus server](/docs/infrastructure/worker-pools.md#Using-the-default-pool).
