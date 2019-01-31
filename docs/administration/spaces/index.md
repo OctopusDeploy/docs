@@ -119,7 +119,7 @@ The following table shows what is space-scoped, system-scoped, or scoped to both
 
 | Resource              | Space-Scoped                | System-Scoped |
 | --------------------- | --------------------------- | ------------- |
-| Environments          | &#x2714;                    |               |
+| Environments          | <p>&#x2714;</p>             |               |
 | Lifecycles            | &#x2714;                    |               |
 | Projects              | &#x2714;                    |               |
 | Variable Sets         | &#x2714;                    |               |
