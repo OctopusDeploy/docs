@@ -95,7 +95,7 @@ With a default space enabled, any REST API calls that do not specify a space in 
 
 This means that by disabling the default space - **you are opting into a non-backwards compatible scenario**, so be prepared! Things to check include:
 
- - Versions of Tentacle on target environments need to be upgraded to the latest version otherwise they will not connect.
+ - Versions of Tentacle on target environments need to be upgraded to [Tentacle 4.0.0](https://octopus.com/downloads/2019.1.1) the latest version otherwise they will not connect.
  - Scripts you've written that directly call the API.
  - Integrations with Octopus Server are updated to their latest versions (like TFS, ADO, and Team City plugins)
  - Community library templates that use the API are updated (you can [refer to this PR](https://github.com/OctopusDeploy/Library/pull/750) as a guide).
@@ -137,7 +137,7 @@ The following table shows what is space-scoped, system-scoped, or scoped to both
 
 As always, using our client libraries offer the best chance of a successful upgrade for your existing automation, and our latest release of Octopus Client has all the changes required to inter-operate with any version of Octopus, as do most of our plugins for other build systems. However, due to the depth and breadth of the changes required to make spaces a reality, we weren't able to maintain backwards compatibility for the REST API in all cases.
 
-Please refer to release notes<!--[the release notes](Link)--> for a complete list of breaking changes.
+Please refer to [release notes](https://octopus.com/downloads/compare?from=2018.12.1&to=2019.1.0) for a complete list of breaking changes.
 
 ## When should I use Spaces?
 
