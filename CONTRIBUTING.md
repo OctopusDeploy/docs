@@ -287,6 +287,7 @@ Snippets are highlighted by Highlight.js
 | json         | `json`         |
 | sql          | `sql`          |
 | f#           | `fsharp`       |
+| python       | `python`       |
 | text         | text           |
 
 **Always use fenced code blocks with a language.** If no language is defined then highlightjs will guess the language and it regularly gets it wrong.

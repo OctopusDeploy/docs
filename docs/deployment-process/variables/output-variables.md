@@ -26,6 +26,10 @@ set_octopusvariable "TestResult" "Passed"
 Octopus.setVariable "TestResult" "Passed"
 ```
 
+```python3 Python3
+set_octopusvariable("TestResult", "Passed")
+```
+
 You can then use the variable from other steps, either in [variable binding syntax](/docs/deployment-process/variables/binding-syntax.md):
 
 ```powershell
@@ -50,6 +54,10 @@ testResult = $(get_octopusvariable "Octopus.Action[StepA].Output.TestResult")
 let testResult = Octopus.findVariable "Octopus.Action[StepA].Output.TestResult"
 ```
 
+```python3 Python3
+testResult = get_octopusvariable("Octopus.Action[StepA].Output.TestResult")
+```
+
 ## Sensitive Output Variables
 
 Output variables can be created as sensitive (since **Octopus 2018.5.2**).
@@ -70,6 +78,9 @@ set_octopusvariable "Password" "correct horse battery staple" -sensitive
 Octopus.setSensitiveVariable "Password" "correct horse battery staple"
 ```
 
+```python3 Python3
+set_octopusvariable("Password", "correct horse battery staple", True)
+```
 
 ## System Output Variables {#Outputvariables-Systemoutputvariables}
 
@@ -171,4 +182,10 @@ From a F# script, you can use the `setVariable : name:string -> value:string -> 
 
 ```fsharp
 Octopus.setVariable "TestResult" "Passed"
+```
+
+**Python3**
+
+```python Python3
+set_octopusvariable("TestResult", "Passed")
 ```
