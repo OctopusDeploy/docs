@@ -32,6 +32,13 @@ See the Bash Reference Manual, section [6.2 Bash Startup Files](http://www.gnu.
 - [Self-contained Calamari](#self-contained-calamari) built against .NET Core.
 - [Calamari on Mono](#mono-calamari) built against the full .NET framework.
 
+## Python
+Octopus can execute Python scripts on SSH targets provided the following criteria are met:
+
+- Python is version 3.4+
+- Python3 is on the path for the SSH user executing the deployment
+- pip is installed or the pycryptodome python package is installed
+
 ## Self-contained Calamari {#self-contained-calamari}
 
 When using the self-contained option, neither .NET Core nor Mono need to be installed on the target server (there are still some [pre-requisite dependencies](#dependencies)).

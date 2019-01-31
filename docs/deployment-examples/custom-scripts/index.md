@@ -122,6 +122,15 @@ writeWarning "Warning"
 eprintfn "This will be logged as Error"
 ```
 
+```python Python3
+print("This will be logged as Information")
+printverbose("Verbose!")
+printhighlight("This is a highlight")
+printwait("Deployment is waiting on something")
+printwarning("Warning")
+print("This will be logged as an error", file=sys.stderr)
+```
+
 Try these out for yourself using the [Script Console](/docs/administration/managing-infrastructure/script-console.md)!
 
 ### Highlight Log Level ###
@@ -213,6 +222,11 @@ fail_step "A friendly message"
 Octopus.failStep "A friendly message"
 ```
 
+```python Python3
+failstep("A friendly message")
+```
+
+
 ## Output Variables {#Customscripts-Outputvariables}
 
 Your scripts can emit variables that are available in subsequent deployment steps. This means you can factor your deployment into smaller, more well-defined steps that leverage the result of prior steps. It is an extremely powerful feature and you should refer to the documentation on [output variables](/docs/deployment-process/variables/output-variables.md) for more information.
@@ -240,6 +254,10 @@ set_octopusvariable "AppInstanceName" "MyAppInstance"
 Octopus.setVariable "AppInstanceName" "MyAppInstance"
 ```
 
+```python Python3
+set_octopusvariable("AppInstanceName", "MyAppInstance")
+```
+
 ### Using the Variable in Another Step
 ```powershell PowerShell
 $appInstanceName = $OctopusParameters["Octopus.Action[Determine App Instance Name].Output.AppInstanceName"]
@@ -262,6 +280,10 @@ let appInstanceName2 = Octopus.findVariableOrDefault "Value if not found" "Octop
 
 //return an Option type
 let appInstanceName3 = Octopus.tryFindVariable "Octopus.Action[Determine App Instance Name].Output.AppInstanceName"
+```
+
+```python Python3
+appInstanceName = get_octopusvariable("Octopus.Action[Determine App Instance Name].Output.AppInstanceName")
 ```
 
 ### Service Message ###
@@ -288,6 +310,11 @@ new_octopusartifact /etc/hosts $(hostname)-hosts.txt
 
 ```fsharp F#
 createArtifact @"C:\Windows\System32\drivers\etc\hosts" (Some (System.Environment.MachineName + "-hosts.txt"))
+```
+
+```python Python3
+import os
+createartifact("C:\Windows\System32\drivers\etc\hosts", "{}-hosts.txt".format(os.environ["COMPUTERNAME"]))
 ```
 
 ![](/docs/images/3048092/5865519.png "width=500")

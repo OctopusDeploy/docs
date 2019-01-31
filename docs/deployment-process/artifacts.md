@@ -66,6 +66,16 @@ Octopus.createArtifact "output.log"
 Octopus.createArtifact @"C:\Windows\System32\drivers\etc\hosts" (Some (System.Environment.MachineName + "-hosts.txt"))
 ```
 
+```python Python3
+# Collect a custom log file from the current working directory using the file name as the name of the artifact
+createartifact("output.log")
+
+# Collect the hosts file but using a custom name for each machine so you can differentiate between them
+# Note: to collect this artifact would require the Tentacle process to be elevated as a high privileged user account
+import os
+createartifact("C:\Windows\System32\drivers\etc\hosts", "{}-hosts.txt".format(os.environ["COMPUTERNAME"]))
+```
+
 ## Security concerns
 
 ### File privileges
