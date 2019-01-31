@@ -119,19 +119,19 @@ The following table shows what is space-scoped, system-scoped, or scoped to both
 
 | Resource              | Space-Scoped                | System-Scoped |
 | --------------------- | --------------------------- | ------------- |
-| Environments          | <p>&#x2714;</p>             |               |
-| Lifecycles            | &#x2714;                    |               |
-| Projects              | &#x2714;                    |               |
-| Variable Sets         | &#x2714;                    |               |
-| Deployment Targets    | &#x2714;                    |               |
-| Tenants               | &#x2714;                    |               |
-| Octopus Server Nodes  |                             | &#x2714;      |
-| Authentication        |                             | &#x2714;      |
-| Users                 |                             | &#x2714;      |
-| License               |                             | &#x2714;      |
-| Events                | &#x2714;                    | &#x2714;      |
-| Teams                 | &#x2714;                    | &#x2714;      |
-| Tasks                 | &#x2714;                    | &#x2714;      |
+| Environments          | True                        |               |
+| Lifecycles            | True                        |               |
+| Projects              | True                        |               |
+| Variable Sets         | True                        |               |
+| Deployment Targets    | True                        |               |
+| Tenants               | True                        |               |
+| Octopus Server Nodes  |                             | True          |
+| Authentication        |                             | True          |
+| Users                 |                             | True          |
+| License               |                             | True          |
+| Events                | True                        | True          |
+| Teams                 | True                        | True          |
+| Tasks                 | True                        | True          |
 
 ## Automation Changes to be Aware of {#automation-changes}
 
