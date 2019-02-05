@@ -23,7 +23,7 @@ Octopus comes with a set of built-in User Roles that are designed to work for mo
 
 The built-in User Roles can be modified to contain more or less roles to suit specific needs. But instead of modifying the built-in ones, we recommend that you leave them as an example and instead create your own User Roles.
 
-## Creating User Roles {#UserRoles-CreatingUserRoles}
+## Creating User Roles (LTS) {#UserRoles-CreatingUserRolesLTS}
 
 A custom User Role can be created with any combination of permissions. To create a custom user role:
 

@@ -18,18 +18,44 @@ Octopus comes with a set of built-in User Roles that are designed to work for mo
 | Project Initiator    | All project viewer permissions, plus: create new projects. |
 | Project Deployer     | All project contributor permissions, plus: deploying releases, but not creating them. |
 | Project Lead         | All project contributor permissions, plus: creating releases, but not deploying them. |
-| Space Manager        | Space managers can do everything within the context of the space they own. |
 | System Administrator | System administrators can do everything at the system level.  |
 | System manager       | System managers can do everything at the system level except certain system-level functions reserved for system administrators. |
 | Tenant manager       | Tenant managers can edit tenants and their tags |
+
+### Additional User Roles for Spaces
+
+In addition to the above users roles, **Octopus 2019.1** and above also comes with the following built-in User Role.
+
+| User Role            | Description                              |
+| -------------------- | ---------------------------------------- |
+| Space Manager        | Space managers can do everything within the context of the space they own. |
+
 
 > For more information regarding the 'system or space level', please see [system and space permissions](/docs/administration/managing-users-and-teams/system-and-space-permissions.md)  
 
 The built-in User Roles can be modified to contain more or less roles to suit specific needs. But instead of modifying the built-in ones, we recommend that you leave them as an example and instead create your own User Roles.
 
-## Creating User Roles {#UserRoles-CreatingUserRoles}
+## Creating User Roles (LTS) {#UserRoles-CreatingUserRolesLTS}
 
-A custom User Role can be created with any combination of permissions. To create a custom user role:
+If you are using a version of Octopus prior to 2019.1 (including 2018.10-LTS), a custom User Role can be created with any combination of permissions. To create a custom user role:
+
+1. Under the **Configuration** page, click **Roles**.
+
+   ![](roles-link.png "width=500")
+
+2. Click **Add custom role**.
+
+3. Select the set of permissions you'd like this new User Role to contain, and give the role a name and description.
+
+   ![](select-permissions.png "width=500")
+
+Once the custom role is saved, the new role will be available to be assigned to any team on Octopus.
+
+![](add-role.png "width=500")
+
+## Creating User Roles With Spaces {#UserRoles-CreatingUserRoles}
+
+If you are using Octopus **2019.1**, a custom User Role can be created with any combination of permissions. To create a custom user role:
 
 1. Under the **Configuration** page, click **Roles**.
 
