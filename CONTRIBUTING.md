@@ -385,29 +385,16 @@ b. Item 2
 
 ### Working with Long-Term Support Releases and Fast Ring Releases
 
-In Q4 2018 Octopus will introduce Long-Term Support releases. LTS releases are released on a three month cadence and are supported for six months. This means there will be two current LTS releases at any point in time. The documentation for the latest LTS release is the version of the docs that is displayed on the docs site by default. In addition to the LTS releases, we also have the fast ring releases (two) between each LTS release.
-
-#### Which Versions are available?
-
-- **Legacy Documentation**: Copies of the legacy docs go all the way back to version **3.6** and are available in a persistent archive at [www.legacydocs.octopus.com](https://legacydocs.octopus.com).
-- **LTS**: Both currently supported versions of the LTS releases are available on the main docs site.
-- **Current Fast Lane Release**: If the most recent release is a fast lane release, it is also available on the main docs site from the version selector. Once this version is no longer the most recent version it is added as to the legacy documentation site.
-
-The version switcher lets users choose between the different versions of the documentation.
-
- ![Version Selector](/docs/images/version-selector.png)
+In Q4 2018 Octopus introduced Long-Term Support releases. LTS releases are released on a three month cadence and each LTS release is supported for six months. This means there will be two current LTS releases at any point in time. The documentation for the latest release is the version of the docs that is displayed on the docs site by default. However, copies of legacy docs go all the way back to version **3.6** and are available in a persistent archive at [www.legacydocs.octopus.com](https://legacydocs.octopus.com).
 
 #### Include the Version
 
-The list of versions displayed on the dropdown are loaded from [versions.json](versions.json).
-
-To add a new version to the version switcher all you need to do is add the version to the versions.json file versions array, and leave the default as it is, the example below adds version 2018.4. To add an LTS version append -LTS to the version, for instance, `2018.10-LTS`.
+To add a new version to the version to the legacy docs, all you need to do is add the version to the versions.json file versions array. For instance, when we released Octopus 2018.3 we changed the version listed directly under "versions" and "default" from 2018.2 to 2018.3, and added an entry in the legacy array for 2018.2:
 
 ```json
 {
    "versions": [
-     "2018.3",
-     "2018.4"
+     "2018.3"
    ],
    "default": "2018.3",
    "legacy": [
@@ -427,17 +414,20 @@ To add a new version to the version switcher all you need to do is add the versi
  }
 ```
 
-The version selector on the website will display the versions added to the versions array:
-
- ![Version Selector](/docs/images/version-selector.png)
-
-And when selected, a banner tells the user that they are seeing a "preview" of the documentation:
-
- ![Documentation Preview banner](/docs/images/preview.png)
-
 #### Version Specific Docs
 
 As we make changes to the way the product works or add new features we need to specify which version of the software the changes appears in. This ensure users can access documentation for the version of Octopus they are using.
+
+The simplest way to do this is to include instructions for both the new way of doing things and the previous way. For instance:
+
+\#\# Configuring X in Octopus 2018.3 and later
+
+Provide the instructions for 2018.3 and later below this heading.
+
+\#\# Configuring X in Octopus 2018.2 and earlier
+
+Provide the instructions for 2018.2 and earlier below this heading.
+
 
 If the documentation is for a completely new feature, you can add a version to the YAML header at the beginning of the document that explains the feature. For instance:
 
@@ -450,7 +440,7 @@ version: 2018.11
 ---
 ```
 
-With the version information added to the header, the documentation for New Awesome Feature will appear in the docs for version 2018.11 and above.
+With the version information added to the header, the documentation for New Awesome Feature will appear in the docs for version 2018.11 and above, but it will also be available as pre-release documentation from the version selector on the docs site prior to the docs version being updated on the site.
 
 #### Version Specific Partials
 
