@@ -1,9 +1,8 @@
-
-A common scenario some users may face, is the desire to provide full access to one environment, but only read access to the next stage. For example the developers might be able to fully manage deployments to the development and staging environment, but only view the production deployments.
+## Creating teams for users with mixed environment privileges in 2018.12 and earlier {#Creatingteamsforauserwithmixedenvironmentprivileges2018-12}
 
 Given that a set of roles can be combined in a team and tied to a specific environment, this scenario indicates that we will need two different teams. One with the full deployment access but scoped to dev and staging, and another with just read roles scoped to production.
 
-## Creating the "*Dev Deployers*" Team {#Creatingteamsforauserwithmixedenvironmentprivileges-Creatingthe&quot;DevDeployers&quot;Team}
+### Creating the "*Dev Deployers*" Team {#Creatingteamsforauserwithmixedenvironmentprivileges-Creatingthe&quot;DevDeployers&quot;Team}
 
 Start by clicking the **Teams** tab under **Configuration** in the Octopus Deploy web portal.  Then click the **Add team**.
 
@@ -21,7 +20,7 @@ With the permission rules configured add the users that you want them to apply t
 
 When you are happy with these changes hit **Save** to make them effective.
 
-## Creating the "*Prod Deployment Viewers*" Team {#Creatingteamsforauserwithmixedenvironmentprivileges-CreatingThe&quot;ProdDeploymentViewers&quot;Team}
+### Creating the "*Prod Deployment Viewers*" Team {#Creatingteamsforauserwithmixedenvironmentprivileges-CreatingThe&quot;ProdDeploymentViewers&quot;Team}
 
 The previous rule was all well and good, but what about if we now want to allow the developer to see what has been deployed to production while still preventing them from pushing releases out to that stage. We can't go and modify the *Dev Deployers* team because that contains rules scoped to specific environments. Instead we will create a new team that is scoped to production, but only contains view permissions.
 
@@ -32,7 +31,3 @@ This time we will set the **Environments** field to just be *Production* since t
 ![](/docs/images/guides-user-role-and-teams-configuration/prod-deployment-viewers.png "width=500")
 
 Once again after adding all the users that should be a member of this team, in this case the same as those who can deploy to development, hit **Save**. The next time the user refreshes the page or performs an operation then these new rules will be in effect.
-
-## Summary {#Creatingteamsforauserwithmixedenvironmentprivileges-Summary}
-
-The permissions system in Octopus Deploy provides a very flexible way of defining what broad access to system functionality, while still allowing it to be constrained to very specific environments or projects. In this guide we have seen how a developer can have their permissions configured so that they can have full access to the first few stages of the deployment lifecycle, while allowing much limited access to the business critical production areas.

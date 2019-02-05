@@ -1,4 +1,5 @@
-A common scenario some users may face, is the desire to provide full access to one environment, but only read access to the next stage. For example the developers might be able to fully manage deployments to the development and staging environments, but only view the production deployments. Let's build this out with a team and some user roles.
+
+## Creating teams for users with mixed environment privileges in 2019.1 and later {#Creatingteamsforauserwithmixedenvironmentprivileges2019-1}
 
 ## Creating the "Developers" Team {#Creatingteamsforauserwithmixedenvironmentprivileges-Creatingthe&quot;Developers&quot;Team}
 
@@ -17,7 +18,7 @@ For this example, we'll choose this team to only be visible in the space we are 
 
 Give the team an appropriate name like *Developers* and click **Save**.
 
-## Add the Project Viewer Role for all environments
+## Add the Project Viewer Role for All Environments
 
 We can now add the **Project viewer** role to all environments by clicking **Include user role** from the **User Roles** tab. This role provides read only access to deployment processes and releases. Because we will not provide any scoping for this role - this role will form the baseline permissions
 for this team in any scope.
@@ -35,7 +36,3 @@ We can repeat this process as many times as necessary to configure the team to y
 ![](add-team-with-scoped-roles.png "width=500")
 
 When you are happy with these changes hit **Save** to make them effective.
-
-## Summary {#Creatingteamsforauserwithmixedenvironmentprivileges-Summary}
-
-The permissions system in Octopus Deploy provides a very flexible way of defining broad access to system functionality, while still allowing it to be constrained to very specific environments or projects. In this guide we have seen how a developer can have their permissions configured so they can have full access to the first few stages of the deployment lifecycle, while restricting access to the business critical production areas.
