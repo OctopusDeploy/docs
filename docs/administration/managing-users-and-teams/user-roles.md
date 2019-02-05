@@ -27,6 +27,8 @@ Octopus comes with a set of built-in User Roles that are designed to work for mo
 | System manager       | System managers can do everything at the system level except certain system-level functions reserved for system administrators. |
 | Tenant manager       | Tenant managers can edit tenants and their tags |
 
+The built-in User Roles can be modified to contain more or less roles to suit specific needs. But instead of modifying the built-in ones, we recommend that you leave them as an example and instead create your own User Roles.
+
 ### Additional User Roles for Spaces
 
 In addition to the above users roles, **Octopus 2019.1** and above also comes with the following built-in User Role.
@@ -35,9 +37,9 @@ In addition to the above users roles, **Octopus 2019.1** and above also comes wi
 | -------------------- | ---------------------------------------- |
 | Space Manager        | Space managers can do everything within the context of the space they own. |
 
-> For more information regarding the 'system or space level', please see [system and space permissions](/docs/administration/managing-users-and-teams/system-and-space-permissions.md)  
-
-The built-in User Roles can be modified to contain more or less roles to suit specific needs. But instead of modifying the built-in ones, we recommend that you leave them as an example and instead create your own User Roles.
+:::success
+For more information regarding the 'system or space level', please see [system and space permissions](/docs/administration/managing-users-and-teams/system-and-space-permissions.md)  
+:::
 
 ## Creating User Roles (LTS) {#UserRoles-CreatingUserRolesLTS}
 
