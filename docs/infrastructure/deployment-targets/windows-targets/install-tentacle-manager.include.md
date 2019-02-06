@@ -4,5 +4,4 @@ Tentacle Manager is the Windows application that configures your Tentacle. Once 
 
 1. Start the Tentacle installer, accept the license agreement, and follow the onscreen prompts.
 2. When the Octopus Deploy Tentacle Setup Wizard has completed, click **Finish** to exit the wizard.
-3. When the Tentacle Manager launches, click **Get Started...** and **Next**.
-4. Accept the default *configuration and log* directory and *application* directory or choose different locations and click **Next**.
+3. When the Tentacle Manager launches, click **GET STARTED**.

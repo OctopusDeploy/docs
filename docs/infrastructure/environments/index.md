@@ -1,11 +1,11 @@
 ---
 title: Environments
 description: Environments are how you group your deployment targets so you can promote your software through different phases, for instance, into Development, then Test, and finally into Production.
-position: 20
+position: 10
 ---
-Octopus Deploy organizes your infrastructure, that is the deployment targets you deploy software to (whether on-premises servers or cloud services), into *environments*. Typical examples of environments are **Development**, **Test**, and **Production**.
+Octopus Deploy organizes your infrastructure, that is the deployment targets you deploy software to (whether on-premises servers or cloud services), into **environments**. Typical examples of environments are **Development**, **Test**, and **Production**.
 
-Organizing your deployment targets into environments lets you define your deployment processes (no matter how many deployment targets or steps are involved) and have Octopus deploy the right versions of your software to the right environments at the right time. This means you can promote your software through the phases of its lifecycle, for instance, from **Development** to **Testing** and finally into **Production**.
+Organizing your deployment targets into environments lets you define your deployment processes (no matter how many deployment targets or steps are involved) and have Octopus deploy the right versions of your software to the right environments at the right time. This means you can promote your software through the phases of its [lifecycle](/docs/deployment-process/lifecycles/index.md).
 
 ## Add New Environments
 

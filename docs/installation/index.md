@@ -4,11 +4,11 @@ position: 10
 description: How to install the central Octopus Deploy Server.
 ---
 
-This section walks you through installing the **self-hosted** Octopus Deploy Server.
+This section walks you through installing the **self-hosted** Octopus Deploy server.
 
-If you're interested in the **cloud-hosted** Octopus Server, you can [register for an account](https://octopus.com/account/register).
+If you're interested in the **cloud-hosted** Octopus server, you can [register for an account](https://octopus.com/account/register).
 
-Once installed, the Octopus Deploy Server:
+Once installed, the Octopus Deploy server:
 
 - Runs as a Windows Service.
 - Stores its data in an [SQL Server database](/docs/installation/sql-server-database.md). [SQL Server Express](http://downloadsqlserverexpress.com/) is an easy way of getting started.
@@ -24,7 +24,7 @@ You need to download the latest version of the [Octopus Installer](/docs/install
 2. Accept the **License Agreement**, and either accept the default **Destination Folder** or choose a different location.
 3. Click **Install**, and give the app permission to **make changes to your device**.
 4. Click **Finish** to exit the installation wizard and launch the **Getting started wizard** to configure your Octopus Deploy Server.
-5. Click **Get Started** and either enter your details to start a free trial of Octopus or enter your **license key**.
+5. Click **Get started...** and either enter your details to start a free trial of Octopus Deploy or enter your **license key**.
 6. Accept the default **Home Directory** or enter a location of your choice.
 7. Decide whether to use a **Local System Account** or a **Custom Domain Account**.
 
@@ -36,7 +36,7 @@ You need to download the latest version of the [Octopus Installer](/docs/install
   Be careful **not** to use the name of an existing database as the setup process will install Octopus into that pre-existing database. Learn more about the [Octopus Database](/docs/administration/data/octopus-database/index.md).
 
 10. Accept the default port and directory or enter your own.
-11. If you’re using *username and passwords stored in Octopus* authentication mode, enter the username and password that will be used for the Octopus administrator. If you are using active directory, enter the active directory user details.
+11. If you’re using **username and passwords stored in Octopus** authentication mode, enter the username and password that will be used for the Octopus administrator. If you are using active directory, enter the active directory user details.
 12. Click Install.
 
 When the installation has completed, click Finish to launch the **Octopus Manager**.
@@ -47,13 +47,19 @@ Before you launch the **Octopus Web Portal**, it's worth taking note of the othe
 
 You can launch the Octopus Web Portal from the Octopus Manager, by clicking **Open in Browser**.
 
-## Save the Master Key
+## Save Your Master Key
 
 Under the storage section, you will see a link to **View Master Key**.
 
 When Octopus is installed, it generates a master key which is a random string that is used to encrypt sensitive data in your Octopus database. You will need the master key if you ever need to restore Octopus.
 
-Take a copy of the master key and save it in a **secure** location.
+Make a copy of the master key and save it in a **secure** location.
+
+:::warning
+**Save your master key**
+
+If you don't have a copy of your master key and your hardware fails, you will not be able to recover the encrypted data from the database. Make a copy of the master key and save it in a secure location. Hopefully you will never need it, but you'll glad you have it if you ever need it.
+:::
 
 ## Launch the Octopus Web Portal
 

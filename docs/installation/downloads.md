@@ -21,10 +21,14 @@ The Octopus Deploy server can be downloaded from the [slow lane](#slow-lane), wh
 - [Octopus Server x64](https://octopus.com/downloads/fastlane/WindowsX64/OctopusServer)
 - [Octopus Server 32-bit/x86](https://octopus.com/downloads/fastlane/WindowsX86/OctopusServer)
 
-### Tentacle
+### Tentacle 4.0.0
 
  - [Octopus Tentacle x64](https://octopus.com/downloads/latest/WindowsX64/OctopusTentacle)
  - [Octopus Tentacle 32-bit/x86](https://octopus.com/downloads/latest/WindowsX86/OctopusTentacle)
+
+### Tentacle 3.24.0
+
+Tentacle 3.24.0 x64 and 32-bit/x86 can be downloaded from the Octopus [Downloads page](https://octopus.com/downloads)
 
 ### Command-line Tools
 

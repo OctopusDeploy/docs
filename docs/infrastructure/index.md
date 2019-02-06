@@ -5,15 +5,15 @@ position: 30
 hideInThisSection: True
 ---
 
-With Octopus Deploy, you can deploy software to Windows servers, Linux servers, Microsoft Azure, an offline package drop, cloud regions, or Kubernetes, these are known as your deployment targets, and they are organized into environments so you can promote your software through your deployment pipeline, for instance, from **Development** to **Testing** and finally into **Production**.
+With Octopus Deploy, you can deploy software to Windows servers, Linux servers, Microsoft Azure, an Offline Package dDrop, Cloud Regions, or Kubernetes. These are known as your deployment targets, and they are organized into environments so you can promote your software through your deployment pipeline, for instance, from **Development** to **Testing** and finally into **Production**.
 
 ## Managing Your Infrastructure
 
 You can manage your infrastructure by navigating to the **Infrastructure** tab in the Octopus Web Portal. From there you can access the following options:
 
 * [Overview](#overview)
-* [Deployment targets](#deployment-targets)
 * [Environments](#environments)
+* [Deployment targets](#deployment-targets)
 * [Workers](#workers)
 * [Worker pools](#worker-pools)
 * [Machine policies](#machine-policies)
@@ -24,17 +24,17 @@ You can manage your infrastructure by navigating to the **Infrastructure** tab i
 
 From the **Overview** section of the **Infrastructure** tab, you can quickly see your existing [environments](#environments), [deployment targets](#deployment-targets), [worker pools](#worker-pools), and [workers](#workers). You can check on the [status](/docs/infrastructure/machine-policies.md#health-check) of your deployment targets and workers, and access targets by [target role](/docs/infrastructure/deployment-targets/target-roles/index.md).
 
-## Deployment Targets
-
-The machines and services that you deploy your software to are your **deployment targets**. Learn about adding and configuring the different types of [deployment targets](/docs/infrastructure/deployment-targets/index.md), the [target roles](/docs/infrastructure/deployment-targets/target-roles/index.md) that are assigned to the deployment targets, and using [dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md).
-
-Learn more about [deployment targets](/docs/infrastructure/deployment-targets/index.md).
-
 ## Environments
 
 Octopus organizes your deployment targets into groups called [environments](/docs/infrastructure/environments/index.md) so you can promote your software through your deployment pipeline, for instance, from **Development** to **Test** and finally into **Production**.
 
 Learn how to add and manage your [environments](/docs/infrastructure/environments/index.md).
+
+## Deployment Targets
+
+The machines and services that you deploy your software to are your **deployment targets**. Learn about adding and configuring the different types of [deployment targets](/docs/infrastructure/deployment-targets/index.md), the [target roles](/docs/infrastructure/deployment-targets/target-roles/index.md) that are assigned to the deployment targets, and using [dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md).
+
+Learn more about [deployment targets](/docs/infrastructure/deployment-targets/index.md).
 
 ## Workers
 
