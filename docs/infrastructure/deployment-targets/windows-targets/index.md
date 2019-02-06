@@ -22,7 +22,14 @@ Tentacles can be configured to communicate in Listening mode or Polling mode. Li
 
 ## Download the Tentacle Installer
 
-The latest Octopus Tentacle MSI can always be downloaded from the [Octopus Deploy downloads page](https://octopus.com/downloads).
+### Tentacle 4.0.0
+
+ - [Octopus Tentacle x64](https://octopus.com/downloads/latest/WindowsX64/OctopusTentacle)
+ - [Octopus Tentacle 32-bit/x86](https://octopus.com/downloads/latest/WindowsX86/OctopusTentacle)
+
+### Tentacle 3.24.0
+
+Tentacle 3.24.0 x64 and 32-bit/x86 can be downloaded from the Octopus [Downloads page](https://octopus.com/downloads).
 
 ## Configure a Listening Tentacle (recommended)
 
