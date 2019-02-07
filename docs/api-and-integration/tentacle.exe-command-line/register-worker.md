@@ -16,7 +16,8 @@ Where [<options>] is any of:
       --server=VALUE         The Octopus Server - e.g., 'http://octopus'
       --apiKey=VALUE         Your API key; you can get this from the Octopus
                                web portal
-  -u, --username=VALUE       If not using API keys, your username
+  -u, --username, --user=VALUE
+                             If not using API keys, your username
   -p, --password=VALUE       If not using API keys, your password
       --name=VALUE           Name of the machine when registered; the default
                                is the hostname
@@ -33,6 +34,11 @@ Where [<options>] is any of:
                                Tentacle through - e.g., 'Proxy ABC' where the
                                proxy name is already configured in Octopus; the
                                default is to connect to the machine directly
+      --space=VALUE          The space which this machine will be added to, -
+                               e.g. 'Finance Department' where Finance
+                               Department is the name of an existing space; the
+                               default value is the Default space, if one is
+                               designated.
       --server-comms-port=VALUE
                              When using active communication, the comms port
                                on the Octopus Server; the default is 10943

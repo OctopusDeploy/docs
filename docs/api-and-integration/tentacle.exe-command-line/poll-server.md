@@ -16,7 +16,8 @@ Where [<options>] is any of:
       --server=VALUE         The Octopus Server - e.g., 'http://octopus'
       --apiKey=VALUE         Your API key; you can get this from the Octopus
                                web portal
-  -u, --username=VALUE       If not using API keys, your username
+  -u, --username, --user=VALUE
+                             If not using API keys, your username
   -p, --password=VALUE       If not using API keys, your password
       --server-comms-port=VALUE
                              The comms port on the Octopus Server; the
