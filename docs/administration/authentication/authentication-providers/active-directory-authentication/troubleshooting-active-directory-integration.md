@@ -76,7 +76,7 @@ Notes:
 If specifying a container.
 - Ensure you replace the active directory container string ``CN=Users, DC=acme, DC=local`` with the appropriate value for your network. If you're not sure of this value, we suggest talking to your network team (active directory expert) or trying different values and testing it with the script. For additional help on building/finding your container string, this StackOverflow answer is excellent. [http://serverfault.com/a/130556](http://serverfault.com/a/130556)
 
-See the following documentation page for further information on configuring Octopus to use a [specific Active Directory contianer](/docs/administration/authentication-providers/active-directory-authentication/specifying-a-custom-container-to-use-for-ad-authentication.md).
+See the following documentation page for further information on configuring Octopus to use a [specific Active Directory contianer](/docs/administration/authentication/authentication-providers/active-directory-authentication/specifying-a-custom-container-to-use-for-ad-authentication.md).
 
 Similarly, the following script duplicates the logic we use to search for groups (when you're trying to find one to add to a Team).
 
