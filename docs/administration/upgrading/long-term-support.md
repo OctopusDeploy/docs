@@ -9,9 +9,12 @@ We ship a new release of Octopus with **six months of long-term support** on a *
 Each LTS release will roll up all the features and bug fixes we've stabilized during that three month period. A release of Octopus with long-term support will:
 
 - Get critical bug fixes and security patches for up to six months.
-- Not get new features, minor enhancements, nor minor bug fixes - these will roll up into the next LTS release.
+- Not get new features, minor enhancements, or minor bug fixes; these will roll up into the next LTS release.
 
-You can download [the latest LTS from our web site](https://octopus.com/downloads).
+You can download the latest LTS from the [downloads page](https://octopus.com/downloads), or you can use the direct download links:
+
+- [Octopus Server x64](https://octopus.com/downloads/slowlane/WindowsX64/OctopusServer)
+- [Octopus Server 32-bit/x86](https://octopus.com/downloads/slowlane/WindowsX86/OctopusServer)
 
 !toc
 
@@ -25,7 +28,7 @@ Each release of Octopus clearly indicates if it is an LTS release on the [downlo
 
 ![Fast lane and slow lane](release-lanes.png)
 
-We realize not every customer is the same so we provide two release lanes, the "fast lane" and the "slow lane". This way you can choose which releases are best for your situation.
+We realize not every customer is the same so we provide two release lanes, the **fast lane** and the **slow lane**. This way you can choose which releases are best for your situation.
 
 - The **fast lane** is where we ship new features when they are ready, usually every 4-6 weeks, and where we ship bug fixes and minor enhancements into patches every few days. Octopus Cloud customers are always in the fast lane.
 - The **slow lane** is where we stabilize and ship releases with long-term support, along with any patches containing critical bug fixes and security patches for up to six months.

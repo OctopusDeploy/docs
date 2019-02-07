@@ -12,14 +12,3 @@ You can use DSC to install:
 
 - [The Central Octopus Deploy Server](/docs/installation/automating-installation.md#desired-state-configuration).
 - [Octopus Tentacles](/docs/infrastructure/deployment-targets/windows-targets/automating-tentacle-installation.md#AutomatingTentacleinstallation-DSCDesiredStateConfiguration).
-
-## Authentication Automation with OctopusDSC
-
-The following resources are available for automating authentication configuration:
-
-- [Octopus Server Active Directory Authentication](https://github.com/OctopusDeploy/OctopusDSC/tree/master/OctopusDSC/DSCResources/cOctopusServerActiveDirectoryAuthentication).
-- [Octopus Server Azure Active Directory Authentication](https://github.com/OctopusDeploy/OctopusDSC/tree/master/OctopusDSC/DSCResources/cOctopusServerAzureADAuthentication).
-- [Octopus Server Google Apps Authentication](https://github.com/OctopusDeploy/OctopusDSC/tree/master/OctopusDSC/DSCResources/cOctopusServerGoogleAppsAuthentication).
-- [Octopus Server Guest Authentication](https://github.com/OctopusDeploy/OctopusDSC/tree/master/OctopusDSC/DSCResources/cOctopusServerGuestAuthentication).
-- [Octopus Server Okta Authentication](https://github.com/OctopusDeploy/OctopusDSC/tree/master/OctopusDSC/DSCResources/cOctopusServerOktaAuthentication).
-- [Octopus Server Username and Password Authentication](https://github.com/OctopusDeploy/OctopusDSC/tree/master/OctopusDSC/DSCResources/cOctopusServerUsernamePasswordAuthentication).

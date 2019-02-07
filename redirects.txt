@@ -310,7 +310,7 @@ docs/administration/providing-database-performance-metrics.md -> docs/support/pr
 docs/how-to/report-on-deployments-using-excel.md -> docs/administration/reporting/report-on-deployments-using-excel.md
 docs/how-to/use-iis-as-reverse-proxy.md -> docs/administration/security/exposing-octopus/use-iis-as-reverse-proxy.md
 docs/administration/use-iis-as-reverse-proxy.md -> docs/administration/security/exposing-octopus/use-iis-as-reverse-proxy.md
-docs/how-to/specifying-a-custom-container-to-use-for-ad-authentication.md -> docs/administration/authentication/specifying-a-custom-container-to-use-for-ad-authentication.md
+docs/how-to/specifying-a-custom-container-to-use-for-ad-authentication.md -> docs/administration/authentication/active-directory-authentication/specifying-a-custom-container-to-use-for-ad-authentication.md
 docs/how-to/enable-web-request-logging.md -> docs/administration/managing-infrastructure/performance/enable-web-request-logging.md
 docs/how-to/how-to-run-steps-on-the-octopus-server.md -> docs/deployment-examples/package-deployments/deploy-packages-to-your-octopus-server.md
 docs/how-to/how-to-use-custom-certificates-with-octopus-server-and-tentacle.md -> docs/administration/security/octopus-tentacle-communication/how-to-use-custom-certificates-with-octopus-server-and-tentacle.md
@@ -538,17 +538,17 @@ docs/deployment-process/steps/exporting-step-templates.md -> docs/deployment-pro
 docs/administration/octopus-community-step-templates-integration.md -> docs/deployment-process/steps/community-step-templates.md
 docs/administration/subscription-events.md -> docs/administration/managing-infrastructure/subscriptions/index.md
 docs/administration/troubleshooting-authentication-problems.md -> docs/administration/authentication/troubleshooting-authentication-problems.md
-docs/administration/specifying-a-custom-container-to-use-for-ad-authetication.md -> docs/administration/authentication/specifying-a-custom-container-to-use-for-ad-authentication.md
+docs/administration/specifying-a-custom-container-to-use-for-ad-authetication.md -> docs/administration/authentication/active-directory-authentication/specifying-a-custom-container-to-use-for-ad-authentication.md
 docs/administration/authentication-providers/index.md -> docs/administration/authentication/authentication-providers/index.md
 docs/administration/authentication-providers/active-directory-authentication.md -> docs/administration/authentication/authentication-providers/active-directory-authentication.md
 docs/administration/authentication-providers/auto-user-creation -> docs/administration/authentication/authentication-providers/auto-user-creation.md
 docs/administration/authentication-providers/azure-ad-authentication.md -> docs/administration/authentication/authentication-providers/azure-ad-authentication.md
 docs/administration/authentication-providers/googleapps-authentication.md -> docs/administration/authentication/authentication-providers/googleapps-authentication.md
 docs/administration/authentication-providers/guest-login.md -> docs/administration/authentication/authentication-providers/guest-login.md
-docs/administration/authentication-providers/moving-active-directory-domains.md -> docs/administration/authentication/authentication-providers/moving-active-directory-domains.md
+docs/administration/authentication-providers/moving-active-directory-domains.md -> docs/administration/authentication/authentication-providers/active-directory-authentication/moving-active-directory-domains.md
 docs/administration/authentication-providers/troubleshooting-active-directory-integration.md -> docs/administration/authentication/authentication-providers/troubleshooting-active-directory-integration.md
 docs/administration/authentication-providers/okta-authentication.md -> docs/administration/authentication/authentication-providers/okta-authentication.md
-docs/administration/specifying-a-custom-container-to-use-for-ad-authentication.md -> docs/administration/authentication/specifying-a-custom-container-to-use-for-ad-authentication.md
+docs/administration/specifying-a-custom-container-to-use-for-ad-authentication.md -> docs/administration/authentication/active-directory-authentication/specifying-a-custom-container-to-use-for-ad-authentication.md
 docs/administration/run-tentacle-under-a-specific-user.md -> docs/infrastructure/deployment-targets/windows-targets/running-tentacle-under-a-specific-user-account.md
 docs/administration/export-and-import-tentacle-certificates-without-a-profile.md -> docs/infrastructure/deployment-targets/windows-targets/automating-tentacle-installation.md
 docs/deployment-examples/manual-intervention-and-approvals.md -> docs/deployment-process/steps/manual-intervention-and-approvals.md
@@ -734,3 +734,6 @@ docs/administration/configuration/index.md -> docs/administration/managing-infra
 docs/administration/managing-infrastructure/enable-web-request-logging.md -> docs/administration/managing-infrastructure/performance/enable-web-request-logging.md
 docs/administration/managing-infrastructure/workers/built-in-worker.md -> docs/infrastructure/workers/built-in-worker.md
 docs/administration/managing-infrastructure/workers/index.md -> docs/infrastructure/workers/index.md
+docs/administration/authentication/authentication-providers/moving-active-directory-domains.md -> docs/administration/authentication/authentication-providers/active-directory-authentication/moving-active-directory-domains.md
+docs/administration/authentication/specifying-a-custom-container-to-use-for-ad-authentication.md -> docs/administration/authentication/active-directory-authentication/specifying-a-custom-container-to-use-for-ad-authentication.md
+docs/administration/authentication/troubleshooting-active-directory-integration.md -> docs/administration/authentication/active-directory-authentication/troubleshooting-active-directory-integration.md

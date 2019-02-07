@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting Authentication Problems
 description: A guide for troubleshooting authentication problems in Octopus Deploy.
-position: 600
+position: 40
 ---
 
 We take every reasonable effort to make Octopus Deploy secure by enabling you to use the best [authentication provider](/docs/administration/authentication/authentication-providers/index.md) for your organization. This guide will help you troubleshoot any problems you may encounter when signing in to the Octopus Deploy portal.
