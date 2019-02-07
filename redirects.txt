@@ -736,4 +736,4 @@ docs/administration/managing-infrastructure/workers/built-in-worker.md -> docs/i
 docs/administration/managing-infrastructure/workers/index.md -> docs/infrastructure/workers/index.md
 docs/administration/authentication/authentication-providers/moving-active-directory-domains.md -> docs/administration/authentication/authentication-providers/active-directory-authentication/moving-active-directory-domains.md
 docs/administration/authentication/specifying-a-custom-container-to-use-for-ad-authentication.md -> docs/administration/authentication/authentication-providers/active-directory-authentication/specifying-a-custom-container-to-use-for-ad-authentication.md
-docs/administration/authentication/troubleshooting-active-directory-integration.md -> docs/administration/authentication/active-directory-authentication/troubleshooting-active-directory-integration.md
+docs/administration/authentication/troubleshooting-active-directory-integration.md -> docs/administration/authentication/authentication-providers/active-directory-authentication/troubleshooting-active-directory-integration.md
