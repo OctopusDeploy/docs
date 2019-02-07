@@ -161,6 +161,10 @@ Where [<options>] is any of:
       --oktaRoleClaimType=VALUE
                              Tell Octopus how to find the roles in the
                                security token from Okta.
+      --oktaUsernameClaimType=VALUE
+                             Tell Octopus how to find the value for the
+                               Octopus Username in the Okta token. Defaults to
+                               "preferred_username" if left blank.
       --usernamePasswordIsEnabled=VALUE
                              Set whether Octopus username/password
                                authentication is enabled.
