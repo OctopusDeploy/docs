@@ -11,7 +11,14 @@ Spaces was introduced in **Octopus 2019.1** and as such is not included in the c
 
 With Spaces you can partition your Octopus Deploy server so that each of your teams can only access the projects, environments, and infrastructure they work with from the spaces they are members of.
 
-Using spaces keeps the different projects and infrastructure your teams work with completely separate, which means something configured in **Space-A**, is not available to projects in **Space-B**. This makes it easier for large organizations with multiple teams using Octopus because each team member will only see the projects, environments, and infrastructure that is available in their space.
+Spaces keeps the different projects and infrastructure your teams work with completely separate, which means something configured in **Space-A**, is not available to projects in **Space-B**. This makes it easier for large organizations with multiple teams using Octopus because each team member will only see the projects, environments, and infrastructure that is available in their space. If your organization has any of the following characteristics, you may find spaces extremely useful:
+
+- Many groups of engineers across many projects.
+- Requires separation of duties.
+- Completely autonomous teams of engineers, each responsible for their entire process.
+- Large number of projects or environments have created a cluttered dashboard and you just want to tidy them up.
+
+On the other hand, if you need to keep resources available to multiple teams on a system-wide basis, spaces will prevent you from sharing those resources. If this is the case, the default space is likely the best solution for you and your teams.
 
 By default, every instance of Octopus server since **Octopus 2019.1** comes with a default space. However, if your organization is not planning to use multiple spaces, this default space can be safely ignored and doesn't require configuration or management.
 
@@ -138,16 +145,3 @@ The following table shows what is space-scoped, system-scoped, or scoped to both
 As always, using our client libraries offer the best chance of a successful upgrade for your existing automation, and our latest release of Octopus Client has all the changes required to inter-operate with any version of Octopus, as do most of our plugins for other build systems. However, due to the depth and breadth of the changes required to make spaces a reality, we weren't able to maintain backwards compatibility for the REST API in all cases.
 
 Please refer to [release notes](https://octopus.com/downloads/compare?from=2018.12.1&to=2019.1.0) for a complete list of breaking changes.
-
-## When should I use Spaces?
-
-Spaces is extremely useful for organizations that have any number of the following characteristics:
-
-- Many groups of engineers across many projects
-- Requires separation of duties
-- Completely autonomous teams of engineers, each responsible for their entire process
-- Large number of projects or environments have created a cluttered dashboard and you just want to tidy them up
-
-### When shouldn't I use Spaces?
-
-If you need to keep resources available to multiple teams on a system-wide basis, spaces would prevent you from sharing those resources. If this is the case, the default space is likely the best solution for you and your teams.
