@@ -18,9 +18,8 @@ The following platforms are explicitly supported (we run automated tests against
 
 - Ubuntu 16.04 LTS
 - Ubuntu 14.04 LTS
-- Ubuntu 12.04 LTS
-- Redhat 7.2
-- Centos 7.5
+- Redhat (RHEL) 7.2
+- Centos 7.6
 - Amazon Linux 2
 - Debian 8.7
 - Fedora 23
