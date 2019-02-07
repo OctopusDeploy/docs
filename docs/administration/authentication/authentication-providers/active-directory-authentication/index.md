@@ -149,4 +149,4 @@ Learn about [configuring Teams to utilize Trusted Domains](/docs/administration/
 
 ### Troubleshooting {#ActiveDirectoryauthentication-Troubleshooting}
 
-For more information on troubleshooting, see [Troubleshooting Active Directory integration](/docs/administration/authentication/authentication-providers/troubleshooting-active-directory-integration.md).
+For more information on troubleshooting, see [Troubleshooting Active Directory integration](/docs/administration/authentication/authentication-providers/active-directory-authentication/troubleshooting-active-directory-integration.md).
