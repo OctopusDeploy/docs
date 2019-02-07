@@ -18,7 +18,8 @@ Where [<options>] is any of:
       --stop                 Stop the Windows Service if it is running
       --reconfigure          Reconfigure the Windows Service
       --install              Install the Windows Service
-      --username=VALUE       Username to run the service under
+      --username, --user=VALUE
+                             Username to run the service under
                                (DOMAIN\Username format). Only used when --
                                install or --reconfigure are used.
       --uninstall            Uninstall the Windows Service
