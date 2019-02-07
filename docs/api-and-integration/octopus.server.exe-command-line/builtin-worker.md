@@ -21,7 +21,8 @@ Where [<options>] is any of:
                                factory default, which is to execute scripts
                                using the same account as the Octopus Server
                                itself.
-      --username=VALUE       The username for a user account the built-in
+      --username, --user=VALUE
+                             The username for a user account the built-in
                                worker should use when executing custom scripts,
                                like 'octopus-worker' or 'octopus-
                                worker@mycomany.com'. Default is to use the same
@@ -40,3 +41,4 @@ Or one of the common options:
 
       --help                 Show detailed help for this command
 ```
+

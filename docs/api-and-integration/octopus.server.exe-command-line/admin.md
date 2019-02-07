@@ -14,7 +14,8 @@ Where [<options>] is any of:
 
       --instance=VALUE       Name of the instance to use
       --wait=VALUE           Milliseconds to wait
-      --username=VALUE       The username of the administrator to
+      --username, --user=VALUE
+                             The username of the administrator to
                                create/modify
       --email=VALUE          The email of the administrator to create/modify
       --password=VALUE       The password to set for the administrator

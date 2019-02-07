@@ -13,6 +13,8 @@ Usage: octopus.server run [<options>]
 Where [<options>] is any of:
 
       --instance=VALUE       Name of the instance to use
+      --customextension=VALUE
+                             File path of a custom extension to load
       --console              Don't attempt to run as a service, even if the
                                user is non-interactive
 
