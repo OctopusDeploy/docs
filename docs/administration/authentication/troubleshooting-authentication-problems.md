@@ -29,7 +29,7 @@ See our [detailed troubleshooting guide](/docs/administration/security/cve/csrf-
 
 ## Active Directory
 
-If you are using Active Directory please refer to our [detailed troubleshooting guide](/docs/administration/authentication/authentication-providers/troubleshooting-active-directory-integration.md).
+If you are using Active Directory please refer to our [detailed troubleshooting guide](/docs/administration/authentication/authentication-providers/active-directory-authentication/troubleshooting-active-directory-integration.md).
 
 ## External Authentication Providers
 
