@@ -88,7 +88,7 @@ In versions prior **Octopus 3.5**, Octopus Deploy maintains different User recor
 
 When switching from username/password to Active Directory, after running the below commands you will find that duplicate accounts are created the first time an Active Directory user logs into Octopus Deploy. The pre-existing account should be either be deleted directly after the switch, or deleted after the user logs in for the first time using the Active Directory account. The Active Directory provisioned account will be recognizable as *paul*@domain compared to *paul*.
 
-In 3.5 the User records are handled differently, [learn more](/docs/administration/authentication/authentication-providers/index.md#AuthenticationProviders-usersandauthprovidersUsersandAuthenticationProviders).
+In 3.5 the User records are handled differently, [learn more](/docs/administration/authentication/index.md#AuthenticationProviders-usersandauthprovidersUsersandAuthenticationProviders).
 :::
 
 ### To Select Active Directory Authentication {#ActiveDirectoryauthentication-ToselectActiveDirectoryauthentication}
@@ -103,7 +103,7 @@ Octopus.Server.exe configure --usernamePasswordIsEnabled=false
 Octopus.Server.exe admin --username=YOURUSERNAME
 ```
 
-The text `YOURUSERNAME` should be your Active Directory account name, in either **user@domain** or **domain\user** format (see [Authentication Providers](/docs/administration/authentication/authentication-providers/index.md)).
+The text `YOURUSERNAME` should be your Active Directory account name, in either **user@domain** or **domain\user** format (see [Authentication Providers](/docs/administration/authentication/index.md)).
 
 ### To Select Username/Password Authentication {#ActiveDirectoryauthentication-Toselectusername/passwordauthentication}
 
@@ -149,4 +149,4 @@ Learn about [configuring Teams to utilize Trusted Domains](/docs/administration/
 
 ### Troubleshooting {#ActiveDirectoryauthentication-Troubleshooting}
 
-For more information on troubleshooting, see [Troubleshooting Active Directory integration](/docs/administration/authentication/authentication-providers/active-directory-authentication/troubleshooting-active-directory-integration.md).
+For more information on troubleshooting, see [Troubleshooting Active Directory integration](/docs/administration/authentication/active-directory-authentication/troubleshooting-active-directory-integration.md).

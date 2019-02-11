@@ -39,7 +39,7 @@ If you do not want to expose your Octopus Server to the public internet, but wan
 However, you may want to provide access for your users, or external services which leverage Octopus, and using a VPN is impractical. If you decide to expose the HTTP API and web portal of your Octopus Server to the public internet, here are some things you should consider:
 
 1. Always enable HTTPS using SSL. We also recommend forcing all requests to use HTTPS, and enabling HSTS. Learn about [exposing Octopus Server over HTTPS](/docs/administration/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md). Avoid exposing your Octopus Server via HTTP without SSL.
-1. Consider how your users authenticate with your Octopus Server. You should use an authentication provider which supports multi-factor authentication (MFA). Learn about [authentication providers](/docs/administration/authentication/authentication-providers/index.md).
+1. Consider how your users authenticate with your Octopus Server. You should use an authentication provider which supports multi-factor authentication (MFA). Learn about [authentication providers](/docs/administration/authentication/index.md).
 1. Consider setting up a routine security scan of your Octopus Server using a tool of your choice. This will provide further insights into the security precautions you should take.
 1. Octopus enables certain security-related HTTP headers by default, however some of them are optional. Learn about [security headers](/docs/administration/security/http-security-headers.md).
 

@@ -4,11 +4,11 @@ description: A guide for troubleshooting authentication problems in Octopus Depl
 position: 40
 ---
 
-We take every reasonable effort to make Octopus Deploy secure by enabling you to use the best [authentication provider](/docs/administration/authentication/authentication-providers/index.md) for your organization. This guide will help you troubleshoot any problems you may encounter when signing in to the Octopus Deploy portal.
+We take every reasonable effort to make Octopus Deploy secure by enabling you to use the best [authentication provider](/docs/administration/authentication/index.md) for your organization. This guide will help you troubleshoot any problems you may encounter when signing in to the Octopus Deploy portal.
 
 ## Octopus Authentication Cookie
 
-Once you have proven your identity to Octopus Server using one of the supported [authentication providers](/docs/administration/authentication/authentication-providers/index.md), the Octopus Server will issue a cookie so your web browser can make secure requests on your behalf. The following messages may indicate a problem with your browser, or your network, and the Octopus authentication cookie:
+Once you have proven your identity to Octopus Server using one of the supported [authentication providers](/docs/administration/authentication/index.md), the Octopus Server will issue a cookie so your web browser can make secure requests on your behalf. The following messages may indicate a problem with your browser, or your network, and the Octopus authentication cookie:
 
 `The sign in succeeded but we failed to get the resultant permissions for this user account. This can happen if the Octopus authentication cookie is blocked.`
 
@@ -29,7 +29,7 @@ See our [detailed troubleshooting guide](/docs/administration/security/cve/csrf-
 
 ## Active Directory
 
-If you are using Active Directory please refer to our [detailed troubleshooting guide](/docs/administration/authentication/authentication-providers/active-directory-authentication/troubleshooting-active-directory-integration.md).
+If you are using Active Directory please refer to our [detailed troubleshooting guide](/docs/administration/authentication/active-directory-authentication/troubleshooting-active-directory-integration.md).
 
 ## External Authentication Providers
 

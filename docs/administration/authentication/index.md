@@ -10,11 +10,11 @@ Starting from **Octopus 3.5**, Octopus Deploy also supports two OpenID Connect b
 
 ## Authentication Providers
 
-- [Active Directory Authentication](/docs/administration/authentication/authentication-providers/active-directory-authentication/index.md)
-- [Azure Active Directory Authentication](/docs/administration/authentication/authentication-providers/azure-ad-authentication.md)
-- [GoogleApps Authentication](/docs/administration/authentication/authentication-providers/googleapps-authentication.md)
-- [Okta Authentication](/docs/administration/authentication/authentication-providers/okta-authentication.md)
-- [Guest Login](/docs/administration/authentication/authentication-providers/guest-login.md)
+- [Active Directory Authentication](/docs/administration/authentication/active-directory-authentication/index.md)
+- [Azure Active Directory Authentication](/docs/administration/authentication/azure-ad-authentication.md)
+- [GoogleApps Authentication](/docs/administration/authentication/googleapps-authentication.md)
+- [Okta Authentication](/docs/administration/authentication/okta-authentication.md)
+- [Guest Login](/docs/administration/authentication/guest-login.md)
 
 ## Configuring Authentication Providers {#AuthenticationProviders-ConfiguringAuthenticationProviders}
 

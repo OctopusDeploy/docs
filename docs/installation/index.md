@@ -28,7 +28,7 @@ You need to download the latest version of the [Octopus Installer](/docs/install
 6. Accept the default **Home Directory** or enter a location of your choice.
 7. Decide whether to use a **Local System Account** or a **Custom Domain Account**.
 
-  Learn more about the [permissions required for the Octopus Windows Service](/docs/installation/permissions-required-for-the-octopus-windows-service.md), using a [Managed Service Account](/docs/installation/managed-service-account.md), or [configuring authentication providers](/docs/administration/authentication/authentication-providers/index.md).
+  Learn more about the [permissions required for the Octopus Windows Service](/docs/installation/permissions-required-for-the-octopus-windows-service.md), using a [Managed Service Account](/docs/installation/managed-service-account.md), or [configuring authentication providers](/docs/administration/authentication/index.md).
 
 8. On the **Database** page, click the dropdown arrow in the **Server Name** field to detect the SQL Server Database. Octopus will create the database for you which is recommended process; however, you can also [create your own database](/docs/installation/sql-server-database.md#creating-the-database).
 9. Enter a name for the database, and click **OK** to **create the database**.

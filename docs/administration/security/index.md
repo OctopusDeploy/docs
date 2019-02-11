@@ -92,7 +92,7 @@ The following sections describe the security controls you can put in place when 
 
 Before a person can access your Octopus Deploy installation, they must validate their identity. We provide built-in support for the most commonly used authentication providers including Active Directory (NTLM and Kerberos), Google Apps, and Microsoft Azure Active Directory. Octopus Deploy works natively with Open ID Connect (OIDC) so you can connect to other identity providers. If you don't want to use an external identity providers, you can let Octopus Deploy securely manage your usernames and passwords for you.
 
-Learn about [authentication providers](/docs/administration/authentication/authentication-providers/index.md).
+Learn about [authentication providers](/docs/administration/authentication/index.md).
 
 Once a person has verified their identity, you can control which activities these users can perform.
 
