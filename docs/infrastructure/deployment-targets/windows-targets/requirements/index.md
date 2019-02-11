@@ -18,12 +18,13 @@ The installation requirements for the latest version of Tentacle are:
 
 ## .NET Framework.
 
-- Tentacle 3.1+ (TLS 1.0 or 1.2): .NET Framework 4.5+ ([download](http://www.microsoft.com/en-au/download/details.aspx?id=42643)).
+- Tentacle 3.1+ (TLS 1.0 or 1.2): .NET Framework 4.5.2+ ([download](http://www.microsoft.com/en-au/download/details.aspx?id=42643)).
 
 ## Windows PowerShell
 
 - Windows PowerShell 2.0. This is automatically installed on 2008 R2.
 - Windows PowerShell 3.0 or 4.0 is recommended, both of which are compatible with PowerShell 2.0, but execute against .NET 4.0+.
+- Windows PowerShell 5.0 is required to run Azure steps
 
 ## Hardware Requirements
 
