@@ -747,4 +747,4 @@ docs/administration/authentication/authentication-providers/azure-ad-authenticat
 docs/administration/authentication/authentication-providers/googleapps-authentication.md -> docs/administration/authentication/googleapps-authentication.md
 docs/administration/authentication/authentication-providers/guest-login.md -> docs/administration/authentication/guest-login.md
 docs/administration/authentication/authentication-providers/index.md -> docs/administration/authentication/index.md
-docs/administration/authentication/authentication-providers/okta-authentication.md -> docs/administration/authentication/okat-authentication.md
+docs/administration/authentication/authentication-providers/okta-authentication.md -> docs/administration/authentication/okta-authentication.md
