@@ -1,5 +1,5 @@
 ---
-title: Managing Users and Teams
+title: Users and Teams
 description: Octopus users can be organized in to teams and given various permissions via roles based security.  Teams can be further restricted to specific projects, environments and more.
 position: 60
 ---

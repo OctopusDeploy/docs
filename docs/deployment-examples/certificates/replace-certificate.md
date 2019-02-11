@@ -1,7 +1,7 @@
 ---
 title: Replace a Certificate
 description: Replace a certificate managed by Octopus Deploy
-position: 4
+position: 80
 ---
 
 The Replace Certificate feature is designed for the scenario where a new certificate has been obtained via a renewal process.

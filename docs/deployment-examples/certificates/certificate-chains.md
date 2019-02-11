@@ -1,7 +1,7 @@
 ---
 title: Certificate Chains
 description: Manage certificate files containing a chain of certificates
-position: 6
+position: 15
 ---
 
 Uploaded PFX or PEM files may contain a certificate-chain. i.e. A certificate with a private-key, plus one or more authority certificates.

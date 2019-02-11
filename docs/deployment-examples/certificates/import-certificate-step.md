@@ -1,7 +1,7 @@
 ---
 title: Import Certificate to Windows Certificate Store
 description: The Import Certificate deployment step allows you to import a certificate managed by Octopus into one of the Windows Certificate Stores as part of a deployment process
-position: 4 
+position: 30 
 ---
 
 The *Import Certificate* step can be used to import a certificate managed by Octopus into a Windows Certificate Store.

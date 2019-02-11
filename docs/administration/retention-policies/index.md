@@ -1,7 +1,7 @@
 ---
 title: Retention Policies
 description: Retention policies allow you to specify the releases, packages and files you want to keep as well as the ones you want cleaned up.
-position: 100
+position: 90
 ---
 
 As you deploy more often and to different environments, files and releases can build up. This is what retention policies are for. They allow you to define what is kept in terms of releases, packages and files.  

@@ -6,9 +6,11 @@ position: 1
 
 In versions of Octopus Deploy up to and including **Octopus 3.4**, two authentication providers are supported. The first is an internal provider (UsernamePassword), where Octopus itself handles identity management.  The second is Active Directory (Domain), where identity management is the responsibility of Active Directory.
 
+Starting from **Octopus 3.5**, Octopus Deploy also supports two OpenID Connect based providers, Azure AD and GoogleApps, out-of-the-box.  Also starting in **Octopus 3.5** is support for using multiple authentication providers simultaneously, e.g. you could choose to have UsernamePassword and Azure AD enabled at the same time.  
+
 ## Configuring Authentication Providers {#AuthenticationProviders-ConfiguringAuthenticationProviders}
 
-Starting from **Octopus 3.5**, Octopus Deploy also supports two OpenID Connect based providers, Azure AD and GoogleApps, out-of-the-box.  Also starting in **Octopus 3.5** is support for using multiple authentication providers simultaneously, e.g. you could choose to have UsernamePassword and Azure AD enabled at the same time.  To support this, there are some new command-line options for the configure command.  Examples are as follows:
+The following command-line options for the configure command enable the different authentication providers:
 
 ```powershell
 Octopus.Server.exe configure --usernamePasswordIsEnabled=true

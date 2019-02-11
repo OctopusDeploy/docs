@@ -1,9 +1,9 @@
 ---
-title: Deploy Using an Azure Resource Manager (ARM) Template
+title: Deploy Using an Azure Resource Manager Template
 description: Deploy using an Azure Resource Manager (ARM) templates.
 ---
 
-Azure Resource Manager support was introduced in **Octopus 3.3**.
+Azure Resource Manager (ARM) support was introduced in **Octopus 3.3**.
 
 Azure Key Vault support was introduced in **Octopus 3.3.25**.
 

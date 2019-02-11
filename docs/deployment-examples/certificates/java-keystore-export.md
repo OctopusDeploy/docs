@@ -1,7 +1,7 @@
 ---
-title: Exporting a Certificate to a Java KeyStore
+title: Export a Certificate to a Java KeyStore
 description: Export a Java KeyStore from a certificate managed by Octopus.
-version: "4.1"
+position: 70
 ---
 
 The `Deploy a KeyStore to the filesystem` step can be used to take a certificate managed by Octopus and save it as a Java KeyStore on the target machine.

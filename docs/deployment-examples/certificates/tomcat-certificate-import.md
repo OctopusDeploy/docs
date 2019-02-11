@@ -1,6 +1,7 @@
 ---
-title: Importing Certificates into Tomcat
+title: Import Certificates into Tomcat
 description: Configure Tomcat with a certificate managed by Octopus.
+position: 40
 ---
 
 With the `Deploy a certificate to Tomcat` step, certificates managed by Octopus can be configured as part of a Tomcat instance to allow HTTPS traffic to be served.

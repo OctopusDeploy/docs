@@ -1,7 +1,7 @@
 ---
-title: Certificates - Supported File Formats
+title: Supported Certificate File Formats
 description: Certificate file-formats supported by Octopus Deploy
-position: 2
+position: 20
 ---
 
 The following certificate formats are supported in Octopus Deploy:

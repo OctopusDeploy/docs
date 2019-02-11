@@ -18,7 +18,7 @@ Before you install Octopus Deploy, review the software and hardware [requirement
 
 You need to download the latest version of the [Octopus Installer](/docs/installation/downloads.md).
 
-## Installing Octopus
+## Install Octopus
 
 1. Start the Octopus Installer and follow the onscreen prompts.
 2. Accept the **License Agreement**, and either accept the default **Destination Folder** or choose a different location.
