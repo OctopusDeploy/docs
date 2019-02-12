@@ -14,24 +14,24 @@ Read more about long-term support, fast lanes, and slow lanes in this [blog post
 
 !include <server-downloads>
 
-### Tentacle 3.24.0
+## Tentacle 3.24.0
 
 If you're using the **Octopus 2018.10-LTS** or prior versions you need **Tentacle 3.24.0**:
 
 - [Octopus Tentacle x64](https://octopus.com/downloads/slowlane/WindowsX64/OctopusTentacle)
 - [Octopus Tentacle 32-bit/x86](https://octopus.com/downloads/slowlane/WindowsX86/OctopusTentacle)
 
-### Tentacle 4.0.0
+## Tentacle 4.0.0
 
 If you're using Spaces or **Octopus 2019.1** or above you need **Tentacle 4.0.0**:
 
  - [Octopus Tentacle x64](https://octopus.com/downloads/fastlane/WindowsX64/OctopusTentacle)
  - [Octopus Tentacle 32-bit/x86](https://octopus.com/downloads/fastlane/WindowsX86/OctopusTentacle)
 
-### Command-line Tools
+## Command-line Tools
 
  - [Command-Line Tools](https://octopus.com/downloads/latest/CommandLineTools)
 
-### TeamCity Plugin
+## TeamCity Plugin
 
  - [TeamCity Plugin](https://octopus.com/downloads/latest/TeamCityPlugin)
