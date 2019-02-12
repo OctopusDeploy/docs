@@ -72,7 +72,8 @@ OCTOPUS_MASTER_KEY=U9ZrQR98uLXyz4CXJzUuCA==
 
 Run the same `docker-compose` command as provided above and Docker will detect that the changes only impact the the Octopus container. It will then stop and recreate only the Octopus Server, leaving the SQL Server running as-is. For further information about the additional configuration of the SQL Server container consult the appropriate [Docker Hub repository information](https://hub.docker.com/r/microsoft/mssql-server-windows-express/) pages. It is generally advised however, to not run SQL Server inside a container for production purposes.
 
-### Octopus Server and Tentacle
+## Octopus Server and Tentacle
+
 For a complete environment of SQL Server, Octopus Server, and Octopus Tentacle, you can use the following sample `docker-compose.yml` file:
 
 ```yml
@@ -147,5 +148,5 @@ OCTOPUS_ADMIN_USERNAME=admin
 OCTOPUS_ADMIN_PASSWORD=Password01!
 ```
 
-#### Import
+### Import
 Since the Tentacle will perform a `register-with` command when it starts up, we need to ensure that our fresh new Octopus server has an environment available to add the targets to. This is accomplished above by providing some files in the `./Import` directory. This folder contains files that are generated as part of an [Octopus.Migrator.exe export](docs/api-and-integration/octopus.migrator.exe-command-line/index.md) invocation performed against an existing installation. Currently the import process requires the export password to be `blank`. When the Octopus Server starts up in the container, this directory is inspected and [Octopus.Migrator.exe import](docs/api-and-integration/octopus.migrator.exe-command-line/migrator-import.md) is invoked if a `metadata.json` file is present.

@@ -24,10 +24,10 @@ docker run --interactive --detach `
  octopusdeploy/tentacle:3.19.2
 ```
 
-### Configuration
+## Configuration
 When running an Octopus Tentacle Image, the following values can be provided to configure the running Octopus Tentacle instance.
 
-#### Environment Variables
+### Environment Variables
 Read Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#set-environment-variables--e---env---env-file) about setting environment variables.
 
 |  Name       |    |
@@ -44,14 +44,14 @@ Read Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#set
 |**PublicHostNameConfiguration**|How the url that the Octopus Server will use to communicate with the Tentacle is determined. Can be `PublicIp`, `FQDN`, `ComputerName` or `Custom`. Defaults to `PublicIp`|
 |**CustomPublicHostName**|If PublicHostNameConfiguration is set to `Custom`, the host name that the Octopus Server should use to communicate with the Tentacle|
 
-#### Exposed Container Ports
+### Exposed Container Ports
 Read the [Docker docs](https://docs.docker.com/engine/reference/commandline/run/#publish-or-expose-port--p---expose) about exposing ports.
 
 |  Name       |    |
 | ------------- | ------- |
 |**10933**|Port tentacle will be listening on (if in listening mode)|
 
-#### Volume Mounts
+### Volume Mounts
 Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#mount-volume--v---read-only) about mounting volume.
 
 |  Name       |    |

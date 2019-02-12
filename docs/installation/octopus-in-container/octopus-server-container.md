@@ -29,11 +29,11 @@ To set the connection string we provide an _environment variable_ `sqlDbConnecti
 
 In this example, we are running the image `octopusdeploy/octopusdeploy:2018.3.13`. The tag maps directly to the Octopus Server version that is bundled inside the image.
 
-### Configuration
+## Configuration
 
 When running an Octopus Server Image, the following values can be provided to configure the running Octopus Server instance.
 
-#### Environment Variables
+### Environment Variables
 
 Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#set-environment-variables--e---env---env-file) about setting environment variables.
 
@@ -44,7 +44,7 @@ Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/
 |**OctopusAdminUsername**|The admin user to create for the Octopus Server|
 |**OctopusAdminPassword**|The password for the admin user for the Octopus Server|
 
-#### Exposed Container Ports
+### Exposed Container Ports
 Read Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#publish-or-expose-port--p---expose) about exposing ports.
 
 |  Name       |    |
@@ -54,7 +54,7 @@ Read Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#pub
 
 _The Octopus Server container does not currently support HTTPS however this should be available sometime in the future_
 
-#### Volume Mounts
+### Volume Mounts
 
 Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#mount-volume--v---read-only) about mounting volume.
 
@@ -65,7 +65,7 @@ Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/
 |**C:\Artifacts**|Path where artifacts are stored|
 |**C:\TaskLogs**|Path where task logs are stored|
 
-### Upgrading
+## Upgrading
 
 When the volumes are externally mounted to the host filesystem, upgrades between Octopus versions are much easier. We can picture the upgrade process with a container as being similar to [moving a standard Octopus Server](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-database-and-server.md) since containers, being immutable, don't themselves get updated.
 
