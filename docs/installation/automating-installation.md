@@ -4,18 +4,15 @@ description: Information on how to install and configure an Octopus Server in a 
 position: 7
 ---
 
-## Octopus Installers
-
 Octopus comes in a MSI that can be deployed via group policy or other means.
 
-The latest Octopus MSI can always be [downloaded from the Octopus Deploy downloads page](https://octopus.com/downloads).
+You can use the permanent links below to download the fast lane or slow lane versions of the Octopus Deploy Server.
 
-We make the latest MSIs available at the following links:
+Read more about long-term support, fast lanes, and slow lanes in this [blog post](https://octopus.com/blog/octopus-release-2018.10-lts).
 
-- 32-bit: [https://octopus.com/downloads/latest/WindowsX86/OctopusServer](https://octopus.com/downloads/latest/WindowsX86/OctopusServer)
-- 64-bit: [https://octopus.com/downloads/latest/WindowsX64/OctopusServer](https://octopus.com/downloads/latest/WindowsX64/OctopusServer)
+!include <server-downloads>
 
-Automating the installation of Octopus Server is a three step process.
+Automating the installation of Octopus server is a three step process.
 
 ### 1. Install the MSI on a Temporary Machine Interactively
 In this step we install the MSI on a machine interactively so that we can complete the wizard to add a new instance.
@@ -51,7 +48,7 @@ msiexec /i Octopus.<version>.msi /quiet RUNMANAGERONEXIT=no INSTALLLOCATION="<in
 
 ### 3. Configuration
 
-The MSI installer simply extracts files and adds some shortcuts and event log sources. The actual configuration of Octopus Server is done later, via the script you saved above.
+The MSI installer simply extracts files and adds some shortcuts and event log sources. The actual configuration of Octopus Deploy server is done later, via the script you saved above.
 
 To run the script start an admin shell prompt and execute the script, this should apply all the settings to the new instance.
 

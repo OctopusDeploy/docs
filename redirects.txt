@@ -49,7 +49,8 @@ docs/packaging-applications/creating-zip-packages.md -> docs/packaging-applicati
 docs/packaging-applications/creating-packages/nuget-packages/using-nuget.exe.md -> docs/packaging-applications/creating-packages/nuget-packages/index.md
 docs/installation/installing-octopus/index.md -> docs/installation/index.md
 docs/installation/installing-octopus/automating-installation.md -> docs/installation/automating-installation.md
-docs/installation/installing-octopus/permissions-required-for-the-octopus-windows-service.md -> docs/installation/permissions-required-for-the-octopus-windows-service.md
+docs/installation/installing-octopus/permissions-required-for-the-octopus-windows-service.md -> docs/installation/permissions-for-the-octopus-windows-service.md
+docs/installation/permissions-required-for-the-octopus-windows-service.md -> docs/installation/permissions-for-the-octopus-windows-service.md
 docs/installation/installing-octopus/sql-server-database-requirements.md -> docs/installation/sql-server-database.md
 docs/installation/installing-tentacles/index.md -> docs/infrastructure/deployment-targets/windows-targets/index.md
 docs/installation/installing-tentacles/listening-tentacles.md -> docs/infrastructure/deployment-targets/windows-targets/index.md

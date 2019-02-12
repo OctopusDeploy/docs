@@ -10,7 +10,7 @@ Octopus Deploy stores projects, environments, and deployment history in a Micros
 
 ## Using SQL Server Express {#SQLServerDatabaseRequirements-UsingSQLServerExpress}
 
-The easiest and cheapest way to get started is with [SQL Server Express](http://downloadsqlserverexpress.com/) and install the Octopus Deploy Server and SQL Server Express side-by-side on your server. This is a great way to test Octopus for a proof of concept. Depending on your needs, you might decide to use SQL Server Express, or upgrade to another supported edition.
+The easiest and cheapest way to get started is with [SQL Server Express](http://downloadsqlserverexpress.com/) and install the Octopus Deploy server and SQL Server Express side-by-side on your server. This is a great way to test Octopus for a proof of concept. Depending on your needs, you might decide to use SQL Server Express, or upgrade to another supported edition.
 
 ## Creating the Database
 
@@ -38,7 +38,7 @@ Learn more about [changing the database collation](/docs/administration/data/oct
 
 Octopus will work with [any of the supported highly available SQL Server implementations](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
 
-Make sure the Octopus Server is connecting to the listener which will route database requests to the active SQL Server node and allow for automatic fail over. Learn about [connecting to listeners and handling fail over](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover).
+Make sure the Octopus Deploy server is connecting to the listener which will route database requests to the active SQL Server node and allow for automatic fail over. Learn about [connecting to listeners and handling fail over](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover).
 
 A typical connection string for using a SQL Server AlwaysOn availability group looks like this:
 

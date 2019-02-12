@@ -4,15 +4,13 @@ description: An Octopus Tentacle instance can be run directly from within a cont
 position: 2
 ---
 
-## Octopus Tentacle
-
-Running a Tentacle inside a container may be preferable in some environments where installing one directly on the host is not an option. The currently available Octopus Tentacle Docker container can be run in either [polling](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles) or [listening](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommend) mode.
+Running an Octopus Tentacle inside a container may be preferable in some environments where installing one directly on the host is not an option. The currently available Octopus Tentacle Docker container can be run in either [polling](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles) or [listening](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommend) mode.
 
 :::info
- Keep in mind that because the Tentacle will be running _inside a container_, script execution wont be happening on the host itself and so Octopus Tentacles inside a container may not be appropriate for many deployment tasks.
+Tentacles set up this way will run *inside a container* and script execution will not happen on the host itself. For this reason, Octopus Tentacles inside a container may not be appropriate for many deployment tasks.
 :::
 
-When an Octopus Tentacle container starts up, it will attempt to invoke the [`register-with`](/docs/api-and-integration/tentacle.exe-command-line/register-with.md) command to connect and add itself as a machine to that server with the provided roles and environments. Note that due to some limitations in Windows Containers that have only [recently](https://github.com/moby/moby/issues/25982) been fixed and made available in the 1709 Windows release, this registration will occur on every startup and you may end up with multiple instances if you stop/start a container. Our goal is to update this image to de-register the Tentacle when the container `SIGKILL` signal is passed in. If using the Tentacle container in the meantime you may want to use [machine policies](/docs/infrastructure/machine-policies.md) to remove the duplicated targets.
+When an Octopus Tentacle container starts up, it will attempt to invoke the [`register-with`](/docs/api-and-integration/tentacle.exe-command-line/register-with.md) command to connect and add itself as a machine to that server with the provided roles and environments. Due to some limitations in Windows Containers that have only [recently](https://github.com/moby/moby/issues/25982) been fixed and made available in the 1709 Windows release, this registration will occur on every startup and you may end up with multiple instances if you stop/start a container. Our goal is to update this image to de-register the Tentacle when the container `SIGKILL` signal is passed in. In the meantime you may want to use [machine policies](/docs/infrastructure/machine-policies.md) to remove the duplicated targets.
 
 ```PowerShell
 docker run --interactive --detach `
@@ -47,7 +45,7 @@ Read Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#set
 |**CustomPublicHostName**|If PublicHostNameConfiguration is set to `Custom`, the host name that the Octopus Server should use to communicate with the Tentacle|
 
 #### Exposed Container Ports
-Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#publish-or-expose-port--p---expose) about exposing ports.
+Read the [Docker docs](https://docs.docker.com/engine/reference/commandline/run/#publish-or-expose-port--p---expose) about exposing ports.
 
 |  Name       |    |
 | ------------- | ------- |

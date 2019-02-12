@@ -4,10 +4,9 @@ description: A fully self-contained SQL Server, Octopus Server and Octopus Tenta
 position: 3
 ---
 
-## Start Everything with Docker Compose
-For evaluation purposes you may want to run a stand-alone SQL Server instance to run alongside the Octopus Server. For this scenario, you can leverage [Docker Compose](https://docs.docker.com/compose/overview/) to spin up and manage a multi-container Docker application as a single unit.
+For evaluation purposes you may want to run a stand-alone SQL Server instance to run alongside the Octopus server. For this scenario, you can leverage [Docker Compose](https://docs.docker.com/compose/overview/) to spin up and manage a multi-container Docker application as a single unit.
 
-A simple example of a `docker-compose.yml` file combining a SQL Server instance along with a dependent Octopus Server looks as follows.
+A simple example of a `docker-compose.yml` file combining a SQL Server instance along with a dependent Octopus server looks as follows.
 
 ```YAML
 version: '2.1'
@@ -53,7 +52,7 @@ OCTOPUS_ADMIN_PASSWORD=SecreTP@ass
 
 In this case we are specifying the `sa` password that is used when starting the sql container and is used for db connectivity from the Octopus Server. We have also provided the Octopus admin credentials and set a host port mapping to port `81` so that we can access the server externally.
 
-Startup both containers by running:
+Start up both containers by running:
 
 ```
 docker-compose --poject-name Octopus up -d
@@ -149,4 +148,4 @@ OCTOPUS_ADMIN_PASSWORD=Password01!
 ```
 
 #### Import
-Since the tentacle will perform a `register-with` command when it starts up, we need to ensure that our fresh new Octopus Server has an environment available to add the targets to. This is accomplished above by providing some files in the `./Import` directory. This folder contains files that are generated as part of an [Octopus.Migrator.exe export](docs/api-and-integration/octopus.migrator.exe-command-line/index.md) invocation performed against an existing installation. Currently the import process requires the export password to be `blank`. When the Octopus Server starts up in the container, this directory is inspected and [Octopus.Migrator.exe import](docs/api-and-integration/octopus.migrator.exe-command-line/migrator-import.md) is invoked if a `metadata.json` file is present.
+Since the Tentacle will perform a `register-with` command when it starts up, we need to ensure that our fresh new Octopus server has an environment available to add the targets to. This is accomplished above by providing some files in the `./Import` directory. This folder contains files that are generated as part of an [Octopus.Migrator.exe export](docs/api-and-integration/octopus.migrator.exe-command-line/index.md) invocation performed against an existing installation. Currently the import process requires the export password to be `blank`. When the Octopus Server starts up in the container, this directory is inspected and [Octopus.Migrator.exe import](docs/api-and-integration/octopus.migrator.exe-command-line/migrator-import.md) is invoked if a `metadata.json` file is present.

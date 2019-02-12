@@ -31,7 +31,7 @@ If you're using the **Octopus 2018.10-LTS** or prior versions you need **Tentacl
 
 ### Tentacle 4.0.0
 
-If you're using Spaces or Octopus 2019.1 or above you need **Tentacle 4.0.0**:
+If you're using Spaces or **Octopus 2019.1** or above you need **Tentacle 4.0.0**:
 
  - [Octopus Tentacle x64](https://octopus.com/downloads/fastlane/WindowsX64/OctopusTentacle)
  - [Octopus Tentacle 32-bit/x86](https://octopus.com/downloads/fastlane/WindowsX86/OctopusTentacle)

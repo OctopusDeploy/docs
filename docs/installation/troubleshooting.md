@@ -8,7 +8,7 @@ In a few cases a bug in a 3rd party component causes the installer to display an
 `msiexec /i Octopus.3.3.4-x64.msi WIXUI_DONTVALIDATEPATH="1"`
 
 :::warning
-**Deploying applications to an Azure website?**
+**Deploying Applications to an Azure Website?**
 If you get the following error it means you have a local copy of Web Deploy and that is being used. You will either need to upgrade your local version of Web Deploy to 3.5 or greater, or uninstall the local copy so Octopus can reference the embedded copy.
 :::
 
@@ -33,6 +33,6 @@ Once this option is on, PowerShell scripts automatically support long file names
 
 - C# and F# scripts do not support long filenames.
 - Windows limits the each component of the path to 255 characters.
-- Due to how we store and transfer packages, PackageIds are limited to 100 characters and Package Id and Version combined to 216 characters.
+- Due to how we store and transfer packages, PackageIDs are limited to 100 characters and Package ID and Version combined to 216 characters.
 - The package extraction path (`<TentacleApplicationDirectory>\<PackageId>\<Version>`) must be less than 256 characters long.
 - The path to the directory of any script file being run by the deployment must be less than 256 characters long.
