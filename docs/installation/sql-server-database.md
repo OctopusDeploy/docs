@@ -40,7 +40,7 @@ Octopus will work with [any of the supported highly available SQL Server impleme
 
 Make sure the Octopus Deploy server is connecting to the listener which will route database requests to the active SQL Server node and allow for automatic fail over. Learn about [connecting to listeners and handling fail over](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover).
 
-A typical connection string for using a SQL Server AlwaysOn availability group looks like this:
+A typical connection string for using an SQL Server AlwaysOn availability group looks like this:
 
 ```plain
 Server=tcp:AGListener,1433;Database=Octopus;IntegratedSecurity=SSPI;MultiSubnetFailover=True
@@ -49,3 +49,7 @@ Server=tcp:AGListener,1433;Database=Octopus;IntegratedSecurity=SSPI;MultiSubnetF
 ## Database Administration and Maintenance
 
 For more information about maintaining your Octopus database, please read our [database administrators guide](/docs/administration/data/octopus-database/index.md).
+
+## Next
+
+Continue with the [Octopus installation](/docs/installation/index.md).

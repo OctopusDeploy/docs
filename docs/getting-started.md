@@ -18,7 +18,7 @@ You can install your own [self-hosted](/docs/getting-started.md#self-hosted-octo
 
 ## Self-Hosted Octopus
 
-Installing the self-hosted [Octopus Server](/docs/installation/index.md) sets up the [Octopus Web Portal](/docs/getting-started.md#the-octopus-web-portal) and the [Octopus REST API](/docs/api-and-integration/api/index.md).
+Installing the self-hosted [Octopus Deploy server](/docs/installation/index.md) sets up the [Octopus Web Portal](/docs/getting-started.md#the-octopus-web-portal) and the [Octopus REST API](/docs/api-and-integration/api/index.md).
 
 The [installation documentation](/docs/installation/index.md) provides instructions for downloading, installing, and configuring your Octopus Deploy server.
 
@@ -30,7 +30,7 @@ Learn more about [Octopus Cloud](/docs/octopus-cloud/index.md).
 
 ## The Octopus Web Portal
 
-Whether you're self-hosting the Octopus Server, or using Octopus Cloud, the Octopus Web Portal is where you'll manage your infrastructure, projects, access the built-in repository, grant your team access to projects, and create your automated deployments.
+Whether you're self-hosting the Octopus server, or using Octopus Cloud, the Octopus Web Portal is where you'll manage your infrastructure, projects, access the built-in repository, grant your team access to projects, and create your automated deployments.
 
 ![Octopus Dashboard](octopus-dashboard.png)
 
@@ -60,7 +60,7 @@ Learn more about the [deployment process](/docs/deployment-process/index.md) and
 
 ### Variables
 
-As you deploy your applications between different environments, you'll need to change their configuration files based on the scope of the deployment. Octopus has advance support for managing and scoping variables. For instance, you will use different databases in QA and Production. Variables let you scope your deployments to QA or Production and automatically reference the correct database.
+As you deploy your applications between different environments, you'll need to change their configuration files based on the scope of the deployment. Octopus has advance support for managing and scoping variables. For instance, you will use different databases in QA from the databases you use in Production. Variables let you scope your deployments to QA or Production and automatically reference the correct databases.
 
 Learn more about [variables](/docs/deployment-process/variables/index.md) and advanced [configuration features](/docs/deployment-process/configuration-features/index.md).
 
@@ -80,9 +80,11 @@ Lifecycles are defined by phases, each phase can have one or more environments, 
 
 Learn more about [lifecycles](/docs/deployment-process/lifecycles/index.md).
 
-### Releases
+### Releases and Deployments
 
-A release in Octopus, is a snapshot of the packaged software, variables, and the deployment process.
+A **release** in Octopus, is a snapshot of the packaged software, variables, and the deployment process as they exist at the time the release is created.
+
+A **deployment** in Octopus is the execution of the deployment process with all the associated details, as they existed when the release was created.
 
 A release is deployed to the environments defined in the deployment process. Typically, releases are deployed to one environment and then promoted to the next environment when they are successful. Releases can be deployed manually each time or configured to deploy automatically.
 
@@ -90,7 +92,7 @@ Learn more about [deploying releases](/docs/deployment-process/releases/index.md
 
 ### Channels
 
-When you start working with Octopus, you will typically create releases from your main source code branch and these release will be considered release candidates for your final production environment. Over time you may find you want to start working on an experimental branch of code, perhaps to introduce a new feature or an entirely new version of your software. In this case, you can either create an entirely new project, or clone the existing project, to manage deployments of this experimental software, but that leads to a lot of duplication and rework.
+When you start working with Octopus, you will typically create releases from your main source code branch and these releases will be considered release candidates for your final production environment. Over time you may find you want to start working on an experimental branch of code, perhaps to introduce a new feature or an entirely new version of your software. In this case, you can either create an entirely new project, or clone the existing project, to manage deployments of this experimental software, but that leads to a lot of duplication and rework.
 
 [Channels](/docs/deployment-process/channels/index.md) lets you modify the entire deployment process on a per-release basis, all within the same project. For example, you can promote releases created from your main code branch through to your production environment, but restrict releases created from your experimental feature branch to a special test environment perhaps with extra steps and variables.
 

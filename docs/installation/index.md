@@ -6,7 +6,7 @@ description: How to install the central Octopus Deploy Server.
 
 This section walks you through installing the **self-hosted** Octopus Deploy server. If you need to upgrade you existing Octopus Deploy server, see our [upgrading guide](/docs/administration/upgrading/index.md).
 
-If you're interested in **Octopus Cloud**, the cloud-hosted Octopus server, you can [register for an account](https://octopus.com/account/register).
+If you're interested in **Octopus Cloud**, the cloud-hosted Octopus server, you won't need to install the Octopus server. You can register for an [Octopus Cloud Account](https://octopus.com/account/register).
 
 When installed, the Octopus Deploy server:
 
@@ -65,7 +65,7 @@ If you don't have a copy of your master key and your hardware fails, you will no
 
 Click **Open in browser** to launch the **Octopus Web Portal** and log in using the authentication details you set up during the configuration process.
 
-The **Octopus Web Portal**  is where you'll manage your infrastructure, projects, access the built-in repository, and deploy your software from.
+The **Octopus Web Portal**  is where you'll manage your infrastructure, projects, access the built-in repository, and manage your releases and deployments.
 
 ## Troubleshooting
 
@@ -75,4 +75,4 @@ If you've had any problems with the installation, review the [troubleshooting pa
 
 Now that you've installed the Octopus Deploy server, it's time to configure the [Infrastructure](/docs/infrastructure/index.md) you are deploying your software to.
 
-If you need to upgrade your Octopus server, refer to the [upgrade guide](/docs/administration/upgrading/index.md).
+If you need to upgrade your Octopus server, refer to the [upgrading guide](/docs/administration/upgrading/index.md).

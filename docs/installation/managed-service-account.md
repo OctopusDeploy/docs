@@ -10,3 +10,7 @@ You can run the Octopus Deploy server using a Managed Service Account (MSA):
 1. Restart the Octopus server Windows service.
 
 Learn about [using Managed Service Accounts](https://technet.microsoft.com/en-us/library/dd548356(v=ws.10).aspx).
+
+## Next
+
+Continue with the [Octopus installation](/docs/installation/index.md).

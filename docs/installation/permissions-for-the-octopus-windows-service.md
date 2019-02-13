@@ -30,3 +30,7 @@ If you rely on Octopus to run certain tasks on the Octopus server, you'll also n
 - Using the Windows Azure deployment tasks in Octopus (these run on the Octopus Server).
 - Deploying to an [offline package drop](/docs/infrastructure/deployment-targets/offline-package-drop.md) deployment target.
 - Running a [custom script](/docs/deployment-examples/custom-scripts/index.md) on the Octopus server.
+
+## Next
+
+Continue with the [Octopus installation](/docs/installation/index.md).

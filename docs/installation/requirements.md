@@ -4,13 +4,13 @@ description: Software and hardware requirements for installing the central Octop
 position: 1
 ---
 
-If you are hosting your Octopus Deploy server yourself, here are the set of minimum requirements.
+If you are hosting your Octopus Deploy server yourself, these are the minimum requirements.
 
 ## Operating System
 
 The Octopus Deploy server is hosted on a Microsoft Windows operating system, however, once your Octopus Deploy server is up and running, you can deploy to Windows servers, Linux servers, Microsoft Azure, AWS, Cloud Regions, or even an Offline Package Drop.
 
-### Windows Server
+## Windows Server
 
 Octopus Deploy server can be hosted on any modern Windows Server. We automatically test the Octopus Deploy server on the following versions of Windows Server:
 
@@ -21,11 +21,11 @@ Octopus Deploy server can be hosted on any modern Windows Server. We automatical
 - Windows Server 2016
 - Windows Server 2019
 
-Octopus Deploy server will run on the newer versions of Windows Server without GUIs, however, the easiest installation path is to use "Windows Server with a GUI" and run our installation wizard. If you want to use one of the new GUI-less servers, you will need to add some missing Windows features and configure Octopus server yourself.
+Octopus Deploy server will run on the newer versions of Windows Server without GUIs, however, the easiest installation path is to use "Windows Server with a GUI" and run our installation wizard. If you want to use one of the new GUI-less servers, you will need to add some missing Windows features and configure the Octopus server yourself.
 
 Learn about [automating installation](/docs/installation/automating-installation.md).
 
-### Windows Desktop
+## Windows Desktop
 
 Octopus Deploy server will run on client/desktop versions of Windows, such as Windows 7 and Windows 10. This can be an easy way to trial Octopus Deploy server; however, we do not support Octopus server for production workloads unless it is hosted on a server operating system.
 
@@ -49,7 +49,7 @@ The Octopus server comes with a built-in web portal user interface and we try to
 
 ## Hardware Requirements
 
-There is no *one size fits all* approach for Octopus server. The best approach is to start with a working your Octopus server, start deploying your applications, monitor your server statistics, and scale from there.
+There is no *one size fits all* approach for Octopus server. The best approach is to start with a working Octopus server, start deploying your applications, monitor your server statistics, and scale from there.
 
 - Absolute minimum to make it run: 512MB RAM, 1GHz CPU, 2GB free disk space.
 - Recommended starting point for smaller deployments (less than 30 deployment targets for example): 2GB RAM, dual-core CPU, 10GB free disk space.
@@ -57,4 +57,4 @@ There is no *one size fits all* approach for Octopus server. The best approach i
 
 ## Next
 
-Learn about the [SQL Server database](/docs/installation/sql-server-database.md), download the [Octopus MSI](/docs/installation/downloads.md), or learn more about [Octopus server performance](/docs/administration/managing-infrastructure/performance/index.md).
+Learn about the [SQL Server database](/docs/installation/sql-server-database.md), download the [Octopus MSI](/docs/installation/downloads.md), learn more about [Octopus server performance](/docs/administration/managing-infrastructure/performance/index.md), or return to the [installation process](/docs/installation/index.md).

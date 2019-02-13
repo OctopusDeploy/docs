@@ -35,3 +35,7 @@ If you're using Spaces or **Octopus 2019.1** or above you need **Tentacle 4.0.0*
 ## TeamCity Plugin
 
  - [TeamCity Plugin](https://octopus.com/downloads/latest/TeamCityPlugin)
+
+## Next
+
+Continue with the [Octopus installation](/docs/installation/index.md).
