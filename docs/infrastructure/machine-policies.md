@@ -12,7 +12,7 @@ Machine policies are groups of settings that can be applied to Tentacle and SSH 
 - Configure how Calamari and Tentacles, and SSH Targets are updated.
 - Automatically delete machines.
 
-You can access the machine policies by navigating to {{Infrastructure,Machine policies}}.
+You can access the machine policies by navigating to **{{Infrastructure,Machine policies}}**.
 
 ## Health Check
 

@@ -10,7 +10,7 @@ When deployments encounter errors, they will typically fail. However, the **guid
 
 Guided failure mode can be enabled per environment. When enabled for an environment, if a deployment encounters an error, Octopus will prompt a user to intervene.
 
-1. Navigate to {{Infrastructure,Environments}}.
+1. Navigate to **{{Infrastructure,Environments}}**.
 1. Click the overflow menu for the specific environment you want to enable guided failure on and select *Edit*.
 1. Expand the **Default Guided Failure Mode** section and tick the checkbox to enable the feature.
 1. Click **SAVE**.

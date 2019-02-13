@@ -121,7 +121,7 @@ It is important to upgrade all nodes in your cluster during the same maintenance
 
 Follow these steps to upgrade each node in your cluster:
 
-1. Go to the {{Configuration>Nodes}} page.
+1. Go to the **{{Configuration>Nodes}}** page.
 1. Set Drain to `ON` for the node you want to upgrade.
 
     ![](/docs/images/3048440/5865778.png "width=500")

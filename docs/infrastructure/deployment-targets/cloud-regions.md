@@ -25,7 +25,7 @@ We originally considered calling these "Generic Targets" because they can be use
 
 You can create Cloud Regions just like other deployment targets.
 
-1. Go to {{Infrastructure,Deployment Targets}} and click **Add deployment target** in the environment where you want to create the cloud region.
+1. Go to **{{Infrastructure,Deployment Targets}}** and click **Add deployment target** in the environment where you want to create the cloud region.
 
 2. Select **Cloud Region** from the list of available deployment target types.
 
@@ -35,7 +35,7 @@ You can create Cloud Regions just like other deployment targets.
 
 ![](images/adding-new-cloud-region-part2.png "width=500")
 
-4. Now you can see the cloud regions in the {{Infrastructure,Deployment Targets}} page, just like the other deployment targets.
+4. Now you can see the cloud regions in the **{{Infrastructure,Deployment Targets}}** page, just like the other deployment targets.
 
 ![](images/cloud-region-list.png "width=500")
 

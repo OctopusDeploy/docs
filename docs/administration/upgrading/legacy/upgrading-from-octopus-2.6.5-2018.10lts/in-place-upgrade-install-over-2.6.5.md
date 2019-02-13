@@ -17,7 +17,7 @@ Due to the new communication method, you won't be able to communicate with your 
 To perform an in-place upgrade, follow these steps carefully:
 
 :::problem
-There is a current issue where it is not importing your license key. Please back this up first from {{Configuration,License}}.
+There is a current issue where it is not importing your license key. Please back this up first from **{{Configuration,License}}**.
 :::
 
 ### 1. Back up Your Octopus 2.6 Database and Master Key {#Inplaceupgrade(installover2.6)-1.BackupyourOctopus2.6databaseandmasterkey}

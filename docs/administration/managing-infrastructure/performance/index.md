@@ -71,7 +71,7 @@ We are planning a fourth option for scaling your Octopus Server:
 
 An ideal situation would be an Octopus Server that's performing as many parallel deployments as it can, while staying just under these limits. We tried several techniques to automatically throttle Octopus Server, but in practice this kind of approach proved to be unreliable.
 
-Instead, we decided to put this control into your hands, allowing you to control how many tasks each Octopus Server node will execute concurrently. This way, you can measure server metrics for **your own deployments**, and then increase/decrease the task cap appropriately. Administrators can change the task cap in {{Configuration>Nodes}}.
+Instead, we decided to put this control into your hands, allowing you to control how many tasks each Octopus Server node will execute concurrently. This way, you can measure server metrics for **your own deployments**, and then increase/decrease the task cap appropriately. Administrators can change the task cap in **{{Configuration>Nodes}}**.
 
 See this [blog post](https://octopus.com/blog/running-task-cap-and-high-availability) for more details on why we chose this approach.
 
@@ -102,7 +102,7 @@ Follow these tips to tune and maintain the performance of your Octopus:
     - Consider using [Workers](/docs/infrastructure/workers/index.md) and worker pools if deployment load is affecting your server.  See this [blog post](https://octopus.com/blog/workers-performance) for a way to begin looking at workers for performance.
     - Consider separating your teams/projects into "spaces" using the upcoming [Spaces](https://octopus.com/spaces) feature.
 1. Try not to do too much work in parallel, especially without thorough testing. Performing lots of deployment tasks in parallel can be a false economy more often than not:
-    - You can configure how many tasks from the task queue will run at the same time on any given Octopus Server node by going to {{Configuration>Nodes}}. The default task cap is `5` (safe-by-default). You can increase this cap to push your Octopus to work harder.
+    - You can configure how many tasks from the task queue will run at the same time on any given Octopus Server node by going to **{{Configuration>Nodes}}**. The default task cap is `5` (safe-by-default). You can increase this cap to push your Octopus to work harder.
     - Learn about [tuning your deployment processes for performance](/docs/deployment-process/performance.md).
 1. Consider how you transfer your packages: {#package-transfer}
     - If network bandwidth is the limiting factor, consider using [delta compression for package transfers](/docs/deployment-examples/package-deployments/delta-compression-for-package-transfers.md).

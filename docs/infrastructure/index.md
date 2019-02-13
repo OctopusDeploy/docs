@@ -5,7 +5,7 @@ position: 30
 hideInThisSection: True
 ---
 
-With Octopus Deploy, you can deploy software to Windows servers, Linux servers, Microsoft Azure, an Offline Package dDrop, Cloud Regions, or Kubernetes. These are known as your deployment targets, and they are organized into environments so you can promote your software through your deployment pipeline, for instance, from **Development** to **Testing** and finally into **Production**.
+With Octopus Deploy, you can deploy software to Windows servers, Linux servers, Microsoft Azure, an Offline Package Drop, Cloud Regions, or Kubernetes. These are known as your deployment targets, and they are organized into environments so you can promote your software through your deployment pipeline, for instance, from **Development** to **Testing** and finally into **Production**.
 
 ## Managing Your Infrastructure
 
@@ -40,7 +40,7 @@ Learn more about [deployment targets](/docs/infrastructure/deployment-targets/in
 
 [Workers](/docs/infrastructure/workers/index.md) are machines that are used to execute tasks that don't need to be performed on the Octopus server or specific deployment targets, for instance, if you are deploying a package to an API or running a script. You can register multiple workers and assign them to worker pools.
 
-Learn about [workers](/docs/infrastructure/workers/index.md).
+Learn more about [workers](/docs/infrastructure/workers/index.md).
 
 ## Worker Pools
 

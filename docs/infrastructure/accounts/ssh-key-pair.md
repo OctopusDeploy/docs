@@ -48,13 +48,13 @@ The easiest way to generate valid keys on windows is to use a tool like[ PuTTYge
 
 ![](ssh-key-create-putty.png "width=400")
 
-Provide your passphrase if desired and export the private key to the accepted format by going to {{Conversions,Export OpenSSH Key}}.  Clicking "Save private key" will actually produce a file that, while it can be used by this tool again, is not compatible with the standard SSH process. To get the public key over to the server you can either click "Save public key", copy the file across to the server and add the key to `~/.ssh/authorized_keys` as outlined above, or just cut+paste the content from the textbox directly into the remote file.
+Provide your passphrase if desired and export the private key to the accepted format by going to **{{Conversions,Export OpenSSH Key}}**.  Clicking "Save private key" will actually produce a file that, while it can be used by this tool again, is not compatible with the standard SSH process. To get the public key over to the server you can either click "Save public key", copy the file across to the server and add the key to `~/.ssh/authorized_keys` as outlined above, or just cut+paste the content from the textbox directly into the remote file.
 
 If you need more information about generating an SSH key pair, see the [useful links section](#SSHKeyPair-UsefulLinks).
 
 ## Creating the SSH Key Pair Account {#SSHKeyPair-Creatingtheaccount}
 
-1. Navigate to {{infrastructure,Accounts}} and click **ADD ACCOUNT**.
+1. Navigate to **{{infrastructure,Accounts}}** and click **ADD ACCOUNT**.
 1. Select **SSH Key Pair** from the dropdown menu.
 1. Give the account a name so you can easily identify it when you need to use the account.
 1. Add a description.

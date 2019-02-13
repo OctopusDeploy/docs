@@ -1,4 +1,4 @@
-If you have a lot of projects using a step template, updating them one by one can be time consuming.  Fortunately,  there is a way to update all of them at once. To do that, navigate to {{Library,Step templates, Name of the Step Template, Usage}}.
+If you have a lot of projects using a step template, updating them one by one can be time consuming.  Fortunately,  there is a way to update all of them at once. To do that, navigate to **{{Library,Step templates, Name of the Step Template, Usage}}**.
 
 Once you are there you should see a list of steps that are using the step template. The steps that are not on the latest version will have **Update** action next to them. Steps can be updated individually or all at once by using **Update all** action.
 

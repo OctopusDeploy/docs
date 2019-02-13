@@ -20,7 +20,7 @@ Scheduled deployment triggers provide a way to configure your projects to create
 
 ## Add a Scheduled Trigger
 
-1. From the Project's Overview page, select **Triggers**, then {{ADD TRIGGER,Scheduled trigger}}.
+1. From the Project's Overview page, select **Triggers**, then **{{ADD TRIGGER,Scheduled trigger}}**.
 2. Give the trigger a name.
 3. Set the Trigger schedule. The options give you control over how frequently the trigger will run and at what time. You can specify the time the trigger should run and a daily scheduled, specific days of the week, or days of the month. You can also use a [CRON expression](#cron-expression) to configure when the trigger will run.
 4. Select the action the Trigger should take when executed.

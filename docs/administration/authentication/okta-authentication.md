@@ -126,7 +126,7 @@ Octopus.Server.exe configure --OktaIsEnabled=true --OktaIssuer=Issuer --OktaClie
 # Octopus.Server.exe configure --OktaIsEnabled=true --OktaIssuer=https://dev-xxxxxx.oktapreview.com --OktaClientId=0a4bxxxxxxxxxxxx9yc3
 ```
 
-Alternatively these settings can be defined through the user interface by selecting {{Configuration,Settings,Okta}} and populating the fields `Issuer`, `ClientId` and `IsEnabled`.
+Alternatively these settings can be defined through the user interface by selecting **{{Configuration,Settings,Okta}}** and populating the fields `Issuer`, `ClientId` and `IsEnabled`.
 
 ![Settings](okta-authentication/okta-settings.png)
 

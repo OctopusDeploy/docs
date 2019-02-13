@@ -13,7 +13,7 @@ In **Octopus 4.0**, we added the ability to manage most of the available configu
 
 ## Web Portal
 
-In the Octopus Deploy web portal, you can access configuration by navigating to {{Configuration,Settings}}, this will show which configuration items are available.
+In the Octopus Deploy web portal, you can access configuration by navigating to **{{Configuration,Settings}}**, this will show which configuration items are available.
 
 ![Web Portal Configuration](octopus-v4-config-webportal.png)
 

@@ -48,7 +48,7 @@ When you add workers to the default worker pool the built-in worker will be disa
 
 Only users with the `ConfigureServer` permission can add or edit worker pools.
 
-1. Navigate to {{Infrastructure,Worker Pools}} in the **Octopus Web Portal** and click **ADD WORKER POOL**.  
+1. Navigate to **{{Infrastructure,Worker Pools}}** in the **Octopus Web Portal** and click **ADD WORKER POOL**.  
 1. Give the worker pool a meaningful name.
 1. If this pool should be the default worker pool expand the **Default Worker Pool** section and the default checkbox.
 1. Give the worker pool a description.

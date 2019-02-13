@@ -12,9 +12,9 @@ For a working example see our multi-tenant deployments guide: [Working with tena
 
 ## Adding a Variable Template
 
-1. Navigate to {{Library,Variable Sets}} and click **ADD VARIABLE SET**.
+1. Navigate to **{{Library,Variable Sets}}** and click **ADD VARIABLE SET**.
 2. Give the variable set a name, description, and click **SAVE**.
-3. Click {{Variable Templates,ADD TEMPLATE}}.
+3. Click **{{Variable Templates,ADD TEMPLATE}}**.
 4. Add the details to your template and click **SAVE**:
 
 |      | Description                              | Example |

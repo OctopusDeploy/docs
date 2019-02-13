@@ -12,7 +12,7 @@ Since so many variables are used in the deployment process (with their values ch
 
 Write the variables to the deployment log
 
-1. Open the {{Project,Variables}} page.
+1. Open the **{{Project,Variables}}** page.
 2. Add the following two variables and set them to **True**:
 
    | Name                           | Value |

@@ -48,7 +48,7 @@ If you are having problems with a previously-working machine, or you've successf
 
 1. If the machine has been included in a Health Check or Deployment, examine the Raw Task Log. There's a link to this on the page containing the details of the Health Check or Deployment, which can usually be located using the *Tasks* page in the Octopus Web Portal.
 2. On the *Infrastructure* page of the Octopus Web Portal, click on the problem machine and select the *Connectivity* tab. There's often specific information about the communication status of the machine here.
-3. In the Octopus Web Portal, open {{Configuration,Diagnostics}}. Information on this page can be helpful to work out what's going on in the Octopus installation. Look at the information under *Server logs* and searching for the machine's name or IP address can turn up useful information.
+3. In the Octopus Web Portal, open **{{Configuration,Diagnostics}}**. Information on this page can be helpful to work out what's going on in the Octopus installation. Look at the information under *Server logs* and searching for the machine's name or IP address can turn up useful information.
 
 ## Check the Octopus and Tentacle Services are Running
 
@@ -73,7 +73,7 @@ There are three pieces of information to verify and they are slightly different,
 1. Ensure that the Tentacle is in *Listening* mode.
 Below the thumbprint, you should see the text *This Tentacles listens for connections on port 10933*.
 2. Check the port that the Tentacle listens on.
-3. Check that the **Octopus Server** thumbprint shown in light gray in the Tentacle manager matches the one shown in the {{Configuration,Thumbprints}} screen in the Octopus Web Portal.
+3. Check that the **Octopus Server** thumbprint shown in light gray in the Tentacle manager matches the one shown in the **{{Configuration,Thumbprints}}** screen in the Octopus Web Portal.
 
 Note, that there are two thumbprints displayed - that of the Tentacle itself (shown first in bold) and the thumbprints of trusted servers (shown inline in the gray text).
 
@@ -84,7 +84,7 @@ If any of the communications settings are incorrect, choose *Delete this Tentacl
 1. Ensure that the Tentacle is in *Polling* mode.
 Below the thumbprint, you should see the text *This Tentacle polls the Octopus Server...*.
 2. Check the port that the Tentacle polls the Octopus Server on.
-3. Check that the **Octopus Server** thumbprint shown in light gray in the Tentacle manager matches the one shown in the {{Configuration,Thumbprints}} screen in the Octopus Web Portal.
+3. Check that the **Octopus Server** thumbprint shown in light gray in the Tentacle manager matches the one shown in the **{{Configuration,Thumbprints}}** screen in the Octopus Web Portal.
 
 Note, that there are two thumbprints displayed - that of the Tentacle itself (shown first in bold) and the thumbprints of trusted servers (shown inline in the gray text).
 
@@ -224,7 +224,7 @@ Tentacle.exe help
 
 If the command help is not displayed immediately (< 1s) you may need to consider disabling the CRL check while the Tentacle is configured.
 
-To do this open {{Control Panel,Internet Options,Advanced}}, and uncheck the *Check for publisher's certificate revocation* option as shown below.
+To do this open **{{Control Panel,Internet Options,Advanced}}**, and uncheck the *Check for publisher's certificate revocation* option as shown below.
 
 ![](/docs/images/3048143/3278077.png)
 
@@ -238,7 +238,7 @@ Octopus.Server.exe help
 
 If the command help is not displayed immediately (< 1s) you may need to consider disabling the CRL check while the Octopus Server is configured.
 
-To do this open {{Control Panel,Internet Options,Advanced}}, and uncheck the *Check for publisher's certificate revocation* option as shown below.
+To do this open **{{Control Panel,Internet Options,Advanced}}**, and uncheck the *Check for publisher's certificate revocation* option as shown below.
 
 ![](/docs/images/5670828/5865771.png)
 

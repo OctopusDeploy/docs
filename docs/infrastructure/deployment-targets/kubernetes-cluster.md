@@ -9,7 +9,7 @@ Conceptually, a Kubernetes target represent a permission boundary and an endpoin
 
 ## Add a Kubernetes Target
 
-1. Navigate to {{Infrastructure,Deployment Targets}}, and click **ADD DEPLOYMENT TARGET**.
+1. Navigate to **{{Infrastructure,Deployment Targets}}**, and click **ADD DEPLOYMENT TARGET**.
 2. Select **KUBERNETES CLUSTER** and click **ADD** on the Kubernetes Cluster card.
 3. Enter a display name for the Kubernetes Cluster.
 4. Select at least one [environment](/docs/infrastructure/environments/index.md) for the target.

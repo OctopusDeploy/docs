@@ -10,7 +10,7 @@ Archiving a certificate will prevent it from being selected as the value of a va
 
 ![](archive-certificate.png "width=500")
 
-Archived certificates can be viewed by navigating to {{Library,Certificates,View Archive}}.
+Archived certificates can be viewed by navigating to **{{Library,Certificates,View Archive}}**.
 
 When a certificate is [replaced](replace-certificate.md), it is automatically archived if it is not already.
 

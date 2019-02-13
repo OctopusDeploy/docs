@@ -20,7 +20,7 @@ For earlier versions of Octopus, Subscriptions can be accessed from the `Configu
 
 Email notifications can be setup to send an email periodically to the users of one or more [teams](/docs/administration/managing-users-and-teams/index.md). Emails will be sent periodically according to the frequency you specify, and the email will include a digest of events that have occurred (up to a maximum of 100 events). For example, this can be useful if your team has setup automated deployments with the [Elastic and Transient Environment](/docs/deployment-patterns/elastic-and-transient-environments/index.md) features of Octopus and wish to be notified if an auto-deployment is ever blocked or has failed.
 
-Emails may also include a link to your Octopus Audit screen, filtered to match the events delivered in the email. To include this link, you need to have set the publicly-accessible URL of your Octopus instance (see the {{Configuration,Nodes,Configuration Settings}} menu or the [Server Configuration](/docs/administration/managing-infrastructure/server-configuration/index.md) documentation for more details).
+Emails may also include a link to your Octopus Audit screen, filtered to match the events delivered in the email. To include this link, you need to have set the publicly-accessible URL of your Octopus instance (see the **{{Configuration,Nodes,Configuration Settings}}** menu or the [Server Configuration](/docs/administration/managing-infrastructure/server-configuration/index.md) documentation for more details).
 
 ## Example
 
@@ -82,7 +82,7 @@ The `Payload` includes:
 | TotalEventsInBatch           | \** | The total number of events, in the current batch of events being processed |
 | EventNumberInBatch           | \** | The event number of this event, in the current batch of events being processed |
 
-\* This property will be null unless the publicly-accessible URL has been set for your Octopus instance (see the {{Configuration,Nodes,Configuration Settings}} menu).
+\* This property will be null unless the publicly-accessible URL has been set for your Octopus instance (see the **{{Configuration,Nodes,Configuration Settings}}** menu).
 
 \** This property is available since version `3.12.5`
 

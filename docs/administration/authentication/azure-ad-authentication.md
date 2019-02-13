@@ -165,7 +165,7 @@ Octopus.Server.exe configure --azureADIsEnabled=true --azureADIssuer=Issuer --az
 # Octopus.Server.exe configure --azureADIsEnabled=true --azureADIssuer=https://login.microsoftonline.com/12341234-xxxx-xxxx-xxxx-xxxxxxxxxxxx --azureADClientId=43214321-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
-Alternatively these settings can be defined through the user interface by selecting {{Configuration,Settings,Azure AD}} and populating the fields `Issuer`, `ClientId` and `IsEnabled`.
+Alternatively these settings can be defined through the user interface by selecting **{{Configuration,Settings,Azure AD}}** and populating the fields `Issuer`, `ClientId` and `IsEnabled`.
 
 ![Settings](azure-ad-settings.png)
 
@@ -173,7 +173,7 @@ Alternatively these settings can be defined through the user interface by select
 
 If you followed the optional steps for modifying the App registration's manifest to include new roles, you can assign them to **Teams** in the Octopus Portal.
 
-1. Open the Octopus Portal and select {{Configuration,Teams}}.
+1. Open the Octopus Portal and select **{{Configuration,Teams}}**.
 
 2. Either Create a new **Team** or select an existing one.
 

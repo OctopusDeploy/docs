@@ -7,7 +7,7 @@ Tokens can be added to Octopus as accounts. This is useful, for instance, if you
 
 ## Add a Token to Octopus
 
-1. Navigate to {{infrastructure,Accounts}} and click **ADD ACCOUNT**.
+1. Navigate to **{{infrastructure,Accounts}}** and click **ADD ACCOUNT**.
 1. Select **Token** from the dropdown menu.
 1. Give the account a meaningful name.
 1. Add a description.

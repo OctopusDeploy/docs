@@ -24,8 +24,8 @@ On the target machine:
 1. Ensure .NET Framework 4.6.2 or later is installed.
 1. Open Group Policy Editor (Press Windows Key and type `gpedit.msc` and hit Enter key).
 1. Navigate to and enable.
-    - On the latest versions of Windows: {{Local Computer Policy,Computer Configuration,Administrative Templates,System,Filesystem}} and set the `Enable Win32 long paths` setting to `Enabled`.
-    - On Server 2016 and Windows 10 without the latest updates: {{Local Computer Policy,Computer Configuration,Administrative Templates,System,Filesystem,NTFS}} and set the `Enable NTFS long paths` setting to `Enabled`.
+    - On the latest versions of Windows: **{{Local Computer Policy,Computer Configuration,Administrative Templates,System,Filesystem}}** and set the `Enable Win32 long paths` setting to `Enabled`.
+    - On Server 2016 and Windows 10 without the latest updates: **{{Local Computer Policy,Computer Configuration,Administrative Templates,System,Filesystem,NTFS}}** and set the `Enable NTFS long paths` setting to `Enabled`.
 
 Once this option is on, PowerShell scripts automatically support long file names.
 

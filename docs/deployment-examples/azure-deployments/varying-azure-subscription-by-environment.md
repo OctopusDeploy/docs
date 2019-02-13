@@ -7,7 +7,7 @@ position: 5
 You may want to use a different Azure subscription depending on which environment you are targeting. This can be achieved by binding the account field to an Octopus variable:
 
 1. Add an [Azure Subscription Account](/docs/infrastructure/deployment-targets/azure/index.md) to Octopus.
-   * If you want to use the Account ID in your variable, open the account you just added from {{Infrastructure,Accounts,[Account name]}} and copy the account ID from the URL.
+   * If you want to use the Account ID in your variable, open the account you just added from **{{Infrastructure,Accounts,[Account name]}}** and copy the account ID from the URL.
 
    ![Account Id](varying-account-id.png "width=500")
    ​    

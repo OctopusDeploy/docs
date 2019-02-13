@@ -22,7 +22,7 @@ You are responsible for taking database backups and testing your disaster recove
 
 Octopus should be given its own database - the database should not be shared with any other applications. Octopus Server maintains its own schema - it will create the initial database schema upon installation, and it will update the schema when you upgrade Octopus Server.
 
-The System Integrity Check at {{Configuration,Diagnostics}} will let you know if the database schema has drifted from its intended state.
+The System Integrity Check at **{{Configuration,Diagnostics}}** will let you know if the database schema has drifted from its intended state.
 
 ![](/docs/images/3048120/5865723.png "width=500")
 

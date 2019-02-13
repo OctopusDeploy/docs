@@ -16,7 +16,7 @@ The AWS account is either a pair of access and secret keys, or the credentials a
 
 AWS steps can use an Octopus managed AWS account for authentication.
 
-1. Navigate to {{Infrastructure,Accounts}}, click the **ADD ACCOUNT** and select **AWS Account**.
+1. Navigate to **{{Infrastructure,Accounts}}**, click the **ADD ACCOUNT** and select **AWS Account**.
 1. Add a memorable name for the account.
 1. Provide a description for the account.
 1. Enter the **Access Key** and the secret **Key**.

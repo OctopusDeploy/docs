@@ -23,7 +23,7 @@ You can specify multiple Lifecycles to control which projects are deployed to wh
 
 Every [project](/docs/deployment-process/projects/index.md) has a default lifecycle.
 
-Lifecycles are managed from the library page by navigating to {{Library,Lifecyles}}.
+Lifecycles are managed from the library page by navigating to **{{Library,Lifecyles}}**.
 
 ## Create a New Lifecycle
 

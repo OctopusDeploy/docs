@@ -180,7 +180,7 @@ To resolve the error, ensure that the user has the appropriate permissions in AW
 ### AWS-CLOUDFORMATION-ERROR-0003
 
 :::hint
-Please be aware that this error will also show if the **Variable Account** cannot be resolved to an AWS Account, in this case please check the variable scopes. You can use the {{Variables,Preview}} for the project to test the variable values for a given deployment scenario are being included or not.
+Please be aware that this error will also show if the **Variable Account** cannot be resolved to an AWS Account, in this case please check the variable scopes. You can use the **{{Variables,Preview}}** for the project to test the variable values for a given deployment scenario are being included or not.
 :::
 
 The AWS account used to perform the operation does not have the required permissions to describe the stack.
@@ -380,6 +380,6 @@ The role being assumed then needs trust relationship with the role or user that 
 
 Failed to verify the credentials. Please check the keys assigned to the Amazon Web Services Account associated with this step.
 
-This can be done by opening {{Infrastructure>Accounts}}, selecting the account, and clicking the `SAVE AND TEST` button. If the verification fails, it means the keys are not valid.
+This can be done by opening **{{Infrastructure>Accounts}}**, selecting the account, and clicking the `SAVE AND TEST` button. If the verification fails, it means the keys are not valid.
 
 This error can also be displayed if the proxy settings are incorrect.

@@ -44,7 +44,7 @@ If you have an Octopus Server retention policy for a project that has a final ph
 
 ## Set Retention Policies {#RetentionPolicies-IthinkIgotit,howdoIsetmyretentionpolicies?}
 
-Under {{Library,Lifecycles}} you select the Lifecycle you want to define or edit your retention policy for:
+Under **{{Library,Lifecycles}}** you select the Lifecycle you want to define or edit your retention policy for:
 
 ![](/docs/images/3048140/3278063.png "width=500")
 
@@ -64,7 +64,7 @@ You are also able to specify a number of days worth of releases and files to kee
 
 ## NuGet Feed Retention Policy {#RetentionPolicies-NuGetfeedretentionpolicy}
 
-You can find the in-built repository retention policy settings under {{Library,Packages}}.
+You can find the in-built repository retention policy settings under **{{Library,Packages}}**.
 
 ![](/docs/images/3048140/3278060.png "width=500")
 

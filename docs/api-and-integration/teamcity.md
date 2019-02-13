@@ -66,7 +66,7 @@ Don't worry, TeamCity comes with a built-in [NuGet Pack build step](https://conf
 
 Octopus can be used as a [NuGet package package](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md), or can be configured to use an external feed (such as retrieving them from TeamCity).
 
-To push packages to Octopus during the OctoPack phase, enter the NuGet endpoint url into the **Publish packages to http** field, and [an API key](/docs/api-and-integration/api/how-to-create-an-api-key.md) in the **Publish API Key** field.  OctoPack will then push the packages when the solution is built.  You'll find the URL to your repository on the {{Library,Packages}} tab in Octopus.  Simply click the `Show examples` link to see options to upload packages including the repository URL.
+To push packages to Octopus during the OctoPack phase, enter the NuGet endpoint url into the **Publish packages to http** field, and [an API key](/docs/api-and-integration/api/how-to-create-an-api-key.md) in the **Publish API Key** field.  OctoPack will then push the packages when the solution is built.  You'll find the URL to your repository on the **{{Library,Packages}}** tab in Octopus.  Simply click the `Show examples` link to see options to upload packages including the repository URL.
 
 ## Consuming the TeamCity NuGet feed in Octopus {#TeamCity-ConsumeNuGetFeedInOctopusConsumingtheTeamCityNuGetfeedinOctopus}
 
@@ -74,11 +74,11 @@ To push packages to Octopus during the OctoPack phase, enter the NuGet endpoint 
 **Octopus 3.4+** requires **TeamCity 9.0+** due to compatibility problems with the older NuGet v1 feed implemented by earlier versions of TeamCity. Refer to [this thread](http://help.octopus.com/discussions/problems/47581-teamcity-nuget-feed#comment_40952268) and this [GitHub Issue](https://github.com/OctopusDeploy/Issues/issues/2656) for more details.
 :::
 
-TeamCity 7 and up can act as a NuGet repository. You can enable this by navigating to {{Administration,NuGet Settings}} and enabling the inbuilt NuGet server. Any build artifacts ending with `.nupkg` will automatically be served as NuGet packages, which Octopus can consume.
+TeamCity 7 and up can act as a NuGet repository. You can enable this by navigating to **{{Administration,NuGet Settings}}** and enabling the inbuilt NuGet server. Any build artifacts ending with `.nupkg` will automatically be served as NuGet packages, which Octopus can consume.
 
 ### Connect Octopus to Your TeamCity server
 
-1. In the Octopus Web Portal navigate to {{Library,External Feeds}}.
+1. In the Octopus Web Portal navigate to **{{Library,External Feeds}}**.
 1. Click **ADD FEED**.
 1. Leave the feed type as **NuGet Feed**.
 1. Enter a name for the feed.

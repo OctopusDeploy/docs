@@ -10,7 +10,7 @@ From time to time you will need to perform certain administrative activities on 
 
 In summary Maintenance Mode enables you to safely prepare your server for maintenance, allowing existing tasks to complete, and preventing changes you didn't expect.
 
-To enable or disable Maintenance Mode, go to {{Configuration,Maintenance}}.
+To enable or disable Maintenance Mode, go to **{{Configuration,Maintenance}}**.
 
 ![Maintenance Mode Configuration](maintenance-mode.png "width=500")
 

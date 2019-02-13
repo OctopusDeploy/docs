@@ -72,7 +72,7 @@ Once the Tentacle or SSH machine has been configured, workers can be added using
 
 ### Registering Workers in the Web Portal
 
-1. Navigate to {{Infrastructure,Workers}} and click **ADD WORKER**.
+1. Navigate to **{{Infrastructure,Workers}}** and click **ADD WORKER**.
 1. Select **WINDOWS** or **SSH CONNECTION** and click the card for the type of worker you want to configure.
 
 You can choose between:

@@ -22,7 +22,7 @@ This default behavior can be changed by granting an additional permission to the
 
 ## Granting Unscoped Variable Editing Permission {#Securityandun-scopedvariables-Grantingun-scopedvariableeditingpermission}
 
-As an administrator, open {{Configuration,Teams}}, and select the **Roles** item in the tool area:
+As an administrator, open **{{Configuration,Teams}}**, and select the **Roles** item in the tool area:
 
 ![](/docs/images/3048124/3277948.png "width=500")
 

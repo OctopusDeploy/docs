@@ -6,7 +6,7 @@ position: 20
 
 Kubernetes targets are used by the Kubernetes steps to define the context in which deployments and scripts are run.
 
-Targets can be created by clicking {{Infrastructure>Deployment Targets>Add Deployment Target}}. Then select the `Kubernetes` Target Type from the list.
+Targets can be created by clicking **{{Infrastructure>Deployment Targets>Add Deployment Target}}**. Then select the `Kubernetes` Target Type from the list.
 
 Conceptually, a Kubernetes target represent a permission boundary and an endpoint. Kubernetes [permissions](http://g.octopushq.com/KubernetesRBAC) and [quotas](http://g.octopushq.com/KubernetesQuotas) are defined against a namespace, and both the account and namespace are captured as a Kubernetes target, along with the cluster endpoint URL.
 
@@ -55,7 +55,7 @@ Kubernetes targets support multiple [account types](http://g.octopushq.com/Kuber
 * Certificates
 * Cloud accounts
 
-Accounts can be found under {{Infrastructure>Accounts}}.
+Accounts can be found under **{{Infrastructure>Accounts}}**.
 
 ### Username and Password
 
@@ -107,7 +107,7 @@ openssl pkcs12 \
 
 This file can then be uploaded to the [Octopus certificate management area](http://g.octopushq.com/CertificatesDocumentation), after which, it will be made available to the Kubernetes target.
 
-The Certificates Library can be access via {{Library>Certificates}}.
+The Certificates Library can be access via **{{Library>Certificates}}**.
 
 
 ### AWS Accounts
@@ -126,15 +126,15 @@ If using the AWS account type, the Octopus server or worker will need to have th
 :::
 
 :::hint
-The error `You must be logged into the server (the server has asked for the client to provide credentials)` generally indicates the AWS account does not have permissions in the Kubernetes cluster. 
+The error `You must be logged into the server (the server has asked for the client to provide credentials)` generally indicates the AWS account does not have permissions in the Kubernetes cluster.
 
-When you create an Amazon EKS cluster, the IAM entity user or role that creates the cluster is automatically granted `system:master` permissions in the cluster's RBAC configuration. To grant additional AWS users or roles the ability to interact with your cluster, you must edit the `aws-auth` ConfigMap within Kubernetes. See the [Managing Users or IAM Roles for your Cluster](https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html). 
+When you create an Amazon EKS cluster, the IAM entity user or role that creates the cluster is automatically granted `system:master` permissions in the cluster's RBAC configuration. To grant additional AWS users or roles the ability to interact with your cluster, you must edit the `aws-auth` ConfigMap within Kubernetes. See the [Managing Users or IAM Roles for your Cluster](https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html).
 :::
 
 
 ### Azure Service Principal accounts
 
-When using an AKS cluster, [Azure Service Principal accounts](/docs/infrastructure/accounts/azure/index.md) allow Azure Active Directory accounts to be used. 
+When using an AKS cluster, [Azure Service Principal accounts](/docs/infrastructure/accounts/azure/index.md) allow Azure Active Directory accounts to be used.
 
 :::warning
 Azure accounts are not currently supported on SSH workers. If you attempt to use an Azure account with an SSH worker, you will receive an error like `Calamari.exe: cannot execute binary file `. The workaround is to use a Windows worker for Kubernetes targets with Azure accounts.

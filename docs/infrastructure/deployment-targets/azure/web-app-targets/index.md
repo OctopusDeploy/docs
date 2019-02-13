@@ -20,7 +20,7 @@ Once you have an App Service setup within your Azure subscription, you are ready
 
 To create an Azure Web App target within Octopus:
 
-- Navigate to {{Infrastructure>Deployment Target>Add Deployment Target}}.
+- Navigate to **{{Infrastructure>Deployment Target>Add Deployment Target}}**.
 - Select **Azure Web App** from the list of available targets and click _Next_.
 - Fill out the necessary fields, being sure to provide a unique role that clearly identifies your Azure Web App target.
 

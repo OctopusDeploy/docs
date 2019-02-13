@@ -6,7 +6,7 @@ position: 2300
 
 **Octopus 3.16** or newer can integrate with [Let's Encrypt](https://g.octopushq.com/LetsEncryptOrg) to setup and manage the SSL certificate for the Octopus Portal. When the certificate nears its expiration date, Octopus will automatically renew the certificate with no intervention required.
 
-Let's Encrypt integration can be found under {{Configuration,Let's Encrypt}}.
+Let's Encrypt integration can be found under **{{Configuration,Let's Encrypt}}**.
 
 ![](lets-encrypt.png "width=758")
 
@@ -32,7 +32,7 @@ If the Octopus Server is not currently listening on the binding/port, it will re
 
 Octopus will then register with Let's Encrypt, handle the domain validation, request a new certificate and apply it to the Portal. If need be, the server will be restarted. Once available, you will be able to access your server on the new HTTPS URL.
 
-The {{Configuration,Let's Encrypt}} page will now show when the SSL certificate was last renewed, and when it is due to expire. Every 24 hours, Octopus will check the certificate, and will automatically renew if its due to expire in the next 21 days.
+The **{{Configuration,Let's Encrypt}}** page will now show when the SSL certificate was last renewed, and when it is due to expire. Every 24 hours, Octopus will check the certificate, and will automatically renew if its due to expire in the next 21 days.
 
 At this point, we recommend enabling [Force SSL](/docs/administration/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md#ForcingHTTPS) and [HSTS](/docs/administration/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md#HSTS).
 

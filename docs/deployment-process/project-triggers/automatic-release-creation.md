@@ -45,7 +45,7 @@ When a release is set to be created this way, the audit will tell you that is ho
 If you combine uploading a package with the automatic deployment feature within [Lifecycles phases](/docs/deployment-process/lifecycles/index.md#Lifecycles-LifecyclePhases), you can push a package to the internal repository, create a release, and have it automatically deploy.
 
 :::hint
-The release number that is created is guided by the Release Versioning settings under {{Project,Settings}}. It will use the rules defined.
+The release number that is created is guided by the Release Versioning settings under **{{Project,Settings}}**. It will use the rules defined.
 :::
 
 ## Channels {#AutomaticReleaseCreation-Channels}
@@ -66,7 +66,7 @@ One way to work around this behavior is to create a Channel with the appropriate
 
 When you are using automatic release creation there are many reasons why a release may not be created successfully. Take some time to consider the following troubleshooting steps:
 
-1. **Inspect the server logs** for warnings in {{Configuration,Diagnostics}} - Octopus will log the reason why automatic release creation failed as errors or warnings.
+1. **Inspect the server logs** for warnings in **{{Configuration,Diagnostics}}** - Octopus will log the reason why automatic release creation failed as errors or warnings.
 
 2. Ensure you are pushing the package to the **built-in package repository** - external package repositories are not supported for automatic release creation.
 

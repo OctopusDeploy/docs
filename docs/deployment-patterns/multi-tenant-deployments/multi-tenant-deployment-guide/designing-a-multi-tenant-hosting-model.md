@@ -67,7 +67,7 @@ In this case we are willing to host the applications of multiple tenants on the 
 
 Firstly let's create a tag set to identify which tenants should be hosted on which shared server farms:
 
-1. Go to {{Library,Tenant Tag Sets}} and create a new tag set called **Hosting**.
+1. Go to **{{Library,Tenant Tag Sets}}** and create a new tag set called **Hosting**.
 2. Add a tag called **Shared-Farm-1** and set the color to green which will help identify tenants on shared hosting more quickly:
    ![](/docs/images/5669555/5865742.png "width=500")
 

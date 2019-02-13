@@ -4,7 +4,7 @@ description: Upload a X.509 certificate to be managed by Octopus Deploy
 position: 10
 ---
 
-To add a certificate to Octopus, navigate to {{Library,Certificates,Add Certificate}}
+To add a certificate to Octopus, navigate to **{{Library,Certificates,Add Certificate}}**
 
 ![Add certificate](add-certificate.png "width=500")
 

@@ -9,7 +9,7 @@ Organizing your deployment targets into environments lets you define your deploy
 
 ## Add New Environments
 
-1. Navigate to {{Infrastructure,Environments}} and click **ADD ENVIRONMENT**.
+1. Navigate to **{{Infrastructure,Environments}}** and click **ADD ENVIRONMENT**.
 1. Give your new environment a meaningful name and click **SAVE**.
 1. Add a description for the environment.
 1. Select the checkbox in the **Default Guided Failure Mode** section if you want Octopus Deploy to prompt users for intervention if a deployment to this environment fails. Learn more about [guided failure mode](#guided-failure-mode).
@@ -58,12 +58,18 @@ To edit individual environments, click the overflow menu for that environment. F
 
 Guided failure mode can be set when a new environment is created, or it can be enabled or disabled for existing environments.
 
-1. Navigate to {{Infrastructure,Environments}}.
+1. Navigate to **{{Infrastructure,Environments}}**.
 1. Click the overflow menu for the environment you want to enable or disable guided failure mode on and select **Edit**.
 1. Expand the **Default Guided Failure Mode** section and tick or untick the checkbox to enable or disable guided failure mode.
 1. Click **SAVE**.
 
 Note, you can still override this setting for individual deployments. For more information, see the section on [Guided Failures](/docs/deployment-process/releases/guided-failures.md).
+
+## Lifecycles
+
+[Lifecycles](/docs/deployment-process/lifecycles/index.md) give you control over the order of promotion between your environments in addition to other advanced deployment workflow features, such as automatic deployments to specific environments.
+
+Learn more about [Lifecycles](/docs/deployment-process/lifecycles/index.md).
 
 ## Dynamic Infrastructure
 
@@ -73,7 +79,7 @@ When enabled, environments can create some deployment targets within Octopus Dep
 
 Dynamic infrastructure can be enabled when a new environment is created, or it can be enabled or disabled for existing environments.
 
-1. Navigate to {{Infrastructure,Environments}}.
+1. Navigate to **{{Infrastructure,Environments}}**.
 1. Click the overflow menu for the environment you want to enable or disable dynamic infrastructure on and select **Edit**.
 1. Expand the **Dynamic infrastructure** section and tick or untick the checkbox to enable or disable managing dynamic infrastructure.
 1. Click **SAVE**.
@@ -81,3 +87,7 @@ Dynamic infrastructure can be enabled when a new environment is created, or it c
 ### Environment Permissions
 
 You can control who has access to view, edit, and deploy to environments by assigning users to Teams and assigning roles to those teams. For more information, see the section on [managing users and teams](/docs/administration/managing-users-and-teams/index.md).
+
+## Next
+
+Learn how to add and manage your [Deployment Targets](/docs/infrastructure/deployment-targets/index.md).
