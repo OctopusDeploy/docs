@@ -36,7 +36,7 @@ Below are instructions on how to move your Octopus Server and SQL Database.
 The database stores the locations for these directories. After you connect to the database, your settings will be the same as they were in your original server. You can change the locations for these directories, but we recommend first moving the directories to there original location and then pointing to the new location. This process is outlined in the [moving the home directory](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-home-directory.md) page.
 :::
 
-8. Finally, if you have automatic package indexing enabled restart your new Octopus instance to index the packages. You can restart either in your Octopus Manager, or via the command line with the below command. If package indexing is disabled please trigger a manual update via the Sync Now button on your Library > Packages page.
+8. Finally, if you have automatic package indexing enabled restart your new Octopus instance to index the packages. You can restart either in your Octopus Manager, or via the command line with the below command. If package indexing is disabled please trigger a manual update via the Sync Now button on your **{{Library,Packages}}** page.
 ```
 Octopus.Server.exe service --stop
 Octopus.Server.exe service --start
