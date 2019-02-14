@@ -24,7 +24,7 @@ Once you have a Cloud Service setup within your Azure subscription, you are then
 
 To create an Azure Cloud Service target within Octopus:
 
-- Go to **Infrastructure** > **Deployment Targets** > **Add Deployment Target**.
+- Go to **{{Infrastructure > Deployment Targets > Add Deployment Target}}**.
 - Select **Azure Cloud Service** from the list of available targets and click _Next_.
 - Fill out the necessary fields, being sure to provide a unique role that clearly identifies your Azure Cloud Service target.
 

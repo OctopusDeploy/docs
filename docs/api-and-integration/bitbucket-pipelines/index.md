@@ -25,7 +25,7 @@ If you're using the cloud offering of BitBucket Pipelines, your Octopus server m
 
 ## BitBucket Pipelines Environment Variables
 
-You can use environment variables in your Pipelines (available from the `Settings > Environment Variables` menu of your BitBucket repository), which is a great place to store sensitive information such as your Octopus Deploy API keys (which is ideally not something you store in your source control).
+You can use environment variables in your Pipelines (available from the **{{Settings > Environment Variables}}** menu of your BitBucket repository), which is a great place to store sensitive information such as your Octopus Deploy API keys (which is ideally not something you store in your source control).
 
 For example:
 

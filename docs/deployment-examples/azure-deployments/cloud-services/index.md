@@ -41,7 +41,7 @@ Here is a sample Cloud Service NuGet package: [HelloCloud.1.0.0.nupkg](https://
 
 ### Upload to a NuGet Feed {#CloudServiceConcepts-UploadtoaNuGetfeed}
 
-In order to make the NuGet package accessible to Octopus it needs to be uploaded to a [package repository](/docs/packaging-applications/package-repositories/index.md). The built-in Octopus package repository is accessible from Library > Packages and is a suitable place to upload your Cloud Service NuGet package:
+In order to make the NuGet package accessible to Octopus it needs to be uploaded to a [package repository](/docs/packaging-applications/package-repositories/index.md). The built-in Octopus package repository is accessible from **{{Library > Packages}}** and is a suitable place to upload your Cloud Service NuGet package:
 
 ![Package feed](package-feed.png "width=500")
 
