@@ -457,7 +457,7 @@ docs/deployment-process/steps/deploying-packages/index.md -> docs/deployment-exa
 docs/deployment-process/steps/using-target-roles-in-deployment-steps -> docs/deployment-process/steps/index.md
 docs/deploying-applications/index.md -> docs/deployment-examples/index.md
 docs/deploying-applications/deploying-html-and-javascript-applications.md -> docs/deployment-examples/html-and-javascript-application-deployments.md
-docs/deploying-applications/deploying-mobile-applications.md -> docs/deployment-examples/mobile-application-deployments.md
+docs/deploying-applications/deploying-mobile-applications.md -> docs/deployment-examples/index.md
 docs/deploying-applications/deploying-virtual-hard-drives.md -> docs/deployment-examples/virtual-hard-drive-deployments.md
 docs/deploying-applications/iis-websites-and-application-pools.md -> docs/deployment-examples/iis-websites-and-application-pools.md
 docs/deploying-applications/sql-server-databases.md -> docs/deployment-examples/sql-server-databases.md
@@ -576,7 +576,7 @@ docs/deployment-process/releases/deploy-to-a-specific-subset-of-targets.md -> do
 docs/deployment-process/releases/automatic-release-creation.md -> docs/deployment-process/project-triggers/automatic-release-creation.md
 docs/deployment-examples/email-notifications.md -> docs/deployment-process/steps/email-notifications.md
 docs/deployment-examples/deploying-asp.net-core-web-applications/index.md -> docs/deployment-examples/asp.net-core-web-application-deployments/index.md
-docs/deployment-examples/deploying-mobile-applications.md -> docs/deployment-examples/mobile-application-deployments.md
+docs/deployment-examples/deploying-mobile-applications.md -> docs/deployment-examples/index.md
 docs/deployment-examples/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md -> docs/deployment-process/variables/environment-specific-configuration-transforms-with-sensitive-values-in-octopus.md
 docs/deployment-examples/deploying-packages/index.md -> docs/deployment-examples/package-deployments/index.md
 docs/deployment-examples/deploying-packages/delta-compression-for-package-transfers.md -> docs/deployment-examples/package-deployments/delta-compression-for-package-transfers.md
@@ -749,3 +749,4 @@ docs/administration/authentication/authentication-providers/googleapps-authentic
 docs/administration/authentication/authentication-providers/guest-login.md -> docs/administration/authentication/guest-login.md
 docs/administration/authentication/authentication-providers/index.md -> docs/administration/authentication/index.md
 docs/administration/authentication/authentication-providers/okta-authentication.md -> docs/administration/authentication/okta-authentication.md
+docs/deployment-examples/mobile-application-deployments.md -> docs/deployment-examples/index.md
