@@ -121,6 +121,16 @@ Request Body:
 }
 ```
 
+### Spaces
+
+If you using the Spaces feature of Octopus deploy on either the source or destination server, you should supply the appropriate SpaceId values in the example below. There are 3 values to supply:
+
+ 1. The location to look for the Projects in the source Space
+ 1. The Space where the feed will be used to push the exported package to
+ 1. The Space where the import will occur
+
+If you are not using the Spaces feature, you can leave supplying SpaceId values.
+
 ### Octopus.Clients Example
 
 The [Octopus.Clients library](/docs/api-and-integration/octopus.client.md) can also help you run a migration.
@@ -135,8 +145,9 @@ $sourceApikey = 'API-SOURCE_API_KEY'
 $destinationOctopusURI = 'https://DESTINATION_OCTOPUS_SERVER'
 $destinationApikey = 'API-DESTINATION_API_KEY'
 
-$destinationPackageFeedSpaceId = 'Spaces-1'
+# Spaces related
 $sourceSpaceId = 'Spaces-1'
+$destinationPackageFeedSpaceId = 'Spaces-1'
 $destinationSpaceId = 'Spaces-1'
 
 $migrationPackageId = 'MyAwesomeOctopusMigration'
