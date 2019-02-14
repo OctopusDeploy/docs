@@ -43,6 +43,8 @@ Common options:
                              enabled, a key of API-GUEST can be used. This
                              key can also be set in the OCTOPUS_CLI_API_KEY
                              environment variable.
+      --destinationPackageFeedSpaceId=VALUE
+                              [Optional] If not using the Spaces feature. The SpaceId of the Space where the package containing the data to migrate will be uploaded.
       --user=VALUE           [Optional] Username to use when authenticating
                              with the server. Your must provide an apiKey or
                              username and password. This Username can also be

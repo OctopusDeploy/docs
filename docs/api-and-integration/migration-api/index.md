@@ -68,6 +68,7 @@ Import API parameters:
 | Password=VALUE | Password that was used during the export migration _(This is the shared key between partial-export and import migrations)_ |
 | PackageId=VALUE | Package Name/ID that we are importing |
 | PackageVersion=VALUE | SemVer package version that we are importing |
+| DestinationPackageFeedSpaceId=VALUE | [Optional] If not using the Spaces feature. The SpaceId of the Space where the package containing the data to migrate will be uploaded. |
 | IsEncryptedPackage | [Optional] Tells us whether the package was encrypted _(E.g. if you set `EncryptPackage` on export, you need to set this to `True`)_ |
 | IsDryRun | [Optional] Do not commit changes, just print what would have happened _(This allows you to test an import without actually committing the transaction)_ |
 | OverwriteExisting | [Optional] If a document with the same name already exists, it will be skipped by default |
@@ -121,6 +122,15 @@ Request Body:
 }
 ```
 
+### Spaces
+
+If you using the Spaces feature of Octopus deploy on either the source server, you should supply the appropriate SpaceId values in the example below. The destination Space cannot be controlled it will match the Source. There are 2 values to supply:
+
+ 1. The location to look for the Projects in the source Space
+ 2. The Space where the feed will be used to push the exported package to
+
+ If you are not using the Spaces feature, you can leave supplying SpaceId values.
+
 ### Octopus.Clients Example
 
 The [Octopus.Clients library](/docs/api-and-integration/octopus.client.md) can also help you run a migration.
@@ -134,6 +144,11 @@ $sourceOctopusURI = 'https://SOURCE_OCTOPUS_SERVER'
 $sourceApikey = 'API-SOURCE_API_KEY'
 $destinationOctopusURI = 'https://DESTINATION_OCTOPUS_SERVER'
 $destinationApikey = 'API-DESTINATION_API_KEY'
+
+# Spaces related
+$sourceSpaceId = 'Spaces-1'
+$destinationPackageFeedSpaceId = 'Spaces-1'
+
 $migrationPackageId = 'MyAwesomeOctopusMigration'
 $migrationPackageVersion = '1.0.0'
 $migrationPassword = 'Demo1234'
@@ -155,6 +170,10 @@ $migrationExportResource.IncludeTaskLogs = $true
 $migrationExportResource.EncryptPackage = $true
 $migrationExportResource.DestinationPackageFeed = $destinationOctopusURI
 $migrationExportResource.DestinationApiKey = $destinationApikey
+
+$migrationExportResource.SpaceId = $sourceSpaceId
+$migrationExportResource.DestinationPackageFeedSpaceId = $destinationPackageFeedSpaceId
+
 
 $migrationExportResource = $sourceRepository.Migrations.PartialExport($migrationExportResource)
 
