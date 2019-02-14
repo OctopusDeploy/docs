@@ -21,7 +21,7 @@ Octopus Deploy server can be hosted on any modern Windows Server. We automatical
 - Windows Server 2016
 - Windows Server 2019
 
-Octopus Deploy server will run on the newer versions of Windows Server without GUIs, however, the easiest installation path is to use "Windows Server with a GUI" and run our installation wizard. If you want to use one of the new GUI-less servers, you will need to add some missing Windows features and configure the Octopus server yourself.
+Octopus Deploy server will run on the newer versions of Windows Server without GUIs, however, the easiest installation path is to use "Windows Server with a GUI" and run our installation wizard. If you want to use one of the new GUI-less servers, you will need to add some missing Windows Features and configure the Octopus server yourself.
 
 Learn about [automating installation](/docs/installation/automating-installation.md).
 
