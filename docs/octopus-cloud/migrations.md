@@ -20,7 +20,7 @@ This migration process is intended as a one-off operation to lift and shift ever
 
 :::info
 **Why can't I do a self-service migration at my own pace?**
-We are currently working on making the process more seamless without such a long outage period, and plan to release some tooling to help streamline the data-gathering process sometime around mid-2019. Keep an eye out on our blog for updates on our progress in this area.
+We are currently working on making the process more seamless without such a long outage period, and plan to release some tooling to help streamline the data-gathering process in the future. Keep an eye out on our blog for updates on our progress in this area.
 :::
 
 ## The migration process
