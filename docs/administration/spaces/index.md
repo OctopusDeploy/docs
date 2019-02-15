@@ -9,7 +9,9 @@ version: 2019.1
 Spaces was introduced in **Octopus 2019.1** and as such is not included in the current long-term support version (**Octopus 2018.1-LTS**); however, Spaces will be included in future LTS versions of Octopus Deploy.
 :::
 
-With Spaces you can partition your Octopus Deploy server so that each of your teams can only access the projects, environments, and infrastructure they work with from the spaces they are members of.
+With Spaces you can partition your Octopus Deploy server so that each of your teams can only access the projects, environments, and infrastructure they work with from the spaces they are members of. Users can be members of multiple teams and have access to multiple spaces, but the entities and infrastructure they work with will only be available in the space it is assigned to.
+
+## Spaces Creates Hard Walls in Your Octopus Server
 
 Spaces keeps the different projects and infrastructure your teams work with completely separate, which means something configured in **Space-A**, is not available to projects in **Space-B**. This makes it easier for large organizations with multiple teams using Octopus because each team member will only see the projects, environments, and infrastructure that is available in their space. If your organization has any of the following characteristics, you may find spaces extremely useful:
 
