@@ -34,6 +34,10 @@ Before you can define your deployment process, you must create a project.
 
 Now that you've created a project, you can configure your [Lifecycles](/docs/deployment-process/lifecycles/index.md) or start adding [steps](/docs/deployment-process/steps/index.md) to your project.
 
+:::warning
+If you are using Spaces as part of your Octopus Deploy installation, please remember that any projects you configure, will only be available to the space they are configured for.
+:::
+
 ## Project Overview
 
 The project overview page is where you access settings for the project and define the release process. After you've deployed a few releases, the overview page will give you a visual summary of the project's releases and which environments they've been deployed to.

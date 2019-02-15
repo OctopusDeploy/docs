@@ -9,6 +9,10 @@ Deployment targets are the servers and services you deploy your software to. You
 
 From the **Deployment Targets** tab you can add new deployment targets, disable or delete deployment targets, check on the status of your targets, and run health checks.
 
+:::warning
+If you are using Spaces as part of your Octopus Deploy installation, please remember that any Deployment Targets you configure, will only be available to the space they are configured for.
+:::
+
 ## Adding Deployment Targets
 
 Deployment targets are added in different ways, depending on the type of target you are adding and how the target will communicate with the Octopus Deploy server. For instructions, see:

@@ -40,6 +40,10 @@ When a release of the project is deployed, the script step will run with the str
 
 !include <using-variables-in-scripts>
 
+:::warning
+If you are using Spaces as part of your Octopus Deploy installation, please remember that any Variables you configure, will only be available to the space they are configured for.
+:::
+
 ## Variables in Octopus
 
 Variables are an important and useful concept in Octopus, so this section describes different ways in which variables can be used.

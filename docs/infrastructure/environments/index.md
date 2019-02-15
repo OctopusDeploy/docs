@@ -18,6 +18,10 @@ Organizing your deployment targets into environments lets you define your deploy
 
 You can add as many environments as you need.
 
+:::warning
+If you are using Spaces as part of your Octopus Deploy installation, please remember that any environments you configure, will only be available to the space they are configured for.
+:::
+
 ## Managing Your Environments
 
 If you're working with a large number of environments and deployment targets, the **Environments** page makes it easy to sort, filter, and view your environments and the deployment targets that belong to each environment.
