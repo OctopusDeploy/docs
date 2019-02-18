@@ -52,6 +52,10 @@ An optional value that defines the maximum time in seconds for a deployment to m
 
 This value affects [Blue/Green deployments](#bluegreen-deployment-strategy), which will point the service to the new deployment only after the new deployment has succeeded.
 
+### Pod Termination Grace Period
+
+An optional value that defines how long Kubernetes will wait for the Pod resource to shutdown before it is killed. See the [Kubernetes documentation](http://g.octopushq.com/KubernetesPodTermination) for more details.
+
 ### Add Label
 
 Labels are custom key/value pairs that are assigned to Kubernetes resources. The labels defined in the `Deployment` section are applied to the Deployment, Pod, Service, Ingress, ConfigMap and Secret resources.
