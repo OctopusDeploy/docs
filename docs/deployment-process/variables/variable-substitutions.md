@@ -1,14 +1,20 @@
 ---
-title: Variable Substitution Syntax
+title: Variable Substitution
 description: Variable substitutions are a flexible way to adjust configuration based on your variables and the context of your deployment.
 position: 65
 ---
 
 Variable substitutions are a flexible way to adjust configuration based on your [variables](/docs/deployment-process/variables/index.md) and the context of your [deployment](/docs/deployment-process/index.md). You can often tame the number and complexity of your variables by breaking them down into simple variables and combining them together using expressions.
 
+## Binding Variables
+
+You can using Octopus's special binding syntax to reference a variable from within the value of another variable. In the following example, the `ConnectionString` variable references the variables `{server}` and `{database}`.
+
+![](/docs/images/3048310/3278295.png "width=500")
+
 ## Basic Syntax {#VariableSubstitutionSyntax-BasicSyntax}
 
-Octopus [variables](/docs/deployment-process/variables/index.md) support substitution throughout: a variable may be bound to an expression that incorporates the values of other variables:
+Octopus [variables](/docs/deployment-process/variables/index.md) support substitution throughout. A variable may be bound to an expression that incorporates the values of other variables:
 
 | Name               | Value                       | Scope      |
 | ------------------ | --------------------------- | ---------- |

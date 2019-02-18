@@ -5,7 +5,7 @@ position: 80
 ---
 The Substitute Variables in Files feature is one of the [configuration features](/docs/deployment-process/configuration-features/index.md) you can enable as you define the [steps](/docs/deployment-process/steps/index.md) in your [deployment process](/docs/deployment-process/index.md). This feature is available in package steps, and it allows you to inject [Octopus Variables](/docs/deployment-process/variables/index.md) into **any file**.
 
-Octopus will parse the files you select for [variable binding expressions](/docs/deployment-process/variables/variable-substitution-syntax.md), replacing each expression with its result.
+Octopus will parse the files you select for [variable binding expressions](/docs/deployment-process/variables/variable-substitutions.md), replacing each expression with its result.
 
 :::hint
 You can perform very complex transformations in any kind of file using this feature. We also have features tailored to [XML configuration files](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) and [JSON configuration files](/docs/deployment-process/configuration-features/json-configuration-variables-feature.md).

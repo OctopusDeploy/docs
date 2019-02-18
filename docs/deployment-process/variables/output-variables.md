@@ -30,7 +30,7 @@ Octopus.setVariable "TestResult" "Passed"
 set_octopusvariable("TestResult", "Passed")
 ```
 
-You can then use the variable from other steps, either in [variable binding syntax](/docs/deployment-process/variables/binding-syntax.md):
+You can then use the variable from other steps, either in [variable binding syntax](/docs/deployment-process/variables/variable-substitutions.md):
 
 ```powershell
 #{Octopus.Action[StepA].Output.TestResult}

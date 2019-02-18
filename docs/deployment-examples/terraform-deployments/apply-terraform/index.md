@@ -137,7 +137,7 @@ Then the value from the project variable `AMI` would be substituted for the mark
 
 When applying an inline template, the variable fields can also include replacement markers. For example, if a map variable for a HCL template was defined as `{"key" = "value", #{MapValues}}` and the Octopus project had a variable called `MapValues` defined as `"key2" = "value2"`, then the final variable would resolve to `{"key" = "value", "key2" = "value2"}`.
 
-See the [variable substitution](/docs/deployment-process/variables/variable-substitution-syntax.md) documentation for more information.
+See the [variable substitution](/docs/deployment-process/variables/variable-substitutions.md) documentation for more information.
 
 #### Additional Variable Files
 
@@ -193,7 +193,7 @@ $value = $OctopusParameters["Octopus.Action[Apply Template].Output.TerraformValu
 $value = $OctopusParameters["Octopus.Action[Apply Template].Output.TerraformJsonOutputs[test]"] | ConvertFrom-Json  | select -ExpandProperty value
 ```
 
-The syntax for accessing JSON variables as covered by our [documentation here](/docs/deployment-process/variables/variable-substitution-syntax.md#VariableSubstitutionSyntax-JSONParsingjson) applies to both `TerraformJsonOutputs` as well as `TerraformValueOutputs`. However the latter is less useful as it can also be a primitive value. In this case Octostache won't know that it should deserialize the value and will provide you with a JSON encoded result. It is therefore recommended to prefer `TerraformJsonOutputs` where possible. The following syntax can be used to access the value using the binding syntax:
+The syntax for accessing JSON variables as covered by our [documentation here](/docs/deployment-process/variables/variable-substitutions.md#VariableSubstitutionSyntax-JSONParsingjson) applies to both `TerraformJsonOutputs` as well as `TerraformValueOutputs`. However the latter is less useful as it can also be a primitive value. In this case Octostache won't know that it should deserialize the value and will provide you with a JSON encoded result. It is therefore recommended to prefer `TerraformJsonOutputs` where possible. The following syntax can be used to access the value using the binding syntax:
 
 ```
 #{Octopus.Action[Apply Template].Output.TerraformJsonOutputs[test].value}

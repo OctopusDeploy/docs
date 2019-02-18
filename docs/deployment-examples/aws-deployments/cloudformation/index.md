@@ -98,7 +98,7 @@ Variable replacement is performed before the template is deployed when deploying
 
 Then the values from the project variables `KeyName` and `InstanceType` would be substituted for the markers `#{KeyName}` and `#{InstanceType}`.
 
-See the [variable substitution](/docs/deployment-process/variables/variable-substitution-syntax.md) documentation for more information.
+See the [variable substitution](/docs/deployment-process/variables/variable-substitutions.md) documentation for more information.
 
 #### Accessing CloudFormation Outputs
 

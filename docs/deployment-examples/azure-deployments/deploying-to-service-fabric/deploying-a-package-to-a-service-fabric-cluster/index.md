@@ -62,7 +62,7 @@ The following features are available when deploying a package to a Service Fabri
 - [Configuration Variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md)
 - [Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms.md)
 - [JSON Configuration Variables](/docs/deployment-process/configuration-features/json-configuration-variables-feature.md)
-- [Substitute Variables in Files](/docs/deployment-process/variables/variable-substitution-syntax.md)
+- [Substitute Variables in Files](/docs/deployment-process/variables/variable-substitutions.md)
 
 :::hint
 Please note these features run on the Octopus Server prior to deploying the Service Fabric application to your cluster. They don't execute in the cluster nodes you are eventually targeting.

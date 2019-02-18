@@ -81,4 +81,4 @@ For example, the variable `foo:bar:1` with a value `qux` will update the value
 
 You can also replace an entire array. For the example above you could set Octopus Variable `foo:bar` to a value of `["baz","qux"]`.
 
-Note that you can even use the [Variable Substitution Syntax](/docs/deployment-process/variables/variable-substitution-syntax.md) patterns in this file selection input box itself to do things like reference environment specific files, or conditionally include them based on scoped variables.
+Note that you can even use the [Variable Substitution Syntax](/docs/deployment-process/variables/variable-substitutions.md) patterns in this file selection input box itself to do things like reference environment specific files, or conditionally include them based on scoped variables.

@@ -139,7 +139,7 @@ docs/deploying-applications/projects/lifecycles/index.md -> docs/deployment-proc
 docs/deploying-applications/adding-steps.md -> docs/deployment-process/steps/index.md
 docs/deploying-applications/projects/deployment-processes.md -> docs/deployment-process/index.md
 docs/deploying-applications/variables/index.md -> docs/deployment-process/variables/index.md
-docs/deploying-applications/variables/binding-syntax.md -> docs/deployment-process/variables/binding-syntax.md
+docs/deploying-applications/variables/binding-syntax.md -> docs/deployment-process/variables/variable-substitutions.md
 docs/deploying-applications/variables/library-variable-sets.md -> docs/deployment-process/variables/library-variable-sets.md
 docs/deploying-applications/variables/output-variables.md -> docs/deployment-process/variables/output-variables.md
 docs/deploying-applications/variables/prompted-variables.md -> docs/deployment-process/variables/prompted-variables.md
@@ -231,7 +231,7 @@ docs/deploying-applications/deployment-process/coordinating-multiple-projects/in
 docs/deploying-applications/deployment-process/coordinating-multiple-projects/project-coordination-code-samples.md -> docs/deployment-process/projects/coordinating-multiple-projects/project-coordination-code-samples.md
 docs/deploying-applications/deployment-process/steps/index.md -> docs/deployment-process/steps/index.md
 docs/deploying-applications/deployment-process/variables/index.md -> docs/deployment-process/variables/index.md
-docs/deploying-applications/deployment-process/variables/binding-syntax.md -> docs/deployment-process/variables/binding-syntax.md
+docs/deploying-applications/deployment-process/variables/binding-syntax.md -> docs/deployment-process/variables/variable-substitutions.md
 docs/deploying-applications/deployment-process/variables/library-variable-sets.md -> docs/deployment-process/variables/library-variable-sets.md
 docs/deploying-applications/deployment-process/variables/output-variables.md -> docs/deployment-process/variables/output-variables.md
 docs/deploying-applications/deployment-process/variables/prompted-variables.md -> docs/deployment-process/variables/prompted-variables.md
@@ -325,7 +325,7 @@ docs/how-to/send-a-secret-to-octopus.md -> docs/support/send-a-secret-to-octopus
 docs/how-to/export-and-import-tentacle-certificates-without-a-profile.md -> docs/infrastructure/deployment-targets/windows-targets/automating-tentacle-installation.md
 docs/how-to/index.md -> docs/getting-started.md
 docs/reference/credits.md -> docs/credits.md
-docs/reference/variable-substitution-syntax.md -> docs/deployment-process/variables/variable-substitution-syntax.md
+docs/reference/variable-substitution-syntax.md -> docs/deployment-process/variables/variable-substitutions.md
 docs/reference/security-headers.md -> docs/administration/security/http-security-headers.md
 docs/administration/security-headers.md -> docs/administration/security/http-security-headers.md
 docs/reference/security-and-encryption.md -> docs/administration/security/data-encryption.md
@@ -380,7 +380,7 @@ docs/reference/index.md -> docs/getting-started.md
 docs/administration/octopus-server-configuration-file.md -> docs/administration/managing-infrastructure/server-configuration-and-file-storage/index.md
 docs/deployment-process/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md -> docs/deployment-process/variables/environment-specific-configuration-transforms-with-sensitive-values-in-octopus.md
 docs/deployment-process/substitute-variables-in-files.md -> docs/deployment-process/configuration-features/substitute-variables-in-files.md
-docs/deployment-process/variable-substitution-syntax.md -> docs/deployment-process/variables/variable-substitution-syntax.md
+docs/deployment-process/variable-substitution-syntax.md -> docs/deployment-process/variables/variable-substitutions.md
 docs/deployment-process/steps/automatic-release-creation.md -> docs/deployment-process/project-triggers/automatic-release-creation.md
 docs/installation/sql-server-database-requirements.md -> docs/installation/sql-server-database.md
 docs/administration/security/hardening-octopus-server.md -> docs/administration/security/hardening-octopus.md
@@ -752,3 +752,5 @@ docs/administration/authentication/authentication-providers/okta-authentication.
 docs/deployment-examples/mobile-application-deployments.md -> docs/deployment-examples/index.md
 docs/deployment-examples/nginx-on-linux-deployments/create-&-push-asp.net-core-project.md -> docs/deployment-examples/nginx-on-linux-deployments/create-and-push-asp.net-core-project.md
 docs/deployment-examples/node-on-linux-deployments/create-&-push-node.js-project.md -> docs/deployment-examples/node-on-linux-deployments/create-and-push-node.js-project.md
+docs/deployment-process/variables/binding-syntax.md -> docs/deployment-process/variables/variable-substitutions.md
+docs/deployment-process/variables/variable-substitution-syntax.md -> docs/deployment-process/variables/variable-substitutions.md
