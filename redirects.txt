@@ -751,4 +751,4 @@ docs/administration/authentication/authentication-providers/index.md -> docs/adm
 docs/administration/authentication/authentication-providers/okta-authentication.md -> docs/administration/authentication/okta-authentication.md
 docs/deployment-examples/mobile-application-deployments.md -> docs/deployment-examples/index.md
 docs/deployment-examples/nginx-on-linux-deployments/create-&-push-asp.net-core-project.md -> docs/deployment-examples/nginx-on-linux-deployments/create-and-push-asp.net-core-project.md
-docs/deployment-examples/node-on-linux-deployments/create-&-push-node.js-project.md -> docs/deployment-examples/nginx-on-linux-deployments/create-and-push-node.js-project.md
+docs/deployment-examples/node-on-linux-deployments/create-&-push-node.js-project.md -> docs/deployment-examples/node-on-linux-deployments/create-and-push-node.js-project.md
