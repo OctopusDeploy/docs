@@ -45,7 +45,11 @@ We take great care to ensure the security and integrity of your audit logs, to m
 
 ### Viewing Audit Logs
 
-In **Octopus 3.4** we introduced a new permission called **AuditView** which allows someone to view the audit logs without needing other permissions. In earlier versions of Octopus you would require the **AdministerSystem** permission. Learn about [managing users and teams](/docs/administration/managing-users-and-teams/index.md).
+In **Octopus 3.4** we introduced a new permission called **AuditView** which when combined with **EventView** allows someone to view the audit logs without needing other permissions. In earlier versions of Octopus you would require the **AdministerSystem** permission. Learn about [managing users and teams](/docs/administration/managing-users-and-teams/index.md).
+
+**AuditView** is an additional permission required on top of **EventView** which can be scoped to narrow down which audit information a user can see.
+
+In **Octopus 2019.1** we removed **AuditView** in an effort to simplify permissions so only **EventView** is now required.
 
 ### Modifying and Deleting Audit Logs is Prevented
 
