@@ -127,7 +127,7 @@ Request Body:
 If you using the Spaces feature of Octopus Deploy on the source server, you should supply the appropriate SpaceID values in the example below. The destination Space cannot be specified it will match the Source. There are two values to supply:
 
  1. The location to look for the Projects in the source Space.
- 2. The Space where the feed will be used to push the exported package to.
+ 2. The Space that has the feed we’ll be pushing the exported package to.
 
  If you are not using the Spaces feature, you do not need to supply the SpaceID values.
 
