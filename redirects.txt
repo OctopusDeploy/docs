@@ -110,7 +110,7 @@ docs/guides/node-on-nix-deployments/configure-octopus-deploy-project.md -> docs/
 docs/deployment-examples/node-on-nix-deployments/configure-octopus-deploy-project.md -> docs/deployment-examples/node-on-linux-deployments/configure-octopus-deploy-project.md
 docs/guides/node-on-nix-deployments/configuring-target-machine.md -> docs/deployment-examples/node-on-linux-deployments/configuring-target-machine.md
 docs/deployment-examples/node-on-nix-deployments/configuring-target-machine.md -> docs/deployment-examples/node-on-linux-deployments/configuring-target-machine.md
-docs/guides/node-on-nix-deployments/create-&-push-node.js-project.md -> docs/deployment-examples/node-on-linux-deployments/create-&-push-node.js-project.md
+docs/guides/node-on-nix-deployments/create-&-push-node.js-project.md -> docs/deployment-examples/node-on-linux-deployments/create-and-push-node.js-project.md
 docs/guides/node-on-nix-deployments/index.md -> docs/deployment-examples/node-on-linux-deployments/index.md
 docs/deployment-examples/node-on-nix-deployments/index.md -> docs/deployment-examples/node-on-linux-deployments/index.md
 docs/guides/deploying-asp.net-core-web-applications/index.md -> docs/deployment-examples/asp.net-core-web-application-deployments/index.md
@@ -529,8 +529,8 @@ docs/deploying-applications/java-applications/error-messages.md -> docs/deployme
 docs/deploying-applications/node-on-nix-deployments/index.md -> docs/deployment-examples/node-on-linux-deployments/index.md
 docs/deploying-applications/node-on-nix-deployments/configure-octopus-deploy-project.md -> docs/deployment-examples/node-on-linux-deployments/configure-octopus-deploy-project.md
 docs/deploying-applications/node-on-nix-deployments/configuring-target-machine.md -> docs/deployment-examples/node-on-linux-deployments/configuring-target-machine.md
-docs/deploying-applications/node-on-nix-deployments/create-&-push-node.js-project.md -> docs/deployment-examples/node-on-linux-deployments/create-&-push-node.js-project.md
-docs/deployment-examples/node-on-nix-deployments/create-&-push-node.js-project.md -> docs/deployment-examples/node-on-linux-deployments/create-&-push-node.js-project.md
+docs/deploying-applications/node-on-nix-deployments/create-&-push-node.js-project.md -> docs/deployment-examples/node-on-linux-deployments/create-and-push-node.js-project.md
+docs/deployment-examples/node-on-nix-deployments/create-&-push-node.js-project.md -> docs/deployment-examples/node-on-linux-deployments/create-and-push-node.js-project.md
 docs/deploying-applications/terraform-deployments/index.md -> docs/deployment-examples/terraform-deployments/index.md
 docs/deploying-applications/terraform-deployments/apply-terraform/index.md -> docs/deployment-examples/terraform-deployments/apply-terraform/index.md
 docs/deploying-applications/terraform-deployments/destroy-terraform/index.md -> docs/deployment-examples/terraform-deployments/destroy-terraform/index.md
@@ -664,7 +664,7 @@ docs/infrastructure/deployment-targets/ssh-targets/self-contained-calamari.md ->
 docs/infrastructure/deployment-targets/ssh-targets/configuring-ssh-connection.md -> docs/infrastructure/deployment-targets/linux/index.md
 docs/infrastructure/deployment-targets/health-checks.md -> docs/infrastructure/machine-policies.md
 docs/deployment-examples/nginx-on-nix-deployments/index.md -> docs/deployment-examples/nginx-on-linux-deployments/index.md
-docs/deployment-examples/nginx-on-nix-deployments/create-&-push-asp.net-core-project.md -> docs/deployment-examples/nginx-on-linux-deployments/create-&-push-asp.net-core-project.md
+docs/deployment-examples/nginx-on-nix-deployments/create-&-push-asp.net-core-project.md -> docs/deployment-examples/nginx-on-linux-deployments/create-and-push-asp.net-core-project.md
 docs/deployment-examples/nginx-on-nix-deployments/configure-target-machine.md -> docs/deployment-examples/nginx-on-linux-deployments/configure-target-machine.md
 docs/deployment-examples/nginx-on-nix-deployments/configure-octopus-deploy-project.md -> docs/deployment-examples/nginx-on-linux-deployments/configure-octopus-deploy-project.md
 docs/infrastructure/deployment-targets/ssh-targets/index.md -> docs/infrastructure/deployment-targets/linux/index.md
@@ -750,3 +750,5 @@ docs/administration/authentication/authentication-providers/guest-login.md -> do
 docs/administration/authentication/authentication-providers/index.md -> docs/administration/authentication/index.md
 docs/administration/authentication/authentication-providers/okta-authentication.md -> docs/administration/authentication/okta-authentication.md
 docs/deployment-examples/mobile-application-deployments.md -> docs/deployment-examples/index.md
+docs/deployment-examples/nginx-on-linux-deployments/create-&-push-asp.net-core-project.md -> docs/deployment-examples/nginx-on-linux-deployments/create-and-push-asp.net-core-project.md
+docs/deployment-examples/node-on-linux-deployments/create-&-push-node.js-project.md -> docs/deployment-examples/nginx-on-linux-deployments/create-and-push-node.js--project.md

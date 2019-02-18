@@ -4,7 +4,7 @@ description: This guide describes how to configure your Octopus project to deplo
 position: 2
 ---
 
-Assuming you are starting with a clean install of Octopus Deploy, the following steps will configure the server to deploy your [octofxjs](/docs/deployment-examples/node-on-linux-deployments/create-&-push-node.js-project.md) Node.js project to a Linux machine.
+Assuming you are starting with a clean install of Octopus Deploy, the following steps will configure the server to deploy your [octofxjs](/docs/deployment-examples/node-on-linux-deployments/create-and-push-node.js-project.md) Node.js project to a Linux machine.
 
 ## Configure Environment {#ConfigureOctopusDeployProject-ConfigureEnvironment}
 

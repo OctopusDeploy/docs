@@ -4,7 +4,7 @@ description: This guide describes how to configure your Octopus project to deplo
 position: 2
 ---
 
-Assuming you are starting with a clean install of Octopus Deploy, the following steps will configure the server to deploy your [NginxSampleWebApp](/docs/deployment-examples/nginx-on-linux-deployments/create-&-push-asp.net-core-project.md) ASP.NET Core project to a Linux machine.
+Assuming you are starting with a clean install of Octopus Deploy, the following steps will configure the server to deploy your [NginxSampleWebApp](/docs/deployment-examples/nginx-on-linux-deployments/create-and-push-asp.net-core-project.md) ASP.NET Core project to a Linux machine.
 
 ## Configure Environment
 
