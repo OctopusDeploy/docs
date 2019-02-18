@@ -1,3 +1,8 @@
+---
+title: Jira Work Items
+description: Configuring Octopus work item integration with Jira.
+---
+
 This section details how to configure the work item integration between Octopus and Jira.
 
 ## Packaging
