@@ -10,31 +10,18 @@ If you have an existing self-hosted Octopus server, and are looking to switch to
 **Note:** our existing [Migration API](/docs/api-and-integration/migration-api/index.md) is **not supported** for migrations to cloud instances at this time.
 :::
 
-## Before you start
+## How it works
 
-This migration process is intended as a one-off operation to lift and shift everything across to an Octopus Cloud instance. Before you schedule time with our team to do the migration, please keep in mind:
+To get started migrating from self-hosted to cloud you will need to [email our support team](mailto:support@octopus.com) and book in a time for the migration to occur. There will be some things you need to do on your end to prepare, and then some things we will do on our end to bring all the data across. 
 
-- there will be an outage of 1-2 business days while we migrate your data through to a running cloud instance
-- we will need a number of data files to do the migration on our end, so please schedule some time to export the necessary files and artifacts
-- exports will need to be generated from a **minimum** version of 2018.10, so please make sure you are running this version or higher before exporting the database
+## Getting prepared for migration
 
-:::info
-**Why can't I do a self-service migration at my own pace?**
-We are currently working on making the process more seamless without such a long outage period, and plan to release some tooling to help streamline the data-gathering process in the future. Keep an eye out on our blog for updates on our progress in this area.
-:::
+We'll outline the specific steps we need you to do when you book in for the migration, but here are some things you could do in advance while you wait:
 
-## The migration process
+- email [support@octopus.com](mailto:support@octopus.com) to book in a mutually convenient time, and find out the specific steps involved
+- upgrade to the [latest LTS version](https://octopus.com/downloads) of Octopus - this will help eliminate any compatibility problems that might occur
+- schedule 1-2 days of possible downtime for your deployments, while we migrate your instance across to the cloud
 
-1. Book in a mutually convenient time with our team by emailing [support@octopus.com](mailto:support@octopus.com), so you can schedule the outage to a time that suits your needs. Please allow 1-2 business days of downtime
-1. Make sure your Octopus Server is running _at least_ version [2018.10](https://octopus.com/downloads/2018.10.0) (or higher), so avoid any complications with the migration process
-1. When you're ready to do the migration, shutdown your Octopus Server and generate the required files (see below), and send these through to us via `<How do we want to receive these files??>`
-1. We'll be in contact within 1-2 business days from when you supply the files to us with an update on the progress of the migration to Octopus Cloud
+## Got questions?
 
-## Required files for migration
-
-- Full Octopus database backup
-- Master key
-- Packages?
-- Artifacts?
-- Task logs / server logs?
-- ???
+If you're unsure of anything, please [email our support team](mailto:support@octopus.com) and ask the question - we're always happy to help, and we'll be able to provide more specific information around the time you are ready to migrate.
