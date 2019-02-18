@@ -68,7 +68,7 @@ Import API parameters:
 | Password=VALUE | Password that was used during the export migration _(This is the shared key between partial-export and import migrations)_ |
 | PackageId=VALUE | Package Name/ID that we are importing |
 | PackageVersion=VALUE | SemVer package version that we are importing |
-| DestinationPackageFeedSpaceId=VALUE | [Optional] If not using the Spaces feature. The SpaceID of the Space where the package containing the data to migrate will be uploaded. |
+| DestinationPackageFeedSpaceId=VALUE | [Optional] If not using the Spaces feature. The SpaceID of the Space where the package containing the data to migrate will be uploaded. This is only for the package the data in the package specifies the destination Space. |
 | IsEncryptedPackage | [Optional] Tells us whether the package was encrypted _(E.g. if you set `EncryptPackage` on export, you need to set this to `True`)_ |
 | IsDryRun | [Optional] Do not commit changes, just print what would have happened _(This allows you to test an import without actually committing the transaction)_ |
 | OverwriteExisting | [Optional] If a document with the same name already exists, it will be skipped by default |
