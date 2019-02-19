@@ -1,5 +1,5 @@
 ---
-title: call the Jenkins REST API from Powershell
+title: Call the Jenkins REST API from Powershell
 description: Learn how to call the Jenkins REST API from Powershell
 position: 30
 ---
