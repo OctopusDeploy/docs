@@ -17,7 +17,7 @@ To get started migrating from self-hosted to cloud, [email our support team](mai
 ### Prepare for the Migration
 
 - Email [support@octopus.com](mailto:support@octopus.com) to book in a mutually convenient time. We'll reply with the specific steps that are involved.
-- Upgrade to the [latest LTS version](https://octopus.com/downloads) of Octopus This will help eliminate any compatibility problems that could occur.
+- Upgrade to the [latest LTS version](https://octopus.com/downloads) of Octopus. This will help eliminate any compatibility problems that could occur.
 - Schedule two days of possible downtime for your deployments, while we migrate your instance across to the cloud.
 
 ## Got questions?
