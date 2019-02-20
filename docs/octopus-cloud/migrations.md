@@ -4,7 +4,7 @@ position: 40
 description:  Migrating from self-hosted to Octopus Cloud.
 ---
 
-If you have an existing self-hosted Octopus server, and you want to switch to Octopus Cloud, you may want to migrate all of your existing projects, variables, history, and configuration from your self-hosted instance to your new Octopus Cloud instance. The only way to achieve a full migration is through an entire database backup and restore. This ensures we don't miss any key dependencies.
+If you have an existing self-hosted Octopus server, and you want to switch to Octopus Cloud, you may want to migrate all of your existing projects, variables, history, and configuration from your self-hosted instance to your new Octopus Cloud instance. The only way to achieve this is through a full migration, with an entire database backup and restore. This ensures we don't miss any key dependencies.
 
 :::warning
 **Warning:** our existing [Migration API](/docs/api-and-integration/migration-api/index.md) is **not supported** for migrations to cloud instances at this time.
