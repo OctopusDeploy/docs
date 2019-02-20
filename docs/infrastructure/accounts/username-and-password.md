@@ -16,7 +16,7 @@ To allow the Octopus server to connect using the provided credentials you the wi
 1. Find the line that contains: `PasswordAuthentication` and change it to: `PasswordAuthentication yes`.
 1. Restart the SSH service under root privileges: `service ssh restart`.
 
-If you experience problems connecting, it may help to try connect directly to the target machine using these credentials though a client like putty. This will help eliminate any network related problems with your Octopus configuration.
+If you experience problems connecting, it may help to try connecting directly to the target machine using these credentials though a client like putty. This will help eliminate any network related problems with your Octopus configuration.
 
 :::warning
 **Different Distributions use Different Conventions**
