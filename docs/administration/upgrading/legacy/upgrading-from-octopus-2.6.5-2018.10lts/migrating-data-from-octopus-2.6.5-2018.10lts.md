@@ -14,7 +14,7 @@ When upgrading from **Octopus 2.6** to **Octopus 3.x** you can migrate your data
 - You can optionally limit the days of historical data to migrate - see [below](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/migrating-data-from-octopus-2.6.5-2018.10lts.md) for more details.
 
 :::hint
-** The migrator can take a long time **
+**The migrator can take a long time**
 Please see our [tips for minimizing the migration duration](minimize-migration-time.md).
 :::
 
