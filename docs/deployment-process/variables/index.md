@@ -134,7 +134,7 @@ When applying permissions on variables via scopes, the only options that are che
 
 ## Using Variables in Step Definitions {#Bindingsyntax-Referencingvariablesinstepdefinitions}
 
-This binding syntax can also be used to dynamically change the values of deployment step settings. If [variables are scoped](/docs/deployment-process/variables#scoping-variables), this makes it really easy to alter a deployment step settings based on the target environment.
+This binding syntax can also be used to dynamically change the values of deployment step settings. If [variables are scoped](/docs/deployment-process/variables.md#scoping-variables), this makes it really easy to alter a deployment step settings based on the target environment.
 
 Most text fields that support binding to variables will have a variable insert button:
 
