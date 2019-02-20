@@ -2,7 +2,6 @@
 title: AWS Account Variables
 description: Create an AWS Account to use it in AWS-related deployment steps
 position: 80
-version: "[2018.2,)"
 ---
 
 [AWS accounts](/docs/infrastructure/accounts/aws/index.md) are included in a project through a project [variable](/docs/deployment-process/variables/index.md) of the type **Amazon Web Services Account**. Before you create an **AWS Account Variable**, you need to [create an AWS Account](/docs/infrastructure/accounts/aws/index.md) in Octopus:

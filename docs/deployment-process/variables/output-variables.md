@@ -1,7 +1,7 @@
 ---
 title: Output Variables
 description: Output variables allow you to set dynamic variables in one step that can be used in subsequent steps.
-position: 15
+position: 30
 ---
 
 As you work with [variables](/docs/deployment-process/variables/index.md) in Octopus, there will be times when you want to use dynamic variables, for example, the value of a variable is the result of a calculation, or the output from running a command. For these scenarios, Octopus supports **output variables**.

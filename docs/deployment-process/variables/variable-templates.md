@@ -1,7 +1,7 @@
 ---
 title: Variable Templates
 description: Variable templates can be defined in Octopus to indicate which variable values are required to successfully deploy a project.
-position: 70
+position: 100
 ---
 
 Working with [Multi-tenants](/docs/deployment-patterns/multi-tenant-deployments/index.md) in Octopus, allows you to deploy releases to multiple customers. As you work with multi-tenant releases there will be [variables](/docs/deployment-process/variables/index.md) that are common across all tenants but need a unique value per tenant, for instance, website names, titles, headers, images, logo, URLs, contact information, and technical details such as server names and database connection settings. The Variable Template feature lets you specify which variables are required to successfully deploy a project to a tenant, and then to provide those variables per tenant.

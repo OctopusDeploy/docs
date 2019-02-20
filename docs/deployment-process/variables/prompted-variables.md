@@ -1,7 +1,7 @@
 ---
 title: Prompted Variables
 description: Prompted variables allow you to prompt a user to enter a value rather than storing it in Octopus.
-position: 30
+position: 40
 ---
 As you work with [variables](/docs/deployment-process/variables/index.md) in Octopus, there may be times when the value of a variable isn't known and you need a user to enter the variable at deployment time. Octopus can handle this using **Prompted variables**.
 

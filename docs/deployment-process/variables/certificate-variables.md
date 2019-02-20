@@ -1,8 +1,7 @@
 ---
 title: Certificate Variables
 description: Variables in Octopus Deploy can have a certificate as the value
-position: 55
-version: "[3.11,)"
+position: 60
 ---
 
 In the variable-editor, selecting *Certificate* as the [variable](/docs/deployment-process/variables/index.md) type allows you to create a variable with a certificate managed by Octopus as the value.

@@ -1,8 +1,7 @@
 ---
 title: Azure Account Variables
 description: Create an Azure Account variable to use it in Azure deployment steps
-position: 80
-version: "[2018.5,)"
+position: 70
 ---
 
 [Azure accounts](/docs/infrastructure/deployment-targets/azure/index.md) can be referenced in a project through a project [variable](/docs/deployment-process/variables/index.md) of the type **Azure Account**.
