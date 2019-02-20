@@ -143,7 +143,7 @@ docs/deploying-applications/variables/binding-syntax.md -> docs/deployment-proce
 docs/deploying-applications/variables/library-variable-sets.md -> docs/deployment-process/variables/library-variable-sets.md
 docs/deploying-applications/variables/output-variables.md -> docs/deployment-process/variables/output-variables.md
 docs/deploying-applications/variables/prompted-variables.md -> docs/deployment-process/variables/prompted-variables.md
-docs/deploying-applications/variables/scoping-variables.md -> docs/deployment-process/variables/scoping-variables.md
+docs/deploying-applications/variables/scoping-variables.md -> docs/deployment-process/variables/index.md
 docs/deploying-applications/variables/sensitive-variables.md -> docs/deployment-process/variables/sensitive-variables.md
 docs/deploying-applications/variables/system-variables.md -> docs/deployment-process/variables/system-variables.md
 docs/deploying-applications/variables/variable-templates.md -> docs/deployment-process/variables/variable-templates.md
@@ -235,7 +235,7 @@ docs/deploying-applications/deployment-process/variables/binding-syntax.md -> do
 docs/deploying-applications/deployment-process/variables/library-variable-sets.md -> docs/deployment-process/variables/library-variable-sets.md
 docs/deploying-applications/deployment-process/variables/output-variables.md -> docs/deployment-process/variables/output-variables.md
 docs/deploying-applications/deployment-process/variables/prompted-variables.md -> docs/deployment-process/variables/prompted-variables.md
-docs/deploying-applications/deployment-process/variables/scoping-variables.md -> docs/deployment-process/variables/scoping-variables.md
+docs/deploying-applications/deployment-process/variables/scoping-variables.md -> docs/deployment-process/variables/index.md
 docs/deploying-applications/deployment-process/variables/sensitive-variables.md -> docs/deployment-process/variables/sensitive-variables.md
 docs/deploying-applications/deployment-process/variables/system-variables.md -> docs/deployment-process/variables/system-variables.md
 docs/deploying-applications/deployment-process/variables/variable-templates.md -> docs/deployment-process/variables/variable-templates.md
@@ -754,3 +754,4 @@ docs/deployment-examples/nginx-on-linux-deployments/create-&-push-asp.net-core-p
 docs/deployment-examples/node-on-linux-deployments/create-&-push-node.js-project.md -> docs/deployment-examples/node-on-linux-deployments/create-and-push-node.js-project.md
 docs/deployment-process/variables/binding-syntax.md -> docs/deployment-process/variables/variable-substitutions.md
 docs/deployment-process/variables/variable-substitution-syntax.md -> docs/deployment-process/variables/variable-substitutions.md
+docs/deployment-process/variables/scoping-variables/index.md -> docs/deployment-process/variables/index.md

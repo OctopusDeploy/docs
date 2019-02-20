@@ -102,7 +102,7 @@ If you choose to override the deployment script, remember that your `DeployToSer
 
 When your application is deployed to more than one geographic region, you are likely to need per-region configuration settings. You can achieve this by creating a [Service Fabric Deployment Target](/docs/infrastructure/deployment-targets/azure/service-fabric-cluster-targets/index.md) per-region and assigning them to the same role and an appropriate environment.
 
-Your process can be modified by using [variables scoped](/docs/deployment-process/variables/scoping-variables.md) by environment or deployment target.
+Your process can be modified by using [variables scoped](/docs/deployment-process/variables#scoping-variables) by environment or deployment target.
 
 You can also employ an *environment-per-region* method so you can leverage [lifecycles](/docs/deployment-process/lifecycles/index.md) to create a strict release promotion process.
 

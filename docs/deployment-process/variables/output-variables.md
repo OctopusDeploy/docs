@@ -115,7 +115,7 @@ In this scenario, the following output variables would be captured:
 Note that for each output variable/deployment target combination:
 
 - A variable is created with the deployment target name contained in the variable name: this allows you to reference output variables from set by one deployment target from another deployment target.
-- A variable is created that is [scoped](/docs/deployment-process/variables/scoping-variables.md) to the deployment target. This way Web01 will always get the value Web01 set, and Web02 will get the value Web02 set.
+- A variable is created that is [scoped](/docs/deployment-process/variables#scoping-variables) to the deployment target. This way Web01 will always get the value Web01 set, and Web02 will get the value Web02 set.
 - A variable is created with no scope, and no differentiator in the name. When referencing this value, the result will be indeterministic, but it allows scripts to use the value without knowing which deployment target set it.
 
 For some practical examples of using output variables, and how scoping rules are applied, see the following blog posts:

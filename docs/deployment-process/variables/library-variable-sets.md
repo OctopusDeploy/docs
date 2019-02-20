@@ -12,7 +12,7 @@ This can be useful if you have the same variables that are used across multiple 
 
 1. Navigate to **{{Library,Variable Sets}}** and click **ADD NEW VARIABLE SET**.
 2. Give the variable set a name, a description, and click **SAVE**.
-3. Define the variables. As with project variables, library variables can be [scoped](/docs/deployment-process/variables/scoping-variables.md) to environment, deployment target, or target roles.
+3. Define the variables. As with project variables, library variables can be [scoped](/docs/deployment-process/variables#scoping-variables) to environment, deployment target, or target roles.
 4. Save the variable set by clicking **SAVE**.
 
 ## Adding the Library Variable Set to a Project
