@@ -1,7 +1,6 @@
 ---
 title: Import
 description: Using the Octo.exe command line tool to import items exported from another Octopus Deploy Server.
-position: 6
 ---
 
 This command allows you to import items from one Octopus Deploy Server into another Octopus Deploy Server.

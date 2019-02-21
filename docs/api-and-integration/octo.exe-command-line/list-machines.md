@@ -1,7 +1,6 @@
 ---
 title: List Machines
 description: Lists all machines
-position: 11
 ---
 
 ```text
@@ -82,4 +81,3 @@ Common options:
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
-

@@ -1,7 +1,6 @@
 ---
 title: List Latest Deployments
 description: List the releases last-deployed in each environment
-position: 14
 ---
 
 ```text
@@ -69,4 +68,3 @@ Common options:
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
-

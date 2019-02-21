@@ -1,7 +1,6 @@
 ---
 title: JSON Formatted Output
 description: Formatting output from Octo.exe
-position: 30
 ---
 
 Introduced in Octo.exe version 4.30.0, most commands support printing the result in JSON format.

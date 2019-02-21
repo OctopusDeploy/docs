@@ -1,7 +1,6 @@
 ---
 title: List Deployments
 description: List a number of deployments by project, environment or by tenant.
-position: 13
 ---
 
 ```text
@@ -73,4 +72,3 @@ Common options:
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
-

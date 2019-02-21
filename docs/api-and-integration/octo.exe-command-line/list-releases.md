@@ -1,7 +1,6 @@
 ---
 title: List Releases
 description: List releases by project
-position: 15
 ---
 
 ```text
@@ -67,4 +66,3 @@ Common options:
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
-

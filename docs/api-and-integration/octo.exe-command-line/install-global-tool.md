@@ -4,8 +4,7 @@ description: Octo Global Tool installation
 position: 0
 ---
 
-Microsoft introduced the ability to install tools using the .NET Core CLI called [Global Tools](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools). This enables octo to conveniently
-installed onto machine or build agent as long as you have the .NET Core `2.1.300` SDK available.
+Microsoft introduced the ability to install tools using the .NET Core CLI called [Global Tools](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools). This enables octo to be conveniently installed onto machine or build agent as long as you have the .NET Core `2.1.300` SDK available.
 
 ## Specific Location
 A local installation can be done into a specified location using the `--tool-path` parameter.

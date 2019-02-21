@@ -1,7 +1,6 @@
 ---
 title: Deleting Releases
 description: Using the Octo.exe command line tool to delete releases.
-position: 3
 ---
 
 [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to delete releases from your Octopus instance. Releases deleted this way **cannot be recovered**.

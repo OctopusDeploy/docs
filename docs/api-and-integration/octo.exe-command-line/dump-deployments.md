@@ -1,7 +1,6 @@
 ---
 title: Dump Deployments
 description: Writes deployments to an XML file that can be imported in Excel.
-position: 12
 ---
 
 ```text
@@ -64,4 +63,3 @@ Common options:
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
-
