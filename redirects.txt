@@ -608,10 +608,10 @@ docs/api-and-integration/octo.exe-command-line/creating-channels.md -> docs/api-
 docs/api-and-integration/octo.exe-command-line/creating-environments.md -> docs/api-and-integration/octo.exe-command-line/create-environment.md
 docs/api-and-integration/octo.exe-command-line/creating-projects.md -> docs/api-and-integration/octo.exe-command-line/create-project.md
 docs/api-and-integration/octo.exe-command-line/creating-releases.md -> docs/api-and-integration/octo.exe-command-line/create-release.md
-docs/api-and-integration/octo.exe-command-line/deleting-releases.md -> docs/api-and-integration/octo.exe-command-line/delete-release.md
+docs/api-and-integration/octo.exe-command-line/deleting-releases.md -> docs/api-and-integration/octo.exe-command-line/delete-releases.md
 docs/api-and-integration/octo.exe-command-line/deploying-releases.md -> docs/api-and-integration/octo.exe-command-line/dump-deployments.md
 docs/api-and-integration/octo.exe-command-line/promoting-releases.md -> docs/api-and-integration/octo.exe-command-line/promote-release.md
-docs/api-and-integration/octo.exe-command-line/pushing-packages.md -> docs/api-and-integration/octo.exe-command-line/push-package.md
+docs/api-and-integration/octo.exe-command-line/pushing-packages.md -> docs/api-and-integration/octo.exe-command-line/push.md
 docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/index.md -> docs/api-and-integration/octo.exe-command-line/create-autodeployoverride.md
 docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/deleting-auto-deploy-overrides.md -> docs/api-and-integration/octo.exe-command-line/delete-autodeployoverride.md
 docs/infrastructure/aws/index.md -> docs/infrastructure/accounts/aws/index.md

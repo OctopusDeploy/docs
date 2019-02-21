@@ -81,7 +81,7 @@ Selecting the `Overwrite existing package` option means that any existing local 
 
 Pushing the package to Octopus Deploy is done with the `Octopus Deploy: Push Packages` task. In addition to the [common configuration fields](#commonConfiguration), this task requires the paths to the packages to be pushed and forcing package uploads.
 
-This step runs the [push command](/docs/api-and-integration/octo.exe-command-line/push-package.md) on the command line tool.
+This step runs the [push command](/docs/api-and-integration/octo.exe-command-line/push.md) on the command line tool.
 
 #### Package Paths
 
