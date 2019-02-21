@@ -1,5 +1,5 @@
 ---
-title: Variable Substitution
+title: Variable Substitutions
 description: Variable substitutions are a flexible way to adjust configuration based on your variables and the context of your deployment.
 position: 10
 ---
