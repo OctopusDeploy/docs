@@ -118,9 +118,8 @@ Deployment:
                              build a query/filter with multiple tags, just
                              like you can in the user interface.
       --deployto=VALUE       [Optional] Environment to automatically deploy
-                             to, e.g., Production;
-                             specify this argument multiple times to deploy
-                             to multiple environments
+                             to, e.g., Production; specify this argument
+                             multiple times to deploy to multiple environments
 
 Common options:
 
