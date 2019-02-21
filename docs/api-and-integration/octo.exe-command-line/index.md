@@ -10,7 +10,9 @@ hideInThisSection: true
 We provide a number of ways to get Octo onto your machine:
 
 - Using .Net Core CLI as a [global tool](/docs/api-and-integration/octo.exe-command-line/install-global-tool.md) (recommended)
-- Download from [Octopus downloads page](https://octopus.com/downloads)
+- Download from **Octopus downloads page**:
+  - If your using **2018.10-LTS** or prior versions, use the [slow lane download page](https://octopus.com/downloads)
+  - If you're working with the **Spaces** feature in **2019.1** or later, use the [fast lane download page](https://octopus.com/downloads/2019.1.0).
 - Using [Chocolatey](https://chocolatey.org/packages/OctopusTools)
 
 ## Commands {#octo.exeCommandLine-Commands}
