@@ -2,7 +2,7 @@
 title: Variables
 description: Defining variables in Octopus allows you to promote your applications through environments and update their configuration files.
 position: 20
-hideInThisSection: true
+hideInThisSection: false
 ---
 
 Octopus lets you define variables with values that change based on the scope you've assigned to the variables and the scope of your deployments. For instance, as you define your [deployment processes](/docs/deployment-process/index.md) there will be [steps](/docs/deployment-process/steps/index.md) in your [projects](/docs/deployment-process/projects/index.md) that need different database connection strings (or any number of other parameters, i.e., application settings, web service URLs, etc) depending on the environment you're deploying to.
@@ -56,7 +56,7 @@ Scoping the values of your variables lets you determine which values will be use
 | LogLevel | Info |  |
 | LogLevel | Warn | Production, Staging |
 
-During deployment, Octopus will try to select the most specifically scoped variable that applies. For example, when deploying to Production and staging, the *LogLevel* property would be *Warn*, but to any other environment, it would fall back to the less-specific variable and have a value of *Info* instead.
+During deployment, Octopus will try to select the most specifically scoped variable that applies. For example, when deploying to Production and Staging, the *LogLevel* property will be *Warn*, but to any other environment, it will fall back to the less-specific variable and have a value of *Info* instead.
 
 ### Assigning Scopes {#Scopingvariables-Assigningscopes}
 
@@ -75,7 +75,7 @@ When the process runs, Octopus will used the scoped value for the **Dev** OR **T
 | MyVariable | Scoped | Environment: Dev, Test; Steps: Step 1 |
 | MyVariable | unscoped |  |
 
-With the above *MyVariable* variable, the scoped and unscoped values would be implemented as follows:
+With the above *MyVariable* variable, the scoped and unscoped values will be implemented as follows:
 
 | | Step 1 | Step 2|
 | ---- | ---- | ---- |
@@ -149,9 +149,3 @@ For settings that support variables but aren't text (such as drop downs or check
 :::warning
 If you are using Spaces as part of your Octopus Deploy installation, please remember that any Variables you configure, will only be available to the space they are configured for.
 :::
-
-## Variables in Octopus
-
-Variables are an important and useful concept in Octopus, so this section describes different ways in which variables can be used.
-
-!toc
