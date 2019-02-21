@@ -1,5 +1,5 @@
 ---
-title: List Machines
+title: list-machines
 description: Lists all machines
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Promoting Releases
+title: promote-release
 description: Using the Octo.exe command line tool to promote releases between environments.
 ---
 

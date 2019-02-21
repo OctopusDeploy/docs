@@ -755,3 +755,5 @@ docs/deployment-examples/node-on-linux-deployments/create-&-push-node.js-project
 docs/deployment-process/variables/binding-syntax.md -> docs/deployment-process/variables/variable-substitutions.md
 docs/deployment-process/variables/variable-substitution-syntax.md -> docs/deployment-process/variables/variable-substitutions.md
 docs/deployment-process/variables/scoping-variables/index.md -> docs/deployment-process/variables/index.md
+docs/api-and-integration/octo.exe-command-line/delete-release.md -> docs/api-and-integration/octo.exe-command-line/delete-releases.md
+docs/api-and-integration/octo.exe-command-line/push-packages.md -> docs/api-and-integration/octo.exe-command-line/push.md

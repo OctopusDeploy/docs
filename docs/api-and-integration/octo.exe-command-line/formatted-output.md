@@ -3,7 +3,7 @@ title: JSON Formatted Output
 description: Formatting output from Octo.exe
 ---
 
-Introduced in Octo.exe version 4.30.0, most commands support printing the result in JSON format.
+Introduced in Octo.exe version **4.30.0**, most commands support printing the result in JSON format.
 
 :::warning
 [Dump Deployment](dump-deployments.md), [Export](export.md) and [Import](import.md) do not support JSON output.

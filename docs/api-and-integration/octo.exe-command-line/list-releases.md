@@ -1,5 +1,5 @@
 ---
-title: List Releases
+title: list-releases
 description: List releases by project
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Deleting Auto Deploy Overrides
+title: delete-autodeployoverride
 description: Using the Octo.exe command line tool to delete automatic deployment release overrides.
 ---
 

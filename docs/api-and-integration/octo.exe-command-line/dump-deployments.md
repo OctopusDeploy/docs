@@ -1,5 +1,5 @@
 ---
-title: Dump Deployments
+title: dump-deployments
 description: Writes deployments to an XML file that can be imported in Excel.
 ---
 

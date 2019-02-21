@@ -1,5 +1,5 @@
 ---
-title: Import
+title: import
 description: Using the Octo.exe command line tool to import items exported from another Octopus Deploy Server.
 ---
 

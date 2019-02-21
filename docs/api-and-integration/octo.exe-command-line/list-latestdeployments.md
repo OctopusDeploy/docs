@@ -1,5 +1,5 @@
 ---
-title: List Latest Deployments
+title: list-latestdeployments
 description: List the releases last-deployed in each environment
 ---
 

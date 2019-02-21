@@ -1,5 +1,5 @@
 ---
-title: Creating Projects
+title: create-project
 description: Using the Octo.exe command line tool to create projects.
 ---
 

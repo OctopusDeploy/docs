@@ -1,5 +1,5 @@
 ---
-title: Creating Releases
+title: create-release
 description: Using the Octo.exe command line tool to create releases.
 ---
 

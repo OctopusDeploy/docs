@@ -1,5 +1,5 @@
 ---
-title: List Deployments
+title: list-deployments
 description: List a number of deployments by project, environment or by tenant.
 ---
 

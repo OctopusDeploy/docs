@@ -1,5 +1,5 @@
 ---
-title: Deploying Releases
+title: deploy-release
 description: Using the Octo.exe command line tool to deploy releases.
 ---
 

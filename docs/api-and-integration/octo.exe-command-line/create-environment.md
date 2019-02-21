@@ -1,5 +1,5 @@
 ---
-title: Creating Environments
+title: create-environment
 description: Using the Octo.exe command line tool to create environments.
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Creating Channels
+title: create-channel
 description: Using the Octo.exe command line tool to create channels.
 ---
 
