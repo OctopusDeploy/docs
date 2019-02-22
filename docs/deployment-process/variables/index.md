@@ -11,10 +11,14 @@ Using variables, you can define a variable with one value (the database connecti
 
 | Name | Value | Scope |
 | --- | --- | --- |
-| database | TestServerAddress | Testing |
-| database | ProductionServerAddress | Production |
+| database | TestSQL | Testing |
+| database | ProductionSQL | Production |
 
 Using variables means you don't need to hardcode any of these values. You define your variables and the values you provide will be used at deployment time, allowing you to create applications and deployments that are agnostic of the target environments.
+
+:::warning
+If you are using Spaces as part of your Octopus Deploy installation, please remember that any Variables you configure, will only be available to the space they are configured for.
+:::
 
 ## Creating Hello World Variables
 
@@ -139,7 +143,3 @@ When applying permissions on variables via scopes, the only options that are che
 ## Next
 
 Learn about using [variables in your scripts](/docs/deployment-examples/custom-scripts/index.md) or [variable substitutions](/docs/deployment-process/variables/variable-substitutions.md).
-
-:::warning
-If you are using Spaces as part of your Octopus Deploy installation, please remember that any Variables you configure, will only be available to the space they are configured for.
-:::

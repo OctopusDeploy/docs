@@ -8,23 +8,16 @@ Variable substitutions are a flexible way to adjust configuration based on your 
 
 ## Binding Variables
 
-You can using Octopus's special binding syntax to reference a variable from within the value of another variable. In the following example, the `ConnectionString` variable references the variables `{server}` and `{database}`.
+You can using Octopus's special binding syntax to reference a variable from within the value of another variable. In the following example, the `ConnectionString` variable references the variables `{Server}` and `{Database}`.
 
-![](/docs/images/3048310/3278295.png "width=500")
+| Name               | Value                       | Scope |
+| ------------------ | --------------------------- | ----------- |
+| Server             | SQL | Production, Test  |
+| Database           | PDB001 | Production |
+| Database           | TDB001 | Test |
+| ConnectionString   | Server=#{Server}; Database=#{Database} |  |
 
-## Basic Syntax {#VariableSubstitutionSyntax-BasicSyntax}
-
-Octopus [variables](/docs/deployment-process/variables/index.md) support substitution throughout. A variable may be bound to an expression that incorporates the values of other variables:
-
-| Name               | Value                       | Scope      |
-| ------------------ | --------------------------- | ---------- |
-| `DatabaseServer`   | `PDB001`                    | Production |
-| `DatabaseServer`   | `TDB001`                    | Test       |
-| `ConnectionString` | `Server=#{DatabaseServer};` |            |
-
-The syntax `#{VarName}` will insert the value of the `VarName` variable in-place. For example the `ConnectionString` variable will have the value `Server=PDB001;` when evaluated in the *Production* environment, and  the value `Server=TDB001;` when evaluated in the *Test* environment. The use of one or more variables in the declaration of another is called a *binding.*
-
-In regular variable declarations, binding to a non-existent value will yield an empty string, so evaluating `ConnectionString` in the *Dev* environment will yield `Server=;` because no `DatabaseServer` is defined in that environment.
+In regular variable declarations, binding to a non-existent value will yield an empty string, so evaluating `ConnectionString` in the *Dev* environment will yield `Server=;` because no `Database` or `Server` are defined for that environment.
 
 If the file undergoing variable replacement includes a string that *shouldn't* be replaced, for example **#{NotToBeReplace}**, you should include an extra hash (#) character to force the replacement to ignore the substitution and remove the extra #.
 
@@ -126,7 +119,7 @@ The `if`, `if-else` and `unless` statements consider a value to be *falsy* if i
 ### Complex Syntax
 Additional conditional statements are supported in **Octopus 3.5** and onwards, including `==` and `!=`.
 
-Using complex syntax you can have expressions like `#{if Octopus.Environment.Name == "Production"}...#{/if}` and `#{if Octopus.Environment.Name != "Production"}...#{/if}, or
+Using complex syntax you can have expressions like `#{if Octopus.Environment.Name == "Production"}...#{/if}` and `#{if Octopus.Environment.Name != "Production"}...#{/if}`, or:
 
 ```
 #{if ATruthyVariable}
@@ -139,7 +132,7 @@ Using complex syntax you can have expressions like `#{if Octopus.Environment.Nam
 ### Run Conditions
 Conditions can be used to control whether a given step in a deployment process actually runs.  In this scenario the conditional statement should return true/false, depending on your requirements.
 
-Some examples would be,
+Some examples are:
 
 `#{if Octopus.Environment.Name == "Production"}true#{/if}` would run the step only in Production.
 
@@ -213,162 +206,3 @@ Within the context of an iteration template, some special variables are availabl
 | `Octopus.Template.Each.Index` | Zero-based index of the iteration count  |
 | `Octopus.Template.Each.First` | `"True" if the element is the first in the collection`, otherwise "False" |
 | `Octopus.Template.Each.Last`  | "True" if the element is the last in the collection, otherwise "False" |
-
-###
-Filters {#VariableSubstitutionSyntax-Filters}
-
-By default, bindings are inserted into the output as-is; no consideration is given as to whether the target variable or file is XML, HTML, JSON etc. That is, the target file type is always treated as plain text.
-
-Octopus variable substitutions support *filters* to correctly encode values for a variety of target file types. These are invoked using the `|` (pipe) operator.
-
-Given the variable:
-
-| Name          | Value         | Scope |
-| ------------- | ------------- | ----- |
-| `ProjectName` | `You & I` |       |
-
-An the template:
-
-```powershell
-<h3>#{ProjectName | HtmlEscape}</h3>
-```
-
-The result will be:
-
-```powershell
-<h3>You &amp; I</h3>
-```
-
-That is, the ampersand has been encoded correctly for use in an HTML document.
-
-:::problem
-The filters provided by Octopus are for use with trusted input; don't rely on them to sanitize data from potentially malicious sources.
-:::
-
-#### Provided Filters {#VariableSubstitutionSyntax-Providedfilters}
-
-Octopus provides the following filters:
-
-| Name         | Purpose                                  | Example Input        | Example Output             |
-| ------------ | ---------------------------------------- | -------------------- | -------------------------- |
-| `HtmlEscape` | Escapes entities for use in HTML content | 1 < 2                | 1 \&lt; 2                   |
-| `JsonEscape` | Escapes data for use in JSON strings     | He said "Hello!"     | He said \\"Hello!\\"         |
-| `Markdown`   | Converts Markdown to HTML                | This \_rocks\_       | \<p>This \<em>rocks\</em>\</p> |
-| `ToBase64`   | Converts values to Base64 (using UTF encoding)   | Bar          | QmF6                       |
-| `ToLower`    | Forces values to lowercase               | Automated Deployment | automated deployment       |
-| `ToUpper`    | Forces values to uppercase               | Automated Deployment | AUTOMATED DEPLOYMENT       |
-| `XmlEscape`  | Escapes entities for use in XML content  | 1 < 2                | 1 \&lt; 2                   |
-
-The *NowDate* and *NowDateUtc* filters take no variable input but can take an additional optional right-hand-side argument the define the string format (Defaults to ISO-8601 [Round-trip format](https://msdn.microsoft.com/en-us/library/az4se3k1#Roundtrip)).
-
-| MyFormat Variable | Filter Expression | Output                      |
-| ----------------- | ----------------- | --------------------------- |
-|                   | `#{ | NowDate }`                   | `2016-11-03T08:53:11.0946448` |
-|                   | `#{ | NowDateUtc}`                 | `2016-11-02T23:01:46.9441479Z` |
-|                   | `#{ | NowDate \"HH dd-MMM-yyyy\"}` | `09 03-Nov-2016` |
-|                   | `#{ | NowDateUtc zz}`              | `+00` |
-| dd-MM-yyyy        | `#{ | NowDate #{MyFormat}}`        | `03-Nov-2016` |
-
-The *Format* filter introduced in **Octopus 3.5** allows for converting of input based on an additionally provided argument that is passed to the *`.ToString()`* method.
-
-| MyVar Value           | Example Input                     | Output     |
-| --------------------- | --------------------------------- | ---------- |
-| 4.3                   | `#{ MyVar | Format C}`            | $4.30      |
-| `2030/05/22 09:05:00` | `#{ MyVar | Format yyyy}`         | 2030       |
-|                       | `#{ | NowDate | Format Date MMM}` | Nov        |
-
-The *Replace* filter introduced in **Octopus 2018.8.4** performs a regular expression replace function on the variable. The regular expression should be provided in the [.NET Framework format](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference). Double quotes need to be used around any expressions that contain whitespace or special characters. Expressions containing double quotes can not be expressed inline, but can be done via nested variables. If both the search and replace expressions are variables, ensure there is no space between the expressions.
-
-| MyVar Value   | Example Input                           | Output                  |
-| ------------- | --------------------------------------- | ----------------------- |
-| `abc`         | `#{ MyVar | Replace b}`                 | `ac`                    |
-| `abc`         | `#{ MyVar | Replace b X}`               | `aXc`                   |
-| `a b c`       | `#{ MyVar | Replace "a b" X}`           | `X c`                   |
-| `ab12c3`      | `#{ MyVar | Replace "[0-9]+" X}`        | `abXcX`                 |
-| `abc`         | `#{ MyVar | Replace "(.)b(.)" "$2X$1" }`| `cXa`                   |
-| `abc`         | `#{ MyVar | Replace #{match}#{replace}}`| `a_c` when `match=b`,`replace=_` |
-| `abc`         | `#{ MyVar | Replace #{match} _}`        | `a_c` when `match=b`    |
-
-:::hint
-Filters were introduced in **Octopus 3.5**.
-:::
-
-### Differences From Regular Variable Bindings {#VariableSubstitutionSyntax-Differencesfromregularvariablebindings}
-
-Because of the flexibility provided by the extended syntax, variables that are not defined will result in the source text, e.g. `#{UndefinedVar}` being echoed rather than an empty string, so that evaluation problems are easier to spot and debug. The `if` construct can be used to selectively bind to a variable only when it is defined, e.g. to obtain identical "empty" variable functionality as shown in the first example:
-
-```powershell
-Server=#{if DatabaseServer}#{DatabaseServer}#{/if};
-```
-
-### JSON Parsing {#VariableSubstitutionSyntax-JSONParsingjson}
-
-Octostache 2.x (bundled with **Octopus 3.5**) includes an update to support parsing JSON formatted variables natively, and using their contained properties for variable substitution.
-
-Given the variable:
-
-| Name                        | Value                                    | Scope |
-| --------------------------- | ---------------------------------------- | ----- |
-| `Custom.MyJson`             | `{Name: "t-shirt", Description: "I am a shirt", Sizes: [{size: "small", price: 15.00}, {size: "large", price: 20.00}]}` |       |
-| `Custom.MyJson.Description` | `Shirts are not shorts.`                 |       |
-
-And the template:
-
-```powershell
-<h1>#{Custom.MyJson[Name]}</h1>
-#{Custom.MyJson.Name} - #{Custom.MyJson.Description}
-From: #{Custom.MyJson.Sizes[0].price | Format C}
-Sizes: #{Custom.MyJson.Sizes}
-```
-
-The result will be:
-
-```powershell
-<h1>t-shirt</h1>
-t-shirt - Shirts are not shorts
-From: $15.00
-Sizes: [{size: "small", price: 15.00}, {size: "large", price: 20.00}]
-```
-
-There are a few things to note here:
-
-- The *Name* property is extracted from the JSON using either dot-notation or indexing.
-- Providing an explicit project variable overrides one obtained by walking through the JSON.
-- Arrays can be accessed using standard numerical index notation.
-- Variables can map to a sub-section of the JSON variable.
-
-#### Repetition Over JSON {#VariableSubstitutionSyntax-RepetitionoverJSON}
-
-Give the variables:
-
-| Name      | Value                                    |
-| --------- | ---------------------------------------- |
-| MyNumbers | `[5,2,4]`                                |
-| MyObjects | `{Cat: {Price: 11.5, Description: "Meow"}, Dog: {Price: 17.5, Description: "Woof"}}` |
-
-And the template:
-
-```powershell
-Numbers:
-#{each number in MyNumbers}
- - #{number}
-#{/each}
-
-Objects:
-#{each item in MyObjects}
-	#{item.Key}: #{item.Value.Price}
-#{/each} 
-```
-
-The resulting text will be:
-
-```powershell
-Numbers:
- - 5
- - 2
- - 4
- 
-Objects:
-Cat: 11.5
-Dog: 17.5
-```
