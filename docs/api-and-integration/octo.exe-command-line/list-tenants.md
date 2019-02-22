@@ -1,6 +1,7 @@
 ---
 title: list-tenants
 description: List tenants
+position: 230
 ---
 
 List tenants

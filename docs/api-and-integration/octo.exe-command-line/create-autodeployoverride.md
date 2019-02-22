@@ -1,6 +1,7 @@
 ---
 title: create-autodeployoverride
 description: Using the Octo.exe command line tool to create automatic deployment release overrides.
+position: 30
 ---
 
 [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to create automatic deployment release overrides.

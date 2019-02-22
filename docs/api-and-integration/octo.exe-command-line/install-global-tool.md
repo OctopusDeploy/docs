@@ -1,7 +1,7 @@
 ---
 title: Octo Command Line Global Tool
 description: Octo Global Tool installation
-position: 0
+position: 160
 ---
 
 Microsoft introduced the ability to install tools using the .NET Core CLI called [Global Tools](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools). This enables octo to be conveniently installed onto machine or build agent as long as you have the .NET Core `2.1.300` SDK available.

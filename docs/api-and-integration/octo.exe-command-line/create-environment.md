@@ -1,6 +1,7 @@
 ---
 title: create-environment
 description: Using the Octo.exe command line tool to create environments.
+position: 50
 ---
 
 [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to create environments on your Octopus instance.

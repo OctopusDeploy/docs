@@ -1,6 +1,7 @@
 ---
 title: create-release
 description: Using the Octo.exe command line tool to create releases.
+position: 70
 ---
 
 [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to automate the creation of releases using the **`create-release`** command. This allows you to easily integrate Octopus with other continuous integration servers.

@@ -1,6 +1,7 @@
 ---
 title: list-workerpools
 description: List worker pools
+position: 240
 ---
 
 List worker pools
@@ -65,4 +66,3 @@ Common options:
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
-

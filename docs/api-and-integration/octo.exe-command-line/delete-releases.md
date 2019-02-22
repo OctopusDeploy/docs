@@ -1,6 +1,7 @@
 ---
 title: delete-releases
 description: Deletes a range of releases
+position: 100
 ---
 
 Deletes a range of releases
@@ -80,4 +81,3 @@ Common options:
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
-

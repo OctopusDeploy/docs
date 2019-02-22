@@ -1,6 +1,7 @@
 ---
 title: list-projects
 description: Lists all projects
+position: 210
 ---
 
 Lists all projects
@@ -65,4 +66,3 @@ Common options:
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
-

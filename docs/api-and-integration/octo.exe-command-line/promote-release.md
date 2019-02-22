@@ -1,6 +1,7 @@
 ---
 title: promote-release
 description: Using the Octo.exe command line tool to promote releases between environments.
+position: 270
 ---
 
 [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to promote a release from one environment to another.

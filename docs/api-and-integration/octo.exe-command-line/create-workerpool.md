@@ -1,6 +1,7 @@
 ---
 title: create-workerpool
 description: Creates a pool for workers
+position: 80
 ---
 
 Creates a pool for workers
@@ -71,4 +72,3 @@ Common options:
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
-

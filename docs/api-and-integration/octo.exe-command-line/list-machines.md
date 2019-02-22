@@ -1,6 +1,7 @@
 ---
 title: list-machines
 description: Lists all machines
+position: 200
 ---
 
 ```text

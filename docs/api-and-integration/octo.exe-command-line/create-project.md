@@ -1,6 +1,7 @@
 ---
 title: create-project
 description: Using the Octo.exe command line tool to create projects.
+position: 60
 ---
 
 [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to create a project inside a project group.

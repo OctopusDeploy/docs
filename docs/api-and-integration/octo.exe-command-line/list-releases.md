@@ -1,6 +1,7 @@
 ---
 title: list-releases
 description: List releases by project
+position: 220
 ---
 
 ```text

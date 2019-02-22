@@ -1,6 +1,7 @@
 ---
 title: list-workers
 description: Lists all workers
+position: 250
 ---
 
 Lists all workers
@@ -85,4 +86,3 @@ Common options:
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
-

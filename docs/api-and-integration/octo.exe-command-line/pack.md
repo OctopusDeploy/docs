@@ -1,6 +1,7 @@
 ---
 title: pack
 description: Creates a package (.nupkg or .zip) from files on disk, without needing a .nuspec or .csproj
+position: 260
 ---
 
 Creates a package (.nupkg or .zip) from files on disk, without needing a .nuspec or .csproj
@@ -66,4 +67,3 @@ Common options:
       --outputFormat=VALUE   [Optional] Output format, only valid option is
                              json
 ```
-
