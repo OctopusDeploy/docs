@@ -36,6 +36,18 @@ If the file undergoing variable replacement includes a string that *shouldn't* 
 Also read about [common mistakes for variables](/docs/deployment-process/variables/sensitive-variables.md#Sensitivevariables-Avoidingcommonmistakes) for more information
 :::
 
+## Using Variables in Step Definitions {#Bindingsyntax-Referencingvariablesinstepdefinitions}
+
+Binding syntax can be used to dynamically change the values of deployment step settings. If [variables are scoped](/docs/deployment-process/variables/index.md#scoping-variables), this makes it really easy to alter a deployment step settings based on the target environment.
+
+Most text fields that support binding to variables will have a variable insert button:
+
+![](/docs/images/3048310/3278296.png)
+
+For settings that support variables but aren't text (such as drop downs or checkboxes), a button is displayed to toggle custom expression modes:
+
+![](/docs/images/3048310/3278297.png)
+
 ## Extended Syntax {#VariableSubstitutionSyntax-ExtendedSyntax}
 
 Octopus supports an extended variable substitution syntax with capabilities similar to text templating languages.  It's worth noting that this is now available everywhere whereas previously it was limited to certain scenarios.

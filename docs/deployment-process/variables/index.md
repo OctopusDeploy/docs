@@ -9,7 +9,12 @@ Octopus lets you define variables with values that change based on the scope you
 
 Using variables, you can define a variable with one value (the database connection string for the test database) scoped to the test environment and another value (the database connection string for the production database) scoped to the production environment. Then, when your deployment process runs, it will use the value with the test database connection string when deploying to the test environment, and it will use the value with the production database connection string when deploying to the production environment.
 
-Using variables means you don't need to hardcode any of these values. You define your variables and the values you provide will be used at deployment time, allowing you to create applications and deployments that are agnostic of the target environment.
+| Name | Value | Scope |
+| --- | --- | --- |
+| database | TestServerAddress | Testing |
+| database | ProductionServerAddress | Production |
+
+Using variables means you don't need to hardcode any of these values. You define your variables and the values you provide will be used at deployment time, allowing you to create applications and deployments that are agnostic of the target environments.
 
 ## Creating Hello World Variables
 
@@ -88,7 +93,7 @@ With the above *MyVariable* variable, the scoped and unscoped values will be imp
 
 Imagine you have one variable scoped to an environment (Production), and another scoped to a machine within the environment. Which value should Octopus choose?
 
-Since variables can be scoped in many different ways, there needs to be a predictable, deterministic order in which they are resolved. The list below is the priority in which variable scopes take precedence - the top items are considered higher priority than the bottom ones:
+Since variables can be scoped in many different ways, there needs to be a predictable, deterministic order in which they are resolved. The list below is the priority in which variable scopes take precedence. The top items are higher priority than the bottom ones:
 
 1. The current step/action (most specific).
 1. The current machine.
@@ -100,7 +105,7 @@ Since variables can be scoped in many different ways, there needs to be a predic
 1. The target channel (if channels are enabled).
 1. No scope (least specific).
 
-For example, imagine a **LogLevel** variable with a value scoped to an environment is considered by Octopus to be "less specific" than a value scoped to a machine role. So when two possible values for a variable exist, Octopus will choose the "more specific" scope value over the less specific one.
+For example, a **LogLevel** variable with a value scoped to an environment is considered by Octopus to be "less specific" than a value scoped to a machine role. So when two possible values for a variable exist, Octopus will choose the "more specific" scope value over the less specific one.
 
 Variable scoping also works like CSS rules; a value scoped twice is more specific than a value scoped once. For example, a variable scoped to an environment and a role is more specific than a variable scoped to just a role.
 
@@ -108,8 +113,7 @@ If two variables are scoped equally, Octopus will choose project-defined variabl
 
 Scope specificity can quickly become very complicated. Read our blog post for a [better understanding of why scope specificity works the way it does](http://octopus.com/blog/variable-specificity-and-complexity).
 
-
-### Using Variables with Target Roles
+### Scoping Variables to Target Roles
 
 Variables can also be scoped to specific [target roles](docs/infrastructure/deployment-targets/target-roles/index.md). This means that the variable will take the specified value only when it is used on a deployment step that runs on a deployment target with the specified role. This feature can be really handy when you want to use the same variable name multiple times and have their values changed depending on the target they are running on.
 
@@ -132,19 +136,9 @@ Then, on your deployment step, you can set the **[Custom Install Directory](/doc
 
 When applying permissions on variables via scopes, the only options that are checked against permissions are Environments, Targets and Tenants.
 
-## Using Variables in Step Definitions {#Bindingsyntax-Referencingvariablesinstepdefinitions}
+## Next
 
-This binding syntax can also be used to dynamically change the values of deployment step settings. If [variables are scoped](/docs/deployment-process/variables/index.md#scoping-variables), this makes it really easy to alter a deployment step settings based on the target environment.
-
-Most text fields that support binding to variables will have a variable insert button:
-
-![](/docs/images/3048310/3278296.png)
-
-For settings that support variables but aren't text (such as drop downs or checkboxes), a button is displayed to toggle custom expression modes:
-
-![](/docs/images/3048310/3278297.png)
-
-!include <using-variables-in-scripts>
+Learn about using [variables in your scripts](/docs/deployment-examples/custom-scripts/index.md) or [variable substitutions](/docs/deployment-process/variables/variable-substitutions.md).
 
 :::warning
 If you are using Spaces as part of your Octopus Deploy installation, please remember that any Variables you configure, will only be available to the space they are configured for.
