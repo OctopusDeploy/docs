@@ -32,7 +32,7 @@ That is, the ampersand has been encoded correctly for use in an HTML document.
 The filters provided by Octopus are for use with trusted input; don't rely on them to sanitize data from potentially malicious sources.
 :::
 
-#### Provided Filters {#VariableSubstitutionSyntax-Providedfilters}
+## Provided Filters {#VariableSubstitutionSyntax-Providedfilters}
 
 Octopus provides the following filters:
 
@@ -80,7 +80,7 @@ The *Replace* filter introduced in **Octopus 2018.8.4** performs a regular expre
 Filters were introduced in **Octopus 3.5**.
 :::
 
-### Differences From Regular Variable Bindings {#VariableSubstitutionSyntax-Differencesfromregularvariablebindings}
+## Differences From Regular Variable Bindings {#VariableSubstitutionSyntax-Differencesfromregularvariablebindings}
 
 Because of the flexibility provided by the extended syntax, variables that are not defined will result in the source text, e.g. `#{UndefinedVar}` being echoed rather than an empty string, so that evaluation problems are easier to spot and debug. The `if` construct can be used to selectively bind to a variable only when it is defined, e.g. to obtain identical "empty" variable functionality as shown in the first example:
 
@@ -88,7 +88,7 @@ Because of the flexibility provided by the extended syntax, variables that are n
 Server=#{if DatabaseServer}#{DatabaseServer}#{/if};
 ```
 
-### JSON Parsing {#VariableSubstitutionSyntax-JSONParsingjson}
+## JSON Parsing {#VariableSubstitutionSyntax-JSONParsingjson}
 
 Octostache 2.x (bundled with **Octopus 3.5**) includes an update to support parsing JSON formatted variables natively, and using their contained properties for variable substitution.
 
@@ -124,7 +124,7 @@ There are a few things to note here:
 - Arrays can be accessed using standard numerical index notation.
 - Variables can map to a sub-section of the JSON variable.
 
-#### Repetition Over JSON {#VariableSubstitutionSyntax-RepetitionoverJSON}
+### Repetition Over JSON {#VariableSubstitutionSyntax-RepetitionoverJSON}
 
 Give the variables:
 
