@@ -15,7 +15,7 @@ You can using Octopus's special binding syntax to reference a variable from with
 | Server             | SQL | Production, Test  |
 | Database           | PDB001 | Production |
 | Database           | TDB001 | Test |
-| ConnectionString   | Server=#{Server}; Database=#{Database} |  |
+| ConnectionString   | Server=#\{Server\}; Database=#\{Database\} |  |
 
 In regular variable declarations, binding to a non-existent value will yield an empty string, so evaluating `ConnectionString` in the *Dev* environment will yield `Server=;` because no `Database` or `Server` are defined for that environment.
 
