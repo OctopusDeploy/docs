@@ -11,8 +11,8 @@ Using variables, you can define a variable with one value (the database connecti
 
 | Name | Value | Scope |
 | --- | --- | --- |
-| database | TestSQL | Testing |
-| database | ProductionSQL | Production |
+| database | TestSQLConnectionString | Testing |
+| database | ProductionSQLConnectionString | Production |
 
 Using variables means you don't need to hardcode any of these values. You define your variables and the values you provide will be used at deployment time, allowing you to create applications and deployments that are agnostic of the target environments.
 
@@ -25,23 +25,23 @@ If you are using Spaces as part of your Octopus Deploy installation, please reme
 In this example, we'll add a variable to a Hello World project that runs a script to say hello. The project uses the variable to vary the message it displays based on the environment the script is deployed to.
 
 1. To add a variable to your [project](/docs/deployment-process/projects/index.md), navigate to the Project's Overview page, and click **Variables** to access the variable editor.
-1. Give the variable a name, for instance, *Greeting*.
-1. Enter the first value for the variable, for instance, *Hello, Test*, in the value field.
-1. Define the scope for the value, for instance, by selecting the *Test* environment.
-1. Click **ADD ANOTHER VALUE** and enter the second value for the variable, for instance, *Hello, Production*.
-1. Define the scope for this value, for instance, by selecting the *Production* environment.
+2. Give the variable a name, for instance, *Greeting*.
+3. Enter the first value for the variable, for instance, *Hello, Test*, in the value field.
+4. Define the scope for the value, for instance, by selecting the *Test* environment.
+5. Click **ADD ANOTHER VALUE** and enter the second value for the variable, for instance, *Hello, Production*.
+6. Define the scope for this value, for instance, by selecting the *Production* environment.
 
 ![Adding a Variable](adding-a-variable.png)
 
-1. Save the variable by clicking **SAVE**.
-1. In this example, we'll reference this variable from a **Run a Script** step.
-1. Define your step (Click **{{Process,ADD STEP,Run A Script}}**) and in the **Script Content** section, enter the following PowerShell script into the script editor:
+7. Save the variable by clicking **SAVE**.
+8. In this example, we'll reference this variable from a **Run a Script** step.
+9. Define your step (Click **{{Process,ADD STEP,Run A Script}}**) and in the **Script Content** section, enter the following PowerShell script into the script editor:
 
 ​```
 Write-Host
 ​```
 
-1. Select the variable *Greeting* from the insert variable tool (**#\{\}**) next to the script editor, and click **SAVE**.
+10. Select the variable *Greeting* from the insert variable tool (**#\{\}**) next to the script editor, and click **SAVE**.
 
 ![Script with Variable](script-variable.png)
 
@@ -65,7 +65,7 @@ Scoping the values of your variables lets you determine which values will be use
 | LogLevel | Info |  |
 | LogLevel | Warn | Production, Staging |
 
-During deployment, Octopus will try to select the most specifically scoped variable that applies. For example, when deploying to Production and Staging, the *LogLevel* property will be *Warn*, but to any other environment, it will fall back to the less-specific variable and have a value of *Info* instead.
+During deployment, Octopus will try to select the most specifically scoped variable that applies. For example, when deploying to Production and Staging, the *LogLevel* value will be *Warn*, but to any other environment, it will fall back to the less-specific variable and have a value of *Info* instead.
 
 ### Assigning Scopes {#Scopingvariables-Assigningscopes}
 
@@ -92,7 +92,6 @@ With the above *MyVariable* variable, the scoped and unscoped values will be imp
 | Test Environment | Scoped | Unscoped |
 | Stage Environment |  Unscoped | Unscoped |
 
-
 ### Scope Specificity {#Scopingvariables-Scopespecificity}
 
 Imagine you have one variable scoped to an environment (Production), and another scoped to a machine within the environment. Which value should Octopus choose?
@@ -109,13 +108,11 @@ Since variables can be scoped in many different ways, there needs to be a predic
 1. The target channel (if channels are enabled).
 1. No scope (least specific).
 
-For example, a **LogLevel** variable with a value scoped to an environment is considered by Octopus to be "less specific" than a value scoped to a machine role. So when two possible values for a variable exist, Octopus will choose the "more specific" scope value over the less specific one.
+For example, a **LogLevel** variable with a value scoped to to a machine role is considered by Octopus to be more specific than a value scoped to an environment. So when two possible values for a variable exist, Octopus will choose the "more specific" scope value over the less specific one.
 
 Variable scoping also works like CSS rules; a value scoped twice is more specific than a value scoped once. For example, a variable scoped to an environment and a role is more specific than a variable scoped to just a role.
 
 If two variables are scoped equally, Octopus will choose project-defined variables ahead of library-defined ones. If this still does not resolve the conflict the result is non-deterministic and you should not depend on a specific value being used. Instead, you should take care when scoping variables so that they are unlikely to conflict.
-
-Scope specificity can quickly become very complicated. Read our blog post for a [better understanding of why scope specificity works the way it does](http://octopus.com/blog/variable-specificity-and-complexity).
 
 ### Scoping Variables to Target Roles
 
