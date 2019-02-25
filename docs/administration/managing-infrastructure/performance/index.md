@@ -57,15 +57,12 @@ Octopus Servers do quite a lot of work during deployments, mostly around package
 
 At some point your server hardware is going to limit how many of these things a single Octopus Server can do concurrently. If a server over commits itself and hits these limits, timeouts (network or SQL connections) will begin to occur, and deployments can begin to fail. Above all else, your deployments should be repeatable and reliable.
 
-We offer three options for scaling your Octopus Server:
+We offer four options for scaling your Octopus Server:
 
 - scale up by controlling the **task cap** and providing more server resources as required.
 - scale out using [Octopus High Availability](/docs/administration/high-availability/index.md).
 - scale out using [Workers](/docs/infrastructure/workers/index.md).
-
-We are planning a fourth option for scaling your Octopus Server:
-
-- dividing up your Octopus environment using [Spaces](https://octopus.com/blog/octopus-spaces-blog-series-kick-off) - currently planned for release in **Octopus 2019.1.0**.
+- dividing up your Octopus environment using [Spaces](https://g.octopushq.com/spaces) - which we released in  **Octopus 2019.1**.
 
 ### Task Cap
 
