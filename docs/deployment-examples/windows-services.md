@@ -30,6 +30,7 @@ Use the Package Feed and Package ID fields to select the [package](/docs/packagi
 | **Arguments**       | Arguments that will always be passed to the service when it starts |
 | **Service account** | The account that the Windows Service should run under. Options are: Local System, Network Service, Local Service, Custom user (you can specify the username and password). <br><br>See below for [Security Considerations](#WindowsServices-SecurityConsiderations) and [Using Managed Service Accounts (MSA)](#WindowsServices-UsingManagedServiceAccounts(MSA)) |
 | **Start mode**      | When will the service start: Automatic, Automatic (delayed), Manual, Disabled, Unchanged |
+| **State**           | The state of the service after the deployment has completed |
 | **Dependencies**    | Any dependencies that the service has. Separate the names using forward slashes (/). For example: `LanmanWorkstation/TCPIP` |
 
 ## Windows Service Deployment in Action {#WindowsServices-WindowsServicedeploymentinaction}
@@ -55,7 +56,7 @@ As an approximation including the Windows Service manager integration:
 5. Extract the package into the newly created folder.
 6. Execute each of your [custom scripts](/docs/deployment-examples/custom-scripts/index.md) and the [deployment features](/docs/deployment-examples/index.md) you've configured will be executed to perform the deployment [following this order by convention](/docs/deployment-examples/package-deployments/package-deployment-feature-ordering.md)..
 7. As part of this process Windows Service will be created, or reconfigured if it already exists, including updating the **binPath** to point to this folder and your executable entry point.
-8. If the `Start mode` is `Automatic` or `Automatic (delayed)`, your Windows Service will be started.
+8. The service will be started based on the selected `State` option using the rules in the table below.
 9. [Output variables](/docs/deployment-process/variables/output-variables.md) and deployment [artifacts](/docs/deployment-process/artifacts.md) from this step are sent back to the Octopus Server.
 
 :::success
@@ -67,16 +68,29 @@ You can see exactly how Octopus deploys your Windows Service by looking at the s
 You can inject your own logic into this process using [custom scripts](/docs/deployment-examples/custom-scripts/index.md) and understanding where your scripts will execute in the context of [package deployment feature ordering](/docs/deployment-examples/package-deployments/package-deployment-feature-ordering.md).
 :::
 
-If your step's `Start mode` is not set to `Automatic` or `Automatic (delayed)`, Octopus will not start your service. You can choose to start the service by adding a `PostDeploy` script, for example:
+This table shows how the combination of the `Start Mode`, `State` and the state of any existing services determines is the service will be started or left stopped after the deployment is completed.
 
-```powershell PowerShell
-Start-Service $OctopusParameters["Octopus.Action.WindowsService.ServiceName"]
-```
-
-```c# C#
-#r "System.ServiceProcess"
-new System.ServiceProcess.ServiceController(Octopus.Parameters["Octopus.Action.WindowsService.ServiceName"]).Start();
-```
+| Start Mode | State | Existing Service Exists | Existing Service State | Resulting State |
+|-|-|-|-|-|
+| Disabled | n/a | n/a | n/a |Stopped |
+| Automatic / Automatic (delayed) | Started | n/a | n/a | Running |
+| Manual | Started | n/a | n/a | Running |
+| Unchanged | Started | n/a | n/a | Running |
+| Automatic / Automatic (delayed) | Stopped | n/a | n/a | Stopped |
+| Manual | Stopped | n/a | n/a | Stopped |
+| Unchanged | Stopped | n/a | n/a | Stopped |
+| Automatic / Automatic (delayed) | Unchanged | Exists | Running | Running |
+| Manual | Unchanged | Exists | Running | Running |
+| Unchanged | Unchanged | Exists | Running | Running |
+| Automatic / Automatic (delayed) | Unchanged | Exists | Stopped | Stopped |
+| Manual | Unchanged | Exists | Stopped | Stopped |
+| Unchanged | Unchanged | Exists | Stopped | Stopped |
+| Automatic / Automatic (delayed) | Unchanged | Does not exist | n/a | Stopped |
+| Manual | Unchanged | Does not exist | n/a | Stopped |
+| Unchanged | Unchanged | Does not exist | n/a | Stopped |
+| Automatic / Automatic (delayed) | Default | n/a | n/a | Running |
+| Manual | Default | n/a | n/a | Stopped |
+| Unchanged | Default | n/a | n/a | Stopped |
 
 ## Setting Advanced Configuration Options {#WindowsServices-Settingadvancedconfigurationoptions}
 
