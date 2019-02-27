@@ -103,4 +103,4 @@ It's worth re-iterating here that the Notes will be in markdown format, and if y
 
 ## Issue Trackers
 
-If you are using an issue tracker like Jira, Octopus can also be integrated with it to provide information about the progress of work-items. For more details see [Jira Issue Tracker](/docs/api-and-integration/jira.md).
+If you are using an issue tracker like Jira, Octopus can also be integrated with it to provide information about the progress of work-items. For more details see [Jira Issue Tracker](/docs/api-and-integration/work-items/jira.md).
