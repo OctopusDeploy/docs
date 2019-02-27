@@ -57,7 +57,7 @@ Not all teams operate like this though, many will accumulate a number of release
 
 This accumulation logic is how Octopus always determines the work-item list, it's always the accumulation since the last deployment to the given "scope". A scope in this context is the combination of deployment environment and tenant (if multi-tenancy is in play).
 
-# Work-items, Multiple Scopes, and Tenants
+## Work-items, Multiple Scopes, and Tenants
 
 Given that you can initiate deployments to multiple "scopes" at once in Octopus it is quite conceivable, and expected, that you could see different work-items lists for each scope. Let's consider a couple of examples, first two tenants in the same environment. In this case if tenant A is on an earlier version than tenant B then the resulting list for tenant A will be the list for tenant B plus the additional work-items between the version it was on and the version tenant B was on.
 
