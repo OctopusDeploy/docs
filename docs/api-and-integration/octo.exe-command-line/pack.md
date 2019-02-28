@@ -67,3 +67,4 @@ Common options:
       --outputFormat=VALUE   [Optional] Output format, only valid option is
                              json
 ```
+
