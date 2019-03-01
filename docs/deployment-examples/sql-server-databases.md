@@ -146,8 +146,6 @@ SQL Release has been replaced by DLM Automation, which is available in the [SQL
 
 The Redgate Database Lifecycle Management (DLM) Automation tool works with build servers and release management tools to provide continuous integration and automated deployment for your SQL databases. You can control DLM Automation by using the [DLM Automation PowerShell cmdlets](https://documentation.red-gate.com/display/DLMA2/Cmdlet+reference) or by using one of the [DLM Automation add-ons](http://www.red-gate.com/dlmas/add-ons-page). DLM Automation is available in the [SQL Toolbelt](http://www.red-gate.com/products/sql-development/sql-toolbelt/).
 
-![](/docs/images/3048077/5865877.png "width=500")
-
 :::hint
 Learn about [using DLM Automation with Octopus Deploy](https://documentation.red-gate.com/display/DLMA2/Walkthrough%3A+Set+up+Continuous+Integration+And+Release+Management).
 :::
@@ -155,8 +153,6 @@ Learn about [using DLM Automation with Octopus Deploy](https://documentation.re
 ### Redgate ReadyRoll {#SQLServerdatabases-RedgateReadyRoll}
 
 Redgate ReadyRoll follows the change script approach, and also provides an excellent Visual Studio experience. It has the ability to [generate Octopus Deploy-ready NuGet packages](http://doc.ready-roll.com/display/RRSQLDOC/Octopus+Deploy) and can work in continuous integration/automated build tools.
-
-![](/docs/images/3048077/3277640.png "width=500")
 
 :::hint
 **Learn more about ReadyRoll**
