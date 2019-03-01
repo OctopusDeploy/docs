@@ -10,7 +10,7 @@ As you work with [variables](/docs/deployment-process/variables/index.md) in Oct
 
 Variables such as passwords or API keys can be marked as being **sensitive**. Just like non-sensitive variables they can [reference other variables](docs/deployment-process/variables/index.md#Bindingsyntax-Referencingvariablesinstepdefinitions) but be careful with any part of your sensitive variable that could [unintentionally be interpreted](docs/deployment-process/variables/sensitive-variables.md#Sensitivevariables-Avoidingcommonmistakes-SubstituionSyntax) as an attempted substitution. See also, other [common mistakes](#avoiding-common-mistakes).
 
-![](/docs/images/3048089/3277722.png "width=500")
+![](/docs/images/3048089/3277722.png)
 
 ## Defining Sensitive Variables
 
@@ -20,7 +20,7 @@ To make a variable a **sensitive variable**, you need to enter the variable edit
 
 For variable type, select **Sensitive**.
 
-![Variable editor](variable-editor.jpg "width=500")
+![Variable editor](variable-editor.jpg)
 
 ## How Octopus Handles Your Sensitive Variables {#Sensitivevariables-HowOctopushandlesyoursensitivevariables}
 

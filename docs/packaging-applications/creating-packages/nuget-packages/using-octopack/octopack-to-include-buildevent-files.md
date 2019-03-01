@@ -12,7 +12,7 @@ This shows, by example, the use of a PostBuild event in Visual Studio and the Oc
 
 I created a Post-Build Event using the Visual Studio Build Events feature. It uses Xcopy to move files from a path to my solution.
 
-![](/docs/images/3048096/3277796.png "width=500")
+![](/docs/images/3048096/3277796.png)
 
 However when I use OctoPack to Package my solution on build my moved files are not included in the build.
 
@@ -20,11 +20,11 @@ However when I use OctoPack to Package my solution on build my moved files are n
 
 This is resolved by creating a NuSpec file, and creating a files tag to tell OctoPack to take my moved files, and put them inside a folder called bin\test in the package.
 
-![](/docs/images/3048096/3277794.png "width=500")
+![](/docs/images/3048096/3277794.png)
 
 It is important to note here that for OctoPack to find and use a NuSpec file, it must be named the same as your project as seen above.
 
-![](/docs/images/3048096/3277792.png "width=500")
+![](/docs/images/3048096/3277792.png)
 
 However now when I run my OctoPack command, all I get are the files defined within the NuSpec file.
 

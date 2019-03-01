@@ -49,11 +49,11 @@ These steps should be executed from your **Octopus 2.6** server to your 2.6 Tent
 1. Download the latest Hydra NuGet package from [https://octopus.com/downloads/latest/Hydra](https://octopus.com/downloads/latest/Hydra).
 2. Use the Upload Package feature of the library to upload the OctopusDeploy. Hydra package to the built-in NuGet repository on your **Octopus 2.6** server.
 
-![](/docs/images/3048135/3278019.png "width=500")
+![](/docs/images/3048135/3278019.png)
 
 3. Import the [Hydra step template](http://library.octopus.com/step-templates/d4fb1945-f0a8-4de4-9045-8441e14057fa/actiontemplate-hydra-update-octopus-tentacle) from the Community Library.
 
-![](/docs/images/3048135/3278018.png "width=500")
+![](/docs/images/3048135/3278018.png)
 
 4. Create a [new project](/docs/deployment-process/projects/index.md) with a single "Update Octopus Tentacle" step from the step template.
 
@@ -78,10 +78,10 @@ It is very important you get this value correct. An incorrect value will result 
 
 Click the ![](/docs/images/3048132/3278017.png) help button for more detailed instructions.
 
-![](/docs/images/3048132/3278014.png "width=500")
+![](/docs/images/3048132/3278014.png)
 
-![](/docs/images/3048132/3278015.png "width=500")
+![](/docs/images/3048132/3278015.png)
 :::
 
 5. Create a release and deploy. The deployment should succeed, and one minute later the Tentacles will be upgraded.
-    ![](/docs/images/3048132/3278010.png "width=500")
+    ![](/docs/images/3048132/3278010.png)

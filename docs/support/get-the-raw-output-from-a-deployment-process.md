@@ -10,7 +10,7 @@ When you contact Octopus Deploy support with a deployment related issue, we'll s
 
 1. Navigate to the deployment process screen.  
 
-  ![](deployment-process.png "width=500")
+  ![](deployment-process.png)
 
 !partial <steps>
 

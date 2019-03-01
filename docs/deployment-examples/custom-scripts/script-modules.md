@@ -10,11 +10,11 @@ Script modules allow users to create *PowerShell functions* or *Cmdlets* that c
 
 1.  Click on **{{Library,Script Modules,Add Script Module}}**:
 
-![](script-modules-add.png "width=500")
+![](script-modules-add.png)
 
 2.  Name your new Script Module and click on **Save**:
 
-![](script-modules-new.png "width=500")
+![](script-modules-new.png)
 
 3.  By default, your new script module will come with a function called *Say-Hello.* We will modify it a bit with the following code for the sake of showing a better example.
 
@@ -27,7 +27,7 @@ function Say-Hello($name)
 
 After inserting the modified function, the Script Module should look like this:
 
-![](script-modules-new-body.png "width=500")
+![](script-modules-new-body.png)
 
 Once this is done, click on **Save**.
 
@@ -52,15 +52,15 @@ Once you have created a Script Module, you can start using the functions contai
 
 1.  Go to your **[Deployment Process](/docs/deployment-examples/index.md)** and click **Include.**
 
-![](script-modules-deployment.png "width=500")
+![](script-modules-deployment.png)
 
 A new window will pop up up, prompting you to select you script module. Select the module you just created (make sure the checkbox is checked) and hit **Save**.
 
-![](script-modules-deployment-include.png "width=500")
+![](script-modules-deployment-include.png)
 
 You should now be able to see your module loaded on your Deployment Process
 
-![](script-modules-deployment-included.png "width=500")
+![](script-modules-deployment-included.png)
 
 2.  Add a **[Standalone PowerShell Script step](/docs/deployment-examples/custom-scripts/index.md)** and call the *Say-Hello* function from it.
 
@@ -68,7 +68,7 @@ You should now be able to see your module loaded on your Deployment Process
 Say-Hello -name George
 ```
 
-![](script-modules-deployment-step.png "width=500")
+![](script-modules-deployment-step.png)
 
 Once you're done, hit **Save.**
 
@@ -80,7 +80,7 @@ Make sure to select a **Role**, an **Environment** and to put a **Step Name**
 
 4.  Check the Release task log and expand all the steps. You should be able to see the output of the *Say-Hello* function in there.
 
-![](script-modules-deployment-release.png "width=500")
+![](script-modules-deployment-release.png)
 
 
 :::hint

@@ -56,7 +56,7 @@ Decide on the naming convention you will use before creating your first target r
 
 The role has been created and assigned to the deployment target and is now available to other deployment targets.
 
-![](target-roles.png "width=500")
+![](target-roles.png)
 
 You can check all the roles assigned to your deployment targets from the **Infrastructure** tab.
 

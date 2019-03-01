@@ -28,32 +28,32 @@ In order to complete this guide you should have a Cloud Service project set up i
 
 The easiest way to configure Octopus for VIP swapping is to map Cloud Service slots to Octopus environments. By default a Cloud Service has a staging and production slot.  In order to map this in Octopus, create Staging and Production environments:
 
-![](environments.png "width=500")
+![](environments.png)
 
 ## Enabling VIP Swap {#VIPSwap-EnablingVIPswap}
 
 In order to enable VIP swapping, edit the process of your Cloud Service project and toggle the Swap setting to "Swap staging to production if possible":
 
-![](vip-swap.png "width=500")
+![](vip-swap.png)
 
 With this setting enabled Octopus will attempt to swap the staging and production slots but, in the example above, it is always deploying to the staging slot.  In order to perform a VIP swap we want to first deploy to Staging and then Production.  In order to do this in Octopus, edit the Cloud Service process and replace the Slot setting with a variable that resolves the environment name.  Press the square to the right of the Slot field to enable variable binding and enter #{Octopus.Environment.Name}:
 
-![](vip-swap-binding.png "width=500")
+![](vip-swap-binding.png)
 
 ## Performing a VIP Swap {#VIPSwap-PerformingaVIPswap}
 
 In order to perform a VIP swap you must have a deployment in your Cloud Service production slot. The first time you create a release and deploy it to Staging and then Production it will not VIP swap. On subsequent deployments to Staging and then Production a VIP swap will occur:
 
-![](vip-task-log.png "width=500")
+![](vip-task-log.png)
 
 ## Automatic VIP Swap {#VIPSwap-AutomaticVIPswap}
 
 A production VIP swap can be automatically performed after a successful staging deployment through the use of lifecycles. A lifecycle should be configured with two phases: Staging and Production.  The Staging phase contains the Staging environment and the Production phase contains the Production environment. The Production environment should be configured with "Deploy automatically to this environment as soon as the release enters this phase.":
 
-![](vip-lifecycles.png "width=500")
+![](vip-lifecycles.png)
 
 Configure the Cloud Service project to use the newly created lifecycle from the project process tab:
 
-![](vip-project-lifecycle.png "width=500")
+![](vip-project-lifecycle.png)
 
 Now each time a release is deployed to staging it will automatically perform a VIP swap with production.

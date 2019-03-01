@@ -6,7 +6,7 @@ position: 125
 
 Under Project settings there's a section for Release Versioning where you can select how the next release number is generated when creating a release.
 
-![Release Versioning](release-versioning.png "width=500")
+![Release Versioning](release-versioning.png)
 
 <div>
     <p>You can use variables from the project (un-scoped or scoped only to a channel). In addition, some special variables are provided - example:

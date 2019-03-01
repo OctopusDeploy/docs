@@ -28,7 +28,7 @@ To create an Azure Cloud Service target within Octopus:
 - Select **Azure Cloud Service** from the list of available targets and click _Next_.
 - Fill out the necessary fields, being sure to provide a unique role that clearly identifies your Azure Cloud Service target.
 
-![](create-azure-cloud-service-target.png "width=500")
+![](create-azure-cloud-service-target.png)
 
 - After clicking _Save_, your deployment target will be added and go through a health check to ensure Octopus can connect to it.
 - If all goes well, you should see your newly created target in your **Deployment Targets** list, with a status of _Healthy_.

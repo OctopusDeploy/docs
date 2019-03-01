@@ -29,13 +29,13 @@ If you are concerned that Octopus does not capture a specific action of interest
 
 You can view the full audit history by navigating to the **Audit** tab in the **Configuration** area.
 
-![Audit Configuration](/docs/images/3048138/3278051.png "width=500")
+![Audit Configuration](/docs/images/3048138/3278051.png)
 
 Some audit events will also include details, which you can see by clicking the **show details** link. For example:
 
-![Audit Event Details](/docs/images/3048138/3278050.png "width=500")
+![Audit Event Details](/docs/images/3048138/3278050.png)
 
-![Audit Event Details extended](/docs/images/3048138/3278049.png "width=500")
+![Audit Event Details extended](/docs/images/3048138/3278049.png)
 
 This feature makes it extremely easy to see who made what changes on the Octopus Deploy Server.
 

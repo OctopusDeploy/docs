@@ -23,7 +23,7 @@ We offer several ways to add/upload/push packages to the built-in feed:
 
 You can manually upload a package file from your local machine via the Octopus web portal via the **{{Library,Packages}}** tab by clicking the *Upload package* button.
 
-![](/docs/images/3048094/3277775.png "width=500")
+![](/docs/images/3048094/3277775.png)
 
 :::success
 We generally recommend using a continuous integration/build server like [TeamCity](/docs/api-and-integration/teamcity.md), [Jenkins](/docs/api-and-integration/jenkins.md), [Bamboo](/docs/api-and-integration/bamboo.md) or [Team Foundation Server (TFS)](/docs/api-and-integration/tfs-azure-devops/index.md) to build, test, package and automatically push your release packages into the Octopus Deploy built-in repository. See below for examples on doing this.
@@ -61,7 +61,7 @@ You can upload a package via the [Octopus Deploy API](/docs/api-and-integration
 
 To push a package using `NuGet.exe` you'll need a the URL for the Octopus NuGet feed to use with your build server or `NuGet.exe`. To find this, open the **{{Library,Packages}}** tab of the Octopus web portal.  Simply click the **Show examples** link to see options to upload packages. The screen shows an example command-line that can be used to push packages to the feed using [NuGet.exe](http://docs.nuget.org/docs/start-here/installing-nuget). You'll need to supply the NuGet package file (`.nupkg`) and an [Octopus API key](/docs/api-and-integration/api/how-to-create-an-api-key.md).
 
-![](/docs/images/3048094/3277775.png "width=500")
+![](/docs/images/3048094/3277775.png)
 
 :::success
 If you're using a continuous integration server like TeamCity to produce packages you can use their built-in NuGet Push step. Supply the Octopus NuGet feed URL shown above and an [Octopus API key](/docs/api-and-integration/api/how-to-create-an-api-key.md) when prompted for the feed details.

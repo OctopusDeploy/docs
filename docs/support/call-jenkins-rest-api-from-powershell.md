@@ -10,7 +10,7 @@ Although the typical deployment workflow sees a CI system like Jenkins triggerin
 
 Jenkins has a security feature to prevent [Cross Site Request Forgery](https://support.cloudbees.com/hc/en-us/articles/219257077-CSRF-Protection-Explained) attacks, which is found under **{{Jenkins>Manage Jenkins>Configure Global Security>Prevent Cross Site Request Forgery exploits}}**.
 
-![](csrf.png "width=500")
+![](csrf.png)
 
 In practical terms this means that each request to the Jenkins API needs to have what is known as a crumb defined in the headers. To generate this crumb, we need to make a request to http://jenkinsserver/jenkins/crumbIssuer/api/json.
 
@@ -42,11 +42,11 @@ Write-Host "The Jenkins crumb is $($parsedJson.crumb)"
 
 Now that we have a crumb, we can use it to call the Jenkins REST API. You can find the URL to call to interact with the Jenkins system with the `REST API` link in the bottom right hand corner of each screen.
 
-![](restapi.png "width=500")
+![](restapi.png)
 
 In this example we want to trigger the build of a Jenkins project, so we open the project and find that the `REST API` link points us to a URL like http://jenkinsserver/jenkins/job/Run%20a%20script/api/. If we open this link we'll see a page of documentation describing the common operations that are available. In particular we are interested in the link that is embedded in the sentence `to programmatically schedule a new build, post to this URL.` The link takes us to a URL like http://jenkinsserver/jenkins/job/Run%20a%20script/build.
 
-![](restapidocs.png "width=500")
+![](restapidocs.png)
 
 ## Triggering the Build
 

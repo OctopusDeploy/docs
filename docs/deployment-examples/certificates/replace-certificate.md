@@ -12,8 +12,8 @@ The previous certificate will be [archived](archiving-and-deleting-certificates.
 
 To replace a certificate, navigate to the certificate details page and click 'Replace':
 
-![](replace-certificate-btn.png "width=500")
+![](replace-certificate-btn.png)
 
 Select the replacement certificate file and password (if required):
 
-![](replace-certificate-dialog.png "width=500")
+![](replace-certificate-dialog.png)

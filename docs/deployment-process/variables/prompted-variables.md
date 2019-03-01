@@ -23,7 +23,7 @@ You can identify prompted variables by looking for the icon next to the value:
 
 When deploying (not creating a release), you'll be prompted to provide a value for the variable:
 
-![Required prompted variable](/docs/images/3048314/3278301.png "width=500")
+![Required prompted variable](/docs/images/3048314/3278301.png)
 
 A value can also be passed to a prompted variable when using `Octo.exe` through the `--variable` parameter of the [Create-Release](/docs/api-and-integration/octo.exe-command-line/create-release.md) or [Deploy-Release](/docs/api-and-integration/octo.exe-command-line/deploy-release.md) commands
 

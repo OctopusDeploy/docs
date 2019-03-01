@@ -31,7 +31,7 @@ The simplest branching workflow is, of course, no branches - all developers work
 
 Builds from this single branch will produce a NuGet package, and that package goes into a release which is deployed by Octopus.
 
-![](/docs/images/3048919/3278468.png "width=500")
+![](/docs/images/3048919/3278468.png)
 
 ### Release Branches {#Branching-Releasebranches}
 
@@ -59,15 +59,15 @@ Multiple release branches may be supported over a period of time. For example, y
 
 To prevent [retention policies](/docs/administration/retention-policies/index.md) for one channel from impacting deployments for another channel, version `3.12.2` introduces the `Discrete Channel Releases` flag at under `Deployment Target settings` on the **{{Project,Process}}** page. Enabling this feature will also ensure that your project overview dashboard correctly shows which releases are current for each environment _in each channel_. Without this set, the default behavior is for releases across channels to supersede each other (for example, in a hotfix scenario where the `3.2.2-bugfix` is expected to override the `3.2.2` release, allowing `3.2.2` to be considered for retention policy cleanup).
 
- ![Discrete Channel Release](discrete-channel-release.png "width=500")
+ ![Discrete Channel Release](discrete-channel-release.png)
 
 Modeling this in Octopus is a little more complicated than the scenarios above, but still easy to achieve. If the only thing that changes between branches is the NuGet package version numbers, and you create releases infrequently, then you can simply choose the correct package versions when creating a release via the release creation page:
 
-![](/docs/images/3048919/3278469.png "width=500")
+![](/docs/images/3048919/3278469.png)
 
 If you plan to create many releases from both branches, or your deployment process is different between branches, then you will need to use channels. Channels are a feature in Octopus that lets you model differences in releases:
 
-![](/docs/images/3048919/3278470.png "width=500")
+![](/docs/images/3048919/3278470.png)
 
 In this example, packages that start with 2.x go to the "Stable" channel, while packages that start with 3.x go to the "Early Adopter" channel.
 
@@ -102,7 +102,7 @@ If feature branches do need to be deployed, then you can create NuGet packages f
 
 Again, channels can be used to make it easier to create releases for feature branches:
 
-![](/docs/images/3048919/3278471.png "width=500")
+![](/docs/images/3048919/3278471.png)
 
 ### Environment Branches {#Branching-Environmentbranches}
 
@@ -141,7 +141,7 @@ For example:
 
 Your dashboard in Octopus should reflect this reality by displaying each channel individually:
 
-![](/docs/images/3048919/3278472.png "width=500")
+![](/docs/images/3048919/3278472.png)
 
 :::hint
 **Development note**
@@ -159,11 +159,11 @@ Sometimes a new branch might introduce a new component that needs to be deployed
 
 For example, the Rate Service package was added as part of v3, so currently only applies to the Early Adopter channel:
 
-![](/docs/images/3048919/3278473.png "width=500")
+![](/docs/images/3048919/3278473.png)
 
 Likewise, it has variables that only apply on Early Adopter:
 
-![](/docs/images/3048919/3278474.png "width=500")
+![](/docs/images/3048919/3278474.png)
 
 For more advanced uses, you may need to clone your project.
 
@@ -178,17 +178,17 @@ Hotfixes are a special kind of release branch, but typically have a shorter life
 
 Again, channels can handle this by creating a Hotfix channel, and assigning the Hotfix channel a different lifecycle:
 
-![](/docs/images/3048919/3278475.png "width=500")
+![](/docs/images/3048919/3278475.png)
 
 Likewise, steps can be defined that apply to the Stable channel, but not to the Hotfix channel:
 
 When releases are created for the Hotfix channel, they can then be deployed straight to production:
 
-![](/docs/images/3048919/3278476.png "width=500")
+![](/docs/images/3048919/3278476.png)
 
 While stable releases still follow the usual testing lifecycle:
 
-![](/docs/images/3048919/3278477.png "width=500")
+![](/docs/images/3048919/3278477.png)
 
 ### We Need to Deploy Different Components Depending on Whether It's a "Full" Release or a "Partial" Release {#Branching-Weneedtodeploydifferentcomponentsdependingonwhetherit&#39;sa&quot;full&quot;releaseora&quot;partial&quot;release}
 
@@ -203,12 +203,12 @@ You might have a large project with many components. Sometimes you only need to 
 
 This can be modeled by creating a channel per component, plus a channel for a release of all components.
 
-![](/docs/images/3048919/3278478.png "width=500")
+![](/docs/images/3048919/3278478.png)
 
 Steps can then be scoped to their individual channel as well as the major release channel:
 
-![](/docs/images/3048919/3278479.png "width=500")
+![](/docs/images/3048919/3278479.png)
 
 When creating the release, you can then choose whether the release is for an individual component or all components:
 
-![](/docs/images/3048919/3278480.png "width=500")
+![](/docs/images/3048919/3278480.png)

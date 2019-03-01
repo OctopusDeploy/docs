@@ -47,15 +47,15 @@ For more information on using OctoPack to create NuGet packages, see [using Octo
 
 When you set up your build configuration in TeamCity, use either the MSBuild runner or the Visual Studio build runner. At the bottom of the runner settings, you'll see some options to run OctoPack during the build:
 
-![](/docs/images/3048176/5865626.png "width=500")
+![](/docs/images/3048176/5865626.png)
 
 The **OctoPack package version** setting should evaluate to a version number with multiple parts (e.g., **1.3.7**). It cannot be a single number. You may want to edit the General Settings for your project to ensure that the TeamCity build number uses multiple parts:
 
-![](/docs/images/3048176/3278195.png "width=500")
+![](/docs/images/3048176/3278195.png)
 
 With these options selected, NuGet packages will automatically be created using the version number of the current build. OctoPack will ensure that these packages appear in the artifacts tab of TeamCity:
 
-![](/docs/images/3048176/3278194.png "width=500")
+![](/docs/images/3048176/3278194.png)
 
 :::hint
 **Can&#39;t use OctoPack?**
@@ -102,13 +102,13 @@ The solution is to configure a secondary build configuration, and use a snapshot
 In version 4.38.0 of the TeamCity Plugin we have added a new build runner that can be used to package your applications as either a NuGet or Zip formatted package.
 :::
 
-![Octopus Pack](teamcity-pack-step.png "width=500")
+![Octopus Pack](teamcity-pack-step.png)
 
 :::hint
 In version 3.3.1 of the TeamCity Plugin we have added a new build runner that can be used to package and push your applications from TeamCity to Octopus.
 :::
 
-![Octopus Push](/docs/images/3048176/5275665.png "width=500")
+![Octopus Push](/docs/images/3048176/5275665.png)
 
 ## Triggering Deployments From TeamCity {#TeamCity-TriggerDeploymentsTriggeringdeploymentsfromTeamCity}
 
@@ -125,7 +125,7 @@ The Octopus TeamCity plugin comes with these custom build runners:
 
 The plugin is simply a wrapper for [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md), the Octopus command line tool for creating and deploying releases.
 
-![](/docs/images/3048176/3278185.jpg "width=500")
+![](/docs/images/3048176/3278185.jpg)
 
 The video below is from a webinar hosted by JetBrains in which we demonstrated these features:
 

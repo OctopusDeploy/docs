@@ -55,7 +55,7 @@ First, add the AWS Account as a variable. In the screenshot below, the account h
 
 The **OctopusPrintVariables** has been set to true to print the variables to the output logs. This is a handy way to view the available variables that can be consumed by a custom script. You can find more information on debugging variables at [Debug problems with Octopus variables](/docs/support/debug-problems-with-octopus-variables.md).
 
-![Variables](variables.png "width=500")
+![Variables](variables.png)
 
 When running a step, the available variables will be printed to the log. In this example, the following variables are shown:
 

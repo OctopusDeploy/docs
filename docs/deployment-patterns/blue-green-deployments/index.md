@@ -24,12 +24,12 @@ As well as reducing downtime, Blue-Green can be a powerful way to use extra hard
 
 To implement blue-green deployments in Octopus, create two environments - one for green, and one for blue:
 
-![](/docs/images/3048181/3278247.png "width=500")
+![](/docs/images/3048181/3278247.png)
 
 When deploying, you can then choose which environment to deploy to - either blue or green. The dashboard will show which release is in each environment.
 
-![](/docs/images/3048181/3278245.png "width=500")
+![](/docs/images/3048181/3278245.png)
 
 Configuring your [lifecycle](/docs/deployment-process/lifecycles/index.md) will need to be done accordingly. Typically you would have both your blue and green environments in a shared "Production/Staging" phase.
 
-![](/docs/images/3048181/3278246.png "width=500")
+![](/docs/images/3048181/3278246.png)

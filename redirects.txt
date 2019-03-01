@@ -266,7 +266,7 @@ docs/patterns/blue-green-deployments/index.md -> docs/deployment-patterns/blue-g
 docs/patterns/blue-green-deployments/blue-green-deployments-in-iis.md -> docs/deployment-patterns/blue-green-deployments/blue-green-deployments-in-iis.md
 docs/patterns/branching.md -> docs/deployment-patterns/branching.md
 docs/patterns/canary-deployments.md -> docs/deployment-patterns/canary-deployments.md
-docs/patterns/clustered-listening-tentacles.md -> docs/deployment-patterns/clustered-listening-tentacles.md
+docs/patterns/clustered-listening-tentacles.md -> docs/deployment-patterns/clustered-listening-tentacles/index.md
 docs/patterns/isolated-octopus-deploy-servers.md -> docs/deployment-patterns/isolated-octopus-deploy-servers.md
 docs/patterns/multi-region-deployment-pattern.md -> docs/deployment-patterns/multi-region-deployment-pattern.md
 docs/patterns/multi-tenant-deployment-pattern.md -> docs/deployment-patterns/multi-tenant-deployments/index.md

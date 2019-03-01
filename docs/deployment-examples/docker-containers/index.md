@@ -15,11 +15,11 @@ While Docker Containers on Windows Server (not Docker for Windows through Docker
 
 In Octopus Deploy, a deployment usually involves a versioned instance of package that is obtained from some package feed. Prior to 3.5.0, this was typically modeled by defining a NuGet server (e.g. MyGet, TeamCity) as the package repository, which exposes a list of named packages to be deployed. Each instance of this package existed as a versioned .nupkg file which would be obtained by the target at deployment time and extracted.
 
-![](/docs/images/5670982/5865809.png "width=500")
+![](/docs/images/5670982/5865809.png)
 
 With the introduction of support for Docker, a similar concept exists whereby a Docker Registry (e.g. DockerHub, Artifactory) exposes a list of Images (unfortunately in Docker terminology these are known as repositories) which can be tagged with one (or more) values. By treating and interpreting the tags as version descriptions for a given Image, a Docker deployment can map to a similar versioned process flow.
 
-![](/docs/images/5670982/5865811.png "width=500")
+![](/docs/images/5670982/5865811.png)
 
 The Octopus concepts of feeds, packages and versions can be mapped to the Docker concepts of registries, images and tags. There is a slight caveat to this similarity since Octopus does not currently intend to self-host a Docker registry in the server, so there there is no Docker equivalent of the built-in feed. Also the targets currently need to have access to the repository to pull down images as there is no push process from the Octopus Server.
 

@@ -11,12 +11,12 @@ To download the task log do the following:
 1. Select the deployment/task that you're having an issue with.
 2. Select the **Task Log** tab.
 
-![](raw-task-1.png "width=500")
+![](raw-task-1.png)
 
 3. Click **RAW** to display the raw log.
 3. Click **DOWNLOAD** to download the log to a text file.
 
-![](raw-task-2.png "width=500")
+![](raw-task-2.png)
 
 Send this file to us, or attach it to your support request.
 

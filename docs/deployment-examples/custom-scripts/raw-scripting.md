@@ -41,7 +41,7 @@ While raw scripting does not require a Transfer a Package step, the below scenar
 **Raw Target Health Checks** {#RawScripting-HealthChecks}
 Given that the point of raw scripting is to avoid having to install Mono and Calamari, you may need to create a custom [Machine Policy](/docs/infrastructure/machine-policies.md) and select the `Only perform connection test` option under the section `Health check for SSH endpoints`. Targets configured with this policy will be considered healthy so long as an SSH connection can be established.
 
-![](/docs/images/machine-policies/ssh-healthchecks.png "width=300")
+![SSH Health checks](ssh-healthchecks.png)
 
 Using a standard machine policy will otherwise result in the endpoint being considered unhealthy if it is unable to find Mono or Calamari.
 :::

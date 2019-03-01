@@ -10,7 +10,7 @@ You can manage users from the **Users** tab under **Configuration** in the Octop
 
 You can manage teams from the **Teams** tab under **Configuration** in the Octopus Deploy web portal.
 
-![](teams.png "width=500")
+![](teams.png)
 
 ## User and Service Accounts {#Managingusersandteams-UserandServiceaccounts}
 
@@ -26,7 +26,7 @@ You should create a different User account for each person that will use Octopus
 
 To streamline the process of adding multiple users you can use the **User invites** feature to generate one or more unique registration codes bound to one or more existing teams. These links can then be issued to users so that they can register their own details and be given automatic permissions for the team(s) the codes are bound to.
 
-![](user-invites.png "width=500")
+![](user-invites.png)
 
 :::hint
 Prior to version 4.0 this feature was accessed via the **Invite users** button on the **Users** page
@@ -46,7 +46,7 @@ For example, we can create a team that gives Anne and Bob access to view project
 
 We limit which projects and environments these permissions apply to by adding specific projects and environments to the team.
 
-![](teams-create-new.png "width=500")
+![](teams-create-new.png)
 
 ### Restricting Project and Project Group Access
 

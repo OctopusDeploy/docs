@@ -10,7 +10,7 @@ Assuming you are starting with a clean install of Octopus Deploy, the following 
 
 - In the *Environments* page, add an Environment named **prod**.
 
-![](/docs/images/3049555/3964983.png "width=500")
+![](/docs/images/3049555/3964983.png)
 
 :::hint
 The name of the environment is important because we will use it as a variable in our deployment process.
@@ -42,7 +42,7 @@ The next step is to create a project that will extract the package.
 - Give the new project an appropriate name and once saved, go to the project's *Process* page and click **{{Add Step,Deploy a Package}}**.
     * Ensure that the target role matches that which was assigned to the machine in the previous step and select *octofxjs* as the Package ID. This Package ID is derived from the first section of the package that was previously uploaded (see *Package Metadata* section of the [Supported Packages](/docs/packaging-applications/supported-packages.md) documentation for mode details).
 
-![](/docs/images/3049555/3278590.png "width=500")
+![](/docs/images/3049555/3278590.png)
 
 ### Variable Substitution {#ConfigureOctopusDeployProject-VariableSubstitution}
 
@@ -51,7 +51,7 @@ The next step is to create a project that will extract the package.
 - Enable the *Substitute variables in files* feature.
 - Enter `config/config.#{Octopus.Environment.Name}.js` as the substitution target file.
 
-![](/docs/images/3049555/3278589.png "width=500")
+![](/docs/images/3049555/3278589.png)
 
 :::success
 **Loading environment specific variables**
@@ -97,7 +97,7 @@ The package will be uploaded to the server and unpacked, and the environment spe
 
 Navigating to the host machine after deploying to the *prod* environment should then result in a page that looks something like this:
 
-![](/docs/images/3049555/3278591.png "width=500")
+![](/docs/images/3049555/3278591.png)
 
 :::hint
 **Trouble browsing to your site?**

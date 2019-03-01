@@ -84,7 +84,7 @@ You can also use the above PowerShell Cmdlets when deploying Azure resources usi
 
 Firstly, turn on **Custom deployment scripts** under _Configure Features_ on your _Deploy an Azure Resource Group_ step.
 
-![Configure features on ARM template step](arm-template-step-configure-features.png "width=500")
+![Configure features on ARM template step](arm-template-step-configure-features.png)
 
 Under the _Features_ section you will have _Pre-deployment_, _Deployment_, and _Post-deployment_ scripts.
 

@@ -20,7 +20,7 @@ The ability to run scripts on the Octopus Server shipped in **Octopus 3.3**.
 
 When adding a script you choose where the script will run, and in which context the script will run.
 
-![](execution-location.png "width=500")
+![](execution-location.png)
 
 Choosing the right combination of **Target** and **Roles** enables some really interesting scenarios. See below for some common examples:
 
@@ -45,7 +45,7 @@ You may also select the source of the script, either:
 - An ad-hoc or inline script, saved as part of the step itself, or:
 - A script file inside a package (shown below).
 
-![](script-file-in-package.png "width=500")
+![](script-file-in-package.png)
 
 :::success
 **Scripts from packages, versioning and source control**
@@ -64,7 +64,7 @@ The ability to pass parameters to scripts was added in **Octopus 3.4**.
 
 When you call external scripts (sourced from a file inside a package) you can pass parameters to your script. This means you can write "vanilla" scripts that are unaware of Octopus, and test them in your local development environment. Read about [passing parameters to scripts](/docs/deployment-examples/custom-scripts/index.md#Customscripts-Passingparameterstoscripts).
 
-![](5865636.png "width=500")
+![](5865636.png)
 
 ## Referencing Packages
 
@@ -80,7 +80,7 @@ In addition to being able to [source the custom script from a package](#Standalo
     - Executing `NuGet.exe` to push another package (e.g. `Acme.Web`)
     - Referencing multiple container images and performing `docker compose`
 
-![Script Step Package References](script-step-package-references.png "width=500")
+![Script Step Package References](script-step-package-references.png)
 
 Package references can be added regardless of whether the script is sourced inline or from a package.
 
@@ -103,7 +103,7 @@ A unique identifier for the package-reference. In general the Package ID is a go
 Whether the package should be extracted. See [below](#referencing-packages-package-files) for information on the package file locations.
 This will not be displayed for certain package-types (i.e. container images). This may also be bound to a variable-expression.
 
-![Script Step Package References](script-step-package-reference-add.png "width=500")
+![Script Step Package References](script-step-package-reference-add.png)
 
 ### Accessing Package References from a Custom Script
 

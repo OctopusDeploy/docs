@@ -31,7 +31,7 @@ A typical project may involve one step that first creates a network, and then cr
 #{Octopus.Action[Create Network Step Name].Output.Docker.Inspect.Name}
 ```
 
-![](/docs/images/5671068/5865817.png "width=500")
+![](/docs/images/5671068/5865817.png)
 
 ### Obtain Container IP Address Inside Custom Network {#AccessingContainerDetails-ObtainContainerIPaddressinsidecustomnetwork}
 

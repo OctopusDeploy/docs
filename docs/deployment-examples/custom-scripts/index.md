@@ -41,11 +41,11 @@ Of course, Bash scripts will only be supported on Linux / OSX Targets and PowerS
 
 Make sure that the scripts are included in your package. If you are using OctoPack for an ASP.NET web application, you'll need to make sure the file is marked as **Build Action =** **Content**.
 
-![](/docs/images/3048092/3277766.png "width=500")
+![](/docs/images/3048092/3277766.png)
 
 If you are using OctoPack to package a Windows Service or console application, set **Copy to Output Directory** = **Copy if newer**.
 
-![](/docs/images/3048092/3277765.png "width=500")
+![](/docs/images/3048092/3277765.png)
 
 Read more about [using OctoPack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md).
 
@@ -181,7 +181,7 @@ When you call external scripts (sourced from a file inside a package) you can pa
 
 You can define your parameters in the **Script Parameters** field using the format expected by your scripting execution environment (see below for examples).
 
-![](/docs/images/3048092/5865635.png "width=500")
+![](/docs/images/3048092/5865635.png)
 
 :::hint
 **Delimiting string values**
@@ -430,7 +430,7 @@ This example is from the sample project in the [Channels Walkthrough](https://o
 
 Step 1 calculates a name by convention, which is used by subsequent steps.
 
-![](/docs/images/3048092/5865520.png "width=500")
+![](/docs/images/3048092/5865520.png)
 
 ### Creating an Output Variable
 ```powershell PowerShell
@@ -512,7 +512,7 @@ import os
 createartifact("C:\Windows\System32\drivers\etc\hosts", "{}-hosts.txt".format(os.environ["COMPUTERNAME"]))
 ```
 
-![](/docs/images/3048092/5865519.png "width=500")
+![](/docs/images/3048092/5865519.png)
 
 ### Service Message ###
 The following service message can be written directly (substituting the properties with the relevant values) to standard output which will be parsed by the server and the artifact retrieved at the end of the step. Note that the properties must be supplied as a base64 encoded UTF-8 string.

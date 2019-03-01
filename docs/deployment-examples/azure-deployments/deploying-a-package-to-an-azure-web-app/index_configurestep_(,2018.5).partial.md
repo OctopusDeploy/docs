@@ -16,4 +16,4 @@ For both the `Azure Account` and the `Web App` you can use [variable binding](/d
 
 If you choose to run this step on behalf of target roles (maybe you are deploying to multiple geographic regions), you will need to ensure a Deployment Target exists when deploying your Azure Web App. For this, we introduced [Cloud Regions](/docs/infrastructure/deployment-targets/cloud-regions.md). If you select a role and no Deployment Targets exist at the time of deploying, Octopus will log warnings in your deployment's task log.
 
-![](deploying-an-azure-web-app.png "width=500")
+![](deploying-an-azure-web-app.png)

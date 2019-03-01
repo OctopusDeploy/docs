@@ -10,11 +10,11 @@ Sometimes you may want to delete releases of your project. Maybe they're defecti
 
 Deleting individual releases can be done by entering the release page and selecting the `Edit` option in the overflow menu.
 
-![Edit release](edit-release.png "width=500")
+![Edit release](edit-release.png)
 
 In the edit release page, click the overflow menu and select `Delete`.
 
-![Delete release](delete-release.png "width=500")
+![Delete release](delete-release.png)
 
 You can also delete a batch of releases by specifying a release version range in Octo.exe. An example can be found in our [Octo.exe documentation](/docs/api-and-integration/octo.exe-command-line/delete-releases.md).
 

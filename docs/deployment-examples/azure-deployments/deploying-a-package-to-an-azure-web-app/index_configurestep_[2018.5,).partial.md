@@ -22,4 +22,4 @@ The below instructions are valid Octopus Servers running version **Octopus 2018.
 
 3. On the **Package** section, select your **Package Feed** and **Package Id**.
 
-![](deploying-an-azure-web-app.png "width=500")
+![](deploying-an-azure-web-app.png)

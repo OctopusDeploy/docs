@@ -66,7 +66,7 @@ octo.exe deploy-release --project Mojo --version 1.0.1 --deployto "MT Dev" --ten
 
 When using the Create Release, Deploy Release or Promote Release features of the build-server extensions, you can set the **`Tenants`** value to **`*`**:
 
-![](/docs/images/5669342/5866226.png "width=500")
+![](/docs/images/5669342/5866226.png)
 
 ## Deploying to Tenants Using Tenant Tags
 
@@ -79,7 +79,7 @@ Firstly we we create a tag set called **Upgrade ring** with tags allowing each 
 1. Create a new tenant tag set called **Upgrade ring** and add tags for **Tester**, **Early adopter**, and **Stable**.
 2. Make sure to choose colors that highlight different tenants.
 
-![](upgrade-ring.png "width=500")
+![](upgrade-ring.png)
 
 ### Step 2: Configure a Test Tenant
 
@@ -97,11 +97,11 @@ Now you can optionally configure some external tenants as opting in to early or 
 
 Now it's time to deploy using tenant tags as a way to easily select multiple tenants. In this example we are going to deploy **version 1.0.1** to all of the tenants tagged with `Upgrade ring/Tester` who are connected to the the **MT Test** environment. You can use multiple tags and complex tag queries to achieve other interesting scenarios as discussed we discussed [earlier](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md).
 
-![](/docs/images/5669342/5865763.png "width=500")
+![](/docs/images/5669342/5865763.png)
 
 You can also use the Project Overview to deploy to groups of tenants by grouping the dashboard, selecting a release and clicking the **Deploy to all** button.
 
-![](/docs/images/5669342/5865764.png "width=500")
+![](/docs/images/5669342/5865764.png)
 
 ## Using Channels and Tenant Tags to Restrict Test Releases to the Test Team {#Designingamulti-tenantupgradeprocess-Usingchannelsandtenanttagstorestricttestreleasestothetestteam}
 
@@ -121,13 +121,13 @@ Learn more about [defining a limited Lifecycle for your test Channel](/docs/depl
 
 Earlier in this guide we created the **`Upgrade ring/Tester`** tag and tagged some tenants. Now we will create a Channel leveraging that tag to restrict releases in the Channel to the Lifecycle we just created.
 
-![](/docs/images/5669342/5866199.png "width=500")
+![](/docs/images/5669342/5866199.png)
 
 ### Step 3: Create a Test Release {#Designingamulti-tenantupgradeprocess-Step3:Createatestrelease}
 
 Now create a release in the new **1.x Test** channel giving it a [SemVer](http://semver.org/) pre-release version like **1.0.1-alpha.19** indicating this is a pre-release of **1.0.1** for testing purposes.
 
-![](/docs/images/5669342/5866201.png "width=500")
+![](/docs/images/5669342/5866201.png)
 
 ### Step 4: Deploy {#Designingamulti-tenantupgradeprocess-Step4:Deploy.1}
 
@@ -149,21 +149,21 @@ Learn more about [defining a limited Lifecycle for your test Channel](/docs/depl
 
 ### Step 2: Configure the Tenant Tags {#Designingamulti-tenantupgradeprocess-Step2:Configurethetenanttags}
 
-![](early-program.png "width=500")
+![](early-program.png)
 
 ### Step 3: Select the Tenants Participating in the Beta Program {#Designingamulti-tenantupgradeprocess-Step3:SelectthetenantsparticipatingintheBetaprogram}
 
-![](/docs/images/5669342/5865755.png "width=500")
+![](/docs/images/5669342/5865755.png)
 
 ### Step 4: Configure a Channel for the Beta Program {#Designingamulti-tenantupgradeprocess-Step4:ConfigureaChannelfortheBetaprogram}
 
-![](/docs/images/5669342/5865758.png "width=500")
+![](/docs/images/5669342/5865758.png)
 
 ### Step 5: Create a Beta Release {#Designingamulti-tenantupgradeprocess-Step5:CreateaBetarelease}
 
 Create a new release of the project choosing the **2.x Beta** channel for the release, and give it a SemVer 2 version number like **2.0.0-beta.1**
 
-![](/docs/images/5669342/5865762.png "width=500")
+![](/docs/images/5669342/5865762.png)
 
 ### Step 6: Deploy {#Designingamulti-tenantupgradeprocess-Step6:Deploy}
 
@@ -177,7 +177,7 @@ Quite often you will want to disable/prevent deployments to a tenant during a pe
 
 In the tenant tag set you created earlier, add a new tag called **Pinned** with a color that really stands out.
 
-![](upgrade-ring-pinned.png "width=500")
+![](upgrade-ring-pinned.png)
 
 ### Step 2: Configure the Channels to Prevent Deployments to Pinned Tenants {#Designingamulti-tenantupgradeprocess-Step2:ConfiguretheChannelstopreventdeploymentstoPinnedtenants}
 
@@ -187,13 +187,13 @@ Now we will configure the project channels to make sure we never deploy any rele
 2. Restrict deployments of releases in this channel to `Upgrade ring/Stable`, `Upgrade ring/Early adopter`, and `Upgrade ring/Tester`.
 3. Make sure Upgrade ring/Pinned is not selected in any channel.
 
-![](/docs/images/5669342/5865759.png "width=500")
+![](/docs/images/5669342/5865759.png)
 
 ### Step 3: Prevent Deployments to a Tenant by Tagging Them as Upgrade Ring/Pinned {#Designingamulti-tenantupgradeprocess-Step3:PreventdeploymentstoatenantbytaggingthemasUpgradeRing/Pinned}
 
 Find a tenant you want to pin and apply the **Upgrade ring/Pinned** tag, removing any other tags. This will prevent you from deploying any releases to this tenant.
 
-![](/docs/images/5669342/5865767.png "width=500")
+![](/docs/images/5669342/5865767.png)
 
 ## Next Steps {#Designingamulti-tenantupgradeprocess-Nextsteps}
 

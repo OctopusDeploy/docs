@@ -35,11 +35,11 @@ This three minute video (with captions) will walk you through the process of ins
 
 OctoPack is, itself, a NuGet package. You can install it using the NuGet package installer, or any of the other ways you love to install NuGet packages:
 
-![](/docs/images/3048095/3277789.png "width=500")
+![](/docs/images/3048095/3277789.png)
 
 OctoPack should only be installed on projects that you are going to deploy - that means the console application projects, Windows Service projects, and ASP.NET web applications. Unit tests, class libraries, and other supporting projects wouldn't be selected.
 
-![](/docs/images/3048095/3277788.png "width=500")
+![](/docs/images/3048095/3277788.png)
 
 ## Building Packages {#UsingOctoPack-Buildingpackages}
 
@@ -95,7 +95,7 @@ For Windows Service or Console applications, and many Windows Forms or WPF appli
 
 The example below shows a Windows Service called `OctoFX.RateService.exe` and all of the files required to run the application, including libraries and configuration files.
 
-![](/docs/images/3048095/3277787.png "width=500")
+![](/docs/images/3048095/3277787.png)
 
 ### Including Web Application Content Files {#UsingOctoPack-Includingwebapplicationcontentfiles}
 
@@ -107,7 +107,7 @@ When packaging a web application, OctoPack will automatically include the `bin` 
 
 The example below shows a web application called **OctoFX.TradingWebsite** and you can see that all the files required to host the web application have been packaged, including the contents of the `bin` folder and any files with **Build Action: Content**.
 
-![](/docs/images/3048095/3277785.png "width=500")
+![](/docs/images/3048095/3277785.png)
 
 :::hint
 **Config Transformation is Part of the Deployment Process**

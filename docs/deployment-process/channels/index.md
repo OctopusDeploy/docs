@@ -75,7 +75,7 @@ If adding a pre-release tag to Channels, you will also need to add the tag `^$` 
 
 The **Design Version Rule** window will show a list of the packages that will deployed as part of the deploy package step selected earlier. The versions of the packages that will deployed in this channel with the version rules you've designed will be highlighted in green, and the versions of the packages that will not be deployed with be shown in red. You can continue to edit the version rules in this window.
 
-![](/docs/images/3048999/5865686.png "width=500")
+![](/docs/images/3048999/5865686.png)
 
 6. Click **SAVE**.
 
@@ -89,7 +89,7 @@ Each Channel defines which [Lifecycle](/docs/deployment-process/lifecycles/index
 
 For instance, when you ship pre-release software to your early access users, you can use an early access (or beta) channel which uses a Lifecycle that deploys the software to an environment your early access users have access to.
 
-![](/docs/images/3048999/5865685.png "width=500")
+![](/docs/images/3048999/5865685.png)
 
 ### Modifying Deployment Process {#Channels-ModifyingDeploymentProcess}
 
@@ -97,19 +97,19 @@ Deployment Steps can be restricted to only run on specific Channels.
 
 For instance, you might decide you'd like to notify your early access users by email when an update version of the software is available. This can be achieved by adding an email step to your deployment process and scoping the step to the early access channel. That way the step will only run when a release is deployed to the early access channel and your early access users will only receive emails about relevant releases.
 
-![](/docs/images/3048999/3278459.png "width=500")
+![](/docs/images/3048999/3278459.png)
 
 ### Variables {#Channels-Variables}
 
 As you release software to different Channels, it's likely that some of the variables in those Channels will need to be different. [Variables](/docs/deployment-process/variables/index.md) can be scoped to specific Channels.
 
-![](/docs/images/3048999/3278460.png "width=500")
+![](/docs/images/3048999/3278460.png)
 
 ### Deploying to Tenants {#Channels-DeployingtoTenants}
 
 You can control which Releases will be deployed to certain Tenants using Channels. In this example, Releases in this Channel will only be deployed to Tenants tagged with `Early access program/2.x Beta`.
 
-![](/docs/images/3048999/5865683.png "width=500")
+![](/docs/images/3048999/5865683.png)
 
 ## Creating Releases {#Channels-CreatingReleases}
 
@@ -119,7 +119,7 @@ Every Release in Octopus Deploy must be placed into a Channel. Wherever possible
 
 When you are creating a Release, you can select a Channel.
 
-![](/docs/images/3048999/3278463.png "width=500")
+![](/docs/images/3048999/3278463.png)
 
 Selecting the Channel will cause the Release to use the Lifecycle associated with the Channel (or the Project default, if the Channel does not have a Lifecycle).  It will also cause the Deployment Process and Variables to be modified as specified above.
 
@@ -133,10 +133,10 @@ When using one of the [build server extensions](/docs/api-and-integration/index
 
 When enabling [Automatic Release Creation](/docs/deployment-process/project-triggers/automatic-release-creation.md) for your project, you are required to select a Channel (if the project has more than one).
 
-![](/docs/images/3048999/3278462.png "width=500")
+![](/docs/images/3048999/3278462.png)
 
 Any releases created automatically will use the configured channel.  Additionally, any Version Rules configured for the Channel will be used to decide whether a release is automatically created.
 
 For example, if version 3.1.0 of a package Acme.Web is pushed to the Octopus internal NuGet repository, and the channel selected for Automatic Release Creation has a version rule range that doesn't include 3.1.0, then no release will be created.
 
-![](/docs/images/3048999/3278461.png "width=500")
+![](/docs/images/3048999/3278461.png)

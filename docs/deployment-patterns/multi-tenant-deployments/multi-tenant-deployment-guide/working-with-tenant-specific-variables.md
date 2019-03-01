@@ -78,7 +78,7 @@ Let's start with the end in mind by creating the project variables we need. You'
 
 The result should look like the screenshot below:
 
-![](/docs/images/5669247/5865610.png "width=500")
+![](/docs/images/5669247/5865610.png)
 
 ### Step 2: Create Project Variable Templates
 
@@ -98,7 +98,7 @@ Rather than managing lots of duplicate data, we will use some default values tha
 
 The result should look like the screenshot below:
 
-![](/docs/images/5669247/5865609.png "width=500")
+![](/docs/images/5669247/5865609.png)
 
 ### Step 3: Create the "Environment Variables" Library Variable Set
 
@@ -116,7 +116,7 @@ In the previous step we created some variable templates that use the `Environmen
 
 The result should look like the screenshot below:
 
-![](/docs/images/5669247/5865607.png "width=500")
+![](/docs/images/5669247/5865607.png)
 
 ### Step 4: Create the "Standard tenant details" Library Variable Set
 
@@ -132,7 +132,7 @@ In previous steps we also created some variable templates that depend on a varia
 
 The result should look like the screenshot below:
 
-![](/docs/images/5669247/5865608.png "width=500")
+![](/docs/images/5669247/5865608.png)
 
 ### Step 5: Include the Library Variable Sets into the Project
 
@@ -145,23 +145,23 @@ Now we have created the library variable sets we need to include them in the **M
 
 Go to our tenant **Beverley Sanchez** and go to **{{Variables,Common Variables}}** where you should be able to fill in the variables required by our **Standard tenant details** variable set:
 
-![](/docs/images/5669247/5865611.png "width=500")
+![](/docs/images/5669247/5865611.png)
 
 Now go to the *Project Variables* tab and you should see the variables required by the **Mojo** project for each environment **Beverley Sanchez** will be deployed into, in this case just **MT Production**. Leave the convention-based variables alone, and click the *Set* button to set a random password for the database, and click *Save* to save your changes.
 
-![](/docs/images/5669247/5865612.png "width=500")
+![](/docs/images/5669247/5865612.png)
 
 ### Step 7: Validate the Variable Values for the Project
 
 Go to the **{{Variables,All Variables}}** tab of the **Mojo** project and you can inspect all of the variables that will be used by the project. If something is wrong, you can click on the link to the source of the value and fix the problem.
 
-![](/docs/images/5669247/5865620.png "width=500")
+![](/docs/images/5669247/5865620.png)
 
 ### Step 8: Deploy
 
 Go to the **Mojo** project, create a new release, and deploy it to the **MT Production** environment for **Beverley Sanchez** and you should see all of the variables flowing through properly now.
 
-![](/docs/images/5669247/5865613.png "width=500")
+![](/docs/images/5669247/5865613.png)
 
 ### Step 9: Review
 

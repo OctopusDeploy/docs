@@ -13,7 +13,7 @@ Proxy support for Tentacle and SSH communications was added in **Octopus 3.4**.
 Octopus supports the use of HTTP proxies with support for SSL. There is no support for SOCKS proxies. See below for details on [choosing a proxy server](#Choosing-a-proxy-server).
 :::
 
-![](/docs/images/5669147/5865713.png "width=500")
+![](/docs/images/5669147/5865713.png)
 
 ## Configuring a Tentacle Communications Proxy {#ProxySupport-ConfiguringaTentacleCommunicationsProxy}
 
@@ -25,11 +25,11 @@ The process for configuring a proxy for Tentacle communication differs for Liste
 
 For Listening Tentacles, the Octopus Server can be configured to communicate with the Tentacle via a proxy. Go to **{{Infrastructure,Proxies}}** to configure proxy servers to use when connecting to Listening Tentacles. Multiple proxies can be setup here depending on the requirements of your network topology.
 
-![](proxy-create.png "width=500")
+![](proxy-create.png)
 
 Once you have created a proxy, Listening Tentacles can be set to use that proxy in the communication part of Deployment Target Settings.
 
-![](machine-proxy.png "width=500")
+![](machine-proxy.png)
 
 ### SSH Targets {#ProxySupport-SSHTargets}
 
@@ -39,7 +39,7 @@ Configuring a proxy for an SSH target works in essentially the same way as with 
 
 The proxy for a Polling Tentacle is configured with the Octopus Tentacle Manager application. During installation if you choose to create a Polling Tentacle you will be given the option to configure a Polling Proxy. This proxy will then be used for all polling communications with the Octopus Server. The proxy will also be used to perform the credential check that is part of the installation wizard.
 
-![](/docs/images/5669147/5865531.png "width=500")
+![](/docs/images/5669147/5865531.png)
 
 :::hint
 Please note, if you select "Use the proxy server configured in Internet Explorer" as your desired proxy configuration, when the installer check is completed it will use the proxy configured for the user running the installer. When the Tentacle service runs, it will use the proxy configured for the user running the Tentacle service, which were not checked and may not work or be configured correctly. It may be clearer to use the custom proxy option to explicitly set the proxy details.
@@ -49,11 +49,11 @@ Please note, if you select "Use the proxy server configured in Internet Explorer
 
 The Octopus Manager and Octopus Tentacle Manager applications also allow you to configure a proxy that will be used for other web requests made by the server or Tentacle, such as within a PowerShell script used as part of a deployment. This proxy is independent of the settings used for Tentacle/Server communications. To configure the web proxy used by a Tentacle launch the Octopus Tentacle Manager application and click the "Change proxy server settings..." link.
 
-![](/docs/images/5669147/5865624.png "width=500")
+![](/docs/images/5669147/5865624.png)
 
 This launches the proxy settings wizard which will let you setup the proxy used by the Tentacle to make web requests. If this is a Polling Tentacle, you can also change the settings for the Tentacle communications proxy in the "Polling Proxy" page of the wizard. This page will not be shown for Listening Tentacles.
 
-![](/docs/images/5669147/5865625.png "width=500")
+![](/docs/images/5669147/5865625.png)
 
 Configuring the proxy used by the Octopus Server to make web requests is done in the same manner, using the Octopus Manager application.
 

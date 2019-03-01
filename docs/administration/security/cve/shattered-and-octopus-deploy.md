@@ -141,4 +141,4 @@ foreach ($site in Get-ChildItem IIS:\Sites)
 
 You can easily run this in the [Octopus Script Console](/docs/administration/managing-infrastructure/script-console.md) across all of your machines:
 
-![Running the IIS SHA1 binding detection in the Octopus script console](shattered-console.png "width=500")
+![Running the IIS SHA1 binding detection in the Octopus script console](shattered-console.png)

@@ -32,13 +32,13 @@ Any details that need to be specified at the project level can be handled using 
 
 The Parameters tab allows you to specify fields that will be filled out by the users of this step.
 
-![Add new step template parameter](step-templates-new-parameter.png "width=500")
+![Add new step template parameter](step-templates-new-parameter.png)
 
 You're required to give the parameter a variable name and label to use, as well as some optional help text and a default value.
 
 Finally, you can choose the way the field will appear to a user with the **Control type** field. There are a number of options available, however keep in mind the end result will be a variable with a string value.
 
-![Step template parameter type](step-templates-parameter-type.png "width=500")
+![Step template parameter type](step-templates-parameter-type.png)
 
 Any variables you configure as Parameters will be available as variables that can be used in the Step tab of the step template.
 
@@ -52,7 +52,7 @@ After saving your step, you'll notice another tab called Usage. This tab shows w
 
 You'll also see a handy counter next to the Usage tab so you can see at a glance how many projects are out-of-date.
 
-![Step templates usage](step-templates-usage.png "width=500")
+![Step templates usage](step-templates-usage.png)
 
 ## Custom Logo
 
@@ -62,7 +62,7 @@ Custom step templates inherit their logo from the template that was used to crea
 
 If you want to transport, backup, or share your custom step templates with the community, you can export a template by finding your template in **{{Library,Step templates}}**, and clicking the **Export** link.
 
-![Export step templates](step-templates-export.png "width=500")
+![Export step templates](step-templates-export.png)
 
 Now you can take that exported template document and commit it to source control, or share it on the [Community Library](https://library.octopus.com/).
 
@@ -88,21 +88,21 @@ To run a script based step template, perform the following.
 
 1. Navigate to **{{Library,Step templates}}** area and click the **Run** button next to the script based custom step template or alternately, select a script template and click the **Run** button from the template editor page:
 
-   ![Run step template](step-templates-run.png "width=500")
+   ![Run step template](step-templates-run.png)
 
 2. Select a group of targets to run the step on. This can be done by target name or by environments and roles:
 
-   ![Select run targets](step-templates-run-targets.png "width=500")
+   ![Select run targets](step-templates-run-targets.png)
 
 3. Enter any required parameters:
 
-   ![Enter parameter values](step-templates-run-parameters.png "width=500")
+   ![Enter parameter values](step-templates-run-parameters.png)
 
 4. Click the **Run now** button. This will execute the step as a new task and provide the full script:
 
-   ![Task summary](step-templates-run-task-summary.png "width=500")
-   ![Task log](step-templates-run-task-log.png "width=500")
-   ![Task parameters](step-templates-run-task-parameters.png "width=500")
+   ![Task summary](step-templates-run-task-summary.png)
+   ![Task log](step-templates-run-task-log.png)
+   ![Task parameters](step-templates-run-task-parameters.png)
 
 To re-run the script against different deployment targets or modify the input parameters, simply click the **Modify and re-run** button.
 

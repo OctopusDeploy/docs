@@ -16,7 +16,7 @@ While we generally won't stop you from adding your own indexes if you feel that 
 
 If you want to add your own indexes we would recommend running the System Integrity check (available via **{{Configuration,Diagnostics,Check System Integrity}}**) before performing the upgrade to see what the differences are from the assumed schema. If possible, remove these indexes and feel free to recreate them once the upgrade has completed.
 
-![](/docs/images/5671493/5865851.png "width=500")
+![](/docs/images/5671493/5865851.png)
 :::
 
 :::warning
@@ -55,7 +55,7 @@ ORDER BY index_advantage DESC;
 5. Disable `Audit Login` and `Audit Logout`.
 6. Click `Column Filters` and set the ApplicationName filter to Like="Octopus %" to filter requests just sent from the Octopus Server.
 
-   ![](/docs/images/5671493/5865852.png "width=500")
+   ![](/docs/images/5671493/5865852.png)
 
 7. Click Run. You will then probably see lots of entries starting to show up. This is because the server is always busy making calls to the database, checking if any new tasks needs to be run or updating the status of existing machines and tasks. Ideally we want this trace to cover just the queries that were invoked while the you perform the operation that appears to cause the server to slow down. Click the `Clear Trace Window` icon to remove the existing entries.![](/docs/images/5671493/5865853.png "width=300").
 8. Go back to the Octopus Deploy portal and perform the task that resulted in slow performance.
@@ -78,7 +78,7 @@ then it may be more useful to focus in on that specific query and get the execut
     * With the filters dialog open, add a filter to the *Text* property that matches the table name involved. In the example above we might add the condition Like="%Event%". Click `Ok` and if the message pops up, agree to adding the `TextData` event column.  
     * At the Events Selection tab tick the `Show all events` checkbox, expand the `Performance` section, and include the `Showplan XML` event. This event will provide detailed information about how the database constructed and executed the query.
 
-    ![](/docs/images/5671493/5865854.png "width=500")
+    ![](/docs/images/5671493/5865854.png)
 
     As with before, perform the operation causing the error with the trace running then export and send the trace file with your ticket.
 

@@ -19,7 +19,7 @@ When deploying a package you will need to select the machine role that the packa
 You can dynamically select a Package Feed and/or the Package ID at deployment time using an Octopus variable expression. Learn more about [using dynamically selecting packages at deployment time](/docs/deployment-examples/package-deployments/dynamically-selecting-packages.md).
 :::
 
-![](deploy-package-step.png "width=500")
+![](deploy-package-step.png)
 
 :::hint
 When multiple machines are in the role you select, Octopus deploys to all of the machines in parallel. If you need to change this behavior, you can [configure a rolling deployment](/docs/deployment-patterns/rolling-deployments.md).

@@ -83,7 +83,7 @@ It is important to understand that the Octopus Server provides a write-only repo
 
 We offer several ways to add packages to the built-in repository, so many that we built a new page: [pushing packages to the built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md). Alternatively you can go to **{{Library,Packages}}** which describes some of the most convenient ways to push packages to the built-in repository.  Simply click the **Show examples** link to see options to upload packages.
 
-![](/docs/images/3048094/3277775.png "width=500")
+![](/docs/images/3048094/3277775.png)
 
 :::success
 To push packages to the built-in repository you will need an [Octopus API key](/docs/api-and-integration/api/how-to-create-an-api-key.md).
@@ -126,15 +126,15 @@ If you're using an external NuGet feed, you can register it with Octopus and us
 
 You can add NuGet feeds by clicking the **Add feed** button.
 
-![](/docs/images/3048094/3277774.png "width=500")
+![](/docs/images/3048094/3277774.png)
 
 In the URL field, enter the HTTP/HTTPS URL to the feed, or the file share or local directory path. Then click **Save and test**.
 
-![](/docs/images/3048094/3277773.png "width=500")
+![](/docs/images/3048094/3277773.png)
 
 On the test page, you can check whether the feed is working by searching for packages:
 
-![](/docs/images/3048094/3277772.png "width=500")
+![](/docs/images/3048094/3277772.png)
 
 ## Planning Package Repository Placement {#Packagerepositories-Placement}
 By default, when you deploy a package to a Tentacle, the package will be pushed from the Octopus Server to the Tentacle. You can override this by setting the [Action System Variable](/docs/deployment-process/variables/system-variables.md#Systemvariables-Action) `Octopus.Action.Package.DownloadOnTentacle`, which is a `boolean` data type. When set to `False`, the default behavior is applied and when set to `True` the package will be downloaded by the Tentacle, rather than pushed by the Octopus Server.

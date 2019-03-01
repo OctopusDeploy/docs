@@ -68,14 +68,14 @@ To make sure Octopus can run the configuration transforms for your Windows Servi
 2. Set the **Copy to Output Directory** property for the configuration transform files to **Copy If Newer**.
 3. Double-check the package you build for deployment actually contains the **`YourService.exe.config`** and all of the expected configuration transform files.
 
-![](/docs/images/3048087/5865879.png "width=500")
+![](/docs/images/3048087/5865879.png)
 :::
 
 ## Additional Configuration Transforms {#Configurationfiles-AdditionalConfigurationTransforms}
 
 You might have additional transforms to run outside of Debug, Environment or Release. You can define these in the Additional transforms box. If defined, these transforms will run regardless of the state of the `Automatically run configuration transformation files` checkbox.
 
-![](/docs/images/3048087/3278419.png "width=500")
+![](/docs/images/3048087/3278419.png)
 
 Octopus supports explicit, wildcard and relative path configuration transform definitions on any XML file with any file extension. Octopus will iterate through all files in all directories (ie, recursively) of your deployed application to find any matching files. Your target file also must exist; it will not be created by Octopus.
 As a general rule, you should not include the path to the files unless the transform file is in a different directory to the target, in which case it needs to be relative to the target file (as explained below in the relative path scenario). Absolute paths are supported for transform files, but not for target files.

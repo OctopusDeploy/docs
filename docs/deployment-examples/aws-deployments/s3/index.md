@@ -11,17 +11,17 @@ The following instructions can be used to configure the `Upload a package to an 
 
 Add the `Upload a package to an AWS S3 bucket` step to the project, and give it a name.
 
-![Upload s3 step](upload-s3-step.png "width=500")
+![Upload s3 step](upload-s3-step.png)
 
 ### AWS Section
 
 Select the variable that references the `Amazon Web Services Account` under the `AWS Account` section or select whether you wish to execute using the service role of an EC2 instance. If you don't have an `AWS Account Variable` yet, check our [documentation on how to create one](/docs/deployment-process/variables/aws-account-variables.md).
 
-![AWS Account](step-aws-account.png "width=500")
+![AWS Account](step-aws-account.png)
 
 The supplied account can optionally be used to assume a different AWS service role. This can be used to run the AWS commands with a role that limits the services that can be affected.
 
-![AWS Role](step-aws-role.png "width=500")
+![AWS Role](step-aws-role.png)
 
 :::hint
 If you select `Yes` to `Execute using the AWS service role for an EC2 instance`, you do not need an AWS account or account variable. Instead the AWS service role for the EC2 instance executing the deployment will be used. See the [AWS documentation](https://g.octopushq.com/AwsDocsRolesTermsAndConcepts) for more information on service roles.
@@ -31,7 +31,7 @@ If you select `Yes` to `Execute using the AWS service role for an EC2 instance`,
 
 Under the `Package Section`, define how the target package and the associated file uploads should behave for the step. The entire package can be uploaded or individual file(s) from the package can be specified for upload.
 
- ![S3 target options](upload-s3-target-options.png "width=500")
+ ![S3 target options](upload-s3-target-options.png)
 
 :::hint
 The [Github feed](/docs/packaging-applications/package-repositories/github-feeds.md) works well with the upload to S3 step when no build process is involved and content needs to be pushed to S3 and versioned separately.
@@ -41,7 +41,7 @@ The [Github feed](/docs/packaging-applications/package-repositories/github-feeds
 
 By default, the entire package will be uploaded to the S3 bucket untouched with the given bucket key, metadata, and tags.
 
-![Package options](package-options.png "width=500")
+![Package options](package-options.png)
 
 :::warning
 Please note, we do not support file substitutions within the package if the entire package is going to be uploaded to the s3 bucket.
@@ -55,10 +55,10 @@ If you have chosen to upload individual files from the package, you will be pres
 #### Adding and Removing File Selections
 
 A new file selection can be added by clicking on the `Add Another File Selection` button located under the `Files Section`.
-![Add file selection](add-file-selection.png "width=500")
+![Add file selection](add-file-selection.png)
 
 A file selection can be removed by expanding the appropriate selection and clicking on the `Remove File Selection` button.
-![Remove file selection](remove-file-selection.png "width=500")
+![Remove file selection](remove-file-selection.png)
 
 :::warning
 File selections aren't formally removed or added until the step has been saved.
@@ -78,7 +78,7 @@ Here are a few examples to help you get those files in the right folder structur
 #### Single File Selection
 The single file selection lets you upload a single file to an S3 bucket which must exist within the package. If the file is not found an associated error will be raised. This selection also allows for the bucket key to be explicit.
 
-![Single file selection](single-file-selection.png "width=500")
+![Single file selection](single-file-selection.png)
 
 ##### Bucket Keys
 A custom key delimited with forward slash `/` characters is seen in S3 as folders.
@@ -96,7 +96,7 @@ The bucket key used for a single file selection will uniquely identify the file 
 #### Multiple File Selections
 Multiple file selections allow one or more files from the package to be uploaded to the S3 bucket using globbing patterns. The behavior is slightly different from single file selections as you have less control over the bucket key which will be used while no error will be raised if *no* files matched the globbing pattern. Files uploaded will have the bucket key prefix added to the file name. That is a file matched by the globbing pattern `path/to/file/File.template` with a prefix of `templates/` will be uploaded with the bucket key `templates/File.template`.
 
-![Multiple file selections](multiple-file-selections.png "width=500")
+![Multiple file selections](multiple-file-selections.png)
 
 :::hint
 Any metadata and tags provided will be applied to all files uploaded to the bucket.

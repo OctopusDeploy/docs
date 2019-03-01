@@ -62,7 +62,7 @@ We also have a `Web.Release.Config` transform file with the following contents:
 
 Finally, we have the following variables configured:
 
-![](/docs/images/3049047/3278465.png "width=500")
+![](/docs/images/3049047/3278465.png)
 
 On deployment to your Staging environment, your process would go like this:
 
