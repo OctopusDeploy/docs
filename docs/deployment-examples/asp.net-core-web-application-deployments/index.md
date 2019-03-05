@@ -26,7 +26,7 @@ octo pack --id MyApp.Web --version 1.0.0 --basePath published-app
 
 For more information about packaging applications with Octo.exe see [Creating packages using Octo.exe](/docs/packaging-applications/creating-packages/nuget-packages/using-octo.exe.md).
 
-If you are using the [built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository) you can create a [zip file](/docs/packaging-applications/creating-packages/creating-zip-packages.md). 
+If you are using the [built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) you can create a [zip file](/docs/packaging-applications/creating-packages/creating-zip-packages.md). 
 
 When you have your generated nupkg or zip file it needs to be [pushed to a repository](/docs/packaging-applications/package-repositories/index.md).
 
