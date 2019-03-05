@@ -1,6 +1,6 @@
 The JSON Configuration Variables feature lets you define [variables](/docs/deployment-process/variables/index.md) in Octopus for use in the JSON configuration files in your application. This lets you define different values based on the scope of the deployment. This feature uses a matching syntax so you can update configuration nested in JSON object and array literals.
 
-This is designed to work natively with [.NET Core JSON configuration files](http://docs.asp.net/en/latest/fundamentals/configuration.html) but works equally well with any JSON files.
+This is designed to work natively with [.NET Core JSON configuration files](/docs/deployment-examples/asp.net-core-web-application-deployments/index.md) but works equally well with any JSON files.
 
 ## Configuring the JSON Configuration Variables Feature {#JSONConfigurationVariablesFeature-ConfiguringtheJSONconfigurationvariablesfeature}
 
