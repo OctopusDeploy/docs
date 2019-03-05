@@ -12,7 +12,7 @@ The table below outlines the backward compatibility between Octopus Server and r
 | 3.3               | 3.3 ➜ latest           | 3.3              | 3.0 ➜ latest | 3.3 ➜ latest    |
 | 3.4               | 3.3 ➜ latest           | 3.4              | 3.0 ➜ latest | 3.3 ➜ latest    |
 | 3.5 ➜ 2018.2     | 3.3 ➜ latest           | 3.5 ➜ latest    | 3.0 ➜ latest | 3.3 ➜ latest    |
-| 2018.2 ➜ 2018.12 | 4.30.7 ➜ latest        | 3.5 ➜ latest    | 3.0 ➜ latest | 3.3 ➜ latest    |
+| 2018.2 ➜ 2018.12 | 4.30.7 ➜ 4.47.0        | 3.5 ➜ latest    | 3.0 ➜ latest | 3.3 ➜ latest    |
 | 2019.1* ➜ latest | 5.0.0 ➜ latest         | 3.5 ➜ latest    | 4.0 ➜ latest | coming soon      |
 
 ## &ast; Partial forwards compatibility
