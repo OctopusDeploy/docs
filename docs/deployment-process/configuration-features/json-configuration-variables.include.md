@@ -1,8 +1,10 @@
-The JSON Configuration Variables feature lets you define [variables](/docs/deployment-process/variables/index.md) in Octopus for use in the JSON configuration files in your application. This lets you define different values based on the scope of the deployment. This feature uses a matching syntax so you can update configuration nested in JSON object and array literals. This is designed to work natively with [.NET Core JSON configuration files](http://docs.asp.net/en/latest/fundamentals/configuration.html) but works equally well with any JSON files.
+The JSON Configuration Variables feature lets you define [variables](/docs/deployment-process/variables/index.md) in Octopus for use in the JSON configuration files in your application. This lets you define different values based on the scope of the deployment. This feature uses a matching syntax so you can update configuration nested in JSON object and array literals.
+
+This is designed to work natively with [.NET Core JSON configuration files](http://docs.asp.net/en/latest/fundamentals/configuration.html) but works equally well with any JSON files.
 
 ## Configuring the JSON Configuration Variables Feature {#JSONConfigurationVariablesFeature-ConfiguringtheJSONconfigurationvariablesfeature}
 
-1. From your package step enable the JSON Configuration Variables feature by clicking the **CONFIGURE FEATURES** link and selecting **JSON configuration variables** and click **OK**.
+1. When you define the package [step](/docs/deployment-process/steps/index.md) in your [project](/docs/deployment-process/projects/index.md) enable the JSON Configuration Variables feature by clicking the **CONFIGURE FEATURES** link and selecting **JSON configuration variables** and clicking **OK**.
 2. In the **Features** section of the step template, specify the relative paths within the package to your JSON configuration files. For instance:
 
 ```
@@ -11,7 +13,7 @@ approot\packages\ASPNET.Core.Sample\1.0.0\root\appSettings.json
 
 Octopus will find the target files and replace any matching configuration settings with the value of matching Octopus variables.
 
-## Simple Variables {#JSONConfigurationVariablesFeature-Simplevariables}
+### Simple Variables {#JSONConfigurationVariablesFeature-Simplevariables}
 
 Given this example of a target config file:
 

@@ -4,28 +4,35 @@ description: This guide covers everything you need to perform your first ASP.NET
 position: 10
 ---
 
-!toc
-
 ASP.NET Core is the future of ASP.NET, and it contains many changes to how applications are built, and how they are run.
+
+If you are new to ASP.NET Core you can start with the [Tutorial: Get Started ASP.Net Core tutorial](https://docs.asp.net/en/latest/getting-started.html).
 
 ## Publishing and Packing the Website {#DeployingASP.NETCoreWebApplications-PublishingandPackingtheWebsite}
 
-Once you have a project up and running (see the [getting started guide](https://docs.asp.net/en/latest/getting-started.html)), it needs to be published and packed:
+When your application is ready, it needs to be published:
 
 ```powershell
 # Publish the application to a folder
 dotnet publish source/MyApp.Web --output published-app --configuration Release
+```
 
+When your application has been published you need to package it:
+
+```powershell
 # Package the folder into a ZIP
 octo pack --id MyApp.Web --version 1.0.0 --basePath published-app
 ```
 
-If you are using the built-in repository, you can create a [zip file](/docs/packaging-applications/creating-packages/creating-zip-packages.md) instead. The generated nupkg or zip file should then be then be [pushed to a repository](/docs/packaging-applications/package-repositories/index.md).
+For more information about packaging applications with Octo.exe see [Creating packages using Octo.exe](/docs/packaging-applications/creating-packages/nuget-packages/using-octo.exe.md).
+
+If you are using the [built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository) you can create a [zip file](/docs/packaging-applications/creating-packages/creating-zip-packages.md). 
+
+When you have your generated nupkg or zip file it needs to be [pushed to a repository](/docs/packaging-applications/package-repositories/index.md).
 
 If you are using TeamCity, you can use the [new TeamCity plugin for dotnet commands](https://github.com/JetBrains/teamcity-dnx-plugin).
 
 :::warning
-**Why not OctoPack?**
 OctoPack is not compatible with ASP.NET Core applications. Please see [the OctoPack documentation](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md#UsingOctoPack-UsingNETCore) for more details.
 :::
 
