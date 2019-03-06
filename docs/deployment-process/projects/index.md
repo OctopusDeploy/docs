@@ -8,7 +8,7 @@ Projects let you manage multiple software projects from the **Octopus Web Portal
 
 Projects can consist of multiple steps and deliverable components, or they might only have a single step.
 
-To see an example project complete with steps that is released to an environment, see [A Simple Hello World Deployment Process](/docs/deployment-process#a-simple-hello-world-deployment-process).
+To see an example project complete with steps that is released to an environment, see [A Simple Hello World Deployment Process](/docs/deployment-process/index.md#a-simple-hello-world-deployment-process).
 
 When deciding whether you need a single project or multiple projects, here are some points to consider:
 
