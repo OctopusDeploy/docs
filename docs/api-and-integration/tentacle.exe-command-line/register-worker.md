@@ -34,11 +34,11 @@ Where [<options>] is any of:
                                Tentacle through - e.g., 'Proxy ABC' where the
                                proxy name is already configured in Octopus; the
                                default is to connect to the machine directly
-      --space=VALUE          The space which this machine will be added to, -
-                               e.g. 'Finance Department' where Finance
-                               Department is the name of an existing space; the
-                               default value is the Default space, if one is
-                               designated.
+      --space=VALUE          The name of the space within which this command
+                               will be executed. E.g. 'Finance Department'
+                               where Finance Department is the name of an
+                               existing space. The default space will be used
+                               if omitted.
       --server-comms-port=VALUE
                              When using active communication, the comms port
                                on the Octopus Server; the default is 10943
