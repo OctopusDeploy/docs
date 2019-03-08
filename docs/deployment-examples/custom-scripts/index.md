@@ -78,7 +78,7 @@ You can manage your Service Fabric clusters using custom Service Fabric SDK Powe
 
 ## Using Variables in Scripts {#Customscripts-Variables}
 
-Octopus allows you to [define variables](/docs/deployment-process/variables/index.md) to parameterize your deployments. These variables, along with some predefined variables, will be available from within your scripts.
+Octopus allows you to [define variables](/docs/deployment-process/variables/index.md) to customize your deployments. These variables, along with some [predefined variables](/docs/deployment-process/variables/system-variables.md), will automatically be made available to your scripts as global variables.
 
 :::warning
 **All variables are strings**
