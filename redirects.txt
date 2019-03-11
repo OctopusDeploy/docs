@@ -161,7 +161,7 @@ docs/deploying-applications/guided-failures.md -> docs/deployment-process/releas
 docs/deploying-applications/deployment-process/guided-failures.md -> docs/deployment-process/releases/guided-failures.md
 docs/deploying-applications/performance.md -> docs/deployment-process/performance.md
 docs/deploying-applications/configuration-files/index.md -> docs/deployment-process/configuration-features/index.md
-docs/deploying-applications/configuration-files/advanced-configuration-transforms-examples.md -> docs/deployment-process/configuration-features/configuration-transforms.md
+docs/deploying-applications/configuration-files/advanced-configuration-transforms-examples.md -> docs/deployment-process/configuration-features/configuration-transforms/index.md
 docs/deploying-applications/custom-installation-directory.md -> docs/deployment-process/configuration-features/custom-installation-directory.md
 docs/deploying-applications/deployment-process/custom-installation-directory.md -> docs/deployment-process/configuration-features/custom-installation-directory.md
 docs/deploying-applications/artifacts.md -> docs/deployment-process/artifacts.md
@@ -247,7 +247,7 @@ docs/deploying-applications/deployment-process/releases/guided-failures.md -> do
 docs/deployment-process/steps/deploying-packages/dynamically-selecting-packages.md -> docs/deployment-examples/package-deployments/dynamically-selecting-packages.md
 docs/deploying-applications/deployment-process/performance.md -> docs/deployment-process/performance.md
 docs/deploying-applications/deployment-process/configuration-files/index.md -> docs/deployment-process/configuration-features/index.md
-docs/deploying-applications/deployment-process/configuration-files/advanced-configuration-transforms-examples.md -> docs/deployment-process/configuration-features/configuration-transforms.md
+docs/deploying-applications/deployment-process/configuration-files/advanced-configuration-transforms-examples.md -> docs/deployment-process/configuration-features/configuration-transforms/index.md
 docs/deploying-applications/deployment-process/steps/custom-installation-directory.md -> docs/deployment-process/configuration-features/custom-installation-directory.md
 docs/deploying-applications/deployment-process/artifacts.md -> docs/deployment-process/artifacts.md
 docs/deploying-applications/deployment-process/steps/automatic-release-creation.md -> docs/deployment-process/project-triggers/automatic-release-creation.md
@@ -301,7 +301,7 @@ docs/how-to/troubleshoot-polling-tentacles.md -> docs/infrastructure/deployment-
 docs/how-to/troubleshoot-listening-tentacles.md -> docs/infrastructure/deployment-targets/windows-targets/troubleshooting-tentacles.md
 docs/how-to/deploy-to-a-specific-subset-of-targets.md -> docs/deployment-process/releases/index.md
 docs/how-to/expose-the-octopus-web-portal-over-https.md -> docs/administration/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md
-docs/how-to/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md -> docs/deployment-process/variables/environment-specific-configuration-transforms-with-sensitive-values-in-octopus.md
+docs/how-to/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md -> docs/deployment-process/variables/environment-specific-transforms-with-sensitive-values.md
 docs/how-to/move-the-octopus-home-folder-and-the-tentacle-home-and-application-folders.md -> docs/administration/managing-infrastructure/moving-your-octopus/move-the-octopus-home-folder-and-the-tentacle-home-and-application-folders.md
 docs/how-to/get-a-database-backup-and-encrypt-the-master-key.md -> docs/support/get-a-database-backup-and-encrypt-the-master-key.md
 docs/administration/get-a-database-backup-and-encrypt-the-master-key.md -> docs/support/get-a-database-backup-and-encrypt-the-master-key.md
@@ -378,7 +378,7 @@ docs/reference/service-fabric/packaging.md -> docs/deployment-examples/azure-dep
 docs/reference/service-fabric/version-automation-with-service-fabric-application-packages/index.md -> docs/deployment-examples/azure-deployments/service-fabric/version-automation-with-service-fabric-application-packages/index.md
 docs/reference/index.md -> docs/getting-started.md
 docs/administration/octopus-server-configuration-file.md -> docs/administration/managing-infrastructure/server-configuration-and-file-storage/index.md
-docs/deployment-process/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md -> docs/deployment-process/variables/environment-specific-configuration-transforms-with-sensitive-values-in-octopus.md
+docs/deployment-process/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md -> docs/deployment-process/variables/environment-specific-transforms-with-sensitive-values.md
 docs/deployment-process/substitute-variables-in-files.md -> docs/deployment-process/configuration-features/substitute-variables-in-files.md
 docs/deployment-process/variable-substitution-syntax.md -> docs/deployment-process/variables/variable-substitutions.md
 docs/deployment-process/steps/automatic-release-creation.md -> docs/deployment-process/project-triggers/automatic-release-creation.md
@@ -437,14 +437,14 @@ docs/packaging-applications/creating-packages/supported-packages -> docs/packagi
 docs/packaging-applications/creating-packages/versioning -> docs/packaging-applications/versioning.md
 docs/deployment-process/coordinating-multiple-projects/index.md -> docs/deployment-process/projects/coordinating-multiple-projects/index.md
 docs/deployment-process/steps/configuration-files/index.md -> docs/deployment-process/configuration-features/index.md
-docs/deployment-process/steps/configuration-files/advanced-configuration-transforms-examples.md -> docs/deployment-process/configuration-features/configuration-transforms.md
+docs/deployment-process/steps/configuration-files/advanced-configuration-transforms-examples.md -> docs/deployment-process/configuration-features/configuration-transforms/index.md
 docs/deployment-process/steps/deploying-packages/transfer-package.md -> docs/deployment-examples/package-deployments/transfer-package.md
 docs/deployment-process/steps/deploying-packages/troubleshoot-missing-packages.md -> docs/deployment-examples/package-deployments/troubleshoot-missing-packages.md
 docs/deployment-process/manually-fail-a-running-or-cancelling-task.md -> docs/deployment-process/releases/manually-fail-a-running-or-cancelling-task.md
 docs/deployment-process/deploy-to-a-specific-subset-of-targets.md -> docs/deployment-process/releases/index.md
 docs/deployment-process/how-to-run-steps-on-the-octopus-server.md -> docs/deployment-examples/package-deployments/deploy-packages-to-your-octopus-server.md
 docs/deployment-process/coordinating-multiple-projects/deploy-release-step/index.md -> docs/deployment-process/projects/coordinating-multiple-projects/deploy-release-step/index.md
-docs/deployment-process/steps/configuration-files/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md -> docs/deployment-process/variables/environment-specific-configuration-transforms-with-sensitive-values-in-octopus.md
+docs/deployment-process/steps/configuration-files/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md -> docs/deployment-process/variables/environment-specific-transforms-with-sensitive-values.md
 docs/deployment-process/steps/configuration-files/substitute-variables-in-files.md -> docs/deployment-process/configuration-features/substitute-variables-in-files.md
 docs/deployment-process/steps/deploying-packages/delta-compression-for-package-transfers.md -> docs/deployment-examples/package-deployments/delta-compression-for-package-transfers.md
 docs/deployment-process/steps/deploying-packages/package-deployment-feature-ordering.md -> docs/deployment-examples/package-deployments/package-deployment-feature-ordering.md
@@ -556,9 +556,9 @@ docs/deployment-examples/manual-intervention-and-approvals.md -> docs/deployment
 docs/deployment-process/steps/conditions/index.md -> docs/deployment-process/conditions/index.md
 docs/deployment-process/steps/conditions/run-steps-in-parallel.md -> docs/deployment-process/conditions/index.md
 docs/deployment-process/configuration-files/index.md -> docs/deployment-process/configuration-features/index.md
-docs/deployment-process/configuration-files/advanced-configuration-transforms-examples.md -> docs/deployment-process/configuration-features/configuration-transforms.md
-docs/deployment-process/configuration-files/configuration-transforms.md -> docs/deployment-process/configuration-features/configuration-transforms.md
-docs/deployment-process/configuration-files/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md -> docs/deployment-process/variables/environment-specific-configuration-transforms-with-sensitive-values-in-octopus.md
+docs/deployment-process/configuration-files/advanced-configuration-transforms-examples.md -> docs/deployment-process/configuration-features/configuration-transforms/index.md
+docs/deployment-process/configuration-files/configuration-transforms.md -> docs/deployment-process/configuration-features/configuration-transforms/index.md
+docs/deployment-process/configuration-files/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md -> docs/deployment-process/variables/environment-specific-transforms-with-sensitive-values.md
 docs/deployment-process/configuration-files/configuration-variables.md -> docs/deployment-process/configuration-features/xml-configuration-variables-feature.md
 docs/deployment-process/configuration-files/custom-installation-directory.md -> docs/deployment-process/configuration-features/custom-installation-directory.md
 docs/deployment-process/configuration-files/substitute-variables-in-files.md -> docs/deployment-process/configuration-features/substitute-variables-in-files.md
@@ -568,7 +568,7 @@ docs/administration/workers/external-workers.md -> docs/infrastructure/workers/i
 docs/deployment-process/steps/how-to-run-steps-on-the-octopus-server.md -> docs/deployment-examples/package-deployments/deploy-packages-to-your-octopus-server.md
 docs/administration/worker-pools.md -> docs/infrastructure/workers/worker-pools.md
 docs/key-concepts/machine-roles -> docs/infrastructure/deployment-targets/target-roles/index.md
-docs/deployment-process/configuration-features/advanced-configuration-transforms-examples.md -> docs/deployment-process/configuration-features/configuration-transforms.md
+docs/deployment-process/configuration-features/advanced-configuration-transforms-examples.md -> docs/deployment-process/configuration-features/configuration-transforms/index.md
 docs/deployment-process/configuration-features/configuration-variables.md -> docs/deployment-process/configuration-features/xml-configuration-variables-feature.md
 docs/infrastructure/aws/creating-an-aws-account/index.md -> docs/infrastructure/accounts/aws/index.md
 docs/deployment-process/releases/scheduled-deployments.md -> docs/deployment-process/releases/index.md
@@ -577,7 +577,7 @@ docs/deployment-process/releases/automatic-release-creation.md -> docs/deploymen
 docs/deployment-examples/email-notifications.md -> docs/deployment-process/steps/email-notifications.md
 docs/deployment-examples/deploying-asp.net-core-web-applications/index.md -> docs/deployment-examples/asp.net-core-web-application-deployments/index.md
 docs/deployment-examples/deploying-mobile-applications.md -> docs/deployment-examples/index.md
-docs/deployment-examples/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md -> docs/deployment-process/variables/environment-specific-configuration-transforms-with-sensitive-values-in-octopus.md
+docs/deployment-examples/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md -> docs/deployment-process/variables/environment-specific-transforms-with-sensitive-values.md
 docs/deployment-examples/deploying-packages/index.md -> docs/deployment-examples/package-deployments/index.md
 docs/deployment-examples/deploying-packages/delta-compression-for-package-transfers.md -> docs/deployment-examples/package-deployments/delta-compression-for-package-transfers.md
 docs/deployment-examples/deploying-packages/deploy-packages-to-your-octopus-server.md -> docs/deployment-examples/package-deployments/deploy-packages-to-your-octopus-server.md
@@ -757,3 +757,4 @@ docs/deployment-process/variables/variable-substitution-syntax.md -> docs/deploy
 docs/deployment-process/variables/scoping-variables/index.md -> docs/deployment-process/variables/index.md
 docs/api-and-integration/octo.exe-command-line/delete-release.md -> docs/api-and-integration/octo.exe-command-line/delete-releases.md
 docs/api-and-integration/octo.exe-command-line/push-package.md -> docs/api-and-integration/octo.exe-command-line/push.md
+docs/deployment-process/variables/environment-specific-configuration-transforms-with-sensitive-values-in-octopus.md -> docs/deployment-process/configuration-features/configuration-transforms/environment-specific-transforms-with-sensitive-values.md

@@ -1,7 +1,7 @@
 ---
 title: Environment-specific Configuration Transforms with Sensitive Values
 description: How to configure environment-specific configuration transforms while keeping sensitive values in Octopus.
-position: 110
+position: 30
 ---
 
 Octopus Deploy has great support for transforming configuration files based on the environment or machine you're deploying to.
@@ -12,9 +12,9 @@ There are three Octopus features that are commonly used to help provide an envir
 
 1. Use the [Configuration Variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) feature to automatically replace `appSettings`, `applicationSettings`, and `connectionStrings` values in your `.config` files with ones from your variables list.
 The limitation of this technique is you're restricted to these two configuration sections. If you have settings in other parts of your configuration file, this technique won't work.
-2. Use the [Substitute Variables](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) in Files feature to replace any values specified by the `#{variable}` syntax in any text-based file.
+2. Use the [Substitute Variables in Filer](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) feature to replace any values specified by the `#{variable}` syntax in any text-based file.
 The limitation of this technique is the Octopus variable syntax needs to already be in the file. If you're relying on that config file for your development, this can be difficult to manage.
-3. Use the [Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms.md) feature to transform your XML configuration files for each environment or machine either based on conventions or explicitly.
+3. Use the [Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms/index.md) feature to transform your XML configuration files for each environment or machine either based on conventions or explicitly.
 The problem with this method is twofold. First, the transform files need to be in the NuGet package, which probably means they'll be in source control. If there are sensitive values, that means the developers will have access to them. In addition, you can't easily tell what transformations are taking place from within Octopus.
 Second, for a large number of environments or machines, you'll need to manage a large number of transform files.
 
@@ -62,12 +62,18 @@ We also have a `Web.Release.Config` transform file with the following contents:
 
 Finally, we have the following variables configured:
 
-![](/docs/images/3049047/3278465.png)
+| Name       | Value   | Scope   |
+| ------------- | ------- | ------ |
+| OctoFXDatabase | server=staging-server;Database=OctoFX;Trusted_connection=SSPI | Staging |
+| OctoFXDatabase | server=(local)\SQLEXPRESS;Database=OctoFX-Development;Trusted_connection=SSPI | Development |
+| OctoFXDatabase | server=prod-server;Database=OctoFx;Trusted_connection=SSPI | Production |
+| RunTestMode   | False    | Production, Staging |
+| RunTestMode   | True     | Development         |
 
 On deployment to your Staging environment, your process would go like this:
 
 1. Your package, complete with your original `Web.Config` and your `Web.Release.Config` transform file, will be extracted to the target.
-2. Variable Substitution will run against your `Web.Release.Config` file (assuming it's been listed in the Target files setting)
+2. Variable Substitution will run against your `Web.Release.Config` file (assuming it's been listed in the Target files setting).
 This will change the `#{OctoFXDatabase}` string to the Staging connection string, and will insert `False` into the `TestMode` element.
 3. Then, the Config Transformation feature will run and apply this new transform file to your `Web.Config`.
 

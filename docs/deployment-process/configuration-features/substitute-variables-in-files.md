@@ -65,7 +65,7 @@ When the application is deployed to your **test** and **production** environment
 From here you can use the project overview menu to continue defining your process, or click **CREATE RELEASE** to create a [release](/docs/deployment-process/releases/index.md) and deploy your application.
 
 :::warning
-If you include a configuration file that you are also doing a [transformation](/docs/deployment-process/configuration-features/configuration-transforms.md) and [variable](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) swap on, the variable change will run under the 'substitute variables in files' before the transformation as defined in the [package deployment feature ordering](/docs/deployment-examples/package-deployments/package-deployment-feature-ordering.md) process.
+If you include a configuration file that you are also doing a [transformation](/docs/deployment-process/configuration-features/configuration-transforms/index.md) and [variable](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) swap on, the variable change will run under the 'substitute variables in files' before the transformation as defined in the [package deployment feature ordering](/docs/deployment-examples/package-deployments/package-deployment-feature-ordering.md) process.
 :::
 
 :::warning

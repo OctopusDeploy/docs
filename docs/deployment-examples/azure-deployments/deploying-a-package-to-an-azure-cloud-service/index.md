@@ -47,7 +47,7 @@ The following features are available when deploying a package to an Azure Cloud 
 
 - [Custom Scripts](/docs/deployment-examples/custom-scripts/index.md)
 - [Configuration Variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md)
-- [Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms.md)
+- [Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms/index.md)
 - [JSON configuration variables](/docs/deployment-process/configuration-features/json-configuration-variables-feature.md)
 - [Substitute variables in files](/docs/deployment-process/variables/variable-substitutions.md)
 
@@ -83,7 +83,7 @@ Deployment to an Azure Cloud Service proceeds as follows (more details provided 
 4. Any configured or packaged `PreDeploy` scripts are executed.
 5. Variable substitutions in Cloud Service configuration file (`.cscfg`).
 6. [Substitute variables in files](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) (if configured).
-7. [XML configuration transformations](/docs/deployment-process/configuration-features/configuration-transforms.md) (if configured) are performed.
+7. [XML configuration transformations](/docs/deployment-process/configuration-features/configuration-transforms/index.md) (if configured) are performed.
 8. [XML configuration variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) (if configured) are replaced.
 9. Any configured or package `Deploy` scripts are executed.
 10. Re-package the Cloud Service Package.

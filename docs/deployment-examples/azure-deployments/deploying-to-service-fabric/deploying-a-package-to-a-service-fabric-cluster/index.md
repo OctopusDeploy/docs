@@ -60,7 +60,7 @@ The following features are available when deploying a package to a Service Fabri
 
 - [Custom Scripts](/docs/deployment-examples/custom-scripts/index.md)
 - [Configuration Variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md)
-- [Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms.md)
+- [Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms/index.md)
 - [JSON Configuration Variables](/docs/deployment-process/configuration-features/json-configuration-variables-feature.md)
 - [Substitute Variables in Files](/docs/deployment-process/variables/variable-substitutions.md)
 
@@ -76,7 +76,7 @@ Deployment to a Service Fabric cluster proceeds as follows (more details provide
 1. Extract the package on the Octopus Server to a temporary location.
 1. Any configured or packaged `PreDeploy` scripts are executed.
 1. [Substitute variables in files](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) (if configured).
-1. [XML configuration transformations](/docs/deployment-process/configuration-features/configuration-transforms.md) (if configured) are performed.
+1. [XML configuration transformations](/docs/deployment-process/configuration-features/configuration-transforms/index.md) (if configured) are performed.
 1. [XML configuration variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) (if configured) are replaced.
 1. [JSON configuration variables](/docs/deployment-process/configuration-features/json-configuration-variables-feature.md) (if configured) are replaced.
 1. Any configured or package `Deploy` scripts are executed.

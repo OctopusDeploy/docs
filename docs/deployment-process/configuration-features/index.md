@@ -26,7 +26,7 @@ You can configure the following features:
 - [Custom Deployment Scripts](/docs/deployment-examples/custom-scripts/index.md)
 - [JSON Configuration Variables](/docs/deployment-process/configuration-features/json-configuration-variables-feature.md)
 - [Configuration Variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md)
-- [Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms.md)
+- [Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms/index.md)
 - [Substitute Variables in Files](/docs/deployment-process/configuration-features/substitute-variables-in-files.md)
 - IIS6+ Home Directory
 - [NGINX Web Server](/docs/deployment-process/configuration-features/nginx-web-server.md)
