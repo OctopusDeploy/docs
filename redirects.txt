@@ -757,4 +757,4 @@ docs/deployment-process/variables/variable-substitution-syntax.md -> docs/deploy
 docs/deployment-process/variables/scoping-variables/index.md -> docs/deployment-process/variables/index.md
 docs/api-and-integration/octo.exe-command-line/delete-release.md -> docs/api-and-integration/octo.exe-command-line/delete-releases.md
 docs/api-and-integration/octo.exe-command-line/push-package.md -> docs/api-and-integration/octo.exe-command-line/push.md
-docs/deployment-process/variables/environment-specific-configuration-transforms-with-sensitive-values-in-octopus.md -> docs/deployment-process/configuration-features/configuration-transforms/environment-specific-transforms-with-sensitive-values.md
+docs/deployment-process/variables/environment-specific-configuration-transforms-with-sensitive-values-in-octopus -> docs/deployment-process/configuration-features/configuration-transforms/environment-specific-transforms-with-sensitive-values.md
