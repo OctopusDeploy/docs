@@ -6,7 +6,7 @@ position: 70
 
 The Configuration Transforms feature is one of the [configuration features](/docs/deployment-process/configuration-features/index.md) you can enable as you define the [steps](/docs/deployment-process/steps/index.md) in your [deployment process](/docs/deployment-process/index.md).
 
-If this feature is enabled, Tentacle will also look for any files that follow the Microsoft [web.config transformation process](https://msdn.microsoft.com/en-us/library/dd465326.aspx) – **even files that are not web.config files!** *Keep reading for examples.*
+If this feature is enabled, Tentacle will also look for any files that follow the Microsoft [web.config transformation process](https://msdn.microsoft.com/en-us/library/dd465326.aspx) – **even files that are not web.config files!**.
 
 ![Configuration Transforms screenshot](configuration-transforms.png)
 
@@ -28,7 +28,7 @@ The team at [AppHarbor](https://appharbor.com/) created a useful tool to [hel
 
 ## Naming Configuration Transform Files {#Configurationfiles-Namingconfigurationtransformfiles}
 
-This feature will run your configuration transforms based on looking for transform files named with the following conventions. The configuration transformation files can either be named `*.Release.config`, `*.<Environment>.config`, or `*.<Tenant>.config` and will be executed in this order:
+This feature will run your configuration transforms by on looking for transform files named with the following conventions. The configuration transformation files can either be named `*.Release.config`, `*.<Environment>.config`, or `*.<Tenant>.config` and will be executed in this order:
 
 1. `*.Release.config`
 2. `*.<Environment>.config`
@@ -56,11 +56,11 @@ When deploying to an environment named "**Test**", Octopus will execute the tran
 You can see how this is actually done by our [open source Calamari project](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari.Shared/Deployment/Conventions/ConfigurationTransformsConvention.cs).
 :::
 
-:::hint
-**Windows Service and Console Application configuration transforms need special treatment**
-Octopus looks for configuration transform files that match your executable's configuration file. Visual Studio has built-in support for this scenario for ASP.NET Web Applications, but it doesn't offer the same support for Windows Services and Console applications - you will need to take care of this yourself.
+## Windows Service and Console Application configuration transforms need special treatment
 
-In Visual Studio your configuration file will be **`app.config`** and is renamed during the build process to match the executable - e.g., The **`app.config`** file for **`YourService.exe`** is renamed to **`YourService.exe.config`**.
+Octopus looks for configuration transform files that match your executable's configuration file. Visual Studio has built-in support for this scenario for ASP.NET Web Applications, but it doesn't offer the same support for Windows Services and Console applications, you will need to take care of this yourself.
+
+In Visual Studio your configuration file will be **`app.config`** and is renamed during the build process to match the executable, e.g., The **`app.config`** file for **`YourService.exe`** is renamed to **`YourService.exe.config`**.
 
 To make sure Octopus can run the configuration transforms for your Windows Services and Console Applications:
 
@@ -69,7 +69,7 @@ To make sure Octopus can run the configuration transforms for your Windows Servi
 3. Double-check the package you build for deployment actually contains the **`YourService.exe.config`** and all of the expected configuration transform files.
 
 ![](console-support.png)
-:::
+
 
 ## Additional Configuration Transforms {#Configurationfiles-AdditionalConfigurationTransforms}
 

@@ -1,36 +1,24 @@
 ---
-title: Environment-specific Configuration Transforms with Sensitive Values
+title: Environment Specific Configuration Transforms with Sensitive Values
 description: How to configure environment-specific configuration transforms while keeping sensitive values in Octopus.
 position: 30
 ---
 
-Octopus Deploy has great support for transforming configuration files based on the environment or machine you're deploying to.
+It is possible to combine the configuration features that you use in your deployments. One scenario where this is useful is if you need to provide environment specific configuration that includes sensitive values.
 
-As an example scenario, let's assume we have a web application that's being deployed to a Development, Staging, and Production environment, and you want to change your `Web.Config` file to reflect environment-specific values.
+This can be achieved using both the [Substitute Variables in Files](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) feature and the [Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms/index.md) features.
 
-There are three Octopus features that are commonly used to help provide an environment-specific configuration to your deployed application.
+## One Transform and Variable Replacement
 
-1. Use the [Configuration Variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) feature to automatically replace `appSettings`, `applicationSettings`, and `connectionStrings` values in your `.config` files with ones from your variables list.
-The limitation of this technique is you're restricted to these two configuration sections. If you have settings in other parts of your configuration file, this technique won't work.
-2. Use the [Substitute Variables in Filer](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) feature to replace any values specified by the `#{variable}` syntax in any text-based file.
-The limitation of this technique is the Octopus variable syntax needs to already be in the file. If you're relying on that config file for your development, this can be difficult to manage.
-3. Use the [Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms/index.md) feature to transform your XML configuration files for each environment or machine either based on conventions or explicitly.
-The problem with this method is twofold. First, the transform files need to be in the NuGet package, which probably means they'll be in source control. If there are sensitive values, that means the developers will have access to them. In addition, you can't easily tell what transformations are taking place from within Octopus.
-Second, for a large number of environments or machines, you'll need to manage a large number of transform files.
+For example, let's assume we have a web application that's being deployed to Development, Staging, and Production environments, and you want to change your `Web.Config` file to reflect environment-specific values.
 
-To solve these limitations, you can combine the techniques.
-
-## One Transform + Variable Replacement
-
-One common technique is to combine options 2 and 3 above.
-
-You would have a single configuration transformation file in your project. If it's named `Web.Release.Config`, the transformation will be applied to your `Web.Config` file automatically, however you can have your own filename and apply it to any config file you like.
+To achieve this you would have a single configuration transformation file in your project. If it's named `Web.Release.Config`, the transformation will be applied to your `Web.Config` file automatically, however you can have your own filename and apply it to any config file you like.
 
 This transform file can contain `#{variable}` values. Because your config will only get transformed on deployment, you can safely work with your `Web.Config` file during development, and you can keep sensitive variables like production passwords out of source control.
 
 ### The Process
 
-It's important to note that the variable substitution occurs before your configuration transformation. That means you'll have to target your transform files for variable substitution by adding them to the **Target files** setting.
+It's important to note that variable substitution occurs before the configuration transformation. This means you need to target your transform files for variable substitution by adding them to the **Target files** setting.
 
 For example, let's assume our `Web.Config` file has a `MyDatabaseConnection` connection string and a special `MyCustomSettingsSection` element. Something like this:
 
@@ -60,7 +48,7 @@ We also have a `Web.Release.Config` transform file with the following contents:
 </configuration>
 ```
 
-Finally, we have the following variables configured:
+Finally, we have the following [variables](/docs/deployment-process/variables/index.md) configured in Octopus:
 
 | Name       | Value   | Scope   |
 | ------------- | ------- | ------ |
