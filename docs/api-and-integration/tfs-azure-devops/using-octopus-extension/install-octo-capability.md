@@ -51,4 +51,4 @@ If you're having difficulties with downloading the octopus CLI during the runnin
 
 ![Octopus tools installer](/docs/api-and-integration/tfs-azure-devops/using-octopus-extension/octopus-tools-installer.png)
 
-This step will fallback to using an embedded version of `octo` if it cannot successfully be download.
+This step will fallback to using an embedded version of `octo` if the selected version cannot successfully be download.
