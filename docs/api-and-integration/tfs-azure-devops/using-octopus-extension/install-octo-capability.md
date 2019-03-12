@@ -10,6 +10,12 @@ that the same steps can be used to register capabilities such as `DotNetCore` as
 :::warning
 Installing Octo as a global tool will require an additional shell execution script to be in the path to delegate execution to `dotnet octo`. The reason for this is that the global tool install is only available via `dotnet octo` and doesn't
 provide a way to execute `Octo` directly.
+
+E.g. create a script called octo.ps1 and give it this content
+```
+& dotnet octo $args
+```
+Then ensure this script is present on your PATH
 :::
 
 ## Agent Capability Scanning
