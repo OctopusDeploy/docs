@@ -1,7 +1,7 @@
 ---
 title: Service Fabric PowerShell Scripts
 description: Service Fabric PowerShell scripts allow you to manage your Service Fabric clusters using the Service Fabric SDK as part of your deployment process.
-position: 1
+position: 60
 ---
 
 :::success

@@ -1,7 +1,7 @@
 ---
 title: Azure PowerShell Scripts
 description: Azure PowerShell scripts allow you to manage your Azure subscription using the Azure PowerShell SDK for the Resource Management (RM) or Service Management (SM) API as part of your deployment process.
-position: 1
+position: 40
 ---
 
 :::success
