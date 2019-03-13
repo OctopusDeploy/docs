@@ -4,14 +4,19 @@ description: Custom scripts allows you to script anything you want using PowerSh
 position: 50
 ---
 
-As a convention-oriented deployment tool, Octopus can perform a number of actions automatically, such as [managing configuration features](/docs/deployment-process/configuration-features/index.md), creating [IIS websites and application pools](/docs/deployment-examples/iis-websites-and-application-pools.md), and installing [Windows Services](/docs/deployment-examples/windows-services.md). Sometimes however you’ll need to do more than the built-in conventions support – and that’s where custom scripts come in.
+As a convention-oriented deployment tool, Octopus can perform a number of actions automatically, such as [managing configuration features](/docs/deployment-process/configuration-features/index.md), creating [IIS websites and application pools](/docs/deployment-examples/iis-websites-and-application-pools.md), and installing [Windows Services](/docs/deployment-examples/windows-services.md). Sometimes however you’ll need to do more than the built-in conventions support, and that’s where custom scripts come in.
+
+## Supported Script Types
+
+Octopus supports the following scripts:
+
+ - PowerShell scripts (`.ps1`)
+ - C# scripts (`.csx`) using [ScriptCS](https://github.com/scriptcs/scriptcs)
+ - Bash scripts (`.sh`)
+ - F# scripts (.fsx)
 
 !toc
 
-:::hint
-**Supported script types**
-Octopus Deploy supports PowerShell scripts (`.ps1`), C# scripts (`.csx`) using [ScriptCS](https://github.com/scriptcs/scriptcs), Bash scripts (`.sh`), and in **Octopus 3.4** we introduced support for F# scripts (`.fsx`).
-:::
 
 :::hint
 **How your scripts are bootstrapped by Calamari**
@@ -60,9 +65,7 @@ When enabled, you will see **Configuration Scripts** under the features section 
 
 ## Standalone Scripts {#Customscripts-Standalonescripts}
 
-Octopus also allows you to add standalone script steps to your deployment process. You can use standalone scripts to execute scripts on the Octopus Server or on [deployment targets](/docs/infrastructure/index.md), where the script can be defined inline or as part of a package. Standalone scripts are so useful we've dedicated an entire page to them: [Standalone scripts](/docs/deployment-examples/custom-scripts/standalone-scripts.md).
-
-![](/docs/images/5671696/5865914.png "width=170")
+Octopus lets you add standalone scripts in the [run a script step](/docs/deployment-examples/custom-scripts/run-a-script-step.md) to your [deployment process](/docs/deployment-process/index.md). You can use standalone scripts to execute scripts on the Octopus Server, [workers](/docs/infrastructure/workers/index.md) or on [deployment targets](/docs/infrastructure/index.md), where the script can be defined inline or as part of a package. Standalone scripts are so useful we've dedicated an entire page to them: [Standalone scripts](/docs/deployment-examples/custom-scripts/run-a-script-step.md).
 
 ## Azure PowerShell Scripts {#Customscripts-AzurePowerShellscripts}
 

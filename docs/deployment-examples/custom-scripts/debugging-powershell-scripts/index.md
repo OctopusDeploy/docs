@@ -1,8 +1,7 @@
 ---
 title: Debugging PowerShell Scripts
 description: How to debug PowerShell scripts running as part of your deployment process.
-position: 3
-version: 3.12
+position: 70
 ---
 
 When writing Step Templates or Scripts, it is sometimes useful to be able to debug through a script to track down hard to diagnose issues.

@@ -1,26 +1,32 @@
 ---
-title: Standalone Scripts
+title: Run a Scripts Steps
 description: Standalone scripts allow you to run scripts contained in a package, or ad-hoc scripts you've saved as part of the step.
-position: 0
+position: 10
 ---
 
-Octopus also allows you to run standalone scripts as part of your deployment process. You can run a script on the Octopus Server or across the deployment targets in roles. You can run scripts contained in a package, or ad-hoc scripts you've saved as part of the step. For information about adding a step to the deployment process, see the [add step](/docs/deployment-process/steps/index.md) section.
+Octopus also allows you to run standalone scripts as part of your deployment process. You can run a script on the Octopus Server, on [workers](/docs/infrastructure/workers/index.md) or across the deployment targets in [roles](/docs/infrastructure/deployment-targets/target-roles/index.md). You can run scripts contained in a [package](/docs/deployment-examples/package-deployments/index.md), or ad-hoc scripts you've saved as part of the [step](/docs/deployment-process/steps/index.md).
 
-:::success
-You can use all of the features we provide for [custom scripts](/docs/deployment-examples/custom-scripts/index.md), like [using variables](/docs/deployment-examples/custom-scripts/index.md#Customscripts-Variables), [passing parameters](/docs/deployment-examples/custom-scripts/index.md#Customscripts-Passingparameterstoscripts), publishing [output variables](/docs/deployment-examples/custom-scripts/index.md#Customscripts-Outputvariables) and [collecting artifacts](/docs/deployment-examples/custom-scripts/index.md#Customscripts-Collectingartifacts).
-:::
-
-![](/docs/images/5671696/5865914.png "width=170")
+You can use all of the features we provide for [custom scripts](/docs/deployment-examples/custom-scripts/index.md), like [variables](/docs/deployment-examples/custom-scripts/index.md#Customscripts-Variables), [passing parameters](/docs/deployment-examples/custom-scripts/index.md#Customscripts-Passingparameterstoscripts), publishing [output variables](/docs/deployment-examples/custom-scripts/index.md#Customscripts-Outputvariables), and [collecting artifacts](/docs/deployment-examples/custom-scripts/index.md#Customscripts-Collectingartifacts).
 
 ## Choosing Where the Script Will Run {#Standalonescripts-Choosingwherethescriptwillrun}
 
-:::hint
-The ability to run scripts on the Octopus Server shipped in **Octopus 3.3**.
-:::
-
 When adding a script you choose where the script will run, and in which context the script will run.
 
-![](execution-location.png)
+The options will vary based on the infrastructure that's available to you. For instance, if you do not have any [workers](/docs/infrastructure/workers/index.md) configured you will see the following options:
+
+ - Run on the Octopus Server
+ - Run on the Octopus Server on behalf of each deployment target
+ - Run on each deployment target (default)
+
+If you do have workers configured you will see the following options:
+
+- Run once on a worker
+- Run on a worker on behalf of each deployment target
+- Run on each deployment target (default)
+
+If you choose to run the step on a worker, you will also need to select which [worker pool](/docs/infrastructure/workers/worker-pools.md) Octopus should use for the step.
+
+
 
 Choosing the right combination of **Target** and **Roles** enables some really interesting scenarios. See below for some common examples:
 
@@ -57,10 +63,6 @@ When sourcing a script from a file inside a package you cannot choose to run the
 :::
 
 ## Passing Parameters to Scripts {#Standalonescripts-Passingparameterstoscripts}
-
-:::hint
-The ability to pass parameters to scripts was added in **Octopus 3.4**.
-:::
 
 When you call external scripts (sourced from a file inside a package) you can pass parameters to your script. This means you can write "vanilla" scripts that are unaware of Octopus, and test them in your local development environment. Read about [passing parameters to scripts](/docs/deployment-examples/custom-scripts/index.md#Customscripts-Passingparameterstoscripts).
 

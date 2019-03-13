@@ -1,7 +1,7 @@
 ---
 title: Raw Scripting
 description: Raw Scripting allows you to transfer packages and execute scripts against SSH deployment targets where you are unable to install and run Mono.
-position: 2
+position: 20
 ---
 
 ## Design Intentions {#RawScripting-DesignIntentions}
@@ -27,7 +27,7 @@ While raw scripting does not require a Transfer a Package step, the below scenar
 
 1. Add a [Transfer A Package](/docs/deployment-examples/package-deployments/transfer-package.md) step.
 2. In the **Transfer Path** field enter the location the package will be moved to as part of the deployment, for instance, `~/temp/uploads`.  Note that this directory will be created if it does not already exist. Give the step the name *Transfer AcmeWeb* and Include the relevant role for your SSH target.
-3. Add a [Run A Script](/docs/deployment-examples/custom-scripts/standalone-scripts.md) step and explicitly clear and extract the package to your desired location. In the below example we know that the target shell will be bash so we can use output values from the previous *Transfer AcmeWeb* step to locate the package and extract it to a directory at *~/temp/somewhere*. Note that although we have selected the *Bash* script type for this step, this is purely for helpful syntax highlighting since whatever script is provided will be executed through the open connection regardless of selected type.
+3. Add a [Run A Script](/docs/deployment-examples/custom-scripts/run-a-script-step.md) step and explicitly clear and extract the package to your desired location. In the below example we know that the target shell will be bash so we can use output values from the previous *Transfer AcmeWeb* step to locate the package and extract it to a directory at *~/temp/somewhere*. Note that although we have selected the *Bash* script type for this step, this is purely for helpful syntax highlighting since whatever script is provided will be executed through the open connection regardless of selected type.
 
    ```bash
    rm -fr ~/temp/somewhere
