@@ -8,7 +8,7 @@ We take every reasonable effort to make Octopus Server, Tentacle and Calamari FI
 
 ## What is FIPS? {#FIPSandOctopusDeploy-WhatisFIPS?}
 
-The 140 series of **Federal Information Processing Standards** ([FIPS](https://en.wikipedia.org/wiki/Federal_Information_Processing_Standard "Federal Information Processing Standard")) are U.S.governmentcomputer securitystandards that specify requirements for cryptography modules. The National Institute of Standards and Technology (NIST) issues the 140 Publication Series to coordinate the requirements and standards for cryptographic modules which include both hardware and software components for use by departments and agencies of the United States federal government.
+The 140 series of **Federal Information Processing Standards** ([FIPS](https://en.wikipedia.org/wiki/Federal_Information_Processing_Standard "Federal Information Processing Standard")) are U.S. government computer security standards that specify requirements for cryptography modules. The National Institute of Standards and Technology (NIST) issues the 140 Publication Series to coordinate the requirements and standards for cryptographic modules which include both hardware and software components for use by departments and agencies of the United States federal government.
 
 ## How is FIPS Enforced? {#FIPSandOctopusDeploy-HowisFIPSenforced?}
 
