@@ -46,7 +46,7 @@ For example, we can create a team that gives Anne and Bob access to view project
 
 We limit which projects and environments these permissions apply to by adding specific projects and environments to the team.
 
-![](teams-create-new.png)
+![](dev-deployers-members.png)
 
 ### Restricting Project and Project Group Access
 
@@ -98,6 +98,8 @@ Octopus Deploy comes with several built-in teams.
 
 The **Everyone** team always contains all users, but you can assign different roles to members of this Team (for example, you might allow everyone to view all projects and environments, but not edit anything). Out of the box, **Everyone** members can do nothing.
 
-The second team is **Octopus Administrators.** Members of this team always have permission to do anything in Octopus. You can add or remove members from this team. We recommend only adding a few key users to this team.
+The second team is **Octopus Administrators.** Members of this team have permission to configure system level concerns of Octopus. You can add or remove members from this team. We recommend only adding a few key users to this team.
 
-The third team is **Octopus Managers.** Members of this team can do everything **Octopus Administrators** can do, except for certain system-level functions reserved for **Octopus Administrators**. You can also add or remove members from this team. We recommend adding users to this team who should be able to manage teams and other top-level things in Octopus, but not be able to change how Octopus is hosted.
+The third team is **Octopus Managers.** That can manage a smaller subset of system-level functions reserved. You can also add or remove members from this team. We recommend adding users to this team who should be able to manage teams and other top-level things in Octopus, but not be able to change how Octopus is hosted.
+
+The fourth team is **Space Managers** Members of this team can do everything in a given space. Out of the box the initial user added to  **Octopus Administrators** is also added as a **Space Manager**. If you do not need granular access for what users need to do withing Octopus relating to Projects, Tenants, Environments you can add them as **Space Managers**.
