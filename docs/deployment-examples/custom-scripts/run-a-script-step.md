@@ -6,7 +6,7 @@ position: 10
 
 Octopus also allows you to run standalone scripts as part of your deployment process. You can run a script on the Octopus Server, on [workers](/docs/infrastructure/workers/index.md) or across the deployment targets in [roles](/docs/infrastructure/deployment-targets/target-roles/index.md). You can run scripts contained in a [package](/docs/deployment-examples/package-deployments/index.md), or ad-hoc scripts you've saved as part of the [step](/docs/deployment-process/steps/index.md).
 
-You can use all of the features we provide for [custom scripts](/docs/deployment-examples/custom-scripts/index.md), like [variables](/docs/deployment-examples/custom-scripts/index.md#Customscripts-Variables), [passing parameters](/docs/deployment-examples/custom-scripts/index.md#Customscripts-Passingparameterstoscripts), publishing [output variables](/docs/deployment-examples/custom-scripts/index.md#Customscripts-Outputvariables), and [collecting artifacts](/docs/deployment-examples/custom-scripts/index.md#Customscripts-Collectingartifacts).
+You can use all of the features we provide for [custom scripts](/docs/deployment-examples/custom-scripts/index.md), like [variables](/docs/deployment-examples/custom-scripts/using-variables-in-scripts.md), [passing parameters](/docs/deployment-examples/custom-scripts/passing-parameters-to-scripts.md), publishing [output variables](/docs/deployment-examples/custom-scripts/output-variables.md), and [collecting artifacts](/docs/deployment-examples/custom-scripts/index.md#Customscripts-Collectingartifacts).
 
 ## Choosing Where the Script Will Run {#Standalonescripts-Choosingwherethescriptwillrun}
 
@@ -64,7 +64,7 @@ When sourcing a script from a file inside a package you cannot choose to run the
 
 ## Passing Parameters to Scripts {#Standalonescripts-Passingparameterstoscripts}
 
-When you call external scripts (sourced from a file inside a package) you can pass parameters to your script. This means you can write "vanilla" scripts that are unaware of Octopus, and test them in your local development environment. Read about [passing parameters to scripts](/docs/deployment-examples/custom-scripts/index.md#Customscripts-Passingparameterstoscripts).
+When you call external scripts (sourced from a file inside a package) you can pass parameters to your script. This means you can write "vanilla" scripts that are unaware of Octopus, and test them in your local development environment. Read about [passing parameters to scripts](/docs/deployment-examples/custom-scripts/passing-parameters-to-scripts.md).
 
 ![](5865636.png)
 

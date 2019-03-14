@@ -1,7 +1,7 @@
 ---
 title: Reference Files Within a Package
 description: How to reference files within a package.
-position: 30
+position: 80
 ---
 
 To reference files from the package you can use the below as a guide to where the parameters are pointing to, then it's just a case of using the values of these parameters to build up the absolute path to the file(s) that you want to manipulate or execute.

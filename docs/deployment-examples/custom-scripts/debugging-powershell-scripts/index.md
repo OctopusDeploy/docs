@@ -1,7 +1,7 @@
 ---
 title: Debugging PowerShell Scripts
 description: How to debug PowerShell scripts running as part of your deployment process.
-position: 70
+position: 110
 ---
 
 When writing Step Templates or Scripts, it is sometimes useful to be able to debug through a script to track down hard to diagnose issues.
@@ -43,3 +43,8 @@ Once you've finished debugging, you can either allow the script to run to the en
 :::hint
 If you receive an error message `The background process reported an error with the following message: "The named pipe target process has ended".`, you can safely ignore this - it is just reporting that the PowerShell process you were debugging has ended.
 :::
+
+## Preventing the PowerShell Profile From Running
+
+The execution of the Tentacle service account's PowerShell profile script can sometimes cause a long delay each time a script is run. Starting in version 3.3.21, to prevent it being run,
+add a variable named `Octopus.Action.PowerShell.ExecuteWithoutProfile` with a value of `true` to your project.

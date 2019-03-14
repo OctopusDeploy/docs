@@ -1,7 +1,7 @@
 ---
 title: Raw Scripting
 description: Raw Scripting allows you to transfer packages and execute scripts against SSH deployment targets where you are unable to install and run Mono.
-position: 20
+position: 70
 ---
 
 ## Design Intentions {#RawScripting-DesignIntentions}

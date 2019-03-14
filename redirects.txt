@@ -760,3 +760,4 @@ docs/api-and-integration/octo.exe-command-line/push-package.md -> docs/api-and-i
 docs/deployment-process/variables/environment-specific-configuration-transforms-with-sensitive-values-in-octopus -> docs/deployment-process/configuration-features/configuration-transforms/environment-specific-transforms-with-sensitive-values.md
 docs/deployment-examples/custom-scripts/standalone-scripts.md -> docs/deployment-examples/custom-scripts/run-a-script-step.md
 docs/deployment-examples/custom-scripts/debugging-powershell-scripts-on-remote-machines.md -> docs/deployment-examples/custom-scripts/debugging-powershell-scripts/debugging-powershell-scripts-on-remote-machines.md
+docs/deployment-examples/custom-scripts/reference-files-within-a-package.md -> docs/deployment-examples/custom-scripts/scripts-in-packages/reference-files-within-a-package.md

@@ -1,12 +1,10 @@
 ---
 title: Azure PowerShell Scripts
 description: Azure PowerShell scripts allow you to manage your Azure subscription using the Azure PowerShell SDK for the Resource Management (RM) or Service Management (SM) API as part of your deployment process.
-position: 40
+position: 80
 ---
 
-:::success
-You can use all of the features we provide for [custom scripts](/docs/deployment-examples/custom-scripts/index.md), like [using variables](/docs/deployment-examples/custom-scripts/index.md#Customscripts-Variables), [passing parameters](/docs/deployment-examples/custom-scripts/index.md#Customscripts-Passingparameterstoscripts), publishing [output variables](/docs/deployment-examples/custom-scripts/index.md#Customscripts-Outputvariables) and [collecting artifacts](/docs/deployment-examples/custom-scripts/index.md#Customscripts-Collectingartifacts).
-:::
+You can use all of the features we provide for [custom scripts](/docs/deployment-examples/custom-scripts/index.md), like [using variables](/docs/deployment-examples/custom-scripts/using-variables-in-scripts.md), [passing parameters](/docs/deployment-examples/custom-scripts/passing-parameters-to-scripts.md), publishing [output variables](/docs/deployment-examples/custom-scripts/output-variables.md) and [collecting artifacts](/docs/deployment-examples/custom-scripts/index.md#Customscripts-Collectingartifacts).
 
 You can manage your Azure subscription using the Azure PowerShell SDK for the Resource Management (RM) or Service Management (SM) API as part of your deployment process.
 
