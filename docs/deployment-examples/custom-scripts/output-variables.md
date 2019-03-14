@@ -1,5 +1,5 @@
 ---
-titles: Output Variables
+title: Output Variables
 description: Your scripts can emit variables that are available in subsequent deployment steps.
 position: 70
 ---
