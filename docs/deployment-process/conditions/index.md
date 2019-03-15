@@ -40,7 +40,9 @@ Run condition lets you specify that a step should run:
 - Always run.
 - When a variable expression evaluates to true.
 
+:::warning
 Note: variable expressions with machine level variables are not supported.
+:::
 
 You can use the following expression to run a step only when the deployment is successful and when a variable evaluates to true:
 
