@@ -123,9 +123,9 @@ Using complex syntax you can have expressions like `#{if Octopus.Environment.Nam
 
 ```
 #{if ATruthyVariable}
-  Pick me if true
+  Do this if ATruthyVariable evaluates to true
 #{else}
-  Pick me if false
+  Do this if ATruthyVariable evaluates to false
 #{/if}
 ```
 
