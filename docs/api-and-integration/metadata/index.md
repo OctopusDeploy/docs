@@ -74,33 +74,14 @@ The release notes variable is `Octopus.Deployment.Changes` and contains the rele
 ```csharp
 public class ReleaseChanges
 {
-    public string Version { get; set; }
-    public string ReleaseNotes { get; set; }
-    public OctopusPackageVersionMetadata[] VersionMetadata { get; set; }
-}
-
-public class OctopusPackageVersionMetadata : IPackageVersionMetadata
-{
-  public string PackageId { get; set; }
   public string Version { get; set; }
-  public OctopusPackageMetadata OctopusPackageMetadata { get; set; }
+  public string ReleaseNotes { get; set; }
+  public WorkItemLink[] WorkItems { get; set; }
 }
 
-public class OctopusPackageMetadata
-{
-  public string BuildEnvironment { get; set; }
-  public string IssueTrackerId { get; set; }
-  public string BuildNumber { get; set; }
-  public string BuildLink { get; set; }
-  public string VcsRoot { get; set; }
-  public string VcsCommitNumber { get; set; }
-  public WorkItem[] WorkItems { get; set; }
-}
-
-public class WorkItem 
+public class WorkItemLink 
 {
     public string Id { get; set; }
-    public string IssueTrackerId { get; set; }
     public string LinkUrl { get; set; }
     public string LinkText { get; set; }
 }
@@ -115,14 +96,18 @@ Here are the notes:<br/>
 #{each change in Octopus.Deployment.Changes}
 <h2>#{change.Version}</h2>
 #{change.ReleaseNotes}</br>
-#{each versionMetadata in change.VersionMetadata}
-<h3>#{versionMetadata.PackageId}</h3>
-#{each workItem in versionMetadata.OctopusPackageMetadata.WorkItems}
+#{each workItem in change.WorkItems}
+  #{if workItem.LinkUrl}
       <a href="#{workItem.LinkUrl}">#{workItem.LinkText}</a>
-#{/each} 
+  #{/if}
+  #{unless workItem.LinkUrl}
+      #{workItem.LinkText}</br>
+  #{/unless}
 #{/each} 
 #{/each} 
 ```
+
+Note that the if/unless in here is a bit of overkill for illustration. The links can end up without a LinkUrl if the related extension (e.g. Jira) is disabled. If you know it's going to be enabled then just use the anchor.
 
 ## Issue Trackers
 
