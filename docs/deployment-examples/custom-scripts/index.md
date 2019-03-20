@@ -18,7 +18,7 @@ Octopus supports the following scripts:
 
 ## How Your Scripts are Bootstrapped by Calamari
 
-Each of your scripts will be bootstrapped by the [open-source Calamari project](https://github.com/OctopusDeploy/Calamari) to provide access to variables and helper functions. You can see how your scripts are bootstrapped in the [Calamari source code](https://github.com/OctopusDeploy/Calamari.Shared/tree/master/source/Calamari/Integration/Scripting).
+Each of your scripts will be bootstrapped by the [open-source Calamari project](https://github.com/OctopusDeploy/Calamari) to provide access to variables and helper functions. You can see how your scripts are bootstrapped in the [Calamari source code](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari.Shared/Integration/Scripting).
 
 ## Working Directories {#Customscripts-Workingdirectories}
 
