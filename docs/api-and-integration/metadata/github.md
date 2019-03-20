@@ -20,3 +20,10 @@ Resolves MyOrg/SomeOtherRepo#1234
 So the issue it is referring to is part of a repo that is separate to where the commit is happening.
 
 The value will default to https://github.org.
+
+## Commit Messages
+
+The parsing of the commit messages occurs in the build servers, and is based on the GitHub concepts around [closing issues using keywords](https://help.github.com/en/articles/closing-issues-using-keywords).
+
+The build plugins will look for these same keywords and pass with work-item details to Octopus when they are present.
+

@@ -1,6 +1,7 @@
 ---
 title: Metadata and work-items
 description: Configuring Octopus metadata and work-item integration.
+position: 200
 ---
 
 This section details how to configure the custom metadata integration in Octopus. The metadata includes information about how a package was built and what it includes, including work-item details.
@@ -111,4 +112,7 @@ Note that the if/unless in here is a bit of overkill for illustration. The links
 
 ## Issue Trackers
 
-If you are using an issue tracker like Jira, Octopus can also be integrated with it to provide information about the progress of work-items. For more details see [Jira Issue Tracker](jira.md).
+If you are using an issue tracker like Jira, Octopus can also be integrated with it to provide information about the progress of work-items. For more details see
+
+- [Jira Issue Tracker](jira.md)
+- [GitHub Issue Tracker](github.md)
