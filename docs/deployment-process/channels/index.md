@@ -4,7 +4,7 @@ description: Channels allow you to dynamically change the deployment logic and l
 position: 40
 ---
 
-As you deploy your projects, you can assign [releases](/docs/deployment-process/releases/index.md) of projects to specific channels. This is useful when you want releases of a project to be treated differently depending on the criteria you've set. Without channels, you could find yourself duplicating projects in order to implement multiple release strategies. This would, of course, leave you trying to manage multiple duplicated projects. Channels let's you use one project, with multiple release strategies.
+As you deploy your projects, you can assign [releases](/docs/deployment-process/releases/index.md) of projects to specific channels. This is useful when you want releases of a project to be treated differently depending on the criteria you've set. Without channels, you could find yourself duplicating projects in order to implement multiple release strategies. This would, of course, leave you trying to manage multiple duplicated projects. Channels lets you use one project, with multiple release strategies.
 
 Channels can be useful in the following scenarios:
 
