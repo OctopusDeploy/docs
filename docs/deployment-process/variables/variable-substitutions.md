@@ -47,10 +47,10 @@ Octopus supports an extended variable substitution syntax with capabilities simi
 
 The capabilities of the extended syntax are:
 
-- Index Replacement
-- Conditionals - `if`, `if-else` and `unless`
-- Repetition - `each`
-- Filters - `HtmlEscape`, `Markdown` etc.
+- [Index Replacement](#VariableSubstitutionSyntax-IndexReplacement)
+- [Conditionals](#VariableSubstitutionSyntax-Conditionalsconditionals) - `if`, `if-else` and `unless`
+- [Repetition](#VariableSubstitutionSyntax-Repetition) - `each`
+- [Filters](#VariableSubstitutionSyntax-Filters) - `HtmlEscape`, `Markdown` etc.
 - Differences from regular variable bindings
 - JSON Parsing
 
@@ -206,3 +206,25 @@ Within the context of an iteration template, some special variables are availabl
 | `Octopus.Template.Each.Index` | Zero-based index of the iteration count  |
 | `Octopus.Template.Each.First` | `"True" if the element is the first in the collection`, otherwise "False" |
 | `Octopus.Template.Each.Last`  | "True" if the element is the last in the collection, otherwise "False" |
+
+### Filters {#VariableSubstitutionSyntax-Filters}
+
+The following filters are available:
+
+- ToLower
+- ToUpper
+- ToBase64
+- HtmlEscape
+- XmlEscape
+- JsonEscape
+- Markdown
+- NowDate
+- NowDateUtc
+- Format
+- Replace
+
+The filters can be invoked in the following way:
+
+```powershell
+#{Octopus.Environment.Name | ToLower}
+```
