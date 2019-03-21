@@ -13,7 +13,9 @@ To set the scene, the end goal of the integration is to provide Jira with update
 
 ![Jira Deployments](jira-deployment.png)
 
-As a note, **Development** here refers to an environment type, not an environment name. The environment name in Octopus in this example was actually Azure-Dev. See below for more detail on where this becomes important.
+As a note, _Development_ here refers to an environment type, not an environment name. The environment name in Octopus in this example was actually Azure-Dev. See below for more detail on where this becomes important.
+
+An important thing to note is that the link in the image above will link to the deployment in Octopus. In order for Octopus to feed this Url to Jira **you must have the Server Uri configured on the Configuration/Nodes page**.
 
 ## Octopus Connect App and the Jira Extension
 
