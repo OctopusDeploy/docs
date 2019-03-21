@@ -4,27 +4,27 @@ description: Configuring Octopus metadata and work-item integration.
 position: 200
 ---
 
-This section details how to configure the custom metadata integration in Octopus. The metadata includes information about how a package was built and what it includes, including work-item details.
+This section details how to configure the custom metadata integration in Octopus. The metadata contains information about how a package was built and what it includes. The metadata includes work-items which represent the bugs and enhancements that are included in new releases of your software.
 
-The overall premise of how the work-item functionality works is, the build server parses Commit messages looking for references to work-items. Information about the work-items is then passed through the CI/CD pipeline and included in the release and deployment details.
+With this integration the build server parses Commit messages looking for references to work-items. Information about the work-items is then passed through the CI/CD pipeline and included in the release and deployment details.
 
 ## Building the Metadata
 
-Key to flowing information through the pipeline is having a method of transport. Octopus uses a custom metadata file, which is pushed to the server separately to the package itself.
+Octopus uses a custom metadata file as the method of transport for passing this information through the pipeline, the metadata file is pushed to the server separately and to the package itself.
 
-The reason the file is separate is to allow for packages that are destined for external feeds, Octopus can still be given the custom metadata relating to those packages. This also includes things like container images that are being pushed to container repositories.
+Keeping the file separate allows for packages that are destined for external feeds to still provide the custom metadata file to Octopus. This means it will also for for things like container images that are being pushed to container repositories.
 
 To create the metadata file and get it to Octopus, use the Octopus _Metadata_ step in your build server (below is the TeamCity step for illustration).
 
 ![Package Metadata Step](metadata-step.png)
 
-The build server plugins work on the assumption that the team are referencing the work-items in their commit messages, for example as they would for Bamboo build integration with Jira or integration with GitHub issues.
+The build server plugins work on the assumption that the development team references the work-items in their commit messages, for example, as they would for Bamboo build integration with Jira or integration with GitHub issues.
 
-The metadata will appear in the package feed details for any package in the internal feed that has had metadata pushed for it. 
+The metadata will appear in the package feed details for any package in the internal feed that has had metadata pushed for it.
 
 ![Package Details](package-detail.png)
 
-If there is a specific issue tracker extension, e.g. Jira, enabled and configured that matches the work-items type the work-items will appear as a links to the issue tracking system. If not the work-items will appear as plain text.
+If there is a specific issue tracker extension, e.g. Jira, enabled and configured that matches the work-items type the work-items will appear as a link to the issue tracking system. If not, the work-items will appear as plain text.
 
 ## Project Settings
 
@@ -40,11 +40,11 @@ When a release is created for the project, the selected package versions are use
 
 ![Release work-items](release-work-items.png)
 
-When this release is deployed the metadata will be contributed to the deployment. They will appear in the preview
+When this release is deployed the metadata will be contributed to the deployment. They will appear in the preview.
 
 ![Deployment preview](deploy-preview-work-items.png)
 
-and again on the task summary for the deployment.
+They will also appear on the task summary for the deployment.
 
 ![Deployment work-items](deploy-work-items.png)
 
@@ -54,13 +54,13 @@ Many teams won't be operating like this though, many will accumulate a number of
 
 This accumulation logic is how Octopus always determines the metadata list, it's always the accumulation since the last deployment to the given "scope". A scope in this context is the combination of deployment environment and tenant (if multi-tenancy is in play).
 
-Given that you can initiate deployments to multiple "scopes" at once in Octopus it is quite conceivable, and expected, that you could see different work-items lists for each scope. Let's consider a couple of examples, first 2 tenants in the same environment. In this case if tenant A is on an earlier version than tenant B the the result list for tenant A would the list for tenant B plus the additional work-items between the version it was on and the version tenant B was on.
+Given that you can initiate deployments to multiple "scopes" at once in Octopus it is quite conceivable, and expected, that you could see different work-items lists for each scope. Let's consider a couple of examples, first two tenants in the same environment. In this case if tenant A is on an earlier version than tenant B the the result list for tenant A would be the list for tenant B plus the additional work-items between the version it was on and the version tenant B was on.
 
-As a second example, imagine you have 2 environments in a lifecycle but you don't always deploy to 1 of them. Let's use staging and a performance test environment as an example. Maybe you periodically deploy to the performance environment to check for regressions but not every time you deploy to staging. The work-items for the performance environment would be the same as staging plus the additional work-items for the releases in between.
+As a second example, imagine you have two environments in a lifecycle, but you don't always deploy to one of them. Let's use staging and a performance test environment as an example. Maybe you periodically deploy to the performance environment to check for regressions but not every time you deploy to staging. The work-items for the performance environment would be the same as staging plus the additional work-items for the releases in between.
 
 ## Deploy a Release Step
 
-The Octopus [deploy release step](https://g.octopushq.com/DeployReleaseStep) adds an interesting dimension to metadata accumulation. When you are using this step Octopus treats each "child project" as though it was a package. Following from this reasoning, it also treats the child project's release as a potential source for metadata.
+The Octopus [deploy release step](https://g.octopushq.com/DeployReleaseStep) adds an interesting dimension to metadata accumulation. When you use this step Octopus treats each "child project" like it is a package. Following from this reasoning, it also treats the child project's release as a potential source for metadata.
 
 On the project settings you can select a deploy release step and use it the same as any other package from the internal feed. When creating the releases in the "parent project" Octopus accumulates the release notes and metadata from the child projects just as it would for packages.
 
@@ -68,7 +68,7 @@ On the project settings you can select a deploy release step and use it the same
 
 During a deployment there are variables available for both the new release notes values and the work-items.
 
-The release notes variable is `Octopus.Deployment.Changes` and contains the release notes and work-items in json format. The structure is a Json array of `ReleaseChange` objects matching the following C# class
+The release notes variable is `Octopus.Deployment.Changes` and contains the release notes and work-items in JSON format. The structure is a JSON array of `ReleaseChange` objects matching the following C# class:
 
 ```csharp
 public class ReleaseChanges
@@ -78,7 +78,7 @@ public class ReleaseChanges
   public WorkItemLink[] WorkItems { get; set; }
 }
 
-public class WorkItemLink 
+public class WorkItemLink
 {
     public string Id { get; set; }
     public string LinkUrl { get; set; }
@@ -86,9 +86,9 @@ public class WorkItemLink
 }
 ```
 
-To describe that structure in words, there is an entry per release and it includes the release notes and the metadata for each of the packages in that release.
+There is an entry per release and it includes the release notes and the metadata for each of the packages in that release.
 
-The following example uses these variables to generate the Html body for the Octopus email step.
+The following example uses these variables to generate the HTML body for the Octopus email step.
 
 ```html
 Here are the notes:<br/>
@@ -102,11 +102,11 @@ Here are the notes:<br/>
   #{unless workItem.LinkUrl}
       #{workItem.LinkText}</br>
   #{/unless}
-#{/each} 
-#{/each} 
+#{/each}
+#{/each}
 ```
 
-Note that the if/unless in here is a bit of overkill for illustration. The links can end up without a LinkUrl if the related extension (e.g. Jira) is disabled. If you know it's going to be enabled then just use the anchor.
+Note that the if/unless is included for illustration purposes. The links can end up without a LinkUrl if the related extension (e.g. Jira) is disabled. If you know it's going to be enabled then just use the anchor.
 
 ## Issue Trackers
 
