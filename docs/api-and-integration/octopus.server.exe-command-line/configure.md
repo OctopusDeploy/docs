@@ -34,9 +34,9 @@ Where [<options>] is any of:
       --commsListenWebSocket=VALUE
                              WebSocket prefix that the communications service
                                should listen on (e.g.
-                               'https://+:443/OctopusComms`); Set to blank to
-                               disable websockets; Refer to http://g.octopush-
-                               q.com/WebSocketComms
+                               'https://+:443/OctopusComms'); set to blank to
+                               disable websockets. Refer to http://g.octopush-
+                               q.com/WebSocketComms.
       --webListenPrefixes=VALUE
                              Comma-separated list of HTTP.sys listen prefixes
                                (e.g., 'http://localhost/octopus')
