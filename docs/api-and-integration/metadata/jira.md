@@ -29,9 +29,10 @@ With that in mind, the first step in the integration is to add the Octopus Conne
 
 To complete the installation of the app from the marketplace you must configure some security related values. This requires aligning a couple of pieces of information from the page that appears in Jira:
 
-![Jira ConnectApp configuration](jira-app-config.png)
+- Jira Base URL, i.e., https://your-jira-instance.atlassian.net.
+- Octopus Secret.
 
-And from the **Configuration / Jira Issue Tracker** page in Octopus:
+And from the **Configuration/Jira Issue Tracker** page in Octopus:
 
 ![Octopus Jira Issue Tracker configuration](octo-jira-config.png)
 
