@@ -51,6 +51,8 @@ The environment name does get passed through to Jira, as shown in the earlier ex
 
 Once the Jira issue tracker is enabled and configured you will see blocks similar to the following appear in the log during your deployments. These show the state updates Octopus is sending through to Jira, and if you expand them the details include information on the work-item IDs etc for traceability.
 
+The following illustrates where Octopus tried to send an _in_progress_, and then a _successful_, state change to Jira but was unable to. **This does not impact the Octopus deployment itself, it will still be considered a successful deployment.**
+
 ![Deployment task log](deploy-task-log.png)
 
-As a final note, errors that occur while trying to send the information to Jira will appear as above in the task log but will not cause the deployment itself to fail (on success the blocks will appear with green text just like the other blocks in the log).
+On success the blocks will appear with green text just like the other blocks in the log.
