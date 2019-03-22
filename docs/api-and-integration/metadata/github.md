@@ -1,6 +1,6 @@
 ---
 title: GitHub Issue Tracking Integration
-description: Configuring Octopus integration for GitHub.
+description: Configuring GitHub issue tracking with Octopus.
 ---
 
 Integration to GitHub allows Octopus to correctly resolve issue links that are received in the custom metadata from the build server.
