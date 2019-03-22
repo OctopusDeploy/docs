@@ -1,6 +1,6 @@
 ---
 title: Jira Integration
-description: Configuring Octopus integration to Jira.
+description: Configuring Octopus integration with Hosted Jira.
 ---
 
 In addition to being able to [track metadata and work item](index.md) information through your CI/CD pipeline, Octopus can also integrate with Jira to provide progress information related to the work items during deployments.
