@@ -1,5 +1,5 @@
 ---
-title: GitHub integration
+title: GitHub Issue Tracking Integration
 description: Configuring Octopus integration for GitHub.
 ---
 
