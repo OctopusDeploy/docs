@@ -52,7 +52,7 @@ They are also displayed on the task summary for the deployment.
 
 In some scenarios this one to one between releases and deployments will be the norm. Teams using continuous deployment may see a rapid progression of versions through their environments and on to production.
 
-Many teams won't be operating like this though, many will accumulate a number of releases before promoting to the next environment. For example, they may merge pull requests for several fixes/features and then deploy the final release to test. This could even go through a couple of revolutions and then eventually a final release progresses from test to production. In this situation the deployment to production isn't just the work-items from that last release, it is the accumulation of all of the work-items in all of the releases since the last one that was deployed to production.
+Many teams won't be operating like this though. It is common that a number of releases will be prepared and tested before promoting to the next environment. For example, they may merge pull requests for several fixes/features and then deploy the final release to test. This could even be repeated several times and then eventually a final release progresses from test to production. In this situation the deployment to production isn't just the work-items from that last release, it is _the accumulation of all of the work-items in all of the releases since the last one that was deployed to production_.
 
 This accumulation logic is how Octopus always determines the metadata list, it's always the accumulation since the last deployment to the given "scope". A scope in this context is the combination of deployment environment and tenant (if multi-tenancy is in play).
 
