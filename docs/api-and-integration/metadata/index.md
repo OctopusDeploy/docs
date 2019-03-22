@@ -42,7 +42,7 @@ When a release is created for the project, the work-items are collected from the
 
 ![Release work-items](release-work-items.png)
 
-When this release is deployed the metadata will be contributed to the deployment. They will appear in the preview.
+When this release is deployed the metadata from the release will be passed to the deployment. This metadata will be displayed in the deployment preview.
 
 ![Deployment preview](deploy-preview-work-items.png)
 
