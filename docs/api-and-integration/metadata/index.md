@@ -8,7 +8,7 @@ Octopus uses metadata about how a package was built and what it includes. One of
 
 This section details how to configure Octopus to integrate with your build server with these features.
 
-With this integration the build server parses Commit messages looking for references to work-items. Information about the work-items is then passed through the CI/CD pipeline and included in the release and deployment details.
+Once configured, your build server parses commit messages looking for references to work-items. Information about these work-items is then passed through the CI/CD pipeline and included in the release and deployment details.
 
 ## Building the Metadata
 
