@@ -22,7 +22,7 @@ To create the metadata file and get it to Octopus, use the Octopus _Metadata_ st
 
 The build server plugins work by parsing the commit messages that the development team enter as they make changes. This is the same approach used for Bamboo build integration with Jira and Github & GitHub issues.
 
-The metadata will appear in the package feed details for any package in the internal feed that has had metadata pushed for it.
+The metadata will appear in the package feed details for any package in the internal feed that has had metadata pushed.
 
 ![Package Details](package-detail.png)
 
