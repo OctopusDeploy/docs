@@ -12,7 +12,7 @@ Once configured, your build server parses commit messages looking for references
 
 ## Building the Metadata
 
-Octopus uses a custom metadata file as the method of transport for passing this information through the pipeline, the metadata file is pushed to the server separately and to the package itself.
+Octopus uses a custom metadata file as the method of transport for passing this information through the pipeline, pushing the file to the server separately from the package itself.
 
 Keeping the file separate allows for packages that are destined for external feeds to still provide the custom metadata file to Octopus. This means it will also for for things like container images that are being pushed to container repositories.
 
