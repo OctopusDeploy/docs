@@ -46,7 +46,7 @@ When this release is deployed the metadata from the release will be passed to th
 
 ![Deployment preview](deploy-preview-work-items.png)
 
-They will also appear on the task summary for the deployment.
+They are also displayed on the task summary for the deployment.
 
 ![Deployment work-items](deploy-work-items.png)
 
