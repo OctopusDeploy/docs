@@ -32,9 +32,10 @@ To complete the installation of the app from the marketplace you must configure 
 - Jira Base URL, i.e., https://your-jira-instance.atlassian.net.
 - Octopus Secret.
 
-And from the **Configuration/Jira Issue Tracker** page in Octopus:
+And from the **{{Configuration,Settings,Jira Issue Tracker}}** page in Octopus:
 
-![Octopus Jira Issue Tracker configuration](octo-jira-config.png)
+- Jira Connect App Password.
+- Octopus Installation ID.
 
 You'll probably want both of these open in separate browser windows/tabs to complete the configuration. On the Jira side you need to copy the _Octopus Installation Id_ from the Octopus page, and on the Octopus side you'll need to copy your Jira instance's *Base Url* and the *Octopus Secret* that appears on the Connect App configuration page to use as the *Jira Connect App Password*.
 
