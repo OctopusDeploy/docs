@@ -17,11 +17,10 @@ Fix bug with X
 Resolves MyOrg/SomeOtherRepo#1234
 ```
 
-`MyOrg/SomeOtherRepo#1234` refers to issue #1234 in the `SomeOtherRepo` repository belonging to the `MyOrg` organisation. While not all that common, this syntax is used when issues are tracked in a separate repo to the commit that resolves the issue.
+`MyOrg/SomeOtherRepo#1234` refers to issue #1234 in the `SomeOtherRepo` repository belonging to the `MyOrg` organization. While not all that common, this syntax is used when issues are tracked in a separate repo to the commit that resolves the issue.
 
 ## Commit Messages
 
 The parsing of the commit messages occurs in the build servers, and is based on the GitHub concepts around [closing issues using keywords](https://help.github.com/en/articles/closing-issues-using-keywords).
 
 The build plugins will look for these same keywords and pass with work-item details to Octopus when they are present.
-
