@@ -4,7 +4,7 @@ position: 20
 description: How to activate a static IP address with Octopus Cloud.
 ---
 
-For $10 a month you can purchase the option to have a static IP address assigned to your Octopus Cloud instance. This lets you:
+You can purchase the option to have a static IP address assigned to your Octopus Cloud instance. This lets you:
 
 - Connect to Listening Tentacles within your infrastructure from the Cloud.
 - Whitelist the static IP address of the Octopus server in your network configuration.
