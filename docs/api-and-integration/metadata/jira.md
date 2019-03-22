@@ -47,7 +47,9 @@ The next thing to configure relates back to the earlier note on environment type
 
 The fixed list of environment types are important for the tracking in Jira and this configuration allows you the flexibility of easily mapping any existing environments to a type.
 
-The environment name does get passed through to Jira, as shown in the earlier example, so the information is still available for you to see. Also note that if you are using multi-tenancy this is fully supported and what you will see in Jira is a per tenant per environment name. As an example, the following diagram illustrates an un-tenanted deployment to Dev and then a tenanted deployment to Dev of the same version (the text is truncated in the shot, the alt text for the link reads `Deploy work-items test release 0.0.5 to Dev for Tenant A`)
+The environment name also gets passed through to Jira, as shown in the earlier example. Also note that multi-tenancy is fully supported and the a deployment will show in Jira per tenant per environment name. 
+
+The following diagram illustrates an un-tenanted deployment to Dev and then a tenanted deployment to Dev of the same version (the text is truncated in the shot, the alt text for the link reads `Deploy work-items test release 0.0.5 to Dev for Tenant A`)
 
 ![Jira Multi-Tenant progress](jira-multi-tenant.png)
 
