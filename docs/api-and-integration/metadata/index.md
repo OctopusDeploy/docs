@@ -38,7 +38,7 @@ In this example, the project is using the primary package from the step named De
 
 ## Releases and Deployments
 
-When a release is created for the project, the selected package versions are used to collect the work-item list and it is shown with the release details.
+When a release is created for the project, the work-items are collected from the selected package versions and displayed with the release details.
 
 ![Release work-items](release-work-items.png)
 
