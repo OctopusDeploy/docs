@@ -41,7 +41,7 @@ You'll probably want both of these open in separate browser windows/tabs to comp
 
 ## Environment Settings
 
-The next thing to configure relates back to our earlier note on environment types VS environment names. In Octopus you'll need to map the Jira environment types for the environments that you're going to be tracking work-items for:
+The next thing to configure relates back to the earlier note on environment types and environment names. In Octopus you need to map the Jira environment types for the environments that you're going to be tracking work-items.
 
 ![Octopus Environment](octo-env.png)
 

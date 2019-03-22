@@ -4,7 +4,9 @@ description: Configuring Octopus metadata and work-item integration.
 position: 200
 ---
 
-This section details how to configure the custom metadata integration in Octopus. The metadata contains information about how a package was built and what it includes. The metadata includes work-items which represent the bugs and enhancements that are included in new releases of your software.
+Octopus uses metadata about how a package was built and what it includes. One of the most useful aspects of this is the work-items that represent the bugs and enhancements that are included in new build of your software.
+
+This section details how to configure Octopus to integrate with your build server with these features.
 
 With this integration the build server parses Commit messages looking for references to work-items. Information about the work-items is then passed through the CI/CD pipeline and included in the release and deployment details.
 
