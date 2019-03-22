@@ -26,7 +26,7 @@ The metadata will appear in the package feed details for any package in the inte
 
 ![Package Details](package-detail.png)
 
-If there is a specific issue tracker extension, e.g. Jira, enabled and configured that matches the work-items type the work-items will appear as a link to the issue tracking system. If not, the work-items will appear as plain text.
+If you have configured an issue tracker extension (e.g. Jira), that matches the work-items type, the work-items appear as a link to the issue tracking system. If not, the work-items appear as plain text.
 
 ## Project Settings
 
