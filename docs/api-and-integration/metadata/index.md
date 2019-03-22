@@ -14,7 +14,7 @@ Once configured, your build server parses commit messages looking for references
 
 Octopus uses a custom metadata file as the method of transport for passing this information through the pipeline, pushing the file to the server separately from the package itself.
 
-Keeping the file separate allows for packages that are destined for external feeds to still provide the custom metadata file to Octopus. This means it will also for for things like container images that are being pushed to container repositories.
+Keeping the file separate to the package means that packages stored in external feeds can still provide the custom metadata to Octopus. This means it also works for things like container images that are pushed to container repositories.
 
 To create the metadata file and get it to Octopus, use the Octopus _Metadata_ step in your build server (below is the TeamCity step for illustration).
 
