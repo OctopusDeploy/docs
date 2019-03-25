@@ -18,9 +18,9 @@ You are responsible for the routine maintenance of your Octopus database. Perfor
 
 You are responsible for taking database backups and testing your disaster recovery plans. Refer to [Backup and restore](/docs/administration/data/backup-and-restore.md) for more information about backing up Octopus Deploy and recovering from failure.
 
-### High Availabilty Databases {#highavailability}
+### High Availabilty Databases {#Octopusdatabase-highavailability}{#highavailability}
 
-Octopus Server does not support running against a Sql database with Database Mirroring or Sql Replication enabled. If you require a highly-available database solution, [Always On Availability Groups](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017) are recommended.  
+If you are looking for a highly-available database solution, we recommend using [Always On Availability Groups](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017). Unfortunately, Octopus Server does not support running against a SQL database with Database Mirroring or SQL Replication enabled.  
 
 ## Schema {#schema}
 
