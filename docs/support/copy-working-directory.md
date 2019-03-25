@@ -13,4 +13,4 @@ The copied directory will include a file which contains the secret one-time key 
 This directory (or at least the `Variable.secret` file) should be deleted once no longer required.
 :::
 
-This variable was created primarily for use by Octopus staff during development. We have documented it publicly as it has proven useful to our customers on occasion.  Please use it only for debugging purposes.  Do not rely on this behaviour as part of your deployment process. There is no guarantee it will not be removed in the future.
+This variable was created primarily for use by Octopus staff during development. We have documented it publicly as it has proven useful to our customers on occasion.  Please use it only for debugging purposes.  Do not rely on this behavior as part of your deployment process. There is no guarantee it will not be removed in the future.
