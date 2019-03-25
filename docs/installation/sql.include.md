@@ -18,3 +18,7 @@ Supported editions:
 - Enterprise
 - Microsoft Azure SQL Database
 - AWS RDS SQL Database
+
+::warning
+**Warning:** Octopus does not support Database Mirroring or SQL Server replication. Having these features turned on may cause errors during configuration. [More information](/docs/administration/data/octopus-database#highavailability)
+:::
