@@ -1,14 +1,14 @@
 ---
-title: Metadata and work-items
+title: Metadata and Work-Items
 description: Configuring Octopus metadata and work-item integration.
 position: 200
 ---
 
-Octopus uses metadata about how a package was built and what it includes. One of the most useful aspects of this is the work-items that represent the bugs and enhancements that are included in new build of your software.
+Octopus uses metadata that can tell you how a package was built and what went into the package. This metadata includes work-items which represent the bugs and enhancements that go into new builds of your software.
 
-This section details how to configure Octopus to integrate with your build server with these features.
+When configured, your build server parses commit messages looking for references to work-items. Information about these work-items is then passed through the CI/CD pipeline and included in the release and deployment details.
 
-Once configured, your build server parses commit messages looking for references to work-items. Information about these work-items is then passed through the CI/CD pipeline and included in the release and deployment details.
+This section explains how to configure Octopus to integrate your build server with these features.
 
 ## Building the Metadata
 
@@ -16,11 +16,11 @@ Octopus uses a custom metadata file as the method of transport for passing this 
 
 Keeping the file separate to the package means that packages stored in external feeds can still provide the custom metadata to Octopus. This means it also works for things like container images that are pushed to container repositories.
 
-To create the metadata file and get it to Octopus, use the Octopus _Metadata_ step in your build server (below is the TeamCity step for illustration).
+To create the metadata file and provide it to Octopus, use the Octopus _Metadata_ step in your build server (below is the TeamCity step for illustration).
 
 ![Package Metadata Step](metadata-step.png)
 
-The build server plugins work by parsing the commit messages that the development team enter as they make changes. This is the same approach used for Bamboo build integration with Jira and Github & GitHub issues.
+The build server plugins work by parsing the commit messages that the development team enter as they make changes. This is the same approach used for Bamboo build integration with Jira and Github and GitHub issues.
 
 The metadata will appear in the package feed details for any package in the internal feed that has had metadata pushed.
 
@@ -34,7 +34,7 @@ The next step is to tell your Octopus project which packages in its deployment p
 
 ![Octopus Project work-item settings](octo-project.png)
 
-In this example, the project is using the primary package from the step named Deploy. You can specify multiple packages if required. An example of where you might use this is a deployment process that includes steps for a Web App and a SQL database schema migration. The packages for both of those form the complete product and either or both could be contributing work-items.
+In this example, the project is using the primary package from the step named Deploy. You can specify multiple packages if required. An example of where you might use this is a deployment process that includes steps for a Web App and an SQL database schema migration. The packages for both of these form the complete product and either or both can contribute work-items.
 
 ## Releases and Deployments
 
@@ -52,11 +52,13 @@ They are also displayed on the task summary for the deployment.
 
 In some scenarios this one to one between releases and deployments will be the norm. Teams using continuous deployment may see a rapid progression of versions through their environments and on to production.
 
-Many teams won't be operating like this though. It is common that a number of releases will be prepared and tested before promoting to the next environment. For example, they may merge pull requests for several fixes/features and then deploy the final release to test. This could even be repeated several times and then eventually a final release progresses from test to production. In this situation the deployment to production isn't just the work-items from that last release, it is _the accumulation of all of the work-items in all of the releases since the last one that was deployed to production_.
+Many teams don't operate like this though. It is common for a number of releases to be prepared and tested before being promoting to the next environment. For example, they may merge pull requests for several fixes/features and then deploy the final release to test. This can be repeated several times and eventually a final release progresses from test to production. In this situation the deployment to production isn't just the work-items from that last release, it is _the accumulation of all of the work-items in all of the releases since the last one that was deployed to production_.
 
-This accumulation logic is how Octopus always determines the metadata list, it's always the accumulation since the last deployment to the given "scope". A scope in this context is the combination of deployment environment and tenant (if multi-tenancy is in play).
+This accumulation logic is how Octopus always determines the metadata list, it's always the accumulation since the last deployment to the given "scope". A scope in this context is the combination of deployment environment and tenant (if [multi-tenancy](/docs/deployment-patterns/multi-tenant-deployments/index.md) is in play).
 
-Given that you can initiate deployments to multiple "scopes" at once in Octopus it is quite conceivable, and expected, that you could see different work-items lists for each scope. Let's consider a couple of examples, first two tenants in the same environment. In this case if tenant A is on an earlier version than tenant B the the result list for tenant A would be the list for tenant B plus the additional work-items between the version it was on and the version tenant B was on.
+Given that you can initiate deployments to multiple "scopes" at once in Octopus it is expected that you could see different work-items lists for each scope. 
+
+For instance, if you have two tenants in the same environment, and **tenant A** is on an earlier version than **tenant B**, the resulting list for **tenant A** will be the list for **tenant B** plus the additional work-items between the version it was on and the version **tenant B** was on.
 
 As a second example, imagine you have two environments in a lifecycle, but you don't always deploy to one of them. Let's use staging and a performance test environment as an example. Maybe you periodically deploy to the performance environment to check for regressions but not every time you deploy to staging. The work-items for the performance environment would be the same as staging plus the additional work-items for the releases in between.
 
