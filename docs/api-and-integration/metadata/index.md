@@ -56,15 +56,15 @@ Many teams don't operate like this though. It is common for a number of releases
 
 This accumulation logic is how Octopus always determines the metadata list, it's always the accumulation since the last deployment to the given "scope". A scope in this context is the combination of deployment environment and tenant (if [multi-tenancy](/docs/deployment-patterns/multi-tenant-deployments/index.md) is in play).
 
-Given that you can initiate deployments to multiple "scopes" at once in Octopus it is expected that you could see different work-items lists for each scope. 
+Given that you can initiate deployments to multiple "scopes" at once in Octopus it is expected that you could see different work-items lists for each scope.
 
 For instance, if you have two tenants in the same environment, and **tenant A** is on an earlier version than **tenant B**, the resulting list for **tenant A** will be the list for **tenant B** plus the additional work-items between the version it was on and the version **tenant B** was on.
 
-As a second example, imagine you have two environments in a lifecycle, but you don't always deploy to one of them. Let's use staging and a performance test environment as an example. Maybe you periodically deploy to the performance environment to check for regressions but not every time you deploy to staging. The work-items for the performance environment would be the same as staging plus the additional work-items for the releases in between.
+As a second example, imagine you have two environments in a lifecycle, for instance, **staging** and **performance**, but you don't always deploy to one of the environments. Maybe you periodically deploy to the **performance** environment to check for regressions but not every time you deploy to **staging**. The work-items for the **performance** environment will be the same as **staging** plus the additional work-items for the releases in between.
 
 ## Deploy a Release Step
 
-The Octopus [deploy release step](https://g.octopushq.com/DeployReleaseStep) adds an interesting dimension to metadata accumulation. When you use this step Octopus treats each "child project" like it is a package. Following from this reasoning, it also treats the child project's release as a potential source for metadata.
+The Octopus [deploy release step](https://g.octopushq.com/DeployReleaseStep) adds an interesting dimension to metadata accumulation. When you use this step Octopus treats each "child project" like it is a package. It also treats the child project's release as a potential source for metadata.
 
 On the project settings you can select a deploy release step and use it the same as any other package from the internal feed. When creating the releases in the "parent project" Octopus accumulates the release notes and metadata from the child projects just as it would for packages.
 
@@ -92,7 +92,7 @@ public class WorkItemLink
 
 There is an entry per release and it includes the release notes and the metadata for each of the packages in that release.
 
-The following example uses these variables to generate the HTML body for the Octopus email step.
+The following example uses these variables to generate the HTML body for the Octopus email step:
 
 ```html
 Here are the notes:<br/>
@@ -110,11 +110,13 @@ Here are the notes:<br/>
 #{/each}
 ```
 
-Note that the if/unless is included for illustration purposes. The links can end up without a LinkUrl if the related extension (e.g. Jira) is disabled. If you know it's going to be enabled then just use the anchor.
+Note that the if/unless is included for illustration purposes.
+
+If the related extension (e.g., Jira) is disabled the links will not have a LinkUrl. If you know it's going to be enabled then just use the anchor.
 
 ## Issue Trackers
 
-If you are using an issue tracker like Jira, Octopus can also be integrated with it to provide information about the progress of work-items. For more details see
+If you are using an issue tracker like Jira, Octopus can also be integrated with it to provide information about the progress of work-items. For more details see:
 
 - [Jira Issue Tracker](jira.md)
 - [GitHub Issue Tracker](github.md)

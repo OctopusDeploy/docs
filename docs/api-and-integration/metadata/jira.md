@@ -3,41 +3,36 @@ title: Jira Integration
 description: Configuring Octopus integration with Hosted Jira.
 ---
 
-In addition to being able to [track metadata and work item](index.md) information through your CI/CD pipeline, Octopus can also integrate with Jira to provide progress information related to the work items during deployments.
+In addition to being able to [track metadata and work-item](index.md) information through your CI/CD pipeline, Octopus can also integrate with Jira to provide progress information related to the work-items during deployments.
 
-The integration to Jira is additional to the work-item tracking built in to Octopus. The configuration described below assumes you already have the work-item tracking enabled in your pipeline and packages.
+The integration to Jira is additional to the work-item tracking built in to Octopus. The configuration described below assumes you already have work-item tracking enabled in your pipeline and packages.
+
+This functionality is only available with the SaaS version of Jira. However, it can be used with either self-hosted Octopus or Octopus Cloud.
 
 ## Deployment Events
 
-To set the scene, the end goal of the integration is to provide Jira with updates on the progress of work-items through the pipeline. It will display information similar to the following when it receives these updates for the work-items:
+The goal of this integration is to provide Jira with updates on the progress of work-items through the pipeline. It will display information similar to the following when it receives these updates for the work-items:
 
 ![Jira Deployments](jira-deployment.png)
 
 Note that **Development** here refers to an environment **type**, not an environment name. The environment name in Octopus in this example was actually **Azure-Dev**. See below for more detail on where this becomes important.
 
-Another important thing to note here is that the link in the image above will link to the deployment in Octopus. In order for Octopus to feed this Url to Jira **you must have the Server Uri configured on the Configuration/Nodes page**.
-
-Should this be a `note` callout?
+:::warning
+It is important to note the link in the above image will link to the deployment in Octopus. In order for Octopus to feed this URL to Jira you must have the Server URI configured on the Configuration/Nodes page.
+:::
 
 ## Octopus Connect App and the Jira Extension
 
-Something worth pointing out at this point is that the Jira functionality we're demonstrating here is only available in the SaaS version of Jira. There isn't a SaaS requirement on the Octopus side of the integration though, so you can use either a self-hosted or Cloud version of Octopus.
-
-With that in mind, the first step in the integration is to add the Octopus Connect App in the Jira marketplace.
+The first step to configure the integration is adding the Octopus Connect App in the Jira marketplace.
 
 ***TODO: add a screenshot of the marketplace tile***
 
-To complete the installation of the app from the marketplace you must configure some security related values. This requires aligning a couple of pieces of information from the page that appears in Jira:
+To complete the installation of the app from the marketplace, you must add the following values from Jira App configuration page to Octopus by navigating to **{{Configuration,Settings,Jira Issue Tracker}}** in  Octopus:
 
 - Jira Base URL, i.e., https://your-jira-instance.atlassian.net.
-- Octopus Secret.
+- Octopus Secret (enter the Octopus Secret into the **Jira Connect App Password** field.)
 
-And from the **{{Configuration,Settings,Jira Issue Tracker}}** page in Octopus:
-
-- Jira Connect App Password.
-- Octopus Installation ID.
-
-You'll probably want both of these open in separate browser windows/tabs to complete the configuration. On the Jira side you need to copy the **Octopus Installation ID** from the Octopus page, and on the Octopus side you'll need to copy your Jira instance's **Base Url** and the **Octopus Secret** that appears on the Connect App configuration page to use as the **Jira Connect App Password**.
+And from the **{{Configuration,Settings,Jira Issue Tracker}}** page in Octopus, you need to copy the **Octopus InstallationID** and add it to Jira App configuration.
 
 ## Environment Settings
 
@@ -45,11 +40,11 @@ The next thing to configure relates back to the earlier note on environment type
 
 ![Octopus Environment](octo-env.png)
 
-The fixed list of environment types are important for the tracking in Jira and this configuration allows you the flexibility of easily mapping any existing environments to a type.
+The fixed list of environment types are important for the tracking in Jira, and this configuration gives you the flexibility of easily mapping any existing environments to a type.
 
-The environment name also gets passed through to Jira, as shown in the earlier example. Also note that multi-tenancy is fully supported and the a deployment will show in Jira per tenant per environment name. 
+The environment name also gets passed through to Jira, as shown in the earlier example. Also note that multi-tenancy is fully supported and the deployment will show in Jira per tenant per environment name.
 
-The following diagram illustrates an un-tenanted deployment to Dev and then a tenanted deployment to Dev of the same version (the text is truncated in the shot, the alt text for the link reads `Deploy work-items test release 0.0.5 to Dev for Tenant A`)
+The following diagram illustrates an un-tenanted deployment to Dev and then a tenanted deployment to Dev of the same version (the text is truncated in the screenshot, the alt text for the link reads `Deploy work-items test release 0.0.5 to Dev for Tenant A`)
 
 ![Jira Multi-Tenant progress](jira-multi-tenant.png)
 
