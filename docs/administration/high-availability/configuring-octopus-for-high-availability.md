@@ -33,7 +33,7 @@ Octopus: HA works with:
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
 - [Amazon Relational Database Services (RDS)](https://aws.amazon.com/rds/)
 
-Octopus: HA has not been tested with Log Shipping or Database Mirroring, and does not support SQL Server replication. [More information](/docs/administration/data/octopus-database#highavailability)
+Octopus: HA has not been tested with Log Shipping or Database Mirroring, and does not support SQL Server replication. [More information](/docs/administration/data/octopus-database/index.md#highavailability)
 
 See also: [SQL Server Database](/docs/installation/sql-server-database.md), which explains the editions and versions of SQL Server that Octopus supports, and explains the requirements for how the database must be configured.
 
