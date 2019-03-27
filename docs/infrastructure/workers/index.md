@@ -56,6 +56,8 @@ The Octopus server has an built-in worker that can deploy packages, execute scri
 
 The **built-in worker** is executed on the same machine as the Octopus server.  When the built-in worker is needed to execute a step, the Octopus Server spawns a new process and runs the step using Calamari.  The spawned process is either under the server's security context (default) or under a [context configured for the built-in worker](/docs/infrastructure/workers/built-in-worker.md#Running-tasks-on-the-Octopus-Server-as-a-different-user).
 
+Adding a worker to the default worker pool will disable the built-in worker, and steps will no longer run on the Octopus Server.
+
 Learn about the security implications and how to configure the [built-in worker](/docs/infrastructure/workers/built-in-worker.md).
 
 ## External Workers {#external-workers}
