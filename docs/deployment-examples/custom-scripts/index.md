@@ -32,7 +32,7 @@ If you're executing a script contained within a package, the package contents wi
 
 ## Collecting Artifacts {#Customscripts-Collectingartifacts}
 
-If your deployment produce a log file, configuration files, binaries, or test results that you want to publish and keep as part of your deployment, your scripts can instruct the Octopus Server to collect files as deployment artifacts. Refer to the documentation on [artifacts](/docs/deployment-process/artifacts.md) for more information.
+If your deployment produce a log file, configuration files, binaries, or test results that you want to publish and keep as part of your deployment, your scripts can instruct the Octopus Server to collect files as deployment [artifacts](/docs/deployment-process/artifacts.md).
 
 ```powershell PowerShell
 New-OctopusArtifact -Path "C:\Windows\System32\drivers\etc\hosts" -Name "$([System.Environment]::MachineName)-hosts.txt"
