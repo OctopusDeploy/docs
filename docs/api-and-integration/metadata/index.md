@@ -4,9 +4,9 @@ description: Configuring Octopus metadata and work-item integration.
 position: 200
 ---
 
-Octopus uses metadata that can tell you how a package was built and what went into the package. This metadata includes work-items which represent the bugs and enhancements that go into new builds of your software.
+Octopus uses metadata that can tell you how a package was built and what went into the package. This metadata includes work items which represent the bugs and enhancements that go into new builds of your software.
 
-When configured, your build server parses commit messages looking for references to work-items. Information about these work-items is then passed through the CI/CD pipeline and included in the release and deployment details.
+When configured, your build server parses commit messages looking for references to work items. Information about these work items is then passed through the CI/CD pipeline and included in the release and deployment details.
 
 This section explains how to configure Octopus to integrate your build server with these features.
 
@@ -16,25 +16,17 @@ Octopus uses a custom metadata file as the method of transport for passing this 
 
 Keeping the file separate to the package means that packages stored in external feeds can still provide the custom metadata to Octopus. This means it also works for things like container images that are pushed to container repositories.
 
-To create the metadata file and provide it to Octopus, use the Octopus _Metadata_ step in your build server (below is the TeamCity step for illustration).
+To create the metadata file and provide it to Octopus, use the Octopus _Metadata_ step in your build server (below is the TeamCity version of the step for illustration).
 
 ![Package Metadata Step](metadata-step.png)
 
-The build server plugins work by parsing the commit messages that the development team enter as they make changes. This is the same approach used for Bamboo build integration with Jira and Github and GitHub issues.
+The **Commit processing** tells Octopus which format of work item references to look for in the commit messages.
 
 The metadata will appear in the package feed details for any package in the internal feed that has had metadata pushed.
 
 ![Package Details](package-detail.png)
 
 If you have configured an issue tracker extension (e.g. Jira), that matches the work-items type, the work-items appear as a link to the issue tracking system. If not, the work-items appear as plain text.
-
-## Project Settings
-
-The next step is to tell your Octopus project which packages in its deployment process contain metadata that you want included in the releases and deployments.
-
-![Octopus Project work-item settings](octo-project.png)
-
-In this example, the project is using the primary package from the step named Deploy. You can specify multiple packages if required. An example of where you might use this is a deployment process that includes steps for a Web App and an SQL database schema migration. The packages for both of these form the complete product and either or both can contribute work-items.
 
 ## Releases and Deployments
 
@@ -45,6 +37,8 @@ When a release is created for the project, the work-items are collected from the
 When this release is deployed the metadata from the release will be passed to the deployment. This metadata will be displayed in the deployment preview.
 
 ![Deployment preview](deploy-preview-work-items.png)
+
+![Deployment preview expanded](deploy-preview-expanded.png)
 
 They are also displayed on the task summary for the deployment.
 
