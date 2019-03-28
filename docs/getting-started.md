@@ -1,6 +1,6 @@
 ---
 title: Getting Started
-description: Need help getting started with Octopus? This section provides a conceptual overview of Octopus Deploy, guiding you through you own self-hosted or cloud-hosted Octopus server.
+description: Need help getting started with Octopus? This section provides a conceptual overview of Octopus Deploy, guiding you through your own self-hosted or cloud-hosted Octopus server.
 position: 0
 ---
 
