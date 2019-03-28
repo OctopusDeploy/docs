@@ -11,6 +11,10 @@ We recommend taking a two-phase approach when moving to **deployment process as 
 1. Start with [scripts as code](#scripts-as-code) - this method offers the best cost/reward ratio, is the simplest to implement and maintain over time.
 2. Move towards [project as code](#project-as-code) - this method is more difficult to set up, but comes with the benefit of having your entire Octopus project managed as code.
 
+:::tip
+We use `git` at Octopus and the rest of this pattern provides examples using `git` idioms. The same principles apply regardless of your source control tool of choice.
+:::
+
 !toc
 
 ## Scripts as code {#scripts-as-code}
@@ -30,8 +34,7 @@ You can follow this process to move your custom scripts without interrupting dep
 
 Now your scripts are colocated with your application source code, all without changing your build pipeline.
 
-Learn about [executing custom scripts in packages](/docs/deployment-examples/custom-scripts/scripts-in-packages/index.md).
-Learn about [custom scripts](/docs/deployment-examples/custom-scripts/index.md).
+Learn about [custom scripts](/docs/deployment-examples/custom-scripts/index.md) and [executing custom scripts in packages](/docs/deployment-examples/custom-scripts/scripts-in-packages/index.md).
 
 ### Consistency and repeatability using scripts as code
 
@@ -73,23 +76,45 @@ The process flow using **project as code** looks similar to what you already hav
 
 ### Configure Octopus using code {#configure-octopus-using-code}
 
-Octopus has a comprehensive HTTP API and .NET SDK you can use to automate **everything** in Octopus - if you can do something through the user interface, you can automate it with code. You can create and update projects, variables, deployment processes, and more. Today, this is our only fully-supported **Octopus as Code** solution.
+Octopus has a comprehensive HTTP API and .NET SDK you can use to automate **everything** in Octopus - if you can do something through the user interface, you can automate it with code. You can create and update projects, variables, deployment processes, and more. As a downside to this approach it is a lot of work: you need to write code that detects drift and applies deltas, or is idempotent. Today, this is our only fully-supported solution to define your Octopus configuration as code.
 
-There is an [open source Terraform provider for Octopus](https://github.com/MattHodge/terraform-provider-octopusdeploy), which is built on top of the Octopus HTTP API. We are using this Terraform provider ourselves for [Octopus Cloud](https://octopus.com/cloud) (our SaaS product), and we are actively contributing to it. It doesn’t cover 100% of all Octopus features yet, and the structure of the Terraform resources are subject to change. We will be building first-class support for this into the Octopus ecosystem in the future.
+There is an [open source Terraform provider for Octopus](https://github.com/OctopusDeploy/terraform-provider-octopusdeploy), which is built on top of the Octopus HTTP API. The Terraform provider for Octopus detects drift and applies deltas. We are using this Terraform provider ourselves for [Octopus Cloud](https://octopus.com/cloud) (our SaaS product), and we are actively contributing to the provider. It doesn’t cover 100% of all Octopus features yet, and the structure of the Terraform resources are subject to change. We will be building first-class support for this into the Octopus ecosystem in the future.
 
 If you want to do **Octopus configuration as code** today, we recommend using our .NET SDK which will always be supported. The Terraform provider will be a simpler, more declarative approach that we will support in the future.
 
 ### Consistency and repeatability using project as code
 
-When manage your Octopus configuration as code, Octopus still makes sure your deployments are consistent and repeatable. Whenever you push a configuration change to your Octopus project via code, it's just like people using the user interface or API to make changes. When you create a release, Octopus takes a snapshot of the deployment process, variables, and packages making every deployment of that release consistent and repeatable, regardless of whether the project was configured by a person or by code.
+When managing your Octopus configuration as code, Octopus still makes sure your deployments are consistent and repeatable. Whenever you push a configuration change to your Octopus project via code, it's just like people using the user interface or API to make changes. When you create a release, Octopus takes a snapshot of the deployment process, variables, and packages making every deployment of that release consistent and repeatable, regardless of whether the project was configured by a person or by code.
 
 This means you can push configuration changes to Octopus as code, and get the same consistent and repeatable experience you expect for your deployments.
 
 ### Introducing changes safely using project as code
 
-This is where things get a bit more difficult compared to the [scripts as code](#scripts-as-code) pattern.
+This is where things get a bit more difficult compared to the [scripts as code](#scripts-as-code) pattern. You can approach this problem in several ways, where one approach will suit your scenario better than others:
 
-As a starting point, we recommend **pushing configuration changes from one specific branch into Octopus.** Using the example of git, you should only push changes from the `master` branch into Octopus, and use [Channels](/docs/deployment-process/channels/index.md) to safely introduce changes to your process and variables.
+1. *Space-per-branch*: In this approach you push your configuration changes from each branch in your source control repository into a unique space in Octopus. A space is a sandbox containing all the things you need for your application or set of applications. By using a space-per-branch you dynamically create little "parallel universes" in the same Octopus Server, safely isolated from each other, then tear them down when you are done. This approach is suitable in most situations since it offers the best isolation and most flexibility. It is especially appropriate for service-oriented architectures and microservice architectures where you may have many projects interacting with each other.
+2. *Blessed branch*: In this approach you only push configuration changes from a specific branch, like `master` in most git repositories. This approach is suitable in some simpler scenarios where you don't expect to change your deployment process very often.
+
+#### Space-per-branch approach
+
+In this approach you will be pushing configuration changes from **any branch** into a unique space in Octopus, using a naming convention. Here is one potential naming convention you could use:
+
+- `master` targets the space called `MySpace-master` (or `MySpace` if you don't like the suffix)
+- `feature-rocksville` targets the space called `MySpace-rocksville`
+- `feature-planetside` targets the space called `MySpace-planetside`
+
+The general process should look something like this, tailored to your situation:
+
+1. Create a new branch to isolate your changes, named something like `feature-rocksville`.
+1. Make the changes on your branch.
+1. In your build pipeline, push the changes to the correct space like `MySpace-rocksville`, creating the space if it doesn't exist already.
+1. Test your changes in your space.
+1. When you are happy the changes are safe to share, merge the `feature-rocksville` branch into `master` allowing those changes to flow through to the `MySpace-master` space.
+1. Clean up by deleting the `feature-rocksville` space.
+
+#### Blessed branch approach
+
+In this approach you will be pushing configuration changes from **one specific branch** into Octopus. Using the example of git, you should only push changes from the `master` branch into Octopus, and use [Channels](/docs/deployment-process/channels/index.md) to safely introduce changes to your process and variables.
 
 The general process should look something like this, tailored to your situation:
 
