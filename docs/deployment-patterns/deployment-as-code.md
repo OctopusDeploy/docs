@@ -1,21 +1,21 @@
 ---
-title: Deployment as code
-description: With Octopus you can manage your deployments as code. This means you can define your deployment process, scripts, and variables in source code. You can store this configuration in the same source control repository as your application source code, or somewhere else. This page describes the different options available in Octopus to store your deployments as code.
+title: Deployment process as code
+description: With Octopus you can manage your deployment process as code. This means you can define your deployment process, scripts, and variables in source code. You can store this configuration in the same source control repository as your application source code, or somewhere else. This page describes the different options available in Octopus to store your deployment process as code.
 position: 4
 ---
 
-With Octopus you can manage your deployments as code. This means you can define your deployment process, scripts, and variables in source code. You can store this configuration in the same source control repository as your application source code, or somewhere else. This page describes the different options available in Octopus to store your deployments as code.
+With Octopus you can manage your deployment process as code. This means you can define your deployment process, scripts, and variables in source code. You can store this configuration in the same source control repository as your application source code, or somewhere else. This page describes the different options available in Octopus to store your deployment process as code.
 
-We recommend taking a two-phase approach when moving to **deployment as code**:
+We recommend taking a two-phase approach when moving to **deployment process as code**:
 
 1. Start with [scripts as code](#scripts-as-code) - this method offers the best cost/reward ratio, is the simplest to implement and maintain over time.
-2. Move towards [project as code](#project-as-code) - this method is more difficult to set up, but comes with the benefit of having your deployment managed as code.
+2. Move towards [project as code](#project-as-code) - this method is more difficult to set up, but comes with the benefit of having your entire Octopus project managed as code.
 
 !toc
 
 ## Scripts as code {#scripts-as-code}
 
-The simplest way to get started with **deployment as code** is to manage your custom deployment **scripts as code**. When you deploy your application, Octopus can execute a script contained inside a package. You can colocate your deployment scripts with your application source code, leveraging all the benefits of source control including change tracking and branching, then package it all up for Octopus.
+The simplest way to get started with **deployment process as code** is to manage your custom deployment **scripts as code**. When you deploy your application, Octopus can execute a script contained inside a package. You can colocate your deployment scripts with your application source code, leveraging all the benefits of source control including change tracking and branching, then package it all up for Octopus.
 
 There is a downside to stopping here: your scripts are managed as code, but your deployment process and variables are still controlled by Octopus. Depending on your situation, this tradeoff might be quite acceptable.
 
@@ -47,7 +47,7 @@ Branches in source control let you test application code changes in isolation be
 
 ## Project as code {#project-as-code}
 
-The next level of **deployment as code** is to define the configuration of your Octopus **project as code**, primarly the deployment process and variables. You can colocate your Octopus project configuration with your application source code, adding a step to your build process which pushes the configuration changes to your Octopus project.
+The next level of **deployment process as code** is to define the configuration of your Octopus **project as code**, primarly the deployment process and variables. You can colocate your Octopus project configuration with your application source code, adding a step to your build process which pushes the configuration changes to your Octopus project.
 
 This approach is more complex since you need to change your build pipeline, and train people how to treat the code as the source of truth for these parts of your project.
 
