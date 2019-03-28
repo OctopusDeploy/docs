@@ -1,6 +1,7 @@
 ---
 title: Deploy an Ingress Resource
 description: Deploy an ingress resource to a Kubernetes cluster.
+position: 40
 ---
 
 [Ingress resources](http://g.octopushq.com/KubernetesIngressResource) provide a way to direct HTTP traffic to Service resources based on the requested host and path.

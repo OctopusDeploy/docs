@@ -22,7 +22,7 @@ Deployment targets are added in different ways, depending on the type of target
 - [Azure Web App](/docs/infrastructure/deployment-targets/azure/web-app-targets/index.md)
 - [Azure Cloud Service](/docs/infrastructure/deployment-targets/azure/cloud-service-targets/index.md)
 - [Azure Service Fabric Cluster](/docs/infrastructure/deployment-targets/azure/service-fabric-cluster-targets/index.md)
-- [Kubernetes Cluster](/docs/infrastructure/deployment-targets/kubernetes-cluster.md)
+- [Kubernetes Target](/docs/infrastructure/deployment-targets/kubernetes-target.md)
 - [Offline Package Drop](/docs/infrastructure/deployment-targets/offline-package-drop.md)
 - [Cloud Regions](/docs/infrastructure/deployment-targets/cloud-regions.md)
 

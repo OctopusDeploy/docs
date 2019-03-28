@@ -4,8 +4,8 @@ description: Octopus Deploy provides support for deploying Kubernetes resources.
 position: 100
 ---
 
-Octopus provides integrated support for deploying Kubernetes resources such as Deployments, Services, and Ingress, as well as running scripts against a Kubernetes cluster.
+Octopus provides integrated support for deploying Kubernetes resources such as [Deployments](/docs/deployment-examples/kubernetes-deployments/), [Services](/docs/deployment-examples/kubernetes-deployments/), and [Ingress](/docs/deployment-examples/kubernetes-deployments/), as well as running scripts against a Kubernetes cluster.
 
-:::success
-To make use of the Kubernetes steps, the Octopus server or workers that will run the steps need to have the `kubectl` executable installed. Linux workers also need to have the `jq`, `xargs` and `base64` applications installed.
-:::
+## Kubernetes Targets
+
+Kubernetes targets are used by the Kubernetes steps to define the context in which deployments and scripts are run. Learn how to configure [Kubernetes Deployment Targets](/docs/infrastructure/deployment-targets/kubernetes-target/index.md).
