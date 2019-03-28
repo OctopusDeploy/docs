@@ -249,6 +249,7 @@ The TCP ports listed below are defaults, and can be changed if required - refer 
 |---|---|---|---|---|---|
 |Listening Tentacle|`TCP 10933`|Octopus Server|Listening Tentacles|ALLOW|Required when using [Listening Tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommended) as deployment targets or external workers.|
 |MS SQL|`TCP 1433`|Octopus Server|SQL Server|ALLOW|Allows Octopus Server to connect to its SQL Server database.|
+|MS SQL|`UDP 1434`|Octopus Server|SQL Server|ALLOW|Allows Octopus Server to connect to a named instance using the SQL Server Browser Service. This may not be required in your configuration.|
 |SMB|`TCP 445`|Octopus Server|Anywhere|DENY|Prevents attackers from spreading malware via known SMB vulnerabilities.|
 |RDP|`TCP 3389`|Octopus Server|Anywhere|DENY|Prevents attackers from using the Octopus Server as a beachhead into your network via RDP.|
 |WinRM-HTTP|`TCP 5985`|Octopus Server|Anywhere|DENY|Prevents attackers from using the Octopus Server as a beachhead into your network via unsecured WinRM.|
