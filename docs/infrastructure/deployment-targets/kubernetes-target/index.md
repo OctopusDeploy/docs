@@ -118,7 +118,7 @@ users:
       -inkey private.key
     ```
 
-    This file can then be uploaded to the [Octopus certificate management area](/docs/deployment-examples/certificates), after which, it will be made available to the Kubernetes target.
+    This file can then be uploaded to the [Octopus certificate management area](/docs/deployment-examples/certificates/index.md), after which, it will be made available to the Kubernetes target.
 
     The Certificates Library can be access via **{{Library>Certificates}}**.
 
