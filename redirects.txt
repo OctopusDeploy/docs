@@ -761,3 +761,5 @@ docs/deployment-process/variables/environment-specific-configuration-transforms-
 docs/deployment-examples/custom-scripts/standalone-scripts.md -> docs/deployment-examples/custom-scripts/run-a-script-step.md
 docs/deployment-examples/custom-scripts/debugging-powershell-scripts-on-remote-machines.md -> docs/deployment-examples/custom-scripts/debugging-powershell-scripts/debugging-powershell-scripts-on-remote-machines.md
 docs/deployment-examples/custom-scripts/reference-files-within-a-package.md -> docs/deployment-examples/custom-scripts/scripts-in-packages/reference-files-within-a-package.md
+docs/deployment-examples/kubernetes-deployments/kubernetes-target/index.md -> docs/infrastructure/deployment-targets/kubernetes-target/index.md
+docs/infrastructure/deployment-targets/kubernetes-cluster/index.md -> docs/infrastructure/deployment-targets/kubernetes-target/index.md
