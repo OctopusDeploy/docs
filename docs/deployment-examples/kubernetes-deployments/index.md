@@ -4,7 +4,7 @@ description: Octopus Deploy provides support for deploying Kubernetes resources.
 position: 100
 ---
 
-Octopus provides integrated support for deploying Kubernetes resources such as [Deployments](/docs/deployment-examples/kubernetes-deployments/), [Services](/docs/deployment-examples/kubernetes-deployments/), and [Ingress](/docs/deployment-examples/kubernetes-deployments/), as well as running scripts against a Kubernetes cluster.
+Octopus provides integrated support for deploying Kubernetes resources such as [Deployments](/docs/deployment-examples/kubernetes-deployments/deploy-container/index.md), [Services](/docs/deployment-examples/kubernetes-deployments/deploy-service/index.md), and [Ingress](/docs/deployment-examples/kubernetes-deployments/deploy-ingress.md), as well as running scripts against a Kubernetes cluster.
 
 ## Kubernetes Targets
 
