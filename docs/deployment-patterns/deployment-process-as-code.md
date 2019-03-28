@@ -47,7 +47,7 @@ Branches in source control let you test application code changes in isolation be
 
 ## Project as code {#project-as-code}
 
-The next level of **deployment process as code** is to define the configuration of your Octopus **project as code**, primarly the deployment process and variables. You can colocate your Octopus project configuration with your application source code, adding a step to your build process which pushes the configuration changes to your Octopus project.
+Another approach to **deployment process as code** is to define the configuration of your Octopus **project as code**, primarly the deployment process and variables. You can colocate your Octopus project configuration with your application source code, adding a step to your build process which pushes the configuration changes to your Octopus project.
 
 This approach is more complex since you need to change your build pipeline, and train people how to treat the code as the source of truth for these parts of your project.
 
