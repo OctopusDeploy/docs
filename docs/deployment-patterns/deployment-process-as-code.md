@@ -125,10 +125,11 @@ The general process should look something like this, tailored to your situation:
 1. Test your change by deploying releases through your channel.
   a. If you are unhappy with your change, fix it in your branch, get a peer to review your new commits, merge the new commits to `master`, and repeat your testing.
 1. When you are happy the changes are safe to share:
-  a. Remove the channel scoping from your changes in your branch.
-  b. Get a peer to review this final change.
-  c. Merge your changes to the `master` branch.
-  d. Test your brand new deployment through the `master` branch and your main channel.
+
+    1. Remove the channel scoping from your changes in your branch.
+    1. Get a peer to review this final change.
+    1. Merge your changes to the `master` branch.
+    1. Test your brand new deployment through the `master` branch and your main channel.
   e. If something goes wrong, you can revert the single commit, isolating your changes back to your channel.
 
 :::hint
