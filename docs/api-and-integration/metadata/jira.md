@@ -7,19 +7,13 @@ In addition to being able to [track metadata and work-item](index.md) informatio
 
 The integration to Jira is additional to the work-item tracking built in to Octopus. The configuration described below assumes you already have work-item tracking enabled in your pipeline and packages.
 
-This functionality is only available with the SaaS version of Jira. However, it can be used with either self-hosted Octopus or Octopus Cloud.
+## Levels of integration
 
-## Deployment Events
+There are several levels of integration available for Jira. The first allows Octopus to parse the commits looking for Jira work item references, this is available as soon as the Jira Issue Tracker extension is enabled.
 
-The goal of this integration is to provide Jira with updates on the progress of work-items through the pipeline. It will display information similar to the following when it receives these updates for the work-items:
+The second level of integration is providing links to Jira for the work items that are found. This occurs once the BaseUrl is set on the extension.
 
-![Jira Deployments](jira-deployment.png)
-
-Note that **Development** here refers to an environment **type**, not an environment name. The environment name in Octopus in this example was actually **Azure-Dev**. See below for more detail on where this becomes important.
-
-:::warning
-It is important to note the link in the above image will link to the deployment in Octopus. In order for Octopus to feed this URL to Jira you must have the Server URI configured on the Configuration/Nodes page.
-:::
+These first two levels of integration work whether your Jira instance is OnPrem or SaaS. The third level of integration allows Octopus to update Jira when deployments occur, and **is only available with the SaaS version of Jira**. It becomes enabled once the Connect App is configured (see below) and the Octopus server's Uri is set in {{Configuration,Nodes}}.
 
 ## Octopus Connect App and the Jira Extension
 
@@ -57,3 +51,15 @@ The following illustrates where Octopus tried to send an _in_progress_, and then
 ![Deployment task log](deploy-task-log.png)
 
 On success the blocks will appear with green text just like the other blocks in the log.
+
+## Deployment Events
+
+The end result of this integration is to provide Jira with updates on the progress of work-items through the pipeline. It will display information similar to the following when it receives these updates for the work-items:
+
+![Jira Deployments](C:/Source/docs/docs/api-and-integration/metadata/jira-deployment.png)
+
+Note that, as discussed above, **Testing**, and **Development** here refer to environment types and not an environment names.
+
+:::warning
+It is important to note the link in the above image will link to the deployment in Octopus. In order for Octopus to feed this URL to Jira you must have the Server URI configured on the {{Configuration,Nodes}} page.
+:::
