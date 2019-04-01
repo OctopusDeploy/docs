@@ -56,7 +56,7 @@ On success the blocks will appear with green text just like the other blocks in 
 
 The end result of this integration is to provide Jira with updates on the progress of work-items through the pipeline. It will display information similar to the following when it receives these updates for the work-items:
 
-![Jira Deployments](C:/Source/docs/docs/api-and-integration/metadata/jira-deployment.png)
+![Jira Deployments](jira-deployment.png)
 
 Note that, as discussed above, **Testing**, and **Development** here refer to environment types and not an environment names.
 
