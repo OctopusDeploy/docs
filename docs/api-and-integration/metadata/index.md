@@ -1,6 +1,6 @@
 ---
-title: Metadata and Work-Items
-description: Configuring Octopus metadata and work-item integration.
+title: Metadata and Work Items
+description: Configuring Octopus metadata and work item integration.
 position: 200
 ---
 
@@ -14,7 +14,7 @@ This diagram depicts multiple releases and deployments that have occurred over t
 
 The deployments for `1.0.3` illustrate a more complex roll-up of work items. When `1.0.3` was deployed to the Staging environment, it included work items from releases `1.0.2` and `1.0.3`. Similarly, when it was deployed to the Prod environment, it also included the work items from `1.0.1`.
 
-When configured, your build server passes metadata through to Octopus and it is  included in the release and deployment details. This section explains how to configure integration between your build server and Octopus to take advantage of these features.
+When configured, your build server passes metadata to Octopus and it is included in the release and deployment details. This section explains how to configure integration between your build server and Octopus to take advantage of these features.
 
 ## Building the Metadata
 
@@ -32,7 +32,7 @@ The metadata will appear in the package feed details for any package in the inte
 
 ![Package Details](package-detail.png)
 
-If you have configured an issue tracker extension (e.g. Jira), that matches the work items' type, they will appear as a link to the issue tracking system. If not, they appear as plain text.
+If you have configured an issue tracker extension (e.g. Jira), that matches the work items type, they will appear as a link to the issue tracking system. If not, they appear as plain text.
 
 Note that you can actually have multiple "issue trackers" enabled at the same time. In the screenshot above, both the Jira and GitHub trackers are enabled. The reason being that the GitHub tracker knows how to render the links back to the commits. If you disabled it then the work items links would still appear to Jira, but the commit link would not display.
 
@@ -52,17 +52,17 @@ When expanded you will see the details of each release that has gone in to the d
 
 The Release Changes are also displayed on the task summary for the deployment.
 
-![Deployment work-items](deploy-work-items.png)
+![Deployment work items](deploy-work-items.png)
 
 In some scenarios this one-to-one between releases and deployments will be the norm. Teams using continuous deployment may see a rapid progression of versions through their environments and on to production.
 
-Many teams don't operate like this though. It is common for a number of releases to be prepared and tested before being promoting to the next environment. For example, they may merge pull requests for several fixes/features and then deploy the final release to test. This can be repeated several times and eventually a final release progresses from test to production. In this situation the deployment to production isn't just the work-items from that last release, it is _the accumulation of all of the work-items in all of the releases since the last one that was deployed to production_.
+Many teams don't operate like this though. It is common for a number of releases to be prepared and tested before being promoting to the next environment. For example, they may merge pull requests for several fixes/features and then deploy the final release to test. This can be repeated several times and eventually a final release progresses from test to production. In this situation the deployment to production isn't just the work items from that last release, it is _the accumulation of all of the work items in all of the releases since the last one that was deployed to production_.
 
 Given that you can initiate deployments to multiple "scopes" at once in Octopus it is expected that you could see different work items lists for each scope.
 
 For instance, if you have two tenants in the same environment, and **tenant A** is on an earlier version than **tenant B**, the resulting list for **tenant A** will be the list for **tenant B** plus the additional work items between the version it was on and the version **tenant B** was on.
 
-As a second example, imagine you have two environments in a lifecycle, for instance, **staging** and **performance**, but you don't always deploy to one of the environments. Maybe you periodically deploy to the **performance** environment to check for regressions but not every time you deploy to **staging**. The work-items for the **performance** environment will be the same as **staging** plus the additional work-items for the releases in between.
+As a second example, imagine you have two environments in a lifecycle, for instance, **staging** and **performance**, but you don't always deploy to one of the environments. Maybe you periodically deploy to the **performance** environment to check for regressions but not every time you deploy to **staging**. The work items for the **performance** environment will be the same as **staging** plus the additional work items for the releases in between.
 
 ## Deploy a Release Step
 
@@ -74,7 +74,7 @@ When creating the releases in the "parent project" Octopus accumulates the relea
 
 To help take advantage of all of this metadata knowledge in the packages, Octopus supports using release notes with variables substitution. A release notes template can also be specified in the project settings, to make consistency across releases easy.
 
-During release creation the template will be evaluated and you will see the resulting markdown displayed in the portal. The template has access to all unscoped project variables and the variables relating to the release.
+During release creation the template will be evaluated and you will see the resulting markdown displayed in the portal. The template has access to all unscoped project variables and the variables relating to the release:
 
 ``` csharp
 public class Packages
@@ -92,7 +92,7 @@ public class WorkItemLink
 }
 ```
 
-The variables are setup so you can iterate over the list or you can directly index via the PackageId. E.g.
+The variables are setup so you can iterate over the list or you can directly index via the PackageID. E.g.
 
 ```
 #{each package in Octopus.Release.Package}
@@ -118,13 +118,13 @@ Here are the notes for the packages
 #{/each}
 ```
 
-If you don't include the work item details yourself, Octopus will automatically add them as a simple list of external links in the UI for the release, deployment preview, and deployment task. Providing them, like in this example, give you exact control over the rendering in the portal and in the email step, as you'll see in the next section.
+If you don't include the work item details yourself, Octopus will automatically add them as a simple list of external links in the UI for the release, deployment preview, and deployment task. Providing them, like in this example, gives you exact control over the rendering in the portal and in the email step, as you'll see in the next section.
 
 ## Deployment Variables and the Email Step {#Deployment-Variables}
 
-During a deployment there are variables available for both the release notes values and the work-items.
+During a deployment there are variables available for both the release notes values and the work items.
 
-The release changes variable is `Octopus.Deployment.Changes` and contains the release notes and work-items in JSON format. The structure is a JSON array of `ReleaseChange` objects matching the following C# class:
+The release changes variable is `Octopus.Deployment.Changes` and contains the release notes and work items in JSON format. The structure is a JSON array of `ReleaseChange` objects matching the following C# class:
 
 ```csharp
 public class ReleaseChanges
@@ -154,11 +154,11 @@ The following example uses these variables to generate the HTML body for the Oct
 #{/each}
 ```
 
-Also note that in this example we are providing a link back to the release in Octopus as part of the email.
+Also note, in this example we are providing a link back to the release in Octopus as part of the email.
 
 ## Issue Trackers
 
-If you are using an issue tracker like Jira, Octopus can also be integrated with it to provide information about the progress of work-items. For more details see:
+If you are using an issue tracker like Jira, Octopus can also be integrated with it to provide information about the progress of work items. For more details see:
 
 - [Jira Issue Tracker](jira.md)
 - [GitHub Issue Tracker](github.md)

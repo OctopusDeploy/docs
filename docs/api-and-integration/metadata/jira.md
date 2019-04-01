@@ -3,17 +3,17 @@ title: Jira Integration
 description: Configuring Octopus integration with Hosted Jira.
 ---
 
-In addition to being able to [track metadata and work-item](index.md) information through your CI/CD pipeline, Octopus can also integrate with Jira to provide progress information related to the work-items during deployments.
+In addition to being able to [track metadata and work item](/docs/api-and-integration/metadata/index.md) information through your CI/CD pipeline, Octopus can also integrate with Jira to provide progress information related to the work items during deployments.
 
-The integration to Jira is additional to the work-item tracking built in to Octopus. The configuration described below assumes you already have work-item tracking enabled in your pipeline and packages.
+The integration to Jira is additional to the work item tracking built in to Octopus. The configuration described below assumes you already have work item tracking enabled in your pipeline and packages.
 
-## Levels of integration
+## Levels of Integration
 
 There are several levels of integration available for Jira. The first allows Octopus to parse the commits looking for Jira work item references, this is available as soon as the Jira Issue Tracker extension is enabled.
 
-The second level of integration is providing links to Jira for the work items that are found. This occurs once the BaseUrl is set on the extension.
+The second level of integration is providing links to Jira for the work items that are found. This occurs once the BaseURL is set on the extension.
 
-These first two levels of integration work whether your Jira instance is OnPrem or SaaS. The third level of integration allows Octopus to update Jira when deployments occur, and **is only available with the SaaS version of Jira**. It becomes enabled once the Connect App is configured (see below) and the Octopus server's Uri is set in {{Configuration,Nodes}}.
+These first two levels of integration work whether your Jira instance is on-premises or SaaS. The third level of integration allows Octopus to update Jira when deployments occur, and **is only available with the SaaS version of Jira**. It becomes enabled once the Connect App is configured (see below) and the Octopus server's URI is set in {{Configuration,Nodes}}.
 
 ## Octopus Connect App and the Jira Extension
 
@@ -30,7 +30,7 @@ And from the **{{Configuration,Settings,Jira Issue Tracker}}** page in Octopus, 
 
 ## Environment Settings
 
-The next thing to configure relates back to the earlier note on environment types and environment names. In Octopus you need to map the Jira environment types for the environments that you're going to be tracking work-items.
+The next thing to configure relates back to the earlier note on environment types and environment names. In Octopus you need to map the Jira environment types for the environments that you're going to be tracking work items.
 
 ![Octopus Environment](octo-env.png)
 
@@ -38,13 +38,13 @@ The fixed list of environment types are important for the tracking in Jira, and 
 
 The environment name also gets passed through to Jira, as shown in the earlier example. Also note that multi-tenancy is fully supported and the deployment will show in Jira per tenant per environment name.
 
-The following diagram illustrates an un-tenanted deployment to Dev and then a tenanted deployment to Dev of the same version (the text is truncated in the screenshot, the alt text for the link reads `Deploy work-items test release 0.0.5 to Dev for Tenant A`)
+The following diagram illustrates an un-tenanted deployment to Dev and then a tenanted deployment to Dev of the same version (the text is truncated in the screenshot, the alt text for the link reads `Deploy work items test release 0.0.5 to Dev for Tenant A`)
 
 ![Jira Multi-Tenant progress](jira-multi-tenant.png)
 
 ## Deployment Task Log
 
-Once the Jira issue tracker is enabled and configured you will see blocks similar to the following appear in the log during your deployments. These show the state updates Octopus is sending through to Jira, and if you expand them the details include information on the work-item IDs etc for traceability.
+Once the Jira issue tracker is enabled and configured you will see blocks similar to the following appear in the log during your deployments. These show the state updates Octopus is sending through to Jira, and if you expand them the details include information on the work item IDs etc for traceability.
 
 The following illustrates where Octopus tried to send an _in_progress_, and then a _successful_, state change to Jira but was unable to. **This does not impact the Octopus deployment itself, it will still be considered a successful deployment.**
 
@@ -54,7 +54,7 @@ On success the blocks will appear with green text just like the other blocks in 
 
 ## Deployment Events
 
-The end result of this integration is to provide Jira with updates on the progress of work-items through the pipeline. It will display information similar to the following when it receives these updates for the work-items:
+The end result of this integration is to provide Jira with updates on the progress of work items through the pipeline. It will display information similar to the following when it receives these updates for the work items:
 
 ![Jira Deployments](jira-deployment.png)
 

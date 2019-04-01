@@ -3,7 +3,7 @@ title: GitHub Issue Tracking Integration
 description: Configuring GitHub issue tracking with Octopus.
 ---
 
-Integration with GitHub allows Octopus to display links to Github issues for work-items received from your build server.
+Integration with GitHub allows Octopus to display links to Github issues for work items received from your build server.
 
 ## Settings
 
@@ -23,4 +23,4 @@ Resolves MyOrg/SomeOtherRepo#1234
 
 The parsing of the commit messages occurs on the build server, in the build server plugin, and is based on the GitHub concepts around [closing issues using keywords](https://help.github.com/en/articles/closing-issues-using-keywords).
 
-The build plugins look for these same keywords and pass work-item details to Octopus when found.
+The build plugins look for these same keywords and pass work item details to Octopus when found.
