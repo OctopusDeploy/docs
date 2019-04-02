@@ -1,6 +1,6 @@
 ---
 title: Getting Started
-description: Need help getting started with Octopus? This section provides a conceptual overview of Octopus Deploy, guiding you through your own self-hosted or cloud-hosted Octopus server.
+description: This section provides a conceptual overview of Octopus Deploy, and links to documentation that guides you through your own self-hosted or cloud-hosted Octopus server.
 position: 0
 ---
 
@@ -56,53 +56,7 @@ Octopus Deploy is designed to work with teams following agile software developme
 
 The deployment process that Octopus executes is like a recipe for deploying your software. You define the recipe by adding steps and variables to a project. Octopus Deploy provides a range of built-in step templates that can be included in your deployment processes, you can also add steps from the community step template library, and even create your own custom steps. Each step contains a specific action (or set of actions) that is executed as part of the deployment process each time your software is deployed. After the initial setup, your deployment process shouldn't change between deployments even though the software being deployed will change as part of the development process.
 
-Learn more about the [deployment process](/docs/deployment-process/index.md) and see some [deployment examples](/docs/deployment-examples/index.md).
-
-### Variables
-
-As you deploy your applications between different environments, you'll need to change their configuration files based on the scope of the deployment. Octopus has advance support for managing and scoping variables. For instance, you will use different databases in QA from the databases you use in Production. Variables let you scope your deployments to QA or Production and automatically reference the correct databases.
-
-Learn more about [variables](/docs/deployment-process/variables/index.md) and advanced [configuration features](/docs/deployment-process/configuration-features/index.md).
-
-### Projects
-
-Octopus Deploy can manage the deployment of many applications across your organization. Projects within Octopus Deploy let you manage multiple software projects across different environments with different deployment processes (the specific deployment steps) defined per project.
-
-A project in Octopus can consist of many deliverable components (e.g., web sites, micro services, and database scripts). It's usually helpful to think of Octopus projects in terms of business projects, for instance, if you have five developers working together on the "HR Portal rewrite" project, then that's probably a single project in Octopus.
-
-Learn more about [projects](/docs/deployment-process/projects/index.md).
-
-### Lifecycle
-
-When you define a project, you also select a lifecycle. The lifecycle defines the rules around how releases of the project are deployed between environments, and which projects are deployed to which environments.
-
-Lifecycles are defined by phases, each phase can have one or more environments, and each environment can be defined as an automatic deployment environment or a manual deployment environment. Each phase can have a set number of environments that must be released to before the next phase is available for deployment.
-
-Learn more about [lifecycles](/docs/deployment-process/lifecycles/index.md).
-
-### Releases and Deployments
-
-A **release** in Octopus, is a snapshot of the packaged software, variables, and the deployment process as they exist at the time the release is created.
-
-A **deployment** in Octopus is the execution of the deployment process with all the associated details, as they existed when the release was created.
-
-A release is deployed to the environments defined in the deployment process. Typically, releases are deployed to one environment and then promoted to the next environment when they are successful. Releases can be deployed manually each time or configured to deploy automatically.
-
-Learn more about [deploying releases](/docs/deployment-process/releases/index.md).
-
-### Channels
-
-When you start working with Octopus, you will typically create releases from your main source code branch and these releases will be considered release candidates for your final production environment. Over time you may find you want to start working on an experimental branch of code, perhaps to introduce a new feature or an entirely new version of your software. In this case, you can either create an entirely new project, or clone the existing project, to manage deployments of this experimental software, but that leads to a lot of duplication and rework.
-
-[Channels](/docs/deployment-process/channels/index.md) lets you modify the entire deployment process on a per-release basis, all within the same project. For example, you can promote releases created from your main code branch through to your production environment, but restrict releases created from your experimental feature branch to a special test environment perhaps with extra steps and variables.
-
-Learn more about [channels](/docs/deployment-process/channels/index.md).
-
-## Tenants
-
-Over time your software may become so successful that you on-sell it to some external customers, and due to the way the software is architected, you need to deploy slightly different versions of the software configured for each customer. For instance, you might deploy version 1.0.1 to Customer A with the software configured to display customer A's logo on their landing page, and version 1.1.0 to Customer B configured to display their logo on their landing page. The multi-tenant feature in Octopus Deploy helps you manage deploying different versions of the same software to multiple customers.
-
-Learn more about tenants in our [Multi-tenant Deployments Guide](/docs/deployment-patterns/multi-tenant-deployments/index.md).
+Learn more about the [deployment process](/docs/deployment-process/index.md), how you can set up [projects](/docs/deployment-process/projects/index.md), use [variables](/docs/deployment-process/variables/index.md) and [lifecycles](/docs/deployment-process/lifecycles/index.md) in your deployments, how you can [deploy releases](/docs/deployment-process/releases/index.md), or see some [deployment examples](/docs/deployment-examples/index.md).
 
 ## Spaces
 
