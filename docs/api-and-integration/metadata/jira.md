@@ -19,7 +19,7 @@ These first two levels of integration work whether your Jira instance is on-prem
 
 The first step to configure the integration is adding the Octopus Connect App in the Jira marketplace.
 
-***TODO: add a screenshot of the marketplace tile***
+![Atlassian Marketplace listing](atlassian-marketplace.png)
 
 To complete the installation of the app from the marketplace, you must add the following values from Jira App configuration page to Octopus by navigating to **{{Configuration,Settings,Jira Issue Tracker}}** in  Octopus:
 
