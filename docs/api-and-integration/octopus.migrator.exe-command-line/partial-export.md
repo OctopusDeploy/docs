@@ -9,8 +9,32 @@ This command exports configuration data to a directory filtered by a single proj
 
 Usage:
 
-```bash
-Octopus.Migrator partial-export [<options>]
+```text
+Usage: octopus.migrator partial-export [<options>]
+
+Where [<options>] is any of:
+
+      --instance=VALUE       Name of the instance to use
+      --directory=VALUE      Directory for exported files
+      --clean                Remove all contents of directory before
+                               exporting files; This cannot be undone
+      --password=VALUE       Password to encrypt any sensitive values
+      --include-tasklogs     Include the task log folder as part of the export
+      --project=VALUE        Project to filter export for. Specify this
+                               argument multiple times to add multiple projects
+      --releaseVersion=VALUE [Optional] Release of provided project to filter
+                               export for (only to be used when specifying a
+                               single project)
+      --ignore-certificates  [Optional] Excludes certificates from partial
+                               export
+      --ignore-machines      [Optional] Excludes machines from partial export
+      --ignore-deployments   [Optional] Excludes deployments from partial
+                               export
+      --ignore-tenants       [Optional] Excludes tenants from partial export
+
+Or one of the common options:
+
+      --help                 Show detailed help for this command
 ```
 
 Where `[<options>]` is any of:
