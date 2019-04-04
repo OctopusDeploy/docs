@@ -43,7 +43,7 @@ npm start
 
 Navigating to http://localhost:8081 you should see a page with words that appear to be missing. These will be populated in the config files during the deployment to the appropriate environment.
 
-![](/docs/images/3049551/3278578.png "width=500")
+![](/docs/images/3049551/3278578.png)
 
 ## Configure Publish Task {#Create&amp;PushNode.jsProject-ConfigurePublishTask}
 

@@ -1,7 +1,7 @@
 ---
-title: Creating Releases
+title: create-release
 description: Using the Octo.exe command line tool to create releases.
-position: 2
+position: 70
 ---
 
 [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to automate the creation of releases using the **`create-release`** command. This allows you to easily integrate Octopus with other continuous integration servers.
@@ -118,9 +118,8 @@ Deployment:
                              build a query/filter with multiple tags, just
                              like you can in the user interface.
       --deployto=VALUE       [Optional] Environment to automatically deploy
-                             to, e.g., Production;
-                             specify this argument multiple times to deploy
-                             to multiple environments
+                             to, e.g., Production; specify this argument
+                             multiple times to deploy to multiple environments
 
 Common options:
 
@@ -222,14 +221,14 @@ octo create-release --project HelloWorld --version 1.0.3 --package StepA:1.0.1 -
 
 The example above will use `1.0.3` for `StepA`, and the latest version available at the moment for `StepB`.
 
-For steps which have multiple packages (e.g. _Run a Script_ steps can [reference multiple packages](/docs/deployment-examples/custom-scripts/standalone-scripts.md#referencing-packages
+For steps which have multiple packages (e.g. _Run a Script_ steps can [reference multiple packages](/docs/deployment-examples/custom-scripts/run-a-script-step.md#referencing-packages
 )), the format `StepName:PackageName:Version` can also be used:  
 
 ```bash
 octo create-release --project HelloWorld --version 1.0.3 --package StepA:Acme.Web:1.0.0 --package StepA:Acme.Data:2.0.0 --server http://octopus/ --apiKey API-ABCDEF123456
 ```
 
-In the example above, `StepA` will use `1.0.0` for `Acme.Web` and `2.0.0` for `Acme.Data`. 
+In the example above, `StepA` will use `1.0.0` for `Acme.Web` and `2.0.0` for `Acme.Data`.
 
 ### Option --packagesFolder
 

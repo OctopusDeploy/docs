@@ -30,11 +30,11 @@ After signing up to Okta you will receive your own url to access the Okta portal
 
 1. Select the Applications tab and click the **Add Application** button.
 
-   ![](okta-authentication/okta-add-app.png "width=500")
+   ![](okta-authentication/okta-add-app.png)
 
 2. Click the **Create New App** button.
 
-   ![](okta-authentication/okta-create-new-app.png "width=500")
+   ![](okta-authentication/okta-create-new-app.png)
 
 3. Choose **Web** for the **Platform** and **OpenID Connect** for the **Sign on method** and click the **Create** button.
 
@@ -42,7 +42,7 @@ After signing up to Okta you will receive your own url to access the Okta portal
 
 4. Enter an **Application Name** like Octopus Deploy and for the **Login redirect URIs** enter `https://octopus.example.com/api/users/authenticatedToken/Okta` replacing `https://octopus.example.com` with the public url of your Octopus Server, and click the **Save** button.
 
-   ![](okta-authentication/okta-create-openid-integration.png "width=500")
+   ![](okta-authentication/okta-create-openid-integration.png)
 
 :::hint
 **Reply URLs are case-sensitive**
@@ -57,7 +57,7 @@ Octopus now integrates with [Let's Encrypt](/docs/administration/security/exposi
 
 5. Under the **General Settings** for the app you have just created, ensure that **Implicit (Hybrid)** and **Allow ID Token with implicit grant type** are both checked, under the **Allowed grant types**. Click the **Save** button to continue.
 
-   ![](okta-authentication/okta-general-settings.png "width=500")
+   ![](okta-authentication/okta-general-settings.png)
 
    If you want to allow users to log in directly from Okta then change the **Login initiated by** to _Either Okta or App_, set **Login flow** to _Redirect to app to initiate login_, and set the **Initiate login URI** to `https://octopus.example.com/#/users/sign-in`.
 
@@ -73,7 +73,7 @@ First, use Okta's _Classic UI_ by selecting it in the upper right hand menu
 
 Now select the **Sign On** tab and scroll down to the **OpenID Connect ID Token** section. Take note of the **Issuer** and **Audience** as you will need both these values to configure your Octopus Server.
 
-![](okta-authentication/okta-openid-token.png "width=500")
+![](okta-authentication/okta-openid-token.png)
 
 #### Okta group integration {#Oktaauthentication-OpenIDConnectSettings-OktaGroups}
 
@@ -102,11 +102,11 @@ Next you will need to assign your app to people or groups within your Okta direc
 
 1. Select the **Assignments** tab and click the **Assign** button. You can assign your app to people, and to groups.
 
-   ![](okta-authentication/okta-assign-app.png "width=500")
+   ![](okta-authentication/okta-assign-app.png)
 
 2. To assign the app to all users, you can simply assign the default **Everyone** group to the app, and click **Done**.
 
-   ![](okta-authentication/okta-assign-to-groups.png "width=500")
+   ![](okta-authentication/okta-assign-to-groups.png)
 
 ## Configuring Octopus Deploy Server {#Oktaauthentication-ConfiguringOctopusDeployServer}
 
@@ -160,7 +160,7 @@ We do our best to log warnings to your Octopus Server log whenever possible. If
 
 You can also check Okta logs by clicking the **View Logs** link on the Okta admin portal.
 
-![](okta-authentication/okta-view-logs.png "width=500")
+![](okta-authentication/okta-view-logs.png)
 
 ### Double and Triple Check Your Configuration {#Oktaauthentication-DoubleandTriplecheckyourconfiguration}
 
@@ -186,7 +186,7 @@ Perhaps the contents of the security token sent back by Okta aren't exactly the 
 3. Attempt to sign into Octopus using Okta and find the HTTP POST coming back to your Octopus instance from Okta on a route like `/api/users/authenticatedToken/Okta`. You should see an `id_token` field in the HTTP POST body.
 4. Grab the contents of the `id_token` field and paste that into [https://jwt.io/](https://jwt.io/) which will decode the token for you.
 
-   ![](/docs/images/5670656/5866123.png "width=500")
+   ![](/docs/images/5670656/5866123.png)
 
 :::hint
 Don't worry if jwt.io complains about the token signature, it doesn't support RS256 which is used by Okta.

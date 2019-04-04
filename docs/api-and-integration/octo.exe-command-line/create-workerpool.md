@@ -1,6 +1,7 @@
 ---
 title: create-workerpool
 description: Creates a pool for workers
+position: 80
 ---
 
 Creates a pool for workers

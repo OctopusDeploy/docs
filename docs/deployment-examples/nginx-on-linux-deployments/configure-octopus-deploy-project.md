@@ -10,7 +10,7 @@ Assuming you are starting with a clean install of Octopus Deploy, the following 
 
 - On the *Environments* page, add an environment named **Production**.
 
-![](/docs/deployment-examples/nginx-on-linux-deployments/images/production_environment.png "width=500")
+![](/docs/deployment-examples/nginx-on-linux-deployments/images/production_environment.png)
 
 :::success
 For the purpose of this guide we will only use the one deployment environment but there are several other pages in the documentation which explain the benefits of leveraging [environments](/docs/infrastructure/environments/index.md) and [lifecycles](/docs/deployment-process/lifecycles/index.md) to create advanced deployment processes.
@@ -40,7 +40,7 @@ The next step is to create a project that will extract the package.
     * Ensure that the target role matches that which was assigned to the machine in the previous step and
     * Select *nginxsamplewebapp* as the Package ID. This Package ID is derived from the first section of the package that was previously uploaded (see *Package Metadata* section of the [Supported Packages](/docs/packaging-applications/supported-packages.md) documentation for mode details).
 
-![](/docs/deployment-examples/nginx-on-linux-deployments/images/deployment_process_name_role_and_package.png "width=500")
+![](/docs/deployment-examples/nginx-on-linux-deployments/images/deployment_process_name_role_and_package.png)
 
 ### NGINX Web server
 
@@ -54,7 +54,7 @@ To configure NGINX to send traffic to your application you need to fill in a few
 
 When defining **locations** you can configure NGINX to deliver files from the file system , or proxy requests to another server. For our sample application we want requests to `http://<IPorDNSofServer>/` to deliver the `index.html` file from the `wwwroot` folder of our ASP.NET Core project and requests to `http://<IPorDNSofServer>/api/` to be proxied to our ASP.NET Core project running on http://localhost:5000.
 
-![](/docs/deployment-examples/nginx-on-linux-deployments/images/deployment_process_nginx_feature.png "width=500")
+![](/docs/deployment-examples/nginx-on-linux-deployments/images/deployment_process_nginx_feature.png)
 
 ### Starting and Managing Our ASP.NET Core project
 
@@ -150,12 +150,12 @@ The package will be uploaded to the server and unpacked, and the environment spe
 
 Navigating to the host machine after deploying to the *Production* environment should then result in our static AngularJS application being served up and looks something like this:
 
-![](/docs/deployment-examples/nginx-on-linux-deployments/images/production_deployment_homepage.png "width=500")
+![](/docs/deployment-examples/nginx-on-linux-deployments/images/production_deployment_homepage.png)
 
 Navigating to `Fetch data` will call the backend to retrieve the data and should result in a page that looks something like this:
 
-![](/docs/deployment-examples/nginx-on-linux-deployments/images/production_deployment_fetchdata_page.png "width=500")
+![](/docs/deployment-examples/nginx-on-linux-deployments/images/production_deployment_fetchdata_page.png)
 
 Navigating to the backend directly (by entering `http://<IPorDNSofServer>/api/SampleData/WeatherForecasts` into the browser address bar) should return something like this:
 
-![](/docs/deployment-examples/nginx-on-linux-deployments/images/production_deployment_api_result.png "width=500")
+![](/docs/deployment-examples/nginx-on-linux-deployments/images/production_deployment_api_result.png)

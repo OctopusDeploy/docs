@@ -20,7 +20,7 @@ You can **Deploy** a **Release** as many times as you want to.
 
 ## Creating a Release
 
-1. With you deployment process defined, you can create a release on the Project's Overview page, by clicking **CREATE RELEASE**.
+1. With your deployment process defined, you can create a release on the Project's Overview page, by clicking **CREATE RELEASE**.
 
 ![Create Release](create-release.png)
 

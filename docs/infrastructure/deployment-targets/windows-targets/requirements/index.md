@@ -32,6 +32,8 @@ The installation requirements for the latest version of Tentacle are:
 
 Tentacle uses a small amount of memory when idle, usually around 10MB (it may appear higher in task manager because memory is shared with other .NET processes that are running). When deploying, depending on what happens during the deployment, this may expand to 60-100MB, and will then go back down after the deployment is complete. Tentacle will happily run on single-core machines, and only uses about 100MB of disk space, though, of course, you'll need more than that to deploy your applications.
 
+!include <tentacle-downloads>
+
 ## Python
 Octopus can run Python scripts on Windows targets provided the following criteria are met:
 

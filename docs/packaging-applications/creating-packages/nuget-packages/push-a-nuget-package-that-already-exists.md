@@ -18,4 +18,4 @@ Sometimes the package version number may not always change. This can happen if y
 
 This will force the Octopus Server to replace the existing NuGet package with the new version you have pushed. It works exactly the same as the checkbox on the package upload pane:
 
-![](existing-package.png "width=500")
+![](existing-package.png)

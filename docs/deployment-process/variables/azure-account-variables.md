@@ -1,21 +1,20 @@
 ---
 title: Azure Account Variables
 description: Create an Azure Account variable to use it in Azure deployment steps
-position: 80
-version: "[2018.5,)"
+position: 70
 ---
 
 [Azure accounts](/docs/infrastructure/deployment-targets/azure/index.md) can be referenced in a project through a project [variable](/docs/deployment-process/variables/index.md) of the type **Azure Account**.
 
-The [Azure PowerShell](/docs/deployment-examples/azure-deployments/running-azure-powershell/index.md) step will allow you to bind the account to an **Azure Account** variable, using the [binding syntax](/docs/deployment-process/variables/binding-syntax.md#Bindingsyntax-Referencingvariablesinstepdefinitions). By using an variable for the account, you can have different accounts used across different environments or regions using [scoping](/docs/deployment-process/variables/binding-syntax.md#Bindingsyntax-Referencingvariablesinstepdefinitions).
+The [Azure PowerShell](/docs/deployment-examples/azure-deployments/running-azure-powershell/index.md) step will allow you to bind the account to an **Azure Account** variable, using the [binding syntax](/docs/deployment-process/variables/index.md#Bindingsyntax-Referencingvariablesinstepdefinitions). By using an variable for the account, you can have different accounts used across different environments or regions using [scoping](/docs/deployment-process/variables/index.md#Bindingsyntax-Referencingvariablesinstepdefinitions).
 
-![AWS Account Variable](azure-account-variable.png "width=500")
+![AWS Account Variable](azure-account-variable.png)
 
 The **Add Variable** window is then displayed and lists all the Azure accounts.
 
 Select the account that was created in the previous step to assign it to the variable.
 
-![Azure Account Variable Selection](azure-account-variable-selection.png "width=500")
+![Azure Account Variable Selection](azure-account-variable-selection.png)
 
 ## Azure Account Variable Properties
 

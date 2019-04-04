@@ -1,6 +1,7 @@
 ---
 title: delete-releases
 description: Deletes a range of releases
+position: 100
 ---
 
 Deletes a range of releases

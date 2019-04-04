@@ -10,6 +10,11 @@ that the same steps can be used to register capabilities such as `DotNetCore` as
 :::warning
 Installing Octo as a global tool will require an additional shell execution script to be in the path to delegate execution to `dotnet octo`. The reason for this is that the global tool install is only available via `dotnet octo` and doesn't
 provide a way to execute `Octo` directly.
+
+For example, create a script called octo.ps1 with the following content:
+```powershell
+& dotnet octo $args
+```
 :::
 
 ## Agent Capability Scanning
@@ -39,3 +44,11 @@ each agent individually which can be quite cumbersome.
 ## Images and Automation
 
 Microsoft provide a number of starting points to create your own build agent images which can be modified to include Octo as an added capability. This includes [packer images](https://github.com/Microsoft/vsts-image-generation) as well as the [docker images](https://github.com/Microsoft/vsts-agent-docker).
+
+## Troubleshooting
+
+If you're having difficulties downloading the Octopus CLI when you run each step (perhaps due to firewalls and proxies) we also offer another helpful step: `Octopus tools installer`
+
+![Octopus tools installer](/docs/api-and-integration/tfs-azure-devops/using-octopus-extension/octopus-tools-installer.png)
+
+This step will fallback to using an embedded version of `octo` if the selected version cannot be successfully downloaded.

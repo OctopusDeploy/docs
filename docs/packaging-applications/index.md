@@ -20,6 +20,6 @@ The combination of a **package format**, **package ID**, and **version number** 
 
 One of the simplest examples of a package that is deployable by Octopus looks like this:
 
-> hello-world.1.0.0.zip
+> [hello-world.1.0.0.zip](https://octopus.com/images/docs/hello-world.1.0.0.zip)
 
 In this example we've used **zip** as the format, **hello-world** as the package ID, and **1.0.0** represents the version number for this version of the package. Read on to learn more about these concepts and how to implement them with Octopus.

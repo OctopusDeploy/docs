@@ -15,7 +15,7 @@ If the deployment journal is deleted, on the next deployment, it will be created
 
 By default your deployment journal is located at: C:\Octopus\DeploymentJournal.xml. If you have multiple Tentacle instances configured on the same server you will find a unique deployment journal for each instance located at c:\Octopus\[Instance Name]\DeploymentJournal.xml, this is shown in the image shown below with the instance name set to DWebApp01.
 
-![](/docs/images/3048641/3278384.png "width=500")
+![](/docs/images/3048641/3278384.png)
 
 Below is a sample DeploymentJournal.xml:
 
@@ -56,7 +56,7 @@ It keeps a record for every package and package extraction for each project and 
 
 Defining retention policies is done within Lifecycles. Each phase can have a different setting. So if you want to keep more files on production machines you can.
 
-![](/docs/images/3048641/3278386.png "width=500")
+![](/docs/images/3048641/3278386.png)
 
 You can read more about [Lifecycles](/docs/deployment-process/lifecycles/index.md) and [Retention Policies](/docs/administration/retention-policies/index.md) on their own detailed pages.
 
@@ -67,7 +67,7 @@ In this example the default for the Lifecycle is to Keep 3 releases on both Octo
 
 [Channels](/docs/deployment-process/channels/index.md) can be used in Octopus to handle many different deployment scenarios. In some cases you may have a hotfix channel in which deployments, as they are promoted through their environments, should be considered as overriding deployments from the default channel for the given environment. Alternatively you may be using channels to deploy feature branches which involve having several concurrent releases active at any one time across different channels for the same environment. When using the feature branch type scenario, you will likely want retention policies to recognize that since both channels should be accessible at the same time, the retention policy rules should apply to each independently. This behavior can be enabled for each project via the `Discrete Channel Releases` flag at under `Deployment Target settings` on the **{{Project,Process}}** page which is provided from version `3.12.2`.
 
-![Discrete Channel Release](discrete-channel-release.png "width=500")
+![Discrete Channel Release](discrete-channel-release.png)
 
 
 ## When the Retention Policy is Run {#RetentionpolicyTentaclecleanupandtroubleshooting-Whentheretentionpolicyisrun}
@@ -99,21 +99,21 @@ See below the messages you will have in your raw deployment logs at the end of a
 
 You can find your packages under C:\Octopus\files (or c:\Octopus\[Instance Name])\files)
 
-![](/docs/images/3048641/3278387.png "width=500")
+![](/docs/images/3048641/3278387.png)
 
 Your extracted package files can be found under c:\Octopus\Applications\[environment name]\[package name]\
 
 So if you have multiple packages you will have multiple directories.
 
-![](/docs/images/3048641/3278389.png "width=500")
+![](/docs/images/3048641/3278389.png)
 
-![](/docs/images/3048641/3278388.png "width=500")
+![](/docs/images/3048641/3278388.png)
 
 If you have more directories than you think you should, check if they have a value in the deployment journal, if they do not they will have to be manually deleted.
 
 You can have multiple directories for the same version of each package like the following example:
 
-![](/docs/images/3048641/3278390.png "width=500")
+![](/docs/images/3048641/3278390.png)
 
 This occurs when you have the same package in two different steps inside a single project. It has two extraction directories, and it is assumed to be a different set of files due to variables and transforms. So for a 3 package policy you will have a copy of each version leaving 6 plus the current 2 for a total of 8 directories. This can mean a lot of folders if you use the same package in multiple steps.
 

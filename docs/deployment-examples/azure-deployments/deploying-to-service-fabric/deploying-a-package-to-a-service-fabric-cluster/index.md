@@ -60,9 +60,9 @@ The following features are available when deploying a package to a Service Fabri
 
 - [Custom Scripts](/docs/deployment-examples/custom-scripts/index.md)
 - [Configuration Variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md)
-- [Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms.md)
+- [Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms/index.md)
 - [JSON Configuration Variables](/docs/deployment-process/configuration-features/json-configuration-variables-feature.md)
-- [Substitute Variables in Files](/docs/deployment-process/variables/variable-substitution-syntax.md)
+- [Substitute Variables in Files](/docs/deployment-process/variables/variable-substitutions.md)
 
 :::hint
 Please note these features run on the Octopus Server prior to deploying the Service Fabric application to your cluster. They don't execute in the cluster nodes you are eventually targeting.
@@ -76,7 +76,7 @@ Deployment to a Service Fabric cluster proceeds as follows (more details provide
 1. Extract the package on the Octopus Server to a temporary location.
 1. Any configured or packaged `PreDeploy` scripts are executed.
 1. [Substitute variables in files](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) (if configured).
-1. [XML configuration transformations](/docs/deployment-process/configuration-features/configuration-transforms.md) (if configured) are performed.
+1. [XML configuration transformations](/docs/deployment-process/configuration-features/configuration-transforms/index.md) (if configured) are performed.
 1. [XML configuration variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) (if configured) are replaced.
 1. [JSON configuration variables](/docs/deployment-process/configuration-features/json-configuration-variables-feature.md) (if configured) are replaced.
 1. Any configured or package `Deploy` scripts are executed.
@@ -102,7 +102,7 @@ If you choose to override the deployment script, remember that your `DeployToSer
 
 When your application is deployed to more than one geographic region, you are likely to need per-region configuration settings. You can achieve this by creating a [Service Fabric Deployment Target](/docs/infrastructure/deployment-targets/azure/service-fabric-cluster-targets/index.md) per-region and assigning them to the same role and an appropriate environment.
 
-Your process can be modified by using [variables scoped](/docs/deployment-process/variables/scoping-variables.md) by environment or deployment target.
+Your process can be modified by using [variables scoped](/docs/deployment-process/variables/index.md#scoping-variables) by environment or deployment target.
 
 You can also employ an *environment-per-region* method so you can leverage [lifecycles](/docs/deployment-process/lifecycles/index.md) to create a strict release promotion process.
 

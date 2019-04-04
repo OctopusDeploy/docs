@@ -1,6 +1,7 @@
 ---
 title: list-projects
 description: Lists all projects
+position: 210
 ---
 
 Lists all projects

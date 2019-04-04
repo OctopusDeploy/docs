@@ -1,7 +1,7 @@
 ---
-title: Cleaning Environments
+title: cleaning-environments
 description: Using the Octo.exe command line tool to delete/remove machines with a particular status from environments on your Octopus instance.
-position: 9
+position: 10
 ---
 
 [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to delete/remove machines with a particular status from environments on your Octopus instance.

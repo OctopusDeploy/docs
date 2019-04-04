@@ -6,7 +6,11 @@ position: 120
 
 **Octopus.Migrator.exe** is a command line tool that provides the ability to back-up and restore parts of an Octopus Deploy instance as well as migrate data from **Octopus 2.6** builds.
 
-The latest version is available in the Octopus Deploy installation directory from version 3.0 onward, usually located in *C:\Program Files\Octopus Deploy*.
+The latest version of **Octopus.Migrator.exe** is available in the Octopus Deploy installation directory and is usually located in:
+
+```powershell
+C:\Program Files\Octopus Deploy\Octopus
+```
 
 ## Commands {#Octopus.Migrator.exeCommandLine-Commands}
 

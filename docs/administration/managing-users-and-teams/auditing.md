@@ -29,13 +29,13 @@ If you are concerned that Octopus does not capture a specific action of interest
 
 You can view the full audit history by navigating to the **Audit** tab in the **Configuration** area.
 
-![Audit Configuration](/docs/images/3048138/3278051.png "width=500")
+![Audit Configuration](/docs/images/3048138/3278051.png)
 
 Some audit events will also include details, which you can see by clicking the **show details** link. For example:
 
-![Audit Event Details](/docs/images/3048138/3278050.png "width=500")
+![Audit Event Details](/docs/images/3048138/3278050.png)
 
-![Audit Event Details extended](/docs/images/3048138/3278049.png "width=500")
+![Audit Event Details extended](/docs/images/3048138/3278049.png)
 
 This feature makes it extremely easy to see who made what changes on the Octopus Deploy Server.
 
@@ -45,7 +45,9 @@ We take great care to ensure the security and integrity of your audit logs, to m
 
 ### Viewing Audit Logs
 
-In **Octopus 3.4** we introduced a new permission called **AuditView** which allows someone to view the audit logs without needing other permissions. In earlier versions of Octopus you would require the **AdministerSystem** permission. Learn about [managing users and teams](/docs/administration/managing-users-and-teams/index.md).
+To grant a user access to audit logs you can make use of a built-in User Role that contains **EventView**. All project related user roles contain it. **EventView** can also be scoped to narrow down which audit information a user can see, for example, it can be restricted to specific Projects or Environments. Learn more about [managing users and teams](/docs/administration/managing-users-and-teams/index.md).
+
+In **Octopus 2019.1** we removed **AuditView** in an effort to simplify permissions so only **EventView** is now required.
 
 ### Modifying and Deleting Audit Logs is Prevented
 

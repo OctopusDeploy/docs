@@ -4,7 +4,7 @@ description: Requirements for using SSH deployment targets with Octopus.
 position: 10
 ---
 
-SSH deployment targets must meet the following requirements:
+Before you can configure your [SSH deployment targets](/docs/infrastructure/deployment-targets/linux/index.md), they must meet the following requirements:
 
 - It is accessible through SSH and SFTP (See [creating an SSH Key Pair](/docs/infrastructure/accounts/ssh-key-pair.md#Creating-a-SSH-Key-Pair)).
 - The `$HOME` environment variable must be available.
@@ -106,3 +106,7 @@ To fix this:
 ```
 export PATH=/Library/Frameworks/Mono.framework/Versions/Current/bin/:${PATH}
 ```
+
+## Next
+
+Configure your [SSH deployment targets](/docs/infrastructure/deployment-targets/linux/index.md).

@@ -55,15 +55,15 @@ You will need to transfer them to the new server to `C:\Octopus\Packages`Once t
 
 When the Hydra task runs on a Tentacle machine, it should no longer be able to communicate with the **Octopus 2.6** server. You can verify this by navigating to the Environments page and clicking **Check Health**.
 
-![](/docs/images/3048132/3278012.png "width=500")
+![](/docs/images/3048132/3278012.png)
 
 After successfully updating your Tentacles, you should see this check fail from your **Octopus 2.6** server.
 
-![](/docs/images/3048132/3278011.png "width=500")
+![](/docs/images/3048132/3278011.png)
 
 Performing the Check Health on your **Octopus 3.x** server should now succeed.
 
-![](/docs/images/3048132/3278009.png "width=500")
+![](/docs/images/3048132/3278009.png)
 
 :::hint
 If you have multiple Tentacles running on the same server, an update to one will result in an update to **all** of them. This is because there is only one copy of the Tentacle binaries, even with multiple instances configured.

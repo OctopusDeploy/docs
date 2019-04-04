@@ -55,7 +55,7 @@ What this means is that if a new SNAPSHOT artifact is published to the Maven rep
 
 To force Octopus to download the newer SNAPSHOT release, select the **Re-download packages from feed** option when deploying.
 
-![Re-download packages from feed](redownload-from-feed.png "width=500")
+![Re-download packages from feed](redownload-from-feed.png)
 
 ## Versioning with Maven Feeds
 

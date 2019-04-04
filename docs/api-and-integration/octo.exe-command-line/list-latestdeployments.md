@@ -1,7 +1,7 @@
 ---
-title: List Latest Deployments
+title: list-latestdeployments
 description: List the releases last-deployed in each environment
-position: 14
+position: 190
 ---
 
 ```text

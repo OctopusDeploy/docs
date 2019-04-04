@@ -15,7 +15,7 @@ Triggers are per-project settings that execute an action in response to an event
 1. Navigate to the project *Triggers* page.
 2. Create a new trigger by selecting **Create trigger**:
 
-![](/docs/images/5669262/5865570.png "width=500")
+![](/docs/images/5669262/5865570.png)
 
 3. Add events to the trigger.
   - For **Octopus 3.6** and above, select the event group *"Machine becomes available for deployment"*.
@@ -35,15 +35,15 @@ To test the trigger, we will disable a deployment target, deploy to that target'
 
 1. Disable a target with the role **TradingWebServer**in the **Test A** environment:
 
-![](/docs/images/5669262/5865573.png "width=500")
+![](/docs/images/5669262/5865573.png)
 
 2. Create a new release of OctoFX and deploy it to the **Test A** environment.  It will skip the steps that have been scoped to the **TradingWebServer** role because no deployment targets are available in that role:
 
-![](/docs/images/5669262/5865574.png "width=500")
+![](/docs/images/5669262/5865574.png)
 
 3. Enable the deployment target **TAWeb01.** Octopus will automatically determine that it is missing the release we just deployed.  The deployment is re-queued and will run only for the **TAWeb01** target, creating a new log section below the original deployment log:
 
-![](/docs/images/5669262/5865575.png "width=500")
+![](/docs/images/5669262/5865575.png)
 
 ## Overriding the Release Used for Automatic Deployments {#Keepingdeploymenttargetsuptodate-Overridingthereleaseusedforautomaticdeploymentsoverriderelease}
 

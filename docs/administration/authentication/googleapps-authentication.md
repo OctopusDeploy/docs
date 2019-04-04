@@ -95,11 +95,11 @@ Perhaps the contents of the security token sent back by GoogleApps aren't exactl
 
 3. Attempt to sign into Octopus using GoogleApps and find the HTTP POST coming back to your Octopus instance from GoogleApps on a route like `/api/users/authenticatedToken/GoogleApps`. You should see an `id_token` field in the HTTP POST body. 
 
-![ID Token](/docs/images/5670664/5866125.png "width=500")
+![ID Token](/docs/images/5670664/5866125.png)
 
 4. Grab the contents of the `id_token` field and paste that into [https://jwt.io/](https://jwt.io/) which will decode the token for you.  
 
-![jwt.io](/docs/images/5670656/5866123.png "width=500")
+![jwt.io](/docs/images/5670656/5866123.png)
 
 5. Don't worry if jwt.io complains about the token signature, it doesn't support RS256 which is used by GoogleApps.
 6. Octopus uses most of the data to validate the token, but primarily uses the `sub`, `email` and `name` claims. If these claims are not present you will likely see unexpected behavior.

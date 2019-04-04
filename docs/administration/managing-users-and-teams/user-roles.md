@@ -47,17 +47,17 @@ If you are using a version prior to **Octopus 2019.1** (including **2018.10-LTS*
 
 1. Under the **Configuration** page, click **Roles**.
 
-   ![](roles-link.png "width=500")
+   ![](roles-link.png)
 
 2. Click **Add custom role**.
 
 3. Select the set of permissions you'd like this new User Role to contain, and give the role a name and description.
 
-   ![](select-permissions.png "width=500")
+   ![](select-permissions.png)
 
 Once the custom role is saved, the new role will be available to be assigned to any team on Octopus.
 
-![](add-role.png "width=500")
+![](add-role.png)
 
 ## Creating User Roles With Spaces {#UserRoles-CreatingUserRoles}
 
@@ -65,19 +65,19 @@ If you are using **Octopus 2019.1** or later, a custom User Role can be created 
 
 1. Under the **Configuration** page, click **Roles**.
 
-   ![](roles-link.png "width=500")
+   ![](roles-link.png)
 
 2. Click **Add custom role**.
 
 3. Select the set of permissions you'd like this new User Role to contain, and give the role a name and description. These can be system or space level permissions.
 
-   ![](select-permissions.png "width=500")
+   ![](select-permissions.png)
 
 Once the custom role is saved, the new role will be available to be assigned to teams in Octopus. [Some rules apply](/docs/administration/managing-users-and-teams/system-and-space-permissions.md#SystemAndSpacePermissions-RulesOfTheRoad), depending on the mix of system or space level permissions you chose.
 
 When applying roles to a team, you are able to optionally specify a scope for each role applied. This enables some complex scenarios, like granting a team [different levels of access](/docs/administration/managing-users-and-teams/creating-teams-for-a-user-with-mixed-environment-privileges.md) based on the environment they are authorized for.   
 
-![](define-scope-for-user-role.png "width=500")
+![](define-scope-for-user-role.png)
 
 ## Troubleshooting Permissions {#UserRoles-TroubleshootingPermissions}
 
@@ -90,11 +90,11 @@ The results will show:
 - The teams of which the user is a member of.
 - A chart detailing each role and on which Environment/Project this permission can be executed. The chart can be exported to a CSV file by clicking the Export button. Once the file is downloaded it can viewed in browser using [Online CSV Editor and Viewer](http://www.convertcsv.com/csv-viewer-editor.htm).
 
-![](test-permissions.png "width=500")
+![](test-permissions.png)
 
 If a user tries to perform an action without having enough permissions to do it, an error message will pop up showing which permissions the user is lacking, and which teams actually have these permissions.
 
-![](no-permissions.png "width=500")
+![](no-permissions.png)
 
 :::warning
 As further versions of Octopus are released, we might create new roles to improve our security model. These new roles will not be automatically included in any of the built-in User Roles, to avoid giving users permissions they are not supposed to have. These new roles will have to be added manually to a User Role by an administrator.

@@ -8,7 +8,7 @@ This guide assumes familiarity with Octopus Deploy.  If you don't already know 
 
 The features in [Elastic and Transient Environments](/docs/deployment-patterns/elastic-and-transient-environments/index.md) make it easier to deploy infrastructure in addition to applications.  This guide focuses on deploying immutable infrastructure.  Traditionally the infrastructure that hosts applications is mutable: it is constantly changing.  The changes that infrastructure could experience include things like: new firewall rules, operating system updates and patches to your own deployed applications. Immutable infrastructure, as the name suggests, does not change after the initial configuration. In order to apply changes, a new version of the infrastructure is provisioned and the old infrastructure is terminated:
 
-![](/docs/images/5670238/5865664.png "width=500")
+![](/docs/images/5670238/5865664.png)
 
 In this example we will create an infrastructure project and an application project.  The infrastructure project will provision new Tentacles and terminate the old ones. The application project gets deployed to the Tentacles.  We will then automate deploying our application to brand new infrastructure with each release.
 
@@ -34,7 +34,7 @@ The infrastructure project runs a script that provisions two new Tentacles and r
 5. Add a step that runs the script called **Provision.ps1** from the package **HelloWorldInfrastructure** on the Octopus Server.
 6. Add a step that performs a health check, excluding unavailable machines from the deployment:
 
-   ![](/docs/images/5670238/5865670.png "width=500")
+   ![](/docs/images/5670238/5865670.png)
 
 7. Add a step that runs **Teminate.ps1** from the package **HelloWorldInfrastructure** on the Octopus Server on behalf of all roles.
 
@@ -58,7 +58,7 @@ Cleaning up old Tentacles can be accomplished through the use of machine policie
 4. Select "Automatically delete unavailable machines".
 5. Change "Time unavailable" to 5 minutes.
 
-![](/docs/images/5670238/5865677.png "width=500")
+![](/docs/images/5670238/5865677.png)
 
 ### Automatically Deploying {#ImmutableInfrastructure-Automaticallydeploying}
 
@@ -67,7 +67,7 @@ The **Hello World** project can be configured to automatically deploy when a new
 1. Create a new trigger for the Hello World project.
 2. Select the event "New deployment target becomes available".
 
-   ![](/docs/images/5670238/5865666.png "width=500")
+   ![](/docs/images/5670238/5865666.png)
 
 Create and deploy a new release of **Hello World Infrastructure**.  You should notice that immediately after new Tentacles are provisioned, **Hello World** is automatically deployed to those Tentacles:
 

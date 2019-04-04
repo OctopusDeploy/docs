@@ -34,9 +34,9 @@ Octopus relies on Active Directory users being configured with enough informatio
 2. UPN (User Principal Name)
 3. Email Address
 
-![](/docs/images/5669864/5866202.png "width=500")
+![](/docs/images/5669864/5866202.png)
 
-![](/docs/images/5669864/5866203.png "width=500")
+![](/docs/images/5669864/5866203.png)
 
 These values can be used by Octopus to uniquely identify which Octopus User Account should be associated with each Active Directory User.
 
@@ -133,7 +133,7 @@ For more information on diagnostic logging, see the following Microsoft TechNet 
 
 The diagnostic logs can be viewed in the Event Viewer.
 
-![](/docs/images/5669864/5865632.png "width=500")
+![](/docs/images/5669864/5865632.png)
 
 :::hint
 Remember to reset the registry values once you're finished troubleshooting.

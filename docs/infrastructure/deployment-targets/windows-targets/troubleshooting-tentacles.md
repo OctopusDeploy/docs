@@ -109,7 +109,7 @@ When you conduct these checks:
 
 The page shown should look like the one below.
 
-![](/docs/images/3048143/3278074.png "width=500")
+![](/docs/images/3048143/3278074.png)
 
 **If you can't browse to the page...**
 If this is where your journey ends, there's a problem on the Tentacle machine. It is very likely that the Tentacle is unable to open the communications port, either because of permissions, or because another process is listening on that port. Using the Windows `netstat -o -n -a -b` command can help to get to the bottom of this quickly. If you're still in trouble, check the Tentacle [log files](/docs/support/log-files.md) and contact Octopus Deploy support.
@@ -132,7 +132,7 @@ Remember to check both the built-in Windows Firewall, and any other firewalls (i
 
 The page shown should look like the one below.
 
-![](/docs/images/3048113/3277906.png "width=500")
+![](/docs/images/3048113/3277906.png)
 
 If you've made it this far, good news! Your Octopus Server is running and ready to accept inbound connections from Polling Tentacles.
 

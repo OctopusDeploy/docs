@@ -1,6 +1,7 @@
 ---
 title: version
 description: Output Octo command line tool version.
+position: 290
 ---
 
 Output Octo command line tool version.

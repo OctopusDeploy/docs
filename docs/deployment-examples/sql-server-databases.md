@@ -24,7 +24,7 @@ There are pros and cons to either approach as well as the tools themselves.  It 
 
 Deploying an IIS Web Application or a Windows Service is very straight-forward.  Install the Tentacle on the server to be deployed to.  SQL Server is different.  Production SQL Servers are typically clusters or high-availability groups.  They comprise more than one node hidden behind a VIP or virtual IP Address.
 
-![](common-database-with-vip.png "width=500")
+![](common-database-with-vip.png)
 
 For high-availability groups, there is an active node and a passive node.  In this case, installing a Tentacle on each node will not work.  Octopus Deploy will see multiple Tentacles and attempt to deploy to both nodes.
 
@@ -40,15 +40,15 @@ Finally, it is good security practice to have a different deployment account per
 
 With all that in mind, a "jump box" is where Tentacles should be installed.  The jump box sits between Octopus Deploy and the SQL Server VIP.  The Tentacle is running as a [service account](/docs/infrastructure/deployment-targets/windows-targets/running-tentacle-under-a-specific-user-account.md) with the necessary permissions to make schema changes.  The tooling chosen for database deployments is installed on the jump box.
 
-![](database-with-jump-box.png "width=500")
+![](database-with-jump-box.png)
 
 In the event of multiple domains, a jump box would be needed per domain.  This might be seen where there is a domain in a local infrastructure and another domain in a cloud provider such as Azure.  As long as port 10933 is open (for a listening Tentacle) or port 443 (for a polling Tentacle) Octopus will be able to communicate to the jump box.
 
-![](database-jump-box-multiple-domains.png "width=500")
+![](database-jump-box-multiple-domains.png)
 
 It is possible to install many Tentacles on a single server.  Please [read here](/docs/administration/managing-infrastructure/managing-multiple-instances.md) for more information.  
 
-![](database-jump-box-multiple-tentacles.png "width=500")
+![](database-jump-box-multiple-tentacles.png)
 
 ## Database Deployment Permissions {#SQLServerdatabases-Permissions}
 
@@ -146,8 +146,6 @@ SQL Release has been replaced by DLM Automation, which is available in the [SQL
 
 The Redgate Database Lifecycle Management (DLM) Automation tool works with build servers and release management tools to provide continuous integration and automated deployment for your SQL databases. You can control DLM Automation by using the [DLM Automation PowerShell cmdlets](https://documentation.red-gate.com/display/DLMA2/Cmdlet+reference) or by using one of the [DLM Automation add-ons](http://www.red-gate.com/dlmas/add-ons-page). DLM Automation is available in the [SQL Toolbelt](http://www.red-gate.com/products/sql-development/sql-toolbelt/).
 
-![](/docs/images/3048077/5865877.png "width=500")
-
 :::hint
 Learn about [using DLM Automation with Octopus Deploy](https://documentation.red-gate.com/display/DLMA2/Walkthrough%3A+Set+up+Continuous+Integration+And+Release+Management).
 :::
@@ -155,8 +153,6 @@ Learn about [using DLM Automation with Octopus Deploy](https://documentation.re
 ### Redgate ReadyRoll {#SQLServerdatabases-RedgateReadyRoll}
 
 Redgate ReadyRoll follows the change script approach, and also provides an excellent Visual Studio experience. It has the ability to [generate Octopus Deploy-ready NuGet packages](http://doc.ready-roll.com/display/RRSQLDOC/Octopus+Deploy) and can work in continuous integration/automated build tools.
-
-![](/docs/images/3048077/3277640.png "width=500")
 
 :::hint
 **Learn more about ReadyRoll**

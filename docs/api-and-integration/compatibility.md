@@ -9,11 +9,12 @@ The table below outlines the backward compatibility between Octopus Server and r
 | Octopus Server    | Octopus.Client Octo.exe | Calamari         | Tentacle      | TeamCity Plugin  |
 | --------------    | ----------------------- | ------------     | ------------  | ---------------  |
 | 3.2               | 3.2                     | 3.0 ➜ latest    | 3.2           |                  |
-| 3.3               | 3.3 ➜ latest           | 3.3              | 3.0 ➜ latest | 3.3 ➜ latest    |
-| 3.4               | 3.3 ➜ latest           | 3.4              | 3.0 ➜ latest | 3.3 ➜ latest    |
-| 3.5 ➜ 2018.2     | 3.3 ➜ latest           | 3.5 ➜ latest    | 3.0 ➜ latest | 3.3 ➜ latest    |
-| 2018.2 ➜ 2018.12 | 4.30.7 ➜ latest        | 3.5 ➜ latest    | 3.0 ➜ latest | 3.3 ➜ latest    |
-| 2019.1* ➜ latest | 5.0.0 ➜ latest         | 3.5 ➜ latest    | 4.0 ➜ latest | coming soon      |
+| 3.3               | 3.3 ➜ 4.30.3           | 3.3              | 3.0 ➜ latest | 3.3 ➜ latest    |
+| 3.4               | 3.3 ➜ 4.30.3           | 3.4              | 3.0 ➜ latest | 3.3 ➜ latest    |
+| 3.5 ➜ 2018.2     | 3.3 ➜ 4.30.3           | 3.5 ➜ latest    | 3.0 ➜ latest | 3.3 ➜ latest    |
+| 2018.2 ➜ 2018.12 | 4.30.7 ➜ 4.47.0        | 3.5 ➜ latest    | 3.0 ➜ latest | 3.3 ➜ latest    |
+| 2019.1*           | 5.0.0 ➜ 5.2.7          | 3.5 ➜ latest    | 4.0 ➜ latest | 5.0 ➜ latest    |
+| 2019.2* ➜ latest | 6.0.0 ➜ latest         | 3.5 ➜ latest    | 4.0 ➜ latest | 5.0 ➜ latest    |
 
 ## &ast; Partial forwards compatibility
 

@@ -34,7 +34,7 @@ The recommendations below generally rely on the build number itself being SemVer
 
 Our recommended build number format is: `x.y.$(BuildID)` where `x` and `y` are integers. You can change them when you want to bump a version. This format will produce a three-part version number like `1.2.350`.
 
-![Recommended Build format](build-format-recommended.jpg "width=500")
+![Recommended Build format](build-format-recommended.jpg)
 
 If you have a build for a separate branch, it's a good idea to add the version tag. For example: `x.y.$(BuildID)-feature-1` will produce a version number like `1.2.350-feature1`. Even better, you can use the `$(Build.SourceBranchName)` variable to set it to the branch name.
 
@@ -126,8 +126,8 @@ Rather than guessing, it can be helpful to specify these folders specifically. A
 
 By way of example, here's a nicely-configured set of build, pack, and push steps.
 
-![Example Build Step](example-build-1.jpg "width=500")
+![Example Build Step](example-build-1.jpg)
 
-![Example Package Step](example-build-2.jpg "width=500")
+![Example Package Step](example-build-2.jpg)
 
-![Example Push Step](example-build-3.jpg "width=500")
+![Example Push Step](example-build-3.jpg)

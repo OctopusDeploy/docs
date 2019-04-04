@@ -28,7 +28,8 @@ The data migration tools are not suitable for every imaginable scenario. In thes
 1. For general disaster recovery learn about [backup and restore for your Octopus Server](/docs/administration/data/backup-and-restore.md).
 1. To move your Octopus database to another database server see [moving your database](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-database.md).
 1. To move your Octopus Server and database to another server see [moving your Octopus Server and database](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-database-and-server.md).
-1. To move your entire Octopus Server from a self-hosted installation to Octopus Cloud, contact our [support team](https://octopus.com/support) for help.
+1. To move your entire Octopus Server from a self-hosted installation to Octopus Cloud, see [migrating from self-hosted to Octopus Cloud](/docs/octopus-cloud/migrations.md).
+1. To move your entire Octopus Cloud instance to a self-hosted Octopus Server please [contact our support team](mailto:support@octopus.com) for advice and assistance.
 
 ## Tips
 
@@ -53,11 +54,11 @@ It's a good idea to make sure your Octopus Server isn't changing data while expo
 
 You can export data using the Export Wizard built into the Octopus Server Manager, or using the command-line interface `Octopus.Migrator.exe`. You can export your entire Octopus Server configuration, or certain projects and their dependencies. The wizard is a good way to get started, but the full feature set is only available using the command-line interface.
 
-![](/docs/images/3048141/3278071.png "width=500")
+![](/docs/images/3048141/3278071.png)
 
 We have tried to make the exported file structure predictable and easy to navigate.
 
-![](/docs/images/3048141/3278073.png "width=500")
+![](/docs/images/3048141/3278073.png)
 
 ### Importing {#Datamigration-ImportingImporting}
 
@@ -67,7 +68,7 @@ It's a good idea to [perform a backup](/docs/administration/data/backup-and-rest
 
 You can import data using the Import Wizard built into the Octopus Server Manager, or using the command-line interface `Octopus.Migrator.exe import`. Similarly to exporting data, the wizard is a good way to get started, but the full feature set is only available using the command-line interface.
 
-![](/docs/images/3048141/3278070.png "width=500")
+![](/docs/images/3048141/3278070.png)
 
 You'll get a chance to preview the changes first, and you can tell the tool to either:
 
@@ -134,4 +135,4 @@ We use the ID's so we can map references between documents into the correct refe
 
 Yes! Most of the features are only available via command-line so it is the most common way to perform data migration. Use `Octopus.Migrator.exe help` to see the full list of commands available. To see an example of the command syntax, you can use the Wizard in the Octopus Server Manager and click the **Show script** link.
 
-![](/docs/images/3048141/3278069.png "width=500")
+![](/docs/images/3048141/3278069.png)

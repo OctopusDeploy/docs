@@ -12,7 +12,7 @@ In summary Maintenance Mode enables you to safely prepare your server for mainte
 
 To enable or disable Maintenance Mode, go to **{{Configuration,Maintenance}}**.
 
-![Maintenance Mode Configuration](maintenance-mode.png "width=500")
+![Maintenance Mode Configuration](maintenance-mode.png)
 
 Only users with the `Administer System` permission can enable/disable Maintenance Mode.
 

@@ -7,7 +7,7 @@ All of the data and settings managed by Octopus - the projects, environments, de
 
 You can view and change the backup settings by browsing to the *Configuration* tab in the Octopus web portal, and then clicking the *Backup* tab.
 
-![](/docs/images/backup-2.6/3277492.png "width=500")
+![](/docs/images/backup-2.6/3277492.png)
 
 ## Encrypted Backups
 
@@ -21,11 +21,11 @@ Making a copy of your master key is easy:
 
 1. Open the **Octopus Manager** from the start menu/start screen:
 
-   ![](/docs/images/backup-2.6/3277161.png "width=500")
+   ![](/docs/images/backup-2.6/3277161.png)
 
 2. Click **Copy master key to clipboard...**:
 
-   ![](/docs/images/backup-2.6/3277158.png "width=500")
+   ![](/docs/images/backup-2.6/3277158.png)
 
 3. Paste the master key into a text editor or a secure enterprise password manager, and save it:
 
@@ -33,4 +33,4 @@ Making a copy of your master key is easy:
 
 You can take a backup of your Octopus database immediately, simply by clicking the green **Backup now** button.
 
-![](/docs/images/backup-2.6/3277490.png "width=500")
+![](/docs/images/backup-2.6/3277490.png)

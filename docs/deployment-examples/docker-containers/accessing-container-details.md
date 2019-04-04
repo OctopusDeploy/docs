@@ -18,7 +18,7 @@ Keep in mind when using the results of Octopus Deploy's automatic inspection tha
 
 :::success
 **Advanced JSON parsing in variables**
-With the [changes to Octostache introduced in Octopus 3.5](https://octofront.com/content/blog/octostache-json-formatting), a variable that is a JSON object can now be [parsed natively](/docs/deployment-process/variables/variable-substitution-syntax.md) and sub properties within the document can now be used for general variable substitution. This makes accessing information about your container from subsequent steps trivial.
+With the [changes to Octostache introduced in Octopus 3.5](https://octofront.com/content/blog/octostache-json-formatting), a variable that is a JSON object can now be [parsed natively](/docs/deployment-process/variables/variable-substitutions.md) and sub properties within the document can now be used for general variable substitution. This makes accessing information about your container from subsequent steps trivial.
 :::
 
 ## Common Examples {#AccessingContainerDetails-Commonexamples}
@@ -31,7 +31,7 @@ A typical project may involve one step that first creates a network, and then cr
 #{Octopus.Action[Create Network Step Name].Output.Docker.Inspect.Name}
 ```
 
-![](/docs/images/5671068/5865817.png "width=500")
+![](/docs/images/5671068/5865817.png)
 
 ### Obtain Container IP Address Inside Custom Network {#AccessingContainerDetails-ObtainContainerIPaddressinsidecustomnetwork}
 

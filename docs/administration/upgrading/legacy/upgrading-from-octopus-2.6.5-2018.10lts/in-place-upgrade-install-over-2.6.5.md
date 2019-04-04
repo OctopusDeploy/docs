@@ -32,11 +32,11 @@ See the [Backup and restore](/docs/administration/upgrading/legacy/upgrading-fr
 
 When the Hydra task runs on a Tentacle machine, it should no longer be able to communicate with the **Octopus 2.6** server. You can verify this by navigating to the Environments page and clicking **Check Health**.
 
-![](/docs/images/3048132/3278012.png "width=500")
+![](/docs/images/3048132/3278012.png)
 
 After successfully updating your Tentacles, you should see this check fail from your 2.6 server.
 
-![](/docs/images/3048132/3278011.png "width=500")
+![](/docs/images/3048132/3278011.png)
 
 We recommend connecting to some of your Tentacle machines and examining the Octopus Tentacle binaries to ensure they have been upgraded. You should also ensure the service is running (even though it will not be able to communicate with the server).
 
@@ -55,21 +55,21 @@ See the [Installing Octopus 3.x](/docs/installation/index.md) page for instruc
 
 After installing the MSI, you will be presented with an upgrade page.
 
-![](/docs/images/3048132/3278008.png "width=500")
+![](/docs/images/3048132/3278008.png)
 
 Click "Get started..." and set up your database connection. You may need to grant permission to the NT AUTHORITY\SYSTEM account at this stage.
 
-![](/docs/images/3048132/3278007.png "width=500")
+![](/docs/images/3048132/3278007.png)
 
 Click Next, and then Install to install the **Octopus 3.x** server over the **Octopus 2.6** instance.
 
-![](/docs/images/3048132/3278006.png "width=500")
+![](/docs/images/3048132/3278006.png)
 
 ### 5. Restore the Octopus 2.6 Database Using the Migration Tool {#Inplaceupgrade(installover2.6)-5.RestoretheOctopus2.6databaseusingthemigrationtool}
 
 After upgrading, the Octopus Manager will prompt to import your **Octopus 2.6** database. Click the "Import data..." button and follow the prompts to import your **Octopus 2.6** data.
 
-![](/docs/images/3048132/3278005.png "width=500")
+![](/docs/images/3048132/3278005.png)
 
 See the [Migrating data from Octopus 2.6 to 3.x](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/migrating-data-from-octopus-2.6.5-2018.10lts.md) page for more detailed instructions on importing your **Octopus 2.6** database backup into **Octopus 3.x**.
 
@@ -91,7 +91,7 @@ You will need to transfer them to the new server to `C:\Octopus\Packages` Once 
 
 Log in to your new **Octopus 3.x** server and run health checks on all of your environments. If the upgrade completed successfully, they should succeed.
 
-![](/docs/images/3048132/3278009.png "width=500")
+![](/docs/images/3048132/3278009.png)
 
 If one or more health checks do not succeed after a few attempts, see the Troubleshooting section to identify possible issues.
 

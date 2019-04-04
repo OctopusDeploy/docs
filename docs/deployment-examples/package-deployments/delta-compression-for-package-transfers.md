@@ -41,7 +41,7 @@ If any of the below occurs the full package will be uploaded:
 
 When running a deployment that creates and applies a delta file, you will see the following in the logs under the `Acquire packages` section
 
-![](/docs/images/3048083/3277668.png "width=500")
+![](/docs/images/3048083/3277668.png)
 
 :::hint
 **Delta progress logging**
@@ -62,7 +62,7 @@ The most common mistake causing delta compression to yield minimal size reductio
 
 To turn this feature off, create a project variable named **Octopus.Acquire.DeltaCompressionEnabled** with a value of **False**:
 
-![](/docs/images/3048083/5275657.jpg "width=500")
+![](/docs/images/3048083/5275657.jpg)
 
 :::hint
 **Delta calculations can be CPU intensive**

@@ -29,13 +29,13 @@ Creating a new Service account is very similar to creating a new User account:
 3. Enter a unique **Username** and **Display name** so you can distinguish this Service account.
 4. Save the user to create the Service account.
 
-![Create service account](create-service-acount.png "width=500")
+![Create service account](create-service-acount.png)
 
 :::hint
 This Service account is not very useful until it [belongs to one or more teams](/docs/administration/managing-users-and-teams/index.md), and has one or more [Octopus API keys](/docs/api-and-integration/api/how-to-create-an-api-key.md) associated with it
 :::
 
-![Service account API Key](service-account-apikey.png "width=500")
+![Service account API Key](service-account-apikey.png)
 
 Once you have created an [Octopus API key](/docs/api-and-integration/api/how-to-create-an-api-key.md) and [added this Service account to a team](/docs/administration/managing-users-and-teams/index.md), you can start using this Service account to automate Octopus with another service.
 
@@ -43,4 +43,4 @@ Once you have created an [Octopus API key](/docs/api-and-integration/api/how-to-
 
 As of **Octopus 3.17**, if you are using Active Directory there is also the option of using an Active Directory account's group membership to determine the service account's Team membership. To use this option all you need to do is add the Active Directory account as an external login entry for the service account.
 
-![Add Active Directory login](add-adlogin.png "width=500")
+![Add Active Directory login](add-adlogin.png)

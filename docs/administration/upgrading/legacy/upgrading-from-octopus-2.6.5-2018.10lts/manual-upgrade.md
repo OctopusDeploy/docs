@@ -39,21 +39,21 @@ See the [Installing Octopus 3.x](/docs/installation/index.md) page for instruc
 
 After installing the MSI, you will be presented with an upgrade page.
 
-![](/docs/images/3048132/3278008.png "width=500")
+![](/docs/images/3048132/3278008.png)
 
 Click "Get started..." and set up your database connection. You may need to grant permission to the NT AUTHORITY\SYSTEM account at this stage.
 
-![](/docs/images/3048132/3278007.png "width=500")
+![](/docs/images/3048132/3278007.png)
 
 Click Next, and then Install to install the **Octopus 3.x** server over the **Octopus 2.6** instance.
 
-![](/docs/images/3048132/3278006.png "width=500")
+![](/docs/images/3048132/3278006.png)
 
 ### 3. Restore the Octopus 2.6 Database Using the Migration Tool {#Manualupgrade-3.RestoretheOctopus2.6databaseusingthemigrationtool}
 
 After upgrading, the Octopus Manager will prompt to import your **Octopus 2.6** database. Click the "Import data..." button and follow the prompts to import your **Octopus 2.6** data.
 
-![](/docs/images/3048132/3278005.png "width=500")
+![](/docs/images/3048132/3278005.png)
 
 See the [Migrating data from Octopus 2.6 to 3.x](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/migrating-data-from-octopus-2.6.5-2018.10lts.md) page for more detailed instructions on importing your **Octopus 2.6** database backup into **Octopus 3.x**.
 
@@ -83,7 +83,7 @@ We discovered an issue with the Tentacle Installer for **Octopus 3.0.1** where t
 
 Click the Reinstall button to ensure the Tentacle windows service is pointing to the correct version of Tentacle.exe.
 
-![](/docs/images/3048134/3278285.png "width=500")
+![](/docs/images/3048134/3278285.png)
 
 :::hint
 **Modified the Tentacle windows service?**
@@ -94,6 +94,6 @@ Reinstall will uninstall and reinstall the Tentacle windows service. If you're r
 
 Log in to your new **Octopus 3.x** server and run health checks on all of your environments. If the upgrade completed successfully, they should succeed.
 
-![](/docs/images/3048132/3278009.png "width=500")
+![](/docs/images/3048132/3278009.png)
 
 If one or more health checks do not succeed after a few attempts, see the Troubleshooting section to identify possible issues.

@@ -11,7 +11,7 @@ X.509 certificates are a key component of many deployment processes. Octopus Dep
 
 ## Securely Store Certificates and Private-Keys
 
-![](certificate-list.png "width=500")
+![](certificate-list.png)
 
 - [Add certificate](add-certificate.md)
 - [Replacing certificates](replace-certificate.md)
@@ -42,7 +42,7 @@ The background task which raises the certificate-expiry events runs:
 
 Certificates can be imported to Windows Certificate Stores as part of a deployment process using the [Import Certificate Deployment Step](/docs/deployment-examples/certificates/import-certificate-step.md).
 
-![](import-certificate-step-select.png "width=500")
+![](import-certificate-step-select.png)
 
 ## Use Certificates for HTTPS Bindings When Deploying IIS Websites   
 
@@ -50,10 +50,10 @@ When configuring HTTPS bindings for [IIS Websites](/docs/deployment-examples/iis
 - entering the thumbprint directly (this assumes the certificate has already been installed on the machine).
 - selecting a certificate-typed variable (this will automatically install the certificate).
 
-![](https-binding-certificate.png "width=500")
+![](https-binding-certificate.png)
 
 ## Create Certificate-Typed Variables
 
 Certificates managed by Octopus can be configured as the [value of variables](/docs/deployment-process/variables/certificate-variables.md), and used from custom deployment scripts.
 
-![](/docs/images/certificates/certificate-variables-scoped.png "width=500")
+![](/docs/images/certificates/certificate-variables-scoped.png)

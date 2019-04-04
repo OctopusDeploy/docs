@@ -15,7 +15,7 @@ If you just want to transfer a package to your remote target without extracting 
 
 When transferring a package you will need to specify a location that the file will be copied to once it has been uploaded from the server. This can be either a hard-coded path, or a bound variable.
 
-![](/docs/images/5672327/5866214.png "width=500")
+![](/docs/images/5672327/5866214.png)
 
 This package will be transferred to the target during the package acquisition phase, and then copied to the specified location at the appropriate time during the deployment process. The copy process is used as opposed to moving or simply transferring it directly to the requested location during acquisition for a number of reasons. First, this will allow the package location to be derived from output variables from previous steps while allowing the full acquisition process to occur up-front, and secondly it will allow the [delta compression](/docs/deployment-examples/package-deployments/delta-compression-for-package-transfers.md) checks to take place to reduce to amount of data that needs to be transferred on subsequent deployments.
 

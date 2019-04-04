@@ -28,7 +28,7 @@ Follow the steps for [Azure Web App targets](/docs/infrastructure/deployment-tar
 
 Create a [Run an Azure PowerShell Script](/docs/deployment-examples/azure-deployments/running-azure-powershell/index.md) step.
 
-![](azure-powershell-script-step.png "width=500")
+![](azure-powershell-script-step.png)
 
 Your script should be:
 
@@ -58,15 +58,15 @@ The reason for the first line, which removes the Staging Slot, is to ensure we a
 
 So your step should look like:
 
-![](azure-remove-staging-slot-script.png "width=500")
+![](azure-remove-staging-slot-script.png)
 
 ### Step 3: Deploy Your Package {#UsingDeploymentSlotswithAzureWebApps-Step2:DeployyourPackage}
 
 The next step is to deploy your package to the Staging slot.  We do this by creating a [Deploy an Azure Web App](/docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md) step.
 
-![](deploy-azure-web-app-step.png "width=500")
+![](deploy-azure-web-app-step.png)
 
-![](azure-web-app-selector-with-slot.png "width=500")
+![](azure-web-app-selector-with-slot.png)
 
 You can enter the name of deployment slot in the **Deployment Slot** field, or to use a variable for the Slot name, click the "Bind" button, and enter
 
@@ -76,7 +76,7 @@ You can enter the name of deployment slot in the **Deployment Slot** field, or t
 
 As shown below:
 
-![](azure-web-app-slot-binding.png "width=500")
+![](azure-web-app-slot-binding.png)
 
 :::info
 You can choose to specify the slot directly on the deployment target, or directly on the step (if you wish to deploy to multiple different slots on the same Web App Service, for example), however, the slot on the target will take priority.
@@ -104,8 +104,8 @@ Switch-AzureRmWebAppSlot -ResourceGroupName #{ResourceGroup} -Name #{Website} -S
 
 So your step will appear as:
 
-![](azure-web-app-swap-slots-script.png "width=500")
+![](azure-web-app-swap-slots-script.png)
 
 At this point you should have a working Blue-Green deployment process for your Azure Web App.
 
-![](azure-web-app-with-slots-process.png "width=500")
+![](azure-web-app-with-slots-process.png)

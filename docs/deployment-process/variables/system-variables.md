@@ -1,7 +1,7 @@
 ---
 title: System Variables
 description: System variables are variables provided by Octopus that can be used in your deployments.
-position: 50
+position: 20
 ---
 
 This page lists built-in [variables](/docs/deployment-process/variables/index.md) provided by Octopus that can be used in your deployment [custom scripts](/docs/deployment-examples/custom-scripts/index.md).
@@ -256,3 +256,4 @@ The following variables can be defined as variables in your project to modify th
 |**`Octopus.Action.PowerShell.ExecuteWithoutProfile`** <br/>Set to `true` to not run the Tentacle service account's PowerShell profile script when running PowerShell script steps (available in version 3.3.21+) | True|
 |**`OctopusSuppressDuplicateVariableWarning`** <br/>Set to `true` to have the duplicate variable message logged as verbose instead of warning. ***Do this if you are aware of the duplication and that it isn't causing any issues in your deployment***  (available in version 3.17.0+) | True|
 |**`Octopus.Action.Package.RunScripts`**  <br/>Set to `false` to prevent scripts inside packages from executing. ***Do this if you are aware of the duplication and that it isn't causing any issues in your deployment***  (available in version 4.1.10+) | True|
+|**`Octopus.Calamari.CopyWorkingDirectoryIncludingKeyTo`**  <br/>Set to a file-path and the Calamari working directory will be copied to the configured location. ***Copied files include the one-time key to decrypt sensitive variables*** [More details.](/docs/support/copy-working-directory.md) | `c:\temp\octopus-debug`|

@@ -1,6 +1,7 @@
 ---
 title: clean-workerpool
 description: Cleans all Offline Workers from a WorkerPool
+position: 20
 ---
 
 Cleans all Offline Workers from a WorkerPool

@@ -55,7 +55,7 @@ In this case we are specifying the `sa` password that is used when starting the 
 Start up both containers by running:
 
 ```
-docker-compose --poject-name Octopus up -d
+docker-compose --project-name Octopus up -d
 ```
 
 Once both containers are healthy you can browse directly to `http://localhost:5441` from your host machine.

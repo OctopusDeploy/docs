@@ -14,7 +14,7 @@ Have you read [our guide](/docs/deployment-patterns/multi-tenant-deployments/mul
 
 ## What Can You Do With Tenant Tags? {#TenantTags-Whatcanyoudowithtenanttags?}
 
-![](tag-sets.png "width=500")
+![](tag-sets.png)
 
 With tenant tags you can:
 
@@ -32,7 +32,7 @@ With tenant tags you can:
 
 Go to **{{Library,Tenant tag sets}}** to create, modify and reorder tag sets and tags.
 
-![](tenant-importance.png "width=500")
+![](tenant-importance.png)
 
 
 ### Design Your Tag Sets Carefully
@@ -51,7 +51,7 @@ Order is important for tag sets, and tags within those tag sets. Octopus will so
 
 This example of configuring a tenanted deployment target shows how the tenant filter field order is defined based on the order of the tag sets and tags in the library.
 
-![](/docs/images/5670003/5865645.png "width=500")
+![](/docs/images/5670003/5865645.png)
 
 ## Tag-based Filters {#TenantTags-Tag-basedfilters}
 

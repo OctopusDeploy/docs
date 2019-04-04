@@ -52,6 +52,10 @@ An optional value that defines the maximum time in seconds for a deployment to m
 
 This value affects [Blue/Green deployments](#bluegreen-deployment-strategy), which will point the service to the new deployment only after the new deployment has succeeded.
 
+### Pod Termination Grace Period
+
+An optional value that defines how long Kubernetes will wait for the Pod resource to shutdown before it is killed. See the [Kubernetes documentation](http://g.octopushq.com/KubernetesPodTermination) for more details.
+
 ### Add Label
 
 Labels are custom key/value pairs that are assigned to Kubernetes resources. The labels defined in the `Deployment` section are applied to the Deployment, Pod, Service, Ingress, ConfigMap and Secret resources.
@@ -569,7 +573,7 @@ The `Pod Annotations` section defines the annotations that are added to the Depl
 
 For example, consider the `Pod Annotations` defined in the screenshot below.
 
-![](pod-annotations.png "width=500")
+![](pod-annotations.png)
 
 This will result in a Deployment resource YAML file something like this following.
 
@@ -625,7 +629,7 @@ spec:
 
 When this Deployment resource is deployed to a Kubernetes cluster, it will create a Pod resource with that annotation defined. In the screenshot below you can see the YAML representation of the Pod resource created by the Deployment resource has the same annotations.
 
-![](pod-annotation-deployed.png "width=500")
+![](pod-annotation-deployed.png)
 
 #### Deployment Annotations
 
@@ -633,7 +637,7 @@ The `Deployment Annotations` section defines the annotations that are added to t
 
 For example, consider the `Pod Annotations` defined in the screenshot below.
 
-![](deployment-annotation.png "width=500")
+![](deployment-annotation.png)
 
 This will result in a Deployment resource YAML file something like this following.
 

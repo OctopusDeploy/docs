@@ -10,7 +10,7 @@ We evaluate our backup and recovery strategy frequently to improve resiliency an
 
 ## Importing Data
 
-To import any projects you will need to set them up from scratch, or import them using the [Migration API](/docs/api-and-integration/migration-api/index.md). There are futures plans to provide a migration tool for moving to from an existing on-premise instance into the cloud.
+Due to some key differences between the self-hosted and cloud configurations, it currently **isn't** possible to use the existing [Migration API](/docs/api-and-integration/migration-api/index.md). If you are migrating from an existing self-hosted instance please see [migrating from self-hosted to Octopus Cloud](/docs/octopus-cloud/migrations.md).
 
 ## Exporting Your Data
 
