@@ -31,6 +31,7 @@ At deploy-time, Certificate variables are expanded. For example, a variable _MyC
 | MyCertificate.PrivateKeyPem     | The PEM representation of the private key (i.e. the PrivateKey with header\footer).  |
 | MyCertificate.ChainPem    | The PEM representation of any chain certificates (intermediate or certificate-authority). This variable does not include the primary certificate. _Added in Octopus 2018.5_|
 | MyCertificate.Subject           | The X.500 distinguished name of the subject            |
+| MyCertificate.SubjectCommonName | The un-attributed subject common name            |
 | MyCertificate.Issuer            | The X.500 distinguished name of the issuer             |
 | MyCertificate.NotBefore         | NotBefore date | 2016-06-15T13:45:30.0000000-07:00
 | MyCertificate.NotAfter         | NotAfter date | 2019-06-15T13:45:30.0000000-07:00
