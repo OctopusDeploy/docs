@@ -1,6 +1,7 @@
 ---
 title: push-metadata
 description: Pushes package metadata to Octopus Server.
+position: 285
 ---
 
 Pushes package metadata to Octopus Server.
