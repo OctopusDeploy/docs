@@ -1,6 +1,6 @@
 ---
 title: Octopus REST API
-description: Octopus Deploy is built **API-first** and all data and operations are available over its REST API.
+description: Octopus Deploy is built API-first and all data and operations are available over its REST API.
 position: 80
 ---
 
