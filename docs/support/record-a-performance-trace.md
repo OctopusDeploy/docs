@@ -32,13 +32,13 @@ If we haven't asked for anything specific, start with a 1-5 minute recording so 
 
 1. Install dotTrace on the machine hosting Octopus Server.
 2. Start dotTrace as an Administrator and start a free trial (the trial can be paused after recording the trace).
-3. Start a [timeline trace](https://www.jetbrains.com/help/profiler/10.0/Concurrency_Profiling_Timeline_.html) by [attaching to the running Octopus Server process](https://www.jetbrains.com/help/profiler/10.0/Profile_Running_Process.html).
-4. When enough time has passed, take a [snapshot](https://www.jetbrains.com/help/profiler/10.0/Profiling_Guidelines__Launching_and_Controlling_the_Profiling_Process.html) using `Get Snapshot'n'Wait`.
+3. Start a [timeline trace](https://www.jetbrains.com/help/profiler/Concurrency_Profiling_Timeline_.html) by [attaching to the running Octopus Server process](https://www.jetbrains.com/help/profiler/Profile_Running_Process.html).
+4. When enough time has passed, take a [snapshot](https://www.jetbrains.com/help/profiler/Profiling_Guidelines__Launching_and_Controlling_the_Profiling_Process.html) using `Get Snapshot'n'Wait`.
 5. Detach from the process.
 6. Close dotTrace.
 7. Zip the dotTrace recording, the Octopus Server logs, Task Logs for tasks running during that period of time, and server metrics or a performance chart covering that period in time.
 8. Upload the zip file bundle to the secure and private share which should have been provided by an Octopus team member, then get back in touch with us - unfortunately we don't get notified of file uploads.
-9. [Pause the dotTrace trial](https://www.jetbrains.com/help/profiler/10.0/Configuring_dotTrace__Configuring_License_Information.html) when you've finished recording.
+9. [Pause the dotTrace trial](https://www.jetbrains.com/help/profiler/Specifying_License_Information.html) when you've finished recording.
 
 ## Analysis
 
