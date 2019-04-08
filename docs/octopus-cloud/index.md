@@ -42,6 +42,16 @@ You will be taken to the account provisioning screen. Please note it can take fi
 
 When the instance is ready, you will see it (and any other instances you have access to) the next time you log in to your Octopus account at [https://account.octopus.com/account/signin](https://account.octopus.com/account/signin).
 
+## Uploading packages to Octopus Cloud instances
+
+When using Self-Hosted Octopus, Octopus Server is often located inside your corporate network, with very minimal latency and network congestion. With Octopus Cloud, your Octopus Server will always be accessible across the Internet, but sometimes the geographical distance between you and your Octopus Cloud instance may be high enough to cause package uploads to take longer than expected. 
+
+If you are having difficulty uploading packages to the Octopus Built-In Package feed within the default timeout threshold - which is usually about 5 minutes, you might be affected by high latency or network congestion across the Internet. In this case, you can increase the timeout threshold of many popular package push methods like `Octo.exe` and `nuget.exe`. 
+
+We often recommend using `Octo.exe`, `Octopus.Client` or the `TeamCity Plugin (version 4.41.0+)` because they also have the added advantage of using delta compression when pushing packages to Octopus Server. Delta compression could drastically reduce how much data is actually transferred when uploading a package to Octopus. This is because only the changes since the last pacakge are uploaded to Octopus, and not the entire package again.
+
+As more Octopus Cloud Regions become available, you will also be able to choose the best possible region to host your new Octopus Cloud instance to avoid high latency and network congestion. 
+
 ## Reset the User Password
 
 If you forget your username or password for the instance, you can request a **new user invite**.
