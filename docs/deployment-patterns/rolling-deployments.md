@@ -71,3 +71,15 @@ With this configuration, we run the entire website deployment step - taking the 
 This five minute video (with captions) will guide you through setting up a rolling deployment with child steps.rolling-deployments
 
 <iframe src="//fast.wistia.net/embed/iframe/7wfdk4vtge" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="360" style="margin: 30px"></iframe>
+
+## Rolling Deployments With Guided Failures
+
+[Guided Failures](/docs/deployment-process/releases/guided-failures.md) work perfectly with rolling deployments. If your deployment fails to one of the targets in your rolling deployment you can decide how to proceed. Imagine a scenario where you have three web servers in a load-balanced pool: `Web01`, `Web02` and `Web03`:
+
+1. `Web01` is removed from the load balancer, the new release is deployed successfully and `Web01` is returned to the load-balanced pool.
+2. `Web02` is removed from the load balancer, but the deployment of the new release fails. You can choose what happens next while `Web01` and `Web03` are still in the load-balanced pool.
+
+    a. **Fail** the entire deployment so you can try again later.
+    b. **Retry** the deployment to `Web02` as if the failure never happened.
+    c. **Ignore** the error as if it never happened.
+    d. **Exclude the machine from the deployment** continuing the deployment to the next machine in the rolling deployment.
