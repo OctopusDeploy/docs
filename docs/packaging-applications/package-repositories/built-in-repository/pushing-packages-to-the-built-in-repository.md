@@ -1,6 +1,7 @@
 ---
 title: Pushing Packages to the Built-In Repository
-description: Pushing packages to the Octopus Built-In repository can be done in numerous ways including the Octopus web portal, your build server and common command line utilities.
+description: Pushing packages to the Octopus Built-In repository can be done in numerous ways including the Octopus web portal, your build server, and common command line utilities.
+position: 20
 ---
 
 :::success
@@ -23,7 +24,6 @@ We offer several ways to add/upload/push packages to the built-in feed:
 
 You can manually upload a package file from your local machine via the Octopus web portal via the **{{Library,Packages}}** tab by clicking the *Upload package* button.
 
-![](/docs/images/3048094/3277775.png)
 
 :::success
 We generally recommend using a continuous integration/build server like [TeamCity](/docs/api-and-integration/teamcity.md), [Jenkins](/docs/api-and-integration/jenkins.md), [Bamboo](/docs/api-and-integration/bamboo.md) or [Team Foundation Server (TFS)](/docs/api-and-integration/tfs-azure-devops/index.md) to build, test, package and automatically push your release packages into the Octopus Deploy built-in repository. See below for examples on doing this.
@@ -33,12 +33,12 @@ We generally recommend using a continuous integration/build server like [TeamCit
 For pushing packages using the methods described below you'll need:
 
 1. The URL to your Octopus Server.
-2. An [Octopus API key](/docs/api-and-integration/api/how-to-create-an-api-key.md) with the required permissions (see [security considerations](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md)).
+2. An [Octopus API key](/docs/api-and-integration/api/how-to-create-an-api-key.md) with the required permissions (see [security considerations](/docs/packaging-applications/package-repositories/built-in-repository/pushing-packages-to-the-built-in-repository.md)).
 :::
 
 ## Using Your Build Server {#PushingpackagestotheBuilt-Inrepository-Usingyourbuildserver}
 
-We have built integrations/plugins/extensions for the most popular build servers. You can read more about [integrating Octopus Deploy with your build server](/docs/api-and-integration/index.md). In most cases you simply provide the build server with the URL to your Octopus Server and an [Octopus API key](/docs/api-and-integration/api/how-to-create-an-api-key.md) with the required permissions  (see [security considerations](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md)).
+We have built integrations/plugins/extensions for the most popular build servers. You can read more about [integrating Octopus Deploy with your build server](/docs/api-and-integration/index.md). In most cases you simply provide the build server with the URL to your Octopus Server and an [Octopus API key](/docs/api-and-integration/api/how-to-create-an-api-key.md) with the required permissions  (see [security considerations](/docs/packaging-applications/package-repositories/built-in-repository/pushing-packages-to-the-built-in-repository.md)).
 
 ## Using Octo.exe {#PushingpackagestotheBuilt-Inrepository-UsingOcto.exe}
 

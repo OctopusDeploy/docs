@@ -64,7 +64,7 @@ Don't worry, TeamCity comes with a built-in [NuGet Pack build step](https://conf
 
 ## Using Octopus as a Package Repository {#TeamCity-PushpackagestoOctopusUsingOctopusasaPackageRepository}
 
-Octopus can be used as a [NuGet package package](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md), or can be configured to use an external feed (such as retrieving them from TeamCity).
+Octopus can be used as a [NuGet package package](/docs/packaging-applications/package-repositories/built-in-repository/pushing-packages-to-the-built-in-repository.md), or can be configured to use an external feed (such as retrieving them from TeamCity).
 
 To push packages to Octopus during the OctoPack phase, enter the NuGet endpoint url into the **Publish packages to http** field, and [an API key](/docs/api-and-integration/api/how-to-create-an-api-key.md) in the **Publish API Key** field.  OctoPack will then push the packages when the solution is built.  You'll find the URL to your repository on the **{{Library,Packages}}** tab in Octopus.  Simply click the `Show examples` link to see options to upload packages including the repository URL.
 
@@ -115,7 +115,7 @@ In version 3.3.1 of the TeamCity Plugin we have added a new build runner that ca
 The Octopus TeamCity plugin comes with these custom build runners:
 
 1. **Octopus Deploy: Pack (TeamCity plugin 4.38.0 or newer)** Create a NuGet or Zip formatted package.
-2. **Octopus Deploy: Push Packages (Octopus 3.3 and TeamCity plugin 3.3.1 or newer)** Push packages to the Octopus Deploy [built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md), optionally using the TeamCity zip feature to create packages on-the-fly.
+2. **Octopus Deploy: Push Packages (Octopus 3.3 and TeamCity plugin 3.3.1 or newer)** Push packages to the Octopus Deploy [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/pushing-packages-to-the-built-in-repository.md), optionally using the TeamCity zip feature to create packages on-the-fly.
 3. **Octopus Deploy: Create Release**
   Creates a new release in Octopus Deploy, and optionally deploys it to an environment.
 4. **Octopus Deploy: Deploy Release**

@@ -81,7 +81,7 @@ It is important to understand that the Octopus Server provides a write-only repo
 
 ### Pushing Packages to the Built-in Repository {#Packagerepositories-Pushingpackagestothebuilt-inrepository}
 
-We offer several ways to add packages to the built-in repository, so many that we built a new page: [pushing packages to the built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md). Alternatively you can go to **{{Library,Packages}}** which describes some of the most convenient ways to push packages to the built-in repository.  Simply click the **Show examples** link to see options to upload packages.
+We offer several ways to add packages to the built-in repository, so many that we built a new page: [pushing packages to the built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/pushing-packages-to-the-built-in-repository.md). Alternatively you can go to **{{Library,Packages}}** which describes some of the most convenient ways to push packages to the built-in repository.  Simply click the **Show examples** link to see options to upload packages.
 
 ![](/docs/images/3048094/3277775.png)
 
