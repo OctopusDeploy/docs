@@ -766,5 +766,5 @@ docs/infrastructure/deployment-targets/kubernetes-cluster/index.md -> docs/infra
 docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md -> docs/packaging-applications/package-repositories/built-in-repository/pushing-packages-to-the-built-in-repository.md
 docs/packaging-applications/package-repositories/built-in-repository-reindexing.md -> docs/packaging-applications/package-repositories/built-in-repository/index.md
 docs/packaging-applications/package-repositories/built-in-repository/built-in-repository-reindexing.md -> docs/packaging-applications/package-repositories/built-in-repository/index.md
-docs/packaging-applications/package-id.md -> docs/packaging-applications/index.md
-docs/packaging-applications/supported-packages.md -> docs/packaging-applications/index.md
+docs/packaging-applications/package-id -> docs/packaging-applications/index.md
+docs/packaging-applications/supported-packages -> docs/packaging-applications/index.md
