@@ -433,7 +433,7 @@ docs/packaging-applications/creating-packages/build-tools/cake/index.md -> docs/
 docs/packaging-applications/creating-packages/build-tools/jenkins/index.md -> docs/packaging-applications/index.md
 docs/packaging-applications/creating-packages/build-tools/teamcity/index.md -> docs/packaging-applications/index.md
 docs/packaging-applications/creating-packages/build-tools/vsts/index.md -> docs/packaging-applications/index.md
-docs/packaging-applications/creating-packages/supported-packages -> docs/packaging-applications/supported-packages.md
+docs/packaging-applications/creating-packages/supported-packages -> docs/packaging-applications/index.md
 docs/packaging-applications/creating-packages/versioning -> docs/packaging-applications/versioning.md
 docs/deployment-process/coordinating-multiple-projects/index.md -> docs/deployment-process/projects/coordinating-multiple-projects/index.md
 docs/deployment-process/steps/configuration-files/index.md -> docs/deployment-process/configuration-features/index.md
