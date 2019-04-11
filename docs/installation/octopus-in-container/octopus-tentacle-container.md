@@ -49,7 +49,7 @@ Read the [Docker docs](https://docs.docker.com/engine/reference/commandline/run/
 
 |  Name       |    |
 | ------------- | ------- |
-|**10933**|Port tentacle will be listening on (if in listening mode)|
+|**10933**|Port Tentacle will be listening on (if in listening mode)|
 
 ### Volume Mounts
 Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#mount-volume--v---read-only) about mounting volume.
