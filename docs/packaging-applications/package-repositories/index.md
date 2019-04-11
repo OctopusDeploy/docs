@@ -1,14 +1,14 @@
 ---
 title: Package Repositories
 description: Octopus need to retrieve applications from a package repository; options include the built-in repository, local and remote NuGet feeds, Maven, JetBrains TeamCity, MyGet and Azure DevOps or TFS Package Management.
-position: 5
+position: 20
 ---
 
 When planning your Octopus installation, you will need to decide how to host your packages. Your continuous integration server should create your packages, and publish them to a package repository. A repository can be as simple as a file share, or it could be a dedicated server.
 
 ## Supported Package and Repository Types
 
-The Octopus built-in repository [supports several different types of packages](/docs/packaging-applications/supported-packages.md).
+The Octopus built-in repository [supports several different types of packages](/docs/packaging-applications/index.md#supported-formats).
 
 If you would like to use an external repository, the following external repositories are supported:
 
@@ -19,7 +19,7 @@ If you would like to use an external repository, the following external reposito
 
 Your package repository will typically be:
 
-- The Octopus Server's built-in repository.
+- The Octopus Server's [built-in repository](/docs/packaging-applications/package-repositories/index.md).
 - A [remote feed](http://docs.nuget.org/docs/creating-packages/hosting-your-own-nuget-feeds#Creating_Remote_Feeds "Remote NuGet feeds") exposed over HTTP.
 - A [local feed](http://docs.nuget.org/docs/creating-packages/hosting-your-own-nuget-feeds#Creating_Local_Feeds "Local NuGet package repositories") exposed as a File Share or local directory.
 - A [maven feed](/docs/packaging-applications/package-repositories/maven-feeds.md).

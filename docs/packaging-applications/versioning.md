@@ -1,14 +1,14 @@
 ---
-title: Versioning
+title: Choosing a Versioning Scheme
 description: Considerations when selecting a versioning scheme for your applications.
 position: 3
 ---
 
-The [Package ID](/docs/packaging-applications/package-id.md) and version number uniquely identify your packages, so it's important to choose the right versioning scheme, but it can be a tricky balance between pragmatism and strictness. This page should help you understand how Octopus Deploy handles versions in [packages](/docs/packaging-applications/supported-packages.md), [releases](/docs/deployment-process/releases/index.md), and [channels](/docs/deployment-process/channels/index.md), and subsequently design a versioning scheme that suits your needs.
+The [Package ID](/docs/packaging-applications/index.md#package-id) and version number uniquely identify your packages, so it's important to choose the right versioning scheme, but it can be a tricky balance between pragmatism and strictness. This page should help you understand how Octopus Deploy handles versions in [packages](/docs/packaging-applications/index.md#supported-formats), [releases](/docs/deployment-process/releases/index.md), and [channels](/docs/deployment-process/channels/index.md), and subsequently design a versioning scheme that suits your needs.
 
 ## Choosing a Versioning Scheme {#VersioninginOctopusDeploy-Choosingaversioningscheme}
 
-The technology you're working with will, in some cases, determine the type of versioning scheme that you choose. We recommend using [Semantic Versioning](http://semver.org/) for your applications, unless you are deploying artifacts to a Maven repository, in which case you will need to use [Maven Versions](https://octopus.com/blog/maven-versioning-explained).
+The technology you're working with will, in some cases, determine the type of versioning scheme you choose. We recommend using [Semantic Versioning](http://semver.org/) for your applications, unless you are deploying artifacts to a Maven repository, in which case you will need to use [Maven Versions](https://octopus.com/blog/maven-versioning-explained).
 
 Consider the following factors when deciding on the versioning scheme you'll use for your applications and packages:
 
@@ -59,7 +59,7 @@ The only time Maven versions are used by Octopus is when an artifact is sourced 
 
 ## Package Metadata {#SupportedPackages-PackageMetadata}
 
-The only required pieces of information Octopus Deploy **requires** for a package are an ID, Version, and Format. Other metadata like release notes or descriptions are optional.
+The only required pieces of information Octopus Deploy **requires** for a package are an ID, Version, and Format. Other [metadata](/docs/api-and-integration/metadata/index.md) and release notes or descriptions are optional.
 
 - NuGet packages: NuGet packages support embedding metadata within the contents of the package. We use this metadata to determine the version of the package.
 - All other packages: In all other cases we have to parse the file name itself and extract the ID, Version and Format.
@@ -71,5 +71,3 @@ The expected package convention is therefore:
 So for example the package name for version *2.3* of you project *Sample.Web*, archived with tar & gzip should be named:
 
 > `Sample.Web.2.3.tar.gz`
-
-Learn how to [create packages](/docs/packaging-applications/creating-packages/index.md)

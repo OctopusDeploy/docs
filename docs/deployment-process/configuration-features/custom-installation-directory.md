@@ -25,7 +25,7 @@ When you return to your deployment process, you will see the **Custom Install Di
   - Enter a name for the step.
   - Select the targets where the step should run.
   - Select the [package feed](/docs/packaging-applications/package-repositories/index.md) where the [package](/docs/packaging-applications/index.md) will be available.
-  - Enter the [package ID](/docs/packaging-applications/package-id.md) for the package to be deployed.
+  - Enter the [package ID](/docs/packaging-applications/index.md#package-id) for the package to be deployed.
 4. Enter the path for the **custom installation directory**, or you can insert a [variable](/docs/deployment-process/variables/index.md) if you have defined the path as a variable.
 
 Defining a [variable](/docs/deployment-process/variables/index.md) with the directory path, means you can scope different values to different environments. For instance:

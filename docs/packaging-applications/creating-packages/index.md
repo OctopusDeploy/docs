@@ -1,7 +1,7 @@
 ---
 title: Creating Packages
 description: Creating packages for use in your Octopus deployments.
-position: 4
+position: 10
 ---
 
 Octopus expects your package to contain all of the files needed to run the application when it is deployed (along with [any scripts needed for deployment](/docs/deployment-examples/custom-scripts/index.md), and any [configuration transformation files](/docs/deployment-process/configuration-features/index.md), etc).
@@ -31,4 +31,4 @@ How you create your packages depends on which package type you wish to create. O
 - Working with Azure DevOps: use our [extension](/docs/api-and-integration/tfs-azure-devops/using-octopus-extension/index.md) and/or `octo.exe pack`.
 - If you just want to package up a folder as-is: use `octo.exe pack` or just zip it up!
 
-As long as you can create one of our [supported packages](/docs/packaging-applications/supported-packages.md), you can deploy your application with Octopus Deploy.
+As long as you can create one of our [supported packages](/docs/packaging-applications/index.md#supported-formats), you can deploy your application with Octopus Deploy.

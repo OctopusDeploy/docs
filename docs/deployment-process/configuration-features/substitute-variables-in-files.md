@@ -47,7 +47,7 @@ When you return to your deployment process, you will see the **Substitute Variab
   - Enter a name for the step.
   - Select the targets where the step should run.
   - Select the [package feed](/docs/packaging-applications/package-repositories/index.md) where the [package](/docs/packaging-applications/index.md) will be available.
-  - Enter the [package ID](/docs/packaging-applications/package-id.md) for the package to be deployed.
+  - Enter the [package ID](/docs/packaging-applications/index.md#package-id) for the package to be deployed.
 8. In the **Target Files** text area, enter the files, as a newline separated list, that you want to perform the variable substitution on. You need to state the full path of the file, relative to the installation directory. In our example, that includes any file that references the `{LoginURL}` variable. For instance:
 
 ```
