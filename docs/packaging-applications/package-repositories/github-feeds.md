@@ -1,7 +1,7 @@
 ---
 title: GitHub as a Feed
 description: Configuring GitHub repositories as Octopus Feeds
-position: 4
+position: 30
 ---
 
 GitHub exposes a set of APIs that allow Octopus to treat it as a feed of packages. In this scenario an Octopus package maps to a specific GitHub repository (e.g the https://github.com/OctopusDeploy/Calamari repository is referred to in Octopus as `OctopusDeploy/Calamari`). Git tags are used to denote [package versions](/docs/packaging-applications/versioning.md). Tags that can be parsed as [SemVer 2.0](http://semver.org/spec/v2.0.0.html) can be treated as candidates for an Octopus Deploy release. If a tag is also linked to a specific [GitHub Release](https://help.github.com/articles/about-releases/), then those release notes will be treated as the release notes for the package.
