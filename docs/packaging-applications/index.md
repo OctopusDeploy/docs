@@ -51,7 +51,7 @@ See also, [choosing a versioning scheme](/docs/packaging-applications/versioning
 It is important that your packages have the correct **file extension** because Octopus uses the **file extension** to determine the correct extraction algorithm to use with your packages.
 
 | Package Type | File Extensions           | Notes                                    |
-| ---------------- | ------------------------- | ----------- | ---------------------------------------- |
+| --------------------- | ----------------- | ------------------------- |
 | NuGet        | *.nupkg*                   |Any NuGet repository (including the [Built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/pushing-packages-to-the-built-in-repository.md)). Currently only NuGet packages will have extra metadata like release notes and description extracted from the package metadata. |
 | Tar          | *.tar*                   | [Built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/pushing-packages-to-the-built-in-repository.md) only |
 | Tar + Gzip   | *.tgz, .tar.gz, .tar.Z | [Built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/pushing-packages-to-the-built-in-repository.md) only |                                          |
