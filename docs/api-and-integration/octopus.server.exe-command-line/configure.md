@@ -168,6 +168,16 @@ Where [<options>] is any of:
       --usernamePasswordIsEnabled=VALUE
                              Set whether Octopus username/password
                                authentication is enabled.
+      --GitHubIsEnabled=VALUE
+                             Set whether GitHub issue tracker integration is
+                               enabled.
+      --GitHubBaseUrl=VALUE  Set the base url for the Git repositories.
+      --jiraIsEnabled=VALUE  Set whether Jira issue tracker integration is
+                               enabled.
+      --jiraBaseUrl=VALUE    Enter the base url of your Jira instance. Once
+                               set, work item references will render as links.
+      --customextension=VALUE
+                             File path of a custom extension to load
 
 Or one of the common options:
 
