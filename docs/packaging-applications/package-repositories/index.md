@@ -87,8 +87,6 @@ If you're using an external NuGet feed, you can register it with Octopus and us
 
 You can add NuGet feeds by clicking the **Add feed** button.
 
-![](/docs/images/3048094/3277774.png)
-
 In the URL field, enter the HTTP/HTTPS URL to the feed, or the file share or local directory path. Then click **Save and test**.
 
 ![](/docs/images/3048094/3277773.png)
