@@ -63,7 +63,8 @@ Similarly, the F# interpreter has also not yet been ported for .NET Core ([GitHu
 
 Version **3.10** or greater of Mono is required; however, we recommended a minimum of version **4.8.0**.
 
-:::warning As of April 2019, there are problems executing ScriptCS scripts on Mono **5.16** and higher. We recommend migrating to self-contained Calamari if possible, or using Mono **5.14.x**  :::
+:::warning 
+As of April 2019, there are problems executing ScriptCS scripts on Mono **5.16** and higher. We recommend migrating to self-contained Calamari if possible, or using Mono **5.14.x**  :::
 
 You can find instructions for installing Mono in the [Mono documentation](http://www.mono-project.com/docs/getting-started/install/linux/).
 
