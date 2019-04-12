@@ -4,7 +4,7 @@ description: Considerations when selecting a versioning scheme for your applicat
 position: 3
 ---
 
-The [Package ID](/docs/packaging-applications/index.md#package-id) and version number uniquely identify your packages, so it's important to choose the right versioning scheme, but it can be a tricky balance between pragmatism and strictness. This page should help you understand how Octopus Deploy handles versions in [packages](/docs/packaging-applications/index.md#supported-formats), [releases](/docs/deployment-process/releases/index.md), and [channels](/docs/deployment-process/channels/index.md), and subsequently design a versioning scheme that suits your needs.
+The [Package ID](/docs/packaging-applications/index.md#package-id), version number, and [pack format](/docs/packaging-applications/index.md#support-formats) uniquely identify your packages, so it's important to choose the right versioning scheme, but it can be a tricky balance between pragmatism and strictness. This page should help you understand how Octopus Deploy handles versions in [packages](/docs/packaging-applications/index.md#supported-formats), [releases](/docs/deployment-process/releases/index.md), and [channels](/docs/deployment-process/channels/index.md), and subsequently design a versioning scheme that suits your needs.
 
 ## Choosing a Versioning Scheme {#VersioninginOctopusDeploy-Choosingaversioningscheme}
 
@@ -12,14 +12,17 @@ The technology you're working with will, in some cases, determine the type of ve
 
 Consider the following factors when deciding on the versioning scheme you'll use for your applications and packages:
 
-1. Can you trace a version back to the commit/check-in the application/package was built from? *For example: We stamp the SHA hash of the git commit into the metadata component of the Semantic Version for Octopus Deploy which makes it easier to find and fix bugs. We also tag the commit with the version of Octopus Deploy it produced so you can quickly determine which commit produced a particular version of Octopus Deploy.*
+1. Can you trace a version back to the commit/check-in the application/package was built from?
+*For example: We stamp the SHA hash of the git commit into the metadata component of the Semantic Version for Octopus Deploy which makes it easier to find and fix bugs. We also tag the commit with the version of Octopus Deploy it produced so you can quickly determine which commit produced a particular version of Octopus Deploy.*
 2. Can your users easily report a version to the development team that supports #1?
-3. Will your version numbers be confusing, or will they help people understand the changes that have been made to the software? *For example: bumping a major version component (first part) means there are potentially breaking changes, but bumping a patch (3rd part) should be safe to upgrade, and safe to rollback if something goes wrong.*
-4. Does your tool chain support the versioning scheme? *For example: Octopus Deploy supports Semantic Versioning, which enables enhanced features like [Channels](/docs/deployment-process/channels/index.md).*
+3. Will your version numbers be confusing, or will they help people understand the changes that have been made to the software?
+*For example: bumping a major version component (first part) means there are potentially breaking changes, but bumping a patch (3rd part) should be safe to upgrade, and safe to rollback if something goes wrong.*
+4. Does your tool chain support the versioning scheme?
+*For example: Octopus Deploy supports Semantic Versioning, which enables enhanced features like [Channels](/docs/deployment-process/channels/index.md).*
 
 ### Strictness Versus Pragmatism {#VersioninginOctopusDeploy-Strictnessversuspragmatism}
 
-Octopus supports a "pragmatic" implementation of SemVer, including support for 4-digit versions (like `1.0.0.0`) and versions that can be sorted alphanumerically, like `2016.09.01-beta.0001`.
+Octopus supports a "pragmatic" implementation of SemVer, including support for 4-digit versions (i.e., `1.0.0.0`) and versions that can be sorted alphanumerically, like `2016.09.01-beta.0001`.
 
 Strictly speaking about SemVer 2.0, a version like `1.5.2-rc.1` is considered a "pre-release" and `1.5.2` would be considered a "full release".  In practice, these concepts carry weight when you are talking about hierarchies of application dependencies like classical NuGet packages or NPM dependencies. This kind of strict semantic versioning enables dependency management tooling to interpret what kind of changes each package version represents. For example, they can automatically protect your software, by preventing accidental upgrades to pre-release versions, or versions that might introduce breaking changes.
 
@@ -34,11 +37,11 @@ These are the decisions we made on handling versions:
 1. **Valid versions:** A version string will be considered valid if it is a "strictly compliant" Semantic Version (according to [SemVer 1.0](http://semver.org/spec/v1.0.0.html) or [SemVer 2.0](http://semver.org/spec/v2.0.0.html)). We will also allow for 4-digit versions (like `1.0.0.0`) and zero-padded versions (like `2016.09.01`).
 2. **Comparing versions:** We will compare versions using the "semantic" value (as per the Semantic Version specification).  
 
-   a. **Equality:** Two versions will be considered to be equal if they are "semantically equivalent". Some examples:
+   a. **Equality:** Two versions will be considered to be equal if they are "semantically equivalent". For instance:
 
         i. `1.0.0.0 == 1.0.0`  
         i. `2016.01.02 == 2016.1.2 == 2016.01.2`  
-   a. **Ordering:** Versions will be sorted "semantically". Some examples:
+   a. **Ordering:** Versions will be sorted "semantically". For instance:
 
         i. `1.4.10 > 1.4.9`  
         i. `3.0.0-beta.10 > 3.0.0-beta.9`  
