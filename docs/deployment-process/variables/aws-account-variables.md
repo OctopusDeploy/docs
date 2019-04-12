@@ -36,8 +36,8 @@ Write-Host 'AwsAccount.Id=' $OctopusParameters["aws account"]
 Write-Host 'AwsAccount.AccessKey=' $OctopusParameters["aws account.AccessKey"]
 
 # Directly as a variable
-Write-Host 'AzureAccount.Id=' $awsaccount
-Write-Host 'AzureAccount.Client=' $awsccountAccessKey
+Write-Host 'AwsAccount.Id=' #{aws account}
+Write-Host 'AwsAccount.AccessKey=' #{aws account.AccessKey}
 ```
 
 ## Add an AWS Account to Octopus
