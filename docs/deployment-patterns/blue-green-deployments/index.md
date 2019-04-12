@@ -33,3 +33,9 @@ When deploying, you can then choose which environment to deploy to - either blue
 Configuring your [lifecycle](/docs/deployment-process/lifecycles/index.md) will need to be done accordingly. Typically you would have both your blue and green environments in a shared "Production/Staging" phase.
 
 ![](/docs/images/3048181/3278246.png)
+
+## Ask Octopus
+
+Watch Ask Octopus where we discuss Blue/Green deployments:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/qFqoVwVzeo0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
