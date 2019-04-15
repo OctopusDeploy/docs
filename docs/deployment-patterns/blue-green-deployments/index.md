@@ -36,6 +36,6 @@ Configuring your [lifecycle](/docs/deployment-process/lifecycles/index.md) will 
 
 ## Ask Octopus
 
-Watch Ask Octopus where we discuss Blue/Green deployments:
+Watch this Ask Octopus episode where we discuss Blue/Green deployments:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/qFqoVwVzeo0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

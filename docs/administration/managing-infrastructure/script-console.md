@@ -41,3 +41,9 @@ Sometimes you might like to collect files from each of the machines as part of y
 Besides making it easy to run a script on many servers, the other advantage of using the Script Console is auditing. Ad-hoc scripts run via the Script Console will appear in the [Audit](/docs/administration/managing-users-and-teams/auditing.md) tab in the Configuration area.
 
 ![](/docs/images/3048122/3277919.png)
+
+## Ask Octopus
+
+What this Ask Octopus episode where we discuss the script console.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/tcPtD14f0_I?start=26" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

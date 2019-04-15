@@ -73,3 +73,9 @@ You should consider disabling delta compression if package transfer bandwidth is
 **Are you really benefiting from delta compression?**
 The deployment logs will tell you the % saving delta compression is achieving. If you are constantly transferring 50% or more of the original package, perhaps delta compression is actually becoming a bottleneck and should be disabled.
 :::
+
+## Ask Octopus
+
+What this Ask Octopus episode where we discuss Delta Compression.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/W0DafJBBuDw?start=35" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
