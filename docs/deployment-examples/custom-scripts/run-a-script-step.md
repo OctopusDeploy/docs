@@ -98,8 +98,9 @@ The feed the package is sourced from, or a variable-expression.
 
 #### Name {#package-reference-fields-name}
 A unique identifier for the package-reference. In general the Package ID is a good choice for the name. The reasons the Package ID may not be suitable as the name include:
-    - The Package-ID may be bound to a variable-expression (e.g. `#{Acme.Package.Id}`). Some of the places the name is used are not suitable for variable-expressions.
-    - In rare situations it may be desirable to reference multiple versions of the same package.  In this case they would need to be given different names.
+
+- The Package-ID may be bound to a variable-expression (e.g. `#{Acme.Package.Id}`). Some of the places the name is used are not suitable for variable-expressions.
+- In rare situations it may be desirable to reference multiple versions of the same package.  In this case they would need to be given different names.
 
 #### Extract
 Whether the package should be extracted. See [below](#referencing-packages-package-files) for information on the package file locations.
