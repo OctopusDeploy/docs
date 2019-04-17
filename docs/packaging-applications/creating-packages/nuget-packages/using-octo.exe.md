@@ -31,7 +31,8 @@ dotnet octo pack --id="MyPackage" --version="1.0.0" --basePath="folder/to/pack" 
 ```
 
 ## Packaging a .NET Core application
-The process for packaging a .NET core applications is pretty straightforward and can usually be achieved by publishing the application and then using `octo pack` on the resultant output folder for example:
+
+The process for packaging a .NET core application is pretty straightforward and can usually be achieved by publishing the application and then using `octo pack` on the resultant output folder for example:
 
 ```powershell
 dotnet publish ./OctoWeb.csproj --output ./dist
@@ -60,6 +61,7 @@ dotnet octo pack ./dist --id="OctoWeb" --version="1.0.0-alpha0001"
 ```
 
 ## Packaging Your Application From a Folder {#UsingOcto.exe-Packagingyourapplicationfromafolder}
+
 If you have a build process which places all build outputs into a final destination folder (such as gulp, grunt or webpack), you can package it using octo as well. For example, let's assume you have defined an npm script which runs your build and places all associated content into the `dist` folder:
 ```powershell
 npm run build
