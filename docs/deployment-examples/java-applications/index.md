@@ -294,7 +294,7 @@ The following steps can be used to deploy an application via a file copy to an a
 ## Deploy Java Archive Step Details
 
 | Field Name |Required | Default | Field Description |
-|-|-|-|-|
+| -------- | -------- | ---------------- | ---------------- |
 | Package feed | Yes | | The feed to use to source the Java package from. |
 | Package ID | Yes | | The Java package to deploy. |
 | Explode  | No  |   | If selected, the package will be deployed extracted. Note that the package is always extracted as part of the deployment process, to allow features such as substituting variables in files. By default the package is re-created before deploying to the destination. If the `Explode` option is selected it remains extracted.  |
