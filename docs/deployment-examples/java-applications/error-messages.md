@@ -119,6 +119,8 @@ If you see errors such as:
 
 Then ensure that the IP address of the tomcat server (`127.0.1.1` in this example, as found in the list `[tomcat-server/127.0.1.1]`) is valid. If not, there may be a DNS issue.
 
+It may also be the case that the tomcat process running does not have the necessary permissions to modify the filesystem. Ensure that the process is running with the correct privileges.
+
 ## TOMCAT-DEPLOY-ERROR-0006
 A HTTP return code indicated that the login failed due to bad credentials. Make sure the username and password are correct.
 
