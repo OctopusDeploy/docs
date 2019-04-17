@@ -1,5 +1,5 @@
 ---
-title: Octopus Built-in Repository
+title: Built-in Octopus Repository
 description: Using the Octopus built-in repository.
 position: 10
 ---
