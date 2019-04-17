@@ -4,7 +4,7 @@ description: Using the Octopus built-in repository.
 position: 10
 ---
 
-Your Octopus Server comes with a built-in repository which is the best choice for deployment packages. It offers **better performance** for your deployments and the most **robust [retention policy](/docs/administration/retention-policies/index.md) support** for deployment packages.
+Your Octopus server comes with a built-in repository which is the best choice for deployment packages. It offers **better performance** for your deployments and the most **robust [retention policy](/docs/administration/retention-policies/index.md) support** for deployment packages.
 
 :::hint
 **Built-in Feed Can Only Be Consumed by Octopus**
