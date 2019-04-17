@@ -48,7 +48,7 @@ Factors such as geopgrahical distance, network bandwidth, and network congestion
 
 If you are having difficulty uploading packages to your Octopus built-in package feed within the default timeout threshold - which is usually within 5 minutes, you might be affected by one or more of the factors mentioned above. In this case, you could try increasing the timeout threshold of `octo.exe` or `nuget.exe` to a value that suits you. We also recommend using `octo.exe`, `Octopus.Client`, or the `TeamCity Plugin (v4.41.0+)` because they have the advantage of utilizing delta compression.
 
-In the near future, the Octopus Cloud will become available in additional regions such as Sydney, London, and Frankfurt and you'll have the ability to move between regions.
+In the near future, the Octopus Cloud will become available in additional regions and you'll have the ability to move between regions.
 
 ## Reset the User Password
 
