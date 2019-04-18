@@ -149,7 +149,7 @@ It's a common (and handy) practice to do this, and set the Build Number to be a 
 We recommend you read the [Build Versions in Team Build](build-versions-in-team-build.md) document for full details on versioning builds and packages.
 :::
 
-See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octo.exe command-line options](/docs/packaging-applications/creating-packages/nuget-packages/using-octo.exe.md) for more details).
+See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octo.exe command-line options](/docs/packaging-applications/octo.exe.md) for more details).
 
 #### Publish Package Artifact {#UsetheTeamFoundationBuildCustomTask-PublishPackageArtifact}
 

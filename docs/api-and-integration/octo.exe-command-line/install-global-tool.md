@@ -4,7 +4,7 @@ description: Octo Global Tool installation
 position: 0
 ---
 
-Microsoft introduced the ability to install tools using the .NET Core CLI called [Global Tools](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools). This enables octo to be conveniently installed onto machine or build agent as long as you have the .NET Core `2.1.300` SDK available.
+Microsoft introduced the ability to install tools using the .NET Core CLI called [Global Tools](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools). This lets you install Octo onto machine or build agent as long as you have the .NET Core `2.1.300` SDK available.
 
 ## Specific Location
 A local installation can be done into a specified location using the `--tool-path` parameter.
@@ -12,9 +12,7 @@ A local installation can be done into a specified location using the `--tool-pat
 ```bash
 dotnet tool install Octopus.DotNet.Cli --tool-path /path/for/tool --version <version>
 ```
-This will install Octo into the specified location and generate a platform specific executable
-called `dotnet-octo` into the specified location. In order to enable `dotnet` to be able to find
-your custom tool location, you will need to add the tool location to the current environment path.
+This will install Octo into the specified location and generate a platform specific executable called `dotnet-octo` into the specified location. In order to enable `dotnet` to find your custom tool location, you will need to add the tool location to the current environment path.
 
 **PowerShell**
 
@@ -27,9 +25,10 @@ $env:PATH = "your\tool\folder;" + $env:PATH
 export PATH="$PATH:/your/tool/folder"
 ```
 
-Once the tool folder is in the path you can run octo commands using dotnet such as `dotnet octo pack`
+Once the tool folder is in the path you can run Octo commands with .NET: `dotnet octo pack`.
 
 ## User Installation
+
 In order to install Octo for the current user you can do so by installing the tool globally using
 `--global` flag.
 

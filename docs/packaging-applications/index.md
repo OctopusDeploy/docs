@@ -74,7 +74,7 @@ The error only occurs on *Run on Server* steps and deployments execute as expect
 
 We've created the following tools to help package your applications for deployment with Octopus:
 
- - [Octo.exe](/docs/packaging-applications/creating-packages/octo.exe.md) to create Zip Archives and NuGet packages for **.NET Core** apps.
+ - [Octo.exe](/docs/packaging-applications/creating-packages/octo.exe.md) to create Zip Archives and NuGet packages for **.NET Core** apps and full **.NET framework** applications.
  - [Octopack](/docs/packaging-applications/creating-packages/octopack.md) to create NuGet packages for **ASP.NET** apps (.NET Framework) and **Windows Services** (.NET Framework).
  - A [TeamCity plugin](/docs/api-and-integration/teamcity.md).
  - An [Azure DevOps plugin](/docs/api-and-integration/tfs-azure-devops/using-octopus-extension/index.md).
@@ -84,9 +84,13 @@ In addition to these tools, you can use other tools to create your packages, for
  - The built-in tools for [TeamCity](https://blog.jetbrains.com/teamcity/2010/02/artifact-packaging-with-teamcity/).
  - [Grunt, gulp, or octojs](/docs/deployment-examples/node-on-linux-deployments/create-and-push-node.js-project.md) for JavaScript apps.
 
-As long as you can create one of our [supported packages](/docs/packaging-applications/index.md#supported-formats) you can deploy your application with Octopus Deploy.
+
+There are many more tools you might choose to use, but as long as you can create one of our [supported packages](/docs/packaging-applications/index.md#supported-formats) you can deploy your applications with Octopus Deploy.
 
 ## Next
 
  - [Octo.exe](/docs/packaging-applications/creating-packages/octo.exe.md)
  - [Octopack](/docs/packaging-applications/creating-packages/octopack.md)
+ - [TeamCity plugin](/docs/api-and-integration/teamcity.md)
+ - [Azure DevOps plugin](/docs/api-and-integration/tfs-azure-devops/using-octopus-extension/index.md)
+ 

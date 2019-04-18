@@ -19,7 +19,7 @@ You can create NuGet packages in a number of ways:
 
 - [Manually using a GUI](/docs/packaging-applications/creating-packages/nuget-packages/manually.md).
 - Automatically [using NuGet.exe](https://docs.microsoft.com/en-us/nuget/tools/nuget-exe-cli-reference).
-- Automatically [using Octo.exe](/docs/packaging-applications/creating-packages/nuget-packages/using-octo.exe.md).
+- Automatically [using Octo.exe](/docs/packaging-applications/octo.exe.md).
 - Automatically [using OctoPack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md).
 
 :::success

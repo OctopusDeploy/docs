@@ -21,7 +21,7 @@ Under `Automatic Packaging` select `Package Web Applications for Octopus Deploym
 | ------------- | ------- |
 | OCTOPUS_PACKAGE_VERSION | Overrides the version in the package name. (default AppVeyor build version)|
 | OCTOPUS_PACKAGE_NUGET | Overrides the package type. (default nupkg) |
-| OCTOPUS_PACKAGE_ADVANCED | [Additional arguments](/docs/packaging-applications/creating-packages/nuget-packages/using-octo.exe.md) to pass to `octo.exe pack` |
+| OCTOPUS_PACKAGE_ADVANCED | [Additional arguments](/docs/packaging-applications/octo.exe.md) to pass to `octo.exe pack` |
 
 #### Non-MSbuild Projects
 AppVeyor have included `octo.exe` into the base Windows build VM and is available via the command line. If running a project _not_ using msbuild you can manually invoke the octo.exe pack command directly during the build phase.
