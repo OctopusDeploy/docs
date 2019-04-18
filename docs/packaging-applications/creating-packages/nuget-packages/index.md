@@ -11,7 +11,6 @@ NuGet is a good choice for packaging your applications, for the following reason
 1. NuGet packages have rich metadata, such as versioning, release notes, and author information.
 2. Many tools exist to make creating and publishing NuGet packages easy.
 3. NuGet packages can be consumed via a feed, so other applications can easily query the available packages.
-4. Developer familiarity.
 
 ## Creating NuGet Packages {#NuGetpackages-CreatingNuGetpackages}
 

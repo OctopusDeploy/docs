@@ -4,7 +4,7 @@ description: Using the octo.exe command line tool to create packages for deploym
 position: 10
 ---
 
-**Octo.exe** is a command line tool that interacts with the [Octopus Deploy REST API](/docs/api-and-integration/api/index.md) and includes a `pack` command to create packages either as [Zip](#create-zip-packages) or [NuGet](#create-nuget-packages) packages for deployment with Octopus.
+**Octo.exe** is a command line tool that interacts with the [Octopus Deploy REST API](/docs/api-and-integration/api/index.md) and includes a `pack` command to create packages either as [Zip](#create-zip-packages) or [NuGet](#create-nuget-packages) packages for deployment with Octopus. You can [learn more about NuGet and NuGet Packages](http://docs.nuget.org/docs/start-here/overview) on the official NuGet website.
 
 ## Installation
 
@@ -94,11 +94,6 @@ To package a .NET core application, first publish the application, and then call
 dotnet publish ./OctoWeb.csproj --output ./dist
 dotnet octo pack ./dist --id="OctoWeb" --version="1.0.0"
 ```
-
-:::hint
-**Dotnet Core Publish vs Octopack**
-dotnet publish performs a lot of the heavy lifting that Octopack used to provide and therefore removes much of the need for it in .NET Core.
-:::
 
 Please refer to [Microsoft's publish and packing](/docs/deployment-examples/asp.net-core-web-application-deployments/index.md#DeployoingASP.NETCoreWebApplications-PublishingandPackingtheWebsite) documentation for more information.
 
