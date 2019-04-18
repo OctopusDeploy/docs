@@ -28,6 +28,8 @@ Where [<options>] is any of:
       --upgrade              Upgrades the database to the expected schema
       --skipLicenseCheck     Skips the licence check when performing a schema
                                upgrade
+      --skipDatabaseCompatibilityCheck
+                             Skips the database compatibility check
       --delete               Deletes the database
       --grant=VALUE          Grants db_owner access to the database
 
