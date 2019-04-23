@@ -31,7 +31,7 @@ If you are using OctoPack to package a Windows Service or console application, s
 
 ![](/docs/images/3048092/3277765.png)
 
-Read more about [using OctoPack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md).
+Read more about [using OctoPack](/docs/packaging-applications/octopack/index.md).
 
 ## Scripts in Package Steps {#scripts-in-package-steps}
 

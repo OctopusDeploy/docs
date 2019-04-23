@@ -102,7 +102,7 @@ There are two options for packaging and pushing:
 
 ### Using OctoPack to Create and Push a Package {#PackageyourApplicationandPushtoOctopus-UsingOctoPack}
 
-Follow the [OctoPack instructions](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md) to add OctoPack to your project and configure the msbuild arguments.
+Follow the [OctoPack instructions](/docs/packaging-applications/octopack/index.md) to add OctoPack to your project and configure the msbuild arguments.
 
 In the new Team Foundation build process, the arguments below should be in the **MSBuild Arguments** field for the **Visual Studio Build** or **MSBuild** step. Here is a list of the available variables that you can use from the Microsoft [Build use variables](https://msdn.microsoft.com/Library/vs/alm/Build/scripts/variables).
 

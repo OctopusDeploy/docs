@@ -66,7 +66,7 @@ To create a zip package of the application, open a command prompt and change int
 C:\>cd Code\OctoWeb\OctoWeb\OctoWeb\bin
 ```
 
-Call Octo with the `pack` command provide a package ID, specify the format, and any other parameters you want to use:
+Call Octo with the `pack` command, provide a package ID, specify the format, and any other parameters you want to use:
 
 ```powershell
 C:\Code\OctoWeb\OctoWeb\OctoWeb\bin> dotnet octo pack --id=OctoWeb --version=1.0.0.0 --format=zip
@@ -108,7 +108,7 @@ dotnet octo pack ./dist --id="SomeLibrary" --version="1.0.0"
 
 ## Packaging a .NET Framework Web application
 
-There are usually some extra steps required to get the resulting application built and deployable. Full framework web applications are a good example of this, where simply building the application will not give you the desired output. We still recommend [Octopack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md) for these cases. However, you may be able to achieve this using msbuild parameters such as:
+There are usually some extra steps required to get the resulting application built and deployable. Full framework web applications are a good example of this, where simply building the application will not give you the desired output. We still recommend [Octopack](/docs/packaging-applications/octopack/index.md) for these cases. However, you may be able to achieve this using msbuild parameters such as:
 ```
 msbuild ./OctoWeb.csproj /p:DeployDefaultTarget=WebPublish /p:DeployOnBuild=true /p:WebPublishMethod=FileSystem /p:SkipInvalidConfigurations=true /p:publishUrl=dist
 dotnet octo pack ./dist --id="OctoWeb" --version="1.0.0-alpha0001"

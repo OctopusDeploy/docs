@@ -10,7 +10,7 @@ Deploying software with Octopus often involves deploying packages. This section 
 Before you can deploy a package you need to:
 
 1. Give your package a [package ID](#package-id).
-1. Choose and apply a [versioning scheme](/docs/packaging-applications/versioning.md).
+1. Choose and apply a [versioning scheme](#version-numbers).
 1. Create the package in a [supported format](#supported-formats).
 1. Host the package in a [package repository](/docs/packaging-applications/package-repositories/index.md), for instance, the Octopus [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md).
 
@@ -38,7 +38,7 @@ For instance. The package ID in our sample package is `hello-world`.
 
 Avoid using numbers in your package ID as it could result in your version number being incorrectly parsed.
 
-## Version Numbers
+## Version Numbers {#version-numbers}
 
 Octopus supports [Semantic Versioning](http://semver.org/), unless you are deploying artifacts to a [Maven repository](/docs/packaging-applications/package-repositories/maven-feeds.md), in which case you will need to use [Maven Versions](https://octopus.com/blog/maven-versioning-explained).
 
@@ -70,12 +70,12 @@ If you're planning to use a multi-part file extension (e.g. `.tar.gz`) with a pr
 The error only occurs on *Run on Server* steps and deployments execute as expected on Tentacles.
 :::
 
-## Creating Packages
+## Creating Packages {#creating-packages}
 
 We've created the following tools to help package your applications for deployment with Octopus:
 
- - [Octo.exe](/docs/packaging-applications/creating-packages/octo.exe.md) to create Zip Archives and NuGet packages for **.NET Core** apps and full **.NET framework** applications.
- - [Octopack](/docs/packaging-applications/creating-packages/octopack.md) to create NuGet packages for **ASP.NET** apps (.NET Framework) and **Windows Services** (.NET Framework).
+ - [Octo.exe](/docs/packaging-applications/octo.exe.md) to create Zip Archives and NuGet packages for **.NET Core** apps and full **.NET framework** applications.
+ - [Octopack](/docs/packaging-applications/octopack.md) to create NuGet packages for **ASP.NET** apps (.NET Framework) and **Windows Services** (.NET Framework).
  - A [TeamCity plugin](/docs/api-and-integration/teamcity.md).
  - An [Azure DevOps plugin](/docs/api-and-integration/tfs-azure-devops/using-octopus-extension/index.md).
 
@@ -85,12 +85,11 @@ In addition to these tools, you can use other tools to create your packages, for
  - [NuGet.exe](https://docs.microsoft.com/en-us/nuget/tools/nuget-exe-cli-reference) to create NuGet packages.
  - [Grunt, gulp, or octojs](/docs/deployment-examples/node-on-linux-deployments/create-and-push-node.js-project.md) for JavaScript apps.
 
-
 There are many more tools you might choose to use, but as long as you can create one of our [supported packages](/docs/packaging-applications/index.md#supported-formats) you can deploy your applications with Octopus Deploy.
 
 ## Next
 
- - [Octo.exe](/docs/packaging-applications/creating-packages/octo.exe.md)
+ - [Octo.exe](/docs/packaging-applications/octo.exe.md)
  - [Octopack](/docs/packaging-applications/creating-packages/octopack.md)
  - [TeamCity plugin](/docs/api-and-integration/teamcity.md)
  - [Azure DevOps plugin](/docs/api-and-integration/tfs-azure-devops/using-octopus-extension/index.md)

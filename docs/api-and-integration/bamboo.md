@@ -39,7 +39,7 @@ Creating the package is done with the `Octopus Deploy: Pack Packages` task. In a
 This steps runs the [pack command](/docs/packaging-applications/octo.exe.md) on the command line tool.
 
 :::hint
-If you are building .NET applications on an instance of Bamboo hosted on Windows, you may prefer to use [OctoPack](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md) to build a package instead of manually packaging the application with the `Octopus Deploy: Pack Packages` task.
+If you are building .NET applications on an instance of Bamboo hosted on Windows, you may prefer to use [OctoPack](/docs/packaging-applications/octopack/index.md) to build a package instead of manually packaging the application with the `Octopus Deploy: Pack Packages` task.
 :::
 
 #### Package ID
