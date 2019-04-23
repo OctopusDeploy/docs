@@ -768,7 +768,7 @@ docs/packaging-applications/package-repositories/built-in-repository-reindexing.
 docs/packaging-applications/package-repositories/built-in-repository/built-in-repository-reindexing.md -> docs/packaging-applications/package-repositories/built-in-repository/index.md
 docs/packaging-applications/package-id -> docs/packaging-applications/index.md
 docs/packaging-applications/supported-packages -> docs/packaging-applications/index.md
-docs/packaging-applications/creating-packages/creating-zip-packages.md -> packaging-applications/octo.exe.md
+docs/packaging-applications/creating-packages/creating-zip-packages.md -> docs/packaging-applications/octo.exe.md
 docs/packaging-applications/creating-packages/nuget-packages/using-octo.exe.md -> docs/packaging-applications/octo.exe.md
 docs/packaging-applications/creating-packages/nuget-packages/push-a-nuget-package-that-already-exists.md -> docs/packaging-applications/octopack/push-a-nuget-package-that-already-exists.md
 docs/packaging-applications/creating-packages/nuget-packages/using-octopack/octopack-to-include-buildevent-files.md -> docs/packaging-applications/octopack/octopack-to-include-buildevent-files.md
