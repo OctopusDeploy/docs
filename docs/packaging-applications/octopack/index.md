@@ -22,7 +22,6 @@ Under the hood, OctoPack eventually calls good old `nuget.exe pack` to build the
 :::
 
 
-
 This three minute video (with captions) will walk you through the process of installing and using OctoPack.
 
 <iframe src="//fast.wistia.net/embed/iframe/e9f3yhlvsr" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" oallowfullscreen="" msallowfullscreen="" width="640" height="360" style="margin: 30px"></iframe>
