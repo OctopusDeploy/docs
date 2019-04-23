@@ -16,12 +16,13 @@ Any Linux server which meets the [requirements](/docs/infrastructure/deployment-
 
 The following platforms are explicitly supported (we run automated tests against them):
 
+- Ubuntu 18.04 LTS
 - Ubuntu 16.04 LTS
 - Ubuntu 14.04 LTS
 - Redhat (RHEL) 7.2
 - Centos 7.6
 - Amazon Linux 2
-- Debian 8.7
+- Debian 9.6
 - Fedora 23
 - MacOS 10.12.5
 - openSUSE 42.3
