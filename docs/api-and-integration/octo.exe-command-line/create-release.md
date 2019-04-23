@@ -108,6 +108,10 @@ Deployment:
                              (scheduled deployment), specified as any valid
                              DateTimeOffset format, and assuming the time
                              zone is the current local time zone.
+      --nodeployafter=VALUE  [Optional] Time at which scheduled deployment
+                             should expire, specified as any valid
+                             DateTimeOffset format, and assuming the time
+                             zone is the current local time zone.
       --tenant=VALUE         Create a deployment for this tenant; specify
                              this argument multiple times to add multiple
                              tenants or use `*` wildcard to deploy to all
