@@ -772,7 +772,7 @@ docs/packaging-applications/creating-packages/creating-zip-packages.md -> packag
 docs/packaging-applications/creating-packages/nuget-packages/using-octo.exe.md -> docs/packaging-applications/octo.exe.md
 docs/packaging-applications/creating-packages/nuget-packages/push-a-nuget-package-that-already-exists.md -> docs/packaging-applications/octopack/push-a-nuget-package-that-already-exists.md
 docs/packaging-applications/creating-packages/nuget-packages/using-octopack/octopack-to-include-buildevent-files.md -> docs/packaging-applications/octopack/octopack-to-include-buildevent-files.md
-docs/packaging-applications/creating-packages/index.md -> docs/packaging-applications/index.md
+docs/packaging-applications/creating-packages -> docs/packaging-applications/index.md
 docs/packaging-applications/creating-packages/nuget-packages/manually.md -> docs/packaging-applications/nuget-packages.md
 docs/packaging-applications/creating-packages/nuget-packages/index.md -> docs/packaging-applications/nuget-packages.md
 docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md -> docs/packaging-applications/octopack/index.md
