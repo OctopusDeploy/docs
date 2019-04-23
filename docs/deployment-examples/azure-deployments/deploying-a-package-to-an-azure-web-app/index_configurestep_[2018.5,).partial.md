@@ -20,6 +20,6 @@ The below instructions are valid Octopus Servers running version **Octopus 2018.
 
 - Dynamically during the deployment using scripts. [See documentation](/docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md)
 
-3. On the **Package** section, select your **Package Feed** and **Package Id**.
+3. On the **Package** section, select your **Package Feed** and **Package ID**.
 
 ![](deploying-an-azure-web-app.png)

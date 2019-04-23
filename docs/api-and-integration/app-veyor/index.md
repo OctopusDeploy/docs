@@ -12,7 +12,7 @@ Create a new AppVeyor project and use the Git repository `https://github.com/Oct
 ### Build Phase
 Go to the Build page and add `nuget restore` to the `Before build script` command line input since AppVeyor will not perform this operation by default.
 
-Under `Automatic Packaging` select `Package Web Applications for Octopus Deployment`. By ticking this box AppVeyor will run `octo.exe pack` after MSBuild has finished its `publish` command. _Keep in mind that since AppVeyor is doing a publish, some of the files that would usually be included by the [`OctoPack`](/docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md) MSBuild target might not be included by default (this includes the various `web.*.config` files). To ensure these files are included in the package make sure they are configured to `Copy to Output Directory` is Visual Studio.
+Under `Automatic Packaging` select `Package Web Applications for Octopus Deployment`. By ticking this box AppVeyor will run `octo.exe pack` after MSBuild has finished its `publish` command. _Keep in mind that since AppVeyor is doing a publish, some of the files that would usually be included by the [`OctoPack`](/docs/packaging-applications/octopack/index.md) MSBuild target might not be included by default (this includes the various `web.*.config` files). To ensure these files are included in the package make sure they are configured to `Copy to Output Directory` is Visual Studio.
 
 ![AppVeyor MSBuild Build](appveyor_build_msbuild.png)
 
@@ -21,7 +21,7 @@ Under `Automatic Packaging` select `Package Web Applications for Octopus Deploym
 | ------------- | ------- |
 | OCTOPUS_PACKAGE_VERSION | Overrides the version in the package name. (default AppVeyor build version)|
 | OCTOPUS_PACKAGE_NUGET | Overrides the package type. (default nupkg) |
-| OCTOPUS_PACKAGE_ADVANCED | [Additional arguments](/docs/packaging-applications/creating-packages/nuget-packages/using-octo.exe.md) to pass to `octo.exe pack` |
+| OCTOPUS_PACKAGE_ADVANCED | [Additional arguments](/docs/packaging-applications/octo.exe.md) to pass to `octo.exe pack` |
 
 #### Non-MSbuild Projects
 AppVeyor have included `octo.exe` into the base Windows build VM and is available via the command line. If running a project _not_ using msbuild you can manually invoke the octo.exe pack command directly during the build phase.

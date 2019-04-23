@@ -8,7 +8,7 @@ If you haven't already, create an [Azure Account](/docs/infrastructure/deploym
 
 ![](/docs/images/5671696/5865899.png "width=170")
 
-2. On the `Package` section of the step configuration page, select your `Package Feed` and `Package Id`
+2. On the `Package` section of the step configuration page, select your `Package Feed` and `Package ID`
 
 3. On the `Azure` Section, select the `Azure Account` that you created in the previous step. Once you do this, the web apps in your subscription will populate the `Web App` dropdown list for you to pick the one you want to deploy to.
 

@@ -1,9 +1,8 @@
 ---
-title: Using OctoPack
+title: Create Packages with OctoPack
 description: Using OctoPack is the easiest way to package .NET applications for use in your deployments.
+position: 20
 ---
-
-!toc
 
 The easiest way to package full framework .NET applications from your continuous integration/automated build process is to use OctoPack. OctoPack adds a custom MSBuild target that hooks into the build process of your solution. When enabled, OctoPack will package your Windows Service and ASP.NET applications when MSBuild runs. This makes it easy to integrate OctoPack with your build server - as long as you can pass properties to MSBuild, you can use OctoPack.
 
@@ -22,10 +21,6 @@ OctoPack is built and maintained by the Octopus Deploy team, but it is also open
 Under the hood, OctoPack eventually calls good old `nuget.exe pack` to build the NuGet package, and `nuget.exe push` to publish the package (if so desired). OctoPack adds value because it understands .NET applications and uses that knowledge to build the right kind of package for each kind of .NET application.
 :::
 
-:::success
-**Octopus Now Supports Multiple Package Types**
-Did you know Octopus now [supports other package types](/docs/packaging-applications/index.md#supported-formats) too? Now you can simply pack all the files you need straight into a specially named zip file, or any of the other [supported package types](/docs/packaging-applications/index.md#supported-formats), and Octopus will deploy it for you just like you'd expect. When OctoPack works for your situation, it's brilliant! However, if you find yourself wrestling with OctoPack, perhaps dropping the files you want deployed into a folder, and zipping it up for Octopus will turn out a lot simpler?
-:::
 
 This three minute video (with captions) will walk you through the process of installing and using OctoPack.
 
@@ -262,102 +257,3 @@ In addition to the common arguments above, OctoPack has a number of other parame
 | `OctoPackUseFileVersion`               | `true`                                  | Use this parameter to use `[assembly: AssemblyFileVersion]` (Assembly File Version) as the package version (see [version numbers](#UsingOctoPack-Versionnumbers)) |
 | `OctoPackUseProductVersion`            | `true`                                  | Use this parameter to use `[assembly: AssemblyInformationalVersion]` (Assembly Product Version) as the package version (see [version numbers](#UsingOctoPack-Versionnumbers)). Introduced in OctoPack `3.5.0` |
 | `OctoPackAppendProjectToFeed`          | `true`                                  | Append the project name onto the feed so you can nest packages under folders on publish |
-
-## Troubleshooting OctoPack {#UsingOctoPack-TroubleshootingOctoPack}
-
-Sometimes OctoPack doesn't work the way you expected it to, or perhaps you are having trouble configuring your `.nuspec` file. Here are some steps to help you diagnose what is going wrong, and fix the problem.
-
-1. Run the build in your local development environment using the Visual Studio developer command prompt using arguments something like this:
-
-  ```powershell
-  msbuild MySolution.sln /t:Build /p:Configuration=Release /p:RunOctoPack=true /fl
-  ```
-  The `/p:RunOctoPack=true` argument configures OctoPack to run as part of the build process
-  The `/fl` argument configures `msbuild.exe` to write the output to a log file which will usually look like `msbuild.log`.   Refer to the [MSBuild documentation](https://msdn.microsoft.com/en-us/library/ms171470.aspx) for more details.
-  Note: You may need to change some of these parameters to match the process you are using on your build server. Take a look   at the build server logs and try to emulate the process as closely as possible.
-
-2. Inspect the [MSBuild output log file](https://msdn.microsoft.com/en-us/library/ms171470.aspx). If OctoPack has executed successfully you should see log entries like the ones shown below generated using OctoPack 3.0.42:
-
-```powershell
-Target "OctoPack" in file "c:\dev\MyApplication\source\packages\OctoPack.3.0.42\tools\OctoPack.targets" from project "c:\dev\MyApplication\source\MyApplication.Web\MyApplication.Web.csproj" (target "Build" depends on it):
-Using "GetAssemblyVersionInfo" task from assembly "c:\dev\MyApplication\source\packages\OctoPack.3.0.42\tools\OctoPack.Tasks.dll".
-Task "GetAssemblyVersionInfo"
-  OctoPack: Get version info from assembly: c:\dev\MyApplication\source\MyApplication.Web\bin\MyApplication.Web.dll
-Done executing task "GetAssemblyVersionInfo".
-Task "Message"
-  Using package version: 0.0.0.0
-Done executing task "Message".
-Using "CreateOctoPackPackage" task from assembly "c:\dev\MyApplication\source\packages\OctoPack.3.0.42\tools\OctoPack.Tasks.dll".
-Task "CreateOctoPackPackage"
-  OctoPack: ---Arguments---
-  OctoPack: Content files: 12
-  OctoPack: ProjectDirectory: c:\dev\MyApplication\source\MyApplication.Web
-  OctoPack: OutDir: bin\
-  OctoPack: PackageVersion: 0.0.0.0
-  OctoPack: ProjectName: MyApplication.Web
-  OctoPack: PrimaryOutputAssembly: c:\dev\MyApplication\source\MyApplication.Web\bin\MyApplication.Web.dll
-  OctoPack: NugetArguments:
-  OctoPack: NugetProperties:
-  OctoPack: ---------------
-  OctoPack: Written files: 299
-  OctoPack: Create directory: c:\dev\MyApplication\source\MyApplication.Web\obj\octopacking
-  OctoPack: Create directory: c:\dev\MyApplication\source\MyApplication.Web\obj\octopacked
-  OctoPack: Copy file: c:\dev\MyApplication\source\MyApplication.Web\MyApplication.Web.nuspec
-  OctoPack: Packaging an ASP.NET web application (Web.config detected)
-  OctoPack: Add content files
-  OctoPack: Added file: content\images\favicon.ico
-  OctoPack: Added file: Web.config
-
-...
-  OctoPack: Add binary files to the bin folder
-  OctoPack: Added file: bin\MyApplication.Web.dll.config
-  OctoPack: Added file: bin\MyApplication.Web.dll
-  OctoPack: Added file: bin\MyApplication.Web.pdb
- 
-...
-  OctoPack: NuGet.exe path: c:\dev\MyApplication\source\packages\OctoPack.3.0.42\tools\NuGet.exe
-  OctoPack: Running NuGet.exe with command line arguments: pack "c:\dev\MyApplication\source\MyApplication.Web\obj\octopacking\MyApplication.Web.nuspec"  -NoPackageAnalysis -BasePath "c:\dev\MyApplication\source\MyApplication.Web" -OutputDirectory "c:\dev\MyApplication\source\MyApplication.Web\obj\octopacked" -Version 0.0.0.0
-  OctoPack: Attempting to build package from 'MyApplication.Web.nuspec'.
-  OctoPack: Successfully created package 'c:\dev\MyApplication\source\MyApplication.Web\obj\octopacked\MyApplication.Web.0.0.0.0.nupkg'.
-  OctoPack: Packaged file: c:\dev\MyApplication\source\MyApplication.Web\obj\octopacked\MyApplication.Web.0.0.0.0.nupkg
-  OctoPack: Copy file: c:\dev\MyApplication\source\MyApplication.Web\obj\octopacked\MyApplication.Web.0.0.0.0.nupkg
-  OctoPack: Packages have been copied to: c:\dev\MyApplication\source\MyApplication.Web\bin\
-  OctoPack: OctoPack successful
-Done executing task "CreateOctoPackPackage".
-Task "Message"
-  Built package: c:\dev\MyApplication\source\MyApplication.Web\obj\octopacked\MyApplication.Web.0.0.0.0.nupkg
-Done executing task "Message".
-Task "Message"
-  NuGet.exe: c:\dev\MyApplication\source\packages\OctoPack.3.0.42\tools\NuGet.exe
-Done executing task "Message".
-Task "Message"
-  Publish to file share: ..\..\artifacts
-Done executing task "Message".
-Task "Copy"
-  Copying file from "c:\dev\MyApplication\source\MyApplication.Web\obj\octopacked\MyApplication.Web.0.0.0.0.nupkg" to "..\..\artifacts\MyApplication.Web.0.0.0.0.nupkg".
-Done executing task "Copy".
-Task "Message" skipped, due to false condition; ('$(OctoPackPublishPackageToHttp)' != '') was evaluated as ('' != '').
-Task "Exec" skipped, due to false condition; ('$(OctoPackPublishPackageToHttp)' != '') was evaluated as ('' != '').
-Done building target "OctoPack" in project "MyApplication.Web.csproj".
-```
-
- * If you cannot see any OctoPack-related log messages, perhaps OctoPack isn't installed into your project(s) correctly?
-   * Try completely uninstalling OctoPack and installing it again.
-   * Check inside your `.csproj` or `.vbproj` file for an include statement like the following example:
-
-```powershell
-<Import Project="..\packages\OctoPack.3.0.42\tools\OctoPack.targets" Condition="Exists('..\packages\OctoPack.3.0.42\tools\OctoPack.targets')" />
-```
- * If OctoPack is running but your files are not being packed correctly, see if the file is mentioned in the build log.
-   * Files that are copied to the build output directory will be included in the package. Take a look at the contents of your build output directory and compare that with the messages in the build log.
-   * For web applications, files that are configured with the Visual Studio property **Build Action: Content** will be included in the package.
-   * If you have specified the `<files>` element in a custom `.nuspec` file, perhaps you need to add the `/p:OctoPackEnforceAddingFiles=true` MSBuild argument as discussed above?
-   * If you have specified the `<files>` element in a custom `.nuspec` file, perhaps you need to experiment with some different combinations of include and exclude?
-
-## Using .NET Core? {#UsingOctoPack-UsingNETCore}
-
-OctoPack does not support .NET Core projects.
-
-If you are using .NET Core for class libraries, we recommend using [dotnet pack from Microsoft](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-pack).
-
-If you are using .NET Core for web applications, we recommend publishing to a folder and then using [Octo.exe pack](/docs/packaging-applications/creating-packages/nuget-packages/using-octo.exe.md), as described in the "Publishing and Packing the Website" section of the [Deploying ASP.NET Core Web Applications documentation](/docs/deployment-examples/asp.net-core-web-application-deployments/index.md#DeployingASP.NETCoreWebApplications-PublishingandPackingtheWebsite).
