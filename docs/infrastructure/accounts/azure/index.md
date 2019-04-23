@@ -1,5 +1,5 @@
 ---
-title: Azure
+title: Azure Accounts
 description:  Configure your infrastructure so Octopus can deploy software to your Windows servers, Linux servers, or Cloud Regions.
 position: 10
 ---
