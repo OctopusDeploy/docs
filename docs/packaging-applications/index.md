@@ -75,7 +75,7 @@ The error only occurs on *Run on Server* steps and deployments execute as expect
 We've created the following tools to help package your applications for deployment with Octopus:
 
  - [Octo.exe](/docs/packaging-applications/octo.exe.md) to create Zip Archives and NuGet packages for **.NET Core** apps and full **.NET framework** applications.
- - [Octopack](/docs/packaging-applications/octopack.md) to create NuGet packages for **ASP.NET** apps (.NET Framework) and **Windows Services** (.NET Framework).
+ - [Octopack](/docs/packaging-applications/octopack/index.md) to create NuGet packages for **ASP.NET** apps (.NET Framework) and **Windows Services** (.NET Framework).
  - A [TeamCity plugin](/docs/api-and-integration/teamcity.md).
  - An [Azure DevOps plugin](/docs/api-and-integration/tfs-azure-devops/using-octopus-extension/index.md).
 
@@ -90,6 +90,6 @@ There are many more tools you might choose to use, but as long as you can create
 ## Next
 
  - [Octo.exe](/docs/packaging-applications/octo.exe.md)
- - [Octopack](/docs/packaging-applications/creating-packages/octopack.md)
+ - [Octopack](/docs/packaging-applications/octopack/index.md)
  - [TeamCity plugin](/docs/api-and-integration/teamcity.md)
  - [Azure DevOps plugin](/docs/api-and-integration/tfs-azure-devops/using-octopus-extension/index.md)
