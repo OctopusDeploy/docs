@@ -1,7 +1,7 @@
 ---
 title: Choosing a Versioning Scheme
 description: Considerations when selecting a versioning scheme for your applications.
-position: 15
+position: 10
 ---
 
 The [Package ID](/docs/packaging-applications/index.md#package-id), version number, and [package format](/docs/packaging-applications/index.md#support-formats) uniquely identify your packages, so it's important to choose the right versioning scheme, but it can be a tricky balance between pragmatism and strictness. This page should help you understand how Octopus Deploy handles versions in [packages](/docs/packaging-applications/index.md#supported-formats), [releases](/docs/deployment-process/releases/index.md), and [channels](/docs/deployment-process/channels/index.md), and subsequently design a versioning scheme that suits your needs.
