@@ -58,7 +58,7 @@ You can use any zip program or library to create your packages, however, using O
 - Help you get the filename format correct.
 - Ensure file timestamps are retained when extracting which helps with some forms of content delivery networks (CDN) and caching.
 - Ensure [delta compression for package transfers](/docs/deployment-examples/package-deployments/delta-compression-for-package-transfers.md) works as expected.
-- Avoid [known issues with other compression libraries](/docs/packaging-applications/known-issues-with-other-compression-libraries.md).
+- Avoid [known issues with other compression libraries](/docs/packaging-applications/octo.exe.md).
 
 To create a zip package of the application, open a command prompt and change into the directory where the application is located:
 
