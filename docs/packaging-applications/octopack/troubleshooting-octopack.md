@@ -1,6 +1,7 @@
 ---
 title: Troubleshooting OctoPack
 description: Troubleshooting NuGet packages and Octopack
+position: 30
 ---
 
 Sometimes OctoPack doesn't work the way you expected it to, or perhaps you are having trouble configuring your `.nuspec` file. Here are some steps to help you diagnose what is going wrong, and fix the problem.

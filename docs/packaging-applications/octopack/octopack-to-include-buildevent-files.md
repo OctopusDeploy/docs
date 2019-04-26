@@ -1,7 +1,7 @@
 ---
 title: OctoPack to Include BuildEvent Files
 description: Using OctoPack when you have a PostBuild event in Visual Studio and want to include files that are not specifically part of your build.
-position: 1
+position: 10
 ---
 
 The [Using OctoPack](/docs/packaging-applications/octopack/index.md) documentation page gives you all the details of how to add OctoPack to your Visual Studio solution and use MsBuild to package your solution into a NuGet package.
