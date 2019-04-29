@@ -37,12 +37,6 @@ dotnet tool install Octopus.DotNet.Cli --global --version 4.39.1
 ```
 You may also omit the `--version` parameter to install the latest version of the tools.
 
-Check the output to make sure the installation works correctly. After the installation has completed, you can run the following to verify the version of Octo that was installed:
-
-```
-dotnet octo --version
-```
-
 ### Updating
 In order to update to the latest version of the tool you can use the `dotnet update` command
 

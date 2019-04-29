@@ -4,7 +4,7 @@ description: Considerations when selecting a versioning scheme for your applicat
 position: 10
 ---
 
-The [Package ID](/docs/packaging-applications/index.md#package-id), version number, and [package format](/docs/packaging-applications/index.md#support-formats) uniquely identify your packages, so it's important to choose the right versioning scheme, but it can be a tricky balance between pragmatism and strictness. This page should help you understand how Octopus Deploy handles versions in [packages](/docs/packaging-applications/index.md#supported-formats), [releases](/docs/deployment-process/releases/index.md), and [channels](/docs/deployment-process/channels/index.md), which will help you design a versioning scheme that suits your needs.
+The [Package ID](/docs/packaging-applications/index.md#package-id), version number, and [package format](/docs/packaging-applications/index.md#support-formats) uniquely identify your packages, so it's important to choose the right versioning scheme, but it can be a tricky balance between pragmatism and strictness. This page should help you understand how Octopus Deploy handles versions in [packages](/docs/packaging-applications/index.md#supported-formats), [releases](/docs/deployment-process/releases/index.md), and [channels](/docs/deployment-process/channels/index.md), and subsequently design a versioning scheme that suits your needs.
 
 ## Choosing a Versioning Scheme {#VersioninginOctopusDeploy-Choosingaversioningscheme}
 
@@ -13,12 +13,12 @@ The technology you're working with will, in some cases, determine the type of ve
 Consider the following factors when deciding on the versioning scheme you'll use for your applications and packages:
 
 1. Can you trace a version back to the commit/check-in the application/package was built from?
-  *For example: We stamp the SHA hash of the git commit into the metadata component of the Semantic Version for Octopus Deploy which makes it easier to find and fix bugs. We also tag the commit with the version of Octopus Deploy it produced so you can quickly determine which commit produced a particular version of Octopus Deploy.*
+*For example: We stamp the SHA hash of the git commit into the metadata component of the Semantic Version for Octopus Deploy which makes it easier to find and fix bugs. We also tag the commit with the version of Octopus Deploy it produced so you can quickly determine which commit produced a particular version of Octopus Deploy.*
 2. Can your users easily report a version to the development team that supports #1?
 3. Will your version numbers be confusing, or will they help people understand the changes that have been made to the software?
-  *For example: bumping a major version component (first part) means there are potentially breaking changes, but bumping a patch (3rd part) should be safe to upgrade, and safe to rollback if something goes wrong.*
+*For example: bumping a major version component (first part) means there are potentially breaking changes, but bumping a patch (3rd part) should be safe to upgrade, and safe to rollback if something goes wrong.*
 4. Does your tool chain support the versioning scheme?
-  *For example: Octopus Deploy supports Semantic Versioning, which enables enhanced features like [Channels](/docs/deployment-process/channels/index.md).*
+*For example: Octopus Deploy supports Semantic Versioning, which enables enhanced features like [Channels](/docs/deployment-process/channels/index.md).*
 
 ### Strictness Versus Pragmatism {#VersioninginOctopusDeploy-Strictnessversuspragmatism}
 
@@ -54,6 +54,23 @@ These are the decisions we made on handling versions:
 
 When working with artifacts from a [Maven feed](/docs/packaging-applications/package-repositories/maven-feeds.md), Octopus respects the [Maven versioning scheme](https://octopus.com/blog/maven-versioning-explained). This versioning scheme is implemented as a copy of the [ComparableVersion](https://github.com/apache/maven/blob/master/maven-artifact/src/main/java/org/apache/maven/artifact/versioning/ComparableVersion.java) class from the Maven library itself.
 
+## When to Use SemVer and When to Use Maven Versions
+
 SemVer is still recommended (or required) when versioning any artifact to be deployed to the built-in library or an external NuGet feed.
 
 The only time Maven versions are used by Octopus is when an artifact is sourced from an external Maven feed. Accordingly, the only time to use the Maven versioning scheme over SemVer is when you are deploying artifacts to a Maven repository.
+
+## Package Metadata {#SupportedPackages-PackageMetadata}
+
+The only required pieces of information Octopus Deploy **requires** for a package are an ID, Version, and Format. Other [metadata](/docs/api-and-integration/metadata/index.md) and release notes or descriptions are optional.
+
+- NuGet packages: NuGet packages support embedding metadata within the contents of the package. We use this metadata to determine the version of the package.
+- All other packages: In all other cases we have to parse the file name itself and extract the ID, Version and Format.
+
+The expected package convention is therefore:
+
+> `<id>.<version>.<extension>`
+
+So for example the package name for version *2.3* of you project *Sample.Web*, archived with tar & gzip should be named:
+
+> `Sample.Web.2.3.tar.gz`
