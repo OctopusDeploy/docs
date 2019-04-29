@@ -26,7 +26,7 @@ In this example, **hello-world** is the package ID, **1.0.0** is the version num
 
 ## Package ID {#package-id}
 
-Package IDs must conform to following specifications:
+Package IDs must conform to the following specifications:
 
 - Package IDs must be unique within your Octopus Deploy instance.
 - Package IDs consist of one or more segments separated by one of the following separator characters: `-` `.` `_`.
@@ -54,12 +54,12 @@ It is important that your packages have the correct **file extension** because O
 
 | Package Type          | File Extensions           | Notes                                    |
 | --------------------- | ------------------------- | ---------------------------------------- |
-| NuGet        | *.nupkg*                   | Compatible with any NuGet repository (including the [Built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md)). Currently only NuGet packages will have extra metadata like release notes and description extracted from the package metadata. |
-| Zip          | *.zip*                     | Standard zip file as created through most common zip programs. Compatible with the [built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md) only. |
-| JAR WAR EAR RAR | .jar, .war, .ear, .rar  | Compatible with the [built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/pushing-packages-to-the-built-in-repository.md) and [Maven Feeds](/docs/packaging-applications/package-repositories/maven-feeds.md) from 4.1. |
-| Tar          | *.tar*                   | Compatible with the [Built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md) only. |
-| Tar + Gzip   | *.tgz, .tar.gz, .tar.Z | Compatible with the [built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md) only. |                                          |
-| Tar + Bzip2  | *.tar.bz, .tar.bz2, .tbz* | Compatible with the [built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md) only. |                                          |
+| NuGet        | .nupkg                   | Compatible with any NuGet repository (including the [Built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md)). Currently only NuGet packages will have extra metadata like release notes and description extracted from the package metadata. |
+| Zip          | .zip                     | Standard zip file as created through most common zip programs. Compatible with the [built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md) only. |
+| JAR WAR EAR RAR | .jar, .war, .ear, .rar  | Compatible with the [built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/pushing-packages-to-the-built-in-repository.md) and [Maven Feeds](/docs/packaging-applications/package-repositories/maven-feeds.md) from **Octopus 4.1**. |
+| Tar          | .tar                   | Compatible with the [Built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md) only. |
+| Tar + Gzip   | .tgz, .tar.gz, .tar.Z | Compatible with the [built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md) only. |                                          |
+| Tar + Bzip2  | .tar.bz, .tar.bz2, .tbz* | Compatible with the [built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md) only. |                                          |
 | Docker Image |                            | [Docker Registries](/docs/packaging-applications/package-repositories/docker-registries/index.md). Learn about [Docker](/docs/deployment-examples/docker-containers/index.md) and Octopus Deploy. |
 
 :::warning
@@ -93,3 +93,5 @@ There are many more tools you might choose to use, but as long as you can create
  - [Octopack](/docs/packaging-applications/octopack/index.md)
  - [TeamCity plugin](/docs/api-and-integration/teamcity.md)
  - [Azure DevOps plugin](/docs/api-and-integration/tfs-azure-devops/using-octopus-extension/index.md)
+ - [Package Repositories](/docs/packaging-applications/index.md)
+ - [Package Deployments](/docs/deployment-examples/package-deployments)
