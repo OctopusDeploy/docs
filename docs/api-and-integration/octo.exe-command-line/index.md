@@ -7,7 +7,7 @@ hideInThisSection: true
 
 **Octo.exe** is a command line tool that builds on top of the [Octopus Deploy REST API](/docs/api-and-integration/api/index.md).
 
-We provide a number of ways to get Octo onto your machine:
+We provide a number of ways to install Octo onto your machine:
 
 - Using .Net Core CLI as a [global tool](/docs/api-and-integration/octo.exe-command-line/install-global-tool.md) (recommended).
 - Download from **Octopus downloads page**:
