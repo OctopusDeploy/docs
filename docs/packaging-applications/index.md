@@ -12,7 +12,7 @@ Before you can deploy a package you need to:
 1. Give your package a [package ID](#package-id).
 1. Choose and apply a [versioning scheme](#version-numbers).
 1. Create the package in a [supported format](#supported-formats).
-1. Host the package in a [package repository](/docs/packaging-applications/package-repositories/index.md), for instance, the Octopus [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md).
+1. Host the package in a [package repository](/docs/packaging-applications/package-repositories/index.md), such as the Octopus [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md).
 
 ## Example Package
 
@@ -46,7 +46,7 @@ The version number needs to be applied to your package after the package ID and 
 
 > [hello-world.1.0.0.zip](https://octopus.com/images/docs/hello-world.1.0.0.zip)
 
-See also, [choosing a versioning scheme](/docs/packaging-applications/versioning.md).
+Learn more about [versioning schemes](/docs/packaging-applications/versioning.md).
 
 ## Supported Formats {#supported-formats}
 

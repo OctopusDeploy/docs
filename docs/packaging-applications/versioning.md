@@ -1,5 +1,5 @@
 ---
-title: Choosing a Versioning Scheme
+title: Versioning Schemes
 description: Considerations when selecting a versioning scheme for your applications.
 position: 10
 ---
@@ -8,7 +8,7 @@ The [Package ID](/docs/packaging-applications/index.md#package-id), version numb
 
 ## Choosing a Versioning Scheme {#VersioninginOctopusDeploy-Choosingaversioningscheme}
 
-The technology you're working with will, in some cases, determine the type of versioning scheme you choose. We recommend using [Semantic Versioning](http://semver.org/) for your applications, unless you are deploying artifacts to a Maven repository, in which case you will need to use [Maven Versions](https://octopus.com/blog/maven-versioning-explained).
+The technology you're working with will, in some cases, determine the type of versioning scheme you choose. We recommend using [Semantic Versioning](#semver) for your applications, unless you are deploying artifacts to a Maven repository, in which case, you need to use [Maven Versions](#maven).
 
 Consider the following factors when deciding on the versioning scheme you'll use for your applications and packages:
 
@@ -20,15 +20,31 @@ Consider the following factors when deciding on the versioning scheme you'll use
 4. Does your tool chain support the versioning scheme?
   *For example: Octopus Deploy supports Semantic Versioning, which enables enhanced features like [Channels](/docs/deployment-process/channels/index.md).*
 
-### Strictness Versus Pragmatism {#VersioninginOctopusDeploy-Strictnessversuspragmatism}
+## SemVer {#semver}
 
-Octopus supports a "pragmatic" implementation of SemVer, including support for 4-digit versions (i.e., `1.0.0.0`) and versions that can be sorted alphanumerically, like `2016.09.01-beta.0001`.
+Octopus supports Semantic Versioning 2.0.0, with version numbers constructed in the following way:
 
-Strictly speaking about SemVer 2.0, a version like `1.5.2-rc.1` is considered a "pre-release" and `1.5.2` would be considered a "full release".  In practice, these concepts carry weight when you are talking about hierarchies of application dependencies like classical NuGet packages or NPM dependencies. This kind of strict semantic versioning enables dependency management tooling to interpret what kind of changes each package version represents. For example, they can automatically protect your software, by preventing accidental upgrades to pre-release versions, or versions that might introduce breaking changes.
+> `Major.Minor.Patch`
 
-When it comes to application versioning however, we suggest the "pre-release tag" (the bit after the `-`) can be used for whatever you want. For example: you could build version `1.5.2-rc` of your application, and configure a [Channel](/docs/deployment-process/channels/index.md) to promote packages like `*-rc` to Staging and eventually Production.
+For instance:
 
-## How Octopus Deploy Treats Versions {#VersioninginOctopusDeploy-HowOctopusDeploytreatsversions}
+> `1.5.2`
+
+Octopus supports a *pragmatic* implementation of SemVer, including support for 4-digit versions:
+
+> `1.0.0.0`
+
+Octopus also supports versions that can be sorted alphanumerically:
+
+> `2016.09.01-beta.0001`
+
+In strict SemVer 2.0, a version like `1.5.2-rc.1` is considered a **pre-release**, and `1.5.2` is considered a **full release**.
+
+When it comes to application versioning, we suggest the pre-release tag (the bit after the `-`) can be used however works best for you. For example, you could build version `1.5.2-rc` of your application and configure a [Channel](/docs/deployment-process/channels/index.md) to promote packages like `*-rc` to Staging and eventually Production.
+
+Learn more about Semantic Version at [semver.org](http://semver.org/).
+
+### How Octopus Deploy Treats Semantic Versions {#VersioninginOctopusDeploy-HowOctopusDeploytreatsversions}
 
 The Octopus Deploy ecosystem includes a wide variety of external services which care about versions, with some of them being quite opinionated in their versioning implementations, with potential inconsistencies amongst them. Rather than implementing a "lowest common denominator" approach, we've taken a "string-based" approach. This enables you to leverage the idiomatic/natural versioning schemes of your target ecosystem.
 
@@ -50,10 +66,36 @@ These are the decisions we made on handling versions:
 3. Creating packages (using Octopus tooling like [OctoPack](/docs/packaging-applications/octopack/index.md) and [octo.exe](/docs/packaging-applications/octo.exe.md)): [WYSIWYG](https://en.wikipedia.org/wiki/WYSIWYG) provided the version you've specified is a valid SemanticVersion (as described earlier). For example, if you build a package using `octo.exe pack --id=MyPackage --version=2016.01.02` the output file will be `MyPackage.2016.01.02.nupkg`.  
 4. Interacting with package feeds/repositories (many and varied, including our own): We just ask the feed for a package with the version string we stored in the release, and accept what the feed tells us.
 
-## How Octopus Deploy Treats Maven Versions
+## Maven Versions {#maven}
 
-When working with artifacts from a [Maven feed](/docs/packaging-applications/package-repositories/maven-feeds.md), Octopus respects the [Maven versioning scheme](https://octopus.com/blog/maven-versioning-explained). This versioning scheme is implemented as a copy of the [ComparableVersion](https://github.com/apache/maven/blob/master/maven-artifact/src/main/java/org/apache/maven/artifact/versioning/ComparableVersion.java) class from the Maven library itself.
+Maven versions are used by Octopus when an artifact is sourced from an external Maven feed. SemVer is still required when versioning any artifact to be deployed to the built-in library or an external NuGet feed, and the only time to use the Maven versioning scheme over SemVer is when you are deploying artifacts to a Maven repository.
 
-SemVer is still recommended (or required) when versioning any artifact to be deployed to the built-in library or an external NuGet feed.
+The Maven versioning scheme is implemented as a copy of the [ComparableVersion](https://github.com/apache/maven/blob/master/maven-artifact/src/main/java/org/apache/maven/artifact/versioning/ComparableVersion.java) class from the Maven library itself.
 
-The only time Maven versions are used by Octopus is when an artifact is sourced from an external Maven feed. Accordingly, the only time to use the Maven versioning scheme over SemVer is when you are deploying artifacts to a Maven repository.
+Maven version strings have 5 parts:
+
+* Major
+* Minor
+* Patch
+* Build number
+* Qualifier
+
+The Major, Minor, Patch, and Build number are all integer values.
+
+The Qualifier can hold any value, although some qualifiers have special meanings and an associated order of precedence as follows:
+
+* alpha or a
+* beta or b
+* milestone or m
+* rc or cr
+* snapshot
+* (the empty string) or ga or final
+* sp
+
+Qualifiers are case insensitive, and some of the qualifiers have shorthand aliases, for instance, `alpha` and `a`, however, if you use an alias it must include a number, for instance, `a1`. If you do not include a number after the alias, it will be treated as an unrecognized qualifier which will be compared as a case insensitive string after the qualified versions.
+
+Where version stings cannot be parsed as major.minor.patch.build and the qualifier is not recognized, the entire string is considered to be a qualifier.
+
+A dash or a period can be used to separate Major, Minor, Patch, and Build, however, using a separator between the last digit and the qualifier is optional.
+
+For an in-depth look at Maven versions, see the blog post [Maven Versions Explained](https://octopus.com/blog/maven-versioning-explained).
