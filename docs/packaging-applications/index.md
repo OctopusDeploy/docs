@@ -89,9 +89,9 @@ There are many more tools you might choose to use, but as long as you can create
 
 ## Next
 
- - [Octo.exe](/docs/packaging-applications/octo.exe.md)
- - [Octopack](/docs/packaging-applications/octopack/index.md)
- - [TeamCity plugin](/docs/api-and-integration/teamcity.md)
- - [Azure DevOps plugin](/docs/api-and-integration/tfs-azure-devops/using-octopus-extension/index.md)
- - [Package Repositories](/docs/packaging-applications/index.md)
- - [Package Deployments](/docs/deployment-examples/package-deployments/index.md)
+ - Creating packages with [Octo.exe](/docs/packaging-applications/octo.exe.md).
+ - Creating packages with [Octopack](/docs/packaging-applications/octopack/index.md).
+ - Using the [TeamCity plugin](/docs/api-and-integration/teamcity.md).
+ - Using the [Azure DevOps plugin](/docs/api-and-integration/tfs-azure-devops/using-octopus-extension/index.md).
+ - Using [Package Repositories](/docs/packaging-applications/index.md).
+ - Creating [Package Deployments](/docs/deployment-examples/package-deployments/index.md).
