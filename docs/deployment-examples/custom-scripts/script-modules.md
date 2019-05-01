@@ -116,7 +116,7 @@ say_hello() {
 Call it from your Script Step with:
 ```bash
 source BashScriptModule.sh
-say_hello
+say_hello George
 ```
 
 ## C# Script Modules
@@ -188,7 +188,7 @@ Once imported, functions from the Script Module will be available prefixed with 
 Given a Python Script Module called `Python Script Module`:
 ```python
 def sayhello(name):
-    print("Hello {name}. Welcome to Octopus!")
+    print(f"Hello {name}. Welcome to Octopus!")
 ```
 
 Call it from your Script Step with:
@@ -201,10 +201,10 @@ PythonScriptModule.sayhello("George")
 
 To be able to access and use the script modules feature you will require the following permissions:
 
-To see the `Script modules` menu requires the `VariableView` permission.
+To see the "Script Modules" menu requires the `VariableView` permission.
 
-To create a new `Script module` requires the `LibraryVariableSetCreate` permission.
+To create a new Script Module requires the `LibraryVariableSetCreate` permission.
 
-To view an existing `Script module` requires the `LibraryVariableSetView`, `VariableView` and `VariableViewUnscoped` permissions.
+To view an existing Script Module requires the `LibraryVariableSetView`, `VariableView` and `VariableViewUnscoped` permissions.
 
-To edit an existing `Script module` requires the `LibraryVariableSetEdit` permission.
+To edit an existing Script Module requires the `LibraryVariableSetEdit` permission.
