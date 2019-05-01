@@ -1,6 +1,6 @@
 ---
 title: Versioning Schemes
-description: Considerations when selecting a versioning scheme for your applications.
+description: Considerations for selecting a versioning scheme for the applications you'll deploy.
 position: 10
 ---
 

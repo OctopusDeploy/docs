@@ -40,7 +40,7 @@ Avoid using numbers in your package ID as it could result in your version number
 
 ## Version Numbers {#version-numbers}
 
-Octopus supports [Semantic Versioning](http://semver.org/), unless you are deploying artifacts to a [Maven repository](/docs/packaging-applications/package-repositories/maven-feeds.md), in which case you will need to use [Maven Versions](https://octopus.com/blog/maven-versioning-explained).
+Octopus supports [Semantic Versioning](/docs/packaging-applications/versioning.md#semver), unless you are deploying artifacts to a [Maven repository](/docs/packaging-applications/package-repositories/maven-feeds.md), in which case you will need to use [Maven Versions](/docs/packaging-applications/versioning.md#maven).
 
 The version number needs to be applied to your package after the package ID and before the format. For instance. The version number in our sample package is **1.0.0**.
 
@@ -89,6 +89,7 @@ There are many more tools you might choose to use, but as long as you can create
 
 ## Next
 
+ - Choosing a [versioning scheme](/docs/packaging-applications/versioning.md).
  - Creating packages with [Octo.exe](/docs/packaging-applications/octo.exe.md).
  - Creating packages with [Octopack](/docs/packaging-applications/octopack/index.md).
  - Using the [TeamCity plugin](/docs/api-and-integration/teamcity.md).
