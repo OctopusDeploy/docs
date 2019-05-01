@@ -33,7 +33,7 @@ Once this is done, click on **Save**.
 
 ## Using a Script Module on a Deployment {#ScriptModules-UsingaScriptModuleonaDeployment}
 
-Once you have created a Script Module, you can start using the functions contained on it in Script Steps your deployment processes. These steps must use the same language as the Script Module.
+Once you have created a Script Module, you can start using the functions contained on it in Script Steps in your deployment processes. These steps must use the same language as the Script Module.
 
 1.  Go to your **[Deployment Process](/docs/deployment-examples/index.md)** and click **Include.**
 
@@ -86,9 +86,9 @@ Say-Hello -name "George"
 ```
 
 ### Gotcha
-If you process has 4 steps (i.e Stop IIS, Backup ,Deploy, Start IIS) the entire module will get loaded once at the start of each step. Because of this we encourage users to avoid putting code outside functions on your Script Modules. This way the code will only get executed when the function is properly called from a PowerShell Script step.
+If you process has 4 steps (i.e Stop IIS, Backup, Deploy, Start IIS) the entire module will get loaded once at the start of each step. Because of this we encourage users to avoid putting code outside functions on your Script Modules. This way the code will only get executed when the function is properly called from a PowerShell Script step.
 
-In the example Script Module below, the first line which attempts to stop the service "ImportantService" will run for every PowerShell-Script-based step on your deployment . The first time it might succeed (stopping the service), but the subsequent tries will most likely make the overall deployment fail.
+In the example Script Module below, the first line which attempts to stop the service "ImportantService" will run for every PowerShell-Script-based step on your deployment. The first time it might succeed (stopping the service), but the subsequent tries will most likely make the overall deployment fail.
 
 ```powershell
 # bad example - dont copy
