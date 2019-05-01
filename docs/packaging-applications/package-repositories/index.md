@@ -20,11 +20,11 @@ If you would like to use an external repository, the following external reposito
 Your package repository will typically be:
 
 - The Octopus Server's [built-in repository](/docs/packaging-applications/package-repositories/index.md).
-- A [remote feed](http://docs.nuget.org/docs/creating-packages/hosting-your-own-nuget-feeds#Creating_Remote_Feeds "Remote NuGet feeds") exposed over HTTP.
-- A [local feed](http://docs.nuget.org/docs/creating-packages/hosting-your-own-nuget-feeds#Creating_Local_Feeds "Local NuGet package repositories") exposed as a File Share or local directory.
+- A [remote feed](http://docs.nuget.org/docs/creating-packages/hosting-your-own-nuget-feeds#Creating_Remote_Feeds) exposed over HTTP.
+- A [local NuGet feed](http://docs.nuget.org/docs/creating-packages/hosting-your-own-nuget-feeds#Creating_Local_Feeds) exposed as a File Share or local directory.
 - A [maven feed](/docs/packaging-applications/package-repositories/maven-feeds.md).
-- A [JetBrains TeamCity](http://blogs.jetbrains.com/dotnet/2011/08/native-nuget-support-in-teamcity/ "JetBrains TeamCity") server (version 7 and above).
-- A [MyGet](http://www.myget.org/ "MyGet") server.
+- A [JetBrains TeamCity](http://blogs.jetbrains.com/dotnet/2011/08/native-nuget-support-in-teamcity/) server (version 7 and above).
+- A [MyGet](http://www.myget.org/) server.
 - A [Azure DevOps or TFS Package Management](https://www.visualstudio.com/en-us/docs/package/overview) feed (see note below).
 
 :::success
