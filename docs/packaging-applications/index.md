@@ -62,14 +62,6 @@ It is important that your packages have the correct **file extension** because O
 | Tar + Bzip2  | .tar.bz, .tar.bz2, .tbz* | Compatible with the [built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md) only. |                                          |
 | Docker Image |                            | [Docker Registries](/docs/packaging-applications/package-repositories/docker-registries/index.md). Learn about [Docker](/docs/deployment-examples/docker-containers/index.md) and Octopus Deploy. |
 
-:::warning
-**Pre-Release packages and Multipart file extensions**
-
-If you're planning to use a multi-part file extension (e.g. `.tar.gz`) with a pre-release naming convention (`MyApp.1.0.0-beta.tar.gz`) and use the *Run on Server* step option, this will result in an error message of `Unsupported file extension .gz`. This is because the `.tar` forms part of pre-release tag and not part of the file extension.
-
-The error only occurs on *Run on Server* steps and deployments execute as expected on Tentacles.
-:::
-
 ## Creating Packages {#creating-packages}
 
 We've created the following tools to help package your applications for deployment with Octopus:
