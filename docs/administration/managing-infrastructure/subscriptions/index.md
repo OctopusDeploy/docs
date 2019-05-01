@@ -88,7 +88,7 @@ The `Payload` includes:
 
 :::hint
 **Consuming Events**
-While we make every effort to ensure events are only ever sent *once* to a given email or webhook subscription, we can offer no guarantees and advise that you design your comsuming API with this in mind.
+While we make every effort to ensure events are only ever sent *once* to a given email or webhook subscription, we can offer no guarantees and advise that you design your consuming API with this in mind.
 :::
 
 
