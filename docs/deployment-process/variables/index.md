@@ -77,7 +77,7 @@ You can set the scope of a variable values when you are creating or editing your
 
 You can scope the values of your variables in multiple ways. For instance, you might scope a value to both the **Dev** and **Test** Environments, and to a step within your process.
 
-When the process runs, Octopus will used the scoped value for the **Dev** OR **Test** environments, AND the steps the value was scoped to.
+When the process runs, Octopus will use the scoped value for the **Dev** OR **Test** environments, AND the steps the value was scoped to.
 
 | Variable | Value | Scope |
 | -------- | ----- | ----- |
