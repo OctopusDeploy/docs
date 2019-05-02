@@ -39,3 +39,12 @@ F:\Workspace\OctoFX\source>msbuild OctoFX.sln /t:Build /p:RunOctoPack=true /p:Oc
 Now my test folder and files, as well as my build files are included in the package.
 
 ![](/docs/images/3048096/3277790.png "width=300")
+
+## Next
+
+ - [Packaging Applications](/docs/packaging-applications/index.md)
+ - [Use Octo.exe to create packages](/docs/packaging-applications/octo.exe.md)
+ - Use [OctoPack to Include BuildEvent Files](/docs/packaging-applications/octopack/octopact-to-include-buildevent-files.md)
+ - [Push a NuGet package that already exists](/docs/packaging-applications/octopack/push-a-nuget-package-that-already-exists.md)
+ - [Troubleshooting OctoPack](/docs/packaging-applications/octopack/troubleshooting-octopack.md)
+ - [Package deployments](/docs/deployment-examples/package-deployments/index.md)

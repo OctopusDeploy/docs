@@ -19,3 +19,12 @@ Sometimes the package version number may not always change. This can happen if y
 This will force the Octopus Server to replace the existing NuGet package with the new version you have pushed. It works exactly the same as the checkbox on the package upload pane:
 
 ![](existing-package.png)
+
+## Next
+
+ - [Packaging Applications](/docs/packaging-applications/index.md)
+ - [Use Octo.exe to create packages](/docs/packaging-applications/octo.exe.md)
+ - Use [OctoPack to Include BuildEvent Files](/docs/packaging-applications/octopack/octopact-to-include-buildevent-files.md)
+ - [Push a NuGet package that already exists](/docs/packaging-applications/octopack/push-a-nuget-package-that-already-exists.md)
+ - [Troubleshooting OctoPack](/docs/packaging-applications/octopack/troubleshooting-octopack.md)
+ - [Package deployments](/docs/deployment-examples/package-deployments/index.md)

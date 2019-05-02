@@ -2,6 +2,7 @@
 title: Create Packages with OctoPack
 description: Using OctoPack is the easiest way to package .NET applications for use in your deployments.
 position: 30
+hideInThisSection: true
 ---
 
 You can package full framework .NET applications from your continuous integration/automated build process is to use OctoPack. OctoPack adds a custom MSBuild target that hooks into the build process of your solution. When enabled, OctoPack will package your Windows Service and ASP.NET applications when MSBuild runs. This makes it easy to integrate OctoPack with your build server. As long as you can pass properties to MSBuild, you can use OctoPack.
@@ -231,3 +232,12 @@ In addition to the common arguments above, OctoPack has a number of other parame
 | `OctoPackUseFileVersion`               | `true`                                  | Use this parameter to use `[assembly: AssemblyFileVersion]` (Assembly File Version) as the package version (see [version numbers](#UsingOctoPack-Versionnumbers)) |
 | `OctoPackUseProductVersion`            | `true`                                  | Use this parameter to use `[assembly: AssemblyInformationalVersion]` (Assembly Product Version) as the package version (see [version numbers](#UsingOctoPack-Versionnumbers)). Introduced in OctoPack `3.5.0` |
 | `OctoPackAppendProjectToFeed`          | `true`                                  | Append the project name onto the feed so you can nest packages under folders on publish |
+
+## Next
+
+ - [Packaging Applications](/docs/packaging-applications/index.md)
+ - [Use Octo.exe to create packages](/docs/packaging-applications/octo.exe.md)
+ - Use [OctoPack to Include BuildEvent Files](/docs/packaging-applications/octopack/octopact-to-include-buildevent-files.md)
+ - [Push a NuGet package that already exists](/docs/packaging-applications/octopack/push-a-nuget-package-that-already-exists.md)
+ - [Troubleshooting OctoPack](/docs/packaging-applications/octopack/troubleshooting-octopack.md)
+ - [Package deployments](/docs/deployment-examples/package-deployments/index.md)

@@ -92,3 +92,12 @@ Done building target "OctoPack" in project "MyApplication.Web.csproj".
    * For web applications, files that are configured with the Visual Studio property **Build Action: Content** will be included in the package.
    * If you have specified the `<files>` element in a custom `.nuspec` file, perhaps you need to add the `/p:OctoPackEnforceAddingFiles=true` MSBuild argument as discussed above?
    * If you have specified the `<files>` element in a custom `.nuspec` file, perhaps you need to experiment with some different combinations of include and exclude?
+
+## Next
+
+ - [Packaging Applications](/docs/packaging-applications/index.md)
+ - [Use Octo.exe to create packages](/docs/packaging-applications/octo.exe.md)
+ - Use [OctoPack to Include BuildEvent Files](/docs/packaging-applications/octopack/octopact-to-include-buildevent-files.md)
+ - [Push a NuGet package that already exists](/docs/packaging-applications/octopack/push-a-nuget-package-that-already-exists.md)
+ - [Troubleshooting OctoPack](/docs/packaging-applications/octopack/troubleshooting-octopack.md)
+ - [Package deployments](/docs/deployment-examples/package-deployments/index.md)
