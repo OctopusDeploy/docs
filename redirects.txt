@@ -290,7 +290,7 @@ docs/how-to/capture-a-crash-dump.md -> docs/support/capture-a-crash-dump.md
 docs/deployment-process/deploying-virtual-hard-drives.md -> docs/deployment-examples/virtual-hard-drive-deployments.md
 docs/api-and-integration/octopus-rest-api.md -> docs/api-and-integration/api/index.md
 docs/how-to/how-to-create-an-api-key.md -> docs/api-and-integration/api/how-to-create-an-api-key.md
-docs/how-to/push-a-nuget-package-that-already-exists.md -> docs/packaging-applications/octopack/push-a-nuget-package-that-already-exists.md
+docs/how-to/push-a-nuget-package-that-already-exists.md -> docs/packaging-applications/octopack/index.md
 docs/how-to/manually-fail-a-running-or-cancelling-task.md -> docs/deployment-process/releases/manually-fail-a-running-or-cancelling-task.md
 docs/how-to/record-a-performance-trace.md -> docs/support/record-a-performance-trace.md
 docs/how-to/troubleshoot-polling-tentacles.md -> docs/infrastructure/deployment-targets/windows-targets/troubleshooting-tentacles.md
@@ -766,7 +766,7 @@ docs/packaging-applications/package-id -> docs/packaging-applications/index.md
 docs/packaging-applications/supported-packages -> docs/packaging-applications/index.md
 docs/packaging-applications/creating-packages/creating-zip-packages.md -> docs/packaging-applications/octo.exe.md
 docs/packaging-applications/creating-packages/nuget-packages/using-octo.exe.md -> docs/packaging-applications/octo.exe.md
-docs/packaging-applications/creating-packages/nuget-packages/push-a-nuget-package-that-already-exists.md -> docs/packaging-applications/octopack/push-a-nuget-package-that-already-exists.md
+docs/packaging-applications/creating-packages/nuget-packages/push-a-nuget-package-that-already-exists.md -> docs/packaging-applications/octopack/index.md
 docs/packaging-applications/creating-packages/nuget-packages/using-octopack/octopack-to-include-buildevent-files.md -> docs/packaging-applications/octopack/octopack-to-include-buildevent-files.md
 docs/packaging-applications/creating-packages -> docs/packaging-applications/index.md
 docs/packaging-applications/creating-packages/nuget-packages/manually.md -> docs/packaging-applications/nuget-packages.md
@@ -774,3 +774,4 @@ docs/packaging-applications/creating-packages/nuget-packages/index.md -> docs/pa
 docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md -> docs/packaging-applications/octopack/index.md
 docs/packaging-applications/creating-packages/known-issues-with-other-compression-libraries.md -> docs/packaging-applications/octo.exe.md
 docs/packaging-applications/known-issues-with-other-compression-libraries.md -> docs/packaging-applications/octo.exe.md
+docs/packaging-applications/octopack/push-a-nuget-package-that-already-exists.md -> docs/packaging-applications/octopack/index.md

@@ -14,11 +14,11 @@ I created a Post-Build Event using the Visual Studio Build Events feature. It us
 
 ![](/docs/images/3048096/3277796.png)
 
-However when I use OctoPack to Package my solution on build my moved files are not included in the build.
+However when I use OctoPack to package my solution on build my moved files are not included in the build.
 
 ![](/docs/images/3048096/3277795.png "width=300")
 
-This is resolved by creating a NuSpec file, and creating a files tag to tell OctoPack to take my moved files, and put them inside a folder called bin\test in the package.
+This is resolved by creating a NuSpec file, and creating a files tag to tell OctoPack to take my moved files, and put them inside a folder called `bin\test` in the package.
 
 ![](/docs/images/3048096/3277794.png)
 
@@ -26,17 +26,17 @@ It is important to note here that for OctoPack to find and use a NuSpec file, it
 
 ![](/docs/images/3048096/3277792.png)
 
-However now when I run my OctoPack command, all I get are the files defined within the NuSpec file.
+However, now when I run my OctoPack command, all I get are the files defined within the NuSpec file.
 
 ![](/docs/images/3048096/3277793.png "width=300")
 
-This is resolved by adding **/p:OctoPackEnforceAddingFiles=true**, this tells OctoPack to also add the files it would while building as well as those targeted by my files tag in the NuSpec file.
+This is resolved by adding **/p:OctoPackEnforceAddingFiles=true**, this tells OctoPack to also add the files it would normally add while building as well as those targeted by my files tag in the NuSpec file.
 
 ```powershell
 F:\Workspace\OctoFX\source>msbuild OctoFX.sln /t:Build /p:RunOctoPack=true /p:OctoPackPackageVersion=1.0.0.7 /p:OctoPackEnforceAddingFiles=true
 ```
 
-Now my test folder and files, as well as my build files are included in the package.
+Now my test folder and files, as well as my build files, are included in the package.
 
 ![](/docs/images/3048096/3277790.png "width=300")
 
@@ -45,6 +45,5 @@ Now my test folder and files, as well as my build files are included in the pack
  - [Packaging Applications](/docs/packaging-applications/index.md)
  - [Use Octo.exe to create packages](/docs/packaging-applications/octo.exe.md)
  - Use [OctoPack to Include BuildEvent Files](/docs/packaging-applications/octopack/octopact-to-include-buildevent-files.md)
- - [Push a NuGet package that already exists](/docs/packaging-applications/octopack/push-a-nuget-package-that-already-exists.md)
  - [Troubleshooting OctoPack](/docs/packaging-applications/octopack/troubleshooting-octopack.md)
  - [Package deployments](/docs/deployment-examples/package-deployments/index.md)
