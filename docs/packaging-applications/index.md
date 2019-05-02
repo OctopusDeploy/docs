@@ -83,6 +83,7 @@ In addition to these tools, you can use other tools to create your packages, for
 
  - The built-in tools for [TeamCity](https://blog.jetbrains.com/teamcity/2010/02/artifact-packaging-with-teamcity/).
  - [NuGet.exe](https://docs.microsoft.com/en-us/nuget/tools/nuget-exe-cli-reference) to create NuGet packages.
+ - Using the [NuGet Package Explorer](/docs/packaging-applications/nuget-packages.md).
  - [Grunt, gulp, or octojs](/docs/deployment-examples/node-on-linux-deployments/create-and-push-node.js-project.md) for JavaScript apps.
 
 There are many more tools you might choose to use, but as long as you can create one of our [supported packages](/docs/packaging-applications/index.md#supported-formats) you can deploy your applications with Octopus Deploy.
