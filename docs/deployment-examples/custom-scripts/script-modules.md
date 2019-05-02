@@ -4,7 +4,7 @@ description: Script modules allow users to create collections of functions that 
 position: 120
 ---
 
-Script modules allow users to create collections of langauge specific functions that can on be used in deployment processes across multiple projects.
+Script modules allow users to create collections of langauge specific functions that can be used in deployment processes across multiple projects.
 
 ## Creating a Script Module {#ScriptModules-CreatingaScriptmodule}
 
@@ -16,7 +16,7 @@ Script modules allow users to create collections of langauge specific functions 
 
 ![](script-modules-new.png)
 
-3.  Your new script module will default to PowerShell and come with a function called *Say-Hello.* Each supported script language has a similar function. In this walkthrough, we will work with PowerShell, and modify the provided sample function a bit with the following code for the sake of showing a better example.
+3.  Your new script module will default to PowerShell and come with a function called *Say-Hello.* Each supported script language has a similar function. In this walkthrough we will work with PowerShell and modify the provided sample function a bit with the following code for the sake of showing a better example:
 
 ```powershell
 function Say-Hello($name)
@@ -33,7 +33,7 @@ Once this is done, click on **Save**.
 
 ## Using a Script Module on a Deployment {#ScriptModules-UsingaScriptModuleonaDeployment}
 
-Once you have created a Script Module, you can start using the functions contained on it in Script Steps in your deployment processes. These steps must use the same language as the Script Module.
+Once you have created a Script Module, you can start using the functions it contains in Script Steps in your deployment processes. These steps must use the same language as the Script Module.
 
 1.  Go to your **[Deployment Process](/docs/deployment-examples/index.md)** and click **Include.**
 
@@ -70,7 +70,7 @@ Make sure to select a **Role**, an **Environment** and to put a **Step Name**
 
 ## PowerShell Script Modules{#ScriptModules-PowerShell}
 
-PowerShell script modules get automatically loaded once for every PowerShell script step on your deployment process - the functions and cmdlets will automatically be
+PowerShell script modules get automatically loaded once for every PowerShell script step in your deployment process - the functions and cmdlets will automatically be
 in scope for your script.
 
 Script Module:
