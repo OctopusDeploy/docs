@@ -1,15 +1,17 @@
 ## Download the Tentacle Installer
 
-### Tentacle 3.24.0
+### Long-term Support Octopus Server (Slow lane)
 
-If you're using the **Octopus 2018.10-LTS** or prior versions you need **Tentacle 3.24.0**:
+The version of Tentacle that works with the latest long-term support version of Octopus Deploy:
 
 - [Octopus Tentacle x64](https://octopus.com/downloads/slowlane/WindowsX64/OctopusTentacle)
 - [Octopus Tentacle 32-bit/x86](https://octopus.com/downloads/slowlane/Windows/X86WindowsX86/OctopusTentacle)
 
-### Tentacle 4.0.0
+If you need an older version of Tentacle that works with a previous long-term support release, visit the [previous downloads page](https://octopus.com/downloads/previous), locate the specific version of Octopus you're working with, and click your version to visit the downloads page for that version.
 
-If you're using Spaces or **Octopus 2019.1** or above you need **Tentacle 4.0.0**:
+### Fast lane Tentacle
+
+The version of Tentacle that works with the latest fast lane version of Octopus Deploy:
 
  - [Octopus Tentacle x64](https://octopus.com/downloads/fastlane/WindowsX64/OctopusTentacle)
  - [Octopus Tentacle 32-bit/x86](https://octopus.com/downloads/fastlane/WindowsX86/OctopusTentacle)
