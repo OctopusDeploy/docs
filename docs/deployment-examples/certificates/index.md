@@ -57,3 +57,5 @@ When configuring HTTPS bindings for [IIS Websites](/docs/deployment-examples/iis
 Certificates managed by Octopus can be configured as the [value of variables](/docs/deployment-process/variables/certificate-variables.md), and used from custom deployment scripts.
 
 ![](/docs/images/certificates/certificate-variables-scoped.png)
+
+Note that certificates can not be selected directly when configuring a deployment step. Selecting a certificate in deployment steps presents a drop-down list of the certificate variables that have been defined in the project.
