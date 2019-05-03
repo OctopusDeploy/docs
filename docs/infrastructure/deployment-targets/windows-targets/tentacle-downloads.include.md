@@ -9,7 +9,7 @@ The version of Tentacle that works with the latest long-term support version of 
 
 If you need an older version of Tentacle that works with a previous long-term support release, visit the [previous downloads page](https://octopus.com/downloads/previous), locate the specific version of Octopus you're working with, and click your version to visit the downloads page for that version.
 
-### Fast lane Tentacle
+### Fast Lane Tentacle
 
 The version of Tentacle that works with the latest fast lane version of Octopus Deploy:
 
