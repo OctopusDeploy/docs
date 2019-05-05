@@ -153,6 +153,7 @@ F# script modules need to declare a module name at the top of the Script Module 
 Once the Script Module file is loaded, you can either use the functions from the Script Module by prefixing the functions with the module name, or by "opening" the Script Module with `open MyModule`:
 
 ```fsharp
+#load "MyScriptModule.fsx"
 // call the function in the module directly
 let result = MyModule.add 1 3
 // Or, open the module, and import the functions into scope
