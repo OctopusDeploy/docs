@@ -74,87 +74,13 @@ When creating the releases in the "parent project" Octopus accumulates the relea
 
 To help take advantage of all of this metadata knowledge in the packages, Octopus supports using release notes with variables substitution. A release notes template can also be specified in the project settings, to make consistency across releases easy.
 
-During release creation the template will be evaluated and you will see the resulting markdown displayed in the portal. The template has access to all unscoped project variables and the variables relating to the release:
+Learn more about [Release Notes Templates](release-notes-templates.md).
 
-``` csharp
-public class Packages
-{
-  public string PackageId { get; set; }
-  public string Version { get; set; }
-  public WorkItemLink[] WorkItems { get; set; }
-}
+## Release Notes from the issue tracker
 
-public class WorkItemLink
-{
-    public string Id { get; set; }
-    public string LinkUrl { get; set; }
-    public string LinkText { get; set; }
-}
-```
+The Octopus extensions support a default format for the work item details for each issue tracker. They can also be configured to retrieve release note information from the work items in the issue tracker itself.
 
-The variables are setup so you can iterate over the list or you can directly index via the PackageID. E.g.
-
-```
-#{each package in Octopus.Release.Package}
-## #{package.PackageId} #{package.Version}
-#{/each}
-```
-
-or
-
-```
-#{Octopus.Release.Package[MyAwesomePackageId].Version}
-```
-
-The following example illustrates some sample text followed by the packages, with the packages rendered as a bullet point list.
-
-```Here are the notes for the packages
-Here are the notes for the packages
-#{each package in Octopus.Release.Package}
-- #{package.PackageId} #{package.Version}
-#{each workItem in package.WorkItems}
-    - [#{workItem.Description}](#{workItem.LinkUrl})
-#{/each}
-#{/each}
-```
-
-If you don't include the work item details yourself, Octopus will automatically add them as a simple list of external links in the UI for the release, deployment preview, and deployment task. Providing them, like in this example, gives you exact control over the rendering in the portal and in the email step, as you'll see in the next section.
-
-## Deployment Variables and the Email Step {#Deployment-Variables}
-
-During a deployment there are variables available for both the release notes values and the work items.
-
-The release changes variable is `Octopus.Deployment.Changes` and contains the release notes and work items in JSON format. The structure is a JSON array of `ReleaseChange` objects matching the following C# class:
-
-```csharp
-public class ReleaseChanges
-{
-  public string Version { get; set; }
-  public string ReleaseNotes { get; set; }
-  public WorkItemLink[] WorkItems { get; set; }
-}
-
-public class WorkItemLink
-{
-    public string Id { get; set; }
-    public string LinkUrl { get; set; }
-    public string LinkText { get; set; }
-}
-```
-
-There is an entry per release and it includes the release notes (**in markdown format**) and the metadata for each of the packages in that release.
-
-The following example uses these variables to generate the HTML body for the Octopus email step:
-
-```html
-<p>Here are the notes customized for email</p>
-#{each change in Octopus.Deployment.Changes}
-<strong><a href="(#{Octopus.Web.ServerUri}#{Octopus.Web.ReleaseLink}">#{change.Version}</a></strong></br>
-#{change.ReleaseNotes | MarkdownToHtml}</br>
-#{/each}
-```
-
-Also note, in this example we are providing a link back to the release in Octopus as part of the email.
+This allows for more specific control over the release notes content. For more details on how each issue tracker can be configured see the issue tracker specific pages listed in the section below.
 
 ## Issue Trackers
 
