@@ -73,7 +73,7 @@ You can pass parameters to C# scripts [as described here for the ScriptCS engin
 
 **Usage in C# script**
 
-```c#
+```cs
 var environment = Env.ScriptArgs[0]
 var storagePath = Env.ScriptArgs[1]
 Console.WriteLine("{0} storage path: {1}", environment, storagePath);

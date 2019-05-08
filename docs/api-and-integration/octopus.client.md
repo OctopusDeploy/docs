@@ -26,7 +26,7 @@ Install-Package Octopus.Client
 
 The easiest way to use the client is via the `OctopusRepository` helper:
 
-```c#
+```cs
 var server = "http://myoctopusserver/";
 var apiKey = "API-XXXXXXXX";             // Get this from your 'profile' page in the Octopus web portal
 var endpoint = new OctopusServerEndpoint(server, apiKey);
@@ -35,7 +35,7 @@ var repository = new OctopusRepository(endpoint);
 
 If you don't want to provide an API key for authentication, you can leave it out and authenticate with the `SignIn()` method instead:
 
-```c#
+```cs
 repository.Users.SignIn(new LoginCommand { Username = "me", Password = "secret" });
 ```
 
@@ -47,7 +47,7 @@ Octopus.Client relies on `HttpClient` to do all the network calls. So if you're 
 
 The easiest way to use the client is via the `OctopusAsyncClient`:
 
-```c#
+```cs
 var server = "http://myoctopusserver/";
 var apiKey = "API-XXXXXXXX";             // Get this from your 'profile' page in the Octopus web portal
 var endpoint = new OctopusServerEndpoint(server, apiKey);
@@ -58,7 +58,7 @@ using (var client = await OctopusAsyncClient.Create(endpoint))
 
 If you don't want to provide an API key for authentication, you can leave it out and authenticate with the `SignIn()` method instead:
 
-```c#
+```cs
 await client.Repository.Users.SignIn(new LoginCommand { Username = "me", Password = "secret" });
 ```
 
@@ -79,7 +79,7 @@ Also see the [OctoPosh ](https://github.com/Dalmirog/OctoPosh)project, which pro
 
 Resources can be loaded and saved with code like the following:
 
-```c#
+```cs
 // Sync
 var machine = repository.Machines.Get("machines-1");
 machine.Name = "Test Server 1";
@@ -97,7 +97,7 @@ The repository methods all make direct HTTP requests, there's no "session" abstr
 
 For some operations not available through repositories it will be necessary to use the `IOctopusClient` type:
 
-```c#
+```cs
 // Sync
 var connection = repository.Client.Get(machine.Links["Connection"]);
  
@@ -109,7 +109,7 @@ The entire API is accessible by traversing links - each resource carries a colle
 
 To start traversing links, `IOctopusClient.RootDocument` is provided:
 
-```c#
+```cs
 // Sync
 var me = repository.Client.Get<UserResource>(repository.Client.RootDocument.Links["CurrentUser"]);
  
@@ -131,7 +131,7 @@ Add-Type -Path 'C:\Program Files\Octopus Deploy\Octopus\Octopus.Client.dll'
 
 **C# Script**
 
-```c#
+```cs
 #r "C:\\Program Files\\Octopus Deploy\\Octopus\\Octopus.Client.dll"
 using Octopus.Client;
 using Octopus.Client.Model;

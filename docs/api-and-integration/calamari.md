@@ -45,7 +45,7 @@ Deployments now proceed as follows:
 
 Now that Calamari is open-source, it might help answer any questions you had around what happens during a deployment.  For example, did you ever wonder what order conventions run in when deploying a package?
 
-```c#
+```cs
 var conventions = new List<IConvention>
 {
    new ContributeEnvironmentVariablesConvention(),

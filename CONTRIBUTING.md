@@ -268,7 +268,7 @@ If your example uses multiple languages or files, you can combine them together 
     ​```powershell PowerShell
     Write-Host "Hello"
     ​```
-    ​```c# C#
+    ​```cs C#
     Console.WriteLine("Hello");
     ​```
 
@@ -368,7 +368,7 @@ i. Item 2
 
 Which is rendered as:
 
-i. Item 1  
+i. Item 1
 ii. Item 2
 
 #### Letters
@@ -380,7 +380,7 @@ a. Item 2
 
 Which is rendered as:
 
-a. Item 1  
+a. Item 1
 b. Item 2
 
 ### Working with Long-Term Support Releases and Fast Ring Releases

@@ -38,7 +38,7 @@ If your deployment produce a log file, configuration files, binaries, or test re
 New-OctopusArtifact -Path "C:\Windows\System32\drivers\etc\hosts" -Name "$([System.Environment]::MachineName)-hosts.txt"
 ```
 
-```c# C#
+```cs C#
 Octopus.CreateArtifact(@"C:\Windows\System32\drivers\etc\hosts", System.Environment.MachineName + "-hosts.txt");
 ```
 
