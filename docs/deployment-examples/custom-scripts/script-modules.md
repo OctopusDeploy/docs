@@ -71,7 +71,6 @@ Make sure to select a **Role**, an **Environment** and to put a **Step Name**
 ## PowerShell Script Modules{#ScriptModules-PowerShell}
 
 PowerShell script modules get automatically loaded once for every PowerShell script step in your deployment process - the functions and cmdlets will automatically be
-in scope for your script.
 
 Script Module:
 ```powershell
