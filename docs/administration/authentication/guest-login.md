@@ -47,3 +47,12 @@ Octopus Server can be configured to enable or disable guest access via the comma
 ```powershell
 Octopus.Server.exe configure --instance=[your_instance_name] --guestLoginEnabled=true
 ```
+
+## Automatic Guest Login {#Guestlogin-Automaticguestlogin}
+Sometimes, you need to demonstrate an Octopus Server to others, but don't want people to have a choice between the guest login and one of the other login providers. In these cases, by appending `autologin=guest` to the sign in URL, visitors will be automatically logged in as a guest. This requires that the [Guest User is enabled](#Guestlogin-Enableguestlogin).
+
+For e.g.
+```
+https://octopus.mydomain.com/app#/users/sign-in?autologin=guest
+```
+Will allow visitors to https://octopus.mydomain.com to be automatically logged in as the guest account.
