@@ -56,7 +56,7 @@ The Release Changes are also displayed on the task summary for the deployment.
 
 In some scenarios this one-to-one between releases and deployments will be the norm. Teams using continuous deployment may see a rapid progression of versions through their environments and on to production.
 
-Many teams don't operate like this though. It is common for a number of releases to be prepared and tested before being promoting to the next environment. For example, they may merge pull requests for several fixes/features and then deploy the final release to test. This can be repeated several times and eventually a final release progresses from test to production. In this situation the deployment to production isn't just the work items from that last release, it is _the accumulation of all of the work items in all of the releases since the last one that was deployed to production_.
+Many teams don't operate like this though. It is common for a number of releases to be prepared and tested before being promoted to the next environment. For example, they may merge pull requests for several fixes/features and then deploy the final release to test. This can be repeated several times and eventually a final release progresses from test to production. In this situation the deployment to production isn't just the work items from that last release, it is _the accumulation of all of the work items in all of the releases since the last one that was deployed to production_.
 
 Given that you can initiate deployments to multiple "scopes" at once in Octopus it is expected that you could see different work items lists for each scope.
 
