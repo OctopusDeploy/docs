@@ -8,7 +8,7 @@ Script modules allow users to create collections of langauge specific functions 
 
 ## Creating a Script Module {#ScriptModules-CreatingaScriptmodule}
 
-1.  Click on **{{Library,Script Modules,Add Script Module}}**:
+1.  Navigate to **{{Library,Script Modules,Add Script Module}}**.
 
 ![](script-modules-add.png)
 
