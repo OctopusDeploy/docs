@@ -15,6 +15,16 @@ The second level of integration is providing links to Jira for the work items th
 
 These first two levels of integration work whether your Jira instance is on-premises or SaaS. The third level of integration allows Octopus to update Jira when deployments occur, and **is only available with the SaaS version of Jira**. It becomes enabled once the Connect App is configured (see below) and the Octopus server's URI is set in {{Configuration,Nodes}}.
 
+### Username/Password
+
+If you specify a username and password/apikey then Octopus will retrieve work item descriptions when viewing package details and when creating releases. This works across all versions of Jira.
+
+The Jira Connect App password, which is used to push deployment data to Jira, is separate to this due to the nature of the way that specific Jira API works. It is only available in the cloud version of Jira and you must connect to it via a connect app.
+
+### Release Note Prefix
+
+Once you've specified a username/password, if you also specify a release note prefix the Octopus extension will look through the issue comments for one that starts with that prefix. If it finds one it will use the text following the prefix as the `WorkItemLink.Description`. If you leave this field blank, or a comment starting with the prefix isn't found, the issue's title will be used for the `WorkItemLink.Description`.
+
 ## Octopus Connect App and the Jira Extension
 
 The first step to configure the integration is adding the Octopus Connect App in the Jira marketplace.
