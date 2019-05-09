@@ -57,7 +57,7 @@ the `The remote script failed with exit code <code>` text in the deployment proc
 Fail-Step "A friendly message"
 ```
 
-```c# C#
+```cs C#
 Octopus.FailStep("A friendly message");
 ```
 

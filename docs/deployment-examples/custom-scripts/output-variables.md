@@ -17,7 +17,7 @@ Step 1 calculates a name by convention, which is used by subsequent steps.
 Set-OctopusVariable -name "AppInstanceName" -value "MyAppInstance"
 ```
 
-```c# C#
+```cs C#
 Octopus.SetVariable("AppInstanceName", "MyAppInstance");
 ```
 
@@ -39,7 +39,7 @@ set_octopusvariable("AppInstanceName", "MyAppInstance")
 $appInstanceName = $OctopusParameters["Octopus.Action[Determine App Instance Name].Output.AppInstanceName"]
 ```
 
-```c# C#
+```cs C#
 var appInstanceName = Octopus.Parameters["Octopus.Action[Determine App Instance Name].Output.AppInstanceName"]
 ```
 
