@@ -30,10 +30,10 @@ The Octopus Deploy plugin for Jira is only compatible with Jira Software Cloud a
 
     Set the 'Is Enabled' property as well.
 
-1. Configure the Release Notes options in Octopus Deploy (optional)
+1. Configure the Release Note Options in Octopus Deploy (optional)
 
     - Jira username/password - Octopus can retrieve Jira Issue descriptions if you specify your Atlassian Cloud username and an API token. You can create an API token from an Atlassian account in the 'Security' area.
-    - Release Note Prefix - Specifying a release note prefix tells Octopus to look through your Jira issue descriptions for one that  for one that starts with that prefix. If it finds one it will use the text following the prefix as the `WorkItemLink.Description`. If you leave this field blank, or a comment starting with the prefix isn't found, the issue's title will be used for the `WorkItemLink.Description`.
+    - Release Note Prefix - Specifying a 'release note prefix' tells Octopus to search through your Jira issue description for that value. If it finds a match, then it will use the issue description as the release note; otherwise, it will use the issue title. See [Release Notes](/docs/api-and-integration/metadata/release-notes-templates.md) for more information.
 
 1. Set the Octopus Server URL in Octopus Deploy
 
@@ -65,7 +65,7 @@ On success the blocks will appear with green text just like the other blocks in 
 
 ## Jira Server (on-prem) Support
 
-The `Octopus Deploy plugin for Jira` is only compatible with Jira Software Cloud however, there is some limited functionality available that works with Jira Server (on-prem). Octopus can display Jira issue names and descriptions in release and deployments if the following is configured. 
+The Octopus Deploy plugin for Jira is only compatible with Jira Software Cloud however, there is some limited functionality available that works with Jira Server (on-prem). Octopus can display Jira issue names and descriptions in release and deployments if the following is configured. 
 
 * Configure your build server to [push build and commit metadata](/docs/api-and-integration/metadata/index.md) to Octopus 
 * Configure the Jira extension in Octopus Deploy as per above with your on-prem server details including the username and password/API token. 
