@@ -1,6 +1,6 @@
 ---
 title: Jira Issue Tracking Integration
-description: Configure Jira Software issue tracking with Octopus.
+description: Configure Jira Cloud and Jira Server issue tracking with Octopus.
 ---
 
 **Octopus 2019.4** introduced support to integrate Octopus with Jira Cloud and Jira Server. The integration adds work items links, commit links, and release notes to Octopus from Jira, and if you're using Jira Cloud, you can view release and deployment details from Octopus directly in Jira issues, making it possible to see if the issue has been associated with any deployments. This builds upon the functionality to [track metadata and work item](/docs/api-and-integration/metadata/index.md) information through your CI/CD pipeline.
