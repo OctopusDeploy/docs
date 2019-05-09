@@ -15,7 +15,7 @@ This section describes how to connect and configure Octopus Deploy and Jira Serv
 
 ## Connecting Jira Cloud and Octopus Deploy
 
-This integration uses the [Octopus Deploy plugin for Jira](https://marketplace.atlassian.com/apps/1220376/octopus-deploy-for-jira) and the following section describes how to connect and configure Octopus Deploy and Jira Cloud. If you are using Jira Server, see [Connecting Jira Server and Octopus Deploy](#jira-server).
+This integration uses the Octopus Deploy plugin for Jira that's available from the [Atlassian Marketplace]](https://marketplace.atlassian.com/apps/1220376/octopus-deploy-for-jira) and the following section describes how to connect and configure Octopus Deploy and Jira Cloud. If you are using Jira Server, see [Connecting Jira Server and Octopus Deploy](#jira-server).
 
 ![Jira Deployments](jira-deployment.png "width=500")
 
