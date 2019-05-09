@@ -25,8 +25,6 @@ The Jira Connect App password, which is used to push deployment data to Jira, is
 
 Once you've specified a username/password, if you also specify a release note prefix the Octopus extension will look through the issue comments for one that starts with that prefix. If it finds one it will use the text following the prefix as the `WorkItemLink.Description`. If you leave this field blank, or a comment starting with the prefix isn't found, the issue's title will be used for the `WorkItemLink.Description`.
 
-## 
-
 ## Octopus Connect App and the Jira Extension
 
 The first step to configure the integration is adding the Octopus Connect App in the Jira marketplace.
