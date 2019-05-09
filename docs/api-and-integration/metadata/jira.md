@@ -3,17 +3,25 @@ title: Jira Issue Tracking Integration
 description: Configure Jira Software issue tracking with Octopus.
 ---
 
-**Octopus 2019.4** introduced support to integrate Octopus with Jira Software (Jira Cloud). The integration provides release and deployment details from Octopus directly in Jira issues, making it possible to see if the issue has been associated with any deployments. This builds upon the functionality to [track metadata and work item](/docs/api-and-integration/metadata/index.md) information through your CI/CD pipeline.
+**Octopus 2019.4** introduced support to integrate Octopus with Jira Cloud and Jira Server. The integration adds work items links, commit links, and release notes to Octopus from Jira, and if you're using Jira Cloud, you can view release and deployment details from Octopus directly in Jira issues, making it possible to see if the issue has been associated with any deployments. This builds upon the functionality to [track metadata and work item](/docs/api-and-integration/metadata/index.md) information through your CI/CD pipeline.
 
-This integration uses the [Octopus Deploy plugin for Jira](https://marketplace.atlassian.com/apps/1220376/octopus-deploy-for-jira) and this page describes how to connect and configure the two applications.
+## Connecting Jira Server and Octopus Deploy
+
+This section describes how to connect and configure Octopus Deploy and Jira Server. If you are using Jira Cloud, see [Connecting Jira Cloud and Octopus Deploy](#jira-cloud).
+
+<!-- steps go here -->
+
+
+
+## Connecting Jira Cloud and Octopus Deploy
+
+This integration uses the [Octopus Deploy plugin for Jira](https://marketplace.atlassian.com/apps/1220376/octopus-deploy-for-jira) and the following section describes how to connect and configure Octopus Deploy and Jira Cloud. If you are using Jira Server, see [Connecting Jira Server and Octopus Deploy](#jira-server).
 
 ![Jira Deployments](jira-deployment.png "width=500")
 
 :::hint
 The Octopus Deploy plugin for Jira is only compatible with Jira Software Cloud as Jira Server (on-premises) does not support the APIs required to enable this functionality. There is limited support available as noted in our [Jira Server section](#jira-server-on-prem-support).
 :::
-
-## Connecting Jira and Octopus Deploy
 
 1. Install the Octopus Deploy plugin in Jira.
 
