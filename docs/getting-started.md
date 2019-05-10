@@ -18,7 +18,9 @@ or
 
 As an Octopus user, you define the process for deploying your software. You specify the environments the applications are deployed to and who on your team can deploy to which environments. For instance, you might want QA to deploy to test environments, but not to production. Taking this approach means that even if different members of the team trigger deployments, the deployment process remains consistent. Once releases have been created, they can be deployed as many times as you need.
 
-#### Hosting Octopus
+#### Hosting the Octopus Deploy Server
+
+You can install your own [self-hosted](/docs/getting-started.md#self-hosted-octopus) instance of the Octopus Deploy Server or use [Octopus Cloud](/docs/getting-started.md#octopus-cloud).
 
 ##### Self-Hosted Octopus
 
@@ -31,10 +33,6 @@ The [installation documentation](/docs/installation/index.md) provides instructi
 **Octopus Cloud** is the hosted version of Octopus Deploy. We designed Octopus Cloud and self-hosted Octopus to provide the same functionality; however, there are some minor differences, for instance, with Octopus Cloud, we're [responsible](/docs/administration/security/index.md#responsibility) for taking backups, upgrading the service, and maintaining and monitoring the underlying systems.
 
 Learn more about [Octopus Cloud](/docs/octopus-cloud/index.md).
-
-##### Octopus Deploy Server
-
-You can install your own [self-hosted](/docs/getting-started.md#self-hosted-octopus) instance of the Octopus Deploy Server or use [Octopus Cloud](/docs/getting-started.md#octopus-cloud).
 
 ##### The Octopus Web Portal
 
