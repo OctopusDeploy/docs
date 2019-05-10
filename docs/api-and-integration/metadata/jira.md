@@ -64,7 +64,7 @@ If you are using Jira Server, see [Connecting Jira Server and Octopus Deploy](#c
 
     The password should be an API Token, rather than an actual password. You can create an API token from an Atlassian account in the 'Security' area.
     
-    - Release Note Prefix: Set this if you would like Octopus to scan the Jira issue's comments for release notes. This allows you to set a specific release note for a work item that is different to its title.
+    - **Release Note Prefix**: Set this if you would like Octopus to scan the Jira issue's comments for release notes. This allows you to set a specific release note for a work item that is different to its title.
 
     This is an optional setting and depends on the Jira Username and Jira Password being set. If specified, Octopus will look for a comment that starts with the given prefix text and use whatever text appears after the prefix as the release note, which will come through to the release notes templates etc as the work item link's description. If not comment is found with the prefix then Octopus will default back to using the title for that work item.
 
