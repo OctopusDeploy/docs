@@ -45,7 +45,7 @@ Further, there is additional functionality available for Jira Cloud customers vi
 
 2. Configure the Jira extension in Octopus Deploy.
 
-    Navigate to the **{{Configuration,Settings,Jira Issue Tracker}}** page in Octopus and copy the following values from the Jira App configuration page:
+    In the Octopus web portal, navigate to **{{Configuration,Settings,Jira Issue Tracker}}** and copy the following values from the Jira App configuration page:
 
     - Jira Base URL. Set this so Octopus knows where your Jira instance can be found and enables Octopus to render the links back to Jira issues. i.e., https://your-jira-instance.atlassian.net.
     - Jira Connect App Password.
