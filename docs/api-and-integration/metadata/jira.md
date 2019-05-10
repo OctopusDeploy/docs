@@ -98,3 +98,7 @@ Note: **This does not impact the Octopus deployment itself, it will still be con
 ![Deployment task log](deploy-task-log.png)
 
 When Octopus successfully sends state changes to Jira, the blocks will appear with green text just like the other blocks in the log.
+
+## Next
+
+ - Learn about other [Metadata and Work Items](/docs/api-and-integration/metadata/index.md).
