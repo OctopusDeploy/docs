@@ -43,7 +43,7 @@ Further, there is additional functionality available for Jira Cloud customers vi
 
     Note: Keep this configuration page open while you complete the next steps as you need to copy values between Octopus and Jira.
 
-1. Configure the Jira extension in Octopus Deploy.
+2. Configure the Jira extension in Octopus Deploy.
 
     Navigate to the **{{Configuration,Settings,Jira Issue Tracker}}** page in Octopus and copy the following values from the Jira App configuration page:
 
