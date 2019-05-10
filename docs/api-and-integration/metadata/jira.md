@@ -54,7 +54,7 @@ If you are using Jira Server, see [Connecting Jira Server and Octopus Deploy](#c
 
     Ensure the **Is Enabled** property is set as well.
 
-3. In Octopus Deploy Configure the Release Note Options.
+3. In Octopus Deploy Configure the Release Note Options (optional).
 
     - **Jira username/password**: Set these values to allow Octopus to connect to Jira and retrieve Jira issue (work item) details when viewing packages or creating releases.
 
