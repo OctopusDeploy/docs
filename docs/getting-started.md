@@ -39,8 +39,6 @@ You can install your own [self-hosted](/docs/getting-started.md#self-hosted-octo
 
 Whether you're self-hosting the Octopus server, or using Octopus Cloud, the Octopus Web Portal is where you'll manage your infrastructure, projects, access the built-in repository, grant your team access to projects, and create your automated deployments.
 
-![Octopus Dashboard](octopus-dashboard.png)
-
 #### Setting up the infrastructure, the locations you will be deploying to
 
 With Octopus Deploy, you can deploy software to Windows servers, Linux servers, Microsoft Azure, an Offline Package Drop, Cloud Regions, or Kubernetes. These are known as your deployment targets, and they are organized into environments so you can promote your software through your deployment pipeline, for instance, from Development to Testing and finally into Production.
@@ -59,9 +57,9 @@ Target roles allow you to “tag” deployment targets with a specific keyword w
 
 ##### Lifecycles
 
+A Lifecycle defines which environments that you can deploy a release to and in what order. Environments are automatically added to the default lifecycle in the order they appear on the Environments page.
 
-
-Learn more about <a href="#">Infrastructure</a>
+Learn more about managing your [Infrastructure](/docs/infrastructure)
 
 #### Packaging your software application to deploy
 
@@ -81,10 +79,10 @@ There are many more tools you might choose to use to create your package, but as
 
 We've created the following tools to help package your applications for deployment with Octopus:
 
-• Octo.exe to create Zip Archives and NuGet packages for .NET Core apps and full .NET framework applications. 
-• Octopack to create NuGet packages for ASP.NET apps (.NET Framework) and Windows Services (.NET Framework). 
-• A TeamCity plugin. 
-• An Azure DevOps plugin.
+ - [Octo.exe](/docs/packaging-applications/octo.exe.md) to create Zip Archives and NuGet packages for **.NET Core** apps and full **.NET framework** applications.
+ - [Octopack](/docs/packaging-applications/octopack/index.md) to create NuGet packages for **ASP.NET** apps (.NET Framework) and **Windows Services** (.NET Framework).
+ - A [TeamCity plugin](/docs/api-and-integration/teamcity.md).
+ - An [Azure DevOps plugin](/docs/api-and-integration/tfs-azure-devops/using-octopus-extension/index.md).
 
 ##### Getting your package into Octopus
 
@@ -94,7 +92,7 @@ Learn more about [packaging your applications](/docs/packaging-applications/inde
 
 #### Setting up a Project and Deployment Process
 
-Need intro...
+Octopus Deploy is designed to work with teams following agile software development methodologies, that is, continuously deploying software, iterating, making changes, and redeploying. Most of what happens at deployment time is configured within a project.
 
 ##### Projects
 
@@ -125,7 +123,7 @@ When you Deploy a release, you are executing the deployment process with all the
 
 Learn more about how you can [deploy releases](/docs/deployment-process/releases/index.md), or see some [deployment examples](/docs/deployment-examples/index.md).
 
-## Spaces
+#### Spaces
 
 If you're a large organization with lots of teams working in Octopus, from **2019.1** you can use the [Spaces](/docs/administration/spaces/index.md) feature to provide each of your teams with a space for the projects, environments, and infrastructure they work with, while keeping other team's assets separate in their own spaces.
 
