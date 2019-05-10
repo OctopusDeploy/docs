@@ -108,7 +108,6 @@ Octopus lets you define variables with values that change based on the scope you
 
 Learn more about the [deployment process](/docs/deployment-process/index.md), how you can set up [projects](/docs/deployment-process/projects/index.md), use [variables](/docs/deployment-process/variables/index.md) and [lifecycles](/docs/deployment-process/lifecycles/index.md) in your deployments, .
 
-
 #### Creating and deploying a release
 
 Once you have access to an Octopus Server, your infrastructure is configured, your applications packaged, and the deployment process defined, you're ready to start deploying your software.
@@ -123,8 +122,10 @@ When you Deploy a release, you are executing the deployment process with all the
 
 Learn more about how you can [deploy releases](/docs/deployment-process/releases/index.md), or see some [deployment examples](/docs/deployment-examples/index.md).
 
-#### Spaces
+#### Need to create separate areas for your teams?
 
-If you're a large organization with lots of teams working in Octopus, from **2019.1** you can use the [Spaces](/docs/administration/spaces/index.md) feature to provide each of your teams with a space for the projects, environments, and infrastructure they work with, while keeping other team's assets separate in their own spaces.
+With Spaces you can partition your Octopus Deploy server so that each of your teams can only access the projects, environments, and infrastructure they work with from the spaces they are members of.
+Users can be members of multiple teams and have access to multiple spaces, but the entities and infrastructure they work with will only be available in the space it is assigned to.
+If you're a large organization with lots of teams working in Octopus, from **2019.1** you can use the [Spaces](/docs/administration/spaces/index.md) feature.
 
 Learn more about [Spaces](/docs/administration/spaces/index.md).
