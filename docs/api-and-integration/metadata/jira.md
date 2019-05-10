@@ -58,7 +58,9 @@ If you are using Jira Server, see [Connecting Jira Server and Octopus Deploy](#c
 
     - **Jira username/password**: Set these values to allow Octopus to connect to Jira and retrieve Jira issue (work item) details when viewing packages or creating releases. If these are not provided, just the raw work item references will be used as the work item link descriptions. If they are provided the work item's title will be used as the work item link's description.
 
-    <!-- Lee: I noted work item in brackets above to make the connection between the two terms. Is that sufficent? I've used Jira issue primarily on this page as it's what the audience understands but work item is our term. Need advice on this. -->
+    <!-- Lee: I noted work item in brackets above to make the connection between the two terms. Is that sufficent? I've used Jira issue primarily on this page as it's what the audience understands but work item is our term. Need advice on this. 
+    From Lee: I think adding the term in brackets works. IIUC it is an octopus term they're unlikely to need for Jira, but if they are using other integrations they will see it and the connection might help them grok the overall concept. 
+    -->
 
 
     The password should be an API Token, rather than an actual password. You can create an API token from an Atlassian account in the 'Security' area.
