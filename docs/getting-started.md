@@ -16,7 +16,7 @@ Octopus works by creating a Release and deploying it following the steps defined
 
 or
 
-As an Octopus user, you define the process for deploying your software. You specify the environments the applications are deployed to and who on your team can deploy to which environments. For instance, you might want QA to deploy to test environments, but not to production. Taking this approach means that even if different members of the team trigger deployments, the deployment process remains consistent. Once releases have been created, they can be deployed as many times as you need.
+As an Octopus user, you define the process for deploying your software. You specify the environments the applications are deployed to and who on your team can deploy to which environments. For instance, you might want QA to deploy to test environments, but not to production. Taking this approach means that even if different members of the team trigger deployments, the deployment process remains consistent. Once releases have been created, they can be deployed as many times as you need. Below outlines the main steps for doing your first deployment and some of the terms you will need to know.
 
 #### Hosting the Octopus Deploy Server
 
@@ -24,13 +24,11 @@ You can install your own [self-hosted](/docs/getting-started.md#self-hosted-octo
 
 ##### Self-Hosted Octopus
 
-Installing the self-hosted [Octopus Deploy server](/docs/installation/index.md) sets up the [Octopus Web Portal](/docs/getting-started.md#the-octopus-web-portal) and the [Octopus REST API](/docs/api-and-integration/api/index.md).
-
-The [installation documentation](/docs/installation/index.md) provides instructions for downloading, installing, and configuring your Octopus Deploy server.
+Installing the self-hosted [Octopus Deploy server](/docs/installation/index.md) sets up the [Octopus Web Portal](/docs/getting-started.md#the-octopus-web-portal) and the [Octopus REST API](/docs/api-and-integration/api/index.md). The [installation documentation](/docs/installation/index.md) provides instructions for downloading, installing, and configuring your Octopus Deploy server.
 
 ##### Octopus Cloud
 
-**Octopus Cloud** is the hosted version of Octopus Deploy. We designed Octopus Cloud and self-hosted Octopus to provide the same functionality; however, there are some minor differences, for instance, with Octopus Cloud, we're [responsible](/docs/administration/security/index.md#responsibility) for taking backups, upgrading the service, and maintaining and monitoring the underlying systems.
+Octopus Cloud is the hosted version of Octopus Deploy. We designed Octopus Cloud and self-hosted Octopus to provide the same functionality; however, there are some minor differences, for instance, with Octopus Cloud, we're [responsible](/docs/administration/security/index.md#responsibility) for taking backups, upgrading the service, and maintaining and monitoring the underlying systems.
 
 Learn more about [Octopus Cloud](/docs/octopus-cloud/index.md).
 
@@ -38,7 +36,7 @@ Learn more about [Octopus Cloud](/docs/octopus-cloud/index.md).
 
 Whether you're self-hosting the Octopus server, or using Octopus Cloud, the Octopus Web Portal is where you'll manage your infrastructure, projects, access the built-in repository, grant your team access to projects, and create your automated deployments.
 
-#### Setting up the infrastructure, the locations you will be deploying to
+#### Setting up the locations to deploy to
 
 With Octopus Deploy, you can deploy software to Windows servers, Linux servers, Microsoft Azure, an Offline Package Drop, Cloud Regions, or Kubernetes. These are known as your deployment targets, and they are organized into environments so you can promote your software through your deployment pipeline, for instance, from Development to Testing and finally into Production.
 
@@ -60,7 +58,7 @@ A Lifecycle defines which environments that you can deploy a release to and in w
 
 Learn more about managing your [Infrastructure](/docs/infrastructure)
 
-#### Packaging your software application to deploy
+#### Package and upload your software
 
 Before you can deploy software with Octopus Deploy, you need to bundle all the files required for the software to run into a supported package. The package must be versioned and stored in a repository. Octopus Deploy includes a built-in repository. We recommend configuring your existing tool chain to push packages automatically to the built-in repository; however, you can push packages manually to the repository if you choose to.
 
@@ -89,7 +87,7 @@ Most Octopus users push their package from their build server to Octopus. But yo
 
 Learn more about [packaging your applications](/docs/packaging-applications/index.md) or how to automate your existing tool chain to push packages to your Octopus Deploy server with our [API and Integrations](/docs/api-and-integration/index.md).
 
-#### Setting up a Project and Deployment Process
+#### Define your deployment process
 
 Octopus Deploy is designed to work with teams following agile software development methodologies, that is, continuously deploying software, iterating, making changes, and redeploying. Most of what happens at deployment time is configured within a project.
 
@@ -107,7 +105,7 @@ Octopus lets you define variables with values that change based on the scope you
 
 Learn more about the [deployment process](/docs/deployment-process/index.md), how you can set up [projects](/docs/deployment-process/projects/index.md), use [variables](/docs/deployment-process/variables/index.md) and [lifecycles](/docs/deployment-process/lifecycles/index.md) in your deployments, .
 
-#### Creating and deploying a release
+#### Deploy your release
 
 Once you have access to an Octopus Server, your infrastructure is configured, your applications packaged, and the deployment process defined, you're ready to start deploying your software.
 
