@@ -9,7 +9,7 @@ description: Configure Jira Cloud and Jira Server issue tracking with Octopus.
 
 ![Octopus deployment with generated release notes](octopus-release-notes.png "width=500")
 
-This page described how to configure Octopus and Jira to unlock these scenarios.
+This page described how to configure Octopus and Jira.
 
 * Learn about [Connecting Jira Server and Octopus Deploy](#connecting-jira-server-and-octopus-deploy)
 * Learn about [Connecting Jira Cloud and Octopus Deploy](#connecting-jira-cloud-and-octopus-deploy)
