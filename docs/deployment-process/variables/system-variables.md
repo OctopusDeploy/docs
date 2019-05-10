@@ -46,7 +46,7 @@ Deployment-level variables are drawn from the project and release being deployed
 |**`Octopus.Deployment.Changes`** <br/>The release changes included in the deployment | See [here](/docs/api-and-integration/metadata/index.md#Deployment-Variables)|
 |**`Octopus.Endpoint.\_type\_.\_property\_`** <br/>Properties describing the endpoint being deployed | *ftp.example.com*|
 |**`Octopus.Environment.Id`** <br/>The ID of the environment | *environments-123*|
-|**`Octopus.Environment.MachinesInRole[\_role\_]`** <br/>Lists the machines in a specified role | *machines-123,machines-124*|
+|**`Octopus.Environment.MachinesInRole[\_role\_]`** <br/>Lists the machines in a specified role being deployed to | *machines-123,machines-124*|
 |**`Octopus.Environment.Name`** <br/>The name of the environment | *Production*|
 |**`Octopus.Environment.SortOrder`** <br/>The ordering applied to the environment when it is displayed on the dashboard and elsewhere | *3*|
 |**`Octopus.Machine.Id`** <br/>The ID of the machine | *machines-123*|
