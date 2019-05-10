@@ -60,7 +60,7 @@ Further, there is additional functionality available for Jira Cloud customers vi
 
     These are optional and depend on the Jira Base URL. If they are not provided then just the raw work item references will be used as the work item link descriptions. If they are provided the work item's title will be used as the work item link's description.
 
-    The password should actually be an API Token, rather than an actual password. You can create an API token from an Atlassian account in the 'Security' area.
+    The password should be an API Token, rather than an actual password. You can create an API token from an Atlassian account in the 'Security' area.
     
     - Release Note Prefix: Set this if you would like Octopus to scan the Jira issue's comments for release notes. This allows you to set a specific release note for a work item that is different to its title.
 
