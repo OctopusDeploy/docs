@@ -77,7 +77,7 @@ If you are using Jira Server, see [Connecting Jira Server and Octopus Deploy](#c
 
     Navigate to the **{{Configuration,Settings,Jira Issue Tracker}}** page in Octopus, copy the **Octopus InstallationID**, and add it to Jira App configuration.
 
-6. Update your environment settings in Octopus Deploy.
+6. In Octopus Deploy update your environment settings.
 
     Navigate to **{{Infrastructure,Environments}}** to map your Octopus environments to Jira environment types. This is required so Jira can understand Octopus environments and track issue progress.
 
