@@ -39,13 +39,13 @@ Further, there is additional functionality available for Jira Cloud customers vi
 
 1. Install the Octopus Deploy plugin in your Jira Cloud instance.
 
-    Add the `Octopus Deploy for Jira` app directly from the [Atlassian Marketplace](https://marketplace.atlassian.com/apps/1220376/octopus-deploy-for-jira) and then click the 'Get Started' button to configure it. Alternately, this is available in Jira under **{{Jira Settings,Find new apps}}**.
+    From the Atlassian Marketplace, add the [Octopus Deploy for Jira](https://marketplace.atlassian.com/apps/1220376/octopus-deploy-for-jira) app and click 'Get Started' to configure it. Alternately, the app is also available in Jira by navigation to **{{Jira Settings,Find new apps}}**.
 
-    Note: Keep this configuration page open while you complete the next steps as you need to copy values from one application to the other.
+    Note: Keep this configuration page open while you complete the next steps as you need to copy values between Octopus and Jira.
 
-1. Configure the Jira extension in Octopus Deploy.
+2. Configure the Jira extension in Octopus Deploy.
 
-    Navigate to the **{{Configuration,Settings,Jira Issue Tracker}}** page in Octopus and copy the following values from the Jira App configuration page:
+    In the Octopus web portal, navigate to **{{Configuration,Settings,Jira Issue Tracker}}** and copy the following values from the Jira App configuration page:
 
     - Jira Base URL. Set this so Octopus knows where your Jira instance can be found and enables Octopus to render the links back to Jira issues. i.e., https://your-jira-instance.atlassian.net.
     - Jira Connect App Password.
