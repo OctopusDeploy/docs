@@ -56,7 +56,7 @@ If you are using Jira Server, see [Connecting Jira Server and Octopus Deploy](#c
 
 3. In Octopus Deploy Configure the Release Note Options.
 
-    - Jira username/password: Set these values to allow Octopus to connect to Jira and retrieve Jira issue (work item) details when viewing packages or creating releases.
+    - **Jira username/password**: Set these values to allow Octopus to connect to Jira and retrieve Jira issue (work item) details when viewing packages or creating releases.
 
     <!-- Lee: I noted work item in brackets above to make the connection between the two terms. Is that sufficent? I've used Jira issue primarily on this page as it's what the audience understands but work item is our term. Need advice on this. -->
 
