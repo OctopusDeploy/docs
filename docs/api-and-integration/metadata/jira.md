@@ -60,7 +60,6 @@ If you are using Jira Server, see [Connecting Jira Server and Octopus Deploy](#c
 
     <!-- Lee: I noted work item in brackets above to make the connection between the two terms. Is that sufficent? I've used Jira issue primarily on this page as it's what the audience understands but work item is our term. Need advice on this. -->
 
-    These are optional and depend on the Jira Base URL. If they are not provided then just the raw work item references will be used as the work item link descriptions. If they are provided the work item's title will be used as the work item link's description.
 
     The password should be an API Token, rather than an actual password. You can create an API token from an Atlassian account in the 'Security' area.
     
