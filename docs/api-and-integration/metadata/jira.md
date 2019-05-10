@@ -3,75 +3,87 @@ title: Jira Issue Tracking Integration
 description: Configure Jira Cloud and Jira Server issue tracking with Octopus.
 ---
 
-**Octopus 2019.4** introduced support to integrate Octopus with Jira Cloud and Jira Server. The integration adds work items links, commit links, and release notes to Octopus from Jira. If you're using Jira Cloud, you can view release and deployment details from Octopus directly in Jira issues, making it possible to see if the issue has been associated with any deployments. This builds upon the functionality to [track metadata and work item](/docs/api-and-integration/metadata/index.md) information through your CI/CD pipeline.
+**Octopus 2019.4** introduced support to integrate Octopus with Jira Cloud and Jira Server. The integration adds links to Jira issues in release details, and release notes (see what's new in a deployment to production for example) to Octopus from Jira. If you're using Jira Cloud, you can also view release and deployment details from Octopus directly in Jira issues, making it possible to see if the issue has been included in any deployments. This builds upon the functionality to [track metadata and work item](/docs/api-and-integration/metadata/index.md) information through your CI/CD pipeline.
 
-## Connecting Jira and Octopus Deploy
+![Octopus release with Jira issues](octopus-release-details.png "width=500")
 
-This section describes how to configure Octopus Deploy to connect to Jira. In all cases for this integration, connections are always made to Jira (either from Octopus server itself or via links in the browser). There are no cases where Jira connects to Octopus.
+![Octopus deployment with generated release notes](octopus-release-notes.png "width=500")
+
+This page described how to configure Octopus and Jira to unlock these scenarios.
+
+* Learn about [Connecting Jira Server and Octopus Deploy](#connecting-jira-server-and-octopus-deploy)
+* Learn about [Connecting Jira Cloud and Octopus Deploy](#connecting-jira-cloud-and-octopus-deploy)
+
+---
+
+## Connecting Jira Server and Octopus Deploy
+
+This section describes how to configure Octopus Deploy to connect to Jira Server. In all cases for this integration, connections are always made to Jira (either from Octopus server itself or via links in the browser). There are no cases where Jira connects to Octopus.
 
 What this means is that you can configure any Octopus instance, whether self-hosted or cloud, to use the Jira integration. The only network connectivity requirements are that your Octopus server and your browser can connect to the Jira Base URL discussed below.
 
-<!-- steps go here -->
+If you are using Jira Server, see [Connecting Jira Cloud and Octopus Deploy](#connecting-jira-cloud-and-octopus-deploy).
 
-Navigate to the **{{Configuration,Settings,Jira Issue Tracker}}** page in Octopus and set **Is Enabled** to true.
+<!-- I've left this blank so we can review/agree upon the Jira Cloud copy first and then strip it appropriately to suit the Jira Server copy. -->
 
-### Jira Base URL
-
-Set this so Octopus knows where your Jira instance can be found and enables Octopus to render the links to the work items.
-
-### Jira Username and Jira Password
-
-Set these values to allow Octopus to connect to Jira and retrieve work item details when viewing packages or creating releases.
-
-These are optional and depend on the Jira Base URL. If they are not provided then just the raw work item references will be used as the work item link descriptions. If they are provided the work item's title will be used as the work item link's description.
-
-The password should actually be an API Token, rather than an actual password. You can create an API token from an Atlassian account in the 'Security' area.
-
-### Release Notes Prefix
-
-Set this if you would like Octopus to scan the work item's comments for release notes. This allows you to set a specific release note for a work item that is different to its title.
-
-This is an optional setting and depends on the Jira Username and Jira Password being set. If specified, Octopus will look for a comment that starts with the given prefix text and use whatever text appears after the prefix as the release note, which will come through to the release notes templates etc as the work item link's description. If not comment is found with the prefix then Octopus will default back to using the title for that work item.
 
 ## Connecting Jira Cloud and Octopus Deploy
 
-If you are using Jira Cloud then all of the above configuration still holds, but there are some additional features you can configure to enable Octopus to push deployment data to your Jira instances. The Jira APIs for pushing this data are only available in Jira Cloud, not Jira Server, which is why this extra configuration is required.
+This section describes how to configure Octopus Deploy to connect to Jira Cloud. In all cases for this integration, connections are always made to Jira (either from Octopus server itself or via links in the browser). There are no cases where Jira connects to Octopus.
 
-This integration uses the Octopus Deploy plugin for Jira that's available from the [Atlassian Marketplace]](https://marketplace.atlassian.com/apps/1220376/octopus-deploy-for-jira) and the following section describes how to connect and configure Octopus Deploy and Jira Cloud.
+What this means is that you can configure any Octopus instance, whether self-hosted or cloud, to use the Jira integration. The only network connectivity requirements are that your Octopus server and your browser can connect to the Jira Base URL discussed below.
 
-![Jira Deployments](jira-deployment.png "width=500")
+Further, there is additional functionality available for Jira Cloud customers via the Octopus Deploy plugin for Jira that's available from the [Atlassian Marketplace](https://marketplace.atlassian.com/apps/1220376/octopus-deploy-for-jira) and the following steps describe how to configure this. This functionality enables teams to view release and deployment details from Octopus directly in Jira issues. If you are using Jira Server, see [Connecting Jira Server and Octopus Deploy](#connecting-jira-server-and-octopus-deploy).
 
-1. Install the Octopus Deploy plugin in your Cloud Jira instance.
+![Jira Issue with deployments](jira-issue-with-deployments.png "width=500")
 
-    Add the `Octopus Deploy for Jira` app from the [Atlassian Marketplace](https://marketplace.atlassian.com/apps/1220376/octopus-deploy-for-jira) and then click the 'Get Started' button to configure it.
+1. Install the Octopus Deploy plugin in your Jira Cloud instance.
 
-    Note: Keep this configuration page open while you navigate to Octopus in the next step as you need to copy values from one page to the other.
+    Add the `Octopus Deploy for Jira` app directly from the [Atlassian Marketplace](https://marketplace.atlassian.com/apps/1220376/octopus-deploy-for-jira) and then click the 'Get Started' button to configure it. Alternately, this is available in Jira under **{{Jira Settings,Find new apps}}**.
+
+    Note: Keep this configuration page open while you complete the next steps as you need to copy values from one application to the other.
 
 1. Configure the Jira extension in Octopus Deploy.
 
     Navigate to the **{{Configuration,Settings,Jira Issue Tracker}}** page in Octopus and copy the following values from the Jira App configuration page:
 
-    - Jira Base URL, i.e., https://your-jira-instance.atlassian.net.
+    - Jira Base URL. Set this so Octopus knows where your Jira instance can be found and enables Octopus to render the links back to Jira issues. i.e., https://your-jira-instance.atlassian.net.
     - Jira Connect App Password.
 
     Ensure the **Is Enabled** property is set as well.
 
-1. Set the Octopus Server URL in Octopus Deploy.
+1. Configure the Release Note Options in Octopus Deploy.
+
+    - Jira username/password: Set these values to allow Octopus to connect to Jira and retrieve Jira issue (work item) details when viewing packages or creating releases.
+
+    <!-- Lee: I noted work item in brackets above to make the connection between the two terms. Is that sufficent? I've used Jira issue primarily on this page as it's what the audience understands but work item is our term. Need advice on this. -->
+
+    These are optional and depend on the Jira Base URL. If they are not provided then just the raw work item references will be used as the work item link descriptions. If they are provided the work item's title will be used as the work item link's description.
+
+    The password should actually be an API Token, rather than an actual password. You can create an API token from an Atlassian account in the 'Security' area.
+    
+    - Release Note Prefix: Set this if you would like Octopus to scan the Jira issue's comments for release notes. This allows you to set a specific release note for a work item that is different to its title.
+
+    This is an optional setting and depends on the Jira Username and Jira Password being set. If specified, Octopus will look for a comment that starts with the given prefix text and use whatever text appears after the prefix as the release note, which will come through to the release notes templates etc as the work item link's description. If not comment is found with the prefix then Octopus will default back to using the title for that work item.
+
+    For example, a prefix of `Release note:` can be used to identify a customer friendly issue title vs a technical feature or bug fix title.
+
+1. Ensure the Octopus Server URL in set in Octopus Deploy.
 
     Navigate to the **{{Configuration,Nodes}}** page and ensure you have set the Server URI field to your Octopus Server's base URL. i.e., https://my-company.octopus.app/ or https://my-company-internal-name/
     Note: Octopus passes this value to Jira so it can build hyperlinks back to the deployments from its UI. It never actually tries to connect to this Url itself.
 
-1. Configure the Octopus Deploy plugin for Jira.
+1. Configure the Octopus plugin in Jira.
 
     Navigate to the **{{Configuration,Settings,Jira Issue Tracker}}** page in Octopus, copy the **Octopus InstallationID**, and add it to Jira App configuration.
 
-1. Update your Octopus environment settings.
+1. Update your environment settings in Octopus Deploy.
 
     Navigate to **{{Infrastructure,Environments}}** to map your Octopus environments to Jira environment types. This is required so Jira can understand Octopus environments and track issue progress.
 
     Note: Jira environment types are a fixed list that cannot be edited.
 
-When configured this integration will provide Jira with updates about the progress of Jira issues (work items) through the pipeline.
+When configured, this integration will provide Jira with updates about the progress of Jira issues (work items) through the pipeline.
 
 ## Octopus Deployment Task Log
 
