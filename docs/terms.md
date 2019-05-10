@@ -62,7 +62,7 @@ A Release is a snapshot of your deployment process, configuration variables, and
 
 When you Deploy a release, you are executing the deployment process with all the associated details, as they existed when the release was created. You can Deploy a Release as many times as you want to.
 
-#### [Spaces](/docs/administration/spaces/index.md)
+### [Spaces](/docs/administration/spaces/index.md)
 
 With Spaces you can partition your Octopus Deploy server so that each of your teams can only access the projects, environments, and infrastructure they work with from the spaces they are members of.
 Users can be members of multiple teams and have access to multiple spaces, but the entities and infrastructure they work with will only be available in the space it is assigned to.
