@@ -24,8 +24,36 @@ This means you can configure any Octopus instance, whether self-hosted or cloud,
 
 If you are using Jira Server, see [Connecting Jira Cloud and Octopus Deploy](#connecting-jira-cloud-and-octopus-deploy).
 
-<!-- I've left this blank so we can review/agree upon the Jira Cloud copy first and then strip it appropriately to suit the Jira Server copy. -->
+1. Configure the Jira extension in Octopus Deploy.
 
+    In the Octopus web portal, navigate to **{{Configuration,Settings,Jira Issue Tracker}}** and enter the following values for your Jira instance:
+
+    - **Jira Base URL**. This tells Octopus where your Jira instance is located and enables Octopus to render the links back to Jira issues. i.e., https://your-jira-instance.atlassian.net or https://your-internal-jira-instance/
+    - **Jira Connect App Password**.
+
+    Ensure the **Is Enabled** property is set as well.
+
+2. In Octopus Deploy Configure the Release Note Options (optional).
+
+    - **Jira username/password**: Set these values to allow Octopus to connect to Jira and retrieve Jira issue (work item) details when viewing packages or creating releases. If these are not provided, just the raw work item references will be used as the work item link descriptions. If they are provided the work item's title will be used as the work item link's description.
+
+    The password should be an API Token, rather than an actual password. You can create an API token from an Atlassian account in the 'Security' area.
+    
+    - **Release Note Prefix**: If specified, Octopus will look for a comment that starts with the given prefix text and use whatever text appears after the prefix as the release note, which will come through to the [release notes templates](/docs/api-and-integration/metadata/release-notes-templates.md) etc as the work item link's description. If no comment is found with the prefix then Octopus will default back to using the title for that work item.
+
+    For example, a prefix of `Release note:` can be used to identify a customer friendly issue title vs a technical feature or bug fix title.
+
+3. Ensure the Octopus Server URL is set.
+
+    If you are using Octopus Cloud, this value is automatically set for you. If you are not using Octopus Cloud, navigate to the **{{Configuration,Nodes}}** page and ensure you have set the Server URI field to your Octopus Server's base URL. i.e., https://my-company.octopus.app/ or https://my-company-internal-name/
+
+4. In Octopus Deploy update your environment settings.
+
+    Navigate to **{{Infrastructure,Environments}}** to map your Octopus environments to Jira environment types. This is required so Jira can understand Octopus environments and track issue progress.
+
+    Note: Jira environment types are a fixed list that cannot be edited.
+
+When configured, this integration will retrieve Jira issue details and add details to your releases and deployments and generate release notes automatically. 
 
 ## Connecting Jira Cloud and Octopus Deploy
 
@@ -58,15 +86,9 @@ If you are using Jira Server, see [Connecting Jira Server and Octopus Deploy](#c
 
     - **Jira username/password**: Set these values to allow Octopus to connect to Jira and retrieve Jira issue (work item) details when viewing packages or creating releases. If these are not provided, just the raw work item references will be used as the work item link descriptions. If they are provided the work item's title will be used as the work item link's description.
 
-    <!-- Lee: I noted work item in brackets above to make the connection between the two terms. Is that sufficent? I've used Jira issue primarily on this page as it's what the audience understands but work item is our term. Need advice on this. 
-    From Lee: I think adding the term in brackets works. IIUC it is an octopus term they're unlikely to need for Jira, but if they are using other integrations they will see it and the connection might help them grok the overall concept. 
-    -->
-
-
     The password should be an API Token, rather than an actual password. You can create an API token from an Atlassian account in the 'Security' area.
     
-    - **Release Note Prefix**: If specified, Octopus will look for a comment that starts with the given prefix text and use whatever text appears after the prefix as the release note, which will come through to the release notes templates etc as the work item link's description. If not comment is found with the prefix then Octopus will default back to using the title for that work item.
-
+    - **Release Note Prefix**: If specified, Octopus will look for a comment that starts with the given prefix text and use whatever text appears after the prefix as the release note, which will come through to the [release notes templates](/docs/api-and-integration/metadata/release-notes-templates.md) etc as the work item link's description. If no comment is found with the prefix then Octopus will default back to using the title for that work item.
 
     For example, a prefix of `Release note:` can be used to identify a customer friendly issue title vs a technical feature or bug fix title.
 
