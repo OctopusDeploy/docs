@@ -45,7 +45,7 @@ If you are using Jira Server, see [Connecting Jira Cloud and Octopus Deploy](#co
 
 3. Ensure the Octopus Server URL is set.
 
-    If you are using Octopus Cloud, this value is automatically set for you. If you are not using Octopus Cloud, navigate to the **{{Configuration,Nodes}}** page and ensure you have set the Server URI field to your Octopus Server's base URL. i.e., https://my-company.octopus.app/ or https://my-company-internal-name/
+    If you are using Octopus Cloud, this value is automatically set for you. If you are not using Octopus Cloud, navigate to the **{{Configuration,Nodes}}** page and ensure you have set the Server URI field to your Octopus Server's base URL. i.e., https://my-company.octopus.app or https://my-company-internal-name
 
 4. In Octopus Deploy update your environment settings.
 
@@ -94,7 +94,7 @@ If you are using Jira Server, see [Connecting Jira Server and Octopus Deploy](#c
 
 4. Ensure the Octopus Server URL is set.
 
-    If you are using Octopus Cloud, this value is automatically set for you. If you are not using Octopus Cloud, navigate to the **{{Configuration,Nodes}}** page and ensure you have set the Server URI field to your Octopus Server's base URL. i.e., https://my-company.octopus.app/ or https://my-company-internal-name/
+    If you are using Octopus Cloud, this value is automatically set for you. If you are not using Octopus Cloud, navigate to the **{{Configuration,Nodes}}** page and ensure you have set the Server URI field to your Octopus Server's base URL. i.e., https://my-company.octopus.app or https://my-company-internal-name
     Note: Octopus passes this value to Jira so it can build hyperlinks back to the deployments from its UI. It never actually tries to connect to this Url itself.
 
 5. Configure the Octopus plugin in Jira.
