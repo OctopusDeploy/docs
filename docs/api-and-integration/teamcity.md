@@ -25,16 +25,7 @@ Integration with TeamCity involves two major parts:
 
 ## Installing the Plugin {#TeamCity-InstallPluginInstallingtheplugin}
 
-To make integrating with TeamCity easy, a [plugin is available](https://octopus.com/downloads) from our download page. The plugin is distributed as a ZIP file. To install:
-
-1. Download the [TeamCity Plugin ZIP file](https://octopus.com/downloads).
-2. Shut down your TeamCity server.
-3. Copy the ZIP file with the plugin to `<TeamCity Data Directory>/plugins`.
-4. Start TeamCity server: the plugin files will be unpacked and processed automatically.
-
-The [TeamCity Data Directory](https://confluence.jetbrains.com/display/TCD10/TeamCity+Data+Directory) can be found on the **Administration | Global Settings** page for a running TeamCity server instance.
-
-The TeamCity documentation has further instructions and options for [installing plugins](https://confluence.jetbrains.com/display/TCD18/Installing+Additional+Plugins).
+To make integrating with TeamCity easy, you can use the Octopus Deploy plugin for TeamCity that's available in the [Jetbrains Plugin Repository](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration). You can install this directly in TeamCity in the **{{Administration,Plugins List}}** or manually. The TeamCity documentation has further instructions and options for [installing plugins](https://confluence.jetbrains.com/display/TCD18/Installing+Additional+Plugins).
 
 ## Creating Octopus-compatible NuGet Packages Using TeamCity {#TeamCity-CreateNuGetPackageCreatingOctopus-compatibleNuGetpackagesusingTeamCity}
 
