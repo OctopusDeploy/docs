@@ -121,7 +121,7 @@ When you Deploy a release, you are executing the deployment process with all the
 
 Learn more about how you can [deploy releases](/docs/deployment-process/releases/index.md), or see some [deployment examples](/docs/deployment-examples/index.md).
 
-#### In this section
+### In this section
 
 - [Delivery Pipeline](/docs/delivery-pipeline.md)
 - [Terms](/docs/terms.md)
