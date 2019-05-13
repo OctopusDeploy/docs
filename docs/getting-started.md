@@ -52,7 +52,11 @@ An Environment is a group of deployment targets. Your Development environment mi
 
 Target roles allow you to “tag” deployment targets with a specific keyword which can be used in your deployments.
 
-#### Lifecycles
+#### Tentacle Agent
+
+When you deploy software to Windows servers, you need to install Tentacle Agent, a lightweight agent service, on your Windows servers so they can communicate with the Octopus server in either a listening or a polling mode.
+
+#### Lifecycle
 
 A Lifecycle defines which environments that you can deploy a release to and in what order. Environments are automatically added to the default lifecycle in the order they appear on the Environments page.
 
@@ -72,7 +76,7 @@ The package will need to be named correctly with a packageID, version number and
 
 #### Creating a Package
 
-There are many more tools you might choose to use to create your package, but as long as you can create one of our supported packages you can deploy your applications with Octopus Deploy.
+There are many more tools you might choose to use to create your package, but as long as you can create one of our [supported packages](/docs/packaging-applications#supported-formats) you can deploy your applications with Octopus Deploy.
 
 We've created the following tools to help package your applications for deployment with Octopus:
 
@@ -89,7 +93,8 @@ Learn more about [packaging your applications](/docs/packaging-applications/inde
 
 ### 5. Define your deployment process
 
-Octopus Deploy is designed to work with teams following agile software development methodologies, that is, continuously deploying software, iterating, making changes, and redeploying. Most of what happens at deployment time is configured within a project.
+Octopus Deploy is designed to work with teams following agile software development methodologies, that is, continuously deploying software, iterating, making changes, and redeploying.
+Before you can deploy, a Project will need to be created with a Deployment Process which will contain all the information needed to have your teams successfully redeploy every time.
 
 #### Projects
 
@@ -119,6 +124,9 @@ When you Deploy a release, you are executing the deployment process with all the
 
 Learn more about how you can [deploy releases](/docs/deployment-process/releases/index.md), or see some [deployment examples](/docs/deployment-examples/index.md).
 
+In this section
+- [Delivery Pipeline](/docs/delivery-pipeline.md)
+- [Terms](/docs/terms.md)
 
 
 ### Need to create separate areas for your teams?
