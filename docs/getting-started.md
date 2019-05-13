@@ -86,6 +86,12 @@ We've created the following tools to help package your applications for deployme
 
 Most Octopus users push their package from their build server to Octopus. But you can manually upload the package or host it in an external repository.
 
+:::hint
+**New to Octopus and don’t have a package?**
+
+Use our example package to quickly create your first deployment. [hello-world.1.0.0.zip](https://octopus.com/images/docs/hello-world.1.0.0.zip)
+:::
+
 Learn more about [packaging your applications](/docs/packaging-applications/index.md) or how to automate your existing tool chain to push packages to your Octopus Deploy server with our [API and Integrations](/docs/api-and-integration/index.md).
 
 ### 5. Define your deployment process
@@ -95,7 +101,7 @@ Before you can deploy, a Project will need to be created with a Deployment Proce
 
 #### Projects
 
-Projects define your deployment process, configuration variables, and the deployment lifecycle. Think of it as a blueprint for releasing your Packages to Deployment Targets.
+Projects let you manage multiple software projects from the Octopus Web Portal. For each project you have, you define a deployment process, configuration variables, and the environments the software will be deployed to.
 
 #### Deployment Process
 
