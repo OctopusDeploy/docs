@@ -39,11 +39,11 @@ Octopus will need to know where you are going to deploy to. You can deploy to Wi
 
 #### Deployment Targets
 
-Targets are where you will be deploying your application to -  physical servers or cloud services.
+Deployment targets represent the servers, machines and cloud services where your software and services will be deployed.
 
 #### Environments
 
-An Environment is a group of deployment targets. Your Development environment might be one server that hosts a web application, a service, and a database server.
+Octopus organizes your deployment targets into groups called environments so you can promote your software through your deployment pipeline, for instance, from Development to Test and finally into Production.
 
 #### Target Roles
 

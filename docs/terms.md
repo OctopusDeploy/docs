@@ -20,11 +20,11 @@ Whether you're self-hosting the Octopus server, or using Octopus Cloud, the Octo
 
 ### Deployment Targets
 
-[Deployment Targets](/docs/infrastructure/deployment-targets) are where you will be deploying your application to -  physical servers or cloud services.
+[Deployment Targets](/docs/infrastructure/deployment-targets)  represent the servers, machines and cloud services where your software and services will be deployed.
 
 ### Environments
 
-An [Environment](/docs/infrastructure/environments) is a group of deployment targets. Your Development environment might be one server that hosts a web application, a service, and a database server.
+Octopus organizes your deployment targets into groups called [Environments](/docs/infrastructure/environments) so you can promote your software through your deployment pipeline, for instance, from Development to Test and finally into Production.
 
 ### Target Roles
 
@@ -40,7 +40,7 @@ A [Package](/docs/packaging-applications) is an archive (zip, tar, NuGet) that c
 
 ### Projects
 
-[Projects](/docs/deployment-process/projects) define your deployment process, configuration variables, and the deployment lifecycle. Think of it as a blueprint for releasing your Packages to Deployment Targets.
+[Projects](/docs/deployment-process/projects) let you manage multiple software projects from the Octopus Web Portal. For each project you have, you define a deployment process, configuration variables, and the environments the software will be deployed to.
 
 ### Deployment Process
 
