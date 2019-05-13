@@ -43,11 +43,7 @@ If you are using Jira Server, see [Connecting Jira Cloud and Octopus Deploy](#co
 
     For example, a prefix of `Release note:` can be used to identify a customer friendly issue title vs a technical feature or bug fix title.
 
-3. Ensure the Octopus Server URL is set.
-
-    If you are using Octopus Cloud, this value is automatically set for you. If you are not using Octopus Cloud, navigate to the **{{Configuration,Nodes}}** page and ensure you have set the Server URI field to your Octopus Server's base URL. i.e., https://my-company.octopus.app or https://my-company-internal-name
-
-4. In Octopus Deploy update your environment settings.
+3. In Octopus Deploy update your environment settings.
 
     Navigate to **{{Infrastructure,Environments}}** to map your Octopus environments to Jira environment types. This is required so Jira can understand Octopus environments and track issue progress.
 
