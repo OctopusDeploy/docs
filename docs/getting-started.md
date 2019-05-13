@@ -11,11 +11,15 @@ This section provides an overview of Octopus Deploy concepts and links to the re
 **The videos can be phase two and the content below phase one. Need to workout how the videos are going to play inline.
 ![](/docs/TBC-gettingstartedvideos.png)
 
-### 1. How Octopus Works
+## How Octopus Works
 
-Octopus works by creating a Release and deploying it following the steps defined in a Projects Deployment Process. A project will have its own lifecycle which will control how the release moves through the environments which contain the locations you’re deploying to. Below outlines the main steps for doing your first deployment and some of the terms you will need to know.
+Octopus Deploy allows users to consistently and reliably deploy by creating a Release and deploying it following the steps defined in a Projects Deployment Process.
 
-### 2. Hosting the Octopus Deploy Server
+As an Octopus user, you define the process for deploying your software. You specify the environments the applications are deployed to and who on your team can deploy to which environments. For instance, you might want QA to deploy to test environments, but not to production. Taking this approach means that even if different members of the team trigger deployments, the deployment process remains consistent. Once releases have been created, they can be deployed as many times as you need.
+
+Below outlines the main steps for doing your first deployment and some of the terms you will need to know.
+
+### 1. Hosting the Octopus Deploy Server
 
 You can install your own [self-hosted](/docs/getting-started.md#self-hosted-octopus) instance of the Octopus Deploy Server or use [Octopus Cloud](/docs/getting-started.md#octopus-cloud).
 
@@ -33,7 +37,7 @@ Learn more about [Octopus Cloud](/docs/octopus-cloud/index.md).
 
 Whether you're self-hosting the Octopus server, or using Octopus Cloud, the Octopus Web Portal is where you'll manage your infrastructure, projects, access the built-in repository, grant your team access to projects, and create your automated deployments.
 
-### 3. Setting up the locations to deploy to
+### 2. Setting up the locations to deploy to
 
 Octopus will need to know where you are going to deploy to. You can deploy to Windows servers, Linux servers, Microsoft Azure, an Offline Package Drop, Cloud Regions, or Kubernetes. These are known as your deployment targets, and they are organized into environments so you can promote your software through your deployment pipeline, for instance, from Development to Testing and finally into Production.
 
@@ -59,7 +63,7 @@ A Lifecycle defines which environments that you can deploy a release to and in w
 
 Learn more about managing your [Infrastructure](/docs/infrastructure)
 
-### 4. Package and upload your software
+### 3. Package and upload your software
 
 Before you can deploy software with Octopus Deploy, you need to bundle all the files required for the software to run into a supported package. The package must be versioned and stored in a repository. Octopus Deploy includes a built-in repository. We recommend configuring your existing tool chain to push packages automatically to the built-in repository; however, you can push packages manually to the repository if you choose to.
 
@@ -94,7 +98,7 @@ Use our example package to quickly create your first deployment. [hello-world.1.
 
 Learn more about [packaging your applications](/docs/packaging-applications/index.md) or how to automate your existing tool chain to push packages to your Octopus Deploy server with our [API and Integrations](/docs/api-and-integration/index.md).
 
-### 5. Define your deployment process
+### 4. Define your deployment process
 
 Octopus Deploy is designed to work with teams following agile software development methodologies, that is, continuously deploying software, iterating, making changes, and redeploying.
 Before you can deploy, a Project will need to be created with a Deployment Process which will contain all the information needed to have your teams successfully redeploy every time.
@@ -113,7 +117,7 @@ Octopus lets you define variables with values that change based on the scope you
 
 Learn more about the [deployment process](/docs/deployment-process/index.md), how you can set up [projects](/docs/deployment-process/projects/index.md), use [variables](/docs/deployment-process/variables/index.md) and [lifecycles](/docs/deployment-process/lifecycles/index.md) in your deployments, .
 
-### 6. Deploy your release
+### 5. Deploy your release
 
 Once you have access to an Octopus Server, your infrastructure is configured, your applications packaged, and the deployment process defined, you're ready to start deploying your software.
 
@@ -127,7 +131,7 @@ When you Deploy a release, you are executing the deployment process with all the
 
 Learn more about how you can [deploy releases](/docs/deployment-process/releases/index.md), or see some [deployment examples](/docs/deployment-examples/index.md).
 
-### In this section
+## In this section
 
 - [Delivery Pipeline](/docs/delivery-pipeline.md)
 - [Terms](/docs/terms.md)
