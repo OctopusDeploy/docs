@@ -37,7 +37,7 @@ If you are using Jira Cloud, see [Connecting Jira Cloud and Octopus Deploy](#con
 
     The password should be an API Token, rather than an actual password. You can create an API token from an Atlassian account in the 'Security' area.
     
-    - **Release Note Prefix**: If specified, Octopus will look for a comment that starts with the given prefix text and use whatever text appears after the prefix as the release note, which will come through to the [release notes templates](/docs/api-and-integration/metadata/release-notes-templates.md) etc as the work item link's description. If no comment is found with the prefix then Octopus will default back to using the title for that work item.
+    - **Release Note Prefix**: If specified, Octopus will look for a comment that starts with the given prefix text and use whatever text appears after the prefix as the release note, which will come through to the [release notes templates](/docs/api-and-integration/metadata/release-notes-templates.md) as the work item link's description. If no comment is found with the prefix then Octopus will default back to using the title for that work item.
 
     For example, a prefix of `Release note:` can be used to identify a customer friendly issue title vs a technical feature or bug fix title.
 
