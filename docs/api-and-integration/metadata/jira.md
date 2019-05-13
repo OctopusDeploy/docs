@@ -27,7 +27,6 @@ If you are using Jira Cloud, see [Connecting Jira Cloud and Octopus Deploy](#con
     In the Octopus web portal, navigate to **{{Configuration,Settings,Jira Issue Tracker}}** and enter the following values for your Jira instance:
 
     - **Jira Base URL**. This tells Octopus where your Jira instance is located and enables Octopus to render the links back to Jira issues. i.e., https://your-jira-instance.atlassian.net or https://your-internal-jira-instance/
-    - **Jira Connect App Password**.
 
     Ensure the **Is Enabled** property is set as well.
 
