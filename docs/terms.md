@@ -4,15 +4,15 @@ description: This section is a glossary of terms used within Octopus.
 position: 0
 ---
 
-### Self-Hosted Octopus
+### [Self-Hosted Octopus](/docs/installation/index.md)
 
-Installing the self-hosted [Octopus Deploy server](/docs/installation/index.md) sets up the [Octopus Web Portal](/docs/getting-started.md#the-octopus-web-portal) and the [Octopus REST API](/docs/api-and-integration/api/index.md).
+Installing the self-hosted Octopus Deploy server sets up the [Octopus Web Portal](/docs/getting-started.md#the-octopus-web-portal) and the [Octopus REST API](/docs/api-and-integration/api/index.md).
 
 The [installation documentation](/docs/installation/index.md) provides instructions for downloading, installing, and configuring your Octopus Deploy server.
 
 ### [Octopus Cloud](/docs/octopus-cloud/index.md)
 
-**Octopus Cloud** is the hosted version of Octopus Deploy. We designed Octopus Cloud and self-hosted Octopus to provide the same functionality; however, there are some minor differences, for instance, with Octopus Cloud, we're [responsible](/docs/administration/security/index.md#responsibility) for taking backups, upgrading the service, and maintaining and monitoring the underlying systems.
+Octopus Cloud is the hosted version of Octopus Deploy. We designed Octopus Cloud and self-hosted Octopus to provide the same functionality; however, there are some minor differences, for instance, with Octopus Cloud, we're [responsible](/docs/administration/security/index.md#responsibility) for taking backups, upgrading the service, and maintaining and monitoring the underlying systems.
 
 ### Octopus Deploy Server
 
@@ -34,7 +34,7 @@ An Environment is a group of deployment targets. Your Development environment mi
 
 Target roles allow you to “tag” deployment targets with a specific keyword which can be used in your deployments.
 
-### Lifecycles
+### Lifecycle
 
 A Lifecycle defines which environments that you can deploy a release to and in what order. Environments are automatically added to the default lifecycle in the order they appear on the Environments page.
 

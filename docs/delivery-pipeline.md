@@ -4,6 +4,11 @@ description: This section will provide guidance for integrating Octopus to compl
 position: 0
 ---
 
+You already have a source control system and a build server. Octopus doesn't replace these, we turbocharge them.
+            Let the build server focus on what it does best: compiling code and running tests. Octopus takes care
+            of deploying and promoting releases
+            between environments.
+
 We designed Octopus Deploy for teams that follow agile delivery practices. A typical workflow could be:
 
 1. **Commit Code to Your Existing Source Control System.**
@@ -22,4 +27,5 @@ We designed Octopus Deploy for teams that follow agile delivery practices. A typ
 
    Octopus deploys your software to the infrastructure you've configured, whether this is on-premises servers or cloud services. Because you likely want to deploy your software into a testing environment before deploying into production, Octopus promotes releases of your software through your environments, for instance, to dev, testing, staging, and production, and because each environment has slightly different configurations, Octopus manages those for you too.
 
-<Insert diagram from website>
+**Will need to get the diagram working
+![](/docs/delivery-pipeline.png)

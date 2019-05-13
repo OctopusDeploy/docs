@@ -8,15 +8,12 @@ Welcome!
 
 This section provides an overview of Octopus Deploy concepts and links to the relevant documentation, which explore the concepts further and guides you through implementing them with your own [self-hosted](/docs/getting-started.md#self-hosted-octopus) or [cloud-hosted](/docs/getting-started.md#octopus-cloud) Octopus server.
 
+**The videos can be phase two and the content below phase one. Need to workout how the videos are going to play inline.
 ![](/docs/TBC-gettingstartedvideos.png)
 
 ### 1. How Octopus Works
 
 Octopus works by creating a Release and deploying it following the steps defined in a Projects Deployment Process. A project will have its own lifecycle which will control how the release moves through the environments which contain the locations you’re deploying to. Below outlines the main steps for doing your first deployment and some of the terms you will need to know.
-
-or
-
-As an Octopus user, you define the process for deploying your software. You specify the environments the applications are deployed to and who on your team can deploy to which environments. For instance, you might want QA to deploy to test environments, but not to production. Taking this approach means that even if different members of the team trigger deployments, the deployment process remains consistent. Once releases have been created, they can be deployed as many times as you need. Below outlines the main steps for doing your first deployment and some of the terms you will need to know.
 
 ### 2. Hosting the Octopus Deploy Server
 
@@ -124,15 +121,7 @@ When you Deploy a release, you are executing the deployment process with all the
 
 Learn more about how you can [deploy releases](/docs/deployment-process/releases/index.md), or see some [deployment examples](/docs/deployment-examples/index.md).
 
-In this section
+#### In this section
+
 - [Delivery Pipeline](/docs/delivery-pipeline.md)
 - [Terms](/docs/terms.md)
-
-
-### Need to create separate areas for your teams?
-
-With Spaces you can partition your Octopus Deploy server so that each of your teams can only access the projects, environments, and infrastructure they work with from the spaces they are members of.
-Users can be members of multiple teams and have access to multiple spaces, but the entities and infrastructure they work with will only be available in the space it is assigned to.
-If you're a large organization with lots of teams working in Octopus, from **2019.1** you can use the [Spaces](/docs/administration/spaces/index.md) feature.
-
-Learn more about [Spaces](/docs/administration/spaces/index.md).
