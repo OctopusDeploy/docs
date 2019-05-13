@@ -35,7 +35,7 @@ Whether you're self-hosting the Octopus server, or using Octopus Cloud, the Octo
 
 ### 3. Setting up the locations to deploy to
 
-With Octopus Deploy, you can deploy software to Windows servers, Linux servers, Microsoft Azure, an Offline Package Drop, Cloud Regions, or Kubernetes. These are known as your deployment targets, and they are organized into environments so you can promote your software through your deployment pipeline, for instance, from Development to Testing and finally into Production.
+Octopus will need to know where you are going to deploy to. You can deploy to Windows servers, Linux servers, Microsoft Azure, an Offline Package Drop, Cloud Regions, or Kubernetes. These are known as your deployment targets, and they are organized into environments so you can promote your software through your deployment pipeline, for instance, from Development to Testing and finally into Production.
 
 #### Deployment Targets
 
