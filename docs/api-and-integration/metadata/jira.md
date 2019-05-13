@@ -14,8 +14,6 @@ This page described how to configure this functionality for Octopus and Jira.
 * Learn about [Connecting Jira Server and Octopus Deploy](#connecting-jira-server-and-octopus-deploy)
 * Learn about [Connecting Jira Cloud and Octopus Deploy](#connecting-jira-cloud-and-octopus-deploy)
 
----
-
 ## Connecting Jira Server and Octopus Deploy
 
 This section describes how to configure Octopus Deploy to connect to Jira Server. When configured, this integration always connects to Jira (either from Octopus server itself or via links in the browser). There are no cases where Jira connects to Octopus.
