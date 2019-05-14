@@ -66,6 +66,7 @@ In addition, if you also check the box "Help improve Octopus by sending usage st
 | The number of Azure accounts and AWS accounts | 2018.2.2 |
 | Whether you have a custom account configured for the built-in worker | 2018.2.2 |
 | The number of non built-in workers you have | 2018.2.2 |
+| The number of monthly active users that you have | 2019.5.1 |
 
 The installation ID is a GUID that we generate when Octopus is installed. This GUID is simply a way for us to get a rough idea of the number of installations there are in the wild, and which versions people are using, so we can make decisions about backwards compatibility support.
 
