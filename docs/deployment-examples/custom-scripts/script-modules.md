@@ -72,7 +72,13 @@ Make sure to select a **Role**, an **Environment** and to put a **Step Name**
 
 Each language has a slightly different syntax for using the Script Module. Please see the language specific section below.
 
-### PowerShell Script Modules{#ScriptModules-PowerShell}
+* [PowerShell](#ScriptModules-PowerShell)
+* [Bash](#ScriptModules-Bash)
+* [C#](#ScriptModules-CSharp)
+* [F#](#ScriptModules-FSharp)
+* [Python](#ScriptModules-Python)
+
+## PowerShell Script Modules{#ScriptModules-PowerShell}
 
 PowerShell script modules get automatically loaded once for every PowerShell script step in your deployment process - the functions and cmdlets will automatically be in scope for your script.
 
@@ -88,7 +94,7 @@ Script Step:
 Say-Hello -name "George"
 ```
 
-#### Gotcha
+### Gotcha
 If you process has 4 steps (i.e Stop IIS, Backup, Deploy, Start IIS) the entire module will get loaded once at the start of each step. Because of this we encourage users to avoid putting code outside functions on your Script Modules. This way the code will only get executed when the function is properly called from a PowerShell Script step.
 
 In the example Script Module below, the first line which attempts to stop the service "ImportantService" will run for every PowerShell-Script-based step on your deployment. The first time it might succeed (stopping the service), but subsequent tries will most likely make the overall deployment fail.
@@ -102,7 +108,7 @@ function Say-Hello($name) {
 }
 ```
 
-### Bash Script Modules{#ScriptModules-Bash}
+## Bash Script Modules{#ScriptModules-Bash}
 
 Bash Script Modules are written as a `.sh` file next to your script. Import them
 via `source MyScriptModule.sh`, where `MyScriptModule` is the name of your Script
@@ -122,7 +128,7 @@ source BashScriptModule.sh
 say_hello George
 ```
 
-### C# Script Modules
+## C# Script Modules{#ScriptModules-CSharp}
 
 C# Script Modules are written as a `.csx` file next to your script. Import them
 via `#load "MyScriptModule.csx"`, where `MyScriptModule` is the name of your Script
@@ -144,7 +150,7 @@ Call it from your Script Step with:
 SayHello("George");
 ```
 
-### F# Script Modules
+## F# Script Modules{#ScriptModules-FSharp}
 
 F# Script Modules are written as an `.fsx` file next to your script. Import them
 via `#load "MyScriptModule.fsx"`, where `MyScriptModule` is the name of your Script
@@ -180,7 +186,7 @@ open MyFSharpScriptModule
 sayhello "George";
 ```
 
-### Python Script Modules
+## Python Script Modules{#ScriptModules-Python}
 
 Python Script Modules are written as a `.py` file next to your script. Import them
 via `import MyScriptModule`, where `MyScriptModule` is the name of your Script
