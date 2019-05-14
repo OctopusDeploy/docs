@@ -6,10 +6,10 @@ position: 0
 
 Welcome!
 
-This section provides an overview of Octopus Deploy concepts and links to the relevant documentation, which explore the concepts further and guides you through implementing them with your own [self-hosted](#self-hosted-octopus) or [cloud-hosted](octopus-cloud) Octopus server.
+This section provides an overview of Octopus Deploy concepts and links to the relevant documentation, which explore the concepts further and guides you through implementing them with your own [self-hosted](#self-hosted-octopus) or [cloud-hosted](#octopus-cloud) Octopus server.
 
-**The videos can be phase two and the content below phase one. Need to workout how the videos are going to play inline.
-![](/docs/TBC-gettingstartedvideos.png)
+**The videos can be phase two and the content below phase one. Need to workout how the videos are going to play inline.**
+![](TBC-gettingstartedvideos.png)
 
 ## How Octopus Works
 
@@ -61,7 +61,7 @@ When you deploy software to Windows servers, you need to install Tentacle Agent,
 
 A Lifecycle defines which environments that you can deploy a release to and in what order. Environments are automatically added to the default lifecycle in the order they appear on the Environments page.
 
-Learn more about managing your [Infrastructure](/docs/infrastructure)
+Learn more about managing your [Infrastructure](/docs/infrastructure/index.md)
 
 ### 3. Package and upload your software
 
@@ -133,5 +133,5 @@ Learn more about how you can [deploy releases](/docs/deployment-process/releases
 
 ## In this section
 
-- [Delivery Pipeline](/docs/delivery-pipeline.md)
-- [Terms](/docs/terms.md)
+- [Delivery Pipeline](/docs/getting-started/delivery-pipeline.md)
+- [Terms](/docs/getting-started/terms.md)
