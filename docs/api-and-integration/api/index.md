@@ -22,6 +22,9 @@ The Octopus REST API is designed:
 If you plan to use the REST API from C# or another .NET project, see the [Octopus.Client](/docs/api-and-integration/octopus.client.md) assembly.
 :::
 
+## Obtaining an API key
+An API key is required to access the API, please see [How to Create an API Key](/docs/api-and-integration/api/how-to-create-an-api-key.md) for information about obtaining and managing your key.
+
 ## REST API Documentation via Swagger
 
 As of **Octopus 3.17**, Octopus now includes the default Swagger UI for displaying the API documentation in a nice human readable way. To browse that UI just open your browser and go to `[OctopusServerURL]/swaggerui/`. The original Non-Swagger API page is still available and can always be accessed via `[OctopusServerURL]/api/`.
