@@ -77,7 +77,7 @@ The package will need to be named correctly with a packageID, version number and
 
 #### Creating a Package
 
-There are many more tools you might choose to use to create your package, but as long as you can create one of our [supported packages](/docs/packaging-applications#supported-formats) you can deploy your applications with Octopus Deploy.
+There are many more tools you might choose to use to create your package, but as long as you can create one of our [supported packages](/docs/packaging-applications/index.md#supported-formats) you can deploy your applications with Octopus Deploy.
 
 We've created the following tools to help package your applications for deployment with Octopus:
 

@@ -28,4 +28,4 @@ We designed Octopus Deploy for teams that follow agile delivery practices. A typ
    Octopus deploys your software to the infrastructure you've configured, whether this is on-premises servers or cloud services. Because you likely want to deploy your software into a testing environment before deploying into production, Octopus promotes releases of your software through your environments, for instance, to dev, testing, staging, and production, and because each environment has slightly different configurations, Octopus manages those for you too.
 
 **Will need to get the diagram working
-![](/docs/delivery-pipeline.png)
+![](/docs/getting-started/delivery-pipeline.png)
