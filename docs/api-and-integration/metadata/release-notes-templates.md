@@ -83,6 +83,7 @@ public class ReleaseChanges
   public string Version { get; set; }
   public string ReleaseNotes { get; set; }
   public WorkItemLink[] WorkItems { get; set; }
+  public Commit[] Commits { get; set; }
 }
 
 public class WorkItemLink
