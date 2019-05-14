@@ -68,6 +68,16 @@ Make sure to select a **Role**, an **Environment** and to put a **Step Name**
 ![](script-modules-deployment-release.png)
 
 
+## Using Script Modules{#ScriptModules-using}
+
+Each language has a slightly different syntax for using the Script Module. Please see the language specific section below.
+
+* [PowerShell](#ScriptModules-PowerShell)
+* [Bash](#ScriptModules-Bash)
+* [C#](#ScriptModules-CSharp)
+* [F#](#ScriptModules-FSharp)
+* [Python](#ScriptModules-Python)
+
 ## PowerShell Script Modules{#ScriptModules-PowerShell}
 
 PowerShell script modules get automatically loaded once for every PowerShell script step in your deployment process - the functions and cmdlets will automatically be in scope for your script.
@@ -118,7 +128,7 @@ source BashScriptModule.sh
 say_hello George
 ```
 
-## C# Script Modules
+## C# Script Modules{#ScriptModules-CSharp}
 
 C# Script Modules are written as a `.csx` file next to your script. Import them
 via `#load "MyScriptModule.csx"`, where `MyScriptModule` is the name of your Script
@@ -140,7 +150,7 @@ Call it from your Script Step with:
 SayHello("George");
 ```
 
-## F# Script Modules
+## F# Script Modules{#ScriptModules-FSharp}
 
 F# Script Modules are written as an `.fsx` file next to your script. Import them
 via `#load "MyScriptModule.fsx"`, where `MyScriptModule` is the name of your Script
@@ -176,7 +186,7 @@ open MyFSharpScriptModule
 sayhello "George";
 ```
 
-## Python Script Modules
+## Python Script Modules{#ScriptModules-Python}
 
 Python Script Modules are written as a `.py` file next to your script. Import them
 via `import MyScriptModule`, where `MyScriptModule` is the name of your Script
@@ -196,6 +206,14 @@ Call it from your Script Step with:
 import PythonScriptModule
 PythonScriptModule.sayhello("George")
 ```
+
+## Usage
+
+From the Usages tab, you can see where a Script Module is being used. This shows the Projects that are referencing
+the Script Module, as well as the Releases that have a snapshot of the Script Module. This allows you to assess the
+ramifications of changing a Script Module, as well as track down where it has been used in the past.
+
+![](script-modules-usage.png)
 
 ## Permissions
 
