@@ -1,7 +1,7 @@
 ---
 title: Octopus Terms
 description: This section is a glossary of terms used within Octopus.
-position: 0
+position: 5
 ---
 
 ## Self-Hosted Octopus

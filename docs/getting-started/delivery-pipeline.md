@@ -1,13 +1,10 @@
 ---
 title: The Delivery Pipeline
 description: This section will provide guidance for integrating Octopus to complete your delivery pipeline.
-position: 0
+position: 10
 ---
 
-You already have a source control system and a build server. Octopus doesn't replace these, we turbocharge them.
-            Let the build server focus on what it does best: compiling code and running tests. Octopus takes care
-            of deploying and promoting releases
-            between environments.
+You already have a source control system and a build server. Octopus doesn't replace these, we turbocharge them. Let the build server focus on what it does best: compiling code and running tests. Octopus takes care of deploying and promoting releases between environments.
 
 We designed Octopus Deploy for teams that follow agile delivery practices. A typical workflow could be:
 
