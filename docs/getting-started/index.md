@@ -73,7 +73,7 @@ A Package is an archive (zip, tar, NuGet) that contains all the files needed to 
 
 #### Naming a Package
 
-The package will need to be named correctly with a packageID, version number and format, for Octopus to recognise it. For example MyPackage.1.0.1.zip
+The package will need to be named correctly with a packageID, version number and format, for Octopus to recognize it. For example MyPackage.1.0.1.zip
 
 #### Creating a Package
 
