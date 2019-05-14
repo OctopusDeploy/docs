@@ -1,7 +1,7 @@
 ---
 title: Getting Started
 description: This section provides a conceptual overview of Octopus Deploy, and links to documentation that guides you through your own self-hosted or cloud-hosted Octopus server.
-position: 0
+position: 1
 ---
 
 Welcome!
