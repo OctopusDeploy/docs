@@ -1,7 +1,7 @@
 ---
 title: Metadata and Work Items
 description: Configuring Octopus metadata and work item integration.
-position: 200
+position: 0
 ---
 
 Octopus uses metadata that can tell you how a package was built and what went into the package. This metadata includes work items which represent the bugs and enhancements that go into new builds of your software.

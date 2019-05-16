@@ -1,7 +1,7 @@
 ---
 title: Server Extensibility
 description: This guide covers everything you need to know for building and customizing Octopus Deploy Server extensions.
-position: 70
+position: 0
 ---
 
 Server extensibility is available in **Octopus 3.5** and later

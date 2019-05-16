@@ -1,7 +1,7 @@
 ---
 title: Team Foundation Server & Azure DevOps
 description: Octopus Deploy integrates with TFS and Azure DevOps to provide for a full automated build and deployment pipeline.
-position: 20
+position: 0
 ---
 
 Octopus Deploy integrates with Team Foundation Server and Azure DevOps to provide for a full automated build and deployment pipeline. This section provides information about how to integrate Octopus Deploy and the various versions of Microsoft's build server.
