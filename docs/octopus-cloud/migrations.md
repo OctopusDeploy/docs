@@ -25,7 +25,7 @@ To get started migrating from self-hosted to cloud, [email our support team](mai
 
 ## Migrating from Octopus Cloud
 
-If Octopus Cloud is not the right fit for you and you would like to switch back to hosting Octopus Server on your own Infrastructure, we can provide a copy of the data from your instance.
+If Octopus Cloud is not the right fit for you, and you would like to switch back to hosting Octopus Server on your own Infrastructure, we can provide a copy of the data from your instance.
 
 ### How it Works
 
