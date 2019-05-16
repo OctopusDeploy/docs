@@ -2,6 +2,7 @@
 title: Metadata and Work Items
 description: Configuring Octopus metadata and work item integration.
 position: 0
+hideInThisSection: true
 ---
 
 Octopus uses metadata that can tell you how a package was built and what went into the package. This metadata includes work items which represent the bugs and enhancements that go into new builds of your software.
@@ -86,5 +87,6 @@ This allows for more specific control over the release notes content. For more d
 
 If you are using an issue tracker like Jira, Octopus can also be integrated with it to provide information about the progress of work items. For more details see:
 
-- [Jira Issue Tracker](jira.md)
-- [GitHub Issue Tracker](github.md)
+- [Jira Issue Tracker](/docs/api-and-integration/metadata/jira.md)
+- [GitHub Issue Tracker](/docs/api-and-integration/metadata/github.md)
+- [Release note Templates](/docs/api-and-integration/metadata/release-notes-templates.md)
