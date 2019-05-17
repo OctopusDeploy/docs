@@ -29,7 +29,7 @@ This step shows you how to create a Service Principal with the Azure Portal, if 
 1. Next you need your **Application ID**.
   - If you have created an AAD registered application, navigate to **{{Azure Active Directory,App Registrations}}**, click **View all applications**, select the app and copy the **Application ID**.
   - If you haven't created a registered app, Click **New application registration** and add the details for your app, and click **Save**. Make note of the **Application ID**.
-1. Generate a one-time password by navigating to **{{Settings,Keys}}**. Add a new password, enter a description, and click **Save**. Make note of the displayed application password for use in Octopus. If you don't want to accept the default one year expiry for the key, you can change the expiry date.
+1. Generate a one-time password by navigating to **{{Certificates & Secrets,Client Secrets}}**. Add a new **secret**, enter a description, and click **Save**. Make note of the displayed application password for use in Octopus. If you don’t want to accept the default one year expiry for the password, you can change the expiry date.
 
 You now have the following:
 
