@@ -35,7 +35,7 @@ You now have the following:
 
 - **Tenant ID**
 - **Application ID**
-- **Application Password/Key**
+- **Application Password/secret**
 
 Next, you need to configure your [resource permissions](#resource-permissions).
 
