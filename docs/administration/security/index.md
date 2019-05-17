@@ -70,7 +70,7 @@ Learn about [FIPS and Octopus Deploy](fips-and-octopus-deploy.md).
 
 ## Provided By the Host
 
-The following sections describe the responsibilities taken by whomever is hosing your Octopus Server. If you are using Octopus Cloud, that's us. If you are self-hosting, this is you.
+The following sections describe the responsibilities taken by whomever is hosting your Octopus Server. If you are using Octopus Cloud, that's us. If you are self-hosting, this is you.
 
 ### Safely Exposing Your Octopus Deploy Installation
 
