@@ -31,9 +31,9 @@ NOTE: Our community contributed step template integration queries `library.octop
 
 ## What Information is Included When Octopus Checks For Updates? {#Outboundrequests-WhatinformationisincludedwhenOctopuschecksforupdates?}
 
-During installation, Octopus will ask you whether you want to check for new releases, and whether you would also like to opt-in to providing usage statistics to help us understand how the product is used and how we can improve it.
+By default, Octopus will periodically check for new releases and send usage statistics to help us understand how the product is used and how we can improve it. You can opt-out of sending usage statistics or also opt-out of checking for updates by navigating to **{Configuration,Settings,Updates & Usage Telemetry}}** in Octopus.
 
-When the checkbox "Automatically check for new Octopus releases" is checked during installation, Octopus will make a HTTPS request to the `octopus.com` domain every 8 hours. This request includes:
+When the "Check for updates" option is enabled, Octopus will make a HTTPS request to the `octopus.com` domain every 8 hours. This request includes:
 
 - The current Octopus Deploy version number that you are running.
 - A unique installation ID (read more below).
@@ -43,7 +43,7 @@ When the checkbox "Automatically check for new Octopus releases" is checked duri
 The octopus.com site is hosted on Microsoft Azure, so you will see traffic going to Azure services.
 :::
 
-In addition, if you also check the box "Help improve Octopus by sending usage statistics", we'll send some specific aggregate criteria along with the request. This has evolved a bit over time, so it depends on the version you are running:
+In addition, when the "Include statistics" option is enabled, we'll send some specific aggregate criteria along with the request. This has evolved a bit over time, so it depends on the version you are running:
 
 | Metrics       | Since   |
 | ------------- | ------- |
