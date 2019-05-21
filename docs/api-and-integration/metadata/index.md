@@ -23,6 +23,11 @@ Octopus uses a custom metadata file as the method of transport for passing this 
 
 Keeping the file separate to the package means that packages stored in external feeds can still provide the custom metadata to Octopus. This means it also works for things like container images that are pushed to container repositories.
 
+:::hint
+**Build Server support**
+Our metadata step is included in our TeamCity and Bamboo plugins, but we do not yet have an official Jenkins plugin. Therefore our metadata step, and thus Jira integration, is not yet supported with a Jenkins build server.
+:::
+
 To create the metadata file and provide it to Octopus, use the Octopus _Metadata_ step in your build server (below is the TeamCity version of the step for illustration).
 
 ![Package Metadata Step](metadata-step.png)
