@@ -15,16 +15,14 @@ There are three distinct versions (or version ranges) you need to worry about wi
 
 ## Extension Compatibility with Team Foundation Server
 
-The following table shows compatibility between versions of Azure DevOps, TFS, and the Octopus extension
+The following table shows compatibility between versions of Azure DevOps, TFS, and the Octopus extension:
 
 | Azure DevOps/TFS Version / Extension Version | 1.2.x | 2.0.199 | 3.0.x |
-| ------------------------------------ |:-----:|:------:|:-----:|
-| Azure DevOps\                        | <i class="fa fa-check"></i> | <i class="fa fa-times"></i> | <i class="fa fa-check"></i> |
-| TFS 2017 Update 1                    | <i class="fa fa-check"></i> | <i class="fa fa-asterisk"></i> | <i class="fa fa-check"></i> |
-| TFS 2017 RTM                         | <i class="fa fa-check"></i> | <i class="fa fa-check"></i> | <i class="fa fa-times"></i> |
-| TFS 2015 Updates 2,3,4               | <i class="fa fa-check"></i> | <i class="fa fa-check"></i> | <i class="fa fa-times"></i> |
-
-<i class="fa fa-asterisk"></i> *Technically supported, but not recommended*
+| ------------------------------ |:--------:|:---------:|:--------:|
+| Azure DevOps\                  | Supported | No | Supported |
+| TFS 2017 Update 1              | Supported | Not recommended | Supported |
+| TFS 2017 RTM                   | Supported | Supported | No |
+| TFS 2015 Updates 2,3,4         | Supported | Supported | No |
 
 Any version older than TFS 2015 Update 2 is not supported by any extension version.
 
