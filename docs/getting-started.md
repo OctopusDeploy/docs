@@ -74,7 +74,7 @@ We designed Octopus Deploy for teams that follow agile delivery practices. A typ
 
 1. **Your CI/Build Server Compiles the Code and Runs Unit Tests.**
 
-   You might be using TeamCity, Jenkins, Bamboo, Team Foundation Server, or CruiseControl.NET. Again, the choice is yours.
+   You might be using TeamCity, Jenkins, Bamboo, Azure DevOps, Team Foundation Server (TFS), or CruiseControl.NET. Again, the choice is yours.
 
 1. **Package Your Application.**
 

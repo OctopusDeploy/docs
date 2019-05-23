@@ -25,7 +25,7 @@ Keeping the file separate to the package means that packages stored in external 
 
 :::hint
 **Build Server support**
-Our metadata step is included in our TeamCity and Bamboo plugins, but we do not yet have an official Jenkins plugin. Therefore our metadata step, and thus Jira integration, is not yet supported with a Jenkins build server.
+Our metadata step is included in our TeamCity, Bamboo, and Azure DevOps/TFS plugins, but we do not yet have an official Jenkins plugin. Therefore our metadata step, and thus Jira integration, is not yet supported with a Jenkins build server.
 :::
 
 To create the metadata file and provide it to Octopus, use the Octopus _Metadata_ step in your build server (below is the TeamCity version of the step for illustration).
