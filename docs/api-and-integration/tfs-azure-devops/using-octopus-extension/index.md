@@ -40,11 +40,13 @@ You can bring your own version of Octo and avoid the use of installer tasks or a
 
 ## Add a Connection to Octopus Deploy
 
-Hover over the **Manage Project** cog in the top right corner of the project screen in Visual Studio Team Services, and click the **Services** link.
+In Azure DevOps, click the **Project Settings** cog at the bottom-left of the project screen, then click **Service connections** under **Pipelines**.
+
+In Visual Studio Team Services, hover over the **Manage Project** cog in the top right corner of the project screen, and click the **Services** link.
 
 ![](/docs/images/3048587/services-setting.jpg "width=206")
 
-Click **New Service Endpoint** and choose **Octopus Deploy**.
+Click **New service connection** or **New Service Endpoint** and choose **Octopus Deploy**.
 
 ![](/docs/images/3048587/new-octopus-connection.jpg "width=241")
 
