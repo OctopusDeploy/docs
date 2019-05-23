@@ -30,3 +30,7 @@ Learn more: [Configuring Octopus for High Availability](/docs/administration/hig
 One great benefit of Octopus: HA is the ability to update and restart one or more nodes, while still allowing the rest of the Octopus Deploy cluster to keep serving requests and performing deployments.
 
 Learn more: [Managing High Availability nodes](/docs/administration/high-availability/managing-high-availability-nodes.md).
+
+## Ask Octopus
+
+Watch the Customer Success Team discuss HA configuration in [Ask Octopus Episode 14 - Configure your HA Cluster](https://www.youtube.com/watch?v=1tXVA5pyuqQ&amp=&index=14).

@@ -75,4 +75,5 @@ If you've had any problems with the installation, review the [troubleshooting pa
 
 Now that you've installed the Octopus Deploy server, it's time to configure the [Infrastructure](/docs/infrastructure/index.md) you are deploying your software to.
 
-If you need to upgrade your Octopus server, refer to the [upgrading guide](/docs/administration/upgrading/index.md).
+ - If you need to upgrade your Octopus server, refer to the [upgrading guide](/docs/administration/upgrading/index.md).
+ - If you'd like to listen to the customer success team discussing the installation process, see [Ask Octopus Episode 19 - How to install Octopus Deploy](https://www.youtube.com/watch?v=A0_QloEBT1o)

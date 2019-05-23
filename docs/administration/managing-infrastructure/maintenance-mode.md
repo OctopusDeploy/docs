@@ -32,3 +32,7 @@ When you are using [Octopus High Availability](/docs/administration/high-availab
 - [Upgrading Octopus Server](/docs/administration/upgrading/index.md) is an online operation for patches, but you should schedule a small maintenance window for major and minor upgrades.
 - [Moving parts of your Octopus Server around](/docs/administration/managing-infrastructure/moving-your-octopus/index.md) will usually require a small maintenance window.
 - Other activities where you want to temporarily prevent changes to your Octopus Server will benefit from going into Maintenance Mode.
+
+## Ask Octopus
+
+Watch the Customer Success Team discussing the use of Maintenance mode in [Ask Octopus Episode 16 - Stopping deployments during Octopus Deploy upgrade](https://www.youtube.com/watch?v=lpAFzTdUyq4&amp=&index=16).
