@@ -1,11 +1,11 @@
 ---
 title: Manually Install the Build Task (Not Recommended)
-description: This guide covers how to manually install the Octopus Release build task into Microsoft TFS.
+description: This guide covers how to manually install the Octopus Release build task into Microsoft Azure DevOps/TFS.
 ---
 
 If you'd like more control over the build task we've created, you can manually upload it yourself using Microsoft's [TFX CLI tool](https://github.com/Microsoft/tfs-cli).
 
-This is also the method you'll need to use if you want to install the build task in your on-premises TFS instance.
+This is also the method you'll need to use if you want to install the build task in your on-premises Azure DevOps/TFS instance.
 
 ## Installing the Build Task {#ManuallyinstalltheBuildTask(notrecommended)-InstallingtheBuildTask}
 
@@ -31,7 +31,7 @@ If you are using an on-premises TFS instance, authentication can only be perform
 When you log in, use `--authType basic` to authenticate that way. NTLM authentication is coming to the TFX tool soon.
 :::
 
-Create a new **Personal Access Token** in Visual Studio Online or TFS in the **Security** tab for your Profile.
+Create a new **Personal Access Token** in Azure DevOps/TFS in the **Security** tab for your Profile.
 
 ![](/docs/images/3048587/3278348.png)
 
@@ -41,7 +41,7 @@ Specify All scopes. You can revoke this token as soon as the task is uploaded.
 
 ![](/docs/images/3048587/3278350.png)
 
-Login to your Visual Studio or TFS account using the TFX-CLI tool
+Login to your Visual Studio or Azure DevOps/TFS account using the TFX-CLI tool
 
 ```powershell
  tfx login

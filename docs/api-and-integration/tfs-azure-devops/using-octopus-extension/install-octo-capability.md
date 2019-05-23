@@ -1,6 +1,6 @@
 ---
 title: Installing Octo as a Capability
-description: This guide covers how to add Octo as a capability to your TFS/Azure DevOps custom build agents.
+description: This guide covers how to add Octo as a capability to your Azure DevOps/TFS custom build agents.
 ---
 
 There are times when you may want to install Octo on a build agent, such as to avoid downloads, opening any firewalls and or changing proxy rules. There are a few ways in which this can be

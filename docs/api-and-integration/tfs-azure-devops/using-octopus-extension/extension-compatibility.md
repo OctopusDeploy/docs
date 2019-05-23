@@ -13,13 +13,13 @@ There are three distinct versions (or version ranges) you need to worry about wi
 - [**Version 2.0.199**](https://s3-eu-west-1.amazonaws.com/octopus-downloads/tfs-2015-extension/octopusdeploy.octopus-deploy-build-release-tasks-2.0.199.vsix) - a specific "version 2" build for TFS 2015 Update 2, TFS 2015 Update 3, TFS 2015 Update 4, and TFS 2017 RTM
 - [**Version 3.0.x**](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) - the current, most recent version of the extension, for Azure DevOps and TFS 2017 Update 1 and above
 
-## Extension Compatibility with Team Foundation Server
+## Extension Compatibility with Azure DevOps/Team Foundation Server
 
 The following table shows compatibility between versions of Azure DevOps, TFS, and the Octopus extension
 
 | Azure DevOps/TFS Version / Extension Version | 1.2.x | 2.0.199 | 3.0.x |
 | ------------------------------------ |:-----:|:------:|:-----:|
-| Azure DevOps\                        | <i class="fa fa-check"></i> | <i class="fa fa-times"></i> | <i class="fa fa-check"></i> |
+| Azure DevOps                         | <i class="fa fa-check"></i> | <i class="fa fa-times"></i> | <i class="fa fa-check"></i> |
 | TFS 2017 Update 1                    | <i class="fa fa-check"></i> | <i class="fa fa-asterisk"></i> | <i class="fa fa-check"></i> |
 | TFS 2017 RTM                         | <i class="fa fa-check"></i> | <i class="fa fa-check"></i> | <i class="fa fa-times"></i> |
 | TFS 2015 Updates 2,3,4               | <i class="fa fa-check"></i> | <i class="fa fa-check"></i> | <i class="fa fa-times"></i> |
@@ -32,7 +32,7 @@ You may have success manually installing the task by following [these instructio
 
 ## Upgrading Extensions
 
-The ease of upgrades depends very much on the version of TFS (or Azure DevOps) being used, and the extension versions involved.
+The ease of upgrades depends very much on the version of Azure DevOps/TFS being used, and the extension versions involved.
 
 ### Extension Upgrades in Azure DevOps and TFS 2017 Update 1 (and above)
 
