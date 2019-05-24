@@ -1,5 +1,5 @@
 ---
-title: NuGet Packages
+title: Manually Creating NuGet Packages
 description: Using NuGet to package applications for use in your deployments.
 position: 40
 ---
