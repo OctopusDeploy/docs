@@ -1,7 +1,7 @@
 ---
 title: BitBucket Pipelines
 description: Octopus Deploy can be integrated with your BitBucket Pipelines build chain with the help of Octo.exe.
-position: 0
+position: 40
 ---
 
 [Bitbucket](https://bitbucket.org/) is a git-based source-control platform made by Atlassian that serves as an alternative to GitHub with free unlimited private repos.

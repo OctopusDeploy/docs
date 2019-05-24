@@ -1,7 +1,7 @@
 ---
 title: Metadata and Work Items
 description: Configuring Octopus metadata and work item integration.
-position: 0
+position: 80
 hideInThisSection: true
 ---
 

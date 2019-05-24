@@ -1,7 +1,7 @@
 ---
 title: Tentacle.exe Command Line
 description: Tentacle.exe is the command line executable that runs the Octopus Tentacle instance.
-position: 0
+position: 140
 hideInThisSection: true
 ---
 

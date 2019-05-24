@@ -1,7 +1,7 @@
 ---
 title: Compatibility
 description: Backward compatibility between Octopus Server and related components
-position: 0
+position: 190
 ---
 
 The table below outlines the backward compatibility between Octopus Server and related components

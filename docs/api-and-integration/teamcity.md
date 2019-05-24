@@ -1,7 +1,7 @@
 ---
 title: TeamCity
 description: Octopus Deploy and TeamCity can work together to make automated, continuous delivery easy.
-position: 0
+position: 70
 ---
 
 [TeamCity](http://www.jetbrains.com/teamcity/) from JetBrains is a popular continuous integration server that supports a variety of different version control systems and build runners. Octopus Deploy and TeamCity can work together to make automated, continuous delivery easy.

@@ -1,7 +1,7 @@
 ---
 title: AppVeyor Integration
 description: Octopus Deploy can be seamlessly integrated with your AppVeyor build chain.
-position: 0
+position: 10
 ---
 
 [AppVeyor](https://ci.appveyor.com) is a cloud-based continuous integration system that integrates natively with your source control and allows CI configuration files to live alongside your projects. This page will guide you through leveraging AppVeyor's build chain with Octopus Deploy's deployment capabilities.
