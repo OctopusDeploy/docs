@@ -22,6 +22,8 @@ To use the C# client, first install the package via NuGet:
 Install-Package Octopus.Client
 ```
 
+Alternatively, the client is available in the installation directory of Octopus Deploy.
+
 ### Synchronous API {#Octopus.Client-SynchronousAPI}
 
 The easiest way to use the client is via the `OctopusRepository` helper:
