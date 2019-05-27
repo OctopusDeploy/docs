@@ -88,7 +88,7 @@ Your continuous integration/build server will package your applications and make
  - [Azure DevOps & Team Foundation Server](/docs/api-and-integration/tfs-azure-devops/index.md)
  - [Bamboo](/docs/api-and-integration/bamboo.md)
  - [BitBucket Pipelines](docs/api-and-integration/bitbucket-pipelines/index.md)
- - [Continua CI](/docs/api-and-integration/continua.md)
+ - [Continua CI](/docs/api-and-integration/continua-ci.md)
  - [Jenkins](/docs/api-and-integration/jenkins.md)
  - [TeamCity](/docs/api-and-integration/teamcity.md)
 
