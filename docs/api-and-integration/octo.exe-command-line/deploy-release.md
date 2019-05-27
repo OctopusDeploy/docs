@@ -6,7 +6,7 @@ position: 110
 
 [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to deploy releases that have [already been created](/docs/api-and-integration/octo.exe-command-line/create-release.md).
 
-```text
+```plaintext
 Usage: octo deploy-release [<options>]
 
 Where [<options>] is any of:
