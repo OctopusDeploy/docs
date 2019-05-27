@@ -13,15 +13,15 @@ When using Octopus Deploy with TeamCity, TeamCity will usually be responsible fo
 - Running unit tests.
 - Creating NuGet packages for deployment.
 
-While Octopus Deploy will be used to take those NuGet packages and to push them to development, test and production environments.
+And Octopus Deploy will be used to take those NuGet packages and to push them to development, test and production environments.
 
 Integration with TeamCity involves two major parts:
 
 1. Creating the NuGet packages from your applications.
 2. Optionally, when a build completes, having TeamCity make requests to your Octopus Server to:
-   - Create releases
-   - Trigger deployments and/or
-   - Promote releases when a build completes
+   - Create releases.
+   - Trigger deployments.
+   - Promote releases when a build completes.
 
 ## Installing the Plugin {#TeamCity-InstallPluginInstallingtheplugin}
 
@@ -55,9 +55,9 @@ Don't worry, TeamCity comes with a built-in [NuGet Pack build step](https://conf
 
 ## Using Octopus as a Package Repository {#TeamCity-PushpackagestoOctopusUsingOctopusasaPackageRepository}
 
-Octopus can be used as a [NuGet package package](/docs/packaging-applications/package-repositories/built-in-repository/pushing-packages-to-the-built-in-repository.md), or can be configured to use an external feed (such as retrieving them from TeamCity).
+Octopus can be used as a [NuGet package repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md), or it can be configured to use an external feed (such as retrieving them from TeamCity).
 
-To push packages to Octopus during the OctoPack phase, enter the NuGet endpoint url into the **Publish packages to http** field, and [an API key](/docs/api-and-integration/api/how-to-create-an-api-key.md) in the **Publish API Key** field.  OctoPack will then push the packages when the solution is built.  You'll find the URL to your repository on the **{{Library,Packages}}** tab in Octopus.  Simply click the `Show examples` link to see options to upload packages including the repository URL.
+To push packages to Octopus during the OctoPack phase, enter the NuGet endpoint URL into the **Publish packages to http** field, and [an API key](/docs/api-and-integration/api/how-to-create-an-api-key.md) in the **Publish API Key** field.  OctoPack will then push the packages when the solution is built.  You'll find the URL to your repository on the **{{Library,Packages}}** tab in Octopus.  Simply click the `Show examples` link to see options to upload packages including the repository URL.
 
 ## Consuming the TeamCity NuGet feed in Octopus {#TeamCity-ConsumeNuGetFeedInOctopusConsumingtheTeamCityNuGetfeedinOctopus}
 
