@@ -144,6 +144,7 @@ Any [outputs](https://azure.microsoft.com/en-us/documentation/articles/resource-
 ```powershell
 Octopus.Action[Arm Template Step Name].Output.AzureRmOutputs[Foo]
 ```
+Note, you need to replace **Arm Template Step Name** with the name of your ARM step template. 
 
 ### Using Linked Templates {#DeployusinganAzureResourceGroupTemplate-Usinglinkedtemplates}
 
