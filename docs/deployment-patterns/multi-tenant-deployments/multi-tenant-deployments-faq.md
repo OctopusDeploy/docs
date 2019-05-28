@@ -111,7 +111,7 @@ Granted, multi-tenant deployments can get complicated very quickly, so we've wri
 
 ## Is Licensing Affected By the Number of Tenants I Have? {#Multi-tenantdeploymentsFAQ-IslicensingaffectedbythenumberoftenantsIhave?}
 
-No, you can create an unlimited number of tenants without any impact on licensing in **Octopus 3.x**.
+No, you can create an unlimited number of tenants without any impact on licensing.
 
 ## Can I Provide Third-party Self-service Sign In, So My Tenants Can Manage Their Own Deployments? {#Multi-tenantdeploymentsFAQ-CanIprovide3rd-partyself-servicesignin,somytenantscanmanagetheirowndeployments?}
 
