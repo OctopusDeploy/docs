@@ -13,7 +13,7 @@ Proxy support for Tentacle and SSH communications was added in **Octopus 3.4**.
 Octopus supports the use of HTTP proxies with support for SSL. There is no support for SOCKS proxies. See below for details on [choosing a proxy server](#Choosing-a-proxy-server).
 :::
 
-![](/docs/images/5669147/5865713.png)
+![](/docs/images/5669147/proxy-support.png)
 
 ## Configuring a Tentacle Communications Proxy {#ProxySupport-ConfiguringaTentacleCommunicationsProxy}
 
