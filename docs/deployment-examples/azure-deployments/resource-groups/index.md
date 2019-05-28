@@ -142,8 +142,9 @@ The Parameter JSON file can be in one of two formats:
 Any [outputs](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/#outputs) from the ARM template step are made available as [Octopus output-variables](/docs/deployment-process/variables/output-variables.md) automatically. For example, an output `Foo` would be available as:
 
 ```powershell
-Octopus.Action[ArmTemplateStepName].Output.AzureRMOutputs[Foo]
+Octopus.Action[Arm Template Step Name].Output.AzureRmOutputs[Foo]
 ```
+Note, you need to replace **Arm Template Step Name** with the name of your ARM step template. 
 
 ### Using Linked Templates {#DeployusinganAzureResourceGroupTemplate-Usinglinkedtemplates}
 
