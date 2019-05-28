@@ -73,7 +73,7 @@ If you don't include the work item details yourself, Octopus will automatically 
 
 ## Deployment Variables and the Email Step {#Deployment-Variables}
 
-During a deployment there are variables available for both the release notes values and the work items.
+During a deployment there are variables available for the release changes (e.g. release notes values), the work items, and the package build data.
 
 The release changes variable is `Octopus.Deployment.Changes` and contains the release notes and work items in JSON format. The structure is a JSON array of `ReleaseChange` objects matching the following C# class:
 
@@ -84,6 +84,7 @@ public class ReleaseChanges
   public string ReleaseNotes { get; set; }
   public WorkItemLink[] WorkItems { get; set; }
   public Commit[] Commits { get; set; }
+  public PackageBuildMetadata[] PackageBuildMetadata { get; set; } // Added in 2019.5.5 
 }
 
 public class WorkItemLink
@@ -92,9 +93,25 @@ public class WorkItemLink
     public string LinkUrl { get; set; }
     public string Description { get; set; }
 }
+
+// Added in 2019.5.5 
+public class PackageBuildMetadata
+{
+    public string PackageId { get; set; }
+    public string Version { get; set; }
+    public string BuildNumber { get; set; }
+    public string BuildUrl { get; set; }
+    public string VcsType { get; set; }
+    public string VcsRoot { get; set; }
+    public string VcsCommitNumber { get; set; }
+}
 ```
 
 There is an entry per release and it includes the release notes (**in markdown format**) and the metadata for each of the packages in that release.
+
+The distinct list of work items across all releases is available in the `Octopus.Deployment.WorkItems` variable, and is an array of `WorkItemLink`s as defined above.
+
+As of `2019.5.5`, the distinct list of package build metadata across all releases is available in the `Octopus.Deployment.PackageBuildMetadata` variable.
 
 The following example uses these variables to generate the HTML body for the Octopus email step:
 
@@ -114,7 +131,7 @@ Also note, in this example we are providing a link back to the release in Octopu
 
 The following example illustrates some sample text followed by the packages, with the packages rendered as a bullet point list.
 
-```Here are the notes for the packages
+```
 Here are the notes for the packages
 #{each package in Octopus.Release.Package}
 - #{package.PackageId} #{package.Version}
