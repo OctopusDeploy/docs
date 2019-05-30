@@ -18,7 +18,7 @@ Before you install Octopus Deploy, review the software and hardware [requirement
 
 ## Long-Term Support or Fast Lane {#downloads}
 
-Octopus Deploy is shipped in both a long-term support (LTS) release and a fast lane release. The LTS release comes with six months support, and the fast lane release includes the latest features. To learn more about the LTS and fast lane releases see [Long-term support](/docs/administration/upgrading/long-term-support).
+Octopus Deploy is shipped in both a long-term support (LTS) release and a fast lane release. The LTS release comes with six months support, and the fast lane release includes the latest features. To learn more about the LTS and fast lane releases see [Long-term support](/docs/administration/upgrading/long-term-support.md).
 
 !include <server-downloads>
 
