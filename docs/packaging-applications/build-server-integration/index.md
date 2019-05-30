@@ -12,4 +12,4 @@ Your continuous integration/build server will package your applications and make
  - [BitBucket Pipelines](docs/api-and-integration/bitbucket-pipelines/index.md)
  - [Continua CI](/docs/api-and-integration/continua-ci.md)
  - [Jenkins](/docs/api-and-integration/jenkins.md)
- - [TeamCity](/docs/api-and-integration/teamcity.md)
+ - [TeamCity](/docs/packaging-applications/build-server-integration/teamcity.md)
