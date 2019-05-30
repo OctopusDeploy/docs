@@ -4,7 +4,9 @@ description: Creates a package (.nupkg or .zip) from files on disk, without need
 position: 260
 ---
 
-Creates a package (.nupkg or .zip) from files on disk, without needing a .nuspec or .csproj
+Creates a package (.nupkg or .zip) from files on disk, without needing a .nuspec or .csproj file.
+
+For examples of the `pack` command in use, see [Create Packages with Octo.exe](/docs/packaging-applications/octo.exe.md).
 
 **pack options**
 

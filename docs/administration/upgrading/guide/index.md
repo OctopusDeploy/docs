@@ -4,7 +4,7 @@ description: Everything you need to know about upgrading a modern version of Oct
 position: 1
 ---
 
-The following guide provides an overview of how the various components of **Octopus 3.x** can be updated to the latest release.
+The following guide provides an overview of how the various components of a modern Octopus installation (3.x or newer) can be updated to the latest release.
 
 ## Before You Begin
 
@@ -106,7 +106,7 @@ Once you have downloaded the required version of the Octopus Server MSI no furth
 
 :::success
 **No need to upgrade the Tentacle**
-Given that the deployment code is now embedded within Calamari, and this gets pushed out automatically as needed by the Octopus Deploy Server, you no longer need be concerned about ensuring the version number between Tentacle and Server remain in lockstep. Builds of the Server and the Tentacle are no longer in sync as of **Octopus 3.14**, and **Octopus 3.x** is compatible with all **Tentacle 3.x** versions. We hope splitting the Tentacle helps relieve some of the hassle and friction involved with upgrading Octopus and provides better communication about changes to Tentacle.
+All **Tentacle 3.x** versions are compatible with all modern Octopus Server versions from **3.x** onwards. Given that the deployment code is now embedded within Calamari, and this gets pushed out automatically as needed by the Octopus Deploy Server, you no longer need be concerned about ensuring the version number between Tentacle and Server remain in lockstep. We hope splitting the Tentacle helps relieve some of the hassle and friction involved with upgrading Octopus and provides better communication about changes to Tentacle.
 :::
 
 ## Upgrading Octopus HA {#upgrading-octopus-ha}
@@ -152,11 +152,11 @@ The environments page will make machines without latest Calamari yellow, and sho
 
 **Upgrading Octopus Tentacles**
 
-The role of Tentacles has changed in **Octopus 3.x**. Tentacles in 3.x are only responsible for the secure communication protocol, and then calling Calamari to actually perform deployments. This means Tentacle only needs to change when we change some part of the secure communication protocol (hopefully very infrequently).
+The role of Tentacles has changed in modern versions of Octopus. Modern Tentacles are only responsible for the secure communication protocol, and then calling Calamari to actually perform deployments. This means Tentacle only needs to change when we change some part of the secure communication protocol (hopefully very infrequently).
 
 :::hint
 **Why have there been so many different versions of Tentacle 3.x?**
-In early versions of 3.x we have been rebuilding Tentacle in lock-step with Octopus Server due to shared dependencies in their project structure even though there have not been any changes to Tentacle itself. We hope to unlock these in the near future.
+In early versions of 3.x we have been rebuilding Tentacle in lock-step with Octopus Server due to shared dependencies in their project structure even though there have not been any changes to Tentacle itself. We unlocked these with Tentacle 3.14.
 :::
 
 **Octopus 3.1** supports automatically updating Tentacles via the Environments page. You can upgrade all Tentacles which will systematically work through all Machines in all Environments in batches until all Tentacles are upgraded.
@@ -180,7 +180,7 @@ Summary: Tentacle was upgraded from .NET 4.0 to .NET 4.5 to enable TLS 1.2.
 **You can upgrade to Octopus Server 3.1 without upgrading any Tentacles and get all of the new 3.1 deployment features because Calamari will continue to work on both Tentacle 3.0 and 3.1.**
 :::
 
-This is the first version of **Octopus 3.x** where there has been a Tentacle upgrade and it has caused some confusion. This section aims to answer some of the most commonly asked questions about upgrading to Octopus 3.1 and the impact on Tentacles.
+This is the first modern version of Octopus Server where there has been a Tentacle upgrade and it has caused some confusion. This section aims to answer some of the most commonly asked questions about upgrading to Octopus 3.1 and the impact on Tentacles.
 
 **Am I required to upgrade to Tentacle 3.1?**
 No, you aren't required to upgrade to Tentacle 3.1. Tentacle 3.0 will still work and benefit from the latest version of Calamari and all of the deployment features we shipped in **Octopus 3.1**.

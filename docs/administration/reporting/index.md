@@ -10,7 +10,7 @@ Currently Octopus doesn't display this reporting data in the user interface anyw
 
 Raw data is provided in two ways:
 
-- An an XML feed, which can be consumed by tools like Microsoft Excel or PowerBI (preferred), or programmatically.
+- As an XML feed, which can be consumed by tools like Microsoft Excel or PowerBI (preferred), or programmatically.
 - As a table in the Octopus SQL database.
 
 The data allows you to report on questions like:

@@ -26,7 +26,6 @@ Partial export:
                                export.
       --project=VALUE        Project to filter export for
 
-      --sourceSpaceId=VALUE   [Optional] If not using the Spaces feature. The Space which houses the project's being exported
       --releaseVersion=VALUE [Optional] Release of provided project to filter
                                export for
       --ignore-deployments   [Optional] Excludes deployments from partial
