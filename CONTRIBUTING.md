@@ -1,6 +1,6 @@
 # Contributing to the Octopus Deploy Documentation
 
-This document covers the process for contributing to the documentation and code samples that are hosted on the [Octopus Deploy documentation site](https://octopus.com/docs/).
+This document covers the process for contributing to the documentation and code samples that are hosted on the [Octopus Deploy documentation site](https://octopus.com/docs/). 
 
 Documentation is stored in this repository as Markdown files. The site is rendered using [markdig](https://github.com/lunet-io/markdig). Markdig supports [GitHub Flavored Markdown](https://help.github.com/articles/github-flavored-markdown) as well as some extra syntax.
 
