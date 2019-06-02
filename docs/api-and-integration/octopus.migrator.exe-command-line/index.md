@@ -12,14 +12,14 @@ The latest version of **Octopus.Migrator.exe** is available in the Octopus Deplo
 C:\Program Files\Octopus Deploy\Octopus
 ```
 
-## Commands {#Octopus.Migrator.exeCommandLine-Commands}
+## Commands {#octopus.migrator.exeCommandLine-Commands}
 
-Octopus.Migrator.exe supports the following commands:
+`octopus.migrator.exe` supports the following commands:
 
-- **`export`**: Exports all configuration data to a directory. [Learn more](/docs/api-and-integration/octopus.migrator.exe-command-line/export.md)
-- **`import`**: Imports data from an **Octopus 3.0**+ export directory. [Learn more](/docs/api-and-integration/octopus.migrator.exe-command-line/import.md)
-- **`migrate`**: Imports data from an **Octopus 2.6** backup
-- **`partial-export`**: Exports configuration data to a directory filtered by a single project. [Learn more](/docs/api-and-integration/octopus.migrator.exe-command-line/partial-export.md)
+- **[export](/docs\api-and-integration\octopus.migrator.exe-command-line/export.md)**:  Exports all configuration data to a directory.
+- **[import](/docs\api-and-integration\octopus.migrator.exe-command-line/import.md)**:  Imports data from an Octopus 3.0+ export directory.
+- **[migrate](/docs\api-and-integration\octopus.migrator.exe-command-line/migrate.md)**:  Imports data from an Octopus 2.6 backup.
+- **[partial-export](/docs\api-and-integration\octopus.migrator.exe-command-line/partial-export.md)**:  Exports configuration data to a directory filtered by projects.
 
 ## General Usage {#Octopus.Migrator.exeCommandLine-Generalusage}
 
