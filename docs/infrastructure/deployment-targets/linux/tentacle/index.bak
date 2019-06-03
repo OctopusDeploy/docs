@@ -30,8 +30,10 @@ name=$HOSTNAME
 environment="Test"
 role="web server"
 
-sudo apt install ./tentacle_<VERSION>_amd64.deb
-
+grep -qxF 'https://s3.amazonaws.com/octopus-apt-repo/' /etc/apt/sources.list || echo 'deb https://s3.amazonaws.com/octopus-apt-repo/ stretch main' >> /etc/apt/sources.list
+curl https://s3.amazonaws.com/octopus-apt-repo/public.key | apt-key add
+apt-get update
+apt-get install tentacle -y
 /opt/octopus/tentacle/Tentacle configure --port 10933 --noListen False
 /opt/octopus/tentacle/Tentacle configure --trust $thumbprint
 echo "Registering the Tentacle $name with server $serverUrl in environment $environment with role $role"
@@ -39,18 +41,37 @@ echo "Registering the Tentacle $name with server $serverUrl in environment $envi
 /opt/octopus/tentacle/Tentacle agent
 ```
 
+### Configuring the Debian package repository
+
+Octopus provides a debian package repository for downloading Tentacle packages.  The repository must be added to packages sources:
+
+```
+grep -qxF 'https://s3.amazonaws.com/octopus-apt-repo/' /etc/apt/sources.list || echo 'deb https://s3.amazonaws.com/octopus-apt-repo/ stretch main' >> /etc/apt/sources.list
+```
+
+The repository's public key must then be trusted:
+
+```
+apt-key adv --fetch-keys https://s3.amazonaws.com/octopus-apt-repo/public.key
+```
+
+or
+
+```
+curl https://s3.amazonaws.com/octopus-apt-repo/public.key | apt-key add
+```
+
+Now we can update `apt-get` so the Tentacle package are available for installation:
+
+```
+apt-get update
+```
+
 ### Installing Tentacle
-Tentacle can be installed using a debian package or archive:
+Tentacle can be installed once the package source has been configured:
 
-#### Debian Package
 ```
-sudo apt install ./tentacle_<VERSION>_amd64.deb
-```
-
-#### Archive
-```
-sudo mkdir /opt/octopus
-sudo tar xvzf tentacle_<VERSION>_amd64.deb -C /opt/octopus
+apt-get install tentacle
 ```
 
 The Tentacle installation will configure a default instance.
