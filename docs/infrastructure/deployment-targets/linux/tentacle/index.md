@@ -13,7 +13,8 @@ Octopus Server 2019.5.1 or newer
 Linux Tentacle is intended to provide feature parity with Windows Tentacle. The currently known limitations of Linux Tentacle are:
 
 - The Octopus portal does not have a Linux specific way to add Linux Tentacles. As a workaround, add the Tentacle using the Windows > Tentacle deployment target type.
-- PowerShell, C# and F# script types are not supported. The alternatives are Bash and Python scripts. 
+- PowerShell, C# and F# script types are not supported. The alternatives are Bash and Python scripts.
+- Automatic Tentacle upgrade is not currently supported for Linux Tentacle.
 
 ## Debian
 
