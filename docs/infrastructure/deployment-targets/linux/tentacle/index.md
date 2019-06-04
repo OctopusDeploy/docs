@@ -51,7 +51,9 @@ name=$HOSTNAME
 environment="Test"
 role="web server"
 
-sudo apt install ./tentacle_<VERSION>_amd64.deb
+curl https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-amd64.deb --output tentacle_5.0.0-beta1.deb
+
+sudo apt install ./tentacle_5.0.0-beta1.deb
 
 /opt/octopus/tentacle/Tentacle configure --port 10933 --noListen False
 /opt/octopus/tentacle/Tentacle configure --trust $thumbprint
