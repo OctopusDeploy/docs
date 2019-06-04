@@ -16,7 +16,27 @@ Linux Tentacle is intended to provide feature parity with Windows Tentacle. The 
 - PowerShell, C# and F# script types are not supported. The alternatives are Bash and Python scripts.
 - Automatic Tentacle upgrade is not currently supported for Linux Tentacle.
 
+## Downloads
+
+At the moment we only have a .deb package. There is also a .tar.gz archive for manual installations.
+
+```
+https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-amd64.deb
+
+https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-linux_x64.tar.gz
+```
+
 ## Debian
+
+### Download the package
+
+```
+curl https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-amd64.deb --output tentacle_5.0.0-beta1.deb
+```
+or
+``` 
+wget https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-amd64.deb
+```
 
 ### Quick start scripts
 
