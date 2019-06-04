@@ -8,10 +8,6 @@ This is the recommended way of performing an upgrade for larger installations. I
 
 Be sure to read the [Upgrading from Octopus 2.6.5 to 2018.10 LTS](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/index.md) documentation page. You must have a working **Octopus 2.6.5** installation for the data migration.
 
-## Summary {#Upgradewithanew3.0serverinstance-Summary}
-
-!toc
-
 ## Step by Step {#Upgradewithanew3.0serverinstance-Stepbystep}
 
 To upgrade to a modern version of Octopus Server, follow these steps:

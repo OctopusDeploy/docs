@@ -16,8 +16,6 @@ You can download the latest LTS from the [downloads page](https://octopus.com/do
 - [Octopus Server x64](https://octopus.com/downloads/slowlane/WindowsX64/OctopusServer)
 - [Octopus Server 32-bit/x86](https://octopus.com/downloads/slowlane/WindowsX86/OctopusServer)
 
-!toc
-
 ## Announcements
 
 We announce each new LTS release of Octopus in a blog post with the [LTS tag](https://octopus.com/blog/tag/LTS), clearly stating which releases are still covered by long-term support, and releases where long-term support has expired.

@@ -12,8 +12,6 @@ See the [OctopusDeploy-Api](https://github.com/OctopusDeploy/OctopusDeploy-Api)
 These examples use the [Octopus.Client](/docs/api-and-integration/octopus.client.md) library, see the [Loading in an Octopus Step](/docs/api-and-integration/octopus.client.md#Octopus.Client-Loadinginanoctopusstep) section of the [Octopus.Client](/docs/api-and-integration/octopus.client.md) documentation for details on how to load the library from inside Octopus using PowerShell or C# Script steps.
 :::
 
-!toc
-
 ## Querying the Current State {#ProjectCoordinationCodeSamples-Queryingthecurrentstate}
 
 The best way to get the current state for one or more projects is to use the Dashboard API, which is also used by the dashboards in the WebUI:

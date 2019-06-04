@@ -6,8 +6,6 @@ position: 20
 
 Your entire Octopus installation and all of the targets you deploy to could be contained safely within your corporate network. This is nice from a security perspective, however you may want your team to access Octopus from outside your corporate network, or you may need to deploy to servers outside your corporate network. This section will help you plan your Octopus installation and help you understand the security implications of different network topologies.
 
-!toc
-
 ## Security and Encryption
 
 We take security very seriously at Octopus Deploy and have gone to great lengths to protect your privacy and security.

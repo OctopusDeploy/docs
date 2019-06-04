@@ -12,8 +12,6 @@ This page is intended to help you tune and maintain your deployment processes an
 Want to tune your Octopus Server for optimum performance? Read our [detailed guide on optimizing your server](/docs/administration/managing-infrastructure/performance/index.md).
 :::
 
-!toc
-
 ## Key Considerations
 
 By the time your deployment starts, the Octopus HTTP API and database are no longer the bottleneck. The key concerns are now:

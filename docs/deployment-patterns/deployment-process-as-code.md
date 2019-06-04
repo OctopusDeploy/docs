@@ -17,8 +17,6 @@ We recommend taking a two-phase approach when moving to **deployment process as 
 We use **git** at Octopus and the rest of this pattern provides examples using **git** concepts. The same principles apply regardless of your source control tool of choice.
 :::
 
-!toc
-
 ## Scripts as Code {#scripts-as-code}
 
 The simplest way to get started with **deployment process as code** is to manage your custom deployment **scripts as code**. When you deploy your application, Octopus can execute a script contained inside a package. You can colocate your deployment scripts with your application source code, leveraging all the benefits of source control including change tracking and branching, then package it all up for Octopus.
@@ -125,10 +123,10 @@ The general process should look something like this, tailored to your situation:
 1. Get a peer to review your configuration change on your branch.
 1. Merge your configuration change to the `master` branch so your changes are actually pushed into Octopus.
 1. Test your change by deploying releases through your channel.
-    
+
     a. If you are unhappy with your change, fix it in your branch, get a peer to review your new commits, merge the new commits to `master`, and repeat your testing.
 1. When you are happy the changes are safe to share:
-    
+
     a. Remove the channel scoping from your changes in your branch.
     b. Get a peer to review this final change.
     c. Merge your changes to the `master` branch.
