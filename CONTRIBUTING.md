@@ -92,7 +92,7 @@ When creating new documentation, you should structure it as follows:
 
 ## Working with Files and Folders
 
-The folder structure in the GitHub docs repository, determines the structure of [www.octopus.com/docs](https://www.octopus.com/docs) and the navigation menu for the docs. For instance, the contents of the file located at `docs/installation/downloads.md` can be viewed at the URL [www.octopus.com/docs/installation/downloads](https://octopus.com/docs/installation/downloads). Note, the markdown file extension `.md` is not present in the URL.
+The folder structure in the GitHub docs repository, determines the structure of [www.octopus.com/docs](https://www.octopus.com/docs) and the navigation menu for the docs. For instance, the contents of the file located at `docs/installation/requirements.md` can be viewed at the URL [www.octopus.com/docs/installation/requirements](https://octopus.com/docs/installation/requirements). Note, the markdown file extension `.md` is not present in the URL.
 
 The only exception to this rule, is index pages, see the next section for details.
 

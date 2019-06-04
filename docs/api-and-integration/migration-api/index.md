@@ -6,7 +6,7 @@ position: 180
 
 Octopus includes a migration API that provides the ability to back-up and restore parts of an Octopus Deploy instance remotely (available from version **Octopus 2018.6.0**).
 
-The API currently includes support for both the [partial-export](/docs/api-and-integration/octopus.migrator.exe-command-line/partial-export.md) and [import](/docs/api-and-integration/octopus.migrator.exe-command-line/migrator-import.md) commands. The API uses the same [Migrator.exe command line tool](/docs/api-and-integration/octopus.migrator.exe-command-line/index.md) that you'd typically use to migrate data manually, but the API gives you some additional parameters to orchestrate the process between remote servers.
+The API currently includes support for both the [partial-export](/docs/api-and-integration/octopus.migrator.exe-command-line/partial-export.md) and [import](/docs/api-and-integration/octopus.migrator.exe-command-line/import.md) commands. The API uses the same [Migrator.exe command line tool](/docs/api-and-integration/octopus.migrator.exe-command-line/index.md) that you'd typically use to migrate data manually, but the API gives you some additional parameters to orchestrate the process between remote servers.
 
 :::warning
 **Note:** the migration API is **not supported** for migrations from self-hosted Octopus Server to Octopus Cloud currently - please see [migrating from self-hosted to Octopus Cloud](/docs/octopus-cloud/migrations.md) for information on how to migrate to Octopus Cloud.
@@ -71,7 +71,7 @@ Import API parameters:
 | Password=VALUE | Password that was used during the export migration _(This is the shared key between partial-export and import migrations)_ |
 | PackageId=VALUE | Package Name/ID that we are importing |
 | PackageVersion=VALUE | SemVer package version that we are importing |
-| DestinationPackageFeedSpaceId=VALUE | [Optional] If not using the Spaces feature. The SpaceID of the Space where the package containing the data to migrate will be uploaded. This is only for the package the data in the package specifies the destination Space. |
+| DestinationPackageFeedSpaceId=VALUE | [Optional] If using the Spaces feature, the ID of the Space where the package containing the data to migrate will be uploaded. This is only for the package; the data in the package specifies its own destination Space. |
 | IsEncryptedPackage | [Optional] Tells us whether the package was encrypted _(E.g. if you set `EncryptPackage` on export, you need to set this to `True`)_ |
 | IsDryRun | [Optional] Do not commit changes, just print what would have happened _(This allows you to test an import without actually committing the transaction)_ |
 | OverwriteExisting | [Optional] If a document with the same name already exists, it will be skipped by default |
@@ -127,7 +127,7 @@ Request Body:
 
 ### Spaces
 
-If you using the Spaces feature of Octopus Deploy on the source server, you should supply the appropriate SpaceID values in the example below. The destination Space cannot be specified it will match the Source. There are two values to supply:
+If you using the Spaces feature of Octopus Deploy on the source server, you should supply the appropriate SpaceID values in the example below. The destination Space cannot be specified; it will match the Source. There are two values to supply:
 
  1. The location to look for the Projects in the source Space.
  2. The Space that has the feed we’ll be pushing the exported package to.

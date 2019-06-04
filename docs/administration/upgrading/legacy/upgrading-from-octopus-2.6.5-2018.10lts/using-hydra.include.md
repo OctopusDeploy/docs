@@ -1,7 +1,7 @@
-Hydra is a tool we've built that will help you update your Tentacles to the latest version. It is particularly useful migrating from 2.6 to 3.x as the communication methods have changed.
+Hydra is a tool we've built that will help you update your Tentacles to the latest version. It is particularly useful migrating from 2.6.5 to 2018.10 LTS as the communication methods have changed.
 
 :::problem
-This is the point of no return. When your Tentacles are upgraded to 3.x your 2.6 server will not be able to communicate with them.
+This is the point of no return. When your Tentacles are upgraded to 3.x your 2.6.5 server will not be able to communicate with them.
 
 We strongly recommend testing Hydra against a small subset of "canary" machines before upgrading the rest of your machines. The best way to do this is:
 
@@ -15,7 +15,7 @@ We strongly recommend testing Hydra against a small subset of "canary" machines 
 Hydra consists of two parts:
 
 1. A package that contains the latest Tentacle MSI installers.
-2. An **Octopus 2.6** step template that does the upgrade to your environments.
+2. An **Octopus 2.6.5** step template that does the upgrade to your environments.
 
 To account for issues with communicating with a Tentacle that has been 'cut off' from its Octopus Server, the Hydra process connects to the Tentacle and creates a scheduled task on the Tentacle Machine. If it is able to schedule the task it considers that install a success. The task runs one minute later.
 
@@ -33,7 +33,7 @@ With just one Tentacle service this should be a very quick process, but we canno
 
 The scheduled task is set to run as `SYSTEM` to ensure the MSI installation will succeed. If your Tentacles are running with restricted permissions, they may not be able to create this scheduled task. **The only option is to upgrade your Tentacles manually.**
 
-Hydra performs a Reinstall of each Tentacle. As part of the reinstall, the Service Account is reset to `Local System`. If you need your Tentacles to run under a different account, you will have to make the change after the upgrade completes (after you've re-established a connection from 3.x). You can do this manually, or using the following script:
+Hydra performs a Reinstall of each Tentacle. As part of the reinstall, the Service Account is reset to `Local System`. If you need your Tentacles to run under a different account, you will have to make the change after the upgrade completes (after you've re-established a connection from 2018.10 LTS). You can do this manually, or using the following script:
 
 ```powershell
 Tentacle.exe service --instance "Tentacle" --reconfigure --username=DOMAIN\ACCOUNT --password=accountpassword --start --console
@@ -43,11 +43,11 @@ Tentacle.exe service --instance "Tentacle" --reconfigure --username=DOMAIN\AC
 To use Hydra, follow these steps:
 
 :::hint
-These steps should be executed from your **Octopus 2.6** server to your 2.6 Tentacles.
+These steps should be executed from your **Octopus 2.6.5** server to your 2.6 Tentacles.
 :::
 
 1. Download the latest Hydra NuGet package from [https://octopus.com/downloads/latest/Hydra](https://octopus.com/downloads/latest/Hydra).
-2. Use the Upload Package feature of the library to upload the OctopusDeploy. Hydra package to the built-in NuGet repository on your **Octopus 2.6** server.
+2. Use the Upload Package feature of the library to upload the OctopusDeploy. Hydra package to the built-in NuGet repository on your **Octopus 2.6.5** server.
 
 ![](/docs/images/3048135/3278019.png)
 
@@ -62,12 +62,12 @@ These steps should be executed from your **Octopus 2.6** server to your 2.6 Tent
  3. Set the `Server Mapping` field:
 
    - If you only use listening Tentacles you can leave the `Server Mapping` field blank.
-   - If you are using any polling Tentacles, add the new **Octopus 3.x** server address (including the polling TCP port) in the Server Mapping field. See below for examples.
+   - If you are using any polling Tentacles, add the new **Octopus 2018.10 LTS** server address (including the polling TCP port) in the Server Mapping field. See below for examples.
 
 :::hint
 **Server Mapping for Polling Tentacles**
 
-It is very important you get this value correct. An incorrect value will result in a polling Tentacle that can't be contacted by neither a 2.6 or 3.x server. Several different scenarios are supported:
+It is very important you get this value correct. An incorrect value will result in a polling Tentacle that can't be contacted by neither a 2.6.5 or 2018.10 LTS server. Several different scenarios are supported:
 
 1. A single Polling Tentacle instance on a machine pointing to a single Octopus Server **the most common case**:
   - Just point to the new server's polling address `https://newserver:newport` like `https://octopus3.mycompany.com:10934`

@@ -84,7 +84,7 @@ In 2.6 Tentacle stored files in the following folders by default:
 - `C:\Octopus\Tentacle\<Instance>`
     - This is where the Tentacle config file and Pipefish protocol files are stored, namely Actors, Messages and Streams.
 
-Once a 2.6 Tentacle has been migrated to 3.x the following folders can safely be removed:
+Once a 2.6 Tentacle has been migrated to a modern version the following folders can safely be removed:
 
 - `C:\Octopus\Applications\.Tentacle`
 - `C:\Octopus\Applications\.Tentacle\Octopus.Tentacle`

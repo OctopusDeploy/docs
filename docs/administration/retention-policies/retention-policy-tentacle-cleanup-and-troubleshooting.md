@@ -119,6 +119,6 @@ This occurs when you have the same package in two different steps inside a singl
 
 ## Troubleshooting {#RetentionpolicyTentaclecleanupandtroubleshooting-Troubleshooting}
 
-If you upgraded from 2.x to 3.x or newer the deployment journal location moved. Your choices are to clean up any old deployments manually, merge your deployment journals to the new location or run this [PowerShell Script](https://gist.github.com/vanessalove/dbc656b01df40939dcf8) on your Tentacles.
+If you upgraded from Tentacle 2.x to a modern version of Tentacle the deployment journal location moved. Your choices are to clean up any old deployments manually, merge your deployment journals to the new location or run this [PowerShell Script](https://gist.github.com/vanessalove/dbc656b01df40939dcf8) on your Tentacles.
 
 If your deployment journal is deleted for any reason, you will need to manually remove any remaining packages and package extraction directories that are not in the new deployment journal (which is automatically created on the next deployment).

@@ -4,9 +4,9 @@ position: 10
 description: How to install the central Octopus Deploy Server.
 ---
 
-This section walks you through installing the **self-hosted** Octopus Deploy server. If you need to upgrade you existing Octopus Deploy server, see our [upgrading guide](/docs/administration/upgrading/index.md).
+This section walks you through installing the **self-hosted** Octopus Deploy server. If you need to upgrade you existing Octopus Deploy server, see our [upgrading guide](/docs/administration/upgrading/index.md), alternatively, if you're interested **Octopus Cloud**, you can register for an [Octopus Cloud Account](https://octopus.com/account/register).
 
-If you're interested in **Octopus Cloud**, the cloud-hosted Octopus server, you won't need to install the Octopus server. You can register for an [Octopus Cloud Account](https://octopus.com/account/register).
+## Self-Hosted Octopus Deploy Server
 
 When installed, the Octopus Deploy server:
 
@@ -16,22 +16,26 @@ When installed, the Octopus Deploy server:
 
 Before you install Octopus Deploy, review the software and hardware [requirements](/docs/installation/requirements.md), and make sure you have access to an instance of [SQL Server Database](/docs/installation/sql-server-database.md) that you can use with Octopus Deploy.
 
-You need to download the latest version of the [Octopus Installer](/docs/installation/downloads.md).
+## Long-Term Support or Fast Lane {#downloads}
+
+Octopus Deploy is shipped in both a long-term support (LTS) release and a fast lane release. The LTS release comes with six months support, and the fast lane release includes the latest features. To learn more about the LTS and fast lane releases see [Long-term support](/docs/administration/upgrading/long-term-support.md).
+
+!include <server-downloads>
 
 ## Install Octopus
 
-1. Start the Octopus Installer and follow the onscreen prompts.
-2. Accept the **License Agreement**, and either accept the default **Destination Folder** or choose a different location.
+1. Start the Octopus Installer, and follow the onscreen prompts.
+2. Accept the **Terms in the License Agreement**, and either accept the default **Destination Folder** or choose a different location.
 3. Click **Install**, and give the app permission to **make changes to your device**.
 4. Click **Finish** to exit the installation wizard and launch the **Getting started wizard** to configure your Octopus Deploy Server.
-5. Click **Get started...** and either enter your details to start a free trial of Octopus Deploy or enter your **license key**.
+5. Click **Get started...** and either enter your details to start a free trial of Octopus Deploy or enter your **license key** and click **Next**.
 6. Accept the default **Home Directory** or enter a location of your choice.
 7. Decide whether to use a **Local System Account** or a **Custom Domain Account**.
 
   Learn more about the [permissions required for the Octopus Windows Service](/docs/installation/permissions-for-the-octopus-windows-service.md), using a [Managed Service Account](/docs/installation/managed-service-account.md), or [configuring authentication providers](/docs/administration/authentication/index.md).
 
 8. On the **Database** page, click the dropdown arrow in the **Server Name** field to detect the SQL Server Database. Octopus will create the database for you which is recommended process; however, you can also [create your own database](/docs/installation/sql-server-database.md#creating-the-database).
-9. Enter a name for the database, and click **OK** to **create the database**.
+9. Enter a name for the database, and click **Next** and **OK** to **create the database**.
 
   Be careful **not** to use the name of an existing database as the setup process will install Octopus into that pre-existing database. Learn more about the [Octopus Database](/docs/administration/data/octopus-database/index.md).
 
@@ -76,4 +80,4 @@ If you've had any problems with the installation, review the [troubleshooting pa
 Now that you've installed the Octopus Deploy server, it's time to configure the [Infrastructure](/docs/infrastructure/index.md) you are deploying your software to.
 
  - If you need to upgrade your Octopus server, refer to the [upgrading guide](/docs/administration/upgrading/index.md).
- - If you'd like to listen to the customer success team discussing the installation process, see [Ask Octopus Episode 19 - How to install Octopus Deploy](https://www.youtube.com/watch?v=A0_QloEBT1o)
+ - If you'd like to listen to the customer success team discussing the installation process, see [Ask Octopus Episode 19 - How to install Octopus Deploy](https://www.youtube.com/watch?v=P_qUe4ZiqGM).

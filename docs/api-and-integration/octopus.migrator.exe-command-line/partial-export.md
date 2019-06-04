@@ -9,15 +9,13 @@ This command exports configuration data to a directory filtered by a single proj
 
 Usage:
 
-```bash
+```text
 Octopus.Migrator partial-export [<options>]
-```
 
 Where `[<options>]` is any of:
 
 **Partial export options**
 
-```text
 Partial export:
       --instance=VALUE       [Optional] Name of the instance to use
       --directory=VALUE      Directory for exported files
@@ -26,7 +24,6 @@ Partial export:
                                export.
       --project=VALUE        Project to filter export for
 
-      --sourceSpaceId=VALUE   [Optional] If not using the Spaces feature. The Space which houses the project's being exported
       --releaseVersion=VALUE [Optional] Release of provided project to filter
                                export for
       --ignore-deployments   [Optional] Excludes deployments from partial

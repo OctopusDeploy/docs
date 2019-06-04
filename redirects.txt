@@ -775,3 +775,6 @@ docs/packaging-applications/creating-packages/nuget-packages/using-octopack/inde
 docs/packaging-applications/creating-packages/known-issues-with-other-compression-libraries.md -> docs/packaging-applications/octo.exe.md
 docs/packaging-applications/known-issues-with-other-compression-libraries.md -> docs/packaging-applications/octo.exe.md
 docs/packaging-applications/octopack/push-a-nuget-package-that-already-exists.md -> docs/packaging-applications/octopack/index.md
+docs/installation/downloads.md -> docs/installation/index.md
+docs/api-and-integration/octopus.migrator.exe-command-line/migrator-export.md -> docs/api-and-integration/octopus.migrator.exe-command-line/export.md
+docs/api-and-integration/octopus.migrator.exe-command-line/migrator-import.md -> docs/api-and-integration/octopus.migrator.exe-command-line/import.md
