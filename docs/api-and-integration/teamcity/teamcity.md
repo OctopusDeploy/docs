@@ -4,6 +4,8 @@ description: Octopus Deploy and TeamCity can work together to make automated, co
 position: 70
 ---
 
+!include <teamcity-intro>
+
 !include <teamcity-install>
 
 ## Using Octopus as a Package Repository {#TeamCity-PushpackagestoOctopusUsingOctopusasaPackageRepository}
