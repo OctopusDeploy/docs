@@ -7,8 +7,6 @@ Correctly versioning the packages you deploy with Octopus Deploy is important so
 
 This guide shows you how best to version your builds and packages in Azure DevOps and TFS, whether you're using [OctoPack](#versioning-when-using-octopack), or the [Octopus Extension in the Visual Studio Marketplace](#versioning-when-using-the-octopus-build-tasks).
 
-!toc
-
 ## Build Numbers in Team Build
 
 In Team Build (the build system in Azure DevOps and TFS), build numbers may be in a format that doesn't represent a valid SemVer number.

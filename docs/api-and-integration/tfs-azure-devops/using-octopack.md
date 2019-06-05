@@ -4,8 +4,6 @@ description: Using Octopack
 position: 1
 ---
 
-!toc
-
 ## Packaging Applications When Building With Team Build (XAML-based Builds) {#Packaging}
 
 When Team Build builds your solution, you will need to package your applications ready to be deployed. This can be done by [installing OctoPack](/docs/packaging-applications/octopack/index.md) on the projects that you plan to deploy.

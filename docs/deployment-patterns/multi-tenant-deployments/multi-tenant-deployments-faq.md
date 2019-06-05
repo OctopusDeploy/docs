@@ -6,8 +6,6 @@ position: 1
 
 This page contains some of the questions we are asked most often related to multi-tenant deployments in Octopus Deploy.
 
-!toc
-
 ## Why Can't I See the Tenant Area in the Main Menu, or Anything About Tenants For That Matter? {#Multi-tenantdeploymentsFAQ-WhycantIseethetenantareainthemainmenu,oranythingabouttenantsforthatmatter?}
 
 Multi-tenant deployments were shipped as part of **Octopus 3.4**, perhaps you need to upgrade your Octopus Server? Also, before creating your first tenant, you can find tenants in the **Tenants** menu option. For more information refer to [creating your first tenant](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-tenant.md).

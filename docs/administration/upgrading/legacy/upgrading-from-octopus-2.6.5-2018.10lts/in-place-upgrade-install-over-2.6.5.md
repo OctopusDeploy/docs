@@ -8,10 +8,6 @@ You can perform an in place upgrade from **Octopus 2.6.5** to **Octopus 2018.10 
 
 Due to the new communication method, you won't be able to communicate with your upgraded Tentacles until you upgrade your server. However, if you upgrade your server before all Tentacles are correctly updated, you will have to upgrade them manually, or roll your server back to **Octopus 2.6.5** and try again.
 
-## Summary {#Inplaceupgrade(installover2.6)-Summary}
-
-!toc
-
 ## Step by Step {#Inplaceupgrade(installover2.6)-Stepbystep}
 
 To perform an in-place upgrade, follow these steps carefully:
