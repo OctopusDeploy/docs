@@ -32,7 +32,7 @@ Octopus organizes your deployment targets into groups called [Environments](/doc
 
 ### Lifecycle
 
-A [Lifecycle](/docs/deployment-process/lifecycles) defines which environments that you can deploy a release to and in what order. Environments are automatically added to the default lifecycle in the order they appear on the Environments page.
+[Lifecycles](/docs/deployment-process/lifecycles) give you control over the way releases are promoted between environments.
 
 ### Package
 
@@ -44,15 +44,15 @@ A [Package](/docs/packaging-applications) is an archive (zip, tar, NuGet) that c
 
 ### Deployment Process
 
-The [deployment process](/docs/deployment-process) is made up of steps containing a specific action (or set of actions) and variables that are executed each time your software is deployed. After the initial setup, your deployment process shouldn't change between deployments even though the software being deployed will change as part of the development process.
+The [deployment process](/docs/deployment-process) is like a recipe for deploying your software. You define the recipe by adding steps and variables to a project. Each step contains a specific action (or set of actions) that is executed as part of the deployment process each time your software is deployed.
 
 ### Variables
 
-Octopus lets you define [variables](/docs/deployment-process/variables) with values that change based on the scope you've assigned to the variables and the scope of your deployments.
+Octopus lets you define [variables](/docs/deployment-process/variables) for configuration values that change, so you can have a different value for each Environment or Deployment Target
 
 ### Creating a Release
 
-A [Release](/docs/deployment-process/releases/index.md) is a snapshot of your deployment process, configuration variables, and software packages. Releases are created from Projects and deployed to the Environments defined in the Projects Lifecycle.
+A [Release](/docs/deployment-process/releases/index.md) is a snapshot of your deployment process, configuration variables, and software packages. Releases are created from Projects and deployed via a Lifecycle to your Environments.
 
 ### Deploying a Release
 

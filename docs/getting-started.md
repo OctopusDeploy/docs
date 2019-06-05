@@ -59,7 +59,7 @@ When you deploy software to Windows servers, you need to install Tentacle Agent,
 
 #### Lifecycle
 
-A Lifecycle defines which environments that you can deploy a release to and in what order. Environments are automatically added to the default lifecycle in the order they appear on the Environments page.
+Lifecycles give you control over the way releases are promoted between environments.
 
 Learn more about managing your [Infrastructure](/docs/infrastructure)
 
@@ -109,11 +109,11 @@ Projects let you manage multiple software projects from the Octopus Web Portal. 
 
 #### Deployment Process
 
-The deployment process is made up of steps containing a specific action (or set of actions) and variables that are executed each time your software is deployed. After the initial setup, your deployment process shouldn't change between deployments even though the software being deployed will change as part of the development process.
+The deployment process is like a recipe for deploying your software. You define the recipe by adding steps and variables to a project. Each step contains a specific action (or set of actions) that is executed as part of the deployment process each time your software is deployed.
 
 #### Variables
 
-Octopus lets you define variables with values that change based on the scope you've assigned to the variables and the scope of your deployments.
+Octopus lets you define variables for configuration values that change, so you can have a different value for each Environment or Deployment Target
 
 Learn more about the [deployment process](/docs/deployment-process/index.md), how you can set up [projects](/docs/deployment-process/projects/index.md), use [variables](/docs/deployment-process/variables/index.md) and [lifecycles](/docs/deployment-process/lifecycles/index.md) in your deployments, .
 
@@ -123,7 +123,7 @@ Once you have access to an Octopus Server, your infrastructure is configured, yo
 
 #### Creating a Release
 
-A Release is a snapshot of your deployment process, configuration variables, and software packages. Releases are created from Projects and deployed to the Environments defined in the Projects Lifecycle.
+A Release is a snapshot of your deployment process, configuration variables, and software packages. Releases are created from Projects and deployed via a Lifecycle to your Environments.
 
 #### Deploying a Release
 
