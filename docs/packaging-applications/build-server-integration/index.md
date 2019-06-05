@@ -1,5 +1,5 @@
 ---
-title: Build Server integration
+title: Build Server Integration
 description: Integrate your build server with Octopus Deploy.
 position: 0
 ---
