@@ -6,6 +6,8 @@ position: 900
 
 Octopus comes with a data migrator which can help in certain scenarios like moving projects from one Octopus Server to another, and exporting your configuration for auditing in a source control repository.
 
+!toc
+
 ## Suitable scenarios
 
 - Copying projects and their dependencies from one Octopus Server to another as a one-time operation, or periodically in a single direction where there is a single source of truth.

@@ -9,13 +9,15 @@ The export must have been made from an Octopus Server running the same release v
 
 Usage:
 
-```text
+```bash
 Octopus.Migrator import [<options>]
+```
 
 Where `[<options>]` is any of:
 
 **Import options**
 
+```text
 Import:
       --instance=VALUE       [Optional] Name of the instance to use
       --directory=VALUE      Directory for imported files

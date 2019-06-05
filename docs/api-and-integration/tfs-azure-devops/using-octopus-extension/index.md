@@ -15,6 +15,10 @@ The new structure of Team Foundation Build gives us a great opportunity to integ
 
 You can also view the status of a project in an environment using the Dashboard Widget.
 
+On this page:
+
+!toc
+
 We've open-sourced the [OctoTFS repository in GitHub](https://github.com/OctopusDeploy/OctoTFS) if you'd like to contribute.
 
 ## Installing the Extension

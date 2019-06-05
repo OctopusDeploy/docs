@@ -3,6 +3,8 @@ title: Azure DevOps and TFS Extension Version Compatibility
 description: This guide explains the Octopus extension versions that are compatible with different versions of Azure DevOps and TFS
 ---
 
+!toc
+
 ## Octopus Extension Versions
 
 There are three distinct versions (or version ranges) you need to worry about with respect to the Octopus Extension:

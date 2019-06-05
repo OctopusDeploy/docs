@@ -10,6 +10,8 @@ This section provides information about the responsibility we take to provide a 
 
 Every year Octopus undergoes a security review conducted by a third-party company. The latest report can be downloaded: [security-review.pdf](https://octopus.com/documents/security-review-executive-report.pdf)
 
+!toc
+
 ## Responsibility
 
 Octopus Deploy take responsibility to provide a secure and stable platform for managing your deployments.

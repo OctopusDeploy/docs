@@ -10,6 +10,8 @@ A key player in this story is our command line tool [Octo.exe](\docs\api-and-int
 
 If you are reading this doc, odds are you already tried to run an Octopus-related step in your build process and something didn't work the way you expected it. The goal of this document is to explain how all our integration steps work on the background so anyone can troubleshoot them on their own.
 
+!toc
+
 ## Troubleshooting Build Steps Created by the Octopus Deploy Team {#Octopus-Steps}
 
 ### What Happens When an Octopus Step is Executed During the Build Process {#Octopus-Steps-What-happens-behind}

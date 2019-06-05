@@ -21,25 +21,21 @@ Given this example of a target config file:
 {
    "weatherApiUrl": "dev.weather.com",
    "weatherApiKey": "DEV1234567",
-   "tempImageFolder": "C:\temp\img",
-   "port": 8080,
-   "debug": true
+   "tempImageFolder": "C:\temp\img"
 }
 ```
 
-If you define the [variables](/docs/deployment-process/variables/index.md) `weatherApiUrl`, `weatherApiKey`, `port`, and `debug` in the variables section of your [deployment process](/docs/deployment-process/variables/index.md) with the values `test.weather.com`, `TEST7654321`, `80`, and `false`, the target config file in your packaged application is updated to become:
+If you define the [variables](/docs/deployment-process/variables/index.md) `weatherApiUrl` and `weatherApiKey` in the variables section of your [deployment process](/docs/deployment-process/variables/index.md) with the values `test.weather.com` and `TEST7654321` the target config file in your packaged application is updated to become:
 
 ```json
 {
    "weatherApiUrl": "test.weather.com",
    "weatherApiKey": "TEST7654321",
-   "tempImageFolder": "C:\temp\img",
-   "port": 80
-   "debug": false
+   "tempImageFolder": "C:\temp\img"
 }
 ```
 
-Note, the `tempImageFolder` setting remains untouched and that the types of `port` and `debug` have not been changed. Octopus will attempt to keep the original type if the new value matches the type of the old value.
+Note, the `tempImageFolder` setting remains untouched.
 
 ### Hierarchical Variables {#JSONConfigurationVariablesFeature-Hierarchicalvariables}
 

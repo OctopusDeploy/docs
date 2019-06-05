@@ -10,6 +10,8 @@ We pride ourselves on making Octopus Deploy a secure product. If you are hosting
 Have you heard about [Octopus Cloud](https://octopus.com/cloud)? We take care of hosting your Octopus Server for you so you can get on with the job of deploying and managing your applications.
 :::
 
+!toc
+
 ## Before You Begin
 
 Octopus Deploy is a complex system with many security features baked in and tuned by default. Take some time to understand what we've built in to the product, and what you are ultimately taking responsibility for when self-hosting Octopus Deploy.

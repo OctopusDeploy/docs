@@ -8,6 +8,8 @@ Octopus Server comes with a built-in worker which enables you to conveniently ru
 
 This page describes how to configure the built-in worker for a variety of scenarios.
 
+!toc
+
 ## Built-in Worker
 
 When the built-in worker is executed, the Octopus server spawns a new process for Calamari.  This conveniently allows a default Octopus set up to enable features like running script steps on the server and Azure deployments.  However, this convenience comes at a cost: **security**.

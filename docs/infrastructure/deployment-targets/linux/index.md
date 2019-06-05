@@ -18,6 +18,7 @@ The following platforms are explicitly supported (we run automated tests against
 
 - Ubuntu 18.04 LTS
 - Ubuntu 16.04 LTS
+- Ubuntu 14.04 LTS
 - Redhat (RHEL) 7.2
 - Centos 7.6
 - Amazon Linux 2
