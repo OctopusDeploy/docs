@@ -7,13 +7,18 @@ When using Octopus Deploy with TeamCity, TeamCity will usually be responsible fo
 - Running unit tests.
 - Creating NuGet or Zip packages for deployment.
 
-And Octopus Deploy will be used to take those packages and to push them to development, test, and production environments.
+Octopus Deploy will be used to take those packages and to push them to development, test, and production environments.
 
-Integration with TeamCity makes it possible to automate the following:
+The Octopus TeamCity plugin comes with these custom build runners:
 
-- Packaging your applications.
-- Include [metadata](/docs/api-and-integration/metadata/index.md) about the work items that went into your packages.
-- Push packages to your Octopus Deploy server.
-- Create releases in Octopus.
-- Deploy releases in Octopus.
-- Promote releases between environments in Octopus.
+1. **Octopus Deploy: Pack** Create a NuGet or Zip formatted package.
+2. **Octopus Deploy: Metadata** add information about the build, including work items and commit messages, that is then stored in custom metadata in Octopus Deploy.
+3. **Octopus Deploy: Push Packages** Push packages to the Octopus Deploy [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/pushing-packages-to-the-built-in-repository.md), optionally using the TeamCity zip feature to create packages on-the-fly.
+4. **Octopus Deploy: Create Release**
+  Creates a new release in Octopus Deploy, and optionally deploys it to an environment.
+5. **Octopus Deploy: Deploy Release**
+  Deploys an *existing* release to a new environment.
+6. **Octopus Deploy: Promote Release**
+  Promotes an *existing* release from one environment to another.
+
+The plugin is simply a wrapper for [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md), the Octopus command line tool for creating and deploying releases.

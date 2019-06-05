@@ -8,6 +8,8 @@ position: 70
 
 !include <teamcity-install>
 
+!include <teamcity-pack>
+
 ## Using Octopus as a Package Repository {#TeamCity-PushpackagestoOctopusUsingOctopusasaPackageRepository}
 
 Octopus can be used as a [NuGet package repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md), or it can be configured to use an external feed (such as retrieving them from TeamCity).
@@ -32,22 +34,6 @@ In version 3.3.1 of the TeamCity Plugin we have added a new build runner that ca
 
 ![Octopus Push](/docs/images/3048176/5275665.png)
 
-## Triggering Deployments From TeamCity {#TeamCity-TriggerDeploymentsTriggeringdeploymentsfromTeamCity}
-
-The Octopus TeamCity plugin comes with these custom build runners:
-
-1. **Octopus Deploy: Pack (TeamCity plugin 4.38.0 or newer)** Create a NuGet or Zip formatted package.
-2. **Octopus Deploy: Push Packages (Octopus 3.3 and TeamCity plugin 3.3.1 or newer)** Push packages to the Octopus Deploy [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/pushing-packages-to-the-built-in-repository.md), optionally using the TeamCity zip feature to create packages on-the-fly.
-3. **Octopus Deploy: Create Release**
-  Creates a new release in Octopus Deploy, and optionally deploys it to an environment.
-4. **Octopus Deploy: Deploy Release**
-  Deploys an *existing* release to a new environment.
-5. **Octopus Deploy: Promote Release**
-  Promotes an *existing* release from one environment to another.
-
-The plugin is simply a wrapper for [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md), the Octopus command line tool for creating and deploying releases.
-
-![](/docs/images/3048176/3278185.jpg)
 
 ## Using the Plugin With Linux Build Agents {#TeamCity-LinuxAgentsUsingthepluginwithLinuxbuildagents}
 
