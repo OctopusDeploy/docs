@@ -5,8 +5,6 @@ description: Information on configuring Octopus High Availability including data
 
 This section will walk through the different options and considerations for setting up Octopus: HA.
 
-!toc
-
 ## Setting up Octopus: High Availability {#ConfiguringOctopusforHighAvailability-SettingupOctopus:HighAvailability}
 
 This section will walk you through the different options and considerations for setting up Octopus: HA. For the sake of simplicity, the guide assumes that all of the servers are on-premises and are part of an Active Directory domain, as this is the most common configuration. Octopus: HA can work without the servers being part of an AD domain, but you'll need to vary the instructions accordingly.
