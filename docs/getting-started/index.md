@@ -1,15 +1,15 @@
 ---
 title: Getting Started
 description: This section provides a conceptual overview of Octopus Deploy, and links to documentation that guides you through your own self-hosted or cloud-hosted Octopus server.
-position: 0
+position: 1
 ---
 
 Welcome!
 
-This section provides an overview of Octopus Deploy concepts and links to the relevant documentation, which explore the concepts further and guides you through implementing them with your own [self-hosted](/docs/getting-started.md#self-hosted-octopus) or [cloud-hosted](/docs/getting-started.md#octopus-cloud) Octopus server.
+This section provides an overview of Octopus Deploy concepts and links to the relevant documentation, which explore the concepts further and guides you through implementing them with your own [self-hosted](#self-hosted-octopus) or [cloud-hosted](#octopus-cloud) Octopus server.
 
-**The videos can be phase two and the content below phase one. Need to workout how the videos are going to play inline.
-![](/docs/TBC-gettingstartedvideos.png)
+**The videos can be phase two and the content below phase one. Need to workout how the videos are going to play inline.**
+![](TBC-gettingstartedvideos.png)
 
 ## How Octopus Works
 
@@ -21,13 +21,13 @@ Below outlines the main steps for doing your first deployment and some of the te
 
 ### 1. Hosting the Octopus Deploy Server
 
-You can install your own [self-hosted](/docs/getting-started.md#self-hosted-octopus) instance of the Octopus Deploy Server or use [Octopus Cloud](/docs/getting-started.md#octopus-cloud).
+You can install your own [self-hosted](#self-hosted-octopus) instance of the Octopus Deploy Server or use [Octopus Cloud](#octopus-cloud).
 
-#### Self-Hosted Octopus
+#### Self-Hosted Octopus {#self-hosted-octopus}
 
-Installing the self-hosted [Octopus Deploy server](/docs/installation/index.md) sets up the [Octopus Web Portal](/docs/getting-started.md#the-octopus-web-portal) and the [Octopus REST API](/docs/api-and-integration/api/index.md). The [installation documentation](/docs/installation/index.md) provides instructions for downloading, installing, and configuring your Octopus Deploy server.
+Installing the self-hosted [Octopus Deploy server](/docs/installation/index.md) sets up the [Octopus Web Portal](/docs/getting-started/index.md#the-octopus-web-portal) and the [Octopus REST API](/docs/api-and-integration/api/index.md). The [installation documentation](/docs/installation/index.md) provides instructions for downloading, installing, and configuring your Octopus Deploy server.
 
-#### Octopus Cloud
+#### Octopus Cloud {#octopus-cloud}
 
 Octopus Cloud is the hosted version of Octopus Deploy. We designed Octopus Cloud and self-hosted Octopus to provide the same functionality; however, there are some minor differences, for instance, with Octopus Cloud, we're [responsible](/docs/administration/security/index.md#responsibility) for taking backups, upgrading the service, and maintaining and monitoring the underlying systems.
 
@@ -61,7 +61,7 @@ When you deploy software to Windows servers, you need to install Tentacle Agent,
 
 Lifecycles give you control over the way releases are promoted between environments.
 
-Learn more about managing your [Infrastructure](/docs/infrastructure)
+Learn more about managing your [Infrastructure](/docs/infrastructure/index.md)
 
 ### 3. Package and upload your software
 
@@ -73,11 +73,11 @@ A Package is an archive (zip, tar, NuGet) that contains all the files needed to 
 
 #### Naming a Package
 
-The package will need to be named correctly with a packageID, version number and format, for Octopus to recognise it. For example MyPackage.1.0.1.zip
+The package will need to be named correctly with a packageID, version number and format, for Octopus to recognize it. For example MyPackage.1.0.1.zip
 
 #### Creating a Package
 
-There are many more tools you might choose to use to create your package, but as long as you can create one of our [supported packages](/docs/packaging-applications#supported-formats) you can deploy your applications with Octopus Deploy.
+There are many more tools you might choose to use to create your package, but as long as you can create one of our [supported packages](/docs/packaging-applications/index.md#supported-formats) you can deploy your applications with Octopus Deploy.
 
 We've created the following tools to help package your applications for deployment with Octopus:
 
@@ -133,5 +133,5 @@ Learn more about how you can [deploy releases](/docs/deployment-process/releases
 
 ## In this section
 
-- [Delivery Pipeline](/docs/delivery-pipeline.md)
-- [Terms](/docs/terms.md)
+- [Delivery Pipeline](/docs/getting-started/delivery-pipeline.md)
+- [Terms](/docs/getting-started/terms.md)
