@@ -52,11 +52,8 @@ You configure TeamCity to package your applications by creating a [build configu
 
 ![](/docs/images/3048176/3278195.png)
 
-5. Enter the **source path**. <!-- what is an example of this? -->
-6. enter the **output path**. <!-- what is an example of this? -->
-
-<!-- is there more to do? -->
-
+5. Enter the **source path**.
+6. enter the **output path**.
 
 With these options selected, your packages will automatically be created using the version number of the current build. OctoPack will ensure these packages appear in the artifacts tab of TeamCity:
 
