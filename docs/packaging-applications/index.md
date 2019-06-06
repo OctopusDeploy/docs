@@ -84,7 +84,7 @@ There are many more tools you might choose to use, but as long as you can create
 
 Your continuous integration/build server will package your applications and make them available to Octopus for deployment from a [package repository](/docs/packaging-applications/package-repositories/index.md). The following tools are available to integrate your continuous integration/build server with Octopus Deploy:
 
- - [AppVeyor](/docs/api-and-integration/appveyor/index.md)
+ - [AppVeyor](/docs/api-and-integration/app-veyor/index.md)
  - [Azure DevOps & Team Foundation Server](/docs/api-and-integration/tfs-azure-devops/index.md)
  - [Bamboo](/docs/api-and-integration/bamboo.md)
  - [BitBucket Pipelines](docs/api-and-integration/bitbucket-pipelines/index.md)
