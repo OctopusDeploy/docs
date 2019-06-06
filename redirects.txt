@@ -427,7 +427,6 @@ docs/packaging-applications/creating-packages/build-tools/appveyor/index.md -> d
 docs/packaging-applications/creating-packages/build-tools/bamboo/index.md -> docs/packaging-applications/index.md
 docs/packaging-applications/creating-packages/build-tools/cake/index.md -> docs/packaging-applications/index.md
 docs/packaging-applications/creating-packages/build-tools/jenkins/index.md -> docs/packaging-applications/index.md
-docs/packaging-applications/creating-packages/build-tools/teamcity/index.md -> docs/packaging-applications/index.md
 docs/packaging-applications/creating-packages/build-tools/vsts/index.md -> docs/packaging-applications/index.md
 docs/packaging-applications/creating-packages/supported-packages -> docs/packaging-applications/index.md
 docs/packaging-applications/creating-packages/versioning -> docs/packaging-applications/versioning.md
