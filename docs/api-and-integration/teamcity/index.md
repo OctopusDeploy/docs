@@ -18,7 +18,7 @@ To push packages to Octopus during the OctoPack phase, enter the NuGet endpoint 
 
 ## Consuming the TeamCity NuGet feed in Octopus {#TeamCity-ConsumeNuGetFeedInOctopusConsumingtheTeamCityNuGetfeedinOctopus}
 
-!include <teamcity-feed>
+!include <teamcityfeed>
 
 ## Creating and Pushing Packages From TeamCity to Octopus {#TeamCity-CreateAndPushPackageToOctopusCreatingandpushingpackagesfromTeamCitytoOctopus}
 
