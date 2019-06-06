@@ -777,3 +777,4 @@ docs/packaging-applications/octopack/push-a-nuget-package-that-already-exists.md
 docs/installation/downloads.md -> docs/installation/index.md
 docs/api-and-integration/octopus.migrator.exe-command-line/migrator-export.md -> docs/api-and-integration/octopus.migrator.exe-command-line/export.md
 docs/api-and-integration/octopus.migrator.exe-command-line/migrator-import.md -> docs/api-and-integration/octopus.migrator.exe-command-line/import.md
+docs/api-and-integration/app-veyor/index.md -> docs/api-and-integration/appveyor/index.md
