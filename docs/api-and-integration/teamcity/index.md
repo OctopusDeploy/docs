@@ -6,40 +6,23 @@ position: 70
 
 !include <teamcity-intro>
 
+The Octopus TeamCity plugin comes with these custom build runners:
+
+1. **Octopus Deploy: Pack** Create a NuGet or Zip formatted package.
+2. **Octopus Deploy: Metadata** add information about the build, including work items and commit messages, that is then stored in custom metadata in Octopus Deploy.
+3. **Octopus Deploy: Push Packages** Push packages to the Octopus Deploy [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/pushing-packages-to-the-built-in-repository.md), optionally using the TeamCity zip feature to create packages on-the-fly.
+4. **Octopus Deploy: Create Release**
+  Creates a new release in Octopus Deploy, and optionally deploys it to an environment.
+5. **Octopus Deploy: Deploy Release**
+  Deploys an *existing* release to a new environment.
+6. **Octopus Deploy: Promote Release**
+  Promotes an *existing* release from one environment to another.
+
+The plugin is simply a wrapper for [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md), the Octopus command line tool for creating and deploying releases.
+
 !include <teamcity-install>
 
 !include <teamcity-pack>
-
-## Installing the Octopus TeamCity Plugin
-
-The Octopus Deploy TeamCity plugin is available in the following places:
-
-- The [Jetbrains Plugin Repository](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration).
-- The [Octopus Downloads page](https://octopus.com/downloads).
-- In TeamCity by navigating to **{{Administraton,Plugins List,Browse plugin respository}}** and searching for **Octopus Deploy Integration**.
-
-The TeamCity documentation has instructions and options for [installing plugins](https://www.jetbrains.com/help/teamcity/installing-additional-plugins.html).
-
-## Create Packages with TeamCity
-
-Octopus supports multiple [package formats](/docs/packaging-applications/index.md#supported-formats) for deploying your software. TeamCity can be configured to monitor you source control and package your applications when changes are made.
-
-You configure TeamCity to package your applications by creating a [build configuration](https://www.jetbrains.com/help/teamcity/build-configuration.html), and adding a step to the configuration of runner type, **Octopus Deploy: Pack**.
-
-1. Give the step a name.
-2. Enter the [package ID](/docs/packaging-applications/index.md#package-id).
-3. Select the type of **package format** you want to create, NuGet(default) or Zip.
-4. Enter the **package version**. The package version cannot be a single number (learn about [version numbers in Octopus](/docs/packaging-applications/index.md##version-numbers)). Make sure this evaluates to a multi-part number, for instance, **1.1.3.**. You may want to edit the General Settings for your project to ensure that the TeamCity build number uses multiple parts:
-
-![](/docs/images/3048176/3278195.png)
-
-5. Enter the **source path**.
-6. enter the **output path**.
-
-With these options selected, your packages will automatically be created using the version number of the current build. OctoPack will ensure these packages appear in the artifacts tab of TeamCity:
-
-![](/docs/images/3048176/3278194.png)
-
 
 ## Using Octopus as a Package Repository {#TeamCity-PushpackagestoOctopusUsingOctopusasaPackageRepository}
 

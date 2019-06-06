@@ -11,7 +11,7 @@ TeamCity 7 and above can act as a NuGet repository. You can enable this by navig
 
 Once added, the TeamCity feed will appear in the NuGet feed list.
 
-You can use the *Test* link to make sure that the NuGet package is available, before creating your Octopus project:
+You can use the *Test* link to make sure that the NuGet package is available before creating your Octopus project.
 
 :::success
 **Tip: delayed package publishing**
