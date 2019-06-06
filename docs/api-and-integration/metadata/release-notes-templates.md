@@ -1,5 +1,5 @@
 ---
-title: Release notes templates
+title: Release Notes Templates
 description: How to take advantage of the package metadata during release creation.
 ---
 
@@ -84,7 +84,7 @@ public class ReleaseChanges
   public string ReleaseNotes { get; set; }
   public WorkItemLink[] WorkItems { get; set; }
   public Commit[] Commits { get; set; }
-  public PackageBuildMetadata[] PackageBuildMetadata { get; set; } // Added in 2019.5.5 
+  public PackageBuildMetadata[] PackageBuildMetadata { get; set; } // Added in 2019.5.5
 }
 
 public class WorkItemLink
@@ -94,7 +94,7 @@ public class WorkItemLink
     public string Description { get; set; }
 }
 
-// Added in 2019.5.5 
+// Added in 2019.5.5
 public class PackageBuildMetadata
 {
     public string PackageId { get; set; }
@@ -180,7 +180,7 @@ Which addressed the following issues:</br>
   #{unless workItem.LinkUrl}
       #{workItem.Description}</br>
   #{/unless}
-#{/each} 
+#{/each}
 ```
 
 Note that when you do this, Octopus will still display the work items in the UI for each release. The UI will automatically show the work items list if there are any and it doesn't see you referencing any of them in the release notes text.
@@ -198,6 +198,3 @@ Here are the notes for the packages
 #{/each}
 #{/each}
 ```
-
-
-
