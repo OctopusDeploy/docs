@@ -207,7 +207,6 @@ docs/guides/elastic-and-transient-environments/index.md -> docs/deployment-patte
 docs/guides/elastic-and-transient-environments/cleaning-up-environments.md -> docs/deployment-patterns/elastic-and-transient-environments/cleaning-up-environments.md
 docs/guides/elastic-and-transient-environments/deploying-to-transient-targets.md -> docs/deployment-patterns/elastic-and-transient-environments/deploying-to-transient-targets.md
 docs/guides/elastic-and-transient-environments/immutable-infrastructure.md -> docs/deployment-patterns/elastic-and-transient-environments/immutable-infrastructure.md
-docs/guides/server-extensibility/index.md -> docs/administration/server-extensibility/index.md
 docs/guides/server-extensibility/authoring-an-octopus-deploy-server-extension.md -> docs/administration/server-extensibility/authoring-an-octopus-deploy-server-extension.md
 docs/guides/server-extensibility/customising-an-octopus-deploy-server-extension.md -> docs/administration/server-extensibility/customising-an-octopus-deploy-server-extension.md
 docs/guides/server-extensibility/installing-a-custom-server-extension.md -> docs/administration/server-extensibility/installing-a-custom-server-extension.md
