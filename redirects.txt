@@ -414,13 +414,6 @@ docs/infrastructure/windows-targets/troubleshoot-listening-tentacles.md -> docs/
 docs/infrastructure/windows-targets/troubleshoot-polling-tentacles.md -> docs/infrastructure/deployment-targets/windows-targets/troubleshooting-tentacles.md
 docs/packaging-applications/creating-packages/applications/index.md -> docs/packaging-applications/index.md
 docs/packaging-applications/creating-packages/applications/web-apps/index.md -> docs/packaging-applications/index.md
-docs/packaging-applications/creating-packages/build-tools/index.md -> docs/packaging-applications/index.md
-docs/packaging-applications/creating-packages/build-tools/appveyor/index.md -> docs/packaging-applications/index.md
-docs/packaging-applications/creating-packages/build-tools/bamboo/index.md -> docs/packaging-applications/index.md
-docs/packaging-applications/creating-packages/build-tools/cake/index.md -> docs/packaging-applications/index.md
-docs/packaging-applications/creating-packages/build-tools/jenkins/index.md -> docs/packaging-applications/index.md
-docs/packaging-applications/creating-packages/build-tools/teamcity/index.md -> docs/packaging-applications/index.md
-docs/packaging-applications/creating-packages/build-tools/vsts/index.md -> docs/packaging-applications/index.md
 docs/packaging-applications/creating-packages/supported-packages -> docs/packaging-applications/index.md
 docs/packaging-applications/creating-packages/versioning -> docs/packaging-applications/versioning.md
 docs/deployment-process/coordinating-multiple-projects/index.md -> docs/deployment-process/projects/coordinating-multiple-projects/index.md
