@@ -20,7 +20,7 @@ Consider the following factors when deciding on the versioning scheme you'll use
 3. Will your version numbers be confusing, or will they help people understand the changes that have been made to the software?
 
   *For example: bumping a major version component (first part) means there are potentially breaking changes, but bumping a patch (3rd part) should be safe to upgrade, and safe to rollback if something goes wrong.*
-  
+
 4. Does your tool chain support the versioning scheme?
 
   *Octopus supports Semantic Versioning, which enables enhanced features like [Channels](/docs/deployment-process/channels/index.md).*
@@ -106,7 +106,7 @@ For an in-depth look at Maven versions, see the blog post [Maven Versions Explai
  - [Packaging applications](/docs/packaging-applications/index.md).
  - Creating packages with [Octo.exe](/docs/packaging-applications/octo.exe.md).
  - Creating packages with [Octopack](/docs/packaging-applications/octopack/index.md).
- - Using the [TeamCity plugin](/docs/api-and-integration/teamcity/index.md).
- - Using the [Azure DevOps plugin](/docs/api-and-integration/tfs-azure-devops/using-octopus-extension/index.md).
+ - Using the [TeamCity plugin](/docs/packaging-applications/build-servers/teamcity/index.md).
+ - Using the [Azure DevOps plugin](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/index.md).
  - Using [Package Repositories](/docs/packaging-applications/index.md).
  - Creating [Package Deployments](/docs/deployment-examples/package-deployments/index.md).

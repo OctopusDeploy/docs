@@ -120,7 +120,7 @@ These are known issues to be aware of with other compression libraries:
  - [Packaging Application](/docs/packaging-applications/index.md)
  - Learn about [NuGet Packages](/docs/packaging-applications/nuget-packages.md).
  - Creating packages with [Octopack](/docs/packaging-applications/octopack/index.md).
- - Using the [TeamCity plugin](/docs/api-and-integration/teamcity/index.md).
- - Using the [Azure DevOps plugin](/docs/api-and-integration/tfs-azure-devops/using-octopus-extension/index.md).
+ - Using the [TeamCity plugin](/docs/packaging-applications/build-servers/teamcity/index.md).
+ - Using the [Azure DevOps plugin](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/index.md).
  - Using [Package Repositories](/docs/packaging-applications/index.md).
  - Creating [Package Deployments](/docs/deployment-examples/package-deployments/index.md).

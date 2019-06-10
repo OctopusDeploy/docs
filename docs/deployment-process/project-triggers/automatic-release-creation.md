@@ -8,12 +8,12 @@ position: 15
 **Consider using a build server extension**
 We have extensions/plugins available for the most popular build servers. These extensions will help you [create packages](/docs/packaging-applications/index.md), [push those packages to the built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/pushing-packages-to-the-built-in-repository.md), create releases and deploy them to your environments:
 
-- [TeamCity](/docs/api-and-integration/teamcity/index.md).
-- [Azure DevOps (formerly VSO) and TFS 2015](/docs/api-and-integration/tfs-azure-devops/using-octopus-extension/index.md).
+- [TeamCity](/docs/packaging-applications/build-servers/teamcity/index.md).
+- [Azure DevOps (formerly VSO) and TFS 2015](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/index.md).
   :::
 
 :::success
-Take a look at the [end-to-end guide for Azure DevOps/TFS](/docs/api-and-integration/tfs-azure-devops/index.md) which covers building and packaging your application, creating releases and deploying to your environments.
+Take a look at the [end-to-end guide for Azure DevOps/TFS](/docs/packaging-applications/build-servers/tfs-azure-devops/index.md) which covers building and packaging your application, creating releases and deploying to your environments.
 :::
 
 :::hint

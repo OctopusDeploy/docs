@@ -3,7 +3,7 @@ title: GitHub Issue Tracking Integration
 description: Configure GitHub issue tracking with Octopus.
 ---
 
-**Octopus 2019.4** added integration with GitHub to allow Octopus to display links to Github issues for work items received from your build server. The integration adds GitHub issue details and links to your releases and deployments and it can automatically retrieve release notes from GitHub to help automate the release note process. This feature builds upon the functionality to [track metadata and work item](/docs/api-and-integration/metadata/index.md) information through your CI/CD pipeline.
+**Octopus 2019.4** added integration with GitHub to allow Octopus to display links to Github issues for work items received from your build server. The integration adds GitHub issue details and links to your releases and deployments and it can automatically retrieve release notes from GitHub to help automate the release note process. This feature builds upon the functionality to [track metadata and work item](/docs/packaging-applications/build-servers/metadata/index.md) information through your CI/CD pipeline.
 
 ![Octopus release with GitHub issues](octo-github-release-details.png "width=500")
 
@@ -36,7 +36,7 @@ The GitHub Issue Tracker extension is very easy to configure with a small number
 
     The password should be a personal access token, rather than an actual password. You can create a token in your GitHub account settings in the 'Developer settings' area.
     
-    - **Release Note Prefix**: If specified, Octopus will look for a comment that starts with the given prefix text and use whatever text appears after the prefix as the release note, which will come through to the [release notes templates](/docs/api-and-integration/metadata/release-notes-templates.md) as the work item link's description. If no comment is found with the prefix then Octopus will default back to using the title for that work item.
+    - **Release Note Prefix**: If specified, Octopus will look for a comment that starts with the given prefix text and use whatever text appears after the prefix as the release note, which will come through to the [release notes templates](/docs/packaging-applications/build-servers/metadata/release-notes-templates.md) as the work item link's description. If no comment is found with the prefix then Octopus will default back to using the title for that work item.
 
     For example, a prefix of `Release note:` can be used to identify a customer friendly issue title vs a technical feature or bug fix title.
 
@@ -50,4 +50,4 @@ The Octopus extension looks for these same keywords, and ignores issue reference
 
 ## Next
 
- - Learn about other [Metadata and Work Items](/docs/api-and-integration/metadata/index.md).
+ - Learn about other [Metadata and Work Items](/docs/packaging-applications/build-servers/metadata/index.md).
