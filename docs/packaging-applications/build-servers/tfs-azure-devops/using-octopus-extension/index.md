@@ -130,7 +130,7 @@ To add a step to your Release process, edit your Release Definition, select the 
 
 :::hint
 **If not using OctoPack**
-This step is only required if you are not [using OctoPack](/docs/packaging-applications/tfs-azure-devops/using-octopack.md) to create your package.
+This step is only required if you are not [using OctoPack](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopack.md) to create your package.
 :::
 
 Add a step to your Build or Release process, choose **Package**, click **Add** next to the **Package Application** task.
