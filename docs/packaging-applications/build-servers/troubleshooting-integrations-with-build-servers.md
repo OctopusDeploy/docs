@@ -6,7 +6,7 @@ position: 80
 
 Making your build server work with your deployment server is a key aspect of any successful Continuous Integration (CI) story. For this reason, at Octopus we put a lot of effort in supporting integrations with pretty much any build server technology in the market.
 
-A key player in this story is our command line tool [Octo.exe](\docs/octopus-rest-api/octo.exe-command-line\index.md). This tool exposes some of the most important functionalities of Octopus through easy commands that can be included in pretty much any process. It was built using `.NET core` so it can be used in Windows, Linux and Mac environments.
+A key player in this story is our command line tool [Octo.exe](docs/octopus-rest-api/octo.exe-command-line\index.md). This tool exposes some of the most important functionalities of Octopus through easy commands that can be included in pretty much any process. It was built using `.NET core` so it can be used in Windows, Linux and Mac environments.
 
 If you are reading this doc, odds are you already tried to run an Octopus-related step in your build process and something didn't work the way you expected it. The goal of this document is to explain how all our integration steps work on the background so anyone can troubleshoot them on their own.
 
@@ -14,32 +14,32 @@ If you are reading this doc, odds are you already tried to run an Octopus-relate
 
 ### What Happens When an Octopus Step is Executed During the Build Process {#Octopus-Steps-What-happens-behind}
 
-The Octopus Deploy team supports many of the most popular integration plugins/extensions our there, like the ones for [Azure DevOps/TFS](\docs/octopus-rest-api/tfs-azure-devops\index.md), [Teamcity](\docs/octopus-rest-api/teamcity/index.md) and [Bamboo](\docs/octopus-rest-api/bamboo.md). All the steps provided by these extensions/plugins are nothing but wrappers of `Octo.exe` that provide a UI with fields whose values will be passed to this command line tool during the build.
+The Octopus Deploy team supports many of the most popular integration plugins/extensions our there, like the ones for [Azure DevOps/TFS](/docs/octopus-rest-api/tfs-azure-devops\index.md), [Teamcity](/docs/octopus-rest-api/teamcity/index.md) and [Bamboo](/docs/octopus-rest-api/bamboo.md). All the steps provided by these extensions/plugins are nothing but wrappers of `Octo.exe` that provide a UI with fields whose values will be passed to this command line tool during the build.
 
 Lets take for example this TeamCity **Octopus Deploy: Create Release** step:
 
-![](\docs\images\5672460\5672462.png)
+![](/docs\images\5672460\5672462.png)
 
 Each of the values marked on the fields above can be seen in the `Octo.exe` call made by the build server later on:
 
-![](\docs\images\5672460\5672463.png)
+![](/docs\images\5672460\5672463.png)
 
 *This is a screenshot of a TeamCity log fragment edited for visual purposes. You can check the real log output in our [Shared TeamCity server](http://teamcity.octopus.com/viewLog.html?buildId=440630&buildTypeId=OctoFX_OctoFX&tab=buildLog&state=1021%2C1023#_state=1021,1023&focus=1024) by logging in as a guest. You might have to click on that link once to login, and then a second time to go to the highlighted line in the log*
 
 The same holds true for this **Package Application** step in Azure DevOps and its log output:
 
-![](\docs\images\5672460\5672464.png)
+![](/docs\images\5672460\5672464.png)
 
 
-![](\docs\images\5672460\5672465.png)
+![](/docs\images\5672460\5672465.png)
 
-The bottom line is that every step will in the end call an `Octo.exe` command. For the full list of commands [check our documentation](\docs/octopus-rest-api/octo.exe-command-line\index.md).
+The bottom line is that every step will in the end call an `Octo.exe` command. For the full list of commands [check our documentation](/docs/octopus-rest-api/octo.exe-command-line\index.md).
 
 ### Troubleshooting the Error {#Octopus-Steps-Troubleshooting-the-error}
 
 As shown in the above screenshots, the exact `Octo.exe` command that was executed (and failed) will be printed in the logs. So the best way to troubleshoot that error would be to copy the full command, and try to run it yourself by [downloading Octo.exe to your local machine](https://octopus.com/downloads). A few tips and gotchas for this:
 
-- If you are not familiar with `Octo.exe`, then [read our documentation about it](\docs/octopus-rest-api/octo.exe-command-line\index.md). Understanding how the command you are troubleshooting works will be critical for your success.
+- If you are not familiar with `Octo.exe`, then [read our documentation about it](/docs/octopus-rest-api/octo.exe-command-line\index.md). Understanding how the command you are troubleshooting works will be critical for your success.
 
 - Your build server will most likely execute the `Octo.exe` command from a build agent machine, which won't be identical to your workstation (mostly network-wise). Keep this in mind when troubleshooting your `Octo.exe` command, and if possible always try to run it from the same machine that your build server is using as build agent.
 
@@ -78,4 +78,4 @@ Make sure to set the ticket as **private** before attaching any kind of log, as 
 
 If you are using a custom step/plugin/extension to hook up your Build server with Octopus, then all we can recommend you is to know your `Octo.exe` game very well.
 
-If you are using a build server technology [that's not in our supported list](\docs/octopus-rest-api/index.md), then we encourage you to go to our [UserVoice page](https://octopusdeploy.uservoice.com/) and log a feature request asking us to support it. If enough users vote for it, It'll show up in our radar and we might be able to do something about it.
+If you are using a build server technology [that's not in our supported list](/docs/octopus-rest-api/index.md), then we encourage you to go to our [UserVoice page](https://octopusdeploy.uservoice.com/) and log a feature request asking us to support it. If enough users vote for it, It'll show up in our radar and we might be able to do something about it.
