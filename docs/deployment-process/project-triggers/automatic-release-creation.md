@@ -13,7 +13,7 @@ We have extensions/plugins available for the most popular build servers. These e
   :::
 
 :::success
-Take a look at the [end-to-end guide for Azure DevOps/TFS](/docs/api-and-integration/tfs-azure-devops/index.md) which covers building and packaging your application, creating releases and deploying to your environments.
+Take a look at the [end-to-end guide for Azure DevOps/TFS](/docs/packaging-applications/build-servers/tfs-azure-devops/index.md) which covers building and packaging your application, creating releases and deploying to your environments.
 :::
 
 :::hint

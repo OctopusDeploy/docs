@@ -22,7 +22,7 @@ For example, create a script called octo.ps1 with the following content:
 Usually Azure DevOps agents scan for associated capabilities, but won't pick anything up from the PATH automatically. In order for a capability to be detected, you must also add an environment variable named `Octo` with the associated
 version.
 
-![Octo System Variable](/docs/api-and-integration/tfs-azure-devops/using-octopus-extension/octo-system-variable.jpg)
+![Octo System Variable](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/octo-system-variable.jpg)
 
 Once Octo is in the path and the above system variable is specified, Azure DevOps will detect the capability automatically.
 
@@ -39,7 +39,7 @@ You must restart the build agent service if making these changes while it is cur
 If you know that a build agent has `Octo` available on the path then you can also specify the capability manually using the Azure DevOps/TFS web interface. Although this may be rather simple, the capability would have to be specified for
 each agent individually which can be quite cumbersome.
 
-![Octo specify capability](/docs/api-and-integration/tfs-azure-devops/using-octopus-extension/octo-manual-capability.jpg)
+![Octo specify capability](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/octo-manual-capability.jpg)
 
 ## Images and Automation
 
@@ -49,6 +49,6 @@ Microsoft provide a number of starting points to create your own build agent ima
 
 If you're having difficulties downloading the Octopus CLI when you run each step (perhaps due to firewalls and proxies) we also offer another helpful step: `Octopus tools installer`
 
-![Octopus tools installer](/docs/api-and-integration/tfs-azure-devops/using-octopus-extension/octopus-tools-installer.png)
+![Octopus tools installer](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/octopus-tools-installer.png)
 
 This step will fallback to using an embedded version of `octo` if the selected version cannot be successfully downloaded.

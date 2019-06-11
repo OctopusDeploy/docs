@@ -32,7 +32,7 @@ If you want to make changes to the build task that might not be appropriate for 
 
 ## Use Your Own Version of Octo
 
-You can bring your own version of Octo and avoid the use of installer tasks or accessing the internet by [registering Octo as a capability](/docs/api-and-integration/tfs-azure-devops/using-octopus-extension/install-octo-capability.md).
+You can bring your own version of Octo and avoid the use of installer tasks or accessing the internet by [registering Octo as a capability](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/install-octo-capability.md).
 
 ## Add a Connection to Octopus Deploy
 
@@ -78,7 +78,7 @@ If there are scope restrictions (e.g. by Project or Environment) against the acc
 ## Demands and the Octo Installer Task
 
 The Azure DevOps extension tasks require Octo to be available on the path when executing on a build agent and must have the .net core 2.0.0 runtime or newer installed. This may not always be possible such as with the Azure DevOps hosted agents. In order to
-make this work, all Octopus tasks will automatically attempt to download and use the latest version of Octo tools unless they're [available on the build agent](/docs/api-and-integration/tfs-azure-devops/using-octopus-extension/install-octo-capability.md) as specified above. If you would like to avoid any additional downloads or to use a specific Octo version then you can by adding the Octo Installer task to the start of your build definition. No attempt will be made to download Octo if the capability is detected on your build agent.
+make this work, all Octopus tasks will automatically attempt to download and use the latest version of Octo tools unless they're [available on the build agent](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/install-octo-capability.md) as specified above. If you would like to avoid any additional downloads or to use a specific Octo version then you can by adding the Octo Installer task to the start of your build definition. No attempt will be made to download Octo if the capability is detected on your build agent.
 
 :::hint
 Version 2.x.x of the extension included a bundled version of the Octo tools and did not require the agent to be setup with Octo in the path and did not support running on Linux or Mac build agents.
