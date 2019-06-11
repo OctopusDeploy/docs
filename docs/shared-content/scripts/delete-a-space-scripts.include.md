@@ -1,4 +1,4 @@
-```powershell PowerShell with REST Requests
+```powershell PowerShell
 $octopusURL = "https://youroctourl"
 $octopusAPIKey = "API-YOURAPIKEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
@@ -32,7 +32,7 @@ catch {
     exit
 }
 ```
-```powershell PowerShell with Octopus.Client
+```powershell PowerShell (Octopus.Client)
 Add-Type -Path 'path\to\Octopus.Client.dll'
 
 $octopusURL = "https://youroctourl"
@@ -59,7 +59,7 @@ try {
     Write-Host $_.Exception.Message
 }
 ```
-```csharp C# with Octopus.Client
+```csharp C#
 #r "path\to\Octopus.Client.dll"
 
 using Octopus.Client;
