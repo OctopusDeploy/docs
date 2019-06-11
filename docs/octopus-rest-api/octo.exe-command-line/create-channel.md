@@ -1,26 +1,33 @@
 ---
-title: create-project
-description: Using the Octo.exe command line tool to create projects.
-position: 60
+title: create-channel
+description: Using the Octo.exe command line tool to create channels.
+position: 40
 ---
 
-[Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to create a project inside a project group.
+[Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to create [channels](/docs/deployment-process/channels/index.md) on your Octopus instance.
 
 ```text
-Usage: octo create-project [<options>]
+Usage: octo create-channel [<options>]
 
 Where [<options>] is any of:
 
-Project creation:
+Create:
 
-      --name=VALUE           The name of the project
-      --projectGroup=VALUE   The name of the project group to add this
-                             project to. If the group doesn't exist, it will
-                             be created.
-      --lifecycle=VALUE      The name of the lifecycle that the project will
-                             use.
-      --ignoreIfExists       If the project already exists, an error will be
-                             returned. Set this flag to ignore the error.
+      --project=VALUE        The name of the project in which to create the
+                             channel
+      --channel=VALUE        The name of the channel to create
+      --description=VALUE    [Optional] A description of the channel
+      --lifecycle=VALUE      [Optional] if specified, the name of the
+                             lifecycle to use for promoting releases through
+                             this channel, otherwise this channel will
+                             inherit the project lifecycle
+      --make-default-channel [Optional, Flag] if specified, set the new
+                             channel to be the default channel replacing any
+                             existing default channel
+      --update-existing      [Optional, Flag] if specified, updates the
+                             matching channel if it already exists, otherwise
+                             this command will fail if a matching channel
+                             already exists
 
 Common options:
 
@@ -76,15 +83,15 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-## Basic Example {#Creatingprojects-Basicexample}
+## Basic Example {#Creatingchannels-Basicexample}
 
-The following command will create a project called *MyWebApp* into the project group *MyProjectGroup*
+The following command will create a channel in *MyProject* called *Experimental* using the *Test Only* lifecycle instead
 
 ```bash
-Octo create-project --name MyWebApp --projectgroup MyProjectGroup --server http://MyOctopusServerURL.com --apikey MyAPIKey
+Octo create-channel --project MyProject --name Experimental --lifecycle "Test Only" --server http://MyOctopusServerURL.com --apikey MyAPIKey
 ```
 
 :::success
 **Tip**
-Learn more about [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md), and [creating API keys](/docs/api-and-integration/api/how-to-create-an-api-key.md).
+Learn more about [Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md), and [creating API keys](/docs/octopus-rest-api/api/how-to-create-an-api-key.md).
 :::

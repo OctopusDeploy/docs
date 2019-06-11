@@ -5,11 +5,11 @@ position: 160
 hideInThisSection: true
 ---
 
-**Octo.exe** is a command line tool that builds on top of the [Octopus Deploy REST API](/docs/api-and-integration/api/index.md).
+**Octo.exe** is a command line tool that builds on top of the [Octopus Deploy REST API](/docs/octopus-rest-api/api/index.md).
 
 We provide a number of ways to install Octo onto your machine:
 
-- Using .Net Core CLI as a [global tool](/docs/api-and-integration/octo.exe-command-line/install-global-tool.md) (recommended).
+- Using .Net Core CLI as a [global tool](/docs/octopus-rest-api/octo.exe-command-line/install-global-tool.md) (recommended).
 - Download from [Octopus downloads page](https://octopus.com/downloads).
 - Using [Chocolatey](https://chocolatey.org/packages/OctopusTools)
 
@@ -86,7 +86,7 @@ Most commands also support [JSON formatted output](formatted-output.md).
 
 :::success
 **Creating API keys**
-Learn about [how to create an API key](/docs/api-and-integration/api/how-to-create-an-api-key.md).
+Learn about [how to create an API key](/docs/octopus-rest-api/api/how-to-create-an-api-key.md).
 :::
 
 :::hint

@@ -5,7 +5,7 @@ description:  Migrating between self-hosted and Octopus Cloud.
 ---
 
 :::warning
-**Warning:** our existing [Migration API](/docs/api-and-integration/migration-api/index.md) is **not supported** for migrations to cloud instances due to configuration differences between On-Premise and Cloud installations.
+**Warning:** our existing [Migration API](/docs/octopus-rest-api/migration-api/index.md) is **not supported** for migrations to cloud instances due to configuration differences between On-Premise and Cloud installations.
 :::
 
 ## Migrating to Octopus Cloud
@@ -37,11 +37,11 @@ Start by [installing](/docs/installation/index.md) a new Octopus Server.
 
 Restore the database backup provided by Octopus Support, ensuring that the user account under which the Octopus Service is running has access to the database.
 
-Using the [database](/docs/api-and-integration/octopus.server.exe-command-line/database.md) command, set the connection string and the master key.
+Using the [database](/docs/octopus-rest-api/octopus.server.exe-command-line/database.md) command, set the connection string and the master key.
 `Octopus.Server.exe database --connectionString=<connection string to restored database> --masterKey=<master key provided by Octopus Support>`
 
 From the provided zip file, copy the *task logs*, *artifacts* and *packages* to the corresponding folders under the Octopus Home folder, by default this is `C:\Octopus`.
-Update the paths for the *task logs*, *artifacts* and *packages* folders using the [path](/docs/api-and-integration/octopus.server.exe-command-line/path.md) command.
+Update the paths for the *task logs*, *artifacts* and *packages* folders using the [path](/docs/octopus-rest-api/octopus.server.exe-command-line/path.md) command.
 
 `Octopus.Server.exe path --nugetRepositry=<path to packages folder> --artifacts=<path to artifacts folder> --tasklogs=<path to task logs folder>`
 

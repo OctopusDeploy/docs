@@ -1,62 +1,24 @@
 ---
-title: create-release
-description: Using the Octo.exe command line tool to create releases.
-position: 70
+title: promote-release
+description: Using the Octo.exe command line tool to promote releases between environments.
+position: 270
 ---
 
-[Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to automate the creation of releases using the **`create-release`** command. This allows you to easily integrate Octopus with other continuous integration servers.
-
-This command allows you to create a release, and optionally deploy it to one or more environments.
-
-:::success
-**Using Channels?**
-If you are using [Channels](/docs/deployment-process/channels/index.md) (introduced in **Octopus 3.2**) this command will automatically select the most appropriate channel for your release, unless you provide a specific channel using `--channel=VALUE`.
-:::
-
-Usage:
+[Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to promote a release from one environment to another.
 
 ```text
-Usage: octo create-release [<options>]
+Usage: octo promote-release [<options>]
 
 Where [<options>] is any of:
 
-Release creation:
+Release Promotion:
 
       --project=VALUE        Name of the project
-      --defaultpackageversion, --packageversion=VALUE
-                             Default version number of all packages to use
-                             for this release. Override per-package using --
-                             package.
-      --version, --releaseNumber=VALUE
-                             [Optional] Release number to use for the new
-                             release.
-      --channel=VALUE        [Optional] Channel to use for the new release.
-                             Omit this argument to automatically select the
-                             best channel.
-      --package=VALUE        [Optional] Version number to use for a package
-                             in the release. Format: StepName:Version or
-                             PackageID:Version or
-                             StepName:PackageName:Version. StepName,
-                             PackageID, and PackageName can be replaced with
-                             an asterisk.
-      --packagesFolder=VALUE [Optional] A folder containing NuGet packages
-                             from which we should get versions.
-      --releasenotes=VALUE   [Optional] Release Notes for the new release.
-                             Styling with Markdown is supported.
-      --releasenotesfile=VALUE
-                             [Optional] Path to a file that contains Release
-                             Notes for the new release. Supports Markdown
-                             files.
-      --ignoreexisting       [Optional, Flag] Don't create this release if
-                             there is already one with the same version
-                             number.
-      --ignorechannelrules   [Optional, Flag] Create the release ignoring any
-                             version rules specified by the channel.
-      --packageprerelease=VALUE
-                             [Optional] Pre-release for latest version of all
-                             packages to use for this release.
-      --whatif               [Optional, Flag] Perform a dry run but don't
-                             actually create/deploy release.
+      --from=VALUE           Name of the environment to get the current
+                             deployment from, e.g., Staging
+      --to, --deployto=VALUE Environment to deploy to, e.g., Production
+      --updateVariables      Overwrite the variable snapshot for the release
+                             by re-importing the variables from the project
 
 Deployment:
 
@@ -121,9 +83,6 @@ Deployment:
                              tag; specify this argument multiple times to
                              build a query/filter with multiple tags, just
                              like you can in the user interface.
-      --deployto=VALUE       [Optional] Environment to automatically deploy
-                             to, e.g., Production; specify this argument
-                             multiple times to deploy to multiple environments
 
 Common options:
 
@@ -179,77 +138,15 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-## Basic Examples {#Creatingreleases-Basicexamples}
+## Basic Example {#Promotingreleases-Basicexample}
 
-This will create a new release of the *HelloWorld* project using the latest available NuGet packages for each step in the project. The version number of the release will be the highest NuGet package version. You can override this using:
-
-```bash
-octo create-release --project HelloWorld --server http://octopus/ --apiKey API-ABCDEF123456
-```
-
-This will create a release with a specified release number (note that this is not the NuGet package version number):
+The following command will promote the latest release of the*Web* projectdeployed to *Development*to the environment *Staging.*
 
 ```bash
-octo create-release --project HelloWorld --version 1.0.3 --server http://octopus/ --apiKey API-ABCDEF123456
+Octo promote-release --project Web --from Development --to Staging -progress --server http://MyOctopusServerURL.com --apikey MyAPIKey
 ```
 
-## Specifying the Package Version {#Creatingreleases-Specifyingthepackageversion}
-
-For each step that has a package, the version is determined in the following order:
-
- 1. The step name matches a `--package` parameter or a file filename found by `--packagesFolder`.
- 1. The package id matches a `--package` parameter or a file found by `--packagesFolder`.
- 1. The value from the ` --defaultpackageversion` or `--packageversion` parameter.
-
- If there are duplicate names/ids resulting from the `--package` and `--packagesFolder` parameters, the last one specified is used.
-
-### Option --packageVersion
-This will create a release *(1.0.3)* with a specified NuGet package version *(1.0.1)*:
-
-```bash
-octo create-release --project HelloWorld --version 1.0.3 --packageVersion 1.0.1 --server http://octopus/ --apiKey API-ABCDEF123456
-```
-
-### Option --package
-This will create a release for a project with multiple packages, each with a different version. You are able to specify a step name and version pair with this option. This way you can use different versions of the same package for different steps:
-
-```bash
-octo create-release --project HelloWorld --version 1.0.3 --package StepA:1.0.1 --package StepB:1.0.2 --server http://octopus/ --apiKey API-ABCDEF123456
-```
-
-If you want to use a specific version of a package for `StepA`, and the latest version of the package available for `StepB`, you can simply omit the parameter for the second step/package:
-
-```bash
-octo create-release --project HelloWorld --version 1.0.3 --package StepA:1.0.1 --server http://octopus/ --apiKey API-ABCDEF123456
-```
-
-The example above will use `1.0.3` for `StepA`, and the latest version available at the moment for `StepB`.
-
-For steps which have multiple packages (e.g. _Run a Script_ steps can [reference multiple packages](/docs/deployment-examples/custom-scripts/run-a-script-step.md#referencing-packages
-)), the format `StepName:PackageName:Version` can also be used:  
-
-```bash
-octo create-release --project HelloWorld --version 1.0.3 --package StepA:Acme.Web:1.0.0 --package StepA:Acme.Data:2.0.0 --server http://octopus/ --apiKey API-ABCDEF123456
-```
-
-In the example above, `StepA` will use `1.0.0` for `Acme.Web` and `2.0.0` for `Acme.Data`.
-
-### Option --packagesFolder
-
-This will create a release for a project with multiple packages, by taking the version for each package from a folder containing the packages (this approach works well if your build server has just built the packages):
-
-```bash
-octo create-release --project HelloWorld --version 1.0.3 --packagesFolder packages --server http://octopus/ --apiKey API-ABCDEF123456
-```
-
-## Deploying a Release After Creating It {#Creatingreleases-Deployingareleaseaftercreatingit}
-
-To create a release *and* deploy it to an environment named *Production*:
-
-```bash
-octo create-release --project HelloWorld --deployto Production --server http://octopus/ --apiKey API-ABCDEF123456 --progress
-```
-
-## Release Notes Supported Syntax
-We use [showdownjs](https://github.com/showdownjs/showdown) to render release notes on the dashboard.
-Showdownjs supports the common markdown syntax as well as a rich set of extras such as tables and task lists. For the full list see https://github.com/showdownjs/showdown/wiki/Showdown's-Markdown-syntax.
+:::success
+**Tip**
+Learn more about [Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md), and [creating API keys](/docs/octopus-rest-api/api/how-to-create-an-api-key.md).
+:::

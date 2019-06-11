@@ -38,7 +38,7 @@ After installing and configuring a new Tentacle, you need to run a health check 
 
 The first time you complete a health check on a Tentacle or SSH Target, you will see health warnings and that Calamari needs to be installed.
 
-Learn more about [Calamari](/docs/api-and-integration/calamari.md).
+Learn more about [Calamari](/docs/octopus-rest-api/calamari.md).
 
 Octopus will automatically push the latest version of Calamari with your first deployment, but you can do the following to install Calamari:
 
