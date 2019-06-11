@@ -770,7 +770,7 @@ docs/installation/downloads.md -> docs/installation/index.md
 docs/api-and-integration/octopus.migrator.exe-command-line/migrator-export.md -> docs/octopus-rest-api/octopus.migrator.exe-command-line/export.md
 docs/api-and-integration/octopus.migrator.exe-command-line/migrator-import.md -> docs/octopus-rest-api/octopus.migrator.exe-command-line/import.md
 docs/api-and-integration/app-veyor/index.md -> docs/packaging-applications/build-servers/appveyor/index.md
-docs/api-and-integration/server-extensibility -> docs/administration/server-extensibility
+docs/api-and-integration/server-extensibility/index.md -> docs/administration/server-extensibility/index.md
 docs/api-and-integration/server-extensibility/authoring-an-octopus-deploy-server-extension.md -> docs/administration/server-extensibility/authoring-an-octopus-deploy-server-extension.md
 docs/api-and-integration/server-extensibility/customising-an-octopus-deploy-server-extension.md -> docs/administration/server-extensibility/customizing-an-octopus-deploy-server-extension.md
 docs/api-and-integration/server-extensibility/installing-a-custom-server-extension.md -> docs/administration/server-extensibility/installing-a-custom-server-extension.md
@@ -889,3 +889,7 @@ docs/api-and-integration/tentacle.exe-command-line/watchdog.md -> docs/octopus-r
 docs/api-and-integration/calamari.md -> docs/octopus-rest-api/calamari.md
 docs/api-and-integration/index.md -> docs/octopus-rest-api/index.md
 docs/api-and-integration/octopus.client.md -> docs/octopus-rest-api/octopus.client.md
+docs/api-and-integration/metadata/index.md -> docs/packaging-applications/build-servers/index.md
+docs/api-and-integration/metadata/github.md -> docs/packaging-applications/build-servers/github.md
+docs/api-and-integration/metadata/jira.md -> docs/packaging-applications/build-servers/jira.md
+docs/api-and-integration/metadata/release-note-templates.md -> docs/packaging-applications/build-servers/release-note-templates.md
