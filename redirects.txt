@@ -783,3 +783,4 @@ docs/api-and-integration/tfs-azure-devops/using-octopus-extension/extension-comp
 docs/api-and-integration/tfs-azure-devops/using-octopus-extension/install-octo-capability.md -> docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/install-octo-capability.md
 docs/api-and-integration/tfs-azure-devops/using-octopus-extension/manually-install-the-build-task.md -> docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/manually-install-the-build-task.md
 docs/api-and-integration/continua-ci.md -> docs/packaging-applications/build-servers/continua-ci.md
+docs/api-and-integration/troubleshooting-integrations-with-build-servers.md -> docs/packaging-applications/build-servers/troubleshooting-integrations-with-build-servers.md
