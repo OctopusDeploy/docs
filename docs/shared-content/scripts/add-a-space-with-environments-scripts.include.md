@@ -1,4 +1,4 @@
-```powershell PowerShell with REST Requests
+```powershell PowerShell
 $octopusURL = "https://youroctourl"
 $octopusAPIKey = "API-YOURAPIKEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
@@ -50,7 +50,7 @@ foreach ($environment in $environments) {
     }
 }
 ```
-```powershell PowerShell with Octopus.Client
+```powershell PowerShell (Octopus.Client)
 Add-Type -Path 'path\to\Octopus.Client.dll'
 
 $octopusURL = "https://youroctourl"
@@ -99,7 +99,7 @@ foreach ($environmentName in $environments) {
     }
 }
 ```
-```csharp C# with Octopus.Client
+```csharp C#
 #r "path\to\Octopus.Client.dll"
 
 using Octopus.Client;
