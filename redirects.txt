@@ -890,6 +890,6 @@ docs/api-and-integration/calamari.md -> docs/octopus-rest-api/calamari.md
 docs/api-and-integration/index.md -> docs/octopus-rest-api/index.md
 docs/api-and-integration/octopus.client.md -> docs/octopus-rest-api/octopus.client.md
 docs/api-and-integration/metadata/index.md -> docs/packaging-applications/build-servers/index.md
-docs/api-and-integration/metadata/github.md -> docs/packaging-applications/build-servers/github.md
-docs/api-and-integration/metadata/jira.md -> docs/packaging-applications/build-servers/jira.md
-docs/api-and-integration/metadata/release-note-templates.md -> docs/packaging-applications/build-servers/release-note-templates.md
+docs/api-and-integration/metadata/github.md -> docs/packaging-applications/build-servers/metadata/github.md
+docs/api-and-integration/metadata/jira.md -> docs/packaging-applications/build-servers/metadata/jira.md
+docs/api-and-integration/metadata/release-note-templates.md -> docs/packaging-applications/build-servers/metadata/release-note-templates.md
