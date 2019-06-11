@@ -763,7 +763,7 @@ docs/packaging-applications/octopack/push-a-nuget-package-that-already-exists.md
 docs/installation/downloads.md -> docs/installation/index.md
 docs/api-and-integration/octopus.migrator.exe-command-line/migrator-export.md -> docs/api-and-integration/octopus.migrator.exe-command-line/export.md
 docs/api-and-integration/octopus.migrator.exe-command-line/migrator-import.md -> docs/api-and-integration/octopus.migrator.exe-command-line/import.md
-docs/api-and-integration/app-veyor/index.md -> docs/api-and-integration/appveyor/index.md
+docs/api-and-integration/app-veyor/index.md -> docs/packaging-applications/build-servers/appveyor/index.md
 docs/api-and-integration/server-extensibility/index.md -> docs/administration/server-extensibility/index.md
 docs/api-and-integration/server-extensibility/authoring-an-octopus-deploy-server-extension.md -> docs/administration/server-extensibility/authoring-an-octopus-deploy-server-extension.md
 docs/api-and-integration/server-extensibility/customising-an-octopus-deploy-server-extension.md -> docs/administration/server-extensibility/customizing-an-octopus-deploy-server-extension.md
@@ -772,3 +772,4 @@ docs/api-and-integration/server-extensibility/building-an-authentication-provide
 docs/api-and-integration/server-extensibility/building-an-authentication-provider/building-a-forms-based-authentication-provider.md -> docs/administration/server-extensibility/building-an-authentication-provider/building-a-forms-based-authentication-provider.md
 docs/api-and-integration/server-extensibility/building-an-authentication-provider/building-an-external-authentication-provider.md -> docs/administration/server-extensibility/building-an-authentication-provider/building-an-external-authentication-provider.md
 docs/api-and-integration/compatibility.md -> docs/support/compatibility.md
+docs/api-and-integration/appveyor/index.md -> docs/packaging-applications/build-servers/appveyor/index.md
