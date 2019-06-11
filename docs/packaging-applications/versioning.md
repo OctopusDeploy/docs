@@ -107,6 +107,6 @@ For an in-depth look at Maven versions, see the blog post [Maven Versions Explai
  - Creating packages with [Octo.exe](/docs/packaging-applications/octo.exe.md).
  - Creating packages with [Octopack](/docs/packaging-applications/octopack/index.md).
  - Using the [TeamCity plugin](/docs/api-and-integration/teamcity.md).
- - Using the [Azure DevOps plugin](/docs/api-and-integration/tfs-azure-devops/using-octopus-extension/index.md).
+ - Using the [Azure DevOps plugin](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/index.md).
  - Using [Package Repositories](/docs/packaging-applications/index.md).
  - Creating [Package Deployments](/docs/deployment-examples/package-deployments/index.md).

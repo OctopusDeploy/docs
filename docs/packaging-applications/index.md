@@ -69,7 +69,7 @@ We've created the following tools to help package your applications for deployme
  - [Octo.exe](/docs/packaging-applications/octo.exe.md) to create Zip Archives and NuGet packages for **.NET Core** apps and full **.NET framework** applications.
  - [Octopack](/docs/packaging-applications/octopack/index.md) to create NuGet packages for **ASP.NET** apps (.NET Framework) and **Windows Services** (.NET Framework).
  - A [TeamCity plugin](/docs/api-and-integration/teamcity.md).
- - An [Azure DevOps plugin](/docs/api-and-integration/tfs-azure-devops/using-octopus-extension/index.md).
+ - An [Azure DevOps plugin](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/index.md).
 
 In addition to these tools, you can use other tools to create your packages, for instance, you might use the following:
 
@@ -86,6 +86,6 @@ There are many more tools you might choose to use, but as long as you can create
  - Creating packages with [Octo.exe](/docs/packaging-applications/octo.exe.md).
  - Creating packages with [Octopack](/docs/packaging-applications/octopack/index.md).
  - Using the [TeamCity plugin](/docs/api-and-integration/teamcity.md).
- - Using the [Azure DevOps plugin](/docs/api-and-integration/tfs-azure-devops/using-octopus-extension/index.md).
+ - Using the [Azure DevOps plugin](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/index.md).
  - Using [Package Repositories](/docs/packaging-applications/index.md).
  - Creating [Package Deployments](/docs/deployment-examples/package-deployments/index.md).
