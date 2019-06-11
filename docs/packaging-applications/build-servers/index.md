@@ -8,8 +8,7 @@ Your continuous integration/build server will package your applications and make
 
 
  - [AppVeyor](/docs/packaging-applications/build-servers/appveyor/index.md)
-<!--
- - [Azure DevOps & Team Foundation Server](/docs/packaging-applications/build-servers/tfs-azure-devops/index.md) -->
+ - [Azure DevOps & Team Foundation Server](/docs/packaging-applications/build-servers/tfs-azure-devops/index.md)
  - [Bamboo](/docs/packaging-applications/build-servers/bamboo.md)
  - [BitBucket Pipelines](docs/packaging-applications/build-servers/bitbucket-pipelines/index.md)
 <!-- - [Continua CI](/docs/packaging-applications/build-servers/continua-ci.md)
