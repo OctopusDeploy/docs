@@ -97,7 +97,7 @@ docs/guides/azure-deployments/creating-an-azure-account/index.md -> docs/infrast
 docs/guides/azure-deployments/creating-an-azure-management-certificate-account.md -> docs/infrastructure/deployment-targets/azure/index.md
 docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-service-principal-account.md -> docs/infrastructure/deployment-targets/azure/index.md
 docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-management-certificate-account.md -> docs/infrastructure/deployment-targets/azure/index.md
-docs/api-and-integration/bamboo/bamboo-plugin.md -> docs/api-and-integration/bamboo.md
+docs/api-and-integration/bamboo/bamboo-plugin.md -> docs/packaging-applications/build-servers/bamboo.md
 docs/guides/deploying-html-and-javascript-applications.md -> docs/deployment-examples/html-and-javascript-application-deployments.md
 docs/guides/deploying-java-applications.md -> docs/deployment-examples/java-applications/index.md
 docs/deploying-applications/deploying-java-applications.md -> docs/deployment-examples/java-applications/index.md
@@ -773,3 +773,4 @@ docs/api-and-integration/server-extensibility/building-an-authentication-provide
 docs/api-and-integration/server-extensibility/building-an-authentication-provider/building-an-external-authentication-provider.md -> docs/administration/server-extensibility/building-an-authentication-provider/building-an-external-authentication-provider.md
 docs/api-and-integration/compatibility.md -> docs/support/compatibility.md
 docs/api-and-integration/appveyor/index.md -> docs/packaging-applications/build-servers/appveyor/index.md
+docs/api-and-integration/bamboo.md -> docs/packaging-applications/build-servers/bamboo.md
