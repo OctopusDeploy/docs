@@ -790,7 +790,7 @@ docs/api-and-integration/metadata/index.md -> docs/packaging-applications/build-
 docs/api-and-integration/metadata/github.md -> docs/packaging-applications/build-servers/metadata/github.md
 docs/api-and-integration/metadata/jira.md -> docs/packaging-applications/build-servers/metadata/jira.md
 docs/api-and-integration/metadata/release-notes-templates.md -> docs/packaging-applications/build-servers/metadata/release-notes-templates.md
-docs/api-and-integration/index.md -> docs/octopus-rest-api/index.md
+
 docs/api-and-integration/api/how-to-create-an-api-key.md -> docs/octopus-rest-api/api/how-to-create-an-api-key.md
 docs/api-and-integration/api/index.md -> docs/octopus-rest-api/api/index.md
 docs/api-and-integration/api/sensitive-properties-api-changes-in-release-3.3.md -> docs/octopus-rest-api/api/sensitive-properties-api-changes-in-release-3.3.md
