@@ -27,7 +27,7 @@ See the Bash Reference Manual, section [6.2 Bash Startup Files](http://www.gnu.
 
 ## .NET {#dotnet}
 
-[Calamari](/docs/api-and-integration/calamari.md) is the command-line tool that is invoked to perform the deployment steps on the deployment target. Calamari runs on .NET.  SSH targets can be configured to use either:
+[Calamari](/docs/octopus-rest-api/calamari.md) is the command-line tool that is invoked to perform the deployment steps on the deployment target. Calamari runs on .NET.  SSH targets can be configured to use either:
 
 - [Self-contained Calamari](#self-contained-calamari) built against .NET Core (recommended).
 - [Calamari on Mono](#mono-calamari) built against the full .NET framework.
@@ -59,7 +59,7 @@ Similarly, the F# interpreter has also not yet been ported for .NET Core ([GitHu
 
 ## Calamari on Mono {#mono-calamari}
 
-[Calamari](/docs/api-and-integration/calamari.md) can execute on the [Mono framework](http://www.mono-project.com/).
+[Calamari](/docs/octopus-rest-api/calamari.md) can execute on the [Mono framework](http://www.mono-project.com/).
 
 Version **3.10** or greater of Mono is required; however, we recommended a minimum of version **4.8.0**.
 

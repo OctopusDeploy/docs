@@ -791,3 +791,4 @@ docs/api-and-integration/metadata/github.md -> docs/packaging-applications/build
 docs/api-and-integration/metadata/jira.md -> docs/packaging-applications/build-servers/metadata/jira.md
 docs/api-and-integration/metadata/release-notes-templates.md -> docs/packaging-applications/build-servers/metadata/release-notes-templates.md
 docs/api-and-integration/octopus.client.md -> docs/octopus-rest-api/octopus.client.md
+docs/api-and-integration/calamari.md -> docs/octopus-rest-api/calamari.md
