@@ -889,4 +889,3 @@ docs/api-and-integration/octopus.client.md -> docs/octopus-rest-api/octopus.clie
 docs/api-and-integration/octopus.server.exe-command-line/delete-instance.md -> docs/octopus-rest-api/octopus.server.exe-command-line/delete-instance.md
 docs/api-and-integration/octopus.server.exe-command-line/export-certificate.md -> docs/octopus-rest-api/octopus.server.exe-command-line/export-certificate
 docs/api-and-integration/octopus.server.exe-command-line/lost-master-key.md -> docs/octopus-rest-api/octopus.server.exe-command-line/lost-master-key.md
-docs/api-and-integration/octo.exe-command-line/delete-autodeployoverride.md -> docs/octopus-rest-api/octo.exe-command-line/delete-autodeployoverride.md
