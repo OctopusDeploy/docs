@@ -885,7 +885,6 @@ docs/api-and-integration/tentacle.exe-command-line/update-trust.md -> docs/octop
 docs/api-and-integration/tentacle.exe-command-line/version.md -> docs/octopus-rest-api/tentacle.exe-command-line/version.md
 docs/api-and-integration/tentacle.exe-command-line/watchdog.md -> docs/octopus-rest-api/tentacle.exe-command-line/watchdog.md
 docs/api-and-integration/calamari.md -> docs/octopus-rest-api/calamari.md
-docs/api-and-integration/index.md -> docs/octopus-rest-api/index.md
 docs/api-and-integration/octopus.client.md -> docs/octopus-rest-api/octopus.client.md
 docs/api-and-integration/octopus.server.exe-command-line/delete-instance.md -> docs/octopus-rest-api/octopus.server.exe-command-line/delete-instance.md
 docs/api-and-integration/octopus.server.exe-command-line/export-certificate.md -> docs/octopus-rest-api/octopus.server.exe-command-line/export-certificate
