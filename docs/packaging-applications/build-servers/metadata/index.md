@@ -92,6 +92,6 @@ This allows for more specific control over the release notes content. For more d
 
 If you are using an issue tracker like Jira, Octopus can also be integrated with it to provide information about the progress of work items. For more details see:
 
-- [Jira Issue Tracker](/docs/api-and-integration/metadata/jira.md)
-- [GitHub Issue Tracker](/docs/api-and-integration/metadata/github.md)
-- [Release note Templates](/docs/api-and-integration/metadata/release-notes-templates.md)
+- [Jira Issue Tracker](/docs/packaging-applications/build-servers/metadata/jira.md)
+- [GitHub Issue Tracker](/docs/packaging-applications/build-servers/metadata/github.md)
+- [Release note Templates](/docs/packaging-applications/build-servers/metadata/release-notes-templates.md)

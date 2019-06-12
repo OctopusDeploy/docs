@@ -3,7 +3,7 @@ title: Jira Issue Tracking Integration
 description: Configure Jira Cloud and Jira Server issue tracking with Octopus.
 ---
 
-**Octopus 2019.4** introduced support to integrate Octopus with Jira Cloud and Jira Server. The integration adds links to Jira issues in the release details of your deployments, and adds release notes to Octopus from Jira to help automate the release note process. If you're using Jira Cloud, you can also view release and deployment details from Octopus directly in Jira issues, making it possible to see if the issue has been included in any deployments. This feature builds upon the functionality to [track metadata and work item](/docs/api-and-integration/metadata/index.md) information through your CI/CD pipeline.
+**Octopus 2019.4** introduced support to integrate Octopus with Jira Cloud and Jira Server. The integration adds links to Jira issues in the release details of your deployments, and adds release notes to Octopus from Jira to help automate the release note process. If you're using Jira Cloud, you can also view release and deployment details from Octopus directly in Jira issues, making it possible to see if the issue has been included in any deployments. This feature builds upon the functionality to [track metadata and work item](/docs/packaging-applications/build-servers/metadata/index.md) information through your CI/CD pipeline.
 
 ![Octopus release with Jira issues](octo-jira-release-details.png "width=500")
 
@@ -36,7 +36,7 @@ If you are using Jira Cloud, see [Connecting Jira Cloud and Octopus Deploy](#con
 
     The password should be an API Token, rather than an actual password.
     
-    - **Release Note Prefix**: If specified, Octopus will look for a comment that starts with the given prefix text and use whatever text appears after the prefix as the release note, which will come through to the [release notes templates](/docs/api-and-integration/metadata/release-notes-templates.md) as the work item link's description. If no comment is found with the prefix then Octopus will default back to using the title for that work item.
+    - **Release Note Prefix**: If specified, Octopus will look for a comment that starts with the given prefix text and use whatever text appears after the prefix as the release note, which will come through to the [release notes templates](/docs/packaging-applications/build-servers/metadata/release-notes-templates.md) as the work item link's description. If no comment is found with the prefix then Octopus will default back to using the title for that work item.
 
     For example, a prefix of `Release note:` can be used to identify a customer friendly issue title vs a technical feature or bug fix title.
 
@@ -81,7 +81,7 @@ If you are using Jira Server, see [Connecting Jira Server and Octopus Deploy](#c
 
     The password should be an API Token, rather than an actual password. You can create an API token from an Atlassian account in the 'Security' area.
     
-    - **Release Note Prefix**: If specified, Octopus will look for a comment that starts with the given prefix text and use whatever text appears after the prefix as the release note, which will come through to the [release notes templates](/docs/api-and-integration/metadata/release-notes-templates.md) as the work item link's description. If no comment is found with the prefix then Octopus will default back to using the title for that work item.
+    - **Release Note Prefix**: If specified, Octopus will look for a comment that starts with the given prefix text and use whatever text appears after the prefix as the release note, which will come through to the [release notes templates](/docs/packaging-applications/build-servers/metadata/release-notes-templates.md) as the work item link's description. If no comment is found with the prefix then Octopus will default back to using the title for that work item.
 
     For example, a prefix of `Release note:` can be used to identify a customer friendly issue title vs a technical feature or bug fix title.
 
@@ -116,4 +116,4 @@ When Octopus successfully sends state changes to Jira, the blocks will appear wi
 
 ## Next
 
- - Learn about other [Metadata and Work Items](/docs/api-and-integration/metadata/index.md).
+ - Learn about other [Metadata and Work Items](/docs/packaging-applications/build-servers/metadata/index.md).
