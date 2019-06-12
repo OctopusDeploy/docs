@@ -48,7 +48,7 @@ Click **New service connection** or **New Service Endpoint** and choose **Octop
 
 Specify a **Connection Name** and specify the **Server Url** to your Octopus Server (including the port if required).
 
-Enter a valid [Octopus API Key](/docs/octopus-rest-api/api/how-to-create-an-api-key.md) in the **API Key** field.
+Enter a valid [Octopus API Key](/docs/api-and-integration/api/how-to-create-an-api-key.md) in the **API Key** field.
 
 ![](/docs/images/3048587/new-octopus-connection-2.jpg)
 
@@ -165,7 +165,7 @@ Add a step to your Build or Release process, choose **Package**, click **Add**
 
 ![](/docs/images/3048587/configure-push-step.jpg)
 
-See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octo.exe command-line options](/docs/octopus-rest-api/octo.exe-command-line/push.md) for more details).
+See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octo.exe command-line options](/docs/api-and-integration/octo.exe-command-line/push.md) for more details).
 
 ### Add a Create Octopus Release Step {#UsetheTeamFoundationBuildCustomTask-AddaCreateOctopusReleaseStep}
 
@@ -175,7 +175,7 @@ Add a step to your Build or Release process, choose **Deploy**, click **Add**�
 
 ![](/docs/images/3048587/configure-createrelease-step.jpg)
 
-See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octo.exe command-line options](/docs/octopus-rest-api/octo.exe-command-line/create-release.md) for more details).
+See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octo.exe command-line options](/docs/api-and-integration/octo.exe-command-line/create-release.md) for more details).
 
 Enabling the Include Changeset Comments and/or Include Work Items options will result in release notes which include deep-links into the TFS Work Items and Changesets.
 
@@ -189,7 +189,7 @@ Add a step to your Build or Release process, choose **Deploy**, click **Add**�
 
 ![](/docs/images/3048587/configure-deploy-step.jpg)
 
-See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octo.exe command-line options](/docs/octopus-rest-api/octo.exe-command-line/deploy-release.md) for more details).
+See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octo.exe command-line options](/docs/api-and-integration/octo.exe-command-line/deploy-release.md) for more details).
 
 ## Add a Promote Octopus Release Step {#UsetheTeamFoundationBuildCustomTask-AddaPromoteOctopusReleaseStep}
 
@@ -199,7 +199,7 @@ Add a step to your Build or Release process, choose **Deploy**, click **Add**�
 
 ![](/docs/images/3048587/configure-promote-step.jpg)
 
-See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octo.exe command-line options](/docs/octopus-rest-api/octo.exe-command-line/deploy-release.md) for more details).
+See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octo.exe command-line options](/docs/api-and-integration/octo.exe-command-line/deploy-release.md) for more details).
 
 ## Using the Dashboard Widget
 

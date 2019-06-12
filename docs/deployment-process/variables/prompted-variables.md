@@ -25,7 +25,7 @@ When deploying (not creating a release), you'll be prompted to provide a value f
 
 ![Required prompted variable](/docs/images/3048314/3278301.png)
 
-A value can also be passed to a prompted variable when using `Octo.exe` through the `--variable` parameter of the [Create-Release](/docs/octopus-rest-api/octo.exe-command-line/create-release.md) or [Deploy-Release](/docs/octopus-rest-api/octo.exe-command-line/deploy-release.md) commands
+A value can also be passed to a prompted variable when using `Octo.exe` through the `--variable` parameter of the [Create-Release](/docs/api-and-integration/octo.exe-command-line/create-release.md) or [Deploy-Release](/docs/api-and-integration/octo.exe-command-line/deploy-release.md) commands
 
 ```ruby
 octo.exe create-release ... --variable "Missile launch code:LAUNCH123" --variable "Variable 2:Some value"

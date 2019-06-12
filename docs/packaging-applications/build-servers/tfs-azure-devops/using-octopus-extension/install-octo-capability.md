@@ -4,7 +4,7 @@ description: This guide covers how to add Octo as a capability to your Azure Dev
 ---
 
 There are times when you may want to install Octo on a build agent, such as to avoid downloads, opening any firewalls and or changing proxy rules. There are a few ways in which this can be
-achieved. In every option presented here, you must [install Octo](/docs/octopus-rest-api/octo.exe-command-line/index.md) so that it's in your current environment path. It should also be noted
+achieved. In every option presented here, you must [install Octo](/docs/api-and-integration/octo.exe-command-line/index.md) so that it's in your current environment path. It should also be noted
 that the same steps can be used to register capabilities such as `DotNetCore` as well.
 
 :::warning

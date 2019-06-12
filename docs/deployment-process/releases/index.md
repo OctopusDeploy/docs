@@ -27,7 +27,7 @@ You can **Deploy** a **Release** as many times as you want to.
 1. Depending on the type of steps you configured in the deployment process, there could be additional options available, for instance, if you're using a step to deploy a package, there will be a package section where you can specify which version of the package to use in the release.
 1. Give the release a version number, add any release notes you'd like to include, and click **SAVE**.
 
-You can fully automate your build and deployment pipeline, so that the releases are generally created automatically.  For more information on this topic, see our [API and Integration](/docs/octopus-rest-api/index.md) documentation.
+You can fully automate your build and deployment pipeline, so that the releases are generally created automatically.  For more information on this topic, see our [API and Integration](/docs/api-and-integration/index.md) documentation.
 
 ## Releases
 
@@ -53,7 +53,7 @@ Deployments scheduled for the future can be viewed under the Project Overview pa
 
 #### Scheduling Deployments With Octo.exe
 
-For everyone using the [command line tool Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md), you can use the following option:
+For everyone using the [command line tool Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md), you can use the following option:
 
 ```powershell
 octo deploy-release --deployAt="2014-07-12 17:54:00 +11:00" --project=HelloWorld --releaseNumber=1.0.0 --deployto=Production --server=http://octopus/api --apiKey=ABCDEF123456

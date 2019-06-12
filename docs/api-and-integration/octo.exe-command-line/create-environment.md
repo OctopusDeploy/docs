@@ -1,32 +1,21 @@
 ---
-title: create-autodeployoverride
-description: Using the Octo.exe command line tool to create automatic deployment release overrides.
-position: 30
+title: create-environment
+description: Using the Octo.exe command line tool to create environments.
+position: 50
 ---
 
-[Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to create automatic deployment release overrides.
+[Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to create environments on your Octopus instance.
 
 ```text
-Usage: octo create-autodeployoverride [<options>]
+Usage: octo create-environment [<options>]
 
 Where [<options>] is any of:
 
-Auto deploy release override:
+Environment creation:
 
-      --project=VALUE        Name of the project
-      --environment=VALUE    Name of an environment the override will apply
-                             to. Specify this argument multiple times to add
-                             multiple environments.
-      --version, --releaseNumber=VALUE
-                             Release number to use for auto deployments.
-      --tenant=VALUE         [Optional] Name of a tenant the override will
-                             apply to. Specify this argument multiple times
-                             to add multiple tenants or use `*` wildcard for
-                             all tenants.
-      --tenanttag=VALUE      [Optional] A tenant tag used to match tenants
-                             that the override will apply to. Specify this
-                             argument multiple times to add multiple tenant
-                             tags
+      --name=VALUE           The name of the environment
+      --ignoreIfExists       If the environment already exists, an error will
+                             be returned. Set this flag to ignore the error.
 
 Common options:
 
@@ -82,26 +71,15 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-## Basic Example {#Creatingautodeployoverrides-Basicexample}
+## Basic Example {#Creatingenvironments-Basicexample}
 
-The following will create an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment *Development*:
-
-```bash
-Octo create-autodeployoverride --project HelloWorld --environment Development --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456
-```
-
-## Tenanted Example (By Name) {#Creatingautodeployoverrides-Tenantedexample(byname)}
-
-The following will create an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment *Development* for the tenant *Acme*:
+The following command will create an environment called *UAT*
 
 ```bash
-Octo create-autodeployoverride --project HelloWorld --environment Development --tenant Acme --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456
+Octo create-environment --name UAT --server http://MyOctopusServerURL.com --apikey MyAPIKey
 ```
 
-## Tenanted Example (By Tags) {#Creatingautodeployoverrides-Tenantedexample(bytags)}
-
-The following will create an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment *Development* for all tenants with the *Hosting/Cloud* tag:
-
-```bash
-Octo create-autodeployoverride --project HelloWorld --environment Development --tenanttag Hosting/Cloud --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456
-```
+:::success
+**Tip**
+Learn more about [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md), and [creating API keys](/docs/api-and-integration/api/how-to-create-an-api-key.md).
+:::

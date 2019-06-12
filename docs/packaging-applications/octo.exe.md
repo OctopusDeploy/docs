@@ -4,7 +4,7 @@ description: Using the Octo.exe command line tool to create packages for deploym
 position: 20
 ---
 
-**Octo.exe** is a command line tool that interacts with the [Octopus Deploy REST API](/docs/octopus-rest-api/api/index.md) and includes a `pack` command to create packages either as [Zip](#create-zip-packages) or [NuGet](#create-nuget-packages) packages for deployment with Octopus. You can learn more about NuGet on the [official NuGet website](http://docs.nuget.org/docs/start-here/overview).
+**Octo.exe** is a command line tool that interacts with the [Octopus Deploy REST API](/docs/api-and-integration/api/index.md) and includes a `pack` command to create packages either as [Zip](#create-zip-packages) or [NuGet](#create-nuget-packages) packages for deployment with Octopus. You can learn more about NuGet on the [official NuGet website](http://docs.nuget.org/docs/start-here/overview).
 
 ## Installation
 
@@ -22,9 +22,9 @@ Check the output to make sure the installation works correctly. After the instal
 dotnet octo --version
 ```
 
-For more installation details, options, and update instructions, see [Octo Command Line Global Tool](/docs/octopus-rest-api/octo.exe-command-line/index.md).
+For more installation details, options, and update instructions, see [Octo Command Line Global Tool](/docs/api-and-integration/octo.exe-command-line/index.md).
 
-For a full list of the `pack` command options see [Octo.exe Command Line Pack](/docs/octopus-rest-api/octo.exe-command-line/pack.md) or run the following command:
+For a full list of the `pack` command options see [Octo.exe Command Line Pack](/docs/api-and-integration/octo.exe-command-line/pack.md) or run the following command:
 
 ```powershell
 C:\> dotnet octo help pack

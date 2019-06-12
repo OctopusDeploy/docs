@@ -13,7 +13,7 @@ We currently support importing:
 - Projects
 - Releases
 
-[Usage:](/docs/octopus-rest-api/octo.exe-command-line/import.md)
+[Usage:](/docs/api-and-integration/octo.exe-command-line/import.md)
 
 ```text
 Usage: octo import [<options>]

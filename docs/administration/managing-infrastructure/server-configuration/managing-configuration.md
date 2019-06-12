@@ -19,7 +19,7 @@ In the Octopus Deploy web portal, you can access configuration by navigating to 
 
 ## Octopus.Client
 
-Using [Octopus.Client](/docs/octopus-rest-api/octopus.client.md), each of the configuration types can be managed programmatically, reading from and writing back to the Octopus Deploy database.
+Using [Octopus.Client](/docs/api-and-integration/octopus.client.md), each of the configuration types can be managed programmatically, reading from and writing back to the Octopus Deploy database.
 
 The class definitions for each of the configurations is available by referencing the relevant `Octopus.Client.Extensibility.*` library, which are available via NuGet:
 
@@ -78,4 +78,4 @@ $guestConfig.IsEnabled = $true;
 $guestConfig = $modifyMethod.Invoke($repo.Configuration, $guestConfig)
 ```
 
-For more information on using the Octopus.Client library see [Octopus.Client](/docs/octopus-rest-api/octopus.client.md).
+For more information on using the Octopus.Client library see [Octopus.Client](/docs/api-and-integration/octopus.client.md).

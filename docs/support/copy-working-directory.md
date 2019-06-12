@@ -6,7 +6,7 @@ position: 2
 
 It can be frustrating when a deployment step isn't working as expected.  Often the working directory is deleted before it is able to be inspected.
 
-There is a variable, `Octopus.Calamari.CopyWorkingDirectoryIncludingKeyTo`, which if set to a file-path will cause the [Calamari](/docs/octopus-rest-api/calamari.md) working directory to be copied to the configured location.  This may assist in debugging. 
+There is a variable, `Octopus.Calamari.CopyWorkingDirectoryIncludingKeyTo`, which if set to a file-path will cause the [Calamari](/docs/api-and-integration/calamari.md) working directory to be copied to the configured location.  This may assist in debugging. 
 
 :::warning
 The copied directory will include a file which contains the secret one-time key passed to Calamari to decrypt the sensitive variables used in the deployment.  

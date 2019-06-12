@@ -39,7 +39,7 @@ In most cases, you'll want to push your newly-created package to the built-in Oc
 **Built-in Nuget and API keys**
 To find your Octopus NuGet repository URL, see the [Package repositories](/docs/packaging-applications/package-repositories/index.md) section.
 
-To create an API key, see the [How to create an API key](/docs/octopus-rest-api/api/how-to-create-an-api-key.md) section.
+To create an API key, see the [How to create an API key](/docs/api-and-integration/api/how-to-create-an-api-key.md) section.
 :::
 
 ## Deploying Automatically After a Build {#Deployingautomaticallyafterabuild}
@@ -48,10 +48,10 @@ To create an API key, see the [How to create an API key](/docs/octopus-rest-api/
 
 `Octo.exe` is a command line tool built on top of our REST API. Its fairly easy to hook up into almost any process from a simple script. In the case of old XAML-based builds, we recommend user to include a call to `Octo.exe` in the *post-deploy script* of their build definition, so it gets called after MSBuild ran and Octopack created the package and pushed it to the repository.
 
-`Octo.exe` has [plenty of commands](\docs/octopus-rest-api\octo.exe-command-line\index.md), but the ones you should look into for the post-deploy script are:
+`Octo.exe` has [plenty of commands](\docs\api-and-integration\octo.exe-command-line\index.md), but the ones you should look into for the post-deploy script are:
 
-- [Create-Release](\docs/octopus-rest-api\octo.exe-command-line\create-release.md) to create a release in Octopus.
-- [Deploy-Release](\docs/octopus-rest-api\octo.exe-command-line\deploy-release.md) to deploy the previously created release.
+- [Create-Release](\docs\api-and-integration\octo.exe-command-line\create-release.md) to create a release in Octopus.
+- [Deploy-Release](\docs\api-and-integration\octo.exe-command-line\deploy-release.md) to deploy the previously created release.
 
 ### Using Lifecycles and Automatic Deployments {#Deployingautomaticallyafterabuild-Using-AutomaticDeployments}
 

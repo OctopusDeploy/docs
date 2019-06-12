@@ -6,7 +6,7 @@ position: 180
 
 Octopus includes a migration API that provides the ability to back-up and restore parts of an Octopus Deploy instance remotely (available from version **Octopus 2018.6.0**).
 
-The API currently includes support for both the [partial-export](/docs/octopus-rest-api/octopus.migrator.exe-command-line/partial-export.md) and [import](/docs/octopus-rest-api/octopus.migrator.exe-command-line/import.md) commands. The API uses the same [Migrator.exe command line tool](/docs/octopus-rest-api/octopus.migrator.exe-command-line/index.md) that you'd typically use to migrate data manually, but the API gives you some additional parameters to orchestrate the process between remote servers.
+The API currently includes support for both the [partial-export](/docs/api-and-integration/octopus.migrator.exe-command-line/partial-export.md) and [import](/docs/api-and-integration/octopus.migrator.exe-command-line/import.md) commands. The API uses the same [Migrator.exe command line tool](/docs/api-and-integration/octopus.migrator.exe-command-line/index.md) that you'd typically use to migrate data manually, but the API gives you some additional parameters to orchestrate the process between remote servers.
 
 :::warning
 **Note:** the migration API is **not supported** for migrations from self-hosted Octopus Server to Octopus Cloud currently - please see [migrating from self-hosted to Octopus Cloud](/docs/octopus-cloud/migrations.md) for information on how to migrate to Octopus Cloud.
@@ -136,7 +136,7 @@ If you using the Spaces feature of Octopus Deploy on the source server, you shou
 
 ### Octopus.Clients Example
 
-The [Octopus.Clients library](/docs/octopus-rest-api/octopus.client.md) can also help you run a migration.
+The [Octopus.Clients library](/docs/api-and-integration/octopus.client.md) can also help you run a migration.
 
 Here's an example showing you how that might look, performing a `partial-export` from a _source server_ and sending it to a _destination server_, then automatically running the associated `import` on the _destination server_:
 
@@ -241,4 +241,4 @@ Write-Host ("Migration complete, #GreatSuccess")
 
 ## Troubleshooting
 
-We do our best to log information and warnings to your task logs during a migration. An API migration follows the same path as a manual migration using [Migrator.exe command line tools](/docs/octopus-rest-api/octopus.migrator.exe-command-line/index.md) behind the scenes, so if you are having difficulty running migrations, be sure to check your [task logs](/docs/support/get-the-raw-output-from-a-task.md) for information that might help.
+We do our best to log information and warnings to your task logs during a migration. An API migration follows the same path as a manual migration using [Migrator.exe command line tools](/docs/api-and-integration/octopus.migrator.exe-command-line/index.md) behind the scenes, so if you are having difficulty running migrations, be sure to check your [task logs](/docs/support/get-the-raw-output-from-a-task.md) for information that might help.
