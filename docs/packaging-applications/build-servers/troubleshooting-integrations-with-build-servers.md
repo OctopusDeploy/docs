@@ -14,7 +14,7 @@ If you are reading this doc, odds are you already tried to run an Octopus-relate
 
 ### What Happens When an Octopus Step is Executed During the Build Process {#Octopus-Steps-What-happens-behind}
 
-The Octopus Deploy team supports many of the most popular integration plugins/extensions our there, like the ones for [Azure DevOps/TFS](/docs/packaging-applications/build-servers/tfs-azure-devops/index.md), [Teamcity](/docs/api-and-integration/teamcity.md) and [Bamboo](/docs/packaging-applications/build-servers/bamboo.md). All the steps provided by these extensions/plugins are nothing but wrappers of `Octo.exe` that provide a UI with fields whose values will be passed to this command line tool during the build.
+The Octopus Deploy team supports many of the most popular integration plugins/extensions our there, like the ones for [Azure DevOps/TFS](/docs/packaging-applications/build-servers/tfs-azure-devops/index.md), [Teamcity](/docs/packaging-applications/build-servers/teamcity.md) and [Bamboo](/docs/packaging-applications/build-servers/bamboo.md). All the steps provided by these extensions/plugins are nothing but wrappers of `Octo.exe` that provide a UI with fields whose values will be passed to this command line tool during the build.
 
 Lets take for example this TeamCity **Octopus Deploy: Create Release** step:
 

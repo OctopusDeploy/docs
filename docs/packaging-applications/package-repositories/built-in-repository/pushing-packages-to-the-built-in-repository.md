@@ -26,7 +26,7 @@ You can manually upload a package file from your local machine via the Octopus w
 
 
 :::success
-We generally recommend using a continuous integration/build server like [TeamCity](/docs/api-and-integration/teamcity.md), [Jenkins](/docs/packaging-applications/build-servers/jenkins.md), [Bamboo](/docs/packaging-applications/build-servers/bamboo.md) or [Azure DevOps/Team Foundation Server (TFS)](/docs/packaging-applications/build-servers/tfs-azure-devops/index.md) to build, test, package and automatically push your release packages into the Octopus Deploy built-in repository. See below for examples on doing this.
+We generally recommend using a continuous integration/build server like [TeamCity](/docs/packaging-applications/build-servers/teamcity.md), [Jenkins](/docs/packaging-applications/build-servers/jenkins.md), [Bamboo](/docs/packaging-applications/build-servers/bamboo.md) or [Azure DevOps/Team Foundation Server (TFS)](/docs/packaging-applications/build-servers/tfs-azure-devops/index.md) to build, test, package and automatically push your release packages into the Octopus Deploy built-in repository. See below for examples on doing this.
 :::
 
 :::hint
