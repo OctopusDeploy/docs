@@ -63,7 +63,7 @@ You can retrieve the fingerprint of the default key configured in your sshd\_con
 ssh-keygen -E md5 -lf /etc/ssh/ssh_host_rsa_key.pub | cut -d' ' -f2 | awk '{ print $1}' | cut -d':' -f2-
 ```
 
-10. Specify whether Mono is installed on the SSH target or not to determine which version of [Calamari](/docs/api-and-integration/calamari.md) will be installed.
+10. Specify whether Mono is installed on the SSH target or not to determine which version of [Calamari](/docs/octopus-rest-api/calamari.md) will be installed.
 
   - [Calamari on Mono](#mono-calamari) built against the full .NET framework.
   - [Self-contained version of Calamari](#self-contained-calamari) built against .NET Core.
